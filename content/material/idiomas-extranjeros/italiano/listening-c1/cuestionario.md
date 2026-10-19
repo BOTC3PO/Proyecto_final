@@ -4,25 +4,20 @@
 
 ---
 
-### 1 — Preposizione dopo il verbo  
+### 1 — Preposizione dopo il verbo
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "listening-c1"
   nivel: "C1"
   tags: ["preposizioni", "verbi"]
-pasos:
-  - "Escuchar la frase en contexto."
-  - "Identificar la preposición correcta según el verbo 'parlare'."
+tipo: completar
 respuestas_validas:
   - "di"
   - "Di"
-tipo: completar
-enunciado: "Il ragazzo ___ parlare con sua madre da ore, ma non ha risposto."
-explicacion: "El verbo 'parlare' requiere la preposición 'di' cuando se refiere a un tema o conversación específica. La estructura 'parlare di qualcosa' es obligatoria en este contexto."
+enunciado: "Il ragazzo ha smesso ___ parlare con sua madre da ore."
+explicacion: "« Smettere di + infinito »."
 ```
-
----
 
 ### 2 — Gerundio vs. Infinitivo  
 ```
@@ -367,22 +362,19 @@ explicacion: "'Parlando' es la forma correcta del gerundio de 'parlare', que se 
 
 ---
 
-### 18 — Frase con "se" + condizionale  
-```  
+### 18 — Preposizione con verbo di movimento
+```
 metadata:
-  materia: "italiano"
+  materia: "idiomas-extranjeros/italiano"
   tema: "listening-c1"
   nivel: "C1"
   tags: ["preposizioni", "verbi di movimento"]
-pasos:
-  - "Identificar la preposición correcta que sigue al verbo 'andare'."
-  - "Completar el hueco con la variante ortográfica válida."
-respuestas_validas:
-  - "da"
-  - "Da"
 tipo: completar
-enunciado: "Il ragazzo ___ parlare con sua madre da ore, ma non ha risposto."
-explicacion: "'Andare da' se usa para indicar dirección. La preposición 'da' es la correcta en este contexto."
+respuestas_validas:
+  - "dal"
+  - "Dal"
+enunciado: "Domani vado ___ dentista alle tre. (preposizione articolata)"
+explicacion: "« Andare da + persona »: dal dentista = da + il dentista."
 ```
 
 ### 19 — Uso di "per"  
@@ -472,22 +464,19 @@ explicacion: "'Grazie per avermi aiutato' es la forma correcta para expresar gra
 
 ---
 
-### 23 — Uso del "ci"  
-```  
+### 23 — Uso del ci
+```
 metadata:
-  materia: "italiano"
+  materia: "idiomas-extranjeros/italiano"
   tema: "listening-c1"
   nivel: "C1"
-  tags: ["participio passato", "verbi ausiliari"]
-pasos:
-  - "Identificar el verbo auxiliar y el participio correcto para la oración."
-  - "Completar el hueco con la forma adecuada en base a la regla gramatical."
-respuestas_validas:
-  - "avere"
-  - "Avere"
+  tags: ["ci", "pronomi"]
 tipo: completar
-enunciado: "La città ___ sono andato è molto più bella di quanto pensassi."
-explicacion: "El verbo 'andare' requiere el auxiliar 'avere' y su participio passato 'andato' para formar el trapassato prossimo en este contexto."
+respuestas_validas:
+  - "ci"
+  - "Ci"
+enunciado: "Penso spesso a quel viaggio: ___ penso ogni giorno. (pronombre)"
+explicacion: "« Pensare a qualcosa » → pronombre « ci » (a ciò)."
 ```
 
 ### 24 — Frase impersonale  

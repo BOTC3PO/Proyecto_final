@@ -238,27 +238,23 @@ explicacion: "Cuando 'bien que' precede a una palabra que comienza con vocal, se
 ```
 
 
-### 12 — Opposition with "pourtant"  
-```yaml
+### 12 — Concession avec subjonctif
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'pourtant' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "pourtant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'pourtant')"
-opciones_explicitas:
-  - "pourtant"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["concession", "subjonctif"]
 tipo: mc
-explicacion: "'Pourtant' expresa oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "Bien qu'"
+  - "Parce qu'"
+  - "Pour qu'"
+  - "Alors qu'ils"
+respuesta: "Bien qu'"
+enunciado: "Complétez : « ___ il soit jeune, il a déjà beaucoup d'expérience. »"
+explicacion: "« Bien que » exige subjuntivo."
 ```
-
 
 ### 13 — Fill-in-the-blank with "bien que"  
 ```yaml
@@ -279,27 +275,23 @@ explicacion: "'Bien que' exige un verbo en subjuntivo en la oración subordinada
 ```
 
 
-### 14 — Opposition with "cependant"  
-```yaml
+### 14 — Concession avec indicatif
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'cependant' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "cependant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'cependant')"
-opciones_explicitas:
-  - "cependant"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["concession", "même si"]
 tipo: mc
-explicacion: "'Cependant' introduce una oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "Même s'il pleut, nous sortirons."
+  - "Même s'il pleuve, nous sortirons."
+  - "Même s'il pleuvrait, nous sortirons."
+  - "Même s'il pleuvra, nous sortirons."
+respuesta: "Même s'il pleut, nous sortirons."
+enunciado: "Quelle phrase est correcte ?"
+explicacion: "« Même si » + indicativo (presente)."
 ```
-
 
 ### 15 — Fill-in-the-blank with "malgré"  
 ```yaml
@@ -320,27 +312,23 @@ explicacion: "'Malgré' se usa como preposición seguida de un sustantivo o geru
 ```
 
 
-### 16 — Opposition with "néanmoins"  
-```yaml
+### 16 — Quelque… que
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'néanmoins' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "néanmoins"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'néanmoins')"
-opciones_explicitas:
-  - "néanmoins"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["concession", "quelque que"]
 tipo: mc
-explicacion: "'Néanmoins' expresa oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "soient"
+  - "sont"
+  - "seraient"
+  - "étaient"
+respuesta: "soient"
+enunciado: "« Quelque difficiles ___ les circonstances, il ne renonce pas. »"
+explicacion: "« Quelque… que » + subjuntivo."
 ```
-
 
 ### 17 — Fill-in-the-blank with "bien qu'"  
 ```yaml
@@ -361,27 +349,23 @@ explicacion: "Cuando 'bien que' precede a una palabra que comienza con vocal, se
 ```
 
 
-### 18 — Opposition with "pourtant"  
-```yaml
+### 18 — Opposition avec "tandis que"
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'pourtant' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "pourtant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'pourtant')"
-opciones_explicitas:
-  - "pourtant"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["opposition", "tandis que"]
 tipo: mc
-explicacion: "'Pourtant' expresa oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "tandis que"
+  - "parce que"
+  - "afin que"
+  - "si bien que"
+respuesta: "tandis que"
+enunciado: "« Il aime le café, ___ elle préfère le thé. »"
+explicacion: "« Tandis que » expresa oposición entre dos hechos."
 ```
-
 
 ### 19 — Fill-in-the-blank with "bien que"  
 ```yaml
@@ -402,27 +386,23 @@ explicacion: "'Bien que' exige un verbo en subjuntivo en la oración subordinada
 ```
 
 
-### 20 — Opposition with "cependant"  
-```yaml
+### 20 — Concession avec nom
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'cependant' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "cependant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'cependant')"
-opciones_explicitas:
-  - "cependant"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["concession", "malgré"]
 tipo: mc
-explicacion: "'Cependant' introduce una oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "malgré le froid"
+  - "bien que le froid"
+  - "même si le froid"
+  - "quoique le froid"
+respuesta: "malgré le froid"
+enunciado: "Quelle expression se construit avec un nom ?"
+explicacion: "« Malgré » + sustantivo; las demás piden un verbo."
 ```
-
 
 ### 21 — Fill-in-the-blank with "malgré"  
 ```yaml
@@ -443,27 +423,23 @@ explicacion: "'Malgré' se usa como preposición seguida de un sustantivo o geru
 ```
 
 
-### 22 — Opposition with "néanmoins"  
-```yaml
+### 22 — Opposition avec "alors que"
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'néanmoins' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "néanmoins"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'néanmoins')"
-opciones_explicitas:
-  - "néanmoins"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["opposition", "alors que"]
 tipo: mc
-explicacion: "'Néanmoins' expresa oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "alors qu'"
+  - "pour qu'"
+  - "tant qu'"
+  - "dès qu'"
+respuesta: "alors qu'"
+enunciado: "« Il est sorti ___ il pleuvait. » (opposition/concession)"
+explicacion: "« Alors que » + imparfait puede expresar contraste."
 ```
-
 
 ### 23 — Fill-in-the-blank with "bien qu'"  
 ```yaml
@@ -484,27 +460,23 @@ explicacion: "Cuando 'bien que' precede a una palabra que comienza con vocal, se
 ```
 
 
-### 24 — Opposition with "pourtant"  
-```yaml
+### 24 — Tout… que
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "subordonnees-concessives-et-oppositives"
   nivel: "C1"
-  tags: ["opposition", "adverbiales"]
-pasos:
-  - "Reconocer que 'pourtant' es un adverbio de oposición."
-  - "Verificar que no requiere una subordinada."
-respuesta: "pourtant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada?"
-opciones_explicitas:
-  - "pourtant"
-  - "bien qu'"
-  - "alors que"
-  - "malgré"
+  tags: ["concession", "tout que"]
 tipo: mc
-explicacion: "'Pourtant' expresa oposición directa y se usa en oraciones independientes. No requiere una subordinada."
+opciones_explicitas:
+  - "qu'"
+  - "que"
+  - "dont"
+  - "où"
+respuesta: "qu'"
+enunciado: "« Tout intelligent ___ il soit, il se trompe parfois. »"
+explicacion: "Estructura « tout + adj. + que » + subjuntivo = por muy… que sea."
 ```
-
 
 ### 25 — Fill-in-the-blank with "bien que"  
 ```yaml

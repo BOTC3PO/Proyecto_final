@@ -511,22 +511,17 @@ explicacion: "El adjetivo posesivo 'son' se usa para el sujeto 'il/elle'. La ora
 
 ```
 
-### 25 — Adjetivo de género masculino plural  
+### 25 — Adjetivo femenino plural
 ```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "género"]  
-pasos:  
-  - "Identificar el sustantivo y su género."  
-  - "Escribir la forma del adjetivo que concuerde con el sustantivo."  
-respuestas_validas:  
-  - "Gentils"  
-  - "GENTILS"  
-tipo: completar  
-
-enunciado: "Les chats sont ______."  
-
-explicacion: "El adjetivo 'gentil' cambia a 'gentils' para concordar con un sustantivo masculino plural. La oración correcta es 'Les chats sont gentils'."
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["adjetivos", "género"]
+tipo: completar
+respuestas_validas:
+  - "gentilles"
+  - "Gentilles"
+enunciado: "Les filles sont ______."
+explicacion: "Femenino plural de « gentil »: gentilles."
 ```

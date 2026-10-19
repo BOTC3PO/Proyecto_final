@@ -157,27 +157,7 @@ respuestas_validas:
 explicacion: "'見る' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '見ます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 10 — 見るのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は週末、映画を＿＿。"
-opciones_explicitas:
-  - "見ます"
-  - "見る"
-  - "見"
-respuesta: "見ます"
-tipo: mc
-explicacion: "La forma cortés de '見る' es '見ます'. '見る' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 11 — 書くの辞書形とます形
+### 10 — 書くの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -194,27 +174,7 @@ respuestas_validas:
 explicacion: "'書く' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '書きます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 12 — 書くのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は毎日、日記を＿＿。"
-opciones_explicitas:
-  - "書きます"
-  - "書く"
-  - "書き"
-respuesta: "書きます"
-tipo: mc
-explicacion: "La forma cortés de '書く' es '書きます'. '書く' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 13 — 買うの辞書形とます形
+### 11 — 買うの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -231,27 +191,7 @@ respuestas_validas:
 explicacion: "'買う' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '買います': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 14 — 買うのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私はスーパーで野菜を＿＿。"
-opciones_explicitas:
-  - "買います"
-  - "買う"
-  - "買い"
-respuesta: "買います"
-tipo: mc
-explicacion: "La forma cortés de '買う' es '買います'. '買う' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 15 — 待つの辞書形とます形
+### 12 — 待つの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -268,27 +208,7 @@ respuestas_validas:
 explicacion: "'待つ' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '待ちます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 16 — 待つのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は駅で友達を＿＿。"
-opciones_explicitas:
-  - "待ちます"
-  - "待つ"
-  - "待ち"
-respuesta: "待ちます"
-tipo: mc
-explicacion: "La forma cortés de '待つ' es '待ちます'. '待つ' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 17 — 話すの辞書形とます形
+### 13 — 話すの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -305,27 +225,7 @@ respuestas_validas:
 explicacion: "'話す' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '話します': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 18 — 話すのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は先生と日本語で＿＿。"
-opciones_explicitas:
-  - "話します"
-  - "話す"
-  - "話し"
-respuesta: "話します"
-tipo: mc
-explicacion: "La forma cortés de '話す' es '話します'. '話す' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 19 — 聞くの辞書形とます形
+### 14 — 聞くの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -342,27 +242,7 @@ respuestas_validas:
 explicacion: "'聞く' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '聞きます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 20 — 聞くのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は毎朝、音楽を＿＿。"
-opciones_explicitas:
-  - "聞きます"
-  - "聞く"
-  - "聞き"
-respuesta: "聞きます"
-tipo: mc
-explicacion: "La forma cortés de '聞く' es '聞きます'. '聞く' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 21 — 来るの辞書形とます形
+### 15 — 来るの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -379,27 +259,7 @@ respuestas_validas:
 explicacion: "'来る' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es '来ます': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 22 — 来るのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "彼は毎週、私の家に＿＿。"
-opciones_explicitas:
-  - "来ます"
-  - "来る"
-  - "来"
-respuesta: "来ます"
-tipo: mc
-explicacion: "La forma cortés de '来る' es '来ます'. '来る' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 23 — するの辞書形とます形
+### 16 — するの辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -416,27 +276,7 @@ respuestas_validas:
 explicacion: "'する' es la forma de diccionario (辞書形, llana). Su forma cortés ます形 es 'します': se usan en contextos distintos (辞書形 con amigos/familia, ます形 en situaciones formales), nunca se mezclan en la misma oración."
 ```
 
-### 24 — するのます形選択
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "formas-verbales-diccionario-masu"
-  nivel: "N5"
-  tags: ["verbo", "masu-form"]
-pasos:
-  - "Identificar el verbo en su forma de diccionario (辞書形)."
-  - "Elegir su forma cortés ます形 correcta."
-enunciado: "私は毎日、勉強を＿＿。"
-opciones_explicitas:
-  - "します"
-  - "する"
-  - "し"
-respuesta: "します"
-tipo: mc
-explicacion: "La forma cortés de 'する' es 'します'. 'する' es la forma llana (辞書形), correcta en registro informal pero no en una oración cortés."
-```
-
-### 25 — 過去形の辞書形とます形
+### 17 — 過去形の辞書形とます形
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -451,4 +291,55 @@ tipo: completar
 respuestas_validas:
   - "食べました"
 explicacion: "'食べた' es la forma pasada llana (た形) de '食べる'; su equivalente cortés es '食べました'. No deben mezclarse: '食べた' se usa en registro informal, '食べました' en registro cortés — son la versión pasada del mismo par 辞書形/ます形 visto en los bloques anteriores."
+```
+
+### 18 — Forma masu de 行く
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formas-verbales-diccionario-masu"
+  nivel: "N5"
+  tags: ["verbo", "masu-form"]
+enunciado: "私は毎日、電車で学校へ＿＿。(行く)"
+tipo: mc
+opciones_explicitas:
+  - "行きます"
+  - "行く"
+  - "行き"
+respuesta: "行きます"
+explicacion: "行く→行きます."
+```
+
+### 19 — Forma masu de 食べる
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formas-verbales-diccionario-masu"
+  nivel: "N5"
+  tags: ["verbo", "masu-form"]
+enunciado: "友達と一緒に昼ご飯を＿＿。(食べる)"
+tipo: mc
+opciones_explicitas:
+  - "食べます"
+  - "食べる"
+  - "食べ"
+respuesta: "食べます"
+explicacion: "Grupo 2: 食べる→食べます."
+```
+
+### 20 — Forma masu de 作る
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "formas-verbales-diccionario-masu"
+  nivel: "N5"
+  tags: ["verbo", "masu-form"]
+enunciado: "母は毎晩、料理を＿＿。(作る)"
+tipo: mc
+opciones_explicitas:
+  - "作ります"
+  - "作る"
+  - "作り"
+respuesta: "作ります"
+explicacion: "作る→作ります."
 ```

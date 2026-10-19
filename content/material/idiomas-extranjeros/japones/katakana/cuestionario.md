@@ -307,3 +307,69 @@ respuestas_validas:
   - "タクシー"
 explicacion: "'タクシー' es una palabra de origen extranjero; las palabras prestadas se escriben en katakana."
 ```
+
+### 19 — Palabra prestada
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "katakana"
+  nivel: "A1"
+  tags: ["escritura","gairaigo"]
+enunciado: "「computer」はカタカナで＿＿と書きます。"
+tipo: completar
+respuestas_validas:
+  - "コンピューター"
+  - "コンピュータ"
+explicacion: "computer se escribe コンピューター (también コンピュータ)."
+```
+
+### 20 — Escribir una palabra prestada
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "katakana"
+  nivel: "A1"
+  tags: ["escritura","gairaigo"]
+enunciado: "「hotel」の正しい書き方はどれですか。"
+tipo: mc
+opciones_explicitas:
+  - "ホテル"
+  - "ほてる"
+  - "ホテレ"
+respuesta: "ホテル"
+explicacion: "Las palabras extranjeras se escriben en katakana."
+```
+
+### 21 — Escribir una palabra prestada
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "katakana"
+  nivel: "A1"
+  tags: ["escritura","gairaigo"]
+enunciado: "「bus」の正しい書き方はどれですか。"
+tipo: mc
+opciones_explicitas:
+  - "バス"
+  - "ばす"
+  - "パス"
+respuesta: "バス"
+explicacion: "バス (basu) = autobús; パス (pasu) sería «pase»."
+```
+
+### 22 — Vocal larga
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "katakana"
+  nivel: "A1"
+  tags: ["escritura","gairaigo"]
+enunciado: "En katakana, la vocal larga se marca con:"
+tipo: mc
+opciones_explicitas:
+  - "ー"
+  - "〜"
+  - "々"
+respuesta: "ー"
+explicacion: "El signo ー (chōonpu) alarga la vocal anterior."
+```

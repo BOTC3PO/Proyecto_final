@@ -170,22 +170,18 @@ respuesta: "os livros foram comprados por mim"
 tipo: mc
 ```
 
-### 10 — Uso de "ainda" com passado do pretérito  
+### 10 — Mais-que-perfeito
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-b2"  
-  nivel: "B2"  
-  tags: ["advérbio", "pretérito"]  
-pasos:  
-  - "Reconocer o tempo verbal e ajustar o advérbio."
-  - "Aplicar a regra de uso de 'ainda'."
-enunciado: "Quando cheguei, ele ___."
-respuesta: "ainda não tinha chegado"  
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-b2"
+  nivel: "B2"
+  tags: ["advérbio", "pretérito"]
+enunciado: "Quando cheguei à estação, o comboio ___ (ainda não chegar)."
 tipo: completar
-respuestas_validas:  
-  - "ainda não tinha chegado"  
-  - "Ainda não tinha chegado"
+respuestas_validas:
+  - "ainda não tinha chegado"
+explicacion: "El pretérito mais-que-perfeito composto (tinha + participio) expresa una acción anterior a otra pasada."
 ```
 
 ### 11 — Uso de preposições com verbos específicos  
@@ -376,22 +372,18 @@ respuesta: "como ela é inteligente"
 tipo: mc
 ```
 
-### 22 — Uso de "já" com pretérito perfeito  
+### 22 — Mais-que-perfeito
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-b2"  
-  nivel: "B2"  
-  tags: ["advérbio", "pretérito"]  
-pasos:  
-  - "Reconocer o tempo verbal e ajustar o advérbio."
-  - "Aplicar a regra de uso de 'já'."
-enunciado: "Quando cheguei, ele ___."
-respuesta: "já tinha terminado"  
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-b2"
+  nivel: "B2"
+  tags: ["advérbio", "pretérito"]
+enunciado: "Quando cheguei ao cinema, o filme ___ (já terminar)."
 tipo: completar
-respuestas_validas:  
-  - "já tinha terminado"  
-  - "Já tinha terminado"
+respuestas_validas:
+  - "já tinha terminado"
+explicacion: "Tinha terminado = ya había terminado antes de que llegara."
 ```
 
 ### 23 — Uso de "tanto...quanto" em orações  

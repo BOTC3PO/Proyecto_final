@@ -72,7 +72,7 @@ metadata:
   tags: ["essere", "venire"]  
 pasos:  
   - "Identifica el verbo que requiere 'essere' y elige la forma correcta."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'essere')"
 opciones_explicitas:  
   - "Lei è venuta a casa mia."  
   - "Lei ha venuto a casa mia."  
@@ -124,7 +124,7 @@ metadata:
   tags: ["avere", "bere"]  
 pasos:  
   - "Selecciona la opción con el participio correcto para un sujeto femenino."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (femenino))"
 opciones_explicitas:  
   - "Maria ha bevuto dell'acqua."  
   - "Maria ha bevuta dell'acqua."  
@@ -159,7 +159,7 @@ metadata:
   tags: ["avere", "mangiare"]  
 pasos:  
   - "Elige la opción con el auxiliar y participio correctos para un sujeto plural."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (plural))"
 opciones_explicitas:  
   - "Abbiamo mangiato una torta."  
   - "Hai mangiato una torta."  
@@ -194,7 +194,7 @@ metadata:
   tags: ["avere", "vedere"]  
 pasos:  
   - "Selecciona la opción con el auxiliar y participio correctos."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (tercera persona))"
 opciones_explicitas:  
   - "Ha visto un film ieri."  
   - "Hai visto un film ieri."  
@@ -229,7 +229,7 @@ metadata:
   tags: ["avere", "bere"]  
 pasos:  
   - "Elige la opción con el auxiliar y participio correctos para un sujeto femenino plural."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (femenino plural))"
 opciones_explicitas:  
   - "Le donne hanno bevuto del vino."  
   - "Le donne han bevuto del vino."  
@@ -264,7 +264,7 @@ metadata:
   tags: ["avere", "mangiare"]  
 pasos:  
   - "Selecciona la opción con el auxiliar y participio correctos."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (tercera persona plural))"
 opciones_explicitas:  
   - "Hanno mangiato una pizza."  
   - "Ha mangiato una pizza."  
@@ -299,7 +299,7 @@ metadata:
   tags: ["avere", "leggere"]  
 pasos:  
   - "Elige la opción con el auxiliar y participio correctos para un sujeto femenino."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (femenino singular))"
 opciones_explicitas:  
   - "Maria ha letto un libro."  
   - "Maria ha letta un libro."  
@@ -325,22 +325,21 @@ respuestas_validas:
 explicacion: "'Venire' usa 'essere'. En tercera persona singular, el auxiliar es 'è', y el participio concuerda en género ('venuto')."  
 ```
 
-### 19 — Opción correcta con "avere" (tercera persona)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "passato-prossimo"  
-  nivel: "A2"  
-  tags: ["avere", "dormire"]  
-pasos:  
-  - "Selecciona la opción con el auxiliar y participio correctos."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
-opciones_explicitas:  
-  - "Ha dormito tutta la notte."  
-  - "Hai dormito tutta la notte."  
-  - "Ho dormito tutta la notte."  
-respuesta: "Ha dormito tutta la notte."  
-explicacion: "'Dormire' usa 'avere'. En tercera persona singular, el auxiliar es 'ha', y el participio no cambia ('dormito')."  
+### 19 — Ausiliare con verbi di movimento
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "passato-prossimo"
+  nivel: "A2"
+  tags: ["essere", "arrivare"]
+tipo: mc
+opciones_explicitas:
+  - "Loro sono arrivati tardi."
+  - "Loro hanno arrivato tardi."
+  - "Loro sono arrivato tardi."
+respuesta: "Loro sono arrivati tardi."
+enunciado: "Quale frase è corretta in passato prossimo?"
+explicacion: "« Arrivare » usa « essere » y el participio concuerda: arrivati."
 ```
 
 ### 20 — Passato prossimo con "essere" (femenino plural)  
@@ -360,22 +359,21 @@ respuestas_validas:
 explicacion: "'Uscire' usa 'essere'. En tercera persona plural, el auxiliar es 'sono', y el participio concuerda en género ('uscite')."  
 ```
 
-### 21 — Opción correcta con "avere" (plural)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "passato-prossimo"  
-  nivel: "A2"  
-  tags: ["avere", "comprare"]  
-pasos:  
-  - "Elige la opción con el auxiliar y participio correctos para un sujeto plural."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
-opciones_explicitas:  
-  - "Abbiamo comprato una macchina nuova."  
-  - "Hai comprato una macchina nuova."  
-  - "Ha comprato una macchina nuova."  
-respuesta: "Abbiamo comprato una macchina nuova."  
-explicacion: "'Comprare' usa 'avere'. En primera persona plural, el auxiliar es 'abbiamo', y el participio no cambia ('comprato')."  
+### 21 — Passato prossimo con "prendere"
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "passato-prossimo"
+  nivel: "A2"
+  tags: ["avere", "prendere"]
+tipo: mc
+opciones_explicitas:
+  - "Abbiamo preso l'autobus."
+  - "Siamo preso l'autobus."
+  - "Abbiamo prendato l'autobus."
+respuesta: "Abbiamo preso l'autobus."
+enunciado: "Quale frase è corretta in passato prossimo?"
+explicacion: "« Prendere » usa « avere »; participio irregular: preso."
 ```
 
 ### 22 — Passato prossimo con "essere" (tercera persona)  
@@ -395,22 +393,19 @@ respuestas_validas:
 explicacion: "'Andare' usa 'essere'. En tercera persona plural, el auxiliar es 'sono', y el participio no cambia ('andati')."  
 ```
 
-### 23 — Opción correcta con "avere" (tercera persona)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "passato-prossimo"  
-  nivel: "A2"  
-  tags: ["avere", "bere"]  
-pasos:  
-  - "Selecciona la opción con el auxiliar y participio correctos."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
-opciones_explicitas:  
-  - "Ha bevuto un bicchiere d'acqua."  
-  - "Hai bevuto un bicchiere d'acqua."  
-  - "Ho bevuto un bicchiere d'acqua."  
-respuesta: "Ha bevuto un bicchiere d'acqua."  
-explicacion: "'Bere' usa 'avere'. En tercera persona singular, el auxiliar es 'ha', y el participio no cambia ('bevuto')."  
+### 23 — Passato prossimo con "vedere"
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "passato-prossimo"
+  nivel: "A2"
+  tags: ["avere", "vedere"]
+tipo: completar
+respuestas_validas:
+  - "abbiamo visto"
+  - "Abbiamo visto"
+enunciado: "Ieri sera noi ___ (vedere) un bel film."
+explicacion: "« Vedere » usa « avere »: abbiamo visto."
 ```
 
 ### 24 — Passato prossimo con "essere" (tercera persona)  
@@ -430,20 +425,19 @@ respuestas_validas:
 explicacion: "'Venire' usa 'essere'. En segunda persona singular, el auxiliar es 'sei', y el participio concuerda en género ('venuto')."  
 ```
 
-### 25 — Opción correcta con "avere" (tercera persona plural)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "passato-prossimo"  
-  nivel: "A2"  
-  tags: ["avere", "mangiare"]  
-pasos:  
-  - "Elige la opción con el auxiliar y participio correctos para un sujeto plural."  
-enunciado: "¿Cuál es la oración correcta en passato prossimo?"
-opciones_explicitas:  
-  - "Hanno mangiato una torta."  
-  - "Ha mangiato una torta."  
-  - "Mangiamo una torta."  
-respuesta: "Hanno mangiato una torta."  
-explicacion: "'Mangiare' usa 'avere'. En tercera persona plural, el auxiliar es 'hanno', y el participio no cambia ('mangiato')."
+### 25 — Participio passato irregolare
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "passato-prossimo"
+  nivel: "A2"
+  tags: ["participio", "fare"]
+tipo: mc
+opciones_explicitas:
+  - "fatto"
+  - "fato"
+  - "fatuto"
+respuesta: "fatto"
+enunciado: "Qual è il participio passato di « fare »?"
+explicacion: "« Fare » → fatto."
 ```

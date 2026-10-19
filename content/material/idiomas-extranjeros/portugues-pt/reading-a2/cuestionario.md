@@ -165,23 +165,21 @@ tipo: completar
 enunciado: "Eu ___ um irmão mais velho."
 ```
 
-### 10 — Uso de "haver" en oraciones  
+### 10 — Haver impessoal
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
   tags: ["verbo", "haver"]
-pasos:
-  - "Determinar si la oración expresa existencia o cantidad."
-  - "Elegir la forma correcta de 'haver' según el contexto."
+enunciado: "___ dois anos que vivo em Lisboa."
+tipo: mc
 opciones_explicitas:
   - "Há"
+  - "A"
   - "Ha"
-  - "Há"
 respuesta: "Há"
-tipo: mc
-enunciado: "___ muitos livros na biblioteca."
+explicacion: "«Há» (de haver) indica tiempo transcurrido: Há dois anos que vivo em Lisboa."
 ```
 
 ### 11 — Adjetivo concordante  

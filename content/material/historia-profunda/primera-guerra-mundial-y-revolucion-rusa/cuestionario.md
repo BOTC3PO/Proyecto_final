@@ -155,10 +155,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["submarino", "guerra_no_limitada"]
-enunciado: "Alemania reanudó la guerra submarina sin restricciones en 1917, atacando barcos neutrales, lo que fue un factor clave para la entrada en la guerra de {{ uno_de([pais_1, pais_2 ]) }}."
-variables:
-  pais_1: "Estados Unidos"
-  pais_2: "USA"
+enunciado: "Alemania reanudó la guerra submarina sin restricciones en 1917, atacando barcos neutrales, lo que fue un factor clave para la entrada en la guerra de ___."
 tipo: completar
 respuesta: "Estados Unidos"
 respuestas_validas:
@@ -174,10 +171,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["genocidio", "imperio_otomano"]
-enunciado: "Durante la Primera Guerra Mundial, el gobierno del Imperio Otomano llevó a cabo la deportación y masacre sistemática de su población {{ uno_de([grupo_1, grupo_2 ]) }}, considerada por muchos historiadores como el primer genocidio moderno."
-variables:
-  grupo_1: "armenia"
-  grupo_2: "armenios"
+enunciado: "Durante la Primera Guerra Mundial, el gobierno del Imperio Otomano llevó a cabo la deportación y masacre sistemática de su población ___, considerada por muchos historiadores como el primer genocidio moderno."
 tipo: completar
 respuesta: "armenia"
 respuestas_validas:
@@ -192,10 +186,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["verdun", "sangre"]
-enunciado: "La batalla de Verdún, librada entre alemanes y franceses en 1916, es conocida por su {{ uno_de([caract_1, caract_2 ]) }} extrema, con cientos de miles de muertos y heridos sin cambios significativos en el frente."
-variables:
-  caract_1: "carnicería"
-  caract_2: "sangría"
+enunciado: "La batalla de Verdún, librada entre alemanes y franceses en 1916, es conocida por su ___ extrema, con cientos de miles de muertos y heridos sin cambios significativos en el frente."
 tipo: completar
 respuesta: "carnicería"
 respuestas_validas:
@@ -211,10 +202,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["trotsky", "ejercito_rojo"]
-enunciado: "{{ uno_de([nombre_1, nombre_2 ]) }} fue el comisario de Guerra que organizó y dirigió el Ejército Rojo durante la guerra civil rusa posterior a la revolución."
-variables:
-  nombre_1: "León Trotsky"
-  nombre_2: "Leon Trotsky"
+enunciado: "___ fue el comisario de Guerra que organizó y dirigió el Ejército Rojo durante la guerra civil rusa posterior a la revolución."
 tipo: completar
 respuesta: "León Trotsky"
 respuestas_validas:
@@ -230,10 +218,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["trincheras", "tactica"]
-enunciado: "La característica táctica definitoria del frente occidental fue la guerra de {{ uno_de([tipo_1, tipo_2 ]) }}, donde los soldados vivían en fosos excavados en la tierra protegidos por alambre de espino."
-variables:
-  tipo_1: "trincheras"
-  tipo_2: "trinchera"
+enunciado: "La característica táctica definitoria del frente occidental fue la guerra de ___, donde los soldados vivían en fosos excavados en la tierra protegidos por alambre de espino."
 tipo: completar
 respuesta: "trincheras"
 respuestas_validas:
@@ -248,10 +233,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["octubre", "fecha"]
-enunciado: "La Revolución de Octubre en Rusia ocurrió según el calendario juliano en uso en Rusia en ese momento, pero corresponde al {{ uno_de([mes_1, mes_2 ]) }} de 1917 en el calendario gregoriano."
-variables:
-  mes_1: "noviembre"
-  mes_2: "Noviembre"
+enunciado: "La Revolución de Octubre en Rusia ocurrió según el calendario juliano en uso en Rusia en ese momento, pero corresponde al ___ de 1917 en el calendario gregoriano."
 tipo: completar
 respuesta: "noviembre"
 respuestas_validas:
@@ -266,10 +248,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["wilson", "paz"]
-enunciado: "El presidente de Estados Unidos {{ uno_de([nombre_1, nombre_2 ]) }} presentó los \"Catorce Puntos\" como un programa de paz y base para la posterior creación de la Sociedad de Naciones."
-variables:
-  nombre_1: "Woodrow Wilson"
-  nombre_2: "Woodrow"
+enunciado: "El presidente de Estados Unidos ___ presentó los \"Catorce Puntos\" como un programa de paz y base para la posterior creación de la Sociedad de Naciones."
 tipo: completar
 respuesta: "Woodrow Wilson"
 respuestas_validas:
@@ -284,10 +263,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["artilleria", "armas"]
-enunciado: "Alemania utilizó artillería pesada de largo alcance, como los cañones {{ uno_de([modelo_1, modelo_2 ]) }}, para bombardear fortalezas belgas y francesas desde gran distancia."
-variables:
-  modelo_1: "Big Bertha"
-  modelo_2: "Big Bertha"
+enunciado: "Alemania utilizó artillería pesada de largo alcance, como los cañones ___, para bombardear fortalezas belgas y francesas desde gran distancia."
 tipo: completar
 respuesta: "Big Bertha"
 respuestas_validas:
@@ -301,10 +277,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["austria", "desmembramiento"]
-enunciado: "El Tratado de Saint-Germain en 1919 disolvió el Imperio Austrohúngico y reconoció la independencia de {{ uno_de([pais_1, pais_2 ]) }}, entre otras nuevas naciones."
-variables:
-  pais_1: "Austria"
-  pais_2: "austria"
+enunciado: "El Tratado de Saint-Germain en 1919 disolvió el Imperio Austrohúngico y reconoció la independencia de ___, entre otras nuevas naciones."
 tipo: completar
 respuesta: "Austria"
 respuestas_validas:
@@ -318,10 +291,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["gas", "ypr"]
-enunciado: "La primera gran utilización de gas venenoso en el campo de batalla por parte de Alemania ocurrió en la {{ uno_de([batalla_1, batalla_2 ]) }} de Ypres."
-variables:
-  batalla_1: "segunda batalla"
-  batalla_2: "Segunda batalla"
+enunciado: "La primera gran utilización de gas venenoso en el campo de batalla por parte de Alemania ocurrió en la ___ de Ypres."
 tipo: completar
 respuesta: "segunda batalla"
 respuestas_validas:
@@ -336,10 +306,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["guerra_civil", "almirante"]
-enunciado: "Durante la guerra civil rusa, el almirante {{ uno_de([nombre_1, nombre_2 ]) }} lideró a las fuerzas blancas en Siberia contra los bolcheviques."
-variables:
-  nombre_1: "Kolchak"
-  nombre_2: "Alexander Kolchak"
+enunciado: "Durante la guerra civil rusa, el almirante ___ lideró a las fuerzas blancas en Siberia contra los bolcheviques."
 tipo: completar
 respuesta: "Kolchak"
 respuestas_validas:
@@ -381,10 +348,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["internacional", "tercera"]
-enunciado: "Lenin y Trotsky impulsaron la creación de la {{ uno_de([int_1, int_2 ]) }}, también conocida como la Komintern, para promover la revolución mundial."
-variables:
-  int_1: "Tercera Internacional"
-  int_2: "Comintern"
+enunciado: "Lenin y Trotsky impulsaron la creación de la ___, también conocida como la Komintern, para promover la revolución mundial."
 tipo: completar
 respuesta: "Tercera Internacional"
 respuestas_validas:
@@ -400,10 +364,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["jutlandia", "naval"]
-enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial ocurrió en el {{ uno_de([mar_1, mar_2 ]) }} del Norte."
-variables:
-  mar_1: "mar del Norte"
-  mar_2: "Mar del Norte"
+enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial ocurrió en el ___ del Norte."
 tipo: completar
 respuesta: "mar del Norte"
 respuestas_validas:
@@ -430,10 +391,7 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["hungria", "desmembramiento"]
-enunciado: "El Tratado de Trianón en 1920 redujo drásticamente el territorio de {{ uno_de([pais_1, pais_2 ]) }}, creando el estado de Hungría moderna y cediendo territorios a Rumania, Checoslovaquia y Yugoslavia."
-variables:
-  pais_1: "Hungria"
-  pais_2: "Hungría"
+enunciado: "El Tratado de Trianón en 1920 redujo drásticamente el territorio de ___, creando el estado de Hungría moderna y cediendo territorios a Rumania, Checoslovaquia y Yugoslavia."
 tipo: completar
 respuesta: "Hungria"
 respuestas_validas:

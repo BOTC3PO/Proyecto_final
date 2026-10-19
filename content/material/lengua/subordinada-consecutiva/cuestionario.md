@@ -340,71 +340,64 @@ explicacion: |
   Las consecutivas expresan el resultado de la intensidad señalada en la oración principal (tanto… que).
 ```
 
-### 16 — pregunta 16
+### 16 — Reconocer una consecutiva
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_consecutiva"
   nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "identificacion"]
+  tags: ["subordinadas", "consecutiva"]
 
-variables:
-  principal: uno_de(["Estaba tan cansado", "Tenía tanto sueño", "Fue tal el ruido"])
-  subordinada: uno_de(["que no pude estudiar", "que me dormí", "que salí corriendo"])
-
-respuesta: subordinada
-tipo: completar
-
-enunciado: "En la oración '{principal} ___ {subordinada}', ¿cuál es la subordinada consecutiva?"
-
-explicacion: |
-  La subordinada consecutiva es la parte que expresa la consecuencia, introducida por "que".
-```
-
-### 17 — pregunta 17
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["subordinada", "consecutiva", "grado"]
-
-variables:
-  base: random(100, 200)
-  porcentaje: random(10, 50)
-  resultado: floor(base * porcentaje / 100)
-
-respuesta: resultado
-tipo: input
-
-enunciado: "Si el grado es {base} y la consecuencia es el {porcentaje}% de ese grado, ¿cuánto es el resultado? (Redondea al entero más cercano)."
-
-explicacion: |
-  Ejercicio que refuerza la idea de que la consecutiva implica una medida o resultado derivado del grado.
-```
-
-### 18 — pregunta 18
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "basico"
-  tags: ["subordinada", "consecutiva", "nexo"]
-
-variables:
-  estructura: uno_de(["tan... que", "tanto... que", "tal... que"])
-
-respuesta: "que"
+enunciado: "¿Cuál de estas oraciones contiene una subordinada consecutiva?"
 tipo: mc
-opciones_explicitas: ["porque", "que", "si", "cuando"]
-
-enunciado: "En la estructura '{estructura}', ¿cuál es la conjunción que introduce la consecutiva?"
+opciones_explicitas:
+  - "Estudió tanto que aprobó con diez"
+  - "Estudió porque quería aprobar"
+  - "Estudió para aprobar"
+respuesta: "Estudió tanto que aprobó con diez"
 
 explicacion: |
-  La conjunción es "que".
+  La consecutiva expresa el resultado de la intensidad de la principal («tanto… que»); «porque» introduce una causa y «para» una finalidad.
+```
+
+### 17 — Consecuencia expresada
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinadas", "consecutiva"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En «Habló tan rápido que nadie lo entendió», la subordinada expresa la consecuencia de lo dicho en la principal."
+
+explicacion: |
+  «Que nadie lo entendió» es el resultado de hablar de manera tan rápida.
+```
+
+### 18 — Intensivos de la principal
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "intermedio"
+  tags: ["subordinadas", "consecutiva"]
+
+enunciado: "¿Qué palabras suelen aparecer en la oración principal de una consecutiva para señalar la intensidad?"
+tipo: mc
+opciones_explicitas:
+  - "Tan, tanto, tal"
+  - "Aunque, si, mientras"
+  - "Porque, pues, ya que"
+respuesta: "Tan, tanto, tal"
+
+explicacion: |
+  Estos intensivos anuncian la consecuencia, introducida luego por «que» (tan… que, tanto… que, tal… que).
 ```
 
 ### 19 — pregunta 19
@@ -957,46 +950,40 @@ explicacion: |
   'Tan... como' es una comparativa de igualdad. La consecutiva usa 'tan... que' para indicar resultado.
 ```
 
-### 44 — pregunta 44
+### 44 — Causal o consecutiva
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_consecutiva"
   nivel: "intermedio"
-  tags: ["identificacion", "tanto_que"]
+  tags: ["subordinadas", "consecutiva"]
 
-variables:
-  sust: uno_de(["trabajo", "esfuerzo", "paciencia", "paciencia"])
-  corr: "tanto"
-
-respuesta: "tanto"
-tipo: completar
-
-enunciado: "Hizo ___ {sust} que lo logró. ¿Qué palabra falta?"
-
-explicacion: |
-  'Tanto' es el correlato correcto antes de sustantivos que indican cantidad o grado.
-```
-
-### 45 — pregunta 45
-
-```
-metadata:
-  materia: "Lengua"
-  tema: "subordinada_consecutiva"
-  nivel: "intermedio"
-  tags: ["logica", "relacion"]
-
-variables:
-  causa: "temor"
-  efecto: "parálisis"
-
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En una subordinada consecutiva, la oración principal expresa la causa o el grado, y la subordinada expresa la consecuencia."
+enunciado: "En «Llegó tarde porque perdió el tren», la subordinada es consecutiva."
 
 explicacion: |
-  Correcto. La consecutiva depende de un correlato de grado en la principal para expresar un resultado inevitable.
+  «Porque perdió el tren» indica la causa del retraso: es una subordinada causal, no consecutiva.
+```
+
+### 45 — Nexo de la consecutiva
+
+```
+metadata:
+  materia: "Lengua"
+  tema: "subordinada_consecutiva"
+  nivel: "basico"
+  tags: ["subordinadas", "consecutiva"]
+
+tipo: completar
+respuesta: "que"
+respuestas_validas:
+  - "que"
+
+enunciado: "En «Hizo tanto calor que abrimos todas las ventanas», el nexo que introduce la subordinada consecutiva es ___."
+
+explicacion: |
+  El nexo habitual de las consecutivas intensivas es «que», correlativo con tan, tanto o tal en la principal.
 ```

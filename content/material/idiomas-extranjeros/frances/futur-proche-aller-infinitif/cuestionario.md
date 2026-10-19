@@ -93,23 +93,21 @@ tipo: completar
 enunciado: "Je ne ___ pas de café ce matin. (aller)"
 ```
 
-### 6 — Futur proche con verbo "dire"  
+### 6 — Futur proche
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "futur-proche-aller-infinitif"
   nivel: "A1"
-  tags: ["verbo", "dire"]
-pasos:
-  - "Identificar el verbo 'dire' en infinitivo."
-  - "Elegir la opción correcta del infinitivo."
-respuesta: "dire"
-opciones_explicitas:
-  - "dites"
-  - "dire"
-  - "dis"
+  tags: ["futur proche", "aller"]
 tipo: mc
-enunciado: "Elle ___ ce que je lui ai dit. (aller)"
+opciones_explicitas:
+  - "va"
+  - "vas"
+  - "vont"
+respuesta: "va"
+enunciado: "Elle ___ dire la vérité demain."
+explicacion: "Futur proche: aller (conjugado) + infinitivo: elle va dire."
 ```
 
 ### 7 — Futur proche con contexto de plan  
@@ -436,19 +434,17 @@ tipo: mc
 enunciado: "Ils ___ le film. (aller)"
 ```
 
-### 25 — Futur proche con verbo "dire"  
+### 25 — Futur proche
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "futur-proche-aller-infinitif"
   nivel: "A1"
-  tags: ["verbo", "dire"]
-pasos:
-  - "Reconocer el verbo 'dire' en infinitivo."
-  - "Completar con la forma correcta del infinitivo."
-respuestas_validas:
-  - "dire"
-  - "Dire"
+  tags: ["futur proche", "aller"]
 tipo: completar
-enunciado: "Elle ___ ce que je lui ai dit. (aller)"
+respuestas_validas:
+  - "allons"
+  - "Allons"
+enunciado: "Nous ___ partir demain matin. (aller)"
+explicacion: "Futur proche: nous allons + infinitivo."
 ```

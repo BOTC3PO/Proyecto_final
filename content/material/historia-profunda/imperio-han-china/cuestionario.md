@@ -177,7 +177,7 @@ metadata:
   nivel: "intermedio"
   tags: ["han-oriental", "guangwu", "restauracion"]
 tipo: completar
-enunciado: "{{emperador_restauracion}} restauró la dinastía Han en el año 25 d.C., marcando el inicio del período Han Oriental con la capital en Luoyang."
+enunciado: "___ restauró la dinastía Han en el año 25 d.C., marcando el inicio del período Han Oriental con la capital en Luoyang."
 respuesta: "emperador guangwu"
 respuestas_validas:
   - "emperador guangwu"
@@ -244,7 +244,7 @@ metadata:
   nivel: "intermedio"
   tags: ["militar", "xiongnu", "diplomacia"]
 tipo: completar
-enunciado: "Inicialmente, la dinastía Han utilizó la política de {{pacto_matrimonio}} con los Xiongnu para evitar conflictos, enviando princesas imperiales como esposas de los chanyu."
+enunciado: "Inicialmente, la dinastía Han utilizó la política de ___ con los Xiongnu para evitar conflictos, enviando princesas imperiales como esposas de los chanyu."
 respuesta: "heqin"
 respuestas_validas:
   - "heqin"
@@ -294,7 +294,7 @@ metadata:
   nivel: "intermedio"
   tags: ["economia", "moneda", "wu-di"]
 tipo: completar
-enunciado: "El Emperador Wu nacionalizó la acuñación de moneda y estableció la {{moneda_han}} como la moneda estándar del imperio, controlando así la economía."
+enunciado: "El Emperador Wu nacionalizó la acuñación de moneda y estableció la ___ como la moneda estándar del imperio, controlando así la economía."
 respuesta: "wu zhu"
 respuestas_validas:
   - "wu zhu"
@@ -331,7 +331,7 @@ metadata:
   nivel: "intermedio"
   tags: ["guerra", "huo-qubing", "han-occidental"]
 tipo: completar
-enunciado: "El joven general {{general_joven}} lideró una campaña decisiva contra los Xiongnu en la Batalla de Mobei, persiguiéndolos más allá del desierto de Gobi."
+enunciado: "El joven general ___ lideró una campaña decisiva contra los Xiongnu en la Batalla de Mobei, persiguiéndolos más allá del desierto de Gobi."
 respuesta: "huo qubing"
 respuestas_validas:
   - "huo qubing"
@@ -349,7 +349,7 @@ metadata:
   nivel: "intermedio"
   tags: ["militar", "wei-qing", "han-occidental"]
 tipo: completar
-enunciado: "{{general_conyuge}} fue el tío del emperador Wu y uno de sus generales más exitosos, conocido por sus grandes campañas contra los Xiongnu."
+enunciado: "___ fue el tío del emperador Wu y uno de sus generales más exitosos, conocido por sus grandes campañas contra los Xiongnu."
 respuesta: "wei qing"
 respuestas_validas:
   - "wei qing"
@@ -385,7 +385,7 @@ metadata:
   nivel: "intermedio"
   tags: ["arqueologia", "mawangdui", "han-occidental"]
 tipo: completar
-enunciado: "Las tumbas de Mawangdui, descubiertas en Hunan, revelaron textos médicos, astronómicos y filosóficos, incluyendo un mapa de seda de {{reino_mawangdui}}."
+enunciado: "Las tumbas de Mawangdui, descubiertas en Hunan, revelaron textos médicos, astronómicos y filosóficos, incluyendo un mapa de seda de ___."
 respuesta: "changsha"
 respuestas_validas:
   - "changsha"
@@ -421,7 +421,7 @@ metadata:
   nivel: "intermedio"
   tags: ["warlord", "lu-bu", "han-oriental"]
 tipo: completar
-enunciado: "{{guerrero-famoso}} era conocido por su fuerza física excepcional y su habilidad con la lanza, pero fue finalmente derrotado y ejecutado por Cao Cao."
+enunciado: "___ era conocido por su fuerza física excepcional y su habilidad con la lanza, pero fue finalmente derrotado y ejecutado por Cao Cao."
 respuesta: "lu bu"
 respuestas_validas:
   - "lu bu"

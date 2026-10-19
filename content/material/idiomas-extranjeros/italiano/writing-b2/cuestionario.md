@@ -18,482 +18,431 @@
 
 ---
 
-### 1 — Soggetto e complemento
-```yaml
+### 1 — Produzione scritta 1
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["soggetto", "complemento"]
-pasos:
-  - "Identificar el sujeto y el complemento en la oración."
-  - "Verificar que ambos elementos estén correctamente relacionados."
-respuesta: "Il turista ha visitato le città storiche."
-enunciado: "¿Cuál es la oración correcta?"
+  tags: ["produzione scritta"]
+tipo: mc
 opciones_explicitas:
-  - "Il turista visita le città storiche."
   - "Il turista ha visitato le città storiche."
-  - "Il turista visitò le città storiche."
-tipo: mc
-explicacion: "La opción correcta es la que utiliza el pretérito perfecto compuesto (ha + participio passato) para indicar una acción concluida en el pasado. Las otras opciones usan tiempos verbales incorrectos o inapropiados según el contexto."
+  - "Il turista ha visitato le città storico."
+  - "Il turista è visitato le città storiche."
+  - "Il turista visitò le città storiche ieri."
+respuesta: "Il turista ha visitato le città storiche."
+enunciado: "Quale frase è corretta?"
+explicacion: "Passato prossimo con « avere » y concordancia del adjetivo (storiche)."
 ```
 
-### 2 — Uso dell'imperfetto per azioni simultanee
-```yaml
+### 2 — Produzione scritta 2
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["gerundio", "congiunzione"]
-pasos:
-  - "Identificar el uso correcto del gerundio en la oración."
-  - "Verificar que se use para conectar acciones simultáneas."
-respuesta: "Mentre camminavo, ho visto un uccello raro."
-enunciado: "¿Cuál es la oración correcta? (Uso dell'imperfetto per azioni simultanee)"
+  tags: ["produzione scritta"]
+tipo: mc
 opciones_explicitas:
-  - "Mentre camminavo, ho visto un uccello raro."
-  - "Mentre camminavo, vidi un uccello raro."
-  - "Mentre camminavo, vedo un uccello raro."
-tipo: mc
-explicacion: "La opción correcta combina el imperfetto (camminavo, no gerundio -- el gerundio real sería 'camminando') con el pretérito perfecto compuesto (ho visto), indicando dos acciones simultáneas en el pasado. Las otras opciones usan tiempos verbales incoherentes."
+  - "sebbene"
+  - "perciò"
+  - "poiché"
+  - "quindi"
+respuesta: "sebbene"
+enunciado: "Quale connettivo introduce una concessione?"
+explicacion: "« Sebbene » + congiuntivo."
 ```
 
-### 3 — Concordancia de participios
-```yaml
+### 3 — Produzione scritta 3
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["participio", "concordanza"]
-pasos:
-  - "Identificar el sujeto y el verbo en la oración."
-  - "Verificar que el participio concuerde en género y número con el sujeto."
-respuesta: "Le foto sono state scattate ieri."
-enunciado: "¿Cuál es la oración correcta? (Concordancia de participios)"
+  tags: ["produzione scritta"]
+tipo: completar
+respuestas_validas:
+  - "sia"
+  - "Sia"
+enunciado: "Sebbene ___ (essere) stanco, ha finito il lavoro. (congiuntivo)"
+explicacion: "« Sebbene » richiede il congiuntivo: sia."
+```
+
+### 4 — Produzione scritta 4
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
+opciones_explicitas:
+  - "Preferisco il tè piuttosto che il caffè."
+  - "Piuttosto che pioveva, siamo usciti."
+  - "Ho comprato pane piuttosto che latte e uova."
+  - "Vado al mare piuttosto che in montagna ieri."
+respuesta: "Preferisco il tè piuttosto che il caffè."
+enunciado: "Quale frase usa correttamente « piuttosto che »?"
+explicacion: "« Piuttosto che » = en vez de."
+```
+
+### 5 — Produzione scritta 5
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
+opciones_explicitas:
+  - "Se avessi studiato, avrei superato l'esame."
+  - "Se studio, supero l'esame."
+  - "Se studiassi, supererei l'esame."
+  - "Se studierò, supererò l'esame."
+respuesta: "Se avessi studiato, avrei superato l'esame."
+enunciado: "Quale frase è un periodo ipotetico del terzo tipo?"
+explicacion: "Congiuntivo trapassato + condizionale passato."
+```
+
+### 6 — Produzione scritta 6
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
 opciones_explicitas:
   - "Le foto sono state scattate ieri."
-  - "La foto sono state scattate ieri."
+  - "Le foto è state scattate ieri."
   - "Le foto sono stato scattate ieri."
-tipo: mc
-explicacion: "La opción correcta usa el participio passato 'scattate' que concuerda en femenino plural con 'foto'. Las otras opciones presentan errores de concordancia."
+  - "Le foto hanno state scattate ieri."
+respuesta: "Le foto sono state scattate ieri."
+enunciado: "Quale frase è corretta? (Produzione scritta 6)"
+explicacion: "Passivo: essere + participio concordato."
 ```
 
-### 4 — Uso del condizionale
-```yaml
+### 7 — Produzione scritta 7
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["condizionale", "ipotesi"]
-pasos:
-  - "Identificar el uso del condizionale en la oración."
-  - "Verificar que se use para expresar una hipótesis o deseos irrealizados."
-respuesta: "Se avessi più tempo, andrei in vacanza."
-enunciado: "¿Cuál es la oración correcta? (Uso del condizionale)"
-opciones_explicitas:
-  - "Se avrò più tempo, andrò in vacanza."
-  - "Se avessi più tempo, andrò in vacanza."
-  - "Se avessi più tempo, andrei in vacanza."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el congiuntivo imperfetto (avessi, no condizionale passato) en la prótasis con 'se', combinado con el condizionale presente (andrei) en la apódosis, para expresar una hipótesis irreal. Las otras opciones usan tiempos verbales incorrectos."
+opciones_explicitas:
+  - "Non ne ho bisogno."
+  - "Non ci ho bisogno."
+  - "Non lo ho bisogno."
+  - "Non ne ho bisogni."
+respuesta: "Non ne ho bisogno."
+enunciado: "Quale frase usa correttamente « ne »?"
+explicacion: "« Avere bisogno di » → « ne »."
 ```
 
-### 5 — Uso de "piuttosto che"
-```yaml
+### 8 — Produzione scritta 8
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["congiunzione", "alternativa"]
-pasos:
-  - "Identificar el uso correcto de 'piuttosto che' en la oración."
-  - "Verificar que se use para expresar una preferencia o alternativa."
-respuesta: "Preferisco andare in bicicletta piuttosto che prendere l'autobus."
-enunciado: "¿Cuál es la oración correcta? (Uso de 'piuttosto che')"
-opciones_explicitas:
-  - "Preferisco andare in bicicletta piuttosto che prendo l'autobus."
-  - "Preferisco andare in bicicletta piuttosto che prenderei l'autobus."
-  - "Preferisco andare in bicicletta piuttosto che prendere l'autobus."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa la estructura 'piuttosto che + infinitivo' para expresar preferencia. Las otras opciones presentan errores de concordancia verbal."
+opciones_explicitas:
+  - "La persona con cui parlavo è andata via."
+  - "La persona che con parlavo è andata via."
+  - "La persona cui parlavo è andata via con."
+  - "La persona con che parlavo è andata via."
+respuesta: "La persona con cui parlavo è andata via."
+enunciado: "Quale frase usa correttamente « cui »?"
+explicacion: "« Cui » dopo preposizione."
 ```
 
-### 6 — Uso del passato prossimo
-```yaml
+### 9 — Produzione scritta 9
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["passato prossimo", "ausiliare"]
-pasos:
-  - "Identificar el uso correcto del passato prossimo."
-  - "Verificar que se use con el auxiliar adecuado (avere o essere)."
-respuesta: "La ragazza è andata al cinema ieri."
-enunciado: "¿Cuál es la oración correcta? (Uso del passato prossimo)"
-opciones_explicitas:
-  - "La ragazza ha andato al cinema ieri."
-  - "La ragazza andò al cinema ieri."
-  - "La ragazza è andata al cinema ieri."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el auxiliar 'è' (essere) con el participio passato 'andata', ya que el verbo 'andare' requiere essere en el passato prossimo cuando se refiere a un cambio de estado."
-```
-
-### 7 — Concordancia de adjectivos
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["adjectives", "concordanza"]
-pasos:
-  - "Identificar el adjetivo y su sustantivo en la oración."
-  - "Verificar que concuerden en género y número."
-respuesta: "Le ragazze sono molto brave."
-enunciado: "¿Cuál es la oración correcta? (Concordancia de adjectivos)"
 opciones_explicitas:
-  - "Le ragazze sono molto brava."
-  - "La ragazza è molto bravi."
-  - "Le ragazze sono molto brave."
-tipo: mc
-explicacion: "La opción correcta usa el adjetivo 'brave' que concuerda en femenino plural con 'ragazze'. Las otras opciones presentan errores de concordancia."
-```
-
-### 8 — Uso del presente di verbo impersonale
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["verbi impersonali", "presente"]
-pasos:
-  - "Identificar el uso del presente de verbo impersonale."
-  - "Verificar que se use para expresar una acción general o universal."
-respuesta: "In Italia si mangia molto bene."
-enunciado: "¿Cuál es la oración correcta? (Uso del presente di verbo impersonale)"
-opciones_explicitas:
-  - "In Italia si mangiava molto bene."
-  - "In Italia si mangierà molto bene."
   - "In Italia si mangia molto bene."
-tipo: mc
-explicacion: "La opción correcta usa el presente de verbo impersonale para expresar una acción general. Las otras opciones usan tiempos verbales incorrectos."
+  - "In Italia si mangiamo molto bene."
+  - "In Italia ci mangia molto bene."
+  - "In Italia si mangiano molto bene (senza oggetto)."
+respuesta: "In Italia si mangia molto bene."
+enunciado: "Quale frase usa correttamente il « si » impersonale?"
+explicacion: "« Si » + terza persona singolare."
 ```
 
-### 9 — Uso del futuro semplice
-```yaml
+### 10 — Produzione scritta 10
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["futuro", "verbi"]
-pasos:
-  - "Identificar el uso correcto del futuro semplice."
-  - "Verificar que se use para expresar una acción futura o hipotética."
-respuesta: "Domani andrò al parco con gli amici."
-enunciado: "¿Cuál es la oración correcta? (Uso del futuro semplice)"
+  tags: ["produzione scritta"]
+tipo: mc
 opciones_explicitas:
   - "Domani andrò al parco con gli amici."
-  - "Domani andavo al parco con gli amici."
-  - "Domani andrai al parco con gli amici."
-tipo: mc
-explicacion: "La opción correcta usa el futuro semplice (andrò) para expresar una acción futura. Las otras opciones usan tiempos verbales incorrectos."
+  - "Domani andai al parco con gli amici."
+  - "Domani vado ieri al parco."
+  - "Domani sono andato al parco."
+respuesta: "Domani andrò al parco con gli amici."
+enunciado: "Quale frase è corretta nell'uso del futuro semplice?"
+explicacion: "Futuro semplice con marcatore temporale futuro."
 ```
 
-### 10 — Uso de "ci" e "ne"
-```yaml
+### 11 — Produzione scritta 11
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["pronomi", "indiretti"]
-pasos:
-  - "Identificar el uso correcto de 'ci' o 'ne' en la oración."
-  - "Verificar que se use para sustituir un complemento preposizionale."
-respuesta: "Non ne ho bisogno."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Non ci ho bisogno."
-  - "Non lo ho bisogno."
-  - "Non ne ho bisogno."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa 'ne' para sustituir un complemento preposizionale (de). Las otras opciones presentan errores de uso de pronombres."
-```
-
-### 11 — Uso del passato remoto
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["passato remoto", "verbi"]
-pasos:
-  - "Identificar el uso correcto del passato remoto."
-  - "Verificar que se use para narrar eventos pasados con cierta distancia temporal."
-respuesta: "Ieri mangiai una pizza molto buona."
-enunciado: "¿Cuál es la oración correcta?"
 opciones_explicitas:
-  - "Ieri mangiai una pizza molto buona."
-  - "Ieri mangio una pizza molto buona."
-  - "Ieri ho mangiato una pizza molto buona."
-tipo: mc
-explicacion: "La opción correcta usa el passato remoto (mangiai), el tiempo que este bloque evalúa. En el italiano hablado moderno el passato prossimo ('ho mangiato') es más frecuente para eventos recientes, pero la forma de passato remoto sigue siendo 'mangiai', no 'ho mangiato'."
-```
-
-### 12 — Uso de "cui"
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["relativo", "cui"]
-pasos:
-  - "Identificar el uso correcto del pronombre relativo 'cui'."
-  - "Verificar que se use para referirse a un complemento preposizionale."
-respuesta: "La persona con cui parlavo è andata via."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "La persona che parlavo è andata via."
-  - "La persona con cui parlavo è andata via."
-  - "La persona cui parlavo è andata via."
-tipo: mc
-explicacion: "La opción correcta usa 'cui' para referirse al complemento preposizionale 'con'. Las otras opciones presentan errores de uso del pronombre relativo."
-```
-
-### 13 — Concordancia en oraciones subordinadas
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["subordinata", "concordanza"]
-pasos:
-  - "Identificar el uso correcto de concordancia en oraciones subordinadas."
-  - "Verificar que se use el tiempo verbal adecuado según la regla del tempo indiretto."
-respuesta: "Ho sentito che lui sarebbe venuto domani."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Ho sentito che lui verrà domani."
-  - "Ho sentito che lui è venuto domani."
   - "Ho sentito che lui sarebbe venuto domani."
-tipo: mc
-explicacion: "La opción correcta usa el condizionale (sarebbe) en la oración subordinada para expresar una acción futura desde el punto de vista del sujeto principal."
+  - "Ho sentito che lui è venuto domani."
+  - "Ho sentito che lui verrà ieri."
+  - "Ho sentito che lui viene ieri."
+respuesta: "Ho sentito che lui sarebbe venuto domani."
+enunciado: "Quale frase è corretta? (Produzione scritta 11)"
+explicacion: "Futuro nel passato: condizionale composto (sarebbe venuto)."
 ```
 
-### 14 — Uso del participio presente
-```yaml
+### 12 — Produzione scritta 12
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["participio", "presente"]
-pasos:
-  - "Identificar el uso correcto del participio presente."
-  - "Verificar que se use para formar frasi con 'avere' o 'essere'."
-respuesta: "Il libro che sto leggendo è molto interessante."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Il libro che stai leggendo è molto interessante."
-  - "Il libro che ho letto è molto interessante."
-  - "Il libro che sto leggendo è molto interessante."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el participio presente (leggendo) con 'sto' para expresar una acción en curso. Las otras opciones usan tiempos verbales incorrectos."
+opciones_explicitas:
+  - "Gli studenti frequentanti il corso sono venti."
+  - "Gli studenti frequentando il corso sono venti."
+  - "Gli studenti frequentati il corso sono venti."
+  - "Gli studenti frequentanti il corso è venti."
+respuesta: "Gli studenti frequentanti il corso sono venti."
+enunciado: "Quale frase usa correttamente il participio presente?"
+explicacion: "Participio presente: frequentanti."
 ```
 
-### 15 — Uso de "dove"
-```yaml
+### 13 — Produzione scritta 13
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["avverbio", "dove"]
-pasos:
-  - "Identificar el uso correcto del avverbio 'dove'."
-  - "Verificar que se use para referirse a un lugar."
-respuesta: "Dove hai messo le chiavi?"
-enunciado: "¿Cuál es la oración correcta?"
+  tags: ["produzione scritta"]
+tipo: mc
 opciones_explicitas:
-  - "Dove hai messo le chiave?"
-  - "Dove hai messo la chiave?"
   - "Dove hai messo le chiavi?"
-tipo: mc
-explicacion: "La opción correcta usa el plural 'chiavi' que concuerda con el sujeto. Las otras opciones presentan errores de concordancia."
+  - "Dove hai messe le chiavi?"
+  - "Dove avete messo la chiavi?"
+  - "Dove hai messo le chiave?"
+respuesta: "Dove hai messo le chiavi?"
+enunciado: "Quale frase è corretta? (Produzione scritta 13)"
+explicacion: "Domanda corretta con passato prossimo."
 ```
 
-### 16 — Uso del participio passato
-```yaml
+### 14 — Produzione scritta 14
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["participio", "passato"]
-pasos:
-  - "Identificar el uso correcto del participio passato."
-  - "Verificar que se use con el auxiliar adecuado (avere o essere)."
-respuesta: "Le lettere sono state spedite ieri."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Le lettere è stato spedite ieri."
-  - "La lettera sono state spedite ieri."
-  - "Le lettere sono state spedite ieri."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el participio passato 'spedite' que concuerde en femenino plural con 'lettere'. Las otras opciones presentan errores de concordancia."
-```
-
-### 17 — Uso del futuro anteriore
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["futuro", "anteriore"]
-pasos:
-  - "Identificar el uso correcto del futuro anteriore."
-  - "Verificar que se use para expresar una acción futura que ocurrirá antes de otra."
-respuesta: "Dopo che avrò finito il lavoro, andrò a casa."
-enunciado: "¿Cuál es la oración correcta?"
 opciones_explicitas:
-  - "Dopo che avrò finito il lavoro, andrà a casa."
   - "Dopo che avrò finito il lavoro, andrò a casa."
-  - "Dopo che avrò finito il lavoro, andrai a casa."
-tipo: mc
-explicacion: "La opción correcta usa el futuro anteriore (avrò finito) seguido del futuro semplice (andrò). Las otras opciones presentan errores de concordancia verbal."
+  - "Dopo che finisco il lavoro, andrò a casa ieri."
+  - "Dopo che ho finito il lavoro, andrei a casa."
+  - "Dopo che avevo finito il lavoro, andrò a casa."
+respuesta: "Dopo che avrò finito il lavoro, andrò a casa."
+enunciado: "Quale frase usa correttamente il futuro anteriore?"
+explicacion: "Futuro anteriore per un'azione futura anteriore ad un'altra."
 ```
 
-### 18 — Uso de "si" impersonale
-```yaml
+### 15 — Produzione scritta 15
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["si", "impersonale"]
-pasos:
-  - "Identificar el uso correcto del 'si' impersonale."
-  - "Verificar que se use para expresar acciones generales o universales."
-respuesta: "In questa città si parla molto bene l'inglese."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "In questa città si parla molto bene l'inglese."
-  - "In questa città si parlò molto bene l'inglese."
-  - "In questa città si parlerà molto bene l'inglese."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el presente del 'si' impersonale para expresar una acción general. Las otras opciones usan tiempos verbales incorrectos."
-```
-
-### 19 — Uso de "per" e "a"
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["preposizioni", "durata"]
-pasos:
-  - "Identificar el uso correcto de 'per' e 'a' para expresar duración."
-  - "Verificar que se use 'per' para períodos y 'a' para puntos en el tiempo."
-respuesta: "Sono andato in vacanza per due settimane."
-enunciado: "¿Cuál es la oración correcta?"
 opciones_explicitas:
-  - "Sono andato in vacanza a due settimane."
   - "Sono andato in vacanza per due settimane."
-  - "Sono andato in vacanza in due settimane."
-tipo: mc
-explicacion: "La opción correcta usa 'per' para indicar un período de tiempo (due settimane). Las otras opciones usan preposiciones incorrectas."
+  - "Sono andato in vacanza da due settimane (durata futura)."
+  - "Sono andato in vacanza fra due settimane ieri."
+  - "Sono andato in vacanza a due settimane."
+respuesta: "Sono andato in vacanza per due settimane."
+enunciado: "Quale frase usa correttamente la preposizione?"
+explicacion: "« Per » indica durata."
 ```
 
-### 20 — Concordancia en oraciones relativas
-```yaml
+### 16 — Produzione scritta 16
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["relativo", "concordanza"]
-pasos:
-  - "Identificar el uso correcto de concordancia en oraciones relativas."
-  - "Verificar que se use el tiempo verbal adecuado según la regla del tempo indiretto."
-respuesta: "Ho visto il ragazzo che stava leggendo un libro."
-enunciado: "¿Cuál es la oración correcta?"
+  tags: ["produzione scritta"]
+tipo: mc
 opciones_explicitas:
-  - "Ho visto il ragazzo che stai leggendo un libro."
-  - "Ho visto il ragazzo che ha letto un libro."
   - "Ho visto il ragazzo che stava leggendo un libro."
-tipo: mc
-explicacion: "La opción correcta usa el imperfetto (stava) en la oración subordinada para expresar una acción simultánea al sujeto principal."
+  - "Ho visto il ragazzo cui stava leggendo un libro."
+  - "Ho visto il ragazzo quale stava leggendo un libro."
+  - "Ho visto il ragazzo dove stava leggendo un libro."
+respuesta: "Ho visto il ragazzo che stava leggendo un libro."
+enunciado: "Quale frase è corretta? (Produzione scritta 16)"
+explicacion: "« Che » come soggetto."
 ```
 
-### 21 — Uso del presente di verbo impersonale
-```yaml
+### 17 — Produzione scritta 17
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["verbi", "impersonale"]
-pasos:
-  - "Identificar el uso correcto del presente de verbo impersonale."
-  - "Verificar que se use para expresar una acción general o universal."
-respuesta: "In questa regione si mangia molto bene."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "In questa regione si mangiava molto bene."
-  - "In questa regione si mangierà molto bene."
-  - "In questa regione si mangia molto bene."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el presente del verbo impersonale para expresar una acción general. Las otras opciones usan tiempos verbales incorrectos."
+opciones_explicitas:
+  - "Dante scrisse la Divina Commedia."
+  - "Dante scrive ieri la Divina Commedia."
+  - "Dante ha scrivuto la Divina Commedia."
+  - "Dante scrivesse la Divina Commedia."
+respuesta: "Dante scrisse la Divina Commedia."
+enunciado: "Quale frase usa correttamente il passato remoto?"
+explicacion: "Passato remoto di scrivere: scrisse."
 ```
 
-### 22 — Uso de "ci" e "ne"
-```yaml
+### 18 — Produzione scritta 18
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["pronomi", "indiretti"]
-pasos:
-  - "Identificar el uso correcto de 'ci' o 'ne' en la oración."
-  - "Verificar que se use para sustituir un complemento preposizionale."
-respuesta: "Non ne ho bisogno."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Non ci ho bisogno."
-  - "Non lo ho bisogno."
-  - "Non ne ho bisogno."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa 'ne' para sustituir un complemento preposizionale (di). Las otras opciones presentan errores de uso de pronombres."
+opciones_explicitas:
+  - "Mentre camminavo, ho visto un uccello raro."
+  - "Mentre camminai, ho visto un uccello raro."
+  - "Mentre camminavo, vedevo un uccello raro ieri sera sola volta."
+  - "Mentre cammino, ho visto un uccello raro ieri."
+respuesta: "Mentre camminavo, ho visto un uccello raro."
+enunciado: "Quale frase è corretta? (Produzione scritta 18)"
+explicacion: "Imperfetto (azione in corso) + passato prossimo (azione puntuale)."
 ```
 
-### 23 — Uso del passato prossimo con "avere"
-```yaml
+### 19 — Produzione scritta 19
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["passato prossimo", "avere"]
-pasos:
-  - "Identificar el uso correcto del passato prossimo con 'avere'."
-  - "Verificar que se use para acciones concluidas en el pasado."
-respuesta: "Ho comprato un regalo per il compleanno."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Ho compri un regalo per il compleanno."
-  - "Ho comprato un regalo per il compleanno."
-  - "Ho comprando un regalo per il compleanno."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el participio passato 'comprato' con el auxiliar 'ho' para formar el passato prossimo. Las otras opciones presentan errores de concordancia."
+opciones_explicitas:
+  - "Se fossi stato più attento, non avresti commesso quell'errore."
+  - "Se sono stato più attento, non avrei commesso quell'errore."
+  - "Se sarei stato più attento, non avresti commesso quell'errore."
+  - "Se fossi più attento, non avresti commesso quell'errore ieri."
+respuesta: "Se fossi stato più attento, non avresti commesso quell'errore."
+enunciado: "Quale frase usa correttamente il condizionale passato?"
+explicacion: "Congiuntivo trapassato + condizionale passato."
 ```
 
-### 24 — Uso del condizionale passato
-```yaml
+### 20 — Produzione scritta 20
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["condizionale", "passato"]
-pasos:
-  - "Identificar el uso correcto del condizionale passato."
-  - "Verificar que se use para expresar deseos o hipótesis irrealizadas en el pasado."
-respuesta: "Se fossi stato più attento, non avresti commesso l'errore."
-enunciado: "¿Cuál es la oración correcta?"
-opciones_explicitas:
-  - "Se fossi stato più attento, non commetti l'errore."
-  - "Se fossi stato più attento, non hai commesso l'errore."
-  - "Se fossi stato più attento, non avresti commesso l'errore."
+  tags: ["produzione scritta"]
 tipo: mc
-explicacion: "La opción correcta usa el condizionale passato (avresti commesso) para expresar una hipótesis irreal en el pasado. Las otras opciones usan tiempos verbales que no corresponden a la apódosis de un período hipotético irreal."
+opciones_explicitas:
+  - "Se avessi più tempo, andrei in vacanza."
+  - "Se avrei più tempo, andrei in vacanza."
+  - "Se ho più tempo, andrei in vacanza."
+  - "Se avessi più tempo, andrò in vacanza."
+respuesta: "Se avessi più tempo, andrei in vacanza."
+enunciado: "Quale frase è corretta? (Produzione scritta 20)"
+explicacion: "Secondo tipo: congiuntivo imperfetto + condizionale presente."
+```
+
+### 21 — Produzione scritta 21
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
+opciones_explicitas:
+  - "Le ragazze sono molto brave."
+  - "Le ragazze sono molto bravi."
+  - "Le ragazze sono molto bravo."
+  - "Le ragazza sono molto brave."
+respuesta: "Le ragazze sono molto brave."
+enunciado: "Quale frase usa correttamente la concordanza dell'aggettivo?"
+explicacion: "Aggettivo concordato in femminile plurale."
+```
+
+### 22 — Produzione scritta 22
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
+opciones_explicitas:
+  - "perciò"
+  - "benché"
+  - "sebbene"
+  - "nonostante"
+respuesta: "perciò"
+enunciado: "Quale connettivo introduce una conseguenza?"
+explicacion: "« Perciò » = por eso."
+```
+
+### 23 — Produzione scritta 23
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
+opciones_explicitas:
+  - "Le sarei grato se potesse inviarmi la documentazione."
+  - "Mandami i documenti subito."
+  - "Dai, inviami i documenti."
+  - "Vorrei i documenti, grazie ciao."
+respuesta: "Le sarei grato se potesse inviarmi la documentazione."
+enunciado: "Quale frase è la più adatta a una lettera formale?"
+explicacion: "Tono formale: condizionale + congiuntivo."
+```
+
+### 24 — Produzione scritta 24
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["produzione scritta"]
+tipo: mc
+opciones_explicitas:
+  - "Ho visto Maria e le ho parlato."
+  - "Ho visto Maria e ho parlato a Maria."
+  - "Ho visto Maria e parlo a Maria."
+  - "Ho visto Maria e io parlo con Maria."
+respuesta: "Ho visto Maria e le ho parlato."
+enunciado: "Quale frase evita la ripetizione usando un pronome?"
+explicacion: "« Le » sostituisce a Maria."
 ```

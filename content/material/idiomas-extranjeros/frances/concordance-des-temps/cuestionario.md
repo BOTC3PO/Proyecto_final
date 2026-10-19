@@ -17,496 +17,402 @@
 
 ---
 
-### 1 — Accord du temps après *si*  
-```yaml
+### 1 — Concordance des temps 1
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["conditionnel", "si"]
-pasos:
-  - "Identificar el tiempo del verbo en la oración principal."
-  - "Asegurar que el verbo de la subordinada concuerde con él."
+  tags: ["concordance des temps"]
 tipo: completar
 respuestas_validas:
-  - "serait"
-  - "Serait"
-enunciado: "Si je ___ à Paris, j'irais au musée."
-explicacion: "Después de *si* y un tiempo hipotético (como el condicional), la subordinada usa el condicional. Aquí, 'je serais' es correcto porque la oración principal ('j'irais') está en condicional."
+  - "viendrait"
+  - "Viendrait"
+enunciado: "Il a dit qu'il ___ (venir) demain. (futur dans le passé)"
+explicacion: "Tras un verbo principal en pasado, el futuro pasa a condicional presente: viendrait."
 ```
 
-
-### 2 — Accord du temps après *quand*  
-```yaml
+### 2 — Concordance des temps 2
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["passé composé", "imparfait"]
-pasos:
-  - "Determinar si la oración principal está en pasado o presente."
-  - "Ajustar el tiempo de la subordinada según la coherencia temporal."
-tipo: completar
-respuestas_validas:
-  - "mangeais"
-  - "Mangeais"
-enunciado: "Quand nous ___ le déjeuner, nous avons entendu un bruit étrange."
-explicacion: "La oración principal ('avons entendu') está en passé composé. La subordinada usa el imparfait (*mangeais*) para describir una acción simultánea al pasado."
-```
-
-
-### 3 — Accord du temps avec *si* (conditionnel)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "concordance-des-temps"
-  nivel: "B2"
-  tags: ["conditionnel", "passé composé"]
-pasos:
-  - "Reconocer si la oración principal es hipotética o real."
-  - "Aplicar el condicional en subordinadas hipotéticas."
-tipo: completar
-respuestas_validas:
-  - "aurait"
-  - "Aurait"
-enunciado: "Si elle ___ eu plus de temps, elle aurait terminé le projet."
-explicacion: "La oración principal ('aurait terminé') está en conditionnel. La subordinada usa el plus-que-parfait (*aurait eu*) para expresar una acción anterior hipotética."
-```
-
-
-### 4 — Accord du temps après *lorsque*  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "concordance-des-temps"
-  nivel: "B2"
-  tags: ["imparfait", "passé composé"]
-pasos:
-  - "Identificar el tiempo de la oración principal."
-  - "Elegir el imparfait o pasado compuesto según la simultaneidad."
-tipo: completar
-respuestas_validas:
-  - "partait"
-  - "Partait"
-enunciado: "Lorsque le train ___ du quai, j'ai vu un accident."
-explicacion: "La oración principal ('j'ai vu') está en passé composé. La subordinada usa el imparfait (*partait*) para describir una acción simultánea al pasado."
-```
-
-
-### 5 — Accord du temps avec *si* (imparfait)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "concordance-des-temps"
-  nivel: "B2"
-  tags: ["imparfait", "conditionnel"]
-pasos:
-  - "Verificar si la oración principal se refiere a un hecho real o hipotético."
-  - "Usar el imparfait en subordinadas reales y condicional en hipotéticas."
+  tags: ["concordance des temps"]
 tipo: completar
 respuestas_validas:
   - "étais"
   - "Étais"
-enunciado: "Si je ___ fatigué, je ne pourrais pas travailler."
-explicacion: "La oración principal ('ne pourrais pas') está en conditionnel. La subordinada usa el imparfait (*étais*) para describir un estado actual que afecta al futuro."
+enunciado: "Elle pensait que tu ___ (être) malade. (simultanéité)"
+explicacion: "Simultaneidad en pasado: imparfait."
 ```
 
-
-### 6 — Accord du temps après *alors que*  
-```yaml
+### 3 — Concordance des temps 3
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["imparfait", "passé composé"]
-pasos:
-  - "Determinar si la acción en la subordinada es simultánea o anterior."
-  - "Usar el imparfait para acciones simultáneas y passé composé para anteriores."
+  tags: ["concordance des temps"]
 tipo: completar
 respuestas_validas:
-  - "mangeait"
-  - "Mangeait"
-enunciado: "Alors que tu ___ le repas, j'ai reçu un appel important."
-explicacion: "La oración principal ('j'ai reçu') está en passé composé. La subordinada usa el imparfait (*mangeait*) para describir una acción simultánea al pasado."
+  - "était arrivé"
+  - "Était arrivé"
+enunciado: "Je savais qu'il ___ (arriver) la veille. (antériorité)"
+explicacion: "Anterioridad respecto a un pasado: plus-que-parfait."
 ```
 
-
-### 7 — Accord du temps avec *si* (passé composé)  
-```yaml
+### 4 — Concordance des temps 4
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["passé composé", "conditionnel"]
-pasos:
-  - "Reconocer si la oración principal es una hipótesis del pasado."
-  - "Usar el plus-que-parfait en subordinadas hipotéticas del pasado."
-tipo: completar
-respuestas_validas:
-  - "avais"
-  - "Avais"
-enunciado: "Si tu ___ eu plus de temps, tu aurais réussi l'exam."
-explicacion: "La oración principal ('aurais réussi') está en conditionnel. La subordinada usa el plus-que-parfait (*avais eu*) para expresar una acción anterior hipotética al pasado."
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "viendrait"
+  - "viendra"
+  - "vienne"
+  - "est venu"
+respuesta: "viendrait"
+enunciado: "« Il dit qu'il viendra. » Au passé : « Il a dit qu'il ___. »"
+explicacion: "Futuro → condicional presente en discurso indirecto pasado."
 ```
 
-
-### 8 — Accord du temps après *pendant que*  
-```yaml
+### 5 — Concordance des temps 5
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["imparfait", "passé composé"]
-pasos:
-  - "Identificar si la acción en la subordinada es simultánea o anterior."
-  - "Usar el imparfait para acciones simultáneas y passé composé para anteriores."
+  tags: ["concordance des temps"]
 tipo: completar
 respuestas_validas:
-  - "étudiait"
-  - "Étudiait"
-enunciado: "Pendant que je ___ le livre, mon frère a fait la cuisine."
-explicacion: "La oración principal ('a fait') está en passé composé. La subordinada usa el imparfait (*étudiait*) para describir una acción simultánea al pasado."
+  - "est arrivée"
+  - "arriva"
+  - "Est arrivée"
+  - "Arriva"
+enunciado: "Quand elle ___ (arriver), nous dînions déjà. (action ponctuelle passée)"
+explicacion: "Acción puntual: passé composé (o passé simple en lengua escrita)."
 ```
 
-
-### 9 — Accord du temps avec *si* (futur)  
-```yaml
+### 6 — Concordance des temps 6
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["imparfait", "conditionnel"]
-pasos:
-  - "Determinar si la oración principal es una hipótesis del presente/futuro."
-  - "Usar el imparfait en la subordinada con 'si' cuando la principal está en conditionnel."
-tipo: completar
-respuestas_validas:
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "serais"
+  - "suis"
+  - "serai"
   - "étais"
-  - "Étais"
-enunciado: "Si je ___ plus riche, j'achèterais une maison."
-explicacion: "La oración principal ('j'achèterais') está en conditionnel. La regla real es 'si + imparfait, conditionnel' ('si + futur' no es una construcción válida en francés); la subordinada usa el imparfait (*étais*)."
+respuesta: "serais"
+enunciado: "Complétez : « Si j'avais su, je ___ venu. »"
+explicacion: "Irreal del pasado: si + plus-que-parfait → conditionnel passé."
 ```
 
-
-### 10 — Accord du temps après *quand* (passé composé)  
-```yaml
+### 7 — Concordance des temps 7
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["passé composé", "imparfait"]
-pasos:
-  - "Verificar si la oración principal está en pasado o presente."
-  - "Usar el imparfait para acciones simultáneas al pasado."
+  tags: ["concordance des temps"]
 tipo: completar
 respuestas_validas:
-  - "mangeais"
-  - "Mangeais"
-enunciado: "Quand nous ___ le déjeuner, on a entendu un bruit étrange."
-explicacion: "La oración principal ('on a entendu') está en passé composé. La subordinada usa el imparfait (*mangeais*) para describir una acción simultánea al pasado."
+  - "resterons"
+  - "Resterons"
+enunciado: "S'il pleut demain, nous ___ (rester) à la maison."
+explicacion: "Si + présent → futur simple."
 ```
 
-
-### 11 — Accord du temps avec *si* (passé composé)  
-```yaml
+### 8 — Concordance des temps 8
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["alors que", "passé composé"]
-pasos:
-  - "Identificar el tiempo del verbo principal (passé composé)."
-  - "Aplicar la regla de concordancia: si el verbo principal está en passé composé, el subordinado debe estar en imparfait."
-explicacion: "El verbo principal 'j'ai reçu' está en pasado compuesto. Por lo tanto, el subordinado 'alors que tu ___' debe usar el imperfecto para mantener la concordancia temporal."
-enunciado: "Alors que tu ___ un film, j'ai reçu un appel important."
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "réussirais"
+  - "réussiras"
+  - "réussis"
+  - "as réussi"
+respuesta: "réussirais"
+enunciado: "Complétez : « Si tu étudiais plus, tu ___ ton examen. »"
+explicacion: "Si + imparfait → conditionnel présent."
+```
+
+### 9 — Concordance des temps 9
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "concordance-des-temps"
+  nivel: "B2"
+  tags: ["concordance des temps"]
 tipo: completar
-respuesta: "regardais"
 respuestas_validas:
-  - "regardais"
-  - "Regardais"
-  - "regardai"
+  - "savait"
+  - "Savait"
+enunciado: "Il a affirmé qu'il ne ___ (savoir) rien. (simultanéité)"
+explicacion: "Imparfait para simultaneidad en el pasado."
 ```
 
-
-### 12 — Accord du temps après *alors que* (passé composé)  
-```yaml
+### 10 — Concordance des temps 10
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["pendant que", "imparfait"]
-pasos:
-  - "El verbo principal 'mon frère a fait' está en passé composé."
-  - "En este contexto, el subordinado debe estar en imparfait para concordar con el tiempo del verbo principal."
-explicacion: "Cuando el verbo principal es un hecho terminado (passé composé), el subordinado se mantiene en imparfait para describir una acción simultánea pero no terminada."
-enunciado: "Pendant que je ___ le livre, mon frère a fait la cuisine."
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "le subjonctif"
+  - "le futur"
+  - "le conditionnel"
+  - "le passé simple"
+respuesta: "le subjonctif"
+enunciado: "Après « bien que », on emploie :"
+explicacion: "« Bien que » + subjuntivo."
+```
+
+### 11 — Concordance des temps 11
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "concordance-des-temps"
+  nivel: "B2"
+  tags: ["concordance des temps"]
 tipo: completar
-respuesta: "lisais"
+respuestas_validas:
+  - "avait fini"
+  - "avait terminé"
+  - "Avait fini"
+  - "Avait terminé"
+enunciado: "Elle a dit qu'elle ___ (finir) le travail la veille. (antériorité)"
+explicacion: "Anterioridad: plus-que-parfait."
+```
+
+### 12 — Concordance des temps 12
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "concordance-des-temps"
+  nivel: "B2"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "le futur dans le passé"
+  - "une politesse"
+  - "une hypothèse irréelle"
+  - "un souhait"
+respuesta: "le futur dans le passé"
+enunciado: "Dans « Je pensais qu'il viendrait », le conditionnel exprime :"
+explicacion: "Futuro desde una perspectiva pasada."
+```
+
+### 13 — Concordance des temps 13
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "concordance-des-temps"
+  nivel: "B2"
+  tags: ["concordance des temps"]
+tipo: completar
 respuestas_validas:
   - "lisais"
   - "Lisais"
+enunciado: "Pendant que je ___ (lire), il téléphonait. (action en cours)"
+explicacion: "Acción en desarrollo en el pasado: imparfait."
 ```
 
-
-### 13 — Accord du temps avec *si* (futur)  
-```yaml
+### 14 — Concordance des temps 14
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["si", "conditionnel"]
-pasos:
-  - "El verbo principal 'je ne pourrais pas' está en conditionnel."
-  - "Para concordar, el subordinado debe usar el imparfait ('si je ___ fatigué')."
-explicacion: "En la estructura 'si + imparfait, conditionnel', se mantiene la relación lógica entre una hipótesis y su consecuencia."
-enunciado: "Si je ___ fatigué, je ne pourrais pas travailler."
-tipo: completar
-respuesta: "étais"
-respuestas_validas:
-  - "étais"
-  - "Étais"
-  - "etais"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "la simultanéité ou le contraste"
+  - "le but"
+  - "la conséquence"
+  - "la condition"
+respuesta: "la simultanéité ou le contraste"
+enunciado: "« Alors que » + imparfait exprime souvent :"
+explicacion: "« Alors que » = mientras que / cuando."
 ```
 
-
-### 14 — Accord du temps après *pendant que* (passé composé)  
-```yaml
+### 15 — Concordance des temps 15
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["quand", "passé composé"]
-pasos:
-  - "El verbo principal 'nous avons entendu' está en passé composé."
-  - "El subordinado debe usar el imparfait para describir una acción simultánea pero no terminada."
-explicacion: "Cuando el verbo principal es un hecho concluido, el subordinado se mantiene en imparfait para contrastar acciones en progreso."
-enunciado: "Quand nous ___ le déjeuner, on a entendu un bruit étrange."
+  tags: ["concordance des temps"]
 tipo: completar
-respuesta: "mangions"
 respuestas_validas:
-  - "mangions"
-  - "Mangions"
+  - "partirait"
+  - "Partirait"
+enunciado: "Il a dit qu'il ___ (partir) si on le lui demandait. (condition)"
+explicacion: "Estilo indirecto: si + imparfait → condicional presente."
 ```
 
-
-### 15 — Accord du temps avec *si* (conditionnel)  
-```yaml
+### 16 — Concordance des temps 16
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["si", "passé composé"]
-pasos:
-  - "El verbo principal 'elle aurait terminé' está en conditionnel passé."
-  - "Para concordar, el subordinado debe usar le passé composé ('si elle ___ eu plus de temps')."
-explicacion: "En la estructura 'si + passé composé, conditionnel passé', se refiere a una hipótesis irreal en el pasado."
-enunciado: "Si elle ___ eu plus de temps, elle aurait terminé le projet."
-tipo: completar
-respuesta: "avait"
-respuestas_validas:
-  - "avait"
-  - "Avait"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "revienne"
+  - "reviendra"
+  - "revenait"
+  - "est revenu"
+respuesta: "revienne"
+enunciado: "Complétez : « Je ne pensais pas qu'il ___ si tôt. »"
+explicacion: "Tras negación de opinión (« ne pas penser que »), subjuntivo."
 ```
 
-
-### 16 — Accord du temps après *quand* (imparfait)  
-```yaml
+### 17 — Concordance des temps 17
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["alors que", "imparfait"]
-pasos:
-  - "El verbo principal 'j'ai reçu' está en passé composé."
-  - "El subordinado debe usar el imparfait para describir una acción simultánea pero no terminada."
-explicacion: "Cuando el verbo principal es un hecho concluido, el subordinado se mantiene en imparfait para contrastar acciones en progreso."
-enunciado: "Alors que tu ___ le repas, j'ai reçu une lettre urgente."
-tipo: completar
-respuesta: "mangeais"
-respuestas_validas:
-  - "mangeais"
-  - "Mangeais"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "Elle m'a dit qu'elle avait déjà mangé."
+  - "Elle m'a dit qu'elle a déjà mangé hier."
+  - "Elle m'a dit qu'elle mangera hier."
+  - "Elle m'a dit qu'elle mangeait hier."
+respuesta: "Elle m'a dit qu'elle avait déjà mangé."
+enunciado: "Choisissez la phrase correcte :"
+explicacion: "Anterioridad en el pasado: plus-que-parfait."
 ```
 
-
-### 17 — Accord du temps avec *si* (conditionnel)  
-```yaml
+### 18 — Concordance des temps 18
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["pendant que", "imparfait"]
-pasos:
-  - "El verbo principal 'mon frère a fini' está en passé composé."
-  - "El subordinado debe usar el imparfait para describir una acción simultánea pero no terminada."
-explicacion: "Cuando el verbo principal es un hecho concluido, el subordinado se mantiene en imparfait para contrastar acciones en progreso."
-enunciado: "Pendant que je ___ le journal, mon frère a fini la lessive."
+  tags: ["concordance des temps"]
 tipo: completar
-respuesta: "lisais"
 respuestas_validas:
-  - "lisais"
-  - "Lisais"
+  - "allions"
+  - "Allions"
+enunciado: "Quand j'étais enfant, nous ___ (aller) tous les étés à la mer. (habitude)"
+explicacion: "Habitud en el pasado: imparfait."
 ```
 
-
-### 18 — Accord du temps après *alors que* (passé composé)  
-```yaml
+### 19 — Concordance des temps 19
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["si", "passé composé"]
-pasos:
-  - "El verbo principal 'j'achèterais' está en conditionnel."
-  - "Para concordar, el subordinado debe usar el imparfait ('si je ___ plus riche')."
-explicacion: "En la estructura 'si + imparfait, conditionnel', se mantiene la relación lógica entre una hipótesis y su consecuencia."
-enunciado: "Si je ___ plus riche, j'achèterais une maison."
-tipo: completar
-respuesta: "étais"
-respuestas_validas:
-  - "étais"
-  - "Étais"
-  - "etais"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "arrivera"
+  - "arrive"
+  - "arriverait"
+  - "est arrivé hier"
+respuesta: "arrivera"
+enunciado: "« Dès qu'il ___, appelez-moi. » (futur)"
+explicacion: "Después de « dès que » se usa futuro simple (o futuro anterior) cuando la idea es futura."
 ```
 
-
-### 19 — Accord du temps avec *si* (futur)  
-```yaml
+### 20 — Concordance des temps 20
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["quand", "imparfait"]
-pasos:
-  - "El verbo principal 'nous étions en vacances' está en imparfait."
-  - "El subordinado debe usar el mismo tiempo (imparfait) para describir acciones simultáneas."
-explicacion: "Cuando el verbo principal describe una acción continua, el subordinado debe mantenerse en el mismo tiempo para coherencia temporal."
-enunciado: "Quand nous ___ en vacances, nous visitions les monuments locaux."
+  tags: ["concordance des temps"]
 tipo: completar
-respuesta: "étions"
 respuestas_validas:
-  - "étions"
-  - "Étions"
-  - "etions"
+  - "finisses"
+  - "Finisses"
+enunciado: "Il ne sortira pas avant que tu ___ (finir) tes devoirs."
+explicacion: "« Avant que » exige subjuntivo."
 ```
 
-
-### 20 — Accord du temps après *pendant que* (imparfait)  
-```yaml
+### 21 — Concordance des temps 21
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["si", "conditionnel passé"]
-pasos:
-  - "El verbo principal 'tu aurais réussi' está en conditionnel passé."
-  - "Para concordar, el subordinado debe usar le passé composé ('si tu ___ eu plus de temps')."
-explicacion: "En la estructura 'si + passé composé, conditionnel passé', se refiere a una hipótesis irreal en el pasado."
-enunciado: "Si tu ___ eu plus de temps, tu aurais réussi l'exam."
-tipo: completar
-respuesta: "avais"
-respuestas_validas:
-  - "avais"
-  - "Avais"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "une action antérieure"
+  - "une action future"
+  - "un souhait"
+  - "un ordre"
+respuesta: "une action antérieure"
+enunciado: "Que remplace « avait + participe passé » dans un récit au passé ?"
+explicacion: "Plus-que-parfait = anterioridad."
 ```
 
-
-### 21 — Accord du temps avec *si* (passé composé)  
-```yaml
+### 22 — Concordance des temps 22
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["alors que", "passé composé"]
-pasos:
-  - "El verbo principal 'j'ai perdu' está en passé composé."
-  - "El subordinado debe usar el imparfait para describir una acción simultánea pero no terminada."
-explicacion: "Cuando el verbo principal es un hecho concluido, el subordinado se mantiene en imparfait para contrastar acciones en progreso."
-enunciado: "Alors que tu ___ le train, j'ai perdu mon billet."
-tipo: completar
-respuesta: "attendais"
-respuestas_validas:
-  - "attendais"
-  - "Attendais"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "donnerait"
+  - "donne"
+  - "a donné"
+  - "donnera"
+respuesta: "donnerait"
+enunciado: "Complétez : « Il a dit qu'il ___ une réponse le lendemain. »"
+explicacion: "Estilo indirecto pasado: futuro → condicional presente."
 ```
 
-
-### 22 — Accord du temps après *quand* (imparfait)  
-```yaml
+### 23 — Concordance des temps 23
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["pendant que", "imparfait"]
-pasos:
-  - "El verbo principal 'mon voisin a fait' está en passé composé."
-  - "El subordinado debe usar el imparfait para describir una acción simultánea pero no terminada."
-explicacion: "Cuando el verbo principal es un hecho concluido, el subordinado se mantiene en imparfait para contrastar acciones en progreso."
-enunciado: "Pendant que je ___ le journal, mon voisin a fait un bruit étrange."
+  tags: ["concordance des temps"]
 tipo: completar
-respuesta: "lisais"
 respuestas_validas:
-  - "lisais"
-  - "Lisais"
+  - "démissionnerait"
+  - "Démissionnerait"
+enunciado: "Il a annoncé qu'il ___ (démissionner) le mois suivant."
+explicacion: "Futuro desde el pasado: condicional presente."
 ```
 
-
-### 23 — Accord du temps avec *si* (conditionnel)  
-```yaml
-metadata:
-  materia: "frances"
-  tema: "concordance-des-temps"
-  nivel: "B2"
-  tags: ["si", "imparfait"]
-pasos:
-  - "El verbo principal 'je pourrais' está en conditionnel."
-  - "Para concordar, el subordinado debe usar el imparfait ('si je ___ à Paris')."
-explicacion: "En la estructura 'si + imparfait, conditionnel', se mantiene la relación lógica entre una hipótesis y su consecuencia."
-enunciado: "Si je ___ à Paris, j'irais au musée."
-tipo: completar
-respuesta: "étais"
-respuestas_validas:
-  - "étais"
-  - "Étais"
-  - "etais"
+### 24 — Concordance des temps 24
 ```
-
-
-### 24 — Accord du temps après *alors que* (passé composé)  
-```yaml
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "concordance-des-temps"
   nivel: "B2"
-  tags: ["quand", "conditionnel"]
-pasos:
-  - "El verbo principal 'nous irions' está en conditionnel."
-  - "Para concordar, el subordinado debe usar el imparfait ('quand nous ___ le déjeuner')."
-explicacion: "En la estructura 'quand + imparfait, conditionnel', se refiere a una hipótesis condicional en un contexto hipotético."
-enunciado: "Quand nous ___ le déjeuner, nous irions au cinéma."
-tipo: completar
-respuesta: "mangions"
-respuestas_validas:
-  - "mangions"
-  - "Mangions"
-```
-
-
-### 25 — Accord du temps avec *si* (futur)  
-```yaml
-metadata:
-  materia: "frances"
-  tema: "concordance-des-temps"
-  nivel: "B2"
-  tags: ["si", "passé composé"]
-pasos:
-  - "El verbo principal 'elle aurait terminé' está en conditionnel passé."
-  - "Para concordar, el subordinado debe usar le passé composé ('si elle ___ eu plus de temps')."
-explicacion: "En la estructura 'si + passé composé, conditionnel passé', se refiere a una hipótesis irreal en el pasado."
-enunciado: "Si elle ___ eu plus de temps, elle aurait terminé le projet."
-tipo: completar
-respuesta: "avait"
-respuestas_validas:
-  - "avait"
-  - "Avait"
+  tags: ["concordance des temps"]
+tipo: mc
+opciones_explicitas:
+  - "une action en cours"
+  - "une action terminée"
+  - "un souhait"
+  - "une condition"
+respuesta: "une action en cours"
+enunciado: "Dans « Quand il est entré, tout le monde se taisait », « se taisait » exprime :"
+explicacion: "Imparfait descriptivo/simultáneo."
 ```

@@ -7,25 +7,20 @@
 
 ---
 
-### 1 — Pronom relatif compo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "pronombres-relativos-compuestos"  
-  nivel: "B2"  
-  tags: ["dont", "homme"]  
-pasos:  
-  - "Identificar el antecedente y el preposicion en la oración."  
-  - "Elegir el pronombre relativo compuesto adecuado según género, número y preposición."  
-tipo: completar  
-respuestas_validas:  
-  - "duquel"  
-  - "Duquel"  
-enunciado: "Le livre ___ je t'ai parlé est très utile pour le projet."  
-explicacion: "El antecedente 'livre' es masculino singular y la preposición es 'de', por lo que se usa 'duquel' (de + lequel)."  
+### 1 — Pronom relatif composé
 ```
-
-
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "pronombres-relativos-compuestos"
+  nivel: "B2"
+  tags: ["lequel", "auquel"]
+tipo: completar
+respuestas_validas:
+  - "auquel"
+  - "Auquel"
+enunciado: "Le projet ___ je participe est très ambitieux."
+explicacion: "« Participer à » + masculino singular: auquel (à + lequel)."
+```
 
 ### 2 — Pronom relatif compo  
 ```  
@@ -87,25 +82,20 @@ explicacion: "'Amie' es femenino singular y la preposición es 'avec', por lo qu
 
 
 
-### 5 — Pronom relatif compo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "pronombres-relativos-compuestos"  
-  nivel: "B2"  
-  tags: ["duquel", "projet"]  
-pasos:  
-  - "Determinar la preposición y el género del antecedente."  
-  - "Aplicar la regla para 'de' + masculino singular."  
-tipo: completar  
-respuestas_validas:  
-  - "duquel"  
-  - "Duquel"  
-enunciado: "Le projet ___ je me suis occupé a beaucoup de défis."  
-explicacion: "'Projet' es masculino singular y la preposición es 'de', por lo que el pronombre correcto es 'duquel' (de + lequel)."  
+### 5 — Pronom relatif composé
 ```
-
-
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "pronombres-relativos-compuestos"
+  nivel: "B2"
+  tags: ["lequel", "préposition"]
+tipo: completar
+respuestas_validas:
+  - "dans laquelle"
+  - "Dans laquelle"
+enunciado: "La maison ___ il habite est ancienne."
+explicacion: "Preposición « dans » + femenino singular: dans laquelle."
+```
 
 ### 6 — Pronom relatif compo  
 ```  
@@ -329,24 +319,20 @@ explicacion: "'Faire un voyage' no requiere preposición, por lo que el pronombr
 ```
 
 
-### 17 — Pronom relatif compo  
-```yaml
+### 17 — Pronom relatif composé
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-compuestos"
   nivel: "B2"
-  tags: ["proposito", "preposicion"]
-pasos:
-  - "Identificar la función del pronombre relativo (complemento de propósito)."
-  - "Combinar el pronombre con la preposición adecuada."
+  tags: ["lesquels", "préposition"]
 tipo: completar
 respuestas_validas:
-  - "pour lequel"
-  - "Pour lequel"
-enunciado: "Le projet ___ je me suis occupé a beaucoup de défis."
-explicacion: "'Occupé' requiere la preposición 'de', pero en este contexto, se usa 'pour' para indicar propósito, combinado con 'lequel'."
+  - "pour lesquelles"
+  - "Pour lesquelles"
+enunciado: "Les raisons ___ il a démissionné sont personnelles."
+explicacion: "« Pour » + femenino plural: pour lesquelles."
 ```
-
 
 ### 18 — Pronom relatif compo  
 ```yaml
@@ -452,24 +438,20 @@ explicacion: "'Utiliser' no requiere preposición en este contexto, por lo que e
 ```
 
 
-### 23 — Pronom relatif compo  
-```yaml
+### 23 — Pronom relatif composé
+```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "pronombres-relativos-compuestos"
   nivel: "B2"
-  tags: ["posesion", "preposicion"]
-pasos:
-  - "Reconocer la necesidad de una preposición para indicar posesión."
-  - "Combinar el pronombre con la preposición adecuada."
+  tags: ["lequel", "avec"]
 tipo: completar
 respuestas_validas:
-  - "dont"
-  - "Dont"
-enunciado: "Le livre ___ je t'ai parlé est très utile pour le projet."
-explicacion: "'Parler de' requiere la preposición 'de', que se combina con el pronombre relativo para formar 'dont'."
+  - "avec lequel"
+  - "Avec lequel"
+enunciado: "Le collègue ___ je travaille est très compétent."
+explicacion: "« Avec » + masculino singular: avec lequel."
 ```
-
 
 ### 24 — Pronom relatif compo  
 ```yaml

@@ -347,86 +347,77 @@ enunciado: "Tu ___ una mela."
 
 ```
 
-### 21 — Conjugare "dire"  
+### 21 — Conjugare il presente 21
 ```
-metadata:  
-  materia: "italiano"  
-  tema: "presente-indicativo"  
-  nivel: "A2"  
-  tags: ["conjugacion", "lui"]  
-pasos:  
-  - "Completa la frase con la forma correcta del verbo 'dire'."  
-respuestas_validas:  
-  - "dice"  
-  - "Dice"  
-tipo: completar  
-enunciado: "Lui ___ la verità."  
-
-```
-
-### 22 — Conjugare "fare"  
-```
-metadata:  
-  materia: "italiano"  
-  tema: "presente-indicativo"  
-  nivel: "A2"  
-  tags: ["conjugacion", "noi"]  
-pasos:  
-  - "Completa la frase con la forma correcta del verbo 'fare'."  
-respuestas_validas:  
-  - "facciamo"  
-  - "Facciamo"  
-tipo: completar  
-enunciado: "Noi ___ i compiti."  
-
-```
-
-### 23 — Conjugare "stare"  
-```
-metadata:  
-  materia: "italiano"  
-  tema: "presente-indicativo"  
-  nivel: "A2"  
-  tags: ["conjugacion", "voi"]  
-pasos:  
-  - "Completa la frase con la forma correcta del verbo 'stare'."  
-respuestas_validas:  
-  - "state"  
-  - "State"  
-tipo: completar  
-enunciado: "Voi ___ bene."  
-
-```
-
-### 24 — Conjugare "vedere"  
-```
-metadata:  
-  materia: "italiano"  
-  tema: "presente-indicativo"  
-  nivel: "A2"  
-  tags: ["conjugacion", "loro"]  
-pasos:  
-  - "Completa la frase con la forma correcta del verbo 'vedere'."  
-respuestas_validas:  
-  - "vedono"  
-  - "Vedono"  
-tipo: completar  
-enunciado: "Loro ___ un film."  
-
-```
-
-### 25 — Conjugare "dormire"  
-```
-metadata:  
-  materia: "italiano"  
-  tema: "presente-indicativo"  
-  nivel: "A2"  
-  tags: ["conjugacion", "io"]  
-pasos:  
-  - "Completa la frase con la forma correcta del verbo 'dormire'."  
-respuestas_validas:  
-  - "dormo"  
-  - "Dormo"  
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "presente-indicativo"
+  nivel: "A2"
+  tags: ["presente", "irregolari"]
 tipo: completar
-enunciado: "Io ___ otto ore."
+respuestas_validas:
+  - "vengono"
+  - "Vengono"
+enunciado: "Loro ___ (venire) a cena stasera."
+explicacion: "Venire: loro vengono."
+```
+
+### 22 — Conjugare il presente 22
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "presente-indicativo"
+  nivel: "A2"
+  tags: ["presente", "irregolari"]
+tipo: completar
+respuestas_validas:
+  - "esci"
+  - "Esci"
+enunciado: "Tu ___ (uscire) con gli amici il sabato."
+explicacion: "Uscire: tu esci."
+```
+
+### 23 — Conjugare il presente 23
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "presente-indicativo"
+  nivel: "A2"
+  tags: ["presente", "irregolari"]
+tipo: completar
+respuestas_validas:
+  - "voglio"
+  - "Voglio"
+enunciado: "Io ___ (volere) un caffè."
+explicacion: "Volere: io voglio."
+```
+
+### 24 — Conjugare il presente 24
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "presente-indicativo"
+  nivel: "A2"
+  tags: ["presente", "irregolari"]
+tipo: completar
+respuestas_validas:
+  - "beviamo"
+  - "Beviamo"
+enunciado: "Noi ___ (bere) l'acqua a pranzo."
+explicacion: "Bere: noi beviamo."
+```
+
+### 25 — Conjugare il presente 25
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "presente-indicativo"
+  nivel: "A2"
+  tags: ["presente", "irregolari"]
+tipo: completar
+respuestas_validas:
+  - "sapete"
+  - "Sapete"
+enunciado: "Voi ___ (sapere) la risposta?"
+explicacion: "Sapere: voi sapete."
 ```

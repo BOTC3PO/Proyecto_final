@@ -306,9 +306,7 @@ metadata:
   nivel: "intermedio"
   tags: ["humanismo", "erasmo", "cristianismo"]
 tipo: completar
-enunciado: "Erasmo de Rotterdam, conocido como \"el príncipe de los humanistas\", criticó los abusos de la Iglesia desde dentro, abogando por un {{cristianismo}} simple y basado en los textos originales."
-variables:
-  cristianismo: uno_de(["cristianismo filosófico", "cristianismo humano", "filosofia christi", "christianismo"])
+enunciado: "Erasmo de Rotterdam, conocido como \"el príncipe de los humanistas\", criticó los abusos de la Iglesia desde dentro, abogando por un ___ simple y basado en los textos originales."
 respuesta: "cristianismo filosófico"
 respuestas_validas:
   - "cristianismo filosófico"
@@ -343,9 +341,7 @@ metadata:
   nivel: "intermedio"
   tags: ["reforma", "inglaterra", "henry"]
 tipo: completar
-enunciado: "Enrique VIII de Inglaterra rompió con la Iglesia Católica principalmente por razones políticas y dinásticas al buscar la anulación de su matrimonio con {{esposa}}."
-variables:
-  esposa: uno_de(["Catalina de Aragón", "catalina de aragon", "Catherine of Aragon", "catalina"])
+enunciado: "Enrique VIII de Inglaterra rompió con la Iglesia Católica principalmente por razones políticas y dinásticas al buscar la anulación de su matrimonio con ___."
 respuesta: "Catalina de Aragón"
 respuestas_validas:
   - "Catalina de Aragón"
@@ -383,9 +379,7 @@ metadata:
   nivel: "intermedio"
   tags: ["arte", "venecia", "color"]
 tipo: completar
-enunciado: "Los pintores venecianos como Tiziano se distinguieron por su uso magistral del {{color} en lugar del dibujo lineal (disegno) predominante en Florencia."
-variables:
-  color: uno_de(["color", "colore", "colour", "Color"])
+enunciado: "Los pintores venecianos como Tiziano se distinguieron por su uso magistral del ___ en lugar del dibujo lineal (disegno) predominante en Florencia."
 respuesta: "color"
 respuestas_validas:
   - "color"
@@ -436,9 +430,7 @@ metadata:
   nivel: "intermedio"
   tags: ["jesuitas", "ignacio", "mision"]
 tipo: completar
-enunciado: "San Ignacio de Loyza fundó la Compañía de Jesús, un orden religiosa dedicada a la {{educacion}} y la misión, que se convirtió en la principal arma de la Iglesia Católica contra la Reforma."
-variables:
-  educacion: uno_de(["educacion", "educación", "education", "enseñanza", "instruction"])
+enunciado: "San Ignacio de Loyza fundó la Compañía de Jesús, un orden religiosa dedicada a la ___ y la misión, que se convirtió en la principal arma de la Iglesia Católica contra la Reforma."
 respuesta: "educacion"
 respuestas_validas:
   - "educacion"

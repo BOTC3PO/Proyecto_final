@@ -293,27 +293,24 @@ respuestas_validas:
 
 
 
-### 15 — Elegir forma nominal de verbo en -are con -zione  
+### 15 — Nominalizzazione di "scrivere"
 ```
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "nominalizzazione"  
-  nivel: "C1"  
-  tags: ["verbi", "-zione"]  
-pasos:  
-  - "Seleccionar el sustantivo derivado de 'scrivere'."  
-explicacion: "El verbo 'scrivere' (escribir) se nominaliza como 'scrittura' con '-tura', no '-zione'. El sufijo '-zione' se usa para verbos terminados en -are, pero 'scrivere' es una excepción que toma '-tura'."  
-enunciado: "La ______ del contratto deve essere verificata."  
-tipo: mc  
-opciones_explicitas:  
-  - "scrittura"  
-  - "scrizione"  
-  - "scrittura"  
-respuesta: "scrittura"  
-
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "nominalizzazione"
+  nivel: "C1"
+  tags: ["nominalizzazione", "-tura"]
+pasos:
+  - "Seleccionar el sustantivo derivado de scrivere."
+tipo: mc
+opciones_explicitas:
+  - "scrittura"
+  - "scrizione"
+  - "scrivenza"
+respuesta: "scrittura"
+enunciado: "La ______ del contratto deve essere verificata."
+explicacion: "Da « scrivere » deriva « scrittura » (sufijo -tura); « scrizione » no existe en italiano estándar."
 ```
-
-
 
 ### 16 — Nominalización de verbo con sufijo -zione en contexto  
 ```

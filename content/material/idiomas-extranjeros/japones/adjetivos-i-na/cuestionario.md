@@ -455,24 +455,19 @@ respuestas_validas:
 explicacion: "簡単 es adjetivo-na: negativo 簡単ではありません (en habla informal 簡単じゃありません)."
 ```
 
-### 24 — 状態の説明
+### 24 — Adjetivo-na antes de un sustantivo
 ```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "sujeito-pessoal"]  
-pasos:  
-  - "Identificar que el sujeto es una persona."  
-  - "Elegir entre adjetivos i y na."  
-opciones_explicitas:  
-  - "せっかち"  
-  - "せっかちな"  
-  - "かわいい"  
-enunciado: "彼は______です。"  
-respuesta: "せっかち"  
-tipo: mc  
-
-explicacion: "'せっかち' (impaciente) es en realidad un na-adjetivo. En posición de predicado (antes de です) va en su forma base sin な; な sólo se usa antes de un sustantivo (p. ej. 'せっかちな人')."  
-
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "adjetivos-i-na"
+  nivel: "N5"
+  tags: ["adjetivo-い", "sujeito-pessoal"]
+enunciado: "この町は____ところです。(静か)"
+tipo: mc
+opciones_explicitas:
+  - "静かな"
+  - "静かい"
+  - "静かの"
+respuesta: "静かな"
+explicacion: "静か es adjetivo-na: se une al sustantivo con な."
 ```

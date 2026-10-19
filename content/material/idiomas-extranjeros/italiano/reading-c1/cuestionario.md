@@ -427,26 +427,24 @@ enunciado: "Il problema ______ ieri."
 
 ---
 
-### 23 — Superlativo relativo (II)  
-```  
-metadata:  
-  materia: "italiano"  
-  tema: "reading-c1"  
-  nivel: "C1"  
-  tags: ["gerundio", "cláusula relativa"]  
-pasos:  
-  - "Reconocer el uso del gerundio en una cláusula relativa que describe una acción continua."  
-  - "Verificar la concordancia entre sujeto y verbo (sesso, numero)."  
-opciones_explicitas:  
-  - "che si offrono"  
-  - "che offre"  
-  - "che offre"  
-respuesta: "che si offrono"  
-tipo: mc  
-enunciado: "Le persone che ______ di aiutare sono rare."  
-```  
-
----
+### 23 — Pronome riflessivo
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-c1"
+  nivel: "C1"
+  tags: ["pronombre relativo", "verbo riflessivo"]
+pasos:
+  - "Reconocer el antecedente plural (le persone) y el reflexivo."
+tipo: mc
+opciones_explicitas:
+  - "si offrono"
+  - "si offre"
+  - "si offrirebbe"
+respuesta: "si offrono"
+enunciado: "Le persone che ______ di aiutare sono rare."
+explicacion: "« Le persone che si offrono »: verbo plural concordado con el antecedente."
+```
 
 ### 24 — Passivo e uso di "essere"  
 ```  

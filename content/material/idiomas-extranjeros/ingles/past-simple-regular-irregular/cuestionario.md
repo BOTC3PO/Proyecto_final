@@ -245,42 +245,35 @@ enunciado: "I ___ a big meal when I arrived at the restaurant."
 explicacion: "'Eat' tiene forma irregular en pasado simple ('ate'), no se sigue la regla '-ed'."  
 ```
 
-### 14 — Regular verb with plural subject and time reference  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "past-simple-regular-irregular"  
-  nivel: "A2"  
-  tags: ["plural", "build"]  
-pasos:  
-  - "Identificar el sujeto plural ('they') y el tiempo referido ('last year')."  
-  - "Aplicar '-ed' al verbo regular 'build'."  
-respuestas_validas:  
-  - "built"  
-  - "Built"  
-tipo: completar  
-enunciado: "They ___ a house last year in the countryside."  
-explicacion: "'Build' es regular en pasado simple ('built'), y el sujeto plural no afecta la conjugación."  
+### 14 — Irregular verb with plural subject and time reference
+```
+metadata:
+  materia: "idiomas-extranjeros/ingles"
+  tema: "past-simple-regular-irregular"
+  nivel: "A2"
+  tags: ["plural", "build"]
+tipo: completar
+respuestas_validas:
+  - "built"
+  - "Built"
+enunciado: "They ___ a house last year in the countryside."
+explicacion: "\"Build\" es irregular en pasado simple: built. El sujeto plural no afecta la conjugación."
 ```
 
-### 15 — Irregular verb with auxiliary 'did' and negative  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "past-simple-regular-irregular"  
-  nivel: "A2"  
-  tags: ["irregular", "tener"]  
-pasos:  
-  - "Revisar la forma irregular del verbo 'have' en pasado."  
-explicacion: "'Have' es un verbo irregular cuya forma pasada es 'had', no 'has' ni 'have'."  
-tipo: completar  
-enunciado: "They ___ a house last year in the countryside."  
-respuestas_validas:  
-  - "had"  
-  - "Had"  
-```  
-
----
+### 15 — Negative past with did
+```
+metadata:
+  materia: "idiomas-extranjeros/ingles"
+  tema: "past-simple-regular-irregular"
+  nivel: "A2"
+  tags: ["negative", "have"]
+tipo: completar
+respuestas_validas:
+  - "didn't have"
+  - "did not have"
+enunciado: "She ___ breakfast this morning. (not / have)"
+explicacion: "Negativa en pasado: did not (didn't) + verbo en infinitivo: didn't have."
+```
 
 ### 16 — Regular verb with third person singular subject and time phrase  
 ```  
@@ -375,24 +368,20 @@ enunciado: "He ___ his car to work yesterday, but it broke down."
 explicacion: "'Drive' es regular en pasado simple ('drove'), y el sujeto singular no afecta la conjugación."  
 ```
 
-### 21 — Irregular verb with narrative context and auxiliary  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "past-simple-regular-irregular"  
-  nivel: "A2"  
-  tags: ["irregular", "romper"]  
-pasos:  
-  - "Identificar la forma pasada del verbo irregular 'break'."  
-explicacion: "'Break' es un verbo irregular cuya forma pasada es 'broke', no 'broken' ni 'breaked'."  
-tipo: completar  
-enunciado: "The glass ___ when the child dropped it on the floor."  
-respuestas_validas:  
-  - "broke"  
-  - "Broke"  
-```  
-
----
+### 21 — Irregular verb in narrative
+```
+metadata:
+  materia: "idiomas-extranjeros/ingles"
+  tema: "past-simple-regular-irregular"
+  nivel: "A2"
+  tags: ["irregular", "ride"]
+tipo: completar
+respuestas_validas:
+  - "rode"
+  - "Rode"
+enunciado: "He ___ his bike to school yesterday. (ride)"
+explicacion: "\"Ride\" es irregular: ride - rode - ridden."
+```
 
 ### 22 — Regular verb with plural subject and time reference  
 ```  

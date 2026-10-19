@@ -4,22 +4,18 @@
 
 ---
 
-### 1 — 文の補足  
+### 1 — Causativo de 寝る
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
   tags: ["causativo", "させる"]
-pasos:
-  - "Identificar el verbo base."
-  - "Aplicar la forma causativa con 「させる」."
-explicacion: "La forma causativa se usa para indicar que alguien hace que otra persona realice una acción. En este caso, el sujeto es '彼', y el complemento es '彼女が眠る'. La forma correcta es 「寝させる」."
+enunciado: "母は赤ちゃんを早く___。(寝る, causativo)"
 tipo: completar
-enunciado: "彼が彼女に___。"
 respuestas_validas:
   - "寝させる"
-  - "寝させる"
+explicacion: "Grupo 2: 寝る→寝させる (hacer dormir)."
 ```
 
 ### 2 — Causativo de 寝る
@@ -310,22 +306,67 @@ explicacion: "走る→走らせる: el entrenador hace correr a los jugadores."
 
 ---
 
-### 17 — 選択肢の選定  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Identificar el verbo en te-forma (〜て) que se necesita para formar la oración causativa."  
-  - "Completar el hueco con la forma correcta de 'させる'."  
-explicacion: "La forma causativa requiere que el verbo base esté en te-forma, seguido de 'させる'. Ejemplo: 食事する → 食事をさせた (hacer que alguien coma)."  
+### 17 — Causativo de 食べる
+```
+metadata:
+  materia: "japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo", "te-forma"]
+enunciado: "彼は妹に野菜を___。(食べる, causativo)"
+tipo: completar
 respuestas_validas:
-  - "食べる"
   - "食べさせる"
-tipo: completar  
-enunciado: "彼が彼女に___。"  
-```  
+explicacion: "食べる→食べさせる: hacer comer."
+```
 
 ---
+
+### 18 — Causativo de 飲む
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo", "させる"]
+enunciado: "母は子どもに薬を___。(飲む, causativo)"
+tipo: mc
+opciones_explicitas:
+  - "飲ませる"
+  - "飲まれる"
+  - "飲める"
+  - "飲んだ"
+respuesta: "飲ませる"
+explicacion: "Grupo 1: 飲む→飲ませる (hacer beber)."
+```
+
+### 19 — Causativo de する
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo", "させる"]
+enunciado: "先生は学生に作文を書く練習を___。(する, causativo)"
+tipo: mc
+opciones_explicitas:
+  - "させる"
+  - "される"
+  - "できる"
+respuesta: "させる"
+explicacion: "する→させる."
+```
+
+### 20 — Causativo de 待つ
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo", "させる"]
+enunciado: "お客さんを長く___ないでください。(待つ, causativo)"
+tipo: completar
+respuestas_validas:
+  - "待たせ"
+explicacion: "待つ→待たせる; en negativo cortés 待たせないでください."
+```

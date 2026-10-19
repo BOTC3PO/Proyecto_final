@@ -346,7 +346,7 @@ metadata:
 pasos:  
   - "Diferenciar o uso de 'haver' (existência) e 'ter' (posse)."  
   - "Avaliar a lógica do contexto."  
-enunciado: "¿Cuál es la oración correcta que usa 'haver' para expresar existencia?"
+enunciado: "¿Cuál es la oración correcta con 'haver' para decir cuánta gente hay en la calle?"
 opciones_explicitas:  
   - "Há muitas pessoas na rua hoje."  
   - "Ela tem muitas pessoas na rua hoje."  
@@ -422,7 +422,7 @@ metadata:
 pasos:  
   - "Diferenciar o uso de 'por' (duração) e 'para' (finalidade)."  
   - "Avaliar a lógica do contexto."  
-enunciado: "¿Cuál es el orden correcto de 'por' (duración) y 'para' (finalidad)?"
+enunciado: "¿Cuál es el orden correcto de 'por' (duración) y 'para' (finalidad) al hablar de estudiar para un examen de hoy?"
 opciones_explicitas:  
   - "Estou a estudar para o exame por duas horas."  
   - "Estou a estudar por duas horas para o exame."  
@@ -460,7 +460,7 @@ metadata:
 pasos:  
   - "Reconhecer a diferença entre 'poder' (capacidade) e 'conseguir' (realização)."  
   - "Avaliar o contexto de possibilidade."  
-enunciado: "¿Cuál es la oración correcta que expresa haber logrado hacer algo ('conseguir')?"
+enunciado: "¿Cuál oración expresa que alguien logró terminar un proyecto ('conseguir')?"
 opciones_explicitas:  
   - "Ela conseguiu fazer o projeto sozinha."  
   - "Ela pode fazer o projeto sozinha."  

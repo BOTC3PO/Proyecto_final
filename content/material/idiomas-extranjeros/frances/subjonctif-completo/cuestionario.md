@@ -339,7 +339,7 @@ metadata:
 pasos:
   - "Reconocer la estructura que requiere el subjonctivo."
   - "Elegir la conjugación correcta del verbo en subjonctif présent."
-enunciado: "¿Cuál es la forma correcta después de 'il est nécessaire que'?"
+enunciado: "¿Cuál es la forma correcta después de 'il est nécessaire que'? (Subjonctif après 'Il est nécessaire que')"
 opciones_explicitas:
   - "que je sois"
   - "que je suis"
@@ -376,7 +376,7 @@ metadata:
 pasos:
   - "Reconocer la expresión que requiere el subjonctivo."
   - "Elegir la conjugación correcta del verbo en subjonctif présent."
-enunciado: "¿Cuál es la forma correcta después de 'il faut absolument que'?"
+enunciado: "¿Cuál es la forma correcta después de 'il faut absolument que'? (Subjonctif après 'Il faut absolument que')"
 opciones_explicitas:
   - "que vous soyez"
   - "que vous êtes"
@@ -413,7 +413,7 @@ metadata:
 pasos:
   - "Reconocer la estructura que requiere el subjonctivo."
   - "Elegir la conjugación correcta del verbo en subjonctif présent."
-enunciado: "¿Cuál es la forma correcta después de 'il est possible que'?"
+enunciado: "¿Cuál es la forma correcta después de 'il est possible que'? (Subjonctif après 'Il est possible que')"
 opciones_explicitas:
   - "que je sois"
   - "que je suis"
@@ -450,7 +450,7 @@ metadata:
 pasos:
   - "Reconocer la estructura que requiere el subjonctivo."
   - "Elegir la conjugación correcta del verbo en subjonctif présent."
-enunciado: "¿Cuál es la forma correcta después de 'il vaut mieux que'?"
+enunciado: "¿Cuál es la forma correcta después de 'il vaut mieux que'? (Subjonctif après 'Il vaut mieux que')"
 opciones_explicitas:
   - "que je sois"
   - "que je suis"

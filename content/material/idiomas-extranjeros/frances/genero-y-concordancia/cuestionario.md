@@ -414,27 +414,24 @@ explicacion: "El sustantivo 'professeur' es masculino singular. El adjetivo debe
 
 ---
 
-### 23 — El artículo con sustantivo femenino singular  
+### 23 — Concordancia del adjetivo con sustantivo femenino plural
 ```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "genero-y-concordancia"
-  nivel: "A1-A2"
-  tags: ["adjetivo", "neutro", "plural"]
+  nivel: "A1"
+  tags: ["adjetivo", "plural"]
 pasos:
-  - "Identificar el género del sustantivo 'pommes'."
-  - "Elegir la forma correcta del adjetif que concuerde en género y número."
+  - "Identificar género y número del sustantivo."
+tipo: mc
 opciones_explicitas:
   - "rouges"
   - "rouge"
-  - "rouge"
+  - "rougent"
 respuesta: "rouges"
-tipo: mc
-enunciado: "Les ___ pommes sont très juteuses."
-explicacion: "El sustantivo 'pommes' es neutro plural. El adjetivo debe concordar en género y número, por lo tanto se usa la forma femenina plural 'rouges' (los frutos suelen ser femeninos)."
+enunciado: "Les pommes ___ sont très juteuses."
+explicacion: "« Pommes » es femenino plural: el adjetivo concuerda en número (rouges)."
 ```
-
----
 
 ### 24 — El adjetivo masculino singular  
 ```

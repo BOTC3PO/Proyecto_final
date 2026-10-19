@@ -29,29 +29,25 @@ explicacion: "El participio 'été' concuerda en número con 'lettres' (femenino
 
 
 
-### 2 — Subjuntivo después de expresiones impersonales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "writing-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "expresiones impersonales"]  
-pasos:  
-  - "Reconocer la estructura que requiere el subjuntivo."  
-  - "Elegir la forma correcta del verbo en subjuntivo."  
-tipo: mc  
-enunciado: "Il est nécessaire que ___ la réunion à l'heure prévue."  
+### 2 — Subjuntivo después de expresiones impersonales
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "writing-c1"
+  nivel: "C1"
+  tags: ["subjuntivo", "expresiones impersonales"]
+pasos:
+  - "Reconocer la estructura que requiere el subjuntivo."
+tipo: mc
 opciones_explicitas:
-  - "on assiste"
-  - "on assiste"
   - "assistions"
+  - "assistons"
   - "assister"
-respuesta: "on assiste"  
-explicacion: "Después de expresiones impersonales como 'il est nécessaire', se usa el subjuntivo. La forma correcta es 'que on assiste'."  
-```  
-
-
-
+  - "assistaient"
+respuesta: "assistions"
+enunciado: "Il est nécessaire que nous ___ à la réunion à l'heure prévue."
+explicacion: "Después de « il est nécessaire que » se usa subjuntivo: que nous assistions."
+```
 
 ### 3 — Uso del gerundio  
 ```  

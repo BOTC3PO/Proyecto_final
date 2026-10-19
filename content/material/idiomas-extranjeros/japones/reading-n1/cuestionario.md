@@ -294,23 +294,21 @@ explicacion: "El te-form ～た se usa para describir acciones pasadas. La forma
 
 
 
-### 15 — 無理（させられる）
+### 15 — Causativo-pasivo
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
   tags: ["causativo-pasivo", "negación"]
-pasos:
-  - "Identificar la estructura causativa-pasiva."
-  - "Elegir la opción que expresa negación con させられる。"
-enunciado: "¿Cuál es la oración correcta que expresa que algo fue hecho contra la voluntad de alguien (causativo-pasivo)?"
+enunciado: "Elegí la oración con causativo-pasivo de «残業する» (obligado a hacer horas extra):"
+tipo: mc
 opciones_explicitas:
-  - "彼は無理に働かされた"
-  - "彼は働ける"
-  - "彼は仕事をした"
-respuesta: "彼は無理に働かされた"
-explicacion: "La forma causativo-pasivo ～させられる se usa para mostrar que algo fue hecho contra la voluntad. La opción correcta incluye el adverbio 無理に (contra la voluntad)."
+  - "彼は毎日、残業させられている"
+  - "彼は毎日、残業させている"
+  - "彼は毎日、残業できる"
+respuesta: "彼は毎日、残業させられている"
+explicacion: "Causativo-pasivo = verbo en forma causativa + られる: 残業させられる."
 ```
 
 

@@ -336,7 +336,7 @@ metadata:
   tags: ["numeros", "concordancia", "cardinales"]
 pasos:
   - "Elegir la opción correcta."
-enunciado: "¿Cuál es correcta?"
+enunciado: "«Tres autos» (سيارة es femenino): ¿cuál es correcta?"
 opciones_explicitas:
   - "ثلاث سيارات"
   - "ثلاثة سيارات"
@@ -355,7 +355,7 @@ metadata:
   tags: ["numeros", "concordancia", "cardinales"]
 pasos:
   - "Elegir la opción correcta."
-enunciado: "¿Cuál es correcta?"
+enunciado: "«Tres libros» (كتاب es masculino): ¿cuál es correcta?"
 opciones_explicitas:
   - "ثلاثة كتب"
   - "ثلاث كتب"

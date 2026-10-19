@@ -344,26 +344,25 @@ explicacion: |
   Falso. 'Aquí' indica cercanía, 'allí' indica lejanía o lugar genérico. La prueba estándar usa 'allí' como pronombre adverbial de lugar neutro o de referencia lejana, que es más común en la teoría sintáctica para generalizar.
 ```
 
-### 17 — pregunta 17
+### 17 — Nexo de destino
 
 ```
 metadata:
   materia: "Lengua"
   tema: "subordinada_adverbial_de_lugar"
   nivel: "intermedio"
-  tags: ["destino", "nexos"]
+  tags: ["subordinadas", "lugar"]
 
-variables:
-  destino: uno_de(["a donde", "desde donde", "donde"])
-  contexto: "Iré {destino} me llames."
-
-respuesta: "a donde"
 tipo: completar
+respuesta: "adonde"
+respuestas_validas:
+  - "adonde"
+  - "a donde"
 
-enunciado: "Completa la oración '{contexto}' con el nexo que indica destino o dirección hacia un lugar."
+enunciado: "Completá la oración «Iré ___ me llames» con el nexo que indica destino o dirección hacia un lugar."
 
 explicacion: |
-  'A donde' indica el punto de llegada o destino. 'Desde donde' indica origen, 'donde' ubicación.
+  «Adonde» (o «a donde») indica el punto de llegada. «Desde donde» marca origen y «donde» ubicación.
 ```
 
 ### 18 — pregunta 18

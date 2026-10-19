@@ -70,7 +70,7 @@ metadata:
   tags: ["alfabeto", "escritura", "conexion"]
 pasos:
   - "Elegir la opción correcta."
-enunciado: "¿Cuál de estas letras NO se une a la letra siguiente?"
+enunciado: "Entre las letras ب، س، د, ¿cuál NO se une a la letra que le sigue?"
 opciones_explicitas:
   - "د"
   - "ب"
@@ -89,7 +89,7 @@ metadata:
   tags: ["alfabeto", "escritura", "conexion"]
 pasos:
   - "Elegir la opción correcta."
-enunciado: "¿Cuál de estas letras NO se une a la letra siguiente?"
+enunciado: "Entre las letras ر، ل، م, ¿cuál NO se une a la letra que le sigue?"
 opciones_explicitas:
   - "ر"
   - "ل"

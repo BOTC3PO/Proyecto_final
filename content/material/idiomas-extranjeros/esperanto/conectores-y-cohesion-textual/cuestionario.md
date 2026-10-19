@@ -146,7 +146,7 @@ metadata:
   tags: ["conectores", "b2"]
 pasos:
   - "Elegir o escribir la respuesta correcta."
-enunciado: "¿Cuál es correcta?"
+enunciado: "¿Cuál oración expresa la causa con un sustantivo («me quedé en casa por la lluvia»)?"
 opciones_explicitas:
   - "Mi restis hejme pro la pluvo."
   - "Mi restis hejme ĉar la pluvo."
@@ -165,7 +165,7 @@ metadata:
   tags: ["conectores", "b2"]
 pasos:
   - "Elegir o escribir la respuesta correcta."
-enunciado: "¿Cuál es correcta?"
+enunciado: "¿Cuál oración expresa la causa con una cláusula («me quedé en casa porque llovía»)?"
 opciones_explicitas:
   - "Mi restis hejme, ĉar pluvis."
   - "Mi restis hejme, pro pluvis."

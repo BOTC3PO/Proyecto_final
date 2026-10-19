@@ -279,7 +279,7 @@ metadata:
   tags: ["writing", "b2"]
 pasos:
   - "Elegir o escribir la opción correcta."
-enunciado: "Tarea de escritura: ¿Cuál es correcta?"
+enunciado: "Tarea de escritura: oración de relativo con «kiuj» («las personas que trabajan aquí son amables»). ¿Cuál es correcta?"
 opciones_explicitas:
   - "La homoj, kiuj laboras ĉi tie, estas afablaj."
   - "La homoj kiu laboras ĉi tie estas afablaj."
@@ -298,7 +298,7 @@ metadata:
   tags: ["writing", "b2"]
 pasos:
   - "Elegir o escribir la opción correcta."
-enunciado: "Tarea de escritura: ¿Cuál es correcta?"
+enunciado: "Tarea de escritura: concordancia de adjetivo en plural («las nuevas reglas son más estrictas»). ¿Cuál es correcta?"
 opciones_explicitas:
   - "La novaj regularoj estas pli strikaj."
   - "La nova regularoj estas pli strikaj."
@@ -374,7 +374,7 @@ metadata:
   tags: ["writing", "b2"]
 pasos:
   - "Elegir o escribir la opción correcta."
-enunciado: "Tarea de escritura: ¿Cuál es correcta?"
+enunciado: "Tarea de escritura: uso del acusativo («envié el informe al director»). ¿Cuál es correcta?"
 opciones_explicitas:
   - "Mi sendis la raporton al la direktoro."
   - "Mi sendis la raporto al la direktoro."
@@ -393,7 +393,7 @@ metadata:
   tags: ["writing", "b2"]
 pasos:
   - "Elegir o escribir la opción correcta."
-enunciado: "Tarea de escritura: ¿Cuál es correcta?"
+enunciado: "Tarea de escritura: par correlativo «no solo… sino también». ¿Cuál es correcta?"
 opciones_explicitas:
   - "Ne nur li, sed ankaŭ ŝi venis."
   - "Ne nur li, tamen ankaŭ ŝi venis."

@@ -166,122 +166,175 @@ respuesta: "窓がありません。"
 explicacion: "La forma negativa formal de あります es ありません."
 ```
 
-### 10 — 異なる場面
-```yaml
+### 10 — ございます
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
-  tags: ["contexto", "uso"]
-pasos:
-  - "Identificar el contexto del enunciado."
-  - "Seleccionar la forma correcta de 'aru' según el contexto."
-explicacion: "'あります' se usa para describir algo presente en un lugar específico, como una mesa en una sala de espera."
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "En atención al cliente, para decir con máxima cortesía «hay una reunión a las tres» se dice:"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "待合室にテーブルがあります。"
-  - "待合室にテーブルがいます。"
-  - "待合室にテーブルがありません。"
-respuesta: "待合室にテーブルがあります。"
+  - "三時に会議がございます。"
+  - "三時に会議がいらっしゃいます。"
+  - "三時に会議があるでございます。"
+respuesta: "三時に会議がございます。"
+explicacion: "ございます es la forma muy formal (kenjōgo/teineigo) de あります."
 ```
 
-### 11 — 電話の場面
-```yaml
+### 11 — Equivalente formal de あります
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
-  tags: ["comunicación", "negativa"]
-pasos:
-  - "Analizar el contexto de la comunicación."
-  - "Elegir la forma correcta para negar existencia formalmente."
-explicacion: "'ありません' se usa en la forma negativa cuando se habla de objetos inanimados. Aquí, se niega la presencia del teléfono."
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "El equivalente muy formal de あります es:"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "電話があります。"
-  - "電話がありません。"
-  - "電話がいます。"
-respuesta: "電話がありません。"
+  - "ございます"
+  - "いらっしゃいます"
+  - "おります"
+respuesta: "ございます"
+explicacion: "いらっしゃいます y おります son para personas; ございます es para cosas."
 ```
 
-### 12 — ビル内の状況
-```yaml
+### 12 — Negativo muy formal
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
-  tags: ["ubicación", "possession"]
-pasos:
-  - "Identificar la ubicación mencionada en el enunciado."
-  - "Seleccionar la forma correcta de 'aru' para indicar posesión formal."
-explicacion: "'あります' se usa cuando se habla de un objeto presente en un lugar específico, como una oficina en un edificio."
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "«ございません» es la forma muy formal de:"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "オフィスに本があります。"
-  - "オフィスに本がいます。"
-  - "オフィスに本がありません。"
-respuesta: "オフィスに本があります。"
+  - "ありません"
+  - "いません"
+  - "ありました"
+respuesta: "ありません"
+explicacion: "ございません reemplaza a ありません."
 ```
 
-### 13 — 時間の表現
-```yaml
+### 13 — Ofrecer un servicio
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
-  tags: ["tiempo", "existencia"]
-pasos:
-  - "Interpretar la relación entre el tiempo y la existencia."
-  - "Seleccionar la forma correcta para indicar un estado temporal formalmente."
-explicacion: "'あります' se usa cuando se describe un estado que persiste en el tiempo, como una fecha escrita en un calendario."
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "Para decir con cortesía que hay un asiento libre:"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "カレンダーに日があります。"
-  - "カレンダーに日がいます。"
-  - "カレンダーに日がありません。"
-respuesta: "カレンダーに日があります。"
+  - "空席がございます。"
+  - "空席がおります。"
+  - "空席がいらっしゃいます。"
+respuesta: "空席がございます。"
+explicacion: "Para cosas se usa ございます; おります e いらっしゃいます son para personas."
 ```
 
-### 14 — 組み合わせの確認
-```yaml
+### 14 — Humilde de います
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
-  tags: ["combinación", "sujeto"]
-pasos:
-  - "Verificar la combinación del verbo y el sujeto."
-  - "Escoger la opción que usa 'aru' correctamente."
-explicacion: "'あります' se combina con objetos inanimados, mientras que 'います' se usa para seres vivos. Aquí, '椅子' es un objeto no vivo."
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "La forma humilde de います («estoy/estamos aquí») es:"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "椅子があります。"
-  - "椅子がいます。"
-  - "椅子がありません。"
-respuesta: "椅子があります。"
+  - "おります"
+  - "ございます"
+  - "いらっしゃる"
+respuesta: "おります"
+explicacion: "おります es el humilde de います; いらっしゃる es honorífico."
 ```
 
-### 15 — 状態の説明
-```yaml
+### 15 — Honorífico de います
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "estilo-formal-de-aru"
   nivel: "N2"
-  tags: ["condición", "negativa"]
-pasos:
-  - "Analizar el estado descrito en la oración."
-  - "Elegir la forma correcta de 'aru' para negar el estado formalmente."
-explicacion: "'ありません' se usa para negar la existencia de un objeto inanimado (no su estado): la oración afirma que no hay ninguna puerta en ese lugar, a diferencia de 'ドアが閉まっています' (la puerta está cerrada), que describe un estado distinto."
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "El honorífico de います para una persona respetable es:"
 tipo: mc
-enunciado: "¿Cuál es la oración gramaticalmente correcta?"
 opciones_explicitas:
-  - "ドアが閉まっています。"
-  - "ドアがあります。"
-  - "ドアがありません。"
-respuesta: "ドアがありません。"
+  - "いらっしゃいます"
+  - "おります"
+  - "ございます"
+respuesta: "いらっしゃいます"
+explicacion: "いらっしゃる es el honorífico de いる/行く/来る."
+```
+
+### 16 — Pasado muy formal
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "estilo-formal-de-aru"
+  nivel: "N2"
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "El pasado muy formal de ございます es:"
+tipo: mc
+opciones_explicitas:
+  - "ございました"
+  - "ございます"
+  - "ございません"
+respuesta: "ございました"
+explicacion: "El pasado se forma con ございました."
+```
+
+### 17 — Completar con ございます
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "estilo-formal-de-aru"
+  nivel: "N2"
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "こちらがメニューで___。"
+tipo: completar
+respuestas_validas:
+  - "ございます"
+explicacion: "Estilo muy formal: こちらがメニューでございます."
+```
+
+### 18 — Completar con ございます
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "estilo-formal-de-aru"
+  nivel: "N2"
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "ただいま満席で___。"
+tipo: completar
+respuestas_validas:
+  - "ございます"
+explicacion: "ただいま満席でございます = en este momento no hay mesas libres."
+```
+
+### 19 — ございます con seres vivos
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "estilo-formal-de-aru"
+  nivel: "N2"
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "ございます se puede usar para reemplazar a います cuando se habla de personas."
+tipo: vf
+respuesta: falso
+explicacion: "ございます solo reemplaza a あります (cosas); para personas se usan いらっしゃいます (honorífico) u おります (humilde)."
+```
+
+### 20 — Disculpa formal
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "estilo-formal-de-aru"
+  nivel: "N2"
+  tags: ["existencia", "objeto-inanimado"]
+enunciado: "«申し訳ございません» es una forma muy formal de pedir disculpas."
+tipo: vf
+respuesta: verdadero
+explicacion: "申し訳ございません es la disculpa estándar en atención al cliente."
 ```

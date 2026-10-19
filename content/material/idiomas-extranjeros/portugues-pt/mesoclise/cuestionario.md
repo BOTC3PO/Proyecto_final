@@ -416,25 +416,21 @@ explicacion: "El verbo 'visitar' con la preposición 'com' requiere que el prono
 
 ---
 
-### 24 — Mesoclise em oração com objeto direto e indireto
+### 24 — Mesóclise con futuro y pronombres
 ```
 metadata:
   materia: "portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
   tags: ["pronome", "enviar"]
-pasos:
-  - "Identificar el verbo y la preposición en uso."
-  - "Aplicar la regla de mesoclise con el pronombre correspondiente."
-opciones_explicitas:
-  - "envia-lhe"
-  - "enviei para ele"
-  - "enviam para vocês"
-  - "envia-lhe"
-respuesta: "envia-lhe"
+enunciado: "¿Qué oración usa correctamente la mesóclise («se lo daré mañana»)?"
 tipo: mc
-enunciado: "O chefe ___ o documento a todos os funcionários."
-explicacion: "El verbo 'enviar' con la preposición 'a' requiere que el pronombre se intercale, formando 'envia-lhe'. Las otras opciones no siguen esta regla (ej. 'enviei para ele' es pretérito y no encaja aquí)."
+opciones_explicitas:
+  - "Dar-lho-ei amanhã."
+  - "Darei-lho amanhã."
+  - "Lho darei amanhã."
+respuesta: "Dar-lho-ei amanhã."
+explicacion: "En el portugués europeo, el futuro sin partícula atractora lleva el clítico en mesóclise: dar-lho-ei."
 ```
 
 ---

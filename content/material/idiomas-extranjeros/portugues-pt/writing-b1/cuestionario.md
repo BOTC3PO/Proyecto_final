@@ -115,23 +115,21 @@ enunciado: "Ela _______ um novo computador ontem."
 
 
 
-### 6 — Acordo de adjetivo com substantivo plural  
-```yaml
+### 6 — Concordância de adjetivo
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "writing-b1"
   nivel: "B1"
   tags: ["acordo", "adjetivos"]
-pasos:
-  - "Determinar o número do substantivo."
-  - "Ajustar o adjetivo para plural masculino."
-respuesta: "interessantes"
+enunciado: "Os filmes _______ são muito populares."
+tipo: mc
 opciones_explicitas:
-  - "interessante"
   - "interessantes"
   - "interessante"
-tipo: mc
-enunciado: "Os filmes _______ são muito populares."
+  - "interessanta"
+respuesta: "interessantes"
+explicacion: "El adjetivo concuerda en número con el sustantivo plural: filmes → interessantes."
 ```
 
 
@@ -296,23 +294,21 @@ enunciado: "Vou _______ Paris fazer um intercâmbio."
 
 
 
-### 15 — Acordo de adjetivo com substantivo feminino  
-```yaml
+### 15 — Concordância de adjetivo
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "writing-b1"
   nivel: "B1"
   tags: ["acordo", "adjetivos"]
-pasos:
-  - "Determinar o gênero do substantivo."
-  - "Ajustar o adjetivo para feminino singular."
-respuesta: "interessante"
-opciones_explicitas:
-  - "interessante"
-  - "interessantes"
-  - "interessante"
+enunciado: "As casas _______ ficam perto do rio."
 tipo: mc
-enunciado: "A música _______ me encanta muito."
+opciones_explicitas:
+  - "antigas"
+  - "antigo"
+  - "antiga"
+respuesta: "antigas"
+explicacion: "Concuerda en género y número con casas (femenino plural): antigas."
 ```
 
 
@@ -397,23 +393,21 @@ enunciado: "Ela _______ um romance todos os dias na infância."
 
 
 
-### 20 — Uso de "entre" vs "entre" com plural  
-```yaml
+### 20 — Preposição entre
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "writing-b1"
   nivel: "B1"
   tags: ["preposições", "plural"]
-pasos:
-  - "Identificar se o substantivo é singular ou plural."
-  - "Escolher 'entre' com plural para múltiplas opções."
-respuesta: "entre"
+enunciado: "Escolha _______ as duas opções disponíveis."
+tipo: mc
 opciones_explicitas:
   - "entre"
-  - "entre"
-  - "entre"
-tipo: mc
-enunciado: "Escolha _______ as duas opções disponíveis."
+  - "por"
+  - "sobre"
+respuesta: "entre"
+explicacion: "«Escolher entre» indica elección dentro de un conjunto de opciones."
 ```
 
 

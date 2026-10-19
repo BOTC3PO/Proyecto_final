@@ -531,7 +531,7 @@ variables:
 
 respuesta: correcta
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+opciones_explicitas: [distractor1, distractor2, correcta]
 
 enunciado: "Los géneros secundarios se construyen sobre la base de:"
 
@@ -595,7 +595,7 @@ variables:
 
 respuesta: correcta
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+opciones_explicitas: [distractor1, distractor2, correcta]
 
 enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo PRIMARIO?"
 
@@ -659,7 +659,7 @@ variables:
 
 respuesta: correcta
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+opciones_explicitas: [distractor1, distractor2, correcta]
 
 enunciado: "En la teoría, los géneros discursivos se comparan a menudo con:"
 
@@ -723,7 +723,7 @@ variables:
 
 respuesta: correcta
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+opciones_explicitas: [distractor1, distractor2, correcta]
 
 enunciado: "Los géneros secundarios toman elementos de los primarios y los:"
 
@@ -786,7 +786,7 @@ variables:
 
 respuesta: correcta
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+opciones_explicitas: [distractor1, distractor2, correcta]
 
 enunciado: "¿Cuál de los siguientes es un ejemplo de género discursivo secundario complejo?"
 
@@ -850,7 +850,7 @@ variables:
 
 respuesta: correcta
 tipo: mc
-opciones_explicitas: [distractor1, distractor2, correcta, distractor1]
+opciones_explicitas: [distractor1, distractor2, correcta]
 
 enunciado: "¿Qué actúa como 'guía' o 'receta' social para navegar situaciones de la vida cotidiana?"
 

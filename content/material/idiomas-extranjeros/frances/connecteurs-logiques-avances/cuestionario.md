@@ -14,526 +14,433 @@
 
 ---
 
-### 1 — Connecteur de contraste  
-```yaml
+### 1 — Connecteurs logiques 1
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["contraste", "alors que"]
-pasos:
-  - "Identificar el tipo de relación lógica entre las oraciones."
-  - "Seleccionar el conectivo adecuado para unirlas en contraste."
-enunciado: "¿Cuál es el conector correcto para expresar un contraste u oposición entre dos ideas?"
-respuesta: "alors que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "alors que"
+  - "Bien qu'"
+  - "Parce qu'"
+  - "Puisqu'"
+  - "Alors qu'"
+respuesta: "Bien qu'"
+enunciado: "Complétez : « ___ il pleuve, nous irons au match. »"
+explicacion: "« Bien que » exprime la concession y exige subjuntivo (pleuve)."
+```
+
+### 2 — Connecteurs logiques 2
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: mc
+opciones_explicitas:
+  - "par conséquent"
+  - "néanmoins"
+  - "en revanche"
+  - "quoique"
+respuesta: "par conséquent"
+enunciado: "Quel connecteur exprime la conséquence ?"
+explicacion: "« Par conséquent » introduce una consecuencia."
+```
+
+### 3 — Connecteurs logiques 3
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: completar
+respuestas_validas:
+  - "par conséquent"
+  - "donc"
+  - "ainsi"
+  - "Par conséquent"
+  - "Donc"
+  - "Ainsi"
+enunciado: "Il n'a pas révisé ; ___, il a échoué à l'examen. (conséquence)"
+explicacion: "Conectores de consecuencia: par conséquent, donc, ainsi."
+```
+
+### 4 — Connecteurs logiques 4
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: mc
+opciones_explicitas:
+  - "en revanche"
+  - "c'est pourquoi"
+  - "de sorte que"
   - "puisque"
-  - "ainsi que"
+respuesta: "en revanche"
+enunciado: "Quel connecteur marque l'opposition ?"
+explicacion: "« En revanche » = en cambio."
+```
+
+### 5 — Connecteurs logiques 5
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: mc
+opciones_explicitas:
+  - "même si"
+  - "parce que"
+  - "afin que"
+  - "de sorte que"
+respuesta: "même si"
+enunciado: "Complétez : « Elle a accepté le poste, ___ le salaire était faible. »"
+explicacion: "« Même si » + indicativo: concesión."
+```
+
+### 6 — Connecteurs logiques 6
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: completar
+respuestas_validas:
+  - "afin d'"
+  - "pour"
+  - "Afin d'"
+  - "Pour"
+enunciado: "Il a travaillé dur ___ obtenir une promotion. (but)"
+explicacion: "« Afin de » / « pour » + infinitivo expresan finalidad."
+```
+
+### 7 — Connecteurs logiques 7
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: mc
+opciones_explicitas:
+  - "une cause"
+  - "un but"
+  - "une opposition"
+  - "une condition"
+respuesta: "une cause"
+enunciado: "« Étant donné que » introduit :"
+explicacion: "« Étant donné que » = dado que."
+```
+
+### 8 — Connecteurs logiques 8
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "connecteurs-logiques-avances"
+  nivel: "C1"
+  tags: ["connecteurs logiques"]
+tipo: mc
+opciones_explicitas:
+  - "pour que"
+  - "parce que"
+  - "puisque"
   - "comme"
-explicacion: "El conectivo 'alors que' se usa para expresar contraste entre dos situaciones. En este caso, una situación contrasta con otra."
+respuesta: "pour que"
+enunciado: "Quel connecteur est suivi du subjonctif ?"
+explicacion: "« Pour que » exige subjuntivo."
 ```
 
-
-### 2 — Connecteur de causalidad  
-```yaml
+### 9 — Connecteurs logiques 9
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["causalidad", "puisque"]
-pasos:
-  - "Analizar la relación lógica entre las oraciones."
-  - "Elegir el conectivo que exprese causa o razón."
-enunciado: "¿Cuál es el conector correcto para expresar la causa o razón de algo?"
-respuesta: "puisque"
-opciones_explicitas:
-  - "puisque"
-  - "alors que"
-  - "malgré que"
-  - "bien que"
-explicacion: "'Puisque' se utiliza para introducir una razón o causa, lo cual es el caso en esta oración."
+  tags: ["connecteurs logiques"]
+tipo: completar
+respuestas_validas:
+  - "Bien que"
+  - "Quoique"
+enunciado: "___ le prix soit élevé, ce produit se vend très bien. (concession + subjonctif)"
+explicacion: "Bien que / quoique + subjuntivo."
 ```
 
-
-### 3 — Connecteur de concesión  
-```yaml
+### 10 — Connecteurs logiques 10
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["concesion", "bien que"]
-pasos:
-  - "Reconocer la idea de concesión en el contexto."
-  - "Elegir el conectivo que indique una contradicción ocedente."
-enunciado: "¿Cuál es el conector correcto para expresar una concesión (una idea que limita o contradice la primera)?"
-respuesta: "bien que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "bien que"
+  - "à condition que"
   - "alors que"
-  - "puisque"
-  - "ainsi que"
-explicacion: "'Bien que' se usa para expresar una concesión, es decir, una idea que contradice o limita la primera."
+  - "tandis que"
+  - "néanmoins"
+respuesta: "à condition que"
+enunciado: "Quel connecteur exprime la condition ?"
+explicacion: "« À condition que » + subjuntivo."
 ```
 
-
-### 4 — Connecteur de comparaison (addition)  
-```yaml
+### 11 — Connecteurs logiques 11
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparación", "ainsi que"]
-pasos:
-  - "Identificar la relación de causa y efecto entre las oraciones."
-  - "Elegir el conectivo que indique una consecuencia lógica."
-enunciado: "¿Cuál es el conector correcto para expresar una comparación o adición equivalente ('tal como'/'así como')?"
-respuesta: "ainsi que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "ainsi que"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Ainsi que' significa 'tal como' o 'así como': introduce una comparación o adición equivalente, no una consecuencia (para consecuencia se usarían conectores como 'donc' o 'par conséquent')."
+  - "présenter deux aspects d'une question"
+  - "exprimer une cause"
+  - "conclure"
+  - "donner un exemple"
+respuesta: "présenter deux aspects d'une question"
+enunciado: "« D'une part… d'autre part… » sert à :"
+explicacion: "Estructura de enumeración/contraposición."
 ```
 
-
-### 5 — Connecteur de oposición  
-```yaml
+### 12 — Connecteurs logiques 12
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["oposicion", "alors que"]
-pasos:
-  - "Determinar si las oraciones presentan una oposición clara."
-  - "Seleccionar el conectivo más adecuado para expresar esa oposición."
-enunciado: "¿Cuál es el conector correcto para expresar un contraste u oposición entre dos ideas?"
-respuesta: "alors que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "alors que"
-  - "puisque"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Alors que' se utiliza para unir dos ideas contrastantes, lo cual es el caso aquí."
+  - "en somme"
+  - "d'ailleurs"
+  - "pourtant"
+  - "cependant"
+respuesta: "en somme"
+enunciado: "Quel connecteur sert à conclure ?"
+explicacion: "« En somme » = en resumen."
 ```
 
-
-### 6 — Connecteur de causalidad  
-```yaml
+### 13 — Connecteurs logiques 13
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["causalidad", "puisque"]
-pasos:
-  - "Reconocer la relación de causa y efecto."
-  - "Elegir el conectivo que indique una explicación clara."
-enunciado: "¿Cuál es el conector correcto para expresar la causa o razón de algo?"
-respuesta: "puisque"
-opciones_explicitas:
-  - "caractérisé par"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Caractérisé par' no es un conectivo lógico (es una locución verbal pasiva, 'está caracterizado por'), no puede unir dos cláusulas como conjunción. 'Puisque' es el conectivo causal real."
+  tags: ["connecteurs logiques"]
+tipo: completar
+respuestas_validas:
+  - "pourtant"
+  - "cependant"
+  - "néanmoins"
+  - "toutefois"
+  - "Pourtant"
+  - "Cependant"
+  - "Néanmoins"
+  - "Toutefois"
+enunciado: "Il est fatigué ; ___, il continue à travailler. (opposition)"
+explicacion: "Conectores adversativos: pourtant, cependant, néanmoins, toutefois."
 ```
 
-
-### 7 — Connecteur de concesión  
-```yaml
+### 14 — Connecteurs logiques 14
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["concesion", "malgré que"]
-pasos:
-  - "Identificar la idea principal y la concesión."
-  - "Elegir el conectivo que exprese una excepción o limitación."
-enunciado: "¿Cuál es el conector correcto para expresar una concesión (una idea que limita o contradice la primera)?"
-respuesta: "malgré que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "malgré que"
-  - "alors que"
-  - "puisque"
-  - "ainsi que"
-explicacion: "'Malgré que' se usa para expresar una concesión, es decir, algo que ocurre a pesar de otro factor."
+  - "l'opposition"
+  - "la conséquence"
+  - "le but"
+  - "la condition"
+respuesta: "l'opposition"
+enunciado: "« Tandis que » peut exprimer :"
+explicacion: "« Tandis que » = mientras que (contraste)."
 ```
 
-
-### 8 — Connecteur de comparaison (addition)  
-```yaml
+### 15 — Connecteurs logiques 15
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparación", "ainsi que"]
-pasos:
-  - "Determinar si la segunda oración es una consecuencia lógica de la primera."
-  - "Seleccionar el conectivo más adecuado para unir ambas ideas."
-enunciado: "¿Cuál es el conector correcto para expresar una comparación o adición equivalente ('tal como'/'así como')?"
-respuesta: "ainsi que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "ainsi que"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Ainsi que' significa 'tal como' o 'así como': introduce una comparación o adición equivalente, no una consecuencia (para consecuencia se usarían conectores como 'donc' o 'par conséquent')."
+  - "grâce à son"
+  - "à cause de son"
+  - "faute de son"
+  - "malgré son"
+respuesta: "grâce à son"
+enunciado: "Complétez : « Il a réussi ___ travail acharné. »"
+explicacion: "« Grâce à » indica causa positiva."
 ```
 
-
-### 9 — Connecteur de comparación  
-```yaml
+### 16 — Connecteurs logiques 16
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparacion", "alors que"]
-pasos:
-  - "Identificar la relación de comparación entre las oraciones."
-  - "Elegir el conectivo que indique una diferencia o similitud."
-enunciado: "¿Cuál es el conector correcto para comparar dos situaciones, destacando su diferencia?"
-respuesta: "alors que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "alors que"
-  - "puisque"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Alors que' se usa para comparar dos situaciones, destacando su diferencia."
+  - "à cause de"
+  - "grâce à"
+  - "afin de"
+  - "en vue de"
+respuesta: "à cause de"
+enunciado: "Quelle expression marque une cause négative ?"
+explicacion: "« À cause de » suele indicar causa negativa."
 ```
 
-
-### 10 — Connecteur de causalidad  
-```yaml
+### 17 — Connecteurs logiques 17
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["causalidad", "puisque"]
-pasos:
-  - "Analizar la relación entre las ideas para determinar si hay causa."
-  - "Seleccionar el conectivo que indique una explicación."
-enunciado: "¿Cuál es el conector correcto para expresar la causa o razón de algo?"
-respuesta: "puisque"
-opciones_explicitas:
-  - "puisque"
-  - "alors que"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Puisque' se usa para presentar la causa de un fenómeno o situación mencionada."
+  tags: ["connecteurs logiques"]
+tipo: completar
+respuestas_validas:
+  - "malgré"
+  - "en dépit de"
+  - "Malgré"
+  - "En dépit de"
+enunciado: "Il est sorti ___ la pluie. (concession : a pesar de)"
+explicacion: "« Malgré » / « en dépit de » + sustantivo."
 ```
 
-
-### 11 — Connecteur de concesión  
-```yaml
+### 18 — Connecteurs logiques 18
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["concesion", "bien que"]
-pasos:
-  - "Reconocer una idea principal y una concesión."
-  - "Elegir el conectivo que indique una contradicción ocedente."
-enunciado: "¿Cuál es el conector correcto para expresar una concesión (una idea que limita o contradice la primera)?"
-respuesta: "bien que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "bien que"
-  - "alors que"
-  - "puisque"
-  - "ainsi que"
-explicacion: "'Bien que' se usa para conectar dos ideas donde la segunda limita o contradice a la primera."
+  - "introduire un élément nouveau qui oriente la conclusion"
+  - "exprimer une cause"
+  - "donner un exemple"
+  - "marquer le temps"
+respuesta: "introduire un élément nouveau qui oriente la conclusion"
+enunciado: "« Or » dans un raisonnement sert à :"
+explicacion: "« Or » = ahora bien, introduce la premisa menor."
 ```
 
-
-### 12 — Connecteur de comparaison (addition)  
-```yaml
+### 19 — Connecteurs logiques 19
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparación", "ainsi que"]
-pasos:
-  - "Identificar si la segunda oración es una consecuencia lógica."
-  - "Seleccionar el conectivo más adecuado para unir ambas ideas."
-enunciado: "¿Cuál es el conector correcto para expresar una comparación o adición equivalente ('tal como'/'así como')?"
-respuesta: "ainsi que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "ainsi que"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Ainsi que' significa 'tal como' o 'así como': introduce una comparación o adición equivalente, no una consecuencia (para consecuencia se usarían conectores como 'donc' o 'par conséquent')."
+  - "en outre"
+  - "en revanche"
+  - "pourtant"
+  - "sauf que"
+respuesta: "en outre"
+enunciado: "Quel connecteur est un synonyme de « de plus » ?"
+explicacion: "Ambos añaden información."
 ```
 
-
-### 13 — Connecteur de comparación  
-```yaml
+### 20 — Connecteurs logiques 20
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparacion", "alors que"]
-pasos:
-  - "Determinar si hay una relación de comparación entre las oraciones."
-  - "Elegir el conectivo que indique una diferencia o similitud."
-enunciado: "¿Cuál es el conector correcto para comparar dos situaciones, destacando su diferencia?"
-respuesta: "alors que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "alors que"
-  - "puisque"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Alors que' se usa para comparar dos situaciones, destacando su diferencia."
+  - "la conséquence"
+  - "le but"
+  - "la concession"
+  - "la condition"
+respuesta: "la conséquence"
+enunciado: "« De sorte que » + indicatif exprime :"
+explicacion: "Con indicativo = consecuencia; con subjuntivo = finalidad."
 ```
 
-
-### 14 — Connecteur de causalidad  
-```yaml
+### 21 — Connecteurs logiques 21
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["causalidad", "puisque"]
-pasos:
-  - "Identificar la causa y el efecto en las oraciones."
-  - "Elegir el conectivo que indique una explicación clara."
-enunciado: "¿Cuál es el conector correcto para expresar la causa o razón de algo?"
-respuesta: "puisque"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "puisque"
-  - "alors que"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Puisque' se usa para presentar la causa de un fenómeno o situación mencionada."
+  - "le subjonctif (but)"
+  - "l'indicatif (conséquence)"
+  - "le conditionnel"
+  - "l'impératif"
+respuesta: "le subjonctif (but)"
+enunciado: "Dans « Elle travaille de sorte qu'il ait de quoi vivre », le mode après « de sorte que » est :"
+explicacion: "« De sorte que » + subjuntivo = finalidad."
 ```
 
-
-### 15 — Connecteur de concesión  
-```yaml
+### 22 — Connecteurs logiques 22
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["concesion", "malgré que"]
-pasos:
-  - "Reconocer una idea principal y una concesión."
-  - "Seleccionar el conectivo que indique una excepción o limitación."
-enunciado: "¿Cuál es el conector correcto para expresar una concesión (una idea que limita o contradice la primera)?"
-respuesta: "malgré que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "malgré que"
-  - "alors que"
-  - "puisque"
-  - "ainsi que"
-explicacion: "'Malgré que' se usa para expresar una concesión, es decir, algo que ocurre a pesar de otro factor."
+  - "Bien qu'il soit malade, il travaille."
+  - "Bien qu'il est malade, il travaille."
+  - "Bien qu'il serait malade, il travaille."
+  - "Bien qu'il sera malade, il travaille."
+respuesta: "Bien qu'il soit malade, il travaille."
+enunciado: "Quelle phrase utilise correctement « bien que » ?"
+explicacion: "« Bien que » exige subjuntivo."
 ```
 
-
-### 16 — Connecteur de comparaison (addition)  
-```yaml
+### 23 — Connecteurs logiques 23
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparación", "ainsi que"]
-pasos:
-  - "Determinar si la segunda oración es una consecuencia lógica."
-  - "Seleccionar el conectivo más adecuado para unir ambas ideas."
-enunciado: "¿Cuál es el conector correcto para expresar una comparación o adición equivalente ('tal como'/'así como')?"
-respuesta: "ainsi que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "ainsi que"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Ainsi que' significa 'tal como' o 'así como': introduce una comparación o adición equivalente, no una consecuencia (para consecuencia se usarían conectores como 'donc' o 'par conséquent')."
+  - "confirmer ou expliquer ce qui précède"
+  - "s'opposer à ce qui précède"
+  - "conclure par une condition"
+  - "exprimer le but"
+respuesta: "confirmer ou expliquer ce qui précède"
+enunciado: "« En effet » sert à :"
+explicacion: "« En effet » = efectivamente / en efecto."
 ```
 
-
-### 17 — Connecteur de comparación  
-```yaml
+### 24 — Connecteurs logiques 24
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "connecteurs-logiques-avances"
   nivel: "C1"
-  tags: ["comparacion", "alors que"]
-pasos:
-  - "Identificar la relación de comparación entre las oraciones."
-  - "Elegir el conectivo que indique una diferencia o similitud."
-enunciado: "¿Cuál es el conector correcto para comparar dos situaciones, destacando su diferencia?"
-respuesta: "alors que"
+  tags: ["connecteurs logiques"]
+tipo: mc
 opciones_explicitas:
-  - "alors que"
-  - "puisque"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Alors que' se usa para comparar dos situaciones, destacando su diferencia."
-```
-
-
-### 18 — Connecteur de causalidad  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["causalidad", "puisque"]
-pasos:
-  - "Analizar la relación entre las ideas para determinar si hay causa."
-  - "Seleccionar el conectivo que indique una explicación."
-enunciado: "¿Cuál es el conector correcto para expresar la causa o razón de algo?"
-respuesta: "puisque"
-opciones_explicitas:
-  - "puisque"
-  - "alors que"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Puisque' se usa para presentar la causa de un fenómeno o situación mencionada."
-```
-
-
-### 19 — Connecteur de concesión  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["concesion", "bien que"]
-pasos:
-  - "Reconocer una idea principal y una concesión."
-  - "Elegir el conectivo que indique una contradicción ocedente."
-enunciado: "¿Cuál es el conector correcto para expresar una concesión (una idea que limita o contradice la primera)?"
-respuesta: "bien que"
-opciones_explicitas:
-  - "bien que"
-  - "alors que"
-  - "puisque"
-  - "ainsi que"
-explicacion: "'Bien que' se usa para conectar dos ideas donde la segunda limita o contradice a la primera."
-```
-
-
-### 20 — Connecteur de comparaison (addition)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["comparación", "ainsi que"]
-pasos:
-  - "Identificar si la segunda oración es una consecuencia lógica."
-  - "Seleccionar el conectivo más adecuado para unir ambas ideas."
-enunciado: "¿Cuál es el conector correcto para expresar una comparación o adición equivalente ('tal como'/'así como')?"
-respuesta: "ainsi que"
-opciones_explicitas:
-  - "ainsi que"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Ainsi que' significa 'tal como' o 'así como': introduce una comparación o adición equivalente, no una consecuencia (para consecuencia se usarían conectores como 'donc' o 'par conséquent')."
-```
-
-
-### 21 — Connecteur de comparación  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["comparacion", "alors que"]
-pasos:
-  - "Determinar si hay una relación de comparación entre las oraciones."
-  - "Elegir el conectivo que indique una diferencia o similitud."
-enunciado: "¿Cuál es el conector correcto para comparar dos situaciones, destacando su diferencia?"
-respuesta: "alors que"
-opciones_explicitas:
-  - "alors que"
-  - "puisque"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Alors que' se usa para comparar dos situaciones, destacando su diferencia."
-```
-
-
-### 22 — Connecteur de causalidad  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["causalidad", "puisque"]
-pasos:
-  - "Identificar la causa y el efecto en las oraciones."
-  - "Elegir el conectivo que indique una explicación clara."
-enunciado: "¿Cuál es el conector correcto para expresar la causa o razón de algo?"
-respuesta: "puisque"
-opciones_explicitas:
-  - "puisque"
-  - "alors que"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Puisque' se usa para presentar la causa de un fenómeno o situación mencionada."
-```
-
-
-### 23 — Connecteur de concesión  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["concesion", "malgré que"]
-pasos:
-  - "Reconocer una idea principal y una concesión."
-  - "Seleccionar el conectivo que indique una excepción o limitación."
-enunciado: "¿Cuál es el conector correcto para expresar una concesión (una idea que limita o contradice la primera)?"
-respuesta: "malgré que"
-opciones_explicitas:
-  - "malgré que"
-  - "alors que"
-  - "puisque"
-  - "ainsi que"
-explicacion: "'Malgré que' se usa para expresar una concesión, es decir, algo que ocurre a pesar de otro factor."
-```
-
-
-### 24 — Connecteur de comparaison (addition)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["comparación", "ainsi que"]
-pasos:
-  - "Determinar si la segunda oración es una consecuencia lógica."
-  - "Seleccionar el conectivo más adecuado para unir ambas ideas."
-enunciado: "¿Cuál es el conector correcto para expresar una comparación o adición equivalente ('tal como'/'así como')?"
-respuesta: "ainsi que"
-opciones_explicitas:
-  - "ainsi que"
-  - "alors que"
-  - "puisque"
-  - "bien que"
-explicacion: "'Ainsi que' significa 'tal como' o 'así como': introduce una comparación o adición equivalente, no una consecuencia (para consecuencia se usarían conectores como 'donc' o 'par conséquent')."
-```
-
-
-### 25 — Connecteur de comparación  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "connecteurs-logiques-avances"
-  nivel: "C1"
-  tags: ["comparacion", "alors que"]
-pasos:
-  - "Identificar la relación de comparación entre las oraciones."
-  - "Elegir el conectivo que indique una diferencia o similitud."
-enunciado: "¿Cuál es el conector correcto para comparar dos situaciones, destacando su diferencia?"
-respuesta: "alors que"
-opciones_explicitas:
-  - "alors que"
-  - "puisque"
-  - "bien que"
-  - "ainsi que"
-explicacion: "'Alors que' se usa para comparar dos situaciones, destacando su diferencia."
+  - "par exemple"
+  - "néanmoins"
+  - "donc"
+  - "sinon"
+respuesta: "par exemple"
+enunciado: "Quel connecteur introduit un exemple ?"
+explicacion: "« Par exemple » introduce un ejemplo."
 ```

@@ -289,23 +289,21 @@ tipo: mc
 explicacion: "औ = au."
 ```
 
-### 16 — क
+### 16 — La consonante ख
 ```
 metadata:
   materia: "idiomas-extranjeros/hindi"
   tema: "devanagari-consonantes-y-vocales"
   nivel: "A1"
-  tags: ["devanagari", "alfabeto", "escritura"]
-pasos:
-  - "Elegir la opción correcta."
-enunciado: "La consonante क se lee: (क)"
-opciones_explicitas:
-  - "ka"
-  - "kha"
-  - "ga"
-respuesta: "ka"
+  tags: ["devanagari", "alfabeto"]
 tipo: mc
-explicacion: "क = ka."
+opciones_explicitas:
+  - "kha"
+  - "ka"
+  - "ga"
+respuesta: "kha"
+enunciado: "La consonante ख se lee:"
+explicacion: "ख = kha (aspirada)."
 ```
 
 ### 17 — ख

@@ -279,7 +279,7 @@ metadata:
   tags: ["traduccion", "c1"]
 pasos:
   - "Elegir o escribir la respuesta correcta."
-enunciado: "¿Cuál es correcta?"
+enunciado: "Querés traducir «veo a María». ¿Cuál es correcta?"
 opciones_explicitas:
   - "Mi vidas Marian."
   - "Mi vidas al Maria."
@@ -298,7 +298,7 @@ metadata:
   tags: ["traduccion", "c1"]
 pasos:
   - "Elegir o escribir la respuesta correcta."
-enunciado: "¿Cuál es correcta?"
+enunciado: "Querés traducir «el médico me cura». ¿Cuál es correcta?"
 opciones_explicitas:
   - "La kuracisto kuracas min."
   - "La kuracisto kuras min."

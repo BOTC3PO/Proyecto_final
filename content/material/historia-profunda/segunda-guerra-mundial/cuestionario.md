@@ -141,9 +141,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pacifico", "armas-nucleares", "1945"]
 tipo: completar
-enunciado: "El 6 de agosto de 1945, el bombardero B-29 Enola Gay arrojó la primera bomba atómica en combate sobre la ciudad japonesa de {{ciudad}}, causando la muerte inmediata de unas 70.000 a 80.000 personas."
-variables:
-  ciudad: uno_de(["Hiroshima", "Hiroshima"])
+enunciado: "El 6 de agosto de 1945, el bombardero B-29 Enola Gay arrojó la primera bomba atómica en combate sobre la ciudad japonesa de ___, causando la muerte inmediata de unas 70.000 a 80.000 personas."
 respuesta: "hiroshima"
 respuestas_validas:
   - "hiroshima"
@@ -191,9 +189,7 @@ metadata:
   nivel: "avanzado"
   tags: ["causas", "ww1", "humillacion"]
 tipo: completar
-enunciado: "Muchos historiadores argumentan que las duras condiciones del {{tratado}} de 1919, que incluyó la cláusula de culpa de guerra y las reparaciones económicas, crearon el resentimiento nacionalista que el nazismo explotó para ascender al poder."
-variables:
-  tratado: uno_de(["Tratado de Versalles", "Tratado de Versalles"])
+enunciado: "Muchos historiadores argumentan que las duras condiciones del ___ de 1919, que incluyó la cláusula de culpa de guerra y las reparaciones económicas, crearon el resentimiento nacionalista que el nazismo explotó para ascender al poder."
 respuesta: "tratado de versalles"
 respuestas_validas:
   - "tratado de versalles"
@@ -210,9 +206,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pacifico", "naval", "1942"]
 tipo: completar
-enunciado: "La batalla de {{isla}}, librada en junio de 1942, fue el punto de inflexión en el Pacífico, donde la marina estadounidense hundió cuatro portaaviones japoneses, deteniendo su expansión estratégica."
-variables:
-  isla: uno_de(["Midway", "Midway"])
+enunciado: "La batalla de ___, librada en junio de 1942, fue el punto de inflexión en el Pacífico, donde la marina estadounidense hundió cuatro portaaviones japoneses, deteniendo su expansión estratégica."
 respuesta: "midway"
 respuestas_validas:
   - "midway"
@@ -242,9 +236,7 @@ metadata:
   nivel: "avanzado"
   tags: ["frente-occidental", "día-d", "1944"]
 tipo: completar
-enunciado: "La operación anfibia más grande de la historia, conocida como el Día D, tuvo lugar el 6 de junio de 1944 en las playas de {{region_costera}} en el norte de Francia."
-variables:
-  region_costera: uno_de(["Normandía", "Normandía"])
+enunciado: "La operación anfibia más grande de la historia, conocida como el Día D, tuvo lugar el 6 de junio de 1944 en las playas de ___ en el norte de Francia."
 respuesta: "normandia"
 respuestas_validas:
   - "normandia"
@@ -279,13 +271,11 @@ metadata:
   nivel: "avanzado"
   tags: ["holocausto", "campos", "genocidio"]
 tipo: completar
-enunciado: "{{campo}}, ubicado cerca de Cracovia, fue el mayor y más letal de los campos de exterminio nazis, donde murieron aproximadamente 1,1 millones de personas, la mayoría judíos."
-variables:
-  campo: uno_de(["Auschwitz-Birkenau", "Auschwitz-Birkenau"])
-respuesta: "aushwitz-birkenau"
+enunciado: "___, ubicado cerca de Cracovia, fue el mayor y más letal de los campos de exterminio nazis, donde murieron aproximadamente 1,1 millones de personas, la mayoría judíos."
+respuesta: "auschwitz-birkenau"
 respuestas_validas:
-  - "aushwitz-birkenau"
-  - "aushwitz"
+  - "auschwitz-birkenau"
+  - "auschwitz"
   - "auschwitz-birkenau"
   - "Auschwitz-Birkenau"
 explicacion: "El complejo de Auschwitz-Birkenau era el centro principal de la \"Solución Final\", combinando trabajo forzado y exterminio industrial mediante cámaras de gas y crematorios."
@@ -317,9 +307,7 @@ metadata:
   nivel: "avanzado"
   tags: ["diplomacia", "post-guerra", "1945"]
 tipo: completar
-enunciado: "En julio de 1945, Truman (o Stalin en la segunda fase), Churchill (luego Attlee) y Stalin se reunieron en {{ciudad}} para acordar los detalles de la ocupación de Alemania y las fronteras polacas."
-variables:
-  ciudad: uno_de(["Potsdam", "Potsdam"])
+enunciado: "En julio de 1945, Truman, Churchill (reemplazado a mitad de la conferencia por Attlee) y Stalin se reunieron en ___ para acordar los detalles de la ocupación de Alemania y las fronteras polacas."
 respuesta: "potsdam"
 respuestas_validas:
   - "potsdam"
@@ -336,9 +324,7 @@ metadata:
   nivel: "avanzado"
   tags: ["italia", "partisanos", "resistencia"]
 tipo: completar
-enunciado: "Tras el armisticio italiano de 1943, la resistencia italiana contra la ocupación alemana en el norte se organizó principalmente como el {{movimiento_resistencia}}, liderado por el Comité de Liberación Nacional."
-variables:
-  movimiento_resistencia: uno_de(["CLN", "CLN"])
+enunciado: "Tras el armisticio italiano de 1943, la resistencia italiana contra la ocupación alemana en el norte se organizó principalmente como el ___, liderado por el Comité de Liberación Nacional."
 respuesta: "cln"
 respuestas_validas:
   - "cln"
@@ -356,9 +342,7 @@ metadata:
   nivel: "avanzado"
   tags: ["bombardeo", "controversia", "1945"]
 tipo: completar
-enunciado: "En febrero de 1945, los aliados bombardearon la ciudad histórica de {{ciudad}}, causando un incendio devastador y la muerte de decenas de miles de civiles, un hecho aún debatido por su necesidad militar."
-variables:
-  ciudad: uno_de(["Dresde", "Dresde"])
+enunciado: "En febrero de 1945, los aliados bombardearon la ciudad histórica de ___, causando un incendio devastador y la muerte de decenas de miles de civiles, un hecho aún debatido por su necesidad militar."
 respuesta: "dresde"
 respuestas_validas:
   - "dresde"
@@ -393,9 +377,7 @@ metadata:
   nivel: "avanzado"
   tags: ["nordic", "invasion", "1940"]
 tipo: completar
-enunciado: "En abril de 1940, Alemania lanzó la Operación Weserübung para invadir y ocupar {{paises_nordicos}}, asegurando sus suministros de hierro y su costa contra los aliados."
-variables:
-  paises_nordicos: uno_de(["Noruega y Dinamarca", "Noruega y Dinamarca"])
+enunciado: "En abril de 1940, Alemania lanzó la Operación Weserübung para invadir y ocupar ___, asegurando sus suministros de hierro y su costa contra los aliados."
 respuesta: "noruega y dinamarca"
 respuestas_validas:
   - "noruega y dinamarca"
@@ -412,9 +394,7 @@ metadata:
   nivel: "avanzado"
   tags: ["justicia", "crimenes-guerra", "1945"]
 tipo: completar
-enunciado: "Tras la guerra, los principales criminales de guerra nazis fueron juzgados por el Tribunal Militar Internacional en {{ciudad_juicio}}, estableciendo precedentes para el derecho internacional penal."
-variables:
-  ciudad_juicio: uno_de(["Núremberg", "Núremberg"])
+enunciado: "Tras la guerra, los principales criminales de guerra nazis fueron juzgados por el Tribunal Militar Internacional en ___, estableciendo precedentes para el derecho internacional penal."
 respuesta: "nuremberg"
 respuestas_validas:
   - "nuremberg"
@@ -432,9 +412,7 @@ metadata:
   nivel: "avanzado"
   tags: ["pacifico", "guerras-islas", "1942"]
 tipo: completar
-enunciado: "La campaña de Guadalcanal, iniciada en agosto de 1942, fue la primera gran ofensiva terrestre aliada contra las fuerzas japonesas en el {{teatro_pacifico}}, marcando el fin de la iniciativa estratégica japonesa."
-variables:
-  teatro_pacifico: uno_de(["Pacífico", "Pacífico"])
+enunciado: "La campaña de Guadalcanal, iniciada en agosto de 1942, fue la primera gran ofensiva terrestre aliada contra las fuerzas japonesas en el ___, marcando el fin de la iniciativa estratégica japonesa."
 respuesta: "pacifico"
 respuestas_validas:
   - "pacifico"
@@ -451,9 +429,7 @@ metadata:
   nivel: "avanzado"
   tags: ["fin", "rendicion", "1945"]
 tipo: completar
-enunciado: "La Segunda Guerra Mundial terminó formalmente el 2 de septiembre de 1945 cuando Japón firmó la rendición incondicional a bordo del acorazado {{barco}} en la bahía de Tokio."
-variables:
-  barco: uno_de(["Missouri", "Missouri"])
+enunciado: "La Segunda Guerra Mundial terminó formalmente el 2 de septiembre de 1945 cuando Japón firmó la rendición incondicional a bordo del acorazado ___ en la bahía de Tokio."
 respuesta: "missouri"
 respuestas_validas:
   - "missouri"
