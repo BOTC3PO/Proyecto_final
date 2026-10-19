@@ -55,6 +55,7 @@ metadata:
 pasos:  
   - "Selecciona la opción con el auxiliar y participio correcto."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo?"
+tipo: mc
 opciones_explicitas:  
   - "Ho comprato un libro."  
   - "Hai comprata una mela."  
@@ -73,6 +74,7 @@ metadata:
 pasos:  
   - "Identifica el verbo que requiere 'essere' y elige la forma correcta."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'essere')"
+tipo: mc
 opciones_explicitas:  
   - "Lei è venuta a casa mia."  
   - "Lei ha venuto a casa mia."  
@@ -125,6 +127,7 @@ metadata:
 pasos:  
   - "Selecciona la opción con el participio correcto para un sujeto femenino."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (femenino))"
+tipo: mc
 opciones_explicitas:  
   - "Maria ha bevuto dell'acqua."  
   - "Maria ha bevuta dell'acqua."  
@@ -160,6 +163,7 @@ metadata:
 pasos:  
   - "Elige la opción con el auxiliar y participio correctos para un sujeto plural."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (plural))"
+tipo: mc
 opciones_explicitas:  
   - "Abbiamo mangiato una torta."  
   - "Hai mangiato una torta."  
@@ -195,6 +199,7 @@ metadata:
 pasos:  
   - "Selecciona la opción con el auxiliar y participio correctos."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (tercera persona))"
+tipo: mc
 opciones_explicitas:  
   - "Ha visto un film ieri."  
   - "Hai visto un film ieri."  
@@ -230,6 +235,7 @@ metadata:
 pasos:  
   - "Elige la opción con el auxiliar y participio correctos para un sujeto femenino plural."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (femenino plural))"
+tipo: mc
 opciones_explicitas:  
   - "Le donne hanno bevuto del vino."  
   - "Le donne han bevuto del vino."  
@@ -265,6 +271,7 @@ metadata:
 pasos:  
   - "Selecciona la opción con el auxiliar y participio correctos."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (tercera persona plural))"
+tipo: mc
 opciones_explicitas:  
   - "Hanno mangiato una pizza."  
   - "Ha mangiato una pizza."  
@@ -300,6 +307,7 @@ metadata:
 pasos:  
   - "Elige la opción con el auxiliar y participio correctos para un sujeto femenino."  
 enunciado: "¿Cuál es la oración correcta en passato prossimo? (Opción correcta con 'avere' (femenino singular))"
+tipo: mc
 opciones_explicitas:  
   - "Maria ha letto un libro."  
   - "Maria ha letta un libro."  

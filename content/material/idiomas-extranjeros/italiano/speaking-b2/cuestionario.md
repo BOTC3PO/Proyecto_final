@@ -336,6 +336,7 @@ pasos:
   - "Seleccionar la opción que usa el condicional adecuado en este contexto."
 enunciado: "Se ___ tempo, andremo al cinema."
 respuesta: "ci fosse"
+tipo: mc
 opciones_explicitas:
   - "c'è"
   - "ci fosse"
@@ -376,6 +377,7 @@ pasos:
   - "Elegir la forma correcta del gerundio según el sujeto de la oración."
 enunciado: "Mentre ___ la macchina, ho sentito un rumore."
 respuesta: "guidavo"
+tipo: mc
 opciones_explicitas:
   - "guido"
   - "guidavo"
@@ -418,6 +420,7 @@ pasos:
   - "Seleccionar la forma correcta del futuro perfecto para la oración dada."
 enunciado: "Dopo che ___ il lavoro, andrò a casa."
 respuesta: "avrò finito"
+tipo: mc
 opciones_explicitas:
   - "finirò"
   - "avrò finito"

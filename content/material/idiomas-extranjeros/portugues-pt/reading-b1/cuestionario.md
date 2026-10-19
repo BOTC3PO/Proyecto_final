@@ -31,6 +31,7 @@ pasos:
 respuestas_validas:
   - "para"
 enunciado: "Vou ao mercado ___ comprar frutas."
+tipo: mc
 opciones_explicitas:
   - "para"
   - "em"
@@ -53,6 +54,7 @@ pasos:
   - "Identificar a forma correta do verbo no pretérito perfeito."
   - "Escolher entre as opções fornecidas."
 enunciado: "Eu ___ ao cinema ontem."
+tipo: mc
 opciones_explicitas:
   - "fui"
   - "vou"
@@ -75,6 +77,7 @@ pasos:
   - "Identificar a preposição correta após o substantivo 'saudade'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Tenho saudade ___ você."
+tipo: mc
 opciones_explicitas:
   - "de"
   - "em"
@@ -97,6 +100,7 @@ pasos:
   - "Identificar a forma correta do verbo no futuro do presente."
   - "Escolher entre as opções fornecidas."
 enunciado: "Amanhã ___ ao trabalho."
+tipo: mc
 opciones_explicitas:
   - "vou"
   - "vai"
@@ -119,6 +123,7 @@ pasos:
   - "Identificar a conjunção adversativa correta para completar a oração."
   - "Escolher entre as opções fornecidas."
 enunciado: "Gosto de café, ___ não gosto de chá."
+tipo: mc
 opciones_explicitas:
   - "mas"
   - "e"
@@ -141,6 +146,7 @@ pasos:
   - "Identificar a forma correta do verbo no presente do subjuntivo."
   - "Escolher entre as opções fornecidas."
 enunciado: "É importante ___ à reunião amanhã."
+tipo: mc
 opciones_explicitas:
   - "que eu vá"
   - "que eu vou"
@@ -163,6 +169,7 @@ pasos:
   - "Identificar a preposição correta após o verbo 'ser'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Ela é ___ Lisboa."
+tipo: mc
 opciones_explicitas:
   - "de"
   - "em"
@@ -185,6 +192,7 @@ pasos:
   - "Identificar a forma correta do verbo no imperativo."
   - "Escolher entre as opções fornecidas."
 enunciado: "___ ao médico."
+tipo: mc
 opciones_explicitas:
   - "vá"
   - "vai"
@@ -207,6 +215,7 @@ pasos:
   - "Identificar a preposição correta após o verbo 'vir'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Ele veio ___ Paris."
+tipo: mc
 opciones_explicitas:
   - "de"
   - "em"
@@ -229,6 +238,7 @@ pasos:
   - "Identificar a forma correta do verbo 'vir' no gerúndio."
   - "Escolher entre as opções fornecidas."
 enunciado: "Estou ___ para cá."
+tipo: mc
 opciones_explicitas:
   - "vindo"
   - "vai"
@@ -251,6 +261,7 @@ pasos:
   - "Identificar a conjunção causal correta para completar a oração."
   - "Escolher entre as opções fornecidas."
 enunciado: "Não fui ao cinema ___ estava cansado."
+tipo: mc
 opciones_explicitas:
   - "porque"
   - "mas"
@@ -273,6 +284,7 @@ pasos:
   - "Identificar a forma correta do verbo no pretérito imperfeito."
   - "Escolher entre as opções fornecidas."
 enunciado: "Eu ___ ao mercado todos os dias."
+tipo: mc
 opciones_explicitas:
   - "ia"
   - "vou"
@@ -295,6 +307,7 @@ pasos:
   - "Identificar a preposição correta após o verbo 'andar'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Ando ___ esta rua todos os dias."
+tipo: mc
 opciones_explicitas:
   - "por"
   - "em"
@@ -317,6 +330,7 @@ pasos:
   - "Identificar a forma correta do verbo no futuro do subjuntivo (usado após 'quando' + ação futura)."
   - "Escolher entre as opções fornecidas."
 enunciado: "Quando eu ___ ao evento, aviso-te."
+tipo: mc
 opciones_explicitas:
   - "vá"
   - "vai"
@@ -339,6 +353,7 @@ pasos:
   - "Identificar a preposição correta após o verbo 'fazer'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Fazemos o trabalho ___ cuidado."
+tipo: mc
 opciones_explicitas:
   - "com"
   - "em"
@@ -361,6 +376,7 @@ pasos:
   - "Identificar a forma correta do verbo no presente do indicativo."
   - "Escolher entre as opções fornecidas."
 enunciado: "___ ao trabalho."
+tipo: mc
 opciones_explicitas:
   - "vou"
   - "vai"
@@ -383,6 +399,7 @@ pasos:
   - "Identificar a conjunção concessiva correta para completar a oração."
   - "Escolher entre as opções fornecidas."
 enunciado: "Ele veio, ___ estivesse cansado."
+tipo: mc
 opciones_explicitas:
   - "embora"
   - "e"
@@ -405,6 +422,7 @@ pasos:
   - "Identificar a forma correta do verbo no pretérito perfeito simples."
   - "Escolher entre as opções fornecidas."
 enunciado: "Eu ___ ao mercado."
+tipo: mc
 opciones_explicitas:
   - "fui"
   - "vou"
@@ -427,6 +445,7 @@ pasos:
   - "Identificar a preposição correta após o verbo 'estar'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Estou ___ casa."
+tipo: mc
 opciones_explicitas:
   - "em"
   - "com"
@@ -449,6 +468,7 @@ pasos:
   - "Identificar a forma correta do verbo no pretérito mais-que-perfeito composto."
   - "Escolher entre as opções fornecidas."
 enunciado: "Eu ___ ao mercado quando você chegou."
+tipo: mc
 opciones_explicitas:
   - "tinha ido"
   - "ia"
@@ -471,6 +491,7 @@ pasos:
   - "Identificar a conjunção consecutiva correta para completar a oração."
   - "Escolher entre as opções fornecidas."
 enunciado: "Estava cansado, ___ não fui ao cinema."
+tipo: mc
 opciones_explicitas:
   - "assim"
   - "mas"
@@ -493,6 +514,7 @@ pasos:
   - "Identificar a forma correta do verbo no futuro do indicativo."
   - "Escolher entre as opções fornecidas."
 enunciado: "Amanhã ___ ao mercado."
+tipo: mc
 opciones_explicitas:
   - "vou"
   - "vai"
@@ -515,6 +537,7 @@ pasos:
   - "Identificar a preposição correta após o verbo 'ter'."
   - "Escolher entre as opções fornecidas."
 enunciado: "Tenho um livro ___ história."
+tipo: mc
 opciones_explicitas:
   - "de"
   - "em"

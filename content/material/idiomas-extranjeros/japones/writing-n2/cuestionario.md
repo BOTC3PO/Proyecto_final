@@ -54,6 +54,7 @@ pasos:
   - "文の意味に合った原因表現を選びなさい。"  
   - "「～ために」や「～から」の使い分けを確認する。"  
 enunciado: "¿Cuál es la expresión más formal para indicar la razón de un retraso?"
+tipo: mc
 opciones_explicitas:
   - "彼が遅れたために"
   - "彼が遅れたから"
@@ -134,6 +135,7 @@ pasos:
   - "文の否定形を正しく選ぶ。"  
   - "「～ない」や「～ぬ」の使い分けを確認する。"  
 enunciado: "¿Cuál es la forma negativa correcta y natural en japonés contemporáneo?"
+tipo: mc
 opciones_explicitas:
   - "彼は来ます。"
   - "彼は来ません。"

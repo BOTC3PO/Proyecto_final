@@ -177,6 +177,7 @@ pasos:
   - "Identificar el momento clave en la oración."  
   - "Revisar las opciones según el contexto temporal."  
 enunciado: "「会議は午後2時に始まります」という放送を聞きました。会議は何時からですか？"
+tipo: mc
 opciones_explicitas:  
   - "午前10時"  
   - "午後2時"  
@@ -214,6 +215,7 @@ pasos:
   - "Distinguir la estructura de pedido usando ～てください."  
   - "Verificar el verbo en te-forma correcto."  
 enunciado: "レストランでスープを注文したいとき、正しい言い方はどれですか？"
+tipo: mc
 opciones_explicitas:  
   - "スープを飲んでください"  
   - "スープをお願いします"  
@@ -251,6 +253,7 @@ pasos:
   - "Analizar la partícula que indica dirección."  
   - "Seleccionar el uso correcto de に o へ."  
 enunciado: "薬局までの道を尋ねられました。方向を示す正しい表現はどれですか？"
+tipo: mc
 opciones_explicitas:  
   - "薬局に歩いてください"  
   - "薬局へ歩いてください"  
@@ -288,6 +291,7 @@ pasos:
   - "Reconocer la estructura de tiempo en minutos."  
   - "Verificar el uso de 数分 (nankun)."  
 enunciado: "「あと30分間お待ちください」という放送を聞きました。あと何分待ちますか？"
+tipo: mc
 opciones_explicitas:  
   - "30分間"  
   - "1時間"  
@@ -325,6 +329,7 @@ pasos:
   - "Identificar la prohibición expresa en el texto."  
   - "Revisar el uso de ～てはいけません."  
 enunciado: "図書館で規則についてのアナウンスを聞きました。禁止されていることは何ですか？"
+tipo: mc
 opciones_explicitas:  
   - "携帯電話を使ってはいけません"  
   - "携帯電話を持ってはいけません"  
@@ -343,6 +348,7 @@ pasos:
   - "Asociar el día con la previsión climática."  
   - "Verificar el uso de 予報 (yohō)."  
 enunciado: "天気予報を聞きました。「水曜日は晴れです」と言っていました。水曜日の天気はどうですか？"
+tipo: mc
 opciones_explicitas:  
   - "月曜日は雨です"  
   - "水曜日は晴れです"  
@@ -361,6 +367,7 @@ pasos:
   - "Identificar el verbo en te-forma para pedir."  
   - "Seleccionar la opción con ～てください."  
 enunciado: "喫茶店でコーヒーを注文したいとき、正しい言い方はどれですか？"
+tipo: mc
 opciones_explicitas:  
   - "コーヒーを飲んでください"  
   - "コーヒーをお願いします"  
@@ -379,6 +386,7 @@ pasos:
   - "Revisar la partícula que indica el momento de contacto."  
   - "Verificar el uso correcto de に o へ."  
 enunciado: "予約の案内を聞きました。「来店の前日にご連絡ください」と言われました。いつ連絡すればいいですか？"
+tipo: mc
 opciones_explicitas:  
   - "予約は、来店の前日にご連絡ください"  
   - "予約は、来店の時にご連絡ください"  
@@ -397,6 +405,7 @@ pasos:
   - "Identificar la hora clave en la oración."  
   - "Revisar las opciones según el contexto temporal."  
 enunciado: "「会議は午後3時に始まります」という放送を聞きました。会議は何時からですか？"
+tipo: mc
 opciones_explicitas:  
   - "午前11時"  
   - "午後3時"  

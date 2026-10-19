@@ -34,6 +34,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'manger' au présent."
 enunciado: "Il ___ une pomme."
+tipo: mc
 opciones_explicitas:
   - "mangeons"
   - "manges"
@@ -51,6 +52,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'parler' au présent."
 enunciado: "Il ___ français."
+tipo: mc
 opciones_explicitas:
   - "parle"
   - "parlons"
@@ -68,6 +70,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'étudier' au présent."
 enunciado: "Il ___ le français."
+tipo: mc
 opciones_explicitas:
   - "étudie"
   - "étudions"
@@ -102,6 +105,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'aimer' au présent."
 enunciado: "Il ___ le chocolat."
+tipo: mc
 opciones_explicitas:
   - "aime"
   - "aimons"
@@ -119,6 +123,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'habiter' au présent."
 enunciado: "Il ___ à Paris."
+tipo: mc
 opciones_explicitas:
   - "habite"
   - "habitons"
@@ -136,6 +141,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'travailler' au présent."
 enunciado: "Il ___ beaucoup."
+tipo: mc
 opciones_explicitas:
   - "travaille"
   - "travailons"
@@ -153,6 +159,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'aller' au présent."
 enunciado: "Il ___ à l'école."
+tipo: mc
 opciones_explicitas:
   - "va"
   - "allons"
@@ -187,6 +194,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'dormir' au présent."
 enunciado: "Il ___ huit heures par nuit."
+tipo: mc
 opciones_explicitas:
   - "dort"
   - "dormons"
@@ -204,6 +212,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'marcher' au présent."
 enunciado: "Il ___ vite."
+tipo: mc
 opciones_explicitas:
   - "marche"
   - "marchons"
@@ -221,6 +230,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'écouter' au présent."
 enunciado: "Il ___ de la musique."
+tipo: mc
 opciones_explicitas:
   - "écoute"
   - "écoutons"
@@ -255,6 +265,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'finir' au présent."
 enunciado: "Il ___ son travail."
+tipo: mc
 opciones_explicitas:
   - "finit"
   - "finissons"
@@ -272,6 +283,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'prendre' au présent."
 enunciado: "Il ___ le bus."
+tipo: mc
 opciones_explicitas:
   - "prend"
   - "prenons"
@@ -289,6 +301,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'voir' au présent."
 enunciado: "Il ___ un film."
+tipo: mc
 opciones_explicitas:
   - "voit"
   - "voyons"
@@ -323,6 +336,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'aller' au présent."
 enunciado: "Il ___ au marché."
+tipo: mc
 opciones_explicitas:
   - "va"
   - "allons"
@@ -340,6 +354,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'donner' au présent."
 enunciado: "Il ___ un cadeau."
+tipo: mc
 opciones_explicitas:
   - "donne"
   - "donnons"
@@ -374,6 +389,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'croire' au présent."
 enunciado: "Il ___ cette histoire."
+tipo: mc
 opciones_explicitas:
   - "croit"
   - "croyons"
@@ -391,6 +407,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'oublier' au présent."
 enunciado: "Il ___ souvent son parapluie."
+tipo: mc
 opciones_explicitas:
   - "oublie"
   - "oublions"
@@ -425,6 +442,7 @@ metadata:
 pasos:
   - "Choisissez la bonne forme du verbe 'finir' au présent."
 enunciado: "Il ___ ses devoirs."
+tipo: mc
 opciones_explicitas:
   - "finit"
   - "finissons"

@@ -285,6 +285,7 @@ metadata:
 pasos:  
   - "Identificar el sujeto 'loro' y aplicar la forma del futuro."  
   - "Elegir entre las opciones de verbo conjugado en futuro."  
+tipo: mc
 opciones_explicitas:  
   - "incontrerò"  
   - "incontrerai"  

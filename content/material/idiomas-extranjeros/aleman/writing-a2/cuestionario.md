@@ -44,6 +44,7 @@ metadata:
 pasos:
   - "Elige la forma correcta del verbo 'sein' para completar la oración."
 enunciado: "Meine Schwester ___ Lehrerin."
+tipo: mc
 opciones_explicitas:
   - "bin"
   - "ist"
@@ -95,6 +96,7 @@ metadata:
 pasos:
   - "Elige la forma correcta del verbo 'haben' para completar la oración."
 enunciado: "Er ___ zwei Katzen."
+tipo: mc
 opciones_explicitas:
   - "habe"
   - "hat"
@@ -163,6 +165,7 @@ metadata:
 pasos:
   - "Elige la forma correcta del verbo 'gehen' en presente."
 enunciado: "Er ___ jeden Tag zur Schule."
+tipo: mc
 opciones_explicitas:
   - "gehe"
   - "gehst"

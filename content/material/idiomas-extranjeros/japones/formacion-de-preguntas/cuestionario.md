@@ -158,6 +158,7 @@ pasos:
 respuestas_validas:  
   - "だれ"  
 enunciado: "______が来ましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -214,6 +215,7 @@ metadata:
 pasos:  
   - "Elegir la partícula correcta para formar una pregunta sobre lugar."  
 enunciado: "図書館は______にありますか。"
+tipo: mc
 opciones_explicitas:  
   - "どこ"  
   - "どの"  
@@ -232,6 +234,7 @@ metadata:
 pasos:  
   - "Usar la partícula adecuada para preguntar sobre un lugar futuro."  
 enunciado: "来週、______へ旅行しますか。"
+tipo: mc
 opciones_explicitas:  
   - "どこ"  
   - "いつ"  
@@ -250,6 +253,7 @@ metadata:
 pasos:  
   - "Seleccionar la partícula correcta para preguntar sobre un objeto."  
 enunciado: "テーブルの上に______がありますか。"
+tipo: mc
 opciones_explicitas:  
   - "なに"  
   - "だれ"  
@@ -268,6 +272,7 @@ metadata:
 pasos:  
   - "Identificar la partícula necesaria para formar una pregunta sobre el sujeto de una acción."  
 enunciado: "______がこの本を書きましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -286,6 +291,7 @@ metadata:
 pasos:  
   - "Elegir la partícula correcta para preguntar sobre un objeto específico."  
 enunciado: "______本を読みましたか。"
+tipo: mc
 opciones_explicitas:  
   - "どの"  
   - "なに"  
@@ -304,6 +310,7 @@ metadata:
 pasos:  
   - "Usar la partícula adecuada para preguntar sobre un momento en el tiempo."  
 enunciado: "会議は______始まりますか。"
+tipo: mc
 opciones_explicitas:  
   - "いつ"  
   - "どこ"  
@@ -322,6 +329,7 @@ metadata:
 pasos:  
   - "Identificar la partícula necesaria para formar una pregunta sobre el sujeto de un verbo."  
 enunciado: "______が窓を開けましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -340,6 +348,7 @@ metadata:
 pasos:  
   - "Seleccionar la partícula correcta para preguntar sobre una línea específica de tren."  
 enunciado: "______線に乗りますか。"
+tipo: mc
 opciones_explicitas:  
   - "どの"  
   - "どこ"  
@@ -358,6 +367,7 @@ metadata:
 pasos:  
   - "Usar la partícula adecuada para preguntar sobre quién realizó una acción."  
 enunciado: "______が料理を作りましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -376,6 +386,7 @@ metadata:
 pasos:  
   - "Elegir la partícula correcta para preguntar sobre un objeto específico en el futuro."  
 enunciado: "明日、______映画を見ますか。"
+tipo: mc
 opciones_explicitas:  
   - "どの"  
   - "なに"  
@@ -394,6 +405,7 @@ metadata:
 pasos:  
   - "Identificar la partícula necesaria para formar una pregunta sobre el sujeto de un verbo."  
 enunciado: "______が電話しましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -412,6 +424,7 @@ metadata:
 pasos:  
   - "Usar la partícula adecuada para preguntar sobre un lugar específico."  
 enunciado: "______店で買いましたか。"
+tipo: mc
 opciones_explicitas:  
   - "どの"  
   - "どこ"  
@@ -430,6 +443,7 @@ metadata:
 pasos:  
   - "Identificar la partícula correcta para formar una pregunta sobre el sujeto de un verbo."  
 enunciado: "______が歌を歌いましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -448,6 +462,7 @@ metadata:
 pasos:  
   - "Elegir la partícula adecuada para preguntar sobre quién realizó una acción."  
 enunciado: "______が掃除をしましたか。"
+tipo: mc
 opciones_explicitas:  
   - "だれ"  
   - "どこ"  
@@ -466,6 +481,7 @@ metadata:
 pasos:  
   - "Usar la partícula correcta para preguntar sobre una línea específica de tren."  
 enunciado: "東京駅で______線に乗り換えますか。"
+tipo: mc
 opciones_explicitas:  
   - "どの"  
   - "どこ"  

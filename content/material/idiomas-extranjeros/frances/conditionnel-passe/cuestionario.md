@@ -294,6 +294,7 @@ metadata:
 pasos:
   - "Reconocer que el sujeto es 'tu' y el verbo principal es 'résoudre'."
   - "Seleccionar la forma correcta del condicional pasado de 'résoudre' para 'tu'."
+tipo: mc
 opciones_explicitas:
   - "avais résolu"
   - "aurais résolu"
@@ -377,6 +378,7 @@ metadata:
 pasos:
   - "Determinar el sujeto 'elle' y el verbo principal 'aller'."
   - "Seleccionar la forma correcta del condicional pasado de 'aller' para 'elle'."
+tipo: mc
 opciones_explicitas:
   - "serait allée"
   - "aurait été"
@@ -460,6 +462,7 @@ metadata:
 pasos:
   - "Identificar el sujeto 'tu' y el verbo principal 'avoir'."
   - "Seleccionar la forma correcta del condicional pasado de 'avoir' para 'tu'."
+tipo: mc
 opciones_explicitas:
   - "avais eu"
   - "aurais eu"
@@ -481,6 +484,7 @@ metadata:
 pasos:
   - "Determinar el sujeto 'ils' y el verbo principal 'recevoir'."
   - "Aplicar la conjugación del condicional pasado de 'recevoir' en tercera persona plural."
+tipo: mc
 opciones_explicitas:
   - "avaient reçu"
   - "auraient reçu"
@@ -522,6 +526,7 @@ metadata:
 pasos:
   - "Reconocer el sujeto 'nous' y el verbo principal 'arriver'."
   - "Seleccionar la forma correcta del condicional pasado de 'arriver' en primera persona plural."
+tipo: mc
 opciones_explicitas:
   - "serions arrivés"
   - "aurions arrivé"

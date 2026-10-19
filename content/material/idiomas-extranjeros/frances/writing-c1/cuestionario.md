@@ -278,6 +278,7 @@ metadata:
 pasos:
   - "Reconocer la estructura que requiere el subjuntivo."
   - "Señalar la conjugación correcta del verbo en subjuntivo."
+tipo: mc
 opciones_explicitas:
   - "il résolve"
   - "il resolve"

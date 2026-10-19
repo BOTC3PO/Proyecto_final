@@ -47,6 +47,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'embarazada' y no es un falso amigo de 'embarazada' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'embarazada'?"  
+tipo: mc
 opciones_explicitas:  
   - "incinta"  
   - "imbarazzata"  
@@ -84,6 +85,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'embarcación' y no es un falso amigo de 'embarcación' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'embarcación'?"  
+tipo: mc
 opciones_explicitas:  
   - "imbarcazione"  
   - "incertezza"  
@@ -121,6 +123,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'corto' y no es un falso amigo de 'corto' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'corto'?"  
+tipo: mc
 opciones_explicitas:  
   - "corto"  
   - "curto"  
@@ -158,6 +161,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'papel' y no es un falso amigo de 'papel' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'papel'?"  
+tipo: mc
 opciones_explicitas:  
   - "carta"  
   - "pagina"  
@@ -195,6 +199,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'casa' y no es un falso amigo de 'casa' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'casa'?"  
+tipo: mc
 opciones_explicitas:  
   - "casa"  
   - "abitazione"  
@@ -232,6 +237,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'hacer' y no es un falso amigo de 'hacer' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'hacer'?"  
+tipo: mc
 opciones_explicitas:  
   - "fare"  
   - "creare"  
@@ -269,6 +275,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'poder' y no es un falso amigo de 'poder' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'poder'?"  
+tipo: mc
 opciones_explicitas:  
   - "potere"  
   - "capacità"  
@@ -306,6 +313,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'ver' y no es un falso amigo de 'ver' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'ver'?"  
+tipo: mc
 opciones_explicitas:  
   - "vedere"  
   - "osservare"  
@@ -343,6 +351,7 @@ metadata:
 pasos:  
   - "Elige la palabra italiana que significa 'sueño' y no es un falso amigo de 'sueño' en español."  
 enunciado: "¿Cuál es la palabra italiana correcta para 'sueño'?"  
+tipo: mc
 opciones_explicitas:  
   - "sonno"  
   - "letargo"  
@@ -379,6 +388,7 @@ metadata:
   tags: ["vocabulario", "pioggia"]  
 pasos:  
   - "Elige la palabra italiana que significa 'lluvia' y no es un falso amigo de 'lluvia' en español."  
+tipo: mc
 opciones_explicitas:  
   - "pioggia"  
   - "acqua"  

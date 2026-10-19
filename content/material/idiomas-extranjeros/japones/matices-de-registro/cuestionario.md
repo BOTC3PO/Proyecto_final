@@ -380,6 +380,7 @@ metadata:
   nivel: "N1"  
   tags: ["formalidad", "explicación"]  
 enunciado: "彼の説明は長かったが、______、予算が不足しているということだった。"
+tipo: mc
 opciones_explicitas:  
   - "つまり"
   - "それでは"
@@ -437,6 +438,7 @@ metadata:
   nivel: "N1"  
   tags: ["formalidad", "contexto"]  
 enunciado: "彼は多くのデータを分析したが、______、市場は成長しているということだ。"
+tipo: mc
 opciones_explicitas:  
   - "つまり"
   - "それでは"
@@ -472,6 +474,7 @@ metadata:
   nivel: "N1"  
   tags: ["formalidad", "contexto"]  
 enunciado: "会議は長引いたが、______、結論は変わらなかった。"
+tipo: mc
 opciones_explicitas:  
   - "つまり"
   - "それでは"

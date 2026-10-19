@@ -40,6 +40,7 @@ pasos:
   - "Reconocer la estructura causativa-pasiva."
   - "Elegir la opción que expresa negación con させられる."
 enunciado: "¿Cuál es la oración correcta que expresa que algo fue hecho contra la voluntad de alguien (causativo-pasivo)?"
+tipo: mc
 opciones_explicitas:
   - "彼は無理に話させられた"
   - "彼は話させる"
@@ -81,6 +82,7 @@ pasos:
   - "Reconocer la relación de causa-efecto en la oración."
   - "Elegir la opción que expresa el resultado con ～て。"
 enunciado: "¿Cuál es la oración correcta que conecta una causa con su resultado usando la forma ~te?"
+tipo: mc
 opciones_explicitas:
   - "彼は忙しくて、会議に遅れた"
   - "彼は忙しい"
@@ -102,6 +104,7 @@ pasos:
   - "Identificar la condición y su consecuencia."
   - "Elegir la opción que completa la oración con なら。"
 enunciado: "¿Cuál es la oración correcta que expresa una condición hipotética y su consecuencia?"
+tipo: mc
 opciones_explicitas:
   - "雨が降ったら、試合は中止になる"
   - "雨が降っても、試合は続く"
@@ -182,6 +185,7 @@ pasos:
   - "Identificar la relación de causa y propósito en la oración."
   - "Elegir la opción que expresa el propósito con ～ために。"
 enunciado: "¿Cuál es la oración correcta que expresa el propósito de una acción con ~ために?"
+tipo: mc
 opciones_explicitas:
   - "彼は大学に進学するために勉強した"
   - "彼は大学に進学した"
@@ -223,6 +227,7 @@ pasos:
   - "Identificar la relación causa-consecuencia en la oración."
   - "Elegir la opción que expresa consecuencia con ～ので。"
 enunciado: "¿Cuál es la oración correcta que expresa una consecuencia lógica con ~ので?"
+tipo: mc
 opciones_explicitas:
   - "彼は病気なので、会議に出席できなかった"
   - "彼は病気がした"
@@ -264,6 +269,7 @@ pasos:
   - "Identificar el uso de ～から para indicar un punto de partida en el tiempo."
   - "Elegir la opción que expresa secuencia con ～から。"
 enunciado: "¿Cuál es la oración correcta que expresa el punto de partida de una acción en el tiempo con ~から?"
+tipo: mc
 opciones_explicitas:
   - "彼は10時から会議に出席した"
   - "彼は10時まで待った"
@@ -324,6 +330,7 @@ pasos:
   - "Identificar el significado de la palabra faltante en contexto."
   - "Elegir la opción que complete la oración con coherencia."
 enunciado: "この映画は＿＿＿人気がない。"
+tipo: mc
 opciones_explicitas:
   - "あまり"
   - "とても"
@@ -361,6 +368,7 @@ pasos:
   - "Identificar la relación temporal entre acciones."
   - "Elegir el verbo que exprese consecuencia lógica."
 enunciado: "¿Cuál es la forma verbal correcta que conecta la aprobación pasada de un plan con su desarrollo actual?"
+tipo: mc
 opciones_explicitas:
   - "進んで"
   - "進められ"
@@ -380,6 +388,7 @@ pasos:
   - "Reconocer la necesidad de usar el pasado del verbo en forma pasiva."
   - "Elegir la opción que refleje un sujeto no mencionado."
 enunciado: "¿Cuál es la forma correcta del verbo en voz pasiva y tiempo pasado para expresar que alguien fue presentado por otra persona?"
+tipo: mc
 opciones_explicitas:
   - "紹介された"
   - "紹介する"
@@ -399,6 +408,7 @@ pasos:
   - "Identificar el uso del verbo en forma negativa y pasada."
   - "Elegir la opción que describa una acción omitida."
 enunciado: "¿Cuál es la forma correcta para expresar que alguien no llevaba puesta una prenda en el pasado (negativo + continuo)?"
+tipo: mc
 opciones_explicitas:
   - "着なかった"
   - "着てない"

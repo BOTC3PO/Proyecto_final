@@ -302,6 +302,7 @@ pasos:
   - "Identificar el contexto de la oración y elegir la forma adecuada."
   - "Seleccionar la opción que completa la frase con un verbo en forma polite."
 enunciado: "彼にこの本を___。"
+tipo: mc
 opciones_explicitas:
   - "読んでください"
   - "読んでもらってください"
@@ -321,6 +322,7 @@ pasos:
   - "Reconocer el uso de ～たことがある para expresar experiencias pasadas."
   - "Elegir la opción que describe una experiencia realizable en el contexto."
 enunciado: "彼の過去の経験について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "海外に住んでいたことがあります"
   - "海外旅行に行ったことがあります"
@@ -340,6 +342,7 @@ pasos:
   - "Identificar el uso de ～よりも para comparar dos elementos."
   - "Elegir la opción que describe una relación lógica entre los objetos."
 enunciado: "友人の話によると、この車とあの車の違いは何ですか？"
+tipo: mc
 opciones_explicitas:
   - "この車はあの車よりも安いです"
   - "この車はあの車よりも速いです"
@@ -359,6 +362,7 @@ pasos:
   - "Reconocer el uso de ～ために para expresar propósito."
   - "Seleccionar la opción que conecta lógicamente la causa y el efecto."
 enunciado: "彼が忙しかった理由について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "彼は準備するために時間を取っていました"
   - "彼は休むために時間を取っていました"
@@ -378,6 +382,7 @@ pasos:
   - "Identificar el uso de ～ことになる para indicar un resultado futuro."
   - "Elegir la opción que describe una consecuencia inevitable."
 enunciado: "彼の新しい役割について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "彼はこのプロジェクトの責任者となることになりました"
   - "彼はこのプロジェクトをやめることがなりました"
@@ -397,6 +402,7 @@ pasos:
   - "Reconocer el uso de ～てから para indicar secuencia temporal."
   - "Seleccionar la opción que conecta acciones en orden lógico."
 enunciado: "彼の夜の行動について、正しい順序を表す文はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "勉強してから寝ました"
   - "寝てから勉強しました"
@@ -416,6 +422,7 @@ pasos:
   - "Identificar el uso de ～に応じて para describir ajustes basados en algo."
   - "Elegir la opción que describe una adaptación lógica al contexto."
 enunciado: "その政策について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "この政策は経済状況に応じて調整される必要があります"
   - "この政策は時代に応じて変える必要があります"
@@ -435,6 +442,7 @@ pasos:
   - "Reconocer el uso de ～が原因で para explicar una causa directa."
   - "Seleccionar la opción que describe un factor causal claro."
 enunciado: "彼が遅刻した理由について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "彼の遅刻は交通渋滞が原因でした"
   - "彼の遅刻は体調不良が原因でした"
@@ -454,6 +462,7 @@ pasos:
   - "Identificar el uso de ～ようにする para expresar intención."
   - "Elegir la opción que describe una acción con propósito claro."
 enunciado: "彼が部下に指示した内容について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "彼は部下たちに報告書を書くようにしました"
   - "彼は部下たちに会議を開くようにしました"
@@ -473,6 +482,7 @@ pasos:
   - "Reconocer el uso de ～つつある para describir una tendencia."
   - "Seleccionar la opción que describe un cambio progresivo."
 enunciado: "その国の状況について、文法的に正しい文はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "この国では環境問題が深刻になるつつあります"
   - "この国では経済成長が止まっているつつあります"
@@ -492,6 +502,7 @@ pasos:
   - "Identificar el uso de ～べきだ para expresar un deber o recomendación."
   - "Elegir la opción que describe una responsabilidad clara."
 enunciado: "彼の責任について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "彼はその報告書を提出すべきです"
   - "彼はそのプロジェクトに参加すべきです"
@@ -511,6 +522,7 @@ pasos:
   - "Reconocer el uso de ～が理由で para explicar una causa lógica."
   - "Seleccionar la opción que describe un motivo claro y directo."
 enunciado: "彼が辞任した理由について、正しい説明はどれですか？"
+tipo: mc
 opciones_explicitas:
   - "彼の辞任は健康問題が理由でした"
   - "彼の辞任は仕事のストレスが理由でした"

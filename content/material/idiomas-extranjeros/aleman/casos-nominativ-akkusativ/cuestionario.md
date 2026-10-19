@@ -17,6 +17,7 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
+tipo: mc
 opciones_explicitas:
   - "dem"
   - "den"
@@ -40,6 +41,7 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
+tipo: mc
 opciones_explicitas:
   - "ihn"
   - "ihm"
@@ -63,6 +65,7 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
+tipo: mc
 opciones_explicitas:
   - "die Frau"
   - "die Frauen"
@@ -86,6 +89,7 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
+tipo: mc
 opciones_explicitas:
   - "die"
   - "durch"
@@ -109,6 +113,7 @@ pasos:
 respuestas_validas:
   - "sie"
   - "Sie"
+tipo: mc
 opciones_explicitas:
   - "sie"
   - "ihm"
@@ -132,6 +137,7 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
+tipo: mc
 opciones_explicitas:
   - "den Mann"
   - "der Mann"
@@ -155,6 +161,7 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
+tipo: mc
 opciones_explicitas:
   - "die"
   - "das"
@@ -178,6 +185,7 @@ pasos:
 respuestas_validas:
   - "es"
   - "Es"
+tipo: mc
 opciones_explicitas:
   - "es"
   - "ihn"
@@ -201,6 +209,7 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
+tipo: mc
 opciones_explicitas:
   - "die Frau"
   - "der Frau"
@@ -224,6 +233,7 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
+tipo: mc
 opciones_explicitas:
   - "den"
   - "dem"
@@ -247,6 +257,7 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
+tipo: mc
 opciones_explicitas:
   - "ihn"
   - "ihm"
@@ -270,6 +281,7 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
+tipo: mc
 opciones_explicitas:
   - "den Mann"
   - "der Mann"
@@ -293,6 +305,7 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
+tipo: mc
 opciones_explicitas:
   - "die"
   - "das"
@@ -316,6 +329,7 @@ pasos:
 respuestas_validas:
   - "es"
   - "Es"
+tipo: mc
 opciones_explicitas:
   - "es"
   - "ihn"
@@ -339,6 +353,7 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
+tipo: mc
 opciones_explicitas:
   - "die Frau"
   - "der Frau"
@@ -362,6 +377,7 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
+tipo: mc
 opciones_explicitas:
   - "den"
   - "dem"
@@ -385,6 +401,7 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
+tipo: mc
 opciones_explicitas:
   - "ihn"
   - "ihm"
@@ -408,6 +425,7 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
+tipo: mc
 opciones_explicitas:
   - "den Mann"
   - "der Mann"
@@ -431,6 +449,7 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
+tipo: mc
 opciones_explicitas:
   - "die"
   - "das"
@@ -454,6 +473,7 @@ pasos:
 respuestas_validas:
   - "es"
   - "Es"
+tipo: mc
 opciones_explicitas:
   - "es"
   - "ihn"
@@ -477,6 +497,7 @@ pasos:
 respuestas_validas:
   - "die Frau"
   - "Die Frau"
+tipo: mc
 opciones_explicitas:
   - "die Frau"
   - "der Frau"
@@ -500,6 +521,7 @@ pasos:
 respuestas_validas:
   - "den"
   - "Den"
+tipo: mc
 opciones_explicitas:
   - "den"
   - "dem"
@@ -523,6 +545,7 @@ pasos:
 respuestas_validas:
   - "ihn"
   - "Ihn"
+tipo: mc
 opciones_explicitas:
   - "ihn"
   - "ihm"
@@ -546,6 +569,7 @@ pasos:
 respuestas_validas:
   - "den Mann"
   - "Den Mann"
+tipo: mc
 opciones_explicitas:
   - "den Mann"
   - "der Mann"
@@ -569,6 +593,7 @@ pasos:
 respuestas_validas:
   - "die"
   - "Die"
+tipo: mc
 opciones_explicitas:
   - "die"
   - "das"

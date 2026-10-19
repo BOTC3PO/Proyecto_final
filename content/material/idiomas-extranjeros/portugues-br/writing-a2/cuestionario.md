@@ -417,6 +417,7 @@ pasos:
   - "Selecionar a preposição correta para completar a oração."
 respuesta: "para"
 enunciado: "Comprei um presente ___ ela."
+tipo: mc
 opciones_explicitas:
   - "para"
   - "pela"

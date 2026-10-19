@@ -465,6 +465,7 @@ pasos:
   - "Identificar el contexto de la oración y el registro adecuado."  
   - "Elegir entre las opciones que reflejen distinto grado de formalidad."  
 enunciado: "¿Cuál es la respuesta más formal para ofrecer ayuda en un contexto profesional?"
+tipo: mc
 opciones_explicitas:  
   - "Com certeza, posso ajudar!"  
   - "Claro, posso te ajudar."  
@@ -487,6 +488,7 @@ pasos:
   - "Analizar el contexto de una reunión formal."  
   - "Seleccionar la frase que completa la oración con registro adecuado."  
 enunciado: "¿Cuál es la frase más adecuada para agradecer formalmente en una reunión profesional?"
+tipo: mc
 opciones_explicitas:  
   - "Obrigado por sua atenção ao relatório."  
   - "Obrigado, tudo bem?"  
@@ -509,6 +511,7 @@ pasos:
   - "Reconocer la diferencia entre registros formal e informal en solicitudes."  
   - "Elegir el complemento que corresponde a una petición formal."  
 enunciado: "¿Cuál es la solicitud más formal para pedir el envío de un documento?"
+tipo: mc
 opciones_explicitas:  
   - "Por gentileza, envie o documento até amanhã."  
   - "Favor, pode me enviar o documento hoje?"  

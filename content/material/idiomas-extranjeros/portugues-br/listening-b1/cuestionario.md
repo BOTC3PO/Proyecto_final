@@ -283,6 +283,7 @@ pasos:
   - "Identificar a preposição correta para o contexto."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Prefiro ficar ___ casa nos fins de semana."  
+tipo: mc
 opciones_explicitas:  
   - "para"  
   - "na"  
@@ -322,6 +323,7 @@ pasos:
   - "Identificar o verbo que expressa ação de sair."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Ela ___ do trabalho às seis horas."  
+tipo: mc
 opciones_explicitas:  
   - "sai"  
   - "vem"  
@@ -342,6 +344,7 @@ pasos:
   - "Identificar a preposição correta para o contexto de tempo."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Nasci ___ 1995."  
+tipo: mc
 opciones_explicitas:  
   - "de"  
   - "em"  
@@ -362,6 +365,7 @@ pasos:
   - "Identificar a preposição que completa o verbo de forma correta."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Ela foi ___ a reunião importante."  
+tipo: mc
 opciones_explicitas:  
   - "em"  
   - "na"  
@@ -382,6 +386,7 @@ pasos:
   - "Identificar a preposição correta para o verbo 'estar'."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Ela está ___ escola até as cinco horas."  
+tipo: mc
 opciones_explicitas:  
   - "na"  
   - "em"  
@@ -402,6 +407,7 @@ pasos:
   - "Identificar a preposição correta para o contexto de tempo."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Você vai passar nessa prova ___ breve."  
+tipo: mc
 opciones_explicitas:  
   - "em"  
   - "na"  
@@ -422,6 +428,7 @@ pasos:
   - "Identificar a preposição correta para o verbo 'chegar'."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Ele chegou ___ trabalho atrasado hoje."  
+tipo: mc
 opciones_explicitas:  
   - "em"  
   - "na"  
@@ -442,6 +449,7 @@ pasos:
   - "Identificar a preposição correta para o verbo."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Passamos a tarde toda ___ casa jogando cartas."  
+tipo: mc
 opciones_explicitas:  
   - "em"  
   - "na"  
@@ -462,6 +470,7 @@ pasos:
   - "Identificar a preposição correta para o contexto."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Fui ___ mercado comprar pão."  
+tipo: mc
 opciones_explicitas:  
   - "ao"  
   - "em"  
@@ -482,6 +491,7 @@ pasos:
   - "Identificar o verbo que completa a frase de forma correta."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Ontem eu ___ ao cinema com meus amigos."  
+tipo: mc
 opciones_explicitas:  
   - "fui"  
   - "vou"  
@@ -502,6 +512,7 @@ pasos:
   - "Identificar a preposição correta para o verbo."
   - "Verificar as opções fornecidas e escolher a que completa a frase de forma gramaticalmente correta."
 enunciado: "Ela foi ___ a padaria comprar pão."  
+tipo: mc
 opciones_explicitas:  
   - "em"  
   - "na"  

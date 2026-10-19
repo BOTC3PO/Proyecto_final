@@ -346,6 +346,7 @@ pasos:
   - "Validar que la opción elegida se usa para acciones concluidas en el pasado."
 enunciado: "Ela ___ a uma festa ontem à noite."
 respuesta: "foi"
+tipo: mc
 opciones_explicitas:
   - "foi"
   - "vai"

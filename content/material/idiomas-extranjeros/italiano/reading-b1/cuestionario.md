@@ -19,6 +19,7 @@ pasos:
   - "Leggere la frase e identificare il complemento di tempo."  
   - "Scegliere la preposizione corretta tra le opzioni."  
 enunciado: "___ cena, guarderemo un film."  
+tipo: mc
 opciones_explicitas:  
   - "dopo"  
   - "in"  
@@ -55,6 +56,7 @@ pasos:
   - "Individuare il contesto per determinare la forma verbale corretta."  
   - "Scegliere tra le opzioni il verbo nel tempo giusto."  
 enunciado: "Penso che lui ___ già a casa."  
+tipo: mc
 opciones_explicitas:  
   - "sia andato"  
   - "siano andati"  
@@ -91,6 +93,7 @@ pasos:
   - "Determinare se l'aggettivo è specifico o generico."  
   - "Scegliere l'articolo determinativo giusto."  
 enunciado: "___ amico di Marco è arrivato."  
+tipo: mc
 opciones_explicitas:  
   - "l'"  
   - "la"  
@@ -127,6 +130,7 @@ pasos:
   - "Analizzare il rapporto logico tra le due proposizioni."  
   - "Scegliere la congiunzione corretta."  
 enunciado: "Volevo uscire, ___ pioveva."  
+tipo: mc
 opciones_explicitas:  
   - "perché"  
   - "ma"  
@@ -163,6 +167,7 @@ pasos:
   - "Determinare la direzione o la posizione."  
   - "Scegliere la preposizione corretta."  
 enunciado: "Camminava ___ la stazione."  
+tipo: mc
 opciones_explicitas:  
   - "verso"  
   - "in"  
@@ -199,6 +204,7 @@ pasos:
   - "Riconoscere il tono della frase."  
   - "Scegliere la forma imperativa corretta."  
 enunciado: "___ qui subito!"  
+tipo: mc
 opciones_explicitas:  
   - "vieni"  
   - "viene"  
@@ -235,6 +241,7 @@ pasos:
   - "Determinare il tipo di relazione tra le frasi."  
   - "Scegliere la congiunzione corretta."  
 enunciado: "___ piove, restiamo a casa."  
+tipo: mc
 opciones_explicitas:  
   - "che"  
   - "dato che"  
@@ -271,6 +278,7 @@ pasos:
   - "Determinare la distanza dell'oggetto."  
   - "Scegliere l'aggettivo dimostrativo corretto."  
 enunciado: "Vedi ___ palazzo laggiù?"  
+tipo: mc
 opciones_explicitas:  
   - "questo"  
   - "quel"  
@@ -307,6 +315,7 @@ pasos:
   - "Analizzare il momento dell'azione."  
   - "Scegliere la preposizione corretta."  
 enunciado: "Usciremo ___ pranzo."  
+tipo: mc
 opciones_explicitas:  
   - "dopo"  
   - "prima di"  
@@ -343,6 +352,7 @@ pasos:
   - "Individuare la causa-effetto."  
   - "Scegliere la congiunzione corretta."  
 enunciado: "Sono felice ___ ho superato l'esame."  
+tipo: mc
 opciones_explicitas:  
   - "perché"  
   - "dato che"  
@@ -379,6 +389,7 @@ pasos:
   - "Identificare il tipo di domanda."  
   - "Scegliere l'aggettivo interrogativo corretto."  
 enunciado: "___ libro preferisci?"  
+tipo: mc
 opciones_explicitas:  
   - "quale"  
   - "che"  
@@ -415,6 +426,7 @@ pasos:
   - "Analizzare l'ipotesi o la possibilità."  
   - "Scegliere la forma condizionale corretta."  
 enunciado: "Se avessi tempo, ___ al mare."  
+tipo: mc
 opciones_explicitas:  
   - "andrei"  
   - "andrò"  
@@ -451,6 +463,7 @@ pasos:
   - "Determinare il tipo di domanda."  
   - "Scegliere l'aggettivo interrogativo corretto."  
 enunciado: "___ film preferisci tra questi due?"  
+tipo: mc
 opciones_explicitas:  
   - "quale"  
   - "che"  

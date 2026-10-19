@@ -28,6 +28,7 @@ metadata:
   nivel: "avanzado"
   tags: ["paz", "versalles"]
 enunciado: "¿Cuál fue el tratado de paz principal que puso fin oficialmente a la Primera Guerra Mundial entre las Potencias Aliadas y Alemania?"
+tipo: mc
 opciones_explicitas:
   - "Tratado de Trianón"
   - "Tratado de Versalles"
@@ -44,6 +45,7 @@ metadata:
   nivel: "avanzado"
   tags: ["febrero", "abdicacion"]
 enunciado: "La Revolución de Febrero de 1917 en Rusia provocó la abdicación del último zar de la dinastía Romanov. ¿Quién fue este monarca?"
+tipo: mc
 opciones_explicitas:
   - "Pedro I el Grande"
   - "Alejandro II"
@@ -103,6 +105,7 @@ metadata:
   nivel: "avanzado"
   tags: ["armisticio", "compiene"]
 enunciado: "El armisticio que detuvo los combates en el frente occidental se firmó en un vagón de ferrocarril en el bosque de Compiègne. ¿En qué mes de 1918 ocurrió?"
+tipo: mc
 opciones_explicitas:
   - "Noviembre"
   - "Diciembre"
@@ -119,6 +122,7 @@ metadata:
   nivel: "avanzado"
   tags: ["octubre", "lenin"]
 enunciado: "Fue el líder principal de la Revolución de Octubre de 1917 y el primer jefe de gobierno de la Rusia Soviética. ¿Quién fue?"
+tipo: mc
 opciones_explicitas:
   - "León Trotsky"
   - "Iósif Stalin"

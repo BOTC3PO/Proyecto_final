@@ -34,6 +34,7 @@ pasos:
 explicacion: "El superlativo de 'big' es 'the biggest', pero aquí se usa 'the most big' como forma alternativa, aunque 'the biggest' es más común."
 enunciado: "Mount Everest is ___ mountain in the world."
 respuesta: "the most"
+tipo: mc
 opciones_explicitas:
   - "the most"
   - "the biggest"
@@ -53,6 +54,7 @@ pasos:
 explicacion: "'Good' es un adjetivo irregular cuyo comparativo es 'better', no '-er'."
 enunciado: "This cake is ___ than the one from yesterday."
 respuesta: "better"
+tipo: mc
 opciones_explicitas:
   - "better"
   - "gooder"
@@ -72,6 +74,7 @@ pasos:
 explicacion: "'The most water' es correcto porque 'water' es un sustantivo no contable, requiriendo 'most'."
 enunciado: "This bottle has ___ water than the others."
 respuesta: "the most"
+tipo: mc
 opciones_explicitas:
   - "the most"
   - "more"
@@ -91,6 +94,7 @@ pasos:
 explicacion: "'Older' es el comparativo correcto de 'old', no '-er' o 'more old'."
 enunciado: "My sister is ___ than my brother."
 respuesta: "older"
+tipo: mc
 opciones_explicitas:
   - "older"
   - "oldest"
@@ -110,6 +114,7 @@ pasos:
 explicacion: "'The best' es el superlativo correcto de 'good', no 'more good'."
 enunciado: "She is ___ singer in the group."
 respuesta: "the best"
+tipo: mc
 opciones_explicitas:
   - "the best"
   - "better"
@@ -129,6 +134,7 @@ pasos:
 explicacion: "'More expensive' es correcto porque 'expensive' es un adjetivo que requiere 'more' para comparativos."
 enunciado: "This car is ___ than that one."
 respuesta: "more expensive"
+tipo: mc
 opciones_explicitas:
   - "more expensive"
   - "expensiver"
@@ -148,6 +154,7 @@ pasos:
 explicacion: "'Fastest' es el superlativo correcto de 'fast', no 'more fast'."
 enunciado: "He runs ___ in the race."
 respuesta: "the fastest"
+tipo: mc
 opciones_explicitas:
   - "the fastest"
   - "faster"
@@ -167,6 +174,7 @@ pasos:
 explicacion: "'More information' es correcto porque 'information' es un sustantivo no contable, requiriendo 'more'."
 enunciado: "This book has ___ information than the other one."
 respuesta: "more"
+tipo: mc
 opciones_explicitas:
   - "more"
   - "most"
@@ -186,6 +194,7 @@ pasos:
 explicacion: "'Longest' es el superlativo correcto de 'long', no 'more long'."
 enunciado: "This meeting was ___ of the day."
 respuesta: "the longest"
+tipo: mc
 opciones_explicitas:
   - "the longest"
   - "longer"
@@ -205,6 +214,7 @@ pasos:
 explicacion: "'Bigger' es el comparativo correcto de 'big', no '-er' o 'more big'."
 enunciado: "This box is ___ than that one."
 respuesta: "bigger"
+tipo: mc
 opciones_explicitas:
   - "bigger"
   - "the biggest"
@@ -224,6 +234,7 @@ pasos:
 explicacion: "'The best' es el superlativo correcto de 'good', no 'more good'."
 enunciado: "This is ___ movie I've seen this year."
 respuesta: "the best"
+tipo: mc
 opciones_explicitas:
   - "the best"
   - "better"
@@ -243,6 +254,7 @@ pasos:
 explicacion: "'Better' es el comparativo correcto de 'good', no '-er' o 'more good'."
 enunciado: "She is ___ at math than her brother."
 respuesta: "better"
+tipo: mc
 opciones_explicitas:
   - "better"
   - "the best"
@@ -262,6 +274,7 @@ pasos:
 explicacion: "'Biggest' es el superlativo correcto de 'big', no 'more big'."
 enunciado: "This is ___ building in the city."
 respuesta: "the biggest"
+tipo: mc
 opciones_explicitas:
   - "the biggest"
   - "bigger"
@@ -281,6 +294,7 @@ pasos:
 explicacion: "'Older' es el comparativo correcto de 'old', no '-er' o 'more old'."
 enunciado: "My grandmother is ___ than my grandfather."
 respuesta: "older"
+tipo: mc
 opciones_explicitas:
   - "older"
   - "oldest"
@@ -300,6 +314,7 @@ pasos:
 explicacion: "'The most expensive' es correcto porque 'expensive' es un adjetivo que requiere 'most' para superlativos."
 enunciado: "This is ___ watch in the store."
 respuesta: "the most expensive"
+tipo: mc
 opciones_explicitas:
   - "the most expensive"
   - "more expensive"
@@ -319,6 +334,7 @@ pasos:
 explicacion: "'More books' es correcto porque 'books' es un sustantivo plural, requiriendo 'more'."
 enunciado: "I have ___ books than you."
 respuesta: "more"
+tipo: mc
 opciones_explicitas:
   - "more"
   - "most"
@@ -338,6 +354,7 @@ pasos:
 explicacion: "'Fastest' es el superlativo correcto de 'fast', no 'more fast'."
 enunciado: "He is ___ runner in the team."
 respuesta: "the fastest"
+tipo: mc
 opciones_explicitas:
   - "the fastest"
   - "faster"
@@ -357,6 +374,7 @@ pasos:
 explicacion: "'More interesting' es correcto porque 'interesting' es un adjetivo que requiere 'more' para comparativos."
 enunciado: "This book is ___ than that one."
 respuesta: "more interesting"
+tipo: mc
 opciones_explicitas:
   - "more interesting"
   - "the most interesting"
@@ -376,6 +394,7 @@ pasos:
 explicacion: "'The best' es el superlativo correcto de 'good', no 'more good'."
 enunciado: "This is ___ service I've ever received."
 respuesta: "the best"
+tipo: mc
 opciones_explicitas:
   - "the best"
   - "better"
@@ -395,6 +414,7 @@ pasos:
 explicacion: "'Longer' es el comparativo correcto de 'long', no '-er' o 'more long'."
 enunciado: "The movie was ___ than the previous one."
 respuesta: "longer"
+tipo: mc
 opciones_explicitas:
   - "longer"
   - "the longest"
@@ -414,6 +434,7 @@ pasos:
 explicacion: "'The most books' es correcto porque 'books' es un sustantivo plural, requiriendo 'the most'."
 enunciado: "She has ___ books in her collection."
 respuesta: "the most"
+tipo: mc
 opciones_explicitas:
   - "the most"
   - "more"
@@ -433,6 +454,7 @@ pasos:
 explicacion: "'Better' es el comparativo correcto de 'good', no '-er' o 'more good'."
 enunciado: "He is ___ at swimming than his friend."
 respuesta: "better"
+tipo: mc
 opciones_explicitas:
   - "better"
   - "the best"
@@ -452,6 +474,7 @@ pasos:
 explicacion: "'The oldest' es el superlativo correcto de 'old', no 'more old'."
 enunciado: "This is ___ person in the family."
 respuesta: "the oldest"
+tipo: mc
 opciones_explicitas:
   - "the oldest"
   - "older"
@@ -471,6 +494,7 @@ pasos:
 explicacion: "'More expensive' es correcto porque 'expensive' es un adjetivo que requiere 'more' para comparativos."
 enunciado: "This laptop is ___ than the one I bought last year."
 respuesta: "more expensive"
+tipo: mc
 opciones_explicitas:
   - "more expensive"
   - "the most expensive"

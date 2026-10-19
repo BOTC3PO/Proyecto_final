@@ -170,6 +170,7 @@ pasos:
   - "Identificar el término portugués que se confunde con su equivalente en español."
   - "Seleccionar la opción correcta de las opciones dadas."
 enunciado: "¿Cuál es la palabra portuguesa que expresa un sentimiento de nostalgia y añoranza sin equivalente exacto en español?"
+tipo: mc
 opciones_explicitas:  
   - "saudade"  
   - "melancolía"  
@@ -189,6 +190,7 @@ pasos:
   - "Analizar el significado de 'churrasco' en portugués."
   - "Relacionar con su equivalente en español."
 enunciado: "¿Cuál es el significado correcto de 'churrasco' en portugués?"
+tipo: mc
 opciones_explicitas:  
   - "barbacoa"  
   - "carne asada"  
@@ -208,6 +210,7 @@ pasos:
   - "Identificar el término en portugués que se parece a su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'falar'?"
+tipo: mc
 opciones_explicitas:  
   - "hablar"  
   - "decir"  
@@ -227,6 +230,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'gosto.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la traducción correcta de la expresión portuguesa 'gosto de'?"
+tipo: mc
 opciones_explicitas:  
   - "me gusta"  
   - "gosto de"  
@@ -246,6 +250,7 @@ pasos:
   - "Identificar la forma correcta de usar 'pensar' en una oración."
   - "Seleccionar la opción que no refleja un falso amigo."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'pensar'?"
+tipo: mc
 opciones_explicitas:  
   - "pensamiento"  
   - "pensar"  
@@ -265,6 +270,7 @@ pasos:
   - "Relacionar el término portugués con su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es la traducción correcta de la palabra portuguesa 'aeroporto'?"
+tipo: mc
 opciones_explicitas:  
   - "aeropuerto"  
   - "terminal aérea"  
@@ -284,6 +290,7 @@ pasos:
   - "Identificar el término en portugués que se confunde con su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'receber'?"
+tipo: mc
 opciones_explicitas:  
   - "recibir"  
   - "tomar"  
@@ -303,6 +310,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'vender.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'vender'?"
+tipo: mc
 opciones_explicitas:  
   - "venta"  
   - "vender"  
@@ -322,6 +330,7 @@ pasos:
   - "Identificar el término en portugués que se parece a su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'ler'?"
+tipo: mc
 opciones_explicitas:  
   - "leer"  
   - "escribir"  
@@ -341,6 +350,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'comprar.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'comprar'?"
+tipo: mc
 opciones_explicitas:  
   - "comprar"  
   - "vender"  
@@ -360,6 +370,7 @@ pasos:
   - "Identificar el término en portugués que se confunde con su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cómo se escribe correctamente en español la palabra que en portugués es 'frio' (sin tilde)?"
+tipo: mc
 opciones_explicitas:  
   - "frío"  
   - "frio"  
@@ -379,6 +390,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'calor.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la traducción correcta de la palabra portuguesa 'calor'?"
+tipo: mc
 opciones_explicitas:  
   - "calor"  
   - "caliente"  
@@ -398,6 +410,7 @@ pasos:
   - "Identificar el término en portugués que se parece a su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es el significado correcto del verbo portugués 'pegar' (atención: no significa lo mismo que en español)?"
+tipo: mc
 opciones_explicitas:  
   - "agarrar"  
   - "pegar"  
@@ -417,6 +430,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'achado.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la traducción correcta de 'achado' en portugués?"
+tipo: mc
 opciones_explicitas:  
   - "encontrado"  
   - "achado"  
@@ -436,6 +450,7 @@ pasos:
   - "Identificar el término en portugués que se confunde con su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'envergonhar'?"
+tipo: mc
 opciones_explicitas:  
   - "avergonzar"  
   - "envergonhar"  
@@ -455,6 +470,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'fazer compras.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la traducción correcta de la expresión portuguesa 'fazer compras'?"
+tipo: mc
 opciones_explicitas:  
   - "hacer compras"  
   - "comprar cosas"  
@@ -474,6 +490,7 @@ pasos:
   - "Identificar el término en portugués que se parece a su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es otro significado correcto del verbo portugués 'pegar' (además de 'agarrar')?"
+tipo: mc
 opciones_explicitas:  
   - "coger"  
   - "pegar"  
@@ -493,6 +510,7 @@ pasos:
   - "Reconocer el error en la construcción de la frase con 'gustar.'"
   - "Seleccionar la opción correcta."
 enunciado: "¿Cuál es la forma correcta de decir en español lo que en portugués es 'eu gosto de música'?"
+tipo: mc
 opciones_explicitas:  
   - "me gusta"  
   - "gusta a mí"  
@@ -512,6 +530,7 @@ pasos:
   - "Identificar el término en portugués que se confunde con su equivalente en español."
   - "Seleccionar la opción correcta de las dadas."
 enunciado: "¿Cuál es la traducción correcta del verbo portugués 'imaginar'?"
+tipo: mc
 opciones_explicitas:  
   - "imaginar"  
   - "pensar"  

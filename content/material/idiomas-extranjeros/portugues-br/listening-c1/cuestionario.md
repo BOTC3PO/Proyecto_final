@@ -30,6 +30,7 @@ pasos:
   - "Escuche el diálogo entre dos amigos analizando un documental."
   - "Identifique la frase que expresa una opinión personal del hablante."
 enunciado: "En el diálogo sobre el documental, ¿cuál es la frase que expresa una opinión personal?"
+tipo: mc
 opciones_explicitas:
   - "O documental é extremamente informativo, mas eu não concordo com a conclusão."
   - "A apresentação do documental foi clara e bem estruturada."
@@ -49,6 +50,7 @@ metadata:
 pasos:
   - "Identifique la palabra portuguesa correcta según su significado."
 enunciado: "¿Cuál es la palabra portuguesa que significa 'siglo'?"
+tipo: mc
 opciones_explicitas:
   - "célula"
   - "século"
@@ -87,6 +89,7 @@ pasos:
   - "Escuche el fragmento de un debate político."
   - "Determine cuál es la intención principal del orador."
 enunciado: "En el fragmento del debate político, ¿cuál es la intención principal del orador?"
+tipo: mc
 opciones_explicitas:
   - "Explicar las consecuencias económicas de una política."
   - "Solicitar apoyo para un candidato específico."
@@ -107,6 +110,7 @@ pasos:
   - "Escuche la historia de un viaje."
   - "Identifique el verbo que indica una acción pasada irrelevante para el presente."
 enunciado: "En la historia del viaje, ¿cuál es la oración que usa un tiempo verbal de pasado irrelevante para el presente?"
+tipo: mc
 opciones_explicitas:
   - "Vi un amanecer espectacular en las montañas."
   - "Voy a visitar ese lugar pronto."
@@ -145,6 +149,7 @@ pasos:
   - "Escuche el discurso de un profesor."
   - "Identifique la palabra que introduce una idea contraria a lo anterior."
 enunciado: "En el discurso del profesor, ¿cuál es la expresión que introduce una idea contraria a lo anterior?"
+tipo: mc
 opciones_explicitas:
   - "No obstante, es importante mencionar..."
   - "Por otro lado, algunos autores argumentan que..."
@@ -183,6 +188,7 @@ pasos:
   - "Escuche el audio de una campaña publicitaria."
   - "Determine cuál es el objetivo principal del anuncio."
 enunciado: "En el anuncio publicitario, ¿cuál es el objetivo principal?"
+tipo: mc
 opciones_explicitas:
   - "Incentivar la compra de un producto ecológico."
   - "Explicar las características técnicas de un dispositivo."
@@ -221,6 +227,7 @@ pasos:
   - "Escuche un fragmento de un debate académico."
   - "Clasifique el tipo de discurso según el tono y contenido."
 enunciado: "¿Cómo se clasifica el fragmento del debate académico según su tono y contenido?"
+tipo: mc
 opciones_explicitas:
   - "Discurso argumentativo sobre políticas públicas."
   - "Relato personal de una experiencia laboral."
@@ -259,6 +266,7 @@ pasos:
   - "Escuche la conversación entre un cliente y un vendedor."
   - "Determine el tipo de registro lingüístico utilizado."
 enunciado: "En la conversación entre cliente y vendedor, ¿qué tipo de registro lingüístico se utiliza?"
+tipo: mc
 opciones_explicitas:
   - "Registro informal con uso frecuente de contracciones."
   - "Lenguaje técnico especializado en un contexto académico."
@@ -297,6 +305,7 @@ pasos:
   - "Escuche el fragmento de un discurso político."
   - "Determine la relación entre las oraciones conectadas por 'porém'."
 enunciado: "En el discurso político, ¿qué relación expresa el conector 'porém' entre las oraciones?"
+tipo: mc
 opciones_explicitas:
   - "Contraste entre dos puntos de vista."
   - "Consecuencia de una decisión tomada."
@@ -335,6 +344,7 @@ pasos:
   - "Escuche el resumen de un artículo científico."
   - "Identifique el tema central del contenido."
 enunciado: "¿Cuál es el tema central del resumen del artículo científico?"
+tipo: mc
 opciones_explicitas:
   - "Impacto del cambio climático en la biodiversidad marina."
   - "Estudio sobre las causas del desempleo juvenil."
@@ -373,6 +383,7 @@ pasos:
   - "Escuche el discurso de un orador en una ceremonia."
   - "Determine el tono emocional del hablante."
 enunciado: "En el discurso de la ceremonia, ¿cuál es el tono emocional del hablante?"
+tipo: mc
 opciones_explicitas:
   - "Tono inspirador y motivador."
   - "Tono sarcástico y despectivo."
@@ -411,6 +422,7 @@ pasos:
   - "Escuche el discurso de un poeta."
   - "Identifique la metáfora utilizada para expresar una idea abstracta."
 enunciado: "En el discurso del poeta, ¿cuál es la metáfora utilizada para expresar una idea abstracta?"
+tipo: mc
 opciones_explicitas:
   - "La vida es un mar de incertezas."
   - "El tiempo corre como un río sin orillas."
@@ -449,6 +461,7 @@ pasos:
   - "Escuche el discurso de un político."
   - "Determine el estilo retórico utilizado para persuadir al público."
 enunciado: "¿Qué estilo retórico utiliza el político para persuadir al público?"
+tipo: mc
 opciones_explicitas:
   - "Uso de metáforas y exageraciones emocionales."
   - "Lenguaje técnico con datos estadísticos."
@@ -487,6 +500,7 @@ pasos:
   - "Escuche el discurso de un profesor en una conferencia."
   - "Determine cuál es el propósito principal del hablante."
 enunciado: "En la conferencia, ¿cuál es el propósito principal del profesor?"
+tipo: mc
 opciones_explicitas:
   - "Presentar los resultados de una investigación reciente."
   - "Explicar la evolución histórica de un movimiento social."

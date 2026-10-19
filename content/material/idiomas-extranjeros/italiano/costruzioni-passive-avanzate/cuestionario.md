@@ -38,6 +38,7 @@ pasos:
   - "Reconocer que el verbo 'dovere' requiere una construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il conto ___ pagare entro la scadenza."
+tipo: mc
 opciones_explicitas:
   - "è stato dovuto"
   - "è dovuto"
@@ -75,6 +76,7 @@ pasos:
   - "Reconocer que se requiere el trapassato prossimo en pasivo."
   - "Verificar la concordancia del participio con 'la casa'."
 enunciado: "La casa ___ nel 1990, prima che nascessi."
+tipo: mc
 opciones_explicitas:
   - "era stata costruita"
   - "è stata costruita"
@@ -112,6 +114,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il pacco ___."
+tipo: mc
 opciones_explicitas:
   - "è stato consegnato da lui"
   - "è stato consegnato"
@@ -149,6 +152,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il pranzo ___."
+tipo: mc
 opciones_explicitas:
   - "è stato preparato da me"
   - "è stato preparato"
@@ -186,6 +190,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il rapporto ___."
+tipo: mc
 opciones_explicitas:
   - "è stato scritto da loro"
   - "è stato scritto"
@@ -223,6 +228,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il regalo ___."
+tipo: mc
 opciones_explicitas:
   - "è stato consegnato da loro"
   - "è stato consegnato"
@@ -260,6 +266,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il messaggio ___."
+tipo: mc
 opciones_explicitas:
   - "è stato scritto da lui"
   - "è stato scritto"
@@ -297,6 +304,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "L'ordine ___."
+tipo: mc
 opciones_explicitas:
   - "è stato consegnato da loro"
   - "è stato consegnato"
@@ -334,6 +342,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "L'articolo ___."
+tipo: mc
 opciones_explicitas:
   - "è stato scritto da lui"
   - "è stato scritto"
@@ -371,6 +380,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il plico ___."
+tipo: mc
 opciones_explicitas:
   - "è stato consegnato da loro"
   - "è stato consegnato"
@@ -408,6 +418,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il romanzo ___."
+tipo: mc
 opciones_explicitas:
   - "è stato scritto da lui"
   - "è stato scritto"
@@ -445,6 +456,7 @@ pasos:
   - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
   - "Elegir la forma correcta del participio con concordancia."
 enunciado: "Il documento ___."
+tipo: mc
 opciones_explicitas:
   - "è stato consegnato da loro"
   - "è stato consegnato"

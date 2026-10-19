@@ -43,6 +43,7 @@ pasos:
   - "Reconocer la necesidad del subjuntivo tras 'spero che'."
   - "Seleccionar la forma correcta del verbo en subjuntivo."
 enunciado: "Spero che lui ___ alla festa."
+tipo: mc
 opciones_explicitas:
   - "vada"
   - "va"
@@ -117,6 +118,7 @@ pasos:
   - "Identificar la preposición correcta para el verbo 'pensare'."
   - "Seleccionar la opción que completa la oración correctamente."
 enunciado: "Penso ___ lui tutto il giorno."
+tipo: mc
 opciones_explicitas:
   - "di"
   - "a"
@@ -137,6 +139,7 @@ pasos:
   - "Reconocer el saludo adecuado para una carta formal."
   - "Seleccionar la opción correcta entre las posibles."
 enunciado: "¿Cuál es el saludo correcto para iniciar una carta formal dirigida al Signor Rossi?"
+tipo: mc
 opciones_explicitas:
   - "Caro Signor Rossi,"
   - "Ciao, Signor Rossi,"
@@ -157,6 +160,7 @@ pasos:
   - "Identificar el cambio del verbo en la oración indirecta."
   - "Seleccionar la forma correcta de 'dire' en la oración."
 enunciado: "Il professore mi ___ che l'esame era difficile."
+tipo: mc
 opciones_explicitas:
   - "dicesse"
   - "diceva"
@@ -212,6 +216,7 @@ metadata:
 pasos:
   - "Reconocer la necesidad del subjuntivo tras 'non appena'."
   - "Seleccionar la forma correcta del verbo."
+tipo: mc
 opciones_explicitas:
   - "venga"
   - "viene"
@@ -269,6 +274,7 @@ pasos:
   - "Identificar el pronombre complemento indirecto correcto."
   - "Seleccionar la opción que completa la oración correctamente."
 enunciado: "Se hai il libro, ___ dai domani?"
+tipo: mc
 opciones_explicitas:
   - "me lo"
   - "mielo"
@@ -307,6 +313,7 @@ pasos:
   - "Identificar la necesidad del subjuntivo tras 'non credo che'."
   - "Seleccionar la forma correcta del verbo."
 enunciado: "Non credo che lui ___ pronto."
+tipo: mc
 opciones_explicitas:
   - "sia"
   - "è"
@@ -327,6 +334,7 @@ pasos:
   - "Reconocer la diferencia entre 'sebbene' y 'benché'."
   - "Seleccionar el uso correcto en la oración."
 enunciado: "___ sia tardi, continuiamo a lavorare."
+tipo: mc
 opciones_explicitas:
   - "sebbene"
   - "benché"
@@ -364,6 +372,7 @@ metadata:
 pasos:
   - "Identificar la necesidad del subjuntivo tras 'dopo che'."
   - "Seleccionar la forma correcta del verbo."
+tipo: mc
 opciones_explicitas:
   - "vada"
   - "va"
@@ -403,6 +412,7 @@ pasos:
   - "Reconocer el cierre adecuado para una carta formal."
   - "Seleccionar la opción correcta entre las posibles."
 enunciado: "¿Cuál es el cierre correcto para una carta formal?"
+tipo: mc
 opciones_explicitas:
   - "Con ossequio,"
   - "Cordiali saluti,"
@@ -423,6 +433,7 @@ pasos:
   - "Reconocer la diferencia entre 'pur se' y 'sebbene'."
   - "Seleccionar el uso correcto en la oración."
 enunciado: "___ piova, usciremo lo stesso."
+tipo: mc
 opciones_explicitas:
   - "pur se"
   - "benché"

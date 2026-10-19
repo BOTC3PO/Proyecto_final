@@ -44,6 +44,7 @@ pasos:
   - "Escuchar la pregunta: 'Você ___ em casa ontem?'"  
   - "Seleccionar la forma correcta del verbo para completar la oración."  
 enunciado: "Você ___ em casa ontem?"
+tipo: mc
 opciones_explicitas:  
   - "estava"  
   - "esta"  
@@ -79,6 +80,7 @@ pasos:
   - "Escuchar la oración: 'Ela ___ um novo computador.'"  
   - "Seleccionar la forma correcta del verbo para completar la frase."  
 enunciado: "Ela ___ um novo computador."
+tipo: mc
 opciones_explicitas:  
   - "comprava"  
   - "comprou"  
@@ -114,6 +116,7 @@ pasos:
   - "Escuchar la oración: 'Este filme é ___ que o anterior.'"  
   - "Seleccionar el adjetivo comparativo adecuado."  
 enunciado: "Este filme é ___ que o anterior."
+tipo: mc
 opciones_explicitas:  
   - "mais bom"  
   - "melhor"  
@@ -149,6 +152,7 @@ pasos:
   - "Escuchar la oración: 'O projeto ___ concluído ontem.'"  
   - "Seleccionar la forma correcta del verbo en voz pasiva."  
 enunciado: "O projeto ___ concluído ontem."
+tipo: mc
 opciones_explicitas:  
   - "foi"  
   - "é"  
@@ -184,6 +188,7 @@ pasos:
   - "Escuchar la oración: 'Se eu ___ rico, viajaria mais.'"  
   - "Seleccionar la forma correcta del verbo en la condición."  
 enunciado: "Se eu ___ rico, viajaria mais."
+tipo: mc
 opciones_explicitas:  
   - "fosse"  
   - "for"  
@@ -219,6 +224,7 @@ pasos:
   - "Escuchar la oración: 'O ___ é muito caro.'"  
   - "Seleccionar el artículo que precede al nombre común."  
 enunciado: "O ___ é muito caro."
+tipo: mc
 opciones_explicitas:  
   - "carro"  
   - "um carro"  
@@ -254,6 +260,7 @@ pasos:
   - "Escuchar la oración: 'Eles ___ vestiram.'"  
   - "Seleccionar el pronombre personal correcto para la reflexión."  
 enunciado: "Eles ___ vestiram."
+tipo: mc
 opciones_explicitas:  
   - "se"  
   - "si"  
@@ -289,6 +296,7 @@ pasos:
   - "Escuchar la oración: 'Ela foi ___ escola.'"  
   - "Seleccionar la preposición que completa correctamente el verbo."  
 enunciado: "Ela foi ___ escola."
+tipo: mc
 opciones_explicitas:  
   - "à"  
   - "na"  
@@ -324,6 +332,7 @@ pasos:
   - "Escuchar la oración: 'Ela chegou ___.'"  
   - "Seleccionar el adverbio de tiempo que completa correctamente."  
 enunciado: "Ela chegou ___."
+tipo: mc
 opciones_explicitas:  
   - "ontem"  
   - "hoje"  
@@ -359,6 +368,7 @@ pasos:
   - "Escuchar la oración: 'Este é o carro ___ Sr. Silva.'"  
   - "Seleccionar la contracción de 'de' + artículo que precede al nombre propio masculino."  
 enunciado: "Este é o carro ___ Sr. Silva."
+tipo: mc
 opciones_explicitas:  
   - "do"  
   - "da"  

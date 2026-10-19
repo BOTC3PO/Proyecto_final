@@ -379,6 +379,7 @@ pasos:
   - "Reconocer que 'vous' requiere subjonctivo en registros formales."
 explicacion: "En contextos formales, cuando se usa 'vous', se requiere el modo subjonctivo (devriez) para expresar recomendaciones o sugerencias. La forma infinitiva o indicativo sería inapropiada."
 enunciado: "Lorsqu’on parle à un supérieur hiérarchique, vous ___ proposer des solutions concrètes."
+tipo: mc
 opciones_explicitas:
   - "devriez"
   - "devez"
