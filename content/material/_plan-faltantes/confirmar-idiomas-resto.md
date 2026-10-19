@@ -24,7 +24,7 @@ Cada uno tiene `teoria.md` (3.500 a 4.400 caracteres; el cuarteto B2 queda entre
 | `speaking-b2` | B2 | 25 |
 | `traduccion-y-mediacion` | C1 | 26 |
 
-Validación con `_qa_tools/validar_cuestionario.py`: ver el reporte del agente (el estado de cada archivo se confirmó al final de la corrida).
+Validación con `_qa_tools/validar_cuestionario.py`: los 15 cuestionarios dieron OK, sin fallos de parseo, lint ni compilación.
 
 ### Decisiones mías, no pedidas
 - **Niveles en `metadata`:** usé A2, B1, B2 y C1 (como los temas de destrezas existentes).
