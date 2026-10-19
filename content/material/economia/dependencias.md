@@ -121,3 +121,4 @@ con `../` apuntan a otra materia (documentación; el script las ignora).
 | `mvp-producto-minimo-viable/` | `validar-con-clientes-construir-medir-aprender/` | Nodo `EMP3` (`EMP2 --> EMP3`). |
 | `business-model-canvas/` | `mvp-producto-minimo-viable/`, `objetivos-y-metas/` | Nodo `EMP4` (`EMP3 --> EMP4`, `ADM1 --> EMP4`). |
 | `pitch-a-inversores/` | `business-model-canvas/` | Nodo `EMP5` (`EMP4 --> EMP5`). |
+| `como-se-calcula-el-ipc-argentina/` | `pbi-e-inflacion/` | Nodo propuesto en `../PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md` todavía). Explica ponderadores, ENGHo, relevamiento y composición de variaciones; no hardcodea ponderadores ni la ENGHo vigente (INDEC anunció actualizar la canasta, fecha cambiante). Decisión de Claude, no pedida: dependencia deducida. |
