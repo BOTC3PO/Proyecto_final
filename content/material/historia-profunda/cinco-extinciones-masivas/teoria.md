@@ -1,6 +1,6 @@
 # Historia Profunda — Cinco Extinciones Masivas (teoría)
 
-> Tema del MAPA: `historia-profunda/cinco-extinciones-masivas`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/cinco-extinciones-masivas`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ Una extinción masiva es un evento donde más del **75%** de las especies vivien
 
 Hace unos **444 millones de años**, el planeta vivió su primer gran colapso biológico. La causa principal fue una glaciación intensa que redujo los niveles del mar y la oxigenación de los océanos. Las zonas costeras, donde proliferaban ecosistemas marinos complejos, se vieron afectadas por el retroceso de los mares. Como resultado, **más del 85% de las especies marinas desaparecieron**, especialmente organismos que dependían de ambientes con altas concentraciones de oxígeno.
 
-[IMAGEN: Mapa geológico del Ordovícico mostrando la extensión de los océanos y zonas glaciales]
+<!-- IMAGEN: Mapa geológico del Ordovícico mostrando la extensión de los océanos y zonas glaciales -->
 
 ## 3. La extinción del Devónico: El "Gran Mortandad" silenciosa
 
@@ -26,7 +26,7 @@ Durante el **Devónico** (hace unos **372 millones de años**), una serie de eve
 
 La extinción del **Pérmico-Triásico** (hace unos **252 millones de años**) fue la más devastadora en la historia de la Tierra. Se estima que **el 96% de las especies marinas y el 70% de las terrestres se extinguieron**, incluyendo a muchos invertebrados, peces y plantas. Las causas principales son la actividad volcánica masiva en Siberia, que liberó gases tóxicos y alteró el clima global, junto con cambios en los niveles del mar.
 
-[IMAGEN: Reconstitución artística de los ecosistemas antes y después de la extinción del Pérmico]
+<!-- IMAGEN: Reconstitución artística de los ecosistemas antes y después de la extinción del Pérmico -->
 
 ## 5. La cuarta extinción: Triásico-Jurásico
 
@@ -36,7 +36,7 @@ Hace unos **201 millones de años**, una nueva crisis biológica eliminó alrede
 
 La más famosa de todas fue la extinción del **Cretácico-Paleógeno** (hace **66 millones de años**), causada por el impacto de un asteroide en la península de Yucatán, creando el cráter de Chicxulub. Esta colisión liberó una cantidad inmensa de polvo y gases que oscurecieron el planeta, interrumpiendo la fotosíntesis y provocando una caída masiva en las cadenas alimentarias. La extinción eliminó a los dinosaurios no aviares (excepto las aves), así como a muchas plantas y mamíferos primitivos.
 
-[IMAGEN: Mapa del cráter de Chicxulub y su ubicación actual]
+<!-- IMAGEN: Mapa del cráter de Chicxulub y su ubicación actual -->
 
 ## N. Conexión con lo que sigue
 

@@ -1,6 +1,6 @@
 # Historia Profunda — La Gran Guerra y el colapso del orden europeo (teoría)
 
-> Tema del MAPA: `historia-profunda/primera-guerra-mundial-y-revolucion-rusa`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/primera-guerra-mundial-y-revolucion-rusa`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -20,7 +20,7 @@ En el Frente Occidental, la estancación táctica dio lugar a la guerra de trinc
 
 Sin embargo, este equilibrio se rompió con la entrada de Estados Unidos en 1917 y el bloqueo naval británico. Alemania, asfixiada económicamente, recurrió a la guerra submarina ilimitada, una decisión estratégica que provocó la intervención norteamericana. La guerra se volvió "total" no solo en el frente, sino en la retaguardia: la economía civil se subordinó a la producción bélica, y la población civil sufrió hambrunas y enfermedades, debilitando el soporte social de los regímenes en guerra.
 
-[IMAGEN: Mapa estratégico de los frentes de batalla en Europa y el Medio Oriente hacia 1917, mostrando la estancación en el oeste y la movilidad en el este]
+<!-- IMAGEN: Mapa estratégico de los frentes de batalla en Europa y el Medio Oriente hacia 1917, mostrando la estancación en el oeste y la movilidad en el este -->
 
 ## 3. La Revolución Rusa: del caos zarista al bolchevismo
 

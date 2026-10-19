@@ -70,5 +70,5 @@ juntas forman un patrón preocupante):
 
 Reconocer estas señales conecta con los derechos y recursos concretos
 disponibles frente a la violencia de género — el tema de
-`../../derecho/s-leyes-26150-27610-linea144/` (que incluye la línea 144,
+`../../esi/derechos-leyes-26150-27610-linea144/` (que incluye la línea 144,
 el recurso de ayuda específico en Argentina).

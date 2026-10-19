@@ -1,6 +1,6 @@
 # Historia Profunda — Imperialismo (teoría)
 
-> Tema del MAPA: `historia-profunda/imperialismo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/imperialismo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 El imperialismo surge en la segunda mitad del siglo XIX, impulsado por la industrialización y la necesidad de recursos naturales. Las potencias europeas buscaban expandir sus economías mediante el control de territorios extranjeros, lo que generó una carrera por colonizar regiones no desarrolladas. Este proceso no fue solo económico: también incluyó aspectos culturales y políticos, como la imposición de sistemas educativos o religiosos.
 
-[IMAGEN: Mapa del reparto colonial en África al final del siglo XIX]
+<!-- IMAGEN: Mapa del reparto colonial en África al final del siglo XIX -->
 
 ## 2. El reparto de África
 

@@ -1,6 +1,6 @@
 # Historia Profunda — La Revolución de la Imprenta: De Gutenberg a la masificación del saber (teoría)
 
-> Tema del MAPA: `historia-profunda/la-revolucion-de-la-imprenta`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/la-revolucion-de-la-imprenta`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Antes de la década de 1450, el conocimiento en Europa estaba confinado a los scriptoriums monásticos y, posteriormente, a los talleres de copistas laicos en las ciudades universitarias. El proceso de reproducción de textos era extremadamente lento, costoso y propenso a errores de transcripción. El libro era un objeto de lujo, accesible únicamente para la alta nobleza, el clero de alto rango y las instituciones ricamente dotadas. Esta escasez material garantizaba que la interpretación de la realidad y la difusión de ideas estuvieran centralizadas en manos de una élite clerical y aristocrática. La cultura era, por definición, oral y visual para la mayoría, pero escrita y exclusiva para quienes podían acceder a ella.
 
-[IMAGEN: Fotografía de un scriptorium medieval mostrando monjes copiando manuscritos iluminados, con iluminación tenue y atmósfera de concentración silenciosa]
+<!-- IMAGEN: Fotografía de un scriptorium medieval mostrando monjes copiando manuscritos iluminados, con iluminación tenue y atmósfera de concentración silenciosa -->
 
 ## 2. La innovación técnica: Gutenberg y la síntesis de tecnologías
 
@@ -32,7 +32,7 @@ La imprenta provocó una caída drástica en el costo del libro. Lo que antes po
 *   **Dispersión de la heterodoxia:** Las ideas que antes eran filtradas o censuradas por los copistas podían ahora circular rápidamente. Esto fue crucial para la Reforma Protestante iniciada por Martín Lutero en 1517. Sus tesis y traducciones de la Biblia al alemán fueron impresas en miles de ejemplares, llegando a una audiencia masiva en semanas, algo imposible en la era manuscrita.
 *   **Estandarización lingüística:** La necesidad de un mercado amplio impulsó la fijación de las lenguas vernáculas (español, francés, alemán, inglés), debilitando el latín como única lengua culta y fortaleciendo las identidades nacionales emergentes.
 
-[IMAGEN: Detalle de una página de la Biblia de Gutenberg o de un folleto satírico de la Reforma Protestante, mostrando la tipografía gótica y la disposición del texto]
+<!-- IMAGEN: Detalle de una página de la Biblia de Gutenberg o de un folleto satírico de la Reforma Protestante, mostrando la tipografía gótica y la disposición del texto -->
 
 ## 4. El impacto en la ciencia y el método crítico
 

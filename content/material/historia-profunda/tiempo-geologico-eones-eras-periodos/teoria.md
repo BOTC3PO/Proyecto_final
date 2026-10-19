@@ -1,6 +1,6 @@
 # Historia Profunda — Tiempo Geológico: Eones, Eras, Periodos (teoría)  
 
-> Tema del MAPA: `historia-profunda/tiempo-geologico-eones-eras-periodos`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `historia-profunda/tiempo-geologico-eones-eras-periodos`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 **Presentación** — Explicación de cómo se organiza la historia de la Tierra en escalas temporales geológicas.  

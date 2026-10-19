@@ -14,7 +14,7 @@ El modelo agroexportador se consolidó en Argentina a fines del siglo XIX como u
 
 La economía funcionaba en un circuito cerrado: los productores agrícolas y ganaderos obtenían ingresos por sus exportaciones, que luego invertían en tierras o herramientas importadas. Sin embargo, este sistema dependía de la estabilidad de los mercados internacionales y de las condiciones climáticas, lo cual generaba volatilidad económica.
 
-[IMAGEN: Gráfico comparativo entre producción agrícola y manufacturera en Argentina (1870-1914)]
+<!-- IMAGEN: Gráfico comparativo entre producción agrícola y manufacturera en Argentina (1870-1914) -->
 
 ---
 
@@ -24,7 +24,7 @@ Para sostener el modelo agroexportador, fue fundamental la llegada de inversione
 
 Estas inversiones no solo impulsaron el comercio, sino que también generaron dependencia económica del capital extranjero. Los beneficios obtenidos por los inversores eran mayores que los de los argentinos, lo cual alimentó desigualdades sociales y económicas. Además, la prioridad a la exportación limitaba el desarrollo industrial local.
 
-[IMAGEN: Mapa de ferrocarriles construidos en Argentina durante el modelo agroexportador]
+<!-- IMAGEN: Mapa de ferrocarriles construidos en Argentina durante el modelo agroexportador -->
 
 ---
 
@@ -34,7 +34,7 @@ La expansión del modelo agroexportador requirió una gran mano de obra, lo que 
 
 La inmigración no fue un fenómeno espontáneo: el Estado argentino fomentó su llegada mediante políticas migratorias activas (ayudas económicas, tierras gratuitas) para aumentar la población y la fuerza laboral. Esta afluencia transformó radicalmente la demografía del país, diversificando su cultura y generando una sociedad multilingüe y multicultural.
 
-[IMAGEN: Foto de inmigrantes en el puerto de Buenos Aires durante el siglo XIX]
+<!-- IMAGEN: Foto de inmigrantes en el puerto de Buenos Aires durante el siglo XIX -->
 
 ---
 

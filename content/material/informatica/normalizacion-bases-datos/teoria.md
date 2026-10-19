@@ -1,6 +1,6 @@
 # Informática — Normalización de bases de datos (teoría)
 
-> Tema del MAPA: `informatica/normalizacion-bases-datos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/normalizacion-bases-datos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Informática — Permisos y usuarios (teoría)
 
-> Tema del MAPA: `informatica/permisos-y-usuarios`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/permisos-y-usuarios`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

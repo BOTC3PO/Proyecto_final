@@ -25,7 +25,7 @@ Una **pila** es como una pila de platos: siempre se agrega un nuevo elemento enc
 
 Las pilas son útiles cuando necesitamos revertir el orden de datos o mantener un historial (como en navegadores web, donde se vuelve al estado anterior al presionar "atras").
 
-[IMAGEN: Diagrama de una pila con elementos A, B, C. El último elemento (C) es el primero en salir.]
+<!-- IMAGEN: Diagrama de una pila con elementos A, B, C. El último elemento (C) es el primero en salir. -->
 
 ---
 
@@ -38,7 +38,7 @@ Las **colas** funcionan como filas de espera: los elementos entran por un extrem
 
 Son ideales para tareas que requieren procesamiento secuencial, como impresoras que atienden solicitudes en el orden recibido o sistemas de mensajería donde los mensajes se entregan según su llegada.
 
-[IMAGEN: Diagrama de una cola con elementos A, B, C. El primer elemento (A) es el primero en salir.]
+<!-- IMAGEN: Diagrama de una cola con elementos A, B, C. El primer elemento (A) es el primero en salir. -->
 
 ---
 
@@ -52,7 +52,7 @@ Las **listas** son estructuras más versátiles que pilas o colas. Permiten:
 
 A diferencia de las otras dos, no tienen un orden fijo para procesar sus elementos. Se usan cuando se necesita dinamismo: por ejemplo, gestionar una lista de tareas pendientes donde pueden agregarse o eliminarse elementos en cualquier momento.
 
-[IMAGEN: Comparación entre pila, cola y lista con ejemplos de operaciones.]
+<!-- IMAGEN: Comparación entre pila, cola y lista con ejemplos de operaciones. -->
 
 ---
 

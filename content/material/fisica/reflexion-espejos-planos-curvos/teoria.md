@@ -14,7 +14,7 @@ La reflexión especular sucede cuando un haz de luz incide sobre una superficie 
 
 La clave de esta reflexión está en la **superficie lisa**: si tiene irregularidades, la luz se dispersa en múltiples direcciones (reflexión difusa), como ocurre con una pared o una tela. En cambio, en un espejo plano, cada rayo que llega sigue la regla de que el ángulo de incidencia es igual al de reflexión.
 
-[IMAGEN: Dibujo de un rayo de luz incidente sobre un espejo plano con etiquetas de "ángulo de incidencia" y "ángulo de reflexión"]
+<!-- IMAGEN: Dibujo de un rayo de luz incidente sobre un espejo plano con etiquetas de "ángulo de incidencia" y "ángulo de reflexión" -->
 
 ---
 
@@ -37,7 +37,7 @@ Los espejos se clasifican en **planos** (superficie recta) y **curvos**, que a s
 
 La diferencia radica en cómo actúan sobre la luz: los espejos cóncavos convergen los rayos (los juntan), mientras que los convexos divergen los rayos (los alejan). Esta propiedad define las imágenes que producen y sus aplicaciones prácticas.
 
-[IMAGEN: Comparación entre un espejo cóncavo y uno convexo, con ejemplos de su uso en lentes y vehículos]
+<!-- IMAGEN: Comparación entre un espejo cóncavo y uno convexo, con ejemplos de su uso en lentes y vehículos -->
 
 ---
 

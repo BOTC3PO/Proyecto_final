@@ -1,6 +1,6 @@
 # Turismo — Patrimonio turístico natural y cultural (teoría)
 
-> Tema del MAPA: `turismo/patrimonio-turistico-natural-y-cultural`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `turismo/patrimonio-turistico-natural-y-cultural`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

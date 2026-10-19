@@ -1,6 +1,6 @@
 # Historia Profunda — El Imperio Han: La consolidación del modelo imperial chino (teoría)
 
-> Tema del MAPA: `historia-profunda/imperio-han-china`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/imperio-han-china`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La transición de la efímera dinastía Qin (221–206 a.C.) al Imperio Han marc
 
 A diferencia de los Qin, los primeros Han adoptaron una postura más flexible, combinando el legalismo en la estructura burocrática con el taoísmo de no intervención (Huang-Lao) en las primeras décadas para permitir la recuperación económica. Sin embargo, la verdadera transformación ideológica ocurrió bajo el Emperador Wu (Wudi), quien institucionalizó el confucianismo como la ortodoxia estatal. Esto no eliminó el legalismo práctico, sino que creó un sistema dual: la ética confuciana justificaba el poder imperial y la jerarquía social, mientras que las estructuras legales y administrativas Qin mantenían el control efectivo.
 
-[IMAGEN: Mapa de la expansión territorial durante el reinado del Emperador Wu, mostrando la penetración hacia el norte, sur y el corredor de Hexi]
+<!-- IMAGEN: Mapa de la expansión territorial durante el reinado del Emperador Wu, mostrando la penetración hacia el norte, sur y el corredor de Hexi -->
 
 ## 2. La burocracia y el sistema de exámenes
 

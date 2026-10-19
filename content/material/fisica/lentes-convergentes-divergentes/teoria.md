@@ -14,7 +14,7 @@ Las lentes son medios transparentes limitados por dos superficies curvas o una c
 
 Una **lente convergente** tiene su parte central más gruesa que los bordes, como una lupa. Al incidir luz paralela (como la del Sol), sus superficies curvas desvían los rayos hacia un punto común: el **foco**. En cambio, una **lente divergente** es más delgada en el centro y gruesa en los bordes. Sus superficies hacen que los rayos paralelos se alejen entre sí tras atravesarla, como si emanaran de un foco virtual.
 
-[IMAGEN: Comparación entre lentes convergentes (biconvexas) y divergentes (bicóncavas), con trayectorias de rayos de luz]
+<!-- IMAGEN: Comparación entre lentes convergentes (biconvexas) y divergentes (bicóncavas), con trayectorias de rayos de luz -->
 
 ---
 
@@ -24,7 +24,7 @@ El comportamiento de una lente depende de su forma y del material con el que est
 
 En el caso de las **lentes divergentes**, los rayos paralelos al eje principal salen desviados hacia afuera, creando la ilusión de que provienen de un punto virtual detrás de la lente. Esto hace que siempre formen imágenes virtuales, derechas y reducidas.
 
-[IMAGEN: Diagrama de rayos incidentes en una lente convergente y otra divergente]
+<!-- IMAGEN: Diagrama de rayos incidentes en una lente convergente y otra divergente -->
 
 ---
 

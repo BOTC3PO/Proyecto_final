@@ -26,7 +26,7 @@ Ambos conceptos son vitales para resolver problemas, pero tienen roles distintos
 - Causa del retraso: mala planificación.  
 - Restricción para resolverlo: falta de personal capacitado.  
 
-[IMAGEN: tabla comparativa con columnas "Causa" y "Restricción", ejemplos en filas]
+<!-- IMAGEN: tabla comparativa con columnas "Causa" y "Restricción", ejemplos en filas -->
 
 ## N. Conexión con lo que sigue
 

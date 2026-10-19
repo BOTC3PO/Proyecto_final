@@ -1,6 +1,6 @@
 # Historia Profunda — La República Romana: Instituciones, Crisis y Transformación (teoría)
 
-> Tema del MAPA: `historia-profunda/la-republica-romana`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/la-republica-romana`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La República Romana, tradicionalmente fechada desde 509 a.C. con la expulsión 
 
 El poder residía principalmente en tres pilares: el Senado, las Asambleas populares y las Magistraturas. El Senado, compuesto por exmagistrados vitalicios, controlaba las finanzas, la política exterior y la religión, ejerciendo una autoridad moral (*auctoritas*) inmensa, aunque carecía de poder legislativo directo formal. Las Asambleas, como la *Comitia Centuriata* y la *Concilium Plebis*, elegían a los magistrados y votaban las leyes, pero su composición favorecía a la élite patricia y, posteriormente, a la nobleza senatorial. Las magistraturas, como el consulado, la pretura o el tribunado de la plebe, otorgaban el *imperium* (poder de mando) y la *potestas* (autoridad legal) a sus titulares por un tiempo limitado.
 
-[IMAGEN: Diagrama esquemático de la pirámide de poder republicano mostrando la interacción entre Senado, Magistrados y Asambleas]
+<!-- IMAGEN: Diagrama esquemático de la pirámide de poder republicano mostrando la interacción entre Senado, Magistrados y Asambleas -->
 
 ## 2. La lucha de las órdenes y la expansión territorial
 
@@ -34,4 +34,4 @@ El asesinato de Julio César en el 44 a.C., en un intento desesperado de restaur
 
 El Segundo Triunvirato, formado por Octaviano, Marco Antonio y Lépido, se convirtió en un gobierno dictatorial de facto. La batalla de Actium en el 31 a.C., donde Octaviano derrotó a la alianza de Antonio y la reina Cleopatra, dejó a Octaviano como el único hombre fuerte de Roma. En el 27 a.C., tras una cuidadosa teatralización política, el Senado otorgó a Octaviano el título de *Augusto*. Aunque mantuvo las formas republicanas (magistraturas, senado, asambleas), concentró en su persona los poderes militares, religiosos y políticos esenciales. Este acto marcó el paso definitivo de la República al Principado, inaugurando el Alto Imperio Romano.
 
-[IMAGEN: Estatua de Augusto de Prima Porta, simbolizando la nueva imagen del poder imperial bajo la fachada de la pax romana]
+<!-- IMAGEN: Estatua de Augusto de Prima Porta, simbolizando la nueva imagen del poder imperial bajo la fachada de la pax romana -->

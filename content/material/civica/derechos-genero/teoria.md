@@ -1,7 +1,7 @@
 # Cívica — Derechos de género (teoria)
 
 > Tema del MAPA: `C9c` (`T7 --> C9c`, art. 92 inciso f de la Ley 26.206).
-> Depende de `../../derecho/s-indigenas/` (ver `../dependencias.md`).
+> Depende de `../../civica/derechos-indigenas/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

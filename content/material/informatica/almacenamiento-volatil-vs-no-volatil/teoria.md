@@ -1,6 +1,6 @@
 # Informática — Almacenamiento volátil vs no volátil (teoría)
 
-> Tema del MAPA: `informatica/almacenamiento-volatil-vs-no-volatil`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/almacenamiento-volatil-vs-no-volatil`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

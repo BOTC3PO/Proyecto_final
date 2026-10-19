@@ -1,6 +1,6 @@
 # Geografía — Distribución de los biomas  
 
-> Tema del MAPA: `historia-profunda/distribucion-biomas`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `historia-profunda/distribucion-biomas`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 

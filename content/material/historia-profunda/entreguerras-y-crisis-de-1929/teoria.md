@@ -1,6 +1,6 @@
 # Historia Profunda — Las Guerras Mundiales y la Crisis de 1929 (teoría)
 
-> Tema del MAPA: `historia-profunda/entreguerras-y-crisis-de-1929`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/entreguerras-y-crisis-de-1929`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -26,7 +26,7 @@ El punto de inflexión económico llegó con el crack de la Bolsa de Nueva York 
 
 La respuesta ortodoxa inicial, basada en el equilibrio presupuestario y la defensa del patrón oro, profundizó la crisis. Países como Alemania, dependientes del crédito exterior, colapsaron primero. La desocupación masiva, que superó el 30% en algunas naciones industrializadas, erosionó la legitimidad de las democracias liberales. En Estados Unidos, Franklin D. Roosevelt implementó el *New Deal*, un modelo de intervención estatal en la economía que sentó las bases del Estado de Bienestar moderno y marcó el fin del *laissez-faire* clásico.
 
-[IMAGEN: Gráfico comparativo de la caída del PIB mundial y la tasa de desempleo en EE.UU. y Alemania entre 1929 y 1933]
+<!-- IMAGEN: Gráfico comparativo de la caída del PIB mundial y la tasa de desempleo en EE.UU. y Alemania entre 1929 y 1933 -->
 
 ## 4. La crisis de la democracia y el ascenso del totalitarismo
 

@@ -1,6 +1,6 @@
 # Física — Resonancia frecuencia natural (teoría)
 
-> Tema del MAPA: `fisica/resonancia-frecuencia-natural`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/resonancia-frecuencia-natural`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

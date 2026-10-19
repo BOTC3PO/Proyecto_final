@@ -1,6 +1,6 @@
 # Psicología — Percepción, memoria y atención (teoría)
 
-> Tema del MAPA: `psicologia/psicologia-cognitiva-percepcion-memoria-atencion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/psicologia-cognitiva-percepcion-memoria-atencion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. Percepción como construcción activa
 
-La percepción no es solo recibir estímulos externos: es un proceso dinámico donde el cerebro organiza y da sentido a los datos que recibe por los sentidos. Por ejemplo, al ver una figura en la calle, no solo se captan líneas y colores, sino que se interpreta su forma, movimiento o incluso su función (si es un semáforo, una persona o un animal). Este proceso combina información sensorial con conocimientos previos, experiencias y expectativas. [IMAGEN: diagrama de flujo desde sensación hasta percepción].
+La percepción no es solo recibir estímulos externos: es un proceso dinámico donde el cerebro organiza y da sentido a los datos que recibe por los sentidos. Por ejemplo, al ver una figura en la calle, no solo se captan líneas y colores, sino que se interpreta su forma, movimiento o incluso su función (si es un semáforo, una persona o un animal). Este proceso combina información sensorial con conocimientos previos, experiencias y expectativas. <!-- IMAGEN: diagrama de flujo desde sensación hasta percepción -->.
 
 ## 2. La memoria como sistema trifuncional
 
@@ -30,7 +30,7 @@ Percepción, memoria y atención no funcionan aislados:
 - La memoria se nutre de lo percibido: sin atender un estímulo, no se codifica en el largo plazo.  
 - La atención puede fallar si la memoria está saturada (como al olvidar una palabra en medio de una conversación).  
 
-[IMAGEN: esquema integrando percepción, atención y memoria como circuito cerrado].
+<!-- IMAGEN: esquema integrando percepción, atención y memoria como circuito cerrado -->.
 
 ---
 

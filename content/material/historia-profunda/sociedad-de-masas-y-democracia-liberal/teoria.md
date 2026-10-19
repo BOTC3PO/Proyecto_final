@@ -1,6 +1,6 @@
 # Historia Profunda — La crisis de la democracia liberal y el surgimiento de la sociedad de masas (teoría)
 
-> Tema del MAPA: `historia-profunda/sociedad-de-masas-y-democracia-liberal`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/sociedad-de-masas-y-democracia-liberal`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ A lo largo del siglo XIX, las democracias liberales occidentales, particularment
 
 Este fenómeno no fue lineal ni uniforme. Mientras en el Reino Unido las Reformas Electorales de 1867 y 1884 ampliaron gradualmente el cuerpo electoral, en Francia la Tercera República consolidó un republicanismo laico y centralizado. En Estados Unidos, la Reconstrucción y los movimientos progresistas del *Gilded Age* marcaron un intento, aún contradictorio, de incluir a la clase trabajadora y minorías étnicas en el pacto democrático. La "sociedad de masas" no era un destino inevitable, sino el resultado de tensiones entre la demanda de representación y la resistencia de las élites tradicionales.
 
-[IMAGEN: Mapa comparativo de la edad de voto en Europa en 1910, mostrando la disparidad entre países nórdicos, el sur de Europa y el este continental]
+<!-- IMAGEN: Mapa comparativo de la edad de voto en Europa en 1910, mostrando la disparidad entre países nórdicos, el sur de Europa y el este continental -->
 
 ## 2. Industrialización, urbanización y la fractura social
 

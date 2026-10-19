@@ -1,6 +1,6 @@
 # Informática — Diseño y arquitectura de software (teoría)
 
-> Tema del MAPA: `informatica/diseno-y-arquitectura-de-software`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/diseno-y-arquitectura-de-software`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Ingeniería — Disciplinas de la ingeniería (teoría)
 
-> Tema del MAPA: `ingenieria/disciplinas-de-la-ingenieria`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/disciplinas-de-la-ingenieria`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. Ingeniería civil
 
-La ingeniería civil aborda el diseño, construcción y mantenimiento de infraestructuras esenciales para la sociedad. Se enfoca en estructuras como puentes, carreteras, represas y edificios, garantizando su seguridad, durabilidad y funcionalidad. [IMAGEN: infraestructura civil con ejemplos de obras] Además, esta rama incluye la gestión de recursos naturales, como el agua y los suelos, para proyectos que combinan utilidad pública con impacto ambiental controlado.
+La ingeniería civil aborda el diseño, construcción y mantenimiento de infraestructuras esenciales para la sociedad. Se enfoca en estructuras como puentes, carreteras, represas y edificios, garantizando su seguridad, durabilidad y funcionalidad. <!-- IMAGEN: infraestructura civil con ejemplos de obras --> Además, esta rama incluye la gestión de recursos naturales, como el agua y los suelos, para proyectos que combinan utilidad pública con impacto ambiental controlado.
 
 ## 2. Ingeniería química
 

@@ -1,6 +1,6 @@
 # Historia Profunda — La Revolución Científica y el cambio de paradigma (teoría)
 
-> Tema del MAPA: `historia-profunda/ciencia-revolucion-cientifica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/ciencia-revolucion-cientifica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La Revolución Científica no surgió en un vacío, sino como fruto de las trans
 
 Este renacimiento del conocimiento antiguo se vio complementado por la invención de la imprenta de tipos móviles por Johannes Gutenberg hacia 1440. La difusión masiva de libros permitió la estandarización de datos, tablas astronómicas y diagramas anatómicos, facilitando que los científicos de diferentes regiones pudieran comparar resultados y construir sobre el trabajo de sus contemporáneos de manera más eficiente que nunca. La crítica textual aplicada a los textos sagrados, impulsada por la Reforma Protestante, también fomentó una mentalidad de cuestionamiento de la autoridad establecida, un espíritu que pronto se dirigió hacia la naturaleza y los textos científicos tradicionales.
 
-[IMAGEN: Portada de la edición princeps de las obras de Arquímedes traducidas al latín, destacando la intersección entre el saber clásico y el nuevo interés matemático]
+<!-- IMAGEN: Portada de la edición princeps de las obras de Arquímedes traducidas al latín, destacando la intersección entre el saber clásico y el nuevo interés matemático -->
 
 ## 2. La revolución astronómica: De la Tierra al Sol
 

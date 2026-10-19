@@ -1,7 +1,7 @@
 # Cívica — Derechos indígenas (teoria)
 
 > Tema del MAPA: `C9b` (`T7 --> C9b`, art. 92 inciso e de la Ley 26.206).
-> Depende de `../../derecho/s-nino/` (ver `../dependencias.md`).
+> Depende de `../../civica/derechos-nino/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

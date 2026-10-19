@@ -1,6 +1,6 @@
 # Psicología — Memoria y olvido: represión e inconsciente (teoría)
 
-> Tema del MAPA: `psicologia/memoria-y-olvido-represion-inconsciente`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/memoria-y-olvido-represion-inconsciente`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

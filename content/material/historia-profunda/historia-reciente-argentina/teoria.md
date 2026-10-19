@@ -12,7 +12,7 @@
 
 La historia reciente no se refiere solo a lo que ocurrió hace poco tiempo, sino a un tipo de estudio que se distingue por su cercanía temporal y su vinculación con los sujetos sociales aún presentes o cuyas vivencias dejaron testimonios directos. A diferencia de la historia tradicional, que suele enfocarse en procesos largos como la formación del Estado o la independencia, esta área analiza eventos donde el pasado sigue activo en la memoria pública y las discusiones contemporáneas. Por ejemplo, los hechos de 1976 o 1983 no solo son fechas históricas, sino que siguen generando debates políticos, culturales y legales en la sociedad argentina actual.
 
-[IMAGEN: Cronología comparativa entre historia tradicional (siglos XIX-XX) e historia reciente (desde 1950 hasta hoy)]
+<!-- IMAGEN: Cronología comparativa entre historia tradicional (siglos XIX-XX) e historia reciente (desde 1950 hasta hoy) -->
 
 ---
 
@@ -41,7 +41,7 @@ Dos ejemplos centrales en la historia reciente argentina son:
 1. **La dictadura militar (1976-1983)**: Su estudio no solo aborda la represión, sino también las luchas por la justicia, los procesos de identificación de víctimas y el impacto en instituciones como la Justicia o la educación.
 2. **El retorno a la democracia (1983)**: Analiza cómo se construyó una sociedad con nuevas normas políticas, las tensiones entre distintos sectores y el rol de los medios en la transición.
 
-[IMAGEN: Mapa conceptual comparando historia reciente vs. tradicional, con ejemplos de fuentes y actores]
+<!-- IMAGEN: Mapa conceptual comparando historia reciente vs. tradicional, con ejemplos de fuentes y actores -->
 
 ---
 

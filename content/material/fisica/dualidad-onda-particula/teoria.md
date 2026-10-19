@@ -1,6 +1,6 @@
 # Física — Dualidad onda-partícula (teoría)
 
-> Tema del MAPA: `fisica/dualidad-onda-particula`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/dualidad-onda-particula`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,13 +12,13 @@
 
 La dualidad onda-partícula surge de un conflicto entre dos visiones clásicas: las teorías de Newton (corpuscular) y Huygens (ondulatoria). En el siglo XIX, experimentos como la interferencia de Young demostraron que la luz se comporta como onda. Pero en 1905, Einstein explicó el efecto fotoeléctrico suponiendo que la luz está formada por partículas (fotones), lo que revolucionó la física.
 
-[IMAGEN: Esquema histórico de los modelos ondulatorio y corpuscular de la luz]
+<!-- IMAGEN: Esquema histórico de los modelos ondulatorio y corpuscular de la luz -->
 
 ## 2. Naturaleza ondulatoria de la luz
 
 Cuando fenómenos como **difracción** o **interferencia** se observan, la luz actúa como onda. Por ejemplo, en el experimento de Young con dos rendijas, los patrones de interferencia solo se explican si la luz tiene propiedades ondulatorias. Esto validó la teoría de Huygens y marcó un hito en entender la naturaleza de la radiación electromagnética.
 
-[IMAGEN: Diagrama del experimento de doble rendija con patrón de interferencia]
+<!-- IMAGEN: Diagrama del experimento de doble rendija con patrón de interferencia -->
 
 ## 3. Naturaleza corpuscular de la luz
 
@@ -30,7 +30,7 @@ El **fotón** es la partícula elemental asociada a la luz y otras formas de rad
 En 1924, Louis de Broglie propuso que **cualquier cuerpo en movimiento** tiene una naturaleza ondulatoria. Esto se confirmó experimentalmente al observar difracción de electrones: partículas con masa mostraron patrones de interferencia. La longitud de onda asociada a un objeto es:  
 **λ = h / (m · v)**, donde *h* es la constante de Planck, *m* la masa y *v* la velocidad.
 
-[IMAGEN: Difracción de electrones en experimentos de laboratorio]
+<!-- IMAGEN: Difracción de electrones en experimentos de laboratorio -->
 
 ## 5. La conexión entre energía, frecuencia y masa
 
@@ -40,7 +40,7 @@ La relación **E = h · f** (Planck) es clave para entender cómo la luz transpo
 
 El **experimento de doble rendija** con fotones o electrones es emblemático: si se envía un haz individualmente, aparece un patrón de interferencia solo cuando no se observa su trayectoria. Esto demuestra que la naturaleza ondulatoria emerge en ausencia de medición, revelando el rol de la observación en mecánica cuántica.
 
-[IMAGEN: Simulación del experimento con partículas y patrón de interferencia]
+<!-- IMAGEN: Simulación del experimento con partículas y patrón de interferencia -->
 
 ## N. Conexión con lo que sigue
 

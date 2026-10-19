@@ -1,6 +1,6 @@
 # Física — Entropía y segunda ley de la termodinámica (teoría)
 
-> Tema del MAPA: `fisica/entropia-segunda-ley-termodinamica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/entropia-segunda-ley-termodinamica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ El calor no fluye solo por casualidad; tiene una dirección definida. Si dejas d
 
 Este flujo no es reversible. Si querés que el calor vaya del cuerpo frío al caliente, tenés que invertir trabajo (como en una nevera). Pero si dejas los cuerpos solos, **nunca verás el calor ir hacia atrás**. Este comportamiento está ligado a la entropía: cuando el calor se mueve de un lugar a otro, aumenta el desorden total del universo.
 
-[IMAGEN: Dos bloques, uno caliente y otro frío, conectados por una flecha que indica el flujo de calor desde el caliente al frío]
+<!-- IMAGEN: Dos bloques, uno caliente y otro frío, conectados por una flecha que indica el flujo de calor desde el caliente al frío -->
 
 ---
 
@@ -42,7 +42,7 @@ La entropía es clave para entender por qué ciertos procesos ocurren y otros no
 
 También explica por qué los gases tienden a expandirse espontáneamente en un espacio vacío. Sus moléculas se dispersan, aumentando el desorden —y con él, la entropía— del sistema.
 
-[IMAGEN: Un gas dentro de un recipiente dividido por una membrana que se rompe; las moléculas se dispersan hacia todo el espacio]
+<!-- IMAGEN: Un gas dentro de un recipiente dividido por una membrana que se rompe; las moléculas se dispersan hacia todo el espacio -->
 
 ---
 

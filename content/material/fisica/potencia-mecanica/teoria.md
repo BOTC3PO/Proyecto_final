@@ -1,6 +1,6 @@
 # Física — Potencia Mecánica (teoría)
 
-> Tema del MAPA: `fisica/potencia-mecanica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/potencia-mecanica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

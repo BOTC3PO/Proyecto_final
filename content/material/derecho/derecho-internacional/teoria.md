@@ -1,6 +1,6 @@
 # Derecho — derecho-internacional (teoría)
 
-> Tema del MAPA: `derecho/derecho-internacional`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/derecho-internacional`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Física — Circuitos mixtos (teoría)
 
-> Tema del MAPA: `fisica/circuitos-mixtos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/circuitos-mixtos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Derecho — derecho laboral (teoría)
 
-> Tema del MAPA: `derecho/derecho-laboral`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/derecho-laboral`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ El derecho laboral es la rama del derecho que regula las relaciones jurídicas q
 
 Este derecho se basa en principios como la igualdad, la no discriminación, la libertad de sindicato y la protección contra el abuso de poder. Su existencia responde a la necesidad histórica de equilibrar relaciones de fuerza en contextos donde el trabajador depende del empleador para su subsistencia.
 
-[IMAGEN: Comparación entre contrato de trabajo y contrato de servicios profesionales, destacando la subordinación como elemento distintivo]
+<!-- IMAGEN: Comparación entre contrato de trabajo y contrato de servicios profesionales, destacando la subordinación como elemento distintivo -->
 
 ---
 

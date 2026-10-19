@@ -1,6 +1,6 @@
 # Civica — Origen Estado Derecho (teoría)
 
-> Tema del MAPA: `civica/origen-estado-derecho`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `civica/origen-estado-derecho`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ El **Estado** es una institución política que centraliza el poder para goberna
 
 A diferencia de una nación o cultura, el Estado se distingue por su capacidad de imponer normas y sanciones a través de instituciones como el gobierno, la policía y los tribunales. Su existencia no depende de la voluntad popular directa, sino de estructuras que garantizan su funcionamiento continuo, incluso cuando cambian las personas o ideologías.
 
-[IMAGEN: Esquema con tres elementos del Estado (soberanía, territorio y población) conectados a una figura central representando el gobierno.]
+<!-- IMAGEN: Esquema con tres elementos del Estado (soberanía, territorio y población) conectados a una figura central representando el gobierno. -->
 
 ---
 
@@ -26,7 +26,7 @@ Con el cultivo de alimentos en exceso, parte de la población dejó de dedicarse
 
 Este proceso no fue inmediato: primero hubo líderes temporales (como jefes tribales), pero con el tiempo se consolidaron estructuras más duraderas para ejercer control sobre territorios y recursos. La **jerarquía social** y la necesidad de normas comunes sentaron las bases del Estado.
 
-[IMAGEN: Línea cronológica desde sociedades cazadoras-hacedoras hasta el surgimiento de ciudades con gobernantes.]
+<!-- IMAGEN: Línea cronológica desde sociedades cazadoras-hacedoras hasta el surgimiento de ciudades con gobernantes. -->
 
 ---
 
@@ -49,7 +49,7 @@ El **derecho** no surgió al mismo tiempo que el Estado, pero se convirtió en s
 
 El derecho permite al Estado legitimar su autoridad: si las leyes son respetadas y aplicadas equitativamente, el poder político gana aceptación. Sin un sistema jurídico claro, cualquier grupo podría imponer sus propias reglas, lo que llevaría a la anarquía.
 
-[IMAGEN: Comparación entre derecho consuetudinario (oral) y derecho escrito (leyes en libros o tablillas).]
+<!-- IMAGEN: Comparación entre derecho consuetudinario (oral) y derecho escrito (leyes en libros o tablillas). -->
 
 ---
 

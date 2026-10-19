@@ -1,6 +1,6 @@
 # Resolución de Problemas — Seguimiento y Control (teoría)
 
-> Tema del MAPA: `resolucion-problemas/seguimiento-y-control`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/seguimiento-y-control`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El seguimiento es el proceso constante de recopilar, analizar y comparar datos sobre el estado actual de un proyecto con lo planificado. No se trata solo de revisar listas de tareas cumplidas, sino de entender si los recursos (tiempo, presupuesto, personal) se están utilizando según la estrategia definida. Por ejemplo: si un equipo debe entregar un informe en 10 días y lleva tres días con retraso, el seguimiento detectará esa diferencia antes de que afecte al cronograma general.
 
-[IMAGEN: Diagrama comparando "lo planificado" vs "lo real" con flechas señalando desviaciones]
+<!-- IMAGEN: Diagrama comparando "lo planificado" vs "lo real" con flechas señalando desviaciones -->
 
 ---
 
@@ -31,7 +31,7 @@ El control no es un solo paso, sino una secuencia:
 4. **Implementación**: Ejecutar acciones correctivas (ej.: reprogramar tareas).  
 5. **Evaluación**: Verificar si las medidas funcionaron y actualizar los registros.
 
-[IMAGEN: Ciclo de control con flechas que conectan cada etapa]
+<!-- IMAGEN: Ciclo de control con flechas que conectan cada etapa -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Historia Profunda — Ley de Hubble (teoría)
 
-> Tema del MAPA: `historia-profunda/ley-de-hubble`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/ley-de-hubble`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -18,7 +18,7 @@ La ley no explica *por qué* el universo se expande, sino que describe cómo ocu
 
 ## 2. Relación matemática
 
-La proporcionalidad entre velocidad y distancia se expresa como una línea recta en un gráfico donde el eje *X* representa distancias (en megapársecs, Mpc) y el eje *Y* las velocidades de recesión (en km/s). [IMAGEN: gráfico lineal con ejes "Distancia" y "Velocidad", marcando puntos que siguen una recta ascendente].
+La proporcionalidad entre velocidad y distancia se expresa como una línea recta en un gráfico donde el eje *X* representa distancias (en megapársecs, Mpc) y el eje *Y* las velocidades de recesión (en km/s). <!-- IMAGEN: gráfico lineal con ejes "Distancia" y "Velocidad", marcando puntos que siguen una recta ascendente -->.
 
 La constante de Hubble (**H₀**) tiene unidades de **km/s/Mpc**. Por ejemplo, si un objeto está a 1 Mpc (un megapársec) de distancia y la velocidad calculada es 70 km/s, eso significa que el universo se expande a una tasa de 70 km por segundo por cada megapársec de separación. Esta relación permite estimar distancias a galaxias lejanas usando su desplazamiento al rojo.
 

@@ -1,6 +1,6 @@
 # Historia Profunda — Propiedad Jerarquía Estado (teoría)
 
-> Tema del MAPA: `historia-profunda/propiedad-jerarquia-estado`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/propiedad-jerarquia-estado`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El paso de una vida nómada a sedentaria permitió que las comunidades agrícolas produjeran más alimento del necesario, creando un **excedente**. Este surplus no solo alimentaba a más personas, sino que también se podía almacenar o intercambiar. La posibilidad de acumular recursos generó diferencias entre quienes controlaban la producción y quienes dependían de ella. Así, surgió la idea de **propiedad privada**, donde una parte de la tierra o los productos se consideraban "de alguien" en particular, en lugar de pertenecer a toda la comunidad.
 
-[IMAGEN: Mapa comparativo entre asentamientos nómadas y sedentarios con indicadores de producción y acumulación]
+<!-- IMAGEN: Mapa comparativo entre asentamientos nómadas y sedentarios con indicadores de producción y acumulación -->
 
 ---
 

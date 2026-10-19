@@ -1,6 +1,6 @@
 # Informática — CPU: Unidad de Control y ALU (teoría)
 
-> Tema del MAPA: `informatica/cpu-unidad-de-control-y-alu`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/cpu-unidad-de-control-y-alu`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

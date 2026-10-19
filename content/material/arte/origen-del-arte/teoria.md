@@ -1,6 +1,6 @@
 # Arte — Origen del arte (teoría)
 
-> Tema del MAPA: `arte/origen-del-arte`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `arte/origen-del-arte`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El arte rupestre, principalmente asociado al Paleolítico, es considerado una de las primeras manifestaciones del pensamiento simbólico en la historia humana. En este periodo, los seres humanos comenzaron a representar elementos de su entorno no solo como registros prácticos (por ejemplo, para indicar rutas o recursos), sino también como símbolos con significados abstractos. Estas imágenes, talladas o pintadas en las paredes de cuevas, reflejan una capacidad emergente para conceptualizar ideas, emociones y relaciones entre objetos o seres. Este salto del pensamiento concreto al simbólico marcó un hito fundamental en la evolución cultural.
 
-[IMAGEN: cueva con pinturas rupestres de animales y manos]
+<!-- IMAGEN: cueva con pinturas rupestres de animales y manos -->
 
 ## 2. Elementos recurrentes en el arte rupestre
 

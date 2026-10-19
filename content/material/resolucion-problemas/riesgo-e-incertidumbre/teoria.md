@@ -1,6 +1,6 @@
 # Resolución de Problemas — Riesgo e Incertidumbre (teoría)
 
-> Tema del MAPA: `resolucion-problemas/riesgo-e-incertidumbre`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/riesgo-e-incertidumbre`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El riesgo se define como una situación en la que un decisor enfrenta múltiples resultados posibles, pero conoce las probabilidades asociadas a cada uno. Esto no significa que el resultado final sea predecible, sino que existe información suficiente para asignar un valor numérico (entre 0 y 1) a cada posibilidad. Por ejemplo: al invertir en una acción con rendimiento histórico conocido, se sabe cuál es la probabilidad de ganancia o pérdida, aunque no se pueda anticipar el resultado exacto. Esta característica permite aplicar herramientas matemáticas como el cálculo de expectativas para evaluar opciones.
 
-[IMAGEN: gráfico de barras con probabilidades asignadas a tres resultados posibles]
+<!-- IMAGEN: gráfico de barras con probabilidades asignadas a tres resultados posibles -->
 
 ## 2. Incertidumbre vs. riesgo
 

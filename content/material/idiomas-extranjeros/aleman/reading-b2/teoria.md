@@ -9,12 +9,12 @@
 ---
 
 ## Introducción
-La comprensión lectora en el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER) implica la capacidad de entender textos escritos de temática variada, como artículos periodísticos, instrucciones técnicas o relatos narrativos. En este nivel, los estudiantes deben manejar vocabulario especializado y estructuras gramaticales complejas en contextos reales. Este tema es clave para desarrollar habilidades que permitan leer con autonomía y extraer información relevante de textos alemánes sin depender exclusivamente de traducciones o apoyos visuales.
+La comprensión lectora en el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER) implica la capacidad de entender textos escritos de temática variada, como artículos periodísticos, instrucciones técnicas o relatos narrativos. En este nivel, los estudiantes deben manejar vocabulario especializado y estructuras gramaticales complejas en contextos reales. Este tema es clave para desarrollar habilidades que permitan leer con autonomía y extraer información relevante de textos alemanes sin depender exclusivamente de traducciones o apoyos visuales.
 
 ## Explicación central: Claves para la comprensión lectora en B2
 En el alemán, los textos escritos suelen estructurarse con marcadores temáticos y conectores lógicos que indican relaciones entre ideas (z.B., *jedoch*, *daher*, *obwohl*). Por ejemplo:
 > *"Der Verkehr in der Stadt ist oft sehr stark, **daher** empfehlen viele Stadtbewohner, den Fahrradweg zu nutzen."*
-Aquí, *daher* (por lo tanto) conecta la causa del tráfico con la solución propuesta. Además, los sustantivos alemánes tienen género (*der*, *die*, *das*) y casos (*Nominativ*, *Akkusativ*, etc.), lo que requiere atención al contexto para identificar su función en la oración.
+Aquí, *daher* (por lo tanto) conecta la causa del tráfico con la solución propuesta. Además, los sustantivos alemanes tienen género (*der*, *die*, *das*) y casos (*Nominativ*, *Akkusativ*, etc.), lo que requiere atención al contexto para identificar su función en la oración.
 
 Un desafío común es reconocer términos técnicos o jerga específica, como en un texto sobre tecnología:
 > *"Das neue Smartphone verfügt über eine **künstliche Intelligenz**, die Sprachbefehle verstehen kann."*
@@ -27,7 +27,7 @@ Aquí, *künstliche Intelligenz* (inteligencia artificial) es un neologismo que 
 
 ## Comparación con el español: Diferencias clave
 - **Artículos definidos**: El alemán requiere artículos siempre que se mencione un sustantivo, incluso en contextos generales (*der Mensch* vs. *el hombre* en español, donde el artículo puede omitirse).
-- **Caso acusativo**: En el alemán, ciertos preposiciones como *zu*, *für*, o *gegen* exigen el caso acusativo (e.g., *gehen zu dem Laden*), mientras que en español no se requiere un cambio de forma.
+- **Casos con preposiciones**: en alemán, algunas preposiciones exigen un caso fijo: *für* y *gegen* piden acusativo (*für den Laden*) y *zu* pide dativo (*zum Laden gehen*), mientras que en español el sustantivo no cambia de forma.
 - **Conjunciones subordinadas**: Aunque ambas lenguas usan conjunciones como *weil* (*porque*) o *dass* (*que*), el alemán las coloca al inicio de la oración subordinada:
   > *"Ich weiß, **dass** er morgen kommt."* (vs. español: *Sé que él viene mañana*).
 
@@ -38,7 +38,7 @@ Imagina un texto periodístico sobre el turismo en Alemania:
 En este párrafo:
 - *obwohl* introduce una contradicción (*aunque* en español).
 - *daher* conecta la causa (cultura) con la consecuencia (visitas a museos).
-- El caso acusativo aparece en *für Touristen* y *zu Museen*.
+- El acusativo aparece en *für Touristen*; *zu Museen* lleva dativo plural (*Museen* no cambia de forma).
 - El uso de *das* antes de *historische Erbe* refleja el género neutro del sustantivo (*das Erbe*).
 
 Dominar estas estructuras permite a los estudiantes leer con fluidez, interpretar relaciones lógicas y comprender textos que abordan temas complejos.

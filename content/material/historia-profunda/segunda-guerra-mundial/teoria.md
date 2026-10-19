@@ -1,6 +1,6 @@
 # Historia Profunda — La Segunda Guerra Mundial: La Gran Guerra Europea y Global (teoría)
 
-> Tema del MAPA: `historia-profunda/segunda-guerra-mundial`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/segunda-guerra-mundial`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ En 1940, Alemania invadió Dinamarca, Noruega, Bélgica, Países Bajos y, crucia
 
 Mientras tanto, en el este, la Unión Soviética, tras firmar el Pacto Ribbentrop-Mólotov con Alemania en 1939, expandió su territorio hacia el Báltico y Polonia oriental. Sin embargo, la tensión era insostenible. El 22 de junio de 1941, Alemania lanzó la Operación Barbarroja, violando el pacto e invadiendo la URSS. Este fue el punto de inflexión estratégico: la guerra se convirtió en una lucha de existencia ideológica y territorial, abriendo el frente oriental, que se convertiría en el más sangriento del conflicto.
 
-[IMAGEN: Mapa estratégico mostrando el avance alemán hacia el este en 1941 y la resistencia soviética en Moscú]
+<!-- IMAGEN: Mapa estratégico mostrando el avance alemán hacia el este en 1941 y la resistencia soviética en Moscú -->
 
 ## 3. La globalización del conflicto y la alianza antihitleriana (1941-1943)
 
@@ -48,4 +48,4 @@ Las consecuencias de la guerra fueron profundas. La Europa tradicionalmente domi
 
 El conflicto también dejó una huella moral irreparable con el descubrimiento del Holocausto y la implementación de la política de exterminio sistemático por parte del régimen nazi, lo que llevó a los Juicios de Núremberg y al establecimiento del concepto de "crímenes contra la humanidad". La guerra aceleró procesos de descolonización en Asia y África, al debilitar a las metrópolis europeas y empoderar a los movimientos nacionalistas locales.
 
-[IMAGEN: Fotografía histórica de la firma de la rendición japonesa a bordo del USS Missouri]
+<!-- IMAGEN: Fotografía histórica de la firma de la rendición japonesa a bordo del USS Missouri -->

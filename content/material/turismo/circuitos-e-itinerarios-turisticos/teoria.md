@@ -1,6 +1,6 @@
 # Turismo — Circuitos e itinerarios turísticos (teoría)
 
-> Tema del MAPA: `turismo/circuitos-e-itinerarios-turisticos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `turismo/circuitos-e-itinerarios-turisticos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

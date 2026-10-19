@@ -1,6 +1,6 @@
 # Informática — Algoritmo secuencia de pasos (teoría)
 
-> Tema del MAPA: `informatica/algoritmo-secuencia-de-pasos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/algoritmo-secuencia-de-pasos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -37,7 +37,7 @@ La **secuencia** de los pasos es crucial en cualquier algoritmo. Si se desordena
 
 Si haces las cosas al revés (como secar antes de mojar), no logras el objetivo. Esto muestra que los pasos deben seguir una **lógica temporal o causal** según lo que se quiera alcanzar.
 
-[IMAGEN: diagrama de flujo con tres pasos en orden correcto y otro con el mismo contenido pero desordenado, marcando la diferencia en el resultado final]
+<!-- IMAGEN: diagrama de flujo con tres pasos en orden correcto y otro con el mismo contenido pero desordenado, marcando la diferencia en el resultado final -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Historia Profunda — Pueblos Originarios Territorio Argentino (teoría)
 
-> Tema del MAPA: `historia-profunda/pueblos-originarios-territorio-argentino`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/pueblos-originarios-territorio-argentino`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

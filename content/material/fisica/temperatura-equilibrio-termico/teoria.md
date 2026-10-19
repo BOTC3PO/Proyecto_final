@@ -1,6 +1,6 @@
 # Física — Temperatura y equilibrio térmico (teoría)
 
-> Tema del MAPA: `fisica/temperatura-equilibrio-termico`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/temperatura-equilibrio-termico`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Vida Cotidiana — Consumo Eléctrico: Lectura de Factura (teoría)
 
-> Tema del MAPA: `vida-cotidiana/consumo-electrico-lectura-factura`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `vida-cotidiana/consumo-electrico-lectura-factura`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El **kWh**, o **kilovatio-hora**, es la unidad que se usa para medir la energía eléctrica consumida en las facturas. Representa la cantidad de energía que consume un aparato con una potencia de 1000 vatios durante una hora. Por ejemplo, si tenés una bombilla de 60 vatios encendida durante 10 horas, su consumo sería de **0,6 kWh** (60 vatios = 0,06 kW x 10 h). Esta medida es clave para entender cuánto cuesta el uso de los electrodomésticos en tu casa.
 
-[IMAGEN: Comparación entre vatios y kilovatios-hora. Ejemplo: 1 kWh = 1000 W × 1 hora]
+<!-- IMAGEN: Comparación entre vatios y kilovatios-hora. Ejemplo: 1 kWh = 1000 W × 1 hora -->
 
 ---
 
@@ -34,7 +34,7 @@ La **lectura actual** del medidor de luz se obtiene restando el valor anterior (
 
 Es importante revisar esta diferencia con atención, porque errores en la lectura pueden generar facturas incorrectas. Si sospechás que hay un problema, contactá a tu proveedor de energía para verificar o realizar una lectura manual.
 
-[IMAGEN: Medidor eléctrico mostrando lectura anterior y actual]
+<!-- IMAGEN: Medidor eléctrico mostrando lectura anterior y actual -->
 
 ---
 

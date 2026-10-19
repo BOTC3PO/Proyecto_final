@@ -1,6 +1,6 @@
 # Geología — Ciclo de las rocas (teoría)
 
-> Tema del MAPA: `historia-profunda/ciclo-de-las-rocas`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/ciclo-de-las-rocas`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,7 +24,7 @@ Para que se forme una roca sedimentaria, primero debe haber **erosión**. Los ag
 
 Una vez depositados, los sedimentos quedan enterrados bajo capas sucesivas de material. La **compactación** (debido al peso de las capas superiores) reduce el espacio entre las partículas, mientras que la **cementación** (a través de minerales disueltos en agua) une las partículas en una estructura sólida. Este proceso colectivo se llama litificación.
 
-[IMAGEN: Diagrama del ciclo geológico con capas sedimentarias formándose a partir de sedimentos]
+<!-- IMAGEN: Diagrama del ciclo geológico con capas sedimentarias formándose a partir de sedimentos -->
 
 ---
 
@@ -34,7 +34,7 @@ El **metamorfismo** ocurre cuando una roca está sometida a condiciones extremas
 
 Durante el metamorfismo, los minerales originales se reorganizan, formando nuevas estructuras. Por ejemplo, una roca sedimentaria como la lutita (arcilla compactada) puede convertirse en pizarra o esquisto bajo presión y calor, mientras que la arenisca se transforma en cuarcita. Este proceso no destruye la roca original, sino que la transforma en un estado más estable para las condiciones del ambiente.
 
-[IMAGEN: Comparación entre una roca original y su versión metamórfica]
+<!-- IMAGEN: Comparación entre una roca original y su versión metamórfica -->
 
 ---
 

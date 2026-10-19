@@ -1,6 +1,6 @@
 # Investigación — Observación y pregunta investigable (teoría)
 
-> Tema del MAPA: `investigacion/observacion-y-pregunta-investigable`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `investigacion/observacion-y-pregunta-investigable`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

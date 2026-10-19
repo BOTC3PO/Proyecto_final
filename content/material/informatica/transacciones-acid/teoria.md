@@ -1,6 +1,6 @@
 # Informática — Transacciones ACID (teoría)
 
-> Tema del MAPA: `informatica/transacciones-acid`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/transacciones-acid`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

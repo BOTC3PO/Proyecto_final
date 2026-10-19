@@ -1,6 +1,6 @@
 # Civica — Estado de derecho por que importa (teoria)
 
-> Tema del MAPA: `civica/estado-de-derecho-por-que-importa`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `civica/estado-de-derecho-por-que-importa`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ El Estado de Derecho no es un mero conjunto de leyes, sino una forma de organiza
 
 Este principio se basa en dos ideas fundamentales: primero, que las leyes deben ser claras, públicas y aplicables a todos sin distinción. Segundo, que **no existen leyes especiales** para algunos grupos, como los poderosos o los líderes políticos. Por ejemplo, si un funcionario público comete un delito, no puede recibir un trato preferencial: debe responder ante la justicia igual que cualquier ciudadano.
 
-[IMAGEN: Esquema de tres pilares: "ley superior", "igualdad ante la ley" y "independencia judicial"].
+<!-- IMAGEN: Esquema de tres pilares: "ley superior", "igualdad ante la ley" y "independencia judicial" -->.
 
 ---
 

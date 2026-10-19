@@ -1,6 +1,6 @@
 # Historia Profunda — Las olas de la descolonización en África y Asia (teoría)
 
-> Tema del MAPA: `historia-profunda/descolonizacion-de-africa-y-asia`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/descolonizacion-de-africa-y-asia`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -20,7 +20,7 @@ Asia fue el epicentro inicial de la descolonización, caracterizada por procesos
 
 En el sudeste asiático, el vacío de poder dejado por la ocupación japonesa durante la guerra aceleró los movimientos independentistas. En Indonesia, la República proclamó su independencia en 1945, pero debió luchar una guerra revolucionaria contra los Países Bajos hasta su reconocimiento formal en 1949. Vietnam, por su parte, experimentó una lucha dual: primero contra la ocupación japonesa, luego contra el intento francés de restaurar el control colonial (culminando en la derrota en Dien Bien Phu en 1954) y finalmente la intervención directa de Estados Unidos, transformando la descolonización en un frente de la Guerra Fría.
 
-[IMAGEN: Mapa comparativo de las rutas de independencia en Asia y África entre 1945 y 1965, destacando las zonas de conflicto armado versus las transiciones negociadas.]
+<!-- IMAGEN: Mapa comparativo de las rutas de independencia en Asia y África entre 1945 y 1965, destacando las zonas de conflicto armado versus las transiciones negociadas. -->
 
 ## 3. África: la "Año de África" y el legado colonial
 

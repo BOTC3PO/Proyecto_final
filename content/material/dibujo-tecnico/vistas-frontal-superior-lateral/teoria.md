@@ -1,6 +1,6 @@
 # Dibujo Técnico — Vistas frontal superior lateral (teoría)
 
-> Tema del MAPA: `dibujo-tecnico/vistas-frontal-superior-lateral`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `dibujo-tecnico/vistas-frontal-superior-lateral`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,7 +24,7 @@ La vista lateral corresponde a la proyección del objeto sobre un plano vertical
 
 Las tres vistas (frontal, superior y lateral) se complementan para construir una representación completa del objeto en dos dimensiones. Cada una muestra una proyección ortogonal sobre un plano diferente: vertical, horizontal o lateral. Juntas permiten interpretar el volumen, las proporciones y los detalles que no se ven desde una sola dirección. Por ejemplo, si solo se dibuja la vista frontal, podría haber ambigüedades sobre cómo se conectan los lados del objeto; es ahí donde la vista lateral aporta claridad.
 
-[IMAGEN: Tres vistas ortogonales de un cubo (frontal, superior y lateral), alineadas según el sistema de proyección]
+<!-- IMAGEN: Tres vistas ortogonales de un cubo (frontal, superior y lateral), alineadas según el sistema de proyección -->
 
 ## 5. Normas de representación
 

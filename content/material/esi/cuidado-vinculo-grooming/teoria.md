@@ -69,7 +69,7 @@ algo — la responsabilidad es siempre de quien manipula, presiona o
 abusa. Ante estas situaciones, conviene: no responder al chantaje,
 guardar evidencia (capturas), cortar el contacto, y contarle a un
 adulto de confianza o recurrir a la línea 144
-(`../../derecho/s-leyes-26150-27610-linea144/`) o líneas específicas de
+(`../../esi/derechos-leyes-26150-27610-linea144/`) o líneas específicas de
 grooming.
 
 ## 6. Conexión con lo que ya se vio

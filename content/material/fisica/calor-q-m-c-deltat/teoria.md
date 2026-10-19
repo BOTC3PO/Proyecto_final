@@ -1,6 +1,6 @@
 # Física — Calor (Q), masa (m), calor específico (c) y variación de temperatura (ΔT)
 
-> Tema del MAPA: `fisica/calor-q-m-c-deltat`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/calor-q-m-c-deltat`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 El **calor** no es una propiedad de los cuerpos, sino un proceso: es la **energía térmica que se transfiere entre dos objetos o sistemas cuando hay una diferencia de temperatura**. Siempre fluye del cuerpo más caliente al más frío hasta equilibrarse. Por ejemplo, si dejas caer un hierro rojo en agua fría, el calor pasa del hierro al agua. Es clave entender que no se trata de "calor" como algo que poseen los objetos, sino de **energía en movimiento**.
 
-[IMAGEN: Dos recipientes con líquidos a distinta temperatura conectados por una tubería; flechas indicando el flujo del calor desde el más caliente al más frío]
+<!-- IMAGEN: Dos recipientes con líquidos a distinta temperatura conectados por una tubería; flechas indicando el flujo del calor desde el más caliente al más frío -->
 
 ---
 
@@ -41,7 +41,7 @@ $$
 Q = 2 \cdot 4186 \cdot 10 = 83.720 \, \text{J}
 $$
 
-[IMAGEN: Diagrama de la fórmula Q = m·c·ΔT con ejemplos numéricos]
+<!-- IMAGEN: Diagrama de la fórmula Q = m·c·ΔT con ejemplos numéricos -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Informática — Inteligencia artificial: reglas a aprendizaje (teoría)
 
-> Tema del MAPA: `informatica/inteligencia-artificial-reglas-a-aprendizaje`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/inteligencia-artificial-reglas-a-aprendizaje`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

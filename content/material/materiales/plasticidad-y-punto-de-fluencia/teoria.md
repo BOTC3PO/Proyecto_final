@@ -12,7 +12,7 @@
 
 La **plasticidad** se refiere a la capacidad de un material para experimentar una **deformación permanente** cuando se le aplica una carga superior a su límite elástico. Esto ocurre porque los átomos en su estructura interna se desplazan de sus posiciones originales, y al retirar la fuerza aplicada, no regresan a su estado inicial. Es un fenómeno clave para entender cómo los materiales se comportan bajo esfuerzos prolongados o intensos.
 
-[IMAGEN: Gráfica que muestra una curva tensión-deformación con el punto de fluencia destacado]
+<!-- IMAGEN: Gráfica que muestra una curva tensión-deformación con el punto de fluencia destacado -->
 
 ---
 

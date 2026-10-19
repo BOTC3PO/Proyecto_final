@@ -1,6 +1,6 @@
 # Materiales — Familias de materiales: metales, cerámicos, polímeros y compuestos (teoría)
 
-> Tema del MAPA: `materiales/familias-de-materiales-metales-ceramicos-polimeros-compuestos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `materiales/familias-de-materiales-metales-ceramicos-polimeros-compuestos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 Los metales son materiales que se distinguen por su enlace metálico, donde los átomos ceden electrones formando una red de cationes inmersa en un "mar de electrones". Esta estructura permite el libre movimiento de carga eléctrica y calor, lo que explica su alta conductividad térmica y eléctrica. Además, su naturaleza atómica les da ductilidad: pueden deformarse sin romperse, lo que los hace ideales para aplicaciones como cables eléctricos o estructuras metálicas.
 
-[IMAGEN: Diagrama de enlace metálico mostrando cationes y electrones libres]
+<!-- IMAGEN: Diagrama de enlace metálico mostrando cationes y electrones libres -->
 
 ---
 

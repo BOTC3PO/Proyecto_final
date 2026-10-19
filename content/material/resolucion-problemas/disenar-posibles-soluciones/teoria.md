@@ -1,6 +1,6 @@
 # Resolución de Problemas — Diseñar posibles soluciones (teoría)
 
-> Tema del MAPA: `resolucion-problemas/disenar-posibles-soluciones`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/disenar-posibles-soluciones`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Biología — Presión arterial (teoría)
 
-> Tema del MAPA: `biologia/presion-arterial`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `biologia/presion-arterial`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

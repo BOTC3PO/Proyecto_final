@@ -1,6 +1,6 @@
 # Informática — Direccionamiento IP y DNS (teoría)
 
-> Tema del MAPA: `informatica/direccionamiento-ip-dns`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/direccionamiento-ip-dns`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Una **dirección IP** es un identificador numérico único que permite localizar
 
 Por ejemplo, cuando te conectas a internet, tu computadora recibe una dirección IP temporal asignada por el router de tu hogar o empresa. Esta dirección tiene un formato específico: en **IPv4**, se compone de cuatro números separados por puntos (como `192.168.1.5`), mientras que en **IPv6** se usan combinaciones de letras y números más largas (`2001:db8::1`). La diferencia entre ambas versiones radica en la cantidad de direcciones posibles: IPv4 tiene límites para satisfacer el crecimiento actual de dispositivos conectados, por lo que se adoptó IPv6.  
 
-[IMAGEN: Comparación visual de una dirección IPv4 y una IPv6]
+<!-- IMAGEN: Comparación visual de una dirección IPv4 y una IPv6 -->
 
 ---
 
@@ -24,7 +24,7 @@ El **DNS (Domain Name System)** es un servicio que actúa como traductor entre n
 
 Cuando escribes un nombre de dominio en el navegador, se envía una consulta al servidor DNS más cercano. Este revisa su base de datos o pregunta a otros servidores hasta encontrar la dirección IP asociada al dominio. Luego, esa IP se usa para establecer la conexión con el servidor que aloja el sitio web.  
 
-[IMAGEN: Diagrama del proceso de resolución de DNS]
+<!-- IMAGEN: Diagrama del proceso de resolución de DNS -->
 
 ---
 

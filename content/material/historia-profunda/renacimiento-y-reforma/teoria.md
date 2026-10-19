@@ -1,6 +1,6 @@
 # Historia Profunda — Renacimiento y Reforma (teoría)
 
-> Tema del MAPA: `historia-profunda/renacimiento-y-reforma`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/renacimiento-y-reforma`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ El periodo que abarca los siglos XIV al XVI no fue una ruptura abrupta, sino una
 
 El Humanismo no fue un movimiento político, sino una corriente intelectual y educativa. Sus protagonistas, los humanistas, buscaban purificar el latín y el griego volviendo a las fuentes originales (*ad fontes*). Figuras como Petrarca, Erasmus de Róterdam y Tomás Moro enfatizaron el valor de la dignidad humana y la capacidad de la razón para mejorar la sociedad.
 
-[IMAGEN: Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico]
+<!-- IMAGEN: Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico -->
 
 Este enfoque crítico afectó directamente a la religión. Los humanistas aplicaron sus métodos filológicos a la Biblia y a los escritos de los Padres de la Iglesia, descubriendo discrepancias en las traducciones latinas utilizadas por la Iglesia católica. Esta "desmitificación" textual preparó el terreno intelectual para cuestionar la autoridad institucional de Roma, demostrando que la verdad podía estar en los textos originales, no necesariamente en la tradición eclesiástica consolidada.
 

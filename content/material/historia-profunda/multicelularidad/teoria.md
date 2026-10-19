@@ -24,7 +24,7 @@ La multicelularidad se estructura en una jerarquía:
 3. **Órgano**: Combinación de tejidos para una función común (ej: corazón).  
 4. **Sistema**: Colección de órganos interconectados (ej: sistema respiratorio).  
 
-[IMAGEN: Esquema con los niveles de organización desde la célula hasta el sistema]  
+<!-- IMAGEN: Esquema con los niveles de organización desde la célula hasta el sistema -->  
 
 Esta progresión no es aleatoria: cada nivel depende del anterior y permite la existencia de estructuras más complejas.
 

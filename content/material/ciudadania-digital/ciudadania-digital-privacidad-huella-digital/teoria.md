@@ -1,6 +1,6 @@
 # Ciudadanía Digital — Privacidad y Huella Digital (teoría)
 
-> Tema del MAPA: `ciudadania-digital/ciudadania-digital-privacidad-huella-digital`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ciudadania-digital/ciudadania-digital-privacidad-huella-digital`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

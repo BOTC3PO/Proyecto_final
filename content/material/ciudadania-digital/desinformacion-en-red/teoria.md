@@ -1,6 +1,6 @@
 # Ciudadanía Digital — Desinformación en Red (teoría)
 
-> Tema del MAPA: `ciudadania-digital/desinformacion-en-red`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ciudadania-digital/desinformacion-en-red`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

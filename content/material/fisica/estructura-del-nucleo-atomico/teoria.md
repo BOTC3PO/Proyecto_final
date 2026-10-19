@@ -1,6 +1,6 @@
 # Física — Estructura del núcleo atómico (teoría)
 
-> Tema del MAPA: `fisica/estructura-del-nucleo-atomico`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/estructura-del-nucleo-atomico`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

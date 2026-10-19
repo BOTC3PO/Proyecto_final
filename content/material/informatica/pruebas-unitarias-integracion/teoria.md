@@ -1,6 +1,6 @@
 # Informática — Pruebas unitarias integración (teoría)
 
-> Tema del MAPA: `informatica/pruebas-unitarias-integracion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/pruebas-unitarias-integracion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Las pruebas unitarias son un tipo de verificación que se centra en validar el f
 
 Para aplicar una prueba unitaria, se simulan entradas específicas y se comparan las salidas obtenidas con los valores predeterminados. Esta metodología permite detectar errores temprano en el ciclo de desarrollo, antes de que afecten a otros módulos del software.
 
-[IMAGEN: Diagrama mostrando una función aislada con flechas de entrada/salida y un indicador de "OK" o "Error"]
+<!-- IMAGEN: Diagrama mostrando una función aislada con flechas de entrada/salida y un indicador de "OK" o "Error" -->
 
 ---
 
@@ -24,7 +24,7 @@ Las pruebas de integración, en cambio, evalúan cómo interactúan los componen
 
 Estas pruebas son esenciales para detectar problemas en la interfaz entre módulos, como errores de compatibilidad, fallos en la transmisión de parámetros o conflictos de estado. Aunque suelen requerir más recursos (como un entorno simulado), son clave para garantizar que el software funcione como una unidad coherente.
 
-[IMAGEN: Esquema mostrando dos módulos conectados con flechas y un mensaje "Prueba de interacción"]
+<!-- IMAGEN: Esquema mostrando dos módulos conectados con flechas y un mensaje "Prueba de interacción" -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Informática — Control de versiones (teoría)
 
-> Tema del MAPA: `informatica/control-de-versiones`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/control-de-versiones`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

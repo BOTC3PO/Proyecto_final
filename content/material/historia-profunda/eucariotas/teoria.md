@@ -12,7 +12,7 @@
 
 El núcleo definido es la característica que define a las células eucariotas. A diferencia de los procariotas, cuyo material genético está disperso en el citoplasma, las eucariotas tienen su ADN organizado dentro de un núcleo rodeado por una membrana nuclear. Esta estructura permite un control más preciso de la expresión génica y facilita procesos como la replicación del ADN y la síntesis de proteínas en compartimentos especializados.
 
-[IMAGEN: Diagrama comparativo de células eucariotas y procariotas, destacando el núcleo y su membrana]
+<!-- IMAGEN: Diagrama comparativo de células eucariotas y procariotas, destacando el núcleo y su membrana -->
 
 ---
 
@@ -20,7 +20,7 @@ El núcleo definido es la característica que define a las células eucariotas. 
 
 Las células eucariotas poseen un sistema complejo de organelas delimitadas por membranas. Estos compartimentos permiten la división funcional del citoplasma, optimizando procesos metabólicos y la producción de moléculas esenciales. Por ejemplo, las mitocondrias generan energía a través de la respiración celular, el retículo endoplasmático sintetiza proteínas y lípidos, y el aparato de Golgi modifica y envía sustancias al exterior de la célula.
 
-[IMAGEN: Esquema detallado de una célula eucariota con etiquetas de organelas clave]
+<!-- IMAGEN: Esquema detallado de una célula eucariota con etiquetas de organelas clave -->
 
 ---
 
@@ -28,7 +28,7 @@ Las células eucariotas poseen un sistema complejo de organelas delimitadas por 
 
 Dentro del sistema de organelas, ciertas estructuras tienen roles específicos que no existen en las procariotas. Los cloroplastos, presentes solo en células vegetales, son responsables de la fotosíntesis al captar luz solar y convertirla en energía química. Por otro lado, los lisosomas contienen enzimas digestivas que descomponen sustancias dentro de la célula, contribuyendo a su mantenimiento y defensa.
 
-[IMAGEN: Comparación entre mitocondrias, cloroplastos y lisosomas con sus funciones]
+<!-- IMAGEN: Comparación entre mitocondrias, cloroplastos y lisosomas con sus funciones -->
 
 ---
 

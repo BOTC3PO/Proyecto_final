@@ -12,13 +12,13 @@
 
 El cristalino es una estructura transparente y flexible ubicada detrás del iris, compuesta por tejidos elásticos que actúan como **lente convergente**. Su función principal es refractar la luz entrante para enfocarla en la retina. Al igual que los lentes convexos estudiados anteriormente, su curvatura permite desviar los rayos luminosos hacia un punto focal. La forma del cristalino no es fija: se adapta según la distancia del objeto observado, un proceso clave para la **acomodación visual**.
 
-[IMAGEN: Esquema del ojo humano con el cristalino destacado como lente convergente]
+<!-- IMAGEN: Esquema del ojo humano con el cristalino destacado como lente convergente -->
 
 ## 2. Formación de imágenes en la retina
 
 La retina es una capa sensible a la luz ubicada en la parte posterior del globo ocular. Aquí se forma la **imagen real e invertida** del objeto observado, gracias a la refracción combinada del córnea y el cristalino. Esta imagen no es directamente visible: los fotoreceptores (células conos y bastones) captan la luz y envían señales al cerebro mediante el nervio óptico. El cerebro interpreta estas señales como imágenes derechas, corrigiendo la inversión natural del proceso.
 
-[IMAGEN: Diagrama de la trayectoria de los rayos luminosos desde un objeto hasta la retina]
+<!-- IMAGEN: Diagrama de la trayectoria de los rayos luminosos desde un objeto hasta la retina -->
 
 ## 3. Acomodación visual
 
@@ -34,7 +34,7 @@ El camino de la luz desde el exterior hasta la percepción visual incluye varios
 
 Este proceso es similar al funcionamiento de una cámara: la córnea y el cristalino actúan como lentes, mientras que la retina equivale al sensor digital.
 
-[IMAGEN: Comparación entre ojo humano y cámara con sus componentes ópticos]
+<!-- IMAGEN: Comparación entre ojo humano y cámara con sus componentes ópticos -->
 
 ## 5. Función del iris
 

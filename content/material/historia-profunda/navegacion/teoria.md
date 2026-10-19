@@ -1,6 +1,6 @@
 # Historia Profunda — La navegación y la expansión europea (teoría)
 
-> Tema del MAPA: `historia-profunda/navegacion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/navegacion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Antes de la expansión oceánica europea, el comercio de larga distancia dependía de rutas terrestres y marítimas fragmentadas. La Ruta de la Seda conectaba Asia con Europa, pero estaba sujeta a los caprichos de los imperios intermediarios. En el mar Mediterráneo, las potencias italianas como Venecia y Génova controlaban el tráfico de especias y bienes de lujo procedentes del Oriente. Sin embargo, el ascenso del Imperio otomano y la caída de Constantinopla en 1453 complicaron estas rutas, creando una urgidad económica y política en las monarquías ibéricas (Castilla y Portugal) por encontrar rutas alternativas hacia las fuentes de producción.
 
-[IMAGEN: Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492]
+<!-- IMAGEN: Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492 -->
 
 ## 2. La escuela de navegación portuguesa
 
@@ -22,7 +22,7 @@ Portugal lideró los primeros avances sistemáticos. Bajo el patrocinio del Infa
 
 La navegación oceánica requirió saltos tecnológicos decisivos. La combinación de la brújula, el astrolabio y el cuadrante permitió a los navegantes orientarse en alta mar donde no había referencias visuales. Además, se desarrollaron nuevos instrumentos como el balestrillo, más preciso para medir la altura del sol sobre el horizonte. En el ámbito cartográfico, la carta portolana dio paso a los mapas que incluían líneas de rumbo (rumbos de viento), aunque la proyección cartográfica perfecta no existía aún. La comprensión de los vientos alisios y los sistemas de corrientes fue crucial; se descubrió que para volver de América a Europa era necesario navegar hacia el norte para captar los vientos del oeste, una técnica conocida como *volta do mar*.
 
-[IMAGEN: Detalle de un astrolabio náutico y una brújula magnética del siglo XV]
+<!-- IMAGEN: Detalle de un astrolabio náutico y una brújula magnética del siglo XV -->
 
 ## 4. El Tratado de Tordesillas y la división del mundo
 

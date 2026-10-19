@@ -1,6 +1,6 @@
 # Resolución de Problemas — Definir Alcance y Objetivos (teoría)
 
-> Tema del MAPA: `resolucion-problemas/definir-alcance-y-objetivos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/definir-alcance-y-objetivos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El alcance define los límites del proyecto: qué se va a hacer y, muy importante, qué no se va a hacer. Determina las tareas específicas, los entregables esperados y las restricciones que marcan el marco de trabajo. Sin un alcance claro, es fácil incluir elementos innecesarios o omitir aspectos clave, lo que puede llevar a retrasos, costos adicionales o resultados que no respondan al problema original. Por ejemplo, si un proyecto busca mejorar la eficiencia en una fábrica, el alcance debe especificar cuáles procesos se analizarán y cuáles se dejarán fuera.
 
-[IMAGEN: diagrama de alcance con tareas incluidas y excluidas]
+<!-- IMAGEN: diagrama de alcance con tareas incluidas y excluidas -->
 
 ## 2. Objetivos SMART
 
@@ -22,7 +22,7 @@ Para que un objetivo sea útil en la resolución de problemas, debe cumplir con 
 
 Un objetivo bien definido incluye varios elementos clave: el **entregable**, que es el producto tangible o intangible que se debe producir para completar una fase; las **restricciones**, que son los límites físicos, financieros o temporales del proyecto; y las **metas**, que son los resultados finales que se buscan alcanzar. Por ejemplo, en un proyecto de diseño web, el entregable podría ser el sitio web funcional, mientras que una meta podría ser aumentar la tasa de conversión en un 20%.
 
-[IMAGEN: cuadro comparativo entre entregables, restricciones y metas]
+<!-- IMAGEN: cuadro comparativo entre entregables, restricciones y metas -->
 
 ## 4. Exclusiones y Límites
 

@@ -1,6 +1,6 @@
 # Economía — Control de Gestión e Indicadores (teoría)
 
-> Tema del MAPA: `economia/control-de-gestion-e-indicadores`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/control-de-gestion-e-indicadores`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -34,7 +34,7 @@ El Balanced Scorecard es un marco para medir el desempeño organizacional desde 
 
 Este enfoque evita la reducción del éxito a métricas económicas exclusivamente. Por ejemplo, una empresa podría priorizar mejorar la experiencia del cliente (perspectiva 2) incluso si eso incrementa costos a corto plazo, si se espera un impacto positivo en el largo plazo.
 
-[IMAGEN: Cuadro comparativo de las cuatro perspectivas con ejemplos de indicadores]
+<!-- IMAGEN: Cuadro comparativo de las cuatro perspectivas con ejemplos de indicadores -->
 
 ## 4. Indicadores clave (KPIs): desde la teoría hasta la práctica
 

@@ -1,6 +1,6 @@
 # Historia Profunda — División del Trabajo (teoría)
 
-> Tema del MAPA: `historia-profunda/division-del-trabajo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/division-del-trabajo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -20,7 +20,7 @@ La especialización incrementa la **eficiencia productiva** al permitir que cada
 
 La forma de organizar el trabajo cambió radicalmente a lo largo de la historia. En la Edad Media, los **artesanos medievales** realizaban todas las etapas de un producto: desde la extracción de materias primas hasta su terminación final. Este sistema era lento y limitado por la escala de cada taller individual. En contraste, con la llegada del **sistema fabril moderno**, se implementó una división extrema en tareas repetitivas, como las cadenas de montaje descritas por Henry Ford. Cada trabajador se enfocaba en un paso único, lo que multiplicó la producción y redujo los costos, marcando el inicio de la economía de masa.
 
-[IMAGEN: Comparación entre artesano medieval y fábrica moderna]
+<!-- IMAGEN: Comparación entre artesano medieval y fábrica moderna -->
 
 ## 4. Impacto social y económico
 

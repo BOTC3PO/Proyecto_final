@@ -1,6 +1,6 @@
 # Economía — Business Model Canvas (teoría)
 
-> Tema del MAPA: `economia/business-model-canvas`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/business-model-canvas`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es el Business Model Canvas?
 
-El Business Model Canvas es una herramienta visual que permite describir, analizar y diseñar un modelo de negocio en nueve bloques interconectados. Cada bloque representa un aspecto clave del funcionamiento de una empresa: desde quiénes son sus clientes hasta cómo genera ingresos. Su utilidad está en simplificar la complejidad de un negocio al organizar ideas en un formato gráfico, facilitando su comprensión y modificación. [IMAGEN: esquema con los nueve bloques del canvas etiquetados].
+El Business Model Canvas es una herramienta visual que permite describir, analizar y diseñar un modelo de negocio en nueve bloques interconectados. Cada bloque representa un aspecto clave del funcionamiento de una empresa: desde quiénes son sus clientes hasta cómo genera ingresos. Su utilidad está en simplificar la complejidad de un negocio al organizar ideas en un formato gráfico, facilitando su comprensión y modificación. <!-- IMAGEN: esquema con los nueve bloques del canvas etiquetados -->.
 
 ---
 
@@ -37,7 +37,7 @@ El bloque "Segmentos de clientes" no se limita a listar nombres de compradores, 
 
 ## 4. La conexión entre propuesta de valor y clientes
 
-La propuesta de valor debe estar directamente alineada con los segmentos definidos. Si un cliente busca ahorrar tiempo, la propuesta de valor no puede ser "un producto bonito", sino algo como "software que reduce el tiempo de cierre contable en un 30%". Esta relación es clave: sin una oferta clara que responda a las necesidades del segmento, el negocio pierde relevancia. [IMAGEN: ejemplo de dos escenarios: software para contadores vs. cafetería con coworking].
+La propuesta de valor debe estar directamente alineada con los segmentos definidos. Si un cliente busca ahorrar tiempo, la propuesta de valor no puede ser "un producto bonito", sino algo como "software que reduce el tiempo de cierre contable en un 30%". Esta relación es clave: sin una oferta clara que responda a las necesidades del segmento, el negocio pierde relevancia. <!-- IMAGEN: ejemplo de dos escenarios: software para contadores vs. cafetería con coworking -->.
 
 ---
 

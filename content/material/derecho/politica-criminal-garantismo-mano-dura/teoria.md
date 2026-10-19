@@ -1,6 +1,6 @@
 # Derecho — Política criminal: garantismo y mano dura (teoría)
 
-> Tema del MAPA: `derecho/politica-criminal-garantismo-mano-dura`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/politica-criminal-garantismo-mano-dura`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El garantismo es un modelo que establece límites claros al poder punitivo del Estado, priorizando siempre los derechos fundamentales del imputado. Su eje central es la protección de la libertad individual y la proscripción de prácticas que puedan llevar a la tortura, la prisión preventiva injustificada o el encarcelamiento por sospecha. Este enfoque se basa en la premisa de que un sistema penal eficaz no puede descartar los derechos del acusado: si se le niegan garantías procesales, cualquier condena pierde legitimidad.
 
-[IMAGEN: Comparación entre garantismo y mano dura (ejemplo gráfico con dos columnas: una con "derechos individuales" y la otra con "eficacia represiva")]
+<!-- IMAGEN: Comparación entre garantismo y mano dura (ejemplo gráfico con dos columnas: una con "derechos individuales" y la otra con "eficacia represiva") -->
 
 ---
 

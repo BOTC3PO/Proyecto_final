@@ -1,6 +1,6 @@
 # Arte — Acústica instrumento musical (teoría)
 
-> Tema del MAPA: `arte/acustica-instrumento-musical`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `arte/acustica-instrumento-musical`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

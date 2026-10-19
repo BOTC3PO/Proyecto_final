@@ -1,6 +1,6 @@
 # Resolución de Problemas — Costo-Beneficio (teoría)
 
-> Tema del MAPA: `resolucion-problemas/costo-beneficio`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/costo-beneficio`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

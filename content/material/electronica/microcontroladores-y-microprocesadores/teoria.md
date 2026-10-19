@@ -1,6 +1,6 @@
 # Electrónica — Microcontroladores y microprocesadores (teoría)
 
-> Tema del MAPA: `electronica/microcontroladores-y-microprocesadores`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `electronica/microcontroladores-y-microprocesadores`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es un microcontrolador?
 
-Un microcontrolador es un circuito integrado que combina en un solo chip la unidad central de procesamiento (CPU), memoria RAM, memoria ROM y periféricos básicos como entradas/salidas digitales o analógicas [IMAGEN: diagrama de un microcontrolador con CPU, RAM, ROM y periféricos integrados]. Su diseño se enfoca en realizar tareas específicas con un consumo de energía reducido y sin necesidad de componentes externos adicionales. Por ejemplo, en una lavadora, el microcontrolador gestiona el ciclo de enjuague, temperatura del agua y tiempo de centrifugado mediante sensores y actuadores conectados directamente al chip.
+Un microcontrolador es un circuito integrado que combina en un solo chip la unidad central de procesamiento (CPU), memoria RAM, memoria ROM y periféricos básicos como entradas/salidas digitales o analógicas <!-- IMAGEN: diagrama de un microcontrolador con CPU, RAM, ROM y periféricos integrados -->. Su diseño se enfoca en realizar tareas específicas con un consumo de energía reducido y sin necesidad de componentes externos adicionales. Por ejemplo, en una lavadora, el microcontrolador gestiona el ciclo de enjuague, temperatura del agua y tiempo de centrifugado mediante sensores y actuadores conectados directamente al chip.
 
 ## 2. ¿Qué es un microprocesador?
 

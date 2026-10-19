@@ -1,6 +1,6 @@
 # Resolución de Problemas — Implementar la Solución (teoría)
 
-> Tema del MAPA: `resolucion-problemas/implementar-la-solucion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/implementar-la-solucion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

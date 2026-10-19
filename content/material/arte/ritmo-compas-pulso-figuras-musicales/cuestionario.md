@@ -305,7 +305,7 @@ explicacion: |
   La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
 ```
 
-### 16 — Completar la igualdad
+### 15 — Completar la igualdad
 
 ```
 metadata:
@@ -325,7 +325,7 @@ explicacion: |
   Una blanca (2) + una negra (1) = 3 tiempos. Para llegar a 4, falta una negra (1).
 ```
 
-### 17 — Diferencia entre pulso y ritmo
+### 16 — Diferencia entre pulso y ritmo
 
 ```
 metadata:
@@ -344,7 +344,7 @@ explicacion: |
   El pulso es la pulsación constante (como el latido del corazón), mientras que el ritmo es la sucesión de duraciones (largas y cortas) que se asientan sobre ese pulso.
 ```
 
-### 18 — Relación de duración: Negra vs Corchea
+### 17 — Relación de duración: Negra vs Corchea
 
 ```
 metadata:
@@ -361,7 +361,7 @@ explicacion: |
   En la música estándar, una negra equivale a dos corcheas. Por lo tanto, la relación es de 2 a 1.
 ```
 
-### 19 — El valor de la Redonda
+### 18 — El valor de la Redonda
 
 ```
 metadata:
@@ -385,7 +385,7 @@ explicacion: |
   La redonda es la figura más larga; equivale a dos blancas o cuatro negras.
 ```
 
-### 20 — Jerarquía de duraciones
+### 19 — Jerarquía de duraciones
 
 ```
 metadata:
@@ -404,7 +404,7 @@ explicacion: |
   La jerarquía de duración es: Redonda (4) > Blanca (2) > Negra (1) > Corchea (0.5).
 ```
 
-### 21 — Compás y pulsos
+### 20 — Compás y pulsos
 
 ```
 metadata:
@@ -428,7 +428,7 @@ explicacion: |
   El número superior del compás indica cuántos pulsos (en la figura de la base, normalmente la negra) caben en cada unidad de compás.
 ```
 
-### 22 — El metrónomo del baterista
+### 21 — El metrónomo del baterista
 
 ```
 metadata:
@@ -451,7 +451,7 @@ explicacion: |
   En la música, la duración de las figuras es relativa: la negra equivale a 1 pulso, la blanca a 2 y la redonda a 4. La corchea es la mitad de una negra (0.5).
 ```
 
-### 23 — El compás de la marcha
+### 22 — El compás de la marcha
 
 ```
 metadata:
@@ -475,7 +475,7 @@ explicacion: |
   El número superior del compás indica cuántos pulsos de la unidad de medida (generalmente la negra) caben en cada compás.
 ```
 
-### 24 — ¿Es una figura mayor?
+### 23 — ¿Es una figura mayor?
 
 ```
 metadata:
@@ -498,7 +498,7 @@ explicacion: |
   La blanca dura 2 pulsos y la negra 1 (Verdadero). La corchea dura 0.5 y la blanca 2 (Falso).
 ```
 
-### 25 — Ordenando la duración
+### 24 — Ordenando la duración
 
 ```
 metadata:
@@ -520,7 +520,7 @@ explicacion: |
   La duración aumenta así: Corchea (1/2 negra) < Negra (1) < Blanca (2) < Redonda (4).
 ```
 
-### 26 — El reto del compás de 4/4
+### 25 — El reto del compás de 4/4
 
 ```
 metadata:

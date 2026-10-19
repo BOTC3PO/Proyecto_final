@@ -20,7 +20,7 @@ Además, existe una división importante: **la justicia federal** y **la justici
 
 En cambio, la **justicia provincial/ordinaria** maneja causas comunes, como robos, accidentes o divorcios. Si dos vecinos discuten por una propiedad en Buenos Aires, ese caso se resolverá en un juzgado provincial de esa provincia.
 
-[IMAGEN: Jerarquía del Poder Judicial argentino con ejemplos de casos federales y provinciales]
+<!-- IMAGEN: Jerarquía del Poder Judicial argentino con ejemplos de casos federales y provinciales -->
 
 ---
 

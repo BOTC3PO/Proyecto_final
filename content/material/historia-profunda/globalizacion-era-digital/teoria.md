@@ -1,6 +1,6 @@
 # Historia Profunda — Globalización: Era Digital (teoría)
 
-> Tema del MAPA: `historia-profunda/globalizacion-era-digital`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/globalizacion-era-digital`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría  
 **Presentación** — Análisis del impacto de la era digital en los procesos de globalización contemporánea.

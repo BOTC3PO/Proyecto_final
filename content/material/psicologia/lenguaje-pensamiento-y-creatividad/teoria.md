@@ -1,6 +1,6 @@
 # Psicología — Lenguaje, pensamiento y creatividad (teoría)
 
-> Tema del MAPA: `psicologia/lenguaje-pensamiento-y-creatividad`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/lenguaje-pensamiento-y-creatividad`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. El carácter simbólico del lenguaje
 
-El lenguaje no es solo una herramienta para comunicarse, sino un sistema de signos que permite representar realidades abstractas o lejanas. Por ejemplo, la palabra *árbol* no representa el objeto físico en sí, sino su forma, función y significado dentro de un contexto cultural. Esta capacidad simbólica [IMAGEN: esquema de signo (significante) ↔ significado] permite que el pensamiento opere con ideas separadas del mundo inmediato, facilitando la abstracción, el razonamiento y la imaginación.
+El lenguaje no es solo una herramienta para comunicarse, sino un sistema de signos que permite representar realidades abstractas o lejanas. Por ejemplo, la palabra *árbol* no representa el objeto físico en sí, sino su forma, función y significado dentro de un contexto cultural. Esta capacidad simbólica <!-- IMAGEN: esquema de signo (significante) ↔ significado --> permite que el pensamiento opere con ideas separadas del mundo inmediato, facilitando la abstracción, el razonamiento y la imaginación.
 
 La semántica estudia cómo los símbolos adquieren sentido a través de convenciones sociales. Sin este sistema simbólico, sería imposible concebir conceptos como *libertad*, *amor* o *justicia*, que trascienden lo tangible. Por eso, el lenguaje actúa como un puente entre la experiencia sensorial y la cognición abstracta.
 

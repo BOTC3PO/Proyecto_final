@@ -1,6 +1,6 @@
 # Informática — mantenimiento y deuda técnica (teoría)
 
-> Tema del MAPA: `informatica/mantenimiento-y-deuda-tecnica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/mantenimiento-y-deuda-tecnica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

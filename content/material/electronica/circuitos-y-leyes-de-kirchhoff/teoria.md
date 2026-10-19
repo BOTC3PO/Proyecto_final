@@ -14,7 +14,7 @@ Un **nodo** es el punto físico donde se unen dos o más componentes eléctricos
 
 Los nodos son la base para aplicar las leyes de Kirchhoff, ya que permiten identificar los caminos por donde fluye la electricidad. Por ejemplo, en un circuito con una batería y tres resistencias conectadas en paralelo, cada punto de conexión entre la batería y las resistencias es un nodo.
 
-[IMAGEN: Diagrama de circuito simple con nodos etiquetados]
+<!-- IMAGEN: Diagrama de circuito simple con nodos etiquetados -->
 
 ---
 
@@ -42,7 +42,7 @@ $$
 
 En términos prácticos, si recorres un circuito cerrado (como una malla con resistencias y una batería), el voltaje suministrado por la fuente debe equilibrarse con las caídas de tensión en los componentes. Por ejemplo, si una batería proporciona 12 V y hay dos resistencias en serie que generan cada una 4 V y 8 V, al sumarlas (4 + 8 = 12), se cumple la KVL.
 
-[IMAGEN: Circuito cerrado con tensiones etiquetadas]
+<!-- IMAGEN: Circuito cerrado con tensiones etiquetadas -->
 
 ---
 

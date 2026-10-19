@@ -1,6 +1,6 @@
 # Resolución de Problemas — Detectar el problema (teoría)
 
-> Tema del MAPA: `resolucion-problemas/detectar-el-problema`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/detectar-el-problema`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

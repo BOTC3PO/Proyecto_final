@@ -1,6 +1,6 @@
 # Ingeniería — comunicar la solución (teoría)
 
-> Tema del MAPA: `ingenieria/comunicar-la-solucion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/comunicar-la-solucion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -30,7 +30,7 @@ Cuando se trata de comunicar una solución a no especialistas, como clientes o i
 
 La eficacia de cualquier documento técnico depende de su adherencia a normas reconocidas, como las de ISO o ABNT. Estos marcos establecen formatos para cotas, símbolos, escalas y colores, evitando confusiones entre equipos de distintos países o empresas. Por ejemplo, un plano que use la notación "10 mm" en vez de "1 cm" garantiza que todos lo interpreten igual. Además, estas normas facilitan la colaboración internacional: un ingeniero en Argentina y otro en Alemania pueden trabajar con el mismo documento sin malentendidos.
 
-[IMAGEN: Comparación entre un plano técnico con cotas claras y otro sin ellas, mostrando la diferencia en su utilidad para fabricar una pieza]
+<!-- IMAGEN: Comparación entre un plano técnico con cotas claras y otro sin ellas, mostrando la diferencia en su utilidad para fabricar una pieza -->
 
 ---
 

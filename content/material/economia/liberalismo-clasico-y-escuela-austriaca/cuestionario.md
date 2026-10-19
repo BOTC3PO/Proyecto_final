@@ -1,4 +1,4 @@
-# Economía — Liberalismo clásico y escuela austríaca (cuestionario, 12 preguntas VBLang)
+# Economía — Liberalismo clásico y escuela austríaca (cuestionario, 22 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta. Todas las preguntas piden
 > IDENTIFICAR qué sostiene cada corriente, nunca evaluar cuál tiene
@@ -259,4 +259,208 @@ explicacion: |
   Ambas comparten la confianza en el mercado libre, pero la escuela
   austríaca la profundiza con un argumento propio sobre la información
   dispersa en los precios, casi 100 años después de Smith.
+```
+
+### 13 — Año de La riqueza de las naciones
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+tipo: completar
+enunciado: "*La riqueza de las naciones*, de Adam Smith, se publicó en ___."
+respuestas_validas:
+  - "1776"
+
+explicacion: |
+  Se considera el texto fundacional de la economía moderna como disciplina.
+```
+
+### 14 — Año de Camino de servidumbre
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿En qué año se publicó *Camino de servidumbre*, de Friedrich Hayek?"
+tipo: mc
+opciones_explicitas:
+  - "1944"
+  - "1776"
+  - "1867"
+  - "1962"
+respuesta: "1944"
+
+explicacion: |
+  Argumenta que la planificación centralizada tiende a concentrar poder.
+```
+
+### 15 — Obra de Hazlitt
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Cómo se llama la obra de Henry Hazlitt que popularizó la idea de los efectos que no se ven?"
+tipo: mc
+opciones_explicitas:
+  - "La economía en una lección"
+  - "La riqueza de las naciones"
+  - "Teoría general"
+  - "El Capital"
+respuesta: "La economía en una lección"
+
+explicacion: |
+  Se publicó en 1946.
+```
+
+### 16 — Año de la obra de Hazlitt
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+tipo: completar
+enunciado: "*La economía en una lección* se publicó en ___."
+respuestas_validas:
+  - "1946"
+
+explicacion: |
+  Popularizó el análisis de los efectos indirectos de una política.
+```
+
+### 17 — Qué sostiene Smith del intercambio
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "intermedio"
+  tags: ["corrientes", "concepto"]
+
+enunciado: "Según Adam Smith, el intercambio libre y voluntario..."
+tipo: mc
+opciones_explicitas:
+  - "Beneficia a ambas partes a la vez"
+  - "Beneficia solo a quien exporta"
+  - "Siempre perjudica a una de las partes"
+  - "Debe ser prohibido"
+respuesta: "Beneficia a ambas partes a la vez"
+
+explicacion: |
+  Es la base de su defensa del libre comercio.
+```
+
+### 18 — Suma cero
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "intermedio"
+  tags: ["corrientes", "cadena"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El mercantilismo veía el comercio como un juego de suma cero, donde lo que gana un país lo pierde otro."
+
+explicacion: |
+  Verdadero. Smith discute esa idea.
+```
+
+### 19 — Desconfianza austríaca
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "avanzado"
+  tags: ["corrientes", "concepto"]
+
+enunciado: "¿De qué desconfía la escuela austríaca, según la teoría?"
+tipo: mc
+opciones_explicitas:
+  - "De los modelos matemáticos agregados que tratan a la economía como una sola cosa"
+  - "De los precios libres"
+  - "De la propiedad privada"
+  - "Del comercio"
+respuesta: "De los modelos matemáticos agregados que tratan a la economía como una sola cosa"
+
+explicacion: |
+  Prefiere partir de las decisiones individuales.
+```
+
+### 20 — Cuál nace antes
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "intermedio"
+  tags: ["corrientes", "cronologia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La escuela austríaca nace antes que el liberalismo clásico de Adam Smith."
+
+explicacion: |
+  Falso. Nace más de un siglo después, desde finales del siglo XIX.
+```
+
+### 21 — El efecto que no se ve del arancel
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "avanzado"
+  tags: ["corrientes", "concepto"]
+
+enunciado: "Según el ejemplo de la teoría, ¿cuál es el efecto menos visible de un arancel que protege a una industria local?"
+tipo: mc
+opciones_explicitas:
+  - "Encarece el producto para todos los consumidores y resta recursos a otras industrias"
+  - "Baja los precios para todos"
+  - "No tiene ningún efecto"
+  - "Aumenta el oro del Estado"
+respuesta: "Encarece el producto para todos los consumidores y resta recursos a otras industrias"
+
+explicacion: |
+  Una buena política se juzga también por sus efectos indirectos.
+```
+
+### 22 — Las ramas que parten de esta corriente
+
+```
+metadata:
+  materia: "economia"
+  tema: "liberalismo_clasico_y_escuela_austriaca"
+  nivel: "avanzado"
+  tags: ["corrientes", "cadena"]
+
+enunciado: "¿Qué tres ramas parten, por caminos distintos, del liberalismo clásico y la escuela austríaca?"
+tipo: mc
+opciones_explicitas:
+  - "Socialismo utópico, keynesianismo y economía feminista"
+  - "Mercantilismo, fisiocracia y marxismo"
+  - "Neoliberalismo, monetarismo y ordoliberalismo"
+  - "Marxismo, mercantilismo y fisiocracia"
+respuesta: "Socialismo utópico, keynesianismo y economía feminista"
+
+explicacion: |
+  Cada una construye su crítica tomando como punto de partida la confianza en el mercado libre.
 ```

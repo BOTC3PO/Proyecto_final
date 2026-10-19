@@ -12,7 +12,7 @@
 
 Una **fuente primaria** es un registro original que proviene directamente del momento en que ocurrió un hecho, sin filtros ni interpretaciones posteriores. Ejemplos incluyen cartas, fotos, videos, testimonios o documentos oficiales creados durante el evento estudiado. Por ejemplo, una carta escrita por un soldado en 1945 es una fuente primaria si se analiza la Segunda Guerra Mundial, mientras que un libro publicado en 2023 sobre ese conflicto sería secundario.
 
-[IMAGEN: Comparación entre un video original de un discurso presidencial (izquierda) y un artículo de opinión sobre él (derecha)]
+<!-- IMAGEN: Comparación entre un video original de un discurso presidencial (izquierda) y un artículo de opinión sobre él (derecha) -->
 
 ---
 
@@ -26,7 +26,7 @@ Para determinar si algo es primario, preguntate: *¿Esta información fue creada
 
 Una **fuente secundaria** no fue creada directamente durante el hecho, sino que lo interpreta, analiza o contextualiza. Pueden ser artículos de prensa, libros, documentales o reseñas. Por ejemplo, un libro escrito en 2023 sobre la Primera Guerra Mundial es secundario porque se basa en fuentes primarias (cartas, fotos) del siglo XX. Estas fuentes son útiles para entender el contexto, pero requieren **cuidado**: pueden incluir sesgos o errores si no se revisan críticamente.
 
-[IMAGEN: Diagrama mostrando cómo un artículo de prensa se construye a partir de testimonios y documentos originales]
+<!-- IMAGEN: Diagrama mostrando cómo un artículo de prensa se construye a partir de testimonios y documentos originales -->
 
 ---
 

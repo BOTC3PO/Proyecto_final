@@ -1,6 +1,6 @@
 # Historia Profunda — Materia y Energía Oscura (teoría)
 
-> Tema del MAPA: `historia-profunda/materia-energia-oscura`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/materia-energia-oscura`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

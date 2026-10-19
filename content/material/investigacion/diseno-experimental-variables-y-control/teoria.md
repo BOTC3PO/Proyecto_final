@@ -1,6 +1,6 @@
 # Investigación — Diseño experimental, variables y control (teoría)
 
-> Tema del MAPA: `investigacion/diseno-experimental-variables-y-control`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `investigacion/diseno-experimental-variables-y-control`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

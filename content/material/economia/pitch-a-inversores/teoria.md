@@ -1,6 +1,6 @@
 # Economía — Pitch a inversores (teoría)
 
-> Tema del MAPA: `economia/pitch-a-inversores`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/pitch-a-inversores`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Un *pitch* es una herramienta de comunicación diseñada para transmitir la esencia de un proyecto o idea de negocio de manera rápida, generalmente en menos de un minuto. Su nombre proviene del escenario típico donde se usa: un ascensor, donde un emprendedor tiene que explicar su propuesta mientras sube o baja con un inversor potencial. La clave está en resumir el valor del proyecto sin perder la esencia ni la claridad. No es una presentación extensa, sino un *llamado de atención* que busca despertar interés para profundizar luego.
 
-[IMAGEN: Diagrama comparativo entre un pitch y una presentación formal: brevedad vs detalle]
+<!-- IMAGEN: Diagrama comparativo entre un pitch y una presentación formal: brevedad vs detalle -->
 
 ## 2. ¿Cuál es el objetivo principal?
 
@@ -22,7 +22,7 @@ El propósito de un *pitch inicial* no es cerrar la inversión en ese momento, s
 
 Todo *pitch* efectivo debe comenzar identificando claramente un "pain point" (punto de dolor) real: un problema específico que afecta a un mercado o grupo de personas, y luego mostrar cómo el proyecto propuesto resuelve ese problema. Sin definir primero el problema, no se puede demostrar valor. Por ejemplo, si la idea es una app para gestionar gastos personales, el *pitch* debe empezar con algo como: "Las personas gastan un 30% más de lo planeado por falta de control en tiempo real". Luego se explica cómo la app cambia eso.
 
-[IMAGEN: Esquema de estructura del pitch: problema → solución → valor para el inversor]
+<!-- IMAGEN: Esquema de estructura del pitch: problema → solución → valor para el inversor -->
 
 ## 4. Los elementos clave que no pueden faltar
 

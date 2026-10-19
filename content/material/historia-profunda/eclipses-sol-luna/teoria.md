@@ -1,6 +1,6 @@
 # Historia Profunda — Eclipses Sol Luna (teoría)
 
-> Tema del MAPA: `historia-profunda/eclipses-sol-luna`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/eclipses-sol-luna`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Un eclipse solar ocurre cuando la Luna se interpone entre el Sol y la Tierra, bloqueando parcial o totalmente la luz del Sol desde nuestra perspectiva. Para que esto suceda, los tres cuerpos deben alinearse con precisión: Sol — Luna — Tierra. La sombra de la Luna proyectada sobre la superficie terrestre es lo que genera el fenómeno. Solo en días específicos, cuando esta alineación es exacta, se produce un eclipse.
 
-[IMAGEN: diagrama de alineación solar-lunar]
+<!-- IMAGEN: diagrama de alineación solar-lunar -->
 
 ---
 
@@ -26,7 +26,7 @@ Para que la Luna esté entre el Sol y la Tierra, debe estar en fase de **Luna Nu
 
 Un eclipse lunar ocurre cuando la Tierra se interpone entre el Sol y la Luna, bloqueando la luz solar que normalmente ilumina a la Luna. Esto solo puede suceder durante una **Luna Llena**, ya que en esa fase la Luna está alineada con el Sol pero del lado opuesto de la Tierra. La sombra terrestre cubre parcial o totalmente la superficie lunar, cambiando su color y visibilidad.
 
-[IMAGEN: tipos de eclipses]
+<!-- IMAGEN: tipos de eclipses -->
 
 ---
 

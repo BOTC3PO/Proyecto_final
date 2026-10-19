@@ -1,6 +1,6 @@
 # Historia Profunda — El Absolutismo Monárquico en Europa (teoría)
 
-> Tema del MAPA: `historia-profunda/absolutismo-europeo`. Depende de a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/absolutismo-europeo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -20,7 +20,7 @@ Para justificar la concentración del poder, la monarquía absoluta desarrolló 
 
 Paralelamente, en Inglaterra, aunque el absolutismo no triunfó políticamente, teóricos como Robert Filmer defendieron el patriarcalismo real en obras como *Patriarcha*. Sin embargo, la respuesta liberal al absolutismo, plasmada por John Locke en sus *Dos tratados sobre el gobierno civil* (1689), introdujo la noción de que la autoridad proviene del consentimiento de los gobernados y que el poder debe estar limitado para proteger la vida, la libertad y la propiedad. Esta tensión entre el origen divino del poder y la legitimidad contractual definiría el debate político europeo durante el siglo XVIII.
 
-[IMAGEN: Detalle del cuadro "El rey Sol recibe a los embajadores" de Antoine Coypel, simbolizando la centralización de la diplomacia y el poder en la persona del monarca.]
+<!-- IMAGEN: Detalle del cuadro "El rey Sol recibe a los embajadores" de Antoine Coypel, simbolizando la centralización de la diplomacia y el poder en la persona del monarca. -->
 
 ## 3. Francia: el modelo paradigmático de Luis XIV
 

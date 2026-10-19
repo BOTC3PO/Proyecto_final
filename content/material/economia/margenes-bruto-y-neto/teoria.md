@@ -1,6 +1,6 @@
 # Economia — Margenes Bruto y Neto (teoria)
 
-> Tema del MAPA: `economia/margenes-bruto-y-neto`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/margenes-bruto-y-neto`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -15,7 +15,7 @@ El margen bruto mide cuánto dinero queda después de pagar el costo directo de 
 
 Este indicador refleja la eficiencia en la gestión de los costos directamente vinculados a la producción o adquisición de productos. Por ejemplo, si una empresa vende $100 de mercadería y le cuesta $60 producirla, su margen bruto es del 40%. Aunque esto parece positivo, no dice nada sobre otros gastos que pueden afectar la rentabilidad final.
 
-[IMAGEN: Gráfico comparativo entre ventas netas, costo de ventas y margen bruto]
+<!-- IMAGEN: Gráfico comparativo entre ventas netas, costo de ventas y margen bruto -->
 
 ---
 

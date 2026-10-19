@@ -1,6 +1,6 @@
 # Economía — Presupuesto administrativo (teoría)
 
-> Tema del MAPA: `economia/presupuesto-administrativo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/presupuesto-administrativo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

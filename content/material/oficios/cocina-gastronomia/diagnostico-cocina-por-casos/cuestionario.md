@@ -1,4 +1,4 @@
-# Oficios — Cocina/Gastronomía — Diagnóstico de cocina por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Cocina/Gastronomía — Diagnóstico de cocina por casos (cuestionario, 22 preguntas VBLang)
 
 > Cierre del oficio (`OF19`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de cocina —
@@ -383,4 +383,84 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: reconstruir 
 explicacion: |
   Es la síntesis final del método de diagnóstico de cocina de todo el
   tema.
+```
+
+### 19 — Salar en capas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "cocina_diagnostico_cocina_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 2"]
+
+tipo: completar
+enunciado: "Para que un guiso no quede soso, conviene salar en ___ a lo largo de la cocción y no sólo al final."
+respuestas_validas:
+  - "capas"
+
+explicacion: |
+  Salar en capas deja sabor en el interior del alimento y en el líquido de cocción.
+```
+
+### 20 — En qué se transforma el colágeno
+
+```
+metadata:
+  materia: "oficios"
+  tema: "cocina_diagnostico_cocina_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 3"]
+
+enunciado: "Con calor húmedo y tiempo, el colágeno de un corte duro se transforma en..."
+tipo: mc
+opciones_explicitas:
+  - "Gelatina"
+  - "Grasa líquida"
+  - "Azúcar"
+  - "Proteína cruda"
+respuesta: "Gelatina"
+
+explicacion: |
+  Por eso ablanda cortes como la paleta o el osobuco.
+```
+
+### 21 — Un corte para brasa
+
+```
+metadata:
+  materia: "oficios"
+  tema: "cocina_diagnostico_cocina_por_casos"
+  nivel: "basico"
+  tags: ["caso 3"]
+
+enunciado: "¿Cuál de estos cortes, según la teoría, necesita un método húmedo y lento?"
+tipo: mc
+opciones_explicitas:
+  - "Paleta"
+  - "Un bife fino a la plancha"
+  - "Una clara de huevo"
+  - "Un pescado blanco crudo"
+respuesta: "Paleta"
+
+explicacion: |
+  La paleta y el osobuco tienen mucho colágeno.
+```
+
+### 22 — La holandesa es una emulsión
+
+```
+metadata:
+  materia: "oficios"
+  tema: "cocina_diagnostico_cocina_por_casos"
+  nivel: "basico"
+  tags: ["caso 1"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La mayonesa y la salsa holandesa son ejemplos de salsas emulsionadas."
+
+explicacion: |
+  Verdadero. Ambas pueden cortarse si la grasa se incorpora demasiado rápido o la temperatura es alta.
 ```

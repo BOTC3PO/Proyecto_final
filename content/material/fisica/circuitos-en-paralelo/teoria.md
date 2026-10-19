@@ -12,7 +12,7 @@
 
 En un circuito en paralelo, todos los componentes conectados a las mismas ramas reciben la misma tensión que la fuente. Esto ocurre porque cada rama está directamente conectada entre los polos de la batería o generador, sin pasar por otros elementos intermedios. Por ejemplo, si una pila entrega 9 voltios, cada resistencia o dispositivo en paralelo recibirá esos mismos 9 V, independientemente de su valor.
 
-Esta característica es clave para aplicaciones como iluminación doméstica: si una bombilla se quema, las demás siguen funcionando porque no dependen del flujo de corriente de ninguna rama específica. [IMAGEN: diagrama de circuito con 3 resistencias en paralelo conectadas a una batería].
+Esta característica es clave para aplicaciones como iluminación doméstica: si una bombilla se quema, las demás siguen funcionando porque no dependen del flujo de corriente de ninguna rama específica. <!-- IMAGEN: diagrama de circuito con 3 resistencias en paralelo conectadas a una batería -->.
 
 ---
 

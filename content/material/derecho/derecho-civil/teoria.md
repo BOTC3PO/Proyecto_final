@@ -1,6 +1,6 @@
 # Derecho — Derecho Civil (teoría)
 
-> Tema del MAPA: `derecho/derecho-civil`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/derecho-civil`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

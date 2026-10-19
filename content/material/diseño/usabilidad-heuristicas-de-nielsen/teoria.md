@@ -1,6 +1,6 @@
 # Diseño — Usabilidad Heurísticas de Nielsen (teoría)
 
-> Tema del MAPA: `diseño/usabilidad-heuristicas-de-nielsen`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `diseño/usabilidad-heuristicas-de-nielsen`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

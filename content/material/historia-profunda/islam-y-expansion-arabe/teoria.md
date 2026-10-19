@@ -1,6 +1,6 @@
 # Historia Profunda — El Islam y la expansión árabe (teoría)
 
-> Tema del MAPA: `historia-profunda/islam-y-expansion-arabe`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/islam-y-expansion-arabe`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Para comprender la explosión del Islam en el siglo VII, es necesario situarse e
 
 La sociedad mequí estaba dominada por la Quraish, la tribu que controlaba el comercio y el santuario de la Kaaba, un lugar de peregrinación politeísta que reunía a diversas deidades tribales. Sin embargo, esta estabilidad comercial y religiosa estaba comenzando a fracturarse debido a cambios climáticos, la competencia de nuevos actores comerciales (como los axumitas y persas) y tensiones sociales internas. Al mismo tiempo, la región era un terreno fértil para las religiones monoteístas, con comunidades judías bien establecidas en Yatrib (posteriormente Medina) y cristianos nestorianos y monofisitas en las fronteras del norte y sur. Este vacío espiritual y político creó las condiciones para la aparición de un nuevo mensaje unificador.
 
-[IMAGEN: Mapa de la Península Arábiga mostrando las principales ciudades comerciales como La Meca, Medina y Taif, así como las rutas comerciales hacia Siria y Yemen.]
+<!-- IMAGEN: Mapa de la Península Arábiga mostrando las principales ciudades comerciales como La Meca, Medina y Taif, así como las rutas comerciales hacia Siria y Yemen. -->
 
 ## 2. La revelación de Mahoma y la comunidad de Medina
 
@@ -34,7 +34,7 @@ En 661, Muawiyah I estableció la dinastía omeya, trasladando la capital a Dama
 
 Los omeyas implementaron políticas administrativas cruciales para la supervivencia del imperio. Tradujeron la burocracia persa y bizantina a sus necesidades, estableciendo un sistema fiscal y postal eficiente. Sin embargo, su mayor revolución fue lingüística: en el siglo VIII, el califa ʿAbd al-Malik decretó que el árabe reemplazara al griego y al pahlavi como lenguas oficiales de la administración. Esto no solo facilitó la gestión, sino que aceleró la arabización de las élites locales. Aunque muchos pueblos conquistados (coptos, sirios, beréberes, persas) mantuvieron su identidad cultural, adoptaron gradualmente el árabe como lengua de cultura y comercio, un proceso conocido como islamización lingüística.
 
-[IMAGEN: Representación artística de la conquista de Al-Ándalus o mapa del Califato Omeya mostrando su extensión desde la India hasta España.]
+<!-- IMAGEN: Representación artística de la conquista de Al-Ándalus o mapa del Califato Omeya mostrando su extensión desde la India hasta España. -->
 
 ## 5. El legado cultural y la transición abasí
 

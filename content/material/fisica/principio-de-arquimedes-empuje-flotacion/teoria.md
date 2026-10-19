@@ -1,6 +1,6 @@
 # Física — Principio de Arquímedes, empuje y flotación (teoría)
 
-> Tema del MAPA: `fisica/principio-de-arquimedes-empuje-flotacion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/principio-de-arquimedes-empuje-flotacion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -14,7 +14,7 @@ El principio de Arquímedes establece que **cualquier cuerpo total o parcialment
 
 Por ejemplo, si un cubo de madera se coloca en agua, desplazará una cantidad de agua igual al volumen de su parte submersa. El empuje será igual al peso de esa masa de agua. Si el empuje supera el peso del objeto, este flotará; si no, se hundirá.
 
-[IMAGEN: Dibujo de un cuerpo parcialmente sumergido en un fluido con flechas indicando la fuerza de gravedad (hacia abajo) y el empuje (hacia arriba).]
+<!-- IMAGEN: Dibujo de un cuerpo parcialmente sumergido en un fluido con flechas indicando la fuerza de gravedad (hacia abajo) y el empuje (hacia arriba). -->
 
 ---
 
@@ -24,7 +24,7 @@ Para que un objeto flote en equilibrio sobre la superficie de un líquido, **el 
 
 Este equilibrio no depende de la forma del objeto, sino de la **relación entre su densidad y la del fluido**. Un cuerpo menos denso que el líquido siempre flotará; uno más denso, se hundirá. Por ejemplo, un barco de hierro puede flotar porque su diseño distribuye el peso en un volumen suficiente para desplazar agua cuyo peso sea mayor al del barco.
 
-[IMAGEN: Comparación entre un objeto que flota (empuje = peso) y uno que se hunde (peso > empuje).]
+<!-- IMAGEN: Comparación entre un objeto que flota (empuje = peso) y uno que se hunde (peso > empuje). -->
 
 ---
 
@@ -42,7 +42,7 @@ $$
 $$  
 Este valor es igual al empuje que experimenta el objeto.
 
-[IMAGEN: Representación de un recipiente con agua y una flecha señalando el volumen desplazado por un cuerpo sumergido.]
+<!-- IMAGEN: Representación de un recipiente con agua y una flecha señalando el volumen desplazado por un cuerpo sumergido. -->
 
 ---
 
@@ -52,7 +52,7 @@ El principio de Arquímedes tiene múltiples aplicaciones, desde la construcció
 
 También explica por qué es más fácil nadar en aguas saladas (como el Mar Muerto) que en aguas dulces: la **densidad del fluido** es mayor, lo que aumenta el empuje para un mismo volumen desplazado. Esto permite flotar con menos esfuerzo.
 
-[IMAGEN: Comparación entre un cuerpo sumergido en agua dulce y salada, mostrando diferencias en la altura de flotación.]
+<!-- IMAGEN: Comparación entre un cuerpo sumergido en agua dulce y salada, mostrando diferencias en la altura de flotación. -->
 
 ---
 

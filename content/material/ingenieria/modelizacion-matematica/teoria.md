@@ -1,6 +1,6 @@
 # Ingeniería — Modelización matemática (teoría)
 
-> Tema del MAPA: `ingenieria/modelizacion-matematica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/modelizacion-matematica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -34,7 +34,7 @@ El proceso de creación de un modelo matemático sigue pasos estructurados:
 4. **Validación**: Comparar resultados del modelo con datos reales para ajustar parámetros o corregir errores.  
 5. **Aplicación**: Usar el modelo para predecir comportamientos, optimizar procesos o guiar diseños técnicos.  
 
-[IMAGEN: Diagrama de flujo mostrando las etapas del proceso de modelado]
+<!-- IMAGEN: Diagrama de flujo mostrando las etapas del proceso de modelado -->
 
 ---
 

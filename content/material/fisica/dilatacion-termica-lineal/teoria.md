@@ -1,6 +1,6 @@
 # Física — Dilatación térmica lineal (teoría)
 
-> Tema del MAPA: `fisica/dilatacion-termica-lineal`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/dilatacion-termica-lineal`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Informática — Estructuras de control condicionales (teoría)
 
-> Tema del MAPA: `informatica/estructuras-de-control-condicionales`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/estructuras-de-control-condicionales`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

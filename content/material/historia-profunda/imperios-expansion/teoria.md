@@ -1,6 +1,6 @@
 # Historia Profunda — Imperios Expansion (teoria)
 
-> Tema del MAPA: `historia-profunda/imperios-expansion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/imperios-expansion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

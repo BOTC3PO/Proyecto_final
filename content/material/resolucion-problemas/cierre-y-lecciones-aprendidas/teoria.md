@@ -1,6 +1,6 @@
 # Resolución de problemas — Cierre y lecciones aprendidas (teoría)
 
-> Tema del MAPA: `resolucion-problemas/cierre-y-lecciones-aprendidas`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/cierre-y-lecciones-aprendidas`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

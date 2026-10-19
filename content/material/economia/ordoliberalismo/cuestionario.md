@@ -1,4 +1,4 @@
-# Economía — Ordoliberalismo (cuestionario, 10 preguntas VBLang)
+# Economía — Ordoliberalismo (cuestionario, 22 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta. Todas las preguntas piden
 > IDENTIFICAR qué sostiene la corriente, nunca evaluar si tiene razón.
@@ -221,4 +221,253 @@ explicacion: |
   privada con un marco y una red de protección sostenidos por el
   Estado, la misma lógica que Röpke describe para la economía en
   general.
+```
+
+### 11 — La escuela
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+tipo: completar
+enunciado: "El ordoliberalismo nace dentro de la Escuela de ___."
+respuestas_validas:
+  - "Friburgo"
+  - "friburgo"
+
+explicacion: |
+  La Escuela de Friburgo, en Alemania, entre los años 1930 y 1940.
+```
+
+### 12 — Año de Civitas Humana
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿En qué año se publicó *Civitas Humana*, de Wilhelm Röpke?"
+tipo: mc
+opciones_explicitas:
+  - "1944"
+  - "1776"
+  - "1867"
+  - "1988"
+respuesta: "1944"
+
+explicacion: |
+  Se tradujo al inglés en 1948 como *A Humane Order of Society*.
+```
+
+### 13 — Título en inglés
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Cómo se tituló la traducción al inglés (1948) de *Civitas Humana*?"
+tipo: mc
+opciones_explicitas:
+  - "A Humane Order of Society"
+  - "The Wealth of Nations"
+  - "If Women Counted"
+  - "The Road to Serfdom"
+respuesta: "A Humane Order of Society"
+
+explicacion: |
+  Röpke describe su posición como una "Tercera Vía".
+```
+
+### 14 — Quién acuñó el término
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Quién acuñó el término \"economía social de mercado\"?"
+tipo: mc
+opciones_explicitas:
+  - "Alfred Müller-Armack"
+  - "Karl Marx"
+  - "Milton Friedman"
+  - "Thomas Mun"
+respuesta: "Alfred Müller-Armack"
+
+explicacion: |
+  Junto con otros economistas de la misma tradición, fue base intelectual de ese modelo.
+```
+
+### 15 — El ministro
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "aplicacion"]
+
+enunciado: "¿Qué ministro de Economía aplicó la economía social de mercado en Alemania Occidental?"
+tipo: mc
+opciones_explicitas:
+  - "Ludwig Erhard"
+  - "Wilhelm Röpke"
+  - "John Maynard Keynes"
+  - "François Quesnay"
+respuesta: "Ludwig Erhard"
+
+explicacion: |
+  Se aplicó después de la Segunda Guerra Mundial.
+```
+
+### 16 — Después de la guerra
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "aplicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La economía social de mercado se aplicó en Alemania Occidental después de la Segunda Guerra Mundial."
+
+explicacion: |
+  Verdadero, bajo el ministro de Economía Ludwig Erhard.
+```
+
+### 17 — Crítica al capitalismo histórico
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "problema"]
+
+enunciado: "¿Qué le critica Röpke con dureza al capitalismo histórico?"
+tipo: mc
+opciones_explicitas:
+  - "Haber permitido la concentración monopólica"
+  - "Haber acumulado oro"
+  - "Haber prohibido el comercio"
+  - "Haber eliminado la propiedad"
+respuesta: "Haber permitido la concentración monopólica"
+
+explicacion: |
+  Para Röpke el monopolio degrada al mercado.
+```
+
+### 18 — Crítica al colectivismo
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "problema"]
+
+enunciado: "¿Por qué rechaza Röpke el colectivismo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque concentra el poder político en una minoría gobernante"
+  - "Porque promueve demasiada competencia"
+  - "Porque elimina el Estado"
+  - "Porque defiende los aranceles"
+respuesta: "Porque concentra el poder político en una minoría gobernante"
+
+explicacion: |
+  Es el mismo problema de concentración que le critica al monopolio, por otro camino.
+```
+
+### 19 — Mercado sin marco
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "problema"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para el ordoliberalismo, el mercado libre funciona bien por sí solo, sin necesidad de un marco legal e institucional."
+
+explicacion: |
+  Falso. Hace falta un marco fuerte que sostenga la competencia real.
+```
+
+### 20 — Significado de ordo
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Qué significa la palabra latina *ordo*, de la que viene el nombre de la corriente?"
+tipo: mc
+opciones_explicitas:
+  - "Orden"
+  - "Oro"
+  - "Ordenanza militar"
+  - "Mercado"
+respuesta: "Orden"
+
+explicacion: |
+  El mercado necesita un orden de reglas que lo sostenga.
+```
+
+### 21 — Punto en común con el keynesianismo
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "cadena"]
+
+enunciado: "¿Qué idea comparten el ordoliberalismo y el keynesianismo?"
+tipo: mc
+opciones_explicitas:
+  - "Que el Estado tiene un rol activo en la economía"
+  - "Que el Estado no debe intervenir"
+  - "Que el oro es la riqueza"
+  - "Que el comercio es un juego de suma cero"
+respuesta: "Que el Estado tiene un rol activo en la economía"
+
+explicacion: |
+  Discrepan en cuál es ese rol.
+```
+
+### 22 — Estado jugador
+
+```
+metadata:
+  materia: "economia"
+  tema: "ordoliberalismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "estado"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para el ordoliberalismo, el Estado actúa como un jugador que gasta o produce directamente."
+
+explicacion: |
+  Falso. Actúa como árbitro que sostiene las reglas de la competencia.
 ```

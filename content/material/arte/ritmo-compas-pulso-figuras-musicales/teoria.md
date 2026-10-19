@@ -1,6 +1,6 @@
 # Arte — Ritmo, compás, pulso y figuras musicales (teoría)
 
-> Tema del MAPA: `arte/ritmo-compas-pulso-figuras-musicales`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `arte/ritmo-compas-pulso-figuras-musicales`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría  
 **Presentación** — Introducción al ritmo como base de la organización temporal en la música.
@@ -48,7 +48,7 @@ Las figuras musicales se organizan en una escala por su duración relativa. De m
 4. **Corchea** (0,5 tiempos)  
 5. **Semicorchea** (0,25 tiempos)  
 
-Este orden es flexible y se adapta a la métrica del compás, pero siempre responde al pulso como referencia. [IMAGEN: Escalera de figuras musicales con su duración relativa] En partituras modernas, también existen figuras más pequeñas (como la **fusa** o **semifusa**), que siguen esta lógica de división por dos.
+Este orden es flexible y se adapta a la métrica del compás, pero siempre responde al pulso como referencia. <!-- IMAGEN: Escalera de figuras musicales con su duración relativa --> En partituras modernas, también existen figuras más pequeñas (como la **fusa** o **semifusa**), que siguen esta lógica de división por dos.
 
 ---
 

@@ -35,7 +35,7 @@ le dio a **un grupo específico de tratados de derechos humanos**
 directamente **jerarquía constitucional** — es decir, no quedan "por
 debajo" de la Constitución sino "en pie de igualdad" con ella (se
 entienden como complementarios de los derechos y garantías ya vistos en
-`../../derecho/s-y-garantias/`).
+`../../civica/derechos-y-garantias/`).
 
 El artículo 75 inciso 22 enumera, en su texto original de 1994, **11
 instrumentos** con esa jerarquía constitucional, entre ellos:
@@ -51,7 +51,7 @@ instrumentos** con esa jerarquía constitucional, entre ellos:
 - La Convención contra la Tortura y otros Tratos o Penas Crueles,
   Inhumanos o Degradantes
 - La Convención sobre los Derechos del Niño (ya vista en
-  `../../derecho/s-nino/`)
+  `../../civica/derechos-nino/`)
 
 El propio artículo prevé que este listado **puede crecer**: otros
 tratados de derechos humanos pueden sumarse con jerarquía constitucional
@@ -63,7 +63,7 @@ asciende hoy a **15**.
 
 ## Por qué era un hueco real del MAPA
 
-`../../derecho/s-y-garantias/` (parte dogmática de la Constitución) ya
+`../../civica/derechos-y-garantias/` (parte dogmática de la Constitución) ya
 citaba varios de estos derechos como si vinieran "de la Constitución",
 sin explicar que en realidad una parte importante de ese contenido
 llega por la vía de tratados internacionales con este rango especial —

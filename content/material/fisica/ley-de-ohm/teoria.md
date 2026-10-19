@@ -1,6 +1,6 @@
 # Física — Ley de Ohm (teoría)
 
-> Tema del MAPA: `fisica/ley-de-ohm`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/ley-de-ohm`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La **intensidad de corriente eléctrica**, representada con $ I $, es el flujo d
 
 ## 2. Relación proporcional entre voltaje e intensidad
 
-La **Ley de Ohm** establece que, en un conductor ohmico, la diferencia de potencial $ V $ aplicada es directamente proporcional a la corriente $ I $ que circula, siempre que la temperatura y otras condiciones permanezcan constantes. Matemáticamente, se expresa como $ V = I \cdot R $, donde $ R $ es la **resistencia eléctrica** del material. Esto significa que si aumenta el voltaje manteniendo fija la resistencia, la corriente crece en igual proporción. [IMAGEN: Gráfico de voltaje (V) en el eje X y corriente (I) en el eje Y, mostrando una línea recta con pendiente R].
+La **Ley de Ohm** establece que, en un conductor ohmico, la diferencia de potencial $ V $ aplicada es directamente proporcional a la corriente $ I $ que circula, siempre que la temperatura y otras condiciones permanezcan constantes. Matemáticamente, se expresa como $ V = I \cdot R $, donde $ R $ es la **resistencia eléctrica** del material. Esto significa que si aumenta el voltaje manteniendo fija la resistencia, la corriente crece en igual proporción. <!-- IMAGEN: Gráfico de voltaje (V) en el eje X y corriente (I) en el eje Y, mostrando una línea recta con pendiente R -->.
 
 ## 3. Unidades básicas del circuito eléctrico
 

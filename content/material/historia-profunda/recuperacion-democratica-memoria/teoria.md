@@ -1,6 +1,6 @@
 # Historia Profunda — Recuperación democrática y memoria (teoría)
 
-> Tema del MAPA: `historia-profunda/recuperacion-democratica-memoria`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/recuperacion-democratica-memoria`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -12,7 +12,7 @@
 
 El ritmo en la danza no se limita a reproducir un compás musical: es una organización interna que da forma al movimiento. Surge de la repetición de gestos o patrones físicos en intervalos regulares, creando una secuencia que el cuerpo interpreta como una "música visual". Por ejemplo, un baile clásico puede tener un ritmo marcado por los pies (caminar, saltar) y otro generado por la rotación de las piernas o la apertura de los brazos. Este concepto no se reduce a velocidad constante ni a sincronización con una pieza musical: incluso en danzas improvisadas, el ritmo emerge del equilibrio entre lo preestablecido y lo espontáneo.
 
-[IMAGEN: Diagrama comparativo entre un compás musical y una secuencia de movimientos corporales con acentos visuales]
+<!-- IMAGEN: Diagrama comparativo entre un compás musical y una secuencia de movimientos corporales con acentos visuales -->
 
 ---
 

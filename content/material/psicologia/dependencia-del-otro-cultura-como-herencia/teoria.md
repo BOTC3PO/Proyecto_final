@@ -1,6 +1,6 @@
 # Psicología — Dependencia del otro: cultura como herencia (teoría)
 
-> Tema del MAPA: `psicologia/dependencia-del-otro-cultura-como-herencia`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/dependencia-del-otro-cultura-como-herencia`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La cultura no es solo un conjunto de reglas o costumbres, sino una forma de vida compartida que se va construyendo entre generaciones. Su transmisión ocurre principalmente a través de la **socialización**, el proceso por el cual las personas aprenden los valores, normas y comportamientos de su entorno. Este no es un acto pasivo: implica que el individuo internalice lo que observa, escucha y vive en su comunidad. Por ejemplo, una niña que crece en una familia donde se valora la puntualidad aprenderá a asociar esa cualidad con respeto y responsabilidad, incluso si nunca se le explica explícitamente.
 
-[IMAGEN: diagrama de un círculo (la cultura) que se conecta con flechas a elementos como "valores", "normas" e "identidad individual"]
+<!-- IMAGEN: diagrama de un círculo (la cultura) que se conecta con flechas a elementos como "valores", "normas" e "identidad individual" -->
 
 ## 2. El "yo" como construcción colectiva
 

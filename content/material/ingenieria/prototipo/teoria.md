@@ -1,6 +1,6 @@
 # Ingeniería — Prototipo (teoría)
 
-> Tema del MAPA: `ingenieria/prototipo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/prototipo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

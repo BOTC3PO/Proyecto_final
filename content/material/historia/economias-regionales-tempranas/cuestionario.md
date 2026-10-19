@@ -100,7 +100,7 @@ explicacion: |
   La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
 ```
 
-### 7 — pregunta 7
+### 6 — pregunta 7
 
 ```
 metadata:
@@ -118,7 +118,7 @@ explicacion: |
   Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
 ```
 
-### 8 — pregunta 8
+### 7 — pregunta 8
 
 ```
 metadata:
@@ -136,7 +136,7 @@ explicacion: |
   Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
 ```
 
-### 9 — pregunta 9
+### 8 — pregunta 9
 
 ```
 metadata:
@@ -154,7 +154,7 @@ explicacion: |
   El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
 ```
 
-### 10 — pregunta 10
+### 9 — pregunta 10
 
 ```
 metadata:
@@ -172,7 +172,7 @@ explicacion: |
   El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
 ```
 
-### 11 — pregunta 11
+### 10 — pregunta 11
 
 ```
 metadata:
@@ -190,7 +190,7 @@ explicacion: |
   El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
 ```
 
-### 12 — pregunta 12
+### 11 — pregunta 12
 
 ```
 metadata:
@@ -208,7 +208,7 @@ explicacion: |
   La ley fue vista no como una medida técnica, sino como un ataque político y económico.
 ```
 
-### 13 — pregunta 13
+### 12 — pregunta 13
 
 ```
 metadata:
@@ -226,7 +226,7 @@ explicacion: |
   El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
 ```
 
-### 14 — pregunta 14
+### 13 — pregunta 14
 
 ```
 metadata:
@@ -244,7 +244,7 @@ explicacion: |
   La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
 ```
 
-### 15 — pregunta 15
+### 14 — pregunta 15
 
 ```
 metadata:
@@ -262,7 +262,7 @@ explicacion: |
   La tensión económica derivó en una crisis política y diplomática abierta.
 ```
 
-### 16 — pregunta 16
+### 15 — pregunta 16
 
 ```
 metadata:
@@ -280,7 +280,7 @@ explicacion: |
   Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
 ```
 
-### 17 — pregunta 17
+### 16 — pregunta 17
 
 ```
 metadata:
@@ -298,7 +298,7 @@ explicacion: |
   La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
 ```
 
-### 18 — pregunta 18
+### 17 — pregunta 18
 
 ```
 metadata:
@@ -316,7 +316,7 @@ explicacion: |
   Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
 ```
 
-### 19 — pregunta 19
+### 18 — pregunta 19
 
 ```
 metadata:
@@ -334,7 +334,7 @@ explicacion: |
   El proteccionismo se lograba mediante barreras arancelarias elevadas.
 ```
 
-### 20 — pregunta 20
+### 19 — pregunta 20
 
 ```
 metadata:
@@ -352,7 +352,7 @@ explicacion: |
   La centralización del comercio exterior era clave para la soberanía nacional.
 ```
 
-### 21 — pregunta 21
+### 20 — pregunta 21
 
 ```
 metadata:
@@ -373,7 +373,7 @@ explicacion: |
   Falso. El Litoral tenía una economía más abierta y dependía menos de la protección que el centro.
 ```
 
-### 22 — pregunta 22
+### 21 — pregunta 22
 
 ```
 metadata:
@@ -394,7 +394,7 @@ explicacion: |
   Falso. El conflicto dejó un legado de desconfianza y no tuvo un ganador claro de inmediato.
 ```
 
-### 23 — pregunta 23
+### 22 — pregunta 23
 
 ```
 metadata:
@@ -415,7 +415,7 @@ explicacion: |
   Verdadero. Su estricta aplicación fue el detonante de la rebelión litoraleña.
 ```
 
-### 24 — pregunta 24
+### 23 — pregunta 24
 
 ```
 metadata:

@@ -1,6 +1,6 @@
 # Historia Profunda — Huella Humana en el Clima (Inicio)  
 
-> Tema del MAPA: `historia-profunda/huella-humana-en-el-clima-inicio`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `historia-profunda/huella-humana-en-el-clima-inicio`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 **Presentación** — El inicio del impacto antropogénico en el clima y su vinculación con la Revolución Industrial.  
@@ -13,7 +13,7 @@ El siglo XVIII marcó un giro decisivo en la historia del planeta: la **Revoluci
 
 Antes de eso, la energía provista por la naturaleza (agua, viento, fuerza animal) tenía un impacto limitado en los ciclos globales del carbono. Pero con la minería a gran escala y la quema constante de carbón, se rompió esa estabilidad. El dióxido de carbono (CO₂), que antes era absorbido lentamente por océanos y bosques, pasó a acumularse en la atmósfera a ritmos nunca vistos.  
 
-[IMAGEN: Gráfica comparando emisiones de CO₂ preindustriales vs. post-industriales, destacando el salto del siglo XVIII]  
+<!-- IMAGEN: Gráfica comparando emisiones de CO₂ preindustriales vs. post-industriales, destacando el salto del siglo XVIII -->  
 
 ---
 

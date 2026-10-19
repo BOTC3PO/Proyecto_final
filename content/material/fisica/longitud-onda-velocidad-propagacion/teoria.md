@@ -12,7 +12,7 @@
 
 La **longitud de onda** (λ) es la distancia que hay entre dos puntos idénticos de una onda, como dos crestas o dos valles consecutivos. Se mide en metros y representa el espacio físico que recorre la perturbación durante un ciclo completo. En una onda transversal, por ejemplo, se puede visualizar claramente al medir desde el pico más alto de una cresta hasta el pico siguiente. Es un parámetro clave para describir cómo se extiende una onda en el medio donde se propaga.
 
-[IMAGEN: Onda transversal con marcado de dos crestas consecutivas y su distancia λ]
+<!-- IMAGEN: Onda transversal con marcado de dos crestas consecutivas y su distancia λ -->
 
 ---
 
@@ -38,7 +38,7 @@ Este cálculo se usa en contextos como el análisis de ondas sonoras (donde λ y
 
 La velocidad de propagación **no depende** directamente de la longitud de onda ni de la frecuencia. En cambio, está determinada por las características del medio donde se mueve la onda. Por ejemplo, un sonido viaja más rápido en el agua que en el aire, pero su λ y f no cambian si se mantiene la misma fuente emisora. Esto significa que, al variar el medio, λ o f pueden ajustarse para conservar la velocidad.
 
-[IMAGEN: Comparación de ondas en dos medios distintos con diferente velocidad, manteniendo v = λ·f]
+<!-- IMAGEN: Comparación de ondas en dos medios distintos con diferente velocidad, manteniendo v = λ·f -->
 
 ---
 

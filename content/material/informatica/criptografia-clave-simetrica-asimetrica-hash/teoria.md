@@ -1,6 +1,6 @@
 # Informática — Criptografía clave simétrica asimétrica hash  
 
-> Tema del MAPA: `informatica/criptografia-clave-simetrica-asimetrica-hash`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `informatica/criptografia-clave-simetrica-asimetrica-hash`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría (si esto se carga al sistema)  
 
@@ -14,7 +14,7 @@ La criptografía simétrica funciona con un único parámetro secreto: una **cla
 
 El principal desafío es **distribuir la clave sin que sea interceptada**. Si un atacante logra acceder a esa clave, puede leer o modificar el mensaje sin dejar rastro. Por eso, se suele combinar con otros métodos (como criptografía asimétrica) para proteger su transmisión.  
 
-[IMAGEN: Diagrama mostrando un proceso de cifrado y descifrado con una misma clave]  
+<!-- IMAGEN: Diagrama mostrando un proceso de cifrado y descifrado con una misma clave -->  
 
 ---
 
@@ -28,7 +28,7 @@ El proceso funciona así:
 
 Este método elimina la necesidad de compartir una clave secreta por canales inseguros, lo que la hace ideal para comunicaciones en internet. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son ejemplos clave.  
 
-[IMAGEN: Esquema de intercambio de claves pública y privada]  
+<!-- IMAGEN: Esquema de intercambio de claves pública y privada -->  
 
 ---
 
@@ -43,7 +43,7 @@ Estas funciones son esenciales para:
 
 Un ejemplo común es SHA-256, usado en blockchain y protocolos seguros. Una característica clave es que **no se puede revertir** el proceso: de un hash no se obtiene el mensaje original.  
 
-[IMAGEN: Representación gráfica del proceso de generación de un hash]  
+<!-- IMAGEN: Representación gráfica del proceso de generación de un hash -->  
 
 ---
 

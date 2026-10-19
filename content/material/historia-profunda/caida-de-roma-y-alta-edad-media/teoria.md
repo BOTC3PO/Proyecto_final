@@ -1,6 +1,6 @@
 # Historia Profunda — La caída de Roma y el origen de la Alta Edad Media (teoría)
 
-> Tema del MAPA: `historia-profunda/caida-de-roma-y-alta-edad-media`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/caida-de-roma-y-alta-edad-media`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Para comprender la "caída" de Roma, es fundamental abandonar la idea de un cola
 
 En respuesta, los emperadores de la Tetrarquía y posteriormente Constantino I iniciaron una serie de reformas profundas que transformaron la naturaleza del Estado romano. Se pasó de un sistema político basado en la figura del *Princeps* (primer ciudadano) a una monarquía absoluta de carácter oriental, donde el emperador era la encarnación divina de la autoridad. Estas reformas militarizaban la administración y la economía, preparando el terreno para la fragmentación futura, pero también permitieron la supervivencia del aparato estatal durante dos siglos más.
 
-[IMAGEN: Mapa comparativo de la expansión del Imperio Romano bajo Trajano (117 d.C.) y su división en Oriente y Occidente tras Teodosio I (395 d.C.).]
+<!-- IMAGEN: Mapa comparativo de la expansión del Imperio Romano bajo Trajano (117 d.C.) y su división en Oriente y Occidente tras Teodosio I (395 d.C.). -->
 
 ## 2. Las invasiones bárbaras: conflicto o integración?
 
@@ -34,7 +34,7 @@ Con el vaciamiento del poder secular centralizado, la Iglesia Católica emergió
 
 La figura del Papa adquirió una autoridad moral y política creciente. En el siglo V, el Papa León I logró negociar con Atila y con los vándalos, demostrando la capacidad de la Iglesia para actuar como mediadora internacional. Además, la conversión de los reyes germánicos al catolicismo (como la de Clodoveo I de los francos en el 496 d.C., según la tradición) permitió una alianza estratégica entre el trono y el altar. Esta alianza fue crucial para la consolidación del Reino Franco, que eventualmente se convertiría en el núcleo de lo que más tarde se llamaría Europa.
 
-[IMAGEN: Detalle del mosaico de la Basílica de San Vital en Rávena, mostrando al emperador Justiniano y a la emperatriz Teodora, simbolizando la unidad entre poder temporal y espiritual en Oriente, y reflejando la influencia cultural en Occidente.]
+<!-- IMAGEN: Detalle del mosaico de la Basílica de San Vital en Rávena, mostrando al emperador Justiniano y a la emperatriz Teodora, simbolizando la unidad entre poder temporal y espiritual en Oriente, y reflejando la influencia cultural en Occidente. -->
 
 ## 5. La economía rural y el origen del feudalismo
 

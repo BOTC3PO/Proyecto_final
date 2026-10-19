@@ -1,6 +1,6 @@
 # Derecho — Argumentación Jurídica (teoría)
 
-> Tema del MAPA: `derecho/argumentacion-juridica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/argumentacion-juridica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

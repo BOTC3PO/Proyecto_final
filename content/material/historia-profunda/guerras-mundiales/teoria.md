@@ -1,6 +1,6 @@
 # Historia Profunda — Guerras Mundiales (teoría)
 
-> Tema del MAPA: `historia-profunda/guerras-mundiales`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/guerras-mundiales`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Arte — Lenguaje musical: pentagrama, escalas e intervalos (teoría)
 
-> Tema del MAPA: `arte/lenguaje-musical-pentagrama-escalas-intervalos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `arte/lenguaje-musical-pentagrama-escalas-intervalos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. El pentagrama
 
-El pentagrama es la base visual sobre la que se construye toda la notación musical. Está formado por cinco líneas horizontales paralelas y cuatro espacios entre ellas, que sirven para ubicar las notas según su altura (pitch). Cada línea y espacio representa una nota específica, cuyo nombre depende de la clave utilizada en el pentagrama. Por ejemplo, la **clave de Sol**, representada por un símbolo curvo que abraza la segunda línea del pentagrama, indica que esa línea corresponde a la nota *Sol*. [IMAGEN: pentagrama con cinco líneas y cuatro espacios, clave de Sol en la segunda línea].
+El pentagrama es la base visual sobre la que se construye toda la notación musical. Está formado por cinco líneas horizontales paralelas y cuatro espacios entre ellas, que sirven para ubicar las notas según su altura (pitch). Cada línea y espacio representa una nota específica, cuyo nombre depende de la clave utilizada en el pentagrama. Por ejemplo, la **clave de Sol**, representada por un símbolo curvo que abraza la segunda línea del pentagrama, indica que esa línea corresponde a la nota *Sol*. <!-- IMAGEN: pentagrama con cinco líneas y cuatro espacios, clave de Sol en la segunda línea -->.
 
 ## 2. Nombres de las notas
 

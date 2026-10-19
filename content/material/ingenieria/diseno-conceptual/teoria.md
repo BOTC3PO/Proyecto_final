@@ -1,6 +1,6 @@
 # Ingeniería — Diseño Conceptual (teoría)
 
-> Tema del MAPA: `ingenieria/diseno-conceptual`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/diseno-conceptual`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

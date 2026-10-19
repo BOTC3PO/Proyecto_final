@@ -1,6 +1,6 @@
 # Historia Profunda — El Colapso del Orden Mandatario y la Fragmentación del Medio Oriente (teoría)
 
-> Tema del MAPA: `historia-profunda/historia-contemporanea-de-medio-oriente`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/historia-contemporanea-de-medio-oriente`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El fin de la Primera Guerra Mundial no solo marcó el colapso del Imperio Otomano, sino que reconfiguró radicalmente el mapa político de Asia Occidental. La conferencia de paz de Sèvres (1920) y, posteriormente, los acuerdos de Lausana (1923), consolidaron la disolución del *statu quo* otomano. Sin embargo, la verdadera transformación estructural ocurrió bajo el paraguas del sistema de mandatos de la Sociedad de Naciones. Gran Bretaña y Francia, actuando bajo los lineamientos de los acuerdos secretos Sykes-Picot (1916) y la Declaración Balfour (1917), trazaron fronteras artificiales que ignoraban la compleja topografía étnica, sectaria y tribal de la región.
 
-[IMAGEN: Mapa comparativo de las fronteras otomanas previas a 1918 y las nuevas fronteras de los mandatos británico y francés]
+<!-- IMAGEN: Mapa comparativo de las fronteras otomanas previas a 1918 y las nuevas fronteras de los mandatos británico y francés -->
 
 Esta intervención colonial no fue un simple redibujado cartográfico, sino un proyecto de ingeniería social. Las élites locales, muchas veces cooptadas por las potencias coloniales, se vieron obligadas a gobernar sobre poblaciones heterogéneas con mínimos lazos históricos de cohesión nacional. En Irak, por ejemplo, se unificaron forzosamente tres provincias otomanas (Bagdad, Basora y Mosul) bajo un monarca hashemita impuesto, mientras que en Siria y el Líbano, los franceses aplicaron la estrategia de "dividir para gobernar", separando a la mayoría suní y alawita del resto del territorio para facilitar el control administrativo. Este periodo sentó las bases de lo que el historiador Charles Issawi denominó la "tragedia de las fronteras", donde la legitimidad del Estado moderno chocó frontalmente con las identidades preexistentes.
 
@@ -32,7 +32,7 @@ Simultáneamente, la invasión soviética de Afganistán y la posterior guerra d
 
 Las décadas de 1980 y 1990 estuvieron dominadas por la Guerra Irán-Irak, un conflicto que desgastó a ambas naciones y dejó un legado de trauma y resentimiento. La invasión de Kuwait por parte de Irak en 1990 desencadenó la Guerra del Golfo, confirmando el rol de Estados Unidos como garante de seguridad regional y la dependencia económica de los países del Golfo de la protección occidental. La globalización económica introdujo nuevas contradicciones: mientras las élites se integraban al mercado global, las masas enfrentaban estancamiento, corrupción y falta de libertades políticas.
 
-[IMAGEN: Gráfico de evolución de la población urbana en el Golfo Pérsico vs. tasas de desempleo juvenil]
+<!-- IMAGEN: Gráfico de evolución de la población urbana en el Golfo Pérsico vs. tasas de desempleo juvenil -->
 
 Esta tensión culminó en la Primavera Árabe de 2011. Las protestas espontáneas en Túnez, Egipto, Yemen, Bahréin y Siria revelaron el agotamiento del pacto social autoritario, donde la estabilidad se cambiaba por la apatía política. La respuesta de los regímenes fue variada: la monarquía de Bahréin fue salvada por la intervención militar de Arabia Saudita; Egipto vivió un ciclo breve de esperanza democrática seguido de un retorno al militarismo; y Siria se hundió en una guerra civil devastadora que atrajo a múltiples actores internacionales (Rusia, Irán, Turquía, EE.UU.).
 

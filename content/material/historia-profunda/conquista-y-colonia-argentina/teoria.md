@@ -1,6 +1,6 @@
 # Historia Profunda — Conquista y colonia argentina (teoría)
 
-> Tema del MAPA: `historia-profunda/conquista-y-colonia-argentina`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/conquista-y-colonia-argentina`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

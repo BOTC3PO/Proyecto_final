@@ -1,6 +1,6 @@
 # Historia Profunda — Revoluciones Burguesas Liberalismo (teoría)
 
-> Tema del MAPA: `historia-profunda/revoluciones-burguesas-liberalismo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/revoluciones-burguesas-liberalismo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 La Revolución Francesa (1789-1799) marcó un punto de inflexión al desafiar los fundamentos del sistema feudal y monárquico absoluto. La **burguesía**, clase social formada por comerciantes, banqueros y profesionales urbanos, emergió como la principal fuerza impulsora de este cambio. A diferencia de la nobleza y el clero, que gozaban de privilegios hereditarios, la burguesía acumulaba riqueza pero carecía de poder político formal. Esta contradicción generó una tensión social que culminó en la demanda de participación política, igualdad ante la ley y la abolición de los derechos feudales.
 
-[IMAGEN: Escena del Tercer Estado en las Cortes de Versalles (1789), representando a la burguesía y el pueblo frente a la nobleza]
+<!-- IMAGEN: Escena del Tercer Estado en las Cortes de Versalles (1789), representando a la burguesía y el pueblo frente a la nobleza -->
 
 ---
 
@@ -26,7 +26,7 @@ El liberalismo no fue una ideología nacida con la Revolución Francesa, sino qu
 
 La caída del sistema feudal y monárquico no fue el resultado de un solo factor, sino de una combinación de problemas económicos, sociales y políticos. El **absolutismo** —especialmente en Francia— exacerbó la desigualdad al centralizar el poder en manos del rey, quien imponía impuestos sin consulta popular. La economía se tambaleaba por gastos militares excesivos, una población creciente y una agricultura estancada. A esto se sumó el descontento de los campesinos, que sufrían la servidumbre y las altas contribuciones feudales, mientras la burguesía reclamaba reformas.
 
-[IMAGEN: Representación del sistema de clases en el Antiguo Régimen (Tercer Estado, Segundo Estado, Primer Estado)]
+<!-- IMAGEN: Representación del sistema de clases en el Antiguo Régimen (Tercer Estado, Segundo Estado, Primer Estado) -->
 
 ---
 

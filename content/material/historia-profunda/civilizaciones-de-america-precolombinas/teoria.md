@@ -1,6 +1,6 @@
 # Historia Profunda — Las grandes civilizaciones de América precolombina (teoría)
 
-> Tema del MAPA: `historia-profunda/civilizaciones-de-america-precolombinas`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/civilizaciones-de-america-precolombinas`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ Durante el Periodo Clásico (250-900 d.C.), ciudades-estado como **Teotihuacán*
 
 En la región maya, tras el colapso de los centros del sur, la vida política se desplazó hacia el norte, dando lugar a ciudades como **Chichén Itzá** y **Mayapán**. La escritura maya es el único sistema de escritura完全 desarrollado de las Américas precolombinas, registrado en estelas y códices.
 
-[IMAGEN: Mapa comparativo de la expansión de Teotihuacán y los centros mayas clásicos]
+<!-- IMAGEN: Mapa comparativo de la expansión de Teotihuacán y los centros mayas clásicos -->
 
 Hacia el Periodo Postclásico (900-1521 d.C.), la sociedad se volvió más guerrera. Surgieron los **Aztecas** (mexicas), quienes, tras fundar **Tenochtitlán** en un islote del lago de Texcoco en 1325, construyeron un imperio tributario basado en la conquista militar y alianzas matrimoniales. Su capital, vista por los españoles en 1519, era una maravilla de ingeniería hidráulica y arquitectura monumental, pero su dominio se sostenía sobre el resentimiento de los pueblos sometidos, como los tlaxcaltecas, quienes finalmente ayudaron a la caída del imperio.
 
@@ -37,7 +37,7 @@ El punto culminante fue el surgimiento del **Tawantinsuyu** (Imperio Inca) en el
 2.  La redistribución de recursos a través del sistema de *mit'a* (trabajo por turnos).
 3.  La imposición de la lengua **quechua** como lingua franca, junto con el respeto relativo a las deidades locales de los pueblos conquistados.
 
-[IMAGEN: Detalle de la ingeniería de Machu Picchu o del sistema de andenes incaicos]
+<!-- IMAGEN: Detalle de la ingeniería de Machu Picchu o del sistema de andenes incaicos -->
 
 ## 4. El norte y el sur: complejidades diversas
 

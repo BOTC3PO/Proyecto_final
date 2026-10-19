@@ -1,6 +1,6 @@
 # Comunicación — Publicidad y persuasión (teoría)
 
-> Tema del MAPA: `comunicacion/publicidad-y-persuasion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `comunicacion/publicidad-y-persuasion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -46,7 +46,7 @@ Para que un mensaje sea efectivo, debe combinar varios elementos:
 - **Claridad y simplicidad**: Un mensaje demasiado complejo pierde impacto; lo esencial es transmitir un mensaje directo e identificable.
 - **Repetición**: La repetición de mensajes clave (como slogans) ayuda a consolidar el reconocimiento y la asociación con el producto.
 
-[IMAGEN: Ejemplo visual del modelo AIDA aplicado a una campaña publicitaria]
+<!-- IMAGEN: Ejemplo visual del modelo AIDA aplicado a una campaña publicitaria -->
 
 ---
 

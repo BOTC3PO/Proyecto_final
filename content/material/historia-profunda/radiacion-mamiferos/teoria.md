@@ -1,6 +1,6 @@
 # Historia Profunda — Radiación Mamíferos (teoría)
 
-> Tema del MAPA: `historia-profunda/radiacion-mamiferos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/radiacion-mamiferos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,13 +12,13 @@
 
 Hace unos 66 millones de años, un evento de gran magnitud marcó el fin de una era dominada por reptiles gigantes: la extinción del Cretácico-Paleógeno. Este fenómeno no solo eliminó a los dinosaurios, sino que también afectó a otros grupos de organismos, creando un vacío ecológico inédito en la historia de la Tierra. Los mamíferos, hasta ese momento pequeños y nocturnos, se encontraron con una realidad radicalmente diferente: grandes depredadores desaparecieron, y los nichos ecológicos que antes ocupaban otros animales quedaron libres.
 
-[IMAGEN: Mapa de la Tierra en el periodo Cretácico-Paleógeno mostrando zonas afectadas por el impacto del asteroide]
+<!-- IMAGEN: Mapa de la Tierra en el periodo Cretácico-Paleógeno mostrando zonas afectadas por el impacto del asteroide -->
 
 ## 2. Radiación adaptativa: un salto evolutivo
 
 Este vacío no fue una desgracia, sino un catalizador para los mamíferos. Comenzaron a diversificarse rápidamente en tamaños, formas y hábitats que antes eran imposibles de ocupar. El proceso se conoce como *radiación adaptativa*: una explosión evolutiva donde especies relacionadas desarrollan características distintas para aprovechar nichos específicos. Ejemplos incluyen el surgimiento de grandes herbívoros, depredadores carnívoros y mamíferos acuáticos.
 
-[IMAGEN: Esqueleto de un mamífero primitivo junto a una reconstrucción de un dinosaurio]
+<!-- IMAGEN: Esqueleto de un mamífero primitivo junto a una reconstrucción de un dinosaurio -->
 
 ## 3. El rol de los nichos ecológicos
 

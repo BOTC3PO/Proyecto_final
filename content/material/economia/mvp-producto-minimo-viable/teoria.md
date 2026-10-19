@@ -1,6 +1,6 @@
 # Economía — MVP: Producto Mínimo Viable  
 
-> Tema del MAPA: `economia/mvp-producto-minimo-viable`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `economia/mvp-producto-minimo-viable`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría (si esto se carga al sistema)  
 

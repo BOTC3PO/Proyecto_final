@@ -1,6 +1,6 @@
 # Investigación — Construir y usar un modelo científico (teoría)
 
-> Tema del MAPA: `investigacion/construir-y-usar-un-modelo-cientifico`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `investigacion/construir-y-usar-un-modelo-cientifico`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -27,7 +27,7 @@ Cualquier modelo científico se construye con tres elementos clave:
 2. **Relaciones**: Se establecen reglas que conectan las variables (como una fórmula matemática o una ley física).  
 3. **Límites de validez**: Cada modelo funciona dentro de ciertas condiciones. Un modelo para predecir el comportamiento de un gas, por ejemplo, solo es útil cuando la presión no supera un valor específico.
 
-[IMAGEN: Diagrama con tres cajas etiquetadas "Variables", "Relaciones" y "Límites de validez", conectadas por flechas que muestran cómo interactúan en un modelo científico]
+<!-- IMAGEN: Diagrama con tres cajas etiquetadas "Variables", "Relaciones" y "Límites de validez", conectadas por flechas que muestran cómo interactúan en un modelo científico -->
 
 ## 4. Validación y ajuste
 

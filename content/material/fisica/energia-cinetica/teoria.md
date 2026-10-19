@@ -1,6 +1,6 @@
 # Física — Energía Cinética (teoría)
 
-> Tema del MAPA: `fisica/energia-cinetica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/energia-cinetica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

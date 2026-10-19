@@ -1,6 +1,6 @@
 # Ingeniería — Ensayo y medición (teoría)
 
-> Tema del MAPA: `ingenieria/ensayo-y-medicion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/ensayo-y-medicion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ El **ensayo** es el proceso mediante el cual un objeto, material o sistema se so
 
 Todo ensayo requiere definir qué factores se manipulan y cuáles se miden. Las **variables independientes** son aquellas que el investigador cambia intencionalmente, como la temperatura en un experimento o la carga aplicada a una viga. Su variación permite observar cómo afectan al resultado principal: las **variables dependientes**, que se registran y analizan. Por ejemplo, si se prueba un material sometiéndolo a distintas fuerzas (variable independiente), se mide su deformación (variable dependiente).  
 
-[IMAGEN: Diagrama con ejemplos de variables independientes y dependientes en un ensayo]
+<!-- IMAGEN: Diagrama con ejemplos de variables independientes y dependientes en un ensayo -->
 
 ## 3. Veracidad y precisión
 
@@ -30,7 +30,7 @@ Un ensayo estructurado sigue etapas claras:
 - **Análisis**: Los resultados se comparan con hipótesis previas o estándares, identificándose patrones o desviaciones.  
 - **Conclusión**: Se determina si el prototipo cumple con los requisitos y qué ajustes son necesarios.  
 
-[IMAGEN: Flujo de trabajo en las fases del ensayo]
+<!-- IMAGEN: Flujo de trabajo en las fases del ensayo -->
 
 ## 5. Importancia de la medición
 

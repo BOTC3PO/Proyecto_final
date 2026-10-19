@@ -1,6 +1,6 @@
 # Historia Profunda — Tectónica de Placas y Deriva Continental (teoría)
 
-> Tema del MAPA: `historia-profunda/tectonica-placas-deriva-continental`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/tectonica-placas-deriva-continental`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ Alfred Wegener, un meteorólogo alemán nacido en 1880, fue quien propuso en 191
 
 Una de las pruebas más visibles que Wegener usó fue la coincidencia entre los bordes de los continentes. Por ejemplo, el perfil de la costa oeste de África se ajusta casi perfectamente con el este de Sudamérica, como si fueran piezas de un rompecabezas gigante. Lo mismo ocurre con India y Antártida: sus costas, aunque erosionadas por el tiempo, muestran similitudes que sugieren una conexión histórica. Este fenómeno no fue un descubrimiento reciente, pero Wegener lo interpretó como evidencia de que los continentes habían estado juntos en el pasado y luego se separaron.
 
-[IMAGEN: Mapa mostrando el encaje entre África y Sudamérica, con líneas destacadas en los bordes]
+<!-- IMAGEN: Mapa mostrando el encaje entre África y Sudamérica, con líneas destacadas en los bordes -->
 
 ## 3. Fósiles y formaciones geológicas como pruebas
 

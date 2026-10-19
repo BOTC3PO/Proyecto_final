@@ -1,6 +1,6 @@
 # Física — Imán: Polos, Atracción y Repulsión (teoría)
 
-> Tema del MAPA: `fisica/iman-polos-atraccion-repulsion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/iman-polos-atraccion-repulsion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 Todo imán tiene dos zonas donde el campo magnético es más intenso: los **polos**. Estos se denominan convencionalmente **Norte (N)** y **Sur (S)**, aunque no tienen nada que ver con la geografía terrestre. La designación surge de cómo interactúan entre sí y con otros imanes. Por ejemplo, si sostienes un imán por el medio, notarás que una punta se orienta hacia el norte geográfico; esa es la **punta norte** del imán.
 
-[IMAGEN: Dibujo de un imán con etiquetas "N" y "S" en sus extremos]
+<!-- IMAGEN: Dibujo de un imán con etiquetas "N" y "S" en sus extremos -->
 
 ---
 

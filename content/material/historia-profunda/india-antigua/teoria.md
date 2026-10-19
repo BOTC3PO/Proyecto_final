@@ -1,6 +1,6 @@
 # Historia Profunda — El Subcontinente Indio y el Legado del Vedismo (teoría)
 
-> Tema del MAPA: `historia-profunda/india-antigua`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/india-antigua`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Hacia el tercer milenio a.C., en las llanuras aluviales del noroeste del subcontinente, floreció la llamada Civilización del Valle del Indo (también conocida como Civilización Harappa). Lo que la distingue de sus contemporáneas en Mesopotamia o Egipto es su notable planificación urbana y su aparente falta de centralización monárquica agresiva. Ciudades como **Harappa** y **Mohenjo-Daro** exhibían un sistema de cuadrícula sofisticado, edificios públicos de ladrillo cocido y, quizás más importante, un avanzado sistema de drenaje y baños públicos, lo que sugiere una fuerte preocupación por la higiene ritual y la gestión colectiva del agua.
 
-[IMAGEN: Mapa esquemático de la extensión de la Civilización del Valle del Indo, destacando Harappa y Mohenjo-Daro]
+<!-- IMAGEN: Mapa esquemático de la extensión de la Civilización del Valle del Indo, destacando Harappa y Mohenjo-Daro -->
 
 Aunque no hemos logrado descifrar completamente su escritura (que aparece en sellos de esteatita), los hallazgos arqueológicos revelan una sociedad altamente comercializada, con conexiones lejanas hasta Mesopotamia. Sin embargo, hacia el 1900 a.C., esta civilización entró en declive. Las teorías actuales evitan un único causante; se habla de una combinación de cambios climáticos, la desecación del río Ghaggar-Hakra (posiblemente el antiguo río Sarasvati) y la migración gradual de poblaciones hacia el este y el sur, más que de una invasión violenta y repentina.
 

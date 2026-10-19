@@ -1,6 +1,6 @@
 # Historia Profunda — La descolonización africana y la construcción de los Estados postcoloniales (teoría)
 
-> Tema del MAPA: `historia-profunda/historia-contemporanea-de-africa`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/historia-contemporanea-de-africa`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La descolonización africana no fue un proceso uniforme, sino un conjunto de rup
 
 Este desajuste entre el Estado político y la sociedad civil fue la primera gran contradicción de la era postcolonial. Al independizarse, los nuevos líderes heredaron administraciones diseñadas para la extracción de recursos y el control militar, no para la representación democrática ni la integración nacional. La pregunta fundamental, formulada por el historiador Mahmood Mamdani, era si el Estado africano sería una herramienta de desarrollo o simplemente un aparato de poder vacío.
 
-[IMAGEN: Mapa comparativo de las fronteras coloniales de África vs. la distribución de grupos étnicos y lingüísticos principales]
+<!-- IMAGEN: Mapa comparativo de las fronteras coloniales de África vs. la distribución de grupos étnicos y lingüísticos principales -->
 
 ## 2. El mito del "milagro" y la crisis de la independencia
 
@@ -34,7 +34,7 @@ A partir de la década de 1980, la crisis de la deuda externa llevó al Fondo Mo
 
 Esta crisis económica socavó la legitimidad de los gobiernos, tanto militares como civiles, y generó una "crisis de gobernabilidad". La población, cansada de décadas de promesas incumplidas y represión, comenzó a exigir democracias multipartidistas. A principios de los años 90, una ola de protestas populares, apoyada por el fin de la Guerra Fría (que redujo el interés de las potencias en mantener a los dictadores), forzó la transición política en gran parte del continente.
 
-[IMAGEN: Gráfico de barras mostrando la caída de los precios de las materias primas clave en África durante los años 80]
+<!-- IMAGEN: Gráfico de barras mostrando la caída de los precios de las materias primas clave en África durante los años 80 -->
 
 ## 5. Conflictos étnicos, genocidios y la búsqueda de paz
 

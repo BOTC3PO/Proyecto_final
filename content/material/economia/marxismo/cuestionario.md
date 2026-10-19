@@ -1,4 +1,4 @@
-# Economía — Marxismo (cuestionario, 11 preguntas VBLang)
+# Economía — Marxismo (cuestionario, 22 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta. Todas las preguntas piden
 > IDENTIFICAR qué sostiene cada postura (marxismo y la objeción de
@@ -243,4 +243,226 @@ explicacion: |
   de un sistema de precios real) y la imposibilidad total de calcular
   que —según su argumento— se da cuando no existe ningún mercado de
   precios para los medios de producción.
+```
+
+### 12 — Año de El Capital
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "basico"
+  tags: ["corrientes", "autor"]
+
+tipo: completar
+enunciado: "*El Capital*, de Karl Marx, se publicó en ___."
+respuestas_validas:
+  - "1867"
+
+explicacion: |
+  Es la obra central del marxismo como corriente económica.
+```
+
+### 13 — Cuándo murió Marx
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿En qué año murió Karl Marx, antes de que Mises formulara su objeción?"
+tipo: mc
+opciones_explicitas:
+  - "1883"
+  - "1867"
+  - "1920"
+  - "1944"
+respuesta: "1883"
+
+explicacion: |
+  Por eso nunca respondió directamente al argumento de Mises.
+```
+
+### 14 — La obra de Mises
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+enunciado: "¿Cómo se llama la obra de Ludwig von Mises de 1920 que plantea la objeción del cálculo?"
+tipo: mc
+opciones_explicitas:
+  - "El cálculo económico en el sistema socialista"
+  - "El Capital"
+  - "Camino de servidumbre"
+  - "Libertad de elegir"
+respuesta: "El cálculo económico en el sistema socialista"
+
+explicacion: |
+  Es la objeción económica más citada al marxismo.
+```
+
+### 15 — Año de la objeción
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "autor"]
+
+tipo: completar
+enunciado: "Ludwig von Mises formuló la objeción del cálculo económico en ___."
+respuestas_validas:
+  - "1920"
+
+explicacion: |
+  Marx había muerto en 1883, así que no pudo responderla.
+```
+
+### 16 — Voluntad política o información
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "objecion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Según Mises, el problema del cálculo económico socialista es de voluntad política del planificador."
+
+explicacion: |
+  Falso. Para Mises el problema es de información disponible, no de voluntad.
+```
+
+### 17 — Qué elimina el socialismo según Mises
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "objecion"]
+
+enunciado: "Según Mises, al eliminar la propiedad privada de los medios de producción, el socialismo elimina también..."
+tipo: mc
+opciones_explicitas:
+  - "El mercado donde esos medios se compran y venden, y con él sus precios"
+  - "La moneda"
+  - "La agricultura"
+  - "El trabajo"
+respuesta: "El mercado donde esos medios se compran y venden, y con él sus precios"
+
+explicacion: |
+  Sin precios reales para los medios de producción no hay cálculo económico.
+```
+
+### 18 — Respuestas socialistas
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "objecion"]
+
+enunciado: "¿Qué propuesta mencionan algunos economistas socialistas del siglo XX frente al problema del cálculo?"
+tipo: mc
+opciones_explicitas:
+  - "Precios sombra calculados por planificadores"
+  - "Volver al mercantilismo"
+  - "Eliminar todos los precios"
+  - "Acumular oro"
+respuesta: "Precios sombra calculados por planificadores"
+
+explicacion: |
+  Otros propusieron formas de mercado dentro de un marco de propiedad colectiva.
+```
+
+### 19 — La plusvalía como pago justo
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "concepto"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para el marxismo, la plusvalía es un pago justo por el riesgo empresarial."
+
+explicacion: |
+  Falso. La presenta como la fuente estructural de la ganancia capitalista, no como un pago justo.
+```
+
+### 20 — La estrategia marxista
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "intermedio"
+  tags: ["corrientes", "concepto"]
+
+enunciado: "¿Qué estrategia se desprende del análisis marxista del capitalismo?"
+tipo: mc
+opciones_explicitas:
+  - "La organización política de la clase trabajadora para tomar el control de los medios de producción"
+  - "Fundar comunidades aisladas como ejemplo"
+  - "Acumular oro y plata"
+  - "Dejar actuar al orden natural"
+respuesta: "La organización política de la clase trabajadora para tomar el control de los medios de producción"
+
+explicacion: |
+  A diferencia del socialismo utópico, apunta a transformar el sistema a esa escala.
+```
+
+### 21 — Qué son los medios de producción
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "basico"
+  tags: ["corrientes", "vocabulario"]
+
+enunciado: "¿Cuáles de estos son ejemplos de medios de producción?"
+tipo: mc
+opciones_explicitas:
+  - "Fábricas, tierra y capital"
+  - "Salarios y propinas"
+  - "Ropa y alimentos"
+  - "Leyes y tratados"
+respuesta: "Fábricas, tierra y capital"
+
+explicacion: |
+  Quienes los poseen se enfrentan, en el capitalismo, a quienes sólo poseen su fuerza de trabajo.
+```
+
+### 22 — El debate sigue abierto
+
+```
+metadata:
+  materia: "economia"
+  tema: "marxismo"
+  nivel: "avanzado"
+  tags: ["corrientes", "objecion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El debate sobre si las respuestas socialistas resuelven el problema planteado por Mises sigue discutiéndose en la historia del pensamiento económico."
+
+explicacion: |
+  Verdadero. El material no toma partido: busca que se reconozcan ambos argumentos.
 ```

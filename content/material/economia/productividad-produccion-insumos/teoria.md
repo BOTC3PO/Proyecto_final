@@ -1,6 +1,6 @@
 # Economía — Productividad, producción e insumos (teoría)
 
-> Tema del MAPA: `economia/productividad-produccion-insumos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/productividad-produccion-insumos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Física — Corriente eléctrica (teoría)
 
-> Tema del MAPA: `fisica/corriente-electrica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/corriente-electrica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

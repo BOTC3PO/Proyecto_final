@@ -1,6 +1,6 @@
 # Historia Profunda — Minerales: Estructura Cristalina (teoría)
 
-> Tema del MAPA: `historia-profunda/minerales-estructura-cristalina`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/minerales-estructura-cristalina`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

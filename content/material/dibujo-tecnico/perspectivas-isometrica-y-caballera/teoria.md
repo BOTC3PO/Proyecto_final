@@ -1,6 +1,6 @@
 # Dibujo Técnico — Perspectivas Isométrica y Caballera (teoría)
 
-> Tema del MAPA: `dibujo-tecnico/perspectivas-isometrica-y-caballera`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `dibujo-tecnico/perspectivas-isometrica-y-caballera`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

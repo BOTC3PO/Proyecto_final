@@ -1,6 +1,6 @@
 # Resolución de Problemas — Mejorar o Iterar (teoria)
 
-> Tema del MAPA: `resolucion-problemas/mejorar-o-iterar`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/mejorar-o-iterar`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Iterar es repetir un ciclo de trabajo para mejorar una solución existente, no para reemplazarla. Cuando se implementa una primera versión que cumple con el objetivo básico pero deja espacio para optimización, la iteración permite identificar fallos menores, ajustar parámetros y acercarse a un resultado más eficiente o completo. No es un proceso lineal: cada ciclo puede generar nuevas observaciones que requieren otro ciclo de trabajo.
 
-[IMAGEN: Diagrama de un ciclo con flechas que van desde "Evaluar" hasta "Ajustar", luego a "Implementar" y finalmente a "Verificar", conectándose de vuelta a "Evaluar"]
+<!-- IMAGEN: Diagrama de un ciclo con flechas que van desde "Evaluar" hasta "Ajustar", luego a "Implementar" y finalmente a "Verificar", conectándose de vuelta a "Evaluar" -->
 
 ## 2. Evaluación continua como motor de cambio
 

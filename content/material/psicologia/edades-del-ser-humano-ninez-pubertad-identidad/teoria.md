@@ -12,7 +12,7 @@
 
 El ser humano atraviesa distintas fases a lo largo de su vida, cada una marcada por cambios biológicos, cognitivos y sociales. La **niñez** se caracteriza por el aprendizaje básico, la dependencia de los adultos y la formación de hábitos. Luego llega la **pubertad**, etapa en la que el cuerpo sufre transformaciones profundas: crecimiento acelerado, desarrollo de órganos reproductores y cambios hormonales que activan funciones nuevas. Finalmente, la adolescencia es un puente hacia la **edad adulta**, donde se consolidan identidades personales y responsabilidades sociales.
 
-[IMAGEN: Cronograma con las etapas del desarrollo humano desde la infancia hasta la vejez]
+<!-- IMAGEN: Cronograma con las etapas del desarrollo humano desde la infancia hasta la vejez -->
 
 ---
 
@@ -20,7 +20,7 @@ El ser humano atraviesa distintas fases a lo largo de su vida, cada una marcada 
 
 La pubertad no es solo un proceso físico, sino un evento complejo que involucra el **sistema endocrino** (glándulas y hormonas). A partir de los doce a catorce años, el cerebro envía señales al hipotálamo para iniciar la producción de testosterona o estrógeno, según el género. Estas hormonas activan cambios como la aparición del vello corporal, desarrollo de senos o músculos, y modificación del tono de voz. También afectan funciones internas: crecimiento óseo, maduración de órganos sexuales y regulación del ciclo menstrual.
 
-[IMAGEN: Sistema endocrino y cambios hormonales durante la pubertad]
+<!-- IMAGEN: Sistema endocrino y cambios hormonales durante la pubertad -->
 
 ---
 

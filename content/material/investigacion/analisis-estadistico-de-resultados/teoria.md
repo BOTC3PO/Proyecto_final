@@ -1,6 +1,6 @@
 # Investigación — Análisis estadístico de resultados (teoría)
 
-> Tema del MAPA: `investigacion/analisis-estadistico-de-resultados`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `investigacion/analisis-estadistico-de-resultados`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

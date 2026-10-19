@@ -1,6 +1,6 @@
 # Física — Momento Lineal (teoría)
 
-> Tema del MAPA: `fisica/momento-lineal`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/momento-lineal`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

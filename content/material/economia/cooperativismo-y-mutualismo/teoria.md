@@ -1,6 +1,6 @@
 # Economía — Cooperativismo y mutualismo (teoría)
 
-> Tema del MAPA: `economia/cooperativismo-y-mutualismo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/cooperativismo-y-mutualismo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría  
 **Presentación** — Explicación de modelos económicos alternativos basados en la solidaridad y la participación.

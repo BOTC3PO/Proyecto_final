@@ -1,6 +1,6 @@
 # Física — Refracción: Índice y Ley de Snell (teoría)
 
-> Tema del MAPA: `fisica/refraccion-indice-ley-snell`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/refraccion-indice-ley-snell`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -48,7 +48,7 @@ La ley de Snell no solo explica fenómenos naturales (como el arcoíris o la apa
 - **Fibras ópticas**: Usan reflexión total interna, un caso extremo de la ley de Snell, para transmitir señales de luz a grandes distancias.
 - **Prismas**: Redirigen la luz mediante refracción controlada (como en gafas de visión nocturna o telescopios).
 
-[IMAGEN: Diagrama de un rayo incidente que pasa de aire a agua, mostrando ángulos de incidencia y refracción con la normal]
+<!-- IMAGEN: Diagrama de un rayo incidente que pasa de aire a agua, mostrando ángulos de incidencia y refracción con la normal -->
 
 ---
 

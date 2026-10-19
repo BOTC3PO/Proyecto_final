@@ -1,6 +1,6 @@
 # Historia Profunda — Metalurgia Cobre Hierro (teoría)
 
-> Tema del MAPA: `historia-profunda/metalurgia-cobre-hierro`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/metalurgia-cobre-hierro`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

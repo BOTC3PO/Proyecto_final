@@ -1,6 +1,6 @@
 # Física — Transmisión del calor: conducción, convección y radiación (teoría)
 
-> Tema del MAPA: `fisica/transmision-calor-conduccion-conveccion-radiacion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/transmision-calor-conduccion-conveccion-radiacion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

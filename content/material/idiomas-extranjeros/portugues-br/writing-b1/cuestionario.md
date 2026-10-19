@@ -219,7 +219,7 @@ respuesta: "porque"
 ```
 
 
-### 13 — Uso do verbo "haver" como auxiliar  
+### 12 — Uso do verbo "haver" como auxiliar  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -238,7 +238,7 @@ respuestas_validas:
 ```
 
 
-### 14 — Uso de vírgulas em orações subordinadas  
+### 13 — Uso de vírgulas em orações subordinadas  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -257,7 +257,7 @@ respuestas_validas:
 ```
 
 
-### 15 — Uso do verbo "fazer" no presente  
+### 14 — Uso do verbo "fazer" no presente  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -276,7 +276,7 @@ respuestas_validas:
 ```
 
 
-### 16 — Uso do acento circunflexo em substantivos  
+### 15 — Uso do acento circunflexo em substantivos  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -295,7 +295,7 @@ respuestas_validas:
 ```
 
 
-### 17 — Uso de "há" e "a" para indicação de tempo  
+### 16 — Uso de "há" e "a" para indicação de tempo  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -314,7 +314,7 @@ respuestas_validas:
 ```
 
 
-### 18 — Uso do verbo "ser" no presente  
+### 17 — Uso do verbo "ser" no presente  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -333,7 +333,7 @@ respuestas_validas:
 ```
 
 
-### 19 — Uso do verbo "estar" no pretérito perfeito  
+### 18 — Uso do verbo "estar" no pretérito perfeito  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -352,7 +352,7 @@ respuestas_validas:
 ```
 
 
-### 20 — Uso do verbo "poder" no presente  
+### 19 — Uso do verbo "poder" no presente  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -371,7 +371,7 @@ respuestas_validas:
 ```
 
 
-### 21 — Uso de vírgulas em orações explicativas  
+### 20 — Uso de vírgulas em orações explicativas  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -389,7 +389,7 @@ respuestas_validas:
 ```
 
 
-### 22 — Uso do verbo "gostar" com preposição  
+### 21 — Uso do verbo "gostar" com preposição  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -408,7 +408,7 @@ respuestas_validas:
 ```
 
 
-### 23 — Uso do verbo "ir" no pretérito perfeito  
+### 22 — Uso do verbo "ir" no pretérito perfeito  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -427,7 +427,7 @@ respuestas_validas:
 ```
 
 
-### 24 — Uso do verbo "ter" no pretérito perfeito  
+### 23 — Uso do verbo "ter" no pretérito perfeito  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
@@ -446,7 +446,7 @@ respuestas_validas:
 ```
 
 
-### 25 — Uso do verbo "fazer" no pretérito perfeito  
+### 24 — Uso do verbo "fazer" no pretérito perfeito  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"

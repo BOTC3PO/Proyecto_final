@@ -1,6 +1,6 @@
 # Automatización — PLC: Lógica de Control Industrial (teoría)
 
-> Tema del MAPA: `automatizacion/plc-logica-de-control-industrial`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `automatizacion/plc-logica-de-control-industrial`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -52,7 +52,7 @@ Los PLCs se utilizan en casi cualquier área donde haya necesidad de control aut
 - **Edificios inteligentes:** Regulación de iluminación, climatización y sistemas de acceso.
 - **Industria energética:** Monitoreo de redes eléctricas o control de turbinas en centrales.
 
-[IMAGEN: Diagrama simplificado de un PLC con sus componentes principales (CPU, memoria, módulos I/O, alimentación) y su conexión a sensores/actuadores.]
+<!-- IMAGEN: Diagrama simplificado de un PLC con sus componentes principales (CPU, memoria, módulos I/O, alimentación) y su conexión a sensores/actuadores. -->
 
 ## N. Conexión con lo que sigue
 

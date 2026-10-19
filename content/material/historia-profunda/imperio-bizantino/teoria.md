@@ -1,6 +1,6 @@
 # Historia Profunda — El Imperio Bizantino: La continuidad de Roma (teoría)
 
-> Tema del MAPA: `historia-profunda/imperio-bizantino`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/imperio-bizantino`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Tras la división administrativa del Imperio Romano en el siglo IV, Constantinop
 
 A diferencia de Roma, que dependía de una extensa red de carreteras terrestres vulnerables a las invasiones bárbaras, Constantinopla estaba protegida por el Mar de Mármara y sus famosas murallas teodosianas. Esto permitió que la estructura estatal romana, con su burocracia compleja y su sistema fiscal, sobreviviera en Oriente mientras Occidente colapsaba. El latín mantuvo su estatus oficial durante los primeros siglos, pero el griego, lengua de la cultura helenística, se impuso progresivamente en la administración y la vida cotidiana, marcando el inicio de una identidad distinta a la del occidente latino.
 
-[IMAGEN: Mapa que muestra la posición estratégica de Constantinopla entre los estrechos de Bósforo y Dardanelos, destacando las rutas comerciales terrestres y marítimas]
+<!-- IMAGEN: Mapa que muestra la posición estratégica de Constantinopla entre los estrechos de Bósforo y Dardanelos, destacando las rutas comerciales terrestres y marítimas -->
 
 ## 2. La figura de Justiniano y la codificación del derecho
 

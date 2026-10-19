@@ -1,6 +1,6 @@
 # Informática — Buses y entrada/salida (teoría)
 
-> Tema del MAPA: `informatica/buses-y-entrada-salida`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/buses-y-entrada-salida`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -29,7 +29,7 @@ Indica a dónde va o desde dónde proviene la información. Por ejemplo, cuando 
 ### c) Bus de control  
 Envía señales que coordinan las operaciones: indica si se está leyendo o escribiendo datos, cuándo un dispositivo está listo para recibir información, etc. Son como las "instrucciones" que mantienen sincronizado el sistema.
 
-[IMAGEN: Diagrama comparando los tres tipos de buses con ejemplos de flujo de datos]
+<!-- IMAGEN: Diagrama comparando los tres tipos de buses con ejemplos de flujo de datos -->
 
 ---
 

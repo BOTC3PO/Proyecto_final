@@ -1,6 +1,6 @@
 # Ingeniería — Modelado y cálculo (teoría)
 
-> Tema del MAPA: `ingenieria/modelado-y-calculo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/modelado-y-calculo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

@@ -1,6 +1,6 @@
 # Física — Resistencia Eléctrica (teoría)
 
-> Tema del MAPA: `fisica/resistencia-electrica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/resistencia-electrica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La resistencia eléctrica es la propiedad de un material que **se opone al paso de la corriente eléctrica** a través de él. Cuanto mayor sea esta oposición, menor será el flujo de electrones en condiciones iguales. Esta característica depende del tipo de material: los conductores (como el cobre) ofrecen poca resistencia, mientras que los aislantes (como el plástico) la aumentan drásticamente.
 
-[IMAGEN: Comparación entre conductor e aislante con flechas que muestran la facilidad o dificultad del flujo de corriente]
+<!-- IMAGEN: Comparación entre conductor e aislante con flechas que muestran la facilidad o dificultad del flujo de corriente -->
 
 ---
 
@@ -30,7 +30,7 @@ La resistencia de un material no depende solo del tipo de sustancia, sino tambi�
 - Un alambre con mayor área transversal (más grueso) reduce la oposición al flujo.
 - El calor generalmente disminuye la resistencia en metales, pero aumenta en semiconductores.
 
-[IMAGEN: Diagrama que relaciona longitud, grosor y temperatura con el valor de resistencia]
+<!-- IMAGEN: Diagrama que relaciona longitud, grosor y temperatura con el valor de resistencia -->
 
 ---
 

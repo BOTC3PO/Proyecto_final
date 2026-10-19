@@ -1,6 +1,6 @@
 # Economía — Coordinar personas y recursos (teoría)
 
-> Tema del MAPA: `economia/coordinar-personas-y-recursos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/coordinar-personas-y-recursos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

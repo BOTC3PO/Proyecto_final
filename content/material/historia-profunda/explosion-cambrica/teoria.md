@@ -1,6 +1,6 @@
 # Historia Profunda — Explosión Cámbrica (teoría)
 
-> Tema del MAPA: `historia-profunda/explosion-cambrica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/explosion-cambrica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La Explosión Cámbrica comenzó hace unos **541 millones de años**, marcando el inicio del periodo Cámbrico. Este evento fue un punto de inflexión en la historia de la vida en la Tierra, ya que durante este tiempo se registraron cambios radicales en los ecosistemas marinos. Antes de esta etapa, los registros fósiles muestran organismos simples y estructuralmente homogéneos, como los del período Ediacárico. Pero con la Explosión Cámbrica, aparecieron formas complejas con sistemas nerviosos, aparatos digestivos y esqueletos duros que permitieron su preservación en rocas sedimentarias.
 
-[IMAGEN: Comparación entre fósiles de Ediacara (arriba) y organismos del periodo Cámbrico (abajo), destacando la diversidad morfológica emergente]
+<!-- IMAGEN: Comparación entre fósiles de Ediacara (arriba) y organismos del periodo Cámbrico (abajo), destacando la diversidad morfológica emergente -->
 
 ## 2. Aparición de los phyla
 

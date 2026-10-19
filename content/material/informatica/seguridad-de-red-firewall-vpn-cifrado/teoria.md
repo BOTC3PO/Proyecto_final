@@ -12,7 +12,7 @@
 
 Un **firewall** es una herramienta que actúa como una barrera entre una red confiable (como la de una empresa o hogar) y otra no confiable (como Internet). Su función principal es **filtrar el tráfico de datos**, permitiendo solo lo que cumple con reglas predefinidas. Por ejemplo, puede bloquear accesos a ciertos sitios web o restringir comunicaciones desde dispositivos no autorizados. Trabaja inspeccionando cada paquete de datos que entra o sale de la red y decidiendo si debe ser permitido o denegado basándose en criterios como el origen, destino, puerto o tipo de tráfico.
 
-[IMAGEN: Diagrama de un firewall filtrando tráfico entre Internet y una red interna]
+<!-- IMAGEN: Diagrama de un firewall filtrando tráfico entre Internet y una red interna -->
 
 ---
 
@@ -20,7 +20,7 @@ Un **firewall** es una herramienta que actúa como una barrera entre una red con
 
 Una **Red Privada Virtual (VPN)** crea un **túnel cifrado** sobre una infraestructura pública como Internet, lo que permite enviar datos de manera segura sin que terceros puedan interceptarlos o leerlos. Este túnel actúa como un "conducto seguro" que encripta toda la información que pasa por él. La VPN es comúnmente usada para acceder a recursos de una red remota (como el trabajo) desde cualquier lugar, protegiendo la identidad del usuario y los datos transmitidos.
 
-[IMAGEN: Esquema de un túnel de conexión segura mediante una VPN]
+<!-- IMAGEN: Esquema de un túnel de conexión segura mediante una VPN -->
 
 ---
 

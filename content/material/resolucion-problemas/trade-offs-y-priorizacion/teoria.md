@@ -1,6 +1,6 @@
 # Resolución de Problemas — Trade-offs y Priorización (teoría)
 
-> Tema del MAPA: `resolucion-problemas/trade-offs-y-priorizacion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/trade-offs-y-priorizacion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ En situaciones reales, los trade-offs no siempre se ven de inmediato. Por ejempl
 
 Otro caso: mejorar la calidad del producto puede generar mayor confianza en los clientes, pero también **eleva el precio final**, lo que podría reducir la demanda si el mercado no acepta ese incremento. Identificar estos contrapuntos requiere analizar cómo las acciones afectan múltiples áreas al mismo tiempo.
 
-[IMAGEN: Cuadro comparativo con dos columnas: "Beneficio" y "Costo", ejemplos como "Velocidad de producción" vs "Mantenimiento costoso"]
+<!-- IMAGEN: Cuadro comparativo con dos columnas: "Beneficio" y "Costo", ejemplos como "Velocidad de producción" vs "Mantenimiento costoso" -->
 
 ---
 

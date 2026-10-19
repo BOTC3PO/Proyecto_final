@@ -1,6 +1,6 @@
 # Automatización — Realimentación Feedback (teoría)
 
-> Tema del MAPA: `automatizacion/realimentacion-feedback`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `automatizacion/realimentacion-feedback`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -25,7 +25,7 @@ Un sistema con realimentación opera dentro de un *lazo de control cerrado*, don
 - **Controlador**: Basado en el valor del error, genera una señal de control que ajusta la entrada del sistema.
 - **Actuador**: Ejecuta las instrucciones del controlador (como abrir una válvula o encender un motor).
 
-Estos componentes forman una cadena continua: la salida se vuelve entrada, lo que permite corregir en tiempo real cualquier desviación. [IMAGEN: diagrama de un sistema de control con sensor, comparador, controlador y actuador].
+Estos componentes forman una cadena continua: la salida se vuelve entrada, lo que permite corregir en tiempo real cualquier desviación. <!-- IMAGEN: diagrama de un sistema de control con sensor, comparador, controlador y actuador -->.
 
 ---
 

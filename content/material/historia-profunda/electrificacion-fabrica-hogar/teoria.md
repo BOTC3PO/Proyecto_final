@@ -1,6 +1,6 @@
 # Historia Profunda — Electrificación: Fábrica y Hogar (teoría)
 
-> Tema del MAPA: `historia-profunda/electrificacion-fabrica-hogar`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/electrificacion-fabrica-hogar`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 A finales del siglo XIX, el motor eléctrico se convirtió en la pieza clave para la electrificación de las fábricas. A diferencia de la energía de vapor, que requería sistemas complejos de ejes y correas conectados a una única máquina central, los motores eléctricos permitieron distribuir la fuerza motriz de manera flexible. Esto significó que las máquinas podían funcionar de forma independiente, sin depender de una única fuente de energía ubicada en un lugar fijo. La industria pasó así de una producción centralizada a una más descentralizada, lo que facilitó la instalación de líneas de montaje y la automatización parcial de procesos. Además, los motores eléctricos eran más eficientes, menos ruidosos y permitían un control más preciso del movimiento, lo que mejoró la productividad y redujo el desgaste mecánico.
 
-[IMAGEN: Esquema comparativo entre una fábrica con sistema de vapor tradicional y otra con motores eléctricos distribuidos]
+<!-- IMAGEN: Esquema comparativo entre una fábrica con sistema de vapor tradicional y otra con motores eléctricos distribuidos -->
 
 ---
 
@@ -20,7 +20,7 @@ A finales del siglo XIX, el motor eléctrico se convirtió en la pieza clave par
 
 Antes del acceso a la electricidad, los hogares urbanos dependían principalmente de la luz de gas o velas para iluminarse. Estas fuentes tenían limitaciones: eran inseguras (riesgo de incendios), costosas de mantener y ofrecían una iluminación débil en comparación con la luz eléctrica. La llegada de la red eléctrica doméstica, a partir del último tercio del siglo XIX, revolucionó los hábitos nocturnos. Las lámparas incandescentes permitieron trabajar o leer durante más horas, lo que amplió las oportunidades de estudio y ocio. Además, al eliminar las llamas abiertas, se redujo significativamente el peligro de accidentes en viviendas con múltiples ocupantes.
 
-[IMAGEN: Comparación entre una lámpara de gas, una vela y una lámpara eléctrica incandescente]
+<!-- IMAGEN: Comparación entre una lámpara de gas, una vela y una lámpara eléctrica incandescente -->
 
 ---
 

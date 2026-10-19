@@ -1,6 +1,6 @@
 # Ingeniería — Investigar soluciones existentes (teoría)
 
-> Tema del MAPA: `ingenieria/investigar-soluciones-existentes`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/investigar-soluciones-existentes`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

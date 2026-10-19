@@ -26,7 +26,7 @@ Cuando un dato se envía por una red, pasa por cada capa del modelo TCP/IP en or
 
 En la capa de **Transporte**, los datos se convierten en un **segmento** (si se usa TCP) o un **datagrama de transporte** (si se usa UDP). Luego, al llegar a la capa de **Internet**, este segmento se encapsula dentro de un **paquete IP**, que incluye información como la dirección de destino y el tamaño del paquete. Finalmente, en la capa de **Acceso a la red**, el paquete se transforma en una **trama** o **frame**, adaptándose al medio físico por donde viajará (como Ethernet o Wi-Fi).
 
-[IMAGEN: Diagrama que muestra el proceso de encapsulamiento desde la capa de Aplicación hasta la capa de Acceso a la red.]
+<!-- IMAGEN: Diagrama que muestra el proceso de encapsulamiento desde la capa de Aplicación hasta la capa de Acceso a la red. -->
 
 ## 4. La importancia del orden de las capas
 

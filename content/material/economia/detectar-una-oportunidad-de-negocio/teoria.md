@@ -1,6 +1,6 @@
 # Economia — detectar una oportunidad de negocio (teoria)
 
-> Tema del MAPA: `economia/detectar-una-oportunidad-de-negocio`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/detectar-una-oportunidad-de-negocio`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

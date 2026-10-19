@@ -12,7 +12,7 @@
 
 La Constitución Nacional Argentina fue sancionada en **1853**, en un contexto de transición política tras la caída de Juan Manuel de Rosas en la batalla de Caseros (1852). Este hito marcó el fin del gobierno centralizado y autoritario que había dominado durante más de 30 años. La convocatoria a una Asamblea Constituyente, impulsada por sectores federales y antirrosistas, buscaba establecer un sistema institucional equilibrado para evitar la repetición de conflictos internos. El texto resultó de negociaciones entre representantes de las provincias, quienes exigían autonomía política y económica, y el sector centralista que deseaba consolidar una nación unitaria.
 
-[IMAGEN: Mapa del territorio argentino en 1853 con indicadores de las provincias participantes en la Asamblea Constituyente]
+<!-- IMAGEN: Mapa del territorio argentino en 1853 con indicadores de las provincias participantes en la Asamblea Constituyente -->
 
 ---
 
@@ -34,7 +34,7 @@ La Constitución estableció tres poderes del Estado para garantizar el control 
 
 Esta separación no era absoluta: cada poder tenía herramientas para limitar o revisar las decisiones de los otros. Por ejemplo, el Congreso podía reformar la Constitución con mayoría absoluta, y el Presidente nombraba jueces bajo condiciones establecidas por ley.
 
-[IMAGEN: Esquema comparativo de los tres poderes según la Constitución de 1853]
+<!-- IMAGEN: Esquema comparativo de los tres poderes según la Constitución de 1853 -->
 
 ---
 

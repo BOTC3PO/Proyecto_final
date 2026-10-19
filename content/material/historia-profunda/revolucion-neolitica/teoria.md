@@ -1,6 +1,6 @@
 # Historia Profunda — Revolución Neolítica (teoría)
 
-> Tema del MAPA: `historia-profunda/revolucion-neolitica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/revolucion-neolitica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -20,7 +20,7 @@ La agricultura obligó a grupos humanos a permanecer en un lugar por largos per�
 
 Estos primeros pueblos construyeron viviendas de barro, piedra o madera en zonas fértiles cercanas a ríos. Se formaron comunidades más estables con divisiones de tareas: algunos se dedicaban exclusivamente a cultivar, otros a criar ganado, y otros a artesanías o defensa del grupo. La acumulación de recursos permitió la especialización laboral, un factor clave para el desarrollo de sociedades complejas.
 
-[IMAGEN: Mapa con zonas de asentamientos neolíticos en el Cercano Oriente y China]
+<!-- IMAGEN: Mapa con zonas de asentamientos neolíticos en el Cercano Oriente y China -->
 
 ## 3. El excedente y las nuevas jerarquías
 

@@ -1,6 +1,6 @@
 # Historia Profunda — La Baja Edad Media y la Crisis del Siglo XIV (teoría)
 
-> Tema del MAPA: `historia-profunda/baja-edad-media-y-crisis`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/baja-edad-media-y-crisis`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Durante los siglos XII y XIII, Europa experimentó un notable dinamismo demográ
 
 Sin embargo, hacia finales del siglo XIII, este crecimiento comenzó a chocar contra sus propios límites ecológicos y económicos. La expansión agrícola había llegado ya a las tierras menos fértiles, lo que significaba que cada nuevo hectárea cultivada producía menos rendimiento que las anteriores. La población, al superar la capacidad de carga del suelo, comenzó a depender de tierras de menor calidad, lo que redujo la dieta nutricional de las clases populares y aumentó la vulnerabilidad ante enfermedades y hambrunas.
 
-[IMAGEN: Mapa de la expansión de las tierras cultivadas en Europa entre los siglos X y XIII, mostrando cómo se alcanzaron los límites geográficos y ecológicos]
+<!-- IMAGEN: Mapa de la expansión de las tierras cultivadas en Europa entre los siglos X y XIII, mostrando cómo se alcanzaron los límites geográficos y ecológicos -->
 
 ## 2. La Gran Hambruna de 1315-1317
 

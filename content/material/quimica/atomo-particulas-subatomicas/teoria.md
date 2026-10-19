@@ -12,7 +12,7 @@
 
 El átomo está formado por tres tipos principales de partículas subatómicas: **protones**, **neutrones** y **electrones**. Los primeros dos se encuentran en el núcleo del átomo, mientras que los electrones orbitan alrededor de este en capas o niveles energéticos. Los protones tienen carga eléctrica positiva, los neutrones no tienen carga (son neutros), y los electrones poseen carga negativa. Estas partículas determinan las propiedades químicas y físicas de cada elemento.
 
-[IMAGEN: Esquema del átomo con núcleo (protones + neutrones) y electrones en órbita]
+<!-- IMAGEN: Esquema del átomo con núcleo (protones + neutrones) y electrones en órbita -->
 
 ## 2. Número atómico y su relación con los protones
 
@@ -30,7 +30,7 @@ Un átomo en su estado natural tiene carga eléctrica **neutra** porque posee un
 
 El modelo más utilizado en enseñanza secundaria es el **modelo de capas electrónicas**. En este modelo, el núcleo contiene protones y neutrones, mientras que los electrones se distribuyen en niveles energéticos alrededor del núcleo. Cada nivel tiene capacidad para un número máximo de electrones (por ejemplo, el primer nivel puede contener 2 electrones, el segundo hasta 8). Este modelo explica cómo los átomos interactúan entre sí durante reacciones químicas.
 
-[IMAGEN: Modelo de capas electrónicas con números de electrones en cada nivel]
+<!-- IMAGEN: Modelo de capas electrónicas con números de electrones en cada nivel -->
 
 ## N. Conexión con lo que sigue
 

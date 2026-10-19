@@ -1,6 +1,6 @@
 # Historia Profunda — La expansión del Imperio Romano (teoría)
 
-> Tema del MAPA: `historia-profunda/expansion-del-imperio-romano`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/expansion-del-imperio-romano`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La expansión romana no comenzó como un proyecto imperial consciente, sino como
 
 Durante los siglos IV y III a.C., Roma libró guerras contra los etruscos, los galos y los samnitas. La victoria en las Guerras Pínicas (264-146 a.C.) contra Cartago fue el punto de inflexión. Al derrotar a la principal potencia naval del Mediterráneo occidental, Roma no solo aseguró su hegemonía en Sicilia, Cerdeña y Córsega, sino que se convirtió en la potencia indiscutible del Occidente mediterráneo. La victoria sobre el Reino de Macedonia y el Imperio Seléucida en el este consolidó su influencia en Grecia y Asia Menor.
 
-[IMAGEN: Mapa de la expansión romana entre el 264 y el 146 a.C., destacando las Guerras Pínicas y la consolidación en el Mediterráneo occidental]
+<!-- IMAGEN: Mapa de la expansión romana entre el 264 y el 146 a.C., destacando las Guerras Pínicas y la consolidación en el Mediterráneo occidental -->
 
 ## 2. La Máquina Militar y la Administración Provincial
 

@@ -1,6 +1,6 @@
 # Informática — Memoria asignación memoria virtual (teoría)
 
-> Tema del MAPA: `informatica/memoria-asignacion-memoria-virtual`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/memoria-asignacion-memoria-virtual`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

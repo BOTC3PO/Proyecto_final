@@ -1,6 +1,6 @@
 # Física — Relatividad especial conceptual (teoría)
 
-> Tema del MAPA: `fisica/relatividad-especial-conceptual`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/relatividad-especial-conceptual`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 La relatividad especial, propuesta por Albert Einstein en 1905, es una teoría física que describe cómo las leyes de la naturaleza se comportan cuando se mueven a velocidades cercanas a la luz. A diferencia de lo que postulaban Newton o Galileo, esta teoría establece que no hay un marco de referencia absoluto: todo depende del observador y su estado de movimiento.
 
-[IMAGEN: Comparación entre sistemas inerciales (marcos en reposo o con velocidad constante) y cómo se perciben los fenómenos físicos en cada uno]
+<!-- IMAGEN: Comparación entre sistemas inerciales (marcos en reposo o con velocidad constante) y cómo se perciben los fenómenos físicos en cada uno -->
 
 ---
 
@@ -30,7 +30,7 @@ El segundo principio es aún más sorprendente: **la velocidad de la luz en el v
 
 Esto no parece lógico a primera vista. Si, por ejemplo, un coche se acelera hacia adelante y enciende sus luces, ¿no deberían las luces moverse más rápido que si el auto estuviera quieto? La relatividad especial responde que **no**: la luz siempre va a $ c $, lo cual implica que el tiempo y el espacio no son absolutos.  
 
-[IMAGEN: Representación de un rayo de luz viajando a velocidad constante en distintos marcos inerciales]
+<!-- IMAGEN: Representación de un rayo de luz viajando a velocidad constante en distintos marcos inerciales -->
 
 ---
 

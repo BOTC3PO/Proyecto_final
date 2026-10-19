@@ -1,6 +1,6 @@
 # Física — Caudal Q-A-V (teoría)
 
-> Tema del MAPA: `fisica/caudal-q-a-v`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/caudal-q-a-v`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -35,7 +35,7 @@ El concepto de caudal es fundamental en ingeniería civil, mecánica y ambiental
 - En **turbinas hidroeléctricas**, el caudal disponible determina la energía generada.  
 - En **medición de fluidos industriales**, sensores miden el caudal en tiempo real para controlar procesos químicos o petroquímicos.
 
-[IMAGEN: Esquema de una tubería con flechas indicando el flujo del fluido, marcado el área transversal *A* y la velocidad *v*, con una etiqueta que muestra la fórmula Q = A · v.]
+<!-- IMAGEN: Esquema de una tubería con flechas indicando el flujo del fluido, marcado el área transversal *A* y la velocidad *v*, con una etiqueta que muestra la fórmula Q = A · v. -->
 
 ## N. Conexión con lo que sigue
 

@@ -1,6 +1,6 @@
 # Geografía — Urbanización, migración y ciudad (teoría)
 
-> Tema del MAPA: `geografia/urbanizacion-migracion-ciudad`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `geografia/urbanizacion-migracion-ciudad`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 El proceso de urbanización, es decir, la expansión acelerada de ciudades y sus poblaciones, se intensificó a partir de los cambios impulsados por la Revolución Industrial. En Argentina, este fenómeno no fue ajeno al resto del mundo: el desarrollo de industrias en el siglo XIX y principios del XX generó una demanda creciente de mano de obra, lo que atrajo a miles de personas desde zonas rurales hacia centros urbanos. La mecanización agrícola redujo la necesidad de trabajadores en el campo, mientras las fábricas surgieron como nuevos polos económicos. Este desplazamiento no fue solo una cuestión económica, sino también social: la ciudad se convirtió en símbolo de modernidad y acceso a servicios que el campo no ofrecía.
 
-[IMAGEN: Gráfica comparativa entre población rural y urbana en Argentina desde 1850 hasta hoy]
+<!-- IMAGEN: Gráfica comparativa entre población rural y urbana en Argentina desde 1850 hasta hoy -->
 
 ---
 
@@ -26,7 +26,7 @@ La migración del campo a la ciudad se explica por un doble factor: lo que empuj
 
 La urbanización se manifiesta claramente en la densidad poblacional: más personas por unidad de superficie, concentradas en espacios reducidos. Por ejemplo, si una ciudad tiene una población de 2 millones de habitantes sobre un área de 300 km², su densidad es de aproximadamente 6.700 habitantes por km², lo que contrasta con zonas rurales donde esa cifra puede ser inferior a 100. Esta alta concentración genera desafíos como la congestión del tránsito, la escasez de vivienda digna y el sobrecalentamiento de servicios públicos. Sin embargo, también permite la creación de redes económicas dinámicas: desde mercados centrales hasta industrias especializadas, que solo son viables en contextos de alta densidad.
 
-[IMAGEN: Mapa con zonas de alta y baja densidad en una ciudad típica argentina]
+<!-- IMAGEN: Mapa con zonas de alta y baja densidad en una ciudad típica argentina -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Física — Oscilación y Periodo (teoría)
 
-> Tema del MAPA: `fisica/oscilacion-periodo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/oscilacion-periodo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Una **oscilación** es un tipo de movimiento en el que un objeto repite su trayectoria alrededor de un punto fijo, llamado **posición de equilibrio**. Por ejemplo, cuando se tira hacia un lado de un péndulo y luego se suelta, describe un arco que lo lleva a oscilar entre dos puntos extremos: uno a la izquierda del equilibrio y otro a la derecha. Lo clave es que siempre **vuelve al punto de partida** después de cada ciclo. Si el objeto no regresa a su posición original, como en el caso de un coche que acelera sin parar, ese movimiento no se considera oscilatorio.
 
-[IMAGEN: Dibujo de un péndulo moviéndose entre dos puntos extremos, con la trayectoria marcada y la posición de equilibrio señalada.]
+<!-- IMAGEN: Dibujo de un péndulo moviéndose entre dos puntos extremos, con la trayectoria marcada y la posición de equilibrio señalada. -->
 
 ## 2. ¿Qué significa el periodo?
 

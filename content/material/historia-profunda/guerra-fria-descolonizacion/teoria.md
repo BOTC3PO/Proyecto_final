@@ -1,6 +1,6 @@
 # Historia Profunda — Guerra Fría y Descolonización  
 
-> Tema del MAPA: `historia-profunda/guerra-fria-descolonizacion`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `historia-profunda/guerra-fria-descolonizacion`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 **Presentación** — Análisis de cómo la Guerra Fría influyó en los procesos de independencia de las colonias postales.  
@@ -13,7 +13,7 @@ La Guerra Fría definió un orden mundial dominado por dos bloques contrapuestos
 
 Este equilibrio de poder generó una lógica de **contención**, donde ambas partes buscaban evitar la expansión del otro. Por ejemplo, Estados Unidos impulsó la OTAN (1949) como alianza militar occidental, mientras la URSS respondió creando el Pacto de Varsovia (1955) y respaldó movimientos antiimperialistas en África, Asia y América Latina. Esta dinámica no solo polarizó a las naciones, sino que también influyó en los procesos de independencia de colonias, al convertirlas en escenarios de lucha por el control ideológico y estratégico.  
 
-[IMAGEN: mapa del mundo dividido en bloques capitalista y socialista]  
+<!-- IMAGEN: mapa del mundo dividido en bloques capitalista y socialista -->  
 
 ---
 
@@ -31,7 +31,7 @@ La Guerra Fría no solo fue una lucha ideológica o económica: también estuvo 
 
 Este episodio evidenció cómo las decisiones de ambas potencias podían tener consecuencias catastróficas para todo el planeta. Aunque lograron evitar la confrontación directa (la URSS retiró los misiles y EE.UU. prometió no invadir Cuba), este evento marcó un punto de inflexión en las relaciones internacionales, llevando a ambas partes a buscar formas de desescalada, como el **Tratado de No Proliferación Nuclear** (1968).  
 
-[IMAGEN: fotografía del bloqueo naval durante la crisis de los misiles]  
+<!-- IMAGEN: fotografía del bloqueo naval durante la crisis de los misiles -->  
 
 ---
 

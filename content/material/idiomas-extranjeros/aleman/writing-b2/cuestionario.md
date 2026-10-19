@@ -1,527 +1,420 @@
 # Idiomas — Alemán — writing-b2 (cuestionario)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/writing-b2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Reescrito: el cuestionario anterior era una copia de un ejercicio genérico de preposiciones y conjugación que no correspondía al tema. Preguntas de nivel B2 sobre expresión escrita (correos formales, conectores, estructura y registro).
 
 ---
 
-### 1 — Präpositionen mit Dativ  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "dativ"]
-pasos:
-  - "Identificar la preposición que requiere el dativo."
-  - "Completar el hueco con la forma correcta del dativo."
-respuestas_validas:
-  - "mit"
-  - "Mit"
-tipo: completar
-enunciado: "Der Junge spielt ___ seinem Bruder. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el caso dativo, por lo que se usa \"seinem\" (dativo de \"der\") en lugar del acusativo."
+### 1 — Saludo formal
 ```
-
----
-
-### 2 — Konjugation der Präteritum-Form  
-```  
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["verben", "präteritum"]
-pasos:
-  - "Identificar el verbo y su conjugación en Präteritum."
-  - "Elegir la forma correcta para el sujeto dado."
+  tags: ["registro", "correo-formal"]
+enunciado: "Escribís a un profesor desconocido, el señor Schneider. ¿Cuál es el saludo formal correcto?"
 opciones_explicitas:
-  - "ging"
-  - "geht"
-  - "ganz"
-respuesta: "ging"  
+  - "Sehr geehrter Herr Schneider,"
+  - "Sehr geehrte Herr Schneider,"
+  - "Hallo Herr Schneider,"
+respuesta: "Sehr geehrter Herr Schneider,"
 tipo: mc
-enunciado: "Er ___ gestern ins Kino. (Präteritum)"
-explicacion: "El verbo \"gehen\" en Präteritum para el sujeto \"er\" es \"ging\", no \"geht\" (Presente) ni \"ganz\" (error ortográfico)."
+explicacion: "Para un hombre se usa 'geehrter' (masculino); 'Hallo' es informal."
 ```
 
----
-
-### 3 — Akkusativ mit Präpositionen  
-```  
+### 2 — Despedida formal
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["präpositionen", "akkusativ"]
+  tags: ["registro", "correo-formal"]
+enunciado: "¿Qué fórmula de despedida es la habitual en un correo formal?"
+opciones_explicitas:
+  - "Mit freundlichen Grüßen"
+  - "Bis dann!"
+  - "Tschüss und liebe Grüße"
+respuesta: "Mit freundlichen Grüßen"
+tipo: mc
+explicacion: "'Mit freundlichen Grüßen' es la despedida estándar en cartas y correos formales."
+```
+
+### 3 — Coma en la subordinada
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["puntuacion", "subordinadas"]
+enunciado: "¿Qué oración está bien puntuada?"
+opciones_explicitas:
+  - "Weil ich müde war, habe ich nicht gearbeitet."
+  - "Weil ich müde war habe ich nicht gearbeitet."
+  - "Weil, ich müde war habe ich nicht gearbeitet."
+respuesta: "Weil ich müde war, habe ich nicht gearbeitet."
+tipo: mc
+explicacion: "En alemán la subordinada se separa con coma de la oración principal."
+```
+
+### 4 — Finalidad con 'um ... zu'
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["conectores", "finalidad"]
 pasos:
-  - "Determinar si la preposición requiere el acusativo."
-  - "Completar el hueco con el artículo correcto en acusativo."
+  - "Completar con el conector de finalidad."
+tipo: completar
 respuestas_validas:
+  - "um"
+enunciado: "Ich schreibe Ihnen, ______ nach dem Termin zu fragen."
+explicacion: "La finalidad con el mismo sujeto se expresa con 'um ... zu + infinitivo'."
+```
+
+### 5 — Verbo al final
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["sintaxis", "subordinadas"]
+pasos:
+  - "Colocar el verbo conjugado."
+tipo: completar
+respuestas_validas:
+  - "bin"
+enunciado: "Ich bleibe zu Hause, weil ich krank ______."
+explicacion: "Tras 'weil' el verbo conjugado va al final: 'weil ich krank bin'."
+```
+
+### 6 — Concesión
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["conectores", "concesion"]
+enunciado: "Elegí el conector adecuado: 'Er lernt viel, ______ besteht er die Prüfung nicht.'"
+opciones_explicitas:
+  - "trotzdem"
+  - "deshalb"
+  - "außerdem"
+respuesta: "trotzdem"
+tipo: mc
+explicacion: "'Trotzdem' (aun así) introduce un resultado contrario a lo esperado, y el verbo queda en segunda posición."
+```
+
+### 7 — Consecuencia
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["conectores", "consecuencia"]
+enunciado: "Elegí el conector adecuado: 'Es regnet stark. ______ bleiben wir zu Hause.'"
+opciones_explicitas:
+  - "Deshalb"
+  - "Obwohl"
+  - "Trotzdem"
+respuesta: "Deshalb"
+tipo: mc
+explicacion: "'Deshalb' = por eso; expresa la consecuencia de la lluvia."
+```
+
+### 8 — Adición
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["conectores", "adicion"]
+enunciado: "Elegí el conector adecuado: 'Die Wohnung ist günstig. ______ liegt sie zentral.'"
+opciones_explicitas:
+  - "Außerdem"
+  - "Deshalb"
+  - "Obwohl"
+respuesta: "Außerdem"
+tipo: mc
+explicacion: "'Außerdem' = además; añade otro argumento a favor."
+```
+
+### 9 — Cierre del texto
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["estructura", "argumentacion"]
+enunciado: "En un texto argumentativo, ¿qué función cumple la frase 'Abschließend lässt sich sagen, dass ...'?"
+opciones_explicitas:
+  - "Resumir y concluir"
+  - "Presentar el tema"
+  - "Introducir un ejemplo"
+respuesta: "Resumir y concluir"
+tipo: mc
+explicacion: "'Abschließend' = para terminar; anuncia la conclusión."
+```
+
+### 10 — Del tuteo al registro formal
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["registro", "cortesia"]
+enunciado: "¿Cómo se dice de forma formal 'Kannst du mir helfen?'?"
+opciones_explicitas:
+  - "Könnten Sie mir bitte helfen?"
+  - "Kannst du mir bitte helfen?"
+  - "Hilf mir mal!"
+respuesta: "Könnten Sie mir bitte helfen?"
+tipo: mc
+explicacion: "Se cambia 'du' por 'Sie' y se usa el Konjunktiv II ('könnten') para suavizar la petición."
+```
+
+### 11 — Evitar repetir el sujeto
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["estilo", "coordinacion"]
+enunciado: "¿Cuál es la forma más natural y correcta?"
+opciones_explicitas:
+  - "Ich gehe ins Kino und esse ein Eis."
+  - "Ich gehe ins Kino und ich esse einen Eis."
+  - "Ich gehe ins Kino und ich esse ein Eis."
+respuesta: "Ich gehe ins Kino und esse ein Eis."
+tipo: mc
+explicacion: "Cuando el sujeto es el mismo no hace falta repetirlo tras 'und'. Además 'Eis' es neutro: 'ein Eis'."
+```
+
+### 12 — Petición cortés
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["cortesia", "konjunktiv"]
+pasos:
+  - "Completar con una forma cortés."
+tipo: completar
+respuestas_validas:
+  - "Könnten"
+  - "Würden"
+  - "Könnten"
+  - "Würden"
+enunciado: "______ Sie mir bitte die Unterlagen schicken?"
+explicacion: "Con el Konjunktiv II ('könnten' o 'würden') la petición suena más cortés."
+```
+
+### 13 — Cierre con agradecimiento
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["correo-formal", "cierre"]
+enunciado: "¿Para qué sirve la frase 'Vielen Dank im Voraus für Ihre Mühe.' al final de un correo?"
+opciones_explicitas:
+  - "Para agradecer por anticipado"
+  - "Para pedir disculpas"
+  - "Para despedirse de forma informal"
+respuesta: "Para agradecer por anticipado"
+tipo: mc
+explicacion: "'Im Voraus' = por adelantado; es un cierre habitual en correos formales."
+```
+
+### 14 — Nominalizar una causa
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["nominalstil", "registro"]
+enunciado: "Reformulá en estilo nominal, más formal: 'Weil die Preise steigen, ...'"
+opciones_explicitas:
+  - "Wegen der steigenden Preise ..."
+  - "Wegen die steigenden Preise ..."
+  - "Wegen steigende Preise ..."
+respuesta: "Wegen der steigenden Preise ..."
+tipo: mc
+explicacion: "En estilo formal 'wegen' va con genitivo: 'wegen der steigenden Preise'."
+```
+
+### 15 — Expresar opinión
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["opinion", "argumentacion"]
+enunciado: "¿Cuál es una forma correcta de introducir una opinión personal en un texto escrito?"
+opciones_explicitas:
+  - "Meiner Meinung nach ist dieses Projekt sinnvoll."
+  - "Ich meine nach ist dieses Projekt sinnvoll."
+  - "Mein Meinung nach ist dieses Projekt sinnvoll."
+respuesta: "Meiner Meinung nach ist dieses Projekt sinnvoll."
+tipo: mc
+explicacion: "'Meiner Meinung nach' = en mi opinión; 'Meinung' va en dativo tras 'nach' pospuesto."
+```
+
+### 16 — Contraponer ventajas y desventajas
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["conectores", "argumentacion"]
+pasos:
+  - "Completar la correlación."
+tipo: completar
+respuestas_validas:
+  - "andererseits"
+enunciado: "Einerseits ist das Auto bequem, ______ belastet es die Umwelt."
+explicacion: "'Einerseits ... andererseits' contrapone dos aspectos: 'por un lado ... por otro'."
+```
+
+### 17 — Orden de palabras tras 'deshalb'
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["sintaxis", "conectores"]
+enunciado: "¿Qué oración tiene el orden de palabras correcto?"
+opciones_explicitas:
+  - "Deshalb bleibe ich zu Hause."
+  - "Deshalb ich bleibe zu Hause."
+  - "Deshalb zu Hause bleibe ich nicht."
+respuesta: "Deshalb bleibe ich zu Hause."
+tipo: mc
+explicacion: "Tras 'deshalb' el verbo conjugado va en segunda posición, antes del sujeto."
+```
+
+### 18 — Género de los compuestos
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "writing-b2"
+  nivel: "B2"
+  tags: ["vocabulario", "compuestos"]
+enunciado: "¿Qué artículo lleva 'Haustür' (Haus + Tür)?"
+opciones_explicitas:
   - "die"
-  - "Die"
-tipo: completar
-enunciado: "Ich interessiere mich ___ ___ Natur. (Präposition + Akkusativ)"
-explicacion: "La preposición \"für\" requiere el acusativo, por lo que se usa \"die\" en lugar de \"der\" (nominativo)."
-```
-
----
-
-### 4 — Temporale Konstruktionen  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["tempus", "konstruktion"]
-pasos:
-  - "Identificar la estructura temporal correcta."
-  - "Elegir el verbo en forma correcta para el contexto."
-opciones_explicitas:
-  - "hat gearbeitet"
-  - "arbeitete"
-  - "arbeite"
-respuesta: "hat gearbeitet"  
+  - "der"
+  - "das"
+respuesta: "die"
 tipo: mc
-enunciado: "Er ___ im Büro, als der Strom ausfiel. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als...ausfiel\"), por lo que se usa el Perfekt \"hat gearbeitet\", no el Präteritum o Presente."
+explicacion: "El género de un sustantivo compuesto lo marca su último elemento: 'die Tür' → 'die Haustür'."
 ```
 
----
-
-### 5 — Dativ mit Präpositionen  
-```  
+### 19 — Ordenar pasos
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["präpositionen", "dativ"]
-pasos:
-  - "Identificar la preposición que requiere el dativo."
-  - "Completar con el artículo correcto en dativo."
-respuestas_validas:
-  - "dem"
-  - "Dem"
-tipo: completar
-enunciado: "Sie spricht ___ ___ Kunden. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"den\" (acusativo) no es válido aquí."
-```
-
----
-
-### 6 — Konjugation im Präsens  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["verben", "präsens"]
-pasos:
-  - "Identificar el verbo y su conjugación en Presente."
-  - "Elegir la forma correcta para el sujeto dado."
+  tags: ["estructura", "conectores"]
+enunciado: "¿Qué conectores sirven para ordenar los pasos de un procedimiento?"
 opciones_explicitas:
-  - "liest"
-  - "liest"
-  - "lies"
-respuesta: "liest"  
+  - "Zunächst – danach – schließlich"
+  - "Obwohl – weil – trotzdem"
+  - "Einerseits – andererseits – dennoch"
+respuesta: "Zunächst – danach – schließlich"
 tipo: mc
-enunciado: "Sie ___ ein Buch. (Präsens)"
-explicacion: "El verbo \"lesen\" en Presente para \"sie\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."
+explicacion: "Marcan secuencia: primero – después – finalmente."
 ```
 
----
-
-### 7 — Genitiv mit Präpositionen  
-```  
+### 20 — Referencia en el correo
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["präpositionen", "genitiv"]
-pasos:
-  - "Determinar si la preposición requiere el genitivo."
-  - "Completar con el artículo correcto en genitivo."
-respuestas_validas:
-  - "des"
-  - "Des"
-tipo: completar
-enunciado: "Er hat Angst ___ ___ Zukunft. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
-```
-
----
-
-### 8 — Temporale Konstruktionen II  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["tempus", "konstruktion"]
-pasos:
-  - "Identificar la estructura temporal correcta."
-  - "Elegir el verbo en forma correcta para el contexto."
+  tags: ["correo-formal", "estructura"]
+enunciado: "¿Qué función tiene la frase 'Ich beziehe mich auf Ihre Anzeige vom 3. März.' al principio de un correo?"
 opciones_explicitas:
-  - "hat gegessen"
-  - "aß"
-  - "ißt"
-respuesta: "hat gegessen"  
+  - "Indicar el motivo o la referencia del escrito"
+  - "Despedirse"
+  - "Pedir disculpas"
+respuesta: "Indicar el motivo o la referencia del escrito"
 tipo: mc
-enunciado: "Wir ___ zu Hause, als es regnete. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als es regnete\"), por lo que se usa el Perfekt \"hat gegessen\", no el Präteritum o Presente."
+explicacion: "Informa al destinatario de a qué se refiere el mensaje."
 ```
 
----
-
-### 9 — Akkusativ mit Präpositionen II  
-```  
+### 21 — Tratamiento formal
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Determinar si la preposición requiere el acusativo."
-  - "Completar con el artículo correcto en acusativo."
-respuestas_validas:
-  - "den"
-  - "Den"
-tipo: completar
-enunciado: "Er spricht ___ ___ Chef. (Präposition + Akkusativ)"
-explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."
+  tags: ["registro", "cortesia"]
+respuesta: falso
+tipo: vf
+enunciado: "En un correo formal a una persona desconocida se usa 'du', porque suena más cercano."
+explicacion: "En contextos formales se usa 'Sie' (con mayúscula), salvo que ambas partes acuerden tutearse."
 ```
 
----
-
-### 10 — Konjugation im Präteritum II  
-```  
+### 22 — Coma antes de 'dass'
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["verben", "präteritum"]
-pasos:
-  - "Identificar el verbo y su conjugación en Präteritum."
-  - "Elegir la forma correcta para el sujeto dado."
+  tags: ["puntuacion", "subordinadas"]
+enunciado: "¿Qué oración tiene la coma bien colocada?"
 opciones_explicitas:
-  - "fuhr"
-  - "fährt"
-  - "fahre"
-respuesta: "fuhr"  
+  - "Ich hoffe, dass Sie bald antworten."
+  - "Ich hoffe dass, Sie bald antworten."
+  - "Ich hoffe dass Sie, bald antworten."
+respuesta: "Ich hoffe, dass Sie bald antworten."
 tipo: mc
-enunciado: "Sie ___ gestern mit dem Auto. (Präteritum)"
-explicacion: "El verbo \"fahren\" en Präteritum para el sujeto \"sie\" es \"fuhr\", no \"fährt\" (Presente) ni \"fahre\" (Konjunktiv I)."
+explicacion: "La coma va justo antes de 'dass' (comienzo de la subordinada)."
 ```
 
----
-
-### 11 — Dativ mit Präpositionen II  
-```  
+### 23 — Anterioridad
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["präpositionen", "dativ"]
-pasos:
-  - "Identificar la preposición que requiere el dativo."
-  - "Completar con el artículo correcto en dativo."
-respuestas_validas:
-  - "dem"
-  - "Dem"
-tipo: completar
-enunciado: "Er hilft ___ ___ Nachbarn. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."
-```
-
----
-
-### 12 — Konjugation im Perfekt  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["verben", "perfekt"]
-pasos:
-  - "Identificar el verbo y su forma en Perfekt."
-  - "Elegir la conjugación correcta para el sujeto dado."
+  tags: ["tiempos", "narracion"]
+enunciado: "En 'Als ich ankam, war er bereits gegangen.', ¿qué tiempo expresa que él se fue antes de que yo llegara?"
 opciones_explicitas:
-  - "hat gearbeitet"
-  - "arbeitete"
-  - "arbeite"
-respuesta: "hat gearbeitet"  
+  - "Plusquamperfekt"
+  - "Futur I"
+  - "Präsens"
+respuesta: "Plusquamperfekt"
 tipo: mc
-enunciado: "Wir ___ gestern viel. (Perfekt)"
-explicacion: "El Perfekt de \"arbeiten\" para el sujeto \"wir\" es \"haben gearbeitet\", no el Präteritum ni Presente."
+explicacion: "'War gegangen' es el pluscuamperfecto: acción anterior a otra pasada."
 ```
 
----
-
-### 13 — Genitiv mit Präpositionen II  
-```  
+### 24 — Preposición con verbo
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["präpositionen", "genitiv"]
+  tags: ["preposiciones", "verbos"]
 pasos:
-  - "Determinar si la preposición requiere el genitivo."
-  - "Completar con el artículo correcto en genitivo."
-respuestas_validas:
-  - "des"
-  - "Des"
+  - "Elegir la preposición que rige el verbo."
 tipo: completar
-enunciado: "Er hat Angst ___ ___ Gesundheit. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
-```
-
----
-
-### 14 — Temporale Konstruktionen III  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["tempus", "konstruktion"]
-pasos:
-  - "Identificar la estructura temporal correcta."
-  - "Elegir el verbo en forma correcta para el contexto."
-opciones_explicitas:
-  - "hat geträumt"
-  - "traumte"
-  - "träume"
-respuesta: "hat geträumt"  
-tipo: mc
-enunciado: "Sie ___ im Schlaf, als es klingelte. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als es klingelte\"), por lo que se usa el Perfekt \"hat geträumt\", no el Präteritum o Presente."
-```
-
----
-
-### 15 — Akkusativ mit Präpositionen III  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Determinar si la preposición requiere el acusativo."
-  - "Completar con el artículo correcto en acusativo."
 respuestas_validas:
-  - "den"
-  - "Den"
-tipo: completar
-enunciado: "Sie spricht ___ ___ Chef. (Präposition + Akkusativ)"
-explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."
+  - "auf"
+enunciado: "Ich freue mich ______ Ihre Antwort."
+explicacion: "'Sich freuen auf + Akkusativ' expresa alegría por algo futuro; para algo pasado se usa 'sich freuen über'."
 ```
 
----
-
-### 16 — Konjugation im Präsens II  
-```  
+### 25 — 'Trotz' y su caso
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "writing-b2"
   nivel: "B2"
-  tags: ["verben", "präsens"]
-pasos:
-  - "Identificar el verbo y su conjugación en Presente."
-  - "Elegir la forma correcta para el sujeto dado."
-opciones_explicitas:
-  - "liest"
-  - "liest"
-  - "lies"
-respuesta: "liest"  
-tipo: mc
-enunciado: "Er ___ ein Buch. (Präsens)"
-explicacion: "El verbo \"lesen\" en Presente para \"er\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."
-```
-
----
-
-### 17 — Dativ mit Präpositionen III  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "dativ"]
-pasos:
-  - "Identificar la preposición que requiere el dativo."
-  - "Completar con el artículo correcto en dativo."
-respuestas_validas:
-  - "dem"
-  - "Dem"
-tipo: completar
-enunciado: "Sie hilft ___ ___ Nachbarn. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."
-```
-
----
-
-### 18 — Konjugation im Präteritum III  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["verben", "präteritum"]
-pasos:
-  - "Identificar el verbo y su conjugación en Präteritum."
-  - "Elegir la forma correcta para el sujeto dado."
-opciones_explicitas:
-  - "fuhr"
-  - "fährt"
-  - "fahre"
-respuesta: "fuhr"  
-tipo: mc
-enunciado: "Er ___ gestern mit dem Auto. (Präteritum)"
-explicacion: "El verbo \"fahren\" en Präteritum para el sujeto \"er\" es \"fuhr\", no \"fährt\" (Presente) ni \"fahre\" (Konjunktiv I)."
-```
-
----
-
-### 19 — Genitiv mit Präpositionen III  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "genitiv"]
-pasos:
-  - "Determinar si la preposición requiere el genitivo."
-  - "Completar con el artículo correcto en genitivo."
-respuestas_validas:
-  - "des"
-  - "Des"
-tipo: completar
-enunciado: "Er hat Angst ___ ___ Gesundheit. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
-```
-
----
-
-### 20 — Temporale Konstruktionen IV  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["tempus", "konstruktion"]
-pasos:
-  - "Identificar la estructura temporal correcta."
-  - "Elegir el verbo en forma correcta para el contexto."
-opciones_explicitas:
-  - "hat geschlafen"
-  - "schlief"
-  - "schläft"
-respuesta: "hat geschlafen"  
-tipo: mc
-enunciado: "Er ___ den ganzen Tag, als es klingelte. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als es klingelte\"), por lo que se usa el Perfekt \"hat geschlafen\", no el Präteritum o Presente."
-```
-
----
-
-### 21 — Akkusativ mit Präpositionen IV  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Determinar si la preposición requiere el acusativo."
-  - "Completar con el artículo correcto en acusativo."
-respuestas_validas:
-  - "den"
-  - "Den"
-tipo: completar
-enunciado: "Er spricht ___ ___ Chef. (Präposition + Akkusativ)"
-explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."
-```
-
----
-
-### 22 — Konjugation im Perfekt II  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["verben", "perfekt"]
-pasos:
-  - "Identificar el verbo y su forma en Perfekt."
-  - "Elegir la conjugación correcta para el sujeto dado."
-opciones_explicitas:
-  - "hat geschlafen"
-  - "schlief"
-  - "schläft"
-respuesta: "hat geschlafen"  
-tipo: mc
-enunciado: "Wir ___ gestern viel. (Perfekt)"
-explicacion: "El Perfekt de \"schlafen\" para el sujeto \"wir\" es \"haben geschlafen\", no el Präteritum ni Presente."
-```
-
----
-
-### 23 — Dativ mit Präpositionen IV  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "dativ"]
-pasos:
-  - "Identificar la preposición que requiere el dativo."
-  - "Completar con el artículo correcto en dativo."
-respuestas_validas:
-  - "dem"
-  - "Dem"
-tipo: completar
-enunciado: "Sie hilft ___ ___ Nachbarn. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."
-```
-
----
-
-### 24 — Konjugation im Präsens III  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["verben", "präsens"]
-pasos:
-  - "Identificar el verbo y su conjugación en Presente."
-  - "Elegir la forma correcta para el sujeto dado."
-opciones_explicitas:
-  - "liest"
-  - "liest"
-  - "lies"
-respuesta: "liest"  
-tipo: mc
-enunciado: "Er ___ ein Buch. (Präsens)"
-explicacion: "El verbo \"lesen\" en Presente para \"er\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."
-```
-
----
-
-### 25 — Genitiv mit Präpositionen IV  
-```  
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "writing-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "genitiv"]
-pasos:
-  - "Determinar si la preposición requiere el genitivo."
-  - "Completar con el artículo correcto en genitivo."
-respuestas_validas:
-  - "des"
-  - "Des"
-tipo: completar
-enunciado: "Er hat Angst ___ ___ Zukunft. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
+  tags: ["preposiciones", "casos"]
+respuesta: verdadero
+tipo: vf
+enunciado: "En alemán formal la preposición 'trotz' se usa con genitivo: 'trotz des Regens'."
+explicacion: "'Trotz' rige genitivo en el registro formal; en el habla coloquial aparece también con dativo."
 ```

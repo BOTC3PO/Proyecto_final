@@ -1,6 +1,6 @@
 # Informática — Protocolo HTTP: petición y respuesta  
 
-> Tema del MAPA: `informatica/protocolo-http-peticion-respuesta`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `informatica/protocolo-http-peticion-respuesta`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría (si esto se carga al sistema)  
 

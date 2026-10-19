@@ -1,6 +1,6 @@
 # Física — Tensión Diferencia Potencial (teoría)
 
-> Tema del MAPA: `fisica/tension-diferencia-potencial`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/tension-diferencia-potencial`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

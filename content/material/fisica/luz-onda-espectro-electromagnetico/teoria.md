@@ -14,7 +14,7 @@ La luz es una forma de energía que se propaga mediante ondas electromagnéticas
 
 Estas ondas poseen características definidas: frecuencia (número de oscilaciones por segundo), longitud de onda (distancia entre dos crestas consecutivas) y energía. La relación entre estas tres magnitudes es clave para entender su comportamiento: a mayor frecuencia, mayor energía; a menor longitud de onda, mayor frecuencia.
 
-[IMAGEN: Esquema de una onda electromagnética con campos eléctrico y magnético perpendiculares, indicando dirección de propagación]
+<!-- IMAGEN: Esquema de una onda electromagnética con campos eléctrico y magnético perpendiculares, indicando dirección de propagación -->
 
 ---
 
@@ -24,7 +24,7 @@ El espectro electromagnético es el conjunto ordenado de todas las posibles frec
 
 Desde la menor energía hasta la mayor, el orden es: **ondas de radio**, **microondas**, **infrarrojo**, **luz visible**, **radiación ultravioleta (UV)**, **rayos X** y **rayos gamma**. Cada región tiene aplicaciones específicas: las ondas de radio son usadas en comunicación; el infrarrojo, en sensores térmicos; los rayos X, en imágenes médicas.
 
-[IMAGEN: Escalera del espectro electromagnético con nombres y ejemplos de cada banda]
+<!-- IMAGEN: Escalera del espectro electromagnético con nombres y ejemplos de cada banda -->
 
 ---
 
@@ -34,7 +34,7 @@ Dentro del espectro electromagnético, la **luz visible** es solo una pequeña p
 
 La percepción de color depende de la frecuencia específica de cada onda. Por ejemplo, los objetos rojos reflejan luz con mayor longitud de onda que los azules. Este fenómeno se basa en cómo interactúa la luz con la materia, un tema clave para entender óptica y espectroscopía.
 
-[IMAGEN: Diagrama del espectro visible con colores ordenados y longitudes de onda aproximadas]
+<!-- IMAGEN: Diagrama del espectro visible con colores ordenados y longitudes de onda aproximadas -->
 
 ---
 

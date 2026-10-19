@@ -1,6 +1,6 @@
 # Automatización — Lazo abierto vs lazo cerrado (teoría)
 
-> Tema del MAPA: `automatizacion/lazo-abierto-vs-lazo-cerrado`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `automatizacion/lazo-abierto-vs-lazo-cerrado`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

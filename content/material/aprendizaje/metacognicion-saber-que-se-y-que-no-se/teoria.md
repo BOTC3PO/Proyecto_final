@@ -1,5 +1,5 @@
 # Aprendizaje — Metacognición: saber qué se y qué no se  
-> Tema del MAPA: `aprendizaje/metacognicion-saber-que-se-y-que-no-se`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `aprendizaje/metacognicion-saber-que-se-y-que-no-se`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 **Presentación** — Explicación sobre cómo las personas identifican sus conocimientos y limitaciones para mejorar su aprendizaje.  
@@ -29,7 +29,7 @@ La metacognición se compone de dos dimensiones principales: **el conocimiento**
 - El **conocimiento** es el "sé" que te permite reconocer tus habilidades, limitaciones y estilos de aprendizaje.  
 - La **regulación** es el "hago" que implica planificar, monitorear y evaluar tu proceso. Por ejemplo: si descubrís que un método de estudio no funciona, ajustarlo a otro.  
 
-[IMAGEN: Diagrama con dos círculos interconectados: uno etiquetado “Conocimiento” (sé qué se y cómo aprendo) y otro “Regulación” (planificar, monitorear, evaluar)].  
+<!-- IMAGEN: Diagrama con dos círculos interconectados: uno etiquetado “Conocimiento” (sé qué se y cómo aprendo) y otro “Regulación” (planificar, monitorear, evaluar) -->.  
 
 ---
 

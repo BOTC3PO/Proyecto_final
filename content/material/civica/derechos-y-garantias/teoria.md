@@ -66,6 +66,6 @@ de 1994, art. 43) son:
 Sin este par derecho-garantía, la declaración de derechos sería sólo
 un texto simbólico. Este esquema (derechos declarados + garantías para
 reclamarlos) es la base para entender después los derechos específicos
-de niños, pueblos indígenas y género (`../../derecho/s-nino/`,
-`../../derecho/s-indigenas/`, `../../derecho/s-genero/`), que son
+de niños, pueblos indígenas y género (`../../civica/derechos-nino/`,
+`../../civica/derechos-indigenas/`, `../../civica/derechos-genero/`), que son
 especificaciones concretas de este marco general.

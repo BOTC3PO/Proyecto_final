@@ -1,6 +1,6 @@
 # Física — Presión: fuerza sobre área (teoría)
 
-> Tema del MAPA: `fisica/presion-f-sobre-a`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/presion-f-sobre-a`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -15,7 +15,7 @@ La presión es una magnitud física que mide cuánta fuerza actúa perpendicular
 
 Este cociente indica cómo se distribuye la fuerza en un espacio dado. Por ejemplo, si una persona camina con zapatos planos o con tacón alto, la presión que ejerce en el suelo cambia porque la fuerza (peso) se reparte en áreas distintas.
 
-[IMAGEN: Fórmula P = F/A con ejemplos de fuerzas y áreas]
+<!-- IMAGEN: Fórmula P = F/A con ejemplos de fuerzas y áreas -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Psicología — Sesgos cognitivos: heurísticas, error sistemático (teoría)
 
-> Tema del MAPA: `psicologia/sesgos-cognitivos-heuristicas-error-sistematico`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/sesgos-cognitivos-heuristicas-error-sistematico`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

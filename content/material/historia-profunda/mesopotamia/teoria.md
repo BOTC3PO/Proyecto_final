@@ -1,6 +1,6 @@
 # Historia Profunda — Mesopotamia: El Cuna de la Civilización Urbana (teoría)
 
-> Tema del MAPA: `historia-profunda/mesopotamia`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/mesopotamia`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Mesopotamia, término de origen griego que significa "tierra entre ríos", abarc
 
 Esta necesidad de controlar el agua para la agricultura (principalmente de cebada y dátiles) impulsó la concentración de población y la cooperación a gran escala, factores clave para el nacimiento de la urbanización. Los primeros asentamientos sedentarios, como Uruk y Ur, comenzaron a florecer alrededor del **4000 a.C.**, dando paso a la llamada "Revolución Urbana". La sociedad pasó de ser rural y tribal a ser compleja, estratificada y dependiente de una burocracia centralizada para administrar los canales de riego y el almacenamiento de excedentes.
 
-[IMAGEN: Mapa simplificado de Mesopotamia antigua mostrando la ubicación de Ur, Uruk, Nínive y la diferencia entre el norte montañoso y el sur llano]
+<!-- IMAGEN: Mapa simplificado de Mesopotamia antigua mostrando la ubicación de Ur, Uruk, Nínive y la diferencia entre el norte montañoso y el sur llano -->
 
 ## 2. La invención de la escritura y la burocracia
 
@@ -34,7 +34,7 @@ Mesopotamia nunca formó un estado unificado estable durante su fase clásica. E
 
 A lo largo de los siglos, el poder político osciló entre diferentes pueblos: sumerios, acadios, amorritas (quienes fundaron la dinastía de Babilonia), casitas y, finalmente, los asirios y babilonios neobabilónicos en la etapa tardía. Cada grupo aportó innovaciones, pero mantuvo la base cultural sumeria. La ascensión de **Babilonia** bajo Hammurabi (c. 1792-1750 a.C.) marcó un punto alto en la centralización administrativa y la promulgación de códigos legales escritos, aunque el imperio se desintegró tras su muerte.
 
-[IMAGEN: Detalle de una tablilla cuneiforme o relieve del Código de Hammurabi]
+<!-- IMAGEN: Detalle de una tablilla cuneiforme o relieve del Código de Hammurabi -->
 
 ## 5. Legado científico y tecnológico
 

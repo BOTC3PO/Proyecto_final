@@ -1,6 +1,6 @@
 # Historia Profunda — Hominización (teoría)
 
-> Tema del MAPA: `historia-profunda/hominizacion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/hominizacion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. La bipedestación: el primer rasgo distintivo
 
-El paso de caminar sobre cuatro extremidades al uso exclusivo de dos (bipedestación) fue el evento clave que marcó la transición hacia los homínidos. Este cambio no fue solo funcional, sino evolutivo: permitió liberar las manos para manipular objetos, transportar alimentos y, eventualmente, fabricar herramientas. La postura erguida también modificó la estructura ósea del cráneo, el tórax y la pelvis, adaptándose a una vida en ambientes abiertos como los sotobosques o las estepas. [IMAGEN: esqueleto comparativo entre primate cuadrúpedo y homínido bípedo].
+El paso de caminar sobre cuatro extremidades al uso exclusivo de dos (bipedestación) fue el evento clave que marcó la transición hacia los homínidos. Este cambio no fue solo funcional, sino evolutivo: permitió liberar las manos para manipular objetos, transportar alimentos y, eventualmente, fabricar herramientas. La postura erguida también modificó la estructura ósea del cráneo, el tórax y la pelvis, adaptándose a una vida en ambientes abiertos como los sotobosques o las estepas. <!-- IMAGEN: esqueleto comparativo entre primate cuadrúpedo y homínido bípedo -->.
 
 ## 2. Cronología de las especies hominidas
 

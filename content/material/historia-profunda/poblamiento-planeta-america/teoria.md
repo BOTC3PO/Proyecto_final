@@ -12,7 +12,7 @@
 
 La teoría más aceptada por la ciencia sostiene que los primeros *Homo sapiens* surgieron en África hace aproximadamente 300.000 años. Allí, condiciones climáticas y ecológicas favorables permitieron el desarrollo de características distintivas como la capacidad de crear herramientas complejas, el lenguaje simbólico y una mayor adaptación social. Estudios genéticos y fósiles respaldan que este continente fue el crisol donde se consolidó nuestra especie.
 
-[IMAGEN: mapa con centros de origen en África y rutas migratorias hacia otros continentes]
+<!-- IMAGEN: mapa con centros de origen en África y rutas migratorias hacia otros continentes -->
 
 ---
 
@@ -38,7 +38,7 @@ Este orden no es estricto en todos los casos, pero refleja el consenso científi
 
 La llegada al continente americano fue un hito crucial. Según la hipótesis más aceptada, los primeros humanos cruzaron desde Asia a través de **Beringia**, una tierra que conectaba Siberia con Alaska durante el Pleistoceno, cuando los niveles del mar eran más bajos. Este puente terrestre permitió el paso de grupos humanos que eventualmente se extendieron por todo el continente.
 
-[IMAGEN: mapa mostrando la conexión entre Asia y América a través de Beringia en la última glaciación]
+<!-- IMAGEN: mapa mostrando la conexión entre Asia y América a través de Beringia en la última glaciación -->
 
 ---
 

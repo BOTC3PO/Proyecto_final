@@ -1,6 +1,6 @@
 # Historia Profunda — Conquista y colonización de América  
 
-> Tema del MAPA: `historia-profunda/conquista-colonizacion-america`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `historia-profunda/conquista-colonizacion-america`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 **Presentación** — Análisis del proceso histórico que transformó el continente americano tras la llegada europea.  
@@ -13,7 +13,7 @@ En 1492, Cristóbal Colón emprendió un viaje desde España con el objetivo de 
 
 La llegada de los españoles no fue un acto único ni pacífico: implicó contactos iniciales, intercambios culturales y comerciales, pero también conflictos violentos. La introducción de enfermedades como la viruela o el sarampión, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo en la caída de civilizaciones poderosas, aunque no siempre directo ni inmediato. (El cólera, en cambio, no llegó a América hasta el siglo XIX.)  
 
-[IMAGEN: Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos]  
+<!-- IMAGEN: Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos -->  
 
 ---
 
@@ -23,7 +23,7 @@ La expansión española se fundamentó en la toma de poder sobre grandes imperio
 
 Por su parte, Francisco Pizarro conquistó el imperio inca en 1532, aprovechando la debilidad interna tras una guerra civil y la propagación de enfermedades. La captura del inca Atahualpa fue clave para desestabilizar el gobierno central. Estos casos muestran cómo los conquistadores no actuaron solos: siempre contaron con apoyos locales, recursos logísticos y una visión imperialista de España.  
 
-[IMAGEN: Representación artística del asedio a Tenochtitlán o la captura del inca Atahualpa]  
+<!-- IMAGEN: Representación artística del asedio a Tenochtitlán o la captura del inca Atahualpa -->  
 
 ---
 
@@ -33,7 +33,7 @@ Tras las primeras conquistas, se necesitó un marco para distribuir los territor
 
 El tratado reflejaba el interés de ambas naciones por evitar guerras y asegurar sus expansiones. Sin embargo, su aplicación fue flexible: Portugal se enfocó en Brasil, mientras que España dominó gran parte del continente. Esta división marcó el inicio de un sistema colonial basado en la explotación de recursos naturales y la imposición cultural.  
 
-[IMAGEN: Mapa con la línea de demarcación del Tratado de Tordesillas]  
+<!-- IMAGEN: Mapa con la línea de demarcación del Tratado de Tordesillas -->  
 
 ---
 
@@ -43,7 +43,7 @@ La conquista no fue el fin, sino el comienzo de un proceso más prolongado: la c
 
 Este sistema implicó la explotación laboral de los indígenas mediante sistemas como el *encomienda* y, posteriormente, el *mita*, junto con la introducción de esclavos africanos tras la prohibición del trabajo indígena en ciertas áreas. Además, se impusieron religión, lengua y costumbres europeas a través de misiones y leyes coloniales.  
 
-[IMAGEN: Diagrama de la estructura colonial española con virreinatos y sistemas económicos]  
+<!-- IMAGEN: Diagrama de la estructura colonial española con virreinatos y sistemas económicos -->  
 
 ---
 

@@ -12,7 +12,7 @@
 
 Una **variable** es un contenedor en la memoria de la computadora que guarda un valor y puede cambiar durante la ejecución del programa. Cada variable tiene un nombre, como `edad` o `precio`, que sirve para referirse a su contenido desde distintos puntos del código. Al crear una variable, se le asigna un tipo de dato que define qué clase de información podrá almacenar: números, texto, verdadero/falso, etc.
 
-[IMAGEN: Diagrama sencillo mostrando una variable "edad" con valor 18 en la memoria]
+<!-- IMAGEN: Diagrama sencillo mostrando una variable "edad" con valor 18 en la memoria -->
 
 ---
 
@@ -25,7 +25,7 @@ Los **tipos de datos** determinan qué operaciones se pueden realizar con el val
 - **Texto (cadena)**: Secuencias de caracteres entre comillas, como `'Hola'` o `"Buen día"`. Se usan para mensajes, nombres, descripciones.
 - **Booleano**: Solo puede tomar dos valores: `verdadero` (`true`) o `falso` (`false`). Es clave en decisiones condicionales y validaciones.
 
-[IMAGEN: Tabla comparando ejemplos de cada tipo de dato]
+<!-- IMAGEN: Tabla comparando ejemplos de cada tipo de dato -->
 
 ---
 

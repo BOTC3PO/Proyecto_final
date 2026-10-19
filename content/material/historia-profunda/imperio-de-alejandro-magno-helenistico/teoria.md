@@ -1,6 +1,6 @@
 # Historia Profunda — El Imperio de Alejandro Magno y la Era Helenística (teoría)
 
-> Tema del MAPA: `historia-profunda/imperio-de-alejandro-magno-helenistico`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/imperio-de-alejandro-magno-helenistico`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 A finales del siglo IV a.C., la *polis* griega, modelo político y social que había dominado la historia helénica durante siglos, entraba en una profunda crisis. El agotamiento de las guerras del Peloponeso, la imposibilidad de reconciliar a las ciudades-estado rivales y la incapacidad de hacer frente a una potencia externa unificada (Esparta, luego Tebas) dejaron el panorama fragmentado. Esta debilidad estructural permitió la intervención de un nuevo actor: el Reino de Macedonia, al norte de Grecia. Bajo Filipo II, Macedonia había reorganizado su ejército y su diplomacia, consolidando su hegemonía tras la batalla de Queronea (338 a.C.). Sin embargo, la muerte prematura de Filipo y la ascensión de su hijo, Alejandro III (Alejandro Magno), transformaría una hegemonía regional en un proyecto de conquista universal.
 
-[IMAGEN: Mapa que muestra la expansión del imperio de Alejandro, desde Grecia hasta la India, destacando las principales batallas y ciudades fundadas]
+<!-- IMAGEN: Mapa que muestra la expansión del imperio de Alejandro, desde Grecia hasta la India, destacando las principales batallas y ciudades fundadas -->
 
 ## 2. Las campañas de Alejandro Magno (334-323 a.C.)
 

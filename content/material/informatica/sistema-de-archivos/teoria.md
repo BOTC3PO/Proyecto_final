@@ -1,6 +1,6 @@
 # Informática — Sistema de archivos (teoría)
 
-> Tema del MAPA: `informatica/sistema-de-archivos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/sistema-de-archivos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -34,7 +34,7 @@ C:\
 
 Para acceder a un archivo, se usa una **ruta** (path) que indica su posición desde la raíz. Estas rutas pueden ser absolutas (`C:\Usuarios\Ana\Documentos\informe.docx`) o relativas (como `Documentos\informe.docx` si ya estás en `Usuarios\Ana`).
 
-[IMAGEN: Árbol jerárquico con raíz, directorios y archivos]
+<!-- IMAGEN: Árbol jerárquico con raíz, directorios y archivos -->
 
 ---
 
@@ -48,7 +48,7 @@ Además del contenido mismo, cada archivo tiene **metadatos**, que son "datos so
 
 Los metadatos no son visibles cuando abrís un archivo, pero son esenciales para que el sistema operativo funcione. Por ejemplo, si un archivo tiene permisos de lectura solamente, nadie podrá editarlo aunque lo vea.
 
-[IMAGEN: Tabla comparando atributos de dos archivos distintos]
+<!-- IMAGEN: Tabla comparando atributos de dos archivos distintos -->
 
 ---
 

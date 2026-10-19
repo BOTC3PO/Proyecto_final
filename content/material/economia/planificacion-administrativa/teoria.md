@@ -1,6 +1,6 @@
 # Economía — Planificación Administrativa (teoría)
 
-> Tema del MAPA: `economia/planificacion-administrativa`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/planificacion-administrativa`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

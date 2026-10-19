@@ -1,6 +1,6 @@
 # Derecho — Apelación e Instancias (teoría)
 
-> Tema del MAPA: `derecho/apelacion-e-instancias`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/apelacion-e-instancias`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

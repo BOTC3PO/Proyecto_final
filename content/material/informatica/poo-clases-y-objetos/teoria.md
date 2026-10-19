@@ -1,6 +1,6 @@
 # Informática — POO: Clases y Objetos (teoría)
 
-> Tema del MAPA: `informatica/poo-clases-y-objetos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/poo-clases-y-objetos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 En la programación orientada a objetos, una **clase** es un molde o plantilla que define qué elementos y acciones tendrán los objetos creados a partir de ella. No es un objeto en sí mismo, sino el patrón que se usa para construirlos. Por ejemplo, si pensás en una clase "Perro", esta contendrá las características generales de todos los perros (como nombre, raza o edad) y las acciones que pueden realizar (como ladrar o correr). Cada objeto que se cree a partir de esa clase será un perro específico con sus propias cualidades.
 
-[IMAGEN: Diagrama de una clase "Perro" con atributos como `nombre`, `raza` y métodos como `ladrar()`]
+<!-- IMAGEN: Diagrama de una clase "Perro" con atributos como `nombre`, `raza` y métodos como `ladrar()` -->
 
 ---
 

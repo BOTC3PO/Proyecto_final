@@ -1,6 +1,6 @@
 # Derecho — Investigación, prueba y fiscalía (teoría)
 
-> Tema del MAPA: `derecho/investigacion-prueba-y-fiscalia`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/investigacion-prueba-y-fiscalia`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

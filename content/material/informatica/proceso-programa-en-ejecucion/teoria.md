@@ -1,6 +1,6 @@
 # Informática — Proceso programa en ejecución (teoría)
 
-> Tema del MAPA: `informatica/proceso-programa-en-ejecucion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/proceso-programa-en-ejecucion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

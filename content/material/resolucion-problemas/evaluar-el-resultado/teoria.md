@@ -1,6 +1,6 @@
 # Resolución de Problemas — Evaluar el Resultado (teoría)
 
-> Tema del MAPA: `resolucion-problemas/evaluar-el-resultado`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/evaluar-el-resultado`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

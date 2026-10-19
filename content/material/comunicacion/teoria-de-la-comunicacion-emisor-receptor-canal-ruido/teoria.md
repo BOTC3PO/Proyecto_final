@@ -1,6 +1,6 @@
 # Comunicación — Teoría de la comunicación: emisor, receptor, canal y ruido (teoría)
 
-> Tema del MAPA: `comunicacion/teoria-de-la-comunicacion-emisor-receptor-canal-ruido`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `comunicacion/teoria-de-la-comunicacion-emisor-receptor-canal-ruido`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -32,7 +32,7 @@ Ningún proceso comunicativo es perfecto: siempre existe un **ruido**, definido 
 - **Psicológico**: prejuicios, emociones intensas o sesgos que distorsionan la interpretación.
 - **Contextual**: diferencias culturales o situacionales que modifican el significado esperado.
 
-Este concepto resalta que la comunicación no es solo un intercambio de información, sino una negociación entre lo que se envía y lo que se recibe. [IMAGEN: Diagrama con los elementos básicos del proceso comunicativo, destacando flechas que muestran el flujo del mensaje y posibles puntos de distorsión].
+Este concepto resalta que la comunicación no es solo un intercambio de información, sino una negociación entre lo que se envía y lo que se recibe. <!-- IMAGEN: Diagrama con los elementos básicos del proceso comunicativo, destacando flechas que muestran el flujo del mensaje y posibles puntos de distorsión -->.
 
 ---
 

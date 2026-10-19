@@ -1,6 +1,6 @@
 # Física — Campo magnético: imanes y corrientes (teoría)
 
-> Tema del MAPA: `fisica/campo-magnetico-imanes-corrientes`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/campo-magnetico-imanes-corrientes`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Un imán es un material que posee la capacidad de atraer ciertos objetos metálicos, como hierro, níquel o cobalto. Su propiedad fundamental radica en los **polos magnéticos**, las regiones donde la fuerza magnética es más intensa. Cada imán tiene dos polos: uno norte y otro sur. Estos polos interactúan entre sí según una regla simple: los polos opuestos se atraen (norte con sur), mientras que los polos iguales se repelen (norte con norte, sur con sur). Esta característica permite el uso de imanes en aplicaciones prácticas como compases, motores o sistemas de frenado.
 
-[IMAGEN: Diagrama de un imán con sus polos marcados y líneas de campo magnético alrededor]
+<!-- IMAGEN: Diagrama de un imán con sus polos marcados y líneas de campo magnético alrededor -->
 
 ---
 
@@ -34,7 +34,7 @@ Un electroimán es un dispositivo que aprovecha la relación entre electricidad 
 
 Al pasar corriente por la bobina, se genera un campo magnético que se intensifica gracias al núcleo ferromagnético. La ventaja principal del electroimán es que su campo puede ser encendido o apagado simplemente conectando o desconectando la corriente, lo que lo hace útil en aplicaciones como grúas magnéticas, relés o motores eléctricos.
 
-[IMAGEN: Esquema de un electroimán con bobina, núcleo y dirección del campo magnético]
+<!-- IMAGEN: Esquema de un electroimán con bobina, núcleo y dirección del campo magnético -->
 
 ---
 

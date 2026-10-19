@@ -1,6 +1,6 @@
 # Lengua — Escritura como tecnología (teoría)
 
-> Tema del MAPA: `lengua/escritura-como-tecnologia`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `lengua/escritura-como-tecnologia`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

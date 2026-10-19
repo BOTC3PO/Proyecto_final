@@ -1,6 +1,6 @@
 # Psicología — Salud mental, ansiedad, depresión y pedir ayuda (teoría)
 
-> Tema del MAPA: `psicologia/salud-mental-ansiedad-depresion-pedir-ayuda`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/salud-mental-ansiedad-depresion-pedir-ayuda`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 
@@ -12,7 +12,7 @@
 
 La ansiedad es una respuesta natural del cuerpo al estrés o a situaciones que percibe como amenazantes. Se manifiesta como un estado de alerta constante, con tensión física (palpitaciones, sudoración) y emocional (preocupación, miedo). Aunque es útil para prepararse ante peligros reales, cuando se prolonga sin motivo o interfiere en la vida cotidiana, deja de ser una reacción normal y se convierte en un trastorno. Por ejemplo, sentirse agobiado por un examen es común; pero si esa sensación persiste meses y afecta el estudio, el sueño o las relaciones sociales, podría indicar ansiedad patológica.
 
-[IMAGEN: Representación del sistema nervioso activándose ante una situación estresante]
+<!-- IMAGEN: Representación del sistema nervioso activándose ante una situación estresante -->
 
 ---
 
@@ -20,7 +20,7 @@ La ansiedad es una respuesta natural del cuerpo al estrés o a situaciones que p
 
 La depresión no es solo "tristeza" temporal: es un malestar profundo que altera el funcionamiento diario. Entre sus señales clave está la anhedonia, que es la pérdida del placer por actividades que antes gustaban (como deportes, música o salir con amigos). También pueden aparecer fatiga extrema, insomnio o sueño excesivo, cambios en el apetito y dificultad para concentrarse. Importante: estos síntomas no deben confundirse con trastornos pasajeros, como el estrés laboral o la adaptación a un cambio de vida.
 
-[IMAGEN: Diagrama comparativo entre estados emocionales normales y patológicos]
+<!-- IMAGEN: Diagrama comparativo entre estados emocionales normales y patológicos -->
 
 ---
 

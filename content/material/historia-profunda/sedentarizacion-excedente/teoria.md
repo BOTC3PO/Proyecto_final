@@ -11,7 +11,7 @@
 
 La sedentarización marcó un cambio fundamental en la historia humana: grupos que antes se movían constantemente para buscar recursos pasaron a establecerse en un lugar fijo. Esto fue posible gracias al desarrollo de la agricultura, que permitió producir alimentos de manera controlada y repetitiva. Antes, la supervivencia dependía de la caza, la pesca o la recolección de plantas silvestres, actividades que exigían desplazamientos frecuentes. Con el cultivo de cereales como trigo, cebada o maíz, los humanos pudieron generar un excedente alimentario que no solo garantizaba su subsistencia, sino que también permitía almacenar y distribuir recursos en el tiempo.  
 
-[IMAGEN: Esquema comparativo entre vida nómada y sedentaria, con iconos de herramientas agrícolas y almacenes.]  
+<!-- IMAGEN: Esquema comparativo entre vida nómada y sedentaria, con iconos de herramientas agrícolas y almacenes. -->  
 
 ---
 
@@ -31,7 +31,7 @@ El excedente agrícola fue la clave para que surgieran sociedades más complejas
 
 Con el excedente, apareció una división del trabajo sin precedentes. No todos los individuos tenían que dedicarse a cultivar tierra: algunos se enfocaron en construir viviendas, otros en elaborar herramientas o en desarrollar sistemas de escritura para registrar transacciones. Esta especialización fue un motor de innovación y crecimiento, ya que permitió el intercambio de conocimientos y habilidades entre personas con roles distintos. Por ejemplo, un artesano podía dedicarse a crear cerámica mientras otros se encargaban de la administración de almacenes o de la defensa del asentamiento.  
 
-[IMAGEN: Diagrama que muestra cómo el excedente alimentario permite la especialización en diferentes áreas (artesanía, comercio, gobernanza).]  
+<!-- IMAGEN: Diagrama que muestra cómo el excedente alimentario permite la especialización en diferentes áreas (artesanía, comercio, gobernanza). -->  
 
 ---
 

@@ -1,6 +1,6 @@
 # Derecho — Ramas del derecho (teoria)
 
-> Tema del MAPA: `derecho/ramas-del-derecho`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/ramas-del-derecho`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

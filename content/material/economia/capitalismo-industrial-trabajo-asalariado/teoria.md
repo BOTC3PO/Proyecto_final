@@ -1,6 +1,6 @@
 # Economía — Capitalismo industrial: trabajo asalariado (teoría)
 
-> Tema del MAPA: `economia/capitalismo-industrial-trabajo-asalariado`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `economia/capitalismo-industrial-trabajo-asalariado`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ El capitalismo industrial es un modelo económico que se desarrolló a partir de
 
 En este contexto, los medios de producción (como las fábricas) no pertenecen a los trabajadores, sino a **capitalistas** que invierten recursos para generar riqueza. Esta separación entre quienes poseen los bienes productivos y quienes realizan el trabajo conduce a una estructura social basada en relaciones de dependencia económica: los obreros necesitan vender su capacidad laboral (fuerza de trabajo) para sobrevivir, mientras que los capitalistas obtienen ganancias mediante la explotación del esfuerzo humano.
 
-[IMAGEN: Esquema comparativo entre sistema feudal y capitalismo industrial, destacando la propiedad de medios de producción]
+<!-- IMAGEN: Esquema comparativo entre sistema feudal y capitalismo industrial, destacando la propiedad de medios de producción -->
 
 ---
 

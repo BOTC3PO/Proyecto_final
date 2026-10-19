@@ -1,6 +1,6 @@
 # Historia Profunda — El Antiguo Egipto: Civilización del Nilo (teoría)
 
-> Tema del MAPA: `historia-profunda/antiguo-egipto`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/antiguo-egipto`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La historia de Egipto es inseparable de su geografía. El historiador griego Her
 
 Hacia el 3100 a.C., según la tradición histórica, el rey Menes (o Narmer) unificó el Alto Egipto (el sur, valle estrecho) y el Bajo Egipto (el norte, delta fértil). Esta unificación no fue solo política, sino simbólica, representada por la doble corona que llevaba el faraón. El Estado centralizado resultante necesitaba una burocracia eficiente para gestionar el riego, el almacenamiento de granos y la recolección de impuestos, lo que impulsó el desarrollo de la escritura jeroglífica y la administración estatal temprana.
 
-[IMAGEN: Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas]
+<!-- IMAGEN: Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas -->
 
 ## 2. Los grandes periodos dinásticos
 
@@ -36,7 +36,7 @@ La sociedad egipcia era jerárquica pero móvil. En la cúspide estaba el faraó
 
 A diferencia de otras civilizaciones antiguas, Egipto no contó con una clase esclavista masiva para la construcción de monumentos; la mano de obra era principalmente campesina que trabajaba en obras públicas como parte de su obligación tributaria o jornalera especializada. La mayoría de la población eran agricultores libres, sometidos a impuestos en grano, pero con derechos legales reconocidos. Las mujeres egipcias disfrutaban de una libertad relativa comparada con otras culturas antiguas: podían poseer propiedades, iniciar divorcios y participar en actividades comerciales, aunque los cargos políticos y religiosos de alto nivel estaban predominantemente reservados a los hombres.
 
-[IMAGEN: Escena de vida cotidiana en una tumba tebana mostrando cultivo y pesca]
+<!-- IMAGEN: Escena de vida cotidiana en una tumba tebana mostrando cultivo y pesca -->
 
 ## 5. Legado y fin de la civilización
 

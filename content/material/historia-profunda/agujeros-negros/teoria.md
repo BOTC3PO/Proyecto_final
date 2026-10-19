@@ -1,6 +1,6 @@
 # Historia Profunda — Agujeros Negros (teoría)
 
-> Tema del MAPA: `historia-profunda/agujeros-negros`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/agujeros-negros`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

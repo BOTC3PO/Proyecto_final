@@ -1,6 +1,6 @@
 # Historia Profunda — Datación Radiométrica (teoría)
 
-> Tema del MAPA: `historia-profunda/datacion-radiometrica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/datacion-radiometrica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -10,7 +10,7 @@
 
 ## 1. Concepto de vida media
 
-La **vida media** es el tiempo que tarda la mitad de los átomos de un isótopo radiactivo en descomponerse naturalmente. Por ejemplo, si se tiene una muestra de carbono-14 con 100 gramos al inicio, después de su vida media (5730 años), quedarán 50 gramos. Este valor no cambia: es constante para cada isótopo y lo hace útil para datar materiales en la Tierra. [IMAGEN: gráfico que muestra la reducción del 100% a 50%, luego a 25%, etc., con marcas de vida media].
+La **vida media** es el tiempo que tarda la mitad de los átomos de un isótopo radiactivo en descomponerse naturalmente. Por ejemplo, si se tiene una muestra de carbono-14 con 100 gramos al inicio, después de su vida media (5730 años), quedarán 50 gramos. Este valor no cambia: es constante para cada isótopo y lo hace útil para datar materiales en la Tierra. <!-- IMAGEN: gráfico que muestra la reducción del 100% a 50%, luego a 25%, etc., con marcas de vida media -->.
 
 ## 2. Cómo se calcula el isótopo remanente
 

@@ -62,4 +62,4 @@ formal.
 
 La identidad de género es un eje más de la autonomía sobre el propio
 cuerpo y la propia vida, la misma lógica de fondo que atraviesa
-`../consentimiento/` y `../../derecho/s-leyes-26150-27610-linea144/`.
+`../consentimiento/` y `../../esi/derechos-leyes-26150-27610-linea144/`.

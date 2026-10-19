@@ -1,6 +1,6 @@
 # Derecho — Derecho Constitucional (teoría)
 
-> Tema del MAPA: `derecho/derecho-constitucional`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/derecho-constitucional`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

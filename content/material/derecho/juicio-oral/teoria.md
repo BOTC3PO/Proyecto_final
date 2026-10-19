@@ -1,6 +1,6 @@
 # Derecho — Juicio Oral (teoría)
 
-> Tema del MAPA: `derecho/juicio-oral`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/juicio-oral`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -24,7 +24,7 @@ El juicio oral sigue un orden fijo de pasos:
 3. **Alegatos de clausura**: Al finalizar la producción de pruebas, los letrados resumen su argumento y piden el veredicto.  
 4. **Sentencia**: El tribunal anuncia si declara culpable o absuelto al acusado, basándose en lo discutido.  
 
-[IMAGEN: Diagrama con las etapas del juicio oral en orden cronológico]
+<!-- IMAGEN: Diagrama con las etapas del juicio oral en orden cronológico -->
 
 ## 4. Características Esenciales
 

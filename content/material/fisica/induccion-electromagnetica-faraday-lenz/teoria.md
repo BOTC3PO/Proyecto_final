@@ -1,6 +1,6 @@
 # Física — Inducción electromagnética (Faraday y Lenz)  
 
-> Tema del MAPA: `fisica/induccion-electromagnetica-faraday-lenz`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `fisica/induccion-electromagnetica-faraday-lenz`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría (si esto se carga al sistema)  
 

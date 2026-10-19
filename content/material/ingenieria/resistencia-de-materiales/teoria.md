@@ -1,6 +1,6 @@
 # Ingeniería — Resistencia de materiales (teoría)
 
-> Tema del MAPA: `ingenieria/resistencia-de-materiales`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ingenieria/resistencia-de-materiales`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -15,7 +15,7 @@ $$\sigma = \frac{F}{A}$$
 
 Esta magnitud permite evaluar si un material puede resistir cargas sin romperse. Por ejemplo, en un cable de acero que sostiene un peso, la tensión ayuda a determinar si el diámetro del cable es suficiente para evitar su rotura.
 
-[IMAGEN: Diagrama mostrando una fuerza aplicada sobre una sección transversal con flechas indicando dirección y área]
+<!-- IMAGEN: Diagrama mostrando una fuerza aplicada sobre una sección transversal con flechas indicando dirección y área -->
 
 ---
 
@@ -30,7 +30,7 @@ Los materiales pueden soportar diferentes **tipos de esfuerzo** según la direcc
 
 Cada tipo de carga requiere análisis específico para diseñar estructuras seguras y eficientes.
 
-[IMAGEN: Ilustración comparando los cuatro tipos de esfuerzo con ejemplos cotidianos]
+<!-- IMAGEN: Ilustración comparando los cuatro tipos de esfuerzo con ejemplos cotidianos -->
 
 ---
 
@@ -41,7 +41,7 @@ El **triángulo** es la figura más rígida porque sus ángulos no pueden variar
 
 En contraste, formas como cuadriláteros o polígonos con más lados tienden a deformarse fácilmente si no se refuerzan con diagonales (que convierten las figuras en triángulos).
 
-[IMAGEN: Comparación entre un cuadrado y un triángulo bajo carga, mostrando la deformación del primero]
+<!-- IMAGEN: Comparación entre un cuadrado y un triángulo bajo carga, mostrando la deformación del primero -->
 
 ---
 

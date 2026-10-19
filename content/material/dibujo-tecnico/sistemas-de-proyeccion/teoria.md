@@ -1,6 +1,6 @@
 # Dibujo Técnico — Sistemas de Proyección (teoría)
 
-> Tema del MAPA: `dibujo-tecnico/sistemas-de-proyeccion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `dibujo-tecnico/sistemas-de-proyeccion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ En este sistema, los rayos proyectantes son siempre **paralelos entre sí** y pe
 
 La proyección ortogonal es la base para dibujos técnicos industriales y arquitectónicos. Se usan varias vistas (como alzado, planta y perfil) para mostrar el objeto desde diferentes direcciones sin distorsionar ninguna dimensión. Por ejemplo, si un cubo se dibuja en proyección ortogonal, sus lados aparecerán como rectángulos perfectos, no como rombos o figuras inclinadas.
 
-[IMAGEN: Esquema de una caja mostrando tres vistas ortogonales: alzado, planta y perfil]
+<!-- IMAGEN: Esquema de una caja mostrando tres vistas ortogonales: alzado, planta y perfil -->
 
 ---
 
@@ -34,7 +34,7 @@ La variante más común es la **isométrica**, donde los tres ejes principales f
 
 Otras versiones incluyen la **dimétrica** (dos ejes con la misma escala y el tercero distinto) y la **trimétrica** (todos los ejes a escalas diferentes). La elección depende de lo que se quiere destacar del objeto: por ejemplo, en piezas mecánicas complejas suele usarse la trimétrica para mostrar detalles en múltiples direcciones.
 
-[IMAGEN: Comparación entre proyección isométrica y ortogonal de un cilindro]
+<!-- IMAGEN: Comparación entre proyección isométrica y ortogonal de un cilindro -->
 
 ---
 
@@ -46,7 +46,7 @@ La ventaja de la oblicua es su simplicidad: se dibuja primero la vista frontal e
 
 Un detalle importante: aunque la cara frontal no se deforma, los demás elementos sí lo hacen. Por ejemplo, un cubo dibujado en proyección oblicua tendrá su cara lateral inclinada y sus lados laterales con medidas reducidas comparadas con el sistema ortogonal.
 
-[IMAGEN: Ejemplo de un prisma hexagonal en proyección oblicua]
+<!-- IMAGEN: Ejemplo de un prisma hexagonal en proyección oblicua -->
 
 ---
 

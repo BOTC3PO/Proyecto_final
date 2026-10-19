@@ -39,7 +39,7 @@ En el alemán B2, la escritura requiere:
 ## Comparación con el español
 El alemán requiere más **compuestos** que el español. Por ejemplo:
 - Español: *bolsa de papel* → Alemán: *Papierbeutel*.
-- Español: *transporte público* → Alemán: *Öffentlicher Verkehr*.
+- Español: *transporte público* → Alemán: *öffentlicher Verkehr* (o *Nahverkehr*).
 
 Además, en alemán las **cláusulas subordinadas** siempre llevan el verbo al final, algo que no ocurre en español. Por ejemplo:
 - Español: *Cuando llegué, ya se había ido.*

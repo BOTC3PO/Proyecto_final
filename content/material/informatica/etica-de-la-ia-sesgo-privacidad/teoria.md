@@ -14,7 +14,7 @@ El sesgo algorítmico ocurre cuando un sistema de inteligencia artificial reprod
 
 Por ejemplo: un algoritmo de contratación podría favorecer candidatos de ciertos grupos si los datos históricos muestran que se les otorgaron más empleos. El problema no está en la tecnología, sino en las decisiones humanas que moldean los datos y el diseño del modelo.
 
-[IMAGEN: Diagrama de un algoritmo entrenado con datos sesgados, mostrando cómo se genera una salida injusta]
+<!-- IMAGEN: Diagrama de un algoritmo entrenado con datos sesgados, mostrando cómo se genera una salida injusta -->
 
 ---
 
@@ -24,7 +24,7 @@ Cuando se entrena una inteligencia artificial, se usan grandes volúmenes de inf
 
 La legislación actual (como el GDPR en Europa o la Ley 25.326 de Protección de Datos en Argentina) exige que los datos personales sean anonimizados o pseudonimizados antes de usarse. Sin embargo, muchos modelos aún operan con datos no procesados, lo que puede permitir identificar a individuos incluso si se ocultan sus nombres.
 
-[IMAGEN: Flujo de información desde la recolección de datos hasta el entrenamiento del modelo, destacando puntos críticos para la privacidad]
+<!-- IMAGEN: Flujo de información desde la recolección de datos hasta el entrenamiento del modelo, destacando puntos críticos para la privacidad -->
 
 ---
 
@@ -36,7 +36,7 @@ Los sesgos no nacen solos. Pueden surgir en tres etapas clave:
 2. **En el diseño del algoritmo**: Algunos modelos priorizan ciertas características sobre otras. Por ejemplo, un sistema que valora "experiencia laboral" puede penalizar a quienes tomaron tiempos de baja por cuidado familiar.
 3. **En la implementación**: Incluso si un modelo es imparcial en teoría, su uso en contextos específicos (como préstamos hipotecarios) puede generar efectos sesgados si no se revisan sus decisiones.
 
-[IMAGEN: Tres columnas con ejemplos de sesgos en datos, diseño y uso real]
+<!-- IMAGEN: Tres columnas con ejemplos de sesgos en datos, diseño y uso real -->
 
 ---
 

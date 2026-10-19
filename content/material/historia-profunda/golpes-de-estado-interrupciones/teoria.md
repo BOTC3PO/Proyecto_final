@@ -1,6 +1,6 @@
 # Historia Profunda — Golpes de Estado Interrupciones (teoría)
 
-> Tema del MAPA: `historia-profunda/golpes-de-estado-interrupciones`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/golpes-de-estado-interrupciones`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

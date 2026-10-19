@@ -1,6 +1,6 @@
 # Electrónica — Lógica digital: puertas AND, OR y NOT (teoría)
 
-> Tema del MAPA: `electronica/logica-digital-puertas-and-or-not`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `electronica/logica-digital-puertas-and-or-not`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -22,7 +22,7 @@ La puerta NOT, también llamada "inversor", tiene una sola entrada y una salida.
 
 Esta operación se representa con un círculo en el símbolo de la puerta, o con una línea curva al lado del terminal de salida. Es útil para negar condiciones, como en circuitos que requieren activar un dispositivo solo cuando una señal no está presente.
 
-[IMAGEN: Símbolo de la puerta NOT con entrada 1 y salida 0]
+<!-- IMAGEN: Símbolo de la puerta NOT con entrada 1 y salida 0 -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Informática — Virtualización: Máquina Virtual y Contenedor  
 
-> Tema del MAPA: `informatica/virtualizacion-maquina-virtual-contenedor`. Depende de: a determinar (ver dependencias.md).  
+> Tema del MAPA: `informatica/virtualizacion-maquina-virtual-contenedor`. Dependencias: ver `../dependencias.md`.  
 
 ## Tipo de teoría  
 **Presentación** — Explicación de los conceptos básicos de virtualización, máquinas virtuales y contenedores.  
@@ -25,7 +25,7 @@ Una máquina virtual emula hardware completo, incluyendo su propio procesador, m
 
 Por otro lado, los **contenedores** comparten el kernel del sistema operativo anfitrión. En lugar de emular hardware, crean un entorno aislado dentro del mismo kernel, usando solo las partes necesarias para ejecutar una aplicación o servicio. Esto hace que los contenedores sean más ligeros y rápidos de arrancar y detener.  
 
-[IMAGEN: Comparación entre máquina virtual (con hardware emulado) y contenedor (sobre el kernel del host)]  
+<!-- IMAGEN: Comparación entre máquina virtual (con hardware emulado) y contenedor (sobre el kernel del host) -->  
 
 ---
 

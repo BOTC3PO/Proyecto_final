@@ -1,6 +1,6 @@
 # Historia Profunda — Tierra Primitiva Diferenciación (teoría)
 
-> Tema del MAPA: `historia-profunda/tierra-primitiva-diferenciacion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/tierra-primitiva-diferenciacion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La Tierra primitiva se originó hace unos 4600 millones de años a partir de un proceso llamado **acreción de planetesimales**. En el disco protoplanetario que rodeaba al Sol en formación, partículas de polvo y gas se agruparon bajo la gravedad, formando cuerpos más grandes llamados planetesimales. Estos colisionaban entre sí, fusionándose gradualmente para crear los primeros planetas. En el caso de la Tierra, esta acumulación gravitatoria fue clave: los impactos constantes no solo agregaron masa, sino que también generaron calor, manteniendo la superficie en un estado casi fundido durante sus primeros millones de años.
 
-[IMAGEN: Diagrama del disco protoplanetario con planetesimales colisionando y formando cuerpos más grandes]
+<!-- IMAGEN: Diagrama del disco protoplanetario con planetesimales colisionando y formando cuerpos más grandes -->
 
 ---
 
@@ -20,7 +20,7 @@ La Tierra primitiva se originó hace unos 4600 millones de años a partir de un 
 
 Al formarse, la Tierra no era un cuerpo sólido frío. Gracias a los impactos violentos de planetesimales y al calor generado por la desintegración de isótopos radiactivos (como el uranio o el potasio), el planeta se mantuvo en un estado **casi fundido** durante miles de millones de años. Este calor interno era tan intenso que incluso los materiales más pesados, como el hierro y el níquel, no podían permanecer estables en la superficie: eran arrastrados hacia el interior por la gravedad.
 
-[IMAGEN: Esquema de la Tierra primitiva con capas internas parcialmente fundidas]
+<!-- IMAGEN: Esquema de la Tierra primitiva con capas internas parcialmente fundidas -->
 
 ---
 
@@ -38,7 +38,7 @@ Estos procesos no solo calentaron la superficie, sino que también facilitaron l
 
 La diferenciación fue un proceso crucial donde la Tierra primitiva se organizó en capas según la densidad de sus componentes. El **núcleo** (compuesto de hierro y níquel) se formó primero, seguido del **manto** (rico en silicatos), mientras que los materiales más ligeros, como el oxígeno y el sílice, constituyeron la **corteza**. Este orden no fue estático: la convección en el manto y las erupciones volcánicas continuaron modificando la estructura durante eones.
 
-[IMAGEN: Capas de la Tierra primitiva (núcleo, manto, corteza) en proceso de formación]
+<!-- IMAGEN: Capas de la Tierra primitiva (núcleo, manto, corteza) en proceso de formación -->
 
 ---
 

@@ -1,6 +1,6 @@
 # Historia Profunda — El Imperio Persa Aqueménida: La primera superpotencia global (teoría)
 
-> Tema del MAPA: `historia-profunda/imperio-persa`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/imperio-persa`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 A finales del siglo VI a. C., en la meseta irania, una dinastía menor, los aqueménidas, comenzó a consolidar su poder. Ciro II, conocido como "el Grande", no solo unificó a las tribus persas, sino que lanzó una campaña de expansión sin precedentes. Tras someter a los medos, sus antiguos soberanos, Ciro conquistó Lidia en Anatolia y luego se volvió hacia Oriente, tomando Babilonia en el 539 a. C. Este evento es crucial no solo por la magnitud territorial, sino por la forma en que fue narrada: a diferencia de los asirios o los babilonios anteriores, Ciro se presentó a menudo como un liberador, especialmente en el caso de los judios exiliados, permitiendo la reconstrucción del Templo de Jerusalén. Esta narrativa de legitimidad basada en la tolerancia religiosa y el respeto a las costumbres locales fue un pilar fundamental de la estabilidad del imperio.
 
-[IMAGEN: Mapa del Imperio Persa en su máxima extensión bajo Darío I, mostrando las satrapías y las rutas de comunicación principales, como el Camino Real.]
+<!-- IMAGEN: Mapa del Imperio Persa en su máxima extensión bajo Darío I, mostrando las satrapías y las rutas de comunicación principales, como el Camino Real. -->
 
 ## 2. La estructura administrativa: Satrapías y el Camino Real
 

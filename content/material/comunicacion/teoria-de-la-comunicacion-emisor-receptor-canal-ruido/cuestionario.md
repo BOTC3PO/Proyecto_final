@@ -190,7 +190,7 @@ explicacion: |
   El proceso lógico es: 1. El emisor codifica la idea, 2. El mensaje viaja por el canal, 3. El receptor decodifica el código y 4. Se produce la comprensión.
 ```
 
-### 11 — Caso práctico: Análisis de elementos
+### 10 — Caso práctico: Análisis de elementos
 
 ```
 metadata:
@@ -213,7 +213,7 @@ explicacion: |
   El emisor es quien inicia el proceso de comunicación enviando el mensaje.
 ```
 
-### 12 — El problema del ruido
+### 11 — El problema del ruido
 
 ```
 metadata:
@@ -232,7 +232,7 @@ explicacion: |
   El ruido se define como cualquier interferencia que distorsiona o impide que el mensaje llegue correctamente del emisor al receptor a través del canal.
 ```
 
-### 13 — ¿Es el canal el mensaje?
+### 12 — ¿Es el canal el mensaje?
 
 ```
 metadata:
@@ -251,7 +251,7 @@ explicacion: |
   El canal es el medio físico o soporte (cable, aire, ondas de radio) que permite el transporte, mientras que el mensaje es la información codificada que se transmite.
 ```
 
-### 14 — Elementos en una carta
+### 13 — Elementos en una carta
 
 ```
 metadata:
@@ -271,7 +271,7 @@ explicacion: |
   En cada caso presentado, la relación entre el sujeto que emite, el que recibe y el medio utilizado es correcta según el modelo básico.
 ```
 
-### 15 — La secuencia del proceso
+### 14 — La secuencia del proceso
 
 ```
 metadata:
@@ -290,7 +290,7 @@ explicacion: |
   Primero el emisor codifica la idea en un código (idioma/signos), luego se transmite por un canal y finalmente el receptor debe decodificarlo para entenderlo.
 ```
 
-### 16 — El error de la decodificación
+### 15 — El error de la decodificación
 
 ```
 metadata:
@@ -309,7 +309,7 @@ explicacion: |
   Para que la comunicación sea efectiva, el receptor debe ser capaz de decodificar el código utilizado por el emisor. Si no conoce el código, el proceso se interrumpe.
 ```
 
-### 17 — El componente del canal
+### 16 — El componente del canal
 
 ```
 metadata:
@@ -330,7 +330,7 @@ explicacion: |
   El canal es el soporte físico (aire, cable, papel, ondas electromagnéticas) que permite que el mensaje viaje desde el emisor al receptor.
 ```
 
-### 18 — Distinción entre Ruido y Mensaje
+### 17 — Distinción entre Ruido y Mensaje
 
 ```
 metadata:
@@ -348,7 +348,7 @@ explicacion: |
   Es verdadero. El ruido es cualquier perturbación que interfiere en la transmisión, mientras que el mensaje es la información propiamente dicha.
 ```
 
-### 19 — El rol del Receptor
+### 18 — El rol del Receptor
 
 ```
 metadata:
@@ -368,7 +368,7 @@ explicacion: |
   El receptor tiene la función de decodificar (interpretar) los signos y símbolos enviados por el emisor para comprender el mensaje.
 ```
 
-### 20 — Elementos de la comunicación en secuencia
+### 19 — Elementos de la comunicación en secuencia
 
 ```
 metadata:
@@ -388,7 +388,7 @@ explicacion: |
   El flujo comienza con la producción del mensaje por el emisor, la transmisión a través de un canal y la recepción por parte del destinatario.
 ```
 
-### 21 — El impacto del ruido en el sistema
+### 20 — El impacto del ruido en el sistema
 
 ```
 metadata:
@@ -411,7 +411,7 @@ explicacion: |
   El ruido se define como cualquier elemento externo o interno que interfiere en el canal y dificulta la llegada fiel del mensaje al receptor.
 ```
 
-### 22 — El mensaje en la radio
+### 21 — El mensaje en la radio
 
 ```
 metadata:
@@ -434,7 +434,7 @@ explicacion: |
   En el modelo de comunicación, el emisor es el sujeto que produce y transmite el mensaje a través de un canal.
 ```
 
-### 23 — Interferencia en la llamada
+### 22 — Interferencia en la llamada
 
 ```
 metadata:
@@ -457,7 +457,7 @@ explicacion: |
   El ruido es cualquier perturbación que interfiere en la transmisión del mensaje entre el emisor y el receptor.
 ```
 
-### 24 — El medio físico
+### 23 — El medio físico
 
 ```
 metadata:
@@ -474,7 +474,7 @@ explicacion: |
   Verdadero. El canal es el medio físico a través del cual viaja el mensaje (en este caso, ondas sonoras en el aire).
 ```
 
-### 25 — Elementos del proceso
+### 24 — Elementos del proceso
 
 ```
 metadata:
@@ -493,7 +493,7 @@ explicacion: |
   El proceso comienza con el emisor que codifica un mensaje, el cual viaja por un canal hasta llegar al receptor.
 ```
 
-### 26 — El receptor pasivo
+### 25 — El receptor pasivo
 
 ```
 metadata:

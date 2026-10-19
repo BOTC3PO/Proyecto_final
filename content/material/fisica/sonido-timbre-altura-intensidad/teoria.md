@@ -12,7 +12,7 @@
 
 La altura es la propiedad del sonido que nos permite diferenciar entre un tono agudo (como el de una flauta) y uno grave (como el de un contrabajo). Esta característica está directamente vinculada a la **frecuencia** de la onda sonora: cuanto más alta sea la frecuencia (medida en hertzios, Hz), más agudo será el sonido; al revés, una frecuencia baja produce un tono grave. Por ejemplo, un diapasón que vibra a 440 Hz emite un "La" medio, reconocible como un sonido de mediana altura.
 
-[IMAGEN: Gráficos comparativos de ondas con diferentes frecuencias (alta vs. baja), mostrando el número de ciclos por segundo]
+<!-- IMAGEN: Gráficos comparativos de ondas con diferentes frecuencias (alta vs. baja), mostrando el número de ciclos por segundo -->
 
 ---
 
@@ -20,7 +20,7 @@ La altura es la propiedad del sonido que nos permite diferenciar entre un tono a
 
 La intensidad del sonido se refiere a su **volumen** o potencia, es decir, cuán fuerte o débil lo escuchamos. Esta propiedad está ligada a la **amplitud** de las ondas sonoras: cuanto mayor sea la amplitud (la distancia entre el pico y el valle de la onda), más energía transporta el sonido y, por tanto, más intenso será. Por ejemplo, al aumentar el volumen de un altavoz, se incrementa la amplitud de las vibraciones del aire.
 
-[IMAGEN: Representación de ondas con distintas amplitudes (alta vs. baja), destacando la energía asociada]
+<!-- IMAGEN: Representación de ondas con distintas amplitudes (alta vs. baja), destacando la energía asociada -->
 
 ---
 
@@ -28,7 +28,7 @@ La intensidad del sonido se refiere a su **volumen** o potencia, es decir, cuán
 
 El timbre es lo que permite identificar el origen de un sonido, incluso si dos fuentes producen la misma nota a la misma intensidad. Por ejemplo, podemos distinguir entre una guitarra y un piano tocando el mismo "do" porque sus ondas tienen formas distintas. Esto se debe a las **armónicas** o frecuencias múltiples que acompañan al tono principal. Cada instrumento tiene su propia combinación de armónicas, lo que genera su timbre característico.
 
-[IMAGEN: Formas de onda comparativas entre un piano y una flauta tocando la misma nota]
+<!-- IMAGEN: Formas de onda comparativas entre un piano y una flauta tocando la misma nota -->
 
 ---
 

@@ -39,7 +39,7 @@ def parse_dependencias(materia):
             # una línea en blanco NO corta la tabla (matematica/dependencias.md tiene filas separadas por blancos);
             # solo un encabezado nuevo cambia la columna de dependencias
             continue
-        if any("depende" in c.lower() for c in cols) and any(c.lower().startswith("tema") for c in cols):
+        if cols[0].lower().startswith("tema") and any("depende" in c.lower() for c in cols):
             dep_idx = next(i for i, c in enumerate(cols) if "depende" in c.lower())
             sep = False
             continue

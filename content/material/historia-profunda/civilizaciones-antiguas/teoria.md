@@ -1,6 +1,6 @@
 # Historia Profunda — Civilizaciones Antiguas (teoría)
 
-> Tema del MAPA: `historia-profunda/civilizaciones-antiguas`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/civilizaciones-antiguas`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La región que hoy corresponde a Irak fue el primer centro de desarrollo urbano del planeta. Entre los ríos Tigris y Éufrates, las comunidades agrícolas se organizaron en ciudades-estado independientes como Ur o Babilonia. La fertilidad de las tierras aluviales permitió excedentes productivos, lo que generó clases sociales especializadas: sacerdotes, escribas y gobernantes. El sistema de escritura cuneiforme, inventado en Sumer, fue un hito clave para registrar leyes, comercio y mitos.
 
-[IMAGEN: mapa de Mesopotamia con los ríos Tigris y Éufrates]
+<!-- IMAGEN: mapa de Mesopotamia con los ríos Tigris y Éufrates -->
 
 ---
 
@@ -20,7 +20,7 @@ La región que hoy corresponde a Irak fue el primer centro de desarrollo urbano 
 
 El río Nilo no solo era una vía de transporte, sino un factor determinante para la supervivencia de Egipto. Sus inundaciones anuales, predecibles gracias a las lluvvas en África oriental, depositaban nutrientes en los campos, permitiendo cultivos como el trigo y el lino. Esta regularidad llevó a una organización centralizada: faraones que gobernaban con autoridad divina, un ejército profesional y una burocracia de escribas para gestionar impuestos y registros.
 
-[IMAGEN: inundaciones del Nilo y agricultura en Egipto]
+<!-- IMAGEN: inundaciones del Nilo y agricultura en Egipto -->
 
 ---
 
@@ -28,7 +28,7 @@ El río Nilo no solo era una vía de transporte, sino un factor determinante par
 
 En Asia Oriental, el Huang He (Río Amarillo) dio forma a una civilización que se extendió desde lo que hoy es Shandong hasta Shanxi. Sus sedimentos de loess crearon suelos fértils, pero también generaban inundaciones destructivas. Para controlarlas, se construyeron diques y canales, lo que impulsó la innovación tecnológica. La escritura china (como el sistema oracle) y los principios del confucianismo surgieron en este contexto de necesidad de orden social.
 
-[IMAGEN: río Huang He con sedimentos de loess]
+<!-- IMAGEN: río Huang He con sedimentos de loess -->
 
 ---
 
@@ -42,7 +42,7 @@ A pesar de no haber dejado registros escritos, la civilización del Valle del In
 
 Aunque todas surgieron alrededor del 3500 a.C., cada civilización tuvo un ritmo distinto: Mesopotamia y Egipto se consolidaron primero, seguidas por el Indus Valley (2600 a.C.) y China (1900 a.C.). Sus logros reflejan su entorno: las escrituras surgieron en Mesopotamia y Egipto; la arquitectura monumental en Egipto; y la filosofía política en China. Estas diferencias no son accidentales, sino el resultado de su relación con los ríos y su capacidad para gestionar recursos.
 
-[IMAGEN: cronología comparativa de civilizaciones antiguas]
+<!-- IMAGEN: cronología comparativa de civilizaciones antiguas -->
 
 ---
 

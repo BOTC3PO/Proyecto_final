@@ -1,6 +1,6 @@
 # Historia Profunda — Revolución de Mayo (teoría)
 
-> Tema del MAPA: `historia-profunda/revolucion-de-mayo`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/revolucion-de-mayo`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

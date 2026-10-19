@@ -1,6 +1,6 @@
 # Física — Formación de imágenes óptica (teoría)
 
-> Tema del MAPA: `fisica/formacion-de-imagenes-optica`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `fisica/formacion-de-imagenes-optica`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Una imagen **real** se forma cuando los rayos de luz convergen en un punto físi
 
 En cambio, una **imagen virtual** surge cuando los rayos de luz no convergen físicamente, sino que su prolongación aparente lo hace. Esto ocurre en sistemas como espejos planos o convexos: aunque parece que los rayos provienen de un punto detrás del espejo, allí no hay convergencia real. Por eso, una imagen virtual **no se puede proyectar** y solo se observa al mirar directamente el sistema óptico.
 
-[IMAGEN: Esquema con rayos convergentes (imagen real) y divergentes (imagen virtual), indicando la diferencia en su formación].
+<!-- IMAGEN: Esquema con rayos convergentes (imagen real) y divergentes (imagen virtual), indicando la diferencia en su formación -->.
 
 ---
 

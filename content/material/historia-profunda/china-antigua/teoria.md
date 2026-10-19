@@ -1,6 +1,6 @@
 # Historia Profunda — Dinastías y Ríos: Los Cimientos de China Antigua (teoría)
 
-> Tema del MAPA: `historia-profunda/china-antigua`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/china-antigua`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La historia de China antigua no comienza con un evento único, sino con un proce
 
 Tradicionalmente, la historiografía china menciona a los Tres Augustos y los Cinco Emperadores, figuras semi-míticas que representan la transición del clan al estado. Sin embargo, la evidencia arqueológica y textual apunta a la dinastía Xia (c. 2070–1600 a.C.) como el primer grupo dinástico, aunque su existencia histórica sigue siendo debatida por la falta de inscripciones contemporáneas directas. Lo que sí está documentado es la dinastía Shang (c. 1600–1046 a.C.), cuya capital en Anyang ha revelado inscripciones oraculares sobre huesos y caparazones de tortuga, confirmando un sistema político teocrático donde el rey actuaba como intermediario con los ancestros y la naturaleza.
 
-[IMAGEN: Mapa del valle del río Amarillo mostrando las principales ciudades-estado de la dinastía Shang y las rutas de comercio de jade y bronce]
+<!-- IMAGEN: Mapa del valle del río Amarillo mostrando las principales ciudades-estado de la dinastía Shang y las rutas de comercio de jade y bronce -->
 
 ## 2. La Mandato del Cielo y la legitimidad Zhou
 

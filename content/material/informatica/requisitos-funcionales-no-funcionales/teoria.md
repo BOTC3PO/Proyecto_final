@@ -1,6 +1,6 @@
 # Informática — Requisitos funcionales y no funcionales (teoría)
 
-> Tema del MAPA: `informatica/requisitos-funcionales-no-funcionales`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `informatica/requisitos-funcionales-no-funcionales`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ Los requisitos funcionales describen **qué hace el sistema**, es decir, las acc
 
 Son los elementos que definen las tareas esenciales del sistema, sin importar cómo se logren. Se suelen expresar de manera operativa y concretas, como verbos o acciones ("permitir", "guardar", "calcular").
 
-[IMAGEN: Tabla comparando requisitos funcionales (ejemplo: "Crear usuario") vs. no funcionales (ejemplo: "Tiempo máximo de respuesta 2 segundos")]
+<!-- IMAGEN: Tabla comparando requisitos funcionales (ejemplo: "Crear usuario") vs. no funcionales (ejemplo: "Tiempo máximo de respuesta 2 segundos") -->
 
 ---
 

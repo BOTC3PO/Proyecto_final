@@ -1,6 +1,6 @@
 # Historia Profunda — La Edad Media Plena: Transformación y Crisis (teoría)
 
-> Tema del MAPA: `historia-profunda/edad-media-plena`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/edad-media-plena`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -16,7 +16,7 @@ La Edad Media Plena, aproximadamente entre los siglos XI y XIII, se caracteriza 
 
 El motor de esta transformación fue la innovación técnica en el campo. La introducción del arado de vertedera, pesado y con ruedas, permitió cultivar las tierras pesadas y húmedas del norte de Europa, antes difíciles de trabajar. Junto con la adopción del arnés de hombro para los caballos y la generalización del herrado, la fuerza animal se volvió mucho más eficiente.
 
-[IMAGEN: Representación de un campo con el sistema de rotación trienal, mostrando los surcos profundos del arado de vertedera]
+<!-- IMAGEN: Representación de un campo con el sistema de rotación trienal, mostrando los surcos profundos del arado de vertedera -->
 
 Estas tecnologías facilitaron el paso de la rotación bienal (un año de descanso) al trienal (dos años de cultivo, uno de barbecho), lo que aumentó la productividad en un tercio. Como resultado, se produjeron excedentes de grano que no solo alimentaron a la creciente población urbana, sino que también se convirtieron en mercancía para el intercambio comercial. El paisaje rural se transformó con la tala de bosques para crear nuevas tierras cultivables, un proceso conocido como la "gran clareación".
 
@@ -30,7 +30,7 @@ En el Mediterráneo, las repúblicas marineras de Venecia, Génova y Pisa domina
 
 La estructura social medieval se consolidó en torno a tres órdenes funcionales: los que oran (*oratores*), los que luchan (*bellatores*) y los que trabajan (*laboratores*). Sin embargo, en las ciudades, este esquema rígido se flexibilizó con la aparición de la burguesía, una clase social basada en la riqueza móvil (comercio y artesanía) más que en la tierra. Los gremios de oficios organizaron la producción urbana, regulando precios, calidad y formación de aprendices, actuando como un amortiguador social y económico.
 
-[IMAGEN: Detalle de una catedral gótica en construcción, simbolizando la devoción colectiva y el poder eclesiástico]
+<!-- IMAGEN: Detalle de una catedral gótica en construcción, simbolizando la devoción colectiva y el poder eclesiástico -->
 
 La Iglesia Católica alcanzó su máxima influencia institucional y espiritual. No solo era el garante de la cohesión religiosa, sino también el principal propietario de tierras y la institución más poderosa políticamente. El papado, bajo figuras como Gregorio VII y Inocencio III, buscó imponer la supremacía espiritual sobre el poder temporal, lo que generó tensiones constantes con los monarcas europeos. El clero regular y secular jugaba un papel central en la educación, la caridad y la administración de justicia.
 

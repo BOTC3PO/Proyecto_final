@@ -22,7 +22,7 @@ La jerarquía de las normas se organiza como una pirámide, donde cada nivel der
 4. **Leyes provinciales**: Validez dentro del territorio de cada provincia, siempre que no violen la Constitución ni las leyes nacionales.
 5. **Decretos y reglamentos**: Disposiciones con rango inferior, emitidas por el Poder Ejecutivo o autoridades locales para aplicar normas superiores.
 
-[IMAGEN: Pirámide de jerarquía normativa con niveles etiquetados]
+<!-- IMAGEN: Pirámide de jerarquía normativa con niveles etiquetados -->
 
 ## 3. Incompatibilidad entre normas
 

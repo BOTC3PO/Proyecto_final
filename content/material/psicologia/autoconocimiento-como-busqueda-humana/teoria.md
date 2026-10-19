@@ -1,6 +1,6 @@
 # Psicología — Autoconocimiento como búsqueda humana (teoría)
 
-> Tema del MAPA: `psicologia/autoconocimiento-como-busqueda-humana`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `psicologia/autoconocimiento-como-busqueda-humana`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

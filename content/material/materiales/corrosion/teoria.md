@@ -1,6 +1,6 @@
 # materiales — corrosión (teoria)
 
-> Tema del MAPA: `materiales/corrosion`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `materiales/corrosion`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -14,7 +14,7 @@ La corrosión es el proceso de **deterioro** progresivo de un material, principa
 
 ## 2. Factores que influyen
 
-La velocidad y forma de la corrosión dependen de condiciones externas. La **humedad** es clave: al actuar como electrolito, facilita transferencias de electrones entre el metal y su entorno. Por ejemplo, en ambientes con alta humedad (como costas), la oxidación del hierro ocurre rápidamente, generando óxido ferroso ([IMAGEN: superficie metálica con manchas rojizas]). En cambio, en condiciones secas, el proceso se ralentiza. Otros factores incluyen temperatura (aumenta reactividad), presencia de sales o ácidos, y tipo de metal (el aluminio, por ejemplo, forma una capa protectora pasiva).
+La velocidad y forma de la corrosión dependen de condiciones externas. La **humedad** es clave: al actuar como electrolito, facilita transferencias de electrones entre el metal y su entorno. Por ejemplo, en ambientes con alta humedad (como costas), la oxidación del hierro ocurre rápidamente, generando óxido ferroso (<!-- IMAGEN: superficie metálica con manchas rojizas -->). En cambio, en condiciones secas, el proceso se ralentiza. Otros factores incluyen temperatura (aumenta reactividad), presencia de sales o ácidos, y tipo de metal (el aluminio, por ejemplo, forma una capa protectora pasiva).
 
 ## 3. Naturaleza electroquímica
 

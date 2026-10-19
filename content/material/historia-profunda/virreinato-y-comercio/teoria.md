@@ -1,6 +1,6 @@
 # Historia Profunda — Virreinato y Comercio (teoria)
 
-> Tema del MAPA: `historia-profunda/virreinato-y-comercio`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/virreinato-y-comercio`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

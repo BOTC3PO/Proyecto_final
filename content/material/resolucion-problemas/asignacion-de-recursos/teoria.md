@@ -1,6 +1,6 @@
 # Resolución-de-problemas — Asignación de recursos (teoría)
 
-> Tema del MAPA: `resolucion-problemas/asignacion-de-recursos`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `resolucion-problemas/asignacion-de-recursos`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría
 

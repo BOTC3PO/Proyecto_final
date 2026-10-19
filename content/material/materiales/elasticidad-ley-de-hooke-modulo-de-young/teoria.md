@@ -1,6 +1,6 @@
 # Materiales — Elasticidad: Ley de Hooke y Módulo de Young (teoría)
 
-> Tema del MAPA: `materiales/elasticidad-ley-de-hooke-modulo-de-young`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `materiales/elasticidad-ley-de-hooke-modulo-de-young`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

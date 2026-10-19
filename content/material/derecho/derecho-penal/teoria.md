@@ -1,6 +1,6 @@
 # Derecho — derecho-penal (teoria)
 
-> Tema del MAPA: `derecho/derecho-penal`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/derecho-penal`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

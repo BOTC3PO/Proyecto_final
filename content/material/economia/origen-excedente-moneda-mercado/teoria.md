@@ -14,7 +14,7 @@ Cuando una sociedad agrícola comienza a producir más alimentos de los que nece
 
 El excedente marcó un punto de inflexión en la historia económica: permitió que las personas dejaran de dedicarse exclusivamente a la producción para dedicar tiempo a actividades como el comercio, la especialización o el intercambio. Sin embargo, este sistema tenía limitaciones prácticas que lo hicieron insostenible a largo plazo.
 
-[IMAGEN: Diagrama simplificado del trueque entre dos productores con distintos bienes]
+<!-- IMAGEN: Diagrama simplificado del trueque entre dos productores con distintos bienes -->
 
 ## 2. Las dificultades del intercambio directo
 
@@ -28,7 +28,7 @@ Para resolver el problema del trueque, las sociedades adoptaron **medios de camb
 
 Este paso fue crucial, ya que permitió que las personas no dependieran de encontrar a alguien con necesidades exactamente opuestas. En lugar de intercambiar trigo directamente por cerámica, el agricultor podía vender su excedente de trigo por sal, y luego usar esa sal para obtener cerámica. Esto redujo la complejidad del comercio y aceleró la especialización productiva.
 
-[IMAGEN: Comparación entre trueque directo e intercambio a través de un medio intermediario]
+<!-- IMAGEN: Comparación entre trueque directo e intercambio a través de un medio intermediario -->
 
 ## 4. El nacimiento de la moneda
 

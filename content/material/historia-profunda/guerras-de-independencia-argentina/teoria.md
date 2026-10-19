@@ -1,6 +1,6 @@
 # Historia Profunda — Guerras de Independencia Argentina (teoría)
 
-> Tema del MAPA: `historia-profunda/guerras-de-independencia-argentina`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `historia-profunda/guerras-de-independencia-argentina`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

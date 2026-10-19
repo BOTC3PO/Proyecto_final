@@ -1,6 +1,6 @@
 # Derecho — Hecho Jurídicamente Relevante (teoría)
 
-> Tema del MAPA: `derecho/hecho-juridicamente-relevante`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/hecho-juridicamente-relevante`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 Un hecho jurídicamente relevante es cualquier acontecimiento, natural o humano, que el derecho considera capaz de generar consecuencias legales. No importa si fue planeado o no: basta que la norma lo reconozca como base para crear, modificar o extinguir derechos y obligaciones. Por ejemplo, un incendio causado por un rayo puede anular una hipoteca sobre una casa, o el nacimiento de un hijo puede generar derechos de herencia.
 
-[IMAGEN: Esquema comparativo entre "hecho puro" (incendio natural) y "acto jurídico" (firma de contrato)].
+<!-- IMAGEN: Esquema comparativo entre "hecho puro" (incendio natural) y "acto jurídico" (firma de contrato) -->.
 
 ---
 
@@ -49,7 +49,7 @@ Ambos tipos requieren un marco normativo para tener efectos legales. Por ejemplo
 
 Este concepto es fundamental porque permite al derecho operar sobre la realidad sin depender de intenciones individuales. Si no existiera, muchas situaciones legales (como la herencia, la prescripción de derechos o responsabilidades por daños) no tendrían base. Además, ayuda a distinguir entre sucesos que generan obligaciones y aquellos que no, evitando interpretaciones arbitrarias.
 
-[IMAGEN: Ejemplo de hechos relevantes en distintas áreas del derecho (familia, penal, civil)].
+<!-- IMAGEN: Ejemplo de hechos relevantes en distintas áreas del derecho (familia, penal, civil) -->.
 
 ---
 

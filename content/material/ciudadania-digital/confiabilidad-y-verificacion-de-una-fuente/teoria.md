@@ -1,6 +1,6 @@
 # Ciudadanía Digital — Confiabilidad y Verificación de una Fuente (teoría)
 
-> Tema del MAPA: `ciudadania-digital/confiabilidad-y-verificacion-de-una-fuente`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `ciudadania-digital/confiabilidad-y-verificacion-de-una-fuente`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 

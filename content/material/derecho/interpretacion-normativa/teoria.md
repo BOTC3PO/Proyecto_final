@@ -1,6 +1,6 @@
 # Derecho — Interpretación normativa (teoría)
 
-> Tema del MAPA: `derecho/interpretacion-normativa`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `derecho/interpretacion-normativa`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,7 +12,7 @@
 
 La interpretación normativa no es solo leer una norma, sino desentrañar su sentido y alcance para poder aplicarla a situaciones concretas. Imaginá que tenés una regla escrita: si un ciudadano no paga impuestos, se le multa. Pero ¿qué pasa si el caso es ambiguo? Por ejemplo, ¿un emprendedor que deja de pagar por un mes por problemas económicos es considerado "no pagador"? La interpretación normativa surge para resolver dudas como estas, asegurando que la ley no sea aplicada de forma arbitraria.
 
-[IMAGEN: Esquema con una balanza donde un lado muestra el texto de una norma y el otro su aplicación en un caso real]
+<!-- IMAGEN: Esquema con una balanza donde un lado muestra el texto de una norma y el otro su aplicación en un caso real -->
 
 ---
 
@@ -34,7 +34,7 @@ Cada método tiene su utilidad, pero a menudo se combinan para evitar malentendi
 
 La interpretación normativa no se limita a descifrar qué dice una ley, sino también a definir **hasta dónde llega** su aplicación. Por ejemplo, si la ley prohíbe "vender alcohol a menores de edad", ¿incluye esto a los estudiantes universitarios? ¿Y a quienes aparentan ser mayores pero no lo son? Determinar el alcance evita que la norma se convierta en una herramienta imprecisa o injusta.
 
-[IMAGEN: Comparación entre un texto legal y un círculo que representa su ámbito de aplicación]
+<!-- IMAGEN: Comparación entre un texto legal y un círculo que representa su ámbito de aplicación -->
 
 ---
 

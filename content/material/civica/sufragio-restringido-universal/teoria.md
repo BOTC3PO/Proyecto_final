@@ -1,6 +1,6 @@
 # Civica — Sufragio restringido universal (teoría)
 
-> Tema del MAPA: `civica/sufragio-restringido-universal`. Depende de: a determinar (ver dependencias.md).
+> Tema del MAPA: `civica/sufragio-restringido-universal`. Dependencias: ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -12,19 +12,19 @@
 
 Durante gran parte del siglo XIX y la primera mitad del XX, solo los varones con ciertos requisitos económicos podían votar en Argentina. Este sistema, llamado **censitario**, exigía que los electores tuvieran propiedad o un ingreso mínimo, lo que excluía a gran parte de la población masculina pobre y a todas las mujeres. La idea era que solo quienes tenían "interés económico" eran capaces de decidir sobre el gobierno. Esta práctica reflejaba una visión social de la época donde la participación política se consideraba un privilegio, no un derecho universal.
 
-[IMAGEN: Mapa de Argentina con zonas donde los requisitos censitarios variaban por región]
+<!-- IMAGEN: Mapa de Argentina con zonas donde los requisitos censitarios variaban por región -->
 
 ## 2. El sistema de fraude electoral
 
 Antes de la Ley Sáenz Peña (1912), el sufragio restringido funcionaba en un contexto de **fraude sistemático** que anulaba cualquier intento de expresar la voluntad popular. Los métodos incluían manipular los padrones electorales, coaccionar a votantes analfabetos o comprar su voto con promesas de trabajo o ayuda económica. Estas prácticas eran facilitadas por caudillos locales que controlaban el acceso al voto y garantizaban resultados favorables a sus intereses.
 
-[IMAGEN: Esquema de los mecanismos de fraude electoral en la Argentina del siglo XIX]
+<!-- IMAGEN: Esquema de los mecanismos de fraude electoral en la Argentina del siglo XIX -->
 
 ## 3. La Ley Sáenz Peña (1912): un paso hacia lo universal
 
 La promulgación de la **Ley Sáenz Peña** en 1912 marcó un cambio fundamental: estableció el sufragio universal masculino, sin requisitos económicos, y introdujo el voto secreto. Esto significó que cualquier varón argentino, independientemente de su nivel socioeconómico, podía participar en las elecciones. Aunque las mujeres seguían excluidas, la ley sentó las bases para una participación electoral más amplia y equitativa.
 
-[IMAGEN: Fragmento de la Ley Sáenz Peña con sus artículos clave]
+<!-- IMAGEN: Fragmento de la Ley Sáenz Peña con sus artículos clave -->
 
 ## 4. La persistencia del control político
 

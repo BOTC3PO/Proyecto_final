@@ -10,11 +10,11 @@
 
 ## 1. ¿Qué es el campo eléctrico?
 
-El **campo eléctrico** es una propiedad del espacio que surge en torno a una carga eléctrica. Permite que esta carga ejerza una fuerza sobre otra carga, incluso si no están en contacto directo. Se define como la fuerza que experimenta una carga de prueba positiva al ser colocada en ese espacio, dividida por el valor de la carga. Su unidad es newton por coulomb (N/C). [IMAGEN: dibujo de una carga puntual con líneas que salen hacia afuera y una flecha indicando la dirección del campo].
+El **campo eléctrico** es una propiedad del espacio que surge en torno a una carga eléctrica. Permite que esta carga ejerza una fuerza sobre otra carga, incluso si no están en contacto directo. Se define como la fuerza que experimenta una carga de prueba positiva al ser colocada en ese espacio, dividida por el valor de la carga. Su unidad es newton por coulomb (N/C). <!-- IMAGEN: dibujo de una carga puntual con líneas que salen hacia afuera y una flecha indicando la dirección del campo -->.
 
 ## 2. Cómo se representan las líneas de campo
 
-Las **líneas de campo eléctrico** son herramientas visuales para describir su intensidad y dirección. Si la carga es positiva, las líneas **salen** de ella; si es negativa, **entran** en ella. La densidad de estas líneas indica la magnitud del campo: cuanto más juntas estén, mayor es el valor del campo en ese punto. [IMAGEN: comparación entre carga positiva y negativa con su respectiva representación de líneas].
+Las **líneas de campo eléctrico** son herramientas visuales para describir su intensidad y dirección. Si la carga es positiva, las líneas **salen** de ella; si es negativa, **entran** en ella. La densidad de estas líneas indica la magnitud del campo: cuanto más juntas estén, mayor es el valor del campo en ese punto. <!-- IMAGEN: comparación entre carga positiva y negativa con su respectiva representación de líneas -->.
 
 ## 3. Relación entre fuerza y campo
 
