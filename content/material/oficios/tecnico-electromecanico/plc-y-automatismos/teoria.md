@@ -40,4 +40,4 @@ Documentar los programas: nombres claros para entradas y salidas, comentarios, e
 
 ## Diagnóstico
 
-Cuando una máquina no arranca: se revisan las luces de entradas y salidas del PLC, se comprueba si el sensor llega a la entrada, si el programa activa la salida, y si la salida llega al actuador. Se recorre la cadena señal por señal. Ver también el control en lazo cerrado en `../../tecnico-en-automatizacion-y-robotica/control-lazo-cerrado-y-pid-en-robotica/` y los motores y la trifásica en el oficio de Electricista.
+Cuando una máquina no arranca: se revisan las luces de entradas y salidas del PLC, se comprueba si el sensor llega a la entrada, si el programa activa la salida, y si la salida llega al actuador. Se recorre la cadena señal por señal. Ver también el control en lazo cerrado en `../../tecnico-en-automatizacion-y-robotica/control-lazo-cerrado-y-pid-en-robotica/` y, para los motores y la trifásica, `../../electricista/electricidad-trifasica-y-baja-tension-industrial/` e `../../electricista/instalaciones-especiales-motores-y-bombas/`. Para el mecanizado (torno, fresadora), ver `../../tornero/`.

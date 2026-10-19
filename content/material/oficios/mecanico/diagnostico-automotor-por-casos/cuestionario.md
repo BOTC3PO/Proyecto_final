@@ -1,4 +1,4 @@
-# Oficios — Mecánico — Diagnóstico automotor por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Mecánico — Diagnóstico automotor por casos (cuestionario, 23 preguntas VBLang)
 
 > Cierre del oficio (`OF5`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico automotor —
@@ -370,4 +370,107 @@ enunciado: "Los cuatro casos de este tema comparten la misma lógica: tratar el 
 explicacion: |
   Es la síntesis final del método de diagnóstico automotor de todo el
   tema.
+```
+
+### 19 — Cable naranja en un eléctrico
+
+```
+metadata:
+  materia: "oficios"
+  tema: "mecanico_diagnostico_automotor_por_casos"
+  nivel: "avanzado"
+  tags: ["caso vehiculo electrico"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los cables de color naranja de un vehículo eléctrico pertenecen al sistema de alta tensión y solo debe intervenirlos personal capacitado."
+
+explicacion: |
+  El naranja identifica la alta tensión; hacerlo sin capacitación ni procedimiento puede ser mortal.
+```
+
+
+### 20 — Primer paso en alta tensión
+
+```
+metadata:
+  materia: "oficios"
+  tema: "mecanico_diagnostico_automotor_por_casos"
+  nivel: "avanzado"
+  tags: ["caso vehiculo electrico"]
+
+enunciado: "Antes de intervenir el circuito de alta tensión de un vehículo eléctrico, ¿qué corresponde hacer?"
+tipo: mc
+opciones_explicitas:
+  - "Abrir el seccionador de servicio, esperar la descarga y verificar la ausencia de tensión"
+  - "Desconectar solo la batería de 12 V y empezar"
+  - "Probar con un destornillador si hay chispa"
+respuesta: "Abrir el seccionador de servicio, esperar la descarga y verificar la ausencia de tensión"
+
+explicacion: |
+  La secuencia incluye cortar, esperar la descarga de capacitores y medir; no alcanza con la batería auxiliar.
+```
+
+
+### 21 — Código de mezcla pobre
+
+```
+metadata:
+  materia: "oficios"
+  tema: "mecanico_diagnostico_automotor_por_casos"
+  nivel: "intermedio"
+  tags: ["caso inyeccion"]
+
+enunciado: "Un escáner muestra un código de mezcla pobre. ¿Qué conclusión es correcta?"
+tipo: mc
+opciones_explicitas:
+  - "Indica dónde detectó la anomalía el sistema; la causa puede ser una toma de aire falsa, un inyector tapado o baja presión de combustible"
+  - "La sonda lambda está rota seguro y hay que cambiarla"
+  - "Alcanza con borrar el código y probar"
+respuesta: "Indica dónde detectó la anomalía el sistema; la causa puede ser una toma de aire falsa, un inyector tapado o baja presión de combustible"
+
+explicacion: |
+  El código señala el síntoma, no la pieza defectuosa: se diagnostica antes de cambiar.
+```
+
+
+### 22 — Catalizador dañado por otra falla
+
+```
+metadata:
+  materia: "oficios"
+  tema: "mecanico_diagnostico_automotor_por_casos"
+  nivel: "intermedio"
+  tags: ["caso emisiones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un catalizador de tres vías suele arruinarse por otro problema previo, como fallas de encendido o mezcla muy rica, y no por sí solo."
+
+explicacion: |
+  Si se cambia el catalizador sin corregir la causa, el nuevo vuelve a dañarse.
+```
+
+
+### 23 — Moto que no arranca
+
+```
+metadata:
+  materia: "oficios"
+  tema: "mecanico_diagnostico_automotor_por_casos"
+  nivel: "intermedio"
+  tags: ["caso motos"]
+
+enunciado: "Una moto no arranca. ¿Qué tres condiciones hay que verificar?"
+tipo: mc
+opciones_explicitas:
+  - "Compresión, mezcla y chispa"
+  - "Solo la batería"
+  - "Solo el nivel de aceite"
+respuesta: "Compresión, mezcla y chispa"
+
+explicacion: |
+  Un motor necesita las tres para funcionar; se revisan en orden, empezando por lo más simple.
 ```

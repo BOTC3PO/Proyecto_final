@@ -16,3 +16,9 @@ conocimientos previos al armar los clusters de examen-jefe.
 | `perspectivas-isometrica-y-caballera/` | `vistas-frontal-superior-lateral/`, `../matematica/teorema-de-pitagoras/` | Nodo `DT3` (`DT2a/b/c --> DT3`, `M6 --> DT3`). |
 | `escalas-numericas-y-graficas/` | `perspectivas-isometrica-y-caballera/` | Nodo `DT4` (`DT3 --> DT4`). |
 | `acotacion-normalizada/` | `escalas-numericas-y-graficas/` | Nodo `DT5` (`DT4 --> DT5`). |
+| `instrumentos-de-dibujo-y-trazos-basicos/` | `sistemas-de-proyeccion/` | Base práctica de todo el dibujo técnico; no depende de otro tema pero se ubica después de las proyecciones del tronco. Decisión de Claude, no pedida (nodo propuesto en `../_plan-faltantes/tecnicas.md`). |
+| `tipos-de-linea-formatos-y-rotulo/` | `instrumentos-de-dibujo-y-trazos-basicos/` | Las convenciones de línea, formato y rótulo se aprenden después de manejar los instrumentos. Decisión de Claude, no pedida (nodo propuesto en `../_plan-faltantes/tecnicas.md`). |
+| `geometria-constructiva-tangencias-y-enlaces/` | `instrumentos-de-dibujo-y-trazos-basicos/`, `../matematica/angulos/` | Las construcciones geométricas se hacen con los instrumentos y usan los conceptos de ángulos y rectas. Decisión de Claude, no pedida (nodo propuesto en `../_plan-faltantes/tecnicas.md`). |
+| `cortes-y-secciones/` | `vistas-frontal-superior-lateral/` | Los cortes se aplican sobre las vistas cuando el interior es complejo. Decisión de Claude, no pedida (nodo propuesto en `../_plan-faltantes/tecnicas.md`). |
+| `vistas-auxiliares-y-detalles/` | `cortes-y-secciones/` | Complementa las vistas y los cortes para caras inclinadas y detalles. Decisión de Claude, no pedida (nodo propuesto en `../_plan-faltantes/tecnicas.md`). |
+| `interpretar-planos-de-piezas-y-conjuntos/` | `acotacion-normalizada/`, `cortes-y-secciones/` | Leer un plano integra cotas, vistas, cortes y convenciones. Decisión de Claude, no pedida (nodo propuesto en `../_plan-faltantes/tecnicas.md`). |

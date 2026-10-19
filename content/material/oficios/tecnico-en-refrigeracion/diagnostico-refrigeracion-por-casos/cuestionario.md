@@ -1,4 +1,4 @@
-# Oficios — Técnico en Refrigeración — Diagnóstico por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Técnico en Refrigeración — Diagnóstico por casos (cuestionario, 23 preguntas VBLang)
 
 > Cierre del oficio (`OF7`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de
@@ -376,4 +376,107 @@ enunciado: "Los cuatro casos de este tema comparten la misma lógica: medir ante
 explicacion: |
   Es la síntesis final del método de diagnóstico de refrigeración de
   todo el tema.
+```
+
+### 19 — Venteo de refrigerante
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_refrigeracion_diagnostico_refrigeracion_por_casos"
+  nivel: "basico"
+  tags: ["caso normativa"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Está prohibido liberar refrigerante a la atmósfera: antes de abrir el circuito se lo recupera."
+
+explicacion: |
+  Los refrigerantes dañan el ozono o aumentan el efecto invernadero.
+```
+
+
+### 20 — Nitrógeno para prueba
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_refrigeracion_diagnostico_refrigeracion_por_casos"
+  nivel: "intermedio"
+  tags: ["caso vacio"]
+
+enunciado: "Para probar la hermeticidad de un circuito se usa:"
+tipo: mc
+opciones_explicitas:
+  - "Nitrógeno seco"
+  - "Oxígeno"
+  - "Aire comprimido con aceite"
+respuesta: "Nitrógeno seco"
+
+explicacion: |
+  El oxígeno y el aire con aceite pueden provocar explosiones.
+```
+
+
+### 21 — Vacío que sube
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_refrigeracion_diagnostico_refrigeracion_por_casos"
+  nivel: "avanzado"
+  tags: ["caso vacio"]
+
+enunciado: "Tras hacer vacío y cerrar la válvula, el vacuómetro sube de forma sostenida. ¿Qué indica?"
+tipo: mc
+opciones_explicitas:
+  - "Una fuga en el circuito"
+  - "Que el vacío es perfecto"
+  - "Que falta gas refrigerante"
+respuesta: "Una fuga en el circuito"
+
+explicacion: |
+  Si sube y se estabiliza hay humedad; si sube sin parar, hay fuga.
+```
+
+
+### 22 — Equipo sobredimensionado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_refrigeracion_diagnostico_refrigeracion_por_casos"
+  nivel: "intermedio"
+  tags: ["caso carga termica"]
+
+enunciado: "Un acondicionador demasiado grande para el ambiente se apaga y enciende cada pocos minutos. ¿Cuál es el problema?"
+tipo: mc
+opciones_explicitas:
+  - "Poca deshumidificación y mayor consumo por ciclos cortos"
+  - "Ninguno, enfría mejor"
+  - "Falta de gas"
+respuesta: "Poca deshumidificación y mayor consumo por ciclos cortos"
+
+explicacion: |
+  Conviene calcular la carga térmica en lugar de sobredimensionar.
+```
+
+
+### 23 — Evaporador congelado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_refrigeracion_diagnostico_refrigeracion_por_casos"
+  nivel: "intermedio"
+  tags: ["caso componentes"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un filtro de aire sucio o un caudal de aire insuficiente puede hacer que el evaporador se congele."
+
+explicacion: |
+  Baja el intercambio de calor y la superficie baja de 0 °C.
 ```

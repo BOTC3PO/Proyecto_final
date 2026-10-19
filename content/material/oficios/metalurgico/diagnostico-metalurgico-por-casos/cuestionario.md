@@ -1,4 +1,4 @@
-# Oficios — Metalúrgico — Diagnóstico metalúrgico por casos (cuestionario, 16 preguntas VBLang)
+# Oficios — Metalúrgico — Diagnóstico metalúrgico por casos (cuestionario, 21 preguntas VBLang)
 
 > Cierre del oficio (`OF9`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico metalúrgico —
@@ -338,4 +338,107 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: reconstruir 
 explicacion: |
   Es la síntesis final del método de diagnóstico metalúrgico de todo
   el tema.
+```
+
+### 17 — Cavidad de contracción
+
+```
+metadata:
+  materia: "oficios"
+  tema: "metalurgico_diagnostico_metalurgico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso fundicion"]
+
+enunciado: "Una pieza fundida presenta una cavidad en la zona más gruesa, causada por la contracción. ¿Qué falló?"
+tipo: mc
+opciones_explicitas:
+  - "La alimentación de metal líquido: la mazarota era insuficiente o estaba mal ubicada"
+  - "El color de la arena"
+  - "El tipo de bujía"
+respuesta: "La alimentación de metal líquido: la mazarota era insuficiente o estaba mal ubicada"
+
+explicacion: |
+  La mazarota alimenta la pieza mientras se contrae al solidificar.
+```
+
+
+### 18 — Agua y metal fundido
+
+```
+metadata:
+  materia: "oficios"
+  tema: "metalurgico_diagnostico_metalurgico_por_casos"
+  nivel: "basico"
+  tags: ["caso fundicion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las cucharas y herramientas que tocan el metal fundido deben estar secas y precalentadas porque la humedad puede provocar proyecciones explosivas."
+
+explicacion: |
+  El agua se vaporiza de golpe en contacto con el metal líquido.
+```
+
+
+### 19 — Pieza templada frágil
+
+```
+metadata:
+  materia: "oficios"
+  tema: "metalurgico_diagnostico_metalurgico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso tratamientos termicos"]
+
+enunciado: "Una pieza templada se rompe al primer golpe por ser muy frágil. ¿Qué tratamiento posterior corresponde?"
+tipo: mc
+opciones_explicitas:
+  - "Revenido"
+  - "Más temple"
+  - "Dejarla sin tratamiento posterior"
+respuesta: "Revenido"
+
+explicacion: |
+  El revenido reduce la fragilidad y las tensiones a cambio de algo de dureza.
+```
+
+
+### 20 — Escala de dureza
+
+```
+metadata:
+  materia: "oficios"
+  tema: "metalurgico_diagnostico_metalurgico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso normas"]
+
+enunciado: "Dos laboratorios informan la dureza de la misma pieza con números distintos. ¿Qué hay que verificar primero?"
+tipo: mc
+opciones_explicitas:
+  - "Que ambos usen la misma escala o método y que el durómetro esté calibrado"
+  - "Cuál laboratorio es más grande"
+  - "El color de la pieza"
+respuesta: "Que ambos usen la misma escala o método y que el durómetro esté calibrado"
+
+explicacion: |
+  Brinell, Rockwell y Vickers dan valores no directamente comparables.
+```
+
+
+### 21 — Trazabilidad
+
+```
+metadata:
+  materia: "oficios"
+  tema: "metalurgico_diagnostico_metalurgico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso normas"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ante un material sin certificado ni identificación de colada, no debe usarse en aplicaciones críticas."
+
+explicacion: |
+  Sin trazabilidad no se puede asegurar la composición ni las propiedades.
 ```

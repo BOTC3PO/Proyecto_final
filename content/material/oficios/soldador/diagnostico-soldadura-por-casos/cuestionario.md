@@ -1,4 +1,4 @@
-# Oficios — Soldador — Diagnóstico de soldadura por casos (cuestionario, 16 preguntas VBLang)
+# Oficios — Soldador — Diagnóstico de soldadura por casos (cuestionario, 21 preguntas VBLang)
 
 > Cierre del oficio (`OF8`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de soldadura
@@ -334,4 +334,107 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: identificar 
 explicacion: |
   Es la síntesis final del método de diagnóstico de soldadura de todo
   el tema.
+```
+
+### 17 — Soldador fuera de alcance
+
+```
+metadata:
+  materia: "oficios"
+  tema: "soldador_diagnostico_soldadura_por_casos"
+  nivel: "avanzado"
+  tags: ["caso certificacion"]
+
+enunciado: "Un soldador calificado en SMAW sobre chapa en posición 1G debe soldar un caño con TIG en 6G. ¿Qué corresponde?"
+tipo: mc
+opciones_explicitas:
+  - "No está habilitado: debe calificarse para ese proceso y esa posición"
+  - "Puede hacerlo porque ya está certificado"
+  - "Basta con avisar al capataz"
+respuesta: "No está habilitado: debe calificarse para ese proceso y esa posición"
+
+explicacion: |
+  La calificación vale para un conjunto de condiciones; proceso y posición son variables esenciales.
+```
+
+
+### 18 — WPS y calificación
+
+```
+metadata:
+  materia: "oficios"
+  tema: "soldador_diagnostico_soldadura_por_casos"
+  nivel: "intermedio"
+  tags: ["caso certificacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un procedimiento de soldadura calificado y la calificación de un soldador son documentos distintos: uno valida la receta y el otro valida a la persona."
+
+explicacion: |
+  El WPS/PQR respaldan el procedimiento; el certificado del soldador respalda su habilidad.
+```
+
+
+### 19 — Fisura en frío
+
+```
+metadata:
+  materia: "oficios"
+  tema: "soldador_diagnostico_soldadura_por_casos"
+  nivel: "avanzado"
+  tags: ["caso parametros"]
+
+enunciado: "Una soldadura con electrodo E7018 aparece fisurada días después de soldar, con electrodos que estuvieron en una caja abierta y húmeda. ¿Cuál es la causa probable?"
+tipo: mc
+opciones_explicitas:
+  - "Hidrógeno por humedad en el revestimiento de bajo hidrógeno"
+  - "Demasiado argón"
+  - "El color del electrodo"
+respuesta: "Hidrógeno por humedad en el revestimiento de bajo hidrógeno"
+
+explicacion: |
+  Los electrodos de bajo hidrógeno se conservan secos para evitar fisuras en frío.
+```
+
+
+### 20 — Defecto interno invisible
+
+```
+metadata:
+  materia: "oficios"
+  tema: "soldador_diagnostico_soldadura_por_casos"
+  nivel: "intermedio"
+  tags: ["caso inspeccion"]
+
+enunciado: "Se quiere detectar porosidad interna en una soldadura sin dañarla. ¿Qué ensayo sirve?"
+tipo: mc
+opciones_explicitas:
+  - "Radiografía o ultrasonido"
+  - "Líquidos penetrantes"
+  - "Solo inspección visual"
+respuesta: "Radiografía o ultrasonido"
+
+explicacion: |
+  Los penetrantes solo ven defectos abiertos a la superficie; los internos requieren RT o UT.
+```
+
+
+### 21 — Precalentamiento
+
+```
+metadata:
+  materia: "oficios"
+  tema: "soldador_diagnostico_soldadura_por_casos"
+  nivel: "intermedio"
+  tags: ["caso estructural"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En aceros gruesos, el precalentamiento reduce la velocidad de enfriamiento y ayuda a evitar fisuras en frío."
+
+explicacion: |
+  Es una medida habitual en soldadura estructural, indicada por el procedimiento.
 ```

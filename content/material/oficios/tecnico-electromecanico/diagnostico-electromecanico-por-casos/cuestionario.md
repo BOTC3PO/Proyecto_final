@@ -1,4 +1,4 @@
-# Oficios — Técnico Electromecánico — Diagnóstico multivariable por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Técnico Electromecánico — Diagnóstico multivariable por casos (cuestionario, 23 preguntas VBLang)
 
 > Cierre del oficio (`OF11`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico multivariable
@@ -381,4 +381,107 @@ enunciado: "Los cuatro casos de este tema comparten la misma lógica: interpreta
 explicacion: |
   Es la síntesis final del método de diagnóstico multivariable de todo
   el tema.
+```
+
+### 19 — Fuga hidráulica
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_electromecanico_diagnostico_electromecanico_por_casos"
+  nivel: "basico"
+  tags: ["caso hidraulica"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una fuga de aceite hidráulico a presión nunca se busca con la mano, porque el chorro puede penetrar la piel."
+
+explicacion: |
+  Se usa un cartón y se descarga la presión antes de intervenir.
+```
+
+
+### 20 — Cilindro neumático lento
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_electromecanico_diagnostico_electromecanico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso neumatica"]
+
+enunciado: "Un cilindro neumático se mueve lento y con poca fuerza. ¿Qué causa es plausible?"
+tipo: mc
+opciones_explicitas:
+  - "Baja presión, fugas o un filtro tapado"
+  - "Exceso de pintura"
+  - "Falta de iluminación"
+respuesta: "Baja presión, fugas o un filtro tapado"
+
+explicacion: |
+  Se revisa la unidad FRL, la presión de trabajo y las fugas.
+```
+
+
+### 21 — Máquina que no arranca
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_electromecanico_diagnostico_electromecanico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso plc"]
+
+enunciado: "Una máquina controlada por PLC no arranca. ¿Qué orden de revisión es correcto?"
+tipo: mc
+opciones_explicitas:
+  - "Sensor hacia la entrada, programa, salida y actuador, señal por señal"
+  - "Cambiar el PLC"
+  - "Reiniciar todo sin revisar nada"
+respuesta: "Sensor hacia la entrada, programa, salida y actuador, señal por señal"
+
+explicacion: |
+  Se recorre la cadena de señal para ubicar el punto que falla.
+```
+
+
+### 22 — Disponibilidad
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_electromecanico_diagnostico_electromecanico_por_casos"
+  nivel: "intermedio"
+  tags: ["caso mantenimiento"]
+
+enunciado: "Un equipo funciona 190 horas en promedio entre fallas y tarda 10 horas en repararse. ¿Cuál es su disponibilidad?"
+tipo: mc
+opciones_explicitas:
+  - "95 %"
+  - "19 %"
+  - "50 %"
+respuesta: "95 %"
+
+explicacion: |
+  Disponibilidad = MTBF / (MTBF + MTTR) = 190 / 200.
+```
+
+
+### 23 — Bloqueo y etiquetado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_electromecanico_diagnostico_electromecanico_por_casos"
+  nivel: "basico"
+  tags: ["caso mantenimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de intervenir una máquina se bloquean y etiquetan todas las energías y se verifica la ausencia de energía."
+
+explicacion: |
+  Protege contra el arranque inesperado.
 ```

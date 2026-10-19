@@ -1,4 +1,4 @@
-# Oficios — Técnico en Automatización y Robótica — Diagnóstico de robot por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Técnico en Automatización y Robótica — Diagnóstico de robot por casos (cuestionario, 23 preguntas VBLang)
 
 > Cierre del oficio (`OF16`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de robótica —
@@ -378,4 +378,107 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: revisar sist
 
 explicacion: |
   Es la síntesis final del método de diagnóstico de todo el tema.
+```
+
+### 19 — Entrar a la celda
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_automatizacion_y_robotica_diagnostico_robotica_por_casos"
+  nivel: "basico"
+  tags: ["caso seguridad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Antes de entrar al área protegida de un robot se aplica el bloqueo y etiquetado de la energía."
+
+explicacion: |
+  No se confía en que el robot esté detenido: se corta y se bloquea.
+```
+
+
+### 20 — Paso a paso que pierde pasos
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_automatizacion_y_robotica_diagnostico_robotica_por_casos"
+  nivel: "intermedio"
+  tags: ["caso motores"]
+
+enunciado: "Un motor paso a paso en lazo abierto se atasca y luego sigue girando pero el eje queda en otra posición. ¿Qué pasó?"
+tipo: mc
+opciones_explicitas:
+  - "Perdió pasos y el sistema no se enteró"
+  - "Cambió de color"
+  - "Se enfrió demasiado"
+respuesta: "Perdió pasos y el sistema no se enteró"
+
+explicacion: |
+  Por eso para exigencia alta se usa lazo cerrado con encoder.
+```
+
+
+### 21 — Deriva del giróscopo
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_automatizacion_y_robotica_diagnostico_robotica_por_casos"
+  nivel: "avanzado"
+  tags: ["caso sensores"]
+
+enunciado: "La orientación estimada solo con un giróscopo se va desviando con el tiempo. ¿Cómo se corrige?"
+tipo: mc
+opciones_explicitas:
+  - "Fusionando con acelerómetro y magnetómetro mediante un filtro"
+  - "Aumentando la ganancia del motor"
+  - "Apagando el sensor"
+respuesta: "Fusionando con acelerómetro y magnetómetro mediante un filtro"
+
+explicacion: |
+  El giróscopo deriva al integrarse; otros sensores dan referencia de largo plazo.
+```
+
+
+### 22 — Oscilación del eje
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_automatizacion_y_robotica_diagnostico_robotica_por_casos"
+  nivel: "intermedio"
+  tags: ["caso pid"]
+
+enunciado: "Un eje oscila de forma sostenida alrededor de la posición pedida. ¿Qué ajuste es el primero a considerar?"
+tipo: mc
+opciones_explicitas:
+  - "Reducir la ganancia proporcional o aumentar el derivativo"
+  - "Aumentar el tamaño del cable"
+  - "Cambiar la referencia"
+respuesta: "Reducir la ganancia proporcional o aumentar el derivativo"
+
+explicacion: |
+  Una Kp excesiva produce oscilaciones.
+```
+
+
+### 23 — Bus sin terminación
+
+```
+metadata:
+  materia: "oficios"
+  tema: "tecnico_en_automatizacion_y_robotica_diagnostico_robotica_por_casos"
+  nivel: "avanzado"
+  tags: ["caso comunicacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En un bus RS-485 largo, la falta de resistencias de terminación en los extremos puede causar errores de comunicación."
+
+explicacion: |
+  La terminación evita reflexiones de la señal.
 ```

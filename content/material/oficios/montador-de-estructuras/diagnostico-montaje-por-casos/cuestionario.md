@@ -1,4 +1,4 @@
-# Oficios — Montador de Estructuras — Diagnóstico de montaje por casos (cuestionario, 16 preguntas VBLang)
+# Oficios — Montador de Estructuras — Diagnóstico de montaje por casos (cuestionario, 21 preguntas VBLang)
 
 > Cierre del oficio (`OF10`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de montaje
@@ -331,4 +331,107 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: detener el a
 explicacion: |
   Es la síntesis final del método de diagnóstico de montaje de todo
   el tema.
+```
+
+### 17 — Eslingas muy abiertas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "montador_de_estructuras_diagnostico_montaje_por_casos"
+  nivel: "avanzado"
+  tags: ["caso izaje"]
+
+enunciado: "Se levanta una viga con dos eslingas muy abiertas, casi horizontales. ¿Cuál es el riesgo?"
+tipo: mc
+opciones_explicitas:
+  - "La tensión en cada ramal aumenta mucho y puede superar su capacidad"
+  - "Ninguno, el ángulo no influye"
+  - "La viga pesa menos"
+respuesta: "La tensión en cada ramal aumenta mucho y puede superar su capacidad"
+
+explicacion: |
+  La tensión crece al cerrarse el ángulo con la horizontal.
+```
+
+
+### 18 — Debajo de la carga
+
+```
+metadata:
+  materia: "oficios"
+  tema: "montador_de_estructuras_diagnostico_montaje_por_casos"
+  nivel: "basico"
+  tags: ["caso izaje"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Ninguna persona debe permanecer debajo de una carga suspendida."
+
+explicacion: |
+  Es una regla básica que no admite excepciones.
+```
+
+
+### 19 — Quién da las señales
+
+```
+metadata:
+  materia: "oficios"
+  tema: "montador_de_estructuras_diagnostico_montaje_por_casos"
+  nivel: "intermedio"
+  tags: ["caso izaje"]
+
+enunciado: "Durante una maniobra de izaje, ¿quién dirige?"
+tipo: mc
+opciones_explicitas:
+  - "Una sola persona, el señalero, con señales estandarizadas"
+  - "Todos al mismo tiempo"
+  - "Quien esté más cerca"
+respuesta: "Una sola persona, el señalero, con señales estandarizadas"
+
+explicacion: |
+  Una parada, en cambio, puede darla cualquiera.
+```
+
+
+### 20 — Habilitación para altura
+
+```
+metadata:
+  materia: "oficios"
+  tema: "montador_de_estructuras_diagnostico_montaje_por_casos"
+  nivel: "intermedio"
+  tags: ["caso altura"]
+
+enunciado: "Un trabajador sabe soldar bien y se le asigna trabajar en altura sin capacitación específica. ¿Qué corresponde?"
+tipo: mc
+opciones_explicitas:
+  - "Capacitarlo y habilitarlo antes: saber hacer no equivale a estar habilitado"
+  - "Dejarlo seguir, tiene experiencia"
+  - "Darle un arnés y listo"
+respuesta: "Capacitarlo y habilitarlo antes: saber hacer no equivale a estar habilitado"
+
+explicacion: |
+  El marco vigente exige capacitación, supervisión y equipos adecuados.
+```
+
+
+### 21 — Bulón pretensado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "montador_de_estructuras_diagnostico_montaje_por_casos"
+  nivel: "avanzado"
+  tags: ["caso uniones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un bulón de alta resistencia que ya fue pretensado no debe reutilizarse."
+
+explicacion: |
+  Sufrió deformación al tensarse; reutilizarlo no garantiza la fuerza de apriete.
 ```
