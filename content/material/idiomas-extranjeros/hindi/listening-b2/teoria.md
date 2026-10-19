@@ -15,6 +15,14 @@ En B2, escuchar es comprender discursos, conferencias, entrevistas y noticias so
 - **Ironía**: वाह, क्या शानदार विचार है!
 - **Estrategia**: 1) tema y postura; 2) conectores; 3) cifras y fuentes; 4) conclusión.
 
+## Ampliación: noticias y entrevistas
+- **Estructura de una noticia**: titular, hecho principal, declaración de una fuente, contexto y consecuencias.
+- **Verbos de declaración**: **कहा**, **बताया**, **घोषणा की**, **चेतावनी दी**, **खंडन किया** (desmintió).
+- **Fórmulas**: **रिपोर्ट के अनुसार** (según el informe), **सूत्रों के मुताबिक़** (según fuentes), **अधिकारियों का कहना है कि** (los funcionarios dicen que).
+- **Cifras**: **दस प्रतिशत बढ़ी** (aumentó un diez por ciento), **पिछले साल की तुलना में** (en comparación con el año pasado).
+- **Pasiva con जाना**: **नया क़ानून लागू किया गया** (se puso en vigencia una nueva ley). Reconocé **गया/गई/गए** como marca de pasiva.
+- **Ejemplo**: **रिपोर्ट के अनुसार, शहर में प्रदूषण के बावजूद पर्यटकों की संख्या बढ़ी है।** (Según el informe, a pesar de la contaminación, el número de turistas ha aumentado.)
+
 ## Errores comunes de hispanohablantes
 1. **Perder el hilo** al no reconocer conectores.
 2. **Confundir pasiva con activa** (लिया गया).

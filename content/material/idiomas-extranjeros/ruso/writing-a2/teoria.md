@@ -16,6 +16,13 @@ En A2, escribir en ruso es redactar frases y mensajes cortos: presentarse, salud
 - **Minúsculas**: días y meses (понедельник, март) van en minúscula.
 - **Puntuación**: coma antes de но, что, потому что; se usa el guion largo (—) en identificaciones sin verbo.
 
+## Ampliación: modelo de texto y lista de control
+Mensaje modelo: **Привет, Анна! Как дела? У меня всё хорошо. Я учусь в университете и живу с сестрой. В субботу мы идём в кино. Хочешь пойти с нами? Напиши мне. Пока! Мария**
+- **Notá**: el saludo informal (**Привет**), la pregunta (**Как дела?**), el presente (**учусь, живу**), la invitación (**Хочешь пойти?**) y la despedida (**Пока**).
+- **Lista de control**: ¿usé **ты** o **вы** de modo coherente? ¿escribí los nombres de los días con minúscula? ¿usé el caso correcto tras **в/на** (destino: acusativo; lugar: prepositivo)? ¿puse coma antes de **что, если, потому что**?
+- **Puntuación**: en ruso se escribe coma antes de las conjunciones subordinantes: **Я думаю, что он дома.**
+- **Fórmulas**: **Дорогой Иван!** (querido Iván), **С уважением** (atentamente), **С наилучшими пожеланиями** (con los mejores deseos).
+
 ## Errores comunes de hispanohablantes
 1. **Usar nominativo tras в/на** para lugar (*в Мадрид*).
 2. **Olvidar el genitivo** tras два/три/четыре.

@@ -14,6 +14,18 @@ En B2, leer significa comprender textos extensos y complejos (artículos, estudi
 - **Conectores de propósito**: ताकि (para que).
 - **Estrategia**: 1) tema y tesis; 2) conectores; 3) datos o fuentes; 4) conclusión o recomendación; luego responder.
 
+## Ampliación: análisis de un texto argumentativo
+Párrafo modelo: **पर्यटन आय का एक महत्त्वपूर्ण स्रोत है, लेकिन इसका अत्यधिक विस्तार पर्यावरण को नुकसान पहुँचा सकता है। इसलिए विशेषज्ञ सुझाव देते हैं कि पर्यटकों की संख्या सीमित की जाए।**
+
+1. **Tesis**: el turismo es una fuente de ingresos importante.
+2. **Contraargumento**: **लेकिन** introduce el daño ambiental.
+3. **Consecuencia**: **इसलिए** conduce a la recomendación.
+4. **Recomendación**: **सुझाव देते हैं कि… सीमित की जाए** (sugieren que… se limite).
+
+- **Subjuntivo con कि**: **सुझाव देते हैं कि सीमित की जाए** usa la forma de subjuntivo pasivo.
+- **Estilo nominal y términos compuestos**: **पर्यावरण संरक्षण** (protección del medio ambiente), **सतत विकास** (desarrollo sostenible).
+- **Conectores**: **जिससे** (por lo cual), **ताकि** (para que), **हालाँकि** (aunque).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir फिर भी con इसलिए**.
 2. **Ignorar el estilo nominal**.

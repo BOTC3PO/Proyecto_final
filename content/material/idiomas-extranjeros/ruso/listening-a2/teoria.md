@@ -15,6 +15,15 @@ En A2, escuchar significa comprender frases breves y claras sobre presentación,
 - **Familia y profesiones**: брат, сестра, врач, учитель.
 - **Estrategia**: identifica números y nombres; escucha el verbo y el conector para el sentido general.
 
+## Ampliación: cómo entrenar el oído en A2
+- **Reducción de vocales átonas (akanye)**: la **о** átona suena como **а**: **молоко́** se oye *malaká*. Lo importante es la sílaba acentuada, que suena más larga y clara.
+- **Consonantes sordas al final**: **хлеб** se pronuncia *jlep*; **глаз**, *glas*; **друг**, *druk*.
+- **Sonidos difíciles**: **ш** (sh) frente a **щ** (sh suave y larga); **ч** (ch suave); **ы** (vocal central, sin equivalente en español).
+- **Números clave**: **13 тринадцать / 30 тридцать** se distinguen por el acento: *trinádtsat'* / *trídtsat'*. Lo mismo ocurre con **15 пятнадцать** y **50 пятьдесят**.
+- **Hora**: **Сейчас три часа** (son las tres), **в пять часов** (a las cinco), **в половине восьмого** (a las siete y media).
+- **Mini-diálogo**: — **Простите, где здесь станция?** — **Идите прямо, потом налево.** (— Perdone, ¿dónde está la estación? — Vaya recto y luego a la izquierda.)
+- **Estrategia**: anotá números, nombres y direcciones; la terminación del adjetivo y del sustantivo te dice si algo es destino (acusativo) o lugar (prepositivo).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir números parecidos**: пятьдесят / шестьдесят.
 2. **No distinguir Ш, Щ, Ч** al oír.

@@ -16,6 +16,14 @@ En A2, leer significa entender textos breves y sencillos sobre temas cotidianos:
 - **Posposiciones frecuentes**: में, को, से, के साथ, के पास, का/की/के.
 - **Estrategia**: lee el texto entero, identifica el tema, subraya palabras conocidas y luego responde.
 
+## Ampliación: modelo de lectura
+Texto modelo: **मेरा नाम राहुल है। मैं पुणे में रहता हूँ। मेरे परिवार में चार लोग हैं: मेरे माता-पिता, मेरी बहन और मैं। मेरे पिताजी डॉक्टर हैं और माँ शिक्षिका हैं। रविवार को हम सब घूमने जाते हैं।**
+- **Datos**: nombre (राहुल), ciudad (पुणे), cantidad de personas (चार), profesiones (डॉक्टर, शिक्षिका), hábito (रविवार को घूमने).
+- **Estructura**: sujeto – lugar/complemento – verbo al final.
+- **Puntuación**: el punto en hindi es **।** (*pūrṇa virām*) y no el punto latino.
+- **Cognados**: **डॉक्टर, स्कूल, बस** son préstamos del inglés, escritos en devanagari.
+- **Estrategia**: leé una primera vez para el sentido general y una segunda para datos concretos; subrayá las posposiciones (**में, को, से, के साथ**).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir letras parecidas** (ब/व, म/भ).
 2. **Ignorar las posposiciones** y perder el sentido.

@@ -15,6 +15,14 @@ En C1, escuchar es seguir discursos largos y densos (conferencias, debates, noti
 - **Ironía**: वाह, क्या शानदार विचार है! + consecuencia negativa.
 - **Estrategia**: identifica primero el conector que orienta la postura.
 
+## Ampliación: discurso académico y político
+- **Vocabulario sanscritizado**: en discursos formales abundan palabras de origen sánscrito en vez de las de uso cotidiano: **विद्यालय** (escuela) frente a **स्कूल**, **अध्यक्ष** (presidente), **सम्मेलन** (conferencia), **अनुसंधान** (investigación).
+- **Concesión**: **यद्यपि… तथापि…** (aunque… sin embargo…), **चाहे… फिर भी…**
+- **Condicionales irreales**: **यदि सरकार ने समय पर कदम उठाया होता तो संकट न होता।** (Si el gobierno hubiera actuado a tiempo, no habría crisis.)
+- **Ironía**: se reconoce por la entonación y por el contraste con los hechos.
+- **Conclusiones**: **अतः** (por lo tanto), **इस प्रकार** (de este modo), **निष्कर्ष यह है कि** (la conclusión es que).
+- **Estrategia**: identificá el conector que da dirección al argumento y verificá si el hablante concede, refuta o concluye.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir यदि y यदि … तो irreal**.
 2. **Perder la ironía**.

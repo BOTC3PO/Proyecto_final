@@ -16,6 +16,14 @@ En C1 se escriben ensayos, informes y textos académicos en 한다체 formal, co
 - **Definición**: N(이)란 … 을/를 말한다.
 - **Pasado formal**: -하였다.
 
+## Ampliación: ensayo académico
+- **Esquema**: introducción (planteo del problema y objetivo), desarrollo (marco, datos, análisis), conclusión (síntesis y proyección).
+- **Frases útiles**: **본 연구는 … 을/를 목적으로 한다** (este estudio tiene como objetivo…), **이를 통해 … 임을 알 수 있다** (a través de esto se puede ver que…), **이상의 논의를 통해** (a partir de la discusión anterior).
+- **Citas**: **김 교수(2020)에 따르면…**, **~라고 주장한다**, **~로 나타났다** (se observó que).
+- **Cohesión**: **한편** (por otra parte), **이에 반해** (en cambio), **더 나아가** (además), **결과적으로** (como resultado).
+- **Estilo**: usá sustantivos verbales (**증가, 감소, 분석**) y evitá coloquialismos (**진짜, 엄청**).
+- **Registro**: 한다체 en toda la extensión del texto y 합니다 solo en discursos orales.
+
 ## Errores comunes de hispanohablantes
 1. **Mezclar 합쇼체 y 한다체** en el mismo texto.
 2. **Usar la primera persona** (*저는*) en textos académicos que prefieren la voz impersonal.

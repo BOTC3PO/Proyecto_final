@@ -16,6 +16,14 @@ En A2, hablar es saludar, presentarse, pedir cosas con cortesía, preguntar prec
 - **Invitar y responder**: Хочешь пойти в кино? — Да, с удовольствием. / Извини, не могу.
 - **Consejo**: usa frases cortas y cuida la pronunciación de Ш, Щ, Ч, Ы.
 
+## Ampliación: diálogos modelo
+- **En un café**: — **Здравствуйте! Можно меню?** — **Пожалуйста.** — **Мне, пожалуйста, чай и пирожок.** — **Что-нибудь ещё?** — **Нет, спасибо.** (— ¿Puede darme el menú? — Aquí tiene. — Para mí, un té y una empanada, por favor. — ¿Algo más? — No, gracias.)
+- **Preguntar el camino**: **Скажите, пожалуйста, как пройти к музею?** (Dígame, por favor, ¿cómo llego al museo?) — **Идите прямо, потом поверните направо.**
+- **Ты y вы**: usá **вы** con personas mayores, desconocidos y en situaciones formales; **ты** con amigos, familiares y niños.
+- **Frases corteses**: **Извините, вы не подскажете…?** (Disculpe, ¿podría decirme…?); **Спасибо большое** (muchas gracias).
+- **Pronunciación**: practicá **ы**, **ш/щ**, **ж** y la **р** vibrante.
+- **Consejo**: preparate tres preguntas con **где / куда / откуда** y practicá la diferencia: **Где ты? — В парке. Куда ты идёшь? — В парк. Откуда ты? — Из Испании.**
+
 ## Errores comunes de hispanohablantes
 1. **Usar ты con desconocidos**.
 2. **Olvidar пожалуйста** al pedir.

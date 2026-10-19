@@ -14,6 +14,13 @@ En B1 se entienden diálogos cotidianos claros sobre comida, transporte, compras
 - **Precios y horas**: sino-coreanos para dinero (*사천오백 원*), nativos para horas (*두 시*).
 - **Respuestas indirectas**: rechazar con 미안해요, 바빠요 en vez de 아니요.
 
+## Ampliación: escucha de diálogos cotidianos
+- **Diálogo modelo (en una tienda)**: — **이거 얼마예요?** — **만 이천 원이에요.** — **좀 깎아 주세요.** — **죄송합니다. 가격이 정해져 있어요.** (— ¿Cuánto cuesta? — Doce mil wones. — Hágame un descuento. — Lo siento, el precio es fijo.)
+- **Fenómenos fonéticos**: la **ㄴ** se asimila: **십만** se oye *simman*; la **ㅂ** final se vuelve **ㅁ** ante **ㄴ**: **밥만** se oye *bamman*. Tensión (**ㄲ, ㄸ, ㅃ, ㅆ, ㅉ**): **빵** (pan) frente a **방** (habitación).
+- **Terminaciones que informan**: **-네요** (sorpresa/observación: **날씨가 좋네요**), **-죠?** (confirmación: **그렇죠?**), **-ㄹ까요?** (propuesta: **같이 갈까요?**).
+- **Rechazos suavizados**: **글쎄요…** (bueno…), **좀 어려울 것 같아요** (me parece un poco difícil).
+- **Estrategia**: concentrate en el verbo final; ahí aparece la intención (pregunta, petición, sugerencia, rechazo).
+
 ## Errores comunes de hispanohablantes
 1. **Tomar 안 돼요 por 'no entiendo'**: significa 'no se puede'.
 2. **Confundir -지만 con -아서**: -지만 es contraste, -아서 causa.

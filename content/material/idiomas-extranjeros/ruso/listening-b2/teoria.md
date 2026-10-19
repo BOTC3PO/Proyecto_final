@@ -15,6 +15,14 @@ En B2, escuchar es comprender discursos, conferencias, entrevistas y noticias so
 - **Ironía y actitud**: Какая блестящая идея…
 - **Estrategia**: 1) tema y postura; 2) conectores; 3) cifras y fuentes; 4) conclusión.
 
+## Ampliación: noticias y entrevistas
+- **Estructura de una noticia**: titular, hecho principal, declaración de una fuente, contexto y consecuencias.
+- **Verbos de declaración**: **заявить** (declarar), **подчеркнуть** (subrayar), **отметить** (señalar), **предупредить** (advertir), **опровергнуть** (desmentir).
+- **Fórmulas**: **по данным…** (según datos de), **по словам…** (según palabras de), **как сообщается** (según se informa).
+- **Cifras**: **вырос на пять процентов** (creció un cinco por ciento), **по сравнению с прошлым годом** (en comparación con el año pasado).
+- **Participios y gerundios hablados**: **заявивший** (que declaró), **отвечая на вопрос** (al responder a la pregunta). En la radio aparecen con frecuencia: practicá reconocer su terminación.
+- **Ejemplo**: **По словам министра, число туристов выросло на десять процентов, однако эксперты предупреждают об экологических рисках.** (Según el ministro, el número de turistas creció un diez por ciento; sin embargo, los expertos advierten de riesgos ecológicos.)
+
 ## Errores comunes de hispanohablantes
 1. **Perder el hilo** al no reconocer conectores.
 2. **Confundir pasiva con activa**.

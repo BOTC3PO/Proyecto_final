@@ -11,6 +11,15 @@ En A1 se leen textos muy breves: presentaciones, horarios, carteles y mensajes c
 - **Números**: nativos para edades, horas y contadores (*스무 살, 일곱 시, 두 마리*); sino-coreanos para fechas, dinero y teléfonos (*오월 오일, 삼천 원, 공일공*).
 - **Cortesía**: -ㅂ니다/-습니다 (formal) y -아/어요 (cortés cotidiano).
 
+## Ampliación: ejemplos de lectura guiada
+Texto modelo: **저는 마리아입니다. 스페인에서 왔습니다. 지금 서울에서 한국어를 공부합니다. 저는 커피를 좋아합니다.**
+- **Datos**: nombre (마리아), origen (스페인에서), lugar de estudio (서울에서), actividad (한국어를 공부합니다), gusto (커피를 좋아합니다).
+- **Lectura del Hangul**: cada sílaba se escribe como un bloque: consonante inicial + vocal + consonante final (받침) opcional. Ejemplo: **한** = ㅎ + ㅏ + ㄴ.
+- **Partículas de lugar**: **에** indica destino o lugar de existencia (**학교에 가요**, **집에 있어요**); **에서** indica el lugar donde se realiza una acción (**도서관에서 공부해요**).
+- **Contadores**: **한 명** (una persona), **두 개** (dos unidades), **세 마리** (tres animales).
+- **Carteles frecuentes**: **입구** (entrada), **출구** (salida), **영업 시간** (horario de atención), **금연** (prohibido fumar).
+- **Estrategia**: buscá el verbo al final, luego el sujeto o tema, y completá el significado con las partículas.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 은/는 con 이/가**: 은/는 = tema; 이/가 = sujeto.
 2. **Buscar el verbo al principio**: siempre está al final.

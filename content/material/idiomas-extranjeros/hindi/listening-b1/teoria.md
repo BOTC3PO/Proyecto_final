@@ -15,6 +15,14 @@ En B1, escuchar es seguir conversaciones y relatos breves sobre temas familiares
 - **Expresiones de tiempo**: आमतौर पर, पिछले महीने, के दौरान.
 - **Estrategia**: identifica primero verbo y conector; escucha las posposiciones y el verbo final.
 
+## Ampliación: conversaciones frecuentes en B1
+- **Verbo final**: en hindi el verbo va al final de la oración; hasta que no lo oís no sabés si es afirmación, pregunta o negación: **मैं कल बाज़ार नहीं गया।** (ayer no fui al mercado).
+- **Consejos y obligaciones**: **आपको आराम करना चाहिए** (deberías descansar); **मुझे डॉक्टर के पास जाना पड़ेगा** (tendré que ir al médico).
+- **Planes**: **मैं सोच रहा हूँ कि अगले महीने जयपुर जाऊँ।** (pienso ir a Jaipur el mes que viene.)
+- **Estilo indirecto**: **उसने कहा कि वह पाँच बजे आएगा।** (dijo que vendría a las cinco).
+- **Posposiciones y casos**: **घर में** (en la casa), **दोस्त से** (con/de un amigo), **मेज़ पर** (sobre la mesa), **माँ को** (a la madre). Prestá atención a la forma oblicua: **लड़के → लड़कों से**.
+- **Cortesía**: **कृपया धीरे बोलिए** (por favor, hablá más despacio); **क्या आप दोहरा सकते हैं?** (¿podría repetir?).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir posposiciones** (से, में, पर).
 2. **Perder el verbo final**.

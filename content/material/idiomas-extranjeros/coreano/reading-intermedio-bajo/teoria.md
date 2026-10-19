@@ -14,6 +14,16 @@ En B1 se leen textos cotidianos de varias frases: planes, opiniones, avisos y re
 - **Comparación**: N보다.
 - **Partículas de sujeto**: 이 tras consonante (*학생이*), 가 tras vocal (*친구가*); objeto: 을 tras consonante (*책을*), 를 tras vocal (*커피를*).
 
+## Ampliación: lectura de textos cotidianos
+Texto modelo: **어제는 비가 와서 집에 있었어요. 영화를 보고 싶었지만 극장이 멀어서 가지 않았어요. 대신 친구에게 전화해서 이야기를 많이 했어요.**
+- **Causa**: **비가 와서** (porque llovió), **멀어서** (porque estaba lejos).
+- **Contraste**: **보고 싶었지만** (quería ver, pero).
+- **Secuencia**: **전화해서** (llamé y entonces), con valor temporal además de causal.
+- **Partículas**: **에게** para personas (**친구에게**), **에** para lugares (**집에**).
+- **Pasado**: -았/었어요 (**있었어요**, **했어요**).
+- **Pista de lectura**: las terminaciones **-아서/어서** pueden indicar causa o secuencia; el contexto decide.
+- **Vocabulario útil**: **대신** (en cambio), **많이** (mucho), **이야기하다** (conversar).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 이/가 con 을/를**: 학생이 책을 봐요 (el estudiante ve el libro), no *학생을 책이 봐요*.
 2. **Elegir mal 이/가 y 을/를 según el final de la palabra.**

@@ -21,7 +21,7 @@ En B1, escuchar es seguir conversaciones y relatos breves sobre temas familiares
 - **Cortesía y desacuerdo**: **مَعَ احْتِرامِي لَكَ، لا أَتَّفِقُ مَعَكَ** (con todo respeto, no estoy de acuerdo con vos).
 - **Marcadores de secuencia**: **أَوَّلًا، ثُمَّ، بَعْدَ ذٰلِكَ، أَخِيرًا** (primero, luego, después de eso, por último).
 - **Diálogo modelo**: — **لِماذا تَأَخَّرْتَ؟** — **لِأَنَّ القِطارَ تَأَخَّرَ ساعَةً.** (— ¿Por qué llegaste tarde? — Porque el tren se retrasó una hora.) Atención: **لِأَنَّ** introduce una causa, **لِذٰلِكَ** una consecuencia.
-- **Atención a la negación**: **لَمْ أَفْهَمْ** (no entendí), **لَنْ أَذْهَبَ** (no iré), **ما ذَهَبْتُ** (no fui).
+- **Atención a la negación**: **لَمْ أَفْهَمْ** (no entendí), **لَنْ أَذْهَبَ** (no iré), **لا أَذْهَبُ** (no voy).
 - **Truco**: reconocé primero el tiempo del verbo por su prefijo o terminación (**أ، ن، ي، ت** en presente; **ـتُ، ـتَ، ـتْ** en pasado).
 
 ## Errores comunes de hispanohablantes

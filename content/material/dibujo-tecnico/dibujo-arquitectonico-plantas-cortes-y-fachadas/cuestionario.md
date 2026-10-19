@@ -55,20 +55,16 @@ metadata:
   nivel: "intermedio"
   tags: ["dibujo"]
 
-variables:
-  h: uno_de([1.2])
-
-respuesta: h * 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "El plano de corte horizontal de una planta se ubica a unos {h} m del piso. ¿Cuántos centímetros son?"
-
-pasos:
-  - "1 m = 100 cm"
+enunciado: "El plano de corte horizontal de una planta se ubica aproximadamente a..."
+tipo: mc
+opciones_explicitas:
+  - "1,20 m del piso"
+  - "10 cm del piso"
+  - "5 m del piso"
+respuesta: "1,20 m del piso"
 
 explicacion: |
-  Se multiplica por 100.
+  Así muestra muros, aberturas y elementos bajos.
 ```
 
 ### 4 — Cada nivel
@@ -335,7 +331,7 @@ metadata:
 variables:
   real: uno_de([3, 4, 5, 6, 8, 10])
 
-respuesta: real * 100 / 100
+respuesta: real
 tipo: input
 tolerancia_abs: 0
 

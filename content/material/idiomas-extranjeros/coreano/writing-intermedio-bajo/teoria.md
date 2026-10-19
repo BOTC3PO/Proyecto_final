@@ -13,6 +13,13 @@ En B1 se escriben textos cortos coherentes: notas, correos sencillos, diarios y 
 - **Correo**: 선생님께, … 감사합니다.
 - **Otros**: -다고 하다 (cita), -아/어 본 적이 있다, -(으)ㄹ 수 있다, -아/어야 하다.
 
+## Ampliación: modelos de textos
+- **Entrada de diario (한다체)**: **오늘은 친구와 한강에 갔다. 날씨가 좋아서 자전거를 탔다. 저녁에는 치킨을 먹었다. 정말 즐거운 하루였다.**
+- **Correo sencillo (해요체/합쇼체)**: **선생님께, 안녕하세요? 저는 마리아입니다. 다음 주 수업에 참석할 수 없어서 연락드립니다. 죄송합니다. 감사합니다.**
+- **Cohesión**: encadená con **그리고** (y), **그래서** (por eso), **하지만** (pero), **그런데** (pero, por cierto), **먼저 / 그다음에 / 마지막으로** (primero / luego / por último).
+- **Lista de control**: ¿mantuve un solo registro? ¿escribí **께** y **-시-** para el profesor? ¿el verbo está al final? ¿usé **에게/한테** para personas y **에** para lugares?
+- **Estructura básica**: saludo, motivo, desarrollo, cierre y despedida.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir -아서 y -지만.**
 2. **Mezclar registros** en un mismo texto.
