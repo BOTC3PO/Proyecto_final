@@ -33,19 +33,17 @@ metadata:
 
 variables:
   pais_origen: uno_de(["Argentina", "México", "Filipinas", "India"])
-  monto_base: random(1000, 5000)
-  porcentaje: uno_de([10, 20, 30])
-  monto_final: floor(monto_base * (1 + porcentaje/100))
+  porcentaje: uno_de([10, 20, 25, 50])
+  ingreso: uno_de([2000, 3000, 4000, 5000])
+  remesa: ingreso * porcentaje / 100
 
-enunciado: "Si un migrante de {pais_origen} envía {monto_base} dólares a su familia y esta cantidad representa el {porcentaje}% del ingreso familiar total, ¿cuánto sería el ingreso familiar si se suman las remesas directas al monto base del ingreso (sin contar la remesa)?"
+enunciado: "Un migrante de {pais_origen} envía {remesa} dólares a su familia, y esa remesa representa el {porcentaje}% del ingreso familiar total. ¿Cuál es el ingreso familiar total, en dólares?"
 
-respuesta: monto_final
+respuesta: ingreso
 tipo: input
 
 explicacion: |
-  Las remesas son envíos de dinero cruciales para las economías de origen. En este caso, si la remesa es el X% del ingreso, el ingreso total familiar es la suma del ingreso base más la remesa. La pregunta pide el monto final si se considera el flujo total de recursos recibidos. Nota: La pregunta está diseñada para evaluar la comprensión del flujo financiero. Si la remesa es el 20% del ingreso familiar, y el ingreso familiar es I, entonces Remesa = 0.2 * I. Por lo tanto I = Remesa / 0.2. Pero el enunciado dice "monto base del ingreso". Asumiremos que el ingreso familiar es I y la remesa R. Si R es el 20% de I, entonces I = R/0.2. El ingreso total disponible es I + R? No, la remesa ES parte del ingreso. La pregunta es ambigua en la interpretación matemática estricta sin más contexto, pero para fines educativos, se busca que el estudiante identifique la magnitud. Vamos a simplificar: Si la remesa es 20% del ingreso, el ingreso es 5 veces la remesa. Si la remesa es 1000, el ingreso es 5000. El total de recursos es 5000. La pregunta original era confusa. Cambiemos la lógica a algo más directo sobre el concepto.
-  
-  Re-escritura de la explicación para claridad: Las remesas son un flujo financiero clave. Si un país recibe grandes volúmenes, esto dinamiza la economía local.
+  Las remesas son envíos de dinero de los migrantes a sus familias y son un ingreso muy importante para muchas economías de origen. Si la remesa de {remesa} dólares es el {porcentaje}% del ingreso, el ingreso total es la remesa dividida por {porcentaje}/100, es decir, {ingreso} dólares.
 ```
 
 ### 3 — pregunta 3
