@@ -196,24 +196,7 @@ respuestas_validas:
 explicacion: "'コカ・コーラ' es la escritura habitual en katakana de 'Coca-Cola'."
 ```
 
-### 12 — Escribir una palabra prestada
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-enunciado: "「taxi」の正しい書き方はどれですか。"
-tipo: mc
-opciones_explicitas:
-  - "タクシー"
-  - "たくしー"
-  - "タクシ"
-respuesta: "タクシー"
-explicacion: "Las palabras prestadas se escriben en katakana, y la vocal larga se marca con ー."
-```
-
-### 13 — カタカナの完成（Italia）
+### 12 — カタカナの完成（Italia）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -229,26 +212,7 @@ respuestas_validas:
 explicacion: "'イタリア' es el nombre de Italia en katakana: los nombres de países extranjeros se escriben en katakana."
 ```
 
-### 14 — カタカナの選択（televisión）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'televisión'."
-enunciado: "「televisión」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "テレビ"
-  - "てれび"
-  - "テれび"
-respuesta: "テレビ"
-tipo: mc
-explicacion: "'テレビ' (katakana) es la escritura estándar de una palabra prestada; 'てれび' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
-```
-
-### 15 — カタカナの完成（ordenador personal）
+### 13 — カタカナの完成（ordenador personal）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -264,26 +228,7 @@ respuestas_validas:
 explicacion: "'パソコン' es la palabra prestada para 'ordenador personal'."
 ```
 
-### 16 — カタカナの選択（taxi）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'taxi'."
-enunciado: "「taxi」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "タクシー"
-  - "たくしー"
-  - "タくしー"
-respuesta: "タクシー"
-tipo: mc
-explicacion: "'タクシー' (katakana) es la escritura estándar de una palabra prestada; 'たくしー' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
-```
-
-### 17 — カタカナの完成（pan）
+### 14 — カタカナの完成（pan）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -299,26 +244,7 @@ respuestas_validas:
 explicacion: "'パン' es una palabra de origen extranjero; las palabras prestadas se escriben en katakana."
 ```
 
-### 18 — カタカナの選択（café）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'café'."
-enunciado: "「café」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "コーヒー"
-  - "こーひー"
-  - "コーひー"
-respuesta: "コーヒー"
-tipo: mc
-explicacion: "'コーヒー' (katakana) es la escritura estándar de una palabra prestada; 'こーひー' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
-```
-
-### 19 — カタカナの完成（zapatillas deportivas）
+### 15 — カタカナの完成（zapatillas deportivas）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -334,26 +260,7 @@ respuestas_validas:
 explicacion: "'スニーカー' es la escritura habitual en katakana de 'zapatillas deportivas'."
 ```
 
-### 20 — カタカナの選択（naranja）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'naranja'."
-enunciado: "「naranja」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "オレンジ"
-  - "おれんじ"
-  - "オれんじ"
-respuesta: "オレンジ"
-tipo: mc
-explicacion: "'オレンジ' (katakana) es la escritura estándar de una palabra prestada; 'おれんじ' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
-```
-
-### 21 — カタカナの完成（Brasil）
+### 16 — カタカナの完成（Brasil）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -369,26 +276,7 @@ respuestas_validas:
 explicacion: "'ブラジル' es el nombre de Brasil en katakana: los nombres de países extranjeros se escriben en katakana."
 ```
 
-### 22 — カタカナの選択（televisión）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'televisión'."
-enunciado: "「televisión」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "テレビ"
-  - "てれび"
-  - "テれび"
-respuesta: "テレビ"
-tipo: mc
-explicacion: "'テレビ' (katakana) es la escritura estándar de una palabra prestada; 'てれび' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
-```
-
-### 23 — カタカナの完成（reloj inteligente）
+### 17 — カタカナの完成（reloj inteligente）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -404,26 +292,7 @@ respuestas_validas:
 explicacion: "'スマートウォッチ' es la palabra prestada para 'reloj inteligente'."
 ```
 
-### 24 — カタカナの選択（pan）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "katakana"
-  nivel: "A1"
-  tags: ["escritura","gairaigo"]
-pasos:
-  - "Elegir la escritura estándar de 'pan'."
-enunciado: "「pan」の正しい書き方はどれですか。"
-opciones_explicitas:
-  - "パン"
-  - "ぱん"
-  - "パん"
-respuesta: "パン"
-tipo: mc
-explicacion: "'パン' (katakana) es la escritura estándar de una palabra prestada; 'ぱん' en hiragana o mezclando escrituras no es la ortografía normal para este préstamo."
-```
-
-### 25 — カタカナの完成（taxi）
+### 18 — カタカナの完成（taxi）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"

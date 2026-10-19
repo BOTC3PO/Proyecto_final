@@ -548,6 +548,8 @@ variables:
 
 restricciones:
   - a * c != a + c
+  - a > 1
+  - c > 1
 
 respuesta: correcto
 tipo: mc

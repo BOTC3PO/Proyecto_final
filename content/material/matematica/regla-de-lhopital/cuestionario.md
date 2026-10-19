@@ -460,36 +460,7 @@ explicacion: |
   No se deriva el cociente f/g, sino que se derivan el numerador y el denominador por separado.
 ```
 
-### 21 — pregunta 24
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["exponencial", "logaritmo"]
-
-variables:
-  k: random(1, 5)
-
-respuesta: 0
-tipo: input
-
-enunciado: "Calcula el límite de x / ln(x) cuando x tiende a 1."
-
-explicacion: |
-  Al sustituir x=1, el numerador es 1 y el denominador es ln(1)=0.
-  Esto no es 0/0 ni ∞/∞. Es 1/0 (asíntota).
-  Espera, el límite es infinito (o no existe en el sentido finito).
-  Si la pregunta pide un número finito, esta variable no sirve bien para input numérico simple sin especificar signo.
-  Cambiemos a x->∞ para ln(x)/x.
-  Nuevo enunciado: Lim ln(x)/x cuando x->∞.
-  Derivada num: 1/x. Derivada den: 1.
-  Lim (1/x)/1 = 0.
-  Reescribiendo bloque:
-```
-
-### 22 — pregunta 25
+### 21 — pregunta 25
 
 ```
 metadata:
@@ -509,7 +480,7 @@ explicacion: |
   El nuevo límite es lim (1/x) / 1 = 0.
 ```
 
-### 23 — pregunta 26
+### 22 — pregunta 26
 
 ```
 metadata:
@@ -528,7 +499,7 @@ explicacion: |
   Si el límite de las derivadas no existe, la regla es inconclusa (el límite original podría existir o no).
 ```
 
-### 24 — pregunta 27
+### 23 — Límite que requiere derivar tres veces
 
 ```
 metadata:
@@ -537,42 +508,20 @@ metadata:
   nivel: "avanzado"
   tags: ["iteracion", "polinomio"]
 
-respuesta: 2
+respuesta: 0.1667
 tipo: input
+tolerancia_abs: 0.001
 
-enunciado: "Calcula el límite de (x^{2} - 2x + 1) / (x^{3} - 1) cuando x tiende a 1."
+enunciado: "Calcula el límite de (x - sen(x)) / x^3 cuando x tiende a 0 (dá el resultado como decimal, con cuatro cifras)."
 
 explicacion: |
-  Forma 0/0.
-  Derivada 1: Num (2x-2), Den (3x^2). En x=1: 0/3 = 0.
-  Espera, 0/3 es 0. No hay que derivar de nuevo.
-  Reviso: Num en 1: 1-2+1=0. Den en 1: 1-1=0.
-  Derivada Num: 2x-2. En 1: 0.
-  Derivada Den: 3x^2. En 1: 3.
-  Lim 0/3 = 0.
-  La respuesta es 0.
-  Cambio el ejercicio para que requiera 2 derivadas.
-  Usar (x-1)^2 / (x^3-1)?
-  Num derivada: 2(x-1) -> 0. Den derivada: 3x^2 -> 3. Resultado 0.
-  Usar (x-1)^3 / (x^2-1)?
-  Num derivada: 3(x-1)^2 -> 0. Den derivada: 2x -> 2. Resultado 0.
-  Para que sea distinto de 0 y requiera iteración, necesitamos que la primera derivada siga dando 0/0.
-  Ejemplo: (x-1)^2 / (x^2-1).
-  Derivada 1: Num 2(x-1)->0. Den 2x->2. Resultado 0.
-  Ejemplo: (x-1)^3 / (x-1)^2? Simplifica a x-1 -> 0.
-  Ejemplo clásico: (x - sin(x)) / x^3?
-  Derivada 1: (1-cos(x))/3x^2 -> 0/0.
-  Derivada 2: sin(x)/6x -> 0/0.
-  Derivada 3: cos(x)/6 -> 1/6.
-  Muy complejo para input simple.
-  Volvemos a (x^2 - 2x + 1)/(x-1)? No, eso es 0/0 directo.
-  Vamos a usar (x^2 - 1)/(x^3 - 1) en x->1.
-  Derivada 1: 2x / 3x^2 = 2/(3x). En 1: 2/3.
-  Respuesta 2/3.
-  Reescribiendo para evitar confusión de iteración innecesaria:
+  Al sustituir x=0 queda 0/0, así que se aplica L'Hôpital.
+  Primera derivada: (1 - cos(x)) / (3x^2), que sigue siendo 0/0.
+  Segunda derivada: sen(x) / (6x), que sigue siendo 0/0.
+  Tercera derivada: cos(x) / 6. En x=0 vale 1/6, que es aproximadamente 0,1667.
 ```
 
-### 25 — pregunta 28
+### 24 — pregunta 28
 
 ```
 metadata:
@@ -591,7 +540,7 @@ explicacion: |
   El resultado será c veces el límite original de f/g.
 ```
 
-### 26 — pregunta 29
+### 25 — pregunta 29
 
 ```
 metadata:
@@ -609,7 +558,7 @@ explicacion: |
   Verdadero. La regla se basa en la derivabilidad en un entorno, y los límites laterales son casos particulares de ese comportamiento local.
 ```
 
-### 27 — pregunta 31
+### 26 — pregunta 31
 
 ```
 metadata:

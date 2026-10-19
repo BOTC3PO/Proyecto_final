@@ -334,28 +334,7 @@ respuesta: "あまり"
 explicacion: "La oración indica una comparación negativa ('no tan popular como otras'). 'あまり' expresa 'no tanto', mientras que 'とても' y 'ほとんど' son positivos o neutros."
 ```
 
-### 17 — 目的（ために）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["propósito", "causa"]
-pasos:
-  - "Identificar la relación de causa y propósito en la oración."
-  - "Elegir la opción que expresa el propósito con ～ために。"
-enunciado: "¿Cuál es la oración correcta que expresa el propósito de una acción con ~ために?"
-opciones_explicitas:
-  - "彼は大学に進学するために勉強した"
-  - "彼は大学に進学した"
-  - "彼は勉強した"
-respuesta: "彼は大学に進学するために勉強した"
-explicacion: "La forma ～ために se usa para expresar el propósito de una acción. La opción correcta conecta el estudio con la causa (entrar a la universidad)."
-```
-
-
-
-### 18 — 原因（が）
+### 17 — 原因（が）
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -373,28 +352,7 @@ tipo: completar
 explicacion: "'考えられる' (se considera) es el complemento lógico de '理論', mientras que otras opciones no encajan gramaticalmente o semánticamente."
 ```
 
-### 19 — 結論（ので）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["consecuencia", "causa"]
-pasos:
-  - "Identificar la relación causa-consecuencia en la oración."
-  - "Elegir la opción que expresa consecuencia con ～ので。"
-enunciado: "¿Cuál es la oración correcta que expresa una consecuencia lógica con ~ので?"
-opciones_explicitas:
-  - "彼は病気なので、会議に出席できなかった"
-  - "彼は病気がした"
-  - "彼は会議に来た"
-respuesta: "彼は病気なので、会議に出席できなかった"
-explicacion: "La forma ～ので se usa para expresar una consecuencia lógica de algo. La opción correcta conecta la enfermedad con el resultado (no asistió)."
-```
-
-
-
-### 20 — 比較（より）
+### 18 — 比較（より）
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -413,28 +371,7 @@ respuesta: "進んで"
 explicacion: "La oración describe una acción pasada ('el plan fue aprobado') que conduce a un resultado presente. '進んで' (se desarrolló) conecta causalmente ambos eventos."
 ```
 
-### 21 — 経過（から）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["tiempo", "secuencia"]
-pasos:
-  - "Identificar el uso de ～から para indicar un punto de partida en el tiempo."
-  - "Elegir la opción que expresa secuencia con ～から。"
-enunciado: "¿Cuál es la oración correcta que expresa el punto de partida de una acción en el tiempo con ~から?"
-opciones_explicitas:
-  - "彼は10時から会議に出席した"
-  - "彼は10時まで待った"
-  - "彼は会議に行った"
-respuesta: "彼は10時から会議に出席した"
-explicacion: "La forma ～から se usa para indicar el inicio de un periodo de tiempo. La opción correcta conecta la hora (10) con la acción (asistir al meeting)."
-```
-
-
-
-### 22 — 結果（た）
+### 19 — 結果（た）
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -453,28 +390,7 @@ respuesta: "紹介された"
 explicacion: "El sujeto '彼' (él) está implícito y la acción fue realizada por otro. El pasado pasivo ('紹介された') es necesario para indicar que el evento ya ocurrió."
 ```
 
-### 23 — 無理（させられる）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["causativo-pasivo", "negación"]
-pasos:
-  - "Identificar la estructura causativa-pasiva."
-  - "Elegir la opción que expresa negación con させられる。"
-enunciado: "¿Cuál es la oración correcta que expresa que algo fue hecho contra la voluntad de alguien (causativo-pasivo)?"
-opciones_explicitas:
-  - "彼は無理に働かされた"
-  - "彼は働ける"
-  - "彼は仕事をした"
-respuesta: "彼は無理に働かされた"
-explicacion: "La forma causativo-pasivo ～させられる se usa para mostrar que algo fue hecho contra la voluntad. La opción correcta incluye el adverbio 無理に (contra la voluntad)."
-```
-
-
-
-### 24 — 時間（に）
+### 20 — 時間（に）
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/japones"
@@ -491,23 +407,4 @@ opciones_explicitas:
   - "着ていなかった"
 respuesta: "着ていなかった"
 explicacion: "La oración requiere un verbo en forma negativa y pasada para indicar 'no llevaba' (aunque la acción ya terminó). '着ていなかった' cumple con ambos requisitos."
-```
-
-### 25 — 目的（ために）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["propósito", "causa"]
-pasos:
-  - "Identificar la relación de causa y propósito en la oración."
-  - "Elegir la opción que expresa el propósito con ～ために。"
-enunciado: "¿Cuál es la oración correcta que expresa el propósito de una acción con ~ために?"
-opciones_explicitas:
-  - "彼は大学に進学するために勉強した"
-  - "彼は大学に進学した"
-  - "彼は勉強した"
-respuesta: "彼は大学に進学するために勉強した"
-explicacion: "La forma ～ために se usa para expresar el propósito de una acción. La opción correcta conecta el estudio con la causa (entrar a la universidad)."
 ```

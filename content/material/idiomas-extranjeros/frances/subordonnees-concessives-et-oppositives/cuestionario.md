@@ -126,7 +126,7 @@ pasos:
   - "Reconocer que 'néanmoins' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "néanmoins"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "néanmoins")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'néanmoins')"
 opciones_explicitas:
   - "néanmoins"
   - "bien qu'"
@@ -167,7 +167,7 @@ pasos:
   - "Reconocer que 'cependant' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "cependant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "cependant")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'cependant')"
 opciones_explicitas:
   - "cependant"
   - "bien qu'"
@@ -249,7 +249,7 @@ pasos:
   - "Reconocer que 'pourtant' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "pourtant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "pourtant")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'pourtant')"
 opciones_explicitas:
   - "pourtant"
   - "bien qu'"
@@ -290,7 +290,7 @@ pasos:
   - "Reconocer que 'cependant' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "cependant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "cependant")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'cependant')"
 opciones_explicitas:
   - "cependant"
   - "bien qu'"
@@ -331,7 +331,7 @@ pasos:
   - "Reconocer que 'néanmoins' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "néanmoins"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "néanmoins")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'néanmoins')"
 opciones_explicitas:
   - "néanmoins"
   - "bien qu'"
@@ -372,7 +372,7 @@ pasos:
   - "Reconocer que 'pourtant' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "pourtant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "pourtant")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'pourtant')"
 opciones_explicitas:
   - "pourtant"
   - "bien qu'"
@@ -413,7 +413,7 @@ pasos:
   - "Reconocer que 'cependant' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "cependant"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "cependant")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'cependant')"
 opciones_explicitas:
   - "cependant"
   - "bien qu'"
@@ -454,7 +454,7 @@ pasos:
   - "Reconocer que 'néanmoins' es un adverbio de oposición."
   - "Verificar que no requiere una subordinada."
 respuesta: "néanmoins"
-enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with "néanmoins")"
+enunciado: "¿Cuál es el adverbio correcto para expresar oposición sin necesidad de una subordinada? (Opposition with 'néanmoins')"
 opciones_explicitas:
   - "néanmoins"
   - "bien qu'"

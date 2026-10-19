@@ -4,539 +4,447 @@
 
 ---
 
-### 1 — Accord de l’adjectif  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["accord", "adjetivo"]  
-pasos:  
-  - "Identificar el género y número del sustantivo 'ville'."  
-  - "Aplicar el acuerdo al adjetivo 'moderne'."  
-respuestas_validas:  
-  - "moderne"  
-  - "Moderne"  
-tipo: completar  
-enunciado: "La ville est une ___ et dynamique."  
-explicacion: "El adjetivo 'moderne' debe concordar en género y número con el sustantivo 'ville' (femenino singular), por lo tanto no se pluraliza ni cambia su forma."  
-```  
-
----
-
-### 2 — Uso de preposición *en*  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposiciones", "en"]  
-pasos:  
-  - "Determinar el contexto de la oración para elegir la preposición correcta."  
-  - "Revisar si 'en' se usa con días, meses o países."  
-respuesta: "en"  
-opciones_explicitas:
-  - "dans"
-  - "sur"
-  - "à"
-  - "en"
-tipo: mc  
-enunciado: "Il travaille ___ entreprise depuis trois ans."  
-explicacion: "'En' se usa con 'entreprise' porque es un lugar de trabajo, no un país ni una ciudad. 'Dans' se usaría con lugares más generales como 'ville' o 'pays'."  
-```  
-
----
-
-### 3 — Forma del verbo *être* en tercera persona singular  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["verbo-etre", "conjugación"]  
-pasos:  
-  - "Identificar el sujeto 'elle' y aplicar la conjugación del verbo."  
-  - "Verificar si se usa la forma 'est' o 'sont' en tercera persona singular."  
-respuestas_validas:  
-  - "est"  
-  - "Est"  
-tipo: completar  
-enunciado: "Elle ___ professeure de philosophie."  
-explicacion: "El verbo 'être' en tercera persona singular (elle) se conjuga como 'est', no 'sont' o 'es'."  
-```  
-
----
-
-### 4 — Uso del participio pasado con *avoir*  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["participio", "passé composé"]  
-pasos:  
-  - "Identificar el verbo principal y su auxiliar."  
-  - "Asegurar que el participio pasado concuerde con el sujeto si hay un objeto directo."  
-respuesta: "vus"  
-opciones_explicitas:
-  - "vu"
-  - "vus"
-  - "vue"
-  - "vu"
-tipo: mc  
-enunciado: "Les étudiants ___ le document avant la réunion."  
-explicacion: "El participio 'vu' debe concordar en número con el sujeto 'les étudiants' (plural), por lo tanto se escribe 'vus'."  
-```  
-
----
-
-### 5 — Uso de *de* para indicar posesión  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["posesión", "preposiciones"]  
-pasos:  
-  - "Determinar si el posesivo se forma con 'de' o con un adjetivo posesivo."  
-  - "Verificar la frase 'le livre de Jean' versus 'le livre de Jeanne'."  
-respuestas_validas:  
-  - "de"  
-  - "De"  
-tipo: completar  
-enunciado: "C’est ___ livre préféré."  
-explicacion: "La posesión con un nombre propio se expresa con 'de' (le livre de Jean), no con adjetivos posesivos como 'mon' o 'ton'."  
-```  
-
----
-
-### 6 — Uso del verbo *aller* en futur proche  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["futur", "verbo-aller"]  
-pasos:  
-  - "Identificar el uso de 'aller' para formar el futur proche."  
-  - "Verificar la conjugación en primera persona singular (je)."  
-respuesta: "vais"  
-opciones_explicitas:
-  - "va"
-  - "vas"
-  - "vont"
-  - "vais"
-tipo: mc  
-enunciado: "Je ___ au cinéma ce soir."  
-explicacion: "'Aller' en futur proche se conjuga como 'vais' para primera persona singular (je vais), no 'va' o 'vont'."  
-```  
-
----
-
-### 7 — Concordancia de adjetivos después de *le*  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["accord", "adjetivo"]  
-pasos:  
-  - "Identificar el sustantivo 'chaise' y su género/número."  
-  - "Asegurar que el adjetivo concuerde en ambos aspectos."  
-respuestas_validas:  
-  - "grande"  
-  - "Grande"  
-tipo: completar  
-enunciado: "La ___ chaise est très confortable."  
-explicacion: "'Grande' concuerda con 'chaise' (femenino singular), por lo tanto no se pluraliza ni cambia su forma."  
-```  
-
----
-
-### 8 — Uso de *ne...pas* para negar un verbo en presente  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["negación", "verbo-presente"]  
-pasos:  
-  - "Identificar el verbo en presente y su conjugación."  
-  - "Añadir 'ne...pas' antes del verbo para negar la acción."  
-respuesta: "n’a pas"  
-opciones_explicitas:
-  - "n’a pas"
-  - "a pas"
-  - "n’as pas"
-  - "n’a pas"
-tipo: mc  
-enunciado: "Elle ___ de temps pour terminer le projet."  
-explicacion: "'Ne...pas' se coloca antes del verbo en presente (elle n’a pas), no después ni sin la partícula 'ne'."  
-```  
-
----
-
-### 9 — Uso de *de* con sustantivos abstractos  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["preposiciones", "abstracciones"]  
-pasos:  
-  - "Determinar si el sustantivo 'l’idée' requiere preposición."  
-  - "Verificar la regla de uso de 'de' con ideas, opiniones o conceptos abstractos."  
-respuestas_validas:  
-  - "de"  
-  - "De"  
-tipo: completar  
-enunciado: "Il parle ___ l’idée d’un voyage en Europe."  
-explicacion: "'De' se usa con sustantivos abstractos como 'l’idée', 'l’opinion' o 'le concept' para indicar posesión o pertenencia."  
-```  
-
----
-
-### 10 — Uso del verbo *devoir* en imparfait  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["imparfait", "verbo-devoir"]  
-pasos:  
-  - "Identificar el uso del imparfait para describir acciones habituales."  
-  - "Verificar la conjugación en tercera persona singular (il/elle)."  
-respuesta: "devait"  
-opciones_explicitas:
-  - "devoit"
-  - "devait"
-  - "doit"
-  - "devait"
-tipo: mc  
-enunciado: "Il ___ toujours réviser avant les examens."  
-explicacion: "'Devoir' en imparfait se conjuga como 'devait' para tercera persona singular (il/elle devait), no 'doit' (presente) ni 'devoit' (error ortográfico)."  
-```  
-
----
-
-### 11 — Uso de *être* con participio pasado en passif  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["passif", "participio"]  
-pasos:  
-  - "Identificar el sujeto y el verbo en passif."  
-  - "Verificar que el participio concuerde con el sujeto (femenino plural)."  
-respuesta: "sont"  
-opciones_explicitas:
-  - "est"
-  - "sont"
-  - "suis"
-  - "son"
-tipo: mc  
-enunciado: "Les lettres ___ écrites par le directeur."  
-explicacion: "'Être' en passif con sujeto plural (les lettres) se conjuga como 'sont', no 'est' ni 'son'."  
-```  
-
----
-
-### 12 — Uso de *de* para indicar origen  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["origen", "preposiciones"]  
-pasos:  
-  - "Determinar si se usa 'de' para indicar país de procedencia."  
-  - "Verificar la frase 'Elle est ___ Espagne.'"  
-respuestas_validas:  
-  - "d’"  
-  - "De"  
-tipo: completar  
-enunciado: "Il vient ___ France."  
-explicacion: "'D’' se usa antes de países que comienzan con vocal (France), no 'de' o 'des'."  
-```  
-
----
-
-### 13 — Concordancia del participio con objeto directo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["participio", "accord"]  
-pasos:  
-  - "Identificar el verbo principal y su objeto directo (les étudiants)."  
-  - "Verificar que el participio concuerde en número con el sujeto."  
-respuesta: "vus"  
-opciones_explicitas:
-  - "vu"
-  - "vus"
-  - "vue"
-  - "vus"
-tipo: mc  
-enunciado: "Les étudiants ___ le livre avant la classe."  
-explicacion: "El participio 'vu' debe concordar en número con el sujeto 'les étudiants' (plural), por lo tanto se escribe 'vus'."  
-```  
-
----
-
-### 14 — Uso de *avant* para indicar tiempo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["tiempo", "preposiciones"]  
-pasos:  
-  - "Determinar si 'avant' se usa con horarios o eventos."  
-  - "Verificar la frase 'Il arrive ___ dix heures.'"  
-respuesta: "à"  
-opciones_explicitas:
-  - "en"
-  - "à"
-  - "sur"
-  - "dans"
-tipo: mc  
-enunciado: "Elle déjeune ___ midi."  
-explicacion: "'À' se usa con horarios específicos como 'midi', 'minuit' o 'dix heures', no 'en' ni 'dans'."  
-```  
-
----
-
-### 15 — Uso de *faire* para formar el passif  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["passif", "verbo-faire"]  
-pasos:  
-  - "Identificar el uso de 'faire' en passif para acciones impersonales."  
-  - "Verificar la conjugación en tercera persona singular (on)."  
-respuesta: "fait"  
-opciones_explicitas:
-  - "fait"
-  - "fais"
-  - "font"
-  - "fait"
-tipo: mc  
-enunciado: "On ___ des erreurs quand on est pressé."  
-explicacion: "'Faire' en passif con sujeto impersonal (on) se conjuga como 'fait', no 'fais' ni 'font'."  
-```  
-
----
-
-### 16 — Uso de *à* para indicar lugar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["lugar", "preposiciones"]  
-pasos:  
-  - "Determinar si 'à' se usa con ciudades o países."  
-  - "Verificar la frase 'Je voyage ___ Paris.'"  
-respuestas_validas:  
-  - "à"  
-  - "A"  
-tipo: completar  
-enunciado: "Nous allons ___ Lyon ce week-end."  
-explicacion: "'À' se usa con ciudades como 'Lyon', no 'en' ni 'dans' (que se usan con países o regiones)."  
-```  
-
----
-
-### 17 — Concordancia de adjetivos en plural  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["accord", "adjetivo"]  
-pasos:  
-  - "Identificar el sustantivo 'livres' y su género/número."  
-  - "Asegurar que el adjetivo concuerde en ambos aspectos."  
-respuestas_validas:  
-  - "anciens"  
-  - "Anciens"  
-tipo: completar  
-enunciado: "Les ___ livres sont rares à trouver."  
-explicacion: "'Anciens' concuerde con 'livres' (masculino plural), por lo tanto se pluraliza y cambia la forma del adjetivo."  
-```  
-
----
-
-### 18 — Uso de *ne...pas* para negar un infinitivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["negación", "infinitivo"]  
-pasos:  
-  - "Identificar el infinitivo y su uso en una oración."  
-  - "Añadir 'ne...pas' antes del infinitivo para negar la acción."  
-respuesta: "n’arrivera pas"  
-opciones_explicitas:
-  - "n’arrive pas"
-  - "n’arrivera pas"
-  - "n’arrives pas"
-  - "n’arrivera pas"
-tipo: mc  
-enunciado: "Il ___ à temps pour le rendez-vous."  
-explicacion: "'Ne...pas' se coloca antes del infinitivo en futuro (il n’arrivera pas), no después ni sin la partícula 'ne'."  
-```  
-
----
-
-### 19 — Uso de *de* con sustantivos abstractos  
+### 1 — Compréhension écrite 1
 ```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["participe passé", "accord"]
-pasos:
-  - "Identificar el sujeto de la oración."
-  - "Determinar si hay concordancia en género y número con el verbo principal."
-tipo: completar
-respuestas_validas:
-  - "écrit"
-  - "Écrit"
-enunciado: "Le livre ___ par mon ami est très intéressant."
-explicacion: "El participio passé 'écrit' debe concordar en género y número con el sujeto 'le livre', que es masculino singular. La forma correcta es 'écrit'."
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "La ville favorise le vélo, malgré les réticences de certains commerçants."
+  - "La ville interdit les voitures dans le centre."
+  - "Les commerçants lyonnais ont créé les pistes cyclables."
+  - "Le vélo est devenu obligatoire à Lyon."
+respuesta: "La ville favorise le vélo, malgré les réticences de certains commerçants."
+enunciado: "Texte : « Depuis dix ans, la ville de Lyon encourage les habitants à utiliser le vélo. Elle a créé plus de 600 kilomètres de pistes cyclables et installé des stations de location. Pourtant, certains commerçants regrettent la disparition de places de stationnement devant leurs boutiques. » Quelle est l'idée principale ?"
+explicacion: "El texto presenta la política pro-bicicleta y una objeción de los comerciantes."
 ```
 
----
-
-### 20 — Uso del verbo *pouvoir* en imparfait  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["imparfait", "verbo-pouvoir"]  
-pasos:  
-  - "Identificar el uso del imparfait para describir habilidades pasadas."  
-  - "Verificar la conjugación en primera persona singular (je)."  
-respuesta: "pouvais"  
-opciones_explicitas:
-  - "pouvez"
-  - "pouvais"
-  - "pouvait"
-  - "pouvais"
-tipo: mc  
-enunciado: "Je ___ faire du vélo quand j’étais enfant."  
-explicacion: "'Pouvoir' en imparfait se conjuga como 'pouvais' para primera persona singular (je pouvais), no 'pouvez' ni 'pouvait'."  
-```  
-
----
-
-### 21 — Uso de *être* con participio pasado en passif  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["passif", "participio"]  
-pasos:  
-  - "Identificar el sujeto y el verbo en passif."  
-  - "Verificar que el participio concuerde con el sujeto (masculino singular)."  
-respuesta: "est"  
-opciones_explicitas:
-  - "est"
-  - "sont"
-  - "suis"
-  - "son"
-tipo: mc  
-enunciado: "Le document ___ rédigé par un expert."  
-explicacion: "'Être' en passif con sujeto singular (le document) se conjuga como 'est', no 'sont' ni 'son'."  
-```  
-
----
-
-### 22 — Uso de *de* para indicar posesión  
+### 2 — Compréhension écrite 2
 ```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["imparfait", "acciones pasadas"]
-pasos:
-  - "Reconocer el contexto de una acción prolongada en el pasado."
-  - "Elegir la forma del verbo que exprese una repetición o duración."
-tipo: completar
-respuestas_validas:
-  - "étudiait"
-  - "Étudiait"
-enunciado: "Il ___ à l’université quand il était jeune."
-explicacion: "El imparfait 'étudiait' se usa para describir acciones habituales o duraderas en el pasado, como estudiar durante la juventud."
-```
-
----
-
-### 23 — Uso del verbo *savoir* en imparfait  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-b2"  
-  nivel: "B2"  
-  tags: ["imparfait", "verbo-savoir"]  
-pasos:  
-  - "Identificar el uso del imparfait para describir habilidades pasadas."  
-  - "Verificar la conjugación en primera persona singular (je)."  
-respuesta: "savais"  
+  tags: ["compréhension écrite"]
+tipo: mc
 opciones_explicitas:
-  - "sais"
-  - "savais"
-  - "savait"
-  - "savais"
-tipo: mc  
-enunciado: "Je ___ cuisiner quand j’étais jeune."  
-explicacion: "'Savoir' en imparfait se conjuga como 'savais' para primera persona singular (je savais), no 'sais' ni 'savait'."  
-```  
+  - "La disparition de places de stationnement"
+  - "Le prix de la location des vélos"
+  - "Le bruit des pistes cyclables"
+  - "Le manque de clients cyclistes"
+respuesta: "La disparition de places de stationnement"
+enunciado: "Texte : « Depuis dix ans, la ville de Lyon encourage les habitants à utiliser le vélo. Elle a créé plus de 600 kilomètres de pistes cyclables et installé des stations de location. Pourtant, certains commerçants regrettent la disparition de places de stationnement devant leurs boutiques. » Que regrettent certains commerçants ?"
+explicacion: "Lo dice la última frase."
+```
 
----
-
-### 24 — Uso de *à* para indicar lugar  
+### 3 — Compréhension écrite 3
 ```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["quantité", "expression"]
-pasos:
-  - "Identificar la estructura 'il y a' seguida de un sustantivo plural."
-  - "Determinar el número correcto para completar la frase."
-tipo: completar
-respuestas_validas:
-  - "vingt"
-  - "Vingt"
-enunciado: "Il y a ___ étudiants dans la salle."
-explicacion: "La expresión 'il y a' requiere un numeral cardinal antes de un sustantivo plural, como 'vingt étudiants'."
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "une opposition"
+  - "une conséquence"
+  - "une comparaison"
+  - "une condition"
+respuesta: "une opposition"
+enunciado: "Texte : « Depuis dix ans, la ville de Lyon encourage les habitants à utiliser le vélo. Elle a créé plus de 600 kilomètres de pistes cyclables et installé des stations de location. Pourtant, certains commerçants regrettent la disparition de places de stationnement devant leurs boutiques. » Le mot « Pourtant » introduit :"
+explicacion: "« Pourtant » introduce un contraste con lo anterior."
 ```
 
----
-
-### 25 — Concordancia de adjetivos en plural  
+### 4 — Compréhension écrite 4
 ```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["pronom relatif", "passé composé"]
-pasos:
-  - "Identificar el verbo en passé composé que requiere un pronombre relativo."
-  - "Elegir la forma correcta del pronombre que se use con el verbo."
+  tags: ["compréhension écrite"]
 tipo: completar
 respuestas_validas:
-  - "que"
-  - "Que"
-enunciado: "La ville ___ j’ai visitée est magnifique."
-explicacion: "El pronombre relativo 'que' sigue al verbo en passé composé ('j’ai visitée') cuando introduce una oración subordinada que completa el sentido del verbo principal."
+  - "600"
+  - "six cents"
+  - "Six cents"
+enunciado: "Texte : « Depuis dix ans, la ville de Lyon encourage les habitants à utiliser le vélo. Elle a créé plus de 600 kilomètres de pistes cyclables et installé des stations de location. Pourtant, certains commerçants regrettent la disparition de places de stationnement devant leurs boutiques. » Complétez avec un chiffre : la ville a créé plus de ___ kilomètres de pistes cyclables."
+explicacion: "El texto dice « plus de 600 kilomètres »."
+```
+
+### 5 — Compréhension écrite 5
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "Le gain de temps sur les trajets"
+  - "Un salaire plus élevé"
+  - "Moins de réunions"
+  - "Plus de vacances"
+respuesta: "Le gain de temps sur les trajets"
+enunciado: "Texte : « Le télétravail s'est généralisé pendant la pandémie. Beaucoup de salariés apprécient de gagner du temps sur les trajets, mais plusieurs déplorent un sentiment d'isolement et une frontière floue entre vie privée et vie professionnelle. » Quel avantage du télétravail est mentionné ?"
+explicacion: "« gagner du temps sur les trajets »."
+```
+
+### 6 — Compréhension écrite 6
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "regrettent"
+  - "célèbrent"
+  - "ignorent"
+  - "exigent"
+respuesta: "regrettent"
+enunciado: "Texte : « Le télétravail s'est généralisé pendant la pandémie. Beaucoup de salariés apprécient de gagner du temps sur les trajets, mais plusieurs déplorent un sentiment d'isolement et une frontière floue entre vie privée et vie professionnelle. » Que signifie « déplorent » ?"
+explicacion: "Déplorer = lamentar, lamentarse de algo."
+```
+
+### 7 — Compréhension écrite 7
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "Une frontière floue entre vie privée et vie professionnelle"
+  - "Des horaires trop rigides"
+  - "Un manque d'ordinateurs"
+  - "Des trajets plus longs"
+respuesta: "Une frontière floue entre vie privée et vie professionnelle"
+enunciado: "Texte : « Le télétravail s'est généralisé pendant la pandémie. Beaucoup de salariés apprécient de gagner du temps sur les trajets, mais plusieurs déplorent un sentiment d'isolement et une frontière floue entre vie privée et vie professionnelle. » Quel inconvénient est cité ?"
+explicacion: "Lo menciona la segunda frase."
+```
+
+### 8 — Compréhension écrite 8
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "nuancé"
+  - "uniquement critique"
+  - "uniquement enthousiaste"
+  - "humoristique"
+respuesta: "nuancé"
+enunciado: "Texte : « Le télétravail s'est généralisé pendant la pandémie. Beaucoup de salariés apprécient de gagner du temps sur les trajets, mais plusieurs déplorent un sentiment d'isolement et une frontière floue entre vie privée et vie professionnelle. » Le texte adopte un point de vue :"
+explicacion: "Presenta ventajas e inconvenientes."
+```
+
+### 9 — Compréhension écrite 9
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "Elle craignait de quitter sa famille."
+  - "Le salaire était trop bas."
+  - "Elle n'aimait pas voyager."
+  - "Elle voulait changer de métier."
+respuesta: "Elle craignait de quitter sa famille."
+enunciado: "Texte : « Marie hésitait à accepter ce poste à l'étranger. Même si le salaire était attractif, elle craignait de quitter sa famille. Après une longue discussion avec sa sœur, elle a finalement décidé de partir, à condition de rentrer chaque été. » Pourquoi Marie hésitait-elle ?"
+explicacion: "« elle craignait de quitter sa famille »."
+```
+
+### 10 — Compréhension écrite 10
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "une concession"
+  - "une cause"
+  - "un but"
+  - "une condition pure"
+respuesta: "une concession"
+enunciado: "Texte : « Marie hésitait à accepter ce poste à l'étranger. Même si le salaire était attractif, elle craignait de quitter sa famille. Après une longue discussion avec sa sœur, elle a finalement décidé de partir, à condition de rentrer chaque été. » « Même si » exprime :"
+explicacion: "« Même si le salaire était attractif » = aunque el sueldo era atractivo."
+```
+
+### 11 — Compréhension écrite 11
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "Une discussion avec sa sœur"
+  - "Une augmentation de salaire"
+  - "Un conseil de son patron"
+  - "Un voyage de reconnaissance"
+respuesta: "Une discussion avec sa sœur"
+enunciado: "Texte : « Marie hésitait à accepter ce poste à l'étranger. Même si le salaire était attractif, elle craignait de quitter sa famille. Après une longue discussion avec sa sœur, elle a finalement décidé de partir, à condition de rentrer chaque été. » Qu'est-ce qui a aidé Marie à se décider ?"
+explicacion: "« Après une longue discussion avec sa sœur »."
+```
+
+### 12 — Compréhension écrite 12
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: completar
+respuestas_validas:
+  - "été"
+  - "Été"
+enunciado: "Texte : « Marie hésitait à accepter ce poste à l'étranger. Même si le salaire était attractif, elle craignait de quitter sa famille. Après une longue discussion avec sa sœur, elle a finalement décidé de partir, à condition de rentrer chaque été. » Marie part « à condition de rentrer chaque ___ »."
+explicacion: "« à condition de rentrer chaque été »."
+```
+
+### 13 — Compréhension écrite 13
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "Elles réduisent l'empreinte carbone des visiteurs."
+  - "Elles évitent d'imprimer des billets."
+  - "Elles consomment moins d'électricité."
+  - "Elles suppriment le besoin de conservateurs."
+respuesta: "Elles réduisent l'empreinte carbone des visiteurs."
+enunciado: "Texte : « Les musées français proposent désormais des visites numériques. Grâce à ces outils, des personnes éloignées peuvent découvrir les collections sans se déplacer, ce qui réduit aussi l'empreinte carbone des visiteurs. Certains conservateurs craignent toutefois que l'expérience en ligne remplace la visite réelle. » Quel est l'avantage écologique des visites numériques ?"
+explicacion: "Lo dice la segunda frase."
+```
+
+### 14 — Compréhension écrite 14
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "Que l'expérience en ligne remplace la visite réelle"
+  - "Que les musées ferment"
+  - "Que les œuvres soient volées"
+  - "Que les visiteurs soient déçus par le prix"
+respuesta: "Que l'expérience en ligne remplace la visite réelle"
+enunciado: "Texte : « Les musées français proposent désormais des visites numériques. Grâce à ces outils, des personnes éloignées peuvent découvrir les collections sans se déplacer, ce qui réduit aussi l'empreinte carbone des visiteurs. Certains conservateurs craignent toutefois que l'expérience en ligne remplace la visite réelle. » Que craignent certains conservateurs ?"
+explicacion: "Última frase del texto."
+```
+
+### 15 — Compréhension écrite 15
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "cependant"
+  - "donc"
+  - "ainsi"
+  - "car"
+respuesta: "cependant"
+enunciado: "Texte : « Les musées français proposent désormais des visites numériques. Grâce à ces outils, des personnes éloignées peuvent découvrir les collections sans se déplacer, ce qui réduit aussi l'empreinte carbone des visiteurs. Certains conservateurs craignent toutefois que l'expérience en ligne remplace la visite réelle. » « toutefois » peut être remplacé par :"
+explicacion: "« Toutefois » y « cependant » marcan contraste."
+```
+
+### 16 — Compréhension écrite 16
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "de + le film"
+  - "que + le film"
+  - "où + le film"
+  - "à + le film"
+respuesta: "de + le film"
+enunciado: "Dans « Le film dont je t'ai parlé sort demain », « dont » remplace :"
+explicacion: "« parler de » → « dont »."
+```
+
+### 17 — Compréhension écrite 17
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "le but"
+  - "la cause"
+  - "la conséquence"
+  - "l'opposition"
+respuesta: "le but"
+enunciado: "Dans « Elle a vendu sa maison afin de déménager », « afin de » exprime :"
+explicacion: "« Afin de » = para, con el fin de."
+```
+
+### 18 — Compréhension écrite 18
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "pourtant"
+  - "ainsi"
+  - "puisque"
+  - "alors"
+respuesta: "pourtant"
+enunciado: "Quel mot est un synonyme de « néanmoins » ?"
+explicacion: "Ambos expresan oposición."
+```
+
+### 19 — Compréhension écrite 19
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "au subjonctif"
+  - "à l'indicatif futur"
+  - "au conditionnel"
+  - "à l'impératif"
+respuesta: "au subjonctif"
+enunciado: "« Il a eu le temps de finir avant que la réunion ne commence. » Le verbe après « avant que » est :"
+explicacion: "« Avant que » exige subjuntivo."
+```
+
+### 20 — Compréhension écrite 20
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "la cause négative"
+  - "le but"
+  - "la comparaison"
+  - "le temps"
+respuesta: "la cause négative"
+enunciado: "« Faute de moyens, le projet a été abandonné. » « Faute de » exprime :"
+explicacion: "Faute de = por falta de."
+```
+
+### 21 — Compréhension écrite 21
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "La loi a été votée hier."
+  - "Le député a voté la loi."
+  - "On vote la loi."
+  - "Il vote souvent."
+respuesta: "La loi a été votée hier."
+enunciado: "Quelle phrase est au passif ?"
+explicacion: "Passif: être + participe passé."
+```
+
+### 22 — Compréhension écrite 22
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "éprouver des difficultés à"
+  - "avoir mal au"
+  - "faire du mal à"
+  - "se plaindre de"
+respuesta: "éprouver des difficultés à"
+enunciado: "Que signifie « avoir du mal à » ?"
+explicacion: "« J'ai du mal à comprendre » = me cuesta entender."
+```
+
+### 23 — Compréhension écrite 23
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "si bien que"
+  - "bien que"
+  - "alors que"
+  - "tandis que"
+respuesta: "si bien que"
+enunciado: "Quel connecteur introduit une conséquence ?"
+explicacion: "« Si bien que » = de modo que."
+```
+
+### 24 — Compréhension écrite 24
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "la concession"
+  - "la cause"
+  - "le temps"
+  - "l'hypothèse"
+respuesta: "la concession"
+enunciado: "« Bien que le temps soit mauvais, ils sortent. » Que marque « bien que » ?"
+explicacion: "« Bien que » = aunque, con subjuntivo."
+```
+
+### 25 — Compréhension écrite 25
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["compréhension écrite"]
+tipo: mc
+opciones_explicitas:
+  - "la source de l'information"
+  - "la cause"
+  - "le but"
+  - "le lieu"
+respuesta: "la source de l'information"
+enunciado: "« Selon le journal, le chômage a baissé. » « Selon » indique :"
+explicacion: "« Selon » = según."
 ```

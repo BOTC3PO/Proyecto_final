@@ -393,7 +393,7 @@ respuesta_orden: ["Iniciación", "Propagación", "Fractura inminente"]
 tipo: ordenar
 opciones_explicitas: ["Iniciación", "Propagación", "Fractura inminente"]
 
-enunciado: "Ordene cronológicamente las etapas que ocurren durante el proceso de falla por fatiga en un componente mecánico:"
+enunciado: "Ordene, de la primera a la última, las tres fases del proceso de fatiga de un componente:"
 
 explicacion: |
   El proceso comienza con la nucleación de una microgrieta (iniciación), seguida del crecimiento de la grieta bajo cargas cíclicas (propagación) y finaliza con la rotura súbita de la sección remanente (fractura inminente).

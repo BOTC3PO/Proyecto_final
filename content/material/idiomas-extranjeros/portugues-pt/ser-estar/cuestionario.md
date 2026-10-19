@@ -352,25 +352,7 @@ enunciado: "Ela ___ brasileira e ___ feliz com a vida em Lisboa."
 explicacion: "'Ser' describe la nacionalidad permanente ('brasileira'), mientras que 'estar' indica su estado emocional actual ('feliz')."  
 ```
 
-### 20 — Uso de "ser" en descripción de personalidad  
-```  
-metadata:  
-  materia: "portugues-pt"  
-  tema: "ser-estar"  
-  nivel: "A1"  
-  tags: ["profissao", "ser"]  
-pasos:  
-  - "Identificar se o sujeito 'O Pedro' tem uma característica permanente (uso de 'ser') ou temporária (uso de 'estar')."  
-  - "Completar o espaço com a forma correta do verbo."  
-tipo: completar  
-respuestas_validas:  
-  - "É"  
-  - "é"  
-enunciado: "O Pedro ___ advogado e trabalha em São Paulo."  
-explicacion: "O verbo 'ser' é usado para profissões (advogado) que são permanentes. A forma correta no presente do indicativo para o sujeito 'O Pedro' é 'é'."  
-```
-
-### 21 — Uso de "estar" en estado emocional temporal  
+### 20 — Uso de "estar" en estado emocional temporal  
 ```  
 metadata:  
   materia: "portugues-pt"  
@@ -390,7 +372,7 @@ enunciado: "O livro ___ no armário da cozinha agora."
 explicacion: "A oração descreve a localização temporária do livro ('agora'), que exige o uso de 'estar'. A forma correta é 'está', pois concorda em número e pessoa com o sujeito singular 'o livro'."  
 ```
 
-### 22 — Elección entre "ser" y "estar" (lugar vs. emoción)  
+### 21 — Elección entre "ser" y "estar" (lugar vs. emoción)  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-pt"  
@@ -410,7 +392,7 @@ enunciado: "O João ___ de Lisboa e ___ feliz com a vida na cidade."
 explicacion: "'Ser' describe el lugar de origen permanente ('de Lisboa'), mientras que 'estar' indica su estado emocional actual ('feliz')."  
 ```
 
-### 23 — Uso de "ser" en descripción de profesión y nacionalidad  
+### 22 — Uso de "ser" en descripción de profesión y nacionalidad  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-pt"  
@@ -428,7 +410,7 @@ enunciado: "Ela ___ médica e ___ brasileira de nascimento."
 explicacion: "'Ser' se aplica a profesiones y nacionalidades, que son características fijas de una persona."  
 ```
 
-### 24 — Uso de "estar" en ubicación temporal y estado emocional  
+### 23 — Uso de "estar" en ubicación temporal y estado emocional  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-pt"  

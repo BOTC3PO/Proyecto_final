@@ -109,7 +109,7 @@ pasos:
   - "Identificar el uso correcto de 'piuttosto che' en la oración."
   - "Verificar que se use para expresar una preferencia o alternativa."
 respuesta: "Preferisco andare in bicicletta piuttosto che prendere l'autobus."
-enunciado: "¿Cuál es la oración correcta? (Uso de "piuttosto che")"
+enunciado: "¿Cuál es la oración correcta? (Uso de 'piuttosto che')"
 opciones_explicitas:
   - "Preferisco andare in bicicletta piuttosto che prendo l'autobus."
   - "Preferisco andare in bicicletta piuttosto che prenderei l'autobus."

@@ -466,4 +466,3 @@ respuestas_validas:
   - "سبعة"
 explicacion: "ولد masc. → سبعة."
 ```
-

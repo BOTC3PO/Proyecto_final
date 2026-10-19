@@ -296,7 +296,7 @@ respuesta: b * b
 tipo: input
 tolerancia_abs: 0
 
-enunciado: "Verificá con geometría básica: el área bajo f(x)=2x entre 0 y {b} es un triángulo de base {b} y altura {2*b}... espera, calculalo directo: (base × altura) / 2 = ({b} × 2·{b}) / 2. ¿Cuánto da?"
+enunciado: "Verificá con geometría básica: el área bajo f(x)=2x entre 0 y {b} es un triángulo de base {b} y altura {2*b}. Calculalo con (base × altura) / 2. ¿Cuánto da?"
 
 explicacion: |
   (b × 2b) / 2 = b², el mismo resultado que da la integral, confirmando

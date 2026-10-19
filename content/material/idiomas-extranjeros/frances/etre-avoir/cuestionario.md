@@ -7,478 +7,398 @@
 
 ---
 
-### 1 — Choisir le bon verbe  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["possession", "avoir"]  
-pasos:  
-  - "Identificar el sujeto y el contexto."  
-  - "Recordar que 'avoir' se usa para posesión o posesivo."  
-enunciado: "Elle ___ une voiture."  
-respuesta: "a"  
-opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se utiliza para indicar posesión. El sujeto es 'elle', por lo tanto, la conjugación correcta es 'a'."  
+### 1 — Être et avoir 1
 ```
-
-### 2 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["estado", "etre"]  
-pasos:  
-  - "Identificar si se describe un estado físico o emocional."  
-  - "Recordar que 'être' se usa para estados, no posesión."  
-enunciado: "Je ___ content."  
-respuesta: "suis"  
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
 respuestas_validas:
   - "suis"
-  - "SUIS"
-explicacion: "'Être' se utiliza para describir estados. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
+  - "Suis"
+enunciado: "Je ___ étudiant."
+explicacion: "Être, 1.ª persona: je suis."
 ```
 
-### 3 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["lugar", "etre"]  
-pasos:  
-  - "Determinar si se refiere a una ubicación o posesión."  
-  - "Recordar que 'être' indica lugar, no posesión."  
-enunciado: "Nous ___ à la maison."  
-respuesta: "sommes"  
+### 2 — Être et avoir 2
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "as"
+  - "As"
+enunciado: "Tu ___ un chien."
+explicacion: "Avoir, 2.ª persona: tu as."
+```
+
+### 3 — Être et avoir 3
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "est"
+  - "Est"
+enunciado: "Elle ___ à Paris."
+explicacion: "Être, 3.ª persona: elle est."
+```
+
+### 4 — Être et avoir 4
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "avons"
+  - "Avons"
+enunciado: "Nous ___ deux enfants."
+explicacion: "Avoir, 1.ª persona plural: nous avons."
+```
+
+### 5 — Être et avoir 5
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "êtes"
+  - "Êtes"
+enunciado: "Vous ___ très gentils."
+explicacion: "Être, 2.ª persona plural: vous êtes."
+```
+
+### 6 — Être et avoir 6
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "ont"
+  - "Ont"
+enunciado: "Ils ___ une grande maison."
+explicacion: "Avoir, 3.ª persona plural: ils ont."
+```
+
+### 7 — Être et avoir 7
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
+opciones_explicitas:
+  - "J'ai vingt ans."
+  - "Je suis vingt ans."
+  - "Je vais vingt ans."
+  - "Je fais vingt ans."
+respuesta: "J'ai vingt ans."
+enunciado: "Quelle phrase est correcte ?"
+explicacion: "En francés la edad se expresa con \"avoir\": j'ai vingt ans."
+```
+
+### 8 — Être et avoir 8
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "a"
+  - "A"
+enunciado: "Il ___ faim."
+explicacion: "Con \"faim\" se usa avoir: il a faim."
+```
+
+### 9 — Être et avoir 9
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "sommes"
+  - "Sommes"
+enunciado: "Nous ___ fatigués."
+explicacion: "Être + adjetivo: nous sommes fatigués."
+```
+
+### 10 — Être et avoir 10
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "est"
+  - "Est"
+enunciado: "Ma sœur ___ professeure."
+explicacion: "Profesión con être: elle est professeure."
+```
+
+### 11 — Être et avoir 11
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
+opciones_explicitas:
+  - "avoir"
+  - "être"
+  - "faire"
+  - "aller"
+respuesta: "avoir"
+enunciado: "Avec quel verbe dit-on « avoir soif » ?"
+explicacion: "Il a soif: con \"soif\" se usa avoir."
+```
+
+### 12 — Être et avoir 12
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "es"
+  - "Es"
+enunciado: "Tu ___ en retard !"
+explicacion: "Être, 2.ª persona singular: tu es."
+```
+
+### 13 — Être et avoir 13
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "ont"
+  - "Ont"
+enunciado: "Les enfants ___ sept ans."
+explicacion: "La edad lleva avoir: ils ont sept ans."
+```
+
+### 14 — Être et avoir 14
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
 opciones_explicitas:
   - "sont"
-  - "ai"
-  - "sommes"
+  - "ont"
   - "est"
-explicacion: "'Être' se usa para indicar ubicación. El sujeto es 'nous', por lo tanto, la conjugación correcta es 'sommes'."  
+  - "sommes"
+respuesta: "sont"
+enunciado: "Complétez : « Elles ___ contentes. »"
+explicacion: "Être, 3.ª persona plural femenino: elles sont."
 ```
 
-### 4 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["edad", "avoir"]  
-pasos:  
-  - "Identificar si se menciona una edad o un estado."  
-  - "Recordar que 'avoir' se usa para edades, no estados."  
-enunciado: "Je ___ vingt ans."  
-respuesta: "ai"  
+### 15 — Être et avoir 15
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
 respuestas_validas:
   - "ai"
   - "Ai"
-explicacion: "'Avoir' se utiliza para expresar edades. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
+enunciado: "J'___ un frère et une sœur."
+explicacion: "Avoir + elisión: j'ai."
 ```
 
-### 5 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["posesivo", "avoir"]  
-pasos:  
-  - "Determinar si se refiere a posesión o estado."  
-  - "Recordar que 'avoir' indica posesión, no estados."  
-enunciado: "Il ___ une voiture."  
-respuesta: "a"  
+### 16 — Être et avoir 16
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
 opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se usa para posesión. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
+  - "nous sommes"
+  - "nous êtes"
+  - "nous sont"
+  - "nous avons"
+respuesta: "nous sommes"
+enunciado: "Quelle est la forme correcte de « être » avec « nous » ?"
+explicacion: "Nous sommes."
 ```
 
-### 6 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["emoción", "etre"]  
-pasos:  
-  - "Identificar si se describe una emoción o posesión."  
-  - "Recordar que 'être' expresa emociones, no posesión."  
-enunciado: "Je ___ content."  
-respuesta: "suis"  
+### 17 — Être et avoir 17
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "avez"
+  - "Avez"
+enunciado: "Vous ___ un problème ?"
+explicacion: "Avoir, 2.ª persona plural: vous avez."
+```
+
+### 18 — Être et avoir 18
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "est"
+  - "Est"
+enunciado: "Paul ___ grand et blond."
+explicacion: "Descripción física con être: Paul est grand."
+```
+
+### 19 — Être et avoir 19
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
+opciones_explicitas:
+  - "Elle a chaud."
+  - "Elle est chaud."
+  - "Elle fait chaud."
+  - "Elle va chaud."
+respuesta: "Elle a chaud."
+enunciado: "Laquelle de ces phrases utilise correctement « avoir » ?"
+explicacion: "Sensaciones personales (chaud, froid, faim, soif, peur): avoir."
+```
+
+### 20 — Être et avoir 20
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "avons"
+  - "Avons"
+enunciado: "Nous ___ un rendez-vous demain."
+explicacion: "Avoir: nous avons un rendez-vous."
+```
+
+### 21 — Être et avoir 21
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
 respuestas_validas:
   - "suis"
-  - "SUIS"
-explicacion: "'Être' se utiliza para emociones. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
+  - "Suis"
+enunciado: "Je ___ de Buenos Aires."
+explicacion: "Origen con être: je suis de Buenos Aires."
 ```
 
-### 7 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["lugar", "etre"]  
-pasos:  
-  - "Determinar si se menciona un lugar o una posesión."  
-  - "Recordar que 'être' indica ubicación, no posesión."  
-enunciado: "Il ___ à la maison."  
-respuesta: "est"  
+### 22 — Être et avoir 22
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
 opciones_explicitas:
   - "sont"
+  - "ont"
+  - "es"
   - "ai"
-  - "est"
-  - "a"
-explicacion: "'Être' se usa para indicar lugar. El sujeto es 'il', por lo tanto, la conjugación correcta es 'est'."  
+respuesta: "sont"
+enunciado: "Dans « Ils ___ français », quel verbe convient ?"
+explicacion: "Nacionalidad con être: ils sont français."
 ```
 
-### 8 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["posesivo", "avoir"]  
-pasos:  
-  - "Identificar si se refiere a posesión o estado."  
-  - "Recordar que 'avoir' indica posesión, no estados."  
-enunciado: "Elle ___ une voiture."  
-respuesta: "a"  
+### 23 — Être et avoir 23
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
+respuestas_validas:
+  - "as"
+  - "As"
+enunciado: "Tu ___ raison."
+explicacion: "Expresión con avoir: avoir raison."
+```
+
+### 24 — Être et avoir 24
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: completar
 respuestas_validas:
   - "a"
   - "A"
-explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'elle', por lo tanto, la conjugación correcta es 'a'."  
+enunciado: "Elle ___ mal à la tête."
+explicacion: "Dolor con avoir: avoir mal à la tête."
 ```
 
-### 9 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["edad", "avoir"]  
-pasos:  
-  - "Determinar si se menciona una edad o un estado."  
-  - "Recordar que 'avoir' expresa edades, no estados."  
-enunciado: "Il ___ vingt ans."  
-respuesta: "a"  
+### 25 — Être et avoir 25
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "etre-avoir"
+  nivel: "A1"
+  tags: ["être", "avoir"]
+tipo: mc
 opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
-```
-
-### 10 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["emoción", "etre"]  
-pasos:  
-  - "Identificar si se describe una emoción o posesión."  
-  - "Recordar que 'être' expresa emociones, no posesión."  
-enunciado: "Ils ___ contents."  
-respuesta: "sont"  
-respuestas_validas:
-  - "sont"
-  - "SONT"
-explicacion: "'Être' se utiliza para emociones. El sujeto es 'ils', por lo tanto, la conjugación correcta es 'sont'."  
-```
-
-### 11 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["lugar", "etre"]  
-pasos:  
-  - "Determinar si se menciona un lugar o una posesión."  
-  - "Recordar que 'être' indica ubicación, no posesión."  
-enunciado: "Je ___ à la maison."  
-respuesta: "suis"  
-opciones_explicitas:
-  - "sont"
-  - "ai"
-  - "suis"
-  - "a"
-explicacion: "'Être' se usa para indicar lugar. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
-```
-
-### 12 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["posesivo", "avoir"]  
-pasos:  
-  - "Identificar si se refiere a posesión o estado."  
-  - "Recordar que 'avoir' indica posesión, no estados."  
-enunciado: "Je ___ une voiture."  
-respuesta: "ai"  
-respuestas_validas:
-  - "ai"
-  - "AI"
-explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
-```
-
-### 13 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["edad", "avoir"]  
-pasos:  
-  - "Determinar si se menciona una edad o un estado."  
-  - "Recordar que 'avoir' expresa edades, no estados."  
-enunciado: "Il ___ vingt ans."  
-respuesta: "a"  
-opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
-```
-
-### 14 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["emoción", "etre"]  
-pasos:  
-  - "Identificar si se describe una emoción o posesión."  
-  - "Recordar que 'être' expresa emociones, no posesión."  
-enunciado: "Il ___ content."  
-respuesta: "est"  
-respuestas_validas:
-  - "est"
-  - "EST"
-explicacion: "'Être' se utiliza para emociones. El sujeto es 'il', por lo tanto, la conjugación correcta es 'est'."  
-```
-
-### 15 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["lugar", "etre"]  
-pasos:  
-  - "Determinar si se menciona un lugar o una posesión."  
-  - "Recordar que 'être' indica ubicación, no posesión."  
-enunciado: "Ils ___ à la maison."  
-respuesta: "sont"  
-opciones_explicitas:
-  - "suis"
-  - "ai"
-  - "sont"
-  - "a"
-explicacion: "'Être' se usa para indicar lugar. El sujeto es 'ils', por lo tanto, la conjugación correcta es 'sont'."  
-```
-
-### 16 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["posesivo", "avoir"]  
-pasos:  
-  - "Identificar si se refiere a posesión o estado."  
-  - "Recordar que 'avoir' indica posesión, no estados."  
-enunciado: "Elle ___ une voiture."  
-respuesta: "a"  
-respuestas_validas:
-  - "a"
-  - "A"
-explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'elle', por lo tanto, la conjugación correcta es 'a'."  
-```
-
-### 17 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["edad", "avoir"]  
-pasos:  
-  - "Determinar si se menciona una edad o un estado."  
-  - "Recordar que 'avoir' expresa edades, no estados."  
-enunciado: "Je ___ vingt ans."  
-respuesta: "ai"  
-opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se usa para edades. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
-```
-
-### 18 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["emoción", "etre"]  
-pasos:  
-  - "Identificar si se describe una emoción o posesión."  
-  - "Recordar que 'être' expresa emociones, no posesión."  
-enunciado: "Je ___ content."  
-respuesta: "suis"  
-respuestas_validas:
-  - "suis"
-  - "SUIS"
-explicacion: "'Être' se utiliza para emociones. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
-```
-
-### 19 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["lugar", "etre"]  
-pasos:  
-  - "Determinar si se menciona un lugar o una posesión."  
-  - "Recordar que 'être' indica ubicación, no posesión."  
-enunciado: "Il ___ à la maison."  
-respuesta: "est"  
-opciones_explicitas:
-  - "sont"
-  - "ai"
-  - "est"
-  - "a"
-explicacion: "'Être' se usa para indicar lugar. El sujeto es 'il', por lo tanto, la conjugación correcta es 'est'."  
-```
-
-### 20 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["posesivo", "avoir"]  
-pasos:  
-  - "Identificar si se refiere a posesión o estado."  
-  - "Recordar que 'avoir' indica posesión, no estados."  
-enunciado: "Il ___ une voiture."  
-respuesta: "a"  
-respuestas_validas:
-  - "a"
-  - "A"
-explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
-```
-
-### 21 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["edad", "avoir"]  
-pasos:  
-  - "Determinar si se menciona una edad o un estado."  
-  - "Recordar que 'avoir' expresa edades, no estados."  
-enunciado: "Il ___ vingt ans."  
-respuesta: "a"  
-opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
-```
-
-### 22 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["emoción", "etre"]  
-pasos:  
-  - "Identificar si se describe una emoción o posesión."  
-  - "Recordar que 'être' expresa emociones, no posesión."  
-enunciado: "Ils ___ contents."  
-respuesta: "sont"  
-respuestas_validas:
-  - "sont"
-  - "SONT"
-explicacion: "'Être' se utiliza para emociones. El sujeto es 'ils', por lo tanto, la conjugación correcta es 'sont'."  
-```
-
-### 23 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["lugar", "etre"]  
-pasos:  
-  - "Determinar si se menciona un lugar o una posesión."  
-  - "Recordar que 'être' indica ubicación, no posesión."  
-enunciado: "Je ___ à la maison."  
-respuesta: "suis"  
-opciones_explicitas:
-  - "sont"
-  - "ai"
-  - "suis"
-  - "a"
-explicacion: "'Être' se usa para indicar lugar. El sujeto es 'je', por lo tanto, la conjugación correcta es 'suis'."  
-```
-
-### 24 — Completar el verbo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["posesivo", "avoir"]  
-pasos:  
-  - "Identificar si se refiere a posesión o estado."  
-  - "Recordar que 'avoir' indica posesión, no estados."  
-enunciado: "Je ___ une voiture."  
-respuesta: "ai"  
-respuestas_validas:
-  - "ai"
-  - "AI"
-explicacion: "'Avoir' se utiliza para posesión. El sujeto es 'je', por lo tanto, la conjugación correcta es 'ai'."  
-```
-
-### 25 — Elegir el verbo correcto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "etre-avoir"  
-  nivel: "A1"  
-  tags: ["edad", "avoir"]  
-pasos:  
-  - "Determinar si se menciona una edad o un estado."  
-  - "Recordar que 'avoir' expresa edades, no estados."  
-enunciado: "Il ___ vingt ans."  
-respuesta: "a"  
-opciones_explicitas:
-  - "est"
-  - "ai"
-  - "a"
-  - "sont"
-explicacion: "'Avoir' se usa para edades. El sujeto es 'il', por lo tanto, la conjugación correcta es 'a'."  
+  - "Il a quarante ans."
+  - "Ils ont peur."
+  - "Elle est faim."
+  - "Nous sommes prêts."
+respuesta: "Elle est faim."
+enunciado: "Quelle phrase est incorrecte ?"
+explicacion: "\"Faim\" se combina con avoir: elle a faim."
 ```

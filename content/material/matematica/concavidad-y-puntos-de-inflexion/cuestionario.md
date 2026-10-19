@@ -127,17 +127,13 @@ respuesta: falso
 
 tipo: vf
 
-enunciado: "La función f(x) = {a}x^2 - 3x es cóncava hacia arriba en todo su dominio."
+enunciado: "La función f(x) = -{a}x^2 - 3x es cóncava hacia arriba en todo su dominio."
 
 explicacion: |
-  f'(x) = 2ax - 3
-  f''(x) = 2a
-  Como a > 0, 2a es siempre positivo.
-  Por lo tanto, f''(x) > 0 para todo x, lo que implica concavidad hacia arriba.
-  La afirmación es verdadera, pero la pregunta dice "hacia abajo".
-  Espera, la afirmación es "es cóncava hacia arriba". Eso es VERDADERO.
-  Necesito una afirmación FALSA.
-  Cambio: "La función f(x) = {a}x^2 es cóncava hacia abajo..." -> Falso.
+  f'(x) = -2ax - 3
+  f''(x) = -2a
+  Como a > 0, f''(x) = -2a es siempre negativa.
+  Por lo tanto la función es cóncava hacia abajo en todo su dominio y la afirmación es falsa.
 ```
 
 ### 6 — pregunta 6
@@ -176,7 +172,7 @@ variables:
   a: random(1, 3)
   b: random(4, 8)
 
-respuesta: "{b/(3*a)}"
+respuesta: "{b}"
 
 tipo: input
 
@@ -186,11 +182,7 @@ explicacion: |
   f'(x) = 3ax^2 - 6abx
   f''(x) = 6ax - 6ab
   f''(x) = 0 => 6ax = 6ab => x = b
-  Espera, simplifiqué mal.
-  f''(x) = 6ax - 6ab.
-  x = b.
-  Variable b es {b}.
-  Respuesta: "{b}"
+  Para este caso, el punto de inflexión está en x = {b}.
 ```
 
 ### 8 — pregunta 8

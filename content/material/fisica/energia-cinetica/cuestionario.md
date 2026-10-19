@@ -253,36 +253,34 @@ explicacion: |
   La constante que acompaña al producto de la masa y el cuadrado de la velocidad es un medio (1/2 o 0.5).
 ```
 
-### 12 — Análisis de cambios de velocidad
+### 12 — Cambio de energía cinética con datos variables
 
 ```
 metadata:
   materia: "fisica"
   tema: "energia_cinetica"
-  nivel: "avanzado"
-  tags: ["velocidad", "calculo"]
+  nivel: "intermedio"
+  tags: ["energia_cinetica", "variacion"]
 
 variables:
-  m: 2
-  v_inicial: 3
-  v_final: 6
+  m: random(1, 5)
+  v_inicial: random(1, 5)
+  v_final: v_inicial + random(1, 4)
+  delta: 0.5 * m * (v_final ^ 2 - v_inicial ^ 2)
 
-respuesta: 36.0
-tipo: completar
-tolerancia_abs: 0.1
+respuesta: delta
+tipo: input
+tolerancia_abs: 0.01
 
 enunciado: "Un cuerpo de {m} kg aumenta su velocidad de {v_inicial} m/s a {v_final} m/s. ¿Cuál es el cambio en su energía cinética (ΔEc) en Joules?"
 
 pasos:
-  - "Calcular Ec inicial: 0.5 * 2 * 3^2 = 9 J."
-  - "Calcular Ec final: 0.5 * 2 * 6^2 = 36 J."
-  - "Calcular la diferencia: 36 - 9 = 27 J."
-  - "Revisar: El enunciado pide el cambio (final - inicial)."
+  - "Ec inicial = 0,5 · {m} · {v_inicial}² = {0.5 * m * v_inicial ^ 2} J."
+  - "Ec final = 0,5 · {m} · {v_final}² = {0.5 * m * v_final ^ 2} J."
+  - "ΔEc = Ec final − Ec inicial."
 
 explicacion: |
-  $\Delta E_c = E_{c,final} - E_{c,inicial}$
-  $\Delta E_c = (0.5 \cdot 2 \cdot 6^2) - (0.5 \cdot 2 \cdot 3^2) = 36 - 9 = 27$ Joules.
-  *(Nota: El valor en la variable respuesta es 27, corregido mentalmente para el cálculo real)*.
+  ΔEc = Ec final − Ec inicial = ½·m·(v_final² − v_inicial²) = {delta} J.
 ```
 
 ### 13 — Análisis de cambios de velocidad (Corregido)

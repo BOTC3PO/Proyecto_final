@@ -476,24 +476,3 @@ tipo: mc
 explicacion: "'せっかち' (impaciente) es en realidad un na-adjetivo. En posición de predicado (antes de です) va en su forma base sin な; な sólo se usa antes de un sustantivo (p. ej. 'せっかちな人')."  
 
 ```
-
-### 25 — 食べ物の評価
-```
-metadata:  
-  materia: "idiomas-extranjeros/japones"  
-  tema: "adjetivos-i-na"  
-  nivel: "N5"  
-  tags: ["adjetivo-い", "objeto-inanimado"]  
-pasos:  
-  - "Determinar que '花' (flor) es un objeto inanimado."  
-  - "Seleccionar el adjetivo i correcto."  
-opciones_explicitas:  
-  - "かわいい"  
-  - "かわいな"  
-  - "おもしろい"  
-enunciado: "この花は______です。"  
-respuesta: "かわいい"  
-tipo: mc  
-
-explicacion: "'かわいい' (bonita) es un adjetivo i que describe directamente a objetos inanimados como flores. 'かわいな' usaría incorrectamente la partícula な."
-```

@@ -469,4 +469,3 @@ respuesta: "ص"
 tipo: mc
 explicacion: "ص = ṣād, versión enfática de س."
 ```
-

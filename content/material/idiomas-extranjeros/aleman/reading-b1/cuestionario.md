@@ -239,3 +239,214 @@ respuestas_validas:
 enunciado: "Ich ___ vor einer Stunde Suppe."
 explicacion: "El presente perfecto se forma con 'haben' + participio pasado del verbo. La opción correcta es 'habe gegessen'."
 ```
+
+---
+
+### 13 — Alquiler (anuncio)
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["anzeige", "miete"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Zu vermieten: 2-Zimmer-Wohnung, 55 m², Küche, Balkon, ab 1. März frei. Miete 650 Euro warm. Keine Haustiere.» Según el anuncio, ¿cuál es el alquiler mensual y qué incluye?"
+opciones_explicitas:
+  - "650 euros, gastos incluidos (warm)"
+  - "650 euros, sin gastos (kalt)"
+  - "550 euros, gastos incluidos (warm)"
+respuesta: "650 euros, gastos incluidos (warm)"
+tipo: mc
+explicacion: "«Miete 650 Euro warm» significa alquiler con gastos de calefacción y servicios incluidos; «kalt» sería sin ellos."
+```
+
+
+### 14 — Mascotas (anuncio)
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["anzeige", "verbot"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Zu vermieten: 2-Zimmer-Wohnung, 55 m², Küche, Balkon, ab 1. März frei. Miete 650 Euro warm. Keine Haustiere.» ¿Qué no está permitido según el anuncio?"
+opciones_explicitas:
+  - "Tener mascotas"
+  - "Usar el balcón"
+  - "Mudarse en marzo"
+respuesta: "Tener mascotas"
+tipo: mc
+explicacion: "«Keine Haustiere» = sin mascotas."
+```
+
+
+### 15 — Disponibilidad (anuncio)
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["anzeige", "datum"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Zu vermieten: 2-Zimmer-Wohnung, 55 m², Küche, Balkon, ab 1. März frei. Miete 650 Euro warm. Keine Haustiere.» ¿Desde cuándo está libre el departamento?"
+opciones_explicitas:
+  - "Desde el 1 de marzo"
+  - "Desde el 1 de mayo"
+  - "Desde el 5 de marzo"
+respuesta: "Desde el 1 de marzo"
+tipo: mc
+explicacion: "«ab 1. März frei» = libre a partir del 1 de marzo."
+```
+
+
+### 16 — Pedido de Lisa
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["e-mail", "bitte"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Hallo Tom, ich komme am Samstag um 14 Uhr am Bahnhof an. Kannst du mich abholen? Ich habe einen großen Koffer. Danke und bis bald, Lisa» ¿Qué le pide Lisa a Tom?"
+opciones_explicitas:
+  - "Que la recoja en la estación"
+  - "Que le reserve un hotel"
+  - "Que le preste una valija"
+respuesta: "Que la recoja en la estación"
+tipo: mc
+explicacion: "«Kannst du mich abholen?» = ¿Podés venir a buscarme?"
+```
+
+
+### 17 — Hora de llegada
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["e-mail", "uhrzeit"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Hallo Tom, ich komme am Samstag um 14 Uhr am Bahnhof an. Kannst du mich abholen? Ich habe einen großen Koffer. Danke und bis bald, Lisa» ¿Cuándo llega Lisa?"
+opciones_explicitas:
+  - "El sábado a las 14:00"
+  - "El domingo a las 14:00"
+  - "El sábado a las 12:00"
+respuesta: "El sábado a las 14:00"
+tipo: mc
+explicacion: "«am Samstag um 14 Uhr» = el sábado a las 14:00."
+```
+
+
+### 18 — Material del curso
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["kurs", "mitbringen"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Der Deutschkurs beginnt am Montag um 18 Uhr. Bitte bringen Sie Ihr Lehrbuch mit. Der Kurs findet in Raum 12 statt. Parkplätze gibt es hinter dem Gebäude.» ¿Qué deben llevar los participantes del curso?"
+opciones_explicitas:
+  - "El libro de texto"
+  - "Una computadora"
+  - "El documento de identidad"
+respuesta: "El libro de texto"
+tipo: mc
+explicacion: "«Bitte bringen Sie Ihr Lehrbuch mit» = por favor traiga su libro de texto."
+```
+
+
+### 19 — Estacionamiento
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["kurs", "ort"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Der Deutschkurs beginnt am Montag um 18 Uhr. Bitte bringen Sie Ihr Lehrbuch mit. Der Kurs findet in Raum 12 statt. Parkplätze gibt es hinter dem Gebäude.» ¿Dónde hay estacionamiento?"
+opciones_explicitas:
+  - "Detrás del edificio"
+  - "Delante del edificio"
+  - "En la sala 12"
+respuesta: "Detrás del edificio"
+tipo: mc
+explicacion: "«hinter dem Gebäude» = detrás del edificio."
+```
+
+
+### 20 — Verbo separable stattfinden
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["wortschatz", "trennbare verben"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Der Deutschkurs beginnt am Montag um 18 Uhr. Bitte bringen Sie Ihr Lehrbuch mit. Der Kurs findet in Raum 12 statt. Parkplätze gibt es hinter dem Gebäude.» En el texto, «Der Kurs findet in Raum 12 statt», ¿qué significa «stattfinden»?"
+opciones_explicitas:
+  - "Tener lugar"
+  - "Cancelarse"
+  - "Repetirse"
+respuesta: "Tener lugar"
+tipo: mc
+explicacion: "«stattfinden» es un verbo separable: «findet ... statt» = tiene lugar."
+```
+
+
+### 21 — Clima en el sur
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["wetter", "nord-süd"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Morgen wird es im Norden regnen, im Süden scheint die Sonne. Die Temperaturen liegen zwischen 12 und 18 Grad.» Según el pronóstico, ¿cómo será el clima mañana en el sur?"
+opciones_explicitas:
+  - "Soleado"
+  - "Con lluvia"
+  - "Con nieve"
+respuesta: "Soleado"
+tipo: mc
+explicacion: "«im Süden scheint die Sonne» = en el sur brilla el sol."
+```
+
+
+### 22 — Rango de temperatura
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b1"
+  nivel: "B1"
+  tags: ["wetter", "zahlen"]
+pasos:
+  - "Leé el texto completo antes de mirar las opciones."
+  - "Buscá en el texto la palabra o la frase que responde la pregunta."
+enunciado: "Texto: «Morgen wird es im Norden regnen, im Süden scheint die Sonne. Die Temperaturen liegen zwischen 12 und 18 Grad.» ¿Qué indica «zwischen 12 und 18 Grad»?"
+opciones_explicitas:
+  - "Un rango de temperatura entre 12 y 18 grados"
+  - "Una temperatura fija de 12 grados"
+  - "Una diferencia de 18 grados entre norte y sur"
+respuesta: "Un rango de temperatura entre 12 y 18 grados"
+tipo: mc
+explicacion: "«zwischen ... und ...» expresa un intervalo."
+```

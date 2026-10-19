@@ -266,22 +266,22 @@ explicacion: |
   En una configuración en serie, la resistencia total es siempre la suma aritmética de todas las resistencias presentes en la rama.
 ```
 
-### 12 — Comportamiento de la corriente
+### 12 — Una lámpara quemada en serie
 
 ```
 metadata:
   materia: "fisica"
   tema: "circuitos_en_serie"
   nivel: "basico"
-  tags: ["corriente", "intensidad"]
+  tags: ["serie", "circuito_abierto"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En un circuito en serie, la intensidad de corriente que circula por cada uno de los componentes es la misma."
+enunciado: "En un circuito en serie, si se quema una de las lámparas, las demás también se apagan."
 
 explicacion: |
-  Verdadero. Al haber un solo camino para el flujo de electrones, la carga debe pasar por todos los componentes en la misma cantidad, por lo que la corriente es constante en todo el circuito.
+  Hay un único camino para la corriente: si un componente se abre, el circuito queda interrumpido y deja de circular corriente por todos.
 ```
 
 ### 13 — Distribución de la tensión

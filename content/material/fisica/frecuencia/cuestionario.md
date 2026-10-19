@@ -229,7 +229,7 @@ variables:
 
 respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: [datos[idx][1]]
+opciones_explicitas: [datos[idx][1], datos[idx][0], datos[idx][1] + 1]
 
 enunciado: "Si el período de un fenómeno es de {datos[idx][0]} segundos, ¿cuál es su frecuencia?"
 
@@ -396,25 +396,22 @@ explicacion: |
   Correcto. La frecuencia mide la rapidez con la que se repite un fenómeno periódico.
 ```
 
-### 18 — Unidades de medida
+### 18 — Relación entre período y frecuencia
 
 ```
 metadata:
   materia: "fisica"
-  tema: "unidades_frecuencia"
+  tema: "frecuencia"
   nivel: "basico"
-  tags: ["unidades", "si_no"]
+  tags: ["periodo", "frecuencia"]
 
-respuesta: "Hz"
-tipo: completar
-respuestas_validas:
-  - "Hz"
-  - "Hertz"
+respuesta: verdadero
+tipo: vf
 
-enunciado: "La unidad de medida de la frecuencia en el Sistema Internacional es el ___."
+enunciado: "El período de un fenómeno periódico es la inversa de su frecuencia: T = 1/f."
 
 explicacion: |
-  La unidad es el Hertz (Hz), que equivale a 1/s (ciclos por segundo).
+  La frecuencia cuenta ciclos por segundo y el período es el tiempo de un ciclo; por eso T = 1/f y f = 1/T.
 ```
 
 ### 19 — Comparación: Frecuencia vs Período

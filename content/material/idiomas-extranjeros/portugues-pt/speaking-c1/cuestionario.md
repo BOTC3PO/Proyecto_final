@@ -356,28 +356,7 @@ enunciado: "Os livros ___ são muito populares entre os alunos."
 explicacion: "El adjetivo 'interessantes' debe concordar en género y número con el sustantivo compuesto 'livros', que es masculino plural."
 ```
 
-### 18 — Uso de "se" como sujeto impersonal  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["voz impersonal", "se"]  
-pasos:  
-  - "Identificar el uso de 'se' como sujeto impersonal."  
-  - "Elegir la forma correcta del verbo en tercera persona singular."  
-enunciado: "Não se _______ a verdade facilmente nestes casos."
-opciones_explicitas:  
-  - "dizem"  
-  - "diz"  
-  - "disseram"  
-  - "falam"  
-respuesta: "diz"  
-tipo: mc  
-explicacion: "En oraciones impersonales con 'se', el verbo debe estar en tercera persona singular. 'Diz' es la forma correcta."
-```
-
-### 19 — Uso de "por que" vs "porquê" en preguntas  
+### 18 — Uso de "por que" vs "porquê" en preguntas  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-pt"  
@@ -395,7 +374,7 @@ enunciado: "___ você chegou atrasado?"
 explicacion: "'Por que' se usa en preguntas, mientras que 'porquê' es una palabra independiente (razón)."
 ```
 
-### 20 — Uso de "ter de" en oraciones con tiempo futuro  
+### 19 — Uso de "ter de" en oraciones con tiempo futuro  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-pt"  
@@ -416,64 +395,7 @@ tipo: mc
 explicacion: "'Ter de' se usa para obligaciones futuras. 'Terei de' es la forma correcta en futuro (futuro de 'ter')."
 ```
 
-### 21 — Uso de "como se" con subjuntivo en oraciones hipotéticas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "hipótetico"]  
-pasos:  
-  - "Identificar el uso de 'como se' con subjuntivo en oraciones hipotéticas."  
-  - "Elegir la forma correcta del verbo en el subjuntivo."  
-enunciado: "Ele fala português _______ fosse a sua língua nativa."
-opciones_explicitas:  
-  - "como se fosse"  
-  - "como se for"  
-  - "como se fizesse"  
-  - "como se fez"  
-respuesta: "como se fosse"  
-tipo: mc  
-explicacion: "'Como se' introduce una oración hipotética con el subjuntivo. 'Fosse' es la forma correcta en pretérito imperfeito."
-```
-
-### 22 — Acuerdo de adjetivos con sustantivos múltiples  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["acuerdo", "sustantivo múltiple"]  
-pasos:  
-  - "Reconocer el acuerdo de adjetivos con sustantivos múltiples."  
-  - "Completar el hueco con la forma correcta del adjetivo."  
-tipo: completar  
-respuestas_validas:  
-  - "interessantes"  
-  - "Interessantes"  
-enunciado: "Os livros ___ são muito populares entre os alunos."  
-explicacion: "El adjetivo 'interessantes' debe concordar en género y número con el sustantivo compuesto 'livros', que es masculino plural."
-```
-
-### 23 — Uso de "pelo menos" vs "no mínimo" en oraciones  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["expresiones", "cualidad"]  
-pasos:  
-  - "Distinguir entre 'pelo menos' y 'no mínimo' según el contexto."  
-  - "Completar el hueco con la expresión adecuada."  
-tipo: completar  
-respuestas_validas:  
-  - "no mínimo"  
-  - "pelo menos"  
-enunciado: "Ela estudou ___ duas horas para a prova."  
-explicacion: "'No mínimo' se usa en contextos de cantidad mínima específica, mientras que 'pelo menos' indica un mínimo general."
-```
-
-### 24 — Uso de "ter de" vs "dever" con pretérito perfecto  
+### 20 — Uso de "ter de" vs "dever" con pretérito perfecto  
 ```  
 metadata:  
   materia: "idiomas-extranjeros/portugues-pt"  

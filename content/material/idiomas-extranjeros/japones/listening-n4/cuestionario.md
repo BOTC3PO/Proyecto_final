@@ -332,28 +332,7 @@ opciones_explicitas:
 respuesta: "携帯電話を使ってはいけません"
 ```
 
-### 18 — 買い物の確認  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["compra", "mc"]
-pasos:
-  - "Escucha el diálogo y elige la opción correcta."
-explicacion: "La persona pregunta si tienen un artículo en stock, y la respuesta confirma que sí lo tienen. La opción 'あります' es la única que indica disponibilidad."
-tipo: mc
-enunciado: "店員に「これはありますか」と聞いたら、店員は何と答えますか？"
-opciones_explicitas:
-  - "ありません"
-  - "あります"
-  - "わかりません"
-respuesta: "あります"
-```
-
-
-
-### 19 — レストランの予約  
+### 18 — レストランの予約  
 ```
 metadata:  
   materia: "idiomas-extranjeros/japones"  
@@ -371,28 +350,7 @@ opciones_explicitas:
 respuesta: "水曜日は晴れです"
 ```
 
-### 20 — 電車の運行  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["transporte", "mc"]
-pasos:
-  - "Escucha el anuncio y elige la opción correcta."
-explicacion: "El anuncio indica que los trenes están retrasados debido a una falla en la vía. La opción '遅延' describe correctamente la situación."
-tipo: mc
-enunciado: "電車の遅延についてのアナウンスを聞きました。何が起きていますか？"
-opciones_explicitas:
-  - "運行停止"
-  - "遅延"
-  - "終点変更"
-respuesta: "遅延"
-```
-
-
-
-### 21 — ホテルのチェックイン  
+### 19 — ホテルのチェックイン  
 ```
 metadata:  
   materia: "idiomas-extranjeros/japones"  
@@ -410,28 +368,7 @@ opciones_explicitas:
 respuesta: "コーヒーをお願いします"
 ```
 
-### 22 — 学校の行事  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["evento", "mc"]
-pasos:
-  - "Escucha el anuncio y elige la opción correcta."
-explicacion: "El anuncio menciona que el evento es una reunión de padres. La opción '保護者会' corresponde al término usado en el mensaje."
-tipo: mc
-enunciado: "学校からのお知らせを聞きました。どんなイベントについてですか？"
-opciones_explicitas:
-  - "文化祭"
-  - "保護者会"
-  - "運動会"
-respuesta: "保護者会"
-```
-
-
-
-### 23 — メールの内容  
+### 20 — メールの内容  
 ```
 metadata:  
   materia: "idiomas-extranjeros/japones"  
@@ -449,28 +386,7 @@ opciones_explicitas:
 respuesta: "予約は、来店の前日にご連絡ください"
 ```
 
-### 24 — レストランのメニュー  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "listening-n4"
-  nivel: "N4"
-  tags: ["comida", "mc"]
-pasos:
-  - "Escucha el diálogo y elige la opción correcta."
-explicacion: "La persona pregunta si tienen un plato específico, y la respuesta confirma que sí lo tienen. La opción 'あります' es la única que indica disponibilidad."
-tipo: mc
-enunciado: "店員に「この料理はありますか」と聞いたら、店員は何と答えますか？"
-opciones_explicitas:
-  - "ありません"
-  - "あります"
-  - "わかりません"
-respuesta: "あります"
-```
-
-
-
-### 25 — 電話の受付  
+### 21 — 電話の受付  
 ```
 metadata:  
   materia: "idiomas-extranjeros/japones"  
