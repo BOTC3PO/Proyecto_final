@@ -7,7 +7,7 @@
 | `academicas.md` | Arte, Filosofía, Psicología, Ciudadanía digital, Comunicación, Antropología, Sociología, Aprendizaje, Turismo, Salud | 64 | 35 |
 | `tecnicas.md` | UX/Diseño, Electrónica, Automatización, Dibujo técnico, Ciencia de Materiales | 73 | 36 |
 | `idiomas.md` | Chino (~19), Esperanto (~13) y ampliar teoría de árabe, ruso, hindi y coreano; audio de Speaking | ~32 + ampliaciones | 17 |
-| `oficios-a.md` | Backend, Audiovisual, Diseño gráfico, Mecanografía, Jardinero, Carpintero de aluminio, Modista, Tornero, Cocina | 71 (40 ya planificados, 31 nuevos) | sin columna |
+| `oficios-a.md` | Backend, Audiovisual, Diseño gráfico, Mecanografía, Jardinero, Carpintero de aluminio, Modista, Tornero, Cocina | 71 (40 ya planificados, 31 nuevos) | 28 (prioridad A) |
 | `oficios-b.md` | 18 oficios de obra, taller, agro y alimentos | ~65 | 17 |
 
 ## Orden sugerido
