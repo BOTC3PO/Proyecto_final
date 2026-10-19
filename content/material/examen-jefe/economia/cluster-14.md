@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #779]
+# Examen jefe — Maestro de la Administración
 
-> Logro #779. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #779. Dominaste planificación y presupuesto administrativo, tipos de sociedades, cooperativismo y mutualismo, y cómo coordinar personas y recursos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #604]
+# Examen jefe — Maestro de Gráficos y Medidas
 
-> Logro #604. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
+> Logro #604. Construiste gráficos, detectaste ejes truncados, calculaste media, mediana y moda, y trabajaste el módulo y la dirección de vectores. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1888,570 +1888,538 @@ explicacion: |
   `../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`.
 ```
 
-## Sección: razones-trigonometricas (28 preguntas)
+## Sección: vectores-modulo-y-direccion (26 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "basico"
-  tags: ["trigonometria", "vocabulario"]
+  tags: ["vectores", "vocabulario"]
 
-enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto opuesto?"
+enunciado: "¿Cuál es la diferencia entre una magnitud escalar y una vectorial?"
 tipo: mc
 opciones_explicitas:
-  - "El cateto que no toca a ese ángulo, el que está 'enfrente'"
-  - "El cateto que sí toca a ese ángulo"
-  - "La hipotenusa"
-respuesta: "El cateto que no toca a ese ángulo, el que está 'enfrente'"
+  - "La escalar sólo tiene un número (magnitud); la vectorial también tiene una dirección"
+  - "La escalar siempre es negativa; la vectorial siempre es positiva"
+  - "No hay ninguna diferencia real entre ambas"
+respuesta: "La escalar sólo tiene un número (magnitud); la vectorial también tiene una dirección"
 
 explicacion: |
-  El cateto adyacente es el que sí toca al ángulo elegido.
+  La temperatura es escalar; la velocidad es vectorial.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "basico"
-  tags: ["trigonometria", "vocabulario"]
+  tags: ["vectores", "vocabulario"]
 
-enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto adyacente?"
+enunciado: "¿Cuál de estas es una magnitud escalar?"
 tipo: mc
 opciones_explicitas:
-  - "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
-  - "El cateto que no toca a ese ángulo"
-  - "La hipotenusa"
-respuesta: "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
+  - "La masa de un objeto"
+  - "La velocidad de un auto"
+  - "La fuerza aplicada sobre una caja"
+respuesta: "La masa de un objeto"
 
 explicacion: |
-  El cateto opuesto es el que no lo toca.
+  La masa queda descripta con un solo número, sin ninguna dirección.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "basico"
+  tags: ["vectores", "vocabulario"]
+
+enunciado: "¿Cuál de estas es una magnitud vectorial?"
+tipo: mc
+opciones_explicitas:
+  - "La velocidad de un auto"
+  - "La temperatura de una habitación"
+  - "La edad de una persona"
+respuesta: "La velocidad de un auto"
+
+explicacion: |
+  La velocidad necesita, además del número (rapidez), una dirección.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "intermedio"
-  tags: ["trigonometria"]
+  tags: ["vectores", "vocabulario"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cateto opuesto de un ángulo agudo es, al mismo tiempo, el cateto adyacente del otro ángulo agudo del mismo triángulo."
-
-explicacion: |
-  Los nombres "opuesto" y "adyacente" dependen de qué ángulo se elija
-  como referencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "¿Qué representa la regla mnemotécnica SOH-CAH-TOA?"
+enunciado: "¿Qué son las componentes de un vector que va del origen al punto (x, y)?"
 tipo: mc
 opciones_explicitas:
-  - "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
-  - "Los nombres de los tres ángulos de cualquier triángulo"
-  - "El orden en que se miden los lados de un triángulo"
-respuesta: "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
+  - "El par (x, y): cuánto avanza en horizontal y en vertical"
+  - "El módulo del vector, expresado con dos decimales"
+  - "El ángulo que forma con cada eje"
+respuesta: "El par (x, y): cuánto avanza en horizontal y en vertical"
 
 explicacion: |
-  Es una forma de memorizar las tres razones sin confundir cuál lado va
-  en el numerador y cuál en el denominador.
+  Es la misma idea de coordenadas, ahora interpretada como
+  desplazamiento.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: seno = cateto opuesto / ___."
-respuestas_validas:
-  - "hipotenusa"
-
-explicacion: |
-  El coseno también divide por la hipotenusa, pero usa el cateto
-  adyacente.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: coseno = cateto ___ / hipotenusa."
-respuestas_validas:
-  - "adyacente"
-
-explicacion: |
-  El seno usa el cateto opuesto en el numerador.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "basico"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: tangente = cateto opuesto / cateto ___."
-respuestas_validas:
-  - "adyacente"
-
-explicacion: |
-  A diferencia de seno y coseno, la tangente no usa la hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "intermedio"
-  tags: ["trigonometria", "problema"]
+  tags: ["vectores", "problema"]
 
 variables:
   k: random(1, 8)
-  opuesto: 3 * k
-  adyacente: 4 * k
-  hipotenusa: 5 * k
+  x: 3 * k
+  oy: 4 * k
 
-respuesta: redondear(opuesto / hipotenusa, 2)
+respuesta: 5 * k
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(α)?"
+enunciado: "Un vector tiene componentes ({x}, {oy}). ¿Cuál es su módulo?"
 
 pasos:
-  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 2)}"
+  - "√({x}² + {oy}²) = √{(x * x) + (oy * oy)} = {5 * k}"
 
 explicacion: |
-  Seno es opuesto sobre hipotenusa.
+  Es el teorema de Pitágoras aplicado a las componentes del vector.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "intermedio"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k: random(1, 8)
-  opuesto: 3 * k
-  adyacente: 4 * k
-  hipotenusa: 5 * k
-
-respuesta: redondear(adyacente / hipotenusa, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale cos(α)?"
-
-pasos:
-  - "{adyacente} ÷ {hipotenusa} = {redondear(adyacente / hipotenusa, 2)}"
-
-explicacion: |
-  Coseno es adyacente sobre hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  k: random(1, 8)
-  opuesto: 3 * k
-  adyacente: 4 * k
-
-respuesta: redondear(opuesto / adyacente, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto} y cateto adyacente {adyacente}. ¿Cuánto vale tan(α)?"
-
-pasos:
-  - "{opuesto} ÷ {adyacente} = {redondear(opuesto / adyacente, 2)}"
-
-explicacion: |
-  Tangente es opuesto sobre adyacente, sin usar la hipotenusa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
+  tags: ["vectores", "problema"]
 
 variables:
   k: random(1, 6)
-  opuesto: 5 * k
-  adyacente: 12 * k
-  hipotenusa: 13 * k
+  x: 5 * k
+  oy: 12 * k
 
-respuesta: redondear(opuesto / hipotenusa, 3)
+respuesta: 13 * k
 tipo: input
-tolerancia_abs: 0.01
+tolerancia_abs: 0
 
-enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo β, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(β)? Redondeá a 3 decimales."
+enunciado: "Un vector tiene componentes ({x}, {oy}). ¿Cuál es su módulo?"
 
 pasos:
-  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 3)}"
+  - "√({x}² + {oy}²) = {13 * k}"
 
 explicacion: |
-  Esta vez la razón no da un número tan "redondo" como 3/5, pero se
-  calcula exactamente igual.
+  Es la terna pitagórica 5-12-13 escalada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si se agranda un triángulo rectángulo manteniendo el mismo ángulo agudo, el valor del seno de ese ángulo NO cambia."
-
-explicacion: |
-  Los triángulos son semejantes, así que la razón entre lados se
-  mantiene igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
+  tags: ["vectores", "problema"]
 
 variables:
-  k1: random(1, 5)
-  k2: k1 + random(1, 5)
+  x: random(1, 15)
+  oy: random(1, 15)
 
-respuesta: verdadero
-tipo: vf
+respuesta: redondear(sqrt((x * x) + (oy * oy)), 2)
+tipo: input
+tolerancia_abs: 0.02
 
-enunciado: "Un triángulo con catetos {3 * k1} y {4 * k1} (hipotenusa {5 * k1}) tiene el mismo ángulo agudo que otro con catetos {3 * k2} y {4 * k2} (hipotenusa {5 * k2}). ¿El seno de ese ángulo da el mismo valor (0,6) en ambos triángulos?"
+enunciado: "Un vector tiene componentes ({x}, {oy}). ¿Cuál es su módulo? Redondeá a 2 decimales."
+
+pasos:
+  - "√({x}² + {oy}²) = {redondear(sqrt((x * x) + (oy * oy)), 2)}"
 
 explicacion: |
-  {3 * k1}/{5 * k1} y {3 * k2}/{5 * k2} son ambos iguales a 3/5 = 0,6:
-  son triángulos semejantes, misma razón.
+  No siempre el módulo da un número exacto.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "vocabulario"]
+  tema: "vectores_modulo_y_direccion"
+  nivel: "intermedio"
+  tags: ["vectores", "vocabulario"]
 
-enunciado: "¿Por qué una razón trigonométrica da siempre el mismo valor para un ángulo dado, sin importar el tamaño del triángulo?"
+enunciado: "¿Qué es la dirección de un vector?"
 tipo: mc
 opciones_explicitas:
-  - "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
-  - "Porque todos los triángulos rectángulos son congruentes entre sí"
-  - "Es una coincidencia, sin explicación geométrica"
-respuesta: "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
+  - "El ángulo que forma con el eje x positivo, medido en sentido antihorario"
+  - "La longitud total de la flecha que lo representa"
+  - "El punto exacto donde termina el vector"
+respuesta: "El ángulo que forma con el eje x positivo, medido en sentido antihorario"
 
 explicacion: |
-  Es la razón por la que este módulo depende de
-  `../semejanza-y-teorema-de-thales/`.
+  El módulo es la longitud; la dirección es hacia dónde apunta.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
+  tema: "vectores_modulo_y_direccion"
+  nivel: "avanzado"
+  tags: ["vectores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La tangente de un ángulo es igual al seno de ese ángulo dividido su coseno (tan = sen / cos)."
+enunciado: "Dos vectores con el mismo módulo y la misma dirección son considerados el mismo vector, aunque estén dibujados con distinto punto de origen en el plano."
 
 explicacion: |
-  Al dividir (opuesto/hipotenusa) por (adyacente/hipotenusa), la
-  hipotenusa se simplifica y queda opuesto/adyacente.
+  Un vector "libre" se puede trasladar sin cambiar lo que representa.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
+  tema: "vectores_modulo_y_direccion"
+  nivel: "basico"
+  tags: ["vectores", "vocabulario"]
 
-variables:
-  k: random(1, 8)
-
-respuesta: redondear(0.6 / 0.8, 2)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Para un ángulo α, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto vale tan(α)?"
-
-pasos:
-  - "0,6 ÷ 0,8 = {redondear(0.6 / 0.8, 2)}"
-
-explicacion: |
-  Coincide con calcular directamente opuesto/adyacente = 3/4 = 0,75 en
-  el triángulo 3-4-5.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "vocabulario"]
-
-enunciado: "¿Qué dice la identidad sen² + cos² = 1, para cualquier ángulo?"
+enunciado: "¿Qué es un vector nulo?"
 tipo: mc
 opciones_explicitas:
-  - "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
-  - "Que el seno y el coseno de cualquier ángulo son siempre iguales"
-  - "Que la suma de seno y coseno siempre da 1, sin elevar al cuadrado"
-respuesta: "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
+  - "Un vector con módulo 0, sin dirección definida"
+  - "Un vector con dirección hacia el eje x negativo"
+  - "Un vector que apunta siempre hacia el origen"
+respuesta: "Un vector con módulo 0, sin dirección definida"
 
 explicacion: |
-  Es consecuencia directa del teorema de Pitágoras aplicado a los
-  catetos y la hipotenusa.
+  Sin longitud, no hay ninguna dirección real que definir.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "intermedio"
+  tags: ["vectores", "vocabulario"]
+
+enunciado: "¿Qué es un vector unitario?"
+tipo: mc
+opciones_explicitas:
+  - "Un vector con módulo exactamente 1"
+  - "Un vector que sólo tiene una componente distinta de 0"
+  - "Un vector que apunta siempre hacia arriba"
+respuesta: "Un vector con módulo exactamente 1"
+
+explicacion: |
+  Se usa para representar sólo una dirección, sin peso en la magnitud.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-respuesta: 1
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Para el ángulo del triángulo 3-4-5, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto da sen(α)² + cos(α)²?"
-
-pasos:
-  - "0,6² + 0,8² = 0,36 + 0,64 = 1"
-
-explicacion: |
-  Se cumple exactamente, porque 3² + 4² = 5² (el propio teorema de
-  Pitágoras, dividido por 5² de los dos lados).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "completar"]
-
-tipo: completar
-enunciado: "Completá: sen(30°) = ___ (como número decimal)."
-respuestas_validas:
-  - "0.5"
-  - "0,5"
-
-explicacion: |
-  Es uno de los valores notables que conviene memorizar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria"]
+  tags: ["vectores", "problema"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "sen(30°) y cos(60°) valen exactamente lo mismo."
+enunciado: "Un vector tiene componentes (0,6, 0,8). ¿Es un vector unitario?"
 
 explicacion: |
-  Los ángulos que suman 90° "intercambian" seno y coseno.
+  √(0,6² + 0,8²) = √(0,36 + 0,64) = √1 = 1: sí, es unitario.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "avanzado"
+  tags: ["vectores", "problema"]
+
+variables:
+  k: random(1, 6)
+  x: 8 * k
+  modulo: 17 * k
+
+respuesta: 15 * k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un vector tiene componente x = {x} y módulo {modulo}. ¿Cuál es su componente y (positiva)?"
+
+pasos:
+  - "{modulo}² − {x}² = {(modulo * modulo) - (x * x)}"
+  - "√{(modulo * modulo) - (x * x)} = {15 * k}"
+
+explicacion: |
+  Se despeja la componente faltante invirtiendo Pitágoras, igual que
+  hallar un cateto conociendo la hipotenusa y el otro cateto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "intermedio"
-  tags: ["trigonometria"]
+  tags: ["vectores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "sen(45°) y cos(45°) valen exactamente lo mismo."
+enunciado: "El módulo de un vector nunca puede ser un número negativo."
 
 explicacion: |
-  Tiene sentido: 45° + 45° = 90°, así que se intercambian entre sí — y
-  como son iguales, coinciden.
+  Es una raíz cuadrada de una suma de cuadrados: siempre positiva o
+  cero.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "basico"
+  tags: ["vectores", "vocabulario"]
+
+enunciado: "¿Cómo se representa gráficamente un vector?"
+tipo: mc
+opciones_explicitas:
+  - "Con una flecha, desde un punto de origen hasta un punto de extremo"
+  - "Con un punto suelto, sin ninguna línea"
+  - "Con un círculo alrededor del origen"
+respuesta: "Con una flecha, desde un punto de origen hasta un punto de extremo"
+
+explicacion: |
+  La punta de la flecha marca el extremo, y también la dirección.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "basico"
+  tags: ["vectores", "vocabulario"]
+
+enunciado: "En la flecha que representa un vector, ¿cuál es el 'extremo'?"
+tipo: mc
+opciones_explicitas:
+  - "El punto de llegada, donde está la punta de la flecha"
+  - "El punto de partida, donde empieza la flecha"
+  - "El punto medio de la flecha"
+respuesta: "El punto de llegada, donde está la punta de la flecha"
+
+explicacion: |
+  El punto de partida se llama origen (o "cola").
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "basico"
+  tags: ["vectores", "problema"]
+
+variables:
+  x: random(-10, 10)
+  oy: random(-10, 10)
+
+respuesta: x
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un vector va desde el origen (0, 0) hasta el punto ({x}, {oy}). ¿Cuál es su componente horizontal?"
+
+explicacion: |
+  Es directamente la abscisa del punto de llegada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "avanzado"
+  tags: ["vectores", "problema"]
+
+variables:
+  x1: random(1, 10)
+  y1: random(1, 10)
+  x2: x1 + random(2, 8)
+  y2: y1 + random(2, 8)
+
+respuesta: x2 - x1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un vector va desde el punto ({x1}, {y1}) hasta el punto ({x2}, {y2}). ¿Cuál es su componente horizontal?"
+
+pasos:
+  - "{x2} − {x1} = {x2 - x1}"
+
+explicacion: |
+  Un vector entre dos puntos cualesquiera se calcula restando las
+  coordenadas del punto de llegada menos las del punto de partida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "avanzado"
+  tags: ["vectores", "vocabulario"]
+
+enunciado: "¿Qué relación tiene el módulo de un vector con la fórmula de distancia entre dos puntos?"
+tipo: mc
+opciones_explicitas:
+  - "Son la misma fórmula: el módulo es la distancia entre el origen y el extremo del vector"
+  - "No tienen ninguna relación"
+  - "El módulo siempre es el doble de la distancia"
+respuesta: "Son la misma fórmula: el módulo es la distancia entre el origen y el extremo del vector"
+
+explicacion: |
+  Por eso este módulo depende de `../distancia-entre-dos-puntos/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "avanzado"
+  tags: ["vectores", "problema"]
+
+variables:
+  k: random(1, 6)
+  x1: random(1, 5)
+  y1: random(1, 5)
+  x2: x1 + 3 * k
+  y2: y1 + 4 * k
+
+respuesta: 5 * k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un vector va desde el punto ({x1}, {y1}) hasta el punto ({x2}, {y2}). ¿Cuál es su módulo?"
+
+pasos:
+  - "Componentes: ({x2 - x1}, {y2 - y1})"
+  - "√({x2 - x1}² + {y2 - y1}²) = {5 * k}"
+
+explicacion: |
+  Primero se calculan las componentes (la diferencia de coordenadas), y
+  recién después el módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "intermedio"
-  tags: ["trigonometria"]
+  tags: ["vectores", "ordenar"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "tan(45°) vale exactamente 1."
-
-explicacion: |
-  Como sen(45°) = cos(45°), su cociente (la tangente) da 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  seno_30: 0.5
-  hipotenusa: uno_de([10, 20, 30, 40])
-
-respuesta: hipotenusa * seno_30
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo rectángulo tiene un ángulo de 30° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá sen(30°) = 0,5)"
-
-pasos:
-  - "{hipotenusa} × 0,5 = {hipotenusa * seno_30}"
-
-explicacion: |
-  Cateto opuesto = hipotenusa × sen(ángulo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  coseno_60: 0.5
-  hipotenusa: uno_de([10, 20, 30, 40])
-
-respuesta: hipotenusa * coseno_60
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo rectángulo tiene un ángulo de 60° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto adyacente a ese ángulo? (usá cos(60°) = 0,5)"
-
-pasos:
-  - "{hipotenusa} × 0,5 = {hipotenusa * coseno_60}"
-
-explicacion: |
-  Cateto adyacente = hipotenusa × cos(ángulo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "avanzado"
-  tags: ["trigonometria", "problema"]
-
-variables:
-  adyacente: uno_de([5, 8, 10, 15])
-
-respuesta: adyacente
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo rectángulo tiene un ángulo de 45° y un cateto adyacente de {adyacente}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá tan(45°) = 1)"
-
-pasos:
-  - "{adyacente} × 1 = {adyacente}"
-
-explicacion: |
-  En un triángulo con un ángulo de 45°, los dos catetos miden siempre
-  lo mismo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "razones_trigonometricas"
-  nivel: "intermedio"
-  tags: ["trigonometria", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar un lado desconocido de un triángulo rectángulo, conociendo un ángulo agudo y otro lado."
+enunciado: "Ordená los pasos para hallar el módulo de un vector, conociendo sus componentes (x, y)."
 tipo: ordenar
 opciones_explicitas:
-  - "Despejar el lado desconocido y calcular"
-  - "Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido"
-  - "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados"
-respuesta_orden: ["Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido", "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados", "Despejar el lado desconocido y calcular"]
+  - "Sacar raíz cuadrada de esa suma"
+  - "Elevar al cuadrado cada componente"
+  - "Sumar los dos cuadrados"
+respuesta_orden: ["Elevar al cuadrado cada componente", "Sumar los dos cuadrados", "Sacar raíz cuadrada de esa suma"]
 explicacion: |
-  Elegir mal la razón (usar coseno cuando corresponde seno, por
-  ejemplo) es el error más común.
+  Es el mismo procedimiento del teorema de Pitágoras.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "intermedio"
-  tags: ["trigonometria", "vocabulario"]
+  tags: ["vectores"]
 
-enunciado: "¿Cómo se puede calcular la altura de un edificio sin medirla directamente, usando trigonometría?"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Por convención, la dirección de un vector se mide como el ángulo respecto del eje x positivo, en sentido antihorario."
+
+explicacion: |
+  Es la misma convención usada para los cuadrantes del plano
+  cartesiano.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "avanzado"
+  tags: ["vectores", "problema"]
+
+variables:
+  modulo: uno_de([10, 20, 30, 40])
+  cos_30: 0.87
+  sen_30: 0.5
+
+respuesta: redondear(modulo * sen_30, 1)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un vector tiene módulo {modulo} y dirección 30° (sen 30° = 0,5, cos 30° ≈ 0,87). ¿Cuál es su componente vertical (y)?"
+
+pasos:
+  - "{modulo} × 0,5 = {redondear(modulo * sen_30, 1)}"
+
+explicacion: |
+  y = módulo × sen(dirección).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "intermedio"
+  tags: ["vectores", "vocabulario"]
+
+enunciado: "¿Por qué la fuerza que se aplica sobre una caja se describe con un vector, y no con un solo número?"
 tipo: mc
 opciones_explicitas:
-  - "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
-  - "Contando la cantidad de pisos y multiplicando por 3 metros siempre"
-  - "No es posible calcular una altura sin medirla directamente"
-respuesta: "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
+  - "Porque importa tanto cuánta fuerza se aplica como en qué dirección se empuja"
+  - "Porque las fuerzas siempre son negativas"
+  - "En realidad la fuerza es una magnitud escalar, no vectorial"
+respuesta: "Porque importa tanto cuánta fuerza se aplica como en qué dirección se empuja"
 
 explicacion: |
-  La distancia horizontal es el cateto adyacente, la altura es el
-  cateto opuesto: tan(ángulo) = altura / distancia.
+  Empujar hacia arriba, hacia abajo o de costado da resultados muy
+  distintos, aunque la magnitud de la fuerza sea la misma.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "razones_trigonometricas"
+  tema: "vectores_modulo_y_direccion"
+  nivel: "intermedio"
+  tags: ["vectores"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Dos vectores pueden tener exactamente el mismo módulo pero apuntar en direcciones completamente distintas."
+
+explicacion: |
+  El módulo y la dirección son dos datos independientes entre sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "vectores_modulo_y_direccion"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirven las razones trigonométricas?"
+enunciado: "¿Para qué sirven los vectores?"
 tipo: mc
 opciones_explicitas:
-  - "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
-  - "Sólo sirven para triángulos equiláteros"
-  - "Sólo tienen aplicación teórica, sin uso práctico"
-respuesta: "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
+  - "Para describir cualquier magnitud que combine una cantidad con una dirección: desplazamientos, velocidades, fuerzas"
+  - "Sólo sirven para describir posiciones fijas en el plano"
+  - "Sólo tienen aplicación en geometría pura, sin uso en Física"
+respuesta: "Para describir cualquier magnitud que combine una cantidad con una dirección: desplazamientos, velocidades, fuerzas"
 
 explicacion: |
-  Desde la altura de un edificio hasta el diseño de una rampa, siempre
-  que hay un ángulo y un triángulo rectángulo, aparecen estas razones.
+  Es la base para sumarlos y combinarlos en los módulos siguientes.
 ```
 

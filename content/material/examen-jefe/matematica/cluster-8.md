@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #608]
+# Examen jefe — Maestro de Áreas y Distribución Normal
 
-> Logro #608. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **112 preguntas totales** en 5/5 secciones.
+> Logro #608. Calculaste áreas de polígonos compuestos, volumen y capacidad, y dominaste la distribución normal, la dispersión y las variables aleatorias. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1013,472 +1013,643 @@ explicacion: |
   completo una distribución normal — el módulo que sigue.
 ```
 
-## Sección: teorema-de-bolzano (20 preguntas)
+## Sección: volumen-y-capacidad (30 preguntas)
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "basico"
-  tags: ["bolzano", "continuidad", "signos"]
+  tags: ["volumen", "vocabulario"]
+
+enunciado: "¿Qué es el volumen de un cuerpo?"
+tipo: mc
+opciones_explicitas:
+  - "La medida del espacio que ocupa en tres dimensiones"
+  - "La medida de su contorno"
+  - "La cantidad de caras que tiene"
+respuesta: "La medida del espacio que ocupa en tres dimensiones"
+
+explicacion: |
+  Se mide en unidades cúbicas: cm³, m³.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["volumen", "vocabulario"]
+
+enunciado: "¿Qué es el cubo unitario que se usa para medir volumen?"
+tipo: mc
+opciones_explicitas:
+  - "Un cubo de 1 unidad de lado, con volumen 1"
+  - "Cualquier cubo, sin importar su tamaño"
+  - "Un cubo con 6 caras cuadradas"
+respuesta: "Un cubo de 1 unidad de lado, con volumen 1"
+
+explicacion: |
+  Medir un volumen es, en el fondo, contar cuántos cubos unitarios entran
+  adentro del cuerpo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["prisma_rectangular", "volumen"]
 
 variables:
-  a: random(1, 5)
-  b: random(6, 10)
-  f_a: random(-10, -1)
-  f_b: random(1, 10)
+  l: random(2, 20)
+  a: random(2, 15)
+  h: random(2, 10)
+
+respuesta: l * a * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el volumen de una caja de {l} cm de largo, {a} cm de ancho y {h} cm de alto?"
+
+pasos:
+  - "{l} × {a} × {h} = {l * a * h} cm³"
+
+explicacion: |
+  El volumen de un prisma rectangular es largo × ancho × alto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["cubo", "volumen"]
+
+variables:
+  l: random(2, 15)
+
+respuesta: l * l * l
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuál es el volumen de un cubo de {l} cm de lado?"
+
+pasos:
+  - "{l} × {l} × {l} = {l * l * l} cm³"
+
+explicacion: |
+  El volumen del cubo es el lado elevado al cubo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["prisma_rectangular", "volumen"]
+
+variables:
+  l: random(2, 10)
+  a: random(2, 8)
+  h: random(2, 10)
+  volumen: l * a * h
+
+respuesta: h
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una caja de {l} cm de largo y {a} cm de ancho tiene {volumen} cm³ de volumen. ¿Cuánto mide su altura?"
+
+pasos:
+  - "{volumen} ÷ ({l} × {a}) = {volumen / (l * a)} cm"
+
+explicacion: |
+  La altura se despeja dividiendo el volumen por el área de la base
+  (largo × ancho).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["cubo", "volumen"]
+
+variables:
+  l: random(2, 10)
+  volumen: l * l * l
+
+respuesta: l
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un cubo tiene {volumen} cm³ de volumen. ¿Cuánto mide su lado?"
+
+pasos:
+  - "raiz({volumen}, 3) = {raiz(volumen, 3)} cm"
+
+explicacion: |
+  El lado es la raíz cúbica del volumen (la operación inversa de
+  elevarlo al cubo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["capacidad", "vocabulario"]
+
+enunciado: "¿Qué es la capacidad de un recipiente?"
+tipo: mc
+opciones_explicitas:
+  - "Cuánto líquido puede contener"
+  - "Cuánto pesa el recipiente vacío"
+  - "El área de su superficie exterior"
+respuesta: "Cuánto líquido puede contener"
+
+explicacion: |
+  Se mide en litros y sus derivados (ml).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["capacidad", "conversion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si una función continua $f$ cumple $f({a}) = {f_a}$ y $f({b}) = {f_b}$, ¿se puede garantizar que existe al menos un cero en el intervalo $[{a}, {b}]$?"
+enunciado: "1 litro equivale exactamente a 1 decímetro cúbico (1 dm³)."
 
 explicacion: |
-  Dado que $f$ es continua en $[{a}, {b}]$ y $f(a)$ y $f(b)$ tienen signos opuestos (uno negativo y otro positivo), el Teorema de Bolzano garantiza la existencia de al menos un $c \in (a, b)$ tal que $f(c) = 0$.
+  Es la equivalencia central entre volumen y capacidad.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "basico"
-  tags: ["bolzano", "gráfico", "interpretación"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  f_a: -random(1, 5)
-  f_b: random(1, 5)
+  tags: ["capacidad", "conversion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si graficamos una función continua desde $x={a}$ hasta $x={b}$, y los puntos extremos están a distinta altura respecto al eje horizontal (uno arriba y otro abajo), la curva debe cortar el eje X."
+enunciado: "1 mililitro equivale exactamente a 1 centímetro cúbico (1 cm³)."
 
 explicacion: |
-  Correcto. Geométricamente, una línea continua que une un punto por debajo del eje con uno por encima debe intersectar el eje en algún punto intermedio.
+  Es la misma equivalencia que 1 l = 1 dm³, pero a escala mil veces más
+  chica.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "intermedio"
-  tags: ["bolzano", "discontinuidad", "contraejemplo"]
+  tags: ["capacidad", "conversion"]
 
 variables:
-  a: random(0, 2)
-  b: random(3, 5)
+  cm3: random(50, 900)
 
-respuesta: falso
+respuesta: cm3
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un envase tiene un volumen de {cm3} cm³. ¿Cuántos ml de líquido le entran?"
+
+explicacion: |
+  1 cm³ = 1 ml: el número no cambia, sólo el nombre de la unidad.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["capacidad", "conversion"]
+
+variables:
+  litros: random(1, 9)
+  cm3: litros * 1000
+
+respuesta: litros
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un recipiente tiene un volumen de {cm3} cm³. ¿Cuántos litros le entran?"
+
+pasos:
+  - "{cm3} cm³ = {cm3} ml = {cm3 / 1000} l (porque 1 l = 1000 ml)"
+
+explicacion: |
+  Se convierte cm³ a ml (1 a 1) y después ml a litros (÷1000).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "avanzado"
+  tags: ["capacidad", "conversion"]
+
+variables:
+  m3: random(1, 8)
+
+respuesta: m3 * 1000
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un tanque tiene {m3} m³ de volumen. ¿Cuántos litros de agua puede contener?"
+
+pasos:
+  - "1 m³ = 1000 litros, así que {m3} × 1000 = {m3 * 1000} litros"
+
+explicacion: |
+  1 metro cúbico equivale a 1000 litros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "avanzado"
+  tags: ["prisma_rectangular", "capacidad", "problema"]
+
+variables:
+  l: random(20, 60)
+  a: random(15, 40)
+  h: random(15, 30)
+
+respuesta: (l * a * h) / 1000
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Una pecera con forma de caja mide {l} cm de largo, {a} cm de ancho y {h} cm de alto. ¿Cuántos litros de agua puede contener?"
+
+pasos:
+  - "Volumen: {l} × {a} × {h} = {l * a * h} cm³. Como 1000 cm³ = 1 litro, {l * a * h} ÷ 1000 = {(l * a * h) / 1000} litros."
+
+explicacion: |
+  Se calcula el volumen en cm³ y se convierte a litros usando la
+  equivalencia 1000 cm³ = 1 litro.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["prisma_rectangular", "problema"]
+
+variables:
+  l: random(25, 35)
+  a: random(15, 20)
+  h: random(10, 15)
+
+respuesta: l * a * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una caja de zapatos mide {l} cm × {a} cm × {h} cm. ¿Cuál es su volumen?"
+
+explicacion: |
+  Se aplica directamente largo × ancho × alto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["cubo", "problema"]
+
+variables:
+  l: random(2, 6)
+  a: random(2, 6)
+  h: random(2, 6)
+
+respuesta: l * a * h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántos cubos de 1 cm de lado entran en una caja de {l} cm × {a} cm × {h} cm, si se apilan sin dejar huecos?"
+
+explicacion: |
+  Cada cubo de 1 cm de lado ocupa 1 cm³, así que la cantidad de cubos
+  coincide con el volumen de la caja en cm³.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+variables:
+  l1: random(2, 10)
+  a1: random(2, 10)
+  h1: random(2, 10)
+  l2: random(2, 10)
+  a2: random(2, 10)
+  h2: random(2, 10)
+
+restricciones:
+  - (l1 * a1 * h1) != (l2 * a2 * h2)
+
+respuesta: (l1 * a1 * h1) > (l2 * a2 * h2)
 tipo: vf
 
-enunciado: "El Teorema de Bolzano asegura la existencia de un cero en $[{a}, {b}]$ incluso si la función tiene una discontinuidad de salto en el interior del intervalo, siempre que los extremos tengan signos opuestos."
+enunciado: "¿Tiene mayor volumen una caja de {l1}×{a1}×{h1} cm, que otra de {l2}×{a2}×{h2} cm?"
+
+pasos:
+  - "Caja 1: {l1 * a1 * h1} cm³. Caja 2: {l2 * a2 * h2} cm³."
 
 explicacion: |
-  Falso. La continuidad en el intervalo cerrado es una hipótesis indispensable. Si hay una discontinuidad, la función podría "saltar" por encima del eje sin tocarlo.
+  Se calcula el volumen de cada una y se compara.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "intermedio"
-  tags: ["bolzano", "polinomios", "cuadrática"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  coef: random(1, 2)
-  c_const: random(-10, -1)
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Para $f(x) = {coef}x^2 + {c_const}$, evaluada en $[{a}, {b}]$, si $f(a)$ y $f(b)$ tienen signos opuestos, existe un cero en ese intervalo."
+enunciado: "El volumen se mide en unidades cúbicas, como cm³ o m³."
 
 explicacion: |
-  Verdadero. Los polinomios son funciones continuas en todo $\mathbb{R}$. Por lo tanto, se cumple la hipótesis de continuidad y, sumada la condición de signos opuestos, Bolzano aplica.
+  Es consecuencia de medir tres dimensiones a la vez (largo × ancho ×
+  alto).
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "intermedio"
-  tags: ["bolzano", "análisis", "hipótesis"]
-
-variables:
-  a: random(0, 2)
-  b: random(3, 5)
-
-respuesta: "continuidad"
-tipo: completar
-
-enunciado: "Si una función tiene $f({a}) < 0$ y $f({b}) > 0$, pero no se puede asegurar que existe un cero en $({a}, {b})$, la hipótesis que probablemente falla es la _______ de la función."
-
-respuestas_validas:
-  - "continuidad"
-  - "continua"
-
-explicacion: |
-  La continuidad es la hipótesis clave. Sin ella, la función puede presentar saltos que eviten el cruce por el eje X.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "basico"
-  tags: ["bolzano", "signos", "lógica"]
-
-variables:
-  a: random(1, 4)
-  b: random(5, 8)
-  f_a: random(-10, -1)
-
-respuesta: "positivo"
-tipo: completar
-
-enunciado: "Para garantizar un cero en $[{a}, {b}]$ mediante Bolzano, si $f({a}) = {f_a}$ (negativo), entonces $f({b})$ debe ser _______."
-
-respuestas_validas:
-  - "positivo"
-  - "mayor que cero"
-  - "> 0"
-
-explicacion: |
-  Deben tener signos opuestos. Si $f(a)$ es negativo, $f(b)$ debe ser positivo para que el producto sea menor que cero.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "basico"
-  tags: ["bolzano", "no aplicación", "condiciones"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  f_a: random(1, 5)
-  f_b: random(1, 5)
+  tags: ["vocabulario"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si $f$ es continua en $[{a}, {b}]$ y $f({a}) = {f_a}$, $f({b}) = {f_b}$ (ambos positivos), el Teorema de Bolzano garantiza un cero."
+enunciado: "El volumen y el área miden exactamente lo mismo, sólo que con distinto nombre."
 
 explicacion: |
-  Falso. Ambos valores positivos no garantizan que la función cruce el eje. Podría permanecer siempre por encima del eje X.
+  El área mide superficie (2 dimensiones, unidades cuadradas); el volumen
+  mide espacio (3 dimensiones, unidades cúbicas). Son magnitudes
+  distintas.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "intermedio"
-  tags: ["bolzano", "búsqueda", "intervalos"]
-
-variables:
-  a: random(0, 2)
-  b: random(3, 5)
-  f_a: -random(10, 20)
-  f_b: random(10, 20)
-
-respuesta: "(" + a + ", " + b + ")"
-tipo: completar
-
-enunciado: "Si $f$ es continua, $f({a}) = {f_a}$ y $f({b}) = {f_b}$, el cero $c$ se encuentra en el intervalo abierto _______."
-
-respuestas_validas:
-  - "(" + a + ", " + b + ")"
-  - "(" + b + ", " + a + ")"
-  - "entre " + a + " y " + b
-
-explicacion: |
-  El teorema garantiza que $c$ está estrictamente entre $a$ y $b$, es decir, $c \in (a, b)$.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "basico"
-  tags: ["bolzano", "lineal", "aplicación"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  m: random(1, 3)
-  c: random(-10, -1)
+  tags: ["cubo", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La función $f(x) = {m}x + {c}$ es continua. Si $f({a})$ y $f({b})$ tienen signos opuestos, existe un cero único en $({a}, {b})$."
+enunciado: "Un cubo es un caso particular de prisma rectangular, donde los tres lados son iguales."
 
 explicacion: |
-  Verdadero. Las funciones lineales son continuas. Al tener signos opuestos en los extremos, cruzan el eje exactamente una vez.
+  Por eso su fórmula (l³) es la misma que largo×ancho×alto, con los tres
+  valores iguales.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "avanzado"
-  tags: ["bolzano", "TVI", "teoría"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-
-respuesta: "caso particular"
-tipo: completar
-
-enunciado: "El Teorema de Bolzano es un _______ del Teorema del Valor Intermedio."
-
-respuestas_validas:
-  - "caso particular"
-  - "caso_particular"
-  - "específico"
-
-explicacion: |
-  Bolzano se enfoca específicamente en el valor intermedio $k=0$. El TVI es más general para cualquier $k$ entre $f(a)$ y $f(b)$.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "intermedio"
-  tags: ["bolzano", "error", "mito"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si $f$ es continua en $[{a}, {b}]$ y tiene un cero en ese intervalo, entonces $f(a)$ y $f(b)$ necesariamente tienen signos opuestos."
-
-explicacion: |
-  Falso. La función podría tocar el eje y volver al mismo lado (ej. $f(x)=x^2$ en $[-1, 1]$ tiene cero en 0, pero $f(-1)=f(1)=1 > 0$). La implicación inversa no es cierta.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "avanzado"
-  tags: ["bolzano", "máximo", "forma"]
-
-variables:
-  a: random(-2, -1)
-  b: random(1, 2)
-  f_a: -random(1, 5)
-  f_b: -random(1, 5)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si $f$ es continua en $[{a}, {b}]$, $f({a}) < 0$, $f({b}) < 0$, y $f$ tiene un máximo local positivo en el interior, Bolzano garantiza un cero."
-
-explicacion: |
-  Falso. Bolzano requiere signos opuestos en los extremos. Aunque haya un cero (porque sube y baja), la condición de *hipótesis* de Bolzano ($f(a)f(b)<0$) no se cumple, por lo que no podemos usar *este* teorema para garantizarlo directamente (aunque el cero exista por otros motivos).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "intermedio"
-  tags: ["bolzano", "lógica", "variables"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  f_a: -random(1, 5)
-  f_b: random(1, 5)
-
-respuesta: "signos"
-tipo: completar
-
-enunciado: "La conclusión de Bolzano depende críticamente de los _______ de los valores en los extremos."
-
-respuestas_validas:
-  - "signos"
-  - "signos opuestos"
-  - "signos distintos"
-
-explicacion: |
-  La condición clave es que los signos sean distintos (opuestos).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "avanzado"
-  tags: ["bolzano", "unicidad", "concepto"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El Teorema de Bolzano garantiza que el cero encontrado en $({a}, {b})$ es único."
-
-explicacion: |
-  Falso. Bolzano solo garantiza la *existencia* de al menos un cero. La unicidad requiere condiciones adicionales (como derivada estrictamente positiva).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "basico"
-  tags: ["bolzano", "cálculo", "intermedio"]
+  tags: ["prisma_rectangular", "vocabulario"]
 
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  f_a: -random(1, 5)
-  f_b: random(1, 5)
-
-respuesta: "0"
-tipo: completar
-
-enunciado: "El teorema asegura que existe $c$ tal que $f(c) =$ _______."
-
-respuestas_validas:
-  - "0"
-  - "cero"
-  - "el cero"
+enunciado: "¿Cuál es la fórmula correcta del volumen de un prisma rectangular?"
+tipo: mc
+opciones_explicitas:
+  - "largo × ancho × alto"
+  - "largo + ancho + alto"
+  - "2 × (largo + ancho)"
+respuesta: "largo × ancho × alto"
 
 explicacion: |
-  La conclusión es que la función toma el valor cero en algún punto del intervalo.
+  Se multiplican las tres dimensiones.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "basico"
-  tags: ["bolzano", "constante", "caso trivial"]
+  tags: ["cubo", "completar"]
 
 variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  k: random(1, 5)
+  l: random(2, 12)
 
-respuesta: falso
+tipo: completar
+enunciado: "Completá: el volumen de un cubo de lado {l} cm es ___ cm³."
+respuestas_validas:
+  - l * l * l
+
+explicacion: |
+  Volumen = lado³.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["capacidad", "completar"]
+
+tipo: completar
+enunciado: "Completá: 1 metro cúbico equivale a ___ litros."
+respuestas_validas:
+  - 1000
+
+explicacion: |
+  1 m³ = 1000 litros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["prisma_rectangular", "verificacion"]
+
+variables:
+  l: random(2, 15)
+  a: random(2, 12)
+  h: random(2, 10)
+  correcto: l * a * h
+  error: uno_de([0, 0, 0, 1, -1])
+  mostrado: correcto + error
+
+respuesta: (mostrado == correcto)
 tipo: vf
 
-enunciado: "Si $f(x) = {k}$ (constante positiva) en $[{a}, {b}]$, Bolzano garantiza un cero."
+enunciado: "¿Está bien calculado esto? El volumen de una caja de {l}×{a}×{h} cm es {mostrado} cm³."
 
 explicacion: |
-  Falso. $f(a) = f(b) = k > 0$. No hay signos opuestos. La función nunca toca el eje X.
+  Se recalcula largo × ancho × alto y se compara con lo mostrado.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "basico"
-  tags: ["bolzano", "geometría", "eje"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-
-respuesta: "corta"
-tipo: completar
-
-enunciado: "Gráficamente, si se cumplen las condiciones de Bolzano en $[{a}, {b}]$, la curva _______ el eje de las abcisas."
-
-respuestas_validas:
-  - "corta"
-  - "cruza"
-  - "intercepta"
-
-explicacion: |
-  La curva debe cruzar o cortar el eje horizontal al menos una vez.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "intermedio"
-  tags: ["bolzano", "continuidad", "hipótesis"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 6)
-
-respuesta: "cerrado"
-tipo: completar
-
-enunciado: "La continuidad debe verificarse en el intervalo _______ $[{a}, {b}]$."
-
-respuestas_validas:
-  - "cerrado"
-  - "cerrado ["
-  - "[" + a + ", " + b + "]"
-
-explicacion: |
-  El teorema exige continuidad en el intervalo cerrado $[a, b]$, incluyendo los extremos.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
   nivel: "avanzado"
-  tags: ["bolzano", "conclusión", "lógica"]
+  tags: ["cubo", "capacidad", "problema"]
 
 variables:
-  a: random(1, 3)
-  b: random(4, 6)
+  l_m: random(1, 4)
 
-respuesta: "al menos uno"
-tipo: completar
+respuesta: (l_m * l_m * l_m) * 1000
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "El Teorema de Bolzano garantiza la existencia de _______ cero en $({a}, {b})$."
+enunciado: "Un tanque cúbico mide {l_m} m de lado. ¿Cuántos litros de agua puede contener?"
 
-respuestas_validas:
-  - "al menos uno"
-  - "al menos un"
-  - "uno o más"
+pasos:
+  - "Volumen: {l_m}³ = {l_m * l_m * l_m} m³. Como 1 m³ = 1000 litros, {l_m * l_m * l_m} × 1000 = {(l_m * l_m * l_m) * 1000} litros."
 
 explicacion: |
-  La conclusión es la existencia de al menos un cero. No se descarta la posibilidad de más de uno.
+  Primero se calcula el volumen en m³, y después se convierte a litros.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "teorema_de_bolzano"
-  nivel: "intermedio"
-  tags: ["bolzano", "discontinuidad", "contraejemplo"]
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "avanzado"
+  tags: ["cubo", "vocabulario"]
 
 variables:
-  a: random(1, 3)
-  b: random(4, 6)
-  f_a: random(-5, -1)
-  f_b: random(1, 5)
+  l: random(2, 8)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si una función $f$ no es continua en $[{a}, {b}]$, pero cumple que $f({a})={f_a}$ y $f({b})={f_b}$ tienen signos opuestos, el Teorema de Bolzano garantiza que existe un cero en $(a, b)$."
+enunciado: "Si el lado de un cubo de {l} cm se duplica, su volumen también se duplica."
+
+pasos:
+  - "Volumen original: {l}³ = {l * l * l} cm³. Volumen con el lado doble: {2 * l}³ = {(2 * l) * (2 * l) * (2 * l)} cm³."
 
 explicacion: |
-  Falso. La continuidad en el intervalo cerrado es una condición necesaria (hipótesis). Si la función es discontinua, el teorema no aplica y no se puede garantizar la existencia del cero.
+  El volumen se multiplica por 2³ = 8, no por 2: al duplicar el lado, el
+  volumen queda ocho veces más grande, no el doble.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "avanzado"
+  tags: ["prisma_rectangular", "problema"]
+
+variables:
+  l_chica: random(2, 5)
+  factor: random(2, 4)
+  l_grande: l_chica * factor
+
+respuesta: factor * factor * factor
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Una caja cúbica grande mide {l_grande} cm de lado y una caja cúbica chica mide {l_chica} cm de lado. ¿Cuántas cajas chicas entran exactamente en la grande?"
+
+pasos:
+  - "Volumen grande: {l_grande}³ = {l_grande * l_grande * l_grande} cm³. Volumen chica: {l_chica}³ = {l_chica * l_chica * l_chica} cm³. {l_grande * l_grande * l_grande} ÷ {l_chica * l_chica * l_chica} = {(l_grande * l_grande * l_grande) / (l_chica * l_chica * l_chica)}."
+
+explicacion: |
+  Se divide el volumen grande por el volumen chico.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+enunciado: "¿Cuál de estas capacidades es mayor?"
+tipo: mc
+opciones_explicitas:
+  - "2000 ml"
+  - "1 litro"
+  - "500 ml"
+respuesta: "2000 ml"
+
+explicacion: |
+  2000 ml = 2 litros, más que 1 litro o 500 ml.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "avanzado"
+  tags: ["orden", "capacidad"]
+
+tipo: ordenar
+enunciado: "Ordená estas capacidades de menor a mayor: 3 litros, 250 ml, 1500 ml, 0,5 litros."
+opciones_explicitas:
+  - "3 litros"
+  - "1500 ml"
+  - "250 ml"
+  - "0,5 litros"
+respuesta_orden: ["250 ml", "0,5 litros", "1500 ml", "3 litros"]
+
+pasos:
+  - "En ml: 3 litros = 3000 ml; 250 ml; 1500 ml; 0,5 litros = 500 ml."
+
+explicacion: |
+  Conviene pasar todo a la misma unidad antes de comparar: 250 < 500 <
+  1500 < 3000.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "intermedio"
+  tags: ["cubo", "capacidad"]
+
+respuesta: 1000
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un cubo de 1 metro de lado tiene un volumen de 1 m³. ¿A cuántos litros equivale eso?"
+
+explicacion: |
+  1 m³ = 1000 litros.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "volumen_y_capacidad"
+  nivel: "basico"
+  tags: ["vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Calcular cuántos litros de líquido entran en un recipiente es, en el fondo, calcular su volumen y después convertirlo a litros."
+
+explicacion: |
+  Volumen y capacidad son el mismo concepto físico, medido con distintas
+  unidades — por eso 1 dm³ = 1 litro.
 ```
 
 ## Sección: distribucion-normal (20 preguntas)
@@ -1882,517 +2053,378 @@ explicacion: |
   hipótesis — todos los módulos que siguen en esta cadena.
 ```
 
-## Sección: teorema-del-seno-y-del-coseno (25 preguntas)
+## Sección: variable-aleatoria-discreta-continua (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
+  tema: "variable_aleatoria_discreta_continua"
   nivel: "basico"
-  tags: ["oblicuos", "vocabulario"]
+  tags: ["variable_aleatoria", "vocabulario"]
 
-enunciado: "¿Qué es un triángulo oblicuo?"
+enunciado: "¿Qué es una variable aleatoria?"
 tipo: mc
 opciones_explicitas:
-  - "Un triángulo que no tiene ningún ángulo de 90°"
-  - "Un triángulo con los tres lados iguales"
-  - "Otro nombre para el triángulo rectángulo"
-respuesta: "Un triángulo que no tiene ningún ángulo de 90°"
+  - "Un número que depende del resultado de un experimento azaroso, cuyo valor no se conoce de antemano pero cuyas probabilidades sí se pueden describir"
+  - "Un valor que siempre es el mismo, sin importar el experimento"
+  - "Otro nombre para la media de un conjunto de datos"
+respuesta: "Un número que depende del resultado de un experimento azaroso, cuyo valor no se conoce de antemano pero cuyas probabilidades sí se pueden describir"
 
 explicacion: |
-  Ahí ni Pitágoras ni las razones trigonométricas simples se pueden
-  aplicar directo.
+  Antes del experimento no se sabe qué valor va a tomar, pero sí cómo
+  se reparten las probabilidades entre los valores posibles.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["oblicuos", "vocabulario"]
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "basico"
+  tags: ["discreta", "vocabulario"]
 
-enunciado: "¿Por qué el teorema de Pitágoras no se puede usar directamente en un triángulo oblicuo?"
+enunciado: "¿Qué hace que una variable aleatoria sea DISCRETA?"
 tipo: mc
 opciones_explicitas:
-  - "Porque Pitágoras exige un ángulo recto, y un triángulo oblicuo no tiene ninguno"
-  - "Porque los triángulos oblicuos no tienen hipotenusa nombrada"
-  - "En realidad sí se puede usar exactamente igual"
-respuesta: "Porque Pitágoras exige un ángulo recto, y un triángulo oblicuo no tiene ninguno"
+  - "Que sus valores posibles se puedan enumerar (contar uno por uno: 0, 1, 2, 3...)"
+  - "Que sólo pueda tomar el valor 0 o el valor 1"
+  - "Que su valor esperado sea siempre un número entero"
+respuesta: "Que sus valores posibles se puedan enumerar (contar uno por uno: 0, 1, 2, 3...)"
 
 explicacion: |
-  Por eso hacen falta el teorema del seno y del coseno.
+  Como la cantidad de caras en varios tiros de moneda, o la cantidad
+  de llamadas en una hora.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "basico"
+  tags: ["continua", "vocabulario"]
+
+enunciado: "¿Qué hace que una variable aleatoria sea CONTINUA?"
+tipo: mc
+opciones_explicitas:
+  - "Que pueda tomar cualquier valor dentro de un intervalo, no sólo enteros contables"
+  - "Que nunca pueda tomar valores negativos"
+  - "Que siempre esté relacionada con el tiempo"
+respuesta: "Que pueda tomar cualquier valor dentro de un intervalo, no sólo enteros contables"
+
+explicacion: |
+  Como la altura de una persona o el tiempo de espera de un colectivo
+  — siempre hay un valor más preciso posible entre dos cualesquiera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
   nivel: "intermedio"
-  tags: ["teorema_seno", "completar"]
+  tags: ["clasificar"]
+
+enunciado: "¿La 'cantidad de hijos de una familia elegida al azar' es una variable discreta o continua?"
+tipo: mc
+opciones_explicitas:
+  - "Discreta: se puede enumerar (0, 1, 2, 3 hijos...), no hay valores intermedios posibles"
+  - "Continua: puede tomar cualquier valor decimal"
+respuesta: "Discreta: se puede enumerar (0, 1, 2, 3 hijos...), no hay valores intermedios posibles"
+
+explicacion: |
+  No existe "2,5 hijos" como resultado posible del conteo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "intermedio"
+  tags: ["clasificar"]
+
+enunciado: "¿La 'altura de una persona elegida al azar' es una variable discreta o continua?"
+tipo: mc
+opciones_explicitas:
+  - "Continua: puede tomar cualquier valor dentro de un rango (1,73 m, 1,734 m, 1,7341 m...)"
+  - "Discreta: sólo puede valer números enteros de metros"
+respuesta: "Continua: puede tomar cualquier valor dentro de un rango (1,73 m, 1,734 m, 1,7341 m...)"
+
+explicacion: |
+  Siempre existe una medición más precisa posible entre dos alturas
+  cualesquiera.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "intermedio"
+  tags: ["clasificar"]
+
+enunciado: "¿La 'cantidad de llamadas que recibe un call center en una hora' es una variable discreta o continua?"
+tipo: mc
+opciones_explicitas:
+  - "Discreta: se puede contar (0, 1, 2, 3 llamadas...)"
+  - "Continua: puede tomar cualquier valor decimal"
+respuesta: "Discreta: se puede contar (0, 1, 2, 3 llamadas...)"
+
+explicacion: |
+  Es el ejemplo clásico de `../distribucion-de-poisson/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "intermedio"
+  tags: ["clasificar"]
+
+enunciado: "¿El 'tiempo de espera hasta que llega el próximo colectivo' es una variable discreta o continua?"
+tipo: mc
+opciones_explicitas:
+  - "Continua: puede tomar cualquier valor (3 minutos, 3,5 minutos, 3,52 minutos...)"
+  - "Discreta: sólo puede valer una cantidad entera de minutos"
+respuesta: "Continua: puede tomar cualquier valor (3 minutos, 3,5 minutos, 3,52 minutos...)"
+
+explicacion: |
+  Es el ejemplo clásico de `../distribucion-exponencial/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "avanzado"
+  tags: ["discreta", "continua"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los valores posibles de una variable discreta se pueden enumerar uno por uno (aunque sean infinitos), mientras que los de una variable continua no — siempre hay un valor intermedio más preciso entre dos cualesquiera."
+
+explicacion: |
+  Esa es la diferencia central entre ambos tipos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "intermedio"
+  tags: ["discreta"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para una variable aleatoria discreta, tiene sentido preguntar directamente P(X = k) (la probabilidad de un valor exacto) y armar una tabla con la probabilidad de cada valor posible."
+
+explicacion: |
+  Es exactamente lo que hace `../distribucion-binomial/` con `P(X=k)`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "avanzado"
+  tags: ["continua"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para una variable aleatoria continua, la probabilidad de que tome un valor EXACTO (por ejemplo, que una persona mida exactamente 1,730000... m) es esencialmente cero — hay que preguntar por intervalos en cambio."
+
+explicacion: |
+  Por eso con variables continuas se pregunta P(a ≤ X ≤ b), no
+  P(X = un valor puntual).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "avanzado"
+  tags: ["continua", "completar"]
 
 tipo: completar
-enunciado: "Completá el teorema del seno: a / sen(A) = b / sen(B) = ___."
+enunciado: "Completá: para una variable continua, en vez de preguntar por un valor exacto, se pregunta por la probabilidad de que caiga dentro de un ___."
 respuestas_validas:
-  - "c / sen(C)"
-  - "c/sen(C)"
+  - "intervalo"
+  - "rango"
 
 explicacion: |
-  Los tres cocientes lado/seno(ángulo opuesto) son siempre iguales entre
-  sí.
+  Como "¿cuál es la probabilidad de que el colectivo tarde entre 5 y
+  10 minutos?".
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_seno", "vocabulario"]
-
-enunciado: "¿Qué dice el teorema del seno?"
-tipo: mc
-opciones_explicitas:
-  - "Que cada lado de un triángulo es proporcional al seno de su ángulo opuesto, con la misma razón para los tres"
-  - "Que la suma de los tres lados es igual al seno del ángulo mayor"
-  - "Que sólo aplica a triángulos rectángulos"
-respuesta: "Que cada lado de un triángulo es proporcional al seno de su ángulo opuesto, con la misma razón para los tres"
-
-explicacion: |
-  Vale para cualquier triángulo, no sólo los rectángulos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
+  tema: "variable_aleatoria_discreta_continua"
   nivel: "avanzado"
-  tags: ["teorema_seno", "problema"]
+  tags: ["discreta", "problema"]
 
 variables:
-  a: uno_de([10, 20, 30, 40])
-  sen_A: 0.5
-  sen_B: 1
+  p0: uno_de([0.2, 0.3, 0.25])
+  p1: uno_de([0.4, 0.45, 0.5])
 
-respuesta: (a / sen_A) * sen_B
+respuesta: redondear(1 - p0 - p1, 2)
 tipo: input
-tolerancia_abs: 0.5
+tolerancia_abs: 0.01
 
-enunciado: "En un triángulo, el lado a = {a} es opuesto al ángulo A = 30° (sen 30° = 0,5). El lado b es opuesto al ángulo B = 90° (sen 90° = 1). ¿Cuánto mide el lado b?"
+enunciado: "Una variable aleatoria discreta X toma los valores 0, 1 y 2, con P(X=0)={p0} y P(X=1)={p1}. Como la suma de todas las probabilidades debe dar 1, ¿cuánto vale P(X=2)?"
 
 pasos:
-  - "{a} ÷ 0,5 = {a / sen_A} (la razón constante del triángulo)"
-  - "b = {a / sen_A} × 1 = {(a / sen_A) * sen_B}"
+  - "P(X=2) = 1 − {p0} − {p1} = {redondear(1 - p0 - p1, 2)}"
 
 explicacion: |
-  Se usa la razón a/sen(A), que es la misma para los tres lados del
-  triángulo.
+  Las probabilidades de todos los valores posibles de una variable
+  discreta siempre suman exactamente 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_seno", "problema"]
-
-variables:
-  b: uno_de([10, 14, 20])
-  sen_B: 0.71
-  sen_A: 0.5
-
-respuesta: redondear((b / sen_B) * sen_A, 1)
-tipo: input
-tolerancia_abs: 1
-
-enunciado: "En un triángulo, el lado b = {b} es opuesto al ángulo B = 45° (sen 45° ≈ 0,71). El lado a es opuesto al ángulo A = 30° (sen 30° = 0,5). ¿Cuánto mide el lado a, aproximadamente?"
-
-pasos:
-  - "{b} ÷ 0,71 ≈ {redondear(b / sen_B, 2)} (razón constante)"
-  - "a ≈ {redondear(b / sen_B, 2)} × 0,5 ≈ {redondear((b / sen_B) * sen_A, 1)}"
-
-explicacion: |
-  Mismo procedimiento: primero se halla la razón constante, después se
-  aplica al ángulo del lado buscado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
+  tema: "variable_aleatoria_discreta_continua"
   nivel: "intermedio"
-  tags: ["teorema_seno", "vocabulario"]
-
-enunciado: "¿Cuándo conviene usar el teorema del seno para resolver un triángulo?"
-tipo: mc
-opciones_explicitas:
-  - "Cuando se conoce un ángulo y su lado opuesto, más otro ángulo o lado"
-  - "Cuando se conocen sólo los tres lados, sin ningún ángulo"
-  - "Nunca, sólo sirve para triángulos rectángulos"
-respuesta: "Cuando se conoce un ángulo y su lado opuesto, más otro ángulo o lado"
-
-explicacion: |
-  Ese par lado-ángulo opuesto es lo que permite fijar la razón
-  constante.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_coseno", "completar"]
-
-tipo: completar
-enunciado: "Completá el teorema del coseno: c² = a² + b² − ___."
-respuestas_validas:
-  - "2ab·cos(C)"
-  - "2ab cos(C)"
-  - "2*a*b*cos(C)"
-
-explicacion: |
-  C es el ángulo comprendido entre los lados a y b.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_coseno", "vocabulario"]
-
-enunciado: "¿Qué relación tiene el teorema del coseno con el teorema de Pitágoras?"
-tipo: mc
-opciones_explicitas:
-  - "Pitágoras es el caso particular del teorema del coseno cuando el ángulo C es de 90°"
-  - "No tienen ninguna relación entre sí"
-  - "El teorema del coseno reemplaza completamente a Pitágoras, que ya no se usa"
-respuesta: "Pitágoras es el caso particular del teorema del coseno cuando el ángulo C es de 90°"
-
-explicacion: |
-  Con cos(90°) = 0, el último término del teorema del coseno desaparece.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_coseno"]
+  tags: ["discreta"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el ángulo C de un triángulo es 90°, el teorema del coseno se reduce exactamente a c² = a² + b² (el teorema de Pitágoras)."
+enunciado: "La suma de las probabilidades de TODOS los valores posibles de una variable aleatoria discreta siempre da exactamente 1."
 
 explicacion: |
-  Porque cos(90°) = 0, y el término -2ab·cos(C) se anula.
+  Porque la variable necesariamente toma alguno de esos valores.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_coseno", "problema"]
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "basico"
+  tags: ["discreta", "aplicacion"]
 
-variables:
-  a: 3
-  b: 4
-  cos_90: 0
-
-respuesta: 25
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un triángulo tiene lados a = 3 y b = 4, con el ángulo C entre ellos de 90° (cos 90° = 0). Usando el teorema del coseno, ¿cuánto vale c²?"
-
-pasos:
-  - "c² = 3² + 4² − 2×3×4×0 = 9 + 16 − 0 = 25"
-
-explicacion: |
-  Da exactamente el mismo resultado que Pitágoras: 3² + 4² = 25.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_coseno", "problema"]
-
-variables:
-  a: uno_de([4, 6, 8])
-  b: uno_de([4, 6, 8])
-  cos_60: 0.5
-
-respuesta: (a * a) + (b * b) - (2 * a * b * cos_60)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un triángulo tiene lados a = {a} y b = {b}, con un ángulo C = 60° entre ellos (cos 60° = 0,5). Usando el teorema del coseno, ¿cuánto vale c²?"
-
-pasos:
-  - "{a}² + {b}² − 2×{a}×{b}×0,5 = {(a * a) + (b * b) - (2 * a * b * cos_60)}"
-
-explicacion: |
-  Se reemplazan los valores directamente en la fórmula.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_coseno", "problema"]
-
-variables:
-  a: uno_de([4, 5, 6])
-  b: uno_de([4, 5, 6])
-  cos_120: -0.5
-
-respuesta: (a * a) + (b * b) - (2 * a * b * cos_120)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un triángulo tiene lados a = {a} y b = {b}, con un ángulo obtuso C = 120° entre ellos (cos 120° = -0,5). Usando el teorema del coseno, ¿cuánto vale c²?"
-
-pasos:
-  - "{a}² + {b}² − 2×{a}×{b}×(-0,5) = {(a * a) + (b * b) - (2 * a * b * cos_120)}"
-
-explicacion: |
-  Con coseno negativo, el término se SUMA en vez de restarse: el lado c
-  queda más largo que si el ángulo fuera agudo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_coseno", "vocabulario"]
-
-enunciado: "¿Cuándo conviene usar el teorema del coseno para resolver un triángulo?"
+enunciado: "¿Cuál de estas distribuciones ya vistas describe una variable DISCRETA?"
 tipo: mc
 opciones_explicitas:
-  - "Cuando se conocen dos lados y el ángulo entre ellos, o los tres lados"
-  - "Cuando se conoce sólo un lado, sin ningún ángulo"
-  - "Nunca, sólo sirve para triángulos rectángulos"
-respuesta: "Cuando se conocen dos lados y el ángulo entre ellos, o los tres lados"
+  - "La distribución binomial (P(X=k), cantidad de éxitos)"
+  - "La distribución normal (campana de Gauss)"
+respuesta: "La distribución binomial (P(X=k), cantidad de éxitos)"
 
 explicacion: |
-  Es el caso LAL (lado-ángulo-lado) o LLL (los tres lados).
+  La binomial cuenta un número entero de éxitos — siempre enumerable.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["vocabulario"]
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "basico"
+  tags: ["continua", "aplicacion"]
 
-enunciado: "¿Cuál es la diferencia clave entre cuándo usar el teorema del seno y cuándo el del coseno?"
+enunciado: "¿Cuál de estas distribuciones ya vistas describe una variable CONTINUA?"
 tipo: mc
 opciones_explicitas:
-  - "El seno necesita un ángulo con su lado opuesto ya conocidos; el coseno necesita dos lados y el ángulo entre ellos (o los tres lados)"
-  - "El seno sólo sirve para ángulos agudos; el coseno sólo para obtusos"
-  - "Son intercambiables, da lo mismo cuál se use"
-respuesta: "El seno necesita un ángulo con su lado opuesto ya conocidos; el coseno necesita dos lados y el ángulo entre ellos (o los tres lados)"
+  - "La distribución normal (campana de Gauss)"
+  - "La distribución binomial (P(X=k), cantidad de éxitos)"
+respuesta: "La distribución normal (campana de Gauss)"
 
 explicacion: |
-  Es la clave para decidir cuál aplicar según los datos disponibles.
+  La normal describe una magnitud que puede tomar cualquier valor
+  real, no un conteo de éxitos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_coseno"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teorema del coseno funciona igual de bien con ángulos obtusos (mayores a 90°), no sólo con agudos."
-
-explicacion: |
-  El coseno de un ángulo obtuso es simplemente negativo, y la fórmula
-  lo maneja sin ningún ajuste extra.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
+  tema: "variable_aleatoria_discreta_continua"
   nivel: "avanzado"
-  tags: ["teorema_coseno", "problema"]
+  tags: ["continua"]
 
-variables:
-  a: 6
-  b: 8
-  cos_60: 0.5
-
-respuesta: redondear(sqrt((a * a) + (b * b) - (2 * a * b * cos_60)), 2)
-tipo: input
-tolerancia_abs: 0.05
-
-enunciado: "Un terreno triangular tiene dos lados de {a} m y {b} m, con un ángulo de 60° entre ellos. ¿Cuánto mide el tercer lado? Redondeá a 2 decimales."
-
-pasos:
-  - "c² = {a}² + {b}² − 2×{a}×{b}×0,5 = {(a * a) + (b * b) - (2 * a * b * cos_60)}"
-  - "c = √{(a * a) + (b * b) - (2 * a * b * cos_60)} ≈ {redondear(sqrt((a * a) + (b * b) - (2 * a * b * cos_60)), 2)} m"
-
-explicacion: |
-  Se calcula c² con el teorema del coseno, y recién al final se saca
-  raíz cuadrada para obtener c.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_coseno", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar el lado c con el teorema del coseno, conociendo a, b y el ángulo C entre ellos."
-tipo: ordenar
-opciones_explicitas:
-  - "Sacar raíz cuadrada de c² para obtener c"
-  - "Reemplazar a, b y cos(C) en la fórmula c² = a² + b² − 2ab·cos(C)"
-  - "Calcular el valor numérico de c²"
-respuesta_orden: ["Reemplazar a, b y cos(C) en la fórmula c² = a² + b² − 2ab·cos(C)", "Calcular el valor numérico de c²", "Sacar raíz cuadrada de c² para obtener c"]
-explicacion: |
-  La raíz cuadrada siempre va al final, no antes de tener c² completo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["teorema_seno", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar un lado desconocido con el teorema del seno."
-tipo: ordenar
-opciones_explicitas:
-  - "El resultado es el lado buscado"
-  - "Calcular la razón lado/sen(ángulo opuesto) con el par de datos ya conocido"
-  - "Multiplicar esa razón por el seno del ángulo opuesto al lado buscado"
-respuesta_orden: ["Calcular la razón lado/sen(ángulo opuesto) con el par de datos ya conocido", "Multiplicar esa razón por el seno del ángulo opuesto al lado buscado", "El resultado es el lado buscado"]
-explicacion: |
-  La razón constante es el puente entre el par conocido y el
-  desconocido.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_seno"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teorema del seno también se puede usar al revés: para hallar un ángulo desconocido, si se conocen los dos lados involucrados y un ángulo opuesto ya conocido."
-
-explicacion: |
-  La misma proporción se puede despejar para cualquiera de sus cuatro
-  términos (dos lados, dos ángulos).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "intermedio"
-  tags: ["vocabulario"]
-
-enunciado: "¿Para qué se usan estos dos teoremas en topografía?"
+enunciado: "Para el tiempo de espera de un colectivo (variable continua), ¿cuál de estas preguntas tiene sentido hacer?"
 tipo: mc
 opciones_explicitas:
-  - "Para calcular distancias o alturas inaccesibles, midiendo sólo algunos ángulos y una distancia de referencia"
-  - "Sólo para calcular el área de un terreno cuadrado"
-  - "No tienen ninguna aplicación práctica fuera del aula"
-respuesta: "Para calcular distancias o alturas inaccesibles, midiendo sólo algunos ángulos y una distancia de referencia"
+  - "¿Cuál es la probabilidad de que tarde ENTRE 5 y 10 minutos?"
+  - "¿Cuál es la probabilidad de que tarde EXACTAMENTE 7,000000... minutos?"
+respuesta: "¿Cuál es la probabilidad de que tarde ENTRE 5 y 10 minutos?"
 
 explicacion: |
-  Es la base de la triangulación: no hace falta que el triángulo
-  formado tenga un ángulo recto.
+  La segunda pregunta, para una variable continua, tiene probabilidad
+  esencialmente cero.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["vocabulario"]
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "intermedio"
+  tags: ["clasificar", "problema"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El teorema del seno y del coseno también son válidos para triángulos rectángulos, aunque ahí ya alcance con Pitágoras y las razones trigonométricas simples."
-
-explicacion: |
-  Son herramientas más generales; simplemente no hace falta usarlas
-  cuando hay una forma más rápida disponible.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["problema"]
-
-variables:
-  lado: 5
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un triángulo equilátero tiene los tres lados iguales a {lado}, y sus tres ángulos son de 60°. ¿Es consistente que la razón lado/sen(ángulo opuesto) dé el mismo valor para los tres lados (teorema del seno)?"
-
-explicacion: |
-  Al ser equilátero, los tres pares lado-ángulo son idénticos entre sí:
-  la razón tiene que coincidir por simetría.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
-  nivel: "avanzado"
-  tags: ["teorema_coseno", "vocabulario"]
-
-enunciado: "Si se conocen los tres lados de un triángulo (LLL) pero ningún ángulo, ¿qué teorema conviene usar para hallar un ángulo?"
+enunciado: "La cantidad de autos que pasan por un peaje en una hora, ¿con qué tipo de distribución se modela: discreta o continua?"
 tipo: mc
 opciones_explicitas:
-  - "El teorema del coseno, despejando cos(C) de la fórmula"
-  - "El teorema del seno, porque siempre es más simple"
-  - "Ninguno de los dos sirve sin conocer al menos un ángulo de entrada"
-respuesta: "El teorema del coseno, despejando cos(C) de la fórmula"
+  - "Discreta — es un conteo de eventos (autos) en un intervalo fijo de tiempo, el mismo tipo de caso que resuelve la distribución de Poisson"
+  - "Continua — puede tomar cualquier valor decimal"
+respuesta: "Discreta — es un conteo de eventos (autos) en un intervalo fijo de tiempo, el mismo tipo de caso que resuelve la distribución de Poisson"
 
 explicacion: |
-  cos(C) = (a² + b² − c²) / (2ab): se puede despejar sin conocer ningún
-  ángulo de entrada.
+  Contar cuántos autos pasan es siempre un número entero.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "teorema_del_seno_y_del_coseno"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "intermedio"
+  tags: ["clasificar", "problema"]
+
+enunciado: "El tiempo que pasa entre la llegada de un cliente y la del siguiente a un local, ¿con qué tipo de distribución se modela: discreta o continua?"
+tipo: mc
+opciones_explicitas:
+  - "Continua — es una medición de tiempo que puede tomar cualquier valor, el mismo tipo de caso que resuelve la distribución exponencial"
+  - "Discreta — sólo puede valer una cantidad entera de minutos"
+respuesta: "Continua — es una medición de tiempo que puede tomar cualquier valor, el mismo tipo de caso que resuelve la distribución exponencial"
+
+explicacion: |
+  El tiempo entre eventos siempre se puede medir con más precisión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
+  nivel: "avanzado"
+  tags: ["aplicacion"]
+
+enunciado: "¿Por qué conviene preguntarse primero 'discreta o continua' antes de elegir qué distribución usar para modelar un problema?"
+tipo: mc
+opciones_explicitas:
+  - "Porque cada distribución (binomial, Poisson, normal, exponencial) sirve para un tipo específico de variable — usar una discreta para modelar algo continuo (o viceversa) directamente no tiene sentido matemático"
+  - "No importa cuál se elija, todas las distribuciones dan el mismo resultado"
+  - "Sólo importa para variables continuas, nunca para las discretas"
+respuesta: "Porque cada distribución (binomial, Poisson, normal, exponencial) sirve para un tipo específico de variable — usar una discreta para modelar algo continuo (o viceversa) directamente no tiene sentido matemático"
+
+explicacion: |
+  Es el criterio que organiza las cuatro distribuciones de esta cadena
+  en dos pares (discretas / continuas).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "variable_aleatoria_discreta_continua"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirven el teorema del seno y del coseno en conjunto?"
+enunciado: "¿Para qué sirve distinguir entre variable aleatoria discreta y continua?"
 tipo: mc
 opciones_explicitas:
-  - "Para resolver cualquier triángulo, tenga o no un ángulo recto, según qué datos estén disponibles"
-  - "Sólo sirven para triángulos equiláteros"
-  - "Son redundantes entre sí, alcanza con saber uno solo"
-respuesta: "Para resolver cualquier triángulo, tenga o no un ángulo recto, según qué datos estén disponibles"
+  - "Para saber qué herramienta matemática corresponde: tablas de P(X=k) y distribuciones como binomial/Poisson para lo discreto, curvas de densidad y distribuciones como normal/exponencial para lo continuo"
+  - "Es sólo una diferencia de vocabulario, sin consecuencias prácticas"
+  - "Sólo se usa para clasificar problemas de Física, no de estadística"
+respuesta: "Para saber qué herramienta matemática corresponde: tablas de P(X=k) y distribuciones como binomial/Poisson para lo discreto, curvas de densidad y distribuciones como normal/exponencial para lo continuo"
 
 explicacion: |
-  Entre los dos, y sumados a Pitágoras para el caso rectángulo, cubren
-  cualquier triángulo posible.
+  Es el puente hacia `../distribucion-exponencial/` y
+  `../distribucion-de-poisson/`, los dos módulos que siguen.
 ```
 

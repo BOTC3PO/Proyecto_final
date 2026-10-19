@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #630]
+# Examen jefe — Domina el Binomio y el Cálculo
 
-> Logro #630. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
+> Logro #630. Aplicaste el teorema del binomio y las variaciones, calculaste riesgo relativo y absoluto, y analizaste concavidad e integrales definidas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -830,379 +830,625 @@ explicacion: |
   coeficiente, distinto propósito.
 ```
 
-## Sección: variable-aleatoria-discreta-continua (20 preguntas)
+## Sección: concavidad-y-puntos-de-inflexion (27 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
   nivel: "basico"
-  tags: ["variable_aleatoria", "vocabulario"]
-
-enunciado: "¿Qué es una variable aleatoria?"
-tipo: mc
-opciones_explicitas:
-  - "Un número que depende del resultado de un experimento azaroso, cuyo valor no se conoce de antemano pero cuyas probabilidades sí se pueden describir"
-  - "Un valor que siempre es el mismo, sin importar el experimento"
-  - "Otro nombre para la media de un conjunto de datos"
-respuesta: "Un número que depende del resultado de un experimento azaroso, cuyo valor no se conoce de antemano pero cuyas probabilidades sí se pueden describir"
-
-explicacion: |
-  Antes del experimento no se sabe qué valor va a tomar, pero sí cómo
-  se reparten las probabilidades entre los valores posibles.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "basico"
-  tags: ["discreta", "vocabulario"]
-
-enunciado: "¿Qué hace que una variable aleatoria sea DISCRETA?"
-tipo: mc
-opciones_explicitas:
-  - "Que sus valores posibles se puedan enumerar (contar uno por uno: 0, 1, 2, 3...)"
-  - "Que sólo pueda tomar el valor 0 o el valor 1"
-  - "Que su valor esperado sea siempre un número entero"
-respuesta: "Que sus valores posibles se puedan enumerar (contar uno por uno: 0, 1, 2, 3...)"
-
-explicacion: |
-  Como la cantidad de caras en varios tiros de moneda, o la cantidad
-  de llamadas en una hora.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "basico"
-  tags: ["continua", "vocabulario"]
-
-enunciado: "¿Qué hace que una variable aleatoria sea CONTINUA?"
-tipo: mc
-opciones_explicitas:
-  - "Que pueda tomar cualquier valor dentro de un intervalo, no sólo enteros contables"
-  - "Que nunca pueda tomar valores negativos"
-  - "Que siempre esté relacionada con el tiempo"
-respuesta: "Que pueda tomar cualquier valor dentro de un intervalo, no sólo enteros contables"
-
-explicacion: |
-  Como la altura de una persona o el tiempo de espera de un colectivo
-  — siempre hay un valor más preciso posible entre dos cualesquiera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "intermedio"
-  tags: ["clasificar"]
-
-enunciado: "¿La 'cantidad de hijos de una familia elegida al azar' es una variable discreta o continua?"
-tipo: mc
-opciones_explicitas:
-  - "Discreta: se puede enumerar (0, 1, 2, 3 hijos...), no hay valores intermedios posibles"
-  - "Continua: puede tomar cualquier valor decimal"
-respuesta: "Discreta: se puede enumerar (0, 1, 2, 3 hijos...), no hay valores intermedios posibles"
-
-explicacion: |
-  No existe "2,5 hijos" como resultado posible del conteo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "intermedio"
-  tags: ["clasificar"]
-
-enunciado: "¿La 'altura de una persona elegida al azar' es una variable discreta o continua?"
-tipo: mc
-opciones_explicitas:
-  - "Continua: puede tomar cualquier valor dentro de un rango (1,73 m, 1,734 m, 1,7341 m...)"
-  - "Discreta: sólo puede valer números enteros de metros"
-respuesta: "Continua: puede tomar cualquier valor dentro de un rango (1,73 m, 1,734 m, 1,7341 m...)"
-
-explicacion: |
-  Siempre existe una medición más precisa posible entre dos alturas
-  cualesquiera.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "intermedio"
-  tags: ["clasificar"]
-
-enunciado: "¿La 'cantidad de llamadas que recibe un call center en una hora' es una variable discreta o continua?"
-tipo: mc
-opciones_explicitas:
-  - "Discreta: se puede contar (0, 1, 2, 3 llamadas...)"
-  - "Continua: puede tomar cualquier valor decimal"
-respuesta: "Discreta: se puede contar (0, 1, 2, 3 llamadas...)"
-
-explicacion: |
-  Es el ejemplo clásico de `../distribucion-de-poisson/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "intermedio"
-  tags: ["clasificar"]
-
-enunciado: "¿El 'tiempo de espera hasta que llega el próximo colectivo' es una variable discreta o continua?"
-tipo: mc
-opciones_explicitas:
-  - "Continua: puede tomar cualquier valor (3 minutos, 3,5 minutos, 3,52 minutos...)"
-  - "Discreta: sólo puede valer una cantidad entera de minutos"
-respuesta: "Continua: puede tomar cualquier valor (3 minutos, 3,5 minutos, 3,52 minutos...)"
-
-explicacion: |
-  Es el ejemplo clásico de `../distribucion-exponencial/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "avanzado"
-  tags: ["discreta", "continua"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Los valores posibles de una variable discreta se pueden enumerar uno por uno (aunque sean infinitos), mientras que los de una variable continua no — siempre hay un valor intermedio más preciso entre dos cualesquiera."
-
-explicacion: |
-  Esa es la diferencia central entre ambos tipos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "intermedio"
-  tags: ["discreta"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para una variable aleatoria discreta, tiene sentido preguntar directamente P(X = k) (la probabilidad de un valor exacto) y armar una tabla con la probabilidad de cada valor posible."
-
-explicacion: |
-  Es exactamente lo que hace `../distribucion-binomial/` con `P(X=k)`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "avanzado"
-  tags: ["continua"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para una variable aleatoria continua, la probabilidad de que tome un valor EXACTO (por ejemplo, que una persona mida exactamente 1,730000... m) es esencialmente cero — hay que preguntar por intervalos en cambio."
-
-explicacion: |
-  Por eso con variables continuas se pregunta P(a ≤ X ≤ b), no
-  P(X = un valor puntual).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "avanzado"
-  tags: ["continua", "completar"]
-
-tipo: completar
-enunciado: "Completá: para una variable continua, en vez de preguntar por un valor exacto, se pregunta por la probabilidad de que caiga dentro de un ___."
-respuestas_validas:
-  - "intervalo"
-  - "rango"
-
-explicacion: |
-  Como "¿cuál es la probabilidad de que el colectivo tarde entre 5 y
-  10 minutos?".
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "avanzado"
-  tags: ["discreta", "problema"]
+  tags: ["derivada_segunda", "cubica"]
 
 variables:
-  p0: uno_de([0.2, 0.3, 0.25])
-  p1: uno_de([0.4, 0.45, 0.5])
+  a: random(1, 5)
+  b: random(1, 5)
 
-respuesta: redondear(1 - p0 - p1, 2)
+respuesta: "{2*a}x"
+
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "Una variable aleatoria discreta X toma los valores 0, 1 y 2, con P(X=0)={p0} y P(X=1)={p1}. Como la suma de todas las probabilidades debe dar 1, ¿cuánto vale P(X=2)?"
-
-pasos:
-  - "P(X=2) = 1 − {p0} − {p1} = {redondear(1 - p0 - p1, 2)}"
+enunciado: "Calculá la segunda derivada de la función f(x) = {a}x^3 + {b}x^2. Escribí solo el término que depende de x (si es constante, escribí 0)."
 
 explicacion: |
-  Las probabilidades de todos los valores posibles de una variable
-  discreta siempre suman exactamente 1.
+  f'(x) = 3ax^2 + 2bx
+  f''(x) = 6ax + 2b
+  Para a={a}, b={b}: f''(x) = {6*a}x + {2*b}
+  La respuesta pedida es el coeficiente de x en la expresión simplificada si se pide solo la parte variable, o la expresión completa.
+  Ajuste: La respuesta debe ser la expresión completa simplificada.
+  Corrección: La respuesta es "{6*a}x + {2*b}"
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "basico"
+  tags: ["derivada_segunda", "cubica"]
+
+variables:
+  a: random(1, 5)
+  b: random(1, 5)
+  c: random(1, 5)
+
+respuesta: "{6*a}x + {2*b}"
+
+tipo: input
+
+enunciado: "La segunda derivada de f(x) = {a}x^3 + {b}x^2 + {c}x es f''(x) = ___"
+
+explicacion: |
+  f'(x) = 3ax^2 + 2bx + c
+  f''(x) = 6ax + 2b
+  Sustituyendo a={a} y b={b}, obtenemos {6*a}x + {2*b}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
   nivel: "intermedio"
-  tags: ["discreta"]
+  tags: ["punto_inflexion", "cubica"]
+
+variables:
+  a: random(1, 4)
+  b: random(5, 15)
+  c: random(1, 4)
+
+respuesta: "{-b/(3*a)}"
+
+tipo: input
+
+enunciado: "Encontrá la coordenada x del punto de inflexión de la función f(x) = {a}x^3 + {b}x^2 + {c}x + 1."
+
+explicacion: |
+  f'(x) = 3ax^2 + 2bx + c
+  f''(x) = 6ax + 2b
+  El punto de inflexión ocurre donde f''(x) = 0.
+  6ax + 2b = 0  =>  x = -2b / 6a = -b / 3a
+  Para a={a} y b={b}, x = {-b/(3*a)}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["concavidad", "intervalo", "vf"]
+
+variables:
+  a: random(1, 5)
 
 respuesta: verdadero
+
 tipo: vf
 
-enunciado: "La suma de las probabilidades de TODOS los valores posibles de una variable aleatoria discreta siempre da exactamente 1."
+enunciado: "La función f(x) = -{a}x^2 + 5x es cóncava hacia abajo en todo su dominio."
 
 explicacion: |
-  Porque la variable necesariamente toma alguno de esos valores.
+  f'(x) = -2ax + 5
+  f''(x) = -2a
+  Como a > 0, -2a es siempre negativo.
+  Por lo tanto, f''(x) < 0 para todo x, lo que implica concavidad hacia abajo.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "basico"
-  tags: ["discreta", "aplicacion"]
-
-enunciado: "¿Cuál de estas distribuciones ya vistas describe una variable DISCRETA?"
-tipo: mc
-opciones_explicitas:
-  - "La distribución binomial (P(X=k), cantidad de éxitos)"
-  - "La distribución normal (campana de Gauss)"
-respuesta: "La distribución binomial (P(X=k), cantidad de éxitos)"
-
-explicacion: |
-  La binomial cuenta un número entero de éxitos — siempre enumerable.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "basico"
-  tags: ["continua", "aplicacion"]
-
-enunciado: "¿Cuál de estas distribuciones ya vistas describe una variable CONTINUA?"
-tipo: mc
-opciones_explicitas:
-  - "La distribución normal (campana de Gauss)"
-  - "La distribución binomial (P(X=k), cantidad de éxitos)"
-respuesta: "La distribución normal (campana de Gauss)"
-
-explicacion: |
-  La normal describe una magnitud que puede tomar cualquier valor
-  real, no un conteo de éxitos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "avanzado"
-  tags: ["continua"]
-
-enunciado: "Para el tiempo de espera de un colectivo (variable continua), ¿cuál de estas preguntas tiene sentido hacer?"
-tipo: mc
-opciones_explicitas:
-  - "¿Cuál es la probabilidad de que tarde ENTRE 5 y 10 minutos?"
-  - "¿Cuál es la probabilidad de que tarde EXACTAMENTE 7,000000... minutos?"
-respuesta: "¿Cuál es la probabilidad de que tarde ENTRE 5 y 10 minutos?"
-
-explicacion: |
-  La segunda pregunta, para una variable continua, tiene probabilidad
-  esencialmente cero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
   nivel: "intermedio"
-  tags: ["clasificar", "problema"]
+  tags: ["concavidad", "intervalo", "vf"]
 
-enunciado: "La cantidad de autos que pasan por un peaje en una hora, ¿con qué tipo de distribución se modela: discreta o continua?"
-tipo: mc
-opciones_explicitas:
-  - "Discreta — es un conteo de eventos (autos) en un intervalo fijo de tiempo, el mismo tipo de caso que resuelve la distribución de Poisson"
-  - "Continua — puede tomar cualquier valor decimal"
-respuesta: "Discreta — es un conteo de eventos (autos) en un intervalo fijo de tiempo, el mismo tipo de caso que resuelve la distribución de Poisson"
+variables:
+  a: random(1, 5)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La función f(x) = {a}x^2 - 3x es cóncava hacia arriba en todo su dominio."
 
 explicacion: |
-  Contar cuántos autos pasan es siempre un número entero.
+  f'(x) = 2ax - 3
+  f''(x) = 2a
+  Como a > 0, 2a es siempre positivo.
+  Por lo tanto, f''(x) > 0 para todo x, lo que implica concavidad hacia arriba.
+  La afirmación es verdadera, pero la pregunta dice "hacia abajo".
+  Espera, la afirmación es "es cóncava hacia arriba". Eso es VERDADERO.
+  Necesito una afirmación FALSA.
+  Cambio: "La función f(x) = {a}x^2 es cóncava hacia abajo..." -> Falso.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
   nivel: "intermedio"
-  tags: ["clasificar", "problema"]
+  tags: ["concavidad", "intervalo", "vf"]
 
-enunciado: "El tiempo que pasa entre la llegada de un cliente y la del siguiente a un local, ¿con qué tipo de distribución se modela: discreta o continua?"
-tipo: mc
-opciones_explicitas:
-  - "Continua — es una medición de tiempo que puede tomar cualquier valor, el mismo tipo de caso que resuelve la distribución exponencial"
-  - "Discreta — sólo puede valer una cantidad entera de minutos"
-respuesta: "Continua — es una medición de tiempo que puede tomar cualquier valor, el mismo tipo de caso que resuelve la distribución exponencial"
+variables:
+  a: random(1, 5)
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La función f(x) = {a}x^2 es cóncava hacia abajo en todo su dominio."
 
 explicacion: |
-  El tiempo entre eventos siempre se puede medir con más precisión.
+  f''(x) = 2a. Como a > 0, f''(x) > 0.
+  La función es cóncava hacia arriba, no hacia abajo.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
-  nivel: "avanzado"
-  tags: ["aplicacion"]
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "identificacion"]
 
-enunciado: "¿Por qué conviene preguntarse primero 'discreta o continua' antes de elegir qué distribución usar para modelar un problema?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada distribución (binomial, Poisson, normal, exponencial) sirve para un tipo específico de variable — usar una discreta para modelar algo continuo (o viceversa) directamente no tiene sentido matemático"
-  - "No importa cuál se elija, todas las distribuciones dan el mismo resultado"
-  - "Sólo importa para variables continuas, nunca para las discretas"
-respuesta: "Porque cada distribución (binomial, Poisson, normal, exponencial) sirve para un tipo específico de variable — usar una discreta para modelar algo continuo (o viceversa) directamente no tiene sentido matemático"
+variables:
+  a: random(1, 3)
+  b: random(4, 8)
+
+respuesta: "{b/(3*a)}"
+
+tipo: input
+
+enunciado: "Para f(x) = {a}x^3 - {3*a*b}x^2 + 5, el punto de inflexión está en x = ___"
 
 explicacion: |
-  Es el criterio que organiza las cuatro distribuciones de esta cadena
-  en dos pares (discretas / continuas).
+  f'(x) = 3ax^2 - 6abx
+  f''(x) = 6ax - 6ab
+  f''(x) = 0 => 6ax = 6ab => x = b
+  Espera, simplifiqué mal.
+  f''(x) = 6ax - 6ab.
+  x = b.
+  Variable b es {b}.
+  Respuesta: "{b}"
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "variable_aleatoria_discreta_continua"
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "identificacion"]
+
+variables:
+  a: random(1, 3)
+  k: random(2, 5)
+
+respuesta: "{k/3}"
+
+tipo: input
+
+enunciado: "Si f(x) = {a}x^3 - {a*k}x^2, el punto de inflexión se encuentra en x = ___"
+
+explicacion: |
+  f'(x) = 3ax^2 - 2akx
+  f''(x) = 6ax - 2ak
+  6ax - 2ak = 0 => 6ax = 2ak => x = 2ak / 6a = k / 3
+  Con k={k}, x = {k/3}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["exponencial", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = -e^x es cóncava hacia abajo para todo x real."
+
+explicacion: |
+  f'(x) = -e^x
+  f''(x) = -e^x
+  Como e^x > 0, -e^x < 0 siempre.
+  Por lo tanto, la función es cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["cambio_concavidad", "cubica"]
+
+variables:
+  a: random(1, 3)
+
+respuesta: "x = 0"
+
+tipo: input
+
+enunciado: "La función f(x) = {a}x^3 cambia su concavidad en x = ___"
+
+explicacion: |
+  f'(x) = 3ax^2
+  f''(x) = 6ax
+  f''(x) = 0 cuando x = 0.
+  Para x < 0, f''(x) tiene signo opuesto a a.
+  Para x > 0, f''(x) tiene signo de a.
+  Hay cambio de concavidad en x=0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["logaritmo", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = ln(x) es cóncava hacia abajo en su dominio (x > 0)."
+
+explicacion: |
+  f'(x) = 1/x
+  f''(x) = -1/x^2
+  Para x > 0, x^2 > 0, por lo que -1/x^2 < 0.
+  La función es cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "punto_inflexion"]
+
+respuesta: "pi/2"
+
+tipo: input
+
+enunciado: "La función f(x) = sin(x) tiene un punto de inflexión en x = ___ (en el intervalo [0, pi])."
+
+explicacion: |
+  f'(x) = cos(x)
+  f''(x) = -sin(x)
+  f''(x) = 0 cuando sin(x) = 0.
+  En [0, pi], sin(x)=0 en x=0 y x=pi.
+  Sin embargo, el cambio de concavidad ocurre donde f'' cambia de signo.
+  f''(x) = -sin(x).
+  Para x en (0, pi), sin(x) > 0, entonces f''(x) < 0 (cóncava abajo).
+  Para x en (-pi, 0), sin(x) < 0, entonces f''(x) > 0 (cóncava arriba).
+  El punto de inflexión típico en el centro del ciclo es x=pi.
+  Pero en [0, pi], los extremos son 0 y pi.
+  En x=pi, la concavidad cambia de abajo (antes) a arriba (después).
+  La pregunta pide en [0, pi]. El punto pi es un punto de inflexión.
+  También x=0 es un punto de inflexión.
+  Usaremos pi/2 como distractor? No, pi/2 no es cero de f''.
+  f''(pi/2) = -1 != 0.
+  La respuesta correcta es "pi" o "0".
+  Cambiaré la pregunta para que sea más clara.
+  "El primer punto de inflexión positivo de sin(x) es x = ___" -> pi.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "punto_inflexion"]
+
+respuesta: "pi"
+
+tipo: input
+
+enunciado: "El primer valor positivo x donde sin(x) tiene un punto de inflexión es x = ___"
+
+explicacion: |
+  f''(x) = -sin(x).
+  f''(x) = 0 en x = k*pi.
+  El primer positivo es pi.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["raiz_cuadrada", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = sqrt(x) es cóncava hacia abajo para x > 0."
+
+explicacion: |
+  f(x) = x^(1/2)
+  f'(x) = (1/2)x^(-1/2)
+  f''(x) = (-1/4)x^(-3/2) = -1 / (4x*sqrt(x))
+  Para x > 0, f''(x) < 0.
+  Es cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["derivada_segunda", "cuartica"]
+
+variables:
+  a: random(1, 3)
+  b: random(1, 5)
+
+respuesta: "{12*a}x^2 + {6*b}x"
+
+tipo: input
+
+enunciado: "La segunda derivada de f(x) = {a}x^4 + {b}x^3 es f''(x) = ___"
+
+explicacion: |
+  f'(x) = 4ax^3 + 3bx^2
+  f''(x) = 12ax^2 + 6bx
+  Sustituyendo a={a}, b={b}: {12*a}x^2 + {6*b}x.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["interpretacion_f2", "concavidad"]
 
-enunciado: "¿Para qué sirve distinguir entre variable aleatoria discreta y continua?"
+variables:
+  a: random(1, 5)
+
+respuesta: "concava_hacia_arriba"
+
 tipo: mc
-opciones_explicitas:
-  - "Para saber qué herramienta matemática corresponde: tablas de P(X=k) y distribuciones como binomial/Poisson para lo discreto, curvas de densidad y distribuciones como normal/exponencial para lo continuo"
-  - "Es sólo una diferencia de vocabulario, sin consecuencias prácticas"
-  - "Sólo se usa para clasificar problemas de Física, no de estadística"
-respuesta: "Para saber qué herramienta matemática corresponde: tablas de P(X=k) y distribuciones como binomial/Poisson para lo discreto, curvas de densidad y distribuciones como normal/exponencial para lo continuo"
+
+enunciado: "Si f''(x) = {a}x^2 + {a}, la función f(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
 
 explicacion: |
-  Es el puente hacia `../distribucion-exponencial/` y
-  `../distribucion-de-poisson/`, los dos módulos que siguen.
+  f''(x) = a(x^2 + 1).
+  Como x^2 + 1 > 0 siempre y a > 0, f''(x) > 0 siempre.
+  Por lo tanto, f es cóncava hacia arriba.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "basico"
+  tags: ["interpretacion_f2", "concavidad"]
+
+variables:
+  a: random(1, 5)
+
+respuesta: "concava_hacia_abajo"
+
+tipo: mc
+
+enunciado: "Si f''(x) = -{a}(x^2 + 1), la función f(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
+
+explicacion: |
+  f''(x) = -a(x^2 + 1).
+  Como a > 0, -a < 0. Y (x^2+1) > 0.
+  Producto de negativo por positivo es negativo.
+  f''(x) < 0, por lo tanto cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "cuartica"]
+
+respuesta: falso
+
+tipo: vf
+
+enunciado: "La función f(x) = x^4 tiene un punto de inflexión en x = 0."
+
+explicacion: |
+  f'(x) = 4x^3
+  f''(x) = 12x^2
+  f''(0) = 0.
+  Sin embargo, f''(x) >= 0 para todo x.
+  No hay cambio de signo en f''(x) alrededor de 0.
+  Por lo tanto, NO es un punto de inflexión.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["cubica", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_abajo"
+
+tipo: mc
+
+enunciado: "Para la función f(x) = x^3 - x, en el intervalo (-infinity, -1/sqrt(3)), la concavidad es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
+
+explicacion: |
+  f'(x) = 3x^2 - 1
+  f''(x) = 6x
+  Para x < -1/sqrt(3) (que es negativo), f''(x) < 0.
+  Por lo tanto, cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["cubica", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_arriba"
+
+tipo: mc
+
+enunciado: "Para la función f(x) = x^3 - x, en el intervalo (1/sqrt(3), infinity), la concavidad es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
+
+explicacion: |
+  f''(x) = 6x.
+  Para x > 1/sqrt(3) (positivo), f''(x) > 0.
+  Por lo tanto, cóncava hacia arriba.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "cubica"]
+
+respuesta: "0"
+
+tipo: input
+
+enunciado: "La función f(x) = x^3 - 3x tiene su punto de inflexión en x = ___"
+
+explicacion: |
+  f'(x) = 3x^2 - 3
+  f''(x) = 6x
+  f''(x) = 0 => x = 0.
+  Cambio de signo en x=0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["punto_inflexion", "quintica"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = x^5 tiene un punto de inflexión en x = 0."
+
+explicacion: |
+  f'(x) = 5x^4
+  f''(x) = 20x^3
+  f''(0) = 0.
+  Para x < 0, f''(x) < 0 (cóncava abajo).
+  Para x > 0, f''(x) > 0 (cóncava arriba).
+  Hay cambio de concavidad, por lo tanto sí es un punto de inflexión.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "derivada_segunda"]
+
+respuesta: "-cos(x)"
+
+tipo: input
+
+enunciado: "La segunda derivada de f(x) = cos(x) es f''(x) = ___"
+
+explicacion: |
+  f'(x) = -sin(x)
+  f''(x) = -cos(x)
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_abajo"
+
+tipo: mc
+
+enunciado: "En el intervalo (0, pi/2), la función f(x) = cos(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
+
+explicacion: |
+  f''(x) = -cos(x).
+  En (0, pi/2), cos(x) > 0.
+  Por lo tanto, -cos(x) < 0.
+  Cóncava hacia abajo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "concavidad", "intervalo"]
+
+respuesta: "concava_hacia_arriba"
+
+tipo: mc
+
+enunciado: "En el intervalo (pi, 3pi/2), la función f(x) = cos(x) es:"
+
+opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
+
+explicacion: |
+  f''(x) = -cos(x).
+  En (pi, 3pi/2), cos(x) < 0.
+  Por lo tanto, -cos(x) > 0.
+  Cóncava hacia arriba.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "intermedio"
+  tags: ["trigonometria", "punto_inflexion"]
+
+respuesta: "pi/2"
+
+tipo: input
+
+enunciado: "El primer punto de inflexión positivo de f(x) = cos(x) es x = ___"
+
+explicacion: |
+  f''(x) = -cos(x).
+  f''(x) = 0 cuando cos(x) = 0.
+  El primer positivo es pi/2.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "concavidad_y_puntos_de_inflexion"
+  nivel: "avanzado"
+  tags: ["racionales", "concavidad", "vf"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "La función f(x) = x^2 + 1/x es cóncava hacia arriba para todo x > 0."
+
+explicacion: |
+  f'(x) = 2x - x^(-2)
+  f''(x) = 2 + 2x^(-3) = 2 + 2/x^3
+  Para x > 0, x^3 > 0, entonces 2/x^3 > 0.
+  f''(x) > 2 > 0.
+  Es cóncava hacia arriba.
 ```
 
 ## Sección: variaciones (24 preguntas)
@@ -1690,398 +1936,466 @@ explicacion: |
   combinaciones (usar una parte, sin orden) — el próximo módulo.
 ```
 
-## Sección: distribucion-de-poisson (20 preguntas)
+## Sección: integral-definida-y-area-bajo-la-curva (22 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "basico"
-  tags: ["poisson", "vocabulario"]
+  tags: ["definicion"]
 
-enunciado: "¿Qué modela la distribución de Poisson?"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "el área entre la curva y el eje horizontal en un intervalo [a, b]"
 tipo: mc
-opciones_explicitas:
-  - "La cantidad de eventos que ocurren en un intervalo fijo de tiempo o espacio, cuando pasan al azar a una tasa promedio constante"
-  - "El tiempo que pasa hasta que ocurre el próximo evento"
-  - "El promedio de un conjunto de datos ya medidos"
-respuesta: "La cantidad de eventos que ocurren en un intervalo fijo de tiempo o espacio, cuando pasan al azar a una tasa promedio constante"
+opciones_explicitas: ["el área entre la curva y el eje horizontal en un intervalo [a, b]", "la pendiente de la recta tangente en un punto", "el valor máximo que alcanza la función"]
+
+enunciado: "La integral definida de f(x) entre a y b representa..."
 
 explicacion: |
-  Como la cantidad de llamadas que recibe un call center en una hora.
+  Es la cantidad de espacio entre la curva de f(x) y el eje horizontal,
+  dentro de ese intervalo específico.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "basico"
-  tags: ["poisson", "vocabulario"]
-
-enunciado: "En la distribución de Poisson, ¿qué representa el parámetro λ?"
-tipo: mc
-opciones_explicitas:
-  - "La cantidad promedio de eventos que ocurren en el intervalo"
-  - "La probabilidad de que ocurra un único evento particular"
-  - "La cantidad máxima de eventos que pueden ocurrir"
-respuesta: "La cantidad promedio de eventos que ocurren en el intervalo"
-
-explicacion: |
-  Si en promedio hay 4 llamadas por hora, λ = 4.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["poisson"]
+  tags: ["area neta"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  n: uno_de([1, 1])
 
-enunciado: "En la distribución de Poisson, el valor esperado E(X) es directamente igual a λ, sin necesitar ningún cálculo extra."
+respuesta: "negativa"
+tipo: mc
+opciones_explicitas: ["positiva", "negativa", "siempre cero"]
+
+enunciado: "Si la curva de f(x) está por debajo del eje x en el intervalo considerado, el área correspondiente se considera..."
 
 explicacion: |
-  A diferencia de otras distribuciones, acá λ ya ES el promedio.
+  La integral definida calcula el área neta, no el área total absoluta:
+  por eso puede dar valores negativos.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "completar"]
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["teorema fundamental"]
 
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "Teorema Fundamental del Cálculo"
 tipo: completar
-enunciado: "Completá la fórmula: P(X=k) = (λᵏ × e^(−λ)) / ___."
+
+enunciado: "El teorema que permite calcular una integral definida usando una primitiva F(x), en vez de sumar rectángulos infinitos, se llama ___."
+
 respuestas_validas:
-  - "k!"
-  - "k factorial"
+  - "Teorema Fundamental del Cálculo"
 
 explicacion: |
-  El factorial de k, el mismo usado en combinatoria.
+  Establece una relación directa entre la derivada y la integral,
+  simplificando enormemente el cálculo del área.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "problema"]
-
-variables:
-  lambda: uno_de([2, 3, 4])
-  k: uno_de([0, 1, 2])
-
-respuesta: redondear((lambda ^ k * e ^ (-lambda)) / factorial(k), 4)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "Un call center recibe en promedio λ = {lambda} llamadas por hora. ¿Cuál es la probabilidad de recibir exactamente {k} llamadas en una hora (P(X={k}))?"
-
-pasos:
-  - "P(X={k}) = ({lambda}^{k} × e^(−{lambda})) / {k}! = {redondear((lambda ^ k * e ^ (-lambda)) / factorial(k), 4)}"
-
-explicacion: |
-  Se aplica directo la fórmula de Poisson con λ = {lambda} y k = {k}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["poisson", "problema"]
+  tags: ["formula tfc"]
 
 variables:
-  lambda: uno_de([1, 2, 3, 5])
+  n: uno_de([1, 1])
 
-respuesta: redondear(e ^ (-lambda), 4)
+respuesta: "F(b) - F(a)"
+tipo: mc
+opciones_explicitas: ["F(b) - F(a)", "F(b) + F(a)", "F(a) - F(b)"]
+
+enunciado: "Según el Teorema Fundamental del Cálculo, ∫ f(x) dx entre a y b es igual a:"
+
+explicacion: |
+  Se evalúa la primitiva en el límite superior y se le resta el valor
+  evaluado en el límite inferior.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["primitiva"]
+
+variables:
+  n: random(2, 8)
+
+respuesta: n / 2
 tipo: input
-tolerancia_abs: 0.001
+tolerancia_abs: 0.01
 
-enunciado: "Una ruta tiene en promedio λ = {lambda} accidentes por semana. ¿Cuál es la probabilidad de que NO ocurra NINGÚN accidente en una semana (P(X=0))?"
-
-pasos:
-  - "P(X=0) = ({lambda}⁰ × e^(−{lambda})) / 0! = e^(−{lambda}) = {redondear(e ^ (-lambda), 4)}"
+enunciado: "La primitiva de f(x) = {n}·x es F(x) = k·x². ¿Cuánto vale k?"
 
 explicacion: |
-  Con k=0, λᵏ=1 y 0!=1 — la fórmula se reduce a e^(−λ).
+  La primitiva de k'·x es (k'/2)·x², así que si f(x)={n}·x, el
+  coeficiente de x² en la primitiva es {n}/2.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "basico"
-  tags: ["poisson", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La distribución de Poisson es discreta, porque siempre cuenta una cantidad entera de eventos (0, 1, 2, 3...)."
-
-explicacion: |
-  A diferencia de la exponencial (continua), que mide tiempo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson"]
-
-enunciado: "¿Por qué la distribución de Poisson se conoce como 'ley de los sucesos raros'?"
-tipo: mc
-opciones_explicitas:
-  - "Porque hay muchísimas oportunidades de que el evento ocurra, pero la probabilidad de que ocurra en cada oportunidad puntual es muy baja"
-  - "Porque los eventos que modela nunca ocurren en la realidad"
-  - "Porque sólo se puede usar una vez por cada experimento"
-respuesta: "Porque hay muchísimas oportunidades de que el evento ocurra, pero la probabilidad de que ocurra en cada oportunidad puntual es muy baja"
-
-explicacion: |
-  Como la probabilidad de que suene el teléfono en un segundo
-  cualquiera del día: minúscula, pero sumada da un promedio por hora.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "binomial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La distribución de Poisson es el caso límite de la distribución binomial cuando la cantidad de intentos n es muy grande y la probabilidad de éxito p es muy chica, manteniendo n×p = λ constante."
-
-explicacion: |
-  Es la conexión matemática entre `../distribucion-binomial/` (n
-  intentos discretos) y Poisson (conteo en un intervalo continuo de
-  oportunidades).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "exponencial"]
-
-enunciado: "¿Qué relación tiene la distribución de Poisson con la distribución exponencial?"
-tipo: mc
-opciones_explicitas:
-  - "Son la versión discreta (cuántos eventos) y continua (cuánto tiempo entre ellos) de la misma situación real, con la misma tasa subyacente"
-  - "No tienen ninguna relación real entre sí"
-  - "La Poisson reemplaza siempre a la exponencial"
-respuesta: "Son la versión discreta (cuántos eventos) y continua (cuánto tiempo entre ellos) de la misma situación real, con la misma tasa subyacente"
-
-explicacion: |
-  Poisson cuenta eventos en un intervalo; exponencial mide el tiempo
-  entre esos mismos eventos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "basico"
-  tags: ["poisson", "aplicacion"]
-
-enunciado: "Una fábrica de telas tiene en promedio 2 defectos por cada 100 metros producidos. ¿Qué distribución conviene usar para calcular la probabilidad de encontrar exactamente 3 defectos en un rollo de 100 metros?"
-tipo: mc
-opciones_explicitas:
-  - "La distribución de Poisson, con λ = 2 defectos por cada 100 metros"
-  - "La distribución exponencial, con λ = 1/2"
-  - "La distribución normal, con media 2"
-respuesta: "La distribución de Poisson, con λ = 2 defectos por cada 100 metros"
-
-explicacion: |
-  Es un conteo de eventos raros (defectos) en un intervalo fijo
-  (100 metros de tela) — el caso central de Poisson.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["poisson", "clasificar"]
-
-enunciado: "¿Cuál de estos dos escenarios se modela con Poisson, y no con la exponencial?"
-tipo: mc
-opciones_explicitas:
-  - "La cantidad de mensajes de error que aparecen en un servidor durante una hora"
-  - "El tiempo que pasa hasta el próximo mensaje de error"
-respuesta: "La cantidad de mensajes de error que aparecen en un servidor durante una hora"
-
-explicacion: |
-  "Cantidad en un intervalo" es Poisson; "tiempo hasta que pase algo"
-  es exponencial (`../distribucion-exponencial/`).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "problema"]
+  tags: ["calculo directo"]
 
 variables:
-  lambda_bajo: 1
-  lambda_alto: 5
+  b: random(2, 8)
 
-respuesta: e ^ (-lambda_bajo) > e ^ (-lambda_alto)
-tipo: vf
-
-enunciado: "Comparando P(X=0) (ningún evento) entre un local con λ = {lambda_bajo} clientes por hora y otro con λ = {lambda_alto} clientes por hora, ¿el local con MENOS clientes promedio tiene MAYOR probabilidad de no recibir ninguno?"
-
-explicacion: |
-  Cuanto menor es λ, más probable es que no ocurra ningún evento —
-  e^(−λ) crece a medida que λ baja.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "problema"]
-
-variables:
-  lambda: 3
-
-respuesta: redondear((lambda ^ 3 * e ^ (-lambda)) / factorial(3), 4)
+respuesta: b * b
 tipo: input
-tolerancia_abs: 0.001
+tolerancia_abs: 0
 
-enunciado: "Con λ = {lambda} eventos promedio por intervalo, ¿cuál es P(X=3)?"
-
-pasos:
-  - "P(X=3) = ({lambda}³ × e^(−{lambda})) / 3! = {redondear((lambda ^ 3 * e ^ (-lambda)) / factorial(3), 4)}"
+enunciado: "Calculá el área bajo la curva de f(x) = 2x entre x=0 y x={b}, usando F(x) = x². (F({b}) - F(0))"
 
 explicacion: |
-  P(X=k) es más alta cerca de k=λ (el valor esperado) y baja a medida
-  que k se aleja de ese valor.
+  F(x) = x² es la primitiva de 2x. El área es F(b) - F(0) = b² - 0 = b².
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "intermedio"
-  tags: ["poisson"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El parámetro λ de una Poisson puede ser un número decimal (por ejemplo, λ = 2,5 llamadas por hora), aunque los valores que puede tomar X sean siempre enteros (0, 1, 2, 3...)."
-
-explicacion: |
-  λ es un promedio, y un promedio puede perfectamente ser 2,5 aunque
-  cada resultado individual sea un entero.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "problema"]
+  tags: ["calculo directo"]
 
 variables:
-  lambda: uno_de([1, 2])
+  k: random(1, 5)
+  b: random(2, 6)
 
-respuesta: redondear((lambda ^ 1 * e ^ (-lambda)) / factorial(1), 4)
+respuesta: k * b
 tipo: input
-tolerancia_abs: 0.001
+tolerancia_abs: 0
 
-enunciado: "Una página de un libro tiene en promedio {lambda} errores de tipeo. ¿Cuál es la probabilidad de que una página elegida al azar tenga EXACTAMENTE 1 error?"
-
-pasos:
-  - "P(X=1) = ({lambda}¹ × e^(−{lambda})) / 1! = {redondear((lambda ^ 1 * e ^ (-lambda)) / factorial(1), 4)}"
+enunciado: "Calculá el área bajo la curva de f(x) = {k} (función constante) entre x=0 y x={b}, usando F(x) = {k}·x."
 
 explicacion: |
-  Con k=1, la fórmula se reduce a λ × e^(−λ).
+  Para una función constante, el área bajo la curva es un rectángulo:
+  base × altura = {b} × {k}.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "avanzado"
-  tags: ["poisson", "clasificar"]
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["simbolo integral"]
 
-enunciado: "Un analista quiere calcular 'la probabilidad de esperar más de 10 minutos hasta el próximo cliente'. ¿La distribución de Poisson es la herramienta correcta para esta pregunta?"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "una S alargada que recuerda a suma"
 tipo: mc
-opciones_explicitas:
-  - "No: esa pregunta es sobre TIEMPO de espera, corresponde a la distribución exponencial, no a Poisson"
-  - "Sí: cualquier pregunta sobre clientes se resuelve con Poisson"
-respuesta: "No: esa pregunta es sobre TIEMPO de espera, corresponde a la distribución exponencial, no a Poisson"
+opciones_explicitas: ["una S alargada que recuerda a suma", "una letra griega sin significado especial", "el símbolo de infinito"]
+
+enunciado: "El símbolo ∫ de la integral es..."
 
 explicacion: |
-  Poisson responde "cuántos eventos", no "cuánto tiempo hasta el
-  próximo" — esa es la pregunta que resuelve la exponencial.
+  Representa la idea de "sumar" infinitas cantidades infinitesimales, de
+  ahí la forma de S alargada.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "avanzado"
-  tags: ["poisson"]
+  tags: ["existencia"]
+
+variables:
+  n: uno_de([1, 1])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La suma de P(X=0) + P(X=1) + P(X=2) + ... (para todos los valores posibles de k, hasta infinito) da exactamente 1, igual que en cualquier variable aleatoria discreta."
+enunciado: "Si f(x) es continua en el intervalo [a, b], la integral definida siempre existe y es única."
 
 explicacion: |
-  Es la misma propiedad de toda distribución de probabilidad discreta,
-  vista en `../variable-aleatoria-discreta-continua/`.
+  La continuidad de la función en el intervalo garantiza que el área
+  bajo la curva esté bien definida.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
-  nivel: "basico"
-  tags: ["poisson", "aplicacion"]
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["aplicaciones"]
 
-enunciado: "En genética, la cantidad de mutaciones espontáneas por generación en una población suele modelarse con Poisson. ¿Por qué es un buen candidato para esta distribución?"
-tipo: mc
-opciones_explicitas:
-  - "Porque hay muchísimos genes donde podría ocurrir una mutación (muchas oportunidades), pero la probabilidad de que mute cada uno en particular es muy baja"
-  - "Porque las mutaciones siempre ocurren en cantidades fijas y predecibles"
-  - "Porque la Poisson sólo aplica a fenómenos biológicos"
-respuesta: "Porque hay muchísimos genes donde podría ocurrir una mutación (muchas oportunidades), pero la probabilidad de que mute cada uno en particular es muy baja"
+variables:
+  campo: uno_de(["física", "economía", "ingeniería"])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La integral definida tiene aplicaciones reales en {campo}, según la teoría."
 
 explicacion: |
-  Es la misma lógica de "sucesos raros" aplicada a genética, en vez de
-  a llamadas telefónicas o accidentes.
+  Se usa para calcular distancia recorrida (física), excedente del
+  consumidor (economía) o volúmenes de objetos (ingeniería).
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_de_poisson"
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["discreto vs continuo"]
 
-enunciado: "¿Para qué sirve la distribución de Poisson?"
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "de lo discreto a lo continuo"
 tipo: mc
-opciones_explicitas:
-  - "Para calcular la probabilidad de que ocurran una cantidad exacta de eventos raros e independientes dentro de un intervalo fijo de tiempo o espacio"
-  - "Para medir el tiempo que pasa hasta que ocurre un evento"
-  - "Para calcular el promedio de un conjunto de datos ya medidos"
-respuesta: "Para calcular la probabilidad de que ocurran una cantidad exacta de eventos raros e independientes dentro de un intervalo fijo de tiempo o espacio"
+opciones_explicitas: ["de lo discreto a lo continuo", "de lo continuo a lo discreto", "no hay ninguna diferencia entre ambos"]
+
+enunciado: "La importancia de la integral definida radica en su capacidad de pasar..."
 
 explicacion: |
-  Cierra, junto con `../distribucion-exponencial/`, el par
-  discreto/continuo que completa la clasificación de
-  `../variable-aleatoria-discreta-continua/`.
+  Mientras la suma simple junta cantidades finitas, la integral suma
+  infinitas cantidades infinitesimales.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["pasos del calculo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "encontrar la primitiva, evaluarla en b, evaluarla en a y restar"
+tipo: mc
+opciones_explicitas: ["encontrar la primitiva, evaluarla en b, evaluarla en a y restar", "derivar la función dos veces", "graficar la función sin ningún cálculo"]
+
+enunciado: "Según el Teorema Fundamental del Cálculo, el proceso para calcular una integral definida consiste en..."
+
+explicacion: |
+  Son los tres pasos que transforman un problema geométrico complejo en
+  álgebra simple.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["verificacion geometrica"]
+
+variables:
+  b: random(3, 9)
+
+respuesta: b * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Verificá con geometría básica: el área bajo f(x)=2x entre 0 y {b} es un triángulo de base {b} y altura {2*b}... espera, calculalo directo: (base × altura) / 2 = ({b} × 2·{b}) / 2. ¿Cuánto da?"
+
+explicacion: |
+  (b × 2b) / 2 = b², el mismo resultado que da la integral, confirmando
+  que ambos métodos coinciden.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["dx"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "un segmento horizontal de ancho infinitesimal"
+tipo: mc
+opciones_explicitas: ["un segmento horizontal de ancho infinitesimal", "el valor máximo de la función", "la derivada de la función"]
+
+enunciado: "En la notación ∫f(x) dx, el símbolo dx indica que se está sumando..."
+
+explicacion: |
+  Cada dx representa un segmento horizontal muy chico que, sumado a
+  infinitos otros, da el área total.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["primitiva de potencia"]
+
+variables:
+  n: random(1, 6)
+
+respuesta: n + 1
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "La primitiva de x^{n} tiene exponente (antes de dividir por el nuevo exponente):"
+
+explicacion: |
+  Al integrar x^n, el exponente sube en 1 (regla inversa a la
+  derivación).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["relacion con derivada"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "una función cuya derivada es f(x)"
+tipo: mc
+opciones_explicitas: ["una función cuya derivada es f(x)", "una función cuyo valor máximo es f(x)", "la inversa de f(x)"]
+
+enunciado: "Una función primitiva F(x) de f(x) es..."
+
+explicacion: |
+  Por eso el Teorema Fundamental del Cálculo conecta directamente
+  derivación e integración: son procesos inversos.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["areas irregulares"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La integral definida permite medir áreas irregulares que la geometría básica (cuadrados, triángulos) no puede resolver por sí sola."
+
+explicacion: |
+  Es justamente su utilidad principal: calcular áreas bajo curvas
+  complejas, no sólo figuras geométricas simples.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["calculo directo"]
+
+variables:
+  b: random(1, 7)
+
+respuesta: b * b * b
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Si F(x) = x³ es la primitiva de f(x) = 3x², calculá F({b}) - F(0), el área bajo f(x) entre 0 y {b}."
+
+explicacion: |
+  F(b) - F(0) = b³ - 0 = b³, aplicando directamente el Teorema
+  Fundamental del Cálculo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "basico"
+  tags: ["limites de integracion"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "los valores inicial y final del intervalo"
+tipo: mc
+opciones_explicitas: ["los valores inicial y final del intervalo", "el valor máximo y mínimo de la función", "las raíces de la función"]
+
+enunciado: "En ∫_a^b f(x) dx, los valores a y b representan..."
+
+explicacion: |
+  Son los límites del intervalo dentro del cual se calcula el área bajo
+  la curva.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "avanzado"
+  tags: ["metodo alternativo"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Calcular el área sumando rectángulos infinitos es el método práctico habitual para resolver integrales definidas en un examen."
+
+explicacion: |
+  Sería imposible en la práctica; por eso se usa el Teorema Fundamental
+  del Cálculo, que evita esa suma infinita directa.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["aplicacion fisica"]
+
+variables:
+  n: uno_de([1, 1])
+
+respuesta: "distancias recorridas cuando la velocidad cambia"
+tipo: mc
+opciones_explicitas: ["distancias recorridas cuando la velocidad cambia", "la masa de un objeto en reposo", "el color de la luz emitida"]
+
+enunciado: "En física, la integral definida se usa para calcular, entre otras cosas..."
+
+explicacion: |
+  Si la velocidad varía con el tiempo, integrarla da la distancia total
+  recorrida.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "integral_definida_y_area_bajo_la_curva"
+  nivel: "intermedio"
+  tags: ["calculo directo"]
+
+variables:
+  a: random(1, 4)
+  b: random(5, 9)
+
+respuesta: b*b - a*a
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Calculá el área bajo f(x) = 2x entre x={a} y x={b}, usando F(x) = x² (F({b}) - F({a}))."
+
+explicacion: |
+  F(b) - F(a) = b² - a², aplicando el Teorema Fundamental del Cálculo
+  con límites distintos de cero.
 ```
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #897]
+# Examen jefe — Maestro del Proceso Penal y la Sentencia
 
-> Logro #897. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 6/6 secciones.
+> Logro #897. Aprobaste el parcial recorriendo argumentación jurídica, juicio oral, resolución y sentencia, apelación e instancias, ejecución de la pena y el debate garantismo contra mano dura. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 6/6 secciones.
 
 ---
 

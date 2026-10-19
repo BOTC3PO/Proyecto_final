@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #883]
+# Examen jefe — Maestro de los Sistemas del País
 
-> Logro #883. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
+> Logro #883. Aprobaste el parcial sobre los símbolos patrios, el sistema de salud, el método D'Hondt y los sistemas políticos comparados, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
 
 ---
 

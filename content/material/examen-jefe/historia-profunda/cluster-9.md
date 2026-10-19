@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #689]
+# Examen jefe — Dominio de la Revolución Neolítica
 
-> Logro #689. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #689. Completaste el parcial dominando la selección natural, las herramientas y el arte rupestre, el poblamiento de América, la revolución neolítica y la sedentarización con excedente. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

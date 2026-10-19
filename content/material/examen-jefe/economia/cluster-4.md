@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #769]
+# Examen jefe — Experto en Créditos y Finanzas Digitales
 
-> Logro #769. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #769. Dominaste la cuota del crédito francés, el plazo fijo frente a la inflación, la partida doble y los swaps en exchanges descentralizados, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 

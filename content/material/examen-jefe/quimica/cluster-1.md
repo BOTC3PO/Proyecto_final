@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #841]
+# Examen jefe — Maestro de Soluciones y Equilibrio
 
-> Logro #841. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #841. Completaste el parcial con concentración y dilución de soluciones, balanceo de ecuaciones, densidad y equilibrio químico Kc, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 

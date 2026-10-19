@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #629]
+# Examen jefe — Maestro de Matrices y Bayes
 
-> Logro #629. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
+> Logro #629. Calculaste determinantes y matrices inversas, resolviste sistemas nxn, aplicaste técnicas de integración y el teorema de Bayes. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
 

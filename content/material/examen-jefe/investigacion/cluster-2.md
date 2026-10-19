@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #913]
+# Examen jefe — Experto en Diseño y Análisis de Investigación
 
-> Logro #913. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **175 preguntas totales** en 7/7 secciones.
+> Logro #913. Dominaste el diseño experimental, la recolección de datos, el análisis estadístico, la argumentación desde la evidencia y la comunicación de conclusiones, con filosofía de la ciencia y técnicas sociales. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **175 preguntas totales** en 7/7 secciones.
 
 ---
 

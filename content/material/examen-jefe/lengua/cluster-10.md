@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #660]
+# Examen jefe — Maestro de los Sintagmas y las Oraciones Compuestas
 
-> Logro #660. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #660. Completaste el parcial dominando los sintagmas nominal, adjetivo, preposicional y verbal, la coordinación y subordinación, y las oraciones interrogativas, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 

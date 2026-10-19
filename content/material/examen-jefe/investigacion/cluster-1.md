@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #912]
+# Examen jefe — Iniciado en el Método Científico
 
-> Logro #912. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #912. Completaste el parcial dominando la observación y la pregunta investigable, la buena hipótesis, la metodología cualitativa y cuantitativa, los modelos científicos y el trabajo de campo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

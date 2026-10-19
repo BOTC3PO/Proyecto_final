@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #895]
+# Examen jefe — Experto en Derecho Penal y Laboral
 
-> Logro #895. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #895. Completaste el parcial sobre derecho penal, laboral e internacional, y sobre cómo un hecho jurídicamente relevante llega a denuncia e instrucción, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

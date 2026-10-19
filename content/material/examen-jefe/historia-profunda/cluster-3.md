@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #683]
+# Examen jefe — Experto en Cielo y Universo Oscuro
 
-> Logro #683. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #683. Dominaste la materia y energía oscura junto con el cielo observable: estaciones, fases lunares, eclipses y el movimiento aparente de las constelaciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

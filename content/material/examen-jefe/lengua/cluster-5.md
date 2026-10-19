@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #655]
+# Examen jefe — Maestro de los Movimientos Literarios y la Tesis
 
-> Logro #655. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #655. Dominaste el romanticismo, el realismo y el modernismo, y aprendiste a construir una tesis con argumentos sólidos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

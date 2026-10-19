@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #845]
+# Examen jefe — Maestro de Enlaces y Tabla Periódica
 
-> Logro #845. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #845. Completaste el parcial con tendencias periódicas, enlace químico y polaridad, tipos de reacciones y tetravalencia del carbono, sin olvidar la seguridad en el laboratorio, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

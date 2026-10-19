@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #695]
+# Examen jefe — Dominio de Modernidad y Conquista
 
-> Logro #695. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #695. Completaste el parcial dominando la revolución científica, la imprenta, la navegación y la conquista y colonización de América. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

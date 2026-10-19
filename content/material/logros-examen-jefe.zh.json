@@ -4,15 +4,15 @@
     "materia": "Matemática",
     "cluster": 1,
     "temas": [
-      "asintotas",
-      "concavidad-y-puntos-de-inflexion",
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
       "conjuntos-pertenencia-e-inclusion",
       "conteo",
-      "divisibilidad/regla-del-7-opcional"
+      "valor-posicional"
     ],
-    "nombre": "渐近线与集合掌握者",
-    "descripcion": "你在同一场阶段考核中分析了函数的渐近线和凹凸性，练习了集合归属、计数原理和7的整除规则。",
-    "icono": "📈"
+    "nombre": "三角函数与集合大师",
+    "descripcion": "你应用了三角比以及正弦、余弦定理，并在同一场考试中处理了集合的从属关系、计数和位值。",
+    "icono": "📐"
   },
   {
     "id": 602,
@@ -20,13 +20,13 @@
     "cluster": 2,
     "temas": [
       "grafos-vertices-y-aristas",
-      "integral-definida-y-area-bajo-la-curva",
+      "union-interseccion-y-diferencia",
       "arboles-grafo-sin-ciclos",
       "grafos-dirigidos-no-dirigidos-y-ponderados",
       "leer-una-tabla"
     ],
     "nombre": "图与树大师",
-    "descripcion": "你掌握了顶点、边、树和加权图，还有定积分和表格解读。",
+    "descripcion": "你掌握了顶点、边、树和带权图，以及集合的并集、交集、差集和表格阅读。",
     "icono": "🌳"
   },
   {
@@ -53,10 +53,10 @@
       "construir-un-grafico",
       "grafico-eje-truncado",
       "media-mediana-y-moda",
-      "razones-trigonometricas"
+      "vectores-modulo-y-direccion"
     ],
     "nombre": "图表与度量大师",
-    "descripcion": "你绘制了图表，识别出被截断的坐标轴，计算了平均数、中位数和众数，还应用了三角比。",
+    "descripcion": "你制作了图表，识别了被截断的坐标轴，计算了平均数、中位数和众数，并处理了向量的模和方向。",
     "icono": "📊"
   },
   {
@@ -66,12 +66,12 @@
     "temas": [
       "cual-miente-y-cuando",
       "funciones-trigonometricas-seno-coseno",
-      "regla-de-lhopital",
+      "suma-de-vectores-y-descomposicion",
       "identidades-y-ecuaciones-trigonometricas",
       "regresion-lineal"
     ],
     "nombre": "三角函数与回归掌握者",
-    "descripcion": "你学习了三角函数、恒等式、洛必达法则和线性回归，还学会了识破谁在说谎、何时说谎。",
+    "descripcion": "你处理了三角函数、恒等式、向量的加法与分解以及线性回归，并识破了谁在何时撒谎。",
     "icono": "📐"
   },
   {
@@ -111,12 +111,12 @@
     "temas": [
       "area-poligonos-regulares-y-compuestas",
       "dispersion-rango-y-desvio",
-      "teorema-de-bolzano",
+      "volumen-y-capacidad",
       "distribucion-normal",
-      "teorema-del-seno-y-del-coseno"
+      "variable-aleatoria-discreta-continua"
     ],
     "nombre": "面积与正态分布大师",
-    "descripcion": "你计算了复合多边形的面积，应用了正弦定理和余弦定理，还掌握了正态分布和离散程度。",
+    "descripcion": "你计算了复合多边形的面积、体积和容量，并掌握了正态分布、离散程度和随机变量。",
     "icono": "📐"
   },
   {
@@ -156,12 +156,12 @@
     "temas": [
       "transformaciones-geometricas/rotacion",
       "transformaciones-geometricas/traslacion",
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
       "diagramas-de-venn"
     ],
     "nombre": "变换与集合掌握者",
-    "descripcion": "你完成了图形的旋转和平移，计算了并集和交集，还练习了韦恩图和位值。",
+    "descripcion": "你旋转和平移了图形，并处理了泊松分布、指数分布和维恩图。",
     "icono": "🔄"
   },
   {
@@ -441,28 +441,28 @@
     "temas": [
       "riesgo-relativo-vs-absoluto",
       "teorema-del-binomio",
-      "variable-aleatoria-discreta-continua",
+      "concavidad-y-puntos-de-inflexion",
       "variaciones",
-      "distribucion-de-poisson"
+      "integral-definida-y-area-bajo-la-curva"
     ],
-    "nombre": "分布与二项式定理掌握者",
-    "descripcion": "你应用了二项式定理和泊松分布，处理了随机变量和相对风险。",
-    "icono": "🎲"
+    "nombre": "二项式与微积分大师",
+    "descripcion": "你应用了二项式定理和排列，计算了相对风险和绝对风险，并分析了凹凸性和定积分。",
+    "icono": "📈"
   },
   {
     "id": 631,
     "materia": "Matemática",
     "cluster": 31,
     "temas": [
-      "distribucion-exponencial",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad",
-      "suma-de-vectores-y-descomposicion",
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
       "cuerpos-redondos-y-poliedros/cilindros"
     ],
-    "nombre": "向量与体积大师",
-    "descripcion": "你完成了向量的合成与分解，计算了圆柱体积和容积，还处理了指数分布。",
-    "icono": "➡️"
+    "nombre": "渐近线与洛必达大师",
+    "descripcion": "你处理了渐近线、波尔查诺定理和洛必达法则，计算了圆柱体积，并应用了7的整除规则。",
+    "icono": "📉"
   },
   {
     "id": 632,
@@ -1769,6 +1769,9 @@
     "materia": "Informática",
     "cluster": 5,
     "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
       "estructuras-de-control-bucles",
       "funciones-y-modularidad",
       "estructuras-de-datos-listas-pilas-colas",
@@ -1776,7 +1779,7 @@
       "algoritmos-busqueda-ordenamiento"
     ],
     "nombre": "编程大师",
-    "descripcion": "你掌握了循环、函数、数据结构（列表、栈和队列）、面向对象编程，以及查找和排序算法。",
+    "descripcion": "你掌握了算术、关系和逻辑运算符、循环、函数、数据结构（列表、栈和队列）、面向对象编程以及查找与排序算法。",
     "icono": "👨‍💻"
   },
   {

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #767]
+# Examen jefe — Dominio de Patrimonio y Elasticidad
 
-> Logro #767. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #767. Dominaste la ecuación contable fundamental y la estructura del patrimonio, además de elasticidad, dependencia productiva y cómo detectar una oportunidad de negocio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

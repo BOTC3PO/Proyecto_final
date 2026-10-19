@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #799]
+# Examen jefe — Experto en Geografía Productiva
 
-> Logro #799. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 5/5 secciones.
+> Logro #799. Dominaste las regiones naturales de Argentina, la minería y los hidrocarburos, la geografía agrícola e industrial y la industria y energía en América Latina, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 5/5 secciones.
 
 ---
 

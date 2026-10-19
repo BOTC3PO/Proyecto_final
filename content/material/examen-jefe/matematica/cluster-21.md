@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #621]
+# Examen jefe — Maestro de Fracciones y Función Lineal
 
-> Logro #621. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **134 preguntas totales** en 5/5 secciones.
+> Logro #621. Calculaste MCD y MCM, operaste con fracciones y enteros, y analizaste la pendiente de la función lineal. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **134 preguntas totales** en 5/5 secciones.
 
 ---
 

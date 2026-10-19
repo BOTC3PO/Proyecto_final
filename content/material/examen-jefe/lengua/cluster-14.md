@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #664]
+# Examen jefe — Dominio de las Subordinadas Condicionales y Consecutivas
 
-> Logro #664. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **131 preguntas totales** en 5/5 secciones.
+> Logro #664. Completaste el parcial dominando la subordinada concesiva, final, condicional y consecutiva, junto con las sustantivas de complemento circunstancial y de régimen, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **131 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #663]
+# Examen jefe — Maestro de las Subordinadas Adverbiales
 
-> Logro #663. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **133 preguntas totales** en 5/5 secciones.
+> Logro #663. Dominaste la referencia por anáfora y catáfora, y las subordinadas adverbiales de lugar, modo, tiempo y causa. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **133 preguntas totales** en 5/5 secciones.
 
 ---
 

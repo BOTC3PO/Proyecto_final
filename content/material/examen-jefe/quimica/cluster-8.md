@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #848]
+# Examen jefe — Maestro de Energía y Materiales
 
-> Logro #848. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **164 preguntas totales** en 7/7 secciones.
+> Logro #848. Dominaste termoquímica y energía libre de Gibbs, pilas galvánicas y petróleo como recurso energético, además de polímeros, presiones parciales y superconductividad. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **164 preguntas totales** en 7/7 secciones.
 
 ---
 

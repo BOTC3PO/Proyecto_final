@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #690]
+# Examen jefe — Maestro de los Primeros Estados
 
-> Logro #690. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #690. Aprobaste el parcial sobre la división del trabajo, la metalurgia, la propiedad y la jerarquía hasta el Estado, la escritura con las primeras ciudades y la antigua Grecia. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

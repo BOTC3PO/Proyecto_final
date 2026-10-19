@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #613]
+# Examen jefe — Domina Probabilidad y Potencias
 
-> Logro #613. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **129 preguntas totales** en 5/5 secciones.
+> Logro #613. Calculaste probabilidad simple y compuesta con diagramas de árbol, y trabajaste potencias y logaritmos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **129 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #781]
+# Examen jefe — Experto en Emprendimiento y Equilibrio
 
-> Logro #781. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #781. Dominaste el MVP, el business model canvas, el pitch a inversores, el punto de equilibrio y la productividad, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

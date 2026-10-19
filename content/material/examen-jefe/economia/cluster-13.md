@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #778]
+# Examen jefe — Experto en Gestión Organizacional
 
-> Logro #778. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **139 preguntas totales** en 5/5 secciones.
+> Logro #778. Completaste el parcial con cultura y estructura organizacional, ambiente interno y externo, objetivos y metas y tipos de proyecto. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **139 preguntas totales** en 5/5 secciones.
 
 ---
 

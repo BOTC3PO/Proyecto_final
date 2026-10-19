@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #620]
+# Examen jefe — Domina Funciones e Inecuaciones
 
-> Logro #620. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
+> Logro #620. Despejaste fórmulas, resolviste inecuaciones, y trabajaste dominio, imagen, composición e inversa de funciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
 

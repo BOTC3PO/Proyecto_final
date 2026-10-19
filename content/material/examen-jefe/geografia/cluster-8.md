@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #803]
+# Examen jefe — Dominio de Riesgos y Urbanización
 
-> Logro #803. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
+> Logro #803. Dominaste riesgos naturales argentinos y riesgos ambientales mundiales, además de turismo, trabajo y desempleo, y urbanización, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 

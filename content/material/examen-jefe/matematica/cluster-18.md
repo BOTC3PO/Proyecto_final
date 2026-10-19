@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #618]
+# Examen jefe — Domina Divisibilidad y Ecuaciones
 
-> Logro #618. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **112 preguntas totales** en 5/5 secciones.
+> Logro #618. Completaste las reglas de divisibilidad del 6, 8, 9 y 10, y resolviste ecuaciones de primer grado. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **112 preguntas totales** en 5/5 secciones.
 
 ---
 

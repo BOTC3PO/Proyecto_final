@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #699]
+# Examen jefe — Maestro del Siglo XX Temprano
 
-> Logro #699. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #699. Dominaste la sociedad de masas y la democracia liberal, la Primera Guerra Mundial y la Revolución Rusa, el período de entreguerras y la crisis de 1929, la Ley Sáenz Peña y los golpes de Estado, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

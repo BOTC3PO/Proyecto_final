@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #879]
+# Examen jefe — Experto en Derechos y No Discriminación
 
-> Logro #879. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
+> Logro #879. Dominaste los derechos del niño, de género e indígenas, los organismos de protección contra la discriminación y la lectura de una encuesta electoral, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 

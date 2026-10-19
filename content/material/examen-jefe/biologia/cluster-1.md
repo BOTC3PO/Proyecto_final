@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #861]
+# Examen jefe — Maestro de la Herencia Genética
 
-> Logro #861. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
+> Logro #861. Completaste el parcial dominando los cuadrados de Punnett, el cruce dihíbrido, la herencia ligada al sexo y los grupos sanguíneos, además del crecimiento poblacional. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
 
 ---
 

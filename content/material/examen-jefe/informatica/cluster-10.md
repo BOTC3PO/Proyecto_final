@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #825]
+# Examen jefe — Calidad de Software y Archivos
 
-> Logro #825. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #825. Dominaste patrones y buenas prácticas, pruebas unitarias y de integración, mantenimiento y deuda técnica, junto con el sistema de archivos y los permisos de usuarios. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

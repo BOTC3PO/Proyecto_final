@@ -1,1060 +1,1088 @@
-# Examen jefe — [PENDIENTE #601]
+# Examen jefe — Domina Trigonometría y Conjuntos
 
-> Logro #601. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **141 preguntas totales** en 5/5 secciones.
+> Logro #601. Aplicaste razones trigonométricas y el teorema del seno y del coseno, y trabajaste pertenencia de conjuntos, conteo y el valor posicional en un mismo parcial. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **157 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: asintotas (22 preguntas)
+## Sección: razones-trigonometricas (28 preguntas)
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["clasificacion", "teoria"]
+  tags: ["trigonometria", "vocabulario"]
 
-respuesta: "horizontal"
-tipo: completar
-respuestas_validas:
-  - "horizontal"
-  - "asintota horizontal"
-
-enunciado: "Si el grado del numerador es menor que el grado del denominador en una función racional, la asíntota es ___."
+enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto opuesto?"
+tipo: mc
+opciones_explicitas:
+  - "El cateto que no toca a ese ángulo, el que está 'enfrente'"
+  - "El cateto que sí toca a ese ángulo"
+  - "La hipotenusa"
+respuesta: "El cateto que no toca a ese ángulo, el que está 'enfrente'"
 
 explicacion: |
-  Cuando el denominador crece más rápido que el numerador, la función tiende a 0, definiendo una asíntota horizontal en $y=0$.
+  El cateto adyacente es el que sí toca al ángulo elegido.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["comparacion", "teoria"]
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "basico"
+  tags: ["trigonometria", "vocabulario"]
 
-variables:
-  # Caso: grado num = grado den + 1
-  tiene_ao: verdadero
+enunciado: "En un triángulo rectángulo, respecto de un ángulo agudo elegido, ¿qué es el cateto adyacente?"
+tipo: mc
+opciones_explicitas:
+  - "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
+  - "El cateto que no toca a ese ángulo"
+  - "La hipotenusa"
+respuesta: "El cateto que sí toca a ese ángulo (además de la hipotenusa)"
+
+explicacion: |
+  El cateto opuesto es el que no lo toca.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si el grado del numerador es exactamente uno mayor que el grado del denominador, la función tiene una asíntota oblicua."
+enunciado: "El cateto opuesto de un ángulo agudo es, al mismo tiempo, el cateto adyacente del otro ángulo agudo del mismo triángulo."
 
 explicacion: |
-  Esta es la condición necesaria y suficiente para la existencia de una asíntota oblicua en funciones racionales.
+  Los nombres "opuesto" y "adyacente" dependen de qué ángulo se elija
+  como referencia.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["caso_especifico", "rh"]
+  tags: ["trigonometria", "vocabulario"]
 
-respuesta: "0"
-tipo: completar
-respuestas_validas:
-  - "0"
-  - "y = 0"
-  - "eje x"
-
-enunciado: "Si el grado del numerador es menor que el del denominador, la asíntota horizontal es la recta ___."
+enunciado: "¿Qué representa la regla mnemotécnica SOH-CAH-TOA?"
+tipo: mc
+opciones_explicitas:
+  - "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
+  - "Los nombres de los tres ángulos de cualquier triángulo"
+  - "El orden en que se miden los lados de un triángulo"
+respuesta: "Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente"
 
 explicacion: |
-  El límite de la función cuando $x \to \infty$ es 0, por lo que la asíntota es el eje horizontal $y=0$.
+  Es una forma de memorizar las tres razones sin confundir cuál lado va
+  en el numerador y cuál en el denominador.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["teoria", "limite"]
+  tags: ["trigonometria", "completar"]
 
-respuesta: "infinito"
 tipo: completar
+enunciado: "Completá: seno = cateto opuesto / ___."
 respuestas_validas:
-  - "infinito"
-  - "infinita"
-  - "infinito positivo"
-  - "infinito negativo"
-
-enunciado: "Una asíntota vertical se define cuando el límite de la función al acercarse a un punto es ___."
+  - "hipotenusa"
 
 explicacion: |
-  La definición formal implica que el valor de la función crece sin cota (positiva o negativamente) al acercarse a $x=a$.
+  El coseno también divide por la hipotenusa, pero usa el cateto
+  adyacente.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "basico"
-  tags: ["identificacion", "raices"]
+  tags: ["trigonometria", "completar"]
 
-respuesta: "raices"
 tipo: completar
+enunciado: "Completá: coseno = cateto ___ / hipotenusa."
 respuestas_validas:
-  - "raices"
-  - "raíces"
-  - "ceros"
-  - "cero"
-
-enunciado: "Las asíntotas verticales de una función racional suelen ubicarse en las ___ reales del denominador."
+  - "adyacente"
 
 explicacion: |
-  Son los puntos donde el denominador se hace cero (si no se cancelan con el numerador).
+  El seno usa el cateto opuesto en el numerador.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "basico"
+  tags: ["trigonometria", "completar"]
+
+tipo: completar
+enunciado: "Completá: tangente = cateto opuesto / cateto ___."
+respuestas_validas:
+  - "adyacente"
+
+explicacion: |
+  A diferencia de seno y coseno, la tangente no usa la hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "intermedio"
-  tags: ["funciones_transcendentes", "exp"]
-
-respuesta: "ninguna"
-tipo: completar
-respuestas_validas:
-  - "ninguna"
-  - "no tiene"
-  - "no hay"
-
-enunciado: "La función $f(x) = e^x$ tiene ___ asíntotas verticales."
-
-explicacion: |
-  $e^x$ está definida para todo $x \in \mathbb{R}$ y es continua. No tiene asíntotas verticales. (Tiene una horizontal en $y=0$ para $x \to -\infty$).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["asintota_horizontal", "limite"]
+  tags: ["trigonometria", "problema"]
 
 variables:
-  num: random(1, 5)
-  den: random(6, 10)
+  k: random(1, 8)
+  opuesto: 3 * k
+  adyacente: 4 * k
+  hipotenusa: 5 * k
 
-respuesta: 0
+respuesta: redondear(opuesto / hipotenusa, 2)
 tipo: input
+tolerancia_abs: 0.01
 
-enunciado: "¿Cuál es la asíntota horizontal de f(x) = {num} / (x^{den} + 1) cuando x tiende a infinito?"
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(α)?"
+
+pasos:
+  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 2)}"
 
 explicacion: |
-  Cuando el grado del denominador es mayor que el del numerador,
-  el límite cuando x -> infinito es 0. Por lo tanto, la asíntota es y = 0.
+  Seno es opuesto sobre hipotenusa.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "intermedio"
-  tags: ["propiedad", "polinomio"]
+  tags: ["trigonometria", "problema"]
 
-respuesta: falso
-tipo: vf
+variables:
+  k: random(1, 8)
+  opuesto: 3 * k
+  adyacente: 4 * k
+  hipotenusa: 5 * k
 
-enunciado: "Verdadero o Falso: La función f(x) = x^2 + 3x tiene una asíntota horizontal."
+respuesta: redondear(adyacente / hipotenusa, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale cos(α)?"
+
+pasos:
+  - "{adyacente} ÷ {hipotenusa} = {redondear(adyacente / hipotenusa, 2)}"
 
 explicacion: |
-  Falso. Las funciones polinómicas no tienen asíntotas horizontales ni verticales.
-  Su dominio es todo R y crece sin límite.
+  Coseno es adyacente sobre hipotenusa.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["definicion", "terminologia"]
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "problema"]
 
-respuesta: "vertical"
-tipo: completar
-respuestas_validas:
-  - "vertical"
-  - "verticales"
+variables:
+  k: random(1, 8)
+  opuesto: 3 * k
+  adyacente: 4 * k
 
-enunciado: "Una ___ es una recta x = a tal que el límite de la función cuando x se acerca a a es infinito."
+respuesta: redondear(opuesto / adyacente, 2)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo α, cateto opuesto {opuesto} y cateto adyacente {adyacente}. ¿Cuánto vale tan(α)?"
+
+pasos:
+  - "{opuesto} ÷ {adyacente} = {redondear(opuesto / adyacente, 2)}"
 
 explicacion: |
-  Se llama asíntota vertical a la recta donde la función no está definida
-  y tiende a infinito por uno o ambos lados.
+  Tangente es opuesto sobre adyacente, sin usar la hipotenusa.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["dominio", "relacion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: Si una función tiene una asíntota vertical en x = a, entonces x = a no pertenece al dominio de la función."
-
-explicacion: |
-  Verdadero. Por definición, en una asíntota vertical la función tiende a infinito,
-  por lo que no está definida en ese punto (división por cero).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["definicion", "horizontal"]
-
-respuesta: "horizontal"
-tipo: completar
-respuestas_validas:
-  - "horizontal"
-  - "horizontales"
-
-enunciado: "Si el límite de f(x) cuando x tiende a infinito es un número constante L, la recta y = L se llama asíntota ___."
-
-explicacion: |
-  Se denomina asíntota horizontal a la recta paralela al eje X a la que se acerca la gráfica.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "avanzado"
-  tags: ["asintota_oblicua", "division"]
+  tags: ["trigonometria", "problema"]
 
 variables:
-  a: random(2, 4)
-  b: random(1, 5)
-  c: random(1, 3)
-  d: random(2, 5)
+  k: random(1, 6)
+  opuesto: 5 * k
+  adyacente: 12 * k
+  hipotenusa: 13 * k
 
-respuesta: "{a / d}x + ({b - a * c / d})"
+respuesta: redondear(opuesto / hipotenusa, 3)
 tipo: input
+tolerancia_abs: 0.01
 
-enunciado: "Determiná la ecuación de la asíntota oblicua de f(x) = ({a}x^2 + {b}x) / (x + {c}) para x -> infinito. Escribí en formato 'mx+n' (ej: 2x+3)."
+enunciado: "Un triángulo rectángulo tiene, respecto de un ángulo agudo β, cateto opuesto {opuesto}, cateto adyacente {adyacente} e hipotenusa {hipotenusa}. ¿Cuánto vale sen(β)? Redondeá a 3 decimales."
+
+pasos:
+  - "{opuesto} ÷ {hipotenusa} = {redondear(opuesto / hipotenusa, 3)}"
 
 explicacion: |
-  Dividiendo el numerador por el denominador:
-  m = a/d
-  n = b - m*c = b - (a/d)*c.
-  La ecuación es y = mx + n.
+  Esta vez la razón no da un número tan "redondo" como 3/5, pero se
+  calcula exactamente igual.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "intermedio"
-  tags: ["propiedad", "corte"]
+  tags: ["trigonometria"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Verdadero o Falso: Una función puede cortar su asíntota horizontal."
+enunciado: "Si se agranda un triángulo rectángulo manteniendo el mismo ángulo agudo, el valor del seno de ese ángulo NO cambia."
 
 explicacion: |
-  Verdadero. La asíntota describe el comportamiento en el infinito,
-  pero la función puede intersectarla en puntos finitos del dominio.
+  Los triángulos son semejantes, así que la razón entre lados se
+  mantiene igual.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["metodo", "calculo"]
-
-respuesta: "denominador"
-tipo: completar
-respuestas_validas:
-  - "denominador"
-  - "denominadores"
-
-enunciado: "Para encontrar las asíntotas verticales de una función racional, igualamos a cero el ___."
-
-explicacion: |
-  Las asíntotas vertuales ocurren donde el denominador se anula (y el numerador no).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["raices", "multiples"]
-
-variables:
-  a: random(1, 5)
-  b: random(6, 10)
-
-respuesta: a + "," + b
-tipo: input
-
-enunciado: "Encontrá las asíntotas verticales de f(x) = 1 / ((x - {a})(x - {b})). Escribí los valores separados por coma."
-
-explicacion: |
-  El denominador se anula en x = {a} y x = {b}.
-  Ambas son asíntotas verticales.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "avanzado"
-  tags: ["raiz_cuadrada", "asintota_oblicua"]
+  tags: ["trigonometria", "problema"]
 
-respuesta: falso
+variables:
+  k1: random(1, 5)
+  k2: k1 + random(1, 5)
+
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Verdadero o Falso: La función f(x) = sqrt(x) tiene una asíntota oblicua."
+enunciado: "Un triángulo con catetos {3 * k1} y {4 * k1} (hipotenusa {5 * k1}) tiene el mismo ángulo agudo que otro con catetos {3 * k2} y {4 * k2} (hipotenusa {5 * k2}). ¿El seno de ese ángulo da el mismo valor (0,6) en ambos triángulos?"
 
 explicacion: |
-  Falso. sqrt(x) crece más lento que cualquier recta (x^1).
-  No tiene asíntota oblicua ni horizontal.
+  {3 * k1}/{5 * k1} y {3 * k2}/{5 * k2} son ambos iguales a 3/5 = 0,6:
+  son triángulos semejantes, misma razón.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["caso_particular", "eje_x"]
-
-respuesta: "eje X"
-tipo: completar
-respuestas_validas:
-  - "eje X"
-  - "eje x"
-  - "y=0"
-
-enunciado: "Si la asíntota horizontal es y = 0, esta coincide con el ___."
-
-explicacion: |
-  La recta y=0 es el eje de abscisas o eje X.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "avanzado"
-  tags: ["paridad", "oblicua"]
+  tags: ["trigonometria", "vocabulario"]
+
+enunciado: "¿Por qué una razón trigonométrica da siempre el mismo valor para un ángulo dado, sin importar el tamaño del triángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
+  - "Porque todos los triángulos rectángulos son congruentes entre sí"
+  - "Es una coincidencia, sin explicación geométrica"
+respuesta: "Porque dos triángulos rectángulos con el mismo ángulo agudo son semejantes (criterio AA), y sus lados son proporcionales"
+
+explicacion: |
+  Es la razón por la que este módulo depende de
+  `../semejanza-y-teorema-de-thales/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Verdadero o Falso: Una función par puede tener una asíntota oblicua."
+enunciado: "La tangente de un ángulo es igual al seno de ese ángulo dividido su coseno (tan = sen / cos)."
 
 explicacion: |
-  Falso. Si f(x) es par, f(x) = f(-x).
-  Si tuviera una asíntota oblicua y = mx + n para x->inf,
-  para x->-inf debería tender a y = -mx + n (por simetría).
-  Pero una función racional con grado num = grado den + 1 tiene la misma oblicua en ambos extremos (mismo m).
-  Para que m = -m, m debe ser 0, lo que implica una asíntota horizontal, no oblicua.
-  Por lo tanto, una función par NO puede tener una asíntota oblicua (con m != 0).
-  La afirmación dice "puede tener". La respuesta es Falso.
+  Al dividir (opuesto/hipotenusa) por (adyacente/hipotenusa), la
+  hipotenusa se simplifica y queda opuesto/adyacente.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "intermedio"
-  tags: ["limite", "lateral"]
-
-respuesta: "infinito"
-tipo: completar
-respuestas_validas:
-  - "infinito"
-  - "infinitos"
-  - "+infinito"
-  - "-infinito"
-
-enunciado: "Para que exista una asíntota vertical en x=a, el límite lateral de la función cuando x tiende a a debe ser ___ (positivo o negativo)."
-
-explicacion: |
-  La definición de asíntota vertical requiere que el límite sea infinito.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "avanzado"
-  tags: ["exponencial", "limite"]
-
-respuesta: 0
-tipo: input
-
-enunciado: "¿Cuál es la asíntota horizontal de f(x) = e^(-x) cuando x tiende a +infinito?"
-
-explicacion: |
-  lim(x->inf) e^(-x) = lim(1/e^x) = 0.
-  La asíntota horizontal es y = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["continuidad", "discontinuidad"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Verdadero o Falso: La presencia de una asíntota vertical implica una discontinuidad infinita en esa función."
-
-explicacion: |
-  Verdadero. La función no está definida en el punto y tiende a infinito,
-  lo que constituye una discontinuidad infinita.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "asintotas"
-  nivel: "basico"
-  tags: ["definicion", "geometria"]
-
-respuesta: "recta"
-tipo: completar
-respuestas_validas:
-  - "recta"
-  - "rectas"
-
-enunciado: "Una asíntota es una ___ a la cual la curva se acerca indefinidamente."
-
-explicacion: |
-  Por definición geométrica, las asíntotas son rectas.
-```
-
-## Sección: concavidad-y-puntos-de-inflexion (27 preguntas)
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["derivada_segunda", "cubica"]
+  tags: ["trigonometria", "problema"]
 
 variables:
-  a: random(1, 5)
-  b: random(1, 5)
+  k: random(1, 8)
 
-respuesta: "{2*a}x"
-
+respuesta: redondear(0.6 / 0.8, 2)
 tipo: input
+tolerancia_abs: 0.01
 
-enunciado: "Calculá la segunda derivada de la función f(x) = {a}x^3 + {b}x^2. Escribí solo el término que depende de x (si es constante, escribí 0)."
+enunciado: "Para un ángulo α, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto vale tan(α)?"
+
+pasos:
+  - "0,6 ÷ 0,8 = {redondear(0.6 / 0.8, 2)}"
 
 explicacion: |
-  f'(x) = 3ax^2 + 2bx
-  f''(x) = 6ax + 2b
-  Para a={a}, b={b}: f''(x) = {6*a}x + {2*b}
-  La respuesta pedida es el coeficiente de x en la expresión simplificada si se pide solo la parte variable, o la expresión completa.
-  Ajuste: La respuesta debe ser la expresión completa simplificada.
-  Corrección: La respuesta es "{6*a}x + {2*b}"
+  Coincide con calcular directamente opuesto/adyacente = 3/4 = 0,75 en
+  el triángulo 3-4-5.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["derivada_segunda", "cubica"]
-
-variables:
-  a: random(1, 5)
-  b: random(1, 5)
-  c: random(1, 5)
-
-respuesta: "{6*a}x + {2*b}"
-
-tipo: input
-
-enunciado: "La segunda derivada de f(x) = {a}x^3 + {b}x^2 + {c}x es f''(x) = ___"
-
-explicacion: |
-  f'(x) = 3ax^2 + 2bx + c
-  f''(x) = 6ax + 2b
-  Sustituyendo a={a} y b={b}, obtenemos {6*a}x + {2*b}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "cubica"]
-
-variables:
-  a: random(1, 4)
-  b: random(5, 15)
-  c: random(1, 4)
-
-respuesta: "{-b/(3*a)}"
-
-tipo: input
-
-enunciado: "Encontrá la coordenada x del punto de inflexión de la función f(x) = {a}x^3 + {b}x^2 + {c}x + 1."
-
-explicacion: |
-  f'(x) = 3ax^2 + 2bx + c
-  f''(x) = 6ax + 2b
-  El punto de inflexión ocurre donde f''(x) = 0.
-  6ax + 2b = 0  =>  x = -2b / 6a = -b / 3a
-  Para a={a} y b={b}, x = {-b/(3*a)}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["concavidad", "intervalo", "vf"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = -{a}x^2 + 5x es cóncava hacia abajo en todo su dominio."
-
-explicacion: |
-  f'(x) = -2ax + 5
-  f''(x) = -2a
-  Como a > 0, -2a es siempre negativo.
-  Por lo tanto, f''(x) < 0 para todo x, lo que implica concavidad hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["concavidad", "intervalo", "vf"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La función f(x) = {a}x^2 - 3x es cóncava hacia arriba en todo su dominio."
-
-explicacion: |
-  f'(x) = 2ax - 3
-  f''(x) = 2a
-  Como a > 0, 2a es siempre positivo.
-  Por lo tanto, f''(x) > 0 para todo x, lo que implica concavidad hacia arriba.
-  La afirmación es verdadera, pero la pregunta dice "hacia abajo".
-  Espera, la afirmación es "es cóncava hacia arriba". Eso es VERDADERO.
-  Necesito una afirmación FALSA.
-  Cambio: "La función f(x) = {a}x^2 es cóncava hacia abajo..." -> Falso.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["concavidad", "intervalo", "vf"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La función f(x) = {a}x^2 es cóncava hacia abajo en todo su dominio."
-
-explicacion: |
-  f''(x) = 2a. Como a > 0, f''(x) > 0.
-  La función es cóncava hacia arriba, no hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "identificacion"]
-
-variables:
-  a: random(1, 3)
-  b: random(4, 8)
-
-respuesta: "{b/(3*a)}"
-
-tipo: input
-
-enunciado: "Para f(x) = {a}x^3 - {3*a*b}x^2 + 5, el punto de inflexión está en x = ___"
-
-explicacion: |
-  f'(x) = 3ax^2 - 6abx
-  f''(x) = 6ax - 6ab
-  f''(x) = 0 => 6ax = 6ab => x = b
-  Espera, simplifiqué mal.
-  f''(x) = 6ax - 6ab.
-  x = b.
-  Variable b es {b}.
-  Respuesta: "{b}"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "identificacion"]
-
-variables:
-  a: random(1, 3)
-  k: random(2, 5)
-
-respuesta: "{k/3}"
-
-tipo: input
-
-enunciado: "Si f(x) = {a}x^3 - {a*k}x^2, el punto de inflexión se encuentra en x = ___"
-
-explicacion: |
-  f'(x) = 3ax^2 - 2akx
-  f''(x) = 6ax - 2ak
-  6ax - 2ak = 0 => 6ax = 2ak => x = 2ak / 6a = k / 3
-  Con k={k}, x = {k/3}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["exponencial", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = -e^x es cóncava hacia abajo para todo x real."
-
-explicacion: |
-  f'(x) = -e^x
-  f''(x) = -e^x
-  Como e^x > 0, -e^x < 0 siempre.
-  Por lo tanto, la función es cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["cambio_concavidad", "cubica"]
-
-variables:
-  a: random(1, 3)
-
-respuesta: "x = 0"
-
-tipo: input
-
-enunciado: "La función f(x) = {a}x^3 cambia su concavidad en x = ___"
-
-explicacion: |
-  f'(x) = 3ax^2
-  f''(x) = 6ax
-  f''(x) = 0 cuando x = 0.
-  Para x < 0, f''(x) tiene signo opuesto a a.
-  Para x > 0, f''(x) tiene signo de a.
-  Hay cambio de concavidad en x=0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["logaritmo", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = ln(x) es cóncava hacia abajo en su dominio (x > 0)."
-
-explicacion: |
-  f'(x) = 1/x
-  f''(x) = -1/x^2
-  Para x > 0, x^2 > 0, por lo que -1/x^2 < 0.
-  La función es cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "punto_inflexion"]
-
-respuesta: "pi/2"
-
-tipo: input
-
-enunciado: "La función f(x) = sin(x) tiene un punto de inflexión en x = ___ (en el intervalo [0, pi])."
-
-explicacion: |
-  f'(x) = cos(x)
-  f''(x) = -sin(x)
-  f''(x) = 0 cuando sin(x) = 0.
-  En [0, pi], sin(x)=0 en x=0 y x=pi.
-  Sin embargo, el cambio de concavidad ocurre donde f'' cambia de signo.
-  f''(x) = -sin(x).
-  Para x en (0, pi), sin(x) > 0, entonces f''(x) < 0 (cóncava abajo).
-  Para x en (-pi, 0), sin(x) < 0, entonces f''(x) > 0 (cóncava arriba).
-  El punto de inflexión típico en el centro del ciclo es x=pi.
-  Pero en [0, pi], los extremos son 0 y pi.
-  En x=pi, la concavidad cambia de abajo (antes) a arriba (después).
-  La pregunta pide en [0, pi]. El punto pi es un punto de inflexión.
-  También x=0 es un punto de inflexión.
-  Usaremos pi/2 como distractor? No, pi/2 no es cero de f''.
-  f''(pi/2) = -1 != 0.
-  La respuesta correcta es "pi" o "0".
-  Cambiaré la pregunta para que sea más clara.
-  "El primer punto de inflexión positivo de sin(x) es x = ___" -> pi.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "punto_inflexion"]
-
-respuesta: "pi"
-
-tipo: input
-
-enunciado: "El primer valor positivo x donde sin(x) tiene un punto de inflexión es x = ___"
-
-explicacion: |
-  f''(x) = -sin(x).
-  f''(x) = 0 en x = k*pi.
-  El primer positivo es pi.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["raiz_cuadrada", "concavidad", "vf"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = sqrt(x) es cóncava hacia abajo para x > 0."
-
-explicacion: |
-  f(x) = x^(1/2)
-  f'(x) = (1/2)x^(-1/2)
-  f''(x) = (-1/4)x^(-3/2) = -1 / (4x*sqrt(x))
-  Para x > 0, f''(x) < 0.
-  Es cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["derivada_segunda", "cuartica"]
-
-variables:
-  a: random(1, 3)
-  b: random(1, 5)
-
-respuesta: "{12*a}x^2 + {6*b}x"
-
-tipo: input
-
-enunciado: "La segunda derivada de f(x) = {a}x^4 + {b}x^3 es f''(x) = ___"
-
-explicacion: |
-  f'(x) = 4ax^3 + 3bx^2
-  f''(x) = 12ax^2 + 6bx
-  Sustituyendo a={a}, b={b}: {12*a}x^2 + {6*b}x.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["interpretacion_f2", "concavidad"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: "concava_hacia_arriba"
-
-tipo: mc
-
-enunciado: "Si f''(x) = {a}x^2 + {a}, la función f(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
-
-explicacion: |
-  f''(x) = a(x^2 + 1).
-  Como x^2 + 1 > 0 siempre y a > 0, f''(x) > 0 siempre.
-  Por lo tanto, f es cóncava hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "basico"
-  tags: ["interpretacion_f2", "concavidad"]
-
-variables:
-  a: random(1, 5)
-
-respuesta: "concava_hacia_abajo"
-
-tipo: mc
-
-enunciado: "Si f''(x) = -{a}(x^2 + 1), la función f(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "no_se_puede_determinar"]
-
-explicacion: |
-  f''(x) = -a(x^2 + 1).
-  Como a > 0, -a < 0. Y (x^2+1) > 0.
-  Producto de negativo por positivo es negativo.
-  f''(x) < 0, por lo tanto cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "cuartica"]
-
-respuesta: falso
-
-tipo: vf
-
-enunciado: "La función f(x) = x^4 tiene un punto de inflexión en x = 0."
-
-explicacion: |
-  f'(x) = 4x^3
-  f''(x) = 12x^2
-  f''(0) = 0.
-  Sin embargo, f''(x) >= 0 para todo x.
-  No hay cambio de signo en f''(x) alrededor de 0.
-  Por lo tanto, NO es un punto de inflexión.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["cubica", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_abajo"
-
-tipo: mc
-
-enunciado: "Para la función f(x) = x^3 - x, en el intervalo (-infinity, -1/sqrt(3)), la concavidad es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
-
-explicacion: |
-  f'(x) = 3x^2 - 1
-  f''(x) = 6x
-  Para x < -1/sqrt(3) (que es negativo), f''(x) < 0.
-  Por lo tanto, cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["cubica", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_arriba"
-
-tipo: mc
-
-enunciado: "Para la función f(x) = x^3 - x, en el intervalo (1/sqrt(3), infinity), la concavidad es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "oscilante"]
-
-explicacion: |
-  f''(x) = 6x.
-  Para x > 1/sqrt(3) (positivo), f''(x) > 0.
-  Por lo tanto, cóncava hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "cubica"]
-
-respuesta: "0"
-
-tipo: input
-
-enunciado: "La función f(x) = x^3 - 3x tiene su punto de inflexión en x = ___"
-
-explicacion: |
-  f'(x) = 3x^2 - 3
-  f''(x) = 6x
-  f''(x) = 0 => x = 0.
-  Cambio de signo en x=0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["punto_inflexion", "quintica"]
-
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = x^5 tiene un punto de inflexión en x = 0."
-
-explicacion: |
-  f'(x) = 5x^4
-  f''(x) = 20x^3
-  f''(0) = 0.
-  Para x < 0, f''(x) < 0 (cóncava abajo).
-  Para x > 0, f''(x) > 0 (cóncava arriba).
-  Hay cambio de concavidad, por lo tanto sí es un punto de inflexión.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "derivada_segunda"]
-
-respuesta: "-cos(x)"
-
-tipo: input
-
-enunciado: "La segunda derivada de f(x) = cos(x) es f''(x) = ___"
-
-explicacion: |
-  f'(x) = -sin(x)
-  f''(x) = -cos(x)
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_abajo"
-
-tipo: mc
-
-enunciado: "En el intervalo (0, pi/2), la función f(x) = cos(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
-
-explicacion: |
-  f''(x) = -cos(x).
-  En (0, pi/2), cos(x) > 0.
-  Por lo tanto, -cos(x) < 0.
-  Cóncava hacia abajo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "concavidad", "intervalo"]
-
-respuesta: "concava_hacia_arriba"
-
-tipo: mc
-
-enunciado: "En el intervalo (pi, 3pi/2), la función f(x) = cos(x) es:"
-
-opciones_explicitas: ["concava_hacia_arriba", "concava_hacia_abajo", "lineal", "constante"]
-
-explicacion: |
-  f''(x) = -cos(x).
-  En (pi, 3pi/2), cos(x) < 0.
-  Por lo tanto, -cos(x) > 0.
-  Cóncava hacia arriba.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
-  nivel: "intermedio"
-  tags: ["trigonometria", "punto_inflexion"]
-
-respuesta: "pi/2"
-
-tipo: input
-
-enunciado: "El primer punto de inflexión positivo de f(x) = cos(x) es x = ___"
-
-explicacion: |
-  f''(x) = -cos(x).
-  f''(x) = 0 cuando cos(x) = 0.
-  El primer positivo es pi/2.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "concavidad_y_puntos_de_inflexion"
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
   nivel: "avanzado"
-  tags: ["racionales", "concavidad", "vf"]
+  tags: ["trigonometria", "vocabulario"]
 
-respuesta: verdadero
-
-tipo: vf
-
-enunciado: "La función f(x) = x^2 + 1/x es cóncava hacia arriba para todo x > 0."
+enunciado: "¿Qué dice la identidad sen² + cos² = 1, para cualquier ángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
+  - "Que el seno y el coseno de cualquier ángulo son siempre iguales"
+  - "Que la suma de seno y coseno siempre da 1, sin elevar al cuadrado"
+respuesta: "Que el cuadrado del seno más el cuadrado del coseno de un mismo ángulo siempre suma 1"
 
 explicacion: |
-  f'(x) = 2x - x^(-2)
-  f''(x) = 2 + 2x^(-3) = 2 + 2/x^3
-  Para x > 0, x^3 > 0, entonces 2/x^3 > 0.
-  f''(x) > 2 > 0.
-  Es cóncava hacia arriba.
+  Es consecuencia directa del teorema de Pitágoras aplicado a los
+  catetos y la hipotenusa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+respuesta: 1
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Para el ángulo del triángulo 3-4-5, sen(α) = 0,6 y cos(α) = 0,8. ¿Cuánto da sen(α)² + cos(α)²?"
+
+pasos:
+  - "0,6² + 0,8² = 0,36 + 0,64 = 1"
+
+explicacion: |
+  Se cumple exactamente, porque 3² + 4² = 5² (el propio teorema de
+  Pitágoras, dividido por 5² de los dos lados).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "completar"]
+
+tipo: completar
+enunciado: "Completá: sen(30°) = ___ (como número decimal)."
+respuestas_validas:
+  - "0.5"
+  - "0,5"
+
+explicacion: |
+  Es uno de los valores notables que conviene memorizar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen(30°) y cos(60°) valen exactamente lo mismo."
+
+explicacion: |
+  Los ángulos que suman 90° "intercambian" seno y coseno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "sen(45°) y cos(45°) valen exactamente lo mismo."
+
+explicacion: |
+  Tiene sentido: 45° + 45° = 90°, así que se intercambian entre sí — y
+  como son iguales, coinciden.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "tan(45°) vale exactamente 1."
+
+explicacion: |
+  Como sen(45°) = cos(45°), su cociente (la tangente) da 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  seno_30: 0.5
+  hipotenusa: uno_de([10, 20, 30, 40])
+
+respuesta: hipotenusa * seno_30
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un triángulo rectángulo tiene un ángulo de 30° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá sen(30°) = 0,5)"
+
+pasos:
+  - "{hipotenusa} × 0,5 = {hipotenusa * seno_30}"
+
+explicacion: |
+  Cateto opuesto = hipotenusa × sen(ángulo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  coseno_60: 0.5
+  hipotenusa: uno_de([10, 20, 30, 40])
+
+respuesta: hipotenusa * coseno_60
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un triángulo rectángulo tiene un ángulo de 60° y una hipotenusa de {hipotenusa}. ¿Cuánto mide el cateto adyacente a ese ángulo? (usá cos(60°) = 0,5)"
+
+pasos:
+  - "{hipotenusa} × 0,5 = {hipotenusa * coseno_60}"
+
+explicacion: |
+  Cateto adyacente = hipotenusa × cos(ángulo).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "avanzado"
+  tags: ["trigonometria", "problema"]
+
+variables:
+  adyacente: uno_de([5, 8, 10, 15])
+
+respuesta: adyacente
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un triángulo rectángulo tiene un ángulo de 45° y un cateto adyacente de {adyacente}. ¿Cuánto mide el cateto opuesto a ese ángulo? (usá tan(45°) = 1)"
+
+pasos:
+  - "{adyacente} × 1 = {adyacente}"
+
+explicacion: |
+  En un triángulo con un ángulo de 45°, los dos catetos miden siempre
+  lo mismo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar un lado desconocido de un triángulo rectángulo, conociendo un ángulo agudo y otro lado."
+tipo: ordenar
+opciones_explicitas:
+  - "Despejar el lado desconocido y calcular"
+  - "Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido"
+  - "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados"
+respuesta_orden: ["Identificar qué lados están involucrados (opuesto, adyacente o hipotenusa) respecto del ángulo conocido", "Elegir la razón trigonométrica correcta (seno, coseno o tangente) según esos dos lados", "Despejar el lado desconocido y calcular"]
+explicacion: |
+  Elegir mal la razón (usar coseno cuando corresponde seno, por
+  ejemplo) es el error más común.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "intermedio"
+  tags: ["trigonometria", "vocabulario"]
+
+enunciado: "¿Cómo se puede calcular la altura de un edificio sin medirla directamente, usando trigonometría?"
+tipo: mc
+opciones_explicitas:
+  - "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
+  - "Contando la cantidad de pisos y multiplicando por 3 metros siempre"
+  - "No es posible calcular una altura sin medirla directamente"
+respuesta: "Midiendo el ángulo de elevación desde una distancia conocida, y usando la tangente de ese ángulo"
+
+explicacion: |
+  La distancia horizontal es el cateto adyacente, la altura es el
+  cateto opuesto: tan(ángulo) = altura / distancia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "razones_trigonometricas"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirven las razones trigonométricas?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
+  - "Sólo sirven para triángulos equiláteros"
+  - "Sólo tienen aplicación teórica, sin uso práctico"
+respuesta: "Para calcular lados o ángulos de un triángulo rectángulo sin medirlos directamente, a partir de datos conocidos"
+
+explicacion: |
+  Desde la altura de un edificio hasta el diseño de una rampa, siempre
+  que hay un ángulo y un triángulo rectángulo, aparecen estas razones.
+```
+
+## Sección: teorema-del-seno-y-del-coseno (25 preguntas)
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "basico"
+  tags: ["oblicuos", "vocabulario"]
+
+enunciado: "¿Qué es un triángulo oblicuo?"
+tipo: mc
+opciones_explicitas:
+  - "Un triángulo que no tiene ningún ángulo de 90°"
+  - "Un triángulo con los tres lados iguales"
+  - "Otro nombre para el triángulo rectángulo"
+respuesta: "Un triángulo que no tiene ningún ángulo de 90°"
+
+explicacion: |
+  Ahí ni Pitágoras ni las razones trigonométricas simples se pueden
+  aplicar directo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["oblicuos", "vocabulario"]
+
+enunciado: "¿Por qué el teorema de Pitágoras no se puede usar directamente en un triángulo oblicuo?"
+tipo: mc
+opciones_explicitas:
+  - "Porque Pitágoras exige un ángulo recto, y un triángulo oblicuo no tiene ninguno"
+  - "Porque los triángulos oblicuos no tienen hipotenusa nombrada"
+  - "En realidad sí se puede usar exactamente igual"
+respuesta: "Porque Pitágoras exige un ángulo recto, y un triángulo oblicuo no tiene ninguno"
+
+explicacion: |
+  Por eso hacen falta el teorema del seno y del coseno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_seno", "completar"]
+
+tipo: completar
+enunciado: "Completá el teorema del seno: a / sen(A) = b / sen(B) = ___."
+respuestas_validas:
+  - "c / sen(C)"
+  - "c/sen(C)"
+
+explicacion: |
+  Los tres cocientes lado/seno(ángulo opuesto) son siempre iguales entre
+  sí.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_seno", "vocabulario"]
+
+enunciado: "¿Qué dice el teorema del seno?"
+tipo: mc
+opciones_explicitas:
+  - "Que cada lado de un triángulo es proporcional al seno de su ángulo opuesto, con la misma razón para los tres"
+  - "Que la suma de los tres lados es igual al seno del ángulo mayor"
+  - "Que sólo aplica a triángulos rectángulos"
+respuesta: "Que cada lado de un triángulo es proporcional al seno de su ángulo opuesto, con la misma razón para los tres"
+
+explicacion: |
+  Vale para cualquier triángulo, no sólo los rectángulos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_seno", "problema"]
+
+variables:
+  a: uno_de([10, 20, 30, 40])
+  sen_A: 0.5
+  sen_B: 1
+
+respuesta: (a / sen_A) * sen_B
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "En un triángulo, el lado a = {a} es opuesto al ángulo A = 30° (sen 30° = 0,5). El lado b es opuesto al ángulo B = 90° (sen 90° = 1). ¿Cuánto mide el lado b?"
+
+pasos:
+  - "{a} ÷ 0,5 = {a / sen_A} (la razón constante del triángulo)"
+  - "b = {a / sen_A} × 1 = {(a / sen_A) * sen_B}"
+
+explicacion: |
+  Se usa la razón a/sen(A), que es la misma para los tres lados del
+  triángulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_seno", "problema"]
+
+variables:
+  b: uno_de([10, 14, 20])
+  sen_B: 0.71
+  sen_A: 0.5
+
+respuesta: redondear((b / sen_B) * sen_A, 1)
+tipo: input
+tolerancia_abs: 1
+
+enunciado: "En un triángulo, el lado b = {b} es opuesto al ángulo B = 45° (sen 45° ≈ 0,71). El lado a es opuesto al ángulo A = 30° (sen 30° = 0,5). ¿Cuánto mide el lado a, aproximadamente?"
+
+pasos:
+  - "{b} ÷ 0,71 ≈ {redondear(b / sen_B, 2)} (razón constante)"
+  - "a ≈ {redondear(b / sen_B, 2)} × 0,5 ≈ {redondear((b / sen_B) * sen_A, 1)}"
+
+explicacion: |
+  Mismo procedimiento: primero se halla la razón constante, después se
+  aplica al ángulo del lado buscado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_seno", "vocabulario"]
+
+enunciado: "¿Cuándo conviene usar el teorema del seno para resolver un triángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando se conoce un ángulo y su lado opuesto, más otro ángulo o lado"
+  - "Cuando se conocen sólo los tres lados, sin ningún ángulo"
+  - "Nunca, sólo sirve para triángulos rectángulos"
+respuesta: "Cuando se conoce un ángulo y su lado opuesto, más otro ángulo o lado"
+
+explicacion: |
+  Ese par lado-ángulo opuesto es lo que permite fijar la razón
+  constante.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_coseno", "completar"]
+
+tipo: completar
+enunciado: "Completá el teorema del coseno: c² = a² + b² − ___."
+respuestas_validas:
+  - "2ab·cos(C)"
+  - "2ab cos(C)"
+  - "2*a*b*cos(C)"
+
+explicacion: |
+  C es el ángulo comprendido entre los lados a y b.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_coseno", "vocabulario"]
+
+enunciado: "¿Qué relación tiene el teorema del coseno con el teorema de Pitágoras?"
+tipo: mc
+opciones_explicitas:
+  - "Pitágoras es el caso particular del teorema del coseno cuando el ángulo C es de 90°"
+  - "No tienen ninguna relación entre sí"
+  - "El teorema del coseno reemplaza completamente a Pitágoras, que ya no se usa"
+respuesta: "Pitágoras es el caso particular del teorema del coseno cuando el ángulo C es de 90°"
+
+explicacion: |
+  Con cos(90°) = 0, el último término del teorema del coseno desaparece.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_coseno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el ángulo C de un triángulo es 90°, el teorema del coseno se reduce exactamente a c² = a² + b² (el teorema de Pitágoras)."
+
+explicacion: |
+  Porque cos(90°) = 0, y el término -2ab·cos(C) se anula.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_coseno", "problema"]
+
+variables:
+  a: 3
+  b: 4
+  cos_90: 0
+
+respuesta: 25
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Un triángulo tiene lados a = 3 y b = 4, con el ángulo C entre ellos de 90° (cos 90° = 0). Usando el teorema del coseno, ¿cuánto vale c²?"
+
+pasos:
+  - "c² = 3² + 4² − 2×3×4×0 = 9 + 16 − 0 = 25"
+
+explicacion: |
+  Da exactamente el mismo resultado que Pitágoras: 3² + 4² = 25.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_coseno", "problema"]
+
+variables:
+  a: uno_de([4, 6, 8])
+  b: uno_de([4, 6, 8])
+  cos_60: 0.5
+
+respuesta: (a * a) + (b * b) - (2 * a * b * cos_60)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un triángulo tiene lados a = {a} y b = {b}, con un ángulo C = 60° entre ellos (cos 60° = 0,5). Usando el teorema del coseno, ¿cuánto vale c²?"
+
+pasos:
+  - "{a}² + {b}² − 2×{a}×{b}×0,5 = {(a * a) + (b * b) - (2 * a * b * cos_60)}"
+
+explicacion: |
+  Se reemplazan los valores directamente en la fórmula.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_coseno", "problema"]
+
+variables:
+  a: uno_de([4, 5, 6])
+  b: uno_de([4, 5, 6])
+  cos_120: -0.5
+
+respuesta: (a * a) + (b * b) - (2 * a * b * cos_120)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Un triángulo tiene lados a = {a} y b = {b}, con un ángulo obtuso C = 120° entre ellos (cos 120° = -0,5). Usando el teorema del coseno, ¿cuánto vale c²?"
+
+pasos:
+  - "{a}² + {b}² − 2×{a}×{b}×(-0,5) = {(a * a) + (b * b) - (2 * a * b * cos_120)}"
+
+explicacion: |
+  Con coseno negativo, el término se SUMA en vez de restarse: el lado c
+  queda más largo que si el ángulo fuera agudo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_coseno", "vocabulario"]
+
+enunciado: "¿Cuándo conviene usar el teorema del coseno para resolver un triángulo?"
+tipo: mc
+opciones_explicitas:
+  - "Cuando se conocen dos lados y el ángulo entre ellos, o los tres lados"
+  - "Cuando se conoce sólo un lado, sin ningún ángulo"
+  - "Nunca, sólo sirve para triángulos rectángulos"
+respuesta: "Cuando se conocen dos lados y el ángulo entre ellos, o los tres lados"
+
+explicacion: |
+  Es el caso LAL (lado-ángulo-lado) o LLL (los tres lados).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["vocabulario"]
+
+enunciado: "¿Cuál es la diferencia clave entre cuándo usar el teorema del seno y cuándo el del coseno?"
+tipo: mc
+opciones_explicitas:
+  - "El seno necesita un ángulo con su lado opuesto ya conocidos; el coseno necesita dos lados y el ángulo entre ellos (o los tres lados)"
+  - "El seno sólo sirve para ángulos agudos; el coseno sólo para obtusos"
+  - "Son intercambiables, da lo mismo cuál se use"
+respuesta: "El seno necesita un ángulo con su lado opuesto ya conocidos; el coseno necesita dos lados y el ángulo entre ellos (o los tres lados)"
+
+explicacion: |
+  Es la clave para decidir cuál aplicar según los datos disponibles.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_coseno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El teorema del coseno funciona igual de bien con ángulos obtusos (mayores a 90°), no sólo con agudos."
+
+explicacion: |
+  El coseno de un ángulo obtuso es simplemente negativo, y la fórmula
+  lo maneja sin ningún ajuste extra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_coseno", "problema"]
+
+variables:
+  a: 6
+  b: 8
+  cos_60: 0.5
+
+respuesta: redondear(sqrt((a * a) + (b * b) - (2 * a * b * cos_60)), 2)
+tipo: input
+tolerancia_abs: 0.05
+
+enunciado: "Un terreno triangular tiene dos lados de {a} m y {b} m, con un ángulo de 60° entre ellos. ¿Cuánto mide el tercer lado? Redondeá a 2 decimales."
+
+pasos:
+  - "c² = {a}² + {b}² − 2×{a}×{b}×0,5 = {(a * a) + (b * b) - (2 * a * b * cos_60)}"
+  - "c = √{(a * a) + (b * b) - (2 * a * b * cos_60)} ≈ {redondear(sqrt((a * a) + (b * b) - (2 * a * b * cos_60)), 2)} m"
+
+explicacion: |
+  Se calcula c² con el teorema del coseno, y recién al final se saca
+  raíz cuadrada para obtener c.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_coseno", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar el lado c con el teorema del coseno, conociendo a, b y el ángulo C entre ellos."
+tipo: ordenar
+opciones_explicitas:
+  - "Sacar raíz cuadrada de c² para obtener c"
+  - "Reemplazar a, b y cos(C) en la fórmula c² = a² + b² − 2ab·cos(C)"
+  - "Calcular el valor numérico de c²"
+respuesta_orden: ["Reemplazar a, b y cos(C) en la fórmula c² = a² + b² − 2ab·cos(C)", "Calcular el valor numérico de c²", "Sacar raíz cuadrada de c² para obtener c"]
+explicacion: |
+  La raíz cuadrada siempre va al final, no antes de tener c² completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["teorema_seno", "ordenar"]
+
+enunciado: "Ordená los pasos para hallar un lado desconocido con el teorema del seno."
+tipo: ordenar
+opciones_explicitas:
+  - "El resultado es el lado buscado"
+  - "Calcular la razón lado/sen(ángulo opuesto) con el par de datos ya conocido"
+  - "Multiplicar esa razón por el seno del ángulo opuesto al lado buscado"
+respuesta_orden: ["Calcular la razón lado/sen(ángulo opuesto) con el par de datos ya conocido", "Multiplicar esa razón por el seno del ángulo opuesto al lado buscado", "El resultado es el lado buscado"]
+explicacion: |
+  La razón constante es el puente entre el par conocido y el
+  desconocido.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_seno"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El teorema del seno también se puede usar al revés: para hallar un ángulo desconocido, si se conocen los dos lados involucrados y un ángulo opuesto ya conocido."
+
+explicacion: |
+  La misma proporción se puede despejar para cualquiera de sus cuatro
+  términos (dos lados, dos ángulos).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "intermedio"
+  tags: ["vocabulario"]
+
+enunciado: "¿Para qué se usan estos dos teoremas en topografía?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular distancias o alturas inaccesibles, midiendo sólo algunos ángulos y una distancia de referencia"
+  - "Sólo para calcular el área de un terreno cuadrado"
+  - "No tienen ninguna aplicación práctica fuera del aula"
+respuesta: "Para calcular distancias o alturas inaccesibles, midiendo sólo algunos ángulos y una distancia de referencia"
+
+explicacion: |
+  Es la base de la triangulación: no hace falta que el triángulo
+  formado tenga un ángulo recto.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El teorema del seno y del coseno también son válidos para triángulos rectángulos, aunque ahí ya alcance con Pitágoras y las razones trigonométricas simples."
+
+explicacion: |
+  Son herramientas más generales; simplemente no hace falta usarlas
+  cuando hay una forma más rápida disponible.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["problema"]
+
+variables:
+  lado: 5
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un triángulo equilátero tiene los tres lados iguales a {lado}, y sus tres ángulos son de 60°. ¿Es consistente que la razón lado/sen(ángulo opuesto) dé el mismo valor para los tres lados (teorema del seno)?"
+
+explicacion: |
+  Al ser equilátero, los tres pares lado-ángulo son idénticos entre sí:
+  la razón tiene que coincidir por simetría.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "avanzado"
+  tags: ["teorema_coseno", "vocabulario"]
+
+enunciado: "Si se conocen los tres lados de un triángulo (LLL) pero ningún ángulo, ¿qué teorema conviene usar para hallar un ángulo?"
+tipo: mc
+opciones_explicitas:
+  - "El teorema del coseno, despejando cos(C) de la fórmula"
+  - "El teorema del seno, porque siempre es más simple"
+  - "Ninguno de los dos sirve sin conocer al menos un ángulo de entrada"
+respuesta: "El teorema del coseno, despejando cos(C) de la fórmula"
+
+explicacion: |
+  cos(C) = (a² + b² − c²) / (2ab): se puede despejar sin conocer ningún
+  ángulo de entrada.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "teorema_del_seno_y_del_coseno"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirven el teorema del seno y del coseno en conjunto?"
+tipo: mc
+opciones_explicitas:
+  - "Para resolver cualquier triángulo, tenga o no un ángulo recto, según qué datos estén disponibles"
+  - "Sólo sirven para triángulos equiláteros"
+  - "Son redundantes entre sí, alcanza con saber uno solo"
+respuesta: "Para resolver cualquier triángulo, tenga o no un ángulo recto, según qué datos estén disponibles"
+
+explicacion: |
+  Entre los dos, y sumados a Pitágoras para el caso rectángulo, cubren
+  cualquier triángulo posible.
 ```
 
 ## Sección: conjuntos-pertenencia-e-inclusion (24 preguntas)
@@ -2432,617 +2460,1022 @@ explicacion: |
   inicio + (k − 1).
 ```
 
-## Sección: divisibilidad/regla-del-7-opcional (28 preguntas)
+## Sección: valor-posicional (40 preguntas)
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "completar"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  numero: random(100, 999)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
 
-respuesta: "duplicar"
-tipo: completar
-respuestas_validas:
-  - "duplicar"
-  - "duplicarlo"
-  - "doblar"
+respuesta: u
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "En la regla del 7, tras separar la última cifra, hay que ___ esa cifra por 2."
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las unidades?"
+
+pasos:
+  - "Las unidades son la cifra más a la derecha de {numero}: {u}"
 
 explicacion: |
-  El algoritmo requiere multiplicar por 2 la cifra separada.
+  La cifra de las unidades es siempre la última, la que está más a la
+  derecha del número.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "completar"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  numero: random(100, 999)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
 
-respuesta: "restar"
-tipo: completar
-respuestas_validas:
-  - "restar"
-  - "restarle"
+respuesta: d
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "Una vez duplicada la última cifra, se debe ___ ese valor al número que queda sin la última cifra."
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las decenas?"
+
+pasos:
+  - "Las decenas son la segunda cifra desde la derecha de {numero}: {d}"
 
 explicacion: |
-  La operación clave es la resta del valor duplicado al resto truncado.
+  La cifra de las decenas es la que está un lugar a la izquierda de las
+  unidades.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "completar"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  numero: random(100, 999)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
 
-respuesta: "multiplo"
-tipo: completar
-respuestas_validas:
-  - "multiplo"
-  - "múltiplo"
-  - "multiplo de 7"
-  - "múltiplo de 7"
-
-enunciado: "Si el resultado final del algoritmo es 0 o un ___, el número original es divisible por 7."
-
-explicacion: |
-  La condición de divisibilidad se cumple si el residuo final es múltiplo de 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
-
-variables:
-  numero: 140
-  u1: 0
-  r1: 14
-  d1: 0
-  res1: 14
-  u2: 4
-  r2: 1
-  d2: 8
-  res2: -7
-
-respuesta: "si"
+respuesta: c
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 14 - 0 = 14. Paso 2: 1 - 8 = -7. ¿Es divisible por 7? (escribí 'si' o 'no')"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las centenas?"
+
+pasos:
+  - "Las centenas son la tercera cifra desde la derecha de {numero}: {c}"
 
 explicacion: |
-  -7 es múltiplo de 7, por lo tanto 140 también lo es.
+  La cifra de las centenas es la que está dos lugares a la izquierda de las
+  unidades.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  numero: 210
-  u1: 0
-  r1: 21
-  d1: 0
-  res1: 21
-  u2: 1
-  r2: 2
-  d2: 2
-  res2: 0
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
 
-respuesta: "si"
+respuesta: m
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 21 - 0 = 21. Paso 2: 2 - 2 = 0. ¿Es divisible por 7? (escribí 'si' o 'no')"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las unidades de mil?"
+
+pasos:
+  - "Las unidades de mil son la cuarta cifra desde la derecha de {numero}: {m}"
 
 explicacion: |
-  0 es múltiplo de 7, por lo tanto 210 también lo es.
+  Cada vez que se agrega un lugar más a la izquierda, el valor de la
+  posición se multiplica por 10: unidades → decenas → centenas →
+  unidades de mil.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  numero: 15
-  u1: 5
-  r1: 1
-  d1: 10
-  res1: -9
+  dm: random(1, 9)
+  m: random(0, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
 
-respuesta: "no"
+respuesta: dm
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 1 - 10 = -9. ¿Es divisible por 7? (escribí 'si' o 'no')"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las decenas de mil?"
+
+pasos:
+  - "Las decenas de mil son la quinta cifra desde la derecha de {numero}: {dm}"
 
 explicacion: |
-  -9 no es múltiplo de 7, por lo tanto 15 no lo es.
+  Con 5 cifras, la primera de la izquierda es la de las decenas de mil.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+  tags: ["valor_posicional", "identificar_cifra"]
 
 variables:
-  numero: 301
-  u1: 1
-  r1: 30
-  d1: 2
-  res1: 28
+  cm: random(1, 9)
+  dm: random(0, 9)
+  m: random(0, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: cm * 100000 + dm * 10000 + m * 1000 + c * 100 + d * 10 + u
 
-respuesta: 28
+respuesta: cm
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Para el número {numero}, ¿cuál es el resultado tras restar el doble de la última cifra al resto?"
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las centenas de mil?"
+
+pasos:
+  - "Las centenas de mil son la sexta cifra desde la derecha de {numero}: {cm}"
 
 explicacion: |
-  30 - 2 = 28.
+  Con 6 cifras, la primera de la izquierda es la de las centenas de mil.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
-
-variables:
-  numero: 301
-  res1: 28
-  u2: 8
-  r2: 2
-  d2: 16
-  res2: -14
-
-respuesta: -14
-tipo: input
-
-enunciado: "Continuando con {res1}, ¿cuál es el siguiente resultado al restar el doble de la última cifra (8) al resto (2)?"
-
-explicacion: |
-  2 - 16 = -14.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "decision"]
-
-variables:
-  resultado: -14
-
-respuesta: "si"
-tipo: input
-
-enunciado: "Si el resultado del algoritmo es {resultado}, ¿es divisible por 7? (escribí 'si' o 'no')"
-
-explicacion: |
-  -14 es múltiplo de 7 (-2 * 7), por lo tanto sí.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "teoria"]
+  tags: ["valor_posicional", "valor_de_cifra"]
 
-respuesta: "7"
+variables:
+  c: random(1, 9)
+  d: random(1, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
+respuesta: d * 10
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuánto VALE la cifra de las decenas (no cuál es, sino cuánto vale)?"
+
+pasos:
+  - "La cifra de las decenas es {d}, y en ese lugar vale {d} × 10 = {d * 10}"
+
+explicacion: |
+  No es lo mismo la cifra que su valor: la cifra es sólo el dígito (0-9); el
+  valor es ese dígito multiplicado por lo que vale su posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "valor_de_cifra"]
+
+variables:
+  m: random(1, 9)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+respuesta: c * 100
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuánto vale la cifra de las centenas?"
+
+pasos:
+  - "La cifra de las centenas es {c}, y en ese lugar vale {c} × 100 = {c * 100}"
+
+explicacion: |
+  El valor de una cifra es siempre el dígito multiplicado por la potencia de
+  10 que le corresponde a su lugar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "valor_de_cifra"]
+
+variables:
+  dm: random(1, 9)
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
+
+respuesta: m * 1000
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuánto vale la cifra de las unidades de mil?"
+
+pasos:
+  - "La cifra de las unidades de mil es {m}, y en ese lugar vale {m} × 1.000 = {m * 1000}"
+
+explicacion: |
+  A partir de las unidades de mil, cada lugar vale 1.000 veces más que el
+  dígito solo, antes de seguir multiplicando por 10 hacia la izquierda.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
+respuesta: numero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número resulta de {c} centenas + {d} decenas + {u} unidades?"
+
+pasos:
+  - "{c} × 100 + {d} × 10 + {u} = {numero}"
+
+explicacion: |
+  Componer un número es la operación inversa a descomponerlo: se suman los
+  valores de cada cifra en su lugar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+respuesta: numero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número resulta de {m} unidades de mil + {c} centenas + {d} decenas + {u} unidades?"
+
+pasos:
+  - "{m} × 1.000 + {c} × 100 + {d} × 10 + {u} = {numero}"
+
+explicacion: |
+  Cada término de la descomposición aporta el valor de su cifra en su
+  lugar; sumados dan el número completo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  dm: random(1, 9)
+  m: random(0, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
+
+respuesta: numero
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Qué número resulta de {dm} decenas de mil + {m} unidades de mil + {c} centenas + {d} decenas + {u} unidades?"
+
+pasos:
+  - "{dm} × 10.000 + {m} × 1.000 + {c} × 100 + {d} × 10 + {u} = {numero}"
+
+explicacion: |
+  Con más cifras el procedimiento es el mismo: sumar el valor posicional de
+  cada una.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  a: random(10, 999)
+  b: random(10, 999)
+
+respuesta: (longitud(concatenar(a)) > longitud(concatenar(b)))
+tipo: vf
+
+enunciado: "¿Tiene {a} más cifras que {b}?"
+
+explicacion: |
+  Antes de mirar cifra por cifra, conviene contar cuántas cifras tiene cada
+  número: el que tiene más cifras es siempre el mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  a: random(1, 9999)
+  b: random(1, 9999)
+
+restricciones:
+  - longitud(concatenar(a)) != longitud(concatenar(b))
+
+respuesta: max(a, b)
+tipo: mc
+opciones_explicitas:
+  - a
+  - b
+
+enunciado: "¿Cuál de estos dos números tiene más cifras: {a} o {b}?"
+
+explicacion: |
+  La cantidad de cifras decide directamente cuál número es mayor, sin
+  necesidad de comparar cifra por cifra.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  c: random(1, 9)
+  d1: random(0, 9)
+  d2: random(0, 9)
+  u1: random(0, 9)
+  u2: random(0, 9)
+  a: c * 100 + d1 * 10 + u1
+  b: c * 100 + d2 * 10 + u2
+
+restricciones:
+  - d1 != d2
+
+respuesta: (a > b)
+tipo: vf
+
+enunciado: "{a} y {b} tienen la misma cifra de centenas. ¿Es {a} mayor que {b}?"
+
+explicacion: |
+  Cuando dos números tienen la misma cantidad de cifras y coinciden en la
+  primera, hay que seguir comparando la próxima cifra hacia la derecha
+  hasta encontrar una diferencia.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  m: random(1, 9)
+  resto1: random(0, 999)
+  resto2: random(0, 999)
+  a: m * 1000 + resto1
+  b: m * 1000 + resto2
+
+restricciones:
+  - resto1 != resto2
+
+respuesta: max(a, b)
+tipo: mc
+opciones_explicitas:
+  - a
+  - b
+
+enunciado: "{a} y {b} tienen la misma cifra de unidades de mil. ¿Cuál de los dos es mayor?"
+
+explicacion: |
+  Si la primera cifra empata, la decisión queda en manos de las cifras
+  siguientes, comparadas en el mismo orden (de izquierda a derecha).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "comparacion"]
+
+variables:
+  c: random(1, 9)
+  d1: random(0, 8)
+  d2: random(0, 8)
+  u: random(0, 9)
+  a: c * 100 + d1 * 10 + u
+  b: c * 100 + d2 * 10 + u
+
+restricciones:
+  - d1 != d2
+
+respuesta: (a < b)
+tipo: vf
+
+enunciado: "{a} y {b} tienen la misma cifra de centenas y de unidades, sólo cambia la de decenas ({d1} contra {d2}). ¿Es {a} menor que {b}?"
+
+explicacion: |
+  Cuando todas las demás cifras coinciden, el número menor es el que tiene
+  la cifra más chica en la primera posición donde difieren.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  numero: random(11, 988)
+  resultado: redondear(numero / 10, 0) * 10
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la decena más cercana."
+
+pasos:
+  - "Se mira la cifra de las unidades de {numero} para decidir si la decena sube o queda igual: resultado {resultado}"
+
+explicacion: |
+  Se mira la cifra que está un lugar a la derecha de la posición a
+  redondear (acá, las unidades): 5 o más, la decena sube; menos de 5, queda
+  igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  base: random(1, 98)
+  numero: base * 10 + 5
+  resultado: redondear(numero / 10, 0) * 10
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la decena más cercana."
+
+pasos:
+  - "La cifra de las unidades es 5: por convención, la decena sube. {numero} → {resultado}"
+
+explicacion: |
+  Cuando la cifra que decide el redondeo es exactamente 5, la regla es que
+  la posición anterior sube (no se deja igual).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  numero: random(101, 9888)
+  resultado: redondear(numero / 100, 0) * 100
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la centena más cercana."
+
+pasos:
+  - "Se mira la cifra de las decenas de {numero} para decidir: resultado {resultado}"
+
+explicacion: |
+  Igual que redondear a la decena, pero mirando la cifra de las decenas
+  (un lugar a la derecha de las centenas).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  base: random(1, 98)
+  numero: base * 100 + 50
+  resultado: redondear(numero / 100, 0) * 100
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} a la centena más cercana."
+
+pasos:
+  - "La cifra de las decenas es 5: la centena sube. {numero} → {resultado}"
+
+explicacion: |
+  Mismo criterio que con las decenas: en el caso frontera (cifra 5), la
+  posición objetivo sube.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "redondeo"]
+
+variables:
+  numero: random(1001, 98888)
+  resultado: redondear(numero / 1000, 0) * 1000
+
+respuesta: resultado
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Redondeá {numero} al millar (unidad de mil) más cercano."
+
+pasos:
+  - "Se mira la cifra de las centenas de {numero} para decidir: resultado {resultado}"
+
+explicacion: |
+  El mismo criterio de siempre, ahora mirando la cifra de las centenas para
+  decidir si la unidad de mil sube o queda igual.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "decimales"]
+
+variables:
+  entero: random(1, 99)
+  t: random(1, 9)
+  h: random(0, 9)
+  numero: entero + t / 10 + h / 100
+
+respuesta: t
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de los décimos?"
+
+pasos:
+  - "Los décimos son la primera cifra después de la coma: {t}"
+
+explicacion: |
+  Del otro lado de la coma la lógica se invierte: la primera posición
+  (décimos) vale ÷10, no ×10.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "decimales"]
+
+variables:
+  entero: random(1, 99)
+  t: random(0, 9)
+  h: random(1, 9)
+  numero: entero + t / 10 + h / 100
+
+respuesta: h
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de los centésimos?"
+
+pasos:
+  - "Los centésimos son la segunda cifra después de la coma: {h}"
+
+explicacion: |
+  Los centésimos valen ÷100: cada lugar después de la coma sigue dividiendo
+  por 10 respecto al anterior.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "avanzado"
+  tags: ["valor_posicional", "decimales", "valor_de_cifra"]
+
+variables:
+  entero: random(1, 99)
+  t: random(1, 9)
+  h: random(0, 9)
+  numero: entero + t / 10 + h / 100
+
+respuesta: t / 10
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "En el número {numero}, ¿cuánto vale la cifra de los décimos?"
+
+pasos:
+  - "La cifra de los décimos es {t}, y en ese lugar vale {t} ÷ 10 = {t / 10}"
+
+explicacion: |
+  Igual que del lado entero: el valor es la cifra multiplicada (acá,
+  dividida) por lo que vale su posición.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "cantidad_de_cifras"]
+
+variables:
+  numero: random(100, 98765)
+
+respuesta: longitud(concatenar(numero))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas cifras tiene el número {numero}?"
+
+explicacion: |
+  Se cuentan todos los dígitos del número, de izquierda a derecha, sin
+  saltear ninguno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "cantidad_de_cifras"]
+
+variables:
+  numero: random(1000000, 987654321)
+
+respuesta: longitud(concatenar(numero))
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas cifras tiene el número {numero}?"
+
+explicacion: |
+  El procedimiento es el mismo con números grandes: contar los dígitos, uno
+  por uno.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "identificar_cifra"]
+
+variables:
+  m: random(1, 9)
+  c: random(0, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+respuesta: m
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "En el número {numero}, ¿cuál es la cifra que ocupa el lugar de mayor valor (la que más vale)?"
+
+pasos:
+  - "La cifra de mayor valor es siempre la primera de la izquierda: {m}"
+
+explicacion: |
+  La cifra de mayor valor posicional es la más a la izquierda: es la que
+  está multiplicada por la potencia de 10 más grande.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+enunciado: "¿Cómo se llama el lugar de la 3ª cifra contando desde la derecha de un número?"
+tipo: mc
+opciones_explicitas:
+  - "Unidades"
+  - "Decenas"
+  - "Centenas"
+respuesta: "Centenas"
+
+explicacion: |
+  Contando desde la derecha: 1ª unidades, 2ª decenas, 3ª centenas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+enunciado: "¿Cómo se llama el lugar de la cifra que está más a la derecha en cualquier número entero?"
+tipo: mc
+opciones_explicitas:
+  - "Unidades"
+  - "Decenas"
+  - "Centenas"
+respuesta: "Unidades"
+
+explicacion: |
+  La cifra más a la derecha de un número entero siempre ocupa el lugar de
+  las unidades.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En el número 4.257, la cifra 2 vale 200."
+
+explicacion: |
+  El 2 de 4.257 está en el lugar de las centenas: 2 × 100 = 200.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "vocabulario"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En el número 4.257, la cifra 5 vale 5."
+
+explicacion: |
+  El 5 de 4.257 está en el lugar de las decenas, no de las unidades: vale
+  5 × 10 = 50, no 5.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  c: random(1, 9)
+  d: random(1, 9)
+  u: random(0, 9)
+  numero: c * 100 + d * 10 + u
+
 tipo: completar
+enunciado: "Completá: {c} × 100 + ___ × 10 + {u} = {numero}."
 respuestas_validas:
+  - d
+
+explicacion: |
+  El hueco es la cifra de las decenas: la única que hace que la suma dé
+  exactamente el número de la derecha.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  m: random(1, 9)
+  c: random(1, 9)
+  d: random(0, 9)
+  u: random(0, 9)
+  numero: m * 1000 + c * 100 + d * 10 + u
+
+tipo: completar
+enunciado: "Completá: {m} × 1.000 + ___ × 100 + {d} × 10 + {u} = {numero}."
+respuestas_validas:
+  - c
+
+explicacion: |
+  Se despeja la cifra que falta viendo cuál hace que la suma total coincida
+  con el número dado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "basico"
+  tags: ["valor_posicional", "orden"]
+
+tipo: ordenar
+enunciado: "Ordená estas cifras de menor a mayor."
+opciones_explicitas:
   - "7"
-  - "siete"
-
-enunciado: "La regla que consiste en duplicar la última cifra y restarla al resto se aplica para verificar la divisibilidad por el número ___."
-
-explicacion: |
-  Es la regla específica para el divisor 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "teoria"]
-
-respuesta: "separar"
-tipo: completar
-respuestas_validas:
-  - "separar"
-  - "aislar"
-
-enunciado: "El primer paso de la regla del 7 es ___ la última cifra del número."
-
-explicacion: |
-  Se debe aislar la unidad para procesarla.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "teoria"]
-
-respuesta: "2"
-tipo: completar
-respuestas_validas:
   - "2"
-  - "dos"
-
-enunciado: "La última cifra se multiplica por el número ___."
+  - "9"
+  - "4"
+respuesta_orden: ["2", "4", "7", "9"]
 
 explicacion: |
-  El factor de multiplicación es 2.
+  Ordenar cifras sueltas es comparar dígitos, sin que ningún lugar
+  posicional entre en juego todavía.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "teoria"]
-
-respuesta: "resta"
-tipo: completar
-respuestas_validas:
-  - "resta"
-  - "restar"
-
-enunciado: "El valor duplicado se ___ al número que queda sin la última cifra."
-
-explicacion: |
-  La operación es una resta.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "basico"
-  tags: ["divisibilidad", "regla_del_7", "teoria"]
-
-respuesta: "multiplo"
-tipo: completar
-respuestas_validas:
-  - "multiplo"
-  - "múltiplo"
-
-enunciado: "Si el resultado final es 0 o un ___, la divisibilidad está confirmada."
-
-explicacion: |
-  La condición es ser múltiplo de 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+  tags: ["valor_posicional", "composicion"]
 
 variables:
-  numero: 931
-  u1: 1
-  r1: 93
-  d1: 2
-  res1: 91
+  par: n_de([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
+  d1: primero(par)
+  d2: ultimo(par)
+  menor_digito: primero(ordenar(par))
+  mayor_digito: ultimo(ordenar(par))
 
-respuesta: 91
+restricciones:
+  - d1 != d2
+
+respuesta: mayor_digito * 10 + menor_digito
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Para {numero}, calculá {r1} - {d1}."
+enunciado: "Con las cifras {d1} y {d2}, ¿cuál es el mayor número de 2 cifras que se puede formar (usando cada cifra una sola vez)?"
+
+pasos:
+  - "Para que sea el mayor posible, la cifra más grande va en las decenas: {mayor_digito} decenas + {menor_digito} unidades = {mayor_digito * 10 + menor_digito}"
 
 explicacion: |
-  93 - 2 = 91.
+  Para armar el número más grande posible con cifras dadas, la cifra más
+  grande siempre va en el lugar de mayor valor.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+  tags: ["valor_posicional", "composicion"]
 
 variables:
-  res1: 91
-  u2: 1
-  r2: 9
-  d2: 2
-  res2: 7
+  par: n_de([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
+  d1: primero(par)
+  d2: ultimo(par)
+  menor_digito: primero(ordenar(par))
+  mayor_digito: ultimo(ordenar(par))
 
-respuesta: 7
+restricciones:
+  - d1 != d2
+
+respuesta: menor_digito * 10 + mayor_digito
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Para {res1}, calculá {r2} - {d2}."
+enunciado: "Con las cifras {d1} y {d2}, ¿cuál es el menor número de 2 cifras que se puede formar (usando cada cifra una sola vez)?"
+
+pasos:
+  - "Para que sea el menor posible, la cifra más chica va en las decenas: {menor_digito} decenas + {mayor_digito} unidades = {menor_digito * 10 + mayor_digito}"
 
 explicacion: |
-  9 - 2 = 7.
+  Al revés que para el mayor número: la cifra más chica va en el lugar de
+  mayor valor, para que pese lo menos posible.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "intermedio"
-  tags: ["divisibilidad", "regla_del_7", "decision"]
+  tags: ["valor_posicional", "descomposicion"]
 
 variables:
-  resultado: 7
+  numero: random(1001, 98765)
 
-respuesta: "si"
+respuesta: floor(numero / 1000)
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "El resultado final es {resultado}. ¿Es divisible por 7? (escribí 'si' o 'no')"
+enunciado: "¿Cuántas unidades de mil completas tiene el número {numero}?"
+
+pasos:
+  - "{numero} ÷ 1.000, tomando sólo la parte entera: {floor(numero / 1000)}"
 
 explicacion: |
-  7 es múltiplo de 7.
+  Es lo mismo que preguntar por las cifras que quedan a la izquierda del
+  lugar de las centenas, leídas como un solo número.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
+  materia: "matematicas"
+  tema: "valor_posicional"
+  nivel: "intermedio"
+  tags: ["valor_posicional", "descomposicion"]
+
+variables:
+  numero: random(101, 9876)
+
+respuesta: floor(numero / 100)
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "¿Cuántas centenas completas tiene el número {numero}?"
+
+pasos:
+  - "{numero} ÷ 100, tomando sólo la parte entera: {floor(numero / 100)}"
+
+explicacion: |
+  Son las cifras que quedan a la izquierda del lugar de las decenas, leídas
+  como un solo número.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "valor_posicional"
   nivel: "basico"
-  tags: ["regla_del_7", "verificacion"]
-
-variables:
-  n: random(100, 999)
-  es_divisible: (n % 7 == 0)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  Para verificar si un número es divisible por 7, aplicamos la regla:
-  1. Separamos la última cifra.
-  2. Duplicamos esa cifra.
-  3. Restamos el doble al número restante.
-  Si el resultado es divisible por 7, el original también lo es.
-  En este caso, {n} no lo es.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "algoritmo"]
-
-variables:
-  cifra_ultima: random(1, 9)
-  resto: random(10, 99)
-  numero: resto * 10 + cifra_ultima
-  doble: cifra_ultima * 2
-  nuevo_numero: resto - doble
-  es_divisible: (nuevo_numero % 7 == 0)
+  tags: ["valor_posicional", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si aplicamos la regla del 7 al número {numero}, el resultado intermedio es {nuevo_numero}, que es divisible por 7."
+enunciado: "El valor de una cifra depende del lugar que ocupa dentro del número, no sólo de qué dígito es."
 
 explicacion: |
-  La regla del 7 consiste en restar el doble de la última cifra al resto del número.
-  Aquí: {numero} -> {resto} - {doble} = {nuevo_numero}.
-  Como {nuevo_numero} es múltiplo de 7, {numero} también lo es.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "verificacion"]
-
-variables:
-  n: random(1000, 9999)
-  es_divisible: (n % 7 == 0)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  Aplicamos la regla iterativa. Si el resultado final no es 0 o múltiplo de 7, el número original no es divisible.
-  En este caso, {n} no lo es.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "verificacion"]
-
-variables:
-  n: random(100, 999)
-  es_divisible: (n % 7 == 0)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  Al aplicar la regla de divisibilidad por 7, el resultado final no es 0 ni múltiplo de 7.
-  Por lo tanto, {n} no es divisible por 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "identificacion"]
-
-variables:
-  base: random(10, 20)
-  n: base * 7
-  es_divisible: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  {n} es el producto de {base} por 7, por lo tanto es múltiplo de 7.
-  La regla del 7 confirma esto al dar un resultado final múltiplo de 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "concepto"]
-
-variables:
-  n: random(100, 999)
-  es_divisible: (n % 7 == 0)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La regla del 7 solo se aplica a números positivos."
-
-explicacion: |
-  Falso. La regla de divisibilidad por 7 se aplica a cualquier entero.
-  Para negativos, se puede aplicar la regla al valor absoluto o considerar el signo al final.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "verificacion"]
-
-variables:
-  base: random(100, 142)
-  n: base * 7
-  es_divisible: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  {n} es {base} × 7, por lo tanto es divisible.
-  La regla del 7 confirmará esto tras iterar.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "identificacion"]
-
-variables:
-  base: random(10, 20)
-  n: base * 7
-  es_divisible: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número {n} es un múltiplo de 7."
-
-explicacion: |
-  {n} se obtiene multiplicando {base} por 7, por lo tanto es múltiplo de 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "verificacion"]
-
-variables:
-  n: random(100, 999)
-  es_divisible: (n % 7 == 0)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  Al aplicar la regla del 7, el resultado final no es 0 ni múltiplo de 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "identificacion"]
-
-variables:
-  base: random(10, 20)
-  n: base * 7
-  es_divisible: verdadero
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  {n} es múltiplo de 7.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "divisibilidad_regla_del_7_opcional"
-  nivel: "intermedio"
-  tags: ["regla_del_7", "verificacion"]
-
-variables:
-  n: random(100, 999)
-  es_divisible: (n % 7 == 0)
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El número {n} es divisible por 7."
-
-explicacion: |
-  Al aplicar la regla del 7, el resultado final no es 0 ni múltiplo de 7.
+  Es la idea central de todo el tema: el mismo dígito vale distinto según
+  esté en el lugar de las unidades, las decenas, las centenas, etc.
 ```
 

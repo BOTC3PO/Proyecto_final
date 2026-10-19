@@ -55,12 +55,14 @@ def parse_dependencias(materia: str):
         cols = _cols(line)
         if cols is None:
             continue
-        if dep_idx is None:
-            for i, c in enumerate(cols):
-                if "depende" in c.lower():
-                    dep_idx = i
-                    break
+        # Un archivo puede traer VARIAS tablas (p. ej. Matemática suma una de 3 columnas debajo de la de 4):
+        # cada encabezado nuevo (columna "Depende de" + una columna "Tema...") fija de nuevo el índice.
+        if any("depende" in c.lower() for c in cols) and any(c.lower().startswith("tema") for c in cols):
+            dep_idx = next(i for i, c in enumerate(cols) if "depende" in c.lower())
+            past_separator = False
             continue  # esta es la fila de encabezado, no datos
+        if dep_idx is None:
+            continue
         if not past_separator:
             if all(set(c) <= {"-", ":", ""} for c in cols):
                 past_separator = True

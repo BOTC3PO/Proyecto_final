@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #950]
+# Examen jefe — Maestro de la Experiencia de Usuario
 
-> Logro #950. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #950. Aprobaste el parcial dominando usabilidad y heurísticas de Nielsen, accesibilidad WCAG, jerarquía visual, prototipado y pruebas de usuario. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

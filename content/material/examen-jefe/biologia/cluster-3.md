@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #863]
+# Examen jefe — Experto en Metabolismo y Energía
 
-> Logro #863. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #863. Aprobaste el parcial sobre fotosíntesis y respiración celular, enzimas, flujo de materia y energía, adaptación al hábitat y microbiología con sistema inmunitario. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 

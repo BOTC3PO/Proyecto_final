@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #651]
+# Examen jefe — Dominio de Ortografía y Lectura Inicial
 
-> Logro #651. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
+> Logro #651. Completaste el parcial dominando conciencia fonológica, decodificación y fluidez, ortografía y tildación, signos de puntuación y el circuito de la comunicación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 

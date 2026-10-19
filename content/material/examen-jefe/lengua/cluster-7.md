@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #657]
+# Examen jefe — Domina la Persuasión y la Exposición Oral
 
-> Logro #657. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
+> Logro #657. Dominaste la exposición oral, la negociación y la presentación con apoyo visual, distinguiendo la persuasión ética de la manipulación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #698]
+# Examen jefe — Dominio del Orden Liberal y Nacional
 
-> Logro #698. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #698. Completaste el parcial dominando las revoluciones burguesas y el liberalismo, los estados nacionales, el imperialismo, la Constitución de 1853 y el modelo agroexportador con inmigración. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

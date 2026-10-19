@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #801]
+# Examen jefe — Maestro de Ambientalismo y Sociedad
 
-> Logro #801. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
+> Logro #801. Dominaste conservacionismo, decrecimiento y ecologismo político, junto con la formación de la población latinoamericana y los indicadores sociales de Argentina, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
 
 ---
 

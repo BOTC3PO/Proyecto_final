@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #628]
+# Examen jefe — Domina Sistemas y Series
 
-> Logro #628. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
+> Logro #628. Resolviste sistemas de dos ecuaciones, operaste con matrices, y trabajaste sucesiones, series geométricas y regla de tres inversa. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 

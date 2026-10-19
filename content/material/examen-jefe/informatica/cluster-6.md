@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #821]
+# Examen jefe — Datos, IA y Criptografía
 
-> Logro #821. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #821. Completaste el parcial con archivos y persistencia, el modelo relacional, la inteligencia artificial y su ética, y la criptografía simétrica, asimétrica y hash, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

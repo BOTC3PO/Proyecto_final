@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #749]
+# Examen jefe — Electromagnetismo, Trabajo y Energía
 
-> Logro #749. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
+> Logro #749. Completaste el parcial dominando campo magnético, inducción de Faraday-Lenz, trabajo de una fuerza y energía cinética, además de tormentas y fenómenos severos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
 

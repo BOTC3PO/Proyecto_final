@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #905]
+# Examen jefe — Experto en Ritmo, Música y Plano
 
-> Logro #905. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
+> Logro #905. Dominaste el pulso, compás y figuras musicales, el pentagrama con escalas e intervalos, la danza y la expresión corporal, y el plano y el encuadre audiovisual, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 

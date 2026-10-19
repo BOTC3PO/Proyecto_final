@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #653]
+# Examen jefe — Maestro de los Géneros Literarios
 
-> Logro #653. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
+> Logro #653. Dominaste el género dramático, el lírico, el narrativo y los géneros discursivos, sin fallar una pregunta sobre el narrador. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 

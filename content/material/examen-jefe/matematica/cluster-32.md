@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #632]
+# Examen jefe — Domina los Cuerpos Geométricos
 
-> Logro #632. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 6/6 secciones.
+> Logro #632. Calculaste conos, esferas, pirámides y prismas, desarrollaste sus planos, y aplicaste el producto escalar entre vectores. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 6/6 secciones.
 
 ---
 

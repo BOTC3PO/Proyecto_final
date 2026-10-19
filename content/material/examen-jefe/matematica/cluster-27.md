@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #627]
+# Examen jefe — Maestro de Ecuaciones Diferenciales
 
-> Logro #627. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #627. Resolviste ecuaciones diferenciales y secciones cónicas, y aplicaste regla de tres, porcentaje y redondeo, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

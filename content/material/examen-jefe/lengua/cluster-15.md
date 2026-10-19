@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #665]
+# Examen jefe — Maestro de las Subordinadas Sustantivas y la Voz
 
-> Logro #665. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #665. Dominaste las subordinadas sustantivas de sujeto, de complemento directo y de complemento del nombre, y cerraste distinguiendo la voz activa de la pasiva. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

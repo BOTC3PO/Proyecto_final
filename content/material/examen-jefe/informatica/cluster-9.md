@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #824]
+# Examen jefe — Ingeniería de Software y Bases de Datos
 
-> Logro #824. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
+> Logro #824. Completaste el parcial con requisitos funcionales y no funcionales, diseño y arquitectura, control de versiones, normalización de bases de datos y segmentación, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 

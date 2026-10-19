@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #743]
+# Examen jefe — Fluidos y Meteorología
 
-> Logro #743. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #743. Aprobaste el parcial con el principio de Arquímedes y el de Pascal, y con masas de aire y frentes, formación de nubes y precipitación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #654]
+# Examen jefe — Domina los Recursos Narrativos y Periodísticos
 
-> Logro #654. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
+> Logro #654. Completaste el examen dominando los géneros periodísticos, los paratextos, el punto de vista y los recursos literarios, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **130 preguntas totales** en 5/5 secciones.
 
 ---
 

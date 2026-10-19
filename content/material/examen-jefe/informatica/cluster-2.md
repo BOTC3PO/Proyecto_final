@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #817]
+# Examen jefe — Técnica, Numeración y Arranque
 
-> Logro #817. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
+> Logro #817. Dominaste los medios técnicos, los procesos artesanales e industriales, la historia de los sistemas operativos, el arranque de la computadora y los sistemas de numeración, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 

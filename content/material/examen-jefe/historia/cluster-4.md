@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #724]
+# Examen jefe — Experto en Corrientes Historiográficas
 
-> Logro #724. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #724. Aprobaste el parcial sobre la Escuela de los Annales, la historia cultural, el materialismo histórico, el positivismo y el estudio de las revoluciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #896]
+# Examen jefe — Dominio de Fuentes e Interpretación
 
-> Logro #896. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #896. Dominaste las fuentes del derecho, la jerarquía y vigencia de las normas, las corrientes de interpretación y la investigación con fiscalía y prueba. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 

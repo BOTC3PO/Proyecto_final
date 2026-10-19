@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #925]
+# Examen jefe — Maestro de Corrientes y Mente Humana
 
-> Logro #925. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #925. Dominaste las corrientes psicológicas, los sesgos cognitivos, lenguaje, pensamiento y creatividad, las edades del ser humano y la salud mental, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

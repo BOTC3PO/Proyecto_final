@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #866]
+# Examen jefe — Maestro de Evolución y Cuerpo Humano
 
-> Logro #866. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
+> Logro #866. Aprobaste el parcial sobre selección natural, quimiosíntesis y pirámides de biomasa, más las partes de la planta, la germinación y los sistemas del cuerpo humano. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
 
 ---
 

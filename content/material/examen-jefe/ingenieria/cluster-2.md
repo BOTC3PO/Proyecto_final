@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #919]
+# Examen jefe — Experto en Construir y Validar Soluciones
 
-> Logro #919. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 6/6 secciones.
+> Logro #919. Aprobaste el parcial sobre modelado y cálculo, resistencia de materiales, prototipo, ensayo y medición, optimización iterativa y cómo comunicar la solución, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 6/6 secciones.
 
 ---
 

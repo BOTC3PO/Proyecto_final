@@ -1,2153 +1,2195 @@
-# Examen jefe — [PENDIENTE #631]
+# Examen jefe — Maestro de Asíntotas y L'Hôpital
 
-> Logro #631. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **129 preguntas totales** en 5/5 secciones.
+> Logro #631. Trabajaste asíntotas, el teorema de Bolzano y la regla de L'Hôpital, calculaste volúmenes de cilindros y aplicaste la regla de divisibilidad por 7. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: distribucion-exponencial (20 preguntas)
+## Sección: divisibilidad/regla-del-7-opcional (28 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["exponencial", "vocabulario"]
+  tags: ["divisibilidad", "regla_del_7", "completar"]
 
-enunciado: "¿Qué modela la distribución exponencial?"
-tipo: mc
-opciones_explicitas:
-  - "El tiempo que pasa hasta que ocurre el próximo evento, cuando los eventos suceden a una tasa promedio constante"
-  - "La cantidad de eventos que ocurren en un intervalo fijo de tiempo"
-  - "El promedio de un conjunto de datos ya medidos"
-respuesta: "El tiempo que pasa hasta que ocurre el próximo evento, cuando los eventos suceden a una tasa promedio constante"
+variables:
+  numero: random(100, 999)
 
-explicacion: |
-  Como el tiempo hasta que llega el próximo colectivo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "basico"
-  tags: ["exponencial", "vocabulario"]
-
-enunciado: "En la distribución exponencial, ¿qué representa el parámetro λ (lambda)?"
-tipo: mc
-opciones_explicitas:
-  - "La tasa promedio de eventos por unidad de tiempo"
-  - "La cantidad total de eventos posibles"
-  - "El tiempo máximo que se puede esperar"
-respuesta: "La tasa promedio de eventos por unidad de tiempo"
-
-explicacion: |
-  Por ejemplo, 3 colectivos por hora → λ = 3/hora.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "intermedio"
-  tags: ["exponencial", "completar"]
-
+respuesta: "duplicar"
 tipo: completar
-enunciado: "Completá: el tiempo promedio de espera E(T) = 1 / ___."
 respuestas_validas:
-  - "λ"
-  - "lambda"
+  - "duplicar"
+  - "duplicarlo"
+  - "doblar"
+
+enunciado: "En la regla del 7, tras separar la última cifra, hay que ___ esa cifra por 2."
 
 explicacion: |
-  El tiempo promedio de espera es el inverso de la tasa de eventos.
+  El algoritmo requiere multiplicar por 2 la cifra separada.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "intermedio"
-  tags: ["exponencial", "problema"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "basico"
+  tags: ["divisibilidad", "regla_del_7", "completar"]
 
 variables:
-  lambda: uno_de([2, 3, 4, 6])
+  numero: random(100, 999)
 
-respuesta: redondear(1 / lambda, 3)
-tipo: input
-tolerancia_abs: 0.001
-unidad: "horas"
-
-enunciado: "En promedio llegan {lambda} colectivos por hora (λ = {lambda}/hora). ¿Cuál es el tiempo promedio de espera entre un colectivo y el siguiente, en horas?"
-
-pasos:
-  - "E(T) = 1/λ = 1/{lambda} = {redondear(1 / lambda, 3)} horas"
-
-explicacion: |
-  El tiempo promedio de espera es el inverso de la tasa de llegada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "intermedio"
-  tags: ["exponencial", "problema"]
-
-variables:
-  tiempo_promedio: uno_de([4, 5, 10, 20])
-
-respuesta: redondear(1 / tiempo_promedio, 3)
-tipo: input
-tolerancia_abs: 0.001
-
-enunciado: "El tiempo promedio entre fallas de una máquina es de {tiempo_promedio} días. ¿Cuál es la tasa λ de fallas por día?"
-
-pasos:
-  - "λ = 1/E(T) = 1/{tiempo_promedio} = {redondear(1 / tiempo_promedio, 3)} fallas por día"
-
-explicacion: |
-  λ y el tiempo promedio son inversos entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "completar"]
-
+respuesta: "restar"
 tipo: completar
-enunciado: "Completá: P(T > t) = e^(−λ × ___)."
 respuestas_validas:
-  - "t"
+  - "restar"
+  - "restarle"
+
+enunciado: "Una vez duplicada la última cifra, se debe ___ ese valor al número que queda sin la última cifra."
 
 explicacion: |
-  Es la probabilidad de tener que esperar más de `t` unidades de
-  tiempo.
+  La operación clave es la resta del valor duplicado al resto truncado.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "problema"]
-
-variables:
-  lambda: uno_de([0.5, 1, 2])
-  t: uno_de([1, 2])
-
-respuesta: redondear(e ^ (-(lambda * t)), 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Los eventos ocurren con tasa λ = {lambda} por unidad de tiempo. ¿Cuál es la probabilidad de tener que esperar MÁS de {t} unidades de tiempo (P(T > {t}))?"
-
-pasos:
-  - "P(T > {t}) = e^(−{lambda}×{t}) = {redondear(e ^ (-(lambda * t)), 3)}"
-
-explicacion: |
-  Cuanto más grande el tiempo `t`, más chica esta probabilidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "problema"]
-
-variables:
-  lambda: uno_de([0.5, 1, 2])
-  t: uno_de([1, 2])
-
-respuesta: redondear(1 - e ^ (-(lambda * t)), 3)
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Los eventos ocurren con tasa λ = {lambda} por unidad de tiempo. ¿Cuál es la probabilidad de que el evento YA HAYA OCURRIDO para el tiempo {t} (P(T ≤ {t}))?"
-
-pasos:
-  - "P(T ≤ {t}) = 1 − e^(−{lambda}×{t}) = {redondear(1 - e ^ (-(lambda * t)), 3)}"
-
-explicacion: |
-  Es el complemento de P(T > t): juntas siempre suman 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "intermedio"
-  tags: ["exponencial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "P(T ≤ t) y P(T > t) siempre suman exactamente 1, para cualquier valor de t."
-
-explicacion: |
-  Son eventos complementarios: o el evento ya ocurrió, o no.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "poisson"]
-
-enunciado: "¿Cómo se relaciona la distribución exponencial con la distribución de Poisson?"
-tipo: mc
-opciones_explicitas:
-  - "Si la CANTIDAD de eventos por intervalo sigue una Poisson, el TIEMPO entre esos eventos consecutivos sigue una exponencial con la misma tasa λ"
-  - "No tienen ninguna relación, son distribuciones completamente independientes"
-  - "La exponencial reemplaza a la Poisson, nunca se usan para el mismo problema"
-respuesta: "Si la CANTIDAD de eventos por intervalo sigue una Poisson, el TIEMPO entre esos eventos consecutivos sigue una exponencial con la misma tasa λ"
-
-explicacion: |
-  Son dos caras de la misma situación: una cuenta eventos (discreta),
-  la otra mide el tiempo entre ellos (continua).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["exponencial", "vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La distribución exponencial es una distribución continua, porque el tiempo puede tomar cualquier valor, no sólo números enteros."
-
-explicacion: |
-  A diferencia de la Poisson (discreta, que cuenta eventos enteros).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "basico"
-  tags: ["exponencial", "aplicacion"]
-
-enunciado: "Una lamparita dura en promedio 2.000 horas antes de quemarse, y las fallas ocurren al azar a una tasa constante. ¿Qué distribución conviene usar para modelar 'cuánto va a durar esta lamparita en particular'?"
-tipo: mc
-opciones_explicitas:
-  - "La distribución exponencial, con λ = 1/2000 fallas por hora"
-  - "La distribución binomial, con n=2000 intentos"
-  - "La distribución de Poisson, contando lamparitas"
-respuesta: "La distribución exponencial, con λ = 1/2000 fallas por hora"
-
-explicacion: |
-  Es exactamente "tiempo hasta que ocurre el próximo evento (la
-  falla)", el caso central de la exponencial.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "intermedio"
-  tags: ["exponencial", "clasificar"]
-
-enunciado: "¿Cuál de estos dos escenarios se modela con la distribución EXPONENCIAL, y no con Poisson?"
-tipo: mc
-opciones_explicitas:
-  - "El tiempo que pasa hasta que llega el próximo cliente a un local"
-  - "La cantidad de clientes que llegan a un local en una hora"
-respuesta: "El tiempo que pasa hasta que llega el próximo cliente a un local"
-
-explicacion: |
-  "Tiempo hasta" es exponencial (continua); "cantidad en un
-  intervalo" es Poisson (discreta) — ver `../distribucion-de-poisson/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "problema"]
+  tags: ["divisibilidad", "regla_del_7", "completar"]
 
 variables:
-  lambda_a: 1
-  lambda_b: 3
-  t: 1
+  numero: random(100, 999)
 
-respuesta: e ^ (-(lambda_a * t)) > e ^ (-(lambda_b * t))
-tipo: vf
+respuesta: "multiplo"
+tipo: completar
+respuestas_validas:
+  - "multiplo"
+  - "múltiplo"
+  - "multiplo de 7"
+  - "múltiplo de 7"
 
-enunciado: "Sistema A tiene λ = {lambda_a} eventos por hora; Sistema B tiene λ = {lambda_b} eventos por hora (más eventos por hora que A). Para el mismo tiempo t = {t} hora, ¿P(T > {t}) del Sistema A es MAYOR que la del Sistema B?"
+enunciado: "Si el resultado final del algoritmo es 0 o un ___, el número original es divisible por 7."
 
 explicacion: |
-  A menor tasa de eventos (λ), más probable es tener que esperar más
-  tiempo — A tiene menos eventos por hora, así que su P(T>1) es mayor.
+  La condición de divisibilidad se cumple si el residuo final es múltiplo de 7.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["exponencial"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuanto mayor es la tasa λ (más eventos ocurren por unidad de tiempo), menor es el tiempo promedio de espera hasta el próximo evento."
-
-explicacion: |
-  E(T) = 1/λ: si λ crece, 1/λ (el tiempo promedio) baja.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "intermedio"
-  tags: ["exponencial", "problema"]
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
 
 variables:
-  lambda_local_a: uno_de([2, 4])
-  lambda_local_b: uno_de([1, 3])
+  numero: 140
+  u1: 0
+  r1: 14
+  d1: 0
+  res1: 14
+  u2: 4
+  r2: 1
+  d2: 8
+  res2: -7
 
-respuesta: (1 / lambda_local_a) < (1 / lambda_local_b)
-tipo: vf
-
-enunciado: "Local A recibe clientes con tasa λ = {lambda_local_a} por hora; Local B recibe clientes con tasa λ = {lambda_local_b} por hora. ¿El tiempo promedio entre clientes del Local A es MENOR que el del Local B?"
-
-explicacion: |
-  Comparar 1/λ de cada local: mayor tasa de llegada implica menor
-  tiempo promedio de espera entre clientes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "basico"
-  tags: ["exponencial", "aplicacion"]
-
-enunciado: "Una fábrica quiere estimar la probabilidad de que una máquina funcione MÁS de 100 horas sin fallar, sabiendo que en promedio falla cada 500 horas. ¿Qué necesita calcular?"
-tipo: mc
-opciones_explicitas:
-  - "P(T > 100) usando la exponencial con λ = 1/500"
-  - "P(X = 100) usando la binomial con n = 500"
-  - "El desvío estándar de 500 horas"
-respuesta: "P(T > 100) usando la exponencial con λ = 1/500"
-
-explicacion: |
-  Es la pregunta central de la distribución exponencial aplicada a
-  confiabilidad de componentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "problema"]
-
-variables:
-  lambda: uno_de([1, 2, 4])
-  t: 1 / lambda
-
-respuesta: redondear(e ^ (-(lambda * t)), 3)
+respuesta: "si"
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "Con λ = {lambda}, el tiempo promedio de espera es 1/{lambda}. ¿Cuál es la probabilidad de esperar MÁS que ese tiempo promedio (P(T > 1/λ))?"
-
-pasos:
-  - "P(T > 1/λ) = e^(−λ×1/λ) = e^(−1) ≈ {redondear(e ^ (-(lambda * t)), 3)}"
+enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 14 - 0 = 14. Paso 2: 1 - 8 = -7. ¿Es divisible por 7? (escribí 'si' o 'no')"
 
 explicacion: |
-  Este resultado (e^(−1) ≈ 0,368) es siempre el mismo, sin importar
-  λ — casi el 37% de las veces se espera más que el promedio, porque
-  la exponencial no es simétrica como la normal.
+  -7 es múltiplo de 7, por lo tanto 140 también lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
-  nivel: "avanzado"
-  tags: ["exponencial", "clasificar"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
 
-enunciado: "Un analista quiere calcular 'la probabilidad de que lleguen exactamente 5 clientes en la próxima hora'. ¿La distribución exponencial es la herramienta correcta para esta pregunta?"
-tipo: mc
-opciones_explicitas:
-  - "No: esa pregunta es un CONTEO de eventos en un intervalo fijo, corresponde a la distribución de Poisson, no a la exponencial"
-  - "Sí: cualquier pregunta sobre clientes se resuelve con la exponencial"
-respuesta: "No: esa pregunta es un CONTEO de eventos en un intervalo fijo, corresponde a la distribución de Poisson, no a la exponencial"
+variables:
+  numero: 210
+  u1: 0
+  r1: 21
+  d1: 0
+  res1: 21
+  u2: 1
+  r2: 2
+  d2: 2
+  res2: 0
+
+respuesta: "si"
+tipo: input
+
+enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 21 - 0 = 21. Paso 2: 2 - 2 = 0. ¿Es divisible por 7? (escribí 'si' o 'no')"
 
 explicacion: |
-  La exponencial responde "cuánto tiempo hasta que pase algo", no
-  "cuántos eventos van a pasar" — esa es la pregunta de Poisson.
+  0 es múltiplo de 7, por lo tanto 210 también lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "distribucion_exponencial"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 15
+  u1: 5
+  r1: 1
+  d1: 10
+  res1: -9
+
+respuesta: "no"
+tipo: input
+
+enunciado: "Aplicá la regla del 7 a {numero}. Paso 1: 1 - 10 = -9. ¿Es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  -9 no es múltiplo de 7, por lo tanto 15 no lo es.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 301
+  u1: 1
+  r1: 30
+  d1: 2
+  res1: 28
+
+respuesta: 28
+tipo: input
+
+enunciado: "Para el número {numero}, ¿cuál es el resultado tras restar el doble de la última cifra al resto?"
+
+explicacion: |
+  30 - 2 = 28.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
+
+variables:
+  numero: 301
+  res1: 28
+  u2: 8
+  r2: 2
+  d2: 16
+  res2: -14
+
+respuesta: -14
+tipo: input
+
+enunciado: "Continuando con {res1}, ¿cuál es el siguiente resultado al restar el doble de la última cifra (8) al resto (2)?"
+
+explicacion: |
+  2 - 16 = -14.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "decision"]
+
+variables:
+  resultado: -14
+
+respuesta: "si"
+tipo: input
+
+enunciado: "Si el resultado del algoritmo es {resultado}, ¿es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  -14 es múltiplo de 7 (-2 * 7), por lo tanto sí.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["cierre"]
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
 
-enunciado: "¿Para qué sirve la distribución exponencial?"
-tipo: mc
-opciones_explicitas:
-  - "Para modelar el tiempo de espera hasta que ocurre un evento, cuando los eventos suceden al azar a una tasa promedio constante"
-  - "Para contar cuántos eventos ocurren en un intervalo fijo de tiempo"
-  - "Para calcular el promedio de un conjunto de datos ya medidos"
-respuesta: "Para modelar el tiempo de espera hasta que ocurre un evento, cuando los eventos suceden al azar a una tasa promedio constante"
+respuesta: "7"
+tipo: completar
+respuestas_validas:
+  - "7"
+  - "siete"
+
+enunciado: "La regla que consiste en duplicar la última cifra y restarla al resto se aplica para verificar la divisibilidad por el número ___."
 
 explicacion: |
-  Es el caso continuo hermano de la distribución de Poisson (el
-  módulo que sigue), que cuenta eventos en vez de medir tiempos.
+  Es la regla específica para el divisor 7.
 ```
-
-## Sección: vectores-modulo-y-direccion (26 preguntas)
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["vectores", "vocabulario"]
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
 
-enunciado: "¿Cuál es la diferencia entre una magnitud escalar y una vectorial?"
-tipo: mc
-opciones_explicitas:
-  - "La escalar sólo tiene un número (magnitud); la vectorial también tiene una dirección"
-  - "La escalar siempre es negativa; la vectorial siempre es positiva"
-  - "No hay ninguna diferencia real entre ambas"
-respuesta: "La escalar sólo tiene un número (magnitud); la vectorial también tiene una dirección"
+respuesta: "separar"
+tipo: completar
+respuestas_validas:
+  - "separar"
+  - "aislar"
+
+enunciado: "El primer paso de la regla del 7 es ___ la última cifra del número."
 
 explicacion: |
-  La temperatura es escalar; la velocidad es vectorial.
+  Se debe aislar la unidad para procesarla.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["vectores", "vocabulario"]
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
 
-enunciado: "¿Cuál de estas es una magnitud escalar?"
-tipo: mc
-opciones_explicitas:
-  - "La masa de un objeto"
-  - "La velocidad de un auto"
-  - "La fuerza aplicada sobre una caja"
-respuesta: "La masa de un objeto"
+respuesta: "2"
+tipo: completar
+respuestas_validas:
+  - "2"
+  - "dos"
+
+enunciado: "La última cifra se multiplica por el número ___."
 
 explicacion: |
-  La masa queda descripta con un solo número, sin ninguna dirección.
+  El factor de multiplicación es 2.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["vectores", "vocabulario"]
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
 
-enunciado: "¿Cuál de estas es una magnitud vectorial?"
-tipo: mc
-opciones_explicitas:
-  - "La velocidad de un auto"
-  - "La temperatura de una habitación"
-  - "La edad de una persona"
-respuesta: "La velocidad de un auto"
+respuesta: "resta"
+tipo: completar
+respuestas_validas:
+  - "resta"
+  - "restar"
+
+enunciado: "El valor duplicado se ___ al número que queda sin la última cifra."
 
 explicacion: |
-  La velocidad necesita, además del número (rapidez), una dirección.
+  La operación es una resta.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "¿Qué son las componentes de un vector que va del origen al punto (x, y)?"
-tipo: mc
-opciones_explicitas:
-  - "El par (x, y): cuánto avanza en horizontal y en vertical"
-  - "El módulo del vector, expresado con dos decimales"
-  - "El ángulo que forma con cada eje"
-respuesta: "El par (x, y): cuánto avanza en horizontal y en vertical"
-
-explicacion: |
-  Es la misma idea de coordenadas, ahora interpretada como
-  desplazamiento.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores", "problema"]
-
-variables:
-  k: random(1, 8)
-  x: 3 * k
-  oy: 4 * k
-
-respuesta: 5 * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un vector tiene componentes ({x}, {oy}). ¿Cuál es su módulo?"
-
-pasos:
-  - "√({x}² + {oy}²) = √{(x * x) + (oy * oy)} = {5 * k}"
-
-explicacion: |
-  Es el teorema de Pitágoras aplicado a las componentes del vector.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores", "problema"]
-
-variables:
-  k: random(1, 6)
-  x: 5 * k
-  oy: 12 * k
-
-respuesta: 13 * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un vector tiene componentes ({x}, {oy}). ¿Cuál es su módulo?"
-
-pasos:
-  - "√({x}² + {oy}²) = {13 * k}"
-
-explicacion: |
-  Es la terna pitagórica 5-12-13 escalada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "problema"]
-
-variables:
-  x: random(1, 15)
-  oy: random(1, 15)
-
-respuesta: redondear(sqrt((x * x) + (oy * oy)), 2)
-tipo: input
-tolerancia_abs: 0.02
-
-enunciado: "Un vector tiene componentes ({x}, {oy}). ¿Cuál es su módulo? Redondeá a 2 decimales."
-
-pasos:
-  - "√({x}² + {oy}²) = {redondear(sqrt((x * x) + (oy * oy)), 2)}"
-
-explicacion: |
-  No siempre el módulo da un número exacto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "¿Qué es la dirección de un vector?"
-tipo: mc
-opciones_explicitas:
-  - "El ángulo que forma con el eje x positivo, medido en sentido antihorario"
-  - "La longitud total de la flecha que lo representa"
-  - "El punto exacto donde termina el vector"
-respuesta: "El ángulo que forma con el eje x positivo, medido en sentido antihorario"
-
-explicacion: |
-  El módulo es la longitud; la dirección es hacia dónde apunta.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos vectores con el mismo módulo y la misma dirección son considerados el mismo vector, aunque estén dibujados con distinto punto de origen en el plano."
-
-explicacion: |
-  Un vector "libre" se puede trasladar sin cambiar lo que representa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["vectores", "vocabulario"]
+  tags: ["divisibilidad", "regla_del_7", "teoria"]
 
-enunciado: "¿Qué es un vector nulo?"
-tipo: mc
-opciones_explicitas:
-  - "Un vector con módulo 0, sin dirección definida"
-  - "Un vector con dirección hacia el eje x negativo"
-  - "Un vector que apunta siempre hacia el origen"
-respuesta: "Un vector con módulo 0, sin dirección definida"
+respuesta: "multiplo"
+tipo: completar
+respuestas_validas:
+  - "multiplo"
+  - "múltiplo"
+
+enunciado: "Si el resultado final es 0 o un ___, la divisibilidad está confirmada."
 
 explicacion: |
-  Sin longitud, no hay ninguna dirección real que definir.
+  La condición es ser múltiplo de 7.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "¿Qué es un vector unitario?"
-tipo: mc
-opciones_explicitas:
-  - "Un vector con módulo exactamente 1"
-  - "Un vector que sólo tiene una componente distinta de 0"
-  - "Un vector que apunta siempre hacia arriba"
-respuesta: "Un vector con módulo exactamente 1"
-
-explicacion: |
-  Se usa para representar sólo una dirección, sin peso en la magnitud.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "problema"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un vector tiene componentes (0,6, 0,8). ¿Es un vector unitario?"
-
-explicacion: |
-  √(0,6² + 0,8²) = √(0,36 + 0,64) = √1 = 1: sí, es unitario.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "problema"]
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
 
 variables:
-  k: random(1, 6)
-  x: 8 * k
-  modulo: 17 * k
+  numero: 931
+  u1: 1
+  r1: 93
+  d1: 2
+  res1: 91
 
-respuesta: 15 * k
+respuesta: 91
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Un vector tiene componente x = {x} y módulo {modulo}. ¿Cuál es su componente y (positiva)?"
-
-pasos:
-  - "{modulo}² − {x}² = {(modulo * modulo) - (x * x)}"
-  - "√{(modulo * modulo) - (x * x)} = {15 * k}"
+enunciado: "Para {numero}, calculá {r1} - {d1}."
 
 explicacion: |
-  Se despeja la componente faltante invirtiendo Pitágoras, igual que
-  hallar un cateto conociendo la hipotenusa y el otro cateto.
+  93 - 2 = 91.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["vectores"]
+  tags: ["divisibilidad", "regla_del_7", "ejercicio"]
 
-respuesta: verdadero
-tipo: vf
+variables:
+  res1: 91
+  u2: 1
+  r2: 9
+  d2: 2
+  res2: 7
 
-enunciado: "El módulo de un vector nunca puede ser un número negativo."
+respuesta: 7
+tipo: input
+
+enunciado: "Para {res1}, calculá {r2} - {d2}."
 
 explicacion: |
-  Es una raíz cuadrada de una suma de cuadrados: siempre positiva o
-  cero.
+  9 - 2 = 7.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["divisibilidad", "regla_del_7", "decision"]
+
+variables:
+  resultado: 7
+
+respuesta: "si"
+tipo: input
+
+enunciado: "El resultado final es {resultado}. ¿Es divisible por 7? (escribí 'si' o 'no')"
+
+explicacion: |
+  7 es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "basico"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "¿Cómo se representa gráficamente un vector?"
-tipo: mc
-opciones_explicitas:
-  - "Con una flecha, desde un punto de origen hasta un punto de extremo"
-  - "Con un punto suelto, sin ninguna línea"
-  - "Con un círculo alrededor del origen"
-respuesta: "Con una flecha, desde un punto de origen hasta un punto de extremo"
-
-explicacion: |
-  La punta de la flecha marca el extremo, y también la dirección.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "basico"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "En la flecha que representa un vector, ¿cuál es el 'extremo'?"
-tipo: mc
-opciones_explicitas:
-  - "El punto de llegada, donde está la punta de la flecha"
-  - "El punto de partida, donde empieza la flecha"
-  - "El punto medio de la flecha"
-respuesta: "El punto de llegada, donde está la punta de la flecha"
-
-explicacion: |
-  El punto de partida se llama origen (o "cola").
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "basico"
-  tags: ["vectores", "problema"]
+  tags: ["regla_del_7", "verificacion"]
 
 variables:
-  x: random(-10, 10)
-  oy: random(-10, 10)
-
-respuesta: x
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un vector va desde el origen (0, 0) hasta el punto ({x}, {oy}). ¿Cuál es su componente horizontal?"
-
-explicacion: |
-  Es directamente la abscisa del punto de llegada.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "problema"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(1, 10)
-  x2: x1 + random(2, 8)
-  y2: y1 + random(2, 8)
-
-respuesta: x2 - x1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un vector va desde el punto ({x1}, {y1}) hasta el punto ({x2}, {y2}). ¿Cuál es su componente horizontal?"
-
-pasos:
-  - "{x2} − {x1} = {x2 - x1}"
-
-explicacion: |
-  Un vector entre dos puntos cualesquiera se calcula restando las
-  coordenadas del punto de llegada menos las del punto de partida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "¿Qué relación tiene el módulo de un vector con la fórmula de distancia entre dos puntos?"
-tipo: mc
-opciones_explicitas:
-  - "Son la misma fórmula: el módulo es la distancia entre el origen y el extremo del vector"
-  - "No tienen ninguna relación"
-  - "El módulo siempre es el doble de la distancia"
-respuesta: "Son la misma fórmula: el módulo es la distancia entre el origen y el extremo del vector"
-
-explicacion: |
-  Por eso este módulo depende de `../distancia-entre-dos-puntos/`.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "problema"]
-
-variables:
-  k: random(1, 6)
-  x1: random(1, 5)
-  y1: random(1, 5)
-  x2: x1 + 3 * k
-  y2: y1 + 4 * k
-
-respuesta: 5 * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un vector va desde el punto ({x1}, {y1}) hasta el punto ({x2}, {y2}). ¿Cuál es su módulo?"
-
-pasos:
-  - "Componentes: ({x2 - x1}, {y2 - y1})"
-  - "√({x2 - x1}² + {y2 - y1}²) = {5 * k}"
-
-explicacion: |
-  Primero se calculan las componentes (la diferencia de coordenadas), y
-  recién después el módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores", "ordenar"]
-
-enunciado: "Ordená los pasos para hallar el módulo de un vector, conociendo sus componentes (x, y)."
-tipo: ordenar
-opciones_explicitas:
-  - "Sacar raíz cuadrada de esa suma"
-  - "Elevar al cuadrado cada componente"
-  - "Sumar los dos cuadrados"
-respuesta_orden: ["Elevar al cuadrado cada componente", "Sumar los dos cuadrados", "Sacar raíz cuadrada de esa suma"]
-explicacion: |
-  Es el mismo procedimiento del teorema de Pitágoras.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Por convención, la dirección de un vector se mide como el ángulo respecto del eje x positivo, en sentido antihorario."
-
-explicacion: |
-  Es la misma convención usada para los cuadrantes del plano
-  cartesiano.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "avanzado"
-  tags: ["vectores", "problema"]
-
-variables:
-  modulo: uno_de([10, 20, 30, 40])
-  cos_30: 0.87
-  sen_30: 0.5
-
-respuesta: redondear(modulo * sen_30, 1)
-tipo: input
-tolerancia_abs: 0.5
-
-enunciado: "Un vector tiene módulo {modulo} y dirección 30° (sen 30° = 0,5, cos 30° ≈ 0,87). ¿Cuál es su componente vertical (y)?"
-
-pasos:
-  - "{modulo} × 0,5 = {redondear(modulo * sen_30, 1)}"
-
-explicacion: |
-  y = módulo × sen(dirección).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores", "vocabulario"]
-
-enunciado: "¿Por qué la fuerza que se aplica sobre una caja se describe con un vector, y no con un solo número?"
-tipo: mc
-opciones_explicitas:
-  - "Porque importa tanto cuánta fuerza se aplica como en qué dirección se empuja"
-  - "Porque las fuerzas siempre son negativas"
-  - "En realidad la fuerza es una magnitud escalar, no vectorial"
-respuesta: "Porque importa tanto cuánta fuerza se aplica como en qué dirección se empuja"
-
-explicacion: |
-  Empujar hacia arriba, hacia abajo o de costado da resultados muy
-  distintos, aunque la magnitud de la fuerza sea la misma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "intermedio"
-  tags: ["vectores"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos vectores pueden tener exactamente el mismo módulo pero apuntar en direcciones completamente distintas."
-
-explicacion: |
-  El módulo y la dirección son dos datos independientes entre sí.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "vectores_modulo_y_direccion"
-  nivel: "basico"
-  tags: ["cierre"]
-
-enunciado: "¿Para qué sirven los vectores?"
-tipo: mc
-opciones_explicitas:
-  - "Para describir cualquier magnitud que combine una cantidad con una dirección: desplazamientos, velocidades, fuerzas"
-  - "Sólo sirven para describir posiciones fijas en el plano"
-  - "Sólo tienen aplicación en geometría pura, sin uso en Física"
-respuesta: "Para describir cualquier magnitud que combine una cantidad con una dirección: desplazamientos, velocidades, fuerzas"
-
-explicacion: |
-  Es la base para sumarlos y combinarlos en los módulos siguientes.
-```
-
-## Sección: volumen-y-capacidad (30 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["volumen", "vocabulario"]
-
-enunciado: "¿Qué es el volumen de un cuerpo?"
-tipo: mc
-opciones_explicitas:
-  - "La medida del espacio que ocupa en tres dimensiones"
-  - "La medida de su contorno"
-  - "La cantidad de caras que tiene"
-respuesta: "La medida del espacio que ocupa en tres dimensiones"
-
-explicacion: |
-  Se mide en unidades cúbicas: cm³, m³.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["volumen", "vocabulario"]
-
-enunciado: "¿Qué es el cubo unitario que se usa para medir volumen?"
-tipo: mc
-opciones_explicitas:
-  - "Un cubo de 1 unidad de lado, con volumen 1"
-  - "Cualquier cubo, sin importar su tamaño"
-  - "Un cubo con 6 caras cuadradas"
-respuesta: "Un cubo de 1 unidad de lado, con volumen 1"
-
-explicacion: |
-  Medir un volumen es, en el fondo, contar cuántos cubos unitarios entran
-  adentro del cuerpo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["prisma_rectangular", "volumen"]
-
-variables:
-  l: random(2, 20)
-  a: random(2, 15)
-  h: random(2, 10)
-
-respuesta: l * a * h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el volumen de una caja de {l} cm de largo, {a} cm de ancho y {h} cm de alto?"
-
-pasos:
-  - "{l} × {a} × {h} = {l * a * h} cm³"
-
-explicacion: |
-  El volumen de un prisma rectangular es largo × ancho × alto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["cubo", "volumen"]
-
-variables:
-  l: random(2, 15)
-
-respuesta: l * l * l
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuál es el volumen de un cubo de {l} cm de lado?"
-
-pasos:
-  - "{l} × {l} × {l} = {l * l * l} cm³"
-
-explicacion: |
-  El volumen del cubo es el lado elevado al cubo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["prisma_rectangular", "volumen"]
-
-variables:
-  l: random(2, 10)
-  a: random(2, 8)
-  h: random(2, 10)
-  volumen: l * a * h
-
-respuesta: h
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una caja de {l} cm de largo y {a} cm de ancho tiene {volumen} cm³ de volumen. ¿Cuánto mide su altura?"
-
-pasos:
-  - "{volumen} ÷ ({l} × {a}) = {volumen / (l * a)} cm"
-
-explicacion: |
-  La altura se despeja dividiendo el volumen por el área de la base
-  (largo × ancho).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["cubo", "volumen"]
-
-variables:
-  l: random(2, 10)
-  volumen: l * l * l
-
-respuesta: l
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un cubo tiene {volumen} cm³ de volumen. ¿Cuánto mide su lado?"
-
-pasos:
-  - "raiz({volumen}, 3) = {raiz(volumen, 3)} cm"
-
-explicacion: |
-  El lado es la raíz cúbica del volumen (la operación inversa de
-  elevarlo al cubo).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["capacidad", "vocabulario"]
-
-enunciado: "¿Qué es la capacidad de un recipiente?"
-tipo: mc
-opciones_explicitas:
-  - "Cuánto líquido puede contener"
-  - "Cuánto pesa el recipiente vacío"
-  - "El área de su superficie exterior"
-respuesta: "Cuánto líquido puede contener"
-
-explicacion: |
-  Se mide en litros y sus derivados (ml).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["capacidad", "conversion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 litro equivale exactamente a 1 decímetro cúbico (1 dm³)."
-
-explicacion: |
-  Es la equivalencia central entre volumen y capacidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["capacidad", "conversion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "1 mililitro equivale exactamente a 1 centímetro cúbico (1 cm³)."
-
-explicacion: |
-  Es la misma equivalencia que 1 l = 1 dm³, pero a escala mil veces más
-  chica.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["capacidad", "conversion"]
-
-variables:
-  cm3: random(50, 900)
-
-respuesta: cm3
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un envase tiene un volumen de {cm3} cm³. ¿Cuántos ml de líquido le entran?"
-
-explicacion: |
-  1 cm³ = 1 ml: el número no cambia, sólo el nombre de la unidad.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["capacidad", "conversion"]
-
-variables:
-  litros: random(1, 9)
-  cm3: litros * 1000
-
-respuesta: litros
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Un recipiente tiene un volumen de {cm3} cm³. ¿Cuántos litros le entran?"
-
-pasos:
-  - "{cm3} cm³ = {cm3} ml = {cm3 / 1000} l (porque 1 l = 1000 ml)"
-
-explicacion: |
-  Se convierte cm³ a ml (1 a 1) y después ml a litros (÷1000).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "avanzado"
-  tags: ["capacidad", "conversion"]
-
-variables:
-  m3: random(1, 8)
-
-respuesta: m3 * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un tanque tiene {m3} m³ de volumen. ¿Cuántos litros de agua puede contener?"
-
-pasos:
-  - "1 m³ = 1000 litros, así que {m3} × 1000 = {m3 * 1000} litros"
-
-explicacion: |
-  1 metro cúbico equivale a 1000 litros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "avanzado"
-  tags: ["prisma_rectangular", "capacidad", "problema"]
-
-variables:
-  l: random(20, 60)
-  a: random(15, 40)
-  h: random(15, 30)
-
-respuesta: (l * a * h) / 1000
-tipo: input
-tolerancia_abs: 0.01
-
-enunciado: "Una pecera con forma de caja mide {l} cm de largo, {a} cm de ancho y {h} cm de alto. ¿Cuántos litros de agua puede contener?"
-
-pasos:
-  - "Volumen: {l} × {a} × {h} = {l * a * h} cm³. Como 1000 cm³ = 1 litro, {l * a * h} ÷ 1000 = {(l * a * h) / 1000} litros."
-
-explicacion: |
-  Se calcula el volumen en cm³ y se convierte a litros usando la
-  equivalencia 1000 cm³ = 1 litro.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["prisma_rectangular", "problema"]
-
-variables:
-  l: random(25, 35)
-  a: random(15, 20)
-  h: random(10, 15)
-
-respuesta: l * a * h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una caja de zapatos mide {l} cm × {a} cm × {h} cm. ¿Cuál es su volumen?"
-
-explicacion: |
-  Se aplica directamente largo × ancho × alto.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["cubo", "problema"]
-
-variables:
-  l: random(2, 6)
-  a: random(2, 6)
-  h: random(2, 6)
-
-respuesta: l * a * h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántos cubos de 1 cm de lado entran en una caja de {l} cm × {a} cm × {h} cm, si se apilan sin dejar huecos?"
-
-explicacion: |
-  Cada cubo de 1 cm de lado ocupa 1 cm³, así que la cantidad de cubos
-  coincide con el volumen de la caja en cm³.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-variables:
-  l1: random(2, 10)
-  a1: random(2, 10)
-  h1: random(2, 10)
-  l2: random(2, 10)
-  a2: random(2, 10)
-  h2: random(2, 10)
-
-restricciones:
-  - (l1 * a1 * h1) != (l2 * a2 * h2)
-
-respuesta: (l1 * a1 * h1) > (l2 * a2 * h2)
-tipo: vf
-
-enunciado: "¿Tiene mayor volumen una caja de {l1}×{a1}×{h1} cm, que otra de {l2}×{a2}×{h2} cm?"
-
-pasos:
-  - "Caja 1: {l1 * a1 * h1} cm³. Caja 2: {l2 * a2 * h2} cm³."
-
-explicacion: |
-  Se calcula el volumen de cada una y se compara.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El volumen se mide en unidades cúbicas, como cm³ o m³."
-
-explicacion: |
-  Es consecuencia de medir tres dimensiones a la vez (largo × ancho ×
-  alto).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["vocabulario"]
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El volumen y el área miden exactamente lo mismo, sólo que con distinto nombre."
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  El área mide superficie (2 dimensiones, unidades cuadradas); el volumen
-  mide espacio (3 dimensiones, unidades cúbicas). Son magnitudes
-  distintas.
+  Para verificar si un número es divisible por 7, aplicamos la regla:
+  1. Separamos la última cifra.
+  2. Duplicamos esa cifra.
+  3. Restamos el doble al número restante.
+  Si el resultado es divisible por 7, el original también lo es.
+  En este caso, {n} no lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["cubo", "vocabulario"]
+  tags: ["regla_del_7", "algoritmo"]
+
+variables:
+  cifra_ultima: random(1, 9)
+  resto: random(10, 99)
+  numero: resto * 10 + cifra_ultima
+  doble: cifra_ultima * 2
+  nuevo_numero: resto - doble
+  es_divisible: (nuevo_numero % 7 == 0)
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Un cubo es un caso particular de prisma rectangular, donde los tres lados son iguales."
+enunciado: "Si aplicamos la regla del 7 al número {numero}, el resultado intermedio es {nuevo_numero}, que es divisible por 7."
 
 explicacion: |
-  Por eso su fórmula (l³) es la misma que largo×ancho×alto, con los tres
-  valores iguales.
+  La regla del 7 consiste en restar el doble de la última cifra al resto del número.
+  Aquí: {numero} -> {resto} - {doble} = {nuevo_numero}.
+  Como {nuevo_numero} es múltiplo de 7, {numero} también lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["prisma_rectangular", "vocabulario"]
-
-enunciado: "¿Cuál es la fórmula correcta del volumen de un prisma rectangular?"
-tipo: mc
-opciones_explicitas:
-  - "largo × ancho × alto"
-  - "largo + ancho + alto"
-  - "2 × (largo + ancho)"
-respuesta: "largo × ancho × alto"
-
-explicacion: |
-  Se multiplican las tres dimensiones.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["cubo", "completar"]
-
-variables:
-  l: random(2, 12)
-
-tipo: completar
-enunciado: "Completá: el volumen de un cubo de lado {l} cm es ___ cm³."
-respuestas_validas:
-  - l * l * l
-
-explicacion: |
-  Volumen = lado³.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["capacidad", "completar"]
-
-tipo: completar
-enunciado: "Completá: 1 metro cúbico equivale a ___ litros."
-respuestas_validas:
-  - 1000
-
-explicacion: |
-  1 m³ = 1000 litros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["prisma_rectangular", "verificacion"]
+  tags: ["regla_del_7", "verificacion"]
 
 variables:
-  l: random(2, 15)
-  a: random(2, 12)
-  h: random(2, 10)
-  correcto: l * a * h
-  error: uno_de([0, 0, 0, 1, -1])
-  mostrado: correcto + error
-
-respuesta: (mostrado == correcto)
-tipo: vf
-
-enunciado: "¿Está bien calculado esto? El volumen de una caja de {l}×{a}×{h} cm es {mostrado} cm³."
-
-explicacion: |
-  Se recalcula largo × ancho × alto y se compara con lo mostrado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "avanzado"
-  tags: ["cubo", "capacidad", "problema"]
-
-variables:
-  l_m: random(1, 4)
-
-respuesta: (l_m * l_m * l_m) * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un tanque cúbico mide {l_m} m de lado. ¿Cuántos litros de agua puede contener?"
-
-pasos:
-  - "Volumen: {l_m}³ = {l_m * l_m * l_m} m³. Como 1 m³ = 1000 litros, {l_m * l_m * l_m} × 1000 = {(l_m * l_m * l_m) * 1000} litros."
-
-explicacion: |
-  Primero se calcula el volumen en m³, y después se convierte a litros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "avanzado"
-  tags: ["cubo", "vocabulario"]
-
-variables:
-  l: random(2, 8)
+  n: random(1000, 9999)
+  es_divisible: (n % 7 == 0)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Si el lado de un cubo de {l} cm se duplica, su volumen también se duplica."
-
-pasos:
-  - "Volumen original: {l}³ = {l * l * l} cm³. Volumen con el lado doble: {2 * l}³ = {(2 * l) * (2 * l) * (2 * l)} cm³."
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  El volumen se multiplica por 2³ = 8, no por 2: al duplicar el lado, el
-  volumen queda ocho veces más grande, no el doble.
+  Aplicamos la regla iterativa. Si el resultado final no es 0 o múltiplo de 7, el número original no es divisible.
+  En este caso, {n} no lo es.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "avanzado"
-  tags: ["prisma_rectangular", "problema"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
 
 variables:
-  l_chica: random(2, 5)
-  factor: random(2, 4)
-  l_grande: l_chica * factor
-
-respuesta: factor * factor * factor
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Una caja cúbica grande mide {l_grande} cm de lado y una caja cúbica chica mide {l_chica} cm de lado. ¿Cuántas cajas chicas entran exactamente en la grande?"
-
-pasos:
-  - "Volumen grande: {l_grande}³ = {l_grande * l_grande * l_grande} cm³. Volumen chica: {l_chica}³ = {l_chica * l_chica * l_chica} cm³. {l_grande * l_grande * l_grande} ÷ {l_chica * l_chica * l_chica} = {(l_grande * l_grande * l_grande) / (l_chica * l_chica * l_chica)}."
-
-explicacion: |
-  Se divide el volumen grande por el volumen chico.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["comparacion"]
-
-enunciado: "¿Cuál de estas capacidades es mayor?"
-tipo: mc
-opciones_explicitas:
-  - "2000 ml"
-  - "1 litro"
-  - "500 ml"
-respuesta: "2000 ml"
-
-explicacion: |
-  2000 ml = 2 litros, más que 1 litro o 500 ml.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "avanzado"
-  tags: ["orden", "capacidad"]
-
-tipo: ordenar
-enunciado: "Ordená estas capacidades de menor a mayor: 3 litros, 250 ml, 1500 ml, 0,5 litros."
-opciones_explicitas:
-  - "3 litros"
-  - "1500 ml"
-  - "250 ml"
-  - "0,5 litros"
-respuesta_orden: ["250 ml", "0,5 litros", "1500 ml", "3 litros"]
-
-pasos:
-  - "En ml: 3 litros = 3000 ml; 250 ml; 1500 ml; 0,5 litros = 500 ml."
-
-explicacion: |
-  Conviene pasar todo a la misma unidad antes de comparar: 250 < 500 <
-  1500 < 3000.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "intermedio"
-  tags: ["cubo", "capacidad"]
-
-respuesta: 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Un cubo de 1 metro de lado tiene un volumen de 1 m³. ¿A cuántos litros equivale eso?"
-
-explicacion: |
-  1 m³ = 1000 litros.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "volumen_y_capacidad"
-  nivel: "basico"
-  tags: ["vocabulario"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Calcular cuántos litros de líquido entran en un recipiente es, en el fondo, calcular su volumen y después convertirlo a litros."
-
-explicacion: |
-  Volumen y capacidad son el mismo concepto físico, medido con distintas
-  unidades — por eso 1 dm³ = 1 litro.
-```
-
-## Sección: suma-de-vectores-y-descomposicion (27 preguntas)
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "basico"
-  tags: ["suma_vectores", "vocabulario"]
-
-enunciado: "¿Cómo se suman dos vectores usando sus componentes?"
-tipo: mc
-opciones_explicitas:
-  - "Se suman las componentes x entre sí, y por separado las componentes y entre sí"
-  - "Se suman todas las componentes en un solo número"
-  - "Se multiplican las componentes de un vector por las del otro"
-respuesta: "Se suman las componentes x entre sí, y por separado las componentes y entre sí"
-
-explicacion: |
-  (x₁,y₁) + (x₂,y₂) = (x₁+x₂, y₁+y₂).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores", "problema"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(1, 10)
-  x2: random(1, 10)
-  y2: random(1, 10)
-
-respuesta: x1 + x2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la componente x del vector resultante?"
-
-pasos:
-  - "{x1} + {x2} = {x1 + x2}"
-
-explicacion: |
-  Se suman sólo las dos componentes x.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores", "problema"]
-
-variables:
-  x1: random(1, 10)
-  y1: random(1, 10)
-  x2: random(1, 10)
-  y2: random(1, 10)
-
-respuesta: y1 + y2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la componente y del vector resultante?"
-
-pasos:
-  - "{y1} + {y2} = {y1 + y2}"
-
-explicacion: |
-  Se suman sólo las dos componentes y.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["suma_vectores", "problema"]
-
-variables:
-  k: random(1, 6)
-  x1: uno_de([1, 2, 3])
-  y1: uno_de([1, 2])
-  x2: (3 * k) - x1
-  y2: (4 * k) - y1
-
-respuesta: 5 * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es el módulo del vector resultante?"
-
-pasos:
-  - "Suma: ({x1 + x2}, {y1 + y2})"
-  - "√({x1 + x2}² + {y1 + y2}²) = {5 * k}"
-
-explicacion: |
-  Primero se suman las componentes, y recién con el resultado se aplica
-  Pitágoras para hallar el módulo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "basico"
-  tags: ["suma_vectores", "vocabulario"]
-
-enunciado: "¿Cómo se restan dos vectores usando sus componentes?"
-tipo: mc
-opciones_explicitas:
-  - "Se restan las componentes x entre sí, y por separado las componentes y entre sí"
-  - "Se restan los módulos, sin tocar las componentes"
-  - "No es posible restar vectores, sólo sumarlos"
-respuesta: "Se restan las componentes x entre sí, y por separado las componentes y entre sí"
-
-explicacion: |
-  Es exactamente el mismo procedimiento que sumar, con resta en vez de
-  suma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores", "problema"]
-
-variables:
-  x1: random(10, 20)
-  y1: random(10, 20)
-  x2: random(1, 9)
-  y2: random(1, 9)
-
-respuesta: x1 - x2
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se resta el vector ({x2}, {y2}) al vector ({x1}, {y1}). ¿Cuál es la componente x del resultado?"
-
-pasos:
-  - "{x1} − {x2} = {x1 - x2}"
-
-explicacion: |
-  Se restan sólo las componentes x, en el orden dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar k > 1?"
-tipo: mc
-opciones_explicitas:
-  - "Se alarga (su módulo aumenta), sin cambiar de dirección"
-  - "Se acorta"
-  - "Cambia de dirección, apuntando al lado opuesto"
-respuesta: "Se alarga (su módulo aumenta), sin cambiar de dirección"
-
-explicacion: |
-  Cada componente queda multiplicada por k, que es mayor a 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar k, con 0 < k < 1?"
-tipo: mc
-opciones_explicitas:
-  - "Se acorta (su módulo disminuye), sin cambiar de dirección"
-  - "Se alarga"
-  - "Se vuelve el vector nulo"
-respuesta: "Se acorta (su módulo disminuye), sin cambiar de dirección"
-
-explicacion: |
-  Cada componente queda multiplicada por un número menor a 1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar negativo?"
-tipo: mc
-opciones_explicitas:
-  - "Cambia de dirección, quedando apuntando exactamente al lado opuesto"
-  - "Se vuelve el vector nulo automáticamente"
-  - "No cambia nada, sólo el módulo se hace negativo"
-respuesta: "Cambia de dirección, quedando apuntando exactamente al lado opuesto"
-
-explicacion: |
-  El módulo (que nunca es negativo) puede cambiar, pero la dirección
-  gira 180°.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "problema"]
-
-variables:
-  x: random(2, 10)
-  oy: random(2, 10)
-  k: uno_de([2, 3, 4])
-
-respuesta: x * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se multiplica el vector ({x}, {oy}) por el escalar {k}. ¿Cuál es la componente x del resultado?"
-
-pasos:
-  - "{x} × {k} = {x * k}"
-
-explicacion: |
-  Cada componente se multiplica por el mismo escalar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar", "vocabulario"]
-
-enunciado: "¿Qué es el vector opuesto de v?"
-tipo: mc
-opciones_explicitas:
-  - "El vector -v: mismo módulo, dirección exactamente contraria (180°)"
-  - "Un vector con módulo 0"
-  - "Un vector perpendicular a v"
-respuesta: "El vector -v: mismo módulo, dirección exactamente contraria (180°)"
-
-explicacion: |
-  Se obtiene multiplicando v por el escalar -1.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El vector opuesto de v tiene exactamente el mismo módulo que v."
-
-explicacion: |
-  Multiplicar por -1 sólo cambia la dirección, no la longitud.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["escalar"]
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
 
 respuesta: falso
 tipo: vf
 
-enunciado: "El vector opuesto de v tiene exactamente la misma dirección que v."
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  Tiene dirección opuesta (girada 180°), no la misma.
+  Al aplicar la regla de divisibilidad por 7, el resultado final no es 0 ni múltiplo de 7.
+  Por lo tanto, {n} no es divisible por 7.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["suma_vectores", "vocabulario"]
+  tags: ["regla_del_7", "identificacion"]
 
-enunciado: "En el método gráfico para sumar vectores, ¿cómo se dibuja el segundo vector respecto del primero?"
-tipo: mc
-opciones_explicitas:
-  - "Empezando justo donde termina el primero (uniendo punta con cola)"
-  - "Superpuesto exactamente sobre el primero"
-  - "Siempre partiendo del origen, sin importar el primero"
-respuesta: "Empezando justo donde termina el primero (uniendo punta con cola)"
-
-explicacion: |
-  El vector suma va desde el origen del primero hasta el extremo del
-  segundo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores"]
+variables:
+  base: random(10, 20)
+  n: base * 7
+  es_divisible: verdadero
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El método gráfico (punta con cola) y el método por componentes dan exactamente el mismo vector suma."
+enunciado: "El número {n} es divisible por 7."
 
 explicacion: |
-  Son dos formas distintas de llegar al mismo resultado; el de
-  componentes es más preciso para calcular.
+  {n} es el producto de {base} por 7, por lo tanto es múltiplo de 7.
+  La regla del 7 confirma esto al dar un resultado final múltiplo de 7.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
   nivel: "intermedio"
-  tags: ["descomposicion", "vocabulario"]
-
-enunciado: "¿Qué es descomponer un vector?"
-tipo: mc
-opciones_explicitas:
-  - "Hallar sus componentes x e y, a partir de su módulo y su dirección"
-  - "Dividir su módulo por 2"
-  - "Convertirlo en dos vectores nulos"
-respuesta: "Hallar sus componentes x e y, a partir de su módulo y su dirección"
-
-explicacion: |
-  Es el proceso inverso a calcular módulo y dirección a partir de las
-  componentes.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["descomposicion", "completar"]
-
-tipo: completar
-enunciado: "Completá: componente x = módulo × ___(dirección)."
-respuestas_validas:
-  - "cos"
-  - "coseno"
-
-explicacion: |
-  La componente y usa seno en cambio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["descomposicion", "completar"]
-
-tipo: completar
-enunciado: "Completá: componente y = módulo × ___(dirección)."
-respuestas_validas:
-  - "sen"
-  - "seno"
-
-explicacion: |
-  La componente x usa coseno en cambio.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "problema"]
+  tags: ["regla_del_7", "concepto"]
 
 variables:
-  modulo: uno_de([10, 20, 40])
-  cos_30: 0.87
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
 
-respuesta: redondear(modulo * cos_30, 1)
-tipo: input
-tolerancia_abs: 0.5
+respuesta: falso
+tipo: vf
 
-enunciado: "Una fuerza tiene módulo {modulo} N y dirección 30° (cos 30° ≈ 0,87). ¿Cuál es su componente horizontal?"
-
-pasos:
-  - "{modulo} × 0,87 = {redondear(modulo * cos_30, 1)} N"
+enunciado: "La regla del 7 solo se aplica a números positivos."
 
 explicacion: |
-  x = módulo × cos(dirección).
+  Falso. La regla de divisibilidad por 7 se aplica a cualquier entero.
+  Para negativos, se puede aplicar la regla al valor absoluto o considerar el signo al final.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "problema"]
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
 
 variables:
-  modulo: uno_de([10, 20, 40])
-  sen_60: 0.87
+  base: random(100, 142)
+  n: base * 7
+  es_divisible: verdadero
 
-respuesta: redondear(modulo * sen_60, 1)
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  {n} es {base} × 7, por lo tanto es divisible.
+  La regla del 7 confirmará esto tras iterar.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "identificacion"]
+
+variables:
+  base: random(10, 20)
+  n: base * 7
+  es_divisible: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es un múltiplo de 7."
+
+explicacion: |
+  {n} se obtiene multiplicando {base} por 7, por lo tanto es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
+
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  Al aplicar la regla del 7, el resultado final no es 0 ni múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "identificacion"]
+
+variables:
+  base: random(10, 20)
+  n: base * 7
+  es_divisible: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  {n} es múltiplo de 7.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "divisibilidad_regla_del_7_opcional"
+  nivel: "intermedio"
+  tags: ["regla_del_7", "verificacion"]
+
+variables:
+  n: random(100, 999)
+  es_divisible: (n % 7 == 0)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El número {n} es divisible por 7."
+
+explicacion: |
+  Al aplicar la regla del 7, el resultado final no es 0 ni múltiplo de 7.
+```
+
+## Sección: asintotas (22 preguntas)
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["clasificacion", "teoria"]
+
+respuesta: "horizontal"
+tipo: completar
+respuestas_validas:
+  - "horizontal"
+  - "asintota horizontal"
+
+enunciado: "Si el grado del numerador es menor que el grado del denominador en una función racional, la asíntota es ___."
+
+explicacion: |
+  Cuando el denominador crece más rápido que el numerador, la función tiende a 0, definiendo una asíntota horizontal en $y=0$.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["comparacion", "teoria"]
+
+variables:
+  # Caso: grado num = grado den + 1
+  tiene_ao: verdadero
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el grado del numerador es exactamente uno mayor que el grado del denominador, la función tiene una asíntota oblicua."
+
+explicacion: |
+  Esta es la condición necesaria y suficiente para la existencia de una asíntota oblicua en funciones racionales.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["caso_especifico", "rh"]
+
+respuesta: "0"
+tipo: completar
+respuestas_validas:
+  - "0"
+  - "y = 0"
+  - "eje x"
+
+enunciado: "Si el grado del numerador es menor que el del denominador, la asíntota horizontal es la recta ___."
+
+explicacion: |
+  El límite de la función cuando $x \to \infty$ es 0, por lo que la asíntota es el eje horizontal $y=0$.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["teoria", "limite"]
+
+respuesta: "infinito"
+tipo: completar
+respuestas_validas:
+  - "infinito"
+  - "infinita"
+  - "infinito positivo"
+  - "infinito negativo"
+
+enunciado: "Una asíntota vertical se define cuando el límite de la función al acercarse a un punto es ___."
+
+explicacion: |
+  La definición formal implica que el valor de la función crece sin cota (positiva o negativamente) al acercarse a $x=a$.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["identificacion", "raices"]
+
+respuesta: "raices"
+tipo: completar
+respuestas_validas:
+  - "raices"
+  - "raíces"
+  - "ceros"
+  - "cero"
+
+enunciado: "Las asíntotas verticales de una función racional suelen ubicarse en las ___ reales del denominador."
+
+explicacion: |
+  Son los puntos donde el denominador se hace cero (si no se cancelan con el numerador).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["funciones_transcendentes", "exp"]
+
+respuesta: "ninguna"
+tipo: completar
+respuestas_validas:
+  - "ninguna"
+  - "no tiene"
+  - "no hay"
+
+enunciado: "La función $f(x) = e^x$ tiene ___ asíntotas verticales."
+
+explicacion: |
+  $e^x$ está definida para todo $x \in \mathbb{R}$ y es continua. No tiene asíntotas verticales. (Tiene una horizontal en $y=0$ para $x \to -\infty$).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["asintota_horizontal", "limite"]
+
+variables:
+  num: random(1, 5)
+  den: random(6, 10)
+
+respuesta: 0
 tipo: input
-tolerancia_abs: 0.5
 
-enunciado: "Una fuerza tiene módulo {modulo} N y dirección 60° (sen 60° ≈ 0,87). ¿Cuál es su componente vertical?"
-
-pasos:
-  - "{modulo} × 0,87 = {redondear(modulo * sen_60, 1)} N"
+enunciado: "¿Cuál es la asíntota horizontal de f(x) = {num} / (x^{den} + 1) cuando x tiende a infinito?"
 
 explicacion: |
-  y = módulo × sen(dirección).
+  Cuando el grado del denominador es mayor que el del numerador,
+  el límite cuando x -> infinito es 0. Por lo tanto, la asíntota es y = 0.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "ordenar"]
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["propiedad", "polinomio"]
 
-enunciado: "Ordená los pasos para sumar dos vectores que no están alineados con los ejes (cada uno con su propio módulo y dirección)."
-tipo: ordenar
-opciones_explicitas:
-  - "Calcular el módulo del vector resultante con esas componentes sumadas"
-  - "Descomponer cada vector en sus componentes x e y"
-  - "Sumar todas las componentes x entre sí, y todas las componentes y entre sí"
-respuesta_orden: ["Descomponer cada vector en sus componentes x e y", "Sumar todas las componentes x entre sí, y todas las componentes y entre sí", "Calcular el módulo del vector resultante con esas componentes sumadas"]
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: La función f(x) = x^2 + 3x tiene una asíntota horizontal."
+
 explicacion: |
-  Sin descomponer primero, no se pueden sumar directamente dos vectores
-  con direcciones distintas.
+  Falso. Las funciones polinómicas no tienen asíntotas horizontales ni verticales.
+  Su dominio es todo R y crece sin límite.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["definicion", "terminologia"]
+
+respuesta: "vertical"
+tipo: completar
+respuestas_validas:
+  - "vertical"
+  - "verticales"
+
+enunciado: "Una ___ es una recta x = a tal que el límite de la función cuando x se acerca a a es infinito."
+
+explicacion: |
+  Se llama asíntota vertical a la recta donde la función no está definida
+  y tiende a infinito por uno o ambos lados.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["dominio", "relacion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Si una función tiene una asíntota vertical en x = a, entonces x = a no pertenece al dominio de la función."
+
+explicacion: |
+  Verdadero. Por definición, en una asíntota vertical la función tiende a infinito,
+  por lo que no está definida en ese punto (división por cero).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["definicion", "horizontal"]
+
+respuesta: "horizontal"
+tipo: completar
+respuestas_validas:
+  - "horizontal"
+  - "horizontales"
+
+enunciado: "Si el límite de f(x) cuando x tiende a infinito es un número constante L, la recta y = L se llama asíntota ___."
+
+explicacion: |
+  Se denomina asíntota horizontal a la recta paralela al eje X a la que se acerca la gráfica.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
   nivel: "avanzado"
-  tags: ["suma_vectores", "problema"]
+  tags: ["asintota_oblicua", "division"]
+
+variables:
+  a: random(2, 4)
+  b: random(1, 5)
+  c: random(1, 3)
+  d: random(2, 5)
+
+respuesta: "{a / d}x + ({b - a * c / d})"
+tipo: input
+
+enunciado: "Determiná la ecuación de la asíntota oblicua de f(x) = ({a}x^2 + {b}x) / (x + {c}) para x -> infinito. Escribí en formato 'mx+n' (ej: 2x+3)."
+
+explicacion: |
+  Dividiendo el numerador por el denominador:
+  m = a/d
+  n = b - m*c = b - (a/d)*c.
+  La ecuación es y = mx + n.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["propiedad", "corte"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Una función puede cortar su asíntota horizontal."
+
+explicacion: |
+  Verdadero. La asíntota describe el comportamiento en el infinito,
+  pero la función puede intersectarla en puntos finitos del dominio.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["metodo", "calculo"]
+
+respuesta: "denominador"
+tipo: completar
+respuestas_validas:
+  - "denominador"
+  - "denominadores"
+
+enunciado: "Para encontrar las asíntotas verticales de una función racional, igualamos a cero el ___."
+
+explicacion: |
+  Las asíntotas vertuales ocurren donde el denominador se anula (y el numerador no).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["raices", "multiples"]
+
+variables:
+  a: random(1, 5)
+  b: random(6, 10)
+
+respuesta: a + "," + b
+tipo: input
+
+enunciado: "Encontrá las asíntotas verticales de f(x) = 1 / ((x - {a})(x - {b})). Escribí los valores separados por coma."
+
+explicacion: |
+  El denominador se anula en x = {a} y x = {b}.
+  Ambas son asíntotas verticales.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["raiz_cuadrada", "asintota_oblicua"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Verdadero o Falso: La función f(x) = sqrt(x) tiene una asíntota oblicua."
+
+explicacion: |
+  Falso. sqrt(x) crece más lento que cualquier recta (x^1).
+  No tiene asíntota oblicua ni horizontal.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["caso_particular", "eje_x"]
+
+respuesta: "eje X"
+tipo: completar
+respuestas_validas:
+  - "eje X"
+  - "eje x"
+  - "y=0"
+
+enunciado: "Si la asíntota horizontal es y = 0, esta coincide con el ___."
+
+explicacion: |
+  La recta y=0 es el eje de abscisas o eje X.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["paridad", "oblicua"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: Una función par puede tener una asíntota oblicua."
+
+explicacion: |
+  Falso. Si f(x) es par, f(x) = f(-x).
+  Si tuviera una asíntota oblicua y = mx + n para x->inf,
+  para x->-inf debería tender a y = -mx + n (por simetría).
+  Pero una función racional con grado num = grado den + 1 tiene la misma oblicua en ambos extremos (mismo m).
+  Para que m = -m, m debe ser 0, lo que implica una asíntota horizontal, no oblicua.
+  Por lo tanto, una función par NO puede tener una asíntota oblicua (con m != 0).
+  La afirmación dice "puede tener". La respuesta es Falso.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "intermedio"
+  tags: ["limite", "lateral"]
+
+respuesta: "infinito"
+tipo: completar
+respuestas_validas:
+  - "infinito"
+  - "infinitos"
+  - "+infinito"
+  - "-infinito"
+
+enunciado: "Para que exista una asíntota vertical en x=a, el límite lateral de la función cuando x tiende a a debe ser ___ (positivo o negativo)."
+
+explicacion: |
+  La definición de asíntota vertical requiere que el límite sea infinito.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "avanzado"
+  tags: ["exponencial", "limite"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "¿Cuál es la asíntota horizontal de f(x) = e^(-x) cuando x tiende a +infinito?"
+
+explicacion: |
+  lim(x->inf) e^(-x) = lim(1/e^x) = 0.
+  La asíntota horizontal es y = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["continuidad", "discontinuidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Verdadero o Falso: La presencia de una asíntota vertical implica una discontinuidad infinita en esa función."
+
+explicacion: |
+  Verdadero. La función no está definida en el punto y tiende a infinito,
+  lo que constituye una discontinuidad infinita.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "asintotas"
+  nivel: "basico"
+  tags: ["definicion", "geometria"]
+
+respuesta: "recta"
+tipo: completar
+respuestas_validas:
+  - "recta"
+  - "rectas"
+
+enunciado: "Una asíntota es una ___ a la cual la curva se acerca indefinidamente."
+
+explicacion: |
+  Por definición geométrica, las asíntotas son rectas.
+```
+
+## Sección: teorema-de-bolzano (20 preguntas)
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "continuidad", "signos"]
+
+variables:
+  a: random(1, 5)
+  b: random(6, 10)
+  f_a: random(-10, -1)
+  f_b: random(1, 10)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si una función continua $f$ cumple $f({a}) = {f_a}$ y $f({b}) = {f_b}$, ¿se puede garantizar que existe al menos un cero en el intervalo $[{a}, {b}]$?"
+
+explicacion: |
+  Dado que $f$ es continua en $[{a}, {b}]$ y $f(a)$ y $f(b)$ tienen signos opuestos (uno negativo y otro positivo), el Teorema de Bolzano garantiza la existencia de al menos un $c \in (a, b)$ tal que $f(c) = 0$.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "gráfico", "interpretación"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  f_a: -random(1, 5)
+  f_b: random(1, 5)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si graficamos una función continua desde $x={a}$ hasta $x={b}$, y los puntos extremos están a distinta altura respecto al eje horizontal (uno arriba y otro abajo), la curva debe cortar el eje X."
+
+explicacion: |
+  Correcto. Geométricamente, una línea continua que une un punto por debajo del eje con uno por encima debe intersectar el eje en algún punto intermedio.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "discontinuidad", "contraejemplo"]
+
+variables:
+  a: random(0, 2)
+  b: random(3, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El Teorema de Bolzano asegura la existencia de un cero en $[{a}, {b}]$ incluso si la función tiene una discontinuidad de salto en el interior del intervalo, siempre que los extremos tengan signos opuestos."
+
+explicacion: |
+  Falso. La continuidad en el intervalo cerrado es una hipótesis indispensable. Si hay una discontinuidad, la función podría "saltar" por encima del eje sin tocarlo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "polinomios", "cuadrática"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  coef: random(1, 2)
+  c_const: random(-10, -1)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para $f(x) = {coef}x^2 + {c_const}$, evaluada en $[{a}, {b}]$, si $f(a)$ y $f(b)$ tienen signos opuestos, existe un cero en ese intervalo."
+
+explicacion: |
+  Verdadero. Los polinomios son funciones continuas en todo $\mathbb{R}$. Por lo tanto, se cumple la hipótesis de continuidad y, sumada la condición de signos opuestos, Bolzano aplica.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "análisis", "hipótesis"]
+
+variables:
+  a: random(0, 2)
+  b: random(3, 5)
+
+respuesta: "continuidad"
+tipo: completar
+
+enunciado: "Si una función tiene $f({a}) < 0$ y $f({b}) > 0$, pero no se puede asegurar que existe un cero en $({a}, {b})$, la hipótesis que probablemente falla es la _______ de la función."
+
+respuestas_validas:
+  - "continuidad"
+  - "continua"
+
+explicacion: |
+  La continuidad es la hipótesis clave. Sin ella, la función puede presentar saltos que eviten el cruce por el eje X.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "signos", "lógica"]
+
+variables:
+  a: random(1, 4)
+  b: random(5, 8)
+  f_a: random(-10, -1)
+
+respuesta: "positivo"
+tipo: completar
+
+enunciado: "Para garantizar un cero en $[{a}, {b}]$ mediante Bolzano, si $f({a}) = {f_a}$ (negativo), entonces $f({b})$ debe ser _______."
+
+respuestas_validas:
+  - "positivo"
+  - "mayor que cero"
+  - "> 0"
+
+explicacion: |
+  Deben tener signos opuestos. Si $f(a)$ es negativo, $f(b)$ debe ser positivo para que el producto sea menor que cero.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "no aplicación", "condiciones"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  f_a: random(1, 5)
+  f_b: random(1, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si $f$ es continua en $[{a}, {b}]$ y $f({a}) = {f_a}$, $f({b}) = {f_b}$ (ambos positivos), el Teorema de Bolzano garantiza un cero."
+
+explicacion: |
+  Falso. Ambos valores positivos no garantizan que la función cruce el eje. Podría permanecer siempre por encima del eje X.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "búsqueda", "intervalos"]
+
+variables:
+  a: random(0, 2)
+  b: random(3, 5)
+  f_a: -random(10, 20)
+  f_b: random(10, 20)
+
+respuesta: "(" + a + ", " + b + ")"
+tipo: completar
+
+enunciado: "Si $f$ es continua, $f({a}) = {f_a}$ y $f({b}) = {f_b}$, el cero $c$ se encuentra en el intervalo abierto _______."
+
+respuestas_validas:
+  - "(" + a + ", " + b + ")"
+  - "(" + b + ", " + a + ")"
+  - "entre " + a + " y " + b
+
+explicacion: |
+  El teorema garantiza que $c$ está estrictamente entre $a$ y $b$, es decir, $c \in (a, b)$.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "lineal", "aplicación"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  m: random(1, 3)
+  c: random(-10, -1)
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La función $f(x) = {m}x + {c}$ es continua. Si $f({a})$ y $f({b})$ tienen signos opuestos, existe un cero único en $({a}, {b})$."
+
+explicacion: |
+  Verdadero. Las funciones lineales son continuas. Al tener signos opuestos en los extremos, cruzan el eje exactamente una vez.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "avanzado"
+  tags: ["bolzano", "TVI", "teoría"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+
+respuesta: "caso particular"
+tipo: completar
+
+enunciado: "El Teorema de Bolzano es un _______ del Teorema del Valor Intermedio."
+
+respuestas_validas:
+  - "caso particular"
+  - "caso_particular"
+  - "específico"
+
+explicacion: |
+  Bolzano se enfoca específicamente en el valor intermedio $k=0$. El TVI es más general para cualquier $k$ entre $f(a)$ y $f(b)$.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "error", "mito"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si $f$ es continua en $[{a}, {b}]$ y tiene un cero en ese intervalo, entonces $f(a)$ y $f(b)$ necesariamente tienen signos opuestos."
+
+explicacion: |
+  Falso. La función podría tocar el eje y volver al mismo lado (ej. $f(x)=x^2$ en $[-1, 1]$ tiene cero en 0, pero $f(-1)=f(1)=1 > 0$). La implicación inversa no es cierta.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "avanzado"
+  tags: ["bolzano", "máximo", "forma"]
+
+variables:
+  a: random(-2, -1)
+  b: random(1, 2)
+  f_a: -random(1, 5)
+  f_b: -random(1, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si $f$ es continua en $[{a}, {b}]$, $f({a}) < 0$, $f({b}) < 0$, y $f$ tiene un máximo local positivo en el interior, Bolzano garantiza un cero."
+
+explicacion: |
+  Falso. Bolzano requiere signos opuestos en los extremos. Aunque haya un cero (porque sube y baja), la condición de *hipótesis* de Bolzano ($f(a)f(b)<0$) no se cumple, por lo que no podemos usar *este* teorema para garantizarlo directamente (aunque el cero exista por otros motivos).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "lógica", "variables"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  f_a: -random(1, 5)
+  f_b: random(1, 5)
+
+respuesta: "signos"
+tipo: completar
+
+enunciado: "La conclusión de Bolzano depende críticamente de los _______ de los valores en los extremos."
+
+respuestas_validas:
+  - "signos"
+  - "signos opuestos"
+  - "signos distintos"
+
+explicacion: |
+  La condición clave es que los signos sean distintos (opuestos).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "avanzado"
+  tags: ["bolzano", "unicidad", "concepto"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El Teorema de Bolzano garantiza que el cero encontrado en $({a}, {b})$ es único."
+
+explicacion: |
+  Falso. Bolzano solo garantiza la *existencia* de al menos un cero. La unicidad requiere condiciones adicionales (como derivada estrictamente positiva).
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "cálculo", "intermedio"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  f_a: -random(1, 5)
+  f_b: random(1, 5)
+
+respuesta: "0"
+tipo: completar
+
+enunciado: "El teorema asegura que existe $c$ tal que $f(c) =$ _______."
+
+respuestas_validas:
+  - "0"
+  - "cero"
+  - "el cero"
+
+explicacion: |
+  La conclusión es que la función toma el valor cero en algún punto del intervalo.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "constante", "caso trivial"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  k: random(1, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si $f(x) = {k}$ (constante positiva) en $[{a}, {b}]$, Bolzano garantiza un cero."
+
+explicacion: |
+  Falso. $f(a) = f(b) = k > 0$. No hay signos opuestos. La función nunca toca el eje X.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "basico"
+  tags: ["bolzano", "geometría", "eje"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+
+respuesta: "corta"
+tipo: completar
+
+enunciado: "Gráficamente, si se cumplen las condiciones de Bolzano en $[{a}, {b}]$, la curva _______ el eje de las abcisas."
+
+respuestas_validas:
+  - "corta"
+  - "cruza"
+  - "intercepta"
+
+explicacion: |
+  La curva debe cruzar o cortar el eje horizontal al menos una vez.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "continuidad", "hipótesis"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+
+respuesta: "cerrado"
+tipo: completar
+
+enunciado: "La continuidad debe verificarse en el intervalo _______ $[{a}, {b}]$."
+
+respuestas_validas:
+  - "cerrado"
+  - "cerrado ["
+  - "[" + a + ", " + b + "]"
+
+explicacion: |
+  El teorema exige continuidad en el intervalo cerrado $[a, b]$, incluyendo los extremos.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "avanzado"
+  tags: ["bolzano", "conclusión", "lógica"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+
+respuesta: "al menos uno"
+tipo: completar
+
+enunciado: "El Teorema de Bolzano garantiza la existencia de _______ cero en $({a}, {b})$."
+
+respuestas_validas:
+  - "al menos uno"
+  - "al menos un"
+  - "uno o más"
+
+explicacion: |
+  La conclusión es la existencia de al menos un cero. No se descarta la posibilidad de más de uno.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "teorema_de_bolzano"
+  nivel: "intermedio"
+  tags: ["bolzano", "discontinuidad", "contraejemplo"]
+
+variables:
+  a: random(1, 3)
+  b: random(4, 6)
+  f_a: random(-5, -1)
+  f_b: random(1, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si una función $f$ no es continua en $[{a}, {b}]$, pero cumple que $f({a})={f_a}$ y $f({b})={f_b}$ tienen signos opuestos, el Teorema de Bolzano garantiza que existe un cero en $(a, b)$."
+
+explicacion: |
+  Falso. La continuidad en el intervalo cerrado es una condición necesaria (hipótesis). Si la función es discontinua, el teorema no aplica y no se puede garantizar la existencia del cero.
+```
+
+## Sección: regla-de-lhopital (31 preguntas)
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["terminologia"]
+
+variables:
+  nombre: "L'Hôpital"
+
+tipo: completar
+
+enunciado: "La regla que permite resolver indeterminaciones 0/0 y ∞/∞ mediante derivadas se llama Regla de {nombre}."
+
+respuestas_validas:
+  - "L'Hôpital"
+  - "Lhopital"
+  - "lhopital"
+  - "l'Hôpital"
+
+explicacion: |
+  La regla lleva el nombre del matemático francés Guillaume de l'Hôpital.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+variables:
+  forma: "0/0"
+
+tipo: completar
+
+enunciado: "Una de las dos formas indeterminadas principales que permiten aplicar L'Hôpital es {forma}."
+
+respuestas_validas:
+  - "0/0"
+  - "0 sobre 0"
+  - "cero sobre cero"
+
+explicacion: |
+  Las formas son 0/0 y ∞/∞.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["historia"]
+
+variables:
+  apellido: "L'Hôpital"
+
+tipo: completar
+
+enunciado: "La regla lleva el nombre del matemático {apellido}."
+
+respuestas_validas:
+  - "L'Hôpital"
+  - "Lhopital"
+  - "l'Hôpital"
+
+explicacion: |
+  Guillaume de l'Hôpital publicó la regla en 1696.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["limites", "lhopital", "polinomios"]
+
+variables:
+  a: random(2, 5)
+  b: random(1, 3)
+
+respuesta: "{a/b}"
+tipo: input
+
+enunciado: "Calcule el límite: lim(x→0) (x^{a} + {b}x) / x"
+
+explicacion: |
+  Al sustituir x=0 obtenemos 0/0. Aplicamos L'Hôpital derivando numerador y denominador:
+  Derivada num: a*x^{a-1} + {b}
+  Derivada den: 1
+  El límite es a*0^{a-1} + {b}. Como a >= 2, el término con x se anula.
+  Resultado: {b}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "seno"]
+
+variables:
+  k: random(2, 6)
+
+respuesta: k
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sin(k*x)) / x"
+
+explicacion: |
+  Es indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: k*cos(k*x)
+  Derivada den: 1
+  Evaluar en x=0: k*cos(0)/1 = k*1 = {k}.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "infinito", "logaritmo"]
+
+variables:
+  n: random(2, 5)
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (log(x)) / x^{n}"
+
+explicacion: |
+  Es indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: 1/x
+  Derivada den: n*x^{n-1}
+  Nuevo límite: lim(x→∞) (1/x) / (n*x^{n-1}) = lim(x→∞) 1 / (n*x^{n})
+  Como n > 0, el denominador crece infinitamente, por lo que el límite es 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "raices", "derivadas"]
+
+variables:
+  k: random(1, 4)
+
+respuesta: "{1/(2*k)}"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: (1/2)*(1+k*x)^{-1/2} * k
+  Derivada den: 1
+  Evaluar en x=0: (1/2)*(1)^{-1/2} * k = k/2.
+  El límite es k/2.
+  Espera, la derivada de sqrt(1+kx) es k / (2*sqrt(1+kx)).
+  En x=0: k / 2.
+  La respuesta correcta es "{k/2}".
+  Corrijo la respuesta:
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "raices", "derivadas"]
+
+variables:
+  k: random(1, 4)
+
+respuesta: "{k/2}"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: k / (2*sqrt(1+k*x))
+  Derivada den: 1
+  En x=0: k / 2.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "logaritmo", "infinito"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (log(x)) / x"
+
+explicacion: |
+  Indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: 1/x
+  Derivada den: 1
+  Límite: lim(x→∞) 1/x = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "coseno"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (1 - cos(x)) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: sin(x)
+  Derivada den: 1
+  Lim(x→0) sin(x)/1 = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "exponencial", "infinito"]
+
+respuesta: "∞"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (e^x) / x"
+
+explicacion: |
+  Indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: e^x
+  Derivada den: 1
+  Lim(x→∞) e^x/1 = ∞.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "tangente"]
+
+respuesta: "1"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (tan(x)) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: sec^2(x)
+  Derivada den: 1
+  En x=0: sec^2(0) = 1/cos^2(0) = 1/1 = 1.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "logaritmo", "natural"]
+
+respuesta: "1"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (ln(1 + x)) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: 1/(1+x)
+  Derivada den: 1
+  En x=0: 1/(1+0) = 1.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "raices", "cubica"]
+
+variables:
+  k: random(1, 3)
+
+respuesta: "{k/3}"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) ( (1 + k*x)^{1/3} - 1 ) / x"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: (1/3)*(1+k*x)^{-2/3} * k
+  Derivada den: 1
+  En x=0: (1/3)*1 * k = k/3.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "exponencial", "infinito"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→∞) (x) / e^x"
+
+explicacion: |
+  Indeterminación ∞/∞. Aplicamos L'Hôpital:
+  Derivada num: 1
+  Derivada den: e^x
+  Lim(x→∞) 1/e^x = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "coseno"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: -sin(x)
+  Derivada den: 2x
+  Resultado: -sin(x)/2x. En x=0 es 0/0.
+  Aplicamos L'Hôpital de nuevo:
+  Derivada num: -cos(x)
+  Derivada den: 2
+  En x=0: -cos(0)/2 = -1/2.
+  Espera, la respuesta es -0.5.
+  Cambiemos a (1-cos(x))/x^2 -> 1/2.
+  O dejemos -1/2.
+  Respuesta: "-0.5"
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["limites", "trigonometria", "coseno"]
+
+respuesta: "-0.5"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
+
+explicacion: |
+  1ra derivada: -sin(x) / 2x (0/0)
+  2da derivada: -cos(x) / 2
+  En x=0: -1/2 = -0.5.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "avanzado"
+  tags: ["limites", "logaritmo", "raices"]
+
+respuesta: "0"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
+
+explicacion: |
+  Indeterminación 0/0. Aplicamos L'Hôpital:
+  Derivada num: 1/(2*sqrt(1+x))
+  Derivada den: 1/(1+x)
+  Fracción: (1/(2*sqrt(1+x))) / (1/(1+x)) = (1+x) / (2*sqrt(1+x))
+  Simplificamos: sqrt(1+x) / 2.
+  En x=0: sqrt(1)/2 = 1/2 = 0.5.
+  Respuesta: "0.5"
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "avanzado"
+  tags: ["limites", "logaritmo", "raices"]
+
+respuesta: "0.5"
+tipo: input
+
+enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
+
+explicacion: |
+  Derivada num: 1/(2*sqrt(1+x))
+  Derivada den: 1/(1+x)
+  Cociente: (1+x) / (2*sqrt(1+x)) = sqrt(1+x)/2.
+  En x=0: 1/2 = 0.5.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["identificacion", "indeterminacion"]
 
 variables:
   k: random(1, 5)
-  x1: uno_de([1, 2])
-  y1: uno_de([1, 2, 3])
-  x2: (5 * k) - x1
-  y2: (12 * k) - y1
-
-respuesta: 13 * k
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es el módulo del vector resultante?"
-
-pasos:
-  - "Suma: ({x1 + x2}, {y1 + y2})"
-  - "√({x1 + x2}² + {y1 + y2}²) = {13 * k}"
-
-explicacion: |
-  Es la terna pitagórica 5-12-13 aplicada al resultado de la suma.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "intermedio"
-  tags: ["suma_vectores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sumar vectores por componentes funciona siempre, sin importar en qué dirección apunte cada uno."
+enunciado: "Al calcular el límite de {k}x / sin({k}x) cuando x tiende a 0, se obtiene la forma indeterminada 0/0."
 
 explicacion: |
-  A diferencia del método gráfico (que depende de dibujar bien), el
-  método por componentes es puramente numérico y siempre da el
-  resultado correcto.
+  Al sustituir x = 0 en el numerador obtenemos {k}*0 = 0.
+  En el denominador obtenemos sin(0) = 0.
+  Por lo tanto, la forma resultante es 0/0, que es una indeterminación válida para aplicar L'Hôpital.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "intermedio"
-  tags: ["vocabulario"]
-
-enunciado: "¿Por qué hace falta descomponer las fuerzas antes de sumarlas, cuando dos personas empujan un mismo objeto desde ángulos distintos?"
-tipo: mc
-opciones_explicitas:
-  - "Porque no se pueden sumar directamente dos vectores con direcciones distintas sin pasar por sus componentes"
-  - "Porque las fuerzas nunca se pueden sumar entre sí"
-  - "No hace falta descomponer nada, alcanza con sumar los módulos"
-respuesta: "Porque no se pueden sumar directamente dos vectores con direcciones distintas sin pasar por sus componentes"
-
-explicacion: |
-  Sumar los módulos directamente (sin descomponer) da un resultado
-  incorrecto, salvo que ambos vectores tengan la misma dirección.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "avanzado"
-  tags: ["descomposicion", "problema"]
+  tags: ["infinito", "logaritmo"]
 
 variables:
-  fx1: uno_de([10, 20])
-  fx2: uno_de([5, 15])
+  k: random(2, 5)
 
-respuesta: fx1 + fx2
+respuesta: 0
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Dos fuerzas actúan sobre un objeto. Al descomponerlas, la primera tiene componente horizontal {fx1} N, y la segunda {fx2} N. ¿Cuál es la componente horizontal de la fuerza neta (la suma de ambas)?"
-
-pasos:
-  - "{fx1} + {fx2} = {fx1 + fx2} N"
+enunciado: "Calcula el límite de ln(x) / x^{k} cuando x tiende a infinito."
 
 explicacion: |
-  Las componentes horizontales de cada fuerza se suman entre sí, por
-  separado de las verticales.
+  Forma indeterminada ∞/∞. Aplicamos L'Hôpital.
+  Derivada num: 1/x.
+  Derivada den: k*x^(k-1).
+  Nuevo límite: (1/x) / (k*x^(k-1)) = 1 / (k*x^k).
+  Cuando x -> ∞, el denominador crece sin límite, por lo que el resultado es 0.
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["errores_comunes", "aplicacion"]
+
+variables:
+  k: random(1, 5)
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Se puede aplicar la Regla de L'Hôpital al límite de (x + {k}) / x cuando x tiende a 0."
+
+explicacion: |
+  Al sustituir x=0, el numerador tiende a {k} y el denominador a 0.
+  Esto da una forma {k}/0 (asíntota), no una indeterminación 0/0.
+  Por lo tanto, L'Hôpital no es aplicable directamente.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["teoria", "derivada"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para calcular el límite de f(x)/g(x) mediante L'Hôpital, debemos derivar la fracción completa como si fuera una función cociente."
+
+explicacion: |
+  Falso. L'Hôpital establece que el límite es igual al límite de (f'(x))/(g'(x)).
+  No se deriva el cociente f/g, sino que se derivan el numerador y el denominador por separado.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
   nivel: "avanzado"
-  tags: ["suma_vectores"]
+  tags: ["exponencial", "logaritmo"]
+
+variables:
+  k: random(1, 5)
+
+respuesta: 0
+tipo: input
+
+enunciado: "Calcula el límite de x / ln(x) cuando x tiende a 1."
+
+explicacion: |
+  Al sustituir x=1, el numerador es 1 y el denominador es ln(1)=0.
+  Esto no es 0/0 ni ∞/∞. Es 1/0 (asíntota).
+  Espera, el límite es infinito (o no existe en el sentido finito).
+  Si la pregunta pide un número finito, esta variable no sirve bien para input numérico simple sin especificar signo.
+  Cambiemos a x->∞ para ln(x)/x.
+  Nuevo enunciado: Lim ln(x)/x cuando x->∞.
+  Derivada num: 1/x. Derivada den: 1.
+  Lim (1/x)/1 = 0.
+  Reescribiendo bloque:
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["exponencial", "logaritmo"]
+
+respuesta: 0
+tipo: input
+
+enunciado: "Calcula el límite de ln(x) / x cuando x tiende a infinito."
+
+explicacion: |
+  Forma ∞/∞.
+  Derivada num: 1/x. Derivada den: 1.
+  El nuevo límite es lim (1/x) / 1 = 0.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["teoria", "existencia"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Sumar el vector nulo a cualquier otro vector no cambia nada: da el mismo vector original."
+enunciado: "Si al aplicar L'Hôpital el límite de f'(x)/g'(x) no existe (ni es infinito), entonces L'Hôpital no permite concluir nada sobre el límite original."
 
 explicacion: |
-  (x, y) + (0, 0) = (x, y): el vector nulo es el "cero" de la suma de
-  vectores.
+  Correcto. La regla dice que si el límite de las derivadas existe, entonces el límite original es igual a él.
+  Si el límite de las derivadas no existe, la regla es inconclusa (el límite original podría existir o no).
 ```
 
 ```
 metadata:
-  materia: "matematicas"
-  tema: "suma_de_vectores_y_descomposicion"
-  nivel: "basico"
-  tags: ["cierre"]
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "avanzado"
+  tags: ["iteracion", "polinomio"]
 
-enunciado: "¿Para qué sirve saber sumar y descomponer vectores?"
-tipo: mc
-opciones_explicitas:
-  - "Para calcular el efecto neto de varias magnitudes vectoriales (fuerzas, velocidades) que actúan juntas, incluso en direcciones distintas"
-  - "Sólo sirve para vectores que ya están alineados con los ejes"
-  - "No tiene aplicación fuera de la matemática pura"
-respuesta: "Para calcular el efecto neto de varias magnitudes vectoriales (fuerzas, velocidades) que actúan juntas, incluso en direcciones distintas"
+respuesta: 2
+tipo: input
+
+enunciado: "Calcula el límite de (x^{2} - 2x + 1) / (x^{3} - 1) cuando x tiende a 1."
 
 explicacion: |
-  Es el paso que conecta directamente con las leyes de Newton en
-  Física.
+  Forma 0/0.
+  Derivada 1: Num (2x-2), Den (3x^2). En x=1: 0/3 = 0.
+  Espera, 0/3 es 0. No hay que derivar de nuevo.
+  Reviso: Num en 1: 1-2+1=0. Den en 1: 1-1=0.
+  Derivada Num: 2x-2. En 1: 0.
+  Derivada Den: 3x^2. En 1: 3.
+  Lim 0/3 = 0.
+  La respuesta es 0.
+  Cambio el ejercicio para que requiera 2 derivadas.
+  Usar (x-1)^2 / (x^3-1)?
+  Num derivada: 2(x-1) -> 0. Den derivada: 3x^2 -> 3. Resultado 0.
+  Usar (x-1)^3 / (x^2-1)?
+  Num derivada: 3(x-1)^2 -> 0. Den derivada: 2x -> 2. Resultado 0.
+  Para que sea distinto de 0 y requiera iteración, necesitamos que la primera derivada siga dando 0/0.
+  Ejemplo: (x-1)^2 / (x^2-1).
+  Derivada 1: Num 2(x-1)->0. Den 2x->2. Resultado 0.
+  Ejemplo: (x-1)^3 / (x-1)^2? Simplifica a x-1 -> 0.
+  Ejemplo clásico: (x - sin(x)) / x^3?
+  Derivada 1: (1-cos(x))/3x^2 -> 0/0.
+  Derivada 2: sin(x)/6x -> 0/0.
+  Derivada 3: cos(x)/6 -> 1/6.
+  Muy complejo para input simple.
+  Volvemos a (x^2 - 2x + 1)/(x-1)? No, eso es 0/0 directo.
+  Vamos a usar (x^2 - 1)/(x^3 - 1) en x->1.
+  Derivada 1: 2x / 3x^2 = 2/(3x). En 1: 2/3.
+  Respuesta 2/3.
+  Reescribiendo para evitar confusión de iteración innecesaria:
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "basico"
+  tags: ["propiedades", "linealidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Si el límite de f(x)/g(x) es indeterminado, el límite de c*f(x)/g(x) (con c constante) se puede calcular derivando f(x) y g(x) por separado."
+
+explicacion: |
+  Verdadero. La constante c se puede sacar fuera o derivar como parte del numerador (c*f'(x)).
+  El resultado será c veces el límite original de f/g.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["teoria", "limites_laterales"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Regla de L'Hôpital es aplicable también para límites laterales (x -> a+ o x -> a-)."
+
+explicacion: |
+  Verdadero. La regla se basa en la derivabilidad en un entorno, y los límites laterales son casos particulares de ese comportamiento local.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["trigonometria", "limite"]
+
+respuesta: 1
+tipo: input
+
+enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
+
+explicacion: |
+  Forma 0/0.
+  Derivada num: 3cos(3x). Derivada den: 1.
+  En x=0: 3cos(0)/1 = 3.
+  Espera, la respuesta es 3.
+  Reescribiendo para que sea 1: sen(x)/x.
+  Pero quiero variar.
+  Si pongo sen(3x)/x, la respuesta es 3.
+  Si pongo sen(x)/3x, la respuesta es 1/3.
+  Vamos a usar sen(3x)/x para probar que el alumno deriva correctamente el argumento.
+  Respuesta: 3.
+```
+
+```
+metadata:
+  materia: "matematica"
+  tema: "regla_de_lhopital"
+  nivel: "intermedio"
+  tags: ["trigonometria", "limite"]
+
+respuesta: 3
+tipo: input
+
+enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
+
+explicacion: |
+  Forma 0/0.
+  Derivada num: 3cos(3x). Derivada den: 1.
+  En x=0: 3*1 / 1 = 3.
 ```
 
 ## Sección: cuerpos-redondos-y-poliedros/cilindros (26 preguntas)

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #662]
+# Examen jefe — Experto en Escritura Profesional
 
-> Logro #662. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #662. Completaste el examen dominando el correo formal, el CV, el informe técnico, los conectores textuales y la progresión temática, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #906]
+# Examen jefe — Dominio de Armonía, Montaje y Escena
 
-> Logro #906. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #906. Aprobaste el parcial sobre armonía y acordes, montaje audiovisual, producción multimedial, teatro y dramaturgia, y la simetría de los rosetones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

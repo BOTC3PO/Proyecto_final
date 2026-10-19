@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #737]
+# Examen jefe — Núcleo Atómico y Equilibrio Rígido
 
-> Logro #737. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #737. Dominaste el decaimiento alfa, beta y gamma, la fisión y fusión nuclear y la estructura del núcleo, además del equilibrio del cuerpo rígido y las fórmulas con literales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

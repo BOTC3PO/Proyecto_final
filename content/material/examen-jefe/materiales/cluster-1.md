@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #930]
+# Examen jefe — Experto en Comportamiento de Materiales
 
-> Logro #930. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **151 preguntas totales** en 6/6 secciones.
+> Logro #930. Aprobaste el parcial sobre elasticidad y ley de Hooke, plasticidad y punto de fluencia, dureza y tenacidad, fatiga y fractura, corrosión y las familias de materiales. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **151 preguntas totales** en 6/6 secciones.
 
 ---
 

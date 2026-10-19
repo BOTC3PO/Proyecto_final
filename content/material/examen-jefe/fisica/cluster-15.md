@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #750]
+# Examen jefe — Maestro de la Energía y sus Máquinas
 
-> Logro #750. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **178 preguntas totales** en 7/7 secciones.
+> Logro #750. Dominaste la conservación de la energía mecánica, la energía potencial gravitatoria, la potencia, los choques elásticos e inelásticos, la transmisión del calor y generadores, motores y transformadores. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **178 preguntas totales** en 7/7 secciones.
 
 ---
 

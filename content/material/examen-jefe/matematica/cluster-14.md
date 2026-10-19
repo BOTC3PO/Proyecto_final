@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #614]
+# Examen jefe — Experto en Probabilidad y Raíces
 
-> Logro #614. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
+> Logro #614. Calculaste raíces de números irracionales y reales, y dominaste la distribución binomial, el valor esperado y la probabilidad condicional. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 

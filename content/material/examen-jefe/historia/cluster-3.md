@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #723]
+# Examen jefe — Maestro del Pensamiento Histórico
 
-> Logro #723. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #723. Dominaste la significancia histórica, el cambio y la continuidad, la evidencia, la multicausalidad y la dimensión ética, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

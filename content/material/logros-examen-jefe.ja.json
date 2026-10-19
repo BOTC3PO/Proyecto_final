@@ -4,15 +4,15 @@
     "materia": "Matemática",
     "cluster": 1,
     "temas": [
-      "asintotas",
-      "concavidad-y-puntos-de-inflexion",
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
       "conjuntos-pertenencia-e-inclusion",
       "conteo",
-      "divisibilidad/regla-del-7-opcional"
+      "valor-posicional"
     ],
-    "nombre": "漸近線と集合の達人",
-    "descripcion": "関数の漸近線と凹性を分析し、集合の所属、数え上げ、7の整除規則を同じ中間試験で扱いました。",
-    "icono": "📈"
+    "nombre": "三角法と集合の達人",
+    "descripcion": "三角比と正弦・余弦定理を応用し、集合の所属、数え上げ、位取りを同じ中間試験で扱いました。",
+    "icono": "📐"
   },
   {
     "id": 602,
@@ -20,13 +20,13 @@
     "cluster": 2,
     "temas": [
       "grafos-vertices-y-aristas",
-      "integral-definida-y-area-bajo-la-curva",
+      "union-interseccion-y-diferencia",
       "arboles-grafo-sin-ciclos",
       "grafos-dirigidos-no-dirigidos-y-ponderados",
       "leer-una-tabla"
     ],
     "nombre": "グラフと木の達人",
-    "descripcion": "頂点、辺、木、重み付きグラフを完璧に習得し、定積分と表の読み取りもマスターしました。",
+    "descripcion": "頂点、辺、木、重み付きグラフに加え、集合の和・共通部分・差と表の読み取りを習得しました。",
     "icono": "🌳"
   },
   {
@@ -53,10 +53,10 @@
       "construir-un-grafico",
       "grafico-eje-truncado",
       "media-mediana-y-moda",
-      "razones-trigonometricas"
+      "vectores-modulo-y-direccion"
     ],
     "nombre": "グラフと統計量の達人",
-    "descripcion": "グラフを作成し、軸の省略を見抜き、平均・中央値・最頻値を計算して、三角比を応用しました。",
+    "descripcion": "グラフを作成し、切り詰められた軸を見抜き、平均・中央値・最頻値を計算し、ベクトルの大きさと向きを扱いました。",
     "icono": "📊"
   },
   {
@@ -66,12 +66,12 @@
     "temas": [
       "cual-miente-y-cuando",
       "funciones-trigonometricas-seno-coseno",
-      "regla-de-lhopital",
+      "suma-de-vectores-y-descomposicion",
       "identidades-y-ecuaciones-trigonometricas",
       "regresion-lineal"
     ],
     "nombre": "三角法と回帰の達人",
-    "descripcion": "三角関数、恒等式、ロピタルの定理、線形回帰を扱い、データが嘘をつくタイミングを見抜きました。",
+    "descripcion": "三角関数、恒等式、ベクトルの加法と分解、線形回帰を扱い、誰がいつ嘘をつくかを見抜きました。",
     "icono": "📐"
   },
   {
@@ -111,12 +111,12 @@
     "temas": [
       "area-poligonos-regulares-y-compuestas",
       "dispersion-rango-y-desvio",
-      "teorema-de-bolzano",
+      "volumen-y-capacidad",
       "distribucion-normal",
-      "teorema-del-seno-y-del-coseno"
+      "variable-aleatoria-discreta-continua"
     ],
     "nombre": "面積と正規分布の達人",
-    "descripcion": "複合多角形の面積を計算し、正弦定理と余弦定理を応用して、正規分布と散布度を完璧に習得しました。",
+    "descripcion": "複合多角形の面積、体積と容量を計算し、正規分布、散らばり、確率変数を習得しました。",
     "icono": "📐"
   },
   {
@@ -156,12 +156,12 @@
     "temas": [
       "transformaciones-geometricas/rotacion",
       "transformaciones-geometricas/traslacion",
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
       "diagramas-de-venn"
     ],
     "nombre": "変換と集合の達人",
-    "descripcion": "図形を回転・平行移動し、和集合と積集合を計算して、ベン図と位取りを扱いました。",
+    "descripcion": "図形を回転・平行移動し、ポアソン分布と指数分布、ベン図を扱いました。",
     "icono": "🔄"
   },
   {
@@ -441,28 +441,28 @@
     "temas": [
       "riesgo-relativo-vs-absoluto",
       "teorema-del-binomio",
-      "variable-aleatoria-discreta-continua",
+      "concavidad-y-puntos-de-inflexion",
       "variaciones",
-      "distribucion-de-poisson"
+      "integral-definida-y-area-bajo-la-curva"
     ],
-    "nombre": "分布と二項定理の達人",
-    "descripcion": "二項定理とポアソン分布を応用し、確率変数と相対リスクを扱いました、ボス。",
-    "icono": "🎲"
+    "nombre": "二項定理と微積分の達人",
+    "descripcion": "二項定理と順列を応用し、相対リスクと絶対リスクを計算し、凹凸と定積分を分析しました。",
+    "icono": "📈"
   },
   {
     "id": 631,
     "materia": "Matemática",
     "cluster": 31,
     "temas": [
-      "distribucion-exponencial",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad",
-      "suma-de-vectores-y-descomposicion",
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
       "cuerpos-redondos-y-poliedros/cilindros"
     ],
-    "nombre": "ベクトルと体積の達人",
-    "descripcion": "ベクトルを合成・分解し、円柱の体積と容量を計算して、指数分布を扱いました。",
-    "icono": "➡️"
+    "nombre": "漸近線とロピタルの達人",
+    "descripcion": "漸近線、ボルツァーノの定理、ロピタルの定理を扱い、円柱の体積を計算し、7の整除規則を適用しました。",
+    "icono": "📉"
   },
   {
     "id": 632,
@@ -1769,6 +1769,9 @@
     "materia": "Informática",
     "cluster": 5,
     "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
       "estructuras-de-control-bucles",
       "funciones-y-modularidad",
       "estructuras-de-datos-listas-pilas-colas",
@@ -1776,7 +1779,7 @@
       "algoritmos-busqueda-ordenamiento"
     ],
     "nombre": "プログラミングの達人",
-    "descripcion": "ループ、関数、データ構造（リスト、スタック、キュー）、オブジェクト指向プログラミング、探索・整列アルゴリズムを習得しました。",
+    "descripcion": "算術・関係・論理演算子、ループ、関数、データ構造（リスト、スタック、キュー）、オブジェクト指向プログラミング、探索・整列アルゴリズムを習得しました。",
     "icono": "👨‍💻"
   },
   {

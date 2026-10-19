@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #607]
+# Examen jefe — Domina Perímetro, Área y Estadística
 
-> Logro #607. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **147 preguntas totales** en 5/5 secciones.
+> Logro #607. Calculaste perímetro y área de polígonos y circunferencias, y trabajaste cuartiles, percentiles y varianza en tablas de frecuencia. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **147 preguntas totales** en 5/5 secciones.
 
 ---
 

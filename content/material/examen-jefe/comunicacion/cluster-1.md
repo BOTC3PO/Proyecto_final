@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #938]
+# Examen jefe — Experto en Comunicación y Medios
 
-> Logro #938. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #938. Dominaste la teoría de la comunicación, sus corrientes, los géneros periodísticos, la ética de los medios y la publicidad y la persuasión. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #942]
+# Examen jefe — Maestro de Circuitos y Control Digital
 
-> Logro #942. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #942. Completaste el parcial sobre resistencias, capacitores, diodos y transistores, leyes de Kirchhoff, lógica digital, microcontroladores, sensores y actuadores. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

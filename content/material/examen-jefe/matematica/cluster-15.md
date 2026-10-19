@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #615]
+# Examen jefe — Maestro de las Operaciones Básicas
 
-> Logro #615. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **158 preguntas totales** en 5/5 secciones.
+> Logro #615. Dominaste la resta, la división, el manejo del dinero, la hora y el reloj, y las sucesiones aritméticas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **158 preguntas totales** en 5/5 secciones.
 
 ---
 

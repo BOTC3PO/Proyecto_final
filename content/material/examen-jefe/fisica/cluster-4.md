@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #739]
+# Examen jefe — Dominio de Cinemática y Dinámica
 
-> Logro #739. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **132 preguntas totales** en 5/5 secciones.
+> Logro #739. Completaste el parcial con MRU, MRUV, la tercera ley de Newton, las fuerzas concurrentes y el período de oscilación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **132 preguntas totales** en 5/5 secciones.
 
 ---
 

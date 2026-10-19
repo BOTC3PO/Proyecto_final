@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #656]
+# Examen jefe — Maestro de la Refutación y el Boom Latinoamericano
 
-> Logro #656. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #656. Completaste el parcial dominando los contraargumentos, la detección de falacias, el debate en vivo y la Generación del '98, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

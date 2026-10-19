@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #619]
+# Examen jefe — Maestro de las Demostraciones
 
-> Logro #619. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #619. Dominaste los números primos y las técnicas de demostración: contraejemplo, deducción, inducción y reducción al absurdo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 

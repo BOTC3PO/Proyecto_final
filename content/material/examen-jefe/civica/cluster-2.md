@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #880]
+# Examen jefe — Maestro del Estado de Derecho
 
-> Logro #880. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
+> Logro #880. Completaste el parcial dominando el origen y la importancia del Estado de derecho, la organización del Estado, el preámbulo de la Constitución y las marchas patrióticas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 

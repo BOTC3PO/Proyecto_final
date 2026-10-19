@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #736]
+# Examen jefe — Cargas, Campo Eléctrico y Estática
 
-> Logro #736. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
+> Logro #736. Completaste el parcial dominando cargas eléctricas, campo eléctrico y corriente, y también el momento de una fuerza y el centro de gravedad en estática. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 

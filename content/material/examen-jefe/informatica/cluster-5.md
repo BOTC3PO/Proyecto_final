@@ -1,8 +1,1230 @@
-# Examen jefe — [PENDIENTE #820]
+# Examen jefe — Maestro de la Programación
 
-> Logro #820. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #820. Dominaste operadores aritméticos, relacionales y lógicos, bucles, funciones, estructuras de datos (listas, pilas y colas), programación orientada a objetos y algoritmos de búsqueda y ordenamiento. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **196 preguntas totales** en 8/8 secciones.
 
 ---
+
+## Sección: operadores-aritmeticos (23 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["modulo"]
+
+tipo: mc
+opciones_explicitas: ["%", "/", "//", "^"]
+respuesta: "%"
+
+enunciado: "¿Qué operador aritmético devuelve el RESTO de una división entera en la mayoría de los lenguajes?"
+
+explicacion: |
+  El operador `%` (módulo) da el resto: `17 % 5` es 2, porque 17 = 3 x 5 + 2. `/` divide, y `^` o `**` es la potencia según el lenguaje.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["modulo"]
+
+variables:
+  a: random(20, 90)
+  b: random(3, 9)
+
+respuesta: a - floor(a / b) * b
+tipo: input
+
+enunciado: "¿Cuánto da {a} % {b} (el resto de dividir {a} entre {b})?"
+
+explicacion: |
+  El resto es lo que sobra después de repartir de a {b}: {a} - {floor(a / b)} x {b} = {a - floor(a / b) * b}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["division entera"]
+
+variables:
+  a: random(20, 90)
+  b: random(3, 9)
+
+respuesta: floor(a / b)
+tipo: input
+
+enunciado: "En un lenguaje que divide enteros sin decimales (como C o Java), ¿cuánto da {a} / {b}?"
+
+explicacion: |
+  Con dos enteros, la división descarta la parte decimal: {a} / {b} da {floor(a / b)} (se trunca, no se redondea).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["precedencia"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  c: random(2, 9)
+
+respuesta: a + b * c
+tipo: input
+
+enunciado: "¿Cuánto da {a} + {b} * {c}?"
+
+explicacion: |
+  La multiplicación se evalúa antes que la suma: primero {b} * {c} = {b * c} y después {a} + {b * c} = {a + b * c}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["precedencia"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  c: random(2, 9)
+
+respuesta: (a + b) * c
+tipo: input
+
+enunciado: "¿Cuánto da ({a} + {b}) * {c}?"
+
+explicacion: |
+  Los paréntesis se resuelven primero: ({a} + {b}) = {a + b} y después {a + b} * {c} = {(a + b) * c}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["potencia"]
+
+variables:
+  b: random(2, 5)
+  e: random(2, 4)
+
+respuesta: b ^ e
+tipo: input
+
+enunciado: "Si el operador de potencia se escribe `**` (como en Python), ¿cuánto da {b} ** {e}?"
+
+explicacion: |
+  {b} ** {e} significa multiplicar {b} por sí mismo {e} veces: {b ^ e}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["asignacion compuesta"]
+
+variables:
+  a: random(2, 9)
+  b: random(2, 9)
+  c: random(2, 5)
+
+respuesta: (a + b) * c
+tipo: input
+
+enunciado: "Se ejecuta: `x = {a}`, después `x += {b}`, después `x *= {c}`. ¿Cuánto vale x al final?"
+
+explicacion: |
+  `x += {b}` es `x = x + {b}`, o sea {a + b}. Después `x *= {c}` es `x = x * {c}`, o sea {(a + b) * c}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+variables:
+  p: random(100, 900)
+  n: random(2, 6)
+  d: random(10, 90)
+
+respuesta: p * n - d
+tipo: input
+
+enunciado: "Un cuaderno cuesta ${p}. Compro {n} y me hacen un descuento de ${d} sobre el total. ¿Cuánto pago?"
+
+explicacion: |
+  Primero el producto, después la resta: {p} * {n} - {d} = {p * n - d}.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["errores"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En casi todos los lenguajes, dividir un entero por cero provoca un error o una excepción."
+
+explicacion: |
+  No existe un resultado para dividir por cero. Con enteros, la mayoría de los lenguajes detiene el programa con un error; con decimales algunos devuelven infinito o un valor especial (`inf`, `NaN`).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["python"]
+
+tipo: mc
+opciones_explicitas: ["3.5", "3", "4", "3.0 solo si se escribe 7.0 / 2"]
+respuesta: "3.5"
+
+enunciado: "En Python 3, ¿cuánto da `7 / 2`?"
+
+explicacion: |
+  En Python 3, `/` siempre da un decimal (3.5). Para el cociente entero se usa `//`, que da 3.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["c"]
+
+tipo: mc
+opciones_explicitas: ["3", "3.5", "4", "2"]
+respuesta: "3"
+
+enunciado: "En C, si `a` y `b` son enteros, ¿cuánto da `7 / 2`?"
+
+explicacion: |
+  Con dos enteros, C hace división entera y descarta los decimales: 7 / 2 = 3. Para obtener 3.5 al menos uno de los dos tiene que ser decimal (`7.0 / 2`).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["modulo"]
+
+tipo: mc
+opciones_explicitas: ["`n % 2` da 0", "`n / 2` da 0", "`n * 2` da 0", "`n ^ 2` da 0"]
+respuesta: "`n % 2` da 0"
+
+enunciado: "¿Cómo se sabe si un número `n` es par usando un operador aritmético?"
+
+explicacion: |
+  Un número es par si al dividirlo por 2 no sobra nada: el resto (`n % 2`) es 0. Si el resto es 1, es impar.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["modulo"]
+
+tipo: mc
+opciones_explicitas: ["Calcular la hora después de sumar horas (el reloj vuelve a 0 después de 23)", "Calcular el área de un círculo", "Convertir un texto en número", "Ordenar una lista alfabéticamente"]
+respuesta: "Calcular la hora después de sumar horas (el reloj vuelve a 0 después de 23)"
+
+enunciado: "El módulo (`%`) es muy útil para trabajar con cosas que se repiten en ciclo. ¿Cuál de estas es un buen ejemplo?"
+
+explicacion: |
+  Todo lo que "da la vuelta" (horas, días de la semana, turnos rotativos) se calcula con el resto. Ejemplo: (22 + 5) % 24 = 3.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["incremento"]
+
+tipo: completar
+respuesta: "+="
+respuestas_validas:
+  - "+="
+  - "++"
+
+enunciado: "La instrucción `x ___ 1;` suma 1 a x (forma abreviada de `x = x + 1`)."
+
+explicacion: |
+  `x += 1` es la asignación compuesta de suma. En muchos lenguajes (C, Java, JavaScript) también existe `x++`; en Python solo se puede escribir `x += 1`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["asignacion compuesta"]
+
+tipo: mc
+opciones_explicitas: ["7", "13", "-3", "10"]
+respuesta: "7"
+
+enunciado: "Si `y` vale 10, ¿cuánto vale después de `y -= 3`?"
+
+explicacion: |
+  `y -= 3` es `y = y - 3`: 10 - 3 = 7.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["asignacion"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "En programación, `x = x + 1` es una contradicción matemática y por eso da error."
+
+explicacion: |
+  Acá `=` no es igualdad matemática, es **asignación**: se calcula el lado derecho con el valor actual de x y el resultado se guarda en x. Si x valía 4, pasa a valer 5.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["tipos"]
+
+tipo: mc
+opciones_explicitas: ["Un decimal (7.0)", "Un entero (7)", "Un texto", "Un error"]
+respuesta: "Un decimal (7.0)"
+
+enunciado: "¿Qué tipo de resultado suele dar `5 + 2.0` en la mayoría de los lenguajes?"
+
+explicacion: |
+  Si uno de los operandos es decimal, el resultado se convierte a decimal para no perder información.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "avanzado"
+  tags: ["texto"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En JavaScript, `\"5\" + 2` da el texto `\"52\"`."
+
+explicacion: |
+  El operador `+` también concatena textos: cuando uno de los lados es un texto, convierte el otro y los une. En cambio, `"5" - 2` da 3 porque `-` solo resta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "avanzado"
+  tags: ["modulo"]
+
+tipo: mc
+opciones_explicitas: ["2", "-1", "1", "-2"]
+respuesta: "2"
+
+enunciado: "En Python, ¿cuánto da `-7 % 3`?"
+
+explicacion: |
+  En Python el resultado del módulo toma el signo del divisor: -7 = (-3) x 3 + 2. Otros lenguajes (como C o Java) devuelven -1: el comportamiento con negativos **cambia según el lenguaje**.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "intermedio"
+  tags: ["promedio"]
+
+variables:
+  a: random(3, 12)
+  b: random(3, 12)
+  c: random(3, 12)
+
+restricciones:
+  - (a + b + c) - floor((a + b + c) / 3) * 3 == 0
+
+respuesta: (a + b + c) / 3
+tipo: input
+
+enunciado: "¿Cuánto da el promedio de {a}, {b} y {c}, escrito como `({a} + {b} + {c}) / 3`?"
+
+explicacion: |
+  Primero se suman los tres valores ({a + b + c}) y después se dividen por 3: {(a + b + c) / 3}. Sin paréntesis, `{a} + {b} + {c} / 3` dividiría solo el último número.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["precedencia"]
+
+tipo: mc
+opciones_explicitas: ["`a + b + (c / 3)`: solo divide c", "El promedio de a, b y c", "`(a + b + c) / 3`", "Da error de sintaxis"]
+respuesta: "`a + b + (c / 3)`: solo divide c"
+
+enunciado: "¿Qué calcula `a + b + c / 3`?"
+
+explicacion: |
+  Por la precedencia, la división se hace antes que las sumas. Para el promedio hay que escribir `(a + b + c) / 3`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["potencia"]
+
+tipo: completar
+respuesta: "**"
+respuestas_validas:
+  - "**"
+
+enunciado: "En la calculadora de Python, para elevar 2 a la 5 se escribe `2 ___ 5`."
+
+explicacion: |
+  En Python la potencia es `**`. En otros lenguajes se usa `^` (Excel, PSeInt) o una función como `pow(2, 5)`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_aritmeticos"
+  nivel: "basico"
+  tags: ["precedencia"]
+
+tipo: mc
+opciones_explicitas: ["13", "19", "15", "9"]
+respuesta: "13"
+
+enunciado: "¿Cuánto da `2 + 3 * 4 - 1`?"
+
+explicacion: |
+  Primero la multiplicación: 3 * 4 = 12. Después, de izquierda a derecha: 2 + 12 - 1 = 13.
+```
+
+## Sección: operadores-relacionales (24 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["booleano"]
+
+tipo: mc
+opciones_explicitas: ["Un booleano (verdadero o falso)", "Un número entero", "Un texto", "El mayor de los dos valores"]
+respuesta: "Un booleano (verdadero o falso)"
+
+enunciado: "¿Qué tipo de valor devuelve siempre un operador relacional como `>` o `==`?"
+
+explicacion: |
+  Un operador relacional compara dos valores y responde si la relación se cumple o no: el resultado es un booleano. Por eso se usa dentro de condiciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["igualdad"]
+
+tipo: mc
+opciones_explicitas: ["==", "=", "=>", "!="]
+respuesta: "=="
+
+enunciado: "En casi todos los lenguajes, ¿qué operador se usa para preguntar si dos valores son iguales?"
+
+explicacion: |
+  El signo `=` solo asigna un valor a una variable. Para comparar se usa `==` (en PSeInt y en SQL, en cambio, se usa un solo `=`).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["error comun"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "En Python, la línea `if x = 10:` pregunta si x vale 10."
+
+explicacion: |
+  Es un error: `=` asigna y `==` compara. En Python `if x = 10:` ni siquiera compila (da `SyntaxError`). En C, en cambio, `if (x = 10)` asigna 10 a x y se toma como verdadero: un bug clásico.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["desigualdad"]
+
+tipo: completar
+respuesta: "!="
+respuestas_validas:
+  - "!="
+
+enunciado: "En C, Python y JavaScript, el operador \"distinto de\" se escribe `a ___ b`."
+
+explicacion: |
+  `!=` es el operador de desigualdad de esos lenguajes. SQL estándar usa `<>` (y la mayoría de los motores aceptan también `!=`).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["mayor igual"]
+
+tipo: mc
+opciones_explicitas: [">=", "=>", "≥", "=>="]
+respuesta: ">="
+
+enunciado: "¿Cuál de estos operadores significa \"mayor o igual que\"?"
+
+explicacion: |
+  Se escribe `>=`: primero el signo de comparación y después el `=`. Escribir `=>` es un error de sintaxis en la mayoría de los lenguajes.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["evaluar"]
+
+tipo: mc
+opciones_explicitas: ["falso", "verdadero", "7", "0 solamente en C, en los demás da error"]
+respuesta: "falso"
+
+enunciado: "Si x vale 7, ¿cuál es el resultado de `x > 7`?"
+
+explicacion: |
+  7 no es estrictamente mayor que 7, así que `x > 7` es falso. En cambio `x >= 7` sería verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["evaluar"]
+
+tipo: mc
+opciones_explicitas: ["verdadero", "falso", "4", "9"]
+respuesta: "verdadero"
+
+enunciado: "Si a vale 4 y b vale 9, ¿cuál es el resultado de `a != b`?"
+
+explicacion: |
+  4 y 9 son valores distintos, así que `a != b` es verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["evaluar"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Si n vale 5, la expresión `n == 5` da verdadero."
+
+explicacion: |
+  Los dos valores son iguales, así que la comparación es verdadera. Atención: no es una asignación, es una pregunta.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["menor igual"]
+
+tipo: completar
+respuesta: "<="
+respuestas_validas:
+  - "<="
+
+enunciado: "Para escribir \"el contador no puede pasar de 10\" se usa `contador ___ 10`."
+
+explicacion: |
+  `<=` es "menor o igual": incluye el 10. Con `<` el 10 quedaría afuera.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["rango"]
+
+tipo: mc
+opciones_explicitas: ["x > 0 && x < 10 (con el operador lógico Y de tu lenguaje)", "0 < x < 10 funciona igual en todos los lenguajes", "x > 0 , 10", "x entre 0 y 10"]
+respuesta: "x > 0 && x < 10 (con el operador lógico Y de tu lenguaje)"
+
+enunciado: "En programación, ¿cómo se escribe correctamente \"x está entre 0 y 10\"?"
+
+explicacion: |
+  En matemática se escribe `0 < x < 10`, pero en la mayoría de los lenguajes eso no hace lo que parece. Hay que hacer dos comparaciones y unirlas con un operador lógico Y.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["tipos"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En JavaScript, `\"5\" === 5` da falso porque el tipo es distinto."
+
+explicacion: |
+  `===` compara valor y tipo sin convertir: un texto no es un número, así que es falso. Con `==` JavaScript convertiría el texto y daría verdadero, por eso se recomienda `===`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["tipos"]
+
+tipo: mc
+opciones_explicitas: ["`===` compara valor y tipo; `==` convierte los tipos antes de comparar", "No hay ninguna diferencia", "`===` solo sirve con números", "`==` compara valor y tipo; `===` convierte los tipos"]
+respuesta: "`===` compara valor y tipo; `==` convierte los tipos antes de comparar"
+
+enunciado: "En JavaScript, ¿cuál es la diferencia entre `==` y `===`?"
+
+explicacion: |
+  `==` hace conversión de tipos antes de comparar (y por eso a veces sorprende); `===` es la igualdad estricta. Casi siempre conviene `===`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["decimales"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "Comparar números decimales con `==` es siempre seguro, porque la computadora los guarda exactos."
+
+explicacion: |
+  Los decimales se guardan con precisión finita: en muchos lenguajes `0.1 + 0.2 == 0.3` da falso. Se suele comparar si la diferencia es menor que una tolerancia pequeña.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["texto"]
+
+tipo: mc
+opciones_explicitas: ["True", "False", "Error", "\"casa\""]
+respuesta: "True"
+
+enunciado: "En Python, ¿qué da `\"casa\" == \"casa\"`?"
+
+explicacion: |
+  Dos textos con el mismo contenido son iguales. En Python el resultado es el valor booleano `True`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["texto"]
+
+tipo: mc
+opciones_explicitas: ["True", "False", "Error", "Depende del largo"]
+respuesta: "True"
+
+enunciado: "En Python, ¿qué da `\"abeja\" < \"zorro\"`?"
+
+explicacion: |
+  Los textos se comparan letra por letra según el orden del alfabeto (en realidad, según el código de cada carácter). "a" va antes que "z", así que es verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["sql"]
+
+tipo: completar
+respuesta: "="
+respuestas_validas:
+  - "="
+
+enunciado: "En SQL, para seleccionar filas donde `precio` sea igual a 100, se escribe `WHERE precio ___ 100`."
+
+explicacion: |
+  En SQL la igualdad se escribe con un solo `=` (no hay asignación en ese lugar, así que no se confunde).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["bash"]
+
+tipo: mc
+opciones_explicitas: ["-eq", "==", "-ne", "=>"]
+respuesta: "-eq"
+
+enunciado: "En un script de Bash, dentro de `[ ... ]`, ¿qué se usa para preguntar si dos NÚMEROS son iguales?"
+
+explicacion: |
+  En Bash las comparaciones numéricas dentro de `[ ]` usan `-eq`, `-ne`, `-lt`, `-gt`, `-le`, `-ge`. Para comparar textos se usa `=`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["bash"]
+
+tipo: mc
+opciones_explicitas: ["a es menor que b", "a es mayor que b", "a es igual a b", "a es distinto de b"]
+respuesta: "a es menor que b"
+
+enunciado: "En Bash, `[ $a -lt $b ]` es verdadero cuando..."
+
+explicacion: |
+  `-lt` significa *less than* (menor que). Los otros son `-gt` (mayor), `-eq` (igual) y `-ne` (distinto).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["excel"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En una fórmula de Excel, \"distinto de\" se escribe `<>`."
+
+explicacion: |
+  Excel usa `<>` para "no es igual a" (por ejemplo `=A1<>100`). Es el mismo símbolo que usa el SQL estándar.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["precedencia"]
+
+tipo: mc
+opciones_explicitas: ["Primero se suma (x + 5) y después se compara con 10", "Primero se compara 5 > 10 y después se suma x", "Da error porque mezcla operadores", "Se evalúa de derecha a izquierda"]
+respuesta: "Primero se suma (x + 5) y después se compara con 10"
+
+enunciado: "¿Cómo se evalúa `x + 5 > 10`?"
+
+explicacion: |
+  Los operadores aritméticos se evalúan antes que los relacionales. Es lo mismo que `(x + 5) > 10`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["bucles"]
+
+tipo: mc
+opciones_explicitas: ["i < 5", "i <= 5", "i > 5", "i == 5"]
+respuesta: "i < 5"
+
+enunciado: "¿Qué condición hace que `while (i < 5)` se repita exactamente 5 veces si i empieza en 0 y sube de a 1?"
+
+explicacion: |
+  Con i en 0, 1, 2, 3 y 4 la condición es verdadera (5 veces). Con `i <= 5` serían 6 veces; con `i == 5` o `i > 5` no se entraría al bucle.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "avanzado"
+  tags: ["objetos"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En Java, `a == b` entre dos objetos pregunta si apuntan al MISMO objeto en memoria, no si tienen el mismo contenido."
+
+explicacion: |
+  Para tipos de referencia, `==` compara la identidad (la dirección). Para comparar el contenido se usa un método como `.equals()`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "basico"
+  tags: ["decision"]
+
+tipo: mc
+opciones_explicitas: ["total >= 20000", "total > 20000", "total == 20000", "total <= 20000"]
+respuesta: "total >= 20000"
+
+enunciado: "Una tienda da envío gratis si la compra es de $20.000 o más. ¿Qué condición usarías?"
+
+explicacion: |
+  "20.000 o más" incluye el 20.000, por eso corresponde `>=`. Con `>` quedarían afuera las compras de exactamente $20.000.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_relacionales"
+  nivel: "intermedio"
+  tags: ["error comun"]
+
+tipo: mc
+opciones_explicitas: ["Asigna 18 a edad en lugar de compararla", "Compara correctamente", "Pregunta si edad es distinta de 18", "No tiene ningún problema"]
+respuesta: "Asigna 18 a edad en lugar de compararla"
+
+enunciado: "¿Qué problema tiene `if (edad = 18)` en un lenguaje como C?"
+
+explicacion: |
+  Con un solo `=` se asigna 18 a la variable y la condición toma ese valor (distinto de 0 = verdadero). Se quiso escribir `edad == 18`.
+```
+
+## Sección: operadores-logicos (23 preguntas)
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["basicos"]
+
+tipo: mc
+opciones_explicitas: ["Y (AND), O (OR) y NO (NOT)", "SUMA, RESTA y PRODUCTO", "SI, SINO y ENTONCES", "MAYOR, MENOR e IGUAL"]
+respuesta: "Y (AND), O (OR) y NO (NOT)"
+
+enunciado: "¿Cuáles son los tres operadores lógicos básicos?"
+
+explicacion: |
+  Los operadores lógicos combinan o invierten valores booleanos: AND (y), OR (o) y NOT (no). En C, Java y JavaScript se escriben `&&`, `||` y `!`; en Python, `and`, `or` y `not`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["and"]
+
+tipo: mc
+opciones_explicitas: ["Solo cuando A y B son verdaderos los dos", "Cuando alguno de los dos es verdadero", "Cuando los dos son falsos", "Siempre"]
+respuesta: "Solo cuando A y B son verdaderos los dos"
+
+enunciado: "¿Cuándo da verdadero `A Y B`?"
+
+explicacion: |
+  El Y exige que se cumplan **las dos** condiciones. Si una falla, el resultado es falso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["or"]
+
+tipo: mc
+opciones_explicitas: ["Solo cuando A y B son falsos los dos", "Cuando alguno es falso", "Cuando los dos son verdaderos", "Nunca"]
+respuesta: "Solo cuando A y B son falsos los dos"
+
+enunciado: "¿Cuándo da falso `A O B`?"
+
+explicacion: |
+  El O alcanza con que **una** de las condiciones se cumpla. Solo es falso si las dos fallan.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["not"]
+
+tipo: mc
+opciones_explicitas: ["falso", "verdadero", "activo", "No se puede calcular"]
+respuesta: "falso"
+
+enunciado: "Si `activo` es verdadero, ¿cuánto vale `NO activo`?"
+
+explicacion: |
+  El NO invierte el valor: lo verdadero pasa a falso y lo falso a verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["simbolos"]
+
+tipo: mc
+opciones_explicitas: ["&&", "&", "and", "AND"]
+respuesta: "&&"
+
+enunciado: "En C, Java y JavaScript, ¿cómo se escribe el operador lógico Y?"
+
+explicacion: |
+  `&&` es el Y lógico. Con un solo `&` se hace una operación **bit a bit**, que es otra cosa. En Python se escribe `and`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["simbolos"]
+
+tipo: completar
+respuesta: "||"
+respuestas_validas:
+  - "||"
+
+enunciado: "En JavaScript, el operador lógico O se escribe `a ___ b`."
+
+explicacion: |
+  `||` es el O lógico (dos barras verticales). Una sola barra `|` opera bit a bit.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["simbolos"]
+
+tipo: completar
+respuesta: "!"
+respuestas_validas:
+  - "!"
+
+enunciado: "En C, Java y JavaScript, el operador lógico NO se escribe con el signo `___` delante de la condición."
+
+explicacion: |
+  `!` invierte el valor: `!llueve` es verdadero cuando `llueve` es falso. En Python se escribe `not`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["and"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "`verdadero Y falso` da falso."
+
+explicacion: |
+  El Y solo da verdadero si los dos lados lo son. Acá uno falla, así que el resultado es falso.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["or"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "`verdadero O falso` da verdadero."
+
+explicacion: |
+  Al O le alcanza con que uno sea verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["not"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "`NO (NO verdadero)` da verdadero."
+
+explicacion: |
+  Cada NO invierte el valor: NO verdadero = falso, y NO falso = verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+tipo: mc
+opciones_explicitas: ["No: la primera condición es falsa", "Sí: tiene entrada", "Sí: alcanza con una", "Depende del recital"]
+respuesta: "No: la primera condición es falsa"
+
+enunciado: "Para entrar a un recital se pide ser mayor de 16 Y tener entrada. Si Lucía tiene 15 años y tiene entrada, ¿puede entrar?"
+
+explicacion: |
+  Con un Y hay que cumplir las dos condiciones. 15 no es mayor de 16, así que el resultado es falso aunque tenga entrada.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+tipo: mc
+opciones_explicitas: ["Sí: se cumple una de las dos", "No: faltó una condición", "No: tiene que ser jubilado", "Solo si paga en efectivo"]
+respuesta: "Sí: se cumple una de las dos"
+
+enunciado: "Un descuento se aplica si el cliente es jubilado O compra los martes. Si un cliente no es jubilado y compra un martes, ¿recibe el descuento?"
+
+explicacion: |
+  Con un O alcanza con que se cumpla una. Compró un martes, así que el resultado es verdadero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "intermedio"
+  tags: ["rango"]
+
+tipo: mc
+opciones_explicitas: ["x >= 1 && x <= 10", "x >= 1 || x <= 10", "x >= 1 && x >= 10", "!(x >= 1) && x <= 10"]
+respuesta: "x >= 1 && x <= 10"
+
+enunciado: "¿Cuál expresión comprueba que `x` está entre 1 y 10 (inclusive)?"
+
+explicacion: |
+  Se necesitan las dos comparaciones al mismo tiempo (Y). Con O, cualquier número cumpliría (por ejemplo, 50 es >= 1).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "intermedio"
+  tags: ["rango"]
+
+tipo: mc
+opciones_explicitas: ["x < 1 || x > 10", "x < 1 && x > 10", "x >= 1 || x <= 10", "!(x < 1 || x > 10)"]
+respuesta: "x < 1 || x > 10"
+
+enunciado: "¿Cuál expresión comprueba que `x` está FUERA del rango de 1 a 10?"
+
+explicacion: |
+  Estar fuera es estar por debajo de 1 **o** por encima de 10. Con un Y nunca se cumpliría: ningún número es menor que 1 y mayor que 10 a la vez.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "avanzado"
+  tags: ["de morgan"]
+
+tipo: mc
+opciones_explicitas: ["!A || !B", "!A && !B", "A || B", "!A || B"]
+respuesta: "!A || !B"
+
+enunciado: "¿Con qué expresión es equivalente `!(A && B)`?"
+
+explicacion: |
+  Ley de De Morgan: negar un Y equivale a negar cada parte y cambiar el Y por un O. Es útil para simplificar condiciones.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "avanzado"
+  tags: ["de morgan"]
+
+tipo: mc
+opciones_explicitas: ["!A && !B", "!A || !B", "A && B", "A && !B"]
+respuesta: "!A && !B"
+
+enunciado: "¿Con qué expresión es equivalente `!(A || B)`?"
+
+explicacion: |
+  Es la otra ley de De Morgan: negar un O equivale a negar cada parte y usar Y. "No (llueve o hace frío)" es "no llueve y no hace frío".
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "intermedio"
+  tags: ["precedencia"]
+
+tipo: mc
+opciones_explicitas: ["`b && c`", "`a || b`", "Se evalúa de izquierda a derecha sin prioridad", "Depende de los valores"]
+respuesta: "`b && c`"
+
+enunciado: "En C, Java o JavaScript, ¿cuál se evalúa primero en `a || b && c`?"
+
+explicacion: |
+  El Y tiene más precedencia que el O (como el producto sobre la suma). Es lo mismo que `a || (b && c)`. Ante la duda, usá paréntesis.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "avanzado"
+  tags: ["cortocircuito"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "En `A && B`, si A es falso, la mayoría de los lenguajes ni siquiera evalúan B."
+
+explicacion: |
+  Se llama **evaluación en cortocircuito**: si con A ya se sabe el resultado (falso), no se mira B. Sirve, por ejemplo, para escribir `n != 0 && 100 / n > 5` sin dividir por cero.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "avanzado"
+  tags: ["cortocircuito"]
+
+tipo: mc
+opciones_explicitas: ["Si `i` es demasiado grande, la segunda parte ni se evalúa y no se sale de la lista", "Se ejecuta más lento pero más seguro", "Es lo mismo en cualquier orden", "Da siempre verdadero"]
+respuesta: "Si `i` es demasiado grande, la segunda parte ni se evalúa y no se sale de la lista"
+
+enunciado: "¿Qué ventaja tiene escribir `i < largo && lista[i] == x` en ese orden?"
+
+explicacion: |
+  El cortocircuito protege la segunda condición: si `i < largo` es falso, no se intenta leer `lista[i]` (que daría error).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "avanzado"
+  tags: ["bits"]
+
+tipo: mc
+opciones_explicitas: ["`&&` es el Y lógico entre condiciones; `&` opera bit por bit sobre números", "Ninguna", "`&` es el Y lógico y `&&` opera bit a bit", "`&&` solo existe en Python"]
+respuesta: "`&&` es el Y lógico entre condiciones; `&` opera bit por bit sobre números"
+
+enunciado: "En JavaScript o C, ¿qué diferencia hay entre `&` y `&&`?"
+
+explicacion: |
+  Son operadores distintos. Para combinar condiciones se usa `&&`; `&` trabaja con los bits de los números (por ejemplo, para máscaras).
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["python"]
+
+tipo: mc
+opciones_explicitas: ["edad >= 18 and estudiante", "edad >= 18 && estudiante", "edad >= 18 & estudiante", "edad >= 18 AND estudiante"]
+respuesta: "edad >= 18 and estudiante"
+
+enunciado: "¿Cuál de estas expresiones es correcta en Python para \"edad mayor o igual a 18 y es estudiante\"?"
+
+explicacion: |
+  En Python los operadores lógicos se escriben con palabras: `and`, `or`, `not`. `&&` no existe en Python.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "basico"
+  tags: ["sql"]
+
+tipo: mc
+opciones_explicitas: ["WHERE a = 1 AND b = 2", "WHERE a = 1 && b = 2", "WHERE a = 1, b = 2", "WHERE a = 1 + b = 2"]
+respuesta: "WHERE a = 1 AND b = 2"
+
+enunciado: "En SQL, ¿cómo se combinan dos condiciones en un WHERE para que se cumplan ambas?"
+
+explicacion: |
+  SQL usa las palabras `AND`, `OR` y `NOT`.
+```
+
+```
+metadata:
+  materia: "informatica"
+  tema: "operadores_logicos"
+  nivel: "avanzado"
+  tags: ["verdad"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "En todos los lenguajes, el número 0 se interpreta como falso y cualquier otro número como verdadero."
+
+explicacion: |
+  Depende del lenguaje: en C y Python el 0 cuenta como falso; en otros lenguajes (Java, Rust) una condición tiene que ser estrictamente booleana y 0 da error. No lo des por sabido.
+```
 
 ## Sección: estructuras-de-control-bucles (25 preguntas)
 

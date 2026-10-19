@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #681]
+# Examen jefe — Maestro del Origen del Universo
 
-> Logro #681. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #681. Completaste el parcial dominando las escalas de tiempo profundo, el origen del universo, la nucleosíntesis, la formación de estrellas y los tipos de galaxias. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

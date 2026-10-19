@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #605]
+# Examen jefe — Domina Trigonometría y Regresión
 
-> Logro #605. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #605. Trabajaste funciones trigonométricas, identidades, suma y descomposición de vectores y regresión lineal, y detectaste quién miente y cuándo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -993,678 +993,572 @@ explicacion: |
   periódico se describe con esta misma idea.
 ```
 
-## Sección: regla-de-lhopital (31 preguntas)
+## Sección: suma-de-vectores-y-descomposicion (27 preguntas)
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "basico"
-  tags: ["terminologia"]
+  tags: ["suma_vectores", "vocabulario"]
+
+enunciado: "¿Cómo se suman dos vectores usando sus componentes?"
+tipo: mc
+opciones_explicitas:
+  - "Se suman las componentes x entre sí, y por separado las componentes y entre sí"
+  - "Se suman todas las componentes en un solo número"
+  - "Se multiplican las componentes de un vector por las del otro"
+respuesta: "Se suman las componentes x entre sí, y por separado las componentes y entre sí"
+
+explicacion: |
+  (x₁,y₁) + (x₂,y₂) = (x₁+x₂, y₁+y₂).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["suma_vectores", "problema"]
 
 variables:
-  nombre: "L'Hôpital"
+  x1: random(1, 10)
+  y1: random(1, 10)
+  x2: random(1, 10)
+  y2: random(1, 10)
 
-tipo: completar
+respuesta: x1 + x2
+tipo: input
+tolerancia_abs: 0
 
-enunciado: "La regla que permite resolver indeterminaciones 0/0 y ∞/∞ mediante derivadas se llama Regla de {nombre}."
+enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la componente x del vector resultante?"
 
-respuestas_validas:
-  - "L'Hôpital"
-  - "Lhopital"
-  - "lhopital"
-  - "l'Hôpital"
+pasos:
+  - "{x1} + {x2} = {x1 + x2}"
 
 explicacion: |
-  La regla lleva el nombre del matemático francés Guillaume de l'Hôpital.
+  Se suman sólo las dos componentes x.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["conceptos"]
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["suma_vectores", "problema"]
 
 variables:
-  forma: "0/0"
+  x1: random(1, 10)
+  y1: random(1, 10)
+  x2: random(1, 10)
+  y2: random(1, 10)
 
-tipo: completar
-
-enunciado: "Una de las dos formas indeterminadas principales que permiten aplicar L'Hôpital es {forma}."
-
-respuestas_validas:
-  - "0/0"
-  - "0 sobre 0"
-  - "cero sobre cero"
-
-explicacion: |
-  Las formas son 0/0 y ∞/∞.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["historia"]
-
-variables:
-  apellido: "L'Hôpital"
-
-tipo: completar
-
-enunciado: "La regla lleva el nombre del matemático {apellido}."
-
-respuestas_validas:
-  - "L'Hôpital"
-  - "Lhopital"
-  - "l'Hôpital"
-
-explicacion: |
-  Guillaume de l'Hôpital publicó la regla en 1696.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["limites", "lhopital", "polinomios"]
-
-variables:
-  a: random(2, 5)
-  b: random(1, 3)
-
-respuesta: "{a/b}"
+respuesta: y1 + y2
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Calcule el límite: lim(x→0) (x^{a} + {b}x) / x"
+enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es la componente y del vector resultante?"
+
+pasos:
+  - "{y1} + {y2} = {y1 + y2}"
 
 explicacion: |
-  Al sustituir x=0 obtenemos 0/0. Aplicamos L'Hôpital derivando numerador y denominador:
-  Derivada num: a*x^{a-1} + {b}
-  Derivada den: 1
-  El límite es a*0^{a-1} + {b}. Como a >= 2, el término con x se anula.
-  Resultado: {b}.
+  Se suman sólo las dos componentes y.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "seno"]
-
-variables:
-  k: random(2, 6)
-
-respuesta: k
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sin(k*x)) / x"
-
-explicacion: |
-  Es indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: k*cos(k*x)
-  Derivada den: 1
-  Evaluar en x=0: k*cos(0)/1 = k*1 = {k}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "infinito", "logaritmo"]
-
-variables:
-  n: random(2, 5)
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (log(x)) / x^{n}"
-
-explicacion: |
-  Es indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: 1/x
-  Derivada den: n*x^{n-1}
-  Nuevo límite: lim(x→∞) (1/x) / (n*x^{n-1}) = lim(x→∞) 1 / (n*x^{n})
-  Como n > 0, el denominador crece infinitamente, por lo que el límite es 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "derivadas"]
-
-variables:
-  k: random(1, 4)
-
-respuesta: "{1/(2*k)}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: (1/2)*(1+k*x)^{-1/2} * k
-  Derivada den: 1
-  Evaluar en x=0: (1/2)*(1)^{-1/2} * k = k/2.
-  El límite es k/2.
-  Espera, la derivada de sqrt(1+kx) es k / (2*sqrt(1+kx)).
-  En x=0: k / 2.
-  La respuesta correcta es "{k/2}".
-  Corrijo la respuesta:
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "derivadas"]
-
-variables:
-  k: random(1, 4)
-
-respuesta: "{k/2}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1 + k*x) - 1) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: k / (2*sqrt(1+k*x))
-  Derivada den: 1
-  En x=0: k / 2.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "logaritmo", "infinito"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (log(x)) / x"
-
-explicacion: |
-  Indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: 1/x
-  Derivada den: 1
-  Límite: lim(x→∞) 1/x = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (1 - cos(x)) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: sin(x)
-  Derivada den: 1
-  Lim(x→0) sin(x)/1 = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "exponencial", "infinito"]
-
-respuesta: "∞"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (e^x) / x"
-
-explicacion: |
-  Indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: e^x
-  Derivada den: 1
-  Lim(x→∞) e^x/1 = ∞.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "tangente"]
-
-respuesta: "1"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (tan(x)) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: sec^2(x)
-  Derivada den: 1
-  En x=0: sec^2(0) = 1/cos^2(0) = 1/1 = 1.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "logaritmo", "natural"]
-
-respuesta: "1"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (ln(1 + x)) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: 1/(1+x)
-  Derivada den: 1
-  En x=0: 1/(1+0) = 1.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "raices", "cubica"]
-
-variables:
-  k: random(1, 3)
-
-respuesta: "{k/3}"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) ( (1 + k*x)^{1/3} - 1 ) / x"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: (1/3)*(1+k*x)^{-2/3} * k
-  Derivada den: 1
-  En x=0: (1/3)*1 * k = k/3.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "exponencial", "infinito"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→∞) (x) / e^x"
-
-explicacion: |
-  Indeterminación ∞/∞. Aplicamos L'Hôpital:
-  Derivada num: 1
-  Derivada den: e^x
-  Lim(x→∞) 1/e^x = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: -sin(x)
-  Derivada den: 2x
-  Resultado: -sin(x)/2x. En x=0 es 0/0.
-  Aplicamos L'Hôpital de nuevo:
-  Derivada num: -cos(x)
-  Derivada den: 2
-  En x=0: -cos(0)/2 = -1/2.
-  Espera, la respuesta es -0.5.
-  Cambiemos a (1-cos(x))/x^2 -> 1/2.
-  O dejemos -1/2.
-  Respuesta: "-0.5"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["limites", "trigonometria", "coseno"]
-
-respuesta: "-0.5"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (cos(x) - 1) / x^2"
-
-explicacion: |
-  1ra derivada: -sin(x) / 2x (0/0)
-  2da derivada: -cos(x) / 2
-  En x=0: -1/2 = -0.5.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "avanzado"
-  tags: ["limites", "logaritmo", "raices"]
-
-respuesta: "0"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
-
-explicacion: |
-  Indeterminación 0/0. Aplicamos L'Hôpital:
-  Derivada num: 1/(2*sqrt(1+x))
-  Derivada den: 1/(1+x)
-  Fracción: (1/(2*sqrt(1+x))) / (1/(1+x)) = (1+x) / (2*sqrt(1+x))
-  Simplificamos: sqrt(1+x) / 2.
-  En x=0: sqrt(1)/2 = 1/2 = 0.5.
-  Respuesta: "0.5"
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "avanzado"
-  tags: ["limites", "logaritmo", "raices"]
-
-respuesta: "0.5"
-tipo: input
-
-enunciado: "Calcule: lim(x→0) (sqrt(1+x) - 1) / log(1+x)"
-
-explicacion: |
-  Derivada num: 1/(2*sqrt(1+x))
-  Derivada den: 1/(1+x)
-  Cociente: (1+x) / (2*sqrt(1+x)) = sqrt(1+x)/2.
-  En x=0: 1/2 = 0.5.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["identificacion", "indeterminacion"]
+  tags: ["suma_vectores", "problema"]
 
 variables:
-  k: random(1, 5)
+  k: random(1, 6)
+  x1: uno_de([1, 2, 3])
+  y1: uno_de([1, 2])
+  x2: (3 * k) - x1
+  y2: (4 * k) - y1
+
+respuesta: 5 * k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es el módulo del vector resultante?"
+
+pasos:
+  - "Suma: ({x1 + x2}, {y1 + y2})"
+  - "√({x1 + x2}² + {y1 + y2}²) = {5 * k}"
+
+explicacion: |
+  Primero se suman las componentes, y recién con el resultado se aplica
+  Pitágoras para hallar el módulo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "basico"
+  tags: ["suma_vectores", "vocabulario"]
+
+enunciado: "¿Cómo se restan dos vectores usando sus componentes?"
+tipo: mc
+opciones_explicitas:
+  - "Se restan las componentes x entre sí, y por separado las componentes y entre sí"
+  - "Se restan los módulos, sin tocar las componentes"
+  - "No es posible restar vectores, sólo sumarlos"
+respuesta: "Se restan las componentes x entre sí, y por separado las componentes y entre sí"
+
+explicacion: |
+  Es exactamente el mismo procedimiento que sumar, con resta en vez de
+  suma.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["suma_vectores", "problema"]
+
+variables:
+  x1: random(10, 20)
+  y1: random(10, 20)
+  x2: random(1, 9)
+  y2: random(1, 9)
+
+respuesta: x1 - x2
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se resta el vector ({x2}, {y2}) al vector ({x1}, {y1}). ¿Cuál es la componente x del resultado?"
+
+pasos:
+  - "{x1} − {x2} = {x1 - x2}"
+
+explicacion: |
+  Se restan sólo las componentes x, en el orden dado.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["escalar", "vocabulario"]
+
+enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar k > 1?"
+tipo: mc
+opciones_explicitas:
+  - "Se alarga (su módulo aumenta), sin cambiar de dirección"
+  - "Se acorta"
+  - "Cambia de dirección, apuntando al lado opuesto"
+respuesta: "Se alarga (su módulo aumenta), sin cambiar de dirección"
+
+explicacion: |
+  Cada componente queda multiplicada por k, que es mayor a 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["escalar", "vocabulario"]
+
+enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar k, con 0 < k < 1?"
+tipo: mc
+opciones_explicitas:
+  - "Se acorta (su módulo disminuye), sin cambiar de dirección"
+  - "Se alarga"
+  - "Se vuelve el vector nulo"
+respuesta: "Se acorta (su módulo disminuye), sin cambiar de dirección"
+
+explicacion: |
+  Cada componente queda multiplicada por un número menor a 1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["escalar", "vocabulario"]
+
+enunciado: "¿Qué le pasa a un vector si se lo multiplica por un escalar negativo?"
+tipo: mc
+opciones_explicitas:
+  - "Cambia de dirección, quedando apuntando exactamente al lado opuesto"
+  - "Se vuelve el vector nulo automáticamente"
+  - "No cambia nada, sólo el módulo se hace negativo"
+respuesta: "Cambia de dirección, quedando apuntando exactamente al lado opuesto"
+
+explicacion: |
+  El módulo (que nunca es negativo) puede cambiar, pero la dirección
+  gira 180°.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["escalar", "problema"]
+
+variables:
+  x: random(2, 10)
+  oy: random(2, 10)
+  k: uno_de([2, 3, 4])
+
+respuesta: x * k
+tipo: input
+tolerancia_abs: 0
+
+enunciado: "Se multiplica el vector ({x}, {oy}) por el escalar {k}. ¿Cuál es la componente x del resultado?"
+
+pasos:
+  - "{x} × {k} = {x * k}"
+
+explicacion: |
+  Cada componente se multiplica por el mismo escalar.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["escalar", "vocabulario"]
+
+enunciado: "¿Qué es el vector opuesto de v?"
+tipo: mc
+opciones_explicitas:
+  - "El vector -v: mismo módulo, dirección exactamente contraria (180°)"
+  - "Un vector con módulo 0"
+  - "Un vector perpendicular a v"
+respuesta: "El vector -v: mismo módulo, dirección exactamente contraria (180°)"
+
+explicacion: |
+  Se obtiene multiplicando v por el escalar -1.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["escalar"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Al calcular el límite de {k}x / sin({k}x) cuando x tiende a 0, se obtiene la forma indeterminada 0/0."
+enunciado: "El vector opuesto de v tiene exactamente el mismo módulo que v."
 
 explicacion: |
-  Al sustituir x = 0 en el numerador obtenemos {k}*0 = 0.
-  En el denominador obtenemos sin(0) = 0.
-  Por lo tanto, la forma resultante es 0/0, que es una indeterminación válida para aplicar L'Hôpital.
+  Multiplicar por -1 sólo cambia la dirección, no la longitud.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "intermedio"
-  tags: ["infinito", "logaritmo"]
-
-variables:
-  k: random(2, 5)
-
-respuesta: 0
-tipo: input
-
-enunciado: "Calcula el límite de ln(x) / x^{k} cuando x tiende a infinito."
-
-explicacion: |
-  Forma indeterminada ∞/∞. Aplicamos L'Hôpital.
-  Derivada num: 1/x.
-  Derivada den: k*x^(k-1).
-  Nuevo límite: (1/x) / (k*x^(k-1)) = 1 / (k*x^k).
-  Cuando x -> ∞, el denominador crece sin límite, por lo que el resultado es 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "basico"
-  tags: ["errores_comunes", "aplicacion"]
-
-variables:
-  k: random(1, 5)
+  tags: ["escalar"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Se puede aplicar la Regla de L'Hôpital al límite de (x + {k}) / x cuando x tiende a 0."
+enunciado: "El vector opuesto de v tiene exactamente la misma dirección que v."
 
 explicacion: |
-  Al sustituir x=0, el numerador tiende a {k} y el denominador a 0.
-  Esto da una forma {k}/0 (asíntota), no una indeterminación 0/0.
-  Por lo tanto, L'Hôpital no es aplicable directamente.
+  Tiene dirección opuesta (girada 180°), no la misma.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "intermedio"
-  tags: ["teoria", "derivada"]
+  tags: ["suma_vectores", "vocabulario"]
 
-respuesta: falso
+enunciado: "En el método gráfico para sumar vectores, ¿cómo se dibuja el segundo vector respecto del primero?"
+tipo: mc
+opciones_explicitas:
+  - "Empezando justo donde termina el primero (uniendo punta con cola)"
+  - "Superpuesto exactamente sobre el primero"
+  - "Siempre partiendo del origen, sin importar el primero"
+respuesta: "Empezando justo donde termina el primero (uniendo punta con cola)"
+
+explicacion: |
+  El vector suma va desde el origen del primero hasta el extremo del
+  segundo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["suma_vectores"]
+
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Para calcular el límite de f(x)/g(x) mediante L'Hôpital, debemos derivar la fracción completa como si fuera una función cociente."
+enunciado: "El método gráfico (punta con cola) y el método por componentes dan exactamente el mismo vector suma."
 
 explicacion: |
-  Falso. L'Hôpital establece que el límite es igual al límite de (f'(x))/(g'(x)).
-  No se deriva el cociente f/g, sino que se derivan el numerador y el denominador por separado.
+  Son dos formas distintas de llegar al mismo resultado; el de
+  componentes es más preciso para calcular.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["descomposicion", "vocabulario"]
+
+enunciado: "¿Qué es descomponer un vector?"
+tipo: mc
+opciones_explicitas:
+  - "Hallar sus componentes x e y, a partir de su módulo y su dirección"
+  - "Dividir su módulo por 2"
+  - "Convertirlo en dos vectores nulos"
+respuesta: "Hallar sus componentes x e y, a partir de su módulo y su dirección"
+
+explicacion: |
+  Es el proceso inverso a calcular módulo y dirección a partir de las
+  componentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["descomposicion", "completar"]
+
+tipo: completar
+enunciado: "Completá: componente x = módulo × ___(dirección)."
+respuestas_validas:
+  - "cos"
+  - "coseno"
+
+explicacion: |
+  La componente y usa seno en cambio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["descomposicion", "completar"]
+
+tipo: completar
+enunciado: "Completá: componente y = módulo × ___(dirección)."
+respuestas_validas:
+  - "sen"
+  - "seno"
+
+explicacion: |
+  La componente x usa coseno en cambio.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "avanzado"
-  tags: ["exponencial", "logaritmo"]
+  tags: ["descomposicion", "problema"]
+
+variables:
+  modulo: uno_de([10, 20, 40])
+  cos_30: 0.87
+
+respuesta: redondear(modulo * cos_30, 1)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Una fuerza tiene módulo {modulo} N y dirección 30° (cos 30° ≈ 0,87). ¿Cuál es su componente horizontal?"
+
+pasos:
+  - "{modulo} × 0,87 = {redondear(modulo * cos_30, 1)} N"
+
+explicacion: |
+  x = módulo × cos(dirección).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "avanzado"
+  tags: ["descomposicion", "problema"]
+
+variables:
+  modulo: uno_de([10, 20, 40])
+  sen_60: 0.87
+
+respuesta: redondear(modulo * sen_60, 1)
+tipo: input
+tolerancia_abs: 0.5
+
+enunciado: "Una fuerza tiene módulo {modulo} N y dirección 60° (sen 60° ≈ 0,87). ¿Cuál es su componente vertical?"
+
+pasos:
+  - "{modulo} × 0,87 = {redondear(modulo * sen_60, 1)} N"
+
+explicacion: |
+  y = módulo × sen(dirección).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "avanzado"
+  tags: ["descomposicion", "ordenar"]
+
+enunciado: "Ordená los pasos para sumar dos vectores que no están alineados con los ejes (cada uno con su propio módulo y dirección)."
+tipo: ordenar
+opciones_explicitas:
+  - "Calcular el módulo del vector resultante con esas componentes sumadas"
+  - "Descomponer cada vector en sus componentes x e y"
+  - "Sumar todas las componentes x entre sí, y todas las componentes y entre sí"
+respuesta_orden: ["Descomponer cada vector en sus componentes x e y", "Sumar todas las componentes x entre sí, y todas las componentes y entre sí", "Calcular el módulo del vector resultante con esas componentes sumadas"]
+explicacion: |
+  Sin descomponer primero, no se pueden sumar directamente dos vectores
+  con direcciones distintas.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "avanzado"
+  tags: ["suma_vectores", "problema"]
 
 variables:
   k: random(1, 5)
+  x1: uno_de([1, 2])
+  y1: uno_de([1, 2, 3])
+  x2: (5 * k) - x1
+  y2: (12 * k) - y1
 
-respuesta: 0
+respuesta: 13 * k
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Calcula el límite de x / ln(x) cuando x tiende a 1."
+enunciado: "Se suman los vectores ({x1}, {y1}) y ({x2}, {y2}). ¿Cuál es el módulo del vector resultante?"
+
+pasos:
+  - "Suma: ({x1 + x2}, {y1 + y2})"
+  - "√({x1 + x2}² + {y1 + y2}²) = {13 * k}"
 
 explicacion: |
-  Al sustituir x=1, el numerador es 1 y el denominador es ln(1)=0.
-  Esto no es 0/0 ni ∞/∞. Es 1/0 (asíntota).
-  Espera, el límite es infinito (o no existe en el sentido finito).
-  Si la pregunta pide un número finito, esta variable no sirve bien para input numérico simple sin especificar signo.
-  Cambiemos a x->∞ para ln(x)/x.
-  Nuevo enunciado: Lim ln(x)/x cuando x->∞.
-  Derivada num: 1/x. Derivada den: 1.
-  Lim (1/x)/1 = 0.
-  Reescribiendo bloque:
+  Es la terna pitagórica 5-12-13 aplicada al resultado de la suma.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "intermedio"
-  tags: ["exponencial", "logaritmo"]
-
-respuesta: 0
-tipo: input
-
-enunciado: "Calcula el límite de ln(x) / x cuando x tiende a infinito."
-
-explicacion: |
-  Forma ∞/∞.
-  Derivada num: 1/x. Derivada den: 1.
-  El nuevo límite es lim (1/x) / 1 = 0.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["teoria", "existencia"]
+  tags: ["suma_vectores"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si al aplicar L'Hôpital el límite de f'(x)/g'(x) no existe (ni es infinito), entonces L'Hôpital no permite concluir nada sobre el límite original."
+enunciado: "Sumar vectores por componentes funciona siempre, sin importar en qué dirección apunte cada uno."
 
 explicacion: |
-  Correcto. La regla dice que si el límite de las derivadas existe, entonces el límite original es igual a él.
-  Si el límite de las derivadas no existe, la regla es inconclusa (el límite original podría existir o no).
+  A diferencia del método gráfico (que depende de dibujar bien), el
+  método por componentes es puramente numérico y siempre da el
+  resultado correcto.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "intermedio"
+  tags: ["vocabulario"]
+
+enunciado: "¿Por qué hace falta descomponer las fuerzas antes de sumarlas, cuando dos personas empujan un mismo objeto desde ángulos distintos?"
+tipo: mc
+opciones_explicitas:
+  - "Porque no se pueden sumar directamente dos vectores con direcciones distintas sin pasar por sus componentes"
+  - "Porque las fuerzas nunca se pueden sumar entre sí"
+  - "No hace falta descomponer nada, alcanza con sumar los módulos"
+respuesta: "Porque no se pueden sumar directamente dos vectores con direcciones distintas sin pasar por sus componentes"
+
+explicacion: |
+  Sumar los módulos directamente (sin descomponer) da un resultado
+  incorrecto, salvo que ambos vectores tengan la misma dirección.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "avanzado"
-  tags: ["iteracion", "polinomio"]
+  tags: ["descomposicion", "problema"]
 
-respuesta: 2
+variables:
+  fx1: uno_de([10, 20])
+  fx2: uno_de([5, 15])
+
+respuesta: fx1 + fx2
 tipo: input
+tolerancia_abs: 0
 
-enunciado: "Calcula el límite de (x^{2} - 2x + 1) / (x^{3} - 1) cuando x tiende a 1."
+enunciado: "Dos fuerzas actúan sobre un objeto. Al descomponerlas, la primera tiene componente horizontal {fx1} N, y la segunda {fx2} N. ¿Cuál es la componente horizontal de la fuerza neta (la suma de ambas)?"
+
+pasos:
+  - "{fx1} + {fx2} = {fx1 + fx2} N"
 
 explicacion: |
-  Forma 0/0.
-  Derivada 1: Num (2x-2), Den (3x^2). En x=1: 0/3 = 0.
-  Espera, 0/3 es 0. No hay que derivar de nuevo.
-  Reviso: Num en 1: 1-2+1=0. Den en 1: 1-1=0.
-  Derivada Num: 2x-2. En 1: 0.
-  Derivada Den: 3x^2. En 1: 3.
-  Lim 0/3 = 0.
-  La respuesta es 0.
-  Cambio el ejercicio para que requiera 2 derivadas.
-  Usar (x-1)^2 / (x^3-1)?
-  Num derivada: 2(x-1) -> 0. Den derivada: 3x^2 -> 3. Resultado 0.
-  Usar (x-1)^3 / (x^2-1)?
-  Num derivada: 3(x-1)^2 -> 0. Den derivada: 2x -> 2. Resultado 0.
-  Para que sea distinto de 0 y requiera iteración, necesitamos que la primera derivada siga dando 0/0.
-  Ejemplo: (x-1)^2 / (x^2-1).
-  Derivada 1: Num 2(x-1)->0. Den 2x->2. Resultado 0.
-  Ejemplo: (x-1)^3 / (x-1)^2? Simplifica a x-1 -> 0.
-  Ejemplo clásico: (x - sin(x)) / x^3?
-  Derivada 1: (1-cos(x))/3x^2 -> 0/0.
-  Derivada 2: sin(x)/6x -> 0/0.
-  Derivada 3: cos(x)/6 -> 1/6.
-  Muy complejo para input simple.
-  Volvemos a (x^2 - 2x + 1)/(x-1)? No, eso es 0/0 directo.
-  Vamos a usar (x^2 - 1)/(x^3 - 1) en x->1.
-  Derivada 1: 2x / 3x^2 = 2/(3x). En 1: 2/3.
-  Respuesta 2/3.
-  Reescribiendo para evitar confusión de iteración innecesaria:
+  Las componentes horizontales de cada fuerza se suman entre sí, por
+  separado de las verticales.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
+  nivel: "avanzado"
+  tags: ["suma_vectores"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Sumar el vector nulo a cualquier otro vector no cambia nada: da el mismo vector original."
+
+explicacion: |
+  (x, y) + (0, 0) = (x, y): el vector nulo es el "cero" de la suma de
+  vectores.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "suma_de_vectores_y_descomposicion"
   nivel: "basico"
-  tags: ["propiedades", "linealidad"]
+  tags: ["cierre"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si el límite de f(x)/g(x) es indeterminado, el límite de c*f(x)/g(x) (con c constante) se puede calcular derivando f(x) y g(x) por separado."
-
-explicacion: |
-  Verdadero. La constante c se puede sacar fuera o derivar como parte del numerador (c*f'(x)).
-  El resultado será c veces el límite original de f/g.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["teoria", "limites_laterales"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Regla de L'Hôpital es aplicable también para límites laterales (x -> a+ o x -> a-)."
+enunciado: "¿Para qué sirve saber sumar y descomponer vectores?"
+tipo: mc
+opciones_explicitas:
+  - "Para calcular el efecto neto de varias magnitudes vectoriales (fuerzas, velocidades) que actúan juntas, incluso en direcciones distintas"
+  - "Sólo sirve para vectores que ya están alineados con los ejes"
+  - "No tiene aplicación fuera de la matemática pura"
+respuesta: "Para calcular el efecto neto de varias magnitudes vectoriales (fuerzas, velocidades) que actúan juntas, incluso en direcciones distintas"
 
 explicacion: |
-  Verdadero. La regla se basa en la derivabilidad en un entorno, y los límites laterales son casos particulares de ese comportamiento local.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["trigonometria", "limite"]
-
-respuesta: 1
-tipo: input
-
-enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
-
-explicacion: |
-  Forma 0/0.
-  Derivada num: 3cos(3x). Derivada den: 1.
-  En x=0: 3cos(0)/1 = 3.
-  Espera, la respuesta es 3.
-  Reescribiendo para que sea 1: sen(x)/x.
-  Pero quiero variar.
-  Si pongo sen(3x)/x, la respuesta es 3.
-  Si pongo sen(x)/3x, la respuesta es 1/3.
-  Vamos a usar sen(3x)/x para probar que el alumno deriva correctamente el argumento.
-  Respuesta: 3.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "regla_de_lhopital"
-  nivel: "intermedio"
-  tags: ["trigonometria", "limite"]
-
-respuesta: 3
-tipo: input
-
-enunciado: "Calcula el límite de sen(3x) / x cuando x tiende a 0."
-
-explicacion: |
-  Forma 0/0.
-  Derivada num: 3cos(3x). Derivada den: 1.
-  En x=0: 3*1 / 1 = 3.
+  Es el paso que conecta directamente con las leyes de Newton en
+  Física.
 ```
 
 ## Sección: identidades-y-ecuaciones-trigonometricas (26 preguntas)

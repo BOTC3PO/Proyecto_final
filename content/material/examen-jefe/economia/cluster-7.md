@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #772]
+# Examen jefe — Experto en Escuelas Económicas Clásicas
 
-> Logro #772. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **68 preguntas totales** en 5/5 secciones.
+> Logro #772. Completaste el parcial recorriendo fisiocracia, mercantilismo, liberalismo clásico y escuela austriaca, además de PBI e inflación y la economía positiva y normativa, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **68 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #622]
+# Examen jefe — Domina el Plano Cartesiano
 
-> Logro #622. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #622. Ubicaste coordenadas y calculaste distancia entre puntos en el plano cartesiano, y operaste con fracciones y decimales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 

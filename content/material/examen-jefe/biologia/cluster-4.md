@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #864]
+# Examen jefe — Dominio de Ecosistemas y División Celular
 
-> Logro #864. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #864. Completaste el parcial combinando redes tróficas, ciclos biogeoquímicos y capacidad de carga con mitosis y meiosis, e incluso el mal de Chagas como caso de estudio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

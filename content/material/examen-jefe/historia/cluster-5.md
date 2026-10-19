@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #725]
+# Examen jefe — Dominio de Guerras y Procesos Americanos
 
-> Logro #725. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **197 preguntas totales** en 8/8 secciones.
+> Logro #725. Completaste el parcial sobre las independencias, la revolución mexicana, la guerra civil española, la guerra del Paraguay, Rosas y la Confederación, la Conquista del Desierto y las economías regionales tempranas. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **197 preguntas totales** en 8/8 secciones.
 
 ---
 

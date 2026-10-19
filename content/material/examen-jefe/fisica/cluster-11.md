@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #746]
+# Examen jefe — Dominio de Calor y Termometría
 
-> Logro #746. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #746. Completaste el parcial con calor Q=m·c·ΔT, dilatación térmica, calor latente, escalas de temperatura y máquinas térmicas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

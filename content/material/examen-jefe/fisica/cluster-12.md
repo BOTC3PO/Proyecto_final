@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #747]
+# Examen jefe — Ley de Ohm y Tiro Oblicuo
 
-> Logro #747. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #747. Aprobaste el parcial con tensión, resistencia y ley de Ohm, y también con el tiro oblicuo y la entropía en la segunda ley de la termodinámica. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

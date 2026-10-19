@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #661]
+# Examen jefe — Domina las Coordinadas y el Discurso Referido
 
-> Logro #661. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #661. Dominaste las coordinadas distributivas y disyuntivas, el discurso referido, la producción escrita compleja y la subordinada adjetiva. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 

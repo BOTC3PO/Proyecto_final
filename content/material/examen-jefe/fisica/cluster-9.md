@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #744]
+# Examen jefe — Maestro de la Óptica Geométrica
 
-> Logro #744. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #744. Completaste el parcial dominando refracción y ley de Snell, lentes convergentes y divergentes y formación de imágenes, junto con resonancia y relatividad especial. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #742]
+# Examen jefe — Experto en Presión y Fluidos
 
-> Logro #742. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
+> Logro #742. Dominaste la presión, la presión hidrostática y atmosférica y el caudal, y sumaste la reflexión en espejos planos y curvos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 

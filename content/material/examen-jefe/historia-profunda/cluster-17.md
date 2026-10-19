@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #697]
+# Examen jefe — Experto en Independencia Argentina
 
-> Logro #697. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
+> Logro #697. Aprobaste el parcial sobre la Revolución de Mayo, las guerras de independencia y las guerras civiles entre unitarios y federales, junto con la electrificación y el inicio de la huella humana en el clima. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **123 preguntas totales** en 5/5 secciones.
 
 ---
 

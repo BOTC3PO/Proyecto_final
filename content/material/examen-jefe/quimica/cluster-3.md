@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #843]
+# Examen jefe — Domina Átomos, Mezclas y pH
 
-> Logro #843. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
+> Logro #843. Completaste el parcial con modelos atómicos y partículas subatómicas, métodos de separación de mezclas, pH y pOH y propiedades coligativas, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 

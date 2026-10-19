@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #687]
+# Examen jefe — Maestro de Extinciones y Climas Antiguos
 
-> Logro #687. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #687. Completaste el parcial dominando la conquista de la tierra firme, las cinco extinciones masivas, el paleoclima y las glaciaciones, el ciclo de las rocas y la distribución de biomas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

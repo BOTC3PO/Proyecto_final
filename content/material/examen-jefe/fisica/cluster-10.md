@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #745]
+# Examen jefe — Sonido, Visión y Semivida
 
-> Logro #745. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #745. Dominaste el sonido (timbre, altura e intensidad), los decibeles y la escala de Richter, el ojo humano como instrumento óptico, la semivida y el equilibrio térmico, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

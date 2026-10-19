@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #796]
+# Examen jefe — Maestro de Mapas y Coordenadas
 
-> Logro #796. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
+> Logro #796. Completaste el parcial con escala de mapa, orientación, coordenadas y husos horarios, y sumaste densidad de población y huella de carbono y agua virtual. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #773]
+# Examen jefe — Dominio del Comercio y el Sueldo
 
-> Logro #773. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
+> Logro #773. Dominaste la balanza comercial, la ventaja comparativa y los sectores económicos, y también aprendiste a leer un recibo de sueldo general y argentino. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #867]
+# Examen jefe — Experto en Evolución y Fisiología
 
-> Logro #867. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **183 preguntas totales** en 7/7 secciones.
+> Logro #867. Completaste el parcial dominando especiación, deriva génica, filogenia, sistema nervioso y endocrino, presión arterial y la bioética de los transgénicos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **183 preguntas totales** en 7/7 secciones.
 
 ---
 

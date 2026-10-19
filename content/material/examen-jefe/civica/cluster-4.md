@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #882]
+# Examen jefe — Ciudadano Responsable en la Vía Pública
 
-> Logro #882. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
+> Logro #882. Completaste el examen jefe sobre impuestos, alcoholemia al conducir, señalización vial y la participación ciudadana. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 

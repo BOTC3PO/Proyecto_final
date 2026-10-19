@@ -4,15 +4,15 @@
     "materia": "Matemática",
     "cluster": 1,
     "temas": [
-      "asintotas",
-      "concavidad-y-puntos-de-inflexion",
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
       "conjuntos-pertenencia-e-inclusion",
       "conteo",
-      "divisibilidad/regla-del-7-opcional"
+      "valor-posicional"
     ],
-    "nombre": "Domínio de Assíntotas e Conjuntos",
-    "descripcion": "Analisaste assíntotas e concavidade de funções, trabalhaste pertença de conjuntos, contagem e a regra do 7 no mesmo parcial.",
-    "icono": "📈"
+    "nombre": "Mestre de Trigonometria e Conjuntos",
+    "descripcion": "Aplicaste razões trigonométricas e a lei dos senos e cossenos, e trabalhaste pertença a conjuntos, contagem e o valor posicional no mesmo exame.",
+    "icono": "📐"
   },
   {
     "id": 602,
@@ -20,13 +20,13 @@
     "cluster": 2,
     "temas": [
       "grafos-vertices-y-aristas",
-      "integral-definida-y-area-bajo-la-curva",
+      "union-interseccion-y-diferencia",
       "arboles-grafo-sin-ciclos",
       "grafos-dirigidos-no-dirigidos-y-ponderados",
       "leer-una-tabla"
     ],
     "nombre": "Mestre de Grafos e Árvores",
-    "descripcion": "Dominaste vértices, arestas, árvores e grafos ponderados, além de integrais definidas e leitura de tabelas.",
+    "descripcion": "Dominaste vértices, arestas, árvores e grafos ponderados, além de união, interseção e diferença de conjuntos e leitura de tabelas.",
     "icono": "🌳"
   },
   {
@@ -53,10 +53,10 @@
       "construir-un-grafico",
       "grafico-eje-truncado",
       "media-mediana-y-moda",
-      "razones-trigonometricas"
+      "vectores-modulo-y-direccion"
     ],
     "nombre": "Mestre de Gráficos e Medidas",
-    "descripcion": "Construíste gráficos, detectaste eixos truncados, calculaste média, mediana e moda, e aplicaste razões trigonométricas.",
+    "descripcion": "Construíste gráficos, detetaste eixos truncados, calculaste média, mediana e moda, e trabalhaste o módulo e a direção de vetores.",
     "icono": "📊"
   },
   {
@@ -66,12 +66,12 @@
     "temas": [
       "cual-miente-y-cuando",
       "funciones-trigonometricas-seno-coseno",
-      "regla-de-lhopital",
+      "suma-de-vectores-y-descomposicion",
       "identidades-y-ecuaciones-trigonometricas",
       "regresion-lineal"
     ],
     "nombre": "Domínio de Trigonometria e Regressão",
-    "descripcion": "Trabalhaste funções trigonométricas, identidades, a regra de L'Hôpital e regressão linear, e descobriste quem mente e quando.",
+    "descripcion": "Trabalhaste funções trigonométricas, identidades, soma e decomposição de vetores e regressão linear, e descobriste quem mente e quando.",
     "icono": "📐"
   },
   {
@@ -111,12 +111,12 @@
     "temas": [
       "area-poligonos-regulares-y-compuestas",
       "dispersion-rango-y-desvio",
-      "teorema-de-bolzano",
+      "volumen-y-capacidad",
       "distribucion-normal",
-      "teorema-del-seno-y-del-coseno"
+      "variable-aleatoria-discreta-continua"
     ],
     "nombre": "Mestre de Áreas e Distribuição Normal",
-    "descripcion": "Calculaste áreas de polígonos compostos, aplicaste o teorema do seno e do cosseno, e dominaste a distribuição normal e a dispersão.",
+    "descripcion": "Calculaste áreas de polígonos compostos, volume e capacidade, e dominaste a distribuição normal, a dispersão e as variáveis aleatórias.",
     "icono": "📐"
   },
   {
@@ -156,12 +156,12 @@
     "temas": [
       "transformaciones-geometricas/rotacion",
       "transformaciones-geometricas/traslacion",
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
       "diagramas-de-venn"
     ],
     "nombre": "Domínio de Transformações e Conjuntos",
-    "descripcion": "Rodaste e transladaste figuras, calculaste uniões e interseções, e trabalhaste diagramas de Venn e valor posicional.",
+    "descripcion": "Rodaste e transladaste figuras, e trabalhaste as distribuições de Poisson e exponencial e os diagramas de Venn.",
     "icono": "🔄"
   },
   {
@@ -441,28 +441,28 @@
     "temas": [
       "riesgo-relativo-vs-absoluto",
       "teorema-del-binomio",
-      "variable-aleatoria-discreta-continua",
+      "concavidad-y-puntos-de-inflexion",
       "variaciones",
-      "distribucion-de-poisson"
+      "integral-definida-y-area-bajo-la-curva"
     ],
-    "nombre": "Domínio de Distribuições e do Binómio",
-    "descripcion": "Aplicaste o teorema do binómio e a distribuição de Poisson, trabalhaste variáveis aleatórias e risco relativo, chefe.",
-    "icono": "🎲"
+    "nombre": "Mestre do Binómio e do Cálculo",
+    "descripcion": "Aplicaste o teorema do binómio e os arranjos, calculaste o risco relativo e absoluto, e analisaste a concavidade e os integrais definidos.",
+    "icono": "📈"
   },
   {
     "id": 631,
     "materia": "Matemática",
     "cluster": 31,
     "temas": [
-      "distribucion-exponencial",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad",
-      "suma-de-vectores-y-descomposicion",
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
       "cuerpos-redondos-y-poliedros/cilindros"
     ],
-    "nombre": "Mestre de Vetores e Volume",
-    "descripcion": "Somaste e decompuseste vetores, calculaste volume de cilindros e capacidade, e trabalhaste a distribuição exponencial.",
-    "icono": "➡️"
+    "nombre": "Mestre das Assíntotas e de L'Hôpital",
+    "descripcion": "Trabalhaste assíntotas, o teorema de Bolzano e a regra de L'Hôpital, calculaste volumes de cilindros e aplicaste a regra de divisibilidade por 7.",
+    "icono": "📉"
   },
   {
     "id": 632,
@@ -1769,6 +1769,9 @@
     "materia": "Informática",
     "cluster": 5,
     "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
       "estructuras-de-control-bucles",
       "funciones-y-modularidad",
       "estructuras-de-datos-listas-pilas-colas",
@@ -1776,7 +1779,7 @@
       "algoritmos-busqueda-ordenamiento"
     ],
     "nombre": "Mestre da Programação",
-    "descripcion": "Dominaste ciclos, funções, estruturas de dados (listas, pilhas e filas), programação orientada a objetos e algoritmos de busca e ordenação.",
+    "descripcion": "Dominaste operadores aritméticos, relacionais e lógicos, ciclos, funções, estruturas de dados (listas, pilhas e filas), programação orientada a objetos e algoritmos de pesquisa e ordenação.",
     "icono": "👨‍💻"
   },
   {

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #770]
+# Examen jefe — Domina Registros Contables y Pools
 
-> Logro #770. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #770. Completaste el parcial con libro diario y mayor, estados contables, contabilidad ambiental, precio final y los pools de liquidez AMM. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 

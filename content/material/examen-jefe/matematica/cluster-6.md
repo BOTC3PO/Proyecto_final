@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #606]
+# Examen jefe — Maestro de Unidades y Análisis
 
-> Logro #606. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
+> Logro #606. Convertiste unidades, analizaste dimensiones y cifras significativas, midiste ángulos y distinguiste correlación de causalidad, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
 
 ---
 

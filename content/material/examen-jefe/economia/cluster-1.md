@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #766]
+# Examen jefe — Blockchain, Costo Marginal y Balance
 
-> Logro #766. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
+> Logro #766. Completaste el parcial pasando por claves y wallets de blockchain, contratos inteligentes, costo marginal y el debe-haber del balance, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 

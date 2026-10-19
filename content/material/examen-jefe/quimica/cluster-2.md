@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #842]
+# Examen jefe — Experto en Reacciones y Estequiometría
 
-> Logro #842. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #842. Dominaste estequiometría, cinética de reacción, equilibrio de solubilidad Ksp, estados y cambios y mediciones de laboratorio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #691]
+# Examen jefe — Experto en Grandes Civilizaciones Antiguas
 
-> Logro #691. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #691. Dominaste Roma, Egipto, China, India y las civilizaciones precolombinas de América, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #741]
+# Examen jefe — Luz Cuántica y Movimiento Circular
 
-> Logro #741. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **143 preguntas totales** en 5/5 secciones.
+> Logro #741. Completaste el parcial dominando el espectro electromagnético, la dualidad onda-partícula y la física médica, además del movimiento circular y el plano inclinado con rozamiento, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **143 preguntas totales** en 5/5 secciones.
 
 ---
 

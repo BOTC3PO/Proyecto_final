@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #819]
+# Examen jefe — Fundamentos de Algoritmos y Hardware
 
-> Logro #819. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #819. Completaste el parcial dominando algoritmos, variables y condicionales, además de buses de entrada/salida y almacenamiento volátil frente a no volátil. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

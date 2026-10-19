@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #700]
+# Examen jefe — Experto en Guerras y Guerra Fría
 
-> Logro #700. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #700. Aprobaste el parcial sobre las guerras mundiales, la Segunda Guerra Mundial, la Guerra Fría, la descolonización de África y Asia y el peronismo con sus derechos sociales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

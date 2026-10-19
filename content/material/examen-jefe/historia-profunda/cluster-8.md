@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #688]
+# Examen jefe — Experto en Mamíferos y Origen Humano
 
-> Logro #688. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #688. Dominaste la radiación de los mamíferos, la hominización y el paleolítico, además del relieve con sus sismos y volcanes y la línea base del cambio climático, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -4,15 +4,15 @@
     "materia": "Matemática",
     "cluster": 1,
     "temas": [
-      "asintotas",
-      "concavidad-y-puntos-de-inflexion",
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
       "conjuntos-pertenencia-e-inclusion",
       "conteo",
-      "divisibilidad/regla-del-7-opcional"
+      "valor-posicional"
     ],
-    "nombre": "Regu Asimptotojn kaj Arojn",
-    "descripcion": "Vi analizis asimptotojn kaj konkavecon de funkcioj, kaj laboris pri aparteno al aroj, kalkulado kaj la regulo de 7, en la sama parta ekzameno.",
-    "icono": "📈"
+    "nombre": "Majstro de Trigonometrio kaj Aroj",
+    "descripcion": "Vi aplikis trigonometriajn rilatumojn kaj la sinusan kaj kosinusan teoremon, kaj en la sama ekzameno laboris pri aranpartopreno, kalkulado kaj pozicia valoro.",
+    "icono": "📐"
   },
   {
     "id": 602,
@@ -20,13 +20,13 @@
     "cluster": 2,
     "temas": [
       "grafos-vertices-y-aristas",
-      "integral-definida-y-area-bajo-la-curva",
+      "union-interseccion-y-diferencia",
       "arboles-grafo-sin-ciclos",
       "grafos-dirigidos-no-dirigidos-y-ponderados",
       "leer-una-tabla"
     ],
     "nombre": "Majstro de Grafoj kaj Arboj",
-    "descripcion": "Vi regis verticojn, eĝojn, arbojn kaj pesitajn grafojn, krome definitajn integralojn kaj legadon de tabeloj.",
+    "descripcion": "Vi majstris verticojn, edgojn, arbojn kaj pezitajn grafeojn, krome unuigon, komunaĵon kaj diferencon de aroj kaj legadon de tabeloj.",
     "icono": "🌳"
   },
   {
@@ -53,10 +53,10 @@
       "construir-un-grafico",
       "grafico-eje-truncado",
       "media-mediana-y-moda",
-      "razones-trigonometricas"
+      "vectores-modulo-y-direccion"
     ],
     "nombre": "Majstro de Diagramoj kaj Mezuroj",
-    "descripcion": "Vi konstruis diagramojn, malkovris trunkitajn aksojn, kalkulis meznombron, medianon kaj modon, kaj aplikis trigonometriajn rilatumojn.",
+    "descripcion": "Vi konstruis grafikojn, rimarkis detranĉitajn aksojn, kalkulis mezumon, medianon kaj reĝimon, kaj laboris pri la modulo kaj direkto de vektoroj.",
     "icono": "📊"
   },
   {
@@ -66,12 +66,12 @@
     "temas": [
       "cual-miente-y-cuando",
       "funciones-trigonometricas-seno-coseno",
-      "regla-de-lhopital",
+      "suma-de-vectores-y-descomposicion",
       "identidades-y-ecuaciones-trigonometricas",
       "regresion-lineal"
     ],
     "nombre": "Regu Trigonometrion kaj Regreson",
-    "descripcion": "Vi laboris pri trigonometriaj funkcioj, identecoj, la regulo de L'Hôpital kaj lineara regreso, kaj malkovris kiu mensogas kaj kiam.",
+    "descripcion": "Vi laboris pri trigonometriaj funkcioj, identoj, adicio kaj dekomponado de vektoroj kaj linia regreso, kaj detektis kiu mensogas kaj kiam.",
     "icono": "📐"
   },
   {
@@ -111,12 +111,12 @@
     "temas": [
       "area-poligonos-regulares-y-compuestas",
       "dispersion-rango-y-desvio",
-      "teorema-de-bolzano",
+      "volumen-y-capacidad",
       "distribucion-normal",
-      "teorema-del-seno-y-del-coseno"
+      "variable-aleatoria-discreta-continua"
     ],
     "nombre": "Majstro de Areoj kaj Normala Distribuo",
-    "descripcion": "Vi kalkulis areojn de kombinitaj plurlateroj, aplikis la sinusan kaj kosinusan teoremojn, kaj regis la normalan distribuon kaj la disperson.",
+    "descripcion": "Vi kalkulis areojn de komponitaj plurlateroj, volumenon kaj kapaciton, kaj majstris la normalan distribuon, la disvastiĝon kaj la hazardajn variablojn.",
     "icono": "📐"
   },
   {
@@ -156,12 +156,12 @@
     "temas": [
       "transformaciones-geometricas/rotacion",
       "transformaciones-geometricas/traslacion",
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
       "diagramas-de-venn"
     ],
     "nombre": "Regu Transformojn kaj Arojn",
-    "descripcion": "Vi rotaciis kaj movis figurojn, kalkulis uniojn kaj intersekcojn, kaj laboris pri Venn-diagramoj kaj poziciovaloro.",
+    "descripcion": "Vi rotaciis kaj translokigis figurojn, kaj laboris pri la distribuoj de Poisson kaj eksponenta kaj la diagramoj de Venn.",
     "icono": "🔄"
   },
   {
@@ -441,28 +441,28 @@
     "temas": [
       "riesgo-relativo-vs-absoluto",
       "teorema-del-binomio",
-      "variable-aleatoria-discreta-continua",
+      "concavidad-y-puntos-de-inflexion",
       "variaciones",
-      "distribucion-de-poisson"
+      "integral-definida-y-area-bajo-la-curva"
     ],
-    "nombre": "Regu Distribuojn kaj la Binomon",
-    "descripcion": "Vi aplikis la binoman teoremon kaj la distribuon de Poisson, laboris pri hazardaj variabloj kaj relativa risko, ĉefo.",
-    "icono": "🎲"
+    "nombre": "Majstro de la Binomo kaj la Kalkulo",
+    "descripcion": "Vi aplikis la binoman teoremon kaj variaciojn, kalkulis relativan kaj absolutan riskon, kaj analizis konkavecon kaj difinitajn integralojn.",
+    "icono": "📈"
   },
   {
     "id": 631,
     "materia": "Matemática",
     "cluster": 31,
     "temas": [
-      "distribucion-exponencial",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad",
-      "suma-de-vectores-y-descomposicion",
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
       "cuerpos-redondos-y-poliedros/cilindros"
     ],
-    "nombre": "Majstro de Vektoroj kaj Volumeno",
-    "descripcion": "Vi adiciis kaj malkomponis vektorojn, kalkulis la volumenon de cilindroj kaj la kapaciton, kaj laboris pri la eksponenta distribuo.",
-    "icono": "➡️"
+    "nombre": "Majstro de Asimptotoj kaj L'Hôpital",
+    "descripcion": "Vi laboris pri asimptotoj, la teoremo de Bolzano kaj la regulo de L'Hôpital, kalkulis volumenojn de cilindroj kaj aplikis la dividebleco-regulon de 7.",
+    "icono": "📉"
   },
   {
     "id": 632,
@@ -1769,6 +1769,9 @@
     "materia": "Informática",
     "cluster": 5,
     "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
       "estructuras-de-control-bucles",
       "funciones-y-modularidad",
       "estructuras-de-datos-listas-pilas-colas",
@@ -1776,7 +1779,7 @@
       "algoritmos-busqueda-ordenamiento"
     ],
     "nombre": "Majstro de la Programado",
-    "descripcion": "Vi regis buklojn, funkciojn, datumstrukturojn (listoj, stakoj kaj vicoj), objektorientitan programadon kaj serĉajn kaj ordigajn algoritmojn.",
+    "descripcion": "Vi majstris aritmetikajn, rilatajn kaj logikajn operatorojn, ciklojn, funkciojn, datumstrukturojn (listoj, stakoj kaj vicoj), objektorientitan programadon kaj serĉajn kaj ordigajn algoritmojn.",
     "icono": "👨‍💻"
   },
   {

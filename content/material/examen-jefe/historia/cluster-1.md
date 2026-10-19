@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #721]
+# Examen jefe — Experto en Fuentes y Cronología
 
-> Logro #721. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **103 preguntas totales** en 5/5 secciones.
+> Logro #721. Dominaste la interpretación de fuentes históricas, las líneas de tiempo, la década, el siglo y el milenio, y casos argentinos como la Reforma Universitaria de 1918 y la crisis de 2001, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **103 preguntas totales** en 5/5 secciones.
 
 ---
 

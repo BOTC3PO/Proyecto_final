@@ -27,7 +27,7 @@ Cobertura actual (temas reales con fila / aristas intra-materia que lee el scrip
 | Química | 42 | 42 | 30 |
 | Biología | 37 | 37 | 32 |
 | Física | 77 | 77 | 73 |
-| Informática | 59 | 59 | 61 |
+| Informática | 62 | 62 | 61 |
 | Ingeniería | 11 | 11 | 10 |
 | Investigación | 12 | 12 | 11 |
 | Economía | 85 | 85 | 90 |
@@ -47,17 +47,17 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 
 ## Matemática (161 temas, 32 clusters)
 
-- **Cluster 1** (5): asintotas, concavidad-y-puntos-de-inflexion, conjuntos-pertenencia-e-inclusion, conteo, divisibilidad/regla-del-7-opcional
-- **Cluster 2** (5): grafos-vertices-y-aristas, integral-definida-y-area-bajo-la-curva, arboles-grafo-sin-ciclos, grafos-dirigidos-no-dirigidos-y-ponderados, leer-una-tabla
+- **Cluster 1** (5): razones-trigonometricas, teorema-del-seno-y-del-coseno, conjuntos-pertenencia-e-inclusion, conteo, valor-posicional
+- **Cluster 2** (5): grafos-vertices-y-aristas, union-interseccion-y-diferencia, arboles-grafo-sin-ciclos, grafos-dirigidos-no-dirigidos-y-ponderados, leer-una-tabla
 - **Cluster 3** (5): caminos-y-ciclos, leer-grafico/barras, algoritmos-de-recorrido-bfs-dfs, leer-grafico/lineas, leer-grafico/torta
-- **Cluster 4** (5): magnitud-unidad-instrumento, construir-un-grafico, grafico-eje-truncado, media-mediana-y-moda, razones-trigonometricas
-- **Cluster 5** (5): cual-miente-y-cuando, funciones-trigonometricas-seno-coseno, regla-de-lhopital, identidades-y-ecuaciones-trigonometricas, regresion-lineal
+- **Cluster 4** (5): magnitud-unidad-instrumento, construir-un-grafico, grafico-eje-truncado, media-mediana-y-moda, vectores-modulo-y-direccion
+- **Cluster 5** (5): cual-miente-y-cuando, funciones-trigonometricas-seno-coseno, suma-de-vectores-y-descomposicion, identidades-y-ecuaciones-trigonometricas, regresion-lineal
 - **Cluster 6** (5): sistema-metrico-y-conversiones, correlacion-no-es-causalidad, analisis-dimensional, angulos, cifras-significativas-y-error
 - **Cluster 7** (5): circunferencia-y-circulo, error-sistematico-vs-aleatorio, perimetro-y-area, poligonos, tablas-de-frecuencia-cuartiles-percentiles-y-varianza
-- **Cluster 8** (5): area-poligonos-regulares-y-compuestas, dispersion-rango-y-desvio, teorema-de-bolzano, distribucion-normal, teorema-del-seno-y-del-coseno
+- **Cluster 8** (5): area-poligonos-regulares-y-compuestas, dispersion-rango-y-desvio, volumen-y-capacidad, distribucion-normal, variable-aleatoria-discreta-continua
 - **Cluster 9** (5): muestreo-y-sesgo, triangulos, teorema-central-del-limite, congruencia-de-triangulos, intervalo-de-confianza
 - **Cluster 10** (5): semejanza-y-teorema-de-thales, teorema-de-pitagoras, test-de-hipotesis, transformaciones-geometricas/homotecia, transformaciones-geometricas/reflexion
-- **Cluster 11** (5): transformaciones-geometricas/rotacion, transformaciones-geometricas/traslacion, union-interseccion-y-diferencia, valor-posicional, diagramas-de-venn
+- **Cluster 11** (5): transformaciones-geometricas/rotacion, transformaciones-geometricas/traslacion, distribucion-de-poisson, distribucion-exponencial, diagramas-de-venn
 - **Cluster 12** (5): suma, principio-multiplicativo-de-conteo, multiplicacion, combinaciones, permutaciones
 - **Cluster 13** (5): independencia-de-eventos-y-diagrama-de-arbol, potencias, probabilidad-simple, logaritmos, probabilidad-compuesta
 - **Cluster 14** (5): raices, distribucion-binomial, esperanza-matematica-valor-esperado, irracionales-y-reales, probabilidad-condicional
@@ -76,8 +76,8 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 27** (5): ecuaciones-diferenciales, redondeo, regla-de-tres-directa, secciones-conicas-circunferencia, porcentaje
 - **Cluster 28** (5): regla-de-tres-inversa, sistemas-dos-ecuaciones, sucesiones-y-series, matrices/operaciones, series-geometricas
 - **Cluster 29** (5): matrices/sistemas-nxn, tecnicas-de-integracion, determinante, teorema-de-bayes, matriz-inversa
-- **Cluster 30** (5): riesgo-relativo-vs-absoluto, teorema-del-binomio, variable-aleatoria-discreta-continua, variaciones, distribucion-de-poisson
-- **Cluster 31** (5): distribucion-exponencial, vectores-modulo-y-direccion, volumen-y-capacidad, suma-de-vectores-y-descomposicion, cuerpos-redondos-y-poliedros/cilindros
+- **Cluster 30** (5): riesgo-relativo-vs-absoluto, teorema-del-binomio, concavidad-y-puntos-de-inflexion, variaciones, integral-definida-y-area-bajo-la-curva
+- **Cluster 31** (5): divisibilidad/regla-del-7-opcional, asintotas, teorema-de-bolzano, regla-de-lhopital, cuerpos-redondos-y-poliedros/cilindros
 - **Cluster 32** (6): cuerpos-redondos-y-poliedros/conos, cuerpos-redondos-y-poliedros/esferas, cuerpos-redondos-y-poliedros/piramides, cuerpos-redondos-y-poliedros/prismas, producto-escalar, cuerpos-redondos-y-poliedros/desarrollo-plano
 
 ## Lengua (75 temas, 15 clusters)
@@ -189,13 +189,13 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 14** (5): tormentas-y-fenomenos-severos, campo-magnetico-imanes-corrientes, trabajo-de-una-fuerza, induccion-electromagnetica-faraday-lenz, energia-cinetica
 - **Cluster 15** (7): generador-motor-transformador, choques-elasticos-inelasticos, energia-potencial-gravitatoria, transmision-calor-conduccion-conveccion-radiacion, conservacion-energia-mecanica, velocidad-aceleracion-instantaneas, potencia-mecanica
 
-## Informática (59 temas, 11 clusters)
+## Informática (62 temas, 11 clusters)
 
 - **Cluster 1** (5): algebra-booleana, complejidad-asintotica, ofimatica-planilla-de-calculo, que-es-la-tecnica-y-la-tecnologia, revolucion-informatica
 - **Cluster 2** (5): medios-tecnicos-extension-capacidades-humanas, historia-y-evolucion-de-los-sistemas-operativos, procesos-tecnicos-artesanales-e-industriales, arranque-de-la-computadora-boot, sistemas-numeracion
 - **Cluster 3** (5): tipos-de-so-por-dispositivo, cpu-unidad-de-control-y-alu, unidades-almacenamiento, ciclo-de-instruccion-fetch-decode-execute, memoria-ram-cache-jerarquia
 - **Cluster 4** (5): algoritmo-secuencia-de-pasos, almacenamiento-volatil-vs-no-volatil, buses-y-entrada-salida, variables-y-tipos-de-dato, estructuras-de-control-condicionales
-- **Cluster 5** (5): estructuras-de-control-bucles, funciones-y-modularidad, estructuras-de-datos-listas-pilas-colas, poo-clases-y-objetos, algoritmos-busqueda-ordenamiento
+- **Cluster 5** (8): operadores-aritmeticos, operadores-relacionales, operadores-logicos, estructuras-de-control-bucles, funciones-y-modularidad, estructuras-de-datos-listas-pilas-colas, poo-clases-y-objetos, algoritmos-busqueda-ordenamiento
 - **Cluster 6** (5): archivos-y-persistencia, inteligencia-artificial-reglas-a-aprendizaje, modelo-relacional-tabla-registro-clave-primaria, etica-de-la-ia-sesgo-privacidad, criptografia-clave-simetrica-asimetrica-hash
 - **Cluster 7** (5): direccionamiento-ip-dns, proceso-programa-en-ejecucion, protocolo-http-peticion-respuesta, comunicacion-entre-procesos, memoria-asignacion-memoria-virtual
 - **Cluster 8** (5): planificacion-de-procesos, paginacion, interrupciones, recursividad, relaciones-y-claves-foraneas
@@ -288,7 +288,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 | Química | 42 | 8 |
 | Biología | 37 | 7 |
 | Física | 77 | 15 |
-| Informática | 59 | 11 |
+| Informática | 62 | 11 |
 | Ingeniería | 11 | 2 |
 | Investigación | 12 | 2 |
 | Economía | 85 | 17 |

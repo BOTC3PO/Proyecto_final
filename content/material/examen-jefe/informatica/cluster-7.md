@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #822]
+# Examen jefe — Redes, Procesos y Memoria Virtual
 
-> Logro #822. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #822. Aprobaste el parcial con direccionamiento IP, DNS y HTTP, y con procesos, comunicación entre procesos y memoria virtual. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 

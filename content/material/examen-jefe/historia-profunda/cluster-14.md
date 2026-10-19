@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #694]
+# Examen jefe — Experto en Medioevo y Renacimiento
 
-> Logro #694. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #694. Aprobaste el parcial sobre el Imperio bizantino, el islam y su expansión árabe, la Edad Media plena, la crisis de la Baja Edad Media y el Renacimiento con la Reforma. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #782]
+# Examen jefe — Maestro del Riesgo y la Planificación Financiera
 
-> Logro #782. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #782. Calculaste el valor esperado y el riesgo, armaste un fondo de emergencia diversificado y evaluaste seguros y misión organizacional. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

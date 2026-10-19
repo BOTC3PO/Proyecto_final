@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #617]
+# Examen jefe — Maestro de las Reglas de Divisibilidad
 
-> Logro #617. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #617. Dominaste las reglas de divisibilidad del 2 al 5 y armaste expresiones equivalentes, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

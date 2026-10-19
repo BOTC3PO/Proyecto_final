@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #722]
+# Examen jefe — Dominio de Periodización y Causalidad
 
-> Logro #722. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
+> Logro #722. Completaste el parcial dominando la periodización, el antes y después de Cristo, causa y consecuencia, la Semana Trágica de 1919 y la industrialización por sustitución de importaciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
 
 ---
 

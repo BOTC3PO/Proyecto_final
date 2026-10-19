@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #881]
+# Examen jefe — Dominio de Constitución y Leyes
 
-> Logro #881. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
+> Logro #881. Dominaste la división de poderes, la jerarquía normativa de la Constitución Nacional, cómo se hace una ley, los derechos y garantías y los trámites y documentos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
 
 ---
 

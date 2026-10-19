@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #701]
+# Examen jefe — Dominio de la Historia Reciente
 
-> Logro #701. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **221 preguntas totales** en 9/9 secciones.
+> Logro #701. Completaste el parcial dominando el terrorismo de Estado, Malvinas y la recuperación democrática en Argentina, la historia contemporánea de África, Asia y Medio Oriente, y la globalización de la era digital. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **221 preguntas totales** en 9/9 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #818]
+# Examen jefe — Experto en Arquitectura de Computadoras
 
-> Logro #818. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
+> Logro #818. Aprobaste el parcial con la CPU, el ciclo fetch-decode-execute, la jerarquía de memoria RAM y caché, las unidades de almacenamiento y los tipos de SO por dispositivo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
 

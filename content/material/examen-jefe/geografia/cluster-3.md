@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #798]
+# Examen jefe — Domina Territorio y Teledetección
 
-> Logro #798. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
+> Logro #798. Completaste el parcial con región, relieve, clima y biomas, recursos y actividades económicas, y las herramientas SIG de GPS e imágenes satelitales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
 
 ---
 

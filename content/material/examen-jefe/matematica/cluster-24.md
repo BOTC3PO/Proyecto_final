@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #624]
+# Examen jefe — Domina la Función Cuadrática
 
-> Logro #624. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **142 preguntas totales** en 5/5 secciones.
+> Logro #624. Resolviste ecuaciones cuadráticas, graficaste parábolas, calculaste el punto medio de un segmento y trabajaste con números complejos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **142 preguntas totales** en 5/5 secciones.
 
 ---
 

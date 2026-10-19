@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #847]
+# Examen jefe — Experto en Mol, Gases y Redox
 
-> Logro #847. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #847. Completaste el parcial con mol y masa molar, gases ideales, oxidación-reducción y electrólisis, y sumaste biomoléculas como glúcidos, lípidos y proteínas, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

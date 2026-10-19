@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #946]
+# Examen jefe — Experto en Sistemas de Control
 
-> Logro #946. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #946. Dominaste el lazo abierto y cerrado, la realimentación, el control PID, los servomecanismos y la lógica de control con PLC, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

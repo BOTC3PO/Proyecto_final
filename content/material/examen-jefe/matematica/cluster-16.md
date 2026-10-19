@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #616]
+# Examen jefe — Domina Jerarquía y Divisibilidad
 
-> Logro #616. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 5/5 secciones.
+> Logro #616. Aplicaste la jerarquía de operaciones con números enteros, calculaste múltiplos y divisores, y tradujiste lenguaje algebraico. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **150 preguntas totales** en 5/5 secciones.
 
 ---
 

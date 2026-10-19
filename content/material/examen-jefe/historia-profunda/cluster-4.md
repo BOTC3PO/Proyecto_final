@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #684]
+# Examen jefe — Maestro de la Tierra Primitiva
 
-> Logro #684. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
+> Logro #684. Completaste el parcial dominando la tierra primitiva y su diferenciación, la atmósfera primitiva, los minerales, la tabla periódica cosmológica y el origen de la vida. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 

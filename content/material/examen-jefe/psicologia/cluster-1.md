@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #924]
+# Examen jefe — Experto en el Yo, la Memoria y la Cultura
 
-> Logro #924. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #924. Completaste el parcial dominando la psicología de la modernidad y el yo, el autoconocimiento, la cultura como herencia y la memoria, el olvido y la represión. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

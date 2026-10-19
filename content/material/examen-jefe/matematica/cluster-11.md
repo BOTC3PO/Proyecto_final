@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #611]
+# Examen jefe — Domina Transformaciones y Conjuntos
 
-> Logro #611. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
+> Logro #611. Rotaste y trasladaste figuras, trabajaste las distribuciones de Poisson y exponencial y los diagramas de Venn. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -885,1523 +885,803 @@ explicacion: |
   tamaño usa traslaciones.
 ```
 
-## Sección: union-interseccion-y-diferencia (26 preguntas)
+## Sección: distribucion-de-poisson (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "basico"
-  tags: ["union", "vocabulario"]
+  tags: ["poisson", "vocabulario"]
 
-enunciado: "¿Qué es la unión de dos conjuntos A ∪ B?"
+enunciado: "¿Qué modela la distribución de Poisson?"
 tipo: mc
 opciones_explicitas:
-  - "Todos los elementos que están en A, en B, o en ambos, sin repetir ninguno"
-  - "Sólo los elementos que están en A y en B a la vez"
-  - "Sólo los elementos de A que no están en B"
-respuesta: "Todos los elementos que están en A, en B, o en ambos, sin repetir ninguno"
+  - "La cantidad de eventos que ocurren en un intervalo fijo de tiempo o espacio, cuando pasan al azar a una tasa promedio constante"
+  - "El tiempo que pasa hasta que ocurre el próximo evento"
+  - "El promedio de un conjunto de datos ya medidos"
+respuesta: "La cantidad de eventos que ocurren en un intervalo fijo de tiempo o espacio, cuando pasan al azar a una tasa promedio constante"
 
 explicacion: |
-  Es la combinación completa de los dos conjuntos.
+  Como la cantidad de llamadas que recibe un call center en una hora.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "basico"
-  tags: ["interseccion", "vocabulario"]
+  tags: ["poisson", "vocabulario"]
 
-enunciado: "¿Qué es la intersección de dos conjuntos A ∩ B?"
+enunciado: "En la distribución de Poisson, ¿qué representa el parámetro λ?"
 tipo: mc
 opciones_explicitas:
-  - "Sólo los elementos que están en A y en B a la vez"
-  - "Todos los elementos de A y de B juntos"
-  - "Sólo los elementos de B que no están en A"
-respuesta: "Sólo los elementos que están en A y en B a la vez"
+  - "La cantidad promedio de eventos que ocurren en el intervalo"
+  - "La probabilidad de que ocurra un único evento particular"
+  - "La cantidad máxima de eventos que pueden ocurrir"
+respuesta: "La cantidad promedio de eventos que ocurren en el intervalo"
 
 explicacion: |
-  Es lo que ambos conjuntos comparten.
+  Si en promedio hay 4 llamadas por hora, λ = 4.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "basico"
-  tags: ["diferencia", "vocabulario"]
-
-enunciado: "¿Qué es la diferencia A − B?"
-tipo: mc
-opciones_explicitas:
-  - "Los elementos de A que NO están en B"
-  - "Los elementos de B que no están en A"
-  - "Los elementos que están en A y en B a la vez"
-respuesta: "Los elementos de A que NO están en B"
-
-explicacion: |
-  Se lee "A menos B" — se parte de A y se le quita lo que comparte con B.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "intermedio"
-  tags: ["union", "problema"]
+  tags: ["poisson"]
 
-enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A ∪ B?"
-tipo: mc
-opciones_explicitas:
-  - "{1, 2, 3, 4, 5, 6}"
-  - "{3, 4}"
-  - "{1, 2}"
-respuesta: "{1, 2, 3, 4, 5, 6}"
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En la distribución de Poisson, el valor esperado E(X) es directamente igual a λ, sin necesitar ningún cálculo extra."
 
 explicacion: |
-  Se juntan todos los elementos de ambos, sin repetir el 3 y el 4 que
-  comparten.
+  A diferencia de otras distribuciones, acá λ ya ES el promedio.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "intermedio"
-  tags: ["interseccion", "problema"]
-
-enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A ∩ B?"
-tipo: mc
-opciones_explicitas:
-  - "{3, 4}"
-  - "{1, 2, 3, 4, 5, 6}"
-  - "{1, 2}"
-respuesta: "{3, 4}"
-
-explicacion: |
-  Son los únicos dos elementos que aparecen en los dos conjuntos.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "intermedio"
-  tags: ["diferencia", "problema"]
-
-enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A − B?"
-tipo: mc
-opciones_explicitas:
-  - "{1, 2}"
-  - "{5, 6}"
-  - "{3, 4}"
-respuesta: "{1, 2}"
-
-explicacion: |
-  Es lo que queda de A después de sacarle lo que comparte con B (el 3
-  y el 4).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "avanzado"
-  tags: ["diferencia", "problema"]
-
-enunciado: "Con los mismos A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es B − A?"
-tipo: mc
-opciones_explicitas:
-  - "{5, 6}"
-  - "{1, 2}"
-  - "{3, 4}"
-respuesta: "{5, 6}"
-
-explicacion: |
-  B − A es distinto de A − B (pregunta 6) — la diferencia no es
-  conmutativa.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "intermedio"
-  tags: ["diferencia"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En general, A − B no es lo mismo que B − A."
-
-explicacion: |
-  Se ve claro en el ejemplo de las preguntas 6 y 7: {1,2} contra {5,6}.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "intermedio"
-  tags: ["union"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A ∪ B es siempre igual a B ∪ A, sin importar el orden."
-
-explicacion: |
-  Juntar los elementos de dos conjuntos no depende del orden en que se
-  los mencione.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "intermedio"
-  tags: ["interseccion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A ∩ B es siempre igual a B ∩ A, sin importar el orden."
-
-explicacion: |
-  Lo que comparten A y B es lo mismo que lo que comparten B y A.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "avanzado"
-  tags: ["union", "completar"]
+  tags: ["poisson", "completar"]
 
 tipo: completar
-enunciado: "Completá: |A ∪ B| = |A| + |B| − ___."
+enunciado: "Completá la fórmula: P(X=k) = (λᵏ × e^(−λ)) / ___."
 respuestas_validas:
-  - "|A ∩ B|"
-  - "A ∩ B"
+  - "k!"
+  - "k factorial"
 
 explicacion: |
-  Se resta la intersección porque, si no, sus elementos se contarían
-  dos veces.
+  El factorial de k, el mismo usado en combinatoria.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "avanzado"
-  tags: ["union", "problema"]
+  tags: ["poisson", "problema"]
 
 variables:
-  a: random(10, 30)
-  b: random(10, 30)
-  interseccion: random(1, 8)
+  lambda: uno_de([2, 3, 4])
+  k: uno_de([0, 1, 2])
 
-respuesta: a + b - interseccion
+respuesta: redondear((lambda ^ k * e ^ (-lambda)) / factorial(k), 4)
 tipo: input
+tolerancia_abs: 0.001
 
-enunciado: "Un conjunto A tiene {a} elementos y un conjunto B tiene {b} elementos. Si A y B comparten {interseccion} elementos, ¿cuántos elementos tiene A ∪ B?"
+enunciado: "Un call center recibe en promedio λ = {lambda} llamadas por hora. ¿Cuál es la probabilidad de recibir exactamente {k} llamadas en una hora (P(X={k}))?"
 
 pasos:
-  - "|A∪B| = |A| + |B| − |A∩B| = {a} + {b} − {interseccion} = {a + b - interseccion}"
+  - "P(X={k}) = ({lambda}^{k} × e^(−{lambda})) / {k}! = {redondear((lambda ^ k * e ^ (-lambda)) / factorial(k), 4)}"
 
 explicacion: |
-  Se restan los elementos compartidos para no contarlos dos veces.
+  Se aplica directo la fórmula de Poisson con λ = {lambda} y k = {k}.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "avanzado"
-  tags: ["interseccion", "problema"]
-
-variables:
-  a: random(10, 30)
-  b: random(10, 30)
-  interseccion_real: random(1, 8)
-
-respuesta: interseccion_real
-tipo: input
-
-enunciado: "Un conjunto A tiene {a} elementos, un conjunto B tiene {b} elementos, y A ∪ B tiene {a + b - interseccion_real} elementos. ¿Cuántos elementos comparten A y B (|A ∩ B|)?"
-
-pasos:
-  - "|A∩B| = |A| + |B| − |A∪B| = {a} + {b} − {a + b - interseccion_real} = {interseccion_real}"
-
-explicacion: |
-  Es la misma fórmula, despejada para la intersección en vez de la unión.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "avanzado"
-  tags: ["diferencia", "problema"]
-
-variables:
-  a: random(15, 40)
-  interseccion: random(1, 10)
-
-respuesta: a - interseccion
-tipo: input
-
-enunciado: "Un conjunto A tiene {a} elementos, de los cuales {interseccion} también pertenecen a B. ¿Cuántos elementos tiene A − B?"
-
-pasos:
-  - "|A−B| = |A| − |A∩B| = {a} − {interseccion} = {a - interseccion}"
-
-explicacion: |
-  A − B es lo de A que no comparte con B, así que se le resta la parte
-  compartida.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "intermedio"
-  tags: ["disjuntos"]
+  tags: ["poisson", "problema"]
+
+variables:
+  lambda: uno_de([1, 2, 3, 5])
+
+respuesta: redondear(e ^ (-lambda), 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Una ruta tiene en promedio λ = {lambda} accidentes por semana. ¿Cuál es la probabilidad de que NO ocurra NINGÚN accidente en una semana (P(X=0))?"
+
+pasos:
+  - "P(X=0) = ({lambda}⁰ × e^(−{lambda})) / 0! = e^(−{lambda}) = {redondear(e ^ (-lambda), 4)}"
+
+explicacion: |
+  Con k=0, λᵏ=1 y 0!=1 — la fórmula se reduce a e^(−λ).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_de_poisson"
+  nivel: "basico"
+  tags: ["poisson", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si dos conjuntos A y B no comparten ningún elemento, se dice que son disjuntos, y A ∩ B = ∅."
+enunciado: "La distribución de Poisson es discreta, porque siempre cuenta una cantidad entera de eventos (0, 1, 2, 3...)."
 
 explicacion: |
-  Es el caso extremo: cero elementos en común.
+  A diferencia de la exponencial (continua), que mide tiempo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "intermedio"
-  tags: ["disjuntos", "problema"]
+  tema: "distribucion_de_poisson"
+  nivel: "avanzado"
+  tags: ["poisson"]
 
-variables:
-  a: random(5, 20)
-  b: random(5, 20)
-
-respuesta: a + b
-tipo: input
-
-enunciado: "Un conjunto A tiene {a} elementos y un conjunto B tiene {b} elementos. A y B son disjuntos (no comparten nada). ¿Cuántos elementos tiene A ∪ B?"
-
-pasos:
-  - "Como |A∩B| = 0: |A∪B| = |A| + |B| = {a} + {b} = {a + b}"
-
-explicacion: |
-  Sin nada compartido, no hace falta restar nada — se suman directo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "basico"
-  tags: ["disjuntos", "vocabulario"]
-
-enunciado: "¿Qué significa que dos conjuntos sean disjuntos?"
+enunciado: "¿Por qué la distribución de Poisson se conoce como 'ley de los sucesos raros'?"
 tipo: mc
 opciones_explicitas:
-  - "Que no comparten ningún elemento"
-  - "Que tienen la misma cantidad de elementos"
-  - "Que uno es subconjunto del otro"
-respuesta: "Que no comparten ningún elemento"
+  - "Porque hay muchísimas oportunidades de que el evento ocurra, pero la probabilidad de que ocurra en cada oportunidad puntual es muy baja"
+  - "Porque los eventos que modela nunca ocurren en la realidad"
+  - "Porque sólo se puede usar una vez por cada experimento"
+respuesta: "Porque hay muchísimas oportunidades de que el evento ocurra, pero la probabilidad de que ocurra en cada oportunidad puntual es muy baja"
 
 explicacion: |
-  Su intersección es el conjunto vacío.
+  Como la probabilidad de que suene el teléfono en un segundo
+  cualquiera del día: minúscula, pero sumada da un promedio por hora.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "avanzado"
-  tags: ["union", "ordenar"]
+  tags: ["poisson", "binomial"]
 
-enunciado: "Ordená los pasos para calcular |A∪B|, sabiendo |A|, |B| y |A∩B|."
-tipo: ordenar
-opciones_explicitas:
-  - "El número que queda es |A∪B|"
-  - "Sumar |A| + |B|"
-  - "Restar |A∩B| a ese resultado"
-respuesta_orden: ["Sumar |A| + |B|", "Restar |A∩B| a ese resultado", "El número que queda es |A∪B|"]
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La distribución de Poisson es el caso límite de la distribución binomial cuando la cantidad de intentos n es muy grande y la probabilidad de éxito p es muy chica, manteniendo n×p = λ constante."
+
 explicacion: |
-  El paso de restar la intersección es el que evita el doble conteo.
+  Es la conexión matemática entre `../distribucion-binomial/` (n
+  intentos discretos) y Poisson (conteo en un intervalo continuo de
+  oportunidades).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "basico"
-  tags: ["aplicacion"]
+  tema: "distribucion_de_poisson"
+  nivel: "avanzado"
+  tags: ["poisson", "exponencial"]
 
-enunciado: "¿Dónde se usa la misma idea de unión e intersección de conjuntos, fuera de la matemática pura?"
+enunciado: "¿Qué relación tiene la distribución de Poisson con la distribución exponencial?"
 tipo: mc
 opciones_explicitas:
-  - "En consultas de bases de datos: pedir filas que cumplan una condición Y otra (intersección) o cualquiera de dos condiciones O (unión)"
-  - "Sólo en geometría, para calcular áreas"
-  - "No tiene ninguna aplicación fuera de la matemática pura"
-respuesta: "En consultas de bases de datos: pedir filas que cumplan una condición Y otra (intersección) o cualquiera de dos condiciones O (unión)"
+  - "Son la versión discreta (cuántos eventos) y continua (cuánto tiempo entre ellos) de la misma situación real, con la misma tasa subyacente"
+  - "No tienen ninguna relación real entre sí"
+  - "La Poisson reemplaza siempre a la exponencial"
+respuesta: "Son la versión discreta (cuántos eventos) y continua (cuánto tiempo entre ellos) de la misma situación real, con la misma tasa subyacente"
 
 explicacion: |
-  Es el mismo principio que después usa el álgebra relacional de
-  bases de datos (Informática).
+  Poisson cuenta eventos en un intervalo; exponencial mide el tiempo
+  entre esos mismos eventos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
+  nivel: "basico"
+  tags: ["poisson", "aplicacion"]
+
+enunciado: "Una fábrica de telas tiene en promedio 2 defectos por cada 100 metros producidos. ¿Qué distribución conviene usar para calcular la probabilidad de encontrar exactamente 3 defectos en un rollo de 100 metros?"
+tipo: mc
+opciones_explicitas:
+  - "La distribución de Poisson, con λ = 2 defectos por cada 100 metros"
+  - "La distribución exponencial, con λ = 1/2"
+  - "La distribución normal, con media 2"
+respuesta: "La distribución de Poisson, con λ = 2 defectos por cada 100 metros"
+
+explicacion: |
+  Es un conteo de eventos raros (defectos) en un intervalo fijo
+  (100 metros de tela) — el caso central de Poisson.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_de_poisson"
   nivel: "intermedio"
-  tags: ["aplicacion"]
+  tags: ["poisson", "clasificar"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una consulta con condiciones combinadas, el conector 'Y' corresponde a una intersección, y el conector 'O' corresponde a una unión."
+enunciado: "¿Cuál de estos dos escenarios se modela con Poisson, y no con la exponencial?"
+tipo: mc
+opciones_explicitas:
+  - "La cantidad de mensajes de error que aparecen en un servidor durante una hora"
+  - "El tiempo que pasa hasta el próximo mensaje de error"
+respuesta: "La cantidad de mensajes de error que aparecen en un servidor durante una hora"
 
 explicacion: |
-  "Cumple A Y B" son los elementos en ambos (intersección); "cumple A
-  O B" son los elementos en cualquiera de los dos (unión).
+  "Cantidad en un intervalo" es Poisson; "tiempo hasta que pase algo"
+  es exponencial (`../distribucion-exponencial/`).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "avanzado"
-  tags: ["diferencia", "problema"]
+  tags: ["poisson", "problema"]
 
 variables:
-  a: random(20, 50)
-  b: random(1, 15)
+  lambda_bajo: 1
+  lambda_alto: 5
 
-respuesta: a - b
+respuesta: e ^ (-lambda_bajo) > e ^ (-lambda_alto)
+tipo: vf
+
+enunciado: "Comparando P(X=0) (ningún evento) entre un local con λ = {lambda_bajo} clientes por hora y otro con λ = {lambda_alto} clientes por hora, ¿el local con MENOS clientes promedio tiene MAYOR probabilidad de no recibir ninguno?"
+
+explicacion: |
+  Cuanto menor es λ, más probable es que no ocurra ningún evento —
+  e^(−λ) crece a medida que λ baja.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_de_poisson"
+  nivel: "avanzado"
+  tags: ["poisson", "problema"]
+
+variables:
+  lambda: 3
+
+respuesta: redondear((lambda ^ 3 * e ^ (-lambda)) / factorial(3), 4)
 tipo: input
+tolerancia_abs: 0.001
 
-enunciado: "Un conjunto A tiene {a} elementos, y B ⊆ A tiene {b} elementos (todos los de B ya están en A). ¿Cuántos elementos tiene A − B?"
+enunciado: "Con λ = {lambda} eventos promedio por intervalo, ¿cuál es P(X=3)?"
 
 pasos:
-  - "Como B ⊆ A, todo B está incluido en la parte compartida: |A−B| = |A| − |B| = {a} − {b} = {a - b}"
+  - "P(X=3) = ({lambda}³ × e^(−{lambda})) / 3! = {redondear((lambda ^ 3 * e ^ (-lambda)) / factorial(3), 4)}"
 
 explicacion: |
-  Al ser B subconjunto de A, restar B de A es simplemente restar todos
-  sus elementos.
+  P(X=k) es más alta cerca de k=λ (el valor esperado) y baja a medida
+  que k se aleja de ese valor.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "avanzado"
-  tags: ["union"]
+  tema: "distribucion_de_poisson"
+  nivel: "intermedio"
+  tags: ["poisson"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si B es subconjunto de A (B ⊆ A), entonces A ∪ B es exactamente igual a A (unir no agrega nada nuevo)."
+enunciado: "El parámetro λ de una Poisson puede ser un número decimal (por ejemplo, λ = 2,5 llamadas por hora), aunque los valores que puede tomar X sean siempre enteros (0, 1, 2, 3...)."
 
 explicacion: |
-  Todo lo que tiene B ya estaba en A, así que juntarlos no cambia nada.
+  λ es un promedio, y un promedio puede perfectamente ser 2,5 aunque
+  cada resultado individual sea un entero.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "avanzado"
-  tags: ["interseccion"]
+  tags: ["poisson", "problema"]
+
+variables:
+  lambda: uno_de([1, 2])
+
+respuesta: redondear((lambda ^ 1 * e ^ (-lambda)) / factorial(1), 4)
+tipo: input
+tolerancia_abs: 0.001
+
+enunciado: "Una página de un libro tiene en promedio {lambda} errores de tipeo. ¿Cuál es la probabilidad de que una página elegida al azar tenga EXACTAMENTE 1 error?"
+
+pasos:
+  - "P(X=1) = ({lambda}¹ × e^(−{lambda})) / 1! = {redondear((lambda ^ 1 * e ^ (-lambda)) / factorial(1), 4)}"
+
+explicacion: |
+  Con k=1, la fórmula se reduce a λ × e^(−λ).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_de_poisson"
+  nivel: "avanzado"
+  tags: ["poisson", "clasificar"]
+
+enunciado: "Un analista quiere calcular 'la probabilidad de esperar más de 10 minutos hasta el próximo cliente'. ¿La distribución de Poisson es la herramienta correcta para esta pregunta?"
+tipo: mc
+opciones_explicitas:
+  - "No: esa pregunta es sobre TIEMPO de espera, corresponde a la distribución exponencial, no a Poisson"
+  - "Sí: cualquier pregunta sobre clientes se resuelve con Poisson"
+respuesta: "No: esa pregunta es sobre TIEMPO de espera, corresponde a la distribución exponencial, no a Poisson"
+
+explicacion: |
+  Poisson responde "cuántos eventos", no "cuánto tiempo hasta el
+  próximo" — esa es la pregunta que resuelve la exponencial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_de_poisson"
+  nivel: "avanzado"
+  tags: ["poisson"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si B es subconjunto de A (B ⊆ A), entonces A ∩ B es exactamente igual a B."
+enunciado: "La suma de P(X=0) + P(X=1) + P(X=2) + ... (para todos los valores posibles de k, hasta infinito) da exactamente 1, igual que en cualquier variable aleatoria discreta."
 
 explicacion: |
-  Todo elemento de B ya está en A, así que lo que comparten es
-  exactamente todo B.
+  Es la misma propiedad de toda distribución de probabilidad discreta,
+  vista en `../variable-aleatoria-discreta-continua/`.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "avanzado"
-  tags: ["union"]
+  tema: "distribucion_de_poisson"
+  nivel: "basico"
+  tags: ["poisson", "aplicacion"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "|A ∪ B| siempre es mayor o igual que |A| y que |B|, sin importar qué conjuntos sean."
+enunciado: "En genética, la cantidad de mutaciones espontáneas por generación en una población suele modelarse con Poisson. ¿Por qué es un buen candidato para esta distribución?"
+tipo: mc
+opciones_explicitas:
+  - "Porque hay muchísimos genes donde podría ocurrir una mutación (muchas oportunidades), pero la probabilidad de que mute cada uno en particular es muy baja"
+  - "Porque las mutaciones siempre ocurren en cantidades fijas y predecibles"
+  - "Porque la Poisson sólo aplica a fenómenos biológicos"
+respuesta: "Porque hay muchísimos genes donde podría ocurrir una mutación (muchas oportunidades), pero la probabilidad de que mute cada uno en particular es muy baja"
 
 explicacion: |
-  La unión sólo puede agregar elementos, nunca quitarlos.
+  Es la misma lógica de "sucesos raros" aplicada a genética, en vez de
+  a llamadas telefónicas o accidentes.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
-  nivel: "avanzado"
-  tags: ["interseccion"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "|A ∩ B| siempre es menor o igual que |A| y que |B|, sin importar qué conjuntos sean."
-
-explicacion: |
-  La intersección sólo puede quedarse con una parte (o todo) de cada
-  conjunto, nunca con más de lo que cada uno tiene.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "union_interseccion_y_diferencia"
+  tema: "distribucion_de_poisson"
   nivel: "basico"
   tags: ["cierre"]
 
-enunciado: "¿Para qué sirven la unión, la intersección y la diferencia de conjuntos?"
+enunciado: "¿Para qué sirve la distribución de Poisson?"
 tipo: mc
 opciones_explicitas:
-  - "Para combinar conjuntos de formas distintas y calcular cuántos elementos resultan, sin necesidad de listarlos uno por uno"
-  - "Sólo sirven para dibujar círculos superpuestos"
-  - "Sólo aplican a conjuntos de números"
-respuesta: "Para combinar conjuntos de formas distintas y calcular cuántos elementos resultan, sin necesidad de listarlos uno por uno"
+  - "Para calcular la probabilidad de que ocurran una cantidad exacta de eventos raros e independientes dentro de un intervalo fijo de tiempo o espacio"
+  - "Para medir el tiempo que pasa hasta que ocurre un evento"
+  - "Para calcular el promedio de un conjunto de datos ya medidos"
+respuesta: "Para calcular la probabilidad de que ocurran una cantidad exacta de eventos raros e independientes dentro de un intervalo fijo de tiempo o espacio"
 
 explicacion: |
-  Son la base algebraica que el próximo módulo (diagramas de Venn)
-  representa visualmente.
+  Cierra, junto con `../distribucion-exponencial/`, el par
+  discreto/continuo que completa la clasificación de
+  `../variable-aleatoria-discreta-continua/`.
 ```
 
-## Sección: valor-posicional (40 preguntas)
+## Sección: distribucion-exponencial (20 preguntas)
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "basico"
-  tags: ["valor_posicional", "identificar_cifra"]
+  tags: ["exponencial", "vocabulario"]
 
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: c * 100 + d * 10 + u
-
-respuesta: u
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las unidades?"
-
-pasos:
-  - "Las unidades son la cifra más a la derecha de {numero}: {u}"
-
-explicacion: |
-  La cifra de las unidades es siempre la última, la que está más a la
-  derecha del número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "identificar_cifra"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: c * 100 + d * 10 + u
-
-respuesta: d
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las decenas?"
-
-pasos:
-  - "Las decenas son la segunda cifra desde la derecha de {numero}: {d}"
-
-explicacion: |
-  La cifra de las decenas es la que está un lugar a la izquierda de las
-  unidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "identificar_cifra"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: c * 100 + d * 10 + u
-
-respuesta: c
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las centenas?"
-
-pasos:
-  - "Las centenas son la tercera cifra desde la derecha de {numero}: {c}"
-
-explicacion: |
-  La cifra de las centenas es la que está dos lugares a la izquierda de las
-  unidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "identificar_cifra"]
-
-variables:
-  m: random(1, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: m * 1000 + c * 100 + d * 10 + u
-
-respuesta: m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las unidades de mil?"
-
-pasos:
-  - "Las unidades de mil son la cuarta cifra desde la derecha de {numero}: {m}"
-
-explicacion: |
-  Cada vez que se agrega un lugar más a la izquierda, el valor de la
-  posición se multiplica por 10: unidades → decenas → centenas →
-  unidades de mil.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "identificar_cifra"]
-
-variables:
-  dm: random(1, 9)
-  m: random(0, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
-
-respuesta: dm
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las decenas de mil?"
-
-pasos:
-  - "Las decenas de mil son la quinta cifra desde la derecha de {numero}: {dm}"
-
-explicacion: |
-  Con 5 cifras, la primera de la izquierda es la de las decenas de mil.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "identificar_cifra"]
-
-variables:
-  cm: random(1, 9)
-  dm: random(0, 9)
-  m: random(0, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: cm * 100000 + dm * 10000 + m * 1000 + c * 100 + d * 10 + u
-
-respuesta: cm
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de las centenas de mil?"
-
-pasos:
-  - "Las centenas de mil son la sexta cifra desde la derecha de {numero}: {cm}"
-
-explicacion: |
-  Con 6 cifras, la primera de la izquierda es la de las centenas de mil.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "valor_de_cifra"]
-
-variables:
-  c: random(1, 9)
-  d: random(1, 9)
-  u: random(0, 9)
-  numero: c * 100 + d * 10 + u
-
-respuesta: d * 10
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿cuánto VALE la cifra de las decenas (no cuál es, sino cuánto vale)?"
-
-pasos:
-  - "La cifra de las decenas es {d}, y en ese lugar vale {d} × 10 = {d * 10}"
-
-explicacion: |
-  No es lo mismo la cifra que su valor: la cifra es sólo el dígito (0-9); el
-  valor es ese dígito multiplicado por lo que vale su posición.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "valor_de_cifra"]
-
-variables:
-  m: random(1, 9)
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: m * 1000 + c * 100 + d * 10 + u
-
-respuesta: c * 100
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿cuánto vale la cifra de las centenas?"
-
-pasos:
-  - "La cifra de las centenas es {c}, y en ese lugar vale {c} × 100 = {c * 100}"
-
-explicacion: |
-  El valor de una cifra es siempre el dígito multiplicado por la potencia de
-  10 que le corresponde a su lugar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "valor_de_cifra"]
-
-variables:
-  dm: random(1, 9)
-  m: random(1, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
-
-respuesta: m * 1000
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿cuánto vale la cifra de las unidades de mil?"
-
-pasos:
-  - "La cifra de las unidades de mil es {m}, y en ese lugar vale {m} × 1.000 = {m * 1000}"
-
-explicacion: |
-  A partir de las unidades de mil, cada lugar vale 1.000 veces más que el
-  dígito solo, antes de seguir multiplicando por 10 hacia la izquierda.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: c * 100 + d * 10 + u
-
-respuesta: numero
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué número resulta de {c} centenas + {d} decenas + {u} unidades?"
-
-pasos:
-  - "{c} × 100 + {d} × 10 + {u} = {numero}"
-
-explicacion: |
-  Componer un número es la operación inversa a descomponerlo: se suman los
-  valores de cada cifra en su lugar.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  m: random(1, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: m * 1000 + c * 100 + d * 10 + u
-
-respuesta: numero
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué número resulta de {m} unidades de mil + {c} centenas + {d} decenas + {u} unidades?"
-
-pasos:
-  - "{m} × 1.000 + {c} × 100 + {d} × 10 + {u} = {numero}"
-
-explicacion: |
-  Cada término de la descomposición aporta el valor de su cifra en su
-  lugar; sumados dan el número completo.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  dm: random(1, 9)
-  m: random(0, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: dm * 10000 + m * 1000 + c * 100 + d * 10 + u
-
-respuesta: numero
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Qué número resulta de {dm} decenas de mil + {m} unidades de mil + {c} centenas + {d} decenas + {u} unidades?"
-
-pasos:
-  - "{dm} × 10.000 + {m} × 1.000 + {c} × 100 + {d} × 10 + {u} = {numero}"
-
-explicacion: |
-  Con más cifras el procedimiento es el mismo: sumar el valor posicional de
-  cada una.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "comparacion"]
-
-variables:
-  a: random(10, 999)
-  b: random(10, 999)
-
-respuesta: (longitud(concatenar(a)) > longitud(concatenar(b)))
-tipo: vf
-
-enunciado: "¿Tiene {a} más cifras que {b}?"
-
-explicacion: |
-  Antes de mirar cifra por cifra, conviene contar cuántas cifras tiene cada
-  número: el que tiene más cifras es siempre el mayor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "comparacion"]
-
-variables:
-  a: random(1, 9999)
-  b: random(1, 9999)
-
-restricciones:
-  - longitud(concatenar(a)) != longitud(concatenar(b))
-
-respuesta: max(a, b)
+enunciado: "¿Qué modela la distribución exponencial?"
 tipo: mc
 opciones_explicitas:
-  - a
-  - b
-
-enunciado: "¿Cuál de estos dos números tiene más cifras: {a} o {b}?"
+  - "El tiempo que pasa hasta que ocurre el próximo evento, cuando los eventos suceden a una tasa promedio constante"
+  - "La cantidad de eventos que ocurren en un intervalo fijo de tiempo"
+  - "El promedio de un conjunto de datos ya medidos"
+respuesta: "El tiempo que pasa hasta que ocurre el próximo evento, cuando los eventos suceden a una tasa promedio constante"
 
 explicacion: |
-  La cantidad de cifras decide directamente cuál número es mayor, sin
-  necesidad de comparar cifra por cifra.
+  Como el tiempo hasta que llega el próximo colectivo.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "comparacion"]
+  tema: "distribucion_exponencial"
+  nivel: "basico"
+  tags: ["exponencial", "vocabulario"]
 
-variables:
-  c: random(1, 9)
-  d1: random(0, 9)
-  d2: random(0, 9)
-  u1: random(0, 9)
-  u2: random(0, 9)
-  a: c * 100 + d1 * 10 + u1
-  b: c * 100 + d2 * 10 + u2
-
-restricciones:
-  - d1 != d2
-
-respuesta: (a > b)
-tipo: vf
-
-enunciado: "{a} y {b} tienen la misma cifra de centenas. ¿Es {a} mayor que {b}?"
-
-explicacion: |
-  Cuando dos números tienen la misma cantidad de cifras y coinciden en la
-  primera, hay que seguir comparando la próxima cifra hacia la derecha
-  hasta encontrar una diferencia.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "comparacion"]
-
-variables:
-  m: random(1, 9)
-  resto1: random(0, 999)
-  resto2: random(0, 999)
-  a: m * 1000 + resto1
-  b: m * 1000 + resto2
-
-restricciones:
-  - resto1 != resto2
-
-respuesta: max(a, b)
+enunciado: "En la distribución exponencial, ¿qué representa el parámetro λ (lambda)?"
 tipo: mc
 opciones_explicitas:
-  - a
-  - b
-
-enunciado: "{a} y {b} tienen la misma cifra de unidades de mil. ¿Cuál de los dos es mayor?"
+  - "La tasa promedio de eventos por unidad de tiempo"
+  - "La cantidad total de eventos posibles"
+  - "El tiempo máximo que se puede esperar"
+respuesta: "La tasa promedio de eventos por unidad de tiempo"
 
 explicacion: |
-  Si la primera cifra empata, la decisión queda en manos de las cifras
-  siguientes, comparadas en el mismo orden (de izquierda a derecha).
+  Por ejemplo, 3 colectivos por hora → λ = 3/hora.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "intermedio"
-  tags: ["valor_posicional", "comparacion"]
+  tags: ["exponencial", "completar"]
 
-variables:
-  c: random(1, 9)
-  d1: random(0, 8)
-  d2: random(0, 8)
-  u: random(0, 9)
-  a: c * 100 + d1 * 10 + u
-  b: c * 100 + d2 * 10 + u
-
-restricciones:
-  - d1 != d2
-
-respuesta: (a < b)
-tipo: vf
-
-enunciado: "{a} y {b} tienen la misma cifra de centenas y de unidades, sólo cambia la de decenas ({d1} contra {d2}). ¿Es {a} menor que {b}?"
+tipo: completar
+enunciado: "Completá: el tiempo promedio de espera E(T) = 1 / ___."
+respuestas_validas:
+  - "λ"
+  - "lambda"
 
 explicacion: |
-  Cuando todas las demás cifras coinciden, el número menor es el que tiene
-  la cifra más chica en la primera posición donde difieren.
+  El tiempo promedio de espera es el inverso de la tasa de eventos.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "redondeo"]
-
-variables:
-  numero: random(11, 988)
-  resultado: redondear(numero / 10, 0) * 10
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Redondeá {numero} a la decena más cercana."
-
-pasos:
-  - "Se mira la cifra de las unidades de {numero} para decidir si la decena sube o queda igual: resultado {resultado}"
-
-explicacion: |
-  Se mira la cifra que está un lugar a la derecha de la posición a
-  redondear (acá, las unidades): 5 o más, la decena sube; menos de 5, queda
-  igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "intermedio"
-  tags: ["valor_posicional", "redondeo"]
+  tags: ["exponencial", "problema"]
 
 variables:
-  base: random(1, 98)
-  numero: base * 10 + 5
-  resultado: redondear(numero / 10, 0) * 10
+  lambda: uno_de([2, 3, 4, 6])
 
-respuesta: resultado
+respuesta: redondear(1 / lambda, 3)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.001
+unidad: "horas"
 
-enunciado: "Redondeá {numero} a la decena más cercana."
+enunciado: "En promedio llegan {lambda} colectivos por hora (λ = {lambda}/hora). ¿Cuál es el tiempo promedio de espera entre un colectivo y el siguiente, en horas?"
 
 pasos:
-  - "La cifra de las unidades es 5: por convención, la decena sube. {numero} → {resultado}"
+  - "E(T) = 1/λ = 1/{lambda} = {redondear(1 / lambda, 3)} horas"
 
 explicacion: |
-  Cuando la cifra que decide el redondeo es exactamente 5, la regla es que
-  la posición anterior sube (no se deja igual).
+  El tiempo promedio de espera es el inverso de la tasa de llegada.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "redondeo"]
-
-variables:
-  numero: random(101, 9888)
-  resultado: redondear(numero / 100, 0) * 100
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Redondeá {numero} a la centena más cercana."
-
-pasos:
-  - "Se mira la cifra de las decenas de {numero} para decidir: resultado {resultado}"
-
-explicacion: |
-  Igual que redondear a la decena, pero mirando la cifra de las decenas
-  (un lugar a la derecha de las centenas).
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "intermedio"
-  tags: ["valor_posicional", "redondeo"]
+  tags: ["exponencial", "problema"]
 
 variables:
-  base: random(1, 98)
-  numero: base * 100 + 50
-  resultado: redondear(numero / 100, 0) * 100
+  tiempo_promedio: uno_de([4, 5, 10, 20])
 
-respuesta: resultado
+respuesta: redondear(1 / tiempo_promedio, 3)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.001
 
-enunciado: "Redondeá {numero} a la centena más cercana."
+enunciado: "El tiempo promedio entre fallas de una máquina es de {tiempo_promedio} días. ¿Cuál es la tasa λ de fallas por día?"
 
 pasos:
-  - "La cifra de las decenas es 5: la centena sube. {numero} → {resultado}"
+  - "λ = 1/E(T) = 1/{tiempo_promedio} = {redondear(1 / tiempo_promedio, 3)} fallas por día"
 
 explicacion: |
-  Mismo criterio que con las decenas: en el caso frontera (cifra 5), la
-  posición objetivo sube.
+  λ y el tiempo promedio son inversos entre sí.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "redondeo"]
-
-variables:
-  numero: random(1001, 98888)
-  resultado: redondear(numero / 1000, 0) * 1000
-
-respuesta: resultado
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Redondeá {numero} al millar (unidad de mil) más cercano."
-
-pasos:
-  - "Se mira la cifra de las centenas de {numero} para decidir: resultado {resultado}"
-
-explicacion: |
-  El mismo criterio de siempre, ahora mirando la cifra de las centenas para
-  decidir si la unidad de mil sube o queda igual.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "decimales"]
-
-variables:
-  entero: random(1, 99)
-  t: random(1, 9)
-  h: random(0, 9)
-  numero: entero + t / 10 + h / 100
-
-respuesta: t
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de los décimos?"
-
-pasos:
-  - "Los décimos son la primera cifra después de la coma: {t}"
-
-explicacion: |
-  Del otro lado de la coma la lógica se invierte: la primera posición
-  (décimos) vale ÷10, no ×10.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "decimales"]
-
-variables:
-  entero: random(1, 99)
-  t: random(0, 9)
-  h: random(1, 9)
-  numero: entero + t / 10 + h / 100
-
-respuesta: h
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿qué cifra ocupa el lugar de los centésimos?"
-
-pasos:
-  - "Los centésimos son la segunda cifra después de la coma: {h}"
-
-explicacion: |
-  Los centésimos valen ÷100: cada lugar después de la coma sigue dividiendo
-  por 10 respecto al anterior.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "avanzado"
-  tags: ["valor_posicional", "decimales", "valor_de_cifra"]
+  tags: ["exponencial", "completar"]
+
+tipo: completar
+enunciado: "Completá: P(T > t) = e^(−λ × ___)."
+respuestas_validas:
+  - "t"
+
+explicacion: |
+  Es la probabilidad de tener que esperar más de `t` unidades de
+  tiempo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "avanzado"
+  tags: ["exponencial", "problema"]
 
 variables:
-  entero: random(1, 99)
-  t: random(1, 9)
-  h: random(0, 9)
-  numero: entero + t / 10 + h / 100
+  lambda: uno_de([0.5, 1, 2])
+  t: uno_de([1, 2])
 
-respuesta: t / 10
+respuesta: redondear(e ^ (-(lambda * t)), 3)
 tipo: input
 tolerancia_abs: 0.01
 
-enunciado: "En el número {numero}, ¿cuánto vale la cifra de los décimos?"
+enunciado: "Los eventos ocurren con tasa λ = {lambda} por unidad de tiempo. ¿Cuál es la probabilidad de tener que esperar MÁS de {t} unidades de tiempo (P(T > {t}))?"
 
 pasos:
-  - "La cifra de los décimos es {t}, y en ese lugar vale {t} ÷ 10 = {t / 10}"
+  - "P(T > {t}) = e^(−{lambda}×{t}) = {redondear(e ^ (-(lambda * t)), 3)}"
 
 explicacion: |
-  Igual que del lado entero: el valor es la cifra multiplicada (acá,
-  dividida) por lo que vale su posición.
+  Cuanto más grande el tiempo `t`, más chica esta probabilidad.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "cantidad_de_cifras"]
+  tema: "distribucion_exponencial"
+  nivel: "avanzado"
+  tags: ["exponencial", "problema"]
 
 variables:
-  numero: random(100, 98765)
+  lambda: uno_de([0.5, 1, 2])
+  t: uno_de([1, 2])
 
-respuesta: longitud(concatenar(numero))
+respuesta: redondear(1 - e ^ (-(lambda * t)), 3)
 tipo: input
-tolerancia_abs: 0
+tolerancia_abs: 0.01
 
-enunciado: "¿Cuántas cifras tiene el número {numero}?"
+enunciado: "Los eventos ocurren con tasa λ = {lambda} por unidad de tiempo. ¿Cuál es la probabilidad de que el evento YA HAYA OCURRIDO para el tiempo {t} (P(T ≤ {t}))?"
+
+pasos:
+  - "P(T ≤ {t}) = 1 − e^(−{lambda}×{t}) = {redondear(1 - e ^ (-(lambda * t)), 3)}"
 
 explicacion: |
-  Se cuentan todos los dígitos del número, de izquierda a derecha, sin
-  saltear ninguno.
+  Es el complemento de P(T > t): juntas siempre suman 1.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "intermedio"
-  tags: ["valor_posicional", "cantidad_de_cifras"]
-
-variables:
-  numero: random(1000000, 987654321)
-
-respuesta: longitud(concatenar(numero))
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas cifras tiene el número {numero}?"
-
-explicacion: |
-  El procedimiento es el mismo con números grandes: contar los dígitos, uno
-  por uno.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "identificar_cifra"]
-
-variables:
-  m: random(1, 9)
-  c: random(0, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: m * 1000 + c * 100 + d * 10 + u
-
-respuesta: m
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "En el número {numero}, ¿cuál es la cifra que ocupa el lugar de mayor valor (la que más vale)?"
-
-pasos:
-  - "La cifra de mayor valor es siempre la primera de la izquierda: {m}"
-
-explicacion: |
-  La cifra de mayor valor posicional es la más a la izquierda: es la que
-  está multiplicada por la potencia de 10 más grande.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "vocabulario"]
-
-enunciado: "¿Cómo se llama el lugar de la 3ª cifra contando desde la derecha de un número?"
-tipo: mc
-opciones_explicitas:
-  - "Unidades"
-  - "Decenas"
-  - "Centenas"
-respuesta: "Centenas"
-
-explicacion: |
-  Contando desde la derecha: 1ª unidades, 2ª decenas, 3ª centenas.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "vocabulario"]
-
-enunciado: "¿Cómo se llama el lugar de la cifra que está más a la derecha en cualquier número entero?"
-tipo: mc
-opciones_explicitas:
-  - "Unidades"
-  - "Decenas"
-  - "Centenas"
-respuesta: "Unidades"
-
-explicacion: |
-  La cifra más a la derecha de un número entero siempre ocupa el lugar de
-  las unidades.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "vocabulario"]
+  tags: ["exponencial"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "En el número 4.257, la cifra 2 vale 200."
+enunciado: "P(T ≤ t) y P(T > t) siempre suman exactamente 1, para cualquier valor de t."
 
 explicacion: |
-  El 2 de 4.257 está en el lugar de las centenas: 2 × 100 = 200.
+  Son eventos complementarios: o el evento ya ocurrió, o no.
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "vocabulario"]
+  tema: "distribucion_exponencial"
+  nivel: "avanzado"
+  tags: ["exponencial", "poisson"]
 
-respuesta: falso
-tipo: vf
-
-enunciado: "En el número 4.257, la cifra 5 vale 5."
-
-explicacion: |
-  El 5 de 4.257 está en el lugar de las decenas, no de las unidades: vale
-  5 × 10 = 50, no 5.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  c: random(1, 9)
-  d: random(1, 9)
-  u: random(0, 9)
-  numero: c * 100 + d * 10 + u
-
-tipo: completar
-enunciado: "Completá: {c} × 100 + ___ × 10 + {u} = {numero}."
-respuestas_validas:
-  - d
-
-explicacion: |
-  El hueco es la cifra de las decenas: la única que hace que la suma dé
-  exactamente el número de la derecha.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  m: random(1, 9)
-  c: random(1, 9)
-  d: random(0, 9)
-  u: random(0, 9)
-  numero: m * 1000 + c * 100 + d * 10 + u
-
-tipo: completar
-enunciado: "Completá: {m} × 1.000 + ___ × 100 + {d} × 10 + {u} = {numero}."
-respuestas_validas:
-  - c
-
-explicacion: |
-  Se despeja la cifra que falta viendo cuál hace que la suma total coincida
-  con el número dado.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "basico"
-  tags: ["valor_posicional", "orden"]
-
-tipo: ordenar
-enunciado: "Ordená estas cifras de menor a mayor."
+enunciado: "¿Cómo se relaciona la distribución exponencial con la distribución de Poisson?"
+tipo: mc
 opciones_explicitas:
-  - "7"
-  - "2"
-  - "9"
-  - "4"
-respuesta_orden: ["2", "4", "7", "9"]
+  - "Si la CANTIDAD de eventos por intervalo sigue una Poisson, el TIEMPO entre esos eventos consecutivos sigue una exponencial con la misma tasa λ"
+  - "No tienen ninguna relación, son distribuciones completamente independientes"
+  - "La exponencial reemplaza a la Poisson, nunca se usan para el mismo problema"
+respuesta: "Si la CANTIDAD de eventos por intervalo sigue una Poisson, el TIEMPO entre esos eventos consecutivos sigue una exponencial con la misma tasa λ"
 
 explicacion: |
-  Ordenar cifras sueltas es comparar dígitos, sin que ningún lugar
-  posicional entre en juego todavía.
+  Son dos caras de la misma situación: una cuenta eventos (discreta),
+  la otra mide el tiempo entre ellos (continua).
 ```
 
 ```
 metadata:
   materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "composicion"]
-
-variables:
-  par: n_de([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
-  d1: primero(par)
-  d2: ultimo(par)
-  menor_digito: primero(ordenar(par))
-  mayor_digito: ultimo(ordenar(par))
-
-restricciones:
-  - d1 != d2
-
-respuesta: mayor_digito * 10 + menor_digito
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Con las cifras {d1} y {d2}, ¿cuál es el mayor número de 2 cifras que se puede formar (usando cada cifra una sola vez)?"
-
-pasos:
-  - "Para que sea el mayor posible, la cifra más grande va en las decenas: {mayor_digito} decenas + {menor_digito} unidades = {mayor_digito * 10 + menor_digito}"
-
-explicacion: |
-  Para armar el número más grande posible con cifras dadas, la cifra más
-  grande siempre va en el lugar de mayor valor.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "composicion"]
-
-variables:
-  par: n_de([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
-  d1: primero(par)
-  d2: ultimo(par)
-  menor_digito: primero(ordenar(par))
-  mayor_digito: ultimo(ordenar(par))
-
-restricciones:
-  - d1 != d2
-
-respuesta: menor_digito * 10 + mayor_digito
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Con las cifras {d1} y {d2}, ¿cuál es el menor número de 2 cifras que se puede formar (usando cada cifra una sola vez)?"
-
-pasos:
-  - "Para que sea el menor posible, la cifra más chica va en las decenas: {menor_digito} decenas + {mayor_digito} unidades = {menor_digito * 10 + mayor_digito}"
-
-explicacion: |
-  Al revés que para el mayor número: la cifra más chica va en el lugar de
-  mayor valor, para que pese lo menos posible.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  numero: random(1001, 98765)
-
-respuesta: floor(numero / 1000)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas unidades de mil completas tiene el número {numero}?"
-
-pasos:
-  - "{numero} ÷ 1.000, tomando sólo la parte entera: {floor(numero / 1000)}"
-
-explicacion: |
-  Es lo mismo que preguntar por las cifras que quedan a la izquierda del
-  lugar de las centenas, leídas como un solo número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
-  nivel: "intermedio"
-  tags: ["valor_posicional", "descomposicion"]
-
-variables:
-  numero: random(101, 9876)
-
-respuesta: floor(numero / 100)
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "¿Cuántas centenas completas tiene el número {numero}?"
-
-pasos:
-  - "{numero} ÷ 100, tomando sólo la parte entera: {floor(numero / 100)}"
-
-explicacion: |
-  Son las cifras que quedan a la izquierda del lugar de las decenas, leídas
-  como un solo número.
-```
-
-```
-metadata:
-  materia: "matematicas"
-  tema: "valor_posicional"
+  tema: "distribucion_exponencial"
   nivel: "basico"
-  tags: ["valor_posicional", "vocabulario"]
+  tags: ["exponencial", "vocabulario"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El valor de una cifra depende del lugar que ocupa dentro del número, no sólo de qué dígito es."
+enunciado: "La distribución exponencial es una distribución continua, porque el tiempo puede tomar cualquier valor, no sólo números enteros."
 
 explicacion: |
-  Es la idea central de todo el tema: el mismo dígito vale distinto según
-  esté en el lugar de las unidades, las decenas, las centenas, etc.
+  A diferencia de la Poisson (discreta, que cuenta eventos enteros).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "basico"
+  tags: ["exponencial", "aplicacion"]
+
+enunciado: "Una lamparita dura en promedio 2.000 horas antes de quemarse, y las fallas ocurren al azar a una tasa constante. ¿Qué distribución conviene usar para modelar 'cuánto va a durar esta lamparita en particular'?"
+tipo: mc
+opciones_explicitas:
+  - "La distribución exponencial, con λ = 1/2000 fallas por hora"
+  - "La distribución binomial, con n=2000 intentos"
+  - "La distribución de Poisson, contando lamparitas"
+respuesta: "La distribución exponencial, con λ = 1/2000 fallas por hora"
+
+explicacion: |
+  Es exactamente "tiempo hasta que ocurre el próximo evento (la
+  falla)", el caso central de la exponencial.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "intermedio"
+  tags: ["exponencial", "clasificar"]
+
+enunciado: "¿Cuál de estos dos escenarios se modela con la distribución EXPONENCIAL, y no con Poisson?"
+tipo: mc
+opciones_explicitas:
+  - "El tiempo que pasa hasta que llega el próximo cliente a un local"
+  - "La cantidad de clientes que llegan a un local en una hora"
+respuesta: "El tiempo que pasa hasta que llega el próximo cliente a un local"
+
+explicacion: |
+  "Tiempo hasta" es exponencial (continua); "cantidad en un
+  intervalo" es Poisson (discreta) — ver `../distribucion-de-poisson/`.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "avanzado"
+  tags: ["exponencial", "problema"]
+
+variables:
+  lambda_a: 1
+  lambda_b: 3
+  t: 1
+
+respuesta: e ^ (-(lambda_a * t)) > e ^ (-(lambda_b * t))
+tipo: vf
+
+enunciado: "Sistema A tiene λ = {lambda_a} eventos por hora; Sistema B tiene λ = {lambda_b} eventos por hora (más eventos por hora que A). Para el mismo tiempo t = {t} hora, ¿P(T > {t}) del Sistema A es MAYOR que la del Sistema B?"
+
+explicacion: |
+  A menor tasa de eventos (λ), más probable es tener que esperar más
+  tiempo — A tiene menos eventos por hora, así que su P(T>1) es mayor.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "intermedio"
+  tags: ["exponencial"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Cuanto mayor es la tasa λ (más eventos ocurren por unidad de tiempo), menor es el tiempo promedio de espera hasta el próximo evento."
+
+explicacion: |
+  E(T) = 1/λ: si λ crece, 1/λ (el tiempo promedio) baja.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "intermedio"
+  tags: ["exponencial", "problema"]
+
+variables:
+  lambda_local_a: uno_de([2, 4])
+  lambda_local_b: uno_de([1, 3])
+
+respuesta: (1 / lambda_local_a) < (1 / lambda_local_b)
+tipo: vf
+
+enunciado: "Local A recibe clientes con tasa λ = {lambda_local_a} por hora; Local B recibe clientes con tasa λ = {lambda_local_b} por hora. ¿El tiempo promedio entre clientes del Local A es MENOR que el del Local B?"
+
+explicacion: |
+  Comparar 1/λ de cada local: mayor tasa de llegada implica menor
+  tiempo promedio de espera entre clientes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "basico"
+  tags: ["exponencial", "aplicacion"]
+
+enunciado: "Una fábrica quiere estimar la probabilidad de que una máquina funcione MÁS de 100 horas sin fallar, sabiendo que en promedio falla cada 500 horas. ¿Qué necesita calcular?"
+tipo: mc
+opciones_explicitas:
+  - "P(T > 100) usando la exponencial con λ = 1/500"
+  - "P(X = 100) usando la binomial con n = 500"
+  - "El desvío estándar de 500 horas"
+respuesta: "P(T > 100) usando la exponencial con λ = 1/500"
+
+explicacion: |
+  Es la pregunta central de la distribución exponencial aplicada a
+  confiabilidad de componentes.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "avanzado"
+  tags: ["exponencial", "problema"]
+
+variables:
+  lambda: uno_de([1, 2, 4])
+  t: 1 / lambda
+
+respuesta: redondear(e ^ (-(lambda * t)), 3)
+tipo: input
+tolerancia_abs: 0.01
+
+enunciado: "Con λ = {lambda}, el tiempo promedio de espera es 1/{lambda}. ¿Cuál es la probabilidad de esperar MÁS que ese tiempo promedio (P(T > 1/λ))?"
+
+pasos:
+  - "P(T > 1/λ) = e^(−λ×1/λ) = e^(−1) ≈ {redondear(e ^ (-(lambda * t)), 3)}"
+
+explicacion: |
+  Este resultado (e^(−1) ≈ 0,368) es siempre el mismo, sin importar
+  λ — casi el 37% de las veces se espera más que el promedio, porque
+  la exponencial no es simétrica como la normal.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "avanzado"
+  tags: ["exponencial", "clasificar"]
+
+enunciado: "Un analista quiere calcular 'la probabilidad de que lleguen exactamente 5 clientes en la próxima hora'. ¿La distribución exponencial es la herramienta correcta para esta pregunta?"
+tipo: mc
+opciones_explicitas:
+  - "No: esa pregunta es un CONTEO de eventos en un intervalo fijo, corresponde a la distribución de Poisson, no a la exponencial"
+  - "Sí: cualquier pregunta sobre clientes se resuelve con la exponencial"
+respuesta: "No: esa pregunta es un CONTEO de eventos en un intervalo fijo, corresponde a la distribución de Poisson, no a la exponencial"
+
+explicacion: |
+  La exponencial responde "cuánto tiempo hasta que pase algo", no
+  "cuántos eventos van a pasar" — esa es la pregunta de Poisson.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "distribucion_exponencial"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirve la distribución exponencial?"
+tipo: mc
+opciones_explicitas:
+  - "Para modelar el tiempo de espera hasta que ocurre un evento, cuando los eventos suceden al azar a una tasa promedio constante"
+  - "Para contar cuántos eventos ocurren en un intervalo fijo de tiempo"
+  - "Para calcular el promedio de un conjunto de datos ya medidos"
+respuesta: "Para modelar el tiempo de espera hasta que ocurre un evento, cuando los eventos suceden al azar a una tasa promedio constante"
+
+explicacion: |
+  Es el caso continuo hermano de la distribución de Poisson (el
+  módulo que sigue), que cuenta eventos en vez de medir tiempos.
 ```
 
 ## Sección: diagramas-de-venn (25 preguntas)

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #894]
+# Examen jefe — Maestro de las Ramas del Derecho
 
-> Logro #894. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #894. Dominaste el mapa de las ramas del derecho y sus pilares: constitucional, civil, comercial y administrativo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

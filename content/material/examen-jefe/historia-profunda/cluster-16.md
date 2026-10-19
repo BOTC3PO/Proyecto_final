@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #696]
+# Examen jefe — Maestro de Absolutismo e Ilustración
 
-> Logro #696. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #696. Dominaste el absolutismo europeo, la Ilustración, la Revolución Industrial, la conquista y colonia en Argentina y el virreinato con su comercio, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #823]
+# Examen jefe — Dominio del Núcleo del Sistema Operativo
 
-> Logro #823. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #823. Dominaste la planificación de procesos, la paginación y las interrupciones, además de la recursividad y las claves foráneas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

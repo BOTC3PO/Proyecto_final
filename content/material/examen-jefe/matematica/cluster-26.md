@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #626]
+# Examen jefe — Domina Derivadas e Integrales
 
-> Logro #626. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **135 preguntas totales** en 5/5 secciones.
+> Logro #626. Calculaste derivadas e integrales, resolviste problemas de optimización y trabajaste rectas paralelas y perpendiculares. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **135 preguntas totales** en 5/5 secciones.
 
 ---
 

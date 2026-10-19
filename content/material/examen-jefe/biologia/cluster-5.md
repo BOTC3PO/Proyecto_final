@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #865]
+# Examen jefe — Experto en Biodiversidad y Biotecnología
 
-> Logro #865. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
+> Logro #865. Dominaste los índices de biodiversidad, el nicho ecológico y las áreas protegidas, junto con el camino de ADN a gen a proteína y herramientas como PCR y CRISPR. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **119 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #777]
+# Examen jefe — Organizaciones y Deuda Pública
 
-> Logro #777. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
+> Logro #777. Dominaste los tipos y elementos de las organizaciones, y también la deuda pública interna y externa y el default. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #780]
+# Examen jefe — Dominio de Gestión y Resultados
 
-> Logro #780. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #780. Completaste el parcial con estado de resultados, márgenes bruto y neto, control de gestión e indicadores, mejora continua y el ciclo validar-construir-medir-aprender. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

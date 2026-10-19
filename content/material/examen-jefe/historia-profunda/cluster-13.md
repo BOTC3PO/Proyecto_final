@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #693]
+# Examen jefe — Maestro de Imperios y Feudalismo
 
-> Logro #693. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #693. Dominaste los imperios Han y persa, la expansión imperial, la caída de Roma con la Alta Edad Media y el feudalismo, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #776]
+# Examen jefe — Maestro de Cambio y Neoliberalismo
 
-> Logro #776. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **83 preguntas totales** en 5/5 secciones.
+> Logro #776. Completaste el parcial dominando tipo de cambio flotante, devaluación y reservas del Banco Central, además de neoliberalismo y ordoliberalismo, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **83 preguntas totales** en 5/5 secciones.
 
 ---
 

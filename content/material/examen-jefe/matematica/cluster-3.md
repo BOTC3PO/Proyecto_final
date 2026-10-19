@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #603]
+# Examen jefe — Domina Caminos, BFS y DFS
 
-> Logro #603. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
+> Logro #603. Recorriste caminos y ciclos con BFS y DFS, y leíste gráficos de barras, líneas y torta sin fallar. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 

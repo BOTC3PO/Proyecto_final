@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #918]
+# Examen jefe — Maestro del Inicio del Diseño en Ingeniería
 
-> Logro #918. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #918. Completaste el parcial dominando el problema y sus restricciones, la investigación de soluciones, el diseño conceptual, la modelización matemática y las disciplinas de la ingeniería. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

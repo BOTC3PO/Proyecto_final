@@ -4,15 +4,15 @@
     "materia": "Matemática",
     "cluster": 1,
     "temas": [
-      "asintotas",
-      "concavidad-y-puntos-de-inflexion",
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
       "conjuntos-pertenencia-e-inclusion",
       "conteo",
-      "divisibilidad/regla-del-7-opcional"
+      "valor-posicional"
     ],
-    "nombre": "점근선과 집합 장악",
-    "descripcion": "함수의 점근선과 오목성을 분석하고, 집합의 소속 관계, 경우의 수, 7의 배수 판정법을 한 중간고사에서 다뤘습니다.",
-    "icono": "📈"
+    "nombre": "삼각법과 집합의 달인",
+    "descripcion": "삼각비와 사인·코사인 법칙을 적용하고, 같은 시험에서 집합의 소속, 경우의 수 세기, 자릿값을 다뤘습니다.",
+    "icono": "📐"
   },
   {
     "id": 602,
@@ -20,13 +20,13 @@
     "cluster": 2,
     "temas": [
       "grafos-vertices-y-aristas",
-      "integral-definida-y-area-bajo-la-curva",
+      "union-interseccion-y-diferencia",
       "arboles-grafo-sin-ciclos",
       "grafos-dirigidos-no-dirigidos-y-ponderados",
       "leer-una-tabla"
     ],
     "nombre": "그래프와 트리의 달인",
-    "descripcion": "정점, 간선, 트리, 가중 그래프를 마스터하고 정적분과 표 읽기까지 완벽히 소화했습니다.",
+    "descripcion": "꼭짓점, 변, 트리, 가중 그래프와 함께 집합의 합집합·교집합·차집합, 표 읽기를 익혔습니다.",
     "icono": "🌳"
   },
   {
@@ -53,10 +53,10 @@
       "construir-un-grafico",
       "grafico-eje-truncado",
       "media-mediana-y-moda",
-      "razones-trigonometricas"
+      "vectores-modulo-y-direccion"
     ],
     "nombre": "그래프와 측정의 달인",
-    "descripcion": "그래프를 직접 만들고 절단된 축을 찾아내며, 평균·중앙값·최빈값을 계산하고 삼각비를 적용했습니다.",
+    "descripcion": "그래프를 만들고, 잘린 축을 찾아내고, 평균·중앙값·최빈값을 계산하고, 벡터의 크기와 방향을 다뤘습니다.",
     "icono": "📊"
   },
   {
@@ -66,12 +66,12 @@
     "temas": [
       "cual-miente-y-cuando",
       "funciones-trigonometricas-seno-coseno",
-      "regla-de-lhopital",
+      "suma-de-vectores-y-descomposicion",
       "identidades-y-ecuaciones-trigonometricas",
       "regresion-lineal"
     ],
     "nombre": "삼각함수와 회귀 장악",
-    "descripcion": "삼각함수와 항등식, 로피탈의 정리, 선형 회귀를 다루고 누가 언제 거짓말을 하는지까지 밝혀냈습니다.",
+    "descripcion": "삼각함수, 항등식, 벡터의 덧셈과 분해, 선형 회귀를 다루고 누가 언제 거짓말하는지 찾아냈습니다.",
     "icono": "📐"
   },
   {
@@ -111,12 +111,12 @@
     "temas": [
       "area-poligonos-regulares-y-compuestas",
       "dispersion-rango-y-desvio",
-      "teorema-de-bolzano",
+      "volumen-y-capacidad",
       "distribucion-normal",
-      "teorema-del-seno-y-del-coseno"
+      "variable-aleatoria-discreta-continua"
     ],
     "nombre": "넓이와 정규분포의 달인",
-    "descripcion": "복합 다각형의 넓이를 계산하고 사인·코사인 법칙을 적용했으며, 정규분포와 산포도를 마스터했습니다.",
+    "descripcion": "복합 다각형의 넓이, 부피와 용량을 계산하고, 정규분포, 산포, 확률변수를 익혔습니다.",
     "icono": "📐"
   },
   {
@@ -156,12 +156,12 @@
     "temas": [
       "transformaciones-geometricas/rotacion",
       "transformaciones-geometricas/traslacion",
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
       "diagramas-de-venn"
     ],
     "nombre": "변환과 집합 장악",
-    "descripcion": "도형을 회전·평행이동시키고 합집합과 교집합을 계산했으며, 벤 다이어그램과 자릿값을 다뤘습니다.",
+    "descripcion": "도형을 회전하고 평행이동하며, 푸아송 분포와 지수분포, 벤 다이어그램을 다뤘습니다.",
     "icono": "🔄"
   },
   {
@@ -441,28 +441,28 @@
     "temas": [
       "riesgo-relativo-vs-absoluto",
       "teorema-del-binomio",
-      "variable-aleatoria-discreta-continua",
+      "concavidad-y-puntos-de-inflexion",
       "variaciones",
-      "distribucion-de-poisson"
+      "integral-definida-y-area-bajo-la-curva"
     ],
-    "nombre": "분포와 이항정리 장악",
-    "descripcion": "이항정리와 푸아송 분포를 적용하고, 확률변수와 상대위험도를 다뤘습니다, 보스.",
-    "icono": "🎲"
+    "nombre": "이항정리와 미적분의 달인",
+    "descripcion": "이항정리와 순열을 적용하고, 상대위험과 절대위험을 계산하고, 오목성과 정적분을 분석했습니다.",
+    "icono": "📈"
   },
   {
     "id": 631,
     "materia": "Matemática",
     "cluster": 31,
     "temas": [
-      "distribucion-exponencial",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad",
-      "suma-de-vectores-y-descomposicion",
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
       "cuerpos-redondos-y-poliedros/cilindros"
     ],
-    "nombre": "벡터와 부피의 달인",
-    "descripcion": "벡터를 더하고 분해했으며, 원기둥의 부피와 들이를 계산하고 지수분포를 다뤘습니다.",
-    "icono": "➡️"
+    "nombre": "점근선과 로피탈의 달인",
+    "descripcion": "점근선, 볼차노 정리, 로피탈 법칙을 다루고, 원기둥의 부피를 계산하고, 7의 배수 판별법을 적용했습니다.",
+    "icono": "📉"
   },
   {
     "id": 632,
@@ -1769,6 +1769,9 @@
     "materia": "Informática",
     "cluster": 5,
     "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
       "estructuras-de-control-bucles",
       "funciones-y-modularidad",
       "estructuras-de-datos-listas-pilas-colas",
@@ -1776,7 +1779,7 @@
       "algoritmos-busqueda-ordenamiento"
     ],
     "nombre": "프로그래밍의 달인",
-    "descripcion": "반복문, 함수, 자료구조(리스트, 스택, 큐), 객체 지향 프로그래밍, 탐색 및 정렬 알고리즘을 마스터했습니다.",
+    "descripcion": "산술·관계·논리 연산자, 반복문, 함수, 자료구조(리스트, 스택, 큐), 객체지향 프로그래밍, 탐색·정렬 알고리즘을 익혔습니다.",
     "icono": "👨‍💻"
   },
   {

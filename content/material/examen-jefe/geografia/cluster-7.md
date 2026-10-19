@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #802]
+# Examen jefe — Experto en Migraciones y Desarrollo
 
-> Logro #802. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
+> Logro #802. Completaste el parcial con migraciones internacionales e internas, índice de desarrollo humano, países de América Latina y gestión de recursos hídricos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **128 preguntas totales** en 5/5 secciones.
 
 ---
 

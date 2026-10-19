@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #692]
+# Examen jefe — Dominio de Imperios del Mundo Antiguo
 
-> Logro #692. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #692. Completaste el parcial sobre Mesopotamia, Alejandro Magno y el helenismo, la expansión del Imperio romano y los pueblos originarios del actual territorio argentino. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

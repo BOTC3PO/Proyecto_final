@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #826]
+# Examen jefe — Experto en Sistemas, Redes y Seguridad
 
-> Logro #826. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **215 preguntas totales** en 9/9 secciones.
+> Logro #826. Completaste el parcial con SQL y transacciones ACID, TCP/IP, seguridad de red y seguridad informática, virtualización, entrada/salida, sistemas de archivos por bitácora y licencias de software, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **215 preguntas totales** en 9/9 secciones.
 
 ---
 

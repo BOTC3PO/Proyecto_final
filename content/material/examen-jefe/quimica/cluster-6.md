@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #846]
+# Examen jefe — Dominio de Química Orgánica
 
-> Logro #846. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
+> Logro #846. Dominaste geometría molecular VSEPR, hidrocarburos, grupos funcionales y nomenclatura de compuestos, y también viste nanotecnología. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 

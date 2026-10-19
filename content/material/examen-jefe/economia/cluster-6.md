@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #771]
+# Examen jefe — Maestro de Micro y Contabilidad
 
-> Logro #771. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #771. Dominaste la división entre micro y macroeconomía, oferta y demanda, costo de oportunidad, índices financieros y la contabilidad como sistema de información. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #612]
+# Examen jefe — Maestro del Conteo y las Operaciones
 
-> Logro #612. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 5/5 secciones.
+> Logro #612. Dominaste la suma y la multiplicación básica junto con el principio de conteo, las combinaciones y las permutaciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **154 preguntas totales** en 5/5 secciones.
 
 ---
 

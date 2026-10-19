@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #816]
+# Examen jefe — Lógica, Complejidad y Revolución Digital
 
-> Logro #816. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
+> Logro #816. Completaste el parcial con álgebra booleana, complejidad asintótica y planillas de cálculo, junto con el concepto de técnica y tecnología y la revolución informática. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #748]
+# Examen jefe — Experto en Circuitos Eléctricos
 
-> Logro #748. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
+> Logro #748. Dominaste los circuitos en serie, en paralelo y mixtos junto con la potencia eléctrica, y sumaste el tiro vertical, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **127 preguntas totales** en 5/5 secciones.
 
 ---
 

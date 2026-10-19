@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #602]
+# Examen jefe — Maestro de Grafos y Árboles
 
-> Logro #602. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
+> Logro #602. Dominaste vértices, aristas, árboles y grafos ponderados, además de uniones, intersecciones y diferencias de conjuntos y lectura de tablas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -399,467 +399,504 @@ explicacion: |
   `../algoritmos-de-recorrido-bfs-dfs/`.
 ```
 
-## Sección: integral-definida-y-area-bajo-la-curva (22 preguntas)
+## Sección: union-interseccion-y-diferencia (26 preguntas)
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "basico"
-  tags: ["definicion"]
+  tags: ["union", "vocabulario"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el área entre la curva y el eje horizontal en un intervalo [a, b]"
+enunciado: "¿Qué es la unión de dos conjuntos A ∪ B?"
 tipo: mc
-opciones_explicitas: ["el área entre la curva y el eje horizontal en un intervalo [a, b]", "la pendiente de la recta tangente en un punto", "el valor máximo que alcanza la función"]
-
-enunciado: "La integral definida de f(x) entre a y b representa..."
+opciones_explicitas:
+  - "Todos los elementos que están en A, en B, o en ambos, sin repetir ninguno"
+  - "Sólo los elementos que están en A y en B a la vez"
+  - "Sólo los elementos de A que no están en B"
+respuesta: "Todos los elementos que están en A, en B, o en ambos, sin repetir ninguno"
 
 explicacion: |
-  Es la cantidad de espacio entre la curva de f(x) y el eje horizontal,
-  dentro de ese intervalo específico.
+  Es la combinación completa de los dos conjuntos.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["interseccion", "vocabulario"]
+
+enunciado: "¿Qué es la intersección de dos conjuntos A ∩ B?"
+tipo: mc
+opciones_explicitas:
+  - "Sólo los elementos que están en A y en B a la vez"
+  - "Todos los elementos de A y de B juntos"
+  - "Sólo los elementos de B que no están en A"
+respuesta: "Sólo los elementos que están en A y en B a la vez"
+
+explicacion: |
+  Es lo que ambos conjuntos comparten.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["diferencia", "vocabulario"]
+
+enunciado: "¿Qué es la diferencia A − B?"
+tipo: mc
+opciones_explicitas:
+  - "Los elementos de A que NO están en B"
+  - "Los elementos de B que no están en A"
+  - "Los elementos que están en A y en B a la vez"
+respuesta: "Los elementos de A que NO están en B"
+
+explicacion: |
+  Se lee "A menos B" — se parte de A y se le quita lo que comparte con B.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "intermedio"
-  tags: ["area neta"]
+  tags: ["union", "problema"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "negativa"
+enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A ∪ B?"
 tipo: mc
-opciones_explicitas: ["positiva", "negativa", "siempre cero"]
-
-enunciado: "Si la curva de f(x) está por debajo del eje x en el intervalo considerado, el área correspondiente se considera..."
+opciones_explicitas:
+  - "{1, 2, 3, 4, 5, 6}"
+  - "{3, 4}"
+  - "{1, 2}"
+respuesta: "{1, 2, 3, 4, 5, 6}"
 
 explicacion: |
-  La integral definida calcula el área neta, no el área total absoluta:
-  por eso puede dar valores negativos.
+  Se juntan todos los elementos de ambos, sin repetir el 3 y el 4 que
+  comparten.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "basico"
-  tags: ["teorema fundamental"]
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["interseccion", "problema"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A ∩ B?"
+tipo: mc
+opciones_explicitas:
+  - "{3, 4}"
+  - "{1, 2, 3, 4, 5, 6}"
+  - "{1, 2}"
+respuesta: "{3, 4}"
 
-respuesta: "Teorema Fundamental del Cálculo"
+explicacion: |
+  Son los únicos dos elementos que aparecen en los dos conjuntos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["diferencia", "problema"]
+
+enunciado: "Dados A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es A − B?"
+tipo: mc
+opciones_explicitas:
+  - "{1, 2}"
+  - "{5, 6}"
+  - "{3, 4}"
+respuesta: "{1, 2}"
+
+explicacion: |
+  Es lo que queda de A después de sacarle lo que comparte con B (el 3
+  y el 4).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["diferencia", "problema"]
+
+enunciado: "Con los mismos A = {1, 2, 3, 4} y B = {3, 4, 5, 6}, ¿cuál es B − A?"
+tipo: mc
+opciones_explicitas:
+  - "{5, 6}"
+  - "{1, 2}"
+  - "{3, 4}"
+respuesta: "{5, 6}"
+
+explicacion: |
+  B − A es distinto de A − B (pregunta 6) — la diferencia no es
+  conmutativa.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["diferencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En general, A − B no es lo mismo que B − A."
+
+explicacion: |
+  Se ve claro en el ejemplo de las preguntas 6 y 7: {1,2} contra {5,6}.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["union"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A ∪ B es siempre igual a B ∪ A, sin importar el orden."
+
+explicacion: |
+  Juntar los elementos de dos conjuntos no depende del orden en que se
+  los mencione.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["interseccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "A ∩ B es siempre igual a B ∩ A, sin importar el orden."
+
+explicacion: |
+  Lo que comparten A y B es lo mismo que lo que comparten B y A.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union", "completar"]
+
 tipo: completar
-
-enunciado: "El teorema que permite calcular una integral definida usando una primitiva F(x), en vez de sumar rectángulos infinitos, se llama ___."
-
+enunciado: "Completá: |A ∪ B| = |A| + |B| − ___."
 respuestas_validas:
-  - "Teorema Fundamental del Cálculo"
+  - "|A ∩ B|"
+  - "A ∩ B"
 
 explicacion: |
-  Establece una relación directa entre la derivada y la integral,
-  simplificando enormemente el cálculo del área.
+  Se resta la intersección porque, si no, sus elementos se contarían
+  dos veces.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["formula tfc"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "F(b) - F(a)"
-tipo: mc
-opciones_explicitas: ["F(b) - F(a)", "F(b) + F(a)", "F(a) - F(b)"]
-
-enunciado: "Según el Teorema Fundamental del Cálculo, ∫ f(x) dx entre a y b es igual a:"
-
-explicacion: |
-  Se evalúa la primitiva en el límite superior y se le resta el valor
-  evaluado en el límite inferior.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "avanzado"
-  tags: ["primitiva"]
+  tags: ["union", "problema"]
 
 variables:
-  n: random(2, 8)
+  a: random(10, 30)
+  b: random(10, 30)
+  interseccion: random(1, 8)
 
-respuesta: n / 2
+respuesta: a + b - interseccion
 tipo: input
-tolerancia_abs: 0.01
 
-enunciado: "La primitiva de f(x) = {n}·x es F(x) = k·x². ¿Cuánto vale k?"
+enunciado: "Un conjunto A tiene {a} elementos y un conjunto B tiene {b} elementos. Si A y B comparten {interseccion} elementos, ¿cuántos elementos tiene A ∪ B?"
+
+pasos:
+  - "|A∪B| = |A| + |B| − |A∩B| = {a} + {b} − {interseccion} = {a + b - interseccion}"
 
 explicacion: |
-  La primitiva de k'·x es (k'/2)·x², así que si f(x)={n}·x, el
-  coeficiente de x² en la primitiva es {n}/2.
+  Se restan los elementos compartidos para no contarlos dos veces.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["calculo directo"]
-
-variables:
-  b: random(2, 8)
-
-respuesta: b * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Calculá el área bajo la curva de f(x) = 2x entre x=0 y x={b}, usando F(x) = x². (F({b}) - F(0))"
-
-explicacion: |
-  F(x) = x² es la primitiva de 2x. El área es F(b) - F(0) = b² - 0 = b².
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["calculo directo"]
-
-variables:
-  k: random(1, 5)
-  b: random(2, 6)
-
-respuesta: k * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Calculá el área bajo la curva de f(x) = {k} (función constante) entre x=0 y x={b}, usando F(x) = {k}·x."
-
-explicacion: |
-  Para una función constante, el área bajo la curva es un rectángulo:
-  base × altura = {b} × {k}.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "basico"
-  tags: ["simbolo integral"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "una S alargada que recuerda a suma"
-tipo: mc
-opciones_explicitas: ["una S alargada que recuerda a suma", "una letra griega sin significado especial", "el símbolo de infinito"]
-
-enunciado: "El símbolo ∫ de la integral es..."
-
-explicacion: |
-  Representa la idea de "sumar" infinitas cantidades infinitesimales, de
-  ahí la forma de S alargada.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "avanzado"
-  tags: ["existencia"]
+  tags: ["interseccion", "problema"]
 
 variables:
-  n: uno_de([1, 1])
+  a: random(10, 30)
+  b: random(10, 30)
+  interseccion_real: random(1, 8)
+
+respuesta: interseccion_real
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos, un conjunto B tiene {b} elementos, y A ∪ B tiene {a + b - interseccion_real} elementos. ¿Cuántos elementos comparten A y B (|A ∩ B|)?"
+
+pasos:
+  - "|A∩B| = |A| + |B| − |A∪B| = {a} + {b} − {a + b - interseccion_real} = {interseccion_real}"
+
+explicacion: |
+  Es la misma fórmula, despejada para la intersección en vez de la unión.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["diferencia", "problema"]
+
+variables:
+  a: random(15, 40)
+  interseccion: random(1, 10)
+
+respuesta: a - interseccion
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos, de los cuales {interseccion} también pertenecen a B. ¿Cuántos elementos tiene A − B?"
+
+pasos:
+  - "|A−B| = |A| − |A∩B| = {a} − {interseccion} = {a - interseccion}"
+
+explicacion: |
+  A − B es lo de A que no comparte con B, así que se le resta la parte
+  compartida.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["disjuntos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Si f(x) es continua en el intervalo [a, b], la integral definida siempre existe y es única."
+enunciado: "Si dos conjuntos A y B no comparten ningún elemento, se dice que son disjuntos, y A ∩ B = ∅."
 
 explicacion: |
-  La continuidad de la función en el intervalo garantiza que el área
-  bajo la curva esté bien definida.
+  Es el caso extremo: cero elementos en común.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "intermedio"
-  tags: ["aplicaciones"]
+  tags: ["disjuntos", "problema"]
 
 variables:
-  campo: uno_de(["física", "economía", "ingeniería"])
+  a: random(5, 20)
+  b: random(5, 20)
+
+respuesta: a + b
+tipo: input
+
+enunciado: "Un conjunto A tiene {a} elementos y un conjunto B tiene {b} elementos. A y B son disjuntos (no comparten nada). ¿Cuántos elementos tiene A ∪ B?"
+
+pasos:
+  - "Como |A∩B| = 0: |A∪B| = |A| + |B| = {a} + {b} = {a + b}"
+
+explicacion: |
+  Sin nada compartido, no hace falta restar nada — se suman directo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["disjuntos", "vocabulario"]
+
+enunciado: "¿Qué significa que dos conjuntos sean disjuntos?"
+tipo: mc
+opciones_explicitas:
+  - "Que no comparten ningún elemento"
+  - "Que tienen la misma cantidad de elementos"
+  - "Que uno es subconjunto del otro"
+respuesta: "Que no comparten ningún elemento"
+
+explicacion: |
+  Su intersección es el conjunto vacío.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union", "ordenar"]
+
+enunciado: "Ordená los pasos para calcular |A∪B|, sabiendo |A|, |B| y |A∩B|."
+tipo: ordenar
+opciones_explicitas:
+  - "El número que queda es |A∪B|"
+  - "Sumar |A| + |B|"
+  - "Restar |A∩B| a ese resultado"
+respuesta_orden: ["Sumar |A| + |B|", "Restar |A∩B| a ese resultado", "El número que queda es |A∪B|"]
+explicacion: |
+  El paso de restar la intersección es el que evita el doble conteo.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["aplicacion"]
+
+enunciado: "¿Dónde se usa la misma idea de unión e intersección de conjuntos, fuera de la matemática pura?"
+tipo: mc
+opciones_explicitas:
+  - "En consultas de bases de datos: pedir filas que cumplan una condición Y otra (intersección) o cualquiera de dos condiciones O (unión)"
+  - "Sólo en geometría, para calcular áreas"
+  - "No tiene ninguna aplicación fuera de la matemática pura"
+respuesta: "En consultas de bases de datos: pedir filas que cumplan una condición Y otra (intersección) o cualquiera de dos condiciones O (unión)"
+
+explicacion: |
+  Es el mismo principio que después usa el álgebra relacional de
+  bases de datos (Informática).
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "intermedio"
+  tags: ["aplicacion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La integral definida tiene aplicaciones reales en {campo}, según la teoría."
+enunciado: "En una consulta con condiciones combinadas, el conector 'Y' corresponde a una intersección, y el conector 'O' corresponde a una unión."
 
 explicacion: |
-  Se usa para calcular distancia recorrida (física), excedente del
-  consumidor (economía) o volúmenes de objetos (ingeniería).
+  "Cumple A Y B" son los elementos en ambos (intersección); "cumple A
+  O B" son los elementos en cualquiera de los dos (unión).
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "basico"
-  tags: ["discreto vs continuo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "de lo discreto a lo continuo"
-tipo: mc
-opciones_explicitas: ["de lo discreto a lo continuo", "de lo continuo a lo discreto", "no hay ninguna diferencia entre ambos"]
-
-enunciado: "La importancia de la integral definida radica en su capacidad de pasar..."
-
-explicacion: |
-  Mientras la suma simple junta cantidades finitas, la integral suma
-  infinitas cantidades infinitesimales.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["pasos del calculo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "encontrar la primitiva, evaluarla en b, evaluarla en a y restar"
-tipo: mc
-opciones_explicitas: ["encontrar la primitiva, evaluarla en b, evaluarla en a y restar", "derivar la función dos veces", "graficar la función sin ningún cálculo"]
-
-enunciado: "Según el Teorema Fundamental del Cálculo, el proceso para calcular una integral definida consiste en..."
-
-explicacion: |
-  Son los tres pasos que transforman un problema geométrico complejo en
-  álgebra simple.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "avanzado"
-  tags: ["verificacion geometrica"]
+  tags: ["diferencia", "problema"]
 
 variables:
-  b: random(3, 9)
+  a: random(20, 50)
+  b: random(1, 15)
 
-respuesta: b * b
+respuesta: a - b
 tipo: input
-tolerancia_abs: 0
 
-enunciado: "Verificá con geometría básica: el área bajo f(x)=2x entre 0 y {b} es un triángulo de base {b} y altura {2*b}... espera, calculalo directo: (base × altura) / 2 = ({b} × 2·{b}) / 2. ¿Cuánto da?"
+enunciado: "Un conjunto A tiene {a} elementos, y B ⊆ A tiene {b} elementos (todos los de B ya están en A). ¿Cuántos elementos tiene A − B?"
+
+pasos:
+  - "Como B ⊆ A, todo B está incluido en la parte compartida: |A−B| = |A| − |B| = {a} − {b} = {a - b}"
 
 explicacion: |
-  (b × 2b) / 2 = b², el mismo resultado que da la integral, confirmando
-  que ambos métodos coinciden.
+  Al ser B subconjunto de A, restar B de A es simplemente restar todos
+  sus elementos.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "basico"
-  tags: ["dx"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "un segmento horizontal de ancho infinitesimal"
-tipo: mc
-opciones_explicitas: ["un segmento horizontal de ancho infinitesimal", "el valor máximo de la función", "la derivada de la función"]
-
-enunciado: "En la notación ∫f(x) dx, el símbolo dx indica que se está sumando..."
-
-explicacion: |
-  Cada dx representa un segmento horizontal muy chico que, sumado a
-  infinitos otros, da el área total.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["primitiva de potencia"]
-
-variables:
-  n: random(1, 6)
-
-respuesta: n + 1
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "La primitiva de x^{n} tiene exponente (antes de dividir por el nuevo exponente):"
-
-explicacion: |
-  Al integrar x^n, el exponente sube en 1 (regla inversa a la
-  derivación).
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "basico"
-  tags: ["relacion con derivada"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "una función cuya derivada es f(x)"
-tipo: mc
-opciones_explicitas: ["una función cuya derivada es f(x)", "una función cuyo valor máximo es f(x)", "la inversa de f(x)"]
-
-enunciado: "Una función primitiva F(x) de f(x) es..."
-
-explicacion: |
-  Por eso el Teorema Fundamental del Cálculo conecta directamente
-  derivación e integración: son procesos inversos.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "avanzado"
-  tags: ["areas irregulares"]
-
-variables:
-  n: uno_de([1, 1])
+  tags: ["union"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La integral definida permite medir áreas irregulares que la geometría básica (cuadrados, triángulos) no puede resolver por sí sola."
+enunciado: "Si B es subconjunto de A (B ⊆ A), entonces A ∪ B es exactamente igual a A (unir no agrega nada nuevo)."
 
 explicacion: |
-  Es justamente su utilidad principal: calcular áreas bajo curvas
-  complejas, no sólo figuras geométricas simples.
+  Todo lo que tiene B ya estaba en A, así que juntarlos no cambia nada.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["calculo directo"]
-
-variables:
-  b: random(1, 7)
-
-respuesta: b * b * b
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Si F(x) = x³ es la primitiva de f(x) = 3x², calculá F({b}) - F(0), el área bajo f(x) entre 0 y {b}."
-
-explicacion: |
-  F(b) - F(0) = b³ - 0 = b³, aplicando directamente el Teorema
-  Fundamental del Cálculo.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "basico"
-  tags: ["limites de integracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "los valores inicial y final del intervalo"
-tipo: mc
-opciones_explicitas: ["los valores inicial y final del intervalo", "el valor máximo y mínimo de la función", "las raíces de la función"]
-
-enunciado: "En ∫_a^b f(x) dx, los valores a y b representan..."
-
-explicacion: |
-  Son los límites del intervalo dentro del cual se calcula el área bajo
-  la curva.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
   nivel: "avanzado"
-  tags: ["metodo alternativo"]
+  tags: ["interseccion"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
+respuesta: verdadero
 tipo: vf
 
-enunciado: "Calcular el área sumando rectángulos infinitos es el método práctico habitual para resolver integrales definidas en un examen."
+enunciado: "Si B es subconjunto de A (B ⊆ A), entonces A ∩ B es exactamente igual a B."
 
 explicacion: |
-  Sería imposible en la práctica; por eso se usa el Teorema Fundamental
-  del Cálculo, que evita esa suma infinita directa.
+  Todo elemento de B ya está en A, así que lo que comparten es
+  exactamente todo B.
 ```
 
 ```
 metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["aplicacion fisica"]
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["union"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: verdadero
+tipo: vf
 
-respuesta: "distancias recorridas cuando la velocidad cambia"
+enunciado: "|A ∪ B| siempre es mayor o igual que |A| y que |B|, sin importar qué conjuntos sean."
+
+explicacion: |
+  La unión sólo puede agregar elementos, nunca quitarlos.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "avanzado"
+  tags: ["interseccion"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "|A ∩ B| siempre es menor o igual que |A| y que |B|, sin importar qué conjuntos sean."
+
+explicacion: |
+  La intersección sólo puede quedarse con una parte (o todo) de cada
+  conjunto, nunca con más de lo que cada uno tiene.
+```
+
+```
+metadata:
+  materia: "matematicas"
+  tema: "union_interseccion_y_diferencia"
+  nivel: "basico"
+  tags: ["cierre"]
+
+enunciado: "¿Para qué sirven la unión, la intersección y la diferencia de conjuntos?"
 tipo: mc
-opciones_explicitas: ["distancias recorridas cuando la velocidad cambia", "la masa de un objeto en reposo", "el color de la luz emitida"]
-
-enunciado: "En física, la integral definida se usa para calcular, entre otras cosas..."
-
-explicacion: |
-  Si la velocidad varía con el tiempo, integrarla da la distancia total
-  recorrida.
-```
-
-```
-metadata:
-  materia: "matematica"
-  tema: "integral_definida_y_area_bajo_la_curva"
-  nivel: "intermedio"
-  tags: ["calculo directo"]
-
-variables:
-  a: random(1, 4)
-  b: random(5, 9)
-
-respuesta: b*b - a*a
-tipo: input
-tolerancia_abs: 0
-
-enunciado: "Calculá el área bajo f(x) = 2x entre x={a} y x={b}, usando F(x) = x² (F({b}) - F({a}))."
+opciones_explicitas:
+  - "Para combinar conjuntos de formas distintas y calcular cuántos elementos resultan, sin necesidad de listarlos uno por uno"
+  - "Sólo sirven para dibujar círculos superpuestos"
+  - "Sólo aplican a conjuntos de números"
+respuesta: "Para combinar conjuntos de formas distintas y calcular cuántos elementos resultan, sin necesidad de listarlos uno por uno"
 
 explicacion: |
-  F(b) - F(a) = b² - a², aplicando el Teorema Fundamental del Cálculo
-  con límites distintos de cero.
+  Son la base algebraica que el próximo módulo (diagramas de Venn)
+  representa visualmente.
 ```
 
 ## Sección: arboles-grafo-sin-ciclos (20 preguntas)

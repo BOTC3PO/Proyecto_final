@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #686]
+# Examen jefe — Dominio de la Vida Compleja
 
-> Logro #686. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
+> Logro #686. Aprobaste el parcial sobre eucariotas, fotosíntesis y cambio atmosférico, multicelularidad, explosión cámbrica y tectónica de placas. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 

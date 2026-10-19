@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #800]
+# Examen jefe — Población, Ambiente y Agro Mundial
 
-> Logro #800. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #800. Completaste el parcial con pirámides de población y migraciones, producción agraria y biotecnología, ambiente y recursos, América anglosajona y ambientalismo liberal. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 

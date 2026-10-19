@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #659]
+# Examen jefe — Dominio del Sujeto y el Predicado
 
-> Logro #659. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
+> Logro #659. Dominaste los tipos de sujeto, los núcleos y modificadores, los objetos y circunstanciales, y la conjugación en subjuntivo. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 

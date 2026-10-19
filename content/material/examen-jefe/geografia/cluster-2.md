@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #797]
+# Examen jefe — Experto en Cartografía y SIG
 
-> Logro #797. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
+> Logro #797. Dominaste mapas a escala, coordenadas geográficas y sistemas de información geográfica, junto con la división política, los estados y la globalización, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 

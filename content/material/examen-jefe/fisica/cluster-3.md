@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #738]
+# Examen jefe — Maestro de Coulomb y Newton
 
-> Logro #738. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #738. Aprobaste el parcial con la ley de Coulomb y el magnetismo de los imanes, junto con la primera y segunda ley de Newton y las máquinas simples, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

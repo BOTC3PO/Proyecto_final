@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #625]
+# Examen jefe — Maestro de Límites y Complejos
 
-> Logro #625. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #625. Calculaste límites y continuidad de funciones, resolviste ecuaciones exponenciales y logarítmicas, y expresaste complejos en forma polar. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

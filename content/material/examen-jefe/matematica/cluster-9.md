@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #609]
+# Examen jefe — Experto en Muestreo y Triángulos
 
-> Logro #609. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #609. Dominaste el muestreo, el sesgo, el teorema central del límite, los intervalos de confianza y la congruencia de triángulos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
 
 ---
 

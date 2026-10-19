@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #768]
+# Examen jefe — Maestro del Interés y la Tasa
 
-> Logro #768. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #768. Completaste el parcial calculando interés simple y compuesto, IVA y la diferencia entre CFT y tasa nominal, sin perder de vista el origen del excedente y la moneda. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

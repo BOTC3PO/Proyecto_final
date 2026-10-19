@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #904]
+# Examen jefe — Maestro de los Fundamentos del Arte
 
-> Logro #904. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **132 preguntas totales** en 5/5 secciones.
+> Logro #904. Completaste el parcial dominando el origen del arte, sus elementos y principios de diseño, la composición y proporción, y la acústica del instrumento musical. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **132 preguntas totales** en 5/5 secciones.
 
 ---
 

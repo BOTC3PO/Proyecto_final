@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #610]
+# Examen jefe — Maestro de Semejanza y Pitágoras
 
-> Logro #610. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #610. Aplicaste el teorema de Thales y Pitágoras, homotecias y reflexiones, y completaste un test de hipótesis, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

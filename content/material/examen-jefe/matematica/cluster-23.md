@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #623]
+# Examen jefe — Maestro de Polinomios y la Recta
 
-> Logro #623. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
+> Logro #623. Factoreaste polinomios, dividiste con Ruffini, hallaste la ecuación de la recta y usaste notación científica, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **136 preguntas totales** en 5/5 secciones.
 
 ---
 

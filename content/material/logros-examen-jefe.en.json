@@ -4,15 +4,15 @@
     "materia": "Matemática",
     "cluster": 1,
     "temas": [
-      "asintotas",
-      "concavidad-y-puntos-de-inflexion",
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
       "conjuntos-pertenencia-e-inclusion",
       "conteo",
-      "divisibilidad/regla-del-7-opcional"
+      "valor-posicional"
     ],
-    "nombre": "Master Asymptotes and Sets",
-    "descripcion": "You analyzed asymptotes and function concavity, worked with set membership, counting, and the rule of 7 in the same exam.",
-    "icono": "📈"
+    "nombre": "Master Trigonometry and Sets",
+    "descripcion": "You applied trigonometric ratios and the law of sines and cosines, and worked with set membership, counting, and place value in the same exam.",
+    "icono": "📐"
   },
   {
     "id": 602,
@@ -20,13 +20,13 @@
     "cluster": 2,
     "temas": [
       "grafos-vertices-y-aristas",
-      "integral-definida-y-area-bajo-la-curva",
+      "union-interseccion-y-diferencia",
       "arboles-grafo-sin-ciclos",
       "grafos-dirigidos-no-dirigidos-y-ponderados",
       "leer-una-tabla"
     ],
     "nombre": "Master of Graphs and Trees",
-    "descripcion": "You mastered vertices, edges, trees, and weighted graphs, plus definite integrals and table reading.",
+    "descripcion": "You mastered vertices, edges, trees, and weighted graphs, plus set unions, intersections, and differences, and reading tables.",
     "icono": "🌳"
   },
   {
@@ -53,10 +53,10 @@
       "construir-un-grafico",
       "grafico-eje-truncado",
       "media-mediana-y-moda",
-      "razones-trigonometricas"
+      "vectores-modulo-y-direccion"
     ],
     "nombre": "Master of Graphs and Measures",
-    "descripcion": "You built graphs, spotted truncated axes, calculated mean, median, and mode, and applied trigonometric ratios.",
+    "descripcion": "You built charts, spotted truncated axes, calculated mean, median, and mode, and worked with the magnitude and direction of vectors.",
     "icono": "📊"
   },
   {
@@ -66,12 +66,12 @@
     "temas": [
       "cual-miente-y-cuando",
       "funciones-trigonometricas-seno-coseno",
-      "regla-de-lhopital",
+      "suma-de-vectores-y-descomposicion",
       "identidades-y-ecuaciones-trigonometricas",
       "regresion-lineal"
     ],
     "nombre": "Master Trigonometry and Regression",
-    "descripcion": "You worked with trigonometric functions, identities, L'Hôpital's rule, and linear regression, and figured out who lies and when.",
+    "descripcion": "You worked with trigonometric functions, identities, vector addition and decomposition, and linear regression, and spotted who lies and when.",
     "icono": "📐"
   },
   {
@@ -111,12 +111,12 @@
     "temas": [
       "area-poligonos-regulares-y-compuestas",
       "dispersion-rango-y-desvio",
-      "teorema-de-bolzano",
+      "volumen-y-capacidad",
       "distribucion-normal",
-      "teorema-del-seno-y-del-coseno"
+      "variable-aleatoria-discreta-continua"
     ],
     "nombre": "Master of Areas and Normal Distribution",
-    "descripcion": "You calculated areas of composite polygons, applied the law of sines and cosines, and mastered the normal distribution and dispersion.",
+    "descripcion": "You calculated areas of composite polygons, volume, and capacity, and mastered the normal distribution, dispersion, and random variables.",
     "icono": "📐"
   },
   {
@@ -156,12 +156,12 @@
     "temas": [
       "transformaciones-geometricas/rotacion",
       "transformaciones-geometricas/traslacion",
-      "union-interseccion-y-diferencia",
-      "valor-posicional",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
       "diagramas-de-venn"
     ],
     "nombre": "Master Transformations and Sets",
-    "descripcion": "You rotated and translated shapes, calculated unions and intersections, and worked with Venn diagrams and place value.",
+    "descripcion": "You rotated and translated figures, and worked with the Poisson and exponential distributions and Venn diagrams.",
     "icono": "🔄"
   },
   {
@@ -441,28 +441,28 @@
     "temas": [
       "riesgo-relativo-vs-absoluto",
       "teorema-del-binomio",
-      "variable-aleatoria-discreta-continua",
+      "concavidad-y-puntos-de-inflexion",
       "variaciones",
-      "distribucion-de-poisson"
+      "integral-definida-y-area-bajo-la-curva"
     ],
-    "nombre": "Master Distributions and the Binomial Theorem",
-    "descripcion": "You applied the binomial theorem and the Poisson distribution, worked with random variables, and mastered relative risk, boss.",
-    "icono": "🎲"
+    "nombre": "Master the Binomial and Calculus",
+    "descripcion": "You applied the binomial theorem and variations, calculated relative and absolute risk, and analyzed concavity and definite integrals.",
+    "icono": "📈"
   },
   {
     "id": 631,
     "materia": "Matemática",
     "cluster": 31,
     "temas": [
-      "distribucion-exponencial",
-      "vectores-modulo-y-direccion",
-      "volumen-y-capacidad",
-      "suma-de-vectores-y-descomposicion",
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
       "cuerpos-redondos-y-poliedros/cilindros"
     ],
-    "nombre": "Master of Vectors and Volume",
-    "descripcion": "You added and decomposed vectors, calculated the volume of cylinders and capacity, and worked with the exponential distribution.",
-    "icono": "➡️"
+    "nombre": "Master of Asymptotes and L'Hôpital",
+    "descripcion": "You worked with asymptotes, Bolzano's theorem, and L'Hôpital's rule, calculated cylinder volumes, and applied the divisibility rule of 7.",
+    "icono": "📉"
   },
   {
     "id": 632,
@@ -1769,6 +1769,9 @@
     "materia": "Informática",
     "cluster": 5,
     "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
       "estructuras-de-control-bucles",
       "funciones-y-modularidad",
       "estructuras-de-datos-listas-pilas-colas",
@@ -1776,7 +1779,7 @@
       "algoritmos-busqueda-ordenamiento"
     ],
     "nombre": "Master of Programming",
-    "descripcion": "You mastered loops, functions, data structures (lists, stacks, and queues), object-oriented programming, and search and sorting algorithms.",
+    "descripcion": "You mastered arithmetic, relational, and logical operators, loops, functions, data structures (lists, stacks, and queues), object-oriented programming, and search and sorting algorithms.",
     "icono": "👨‍💻"
   },
   {

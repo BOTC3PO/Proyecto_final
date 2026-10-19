@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #658]
+# Examen jefe — Maestro del Texto Teatral y la Gramática
 
-> Logro #658. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
+> Logro #658. Completaste el examen dominando el texto teatral, las clases de palabras, la concordancia nominal y verbal, y la conjugación en indicativo, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
 
 ---
 

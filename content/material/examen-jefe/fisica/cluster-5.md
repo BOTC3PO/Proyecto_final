@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #740]
+# Examen jefe — Experto en Momento y Ondas
 
-> Logro #740. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
+> Logro #740. Dominaste el momento lineal, el impulso y la gravitación universal, además de la frecuencia y la relación entre longitud de onda y velocidad de propagación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **126 preguntas totales** en 5/5 secciones.
 
 ---
 

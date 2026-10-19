@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #652]
+# Examen jefe — Experto en Comprensión y Tipología
 
-> Logro #652. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #652. Dominaste la idea principal, los tipos textuales, las variedades de la lengua, la escritura como tecnología y las técnicas de estudio como el resumen y los organizadores gráficos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 

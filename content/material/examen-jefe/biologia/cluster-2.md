@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #862]
+# Examen jefe — Fundamentos de los Seres Vivos
 
-> Logro #862. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #862. Dominaste qué define a un ser vivo, sus necesidades básicas, la célula y sus organelas, los ciclos de vida con metamorfosis y la clasificación evolutiva, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
 
 ---
 

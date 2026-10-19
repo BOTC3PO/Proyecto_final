@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #884]
+# Examen jefe — Maestro del Poder y la Política Internacional
 
-> Logro #884. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **151 preguntas totales** en 6/6 secciones.
+> Logro #884. Completaste el examen jefe sobre los partidos políticos, la evolución del sufragio, los tratados internacionales y los tipos de Estado. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **151 preguntas totales** en 6/6 secciones.
 
 ---
 
