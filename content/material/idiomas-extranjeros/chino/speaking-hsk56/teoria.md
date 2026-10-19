@@ -1,25 +1,47 @@
-> Corregido a partir de `content/material/_borradores-gemma/idiomas-extranjeros/chino/speaking-hsk56/teoria_crudo.md`. Reescrita para HSK 5-6.
+> Ampliada con textos graduados, diálogos y ejercicios (plan de faltantes de idiomas). Mantiene los temas del cuestionario existente.
 
 # Hablar en chino: HSK 5-6
 
 ## Introducción
-En HSK 5-6 se presentan argumentos, se concede, se rebate con tacto y se cierra con fórmulas formales.
+En HSK 5-6 se debate, se argumenta, se resume una conferencia y se expresan matices de actitud y opinión con registros formales e informales. El hablante usa 成语, conectores avanzados, estructuras retóricas y marcadores de discurso.
 
 ## Explicación central
-- **Apertura**: 各位…大家好, 今天我想谈谈….
-- **Tesis**: 我认为，关键在于….
-- **Concesión**: 诚然…但….
-- **Rebate**: 恕我直言, 恐怕….
-- **Resumen**: 综上所述; **ejemplo**: 以…为例; **fuente**: 据统计.
-- **Cierre**: 以上就是我的发言，谢谢大家.
+- **Marcadores de discurso**: 首先, 其次, 另外, 总的来说, 换句话说, 事实上.
+- **Argumentación**: 一方面…另一方面…, 不仅…而且…, 就…来说, 从…角度看.
+- **Matices**: 未必, 难免, 毕竟, 反而, 倒是.
+- **Acuerdo y desacuerdo**: 我完全同意, 我不太同意, 话是这么说, 但是….
+- **Registro**: elegir entre 咱们 / 我们, 您 / 你, 表示 / 说.
+- **Recursos**: 成语, 反问, 对比.
+
+## Diálogos modelo
+**Diálogo 1: debate**
+A：有人认为应该禁止孩子使用手机，你怎么看？
+B：一方面，手机确实会影响学习；另一方面，它也能帮助孩子获取信息。因此，我认为应该合理使用，而不是一刀切。
+A：话是这么说，但是很多孩子控制不了自己。
+B：所以家长的引导非常重要。
+
+**Diálogo 2: resumir**
+A：昨天的讲座讲了什么？
+B：总的来说，讲座的主题是可持续发展。首先，讲了资源的有限性；其次，讲了企业的责任；最后，提出了个人可以做的事情。
+
+**Diálogo 3: matices**
+A：他这次考试没考好。
+B：毕竟他最近生病了，难免会受影响。倒是他的态度很值得肯定。
+
+## Ejercicios de producción
+1. Defendé una postura sobre el trabajo remoto en tres minutos, con 一方面…另一方面… y 因此.
+2. Resumí un artículo en cuatro frases con 首先, 其次, 最后.
+3. Usá tres 成语 en una conversación (por ejemplo 事半功倍, 学以致用, 各有千秋).
+4. Practicá cinco marcadores de discurso.
 
 ## Errores comunes de hispanohablantes
-1. **Ser demasiado directo.**
-2. **Mezclar registro oral y formal.**
-3. **Olvidar las fórmulas de transición.**
+1. **Traducir las muletillas** del español.
+2. **Entonación plana** en intervenciones largas.
+3. **Abusar de 成语** sin dominarlos.
+4. **No marcar los cambios de tema**.
 
 ## Comparación con el español
-El español recurre a marcadores como 'con todo respeto'; el chino usa expresiones fijas (恕我直言, 诚然).
+El español usa «por un lado… por otro…» y «en definitiva»; el chino tiene equivalentes fijos (一方面…另一方面…, 总的来说).
 
 ## Ejemplo extendido en contexto
-各位来宾，大家好。我认为，关键在于提高教育质量。综上所述，我们应当采取积极措施。
+总的来说，这个方案利大于弊，不过还需要进一步讨论。

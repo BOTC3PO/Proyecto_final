@@ -1,26 +1,45 @@
-> Corregido a partir de `content/material/_borradores-gemma/idiomas-extranjeros/chino/reading-hsk56/teoria_crudo.md`. Reescrita para HSK 5-6 con variedad temática.
+> Ampliada con textos graduados, diálogos y ejercicios (plan de faltantes de idiomas). Mantiene los temas del cuestionario existente.
 
 # Lectura en chino: HSK 5-6
 
 ## Introducción
-En HSK 5-6 se leen artículos con opinión, datos, matices e implicaturas.
+En HSK 5-6 se leen artículos de periódico, ensayos, textos académicos y fragmentos literarios de varios párrafos. Se requiere inferir actitud del autor, entender construcciones formales y reconocer recursos retóricos y 成语.
 
 ## Explicación central
-- **Estructura argumentativa**: 不仅…而且…, 然而, 综上所述, 总的来说.
-- **Concesión y condición**: 无论…都, 只有…才, 与其…不如.
-- **Cita indirecta**: 据报道, 专家指出.
-- **Cifras**: 超过百分之七十.
-- **Implicaturas**: 再研究研究 = rechazo cortés.
-- **Retórica**: 难道…吗, 比喻.
+- **Registro formal**: 由于, 鉴于, 据…报道, 对于, 关于, 以及.
+- **Conectores avanzados**: 然而, 因此, 尽管, 即使, 从而, 以致.
+- **Elementos formales**: 之, 其, 所, 者 (ver el tema de restos del chino clásico).
+- **成语**: reconocer su estructura de cuatro caracteres (事半功倍).
+- **Retórica**: 比喻, 排比, 对偶, 反问.
+- **Estrategias**: identificar tesis, argumentos y conclusión; distinguir hecho y opinión; deducir vocabulario por radicales.
+
+## Textos graduados
+**Texto 1 (noticia)**
+据新华社报道，近年来，我国城市垃圾分类工作取得了明显进展。专家指出，要从根本上解决问题，还需要提高公众的环保意识。
+«Según Xinhua, en los últimos años el trabajo de clasificación de residuos urbanos ha avanzado notablemente. Los expertos señalan que, para resolver el problema de raíz, hace falta elevar la conciencia ambiental de la gente.»
+
+**Texto 2 (ensayo)**
+科技的发展使人们的生活更加方便，然而，它也带来了新的问题：人们越来越依赖手机，面对面交流的时间却越来越少。
+«El desarrollo de la tecnología ha vuelto la vida más cómoda; sin embargo, también ha traído problemas nuevos: la gente depende cada vez más del celular y tiene cada vez menos tiempo para hablar cara a cara.»
+
+**Texto 3 (literario)**
+秋天的风轻轻吹过，树叶像一只只黄色的蝴蝶，缓缓飘落。
+«El viento otoñal soplaba suavemente y las hojas, como mariposas amarillas, caían lentamente.»
+
+## Ejercicios
+1. Texto 1: ¿Qué señalan los expertos? (Que hay que elevar la conciencia ambiental.)
+2. Texto 2: ¿Qué problema menciona? (Dependencia del celular y menos comunicación cara a cara.)
+3. Texto 3: ¿Qué recurso retórico aparece? (Símil.)
+4. Identificá la tesis de un párrafo de tu elección.
 
 ## Errores comunes de hispanohablantes
-1. **Tomar lo literal por lo implícito** (再考虑考虑).
-2. **Perder la referencia de 这/其/该.**
-3. **Confundir el matiz de 看似…实际上**.
+1. **Quedarse en el vocabulario aislado**.
+2. **No identificar el registro**.
+3. **Confundir hecho y opinión**.
+4. **Pasar por alto los conectores**.
 
 ## Comparación con el español
-El texto formal chino condensa más información con estructuras fijas; muchas relaciones lógicas se marcan con conectores de registro escrito.
+Los artículos de opinión en ambas lenguas siguen un esquema de tesis–argumentos–conclusión, pero el chino acumula más elementos formales del clásico.
 
 ## Ejemplo extendido en contexto
-他嘴上说不在乎，可是眼睛一直盯着比赛结果。
-**Análisis:** 可是 marca contraste; el autor sugiere que sí le importa.
+尽管他很努力，但是由于条件有限，最终没有成功。

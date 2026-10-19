@@ -560,6 +560,10 @@ Ruta "Mecanografía" de la sección "Finales de ruta técnicos/informáticos" de
 | `mecanografia/qwerty-espanol/` | `../informatica/ofimatica-planilla-de-calculo/` | Raíz: postura, fila base, dedos, ñ y tildes. |
 | `mecanografia/qwerty-ingles/` | `qwerty-espanol/` | Diferencias con el teclado US, símbolos y atajos universales. |
 | `mecanografia/velocidad-y-precision/` | `qwerty-espanol/`, `qwerty-ingles/` | PPM bruta/neta, precisión, técnicas, ergonomía. |
+| `mecanografia/teclado-numerico-y-simbolos/` | `qwerty-espanol/` | Teclado numérico, fila de números y símbolos de uso en programación y administración. Decisión de Claude, no pedida (laguna detectada en el plan de oficios). |
+| `mecanografia/qwerty-portugues/` | `qwerty-espanol/` | Diferencias de distribución para la ç y los acentos del portugués (variante anotada en la planificación como no prioritaria). Se verificó la presencia de la ç en la distribución brasileña; los demás detalles de ubicación se dejan como indicaciones generales. |
+| `mecanografia/escritura-en-celular-y-tablet/` | `velocidad-y-precision/` | Teclado táctil, autocorrección, dictado y teclados externos. Tema opcional (prioridad baja) del plan de oficios. Decisión de Claude, no pedida. |
+| `mecanografia/diagnostico-mecanografia-por-casos/` | `velocidad-y-precision/`, `teclado-numerico-y-simbolos/` | Cierre de la ruta con el patrón de «diagnóstico por casos»: síntoma, causa probable, verificación y práctica correctiva. Decisión de Claude, no pedida. |
 
 ## Finales de ruta técnicos/informáticos — Diseño gráfico y Audiovisual (agregado 2026-10-14)
 

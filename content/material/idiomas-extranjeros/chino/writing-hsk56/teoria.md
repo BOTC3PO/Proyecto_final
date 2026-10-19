@@ -1,26 +1,40 @@
-> Corregido a partir de `content/material/_borradores-gemma/idiomas-extranjeros/chino/writing-hsk56/teoria_crudo.md`. Reescrita para HSK 5-6.
+> Ampliada con textos graduados, diálogos y ejercicios (plan de faltantes de idiomas). Mantiene los temas del cuestionario existente.
 
 # Escribir en chino: HSK 5-6
 
 ## Introducción
-En HSK 5-6 se escribe en registro formal con conectores cultos, fórmulas y estructura argumentativa.
+En HSK 5-6 se redactan ensayos argumentativos, informes y resúmenes de 300 a 600 caracteres con estructura clara, registro adecuado y variedad léxica. La evaluación valora coherencia, precisión gramatical y riqueza de recursos.
 
 ## Explicación central
-- **Conectores**: 尽管…还是…, 与其…不如…, 由于…因此…, 无论…都…, 即使…也…, 一旦…就…, 以免, 何况, 固然…但是….
-- **Retórica**: 难道…吗, 莫非.
-- **Cohesión**: 综上所述, 换句话说, 据报道.
-- **Fórmulas**: 尊敬的…：, 此致敬礼.
-- **Chengyu**: 守株待兔.
-- **Puntuación**: 《 》 para títulos.
-- **Registro**: 该, 尚未.
+- **Estructura**: introducción (tesis), desarrollo (2-3 argumentos), conclusión.
+- **Conectores**: 首先, 其次, 再次, 另外, 然而, 因此, 综上所述, 总而言之.
+- **Recursos de cohesión**: pronombres (这, 其), repeticiones controladas, paralelismos.
+- **Registro formal**: 由于, 对于, 关于, 以及, 从而, 以便, 并且.
+- **成语**: usar con moderación y con sentido.
+- **Resumen**: condensar la idea principal con tus palabras, sin copiar frases.
+
+## Modelos de escritura
+**Ensayo argumentativo (esqueleto)**
+近年来，随着科技的发展，越来越多的人选择在家办公。对此，人们看法不一。（introducción）
+一方面，在家办公节省了通勤时间，提高了工作效率。另一方面，它也减少了同事之间的交流，不利于团队合作。（desarrollo）
+综上所述，我认为远程办公应该与现场办公结合起来，扬长避短。（conclusión）
+**Resumen**
+这篇文章主要介绍了垃圾分类的意义，并分析了目前存在的问题，最后提出了几点建议。
+
+## Ejercicios
+1. Escribí una introducción de tres frases sobre un tema de actualidad.
+2. Convertí este párrafo informal en uno formal: 因为我的电脑坏了，所以我没做作业 → 由于电脑出现故障，作业未能按时完成。
+3. Resumí en una frase un artículo que hayas leído.
+4. Subrayá los conectores en el ensayo modelo.
 
 ## Errores comunes de hispanohablantes
-1. **Mezclar el registro oral y formal.**
-2. **Usar 但是 tras 由于** (correcto: 因此).
-3. **Usar comillas españolas o latinas.**
+1. **Saltar de idea sin conectores**.
+2. **Registro mezclado**.
+3. **Frases largas sin puntuación adecuada**.
+4. **Traducir textualmente del español**.
 
 ## Comparación con el español
-El español académico usa conectores parecidos; el chino además exige cuidado en las parejas correlativas y en la puntuación propia.
+Los ensayos en español admiten frases largas con subordinadas; en chino se prefieren frases más cortas con conectores explícitos.
 
 ## Ejemplo extendido en contexto
-尽管下雨，活动还是照常举行。综上所述，这个方案是可行的。
+综上所述，保护环境不仅是政府的责任，也是每个公民的义务。
