@@ -279,9 +279,12 @@ metadata:
   tags: ["austria", "desmembramiento"]
 enunciado: "El Tratado de Saint-Germain en 1919 disolvió el Imperio Austrohúngico y reconoció la independencia de ___, entre otras nuevas naciones."
 tipo: completar
-respuesta: "Austria"
+respuesta: "Checoslovaquia"
 respuestas_validas:
-  - "Austria"
+  - "Checoslovaquia"
+  - "Polonia"
+  - "Yugoslavia"
+  - "Hungría"
 ```
 
 ### 18 — Guerra Química
@@ -291,12 +294,13 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["gas", "ypr"]
-enunciado: "La primera gran utilización de gas venenoso en el campo de batalla por parte de Alemania ocurrió en la ___ de Ypres."
+enunciado: "La primera gran utilización de gas venenoso por parte de Alemania ocurrió en 1915, en la segunda batalla de ___."
 tipo: completar
-respuesta: "segunda batalla"
+respuesta: "Ypres"
 respuestas_validas:
-  - "segunda batalla"
-  - "Segunda batalla"
+  - "Ypres"
+  - "Yprès"
+  - "Ieper"
 ```
 
 ### 19 — Kolchak y los Blancos
@@ -364,12 +368,12 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["jutlandia", "naval"]
-enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial ocurrió en el ___ del Norte."
+enunciado: "La única gran batalla naval entre las flotas británica y alemana durante la Primera Guerra Mundial, en 1916, se libró frente a la península de ___."
 tipo: completar
-respuesta: "mar del Norte"
+respuesta: "Jutlandia"
 respuestas_validas:
-  - "mar del Norte"
-  - "Mar del Norte"
+  - "Jutlandia"
+  - "Jutland"
 ```
 
 ### 24 — Masacre de la Plaza del Palacio
@@ -391,10 +395,12 @@ metadata:
   tema: "primera-guerra-mundial-y-revolucion-rusa"
   nivel: "avanzado"
   tags: ["hungria", "desmembramiento"]
-enunciado: "El Tratado de Trianón en 1920 redujo drásticamente el territorio de ___, creando el estado de Hungría moderna y cediendo territorios a Rumania, Checoslovaquia y Yugoslavia."
+enunciado: "El Tratado de Trianón (1920) redujo drásticamente el territorio de ___, que cedió regiones a Rumania, Checoslovaquia y Yugoslavia."
 tipo: completar
-respuesta: "Hungria"
+respuesta: "Hungría"
 respuestas_validas:
-  - "Hungria"
   - "Hungría"
+  - "Hungria"
+  - "hungría"
+  - "hungria"
 ```

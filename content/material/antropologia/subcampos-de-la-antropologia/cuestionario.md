@@ -226,27 +226,14 @@ metadata:
   nivel: "basico"
   tags: ["clasificacion", "estructura"]
 
-variables:
-  a: "Antropología Física"
-  b: "Arqueología"
-  c: "Lingüística"
-  d: "Antropología Social"
-
-respuesta: "Antropología Física"
+respuesta: "Psicoanálisis"
 tipo: mc
-opciones_explicitas: ["Antropología Física", "Arqueología", "Lingüística", "Antropología Social"]
+opciones_explicitas: ["Antropología Física", "Arqueología", "Lingüística Antropológica", "Psicoanálisis"]
 
-enunciado: "¿Cuál de los siguientes NO es uno de los cuatro grandes subcampos principales de la antropología tradicionalmente reconocidos?"
+enunciado: "¿Cuál de los siguientes NO es uno de los cuatro grandes subcampos tradicionales de la antropología?"
 
 explicacion: |
-  Los cuatro subcampos son: Antropología Física, Arqueología, Lingüística Antropológica y Antropología Social. Todas las opciones listadas SÍ son subcampos. La pregunta es un truco retórico común en exámenes para verificar la memoria exacta de la lista. *Nota: En este formato DSL, si todas son correctas, la respuesta debe ser la que no existe. Como todas existen, ajustemos la pregunta para que una sea incorrecta.*
-  *Corrección interna para la generación:* La pregunta original pide cuál NO es. Si pongo 4 correctas, no hay respuesta. Cambiemos la opción D a algo ajeno.
-  *Re-generando opciones para que una sea falsa:*
-  a: "Antropología Física"
-  b: "Arqueología"
-  c: "Lingüística"
-  d: "Psicoanálisis"
-  respuesta: "Psicoanálisis"
+  Los cuatro subcampos tradicionales son la antropología física (o biológica), la arqueología, la lingüística antropológica y la antropología sociocultural. El psicoanálisis es una corriente de la psicología, no un subcampo de la antropología.
 ```
 
 ### 13 — pregunta 13

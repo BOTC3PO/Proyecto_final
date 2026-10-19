@@ -349,7 +349,7 @@ metadata:
   nivel: "intermedio"
   tags: ["militar", "wei-qing", "han-occidental"]
 tipo: completar
-enunciado: "___ fue el tío del emperador Wu y uno de sus generales más exitosos, conocido por sus grandes campañas contra los Xiongnu."
+enunciado: "___ fue cuñado del emperador Wu (hermano de la emperatriz Wei Zifu) y uno de sus generales más exitosos, conocido por sus campañas contra los Xiongnu."
 respuesta: "wei qing"
 respuestas_validas:
   - "wei qing"

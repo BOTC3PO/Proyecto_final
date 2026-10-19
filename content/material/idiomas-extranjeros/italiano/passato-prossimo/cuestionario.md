@@ -372,7 +372,7 @@ opciones_explicitas:
   - "Siamo preso l'autobus."
   - "Abbiamo prendato l'autobus."
 respuesta: "Abbiamo preso l'autobus."
-enunciado: "Quale frase è corretta in passato prossimo?"
+enunciado: "Scegli la frase corretta con il verbo « prendere »."
 explicacion: "« Prendere » usa « avere »; participio irregular: preso."
 ```
 

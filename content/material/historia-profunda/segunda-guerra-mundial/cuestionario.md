@@ -378,11 +378,12 @@ metadata:
   tags: ["nordic", "invasion", "1940"]
 tipo: completar
 enunciado: "En abril de 1940, Alemania lanzó la Operación Weserübung para invadir y ocupar ___, asegurando sus suministros de hierro y su costa contra los aliados."
-respuesta: "noruega y dinamarca"
+respuesta: "Noruega y Dinamarca"
 respuestas_validas:
-  - "noruega y dinamarca"
-  - "noruega y dinamarca"
   - "Noruega y Dinamarca"
+  - "Dinamarca y Noruega"
+  - "noruega y dinamarca"
+  - "dinamarca y noruega"
 explicacion: "Esta campaña aseguró el acceso alemán al mineral de hierro sueco y proporcionó bases navales y aéreas cruciales para la posterior guerra contra Gran Bretaña."
 ```
 
