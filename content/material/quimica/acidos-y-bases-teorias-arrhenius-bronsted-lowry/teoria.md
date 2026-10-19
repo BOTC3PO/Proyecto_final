@@ -60,4 +60,4 @@ Un ácido o base es **fuerte** si se disocia (ioniza) casi por completo en agua 
 
 ## 6. Lo cotidiano
 
-El vinagre contiene ácido acético; el limón, ácido cítrico; el jugo gástrico, ácido clorhídrico; los limpiadores con amoníaco y la soda cáustica son bases. La relación entre la concentración de `H⁺` y la acidez se mide con la escala de pH (`./ph-poh/`) y la reacción entre un ácido y una base se estudia en `./neutralizacion-y-titulacion/`.
+El vinagre contiene ácido acético; el limón, ácido cítrico; el jugo gástrico, ácido clorhídrico; los limpiadores con amoníaco y la soda cáustica son bases. La relación entre la concentración de `H⁺` y la acidez se mide con la escala de pH (`../ph-poh/`) y la reacción entre un ácido y una base se estudia en `../neutralizacion-y-titulacion/`.

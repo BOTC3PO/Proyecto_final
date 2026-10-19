@@ -10,7 +10,7 @@
 
 ## 1. Pesar antes de entender
 
-Antes de que se conociera el átomo, los químicos del siglo XVIII y comienzos del XIX descubrieron regularidades midiendo masas con balanzas cada vez más precisas. Esas regularidades se llaman **leyes ponderales** (de "pondus", peso). Explican por qué se balancea una ecuación (`./balanceo-ecuaciones/`) y fueron la base de la teoría atómica de Dalton (`./modelos-atomicos/`).
+Antes de que se conociera el átomo, los químicos del siglo XVIII y comienzos del XIX descubrieron regularidades midiendo masas con balanzas cada vez más precisas. Esas regularidades se llaman **leyes ponderales** (de "pondus", peso). Explican por qué se balancea una ecuación (`../balanceo-ecuaciones/`) y fueron la base de la teoría atómica de Dalton (`../modelos-atomicos/`).
 
 ## 2. Ley de conservación de la masa (Lavoisier)
 
@@ -24,7 +24,7 @@ Ejemplo: 12 g de carbono se combinan con 32 g de oxígeno para dar 44 g de dióx
 
 Joseph Proust, hacia 1800, concluyó que **un compuesto puro contiene siempre los mismos elementos en la misma proporción de masas**, sin importar de dónde provenga o cómo se prepare. En el agua, por ejemplo, por cada 1 g de hidrógeno hay 8 g de oxígeno: 9 g de agua contienen 1 g de H y 8 g de O, o sea 11,1 % de hidrógeno y 88,9 % de oxígeno, tanto en agua de mar como de lluvia.
 
-Consecuencia: si se mezclan reactivos en proporciones distintas a la definida, uno de ellos sobra. Con 3 g de H y 24 g de O solo reaccionan 3 g de H (porque 24 g de O piden 3 g de H) y se forman 27 g de agua; ese ejemplo ya anticipa el reactivo limitante (`./reactivo-limitante-rendimiento/`).
+Consecuencia: si se mezclan reactivos en proporciones distintas a la definida, uno de ellos sobra. Con 3 g de H y 24 g de O solo reaccionan 3 g de H (porque 24 g de O piden 3 g de H) y se forman 27 g de agua; ese ejemplo ya anticipa el reactivo limitante (`../reactivo-limitante-rendimiento/`).
 
 ## 4. Ley de las proporciones múltiples (Dalton)
 
@@ -40,4 +40,4 @@ Jeremias Richter, en 1792, señaló que **las masas de dos elementos que se comb
 - **Proporciones definidas:** las masas que reaccionan se calculan con una regla de tres a partir de la proporción del compuesto.
 - **Porcentaje de composición:** `% del elemento = (masa del elemento / masa del compuesto) × 100`.
 
-Estas leyes valen para reacciones químicas; en las reacciones nucleares sí hay pequeñas variaciones de masa asociadas a la energía (`../fisica/fision-y-fusion-nuclear/`).
+Estas leyes valen para reacciones químicas; en las reacciones nucleares sí hay pequeñas variaciones de masa asociadas a la energía (`../../fisica/fision-y-fusion-nuclear/`).

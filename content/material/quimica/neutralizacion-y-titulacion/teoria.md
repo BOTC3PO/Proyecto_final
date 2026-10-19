@@ -41,7 +41,7 @@ Para un ácido que libera `a` protones por fórmula y una base que libera `b` hi
 
 Con ácido y base monopróticos (`HCl`, `NaOH`), `a = b = 1` y la fórmula se reduce a `M₁·V₁ = M₂·V₂`. Con `H₂SO₄` (diprótico), `a = 2`.
 
-Para la masa de una sustancia: `moles = M × V (en litros)` y `masa = moles × masa molar` (`./mol-masa-molar/`). La masa molar del `NaOH` es 40 g/mol.
+Para la masa de una sustancia: `moles = M × V (en litros)` y `masa = moles × masa molar` (`../mol-masa-molar/`). La masa molar del `NaOH` es 40 g/mol.
 
 ## 4. Indicadores
 
@@ -62,4 +62,4 @@ Los valores exactos varían un poco según la fuente.
 
 ## 6. Seguridad
 
-Se trabaja con delantal, guantes y protección ocular; las soluciones concentradas de ácidos y bases causan quemaduras. Nunca se pipetea con la boca y el material usado se descarta según las normas del laboratorio (`./seguridad-laboratorio/`).
+Se trabaja con delantal, guantes y protección ocular; las soluciones concentradas de ácidos y bases causan quemaduras. Nunca se pipetea con la boca y el material usado se descarta según las normas del laboratorio (`../seguridad-laboratorio/`).
