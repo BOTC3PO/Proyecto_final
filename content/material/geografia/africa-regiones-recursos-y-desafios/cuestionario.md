@@ -319,7 +319,7 @@ opciones_explicitas:
 respuesta: "54"
 
 explicacion: |
-  Es el continente con más Estados después de Asia y Europa… junto con Asia, uno de los más numerosos.
+  África es el continente con mayor número de Estados.
 ```
 
 ### 16 — Libre comercio

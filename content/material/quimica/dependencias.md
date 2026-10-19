@@ -79,3 +79,4 @@ el Tronco 7 completo, colgando de Matemática): `balanceo-ecuaciones/`
 contenido que `QK` "Estequiometría"; `ph-poh/` (`E13`) = mismo contenido
 que `QN` "Ácido-base y pH". No se duplican — se reusan tal cual para
 esos 4 nodos del Tronco 7.
+| `leyes-ponderales-lavoisier-proust/` | `./balanceo-ecuaciones/`, `./modelos-atomicos/`, `../matematica/razon/`, `../matematica/porcentaje/` | Las leyes ponderales son la base experimental del balanceo de ecuaciones y de la teoría atómica de Dalton; se calculan con razones y porcentajes. Decisión de Claude, no pedida: tema propuesto en `../_plan-faltantes/HUECOS-POR-TITULOS.md` (sin ID en `troncos.md`); dependencia deducida. |
