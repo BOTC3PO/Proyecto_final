@@ -1,0 +1,205 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-turismo",
+    "title": "Turismo — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "Patrimonio y destino: qué se cuida y cómo se planifica un lugar turístico",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Circuitos, itinerarios y comunicación: diseñar el viaje y contarlo",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "Patrimonio y destino: qué se cuida y cómo se planifica un lugar turístico",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "Patrimonio y destino: qué se cuida y cómo se planifica un lugar turístico"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Un turista no viaja a un punto del mapa: viaja a lo que ese punto ofrece. Una playa, una ciudad colonial, una fiesta popular, un plato típico. A ese conjunto de elementos que un destino pone a disposición de los visitantes y que despierta su interés se lo llama patrimonio turístico. Y detrás de todo destino que funciona hay un trabajo de planificación que busca que esa oferta pueda disfrutarse hoy sin agotarse mañana. Este capítulo reúne las dos ideas: primero qué es lo que hay para ver y cuidar, y después cómo se organiza un lugar para recibir gente sin destruir aquello que la atrae."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Patrimonio natural y patrimonio cultural"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "El patrimonio turístico puede ser tangible, como un edificio o un paisaje, o intangible, como una costumbre o una tradición. No se limita a los hoteles o a los medios de transporte, que son parte de la infraestructura de servicios. Se lo suele ordenar en dos grandes bloques, según su origen."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "El patrimonio natural está formado por los recursos de la naturaleza que tienen valor ecológico, estético o científico: paisajes, ríos, montañas, glaciares, bosques, fauna y flora. Los parques nacionales son su expresión más conocida. En la Argentina, la Ley 22.351 regula los parques nacionales, los monumentos naturales y las reservas nacionales, que se administran con el doble objetivo de conservar y de permitir el uso público. Casos emblemáticos son las Cataratas del Iguazú, el Parque Nacional Los Glaciares con el Perito Moreno, Península Valdés con sus ballenas, o Ischigualasto y Talampaya con sus formaciones geológicas. Los cuatro están en la Lista del Patrimonio Mundial de la UNESCO."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "El patrimonio cultural abarca lo creado por la acción humana: monumentos y sitios históricos, museos, arquitectura, pero también festividades populares, músicas, danzas, gastronomía, saberes artesanales. También aquí hay ejemplos argentinos reconocidos por la UNESCO, como la Manzana y las Estancias Jesuíticas de Córdoba, la Quebrada de Humahuaca, la Cueva de las Manos en Santa Cruz, el sistema vial andino Qhapaq Ñan, o el tango, inscripto como patrimonio cultural inmaterial en 2009. Los bienes arqueológicos y paleontológicos están protegidos en nuestro país por la Ley 25.743."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p7",
+          "text": "La frontera entre ambos tipos no es rígida. La Quebrada de Humahuaca es un paisaje natural espectacular y, a la vez, un territorio habitado y modelado durante miles de años por comunidades que lo transformaron: de ahí que se la reconozca como paisaje cultural. Un lugar puede tener elementos de ambos tipos, y lo que cambia es el tipo de cuidado que cada uno necesita. Lo natural requiere conservar ecosistemas y limitar el impacto de los visitantes. Lo cultural requiere conservar los bienes físicos y, sobre todo, garantizar que las tradiciones se sigan transmitiendo entre generaciones, porque una fiesta o una técnica artesanal sin quien la practique se pierde aunque los edificios sigan en pie."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Hay una tensión inevitable. El patrimonio atrae visitantes, genera empleo e inversión y puede ser clave para el desarrollo de una región. Pero un exceso de visitas puede dañar ecosistemas, erosionar senderos, saturar sitios frágiles y descontextualizar las expresiones culturales, convirtiendo un ritual vivo en un espectáculo repetido para la cámara. Equilibrar uso y conservación es el problema central de la gestión del patrimonio turístico."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h9",
+          "level": 3,
+          "text": "Qué significa planificar un destino"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "La planificación turística es el proceso por el cual se define cómo un área geográfica puede recibir, alojar y atender visitantes sin comprometer su identidad, sus recursos naturales ni el bienestar de quienes viven allí. No se reduce a construir hoteles o a promocionar playas. Implica anticipar impactos, ordenar el uso del territorio y repartir los beneficios."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "El concepto que ordena todo es el de sostenibilidad, que se apoya en tres pilares que deben cumplirse a la vez. El pilar económico exige que el turismo genere empleo e ingresos para las empresas y las poblaciones locales. El pilar social exige respetar los derechos, las costumbres y la calidad de vida de las comunidades residentes. El pilar ambiental exige preservar los ecosistemas, controlar la contaminación y limitar el impacto sobre la naturaleza. La Ley Nacional de Turismo, la 25.997, recoge esta idea cuando incluye entre sus principios el desarrollo sustentable, la calidad, la accesibilidad y la concepción del turismo como un derecho social. El error más frecuente es privilegiar un pilar a costa de los otros: levantar complejos sobre humedales sin considerar su función ecológica, o desplazar a familias para ampliar una zona turística, no es sostenible aunque resulte rentable por un tiempo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "Un destino no lo gestiona un solo actor. Intervienen al menos tres grupos. El sector público, nacional, provincial o municipal, fija las normas ambientales, construye infraestructura y controla que se cumplan las leyes. El sector privado, que incluye hoteles, agencias, transportistas, guías y restaurantes, presta los servicios y genera empleo, pero debe actuar dentro de lo que se planificó. Y la comunidad local decide qué aspectos de su cultura y de su historia quiere preservar y cómo integrar el turismo sin que desplace su vida cotidiana. Cuando uno de los tres queda afuera, los conflictos aparecen: un plan que ignora a los vecinos termina enfrentado con ellos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h13",
+          "level": 3,
+          "text": "Del diagnóstico a las herramientas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Antes de definir cualquier estrategia se realiza un diagnóstico territorial. Se relevan las características naturales, como el clima y la biodiversidad; los recursos culturales, como el patrimonio histórico y las festividades; la infraestructura existente, como rutas, agua, energía y servicios de salud; y las necesidades y expectativas actuales y potenciales de los visitantes. Este paso evita errores costosos, como promocionar una región sin agua potable suficiente para los turistas o construir infraestructura en zonas de riesgo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "Para planificar se usan mapas, encuestas a residentes y estudios de mercado, con tres propósitos principales: identificar las áreas donde la presión turística es mayor, anticipar los conflictos entre visitantes y pobladores, y diseñar recorridos que minimicen el impacto en los ecosistemas frágiles. Un concepto muy útil en las áreas protegidas es la capacidad de carga, el número máximo de visitantes que un sitio puede recibir sin deteriorarse ni afectar la calidad de la experiencia. Otra idea es la del ciclo de vida de los destinos, propuesta por el investigador Richard Butler, que describe cómo un lugar pasa de ser descubierto por pocos viajeros a recibir un turismo masivo y, si no se gestiona, a declinar por saturación. Planificar es, en buena medida, evitar esa curva descendente."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Circuitos, itinerarios y comunicación: diseñar el viaje y contarlo",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Circuitos, itinerarios y comunicación: diseñar el viaje y contarlo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Tener un buen patrimonio y un destino bien planificado no alcanza si nadie sabe cómo recorrerlo o si nadie se entera de que existe. Dos tareas completan el trabajo del profesional del turismo. Una es diseñar cómo se recorre el lugar, es decir, armar circuitos e itinerarios. La otra es comunicar la oferta a los posibles visitantes de modo que la propuesta llegue a las personas indicadas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "El itinerario: más que una lista de lugares"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Un itinerario turístico es la secuencia organizada de lugares, actividades y servicios de un viaje, ordenada en el tiempo. No es solo una enumeración de destinos. Supone decidir cuánto tiempo se dedica a cada parada, qué medio de transporte se usa entre una y otra, dónde se come, dónde se descansa y cómo se resuelve cada traslado. Dos viajes con los mismos lugares pueden resultar experiencias muy distintas según el orden y los tiempos: visitar primero un museo y luego un parque de diversiones no es lo mismo que hacerlo al revés, porque cambia el ritmo y la energía del grupo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "A menudo se usan como sinónimos los términos circuito, tour e itinerario, pero tienen matices. Un circuito es un recorrido que empieza y termina en el mismo lugar, formando un bucle cerrado. Un recorrido por Plaza de Mayo que visita el Cabildo, pasa por la Casa Rosada, sigue por la Catedral y vuelve al punto de partida es un circuito. Un recorrido lineal, que va de un punto a otro, como un viaje de Buenos Aires a Bariloche con paradas intermedias, se parece más a una ruta. El itinerario es el plan detallado, con horarios y servicios, que se aplica a cualquiera de los dos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Todo diseño de recorrido requiere tres componentes básicos. La secuencia de paradas, cuyo orden define la experiencia. Los atractivos, cada uno con un propósito claro: educativo, como un museo; recreativo, como una playa; cultural, como un festival. Y la logística de transporte, sin la cual el diseño es inviable: un viaje por la Patagonia exige pensar en vehículos con espacio para equipaje, en distancias que son enormes y en horarios que eviten esperas largas en zonas aisladas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p7",
+          "text": "Un buen diseño responde a las necesidades concretas de los viajeros. El tiempo disponible condiciona qué se puede visitar: si el grupo tiene cinco horas en una ciudad histórica, conviene priorizar sitios con horarios flexibles y comprobar qué cierra los domingos. El interés del público define el contenido, de modo que un circuito para familias evita lugares exigentes y suma actividades para chicos, mientras que uno para estudiantes puede incluir talleres. Y el confort cuenta mucho: pausas para descansar, comer o ir al baño, y horarios que eviten el calor extremo. Un itinerario ambicioso que agota a la gente produce malos recuerdos, por interesantes que sean los lugares. Finalmente, un itinerario teórico debe convertirse en una propuesta operativa, que tenga en cuenta la capacidad de los vehículos, los horarios de apertura, las reservas, los márgenes para imprevistos y las normas de seguridad."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h8",
+          "level": 3,
+          "text": "Comunicar un destino"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "Una estrategia de comunicación turística es un plan para transmitir información sobre un destino a los posibles visitantes con el fin de generar interés, conocimiento o acciones concretas, como reservar o visitar. Busca destacar lo que hace único al lugar: un paisaje, una tradición, una gastronomía, una experiencia que no se encuentra en otra parte. Si un pueblo tiene una fiesta tradicional singular, la campaña debe subrayar esa singularidad antes que competir con generalidades que podrían decirse de cualquier otro."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "Los canales son los medios por los que viaja el mensaje. Los tradicionales, como la televisión, la radio, la prensa o la cartelería en la vía pública, llegan a audiencias amplias, aunque con poca precisión. Los digitales, como las redes sociales, los sitios web oficiales, el correo electrónico o la publicidad en buscadores, permiten dirigirse a grupos específicos y medir los resultados. Para atraer a un público joven, un video corto de actividades de aventura en una red social puede rendir más que un aviso en televisión."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "De allí la importancia de la segmentación, que consiste en identificar grupos dentro del público según sus características: edad, intereses, presupuesto, lugar de origen. Un mensaje pensado para familias destacará los parques, la seguridad y los servicios para niños; uno pensado para aventureros mostrará senderos, ríos y actividades de riesgo controlado. Un mensaje que intenta decirle algo a todos suele no decirle nada a nadie."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "Para que una estrategia funcione necesita cuatro elementos. Un propósito claro: atraer visitantes, promover un evento o fomentar el turismo sostenible. Un mensaje único y convincente, que resuma en pocas palabras qué hace especial al destino. Canales adecuados al público que se quiere alcanzar. Y una evaluación continua, que mida el impacto con indicadores como las visitas al sitio web, las consultas o las reservas, para ajustar las tácticas: si una campaña digital no genera interacción, quizá haga falta cambiar el tipo de contenido o el horario de publicación."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Hay además una dimensión ética. Lo que se promete en la comunicación obliga: la Ley de Defensa del Consumidor establece que lo publicitado se incluye en el contrato, y la Ley Nacional de Turismo reconoce el principio de calidad. Prometer paisajes, servicios o experiencias que no existen es engañar al turista y daña la reputación de todo el destino. La mejor comunicación es la que cuenta con verdad lo que el lugar tiene de especial, y la complementa con una experiencia que esté a la altura de lo dicho."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    }
+  ]
+}

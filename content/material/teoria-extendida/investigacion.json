@@ -1,0 +1,309 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-investigacion",
+    "title": "Investigación — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "De la curiosidad a la hipótesis: cómo se prepara una investigación",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Los datos: cómo se recogen, qué dicen y cómo se leen",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      },
+      {
+        "id": "cap-3",
+        "title": "Argumentar con evidencia, comunicar resultados y pensar la ciencia",
+        "pageStart": 3,
+        "anchor": "cap-3:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "De la curiosidad a la hipótesis: cómo se prepara una investigación",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "De la curiosidad a la hipótesis: cómo se prepara una investigación"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Toda investigación empieza con algo que llama la atención. Alguien nota que ciertos pájaros evitan posarse en un árbol determinado, que las plantas de una ventana crecen torcidas hacia el sol, que los alumnos de un curso rinden peor después del recreo. La observación es el punto de partida del conocimiento científico, pero por sí sola no alcanza. Hay que transformar esa curiosidad en una pregunta que se pueda responder con evidencia, proponer una explicación posible y diseñar una forma de ponerla a prueba. Este capítulo recorre ese camino, que va de la observación a la pregunta, a la hipótesis, al diseño del experimento y al uso de modelos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Observar y preguntar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "Observar con sentido científico no es mirar de pasada: es registrar de manera sistemática lo que ocurre, con atención a los detalles y a las condiciones. Del fenómeno observado surge una primera pregunta, casi siempre demasiado amplia. Por qué esos pájaros no se posan en ese árbol es una pregunta natural, pero todavía no es investigable. Hay que refinarla hasta convertirla en algo que permita buscar datos: qué características del árbol, como su altura, su olor o la presencia de insectos, hacen que los pájaros lo eviten."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "Una pregunta es investigable cuando reúne algunas condiciones. Permite recolectar datos: no se responde con un sí o un no, sino que requiere experimentos, encuestas u observaciones sistemáticas. Relaciona variables: vincula al menos dos elementos que pueden variar, como la temperatura y el crecimiento de una planta, para estudiar su relación. Y es específica: evita formulaciones amplias o abstractas, como por qué el mundo es así, en favor de algo concreto, como cómo afecta la luz solar al desarrollo de las raíces. Preguntas que dependen de valores o de opiniones, como cuál es la mejor música, no son investigables en este sentido, aunque puedan investigarse otros aspectos, como qué música prefieren distintos grupos de edad."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h6",
+          "level": 3,
+          "text": "La hipótesis: una respuesta provisoria que se puede refutar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p7",
+          "text": "Una hipótesis es una respuesta tentativa a la pregunta, formulada de modo que se pueda poner a prueba. No es una simple adivinanza, sino una afirmación fundamentada en lo que ya se sabe. Una buena hipótesis es clara, especifica las variables que involucra, y sobre todo es falsable, un criterio que el filósofo Karl Popper convirtió en una de las ideas centrales de la filosofía de la ciencia. Falsable significa que existe alguna observación posible que, de ocurrir, mostraría que la hipótesis es falsa. Una afirmación que se acomoda a cualquier resultado, que nada podría desmentir, no es científica, por atractiva que parezca."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Para ver la diferencia conviene comparar. La luz es buena para las plantas es vaga: no dice qué luz, cuánta, ni qué significa buena. Si se aumenta la cantidad de horas de luz diaria de 8 a 12, los geranios cultivados en invernadero crecerán, en promedio, más centímetros de tallo en un mes es mucho mejor: especifica las variables, define cómo se medirá el crecimiento y limita el alcance a un contexto concreto. Los errores más comunes son formular hipótesis demasiado generales, que no dicen cómo se medirían las variables, o que no admiten ningún resultado contrario. Mejorarla consiste en precisar las variables, definir cómo se medirá cada una y acotar el alcance."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h9",
+          "level": 3,
+          "text": "Variables, grupos de control y diseño"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "Para poner a prueba una hipótesis hay que diseñar un experimento, y el primer paso es identificar las variables. La variable independiente es la que el investigador modifica deliberadamente, como la cantidad de luz. La variable dependiente es la que se mide para ver si cambia, como el crecimiento del tallo. Y el contexto está formado por todo lo demás, las condiciones que podrían influir en el resultado y que conviene mantener estables, como el tipo de tierra, la cantidad de agua o la temperatura."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "La pieza clave de un buen diseño es el grupo de control, que sirve de referencia. Es un conjunto de casos idéntico al grupo experimental en todo salvo en la variable que se estudia. Si se quiere saber si una luz más prolongada favorece el crecimiento, se necesita un grupo de plantas que reciban la luz habitual, para comparar. Sin esa referencia no hay manera de saber si lo observado se debe a la variable que se manipuló o a otra cosa. En la investigación médica, el grupo de control suele recibir un placebo, una sustancia sin efecto activo, y para evitar que las expectativas de los participantes o de los investigadores distorsionen los resultados se usan diseños doble ciego, en los que ni unos ni otros saben quién recibe qué."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "El segundo cuidado es controlar las variables extrañas, aquellas que no se estudian pero podrían alterar el resultado. Si las plantas con más luz están además más cerca de la ventana y por lo tanto más calientes, ya no se sabe si crecieron más por la luz o por el calor. Se controlan manteniéndolas constantes, repartiendo los casos al azar entre los grupos y repitiendo el experimento varias veces para que un resultado fortuito no se tome por una regla. Un diseño bien hecho puede ser repetido por otra persona y obtener resultados similares, lo cual es la base de la confiabilidad científica."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h13",
+          "level": 3,
+          "text": "Los modelos: representar para entender"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Muchas veces el fenómeno es demasiado complejo, grande o peligroso para estudiarlo directamente, y entonces los científicos construyen modelos. Un modelo científico es una representación simplificada de un sistema real, que conserva los rasgos esenciales para responder una pregunta y deja de lado los demás. Puede ser un objeto físico, como una maqueta, un esquema, una ecuación o una simulación en computadora. La simplificación no es un defecto, es la herramienta: un mapa que reprodujera cada detalle del territorio sería inútil. Todo modelo tiene componentes, que son las variables y las relaciones entre ellas, y supuestos, que son las simplificaciones aceptadas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "Un modelo se valida comparando sus predicciones con la realidad. Si las predicciones no coinciden con las observaciones, se ajusta el modelo o se descarta. Los modelos se usan para pronosticar el clima, para prever la propagación de una enfermedad, para diseñar un puente antes de construirlo. Pero hay que recordar que son aproximaciones: sus resultados valen dentro de los límites de sus supuestos, y quien los usa debe conocer esos límites."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Los datos: cómo se recogen, qué dicen y cómo se leen",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Los datos: cómo se recogen, qué dicen y cómo se leen"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Una investigación bien planteada necesita datos. Pero los datos no son simples hechos que esperan ser recogidos: dependen de qué se decide medir, cómo se mide y a quién se le pregunta. Este capítulo reúne el camino de los datos, desde la decisión de qué variables considerar hasta la interpretación crítica de los resultados, pasando por las dos grandes tradiciones de investigación, la cuantitativa y la cualitativa, y por el trabajo de campo propio de las ciencias sociales."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Variables y dos maneras de entender la realidad"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Una variable es una característica que puede tomar distintos valores en los casos estudiados, como la edad, la temperatura, el nivel de satisfacción o la profesión. Investigar consiste en gran parte en decidir qué variables mirar y cómo medirlas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Frente a esa decisión aparecen dos enfoques que no son rivales sino complementarios. El enfoque cuantitativo se centra en medir magnitudes y frecuencias para encontrar patrones: cuántas personas piensan tal cosa, cuánto aumentó una variable, qué relación hay entre dos magnitudes. Usa encuestas con preguntas cerradas, experimentos y observaciones estructuradas, y sus resultados se expresan en números. El enfoque cualitativo busca comprender experiencias, significados y contextos: cómo viven una situación las personas, qué sentido le dan, qué hay detrás de una conducta. Usa entrevistas en profundidad, grupos focales y análisis de textos, y sus resultados se expresan en descripciones e interpretaciones. Una encuesta puede revelar que un porcentaje de los alumnos se siente poco motivado en una asignatura; una serie de entrevistas puede explicar por qué."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h6",
+          "level": 3,
+          "text": "Los instrumentos para recolectar datos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p7",
+          "text": "Cada enfoque dispone de herramientas. La encuesta es un conjunto de preguntas estandarizadas que se aplica a una muestra y permite comparar respuestas entre muchas personas. Es el instrumento típico de los estudios de opinión y de los relevamientos estadísticos oficiales, como los que realiza el INDEC en la Argentina con la Encuesta Permanente de Hogares y los censos. La entrevista es una conversación, más o menos estructurada, para explorar ideas, emociones o experiencias; puede ser individual o grupal. La historia de vida es un tipo de entrevista que recoge el relato biográfico de una persona para entender procesos sociales desde una trayectoria singular. La observación consiste en registrar sistemáticamente comportamientos o fenómenos en su contexto natural, como la forma en que los alumnos interactúan durante una clase. Y el análisis documental estudia textos, registros oficiales o materiales escritos para extraer información relevante."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "El proceso de recolección también sigue pasos: definir qué se necesita saber, elegir el instrumento adecuado, probarlo antes de aplicarlo masivamente, seleccionar a quiénes se les va a preguntar o a quiénes se va a observar, registrar los datos con cuidado y ordenarlos para su análisis. Y hay una dimensión ética inseparable: cuando se trabaja con personas se debe informar con claridad para qué se recogen los datos, pedir su consentimiento libre e informado, proteger su identidad y su privacidad, y no causarles daño. Estos principios, que tienen en la Declaración de Helsinki uno de sus antecedentes más conocidos, se complementan en nuestro país con las normas de protección de datos personales."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h9",
+          "level": 3,
+          "text": "El trabajo de campo y la mirada desde adentro"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "En las ciencias sociales, mucho de lo que se quiere saber no está en documentos ni se puede medir con un cuestionario: está en la vida cotidiana de la gente. El trabajo de campo consiste en ir al lugar donde ocurre lo que se estudia, convivir con las personas y observar de cerca. Es el método característico de la antropología y de buena parte de la sociología. El enfoque socioantropológico procura mirar la cultura desde adentro, entender cómo ven el mundo quienes lo habitan, en lugar de aplicarles categorías ajenas. El investigador debe estar atento a que su propia mirada, formada en otra cultura o clase social, no distorsione lo que ve. Se lleva un registro cuidadoso de lo observado, suele escribirse en cuadernos de campo, y se combinan observación, conversaciones y entrevistas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "Un ejemplo ayuda a imaginarlo. Si se quiere comprender cómo se organizan los vecinos de un barrio para resolver la falta de agua, una encuesta puede decir cuántas familias padecen el problema, pero para entender cómo se negocian las decisiones, quiénes tienen autoridad, qué solidaridades se activan y qué tensiones surgen, hace falta pasar tiempo en el barrio, escuchar y observar. Cada técnica responde preguntas distintas, y los mejores trabajos suelen combinarlas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h12",
+          "level": 3,
+          "text": "Qué hacer con los números"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Una vez recolectados, los datos cuantitativos hay que resumirlos. Las medidas de tendencia central indican alrededor de qué valor se agrupan los datos. La media es el promedio, y puede verse muy influida por valores extremos. La mediana es el valor que queda en el medio cuando se ordenan los datos, y resiste mejor los extremos. La moda es el valor que más se repite. Pero un promedio solo oculta tanto como muestra: dos cursos con el mismo promedio de notas pueden ser muy distintos si en uno todos sacaron valores parecidos y en el otro hubo notas muy altas y muy bajas. Por eso se miden también la dispersión, que dice cuánto se alejan los datos del centro, con herramientas como el rango o la desviación estándar."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p14",
+          "text": "La elección de las herramientas depende del tipo de dato: las variables numéricas permiten calcular promedios, mientras que las categóricas, como la profesión o el color preferido, se resumen con frecuencias y porcentajes. Y la interpretación debe ser crítica. Conviene preguntarse si la muestra es suficiente y representativa, si hay datos atípicos que distorsionan el resultado, si las diferencias observadas pueden deberse al azar, y sobre todo no confundir correlación con causalidad. Que dos cosas varíen juntas no prueba que una produzca la otra: puede haber una tercera que explique ambas, o una coincidencia. Un estudio puede mostrar que quienes toman más café tienen menor frecuencia de cierta enfermedad sin que eso demuestre que el café la previene, porque podrían influir otros factores, como la edad o el estilo de vida."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    },
+    {
+      "id": "cap-3",
+      "number": 3,
+      "title": "Argumentar con evidencia, comunicar resultados y pensar la ciencia",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-3-h1",
+          "level": 2,
+          "text": "Argumentar con evidencia, comunicar resultados y pensar la ciencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p2",
+          "text": "Reunir datos es solo la mitad del trabajo. La otra mitad consiste en usarlos para sostener una conclusión, comunicarla de modo que otros puedan evaluarla y entender qué tipo de conocimiento produce la ciencia. En este capítulo se recorren esos tres movimientos: cómo se argumenta desde la evidencia, cómo se escribe y se difunde un resultado, y qué debates filosóficos hay sobre el método científico."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h3",
+          "level": 3,
+          "text": "Argumentar desde la evidencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p4",
+          "text": "La evidencia científica es el conjunto de datos y observaciones obtenidos de manera sistemática y verificable que respalda o refuta una afirmación. No es lo mismo que una opinión ni que una anécdota. No todas las evidencias valen igual: importa si proviene de un estudio bien diseñado, si fue revisada por otros especialistas, si se puede replicar, si la muestra era adecuada y si hay conflictos de interés que puedan haber influido. Una fuente confiable explica su método, cita sus datos y admite sus límites."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p5",
+          "text": "Un argumento basado en evidencia tiene una estructura reconocible. Parte de una premisa, que es un hecho o dato observado: por ejemplo, que el nivel del mar subió una cierta cantidad en veinte años. Establece una conexión lógica que explica cómo ese dato respalda la conclusión: por ejemplo, que ese ritmo es coherente con los modelos que predicen un aumento por el calentamiento global. Y llega a una conclusión, siempre vinculada a la evidencia y con un grado de certeza que se corresponde con la solidez de los datos. Una parte esencial de la cultura científica es la objeción, entendida como herramienta: cuando alguien señala fallas en un razonamiento, está ayudando a mejorarlo. Anticipar las objeciones más fuertes y responderlas es parte de argumentar bien."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p6",
+          "text": "También hay errores frecuentes. Seleccionar solo los datos que apoyan la idea que ya se tenía y descartar los que la contradicen, lo que se llama sesgo de confirmación. Apoyarse en fuentes no revisadas o sesgadas. Confundir correlación con causalidad. Generalizar a partir de muestras pequeñas o poco representativas. Y exagerar la certeza: la ciencia habla de probabilidades y de grados de apoyo, y desconfía de quien promete certezas absolutas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h7",
+          "level": 3,
+          "text": "La conclusión y la comunicación de resultados"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p8",
+          "text": "La conclusión es la respuesta a la pregunta inicial a la luz de los datos: dice si la hipótesis fue apoyada o refutada, y con qué alcance. Debe ser coherente con los resultados, sin ir más allá de lo que los datos permiten. La sección de discusión interpreta los hallazgos, los compara con lo que se conocía, reconoce las limitaciones del estudio y propone nuevas preguntas. Admitir las limitaciones no debilita un trabajo: lo vuelve más creíble."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p9",
+          "text": "La ciencia es un esfuerzo colectivo, y por eso los resultados se comunican para que otros puedan examinarlos, criticarlos y reproducirlos. Los canales formales incluyen los artículos en revistas científicas, que pasan por la revisión de pares, un proceso en el cual otros especialistas evalúan el trabajo antes de publicarlo, y también los informes técnicos, las tesis y las presentaciones en congresos. En la redacción, importa la claridad: definir los términos, ordenar el texto en secciones previsibles, como introducción, métodos, resultados y discusión, citar las fuentes, y presentar los datos con tablas y gráficos legibles. Comunicar a un público general exige además traducir el lenguaje técnico sin deformar el contenido, y explicar qué se sabe, qué no, y con qué grado de confianza."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h10",
+          "level": 3,
+          "text": "Qué es la ciencia: tres miradas de la filosofía de la ciencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p11",
+          "text": "Detrás del método científico hay preguntas filosóficas, y tres autores del siglo veinte ofrecieron respuestas muy influyentes. La primera es la de Karl Popper, que se preguntó cómo distinguir la ciencia de lo que no lo es y propuso el criterio de falsabilidad: una teoría es científica si se expone a ser refutada por la experiencia. Para Popper la ciencia no avanza confirmando teorías, sino sometiéndolas a pruebas severas y descartando las que fallan. Una teoría que parece explicarlo todo, que se adapta a cualquier resultado, no es una virtud sino una sospecha."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p12",
+          "text": "La segunda es la de Thomas Kuhn, quien en La estructura de las revoluciones científicas, de 1962, observó que la historia de la ciencia no es una acumulación lineal. Durante largos períodos, los científicos trabajan dentro de un paradigma, un marco compartido de teorías, métodos y problemas que se consideran legítimos; es la etapa de la ciencia normal. Con el tiempo se acumulan anomalías que el paradigma no logra explicar, hasta que se produce una crisis y una revolución científica, en la que un nuevo paradigma reemplaza al anterior, como ocurrió con el pasaje de la física de Newton a la de Einstein. La contribución de Kuhn fue mostrar que la ciencia es también una actividad social, con comunidades, consensos y rupturas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p13",
+          "text": "La tercera es la de Paul Feyerabend, quien en Contra el método, de 1975, defendió una posición provocadora a la que llamó anarquismo epistemológico: sostuvo que la historia de la ciencia muestra que los grandes avances se lograron muchas veces rompiendo las reglas metodológicas vigentes, y que, por lo tanto, no hay un método único y universal que explique el progreso científico. Su postura fue muy discutida, pero dejó una advertencia valiosa contra los dogmatismos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p14",
+          "text": "Estas miradas se pueden criticar, y lo han sido, y ninguna pretende ser la última palabra. Lo importante para quien aprende a investigar es entender que el método científico no es una receta mecánica sino una práctica con supuestos, historia y debates. Aun así, comparte rasgos que lo distinguen de otras formas de conocimiento: se apoya en la evidencia, se somete a la crítica, acepta corregirse y busca explicaciones que otros puedan comprobar. Esa disposición, más que cualquier fórmula, es lo que hace valioso aprender a investigar, aun para quienes no se dediquen a la ciencia: sirve para decidir con fundamento, para resistir las afirmaciones infundadas y para formular mejores preguntas."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-3"
+      }
+    }
+  ]
+}

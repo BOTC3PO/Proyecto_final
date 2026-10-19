@@ -1,0 +1,408 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-ed-fisica",
+    "title": "Educación física — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "El cuerpo en movimiento: músculos, energía, corazón y medidas del cuerpo",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Entrenar con criterio y cuidar el cuerpo: progresión, lesiones y emergencias",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      },
+      {
+        "id": "cap-3",
+        "title": "El deporte: reglas, historia, canchas y cultura",
+        "pageStart": 3,
+        "anchor": "cap-3:inicio"
+      },
+      {
+        "id": "cap-4",
+        "title": "Drogas, consumo y prevención: leyes, enfoques y decisiones informadas",
+        "pageStart": 4,
+        "anchor": "cap-4:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "El cuerpo en movimiento: músculos, energía, corazón y medidas del cuerpo",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "El cuerpo en movimiento: músculos, energía, corazón y medidas del cuerpo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Cuando corremos para alcanzar un colectivo, subimos una escalera o jugamos un partido, el cuerpo responde con una coordinación notable que casi nunca notamos. Los músculos se contraen, el corazón late más rápido, la respiración se profundiza y las reservas de energía se movilizan. Entender cómo ocurre todo eso es la base de la alfabetización corporal: el vocabulario que permite hablar con precisión del propio cuerpo, entrenar con criterio y distinguir lo que se sabe de los mitos que circulan. En este capítulo recorremos los músculos y sus funciones, las vías por las que el cuerpo produce energía, la respuesta del sistema cardiovascular y algunas medidas, como la frecuencia cardíaca y el índice de masa corporal, con sus alcances y sus límites."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Los grupos musculares y los movimientos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "Cualquier rutina de ejercicio se entiende mejor si se conocen los grandes grupos musculares y lo que hace cada uno. Los pectorales, en el pecho, empujan, como en una flexión de brazos. Los dorsales, en la espalda, tiran, como en una dominada o un remo. Los cuádriceps, en el frente del muslo, extienden la rodilla, como en una sentadilla, y los isquiotibiales, en la parte posterior, la flexionan. Los glúteos extienden la cadera. Los abdominales y el resto de la zona central del tronco, el core, estabilizan el cuerpo. Y los bíceps y tríceps flexionan y extienden el codo. Casi todo ejercicio trabaja varios grupos a la vez, y reconocer cuáles ayuda a armar una rutina equilibrada, sin entrenar siempre lo mismo y descuidar el resto."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h5",
+          "level": 3,
+          "text": "De dónde sale la energía"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Los músculos funcionan con una molécula que actúa como moneda energética, el ATP, y el cuerpo dispone de tres vías para producirla, que se activan según la duración y la intensidad del esfuerzo. El sistema de los fosfágenos entrega energía inmediata, sin necesidad de oxígeno, pero se agota en pocos segundos: es el que sostiene un sprint corto o un levantamiento máximo. El sistema glucolítico usa glucosa sin disponer de oxígeno suficiente, rinde durante algo menos de dos minutos y produce lactato, como en una carrera de cuatrocientos metros. El sistema oxidativo, o aeróbico, usa oxígeno para quemar carbohidratos y grasas; tarda más en ponerse en marcha pero puede sostener el esfuerzo durante mucho tiempo, como en un maratón. Ningún esfuerzo usa una sola vía: se combinan siempre, con predominio de una u otra según el momento."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h7",
+          "level": 3,
+          "text": "El corazón y los pulmones durante el esfuerzo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Los sistemas del cuerpo que se estudian por separado en biología trabajan juntos cuando hacemos ejercicio. Los músculos en actividad necesitan más oxígeno y nutrientes, y el corazón responde de dos maneras: late más veces por minuto, lo que aumenta la frecuencia cardíaca, y bombea más sangre en cada latido, lo que aumenta el volumen sistólico. El resultado combinado es un mayor gasto cardíaco, es decir, más sangre por minuto hacia donde se necesita. En paralelo, la respiración se acelera y se hace más profunda para captar más oxígeno y eliminar más dióxido de carbono. Con el entrenamiento regular estos sistemas se adaptan: el corazón se vuelve más eficiente y bombea más sangre con menos latidos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h9",
+          "level": 3,
+          "text": "Frecuencia cardíaca: reposo, máxima y zonas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "La frecuencia cardíaca en reposo es la cantidad de latidos por minuto cuando el cuerpo está completamente tranquilo, idealmente al despertar antes de levantarse. En adultos, el rango considerado normal va de sesenta a cien latidos por minuto. Por debajo de sesenta se habla de bradicardia y por encima de cien de taquicardia, aunque una frecuencia baja no siempre es un problema: las personas muy entrenadas suelen tener un corazón eficiente y latidos más espaciados. Se mide tomando el pulso en la muñeca o el cuello, contando las pulsaciones durante quince segundos y multiplicando por cuatro, o durante treinta y multiplicando por dos. Conviene promediar varias mediciones en días distintos, porque una sola puede variar por el sueño, el estrés o el café."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "La frecuencia cardíaca máxima es la mayor cantidad de latidos por minuto que el corazón puede alcanzar en un esfuerzo extremo. Sin equipamiento médico no se mide con precisión, y se estima con una fórmula muy difundida: doscientos veinte menos la edad. Una persona de veinte años tendría una máxima estimada de doscientos latidos por minuto. Es una aproximación con variaciones individuales importantes, útil para planificar un entrenamiento recreativo o escolar, pero no un límite estricto ni un valor clínico."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "A partir de esa estimación se definen zonas de entrenamiento, que dividen el esfuerzo en franjas según el porcentaje de la frecuencia máxima. Aunque los límites varían un poco según la fuente, la idea es siempre la misma: las zonas bajas, hasta aproximadamente el sesenta por ciento, corresponden a un esfuerzo suave que se puede sostener mucho tiempo y favorece la recuperación; las intermedias, entre el sesenta y el ochenta por ciento, mejoran la resistencia aeróbica; las altas, por encima del ochenta, entrenan la potencia y solo se sostienen durante períodos cortos. Entrenar con una referencia de intensidad permite saber si un esfuerzo es liviano, moderado o muy intenso, en lugar de moverse a ciegas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h13",
+          "level": 3,
+          "text": "El índice de masa corporal y sus límites"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "El índice de masa corporal es un número que relaciona el peso con la altura: se calcula dividiendo el peso en kilogramos por la altura en metros elevada al cuadrado. Una persona de setenta kilos y un metro setenta y cinco de altura tiene un índice de unos veintidós con ochenta y seis. Para adultos, la Organización Mundial de la Salud usa categorías: menos de dieciocho y medio corresponde a bajo peso, entre dieciocho y medio y veinticuatro con nueve a peso normal, entre veinticinco y veintinueve con nueve a sobrepeso, y treinta o más a obesidad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "Es una herramienta útil como primer filtro estadístico, pero tiene límites que importa conocer. No distingue la masa muscular de la grasa, de modo que una persona muy musculosa puede dar un valor alto sin tener exceso de grasa. No dice nada sobre dónde se distribuye la grasa, y la acumulada en el abdomen se asocia con más riesgo cardiovascular. Y no se interpreta de la misma manera en niños y adolescentes en crecimiento, para quienes se usan tablas de percentiles según edad y sexo. El índice no reemplaza una evaluación médica: es un indicador, y un indicador no es el territorio."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h16",
+          "level": 3,
+          "text": "Mitos que conviene dejar atrás"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p17",
+          "text": "Hay creencias muy extendidas sin respaldo científico. No es posible convertir grasa en músculo, porque son tejidos distintos; se puede perder grasa y ganar músculo a la vez, pero son procesos separados. Tampoco se puede elegir de qué zona del cuerpo se pierde grasa haciendo ejercicios localizados, porque el cuerpo decide de dónde toma la energía de reserva. La frase sin dolor no hay progreso es engañosa: cierta molestia muscular leve en un entrenamiento nuevo es normal, pero el dolor agudo o articular es señal de lesión. Y estirar de forma estática antes de un esfuerzo intenso no previene todas las lesiones y puede incluso reducir el rendimiento: lo recomendable es una entrada en calor dinámica. Entrenar guiado por mitos conduce a rutinas ineficientes y, a veces, a lesiones."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Entrenar con criterio y cuidar el cuerpo: progresión, lesiones y emergencias",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Entrenar con criterio y cuidar el cuerpo: progresión, lesiones y emergencias"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Hacer ejercicio mejora la salud, pero hacerlo mal puede lesionar. La diferencia suele estar en tres cosas: cuánto y cómo se aumenta el esfuerzo, cómo se prepara y cuida el cuerpo, y qué se hace cuando algo sale mal. Este capítulo reúne las pautas básicas de planificación del entrenamiento, el calentamiento y el manejo de las lesiones leves, y los primeros auxilios en emergencias reales como el paro cardíaco."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Cuánto entrenar y cómo progresar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "El volumen de entrenamiento es la cantidad total de trabajo físico en un período. Puede medirse en tiempo, como minutos por semana; en distancia, como kilómetros recorridos; o en carga, como peso por repeticiones en los ejercicios de fuerza. Es la variable de partida de cualquier planificación, porque no se puede decidir con sensatez cuánto subir la intensidad sin saber cuánto se viene sosteniendo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Para aumentarlo existe una guía práctica, la regla del diez por ciento: no incrementar el volumen más de un diez por ciento por semana respecto de la semana anterior. La razón es fisiológica. El corazón y el sistema respiratorio se adaptan relativamente rápido, pero los huesos, los tendones y las articulaciones lo hacen más lento. Cuando el volumen crece demasiado deprisa, el sistema cardiovascular puede acompañar y dar la sensación de que todo va bien mientras las estructuras que soportan la carga todavía no se adaptaron, y de ahí vienen las lesiones por sobreuso, como las fracturas por estrés y las tendinitis. Si en una semana se corrieron veinte kilómetros, la siguiente no debería superar los veintidós. Es una regla orientativa y no una ley, pero protege de uno de los errores más comunes de quienes empiezan con entusiasmo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Como punto de partida, la Organización Mundial de la Salud recomienda para adultos realizar actividad física aeróbica de intensidad moderada durante al menos ciento cincuenta minutos por semana, con un máximo de trescientos como referencia de beneficios adicionales, o la mitad si la intensidad es vigorosa, y para niños y adolescentes un promedio de sesenta minutos diarios. Es un piso saludable y no un objetivo de rendimiento: quien entrena para competir necesita mucho más. Puede repartirse en varias sesiones a lo largo de la semana, y sirve de base realista para quien recién empieza, antes de ir subiendo con la regla del diez por ciento."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h7",
+          "level": 3,
+          "text": "Prepararse y cuidarse"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "La entrada en calor es la rutina previa a un ejercicio intenso, con dos objetivos: elevar gradualmente la temperatura muscular y la frecuencia cardíaca para preparar el cuerpo, y reducir el riesgo de lesión, porque un músculo frío es más rígido y se desgarra con más facilidad. Un calentamiento típico combina movimiento suave, como un trote liviano, con movilidad articular y activación específica de los músculos que se van a usar. También importa cuidar la postura, tanto al entrenar como en la vida diaria: sentarse frente a una pantalla durante horas con la espalda mal apoyada, o levantar peso con técnica incorrecta, produce sobrecargas acumuladas, y la ergonomía, que es el ajuste del entorno y de los hábitos al cuerpo, ayuda a prevenirlas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "Cuando ocurre una lesión leve de tejidos blandos, como un esguince, un golpe o una distensión, el protocolo clásico se resume en la sigla RICE, de las iniciales en inglés de reposo, hielo, compresión y elevación: dejar de usar la zona lesionada, aplicar frío para reducir la inflamación y el dolor, comprimir con una venda y mantener la zona elevada. Es un esquema muy difundido, aunque la investigación reciente lo ha ido matizando y algunos especialistas proponen protocolos más amplios, que incluyen un retorno progresivo al movimiento, de modo que conviene tomarlo como un primer cuidado y no como un tratamiento completo. Lo esencial es no ignorar los signos de gravedad: dolor intenso, deformidad, imposibilidad de apoyar o de mover la zona, hinchazón importante o pérdida de sensibilidad, que exigen una consulta médica."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h10",
+          "level": 3,
+          "text": "Cuando se trata de una emergencia"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "Una lesión leve y una emergencia real son cosas distintas. La reanimación cardiopulmonar, o RCP, se aplica cuando una persona no responde y no respira con normalidad, lo que puede indicar un paro cardiorrespiratorio. Consiste en compresiones rítmicas en el centro del pecho, fuertes y rápidas, a un ritmo de cien a ciento veinte por minuto, con el objetivo de mantener la sangre circulando hacia el cerebro hasta que llegue la ayuda profesional. El orden es siempre el mismo: verificar que la escena sea segura, comprobar si la persona responde, pedir ayuda llamando a emergencias, y comenzar las compresiones. El Ministerio de Salud de la Nación indica comprimir el pecho entre cinco y seis centímetros, con los brazos extendidos y las manos entrelazadas sobre el centro del tórax, y hacerlo de manera continua hasta que llegue el equipo de emergencias o la persona se recupere."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "El desfibrilador externo automático, conocido como DEA, es un aparato que analiza el ritmo del corazón y, si corresponde, entrega una descarga para restablecerlo. Está diseñado para que lo use cualquier persona, porque da indicaciones por voz paso a paso, y su uso inmediato aumenta de forma notable las posibilidades de supervivencia. Se encuentra en lugares públicos, en gabinetes señalizados, y mientras se lo usa nadie debe tocar a la víctima. En la Argentina, los números de emergencia varían según la localidad, y se recomienda averiguar cuál corresponde a la propia y tenerlo a mano. Ninguna lectura reemplaza una capacitación práctica: aprender RCP y uso del DEA en un curso acreditado es una de las inversiones más valiosas que puede hacer cualquier persona, y todavía más quien enseña, entrena o acompaña a otros en actividades físicas."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    },
+    {
+      "id": "cap-3",
+      "number": 3,
+      "title": "El deporte: reglas, historia, canchas y cultura",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-3-h1",
+          "level": 2,
+          "text": "El deporte: reglas, historia, canchas y cultura"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p2",
+          "text": "El deporte es a la vez una actividad física, un conjunto de reglas, una industria y un fenómeno cultural. Para entenderlo hay que mirarlo desde varios lugares: cómo se organiza cada juego, de dónde viene, cuánto espacio necesita y qué lugar ocupa en la vida de una sociedad. Este capítulo reúne esas miradas con ejemplos de los deportes más practicados, y se detiene en dos casos que dicen mucho de nuestra identidad: el pato, deporte nacional, y el lugar que ocupa el deporte en la cultura argentina."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h3",
+          "level": 3,
+          "text": "Cuántos juegan y cómo se puntúa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p4",
+          "text": "Cada deporte colectivo define cuántos jugadores intervienen y qué funciones cumplen. En el fútbol juegan once por equipo, con un arquero, defensores, mediocampistas y delanteros. En el básquet son cinco, con roles como base, escolta, alero, ala pívot y pívot. En el vóley son seis, con armador, opuesto, centrales, puntas y líbero. En el handball son siete, seis jugadores de campo y un arquero. La cantidad de jugadores guarda relación con el tamaño de la cancha: a más espacio, más jugadores hacen falta para cubrirlo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p5",
+          "text": "El puntaje también es propio de cada juego. En el fútbol gana quien hace más goles, y cada gol vale un punto. En el básquet un tiro de campo vale dos puntos, tres si se lanza desde detrás del arco, y uno el tiro libre. Estas reglas moldean la forma de jugar: una competencia donde los puntos se obtienen de a uno, como el fútbol, tiene una dinámica muy distinta de otra donde se suman muchos, como el básquet."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h6",
+          "level": 3,
+          "text": "Las canchas son geometría"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p7",
+          "text": "Las canchas de casi todos los deportes son rectángulos, de modo que su perímetro y su área se calculan con las mismas fórmulas de la matemática escolar. El perímetro es dos veces la suma del largo y el ancho, y el área es el largo por el ancho. Una cancha de fútbol de ciento cinco metros por sesenta y ocho, una medida habitual dentro del rango que admite la FIFA, tiene un perímetro de trescientos cuarenta y seis metros y un área de siete mil ciento cuarenta metros cuadrados. Una cancha de básquet según la federación internacional mide veintiocho metros por quince, es decir, cuatrocientos veinte metros cuadrados; una de vóley, dieciocho por nueve, ciento sesenta y dos; una de handball, cuarenta por veinte, ochocientos. Las superficies también cambian el juego: el césped, el parquet, el cemento, el polvo de ladrillo o el sintético afectan la velocidad de la pelota, el desgaste de los jugadores y el riesgo de lesión."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h8",
+          "level": 3,
+          "text": "De dónde vienen los deportes"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p9",
+          "text": "Los deportes tienen una historia, y conocerla ayuda a entender sus reglas. El fútbol moderno, con reglas escritas y estandarizadas, nació en Inglaterra en 1863, cuando se fundó la Football Association y se separaron formalmente las reglas del fútbol, que no permite usar las manos, de las del rugby, que sí lo permite. Antes existían juegos de pelota parecidos en muchas culturas, pero el fútbol como deporte reglamentado es inglés. El básquetbol fue inventado en los Estados Unidos en 1891 por James Naismith, un profesor de educación física canadiense que buscaba un juego para practicar en un lugar cerrado durante el invierno, y que colgó dos canastos de una baranda, de donde surge el nombre. El vóley nació también en los Estados Unidos, en 1895, creado por William Morgan como una alternativa menos exigente que el básquet para personas de más edad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p10",
+          "text": "La historia de los Juegos Olímpicos es todavía más larga. Los antiguos se celebraban en Olimpia, en Grecia, como una fiesta religiosa en honor a Zeus, y durante su realización se respetaba una tregua entre las ciudades en guerra. Con el predominio del Imperio Romano y la adopción del cristianismo como religión oficial, el paganismo griego fue visto con recelo, y la tradición sostiene que el emperador Teodosio I los prohibió hacia el año 393. Los modernos fueron obra del barón francés Pierre de Coubertin, que a fines del siglo diecinueve vio crecer el interés por el deporte organizado y se propuso revivir la idea con un sentido educativo y de entendimiento entre los pueblos. La primera edición moderna se celebró en Atenas en 1896. A diferencia de la antigüedad, donde solo competían hombres libres, hoy participan atletas de todo el mundo y de ambos sexos. Para la Argentina, un momento de enorme valor fue la medalla de oro de Juan Carlos Zabala en el maratón de Los Ángeles 1932."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h11",
+          "level": 3,
+          "text": "El pato, un deporte criollo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p12",
+          "text": "La Argentina tiene un deporte propio, declarado deporte nacional por decreto en 1953: el pato. Se juega a caballo, con dos equipos de cuatro jinetes que se disputan una pelota de cuero con seis asas, y combina elementos del polo y del básquet. Su origen es literal: en la época colonial, los gauchos se disputaban un pato vivo metido dentro de una bolsa de cuero con asas, arrastrándolo entre varios jinetes hasta un destino convenido. Era un juego violento, y con los años fue prohibido en varias ocasiones. A comienzos del siglo veinte, un grupo de estancieros, entre los que se destacó Alberto del Castillo Posse, lo reglamentó: se reemplazó el animal por una pelota con asas, se fijaron las dimensiones de la cancha y se definieron normas estrictas de seguridad. Se gana al introducir la pelota en un aro vertical, y los jugadores pueden forcejear tirando de las asas mientras cabalgan, dentro de reglas que buscan evitar caídas peligrosas. Exige un dominio ecuestre avanzado, porque el jinete maneja el caballo con las piernas y el peso del cuerpo mientras sostiene riendas y pelota. Hoy se practica sobre todo en ámbitos rurales y en clubes hípicos de la provincia de Buenos Aires y otras zonas ganaderas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h13",
+          "level": 3,
+          "text": "El deporte como cultura"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p14",
+          "text": "Más allá de la cancha, el deporte funciona en la Argentina como un lenguaje común. Cuando juega la selección, las calles se detienen. Los clubes de barrio son espacios de encuentro, de identidad y de pertenencia. Los rituales de hinchadas, las rivalidades históricas y las anécdotas heredadas entre generaciones forman parte de la memoria colectiva. El deporte también es un espejo de la sociedad: refleja sus tensiones, sus desigualdades y sus aspiraciones. Hoy se discute con más intensidad la participación de las mujeres, de las personas con discapacidad y de las diversidades, y esas discusiones amplían quiénes juegan, quiénes miran y qué significa ser deportista. Una manera sencilla de verlo es observar el propio entorno: cómo se vive el deporte en el barrio y en la escuela, qué cambió respecto de lo que recuerdan los mayores. El deporte no es solo competir: es una forma de estar juntos."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-3"
+      }
+    },
+    {
+      "id": "cap-4",
+      "number": 4,
+      "title": "Drogas, consumo y prevención: leyes, enfoques y decisiones informadas",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-4-h1",
+          "level": 2,
+          "text": "Drogas, consumo y prevención: leyes, enfoques y decisiones informadas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p2",
+          "text": "El consumo de sustancias es un tema que atraviesa a las escuelas, a las familias y a las políticas públicas. Hablar de él con información y con pensamiento crítico es mucho más útil que reducirlo a una prohibición. En este capítulo se presentan el marco legal argentino de la prevención, el concepto de consumo problemático y las grandes posturas sobre qué debe hacer el Estado frente a las drogas, expuestas sin que el texto tome partido: el objetivo es que cada persona pueda reconocer los argumentos de cada una y formarse un criterio propio."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h3",
+          "level": 3,
+          "text": "El marco legal de la prevención"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p4",
+          "text": "En 2009 se sancionó la Ley 26.586, que creó el Programa Nacional de Educación y Prevención sobre las Adicciones y el Consumo Indebido de Drogas. Su idea central es que la prevención se trabaje de manera transversal en todos los niveles educativos, integrada al currículo y no como un tema aislado que se agota en una charla. Su enfoque no se limita a decir que no, sino que apunta a ofrecer información veraz y herramientas de pensamiento crítico para que cada estudiante pueda tomar decisiones informadas. Más tarde, la Ley 26.934, de 2014, creó un plan integral para el abordaje de los consumos problemáticos desde una perspectiva de salud. Ambas normas colocan el foco en la educación y la salud antes que en el castigo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h5",
+          "level": 3,
+          "text": "Qué es un consumo problemático"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p6",
+          "text": "La legislación argentina usa la expresión consumo problemático, que es más amplia que la de drogas ilegales. Incluye también el uso problemático de sustancias legales, como el alcohol, el tabaco y los medicamentos, y, en un sentido más extenso, cualquier consumo, incluso el de pantallas, apuestas o videojuegos, que afecta negativamente la vida de una persona en su salud, sus vínculos, sus estudios o su trabajo. No se define por la sustancia sino por la relación que la persona establece con ella y por los daños que le produce."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p7",
+          "text": "Las causas son múltiples. Intervienen factores biológicos, como la predisposición genética y el funcionamiento del sistema de recompensa del cerebro; factores psicológicos, como el estrés, la ansiedad o la baja tolerancia a la frustración; y factores sociales, como la presión de los pares, la disponibilidad de la sustancia, el contexto familiar y las condiciones de vida. Por eso la prevención eficaz trabaja sobre varios frentes a la vez. Se fortalecen los llamados factores de protección, como los vínculos afectivos sólidos, las actividades que dan sentido, la información confiable y la capacidad de pedir ayuda, y se reducen los factores de riesgo. Y la actividad física, el deporte y la pertenencia a grupos saludables son, justamente, factores de protección, razón por la cual este tema encuentra un lugar natural en la educación física."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h8",
+          "level": 3,
+          "text": "Qué debe hacer el Estado: tres posturas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p9",
+          "text": "La pregunta política que separa las posturas es qué debe hacer el Estado frente a las drogas. Cada una prioriza un objetivo distinto: reducir el consumo, reducir el daño o regular el mercado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p10",
+          "text": "El prohibicionismo, la postura clásica, a la que se asocia la expresión guerra contra las drogas, sostiene que el Estado debe criminalizar la producción, la venta y, en muchos países, también el consumo, con el fin de eliminar el acceso a las sustancias. Su argumento central es que si no hay acceso legal baja el consumo, y que la ilegalidad desalienta el uso y protege a la sociedad. Sus críticos responden que no eliminó el consumo, que empujó el mercado a la clandestinidad, sin control de calidad ni regulación, y que la criminalización recae sobre todo en consumidores y en eslabones débiles de la cadena."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p11",
+          "text": "La reducción de daños no exige la abstinencia como condición para intervenir. Sostiene que, mientras exista consumo, es mejor minimizar los daños concretos a la salud, como las infecciones, las sobredosis y los accidentes, sin perseguir penalmente a quien consume. Ejemplos son la distribución de jeringas estériles para evitar el contagio de VIH y hepatitis, los análisis de sustancias en eventos y la disponibilidad de naloxona, un fármaco que revierte las sobredosis de opioides. Sus críticos temen que pueda normalizar o facilitar el consumo en lugar de desalentarlo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p12",
+          "text": "La tercera postura abarca dos ideas relacionadas pero distintas. La despenalización consiste en dejar de tratar el consumo, o la tenencia para consumo personal, como un delito penal, aunque pueda subsistir una sanción administrativa. La legalización regulada va más allá y permite la venta legal de una sustancia bajo control estatal, con licencias, impuestos y controles de calidad y de edad, como ocurre con el alcohol y el tabaco en casi todos los países y, en un número creciente de jurisdicciones, con el cannabis. Su argumento es que sacar el mercado de la clandestinidad permite controlar la calidad, recaudar impuestos y orientar los recursos policiales hacia el crimen organizado. Sus críticos temen que facilitar el acceso legal aumente el consumo total, sobre todo entre adolescentes."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p13",
+          "text": "En la Argentina, la Ley 23.737, de 1989, penaliza la tenencia de estupefacientes, pero en 2009 la Corte Suprema, en el fallo Arriola, declaró inconstitucional sancionar la tenencia para consumo personal que no afecte a terceros y se realice en privado. Muestra cómo el debate se traduce en decisiones jurídicas concretas y cómo cambia con el tiempo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p14",
+          "text": "Las tres posturas no se excluyen del todo en la práctica: muchos países combinan elementos de cada una, como reducción de daños junto con despenalización del consumo y penas severas para el tráfico. Estudiar este tema sirve para pensar con evidencia y con respeto: reconocer que los problemas son reales, distinguir hechos de valoraciones y evitar tanto las simplificaciones alarmistas como la indiferencia. Y recordar, sobre todo, que detrás de cada cifra hay personas, y que pedir ayuda a tiempo es siempre una buena decisión."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-4"
+      }
+    }
+  ]
+}
