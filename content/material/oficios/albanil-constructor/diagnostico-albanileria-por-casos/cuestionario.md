@@ -1,4 +1,4 @@
-# Oficios — Albañil / Constructor — Diagnóstico de albañilería por casos (cuestionario, 20 preguntas VBLang)
+# Oficios — Albañil / Constructor — Diagnóstico de albañilería por casos (cuestionario, 26 preguntas VBLang)
 
 > Cierre del oficio (`OF3`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de patologías
@@ -420,4 +420,115 @@ enunciado: "Los cinco casos de este tema comparten la misma lógica: observar el
 explicacion: |
   Es la síntesis final del método de diagnóstico de albañilería de
   todo el tema.
+```
+
+### 21 — Mancha en la base del muro
+
+```
+metadata:
+  materia: "oficios"
+  tema: "albanil_constructor_diagnostico_albanileria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 5"]
+
+respuesta: "Humedad ascendente por capilaridad, por falta o falla de la capa aisladora"
+tipo: mc
+opciones_explicitas: ["Humedad ascendente por capilaridad, por falta o falla de la capa aisladora", "Condensación por poca ventilación en el techo", "Un error de pintura en la última mano"]
+
+enunciado: "En una vivienda aparecen manchas y revoque desprendido solo en la parte baja de los muros, junto al suelo. ¿Cuál es la causa más probable?"
+
+explicacion: |
+  El agua del suelo sube por los poros del muro. Se trata con una capa aisladora continua, no con pintura.
+```
+
+### 22 — Agua extra en el hormigón
+
+```
+metadata:
+  materia: "oficios"
+  tema: "albanil_constructor_diagnostico_albanileria_por_casos"
+  nivel: "basico"
+  tags: ["caso 6"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para que el hormigón fresco escurra mejor conviene agregarle agua en la obra, porque eso no afecta su resistencia."
+
+explicacion: |
+  Más agua aumenta la relación agua/cemento y baja la resistencia final y aumenta la retracción.
+```
+
+### 23 — Orden de las terminaciones
+
+```
+metadata:
+  materia: "oficios"
+  tema: "albanil_constructor_diagnostico_albanileria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 7"]
+
+respuesta: "Instalaciones embutidas y revoques, luego contrapisos y pisos, y por último la pintura"
+tipo: mc
+opciones_explicitas: ["Instalaciones embutidas y revoques, luego contrapisos y pisos, y por último la pintura", "Pintura, luego pisos y después las instalaciones embutidas", "Pisos primero, luego los revoques y por último las instalaciones"]
+
+enunciado: "¿Cuál es el orden general correcto de los trabajos de terminación?"
+
+explicacion: |
+  Se trabaja de lo sucio a lo limpio: pintar o colocar pisos antes de terminar lo anterior obliga a reparar.
+```
+
+### 24 — Firmar planos
+
+```
+metadata:
+  materia: "oficios"
+  tema: "albanil_constructor_diagnostico_albanileria_por_casos"
+  nivel: "basico"
+  tags: ["caso 8"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un albañil con mucha experiencia puede firmar los planos y dirigir técnicamente la ampliación de una vivienda."
+
+explicacion: |
+  La firma de planos y la dirección técnica corresponden a profesionales matriculados; el albañil ejecuta.
+```
+
+### 25 — Moho en las esquinas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "albanil_constructor_diagnostico_albanileria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 9"]
+
+respuesta: "De condensación del vapor de agua del aire interior sobre superficies frías"
+tipo: mc
+opciones_explicitas: ["De condensación del vapor de agua del aire interior sobre superficies frías", "De humedad ascendente por capilaridad", "De una pérdida en el techo exclusivamente"]
+
+enunciado: "Aparecen gotas y moho oscuro en las esquinas de un dormitorio mal ventilado, sin humedad en la base del muro. ¿De qué se trata?"
+
+explicacion: |
+  No viene de afuera: se corrige con ventilación, aislación y eliminando puentes térmicos.
+```
+
+### 26 — Mampostería encadenada
+
+```
+metadata:
+  materia: "oficios"
+  tema: "albanil_constructor_diagnostico_albanileria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 10"]
+
+tipo: completar
+enunciado: "En la mampostería de bloques encadenada, el muro se enmarca con columnas y vigas de ___ armado."
+respuestas_validas:
+  - "hormigón"
+
+explicacion: |
+  Los encadenados confinan el muro y absorben los esfuerzos.
 ```

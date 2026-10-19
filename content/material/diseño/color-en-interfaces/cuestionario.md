@@ -1,4 +1,4 @@
-# UX y diseño — Color en interfaces (cuestionario, 21 preguntas VBLang)
+# UX y diseño — Color en interfaces (cuestionario, 22 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 
@@ -178,7 +178,7 @@ metadata:
 variables:
   c: uno_de([2.5, 3.5, 4.0, 4.5, 5.2, 6.0])
 
-respuesta: c >= 4.5 ? 1 : 0
+respuesta: min(1, floor(c / 4.5))
 tipo: input
 tolerancia_abs: 0
 
@@ -410,7 +410,25 @@ explicacion: |
   No depender solo del color.
 ```
 
-### 21 — Nombrar por función
+### 21 — Contraste componentes
+
+```
+metadata:
+  materia: "diseño"
+  tema: "color_en_interfaces"
+  nivel: "avanzado"
+  tags: ["ux"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Los bordes de los campos y los botones también necesitan un contraste mínimo de 3 a 1 con lo que los rodea."
+
+explicacion: |
+  WCAG lo pide para componentes de interfaz.
+```
+
+### 22 — Nombrar por función
 
 ```
 metadata:

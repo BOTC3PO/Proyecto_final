@@ -1,4 +1,4 @@
-# Oficios — Carpintero — Diagnóstico de carpintería por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Carpintero — Diagnóstico de carpintería por casos (cuestionario, 24 preguntas VBLang)
 
 > Cierre del oficio (`OF4`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de problemas
@@ -376,4 +376,115 @@ enunciado: "Los cuatro casos de este tema comparten la misma lógica: entender q
 explicacion: |
   Es la síntesis final del método de diagnóstico de carpintería de
   todo el tema.
+```
+
+### 19 — Puerta que se traba en verano
+
+```
+metadata:
+  materia: "oficios"
+  tema: "carpintero_diagnostico_carpinteria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 5"]
+
+respuesta: "La madera absorbe humedad del aire y se hincha"
+tipo: mc
+opciones_explicitas: ["La madera absorbe humedad del aire y se hincha", "El marco se encoge por el calor", "Las bisagras se dilatan"]
+
+enunciado: "Una puerta de madera cierra bien en invierno pero se traba en verano húmedo. ¿Qué ocurre?"
+
+explicacion: |
+  La madera es higroscópica: cambia de tamaño con la humedad. Por eso se deja luz perimetral.
+```
+
+### 20 — Escuadra por diagonales
+
+```
+metadata:
+  materia: "oficios"
+  tema: "carpintero_diagnostico_carpinteria_por_casos"
+  nivel: "basico"
+  tags: ["caso 6"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para verificar que un marco rectangular está a escuadra, se pueden medir las dos diagonales: si miden lo mismo, está a escuadra."
+
+explicacion: |
+  En un rectángulo las diagonales son iguales; si difieren, la pieza está en rombo.
+```
+
+### 21 — Antes de fijar un marco
+
+```
+metadata:
+  materia: "oficios"
+  tema: "carpintero_diagnostico_carpinteria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 7"]
+
+respuesta: "Plomo, nivel y escuadra, y también las diagonales"
+tipo: mc
+opciones_explicitas: ["Plomo, nivel y escuadra, y también las diagonales", "Solamente que entre en el hueco", "Solo el color y el barniz"]
+
+enunciado: "Antes de fijar definitivamente un marco de puerta al vano, ¿qué se controla?"
+
+explicacion: |
+  Un marco torcido puede parecer correcto y recién fallar al colgar la hoja.
+```
+
+### 22 — Barnizar una cara
+
+```
+metadata:
+  materia: "oficios"
+  tema: "carpintero_diagnostico_carpinteria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 8"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Para evitar alabeos, alcanza con barnizar solo la cara visible de una tapa de madera."
+
+explicacion: |
+  Conviene sellar todas las caras para que la pieza intercambie humedad de manera pareja.
+```
+
+### 23 — Medir la humedad
+
+```
+metadata:
+  materia: "oficios"
+  tema: "carpintero_diagnostico_carpinteria_por_casos"
+  nivel: "basico"
+  tags: ["caso 9"]
+
+tipo: completar
+enunciado: "El instrumento que se usa para medir el contenido de humedad de la madera es el ___."
+respuestas_validas:
+  - "xilohigrómetro"
+
+explicacion: |
+  Medir antes de trabajar evita reclamos por movimientos posteriores.
+```
+
+### 24 — Alacena
+
+```
+metadata:
+  materia: "oficios"
+  tema: "carpintero_diagnostico_carpinteria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 10"]
+
+respuesta: "Se ancla a la pared para evitar vuelcos y caídas"
+tipo: mc
+opciones_explicitas: ["Se ancla a la pared para evitar vuelcos y caídas", "Se apoya sin fijar para que se pueda mover", "Se pega solo con adhesivo de contacto"]
+
+enunciado: "Al instalar una alacena (mueble alto) en una pared, ¿qué se hace además de nivelarla?"
+
+explicacion: |
+  Los muebles altos siempre se fijan a la estructura de la pared.
 ```

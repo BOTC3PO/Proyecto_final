@@ -270,6 +270,20 @@ camino desbloqueado.
 | `jardinero-paisajista/herramientas-y-maquinaria-jardineria/` | `materiales-jardineria/` | Sección 4. |
 | `jardinero-paisajista/tecnicas-jardineria/` | `herramientas-y-maquinaria-jardineria/` | Sección 5. |
 | `jardinero-paisajista/diagnostico-jardineria-por-casos/` | `tecnicas-jardineria/` | Sección 6, cierre. |
+| `jardinero-paisajista/fisiologia-de-la-planta/` | | `fundamentos-botanicos/` | Cómo funciona la planta: base para regar, abonar y podar con criterio. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/identificacion-de-especies-y-sistematica/` | | `fundamentos-botanicos/` | Reconocer y nombrar plantas es la base para elegir qué plantar. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/sustratos-y-tierras/` | | `materiales-jardineria/` | Profundiza el suelo y los sustratos, fundidos en materiales. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/abonos-y-fertilizantes/` | | `sustratos-y-tierras/` | Cómo nutrir las plantas: tipos, dosis y momentos. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/productos-fitosanitarios-y-control-integrado/` | | `abonos-y-fertilizantes/`, `seguridad-jardineria/` | Control de plagas y enfermedades, con foco en seguridad y normativa. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/sistemas-de-riego/` | | `herramientas-y-maquinaria-jardineria/` | Riego manual, por goteo y por aspersión, con programación. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/motosierra-y-cortadora-de-cesped/` | | `seguridad-jardineria/` | Uso seguro y mantenimiento de las máquinas de mayor riesgo del oficio. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/multiplicacion-de-plantas/` | | `fisiologia-de-la-planta/` | Semilla, esqueje, acodo, división e injerto. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/poda-de-arboles-y-arbustos/` | | `multiplicacion-de-plantas/` | Tipos, épocas y cortes correctos. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/implantacion-y-mantenimiento-de-praderas/` | | `sustratos-y-tierras/` | Siembra, corte, resiembra y malezas del césped. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/diseno-de-canteros-y-jardines/` | | `identificacion-de-especies-y-sistematica/` | Composición, estilos y plano de planta. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/normativa-y-arbolado-publico/` | | `poda-de-arboles-y-arbustos/` | Qué se puede y qué no se puede hacer con los árboles de la vía pública. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/calculo-de-jardineria/` | | `sistemas-de-riego/`, `abonos-y-fertilizantes/` | Superficies, volúmenes, dosis y caudales: la matemática del oficio. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `jardinero-paisajista/compostaje/` | | `abonos-y-fertilizantes/` | Hacer abono con los restos del jardín. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
 
 ## Tapicero (`OF21`)
 

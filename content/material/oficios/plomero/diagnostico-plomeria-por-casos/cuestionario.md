@@ -1,4 +1,4 @@
-# Oficios — Plomero — Diagnóstico de plomería por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Plomero — Diagnóstico de plomería por casos (cuestionario, 24 preguntas VBLang)
 
 > Cierre del oficio (`OF2`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de plomería —
@@ -382,4 +382,115 @@ enunciado: "Los cuatro casos de este tema comparten la misma lógica: distinguir
 explicacion: |
   Es la síntesis final del método de diagnóstico de plomería de todo
   el tema.
+```
+
+### 19 — Teflón sobre una junta
+
+```
+metadata:
+  materia: "oficios"
+  tema: "plomero_diagnostico_plomeria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 5"]
+
+respuesta: "La cinta impide que la junta asiente bien"
+tipo: mc
+opciones_explicitas: ["La cinta impide que la junta asiente bien", "Porque faltó más teflón", "Porque el agua estaba muy fría"]
+
+enunciado: "Una canilla pierde después de sellar con cinta de teflón una unión que ya cerraba con una junta plana. ¿Por qué?"
+
+explicacion: |
+  Antes de sellar hay que saber cómo cierra la unión.
+```
+
+### 20 — PVC en agua caliente
+
+```
+metadata:
+  materia: "oficios"
+  tema: "plomero_diagnostico_plomeria_por_casos"
+  nivel: "basico"
+  tags: ["caso 6"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Una cañería de PVC común para agua fría puede usarse sin problemas para agua caliente."
+
+explicacion: |
+  El agua caliente exige materiales aptos para temperatura y presión sostenidas (por ejemplo PP-R o cobre).
+```
+
+### 21 — Termotanque cerrado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "plomero_diagnostico_plomeria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 7"]
+
+respuesta: "Una presión peligrosa por la dilatación del agua al calentarse"
+tipo: mc
+opciones_explicitas: ["Una presión peligrosa por la dilatación del agua al calentarse", "Que el agua salga más fría", "Que la cañería se ensucie"]
+
+enunciado: "¿Qué riesgo hay si un termotanque se instala sin válvula de seguridad y con la salida encerrada?"
+
+explicacion: |
+  El agua se dilata al calentarse; hace falta una válvula de alivio y, a veces, un vaso de expansión.
+```
+
+### 22 — Calefón a gas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "plomero_diagnostico_plomeria_por_casos"
+  nivel: "basico"
+  tags: ["caso 8"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un plomero matriculado en sanitarios puede conectar la cañería de gas de un calefón."
+
+explicacion: |
+  La conexión de gas, la ventilación y la evacuación son trabajo del gasista matriculado.
+```
+
+### 23 — Prueba antes de tapar
+
+```
+metadata:
+  materia: "oficios"
+  tema: "plomero_diagnostico_plomeria_por_casos"
+  nivel: "basico"
+  tags: ["caso 9"]
+
+tipo: completar
+enunciado: "Antes de tapar una cañería nueva se realiza la prueba ___ con agua a presión."
+respuestas_validas:
+  - "hidráulica"
+
+explicacion: |
+  Es mucho más barato detectar una pérdida con la pared abierta.
+```
+
+### 24 — Caída de presión
+
+```
+metadata:
+  materia: "oficios"
+  tema: "plomero_diagnostico_plomeria_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 10"]
+
+respuesta: "Se corrige esa unión antes de cubrir y se repite la prueba"
+tipo: mc
+opciones_explicitas: ["Se corrige esa unión antes de cubrir y se repite la prueba", "Se cubre igual porque la pérdida es chica", "Se aumenta la presión para que selle"]
+
+enunciado: "Durante la prueba, el manómetro baja y aparece humedad en una unión. ¿Qué se hace?"
+
+explicacion: |
+  Una pérdida mínima oculta en una pared termina dañando propiedades.
 ```

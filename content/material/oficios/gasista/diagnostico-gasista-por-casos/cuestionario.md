@@ -1,4 +1,4 @@
-# Oficios — Gasista — Diagnóstico de gasista por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Gasista — Diagnóstico de gasista por casos (cuestionario, 24 preguntas VBLang)
 
 > Cierre del oficio (`OF6`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de gas — cada
@@ -376,4 +376,115 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: distinguir e
 explicacion: |
   Es la síntesis final del método de diagnóstico de gasista de todo
   el tema.
+```
+
+### 19 — Plomero y gas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "gasista_diagnostico_gasista_por_casos"
+  nivel: "basico"
+  tags: ["caso 5"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Un plomero matriculado en sanitarios puede intervenir la cañería de gas de una vivienda."
+
+explicacion: |
+  El gas requiere una matrícula distinta, otorgada por el sistema regulado de gas.
+```
+
+### 20 — Buscar una fuga
+
+```
+metadata:
+  materia: "oficios"
+  tema: "gasista_diagnostico_gasista_por_casos"
+  nivel: "basico"
+  tags: ["caso 6"]
+
+respuesta: "Con agua jabonosa o líquido espumante en las uniones"
+tipo: mc
+opciones_explicitas: ["Con agua jabonosa o líquido espumante en las uniones", "Con la llama de un encendedor", "Oliendo cada unión de cerca"]
+
+enunciado: "¿Cómo se localiza una fuga en una cañería de gas presurizada?"
+
+explicacion: |
+  Jamás se busca una fuga con una llama: puede provocar una explosión.
+```
+
+### 21 — Fluido de la prueba
+
+```
+metadata:
+  materia: "oficios"
+  tema: "gasista_diagnostico_gasista_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 7"]
+
+respuesta: "Aire o un gas inerte, nunca oxígeno"
+tipo: mc
+opciones_explicitas: ["Aire o un gas inerte, nunca oxígeno", "Oxígeno puro", "Gas combustible a presión de red"]
+
+enunciado: "Para presurizar una instalación nueva en la prueba de hermeticidad, ¿qué fluido se usa?"
+
+explicacion: |
+  El oxígeno con grasas o aceites puede provocar una combustión violenta.
+```
+
+### 22 — Tapar rejillas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "gasista_diagnostico_gasista_por_casos"
+  nivel: "basico"
+  tags: ["caso 8"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "En invierno se pueden tapar las rejillas de ventilación del ambiente donde hay artefactos a gas para que no entre frío."
+
+explicacion: |
+  Taparlas impide el aire de combustión y la evacuación: es una causa frecuente de intoxicación por monóxido.
+```
+
+### 23 — Llama amarilla
+
+```
+metadata:
+  materia: "oficios"
+  tema: "gasista_diagnostico_gasista_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 9"]
+
+respuesta: "Combustión incompleta o falta de aire, con riesgo de monóxido"
+tipo: mc
+opciones_explicitas: ["Combustión incompleta o falta de aire, con riesgo de monóxido", "Que el artefacto funciona perfectamente", "Que la presión es demasiado baja siempre"]
+
+enunciado: "Un artefacto a gas muestra una llama amarilla, grande e inestable. ¿Qué indica?"
+
+explicacion: |
+  La llama correcta es predominantemente azul y estable.
+```
+
+### 24 — Presión que baja
+
+```
+metadata:
+  materia: "oficios"
+  tema: "gasista_diagnostico_gasista_por_casos"
+  nivel: "avanzado"
+  tags: ["caso 10"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si durante la prueba de hermeticidad la presión baja un poquito, igual se puede dar por aprobada."
+
+explicacion: |
+  Una caída indica una fuga: hay que localizarla, corregirla y repetir la prueba completa.
 ```

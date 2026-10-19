@@ -18,8 +18,8 @@ En los niveles B1-B2 el vocabulario deja de ser cotidiano y entra en la actualid
 ## Derivación útil
 - **-ad-**: acción continuada (*esplori* → *esplorado*).
 - **-ec-**: cualidad (*libera* → *libereco*, *egala* → *egaleco*).
-- **-ism-**: doctrina (*socialismo*, *liberalismo*, *naciismo*).
-- **-ist-**: profesión o adhesión (*ĵurnalisto*, *sociologo* por *-log-*).
+- **-ism-**: doctrina (*socialismo*, *liberalismo*).
+- **-ist-**: profesión o adhesión (*ĵurnalisto*, *socialisto*).
 - **-ar-**: colectivo (*laboristaro*, *parlamentaro*).
 - **-ej-**: lugar (*parlamentejo*, *laboratorio*).
 - **re-**: de nuevo (*reelekti*, *reformi*).
@@ -28,10 +28,10 @@ En los niveles B1-B2 el vocabulario deja de ser cotidiano y entra en la actualid
 1. **Calcar el género**: *la ministro* sirve para ambos; el femenino se forma con *-in-*: *ministrino*.
 2. **Confundir *elekto* y *balotado***: *elekto* es la acción de elegir; *balotado* se refiere al acto de votar.
 3. **Traducir «política» sin matiz**: *politiko* (política en general) / *politika* (adjetivo).
-4. **Falsos amigos**: *demando* es «pregunta/demanda» de una persona, no una «demanda judicial» en el sentido español.
+4. **Falsos amigos**: *demandi* significa «preguntar», no «demandar judicialmente».
 
 ## Comparación con el español
-Casi todos los términos tienen raíces latinas, lo que facilita la lectura. En cambio, la forma esperantista es regular: *laborista*, *laboristaro*, *laboristino*, sin cambios de raíz. Un lector hispanohablante reconoce el 80 % de los vocablos políticos y científicos al verlos escritos.
+Casi todos los términos tienen raíces latinas, lo que facilita la lectura. En cambio, la forma esperantista es regular: *laborista*, *laboristaro*, *laboristino*, sin cambios de raíz. Por eso un lector hispanohablante reconoce con facilidad buena parte del vocabulario político y científico.
 
 ## Ejemplo extendido en contexto
 - A: Ĉu vi legis la artikolon pri la balotado?

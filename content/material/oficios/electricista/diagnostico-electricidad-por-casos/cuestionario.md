@@ -1,4 +1,4 @@
-# Oficios — Electricista — Diagnóstico de instalaciones por casos (cuestionario, 20 preguntas VBLang)
+# Oficios — Electricista — Diagnóstico de instalaciones por casos (cuestionario, 26 preguntas VBLang)
 
 > Cierre del oficio (`OF1`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de fallas
@@ -435,4 +435,115 @@ enunciado: "Los cinco casos de este tema comparten la misma lógica: distinguir 
 explicacion: |
   Es la síntesis final del método de diagnóstico eléctrico de todo el
   tema.
+```
+
+### 21 — Qué conductor corta la llave
+
+```
+metadata:
+  materia: "oficios"
+  tema: "electricista_diagnostico_electricidad_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 5"]
+
+respuesta: "La fase"
+tipo: mc
+opciones_explicitas: ["La fase", "El neutro", "La tierra"]
+
+enunciado: "En un circuito de iluminación, ¿qué conductor debe interrumpir la llave de luz?"
+
+explicacion: |
+  Si corta la fase, con la luz apagada el portalámparas no queda energizado.
+```
+
+### 22 — Puentear el diferencial
+
+```
+metadata:
+  materia: "oficios"
+  tema: "electricista_diagnostico_electricidad_por_casos"
+  nivel: "basico"
+  tags: ["caso 6"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si el interruptor diferencial salta seguido, es aceptable puentearlo para que deje de molestar."
+
+explicacion: |
+  El diferencial indica una fuga a tierra: hay que buscar la causa, nunca anular la protección.
+```
+
+### 23 — Tensión de línea
+
+```
+metadata:
+  materia: "oficios"
+  tema: "electricista_diagnostico_electricidad_por_casos"
+  nivel: "basico"
+  tags: ["caso 7"]
+
+respuesta: "380 V"
+tipo: mc
+opciones_explicitas: ["380 V", "220 V", "110 V"]
+
+enunciado: "En la red trifásica de baja tensión argentina, ¿cuántos volts hay entre dos fases?"
+
+explicacion: |
+  Entre fase y neutro hay 220 V; entre fases, 380 V.
+```
+
+### 24 — Invertir el giro
+
+```
+metadata:
+  materia: "oficios"
+  tema: "electricista_diagnostico_electricidad_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 8"]
+
+tipo: completar
+enunciado: "Para invertir el sentido de giro de un motor trifásico se intercambian ___ de las tres fases."
+respuestas_validas:
+  - "dos"
+
+explicacion: |
+  Intercambiar dos cualquiera invierte el campo giratorio.
+```
+
+### 25 — AEA e IRAM
+
+```
+metadata:
+  materia: "oficios"
+  tema: "electricista_diagnostico_electricidad_por_casos"
+  nivel: "intermedio"
+  tags: ["caso 9"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Las normas IRAM indican cómo debe ser un producto (por ejemplo, un cable), mientras que la reglamentación AEA indica cómo se instala el conjunto."
+
+explicacion: |
+  Se complementan: material certificado e instalación según reglamento.
+```
+
+### 26 — Borne decolorado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "electricista_diagnostico_electricidad_por_casos"
+  nivel: "avanzado"
+  tags: ["caso 10"]
+
+respuesta: "Un borne flojo o mal ajustado que genera calor por mal contacto"
+tipo: mc
+opciones_explicitas: ["Un borne flojo o mal ajustado que genera calor por mal contacto", "Un exceso de pintura en el gabinete", "Falta de rótulos en los circuitos"]
+
+enunciado: "Al abrir un tablero (sin tensión) se ve un borne con plástico decolorado y olor a quemado. ¿Cuál es la causa más probable?"
+
+explicacion: |
+  El mal contacto aumenta la resistencia y calienta: se corrige con ajuste adecuado y revisión del conductor.
 ```
