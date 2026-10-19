@@ -12,8 +12,8 @@ metadata:
   tags: ["definir"]
 
 tipo: mc
-opciones_explicitas: ["function Saludar {{ \"Hola\" }}", "def Saludar(): \"Hola\"", "func Saludar() => \"Hola\"", "Saludar() {{ echo Hola }}"]
-respuesta: "function Saludar {{ \"Hola\" }}"
+opciones_explicitas: ["function Saludar { \"Hola\" }", "def Saludar(): \"Hola\"", "func Saludar() => \"Hola\"", "Saludar() { echo Hola }"]
+respuesta: "function Saludar { \"Hola\" }"
 
 enunciado: "¿Cuál es la forma correcta de definir una función?"
 

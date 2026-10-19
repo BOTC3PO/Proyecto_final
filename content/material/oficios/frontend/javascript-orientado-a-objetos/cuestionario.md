@@ -107,8 +107,8 @@ metadata:
   tags: ["copia"]
 
 tipo: mc
-opciones_explicitas: ["`{{ ...a }}`", "`a.copy()`", "`copy(a)`", "`a = a`"]
-respuesta: "`{{ ...a }}`"
+opciones_explicitas: ["`{ ...a }`", "`a.copy()`", "`copy(a)`", "`a = a`"]
+respuesta: "`{ ...a }`"
 
 enunciado: "¿Cómo se hace una copia superficial de un objeto?"
 

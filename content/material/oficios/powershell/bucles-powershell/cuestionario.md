@@ -260,8 +260,8 @@ metadata:
   tags: ["get-content"]
 
 tipo: mc
-opciones_explicitas: ["Get-Content datos.txt | ForEach-Object {{ $_ }}", "Read-Lines datos.txt", "foreach ($l in datos.txt)", "for-line datos.txt"]
-respuesta: "Get-Content datos.txt | ForEach-Object {{ $_ }}"
+opciones_explicitas: ["Get-Content datos.txt | ForEach-Object { $_ }", "Read-Lines datos.txt", "foreach ($l in datos.txt)", "for-line datos.txt"]
+respuesta: "Get-Content datos.txt | ForEach-Object { $_ }"
 
 enunciado: "¿Cuál de estas formas recorre las líneas de un archivo?"
 

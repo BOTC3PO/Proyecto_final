@@ -126,8 +126,8 @@ metadata:
   tags: ["responding"]
 
 tipo: mc
-opciones_explicitas: ["Get-Process | Where-Object {{ -not $_.Responding }}", "Get-Process -Hung", "Get-Process | Where-Object Dead", "Get-Hang"]
-respuesta: "Get-Process | Where-Object {{ -not $_.Responding }}"
+opciones_explicitas: ["Get-Process | Where-Object { -not $_.Responding }", "Get-Process -Hung", "Get-Process | Where-Object Dead", "Get-Hang"]
+respuesta: "Get-Process | Where-Object { -not $_.Responding }"
 
 enunciado: "¿Cómo se buscan los procesos que no responden?"
 

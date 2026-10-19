@@ -128,8 +128,8 @@ metadata:
   tags: ["-F"]
 
 tipo: mc
-opciones_explicitas: ["awk -F: '{{ print $1 }}' /etc/passwd", "awk -S: '{{ print $1 }}' /etc/passwd", "awk ':' '{{ print $1 }}' /etc/passwd", "No se puede cambiar el separador"]
-respuesta: "awk -F: '{{ print $1 }}' /etc/passwd"
+opciones_explicitas: ["awk -F: '{ print $1 }' /etc/passwd", "awk -S: '{ print $1 }' /etc/passwd", "awk ':' '{ print $1 }' /etc/passwd", "No se puede cambiar el separador"]
+respuesta: "awk -F: '{ print $1 }' /etc/passwd"
 
 enunciado: "¿Cómo se indica que los campos están separados por dos puntos, como en `/etc/passwd`?"
 
@@ -147,8 +147,8 @@ metadata:
   tags: ["-F"]
 
 tipo: mc
-opciones_explicitas: ["awk -F, '{{ print $2 }}' datos.csv", "awk '{{ print $2 }}' datos.csv", "awk -F; '{{ print $2 }}' datos.csv", "awk -c '{{ print $2 }}' datos.csv"]
-respuesta: "awk -F, '{{ print $2 }}' datos.csv"
+opciones_explicitas: ["awk -F, '{ print $2 }' datos.csv", "awk '{ print $2 }' datos.csv", "awk -F; '{ print $2 }' datos.csv", "awk -c '{ print $2 }' datos.csv"]
+respuesta: "awk -F, '{ print $2 }' datos.csv"
 
 enunciado: "¿Cómo se imprime la segunda columna de un archivo separado por comas?"
 
@@ -280,8 +280,8 @@ metadata:
   tags: ["promedio"]
 
 tipo: mc
-opciones_explicitas: ["awk '{{ s += $2 }} END {{ print s / NR }}' datos", "awk '{{ print $2 / NR }}' datos", "awk 'BEGIN {{ print $2 / NR }}' datos", "awk '{{ s += $2 }} END {{ print s * NR }}' datos"]
-respuesta: "awk '{{ s += $2 }} END {{ print s / NR }}' datos"
+opciones_explicitas: ["awk '{ s += $2 } END { print s / NR }' datos", "awk '{ print $2 / NR }' datos", "awk 'BEGIN { print $2 / NR }' datos", "awk '{ s += $2 } END { print s * NR }' datos"]
+respuesta: "awk '{ s += $2 } END { print s / NR }' datos"
 
 enunciado: "¿Cómo se calcula el promedio de la columna 2?"
 

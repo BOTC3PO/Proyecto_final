@@ -163,7 +163,7 @@ metadata:
   tags: ["llaves"]
 
 tipo: mc
-opciones_explicitas: ["abd acd", "a{{b,c}}d", "abcd", "ad"]
+opciones_explicitas: ["abd acd", "a{b,c}d", "abcd", "ad"]
 respuesta: "abd acd"
 
 enunciado: "¿Qué muestra `echo a{{b,c}}d`?"
@@ -182,7 +182,7 @@ metadata:
   tags: ["llaves"]
 
 tipo: mc
-opciones_explicitas: ["1 2 3 4", "{{1..4}}", "1..4", "4 3 2 1"]
+opciones_explicitas: ["1 2 3 4", "{1..4}", "1..4", "4 3 2 1"]
 respuesta: "1 2 3 4"
 
 enunciado: "¿Qué muestra `echo {{1..4}}`?"
@@ -201,7 +201,7 @@ metadata:
   tags: ["llaves"]
 
 tipo: mc
-opciones_explicitas: ["Crea `proyecto/src` y `proyecto/docs`", "Crea una sola carpeta llamada `{{src,docs}}`", "Da error por las llaves", "Crea `proyecto` y la copia"]
+opciones_explicitas: ["Crea `proyecto/src` y `proyecto/docs`", "Crea una sola carpeta llamada `{src,docs}`", "Da error por las llaves", "Crea `proyecto` y la copia"]
 respuesta: "Crea `proyecto/src` y `proyecto/docs`"
 
 enunciado: "¿Qué hace `mkdir -p proyecto/{{src,docs}}`?"
@@ -220,7 +220,7 @@ metadata:
   tags: ["llaves"]
 
 tipo: mc
-opciones_explicitas: ["Copia `informe.txt` a `informe.txt.bak`", "Borra el informe", "Copia a un archivo llamado `{{,.bak}}`", "Da error"]
+opciones_explicitas: ["Copia `informe.txt` a `informe.txt.bak`", "Borra el informe", "Copia a un archivo llamado `{,.bak}`", "Da error"]
 respuesta: "Copia `informe.txt` a `informe.txt.bak`"
 
 enunciado: "¿Qué hace `cp informe.txt{{,.bak}}`?"
@@ -353,8 +353,8 @@ metadata:
   tags: ["orden"]
 
 tipo: mc
-opciones_explicitas: ["Las llaves `{{a,b}}`", "Los comodines `*`", "Las variables", "Las comillas"]
-respuesta: "Las llaves `{{a,b}}`"
+opciones_explicitas: ["Las llaves `{a,b}`", "Los comodines `*`", "Las variables", "Las comillas"]
+respuesta: "Las llaves `{a,b}`"
 
 enunciado: "¿Qué se expande primero en Bash?"
 

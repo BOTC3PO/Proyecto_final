@@ -201,7 +201,7 @@ metadata:
   tags: ["sustitucion"]
 
 tipo: mc
-opciones_explicitas: ["hoy=$(date)", "hoy=date", "hoy=(date)", "hoy={{date}}"]
+opciones_explicitas: ["hoy=$(date)", "hoy=date", "hoy=(date)", "hoy={date}"]
 respuesta: "hoy=$(date)"
 
 enunciado: "¿Cómo se guarda la salida del comando `date` en una variable?"

@@ -12,8 +12,8 @@ metadata:
   tags: ["definir"]
 
 tipo: mc
-opciones_explicitas: ["saludar() {{ echo \"Hola\"; }}", "def saludar(): echo Hola", "function saludar do echo Hola done", "saludar := {{ echo Hola }}"]
-respuesta: "saludar() {{ echo \"Hola\"; }}"
+opciones_explicitas: ["saludar() { echo \"Hola\"; }", "def saludar(): echo Hola", "function saludar do echo Hola done", "saludar := { echo Hola }"]
+respuesta: "saludar() { echo \"Hola\"; }"
 
 enunciado: "¿Cuál es una definición válida de función en Bash?"
 

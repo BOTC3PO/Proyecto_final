@@ -12,8 +12,8 @@ metadata:
   tags: ["if"]
 
 tipo: mc
-opciones_explicitas: ["if ($x -gt 5) {{ \"mayor\" }}", "if x > 5 then \"mayor\"", "if ($x > 5) {{ \"mayor\" }}", "if [$x -gt 5]; then \"mayor\"; fi"]
-respuesta: "if ($x -gt 5) {{ \"mayor\" }}"
+opciones_explicitas: ["if ($x -gt 5) { \"mayor\" }", "if x > 5 then \"mayor\"", "if ($x > 5) { \"mayor\" }", "if [$x -gt 5]; then \"mayor\"; fi"]
+respuesta: "if ($x -gt 5) { \"mayor\" }"
 
 enunciado: "¿Cuál es la sintaxis correcta de un `if` en PowerShell?"
 

@@ -69,7 +69,7 @@ metadata:
   tags: ["indice"]
 
 tipo: mc
-opciones_explicitas: ["`notas[3]`", "`notas(3)`", "`notas.3`", "`notas{{3}}`"]
+opciones_explicitas: ["`notas[3]`", "`notas(3)`", "`notas.3`", "`notas{3}`"]
 respuesta: "`notas[3]`"
 
 enunciado: "¿Cómo se accede al tercer elemento de `notas`?"

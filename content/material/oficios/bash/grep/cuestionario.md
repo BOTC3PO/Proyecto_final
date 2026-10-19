@@ -280,8 +280,8 @@ metadata:
   tags: ["-E"]
 
 tipo: mc
-opciones_explicitas: ["Para usar expresiones regulares extendidas (`+`, `?`, `{{n}}`, `|`, `()`)", "Para ignorar errores", "Para extender la búsqueda a subcarpetas", "Para mostrar solo la parte que coincide"]
-respuesta: "Para usar expresiones regulares extendidas (`+`, `?`, `{{n}}`, `|`, `()`)"
+opciones_explicitas: ["Para usar expresiones regulares extendidas (`+`, `?`, `{n}`, `|`, `()`)", "Para ignorar errores", "Para extender la búsqueda a subcarpetas", "Para mostrar solo la parte que coincide"]
+respuesta: "Para usar expresiones regulares extendidas (`+`, `?`, `{n}`, `|`, `()`)"
 
 enunciado: "¿Para qué sirve `grep -E`?"
 
@@ -318,8 +318,8 @@ metadata:
   tags: ["-E"]
 
 tipo: mc
-opciones_explicitas: ["grep -E \"^[0-9]{{4}}$\"", "grep \"[0-9]\"", "grep \"^[0-9]*\"", "grep -E \"[0-9]{{4}}\""]
-respuesta: "grep -E \"^[0-9]{{4}}$\""
+opciones_explicitas: ["grep -E \"^[0-9]{4}$\"", "grep \"[0-9]\"", "grep \"^[0-9]*\"", "grep -E \"[0-9]{4}\""]
+respuesta: "grep -E \"^[0-9]{4}$\""
 
 enunciado: "¿Qué patrón verifica una línea con exactamente 4 dígitos?"
 

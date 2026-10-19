@@ -50,7 +50,7 @@ metadata:
   tags: ["for"]
 
 tipo: mc
-opciones_explicitas: ["1, 2 y 3, uno por línea", "{{1..3}}", "3 2 1", "Solo 1"]
+opciones_explicitas: ["1, 2 y 3, uno por línea", "{1..3}", "3 2 1", "Solo 1"]
 respuesta: "1, 2 y 3, uno por línea"
 
 enunciado: "¿Qué muestra `for n in {{1..3}}; do echo $n; done`?"

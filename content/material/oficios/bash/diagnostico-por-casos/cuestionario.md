@@ -392,8 +392,8 @@ metadata:
   tags: ["argumentos"]
 
 tipo: mc
-opciones_explicitas: ["Una validación: `[ $# -ge 1 ] || {{ echo \"Uso: $0 archivo\" >&2; exit 1; }}`", "Un `sleep` al principio", "Más comillas simples", "Nada: Bash completa los argumentos"]
-respuesta: "Una validación: `[ $# -ge 1 ] || {{ echo \"Uso: $0 archivo\" >&2; exit 1; }}`"
+opciones_explicitas: ["Una validación: `[ $# -ge 1 ] || { echo \"Uso: $0 archivo\" >&2; exit 1; }`", "Un `sleep` al principio", "Más comillas simples", "Nada: Bash completa los argumentos"]
+respuesta: "Una validación: `[ $# -ge 1 ] || { echo \"Uso: $0 archivo\" >&2; exit 1; }`"
 
 enunciado: "Un script usa `$1`, pero se lo ejecutó sin argumentos y se comporta raro. ¿Qué conviene agregar?"
 

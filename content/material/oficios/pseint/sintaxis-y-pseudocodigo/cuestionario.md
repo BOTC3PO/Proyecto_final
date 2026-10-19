@@ -50,7 +50,7 @@ metadata:
   tags: ["estructura"]
 
 tipo: mc
-opciones_explicitas: ["Con `Algoritmo nombre` y `FinAlgoritmo`", "Con `Inicio` y `Fin`", "Con `{{` y `}}`", "Con `Start` y `End`"]
+opciones_explicitas: ["Con `Algoritmo nombre` y `FinAlgoritmo`", "Con `Inicio` y `Fin`", "Con `{` y `}`", "Con `Start` y `End`"]
 respuesta: "Con `Algoritmo nombre` y `FinAlgoritmo`"
 
 enunciado: "¿Cómo empieza y termina un algoritmo en PSeInt?"

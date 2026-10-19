@@ -278,7 +278,7 @@ metadata:
   tags: ["interpolacion"]
 
 tipo: mc
-opciones_explicitas: ["\"$($p.Nombre)\"", "\"$p.Nombre\" siempre", "\"{{$p.Nombre}}\"", "\"${{p}}.Nombre\""]
+opciones_explicitas: ["\"$($p.Nombre)\"", "\"$p.Nombre\" siempre", "\"{$p.Nombre}\"", "\"${p}.Nombre\""]
 respuesta: "\"$($p.Nombre)\""
 
 enunciado: "¿Cómo se inserta la propiedad `Nombre` de `$p` dentro de un texto con comillas dobles?"
@@ -316,7 +316,7 @@ metadata:
   tags: ["arreglos"]
 
 tipo: mc
-opciones_explicitas: ["$lista = @(1, 2, 3)", "$lista = {{1, 2, 3}}", "$lista = [1, 2, 3]", "$lista = list(1, 2, 3)"]
+opciones_explicitas: ["$lista = @(1, 2, 3)", "$lista = {1, 2, 3}", "$lista = [1, 2, 3]", "$lista = list(1, 2, 3)"]
 respuesta: "$lista = @(1, 2, 3)"
 
 enunciado: "¿Cómo se crea una lista de tres números?"

@@ -183,8 +183,8 @@ metadata:
   tags: ["plantillas"]
 
 tipo: mc
-opciones_explicitas: ["Permiten insertar variables con `${{...}}` de forma clara", "Son más rápidas", "Evitan errores siempre", "Son obligatorias"]
-respuesta: "Permiten insertar variables con `${{...}}` de forma clara"
+opciones_explicitas: ["Permiten insertar variables con `${...}` de forma clara", "Son más rápidas", "Evitan errores siempre", "Son obligatorias"]
+respuesta: "Permiten insertar variables con `${...}` de forma clara"
 
 enunciado: "¿Qué ventaja tienen las plantillas de texto (comillas invertidas)?"
 
@@ -202,7 +202,7 @@ metadata:
   tags: ["falsy"]
 
 tipo: mc
-opciones_explicitas: ["`0`", "`\"0\"`", "`[]`", "`{{}}`"]
+opciones_explicitas: ["`0`", "`\"0\"`", "`[]`", "`{}`"]
 respuesta: "`0`"
 
 enunciado: "¿Cuál es un valor falso en un `if`?"
