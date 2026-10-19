@@ -16,12 +16,12 @@ Argentina combina cordillera, selva, desiertos, glaciares, llanura, costa atlán
 
 La promoción turística suele agrupar el territorio en regiones, aunque los nombres y límites varían según el organismo que las defina. Una división habitual es:
 
-- **Norte**: Salta, Jujuy, Tucumán, Catamarca y Santiago del Estero. Paisajes andinos y de quebradas, cultura de raíz indígena y colonial, gastronomía regional.
+- **Norte**: Salta, Jujuy, Tucumán, Catamarca, La Rioja y Santiago del Estero. Paisajes andinos y de quebradas, cultura de raíz indígena y colonial, gastronomía regional.
 - **Litoral**: Misiones, Corrientes, Entre Ríos, Chaco, Formosa y Santa Fe. Ríos, cataratas, esteros y selva.
 - **Cuyo**: Mendoza, San Juan y San Luis. Montañas, vinos, turismo aventura y de nieve.
 - **Centro**: Córdoba y alrededores. Sierras, ríos, turismo familiar y cultural.
 - **Buenos Aires**: la capital, la provincia y la costa atlántica. Turismo urbano, de eventos, de sol y playa.
-- **Patagonia**: Neuquén, Río Negro, Chubut, Santa Cruz y Tierra del Fuego. Lagos, glaciares, fauna marina, montañas y esquí.
+- **Patagonia**: La Pampa, Neuquén, Río Negro, Chubut, Santa Cruz y Tierra del Fuego. Lagos, glaciares, fauna marina, montañas y esquí.
 
 ## Destinos emblemáticos
 

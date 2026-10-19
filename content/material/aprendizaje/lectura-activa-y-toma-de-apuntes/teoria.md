@@ -14,7 +14,7 @@ Pasar los ojos por un texto, aunque se lo haga con atención, no garantiza que s
 
 ## Antes, durante y después
 
-Una manera ordenada de leer activamente es el método **SQ3R**, propuesto por Francis P. Robinson en 1946. Sus pasos son:
+Una manera ordenada de leer activamente es el método **SQ3R**, propuesto por Francis P. Robinson en su libro *Effective Study* (publicado en la década de 1940). Sus pasos son:
 
 - **Survey (explorar)**: mirar títulos, subtítulos, imágenes y resúmenes para hacerse una idea general.
 - **Question (preguntar)**: transformar cada título en una pregunta que el texto debería responder.

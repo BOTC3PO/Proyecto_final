@@ -14,7 +14,7 @@ La psicología social estudia cómo los pensamientos, sentimientos y conductas d
 
 ## 2. Conformidad: el experimento de Asch
 
-La **conformidad** es cambiar la conducta o la opinión para ajustarse a un grupo. En los años cincuenta, Solomon Asch pidió a participantes que compararan la longitud de unas líneas, algo muy fácil. Pero estaban acompañados por cómplices del investigador que, en algunas rondas, daban a propósito una respuesta incorrecta. Aun con la respuesta evidente, una buena parte de los participantes (alrededor de un tercio de las respuestas críticas) terminó acompañando al grupo en el error, al menos alguna vez. Cuando había un solo cómplice que disentía, la conformidad bajaba mucho: **tener un aliado** facilita animarse a pensar distinto.
+La **conformidad** es cambiar la conducta o la opinión para ajustarse a un grupo. En los años cincuenta, Solomon Asch pidió a participantes que compararan la longitud de unas líneas, algo muy fácil. Pero estaban acompañados por cómplices del investigador que, en algunas rondas, daban a propósito una respuesta incorrecta. Aun con la respuesta evidente, muchos participantes terminaron acompañando al grupo en el error: en promedio, cerca de un tercio de las respuestas críticas coincidió con la del grupo, y alrededor de tres de cada cuatro personas se conformaron al menos una vez. Cuando había un solo cómplice que disentía, la conformidad bajaba mucho: **tener un aliado** facilita animarse a pensar distinto.
 
 Se distinguen dos motivos de conformidad: la influencia **normativa** (queremos ser aceptados y evitar el rechazo) y la **informacional** (pensamos que el grupo sabe más que nosotros).
 

@@ -6,7 +6,7 @@
 
 **Presentación** — Qué es el ciberacoso, cómo se diferencia de una discusión, qué marco legal existe, qué hacer si lo sufrís o lo presenciás y cómo convivir en línea. Diseño: sin describir métodos para dañar, centrado en cuidado y ayuda.
 
-> **Si estás sufriendo acoso o te sentís en peligro, hablalo con una persona adulta de confianza. En Argentina podés comunicarte con la Línea 102 (derechos de niñas, niños y adolescentes). Verificá los datos de contacto vigentes.**
+> **Si estás sufriendo acoso o te sentís en peligro, hablalo con una persona adulta de confianza. En muchas jurisdicciones de Argentina funciona la Línea 102, un servicio gratuito de escucha y orientación sobre derechos de niñas, niños y adolescentes (no es un servicio de emergencia: ante un peligro inmediato, llamá al 911). Verificá los datos de contacto vigentes en tu provincia.**
 
 ---
 

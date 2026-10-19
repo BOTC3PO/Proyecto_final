@@ -33,7 +33,7 @@ La principal enfermedad parasitaria es la **varroosis**, causada por el ácaro *
 
 ## Registro y traslado
 
-Los apicultores se inscriben en el **RENAPA** (Registro Nacional de Productores Apícolas), y para trasladar colmenas se requiere la documentación de tránsito que exige SENASA, que hoy se tramita en gran medida de forma electrónica. Los requisitos y procedimientos se actualizan, así que conviene consultarlos en el organismo.
+Los apicultores se inscriben en el **RENAPA** (Registro Nacional de Productores Apícolas), que según información oficial provincial es obligatorio a partir de las cinco colmenas y se actualiza todos los años. Para trasladar colmenas se requiere la documentación de tránsito que exige SENASA, que hoy se tramita en gran medida de forma electrónica; además, algunas provincias piden su propia guía de traslado o un certificado sanitario previo para ingresar colmenas. Los requisitos y procedimientos se actualizan, así que conviene consultarlos en el organismo.
 
 ## Cosecha y extracción de miel
 

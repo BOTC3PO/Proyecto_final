@@ -265,7 +265,7 @@ respuestas_validas:
   - "135"
 
 explicacion: |
-  También existe el 0800 345 1435 para todo el país; verificá siempre los números vigentes.
+  Desde el resto del país se puede llamar al (011) 5275-1135, del mismo centro de ayuda; verificá siempre los números y horarios vigentes.
 ```
 
 ### 15 — Dónde pedir ayuda

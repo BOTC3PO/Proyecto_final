@@ -309,7 +309,7 @@ opciones_explicitas:
 respuesta: "Línea 102"
 
 explicacion: |
-  Verificá siempre los datos vigentes.
+  Es un servicio de orientación que funciona en varias jurisdicciones y no es de emergencia (para eso, el 911). Verificá siempre los datos vigentes en tu provincia.
 ```
 
 ### 16 — Compartir

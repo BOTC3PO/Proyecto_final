@@ -35,7 +35,7 @@ Como orden de magnitud habitual en tablas de talleres: el torneado o fresado com
 
 ## 5. Cómo se indica en el plano
 
-El acabado se indica con un **símbolo de rugosidad** sobre la superficie o su línea de cota. El símbolo básico es una "V" a modo de visto; si lleva una línea horizontal se acompaña del valor del parámetro, por ejemplo Ra 1,6. Un círculo en el símbolo indica que la superficie se obtiene sin arranque de material (fundición, forja), y una barra horizontal indica que se obtiene por mecanizado. Cuando la mayoría de las superficies tienen el mismo acabado, se indica el valor general cerca del rótulo y se destacan solo las excepciones. Las normas internacionales sobre textura superficial (la ISO 1302, actualizada por la serie ISO 21920) definen estos símbolos; conviene consultar la edición vigente de la que use la empresa.
+El acabado se indica con un **símbolo de rugosidad** sobre la superficie o su línea de cota. El símbolo básico es una "V" a modo de visto; si lleva una línea horizontal se acompaña del valor del parámetro, por ejemplo Ra 1,6. Un círculo en el símbolo indica que la superficie se obtiene sin arranque de material (fundición, forja), y una barra horizontal indica que se obtiene por mecanizado. Cuando la mayoría de las superficies tienen el mismo acabado, se indica el valor general cerca del rótulo y se destacan solo las excepciones. Las normas internacionales sobre textura superficial (la ISO 1302, reemplazada por la ISO 21920-1) definen estos símbolos; conviene consultar la edición vigente de la que use la empresa.
 
 ## 6. Cómo se mide
 

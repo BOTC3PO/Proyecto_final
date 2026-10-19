@@ -125,7 +125,7 @@ explicacion: |
   Muchos contienen nicotina y generan dependencia.
 ```
 
-### 7 — Vapeadores y ANMAT
+### 7 — Vapeadores y regulación
 
 ```
 metadata:
@@ -134,13 +134,13 @@ metadata:
   nivel: "avanzado"
   tags: ["consumos_problematicos", "prevencion", "salud"]
 
-respuesta: verdadero
+respuesta: falso
 tipo: vf
 
-enunciado: "En Argentina la venta, importación y publicidad de cigarrillos electrónicos están prohibidas por la ANMAT."
+enunciado: "Si el Estado regula los cigarrillos electrónicos con registro y controles, eso significa que son inocuos para la salud."
 
 explicacion: |
-  Aun así circulan en el mercado informal.
+  Regular un producto no lo vuelve seguro: la nicotina genera dependencia. La normativa sobre estos productos cambió en 2026 y puede seguir cambiando; verificá la vigente.
 ```
 
 ### 8 — Tabaco

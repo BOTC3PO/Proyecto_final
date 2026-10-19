@@ -42,3 +42,11 @@ Se anotan el lote, la fecha, la superficie y el rendimiento. Esa información pe
 ## Transporte y comercialización
 
 La carga debe protegerse de golpes, lluvia y contaminación, con vehículos limpios. La documentación de traslado y de venta debe estar en regla. El rendimiento económico de la campaña se calcula con lo efectivamente vendido, no con lo que se estimó en el campo. Cuando se almacena para vender más adelante, el productor decide entre vender en cosecha o esperar, considerando el costo del almacenamiento, el riesgo de pérdidas y el precio esperado.
+
+## Calidad, clasificación y precio
+
+Cuando el grano se entrega, se toma una muestra y se lo clasifica según un estándar de calidad: humedad, impurezas, granos dañados o quebrados, presencia de insectos. Si el lote está dentro de los parámetros se paga el precio base; si se aparta, hay **rebajas o bonificaciones**. Por eso conviene que el productor conozca de antemano las tolerancias del cultivo que vende y no espere a la entrega para descubrir que su lote no las cumple.
+
+## Seguridad en la cosecha y en los silos
+
+La cosecha y el almacenamiento tienen riesgos propios. Las máquinas tienen partes móviles que atrapan; no se las limpia ni se las destapa con el motor en marcha. En los silos y las celdas existe riesgo de **atrapamiento en el grano**, que se comporta como arena movediza si se entra mientras se descarga, y de atmósferas con poco oxígeno o gases por fermentación. Nunca se entra solo a un silo, y se corta la descarga antes de ingresar. El polvo del grano exige protección respiratoria.

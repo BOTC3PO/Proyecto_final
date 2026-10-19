@@ -42,3 +42,11 @@ Los frutales sufren plagas y enfermedades específicas. Los programas de sanidad
 ## Cosecha y poscosecha
 
 El **momento de cosecha** se define por la madurez, no por el calendario: color, firmeza, contenido de azúcar. Una fruta cosechada demasiado pronto no madura bien; demasiado tarde, no soporta el almacenamiento. La fruta se manipula con cuidado, se enfría rápido y se clasifica y empaca. La cadena de frío es esencial para conservar la calidad. Muchos mercados, en especial los de exportación, exigen certificaciones y buenas prácticas agrícolas verificadas.
+
+## Floración, polinización y heladas
+
+La producción de fruta se define en pocas semanas. Muchas especies necesitan **polinización cruzada**: la flor de una variedad debe recibir polen de otra compatible, por lo que en la plantación se intercalan **variedades polinizadoras** y se instalan colmenas durante la floración, ya que las abejas son los principales polinizadores. Una helada en plena floración puede arruinar la cosecha del año; por eso se elige bien el sitio de plantación y se usan defensas activas como el riego antihelada o los ventiladores cuando el cultivo lo justifica.
+
+## Raleo y calidad de la fruta
+
+Si un árbol cuaja más frutos de los que puede sostener, estos quedan chicos y el árbol puede producir poco al año siguiente, un fenómeno llamado **añerismo**. El **raleo** consiste en quitar parte de los frutos jóvenes para que los que quedan crezcan más y mejor, y se hace a mano o con ayuda de reguladores según la especie y el tamaño de la finca.

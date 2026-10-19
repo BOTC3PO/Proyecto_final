@@ -54,7 +54,7 @@ metadata:
   tags: ["lectura"]
 
 tipo: completar
-enunciado: "El método de lectura SQ3R fue propuesto por Francis P. ___ en 1946."
+enunciado: "El método de lectura SQ3R fue propuesto por Francis P. ___ en su libro Effective Study."
 respuestas_validas:
   - "Robinson"
 

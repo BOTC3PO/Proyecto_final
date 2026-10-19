@@ -45,7 +45,7 @@ opciones_explicitas:
 respuesta: "Salta"
 
 explicacion: |
-  También Jujuy, Tucumán, Catamarca y Santiago del Estero.
+  También Jujuy, Tucumán, Catamarca, La Rioja y Santiago del Estero.
 ```
 
 ### 3 — Litoral

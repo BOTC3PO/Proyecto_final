@@ -29,7 +29,7 @@ El símbolo de soldadura en el plano se compone de:
 
 ## 4. Lado de la flecha y lado opuesto
 
-El símbolo se escribe **debajo** de la línea de referencia si la soldadura está del **lado de la flecha**, y **encima** si está del lado opuesto. Si se necesita de ambos lados, se coloca en los dos. La convención tiene variantes entre normas, por eso hay que interpretar el símbolo según la norma indicada en el plano.
+El símbolo se escribe **debajo** de la línea de referencia si la soldadura está del **lado de la flecha**, y **encima** si está del lado opuesto. Si se necesita de ambos lados, se coloca en los dos. Esta es la convención de una sola línea de referencia (la de AWS A2.4 y el sistema B de la ISO 2553). La ISO 2553 admite además el sistema A, con dos líneas de referencia: una continua, para el lado de la flecha, y otra de trazos, para el lado opuesto. Por eso hay que interpretar el símbolo según la norma indicada en el plano.
 
 ## 5. Cómo se lee
 

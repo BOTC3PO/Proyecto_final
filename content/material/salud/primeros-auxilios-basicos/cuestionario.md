@@ -412,7 +412,7 @@ opciones_explicitas:
 respuesta: "Al 107 o al 911"
 
 explicacion: |
-  Los números pueden variar según la zona.
+  El 107 es el SAME de la Ciudad de Buenos Aires y el 911 es el número de emergencias en buena parte del país. El número depende de la zona: verificá el de tu localidad.
 ```
 
 ### 21 — Hacer solo lo que se sabe

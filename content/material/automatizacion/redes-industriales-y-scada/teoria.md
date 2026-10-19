@@ -27,7 +27,7 @@ Modbus fue creado por Modicon en 1979 para comunicar PLC. Es simple y abierto, y
 
 Tiene dos versiones comunes:
 
-- **Modbus RTU**: sobre una línea serie, por lo general RS-485, que permite largas distancias (hasta alrededor de 1200 metros) y varios dispositivos en un mismo par de cables. Cada esclavo tiene una dirección de 1 a 247.
+- **Modbus RTU**: sobre una línea serie, por lo general RS-485, que permite largas distancias (alrededor de 1200 metros a velocidades bajas; a mayor velocidad, la distancia máxima baja) y varios dispositivos en un mismo par de cables. Cada esclavo tiene una dirección de 1 a 247.
 - **Modbus TCP**: sobre Ethernet, usando la infraestructura de redes de datos.
 
 ## 4. Buses de campo y Ethernet industrial

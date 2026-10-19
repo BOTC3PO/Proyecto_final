@@ -6,7 +6,7 @@
 
 **Presentación** — Señales de alerta, mitos, cómo acompañar, dónde pedir ayuda y cómo hablar del tema de forma segura (guías de la OMS). Diseño deliberado: no describe métodos.
 
-> **Si estás pensando en hacerte daño o en quitarte la vida, no estás solo/a y hay ayuda. En Argentina podés llamar al 135 (gratuito desde Capital Federal y Gran Buenos Aires; 24 horas) o al 0800 345 1435 desde todo el país. Si hay peligro inmediato, llamá al servicio de emergencias de tu zona o acudí a una guardia. Verificá siempre los números vigentes en argentina.gob.ar.**
+> **Si estás pensando en hacerte daño o en quitarte la vida, no estás solo/a y hay ayuda. En Argentina podés llamar al 135 (gratuito desde Capital Federal y Gran Buenos Aires) o al (011) 5275-1135 desde todo el país: son las líneas del Centro de Asistencia al Suicida de Buenos Aires, una organización sin fines de lucro. Si hay peligro inmediato, llamá al servicio de emergencias de tu zona o acudí a una guardia. Verificá siempre los números vigentes en argentina.gob.ar.**
 
 ---
 

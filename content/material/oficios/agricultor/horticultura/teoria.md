@@ -42,3 +42,15 @@ Se aplica el enfoque del **manejo integrado de plagas** (ver la lección especí
 ## Cosecha y comercialización
 
 La cosecha se hace en el momento adecuado, a la hora más fresca del día, con manejo cuidadoso para no dañar el producto. Se lava, clasifica, envasa y refrigera según el caso. El productor puede vender en mercados concentradores, a verdulerías, a cooperativas o directamente al consumidor. La **higiene en la cosecha** y la capacitación del personal reducen los riesgos para la salud de quien consume. La horticultura periurbana, cerca de las ciudades, enfrenta el desafío adicional de convivir con vecinos, por lo que las aplicaciones deben realizarse con especial responsabilidad.
+
+## Planificación escalonada
+
+Como las hortalizas son perecederas y el mercado compra durante toda la temporada, el productor suele **escalonar las siembras**: en lugar de sembrar todo un día, siembra o trasplanta una parte cada cierta cantidad de días para cosechar de a poco y no saturar la venta. Un calendario de siembra por especie, con la fecha de siembra, el trasplante y la cosecha esperada, ordena el trabajo y permite calcular la mano de obra de cada semana.
+
+## Cobertura del suelo
+
+Cubrir el suelo con **mulching**, una capa de paja, restos vegetales o plástico, conserva la humedad, reduce las malezas y modera la temperatura de las raíces. Los plásticos de colores, de uso muy extendido en cultivos como el tomate o la frutilla, además adelantan el ciclo en primavera. Después de la campaña hay que retirar y disponer adecuadamente el plástico: no se quema ni se entierra en el lote.
+
+## Cuidado de quien trabaja
+
+El trabajo hortícola es de mucho esfuerzo físico: se trabaja agachado, bajo el sol o dentro de invernáculos con calor y humedad. Conviene alternar tareas, hidratarse, protegerse del sol y usar elementos de protección personal al aplicar cualquier producto. Los invernáculos requieren ventilar antes de ingresar tras una aplicación.

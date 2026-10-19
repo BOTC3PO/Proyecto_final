@@ -22,7 +22,7 @@ Cada criterio de éxito tiene un nivel:
 - **Nivel AA**: el objetivo habitual de la mayoría de las normativas. Incluye todo lo de A y suma requisitos como el contraste mínimo de 4,5 a 1 para texto normal.
 - **Nivel AAA**: el más exigente. No suele pedirse como política general de todo un sitio porque algunos criterios no se pueden cumplir para cualquier contenido.
 
-Los niveles son acumulativos: para declarar conformidad AA hay que cumplir todos los criterios A y AA. En la Argentina, la Ley 26.653 de accesibilidad de la información en las páginas web obliga a organismos públicos, entre otros, y las pautas oficiales las fija la ONTI; conviene consultar la disposición vigente para saber qué versión y nivel se exigen.
+Los niveles son acumulativos: para declarar conformidad AA hay que cumplir todos los criterios A y AA. En la Argentina, la Ley 26.653 de accesibilidad de la información en las páginas web obliga a organismos públicos, entre otros, y las pautas oficiales las fija la ONTI: la Disposición 6/2019 adoptó las WCAG 2.0 y fijó una exigencia gradual de criterios. Como esa disposición puede actualizarse, conviene consultar el texto vigente para saber qué versión y nivel se exigen.
 
 ## 3. Teclado: una vía de acceso para muchas personas
 

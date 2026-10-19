@@ -26,7 +26,7 @@ Cuando las coberturas bajan, vuelven brotes de enfermedades que estaban controla
 
 ## 4. El Calendario Nacional de Vacunación y la Ley 27.491
 
-En Argentina, la **Ley 27.491** (2018), de control de enfermedades prevenibles por vacunación, declara la vacunación de interés nacional y establece que las vacunas del **Calendario Nacional de Vacunación** son **obligatorias y gratuitas** en los vacunatorios públicos. El Ministerio de Salud de la Nación define y actualiza el calendario, que incluye vacunas desde el nacimiento hasta la adultez y para distintos grupos (embarazadas, personal de salud, personas con ciertas condiciones). El calendario cambia con el tiempo, por eso conviene consultar el vigente en argentina.gob.ar.
+En Argentina, la **Ley 27.491** (publicada en el Boletín Oficial en enero de 2019), de control de enfermedades prevenibles por vacunación, declara la vacunación de interés nacional y establece que las vacunas del **Calendario Nacional de Vacunación** son **obligatorias y gratuitas** en los vacunatorios públicos. El Ministerio de Salud de la Nación define y actualiza el calendario, que incluye vacunas desde el nacimiento hasta la adultez y para distintos grupos (embarazadas, personal de salud, personas con ciertas condiciones). El calendario cambia con el tiempo, por eso conviene consultar el vigente en argentina.gob.ar.
 
 En la adolescencia suelen aplicarse refuerzos y vacunas como la que previene el virus del papiloma humano (HPV, asociado a varios tipos de cáncer) y la de la triple bacteriana acelular. Se pide el **carnet de vacunación** para trámites escolares y otros.
 

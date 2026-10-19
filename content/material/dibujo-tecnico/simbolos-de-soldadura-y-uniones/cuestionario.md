@@ -283,7 +283,7 @@ metadata:
   nivel: "avanzado"
   tags: ["dibujo"]
 
-enunciado: "Según la convención ISO 2553, el símbolo debajo de la línea de referencia corresponde a la soldadura..."
+enunciado: "En el sistema de una sola línea de referencia (el de AWS A2.4 y el sistema B de ISO 2553), el símbolo debajo de la línea corresponde a la soldadura..."
 tipo: mc
 opciones_explicitas:
   - "Del lado de la flecha"
@@ -292,7 +292,7 @@ opciones_explicitas:
 respuesta: "Del lado de la flecha"
 
 explicacion: |
-  Encima, el lado opuesto. Verificar según la norma del plano.
+  Encima, el lado opuesto. En el sistema A de ISO 2553 se usa en cambio una línea de referencia continua (lado de la flecha) y otra de trazos (lado opuesto): verificar según la norma del plano.
 ```
 
 ### 15 — Ambos lados

@@ -17,7 +17,7 @@
 ## 2. Sustancias legales que también hacen daño
 
 - **Alcohol**: es la sustancia psicoactiva más usada y el consumo temprano aumenta los riesgos. En Argentina la venta a menores de 18 años está prohibida por la Ley 24.788, y la Ley 27.714 estableció **alcohol cero al conducir** (modificando la ley nacional de tránsito; ver `../../civica/alcoholemia-y-conduccion/`). Mezclado con actividades de riesgo (manejar, nadar), multiplica los accidentes. El consumo intenso en poco tiempo es especialmente peligroso.
-- **Tabaco y vapeadores**: la nicotina genera dependencia. Los cigarrillos electrónicos o vapeadores se promocionan como "inocuos", pero no lo son; en Argentina su venta, importación y publicidad están prohibidas por la ANMAT, aunque se consiguen en el mercado informal. La Ley 26.687 regula la publicidad y el consumo de tabaco.
+- **Tabaco y vapeadores**: la nicotina genera dependencia. Los cigarrillos electrónicos o vapeadores se promocionan como "inocuos", pero no lo son; en Argentina su venta, importación y publicidad estuvieron prohibidas por la ANMAT desde 2011, y en 2026 esa prohibición se reemplazó por un régimen de registro y control (Resolución 549/2026 del Ministerio de Salud y Disposición 2543/2026 de la ANMAT). Que se regulen no los vuelve inocuos, y la norma puede seguir cambiando: verificá siempre la vigente. La Ley 26.687 regula la publicidad y el consumo de tabaco.
 - **Medicamentos**: usados sin indicación médica o con una finalidad distinta de la prescripta pueden ser un consumo problemático.
 
 ## 3. Consumos que no involucran sustancias

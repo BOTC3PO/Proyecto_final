@@ -24,7 +24,7 @@ La resistencia a la carga de viento verifica que la abertura no se deforme exces
 
 Los requisitos básicos y la clasificación de las ventanas exteriores se establecen en la norma IRAM 11507. Otras normas tratan ensayos complementarios, como los de resistencia al alabeo, a la deformación o a la operación repetida de aperturas y cierres.
 
-Los números de las normas que aparecen en esta ficha provienen de pliegos de licitación públicos y de la planificación del oficio. Para citar una norma en un documento técnico hay que consultar la versión vigente en el IRAM, porque las normas se revisan y su numeración y contenido cambian.
+Las asignaciones de esta ficha (11523 para el aire, 11591 para el agua y 11590 para el viento) provienen de un pliego de licitación municipal público, y la serie 11507, incluida su parte 6 sobre etiquetado de eficiencia energética de ventanas, figura en el material del propio IRAM; no se pudo consultar el texto de cada norma.  Para citar una norma en un documento técnico hay que consultar la versión vigente en el IRAM, porque las normas se revisan y su numeración y contenido cambian.
 
 ## Clasificaciones
 

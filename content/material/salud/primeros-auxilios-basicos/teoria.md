@@ -13,7 +13,7 @@
 `../../ed-fisica/primeros-auxilios-rcp-dea/` presenta las emergencias más graves. Para cualquier situación, el orden es el mismo:
 
 1. **Proteger**: ¿la escena es segura para mí y para la víctima? Si hay riesgo (tránsito, fuego, cables), no te expongas.
-2. **Alertar**: pedí ayuda. Llamá al servicio de emergencias de tu zona (**107** o **911**) o pedí que alguien lo haga. Decí qué pasó, dónde estás y cuántas personas están heridas.
+2. **Alertar**: pedí ayuda. Llamá al servicio de emergencias de tu zona o pedí que alguien lo haga: en la Ciudad de Buenos Aires, el **107** (SAME) es la línea de emergencias médicas, y en buena parte del país se usa el **911**. Fijate cuál corresponde donde vivís. Decí qué pasó, dónde estás y cuántas personas están heridas.
 3. **Socorrer**: hacé solo lo que sabés hacer, sin arriesgarte y sin mover a la persona si no es imprescindible.
 
 ## 2. Heridas pequeñas
