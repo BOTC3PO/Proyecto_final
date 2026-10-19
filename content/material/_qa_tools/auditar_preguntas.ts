@@ -43,6 +43,7 @@ for (const f of process.argv.slice(2)) {
           if (!/_{2,}/.test(String(r.enunciado))) probs.push(`${id} completar sin hueco ___`);
           if (!r.respuestasValidas || r.respuestasValidas.length === 0) probs.push(`${id} completar sin respuestas válidas`);
         }
+        if (r.tipo !== "mc" && r.tipo !== "ordenar" && /^opciones_explicitas:/m.test(b.src) && !/^\s*(multiple|seleccion_multiple)/m.test(b.src)) probs.push(`${id} tiene opciones_explicitas pero se sirve como ${r.tipo} (falta tipo: mc)`);
         if (r.tipo === "vf" && typeof r.respuesta !== "boolean") probs.push(`${id} vf sin respuesta booleana`);
         if (seed === "a1") { const e = String(r.enunciado).trim(); if (vistos.has(e)) probs.push(`${id} enunciado repetido con #${vistos.get(e)}`); else vistos.set(e, k + 1); }
       }
