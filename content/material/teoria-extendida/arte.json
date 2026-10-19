@@ -11,19 +11,19 @@
         "id": "cap-1",
         "title": "El tejido de los sentidos: De la vibración a la forma",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "De la cueva al corte: la construcción del sentido en el arte",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "La arquitectura del sentido: Del diseño al escenario",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       }
     ]
   },
@@ -137,7 +137,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -190,7 +196,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p9",
-          "text": "El pentagrama no es más que cinco líneas horizontales paralelas y cuatro espacios entre ellas. Parece simple, pero es una invención revolucionaria porque le da una ubicación espacial fija a la altura del sonido (el *pitch*). Antes del pentagrama, existían los neumas, que eran garabatos sobre el texto litúrgico que indicaban si la melodía subía o bajaba, pero sin precisión exacta. El pentagrama permitió medir el sonido."
+          "text": "El pentagrama no es más que cinco líneas horizontales paralelas y cuatro espacios entre ellas. Parece simple, pero es una invención revolucionaria porque le da una ubicación espacial fija a la altura del sonido (el pitch). Antes del pentagrama, existían los neumas, que eran garabatos sobre el texto litúrgico que indicaban si la melodía subía o bajaba, pero sin precisión exacta. El pentagrama permitió medir el sonido."
         },
         {
           "type": "paragraph",
@@ -211,22 +217,22 @@
         {
           "type": "paragraph",
           "id": "cap-2-p13",
-          "text": "Mientras la música se escribía en líneas, el cine, que es el arte más reciente de la lista, necesitaba definir su propia unidad básica. Si la nota es la unidad de la música, el **plano** es la unidad del cine. Un plano es la porción continua de imagen filmada entre un encendido y un apagado de la cámara, o entre dos cortes. No es solo \"lo que se ve\", es una decisión activa de qué incluir y qué excluir."
+          "text": "Mientras la música se escribía en líneas, el cine, que es el arte más reciente de la lista, necesitaba definir su propia unidad básica. Si la nota es la unidad de la música, el plano es la unidad del cine. Un plano es la porción continua de imagen filmada entre un encendido y un apagado de la cámara, o entre dos cortes. No es solo \"lo que se ve\", es una decisión activa de qué incluir y qué excluir."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p14",
-          "text": "Al filmar, el director de fotografía debe elegir la escala del plano, que depende de la distancia entre la cámara y el sujeto. Esta elección no es arbitraria; cada plano tiene una función narrativa distinta. El **plano general** nos muestra el escenario completo; el sujeto es pequeño, casi una parte del paisaje. Sirve para ubicarnos en el espacio, para decir \"esto pasa en un bosque\", o \"esto pasa en una ciudad enorme\". Luego está el **plano entero**, que muestra al personaje de cabeza a pies, permitiendo ver su postura y su relación con el entorno inmediato."
+          "text": "Al filmar, el director de fotografía debe elegir la escala del plano, que depende de la distancia entre la cámara y el sujeto. Esta elección no es arbitraria; cada plano tiene una función narrativa distinta. El plano general nos muestra el escenario completo; el sujeto es pequeño, casi una parte del paisaje. Sirve para ubicarnos en el espacio, para decir \"esto pasa en un bosque\", o \"esto pasa en una ciudad enorme\". Luego está el plano entero, que muestra al personaje de cabeza a pies, permitiendo ver su postura y su relación con el entorno inmediato."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p15",
-          "text": "A medida que nos acercamos, el foco cambia. El **plano americano**, famoso por los westerns, corta al sujeto por la mitad del muslo. Originalmente, esto servía para mostrar el revólver en la cadera del vaquero, un detalle crucial para la trama. El **plano medio**, que corta a la altura de la cintura, es el caballo de batalla del diálogo; permite ver las expresiones faciales y algo del lenguaje corporal, equilibrando intimidad y contexto."
+          "text": "A medida que nos acercamos, el foco cambia. El plano americano, famoso por los westerns, corta al sujeto por la mitad del muslo. Originalmente, esto servía para mostrar el revólver en la cadera del vaquero, un detalle crucial para la trama. El plano medio, que corta a la altura de la cintura, es el caballo de batalla del diálogo; permite ver las expresiones faciales y algo del lenguaje corporal, equilibrando intimidad y contexto."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p16",
-          "text": "Y luego llegamos a la cara. El **primer plano** aísla al sujeto de su entorno, obligándonos a mirar sus ojos, sus microexpresiones. Es el plano de la emoción pura. Si nos acercamos aún más, al **primerísimo primer plano**, vemos solo un ojo o una boca; la tensión es máxima, la intimidad es invasiva. Finalmente, el **plano detalle** nos muestra un objeto: una llave, una carta, una herida. En cine, un objeto en primer plano deja de ser un objeto para convertirse en un símbolo narrativo. Al elegir qué plano usar, el cineasta está dictando qué debe importar al espectador en ese momento."
+          "text": "Y luego llegamos a la cara. El primer plano aísla al sujeto de su entorno, obligándonos a mirar sus ojos, sus microexpresiones. Es el plano de la emoción pura. Si nos acercamos aún más, al primerísimo primer plano, vemos solo un ojo o una boca; la tensión es máxima, la intimidad es invasiva. Finalmente, el plano detalle nos muestra un objeto: una llave, una carta, una herida. En cine, un objeto en primer plano deja de ser un objeto para convertirse en un símbolo narrativo. Al elegir qué plano usar, el cineasta está dictando qué debe importar al espectador en ese momento."
         },
         {
           "type": "heading",
@@ -237,22 +243,22 @@
         {
           "type": "paragraph",
           "id": "cap-2-p18",
-          "text": "Una vez que decidimos qué tamaño de plano usar, debemos organizar lo que entra dentro de ese cuadro. Ahí entra el **encuadre**. El plano define la distancia, pero el encuadre define la composición interna. Es la arquitectura de la imagen."
+          "text": "Una vez que decidimos qué tamaño de plano usar, debemos organizar lo que entra dentro de ese cuadro. Ahí entra el encuadre. El plano define la distancia, pero el encuadre define la composición interna. Es la arquitectura de la imagen."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p19",
-          "text": "Un elemento clave del encuadre es el **ángulo de cámara**. Si la cámara está a la altura de los ojos del sujeto (nivel o normal), la perspectiva es neutral, casi documental. Pero si la cámara se mueve hacia arriba (**contrapicado**), el sujeto se ve más grande, poderoso, dominante. Si la cámara se mueve hacia abajo (**picado**), el sujeto se hace pequeño, vulnerable, débil. Y si la cámara se inclina, creando un horizonte torcido, logramos el **ángulo holandés**, que genera inestabilidad, locura o tensión psicológica. El ángulo no solo muestra al sujeto, juzga al sujeto."
+          "text": "Un elemento clave del encuadre es el ángulo de cámara. Si la cámara está a la altura de los ojos del sujeto (nivel o normal), la perspectiva es neutral, casi documental. Pero si la cámara se mueve hacia arriba (contrapicado), el sujeto se ve más grande, poderoso, dominante. Si la cámara se mueve hacia abajo (picado), el sujeto se hace pequeño, vulnerable, débil. Y si la cámara se inclina, creando un horizonte torcido, logramos el ángulo holandés, que genera inestabilidad, locura o tensión psicológica. El ángulo no solo muestra al sujeto, juzga al sujeto."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p20",
-          "text": "Otro aspecto técnico pero vital es el **espacio de mirada** (o *look room*). Si un personaje mira hacia la derecha de la pantalla, debemos dejar más espacio vacío en esa dirección que en la izquierda. Si no lo hacemos, la imagen se siente \"apretada\", como si el personaje fuera a chocar contra el borde de la pantalla. Es una regla de confort visual. Similarmente, el **headroom** es el espacio entre la cabeza del sujeto y el borde superior del cuadro. Ni mucho (que hace que el personaje parezca que flota o está desconectado del suelo) ni poco (que lo hace sentir oprimido). El balance correcto depende del tono de la escena, pero generalmente se busca un término medio que ancle al personaje en la realidad."
+          "text": "Otro aspecto técnico pero vital es el espacio de mirada (o look room). Si un personaje mira hacia la derecha de la pantalla, debemos dejar más espacio vacío en esa dirección que en la izquierda. Si no lo hacemos, la imagen se siente \"apretada\", como si el personaje fuera a chocar contra el borde de la pantalla. Es una regla de confort visual. Similarmente, el headroom es el espacio entre la cabeza del sujeto y el borde superior del cuadro. Ni mucho (que hace que el personaje parezca que flota o está desconectado del suelo) ni poco (que lo hace sentir oprimido). El balance correcto depende del tono de la escena, pero generalmente se busca un término medio que ancle al personaje en la realidad."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p21",
-          "text": "Y no podemos olvidar la **regla de tercios**. En lugar de poner al sujeto en el centro absoluto de la imagen (lo cual puede ser estático y aburrido), dividimos el cuadro en nueve partes iguales con dos líneas verticales y dos horizontales. Los puntos de intersección son los lugares más potentes para colocar el elemento de interés. Esto crea una composición dinámica, que invita al ojo a recorrer la imagen en lugar de quedarse quieta. El encuadre es, en definitiva, la forma en que le decimos al espectador dónde mirar y cómo sentirse frente a lo que mira."
+          "text": "Y no podemos olvidar la regla de tercios. En lugar de poner al sujeto en el centro absoluto de la imagen (lo cual puede ser estático y aburrido), dividimos el cuadro en nueve partes iguales con dos líneas verticales y dos horizontales. Los puntos de intersección son los lugares más potentes para colocar el elemento de interés. Esto crea una composición dinámica, que invita al ojo a recorrer la imagen en lugar de quedarse quieta. El encuadre es, en definitiva, la forma en que le decimos al espectador dónde mirar y cómo sentirse frente a lo que mira."
         },
         {
           "type": "heading",
@@ -263,22 +269,22 @@
         {
           "type": "paragraph",
           "id": "cap-2-p23",
-          "text": "Hemos filmado los planos, los hemos encuadrado con precisión. Pero todavía no tenemos una película. Tenemos una caja de ladrillos sueltos. El proceso de unirlos se llama **montaje** (o edición). Aquí es donde la narrativa cobra vida. Dos películas pueden estar filmadas con los mismos planos, pero si se montan de manera diferente, contarán historias opuestas."
+          "text": "Hemos filmado los planos, los hemos encuadrado con precisión. Pero todavía no tenemos una película. Tenemos una caja de ladrillos sueltos. El proceso de unirlos se llama montaje (o edición). Aquí es donde la narrativa cobra vida. Dos películas pueden estar filmadas con los mismos planos, pero si se montan de manera diferente, contarán historias opuestas."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p24",
-          "text": "El tipo más básico de unión es el **corte directo** o seco. Un plano desaparece y aparece el siguiente instantáneamente. Cuando está bien hecho, el espectador ni se da cuenta; es invisible. Pero hay otras herramientas. El **fundido a negro** oscurece la imagen gradualmente, marcando un paso del tiempo claro, el fin de una escena o un capítulo. La **disolvencia** (o encadenado) superpone un plano sobre el otro, sugiriendo una conexión suave, un recuerdo o la passage de horas."
+          "text": "El tipo más básico de unión es el corte directo o seco. Un plano desaparece y aparece el siguiente instantáneamente. Cuando está bien hecho, el espectador ni se da cuenta; es invisible. Pero hay otras herramientas. El fundido a negro oscurece la imagen gradualmente, marcando un paso del tiempo claro, el fin de una escena o un capítulo. La disolvencia (o encadenado) superpone un plano sobre el otro, sugiriendo una conexión suave, un recuerdo o la passage de horas."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p25",
-          "text": "Existe también el **corte por movimiento** (*match cut*), que conecta dos planos que comparten una forma o un movimiento similar. El ejemplo más famoso es en *2001: Una odisea del espacio*, donde un hueso lanzado al aire por un homínido se transforma en una nave espacial por un corte perfecto. En segundos, nos muestra millones de años de evolución tecnológica."
+          "text": "Existe también el corte por movimiento (match cut), que conecta dos planos que comparten una forma o un movimiento similar. El ejemplo más famoso es en 2001: Una odisea del espacio, donde un hueso lanzado al aire por un homínido se transforma en una nave espacial por un corte perfecto. En segundos, nos muestra millones de años de evolución tecnológica."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p26",
-          "text": "El objetivo del montaje es mantener la **continuidad**. El espectador debe entender dónde están los personajes y qué acaba de pasar sin confundirse. Una regla clásica para esto es la **regla de los 180 grados**. Si dos personajes están hablando, imaginamos una línea que los une. La cámara debe permanecer en un solo lado de esa línea durante toda la escena. Si la cruzamos (salto de eje), los personajes parecerán estar mirando en la misma dirección en lugar de uno al otro, rompiendo la ilusión de espacio. El montaje es, por lo tanto, la lógica invisible que sostiene la realidad de la ficción."
+          "text": "El objetivo del montaje es mantener la continuidad. El espectador debe entender dónde están los personajes y qué acaba de pasar sin confundirse. Una regla clásica para esto es la regla de los 180 grados. Si dos personajes están hablando, imaginamos una línea que los une. La cámara debe permanecer en un solo lado de esa línea durante toda la escena. Si la cruzamos (salto de eje), los personajes parecerán estar mirando en la misma dirección en lugar de uno al otro, rompiendo la ilusión de espacio. El montaje es, por lo tanto, la lógica invisible que sostiene la realidad de la ficción."
         },
         {
           "type": "heading",
@@ -299,7 +305,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -325,67 +337,67 @@
         {
           "type": "paragraph",
           "id": "cap-3-p4",
-          "text": "El primer principio que suele golpear a los estudiantes es el **contraste**. En términos sencillos, el contraste es la diferencia marcada entre dos elementos. Si pintás todo el cuadro del mismo azul, no hay contraste. Si usás un azul oscuro junto a un amarillo brillante, el contraste es alto. ¿Por qué es importante? Porque el ojo humano está programado para buscar diferencias. El contraste es lo que guía tu mirada. Sin él, una obra se ve plana, aburrida, como una pared lisa. Pero cuidado: el contraste no sirve solo para que las cosas \"salten\" a la vista, sino para jerarquizar. En un proyecto multimedial, por ejemplo, si querés que el espectador lea un subtítulo sobre un video, necesitás contraste entre el texto y el fondo. Si el fondo es dinámico y colorido, quizás necesites una sombra detrás de las letras o un cambio de tipografía para que se lea sin esfuerzo. Ahí vemos cómo el principio de diseño se cruza directamente con la técnica de producción."
+          "text": "El primer principio que suele golpear a los estudiantes es el contraste. En términos sencillos, el contraste es la diferencia marcada entre dos elementos. Si pintás todo el cuadro del mismo azul, no hay contraste. Si usás un azul oscuro junto a un amarillo brillante, el contraste es alto. ¿Por qué es importante? Porque el ojo humano está programado para buscar diferencias. El contraste es lo que guía tu mirada. Sin él, una obra se ve plana, aburrida, como una pared lisa. Pero cuidado: el contraste no sirve solo para que las cosas \"salten\" a la vista, sino para jerarquizar. En un proyecto multimedial, por ejemplo, si querés que el espectador lea un subtítulo sobre un video, necesitás contraste entre el texto y el fondo. Si el fondo es dinámico y colorido, quizás necesites una sombra detrás de las letras o un cambio de tipografía para que se lea sin esfuerzo. Ahí vemos cómo el principio de diseño se cruza directamente con la técnica de producción."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p5",
-          "text": "Esta necesidad de organización nos lleva al **equilibrio**. No te confundas: equilibrio no es solo simetría, aunque la simetría es una forma muy potente de lograrlo. El equilibrio es la distribución del \"peso visual\" en la composición. Imaginá una balanza. Si ponés una piedra grande a la izquierda, necesitás varias piedras chicas a la derecha para que la balanza se mantenga recta. En el arte, un elemento grande y oscuro tiene mucho \"peso visual\". Para equilibrarlo, podés poner varios elementos pequeños y claros del otro lado. Esto se llama equilibrio asimétrico, y a menudo resulta más interesante y dinámico que el equilibrio simétrico, donde los lados son espejos uno del otro."
+          "text": "Esta necesidad de organización nos lleva al equilibrio. No te confundas: equilibrio no es solo simetría, aunque la simetría es una forma muy potente de lograrlo. El equilibrio es la distribución del \"peso visual\" en la composición. Imaginá una balanza. Si ponés una piedra grande a la izquierda, necesitás varias piedras chicas a la derecha para que la balanza se mantenga recta. En el arte, un elemento grande y oscuro tiene mucho \"peso visual\". Para equilibrarlo, podés poner varios elementos pequeños y claros del otro lado. Esto se llama equilibrio asimétrico, y a menudo resulta más interesante y dinámico que el equilibrio simétrico, donde los lados son espejos uno del otro."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p6",
-          "text": "Aquí es donde entra la **simetría** como concepto geométrico y estético, y no podemos dejar de hablar de los **rosetones**. Los rosetones, esas maravillosas ventanas circulares de las catedrales góticas, son el ejemplo perfecto de geometría al servicio del diseño. Un rosetón no es un círculo decorado al azar; es un ejercicio de precisión matemática y simetría rotacional. Para construir uno, dividís la circunferencia en partes iguales. Si querés ocho pétalos, dividís los 360 grados en ocho arcos de 45 grados. Luego, repetís un motivo en cada arco, rotándolo. Esto crea una **simetría rotacional de orden 8**. Además, muchos rosetones tienen **simetría axial**, lo que significa que si trazás una línea por el centro, un lado es el reflejo del otro. Cuando un diseño tiene ambos tipos de simetría, se habla de simetría diédrica. ¿Qué tiene que ver esto con el diseño gráfico? Mucho. Cuando creás un patrón repetitivo, ya sea en una tela, en una página web o en una interfaz de aplicación, estás utilizando principios de simetría y repetición para generar coherencia. El rosetón nos enseña que la repetición ordenada genera una sensación de armonía y orden perfecto, algo que el cerebro humano encuentra profundamente satisfactorio."
+          "text": "Aquí es donde entra la simetría como concepto geométrico y estético, y no podemos dejar de hablar de los rosetones. Los rosetones, esas maravillosas ventanas circulares de las catedrales góticas, son el ejemplo perfecto de geometría al servicio del diseño. Un rosetón no es un círculo decorado al azar; es un ejercicio de precisión matemática y simetría rotacional. Para construir uno, dividís la circunferencia en partes iguales. Si querés ocho pétalos, dividís los 360 grados en ocho arcos de 45 grados. Luego, repetís un motivo en cada arco, rotándolo. Esto crea una simetría rotacional de orden 8. Además, muchos rosetones tienen simetría axial, lo que significa que si trazás una línea por el centro, un lado es el reflejo del otro. Cuando un diseño tiene ambos tipos de simetría, se habla de simetría diédrica. ¿Qué tiene que ver esto con el diseño gráfico? Mucho. Cuando creás un patrón repetitivo, ya sea en una tela, en una página web o en una interfaz de aplicación, estás utilizando principios de simetría y repetición para generar coherencia. El rosetón nos enseña que la repetición ordenada genera una sensación de armonía y orden perfecto, algo que el cerebro humano encuentra profundamente satisfactorio."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p7",
-          "text": "Pero el orden no siempre es estático. A veces, queremos que el diseño nos haga sentir movimiento, energía, flujo. Ahí entra el **ritmo**. En el diseño visual, el ritmo se logra repitiendo elementos (líneas, formas, colores) con cierta regularidad, creando una especie de \"beat\" visual que guía el ojo a través de la composición, de izquierda a derecha o de arriba a abajo. Y aquí, amigos, hacemos un puente crucial hacia la música. El ritmo no es exclusivo del arte visual. Es la columna vertebral de la música también. Pero, ¿cómo se organiza ese ritmo musical?"
+          "text": "Pero el orden no siempre es estático. A veces, queremos que el diseño nos haga sentir movimiento, energía, flujo. Ahí entra el ritmo. En el diseño visual, el ritmo se logra repitiendo elementos (líneas, formas, colores) con cierta regularidad, creando una especie de \"beat\" visual que guía el ojo a través de la composición, de izquierda a derecha o de arriba a abajo. Y aquí, amigos, hacemos un puente crucial hacia la música. El ritmo no es exclusivo del arte visual. Es la columna vertebral de la música también. Pero, ¿cómo se organiza ese ritmo musical?"
         },
         {
           "type": "paragraph",
           "id": "cap-3-p8",
-          "text": "Para entender la música, tenés que imaginar que el tiempo se divide en unidades. La unidad básica es el **pulso**. El pulso es ese latido constante, interno, que sentís cuando escuchás una canción y empezás a mover el pie al ritmo. Es el compás cardíaco de la pieza. Sobre ese pulso se construyen las **figuras musicales**, que son simplemente símbolos que indican cuánto dura cada sonido. Si el pulso es el segundo en un reloj, la **negra** suele durar un tiempo (un golpe del corazón), la **blanca** dura dos tiempos, y la **redonda** dura cuatro. Es una relación matemática simple: una redonda equivale a dos blancas, que equivalen a cuatro negras."
+          "text": "Para entender la música, tenés que imaginar que el tiempo se divide en unidades. La unidad básica es el pulso. El pulso es ese latido constante, interno, que sentís cuando escuchás una canción y empezás a mover el pie al ritmo. Es el compás cardíaco de la pieza. Sobre ese pulso se construyen las figuras musicales, que son simplemente símbolos que indican cuánto dura cada sonido. Si el pulso es el segundo en un reloj, la negra suele durar un tiempo (un golpe del corazón), la blanca dura dos tiempos, y la redonda dura cuatro. Es una relación matemática simple: una redonda equivale a dos blancas, que equivalen a cuatro negras."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p9",
-          "text": "Pero el pulso no flota solo en el aire; se organiza en grupos llamados **compases**. Un compás es como una frase gramatical en la música: agrupa un número determinado de tiempos. Si el compás es de 4/4, significa que hay cuatro tiempos por compás, y el pulso es la unidad básica. Las figuras musicales se reparten entre esos tiempos. Si en un compás de 4/4 tenés dos blancas, habrás usado exactamente los cuatro tiempos (2 + 2 = 4). Si tenés ocho negras, también habrás usado los cuatro tiempos (1 + 1 + 1 + 1 + 1 + 1 + 1 + 1... espera, no, cuatro negras suman cuatro tiempos). La clave está en que, aunque las figuras cambien (pasés de negras a corcheas, que duran la mitad), el pulso subyacente se mantiene constante. Esta estructura rígida permite la complejidad. Es como los ladrillos: son iguales, pero la forma en que los amasás determina si construyés una pared recta o una arco gótico con un rosetón."
+          "text": "Pero el pulso no flota solo en el aire; se organiza en grupos llamados compases. Un compás es como una frase gramatical en la música: agrupa un número determinado de tiempos. Si el compás es de 4/4, significa que hay cuatro tiempos por compás, y el pulso es la unidad básica. Las figuras musicales se reparten entre esos tiempos. Si en un compás de 4/4 tenés dos blancas, habrás usado exactamente los cuatro tiempos (2 + 2 = 4). Si tenés ocho negras, también habrás usado los cuatro tiempos (1 + 1 + 1 + 1 + 1 + 1 + 1 + 1... espera, no, cuatro negras suman cuatro tiempos). La clave está en que, aunque las figuras cambien (pasés de negras a corcheas, que duran la mitad), el pulso subyacente se mantiene constante. Esta estructura rígida permite la complejidad. Es como los ladrillos: son iguales, pero la forma en que los amasás determina si construyés una pared recta o una arco gótico con un rosetón."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p10",
-          "text": "Ahora bien, todo este trabajo de diseño, de estructura rítmica, de simetría, no tiene sentido si no se integra en un medio. Y vivimos en la era de la **producción multimedial**. Un proyecto multimedial no es simplemente pegar un texto, una imagen y un sonido en un archivo. Es lograr que esos elementos funcionen como una sola experiencia coherente. La habilidad central no es saber usar Photoshop o Premiere por separado, sino saber elegir qué medio es el adecuado para cada parte del mensaje."
+          "text": "Ahora bien, todo este trabajo de diseño, de estructura rítmica, de simetría, no tiene sentido si no se integra en un medio. Y vivimos en la era de la producción multimedial. Un proyecto multimedial no es simplemente pegar un texto, una imagen y un sonido en un archivo. Es lograr que esos elementos funcionen como una sola experiencia coherente. La habilidad central no es saber usar Photoshop o Premiere por separado, sino saber elegir qué medio es el adecuado para cada parte del mensaje."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p11",
-          "text": "Por ejemplo, si estás integrando **texto** en un video, tenés que pensar en la legibilidad. No basta con poner letras bonitas; tenés que asegurar un contraste suficiente con el fondo y respetar la jerarquía tipográfica. El título debe ser más grande y llamativo que el subtítulo, que a su vez debe ser más claro que el cuerpo de la explicación. Si mezclas esto con **imágenes**, debés cuidar la resolución y la relación de aspecto. Forzar una foto rectangular dentro de un marco cuadrado la deforma, arruina la proporción y distrae al espectador. Es mejor recortar la imagen manteniendo sus proporciones originales o adaptar el diseño del proyecto a la imagen. Y si agregás **sonido**, tenés que cuidar que no compita con la voz o con la música principal. Todo debe sumar. Si el contraste visual está bien trabajado, el ojo va por donde querés que vaya. Si el ritmo visual está bien planteado, la mirada fluye. Si la integración multimedial es correcta, el cerebro del espectador no se tropieza con errores técnicos, sino que se sumerge en la historia."
+          "text": "Por ejemplo, si estás integrando texto en un video, tenés que pensar en la legibilidad. No basta con poner letras bonitas; tenés que asegurar un contraste suficiente con el fondo y respetar la jerarquía tipográfica. El título debe ser más grande y llamativo que el subtítulo, que a su vez debe ser más claro que el cuerpo de la explicación. Si mezclas esto con imágenes, debés cuidar la resolución y la relación de aspecto. Forzar una foto rectangular dentro de un marco cuadrado la deforma, arruina la proporción y distrae al espectador. Es mejor recortar la imagen manteniendo sus proporciones originales o adaptar el diseño del proyecto a la imagen. Y si agregás sonido, tenés que cuidar que no compita con la voz o con la música principal. Todo debe sumar. Si el contraste visual está bien trabajado, el ojo va por donde querés que vaya. Si el ritmo visual está bien planteado, la mirada fluye. Si la integración multimedial es correcta, el cerebro del espectador no se tropieza con errores técnicos, sino que se sumerge en la historia."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p12",
-          "text": "Y llegamos al punto donde todo converge: el **teatro**. Porque al final, el teatro es el arte de la presencia humana, pero también es un arte de la construcción. No es magia que caiga del cielo; es ingeniería emocional. Y para entender cómo funciona, tenemos que separar dos oficios que, aunque trabajan juntos, son distintos: la **dramaturgia** y la **actuación**."
+          "text": "Y llegamos al punto donde todo converge: el teatro. Porque al final, el teatro es el arte de la presencia humana, pero también es un arte de la construcción. No es magia que caiga del cielo; es ingeniería emocional. Y para entender cómo funciona, tenemos que separar dos oficios que, aunque trabajan juntos, son distintos: la dramaturgia y la actuación."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p13",
-          "text": "La dramaturgia es el oficio de escribir el texto teatral, pero no desde la perspectiva de un escritor de novelas, sino desde la perspectiva de alguien que sabe que ese texto va a ser hablado en vivo. El dramaturgo no escribe descripciones de lo que siente un personaje; escribe acciones, diálogos y conflictos. La herramienta principal del dramaturgo es el **conflicto dramático**. Una obra de teatro es, en esencia, la evolución de una tensión entre personajes. No hay teatro sin obstáculo. Si los personajes quieren algo y lo consiguen inmediatamente, no hay drama. El dramaturgo construye el subtexto, ese nivel profundo de la obra que está debajo de las palabras."
+          "text": "La dramaturgia es el oficio de escribir el texto teatral, pero no desde la perspectiva de un escritor de novelas, sino desde la perspectiva de alguien que sabe que ese texto va a ser hablado en vivo. El dramaturgo no escribe descripciones de lo que siente un personaje; escribe acciones, diálogos y conflictos. La herramienta principal del dramaturgo es el conflicto dramático. Una obra de teatro es, en esencia, la evolución de una tensión entre personajes. No hay teatro sin obstáculo. Si los personajes quieren algo y lo consiguen inmediatamente, no hay drama. El dramaturgo construye el subtexto, ese nivel profundo de la obra que está debajo de las palabras."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p14",
-          "text": "Y aquí aparece el concepto de **subtexto**, que es vital tanto para quien escribe como para quien actúa. El subtexto es lo que el personaje siente o quiere, pero que no dice explícitamente. Imaginá una escena donde dos personas están rompiendo. Uno dice: \"Estoy bien, de verdad\". Literalmente, las palabras dicen que está bien. Pero el subtexto, lo que se transmite a través del tono de voz, la mirada, el silencio, es que está destrozado. La tensión entre lo dicho y lo sentido es donde vive el interés del espectador. El dramaturgio juega con este abismo, dejando pistas en el diálogo para que los actores puedan construir esa capa profunda."
+          "text": "Y aquí aparece el concepto de subtexto, que es vital tanto para quien escribe como para quien actúa. El subtexto es lo que el personaje siente o quiere, pero que no dice explícitamente. Imaginá una escena donde dos personas están rompiendo. Uno dice: \"Estoy bien, de verdad\". Literalmente, las palabras dicen que está bien. Pero el subtexto, lo que se transmite a través del tono de voz, la mirada, el silencio, es que está destrozado. La tensión entre lo dicho y lo sentido es donde vive el interés del espectador. El dramaturgio juega con este abismo, dejando pistas en el diálogo para que los actores puedan construir esa capa profunda."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p15",
-          "text": "Y entonces entra la **actuación**. Actuar no es memorizar líneas ni hacer gestos exagerados. Actuar es **habitar** un personaje. Es entender sus motivaciones, su historia, su forma de caminar y reaccionar, y transmitir eso de forma creíble frente al público. El actor utiliza las mismas herramientas que vimos en el diseño y la música: el ritmo de su voz, el contraste de sus emociones (de la calma a la furia), el equilibrio de su presencia en el escenario. Un actor puede usar el silencio (un vacío rítmico) para generar más impacto que mil palabras gritadas. Puede usar la proximidad física (contraste de espacio) para crear intimidad o amenaza."
+          "text": "Y entonces entra la actuación. Actuar no es memorizar líneas ni hacer gestos exagerados. Actuar es habitar un personaje. Es entender sus motivaciones, su historia, su forma de caminar y reaccionar, y transmitir eso de forma creíble frente al público. El actor utiliza las mismas herramientas que vimos en el diseño y la música: el ritmo de su voz, el contraste de sus emociones (de la calma a la furia), el equilibrio de su presencia en el escenario. Un actor puede usar el silencio (un vacío rítmico) para generar más impacto que mil palabras gritadas. Puede usar la proximidad física (contraste de espacio) para crear intimidad o amenaza."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p16",
-          "text": "Fijate la conexión: todo lo que vimos hasta ahora está aquí. La **simetría y la asimetría** en el movimiento de los actores en el escenario (quién se para al centro, quién se esconde en la sombra). El **ritmo** de los diálogos (las pausas, la velocidad, el pulso de la escena). El **contraste** entre los personajes (uno grita, otro susurra; uno es alto, otro bajo). Y la **unidad** de la obra: que todo esto, desde el diseño de vestuario hasta la iluminación, desde la escritura del guion hasta la interpretación, parezca un todo coherente, como un rosetón donde cada pieza, por pequeña que sea, es esencial para que la imagen completa tenga sentido."
+          "text": "Fijate la conexión: todo lo que vimos hasta ahora está aquí. La simetría y la asimetría en el movimiento de los actores en el escenario (quién se para al centro, quién se esconde en la sombra). El ritmo de los diálogos (las pausas, la velocidad, el pulso de la escena). El contraste entre los personajes (uno grita, otro susurra; uno es alto, otro bajo). Y la unidad de la obra: que todo esto, desde el diseño de vestuario hasta la iluminación, desde la escritura del guion hasta la interpretación, parezca un todo coherente, como un rosetón donde cada pieza, por pequeña que sea, es esencial para que la imagen completa tenga sentido."
         },
         {
           "type": "paragraph",
@@ -395,7 +407,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

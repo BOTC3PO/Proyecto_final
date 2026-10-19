@@ -11,37 +11,37 @@
         "id": "cap-1",
         "title": "De la norma suprema a la vida cotidiana: cómo construimos nuestro orden jurídico",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "La arquitectura de la convivencia: derechos, garantías y el equilibrio del poder",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "La vida en la trama cívica: de la identidad al poder y a la memoria",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       },
       {
         "id": "cap-4",
         "title": "El tejido del poder: del origen del Estado a la cooperación global",
         "pageStart": 4,
-        "anchor": "cap-4"
+        "anchor": "cap-4:inicio"
       },
       {
         "id": "cap-5",
         "title": "La arquitectura de la convivencia: símbolos, normas y participación en la democracia argentina",
         "pageStart": 5,
-        "anchor": "cap-5"
+        "anchor": "cap-5:inicio"
       },
       {
         "id": "cap-6",
         "title": "El poder, la ley y la voz de los ciudadanos: tejiendo la convivencia",
         "pageStart": 6,
-        "anchor": "cap-6"
+        "anchor": "cap-6:inicio"
       }
     ]
   },
@@ -71,7 +71,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p4",
-          "text": "Todo comienza con la intención. Cuando en 1853 se dictó la Constitución Nacional, y luego se reformó en 1994, los constituyentes no empezaron enumerando artículos técnicos o definiendo penas. Empezaron hablando de *para qué* existía ese documento. El Preámbulo es la puerta de entrada a la Constitución, y aunque no impone una obligación legal directa como lo haría un artículo específico, funciona como la brújula moral y política de todo el sistema."
+          "text": "Todo comienza con la intención. Cuando en 1853 se dictó la Constitución Nacional, y luego se reformó en 1994, los constituyentes no empezaron enumerando artículos técnicos o definiendo penas. Empezaron hablando de para qué existía ese documento. El Preámbulo es la puerta de entrada a la Constitución, y aunque no impone una obligación legal directa como lo haría un artículo específico, funciona como la brújula moral y política de todo el sistema."
         },
         {
           "type": "paragraph",
@@ -97,12 +97,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p9",
-          "text": "Todo comienza con un **proyecto de ley**. ¿Quién puede presentarlo? Básicamente, tres actores. El más común es un legislador, ya sea un diputado o un senador, que propone una norma basándose en los problemas que ve en su distrito o en el país. El Poder Ejecutivo también puede iniciar proyectos, especialmente aquellos relacionados con la administración del Estado o la economía. Pero hay una tercera vía, democratizadora por excelencia: la **iniciativa popular**. Gracias a la reforma de 1994, un porcentaje no menor del tres por ciento del padrón electoral puede presentar directamente un proyecto ante la Cámara de Diputados. Esto significa que, en teoría, cualquier grupo organizado de ciudadanos puede poner un tema en la agenda nacional, aunque en la práctica requiere una logística enorme de firmas y validaciones."
+          "text": "Todo comienza con un proyecto de ley. ¿Quién puede presentarlo? Básicamente, tres actores. El más común es un legislador, ya sea un diputado o un senador, que propone una norma basándose en los problemas que ve en su distrito o en el país. El Poder Ejecutivo también puede iniciar proyectos, especialmente aquellos relacionados con la administración del Estado o la economía. Pero hay una tercera vía, democratizadora por excelencia: la iniciativa popular. Gracias a la reforma de 1994, un porcentaje no menor del tres por ciento del padrón electoral puede presentar directamente un proyecto ante la Cámara de Diputados. Esto significa que, en teoría, cualquier grupo organizado de ciudadanos puede poner un tema en la agenda nacional, aunque en la práctica requiere una logística enorme de firmas y validaciones."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p10",
-          "text": "Una vez presentado el proyecto, entra en un circuito que divide el poder legislativo en dos cámaras: la de Diputados y la de Senadores. Se llama **cámara de origen** a la que recibe el proyecto primero, y **cámara revisora** a la que lo recibe después. Por ejemplo, los proyectos que crean impuestos deben empezar siempre en Diputados, porque se considera que esa cámara, al estar basada en la población, es la más adecuada para decidir sobre el dinero de los ciudadanos."
+          "text": "Una vez presentado el proyecto, entra en un circuito que divide el poder legislativo en dos cámaras: la de Diputados y la de Senadores. Se llama cámara de origen a la que recibe el proyecto primero, y cámara revisora a la que lo recibe después. Por ejemplo, los proyectos que crean impuestos deben empezar siempre en Diputados, porque se considera que esa cámara, al estar basada en la población, es la más adecuada para decidir sobre el dinero de los ciudadanos."
         },
         {
           "type": "paragraph",
@@ -112,7 +112,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p12",
-          "text": "Finalmente, el proyecto aprobado llega al Presidente de la Nación. El Ejecutivo tiene dos caminos: promulgar la ley, convirtiéndola en vigente, o vetarla total o parcialmente. Si el Presidente no se pronuncia en diez días hábiles, la ley se considera promulgada tácitamente. Y aquí hay un detalle crucial: una ley no es válida hasta que se publica en el **Boletín Oficial**. Hasta ese momento, aunque esté aprobada, no es exigible. Esto se basa en el principio jurídico de que \"la ley se presume conocida por todos\", pero para que esa presunción sea justa, primero debe estar accesible públicamente."
+          "text": "Finalmente, el proyecto aprobado llega al Presidente de la Nación. El Ejecutivo tiene dos caminos: promulgar la ley, convirtiéndola en vigente, o vetarla total o parcialmente. Si el Presidente no se pronuncia en diez días hábiles, la ley se considera promulgada tácitamente. Y aquí hay un detalle crucial: una ley no es válida hasta que se publica en el Boletín Oficial. Hasta ese momento, aunque esté aprobada, no es exigible. Esto se basa en el principio jurídico de que \"la ley se presume conocida por todos\", pero para que esa presunción sea justa, primero debe estar accesible públicamente."
         },
         {
           "type": "heading",
@@ -128,12 +128,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p15",
-          "text": "La Constitución Nacional es la norma suprema del país, según el artículo 31. Esto significa que está arriba de todo. Ningún decreto, ninguna ley provincial y ninguna ordenanza municipal puede contradecirla. Si una norma de menor rango choca con la Constitución, pierde validez. Este control lo ejercen los jueces a través del **control de constitucionalidad**, que permite declarar inaplicables las normas que violen el texto fundamental."
+          "text": "La Constitución Nacional es la norma suprema del país, según el artículo 31. Esto significa que está arriba de todo. Ningún decreto, ninguna ley provincial y ninguna ordenanza municipal puede contradecirla. Si una norma de menor rango choca con la Constitución, pierde validez. Este control lo ejercen los jueces a través del control de constitucionalidad, que permite declarar inaplicables las normas que violen el texto fundamental."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p16",
-          "text": "Sin embargo, desde la reforma de 1994, la pirámide no es tan simple como \"Constitución arriba, ley abajo\". Los **tratados internacionales** ocupan un lugar especial. Según el artículo 75 inciso 22, los tratados sobre derechos humanos tienen jerarquía constitucional. Esto es un cambio gigante: significa que la Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW), por ejemplo, no es solo un acuerdo diplomático, sino una norma de igual rango que la Constitución. Si una ley argentina va en contra de la CEDAW, está violando indirectamente la Constitución."
+          "text": "Sin embargo, desde la reforma de 1994, la pirámide no es tan simple como \"Constitución arriba, ley abajo\". Los tratados internacionales ocupan un lugar especial. Según el artículo 75 inciso 22, los tratados sobre derechos humanos tienen jerarquía constitucional. Esto es un cambio gigante: significa que la Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW), por ejemplo, no es solo un acuerdo diplomático, sino una norma de igual rango que la Constitución. Si una ley argentina va en contra de la CEDAW, está violando indirectamente la Constitución."
         },
         {
           "type": "paragraph",
@@ -159,22 +159,22 @@
         {
           "type": "paragraph",
           "id": "cap-1-p21",
-          "text": "Empecemos con la **alcoholemia y la conducción**. ¿De dónde sale la regla que prohíbe manejar con alcohol? No es un capricho de la policía. Es una ley nacional (Ley 24.449) que establece un límite objetivo de 0,5 gramos de alcohol por litro de sangre para conductores particulares. Pero, ¿por qué ese número? Porque el alcohol reduce los reflejos y el campo visual incluso antes de que el conductor se sienta \"borracho\". La ley no espera a que alguien esté inconsciente para sancionar; actúa sobre el riesgo objetivo."
+          "text": "Empecemos con la alcoholemia y la conducción. ¿De dónde sale la regla que prohíbe manejar con alcohol? No es un capricho de la policía. Es una ley nacional (Ley 24.449) que establece un límite objetivo de 0,5 gramos de alcohol por litro de sangre para conductores particulares. Pero, ¿por qué ese número? Porque el alcohol reduce los reflejos y el campo visual incluso antes de que el conductor se sienta \"borracho\". La ley no espera a que alguien esté inconsciente para sancionar; actúa sobre el riesgo objetivo."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p22",
-          "text": "Sin embargo, aquí vemos cómo la jerarquía normativa y la autonomía provincial interactúan. Aunque la ley nacional fija un límite, las provincias pueden ser más estrictas. En la Ciudad de Buenos Aires, Santa Fe, Mendoza y otras jurisdicciones, se adoptó la política de **alcohol cero** (0,0 g/l) para todos los conductores. Esto significa que, si manejás en CABA, no podés haber tomado ni una gota. Pero si manejás en una provincia que mantiene el límite de 0,5, ahí sí se permite una pequeña cantidad, siempre que no se supere."
+          "text": "Sin embargo, aquí vemos cómo la jerarquía normativa y la autonomía provincial interactúan. Aunque la ley nacional fija un límite, las provincias pueden ser más estrictas. En la Ciudad de Buenos Aires, Santa Fe, Mendoza y otras jurisdicciones, se adoptó la política de alcohol cero (0,0 g/l) para todos los conductores. Esto significa que, si manejás en CABA, no podés haber tomado ni una gota. Pero si manejás en una provincia que mantiene el límite de 0,5, ahí sí se permite una pequeña cantidad, siempre que no se supere."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p23",
-          "text": "Y hay un nivel más: las **rutas nacionales**. Independientemente de si la provincia donde está la ruta permite alcohol cero o no, en todas las rutas nacionales del país rige el alcohol cero obligatorio. Esto se debe a que el Estado Nacional tiene competencia sobre las rutas federales, y decidió que el riesgo en esas vías es tan alto que no admite margen de error. Por lo tanto, si estás en una ruta nacional, la jerarquía normativa te obliga a cumplir con la norma más estricta disponible en ese espacio geográfico. Esto demuestra que las leyes no son estáticas; se adaptan al territorio y al tipo de riesgo, y la convivencia requiere saber qué norma aplica en cada kilómetro."
+          "text": "Y hay un nivel más: las rutas nacionales. Independientemente de si la provincia donde está la ruta permite alcohol cero o no, en todas las rutas nacionales del país rige el alcohol cero obligatorio. Esto se debe a que el Estado Nacional tiene competencia sobre las rutas federales, y decidió que el riesgo en esas vías es tan alto que no admite margen de error. Por lo tanto, si estás en una ruta nacional, la jerarquía normativa te obliga a cumplir con la norma más estricta disponible en ese espacio geográfico. Esto demuestra que las leyes no son estáticas; se adaptan al territorio y al tipo de riesgo, y la convivencia requiere saber qué norma aplica en cada kilómetro."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p24",
-          "text": "Por otro lado, pensemos en los **derechos de género**. Durante décadas, la ley fue \"ciega\" al género, asumiendo que trataba a todos por igual. Pero entendimos que la igualdad formal (decir \"todos son iguales\") no basta si hay desigualdades estructurales. Aquí es donde entra la CEDAW, el tratado con jerarquía constitucional que vimos antes. La CEDAW obliga al Estado no solo a prohibir la discriminación, sino a modificar los patrones socioculturales que sostienen la inferioridad de la mujer."
+          "text": "Por otro lado, pensemos en los derechos de género. Durante décadas, la ley fue \"ciega\" al género, asumiendo que trataba a todos por igual. Pero entendimos que la igualdad formal (decir \"todos son iguales\") no basta si hay desigualdades estructurales. Aquí es donde entra la CEDAW, el tratado con jerarquía constitucional que vimos antes. La CEDAW obliga al Estado no solo a prohibir la discriminación, sino a modificar los patrones socioculturales que sostienen la inferioridad de la mujer."
         },
         {
           "type": "paragraph",
@@ -205,7 +205,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -291,7 +297,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -339,17 +351,17 @@
         {
           "type": "paragraph",
           "id": "cap-3-p8",
-          "text": "En el camino hacia las elecciones, la información es tan poderosa como el voto mismo. Vivimos en una era de datos, donde cada día escuchamos pronósticos sobre quién ganará las próximas elecciones. Pero, ¿cómo se lee una encuesta electoral sin caer en trampas mediáticas? Una encuesta no es una bola de cristal; es una aplicación práctica de la estadística. Dado que es imposible y demasiado costoso preguntar a todo el padrón electoral (lo que sería un censo), se selecciona una **muestra** representativa de votantes y se generaliza el resultado al total del electorado."
+          "text": "En el camino hacia las elecciones, la información es tan poderosa como el voto mismo. Vivimos en una era de datos, donde cada día escuchamos pronósticos sobre quién ganará las próximas elecciones. Pero, ¿cómo se lee una encuesta electoral sin caer en trampas mediáticas? Una encuesta no es una bola de cristal; es una aplicación práctica de la estadística. Dado que es imposible y demasiado costoso preguntar a todo el padrón electoral (lo que sería un censo), se selecciona una muestra representativa de votantes y se generaliza el resultado al total del electorado."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p9",
-          "text": "Al leer estos números, debés prestar atención al **margen de error**. Si una encuesta dice que el candidato A tiene el 42% ± 3 puntos, eso significa que el resultado real probablemente esté entre el 39% y el 45%. Si la diferencia entre el primer y el segundo puesto es menor que el margen de error combinado de ambas encuestas, estamos ante un **empate técnico**: no se puede afirmar con confianza quién va primero. Además, fíjate bien en cómo se calculan los porcentajes. Algunos medios incluyen a los \"indecisos\" (los que no saben o no quieren decir su voto) en el total, haciendo que los porcentajes de los candidatos sumen menos del 100%. Otros los excluyen, normalizando los resultados al 100% solo entre los decididos. Ambas formas son válidas, pero no son comparables directamente. Confundirlas distorsiona la percepción de la realidad."
+          "text": "Al leer estos números, debés prestar atención al margen de error. Si una encuesta dice que el candidato A tiene el 42% ± 3 puntos, eso significa que el resultado real probablemente esté entre el 39% y el 45%. Si la diferencia entre el primer y el segundo puesto es menor que el margen de error combinado de ambas encuestas, estamos ante un empate técnico: no se puede afirmar con confianza quién va primero. Además, fíjate bien en cómo se calculan los porcentajes. Algunos medios incluyen a los \"indecisos\" (los que no saben o no quieren decir su voto) en el total, haciendo que los porcentajes de los candidatos sumen menos del 100%. Otros los excluyen, normalizando los resultados al 100% solo entre los decididos. Ambas formas son válidas, pero no son comparables directamente. Confundirlas distorsiona la percepción de la realidad."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p10",
-          "text": "Tampoco confundas una encuesta de intención de voto con un *exit poll* (boca de urna). La primera se hace antes de la elección y mide lo que la gente *dice* que hará; la segunda se hace en la salida de las mesas y mide lo que la gente *realmente* hizo. La intención de voto puede cambiar hasta el último momento, por lo que la encuesta es una foto del presente, mientras que el *exit poll* es un retrato en movimiento."
+          "text": "Tampoco confundas una encuesta de intención de voto con un exit poll (boca de urna). La primera se hace antes de la elección y mide lo que la gente dice que hará; la segunda se hace en la salida de las mesas y mide lo que la gente realmente hizo. La intención de voto puede cambiar hasta el último momento, por lo que la encuesta es una foto del presente, mientras que el exit poll es un retrato en movimiento."
         },
         {
           "type": "heading",
@@ -365,17 +377,17 @@
         {
           "type": "paragraph",
           "id": "cap-3-p13",
-          "text": "A nivel nacional, los impuestos más importantes son el **IVA (Impuesto al Valor Agregado)** y el **Impuesto a las Ganancias**. El IVA grava el valor agregado en la cadena de producción y venta, pagándolo en la práctica el consumidor final. Es uno de los mayores recaudadores del país. El impuesto a las Ganancias, en cambio, es progresivo: cuanto más se gana, mayor es la alícuota. Juntos, financian el gasto público nacional: educación, salud, seguridad social y obras de alcance federal. Una parte de esta recaudación se distribuye entre Nación y provincias mediante la coparticipación federal."
+          "text": "A nivel nacional, los impuestos más importantes son el IVA (Impuesto al Valor Agregado) y el Impuesto a las Ganancias. El IVA grava el valor agregado en la cadena de producción y venta, pagándolo en la práctica el consumidor final. Es uno de los mayores recaudadores del país. El impuesto a las Ganancias, en cambio, es progresivo: cuanto más se gana, mayor es la alícuota. Juntos, financian el gasto público nacional: educación, salud, seguridad social y obras de alcance federal. Una parte de esta recaudación se distribuye entre Nación y provincias mediante la coparticipación federal."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p14",
-          "text": "A nivel provincial, el impuesto rey es el de **Ingresos Brutos**. Se cobra un porcentaje sobre las actividades económicas realizadas dentro de la provincia. Este dinero financia, típicamente, la salud pública provincial, la educación (incluyendo sueldos docentes) y el mantenimiento de infraestructura local. Entender esto nos lleva a un concepto más profundo: el **Estado de Derecho**."
+          "text": "A nivel provincial, el impuesto rey es el de Ingresos Brutos. Se cobra un porcentaje sobre las actividades económicas realizadas dentro de la provincia. Este dinero financia, típicamente, la salud pública provincial, la educación (incluyendo sueldos docentes) y el mantenimiento de infraestructura local. Entender esto nos lleva a un concepto más profundo: el Estado de Derecho."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p15",
-          "text": "¿Por qué importa tanto el Estado de Derecho? No se trata solo de tener muchas leyes, sino de que estas sean superiores a cualquier autoridad. En un Estado de Derecho, nadie está por encima de la ley, ni siquiera el presidente o los funcionarios más poderosos. Esto se garantiza mediante la **división de poderes**: el Poder Legislativo crea las leyes, el Ejecutivo las aplica y el Judicial las interpreta y juzga su cumplimiento. Esta separación evita que el poder se concentre en una sola persona o grupo, previniendo abusos. Si un funcionario comete un delito, debe responder ante la justicia igual que cualquier ciudadano. Sin este principio, los impuestos que pagamos no garantizarían derechos, sino que servirían para mantener privilegios. El Estado de Derecho es el pilar que asegura que la democracia no sea solo una elección, sino una forma de vida justa y predecible."
+          "text": "¿Por qué importa tanto el Estado de Derecho? No se trata solo de tener muchas leyes, sino de que estas sean superiores a cualquier autoridad. En un Estado de Derecho, nadie está por encima de la ley, ni siquiera el presidente o los funcionarios más poderosos. Esto se garantiza mediante la división de poderes: el Poder Legislativo crea las leyes, el Ejecutivo las aplica y el Judicial las interpreta y juzga su cumplimiento. Esta separación evita que el poder se concentre en una sola persona o grupo, previniendo abusos. Si un funcionario comete un delito, debe responder ante la justicia igual que cualquier ciudadano. Sin este principio, los impuestos que pagamos no garantizarían derechos, sino que servirían para mantener privilegios. El Estado de Derecho es el pilar que asegura que la democracia no sea solo una elección, sino una forma de vida justa y predecible."
         },
         {
           "type": "heading",
@@ -386,17 +398,17 @@
         {
           "type": "paragraph",
           "id": "cap-3-p17",
-          "text": "Finalmente, una nación no se sostiene solo con leyes y dinero; se sostiene con memoria. En las escuelas argentinas, las **marchas patrióticas** son un ritual cotidiano, pero su función va mucho más allá del canto. Una marcha patriótica es una narración en verso de un hecho histórico concreto, compuesta para conmemorar una efeméride específica. El objetivo no es memorizar la letra de memoria, sino conectar el verso con la realidad histórica."
+          "text": "Finalmente, una nación no se sostiene solo con leyes y dinero; se sostiene con memoria. En las escuelas argentinas, las marchas patrióticas son un ritual cotidiano, pero su función va mucho más allá del canto. Una marcha patriótica es una narración en verso de un hecho histórico concreto, compuesta para conmemorar una efeméride específica. El objetivo no es memorizar la letra de memoria, sino conectar el verso con la realidad histórica."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p18",
-          "text": "Por ejemplo, la **Marcha de San Lorenzo** no es solo una canción heroica; conmemora el Combate de San Lorenzo del 3 de febrero de 1813. La letra alude al granadero Cabral, quien murió salvando a San Martín cuando su caballo cayó herido. Es el bautismo de fuego de San Martín en Sudamérica, antes de su campaña libertadora. Cantar esta marcha es recordar el sacrificio individual por un ideal colectivo."
+          "text": "Por ejemplo, la Marcha de San Lorenzo no es solo una canción heroica; conmemora el Combate de San Lorenzo del 3 de febrero de 1813. La letra alude al granadero Cabral, quien murió salvando a San Martín cuando su caballo cayó herido. Es el bautismo de fuego de San Martín en Sudamérica, antes de su campaña libertadora. Cantar esta marcha es recordar el sacrificio individual por un ideal colectivo."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p19",
-          "text": "La marcha **Aurora**, por su parte, está asociada al izamiento de la bandera y al saludo diario. No narra un combate puntual, sino que alude al \"sol de la libertad\", conectando con los símbolos patrios y la identidad nacional. Por otro lado, la **Marcha de las Malvinas** recuerda la soberanía argentina sobre las Islas, ocupadas por Gran Bretaña desde 1833, y se canta tradicionalmente el 2 de abril, vinculando el presente con el conflicto bélico de 1982."
+          "text": "La marcha Aurora, por su parte, está asociada al izamiento de la bandera y al saludo diario. No narra un combate puntual, sino que alude al \"sol de la libertad\", conectando con los símbolos patrios y la identidad nacional. Por otro lado, la Marcha de las Malvinas recuerda la soberanía argentina sobre las Islas, ocupadas por Gran Bretaña desde 1833, y se canta tradicionalmente el 2 de abril, vinculando el presente con el conflicto bélico de 1982."
         },
         {
           "type": "paragraph",
@@ -417,7 +429,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-4",
@@ -449,7 +467,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p5",
-          "text": "Aquí surge la primera división social. Parte de la población dejó de dedicarse exclusivamente a producir comida para especializarse en otras tareas: la defensa, la administración de los recursos, el comercio o la organización religiosa. Este desplazamiento creó la necesidad de autoridades centrales que pudieran resolver conflictos entre grupos con intereses distintos y mantener el orden. Así fue naciendo, lentamente, el **Estado**."
+          "text": "Aquí surge la primera división social. Parte de la población dejó de dedicarse exclusivamente a producir comida para especializarse en otras tareas: la defensa, la administración de los recursos, el comercio o la organización religiosa. Este desplazamiento creó la necesidad de autoridades centrales que pudieran resolver conflictos entre grupos con intereses distintos y mantener el orden. Así fue naciendo, lentamente, el Estado."
         },
         {
           "type": "paragraph",
@@ -459,7 +477,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p7",
-          "text": "1.  **El Territorio:** El espacio geográfico delimitado por fronteras reconocidas. Dentro de ese espacio, el Estado ejerce su autoridad. 2.  **La Población:** El conjunto de personas que habitan ese territorio y están sujetas a sus leyes. Sin gente, no hay sociedad que gobernar. 3.  **El Gobierno o Poder Soberano:** La autoridad organizada que dicta y hace cumplir normas. La soberanía significa que ese poder es exclusivo y no depende de otro poder externo dentro de sus fronteras."
+          "text": "1.  El Territorio: El espacio geográfico delimitado por fronteras reconocidas. Dentro de ese espacio, el Estado ejerce su autoridad. 2.  La Población: El conjunto de personas que habitan ese territorio y están sujetas a sus leyes. Sin gente, no hay sociedad que gobernar. 3.  El Gobierno o Poder Soberano: La autoridad organizada que dicta y hace cumplir normas. La soberanía significa que ese poder es exclusivo y no depende de otro poder externo dentro de sus fronteras."
         },
         {
           "type": "paragraph",
@@ -475,7 +493,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p10",
-          "text": "Una vez que el Estado existe, hay que decidir cómo se distribuye el poder dentro de él. Aquí entramos en la clasificación de las **formas de Estado**. La más común en la historia reciente es el **Estado unitario**, donde un solo centro de poder gobierna todo el territorio (como Francia o Chile). Sin embargo, en América Latina y especialmente en Argentina, prevalece el **Estado federal**."
+          "text": "Una vez que el Estado existe, hay que decidir cómo se distribuye el poder dentro de él. Aquí entramos en la clasificación de las formas de Estado. La más común en la historia reciente es el Estado unitario, donde un solo centro de poder gobierna todo el territorio (como Francia o Chile). Sin embargo, en América Latina y especialmente en Argentina, prevalece el Estado federal."
         },
         {
           "type": "paragraph",
@@ -485,7 +503,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p12",
-          "text": "Paralelamente, debemos distinguir la **forma de gobierno**. Argentina es una **República**, lo que significa que el poder se ejerce por representantes elegidos por el pueblo, por un tiempo limitado y con rendición de cuentas. El poder no es hereditario ni vitalicio. Esto contrasta con las monarquías, donde la jefatura del Estado se transmite por linaje, aunque en muchas monarquías modernas (como España o el Reino Unido) el monarca tiene un rol simbólico y el poder político real lo ejerce un parlamento elegido."
+          "text": "Paralelamente, debemos distinguir la forma de gobierno. Argentina es una República, lo que significa que el poder se ejerce por representantes elegidos por el pueblo, por un tiempo limitado y con rendición de cuentas. El poder no es hereditario ni vitalicio. Esto contrasta con las monarquías, donde la jefatura del Estado se transmite por linaje, aunque en muchas monarquías modernas (como España o el Reino Unido) el monarca tiene un rol simbólico y el poder político real lo ejerce un parlamento elegido."
         },
         {
           "type": "heading",
@@ -496,27 +514,42 @@
         {
           "type": "paragraph",
           "id": "cap-4-p14",
-          "text": "Si el Estado es la casa y la Constitución es los planos, los **partidos políticos** son los inquilinos que compiten para decidir cómo decorarla y qué reglas de convivencia aplicar. Un partido político es una organización estable que agrupa a personas con ideas afines para competir por el poder político a través de las elecciones."
+          "text": "Si el Estado es la casa y la Constitución es los planos, los partidos políticos son los inquilinos que compiten para decidir cómo decorarla y qué reglas de convivencia aplicar. Un partido político es una organización estable que agrupa a personas con ideas afines para competir por el poder político a través de las elecciones."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p15",
-          "text": "Es crucial diferenciar un partido de un grupo de presión o una ONG. Mientras que una ONG puede intentar influir en las políticas públicas (por ejemplo, pidiendo más presupuesto para la salud), su objetivo no es gobernar. El partido político, en cambio, busca **ocupar cargos de gobierno**. Sus funciones son vitales para la democracia:"
+          "text": "Es crucial diferenciar un partido de un grupo de presión o una ONG. Mientras que una ONG puede intentar influir en las políticas públicas (por ejemplo, pidiendo más presupuesto para la salud), su objetivo no es gobernar. El partido político, en cambio, busca ocupar cargos de gobierno. Sus funciones son vitales para la democracia:"
         },
         {
           "type": "paragraph",
           "id": "cap-4-p16",
-          "text": "*   **Agregación de intereses:** La sociedad tiene miles de demandas dispersas (por transporte, educación, seguridad). El partido toma esas demandas, las filtra y las convierte en una propuesta de gobierno coherente. *   **Selección de candidatos:** Define quién representará al partido en las elecciones, a través de internas o listas cerradas. *   **Formación de gobierno u oposición:** Si gana, gobierna. Si pierde, tiene la tarea democrática de fiscalizar y criticar al gobierno de turno. *   **Socialización política:** Educa a sus afiliados y simpatizantes, formando cuadros dirigentes y difundiendo sus ideales."
+          "text": "*   Agregación de intereses: La sociedad tiene miles de demandas dispersas (por transporte, educación, seguridad). El partido toma esas demandas, las filtra y las convierte en una propuesta de gobierno coherente."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p16-1",
+          "text": "Selección de candidatos: Define quién representará al partido en las elecciones, a través de internas o listas cerradas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p16-2",
+          "text": "Formación de gobierno u oposición: Si gana, gobierna. Si pierde, tiene la tarea democrática de fiscalizar y criticar al gobierno de turno."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p16-3",
+          "text": "Socialización política: Educa a sus afiliados y simpatizantes, formando cuadros dirigentes y difundiendo sus ideales."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p17",
-          "text": "En la teoría política, se clasifican los sistemas de partidos en tres grandes tipos. En el **bipartidismo** (como EE. UU.), dos grandes partidos concentran casi todo el voto y se alternan en el poder. En el **multipartidismo** (común en Europa), hay varios partidos con representación relevante, lo que obliga a formar coaliciones de gobierno."
+          "text": "En la teoría política, se clasifican los sistemas de partidos en tres grandes tipos. En el bipartidismo (como EE. UU.), dos grandes partidos concentran casi todo el voto y se alternan en el poder. En el multipartidismo (común en Europa), hay varios partidos con representación relevante, lo que obliga a formar coaliciones de gobierno."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p18",
-          "text": "Argentina es un caso interesante: tenemos un **multipartidismo fragmentado**, pero con una dinámica particular. Históricamente, hemos tendido a agruparnos en dos grandes coaliciones o bloques políticos principales que se alternan en la presidencia, pero dentro de esos bloques hay una gran diversidad de partidos y corrientes de pensamiento. Esto hace que la política argentina sea dinámica, pero también compleja, ya que los acuerdos requieren negociar con múltiples actores."
+          "text": "Argentina es un caso interesante: tenemos un multipartidismo fragmentado, pero con una dinámica particular. Históricamente, hemos tendido a agruparnos en dos grandes coaliciones o bloques políticos principales que se alternan en la presidencia, pero dentro de esos bloques hay una gran diversidad de partidos y corrientes de pensamiento. Esto hace que la política argentina sea dinámica, pero también compleja, ya que los acuerdos requieren negociar con múltiples actores."
         },
         {
           "type": "heading",
@@ -527,7 +560,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p20",
-          "text": "Hasta aquí hemos hablado del Estado como una entidad soberana y cerrada en sus fronteras. Pero, ¿qué pasa cuando los problemas no respetan esas fronteras? La globalización ha demostrado que ningún país puede resolver solo desafíos como el cambio climático, las pandemias, el terrorismo internacional o las crisis económicas globales. Es aquí donde entran en juego los **organismos internacionales**."
+          "text": "Hasta aquí hemos hablado del Estado como una entidad soberana y cerrada en sus fronteras. Pero, ¿qué pasa cuando los problemas no respetan esas fronteras? La globalización ha demostrado que ningún país puede resolver solo desafíos como el cambio climático, las pandemias, el terrorismo internacional o las crisis económicas globales. Es aquí donde entran en juego los organismos internacionales."
         },
         {
           "type": "paragraph",
@@ -537,22 +570,22 @@
         {
           "type": "paragraph",
           "id": "cap-4-p22",
-          "text": "La **Organización de las Naciones Unidas (ONU)**, creada en 1945 tras la Segunda Guerra Mundial, es el ejemplo principal. Su objetivo fundacional fue mantener la paz y la seguridad internacionales. Su órgano más poderoso es el **Consejo de Seguridad**, integrado por 15 miembros, de los cuales 5 son permanentes (Estados Unidos, Rusia, China, Reino Unido y Francia). Estos cinco tienen un poder especial: el **veto**. Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto del Consejo esté de acuerdo. Esto refleja la realidad de poder de la posguerra, aunque hoy se debate su eficacia en un mundo multipolar. La ONU también tiene organismos especializados como la **OMS** (salud) y la **UNESCO** (educación y cultura), que trabajan en temas técnicos globales."
+          "text": "La Organización de las Naciones Unidas (ONU), creada en 1945 tras la Segunda Guerra Mundial, es el ejemplo principal. Su objetivo fundacional fue mantener la paz y la seguridad internacionales. Su órgano más poderoso es el Consejo de Seguridad, integrado por 15 miembros, de los cuales 5 son permanentes (Estados Unidos, Rusia, China, Reino Unido y Francia). Estos cinco tienen un poder especial: el veto. Pueden bloquear cualquier resolución con un solo voto en contra, aunque el resto del Consejo esté de acuerdo. Esto refleja la realidad de poder de la posguerra, aunque hoy se debate su eficacia en un mundo multipolar. La ONU también tiene organismos especializados como la OMS (salud) y la UNESCO (educación y cultura), que trabajan en temas técnicos globales."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p23",
-          "text": "En nuestra región, la **Organización de los Estados Americanos (OEA)**, creada en 1948, busca promover la democracia, los derechos humanos y el desarrollo en América. Históricamente excluyó a Cuba, aunque fue reincorporada formalmente en 2009, aunque su participación ha sido intermitente y conflictiva dependiendo de los gobiernos de turno."
+          "text": "En nuestra región, la Organización de los Estados Americanos (OEA), creada en 1948, busca promover la democracia, los derechos humanos y el desarrollo en América. Históricamente excluyó a Cuba, aunque fue reincorporada formalmente en 2009, aunque su participación ha sido intermitente y conflictiva dependiendo de los gobiernos de turno."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p24",
-          "text": "A nivel económico y regional, tenemos el **Mercosur** (Mercado Común del Sur). Creado en 1991 con el Tratado de Asunción por Argentina, Brasil, Paraguay y Uruguay, su objetivo es promover el libre comercio mediante la eliminación de aranceles internos. Es un bloque económico que busca fortalecer la integración regional. Venezuela fue suspendida y Bolivia está en proceso de adhesión, lo que muestra que estos organismos también son dinámicos y políticos."
+          "text": "A nivel económico y regional, tenemos el Mercosur (Mercado Común del Sur). Creado en 1991 con el Tratado de Asunción por Argentina, Brasil, Paraguay y Uruguay, su objetivo es promover el libre comercio mediante la eliminación de aranceles internos. Es un bloque económico que busca fortalecer la integración regional. Venezuela fue suspendida y Bolivia está en proceso de adhesión, lo que muestra que estos organismos también son dinámicos y políticos."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p25",
-          "text": "Finalmente, no podemos ignorar al **Fondo Monetario Internacional (FMI)**. Aunque no es un organismo político en sentido estricto, su influencia es enorme. Creado en 1944, otorga préstamos a países con dificultades de balanza de pagos (es decir, que no pueden pagar sus deudas externas). A cambio, exige condiciones de política económica (austeridad, reformas estructurales) que suelen ser muy debatidas en la sociedad argentina, ya que afectan directamente el bienestar de la población."
+          "text": "Finalmente, no podemos ignorar al Fondo Monetario Internacional (FMI). Aunque no es un organismo político en sentido estricto, su influencia es enorme. Creado en 1944, otorga préstamos a países con dificultades de balanza de pagos (es decir, que no pueden pagar sus deudas externas). A cambio, exige condiciones de política económica (austeridad, reformas estructurales) que suelen ser muy debatidas en la sociedad argentina, ya que afectan directamente el bienestar de la población."
         },
         {
           "type": "heading",
@@ -563,12 +596,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p27",
-          "text": "Hemos visto el Estado, los partidos y la cooperación global. Pero el derecho y el orden no solo existen en los libros de historia o en las cumbres internacionales; existen en la calle, en cada decisión que tomamos al día. Un ejemplo claro de cómo el Estado regula la convivencia cotidiana son las **prioridades de paso** en el tránsito."
+          "text": "Hemos visto el Estado, los partidos y la cooperación global. Pero el derecho y el orden no solo existen en los libros de historia o en las cumbres internacionales; existen en la calle, en cada decisión que tomamos al día. Un ejemplo claro de cómo el Estado regula la convivencia cotidiana son las prioridades de paso en el tránsito."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p28",
-          "text": "La Ley de Tránsito 24.436 establece reglas claras para evitar el caos y los accidentes. La regla general, aplicable en bocacalles sin semáforo ni señalización, es la **prioridad de la derecha**. Si dos vehículos llegan a un cruce al mismo tiempo, tiene el paso el que viene por la mano derecha del otro. Es una regla simple que permite predecir el comportamiento del otro conductor."
+          "text": "La Ley de Tránsito 24.436 establece reglas claras para evitar el caos y los accidentes. La regla general, aplicable en bocacalles sin semáforo ni señalización, es la prioridad de la derecha. Si dos vehículos llegan a un cruce al mismo tiempo, tiene el paso el que viene por la mano derecha del otro. Es una regla simple que permite predecir el comportamiento del otro conductor."
         },
         {
           "type": "paragraph",
@@ -578,7 +611,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p30",
-          "text": "1.  **Semáforos:** Tienen prioridad absoluta sobre la regla de la derecha. Un semáforo en rojo obliga a detenerse, aunque el vehículo que viene por la derecha tenga el \"paso\" teórico. 2.  **Señales de Pare o Ceda el Paso:** Quien tiene estas señales en su sentido de circulación debe respetarlas, independientemente de por qué mano venga el otro vehículo. 3.  **Vehículos de emergencia:** Ambulancias, bomberos y policía con sirena y balizas encendidas tienen prioridad absoluta sobre cualquier otro vehículo. La vida humana está por encima de la norma de tránsito. 4.  **Transporte público:** En muchas jurisdicciones, los colectivos tienen prioridad al reincorporarse al tránsito desde una parada, siempre que señalicen con las luces de giro. 5.  **Rotondas:** Aquí la regla es inversa a la de \"derecha\" en muchos países: quien ya está circulando *dentro* de la rotonda tiene prioridad sobre quien va a ingresar. El que ingresa debe ceder el paso. 6.  **Peatones:** En una senda peatonal señalizada, el peatón que ya inició el cruce tiene prioridad absoluta. El vehículo debe esperar a que el peatón complete el cruce, no solo \"ceder\" el paso momentáneamente."
+          "text": "1.  Semáforos: Tienen prioridad absoluta sobre la regla de la derecha. Un semáforo en rojo obliga a detenerse, aunque el vehículo que viene por la derecha tenga el \"paso\" teórico. 2.  Señales de Pare o Ceda el Paso: Quien tiene estas señales en su sentido de circulación debe respetarlas, independientemente de por qué mano venga el otro vehículo. 3.  Vehículos de emergencia: Ambulancias, bomberos y policía con sirena y balizas encendidas tienen prioridad absoluta sobre cualquier otro vehículo. La vida humana está por encima de la norma de tránsito. 4.  Transporte público: En muchas jurisdicciones, los colectivos tienen prioridad al reincorporarse al tránsito desde una parada, siempre que señalicen con las luces de giro. 5.  Rotondas: Aquí la regla es inversa a la de \"derecha\" en muchos países: quien ya está circulando dentro de la rotonda tiene prioridad sobre quien va a ingresar. El que ingresa debe ceder el paso. 6.  Peatones: En una senda peatonal señalizada, el peatón que ya inició el cruce tiene prioridad absoluta. El vehículo debe esperar a que el peatón complete el cruce, no solo \"ceder\" el paso momentáneamente."
         },
         {
           "type": "paragraph",
@@ -599,7 +632,13 @@
       ],
       "meta": {
         "chapterId": "cap-4"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-5",
@@ -720,7 +759,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p22",
-          "text": "El proceso de diseñar un proyecto ciudadano enseña habilidades fundamentales: 1.  **Diagnóstico:** No basta con decir \"el barrio está sucio\" o \"la calle es peligrosa\". Hay que investigar las causas, los afectados y la normativa aplicable. 2.  **Diseño:** Proponer soluciones realistas, considerando recursos, plazos y actores involucrados. 3.  **Negociación:** Dialogar con vecinos, autoridades locales y otros grupos para construir consensos. 4.  **Ejecución y seguimiento:** Llevar adelante la acción y medir los resultados."
+          "text": "El proceso de diseñar un proyecto ciudadano enseña habilidades fundamentales: 1.  Diagnóstico: No basta con decir \"el barrio está sucio\" o \"la calle es peligrosa\". Hay que investigar las causas, los afectados y la normativa aplicable. 2.  Diseño: Proponer soluciones realistas, considerando recursos, plazos y actores involucrados. 3.  Negociación: Dialogar con vecinos, autoridades locales y otros grupos para construir consensos. 4.  Ejecución y seguimiento: Llevar adelante la acción y medir los resultados."
         },
         {
           "type": "paragraph",
@@ -746,7 +785,13 @@
       ],
       "meta": {
         "chapterId": "cap-5"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-6",
@@ -773,7 +818,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p4",
-          "text": "Todo sistema político comienza con una pregunta fundamental: ¿por qué obedecemos? La respuesta ha cambiado drásticamente a lo largo de la historia. En la antigüedad, pensadores como Aristóteles veían al ser humano como un \"animal político\". Para él, el poder no era algo impuesto desde afuera, sino algo natural que surgía de la necesidad de vivir en comunidad. La *polis* era el espacio donde la razón y la virtud debían guiar las decisiones del bien común. El poder legítimo era aquel que buscaba la justicia entre iguales."
+          "text": "Todo sistema político comienza con una pregunta fundamental: ¿por qué obedecemos? La respuesta ha cambiado drásticamente a lo largo de la historia. En la antigüedad, pensadores como Aristóteles veían al ser humano como un \"animal político\". Para él, el poder no era algo impuesto desde afuera, sino algo natural que surgía de la necesidad de vivir en comunidad. La polis era el espacio donde la razón y la virtud debían guiar las decisiones del bien común. El poder legítimo era aquel que buscaba la justicia entre iguales."
         },
         {
           "type": "paragraph",
@@ -794,12 +839,12 @@
         {
           "type": "paragraph",
           "id": "cap-6-p8",
-          "text": "El **Estado Liberal**, que surge con fuerza tras las revoluciones burguesas, se basa en la idea de que el individuo es libre por naturaleza y el Estado debe intervenir lo mínimo posible. Su rol se limita a garantizar la seguridad, la justicia y la propiedad privada, confiando en que el mercado regulará la distribución de la riqueza de manera eficiente. Es un Estado \"guardián nocturno\", que vigila que nadie viole los derechos de los demás, pero no se mete en la economía."
+          "text": "El Estado Liberal, que surge con fuerza tras las revoluciones burguesas, se basa en la idea de que el individuo es libre por naturaleza y el Estado debe intervenir lo mínimo posible. Su rol se limita a garantizar la seguridad, la justicia y la propiedad privada, confiando en que el mercado regulará la distribución de la riqueza de manera eficiente. Es un Estado \"guardián nocturno\", que vigila que nadie viole los derechos de los demás, pero no se mete en la economía."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p9",
-          "text": "Sin embargo, a finales del siglo XIX y principios del XX, las desigualdades generadas por el capitalismo industrial empezaron a mostrar grietas peligrosas. Como respuesta, surgió el **Estado de Bienestar**. Este modelo acepta que la libertad formal no es suficiente si no hay condiciones materiales para ejercerla. Por lo tanto, el Estado asume un rol activo en la economía y la sociedad: provee educación, salud, pensiones y regula el trabajo. El objetivo ya no es solo la libertad negativa (no ser impedido), sino la igualdad de oportunidades y la protección social. Hoy en día, la mayoría de las democracias occidentales, incluida la Argentina, operan bajo un modelo mixto, intentando equilibrar la eficiencia del mercado con la protección social del Estado de Bienestar."
+          "text": "Sin embargo, a finales del siglo XIX y principios del XX, las desigualdades generadas por el capitalismo industrial empezaron a mostrar grietas peligrosas. Como respuesta, surgió el Estado de Bienestar. Este modelo acepta que la libertad formal no es suficiente si no hay condiciones materiales para ejercerla. Por lo tanto, el Estado asume un rol activo en la economía y la sociedad: provee educación, salud, pensiones y regula el trabajo. El objetivo ya no es solo la libertad negativa (no ser impedido), sino la igualdad de oportunidades y la protección social. Hoy en día, la mayoría de las democracias occidentales, incluida la Argentina, operan bajo un modelo mixto, intentando equilibrar la eficiencia del mercado con la protección social del Estado de Bienestar."
         },
         {
           "type": "heading",
@@ -810,22 +855,22 @@
         {
           "type": "paragraph",
           "id": "cap-6-p11",
-          "text": "Dentro de ese Estado, el poder ejecutivo se organiza de diferentes maneras según el **sistema político** que elija cada país. No existe un modelo único perfecto; cada uno tiene sus ventajas y sus puntos débiles."
+          "text": "Dentro de ese Estado, el poder ejecutivo se organiza de diferentes maneras según el sistema político que elija cada país. No existe un modelo único perfecto; cada uno tiene sus ventajas y sus puntos débiles."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p12",
-          "text": "En el **presidencialismo**, que es el sistema que tenemos en Argentina, el Jefe de Estado y el Jefe de Gobierno son la misma persona: el Presidente. Es elegido directamente por el voto popular (o a través de un colegio electoral, como en EE.UU.) y tiene un mandato de duración fija. Lo crucial aquí es que el Presidente no depende de la confianza del Congreso para seguir gobernando. El Poder Legislativo no puede sacarlo del cargo simplemente porque no le guste su gestión (una \"moción de censura\"); solo puede hacerlo en casos extremos de delitos comunes o errores graves en el ejercicio del cargo (el llamado *juicio político*). Esto busca estabilidad, pero también puede generar bloqueos si el Congreso y el Presidente son de partidos opuestos."
+          "text": "En el presidencialismo, que es el sistema que tenemos en Argentina, el Jefe de Estado y el Jefe de Gobierno son la misma persona: el Presidente. Es elegido directamente por el voto popular (o a través de un colegio electoral, como en EE.UU.) y tiene un mandato de duración fija. Lo crucial aquí es que el Presidente no depende de la confianza del Congreso para seguir gobernando. El Poder Legislativo no puede sacarlo del cargo simplemente porque no le guste su gestión (una \"moción de censura\"); solo puede hacerlo en casos extremos de delitos comunes o errores graves en el ejercicio del cargo (el llamado juicio político). Esto busca estabilidad, pero también puede generar bloqueos si el Congreso y el Presidente son de partidos opuestos."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p13",
-          "text": "En cambio, en el **parlamentarismo**, típico de países como Reino Unido o España, la figura del Jefe de Estado (un rey o una reina) es mayormente ceremonial. El verdadero poder lo ejerce el Primer Ministro, quien es elegido por el Parlamento, no por el pueblo directamente. La clave aquí es la dependencia: el gobierno debe mantener la confianza de la mayoría parlamentaria. Si pierde esa confianza, el gobierno cae y hay que llamar a nuevas elecciones o formar uno nuevo. Esto hace que el sistema sea muy flexible y reactivo, pero también puede generar inestabilidad si hay muchas fragmentación política."
+          "text": "En cambio, en el parlamentarismo, típico de países como Reino Unido o España, la figura del Jefe de Estado (un rey o una reina) es mayormente ceremonial. El verdadero poder lo ejerce el Primer Ministro, quien es elegido por el Parlamento, no por el pueblo directamente. La clave aquí es la dependencia: el gobierno debe mantener la confianza de la mayoría parlamentaria. Si pierde esa confianza, el gobierno cae y hay que llamar a nuevas elecciones o formar uno nuevo. Esto hace que el sistema sea muy flexible y reactivo, pero también puede generar inestabilidad si hay muchas fragmentación política."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p14",
-          "text": "Existe también una mezcla, el **semipresidencialismo**, como el de Francia. Allí conviven un Presidente con poderes reales y un Primer Ministro que responde al Parlamento. Es un sistema híbrido que busca combinar la estabilidad del presidencialismo con la responsabilidad parlamentaria. Al comparar estos sistemas, no se trata de decir cuál es \"mejor\" en abstracto, sino de entender cómo cada uno moldea la relación entre el gobernante y el gobernado."
+          "text": "Existe también una mezcla, el semipresidencialismo, como el de Francia. Allí conviven un Presidente con poderes reales y un Primer Ministro que responde al Parlamento. Es un sistema híbrido que busca combinar la estabilidad del presidencialismo con la responsabilidad parlamentaria. Al comparar estos sistemas, no se trata de decir cuál es \"mejor\" en abstracto, sino de entender cómo cada uno moldea la relación entre el gobernante y el gobernado."
         },
         {
           "type": "heading",
@@ -836,17 +881,17 @@
         {
           "type": "paragraph",
           "id": "cap-6-p16",
-          "text": "Si el poder reside en el pueblo, la pregunta siguiente es: ¿quiénes son ese \"pueblo\"? Durante gran parte de la historia argentina, la respuesta fue muy restrictiva. En el siglo XIX y principios del XX, el **sufragio** no era universal. Existía el **sufragio censitario**, que exigía a los votantes tener una propiedad o un ingreso mínimo. La lógica de la época era que solo quienes tenían \"bienes\" tenían un interés real en la estabilidad del país y la capacidad intelectual para decidir. A esto se sumaba la exclusión total de las mujeres y la discriminación contra los sectores populares más pobres."
+          "text": "Si el poder reside en el pueblo, la pregunta siguiente es: ¿quiénes son ese \"pueblo\"? Durante gran parte de la historia argentina, la respuesta fue muy restrictiva. En el siglo XIX y principios del XX, el sufragio no era universal. Existía el sufragio censitario, que exigía a los votantes tener una propiedad o un ingreso mínimo. La lógica de la época era que solo quienes tenían \"bienes\" tenían un interés real en la estabilidad del país y la capacidad intelectual para decidir. A esto se sumaba la exclusión total de las mujeres y la discriminación contra los sectores populares más pobres."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p17",
-          "text": "Pero la democracia no se da por decreto; se conquista. Antes de la ley, había un contexto de **fraude electoral** sistemático. Los gobiernos de la época, conocidos como las generaciones del '80 y siguientes, manipulaban los padrones, coaccionaban a los votantes analfabetos y compraban votos con promesas de trabajo o ayuda económica. Los caudillos locales funcionaban como intermediarios que garantizaban los resultados favorables al poder establecido. El voto no era una expresión de voluntad, sino un ritual de sumisión."
+          "text": "Pero la democracia no se da por decreto; se conquista. Antes de la ley, había un contexto de fraude electoral sistemático. Los gobiernos de la época, conocidos como las generaciones del '80 y siguientes, manipulaban los padrones, coaccionaban a los votantes analfabetos y compraban votos con promesas de trabajo o ayuda económica. Los caudillos locales funcionaban como intermediarios que garantizaban los resultados favorables al poder establecido. El voto no era una expresión de voluntad, sino un ritual de sumisión."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p18",
-          "text": "El punto de inflexión llegó con la **Ley Sáenz Peña** de 1912. Esta legislación marcó un cambio histórico al establecer el sufragio universal masculino, eliminando los requisitos económicos y, crucialmente, introduciendo el voto secreto. Por primera vez, la intimidad del elector estaba protegida, dificultando la coacción. Aunque las mujeres seguían excluidas (lo cual se corregiría recién en 1947 con la ley de voto femenino), la ley sentó las bases de una participación electoral más amplia y equitativa, transformando la política de un juego de élites cerradas a una competencia de ideas y programas."
+          "text": "El punto de inflexión llegó con la Ley Sáenz Peña de 1912. Esta legislación marcó un cambio histórico al establecer el sufragio universal masculino, eliminando los requisitos económicos y, crucialmente, introduciendo el voto secreto. Por primera vez, la intimidad del elector estaba protegida, dificultando la coacción. Aunque las mujeres seguían excluidas (lo cual se corregiría recién en 1947 con la ley de voto femenino), la ley sentó las bases de una participación electoral más amplia y equitativa, transformando la política de un juego de élites cerradas a una competencia de ideas y programas."
         },
         {
           "type": "heading",
@@ -857,17 +902,17 @@
         {
           "type": "paragraph",
           "id": "cap-6-p20",
-          "text": "Una vez que el pueblo vota, los gobernados eligen a quienes administrarán los recursos públicos. Aquí es donde la economía y la política se cruzan de manera tensa. Un indicador clave es el **sueldo promedio** de un país. Sin embargo, como estudiantes de Cívica, deben aprender a leer estos datos con espíritu crítico. La misma base de datos puede usarse para contar dos historias opuestas, ambas técnicamente verdaderas, pero con implicaciones muy distintas."
+          "text": "Una vez que el pueblo vota, los gobernados eligen a quienes administrarán los recursos públicos. Aquí es donde la economía y la política se cruzan de manera tensa. Un indicador clave es el sueldo promedio de un país. Sin embargo, como estudiantes de Cívica, deben aprender a leer estos datos con espíritu crítico. La misma base de datos puede usarse para contar dos historias opuestas, ambas técnicamente verdaderas, pero con implicaciones muy distintas."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p21",
-          "text": "Imaginen un gobierno que anuncia: \"El salario promedio subió un 8% este año\". Es un logro. Al mismo tiempo, un sector crítico responde: \"El salario del trabajador típico casi no se movió\". ¿Quién miente? Ninguno. La diferencia está en qué medida estadística utilizan. La **media** (promedio) se distorsiona fácilmente si hay pocos ingresos muy altos (como los de los ejecutivos), inflando la cifra. La **mediana** (el valor que está en el medio, donde la mitad gana más y la mitad menos) suele reflejar mejor la realidad de la mayoría."
+          "text": "Imaginen un gobierno que anuncia: \"El salario promedio subió un 8% este año\". Es un logro. Al mismo tiempo, un sector crítico responde: \"El salario del trabajador típico casi no se movió\". ¿Quién miente? Ninguno. La diferencia está en qué medida estadística utilizan. La media (promedio) se distorsiona fácilmente si hay pocos ingresos muy altos (como los de los ejecutivos), inflando la cifra. La mediana (el valor que está en el medio, donde la mitad gana más y la mitad menos) suele reflejar mejor la realidad de la mayoría."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p22",
-          "text": "Además, hay que distinguir entre términos **nominales** y **reales**. Un aumento nominal del 30% en el sueldo suena espectacular. Pero si la inflación del mismo período fue del 40%, el **poder adquisitivo real** bajó. Es decir, con ese sueldo se pueden comprar menos cosas que antes. La fórmula aproximada es: *aumento real ≈ aumento nominal - inflación*. Entender esta distinción es vital para no dejarse llevar por titulares sensacionalistas. La política económica siempre involucra selecciones de datos que favorecen cierta narrativa, y el ciudadano informado debe saber discernir entre el crecimiento de los números y el bienestar real de la gente."
+          "text": "Además, hay que distinguir entre términos nominales y reales. Un aumento nominal del 30% en el sueldo suena espectacular. Pero si la inflación del mismo período fue del 40%, el poder adquisitivo real bajó. Es decir, con ese sueldo se pueden comprar menos cosas que antes. La fórmula aproximada es: aumento real ≈ aumento nominal - inflación. Entender esta distinción es vital para no dejarse llevar por titulares sensacionalistas. La política económica siempre involucra selecciones de datos que favorecen cierta narrativa, y el ciudadano informado debe saber discernir entre el crecimiento de los números y el bienestar real de la gente."
         },
         {
           "type": "heading",
@@ -878,17 +923,17 @@
         {
           "type": "paragraph",
           "id": "cap-6-p24",
-          "text": "Finalmente, ningún Estado opera en el vacío. En un mundo globalizado, las decisiones nacionales están cada vez más vinculadas a acuerdos internacionales. Aquí entra en juego el concepto de **tratado internacional**: un acuerdo formal entre dos o más Estados que genera obligaciones legales. Pero, ¿qué pasa si una ley argentina contradice un tratado?"
+          "text": "Finalmente, ningún Estado opera en el vacío. En un mundo globalizado, las decisiones nacionales están cada vez más vinculadas a acuerdos internacionales. Aquí entra en juego el concepto de tratado internacional: un acuerdo formal entre dos o más Estados que genera obligaciones legales. Pero, ¿qué pasa si una ley argentina contradice un tratado?"
         },
         {
           "type": "paragraph",
           "id": "cap-6-p25",
-          "text": "Para responder, debemos mirar la **pirámide de Kelsen**, un modelo que ordena las normas jurídicas. En teoría general, la Constitución está en la cima, seguida por los tratados internacionales, luego las leyes nacionales, y así sucesivamente. Esto significa que un tratado tiene jerarquía superior a una ley común. Si una ley nacional va en contra de un tratado ratificado, la ley pierde."
+          "text": "Para responder, debemos mirar la pirámide de Kelsen, un modelo que ordena las normas jurídicas. En teoría general, la Constitución está en la cima, seguida por los tratados internacionales, luego las leyes nacionales, y así sucesivamente. Esto significa que un tratado tiene jerarquía superior a una ley común. Si una ley nacional va en contra de un tratado ratificado, la ley pierde."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p26",
-          "text": "Sin embargo, la Constitución Argentina de 1994 dio un paso aún más audaz con el **artículo 75, inciso 22**. Este artículo otorga **jerarquía constitucional** a un grupo específico de tratados de derechos humanos. Esto significa que instrumentos como la Declaración Universal de los Derechos Humanos, la Convención Americana sobre Derechos Humanos (Pacto de San José) y otros convenios clave no están solo por encima de las leyes, sino en **pie de igualdad con la Constitución**. Son parte del bloque de constitucionalidad. Esto refuerza enormemente la protección de los derechos ciudadanos: el Estado argentino no puede invocar una ley interna para violar estos derechos, ni siquiera modificando la Constitución de forma contraria a ellos."
+          "text": "Sin embargo, la Constitución Argentina de 1994 dio un paso aún más audaz con el artículo 75, inciso 22. Este artículo otorga jerarquía constitucional a un grupo específico de tratados de derechos humanos. Esto significa que instrumentos como la Declaración Universal de los Derechos Humanos, la Convención Americana sobre Derechos Humanos (Pacto de San José) y otros convenios clave no están solo por encima de las leyes, sino en pie de igualdad con la Constitución. Son parte del bloque de constitucionalidad. Esto refuerza enormemente la protección de los derechos ciudadanos: el Estado argentino no puede invocar una ley interna para violar estos derechos, ni siquiera modificando la Constitución de forma contraria a ellos."
         },
         {
           "type": "heading",
@@ -904,7 +949,13 @@
       ],
       "meta": {
         "chapterId": "cap-6"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

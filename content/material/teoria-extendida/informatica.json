@@ -11,73 +11,73 @@
         "id": "cap-1",
         "title": "De la lógica pura a la memoria física: El corazón de la computadora",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "La vida oculta de la máquina: De la chispa eléctrica al diálogo entre procesos",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "La arquitectura invisible: del silicio a la nube",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       },
       {
         "id": "cap-4",
         "title": "La sombra invisible: Ética, sesgos y privacidad en la era de la inteligencia artificial",
         "pageStart": 4,
-        "anchor": "cap-4"
+        "anchor": "cap-4:inicio"
       },
       {
         "id": "cap-5",
         "title": "El tejido invisible: De la máquina de escribir a la mente extendida",
         "pageStart": 5,
-        "anchor": "cap-5"
+        "anchor": "cap-5:inicio"
       },
       {
         "id": "cap-6",
         "title": "El ingenio y la memoria: Cómo el sistema operativo gestiona el espacio y la velocidad",
         "pageStart": 6,
-        "anchor": "cap-6"
+        "anchor": "cap-6:inicio"
       },
       {
         "id": "cap-7",
         "title": "La arquitectura invisible: Cómo el sistema operativo teje la experiencia de uso",
         "pageStart": 7,
-        "anchor": "cap-7"
+        "anchor": "cap-7:inicio"
       },
       {
         "id": "cap-8",
         "title": "De la intención a la ejecución: La arquitectura invisible del mundo digital",
         "pageStart": 8,
-        "anchor": "cap-8"
+        "anchor": "cap-8:inicio"
       },
       {
         "id": "cap-9",
         "title": "La arquitectura invisible: De la revolución de los tubos de vacío a la lógica de los sistemas modernos",
         "pageStart": 9,
-        "anchor": "cap-9"
+        "anchor": "cap-9:inicio"
       },
       {
         "id": "cap-10",
         "title": "La arquitectura invisible: del disco duro a la red segura",
         "pageStart": 10,
-        "anchor": "cap-10"
+        "anchor": "cap-10:inicio"
       },
       {
         "id": "cap-11",
         "title": "La arquitectura invisible: del hardware a la red y la legalidad",
         "pageStart": 11,
-        "anchor": "cap-11"
+        "anchor": "cap-11:inicio"
       },
       {
         "id": "cap-12",
         "title": "La ilusión de la independencia: De las máquinas virtuales a los contenedores",
         "pageStart": 12,
-        "anchor": "cap-12"
+        "anchor": "cap-12:inicio"
       }
     ]
   },
@@ -112,32 +112,32 @@
         {
           "type": "paragraph",
           "id": "cap-1-p5",
-          "text": "El Álgebra Booleana no es más que la aplicación de la lógica proposicional a sistemas digitales. En la vida real, las cosas suelen tener matices: algo puede estar \"un poco encendido\" o \"a mitad de camino\". Pero en el mundo digital, la naturaleza nos obliga a elegir un lado del abismo. O hay corriente eléctrica (lo representamos como **1**, verdadero, encendido) o no la hay (lo representamos como **0**, falso, apagado). Esta decisión binaria es fundamental porque es la forma más robusta de representar información: es mucho más fácil para un circuito distinguir entre \"hay voltaje\" y \"no hay voltaje\" que intentar medir un voltaje específico con precisión absoluta, lo cual sería propenso a errores por interferencias."
+          "text": "El Álgebra Booleana no es más que la aplicación de la lógica proposicional a sistemas digitales. En la vida real, las cosas suelen tener matices: algo puede estar \"un poco encendido\" o \"a mitad de camino\". Pero en el mundo digital, la naturaleza nos obliga a elegir un lado del abismo. O hay corriente eléctrica (lo representamos como 1, verdadero, encendido) o no la hay (lo representamos como 0, falso, apagado). Esta decisión binaria es fundamental porque es la forma más robusta de representar información: es mucho más fácil para un circuito distinguir entre \"hay voltaje\" y \"no hay voltaje\" que intentar medir un voltaje específico con precisión absoluta, lo cual sería propenso a errores por interferencias."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p6",
-          "text": "Cuando operamos con estos valores, usamos las mismas reglas que aprendimos en lógica, pero ahora tienen un equivalente físico tangible: las **compuertas lógicas**. Una compuerta es un pequeño componente electrónico, parte de un circuito integrado, que recibe señales de entrada (unos ceros y unos unos) y produce una salida según una regla específica. Es como una mini-fábrica de decisiones."
+          "text": "Cuando operamos con estos valores, usamos las mismas reglas que aprendimos en lógica, pero ahora tienen un equivalente físico tangible: las compuertas lógicas. Una compuerta es un pequeño componente electrónico, parte de un circuito integrado, que recibe señales de entrada (unos ceros y unos unos) y produce una salida según una regla específica. Es como una mini-fábrica de decisiones."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p7",
-          "text": "La más intuitiva es la compuerta **AND** (Y). Para que esta compuerta diga \"sí\" (salida 1), ambas entradas tienen que ser \"sí\". Si pensás en la lógica de la vida real, es como decir: \"Voy a salir a caminar **si** hace sol **y** si no llueve\". Si falta alguna de las dos condiciones, la acción no se ejecuta. En una tabla de verdad, esto se traduce en que solo cuando A es 1 y B es 1, el resultado es 1. En cualquier otro caso, la salida es 0. Es una compuerta exigente; no se conforma con que una condición se cumpla, necesita que todas estén satisfechas."
+          "text": "La más intuitiva es la compuerta AND (Y). Para que esta compuerta diga \"sí\" (salida 1), ambas entradas tienen que ser \"sí\". Si pensás en la lógica de la vida real, es como decir: \"Voy a salir a caminar si hace sol y si no llueve\". Si falta alguna de las dos condiciones, la acción no se ejecuta. En una tabla de verdad, esto se traduce en que solo cuando A es 1 y B es 1, el resultado es 1. En cualquier otro caso, la salida es 0. Es una compuerta exigente; no se conforma con que una condición se cumpla, necesita que todas estén satisfechas."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p8",
-          "text": "Por otro lado, tenemos la compuerta **OR** (O). Esta es más permisiva. Para que la salida sea 1, basta con que al menos una de las entradas sea 1. Es como decir: \"Voy a llevar paraguas **si** llueve **o** si hace mucho sol (para protegerme del calor)\". En la práctica digital, esto permite que múltiples rutas de información converjan. Si cualquiera de los caminos tiene un \"1\", la señal pasa."
+          "text": "Por otro lado, tenemos la compuerta OR (O). Esta es más permisiva. Para que la salida sea 1, basta con que al menos una de las entradas sea 1. Es como decir: \"Voy a llevar paraguas si llueve o si hace mucho sol (para protegerme del calor)\". En la práctica digital, esto permite que múltiples rutas de información converjan. Si cualquiera de los caminos tiene un \"1\", la señal pasa."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p9",
-          "text": "Luego está la **NOT** (NO), o compuerta de inversión. Esta es la más simple: no necesita dos entradas, solo una, y su función es simplemente invertir lo que recibe. Si entra un 1, sale un 0. Si entra un 0, sale un 1. Es el equivalente al \"no\" en el lenguaje natural. Si decís \"no es verdad\", estás aplicando una negación booleana."
+          "text": "Luego está la NOT (NO), o compuerta de inversión. Esta es la más simple: no necesita dos entradas, solo una, y su función es simplemente invertir lo que recibe. Si entra un 1, sale un 0. Si entra un 0, sale un 1. Es el equivalente al \"no\" en el lenguaje natural. Si decís \"no es verdad\", estás aplicando una negación booleana."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p10",
-          "text": "Finalmente, existe la compuerta **XOR** (O exclusivo). Esta es un poco más sutil y muy útil. Funciona como un \"o\" pero con una condición extra: la salida es 1 solo si las entradas son **distintas**. Es decir, si una es 1 y la otra es 0. Si ambas son iguales (las dos 1 o las dos 0), la salida es 0. Imaginá que estás intentando abrir una puerta con dos llaves que deben ser opuestas para girar en direcciones contrarias; si ambas llaves intentan girar en el mismo sentido, la puerta no abre. Esta compuerta es fundamental para operaciones aritméticas complejas y para detectar cambios de estado."
+          "text": "Finalmente, existe la compuerta XOR (O exclusivo). Esta es un poco más sutil y muy útil. Funciona como un \"o\" pero con una condición extra: la salida es 1 solo si las entradas son distintas. Es decir, si una es 1 y la otra es 0. Si ambas son iguales (las dos 1 o las dos 0), la salida es 0. Imaginá que estás intentando abrir una puerta con dos llaves que deben ser opuestas para girar en direcciones contrarias; si ambas llaves intentan girar en el mismo sentido, la puerta no abre. Esta compuerta es fundamental para operaciones aritméticas complejas y para detectar cambios de estado."
         },
         {
           "type": "paragraph",
@@ -153,12 +153,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p13",
-          "text": "Si el procesador es el cerebro que piensa, la memoria es donde ese cerebro guarda lo que está haciendo. Pero aquí surge una paradoja técnica fascinante: lo que es más rápido para el procesador es, por regla general, lo que pierde la información más rápido. Esto nos lleva a la distinción fundamental entre almacenamiento **volátil** y **no volátil**."
+          "text": "Si el procesador es el cerebro que piensa, la memoria es donde ese cerebro guarda lo que está haciendo. Pero aquí surge una paradoja técnica fascinante: lo que es más rápido para el procesador es, por regla general, lo que pierde la información más rápido. Esto nos lleva a la distinción fundamental entre almacenamiento volátil y no volátil."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p14",
-          "text": "El término \"volátil\" proviene del latín *volatilis*, que significa \"que se evapora\" o \"que se dispersa\". En el contexto de la informática, un almacenamiento volátil es aquel que requiere energía eléctrica constante para mantener la información guardada. Si cortás la luz, la información se evapora. El ejemplo clásico es la **RAM** (Memoria de Acceso Aleatorio). La RAM es el espacio de trabajo temporal de tu computadora."
+          "text": "El término \"volátil\" proviene del latín volatilis, que significa \"que se evapora\" o \"que se dispersa\". En el contexto de la informática, un almacenamiento volátil es aquel que requiere energía eléctrica constante para mantener la información guardada. Si cortás la luz, la información se evapora. El ejemplo clásico es la RAM (Memoria de Acceso Aleatorio). La RAM es el espacio de trabajo temporal de tu computadora."
         },
         {
           "type": "paragraph",
@@ -179,7 +179,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p18",
-          "text": "A diferencia de la RAM, el almacenamiento **no volátil** retiene la información incluso cuando no hay energía. Es el lugar donde viven tus fotos, tus documentos, el sistema operativo y los juegos que instalaste. Los dispositivos no volátiles más comunes son los discos duros mecánicos (**HDD**) y las unidades de estado sólido (**SSD**)."
+          "text": "A diferencia de la RAM, el almacenamiento no volátil retiene la información incluso cuando no hay energía. Es el lugar donde viven tus fotos, tus documentos, el sistema operativo y los juegos que instalaste. Los dispositivos no volátiles más comunes son los discos duros mecánicos (HDD) y las unidades de estado sólido (SSD)."
         },
         {
           "type": "paragraph",
@@ -189,7 +189,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p20",
-          "text": "Las unidades de estado sólido (**SSD**) funcionan de manera diferente. En lugar de partes mecánicas, usan chips de memoria flash, que almacenan electrones en celdas de transistores de puerta flotante. Aunque técnicamente dependen de la electricidad para leer y escribir, la estructura física de la celda retiene los electrones atrapados durante mucho tiempo sin alimentación externa, lo que la hace no volátil. Los SSD son mucho más rápidos que los HDD porque no tienen partes móviles que tengan que acelerarse o frenarse, pero siguen siendo órdenes de magnitud más lentos que la RAM."
+          "text": "Las unidades de estado sólido (SSD) funcionan de manera diferente. En lugar de partes mecánicas, usan chips de memoria flash, que almacenan electrones en celdas de transistores de puerta flotante. Aunque técnicamente dependen de la electricidad para leer y escribir, la estructura física de la celda retiene los electrones atrapados durante mucho tiempo sin alimentación externa, lo que la hace no volátil. Los SSD son mucho más rápidos que los HDD porque no tienen partes móviles que tengan que acelerarse o frenarse, pero siguen siendo órdenes de magnitud más lentos que la RAM."
         },
         {
           "type": "paragraph",
@@ -225,7 +225,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -257,7 +263,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p5",
-          "text": "Este firmware tiene una tarea crítica antes de permitir que el sistema operativo arranque: realizar lo que se llama el POST (*Power-On Self-Test* o prueba de encendido propio). Es como un chequeo médico rápido. La computadora verifica que la memoria RAM esté operativa, que el teclado responda y que los discos duros o SSDs estén conectados. Si algo falla en esta etapa, la computadora no mostrará una pantalla azul de error de software; en su lugar, emitirá una serie de pitidos o códigos en LEDs para indicarte qué componente específico no responde. Es una capa de seguridad esencial que evita que intentemos ejecutar programas sobre hardware defectuoso."
+          "text": "Este firmware tiene una tarea crítica antes de permitir que el sistema operativo arranque: realizar lo que se llama el POST (Power-On Self-Test o prueba de encendido propio). Es como un chequeo médico rápido. La computadora verifica que la memoria RAM esté operativa, que el teclado responda y que los discos duros o SSDs estén conectados. Si algo falla en esta etapa, la computadora no mostrará una pantalla azul de error de software; en su lugar, emitirá una serie de pitidos o códigos en LEDs para indicarte qué componente específico no responde. Es una capa de seguridad esencial que evita que intentemos ejecutar programas sobre hardware defectuoso."
         },
         {
           "type": "paragraph",
@@ -273,7 +279,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p8",
-          "text": "Una vez que el sistema está vivo, surgen otros desafíos. El procesador, que es el cerebro que piensa, necesita comunicarse con la memoria (donde guarda los datos temporales) y con los dispositivos de entrada y salida (como el teclado, el mouse o la pantalla). Pero no puede hacerlo directamente con cada uno de ellos, porque eso implicaría un caos de cables cruzados y conexiones directas que harían el diseño de la computadora imposible. Para solucionar esto, utilizamos los **buses**."
+          "text": "Una vez que el sistema está vivo, surgen otros desafíos. El procesador, que es el cerebro que piensa, necesita comunicarse con la memoria (donde guarda los datos temporales) y con los dispositivos de entrada y salida (como el teclado, el mouse o la pantalla). Pero no puede hacerlo directamente con cada uno de ellos, porque eso implicaría un caos de cables cruzados y conexiones directas que harían el diseño de la computadora imposible. Para solucionar esto, utilizamos los buses."
         },
         {
           "type": "paragraph",
@@ -283,7 +289,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p10",
-          "text": "1.  **El bus de datos:** Es la calle por donde viaja la información real. Si el procesador quiere leer el número \"5\" de la memoria, ese dato cruza por este bus. Su capacidad, medida en bits, determina cuánta información puede viajar al mismo tiempo. 2.  **El bus de direcciones:** Es el sistema de coordenadas. Este bus no lleva datos útiles en sí mismo, sino direcciones. Le dice al sistema: \"El dato que viene por el bus de datos va para la dirección 1024 de la memoria\". Sin este bus, la información llegaría sin destino, como una carta sin dirección. 3.  **El bus de control:** Es la señal de tránsito. Envía las instrucciones de coordinación: \"Ojo, estoy leyendo\", \"Listo para escribir\", \"Espera un momento\". Sin estas señales, los componentes no sabrían cuándo hablar y cuándo escuchar, generando colisiones de datos."
+          "text": "1.  El bus de datos: Es la calle por donde viaja la información real. Si el procesador quiere leer el número \"5\" de la memoria, ese dato cruza por este bus. Su capacidad, medida en bits, determina cuánta información puede viajar al mismo tiempo. 2.  El bus de direcciones: Es el sistema de coordenadas. Este bus no lleva datos útiles en sí mismo, sino direcciones. Le dice al sistema: \"El dato que viene por el bus de datos va para la dirección 1024 de la memoria\". Sin este bus, la información llegaría sin destino, como una carta sin dirección. 3.  El bus de control: Es la señal de tránsito. Envía las instrucciones de coordinación: \"Ojo, estoy leyendo\", \"Listo para escribir\", \"Espera un momento\". Sin estas señales, los componentes no sabrían cuándo hablar y cuándo escuchar, generando colisiones de datos."
         },
         {
           "type": "paragraph",
@@ -293,7 +299,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p12",
-          "text": "Esta comunicación se materializa en el **ciclo de entrada/salida (E/S)**. Cuando tocás una tecla, no es magia: el teclado envía una señal al procesador a través de estos buses. El procesador debe decidir cómo manejar esa información. ¿Debería detener todo lo que está haciendo para atender esa tecla? ¿O debería seguir trabajando y atenderla después? Aquí es donde la eficiencia del hardware se cruza con la lógica del software."
+          "text": "Esta comunicación se materializa en el ciclo de entrada/salida (E/S). Cuando tocás una tecla, no es magia: el teclado envía una señal al procesador a través de estos buses. El procesador debe decidir cómo manejar esa información. ¿Debería detener todo lo que está haciendo para atender esa tecla? ¿O debería seguir trabajando y atenderla después? Aquí es donde la eficiencia del hardware se cruza con la lógica del software."
         },
         {
           "type": "heading",
@@ -304,7 +310,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p14",
-          "text": "Mientras los buses transportan datos y el sistema operativo gestiona la entrada y salida, el procesador está trabajando incansablemente. Su trabajo se reduce a un ciclo repetitivo, mecánico y veloz: el **ciclo de instrucción**. Este es el mecanismo fundamental por el cual la computadora convierte datos y comandos en acciones concretas. Todo programa, desde un juego complejo hasta un editor de texto simple, se reduce a miles de millones de estos ciclos por segundo."
+          "text": "Mientras los buses transportan datos y el sistema operativo gestiona la entrada y salida, el procesador está trabajando incansablemente. Su trabajo se reduce a un ciclo repetitivo, mecánico y veloz: el ciclo de instrucción. Este es el mecanismo fundamental por el cual la computadora convierte datos y comandos en acciones concretas. Todo programa, desde un juego complejo hasta un editor de texto simple, se reduce a miles de millones de estos ciclos por segundo."
         },
         {
           "type": "paragraph",
@@ -314,7 +320,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p16",
-          "text": "1.  **Fetch (Búsqueda):** El procesador necesita saber qué hacer a continuación. Para eso, consulta un registro especial llamado **Contador de Programa (PC)**. Este registro guarda la dirección de memoria de la *siguiente* instrucción que debe ejecutarse. El procesador envía esa dirección por el **bus de direcciones** a la memoria principal. La memoria responde enviando la instrucción (que es simplemente un código binario) de vuelta al procesador a través del **bus de datos**. Esta instrucción se guarda temporalmente en un registro llamado **Registro de Instrucción (IR)**. Al mismo tiempo, el Contador de Programa se actualiza automáticamente para apuntar a la instrucción siguiente, preparando el terreno para el próximo ciclo. 2.  **Decode (Decodificación):** Ahora que la instrucción está en el Registro de Instrucción, el procesador debe entenderla. La **Unidad de Control** analiza el código binario para determinar qué operación se debe realizar. ¿Es una suma? ¿Es un movimiento de datos? ¿Es un salto a otra parte del programa? La unidad de control traduce ese código binario en señales eléctricas específicas que activarán los circuitos correctos dentro del procesador. Es como si alguien te dijera \"abre la puerta\" en un idioma que solo tú entiendes y tradujeras eso a la acción física de girar la manija. 3.  **Execute (Ejecución):** Finalmente, con las señales eléctricas generadas, la **Unidad Aritmético-Lógica (ALU)** o los registros internos realizan la acción. Si la instrucción era \"sumar 2 y 2\", la ALU realiza la operación. Si la instrucción era \"guardar este dato en la memoria\", se activa el mecanismo de escritura. Una vez terminada la acción, el ciclo vuelve a empezar con el siguiente *fetch*."
+          "text": "1.  Fetch (Búsqueda): El procesador necesita saber qué hacer a continuación. Para eso, consulta un registro especial llamado Contador de Programa (PC). Este registro guarda la dirección de memoria de la siguiente instrucción que debe ejecutarse. El procesador envía esa dirección por el bus de direcciones a la memoria principal. La memoria responde enviando la instrucción (que es simplemente un código binario) de vuelta al procesador a través del bus de datos. Esta instrucción se guarda temporalmente en un registro llamado Registro de Instrucción (IR). Al mismo tiempo, el Contador de Programa se actualiza automáticamente para apuntar a la instrucción siguiente, preparando el terreno para el próximo ciclo. 2.  Decode (Decodificación): Ahora que la instrucción está en el Registro de Instrucción, el procesador debe entenderla. La Unidad de Control analiza el código binario para determinar qué operación se debe realizar. ¿Es una suma? ¿Es un movimiento de datos? ¿Es un salto a otra parte del programa? La unidad de control traduce ese código binario en señales eléctricas específicas que activarán los circuitos correctos dentro del procesador. Es como si alguien te dijera \"abre la puerta\" en un idioma que solo tú entiendes y tradujeras eso a la acción física de girar la manija. 3.  Execute (Ejecución): Finalmente, con las señales eléctricas generadas, la Unidad Aritmético-Lógica (ALU) o los registros internos realizan la acción. Si la instrucción era \"sumar 2 y 2\", la ALU realiza la operación. Si la instrucción era \"guardar este dato en la memoria\", se activa el mecanismo de escritura. Una vez terminada la acción, el ciclo vuelve a empezar con el siguiente fetch."
         },
         {
           "type": "paragraph",
@@ -330,27 +336,27 @@
         {
           "type": "paragraph",
           "id": "cap-2-p19",
-          "text": "Hasta ahora hemos visto cómo la máquina se enciende, cómo sus piezas internas se conectan y cómo el procesador piensa. Pero, ¿qué pasa cuando abridás un navegador, un reproductor de música y un editor de texto al mismo tiempo? Pareciera que todo ocurre a la vez, pero en realidad, el procesador está alternando entre tareas a una velocidad tan alta que da la ilusión de simultaneidad. Aquí entra en juego un concepto crucial de los sistemas operativos: la **comunicación entre procesos (IPC, por sus siglas en inglés)**."
+          "text": "Hasta ahora hemos visto cómo la máquina se enciende, cómo sus piezas internas se conectan y cómo el procesador piensa. Pero, ¿qué pasa cuando abridás un navegador, un reproductor de música y un editor de texto al mismo tiempo? Pareciera que todo ocurre a la vez, pero en realidad, el procesador está alternando entre tareas a una velocidad tan alta que da la ilusión de simultaneidad. Aquí entra en juego un concepto crucial de los sistemas operativos: la comunicación entre procesos (IPC, por sus siglas en inglés)."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p20",
-          "text": "En un sistema moderno, cada aplicación que abridás se convierte en un **proceso** independiente. El sistema operativo aísla estos procesos por seguridad y estabilidad. Si tu navegador se cierra de golpe, no debería arruinar el archivo que estabas escribiendo. Sin embargo, para que la computadora sea útil, estos procesos aislados necesitan \"hablarse\". Necesitan intercambiar información."
+          "text": "En un sistema moderno, cada aplicación que abridás se convierte en un proceso independiente. El sistema operativo aísla estos procesos por seguridad y estabilidad. Si tu navegador se cierra de golpe, no debería arruinar el archivo que estabas escribiendo. Sin embargo, para que la computadora sea útil, estos procesos aislados necesitan \"hablarse\". Necesitan intercambiar información."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p21",
-          "text": "Por ejemplo, cuando copiás un texto en el editor de palabras y lo pegás en el navegador, dos procesos distintos están interactuando. El editor de texto no guarda el texto en su propio archivo privado; lo envía al sistema operativo, que lo coloca en una zona especial llamada **portapapeles**. Luego, el navegador consulta al sistema operativo y lee ese texto. Este intercambio se logra principalmente mediante dos mecanismos:"
+          "text": "Por ejemplo, cuando copiás un texto en el editor de palabras y lo pegás en el navegador, dos procesos distintos están interactuando. El editor de texto no guarda el texto en su propio archivo privado; lo envía al sistema operativo, que lo coloca en una zona especial llamada portapapeles. Luego, el navegador consulta al sistema operativo y lee ese texto. Este intercambio se logra principalmente mediante dos mecanismos:"
         },
         {
           "type": "paragraph",
           "id": "cap-2-p22",
-          "text": "1.  **Intercambio de mensajes:** Es como enviar cartas. Un proceso envía un paquete de datos (el mensaje) a otro a través de un canal definido por el sistema operativo. Este método es muy seguro porque los procesos no necesitan conocer los detalles internos del otro; solo necesitan saber cómo enviar el mensaje. Es ideal para comunicaciones complejas o para procesos que no se confían entre sí. 2.  **Memoria compartida:** Es como dejar una nota en la mesa del medio. El sistema operativo le asigna una porción de la memoria RAM que ambos procesos pueden leer y escribir. Es mucho más rápido que enviar mensajes, porque no hay la sobrecarga de copiar datos de un lugar a otro constantemente. Sin embargo, es más riesgoso: si un proceso escribe datos incorrectos en esa zona, el otro proceso podría leer basura o incluso colapsar."
+          "text": "1.  Intercambio de mensajes: Es como enviar cartas. Un proceso envía un paquete de datos (el mensaje) a otro a través de un canal definido por el sistema operativo. Este método es muy seguro porque los procesos no necesitan conocer los detalles internos del otro; solo necesitan saber cómo enviar el mensaje. Es ideal para comunicaciones complejas o para procesos que no se confían entre sí. 2.  Memoria compartida: Es como dejar una nota en la mesa del medio. El sistema operativo le asigna una porción de la memoria RAM que ambos procesos pueden leer y escribir. Es mucho más rápido que enviar mensajes, porque no hay la sobrecarga de copiar datos de un lugar a otro constantemente. Sin embargo, es más riesgoso: si un proceso escribe datos incorrectos en esa zona, el otro proceso podría leer basura o incluso colapsar."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p23",
-          "text": "La gestión de esta comunicación es vital. El sistema operativo debe asegurar que cuando un proceso escribe en memoria compartida, otro no lo lea a la mitad, causando errores. Para esto, utiliza herramientas como **semáforos** o **monitores**, que actúan como guardias de tráfico, permitiendo el acceso exclusivo o coordinado a los recursos compartidos."
+          "text": "La gestión de esta comunicación es vital. El sistema operativo debe asegurar que cuando un proceso escribe en memoria compartida, otro no lo lea a la mitad, causando errores. Para esto, utiliza herramientas como semáforos o monitores, que actúan como guardias de tráfico, permitiendo el acceso exclusivo o coordinado a los recursos compartidos."
         },
         {
           "type": "heading",
@@ -361,7 +367,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p25",
-          "text": "Al finalizar este recorrido, podemos ver que la computadora no es una caja mágica, sino un sistema integrado de capas. El **arranque** pone en marcha la maquinaria física. Los **buses** permiten que los componentes se conecten y transmitan señales. El **ciclo de instrucción** es el latido constante que da vida al procesador, transformando electricidad en lógica. Y la **comunicación entre procesos** es el tejido social que permite que las aplicaciones cooperen y nos brinden experiencias complejas."
+          "text": "Al finalizar este recorrido, podemos ver que la computadora no es una caja mágica, sino un sistema integrado de capas. El arranque pone en marcha la maquinaria física. Los buses permiten que los componentes se conecten y transmitan señales. El ciclo de instrucción es el latido constante que da vida al procesador, transformando electricidad en lógica. Y la comunicación entre procesos es el tejido social que permite que las aplicaciones cooperen y nos brinden experiencias complejas."
         },
         {
           "type": "paragraph",
@@ -371,7 +377,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -387,7 +399,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p2",
-          "text": "Cuando encendés tu computadora o prendés el celular para chatear con un amigo, lo que ves en la pantalla es solo la punta del iceberg. Detrás de esa interfaz amigable y colorida se desarrolla un ballet complejo y silencioso que involucra desde el movimiento de electrones dentro de un chip de silicio hasta la traducción de nombres de dominio en servidores repartidos por todo el mundo. Para entender la informática moderna, no basta con saber usar las herramientas; hay que comprender cómo se tejen estas capas de abstracción, desde la física más íntima de la **Unidad Central de Procesamiento (CPU)** hasta la lógica distribuida de **internet**. En este capítulo, vamos a recorrer ese camino: cómo se procesa la información, cómo se organiza el software que la gestiona, cómo viaja esa información por la red y, finalmente, cómo la protegemos para que nadie la lea o la modifique."
+          "text": "Cuando encendés tu computadora o prendés el celular para chatear con un amigo, lo que ves en la pantalla es solo la punta del iceberg. Detrás de esa interfaz amigable y colorida se desarrolla un ballet complejo y silencioso que involucra desde el movimiento de electrones dentro de un chip de silicio hasta la traducción de nombres de dominio en servidores repartidos por todo el mundo. Para entender la informática moderna, no basta con saber usar las herramientas; hay que comprender cómo se tejen estas capas de abstracción, desde la física más íntima de la Unidad Central de Procesamiento (CPU) hasta la lógica distribuida de internet. En este capítulo, vamos a recorrer ese camino: cómo se procesa la información, cómo se organiza el software que la gestiona, cómo viaja esa información por la red y, finalmente, cómo la protegemos para que nadie la lea o la modifique."
         },
         {
           "type": "heading",
@@ -398,22 +410,22 @@
         {
           "type": "paragraph",
           "id": "cap-3-p4",
-          "text": "Todo comienza en la **CPU**, ese pequeño cuadrado de silicio que suele llamarse \"el cerebro\" del computador. Pero llamarla cerebro es una metáfora útil aunque incompleta, porque el cerebro humano piensa de manera paralela y creativa, mientras que la CPU opera de forma secuencial y estricta. Para entender su funcionamiento, debemos desglosarla en sus dos bloques funcionales principales: la **Unidad de Control (UC)** y la **Unidad Aritmético-Lógica (ALU)**. Imaginá que la CPU es una oficina de alto volumen. La UC sería el gerente de esa oficina, mientras que la ALU serían los empleados especializados que ejecutan las tareas físicas."
+          "text": "Todo comienza en la CPU, ese pequeño cuadrado de silicio que suele llamarse \"el cerebro\" del computador. Pero llamarla cerebro es una metáfora útil aunque incompleta, porque el cerebro humano piensa de manera paralela y creativa, mientras que la CPU opera de forma secuencial y estricta. Para entender su funcionamiento, debemos desglosarla en sus dos bloques funcionales principales: la Unidad de Control (UC) y la Unidad Aritmético-Lógica (ALU). Imaginá que la CPU es una oficina de alto volumen. La UC sería el gerente de esa oficina, mientras que la ALU serían los empleados especializados que ejecutan las tareas físicas."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p5",
-          "text": "La **Unidad de Control** no hace cálculos por sí misma; su trabajo es diriger, coordinar y supervisar. Su función vital es interpretar las instrucciones que le llegan del software y organizar el flujo de datos entre la memoria, los dispositivos de entrada y salida, y la propia ALU. Para hacerlo, la UC sigue un ciclo incesante conocido como el **ciclo de instrucción**, que se divide en tres etapas fundamentales: *fetch* (búsqueda), *decode* (decodificación) y *execute* (ejecución)."
+          "text": "La Unidad de Control no hace cálculos por sí misma; su trabajo es diriger, coordinar y supervisar. Su función vital es interpretar las instrucciones que le llegan del software y organizar el flujo de datos entre la memoria, los dispositivos de entrada y salida, y la propia ALU. Para hacerlo, la UC sigue un ciclo incesante conocido como el ciclo de instrucción, que se divide en tres etapas fundamentales: fetch (búsqueda), decode (decodificación) y execute (ejecución)."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p6",
-          "text": "En la etapa de *fetch*, la UC busca la siguiente instrucción en la memoria RAM. Una vez que la tiene, entra en la fase de *decode*, donde \"traduce\" ese código binario crudo para entender qué acción debe realizarse. Por ejemplo, si la instrucción es \"sumar dos números\", la UC no suma nada todavía; solo identifica la operación y prepara el terreno. Finalmente, en la etapa de *execute*, delega la tarea real a la **ALU**."
+          "text": "En la etapa de fetch, la UC busca la siguiente instrucción en la memoria RAM. Una vez que la tiene, entra en la fase de decode, donde \"traduce\" ese código binario crudo para entender qué acción debe realizarse. Por ejemplo, si la instrucción es \"sumar dos números\", la UC no suma nada todavía; solo identifica la operación y prepara el terreno. Finalmente, en la etapa de execute, delega la tarea real a la ALU."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p7",
-          "text": "La **ALU**, por su parte, es un circuito electrónico especializado. No tiene memoria propia ni capacidad de decisión lógica más allá de lo estrictamente necesario para operar. Su único propósito es realizar operaciones matemáticas (como sumas, restas, multiplicaciones) y lógicas (como comparaciones: \"¿es A mayor que B?\"). Cuando la UC detecta que se necesita un cálculo, envía los datos a la ALU, esta los procesa en nanosegundos y devuelve el resultado. Este intercambio constante entre la \"intención\" de la UC y la \"acción\" de la ALU es lo que permite que, por ejemplo, al hacer clic en un icono de un documento, se abran las ventanas correctas en milisegundos. Sin esta coordinación precisa, la computadora sería solo un montón de componentes estáticos."
+          "text": "La ALU, por su parte, es un circuito electrónico especializado. No tiene memoria propia ni capacidad de decisión lógica más allá de lo estrictamente necesario para operar. Su único propósito es realizar operaciones matemáticas (como sumas, restas, multiplicaciones) y lógicas (como comparaciones: \"¿es A mayor que B?\"). Cuando la UC detecta que se necesita un cálculo, envía los datos a la ALU, esta los procesa en nanosegundos y devuelve el resultado. Este intercambio constante entre la \"intención\" de la UC y la \"acción\" de la ALU es lo que permite que, por ejemplo, al hacer clic en un icono de un documento, se abran las ventanas correctas en milisegundos. Sin esta coordinación precisa, la computadora sería solo un montón de componentes estáticos."
         },
         {
           "type": "heading",
@@ -424,7 +436,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p9",
-          "text": "Si la CPU es el motor, el software es el sistema de transmisión y dirección que le dice al motor cuándo acelerar y cuándo frenar. Pero para que el software funcione de manera eficiente, no puede ser un amasijo desordenado de código. Aquí entra en juego la **arquitectura de software**, que define la estructura fundamental del sistema."
+          "text": "Si la CPU es el motor, el software es el sistema de transmisión y dirección que le dice al motor cuándo acelerar y cuándo frenar. Pero para que el software funcione de manera eficiente, no puede ser un amasijo desordenado de código. Aquí entra en juego la arquitectura de software, que define la estructura fundamental del sistema."
         },
         {
           "type": "paragraph",
@@ -434,12 +446,12 @@
         {
           "type": "paragraph",
           "id": "cap-3-p11",
-          "text": "Un ejemplo claro es una aplicación de mensajería. Una buena arquitectura dividiría el sistema en capas: una capa de presentación para recibir los mensajes del usuario, una capa de lógica de negocio para procesar esas acciones y una capa de datos para almacenar el historial de conversaciones. Esta separación no es un lujo estético; es una necesidad práctica. Permite que el equipo de desarrollo trabaje en diferentes partes simultáneamente y, lo más importante, facilita la **escalabilidad**. Si millones de usuarios empiezan a usar la app, podemos agregar más servidores a la capa de lógica sin tener que rehacer toda la interfaz gráfica."
+          "text": "Un ejemplo claro es una aplicación de mensajería. Una buena arquitectura dividiría el sistema en capas: una capa de presentación para recibir los mensajes del usuario, una capa de lógica de negocio para procesar esas acciones y una capa de datos para almacenar el historial de conversaciones. Esta separación no es un lujo estético; es una necesidad práctica. Permite que el equipo de desarrollo trabaje en diferentes partes simultáneamente y, lo más importante, facilita la escalabilidad. Si millones de usuarios empiezan a usar la app, podemos agregar más servidores a la capa de lógica sin tener que rehacer toda la interfaz gráfica."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p12",
-          "text": "Sin embargo, definir la estructura no es suficiente. Debemos considerar los **requerimientos no funcionales**, también llamados atributos de calidad. Mientras que los requerimientos funcionales dicen *qué* hace el sistema (ej: \"permitir enviar fotos\"), los no funcionales dictan *cómo* lo hace. Preguntas como \"¿el sistema es seguro?\", \"¿cuánto tiempo tarda en responder?\" o \"¿qué pasa si cae un servidor?\" son críticas. En un banco, la seguridad y la disponibilidad son prioritarias sobre la velocidad de carga de gráficos. En un videojuego, la fluidez y la interactividad en tiempo real son lo que define la calidad. El diseño de software es, en esencia, el arte de equilibrar estas restricciones para construir un sistema robusto y mantenible."
+          "text": "Sin embargo, definir la estructura no es suficiente. Debemos considerar los requerimientos no funcionales, también llamados atributos de calidad. Mientras que los requerimientos funcionales dicen qué hace el sistema (ej: \"permitir enviar fotos\"), los no funcionales dictan cómo lo hace. Preguntas como \"¿el sistema es seguro?\", \"¿cuánto tiempo tarda en responder?\" o \"¿qué pasa si cae un servidor?\" son críticas. En un banco, la seguridad y la disponibilidad son prioritarias sobre la velocidad de carga de gráficos. En un videojuego, la fluidez y la interactividad en tiempo real son lo que define la calidad. El diseño de software es, en esencia, el arte de equilibrar estas restricciones para construir un sistema robusto y mantenible."
         },
         {
           "type": "heading",
@@ -450,17 +462,17 @@
         {
           "type": "paragraph",
           "id": "cap-3-p14",
-          "text": "Una vez que el software está diseñado y ejecutado en la CPU, es probable que necesite comunicarse con otros dispositivos. Aquí entramos en el territorio de las redes. Para que dos computadoras se entiendan en internet, necesitan un lenguaje común y una forma de localizarse. Esa es la función de las **direcciones IP** y del sistema **DNS**."
+          "text": "Una vez que el software está diseñado y ejecutado en la CPU, es probable que necesite comunicarse con otros dispositivos. Aquí entramos en el territorio de las redes. Para que dos computadoras se entiendan en internet, necesitan un lenguaje común y una forma de localizarse. Esa es la función de las direcciones IP y del sistema DNS."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p15",
-          "text": "Una **dirección IP** es, esencialmente, el número de casa de un dispositivo en la red global. Al igual que el correo postal necesita una dirección física para llegar a tu buzón, los paquetes de datos necesitan una dirección IP para llegar al servidor correcto. En la versión más antigua y aún muy utilizada, **IPv4**, esta dirección tiene un formato de cuatro números separados por puntos, como `192.168.1.5`. Sin embargo, con la explosión de dispositivos conectados (celulares, neveras inteligentes, sensores), el espacio de direcciones de IPv4 se agotó. Por eso surgió **IPv6**, que utiliza combinaciones de letras y números hexadecimales, permitiendo una cantidad astronómica de direcciones únicas."
+          "text": "Una dirección IP es, esencialmente, el número de casa de un dispositivo en la red global. Al igual que el correo postal necesita una dirección física para llegar a tu buzón, los paquetes de datos necesitan una dirección IP para llegar al servidor correcto. En la versión más antigua y aún muy utilizada, IPv4, esta dirección tiene un formato de cuatro números separados por puntos, como `192.168.1.5`. Sin embargo, con la explosión de dispositivos conectados (celulares, neveras inteligentes, sensores), el espacio de direcciones de IPv4 se agotó. Por eso surgió IPv6, que utiliza combinaciones de letras y números hexadecimales, permitiendo una cantidad astronómica de direcciones únicas."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p16",
-          "text": "Pero nadie puede memorizar series largas de números para navegar por internet. Ahí es donde entra el **DNS (Domain Name System)**, el gran traductor de la web. El DNS actúa como una libreta telefónica gigante y distribuida. Cuando escribís `google.com` en tu navegador, tu computadora no sabe qué hacer con esas letras. Envía una consulta a un servidor DNS preguntando: \"¿Cuál es la dirección IP de google.com?\". El servidor DNS busca en su base de datos y responde, por ejemplo, con `142.250.1.140`. Recién entonces tu computadora puede establecer la conexión directa con ese servidor. Sin el DNS, internet sería un lugar inusable para los humanos, lleno de direcciones numéricas inmemorizables."
+          "text": "Pero nadie puede memorizar series largas de números para navegar por internet. Ahí es donde entra el DNS (Domain Name System), el gran traductor de la web. El DNS actúa como una libreta telefónica gigante y distribuida. Cuando escribís `google.com` en tu navegador, tu computadora no sabe qué hacer con esas letras. Envía una consulta a un servidor DNS preguntando: \"¿Cuál es la dirección IP de google.com?\". El servidor DNS busca en su base de datos y responde, por ejemplo, con `142.250.1.140`. Recién entonces tu computadora puede establecer la conexión directa con ese servidor. Sin el DNS, internet sería un lugar inusable para los humanos, lleno de direcciones numéricas inmemorizables."
         },
         {
           "type": "heading",
@@ -471,22 +483,22 @@
         {
           "type": "paragraph",
           "id": "cap-3-p18",
-          "text": "Hemos visto cómo se procesa la información, cómo se estructura el software y cómo viaja por la red. Pero, ¿qué pasa si un tercero intercepta esos datos? ¿O si alguien modifica un archivo sin que te des cuenta? Para garantizar la confidencialidad, la integridad y la autenticidad de la información, recurrimos a la **criptografía**. No es magia, es matemática aplicada, y se basa en tres pilares fundamentales: la criptografía simétrica, la asimétrica y las funciones hash."
+          "text": "Hemos visto cómo se procesa la información, cómo se estructura el software y cómo viaja por la red. Pero, ¿qué pasa si un tercero intercepta esos datos? ¿O si alguien modifica un archivo sin que te des cuenta? Para garantizar la confidencialidad, la integridad y la autenticidad de la información, recurrimos a la criptografía. No es magia, es matemática aplicada, y se basa en tres pilares fundamentales: la criptografía simétrica, la asimétrica y las funciones hash."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p19",
-          "text": "La **criptografía simétrica** es la más antigua y eficiente. Funciona con una sola clave secreta que se usa tanto para cifrar (ocultar) como para descifrar (revelar) el mensaje. Es rápida y perfecta para transmitir grandes volúmenes de datos, como un archivo de video o una base de datos. El algoritmo AES (Advanced Encryption Standard) es un estándar común aquí. Sin embargo, tiene un problema grave: la distribución de la clave. Si querés enviar un mensaje cifrado a alguien, primero tenés que pasarle la clave secreta por un canal seguro. Si un atacante intercepta esa clave durante el intercambio, todo el sistema de seguridad se derrumba."
+          "text": "La criptografía simétrica es la más antigua y eficiente. Funciona con una sola clave secreta que se usa tanto para cifrar (ocultar) como para descifrar (revelar) el mensaje. Es rápida y perfecta para transmitir grandes volúmenes de datos, como un archivo de video o una base de datos. El algoritmo AES (Advanced Encryption Standard) es un estándar común aquí. Sin embargo, tiene un problema grave: la distribución de la clave. Si querés enviar un mensaje cifrado a alguien, primero tenés que pasarle la clave secreta por un canal seguro. Si un atacante intercepta esa clave durante el intercambio, todo el sistema de seguridad se derrumba."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p20",
-          "text": "Para resolver este dilema de la confianza inicial, inventamos la **criptografía asimétrica**, que utiliza un par de claves matemáticamente relacionadas pero distintas: una **clave pública** y una **clave privada**. La clave pública se puede compartir con todo el mundo, mientras que la privada se guarda en secreto. Si yo quiero enviarte un mensaje seguro, lo cifro con tu clave pública. Nadie más puede descifrarlo excepto tú, porque solo tu clave privada puede abrir el candado que tu clave pública cerró. Este mecanismo es la base de las transacciones bancarias online y de los certificados de seguridad web. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son los guardianes de esta tecnología."
+          "text": "Para resolver este dilema de la confianza inicial, inventamos la criptografía asimétrica, que utiliza un par de claves matemáticamente relacionadas pero distintas: una clave pública y una clave privada. La clave pública se puede compartir con todo el mundo, mientras que la privada se guarda en secreto. Si yo quiero enviarte un mensaje seguro, lo cifro con tu clave pública. Nadie más puede descifrarlo excepto tú, porque solo tu clave privada puede abrir el candado que tu clave pública cerró. Este mecanismo es la base de las transacciones bancarias online y de los certificados de seguridad web. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son los guardianes de esta tecnología."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p21",
-          "text": "Pero la criptografía no solo sirve para esconder mensajes; también sirve para verificar que no hayan sido alterados. Aquí entran en juego las **funciones hash**. Un hash no es un cifrado; es una transformación matemática unidireccional que convierte cualquier cantidad de datos en una cadena de texto fija y única, llamada *resumen* o *hash*. Es como una huella digital digital. Si modificás un solo punto en un archivo de un gigabyte, el hash resultante cambiará por completo."
+          "text": "Pero la criptografía no solo sirve para esconder mensajes; también sirve para verificar que no hayan sido alterados. Aquí entran en juego las funciones hash. Un hash no es un cifrado; es una transformación matemática unidireccional que convierte cualquier cantidad de datos en una cadena de texto fija y única, llamada resumen o hash. Es como una huella digital digital. Si modificás un solo punto en un archivo de un gigabyte, el hash resultante cambiará por completo."
         },
         {
           "type": "paragraph",
@@ -502,7 +514,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p24",
-          "text": "Al recorrer este capítulo, hemos visto que la informática no es un conjunto de disciplinas aisladas. La **CPU** procesa los datos, la **arquitectura de software** organiza la lógica que dice a la CPU qué hacer, las **direcciones IP y DNS** permiten que esa información viaje a través de la red, y la **criptografía** asegura que el viaje sea seguro y los datos intactos."
+          "text": "Al recorrer este capítulo, hemos visto que la informática no es un conjunto de disciplinas aisladas. La CPU procesa los datos, la arquitectura de software organiza la lógica que dice a la CPU qué hacer, las direcciones IP y DNS permiten que esa información viaje a través de la red, y la criptografía asegura que el viaje sea seguro y los datos intactos."
         },
         {
           "type": "paragraph",
@@ -517,7 +529,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-4",
@@ -637,7 +655,13 @@
       ],
       "meta": {
         "chapterId": "cap-4"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-5",
@@ -674,7 +698,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p6",
-          "text": "Aquí entra en juego el concepto de **interrupciones**. Si el procesador tuviera que estar preguntando constantemente al teclado: \"¿apretaste una tecla?\", al mouse: \"¿hiciste clic?\", o al disco duro: \"¿ya terminaste de leer?\", perdería una eternidad esperando respuestas. Es como estar en una reunión esperando que alguien levante la mano para saber si puede hablar. Las interrupciones son el mecanismo que permite que el hardware grite \"¡Atención!\" cuando algo urgente sucede. Cuando presionás una tecla, un circuito eléctrico envía una señal que detiene momentáneamente lo que la CPU estaba haciendo, guarda ese estado en la memoria (para poder retomarlo después, como quien deja un marcador en el libro y va a contestar el teléfono) y ejecuta un pequeño programa específico, llamado Controlador de Interrupción (ISR). Una vez atendido el pedido, el sistema vuelve exactamente a donde se quedó. Sin este mecanismo, la interacción fluida que disfrutamos hoy, donde arrastramos ventanas y abrimos aplicaciones instantáneamente, sería imposible. La computadora sería lenta, torpe y frustrante."
+          "text": "Aquí entra en juego el concepto de interrupciones. Si el procesador tuviera que estar preguntando constantemente al teclado: \"¿apretaste una tecla?\", al mouse: \"¿hiciste clic?\", o al disco duro: \"¿ya terminaste de leer?\", perdería una eternidad esperando respuestas. Es como estar en una reunión esperando que alguien levante la mano para saber si puede hablar. Las interrupciones son el mecanismo que permite que el hardware grite \"¡Atención!\" cuando algo urgente sucede. Cuando presionás una tecla, un circuito eléctrico envía una señal que detiene momentáneamente lo que la CPU estaba haciendo, guarda ese estado en la memoria (para poder retomarlo después, como quien deja un marcador en el libro y va a contestar el teléfono) y ejecuta un pequeño programa específico, llamado Controlador de Interrupción (ISR). Una vez atendido el pedido, el sistema vuelve exactamente a donde se quedó. Sin este mecanismo, la interacción fluida que disfrutamos hoy, donde arrastramos ventanas y abrimos aplicaciones instantáneamente, sería imposible. La computadora sería lenta, torpe y frustrante."
         },
         {
           "type": "heading",
@@ -690,12 +714,12 @@
         {
           "type": "paragraph",
           "id": "cap-5-p9",
-          "text": "Hoy, vivimos en la era del **aprendizaje automático** (machine learning). El cambio de paradigma es radical: en lugar de programar las reglas, nosotros proporcionamos al sistema grandes cantidades de datos y le permitimos encontrar los patrones por sí mismo. Ya no le decimos al programa qué es un gato; le mostramos miles de fotos de gatos y le pedimos que identifique qué características comparten. Esta capacidad de adaptación automática es lo que permite que los asistentes virtuales entiendan tu voz, que los filtros de redes sociales moderen contenido complejo o que los coches autónomos detecten peatones en la lluvia."
+          "text": "Hoy, vivimos en la era del aprendizaje automático (machine learning). El cambio de paradigma es radical: en lugar de programar las reglas, nosotros proporcionamos al sistema grandes cantidades de datos y le permitimos encontrar los patrones por sí mismo. Ya no le decimos al programa qué es un gato; le mostramos miles de fotos de gatos y le pedimos que identifique qué características comparten. Esta capacidad de adaptación automática es lo que permite que los asistentes virtuales entiendan tu voz, que los filtros de redes sociales moderen contenido complejo o que los coches autónomos detecten peatones en la lluvia."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p10",
-          "text": "Sin embargo, esta evolución no es gratuita. A medida que los sistemas se vuelven más complejos y \"inteligentes\", la estructura del software que los sostiene también cambia. Aquí debemos abordar un problema que muchos programadores enfrentan diariamente: la **deuda técnica**."
+          "text": "Sin embargo, esta evolución no es gratuita. A medida que los sistemas se vuelven más complejos y \"inteligentes\", la estructura del software que los sostiene también cambia. Aquí debemos abordar un problema que muchos programadores enfrentan diariamente: la deuda técnica."
         },
         {
           "type": "heading",
@@ -711,7 +735,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p13",
-          "text": "La deuda técnica se acumula silenciosamente. Un pequeño atajo hoy puede significar que, dentro de dos años, cualquier cambio mínimo requiera semanas de trabajo porque el código está tan enredado que es fácil romper algo que funcionaba. Por eso, el mantenimiento del software no es una tarea secundaria, sino una parte vital del ciclo de vida. Se clasifica en varios tipos: el **mantenimiento correctivo** (arreglar lo que está roto), el **evolutivo** (agregar funciones nuevas que los usuarios piden), el **adaptativo** (hacer que el software funcione en nuevos sistemas operativos o hardware) y el **preventivo** (refactorizar el código para evitar futuros problemas)."
+          "text": "La deuda técnica se acumula silenciosamente. Un pequeño atajo hoy puede significar que, dentro de dos años, cualquier cambio mínimo requiera semanas de trabajo porque el código está tan enredado que es fácil romper algo que funcionaba. Por eso, el mantenimiento del software no es una tarea secundaria, sino una parte vital del ciclo de vida. Se clasifica en varios tipos: el mantenimiento correctivo (arreglar lo que está roto), el evolutivo (agregar funciones nuevas que los usuarios piden), el adaptativo (hacer que el software funcione en nuevos sistemas operativos o hardware) y el preventivo (refactorizar el código para evitar futuros problemas)."
         },
         {
           "type": "paragraph",
@@ -727,7 +751,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p16",
-          "text": "Todos estos elementos —los sistemas operativos que coordinan, las interrupciones que dan respuesta, la inteligencia que decide y el mantenimiento que sostiene— convergen en una idea filosófica y práctica fundamental: los medios técnicos son una **extensión de nuestras capacidades humanas**."
+          "text": "Todos estos elementos —los sistemas operativos que coordinan, las interrupciones que dan respuesta, la inteligencia que decide y el mantenimiento que sostiene— convergen en una idea filosófica y práctica fundamental: los medios técnicos son una extensión de nuestras capacidades humanas."
         },
         {
           "type": "paragraph",
@@ -747,7 +771,13 @@
       ],
       "meta": {
         "chapterId": "cap-5"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-6",
@@ -779,17 +809,17 @@
         {
           "type": "paragraph",
           "id": "cap-6-p5",
-          "text": "Para solucionar esto, los ingenieros diseñaron la **jerarquía de memoria**. Imaginá una pirámide. En la punta, más cerca del procesador, están los registros internos y la memoria **caché**. Esta memoria es extremadamente rápida, costosa y de pequeña capacidad. Su trabajo es guardar los datos que el procesador está usando en este preciso instante o que va a necesitar en el siguiente ciclo de reloj. Es como tener las herramientas que estás usando actualmente sobre la mesa de trabajo, al alcance de la mano."
+          "text": "Para solucionar esto, los ingenieros diseñaron la jerarquía de memoria. Imaginá una pirámide. En la punta, más cerca del procesador, están los registros internos y la memoria caché. Esta memoria es extremadamente rápida, costosa y de pequeña capacidad. Su trabajo es guardar los datos que el procesador está usando en este preciso instante o que va a necesitar en el siguiente ciclo de reloj. Es como tener las herramientas que estás usando actualmente sobre la mesa de trabajo, al alcance de la mano."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p6",
-          "text": "Justo debajo de la caché, en el siguiente escalón, está la **RAM (Memoria de Acceso Aleatorio)**. Aquí es donde guardamos los programas y datos que están en uso activo. La RAM es más lenta que la caché, pero mucho más rápida que cualquier disco. Además, es volátil, lo que significa que si se corta la luz, todo lo que está ahí desaparece. ¿Por qué es volátil? Porque guarda la información en pequeños condensadores eléctricos que necesitan corriente constante para mantener su carga. Sin energía, esos condensores se descargan y la información se pierde. Esta volatilidad es, paradójicamente, una ventaja: permite escribir y borrar datos a velocidades increíbles, algo que no es tan fácil de lograr con la tecnología no volátil de los discos duros o SSDs."
+          "text": "Justo debajo de la caché, en el siguiente escalón, está la RAM (Memoria de Acceso Aleatorio). Aquí es donde guardamos los programas y datos que están en uso activo. La RAM es más lenta que la caché, pero mucho más rápida que cualquier disco. Además, es volátil, lo que significa que si se corta la luz, todo lo que está ahí desaparece. ¿Por qué es volátil? Porque guarda la información en pequeños condensadores eléctricos que necesitan corriente constante para mantener su carga. Sin energía, esos condensores se descargan y la información se pierde. Esta volatilidad es, paradójicamente, una ventaja: permite escribir y borrar datos a velocidades increíbles, algo que no es tan fácil de lograr con la tecnología no volátil de los discos duros o SSDs."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p7",
-          "text": "En la base de la pirámide está el **almacenamiento secundario** (tu disco duro mecánico o tu SSD). Aquí vive tu sistema operativo, tus fotos, tus juegos y tus documentos. Es enorme, barato y no se borra cuando apagas la máquina, pero es lentísimo en comparación con los niveles superiores. La clave de la eficiencia de tu computadora radica en mover datos hacia arriba en la jerarquía solo cuando son necesarios, y mantenerlos en los niveles superiores mientras se usan, para que el procesador nunca tenga que esperar."
+          "text": "En la base de la pirámide está el almacenamiento secundario (tu disco duro mecánico o tu SSD). Aquí vive tu sistema operativo, tus fotos, tus juegos y tus documentos. Es enorme, barato y no se borra cuando apagas la máquina, pero es lentísimo en comparación con los niveles superiores. La clave de la eficiencia de tu computadora radica en mover datos hacia arriba en la jerarquía solo cuando son necesarios, y mantenerlos en los niveles superiores mientras se usan, para que el procesador nunca tenga que esperar."
         },
         {
           "type": "heading",
@@ -805,12 +835,12 @@
         {
           "type": "paragraph",
           "id": "cap-6-p10",
-          "text": "Aquí entra en juego un componente硬件 (hardware) esencial: la **Unidad de Gestión de Memoria (MMU)**. La MMU es el traductor. Su función es convertir las direcciones lógicas (las que ve el programa) en direcciones físicas (las ubicaciones reales en los chips de memoria). Sin la MMU, los programas tendrían que conocer la estructura exacta de la memoria de la computadora, lo que haría imposible la multitarea y la seguridad. Si un programa pudiera escribir directamente en cualquier dirección física, podría borrar el sistema operativo o robar datos de otros programas. La MMU actúa como un guardia de seguridad que verifica cada petición antes de permitir el acceso."
+          "text": "Aquí entra en juego un componente硬件 (hardware) esencial: la Unidad de Gestión de Memoria (MMU). La MMU es el traductor. Su función es convertir las direcciones lógicas (las que ve el programa) en direcciones físicas (las ubicaciones reales en los chips de memoria). Sin la MMU, los programas tendrían que conocer la estructura exacta de la memoria de la computadora, lo que haría imposible la multitarea y la seguridad. Si un programa pudiera escribir directamente en cualquier dirección física, podría borrar el sistema operativo o robar datos de otros programas. La MMU actúa como un guardia de seguridad que verifica cada petición antes de permitir el acceso."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p11",
-          "text": "Para hacer esta traducción, la MMU utiliza una estructura de datos llamada **tabla de páginas**. Esta tabla es como un índice telefónico que le dice al sistema: \"La página lógica número 5 se encuentra en la página física número 23\". Cada vez que el procesador necesita un dato, la MMU consulta esta tabla. Si la página está en RAM, el acceso es rápido. Pero, ¿qué pasa si la página que se necesita no está en la RAM? Ahí es donde la gestión de memoria se pone interesante."
+          "text": "Para hacer esta traducción, la MMU utiliza una estructura de datos llamada tabla de páginas. Esta tabla es como un índice telefónico que le dice al sistema: \"La página lógica número 5 se encuentra en la página física número 23\". Cada vez que el procesador necesita un dato, la MMU consulta esta tabla. Si la página está en RAM, el acceso es rápido. Pero, ¿qué pasa si la página que se necesita no está en la RAM? Ahí es donde la gestión de memoria se pone interesante."
         },
         {
           "type": "heading",
@@ -821,22 +851,22 @@
         {
           "type": "paragraph",
           "id": "cap-6-p13",
-          "text": "Imaginá que estás intentando editar un video en 4K mientras tenés veinte pestañas del navegador abiertas y una hoja de cálculo gigante. De repente, tu RAM se llena. En un mundo sin memoria virtual, tu computadora simplemente se congelaría y te daría un error de \"memoria insuficiente\". Pero gracias a la **memoria virtual**, algo diferente ocurre."
+          "text": "Imaginá que estás intentando editar un video en 4K mientras tenés veinte pestañas del navegador abiertas y una hoja de cálculo gigante. De repente, tu RAM se llena. En un mundo sin memoria virtual, tu computadora simplemente se congelaría y te daría un error de \"memoria insuficiente\". Pero gracias a la memoria virtual, algo diferente ocurre."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p14",
-          "text": "La memoria virtual es una técnica que permite al sistema operativo simular que tenés más memoria RAM de la que realmente tenés físicamente. Lo hace combinando la RAM real con un espacio en el disco duro (o SSD) llamado **archivo de paginación** o **swap**. El sistema operativo toma pedazos de la RAM que no se están usando activamente en este momento, los saca y los guarda en el disco. Luego, libera ese espacio en la RAM para usarlo con los datos que el programa necesita ahora."
+          "text": "La memoria virtual es una técnica que permite al sistema operativo simular que tenés más memoria RAM de la que realmente tenés físicamente. Lo hace combinando la RAM real con un espacio en el disco duro (o SSD) llamado archivo de paginación o swap. El sistema operativo toma pedazos de la RAM que no se están usando activamente en este momento, los saca y los guarda en el disco. Luego, libera ese espacio en la RAM para usarlo con los datos que el programa necesita ahora."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p15",
-          "text": "Este proceso se basa en la **paginación**. La memoria se divide en bloques de tamaño fijo llamados **páginas** (generalmente de 4 KB o 8 KB). Cuando un programa necesita una página que está en el disco, se produce un **fallo de página**. La MMU detecta que la página no está en RAM, detiene la ejecución del programa momentáneamente, y el sistema operativo interviene para buscar esa página en el disco, cargarla en un hueco libre en la RAM y actualizar la tabla de páginas. Recién entonces, el programa puede continuar su ejecución."
+          "text": "Este proceso se basa en la paginación. La memoria se divide en bloques de tamaño fijo llamados páginas (generalmente de 4 KB o 8 KB). Cuando un programa necesita una página que está en el disco, se produce un fallo de página. La MMU detecta que la página no está en RAM, detiene la ejecución del programa momentáneamente, y el sistema operativo interviene para buscar esa página en el disco, cargarla en un hueco libre en la RAM y actualizar la tabla de páginas. Recién entonces, el programa puede continuar su ejecución."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p16",
-          "text": "Es importante notar que esto introduce un costo: acceder al disco es miles de veces más lento que acceder a la RAM. Si el sistema tiene que mover datos constantemente entre la RAM y el disco, la computadora se vuelve extremadamente lenta. A esto se le llama *thrashing* o agotamiento de memoria. Por eso, tener más RAM física sigue siendo fundamental; la memoria virtual es un salvavidas, no un reemplazo de la velocidad de la RAM."
+          "text": "Es importante notar que esto introduce un costo: acceder al disco es miles de veces más lento que acceder a la RAM. Si el sistema tiene que mover datos constantemente entre la RAM y el disco, la computadora se vuelve extremadamente lenta. A esto se le llama thrashing o agotamiento de memoria. Por eso, tener más RAM física sigue siendo fundamental; la memoria virtual es un salvavidas, no un reemplazo de la velocidad de la RAM."
         },
         {
           "type": "heading",
@@ -847,17 +877,17 @@
         {
           "type": "paragraph",
           "id": "cap-6-p18",
-          "text": "Históricamente, hubo dos formas principales de dividir la memoria para gestionar estos procesos: la **paginación** y la **segmentación**. Hoy en día, la paginación es la técnica dominante en la mayoría de los sistemas operativos modernos (como Windows, Linux y macOS), aunque a veces se combinan ambas."
+          "text": "Históricamente, hubo dos formas principales de dividir la memoria para gestionar estos procesos: la paginación y la segmentación. Hoy en día, la paginación es la técnica dominante en la mayoría de los sistemas operativos modernos (como Windows, Linux y macOS), aunque a veces se combinan ambas."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p19",
-          "text": "La **paginación** es ciega a la lógica del programa. Divide la memoria en bloques de igual tamaño, sin importar si esos bloques contienen código, variables o estructuras de datos. Esto simplifica enormemente la gestión del espacio porque el sistema operativo solo necesita tratar con bloques idénticos. No importa si un programa es pequeño o grande; siempre se adapta a los bloques de 4 KB. La ventaja principal es que evita la fragmentación externa (huecos inutilizables entre bloques de diferente tamaño) y hace que la asignación de memoria sea más eficiente."
+          "text": "La paginación es ciega a la lógica del programa. Divide la memoria en bloques de igual tamaño, sin importar si esos bloques contienen código, variables o estructuras de datos. Esto simplifica enormemente la gestión del espacio porque el sistema operativo solo necesita tratar con bloques idénticos. No importa si un programa es pequeño o grande; siempre se adapta a los bloques de 4 KB. La ventaja principal es que evita la fragmentación externa (huecos inutilizables entre bloques de diferente tamaño) y hace que la asignación de memoria sea más eficiente."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p20",
-          "text": "En cambio, la **segmentación** divide la memoria según la lógica del programa. Un segmento podría ser la sección de código, otro podría ser la pila de llamadas de funciones (*stack*), y otro las variables globales (*heap*). Esto tiene sentido desde el punto de vista del programador, porque refleja cómo se estructura el software. Sin embargo, la segmentación es más difícil de gestionar porque los segmentos tienen tamaños variables, lo que puede llevar a que queden huecos pequeños e inutilizables entre ellos (fragmentación interna y externa). Por eso, aunque algunos sistemas la usan para proteger la memoria o gestionar estructuras de datos complejas, la paginación suele ser la base de la gestión de memoria virtual debido a su simplicidad y eficacia."
+          "text": "En cambio, la segmentación divide la memoria según la lógica del programa. Un segmento podría ser la sección de código, otro podría ser la pila de llamadas de funciones (stack), y otro las variables globales (heap). Esto tiene sentido desde el punto de vista del programador, porque refleja cómo se estructura el software. Sin embargo, la segmentación es más difícil de gestionar porque los segmentos tienen tamaños variables, lo que puede llevar a que queden huecos pequeños e inutilizables entre ellos (fragmentación interna y externa). Por eso, aunque algunos sistemas la usan para proteger la memoria o gestionar estructuras de datos complejas, la paginación suele ser la base de la gestión de memoria virtual debido a su simplicidad y eficacia."
         },
         {
           "type": "heading",
@@ -868,12 +898,12 @@
         {
           "type": "paragraph",
           "id": "cap-6-p22",
-          "text": "Para cerrar este capítulo, volvámoslo a armar. Cuando ejecutás un programa, el procesador pide datos. Gracias a la **jerarquía de memoria**, esos datos probablemente estén primero en la caché L1 o L2. Si no están ahí, bajan a la RAM. Si no están en la RAM, la **MMU** detecta el fallo de página y busca en el disco duro mediante la **memoria virtual**."
+          "text": "Para cerrar este capítulo, volvámoslo a armar. Cuando ejecutás un programa, el procesador pide datos. Gracias a la jerarquía de memoria, esos datos probablemente estén primero en la caché L1 o L2. Si no están ahí, bajan a la RAM. Si no están en la RAM, la MMU detecta el fallo de página y busca en el disco duro mediante la memoria virtual."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p23",
-          "text": "La **MMU** usa la **tabla de páginas** para traducir la dirección lógica (la que el programa ve) a la dirección física (donde está realmente en la RAM o en el disco). Si la página está en el disco, el sistema operativo la carga en la RAM, actualiza la tabla y reanuda el programa. Todo esto ocurre en milisegundos, lo suficientemente rápido para que la experiencia del usuario sea fluida."
+          "text": "La MMU usa la tabla de páginas para traducir la dirección lógica (la que el programa ve) a la dirección física (donde está realmente en la RAM o en el disco). Si la página está en el disco, el sistema operativo la carga en la RAM, actualiza la tabla y reanuda el programa. Todo esto ocurre en milisegundos, lo suficientemente rápido para que la experiencia del usuario sea fluida."
         },
         {
           "type": "paragraph",
@@ -888,7 +918,13 @@
       ],
       "meta": {
         "chapterId": "cap-6"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-7",
@@ -925,7 +961,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p6",
-          "text": "El sistema operativo actúa como un archivista inteligente. Cuando la mesa de trabajo (RAM) se llena, no borra nada al azar. En su lugar, identifica las páginas de los programas que no se están usando en ese preciso instante y las guarda temporalmente en el disco duro (generalmente en un archivo de intercambio o *swap*). Luego, libera esos marcos de página en la RAM para cargar las páginas que el programa necesita ahora mismo. Este proceso de intercambio es tan rápido y transparente que, en condiciones normales, ni notamos que los datos están viajando entre la RAM y el disco."
+          "text": "El sistema operativo actúa como un archivista inteligente. Cuando la mesa de trabajo (RAM) se llena, no borra nada al azar. En su lugar, identifica las páginas de los programas que no se están usando en ese preciso instante y las guarda temporalmente en el disco duro (generalmente en un archivo de intercambio o swap). Luego, libera esos marcos de página en la RAM para cargar las páginas que el programa necesita ahora mismo. Este proceso de intercambio es tan rápido y transparente que, en condiciones normales, ni notamos que los datos están viajando entre la RAM y el disco."
         },
         {
           "type": "paragraph",
@@ -941,7 +977,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p9",
-          "text": "Si la paginación gestiona el espacio, la planificación de procesos gestiona el tiempo. La CPU (unidad central de procesamiento) es el cerebro de la computadora, pero solo puede ejecutar una instrucción a la vez. Cuando tenemos múltiples procesos corriendo, surge el problema de quién tiene derecho a usar ese cerebro y por cuánto tiempo. Ahí es donde entra el planificador, o *scheduler*."
+          "text": "Si la paginación gestiona el espacio, la planificación de procesos gestiona el tiempo. La CPU (unidad central de procesamiento) es el cerebro de la computadora, pero solo puede ejecutar una instrucción a la vez. Cuando tenemos múltiples procesos corriendo, surge el problema de quién tiene derecho a usar ese cerebro y por cuánto tiempo. Ahí es donde entra el planificador, o scheduler."
         },
         {
           "type": "paragraph",
@@ -982,7 +1018,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p17",
-          "text": "Además de los permisos individuales, existe la jerarquía de usuarios. Un usuario común tiene permisos limitados para proteger el sistema de errores accidentales o maliciosos. Sin embargo, existe el superusuario, conocido como *root* (en Unix) o Administrador (en Windows), que tiene control total sobre el sistema. El root puede cambiar permisos, instalar software a nivel de sistema y modificar configuraciones críticas. Este poder absoluto es una espada de doble filo: por un lado, es necesario para la administración del sistema; por otro, un error del root puede destruir la instalación entera. Por eso, las buenas prácticas de seguridad recomiendan usar la cuenta de root solo cuando sea estrictamente necesario y dejar que las tareas diarias se realicen con cuentas de usuario restringidas."
+          "text": "Además de los permisos individuales, existe la jerarquía de usuarios. Un usuario común tiene permisos limitados para proteger el sistema de errores accidentales o maliciosos. Sin embargo, existe el superusuario, conocido como root (en Unix) o Administrador (en Windows), que tiene control total sobre el sistema. El root puede cambiar permisos, instalar software a nivel de sistema y modificar configuraciones críticas. Este poder absoluto es una espada de doble filo: por un lado, es necesario para la administración del sistema; por otro, un error del root puede destruir la instalación entera. Por eso, las buenas prácticas de seguridad recomiendan usar la cuenta de root solo cuando sea estrictamente necesario y dejar que las tareas diarias se realicen con cuentas de usuario restringidas."
         },
         {
           "type": "paragraph",
@@ -1003,7 +1039,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p21",
-          "text": "Un patrón de diseño es una solución reutilizable y general a un problema común en el diseño de software. No es un código copiable y pegable, sino una plantilla conceptual. Por ejemplo, el patrón *Singleton* garantiza que una clase tenga solo una instancia global, algo útil para gestionar conexiones a bases de datos o configuraciones del sistema. El patrón *Observer* permite que varios objetos sean notificados automáticamente cuando el estado de otro cambia, fundamental para interfaces de usuario reactivas. Los patrones se clasifican en creacionales (cómo se crean los objetos), estructurales (cómo se organizan las clases) y de comportamiento (cómo interactúan los objetos entre sí)."
+          "text": "Un patrón de diseño es una solución reutilizable y general a un problema común en el diseño de software. No es un código copiable y pegable, sino una plantilla conceptual. Por ejemplo, el patrón Singleton garantiza que una clase tenga solo una instancia global, algo útil para gestionar conexiones a bases de datos o configuraciones del sistema. El patrón Observer permite que varios objetos sean notificados automáticamente cuando el estado de otro cambia, fundamental para interfaces de usuario reactivas. Los patrones se clasifican en creacionales (cómo se crean los objetos), estructurales (cómo se organizan las clases) y de comportamiento (cómo interactúan los objetos entre sí)."
         },
         {
           "type": "paragraph",
@@ -1039,7 +1075,13 @@
       ],
       "meta": {
         "chapterId": "cap-7"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-8",
@@ -1066,7 +1108,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p4",
-          "text": "Para comenzar, debemos aclarar un terreno filosófico y práctico que suele confundirse: la diferencia entre **técnica** y **tecnología**. Aunque en el lenguaje cotidiano las usamos como sinónimos, en el ámbito de la informática tienen roles distintos y complementarios. La técnica es el saber hacer, el conjunto de procedimientos, métodos y habilidades específicas que adquirimos mediante la práctica. Es el \"cómo\" hacemos algo. Por ejemplo, saber cómo estructurar una función en Python, cómo configurar una red local o cómo optimizar una base de datos son técnicas. Estas habilidades son individuales, procedimentales y cambian con el tiempo y la experiencia."
+          "text": "Para comenzar, debemos aclarar un terreno filosófico y práctico que suele confundirse: la diferencia entre técnica y tecnología. Aunque en el lenguaje cotidiano las usamos como sinónimos, en el ámbito de la informática tienen roles distintos y complementarios. La técnica es el saber hacer, el conjunto de procedimientos, métodos y habilidades específicas que adquirimos mediante la práctica. Es el \"cómo\" hacemos algo. Por ejemplo, saber cómo estructurar una función en Python, cómo configurar una red local o cómo optimizar una base de datos son técnicas. Estas habilidades son individuales, procedimentales y cambian con el tiempo y la experiencia."
         },
         {
           "type": "paragraph",
@@ -1082,7 +1124,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p7",
-          "text": "Esta relación entre técnica y tecnología se manifiesta claramente cuando observamos la evolución de los **procesos técnicos**. Históricamente, hemos transitado desde los procesos artesanales hacia los industriales, y hoy esa transición se completa en el mundo digital. Un proceso técnico es, en esencia, un conjunto de pasos organizados para transformar una materia prima —ya sea madera, metal o bits de información— en algo útil."
+          "text": "Esta relación entre técnica y tecnología se manifiesta claramente cuando observamos la evolución de los procesos técnicos. Históricamente, hemos transitado desde los procesos artesanales hacia los industriales, y hoy esa transición se completa en el mundo digital. Un proceso técnico es, en esencia, un conjunto de pasos organizados para transformar una materia prima —ya sea madera, metal o bits de información— en algo útil."
         },
         {
           "type": "paragraph",
@@ -1103,22 +1145,22 @@
         {
           "type": "paragraph",
           "id": "cap-8-p11",
-          "text": "Ahora que comprendemos cómo la técnica y la tecnología se organizan en procesos estandarizados, debemos descender al nivel más básico de la computación: ¿qué ocurre realmente cuando ejecutamos un software? Aquí es donde surge una de las confusiones más comunes entre los estudiantes: la diferencia entre **programa** y **proceso**."
+          "text": "Ahora que comprendemos cómo la técnica y la tecnología se organizan en procesos estandarizados, debemos descender al nivel más básico de la computación: ¿qué ocurre realmente cuando ejecutamos un software? Aquí es donde surge una de las confusiones más comunes entre los estudiantes: la diferencia entre programa y proceso."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p12",
-          "text": "Imagina que tienes un libro cerrado sobre tu mesa. El libro contiene una historia completa, instrucciones, datos y estructura. Pero mientras esté cerrado y sobre la mesa, nada está \"ocurriendo\". El libro es estático, pasivo. Eso es un **programa**. Un programa es simplemente un conjunto de instrucciones almacenadas en el disco duro de tu computadora, como un archivo `.exe`, `.py` o `.html`. Vive en el almacenamiento masivo, ocupa espacio en disco, pero no consume recursos del sistema ni realiza ninguna acción por sí mismo. Es el potencial de hacer algo, no la acción en sí."
+          "text": "Imagina que tienes un libro cerrado sobre tu mesa. El libro contiene una historia completa, instrucciones, datos y estructura. Pero mientras esté cerrado y sobre la mesa, nada está \"ocurriendo\". El libro es estático, pasivo. Eso es un programa. Un programa es simplemente un conjunto de instrucciones almacenadas en el disco duro de tu computadora, como un archivo `.exe`, `.py` o `.html`. Vive en el almacenamiento masivo, ocupa espacio en disco, pero no consume recursos del sistema ni realiza ninguna acción por sí mismo. Es el potencial de hacer algo, no la acción en sí."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p13",
-          "text": "Sin embargo, cuando abres ese libro y comienzas a leerlo, algo cambia. Tus ojos recorren las páginas, tu cerebro procesa la información, marcas páginas con post-its, subes el tono de voz si lees en voz alta. Esa acción dinámica, ese acto de leer que requiere energía, atención y recursos mentales, es el equivalente a un **proceso**."
+          "text": "Sin embargo, cuando abres ese libro y comienzas a leerlo, algo cambia. Tus ojos recorren las páginas, tu cerebro procesa la información, marcas páginas con post-its, subes el tono de voz si lees en voz alta. Esa acción dinámica, ese acto de leer que requiere energía, atención y recursos mentales, es el equivalente a un proceso."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p14",
-          "text": "Un proceso es una **instancia activa de un programa en ejecución** dentro del ordenador. Cuando cargas un programa en la memoria RAM y la CPU (unidad central de procesamiento) comienza a leer sus instrucciones, el programa \"despierta\" y se convierte en un proceso. A diferencia del programa inerte, el proceso consume recursos vitales: tiempo de CPU, memoria RAM y, a veces, espacio temporal en el disco (swap). Además, un proceso tiene un estado dinámico que cambia constantemente. Incluye no solo el código original, sino también el \"contexto\" de la ejecución: qué datos se están manipulando en este preciso instante, en qué línea del código se encuentra el contador de programa, y cuánta memoria está reservada para sus variables."
+          "text": "Un proceso es una instancia activa de un programa en ejecución dentro del ordenador. Cuando cargas un programa en la memoria RAM y la CPU (unidad central de procesamiento) comienza a leer sus instrucciones, el programa \"despierta\" y se convierte en un proceso. A diferencia del programa inerte, el proceso consume recursos vitales: tiempo de CPU, memoria RAM y, a veces, espacio temporal en el disco (swap). Además, un proceso tiene un estado dinámico que cambia constantemente. Incluye no solo el código original, sino también el \"contexto\" de la ejecución: qué datos se están manipulando en este preciso instante, en qué línea del código se encuentra el contador de programa, y cuánta memoria está reservada para sus variables."
         },
         {
           "type": "paragraph",
@@ -1134,22 +1176,22 @@
         {
           "type": "paragraph",
           "id": "cap-8-p17",
-          "text": "Una vez que el programa se convierte en proceso y comienza a ejecutarse, a menudo necesita comunicarse con otros procesos en otras computadoras. Aquí es donde entra en juego la red y, específicamente, el protocolo **HTTP (HyperText Transfer Protocol)**. Si el proceso es la acción individual, HTTP es la gramática que permite que esas acciones dialoguen a través de la inmensidad de internet."
+          "text": "Una vez que el programa se convierte en proceso y comienza a ejecutarse, a menudo necesita comunicarse con otros procesos en otras computadoras. Aquí es donde entra en juego la red y, específicamente, el protocolo HTTP (HyperText Transfer Protocol). Si el proceso es la acción individual, HTTP es la gramática que permite que esas acciones dialoguen a través de la inmensidad de internet."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p18",
-          "text": "La web funciona bajo un modelo **cliente-servidor**. En este modelo, siempre hay un iniciador y un receptor. El cliente es tu dispositivo (el navegador web, que ejecuta el proceso de renderizado de la página) y el servidor es la computadora remota que almacena o procesa los recursos solicitados. No importa si estás viendo una página de noticias, comprando online o enviando un correo; siempre estás participando en este intercambio de ida y vuelta."
+          "text": "La web funciona bajo un modelo cliente-servidor. En este modelo, siempre hay un iniciador y un receptor. El cliente es tu dispositivo (el navegador web, que ejecuta el proceso de renderizado de la página) y el servidor es la computadora remota que almacena o procesa los recursos solicitados. No importa si estás viendo una página de noticias, comprando online o enviando un correo; siempre estás participando en este intercambio de ida y vuelta."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p19",
-          "text": "Cuando haces clic en un enlace o escribes una dirección en la barra de navegación, tu navegador (el cliente) inicia un proceso de solicitud. Este no es un grito al vacío; es una estructura formal y estandarizada conocida como **petición HTTP**. Cada petición sigue un formato rígido que incluye tres partes fundamentales:"
+          "text": "Cuando haces clic en un enlace o escribes una dirección en la barra de navegación, tu navegador (el cliente) inicia un proceso de solicitud. Este no es un grito al vacío; es una estructura formal y estandarizada conocida como petición HTTP. Cada petición sigue un formato rígido que incluye tres partes fundamentales:"
         },
         {
           "type": "paragraph",
           "id": "cap-8-p20",
-          "text": "1.  **El método HTTP**: Indica qué acción quieres realizar. El más común es `GET`, que simplemente dice \"dame esa información\". Otros métodos, como `POST`, indican que estás enviando datos (como llenar un formulario de registro), y `PUT` sugiere que quieres actualizar un recurso existente. 2.  **La URL**: La dirección exacta del recurso solicitado. Es como la coordenada en el mapa de internet. 3.  **Las cabeceras y el cuerpo**: Información adicional que acompaña a la solicitud. Las cabeceras pueden contener datos sobre qué tipo de navegador usas, qué idioma prefieres o tus credenciales de autenticación. El cuerpo, en el caso de los métodos `POST` o `PUT`, contiene los datos que estás enviando."
+          "text": "1.  El método HTTP: Indica qué acción quieres realizar. El más común es `GET`, que simplemente dice \"dame esa información\". Otros métodos, como `POST`, indican que estás enviando datos (como llenar un formulario de registro), y `PUT` sugiere que quieres actualizar un recurso existente. 2.  La URL: La dirección exacta del recurso solicitado. Es como la coordenada en el mapa de internet. 3.  Las cabeceras y el cuerpo: Información adicional que acompaña a la solicitud. Las cabeceras pueden contener datos sobre qué tipo de navegador usas, qué idioma prefieres o tus credenciales de autenticación. El cuerpo, en el caso de los métodos `POST` o `PUT`, contiene los datos que estás enviando."
         },
         {
           "type": "paragraph",
@@ -1159,7 +1201,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p22",
-          "text": "El servidor recibe esta petición, procesa el proceso correspondiente en su lado (buscando el archivo, consultando una base de datos, ejecutando scripts) y luego envía una **respuesta HTTP**. Esta respuesta también tiene una estructura estándar. Comienza con un código de estado (como `200 OK`, que significa \"todo salió bien\", o `404 Not Found`, que indica que el recurso no existe), seguida de cabeceras que describen el tipo de contenido que viene después, y finalmente el cuerpo, que contiene los datos reales: el código HTML, las imágenes, los videos o los datos JSON que tu navegador debe interpretar para mostrarte la página web."
+          "text": "El servidor recibe esta petición, procesa el proceso correspondiente en su lado (buscando el archivo, consultando una base de datos, ejecutando scripts) y luego envía una respuesta HTTP. Esta respuesta también tiene una estructura estándar. Comienza con un código de estado (como `200 OK`, que significa \"todo salió bien\", o `404 Not Found`, que indica que el recurso no existe), seguida de cabeceras que describen el tipo de contenido que viene después, y finalmente el cuerpo, que contiene los datos reales: el código HTML, las imágenes, los videos o los datos JSON que tu navegador debe interpretar para mostrarte la página web."
         },
         {
           "type": "heading",
@@ -1170,7 +1212,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p24",
-          "text": "Al observar estos conceptos juntos, se revela un cuadro fascinante de interdependencia. La **técnica** del programador que escribe el código es lo que permite crear el **programa**. La **tecnología** de la red y los servidores permite que ese programa se ejecute como un **proceso** distribuido globalmente. Y el protocolo **HTTP** es el puente estandarizado que permite que ese proceso, nacido en una máquina, dialogue con el proceso de tu navegador, que es otra instancia activa de software en tu propia computadora."
+          "text": "Al observar estos conceptos juntos, se revela un cuadro fascinante de interdependencia. La técnica del programador que escribe el código es lo que permite crear el programa. La tecnología de la red y los servidores permite que ese programa se ejecute como un proceso distribuido globalmente. Y el protocolo HTTP es el puente estandarizado que permite que ese proceso, nacido en una máquina, dialogue con el proceso de tu navegador, que es otra instancia activa de software en tu propia computadora."
         },
         {
           "type": "paragraph",
@@ -1185,7 +1227,13 @@
       ],
       "meta": {
         "chapterId": "cap-8"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-9",
@@ -1206,7 +1254,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p3",
-          "text": "En este capítulo, vamos a recorrer el camino que nos trajo desde las salas abarrotadas de máquinas gigantes hasta la nube invisible donde viven tus archivos. Veremos cómo la **Revolución Informática** transformó nuestra sociedad, cómo hoy dividimos esa inmensa cantidad de datos mediante la **Segmentación**, y finalmente, cómo todo esto se traduce en la planificación de cualquier programa que uses: los **Requisitos Funcionales y No Funcionales**. Estos tres conceptos no están aislados; forman un hilo conductor que va desde el hardware físico hasta la experiencia del usuario final."
+          "text": "En este capítulo, vamos a recorrer el camino que nos trajo desde las salas abarrotadas de máquinas gigantes hasta la nube invisible donde viven tus archivos. Veremos cómo la Revolución Informática transformó nuestra sociedad, cómo hoy dividimos esa inmensa cantidad de datos mediante la Segmentación, y finalmente, cómo todo esto se traduce en la planificación de cualquier programa que uses: los Requisitos Funcionales y No Funcionales. Estos tres conceptos no están aislados; forman un hilo conductor que va desde el hardware físico hasta la experiencia del usuario final."
         },
         {
           "type": "heading",
@@ -1222,12 +1270,12 @@
         {
           "type": "paragraph",
           "id": "cap-9-p6",
-          "text": "Aquí estaba la primera gran limitante: el tamaño y la fragilidad. Estas primeras computadoras usaban **tubos de vacío**. Imaginá las luces de neón antiguas, pero miles de ellas encendidas y apagadas miles de veces por segundo para procesar información (unos y ceros). El problema era que los tubos se quemaban constantemente, generaban un calor insoportable y eran carísimos de fabricar. Si querías una computadora más poderosa, tenías que hacerla más grande, lo cual significaba más tubos, más calor y más fallos. Era un círculo vicioso tecnológico."
+          "text": "Aquí estaba la primera gran limitante: el tamaño y la fragilidad. Estas primeras computadoras usaban tubos de vacío. Imaginá las luces de neón antiguas, pero miles de ellas encendidas y apagadas miles de veces por segundo para procesar información (unos y ceros). El problema era que los tubos se quemaban constantemente, generaban un calor insoportable y eran carísimos de fabricar. Si querías una computadora más poderosa, tenías que hacerla más grande, lo cual significaba más tubos, más calor y más fallos. Era un círculo vicioso tecnológico."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p7",
-          "text": "La solución llegó con la invención del **transistor** en la década de 1950. Este pequeño componente de silicio podía hacer lo mismo que un tubo de vacío, pero era diminuto, no se calentaba tanto, no se fundía tan rápido y costaba una fracción del precio. La llegada del transistor fue el detonante de la miniaturización. Si antes necesitabas una sala para hacer un cálculo balístico durante la Segunda Guerra Mundial, ahora podías poner una computadora en un escritorio."
+          "text": "La solución llegó con la invención del transistor en la década de 1950. Este pequeño componente de silicio podía hacer lo mismo que un tubo de vacío, pero era diminuto, no se calentaba tanto, no se fundía tan rápido y costaba una fracción del precio. La llegada del transistor fue el detonante de la miniaturización. Si antes necesitabas una sala para hacer un cálculo balístico durante la Segunda Guerra Mundial, ahora podías poner una computadora en un escritorio."
         },
         {
           "type": "paragraph",
@@ -1248,7 +1296,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p11",
-          "text": "Aquí es donde entra la **segmentación**. Es el proceso mediante el cual un sistema toma un flujo de datos grande y lo divide en partes más pequeñas y manejables, llamadas **paquetes** o **segmentos**. Cada uno de estos paquetes lleva consigo no solo los datos en sí, sino también información de control: quién lo envía, a quién va dirigido, en qué orden debe ir y cómo verificar que no se dañó durante el viaje."
+          "text": "Aquí es donde entra la segmentación. Es el proceso mediante el cual un sistema toma un flujo de datos grande y lo divide en partes más pequeñas y manejables, llamadas paquetes o segmentos. Cada uno de estos paquetes lleva consigo no solo los datos en sí, sino también información de control: quién lo envía, a quién va dirigido, en qué orden debe ir y cómo verificar que no se dañó durante el viaje."
         },
         {
           "type": "paragraph",
@@ -1258,7 +1306,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p13",
-          "text": "¿Por qué es esto tan importante para vos como usuario? Porque la segmentación permite la **multiplexación**. Significa que muchos usuarios pueden compartir el mismo cable de internet al mismo tiempo sin interferirse. Si yo estoy viendo una película en streaming y vos estás jugando un videojuego online, nuestros datos están mezclados en el cable, pero gracias a la segmentación y a las etiquetas de control, cada paquete sabe a dónde pertenece. Sin esta técnica, internet sería lento, inestable y solo permitiría una conexión a la vez."
+          "text": "¿Por qué es esto tan importante para vos como usuario? Porque la segmentación permite la multiplexación. Significa que muchos usuarios pueden compartir el mismo cable de internet al mismo tiempo sin interferirse. Si yo estoy viendo una película en streaming y vos estás jugando un videojuego online, nuestros datos están mezclados en el cable, pero gracias a la segmentación y a las etiquetas de control, cada paquete sabe a dónde pertenece. Sin esta técnica, internet sería lento, inestable y solo permitiría una conexión a la vez."
         },
         {
           "type": "paragraph",
@@ -1274,22 +1322,22 @@
         {
           "type": "paragraph",
           "id": "cap-9-p16",
-          "text": "Hasta aquí hemos hablado de la historia de las máquinas y de cómo viajan los datos. Pero, ¿cómo se diseña un software que funcione en este mundo complejo? Cuando un programador o un analista de sistemas se sienta a crear una aplicación, por ejemplo, una app de banco o un videojuego, no empieza a escribir código a lo loco. Primero necesita definir las reglas del juego. Esas reglas se dividen en dos grandes categorías: los **requisitos funcionales** y los **requisitos no funcionales**."
+          "text": "Hasta aquí hemos hablado de la historia de las máquinas y de cómo viajan los datos. Pero, ¿cómo se diseña un software que funcione en este mundo complejo? Cuando un programador o un analista de sistemas se sienta a crear una aplicación, por ejemplo, una app de banco o un videojuego, no empieza a escribir código a lo loco. Primero necesita definir las reglas del juego. Esas reglas se dividen en dos grandes categorías: los requisitos funcionales y los requisitos no funcionales."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p17",
-          "text": "Aunque suenan técnicos, son conceptos que usás todo el tiempo, aunque no lo notes. La diferencia fundamental es simple: los requisitos funcionales describen **qué** hace el sistema, mientras que los no funcionales describen **cómo** lo hace."
+          "text": "Aunque suenan técnicos, son conceptos que usás todo el tiempo, aunque no lo notes. La diferencia fundamental es simple: los requisitos funcionales describen qué hace el sistema, mientras que los no funcionales describen cómo lo hace."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p18",
-          "text": "Pensemos en un sistema de compras en línea. Un requisito funcional sería: *\"El sistema debe permitir al usuario agregar productos al carrito de compras\"*. Otro sería: *\"El sistema debe generar un recibo de compra al finalizar el pago\"*. Estos son claros, directos y medibles. Si el sistema no permite agregar productos, falla su propósito principal. Son las acciones, las funciones, las cosas que el usuario espera poder hacer. Sin requisitos funcionales, no tendríamos un software útil, tendríamos solo código vacío."
+          "text": "Pensemos en un sistema de compras en línea. Un requisito funcional sería: \"El sistema debe permitir al usuario agregar productos al carrito de compras\". Otro sería: \"El sistema debe generar un recibo de compra al finalizar el pago\". Estos son claros, directos y medibles. Si el sistema no permite agregar productos, falla su propósito principal. Son las acciones, las funciones, las cosas que el usuario espera poder hacer. Sin requisitos funcionales, no tendríamos un software útil, tendríamos solo código vacío."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p19",
-          "text": "Pero, ¿qué pasa si el sistema permite agregar productos, pero tarda diez segundos en abrir la página? ¿Qué pasa si la contraseña se guarda en texto plano, sin ninguna protección? Ahí entran los **requisitos no funcionales**. Estos definen la calidad del servicio. Un requisito no funcional podría ser: *\"El tiempo de respuesta de la página de inicio no debe superar los 2 segundos\"*. Otro sería: *\"Las contraseñas de los usuarios deben estar encriptadas utilizando el estándar AES-256\"*."
+          "text": "Pero, ¿qué pasa si el sistema permite agregar productos, pero tarda diez segundos en abrir la página? ¿Qué pasa si la contraseña se guarda en texto plano, sin ninguna protección? Ahí entran los requisitos no funcionales. Estos definen la calidad del servicio. Un requisito no funcional podría ser: \"El tiempo de respuesta de la página de inicio no debe superar los 2 segundos\". Otro sería: \"Las contraseñas de los usuarios deben estar encriptadas utilizando el estándar AES-256\"."
         },
         {
           "type": "paragraph",
@@ -1299,7 +1347,32 @@
         {
           "type": "paragraph",
           "id": "cap-9-p21",
-          "text": "En la práctica, los requisitos no funcionales son a menudo los más difíciles de cumplir y los que más impacto tienen en la experiencia del usuario. Incluyen aspectos como: *   **Rendimiento:** ¿Qué tan rápido responde el sistema? *   **Seguridad:** ¿Cómo protege la información sensible? *   **Disponibilidad:** ¿Cuánto tiempo está el sistema operativo? (Por ejemplo, \"99,9% del tiempo\"). *   **Escalabilidad:** ¿Puede el sistema manejar más usuarios si se hace famoso? *   **Usabilidad:** ¿Es fácil de usar para una persona que nunca ha visto una computadora?"
+          "text": "En la práctica, los requisitos no funcionales son a menudo los más difíciles de cumplir y los que más impacto tienen en la experiencia del usuario. Incluyen aspectos como:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-9-p21-1",
+          "text": "Rendimiento: ¿Qué tan rápido responde el sistema?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-9-p21-2",
+          "text": "Seguridad: ¿Cómo protege la información sensible?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-9-p21-3",
+          "text": "Disponibilidad: ¿Cuánto tiempo está el sistema operativo? (Por ejemplo, \"99,9% del tiempo\")."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-9-p21-4",
+          "text": "Escalabilidad: ¿Puede el sistema manejar más usuarios si se hace famoso?"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-9-p21-5",
+          "text": "Usabilidad: ¿Es fácil de usar para una persona que nunca ha visto una computadora?"
         },
         {
           "type": "heading",
@@ -1310,12 +1383,12 @@
         {
           "type": "paragraph",
           "id": "cap-9-p23",
-          "text": "Es importante notar que estos tres temas que analizamos no existen en vacíos separados. Están profundamente entrelazados. La **Revolución Informática** nos dio la capacidad de tener dispositivos pequeños y potentes. La **Segmentación** nos permite que esos dispositivos se comuniquen globalmente de manera eficiente. Y los **Requisitos de Software** son el plano que guía a los ingenieros para construir aplicaciones que aprovechen esa infraestructura sin colapsarla."
+          "text": "Es importante notar que estos tres temas que analizamos no existen en vacíos separados. Están profundamente entrelazados. La Revolución Informática nos dio la capacidad de tener dispositivos pequeños y potentes. La Segmentación nos permite que esos dispositivos se comuniquen globalmente de manera eficiente. Y los Requisitos de Software son el plano que guía a los ingenieros para construir aplicaciones que aprovechen esa infraestructura sin colapsarla."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p24",
-          "text": "Por ejemplo, si querés diseñar una app para ver videos en vivo (streaming), necesitás entender que la segmentación es vital. No podés enviar el video completo de golpe. Tenés que segmentarlo en tiempos muy cortos (segundos) para que el usuario pueda empezar a ver el contenido inmediatamente, sin esperar a que se descargue todo. Ese es un requisito no funcional de rendimiento y latencia. Pero también tenés un requisito funcional: *\"El usuario debe poder pausar y reanudar la reproducción\"*."
+          "text": "Por ejemplo, si querés diseñar una app para ver videos en vivo (streaming), necesitás entender que la segmentación es vital. No podés enviar el video completo de golpe. Tenés que segmentarlo en tiempos muy cortos (segundos) para que el usuario pueda empezar a ver el contenido inmediatamente, sin esperar a que se descargue todo. Ese es un requisito no funcional de rendimiento y latencia. Pero también tenés un requisito funcional: \"El usuario debe poder pausar y reanudar la reproducción\"."
         },
         {
           "type": "paragraph",
@@ -1336,12 +1409,18 @@
         {
           "type": "paragraph",
           "id": "cap-9-p28",
-          "text": "Entender estos conceptos no es solo para aprobar un examen de informática. Es para comprender el mundo en el que vivís. En la era digital, la capacidad de distinguir entre lo que un sistema *hace* y *cómo lo hace*, y de valorar la infraestructura invisible que lo sostiene, es una competencia fundamental. La tecnología no es solo código; es historia, es física, es lógica y, sobre todo, es diseño humano."
+          "text": "Entender estos conceptos no es solo para aprobar un examen de informática. Es para comprender el mundo en el que vivís. En la era digital, la capacidad de distinguir entre lo que un sistema hace y cómo lo hace, y de valorar la infraestructura invisible que lo sostiene, es una competencia fundamental. La tecnología no es solo código; es historia, es física, es lógica y, sobre todo, es diseño humano."
         }
       ],
       "meta": {
         "chapterId": "cap-9"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-10",
@@ -1368,17 +1447,17 @@
         {
           "type": "paragraph",
           "id": "cap-10-p4",
-          "text": "Para entender la seguridad, primero debemos entender la estructura. Si tu computadora fuera una biblioteca gigante, el disco duro sería el edificio, pero el **sistema de archivos** sería el bibliotecario, el catálogo y el sistema de clasificación todo en uno. Sin él, tendrías terabytes de datos almacenados en un amasijo indescifrable de ceros y unos, sin forma ni función. El sistema de archivos es el software que le dice al sistema operativo cómo guardar, recuperar, navegar y organizar los datos en dispositivos de almacenamiento como discos duros mecánicos, unidades de estado sólido (SSD) o memorias USB."
+          "text": "Para entender la seguridad, primero debemos entender la estructura. Si tu computadora fuera una biblioteca gigante, el disco duro sería el edificio, pero el sistema de archivos sería el bibliotecario, el catálogo y el sistema de clasificación todo en uno. Sin él, tendrías terabytes de datos almacenados en un amasijo indescifrable de ceros y unos, sin forma ni función. El sistema de archivos es el software que le dice al sistema operativo cómo guardar, recuperar, navegar y organizar los datos en dispositivos de almacenamiento como discos duros mecánicos, unidades de estado sólido (SSD) o memorias USB."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p5",
-          "text": "La herramienta más poderosa que tiene un sistema de archivos moderno es la **estructura jerárquica**. Imaginá un árbol invertido. En la punta, o raíz, encontrás el dispositivo completo (como `C:\\` en Windows o `/` en Linux). De esa raíz brotan los directorios, que son como las ramas principales, y dentro de ellas, otras ramas más pequeñas (subdirectorios o carpetas), hasta llegar a las hojas: los archivos individuales. Esta organización no es arbitraria; permite que el sistema localice la información de manera eficiente. Cuando abres un documento, el sistema no escanea todo el disco duro buscando el archivo; utiliza lo que llamamos una **ruta**. Una ruta absoluta te dice exactamente dónde está el archivo desde la raíz absoluta (por ejemplo, `/home/usuario/documentos/tarea.pdf`), mientras que una ruta relativa te da instrucciones desde tu ubicación actual. Es como decirle a alguien: \"Sube dos calles y gira a la derecha\", en lugar de darle las coordenadas GPS exactas desde el polo norte."
+          "text": "La herramienta más poderosa que tiene un sistema de archivos moderno es la estructura jerárquica. Imaginá un árbol invertido. En la punta, o raíz, encontrás el dispositivo completo (como `C:\\` en Windows o `/` en Linux). De esa raíz brotan los directorios, que son como las ramas principales, y dentro de ellas, otras ramas más pequeñas (subdirectorios o carpetas), hasta llegar a las hojas: los archivos individuales. Esta organización no es arbitraria; permite que el sistema localice la información de manera eficiente. Cuando abres un documento, el sistema no escanea todo el disco duro buscando el archivo; utiliza lo que llamamos una ruta. Una ruta absoluta te dice exactamente dónde está el archivo desde la raíz absoluta (por ejemplo, `/home/usuario/documentos/tarea.pdf`), mientras que una ruta relativa te da instrucciones desde tu ubicación actual. Es como decirle a alguien: \"Sube dos calles y gira a la derecha\", en lugar de darle las coordenadas GPS exactas desde el polo norte."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p6",
-          "text": "Pero un archivo no es solo su contenido. Cada vez que guardás algo, el sistema de archivos registra automáticamente una serie de **metadatos**, es decir, \"datos sobre los datos\". Estos incluyen información crucial como el tamaño del archivo, la fecha y hora de creación, la última fecha de modificación y, quizás lo más importante en términos de privacidad y control, los **atributos de acceso**. Los atributos definen quién puede leer, escribir o ejecutar ese archivo. Si sos el administrador de la red, podés decidir que ciertos archivos sean invisibles para los usuarios normales, o que solo puedan ser leídos pero no modificados. Esta capa de información contextual es lo que permite que la seguridad y la organización funcionen en armonía. Sin metadatos, el sistema no sabría si un archivo es un ejecutable peligroso o una foto inofensiva, ni sabría a quién pertenece."
+          "text": "Pero un archivo no es solo su contenido. Cada vez que guardás algo, el sistema de archivos registra automáticamente una serie de metadatos, es decir, \"datos sobre los datos\". Estos incluyen información crucial como el tamaño del archivo, la fecha y hora de creación, la última fecha de modificación y, quizás lo más importante en términos de privacidad y control, los atributos de acceso. Los atributos definen quién puede leer, escribir o ejecutar ese archivo. Si sos el administrador de la red, podés decidir que ciertos archivos sean invisibles para los usuarios normales, o que solo puedan ser leídos pero no modificados. Esta capa de información contextual es lo que permite que la seguridad y la organización funcionen en armonía. Sin metadatos, el sistema no sabría si un archivo es un ejecutable peligroso o una foto inofensiva, ni sabría a quién pertenece."
         },
         {
           "type": "heading",
@@ -1394,12 +1473,12 @@
         {
           "type": "paragraph",
           "id": "cap-10-p9",
-          "text": "Aquí es donde entra en juego una tecnología fundamental en los sistemas modernos: el **sistema de archivos por bitácora**, conocido técnicamente como *journaling*. Para entenderlo, pensá en un asistente de confianza que lleva un cuaderno de apuntes (la bitácora) antes de ejecutar una tarea importante. Antes de hacer cualquier cambio drástico en la estructura del disco, el sistema escribe primero en esa bitácora qué va a hacer. Digamos: \"Voy a mover este archivo de la carpeta A a la carpeta B\". Solo después de confirmar que esa instrucción quedó grabada de forma segura en la bitácora, procede a realizar el cambio real en el disco."
+          "text": "Aquí es donde entra en juego una tecnología fundamental en los sistemas modernos: el sistema de archivos por bitácora, conocido técnicamente como journaling. Para entenderlo, pensá en un asistente de confianza que lleva un cuaderno de apuntes (la bitácora) antes de ejecutar una tarea importante. Antes de hacer cualquier cambio drástico en la estructura del disco, el sistema escribe primero en esa bitácora qué va a hacer. Digamos: \"Voy a mover este archivo de la carpeta A a la carpeta B\". Solo después de confirmar que esa instrucción quedó grabada de forma segura en la bitácora, procede a realizar el cambio real en el disco."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p10",
-          "text": "¿Por qué es esto vital? Porque la bitácora actúa como un registro inmutable de las intenciones del sistema. Si ocurre un fallo repentino, como un corte de energía o un bloqueo del sistema, el disco no queda en un estado confuso. Al reiniciar, el sistema de archivos lee la bitácora, ve qué tareas estaban pendientes y las completa o las deshace de manera ordenada. Es, en esencia, un mecanismo de seguridad interna que garantiza la consistencia de los datos. El *journaling* no solo previene la corrupción de archivos, sino que también acelera enormemente el proceso de recuperación tras un fallo, ya que no necesita escanear todo el disco en busca de errores, sino simplemente consultar su \"cuaderno de notas\". Sin esta tecnología, la experiencia del usuario moderno sería mucho más frágil y propensa a errores graves."
+          "text": "¿Por qué es esto vital? Porque la bitácora actúa como un registro inmutable de las intenciones del sistema. Si ocurre un fallo repentino, como un corte de energía o un bloqueo del sistema, el disco no queda en un estado confuso. Al reiniciar, el sistema de archivos lee la bitácora, ve qué tareas estaban pendientes y las completa o las deshace de manera ordenada. Es, en esencia, un mecanismo de seguridad interna que garantiza la consistencia de los datos. El journaling no solo previene la corrupción de archivos, sino que también acelera enormemente el proceso de recuperación tras un fallo, ya que no necesita escanear todo el disco en busca de errores, sino simplemente consultar su \"cuaderno de notas\". Sin esta tecnología, la experiencia del usuario moderno sería mucho más frágil y propensa a errores graves."
         },
         {
           "type": "heading",
@@ -1410,7 +1489,7 @@
         {
           "type": "paragraph",
           "id": "cap-10-p12",
-          "text": "Una vez que tenemos nuestros datos organizados y protegidos internamente, debemos pensar en cómo llegan esos datos a la computadora y cómo salen de ella. Aquí entramos al territorio de la **seguridad informática**, que es el paraguas bajo el cual se agrupan todas las medidas para proteger la integridad, confidencialidad y disponibilidad de la información. La primera línea de defensa suele ser el **firewall** (cortafuegos)."
+          "text": "Una vez que tenemos nuestros datos organizados y protegidos internamente, debemos pensar en cómo llegan esos datos a la computadora y cómo salen de ella. Aquí entramos al territorio de la seguridad informática, que es el paraguas bajo el cual se agrupan todas las medidas para proteger la integridad, confidencialidad y disponibilidad de la información. La primera línea de defensa suele ser el firewall (cortafuegos)."
         },
         {
           "type": "paragraph",
@@ -1431,12 +1510,12 @@
         {
           "type": "paragraph",
           "id": "cap-10-p16",
-          "text": "La seguridad informática no solo trata de bloquear conexiones, sino también de prevenir que el usuario interactúe con amenazas internas. Una de las formas más comunes de compromiso no es un ataque técnico sofisticado, sino la **ingeniería social**. El ejemplo clásico es el *phishing*. Se trata de una práctica fraudulenta donde los atacantes envían correos electrónicos, mensajes o crean sitios web falsos que imitan a entidades legítimas, como tu banco o una red social. El objetivo no es dañar el hardware, sino engañarte para que reveles información confidencial, como contraseñas o números de tarjeta de crédito."
+          "text": "La seguridad informática no solo trata de bloquear conexiones, sino también de prevenir que el usuario interactúe con amenazas internas. Una de las formas más comunes de compromiso no es un ataque técnico sofisticado, sino la ingeniería social. El ejemplo clásico es el phishing. Se trata de una práctica fraudulenta donde los atacantes envían correos electrónicos, mensajes o crean sitios web falsos que imitan a entidades legítimas, como tu banco o una red social. El objetivo no es dañar el hardware, sino engañarte para que reveles información confidencial, como contraseñas o números de tarjeta de crédito."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p17",
-          "text": "Otra amenaza constante es el **malware** (software malicioso). Muchas personas creen que malware es sinónimo de virus, pero el término es mucho más amplio. Incluye cualquier programa diseñado para alterar el funcionamiento normal de un sistema o robar información. Estamos hablando de **troyanos**, que se disfrazan de software útil pero contienen código dañino; **spyware**, que recopila datos de tu actividad sin tu consentimiento; y, quizás el más temido en la actualidad, el **ransomware**."
+          "text": "Otra amenaza constante es el malware (software malicioso). Muchas personas creen que malware es sinónimo de virus, pero el término es mucho más amplio. Incluye cualquier programa diseñado para alterar el funcionamiento normal de un sistema o robar información. Estamos hablando de troyanos, que se disfrazan de software útil pero contienen código dañino; spyware, que recopila datos de tu actividad sin tu consentimiento; y, quizás el más temido en la actualidad, el ransomware."
         },
         {
           "type": "paragraph",
@@ -1452,17 +1531,17 @@
         {
           "type": "paragraph",
           "id": "cap-10-p20",
-          "text": "Finalmente, llegamos a la protección de los datos en movimiento. Cuando envías información a través de Internet, los datos viajan en paquetes que pasan por múltiples servidores y puntos de control. Si esa información es sensible, como tus credenciales de banca online o documentos corporativos, no podés permitir que nadie la lea en el camino. Aquí es donde entran en juego el **cifrado** y las **Redes Privadas Virtuales (VPN)**."
+          "text": "Finalmente, llegamos a la protección de los datos en movimiento. Cuando envías información a través de Internet, los datos viajan en paquetes que pasan por múltiples servidores y puntos de control. Si esa información es sensible, como tus credenciales de banca online o documentos corporativos, no podés permitir que nadie la lea en el camino. Aquí es donde entran en juego el cifrado y las Redes Privadas Virtuales (VPN)."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p21",
-          "text": "El **cifrado** es el proceso de transformar datos legibles en un formato ilegible para cualquiera que no tenga la clave adecuada. Se utilizan algoritmos matemáticos complejos que \"mezclan\" la información original de tal manera que, si un hacker intercepta el paquete de datos, solo verá ruido estático. Es fundamental en transacciones sensibles y garantiza la confidencialidad de la información mientras viaja por la red."
+          "text": "El cifrado es el proceso de transformar datos legibles en un formato ilegible para cualquiera que no tenga la clave adecuada. Se utilizan algoritmos matemáticos complejos que \"mezclan\" la información original de tal manera que, si un hacker intercepta el paquete de datos, solo verá ruido estático. Es fundamental en transacciones sensibles y garantiza la confidencialidad de la información mientras viaja por la red."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p22",
-          "text": "Pero, ¿cómo garantizamos que todo nuestro tráfico esté cifrado y que nuestra identidad esté protegida? Ahí entra la **VPN**. Una VPN crea un **túnel cifrado** sobre una infraestructura pública como Internet. Imaginá que en lugar de enviar cartas abiertas por el correo postal, metés tu mensaje en una caja de acero blindada, lo sellás con una llave única y solo el destinatario puede abrir esa caja. La VPN encripta toda la información que pasa por el túnel. Esto es crucial cuando te conectás a redes Wi-Fi públicas, como las de un aeropuerto o una cafetería, donde los atacantes pueden espiar fácilmente las conexiones no seguras. Además, las VPNs permiten acceder a recursos de una red remota (como los archivos de tu empresa) desde cualquier lugar del mundo, protegiendo la identidad del usuario y manteniendo la integridad de la conexión."
+          "text": "Pero, ¿cómo garantizamos que todo nuestro tráfico esté cifrado y que nuestra identidad esté protegida? Ahí entra la VPN. Una VPN crea un túnel cifrado sobre una infraestructura pública como Internet. Imaginá que en lugar de enviar cartas abiertas por el correo postal, metés tu mensaje en una caja de acero blindada, lo sellás con una llave única y solo el destinatario puede abrir esa caja. La VPN encripta toda la información que pasa por el túnel. Esto es crucial cuando te conectás a redes Wi-Fi públicas, como las de un aeropuerto o una cafetería, donde los atacantes pueden espiar fácilmente las conexiones no seguras. Además, las VPNs permiten acceder a recursos de una red remota (como los archivos de tu empresa) desde cualquier lugar del mundo, protegiendo la identidad del usuario y manteniendo la integridad de la conexión."
         },
         {
           "type": "heading",
@@ -1473,17 +1552,23 @@
         {
           "type": "paragraph",
           "id": "cap-10-p24",
-          "text": "Como podés ver, la seguridad informática y la gestión de datos no son conceptos aislados. Forman un ecosistema interdependiente. El **sistema de archivos** y el **journaling** aseguran que la información esté organizada y sea recuperable ante fallos locales. El **firewall** y la prevención contra **malware** protegen el perímetro y la integridad del sistema operativo. Y el **cifrado** junto con las **VPNs** garantizan que, una vez que los datos salen de tu dispositivo, viajen de manera segura a través de un mundo digital hostil."
+          "text": "Como podés ver, la seguridad informática y la gestión de datos no son conceptos aislados. Forman un ecosistema interdependiente. El sistema de archivos y el journaling aseguran que la información esté organizada y sea recuperable ante fallos locales. El firewall y la prevención contra malware protegen el perímetro y la integridad del sistema operativo. Y el cifrado junto con las VPNs garantizan que, una vez que los datos salen de tu dispositivo, viajen de manera segura a través de un mundo digital hostil."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p25",
-          "text": "No existe una solución única que lo resuelva todo. La verdadera seguridad se logra mediante una estrategia de **defensa en capas**. Si el firewall falla, el antivirus puede detectar el malware. Si el malware cifra tus archivos, una copia de seguridad en la nube te permite recuperarlos. Si la red Wi-Fi pública es insegura, tu VPN te protege. Entender cómo funcionan estas piezas por separado es el primer paso para utilizarlas correctamente. En el mundo digital, la ignorancia es el mayor riesgo; el conocimiento es tu mejor firewall."
+          "text": "No existe una solución única que lo resuelva todo. La verdadera seguridad se logra mediante una estrategia de defensa en capas. Si el firewall falla, el antivirus puede detectar el malware. Si el malware cifra tus archivos, una copia de seguridad en la nube te permite recuperarlos. Si la red Wi-Fi pública es insegura, tu VPN te protege. Entender cómo funcionan estas piezas por separado es el primer paso para utilizarlas correctamente. En el mundo digital, la ignorancia es el mayor riesgo; el conocimiento es tu mejor firewall."
         }
       ],
       "meta": {
         "chapterId": "cap-10"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-11",
@@ -1536,17 +1621,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p9",
-          "text": "En la capa más alta, la de **Aplicación**, es donde interactuás directamente con el software. Cuando abrís un navegador para buscar esta información, estás en esta capa. El navegador pide datos a un servidor web, pero no sabe cómo llegar hasta él físicamente. Ahí entra la capa de **Transporte**. Su trabajo es asegurar que la información llegue completa y en orden. Utiliza protocolos como TCP, que es como enviar una carta certificada: si falta una página, la pide de nuevo. También está UDP, que es más rápido pero menos fiable, como enviar un mensaje de voz por radio donde a veces se cortan palabras pero no hay reenvío."
+          "text": "En la capa más alta, la de Aplicación, es donde interactuás directamente con el software. Cuando abrís un navegador para buscar esta información, estás en esta capa. El navegador pide datos a un servidor web, pero no sabe cómo llegar hasta él físicamente. Ahí entra la capa de Transporte. Su trabajo es asegurar que la información llegue completa y en orden. Utiliza protocolos como TCP, que es como enviar una carta certificada: si falta una página, la pide de nuevo. También está UDP, que es más rápido pero menos fiable, como enviar un mensaje de voz por radio donde a veces se cortan palabras pero no hay reenvío."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p10",
-          "text": "La magia ocurre en la capa de **Internet**. Aquí es donde se define el **enrutamiento**. Los datos se dividen en pequeños bloques llamados **paquetes**. Cada paquete tiene una dirección IP de origen y una de destino. La capa de Internet no se preocupa por el contenido del mensaje (si es un email, una foto o este texto), solo le importa la ruta. Los routers, que son como los cruces de tren o los centros de distribución de paquetes, analizan estas direcciones lógicas y deciden cuál es el camino más eficiente. Si un cable se corta, los routers encuentran otra ruta automáticamente. Este proceso es independiente del contenido y se basa únicamente en la lógica de las direcciones."
+          "text": "La magia ocurre en la capa de Internet. Aquí es donde se define el enrutamiento. Los datos se dividen en pequeños bloques llamados paquetes. Cada paquete tiene una dirección IP de origen y una de destino. La capa de Internet no se preocupa por el contenido del mensaje (si es un email, una foto o este texto), solo le importa la ruta. Los routers, que son como los cruces de tren o los centros de distribución de paquetes, analizan estas direcciones lógicas y deciden cuál es el camino más eficiente. Si un cable se corta, los routers encuentran otra ruta automáticamente. Este proceso es independiente del contenido y se basa únicamente en la lógica de las direcciones."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p11",
-          "text": "Finalmente, la capa de **Acceso a la red** es la que convierte esos datos lógicos en señales físicas. Si usás Wi-Fi, esta capa traduce los paquetes en ondas de radio; si usás fibra óptica, los convierte en pulsos de luz. Sin esta capa, los datos serían solo conceptos abstractos que nunca podrían viajar por un cable o el aire. Juntas, estas capas permiten que, al pulsar \"enviar\", tu mensaje cruce océanos y redes complejas hasta llegar a su destino, todo en fracciones de segundo."
+          "text": "Finalmente, la capa de Acceso a la red es la que convierte esos datos lógicos en señales físicas. Si usás Wi-Fi, esta capa traduce los paquetes en ondas de radio; si usás fibra óptica, los convierte en pulsos de luz. Sin esta capa, los datos serían solo conceptos abstractos que nunca podrían viajar por un cable o el aire. Juntas, estas capas permiten que, al pulsar \"enviar\", tu mensaje cruce océanos y redes complejas hasta llegar a su destino, todo en fracciones de segundo."
         },
         {
           "type": "heading",
@@ -1562,17 +1647,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p14",
-          "text": "Por un lado, tenemos los **mainframes** y los **servidores**. Los mainframes son las bestias de carga pesada de la informática. Son computadoras de gran tamaño diseñadas para procesar volúmenes masivos de datos con una confiabilidad extrema. En Argentina, por ejemplo, los bancos y las aerolíneas dependen de ellos para gestionar miles de transacciones por segundo sin fallar. Sus sistemas operativos están optimizados para la integridad de los datos y la multitarea masiva, no para la belleza gráfica. Un servidor, por su parte, es un equipo que provee servicios a otros clientes a través de la red. Mientras que tu computadora personal espera tus instrucciones, un servidor está siempre listo para responder a las peticiones de millones de usuarios simultáneos."
+          "text": "Por un lado, tenemos los mainframes y los servidores. Los mainframes son las bestias de carga pesada de la informática. Son computadoras de gran tamaño diseñadas para procesar volúmenes masivos de datos con una confiabilidad extrema. En Argentina, por ejemplo, los bancos y las aerolíneas dependen de ellos para gestionar miles de transacciones por segundo sin fallar. Sus sistemas operativos están optimizados para la integridad de los datos y la multitarea masiva, no para la belleza gráfica. Un servidor, por su parte, es un equipo que provee servicios a otros clientes a través de la red. Mientras que tu computadora personal espera tus instrucciones, un servidor está siempre listo para responder a las peticiones de millones de usuarios simultáneos."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p15",
-          "text": "En el otro extremo del espectro, están los **sistemas embebidos**. Estos se encuentran en electrodomésticos, autos e incluso en el sistema de frenado de tu vehículo. Son sistemas operativos en tiempo real, lo que significa que deben responder a eventos externos en un tiempo estricto y predecible. Si un sensor detecta un obstáculo, el sistema debe actuar inmediatamente; no puede \"colgarse\" ni esperar a terminar una tarea menor. La prioridad aquí es la respuesta instantánea y la eficiencia energética, no la capacidad de instalar aplicaciones variadas."
+          "text": "En el otro extremo del espectro, están los sistemas embebidos. Estos se encuentran en electrodomésticos, autos e incluso en el sistema de frenado de tu vehículo. Son sistemas operativos en tiempo real, lo que significa que deben responder a eventos externos en un tiempo estricto y predecible. Si un sensor detecta un obstáculo, el sistema debe actuar inmediatamente; no puede \"colgarse\" ni esperar a terminar una tarea menor. La prioridad aquí es la respuesta instantánea y la eficiencia energética, no la capacidad de instalar aplicaciones variadas."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p16",
-          "text": "Y luego están los **sistemas para dispositivos móviles**, como Android o iOS. Estos SO representan un equilibrio delicado entre potencia de procesamiento y consumo de batería. Gestionan la conectividad constante (Wi-Fi, Bluetooth, 4G/5G), la seguridad del dispositivo y la experiencia de usuario táctil. Cada tipo de SO refleja una filosofía de diseño distinta: la confiabilidad absoluta en los servidores, la precisión en los embebidos y la flexibilidad y eficiencia en los móviles."
+          "text": "Y luego están los sistemas para dispositivos móviles, como Android o iOS. Estos SO representan un equilibrio delicado entre potencia de procesamiento y consumo de batería. Gestionan la conectividad constante (Wi-Fi, Bluetooth, 4G/5G), la seguridad del dispositivo y la experiencia de usuario táctil. Cada tipo de SO refleja una filosofía de diseño distinta: la confiabilidad absoluta en los servidores, la precisión en los embebidos y la flexibilidad y eficiencia en los móviles."
         },
         {
           "type": "heading",
@@ -1583,17 +1668,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p18",
-          "text": "Finalmente, una vez que el hardware funciona, el sistema operativo gestiona los recursos y la red conecta al usuario, surge la pregunta fundamental: ¿quién es el dueño de lo que estamos usando? Aquí entramos en el terreno de las **licencias de software**, que son los contratos legales que definen qué se puede y qué no se puede hacer con un programa."
+          "text": "Finalmente, una vez que el hardware funciona, el sistema operativo gestiona los recursos y la red conecta al usuario, surge la pregunta fundamental: ¿quién es el dueño de lo que estamos usando? Aquí entramos en el terreno de las licencias de software, que son los contratos legales que definen qué se puede y qué no se puede hacer con un programa."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p19",
-          "text": "El **software propietario** es el modelo tradicional. Cuando comprás Windows o Photoshop, estás adquiriendo una licencia de uso, pero no la propiedad del código. El código fuente (las instrucciones que hacen que el programa funcione) está cerrado y es secreto comercial. Puedes usarlo, pero no puedes estudiar cómo está hecho, modificarlo ni compartirlo libremente. Esto protege la inversión de las empresas desarrolladoras, pero limita la capacidad del usuario de entender y adaptar la herramienta a sus necesidades."
+          "text": "El software propietario es el modelo tradicional. Cuando comprás Windows o Photoshop, estás adquiriendo una licencia de uso, pero no la propiedad del código. El código fuente (las instrucciones que hacen que el programa funcione) está cerrado y es secreto comercial. Puedes usarlo, pero no puedes estudiar cómo está hecho, modificarlo ni compartirlo libremente. Esto protege la inversión de las empresas desarrolladoras, pero limita la capacidad del usuario de entender y adaptar la herramienta a sus necesidades."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p20",
-          "text": "En contraste, tenemos el **software de código abierto** (o libre). En este modelo, el código fuente está disponible para que cualquiera pueda verlo, modificarlo y distribuirlo. Esto fomenta la colaboración global. Un ejemplo claro es Linux, que no solo es un sistema operativo, sino una comunidad de miles de desarrolladores que mejoran el código constantemente. En Argentina, la comunidad de software libre es muy activa, y muchas instituciones públicas y educativas utilizan este modelo para reducir costos y fomentar la transparencia. Entender la diferencia entre licencia propietaria y código abierto es crucial para desarrollar una conciencia ética y técnica. No se trata solo de \"piratería\" o de pagar, sino de comprender los derechos de propiedad intelectual y la cultura de colaboración que impulsa la innovación tecnológica."
+          "text": "En contraste, tenemos el software de código abierto (o libre). En este modelo, el código fuente está disponible para que cualquiera pueda verlo, modificarlo y distribuirlo. Esto fomenta la colaboración global. Un ejemplo claro es Linux, que no solo es un sistema operativo, sino una comunidad de miles de desarrolladores que mejoran el código constantemente. En Argentina, la comunidad de software libre es muy activa, y muchas instituciones públicas y educativas utilizan este modelo para reducir costos y fomentar la transparencia. Entender la diferencia entre licencia propietaria y código abierto es crucial para desarrollar una conciencia ética y técnica. No se trata solo de \"piratería\" o de pagar, sino de comprender los derechos de propiedad intelectual y la cultura de colaboración que impulsa la innovación tecnológica."
         },
         {
           "type": "heading",
@@ -1614,7 +1699,13 @@
       ],
       "meta": {
         "chapterId": "cap-11"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-12",
@@ -1635,7 +1726,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p3",
-          "text": "Esa es, en esencia, la pregunta fundamental que la informática moderna se ha planteado para resolver. No estamos hablando de escritorios de madera, sino de servidores, de computadoras potentes que procesan millones de datos por segundo. La respuesta a esa pregunta es la **virtualización**, una tecnología que ha transformado por completo la manera en que entendemos el hardware y el software. En este capítulo, vamos a explorar cómo logramos esa independencia aparente, comparando dos de los pilares sobre los que se sostiene la nube actual: las máquinas virtuales y los contenedores. No se trata solo de definir términos, sino de entender la lógica profunda que hace posible que hoy puedas tener cientos de \"computadoras\" funcionando dentro de una sola caja física."
+          "text": "Esa es, en esencia, la pregunta fundamental que la informática moderna se ha planteado para resolver. No estamos hablando de escritorios de madera, sino de servidores, de computadoras potentes que procesan millones de datos por segundo. La respuesta a esa pregunta es la virtualización, una tecnología que ha transformado por completo la manera en que entendemos el hardware y el software. En este capítulo, vamos a explorar cómo logramos esa independencia aparente, comparando dos de los pilares sobre los que se sostiene la nube actual: las máquinas virtuales y los contenedores. No se trata solo de definir términos, sino de entender la lógica profunda que hace posible que hoy puedas tener cientos de \"computadoras\" funcionando dentro de una sola caja física."
         },
         {
           "type": "heading",
@@ -1651,7 +1742,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p6",
-          "text": "La virtualización cambia las reglas del juego introduciendo una capa de abstracción. Imaginá que entre el hardware físico y el sistema operativo se coloca un software especializado llamado **hipervisor** (o monitor de máquinas virtuales). El hipervisor actúa como un intermediario, un director de orquesta que le dice al hardware: \"Oí, hoy le vas a dar el 30% de tu fuerza de procesamiento a la máquina virtual A, el 20% a la B y el resto al sistema anfitrión\"."
+          "text": "La virtualización cambia las reglas del juego introduciendo una capa de abstracción. Imaginá que entre el hardware físico y el sistema operativo se coloca un software especializado llamado hipervisor (o monitor de máquinas virtuales). El hipervisor actúa como un intermediario, un director de orquesta que le dice al hardware: \"Oí, hoy le vas a dar el 30% de tu fuerza de procesamiento a la máquina virtual A, el 20% a la B y el resto al sistema anfitrión\"."
         },
         {
           "type": "paragraph",
@@ -1672,12 +1763,12 @@
         {
           "type": "paragraph",
           "id": "cap-12-p10",
-          "text": "La primera gran revolución de la virtualización fue la creación de las **Máquinas Virtuales (VM)**. Una VM no es simplemente un programa abierto en tu escritorio; es una réplica completa y autónoma de una computadora física."
+          "text": "La primera gran revolución de la virtualización fue la creación de las Máquinas Virtuales (VM). Una VM no es simplemente un programa abierto en tu escritorio; es una réplica completa y autónoma de una computadora física."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p11",
-          "text": "Para que una VM funcione, necesita simular todo el hardware necesario para arrancar un sistema operativo. Esto significa que dentro de cada VM hay un disco duro virtual, una tarjeta de red virtual, una memoria RAM virtual y, lo más importante, un **kernel del sistema operativo completo**. Esta es la clave de su potencia y también de su peso. Porque la VM tiene su propio kernel, está completamente aislada del sistema operativo que corre en la máquina física (el host). Si el host usa Linux y la VM usa Windows, no hay conflicto de drivers ni de bibliotecas. Son mundos separados."
+          "text": "Para que una VM funcione, necesita simular todo el hardware necesario para arrancar un sistema operativo. Esto significa que dentro de cada VM hay un disco duro virtual, una tarjeta de red virtual, una memoria RAM virtual y, lo más importante, un kernel del sistema operativo completo. Esta es la clave de su potencia y también de su peso. Porque la VM tiene su propio kernel, está completamente aislada del sistema operativo que corre en la máquina física (el host). Si el host usa Linux y la VM usa Windows, no hay conflicto de drivers ni de bibliotecas. Son mundos separados."
         },
         {
           "type": "paragraph",
@@ -1698,7 +1789,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p15",
-          "text": "Si las máquinas virtuales son como tener casas independientes con cimientos propios dentro de un terreno, los **contenedores** son como departamentos en un edificio compartido. Todos los departamentos comparten la misma estructura base, las mismas tuberías (el kernel del host) y los mismos cimientos, pero cada uno tiene sus paredes internas, su puerta y su vida privada."
+          "text": "Si las máquinas virtuales son como tener casas independientes con cimientos propios dentro de un terreno, los contenedores son como departamentos en un edificio compartido. Todos los departamentos comparten la misma estructura base, las mismas tuberías (el kernel del host) y los mismos cimientos, pero cada uno tiene sus paredes internas, su puerta y su vida privada."
         },
         {
           "type": "paragraph",
@@ -1708,12 +1799,12 @@
         {
           "type": "paragraph",
           "id": "cap-12-p17",
-          "text": "Aquí entra la diferencia fundamental. Un contenedor **comparte el kernel del sistema operativo anfitrión**. No emula hardware. En lugar de eso, utiliza mecanismos del kernel del host (como namespaces y cgroups en Linux) para crear un entorno aislado para la aplicación. El contenedor ve el sistema de archivos, la red y los procesos como si estuviera solo, pero en realidad está viviendo dentro del mismo kernel que el resto de los contenedores y del host."
+          "text": "Aquí entra la diferencia fundamental. Un contenedor comparte el kernel del sistema operativo anfitrión. No emula hardware. En lugar de eso, utiliza mecanismos del kernel del host (como namespaces y cgroups en Linux) para crear un entorno aislado para la aplicación. El contenedor ve el sistema de archivos, la red y los procesos como si estuviera solo, pero en realidad está viviendo dentro del mismo kernel que el resto de los contenedores y del host."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p18",
-          "text": "Esta arquitectura hace que los contenedores sean extremadamente ligeros. No hay un sistema operativo guest que arrancar. Un contenedor es básicamente el código de la aplicación más las bibliotecas y dependencias específicas que esa aplicación necesita para funcionar. Esto se traduce en ventajas enormes: 1.  **Velocidad:** Un contenedor puede arrancarse en milisegundos, casi al instante, porque no hay que inicializar un kernel ni cargar un sistema operativo completo. 2.  **Eficiencia de recursos:** Como comparten el kernel, la huella de memoria es mínima. Podés correr cientos de contenedores en el mismo espacio donde antes solo podías correr unas pocas VMs. 3.  **Portabilidad:** Un contenedor contiene todo lo que la aplicación necesita. Si funciona en tu computadora portátil, funcionará exactamente igual en el servidor de producción, porque el \"entorno\" viaja con la aplicación."
+          "text": "Esta arquitectura hace que los contenedores sean extremadamente ligeros. No hay un sistema operativo guest que arrancar. Un contenedor es básicamente el código de la aplicación más las bibliotecas y dependencias específicas que esa aplicación necesita para funcionar. Esto se traduce en ventajas enormes: 1.  Velocidad: Un contenedor puede arrancarse en milisegundos, casi al instante, porque no hay que inicializar un kernel ni cargar un sistema operativo completo. 2.  Eficiencia de recursos: Como comparten el kernel, la huella de memoria es mínima. Podés correr cientos de contenedores en el mismo espacio donde antes solo podías correr unas pocas VMs. 3.  Portabilidad: Un contenedor contiene todo lo que la aplicación necesita. Si funciona en tu computadora portátil, funcionará exactamente igual en el servidor de producción, porque el \"entorno\" viaja con la aplicación."
         },
         {
           "type": "heading",
@@ -1765,7 +1856,13 @@
       ],
       "meta": {
         "chapterId": "cap-12"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

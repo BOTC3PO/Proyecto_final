@@ -11,91 +11,91 @@
         "id": "cap-1",
         "title": "La arquitectura del sentido: del circuito a la intención del autor",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "El andamiaje invisible: de los sonidos a la intención",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "El arte de tejer ideas: cómo las conjunciones dan forma al pensamiento",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       },
       {
         "id": "cap-4",
         "title": "La competencia comunicativa: de la lectura silenciosa a la argumentación pública",
         "pageStart": 4,
-        "anchor": "cap-4"
+        "anchor": "cap-4:inicio"
       },
       {
         "id": "cap-5",
         "title": "La voz que perdura: entre la escritura, la palabra y la crisis del mundo",
         "pageStart": 5,
-        "anchor": "cap-5"
+        "anchor": "cap-5:inicio"
       },
       {
         "id": "cap-6",
         "title": "El mapa de la palabra: cómo nos organizamos para contar, sentir y comunicar",
         "pageStart": 6,
-        "anchor": "cap-6"
+        "anchor": "cap-6:inicio"
       },
       {
         "id": "cap-7",
         "title": "La arquitectura del lenguaje: desde la estructura interna hasta la comunicación efectiva",
         "pageStart": 7,
-        "anchor": "cap-7"
+        "anchor": "cap-7:inicio"
       },
       {
         "id": "cap-8",
         "title": "El tejido invisible: de la estructura interna a la presentación del texto",
         "pageStart": 8,
-        "anchor": "cap-8"
+        "anchor": "cap-8:inicio"
       },
       {
         "id": "cap-9",
         "title": "La arquitectura del pensamiento: coherencia, estilo y ética en la escritura y la oralidad",
         "pageStart": 9,
-        "anchor": "cap-9"
+        "anchor": "cap-9:inicio"
       },
       {
         "id": "cap-10",
         "title": "El tejido del texto: De la emoción romántica a la precisión realista",
         "pageStart": 10,
-        "anchor": "cap-10"
+        "anchor": "cap-10:inicio"
       },
       {
         "id": "cap-11",
         "title": "El tejido del sentido: Estructura, espacio y mirada en el discurso",
         "pageStart": 11,
-        "anchor": "cap-11"
+        "anchor": "cap-11:inicio"
       },
       {
         "id": "cap-12",
         "title": "La arquitectura del sentido: cómo tejen las oraciones subordinadas nuestra realidad",
         "pageStart": 12,
-        "anchor": "cap-12"
+        "anchor": "cap-12:inicio"
       },
       {
         "id": "cap-13",
         "title": "El poder de la oración completa: Las subordinadas sustantivas en acción",
         "pageStart": 13,
-        "anchor": "cap-13"
+        "anchor": "cap-13:inicio"
       },
       {
         "id": "cap-14",
         "title": "La arquitectura del sentido: De la estructura oculta al escenario",
         "pageStart": 14,
-        "anchor": "cap-14"
+        "anchor": "cap-14:inicio"
       },
       {
         "id": "cap-15",
         "title": "El arte de construir sentido: de la palabra a la oración y al texto",
         "pageStart": 15,
-        "anchor": "cap-15"
+        "anchor": "cap-15:inicio"
       }
     ]
   },
@@ -114,7 +114,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p2",
-          "text": "Imaginá por un momento que estás en medio de una calle bulliciosa de Buenos Aires. De repente, alguien te grita una palabra al oído. ¿Qué pasa? Probablemente no entiendas nada. No es que no sepas hablar español; es que la palabra, aislada, carece de contexto, de dirección y de propósito. Para que ese sonido se convierta en una idea, en una emoción o en una instrucción, tiene que atravesar un camino complejo. Este camino es lo que llamamos el **circuito de la comunicación**, y es la base sobre la cual se construye todo lo que leés, escribis y decís en tu vida diaria. Pero no basta con que el mensaje llegue; tenés que saber qué quiere decirte quien lo envía, cómo lo está diciendo y qué herramientas usó para convencerte o entretenerte. En este capítulo, vamos a desarmar esa máquina de hacer sentido, desde los engranajes básicos del lenguaje hasta las grandes corrientes literarias que definieron una época."
+          "text": "Imaginá por un momento que estás en medio de una calle bulliciosa de Buenos Aires. De repente, alguien te grita una palabra al oído. ¿Qué pasa? Probablemente no entiendas nada. No es que no sepas hablar español; es que la palabra, aislada, carece de contexto, de dirección y de propósito. Para que ese sonido se convierta en una idea, en una emoción o en una instrucción, tiene que atravesar un camino complejo. Este camino es lo que llamamos el circuito de la comunicación, y es la base sobre la cual se construye todo lo que leés, escribis y decís en tu vida diaria. Pero no basta con que el mensaje llegue; tenés que saber qué quiere decirte quien lo envía, cómo lo está diciendo y qué herramientas usó para convencerte o entretenerte. En este capítulo, vamos a desarmar esa máquina de hacer sentido, desde los engranajes básicos del lenguaje hasta las grandes corrientes literarias que definieron una época."
         },
         {
           "type": "heading",
@@ -125,17 +125,17 @@
         {
           "type": "paragraph",
           "id": "cap-1-p4",
-          "text": "Todo acto de comunicación, sea un mensaje de WhatsApp, un discurso político o una novela, comienza con un emisor que tiene una intención. Este emisor codifica sus pensamientos en un **código**, que suele ser el idioma, pero que también puede ser un lenguaje corporal, símbolos matemáticos o incluso el código vestimentario de una subcultura. El mensaje viaja a través de un canal (el aire, la fibra óptica, el papel) hasta llegar a un receptor. Pero ojo: el receptor no es un vaso vacío que simplemente recibe agua. El receptor decodifica el mensaje filtrándolo por su propio contexto, sus conocimientos previos y su estado emocional. Si el emisor y el receptor no comparten el mismo código, la comunicación se rompe. Es como intentar hablar con alguien usando un diccionario que tiene las palabras en un idioma diferente al tuyo."
+          "text": "Todo acto de comunicación, sea un mensaje de WhatsApp, un discurso político o una novela, comienza con un emisor que tiene una intención. Este emisor codifica sus pensamientos en un código, que suele ser el idioma, pero que también puede ser un lenguaje corporal, símbolos matemáticos o incluso el código vestimentario de una subcultura. El mensaje viaja a través de un canal (el aire, la fibra óptica, el papel) hasta llegar a un receptor. Pero ojo: el receptor no es un vaso vacío que simplemente recibe agua. El receptor decodifica el mensaje filtrándolo por su propio contexto, sus conocimientos previos y su estado emocional. Si el emisor y el receptor no comparten el mismo código, la comunicación se rompe. Es como intentar hablar con alguien usando un diccionario que tiene las palabras en un idioma diferente al tuyo."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p5",
-          "text": "Para que ese código funcione, necesita de las **clases de palabras**, también llamadas categorías gramaticales. No las veamos como una lista aburrida de definiciones para memorizar, sino como las herramientas de construcción de un arquitecto. Hay piezas variables, como los **sustantivos** (que nombran las cosas: mesa, ciudad, amor), los **verbos** (que son el motor de la oración, expresando acción o estado: correr, pensar, ser) y los **adjetivos** (que dan color y forma a las cosas: grande, rojo, feliz). Estas palabras cambian de forma: el sustantivo se pluraliza y tiene género; el verbo se conjuga según quién habla y cuándo pasa la acción."
+          "text": "Para que ese código funcione, necesita de las clases de palabras, también llamadas categorías gramaticales. No las veamos como una lista aburrida de definiciones para memorizar, sino como las herramientas de construcción de un arquitecto. Hay piezas variables, como los sustantivos (que nombran las cosas: mesa, ciudad, amor), los verbos (que son el motor de la oración, expresando acción o estado: correr, pensar, ser) y los adjetivos (que dan color y forma a las cosas: grande, rojo, feliz). Estas palabras cambian de forma: el sustantivo se pluraliza y tiene género; el verbo se conjuga según quién habla y cuándo pasa la acción."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p6",
-          "text": "Junto a ellas, están las piezas invariables, que actúan como el cemento y las uniones. Los **adverbios** modifican la intensidad o el lugar de la acción (rápidamente, aquí); las **preposiciones** relacionan las palabras (de, en, con); y las **conjunciones** las unen o las separan (y, pero, aunque). Si falta el verbo, la oración no avanza; si falta la preposición correcta, el sentido se distorsiona. Por ejemplo, decir \"salgo de casa\" tiene un significado distinto a \"salgo a la calle\". Cada clase de palabra tiene un trabajo específico dentro del circuito, y entenderlas te permite no solo producir textos correctos, sino también detectar cuándo alguien intenta manipular el sentido cambiando sutilmente esas relaciones."
+          "text": "Junto a ellas, están las piezas invariables, que actúan como el cemento y las uniones. Los adverbios modifican la intensidad o el lugar de la acción (rápidamente, aquí); las preposiciones relacionan las palabras (de, en, con); y las conjunciones las unen o las separan (y, pero, aunque). Si falta el verbo, la oración no avanza; si falta la preposición correcta, el sentido se distorsiona. Por ejemplo, decir \"salgo de casa\" tiene un significado distinto a \"salgo a la calle\". Cada clase de palabra tiene un trabajo específico dentro del circuito, y entenderlas te permite no solo producir textos correctos, sino también detectar cuándo alguien intenta manipular el sentido cambiando sutilmente esas relaciones."
         },
         {
           "type": "heading",
@@ -146,17 +146,17 @@
         {
           "type": "paragraph",
           "id": "cap-1-p8",
-          "text": "Una vez que tenés las piezas y el circuito claro, el desafío pasa a ser la comprensión. Cuando leés un texto, no estás solo decodificando letras; estás buscando el **núcleo**. Esa búsqueda se centra en encontrar la **idea principal**. ¿Qué es? Es el mensaje central, lo que el autor quiere comunicar por sobre todo lo demás. Si tuvieras que resumir un párrafo entero en una sola frase, esa sería la idea principal."
+          "text": "Una vez que tenés las piezas y el circuito claro, el desafío pasa a ser la comprensión. Cuando leés un texto, no estás solo decodificando letras; estás buscando el núcleo. Esa búsqueda se centra en encontrar la idea principal. ¿Qué es? Es el mensaje central, lo que el autor quiere comunicar por sobre todo lo demás. Si tuvieras que resumir un párrafo entero en una sola frase, esa sería la idea principal."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p9",
-          "text": "Las demás oraciones del texto son **ideas secundarias**: sirven para apoyar, explicar o ejemplificar esa idea central. Imaginá que estás leyendo un párrafo sobre los perros. La primera oración dice: \"Los perros son animales muy sociables\". Las siguientes dicen: \"Viven en manada en estado salvaje\", \"reconocen las emociones de las personas\" y \"disfrutan del contacto físico\". Claramente, la primera oración es la idea principal, y las otras tres son ejemplos que la sostienen."
+          "text": "Las demás oraciones del texto son ideas secundarias: sirven para apoyar, explicar o ejemplificar esa idea central. Imaginá que estás leyendo un párrafo sobre los perros. La primera oración dice: \"Los perros son animales muy sociables\". Las siguientes dicen: \"Viven en manada en estado salvaje\", \"reconocen las emociones de las personas\" y \"disfrutan del contacto físico\". Claramente, la primera oración es la idea principal, y las otras tres son ejemplos que la sostienen."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p10",
-          "text": "Encontrar esta idea no siempre es fácil. A veces, el autor la pone al principio, como en los textos expositivos escolares, donde anuncia el tema y luego lo desarrolla. A veces, la esconde al final, después de acumular datos y argumentos, para llevarte a una conclusión. Y en los casos más difíciles, la idea principal es **implícita**: no está escrita literalmente, y tenés que inferirla a partir de la suma de todas las partes. Por eso, leer no es solo mirar palabras; es una actividad activa de detective. Tenés que preguntarte constantemente: \"¿De qué trata esto realmente?\" y distinguir entre lo que es esencial y lo que es solo decoración o detalle anecdótico."
+          "text": "Encontrar esta idea no siempre es fácil. A veces, el autor la pone al principio, como en los textos expositivos escolares, donde anuncia el tema y luego lo desarrolla. A veces, la esconde al final, después de acumular datos y argumentos, para llevarte a una conclusión. Y en los casos más difíciles, la idea principal es implícita: no está escrita literalmente, y tenés que inferirla a partir de la suma de todas las partes. Por eso, leer no es solo mirar palabras; es una actividad activa de detective. Tenés que preguntarte constantemente: \"¿De qué trata esto realmente?\" y distinguir entre lo que es esencial y lo que es solo decoración o detalle anecdótico."
         },
         {
           "type": "heading",
@@ -167,12 +167,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p12",
-          "text": "Ahora bien, muchas veces los textos no solo quieren informar, sino **convencer**. Cuando un autor quiere persuadirte, presenta una **tesis**, que es su postura o opinión principal, y la sostiene con **argumentos**. Sin argumentos, una tesis es solo una afirmación vacía, una opinión sin respaldo. Los argumentos son las razones que te dan para aceptar esa postura."
+          "text": "Ahora bien, muchas veces los textos no solo quieren informar, sino convencer. Cuando un autor quiere persuadirte, presenta una tesis, que es su postura o opinión principal, y la sostiene con argumentos. Sin argumentos, una tesis es solo una afirmación vacía, una opinión sin respaldo. Los argumentos son las razones que te dan para aceptar esa postura."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p13",
-          "text": "Existen varios tipos de argumentos que podés encontrar en cualquier ensayo, artículo de opinión o debate. El **argumento de autoridad** se apoya en la opinión de un experto o fuente reconocida; por ejemplo, citar a un médico para explicar los beneficios del ejercicio. El **argumento de ejemplo** usa un caso concreto para ilustrar la teoría, como mencionar a Finlandia cuando se habla de sistemas educativos exitosos. El **argumento de causa-consecuencia** explica que, si se acepta la tesis, se seguirá un resultado lógico: \"Si reducimos la contaminación, el aire será más limpio\". También están los **argumentos de datos o estadística**, que usan cifras para dar rigor, y los **argumentos por analogía**, que comparan la situación actual con otra ya aceptada para facilitar la comprensión."
+          "text": "Existen varios tipos de argumentos que podés encontrar en cualquier ensayo, artículo de opinión o debate. El argumento de autoridad se apoya en la opinión de un experto o fuente reconocida; por ejemplo, citar a un médico para explicar los beneficios del ejercicio. El argumento de ejemplo usa un caso concreto para ilustrar la teoría, como mencionar a Finlandia cuando se habla de sistemas educativos exitosos. El argumento de causa-consecuencia explica que, si se acepta la tesis, se seguirá un resultado lógico: \"Si reducimos la contaminación, el aire será más limpio\". También están los argumentos de datos o estadística, que usan cifras para dar rigor, y los argumentos por analogía, que comparan la situación actual con otra ya aceptada para facilitar la comprensión."
         },
         {
           "type": "paragraph",
@@ -188,7 +188,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p16",
-          "text": "Para ver todo esto en acción, llevemos nuestra mirada a uno de los momentos más vibrantes de la literatura en español: el **Boom latinoamericano**. Este fenómeno, que ocurrió principalmente en las décadas de 1960 y 1970, no fue solo un estilo literario, sino un evento cultural y político de magnitud mundial. Ocurre casi un siglo después de la Generación del 98 española, marcando un punto de inflexión donde la literatura hispanoamericana deja de ser periférica para convertirse en protagonista."
+          "text": "Para ver todo esto en acción, llevemos nuestra mirada a uno de los momentos más vibrantes de la literatura en español: el Boom latinoamericano. Este fenómeno, que ocurrió principalmente en las décadas de 1960 y 1970, no fue solo un estilo literario, sino un evento cultural y político de magnitud mundial. Ocurre casi un siglo después de la Generación del 98 española, marcando un punto de inflexión donde la literatura hispanoamericana deja de ser periférica para convertirse en protagonista."
         },
         {
           "type": "paragraph",
@@ -198,12 +198,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p18",
-          "text": "Los autores del Boom rompieron las reglas clásicas de la narrativa. Introdujeron el **realismo mágico**, una técnica donde lo fantástico y lo sobrenatural se narran con total naturalidad, como si fueran parte de la realidad cotidiana. En una novela del Boom, que llueva flores amarillas no es un milagro que asombre a los personajes, sino un hecho más del día a día, narrado con la misma prosa tranquila con la que se describe el café de la mañana. Esto no es lo mismo que el \"fantástico\" puro, donde lo sobrenatural rompe las reglas del mundo y genera duda o terror. En el realismo mágico, lo imposible es cotidiano."
+          "text": "Los autores del Boom rompieron las reglas clásicas de la narrativa. Introdujeron el realismo mágico, una técnica donde lo fantástico y lo sobrenatural se narran con total naturalidad, como si fueran parte de la realidad cotidiana. En una novela del Boom, que llueva flores amarillas no es un milagro que asombre a los personajes, sino un hecho más del día a día, narrado con la misma prosa tranquila con la que se describe el café de la mañana. Esto no es lo mismo que el \"fantástico\" puro, donde lo sobrenatural rompe las reglas del mundo y genera duda o terror. En el realismo mágico, lo imposible es cotidiano."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p19",
-          "text": "Además, experimentaron con la **estructura narrativa**: saltos temporales, múltiples narradores, líneas de tiempo no lineales y juegos con la perspectiva. Querían reflejar la complejidad de la identidad latinoamericana, explorando su historia, su política y su cultura, a menudo con una fuerte crítica al poder y al colonialismo. Sus textos son circuitos de comunicación complejos: usan códigos ricos, juegan con las clases de palabras para crear ritmos nuevos y sus argumentos implícitos critican las estructuras de poder vigentes."
+          "text": "Además, experimentaron con la estructura narrativa: saltos temporales, múltiples narradores, líneas de tiempo no lineales y juegos con la perspectiva. Querían reflejar la complejidad de la identidad latinoamericana, explorando su historia, su política y su cultura, a menudo con una fuerte crítica al poder y al colonialismo. Sus textos son circuitos de comunicación complejos: usan códigos ricos, juegan con las clases de palabras para crear ritmos nuevos y sus argumentos implícitos critican las estructuras de poder vigentes."
         },
         {
           "type": "paragraph",
@@ -219,7 +219,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p22",
-          "text": "Todo lo que vimos en este capítulo está conectado. El **circuito de la comunicación** es la carretera por la que viaja el texto. Las **clases de palabras** son los vehículos y las piezas que lo componen. La **comprensión de la idea principal** es tu GPS, lo que te permite saber a dónde vas y no perderte en los detalles. Los **argumentos** son el mapa que te muestra por qué esa ruta es la correcta o la más interesante. Y el **Boom latinoamericano** es un ejemplo de cómo, cuando todos estos elementos se usan con maestría y audacia, la literatura puede no solo entretener, sino transformar la manera en que entendemos nuestra propia realidad."
+          "text": "Todo lo que vimos en este capítulo está conectado. El circuito de la comunicación es la carretera por la que viaja el texto. Las clases de palabras son los vehículos y las piezas que lo componen. La comprensión de la idea principal es tu GPS, lo que te permite saber a dónde vas y no perderte en los detalles. Los argumentos son el mapa que te muestra por qué esa ruta es la correcta o la más interesante. Y el Boom latinoamericano es un ejemplo de cómo, cuando todos estos elementos se usan con maestría y audacia, la literatura puede no solo entretener, sino transformar la manera en que entendemos nuestra propia realidad."
         },
         {
           "type": "paragraph",
@@ -229,7 +229,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -250,82 +256,82 @@
         {
           "type": "paragraph",
           "id": "cap-2-p3",
-          "text": "Para empezar, es fundamental recordar que el lenguaje, antes de ser escritura, es sonido. La **conciencia fonológica** es la habilidad auditiva que nos permite percibir y manipular los sonidos del habla independientemente de su significado. No se trata de leer letras, sino de escuchar estructuras. Imaginá que alguien te dice: \"Si a la palabra *gato* le cambiamos el primer sonido, ¿qué palabra queda?\". Si podés responder \"pato\" sin necesidad de ver la palabra escrita, estás ejercitando tu conciencia fonémica. Esta habilidad se desarrolla en niveles, desde lo más global hasta lo más fino. Al principio, notamos que las oraciones están formadas por palabras separadas; luego, dividimos esas palabras en sílabas (*ga-to*); después, reconocemos rimas (*gato* y *pato* suenan parecido al final); y finalmente, llegamos al nivel más complejo: la manipulación de fonemas, los sonidos individuales que distinguen un significado de otro."
+          "text": "Para empezar, es fundamental recordar que el lenguaje, antes de ser escritura, es sonido. La conciencia fonológica es la habilidad auditiva que nos permite percibir y manipular los sonidos del habla independientemente de su significado. No se trata de leer letras, sino de escuchar estructuras. Imaginá que alguien te dice: \"Si a la palabra gato le cambiamos el primer sonido, ¿qué palabra queda?\". Si podés responder \"pato\" sin necesidad de ver la palabra escrita, estás ejercitando tu conciencia fonémica. Esta habilidad se desarrolla en niveles, desde lo más global hasta lo más fino. Al principio, notamos que las oraciones están formadas por palabras separadas; luego, dividimos esas palabras en sílabas (ga-to); después, reconocemos rimas (gato y pato suenan parecido al final); y finalmente, llegamos al nivel más complejo: la manipulación de fonemas, los sonidos individuales que distinguen un significado de otro."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p4",
-          "text": "Es crucial distinguir bien tres conceptos que suelen confundirse: fonema, sílaba y letra. El fonema es la unidad mínima de sonido con valor distintivo; la sílaba es un grupo de sonidos pronunciados en un solo golpe de voz; y la letra es simplemente el símbolo gráfico. En español, la relación entre sonido y escritura no es perfecta. Por ejemplo, el dígrafo *ch* representa un solo fonema, aunque use dos letras. Entender esta diferencia es vital porque la gramática que estudiaremos a continuación opera sobre la base de la estructura interna de las palabras, no solo sobre su apariencia visual. Una vez que dominamos esa estructura interna, podemos pasar a la organización de las palabras dentro de la oración, donde entra en juego la **concordancia**."
+          "text": "Es crucial distinguir bien tres conceptos que suelen confundirse: fonema, sílaba y letra. El fonema es la unidad mínima de sonido con valor distintivo; la sílaba es un grupo de sonidos pronunciados en un solo golpe de voz; y la letra es simplemente el símbolo gráfico. En español, la relación entre sonido y escritura no es perfecta. Por ejemplo, el dígrafo ch representa un solo fonema, aunque use dos letras. Entender esta diferencia es vital porque la gramática que estudiaremos a continuación opera sobre la base de la estructura interna de las palabras, no solo sobre su apariencia visual. Una vez que dominamos esa estructura interna, podemos pasar a la organización de las palabras dentro de la oración, donde entra en juego la concordancia."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p5",
-          "text": "La concordancia es, en esencia, la regla de la armonía. Exige que ciertas palabras en una oración coincidan en género, número o persona. Sin esta regla, el lenguaje sería una sucesión caótica de elementos aislados. Dentro del sintagma nominal, esto significa que el artículo, el sustantivo y el adjetivo deben casar entre sí. Si decimos \"*la* casa *blanca*\", todos los elementos son femeninos y singulares. Si cambiamos a \"*los* perros *grandes*\", todos son masculinos y plurales. Esta coherencia interna es lo que hace que una frase suene \"natural\" al oído rioplatense."
+          "text": "La concordancia es, en esencia, la regla de la armonía. Exige que ciertas palabras en una oración coincidan en género, número o persona. Sin esta regla, el lenguaje sería una sucesión caótica de elementos aislados. Dentro del sintagma nominal, esto significa que el artículo, el sustantivo y el adjetivo deben casar entre sí. Si decimos \"la casa blanca\", todos los elementos son femeninos y singulares. Si cambiamos a \"los perros grandes\", todos son masculinos y plurales. Esta coherencia interna es lo que hace que una frase suene \"natural\" al oído rioplatense."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p6",
-          "text": "Sin embargo, la concordancia cobra mayor relevancia cuando interactúa el verbo con el sujeto. Aquí es donde muchos estudiantes tropiezan. La regla de oro es simple pero estricta: el verbo debe concordar en persona y número con el sujeto. Si el sujeto es \"*los documentos*\", el verbo debe estar en plural: \"*fueron revisados*\". Decir \"*los documentos fue revisado*\" es un error grave porque rompe la conexión lógica entre quien realiza la acción y cómo se expresa esa acción."
+          "text": "Sin embargo, la concordancia cobra mayor relevancia cuando interactúa el verbo con el sujeto. Aquí es donde muchos estudiantes tropiezan. La regla de oro es simple pero estricta: el verbo debe concordar en persona y número con el sujeto. Si el sujeto es \"los documentos\", el verbo debe estar en plural: \"fueron revisados\". Decir \"los documentos fue revisado\" es un error grave porque rompe la conexión lógica entre quien realiza la acción y cómo se expresa esa acción."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p7",
-          "text": "Hay casos que exigen atención especial, sobre todo cuando el sujeto es compuesto. Si tenemos \"*La chica y el chico*\", tenemos dos núcleos unidos por \"y\". Aunque cada elemento por separado sea singular, el conjunto es plural, por lo tanto, el verbo debe ir en plural: \"*llegaron*\". Otro punto de confusión frecuente es el uso del verbo \"*haber*\". Cuando lo usamos para indicar existencia (*hay*, *había*, *habrá*), este verbo es impersonal y **siempre** se mantiene en singular, sin importar qué venga después. Decir \"*Habían muchas personas*\" es un error muy común en el habla cotidiana, pero normativo es incorrecto. \"*Había*\" es la única forma posible porque no hay un sujeto al que concordar; la palabra que sigue es el complemento directo o el objeto existido, no el sujeto."
+          "text": "Hay casos que exigen atención especial, sobre todo cuando el sujeto es compuesto. Si tenemos \"La chica y el chico\", tenemos dos núcleos unidos por \"y\". Aunque cada elemento por separado sea singular, el conjunto es plural, por lo tanto, el verbo debe ir en plural: \"llegaron\". Otro punto de confusión frecuente es el uso del verbo \"haber\". Cuando lo usamos para indicar existencia (hay, había, habrá), este verbo es impersonal y siempre se mantiene en singular, sin importar qué venga después. Decir \"Habían muchas personas\" es un error muy común en el habla cotidiana, pero normativo es incorrecto. \"Había\" es la única forma posible porque no hay un sujeto al que concordar; la palabra que sigue es el complemento directo o el objeto existido, no el sujeto."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p8",
-          "text": "Una vez que tenemos las palabras en su forma correcta y concuerdan entre sí, necesitamos darles dirección y cohesión. Aquí entran en juego los **conectores textuales**. A diferencia de los nexos gramaticales que unen palabras o proposiciones dentro de una misma oración (como \"y\" o \"pero\" en \"*Comí y dormí*\"), los conectores operan entre oraciones o párrafos completos. Son el pegamento que transforma una lista de frases sueltas en un texto fluido. Sin conectores, un texto es como una cadena rota: cada eslabón existe, pero no forman un todo funcional."
+          "text": "Una vez que tenemos las palabras en su forma correcta y concuerdan entre sí, necesitamos darles dirección y cohesión. Aquí entran en juego los conectores textuales. A diferencia de los nexos gramaticales que unen palabras o proposiciones dentro de una misma oración (como \"y\" o \"pero\" en \"Comí y dormí\"), los conectores operan entre oraciones o párrafos completos. Son el pegamento que transforma una lista de frases sueltas en un texto fluido. Sin conectores, un texto es como una cadena rota: cada eslabón existe, pero no forman un todo funcional."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p9",
-          "text": "Los conectores se clasifican según la relación lógica que establecen. Si querés sumar información, usás aditivos como \"*además*\" o \"*asimismo*\". Si necesitás mostrar contraste, los adversativos como \"*sin embargo*\" o \"*no obstante*\" son tus aliados. Por ejemplo, decir \"*Estudió mucho. Sin embargo, no aprobó*\" crea una tensión lógica que el lector debe resolver. Por otro lado, los conectores causales (*porque*, *ya que*) y consecutivos (*por lo tanto*, *en consecuencia*) permiten trazar líneas de causa y efecto. Elegir el conector correcto no es solo cuestión de estilo; es cuestión de lógica. Si decís \"*Estudió mucho. Por lo tanto, no aprobó*\", estás generando una contradicción, porque \"por lo tanto\" anuncia un resultado esperado de la causa anterior, y el fracaso no es el resultado lógico del estudio intenso."
+          "text": "Los conectores se clasifican según la relación lógica que establecen. Si querés sumar información, usás aditivos como \"además\" o \"asimismo\". Si necesitás mostrar contraste, los adversativos como \"sin embargo\" o \"no obstante\" son tus aliados. Por ejemplo, decir \"Estudió mucho. Sin embargo, no aprobó\" crea una tensión lógica que el lector debe resolver. Por otro lado, los conectores causales (porque, ya que) y consecutivos (por lo tanto, en consecuencia) permiten trazar líneas de causa y efecto. Elegir el conector correcto no es solo cuestión de estilo; es cuestión de lógica. Si decís \"Estudió mucho. Por lo tanto, no aprobó\", estás generando una contradicción, porque \"por lo tanto\" anuncia un resultado esperado de la causa anterior, y el fracaso no es el resultado lógico del estudio intenso."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p10",
-          "text": "El tipo de texto que escribas también dictará qué conectores son más apropiados. Un texto narrativo dependerá mucho de los conectores temporales (*primero*, *luego*, *finalmente*) para guiar al lector en el tiempo. Un texto argumentativo, en cambio, necesitará abundantes conectores causales y consecutivos para sostener su tesis."
+          "text": "El tipo de texto que escribas también dictará qué conectores son más apropiados. Un texto narrativo dependerá mucho de los conectores temporales (primero, luego, finalmente) para guiar al lector en el tiempo. Un texto argumentativo, en cambio, necesitará abundantes conectores causales y consecutivos para sostener su tesis."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p11",
-          "text": "Pero, ¿cómo llegamos a expresar esas ideas con precisión? Ahí es donde la **conjugación verbal** se vuelve decisiva. El modo verbal es la herramienta que el hablante elige para situar la acción en la realidad o en la subjetividad. El **indicativo** es el modo de los hechos, de la certeza y de la objetividad. Cuando afirmamos que algo es real o creemos que lo es, usamos el indicativo. \"*Llueve*\", \"*Comí ayer*\", \"*Vendré mañana*\". Este modo contiene tiempos simples y compuestos que nos permiten movernos con precisión en el tiempo lineal."
+          "text": "Pero, ¿cómo llegamos a expresar esas ideas con precisión? Ahí es donde la conjugación verbal se vuelve decisiva. El modo verbal es la herramienta que el hablante elige para situar la acción en la realidad o en la subjetividad. El indicativo es el modo de los hechos, de la certeza y de la objetividad. Cuando afirmamos que algo es real o creemos que lo es, usamos el indicativo. \"Llueve\", \"Comí ayer\", \"Vendré mañana\". Este modo contiene tiempos simples y compuestos que nos permiten movernos con precisión en el tiempo lineal."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p12",
-          "text": "En los tiempos simples del indicativo, distinguimos claramente entre el presente (hechos actuales o habituales), el pretérito imperfecto (acciones pasadas en desarrollo o repetitivas, como \"*hablaba*\"), el pretérito indefinido (acciones puntuales y terminadas, como \"*hablé*\"), el futuro y el condicional. Es importante notar cómo el pretérito indefinido y el imperfecto se complementan: uno cierra la acción, la otra la describe en su contexto. Por ejemplo, en \"*Mientras caminaba (imperfecto), encontré (indefinido)*\", la primera acción es el escenario en desarrollo y la segunda es el evento puntual que la interrumpe o sucede dentro de ella."
+          "text": "En los tiempos simples del indicativo, distinguimos claramente entre el presente (hechos actuales o habituales), el pretérito imperfecto (acciones pasadas en desarrollo o repetitivas, como \"hablaba\"), el pretérito indefinido (acciones puntuales y terminadas, como \"hablé\"), el futuro y el condicional. Es importante notar cómo el pretérito indefinido y el imperfecto se complementan: uno cierra la acción, la otra la describe en su contexto. Por ejemplo, en \"Mientras caminaba (imperfecto), encontré (indefinido)\", la primera acción es el escenario en desarrollo y la segunda es el evento puntual que la interrumpe o sucede dentro de ella."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p13",
-          "text": "Los tiempos compuestos, formados con el auxiliar \"*haber*\" más el participio, añaden una capa de relación temporal. El pretérito perfecto compuesto (*he hablado*) vincula el pasado con el presente, sugiriendo que la acción tiene relevancia actual. El pluscuamperfecto (*había hablado*) nos permite retroceder en el tiempo respecto de otro punto de referencia pasado."
+          "text": "Los tiempos compuestos, formados con el auxiliar \"haber\" más el participio, añaden una capa de relación temporal. El pretérito perfecto compuesto (he hablado) vincula el pasado con el presente, sugiriendo que la acción tiene relevancia actual. El pluscuamperfecto (había hablado) nos permite retroceder en el tiempo respecto de otro punto de referencia pasado."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p14",
-          "text": "Aquí surge un desafío clásico: los verbos irregulares. El verbo \"*ir*\" es un caso especial fascinante porque en el pretérito indefinido adopta las mismas formas que el verbo \"*ser*\" (*fui, fuiste, fue...*). El contexto es el único salvavidas para saber si \"*fue*\" significa \"se desplazó\" o \"era\". Esta ambigüedad potencial es una de las razones por las que la claridad en la redacción es tan importante."
+          "text": "Aquí surge un desafío clásico: los verbos irregulares. El verbo \"ir\" es un caso especial fascinante porque en el pretérito indefinido adopta las mismas formas que el verbo \"ser\" (fui, fuiste, fue...). El contexto es el único salvavidas para saber si \"fue\" significa \"se desplazó\" o \"era\". Esta ambigüedad potencial es una de las razones por las que la claridad en la redacción es tan importante."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p15",
-          "text": "Sin embargo, no todo lo que decimos es un hecho objetivo. Muchas veces expresamos deseos, dudas, emociones o hipótesis. Para esto, recurrimos al **subjuntivo**. Mientras el indicativo se ocupa del mundo de lo real y lo confirmado, el subjuntivo habita el mundo de lo posible, lo deseado o lo incierto. La regla práctica más útil para identificar cuándo usarlo es mirar el verbo de la oración principal. Si expresamos certeza (*sé que*, *es obvio que*, *es cierto que*), usamos indicativo. Pero si expresamos deseo, duda o emoción (*espero que*, *dudo que*, *me alegra que*), el verbo de la oración subordinada debe ir en subjuntivo."
+          "text": "Sin embargo, no todo lo que decimos es un hecho objetivo. Muchas veces expresamos deseos, dudas, emociones o hipótesis. Para esto, recurrimos al subjuntivo. Mientras el indicativo se ocupa del mundo de lo real y lo confirmado, el subjuntivo habita el mundo de lo posible, lo deseado o lo incierto. La regla práctica más útil para identificar cuándo usarlo es mirar el verbo de la oración principal. Si expresamos certeza (sé que, es obvio que, es cierto que), usamos indicativo. Pero si expresamos deseo, duda o emoción (espero que, dudo que, me alegra que), el verbo de la oración subordinada debe ir en subjuntivo."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p16",
-          "text": "Por ejemplo, \"*Espero que vengas*\" es correcto porque \"esperar\" implica un deseo, no una certeza. Si dijéramos \"*Espero que vienes*\", estaríamos mezclando modos de manera incorrecta, como si estuviéramos afirmando un hecho mientras lo deseamos simultáneamente, lo cual suena disonante. En el subjuntivo, las terminaciones suelen \"invertirse\" respecto al indicativo: los verbos en *-ar* toman *-e* (*hable, hables*) en presente, mientras que los verbos en *-er/-ir* toman *-a* (*coma, comas*)."
+          "text": "Por ejemplo, \"Espero que vengas\" es correcto porque \"esperar\" implica un deseo, no una certeza. Si dijéramos \"Espero que vienes\", estaríamos mezclando modos de manera incorrecta, como si estuviéramos afirmando un hecho mientras lo deseamos simultáneamente, lo cual suena disonante. En el subjuntivo, las terminaciones suelen \"invertirse\" respecto al indicativo: los verbos en -ar toman -e (hable, hables) en presente, mientras que los verbos en -er/-ir toman -a (coma, comas)."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p17",
-          "text": "El pretérito imperfecto de subjuntivo es otro tiempo crucial, y aquí la norma es generosa: ofrece dos formas igualmente válidas, terminadas en *-ra* (*hablara*) o en *-se* (*hablase*). Ambas son correctas y su uso depende más del estilo o la región que de la gramática estricta. Este tiempo nos permite hablar de situaciones hipotéticas en el pasado: \"*Si tuviera dinero, viajaría*\" o, en su variante más formal, \"*Si tuviese dinero, viajaría*\"."
+          "text": "El pretérito imperfecto de subjuntivo es otro tiempo crucial, y aquí la norma es generosa: ofrece dos formas igualmente válidas, terminadas en -ra (hablara) o en -se (hablase). Ambas son correctas y su uso depende más del estilo o la región que de la gramática estricta. Este tiempo nos permite hablar de situaciones hipotéticas en el pasado: \"Si tuviera dinero, viajaría\" o, en su variante más formal, \"Si tuviese dinero, viajaría\"."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p18",
-          "text": "Finalmente, es interesante notar la relación entre el subjuntivo y el imperativo. El imperativo (las órdenes directas como \"*¡Cierra!*\") comparte origen y formas con el subjuntivo, especialmente en la segunda persona. Esto tiene sentido lógico: una orden es, en el fondo, un deseo realizado por la voluntad del hablante. Al mandar, estamos imponiendo nuestra voluntad subjetiva sobre la realidad, tal como lo hacemos al desear algo."
+          "text": "Finalmente, es interesante notar la relación entre el subjuntivo y el imperativo. El imperativo (las órdenes directas como \"¡Cierra!\") comparte origen y formas con el subjuntivo, especialmente en la segunda persona. Esto tiene sentido lógico: una orden es, en el fondo, un deseo realizado por la voluntad del hablante. Al mandar, estamos imponiendo nuestra voluntad subjetiva sobre la realidad, tal como lo hacemos al desear algo."
         },
         {
           "type": "paragraph",
@@ -335,7 +341,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -351,7 +363,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p2",
-          "text": "Cuando escribimos o hablamos con la intención de convencer, explicar o narrar, rara vez lo hacemos con frases sueltas y aisladas. Pensás en cómo se construye un edificio: tenés los ladrillos (las palabras y las oraciones simples), pero necesitás cemento y estructura para que todo se mantive en pie y tenga sentido. En la lengua, ese \"cemento\" lo proveen los nexos, y dentro de esa familia, las **conjunciones coordinantes** son las que nos permiten juntar ideas de igual jerarquía. Pero no todas las conjunciones hacen lo mismo. Algunas suman, otras separan, y otras, paradójicamente, nos obligan a elegir o a confrontar. Para dominar la escritura argumentativa, que es el objetivo de este capítulo, tenés que entender que la elección de una u otra no es un capricho estilístico, sino una decisión lógica que determina cómo el lector percibe tu pensamiento."
+          "text": "Cuando escribimos o hablamos con la intención de convencer, explicar o narrar, rara vez lo hacemos con frases sueltas y aisladas. Pensás en cómo se construye un edificio: tenés los ladrillos (las palabras y las oraciones simples), pero necesitás cemento y estructura para que todo se mantive en pie y tenga sentido. En la lengua, ese \"cemento\" lo proveen los nexos, y dentro de esa familia, las conjunciones coordinantes son las que nos permiten juntar ideas de igual jerarquía. Pero no todas las conjunciones hacen lo mismo. Algunas suman, otras separan, y otras, paradójicamente, nos obligan a elegir o a confrontar. Para dominar la escritura argumentativa, que es el objetivo de este capítulo, tenés que entender que la elección de una u otra no es un capricho estilístico, sino una decisión lógica que determina cómo el lector percibe tu pensamiento."
         },
         {
           "type": "heading",
@@ -362,7 +374,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p4",
-          "text": "Empecemos por lo más sencillo, aunque no por eso menos importante. Cuando querés agregar información nueva sin cambiar el rumbo de tu argumento, usás las **coordinadas copulativas**. El nexo por excelencia aquí es la \"y\", o su variante \"e\" para evitar cacofonías cuando la palabra siguiente empieza por i- o hi-. También incluimos al \"ni\" cuando la adición es negativa."
+          "text": "Empecemos por lo más sencillo, aunque no por eso menos importante. Cuando querés agregar información nueva sin cambiar el rumbo de tu argumento, usás las coordinadas copulativas. El nexo por excelencia aquí es la \"y\", o su variante \"e\" para evitar cacofonías cuando la palabra siguiente empieza por i- o hi-. También incluimos al \"ni\" cuando la adición es negativa."
         },
         {
           "type": "paragraph",
@@ -378,7 +390,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p7",
-          "text": "A veces, sumar no es suficiente; tenés que distribuir. Aquí es donde aparecen las **coordinadas distributivas**. Estas oraciones se caracterizan porque la conjunción (generalmente \"y\", pero también \"o\" o \"ni\" en contextos específicos) indica que la acción se aplica a cada uno de los sujetos por separado, en lugar de al grupo como un todo."
+          "text": "A veces, sumar no es suficiente; tenés que distribuir. Aquí es donde aparecen las coordinadas distributivas. Estas oraciones se caracterizan porque la conjunción (generalmente \"y\", pero también \"o\" o \"ni\" en contextos específicos) indica que la acción se aplica a cada uno de los sujetos por separado, en lugar de al grupo como un todo."
         },
         {
           "type": "paragraph",
@@ -394,7 +406,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p10",
-          "text": "Si las copulativas suman y las distributivas reparten, las **coordinadas disyuntivas** dividen. Su función es presentar opciones, alternativas o posibilidades excluyentes (a veces inclusivas, dependiendo del contexto). El nexo principal es la \"o\", o su forma arcaica pero válida en ciertos contextos \"u\" (ante palabras que empiezan por o- u ho-)."
+          "text": "Si las copulativas suman y las distributivas reparten, las coordinadas disyuntivas dividen. Su función es presentar opciones, alternativas o posibilidades excluyentes (a veces inclusivas, dependiendo del contexto). El nexo principal es la \"o\", o su forma arcaica pero válida en ciertos contextos \"u\" (ante palabras que empiezan por o- u ho-)."
         },
         {
           "type": "paragraph",
@@ -415,7 +427,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p14",
-          "text": "Y llegamos al corazón de la persuasión: el contraste. Las **coordinadas adversativas** son las que expresan oposición, límite o corrección de lo dicho anteriormente. El rey de este grupo es el \"pero\", pero también incluimos a \"mas\", \"sino\", \"sin embargo\", \"no obstante\" y \"por el contrario\"."
+          "text": "Y llegamos al corazón de la persuasión: el contraste. Las coordinadas adversativas son las que expresan oposición, límite o corrección de lo dicho anteriormente. El rey de este grupo es el \"pero\", pero también incluimos a \"mas\", \"sino\", \"sin embargo\", \"no obstante\" y \"por el contrario\"."
         },
         {
           "type": "paragraph",
@@ -436,7 +448,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p18",
-          "text": "Ahora que ya conocés las herramientas gramaticales (copulativas, distributivas, disyuntivas y adversativas), veamos cómo se ensamblan para construir lo más complejo y efectivo en la escritura: el **contraargumento**."
+          "text": "Ahora que ya conocés las herramientas gramaticales (copulativas, distributivas, disyuntivas y adversativas), veamos cómo se ensamblan para construir lo más complejo y efectivo en la escritura: el contraargumento."
         },
         {
           "type": "paragraph",
@@ -446,7 +458,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p20",
-          "text": "La mecánica es la siguiente: primero, admitís que existe una postura válida o comprensible en contra de tu idea. Para esto, usás conectores concesivos-adversativos como \"si bien\", \"aunque\", \"es cierto que\" o \"reconozco que\". Por ejemplo: \"Es cierto que la tecnología ha agilizado la comunicación, **pero**...\""
+          "text": "La mecánica es la siguiente: primero, admitís que existe una postura válida o comprensible en contra de tu idea. Para esto, usás conectores concesivos-adversativos como \"si bien\", \"aunque\", \"es cierto que\" o \"reconozco que\". Por ejemplo: \"Es cierto que la tecnología ha agilizado la comunicación, pero...\""
         },
         {
           "type": "paragraph",
@@ -456,7 +468,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p22",
-          "text": "Veamos un ejemplo completo de cómo tejen estas ideas: \"**Si bien** es posible que el uso excesivo de redes sociales afecte la concentración (contraargumento/concesión), **los** beneficios de la conectividad global para el aprendizaje superan ampliamente este costo (refutación).\""
+          "text": "Veamos un ejemplo completo de cómo tejen estas ideas: \"Si bien es posible que el uso excesivo de redes sociales afecte la concentración (contraargumento/concesión), los beneficios de la conectividad global para el aprendizaje superan ampliamente este costo (refutación).\""
         },
         {
           "type": "paragraph",
@@ -487,7 +499,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-4",
@@ -519,7 +537,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p5",
-          "text": "La **decodificación** es el mecanismo básico que te permite convertir los símbolos gráficos (letras o grafemas) en sonidos del habla (fonemas). Es como descifrar un código. En español, este proceso es relativamente predecible porque la correspondencia entre letra y sonido es bastante regular, a diferencia de otros idiomas. Sin embargo, decodificar no es lo mismo que leer con comprensión. Para eso, necesitás alcanzar la **fluidez lectora**."
+          "text": "La decodificación es el mecanismo básico que te permite convertir los símbolos gráficos (letras o grafemas) en sonidos del habla (fonemas). Es como descifrar un código. En español, este proceso es relativamente predecible porque la correspondencia entre letra y sonido es bastante regular, a diferencia de otros idiomas. Sin embargo, decodificar no es lo mismo que leer con comprensión. Para eso, necesitás alcanzar la fluidez lectora."
         },
         {
           "type": "paragraph",
@@ -540,12 +558,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p9",
-          "text": "Una vez que dominás la entrada de información (lectura), es hora de producir salida. En la vida adulta, especialmente al ingresar al mundo laboral o académico, te encontrarás con dos géneros textuales clave que demandan un registro muy distinto al de tus mensajes de WhatsApp: el **correo formal** y el **currículum vitae (CV)**. Ambos son documentos estratégicos donde la forma y el fondo están íntimamente ligados."
+          "text": "Una vez que dominás la entrada de información (lectura), es hora de producir salida. En la vida adulta, especialmente al ingresar al mundo laboral o académico, te encontrarás con dos géneros textuales clave que demandan un registro muy distinto al de tus mensajes de WhatsApp: el correo formal y el currículum vitae (CV). Ambos son documentos estratégicos donde la forma y el fondo están íntimamente ligados."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p10",
-          "text": "Comencemos por el **correo formal**. Este es el estándar de comunicación en contextos institucionales, laborales o académicos. La diferencia principal con un mensaje informal no es solo el vocabulario, sino la estructura y la intención. Un correo formal debe ser directo, pero cortés. El asunto es tu primer filtro: si ponés \"Hola\" o dejás el campo vacío, estás obligando al destinatario a adivinar el motivo de tu mensaje, lo cual es una falta de eficiencia comunicativa. Un buen asunto resume el objetivo (ej: \"Consulta sobre fecha de entrega de proyecto\")."
+          "text": "Comencemos por el correo formal. Este es el estándar de comunicación en contextos institucionales, laborales o académicos. La diferencia principal con un mensaje informal no es solo el vocabulario, sino la estructura y la intención. Un correo formal debe ser directo, pero cortés. El asunto es tu primer filtro: si ponés \"Hola\" o dejás el campo vacío, estás obligando al destinatario a adivinar el motivo de tu mensaje, lo cual es una falta de eficiencia comunicativa. Un buen asunto resume el objetivo (ej: \"Consulta sobre fecha de entrega de proyecto\")."
         },
         {
           "type": "paragraph",
@@ -555,7 +573,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p12",
-          "text": "Por otro lado, está el **CV**. Muchos estudiantes creen que un CV es una autobiografía completa de todo lo que hicieron. Nada más lejos de la realidad. Un CV es un documento de **selección estratégica**. Su único objetivo es convencer a un empleador o a una institución de que sos la persona adecuada para un puesto específico. Por eso, la misma persona debe tener versiones distintas de su CV según a quién lo envíe."
+          "text": "Por otro lado, está el CV. Muchos estudiantes creen que un CV es una autobiografía completa de todo lo que hicieron. Nada más lejos de la realidad. Un CV es un documento de selección estratégica. Su único objetivo es convencer a un empleador o a una institución de que sos la persona adecuada para un puesto específico. Por eso, la misma persona debe tener versiones distintas de su CV según a quién lo envíe."
         },
         {
           "type": "paragraph",
@@ -571,7 +589,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p15",
-          "text": "Cuando pasamos de la escritura individual a la interacción oral, especialmente en contextos de disputa o discusión, la lógica se pone a prueba. Aquí es donde surge la necesidad de **detectar falacias**. Una falacia es un razonamiento que parece válido y convincente a primera vista, pero que en realidad es defectuoso: la conclusión no se sigue lógicamente de las premisas."
+          "text": "Cuando pasamos de la escritura individual a la interacción oral, especialmente en contextos de disputa o discusión, la lógica se pone a prueba. Aquí es donde surge la necesidad de detectar falacias. Una falacia es un razonamiento que parece válido y convincente a primera vista, pero que en realidad es defectuoso: la conclusión no se sigue lógicamente de las premisas."
         },
         {
           "type": "paragraph",
@@ -581,7 +599,37 @@
         {
           "type": "paragraph",
           "id": "cap-4-p17",
-          "text": "*   **Ad hominem (ataque a la persona):** En lugar de responder al argumento, atacás a quien lo dice. Ejemplo: \"No le hagas caso a su propuesta económica, es un desastre manejando su propia casa\". El hecho de que alguien sea malo manejando sus finanzas no invalida necesariamente sus conocimientos teóricos. *   **Falsa dicotomía:** Presentar solo dos opciones extremas cuando en realidad hay matices. \"O estás con nosotros o estás en contra\". Esto ignora posturas intermedias o alternativas. *   **Pendiente resbaladiza:** Afirma que un paso pequeño llevará inevitablemente a una cadena de consecuencias desastrosas, sin justificar el vínculo causal. \"Si permitimos que falten a esta clase, van a terminar abandonando la escuela y la sociedad\". *   **Apelación a la autoridad no pertinente:** Citar a una figura famosa que no es experta en el tema. \"Este actor recomienda esta dieta, así que debe funcionar\". *   **Apelación a la popularidad (ad populum):** \"Todo el mundo lo hace, así que no puede estar mal\". La cantidad de personas que creen algo no lo convierte en verdadero. *   **Generalización apresurada:** Sacar una conclusión general a partir de casos aislados. \"Conocí a dos personas de esa ciudad y fueron groseras, así que todos lo son\". *   **Falacia del espantapájaros:** Distorsionar el argumento del otro para hacerlo más fácil de atacar, en lugar de refutar su posición real."
+          "text": "*   Ad hominem (ataque a la persona): En lugar de responder al argumento, atacás a quien lo dice. Ejemplo: \"No le hagas caso a su propuesta económica, es un desastre manejando su propia casa\". El hecho de que alguien sea malo manejando sus finanzas no invalida necesariamente sus conocimientos teóricos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17-1",
+          "text": "Falsa dicotomía: Presentar solo dos opciones extremas cuando en realidad hay matices. \"O estás con nosotros o estás en contra\". Esto ignora posturas intermedias o alternativas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17-2",
+          "text": "Pendiente resbaladiza: Afirma que un paso pequeño llevará inevitablemente a una cadena de consecuencias desastrosas, sin justificar el vínculo causal. \"Si permitimos que falten a esta clase, van a terminar abandonando la escuela y la sociedad\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17-3",
+          "text": "Apelación a la autoridad no pertinente: Citar a una figura famosa que no es experta en el tema. \"Este actor recomienda esta dieta, así que debe funcionar\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17-4",
+          "text": "Apelación a la popularidad (ad populum): \"Todo el mundo lo hace, así que no puede estar mal\". La cantidad de personas que creen algo no lo convierte en verdadero."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17-5",
+          "text": "Generalización apresurada: Sacar una conclusión general a partir de casos aislados. \"Conocí a dos personas de esa ciudad y fueron groseras, así que todos lo son\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p17-6",
+          "text": "Falacia del espantapájaros: Distorsionar el argumento del otro para hacerlo más fácil de atacar, en lugar de refutar su posición real."
         },
         {
           "type": "paragraph",
@@ -597,7 +645,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p20",
-          "text": "Haber aprendido a detectar falacias en un texto tranquilo es un paso, pero el mundo real no siempre te da tiempo para revisar y corregir. En un **debate**, la refutación debe ser en vivo. Esto exige una habilidad diferente: la escucha activa y la respuesta inmediata."
+          "text": "Haber aprendido a detectar falacias en un texto tranquilo es un paso, pero el mundo real no siempre te da tiempo para revisar y corregir. En un debate, la refutación debe ser en vivo. Esto exige una habilidad diferente: la escucha activa y la respuesta inmediata."
         },
         {
           "type": "paragraph",
@@ -607,12 +655,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p22",
-          "text": "Una técnica poderosa es **señalar la falacia por su nombre**. Decir \"eso es un ataque ad hominem, no una respuesta a mi argumento\" es mucho más contundente que quejarse de la forma del rival. También podés **pedir evidencia concreta**. Si el oponente usa una cifra sin fuente, pedirla en el momento pone en evidencia la debilidad de su base. Otra estrategia es **distinguir la parte válida de la débil** del argumento rival. A veces, el oponente tiene razón en un punto pero falla en otro. Señalar específicamente dónde está el error es más difícil de rebatir que descartar todo su discurso en bloque."
+          "text": "Una técnica poderosa es señalar la falacia por su nombre. Decir \"eso es un ataque ad hominem, no una respuesta a mi argumento\" es mucho más contundente que quejarse de la forma del rival. También podés pedir evidencia concreta. Si el oponente usa una cifra sin fuente, pedirla en el momento pone en evidencia la debilidad de su base. Otra estrategia es distinguir la parte válida de la débil del argumento rival. A veces, el oponente tiene razón en un punto pero falla en otro. Señalar específicamente dónde está el error es más difícil de rebatir que descartar todo su discurso en bloque."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p23",
-          "text": "El error más común en la refutación en vivo es la **falacia del espantapájaros involuntaria**. Ocurre cuando preparás tu respuesta mientras el otro todavía está hablando, sin escuchar realmente lo que dice. Como resultado, terminás refutando un argumento que el otro no hizo, o que simplificaste indebidamente. La escucha activa es, por tanto, la herramienta más importante en esta etapa. Debés procesar el argumento del rival en tiempo real, identificar su estructura lógica y su posible fallo, y formular una respuesta que ataque el núcleo de su razonamiento, no sus palabras superficiales."
+          "text": "El error más común en la refutación en vivo es la falacia del espantapájaros involuntaria. Ocurre cuando preparás tu respuesta mientras el otro todavía está hablando, sin escuchar realmente lo que dice. Como resultado, terminás refutando un argumento que el otro no hizo, o que simplificaste indebidamente. La escucha activa es, por tanto, la herramienta más importante en esta etapa. Debés procesar el argumento del rival en tiempo real, identificar su estructura lógica y su posible fallo, y formular una respuesta que ataque el núcleo de su razonamiento, no sus palabras superficiales."
         },
         {
           "type": "heading",
@@ -623,7 +671,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p25",
-          "text": "Notarás que estos temas, aunque distintos, forman un círculo virtuoso. La **decodificación y fluidez** te permiten procesar la información de entrada (leer un CV bien armado o un argumento complejo). La **escritura profesional** (correo y CV) te da las herramientas para presentarte al mundo con claridad y estrategia, evitando errores que podrían cerrar puertas. Y la **detección de falacias y la refutación en vivo** te protegen de la manipulación y te permiten participar en la construcción de consensos o disputas públicas de manera ética y lógica."
+          "text": "Notarás que estos temas, aunque distintos, forman un círculo virtuoso. La decodificación y fluidez te permiten procesar la información de entrada (leer un CV bien armado o un argumento complejo). La escritura profesional (correo y CV) te da las herramientas para presentarte al mundo con claridad y estrategia, evitando errores que podrían cerrar puertas. Y la detección de falacias y la refutación en vivo te protegen de la manipulación y te permiten participar en la construcción de consensos o disputas públicas de manera ética y lógica."
         },
         {
           "type": "paragraph",
@@ -633,7 +681,13 @@
       ],
       "meta": {
         "chapterId": "cap-4"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-5",
@@ -686,7 +740,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p9",
-          "text": "Sin embargo, los escritores de la transición entre siglos, y especialmente aquellos que vivieron el trauma del \"Desastre\", entendieron que la realidad no siempre se cuenta en línea recta. Cuando un autor rompe el orden lineal, ya sea mediante un *flashback* (analepsis) para explicar el origen de un trauma, o un *flashforward* (prolepsis) para anticipar un destino trágico, está haciendo una elección estética y filosófica. Está diciendo: \"Lo importante no es lo que pasó primero, sino cómo lo entendemos ahora\"."
+          "text": "Sin embargo, los escritores de la transición entre siglos, y especialmente aquellos que vivieron el trauma del \"Desastre\", entendieron que la realidad no siempre se cuenta en línea recta. Cuando un autor rompe el orden lineal, ya sea mediante un flashback (analepsis) para explicar el origen de un trauma, o un flashforward (prolepsis) para anticipar un destino trágico, está haciendo una elección estética y filosófica. Está diciendo: \"Lo importante no es lo que pasó primero, sino cómo lo entendemos ahora\"."
         },
         {
           "type": "paragraph",
@@ -722,7 +776,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p16",
-          "text": "En sus obras, la estructura narrativa a menudo se rompe o se ralentiza para dar espacio a la introspección. Unamuno, por ejemplo, juega constantemente con los límites entre la ficción y la realidad, entre el autor y el personaje. En *Niebla*, el protagonista llega a confrontar a su creador. Esto es una ruptura total del discurso referido tradicional. El personaje deja de ser un objeto de la narración para convertirse en un sujeto que cuestiona la autoridad del texto. Es una metanarrativa que refleja la duda existencial de la época: si Dios ha muerto y la nación está en crisis, ¿quién tiene la autoridad para contar la verdad?"
+          "text": "En sus obras, la estructura narrativa a menudo se rompe o se ralentiza para dar espacio a la introspección. Unamuno, por ejemplo, juega constantemente con los límites entre la ficción y la realidad, entre el autor y el personaje. En Niebla, el protagonista llega a confrontar a su creador. Esto es una ruptura total del discurso referido tradicional. El personaje deja de ser un objeto de la narración para convertirse en un sujeto que cuestiona la autoridad del texto. Es una metanarrativa que refleja la duda existencial de la época: si Dios ha muerto y la nación está en crisis, ¿quién tiene la autoridad para contar la verdad?"
         },
         {
           "type": "heading",
@@ -769,7 +823,13 @@
       ],
       "meta": {
         "chapterId": "cap-5"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-6",
@@ -790,7 +850,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p3",
-          "text": "En este capítulo, vamos a explorar el gran mapa de los textos. Para navegarlo, necesitamos distinguir entre dos grandes familias: los **géneros discursivos**, que son las herramientas cotidianas que usamos para funcionar en la sociedad, y los **géneros literarios**, que son las formas artísticas que creamos para explorar la condición humana. Entender la diferencia entre una receta de cocina y una tragedia, o entre un tweet y una crónica periodística, es clave para dejarte llevar por el texto sin perderte en el camino."
+          "text": "En este capítulo, vamos a explorar el gran mapa de los textos. Para navegarlo, necesitamos distinguir entre dos grandes familias: los géneros discursivos, que son las herramientas cotidianas que usamos para funcionar en la sociedad, y los géneros literarios, que son las formas artísticas que creamos para explorar la condición humana. Entender la diferencia entre una receta de cocina y una tragedia, o entre un tweet y una crónica periodística, es clave para dejarte llevar por el texto sin perderte en el camino."
         },
         {
           "type": "heading",
@@ -801,7 +861,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p5",
-          "text": "Empecemos por lo más cercano a tu realidad. Cuando hablas con tus amigos por WhatsApp, cuando llenás un formulario para inscribirte en algún curso, o cuando mirás las redes sociales, estás utilizando lo que llamamos **géneros discursivos**. Estos no son categorías rígidas de la literatura, sino \"recetas\" sociales que aprendemos por osmosis. Son modelos de texto que se construyen y comparten dentro de una comunidad para cumplir una función específica: informar, ordenar, persuadir o entretener en un contexto concreto."
+          "text": "Empecemos por lo más cercano a tu realidad. Cuando hablas con tus amigos por WhatsApp, cuando llenás un formulario para inscribirte en algún curso, o cuando mirás las redes sociales, estás utilizando lo que llamamos géneros discursivos. Estos no son categorías rígidas de la literatura, sino \"recetas\" sociales que aprendemos por osmosis. Son modelos de texto que se construyen y comparten dentro de una comunidad para cumplir una función específica: informar, ordenar, persuadir o entretener en un contexto concreto."
         },
         {
           "type": "paragraph",
@@ -811,12 +871,12 @@
         {
           "type": "paragraph",
           "id": "cap-6-p7",
-          "text": "Dentro de este universo secundario, el periodismo ocupa un lugar central en tu vida como ciudadano. Los **géneros periodísticos** son convenciones sociales que nos permiten organizar la información de la realidad. No es lo mismo leer una noticia que leer una opinión en el diario, aunque ambas aparezcan en la misma página. La **noticia** busca la inmediatez y la objetividad. Su estructura clásica, la pirámide invertida, nos dice que lo más importante (el qué, quién, cuándo, dónde, cómo y por qué) va al principio, y los detalles menos relevantes van al final. El periodista intenta desaparecer detrás de los hechos, usando un tono neutral y oraciones cortas."
+          "text": "Dentro de este universo secundario, el periodismo ocupa un lugar central en tu vida como ciudadano. Los géneros periodísticos son convenciones sociales que nos permiten organizar la información de la realidad. No es lo mismo leer una noticia que leer una opinión en el diario, aunque ambas aparezcan en la misma página. La noticia busca la inmediatez y la objetividad. Su estructura clásica, la pirámide invertida, nos dice que lo más importante (el qué, quién, cuándo, dónde, cómo y por qué) va al principio, y los detalles menos relevantes van al final. El periodista intenta desaparecer detrás de los hechos, usando un tono neutral y oraciones cortas."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p8",
-          "text": "Por otro lado, la **crónica** permite al periodista adentrarse en el hecho, mezclando la información factual con descripciones, contextos y, a veces, una voz más personal. Aquí la subjetividad tiene más cabida. Entender esta diferencia es vital para tu pensamiento crítico: te ayuda a no confundir los datos duros de la noticia con la interpretación de la crónica, y a leer los medios con mayor autonomía."
+          "text": "Por otro lado, la crónica permite al periodista adentrarse en el hecho, mezclando la información factual con descripciones, contextos y, a veces, una voz más personal. Aquí la subjetividad tiene más cabida. Entender esta diferencia es vital para tu pensamiento crítico: te ayuda a no confundir los datos duros de la noticia con la interpretación de la crónica, y a leer los medios con mayor autonomía."
         },
         {
           "type": "heading",
@@ -827,32 +887,32 @@
         {
           "type": "paragraph",
           "id": "cap-6-p10",
-          "text": "Si los géneros discursivos nos ayudan a sobrevivir y funcionar en la sociedad, los **géneros literarios** nos ayudan a sentir, imaginar y reflexionar sobre la experiencia humana. En la tradición literaria, solemos clasificar los textos en tres grandes familias: el género narrativo, el género lírico y el género dramático. Aunque hoy en día los límites se difuminan, entender sus núcleos teóricos te permitirá leer con mucha más profundidad."
+          "text": "Si los géneros discursivos nos ayudan a sobrevivir y funcionar en la sociedad, los géneros literarios nos ayudan a sentir, imaginar y reflexionar sobre la experiencia humana. En la tradición literaria, solemos clasificar los textos en tres grandes familias: el género narrativo, el género lírico y el género dramático. Aunque hoy en día los límites se difuminan, entender sus núcleos teóricos te permitirá leer con mucha más profundidad."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p11",
-          "text": "El **género narrativo** es, quizás, el más familiar. Agrupa los textos que **cuentan una historia**: hechos que le ocurren a personajes a lo largo del tiempo. Desde una novela extensa hasta un cuento breve, lo que define a este género es la presencia de un **narrador**, una voz que nos relata los hechos pero que no es necesariamente el autor. Los elementos básicos de toda narración son los personajes (quiénes participan), la acción o trama (qué sucede), el tiempo (cuándo ocurre) y el espacio (dónde ocurre). El motor de cualquier narración es el **conflicto**; sin un problema que el protagonista deba enfrentar, no hay historia, solo una descripción de hechos estáticos. Dentro de este género encontrás formas breves como la fábula (con animales y moraleja), la leyenda (que mezcla realidad y fantasía para explicar un origen local) y el mito (que explica fenómenos del mundo mediante dioses)."
+          "text": "El género narrativo es, quizás, el más familiar. Agrupa los textos que cuentan una historia: hechos que le ocurren a personajes a lo largo del tiempo. Desde una novela extensa hasta un cuento breve, lo que define a este género es la presencia de un narrador, una voz que nos relata los hechos pero que no es necesariamente el autor. Los elementos básicos de toda narración son los personajes (quiénes participan), la acción o trama (qué sucede), el tiempo (cuándo ocurre) y el espacio (dónde ocurre). El motor de cualquier narración es el conflicto; sin un problema que el protagonista deba enfrentar, no hay historia, solo una descripción de hechos estáticos. Dentro de este género encontrás formas breves como la fábula (con animales y moraleja), la leyenda (que mezcla realidad y fantasía para explicar un origen local) y el mito (que explica fenómenos del mundo mediante dioses)."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p12",
-          "text": "Por otro lado, está el **género lírico**. Aquí la historia y los personajes secundan el paso a la expresión pura de la emoción. El género lírico agrupa los textos (generalmente en verso) que expresan **sentimientos, emociones o reflexiones subjetivas**. No necesitas una trama para leer un poema; lo que importa es la experiencia interior. Aquí surge una figura clave: el **hablante lírico** (o \"yo lírico\"). Es fundamental que no confundas al hablante lírico con el autor real del poema. El hablante es una construcción del texto, una máscara vocal que el poeta crea para decir lo que dice. Así como en la narrativa está el narrador, en la lírica está el hablante."
+          "text": "Por otro lado, está el género lírico. Aquí la historia y los personajes secundan el paso a la expresión pura de la emoción. El género lírico agrupa los textos (generalmente en verso) que expresan sentimientos, emociones o reflexiones subjetivas. No necesitas una trama para leer un poema; lo que importa es la experiencia interior. Aquí surge una figura clave: el hablante lírico (o \"yo lírico\"). Es fundamental que no confundas al hablante lírico con el autor real del poema. El hablante es una construcción del texto, una máscara vocal que el poeta crea para decir lo que dice. Así como en la narrativa está el narrador, en la lírica está el hablante."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p13",
-          "text": "Para analizar un poema, debés prestar atención a su arquitectura. El verso es cada línea del poema, y la estrofa es el grupo de versos agrupados, equivalente al párrafo en la prosa. La **rima** (consonante o asonante) y la **métrica** (el conteo de sílabas) son herramientas que dan ritmo y musicalidad al texto. En la poesía moderna, el verso libre ha ganado terreno, rompiendo con las reglas rígidas de la rima, pero la intención de evocar emociones mediante la condensación del lenguaje sigue siendo la esencia del género lírico."
+          "text": "Para analizar un poema, debés prestar atención a su arquitectura. El verso es cada línea del poema, y la estrofa es el grupo de versos agrupados, equivalente al párrafo en la prosa. La rima (consonante o asonante) y la métrica (el conteo de sílabas) son herramientas que dan ritmo y musicalidad al texto. En la poesía moderna, el verso libre ha ganado terreno, rompiendo con las reglas rígidas de la rima, pero la intención de evocar emociones mediante la condensación del lenguaje sigue siendo la esencia del género lírico."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p14",
-          "text": "Finalmente, llegamos al **género dramático**. Este género tiene una particularidad única: está escrito para ser **representado**, para ser actuado en un escenario ante un público. Aunque se pueda leer como un libro, su naturaleza es teatral. A diferencia de la narrativa, el género dramático **no tiene narrador**. No hay alguien que nos diga qué piensan los personajes o qué hacen cuando no los vemos. Toda la información llega a través de dos componentes: el **diálogo** y las **acotaciones**."
+          "text": "Finalmente, llegamos al género dramático. Este género tiene una particularidad única: está escrito para ser representado, para ser actuado en un escenario ante un público. Aunque se pueda leer como un libro, su naturaleza es teatral. A diferencia de la narrativa, el género dramático no tiene narrador. No hay alguien que nos diga qué piensan los personajes o qué hacen cuando no los vemos. Toda la información llega a través de dos componentes: el diálogo y las acotaciones."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p15",
-          "text": "El diálogo es la vida misma de la obra: los personajes hablan entre sí, y a través de lo que dicen se revela la historia, los conflictos y los sentimientos. Las acotaciones, en cambio, son las indicaciones del autor, escritas entre paréntesis o en cursiva, que describen gestos, movimientos, tono de voz o elementos del escenario. Son la única \"voz\" directa del autor que aparece en el texto. La estructura dramática se organiza en **actos** (grandes partes, equivalentes a capítulos) y **escenas** (subdivisiones marcadas por la entrada o salida de personajes o cambios de escenario). Dentro del teatro, encontrás subgéneros como la tragedia (conflicto grave, final desdichado), la comedia (tono humorístico, final feliz) y el drama (mezcla de seriedad y liviandad, muy común en el teatro moderno)."
+          "text": "El diálogo es la vida misma de la obra: los personajes hablan entre sí, y a través de lo que dicen se revela la historia, los conflictos y los sentimientos. Las acotaciones, en cambio, son las indicaciones del autor, escritas entre paréntesis o en cursiva, que describen gestos, movimientos, tono de voz o elementos del escenario. Son la única \"voz\" directa del autor que aparece en el texto. La estructura dramática se organiza en actos (grandes partes, equivalentes a capítulos) y escenas (subdivisiones marcadas por la entrada o salida de personajes o cambios de escenario). Dentro del teatro, encontrás subgéneros como la tragedia (conflicto grave, final desdichado), la comedia (tono humorístico, final feliz) y el drama (mezcla de seriedad y liviandad, muy común en el teatro moderno)."
         },
         {
           "type": "heading",
@@ -863,7 +923,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p17",
-          "text": "Al leer este recorrido, quizás te preguntes: ¿por qué debemos distinguir tanto si al final solo quiero \"entender\" lo que leo? La respuesta está en la intención de lectura. Cuando leés una **noticia**, buscás datos verificables; cuando leés una **crónica**, buscás contexto y perspectiva. Si aplicás los mismos criterios a ambos, te confundirás. Lo mismo pasa con la literatura. Si leés un **poema** buscando una trama lineal como en una **novela**, te frustrarás, porque la esencia del poema no es \"qué pasa después\", sino \"qué siento ahora\". Si leés una **obra de teatro** como si fuera una novela, te perderás la potencia de las acotaciones y la tensión del diálogo."
+          "text": "Al leer este recorrido, quizás te preguntes: ¿por qué debemos distinguir tanto si al final solo quiero \"entender\" lo que leo? La respuesta está en la intención de lectura. Cuando leés una noticia, buscás datos verificables; cuando leés una crónica, buscás contexto y perspectiva. Si aplicás los mismos criterios a ambos, te confundirás. Lo mismo pasa con la literatura. Si leés un poema buscando una trama lineal como en una novela, te frustrarás, porque la esencia del poema no es \"qué pasa después\", sino \"qué siento ahora\". Si leés una obra de teatro como si fuera una novela, te perderás la potencia de las acotaciones y la tensión del diálogo."
         },
         {
           "type": "paragraph",
@@ -883,7 +943,13 @@
       ],
       "meta": {
         "chapterId": "cap-6"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-7",
@@ -915,12 +981,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p5",
-          "text": "Recordá que en cualquier grupo de palabras que funcione como una unidad, hay una palabra que concentra el significado principal: el **núcleo**. En un sintagma nominal, ese núcleo es siempre un sustantivo o un pronombre. Todo lo demás que lo acompaña son **modificadores**, elementos que agregan información pero que no son estrictamente necesarios para que la estructura básica sobreviva. La prueba práctica es sencilla: si quitás el modificador, la oración sigue siendo gramaticalmente correcta, aunque pierda matices; si quitás el núcleo, la oración se desmorona."
+          "text": "Recordá que en cualquier grupo de palabras que funcione como una unidad, hay una palabra que concentra el significado principal: el núcleo. En un sintagma nominal, ese núcleo es siempre un sustantivo o un pronombre. Todo lo demás que lo acompaña son modificadores, elementos que agregan información pero que no son estrictamente necesarios para que la estructura básica sobreviva. La prueba práctica es sencilla: si quitás el modificador, la oración sigue siendo gramaticalmente correcta, aunque pierda matices; si quitás el núcleo, la oración se desmorona."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p6",
-          "text": "Es fundamental distinguir los tipos de modificadores, porque esta distinción afecta directamente la fluidez y la claridad de tu escritura. El **modificador directo** se une al núcleo sin preposición, como un determinante o un adjetivo. Por ejemplo, en la frase *\"los estudiantes brillantes\"*, la palabra *\"brillantes\"* es un modificador directo que califica inmediatamente al núcleo *\"estudiantes\"*. Por otro lado, el **modificador indirecto** (o complemento del nombre) introduce una relación más compleja mediante una preposición. En *\"la casa de María\"*, el sintagma *\"de María\"* modifica a *\"casa\"*, indicando posesión o pertenencia. Finalmente, está la **aposición**, un recurso elegante para explicar o identificar al núcleo sin usar preposiciones, generalmente aislado por comas. En *\"Juan, el profesor, llegó tarde\"*, la aposición *\"el profesor\"* nos da información extra sobre Juan."
+          "text": "Es fundamental distinguir los tipos de modificadores, porque esta distinción afecta directamente la fluidez y la claridad de tu escritura. El modificador directo se une al núcleo sin preposición, como un determinante o un adjetivo. Por ejemplo, en la frase \"los estudiantes brillantes\", la palabra \"brillantes\" es un modificador directo que califica inmediatamente al núcleo \"estudiantes\". Por otro lado, el modificador indirecto (o complemento del nombre) introduce una relación más compleja mediante una preposición. En \"la casa de María\", el sintagma \"de María\" modifica a \"casa\", indicando posesión o pertenencia. Finalmente, está la aposición, un recurso elegante para explicar o identificar al núcleo sin usar preposiciones, generalmente aislado por comas. En \"Juan, el profesor, llegó tarde\", la aposición \"el profesor\" nos da información extra sobre Juan."
         },
         {
           "type": "paragraph",
@@ -936,17 +1002,17 @@
         {
           "type": "paragraph",
           "id": "cap-7-p9",
-          "text": "Una vez que tenés las herramientas gramaticales para construir oraciones precisas, el siguiente nivel de complejidad es decidir quién las pronuncia. En la narrativa, el **narrador** es la instancia discursiva que cuenta la historia; es importante que no lo confundas con el autor real. El autor es la persona física que escribió el libro; el narrador es una construcción textual, una máscara vocal elegida deliberadamente para generar un efecto específico en el lector."
+          "text": "Una vez que tenés las herramientas gramaticales para construir oraciones precisas, el siguiente nivel de complejidad es decidir quién las pronuncia. En la narrativa, el narrador es la instancia discursiva que cuenta la historia; es importante que no lo confundas con el autor real. El autor es la persona física que escribió el libro; el narrador es una construcción textual, una máscara vocal elegida deliberadamente para generar un efecto específico en el lector."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p10",
-          "text": "La elección del narrador define la relación entre el lector y la historia. Si elegís un **narrador protagonista** (en primera persona), estás otorgando inmediatez y subjetividad. El lector vive los hechos a través de los ojos del personaje, lo que genera empatía, pero también limita la información: solo sabrás lo que el protagonista sabe o percibe. Si el narrador es un **testigo** (también en primera persona), pero no es el centro de la acción, se crea una distancia interesante: el narrador describe lo que ve, pero su interpretación está filtrada por su propia perspectiva."
+          "text": "La elección del narrador define la relación entre el lector y la historia. Si elegís un narrador protagonista (en primera persona), estás otorgando inmediatez y subjetividad. El lector vive los hechos a través de los ojos del personaje, lo que genera empatía, pero también limita la información: solo sabrás lo que el protagonista sabe o percibe. Si el narrador es un testigo (también en primera persona), pero no es el centro de la acción, se crea una distancia interesante: el narrador describe lo que ve, pero su interpretación está filtrada por su propia perspectiva."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p11",
-          "text": "Por otro lado, las opciones en tercera persona ofrecen diferentes grados de acceso a la realidad de la historia. Un **narrador omnisciente** es como un dios menor: conoce los pensamientos, sentimientos y el pasado de todos los personajes. Esto permite una visión panorámica y profunda, ideal para novelas que buscan analizar la psicología colectiva o las causas históricas de los hechos. En contraste, un **narrador observador** (o de cámara de video) solo reporta lo que se puede ver y oír desde fuera. No accede a los pensamientos internos de los personajes. Esta elección genera misterio y obliga al lector a interpretar las acciones y los diálogos sin ayuda directa, participando activamente en la construcción del significado."
+          "text": "Por otro lado, las opciones en tercera persona ofrecen diferentes grados de acceso a la realidad de la historia. Un narrador omnisciente es como un dios menor: conoce los pensamientos, sentimientos y el pasado de todos los personajes. Esto permite una visión panorámica y profunda, ideal para novelas que buscan analizar la psicología colectiva o las causas históricas de los hechos. En contraste, un narrador observador (o de cámara de video) solo reporta lo que se puede ver y oír desde fuera. No accede a los pensamientos internos de los personajes. Esta elección genera misterio y obliga al lector a interpretar las acciones y los diálogos sin ayuda directa, participando activamente en la construcción del significado."
         },
         {
           "type": "paragraph",
@@ -962,17 +1028,17 @@
         {
           "type": "paragraph",
           "id": "cap-7-p14",
-          "text": "Si la gramática es la herramienta y el narrador es la voz, el contexto cultural es el lienzo sobre el cual se pinta la obra. Para entender por qué ciertas elecciones lingüísticas se consideran \"buenas\" o \"bellas\", debemos mirar hacia el **Modernismo**, el primer gran movimiento literario en español que nació en Hispanoamérica a fines del siglo XIX y luego influyó de vuelta en España."
+          "text": "Si la gramática es la herramienta y el narrador es la voz, el contexto cultural es el lienzo sobre el cual se pinta la obra. Para entender por qué ciertas elecciones lingüísticas se consideran \"buenas\" o \"bellas\", debemos mirar hacia el Modernismo, el primer gran movimiento literario en español que nació en Hispanoamérica a fines del siglo XIX y luego influyó de vuelta en España."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p15",
-          "text": "El Modernismo surge como una reacción contra el Realismo. Mientras que el Realismo priorizaba la objetividad social, la denuncia y la representación fiel de la realidad cotidiana, el Modernismo devuelve el foco a la estética. Su lema podría resumirse en el \"arte por el arte\": la forma es tan importante, o más, que el contenido. Los modernistas buscaban escapar de lo local y lo cotidiano mediante un **cosmopolitismo** refinado, inspirándose en culturas lejanas, la mitología grecolatina y la poesía francesa."
+          "text": "El Modernismo surge como una reacción contra el Realismo. Mientras que el Realismo priorizaba la objetividad social, la denuncia y la representación fiel de la realidad cotidiana, el Modernismo devuelve el foco a la estética. Su lema podría resumirse en el \"arte por el arte\": la forma es tan importante, o más, que el contenido. Los modernistas buscaban escapar de lo local y lo cotidiano mediante un cosmopolitismo refinado, inspirándose en culturas lejanas, la mitología grecolatina y la poesía francesa."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p16",
-          "text": "Las características centrales de este movimiento incluyen un culto extremo a la belleza formal, una renovación del lenguaje poético y el uso de símbolos recurrentes como el cisne, lo exótico oriental o los jardines antiguos. Autores como **Rubén Darío**, desde Nicaragua, lideraron esta renovación, demostrando que el español podía ser tan musical, rico y sofisticado como el francés. Leopoldo Lugones, en Argentina, también fue clave en esta corriente."
+          "text": "Las características centrales de este movimiento incluyen un culto extremo a la belleza formal, una renovación del lenguaje poético y el uso de símbolos recurrentes como el cisne, lo exótico oriental o los jardines antiguos. Autores como Rubén Darío, desde Nicaragua, lideraron esta renovación, demostrando que el español podía ser tan musical, rico y sofisticado como el francés. Leopoldo Lugones, en Argentina, también fue clave en esta corriente."
         },
         {
           "type": "paragraph",
@@ -988,17 +1054,17 @@
         {
           "type": "paragraph",
           "id": "cap-7-p19",
-          "text": "Si el Modernismo eleva el lenguaje a la categoría de arte, el **informe técnico** lo baja a la tierra de la utilidad y la claridad. Es un documento estructurado diseñado para comunicar resultados de investigación, análisis o procesos a un lector que quizás no participó en el trabajo original. La diferencia es abismal: mientras el modernista busca embellecer y evadir, el redactor de un informe técnico debe ser objetivo, concreto y directo."
+          "text": "Si el Modernismo eleva el lenguaje a la categoría de arte, el informe técnico lo baja a la tierra de la utilidad y la claridad. Es un documento estructurado diseñado para comunicar resultados de investigación, análisis o procesos a un lector que quizás no participó en el trabajo original. La diferencia es abismal: mientras el modernista busca embellecer y evadir, el redactor de un informe técnico debe ser objetivo, concreto y directo."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p20",
-          "text": "Un informe técnico efectivo tiene una arquitectura clara que guía al lector. Comienza con un **resumen ejecutivo**, un párrafo conciso que antecede al resto del documento. Aunque se escribe al final del proceso (cuando ya conoces todos los detalles), va al principio porque es lo primero que leerá la mayoría de los destinatarios, quienes a menudo solo tienen tiempo para esa sección. Este resumen debe responder a tres preguntas clave: ¿qué se hizo?, ¿qué se encontró? y ¿qué se recomienda?"
+          "text": "Un informe técnico efectivo tiene una arquitectura clara que guía al lector. Comienza con un resumen ejecutivo, un párrafo conciso que antecede al resto del documento. Aunque se escribe al final del proceso (cuando ya conoces todos los detalles), va al principio porque es lo primero que leerá la mayoría de los destinatarios, quienes a menudo solo tienen tiempo para esa sección. Este resumen debe responder a tres preguntas clave: ¿qué se hizo?, ¿qué se encontró? y ¿qué se recomienda?"
         },
         {
           "type": "paragraph",
           "id": "cap-7-p21",
-          "text": "A continuación, la **introducción** establece el contexto y la pregunta de investigación. Luego viene la **metodología**, que explica cómo se realizó el trabajo para que otros puedan evaluar su validez o replicarlo. La sección de **resultados** presenta los datos concretos, evitando opiniones vagas. Aquí es donde la precisión gramatical y el uso adecuado de los modificadores son vitales: no decís *\"los resultados fueron buenos\"*, sino *\"los indicadores mejoraron un 23% respecto del período anterior\"*. Finalmente, las **conclusiones y recomendaciones** cierran el ciclo, interpretando los datos y sugiriendo acciones concretas."
+          "text": "A continuación, la introducción establece el contexto y la pregunta de investigación. Luego viene la metodología, que explica cómo se realizó el trabajo para que otros puedan evaluar su validez o replicarlo. La sección de resultados presenta los datos concretos, evitando opiniones vagas. Aquí es donde la precisión gramatical y el uso adecuado de los modificadores son vitales: no decís \"los resultados fueron buenos\", sino \"los indicadores mejoraron un 23% respecto del período anterior\". Finalmente, las conclusiones y recomendaciones cierran el ciclo, interpretando los datos y sugiriendo acciones concretas."
         },
         {
           "type": "paragraph",
@@ -1014,12 +1080,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p24",
-          "text": "La comunicación no termina cuando se escribe o se lee; continúa cuando las personas interactúan para resolver conflictos o alcanzar objetivos comunes. Aquí entramos en el terreno de la **negociación**. A diferencia del debate, cuyo objetivo es convencer o refutar al otro para \"ganar\", la negociación busca llegar a un **acuerdo mutuo**. El éxito no se mide por cuánto obtuvo una parte, sino por la calidad y sostenibilidad del acuerdo alcanzado."
+          "text": "La comunicación no termina cuando se escribe o se lee; continúa cuando las personas interactúan para resolver conflictos o alcanzar objetivos comunes. Aquí entramos en el terreno de la negociación. A diferencia del debate, cuyo objetivo es convencer o refutar al otro para \"ganar\", la negociación busca llegar a un acuerdo mutuo. El éxito no se mide por cuánto obtuvo una parte, sino por la calidad y sostenibilidad del acuerdo alcanzado."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p25",
-          "text": "El error más común en la negociación es confundir **posiciones** con **intereses**. La posición es lo que alguien dice que quiere: *\"Quiero que el precio sea 100\"*. El interés es la razón profunda detrás de esa posición: *\"Necesito cubrir mis costos fijos y obtener una ganancia mínima\"*. Dos posiciones pueden parecer irreconciliables (uno quiere pagar 80, el otro cobrar 100), pero si exploramos los intereses, quizás descubramos que una parte necesita tiempo para pagar y la otra necesita liquidez inmediata. Ahí surge una solución creativa que ninguna de las dos posiciones por separado permitía."
+          "text": "El error más común en la negociación es confundir posiciones con intereses. La posición es lo que alguien dice que quiere: \"Quiero que el precio sea 100\". El interés es la razón profunda detrás de esa posición: \"Necesito cubrir mis costos fijos y obtener una ganancia mínima\". Dos posiciones pueden parecer irreconciliables (uno quiere pagar 80, el otro cobrar 100), pero si exploramos los intereses, quizás descubramos que una parte necesita tiempo para pagar y la otra necesita liquidez inmediata. Ahí surge una solución creativa que ninguna de las dos posiciones por separado permitía."
         },
         {
           "type": "paragraph",
@@ -1040,7 +1106,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p29",
-          "text": "Al recorrer estos temas —desde los modificadores de una oración hasta la estructura de un informe, pasando por la voz del narrador, el contexto del Modernismo y las dinámicas de la negociación—, notás que no están tan desconectados como parecen. Todos comparten un hilo conductor: la **intención comunicativa**."
+          "text": "Al recorrer estos temas —desde los modificadores de una oración hasta la estructura de un informe, pasando por la voz del narrador, el contexto del Modernismo y las dinámicas de la negociación—, notás que no están tan desconectados como parecen. Todos comparten un hilo conductor: la intención comunicativa."
         },
         {
           "type": "paragraph",
@@ -1060,7 +1126,13 @@
       ],
       "meta": {
         "chapterId": "cap-7"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-8",
@@ -1156,7 +1228,13 @@
       ],
       "meta": {
         "chapterId": "cap-8"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-9",
@@ -1183,7 +1261,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p4",
-          "text": "Comencemos por lo que no se ve a simple vista. Un texto complejo, ya sea un ensayo académico o un informe de investigación, no es una colección de oraciones brillantes pegadas al azar. Es una construcción arquitectónica. Para que esa construcción no se derrumbe bajo el peso de la información, necesitamos entender cómo avanza el pensamiento a través del texto. Aquí entra en juego la **progresión temática**."
+          "text": "Comencemos por lo que no se ve a simple vista. Un texto complejo, ya sea un ensayo académico o un informe de investigación, no es una colección de oraciones brillantes pegadas al azar. Es una construcción arquitectónica. Para que esa construcción no se derrumbe bajo el peso de la información, necesitamos entender cómo avanza el pensamiento a través del texto. Aquí entra en juego la progresión temática."
         },
         {
           "type": "paragraph",
@@ -1193,12 +1271,12 @@
         {
           "type": "paragraph",
           "id": "cap-9-p6",
-          "text": "Existen patrones claros para lograr esto. Uno de los más efectivos es la **progresión lineal**, que funciona como una cadena. El rema (la información nueva) de una oración se convierte en el tema (lo conocido) de la siguiente. Si decimos \"El gobierno anunció nuevas medidas económicas\", la siguiente oración podría comenzar con \"Esas medidas\", vinculando directamente lo nuevo con lo anterior. Otro patrón útil es la **progresión con temas derivados**, donde un concepto general (el hipertema) se va desglosando en aspectos específicos. Si tu tema es \"La contaminación en Buenos Aires\", puedes desarrollar oraciones sobre el aire, luego sobre el agua, y luego sobre el ruido, sin necesidad de repetir constantemente la frase completa."
+          "text": "Existen patrones claros para lograr esto. Uno de los más efectivos es la progresión lineal, que funciona como una cadena. El rema (la información nueva) de una oración se convierte en el tema (lo conocido) de la siguiente. Si decimos \"El gobierno anunció nuevas medidas económicas\", la siguiente oración podría comenzar con \"Esas medidas\", vinculando directamente lo nuevo con lo anterior. Otro patrón útil es la progresión con temas derivados, donde un concepto general (el hipertema) se va desglosando en aspectos específicos. Si tu tema es \"La contaminación en Buenos Aires\", puedes desarrollar oraciones sobre el aire, luego sobre el agua, y luego sobre el ruido, sin necesidad de repetir constantemente la frase completa."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p7",
-          "text": "Este control sobre la progresión temática es indispensable para la **producción escrita compleja**. Escribir bien no es solo usar palabras difíciles o oraciones largas; es integrar lo que ya sabés sobre gramática y puntuación para crear párrafos que sostengan una idea central. Cada párrafo debe ser una unidad de sentido. Si intentás meter dos ideas muy distintas en el mismo bloque de texto, le estás pidiendo a tu lector que haga un esfuerzo cognitivo innecesario. La planificación previa, la redacción del borrador y, sobre todo, la revisión crítica son etapas que permiten pulir esta estructura interna. Sin una progresión temática clara, incluso el argumento más brillante se pierde en la niebla de la confusión."
+          "text": "Este control sobre la progresión temática es indispensable para la producción escrita compleja. Escribir bien no es solo usar palabras difíciles o oraciones largas; es integrar lo que ya sabés sobre gramática y puntuación para crear párrafos que sostengan una idea central. Cada párrafo debe ser una unidad de sentido. Si intentás meter dos ideas muy distintas en el mismo bloque de texto, le estás pidiendo a tu lector que haga un esfuerzo cognitivo innecesario. La planificación previa, la redacción del borrador y, sobre todo, la revisión crítica son etapas que permiten pulir esta estructura interna. Sin una progresión temática clara, incluso el argumento más brillante se pierde en la niebla de la confusión."
         },
         {
           "type": "heading",
@@ -1209,12 +1287,12 @@
         {
           "type": "paragraph",
           "id": "cap-9-p9",
-          "text": "Si la progresión temática organiza el flujo de información, el **punto de vista** define la lente a través de la cual esa información es filtrada. Es crucial no confundir el punto de vista con el narrador. El narrador nos dice quién cuenta la historia (¿es un personaje? ¿es un testigo? ¿es alguien que lo sabe todo?), pero el punto de vista nos dice desde dónde se observa."
+          "text": "Si la progresión temática organiza el flujo de información, el punto de vista define la lente a través de la cual esa información es filtrada. Es crucial no confundir el punto de vista con el narrador. El narrador nos dice quién cuenta la historia (¿es un personaje? ¿es un testigo? ¿es alguien que lo sabe todo?), pero el punto de vista nos dice desde dónde se observa."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p10",
-          "text": "Pensemos en la **focalización**. Cuando leemos una novela o vemos una película, nunca vemos la realidad \"objetiva\". Siempre vemos una versión de la realidad. En la **focalización externa**, el observador actúa como una cámara de video: solo registra lo que se puede ver y oír, sin entrar en los pensamientos de los personajes. Esto genera misterio y distancia. Por otro lado, la **focalización interna** nos sumerge en la conciencia de un personaje. Aunque el narrador use la tercera persona (\"él caminaba\"), si la información está filtrada por lo que ese personaje sabe, siente o percibe, estamos ante un punto de vista interno. Esto cambia radicalmente la experiencia del lector, quien ya no tiene acceso a la verdad absoluta, sino a la verdad subjetiva de ese personaje."
+          "text": "Pensemos en la focalización. Cuando leemos una novela o vemos una película, nunca vemos la realidad \"objetiva\". Siempre vemos una versión de la realidad. En la focalización externa, el observador actúa como una cámara de video: solo registra lo que se puede ver y oír, sin entrar en los pensamientos de los personajes. Esto genera misterio y distancia. Por otro lado, la focalización interna nos sumerge en la conciencia de un personaje. Aunque el narrador use la tercera persona (\"él caminaba\"), si la información está filtrada por lo que ese personaje sabe, siente o percibe, estamos ante un punto de vista interno. Esto cambia radicalmente la experiencia del lector, quien ya no tiene acceso a la verdad absoluta, sino a la verdad subjetiva de ese personaje."
         },
         {
           "type": "paragraph",
@@ -1230,7 +1308,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p13",
-          "text": "Cuando pasamos de la escritura a la oralidad, el desafío se multiplica porque debemos competir con la atención de la audiencia en tiempo real. Aquí es donde el **apoyo visual** se vuelve una herramienta poderosa, pero también una mina de errores comunes."
+          "text": "Cuando pasamos de la escritura a la oralidad, el desafío se multiplica porque debemos competir con la atención de la audiencia en tiempo real. Aquí es donde el apoyo visual se vuelve una herramienta poderosa, pero también una mina de errores comunes."
         },
         {
           "type": "paragraph",
@@ -1240,7 +1318,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p15",
-          "text": "La regla de oro es: el apoyo visual debe **complementar** la exposición oral, no reemplazarla. Cada diapositiva debe comunicar una sola idea central. Usa palabras clave, no oraciones completas. Si tenés datos numéricos, usá gráficos; un gráfico de barras comunica una comparación en segundos, mientras que leer una tabla lleva minutos y aburre. Si explicás un proceso, un diagrama de flujo es mucho más claro que una descripción verbal."
+          "text": "La regla de oro es: el apoyo visual debe complementar la exposición oral, no reemplazarla. Cada diapositiva debe comunicar una sola idea central. Usa palabras clave, no oraciones completas. Si tenés datos numéricos, usá gráficos; un gráfico de barras comunica una comparación en segundos, mientras que leer una tabla lleva minutos y aburre. Si explicás un proceso, un diagrama de flujo es mucho más claro que una descripción verbal."
         },
         {
           "type": "paragraph",
@@ -1261,7 +1339,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p19",
-          "text": "Es vital distinguir entre **persuasión ética** y **manipulación**. La diferencia no está en la técnica en sí, sino en la intención y el respeto por la autonomía del otro. La persuasión ética busca que la decisión se tome de manera libre e informada. Utiliza argumentos sólidos, evidencia verificable y, si apela a las emociones, lo hace de manera honesta y proporcional al tema. Reconoce las limitaciones de su propio argumento y permite que la audiencia tenga acceso a toda la información necesaria para decidir. Es un diálogo que invita al pensamiento crítico."
+          "text": "Es vital distinguir entre persuasión ética y manipulación. La diferencia no está en la técnica en sí, sino en la intención y el respeto por la autonomía del otro. La persuasión ética busca que la decisión se tome de manera libre e informada. Utiliza argumentos sólidos, evidencia verificable y, si apela a las emociones, lo hace de manera honesta y proporcional al tema. Reconoce las limitaciones de su propio argumento y permite que la audiencia tenga acceso a toda la información necesaria para decidir. Es un diálogo que invita al pensamiento crítico."
         },
         {
           "type": "paragraph",
@@ -1281,7 +1359,13 @@
       ],
       "meta": {
         "chapterId": "cap-9"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-10",
@@ -1302,7 +1386,7 @@
         {
           "type": "paragraph",
           "id": "cap-10-p3",
-          "text": "Pensá en la escritura como una construcción. Si los cimientos son débiles, el edificio se cae; si los cimientos son sólidos pero la fachada es aburrida, nadie querrá entrar. En esta unidad, vamos a ver cómo los **signos de puntuación** son los cimientos invisibles que sostienen el sentido, cómo la **referencia** (anáfora y catáfora) es el pegamento que mantiene unidas las ideas sin que el texto se vuelva repetitivo, y cómo, una vez que tenemos esa base técnica, podemos elegir entre la exaltación del **Romanticismo** o la observación fría del **Realismo**, utilizando para ello un arsenal de **recursos literarios** específicos."
+          "text": "Pensá en la escritura como una construcción. Si los cimientos son débiles, el edificio se cae; si los cimientos son sólidos pero la fachada es aburrida, nadie querrá entrar. En esta unidad, vamos a ver cómo los signos de puntuación son los cimientos invisibles que sostienen el sentido, cómo la referencia (anáfora y catáfora) es el pegamento que mantiene unidas las ideas sin que el texto se vuelva repetitivo, y cómo, una vez que tenemos esa base técnica, podemos elegir entre la exaltación del Romanticismo o la observación fría del Realismo, utilizando para ello un arsenal de recursos literarios específicos."
         },
         {
           "type": "heading",
@@ -1348,12 +1432,12 @@
         {
           "type": "paragraph",
           "id": "cap-10-p12",
-          "text": "Una vez que dominamos la puntuación, entramos en el terreno de la cohesión textual, específicamente en el mecanismo de la **referencia**. Un texto no es una sucesión de oraciones sueltas; es una red de conexiones. La referencia es el recurso que nos permite hablar de algo sin tener que repetir siempre el mismo nombre propio o sustantivo. Si escribís \"Juan llegó cansado. Juan había caminado diez cuadras\", el texto se vuelve pesado y redundante. En cambio, si decís \"Juan llegó cansado. **Él** había caminado diez cuadras\", el pronombre \"él\" remite a Juan sin repetirlo. Esto se llama **anáfora**: es una referencia hacia atrás, apuntando a algo que ya mencionaste."
+          "text": "Una vez que dominamos la puntuación, entramos en el terreno de la cohesión textual, específicamente en el mecanismo de la referencia. Un texto no es una sucesión de oraciones sueltas; es una red de conexiones. La referencia es el recurso que nos permite hablar de algo sin tener que repetir siempre el mismo nombre propio o sustantivo. Si escribís \"Juan llegó cansado. Juan había caminado diez cuadras\", el texto se vuelve pesado y redundante. En cambio, si decís \"Juan llegó cansado. Él había caminado diez cuadras\", el pronombre \"él\" remite a Juan sin repetirlo. Esto se llama anáfora: es una referencia hacia atrás, apuntando a algo que ya mencionaste."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p13",
-          "text": "Pero existe también la **catáfora**, que es la referencia hacia adelante. Es menos común, pero genera un efecto de anticipación o suspenso. Por ejemplo: \"Esto es lo que pasó: María llegó tarde y perdió el tren\". La palabra \"esto\" apunta hacia la explicación que viene después. Los pronombres demostrativos (esto, eso, aquello) y los posesivos (el suyo, la suya) son herramientas clave aquí. Dominar la anáfora y la catáfora es lo que permite que un texto fluya con naturalidad, evitando la repetición mecánica y creando un tejido coherente donde las ideas se sostienen mutuamente."
+          "text": "Pero existe también la catáfora, que es la referencia hacia adelante. Es menos común, pero genera un efecto de anticipación o suspenso. Por ejemplo: \"Esto es lo que pasó: María llegó tarde y perdió el tren\". La palabra \"esto\" apunta hacia la explicación que viene después. Los pronombres demostrativos (esto, eso, aquello) y los posesivos (el suyo, la suya) son herramientas clave aquí. Dominar la anáfora y la catáfora es lo que permite que un texto fluya con naturalidad, evitando la repetición mecánica y creando un tejido coherente donde las ideas se sostienen mutuamente."
         },
         {
           "type": "heading",
@@ -1364,32 +1448,32 @@
         {
           "type": "paragraph",
           "id": "cap-10-p15",
-          "text": "Con esta base técnica en la mano, podemos adentrarnos en los movimientos literarios. El primero que vamos a analizar es el **Romanticismo**. Surgido a finales del siglo XVIII en Europa y extendido durante el XIX, el Romanticismo no fue solo un estilo literario, sino una revolución cultural. Nació como reacción contra el Racionalismo Ilustrado, que había privilegiado la razón, el orden y las reglas clásicas sobre todo lo demás."
+          "text": "Con esta base técnica en la mano, podemos adentrarnos en los movimientos literarios. El primero que vamos a analizar es el Romanticismo. Surgido a finales del siglo XVIII en Europa y extendido durante el XIX, el Romanticismo no fue solo un estilo literario, sino una revolución cultural. Nació como reacción contra el Racionalismo Ilustrado, que había privilegiado la razón, el orden y las reglas clásicas sobre todo lo demás."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p16",
-          "text": "Los románticos declararon la guerra a la razón fría. Para ellos, la verdad no estaba en los libros de lógica, sino en el corazón del individuo. La característica central del Romanticismo es la **subjetividad exaltada**. El \"yo\" del autor se convierte en el centro del universo. Lo que importa no es cómo es el mundo objetivamente, sino cómo lo siento yo. El sentimiento personal —el amor, el dolor, la angustia, el éxtasis— se coloca por encima de la razón."
+          "text": "Los románticos declararon la guerra a la razón fría. Para ellos, la verdad no estaba en los libros de lógica, sino en el corazón del individuo. La característica central del Romanticismo es la subjetividad exaltada. El \"yo\" del autor se convierte en el centro del universo. Lo que importa no es cómo es el mundo objetivamente, sino cómo lo siento yo. El sentimiento personal —el amor, el dolor, la angustia, el éxtasis— se coloca por encima de la razón."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p17",
-          "text": "Esta exaltación emocional se refleja en la **idealización de la naturaleza**. Para un romántico, la naturaleza no es un paisaje neutro ni un recurso turístico; es un espejo del alma. Los paisajes son tormentosos, las ruinas son melancólicas, los cementerios son lugares de reflexión sobre la muerte. La naturaleza se vuelve activa, casi humana, reflejando el estado anímico del poeta. Si el poeta está triste, llueve; si está furioso, hay un huracán."
+          "text": "Esta exaltación emocional se refleja en la idealización de la naturaleza. Para un romántico, la naturaleza no es un paisaje neutro ni un recurso turístico; es un espejo del alma. Los paisajes son tormentosos, las ruinas son melancólicas, los cementerios son lugares de reflexión sobre la muerte. La naturaleza se vuelve activa, casi humana, reflejando el estado anímico del poeta. Si el poeta está triste, llueve; si está furioso, hay un huracán."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p18",
-          "text": "El Romanticismo también se define por la **rebeldía y la búsqueda de libertad**. Se rechazan las reglas fijas del arte clásico (la unidad de tiempo, lugar y acción). El genio individual está por encima de las normas. Además, hay un fuerte componente de **nacionalismo**: interés por lo propio, por las leyendas locales, por las tradiciones populares, especialmente en el contexto de las independencias en Hispanoamérica."
+          "text": "El Romanticismo también se define por la rebeldía y la búsqueda de libertad. Se rechazan las reglas fijas del arte clásico (la unidad de tiempo, lugar y acción). El genio individual está por encima de las normas. Además, hay un fuerte componente de nacionalismo: interés por lo propio, por las leyendas locales, por las tradiciones populares, especialmente en el contexto de las independencias en Hispanoamérica."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p19",
-          "text": "Los recursos literarios típicos del Romanticismo son claros. La **hipérbole** (exageración) es constante, porque los sentimientos son tan intensos que el lenguaje común se queda corto. La **personificación** es fundamental, ya que la naturaleza se dota de vida y conciencia. El tema del **amor imposible o trágico** es recurrente; el amor romántico suele terminar en desdicha, porque choca con las convenciones sociales o con la muerte misma."
+          "text": "Los recursos literarios típicos del Romanticismo son claros. La hipérbole (exageración) es constante, porque los sentimientos son tan intensos que el lenguaje común se queda corto. La personificación es fundamental, ya que la naturaleza se dota de vida y conciencia. El tema del amor imposible o trágico es recurrente; el amor romántico suele terminar en desdicha, porque choca con las convenciones sociales o con la muerte misma."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p20",
-          "text": "Autores como Gustavo Adolfo Bécquer, con sus *Rimas y leyendas*, o Esteban Echeverría con *El matadero* en Argentina, ejemplifican esta búsqueda de la emoción pura y la identidad nacional. En *El matadero*, por ejemplo, Echeverría utiliza una narrativa cargada de simbolismo y crítica política, mezclando la realidad cruda de la plaza con una visión idealizada de la libertad que el régimen de Rosas oprime."
+          "text": "Autores como Gustavo Adolfo Bécquer, con sus Rimas y leyendas, o Esteban Echeverría con El matadero en Argentina, ejemplifican esta búsqueda de la emoción pura y la identidad nacional. En El matadero, por ejemplo, Echeverría utiliza una narrativa cargada de simbolismo y crítica política, mezclando la realidad cruda de la plaza con una visión idealizada de la libertad que el régimen de Rosas oprime."
         },
         {
           "type": "heading",
@@ -1400,37 +1484,37 @@
         {
           "type": "paragraph",
           "id": "cap-10-p22",
-          "text": "Si el Romanticismo es el grito del corazón, el **Realismo** es el susurro analítico de la mente. Surgido a mediados del siglo XIX, el Realismo nace explícitamente como una reacción contra los excesos emocionales y la fuga hacia lo fantástico del Romanticismo. Los escritores realistas sienten que el Romanticismo había perdido contacto con la tierra. Querían representar la **realidad social tal como es**, sin idealizaciones ni máscaras."
+          "text": "Si el Romanticismo es el grito del corazón, el Realismo es el susurro analítico de la mente. Surgido a mediados del siglo XIX, el Realismo nace explícitamente como una reacción contra los excesos emocionales y la fuga hacia lo fantástico del Romanticismo. Los escritores realistas sienten que el Romanticismo había perdido contacto con la tierra. Querían representar la realidad social tal como es, sin idealizaciones ni máscaras."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p23",
-          "text": "La característica principal del Realismo es la **objetividad**. El narrador tiende a ser omnisciente, pero neutral. No juzga emocionalmente a los personajes; los observa, los registra, los describe con la precisión de un científico. Busca la **verosimilitud**: que todo en la historia parezca posible, que los personajes, sus diálogos y sus acciones se ajusten a lo que ocurre en la vida cotidiana."
+          "text": "La característica principal del Realismo es la objetividad. El narrador tiende a ser omnisciente, pero neutral. No juzga emocionalmente a los personajes; los observa, los registra, los describe con la precisión de un científico. Busca la verosimilitud: que todo en la historia parezca posible, que los personajes, sus diálogos y sus acciones se ajusten a lo que ocurre en la vida cotidiana."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p24",
-          "text": "El Realismo se interesa por los **personajes comunes**. Ya no hay héroes idealizados o figuras legendarias. Los protagonistas son de clases medias o populares, con defectos, miedos y aspiraciones cotidianas. La **ambientación** es contemporánea: las historias se sitúan en el presente del autor, en ciudades reales, en calles que el lector puede reconocer."
+          "text": "El Realismo se interesa por los personajes comunes. Ya no hay héroes idealizados o figuras legendarias. Los protagonistas son de clases medias o populares, con defectos, miedos y aspiraciones cotidianas. La ambientación es contemporánea: las historias se sitúan en el presente del autor, en ciudades reales, en calles que el lector puede reconocer."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p25",
-          "text": "Un objetivo clave del Realismo es la **crítica social**. Al retratar la realidad con detalle, el autor denuncia los problemas concretos de su tiempo: la pobreza, la desigualdad, la hipocresía de la burguesía, la corrupción política. No se trata solo de contar una historia, sino de mostrar las fuerzas sociales que determinan la vida de las personas."
+          "text": "Un objetivo clave del Realismo es la crítica social. Al retratar la realidad con detalle, el autor denuncia los problemas concretos de su tiempo: la pobreza, la desigualdad, la hipocresía de la burguesía, la corrupción política. No se trata solo de contar una historia, sino de mostrar las fuerzas sociales que determinan la vida de las personas."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p26",
-          "text": "El estilo realista privilegia la **descripción minuciosa**. Los ambientes, los objetos, la ropa de los personajes se detallan con abundancia para crear una sensación de presencia y verdad. Los recursos literarios no desaparecen, pero se usan con mesura. La metáfora o la personificación están al servicio de la descripción, no de la exaltación emocional desbordada."
+          "text": "El estilo realista privilegia la descripción minuciosa. Los ambientes, los objetos, la ropa de los personajes se detallan con abundancia para crear una sensación de presencia y verdad. Los recursos literarios no desaparecen, pero se usan con mesura. La metáfora o la personificación están al servicio de la descripción, no de la exaltación emocional desbordada."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p27",
-          "text": "Autores como Gustave Flaubert con *Madame Bovary* o Benito Pérez Galdós con *Fortunata y Jacinta* son pilares de este movimiento. Flaubert, por ejemplo, busca la \"impersonalidad\" del texto, describiendo los deseos burgueses de Emma Bovary con una frialdad que, paradójicamente, hace que la tragedia sea más impactante."
+          "text": "Autores como Gustave Flaubert con Madame Bovary o Benito Pérez Galdós con Fortunata y Jacinta son pilares de este movimiento. Flaubert, por ejemplo, busca la \"impersonalidad\" del texto, describiendo los deseos burgueses de Emma Bovary con una frialdad que, paradójicamente, hace que la tragedia sea más impactante."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p28",
-          "text": "Es importante mencionar el **Naturalismo**, una variante posterior del Realismo que lleva la objetividad un paso más allá. El Naturalismo aplica una mirada casi \"científica\" (influenciada por la teoría de la herencia y el determinismo ambiental) para mostrar cómo el entorno y la biología determinan el destino de los personajes, a menudo con un tono más crudo y pesimista."
+          "text": "Es importante mencionar el Naturalismo, una variante posterior del Realismo que lleva la objetividad un paso más allá. El Naturalismo aplica una mirada casi \"científica\" (influenciada por la teoría de la herencia y el determinismo ambiental) para mostrar cómo el entorno y la biología determinan el destino de los personajes, a menudo con un tono más crudo y pesimista."
         },
         {
           "type": "heading",
@@ -1471,7 +1555,13 @@
       ],
       "meta": {
         "chapterId": "cap-10"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-11",
@@ -1498,22 +1588,22 @@
         {
           "type": "paragraph",
           "id": "cap-11-p4",
-          "text": "Todo comienza con la agrupación. En gramática, llamamos **sintagma** a ese conjunto de palabras que funcionan como una unidad dentro de la oración, girando en torno a un núcleo. Si la palabra es el átomo, el sintagma es la molécula. Entender esta distinción es fundamental porque te permite dejar de ver la oración como una línea plana y empezar a verla como una estructura tridimensional con jerarquías."
+          "text": "Todo comienza con la agrupación. En gramática, llamamos sintagma a ese conjunto de palabras que funcionan como una unidad dentro de la oración, girando en torno a un núcleo. Si la palabra es el átomo, el sintagma es la molécula. Entender esta distinción es fundamental porque te permite dejar de ver la oración como una línea plana y empezar a verla como una estructura tridimensional con jerarquías."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p5",
-          "text": "El tipo de sintagma que formás depende de la categoría gramatical de esa palabra núcleo. Si el núcleo es un sustantivo o un pronombre, estás ante un **sintagma nominal (SN)**. Este es el bloque más versátil del lenguaje; su función principal es referirse a personas, animales o cosas, y puede actuar como sujeto u objeto de la oración. Por ejemplo, en la expresión \"el perro negro\", el núcleo es \"perro\", pero todo el grupo \"el perro negro\" funciona como una unidad que identifica a un ente específico."
+          "text": "El tipo de sintagma que formás depende de la categoría gramatical de esa palabra núcleo. Si el núcleo es un sustantivo o un pronombre, estás ante un sintagma nominal (SN). Este es el bloque más versátil del lenguaje; su función principal es referirse a personas, animales o cosas, y puede actuar como sujeto u objeto de la oración. Por ejemplo, en la expresión \"el perro negro\", el núcleo es \"perro\", pero todo el grupo \"el perro negro\" funciona como una unidad que identifica a un ente específico."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p6",
-          "text": "Si, en cambio, el núcleo es un adjetivo, nos encontramos con el **sintagma adjetival (SA)**. Este tipo de sintagma no se usa para nombrar cosas, sino para describir cualidades o estados. En \"extremadamente feliz\", la palabra \"feliz\" es el núcleo, y el adverbio \"extremadamente\" la modifica. El SA suele funcionar como atributo o complemento, matizando lo que decimos sobre alguien o algo. Es la herramienta principal para la descripción."
+          "text": "Si, en cambio, el núcleo es un adjetivo, nos encontramos con el sintagma adjetival (SA). Este tipo de sintagma no se usa para nombrar cosas, sino para describir cualidades o estados. En \"extremadamente feliz\", la palabra \"feliz\" es el núcleo, y el adverbio \"extremadamente\" la modifica. El SA suele funcionar como atributo o complemento, matizando lo que decimos sobre alguien o algo. Es la herramienta principal para la descripción."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p7",
-          "text": "Luego está el **sintagma preposicional (SPrep)**, que se forma por una preposición (como *a, de, en, con, por*) seguida de un término. Este sintagma actúa como un puente, estableciendo relaciones de lugar, tiempo, causa o posesión entre los elementos de la oración. Por último, tenemos el **sintagma adverbial (SAdv)**, que tiene como núcleo un adverbio, y el **sintagma verbal (SV)**, centrado en un verbo. Todos estos bloques se ensamblan para formar oraciones, pero ¿cómo conectamos esas oraciones para darles profundidad espacial o cualitativa? Ahí entra en juego la subordinación."
+          "text": "Luego está el sintagma preposicional (SPrep), que se forma por una preposición (como a, de, en, con, por) seguida de un término. Este sintagma actúa como un puente, estableciendo relaciones de lugar, tiempo, causa o posesión entre los elementos de la oración. Por último, tenemos el sintagma adverbial (SAdv), que tiene como núcleo un adverbio, y el sintagma verbal (SV), centrado en un verbo. Todos estos bloques se ensamblan para formar oraciones, pero ¿cómo conectamos esas oraciones para darles profundidad espacial o cualitativa? Ahí entra en juego la subordinación."
         },
         {
           "type": "heading",
@@ -1524,17 +1614,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p9",
-          "text": "Imaginate que querés contar una historia, pero solo decís: \"Juan fue al parque\". La información es correcta, pero es pobre. No sabemos dónde está ese parque, ni cómo se comportó Juan allí. Para dotar de contexto espacial y cualitativo a nuestras acciones, utilizamos las **oraciones subordinadas adverbiales**. Estas son oraciones completas que dependen de la principal y funcionan como un adverbio, respondiendo a preguntas específicas."
+          "text": "Imaginate que querés contar una historia, pero solo decís: \"Juan fue al parque\". La información es correcta, pero es pobre. No sabemos dónde está ese parque, ni cómo se comportó Juan allí. Para dotar de contexto espacial y cualitativo a nuestras acciones, utilizamos las oraciones subordinadas adverbiales. Estas son oraciones completas que dependen de la principal y funcionan como un adverbio, respondiendo a preguntas específicas."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p10",
-          "text": "Comencemos por el espacio. Las **subordinadas adverbiales de lugar** nos dicen dónde, hacia dónde o desde dónde ocurre la acción. No usamos una sola palabra, sino una estructura oracional. Un ejemplo claro sería: \"Voy a la escuela **donde estudiamos matemáticas**\". Aquí, \"donde estudiamos matemáticas\" es la subordinada. Fijate que no es solo un nombre propio; es una descripción que sitúa la acción en un lugar definido por otra oración. Los conectores clave aquí son *donde*, *dondequiera que*, *a donde*, *desde donde*. Su función es anclar la acción principal en un coordenada geográfica o espacial concreta, evitando repeticiones y enriqueciendo la escena."
+          "text": "Comencemos por el espacio. Las subordinadas adverbiales de lugar nos dicen dónde, hacia dónde o desde dónde ocurre la acción. No usamos una sola palabra, sino una estructura oracional. Un ejemplo claro sería: \"Voy a la escuela donde estudiamos matemáticas\". Aquí, \"donde estudiamos matemáticas\" es la subordinada. Fijate que no es solo un nombre propio; es una descripción que sitúa la acción en un lugar definido por otra oración. Los conectores clave aquí son donde, dondequiera que, a donde, desde donde. Su función es anclar la acción principal en un coordenada geográfica o espacial concreta, evitando repeticiones y enriqueciendo la escena."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p11",
-          "text": "Pero el lugar no es lo único que importa; también nos interesa el modo. Las **subordinadas adverbiales de modo** nos dicen *cómo* se realiza la acción. Son esenciales para añadir matices, evitar la monotonía y precisar la realidad. Si decís \"Juan corrió\", la imagen es vaga. Si decís \"Juan corrió **como un rayo**\" o \"Juan corrió **de manera que nadie lo alcanzaba**\", estás usando una subordinada de modo. Los nexos típicos son *como, conforme, según, de modo que, de manera que*."
+          "text": "Pero el lugar no es lo único que importa; también nos interesa el modo. Las subordinadas adverbiales de modo nos dicen cómo se realiza la acción. Son esenciales para añadir matices, evitar la monotonía y precisar la realidad. Si decís \"Juan corrió\", la imagen es vaga. Si decís \"Juan corrió como un rayo\" o \"Juan corrió de manera que nadie lo alcanzaba\", estás usando una subordinada de modo. Los nexos típicos son como, conforme, según, de modo que, de manera que."
         },
         {
           "type": "paragraph",
@@ -1550,27 +1640,27 @@
         {
           "type": "paragraph",
           "id": "cap-11-p14",
-          "text": "Hasta ahora hemos visto cómo situamos la acción en el espacio y la describimos en el modo. Pero, ¿qué pasa cuando necesitamos definir *a quién* o *a qué* nos referimos? Aquí entran las **oraciones subordinadas adjetivas**, también llamadas de relativo. Estas oraciones funcionan como un adjetivo gigante: sirven para nombrar, caracterizar o precisar a un sustantivo que aparece antes en la oración principal, llamado **antecedente**."
+          "text": "Hasta ahora hemos visto cómo situamos la acción en el espacio y la describimos en el modo. Pero, ¿qué pasa cuando necesitamos definir a quién o a qué nos referimos? Aquí entran las oraciones subordinadas adjetivas, también llamadas de relativo. Estas oraciones funcionan como un adjetivo gigante: sirven para nombrar, caracterizar o precisar a un sustantivo que aparece antes en la oración principal, llamado antecedente."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p15",
-          "text": "La palabra clave que las introduce es un pronombre relativo (*que, cual, cuyo, quien, donde*). Esta palabra no solo conecta las ideas, sino que reemplaza al antecedente dentro de la subordinada. Tomemos este ejemplo: \"El libro **que compraste** es interesante\". La parte \"que compraste\" no tiene sentido por sí sola en este contexto; necesita al \"libro\" para existir. Por eso se dice que es subordinada: depende de la principal."
+          "text": "La palabra clave que las introduce es un pronombre relativo (que, cual, cuyo, quien, donde). Esta palabra no solo conecta las ideas, sino que reemplaza al antecedente dentro de la subordinada. Tomemos este ejemplo: \"El libro que compraste es interesante\". La parte \"que compraste\" no tiene sentido por sí sola en este contexto; necesita al \"libro\" para existir. Por eso se dice que es subordinada: depende de la principal."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p16",
-          "text": "Es crucial distinguir entre dos tipos de subordinadas adjetivas, porque la diferencia cambia el sentido de lo que decimos: las **especificativas** y las **explicativas**."
+          "text": "Es crucial distinguir entre dos tipos de subordinadas adjetivas, porque la diferencia cambia el sentido de lo que decimos: las especificativas y las explicativas."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p17",
-          "text": "Las especificativas son aquellas que delimitan o restringen el significado del antecedente. Nos dicen *cuál* de los posibles es el que nos interesa. Si quitás esta parte, la oración pierde su sentido preciso. En \"Los alumnos **que aprobaron el examen** salen temprano\", la frase subrayada especifica a *qué* alumnos nos referimos. No son todos los alumnos del colegio, solo un grupo particular. En este caso, no se usan comas, porque la información es esencial para identificar al sujeto."
+          "text": "Las especificativas son aquellas que delimitan o restringen el significado del antecedente. Nos dicen cuál de los posibles es el que nos interesa. Si quitás esta parte, la oración pierde su sentido preciso. En \"Los alumnos que aprobaron el examen salen temprano\", la frase subrayada especifica a qué alumnos nos referimos. No son todos los alumnos del colegio, solo un grupo particular. En este caso, no se usan comas, porque la información es esencial para identificar al sujeto."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p18",
-          "text": "Por el contrario, las explicativas añaden una información extra, pero no necesaria para identificar al antecedente, ya que este ya está claramente definido. Se escriben entre comas. En \"Mi hermano, **que vive en Madrid**, viene a visitarnos\", la información \"que vive en Madrid\" es un añadido. Ya sabemos de quién hablas: de \"mi hermano\". La subordinada no restringe el significado, lo amplía con un dato curioso o complementario. Esta distinción es vital para la puntuación y la claridad del texto."
+          "text": "Por el contrario, las explicativas añaden una información extra, pero no necesaria para identificar al antecedente, ya que este ya está claramente definido. Se escriben entre comas. En \"Mi hermano, que vive en Madrid, viene a visitarnos\", la información \"que vive en Madrid\" es un añadido. Ya sabemos de quién hablas: de \"mi hermano\". La subordinada no restringe el significado, lo amplía con un dato curioso o complementario. Esta distinción es vital para la puntuación y la claridad del texto."
         },
         {
           "type": "heading",
@@ -1581,17 +1671,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p20",
-          "text": "Hasta ahora hemos analizado la estructura, la espacialidad y la referencia. Pero el lenguaje no es un código neutro. Cuando escribimos o hablamos, siempre hay alguien hablando: vos. Y esa presencia se marca de dos formas distintas pero complementarias: a través de los **subjetivemas** y los **modalizadores**."
+          "text": "Hasta ahora hemos analizado la estructura, la espacialidad y la referencia. Pero el lenguaje no es un código neutro. Cuando escribimos o hablamos, siempre hay alguien hablando: vos. Y esa presencia se marca de dos formas distintas pero complementarias: a través de los subjetivemas y los modalizadores."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p21",
-          "text": "Los **subjetivemas** son elementos lingüísticos que revelan la presencia emocional o valorativa del hablante. No se trata solo de usar la primera persona (\"yo\"), sino de mostrar cómo nos sentimos o qué juzgamos sobre el tema. Son los marcadores de la subjetividad. Pueden ser adjetivos evaluativos (\"increíble\", \"triste\", \"justo\"), adverbios de modo (\"lamentablemente\", \"afortunadamente\") o expresiones idiomáticas cargadas de emoción. Su función es hacer visible que lo que se dice no es un hecho frío, sino una interpretación personal. Por ejemplo, al decir \"Es una pena que hayas llegado tarde\", no solo informás la hora, sino que emities un juicio de valor sobre ese hecho. El subjetivema carga la oración con una actitud."
+          "text": "Los subjetivemas son elementos lingüísticos que revelan la presencia emocional o valorativa del hablante. No se trata solo de usar la primera persona (\"yo\"), sino de mostrar cómo nos sentimos o qué juzgamos sobre el tema. Son los marcadores de la subjetividad. Pueden ser adjetivos evaluativos (\"increíble\", \"triste\", \"justo\"), adverbios de modo (\"lamentablemente\", \"afortunadamente\") o expresiones idiomáticas cargadas de emoción. Su función es hacer visible que lo que se dice no es un hecho frío, sino una interpretación personal. Por ejemplo, al decir \"Es una pena que hayas llegado tarde\", no solo informás la hora, sino que emities un juicio de valor sobre ese hecho. El subjetivema carga la oración con una actitud."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p22",
-          "text": "Por otro lado, los **modalizadores** matizan la verdad o la certeza de lo enunciado. Responden a preguntas como: ¿estoy seguro de lo que digo? ¿Es una posibilidad o una certeza? ¿Es una obligación o un deseo? Los modalizadores permiten al hablante controlar el grado de compromiso con el enunciado. Se dividen principalmente en dos tipos: los **modalizadores afirmativos o reforzadores** (que aumentan la certeza, como \"sin duda\", \"evidentemente\") y los **modalizadores dudosos o atenuantes** (que reducen la certeza, como \"quizás\", \"posiblemente\", \"al parecer\")."
+          "text": "Por otro lado, los modalizadores matizan la verdad o la certeza de lo enunciado. Responden a preguntas como: ¿estoy seguro de lo que digo? ¿Es una posibilidad o una certeza? ¿Es una obligación o un deseo? Los modalizadores permiten al hablante controlar el grado de compromiso con el enunciado. Se dividen principalmente en dos tipos: los modalizadores afirmativos o reforzadores (que aumentan la certeza, como \"sin duda\", \"evidentemente\") y los modalizadores dudosos o atenuantes (que reducen la certeza, como \"quizás\", \"posiblemente\", \"al parecer\")."
         },
         {
           "type": "paragraph",
@@ -1607,7 +1697,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p25",
-          "text": "Al leer o escribir, no veas estos conceptos como compartimentos estancos. Un texto rico y bien construido integra todos estos niveles. Podés usar un **sintagma nominal** complejo para definir un sujeto, modificarlo con una **subordinada adjetiva especificativa** para precisar de quién hablás, situar la acción en un **sintagma preposicional** de lugar, describirla con una **subordinada de modo**, y finalmente, cerrar la idea con un **modalizador** que indique tu grado de certeza o un **subjetivema** que revele tu opinión."
+          "text": "Al leer o escribir, no veas estos conceptos como compartimentos estancos. Un texto rico y bien construido integra todos estos niveles. Podés usar un sintagma nominal complejo para definir un sujeto, modificarlo con una subordinada adjetiva especificativa para precisar de quién hablás, situar la acción en un sintagma preposicional de lugar, describirla con una subordinada de modo, y finalmente, cerrar la idea con un modalizador que indique tu grado de certeza o un subjetivema que revele tu opinión."
         },
         {
           "type": "paragraph",
@@ -1617,7 +1707,13 @@
       ],
       "meta": {
         "chapterId": "cap-11"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-12",
@@ -1633,7 +1729,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p2",
-          "text": "Cuando abrimos un libro, escuchamos un discurso o incluso intentamos explicar por qué llegamos tarde a casa, no estamos lanzando palabras al azar. Estamos construyendo estructuras mentales complejas. En la lengua, la capacidad de unir ideas para darles coherencia y profundidad se logra, en gran medida, a través de las oraciones compuestas y, específicamente, de las **oraciones subordinadas**. Si la oración simple es el ladrillo, la subordinada es el mortero y el andamio que permite levantar edificios lingüísticos sólidos, llenos de matices, causas, tiempos y posibilidades. En este capítulo, no vamos a ver estas estructuras como listas aisladas de reglas gramaticales, sino como herramientas narrativas y lógicas que utilizamos todos los días para ordenar el caos del mundo en un relato comprensible."
+          "text": "Cuando abrimos un libro, escuchamos un discurso o incluso intentamos explicar por qué llegamos tarde a casa, no estamos lanzando palabras al azar. Estamos construyendo estructuras mentales complejas. En la lengua, la capacidad de unir ideas para darles coherencia y profundidad se logra, en gran medida, a través de las oraciones compuestas y, específicamente, de las oraciones subordinadas. Si la oración simple es el ladrillo, la subordinada es el mortero y el andamio que permite levantar edificios lingüísticos sólidos, llenos de matices, causas, tiempos y posibilidades. En este capítulo, no vamos a ver estas estructuras como listas aisladas de reglas gramaticales, sino como herramientas narrativas y lógicas que utilizamos todos los días para ordenar el caos del mundo en un relato comprensible."
         },
         {
           "type": "paragraph",
@@ -1649,17 +1745,17 @@
         {
           "type": "paragraph",
           "id": "cap-12-p5",
-          "text": "Todo relato necesita un marco temporal. Sin él, las acciones flotan en el vacío. Las **subordinadas adverbiales de tiempo** cumplen exactamente esa función: sitúan la acción principal en un contexto cronológico preciso. A diferencia de un adverbio simple como \"ayer\" o \"mañana\", estas cláusulas contienen su propio verbo conjugado, lo que nos permite crear narrativas mucho más ricas y dinámicas. Responden a preguntas como: ¿cuándo ocurre la acción? ¿Hasta cuándo dura? ¿Desde qué momento se inicia?"
+          "text": "Todo relato necesita un marco temporal. Sin él, las acciones flotan en el vacío. Las subordinadas adverbiales de tiempo cumplen exactamente esa función: sitúan la acción principal en un contexto cronológico preciso. A diferencia de un adverbio simple como \"ayer\" o \"mañana\", estas cláusulas contienen su propio verbo conjugado, lo que nos permite crear narrativas mucho más ricas y dinámicas. Responden a preguntas como: ¿cuándo ocurre la acción? ¿Hasta cuándo dura? ¿Desde qué momento se inicia?"
         },
         {
           "type": "paragraph",
           "id": "cap-12-p6",
-          "text": "Imaginá que estás contando una anécdota. Si decís \"Me compré un libro\", la información es escasa. Pero si decís \"Me compré un libro **cuando** iba al colegio\", o \"**antes de que** terminara el año\", de pronto, la escena cobra vida. El nexo que introduce esta subordinada (como *cuando, mientras, en cuanto, antes de que, después de que, hasta que, desde que*) actúa como un engranaje que sincroniza dos eventos. Es crucial notar que estos nexos no son intercambiables sin más. Cada uno impone una lógica temporal distinta."
+          "text": "Imaginá que estás contando una anécdota. Si decís \"Me compré un libro\", la información es escasa. Pero si decís \"Me compré un libro cuando iba al colegio\", o \"antes de que terminara el año\", de pronto, la escena cobra vida. El nexo que introduce esta subordinada (como cuando, mientras, en cuanto, antes de que, después de que, hasta que, desde que) actúa como un engranaje que sincroniza dos eventos. Es crucial notar que estos nexos no son intercambiables sin más. Cada uno impone una lógica temporal distinta."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p7",
-          "text": "Por ejemplo, la diferencia entre \"cuando\" y \"en cuanto\" es sutil pero determinante. El primero marca un punto temporal, a menudo repetitivo o habitual en el pasado (*Cuando iba al colegio, me compraba alfajores*), mientras que el segundo marca inmediatez, una reacción casi instantánea (*En cuanto llegó, se puso a trabajar*). Además, debemos prestar atención al modo verbal. Como vimos, expresiones como *antes de que* casi siempre exigen el subjuntivo (*Antes de que llegues, avísame*), porque se refieren a un futuro incierto o a una anterioridad relativa. Dominar estas distinciones te permite controlar el ritmo de tu texto: acelerarlo con nexos de inmediatez o pausarlo con descripciones de duración."
+          "text": "Por ejemplo, la diferencia entre \"cuando\" y \"en cuanto\" es sutil pero determinante. El primero marca un punto temporal, a menudo repetitivo o habitual en el pasado (Cuando iba al colegio, me compraba alfajores), mientras que el segundo marca inmediatez, una reacción casi instantánea (En cuanto llegó, se puso a trabajar). Además, debemos prestar atención al modo verbal. Como vimos, expresiones como antes de que casi siempre exigen el subjuntivo (Antes de que llegues, avísame), porque se refieren a un futuro incierto o a una anterioridad relativa. Dominar estas distinciones te permite controlar el ritmo de tu texto: acelerarlo con nexos de inmediatez o pausarlo con descripciones de duración."
         },
         {
           "type": "heading",
@@ -1670,27 +1766,27 @@
         {
           "type": "paragraph",
           "id": "cap-12-p9",
-          "text": "Una vez que situamos las acciones en el tiempo, el siguiente paso natural es preguntarnos por qué ocurren. Aquí entramos en el terreno de la **subordinada causal**. Esta estructura responde a la pregunta **¿por qué?** y expresa el motivo, la razón o el origen de lo que sucede en la oración principal. Es el pegamento lógico que sostiene la veracidad de un enunciado."
+          "text": "Una vez que situamos las acciones en el tiempo, el siguiente paso natural es preguntarnos por qué ocurren. Aquí entramos en el terreno de la subordinada causal. Esta estructura responde a la pregunta ¿por qué? y expresa el motivo, la razón o el origen de lo que sucede en la oración principal. Es el pegamento lógico que sostiene la veracidad de un enunciado."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p10",
-          "text": "Pensemos en una situación cotidiana: \"No fui a la fiesta\". ¿Por qué? La respuesta no es opcional si querés ser claro. \"No fui a la fiesta **porque** estaba enfermo\". La parte \"porque estaba enfermo\" no tiene sentido completo por sí misma; depende de la principal para adquirir significado. Es la causa que justifica la consecuencia. Los nexos causales más comunes son *porque, ya que, puesto que, dado que* y *por (la) causa de que*."
+          "text": "Pensemos en una situación cotidiana: \"No fui a la fiesta\". ¿Por qué? La respuesta no es opcional si querés ser claro. \"No fui a la fiesta porque estaba enfermo\". La parte \"porque estaba enfermo\" no tiene sentido completo por sí misma; depende de la principal para adquirir significado. Es la causa que justifica la consecuencia. Los nexos causales más comunes son porque, ya que, puesto que, dado que y por (la) causa de que."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p11",
-          "text": "Sin embargo, hay una sutileza importante que muchos pasan por alto: la posición del nexo. Cuando usamos *porque*, la subordinada suele ir después de la principal. Pero si queremos dar énfasis a la causa, podemos moverla al inicio, aunque en ese caso el nexo cambia ligeramente o se adapta. Por ejemplo, \"**Como** estaba enfermo, no fui a la fiesta\". Aquí, *como* funciona como sinónimo de *porque*, pero su ubicación al principio marca una pausa retórica, invitando al interlocutor a prestar atención a la razón antes de conocer el resultado. Esto demuestra que la gramática no es solo reglas rígidas, sino también recursos de énfasis y estilo."
+          "text": "Sin embargo, hay una sutileza importante que muchos pasan por alto: la posición del nexo. Cuando usamos porque, la subordinada suele ir después de la principal. Pero si queremos dar énfasis a la causa, podemos moverla al inicio, aunque en ese caso el nexo cambia ligeramente o se adapta. Por ejemplo, \"Como estaba enfermo, no fui a la fiesta\". Aquí, como funciona como sinónimo de porque, pero su ubicación al principio marca una pausa retórica, invitando al interlocutor a prestar atención a la razón antes de conocer el resultado. Esto demuestra que la gramática no es solo reglas rígidas, sino también recursos de énfasis y estilo."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p12",
-          "text": "Pero la relación lógica no termina con la causa. Toda causa genera un efecto. Ahí es donde entra la **subordinada consecutiva**. Si la causal pregunta \"¿por qué?\", la consecutiva responde \"¿qué resultado produjo?\". Expresa una consecuencia o efecto que se deriva necesariamente de lo afirmado en la oración principal. La clave aquí es la intensidad: la consecuencia suele ser el resultado de un grado alto de algo."
+          "text": "Pero la relación lógica no termina con la causa. Toda causa genera un efecto. Ahí es donde entra la subordinada consecutiva. Si la causal pregunta \"¿por qué?\", la consecutiva responde \"¿qué resultado produjo?\". Expresa una consecuencia o efecto que se deriva necesariamente de lo afirmado en la oración principal. La clave aquí es la intensidad: la consecuencia suele ser el resultado de un grado alto de algo."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p13",
-          "text": "La estructura gramatical de la consecutiva es muy específica y fácil de detectar si buscás sus marcas. Siempre hay un correlato en la oración principal que anuncia la consecuencia, generalmente un adverbio o adjetivo gradativo como *tan, tanto, tal* o *tanto*. La conjunción que introduce la subordinada es casi siempre **que**. Por ejemplo: \"Está **tan** cansado **que** no puede caminar\". La estructura es clara: grado (tan cansado) + consecuencia (que no puede caminar). Otro ejemplo clásico es \"Tenía **tanto** miedo **que** se quedó paralizado\"."
+          "text": "La estructura gramatical de la consecutiva es muy específica y fácil de detectar si buscás sus marcas. Siempre hay un correlato en la oración principal que anuncia la consecuencia, generalmente un adverbio o adjetivo gradativo como tan, tanto, tal o tanto. La conjunción que introduce la subordinada es casi siempre que. Por ejemplo: \"Está tan cansado que no puede caminar\". La estructura es clara: grado (tan cansado) + consecuencia (que no puede caminar). Otro ejemplo clásico es \"Tenía tanto miedo que se quedó paralizado\"."
         },
         {
           "type": "paragraph",
@@ -1706,37 +1802,37 @@
         {
           "type": "paragraph",
           "id": "cap-12-p16",
-          "text": "Hasta ahora hemos hablado de lo que ya pasó o de lo que pasa. Pero la lengua también nos permite explorar el mundo de lo posible, lo hipotético y lo adverso. Aquí entran en juego dos pares de subordinadas que definen la attitud del hablante frente a la realidad: la **condicional** y la **concesiva**, junto con la **final**."
+          "text": "Hasta ahora hemos hablado de lo que ya pasó o de lo que pasa. Pero la lengua también nos permite explorar el mundo de lo posible, lo hipotético y lo adverso. Aquí entran en juego dos pares de subordinadas que definen la attitud del hablante frente a la realidad: la condicional y la concesiva, junto con la final."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p17",
-          "text": "Comencemos con la **subordinada condicional**. Esta cláusula establece una condición necesaria para que se cumpla lo expresado en la oración principal. Es la respuesta a la pregunta implícita: \"¿bajo qué circunstancias sucedería esto?\". La palabra clave que marca el inicio de esta subordinada es casi siempre el **si**, seguido de un verbo en un tiempo verbal que indicará el grado de probabilidad."
+          "text": "Comencemos con la subordinada condicional. Esta cláusula establece una condición necesaria para que se cumpla lo expresado en la oración principal. Es la respuesta a la pregunta implícita: \"¿bajo qué circunstancias sucedería esto?\". La palabra clave que marca el inicio de esta subordinada es casi siempre el si, seguido de un verbo en un tiempo verbal que indicará el grado de probabilidad."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p18",
-          "text": "La belleza de estas oraciones radica en la concordancia temporal entre la condición y la consecuencia. No cualquier combinación de verbos es válida; existe una lógica interna que debemos respetar. Si hablamos de situaciones reales o probables, usamos el indicativo. Por ejemplo: \"Si llueve, no iremos al parque\". Aquí, la lluvia es una posibilidad futura real. El verbo *llueve* está en presente de indicativo y *iremos* en futuro. También es común usar el presente en ambas: \"Si estudias, aprobarás el examen\"."
+          "text": "La belleza de estas oraciones radica en la concordancia temporal entre la condición y la consecuencia. No cualquier combinación de verbos es válida; existe una lógica interna que debemos respetar. Si hablamos de situaciones reales o probables, usamos el indicativo. Por ejemplo: \"Si llueve, no iremos al parque\". Aquí, la lluvia es una posibilidad futura real. El verbo llueve está en presente de indicativo y iremos en futuro. También es común usar el presente en ambas: \"Si estudias, aprobarás el examen\"."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p19",
-          "text": "Pero la condición también puede referirse a situaciones irreales o hipotéticas. En ese caso, el subjuntivo entra en juego. Imaginá que decís: \"Si tuviera dinero, viajaría a Japón\". Aquí, la condición es irreal en el presente (no tengo dinero), por eso usamos el imperfecto de subjuntivo (*tuviera*) y el condicional compuesto o simple en la principal (*viajaría*). Esta capacidad de jugar con los tiempos verbales nos permite navegar entre lo real y lo imaginario, una habilidad fundamental para la argumentación y la creatividad literaria."
+          "text": "Pero la condición también puede referirse a situaciones irreales o hipotéticas. En ese caso, el subjuntivo entra en juego. Imaginá que decís: \"Si tuviera dinero, viajaría a Japón\". Aquí, la condición es irreal en el presente (no tengo dinero), por eso usamos el imperfecto de subjuntivo (tuviera) y el condicional compuesto o simple en la principal (viajaría). Esta capacidad de jugar con los tiempos verbales nos permite navegar entre lo real y lo imaginario, una habilidad fundamental para la argumentación y la creatividad literaria."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p20",
-          "text": "Junto a la condición, encontramos la **subordinada concesiva**, que parece contradictoria a primera vista, pero es esencial para matizar el discurso. Mientras la causal dice \"A pasa porque B pasa\", la concesiva dice \"A pasa, aunque B pase\". Expresa un obstáculo, una dificultad o una circunstancia adversa que, sin embargo, no impide que ocurra lo principal. Es la estructura del \"a pesar de que\"."
+          "text": "Junto a la condición, encontramos la subordinada concesiva, que parece contradictoria a primera vista, pero es esencial para matizar el discurso. Mientras la causal dice \"A pasa porque B pasa\", la concesiva dice \"A pasa, aunque B pase\". Expresa un obstáculo, una dificultad o una circunstancia adversa que, sin embargo, no impide que ocurra lo principal. Es la estructura del \"a pesar de que\"."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p21",
-          "text": "Los nexos concesivos más comunes son *aunque, por más que, si bien, a pesar de que, por mucho que*. La característica fundamental es que el hecho narrado en la subordinada es real o hipotético, pero no anula la verdad de la oración principal. Por ejemplo: \"Aunque llueva, iremos al partido\". La lluvia es un impedimento posible, pero la decisión de ir se mantiene firme. Es importante notar que, a diferencia de las causales (que explican *por qué* sucede algo), las concesivas niegan la causalidad esperada. No iríamos al partido *porque* llueve (causal), pero iremos *aunque* llueva (concesiva). Esta distinción es clave para evitar ambigüedades y escribir con mayor precisión."
+          "text": "Los nexos concesivos más comunes son aunque, por más que, si bien, a pesar de que, por mucho que. La característica fundamental es que el hecho narrado en la subordinada es real o hipotético, pero no anula la verdad de la oración principal. Por ejemplo: \"Aunque llueva, iremos al partido\". La lluvia es un impedimento posible, pero la decisión de ir se mantiene firme. Es importante notar que, a diferencia de las causales (que explican por qué sucede algo), las concesivas niegan la causalidad esperada. No iríamos al partido porque llueve (causal), pero iremos aunque llueva (concesiva). Esta distinción es clave para evitar ambigüedades y escribir con mayor precisión."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p22",
-          "text": "Finalmente, cerramos este grupo con la **subordinada final**, que indica el propósito, la meta o el objetivo de la acción principal. Responde a la pregunta \"¿para qué?\" o \"¿con qué fin?\". Mientras que la causal mira hacia atrás (la causa ya existía), la final mira hacia adelante (el propósito es futuro). Los nexos finales más comunes son *para que, a fin de que, con el fin de que, de modo que*. Por ejemplo: \"Estudio mucho **para que** mis padres estén orgullosos\". La acción de estudiar tiene como objetivo final lograr el orgullo de los padres."
+          "text": "Finalmente, cerramos este grupo con la subordinada final, que indica el propósito, la meta o el objetivo de la acción principal. Responde a la pregunta \"¿para qué?\" o \"¿con qué fin?\". Mientras que la causal mira hacia atrás (la causa ya existía), la final mira hacia adelante (el propósito es futuro). Los nexos finales más comunes son para que, a fin de que, con el fin de que, de modo que. Por ejemplo: \"Estudio mucho para que mis padres estén orgullosos\". La acción de estudiar tiene como objetivo final lograr el orgullo de los padres."
         },
         {
           "type": "paragraph",
@@ -1767,12 +1863,18 @@
         {
           "type": "paragraph",
           "id": "cap-12-p28",
-          "text": "Así que, la próxima vez que escribas o hables, no veas las subordinadas como obstáculos gramaticales. Miralas como las vigas de construcción de tu pensamiento. Cada *porque*, cada *si*, cada *aunque* y cada *para que* es una decisión consciente de cómo querés que el mundo sea comprendido. Dominarlas es, en definitiva, dominar la propia capacidad de influir en la realidad a través de la palabra."
+          "text": "Así que, la próxima vez que escribas o hables, no veas las subordinadas como obstáculos gramaticales. Miralas como las vigas de construcción de tu pensamiento. Cada porque, cada si, cada aunque y cada para que es una decisión consciente de cómo querés que el mundo sea comprendido. Dominarlas es, en definitiva, dominar la propia capacidad de influir en la realidad a través de la palabra."
         }
       ],
       "meta": {
         "chapterId": "cap-12"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-13",
@@ -1788,12 +1890,12 @@
         {
           "type": "paragraph",
           "id": "cap-13-p2",
-          "text": "Cuando empezás a leer textos más complejos, ya sea un artículo periodístico profundo, un ensayo literario o incluso una noticia en redes sociales, te vas a topar con una realidad interesante: el lenguaje no se conforma con frases cortas y simples. Para expresar ideas matizadas, dudas, certezas o emociones específicas, necesitamos \"agregar\" información dentro de una misma oración. Ahí es donde entran en juego las **oraciones subordinadas sustantivas**."
+          "text": "Cuando empezás a leer textos más complejos, ya sea un artículo periodístico profundo, un ensayo literario o incluso una noticia en redes sociales, te vas a topar con una realidad interesante: el lenguaje no se conforma con frases cortas y simples. Para expresar ideas matizadas, dudas, certezas o emociones específicas, necesitamos \"agregar\" información dentro de una misma oración. Ahí es donde entran en juego las oraciones subordinadas sustantivas."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p3",
-          "text": "Pero, ¿qué significa que una oración sea \"sustantiva\"? La clave está en la función. Imaginá que tenés un sustantivo común, como \"helado\" en la frase \"Quiero un helado\". Ese sustantivo es lo que querés. Ahora, pensá en la frase \"Quiero **que vengas temprano**\". Lo que querés no es un objeto físico, sino una acción, un hecho. La parte subrayada funciona exactamente como el sustantivo \"helado\": es el objeto de tu deseo. Por eso se llama \"sustantiva\": porque cumple la función de un nombre dentro de la oración principal."
+          "text": "Pero, ¿qué significa que una oración sea \"sustantiva\"? La clave está en la función. Imaginá que tenés un sustantivo común, como \"helado\" en la frase \"Quiero un helado\". Ese sustantivo es lo que querés. Ahora, pensá en la frase \"Quiero que vengas temprano\". Lo que querés no es un objeto físico, sino una acción, un hecho. La parte subrayada funciona exactamente como el sustantivo \"helado\": es el objeto de tu deseo. Por eso se llama \"sustantiva\": porque cumple la función de un nombre dentro de la oración principal."
         },
         {
           "type": "paragraph",
@@ -1809,22 +1911,22 @@
         {
           "type": "paragraph",
           "id": "cap-13-p6",
-          "text": "Empecemos por la función más directa y frecuente: el **complemento directo**. Cuando decís \"Juan dice que viene a la fiesta\", ¿qué es lo que Juan dice? No dice una palabra suelta, dice *algo entero*. Esa \"cosa\" es la oración \"que viene a la fiesta\"."
+          "text": "Empecemos por la función más directa y frecuente: el complemento directo. Cuando decís \"Juan dice que viene a la fiesta\", ¿qué es lo que Juan dice? No dice una palabra suelta, dice algo entero. Esa \"cosa\" es la oración \"que viene a la fiesta\"."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p7",
-          "text": "Para identificar si una subordinada sustantiva está haciendo de complemento directo, tenés que buscar el verbo de la oración principal y preguntarle: \"¿Qué?\". La respuesta será la subordinada. En el ejemplo anterior, \"¿Qué dice Juan? Dice **que viene a la fiesta**\"."
+          "text": "Para identificar si una subordinada sustantiva está haciendo de complemento directo, tenés que buscar el verbo de la oración principal y preguntarle: \"¿Qué?\". La respuesta será la subordinada. En el ejemplo anterior, \"¿Qué dice Juan? Dice que viene a la fiesta\"."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p8",
-          "text": "Una prueba infalible en nuestro idioma es la sustitución. Si podés reemplazar toda la oración subordinada por el pronombre neutro **\"lo\"**, entonces está funcionando como complemento directo. Probemos: \"Juan dice **lo**\". La frase sigue teniendo sentido gramatical, aunque haya perdido información específica. Esto confirma que \"que viene a la fiesta\" es un complemento directo."
+          "text": "Una prueba infalible en nuestro idioma es la sustitución. Si podés reemplazar toda la oración subordinada por el pronombre neutro \"lo\", entonces está funcionando como complemento directo. Probemos: \"Juan dice lo\". La frase sigue teniendo sentido gramatical, aunque haya perdido información específica. Esto confirma que \"que viene a la fiesta\" es un complemento directo."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p9",
-          "text": "Estas estructuras suelen introducirse con la conjunción **\"que\"**, pero también pueden aparecer con **\"si\"** (para expresar duda) o con pronombres interrogativos como **\"qué\"**, **\"quién\"** o **\"cuál\"**. Por ejemplo: \"No sé **si vendrá**\" o \"Me preguntan **qué hago**\". En todos estos casos, la subordinada recibe la acción del verbo principal de manera directa, sin intermediarios preposicionales. Es la conexión más pura entre el verbo y su objeto."
+          "text": "Estas estructuras suelen introducirse con la conjunción \"que\", pero también pueden aparecer con \"si\" (para expresar duda) o con pronombres interrogativos como \"qué\", \"quién\" o \"cuál\". Por ejemplo: \"No sé si vendrá\" o \"Me preguntan qué hago\". En todos estos casos, la subordinada recibe la acción del verbo principal de manera directa, sin intermediarios preposicionales. Es la conexión más pura entre el verbo y su objeto."
         },
         {
           "type": "heading",
@@ -1835,27 +1937,37 @@
         {
           "type": "paragraph",
           "id": "cap-13-p11",
-          "text": "Ahora bien, no todos los verbos funcionan igual. Hay verbos que, por su naturaleza, necesitan una \"puerta\" para llegar a su complemento. No podés decir \"Confío que me ayudás\". Tenés que decir \"Confío **en que** me ayudás\". Esa preposición \"en\" es obligatoria porque el verbo \"confiar\" la exige."
+          "text": "Ahora bien, no todos los verbos funcionan igual. Hay verbos que, por su naturaleza, necesitan una \"puerta\" para llegar a su complemento. No podés decir \"Confío que me ayudás\". Tenés que decir \"Confío en que me ayudás\". Esa preposición \"en\" es obligatoria porque el verbo \"confiar\" la exige."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p12",
-          "text": "Cuando el complemento de un verbo de régimen (es decir, un verbo que necesita preposición) es una oración completa, hablamos de una **subordinada sustantiva de complemento de régimen**."
+          "text": "Cuando el complemento de un verbo de régimen (es decir, un verbo que necesita preposición) es una oración completa, hablamos de una subordinada sustantiva de complemento de régimen."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p13",
-          "text": "La característica distintiva aquí es la preposición que antecede al nexo (generalmente \"que\"). Esa preposición no es opcional; si la quitás, la oración se rompe o cambia de significado radicalmente. Por ejemplo, \"Espero por que vengas\" no tiene sentido en este contexto, pero \"Insisto **en que** vengas\" sí. La preposición \"en\" es parte del verbo \"insistir\", no de la subordinada en sí, pero es el puente necesario."
+          "text": "La característica distintiva aquí es la preposición que antecede al nexo (generalmente \"que\"). Esa preposición no es opcional; si la quitás, la oración se rompe o cambia de significado radicalmente. Por ejemplo, \"Espero por que vengas\" no tiene sentido en este contexto, pero \"Insisto en que vengas\" sí. La preposición \"en\" es parte del verbo \"insistir\", no de la subordinada en sí, pero es el puente necesario."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p14",
-          "text": "En el habla cotidiana de Argentina, estas estructuras son onívoras. Usamos constantemente verbos como *acordarse de*, *quejarse de*, *depender de*, *tratar de*, *aprender a*. Si el objeto de esa preposición es una oración, tenemos un complemento de régimen."
+          "text": "En el habla cotidiana de Argentina, estas estructuras son onívoras. Usamos constantemente verbos como acordarse de, quejarse de, depender de, tratar de, aprender a. Si el objeto de esa preposición es una oración, tenemos un complemento de régimen."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p15",
-          "text": "*   \"Me acuerdo **de que** fuimos a la playa\". *   \"Depende **de que** llueva o no\". *   \"Tenemos que hablar **sobre que** hay que estudiar más\"."
+          "text": "*   \"Me acuerdo de que fuimos a la playa\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-13-p15-1",
+          "text": "\"Depende de que llueva o no\"."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-13-p15-2",
+          "text": "\"Tenemos que hablar sobre que hay que estudiar más\"."
         },
         {
           "type": "paragraph",
@@ -1876,22 +1988,22 @@
         {
           "type": "paragraph",
           "id": "cap-13-p19",
-          "text": "Una **subordinada sustantiva de complemento del adjetivo** aparece cuando un adjetivo exige una preposición para conectar con la oración que explica su causa, contenido o condición. La estructura típica es: Sujeto + Verbo Copulativo (ser/estar) + Adjetivo + Preposición + Oración Subordinada."
+          "text": "Una subordinada sustantiva de complemento del adjetivo aparece cuando un adjetivo exige una preposición para conectar con la oración que explica su causa, contenido o condición. La estructura típica es: Sujeto + Verbo Copulativo (ser/estar) + Adjetivo + Preposición + Oración Subordinada."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p20",
-          "text": "Por ejemplo: \"Estoy seguro **de que** aprobaremos\". El adjetivo \"seguro\" no puede ir solo; necesita el \"de que\" para tener sentido completo. Si decís \"Estoy seguro que aprobaremos\", en un registro muy coloquial podrías ser entendido, pero gramaticalmente la forma culta y precisa requiere la preposición porque es parte de la construcción adjetival \"seguro de\"."
+          "text": "Por ejemplo: \"Estoy seguro de que aprobaremos\". El adjetivo \"seguro\" no puede ir solo; necesita el \"de que\" para tener sentido completo. Si decís \"Estoy seguro que aprobaremos\", en un registro muy coloquial podrías ser entendido, pero gramaticalmente la forma culta y precisa requiere la preposición porque es parte de la construcción adjetival \"seguro de\"."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p21",
-          "text": "Otro ejemplo clásico es \"Estoy cansado **de que** siempre llegues tarde\". El adjetivo \"cansado\" expresa un estado emocional que tiene una causa específica: la oración \"que siempre llegues tarde\". La preposición \"de\" es el enlace obligatorio."
+          "text": "Otro ejemplo clásico es \"Estoy cansado de que siempre llegues tarde\". El adjetivo \"cansado\" expresa un estado emocional que tiene una causa específica: la oración \"que siempre llegues tarde\". La preposición \"de\" es el enlace obligatorio."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p22",
-          "text": "Estas estructuras son vitales para la expresión de emociones y opiniones. Permiten pasar de una sensación vaga (\"Estoy feliz\") a una causa concreta (\"Estoy feliz **por que** me hayan invitado\"). Fijate que la preposición puede variar según el adjetivo: *contento de/con*, *orgulloso de*, *miedo a*, *capaz de*. La subordinada sustantiva se adapta a esa preposición, llenando el hueco que el adjetivo deja abierto."
+          "text": "Estas estructuras son vitales para la expresión de emociones y opiniones. Permiten pasar de una sensación vaga (\"Estoy feliz\") a una causa concreta (\"Estoy feliz por que me hayan invitado\"). Fijate que la preposición puede variar según el adjetivo: contento de/con, orgulloso de, miedo a, capaz de. La subordinada sustantiva se adapta a esa preposición, llenando el hueco que el adjetivo deja abierto."
         },
         {
           "type": "heading",
@@ -1902,12 +2014,12 @@
         {
           "type": "paragraph",
           "id": "cap-13-p24",
-          "text": "Las oraciones no solo están hechas de verbos y adjetivos; también de sustantivos. Y los sustantivos, al igual que los verbos y adjetivos, pueden necesitar complementos para definir su significado. Cuando ese complemento es una oración completa, tenemos una **subordinada sustantiva de complemento del nombre**."
+          "text": "Las oraciones no solo están hechas de verbos y adjetivos; también de sustantivos. Y los sustantivos, al igual que los verbos y adjetivos, pueden necesitar complementos para definir su significado. Cuando ese complemento es una oración completa, tenemos una subordinada sustantiva de complemento del nombre."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p25",
-          "text": "Pensá en frases como \"El hecho **de que llueva** me preocupa\" o \"Tengo la esperanza **de que** todo mejore\". Aquí, las oraciones subordinadas (\"de que llueva\" y \"de que todo mejore\") no completan al verbo principal (\"preocupa\" o \"tengo\"), sino al sustantivo (\"hecho\" y \"esperanza\")."
+          "text": "Pensá en frases como \"El hecho de que llueva me preocupa\" o \"Tengo la esperanza de que todo mejore\". Aquí, las oraciones subordinadas (\"de que llueva\" y \"de que todo mejore\") no completan al verbo principal (\"preocupa\" o \"tengo\"), sino al sustantivo (\"hecho\" y \"esperanza\")."
         },
         {
           "type": "paragraph",
@@ -1928,22 +2040,22 @@
         {
           "type": "paragraph",
           "id": "cap-13-p29",
-          "text": "Finalmente, llegamos a un caso más matizado: la **subordinada sustantiva de complemento circunstancial**. Aquí, la subordinada no completa a un verbo, adjetivo o nombre específico de manera directa, sino que aporta información contextual: tiempo, modo, causa, condición, etc."
+          "text": "Finalmente, llegamos a un caso más matizado: la subordinada sustantiva de complemento circunstancial. Aquí, la subordinada no completa a un verbo, adjetivo o nombre específico de manera directa, sino que aporta información contextual: tiempo, modo, causa, condición, etc."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p30",
-          "text": "Aunque suena contradictorio que una oración \"sustantiva\" tenga valor circunstancial, esto ocurre cuando la subordinada funciona como un sintagma preposicional que indica circunstancias. Por ejemplo: \"Lo hizo **a pesar de que** llovía\". La parte \"a pesar de que llovía\" indica la circunstancia de oposición o concessión."
+          "text": "Aunque suena contradictorio que una oración \"sustantiva\" tenga valor circunstancial, esto ocurre cuando la subordinada funciona como un sintagma preposicional que indica circunstancias. Por ejemplo: \"Lo hizo a pesar de que llovía\". La parte \"a pesar de que llovía\" indica la circunstancia de oposición o concessión."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p31",
-          "text": "Otro ejemplo claro es: \"Lo sabía **desde que** llegaste\". La subordinada \"desde que llegaste\" indica el punto de partida temporal. Aunque gramaticalmente funciona como un complemento circunstancial de tiempo, su estructura interna es sustantiva porque puede ser reemplazada por un pronombre neutro en ciertos contextos o porque actúa como el objeto de la preposición \"desde\"."
+          "text": "Otro ejemplo claro es: \"Lo sabía desde que llegaste\". La subordinada \"desde que llegaste\" indica el punto de partida temporal. Aunque gramaticalmente funciona como un complemento circunstancial de tiempo, su estructura interna es sustantiva porque puede ser reemplazada por un pronombre neutro en ciertos contextos o porque actúa como el objeto de la preposición \"desde\"."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p32",
-          "text": "Estas subordinadas suelen introducirse por nexos compuestos que incluyen una preposición y una conjunción, como *a pesar de que*, *en lugar de que*, *desde que*, *hasta que*. Su función es situar la acción principal en un marco temporal, condicional o causal. Es importante notar que, aunque el valor es circunstancial, la naturaleza gramatical de la oración subordinada sigue siendo sustantiva porque ocupa el lugar de un término nominal dentro de la estructura preposicional."
+          "text": "Estas subordinadas suelen introducirse por nexos compuestos que incluyen una preposición y una conjunción, como a pesar de que, en lugar de que, desde que, hasta que. Su función es situar la acción principal en un marco temporal, condicional o causal. Es importante notar que, aunque el valor es circunstancial, la naturaleza gramatical de la oración subordinada sigue siendo sustantiva porque ocupa el lugar de un término nominal dentro de la estructura preposicional."
         },
         {
           "type": "heading",
@@ -1959,7 +2071,7 @@
         {
           "type": "paragraph",
           "id": "cap-13-p35",
-          "text": "Si responde al verbo directamente, es **Complemento Directo**. Si necesita una preposición obligatoria del verbo, es **Complemento de Régimen**. Si completa a un adjetivo, es **Complemento del Adjetivo**. Si completa a un sustantivo, es **Complemento del Nombre**. Si aporta contexto de tiempo, modo o causa, es **Complemento Circunstancial**."
+          "text": "Si responde al verbo directamente, es Complemento Directo. Si necesita una preposición obligatoria del verbo, es Complemento de Régimen. Si completa a un adjetivo, es Complemento del Adjetivo. Si completa a un sustantivo, es Complemento del Nombre. Si aporta contexto de tiempo, modo o causa, es Complemento Circunstancial."
         },
         {
           "type": "paragraph",
@@ -1969,7 +2081,13 @@
       ],
       "meta": {
         "chapterId": "cap-13"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-14",
@@ -1990,27 +2108,27 @@
         {
           "type": "paragraph",
           "id": "cap-14-p3",
-          "text": "Para empezar, hay que entender que toda comunicación efectiva se basa en una división fundamental del trabajo dentro de la oración. Cuando analizamos una oración bimembre, estamos mirando dos caras de la misma moneda: el **sujeto** y el **predicado**. El sujeto es, en términos simples, de quién o de qué se está hablando. Es el eje, el punto de partida. Pero ojo, no siempre está escrito. Aquí es donde muchos estudiantes se traban. El sujeto puede ser explícito, como en \"Los estudiantes aprobaron el examen\", donde \"Los estudiantes\" es claramente el núcleo. Pero también puede ser tácito o elíptico. Si alguien dice \"Llegué tarde\", no aparece ninguna palabra que diga \"yo\", pero la terminación del verbo \"-é\" nos obliga a inferir que el sujeto es la primera persona del singular. Esta capacidad de deducir lo que no está dicho es clave para la comprensión lectora. Por otro lado, existen oraciones que ni siquiera tienen sujeto, las llamadas **impersonales**. En \"Llueve mucho\", no hay nadie que llueva; el verbo describe un fenómeno natural sin atribuirlo a un agente. Reconocer estas diferencias no es un juego de palabras, es la base para entender quién realiza la acción y quién la recibe en cualquier texto que leas."
+          "text": "Para empezar, hay que entender que toda comunicación efectiva se basa en una división fundamental del trabajo dentro de la oración. Cuando analizamos una oración bimembre, estamos mirando dos caras de la misma moneda: el sujeto y el predicado. El sujeto es, en términos simples, de quién o de qué se está hablando. Es el eje, el punto de partida. Pero ojo, no siempre está escrito. Aquí es donde muchos estudiantes se traban. El sujeto puede ser explícito, como en \"Los estudiantes aprobaron el examen\", donde \"Los estudiantes\" es claramente el núcleo. Pero también puede ser tácito o elíptico. Si alguien dice \"Llegué tarde\", no aparece ninguna palabra que diga \"yo\", pero la terminación del verbo \"-é\" nos obliga a inferir que el sujeto es la primera persona del singular. Esta capacidad de deducir lo que no está dicho es clave para la comprensión lectora. Por otro lado, existen oraciones que ni siquiera tienen sujeto, las llamadas impersonales. En \"Llueve mucho\", no hay nadie que llueva; el verbo describe un fenómeno natural sin atribuirlo a un agente. Reconocer estas diferencias no es un juego de palabras, es la base para entender quién realiza la acción y quién la recibe en cualquier texto que leas."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p4",
-          "text": "Ahora bien, ¿qué pasa cuando esa idea que queremos expresar es demasiado compleja para caber en una sola palabra o en un sujeto simple? Ahí entra en juego la subordinada sustantiva de sujeto. Imaginá que querés decir \"Me alegra tu éxito\". Es claro, pero un poco plano. Si querés profundizar, podrías decir \"Me alegra **que hayas aprobado**\". Fijate bien: el sujeto de \"me alegra\" no es una palabra sola, es toda la oración \"que hayas aprobado\". Esta estructura nos permite convertir una idea, un hecho o una duda en el protagonista de la oración principal. Es una herramienta poderosa para expresar opiniones, deseos o certezas. Para identificarla, no hay nada mejor que la prueba del interrogativo. Le preguntás al verbo principal: \"¿Qué es lo que me alegra?\". La respuesta es \"que hayas aprobado\". Esa respuesta es la subordinada sustantiva de sujeto. Otra forma de verlo es reemplazar toda esa oración por un pronombre demostrativo como \"eso\". Si decís \"Eso me alegra\", la oración sigue funcionando sintácticamente, lo que confirma que el bloque completo actuaba como un sustantivo. Entender esto te permite escribir con mayor variedad y precisión, evitando la monotonía de las oraciones simples."
+          "text": "Ahora bien, ¿qué pasa cuando esa idea que queremos expresar es demasiado compleja para caber en una sola palabra o en un sujeto simple? Ahí entra en juego la subordinada sustantiva de sujeto. Imaginá que querés decir \"Me alegra tu éxito\". Es claro, pero un poco plano. Si querés profundizar, podrías decir \"Me alegra que hayas aprobado\". Fijate bien: el sujeto de \"me alegra\" no es una palabra sola, es toda la oración \"que hayas aprobado\". Esta estructura nos permite convertir una idea, un hecho o una duda en el protagonista de la oración principal. Es una herramienta poderosa para expresar opiniones, deseos o certezas. Para identificarla, no hay nada mejor que la prueba del interrogativo. Le preguntás al verbo principal: \"¿Qué es lo que me alegra?\". La respuesta es \"que hayas aprobado\". Esa respuesta es la subordinada sustantiva de sujeto. Otra forma de verlo es reemplazar toda esa oración por un pronombre demostrativo como \"eso\". Si decís \"Eso me alegra\", la oración sigue funcionando sintácticamente, lo que confirma que el bloque completo actuaba como un sustantivo. Entender esto te permite escribir con mayor variedad y precisión, evitando la monotonía de las oraciones simples."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p5",
-          "text": "Pero la gramática no existe en el vacío. Tiene que servirnos para construir textos que tengan sentido y propósito. Y aquí es donde entra la necesidad de organizar nuestras ideas. Estudiar Lengua no es solo aplicar reglas, es gestionar información. A medida que avanzás en la secundaria, los textos se vuelven más densos, los argumentos más intricados. Si no tenés técnicas de estudio sólidas, es fácil perderse entre las definiciones gramaticales y los análisis literarios. Por eso, dominar el **resumen** y los **organizadores gráficos** no es opcional; es estratégico. Un buen resumen no es copiar y pegar frases del libro; es un acto de interpretación. Es leer, filtrar lo accesorio y volver a escribir la idea central con tus propias palabras. Esto te obliga a procesar la información, a entenderla realmente. Por otro lado, los organizadores gráficos, como los mapas mentales o los cuadros sinópticos, te permiten visualizar las relaciones entre conceptos. Si estás estudiando la estructura del texto argumentativo, un diagrama te mostrará de un vistazo cómo la tesis se sostiene sobre los argumentos y se refuta en las contraargumentaciones. Estas herramientas te dan autonomía. Te permiten pasar de ser un receptor pasivo de información a un constructor activo de conocimiento."
+          "text": "Pero la gramática no existe en el vacío. Tiene que servirnos para construir textos que tengan sentido y propósito. Y aquí es donde entra la necesidad de organizar nuestras ideas. Estudiar Lengua no es solo aplicar reglas, es gestionar información. A medida que avanzás en la secundaria, los textos se vuelven más densos, los argumentos más intricados. Si no tenés técnicas de estudio sólidas, es fácil perderse entre las definiciones gramaticales y los análisis literarios. Por eso, dominar el resumen y los organizadores gráficos no es opcional; es estratégico. Un buen resumen no es copiar y pegar frases del libro; es un acto de interpretación. Es leer, filtrar lo accesorio y volver a escribir la idea central con tus propias palabras. Esto te obliga a procesar la información, a entenderla realmente. Por otro lado, los organizadores gráficos, como los mapas mentales o los cuadros sinópticos, te permiten visualizar las relaciones entre conceptos. Si estás estudiando la estructura del texto argumentativo, un diagrama te mostrará de un vistazo cómo la tesis se sostiene sobre los argumentos y se refuta en las contraargumentaciones. Estas herramientas te dan autonomía. Te permiten pasar de ser un receptor pasivo de información a un constructor activo de conocimiento."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p6",
-          "text": "Y, ¿cuál es el tipo de texto que más exige esa capacidad de estructuración lógica y persuasiva? El texto argumentativo. En este género, el objetivo no es solo contar algo, sino convencer. Y para convencer, necesitás un pilar central: la **tesis**. La tesis es la postura u opinión principal que el autor defiende a lo largo del texto. Es importante distinguir bien la tesis del tema. El tema es de qué se habla (por ejemplo, \"el uso de celulares en el aula\"), pero la tesis es la postura específica sobre ese tema (por ejemplo, \"debería prohibirse el uso de celulares en el aula\"). Una tesis siempre debe ser debatible; si es un hecho innegable como \"el agua es H2O\", no es una tesis. Para identificarla, buscá una afirmación que pueda ser refutada. Generalmente, se encuentra al principio o al final del texto, anunciando lo que el autor va a demostrar. Reconocer la tesis es el primer paso para leer críticamente. Te permite anticipar la dirección del argumento y evaluar si las pruebas que se presentan realmente sostienen esa postura. Sin una tesis clara, un texto argumentativo se desmorona; es como intentar construir un edificio sin cimientos."
+          "text": "Y, ¿cuál es el tipo de texto que más exige esa capacidad de estructuración lógica y persuasiva? El texto argumentativo. En este género, el objetivo no es solo contar algo, sino convencer. Y para convencer, necesitás un pilar central: la tesis. La tesis es la postura u opinión principal que el autor defiende a lo largo del texto. Es importante distinguir bien la tesis del tema. El tema es de qué se habla (por ejemplo, \"el uso de celulares en el aula\"), pero la tesis es la postura específica sobre ese tema (por ejemplo, \"debería prohibirse el uso de celulares en el aula\"). Una tesis siempre debe ser debatible; si es un hecho innegable como \"el agua es H2O\", no es una tesis. Para identificarla, buscá una afirmación que pueda ser refutada. Generalmente, se encuentra al principio o al final del texto, anunciando lo que el autor va a demostrar. Reconocer la tesis es el primer paso para leer críticamente. Te permite anticipar la dirección del argumento y evaluar si las pruebas que se presentan realmente sostienen esa postura. Sin una tesis clara, un texto argumentativo se desmorona; es como intentar construir un edificio sin cimientos."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p7",
-          "text": "Sin embargo, no todos los textos buscan convencer mediante la lógica fría; algunos buscan conmover, representar la vida humana en toda su complejidad. Ahí entra el **texto teatral**. A diferencia de la novela, donde un narrador nos cuenta lo que piensan los personajes, en el teatro las ideas y los conflictos se revelan a través del diálogo y la acción. El texto teatral, o guion dramático, está diseñado para ser representado. Esto significa que leerlo es un acto diferente: debés \"ver\" la obra en tu mente mientras lees. Para hacerlo, es fundamental distinguir dos componentes: los **parlamentos** y las **acotaciones**. Los parlamentos son lo que dicen los personajes; son el alma de la obra, donde se revela el carácter, se avanza la trama y se expresan los conflictos emocionales. Las acotaciones, en cambio, son las indicaciones del autor sobre cómo debe actuar el personaje, cómo es el escenario, qué iluminación hay o qué tono de voz usar. Estas indicaciones suelen estar entre paréntesis o en cursiva. Ignorar las acotaciones es leer solo la mitad de la obra. Ellas dan el contexto emocional y físico que transforma las palabras en acción dramática. El teatro es un arte colaborativo; el texto es la base, pero cobra vida en la escena. Estudiarlo nos ayuda a comprender el poder de la palabra dicha en voz alta, la dinámica de poder entre personajes y la estructura del conflicto humano."
+          "text": "Sin embargo, no todos los textos buscan convencer mediante la lógica fría; algunos buscan conmover, representar la vida humana en toda su complejidad. Ahí entra el texto teatral. A diferencia de la novela, donde un narrador nos cuenta lo que piensan los personajes, en el teatro las ideas y los conflictos se revelan a través del diálogo y la acción. El texto teatral, o guion dramático, está diseñado para ser representado. Esto significa que leerlo es un acto diferente: debés \"ver\" la obra en tu mente mientras lees. Para hacerlo, es fundamental distinguir dos componentes: los parlamentos y las acotaciones. Los parlamentos son lo que dicen los personajes; son el alma de la obra, donde se revela el carácter, se avanza la trama y se expresan los conflictos emocionales. Las acotaciones, en cambio, son las indicaciones del autor sobre cómo debe actuar el personaje, cómo es el escenario, qué iluminación hay o qué tono de voz usar. Estas indicaciones suelen estar entre paréntesis o en cursiva. Ignorar las acotaciones es leer solo la mitad de la obra. Ellas dan el contexto emocional y físico que transforma las palabras en acción dramática. El teatro es un arte colaborativo; el texto es la base, pero cobra vida en la escena. Estudiarlo nos ayuda a comprender el poder de la palabra dicha en voz alta, la dinámica de poder entre personajes y la estructura del conflicto humano."
         },
         {
           "type": "paragraph",
@@ -2035,7 +2153,13 @@
       ],
       "meta": {
         "chapterId": "cap-14"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-15",
@@ -2066,7 +2190,7 @@
         {
           "type": "paragraph",
           "id": "cap-15-p5",
-          "text": "Todas las palabras tienen una historia y una estructura. La raíz, o lexema, es el núcleo que lleva el significado base. Si tomás la raíz \"terr-\" (tierra), podés construir toda una familia: terreno, terrestre, enterrar, desenterrar, terrateniente. Al agregar prefijos (como *des-* o *re-*) o sufijos (como *-al* o *-ción*), estás creando nuevas palabras relacionadas con esa idea original. Esto no solo te ayuda a deducir el significado de palabras desconocidas, sino que también te permite enriquecer tus textos sin repetir las mismas palabras una y otra vez. Si sabés que \"rápido\" viene de la raíz \"rápid-\" y podés usar \"rapidez\" o \"rápidamente\", estás variando tu estilo y demostrando un control fino sobre el idioma. Es como tener un set de herramientas: cada morfema es una herramienta que te permite ajustar la palabra exactamente como la necesitás para el contexto."
+          "text": "Todas las palabras tienen una historia y una estructura. La raíz, o lexema, es el núcleo que lleva el significado base. Si tomás la raíz \"terr-\" (tierra), podés construir toda una familia: terreno, terrestre, enterrar, desenterrar, terrateniente. Al agregar prefijos (como des- o re-) o sufijos (como -al o -ción), estás creando nuevas palabras relacionadas con esa idea original. Esto no solo te ayuda a deducir el significado de palabras desconocidas, sino que también te permite enriquecer tus textos sin repetir las mismas palabras una y otra vez. Si sabés que \"rápido\" viene de la raíz \"rápid-\" y podés usar \"rapidez\" o \"rápidamente\", estás variando tu estilo y demostrando un control fino sobre el idioma. Es como tener un set de herramientas: cada morfema es una herramienta que te permite ajustar la palabra exactamente como la necesitás para el contexto."
         },
         {
           "type": "paragraph",
@@ -2116,7 +2240,13 @@
       ],
       "meta": {
         "chapterId": "cap-15"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

@@ -9,6 +9,30 @@
 > soportan puntos de teoría ilimitados, así que esto es una capa
 > adicional, no una reescritura.
 
+## Estado (2026-10-19)
+
+Hay **22 libros** en `teoria-extendida/*.json` (formato `book.pages@1.1`, un capítulo = una página, un libro por materia):
+
+- **11 generados con Qwen** (2026-10): Arte, Biología, Cívica, Derecho, Economía, Geografía, Historia, Historia profunda, Informática, Lengua, Psicología.
+  El 2026-10-19 se les quitó el Markdown inline: **el lector (`BookReader.tsx`) muestra el texto tal cual**, así que se veían los `**negritas**` y `*cursivas*` literales
+  (1.100 negritas y unas 250 cursivas en total) y varias listas llegaban pegadas en un solo párrafo con ` *   ` (se separaron en párrafos). También se
+  corrigieron las anclas del índice (`cap-1` no cumplía el formato `página:ancla` que valida el editor). No se tocó el contenido.
+- **11 escritos a mano por Claude** (2026-10-19, pedido de Javier "escribí los libros faltantes"): Filosofía (5 capítulos), Antropología (2), Sociología (1),
+  Aprendizaje (1), Ciudadanía digital (2), Comunicación (2), Turismo (2), Investigación (3), Educación física (4), ESI (3), Vida cotidiana (5).
+  Son las materias narrativas que no tenían libro (las "sin decidir" de abajo, más Filosofía, Comunicación, Investigación y Turismo, que no figuraban).
+  Se arman con `_qa_tools/build_teoria_extendida.py <materia> "<Título>"` a partir de `teoria-extendida/_raw/<materia>/cluster-N.md` (solo `##`, `###`
+  y párrafos, **sin Markdown inline, listas ni tablas**) y se validan con `validateBook` del editor (los 22 pasan).
+
+*Decisiones de Claude, no pedidas:* los capítulos de los libros nuevos agrupan los temas **por afinidad temática** (no por los clusters de
+`examen-jefe-clusters.md`, que mezclan temas sin relación); son más cortos (850 a 1.200 palabras) que los generados (unas 1.700); ESI y Vida cotidiana
+**no** se gamifican (siguen fuera de examen-jefe). Los números de leyes citados se verificaron donde fue posible (ver cada libro); lo que dependa de
+fechas (tarifas, descuentos bancarios, impuestos) se dejó afuera a propósito. *Sin hacer:* libros de Ingeniería y UX/Diseño (conceptuales pero chicos),
+revisión de los 11 libros viejos (siguen con el texto generado, repetitivo y a veces impreciso), traducciones, y definir si se carga un libro por materia
+o por capítulo.
+
+> Los números de la tabla de abajo (clusters, capítulos) son de agosto y están viejos: Economía tiene hoy 17 clusters, Historia profunda 21,
+> Historia 5 e Informática 11.
+
 ## Confirmado con Javier (2026-08-12)
 
 1. **No reemplaza** `teoria.md` — capa adicional. El Módulo/Libro con

@@ -1,0 +1,25 @@
+## En casa: medidores, facturas y energía que se gasta sin darnos cuenta
+
+Los servicios del hogar llegan por cables y cañerías, y se pagan con facturas que pocas veces se leen con atención. Sin embargo, entender cómo se mide el consumo de agua, gas y electricidad permite controlar el gasto, detectar errores y descubrir pérdidas que pasan inadvertidas. Este capítulo recorre cómo funcionan los medidores, cómo se calcula el consumo de un aparato y por qué un electrodoméstico que parece apagado puede seguir costando dinero.
+
+### Qué mide un medidor
+
+Los medidores de agua y de gas miden un volumen acumulado: un número que solo crece con el tiempo, a medida que se consume. Se expresan, por lo general, en metros cúbicos. Un metro cúbico equivale a mil litros, de modo que una lectura de agua que aumenta en quince metros cúbicos entre dos fechas indica quince mil litros consumidos.
+
+El medidor no muestra cuánto se gastó este mes: muestra el total desde que se instaló. Para conocer el consumo de un período hay que restar dos lecturas: la actual menos la anterior. Es el mismo principio de un odómetro de auto, que no dice cuántos kilómetros se manejaron hoy sino el total acumulado, y para saber lo de hoy hay que restar la lectura de ayer. Esta resta es una buena herramienta de control. Si todas las canillas están cerradas y el medidor de agua sigue avanzando, hay una pérdida. Y comparar la lectura propia con la que aparece en la factura permite detectar errores de estimación, que ocurren cuando la empresa no pudo leer el medidor y facturó un consumo aproximado.
+
+### El kilovatio hora
+
+La electricidad se factura en kilovatios hora, la cantidad de energía que consume un aparato de mil vatios de potencia funcionando durante una hora. Para estimar lo que gasta un aparato se multiplica su potencia en vatios por las horas de uso y se divide por mil. Una plancha de dos mil vatios usada tres horas por día consume seis kilovatios hora diarios. Con ese cálculo se pueden comparar aparatos y decidir cuáles conviene usar menos. Si el costo del kilovatio hora fuera de ciento veinte pesos, usar la plancha durante un día sumaría setecientos veinte pesos, una cifra que sorprende a quien no lo había pensado.
+
+La factura de electricidad se compone de varios elementos: el consumo, que es la cantidad de kilovatios hora multiplicada por el precio de cada uno; cargos fijos por el servicio, que se pagan aunque no se consuma; y impuestos y tasas. Los precios, las tarifas y los subsidios cambian con frecuencia, por lo que conviene leer la factura vigente y no darla por sabida. Detectar cuánto representa cada rubro ayuda a decidir dónde actuar: si el cargo fijo es grande, reducir el consumo ahorra menos de lo que se supone.
+
+### El consumo fantasma
+
+Muchos aparatos nunca están realmente apagados mientras siguen enchufados. Los televisores, las consolas, los cargadores, los routers y los microondas con reloj quedan en un estado de espera, o standby, para encenderse al instante con el control remoto, mantener la hora o seguir conectados a la red. Ese estado consume una pequeña cantidad de energía de forma continua. Un aparato en espera suele gastar pocos vatios, pero los gasta las veinticuatro horas del día. Cinco vatios constantes, por ejemplo, suman unos tres kilovatios hora al mes, y si hay diez aparatos así, la suma deja de ser despreciable. Se puede medir con un vatímetro, un enchufe intermedio que indica cuánto consume lo que se conecta a él. La solución es sencilla: desenchufar lo que no se usa o conectarlo a una zapatilla con interruptor. Detrás de este fenómeno está la ley de Joule: toda corriente que atraviesa un componente con resistencia disipa energía en forma de calor, y por eso los transformadores de los cargadores se calientan aunque no estén cargando nada.
+
+### Una heladera llena es una heladera eficiente
+
+Una heladera no enfría de forma continua. El compresor se enciende cuando la temperatura interior sube por encima de un límite, enfría hasta bajar de otro y se apaga, en un ciclo que se repite todo el día. Cada arranque consume más energía que mantenerla apagada, así que cuántas veces por hora se enciende pesa mucho en su gasto total. Una heladera casi vacía contiene sobre todo aire, que cambia de temperatura con muy poca energía, de modo que cada vez que se abre la puerta la temperatura interior sube rápido y el compresor tiene que arrancar seguido. Una heladera bien cargada, en cambio, tiene más masa térmica, sobre todo si hay recipientes con agua, que tiene una capacidad calorífica muy alta: esa masa absorbe y libera calor más lentamente, y la temperatura fluctúa menos. Por eso una recomendación real de eficiencia es llenar los espacios vacíos con botellas de agua. También ayudan no introducir alimentos calientes, abrir la puerta lo menos posible, mantener limpias las juntas para que cierren bien y no ubicarla junto a fuentes de calor.
+
+La eficiencia energética no consiste en privarse de las comodidades sino en conocer dónde se gasta. Un hogar que mide, compara y ajusta pequeños hábitos puede reducir su consumo sin perder confort, y ese ahorro se repite todos los meses.

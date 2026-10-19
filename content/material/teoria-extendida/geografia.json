@@ -11,49 +11,49 @@
         "id": "cap-1",
         "title": "Entre el mercado y la ley: La construcción del ambiente y los modelos de desarrollo en el continente americano",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "El mapa, la gente y el futuro: leyendo el mundo con precisión y conciencia",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "El mapa, el territorio y el planeta: Lecturas de la realidad",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       },
       {
         "id": "cap-4",
         "title": "La mirada geográfica: De la escala del mapa a la huella invisible",
         "pageStart": 4,
-        "anchor": "cap-4"
+        "anchor": "cap-4:inicio"
       },
       {
         "id": "cap-5",
         "title": "El mapa de los movimientos: orientarse para comprender la Argentina y el mundo",
         "pageStart": 5,
-        "anchor": "cap-5"
+        "anchor": "cap-5:inicio"
       },
       {
         "id": "cap-6",
         "title": "Territorios vivos: la dinámica de la población, la producción y la región",
         "pageStart": 6,
-        "anchor": "cap-6"
+        "anchor": "cap-6:inicio"
       },
       {
         "id": "cap-7",
         "title": "El territorio que habitamos: de la naturaleza a la tecnología",
         "pageStart": 7,
-        "anchor": "cap-7"
+        "anchor": "cap-7:inicio"
       },
       {
         "id": "cap-8",
         "title": "La mirada tecnológica y los flujos humanos: cómo entendemos el mundo globalizado",
         "pageStart": 8,
-        "anchor": "cap-8"
+        "anchor": "cap-8:inicio"
       }
     ]
   },
@@ -166,7 +166,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -245,17 +251,17 @@
         {
           "type": "paragraph",
           "id": "cap-2-p14",
-          "text": "Por un lado, tenemos al **conservacionismo**, una corriente antigua y pragmática que nace a fines del siglo XIX, principalmente en Estados Unidos. El conservacionismo no cuestiona el uso de la naturaleza, sino que aboga por su gestión racional. Su figura clave, Gifford Pinchot, defendía la idea de \"el mayor bien para el mayor número de personas, por el mayor tiempo\". Para ellos, los bosques, el agua y el suelo son recursos naturales que deben administrarse de manera eficiente para asegurar que estén disponibles para las generaciones futuras. No se trata de no tocar la naturaleza, sino de usarla de forma sostenible."
+          "text": "Por un lado, tenemos al conservacionismo, una corriente antigua y pragmática que nace a fines del siglo XIX, principalmente en Estados Unidos. El conservacionismo no cuestiona el uso de la naturaleza, sino que aboga por su gestión racional. Su figura clave, Gifford Pinchot, defendía la idea de \"el mayor bien para el mayor número de personas, por el mayor tiempo\". Para ellos, los bosques, el agua y el suelo son recursos naturales que deben administrarse de manera eficiente para asegurar que estén disponibles para las generaciones futuras. No se trata de no tocar la naturaleza, sino de usarla de forma sostenible."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p15",
-          "text": "Dentro de esta corriente, existe una tensión histórica. Por un lado, está el **preservacionismo**, representado por John Muir, quien argumentaba que la naturaleza salvaje tiene un valor intrínseco, espiritual y estético que debe protegerse intacta, sin intervención humana. Por otro, está el **conservacionismo utilitario**, que acepta la intervención humana siempre que sea para maximizar el rendimiento sostenible del recurso. Hoy, esta corriente se refleja en las políticas de parques nacionales, la regulación de la caza y la gestión forestal certificada. Es una postura que busca equilibrar el desarrollo económico con la protección ambiental, sin romper el sistema productivo actual."
+          "text": "Dentro de esta corriente, existe una tensión histórica. Por un lado, está el preservacionismo, representado por John Muir, quien argumentaba que la naturaleza salvaje tiene un valor intrínseco, espiritual y estético que debe protegerse intacta, sin intervención humana. Por otro, está el conservacionismo utilitario, que acepta la intervención humana siempre que sea para maximizar el rendimiento sostenible del recurso. Hoy, esta corriente se refleja en las políticas de parques nacionales, la regulación de la caza y la gestión forestal certificada. Es una postura que busca equilibrar el desarrollo económico con la protección ambiental, sin romper el sistema productivo actual."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p16",
-          "text": "Sin embargo, existe otra mirada, más crítica y radical, que es la del **decrecimiento**. Esta corriente, impulsada por pensadores como Serge Latouche, cuestiona los cimientos mismos de la economía moderna: el crecimiento infinito del Producto Bruto Interno (PBI). Los defensores del decrecimiento argumentan que es imposible seguir creciendo económicamente en un planeta de recursos finitos. Para ellos, la tecnología no es suficiente para resolver la crisis ecológica si seguimos aumentando la producción y el consumo de materiales."
+          "text": "Sin embargo, existe otra mirada, más crítica y radical, que es la del decrecimiento. Esta corriente, impulsada por pensadores como Serge Latouche, cuestiona los cimientos mismos de la economía moderna: el crecimiento infinito del Producto Bruto Interno (PBI). Los defensores del decrecimiento argumentan que es imposible seguir creciendo económicamente en un planeta de recursos finitos. Para ellos, la tecnología no es suficiente para resolver la crisis ecológica si seguimos aumentando la producción y el consumo de materiales."
         },
         {
           "type": "paragraph",
@@ -271,7 +277,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p19",
-          "text": "Al cerrar este capítulo, es importante ver cómo estos temas se entrelazan. Las **coordenadas** nos dan la precisión técnica para localizar recursos y poblaciones. La **densidad poblacional** nos revela la presión humana sobre esos territorios y la desigualdad en la distribución de la vida. Y finalmente, el debate entre **conservacionismo** y **decrecimiento** nos enfrenta a la decisión ética y política de cómo gestionar esa presión."
+          "text": "Al cerrar este capítulo, es importante ver cómo estos temas se entrelazan. Las coordenadas nos dan la precisión técnica para localizar recursos y poblaciones. La densidad poblacional nos revela la presión humana sobre esos territorios y la desigualdad en la distribución de la vida. Y finalmente, el debate entre conservacionismo y decrecimiento nos enfrenta a la decisión ética y política de cómo gestionar esa presión."
         },
         {
           "type": "paragraph",
@@ -281,7 +287,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -313,22 +325,22 @@
         {
           "type": "paragraph",
           "id": "cap-3-p5",
-          "text": "Todo análisis geográfico comienza con una pregunta básica: ¿a qué distancia estamos mirando? Aquí entra en juego la **escala de un mapa**, un concepto que parece sencillo pero guarda una trampa conceptual importante. Recordá que un mapa es, por definición, una reducción de la realidad. La escala es la razón matemática que nos dice cuánto se achicó el mundo real para caber en una hoja de papel o en tu pantalla."
+          "text": "Todo análisis geográfico comienza con una pregunta básica: ¿a qué distancia estamos mirando? Aquí entra en juego la escala de un mapa, un concepto que parece sencillo pero guarda una trampa conceptual importante. Recordá que un mapa es, por definición, una reducción de la realidad. La escala es la razón matemática que nos dice cuánto se achicó el mundo real para caber en una hoja de papel o en tu pantalla."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p6",
-          "text": "Si encontrás una escala numérica como **1:100.000**, leéla como \"uno en cien mil\". Esto significa que cada centímetro en el mapa equivale a cien mil centímetros en la realidad. Si medís tres centímetros entre dos pueblos en ese mapa, estás viendo una distancia real de trescientos mil centímetros, lo que convertido a kilómetros da un kilómetro y medio. Es fundamental entender que la escala no es solo un número frío; determina qué información podés ver. Una escala grande (con un denominador chico, como 1:10.000) te permite ver calles, veredas y detalles mínimos, pero solo de una zona muy chica. Una escala chica (con un denominador gigante, como 1:10.000.000) te muestra continentes enteros, pero borra por completo los detalles locales. Por eso, cuando cambiamos de escala, cambiamos de perspectiva: lo que es un detalle insignificante a escala global puede ser el centro del mundo a escala local."
+          "text": "Si encontrás una escala numérica como 1:100.000, leéla como \"uno en cien mil\". Esto significa que cada centímetro en el mapa equivale a cien mil centímetros en la realidad. Si medís tres centímetros entre dos pueblos en ese mapa, estás viendo una distancia real de trescientos mil centímetros, lo que convertido a kilómetros da un kilómetro y medio. Es fundamental entender que la escala no es solo un número frío; determina qué información podés ver. Una escala grande (con un denominador chico, como 1:10.000) te permite ver calles, veredas y detalles mínimos, pero solo de una zona muy chica. Una escala chica (con un denominador gigante, como 1:10.000.000) te muestra continentes enteros, pero borra por completo los detalles locales. Por eso, cuando cambiamos de escala, cambiamos de perspectiva: lo que es un detalle insignificante a escala global puede ser el centro del mundo a escala local."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p7",
-          "text": "Además de la escala numérica, los mapas suelen incluir una **escala gráfica**, esa barrita dibujada con marcas que indica distancias reales. Su ventaja es práctica: si fotocopiás un mapa y lo ampliás, la escala numérica (el \"1:100.000\") deja de ser válida porque el número no creció, pero la imagen sí. La escala gráfica, en cambio, se agranda con el dibujo y sigue siendo correcta. Esto nos enseña que el mapa no es la realidad, es una representación técnica que depende de cómo la manipulemos."
+          "text": "Además de la escala numérica, los mapas suelen incluir una escala gráfica, esa barrita dibujada con marcas que indica distancias reales. Su ventaja es práctica: si fotocopiás un mapa y lo ampliás, la escala numérica (el \"1:100.000\") deja de ser válida porque el número no creció, pero la imagen sí. La escala gráfica, en cambio, se agranda con el dibujo y sigue siendo correcta. Esto nos enseña que el mapa no es la realidad, es una representación técnica que depende de cómo la manipulemos."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p8",
-          "text": "Al trabajar con estas representaciones, siempre distinguimos entre dos conceptos que en el habla cotidiana usamos como sinónimos: **límite** y **frontera**. El límite es la línea abstracta, el trazo en un tratado o en un mapa que separa dos jurisdicciones. Es legal, es una idea. La frontera, en cambio, es la zona real, el territorio donde ese límite se hace tangible. Ahí hay pasos aduaneros, controles migratorios, vallas, luces de neón y cultura de cruce. El límite es la regla; la frontera es la experiencia de vivir en el borde."
+          "text": "Al trabajar con estas representaciones, siempre distinguimos entre dos conceptos que en el habla cotidiana usamos como sinónimos: límite y frontera. El límite es la línea abstracta, el trazo en un tratado o en un mapa que separa dos jurisdicciones. Es legal, es una idea. La frontera, en cambio, es la zona real, el territorio donde ese límite se hace tangible. Ahí hay pasos aduaneros, controles migratorios, vallas, luces de neón y cultura de cruce. El límite es la regla; la frontera es la experiencia de vivir en el borde."
         },
         {
           "type": "heading",
@@ -339,7 +351,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p10",
-          "text": "Una vez que definimos el espacio y lo medimos, nos preguntamos: ¿quién lo gobierna? El mundo no está vacío; está organizado políticamente en **estados nacionales**. Un estado es una entidad con un territorio definido, una población y un gobierno que ejerce la soberanía, es decir, la autoridad máxima para tomar decisiones dentro de sus fronteras. Históricamente, se creyó que estos límites eran rígidos e inamovibles y que la soberanía era absoluta dentro de ellos. Pero hoy sabemos que esa visión está cambiando."
+          "text": "Una vez que definimos el espacio y lo medimos, nos preguntamos: ¿quién lo gobierna? El mundo no está vacío; está organizado políticamente en estados nacionales. Un estado es una entidad con un territorio definido, una población y un gobierno que ejerce la soberanía, es decir, la autoridad máxima para tomar decisiones dentro de sus fronteras. Históricamente, se creyó que estos límites eran rígidos e inamovibles y que la soberanía era absoluta dentro de ellos. Pero hoy sabemos que esa visión está cambiando."
         },
         {
           "type": "paragraph",
@@ -349,7 +361,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p12",
-          "text": "Aquí es donde la geografía política choca con la realidad contemporánea: la **globalización**. Desde finales del siglo XX, vivimos una paradoja fascinante. Por un lado, los mercados, la información y las tecnologías se globalizan, creando una red de interdependencia planetaria. Las grandes corporaciones transnacionales tienen un poder económico que a veces supera al de los propios gobiernos nacionales. Por otro lado, la política, la seguridad y la legalidad siguen ancladas en los estados. Los estados siguen siendo los únicos actores con capacidad para declarar guerras, emitir moneda o garantizar derechos."
+          "text": "Aquí es donde la geografía política choca con la realidad contemporánea: la globalización. Desde finales del siglo XX, vivimos una paradoja fascinante. Por un lado, los mercados, la información y las tecnologías se globalizan, creando una red de interdependencia planetaria. Las grandes corporaciones transnacionales tienen un poder económico que a veces supera al de los propios gobiernos nacionales. Por otro lado, la política, la seguridad y la legalidad siguen ancladas en los estados. Los estados siguen siendo los únicos actores con capacidad para declarar guerras, emitir moneda o garantizar derechos."
         },
         {
           "type": "paragraph",
@@ -370,7 +382,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p16",
-          "text": "El corazón productivo de Argentina es la **Pampa Húmeda**, una región de llanuras fértiles con climas templados y suelos ricos en nutrientes. Históricamente, esta zona fue sinónimo de ganadería y cultivo de trigo y maíz. Sin embargo, desde finales del siglo XX, ocurrió un cambio profundo: la expansión de la **frontera agrícola** hacia el norte, penetrando en provincias como Santiago del Estero, Chaco y Santa Fe."
+          "text": "El corazón productivo de Argentina es la Pampa Húmeda, una región de llanuras fértiles con climas templados y suelos ricos en nutrientes. Históricamente, esta zona fue sinónimo de ganadería y cultivo de trigo y maíz. Sin embargo, desde finales del siglo XX, ocurrió un cambio profundo: la expansión de la frontera agrícola hacia el norte, penetrando en provincias como Santiago del Estero, Chaco y Santa Fe."
         },
         {
           "type": "paragraph",
@@ -386,7 +398,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p19",
-          "text": "Pero este modelo productivo, eficiente para la economía, genera profundas contradicciones ambientales. Aquí es donde entra en juego el **ecologismo político**, una corriente de pensamiento que va más allá de la simple preocupación por proteger los árboles o las especies. Mientras que otras corrientes, como el conservacionismo o el ambientalismo liberal, buscan resolver la crisis ambiental mediante regulaciones estatales o mecanismos de mercado (pagar por servicios ambientales, por ejemplo), el ecologismo político sostiene que la crisis ambiental no se puede resolver dentro del sistema económico actual."
+          "text": "Pero este modelo productivo, eficiente para la economía, genera profundas contradicciones ambientales. Aquí es donde entra en juego el ecologismo político, una corriente de pensamiento que va más allá de la simple preocupación por proteger los árboles o las especies. Mientras que otras corrientes, como el conservacionismo o el ambientalismo liberal, buscan resolver la crisis ambiental mediante regulaciones estatales o mecanismos de mercado (pagar por servicios ambientales, por ejemplo), el ecologismo político sostiene que la crisis ambiental no se puede resolver dentro del sistema económico actual."
         },
         {
           "type": "paragraph",
@@ -396,7 +408,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p21",
-          "text": "Dentro del ecologismo político, la vertiente más desarrollada es el **ecosocialismo**. Esta corriente, que tiene sus bases teóricas en el Manifiesto Ecosocialista Internacional (lanzada por autores como Joel Kovel y Michael Löwy en 2001), combina el análisis marxista de clases con la crítica ecológica. Sostiene que la explotación del trabajo humano y la explotación de la naturaleza tienen la misma raíz: la lógica capitalista de extracción de plusvalía. Para los ecosocialistas, no se puede resolver la injusticia social sin resolver la injusticia ecológica, y viceversa. Ambas son dos caras de la misma moneda."
+          "text": "Dentro del ecologismo político, la vertiente más desarrollada es el ecosocialismo. Esta corriente, que tiene sus bases teóricas en el Manifiesto Ecosocialista Internacional (lanzada por autores como Joel Kovel y Michael Löwy en 2001), combina el análisis marxista de clases con la crítica ecológica. Sostiene que la explotación del trabajo humano y la explotación de la naturaleza tienen la misma raíz: la lógica capitalista de extracción de plusvalía. Para los ecosocialistas, no se puede resolver la injusticia social sin resolver la injusticia ecológica, y viceversa. Ambas son dos caras de la misma moneda."
         },
         {
           "type": "paragraph",
@@ -412,7 +424,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p24",
-          "text": "Al finalizar este recorrido, podés notar que los temas que parecen distintos están conectados por hilos invisibles pero poderosos. La **escala** del mapa define qué podemos ver, pero la **división política** determina quién tiene el poder sobre lo que vemos. La **globalización** difumina las fronteras, pero también intensifica la competencia por los recursos que definen la **geografía económica**, como la agricultura argentina. Y, finalmente, la **crisis ambiental** nos obliga a replantear las bases mismas de nuestro sistema económico y político, desafiando la idea tradicional de la soberanía estatal."
+          "text": "Al finalizar este recorrido, podés notar que los temas que parecen distintos están conectados por hilos invisibles pero poderosos. La escala del mapa define qué podemos ver, pero la división política determina quién tiene el poder sobre lo que vemos. La globalización difumina las fronteras, pero también intensifica la competencia por los recursos que definen la geografía económica, como la agricultura argentina. Y, finalmente, la crisis ambiental nos obliga a replantear las bases mismas de nuestro sistema económico y político, desafiando la idea tradicional de la soberanía estatal."
         },
         {
           "type": "paragraph",
@@ -422,7 +434,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-4",
@@ -459,7 +477,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p6",
-          "text": "Pero la clave de toda representación cartográfica es la **escala**. La escala es el factor de reducción que nos permite pasar del mundo real al papel. Piénsalo así: si querés ver tu ciudad entera en una hoja de papel, tenés que reducir enormemente cada manzana; si querés ver todo el planeta, tenés que reducirlo aún más. La escala nos dice que cada centímetro en el mapa equivale a muchos kilómetros en la realidad."
+          "text": "Pero la clave de toda representación cartográfica es la escala. La escala es el factor de reducción que nos permite pasar del mundo real al papel. Piénsalo así: si querés ver tu ciudad entera en una hoja de papel, tenés que reducir enormemente cada manzana; si querés ver todo el planeta, tenés que reducirlo aún más. La escala nos dice que cada centímetro en el mapa equivale a muchos kilómetros en la realidad."
         },
         {
           "type": "paragraph",
@@ -475,7 +493,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p9",
-          "text": "Una vez que tenemos la perspectiva global, observamos que el espacio económico mundial ha dejado de ser rígido. Las fronteras ya no delimitan economías cerradas, sino que son permeables a los flujos de mercancías y capitales. El fenómeno central que define esta nueva geografía es la **deslocalización industrial**."
+          "text": "Una vez que tenemos la perspectiva global, observamos que el espacio económico mundial ha dejado de ser rígido. Las fronteras ya no delimitan economías cerradas, sino que son permeables a los flujos de mercancías y capitales. El fenómeno central que define esta nueva geografía es la deslocalización industrial."
         },
         {
           "type": "paragraph",
@@ -506,12 +524,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p15",
-          "text": "Mientras la geografía industrial mueve productos por el mundo, cada uno de esos objetos tiene un impacto ambiental que no se ve en el estante de la tienda. Aquí entramos en el terreno de las **huellas ambientales invisibles**, específicamente la huella de carbono y el agua virtual."
+          "text": "Mientras la geografía industrial mueve productos por el mundo, cada uno de esos objetos tiene un impacto ambiental que no se ve en el estante de la tienda. Aquí entramos en el terreno de las huellas ambientales invisibles, específicamente la huella de carbono y el agua virtual."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p16",
-          "text": "La **huella de carbono** es la cantidad total de gases de efecto invernadero (medida en equivalente de CO₂) que se emiten, directa o indirectamente, por una actividad, un producto o una persona a lo largo de su ciclo de vida: desde la extracción de la materia prima, pasando por la fabricación y el transporte, hasta su uso y disposición final."
+          "text": "La huella de carbono es la cantidad total de gases de efecto invernadero (medida en equivalente de CO₂) que se emiten, directa o indirectamente, por una actividad, un producto o una persona a lo largo de su ciclo de vida: desde la extracción de la materia prima, pasando por la fabricación y el transporte, hasta su uso y disposición final."
         },
         {
           "type": "paragraph",
@@ -521,17 +539,37 @@
         {
           "type": "paragraph",
           "id": "cap-4-p18",
-          "text": "De manera similar, el **agua virtual** (o huella hídrica) es la cantidad total de agua que se usó para producir un bien o servicio, aunque esa agua no esté \"presente\" en el producto final. Una taza de café no contiene litros de agua, pero cultivar, procesar y transportar el café necesitó muchísima agua en el camino."
+          "text": "De manera similar, el agua virtual (o huella hídrica) es la cantidad total de agua que se usó para producir un bien o servicio, aunque esa agua no esté \"presente\" en el producto final. Una taza de café no contiene litros de agua, pero cultivar, procesar y transportar el café necesitó muchísima agua en el camino."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p19",
-          "text": "Para que te hagas una idea de la magnitud, mirá estos ejemplos aproximados de agua virtual: *   1 taza de café: ~140 litros. *   1 kg de carne vacuna: ~15.000 litros. *   1 hamburguesa: ~2.500 litros. *   1 kg de arroz: ~2.500 litros."
+          "text": "Para que te hagas una idea de la magnitud, mirá estos ejemplos aproximados de agua virtual:"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p19-1",
+          "text": "1 taza de café: ~140 litros."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p19-2",
+          "text": "1 kg de carne vacuna: ~15.000 litros."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p19-3",
+          "text": "1 hamburguesa: ~2.500 litros."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p19-4",
+          "text": "1 kg de arroz: ~2.500 litros."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p20",
-          "text": "El agua virtual no desaparece del planeta — sigue en el ciclo del agua. La idea del concepto es otra: mostrar cuánta agua estuvo **comprometida** en producir algo, para poder comparar el impacto real de distintos hábitos de consumo, incluso cuando esa agua \"no se ve\" en el producto terminado."
+          "text": "El agua virtual no desaparece del planeta — sigue en el ciclo del agua. La idea del concepto es otra: mostrar cuánta agua estuvo comprometida en producir algo, para poder comparar el impacto real de distintos hábitos de consumo, incluso cuando esa agua \"no se ve\" en el producto terminado."
         },
         {
           "type": "paragraph",
@@ -552,12 +590,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p24",
-          "text": "Aquí entra el **Índice de Desarrollo Humano (IDH)**, creado por el Programa de las Naciones Unidas para el Desarrollo (PNUD). El IDH busca evaluar el progreso de los países más allá del simple crecimiento económico (el PIB). Tradicionalmente, se medía el éxito de una nación por cuánto dinero producía. Sin embargo, el IDH propone que el verdadero desarrollo se mide por la capacidad de las personas para llevar una vida larga, saludable y creativa."
+          "text": "Aquí entra el Índice de Desarrollo Humano (IDH), creado por el Programa de las Naciones Unidas para el Desarrollo (PNUD). El IDH busca evaluar el progreso de los países más allá del simple crecimiento económico (el PIB). Tradicionalmente, se medía el éxito de una nación por cuánto dinero producía. Sin embargo, el IDH propone que el verdadero desarrollo se mide por la capacidad de las personas para llevar una vida larga, saludable y creativa."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p25",
-          "text": "Este índice se basa en tres dimensiones principales: 1.  **Salud:** medida a través de la esperanza de vida al nacer. Cuanto mayor es este número, mejor es el acceso a servicios médicos y condiciones de higiene. 2.  **Educación:** que combina dos indicadores: el promedio de años de escolaridad para los adultos y los años esperados de escolarización para los niños. 3.  **Estándar de vida digno:** evaluado mediante el ingreso nacional bruto (INB) per cápita, ajustado por el poder adquisitivo de cada moneda."
+          "text": "Este índice se basa en tres dimensiones principales: 1.  Salud: medida a través de la esperanza de vida al nacer. Cuanto mayor es este número, mejor es el acceso a servicios médicos y condiciones de higiene. 2.  Educación: que combina dos indicadores: el promedio de años de escolaridad para los adultos y los años esperados de escolarización para los niños. 3.  Estándar de vida digno: evaluado mediante el ingreso nacional bruto (INB) per cápita, ajustado por el poder adquisitivo de cada moneda."
         },
         {
           "type": "paragraph",
@@ -567,22 +605,22 @@
         {
           "type": "paragraph",
           "id": "cap-4-p27",
-          "text": "Sin embargo, el IDH es una media nacional. Para entender las desigualdades dentro de un país como Argentina, necesitamos ir a una escala más local y utilizar **indicadores sociales específicos**. En Argentina, tres de los más importantes son la Necesidad Básica Insatisfecha (NBI), la tasa de pobreza y el hacinamiento."
+          "text": "Sin embargo, el IDH es una media nacional. Para entender las desigualdades dentro de un país como Argentina, necesitamos ir a una escala más local y utilizar indicadores sociales específicos. En Argentina, tres de los más importantes son la Necesidad Básica Insatisfecha (NBI), la tasa de pobreza y el hacinamiento."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p28",
-          "text": "El **NBI** es un indicador compuesto que surge de la combinación de varias carencias. No se mide con una sola pregunta, sino que evalúa si un hogar satisface ciertas condiciones mínimas. Tradicionalmente, se considera que un hogar tiene NBI si cumple al menos una de estas condiciones: vive en una vivienda precaria (con materiales no dignos), tiene hacinamiento (demasiadas personas por habitación) o hay niños en el hogar que no asisten a la escuela. Es una herramienta poderosa porque captura la multidimensionalidad de la pobreza; no solo mira el dinero, sino también la falta de acceso a servicios básicos y educación."
+          "text": "El NBI es un indicador compuesto que surge de la combinación de varias carencias. No se mide con una sola pregunta, sino que evalúa si un hogar satisface ciertas condiciones mínimas. Tradicionalmente, se considera que un hogar tiene NBI si cumple al menos una de estas condiciones: vive en una vivienda precaria (con materiales no dignos), tiene hacinamiento (demasiadas personas por habitación) o hay niños en el hogar que no asisten a la escuela. Es una herramienta poderosa porque captura la multidimensionalidad de la pobreza; no solo mira el dinero, sino también la falta de acceso a servicios básicos y educación."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p29",
-          "text": "Mientras que el NBI es un indicador estructural, la **pobreza** se mide generalmente a través del ingreso. Se define como la situación en la que los ingresos de un hogar no alcanzan para cubrir el valor de la canasta básica de alimentos (pobreza indigente) ni el de la canasta básica total (pobreza general). En Argentina, este dato suele fluctuar con la economía nacional, pero su distribución geográfica revela patrones claros: la pobreza no se distribuye uniformemente, sino que se concentra en las periferias urbanas y en regiones con menor desarrollo industrial o agrícola."
+          "text": "Mientras que el NBI es un indicador estructural, la pobreza se mide generalmente a través del ingreso. Se define como la situación en la que los ingresos de un hogar no alcanzan para cubrir el valor de la canasta básica de alimentos (pobreza indigente) ni el de la canasta básica total (pobreza general). En Argentina, este dato suele fluctuar con la economía nacional, pero su distribución geográfica revela patrones claros: la pobreza no se distribuye uniformemente, sino que se concentra en las periferias urbanas y en regiones con menor desarrollo industrial o agrícola."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p30",
-          "text": "El **hacinamiento**, por su parte, es un indicador de la calidad del espacio habitado. Refleja cuántas personas comparten una habitación o una vivienda. Un alto nivel de hacinamiento no solo afecta la privacidad y la dignidad, sino que también tiene consecuencias directas en la salud física y mental de las personas, facilitando la propagación de enfermedades y generando estrés familiar."
+          "text": "El hacinamiento, por su parte, es un indicador de la calidad del espacio habitado. Refleja cuántas personas comparten una habitación o una vivienda. Un alto nivel de hacinamiento no solo afecta la privacidad y la dignidad, sino que también tiene consecuencias directas en la salud física y mental de las personas, facilitando la propagación de enfermedades y generando estrés familiar."
         },
         {
           "type": "heading",
@@ -603,7 +641,13 @@
       ],
       "meta": {
         "chapterId": "cap-4"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-5",
@@ -667,7 +711,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p11",
-          "text": "Las migraciones son, esencialmente, la búsqueda de un mejor lugar para vivir. Pero, ¿qué pasa cuando cruzamos fronteras nacionales? Entramos en el terreno de las **migraciones internacionales**. Estas no son solo cambios de domicilio; implican un cambio de ciudadanía, de sistemas legales y, frecuentemente, de identidad cultural. En el mundo actual, los flujos internacionales son masivos. Desde las grandes olas de inmigrantes europeos que llegaron a Argentina en los siglos XIX y XX, pasando por la diáspora de profesionales altamente calificados, hasta los refugiados que huyen de conflictos armados o desastres climáticos en el siglo XXI, las migraciones internacionales transforman tanto a los países de origen como a los de destino."
+          "text": "Las migraciones son, esencialmente, la búsqueda de un mejor lugar para vivir. Pero, ¿qué pasa cuando cruzamos fronteras nacionales? Entramos en el terreno de las migraciones internacionales. Estas no son solo cambios de domicilio; implican un cambio de ciudadanía, de sistemas legales y, frecuentemente, de identidad cultural. En el mundo actual, los flujos internacionales son masivos. Desde las grandes olas de inmigrantes europeos que llegaron a Argentina en los siglos XIX y XX, pasando por la diáspora de profesionales altamente calificados, hasta los refugiados que huyen de conflictos armados o desastres climáticos en el siglo XXI, las migraciones internacionales transforman tanto a los países de origen como a los de destino."
         },
         {
           "type": "paragraph",
@@ -677,17 +721,17 @@
         {
           "type": "paragraph",
           "id": "cap-5-p13",
-          "text": "Sin embargo, no toda la migración cruza fronteras internacionales. Dentro de Argentina, vivimos un fenómeno constante de **migraciones internas**. Este movimiento redefine el mapa poblacional del país, concentrando habitantes en ciertas zonas y vaciando otras. Históricamente, esto ha significado el crecimiento desmedido de las grandes ciudades y el despoblamiento de las provincias del norte y del sur profundo."
+          "text": "Sin embargo, no toda la migración cruza fronteras internacionales. Dentro de Argentina, vivimos un fenómeno constante de migraciones internas. Este movimiento redefine el mapa poblacional del país, concentrando habitantes en ciertas zonas y vaciando otras. Históricamente, esto ha significado el crecimiento desmedido de las grandes ciudades y el despoblamiento de las provincias del norte y del sur profundo."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p14",
-          "text": "Para clasificar estos movimientos internos, los geógrafos miran la duración y el destino. Una categoría importante es la migración **fronteriza**, que ha cobrado fuerza en los últimos años. ¿De qué se trata? De personas que se desplazan desde el interior del país hacia las zonas limítrofes. En Argentina, vemos flujos significativos hacia el norte (provincias como Misiones, Corrientes y Salta) impulsados por la agricultura, el turismo y proyectos de infraestructura, y también hacia el sur, hacia Tierra del Fuego, atraídos por la industria petrolera y el turismo de naturaleza. Esta migración fronteriza cambia rápidamente la dinámica social de esas regiones."
+          "text": "Para clasificar estos movimientos internos, los geógrafos miran la duración y el destino. Una categoría importante es la migración fronteriza, que ha cobrado fuerza en los últimos años. ¿De qué se trata? De personas que se desplazan desde el interior del país hacia las zonas limítrofes. En Argentina, vemos flujos significativos hacia el norte (provincias como Misiones, Corrientes y Salta) impulsados por la agricultura, el turismo y proyectos de infraestructura, y también hacia el sur, hacia Tierra del Fuego, atraídos por la industria petrolera y el turismo de naturaleza. Esta migración fronteriza cambia rápidamente la dinámica social de esas regiones."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p15",
-          "text": "Otro tipo fascinante es la migración **golondrina**. Se llama así porque, al igual que las aves, aparece y desaparece según la estación. Son trabajadores temporales que se trasladan por periodos cortos, generalmente para cosechas agrícolas o eventos turísticos específicos. Si bien su movilidad es alta y su estadía es breve, su impacto económico en las regiones receptoras es enorme, ya que llenan huecos laborales estacionales que la población local no puede cubrir."
+          "text": "Otro tipo fascinante es la migración golondrina. Se llama así porque, al igual que las aves, aparece y desaparece según la estación. Son trabajadores temporales que se trasladan por periodos cortos, generalmente para cosechas agrícolas o eventos turísticos específicos. Si bien su movilidad es alta y su estadía es breve, su impacto económico en las regiones receptoras es enorme, ya que llenan huecos laborales estacionales que la población local no puede cubrir."
         },
         {
           "type": "heading",
@@ -703,12 +747,12 @@
         {
           "type": "paragraph",
           "id": "cap-5-p18",
-          "text": "La actividad minera se distribuye de manera desigual. En el **Noroeste Argentino (NOA)**, la cordillera de los Andes es rica en metales preciosos como el oro y la plata, y, sobre todo, en litio. Aquí es donde la brújula nos indica un punto crucial: el \"Triángulo del Litio\". Este término geoeconómico abarca las salinas de Jujuy, Salta y Catamarca. Estas provincias, ubicadas en el extremo noroeste, son vitales a nivel mundial porque el litio es el componente clave de las baterías para vehículos eléctricos y la transición energética global. La demanda internacional ha provocado un boom minero en esta zona, atrayendo inversiones y, como veremos, generando tensiones sociales y ambientales."
+          "text": "La actividad minera se distribuye de manera desigual. En el Noroeste Argentino (NOA), la cordillera de los Andes es rica en metales preciosos como el oro y la plata, y, sobre todo, en litio. Aquí es donde la brújula nos indica un punto crucial: el \"Triángulo del Litio\". Este término geoeconómico abarca las salinas de Jujuy, Salta y Catamarca. Estas provincias, ubicadas en el extremo noroeste, son vitales a nivel mundial porque el litio es el componente clave de las baterías para vehículos eléctricos y la transición energética global. La demanda internacional ha provocado un boom minero en esta zona, atrayendo inversiones y, como veremos, generando tensiones sociales y ambientales."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p19",
-          "text": "En el **sur**, la provincia de Santa Cruz tiene una larga tradición en la extracción de carbón, aunque con altibajos. Pero el gran actor energético del sur es el complejo de Vaca Muerta, ubicado en Neuquén. Aunque Neuquén está más al centro-norte que Santa Cruz, la región patagónica en general ha visto un aumento en la extracción de hidrocarbulos no convencionales. Esta actividad ha generado flujos de trabajadores especializados, muchos de ellos migrantes internos o temporales, que llegan a estas zonas remotas buscando empleo en la industria petrolera y gasífera."
+          "text": "En el sur, la provincia de Santa Cruz tiene una larga tradición en la extracción de carbón, aunque con altibajos. Pero el gran actor energético del sur es el complejo de Vaca Muerta, ubicado en Neuquén. Aunque Neuquén está más al centro-norte que Santa Cruz, la región patagónica en general ha visto un aumento en la extracción de hidrocarbulos no convencionales. Esta actividad ha generado flujos de trabajadores especializados, muchos de ellos migrantes internos o temporales, que llegan a estas zonas remotas buscando empleo en la industria petrolera y gasífera."
         },
         {
           "type": "paragraph",
@@ -760,7 +804,13 @@
       ],
       "meta": {
         "chapterId": "cap-5"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-6",
@@ -841,7 +891,13 @@
       ],
       "meta": {
         "chapterId": "cap-6"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-7",
@@ -972,7 +1028,13 @@
       ],
       "meta": {
         "chapterId": "cap-7"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-8",
@@ -999,17 +1061,17 @@
         {
           "type": "paragraph",
           "id": "cap-8-p4",
-          "text": "Para empezar, tenés que dejar de pensar en el mapa digital como si fuera simplemente una versión digitalizada de un mapa de papel que escaneaste. Esa es una idea común, pero está equivocada. Un mapa de papel es una representación fija; una vez impreso, su escala y su información no cambian. En cambio, un mapa digital es un **Sistema de Información Geográfica (SIG)**. ¿Y qué significa esto en la práctica? Significa que lo que ves en tu pantalla es, en realidad, una base de datos compleja donde cada elemento —una calle, un río, un edificio, un parque— tiene coordenadas reales (latitud y longitud) asociadas a él, pero además tiene \"etiquetas\" o atributos."
+          "text": "Para empezar, tenés que dejar de pensar en el mapa digital como si fuera simplemente una versión digitalizada de un mapa de papel que escaneaste. Esa es una idea común, pero está equivocada. Un mapa de papel es una representación fija; una vez impreso, su escala y su información no cambian. En cambio, un mapa digital es un Sistema de Información Geográfica (SIG). ¿Y qué significa esto en la práctica? Significa que lo que ves en tu pantalla es, en realidad, una base de datos compleja donde cada elemento —una calle, un río, un edificio, un parque— tiene coordenadas reales (latitud y longitud) asociadas a él, pero además tiene \"etiquetas\" o atributos."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p5",
-          "text": "Imaginate que estás buscando una farmacia de turno en tu barrio. En un mapa de papel, tendrías que saber de memoria dónde están las farmacias o buscarlas en una leyenda pequeña. En un SIG, el sistema sabe que hay una farmacia en esa coordenada específica, sabe que está abierta ahora mismo, sabe su teléfono y, si tenés activada la capa de \"tránsito en vivo\", incluso puede calcular cuánto tardás en llegar considerando los embotellamientos del momento. Esta capacidad de **encender y apagar capas** es lo que hace poderoso al SIG. Podés ver la capa de calles superpuesta con la capa de límites políticos, y luego, sin borrar nada, agregar una capa de imágenes satelitales de fondo. Es como trabajar con hojas de acetato transparentes, pero con la flexibilidad infinita de la computadora."
+          "text": "Imaginate que estás buscando una farmacia de turno en tu barrio. En un mapa de papel, tendrías que saber de memoria dónde están las farmacias o buscarlas en una leyenda pequeña. En un SIG, el sistema sabe que hay una farmacia en esa coordenada específica, sabe que está abierta ahora mismo, sabe su teléfono y, si tenés activada la capa de \"tránsito en vivo\", incluso puede calcular cuánto tardás en llegar considerando los embotellamientos del momento. Esta capacidad de encender y apagar capas es lo que hace poderoso al SIG. Podés ver la capa de calles superpuesta con la capa de límites políticos, y luego, sin borrar nada, agregar una capa de imágenes satelitales de fondo. Es como trabajar con hojas de acetato transparentes, pero con la flexibilidad infinita de la computadora."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p6",
-          "text": "Pero, ¿de dónde sacan esa información de fondo? Ahí entra la otra pieza del rompecabezas: las **imágenes satelitales**. Cuando mirás una foto de la Tierra desde el espacio, no estás viendo exactamente lo que ve tu ojo. Los satélites utilizan sensores que captan energía reflejada o emitida por la superficie terrestre, y lo hacen en **bandas espectrales** que van más allá de lo visible."
+          "text": "Pero, ¿de dónde sacan esa información de fondo? Ahí entra la otra pieza del rompecabezas: las imágenes satelitales. Cuando mirás una foto de la Tierra desde el espacio, no estás viendo exactamente lo que ve tu ojo. Los satélites utilizan sensores que captan energía reflejada o emitida por la superficie terrestre, y lo hacen en bandas espectrales que van más allá de lo visible."
         },
         {
           "type": "paragraph",
@@ -1030,12 +1092,12 @@
         {
           "type": "paragraph",
           "id": "cap-8-p10",
-          "text": "Uno de los fenómenos más drásticos que estos sistemas nos permiten medir hoy es la **urbanización acelerada**. Durante siglos, la mayoría de la humanidad vivió en el campo. Pero desde la Revolución Industrial, y especialmente en el último siglo, la población mundial se ha desplazado masivamente hacia las ciudades. En Argentina, esto tiene una historia particular: la mecanización del agro, la llegada de industrias en el siglo XIX y principios del XX, y la búsqueda de servicios básicos como educación y salud empujaron a miles de personas desde las zonas rurales hacia centros urbanos como Buenos Aires, Rosario o Córdoba."
+          "text": "Uno de los fenómenos más drásticos que estos sistemas nos permiten medir hoy es la urbanización acelerada. Durante siglos, la mayoría de la humanidad vivió en el campo. Pero desde la Revolución Industrial, y especialmente en el último siglo, la población mundial se ha desplazado masivamente hacia las ciudades. En Argentina, esto tiene una historia particular: la mecanización del agro, la llegada de industrias en el siglo XIX y principios del XX, y la búsqueda de servicios básicos como educación y salud empujaron a miles de personas desde las zonas rurales hacia centros urbanos como Buenos Aires, Rosario o Córdoba."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p11",
-          "text": "Hoy, en el contexto global, la urbanización no es solo un crecimiento demográfico; es una transformación profunda del territorio. Las ciudades son motores económicos, sí, pero también generan problemas complejos. La **densidad poblacional** aumenta a niveles que ponen a prueba la infraestructura. Los mapas digitales nos ayudan a visualizar esto: al superponer capas de densidad de población con capas de servicios básicos (hospitales, escuelas, transporte), los planificadores urbanos pueden ver dónde hay déficits críticos."
+          "text": "Hoy, en el contexto global, la urbanización no es solo un crecimiento demográfico; es una transformación profunda del territorio. Las ciudades son motores económicos, sí, pero también generan problemas complejos. La densidad poblacional aumenta a niveles que ponen a prueba la infraestructura. Los mapas digitales nos ayudan a visualizar esto: al superponer capas de densidad de población con capas de servicios básicos (hospitales, escuelas, transporte), los planificadores urbanos pueden ver dónde hay déficits críticos."
         },
         {
           "type": "paragraph",
@@ -1051,12 +1113,12 @@
         {
           "type": "paragraph",
           "id": "cap-8-p14",
-          "text": "Mientras las ciudades crecen, la naturaleza del **trabajo** también cambia. Ya no basta con mirar la tasa de desempleo; hay que analizar la calidad del empleo y su estructura. La geografía económica actual nos muestra una brecha profunda entre el Norte y el Sur Global. En los países industrializados, la automatización y la inteligencia artificial están reemplazando puestos de trabajo tradicionales, generando lo que llamamos \"desempleo estructural\": personas que pierden su empleo porque sus habilidades ya no coinciden con lo que pide el mercado, y encuentran difícil reciclarse."
+          "text": "Mientras las ciudades crecen, la naturaleza del trabajo también cambia. Ya no basta con mirar la tasa de desempleo; hay que analizar la calidad del empleo y su estructura. La geografía económica actual nos muestra una brecha profunda entre el Norte y el Sur Global. En los países industrializados, la automatización y la inteligencia artificial están reemplazando puestos de trabajo tradicionales, generando lo que llamamos \"desempleo estructural\": personas que pierden su empleo porque sus habilidades ya no coinciden con lo que pide el mercado, y encuentran difícil reciclarse."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p15",
-          "text": "Por otro lado, en muchas regiones en desarrollo, el problema no es la falta de trabajadores, sino la falta de empleos formales. La **informalidad laboral** es una característica marcante de la geografía del trabajo actual. Millones de personas trabajan en la economía informal: sin contratos, sin protección social, con ingresos inestables. Los SIG ayudan a mapear esta economía invisible. Por ejemplo, analizando la densidad de comercios en zonas periféricas o el uso del suelo en horarios nocturnos mediante imágenes térmicas, se pueden estimar las zonas de mayor actividad económica informal que los censos tradicionales suelen pasar por alto."
+          "text": "Por otro lado, en muchas regiones en desarrollo, el problema no es la falta de trabajadores, sino la falta de empleos formales. La informalidad laboral es una característica marcante de la geografía del trabajo actual. Millones de personas trabajan en la economía informal: sin contratos, sin protección social, con ingresos inestables. Los SIG ayudan a mapear esta economía invisible. Por ejemplo, analizando la densidad de comercios en zonas periféricas o el uso del suelo en horarios nocturnos mediante imágenes térmicas, se pueden estimar las zonas de mayor actividad económica informal que los censos tradicionales suelen pasar por alto."
         },
         {
           "type": "paragraph",
@@ -1072,7 +1134,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p18",
-          "text": "Si el trabajo y la urbanización definen la estructura interna, el **turismo mundial** define las conexiones externas y la circulación de personas. El turismo ya no es un lujo exclusivo; es una industria masiva que actúa como un potente motor de globalización cultural y económica. Los flujos turísticos siguen patrones claros: la mayoría de los turistas provienen del Hemisferio Norte (Europa Occidental, Norteamérica y, cada vez más, Asia Oriental) y viajan hacia destinos con recursos naturales, culturales o climáticos atractivos."
+          "text": "Si el trabajo y la urbanización definen la estructura interna, el turismo mundial define las conexiones externas y la circulación de personas. El turismo ya no es un lujo exclusivo; es una industria masiva que actúa como un potente motor de globalización cultural y económica. Los flujos turísticos siguen patrones claros: la mayoría de los turistas provienen del Hemisferio Norte (Europa Occidental, Norteamérica y, cada vez más, Asia Oriental) y viajan hacia destinos con recursos naturales, culturales o climáticos atractivos."
         },
         {
           "type": "paragraph",
@@ -1108,7 +1170,13 @@
       ],
       "meta": {
         "chapterId": "cap-8"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

@@ -11,133 +11,133 @@
         "id": "cap-1",
         "title": "De la Polis al Cosmos: La construcción del poder y sus límites",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "El hilo invisible: Clima, poder y civilización a través del tiempo",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "La Tierra en movimiento: De la roca a la civilización y del mito a la ciencia",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       },
       {
         "id": "cap-4",
         "title": "De la expansión del cosmos a la fundación de las ciudades: una historia de mundos en movimiento",
         "pageStart": 4,
-        "anchor": "cap-4"
+        "anchor": "cap-4:inicio"
       },
       {
         "id": "cap-5",
         "title": "Cronómetros de piedra, sombras del cielo y la reconfiguración del mundo",
         "pageStart": 5,
-        "anchor": "cap-5"
+        "anchor": "cap-5:inicio"
       },
       {
         "id": "cap-6",
         "title": "El pulso del tiempo: De la tierra arada a la red eléctrica",
         "pageStart": 6,
-        "anchor": "cap-6"
+        "anchor": "cap-6:inicio"
       },
       {
         "id": "cap-7",
         "title": "De la célula al imperio: la construcción de la complejidad humana",
         "pageStart": 7,
-        "anchor": "cap-7"
+        "anchor": "cap-7:inicio"
       },
       {
         "id": "cap-8",
         "title": "De la nube de gas a la explosión de vida: un viaje por la historia profunda",
         "pageStart": 8,
-        "anchor": "cap-8"
+        "anchor": "cap-8:inicio"
       },
       {
         "id": "cap-9",
         "title": "De la oxidación de los océanos a la red global: una historia de rupturas y conexiones",
         "pageStart": 9,
-        "anchor": "cap-9"
+        "anchor": "cap-9:inicio"
       },
       {
         "id": "cap-10",
         "title": "La forja del poder: De las manos que tallan piedra a los bloques que dividen el mundo",
         "pageStart": 10,
-        "anchor": "cap-10"
+        "anchor": "cap-10:inicio"
       },
       {
         "id": "cap-11",
         "title": "De la bipedestación al mapa mundial: una historia de rupturas y reconstrucciones",
         "pageStart": 11,
-        "anchor": "cap-11"
+        "anchor": "cap-11:inicio"
       },
       {
         "id": "cap-12",
         "title": "De las cenizas de Persia a la quema del carbón: El hilo conductor de la historia humana",
         "pageStart": 12,
-        "anchor": "cap-12"
+        "anchor": "cap-12:inicio"
       },
       {
         "id": "cap-13",
         "title": "El peso del poder: De la sed de expansión a la revolución del saber",
         "pageStart": 13,
-        "anchor": "cap-13"
+        "anchor": "cap-13:inicio"
       },
       {
         "id": "cap-14",
         "title": "La memoria humana: De la arcilla al código y del Big Bang a la red global",
         "pageStart": 14,
-        "anchor": "cap-14"
+        "anchor": "cap-14:inicio"
       },
       {
         "id": "cap-15",
         "title": "De la roca al cielo: La materia, el conocimiento y el movimiento del mundo",
         "pageStart": 15,
-        "anchor": "cap-15"
+        "anchor": "cap-15:inicio"
       },
       {
         "id": "cap-16",
         "title": "De las estrellas a la nación: la larga historia de nuestra existencia",
         "pageStart": 16,
-        "anchor": "cap-16"
+        "anchor": "cap-16:inicio"
       },
       {
         "id": "cap-17",
         "title": "De la niebla cósmica a la justicia social: una narrativa de la historia profunda",
         "pageStart": 17,
-        "anchor": "cap-17"
+        "anchor": "cap-17:inicio"
       },
       {
         "id": "cap-18",
         "title": "De la primera célula al primer imperio: una historia conectada",
         "pageStart": 18,
-        "anchor": "cap-18"
+        "anchor": "cap-18:inicio"
       },
       {
         "id": "cap-19",
         "title": "Los grandes giros: de la tierra viva a la libertad humana",
         "pageStart": 19,
-        "anchor": "cap-19"
+        "anchor": "cap-19:inicio"
       },
       {
         "id": "cap-20",
         "title": "De la piedra al vapor: las grandes transformaciones de la humanidad",
         "pageStart": 20,
-        "anchor": "cap-20"
+        "anchor": "cap-20:inicio"
       },
       {
         "id": "cap-21",
         "title": "El gran tejido del tiempo: De las estrellas a las sociedades",
         "pageStart": 21,
-        "anchor": "cap-21"
+        "anchor": "cap-21:inicio"
       },
       {
         "id": "cap-22",
         "title": "La larga sombra del tiempo: De la formación de la Tierra al peso de la historia",
         "pageStart": 22,
-        "anchor": "cap-22"
+        "anchor": "cap-22:inicio"
       }
     ]
   },
@@ -167,17 +167,17 @@
         {
           "type": "paragraph",
           "id": "cap-1-p4",
-          "text": "Todo comienza, paradójicamente, con la fragmentación. Tras el colapso de la civilización micénica y la entrada en lo que se conoce como la Edad Oscura, la geografía accidentada de Grecia favoreció no la unidad, sino la disgregación. De esta dispersión emergió la *polis*, esa innovación institucional que cambió para siempre la manera en que los seres humanos conciben la autoridad. La *polis* no era simplemente un lugar donde vivir, sino un cuerpo político compuesto por ciudadanos. Aquí, el poder no descendía de los dioses de manera vertical e inapelable, como en los grandes imperios orientales, sino que se negociaba entre iguales, aunque esa igualdad estuviera estrictamente limitada a los hombres libres. La ciudadanía implicaba un compromiso activo: participar en la vida pública, defender la ciudad y debatir el destino común."
+          "text": "Todo comienza, paradójicamente, con la fragmentación. Tras el colapso de la civilización micénica y la entrada en lo que se conoce como la Edad Oscura, la geografía accidentada de Grecia favoreció no la unidad, sino la disgregación. De esta dispersión emergió la polis, esa innovación institucional que cambió para siempre la manera en que los seres humanos conciben la autoridad. La polis no era simplemente un lugar donde vivir, sino un cuerpo político compuesto por ciudadanos. Aquí, el poder no descendía de los dioses de manera vertical e inapelable, como en los grandes imperios orientales, sino que se negociaba entre iguales, aunque esa igualdad estuviera estrictamente limitada a los hombres libres. La ciudadanía implicaba un compromiso activo: participar en la vida pública, defender la ciudad y debatir el destino común."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p5",
-          "text": "Es fundamental que te detengas a pensar en esta diferencia. En Grecia, la autoridad tenía un origen horizontal, basado en la pertenencia a una comunidad específica y en la ley escrita (*nomos*) que regulaba la convivencia. Esto sentó las bases del pensamiento político occidental, pero también mostró sus primeras grietas. La fragmentación de las *poleis* las hacía vulnerables, y necesitaban un modelo más cohesionado para sobrevivir. De ahí nace Roma, que tomaría la idea griega de la ley y la institucionalizaría a escala imperial."
+          "text": "Es fundamental que te detengas a pensar en esta diferencia. En Grecia, la autoridad tenía un origen horizontal, basado en la pertenencia a una comunidad específica y en la ley escrita (nomos) que regulaba la convivencia. Esto sentó las bases del pensamiento político occidental, pero también mostró sus primeras grietas. La fragmentación de las poleis las hacía vulnerables, y necesitaban un modelo más cohesionado para sobrevivir. De ahí nace Roma, que tomaría la idea griega de la ley y la institucionalizaría a escala imperial."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p6",
-          "text": "La República Romana, surgida tras la expulsión de los reyes en el 509 a.C., representó un experimento audaz de equilibrio de poderes. Los romanos temían tanto el despotismo de un solo hombre como la tiranía de la multitud. Para evitarlo, diseñaron un sistema de contrapesos (*checks and balances*) donde el Senado, las Asambleas populares y las Magistraturas se vigilaban mutuamente. El concepto de *imperium* y la colegialidad magistrática buscaban que el poder fuera temporal y compartido. Sin embargo, esta estructura, perfecta en teoría, comenzó a resquebrajarse cuando Roma se expandió más allá de las paredes de la ciudad."
+          "text": "La República Romana, surgida tras la expulsión de los reyes en el 509 a.C., representó un experimento audaz de equilibrio de poderes. Los romanos temían tanto el despotismo de un solo hombre como la tiranía de la multitud. Para evitarlo, diseñaron un sistema de contrapesos (checks and balances) donde el Senado, las Asambleas populares y las Magistraturas se vigilaban mutuamente. El concepto de imperium y la colegialidad magistrática buscaban que el poder fuera temporal y compartido. Sin embargo, esta estructura, perfecta en teoría, comenzó a resquebrajarse cuando Roma se expandió más allá de las paredes de la ciudad."
         },
         {
           "type": "paragraph",
@@ -203,12 +203,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p11",
-          "text": "Es interesante notar cómo el absolutismo, lejos de ser solo una forma de gobierno tiránica, fue también una respuesta racional a la inestabilidad. La *Raison d'État* (razón de Estado) exigía que la unidad del reino prevaleciera sobre las lealtades locales, religiosas o feudales. El monarca se convertía en el garante de la paz interna y la proyección externa. Sin embargo, esta concentración extrema de poder también contenía en germen su propia contradicción. Al centralizar todo en la figura del rey, se debilitaban los intermediarios tradicionales (nobleza, iglesias locales, corporaciones), lo que, con el tiempo, haría que cualquier crisis tocara directamente la legitimidad del soberano, sin amortiguadores sociales."
+          "text": "Es interesante notar cómo el absolutismo, lejos de ser solo una forma de gobierno tiránica, fue también una respuesta racional a la inestabilidad. La Raison d'État (razón de Estado) exigía que la unidad del reino prevaleciera sobre las lealtades locales, religiosas o feudales. El monarca se convertía en el garante de la paz interna y la proyección externa. Sin embargo, esta concentración extrema de poder también contenía en germen su propia contradicción. Al centralizar todo en la figura del rey, se debilitaban los intermediarios tradicionales (nobleza, iglesias locales, corporaciones), lo que, con el tiempo, haría que cualquier crisis tocara directamente la legitimidad del soberano, sin amortiguadores sociales."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p12",
-          "text": "Esta tensión entre la centralización del poder y la representación de los gobernados es un hilo rojo que atraviesa la historia. Mientras en Europa el absolutismo buscaba la unidad bajo la corona, en otros contextos surgían movimientos que reclamaban que la autoridad debía emanar de la voluntad general, no de la gracia divina. Este impulso hacia la participación ciudadana, que había sido la marca de la *polis* griega, resurgiría con fuerza en la modernidad, especialmente en América Latina."
+          "text": "Esta tensión entre la centralización del poder y la representación de los gobernados es un hilo rojo que atraviesa la historia. Mientras en Europa el absolutismo buscaba la unidad bajo la corona, en otros contextos surgían movimientos que reclamaban que la autoridad debía emanar de la voluntad general, no de la gracia divina. Este impulso hacia la participación ciudadana, que había sido la marca de la polis griega, resurgiría con fuerza en la modernidad, especialmente en América Latina."
         },
         {
           "type": "heading",
@@ -266,7 +266,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p23",
-          "text": "Al recorrer este capítulo, has visto cómo el poder no es una cosa estática, sino un proceso dinámico que se adapta, colapsa y se reconstruye. Desde la *polis* griega, donde la política era una actividad comunitaria y pública, pasando por la compleja arquitectura de contrapesos de la República Romana, hasta la centralización absoluta de los monarcas europeos y la posterior democratización forzada por la Ley Sáenz Peña, la humanidad ha estado constantemente negociando cómo distribuir la autoridad."
+          "text": "Al recorrer este capítulo, has visto cómo el poder no es una cosa estática, sino un proceso dinámico que se adapta, colapsa y se reconstruye. Desde la polis griega, donde la política era una actividad comunitaria y pública, pasando por la compleja arquitectura de contrapesos de la República Romana, hasta la centralización absoluta de los monarcas europeos y la posterior democratización forzada por la Ley Sáenz Peña, la humanidad ha estado constantemente negociando cómo distribuir la autoridad."
         },
         {
           "type": "paragraph",
@@ -281,7 +281,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -318,7 +324,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p6",
-          "text": "Aquí es donde la línea base histórica cobra sentido. Egipto no es solo un lugar de pirámides; es la prueba viviente de cómo el clima define la política. El historiador griego Heródoto llamó a Egipto \"el don del Nilo\" por una razón geográfica fundamental: sin el ciclo anual de inundación, esa región sería un desierto inhóspito. Las inundaciones depositaban una capa de lodo fértil, el *kemet* o \"tierra negra\", esencial para la agricultura. Este excedente alimenticio permitió que la sociedad se especializara, que surgiera la burocracia y que, hacia el 3100 a.C., el rey Menes pudiera unificar el Alto y el Bajo Egipto. La estabilidad política egipcia dependía, en última instancia, de la estabilidad climática. Cuando el clima cambiaba o el río fallaba, el orden divino se quebraba."
+          "text": "Aquí es donde la línea base histórica cobra sentido. Egipto no es solo un lugar de pirámides; es la prueba viviente de cómo el clima define la política. El historiador griego Heródoto llamó a Egipto \"el don del Nilo\" por una razón geográfica fundamental: sin el ciclo anual de inundación, esa región sería un desierto inhóspito. Las inundaciones depositaban una capa de lodo fértil, el kemet o \"tierra negra\", esencial para la agricultura. Este excedente alimenticio permitió que la sociedad se especializara, que surgiera la burocracia y que, hacia el 3100 a.C., el rey Menes pudiera unificar el Alto y el Bajo Egipto. La estabilidad política egipcia dependía, en última instancia, de la estabilidad climática. Cuando el clima cambiaba o el río fallaba, el orden divino se quebraba."
         },
         {
           "type": "heading",
@@ -386,7 +392,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -537,7 +549,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-4",
@@ -564,7 +582,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p4",
-          "text": "Antes de que existiera cualquier civilización, antes de que la propia Tierra se formara, el universo estaba en un proceso dinámico y violento de transformación. No es un escenario estático, como a veces imaginamos, sino un tejido que se estira. Aquí es donde entra en juego el concepto del **corrimiento al rojo**. Cuando observamos las galaxias lejanas, notamos que la luz que nos envían no llega con la misma frecuencia que fue emitida; sus longitudes de onda se han \"estirado\", desplazándose hacia el extremo rojo del espectro visible. Este fenómeno no es una ilusión óptica, sino la huella dactilar de la expansión del universo."
+          "text": "Antes de que existiera cualquier civilización, antes de que la propia Tierra se formara, el universo estaba en un proceso dinámico y violento de transformación. No es un escenario estático, como a veces imaginamos, sino un tejido que se estira. Aquí es donde entra en juego el concepto del corrimiento al rojo. Cuando observamos las galaxias lejanas, notamos que la luz que nos envían no llega con la misma frecuencia que fue emitida; sus longitudes de onda se han \"estirado\", desplazándose hacia el extremo rojo del espectro visible. Este fenómeno no es una ilusión óptica, sino la huella dactilar de la expansión del universo."
         },
         {
           "type": "paragraph",
@@ -574,12 +592,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p6",
-          "text": "Pero esta expansión no ocurrió en el vacío. Mientras el cosmos se enfriaba y se estructuraba, en nuestro propio vecindario cósmico, la vida comenzaba su propia conquista. La Tierra, inicialmente un lugar hostil dominado por océanos y volcanes activos, comenzó a ser colonizada lentamente. El orden de esta conquista biológica fue crucial. Primero fueron las **plantas pioneras**, hace unos 470 millones de años. Estas primeras formas de vida, aún primitivas, desarrollaron la capacidad de fijarse al suelo y extraer nutrientes sin depender exclusivamente del agua. Su aparición fue revolucionaria: no solo cambiaron la química del suelo, creando la tierra firme tal como la conocemos, sino que alteraron la atmósfera, permitiendo que otros organismos sobrevivieran."
+          "text": "Pero esta expansión no ocurrió en el vacío. Mientras el cosmos se enfriaba y se estructuraba, en nuestro propio vecindario cósmico, la vida comenzaba su propia conquista. La Tierra, inicialmente un lugar hostil dominado por océanos y volcanes activos, comenzó a ser colonizada lentamente. El orden de esta conquista biológica fue crucial. Primero fueron las plantas pioneras, hace unos 470 millones de años. Estas primeras formas de vida, aún primitivas, desarrollaron la capacidad de fijarse al suelo y extraer nutrientes sin depender exclusivamente del agua. Su aparición fue revolucionaria: no solo cambiaron la química del suelo, creando la tierra firme tal como la conocemos, sino que alteraron la atmósfera, permitiendo que otros organismos sobrevivieran."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p7",
-          "text": "Una vez que las plantas prepararon el terreno, llegaron los **artrópodos**, como los primeros insectos y arácnidos. Su exoesqueleto les protegía de la desecación, y su tamaño reducido les permitía explorar microhábitats que las plantas habían creado. Finalmente, los **tetrápodos**, los primeros vertebrados con extremidades, consolidaron la presencia de vida compleja en tierra firme. Esta sucesión no fue casual; cada grupo dependía de los cambios que el anterior había generado. Así, la vida en la Tierra es el resultado de una cadena de conquistas ambientales, donde la adaptación y la modificación del entorno son fuerzas motoras constantes."
+          "text": "Una vez que las plantas prepararon el terreno, llegaron los artrópodos, como los primeros insectos y arácnidos. Su exoesqueleto les protegía de la desecación, y su tamaño reducido les permitía explorar microhábitats que las plantas habían creado. Finalmente, los tetrápodos, los primeros vertebrados con extremidades, consolidaron la presencia de vida compleja en tierra firme. Esta sucesión no fue casual; cada grupo dependía de los cambios que el anterior había generado. Así, la vida en la Tierra es el resultado de una cadena de conquistas ambientales, donde la adaptación y la modificación del entorno son fuerzas motoras constantes."
         },
         {
           "type": "heading",
@@ -595,17 +613,17 @@
         {
           "type": "paragraph",
           "id": "cap-4-p10",
-          "text": "En **Mesoamérica**, la domesticación del maíz, la frijola y la calabaza permitió el surgimiento de ciudades-estado prósperas. Durante el Periodo Clásico, lugares como **Teotihuacán** y las ciudades mayas como **Tikal** alcanzaron un esplendor urbano y religioso sin precedentes. Sin embargo, a diferencia de lo que ocurrió en los Andes, Mesoamérica nunca logró una unificación política total bajo un solo Estado centralizado durante su apogeo; se mantuvo fragmentada en una red de culturas compartidas pero políticamente independientes."
+          "text": "En Mesoamérica, la domesticación del maíz, la frijola y la calabaza permitió el surgimiento de ciudades-estado prósperas. Durante el Periodo Clásico, lugares como Teotihuacán y las ciudades mayas como Tikal alcanzaron un esplendor urbano y religioso sin precedentes. Sin embargo, a diferencia de lo que ocurrió en los Andes, Mesoamérica nunca logró una unificación política total bajo un solo Estado centralizado durante su apogeo; se mantuvo fragmentada en una red de culturas compartidas pero políticamente independientes."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p11",
-          "text": "En los **Andes centrales**, la geografía vertiginosa forjó una organización social diferente. Los incas consolidaron el imperio más extenso del continente, centralizando el poder y la distribución de recursos a través de una burocracia eficiente que conectaba territorios desde el actual Perú hasta el norte de Argentina y Chile. Mientras tanto, en Norteamérica y la llanura amazónica, las sociedades eran más pequeñas y descentralizadas, pero no por ello menos complejas socialmente."
+          "text": "En los Andes centrales, la geografía vertiginosa forjó una organización social diferente. Los incas consolidaron el imperio más extenso del continente, centralizando el poder y la distribución de recursos a través de una burocracia eficiente que conectaba territorios desde el actual Perú hasta el norte de Argentina y Chile. Mientras tanto, en Norteamérica y la llanura amazónica, las sociedades eran más pequeñas y descentralizadas, pero no por ello menos complejas socialmente."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p12",
-          "text": "Este tapiz diverso de civilizaciones se interrumpió bruscamente en 1492 con la llegada de Cristóbal Colón. Lo que siguió no fue un simple \"descubrimiento\", sino un proceso complejo y violento de **conquista y colonización**. La llegada de los españoles implicó un encuentro de dos mundos que jamás habían interactuado, y las consecuencias fueron devastadoras. La introducción de enfermedades como la viruela, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo, a menudo más efectivo que las armas de fuego, en la caída de imperios poderosos."
+          "text": "Este tapiz diverso de civilizaciones se interrumpió bruscamente en 1492 con la llegada de Cristóbal Colón. Lo que siguió no fue un simple \"descubrimiento\", sino un proceso complejo y violento de conquista y colonización. La llegada de los españoles implicó un encuentro de dos mundos que jamás habían interactuado, y las consecuencias fueron devastadoras. La introducción de enfermedades como la viruela, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo, a menudo más efectivo que las armas de fuego, en la caída de imperios poderosos."
         },
         {
           "type": "paragraph",
@@ -626,17 +644,17 @@
         {
           "type": "paragraph",
           "id": "cap-4-p16",
-          "text": "La primera fundación significativa en esta región fue **Santiago del Estero**, en 1553. Esta ciudad se convirtió en un punto clave para el control de los ríos Paraná y Uruguay, asegurando rutas de transporte y comunicación con la metrópoli. Sin embargo, la presencia española en el sur enfrentaba desafíos constantes: la resistencia indígena, las distancias extremas y la falta de riquezas minerales inmediatas, como el oro o la plata, hicieron que esta zona fuera menos prioritaria para la Corona española en sus primeros años."
+          "text": "La primera fundación significativa en esta región fue Santiago del Estero, en 1553. Esta ciudad se convirtió en un punto clave para el control de los ríos Paraná y Uruguay, asegurando rutas de transporte y comunicación con la metrópoli. Sin embargo, la presencia española en el sur enfrentaba desafíos constantes: la resistencia indígena, las distancias extremas y la falta de riquezas minerales inmediatas, como el oro o la plata, hicieron que esta zona fuera menos prioritaria para la Corona española en sus primeros años."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p17",
-          "text": "El momento decisivo llegó con la **segunda fundación de Buenos Aires**, en 1580, liderada por Juan de Garay. Tras el abandono de la primera fundación en 1542, esta nueva ciudad contó con un diseño más sólido y una orientación estratégica clara: conectar las zonas del interior con el Atlántico. La elección de Buenos Aires no fue casual; su puerto ofrecía acceso directo al mar, facilitando el comercio con Europa y la distribución de recursos hacia el interior. Mientras Santiago del Estero servía como base para las comunicaciones fluviales desde el norte, Buenos Aires se convirtió en el núcleo marítimo del sur."
+          "text": "El momento decisivo llegó con la segunda fundación de Buenos Aires, en 1580, liderada por Juan de Garay. Tras el abandono de la primera fundación en 1542, esta nueva ciudad contó con un diseño más sólido y una orientación estratégica clara: conectar las zonas del interior con el Atlántico. La elección de Buenos Aires no fue casual; su puerto ofrecía acceso directo al mar, facilitando el comercio con Europa y la distribución de recursos hacia el interior. Mientras Santiago del Estero servía como base para las comunicaciones fluviales desde el norte, Buenos Aires se convirtió en el núcleo marítimo del sur."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p18",
-          "text": "Posteriormente, en 1609, la fundación de **Córdoba** completó este triángulo inicial de poder. Córdoba no era solo un centro administrativo, sino un nodo crucial para la evangelización y la expansión hacia el oeste y el sur. Este orden cronológico de fundaciones —Santiago del Estero, Buenos Aires, Córdoba— marcó la consolidación de la presencia española en el centro-norte del actual territorio argentino. La conquista de esta región fue diferente a la de Mesoamérica o los Andes: fue una conquista de asentamiento y control territorial, más que la de un imperio centralizado colosal. Las estructuras coloniales argentinas se basaron en la ganadería, la agricultura de subsistencia y el tráfico de personas esclavizadas, integrándose en una red comercial atlántica mucho más tarde que sus contrapartes septentrionales."
+          "text": "Posteriormente, en 1609, la fundación de Córdoba completó este triángulo inicial de poder. Córdoba no era solo un centro administrativo, sino un nodo crucial para la evangelización y la expansión hacia el oeste y el sur. Este orden cronológico de fundaciones —Santiago del Estero, Buenos Aires, Córdoba— marcó la consolidación de la presencia española en el centro-norte del actual territorio argentino. La conquista de esta región fue diferente a la de Mesoamérica o los Andes: fue una conquista de asentamiento y control territorial, más que la de un imperio centralizado colosal. Las estructuras coloniales argentinas se basaron en la ganadería, la agricultura de subsistencia y el tráfico de personas esclavizadas, integrándose en una red comercial atlántica mucho más tarde que sus contrapartes septentrionales."
         },
         {
           "type": "heading",
@@ -657,7 +675,13 @@
       ],
       "meta": {
         "chapterId": "cap-4"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-5",
@@ -684,12 +708,12 @@
         {
           "type": "paragraph",
           "id": "cap-5-p4",
-          "text": "Comencemos por una pregunta que muchos se hacen al estudiar arqueología o geología: ¿cómo sabemos qué tan viejos son los fósiles o las rocas que encontramos? La respuesta no está en las capas de tierra simplemente apiladas, sino en el corazón mismo de la materia. Aquí entra en juego la **datación radiométrica**, un método que nos permite leer el tiempo a través de la desintegración atómica."
+          "text": "Comencemos por una pregunta que muchos se hacen al estudiar arqueología o geología: ¿cómo sabemos qué tan viejos son los fósiles o las rocas que encontramos? La respuesta no está en las capas de tierra simplemente apiladas, sino en el corazón mismo de la materia. Aquí entra en juego la datación radiométrica, un método que nos permite leer el tiempo a través de la desintegración atómica."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p5",
-          "text": "Imaginémoslo así: ciertos átomos son inestables. Con el paso del tiempo, se transforman naturalmente en otros átomos más estables, liberando energía en el proceso. A este ritmo de transformación lo llamamos **vida media**. La vida media es el tiempo que tarda en descomponerse la mitad de los átomos de un isótopo radiactivo en una muestra. Este valor es constante e inmutable; no le importa si hace frío, calor, o si hay presión. Es como un reloj interno que nadie puede detener ni acelerar."
+          "text": "Imaginémoslo así: ciertos átomos son inestables. Con el paso del tiempo, se transforman naturalmente en otros átomos más estables, liberando energía en el proceso. A este ritmo de transformación lo llamamos vida media. La vida media es el tiempo que tarda en descomponerse la mitad de los átomos de un isótopo radiactivo en una muestra. Este valor es constante e inmutable; no le importa si hace frío, calor, o si hay presión. Es como un reloj interno que nadie puede detener ni acelerar."
         },
         {
           "type": "paragraph",
@@ -710,7 +734,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p9",
-          "text": "Mientras los átomos marcan el tiempo, la superficie de la Tierra marca el espacio. Y este espacio no es uniforme. La vida no se distribuye al azar; se agrupa en **biomas**, regiones extensas caracterizadas por condiciones climáticas específicas, tipos de vegetación dominantes y animales adaptados a esos entornos."
+          "text": "Mientras los átomos marcan el tiempo, la superficie de la Tierra marca el espacio. Y este espacio no es uniforme. La vida no se distribuye al azar; se agrupa en biomas, regiones extensas caracterizadas por condiciones climáticas específicas, tipos de vegetación dominantes y animales adaptados a esos entornos."
         },
         {
           "type": "paragraph",
@@ -720,7 +744,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p11",
-          "text": "Esta distribución no es solo un dato ecológico; es el escenario donde se desarrolló la división del trabajo. Las primeras sociedades humanas, los cazadores-recolectores, debían adaptarse a la disponibilidad de recursos de su bioma. Pero a medida que las poblaciones crecieron y el clima cambió (algo que también podemos rastrear gracias a los registros geológicos vinculados a la datación), la humanidad comenzó a modificar su entorno. La agricultura surgió en zonas específicas donde los biomas permitían el cultivo (como los valles de los grandes ríos), lo que llevó a un excedente de alimentos. Y ese excedente fue la condición necesaria para que la **división del trabajo** dejara de ser una simple especialización por género o edad para convertirse en una estructura social compleja."
+          "text": "Esta distribución no es solo un dato ecológico; es el escenario donde se desarrolló la división del trabajo. Las primeras sociedades humanas, los cazadores-recolectores, debían adaptarse a la disponibilidad de recursos de su bioma. Pero a medida que las poblaciones crecieron y el clima cambió (algo que también podemos rastrear gracias a los registros geológicos vinculados a la datación), la humanidad comenzó a modificar su entorno. La agricultura surgió en zonas específicas donde los biomas permitían el cultivo (como los valles de los grandes ríos), lo que llevó a un excedente de alimentos. Y ese excedente fue la condición necesaria para que la división del trabajo dejara de ser una simple especialización por género o edad para convertirse en una estructura social compleja."
         },
         {
           "type": "heading",
@@ -731,7 +755,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p13",
-          "text": "Aquí llegamos a uno de los motores de la historia: la **división del trabajo**. En sus orígenes, en las sociedades prehistóricas, cada grupo debía realizar todas las tareas necesarias para sobrevivir: cazar, construir refugios, curar enfermos. Pero con el surgimiento de las primeras ciudades y, más tarde, con la industrialización, este modelo cambió radicalmente."
+          "text": "Aquí llegamos a uno de los motores de la historia: la división del trabajo. En sus orígenes, en las sociedades prehistóricas, cada grupo debía realizar todas las tareas necesarias para sobrevivir: cazar, construir refugios, curar enfermos. Pero con el surgimiento de las primeras ciudades y, más tarde, con la industrialización, este modelo cambió radicalmente."
         },
         {
           "type": "paragraph",
@@ -757,7 +781,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p18",
-          "text": "Durante siglos, la división del trabajo a escala global fue desigual: las potencias europeas producían manufacturas y extraían materias primas de sus colonias en África y Asia. Pero después de la Segunda Guerra Mundial, ese orden colapsó. La **descolonización de África y Asia** no fue un evento aislado, sino la consecuencia lógica de la erosión del poder europeo y la presión de los movimientos nacionalistas."
+          "text": "Durante siglos, la división del trabajo a escala global fue desigual: las potencias europeas producían manufacturas y extraían materias primas de sus colonias en África y Asia. Pero después de la Segunda Guerra Mundial, ese orden colapsó. La descolonización de África y Asia no fue un evento aislado, sino la consecuencia lógica de la erosión del poder europeo y la presión de los movimientos nacionalistas."
         },
         {
           "type": "paragraph",
@@ -783,17 +807,17 @@
         {
           "type": "paragraph",
           "id": "cap-5-p23",
-          "text": "Mientras la humanidad luchaba por redefinir su lugar en la tierra y en el sistema económico, el cielo seguía cumpliendo sus ciclos. Y no podemos ignorar cómo estos fenómenos celestes influyeron en la psique humana. Los **eclipses** han sido, desde siempre, eventos de gran carga simbólica y práctica."
+          "text": "Mientras la humanidad luchaba por redefinir su lugar en la tierra y en el sistema económico, el cielo seguía cumpliendo sus ciclos. Y no podemos ignorar cómo estos fenómenos celestes influyeron en la psique humana. Los eclipses han sido, desde siempre, eventos de gran carga simbólica y práctica."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p24",
-          "text": "Un eclipse solar ocurre cuando la Luna se interpone entre el Sol y la Tierra, bloqueando la luz solar. Para que esto suceda, debe haber una alineación perfecta: Sol — Luna — Tierra. Esto solo puede ocurrir en fase de **Luna Nueva**. La sombra de la Luna proyectada sobre la Tierra es pequeña, por lo que el eclipse solo es visible desde una franja limitada del planeta. Si la Luna está en su punto más alejado de la Tierra, no cubre totalmente el Sol, dejando un \"anillo de fuego\" visible: es el eclipse anular."
+          "text": "Un eclipse solar ocurre cuando la Luna se interpone entre el Sol y la Tierra, bloqueando la luz solar. Para que esto suceda, debe haber una alineación perfecta: Sol — Luna — Tierra. Esto solo puede ocurrir en fase de Luna Nueva. La sombra de la Luna proyectada sobre la Tierra es pequeña, por lo que el eclipse solo es visible desde una franja limitada del planeta. Si la Luna está en su punto más alejado de la Tierra, no cubre totalmente el Sol, dejando un \"anillo de fuego\" visible: es el eclipse anular."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p25",
-          "text": "Por otro lado, un eclipse lunar ocurre cuando la Tierra se interpone entre el Sol y la Luna, bloqueando la luz que ilumina a nuestra satélite. Esto solo pasa en fase de **Luna Llena**. La sombra terrestre cubre la Luna, a menudo tiñéndola de un color rojizo debido a la refracción de la luz solar a través de la atmósfera terrestre."
+          "text": "Por otro lado, un eclipse lunar ocurre cuando la Tierra se interpone entre el Sol y la Luna, bloqueando la luz que ilumina a nuestra satélite. Esto solo pasa en fase de Luna Llena. La sombra terrestre cubre la Luna, a menudo tiñéndola de un color rojizo debido a la refracción de la luz solar a través de la atmósfera terrestre."
         },
         {
           "type": "paragraph",
@@ -814,7 +838,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p29",
-          "text": "Al cerrar este capítulo, vemos que estos temas no están aislados. La **datación radiométrica** nos da la escala temporal para entender la antigüedad de los biomas y las ruinas que estudiamos. La distribución de los **biomas** condicionó dónde y cómo los humanos pudieron desarrollar la **división del trabajo**, pasando de la subsistencia a la complejidad social. Esa complejidad económica y política llevó al surgimiento de imperios que, al agotarse, permitieron la **descolonización de África y Asia**, reconfigurando el mapa político actual. Y todo esto ocurre bajo un cielo cuyas regularidades, como los **eclipses**, pasaron de ser fuentes de miedo a objetos de estudio científico."
+          "text": "Al cerrar este capítulo, vemos que estos temas no están aislados. La datación radiométrica nos da la escala temporal para entender la antigüedad de los biomas y las ruinas que estudiamos. La distribución de los biomas condicionó dónde y cómo los humanos pudieron desarrollar la división del trabajo, pasando de la subsistencia a la complejidad social. Esa complejidad económica y política llevó al surgimiento de imperios que, al agotarse, permitieron la descolonización de África y Asia, reconfigurando el mapa político actual. Y todo esto ocurre bajo un cielo cuyas regularidades, como los eclipses, pasaron de ser fuentes de miedo a objetos de estudio científico."
         },
         {
           "type": "paragraph",
@@ -824,7 +848,13 @@
       ],
       "meta": {
         "chapterId": "cap-5"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-6",
@@ -971,7 +1001,13 @@
       ],
       "meta": {
         "chapterId": "cap-6"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-7",
@@ -1113,7 +1149,13 @@
       ],
       "meta": {
         "chapterId": "cap-7"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-8",
@@ -1270,7 +1312,13 @@
       ],
       "meta": {
         "chapterId": "cap-8"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-9",
@@ -1302,7 +1350,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p5",
-          "text": "Sin embargo, el universo físico no nos habría permitido existir si la Tierra no hubiera sufrido sus propias transformaciones internas. Hace unos 2.400 millones de años, nuestro planeta era un lugar radicalmente distinto. La atmósfera no tenía oxígeno libre; era un entorno anóxico, hostil para la vida tal como la conocemos hoy. El cambio que lo alteró todo fue la **Gran Oxidación**. Este evento no fue causado por volcanes ni por impactos de asteroides, sino por organismos microscópicos: las cianobacterias. Estas pequeñas criaturas desarrollaron la capacidad de realizar la fotosíntesis oxigénica, absorbiendo dióxido de carbono y agua para producir glucosa, liberando oxígeno como un \"desperdicio\" metabólico."
+          "text": "Sin embargo, el universo físico no nos habría permitido existir si la Tierra no hubiera sufrido sus propias transformaciones internas. Hace unos 2.400 millones de años, nuestro planeta era un lugar radicalmente distinto. La atmósfera no tenía oxígeno libre; era un entorno anóxico, hostil para la vida tal como la conocemos hoy. El cambio que lo alteró todo fue la Gran Oxidación. Este evento no fue causado por volcanes ni por impactos de asteroides, sino por organismos microscópicos: las cianobacterias. Estas pequeñas criaturas desarrollaron la capacidad de realizar la fotosíntesis oxigénica, absorbiendo dióxido de carbono y agua para producir glucosa, liberando oxígeno como un \"desperdicio\" metabólico."
         },
         {
           "type": "paragraph",
@@ -1318,7 +1366,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p8",
-          "text": "Si la Gran Oxidación fue un cambio lento que tomó millones de años, la historia humana reciente ha experimentado una aceleración vertiginosa. En las últimas décadas, hemos entrado en lo que llamamos la **era digital**, un período marcado por la globalización tecnológica. Ya no vivimos en comunidades aisladas donde la vida diaria se limitaba al radio de unos pocos kilómetros. Hoy, las economías, las culturas y las sociedades están interconectadas en una red global instantánea."
+          "text": "Si la Gran Oxidación fue un cambio lento que tomó millones de años, la historia humana reciente ha experimentado una aceleración vertiginosa. En las últimas décadas, hemos entrado en lo que llamamos la era digital, un período marcado por la globalización tecnológica. Ya no vivimos en comunidades aisladas donde la vida diaria se limitaba al radio de unos pocos kilómetros. Hoy, las economías, las culturas y las sociedades están interconectadas en una red global instantánea."
         },
         {
           "type": "paragraph",
@@ -1339,7 +1387,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p12",
-          "text": "En medio de esta fluidez global, la política local y nacional sigue sujeta a rupturas abruptas. La democracia, con sus instituciones, elecciones y garantías civiles, es frágil. Una de las formas más graves de fragilidad es el **golpe de Estado**. A diferencia de los cambios políticos democráticos, que son graduales y negociados, un golpe de Estado es una interrupción violenta y forzosa del mandato de las autoridades electas."
+          "text": "En medio de esta fluidez global, la política local y nacional sigue sujeta a rupturas abruptas. La democracia, con sus instituciones, elecciones y garantías civiles, es frágil. Una de las formas más graves de fragilidad es el golpe de Estado. A diferencia de los cambios políticos democráticos, que son graduales y negociados, un golpe de Estado es una interrupción violenta y forzosa del mandato de las autoridades electas."
         },
         {
           "type": "paragraph",
@@ -1360,7 +1408,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p16",
-          "text": "La tensión entre el orden global, la soberanía nacional y la ruptura del orden interno se hizo evidente en un conflicto concreto: la **Guerra de Malvinas** de 1982. Este no fue un evento aislado, sino el resultado de décadas de tensiones históricas. Las islas Malvinas, ocupadas por Gran Bretaña en el siglo XIX, fueron reclamadas por Argentina desde su independencia, basándose en el derecho internacional y la herencia colonial española."
+          "text": "La tensión entre el orden global, la soberanía nacional y la ruptura del orden interno se hizo evidente en un conflicto concreto: la Guerra de Malvinas de 1982. Este no fue un evento aislado, sino el resultado de décadas de tensiones históricas. Las islas Malvinas, ocupadas por Gran Bretaña en el siglo XIX, fueron reclamadas por Argentina desde su independencia, basándose en el derecho internacional y la herencia colonial española."
         },
         {
           "type": "paragraph",
@@ -1370,7 +1418,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p18",
-          "text": "Sin embargo, la respuesta británica fue rápida y decisiva. El conflicto se desarrolló en tres etapas claras: la ocupación argentina, el desembarco británico en San Carlos y, finalmente, la rendición argentina tras intensos bombardeos y la caída del aeropuerto de Stanley. Uno de los episodios más trágicos y debatidos fue el hundimiento del crucero **ARA General Belgrano** por un submarino británico el 2 de mayo. Este ataque, que ocurrió fuera de la zona de exclusión militar declarada, provocó la muerte de 323 tripulantes y generó una controversia internacional sobre la legalidad de la acción."
+          "text": "Sin embargo, la respuesta británica fue rápida y decisiva. El conflicto se desarrolló en tres etapas claras: la ocupación argentina, el desembarco británico en San Carlos y, finalmente, la rendición argentina tras intensos bombardeos y la caída del aeropuerto de Stanley. Uno de los episodios más trágicos y debatidos fue el hundimiento del crucero ARA General Belgrano por un submarino británico el 2 de mayo. Este ataque, que ocurrió fuera de la zona de exclusión militar declarada, provocó la muerte de 323 tripulantes y generó una controversia internacional sobre la legalidad de la acción."
         },
         {
           "type": "paragraph",
@@ -1401,7 +1449,13 @@
       ],
       "meta": {
         "chapterId": "cap-9"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-10",
@@ -1518,7 +1572,13 @@
       ],
       "meta": {
         "chapterId": "cap-10"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-11",
@@ -1550,7 +1610,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p5",
-          "text": "Este cambio anatómico fue el detonante de un cambio cognitivo. Al necesitar coordinar movimientos complejos y planificar acciones, el cerebro creció. Pasamos de los aproximadamente 450 centímetros cúbicos del *Australopithecus* a los volúmenes mayores del *Homo habilis* y, finalmente, del *Homo erectus*. Este desarrollo cerebral no fue solo biológico; fue cultural. La capacidad de simbolizar, de comunicarse de manera compleja y de transmitir conocimientos de generación en generación permitió que la especie humana no solo adaptara su cuerpo al entorno, sino que comenzara a transformar el entorno mismo. La hominización, entonces, no es solo la historia de cómo nos hicimos humanos, sino la historia de cómo construimos la capacidad de crear sociedad, política y cultura. Sin esa base anatómica y cognitiva, no existirían los Estados, ni las fronteras, ni las memorias que discuten hoy en día."
+          "text": "Este cambio anatómico fue el detonante de un cambio cognitivo. Al necesitar coordinar movimientos complejos y planificar acciones, el cerebro creció. Pasamos de los aproximadamente 450 centímetros cúbicos del Australopithecus a los volúmenes mayores del Homo habilis y, finalmente, del Homo erectus. Este desarrollo cerebral no fue solo biológico; fue cultural. La capacidad de simbolizar, de comunicarse de manera compleja y de transmitir conocimientos de generación en generación permitió que la especie humana no solo adaptara su cuerpo al entorno, sino que comenzara a transformar el entorno mismo. La hominización, entonces, no es solo la historia de cómo nos hicimos humanos, sino la historia de cómo construimos la capacidad de crear sociedad, política y cultura. Sin esa base anatómica y cognitiva, no existirían los Estados, ni las fronteras, ni las memorias que discuten hoy en día."
         },
         {
           "type": "heading",
@@ -1603,7 +1663,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p15",
-          "text": "En Argentina, la historia reciente abarca desde la segunda mitad del siglo XX hasta el presente, con un enfoque particular en los eventos que han moldeado nuestra identidad política y social. A diferencia de la historia tradicional, que puede mirar con distancia la formación del Estado o la independencia, la historia reciente aborda la **memoria social**. Esta memoria no es un simple archivo de datos objetivos; es un motor de interpretación. Los individuos y grupos construyen narrativas sobre el pasado para dar sentido al presente. Por ejemplo, los hechos de 1976 o 1983 no son solo eventos históricos; son temas de debate político, cultural y legal que siguen generando discusiones en cada generación."
+          "text": "En Argentina, la historia reciente abarca desde la segunda mitad del siglo XX hasta el presente, con un enfoque particular en los eventos que han moldeado nuestra identidad política y social. A diferencia de la historia tradicional, que puede mirar con distancia la formación del Estado o la independencia, la historia reciente aborda la memoria social. Esta memoria no es un simple archivo de datos objetivos; es un motor de interpretación. Los individuos y grupos construyen narrativas sobre el pasado para dar sentido al presente. Por ejemplo, los hechos de 1976 o 1983 no son solo eventos históricos; son temas de debate político, cultural y legal que siguen generando discusiones en cada generación."
         },
         {
           "type": "paragraph",
@@ -1634,7 +1694,13 @@
       ],
       "meta": {
         "chapterId": "cap-11"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-12",
@@ -1687,7 +1753,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p9",
-          "text": "Pero Constantinopla fue más que un banco fuerte; fue una biblioteca gigante. Cuando el mundo occidental entraba en una fase de desconexión con sus raíces clásicas, Bizancio mantenía viva la tradición jurídica, filosófica y teológica. La figura de Justiniano es crucial aquí. No solo buscó reconquistar territorios para restaurar la gloria de Roma, sino que codificó el derecho romano. Ese cuerpo legal, el *Corpus Juris Civilis*, sería la base sobre la que muchas sociedades modernas construirían sus sistemas legales."
+          "text": "Pero Constantinopla fue más que un banco fuerte; fue una biblioteca gigante. Cuando el mundo occidental entraba en una fase de desconexión con sus raíces clásicas, Bizancio mantenía viva la tradición jurídica, filosófica y teológica. La figura de Justiniano es crucial aquí. No solo buscó reconquistar territorios para restaurar la gloria de Roma, sino que codificó el derecho romano. Ese cuerpo legal, el Corpus Juris Civilis, sería la base sobre la que muchas sociedades modernas construirían sus sistemas legales."
         },
         {
           "type": "paragraph",
@@ -1708,7 +1774,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p13",
-          "text": "El lema de la época, *Sapere aude* (\"atrévete a saber\"), resumía la actitud de una burguesía emergente y una clase letrada que exigía razón y crítica. En los cafés de París, en las academias de Londres y en las universidades de Edimburgo, se debatía sobre la política, la moral y la economía con una libertad sin precedentes. Pensadores como Kant, Voltaire o Rousseau no solo criticaban el absolutismo monárquico; proponían un nuevo orden basado en la lógica, la ciencia y los derechos individuales."
+          "text": "El lema de la época, Sapere aude (\"atrévete a saber\"), resumía la actitud de una burguesía emergente y una clase letrada que exigía razón y crítica. En los cafés de París, en las academias de Londres y en las universidades de Edimburgo, se debatía sobre la política, la moral y la economía con una libertad sin precedentes. Pensadores como Kant, Voltaire o Rousseau no solo criticaban el absolutismo monárquico; proponían un nuevo orden basado en la lógica, la ciencia y los derechos individuales."
         },
         {
           "type": "paragraph",
@@ -1760,7 +1826,13 @@
       ],
       "meta": {
         "chapterId": "cap-12"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-13",
@@ -1792,12 +1864,12 @@
         {
           "type": "paragraph",
           "id": "cap-13-p5",
-          "text": "Tomemos el ejemplo del **Imperio Persa Aqueménida**, surgido en la meseta irania hacia el siglo VI a.C. Cuando Ciro el Grande comenzó su ascenso, no estaba solo uniendo tribus persas; estaba diseñando la primera verdadera \"superpotencia global\" del mundo antiguo. Ciro entendió algo crucial: para gobernar a otros, no siempre hace falta destruirlos. A diferencia de sus predecesores asirios, que gobernaban por el terror, Ciro se presentó como un liberador. Al permitir que los judíos exiliados en Babilonia retornaran a Jerusalén y reconstruyeran su Templo, sentó un precedente de legitimidad basado en la tolerancia religiosa y el respeto a las costumbres locales. Esta fue una estrategia política brillante: al respetar la identidad de los sometidos, reducía la fricción y la necesidad de mantener un ejército permanente en cada rincón del territorio."
+          "text": "Tomemos el ejemplo del Imperio Persa Aqueménida, surgido en la meseta irania hacia el siglo VI a.C. Cuando Ciro el Grande comenzó su ascenso, no estaba solo uniendo tribus persas; estaba diseñando la primera verdadera \"superpotencia global\" del mundo antiguo. Ciro entendió algo crucial: para gobernar a otros, no siempre hace falta destruirlos. A diferencia de sus predecesores asirios, que gobernaban por el terror, Ciro se presentó como un liberador. Al permitir que los judíos exiliados en Babilonia retornaran a Jerusalén y reconstruyeran su Templo, sentó un precedente de legitimidad basado en la tolerancia religiosa y el respeto a las costumbres locales. Esta fue una estrategia política brillante: al respetar la identidad de los sometidos, reducía la fricción y la necesidad de mantener un ejército permanente en cada rincón del territorio."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p6",
-          "text": "Pero la tolerancia no basta si no hay caminos. Fue Darío I quien transformó esa confederación de conquistas en una burocracia eficiente. Dividió el vasto imperio en satrapías, unidades administrativas gobernadas por un *satrapa*. Aquí está la clave de la ingeniería política persa: separó el poder militar del civil. El satrapa cobraba impuestos y administraba justicia, pero un general independiente reportaba directamente al rey para evitar rebeliones. Y para asegurar que nadie se saliera con la suya, creó a \"los Ojos del Rey\", una red de espías reales. Todo esto era posible gracias al Camino Real, una infraestructura de comunicación que permitía que los mensajes viajaran rápido. El imperio persa nos enseña que la expansión requiere una arquitectura administrativa tan sólida como las murallas que la protegen."
+          "text": "Pero la tolerancia no basta si no hay caminos. Fue Darío I quien transformó esa confederación de conquistas en una burocracia eficiente. Dividió el vasto imperio en satrapías, unidades administrativas gobernadas por un satrapa. Aquí está la clave de la ingeniería política persa: separó el poder militar del civil. El satrapa cobraba impuestos y administraba justicia, pero un general independiente reportaba directamente al rey para evitar rebeliones. Y para asegurar que nadie se saliera con la suya, creó a \"los Ojos del Rey\", una red de espías reales. Todo esto era posible gracias al Camino Real, una infraestructura de comunicación que permitía que los mensajes viajaran rápido. El imperio persa nos enseña que la expansión requiere una arquitectura administrativa tan sólida como las murallas que la protegen."
         },
         {
           "type": "heading",
@@ -1813,7 +1885,7 @@
         {
           "type": "paragraph",
           "id": "cap-13-p9",
-          "text": "El Emperador Wu institucionalizó el confucianismo como la ortodoxia estatal, pero no para eliminar la fuerza, sino para darle una cara humana. Crearon un sistema dual: la ética confuciana justificaba la jerarquía social y el deber del gobernante hacia el pueblo, mientras que las estructuras legales y administrativas de los Qin mantenían el control efectivo. Pero lo más interesante fue cómo desarrollaron una burocracia meritocrática. La idea era que el gobierno debía estar en manos de los \"sabios\" (*junzi*), educados en los Clásicos Confucianos. Para facilitar esto, establecieron la Academia Imperial y comenzaron a desarrollar un sistema de exámenes. Aunque limitado en sus inicios, este mecanismo permitía que el talento emergiera de las clases medias, no solo de la nobleza hereditaria."
+          "text": "El Emperador Wu institucionalizó el confucianismo como la ortodoxia estatal, pero no para eliminar la fuerza, sino para darle una cara humana. Crearon un sistema dual: la ética confuciana justificaba la jerarquía social y el deber del gobernante hacia el pueblo, mientras que las estructuras legales y administrativas de los Qin mantenían el control efectivo. Pero lo más interesante fue cómo desarrollaron una burocracia meritocrática. La idea era que el gobierno debía estar en manos de los \"sabios\" (junzi), educados en los Clásicos Confucianos. Para facilitar esto, establecieron la Academia Imperial y comenzaron a desarrollar un sistema de exámenes. Aunque limitado en sus inicios, este mecanismo permitía que el talento emergiera de las clases medias, no solo de la nobleza hereditaria."
         },
         {
           "type": "paragraph",
@@ -1850,7 +1922,7 @@
         {
           "type": "paragraph",
           "id": "cap-13-p16",
-          "text": "Durante siglos, el conocimiento humano fluía lentamente, filtrado por los mismos pocos que tenían acceso a la escritura o a la tradición oral. En Europa, durante la Edad Media, el libro era un objeto de lujo. Copiar un manuscito en un *scriptorium* monástico tomaba meses, e incluso años. El conocimiento estaba confinado a la alta nobleza, al clero de alto rango y a las universidades emergentes. Esta escasez material garantizaba que la interpretación de la realidad estuviera centralizada en manos de una élite. Si el clero decidía qué textos se copiaban y cuáles se destruían, la sociedad no tenía otra opción que aceptar esa versión de la verdad."
+          "text": "Durante siglos, el conocimiento humano fluía lentamente, filtrado por los mismos pocos que tenían acceso a la escritura o a la tradición oral. En Europa, durante la Edad Media, el libro era un objeto de lujo. Copiar un manuscito en un scriptorium monástico tomaba meses, e incluso años. El conocimiento estaba confinado a la alta nobleza, al clero de alto rango y a las universidades emergentes. Esta escasez material garantizaba que la interpretación de la realidad estuviera centralizada en manos de una élite. Si el clero decidía qué textos se copiaban y cuáles se destruían, la sociedad no tenía otra opción que aceptar esa versión de la verdad."
         },
         {
           "type": "paragraph",
@@ -1891,7 +1963,13 @@
       ],
       "meta": {
         "chapterId": "cap-13"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-14",
@@ -1939,7 +2017,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p8",
-          "text": "Esto no significa que las galaxias se estén moviendo *a través* del espacio como balas disparadas desde un cañón. Significa que el espacio mismo se está estirando, como la masa de un pan con pasas que sube en el horno. Esta observación fue la prueba definitiva de que el universo tiene una historia, que comenzó en un punto extremadamente denso y caliente hace unos 13.800 millones de años. El universo se expande, y esa expansión es el hilo conductor de la cosmología moderna."
+          "text": "Esto no significa que las galaxias se estén moviendo a través del espacio como balas disparadas desde un cañón. Significa que el espacio mismo se está estirando, como la masa de un pan con pasas que sube en el horno. Esta observación fue la prueba definitiva de que el universo tiene una historia, que comenzó en un punto extremadamente denso y caliente hace unos 13.800 millones de años. El universo se expande, y esa expansión es el hilo conductor de la cosmología moderna."
         },
         {
           "type": "paragraph",
@@ -2017,7 +2095,13 @@
       ],
       "meta": {
         "chapterId": "cap-14"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-15",
@@ -2163,7 +2247,13 @@
       ],
       "meta": {
         "chapterId": "cap-15"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-16",
@@ -2200,7 +2290,7 @@
         {
           "type": "paragraph",
           "id": "cap-16-p6",
-          "text": "Mientras la vida en la Tierra evolucionaba desde lo simple hasta lo complejo, la Tierra misma no estaba quieta. Nuestro planeta realiza dos movimientos fundamentales que definen nuestro experiencia cotidiana y estacional. Por un lado, está la rotación: la Tierra gira sobre su propio eje imaginario una vez cada veinticuatro horas. Este giro es lo que causa el día y la noche. Es importante aclarar que no es el Sol el que se mueve alrededor de nosotros; es la Tierra la que gira, haciendo que el Sol *parezca* recorrer el cielo de este a oeste. Por otro lado, está la traslación: la Tierra recorre una órbita elíptica alrededor del Sol una vez al año."
+          "text": "Mientras la vida en la Tierra evolucionaba desde lo simple hasta lo complejo, la Tierra misma no estaba quieta. Nuestro planeta realiza dos movimientos fundamentales que definen nuestro experiencia cotidiana y estacional. Por un lado, está la rotación: la Tierra gira sobre su propio eje imaginario una vez cada veinticuatro horas. Este giro es lo que causa el día y la noche. Es importante aclarar que no es el Sol el que se mueve alrededor de nosotros; es la Tierra la que gira, haciendo que el Sol parezca recorrer el cielo de este a oeste. Por otro lado, está la traslación: la Tierra recorre una órbita elíptica alrededor del Sol una vez al año."
         },
         {
           "type": "paragraph",
@@ -2268,7 +2358,13 @@
       ],
       "meta": {
         "chapterId": "cap-16"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-17",
@@ -2295,7 +2391,7 @@
         {
           "type": "paragraph",
           "id": "cap-17-p4",
-          "text": "Todo comienza con el Big Bang, hace aproximadamente 13.800 millones de años. Es fundamental despejar un malentendido común: esto no fue una explosión que ocurrió *en* el espacio, como una bomba que estalla en una habitación vacía. Fue el inicio del propio espacio y del tiempo. Imaginá que el universo es como la superficie de un globo que se infla; no hay un centro en la superficie hacia donde se mueva el aire, ni un \"afuera\" al que el globo empuje. El espacio mismo se está estirando, alejando las galaxias unas de otras. Esta expansión se evidencia en el corrimiento al rojo de la luz de las galaxias distantes y en la radiación cósmica de fondo de microondas, un eco térmico que permea todo el cielo, el \"resplandor residual\" de cuando el universo se volvió transparente por primera vez."
+          "text": "Todo comienza con el Big Bang, hace aproximadamente 13.800 millones de años. Es fundamental despejar un malentendido común: esto no fue una explosión que ocurrió en el espacio, como una bomba que estalla en una habitación vacía. Fue el inicio del propio espacio y del tiempo. Imaginá que el universo es como la superficie de un globo que se infla; no hay un centro en la superficie hacia donde se mueva el aire, ni un \"afuera\" al que el globo empuje. El espacio mismo se está estirando, alejando las galaxias unas de otras. Esta expansión se evidencia en el corrimiento al rojo de la luz de las galaxias distantes y en la radiación cósmica de fondo de microondas, un eco térmico que permea todo el cielo, el \"resplandor residual\" de cuando el universo se volvió transparente por primera vez."
         },
         {
           "type": "paragraph",
@@ -2395,7 +2491,13 @@
       ],
       "meta": {
         "chapterId": "cap-17"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-18",
@@ -2427,7 +2529,7 @@
         {
           "type": "paragraph",
           "id": "cap-18-p5",
-          "text": "¿Por qué es importante esto para tu historia? Porque los procariotas fueron los ingenieros planetarios. Gracias a ellos, y a procesos como la fotosíntesis primitiva, la Tierra comenzó a cambiar. Estos organismos simples transformaron la atmósfera, permitiendo que el oxígeno se acumulara y haciendo posible, millones de años después, la vida compleja. Sin esa adaptación a condiciones extremas por parte de seres microscópicos, no habría habido ecosistemas capaces de sostener a los grandes animales, ni a los humanos. Los procariotas nos enseñan que la vida, en su esencia, es resistencia y adaptación. Y esa misma capacidad de adaptación sería la clave para el siguiente gran capítulo de esta narrativa: la expansión de *Homo sapiens*."
+          "text": "¿Por qué es importante esto para tu historia? Porque los procariotas fueron los ingenieros planetarios. Gracias a ellos, y a procesos como la fotosíntesis primitiva, la Tierra comenzó a cambiar. Estos organismos simples transformaron la atmósfera, permitiendo que el oxígeno se acumulara y haciendo posible, millones de años después, la vida compleja. Sin esa adaptación a condiciones extremas por parte de seres microscópicos, no habría habido ecosistemas capaces de sostener a los grandes animales, ni a los humanos. Los procariotas nos enseñan que la vida, en su esencia, es resistencia y adaptación. Y esa misma capacidad de adaptación sería la clave para el siguiente gran capítulo de esta narrativa: la expansión de Homo sapiens."
         },
         {
           "type": "heading",
@@ -2438,7 +2540,7 @@
         {
           "type": "paragraph",
           "id": "cap-18-p7",
-          "text": "Mientras la vida se complejizaba, en África, hace unos 300.000 años, apareció una nueva especie con una herramienta poderosa: el cerebro humano. Los primeros *Homo sapiens* no fueron los primeros en caminar erguidos, ni los primeros en usar fuego, pero sí desarrollaron un lenguaje simbólico y una capacidad de cooperación social sin precedentes. Esto les permitió salir de África, siguiendo la teoría \"Out of Africa\", cruzando el estrecho de Bab-el-Mandeb y dispersándose por Asia y Europa."
+          "text": "Mientras la vida se complejizaba, en África, hace unos 300.000 años, apareció una nueva especie con una herramienta poderosa: el cerebro humano. Los primeros Homo sapiens no fueron los primeros en caminar erguidos, ni los primeros en usar fuego, pero sí desarrollaron un lenguaje simbólico y una capacidad de cooperación social sin precedentes. Esto les permitió salir de África, siguiendo la teoría \"Out of Africa\", cruzando el estrecho de Bab-el-Mandeb y dispersándose por Asia y Europa."
         },
         {
           "type": "paragraph",
@@ -2459,7 +2561,7 @@
         {
           "type": "paragraph",
           "id": "cap-18-p11",
-          "text": "Los diaguitas, asentados en los valles calchaquíes, descubrieron que podían cultivar maíz y papas en terrazas. Al producir más comida de la que necesitaban para comer inmediatamente, surgió el concepto de **excedente**. Este excedente fue la semilla de la desigualdad. Si tenías comida guardada, podías decidir quién la recibía y quién no. La propiedad privada comenzó a tomar forma, no como una ley escrita, sino como una práctica social: ciertos grupos comenzaron a controlar las tierras fértiles y los recursos."
+          "text": "Los diaguitas, asentados en los valles calchaquíes, descubrieron que podían cultivar maíz y papas en terrazas. Al producir más comida de la que necesitaban para comer inmediatamente, surgió el concepto de excedente. Este excedente fue la semilla de la desigualdad. Si tenías comida guardada, podías decidir quién la recibía y quién no. La propiedad privada comenzó a tomar forma, no como una ley escrita, sino como una práctica social: ciertos grupos comenzaron a controlar las tierras fértiles y los recursos."
         },
         {
           "type": "paragraph",
@@ -2511,7 +2613,13 @@
       ],
       "meta": {
         "chapterId": "cap-18"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-19",
@@ -2653,7 +2761,13 @@
       ],
       "meta": {
         "chapterId": "cap-19"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-20",
@@ -2680,7 +2794,7 @@
         {
           "type": "paragraph",
           "id": "cap-20-p4",
-          "text": "Antes de que existiera la historia escrita, existía la geología. Para comprender los procesos humanos, primero hay que entender el escenario físico donde ocurrieron. La Tierra no es una superficie estática; es un sistema dinámico donde las rocas se transforman constantemente en un ciclo continuo. Todo empieza con las **rocas ígneas**, aquellas que nacen del fuego. Cuando el magma se enfría lentamente bajo tierra, como el granito, o cuando la lava se solidifica rápido en la superficie, como el basalto, se crean los cimientos sólidos del planeta. Pero estas rocas no duran para siempre. La lluvia, el viento y la temperatura las desgastan, convirtiéndolas en sedimentos. Esos fragmentos viajan por ríos y mares hasta depositarse en capas, compactándose con el tiempo para formar **rocas sedimentarias**, como la arenisca o la caliza. Y si esas capas son enterradas profundamente, sometidas a presiones y temperaturas extremas sin llegar a fundirse, se transforman en **rocas metamórficas**, como el mármol o la pizarra."
+          "text": "Antes de que existiera la historia escrita, existía la geología. Para comprender los procesos humanos, primero hay que entender el escenario físico donde ocurrieron. La Tierra no es una superficie estática; es un sistema dinámico donde las rocas se transforman constantemente en un ciclo continuo. Todo empieza con las rocas ígneas, aquellas que nacen del fuego. Cuando el magma se enfría lentamente bajo tierra, como el granito, o cuando la lava se solidifica rápido en la superficie, como el basalto, se crean los cimientos sólidos del planeta. Pero estas rocas no duran para siempre. La lluvia, el viento y la temperatura las desgastan, convirtiéndolas en sedimentos. Esos fragmentos viajan por ríos y mares hasta depositarse en capas, compactándose con el tiempo para formar rocas sedimentarias, como la arenisca o la caliza. Y si esas capas son enterradas profundamente, sometidas a presiones y temperaturas extremas sin llegar a fundirse, se transforman en rocas metamórficas, como el mármol o la pizarra."
         },
         {
           "type": "paragraph",
@@ -2696,17 +2810,17 @@
         {
           "type": "paragraph",
           "id": "cap-20-p7",
-          "text": "Durante milenios, los grupos humanos vivieron de la caza y la recolección, moviéndose constantemente para seguir a las presas y las estaciones. No había propiedad fija, ni acumulación de riqueza, ni estructuras de poder complejas. Todo dependía de la movilidad. Sin embargo, hacia el final de la última glaciación, el clima se estabilizó y permitió un experimento radical: la **Revolución Neolítica**."
+          "text": "Durante milenios, los grupos humanos vivieron de la caza y la recolección, moviéndose constantemente para seguir a las presas y las estaciones. No había propiedad fija, ni acumulación de riqueza, ni estructuras de poder complejas. Todo dependía de la movilidad. Sin embargo, hacia el final de la última glaciación, el clima se estabilizó y permitió un experimento radical: la Revolución Neolítica."
         },
         {
           "type": "paragraph",
           "id": "cap-20-p8",
-          "text": "Este no fue un evento único ni rápido, sino un proceso gradual en el que los humanos empezaron a domesticar plantas y animales. Al aprender a cultivar trigo, cebada o maíz, y a criar ovejas o vacas, los grupos humanos descubrieron que podían producir más alimento del que necesitaban para comer ese mismo día. Aquí surge el concepto clave de la **sedentarización**: al depender de los cultivos, ya no podían migrar. Tuvieron que quedarse, construir viviendas duraderas y defender su territorio."
+          "text": "Este no fue un evento único ni rápido, sino un proceso gradual en el que los humanos empezaron a domesticar plantas y animales. Al aprender a cultivar trigo, cebada o maíz, y a criar ovejas o vacas, los grupos humanos descubrieron que podían producir más alimento del que necesitaban para comer ese mismo día. Aquí surge el concepto clave de la sedentarización: al depender de los cultivos, ya no podían migrar. Tuvieron que quedarse, construir viviendas duraderas y defender su territorio."
         },
         {
           "type": "paragraph",
           "id": "cap-20-p9",
-          "text": "Pero el verdadero detonante del cambio social fue el **excedente**. Por primera vez, la humanidad podía guardar comida para tiempos de escasez. Ese sobrante permitió algo impensable: que no todos tuvieran que dedicarse a buscar alimento. Algunos podían dedicarse a hacer herramientas, otros a construir, y otros a gobernar. El excedente fue la base material de la complejidad social. Dejó de existir la igualdad básica de los cazadores-recolectores para dar paso a las primeras jerarquías, la propiedad privada y, eventualmente, a los estados. La piedra se volvió suelo, y el suelo se volvió riqueza."
+          "text": "Pero el verdadero detonante del cambio social fue el excedente. Por primera vez, la humanidad podía guardar comida para tiempos de escasez. Ese sobrante permitió algo impensable: que no todos tuvieran que dedicarse a buscar alimento. Algunos podían dedicarse a hacer herramientas, otros a construir, y otros a gobernar. El excedente fue la base material de la complejidad social. Dejó de existir la igualdad básica de los cazadores-recolectores para dar paso a las primeras jerarquías, la propiedad privada y, eventualmente, a los estados. La piedra se volvió suelo, y el suelo se volvió riqueza."
         },
         {
           "type": "heading",
@@ -2717,12 +2831,12 @@
         {
           "type": "paragraph",
           "id": "cap-20-p11",
-          "text": "Si la Revolución Neolítica cambió cómo vivíamos materialmente, siglos después, otra transformación sacudió los cimientos políticos de la sociedad. Hasta el siglo XVIII, la mayor parte de Europa vivía bajo el **Antiguo Régimen**: un sistema feudal y monárquico donde el poder venía de Dios y se heredaba por sangre. La nobleza y el clero tenían los privilegios; el resto, las obligaciones. Pero en las ciudades, gracias al comercio y la artesanía, estaba creciendo una nueva clase social: la **burguesía**."
+          "text": "Si la Revolución Neolítica cambió cómo vivíamos materialmente, siglos después, otra transformación sacudió los cimientos políticos de la sociedad. Hasta el siglo XVIII, la mayor parte de Europa vivía bajo el Antiguo Régimen: un sistema feudal y monárquico donde el poder venía de Dios y se heredaba por sangre. La nobleza y el clero tenían los privilegios; el resto, las obligaciones. Pero en las ciudades, gracias al comercio y la artesanía, estaba creciendo una nueva clase social: la burguesía."
         },
         {
           "type": "paragraph",
           "id": "cap-20-p12",
-          "text": "Esta clase, formada por banqueros, comerciantes y profesionales, tenía riqueza pero carecía de poder político. No podían decidir las leyes que los afectaban. Esta contradicción generó una tensión explosiva. Las **Revoluciones Burguesas**, con la Revolución Francesa como punto de inflexión en 1789, rompieron con esa estructura. No fue solo un cambio de gobierno, sino una revolución ideológica. Surgió el **liberalismo**, una filosofía política que postulaba que los derechos no eran concesiones del rey, sino inherentes a cada individuo."
+          "text": "Esta clase, formada por banqueros, comerciantes y profesionales, tenía riqueza pero carecía de poder político. No podían decidir las leyes que los afectaban. Esta contradicción generó una tensión explosiva. Las Revoluciones Burguesas, con la Revolución Francesa como punto de inflexión en 1789, rompieron con esa estructura. No fue solo un cambio de gobierno, sino una revolución ideológica. Surgió el liberalismo, una filosofía política que postulaba que los derechos no eran concesiones del rey, sino inherentes a cada individuo."
         },
         {
           "type": "paragraph",
@@ -2738,17 +2852,17 @@
         {
           "type": "paragraph",
           "id": "cap-20-p15",
-          "text": "Mientras la burguesía consolidaba su poder político, un cambio tecnológico estaba ocurriendo en las sombras, listo para transformar la economía global. Hasta ese momento, la producción dependía de la fuerza humana, animal, del agua o del viento. Eran límites físicos infranqueables. Pero a finales del siglo XVIII, en Inglaterra, se produjo la **Revolución Industrial**."
+          "text": "Mientras la burguesía consolidaba su poder político, un cambio tecnológico estaba ocurriendo en las sombras, listo para transformar la economía global. Hasta ese momento, la producción dependía de la fuerza humana, animal, del agua o del viento. Eran límites físicos infranqueables. Pero a finales del siglo XVIII, en Inglaterra, se produjo la Revolución Industrial."
         },
         {
           "type": "paragraph",
           "id": "cap-20-p16",
-          "text": "El motor de este cambio no fue solo una máquina, sino una fuente de energía nueva: el **carbón mineral**. James Watt perfeccionó la **máquina de vapor**, permitiendo generar fuerza mecánica continua e independiente de la geografía. Antes, las fábricas tenían que estar junto a los ríos; ahora, podían estar donde quisieran, generalmente cerca de las minas de carbón y de la mano de obra."
+          "text": "El motor de este cambio no fue solo una máquina, sino una fuente de energía nueva: el carbón mineral. James Watt perfeccionó la máquina de vapor, permitiendo generar fuerza mecánica continua e independiente de la geografía. Antes, las fábricas tenían que estar junto a los ríos; ahora, podían estar donde quisieran, generalmente cerca de las minas de carbón y de la mano de obra."
         },
         {
           "type": "paragraph",
           "id": "cap-20-p17",
-          "text": "Esto desencadenó un cambio radical en el **sistema de trabajo**. El antiguo sistema de producción doméstica (*putting-out*), donde los artesanos trabajaban en sus casas con sus propias herramientas, desapareció. Nació la **fábrica**. Los trabajadores, muchos de ellos desplazados del campo por la cercamiento de tierras, migraron masivamente a las ciudades. Este flujo masivo generó una **urbanización acelerada** y caótica. Las ciudades crecieron sin planificación: hacinamiento, falta de saneamiento y contaminación se volvieron la norma para la clase trabajadora."
+          "text": "Esto desencadenó un cambio radical en el sistema de trabajo. El antiguo sistema de producción doméstica (putting-out), donde los artesanos trabajaban en sus casas con sus propias herramientas, desapareció. Nació la fábrica. Los trabajadores, muchos de ellos desplazados del campo por la cercamiento de tierras, migraron masivamente a las ciudades. Este flujo masivo generó una urbanización acelerada y caótica. Las ciudades crecieron sin planificación: hacinamiento, falta de saneamiento y contaminación se volvieron la norma para la clase trabajadora."
         },
         {
           "type": "paragraph",
@@ -2764,12 +2878,12 @@
         {
           "type": "paragraph",
           "id": "cap-20-p20",
-          "text": "Al mirar hacia atrás, desde la piedra hasta el vapor, se puede ver un patrón claro. La humanidad ha pasado por fases de transformación radical que redefinieron qué significa ser humano. La **Revolución Neolítica** nos hizo sedentarios y jerárquicos gracias al excedente. Las **Revoluciones Burguesas** nos dieron las herramientas políticas para cuestionar el poder absoluto y defender la libertad individual. La **Revolución Industrial** nos conectó globalmente, aceleró la producción y nos urbanizó, pero también nos alienó del proceso de producción y del entorno natural."
+          "text": "Al mirar hacia atrás, desde la piedra hasta el vapor, se puede ver un patrón claro. La humanidad ha pasado por fases de transformación radical que redefinieron qué significa ser humano. La Revolución Neolítica nos hizo sedentarios y jerárquicos gracias al excedente. Las Revoluciones Burguesas nos dieron las herramientas políticas para cuestionar el poder absoluto y defender la libertad individual. La Revolución Industrial nos conectó globalmente, aceleró la producción y nos urbanizó, pero también nos alienó del proceso de producción y del entorno natural."
         },
         {
           "type": "paragraph",
           "id": "cap-20-p21",
-          "text": "Y todo esto ocurre sobre una Tierra que sigue su propio ritmo. Las **rocas ígneas, sedimentarias y metamórficas** nos recuerdan que los recursos que aprovechamos (carbón, minerales, tierra fértil) son el resultado de procesos geológicos inmensamente lentos. La historia profunda nos enseña que no estamos fuera de la naturaleza; somos parte de ella, pero con la capacidad única de alterarla a una velocidad vertiginosa."
+          "text": "Y todo esto ocurre sobre una Tierra que sigue su propio ritmo. Las rocas ígneas, sedimentarias y metamórficas nos recuerdan que los recursos que aprovechamos (carbón, minerales, tierra fértil) son el resultado de procesos geológicos inmensamente lentos. La historia profunda nos enseña que no estamos fuera de la naturaleza; somos parte de ella, pero con la capacidad única de alterarla a una velocidad vertiginosa."
         },
         {
           "type": "paragraph",
@@ -2779,7 +2893,13 @@
       ],
       "meta": {
         "chapterId": "cap-20"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-21",
@@ -2811,7 +2931,7 @@
         {
           "type": "paragraph",
           "id": "cap-21-p5",
-          "text": "Estos elementos, esparcidos por el espacio interestelar, se condensaron en nebulosas que dieron origen a nuestro Sistema Solar. Pero la Tierra no nació quieta. Aquí entra en juego la tectónica de placas, el motor geológico que dio forma a nuestro hogar. La teoría de la deriva continental, propuesta inicialmente por Alfred Wegener en 1912, revolucionó nuestra visión del planeta. Wegener notó que los contornos de las costas de África y Sudamérica encajaban como piezas de un rompecabezas, y encontró fósiles idénticos, como el *Mesosaurus*, en continentes ahora separados por océanos inmensos. Aunque en su época fue criticado por no saber cómo los continentes se movían, hoy sabemos que la litosfera está fragmentada en placas que flotan sobre el manto. Este movimiento constante no solo separa continentes, sino que crea montañas, abre océanos y genera volcanes. Sin la tectónica de placas, la Tierra sería un globo rocoso estático, sin reciclaje de carbono ni regulación térmica, y probablemente sin vida."
+          "text": "Estos elementos, esparcidos por el espacio interestelar, se condensaron en nebulosas que dieron origen a nuestro Sistema Solar. Pero la Tierra no nació quieta. Aquí entra en juego la tectónica de placas, el motor geológico que dio forma a nuestro hogar. La teoría de la deriva continental, propuesta inicialmente por Alfred Wegener en 1912, revolucionó nuestra visión del planeta. Wegener notó que los contornos de las costas de África y Sudamérica encajaban como piezas de un rompecabezas, y encontró fósiles idénticos, como el Mesosaurus, en continentes ahora separados por océanos inmensos. Aunque en su época fue criticado por no saber cómo los continentes se movían, hoy sabemos que la litosfera está fragmentada en placas que flotan sobre el manto. Este movimiento constante no solo separa continentes, sino que crea montañas, abre océanos y genera volcanes. Sin la tectónica de placas, la Tierra sería un globo rocoso estático, sin reciclaje de carbono ni regulación térmica, y probablemente sin vida."
         },
         {
           "type": "heading",
@@ -2822,12 +2942,12 @@
         {
           "type": "paragraph",
           "id": "cap-21-p7",
-          "text": "Mientras la Tierra se enfriaba y sus continentes se reorganizaban, la química se volvió biología. La selección natural fue el mecanismo que permitió a la vida no solo sobrevivir, sino adaptarse a los cambios brutales del entorno geológico. Para entender cómo funciona este proceso, no basta con creer en ella; hay que observar las evidencias que el registro fósil nos deja. Los fósiles transicionales son esos eslabones perdidos que conectan grupos distintos. *Archaeopteryx*, por ejemplo, es un puente claro entre los dinosaurios terópodos y las aves modernas: tenía plumas y alas, pero también dientes y una cola ósea, características reptilianas. Otro caso fascinante es *Tiktaalik*, un pez con extremidades articuladas que muestra cómo los primeros tetrápodos comenzaron a emergir del agua, adaptándose a ambientes más secos."
+          "text": "Mientras la Tierra se enfriaba y sus continentes se reorganizaban, la química se volvió biología. La selección natural fue el mecanismo que permitió a la vida no solo sobrevivir, sino adaptarse a los cambios brutales del entorno geológico. Para entender cómo funciona este proceso, no basta con creer en ella; hay que observar las evidencias que el registro fósil nos deja. Los fósiles transicionales son esos eslabones perdidos que conectan grupos distintos. Archaeopteryx, por ejemplo, es un puente claro entre los dinosaurios terópodos y las aves modernas: tenía plumas y alas, pero también dientes y una cola ósea, características reptilianas. Otro caso fascinante es Tiktaalik, un pez con extremidades articuladas que muestra cómo los primeros tetrápodos comenzaron a emergir del agua, adaptándose a ambientes más secos."
         },
         {
           "type": "paragraph",
           "id": "cap-21-p8",
-          "text": "La evolución no es un salto mágico, sino un ajuste gradual. Un ejemplo clásico es el de los équidos. Desde *Eohippus*, un pequeño animal del tamaño de un perro con cinco dedos y dientes para comer hojas blandas de los bosques, hasta el caballo actual (*Equus*), el registro fósil muestra una progresión clara. A medida que los bosques se transformaban en praderas abiertas debido a los cambios climáticos y geológicos, los équidos necesitaban correr más rápido y moler hierbas duras. El resultado fue un aumento del tamaño corporal, la reducción de los dedos a uno solo (la pezuña) y una especialización dental extrema. Esta adaptación morfológica no ocurrió de la noche a la mañana, sino a lo largo de millones de años, demostrando que la selección natural es un proceso continuo, impulsado por la presión del entorno que definieron, en última instancia, la tectónica y el clima."
+          "text": "La evolución no es un salto mágico, sino un ajuste gradual. Un ejemplo clásico es el de los équidos. Desde Eohippus, un pequeño animal del tamaño de un perro con cinco dedos y dientes para comer hojas blandas de los bosques, hasta el caballo actual (Equus), el registro fósil muestra una progresión clara. A medida que los bosques se transformaban en praderas abiertas debido a los cambios climáticos y geológicos, los équidos necesitaban correr más rápido y moler hierbas duras. El resultado fue un aumento del tamaño corporal, la reducción de los dedos a uno solo (la pezuña) y una especialización dental extrema. Esta adaptación morfológica no ocurrió de la noche a la mañana, sino a lo largo de millones de años, demostrando que la selección natural es un proceso continuo, impulsado por la presión del entorno que definieron, en última instancia, la tectónica y el clima."
         },
         {
           "type": "heading",
@@ -2859,7 +2979,7 @@
         {
           "type": "paragraph",
           "id": "cap-21-p14",
-          "text": "El 1 de septiembre de 1939, la invasión alemana a Polonia marcó el inicio de la Segunda Guerra Mundial. Pero esta no fue una guerra convencional. Fue una \"guerra total\", donde la distinción entre combatientes y civiles se difuminó. La *Blitzkrieg* alemana, combinando tanques, aviación y comunicaciones rápidas, demostró la eficiencia letal de la tecnología moderna al servicio de la ideología. En 1940, Francia cayó, y Europa quedó bajo el dominio nazi. La guerra se globalizó con la entrada de la Unión Soviética y Estados Unidos, convirtiéndose en un conflicto que definió el siglo XX."
+          "text": "El 1 de septiembre de 1939, la invasión alemana a Polonia marcó el inicio de la Segunda Guerra Mundial. Pero esta no fue una guerra convencional. Fue una \"guerra total\", donde la distinción entre combatientes y civiles se difuminó. La Blitzkrieg alemana, combinando tanques, aviación y comunicaciones rápidas, demostró la eficiencia letal de la tecnología moderna al servicio de la ideología. En 1940, Francia cayó, y Europa quedó bajo el dominio nazi. La guerra se globalizó con la entrada de la Unión Soviética y Estados Unidos, convirtiéndose en un conflicto que definió el siglo XX."
         },
         {
           "type": "paragraph",
@@ -2880,7 +3000,13 @@
       ],
       "meta": {
         "chapterId": "cap-21"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-22",
@@ -2971,7 +3097,13 @@
       ],
       "meta": {
         "chapterId": "cap-22"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

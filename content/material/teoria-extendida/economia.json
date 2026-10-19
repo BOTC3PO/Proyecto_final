@@ -11,91 +11,91 @@
         "id": "cap-1",
         "title": "El ecosistema económico: de la fábrica al blockchain",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "El costo de la información: de los contratos a la contabilidad ambiental",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       },
       {
         "id": "cap-3",
         "title": "La arquitectura de la decisión: desde la escasez hasta la gestión colectiva",
         "pageStart": 3,
-        "anchor": "cap-3"
+        "anchor": "cap-3:inicio"
       },
       {
         "id": "cap-4",
         "title": "El pulso financiero: de la producción cotidiana al colapso estructural",
         "pageStart": 4,
-        "anchor": "cap-4"
+        "anchor": "cap-4:inicio"
       },
       {
         "id": "cap-5",
         "title": "El tejido de la vida económica: seguridad, salud, emprendimiento y el endeudamiento estatal",
         "pageStart": 5,
-        "anchor": "cap-5"
+        "anchor": "cap-5:inicio"
       },
       {
         "id": "cap-6",
         "title": "El entramado de la realidad económica: de la lógica contable a la innovación financiera",
         "pageStart": 6,
-        "anchor": "cap-6"
+        "anchor": "cap-6:inicio"
       },
       {
         "id": "cap-7",
         "title": "La anatomía de la organización: De los recursos al patrimonio",
         "pageStart": 7,
-        "anchor": "cap-7"
+        "anchor": "cap-7:inicio"
       },
       {
         "id": "cap-8",
         "title": "La arquitectura del riesgo: organización, contexto y resiliencia financiera",
         "pageStart": 8,
-        "anchor": "cap-8"
+        "anchor": "cap-8:inicio"
       },
       {
         "id": "cap-9",
         "title": "El valor del tiempo y la estructura de nuestra vida económica",
         "pageStart": 9,
-        "anchor": "cap-9"
+        "anchor": "cap-9:inicio"
       },
       {
         "id": "cap-10",
         "title": "El ciclo de vida del emprendimiento: de la idea a la contabilidad",
         "pageStart": 10,
-        "anchor": "cap-10"
+        "anchor": "cap-10:inicio"
       },
       {
         "id": "cap-11",
         "title": "La arquitectura oculta de la actividad económica",
         "pageStart": 11,
-        "anchor": "cap-11"
+        "anchor": "cap-11:inicio"
       },
       {
         "id": "cap-12",
         "title": "De la idea al mercado: la arquitectura oculta del valor",
         "pageStart": 12,
-        "anchor": "cap-12"
+        "anchor": "cap-12:inicio"
       },
       {
         "id": "cap-13",
         "title": "De la planificación a la realidad: el ciclo económico de una organización",
         "pageStart": 13,
-        "anchor": "cap-13"
+        "anchor": "cap-13:inicio"
       },
       {
         "id": "cap-14",
         "title": "El motor, el volante y el asiento de seguridad: cómo funciona una economía moderna",
         "pageStart": 14,
-        "anchor": "cap-14"
+        "anchor": "cap-14:inicio"
       },
       {
         "id": "cap-15",
         "title": "El ecosistema de la actividad económica: De la idea al mercado",
         "pageStart": 15,
-        "anchor": "cap-15"
+        "anchor": "cap-15:inicio"
       }
     ]
   },
@@ -125,17 +125,17 @@
         {
           "type": "paragraph",
           "id": "cap-1-p4",
-          "text": "Todo punto de partida para entender la economía moderna es la **organización**, ya sea una gran multinacional, una pequeña cooperativa local o una startup de tecnología. Para que entiendas bien cómo funciona, ten que dejar de verla como una caja negra y empezar a verla como un sistema abierto. Esto significa que la organización no existe en el vacío; está permanentemente interactuando con su entorno."
+          "text": "Todo punto de partida para entender la economía moderna es la organización, ya sea una gran multinacional, una pequeña cooperativa local o una startup de tecnología. Para que entiendas bien cómo funciona, ten que dejar de verla como una caja negra y empezar a verla como un sistema abierto. Esto significa que la organización no existe en el vacío; está permanentemente interactuando con su entorno."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p5",
-          "text": "Para analizar esto, los economistas y administradores dividimos el contexto en dos dimensiones: el **ambiente interno** y el **ambiente externo**. El ambiente interno es lo que está bajo tu control directo o indirecto dentro de la organización. Acá están los recursos humanos (tu gente, su cultura, su motivación), los recursos materiales (las máquinas, los edificios, la infraestructura), los recursos naturales y, cada vez más importante, el conocimiento. Si tu organización no gestiona bien su ambiente interno, si sus procesos son ineficientes o su gente está desmotivada, no va a poder competir, por más buenas oportunidades que le ofrezca el exterior."
+          "text": "Para analizar esto, los economistas y administradores dividimos el contexto en dos dimensiones: el ambiente interno y el ambiente externo. El ambiente interno es lo que está bajo tu control directo o indirecto dentro de la organización. Acá están los recursos humanos (tu gente, su cultura, su motivación), los recursos materiales (las máquinas, los edificios, la infraestructura), los recursos naturales y, cada vez más importante, el conocimiento. Si tu organización no gestiona bien su ambiente interno, si sus procesos son ineficientes o su gente está desmotivada, no va a poder competir, por más buenas oportunidades que le ofrezca el exterior."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p6",
-          "text": "Por otro lado, está el **ambiente externo**, que son las fuerzas que la organización no puede controlar, pero sí debe monitorear y adaptar. Acá entran las leyes, la economía nacional, la competencia, los cambios en los gustos de los consumidores y la tecnología disponible. Una empresa que ignora el ambiente externo corre el riesgo de volverse obsoleta; piense en los fabricantes de teléfonos con teclado que no vieron venir la revolución de las pantallas táctiles. La clave está en la interacción: la organización usa sus recursos internos para responder a las oportunidades y amenazas del entorno externo."
+          "text": "Por otro lado, está el ambiente externo, que son las fuerzas que la organización no puede controlar, pero sí debe monitorear y adaptar. Acá entran las leyes, la economía nacional, la competencia, los cambios en los gustos de los consumidores y la tecnología disponible. Una empresa que ignora el ambiente externo corre el riesgo de volverse obsoleta; piense en los fabricantes de teléfonos con teclado que no vieron venir la revolución de las pantallas táctiles. La clave está en la interacción: la organización usa sus recursos internos para responder a las oportunidades y amenazas del entorno externo."
         },
         {
           "type": "heading",
@@ -146,7 +146,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p8",
-          "text": "Una vez que entendés dónde estás parado (tu entorno) y qué tenés adentro (tus recursos), el siguiente paso lógico es preguntarte: ¿cómo vamos a generar valor? Aquí es donde entra una herramienta fundamental para cualquier emprendedor o gerente: el **Business Model Canvas** (Lienzo de Modelo de Negocio)."
+          "text": "Una vez que entendés dónde estás parado (tu entorno) y qué tenés adentro (tus recursos), el siguiente paso lógico es preguntarte: ¿cómo vamos a generar valor? Aquí es donde entra una herramienta fundamental para cualquier emprendedor o gerente: el Business Model Canvas (Lienzo de Modelo de Negocio)."
         },
         {
           "type": "paragraph",
@@ -156,12 +156,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p10",
-          "text": "Empezamos por el corazón del negocio: la **Propuesta de Valor**. ¿Qué problema estás resolviendo? ¿Qué beneficio único ofreces? Sin esto, nada más funciona. Luego, miramos hacia afuera con los **Segmentos de Clientes**: ¿a quién le vendés? No es lo mismo venderle a adolescentes que a empresas industriales. Para llegar a ellos, necesitás definir tus **Canales** (¿vendes online, en una tienda física, por teléfono?) y el tipo de **Relaciones** que vas a mantener (¿automatizada, personalizada, de comunidad?)."
+          "text": "Empezamos por el corazón del negocio: la Propuesta de Valor. ¿Qué problema estás resolviendo? ¿Qué beneficio único ofreces? Sin esto, nada más funciona. Luego, miramos hacia afuera con los Segmentos de Clientes: ¿a quién le vendés? No es lo mismo venderle a adolescentes que a empresas industriales. Para llegar a ellos, necesitás definir tus Canales (¿vendes online, en una tienda física, por teléfono?) y el tipo de Relaciones que vas a mantener (¿automatizada, personalizada, de comunidad?)."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p11",
-          "text": "Pero todo esto tiene un costo. Por eso, en la parte inferior del lienzo, analizás la **Estructura de Costos** (qué gastos fijos y variables tenés) y los **Recursos Clave** (qué necesitas tener: dinero, patentes, talento humano) y las **Actividades Clave** (qué tenés que hacer día a día: producción, resolución de problemas, plataformas). Finalmente, miramos hacia el resultado: el **Flujo de Ingresos** (cómo y cuánto ganás) y las **Partes Interesadas** (quién más se ve afectado por tu negocio, como proveedores o la comunidad). El Canvas te ayuda a ver si tu modelo es coherente: ¿tus ingresos cubren tus costos? ¿tus canales llegan realmente a tus clientes?"
+          "text": "Pero todo esto tiene un costo. Por eso, en la parte inferior del lienzo, analizás la Estructura de Costos (qué gastos fijos y variables tenés) y los Recursos Clave (qué necesitas tener: dinero, patentes, talento humano) y las Actividades Clave (qué tenés que hacer día a día: producción, resolución de problemas, plataformas). Finalmente, miramos hacia el resultado: el Flujo de Ingresos (cómo y cuánto ganás) y las Partes Interesadas (quién más se ve afectado por tu negocio, como proveedores o la comunidad). El Canvas te ayuda a ver si tu modelo es coherente: ¿tus ingresos cubren tus costos? ¿tus canales llegan realmente a tus clientes?"
         },
         {
           "type": "heading",
@@ -172,12 +172,12 @@
         {
           "type": "paragraph",
           "id": "cap-1-p13",
-          "text": "Mientras una empresa analiza su modelo de negocio, un país entero debe analizar su posición frente al resto del mundo. Pasamos de lo micro a lo macro. En la economía internacional, un indicador crucial es la **Balanza Comercial**."
+          "text": "Mientras una empresa analiza su modelo de negocio, un país entero debe analizar su posición frente al resto del mundo. Pasamos de lo micro a lo macro. En la economía internacional, un indicador crucial es la Balanza Comercial."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p14",
-          "text": "La balanza comercial es, en términos simples, la diferencia entre lo que un país le vende al resto del mundo (**exportaciones**) y lo que le compra (**importaciones**) durante un período determinado, usualmente un año. La fórmula es directa:"
+          "text": "La balanza comercial es, en términos simples, la diferencia entre lo que un país le vende al resto del mundo (exportaciones) y lo que le compra (importaciones) durante un período determinado, usualmente un año. La fórmula es directa:"
         },
         {
           "type": "paragraph",
@@ -187,7 +187,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p16",
-          "text": "Si el resultado es positivo, hablamos de **superávit comercial**. Esto significa que el país vende más de lo que compra. Si el resultado es negativo, tenemos un **déficit comercial**, lo que indica que el país está comprando más bienes y servicios del exterior de los que está vendiendo afuera."
+          "text": "Si el resultado es positivo, hablamos de superávit comercial. Esto significa que el país vende más de lo que compra. Si el resultado es negativo, tenemos un déficit comercial, lo que indica que el país está comprando más bienes y servicios del exterior de los que está vendiendo afuera."
         },
         {
           "type": "paragraph",
@@ -197,7 +197,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p18",
-          "text": "Esta balanza es vital porque afecta el tipo de cambio, la inflación y el empleo. Si exportamos mucho, entramos divisas al país; si importamos mucho, salen divisas. Para las organizaciones que vimos antes, entender la balanza comercial de su país es clave: si hay aranceles altos (impuestos a las importaciones), puede ser más caro comprar insumos del exterior, lo que afecta directamente su **Estructura de Costos** en el Business Model Canvas."
+          "text": "Esta balanza es vital porque afecta el tipo de cambio, la inflación y el empleo. Si exportamos mucho, entramos divisas al país; si importamos mucho, salen divisas. Para las organizaciones que vimos antes, entender la balanza comercial de su país es clave: si hay aranceles altos (impuestos a las importaciones), puede ser más caro comprar insumos del exterior, lo que afecta directamente su Estructura de Costos en el Business Model Canvas."
         },
         {
           "type": "heading",
@@ -208,17 +208,17 @@
         {
           "type": "paragraph",
           "id": "cap-1-p20",
-          "text": "Pero, ¿de dónde viene todo este sistema de empresas, mercados y comercio internacional? Para responder a eso, tenemos que viajar en el tiempo hasta el surgimiento del **capitalismo industrial** en los siglos XVIII y XIX. Este modelo económico marcó un quiebre radical respecto a los sistemas anteriores, como el feudalismo."
+          "text": "Pero, ¿de dónde viene todo este sistema de empresas, mercados y comercio internacional? Para responder a eso, tenemos que viajar en el tiempo hasta el surgimiento del capitalismo industrial en los siglos XVIII y XIX. Este modelo económico marcó un quiebre radical respecto a los sistemas anteriores, como el feudalismo."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p21",
-          "text": "La característica central del capitalismo industrial es la **propiedad privada de los medios de producción**. Las fábricas, la maquinaria, la tierra y las materias primas no pertenecen a los que trabajan, sino a los **capitalistas** o burgueses que invierten su capital para generar ganancia. La meta ya no es producir solo para consumir o para un señor feudal, sino producir mercancías para venderlas en el mercado y obtener un excedente económico."
+          "text": "La característica central del capitalismo industrial es la propiedad privada de los medios de producción. Las fábricas, la maquinaria, la tierra y las materias primas no pertenecen a los que trabajan, sino a los capitalistas o burgueses que invierten su capital para generar ganancia. La meta ya no es producir solo para consumir o para un señor feudal, sino producir mercancías para venderlas en el mercado y obtener un excedente económico."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p22",
-          "text": "Esta separación entre quien posee los medios y quien trabaja genera una nueva relación social: el **trabajo asalariado**. En este sistema, el trabajador, al no tener medios propios para producir, tiene una única mercadería que vender: su fuerza de trabajo. Vende su tiempo y esfuerzo a cambio de un **salario**. Este salario es un pago periódico (semanal, mensual) acordado contractualmente."
+          "text": "Esta separación entre quien posee los medios y quien trabaja genera una nueva relación social: el trabajo asalariado. En este sistema, el trabajador, al no tener medios propios para producir, tiene una única mercadería que vender: su fuerza de trabajo. Vende su tiempo y esfuerzo a cambio de un salario. Este salario es un pago periódico (semanal, mensual) acordado contractualmente."
         },
         {
           "type": "paragraph",
@@ -239,32 +239,32 @@
         {
           "type": "paragraph",
           "id": "cap-1-p26",
-          "text": "Aquí es donde la historia se vuelve fascinante. Mientras el capitalismo industrial nos dio la estructura de las empresas y el comercio global, el siglo XXI nos trajo una revolución tecnológica que desafía la necesidad de intermediarios tradicionales, como los bancos o las cámaras de compensación. Estamos hablando de **Blockchain** y las **Wallets** (billeteras digitales)."
+          "text": "Aquí es donde la historia se vuelve fascinante. Mientras el capitalismo industrial nos dio la estructura de las empresas y el comercio global, el siglo XXI nos trajo una revolución tecnológica que desafía la necesidad de intermediarios tradicionales, como los bancos o las cámaras de compensación. Estamos hablando de Blockchain y las Wallets (billeteras digitales)."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p27",
-          "text": "¿Cuál es el problema que resuelve una blockchain? Tradicionalmente, si querías transferir dinero o probar que algo es tuyo, necesitabas un tercero de confianza: un banco, un notario, un gobierno. El banco dice que vos tenés plata, y por lo tanto, la tenés. Una **blockchain** (cadena de bloques) elimina esa necesidad de confiar en una autoridad central. En su lugar, usa una red distribuida de computadoras (nodos) que mantienen un registro compartido, inmutable y transparente de todas las transacciones."
+          "text": "¿Cuál es el problema que resuelve una blockchain? Tradicionalmente, si querías transferir dinero o probar que algo es tuyo, necesitabas un tercero de confianza: un banco, un notario, un gobierno. El banco dice que vos tenés plata, y por lo tanto, la tenés. Una blockchain (cadena de bloques) elimina esa necesidad de confiar en una autoridad central. En su lugar, usa una red distribuida de computadoras (nodos) que mantienen un registro compartido, inmutable y transparente de todas las transacciones."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p28",
-          "text": "Para entender cómo funciona, imaginá un libro de contabilidad gigante que todos pueden ver, pero que nadie puede borrar ni modificar sin que todos los demás se den cuenta. Este libro está dividido en **bloques**. Cada bloque contiene un grupo de transacciones confirmadas. Pero lo genial es cómo se unen: cada nuevo bloque incluye una \"huella digital\" única del bloque anterior, llamada **hash**."
+          "text": "Para entender cómo funciona, imaginá un libro de contabilidad gigante que todos pueden ver, pero que nadie puede borrar ni modificar sin que todos los demás se den cuenta. Este libro está dividido en bloques. Cada bloque contiene un grupo de transacciones confirmadas. Pero lo genial es cómo se unen: cada nuevo bloque incluye una \"huella digital\" única del bloque anterior, llamada hash."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p29",
-          "text": "El **hash** es el resultado de pasar los datos del bloque anterior por una función matemática compleja. Si cambiás un solo carácter en el bloque anterior, su hash cambia por completo. Como el nuevo bloque depende de ese hash, toda la cadena posterior se rompería. Esto hace que sea prácticamente imposible alterar la historia de las transacciones una vez que están registradas."
+          "text": "El hash es el resultado de pasar los datos del bloque anterior por una función matemática compleja. Si cambiás un solo carácter en el bloque anterior, su hash cambia por completo. Como el nuevo bloque depende de ese hash, toda la cadena posterior se rompería. Esto hace que sea prácticamente imposible alterar la historia de las transacciones una vez que están registradas."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p30",
-          "text": "Para usar esto, necesitás una **wallet** (billetera). Una wallet no guarda dinero físico, sino dos cosas: una **clave pública** y una **clave privada**. La clave pública es como tu número de cuenta bancaria: podés compartirla para que la gente te envíe dinero. La clave privada es como tu firma digital o tu PIN secreto: con ella firmás las transacciones para probar que sos el dueño de los fondos y autorizar el envío. Nadie puede gastar tus fondos sin tu clave privada."
+          "text": "Para usar esto, necesitás una wallet (billetera). Una wallet no guarda dinero físico, sino dos cosas: una clave pública y una clave privada. La clave pública es como tu número de cuenta bancaria: podés compartirla para que la gente te envíe dinero. La clave privada es como tu firma digital o tu PIN secreto: con ella firmás las transacciones para probar que sos el dueño de los fondos y autorizar el envío. Nadie puede gastar tus fondos sin tu clave privada."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p31",
-          "text": "Esta tecnología, que subyace a las criptomonedas, tiene implicaciones enormes para la economía. Permite transacciones peer-to-peer (de persona a persona) a través de fronteras sin pasar por bancos tradicionales. Esto afecta directamente la **balanza comercial** y los flujos de capital internacionales. Si vos, en Argentina, podés enviar valor a un proveedor en otro país usando blockchain, estás evadiendo los costos y tiempos del sistema bancario tradicional, cambiando la dinámica de costos para tu **Business Model Canvas** y redefiniendo cómo se mueve el dinero en el **ambiente externo** global."
+          "text": "Esta tecnología, que subyace a las criptomonedas, tiene implicaciones enormes para la economía. Permite transacciones peer-to-peer (de persona a persona) a través de fronteras sin pasar por bancos tradicionales. Esto afecta directamente la balanza comercial y los flujos de capital internacionales. Si vos, en Argentina, podés enviar valor a un proveedor en otro país usando blockchain, estás evadiendo los costos y tiempos del sistema bancario tradicional, cambiando la dinámica de costos para tu Business Model Canvas y redefiniendo cómo se mueve el dinero en el ambiente externo global."
         },
         {
           "type": "heading",
@@ -275,7 +275,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p33",
-          "text": "Al cerrar este capítulo, notá cómo todos estos temas no están aislados. El **capitalismo industrial** creó la necesidad de empresas eficientes y trabajadores asalariados. Para sobrevivir en ese mercado, las organizaciones desarrollaron herramientas como el **Business Model Canvas** para planificar su valor y costos. Estas organizaciones operan dentro de un país que, a su vez, negocia su posición económica mundial a través de la **Balanza Comercial**. Y hoy, una nueva tecnología como **Blockchain** está apareciendo para modificar las reglas del juego financiero, ofreciendo nuevas formas de confiar y transferir valor que desafían las estructuras tradicionales."
+          "text": "Al cerrar este capítulo, notá cómo todos estos temas no están aislados. El capitalismo industrial creó la necesidad de empresas eficientes y trabajadores asalariados. Para sobrevivir en ese mercado, las organizaciones desarrollaron herramientas como el Business Model Canvas para planificar su valor y costos. Estas organizaciones operan dentro de un país que, a su vez, negocia su posición económica mundial a través de la Balanza Comercial. Y hoy, una nueva tecnología como Blockchain está apareciendo para modificar las reglas del juego financiero, ofreciendo nuevas formas de confiar y transferir valor que desafían las estructuras tradicionales."
         },
         {
           "type": "paragraph",
@@ -285,7 +285,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -416,7 +422,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-3",
@@ -443,7 +455,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p4",
-          "text": "Todo análisis económico comienza con una constatación incómoda pero fundamental: los recursos son escasos y nuestros deseos son ilimitados. Esta disparidad obliga a tomar decisiones. Y en economía, toda decisión tiene un precio, pero ese precio no suele ser solo el dinero que sale de tu billetera. Aquí entra en juego el concepto de **costo de oportunidad**, que es, quizás, la herramienta mental más poderosa que tiene un economista para evaluar la realidad."
+          "text": "Todo análisis económico comienza con una constatación incómoda pero fundamental: los recursos son escasos y nuestros deseos son ilimitados. Esta disparidad obliga a tomar decisiones. Y en economía, toda decisión tiene un precio, pero ese precio no suele ser solo el dinero que sale de tu billetera. Aquí entra en juego el concepto de costo de oportunidad, que es, quizás, la herramienta mental más poderosa que tiene un economista para evaluar la realidad."
         },
         {
           "type": "paragraph",
@@ -453,7 +465,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p6",
-          "text": "Este concepto nos obliga a ser racionales y conscientes de los *trade-offs*, o compensaciones. No podemos tenerlo todo. Cuando una sociedad decide invertir en salud pública, está renunciando a invertir en infraestructura vial, o al menos a hacerlo con la misma intensidad. Cuando una familia decide comprar una casa, está renunciando a ahorrar para el retiro o a invertir en educación superior. Entender el costo de oportunidad es entender que la economía es la ciencia de la gestión de la escasez mediante la elección."
+          "text": "Este concepto nos obliga a ser racionales y conscientes de los trade-offs, o compensaciones. No podemos tenerlo todo. Cuando una sociedad decide invertir en salud pública, está renunciando a invertir en infraestructura vial, o al menos a hacerlo con la misma intensidad. Cuando una familia decide comprar una casa, está renunciando a ahorrar para el retiro o a invertir en educación superior. Entender el costo de oportunidad es entender que la economía es la ciencia de la gestión de la escasez mediante la elección."
         },
         {
           "type": "heading",
@@ -469,22 +481,22 @@
         {
           "type": "paragraph",
           "id": "cap-3-p9",
-          "text": "Durante los siglos XVI a XVIII, el **mercantilismo** dominó el panorama europeo. Para los mercantilistas, la riqueza de una nación se medía por la cantidad de oro y plata que acumulaba. Por eso, el Estado debía intervenir activamente: fomentar las exportaciones y poner barreras a las importaciones para mantener una balanza comercial favorable. La idea era que la riqueza era finita, un juego de suma cero donde lo que ganaba uno, lo perdía otro."
+          "text": "Durante los siglos XVI a XVIII, el mercantilismo dominó el panorama europeo. Para los mercantilistas, la riqueza de una nación se medía por la cantidad de oro y plata que acumulaba. Por eso, el Estado debía intervenir activamente: fomentar las exportaciones y poner barreras a las importaciones para mantener una balanza comercial favorable. La idea era que la riqueza era finita, un juego de suma cero donde lo que ganaba uno, lo perdía otro."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p10",
-          "text": "Con el tiempo, esa visión dio paso a la **fisiocracia** en Francia. Los fisiócratas, como François Quesay, sostenían que la verdadera fuente de riqueza era la tierra y la agricultura. Para ellos, la industria y el comercio solo transformaban materiales que la naturaleza ya había creado. De aquí surgió su famosa demanda de libertad económica: *\"laissez faire, laissez passer\"* (dejar hacer, dejar pasar). Creían en un orden natural que regulaba la economía mejor que cualquier intervención estatal."
+          "text": "Con el tiempo, esa visión dio paso a la fisiocracia en Francia. Los fisiócratas, como François Quesay, sostenían que la verdadera fuente de riqueza era la tierra y la agricultura. Para ellos, la industria y el comercio solo transformaban materiales que la naturaleza ya había creado. De aquí surgió su famosa demanda de libertad económica: \"laissez faire, laissez passer\" (dejar hacer, dejar pasar). Creían en un orden natural que regulaba la economía mejor que cualquier intervención estatal."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p11",
-          "text": "Posteriormente, **Adam Smith** consolidaría el liberalismo clásico, argumentando que la búsqueda del interés propio, guiada por la \"mano invisible\" del mercado, podía generar el bien común. Por otro lado, **Karl Marx** criticaría ferozmente este sistema, señalando las contradicciones del capitalismo y proponiendo una economía planificada donde los medios de producción pertenecieran a la comunidad, eliminando la explotación del trabajo."
+          "text": "Posteriormente, Adam Smith consolidaría el liberalismo clásico, argumentando que la búsqueda del interés propio, guiada por la \"mano invisible\" del mercado, podía generar el bien común. Por otro lado, Karl Marx criticaría ferozmente este sistema, señalando las contradicciones del capitalismo y proponiendo una economía planificada donde los medios de producción pertenecieran a la comunidad, eliminando la explotación del trabajo."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p12",
-          "text": "Hoy en día, estas corrientes se entrelazan. Mientras que el keynesianismo aboga por la intervención estatal para estabilizar la demanda, el neoliberalismo resalta la eficiencia de los mercados libres. Y más recientemente, la **economía feminista** nos recuerda que la economía no ocurre en un vacío: depende totalmente del trabajo de cuidado no remunerado, mayoritariamente realizado por mujeres, que sostiene la vida y permite que el mercado funcione. Todas estas corrientes son respuestas históricas a la pregunta de cómo coordinar la escasez."
+          "text": "Hoy en día, estas corrientes se entrelazan. Mientras que el keynesianismo aboga por la intervención estatal para estabilizar la demanda, el neoliberalismo resalta la eficiencia de los mercados libres. Y más recientemente, la economía feminista nos recuerda que la economía no ocurre en un vacío: depende totalmente del trabajo de cuidado no remunerado, mayoritariamente realizado por mujeres, que sostiene la vida y permite que el mercado funcione. Todas estas corrientes son respuestas históricas a la pregunta de cómo coordinar la escasez."
         },
         {
           "type": "heading",
@@ -495,7 +507,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p14",
-          "text": "Si la economía es la teoría, la organización es la práctica. Pero ¿cómo se materializa todo ese pensamiento abstracto dentro de una empresa, una ONG o un Estado? La respuesta está en la **coordinación**."
+          "text": "Si la economía es la teoría, la organización es la práctica. Pero ¿cómo se materializa todo ese pensamiento abstracto dentro de una empresa, una ONG o un Estado? La respuesta está en la coordinación."
         },
         {
           "type": "paragraph",
@@ -505,7 +517,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p16",
-          "text": "Para coordinar, las organizaciones dependen de dos tipos de recursos fundamentales: los **humanos** y el **capital**. Los recursos humanos incluyen no solo la cantidad de empleados, sino su formación, sus habilidades técnicas y su capacidad de resolver problemas. Un equipo diverso y capacitado es vital. Por otro lado, el capital abarca los bienes físicos y financieros: maquinaria, edificios, tecnología y dinero."
+          "text": "Para coordinar, las organizaciones dependen de dos tipos de recursos fundamentales: los humanos y el capital. Los recursos humanos incluyen no solo la cantidad de empleados, sino su formación, sus habilidades técnicas y su capacidad de resolver problemas. Un equipo diverso y capacitado es vital. Por otro lado, el capital abarca los bienes físicos y financieros: maquinaria, edificios, tecnología y dinero."
         },
         {
           "type": "paragraph",
@@ -521,17 +533,17 @@
         {
           "type": "paragraph",
           "id": "cap-3-p19",
-          "text": "Una vez que se han coordinado las personas y los recursos, surge la necesidad de saber si se está yendo por buen camino. Aquí entra el **control de gestión**. Este no es un proceso punitivo ni una auditoría final para castigar errores; es una herramienta preventiva y correctiva que permite monitorear, evaluar y ajustar el desempeño en tiempo real."
+          "text": "Una vez que se han coordinado las personas y los recursos, surge la necesidad de saber si se está yendo por buen camino. Aquí entra el control de gestión. Este no es un proceso punitivo ni una auditoría final para castigar errores; es una herramienta preventiva y correctiva que permite monitorear, evaluar y ajustar el desempeño en tiempo real."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p20",
-          "text": "El control de gestión compara lo que se logró con lo que se planeó. Su función principal es identificar desviaciones para tomar decisiones oportunas. Para hacer esto, las organizaciones utilizan **indicadores**. Pero cuidado: no todos los indicadores son iguales. Es crucial distinguir entre **eficiencia** y **eficacia**, dos conceptos que a menudo se confunden."
+          "text": "El control de gestión compara lo que se logró con lo que se planeó. Su función principal es identificar desviaciones para tomar decisiones oportunas. Para hacer esto, las organizaciones utilizan indicadores. Pero cuidado: no todos los indicadores son iguales. Es crucial distinguir entre eficiencia y eficacia, dos conceptos que a menudo se confunden."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p21",
-          "text": "La **eficacia** mide si se alcanzaron los objetivos propuestos. Si una empresa tiene una meta de vender mil unidades y las vende, es eficaz, sin importar cuánto gastó para lograrlo. La **eficiencia**, en cambio, mide la relación entre los resultados obtenidos y los recursos utilizados. Una empresa es eficiente si logra vender esas mil unidades gastando menos recursos que la competencia, o si logra vender más con los mismos recursos."
+          "text": "La eficacia mide si se alcanzaron los objetivos propuestos. Si una empresa tiene una meta de vender mil unidades y las vende, es eficaz, sin importar cuánto gastó para lograrlo. La eficiencia, en cambio, mide la relación entre los resultados obtenidos y los recursos utilizados. Una empresa es eficiente si logra vender esas mil unidades gastando menos recursos que la competencia, o si logra vender más con los mismos recursos."
         },
         {
           "type": "paragraph",
@@ -541,7 +553,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p23",
-          "text": "Para visualizar esto de manera integral, muchas organizaciones utilizan el **Cuadro de Mando Integral** (Balanced Scorecard). Este marco no se limita a los números financieros, sino que observa el desempeño desde cuatro perspectivas interconectadas: 1.  **Financiera:** ¿Logramos nuestros objetivos económicos? 2.  **Cliente:** ¿Estamos satisfaciendo las necesidades de nuestros usuarios? 3.  **Procesos internos:** ¿Operamos con eficiencia y calidad? 4.  **Aprendizaje y crecimiento:** ¿Estamos invirtiendo en nuestro equipo y tecnología para el futuro?"
+          "text": "Para visualizar esto de manera integral, muchas organizaciones utilizan el Cuadro de Mando Integral (Balanced Scorecard). Este marco no se limita a los números financieros, sino que observa el desempeño desde cuatro perspectivas interconectadas: 1.  Financiera: ¿Logramos nuestros objetivos económicos? 2.  Cliente: ¿Estamos satisfaciendo las necesidades de nuestros usuarios? 3.  Procesos internos: ¿Operamos con eficiencia y calidad? 4.  Aprendizaje y crecimiento: ¿Estamos invirtiendo en nuestro equipo y tecnología para el futuro?"
         },
         {
           "type": "paragraph",
@@ -557,12 +569,12 @@
         {
           "type": "paragraph",
           "id": "cap-3-p26",
-          "text": "Hasta ahora hemos hablado de organizaciones en un sentido genérico, pero muchas de ellas operan bajo lógicas muy diferentes a la empresa capitalista tradicional. El **cooperativismo** y el **mutualismo** representan modelos económicos alternativos basados en la solidaridad y la participación, no en la maximización del beneficio para accionistas externos."
+          "text": "Hasta ahora hemos hablado de organizaciones en un sentido genérico, pero muchas de ellas operan bajo lógicas muy diferentes a la empresa capitalista tradicional. El cooperativismo y el mutualismo representan modelos económicos alternativos basados en la solidaridad y la participación, no en la maximización del beneficio para accionistas externos."
         },
         {
           "type": "paragraph",
           "id": "cap-3-p27",
-          "text": "Una **cooperativa** es una organización económica dirigida por sus miembros, quienes son también los beneficiarios. La diferencia radical con una empresa tradicional radica en la gobernanza. En una empresa accionaria, el poder depende del capital invertido: quien tiene más acciones, tiene más voz. En una cooperativa, rige el principio de **\"una persona, un voto\"**, independientemente de cuánto dinero haya aportado cada socio. Esto garantiza una democracia interna real."
+          "text": "Una cooperativa es una organización económica dirigida por sus miembros, quienes son también los beneficiarios. La diferencia radical con una empresa tradicional radica en la gobernanza. En una empresa accionaria, el poder depende del capital invertido: quien tiene más acciones, tiene más voz. En una cooperativa, rige el principio de \"una persona, un voto\", independientemente de cuánto dinero haya aportado cada socio. Esto garantiza una democracia interna real."
         },
         {
           "type": "paragraph",
@@ -577,7 +589,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p30",
-          "text": "El **mutualismo**, por su parte, se centra en la protección recíproca contra riesgos (como la salud o el desempleo) mediante la contribución solidaria de sus miembros. Ambas formas de organización demuestran que es posible coordinar personas y recursos sin recurrir necesariamente a la jerarquía vertical y la competencia individualista, ofreciendo una alternativa valiosa al modelo hegemónico."
+          "text": "El mutualismo, por su parte, se centra en la protección recíproca contra riesgos (como la salud o el desempleo) mediante la contribución solidaria de sus miembros. Ambas formas de organización demuestran que es posible coordinar personas y recursos sin recurrir necesariamente a la jerarquía vertical y la competencia individualista, ofreciendo una alternativa valiosa al modelo hegemónico."
         },
         {
           "type": "heading",
@@ -603,7 +615,13 @@
       ],
       "meta": {
         "chapterId": "cap-3"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-4",
@@ -630,12 +648,12 @@
         {
           "type": "paragraph",
           "id": "cap-4-p4",
-          "text": "Todo comienza con la decisión de producir. Cuando una empresa decide fabricar una unidad más de un bien o brindar un servicio adicional, no está operando en el vacío. Está moviéndose dentro de un entramado de valores, normas y hábitos que conforman lo que llamamos **cultura organizacional**. No te equivoques al pensar que la cultura es solo el afiche de la misión en el vestíbulo o el código de vestimenta. La cultura es la \"personalidad\" invisible de la organización; es el mecanismo de control informal que dice, sin escribirlo, cómo se toman las decisiones, quién tiene permiso para hablar y cómo se enfrenta el error."
+          "text": "Todo comienza con la decisión de producir. Cuando una empresa decide fabricar una unidad más de un bien o brindar un servicio adicional, no está operando en el vacío. Está moviéndose dentro de un entramado de valores, normas y hábitos que conforman lo que llamamos cultura organizacional. No te equivoques al pensar que la cultura es solo el afiche de la misión en el vestíbulo o el código de vestimenta. La cultura es la \"personalidad\" invisible de la organización; es el mecanismo de control informal que dice, sin escribirlo, cómo se toman las decisiones, quién tiene permiso para hablar y cómo se enfrenta el error."
         },
         {
           "type": "paragraph",
           "id": "cap-4-p5",
-          "text": "Una cultura que premia la innovación y la confianza permite que los gerentes tomen decisiones rápidas sobre cuánto producir, ajustándose a la realidad del mercado. Por el contrario, una cultura burocrática y rígida, donde la desconfianza reina, ralentiza la información. Esto tiene un impacto directo en un concepto económico crucial: el **costo marginal**."
+          "text": "Una cultura que premia la innovación y la confianza permite que los gerentes tomen decisiones rápidas sobre cuánto producir, ajustándose a la realidad del mercado. Por el contrario, una cultura burocrática y rígida, donde la desconfianza reina, ralentiza la información. Esto tiene un impacto directo en un concepto económico crucial: el costo marginal."
         },
         {
           "type": "paragraph",
@@ -650,7 +668,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p8",
-          "text": "Es fundamental no confundir el costo marginal con el **costo promedio**. El costo promedio divide el costo total entre todas las unidades producidas, mirando hacia atrás, hacia el pasado. El costo marginal mira hacia adelante, hacia la próxima unidad. Una empresa puede tener un costo promedio bajo, pero si su costo marginal se dispara porque está operando por encima de su capacidad, está perdiendo dinero con cada unidad nueva. La cultura organizacional actúa como el termómetro que indica cuándo la empresa está cerca de ese límite de saturación."
+          "text": "Es fundamental no confundir el costo marginal con el costo promedio. El costo promedio divide el costo total entre todas las unidades producidas, mirando hacia atrás, hacia el pasado. El costo marginal mira hacia adelante, hacia la próxima unidad. Una empresa puede tener un costo promedio bajo, pero si su costo marginal se dispara porque está operando por encima de su capacidad, está perdiendo dinero con cada unidad nueva. La cultura organizacional actúa como el termómetro que indica cuándo la empresa está cerca de ese límite de saturación."
         },
         {
           "type": "heading",
@@ -661,7 +679,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p10",
-          "text": "Una vez que la empresa produce, los costos se convierten en datos contables. Aquí entramos en el lenguaje técnico que permite medir la salud financiera: el **balance general** y la partida doble. Muchos estudiantes se traban al escuchar \"Debe\" y \"Haber\" porque, en el lenguaje común, \"deber\" implica una obligación negativa y \"haber\" implica un tener positivo. En contabilidad, eso es un error grave."
+          "text": "Una vez que la empresa produce, los costos se convierten en datos contables. Aquí entramos en el lenguaje técnico que permite medir la salud financiera: el balance general y la partida doble. Muchos estudiantes se traban al escuchar \"Debe\" y \"Haber\" porque, en el lenguaje común, \"deber\" implica una obligación negativa y \"haber\" implica un tener positivo. En contabilidad, eso es un error grave."
         },
         {
           "type": "paragraph",
@@ -676,7 +694,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p13",
-          "text": "El **Activo** es todo lo que la empresa posee (dinero, mercadería, edificios). El **Pasivo** es todo lo que debe a terceros (préstamos, facturas por pagar). El **Patrimonio Neto** es lo que realmente le pertenece a los dueños después de pagar todas las deudas. Esta ecuación siempre debe estar equilibrada, como una balanza."
+          "text": "El Activo es todo lo que la empresa posee (dinero, mercadería, edificios). El Pasivo es todo lo que debe a terceros (préstamos, facturas por pagar). El Patrimonio Neto es lo que realmente le pertenece a los dueños después de pagar todas las deudas. Esta ecuación siempre debe estar equilibrada, como una balanza."
         },
         {
           "type": "paragraph",
@@ -697,7 +715,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p17",
-          "text": "La mayoría de las empresas, y también las familias, no tienen todo el dinero necesario de inmediato. Recurren al sistema financiero. En Argentina, el sistema más común es el **sistema francés** de amortización. Su característica principal es que la cuota mensual es fija en pesos durante todo el plazo del préstamo. Esto brinda previsibilidad: sabés exactamente cuánto vas a pagar mes a mes, lo cual facilita la planificación del flujo de caja."
+          "text": "La mayoría de las empresas, y también las familias, no tienen todo el dinero necesario de inmediato. Recurren al sistema financiero. En Argentina, el sistema más común es el sistema francés de amortización. Su característica principal es que la cuota mensual es fija en pesos durante todo el plazo del préstamo. Esto brinda previsibilidad: sabés exactamente cuánto vas a pagar mes a mes, lo cual facilita la planificación del flujo de caja."
         },
         {
           "type": "paragraph",
@@ -723,7 +741,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p22",
-          "text": "Hasta aquí hemos visto cómo funciona el sistema en condiciones normales: se produce, se mide, se financia. Pero la economía no es estática. Las condiciones cambian, los mercados fluctúan y las expectativas se rompen. Cuando una empresa, o un Estado, deja de poder cumplir con sus pagos de deuda, entramos en el terreno del **default**."
+          "text": "Hasta aquí hemos visto cómo funciona el sistema en condiciones normales: se produce, se mide, se financia. Pero la economía no es estática. Las condiciones cambian, los mercados fluctúan y las expectativas se rompen. Cuando una empresa, o un Estado, deja de poder cumplir con sus pagos de deuda, entramos en el terreno del default."
         },
         {
           "type": "paragraph",
@@ -754,7 +772,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p28",
-          "text": "Al cerrar este recorrido, notás que no hay fronteras estrictas entre los temas. El **costo marginal** te dice si la producción es viable técnicamente. La **cultura organizacional** determina si esa producción se realiza con eficiencia o con ineficiencia. El **balance** (con su debe y haber) te muestra si la estructura financiera soporta esa producción. El **crédito francés** es la herramienta que permite financiar esa estructura a cambio de cuotas predecibles. Y el **default** es la consecuencia final cuando toda esta cadena se rompe."
+          "text": "Al cerrar este recorrido, notás que no hay fronteras estrictas entre los temas. El costo marginal te dice si la producción es viable técnicamente. La cultura organizacional determina si esa producción se realiza con eficiencia o con ineficiencia. El balance (con su debe y haber) te muestra si la estructura financiera soporta esa producción. El crédito francés es la herramienta que permite financiar esa estructura a cambio de cuotas predecibles. Y el default es la consecuencia final cuando toda esta cadena se rompe."
         },
         {
           "type": "paragraph",
@@ -764,7 +782,13 @@
       ],
       "meta": {
         "chapterId": "cap-4"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-5",
@@ -796,22 +820,22 @@
         {
           "type": "paragraph",
           "id": "cap-5-p5",
-          "text": "El primer frente es la **jubilación**. Es fundamental que entiendas que el sistema jubilatorio argentino no funciona como una cuenta de ahorro individual donde vos depositás plata para retirarla después. Eso sería un sistema de capitalización, pero nosotros tenemos un sistema de **reparto**. ¿Qué significa esto en la práctica? Significa que lo que vos descontás hoy de tu sueldo no se guarda en una caja a tu nombre para vos; se usa inmediatamente para pagar las jubilaciones de los adultos mayores que están retirados hoy. Es un pacto intergeneracional: la generación activa sostiene a la generación jubilada, con la expectativa de que la próxima generación activa sostenga a la tuya cuando te toque."
+          "text": "El primer frente es la jubilación. Es fundamental que entiendas que el sistema jubilatorio argentino no funciona como una cuenta de ahorro individual donde vos depositás plata para retirarla después. Eso sería un sistema de capitalización, pero nosotros tenemos un sistema de reparto. ¿Qué significa esto en la práctica? Significa que lo que vos descontás hoy de tu sueldo no se guarda en una caja a tu nombre para vos; se usa inmediatamente para pagar las jubilaciones de los adultos mayores que están retirados hoy. Es un pacto intergeneracional: la generación activa sostiene a la generación jubilada, con la expectativa de que la próxima generación activa sostenga a la tuya cuando te toque."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p6",
-          "text": "Para poder acceder a ese haber jubilatorio mensual cuando dejes de trabajar, el régimen general exige dos condiciones simultáneas: alcanzar una edad mínima (65 años para varones, 60 para mujeres) y haber completado 30 años de aportes. Si bien existen regímenes especiales para actividades de riesgo o docencia con requisitos más flexibles, la regla de oro es la acumulación de trayectoria laboral. Y si llegás a la edad pero no llegás a los 30 años de aportes, el sistema tiene mecanismos de contención, como las moratorias previsionales o la Prestación Universal para el Adulto Mayor, que buscan dar un piso de dignidad a quienes, por diversas circunstancias, no pudieron cerrar su ciclo de aportes. Todo este engranaje, desde la recaudación hasta el pago, está administrado por la **ANSES** (Administración Nacional de la Seguridad Social), el organismo que garantiza que el sistema no se detenga."
+          "text": "Para poder acceder a ese haber jubilatorio mensual cuando dejes de trabajar, el régimen general exige dos condiciones simultáneas: alcanzar una edad mínima (65 años para varones, 60 para mujeres) y haber completado 30 años de aportes. Si bien existen regímenes especiales para actividades de riesgo o docencia con requisitos más flexibles, la regla de oro es la acumulación de trayectoria laboral. Y si llegás a la edad pero no llegás a los 30 años de aportes, el sistema tiene mecanismos de contención, como las moratorias previsionales o la Prestación Universal para el Adulto Mayor, que buscan dar un piso de dignidad a quienes, por diversas circunstancias, no pudieron cerrar su ciclo de aportes. Todo este engranaje, desde la recaudación hasta el pago, está administrado por la ANSES (Administración Nacional de la Seguridad Social), el organismo que garantiza que el sistema no se detenga."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p7",
-          "text": "El segundo frente de protección es la **salud**, canalizado a través de la **obra social**. Al igual que con la jubilación, hay un aporte obligatorio del 3% de tu sueldo bruto, pero aquí la diferencia clave es que la empresa también aporta una parte adicional. La obra social no es una entidad única; cada actividad o sindicato suele tener la suya (como la de comercio, la de metalúrgicos, etc.). Lo importante es que todas están obligadas por ley a cubrir el **Programa Médico Obligatorio (PMO)**. Este programa es el piso mínimo de prestaciones: consultas, internaciones, medicamentos y estudios. No importa cuál sea tu obra social, el PMO es la garantía de que no te quedarás sin atención básica."
+          "text": "El segundo frente de protección es la salud, canalizado a través de la obra social. Al igual que con la jubilación, hay un aporte obligatorio del 3% de tu sueldo bruto, pero aquí la diferencia clave es que la empresa también aporta una parte adicional. La obra social no es una entidad única; cada actividad o sindicato suele tener la suya (como la de comercio, la de metalúrgicos, etc.). Lo importante es que todas están obligadas por ley a cubrir el Programa Médico Obligatorio (PMO). Este programa es el piso mínimo de prestaciones: consultas, internaciones, medicamentos y estudios. No importa cuál sea tu obra social, el PMO es la garantía de que no te quedarás sin atención básica."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p8",
-          "text": "Sin embargo, el sistema permite movilidad. Si tenés cierta antigüedad, podés ejercer la \"opción de cambio\" para derivar tus aportes a otra obra social o incluso a una **prepaga**. Aquí está la distinción crucial: la obra social se financia con los aportes obligatorios del trabajo en blanco; la prepaga es un seguro privado al que te afiliás pagando de tu bolsillo, sin necesidad de tener un empleo formal. Además, existe el **PAMI**, que es la obra social específica para jubilados y pensionados, financiada también por los aportes de los trabajadores activos, funcionando como un soporte paralelo para la tercera edad."
+          "text": "Sin embargo, el sistema permite movilidad. Si tenés cierta antigüedad, podés ejercer la \"opción de cambio\" para derivar tus aportes a otra obra social o incluso a una prepaga. Aquí está la distinción crucial: la obra social se financia con los aportes obligatorios del trabajo en blanco; la prepaga es un seguro privado al que te afiliás pagando de tu bolsillo, sin necesidad de tener un empleo formal. Además, existe el PAMI, que es la obra social específica para jubilados y pensionados, financiada también por los aportes de los trabajadores activos, funcionando como un soporte paralelo para la tercera edad."
         },
         {
           "type": "heading",
@@ -822,7 +846,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p10",
-          "text": "Si el sistema de obras sociales y jubilación te da la seguridad de que tu salud y tu vejez están cubiertas mientras trabajás para otros, hay otro camino posible: generar tu propia seguridad mediante el emprendimiento. Pero para eso, no alcanza con tener una \"buena idea\". Necesitás detectar una **oportunidad de negocio** real."
+          "text": "Si el sistema de obras sociales y jubilación te da la seguridad de que tu salud y tu vejez están cubiertas mientras trabajás para otros, hay otro camino posible: generar tu propia seguridad mediante el emprendimiento. Pero para eso, no alcanza con tener una \"buena idea\". Necesitás detectar una oportunidad de negocio real."
         },
         {
           "type": "paragraph",
@@ -832,7 +856,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p12",
-          "text": "Para identificar estas oportunidades, tenés que dejar de asumir y empezar a observar. Mirá qué hacen y qué dicen las personas. Las quejas repetidas, los cambios en los hábitos de consumo (como el aumento del delivery) o las tendencias culturales son señales de alerta. Pero ojo: detectar la necesidad no es suficiente. El paso siguiente, y quizás el más difícil, es **validar la demanda**. Tenés que preguntarte: ¿hay suficientes personas dispuestas a pagar por esto? Una necesidad insatisfecha que nadie está dispuesto a pagar no es un negocio, es una caridad. Por eso, antes de invertir un peso, hay que hacer estudios básicos, encuestas y entrevistas para confirmar que el mercado existe y tiene capacidad de pago."
+          "text": "Para identificar estas oportunidades, tenés que dejar de asumir y empezar a observar. Mirá qué hacen y qué dicen las personas. Las quejas repetidas, los cambios en los hábitos de consumo (como el aumento del delivery) o las tendencias culturales son señales de alerta. Pero ojo: detectar la necesidad no es suficiente. El paso siguiente, y quizás el más difícil, es validar la demanda. Tenés que preguntarte: ¿hay suficientes personas dispuestas a pagar por esto? Una necesidad insatisfecha que nadie está dispuesto a pagar no es un negocio, es una caridad. Por eso, antes de invertir un peso, hay que hacer estudios básicos, encuestas y entrevistas para confirmar que el mercado existe y tiene capacidad de pago."
         },
         {
           "type": "heading",
@@ -843,7 +867,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p14",
-          "text": "Ahora bien, vos podés detectar una oportunidad de negocio y empezar a vender, y yo puedo hacer lo mismo. Pero, ¿quién paga los hospitales, las rutas, los sueldos de los docentes y las pensiones de los jubilados? Ahí entra en juego la **deuda pública**."
+          "text": "Ahora bien, vos podés detectar una oportunidad de negocio y empezar a vender, y yo puedo hacer lo mismo. Pero, ¿quién paga los hospitales, las rutas, los sueldos de los docentes y las pensiones de los jubilados? Ahí entra en juego la deuda pública."
         },
         {
           "type": "paragraph",
@@ -853,22 +877,22 @@
         {
           "type": "paragraph",
           "id": "cap-5-p16",
-          "text": "La gran distinción en el mundo de la deuda pública está en **quién** le presta y **en qué moneda**."
+          "text": "La gran distinción en el mundo de la deuda pública está en quién le presta y en qué moneda."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p17",
-          "text": "Por un lado, tenemos la **deuda pública interna**. Esta es la que el Estado contrae con acreedores que están **dentro del país**: bancos locales, fondos de pensión, compañías de seguro o simplemente personas y empresas argentinas que compran los bonos. Lo interesante de la deuda interna es que, en principio, está en la moneda local. Esto le da al Estado una herramienta que no tiene con la deuda externa: la posibilidad de emitir moneda para pagarla. Aunque esto tiene riesgos inflacionarios, técnicamente el Banco Central puede imprimir la plata necesaria para saldar deudas internas. Además, el Estado rara vez paga todo de una vez; lo habitual es hacer \"rollover\", es decir, emitir deuda nueva para pagar la que vence, estirando el plazo del pago."
+          "text": "Por un lado, tenemos la deuda pública interna. Esta es la que el Estado contrae con acreedores que están dentro del país: bancos locales, fondos de pensión, compañías de seguro o simplemente personas y empresas argentinas que compran los bonos. Lo interesante de la deuda interna es que, en principio, está en la moneda local. Esto le da al Estado una herramienta que no tiene con la deuda externa: la posibilidad de emitir moneda para pagarla. Aunque esto tiene riesgos inflacionarios, técnicamente el Banco Central puede imprimir la plata necesaria para saldar deudas internas. Además, el Estado rara vez paga todo de una vez; lo habitual es hacer \"rollover\", es decir, emitir deuda nueva para pagar la que vence, estirando el plazo del pago."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p18",
-          "text": "Por otro lado, está la **deuda pública externa**. Esta es la parte que el Estado debe a acreedores de **afuera**: otros gobiernos, organismos como el FMI o el Banco Mundial, o inversores privados extranjeros. La característica crítica aquí es que esta deuda casi siempre está en moneda extranjera (dólares, generalmente)."
+          "text": "Por otro lado, está la deuda pública externa. Esta es la parte que el Estado debe a acreedores de afuera: otros gobiernos, organismos como el FMI o el Banco Mundial, o inversores privados extranjeros. La característica crítica aquí es que esta deuda casi siempre está en moneda extranjera (dólares, generalmente)."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p19",
-          "text": "¿Por qué es esto tan peligroso o delicado? Porque el Estado argentino **no puede emitir dólares**. No puede imprimir dinero en otra moneda. Para pagar la deuda externa, el Estado necesita conseguir dólares reales. ¿Cómo los consigue? A través de las reservas del Banco Central o generando superávit comercial (exportando más de lo que importa). Si la moneda local se devalúa (pierde valor frente al dólar), la deuda externa se vuelve mucho más cara en términos locales, porque necesitás mucho más peso argentino para comprar los mismos dólares que antes. Por eso, la deuda externa está íntimamente ligada al tipo de cambio y a la estabilidad de las reservas. Si hay una crisis de confianza, los inversores extranjeros se retiran, las reservas bajan y el tipo de cambio se dispara, haciendo impagable la deuda."
+          "text": "¿Por qué es esto tan peligroso o delicado? Porque el Estado argentino no puede emitir dólares. No puede imprimir dinero en otra moneda. Para pagar la deuda externa, el Estado necesita conseguir dólares reales. ¿Cómo los consigue? A través de las reservas del Banco Central o generando superávit comercial (exportando más de lo que importa). Si la moneda local se devalúa (pierde valor frente al dólar), la deuda externa se vuelve mucho más cara en términos locales, porque necesitás mucho más peso argentino para comprar los mismos dólares que antes. Por eso, la deuda externa está íntimamente ligada al tipo de cambio y a la estabilidad de las reservas. Si hay una crisis de confianza, los inversores extranjeros se retiran, las reservas bajan y el tipo de cambio se dispara, haciendo impagable la deuda."
         },
         {
           "type": "heading",
@@ -889,7 +913,13 @@
       ],
       "meta": {
         "chapterId": "cap-5"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-6",
@@ -905,7 +935,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p2",
-          "text": "Para entender cómo funciona el mundo, no alcanza con mirar los titulares de las noticias o escuchar las opiniones de los expertos en televisión. Hace falta una brújula conceptual que nos permita navegar entre lo que *es* y lo que *debería ser*, entre la estructura interna de una empresa y los grandes choques del mercado internacional. En este capítulo, vamos a tejer juntos cinco hilos que parecen distintos a simple vista pero que, en realidad, forman parte del mismo tejido: la ecuación contable, la división entre micro y macroeconomía, la distinción entre lo positivo y lo normativo, la devaluación como ajuste de emergencia y, finalmente, la revolución de los intercambios descentralizados. Al recorrer este camino, vas a ver que la economía no es solo números fríos, sino un sistema complejo de decisiones, restricciones y tecnologías que evolucionan constantemente."
+          "text": "Para entender cómo funciona el mundo, no alcanza con mirar los titulares de las noticias o escuchar las opiniones de los expertos en televisión. Hace falta una brújula conceptual que nos permita navegar entre lo que es y lo que debería ser, entre la estructura interna de una empresa y los grandes choques del mercado internacional. En este capítulo, vamos a tejer juntos cinco hilos que parecen distintos a simple vista pero que, en realidad, forman parte del mismo tejido: la ecuación contable, la división entre micro y macroeconomía, la distinción entre lo positivo y lo normativo, la devaluación como ajuste de emergencia y, finalmente, la revolución de los intercambios descentralizados. Al recorrer este camino, vas a ver que la economía no es solo números fríos, sino un sistema complejo de decisiones, restricciones y tecnologías que evolucionan constantemente."
         },
         {
           "type": "heading",
@@ -916,12 +946,12 @@
         {
           "type": "paragraph",
           "id": "cap-6-p4",
-          "text": "Todo análisis económico, por más ambicioso que sea, debe comenzar por entender la estructura básica sobre la cual se sostiene cualquier unidad productiva. Aquí entra en juego la **ecuación contable fundamental**, que se expresa de manera sencilla como **Activo = Pasivo + Patrimonio Neto**. No te equivoques pensando que esto es solo una fórmula aburrida para rendir un examen; es la columna vertebral de la lógica financiera. Imaginá que comprás una casa. El valor de esa casa es tu Activo. Si la compraste con un préstamo bancario, esa deuda es tu Pasivo. La diferencia entre el valor de la casa y lo que le debís al banco es tu Patrimonio Neto, es decir, lo que realmente te pertenece. Esta igualdad debe mantenerse siempre, porque todo recurso que tiene una empresa o un hogar fue financiado de alguna manera: o con dinero propio (patrimonio) o con dinero prestado (pasivo). Sin esta ecuación en claro, es imposible saber si una organización es solvente o si está al borde de la quiebra."
+          "text": "Todo análisis económico, por más ambicioso que sea, debe comenzar por entender la estructura básica sobre la cual se sostiene cualquier unidad productiva. Aquí entra en juego la ecuación contable fundamental, que se expresa de manera sencilla como Activo = Pasivo + Patrimonio Neto. No te equivoques pensando que esto es solo una fórmula aburrida para rendir un examen; es la columna vertebral de la lógica financiera. Imaginá que comprás una casa. El valor de esa casa es tu Activo. Si la compraste con un préstamo bancario, esa deuda es tu Pasivo. La diferencia entre el valor de la casa y lo que le debís al banco es tu Patrimonio Neto, es decir, lo que realmente te pertenece. Esta igualdad debe mantenerse siempre, porque todo recurso que tiene una empresa o un hogar fue financiado de alguna manera: o con dinero propio (patrimonio) o con dinero prestado (pasivo). Sin esta ecuación en claro, es imposible saber si una organización es solvente o si está al borde de la quiebra."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p5",
-          "text": "Una vez que entendés cómo se estructura el patrimonio de una unidad individual, el siguiente paso es ampliar la mirada. La economía se divide formalmente en dos grandes lentes para poder estudiar la realidad sin perderse en el caos de los datos: la **microeconomía** y la **macroeconomía**. Esta división no significa que sean mundos separados, sino que son perspectivas complementarias. La microeconomía se ocupa de los \"árboles\": analiza el comportamiento de las unidades individuales, como vos, como familia, o como empresa. Se pregunta, por ejemplo, por qué decidís comprar un auto usado en lugar de alquilarlo, o cómo una fábrica decide cuánto producir para maximizar sus ganancias. Aquí, el costo de oportunidad es tu mejor amigo: cada decisión implica renunciar a la mejor de las alternativas no elegidas."
+          "text": "Una vez que entendés cómo se estructura el patrimonio de una unidad individual, el siguiente paso es ampliar la mirada. La economía se divide formalmente en dos grandes lentes para poder estudiar la realidad sin perderse en el caos de los datos: la microeconomía y la macroeconomía. Esta división no significa que sean mundos separados, sino que son perspectivas complementarias. La microeconomía se ocupa de los \"árboles\": analiza el comportamiento de las unidades individuales, como vos, como familia, o como empresa. Se pregunta, por ejemplo, por qué decidís comprar un auto usado en lugar de alquilarlo, o cómo una fábrica decide cuánto producir para maximizar sus ganancias. Aquí, el costo de oportunidad es tu mejor amigo: cada decisión implica renunciar a la mejor de las alternativas no elegidas."
         },
         {
           "type": "paragraph",
@@ -937,17 +967,17 @@
         {
           "type": "paragraph",
           "id": "cap-6-p8",
-          "text": "Al estudiar estas dos ramas, es crucial que aprendas a distinguir dos tipos de afirmaciones, porque confundirlas es el error más común al leer noticias o debatir en redes sociales. Los economistas y los ciudadanos utilizamos dos lenguajes distintos: la **economía positiva** y la **economía normativa**."
+          "text": "Al estudiar estas dos ramas, es crucial que aprendas a distinguir dos tipos de afirmaciones, porque confundirlas es el error más común al leer noticias o debatir en redes sociales. Los economistas y los ciudadanos utilizamos dos lenguajes distintos: la economía positiva y la economía normativa."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p9",
-          "text": "La economía positiva se ocupa de describir y explicar la realidad tal como *es*. Se basa en hechos, datos y relaciones causales que pueden ser verificados o refutados mediante la observación. Por ejemplo, afirmar que \"un aumento en el precio del dólar provoca un aumento en el precio de los bienes importados\" es una afirmación positiva. Es una hipótesis que podemos contrastar con la realidad. No importa si nos gusta o no el resultado; lo importante es si la afirmación es correcta o incorrecta según la evidencia disponible. Es la parte objetiva, la ciencia pura."
+          "text": "La economía positiva se ocupa de describir y explicar la realidad tal como es. Se basa en hechos, datos y relaciones causales que pueden ser verificados o refutados mediante la observación. Por ejemplo, afirmar que \"un aumento en el precio del dólar provoca un aumento en el precio de los bienes importados\" es una afirmación positiva. Es una hipótesis que podemos contrastar con la realidad. No importa si nos gusta o no el resultado; lo importante es si la afirmación es correcta o incorrecta según la evidencia disponible. Es la parte objetiva, la ciencia pura."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p10",
-          "text": "En cambio, la economía normativa se refiere a cómo *debería* ser la economía. Aquí entran en juego valores, juicios morales y opiniones personales o políticas. Decir \"el gobierno debería subsidiar la nafta para ayudar a las familias\" es una afirmación normativa. No podemos probar si es \"verdadera\" o \"falsa\" solo con datos; depende de la prioridad que le demos a la ayuda social frente a otros objetivos, como el equilibrio fiscal. Mientras la economía positiva busca la verdad fáctica, la normativa busca la justicia, la eficiencia o la equidad según la perspectiva de quien habla. Para ser un buen ciudadano y un buen economista, tenés que saber cuándo te están contando un hecho y cuándo te están vendiendo una opinión."
+          "text": "En cambio, la economía normativa se refiere a cómo debería ser la economía. Aquí entran en juego valores, juicios morales y opiniones personales o políticas. Decir \"el gobierno debería subsidiar la nafta para ayudar a las familias\" es una afirmación normativa. No podemos probar si es \"verdadera\" o \"falsa\" solo con datos; depende de la prioridad que le demos a la ayuda social frente a otros objetivos, como el equilibrio fiscal. Mientras la economía positiva busca la verdad fáctica, la normativa busca la justicia, la eficiencia o la equidad según la perspectiva de quien habla. Para ser un buen ciudadano y un buen economista, tenés que saber cuándo te están contando un hecho y cuándo te están vendiendo una opinión."
         },
         {
           "type": "heading",
@@ -958,7 +988,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p12",
-          "text": "Ahora que tenemos las herramientas conceptuales, vamos a aplicarlas a uno de los fenómenos más impactantes en la macroeconomía argentina: la **devaluación**. Para entenderla bien, primero hay que distinguir el régimen cambiario. Bajo un tipo de cambio flotante, el valor de la moneda se ajusta todo el tiempo según la oferta y la demanda del mercado; cuando pierde valor, se lo llama depreciación, un proceso gradual. Pero la devaluación es algo diferente. Es la decisión OFICIAL de un banco central, bajo un régimen de tipo de cambio fijo, de bajar el valor de su moneda, cambiando el número que había prometido sostener por uno nuevo, más débil."
+          "text": "Ahora que tenemos las herramientas conceptuales, vamos a aplicarlas a uno de los fenómenos más impactantes en la macroeconomía argentina: la devaluación. Para entenderla bien, primero hay que distinguir el régimen cambiario. Bajo un tipo de cambio flotante, el valor de la moneda se ajusta todo el tiempo según la oferta y la demanda del mercado; cuando pierde valor, se lo llama depreciación, un proceso gradual. Pero la devaluación es algo diferente. Es la decisión OFICIAL de un banco central, bajo un régimen de tipo de cambio fijo, de bajar el valor de su moneda, cambiando el número que había prometido sostener por uno nuevo, más débil."
         },
         {
           "type": "paragraph",
@@ -979,12 +1009,12 @@
         {
           "type": "paragraph",
           "id": "cap-6-p16",
-          "text": "Sin embargo, la llegada de las criptomonedas y la tecnología blockchain permitió el surgimiento de los **DEX (exchanges descentralizados)**. Un DEX es un conjunto de contratos inteligentes que permite intercambiar criptomonedas directamente desde la propia billetera digital de cada persona, sin que ninguna empresa custodie los fondos en ningún momento. El código del contrato hace el intercambio; nadie más tiene el control de esos fondos mientras están en camino."
+          "text": "Sin embargo, la llegada de las criptomonedas y la tecnología blockchain permitió el surgimiento de los DEX (exchanges descentralizados). Un DEX es un conjunto de contratos inteligentes que permite intercambiar criptomonedas directamente desde la propia billetera digital de cada persona, sin que ninguna empresa custodie los fondos en ningún momento. El código del contrato hace el intercambio; nadie más tiene el control de esos fondos mientras están en camino."
         },
         {
           "type": "paragraph",
           "id": "cap-6-p17",
-          "text": "Dentro de esta tecnología, aparece el concepto de **swap**. Swap es simplemente el nombre de la operación puntual de intercambiar un token por otro dentro de un DEX. No es un concepto distinto del DEX; es la acción que el DEX ejecuta. La gran ventaja aquí es que no necesitás esperar a que el mercado empareje tu orden con la de otra persona específica, como pasa en los exchanges tradicionales. En un DEX, tu swap intercambia directamente contra un pool de liquidez, un fondo compartido de tokens aportado por muchos usuarios a la vez, que funciona como contraparte automática. Esto elimina la necesidad de un custodio central, pero también traslada la responsabilidad de la seguridad al usuario y introduce riesgos propios de la tecnología, como los errores en el código de los contratos inteligentes."
+          "text": "Dentro de esta tecnología, aparece el concepto de swap. Swap es simplemente el nombre de la operación puntual de intercambiar un token por otro dentro de un DEX. No es un concepto distinto del DEX; es la acción que el DEX ejecuta. La gran ventaja aquí es que no necesitás esperar a que el mercado empareje tu orden con la de otra persona específica, como pasa en los exchanges tradicionales. En un DEX, tu swap intercambia directamente contra un pool de liquidez, un fondo compartido de tokens aportado por muchos usuarios a la vez, que funciona como contraparte automática. Esto elimina la necesidad de un custodio central, pero también traslada la responsabilidad de la seguridad al usuario y introduce riesgos propios de la tecnología, como los errores en el código de los contratos inteligentes."
         },
         {
           "type": "heading",
@@ -1005,7 +1035,13 @@
       ],
       "meta": {
         "chapterId": "cap-6"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-7",
@@ -1021,7 +1057,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p2",
-          "text": "Para entender cómo funciona una empresa, no alcanza con mirar el dinero que entra y sale. Hay que mirar bajo el capó. Imaginá que la economía es un organismo vivo: los **factores de producción** son sus órganos y músculos, la **elasticidad** es su sistema nervioso que reacciona al entorno, y los **estados contables** son los exámenes médicos periódicos que nos dicen si está sano o enfermo. En este capítulo, vamos a tejer estos conceptos para ver cómo una organización transforma recursos en valor, cómo reacciona al mercado y cómo se registra todo ese proceso en sus libros para mostrarle al mundo su verdadera situación financiera."
+          "text": "Para entender cómo funciona una empresa, no alcanza con mirar el dinero que entra y sale. Hay que mirar bajo el capó. Imaginá que la economía es un organismo vivo: los factores de producción son sus órganos y músculos, la elasticidad es su sistema nervioso que reacciona al entorno, y los estados contables son los exámenes médicos periódicos que nos dicen si está sano o enfermo. En este capítulo, vamos a tejer estos conceptos para ver cómo una organización transforma recursos en valor, cómo reacciona al mercado y cómo se registra todo ese proceso en sus libros para mostrarle al mundo su verdadera situación financiera."
         },
         {
           "type": "heading",
@@ -1032,12 +1068,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p4",
-          "text": "Todo comienza con la producción. Antes de que un producto llegue a tus manos, hubo una decisión empresarial sobre qué recursos combinar. A estos recursos los llamamos **factores de producción** o elementos de las organizaciones. No importa si se trata de una pyme en Rosario o una multinacional en Buenos Aires; todas necesitan mezclar tres tipos de insumos fundamentales para generar bienes y servicios."
+          "text": "Todo comienza con la producción. Antes de que un producto llegue a tus manos, hubo una decisión empresarial sobre qué recursos combinar. A estos recursos los llamamos factores de producción o elementos de las organizaciones. No importa si se trata de una pyme en Rosario o una multinacional en Buenos Aires; todas necesitan mezclar tres tipos de insumos fundamentales para generar bienes y servicios."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p5",
-          "text": "Por un lado, están los **recursos naturales**, aquellos que la naturaleza provee sin intervención humana directa, como la tierra fértil de la pampa húmeda o los minerales del noroeste argentino. Por otro, los **recursos materiales** o capital físico: las máquinas, las herramientas, los edificios y la mercadería inventariada que la empresa construyó o compró. Y finalmente, está el factor humano, representado por el trabajo y la capacidad emprendedora."
+          "text": "Por un lado, están los recursos naturales, aquellos que la naturaleza provee sin intervención humana directa, como la tierra fértil de la pampa húmeda o los minerales del noroeste argentino. Por otro, los recursos materiales o capital físico: las máquinas, las herramientas, los edificios y la mercadería inventariada que la empresa construyó o compró. Y finalmente, está el factor humano, representado por el trabajo y la capacidad emprendedora."
         },
         {
           "type": "paragraph",
@@ -1053,7 +1089,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p8",
-          "text": "Una vez que la empresa tiene sus factores de producción, debe decidir cuánto producir a qué precio. Aquí es donde entra la **elasticidad**, y específicamente la elasticidad precio de la demanda. Este concepto es el puente entre el álgebra y la realidad económica: mide no cuánto cambia la cantidad en números absolutos, sino cómo responde la cantidad demandada de manera **relativa** (porcentual) ante un cambio en el precio."
+          "text": "Una vez que la empresa tiene sus factores de producción, debe decidir cuánto producir a qué precio. Aquí es donde entra la elasticidad, y específicamente la elasticidad precio de la demanda. Este concepto es el puente entre el álgebra y la realidad económica: mide no cuánto cambia la cantidad en números absolutos, sino cómo responde la cantidad demandada de manera relativa (porcentual) ante un cambio en el precio."
         },
         {
           "type": "paragraph",
@@ -1068,7 +1104,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p11",
-          "text": "¿Por qué es vital esto para la gestión? Porque te dice si podés subir precios sin perder clientes o si tenés que bajarlos para ganar volumen. Si la demanda es **elástica** (el valor absoluto de E es mayor que 1), significa que los consumidores son muy sensibles al precio; un pequeño aumento hace que la cantidad comprada caiga drásticamente. Esto es típico de bienes con muchos sustitutos, como las marcas de gaseosa o ropa de fast fashion. En cambio, si la demanda es **inelástica** (valor absoluto menor que 1), la cantidad responde menos que proporcionalmente al precio. Esto ocurre con bienes esenciales como la medicación o el combustible, donde la gente sigue comprando casi lo mismo aunque suba el precio."
+          "text": "¿Por qué es vital esto para la gestión? Porque te dice si podés subir precios sin perder clientes o si tenés que bajarlos para ganar volumen. Si la demanda es elástica (el valor absoluto de E es mayor que 1), significa que los consumidores son muy sensibles al precio; un pequeño aumento hace que la cantidad comprada caiga drásticamente. Esto es típico de bienes con muchos sustitutos, como las marcas de gaseosa o ropa de fast fashion. En cambio, si la demanda es inelástica (valor absoluto menor que 1), la cantidad responde menos que proporcionalmente al precio. Esto ocurre con bienes esenciales como la medicación o el combustible, donde la gente sigue comprando casi lo mismo aunque suba el precio."
         },
         {
           "type": "paragraph",
@@ -1084,12 +1120,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p14",
-          "text": "Una vez definida la estrategia de precio basada en la elasticidad, la empresa opera. Pero, ¿cómo sabemos si esa estrategia fue rentable? Aquí entra en juego el **Estado de Resultados**. Este documento contable es como un video de un período específico (un mes, un trimestre, un año) que registra el flujo de actividad económica."
+          "text": "Una vez definida la estrategia de precio basada en la elasticidad, la empresa opera. Pero, ¿cómo sabemos si esa estrategia fue rentable? Aquí entra en juego el Estado de Resultados. Este documento contable es como un video de un período específico (un mes, un trimestre, un año) que registra el flujo de actividad económica."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p15",
-          "text": "El cálculo es lógico y directo: se toman los **ingresos** (lo que la empresa ganó por ventas de productos o servicios) y se le restan todos los **costos y gastos** incurridos para generarlos. Si los ingresos superan a los egresos, el resultado es una **ganancia**; si al revés, es una **pérdida**."
+          "text": "El cálculo es lógico y directo: se toman los ingresos (lo que la empresa ganó por ventas de productos o servicios) y se le restan todos los costos y gastos incurridos para generarlos. Si los ingresos superan a los egresos, el resultado es una ganancia; si al revés, es una pérdida."
         },
         {
           "type": "paragraph",
@@ -1105,12 +1141,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p18",
-          "text": "Sin embargo, el Estado de Resultados solo muestra el desempeño en un tiempo. Para saber si la empresa es sólida financieramente, necesitamos una **foto en un instante**, no una película. Ahí entran los **Estados Contables**, principalmente el Estado de Situación Patrimonial."
+          "text": "Sin embargo, el Estado de Resultados solo muestra el desempeño en un tiempo. Para saber si la empresa es sólida financieramente, necesitamos una foto en un instante, no una película. Ahí entran los Estados Contables, principalmente el Estado de Situación Patrimonial."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p19",
-          "text": "Para llegar a estos estados, la empresa recorre el **ciclo contable completo**. Imaginá este recorrido paso a paso: 1. Ocurre un hecho económico (una venta, un pago). 2. Se registra en el **Libro Diario** mediante la partida doble (cada débito tiene un crédito equivalente). 3. Esa información se pasa al **Libro Mayor**, donde se agrupan por tipo de cuenta. 4. Se hace un **Balance de Comprobación** para verificar que la suma de débitos sea igual a la de créditos. Si no coinciden, hay un error de carga. 5. Se aplican **ajustes de cierre**, como reconocer la depreciación de una máquina que se usó durante el mes. 6. Finalmente, se arman los **Estados Contables** con los saldos ajustados. 7. Se cierra el ejercicio: las cuentas de ingresos y gastos se vacían y su resultado neto (la ganancia o pérdida del Estado de Resultados) se traslada al Patrimonio."
+          "text": "Para llegar a estos estados, la empresa recorre el ciclo contable completo. Imaginá este recorrido paso a paso: 1. Ocurre un hecho económico (una venta, un pago). 2. Se registra en el Libro Diario mediante la partida doble (cada débito tiene un crédito equivalente). 3. Esa información se pasa al Libro Mayor, donde se agrupan por tipo de cuenta. 4. Se hace un Balance de Comprobación para verificar que la suma de débitos sea igual a la de créditos. Si no coinciden, hay un error de carga. 5. Se aplican ajustes de cierre, como reconocer la depreciación de una máquina que se usó durante el mes. 6. Finalmente, se arman los Estados Contables con los saldos ajustados. 7. Se cierra el ejercicio: las cuentas de ingresos y gastos se vacían y su resultado neto (la ganancia o pérdida del Estado de Resultados) se traslada al Patrimonio."
         },
         {
           "type": "paragraph",
@@ -1126,7 +1162,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p22",
-          "text": "El producto final de este ciclo contable es la estructura del **Patrimonio**, que se presenta en el Estado de Situación Patrimonial. El patrimonio es el conjunto de bienes, derechos y obligaciones que posee la empresa. Es como el tablero de puntuación definitivo que dice exactamente dónde está la organización."
+          "text": "El producto final de este ciclo contable es la estructura del Patrimonio, que se presenta en el Estado de Situación Patrimonial. El patrimonio es el conjunto de bienes, derechos y obligaciones que posee la empresa. Es como el tablero de puntuación definitivo que dice exactamente dónde está la organización."
         },
         {
           "type": "paragraph",
@@ -1146,17 +1182,17 @@
         {
           "type": "paragraph",
           "id": "cap-7-p26",
-          "text": "El **Activo** representa todo lo que la empresa tiene o tiene derecho a cobrar, y que se espera le genere un beneficio futuro. Se divide en **activo circulante** (recursos que se convertirán en dinero en menos de un año, como caja, bancos y mercadería) y **activo no circulante** (bienes duraderos como edificios, maquinaria y vehículos). La clave aquí es entender que no todo lo que \"tiene\" la empresa es dinero en mano, pero todo eso tiene valor productivo."
+          "text": "El Activo representa todo lo que la empresa tiene o tiene derecho a cobrar, y que se espera le genere un beneficio futuro. Se divide en activo circulante (recursos que se convertirán en dinero en menos de un año, como caja, bancos y mercadería) y activo no circulante (bienes duraderos como edificios, maquinaria y vehículos). La clave aquí es entender que no todo lo que \"tiene\" la empresa es dinero en mano, pero todo eso tiene valor productivo."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p27",
-          "text": "El **Pasivo** es todo lo que la empresa le debe a terceros. Son obligaciones presentes surgidas de eventos pasados, como préstamos bancarios, facturas por pagar a proveedores o impuestos pendientes. El pasivo se divide en corto y largo plazo según cuándo vence la deuda."
+          "text": "El Pasivo es todo lo que la empresa le debe a terceros. Son obligaciones presentes surgidas de eventos pasados, como préstamos bancarios, facturas por pagar a proveedores o impuestos pendientes. El pasivo se divide en corto y largo plazo según cuándo vence la deuda."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p28",
-          "text": "El **Patrimonio Neto** es la diferencia entre ambos. Representa lo que realmente pertenece a los dueños de la empresa después de pagar todas las deudas. Es el capital que los socios invirtieron más las ganancias acumuladas que decidieron no retirar."
+          "text": "El Patrimonio Neto es la diferencia entre ambos. Representa lo que realmente pertenece a los dueños de la empresa después de pagar todas las deudas. Es el capital que los socios invirtieron más las ganancias acumuladas que decidieron no retirar."
         },
         {
           "type": "paragraph",
@@ -1172,7 +1208,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p31",
-          "text": "Al final, todos estos temas no son compartimentos estancos. Los **factores de producción** son la materia prima. La **elasticidad** te dice cómo el mercado reaccionará a tu precio, lo que define tus **ingresos**. El **Estado de Resultados** te muestra si lograste cubrir los costos de esos factores. Y el **Estado de Situación Patrimonial** te dice si, después de todo el proceso, la empresa quedó más rica o más endeudada."
+          "text": "Al final, todos estos temas no son compartimentos estancos. Los factores de producción son la materia prima. La elasticidad te dice cómo el mercado reaccionará a tu precio, lo que define tus ingresos. El Estado de Resultados te muestra si lograste cubrir los costos de esos factores. Y el Estado de Situación Patrimonial te dice si, después de todo el proceso, la empresa quedó más rica o más endeudada."
         },
         {
           "type": "paragraph",
@@ -1182,7 +1218,13 @@
       ],
       "meta": {
         "chapterId": "cap-7"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-8",
@@ -1209,7 +1251,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p4",
-          "text": "Todo proyecto económico, por pequeño que sea, necesita un orden para funcionar. Si imaginás una empresa como un organismo vivo, la **estructura organizacional** sería su esqueleto y sistema nervioso. Sin él, los músculos (los empleados) no tendrían dónde adherirse y el cerebro (la dirección) no sabría cómo mover el cuerpo. Un organigrama no es simplemente un dibujo con nombres y cajas; es la representación gráfica de la autoridad, la responsabilidad y el flujo de información."
+          "text": "Todo proyecto económico, por pequeño que sea, necesita un orden para funcionar. Si imaginás una empresa como un organismo vivo, la estructura organizacional sería su esqueleto y sistema nervioso. Sin él, los músculos (los empleados) no tendrían dónde adherirse y el cerebro (la dirección) no sabría cómo mover el cuerpo. Un organigrama no es simplemente un dibujo con nombres y cajas; es la representación gráfica de la autoridad, la responsabilidad y el flujo de información."
         },
         {
           "type": "paragraph",
@@ -1225,7 +1267,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p7",
-          "text": "Pero ninguna organización opera en el vacío. La estructura organizacional de una empresa está profundamente condicionada por la **estructura productiva** y el contexto macroeconómico del país donde se ubica. En el caso de Argentina, este contexto está marcado por una historia larga de **dependencia estructural**."
+          "text": "Pero ninguna organización opera en el vacío. La estructura organizacional de una empresa está profundamente condicionada por la estructura productiva y el contexto macroeconómico del país donde se ubica. En el caso de Argentina, este contexto está marcado por una historia larga de dependencia estructural."
         },
         {
           "type": "paragraph",
@@ -1246,17 +1288,17 @@
         {
           "type": "paragraph",
           "id": "cap-8-p11",
-          "text": "Ante este escenario incierto, cualquier emprendimiento o proyecto debe comenzar con un **estudio de contexto** riguroso. No sirve de nada tener la mejor estructura organizacional si la empresa no entiende dónde está pisando. El estudio de contexto es el diagnóstico del entorno en el que la organización se desarrolla, identificando oportunidades para crecer y amenazas que podrían ponerla en riesgo."
+          "text": "Ante este escenario incierto, cualquier emprendimiento o proyecto debe comenzar con un estudio de contexto riguroso. No sirve de nada tener la mejor estructura organizacional si la empresa no entiende dónde está pisando. El estudio de contexto es el diagnóstico del entorno en el que la organización se desarrolla, identificando oportunidades para crecer y amenazas que podrían ponerla en riesgo."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p12",
-          "text": "Este análisis se divide en dos niveles fundamentales: el microentorno y el macroentorno. El **microentorno** es el entorno local e inmediato. Aquí la organización interactúa directamente con sus clientes, proveedores, competidores y la normativa municipal. Es donde se define la viabilidad diaria del negocio: ¿el proveedor entrega a tiempo? ¿el cliente está dispuesto a pagar el precio? ¿la competencia ofrece algo mejor? Ignorar el microentorno es como navegar un río sin mirar las rocas más cercanas."
+          "text": "Este análisis se divide en dos niveles fundamentales: el microentorno y el macroentorno. El microentorno es el entorno local e inmediato. Aquí la organización interactúa directamente con sus clientes, proveedores, competidores y la normativa municipal. Es donde se define la viabilidad diaria del negocio: ¿el proveedor entrega a tiempo? ¿el cliente está dispuesto a pagar el precio? ¿la competencia ofrece algo mejor? Ignorar el microentorno es como navegar un río sin mirar las rocas más cercanas."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p13",
-          "text": "Por otro lado, el **macroentorno** abarca el ámbito regional, provincial o nacional. Aquí influyen factores que la organización no puede controlar, como la inflación, las tasas de interés, la estabilidad política o las tendencias demográficas. En Argentina, el macroentorno es particularmente complejo debido a la histórica dependencia de los precios internacionales y la volatilidad de las políticas económicas. Un estudio de contexto sólido integra ambos niveles: permite a la organización adaptarse a las reglas del juego local mientras se protege de los vientos fuertes que soplan desde el panorama económico general. Sin este diagnóstico, las estrategias se construyen sobre cimientos de arena."
+          "text": "Por otro lado, el macroentorno abarca el ámbito regional, provincial o nacional. Aquí influyen factores que la organización no puede controlar, como la inflación, las tasas de interés, la estabilidad política o las tendencias demográficas. En Argentina, el macroentorno es particularmente complejo debido a la histórica dependencia de los precios internacionales y la volatilidad de las políticas económicas. Un estudio de contexto sólido integra ambos niveles: permite a la organización adaptarse a las reglas del juego local mientras se protege de los vientos fuertes que soplan desde el panorama económico general. Sin este diagnóstico, las estrategias se construyen sobre cimientos de arena."
         },
         {
           "type": "heading",
@@ -1267,7 +1309,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p15",
-          "text": "Una vez que la organización o el individuo han estructurado su proyecto y analizado su contexto, surge la pregunta inevitable: ¿qué pasa si las cosas salen mal? Aquí entran en juego dos conceptos financieros cruciales para la supervivencia: el **fondo de emergencia** y la **diversificación**."
+          "text": "Una vez que la organización o el individuo han estructurado su proyecto y analizado su contexto, surge la pregunta inevitable: ¿qué pasa si las cosas salen mal? Aquí entran en juego dos conceptos financieros cruciales para la supervivencia: el fondo de emergencia y la diversificación."
         },
         {
           "type": "paragraph",
@@ -1277,7 +1319,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p17",
-          "text": "Sin embargo, confiar solo en un fondo de emergencia no es suficiente para proteger el patrimonio a largo plazo. Para ello, está la **diversificación**. Como aprendimos al estudiar el valor esperado y el riesgo, poner todos los huevos en la misma canasta es una receta para la ruina. Diversificar significa repartir el riesgo entre diferentes activos, sectores o monedas. Si una inversión cae, las otras pueden mantenerse estables o crecer, amortiguando el golpe. En el contexto argentino, donde la moneda local ha sufrido grandes devaluaciones, la diversificación hacia activos en dólares o bienes reales (como inmuebles o acciones de empresas exportadoras) no es solo una estrategia de inversión, sino una necesidad de preservación del poder adquisitivo. La diversificación y el fondo de emergencia son los dos pilares de la resiliencia financiera: uno protege contra lo inesperado inmediato, y el otro contra la volatilidad estructural del mercado."
+          "text": "Sin embargo, confiar solo en un fondo de emergencia no es suficiente para proteger el patrimonio a largo plazo. Para ello, está la diversificación. Como aprendimos al estudiar el valor esperado y el riesgo, poner todos los huevos en la misma canasta es una receta para la ruina. Diversificar significa repartir el riesgo entre diferentes activos, sectores o monedas. Si una inversión cae, las otras pueden mantenerse estables o crecer, amortiguando el golpe. En el contexto argentino, donde la moneda local ha sufrido grandes devaluaciones, la diversificación hacia activos en dólares o bienes reales (como inmuebles o acciones de empresas exportadoras) no es solo una estrategia de inversión, sino una necesidad de preservación del poder adquisitivo. La diversificación y el fondo de emergencia son los dos pilares de la resiliencia financiera: uno protege contra lo inesperado inmediato, y el otro contra la volatilidad estructural del mercado."
         },
         {
           "type": "heading",
@@ -1288,12 +1330,12 @@
         {
           "type": "paragraph",
           "id": "cap-8-p19",
-          "text": "Finalmente, para saber si la estructura organizacional es adecuada, si el estudio de contexto fue correcto y si la gestión del riesgo está funcionando, necesitamos medir. Aquí entran en juego los **índices financieros**, también conocidos como ratios o indicadores financieros. Si los estados contables son como los resultados de un análisis de sangre con cientos de datos crudos, los índices financieros son el diagnóstico del médico: simplifican esa información compleja para responder preguntas clave."
+          "text": "Finalmente, para saber si la estructura organizacional es adecuada, si el estudio de contexto fue correcto y si la gestión del riesgo está funcionando, necesitamos medir. Aquí entran en juego los índices financieros, también conocidos como ratios o indicadores financieros. Si los estados contables son como los resultados de un análisis de sangre con cientos de datos crudos, los índices financieros son el diagnóstico del médico: simplifican esa información compleja para responder preguntas clave."
         },
         {
           "type": "paragraph",
           "id": "cap-8-p20",
-          "text": "El índice más crítico para la supervivencia inmediata es la **liquidez**, que mide la capacidad de la empresa para pagar sus deudas a corto plazo. Una empresa puede ser rentable en papel, pero si no tiene efectivo disponible para pagar a sus proveedores o a los empleados, quebrará. El índice de liquidez corriente, que compara los activos corrientes (dinero, cuentas a cobrar) con los pasivos corrientes (deudas a pagar en menos de un año), es el termómetro de esta capacidad. Si este índice es bajo, la organización corre el riesgo de no poder cumplir con sus compromisos inmediatos, lo que puede dañar su reputación y su acceso a créditos futuros."
+          "text": "El índice más crítico para la supervivencia inmediata es la liquidez, que mide la capacidad de la empresa para pagar sus deudas a corto plazo. Una empresa puede ser rentable en papel, pero si no tiene efectivo disponible para pagar a sus proveedores o a los empleados, quebrará. El índice de liquidez corriente, que compara los activos corrientes (dinero, cuentas a cobrar) con los pasivos corrientes (deudas a pagar en menos de un año), es el termómetro de esta capacidad. Si este índice es bajo, la organización corre el riesgo de no poder cumplir con sus compromisos inmediatos, lo que puede dañar su reputación y su acceso a créditos futuros."
         },
         {
           "type": "paragraph",
@@ -1309,12 +1351,18 @@
         {
           "type": "paragraph",
           "id": "cap-8-p23",
-          "text": "En síntesis, la economía no es solo la ciencia de la escasez, sino la ciencia de la organización bajo incertidumbre. Un proyecto exitoso requiere un **esqueleto organizacional** claro que defina roles y responsabilidades, un **estudio de contexto** honesto que identifique las oportunidades y amenazas del entorno local y global, y una gestión del riesgo que combine un **fondo de emergencia** líquido con una estrategia de **diversificación** inteligente. Todo esto se sustenta en la medición constante mediante **índices financieros** que permiten corregir el rumbo a tiempo. Y, sobre todo, todo esto se desarrolla en el marco de una **estructura productiva** nacional que, en el caso argentino, nos recuerda constantemente que la dependencia de los ciclos externos exige una mayor agilidad, creatividad y resiliencia por parte de cada actor económico. Entender estas conexiones es clave para dejar de ser un espectador pasivo de la economía y convertirse en un agente activo y preparado."
+          "text": "En síntesis, la economía no es solo la ciencia de la escasez, sino la ciencia de la organización bajo incertidumbre. Un proyecto exitoso requiere un esqueleto organizacional claro que defina roles y responsabilidades, un estudio de contexto honesto que identifique las oportunidades y amenazas del entorno local y global, y una gestión del riesgo que combine un fondo de emergencia líquido con una estrategia de diversificación inteligente. Todo esto se sustenta en la medición constante mediante índices financieros que permiten corregir el rumbo a tiempo. Y, sobre todo, todo esto se desarrolla en el marco de una estructura productiva nacional que, en el caso argentino, nos recuerda constantemente que la dependencia de los ciclos externos exige una mayor agilidad, creatividad y resiliencia por parte de cada actor económico. Entender estas conexiones es clave para dejar de ser un espectador pasivo de la economía y convertirse en un agente activo y preparado."
         }
       ],
       "meta": {
         "chapterId": "cap-8"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-9",
@@ -1340,12 +1388,12 @@
         {
           "type": "paragraph",
           "id": "cap-9-p4",
-          "text": "Imaginá que tenés $100.000 y querés prestarlos o invertirlos. Si elegís un régimen de **interés simple**, el banco te paga un porcentaje fijo sobre ese capital original, sin importar cuánto tiempo pase. Es lineal, predecible y, en cierto modo, \"justo\" en su simplicidad. Si la tasa es del 5% anual, cada año recibís exactamente $5.000 de interés. Al cabo de tres años, habrás ganado $15.000 en total. El monto final es la suma del capital inicial más los intereses acumulados, pero el capital base nunca cambia. Es como si siempre estuvieras cobrando alquiler por la misma cantidad de dinero prestado. Este modelo es útil para entender préstamos cortos o conceptos básicos, pero tiene una limitación enorme: no aprovecha la capacidad del dinero para generar más dinero."
+          "text": "Imaginá que tenés $100.000 y querés prestarlos o invertirlos. Si elegís un régimen de interés simple, el banco te paga un porcentaje fijo sobre ese capital original, sin importar cuánto tiempo pase. Es lineal, predecible y, en cierto modo, \"justo\" en su simplicidad. Si la tasa es del 5% anual, cada año recibís exactamente $5.000 de interés. Al cabo de tres años, habrás ganado $15.000 en total. El monto final es la suma del capital inicial más los intereses acumulados, pero el capital base nunca cambia. Es como si siempre estuvieras cobrando alquiler por la misma cantidad de dinero prestado. Este modelo es útil para entender préstamos cortos o conceptos básicos, pero tiene una limitación enorme: no aprovecha la capacidad del dinero para generar más dinero."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p5",
-          "text": "Aquí es donde entra en juego el **interés compuesto**, el fenómeno que los matemáticos y economistas suelen llamar \"la octava maravilla del mundo\" (una frase atribuida a Einstein, aunque su origen es más antiguo). En este sistema, el interés generado en un período no se retira ni se queda quieto; se suma al capital. En el siguiente período, el interés se calcula sobre ese nuevo total. Es decir, **el interés genera interés**."
+          "text": "Aquí es donde entra en juego el interés compuesto, el fenómeno que los matemáticos y economistas suelen llamar \"la octava maravilla del mundo\" (una frase atribuida a Einstein, aunque su origen es más antiguo). En este sistema, el interés generado en un período no se retira ni se queda quieto; se suma al capital. En el siguiente período, el interés se calcula sobre ese nuevo total. Es decir, el interés genera interés."
         },
         {
           "type": "paragraph",
@@ -1360,7 +1408,7 @@
         {
           "type": "paragraph",
           "id": "cap-9-p8",
-          "text": "Pero el dinero no solo crece o se encoge por el interés; también se modifica por los impuestos que aplicamos a las transacciones. Aquí el tema cambia de escala: pasamos de la microeconomía individual a la macroeconomía fiscal con el **Impuesto al Valor Agregado (IVA)**. Mientras que el interés compuesto es un mecanismo de acumulación privada, el IVA es un mecanismo de recaudación estatal."
+          "text": "Pero el dinero no solo crece o se encoge por el interés; también se modifica por los impuestos que aplicamos a las transacciones. Aquí el tema cambia de escala: pasamos de la microeconomía individual a la macroeconomía fiscal con el Impuesto al Valor Agregado (IVA). Mientras que el interés compuesto es un mecanismo de acumulación privada, el IVA es un mecanismo de recaudación estatal."
         },
         {
           "type": "paragraph",
@@ -1375,22 +1423,22 @@
         {
           "type": "paragraph",
           "id": "cap-9-p11",
-          "text": "Sin embargo, el dinero que generamos hoy —ya sea por interés o por trabajo— no es solo para el presente. Una parte fundamental de la vida económica argentina está destinada a la protección futura, a través del **sistema previsional**. Aquí volvemos a encontrarnos con el concepto de tiempo, pero con una urgencia existencial: la vejez."
+          "text": "Sin embargo, el dinero que generamos hoy —ya sea por interés o por trabajo— no es solo para el presente. Una parte fundamental de la vida económica argentina está destinada a la protección futura, a través del sistema previsional. Aquí volvemos a encontrarnos con el concepto de tiempo, pero con una urgencia existencial: la vejez."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p12",
-          "text": "En Argentina, el sistema de jubilaciones es, históricamente, un sistema de **reparto**. Esto significa que no hay una \"cuenta individual\" donde se acumula tu plata y rinde intereses para ti solo. Lo que vos aportás hoy (un porcentaje de tu sueldo) se usa inmediatamente para pagar las jubilaciones de las personas que ya están jubiladas. A cambio, el Estado te promete que, cuando dejes de trabajar, la próxima generación de trabajadores activos te pagará a vos. Es un pacto intergeneracional, un contrato social que depende de la demografía: si hay muchos jóvenes trabajando y pocos jubilados, el sistema es sostenible; si la pirámide poblacional se invierte, el sistema entra en crisis."
+          "text": "En Argentina, el sistema de jubilaciones es, históricamente, un sistema de reparto. Esto significa que no hay una \"cuenta individual\" donde se acumula tu plata y rinde intereses para ti solo. Lo que vos aportás hoy (un porcentaje de tu sueldo) se usa inmediatamente para pagar las jubilaciones de las personas que ya están jubiladas. A cambio, el Estado te promete que, cuando dejes de trabajar, la próxima generación de trabajadores activos te pagará a vos. Es un pacto intergeneracional, un contrato social que depende de la demografía: si hay muchos jóvenes trabajando y pocos jubilados, el sistema es sostenible; si la pirámide poblacional se invierte, el sistema entra en crisis."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p13",
-          "text": "Pero el sistema argentino no es el único posible en el mundo, ni fue siempre así. Para entender su peso, conviene mirar los otros dos modelos existentes. El primero es el de **capitalización individual**, típico de países como Chile o Estados Unidos en sus cuentas de jubilación 401(k). En este modelo, cada trabajador tiene una cuenta propia administrada por una empresa privada (las AFJP, que existieron en Argentina entre 1994 y 2008). Los aportes se invierten en la bolsa de valores y los rendimientos dependen de la suerte de esa inversión. Si el mercado va bien, tu jubilación es mayor; si va mal, es menor. El riesgo financiero recae enteramente sobre el trabajador, no sobre el Estado."
+          "text": "Pero el sistema argentino no es el único posible en el mundo, ni fue siempre así. Para entender su peso, conviene mirar los otros dos modelos existentes. El primero es el de capitalización individual, típico de países como Chile o Estados Unidos en sus cuentas de jubilación 401(k). En este modelo, cada trabajador tiene una cuenta propia administrada por una empresa privada (las AFJP, que existieron en Argentina entre 1994 y 2008). Los aportes se invierten en la bolsa de valores y los rendimientos dependen de la suerte de esa inversión. Si el mercado va bien, tu jubilación es mayor; si va mal, es menor. El riesgo financiero recae enteramente sobre el trabajador, no sobre el Estado."
         },
         {
           "type": "paragraph",
           "id": "cap-9-p14",
-          "text": "El segundo modelo es el **híbrido**, que combina ambos: una parte del aporte va a un fondo público de reparto (garantizando un piso mínimo de solidaridad) y otra parte va a una cuenta de capitalización individual (para aprovechar los rendimientos financieros)."
+          "text": "El segundo modelo es el híbrido, que combina ambos: una parte del aporte va a un fondo público de reparto (garantizando un piso mínimo de solidaridad) y otra parte va a una cuenta de capitalización individual (para aprovechar los rendimientos financieros)."
         },
         {
           "type": "paragraph",
@@ -1405,12 +1453,18 @@
         {
           "type": "paragraph",
           "id": "cap-9-p17",
-          "text": "Al cerrar este recorrido, notamos cómo todos estos temas se conectan. El **interés compuesto** nos enseña que el tiempo es un multiplicador de valor, ya sea para ahorrar o para endeudarse. El **IVA** nos muestra cómo el Estado interviene en ese flujo de valor diario, decidiendo qué consumos gravar más y cuáles menos, influyendo en nuestras decisiones de compra. Y el **sistema previsional** nos recuerda que la planificación económica no termina en el mes siguiente, sino en la vida entera, requiriendo un equilibrio delicado entre solidaridad colectiva y eficiencia individual. Entender estas herramientas no es solo materia de examen; es la base para tomar decisiones informadas como ciudadanos y como personas que gestionan su propio futuro financiero."
+          "text": "Al cerrar este recorrido, notamos cómo todos estos temas se conectan. El interés compuesto nos enseña que el tiempo es un multiplicador de valor, ya sea para ahorrar o para endeudarse. El IVA nos muestra cómo el Estado interviene en ese flujo de valor diario, decidiendo qué consumos gravar más y cuáles menos, influyendo en nuestras decisiones de compra. Y el sistema previsional nos recuerda que la planificación económica no termina en el mes siguiente, sino en la vida entera, requiriendo un equilibrio delicado entre solidaridad colectiva y eficiencia individual. Entender estas herramientas no es solo materia de examen; es la base para tomar decisiones informadas como ciudadanos y como personas que gestionan su propio futuro financiero."
         }
       ],
       "meta": {
         "chapterId": "cap-9"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-10",
@@ -1437,12 +1491,12 @@
         {
           "type": "paragraph",
           "id": "cap-10-p4",
-          "text": "Todo gran negocio comienza con una suposición. Vos creés que a la gente le va a encantar tu producto, pero hasta que no lo probás, no lo sabés. Aquí entra en juego el concepto de **Producto Mínimo Viable**, o MVP. No te dejes engañar por el nombre; un MVP no es un producto \"malo\" o incompleto por defecto, sino una versión simplificada y estratégica diseñada para validar tu hipótesis de mercado con el menor esfuerzo posible."
+          "text": "Todo gran negocio comienza con una suposición. Vos creés que a la gente le va a encantar tu producto, pero hasta que no lo probás, no lo sabés. Aquí entra en juego el concepto de Producto Mínimo Viable, o MVP. No te dejes engañar por el nombre; un MVP no es un producto \"malo\" o incompleto por defecto, sino una versión simplificada y estratégica diseñada para validar tu hipótesis de mercado con el menor esfuerzo posible."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p5",
-          "text": "Pensemos en tu panadería. En lugar de alquilar un local enorme, comprar maquinaria costosa y contratar personal antes de tiempo, tu MVP podría ser una mesa en un feriado de barrio donde vendés tus primeros panes. O quizás una página web simple donde la gente puede encargar pedidos con un formulario básico. El objetivo no es ganar mucho dinero con esa primera venta, sino obtener *aprendizaje*. Al ver si la gente realmente saca su billetera y qué opinan del sabor, estás validando si existe una demanda real. Si construyes el producto completo sin saber si alguien lo quiere, estás corriendo el riesgo de invertir tiempo y dinero en algo que nadie necesita. El MVP te permite iterar: probás, escuchás, ajustás y volvés a probar. Es una forma inteligente de reducir la incertidumbre antes de comprometer recursos mayores."
+          "text": "Pensemos en tu panadería. En lugar de alquilar un local enorme, comprar maquinaria costosa y contratar personal antes de tiempo, tu MVP podría ser una mesa en un feriado de barrio donde vendés tus primeros panes. O quizás una página web simple donde la gente puede encargar pedidos con un formulario básico. El objetivo no es ganar mucho dinero con esa primera venta, sino obtener aprendizaje. Al ver si la gente realmente saca su billetera y qué opinan del sabor, estás validando si existe una demanda real. Si construyes el producto completo sin saber si alguien lo quiere, estás corriendo el riesgo de invertir tiempo y dinero en algo que nadie necesita. El MVP te permite iterar: probás, escuchás, ajustás y volvés a probar. Es una forma inteligente de reducir la incertidumbre antes de comprometer recursos mayores."
         },
         {
           "type": "heading",
@@ -1453,17 +1507,17 @@
         {
           "type": "paragraph",
           "id": "cap-10-p7",
-          "text": "Una vez que tu MVP demuestra que hay interés, es momento de pensar en cómo operar de manera formal y sostenible. En Argentina, para cualquier persona que trabaja por cuenta propia, el **Monotributo** suele ser la puerta de entrada al mundo de la responsabilidad fiscal. Este régimen simplificado está pensado para pequeños contribuyentes que quieren evitar la complejidad de liquidar impuestos por separado."
+          "text": "Una vez que tu MVP demuestra que hay interés, es momento de pensar en cómo operar de manera formal y sostenible. En Argentina, para cualquier persona que trabaja por cuenta propia, el Monotributo suele ser la puerta de entrada al mundo de la responsabilidad fiscal. Este régimen simplificado está pensado para pequeños contribuyentes que quieren evitar la complejidad de liquidar impuestos por separado."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p8",
-          "text": "Lo fundamental que debés entender es que el Monotributo no es un solo impuesto, sino un \"paquete\". Al pagar una única cuota mensual, estás integrando tres cosas distintas: reemplazás al IVA y al Impuesto a las Ganancias (es decir, no tenés que hacer liquidaciones mensuales complicadas), pero también estás abonoando tu **jubilación** y tu **obra social**. Esta última parte es crucial: al estar inscripto, estás construyendo tu historial jubilatorio y accedés a atención médica, algo que no tenés si trabajás en negro."
+          "text": "Lo fundamental que debés entender es que el Monotributo no es un solo impuesto, sino un \"paquete\". Al pagar una única cuota mensual, estás integrando tres cosas distintas: reemplazás al IVA y al Impuesto a las Ganancias (es decir, no tenés que hacer liquidaciones mensuales complicadas), pero también estás abonoando tu jubilación y tu obra social. Esta última parte es crucial: al estar inscripto, estás construyendo tu historial jubilatorio y accedés a atención médica, algo que no tenés si trabajás en negro."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p9",
-          "text": "La clave del Monotributo radica en la **categoría**. No elegís libremente cuánto pagar; la AFIP te ubica en una categoría (de la A a la K) según tu facturación anual, la superficie de tu local, la energía eléctrica que consumís y otros indicadores. A medida que tu negocio crece y facturás más, pasás a categorías superiores, lo que implica pagar una cuota mayor. Es un sistema progresivo que busca ajustar la carga tributaria al tamaño de tu actividad. Sin embargo, debés estar atento a los topes: si superás el límite de una categoría, debés pasar a la siguiente (o si superás el tope máximo, salir del régimen e inscribirte en el general). Entender esto es vital para planificar tu crecimiento sin llevarte sorpresas con el fisco."
+          "text": "La clave del Monotributo radica en la categoría. No elegís libremente cuánto pagar; la AFIP te ubica en una categoría (de la A a la K) según tu facturación anual, la superficie de tu local, la energía eléctrica que consumís y otros indicadores. A medida que tu negocio crece y facturás más, pasás a categorías superiores, lo que implica pagar una cuota mayor. Es un sistema progresivo que busca ajustar la carga tributaria al tamaño de tu actividad. Sin embargo, debés estar atento a los topes: si superás el límite de una categoría, debés pasar a la siguiente (o si superás el tope máximo, salir del régimen e inscribirte en el general). Entender esto es vital para planificar tu crecimiento sin llevarte sorpresas con el fisco."
         },
         {
           "type": "heading",
@@ -1474,17 +1528,17 @@
         {
           "type": "paragraph",
           "id": "cap-10-p11",
-          "text": "Ahora que tenés un negocio formalizado y validado, necesitás saber si estás ganando dinero de verdad. Muchos emprendedores cometen el error de confundir \"ventas\" con \"ganancia\". Podés vender millones de pesos y, al fin de mes, no tener ni un peso en tu bolsillo si no controlás tus costos. Aquí es donde entran los indicadores de rentabilidad: el **margen bruto** y el **margen neto**."
+          "text": "Ahora que tenés un negocio formalizado y validado, necesitás saber si estás ganando dinero de verdad. Muchos emprendedores cometen el error de confundir \"ventas\" con \"ganancia\". Podés vender millones de pesos y, al fin de mes, no tener ni un peso en tu bolsillo si no controlás tus costos. Aquí es donde entran los indicadores de rentabilidad: el margen bruto y el margen neto."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p12",
-          "text": "El **margen bruto** es tu primera línea de defensa. Mide cuánto dinero te queda después de pagar los costos directos de lo que vendés. Si hacés pan, los costos directos son la harina, el levadura, el gas y el sueldo del panadero que lo amasa. Si vendés un pan a $1.000 y te costó $600 producirlo, tu margen bruto es de $400. Esto te dice si tu producto es eficiente en sí mismo. Un margen bruto alto indica que tenés buen poder de negociación con proveedores o que tu precio de venta es adecuado respecto a lo que te cuesta fabricarlo."
+          "text": "El margen bruto es tu primera línea de defensa. Mide cuánto dinero te queda después de pagar los costos directos de lo que vendés. Si hacés pan, los costos directos son la harina, el levadura, el gas y el sueldo del panadero que lo amasa. Si vendés un pan a $1.000 y te costó $600 producirlo, tu margen bruto es de $400. Esto te dice si tu producto es eficiente en sí mismo. Un margen bruto alto indica que tenés buen poder de negociación con proveedores o que tu precio de venta es adecuado respecto a lo que te cuesta fabricarlo."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p13",
-          "text": "Pero el margen bruto no te dice todo. Para saber cuánto te queda realmente para vos o para reinvertir, necesitás el **margen neto**. Este indicador va un paso más allá: al margen bruto le restás todos los gastos operativos (el alquiler del local, la luz, la publicidad en redes, los sueldos administrativos) y los gastos financieros (intereses de préstamos) e impuestos."
+          "text": "Pero el margen bruto no te dice todo. Para saber cuánto te queda realmente para vos o para reinvertir, necesitás el margen neto. Este indicador va un paso más allá: al margen bruto le restás todos los gastos operativos (el alquiler del local, la luz, la publicidad en redes, los sueldos administrativos) y los gastos financieros (intereses de préstamos) e impuestos."
         },
         {
           "type": "paragraph",
@@ -1500,22 +1554,22 @@
         {
           "type": "paragraph",
           "id": "cap-10-p16",
-          "text": "Para calcular esos márgenes con precisión y cumplir con tus obligaciones ante AFIP, necesitás llevar un registro ordenado de cada movimiento de dinero. En contabilidad, no se usa una lista desordenada de notas adhesivas; se utilizan dos libros complementarios que muestran la misma información desde ángulos diferentes: el **Libro Diario** y el **Libro Mayor**."
+          "text": "Para calcular esos márgenes con precisión y cumplir con tus obligaciones ante AFIP, necesitás llevar un registro ordenado de cada movimiento de dinero. En contabilidad, no se usa una lista desordenada de notas adhesivas; se utilizan dos libros complementarios que muestran la misma información desde ángulos diferentes: el Libro Diario y el Libro Mayor."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p17",
-          "text": "El **Libro Diario** es la crónica cronológica de la vida de tu empresa. Cada vez que comprás harina, vendés un pan o pagás el alquiler, registrás un \"asiento\" con la fecha exacta en que ocurrió. Es como el diario personal de tu negocio: ahí queda la historia de qué pasó, cuándo y en qué orden. Es fundamental para la auditoría y para entender la secuencia de eventos."
+          "text": "El Libro Diario es la crónica cronológica de la vida de tu empresa. Cada vez que comprás harina, vendés un pan o pagás el alquiler, registrás un \"asiento\" con la fecha exacta en que ocurrió. Es como el diario personal de tu negocio: ahí queda la historia de qué pasó, cuándo y en qué orden. Es fundamental para la auditoría y para entender la secuencia de eventos."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p18",
-          "text": "Sin embargo, mirar solo el Diario es difícil si querés saber cuánto tenés de saldo en una cuenta específica. Ahí entra el **Libro Mayor**. El Mayor reorganiza toda la información del Diario, pero no por fecha, sino **por cuenta**. Cada cuenta contable (Caja, Bancos, Mercadería, Proveedores, etc.) tiene su propia \"hoja\" o espacio donde se acumulan todos los movimientos que la afectaron, sin importar cuándo ocurrieron."
+          "text": "Sin embargo, mirar solo el Diario es difícil si querés saber cuánto tenés de saldo en una cuenta específica. Ahí entra el Libro Mayor. El Mayor reorganiza toda la información del Diario, pero no por fecha, sino por cuenta. Cada cuenta contable (Caja, Bancos, Mercadería, Proveedores, etc.) tiene su propia \"hoja\" o espacio donde se acumulan todos los movimientos que la afectaron, sin importar cuándo ocurrieron."
         },
         {
           "type": "paragraph",
           "id": "cap-10-p19",
-          "text": "El proceso de trasladar los datos del Diario al Mayor se llama **\"pasar al mayor\"** o mayorización. Tradicionalmente, se representa cada cuenta con una **cuenta T**: una letra T donde el nombre de la cuenta está arriba, los débitos (lo que entra o aumenta activos/disminuye pasivos) a la izquierda, y los créditos a la derecha. Al final de cada período, sumás la columna izquierda y la derecha para obtener el **saldo actual** de esa cuenta. Esta separación es vital: el Diario te da el contexto temporal (la historia), y el Mayor te da el estado financiero actual (el saldo). Sin esta estructura, no podrías calcular correctamente tus márgenes ni saber si podés pagar la cuota del Monotributo."
+          "text": "El proceso de trasladar los datos del Diario al Mayor se llama \"pasar al mayor\" o mayorización. Tradicionalmente, se representa cada cuenta con una cuenta T: una letra T donde el nombre de la cuenta está arriba, los débitos (lo que entra o aumenta activos/disminuye pasivos) a la izquierda, y los créditos a la derecha. Al final de cada período, sumás la columna izquierda y la derecha para obtener el saldo actual de esa cuenta. Esta separación es vital: el Diario te da el contexto temporal (la historia), y el Mayor te da el estado financiero actual (el saldo). Sin esta estructura, no podrías calcular correctamente tus márgenes ni saber si podés pagar la cuota del Monotributo."
         },
         {
           "type": "heading",
@@ -1526,7 +1580,7 @@
         {
           "type": "paragraph",
           "id": "cap-10-p21",
-          "text": "Por último, tené en cuenta que un negocio no es una estatua; es un organismo vivo que cambia. Incluso si hoy tenés tu MVP validado, tu estructura legal correcta y tus libros en orden, no podés quedarte quieto. Aquí es donde la filosofía de la **mejora continua**, conocida en japonés como **Kaizen**, se vuelve indispensable."
+          "text": "Por último, tené en cuenta que un negocio no es una estatua; es un organismo vivo que cambia. Incluso si hoy tenés tu MVP validado, tu estructura legal correcta y tus libros en orden, no podés quedarte quieto. Aquí es donde la filosofía de la mejora continua, conocida en japonés como Kaizen, se vuelve indispensable."
         },
         {
           "type": "paragraph",
@@ -1536,7 +1590,7 @@
         {
           "type": "paragraph",
           "id": "cap-10-p23",
-          "text": "Para aplicar el Kaizen, se suele usar el **ciclo PDCA** (Planificar, Hacer, Verificar, Actuar). Primero, planificás un cambio pequeño (por ejemplo, reorganizar la mesa de trabajo para perder menos tiempo buscando herramientas). Luego, lo hacés. Después, verificás si realmente mejoró la eficiencia o la calidad. Finalmente, actuás: si funcionó, lo estandarizás; si no, lo ajustás y volvés a empezar."
+          "text": "Para aplicar el Kaizen, se suele usar el ciclo PDCA (Planificar, Hacer, Verificar, Actuar). Primero, planificás un cambio pequeño (por ejemplo, reorganizar la mesa de trabajo para perder menos tiempo buscando herramientas). Luego, lo hacés. Después, verificás si realmente mejoró la eficiencia o la calidad. Finalmente, actuás: si funcionó, lo estandarizás; si no, lo ajustás y volvés a empezar."
         },
         {
           "type": "paragraph",
@@ -1546,7 +1600,13 @@
       ],
       "meta": {
         "chapterId": "cap-10"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-11",
@@ -1573,17 +1633,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p4",
-          "text": "Todo comienza con la tierra y el trabajo. En los orígenes de la organización social, las comunidades vivían de lo que la naturaleza les daba directamente. Sin embargo, un cambio revolucionario ocurrió cuando las técnicas agrícolas permitieron producir más alimentos de los estrictamente necesarios para sobrevivir de inmediato. Ese sobrante se llama **excedente**. El excedente fue la chispa de la civilización económica: permitió que no todos tuvieran que dedicarse a la agricultura. Si uno podía producir más trigo del que comía, podía dedicarse a hacer herramientas, tejidos o construir casas, sabiendo que tendría comida para después."
+          "text": "Todo comienza con la tierra y el trabajo. En los orígenes de la organización social, las comunidades vivían de lo que la naturaleza les daba directamente. Sin embargo, un cambio revolucionario ocurrió cuando las técnicas agrícolas permitieron producir más alimentos de los estrictamente necesarios para sobrevivir de inmediato. Ese sobrante se llama excedente. El excedente fue la chispa de la civilización económica: permitió que no todos tuvieran que dedicarse a la agricultura. Si uno podía producir más trigo del que comía, podía dedicarse a hacer herramientas, tejidos o construir casas, sabiendo que tendría comida para después."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p5",
-          "text": "Pero, ¿cómo se intercambiaba ese excedente? Al principio, surgió el **trueque**. Era un sistema directo: tú me das cerámica, yo te doy trigo. Funcionaba bien en aldeas pequeñas donde todos se conocían. Pero a medida que las sociedades crecían y la variedad de productos se multiplicaba, el trueque se volvió una pesadilla logística. El problema principal era la **doble coincidencia de necesidades**. Para que el trueque funcione, no solo tenés que tener lo que el otro quiere, sino que el otro también tiene que querer exactamente lo que vos tenés. Si vos tenés trigo y necesitás zapatos, pero el zapatero no tiene hambre y prefiere lana, el intercambio se traba."
+          "text": "Pero, ¿cómo se intercambiaba ese excedente? Al principio, surgió el trueque. Era un sistema directo: tú me das cerámica, yo te doy trigo. Funcionaba bien en aldeas pequeñas donde todos se conocían. Pero a medida que las sociedades crecían y la variedad de productos se multiplicaba, el trueque se volvió una pesadilla logística. El problema principal era la doble coincidencia de necesidades. Para que el trueque funcione, no solo tenés que tener lo que el otro quiere, sino que el otro también tiene que querer exactamente lo que vos tenés. Si vos tenés trigo y necesitás zapatos, pero el zapatero no tiene hambre y prefiere lana, el intercambio se traba."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p6",
-          "text": "Esta ineficiencia frenaba el desarrollo. La gente no podía especializarse plenamente en lo que hacía mejor porque perdía demasiado tiempo buscando con quién trocar. Fue aquí donde surgió la necesidad de un intermediario universal: la **moneda**. La moneda no es más que un bien que toda la sociedad acepta como medida de valor y medio de pago. Al principio fueron cosas útiles y duraderas, como el ganado o el sal; luego, metales preciosos; y hoy, billetes de papel y números en computadoras. La moneda solucionó el problema del trueque porque cualquiera puede vender su trigo por dinero y luego usar ese dinero para comprar zapatos de quien sea. Esto liberó la producción y permitió que la economía creciera exponencialmente."
+          "text": "Esta ineficiencia frenaba el desarrollo. La gente no podía especializarse plenamente en lo que hacía mejor porque perdía demasiado tiempo buscando con quién trocar. Fue aquí donde surgió la necesidad de un intermediario universal: la moneda. La moneda no es más que un bien que toda la sociedad acepta como medida de valor y medio de pago. Al principio fueron cosas útiles y duraderas, como el ganado o el sal; luego, metales preciosos; y hoy, billetes de papel y números en computadoras. La moneda solucionó el problema del trueque porque cualquiera puede vender su trigo por dinero y luego usar ese dinero para comprar zapatos de quien sea. Esto liberó la producción y permitió que la economía creciera exponencialmente."
         },
         {
           "type": "heading",
@@ -1594,7 +1654,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p8",
-          "text": "Una vez que tenemos moneda y mercados, entramos en la dinámica diaria de los precios. Aquí es donde entran en juego dos fuerzas fundamentales que siempre están en tensión: la **oferta** y la **demanda**."
+          "text": "Una vez que tenemos moneda y mercados, entramos en la dinámica diaria de los precios. Aquí es donde entran en juego dos fuerzas fundamentales que siempre están en tensión: la oferta y la demanda."
         },
         {
           "type": "paragraph",
@@ -1604,7 +1664,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p10",
-          "text": "El punto mágico ocurre cuando estas dos curvas se cruzan. Ese punto se llama **precio de equilibrio**. Es el precio exacto donde la cantidad que la gente quiere comprar es igual a la cantidad que los productores quieren vender. En ese momento, el mercado \"se vacía\": no hay stock acumulado sin vender ni filas interminables de gente esperando producto."
+          "text": "El punto mágico ocurre cuando estas dos curvas se cruzan. Ese punto se llama precio de equilibrio. Es el precio exacto donde la cantidad que la gente quiere comprar es igual a la cantidad que los productores quieren vender. En ese momento, el mercado \"se vacía\": no hay stock acumulado sin vender ni filas interminables de gente esperando producto."
         },
         {
           "type": "paragraph",
@@ -1620,17 +1680,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p13",
-          "text": "Mientras el mercado fluye y los precios se ajustan, dentro de cada empresa hay un flujo constante de recursos que debe ser registrado para saber si la actividad es sostenible. Aquí entra en juego una regla que parece técnica pero que es la columna vertebral de la transparencia económica: la **partida doble**."
+          "text": "Mientras el mercado fluye y los precios se ajustan, dentro de cada empresa hay un flujo constante de recursos que debe ser registrado para saber si la actividad es sostenible. Aquí entra en juego una regla que parece técnica pero que es la columna vertebral de la transparencia económica: la partida doble."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p14",
-          "text": "Muchos estudiantes se asustan con la contabilidad, pero la lógica es intuitiva. La regla de oro de la partida doble establece que **todo movimiento económico afecta al menos dos cuentas**. No hay movimiento de un solo lado. Si una empresa compra mercadería, no solo \"entra mercadería\"; necesariamente \"sale plata\" (o aumenta una deuda). Siempre hay una fuente de origen y un destino."
+          "text": "Muchos estudiantes se asustan con la contabilidad, pero la lógica es intuitiva. La regla de oro de la partida doble establece que todo movimiento económico afecta al menos dos cuentas. No hay movimiento de un solo lado. Si una empresa compra mercadería, no solo \"entra mercadería\"; necesariamente \"sale plata\" (o aumenta una deuda). Siempre hay una fuente de origen y un destino."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p15",
-          "text": "Imaginemos que una panadería compra harina por $100.000 pagando en efectivo. En la contabilidad, esto se registra como un asiento contable. En el lado del **Debe** (que suele representar entradas de recursos o aumentos de activos) anotamos \"Mercadería\" por $100.000. En el lado del **Haber** (que suele representar salidas de recursos o disminuciones de activos) anotamos \"Caja\" por $100.000. La suma del Debe es igual a la suma del Haber. El activo total de la empresa no cambió en magnitud, solo cambió de forma: pasó de tener dinero en efectivo a tener harina en el depósito."
+          "text": "Imaginemos que una panadería compra harina por $100.000 pagando en efectivo. En la contabilidad, esto se registra como un asiento contable. En el lado del Debe (que suele representar entradas de recursos o aumentos de activos) anotamos \"Mercadería\" por $100.000. En el lado del Haber (que suele representar salidas de recursos o disminuciones de activos) anotamos \"Caja\" por $100.000. La suma del Debe es igual a la suma del Haber. El activo total de la empresa no cambió en magnitud, solo cambió de forma: pasó de tener dinero en efectivo a tener harina en el depósito."
         },
         {
           "type": "paragraph",
@@ -1646,12 +1706,12 @@
         {
           "type": "paragraph",
           "id": "cap-11-p18",
-          "text": "Ya vimos cómo funciona el mercado y cómo se registran las operaciones. Pero, ¿hacia dónde vamos? Aquí es donde distinguimos dos conceptos que suelen confundirse: **objetivos** y **metas**."
+          "text": "Ya vimos cómo funciona el mercado y cómo se registran las operaciones. Pero, ¿hacia dónde vamos? Aquí es donde distinguimos dos conceptos que suelen confundirse: objetivos y metas."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p19",
-          "text": "Un **objetivo** es una aspiración general, una dirección estratégica. Por ejemplo, \"mejorar la calidad de vida de los ciudadanos\" o \"ser la empresa líder en el sector\". Es amplio, cualitativo y sirve para dar sentido y rumbo. Sin embargo, un objetivo solo no sirve de mucho si no se traduce en acciones concretas. Ahí entran las **metas**."
+          "text": "Un objetivo es una aspiración general, una dirección estratégica. Por ejemplo, \"mejorar la calidad de vida de los ciudadanos\" o \"ser la empresa líder en el sector\". Es amplio, cualitativo y sirve para dar sentido y rumbo. Sin embargo, un objetivo solo no sirve de mucho si no se traduce en acciones concretas. Ahí entran las metas."
         },
         {
           "type": "paragraph",
@@ -1672,17 +1732,17 @@
         {
           "type": "paragraph",
           "id": "cap-11-p23",
-          "text": "Finalmente, damos el salto de la microeconomía (empresas y individuos) a la macroeconomía (el país como un todo). Para entender el estado de salud de una nación, necesitamos indicadores que resuman toda esa actividad compleja. Los dos más importantes son el **Producto Bruto Interno (PBI)** y la **inflación**."
+          "text": "Finalmente, damos el salto de la microeconomía (empresas y individuos) a la macroeconomía (el país como un todo). Para entender el estado de salud de una nación, necesitamos indicadores que resuman toda esa actividad compleja. Los dos más importantes son el Producto Bruto Interno (PBI) y la inflación."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p24",
-          "text": "El PBI es el termómetro del tamaño de la economía. Mide el valor total de todos los bienes y servicios finales producidos dentro de un país en un período dado. Es importante notar que cuenta solo lo \"final\" para no repetir valores (si contamos la harina y luego el pan, estaríamos contando la harina dos veces). Además, distingue entre PBI nominal y PBI real. El nominal usa los precios actuales; el real ajusta esos precios para quitar el efecto de la suba general de precios. Esto es fundamental: si el PBI nominal sube un 10% pero los precios también subieron un 10%, la economía no creció en realidad, solo se encareció todo. Por eso, los economistas siempre miran el **crecimiento del PBI real** para saber si el país está produciendo más cosas y generando más riqueza material."
+          "text": "El PBI es el termómetro del tamaño de la economía. Mide el valor total de todos los bienes y servicios finales producidos dentro de un país en un período dado. Es importante notar que cuenta solo lo \"final\" para no repetir valores (si contamos la harina y luego el pan, estaríamos contando la harina dos veces). Además, distingue entre PBI nominal y PBI real. El nominal usa los precios actuales; el real ajusta esos precios para quitar el efecto de la suba general de precios. Esto es fundamental: si el PBI nominal sube un 10% pero los precios también subieron un 10%, la economía no creció en realidad, solo se encareció todo. Por eso, los economistas siempre miran el crecimiento del PBI real para saber si el país está produciendo más cosas y generando más riqueza material."
         },
         {
           "type": "paragraph",
           "id": "cap-11-p25",
-          "text": "Por otro lado, la **inflación** es la tasa a la que suben los precios generales. Muchos la ven solo como un problema personal: \"mi plata vale menos\". Pero es un fenómeno agregado. Cuando la inflación es alta y volátil, distorsiona todo el sistema que vimos antes."
+          "text": "Por otro lado, la inflación es la tasa a la que suben los precios generales. Muchos la ven solo como un problema personal: \"mi plata vale menos\". Pero es un fenómeno agregado. Cuando la inflación es alta y volátil, distorsiona todo el sistema que vimos antes."
         },
         {
           "type": "paragraph",
@@ -1698,7 +1758,7 @@
         {
           "type": "paragraph",
           "id": "cap-11-p28",
-          "text": "Al final del día, todos estos temas no son compartimentos estancos. El **excedente** permitió el trueque y luego la moneda. La moneda facilita el intercambio que regula la **oferta y la demanda**. Las empresas que participan de ese mercado usan la **partida doble** para mantener la transparencia de sus operaciones y definir **objetivos y metas** para crecer. Y todo ese conjunto de actividades individuales, sumado, nos da el **PBI** y nos dice si la inflación está o no bajo control."
+          "text": "Al final del día, todos estos temas no son compartimentos estancos. El excedente permitió el trueque y luego la moneda. La moneda facilita el intercambio que regula la oferta y la demanda. Las empresas que participan de ese mercado usan la partida doble para mantener la transparencia de sus operaciones y definir objetivos y metas para crecer. Y todo ese conjunto de actividades individuales, sumado, nos da el PBI y nos dice si la inflación está o no bajo control."
         },
         {
           "type": "paragraph",
@@ -1708,7 +1768,13 @@
       ],
       "meta": {
         "chapterId": "cap-11"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-12",
@@ -1735,12 +1801,12 @@
         {
           "type": "paragraph",
           "id": "cap-12-p4",
-          "text": "Todo gran proyecto empresarial comienza, casi siempre, con una vulnerabilidad. Antes de que exista una fábrica, una app o una tienda, existe un problema. Aquí es donde entra en juego la herramienta más poderosa y subestimada del emprendedor moderno: el *pitch*. No te equivoques con la imagen del orador en un escenario con diapositivas elaboradas; un *pitch* real es mucho más íntimo y urgente. Imaginá que estás en un ascensor con un inversor potencial. Tienes poco más de un minuto para explicarle por qué el mundo necesita lo que vos estás construyendo. Si intentás abrumarlo con detalles técnicos o datos aburridos, habrás perdido la oportunidad."
+          "text": "Todo gran proyecto empresarial comienza, casi siempre, con una vulnerabilidad. Antes de que exista una fábrica, una app o una tienda, existe un problema. Aquí es donde entra en juego la herramienta más poderosa y subestimada del emprendedor moderno: el pitch. No te equivoques con la imagen del orador en un escenario con diapositivas elaboradas; un pitch real es mucho más íntimo y urgente. Imaginá que estás en un ascensor con un inversor potencial. Tienes poco más de un minuto para explicarle por qué el mundo necesita lo que vos estás construyendo. Si intentás abrumarlo con detalles técnicos o datos aburridos, habrás perdido la oportunidad."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p5",
-          "text": "La clave del *pitch* no es vender la inversión inmediata, sino vender la curiosidad. Tu objetivo es identificar un \"punto de dolor\" (pain point) claro, algo que frustre a un grupo de personas, y mostrar cómo tu solución alivia ese dolor de manera única. Por ejemplo, no digas \"quiero hacer una app de gastos\". Di: \"La gente pierde el 30% de su sueldo por falta de control en tiempo real, y mi herramienta lo soluciona\". Sin definir primero el problema, no hay valor. El *pitch* es el filtro inicial, la puerta que se abre para que, si el inversor se interesa, pueda entrar al mundo de la planificación administrativa que veremos a continuación."
+          "text": "La clave del pitch no es vender la inversión inmediata, sino vender la curiosidad. Tu objetivo es identificar un \"punto de dolor\" (pain point) claro, algo que frustre a un grupo de personas, y mostrar cómo tu solución alivia ese dolor de manera única. Por ejemplo, no digas \"quiero hacer una app de gastos\". Di: \"La gente pierde el 30% de su sueldo por falta de control en tiempo real, y mi herramienta lo soluciona\". Sin definir primero el problema, no hay valor. El pitch es el filtro inicial, la puerta que se abre para que, si el inversor se interesa, pueda entrar al mundo de la planificación administrativa que veremos a continuación."
         },
         {
           "type": "heading",
@@ -1751,12 +1817,12 @@
         {
           "type": "paragraph",
           "id": "cap-12-p7",
-          "text": "Una vez que el *pitch* abre la puerta, la realidad choca con la necesidad de orden. La inspiración no paga proveedores ni cumple plazos. Aquí entra la planificación administrativa, la función que transforma la visión en acciones concretas. Planificar no es soñar con el futuro; es diseñarlo con anticipación, asignando recursos y, lo más crítico, definiendo tiempos."
+          "text": "Una vez que el pitch abre la puerta, la realidad choca con la necesidad de orden. La inspiración no paga proveedores ni cumple plazos. Aquí entra la planificación administrativa, la función que transforma la visión en acciones concretas. Planificar no es soñar con el futuro; es diseñarlo con anticipación, asignando recursos y, lo más crítico, definiendo tiempos."
         },
         {
           "type": "paragraph",
           "id": "cap-12-p8",
-          "text": "Imaginemos que ya conseguiste el financiamiento gracias a tu *pitch*. Ahora debes establecer tres pilares inamovibles: los objetivos (qué querés lograr, medible y claro), las estrategias (cómo lo vas a lograr) y los recursos (con qué contás). Si uno de estos tres falla, la planificación se derrumba. Pero hay un cuarto elemento invisible que sostiene todo: el tiempo. Un cronograma realista es vital. Si no definís cuándo inicia la producción o cuándo se lanza el marketing, la mejor estrategia del mundo puede llegar tarde, cuando la oportunidad ya pasó. La planificación es, en esencia, la gestión del riesgo a través de la estructura temporal."
+          "text": "Imaginemos que ya conseguiste el financiamiento gracias a tu pitch. Ahora debes establecer tres pilares inamovibles: los objetivos (qué querés lograr, medible y claro), las estrategias (cómo lo vas a lograr) y los recursos (con qué contás). Si uno de estos tres falla, la planificación se derrumba. Pero hay un cuarto elemento invisible que sostiene todo: el tiempo. Un cronograma realista es vital. Si no definís cuándo inicia la producción o cuándo se lanza el marketing, la mejor estrategia del mundo puede llegar tarde, cuando la oportunidad ya pasó. La planificación es, en esencia, la gestión del riesgo a través de la estructura temporal."
         },
         {
           "type": "heading",
@@ -1855,7 +1921,7 @@
         {
           "type": "paragraph",
           "id": "cap-12-p27",
-          "text": "Al recorrer este capítulo, notás que la economía no es un conjunto de temas aislados. El *pitch* es la semilla que necesita planificación para crecer. Esa planificación debe considerar que el dinero pierde valor real si no se gestiona bien contra la inflación (Fisher). Si decidís invertir en mercados alternativos, debés entender que la liquidez y los precios están dictados por algoritmos matemáticos (AMM) y no por personas. Finalmente, todo esto termina reflejándose en el precio final, que está cargado no solo de costos y del IVA nacional, sino de la compleja red de impuestos provinciales como Ingresos Brutos."
+          "text": "Al recorrer este capítulo, notás que la economía no es un conjunto de temas aislados. El pitch es la semilla que necesita planificación para crecer. Esa planificación debe considerar que el dinero pierde valor real si no se gestiona bien contra la inflación (Fisher). Si decidís invertir en mercados alternativos, debés entender que la liquidez y los precios están dictados por algoritmos matemáticos (AMM) y no por personas. Finalmente, todo esto termina reflejándose en el precio final, que está cargado no solo de costos y del IVA nacional, sino de la compleja red de impuestos provinciales como Ingresos Brutos."
         },
         {
           "type": "paragraph",
@@ -1865,7 +1931,13 @@
       ],
       "meta": {
         "chapterId": "cap-12"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-13",
@@ -1975,7 +2047,7 @@
         {
           "type": "paragraph",
           "id": "cap-13-p20",
-          "text": "Para entender este documento, debemos desarmar la confusión común sobre los \"números\" del salario. En relación de dependencia, casi siempre manejamos tres cifras distintas. Primero, está el **sueldo básico**, que es el monto acordado en el contrato o convenio colectivo de trabajo, antes de cualquier ajuste. Es el punto de partida. Luego, sumamos los **adicionales**, que pueden ser por antigüedad, presentismo, horas extra o comisiones. La suma del básico más los adicionales nos da el **sueldo bruto**. Este es el número que suele figurar en las ofertas laborales y es la base sobre la cual se calculan los descuentos. Finalmente, restamos todos los descuentos obligatorios y llegamos al **sueldo neto**, que es lo que efectivamente se cobra y llega a la cuenta bancaria."
+          "text": "Para entender este documento, debemos desarmar la confusión común sobre los \"números\" del salario. En relación de dependencia, casi siempre manejamos tres cifras distintas. Primero, está el sueldo básico, que es el monto acordado en el contrato o convenio colectivo de trabajo, antes de cualquier ajuste. Es el punto de partida. Luego, sumamos los adicionales, que pueden ser por antigüedad, presentismo, horas extra o comisiones. La suma del básico más los adicionales nos da el sueldo bruto. Este es el número que suele figurar en las ofertas laborales y es la base sobre la cual se calculan los descuentos. Finalmente, restamos todos los descuentos obligatorios y llegamos al sueldo neto, que es lo que efectivamente se cobra y llega a la cuenta bancaria."
         },
         {
           "type": "paragraph",
@@ -2001,12 +2073,12 @@
         {
           "type": "paragraph",
           "id": "cap-13-p25",
-          "text": "Es crucial no confundir estos aportes con las **contribuciones patronales**. Mientras que los aportes los paga el empleado (y por eso los ves descontados en tu recibo), las contribuciones son un porcentaje adicional que paga exclusivamente el empleador sobre el mismo bruto. Estas contribuciones financian los mismos sistemas (jubilación, obra social, etc.) pero no aparecen restadas en el recibo del trabajador. Sin embargo, forman parte del costo laboral total que asume la empresa, lo cual es relevante para entender el verdadero precio de contratar personal."
+          "text": "Es crucial no confundir estos aportes con las contribuciones patronales. Mientras que los aportes los paga el empleado (y por eso los ves descontados en tu recibo), las contribuciones son un porcentaje adicional que paga exclusivamente el empleador sobre el mismo bruto. Estas contribuciones financian los mismos sistemas (jubilación, obra social, etc.) pero no aparecen restadas en el recibo del trabajador. Sin embargo, forman parte del costo laboral total que asume la empresa, lo cual es relevante para entender el verdadero precio de contratar personal."
         },
         {
           "type": "paragraph",
           "id": "cap-13-p26",
-          "text": "Además de los descuentos nacionales, puede haber una **cuota sindical**, que depende del convenio de cada actividad y suele oscilar entre el 1% y el 3% del bruto. Por último, un elemento distintivo del sistema laboral argentino es el **Sueldo Anual Complementario (SAC)**, conocido popularmente como aguinaldo. Este no es un regalo, sino un derecho adquirido. Equivale a un mes de sueldo adicional que se cobra en dos cuotas anuales (junio y diciembre). Cada cuota equivale a la mitad del mejor sueldo mensual del semestre. Esto significa que, en realidad, un trabajador cobra el equivalente a 13 sueldos por año, no 12. El SAC se calcula sobre el bruto y también está sujeto a los mismos descuentos de aportes y contribuciones."
+          "text": "Además de los descuentos nacionales, puede haber una cuota sindical, que depende del convenio de cada actividad y suele oscilar entre el 1% y el 3% del bruto. Por último, un elemento distintivo del sistema laboral argentino es el Sueldo Anual Complementario (SAC), conocido popularmente como aguinaldo. Este no es un regalo, sino un derecho adquirido. Equivale a un mes de sueldo adicional que se cobra en dos cuotas anuales (junio y diciembre). Cada cuota equivale a la mitad del mejor sueldo mensual del semestre. Esto significa que, en realidad, un trabajador cobra el equivalente a 13 sueldos por año, no 12. El SAC se calcula sobre el bruto y también está sujeto a los mismos descuentos de aportes y contribuciones."
         },
         {
           "type": "heading",
@@ -2027,7 +2099,13 @@
       ],
       "meta": {
         "chapterId": "cap-13"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-14",
@@ -2043,7 +2121,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p2",
-          "text": "Para entender cómo se mueve la economía de un país, no alcanza con mirar una sola pieza del engranaje. A menudo, en los libros de texto, vemos cada tema por separado: los sectores productivos, el tipo de cambio, las reservas, los salarios. Pero en la realidad, todo está conectado. Imaginá que la economía es un gran auto de carreras. El **sector económico** es el motor y la carrocería, lo que define qué tipo de vehículo somos (si corremos en tierra o en asfalto, si somos veloces o pesados). El **tipo de cambio fijo** es el volante, una decisión de dirección que tomamos para ir por una pista recta y predecible, aunque nos cueste mantenerlo firme. Y las **reservas**, junto con los **seguros**, son el sistema de frenos y el asiento de seguridad: lo que nos permite detenernos sin chocar o protegernos cuando la curva es muy cerrada."
+          "text": "Para entender cómo se mueve la economía de un país, no alcanza con mirar una sola pieza del engranaje. A menudo, en los libros de texto, vemos cada tema por separado: los sectores productivos, el tipo de cambio, las reservas, los salarios. Pero en la realidad, todo está conectado. Imaginá que la economía es un gran auto de carreras. El sector económico es el motor y la carrocería, lo que define qué tipo de vehículo somos (si corremos en tierra o en asfalto, si somos veloces o pesados). El tipo de cambio fijo es el volante, una decisión de dirección que tomamos para ir por una pista recta y predecible, aunque nos cueste mantenerlo firme. Y las reservas, junto con los seguros, son el sistema de frenos y el asiento de seguridad: lo que nos permite detenernos sin chocar o protegernos cuando la curva es muy cerrada."
         },
         {
           "type": "paragraph",
@@ -2059,22 +2137,22 @@
         {
           "type": "paragraph",
           "id": "cap-14-p5",
-          "text": "Todo empieza por entender qué hacemos. La economía no es un bloque monolítico; para poder analizarla, los economistas dividimos la actividad en **sectores económicos**. Esta clasificación no es arbitraria, sino que nos ayuda a entender de dónde viene el valor que generamos."
+          "text": "Todo empieza por entender qué hacemos. La economía no es un bloque monolítico; para poder analizarla, los economistas dividimos la actividad en sectores económicos. Esta clasificación no es arbitraria, sino que nos ayuda a entender de dónde viene el valor que generamos."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p6",
-          "text": "El **sector primario** es la base material. Aquí es donde extraemos recursos directamente de la naturaleza: agricultura, ganadería, minería, pesca. En Argentina, este sector ha sido históricamente nuestra carta de presentación al mundo. Nuestros suelos son ricos y nuestra producción de granos y carne es clave. Pero el sector primario solo vende la materia prima; el valor agregado ocurre después."
+          "text": "El sector primario es la base material. Aquí es donde extraemos recursos directamente de la naturaleza: agricultura, ganadería, minería, pesca. En Argentina, este sector ha sido históricamente nuestra carta de presentación al mundo. Nuestros suelos son ricos y nuestra producción de granos y carne es clave. Pero el sector primario solo vende la materia prima; el valor agregado ocurre después."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p7",
-          "text": "Ahí entra el **sector secundario**, que transforma esas materias primas en bienes. Es la industria, la manufactura, la construcción. Cuando molinamos trigo para hacer harina, o curamos cuero para hacer zapatos, estamos en este sector. Históricamente, un país se considera \"desarrollado\" cuando tiene un sector secundario fuerte y diversificado, capaz de procesar sus propios recursos."
+          "text": "Ahí entra el sector secundario, que transforma esas materias primas en bienes. Es la industria, la manufactura, la construcción. Cuando molinamos trigo para hacer harina, o curamos cuero para hacer zapatos, estamos en este sector. Históricamente, un país se considera \"desarrollado\" cuando tiene un sector secundario fuerte y diversificado, capaz de procesar sus propios recursos."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p8",
-          "text": "Finalmente, el **sector terciario** o de servicios. Aquí no se produce un bien físico, sino que se ofrece una utilidad: educación, salud, turismo, logística, tecnología. En las economías modernas, este sector es el que más empleo genera y el que más peso tiene en el Producto Interno Bruto (PIB). Hoy, saber si una economía depende más de la agricultura o de los servicios nos da pistas claras sobre su grado de desarrollo tecnológico y su resiliencia ante shocks externos."
+          "text": "Finalmente, el sector terciario o de servicios. Aquí no se produce un bien físico, sino que se ofrece una utilidad: educación, salud, turismo, logística, tecnología. En las economías modernas, este sector es el que más empleo genera y el que más peso tiene en el Producto Interno Bruto (PIB). Hoy, saber si una economía depende más de la agricultura o de los servicios nos da pistas claras sobre su grado de desarrollo tecnológico y su resiliencia ante shocks externos."
         },
         {
           "type": "paragraph",
@@ -2090,17 +2168,17 @@
         {
           "type": "paragraph",
           "id": "cap-14-p11",
-          "text": "Una vez que sabemos qué producimos, surge la pregunta: ¿a qué precio lo vendemos al mundo? Aquí entra en juego el **tipo de cambio**, que es simplemente el precio de una moneda expresado en otra (por ejemplo, cuántos pesos necesitamos para comprar un dólar)."
+          "text": "Una vez que sabemos qué producimos, surge la pregunta: ¿a qué precio lo vendemos al mundo? Aquí entra en juego el tipo de cambio, que es simplemente el precio de una moneda expresado en otra (por ejemplo, cuántos pesos necesitamos para comprar un dólar)."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p12",
-          "text": "El gobierno y el banco central deben decidir cómo fijar ese precio. Una de las opciones es el **tipo de cambio fijo**. Bajo este régimen, el banco central se compromete públicamente a mantener el valor de la moneda local en un número exacto frente a la moneda extranjera (usualmente el dólar). Para cumplir esa promesa, no puede quedarse de brazos cruzados. Si la gente quiere comprar más dólares de los que hay disponibles en el mercado al precio fijado, el banco central tiene que intervenir: vende dólares de sus reservas para cubrir esa demanda y evitar que el precio suba. Si al revés, hay exceso de dólares, el banco central los compra para evitar que el precio baje."
+          "text": "El gobierno y el banco central deben decidir cómo fijar ese precio. Una de las opciones es el tipo de cambio fijo. Bajo este régimen, el banco central se compromete públicamente a mantener el valor de la moneda local en un número exacto frente a la moneda extranjera (usualmente el dólar). Para cumplir esa promesa, no puede quedarse de brazos cruzados. Si la gente quiere comprar más dólares de los que hay disponibles en el mercado al precio fijado, el banco central tiene que intervenir: vende dólares de sus reservas para cubrir esa demanda y evitar que el precio suba. Si al revés, hay exceso de dólares, el banco central los compra para evitar que el precio baje."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p13",
-          "text": "¿Por qué elegiría un país este sistema? La principal ventaja es la **previsibilidad**. Para un empresario que quiere importar maquinaria o exportar sus productos, saber que el precio del dólar será estable hoy, mañana y dentro de un mes permite planificar con certeza. Además, funciona como un \"ancla\" para la inflación. Si la gente confía en que el dólar no se va a disparar, tiende a esperar menos inflación en general, lo que ayuda a mantener la estabilidad de precios."
+          "text": "¿Por qué elegiría un país este sistema? La principal ventaja es la previsibilidad. Para un empresario que quiere importar maquinaria o exportar sus productos, saber que el precio del dólar será estable hoy, mañana y dentro de un mes permite planificar con certeza. Además, funciona como un \"ancla\" para la inflación. Si la gente confía en que el dólar no se va a disparar, tiende a esperar menos inflación en general, lo que ayuda a mantener la estabilidad de precios."
         },
         {
           "type": "paragraph",
@@ -2116,7 +2194,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p16",
-          "text": "Aquí es donde se conecta todo. El **banco central** es la institución que emite la moneda, fija la tasa de interés y, crucialmente, administra las **reservas internacionales**. Estas reservas son los activos (principalmente dólares, pero también oro u otros valores líquidos) que el banco central tiene guardados para intervenir en el mercado."
+          "text": "Aquí es donde se conecta todo. El banco central es la institución que emite la moneda, fija la tasa de interés y, crucialmente, administra las reservas internacionales. Estas reservas son los activos (principalmente dólares, pero también oro u otros valores líquidos) que el banco central tiene guardados para intervenir en el mercado."
         },
         {
           "type": "paragraph",
@@ -2147,7 +2225,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p22",
-          "text": "Aquí entra el **seguro**. Como ya vimos, un seguro no elimina el riesgo, lo transfiere. El asegurado paga una **prima** (un monto fijo y pequeño) a la aseguradora para que esta se haga cargo de una pérdida grande y poco probable."
+          "text": "Aquí entra el seguro. Como ya vimos, un seguro no elimina el riesgo, lo transfiere. El asegurado paga una prima (un monto fijo y pequeño) a la aseguradora para que esta se haga cargo de una pérdida grande y poco probable."
         },
         {
           "type": "paragraph",
@@ -2157,7 +2235,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p24",
-          "text": "Es importante entender el vocabulario técnico porque tiene implicaciones económicas reales. La **póliza** es el contrato. La **cobertura** define qué está protegido. Pero quizás el concepto más interesante desde el punto de vista económico es la **franquicia**. La franquicia es el monto que el asegurado paga de su bolsillo antes de que la aseguradora cubra el resto."
+          "text": "Es importante entender el vocabulario técnico porque tiene implicaciones económicas reales. La póliza es el contrato. La cobertura define qué está protegido. Pero quizás el concepto más interesante desde el punto de vista económico es la franquicia. La franquicia es el monto que el asegurado paga de su bolsillo antes de que la aseguradora cubra el resto."
         },
         {
           "type": "paragraph",
@@ -2178,7 +2256,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p28",
-          "text": "Hasta ahora hablamos de instituciones, precios y riesgos. Pero al final del día, la economía es el resultado de las decisiones de millones de personas que necesitan vivir. Y aquí surge una de las distorsiones más comunes en la interpretación de los datos económicos: el **sueldo promedio**."
+          "text": "Hasta ahora hablamos de instituciones, precios y riesgos. Pero al final del día, la economía es el resultado de las decisiones de millones de personas que necesitan vivir. Y aquí surge una de las distorsiones más comunes en la interpretación de los datos económicos: el sueldo promedio."
         },
         {
           "type": "paragraph",
@@ -2188,7 +2266,7 @@
         {
           "type": "paragraph",
           "id": "cap-14-p30",
-          "text": "Debido a esa cola de ingresos altísimos, la **media** (el promedio) siempre queda por encima de la **mediana** (el valor que está justo en el medio, cuando ordenamos a todos los sueldos de menor a mayor). La media se deja arrastrar por los valores atípicos."
+          "text": "Debido a esa cola de ingresos altísimos, la media (el promedio) siempre queda por encima de la mediana (el valor que está justo en el medio, cuando ordenamos a todos los sueldos de menor a mayor). La media se deja arrastrar por los valores atípicos."
         },
         {
           "type": "paragraph",
@@ -2198,12 +2276,12 @@
         {
           "type": "paragraph",
           "id": "cap-14-p32",
-          "text": "El promedio dice que \"ganamos\" $1.450.000. Pero si miramos la mediana, vemos que el valor del medio es $500.000. La media casi triplica lo que gana el 90% de las personas del grupo. Por lo tanto, el promedio **no representa a la persona típica**."
+          "text": "El promedio dice que \"ganamos\" $1.450.000. Pero si miramos la mediana, vemos que el valor del medio es $500.000. La media casi triplica lo que gana el 90% de las personas del grupo. Por lo tanto, el promedio no representa a la persona típica."
         },
         {
           "type": "paragraph",
           "id": "cap-14-p33",
-          "text": "Para entender realmente cómo está distribuida la riqueza, no basta con un promedio. Hay que usar **percentiles** o **deciles**. El decil 1 es el 10% más pobre; el decil 10 es el 10% más rico. Comparar el ingreso del decil 5 (la mitad de la población) con el del decil 9 (el 10% más rico) nos da una imagen mucho más honesta de la desigualdad y del nivel de vida real de la mayoría."
+          "text": "Para entender realmente cómo está distribuida la riqueza, no basta con un promedio. Hay que usar percentiles o deciles. El decil 1 es el 10% más pobre; el decil 10 es el 10% más rico. Comparar el ingreso del decil 5 (la mitad de la población) con el del decil 9 (el 10% más rico) nos da una imagen mucho más honesta de la desigualdad y del nivel de vida real de la mayoría."
         },
         {
           "type": "heading",
@@ -2229,7 +2307,13 @@
       ],
       "meta": {
         "chapterId": "cap-14"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-15",
@@ -2370,7 +2454,13 @@
       ],
       "meta": {
         "chapterId": "cap-15"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }

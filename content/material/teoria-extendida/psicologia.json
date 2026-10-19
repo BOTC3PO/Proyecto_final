@@ -11,13 +11,13 @@
         "id": "cap-1",
         "title": "El laberinto del espejo: Construyendo el yo en un mundo compartido",
         "pageStart": 1,
-        "anchor": "cap-1"
+        "anchor": "cap-1:inicio"
       },
       {
         "id": "cap-2",
         "title": "El laberinto de la mente: entre lo que recordamos, lo que ocultamos y lo que sentimos",
         "pageStart": 2,
-        "anchor": "cap-2"
+        "anchor": "cap-2:inicio"
       }
     ]
   },
@@ -41,7 +41,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p3",
-          "text": "Para entender esta búsqueda, primero debemos mirar hacia adentro, pero no con los ojos cerrados, sino con la herramienta de la introspección. La introspección es ese trabajo honesto y paciente de observar nuestros propios pensamientos, emociones e impulsos sin los filtros externos. No es simplemente \"pensar en uno mismo\" de manera egocéntrica; es un análisis activo para reconocer patrones internos. Por ejemplo, notar que ciertas situaciones generan ansiedad inexplicable o que algunas decisiones tomadas en el calor del momento reflejan valores que no elegimos conscientemente. Este proceso requiere valentía, porque al mirar hacia adentro también encontramos contradicciones. Aquí es donde entra en juego la complejidad de las dimensiones del \"yo\". No somos una unidad simple, sino que habitamos tres capas distintas: el **yo real**, que es la versión actual de nosotros mismos con nuestras fortalezas y debilidades, tal como las vivimos sin idealizaciones; el **yo ideal**, esa imagen aspirada basada en nuestros deseos personales o, a veces, en las presiones externas que sentimos; y el **yo social**, la identidad que construimos según los roles y normas de nuestra comunidad. Reconocer estas capas ayuda a entender qué partes de nuestra personalidad son coherentes con nuestra verdad interna y cuáles son máscaras necesarias o elegidas para sobrevivir en el grupo."
+          "text": "Para entender esta búsqueda, primero debemos mirar hacia adentro, pero no con los ojos cerrados, sino con la herramienta de la introspección. La introspección es ese trabajo honesto y paciente de observar nuestros propios pensamientos, emociones e impulsos sin los filtros externos. No es simplemente \"pensar en uno mismo\" de manera egocéntrica; es un análisis activo para reconocer patrones internos. Por ejemplo, notar que ciertas situaciones generan ansiedad inexplicable o que algunas decisiones tomadas en el calor del momento reflejan valores que no elegimos conscientemente. Este proceso requiere valentía, porque al mirar hacia adentro también encontramos contradicciones. Aquí es donde entra en juego la complejidad de las dimensiones del \"yo\". No somos una unidad simple, sino que habitamos tres capas distintas: el yo real, que es la versión actual de nosotros mismos con nuestras fortalezas y debilidades, tal como las vivimos sin idealizaciones; el yo ideal, esa imagen aspirada basada en nuestros deseos personales o, a veces, en las presiones externas que sentimos; y el yo social, la identidad que construimos según los roles y normas de nuestra comunidad. Reconocer estas capas ayuda a entender qué partes de nuestra personalidad son coherentes con nuestra verdad interna y cuáles son máscaras necesarias o elegidas para sobrevivir en el grupo."
         },
         {
           "type": "paragraph",
@@ -56,27 +56,27 @@
         {
           "type": "paragraph",
           "id": "cap-1-p6",
-          "text": "Pero, ¿cómo es posible que podamos cuestionar, elegir y construirnos a nosotros mismos? Aquí es donde debemos hablar de la herramienta más poderosa que nos distingue: el lenguaje. El lenguaje no es solo un mecanismo para comunicarnos o pedir comida; es un sistema simbólico que nos permite representar realidades abstractas o lejanas. Cuando decimos la palabra *árbol*, no estamos señalando el objeto físico en sí, sino su forma, su función y su significado dentro de un contexto cultural. Esta capacidad simbólica es lo que nos permite operar con ideas separadas del mundo inmediato. Gracias al lenguaje, podemos concebir conceptos como *libertad*, *amor*, *justicia* o *futuro*, que trascienden lo tangible y lo presente. Es gracias a este puente entre la experiencia sensorial y la cognición abstracta que surge el pensamiento complejo y, por ende, la creatividad. La creatividad no es un don mágico reservado para unos pocos; es la capacidad de usar los símbolos del lenguaje para reorganizar la realidad, para ver lo que otros no ven, para imaginar soluciones nuevas. El lenguaje estructura nuestro pensamiento, pero también lo libera, permitiéndonos soñar con lo que aún no existe."
+          "text": "Pero, ¿cómo es posible que podamos cuestionar, elegir y construirnos a nosotros mismos? Aquí es donde debemos hablar de la herramienta más poderosa que nos distingue: el lenguaje. El lenguaje no es solo un mecanismo para comunicarnos o pedir comida; es un sistema simbólico que nos permite representar realidades abstractas o lejanas. Cuando decimos la palabra árbol, no estamos señalando el objeto físico en sí, sino su forma, su función y su significado dentro de un contexto cultural. Esta capacidad simbólica es lo que nos permite operar con ideas separadas del mundo inmediato. Gracias al lenguaje, podemos concebir conceptos como libertad, amor, justicia o futuro, que trascienden lo tangible y lo presente. Es gracias a este puente entre la experiencia sensorial y la cognición abstracta que surge el pensamiento complejo y, por ende, la creatividad. La creatividad no es un don mágico reservado para unos pocos; es la capacidad de usar los símbolos del lenguaje para reorganizar la realidad, para ver lo que otros no ven, para imaginar soluciones nuevas. El lenguaje estructura nuestro pensamiento, pero también lo libera, permitiéndonos soñar con lo que aún no existe."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p7",
-          "text": "Ahora bien, esta relación entre lenguaje, pensamiento y la construcción del yo ha sido analizada desde diferentes perspectivas a lo largo de la historia de la psicología. Las grandes corrientes psicológicas nos ofrecen lentes distintos para entender este fenómeno. Por un lado, está el **psicoanálisis**, fundado por Sigmund Freud a finales del siglo XIX. Freud propuso que gran parte de nuestras acciones, pensamientos y emociones están determinadas por procesos que no somos conscientes. Para él, el ser humano está dividido en tres instancias: el **yo** (consciente), el **superyo** (la moral y las normas internalizadas) y el **ello** (los deseos inconscientes y primarios). Los traumas infantiles o los deseos reprimidos pueden manifestarse a través de síntomas físicos, sueños o esos errores cotidianos conocidos como \"lapsus\". Aunque hoy se critica su falta de rigor científico empírico, el psicoanálisis abrió el camino para estudiar lo no observable en la mente, recordándonos que no somos dueños absolutos de nuestra casa interior."
+          "text": "Ahora bien, esta relación entre lenguaje, pensamiento y la construcción del yo ha sido analizada desde diferentes perspectivas a lo largo de la historia de la psicología. Las grandes corrientes psicológicas nos ofrecen lentes distintos para entender este fenómeno. Por un lado, está el psicoanálisis, fundado por Sigmund Freud a finales del siglo XIX. Freud propuso que gran parte de nuestras acciones, pensamientos y emociones están determinadas por procesos que no somos conscientes. Para él, el ser humano está dividido en tres instancias: el yo (consciente), el superyo (la moral y las normas internalizadas) y el ello (los deseos inconscientes y primarios). Los traumas infantiles o los deseos reprimidos pueden manifestarse a través de síntomas físicos, sueños o esos errores cotidianos conocidos como \"lapsus\". Aunque hoy se critica su falta de rigor científico empírico, el psicoanálisis abrió el camino para estudiar lo no observable en la mente, recordándonos que no somos dueños absolutos de nuestra casa interior."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p8",
-          "text": "En contraste, a principios del siglo XX surgió el **conductismo**, una corriente que rechazó el estudio de los procesos internos como \"subjetivos\" o \"no comprobables\". Para los conductistas, como John B. Watson y B.F. Skinner, la psicología debía centrarse únicamente en lo observable: cómo los estímulos del entorno generan respuestas en el sujeto. La famosa ecuación Estímulo-Respuesta (E-R) dominó la disciplina, sugiriendo que el comportamiento es simplemente una adaptación al ambiente. Este enfoque fue crucial para aplicaciones prácticas en educación y terapia, pero fue criticado por ignorar la complejidad del pensamiento y la libertad humana. Si solo miramos la conducta, ¿qué pasa con la experiencia interna de quien la vive?"
+          "text": "En contraste, a principios del siglo XX surgió el conductismo, una corriente que rechazó el estudio de los procesos internos como \"subjetivos\" o \"no comprobables\". Para los conductistas, como John B. Watson y B.F. Skinner, la psicología debía centrarse únicamente en lo observable: cómo los estímulos del entorno generan respuestas en el sujeto. La famosa ecuación Estímulo-Respuesta (E-R) dominó la disciplina, sugiriendo que el comportamiento es simplemente una adaptación al ambiente. Este enfoque fue crucial para aplicaciones prácticas en educación y terapia, pero fue criticado por ignorar la complejidad del pensamiento y la libertad humana. Si solo miramos la conducta, ¿qué pasa con la experiencia interna de quien la vive?"
         },
         {
           "type": "paragraph",
           "id": "cap-1-p9",
-          "text": "Fue precisamente en respuesta a esta visión mecanicista del ser humano que emergió el **humanismo** a mediados del siglo XX. El humanismo recuperó la dignidad del individuo, postulando que el ser humano tiene un potencial innato para el crecimiento y la autorrealización. A diferencia del determinismo biológico o ambiental, el humanismo enfatiza la agencia personal, la libertad de elección y la búsqueda de significado. Nos invita a creer que, a pesar de las presiones culturales o los impulsos inconscientes, tenemos la capacidad de dirigir nuestra propia vida."
+          "text": "Fue precisamente en respuesta a esta visión mecanicista del ser humano que emergió el humanismo a mediados del siglo XX. El humanismo recuperó la dignidad del individuo, postulando que el ser humano tiene un potencial innato para el crecimiento y la autorrealización. A diferencia del determinismo biológico o ambiental, el humanismo enfatiza la agencia personal, la libertad de elección y la búsqueda de significado. Nos invita a creer que, a pesar de las presiones culturales o los impulsos inconscientes, tenemos la capacidad de dirigir nuestra propia vida."
         },
         {
           "type": "paragraph",
           "id": "cap-1-p10",
-          "text": "Finalmente, en la segunda mitad del siglo XX, el **cognitivismo** tomó la batuta, integrando lo mejor de las corrientes anteriores. El cognitivismo estudia los procesos mentales como la memoria, la atención y la resolución de problemas, pero lo hace tratando de entender cómo procesamos la información. Esta corriente es fundamental para entender cómo el lenguaje moldea el pensamiento. Aquí entra en juego la famosa **hipótesis de Sapir-Whorf**, que plantea que el idioma no solo refleja el pensamiento, sino que también lo moldea. En su versión fuerte, el determinismo lingüístico sostiene que la estructura de nuestra lengua limita las formas en que percibimos el mundo. En su versión débil, o de influencia, propone que el lenguaje orienta nuestro razonamiento. Por ejemplo, si un idioma tiene muchas palabras para describir diferentes tipos de nieve, sus hablantes percibirán la nieve con mayor detalle que aquellos cuyo idioma solo tiene una palabra para ella. Esto nos muestra que el lenguaje no es un vehículo neutral, sino un marco que filtra y estructura nuestra realidad."
+          "text": "Finalmente, en la segunda mitad del siglo XX, el cognitivismo tomó la batuta, integrando lo mejor de las corrientes anteriores. El cognitivismo estudia los procesos mentales como la memoria, la atención y la resolución de problemas, pero lo hace tratando de entender cómo procesamos la información. Esta corriente es fundamental para entender cómo el lenguaje moldea el pensamiento. Aquí entra en juego la famosa hipótesis de Sapir-Whorf, que plantea que el idioma no solo refleja el pensamiento, sino que también lo moldea. En su versión fuerte, el determinismo lingüístico sostiene que la estructura de nuestra lengua limita las formas en que percibimos el mundo. En su versión débil, o de influencia, propone que el lenguaje orienta nuestro razonamiento. Por ejemplo, si un idioma tiene muchas palabras para describir diferentes tipos de nieve, sus hablantes percibirán la nieve con mayor detalle que aquellos cuyo idioma solo tiene una palabra para ella. Esto nos muestra que el lenguaje no es un vehículo neutral, sino un marco que filtra y estructura nuestra realidad."
         },
         {
           "type": "paragraph",
@@ -91,7 +91,13 @@
       ],
       "meta": {
         "chapterId": "cap-1"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     },
     {
       "id": "cap-2",
@@ -152,7 +158,13 @@
       ],
       "meta": {
         "chapterId": "cap-2"
-      }
+      },
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ]
     }
   ]
 }
