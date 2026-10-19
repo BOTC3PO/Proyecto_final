@@ -1,5 +1,31 @@
 # Lo que hay que confirmar (lista única)
 
+## Estado final de la sesión (2026-10-19) — leer primero
+
+**Hecho y subido a `tareas_de_reparación`:** 64 temas académicos, 73 técnicos, 35 de idiomas (Chino 20 y Esperanto 15) más ampliación de teoría, unos 160 de oficios, 41 temas de huecos (Geografía 7, Física 4, Química 5, Biología 6, Lengua 4, Informática 3, Ed. Física 6, y los 6 de Salud con los 4 de la ronda anterior), 13 exámenes jefe nuevos y 2 libros (UX/Diseño, Ingeniería). Auditoría general y corrección de ≈1.000 defectos de preguntas (ver `AUDITORIA-MATERIAL.md`). Todos los cuestionarios pasan `validar_lote.ts`; `auditar_preguntas.ts` no deja defectos reales (solo avisos tolerados). Nada se probó en la app.
+
+**Bloqueantes de la fase final (necesitan tu decisión):**
+1. **`verificar_examen_jefe.py` da 162 errores:** ≈250 temas nuevos no están en ningún examen jefe ni en `troncos.md`. Hay que rehacer clusters/pools/logros (`gen_examen_jefe_prereq_clusters.py`) y decidir si se agregan nodos al grafo. Las materias con examen que quedaron con temas fuera: Física, Química, Biología, Geografía, Lengua, Informática, Ed. Física, Arte, Filosofía, Psicología, Comunicación, Sociología, Antropología, Aprendizaje, Ciudadanía digital, Electrónica, Automatización, Dibujo técnico, Ciencia de Materiales, UX/Diseño, Economía (IPC). Dos avisos menores: Antropología cita el nodo `H10`.
+2. **Líneas de ayuda de prevención del suicidio** (135 y (011) 5275-1135) y **leyes de Salud**: confirmar en fuentes oficiales (no se pudieron abrir desde el entorno). El `0800 345 1435` se quitó por no poder confirmarlo.
+3. **Idiomas sin revisión nativa** (alemán, francés, inglés, italiano, portugués, japonés, coreano, chino, árabe, ruso, hindi, esperanto): todo salió de conocimiento del modelo; además, los `listening-*`, `writing-*` y `reading-*` que no se reescribieron tienen preguntas genéricas y errores de gramática posibles. 71 teorías de idiomas siguen por debajo de 2.000 caracteres.
+4. **Chino:** ¿HSK 2.0 o 3.0?; ¿simplificados o también tradicionales?
+
+**Decisiones nuevas de los 41 temas de huecos** (detalle en `confirmar-huecos-*.md`):
+- Física/Química: ¿se agregan al grafo y a los exámenes?; solape `quimica-del-agua` ↔ `geografia/recursos-hidricos-y-gestion`; ¿unificar g = 9,8 m/s² (nuevos) con g = 10 (otros módulos)?; enlace de renovables con `vida-cotidiana/eficiencia-energetica-domestica` y Cívica/Economía.
+- Geografía: revisar el tono sobre el conflicto israelí-palestino y la Guerra del Golfo; UE-Mercosur quedó sin estado actual; ¿se suman países concretos (Brasil, China, Sudáfrica, Rusia/Asia Central)?
+- Biología: faltan sistemas excretor, óseo, muscular e inmunitario ampliado; los enlaces a Salud, Ed. Física y ESI dependen de que no se renombren esas carpetas.
+- Ed. Física: reglamentos «según el reglamento vigente» (¿fijar edición?); faltan futsal, rugby y hockey; ¿enlace a un tema de suplementos en Salud?
+- Lengua/Informática: «HTML y CSS básico» se reemplazó por una visión conceptual (ya existe en `oficios/frontend`); sin versos ni pasajes largos transcriptos.
+- Datos de memoria a contrastar: fechas de Bernoulli, Lavoisier, Proust, Dalton, Richter, Arrhenius, Brønsted-Lowry; límite de Betz; Lugones, Storni, Gelman; metáfora del knock-out de Cortázar; datos de redes/NoSQL (100 m UTP, bandas Wi-Fi, CAP); 17 leyes del fútbol, alturas de red de vóley, juego pasivo del handball; valores fisiológicos de Biología (37 °C, pH 7,4, frecuencias); AfCFTA, ASEAN, reformas chinas, contenedor de McLean.
+
+**Pendientes de proceso que quedaron abiertos:**
+- Solapes de nombre/tema (ver `HUECOS-POR-TITULOS.md`): `generos-periodisticos` en Lengua y Comunicación, tres temas de adicciones entre Salud y Ed. Física, `numeros-enteros`/`operaciones-enteros`, `coordenadas-*`, `escala-de-mapa`/`mapa-plano-escala`.
+- `diseño/` es la única carpeta de materia con «ñ».
+- Metadatos `materia:`/`tema:` inconsistentes dentro de ~150 cuestionarios (importa solo si la app los usa).
+- Futsal, rugby, hockey y los sistemas excretor/óseo/muscular sin escribir.
+
+---
+
 ## Actualización tras la pasada de verificación con fuentes
 
 Se verificó con búsquedas web (detalle y URLs en `verificado-salud-ciudadania.md`, `verificado-academicas.md`, `verificado-oficios.md`, `verificado-tecnicas.md`). **Límite general: argentina.gob.ar, Infoleg, Boletín Oficial, OMS, IRAM y asistenciaalsuicida.org.ar no se pueden abrir desde este entorno; todo se contrastó con resultados de búsqueda que citan esas fuentes, no con el texto oficial.**
