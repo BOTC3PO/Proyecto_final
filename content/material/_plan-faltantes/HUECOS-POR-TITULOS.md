@@ -1,5 +1,7 @@
 # Huecos y solapes detectados leyendo solo los títulos de los temas (2026-10-19)
 
+> **Estado (2026-10-19):** los temas de las tablas «Materias grandes» ya se escribieron: Geografía 7 (Europa/UE, Asia, Medio Oriente, África, Oceanía y Antártida, cambio climático, redes globales), Física 4 (Bernoulli, 1.ª ley, MAS y ondas estacionarias, energías renovables), Química 5 (leyes ponderales, ácido-base, neutralización, orgánica básica, agua), Biología 6, Lengua 4 (literatura argentina), Informática 3 (LAN/Wi-Fi, NoSQL, página web; «HTML y CSS básico» se reemplazó por una visión conceptual porque `oficios/frontend` ya los cubre) y Ed. Física 6 (capacidades, reglamentos de fútbol/básquet/vóley/handball, nutrición). Sin escribir: futsal, rugby y hockey, y los solapes de la sección siguiente. Dudas por materia en `confirmar-huecos-*.md`.
+
 Lectura de las 2.078 carpetas de tema (sin abrir el contenido). Son **candidatos**: antes de crear un tema hay que revisar que no exista ya con otro nombre en `troncos.md` (regla de `PROCEDIMIENTO.md`).
 
 ## Materias grandes: temas que parecen faltar
