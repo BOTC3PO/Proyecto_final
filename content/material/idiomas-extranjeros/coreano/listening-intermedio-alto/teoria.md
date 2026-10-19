@@ -16,7 +16,7 @@ En este nivel se comprenden conversaciones cotidianas con varios turnos, experie
 
 ## Ampliación: anuncios y habla rápida
 
-Los anuncios del subte siguen fórmulas fijas que conviene reconocer al oído: **이번 역은 서울역입니다. 내리실 문은 왼쪽입니다.** («Esta estación es Seúl. Las puertas para bajar están a la izquierda»), y **다음 역은 …입니다** («La próxima estación es…»). Con ellas se captan lugar, dirección y orden.
+Los anuncios del subte suelen seguir fórmulas parecidas a estas (el texto exacto varía según la empresa y la línea), que conviene reconocer al oído: **이번 역은 서울역입니다. 내리실 문은 왼쪽입니다.** («Esta estación es Seúl. Las puertas para bajar están a la izquierda»), y **다음 역은 …입니다** («La próxima estación es…»). Con ellas se captan lugar, dirección y orden.
 
 En la conversación rápida el hablante contrae y suaviza. Contracciones habituales: **저는 → 전**, **나는 → 난**, **그것은 → 그건**, **이것이 → 이게**, **무엇을 → 뭘**. También aparecen terminaciones con matiz: **-거든요** (explica un motivo: *늦었어요. 길이 막혔거든요* 'Llegué tarde; es que había tránsito'), **-잖아요** ('¿no ves que…?, ya sabés que…') y **-는데요** (introduce un tema o suaviza una negativa).
 

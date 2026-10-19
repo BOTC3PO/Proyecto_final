@@ -34,7 +34,7 @@ metadata:
   nivel: "intermedio"
   tags: ["ux"]
 
-enunciado: "El término 'dark patterns' fue acuñado en 2010 por..."
+enunciado: "El término 'dark patterns' fue popularizado por..."
 tipo: mc
 opciones_explicitas:
   - "Harry Brignull"

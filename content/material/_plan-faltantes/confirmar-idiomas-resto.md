@@ -71,3 +71,19 @@ Agregué una sección «Ampliación» antes de «Errores comunes» en cada `teor
 2. ¿Los 15 temas nuevos de Esperanto entran en el pool del examen jefe de Esperanto? Hoy no entran.
 3. El audio de `listening-b2` y `speaking-b2` de Esperanto lo generás vos en el servidor; las transcripciones están dentro de los enunciados.
 4. ¿Seguimos ampliando los temas no alcanzados de árabe, ruso, hindi y coreano para acercarlos a 3.000 caracteres?
+
+## Segunda tanda de ampliaciones (33 temas)
+
+Se agregó una sección «Ampliación» (antes de «Errores comunes») a los temas que habían quedado cortos. No se tocaron cuestionarios ni se creó ninguna referencia de audio.
+
+- **Árabe (5):** `reading-a2`, `reading-c1`, `writing-b1`, `speaking-a2`, `speaking-c1`.
+- **Ruso (5):** `reading-a2`, `reading-b1`, `reading-c1`, `speaking-b1`, `writing-b1`.
+- **Hindi (6):** `reading-b1`, `reading-c1`, `writing-a2`, `writing-b1`, `speaking-a2`, `speaking-b1`.
+- **Coreano (6):** `reading-intermedio-alto`, `listening-intermedio-alto`, `speaking-intermedio-alto`, `reading-avanzado`, `speaking-avanzado`, `listening-avanzado`.
+- **Chino (11):** `reading-hsk2`, `reading-hsk34`, `reading-hsk56`, `speaking-hsk1` a `speaking-hsk56`, `writing-hsk1` a `writing-hsk56`.
+
+Longitud resultante: 2.500 a 3.200 caracteres; quedan algo por debajo de 3.000 `hindi/speaking-a2` y `speaking-b1`, `coreano/speaking-intermedio-alto` y `speaking-avanzado`, y las destrezas de chino (HSK1 a HSK5-6), que son más densas por carácter.
+
+**Verificado por búsqueda web:** las cifras indo-arábigas orientales en el Oriente árabe frente a las occidentales en el Magreb. **No se pudo verificar** el texto literal de los anuncios del subte coreano (`listening-intermedio-alto`; quedó redactado como «fórmulas parecidas»). Todo lo demás (formas árabes, rusas, hindi, coreanas y chinas, 成语, horarios hindi `सवा/साढ़े/पौने`, vocabulario) salió de conocimiento del modelo sin hablante nativo.
+
+**Sin ampliar todavía** (siguen por debajo de 2.000 caracteres): 71 temas en total, a saber, chino 28 (entre ellos todos los `listening-*`, `negacion-bu-mei`, `particula-guo`, `matices-de-particulas-aspectuales`, `pinyin-y-tonos`), hindi 18, ruso 14, árabe 9 y coreano 2.
