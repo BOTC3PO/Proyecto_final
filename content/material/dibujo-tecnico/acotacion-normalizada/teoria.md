@@ -18,11 +18,11 @@ La acotación es el conjunto de elementos gráficos que permiten determinar las 
 
 Cada acotación normalizada incluye tres elementos esenciales:
 
-1. **Línea de cota**: Línea discontinua o continua que indica la magnitud a medir, paralela al elemento representado.
+1. **Línea de cota**: Línea continua fina que indica la magnitud a medir, paralela al elemento representado.
 2. **Líneas auxiliares (de extensión)**: Líneas perpendiculares a los bordes del objeto, que marcan el inicio y fin de la cota. Evitan confusiones con el contorno de la pieza.
 3. **Símbolos terminales**: Flechas o trazos cortos en los extremos de la línea de cota para señalar el alcance de la medición.
 
-Estos componentes se ajustan según las normas vigentes, como las establecidas por ISO (International Organization for Standardization) o ABNT (Asociación Brasileña de Normas Técnicas).
+Estos componentes se ajustan según las normas vigentes, como las establecidas por ISO (International Organization for Standardization) y, en la Argentina, por las normas IRAM de dibujo técnico.
 
 ## 3. Reglas de ubicación y lectura
 
@@ -41,7 +41,7 @@ También se suele ignorar la normativa para el uso de símbolos (como el símbol
 
 ## 5. Normas internacionales
 
-La acotación normalizada sigue estándares globales, como los de ISO 129-1:2014 (acotación general) y ABNT NBR 8167/2020 (para dibujos técnicos en Brasil). Estas normas dictan:
+La acotación normalizada sigue estándares globales, como los de ISO 129-1 (acotación general) y, a nivel local, las normas IRAM de dibujo técnico. Estas normas dictan:
 
 - La posición exacta de las cotas.
 - El tipo de símbolos a usar (flechas, trazos, etc.).

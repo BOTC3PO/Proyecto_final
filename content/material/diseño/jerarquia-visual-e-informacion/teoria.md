@@ -40,4 +40,4 @@ Además, este equilibrio mejora la **usabilidad**: cuando el usuario identifica 
 
 ## N. Conexión con lo que sigue
 
-Este tema se vincula directamente con tipografia (cómo el tamaño y estilo de las fuentes influyen en la jerarquía) y con colores (el uso del contraste entre paletas cromáticas).
+Este tema se vincula directamente con `../tipografia-en-interfaces/` (cómo el tamaño y estilo de las fuentes influyen en la jerarquía) y con `../color-en-interfaces/` (el uso del contraste entre paletas cromáticas).
