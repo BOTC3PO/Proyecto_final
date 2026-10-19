@@ -1,0 +1,225 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-ux-diseno",
+    "title": "UX y diseño de interfaces — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "Cómo se mira una interfaz: heurísticas y jerarquía visual",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Diseñar para todos y comprobar que funciona: accesibilidad, prototipos y pruebas",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "Cómo se mira una interfaz: heurísticas y jerarquía visual",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "Cómo se mira una interfaz: heurísticas y jerarquía visual"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Cuando alguien usa una aplicación o un sitio web rara vez piensa en el diseño; lo nota solo cuando algo falla. Un botón que no responde, un formulario que borra todo al equivocarse en un campo, una pantalla donde no se sabe por dónde empezar: cada uno de esos tropiezos es una decisión de diseño que salió mal. Este capítulo presenta dos herramientas para anticiparlos. La primera, las heurísticas de usabilidad, sirve para evaluar si una interfaz se comporta como el usuario espera. La segunda, la jerarquía visual, sirve para decidir qué se ve primero y qué después."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Las heurísticas de Nielsen"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "A comienzos de la década de 1990, el investigador Jakob Nielsen propuso un conjunto de diez principios generales para evaluar interfaces. Se llaman heurísticas porque no son leyes ni normas obligatorias: son reglas prácticas, surgidas de observar cómo se comportan las personas frente a la tecnología, que permiten detectar problemas con rapidez. Su gran ventaja es que pueden aplicarse sin reunir usuarios. Una persona con ojo entrenado, o mejor aún varias trabajando por separado, recorre la interfaz y marca cada lugar donde alguno de los principios se incumple. Esa revisión no reemplaza las pruebas con usuarios reales, pero encuentra muchos defectos a bajo costo antes de que lleguen a ellos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "El primer principio es la visibilidad del estado del sistema: el usuario siempre debe saber qué está pasando. Una barra de progreso al subir un archivo, un mensaje de confirmación después de enviar un formulario o un botón que cambia de aspecto al presionarlo comunican que la acción fue recibida. Cuando no hay ninguna señal, la persona duda, vuelve a hacer clic y a veces repite una operación que no debía repetir, como un pago."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Otros dos principios hablan del lenguaje y del control. La correspondencia entre el sistema y el mundo real pide usar palabras, símbolos y órdenes que el usuario ya conoce, en lugar de términos internos de quienes programaron el producto. El control y la libertad del usuario piden que siempre exista una salida de emergencia: deshacer, cancelar, volver atrás. Nadie debería quedar atrapado en una pantalla por haber tocado algo sin querer."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p7",
+          "text": "La consistencia y los estándares establecen que los elementos que se ven iguales deben comportarse igual y que conviene respetar las convenciones que la gente ya aprendió en otros productos. El icono del carrito para las compras o la lupa para buscar funcionan precisamente porque no hace falta explicarlos. Si un botón de volver cambia de color o de lugar según la pantalla, el usuario tiene que volver a aprender la interfaz en cada paso."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Dos principios tratan los errores desde ángulos distintos. La prevención de errores propone diseñar para que el error sea difícil de cometer: deshabilitar el botón de guardar hasta que los campos obligatorios estén completos, pedir confirmación antes de borrar algo importante o limitar un campo de fecha a valores posibles. Y cuando el error ocurre igual, la ayuda para reconocer, diagnosticar y recuperarse de los errores pide mensajes en lenguaje claro que digan qué pasó y cómo solucionarlo. Un cartel que dice solamente contraseña incorrecta deja al usuario como estaba; uno que explica que la contraseña debe tener al menos ocho caracteres y un número lo encamina."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Los cuatro principios restantes completan el conjunto. Reconocer es mejor que recordar: conviene mostrar las opciones en pantalla en lugar de exigir que el usuario las memorice. La flexibilidad y eficiencia de uso reclaman que la interfaz sirva tanto al principiante como al experto, por ejemplo con atajos de teclado que el novato puede ignorar. El diseño estético y minimalista aconseja no cargar la pantalla con información que no se necesita, porque cada elemento extra compite con los importantes. Y la ayuda y documentación recuerda que, aunque lo ideal es que el producto se explique solo, cuando hace falta una guía debe ser fácil de encontrar, breve y centrada en tareas concretas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h10",
+          "level": 3,
+          "text": "La jerarquía visual"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "Una interfaz bien pensada también ordena la mirada. La jerarquía visual es el orden en que el ojo percibe los elementos de una pantalla, y se construye con decisiones de tamaño, color, posición y espacio. Su propósito es llevar a la persona desde lo más importante hasta lo secundario sin que tenga que leerlo todo. Un título grande y oscuro arriba de una página le dice al visitante cuál es el tema principal antes de que lea una sola palabra."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "La herramienta más directa para crear jerarquía es el contraste: un elemento destaca cuando se diferencia de lo que lo rodea. Puede ser por color, como un botón vibrante sobre un fondo de tonos neutros; por tamaño, como un encabezado mayor que el texto del cuerpo; o por peso, como la negrita frente a la letra común. El botón de llamado a la acción que invita a registrarse o a comprar suele resolverse así, porque debe ser lo primero que se vea."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "La segunda herramienta viene de la psicología de la percepción. Los psicólogos de la Gestalt, a principios del siglo veinte, describieron que el cerebro agrupa lo que ve según ciertas reglas. Una de ellas es la proximidad: los elementos que están cerca se perciben como parte del mismo grupo. Por eso en un formulario la etiqueta de un campo se coloca junto a su cuadro de texto, y por eso los ítems de un menú relacionados entre sí se juntan en una misma zona. Lo contrario también vale: un elemento aislado, separado por un espacio generoso, se interpreta como algo distinto o destacado. El espacio en blanco, lejos de ser un desperdicio, es una de las herramientas más poderosas del diseñador."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Hay un último cuidado, el equilibrio. Si todo está resaltado, nada lo está. Cuando todos los elementos tienen el mismo tamaño o un color igual de llamativo, el usuario no sabe por dónde empezar y tarda más en decidir. Una jerarquía eficaz reserva el énfasis para pocas cosas y deja que el resto acompañe en un segundo plano. Esa economía de la atención tiene un efecto directo sobre la usabilidad: si la persona identifica enseguida lo que busca, trabaja con menos esfuerzo y comete menos errores."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "Las heurísticas y la jerarquía visual se complementan. Las primeras preguntan si la interfaz se comporta de manera comprensible; la segunda, si se deja leer a primera vista. Una pantalla puede tener un botón perfectamente ubicado y destacado, pero incumplir la visibilidad del estado si no informa que la acción se realizó. Y puede informar muy bien y perder al usuario porque todo tiene el mismo peso visual. Quien diseña, o quien evalúa un diseño ajeno, necesita mirar con ambas lentes."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Diseñar para todos y comprobar que funciona: accesibilidad, prototipos y pruebas",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Diseñar para todos y comprobar que funciona: accesibilidad, prototipos y pruebas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Una interfaz clara para quien la diseñó puede resultar inutilizable para otras personas. Algunas no ven bien, otras no ven en absoluto, otras no pueden usar un ratón o necesitan más tiempo para leer. Y aun cuando el diseño sea impecable en teoría, solo se sabe si funciona cuando alguien lo usa. Este capítulo recorre tres ideas encadenadas: la accesibilidad, que amplía quiénes pueden usar un producto; el prototipado, que permite probar ideas antes de construirlas; y las pruebas de usuario, que ponen esas ideas frente a personas reales."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Accesibilidad: las pautas WCAG"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Las pautas WCAG, siglas en inglés de Web Content Accessibility Guidelines, son el estándar internacional que define cómo lograr que el contenido digital sea utilizable por personas con discapacidades visuales, auditivas, motoras o cognitivas. Las elabora el consorcio que fija los estándares de la web y se organizan en tres niveles de cumplimiento, llamados A, AA y AAA, de menor a mayor exigencia. En muchos países, entre ellos la Argentina, existe además normativa que obliga a los organismos públicos a que sus sitios sean accesibles, de modo que la accesibilidad no es solo una buena práctica sino también una obligación legal en esos casos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Un primer requisito es el contraste entre el texto y su fondo. Se mide con una razón numérica: para el texto normal, las pautas piden al menos 4,5 a 1, y para el texto grande, como títulos o botones, al menos 3 a 1. Un gris claro sobre blanco, tan frecuente en diseños que buscan verse elegantes, suele quedar por debajo de ese umbral. El contraste adecuado no beneficia solo a quienes tienen baja visión: también ayuda a una persona que mira el teléfono bajo el sol o a quien tiene la pantalla con poco brillo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Un segundo requisito se refiere a quienes no ven la pantalla y usan lectores de pantalla, programas que convierten el contenido en voz o en braille. Estos programas dependen de la estructura del código. Si los títulos están marcados como títulos, los párrafos como párrafos y los menús como zonas de navegación, la persona puede saltar de una sección a otra, pedir la lista de encabezados y orientarse. Si en cambio un texto se ve grande porque se le aplicó un estilo, pero el código no lo declara como título, el lector lo lee como un párrafo más y la estructura se pierde. Lo mismo ocurre con la información que se transmite solo con imágenes: una flecha roja que indica avanzar no dice nada a quien no la ve, mientras que un botón con el texto Siguiente se entiende por cualquier vía."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p7",
+          "text": "Esto conduce a una enseñanza que aparece a menudo en el trabajo real: la información nunca debería depender de un único canal sensorial. El color solo, la imagen sola o el sonido solo excluyen a alguien. Un campo con error no debería marcarse únicamente en rojo, porque una persona con daltonismo podría no distinguirlo; conviene agregar un texto o un icono. A veces se plantea la accesibilidad como un freno a la creatividad, pero en la práctica obliga a pensar mejor, y sus soluciones suelen mejorar la experiencia de todos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h8",
+          "level": 3,
+          "text": "Prototipar: del boceto a la simulación"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "Construir un producto digital completo para descubrir después que no se entiende es carísimo. Por eso el diseño avanza por etapas de fidelidad creciente, y cada una responde a una pregunta distinta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "El wireframe es el esqueleto: un dibujo en blanco y negro, a veces hecho a mano en papel, que muestra dónde va cada pieza, como el buscador, el menú o el carrito, y cómo se pasa de una pantalla a otra. No tiene colores ni imágenes a propósito, para que la conversación se concentre en la estructura y la jerarquía de la información, y no en si el azul es bonito. Su gran virtud es la rapidez: se puede rehacer en minutos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "El mockup agrega la capa visual: colores, tipografías, imágenes, íconos. Es una imagen fiel de cómo se verá una pantalla terminada, pero estática, sin interacción. Sirve para validar decisiones de estilo con el cliente o con el equipo antes de escribir una línea de código."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "El prototipo interactivo, por último, simula el funcionamiento. Permite tocar los botones, pasar de pantalla en pantalla y ver transiciones, aunque detrás no haya un programa real. Con él se puede comprobar si alguien se pierde en la navegación o no encuentra la acción principal. Las tres etapas no compiten sino que se encadenan, y herramientas de diseño muy difundidas permiten pasar de una a otra sobre el mismo archivo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h13",
+          "level": 3,
+          "text": "Pruebas de usuario: mirar sin intervenir"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p14",
+          "text": "El prototipo recién cobra valor cuando alguien lo usa. En una prueba de usuario, personas del público al que apunta el producto realizan tareas concretas mientras un equipo observa. Lo que se busca no es saber si el diseño gusta, sino si permite cumplir objetivos. Las tareas deben parecerse a la vida real: encontrar un producto que cueste menos de determinado monto, o enviar un mensaje a un compañero. Una consigna demasiado abstracta produce resultados que no sirven para decidir nada."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p15",
+          "text": "La persona que modera la sesión tiene un papel delicado. Debe explicar la actividad, pedir que el participante piense en voz alta y registrar lo que ocurre, pero sin corregirlo ni darle pistas. Si ayuda, deja de medirse la facilidad del diseño y empieza a medirse la habilidad del moderador. Un error frecuente es el sesgo de observación, que consiste en interpretar lo que se ve según las propias expectativas. Si un participante tarda en hallar una opción, es tentador concluir que el menú está mal ubicado, cuando quizá la dificultad fue una palabra técnica que no conocía. Para evitarlo se graban las sesiones, se las revisa entre varias personas y se anotan conductas observables, por ejemplo cuántas veces intentó hacer clic en el mismo lugar."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p16",
+          "text": "Sobre la cantidad de participantes existe una regla muy citada: con cinco a ocho personas suele aparecer la gran mayoría de los problemas importantes. Lo decisivo no es el número sino que representen al público real. Probar con jóvenes habituados a las aplicaciones un servicio pensado para jubilados que usan poco internet daría una falsa tranquilidad. Es mejor hacer varias rondas pequeñas, corrigiendo entre una y otra, que una sola ronda enorme."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p17",
+          "text": "El conjunto forma un ciclo. Las heurísticas permiten limpiar los defectos evidentes, la accesibilidad abre el producto a más personas, los prototipos permiten probar sin construir y las pruebas devuelven datos reales que alimentan el siguiente diseño. Los resultados de las pruebas se ordenan por gravedad y por frecuencia, y las correcciones más importantes vuelven a probarse. Así, el diseño deja de ser cuestión de gustos y pasa a apoyarse en evidencia."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    }
+  ]
+}
