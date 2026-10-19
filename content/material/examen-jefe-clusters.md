@@ -213,7 +213,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 1** (5): observacion-y-pregunta-investigable, hipotesis-buena-o-mala, metodologia-cualitativa-vs-cuantitativa, construir-y-usar-un-modelo-cientifico, trabajo-de-campo-enfoque-socioantropologico
 - **Cluster 2** (7): corrientes-filosofia-de-la-ciencia, diseno-experimental-variables-y-control, tecnicas-de-investigacion-social, recoleccion-de-datos, analisis-estadistico-de-resultados, conclusion-y-comunicacion-de-resultados, argumentar-desde-evidencia
 
-## Economía (85 temas, 17 clusters)
+## Economía (86 temas, 17 clusters)
 
 - **Cluster 1** (5): blockchain-claves-wallet, capitalismo-industrial-trabajo-asalariado, contratos-inteligentes, costo-marginal, debe-haber-balance
 - **Cluster 2** (5): detectar-una-oportunidad-de-negocio, elasticidad, estructura-del-patrimonio, estructura-productiva-dependencia, ecuacion-contable-fundamental
@@ -221,7 +221,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 4** (5): cuota-credito-frances, dex-swap, interes-compuesto-funcion, partida-doble, plazo-fijo-vs-inflacion
 - **Cluster 5** (5): libro-diario-mayor, pools-liquidez-amm, estados-contables, precio-final, contabilidad-ambiental
 - **Cluster 6** (5): contabilidad-como-sistema-de-informacion, costo-de-oportunidad, indices-financieros, division-formal-microeconomia-macroeconomia, oferta-y-demanda
-- **Cluster 7** (5): economia-positiva-y-normativa, fisiocracia, mercantilismo, pbi-e-inflacion, liberalismo-clasico-y-escuela-austriaca
+- **Cluster 7** (6): economia-positiva-y-normativa, fisiocracia, mercantilismo, pbi-e-inflacion, liberalismo-clasico-y-escuela-austriaca, como-se-calcula-el-ipc-argentina
 - **Cluster 8** (5): balanza-comercial, recibo-de-sueldo/general, comercio-internacional-ventaja-comparativa, recibo-de-sueldo/argentina, sectores-economicos
 - **Cluster 9** (5): descuentos-obligatorios/jubilacion, descuentos-obligatorios/obra-social, jubilacion-sistema-previsional, monotributo, socialismo-utopico
 - **Cluster 10** (5): sueldo-promedio-pais, marxismo, tipo-cambio-fijo, economia-feminista-y-del-cuidado, keynesianismo
@@ -275,6 +275,40 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 2** (5): ritmo-compas-pulso-figuras-musicales, narrativa-audiovisual/plano, danza-ritmo-tiempo-expresion-corporal, lenguaje-musical-pentagrama-escalas-intervalos, narrativa-audiovisual/encuadre
 - **Cluster 3** (5): armonia-basica-acordes-tonalidad, narrativa-audiovisual/montaje, rosetones-y-simetria, produccion-multimedial, teatro-dramaturgia-y-actuacion
 
+## Filosofía (18 temas, 3 clusters)
+
+- **Cluster 1** (5): logica-proposicional, metodo-cientifico-racionalismo, el-gusto-estetico, epistemologia, etica-como-rama-propia
+- **Cluster 2** (5): existencia, contractualismo, deontologia, etica-de-la-virtud, historia-de-la-filosofia-y-corrientes
+- **Cluster 3** (8): lo-bello, que-es-el-arte, realidad, ser-ontologia, utilitarismo, validez-de-un-razonamiento, bioetica-general, logica-de-predicados
+
+## Antropología (5 temas, 1 clusters)
+
+- **Cluster 1** (5): cultura, diversidad-cultural, subcampos-de-la-antropologia, etnocentrismo, relaciones-de-parentesco
+
+## Sociología (3 temas, 1 clusters)
+
+- **Cluster 1** (3): hechos-sociales, instituciones, estratificacion
+
+## Aprendizaje (2 temas, 1 clusters)
+
+- **Cluster 1** (2): metacognicion-saber-que-se-y-que-no-se, tecnicas-de-estudio-repaso-espaciado-recuperacion
+
+## Ciudadanía Digital (7 temas, 1 clusters)
+
+- **Cluster 1** (7): ciudadania-digital-privacidad-huella-digital, confiabilidad-y-verificacion-de-una-fuente, desinformacion-en-red, detectar-desinformacion-sesgo-deepfakes, fuente-primaria-vs-secundaria, publicidad-enganosa, verificacion-de-una-noticia
+
+## Resolución de Problemas (15 temas, 3 clusters)
+
+- **Cluster 1** (5): detectar-el-problema, analizar-causas-y-restricciones, disenar-posibles-soluciones, identificar-alternativas, implementar-la-solucion
+- **Cluster 2** (5): costo-beneficio, definir-alcance-y-objetivos, evaluar-el-resultado, planificacion-tareas-e-hitos, mejorar-o-iterar
+- **Cluster 3** (5): asignacion-de-recursos, riesgo-e-incertidumbre, seguimiento-y-control, trade-offs-y-priorizacion, cierre-y-lecciones-aprendidas
+
+## Ed. Física (16 temas, 3 clusters)
+
+- **Cluster 1** (5): deportes-medidas-cancha-superficies, fisiologia-del-ejercicio, deportes-jugadores-posiciones-puntaje, alfabetizacion-corporal, deportes-origen-historico
+- **Cluster 2** (5): frecuencia-cardiaca-reposo, deporte-como-fenomeno-cultural-argentino, el-pato, frecuencia-cardiaca-maxima-zonas, imc-indice-masa-corporal
+- **Cluster 3** (6): juegos-olimpicos, planificacion-progresion-volumen, prevencion-cuidado-rice-calentamiento-ergonomia, prevencion-adicciones-ley-26586, primeros-auxilios-rcp-dea, politicas-de-drogas
+
 ## Resumen
 
 | Materia | Temas | Clusters |
@@ -291,7 +325,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 | Informática | 62 | 11 |
 | Ingeniería | 11 | 2 |
 | Investigación | 12 | 2 |
-| Economía | 85 | 17 |
+| Economía | 86 | 17 |
 | Derecho | 21 | 4 |
 | Dibujo Técnico | 5 | 1 |
 | Psicología | 10 | 2 |
@@ -301,20 +335,21 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 | Automatización | 5 | 1 |
 | UX/Diseño | 5 | 1 |
 | Arte | 15 | 3 |
-| **Total** | **844** | **164** |
+| Filosofía | 18 | 3 |
+| Antropología | 5 | 1 |
+| Sociología | 3 | 1 |
+| Aprendizaje | 2 | 1 |
+| Ciudadanía Digital | 7 | 1 |
+| Resolución de Problemas | 15 | 3 |
+| Ed. Física | 16 | 3 |
+| **Total** | **911** | **177** |
 
-## Fuera del alcance original (2026-08-09) — pendiente decisión de Javier
+## Fuera del alcance (decisión 2026-10: no se gamifican)
 
-Estas materias tienen contenido real en `material/` hoy pero no estaban en la tabla de alcance de `examen-jefe-gamificacion-PLANIFICACION.md` (Tronco 1-21). No se les armó cluster todavía — falta decidir si entran (y con qué criterio, ej. ESI podría excluirse a propósito como Oficios).
+Estas materias tienen contenido real en `material/` pero **no** tienen examen jefe a propósito (misma decisión que Oficios: no certifican nada y un tier de logro en estos temas suena raro). Filosofía, Antropología, Sociología, Aprendizaje, Ciudadanía Digital, Resolución de Problemas y Ed. Física sí entraron (ids 951-963).
 
 | Materia | Temas |
 |---|---:|
-| Antropología | 5 |
-| Ciudadanía Digital | 7 |
 | Vida Cotidiana | 28 |
-| Sociología | 3 |
-| Aprendizaje | 2 |
-| Resolución de Problemas | 15 |
 | Salud | 1 |
 | ESI | 8 |
-| Ed. Física | 16 |

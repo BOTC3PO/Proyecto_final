@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "Especialista nas Escolas Econômicas Clássicas",
     "descripcion": "Você completou o parcial percorrendo a fisiocracia, o mercantilismo, o liberalismo clássico e a escola austríaca, além de PIB e inflação e da economia positiva e normativa, chefe.",
@@ -2485,5 +2486,201 @@
     "nombre": "Mestre da Experiência do Usuário",
     "descripcion": "Você passou no parcial dominando usabilidade e heurísticas de Nielsen, acessibilidade WCAG, hierarquia visual, prototipagem e testes com usuários.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Pensador Lógico e Epistemólogo",
+    "descripcion": "Você passou na prova dominando a lógica proposicional, o método científico e o racionalismo, o gosto estético, a epistemologia e a ética como ramo próprio.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Explorador da Ética e da Existência",
+    "descripcion": "Você passou na prova dominando a existência, o contratualismo, a deontologia, a ética da virtude e a história da filosofia e suas correntes.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Filósofo do Ser e da Beleza",
+    "descripcion": "Você passou na prova dominando o belo, o que é a arte, a realidade, a ontologia, o utilitarismo, a validade de um raciocínio e a bioética e a lógica de predicados.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Antropólogo Cultural",
+    "descripcion": "Você passou na prova dominando a cultura, a diversidade cultural, o etnocentrismo, as relações de parentesco e os subcampos da antropologia.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Analista Social",
+    "descripcion": "Você passou na prova dominando os fatos sociais, a estratificação e as instituições.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Estrategista do Aprendizado",
+    "descripcion": "Você passou na prova dominando a metacognição e as técnicas de estudo, a revisão espaçada e a recuperação.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Cidadão Digital Crítico",
+    "descripcion": "Você passou na prova dominando a privacidade e a pegada digital, a fonte primária e a secundária, a confiabilidade de uma fonte, a desinformação em rede, o viés e os deepfakes, a publicidade enganosa e a verificação de uma notícia.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Detetive de Problemas",
+    "descripcion": "Você passou na prova dominando a detecção do problema, a análise de causas e restrições, o desenho de possíveis soluções, a identificação de alternativas e a implementação da solução.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Avaliador de Soluções",
+    "descripcion": "Você passou na prova dominando o custo-benefício, a definição de escopo e objetivos, a avaliação do resultado, o planejamento de tarefas e marcos e a melhoria e a iteração.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Gestor de Projetos e Decisões",
+    "descripcion": "Você passou na prova dominando a alocação de recursos, o risco e a incerteza, o acompanhamento e o controle, os trade-offs e a priorização e o encerramento e as lições aprendidas.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Atleta Teórico",
+    "descripcion": "Você passou na prova dominando as medidas e superfícies dos esportes, a fisiologia do exercício, jogadores, posições e pontuação, a alfabetização corporal e a origem histórica dos esportes.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Conhecedor do Corpo em Movimento",
+    "descripcion": "Você passou na prova dominando a frequência cardíaca em repouso, o esporte como fenômeno cultural argentino, o pato, a frequência cardíaca máxima e suas zonas e o índice de massa corporal.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Guardião da Saúde e do Esporte",
+    "descripcion": "Você passou na prova dominando os Jogos Olímpicos, o planejamento e a progressão do volume, a prevenção e o cuidado (RICE, aquecimento, ergonomia), a prevenção de dependências e a Lei argentina 26.586, os primeiros socorros, a RCP e o DEA e as políticas de drogas.",
+    "icono": "🏅"
   }
 ]

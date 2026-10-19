@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "Experte für klassische Wirtschaftsschulen",
     "descripcion": "Du hast die Prüfung abgeschlossen und dabei Physiokratie, Merkantilismus, klassischen Liberalismus und die Österreichische Schule durchgenommen, dazu BIP und Inflation sowie positive und normative Ökonomie, Chef.",
@@ -2485,5 +2486,201 @@
     "nombre": "Meister der User Experience",
     "descripcion": "Du hast die Prüfung bestanden und dabei Usability und die Heuristiken von Nielsen, WCAG-Barrierefreiheit, visuelle Hierarchie, Prototyping und Nutzertests gemeistert.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Logischer Denker und Erkenntnistheoretiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Aussagenlogik, wissenschaftliche Methode und Rationalismus, ästhetischen Geschmack, Erkenntnistheorie und Ethik als eigenständigen Zweig.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Entdecker von Ethik und Existenz",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Existenz, Kontraktualismus, Deontologie, Tugendethik und Geschichte der Philosophie und ihre Strömungen.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Philosoph des Seins und der Schönheit",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst das Schöne, die Frage, was Kunst ist, die Wirklichkeit, Ontologie, Utilitarismus, die Gültigkeit eines Arguments und Bioethik und Prädikatenlogik.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Kulturanthropologe",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Kultur, kulturelle Vielfalt, Ethnozentrismus, Verwandtschaftsbeziehungen und die Teilgebiete der Anthropologie.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Sozialanalytiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst soziale Tatsachen, soziale Schichtung und Institutionen.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Lernstratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Metakognition und Lerntechniken, verteiltes Wiederholen und Abrufübungen.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Kritischer digitaler Bürger",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Privatsphäre und digitalen Fußabdruck, Primär- und Sekundärquellen, die Verlässlichkeit von Quellen, Desinformation im Netz, Verzerrung und Deepfakes, irreführende Werbung und die Überprüfung von Nachrichten.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Problemdetektiv",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst das Erkennen von Problemen, die Analyse von Ursachen und Einschränkungen, den Entwurf möglicher Lösungen, das Finden von Alternativen und die Umsetzung der Lösung.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Lösungsbewerter",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Kosten-Nutzen-Analyse, die Festlegung von Umfang und Zielen, die Bewertung des Ergebnisses, die Planung von Aufgaben und Meilensteinen und Verbessern und Iterieren.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Projekt- und Entscheidungsmanager",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Ressourcenzuteilung, Risiko und Unsicherheit, Überwachung und Steuerung, Zielkonflikte und Priorisierung und Abschluss und gewonnene Erkenntnisse.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Sporttheoretiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Spielfeldmaße und Spielflächen, Trainingsphysiologie, Spieler, Positionen und Wertung, Körperbewusstsein und den historischen Ursprung des Sports.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Kenner des Körpers in Bewegung",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Ruheherzfrequenz, Sport als argentinisches Kulturphänomen, das Pato-Spiel, die maximale Herzfrequenz und ihre Zonen und den Body-Mass-Index.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Hüter von Gesundheit und Sport",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Olympischen Spiele, Planung und Steigerung des Trainingsumfangs, Vorbeugung und Pflege (RICE, Aufwärmen, Ergonomie), Suchtprävention und das argentinische Gesetz 26.586, Erste Hilfe, Herz-Lungen-Wiederbelebung und AED und Drogenpolitik.",
+    "icono": "🏅"
   }
 ]

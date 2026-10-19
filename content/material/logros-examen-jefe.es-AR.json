@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "Crack de las Escuelas Económicas Clásicas",
     "descripcion": "Te recorriste fisiocracia, mercantilismo, liberalismo clásico y escuela austriaca, además de PBI e inflación y la economía positiva y normativa, jefe.",
@@ -2485,5 +2486,201 @@
     "nombre": "Maestro de la Experiencia de Usuario",
     "descripcion": "Aprobaste el parcial con usabilidad y heurísticas de Nielsen, accesibilidad WCAG, jerarquía visual, prototipado y pruebas de usuario.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Crack del Pensamiento Lógico",
+    "descripcion": "Aprobaste el parcial dominando lógica proposicional, método científico y racionalismo, el gusto estético, epistemología y la ética como rama propia.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Capo de la Ética y la Existencia",
+    "descripcion": "Aprobaste el parcial dominando la existencia, el contractualismo, la deontología, la ética de la virtud y la historia de la filosofía y sus corrientes.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Filósofo del Ser y la Belleza",
+    "descripcion": "Aprobaste el parcial dominando lo bello, qué es el arte, la realidad, la ontología, el utilitarismo, la validez de un razonamiento y la bioética y la lógica de predicados.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Antropólogo Cultural",
+    "descripcion": "Aprobaste el parcial dominando la cultura, la diversidad cultural, el etnocentrismo, las relaciones de parentesco y los subcampos de la antropología.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Analista Social",
+    "descripcion": "Aprobaste el parcial dominando los hechos sociales, la estratificación y las instituciones.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Estratega del Aprendizaje",
+    "descripcion": "Aprobaste el parcial dominando la metacognición y las técnicas de estudio, el repaso espaciado y la recuperación.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Ciudadano Digital Crítico",
+    "descripcion": "Aprobaste el parcial dominando la privacidad y la huella digital, la fuente primaria y secundaria, la confiabilidad de una fuente, la desinformación en red, el sesgo y los deepfakes, la publicidad engañosa y la verificación de una noticia.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Detective de Problemas",
+    "descripcion": "Aprobaste el parcial dominando detectar el problema, analizar causas y restricciones, diseñar posibles soluciones, identificar alternativas y implementar la solución.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Evaluador de Soluciones",
+    "descripcion": "Aprobaste el parcial dominando el costo-beneficio, definir alcance y objetivos, evaluar el resultado, la planificación de tareas e hitos y mejorar o iterar.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Gestor de Proyectos y Decisiones",
+    "descripcion": "Aprobaste el parcial dominando la asignación de recursos, el riesgo y la incertidumbre, el seguimiento y control, los trade-offs y la priorización y el cierre y las lecciones aprendidas.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Atleta Teórico",
+    "descripcion": "Aprobaste el parcial dominando medidas y superficies de los deportes, la fisiología del ejercicio, jugadores, posiciones y puntaje, la alfabetización corporal y el origen histórico de los deportes.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Conocedor del Cuerpo en Movimiento",
+    "descripcion": "Aprobaste el parcial dominando la frecuencia cardíaca en reposo, el deporte como fenómeno cultural argentino, el pato, la frecuencia cardíaca máxima y sus zonas y el índice de masa corporal.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Guardián de la Salud y el Deporte",
+    "descripcion": "Aprobaste el parcial dominando los Juegos Olímpicos, la planificación y progresión del volumen, la prevención y el cuidado (RICE, calentamiento, ergonomía), la prevención de adicciones y la Ley 26.586, los primeros auxilios, la RCP y el DEA y las políticas de drogas.",
+    "icono": "🏅"
   }
 ]

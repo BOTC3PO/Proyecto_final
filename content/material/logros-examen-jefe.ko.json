@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "고전 경제학파 전문가",
     "descripcion": "중농주의, 중상주의, 고전 자유주의, 오스트리아 학파, 그리고 GDP와 인플레이션, 실증경제학과 규범경제학을 두루 거치며 중간고사를 마쳤습니다, 보스.",
@@ -2485,5 +2486,201 @@
     "nombre": "사용자 경험의 달인",
     "descripcion": "사용성과 닐슨의 휴리스틱, WCAG 접근성, 시각적 위계, 프로토타이핑, 사용자 테스트를 마스터하며 중간고사를 통과했습니다.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "논리적 사고와 인식론 전문가",
+    "descripcion": "시험에 합격하여 명제 논리, 과학적 방법과 합리주의, 미적 취향, 인식론, 독자적 분야로서의 윤리을(를) 마스터했습니다.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "윤리와 실존 탐구자",
+    "descripcion": "시험에 합격하여 실존, 계약주의, 의무론, 덕 윤리, 철학사와 그 사조을(를) 마스터했습니다.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "존재와 아름다움의 철학자",
+    "descripcion": "시험에 합격하여 아름다움, 예술이란 무엇인가, 실재, 존재론, 공리주의, 추론의 타당성, 생명윤리와 술어 논리을(를) 마스터했습니다.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "문화인류학자",
+    "descripcion": "시험에 합격하여 문화, 문화적 다양성, 자민족중심주의, 친족 관계, 인류학의 하위 분야을(를) 마스터했습니다.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "사회 분석가",
+    "descripcion": "시험에 합격하여 사회적 사실, 계층화, 제도을(를) 마스터했습니다.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "학습 전략가",
+    "descripcion": "시험에 합격하여 메타인지, 학습 기법, 간격 반복, 인출 연습을(를) 마스터했습니다.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "비판적 디지털 시민",
+    "descripcion": "시험에 합격하여 개인정보와 디지털 발자국, 1차 자료와 2차 자료, 출처의 신뢰성, 온라인 허위정보, 편향과 딥페이크, 기만 광고, 뉴스 검증을(를) 마스터했습니다.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "문제 탐정",
+    "descripcion": "시험에 합격하여 문제 발견, 원인과 제약 분석, 가능한 해결책 설계, 대안 파악, 해결책 실행을(를) 마스터했습니다.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "해결책 평가자",
+    "descripcion": "시험에 합격하여 비용편익 분석, 범위와 목표 설정, 결과 평가, 과업과 이정표 계획, 개선과 반복을(를) 마스터했습니다.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "프로젝트·의사결정 관리자",
+    "descripcion": "시험에 합격하여 자원 배분, 위험과 불확실성, 모니터링과 통제, 트레이드오프와 우선순위 설정, 종료와 교훈을(를) 마스터했습니다.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "스포츠 이론 선수",
+    "descripcion": "시험에 합격하여 경기장 규격과 바닥면, 운동 생리학, 선수, 포지션, 점수, 신체 문해력, 스포츠의 역사적 기원을(를) 마스터했습니다.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "움직이는 몸 전문가",
+    "descripcion": "시험에 합격하여 안정 시 심박수, 아르헨티나 문화 현상으로서의 스포츠, 파토, 최대 심박수와 그 구간, 체질량지수을(를) 마스터했습니다.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "건강과 스포츠의 수호자",
+    "descripcion": "시험에 합격하여 올림픽, 훈련량의 계획과 점진, 예방과 관리(RICE, 준비운동, 인체공학), 중독 예방과 아르헨티나 법률 26.586, 응급처치, 심폐소생술, AED, 마약 정책을(를) 마스터했습니다.",
+    "icono": "🏅"
   }
 ]

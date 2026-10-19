@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "Fakulo pri Klasikaj Ekonomiaj Skoloj",
     "descripcion": "Vi trairis fiziokratismon, merkantilismon, klasikan liberalismon kaj aŭstran skolon, krome MEP kaj inflacio kaj pozitivan kaj normativan ekonomion, ĉefo.",
@@ -2485,5 +2486,201 @@
     "nombre": "Majstro de la Uzanta Sperto",
     "descripcion": "Vi trapasis la ekzamenon regante uzeblon kaj heŭristikojn de Nielsen, alirebleco WCAG, vida hierarkio, prototipado kaj uzantaj testoj.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Logika pensulo kaj epistemologo",
+    "descripcion": "Vi trapasis la ekzamenon regante propozicia logiko, scienca metodo kaj racionalismo, estetika gusto, epistemologio kaj etiko kiel propra branĉo.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Esploranto de etiko kaj ekzisto",
+    "descripcion": "Vi trapasis la ekzamenon regante ekzisto, kontraktismo, deontologio, virta etiko kaj historio de filozofio kaj ĝiaj kurentoj.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Filozofo de la estaĵo kaj la beleco",
+    "descripcion": "Vi trapasis la ekzamenon regante la belo, kio estas arto, realeco, ontologio, utilismo, valideco de rezonado kaj bioetiko kaj predikata logiko.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Kultura antropologo",
+    "descripcion": "Vi trapasis la ekzamenon regante kulturo, kultura diverseco, etnocentrismo, parenceco kaj la subkampoj de antropologio.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Socia analizisto",
+    "descripcion": "Vi trapasis la ekzamenon regante sociaj faktoj, tavoliĝo kaj institucioj.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Lernstrategiisto",
+    "descripcion": "Vi trapasis la ekzamenon regante metakognicio kaj studteknikoj, interspacigita ripetado kaj reprenado.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Kritika cifereca civitano",
+    "descripcion": "Vi trapasis la ekzamenon regante privateco kaj cifereca spuro, primaraj kaj sekundaraj fontoj, fidindeco de fonto, retan misinformadon, biason kaj deepfake, trompan reklamon kaj kontrolon de novaĵo.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Problemdetektivo",
+    "descripcion": "Vi trapasis la ekzamenon regante trovon de la problemo, analizon de kaŭzoj kaj limigoj, dezajnon de eblaj solvoj, identigon de alternativoj kaj efektivigon de la solvo.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Taksisto de solvoj",
+    "descripcion": "Vi trapasis la ekzamenon regante kost-profita analizo, difinon de amplekso kaj celoj, taksadon de la rezulto, planadon de taskoj kaj mejloŝtonoj kaj plibonigon kaj ripetadon.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Projekta kaj decida administranto",
+    "descripcion": "Vi trapasis la ekzamenon regante asignon de rimedoj, riskon kaj necertecon, sekvadon kaj kontrolon, kompromisojn kaj prioritatigon kaj fermon kaj lernitajn lecionojn.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Teoria atleto",
+    "descripcion": "Vi trapasis la ekzamenon regante mezurojn kaj surfacojn de sportoj, fiziologion de ekzercado, ludantojn, poziciojn kaj poentadon, korpan alfabetigon kaj la historian originon de sportoj.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Fakulo pri la korpo en movado",
+    "descripcion": "Vi trapasis la ekzamenon regante ripozan korfrekvencon, sporton kiel argentinan kulturan fenomenon, la ludon pato, maksimuman korfrekvencon kaj ĝiajn zonojn kaj korpomasan indekson.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Gardisto de sano kaj sporto",
+    "descripcion": "Vi trapasis la ekzamenon regante la Olimpikajn Ludojn, planadon kaj progresadon de la trejna volumeno, preventon kaj prizorgon (RICE, varmigo, ergonomio), preventon de dependecoj kaj la argentinan leĝon 26.586, unuan helpon, RCP kaj AED kaj drogpolitikojn.",
+    "icono": "🏅"
   }
 ]

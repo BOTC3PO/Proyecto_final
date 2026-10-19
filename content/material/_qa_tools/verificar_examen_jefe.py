@@ -82,7 +82,7 @@ def slug(t):
     t = unicodedata.normalize("NFD", t).encode("ascii", "ignore").decode().lower()
     return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
 
-CARPETAS = {"Ciencia de Materiales": "materiales", "UX/Diseño": "diseño", "Dibujo Técnico": "dibujo-tecnico"}
+CARPETAS = {"Resolución de Problemas": "resolucion-problemas", "Ed. Física": "ed-fisica", "Ciencia de Materiales": "materiales", "UX/Diseño": "diseño", "Dibujo Técnico": "dibujo-tecnico"}
 
 def carpeta(materia):
     return CARPETAS.get(materia) or slug(materia)

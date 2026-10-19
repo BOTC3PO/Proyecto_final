@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "Expert in Classical Economic Schools",
     "descripcion": "You completed the exam covering physiocracy, mercantilism, classical liberalism, and the Austrian school, as well as GDP and inflation and positive and normative economics, boss.",
@@ -2485,5 +2486,201 @@
     "nombre": "Master of User Experience",
     "descripcion": "You passed the exam mastering usability and Nielsen's heuristics, WCAG accessibility, visual hierarchy, prototyping, and user testing.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Logical Thinker and Epistemologist",
+    "descripcion": "You passed the exam mastering propositional logic, the scientific method and rationalism, aesthetic taste, epistemology, and ethics as a branch of its own.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Explorer of Ethics and Existence",
+    "descripcion": "You passed the exam mastering existence, contractualism, deontology, virtue ethics, and the history of philosophy and its currents.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Philosopher of Being and Beauty",
+    "descripcion": "You passed the exam mastering beauty, what art is, reality, ontology, utilitarianism, the validity of an argument, and bioethics and predicate logic.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Cultural Anthropologist",
+    "descripcion": "You passed the exam mastering culture, cultural diversity, ethnocentrism, kinship relations, and the subfields of anthropology.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Social Analyst",
+    "descripcion": "You passed the exam mastering social facts, stratification, and institutions.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Learning Strategist",
+    "descripcion": "You passed the exam mastering metacognition and study techniques, spaced repetition and retrieval practice.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Critical Digital Citizen",
+    "descripcion": "You passed the exam mastering privacy and digital footprint, primary vs. secondary sources, source reliability, online disinformation, bias and deepfakes, misleading advertising, and news verification.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Problem Detective",
+    "descripcion": "You passed the exam mastering problem detection, analyzing causes and constraints, designing possible solutions, identifying alternatives, and implementing the solution.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Solution Evaluator",
+    "descripcion": "You passed the exam mastering cost-benefit analysis, defining scope and objectives, evaluating the result, planning tasks and milestones, and improving and iterating.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Project and Decision Manager",
+    "descripcion": "You passed the exam mastering resource allocation, risk and uncertainty, monitoring and control, trade-offs and prioritization, and closure and lessons learned.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Theory Athlete",
+    "descripcion": "You passed the exam mastering sports dimensions and surfaces, exercise physiology, players, positions and scoring, body literacy, and the historical origins of sports.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Expert in the Body in Motion",
+    "descripcion": "You passed the exam mastering resting heart rate, sport as an Argentine cultural phenomenon, the game of pato, maximum heart rate and its zones, and body mass index.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Guardian of Health and Sport",
+    "descripcion": "You passed the exam mastering the Olympic Games, planning and progression of training volume, prevention and care (RICE, warm-up, ergonomics), addiction prevention and Argentine Law 26,586, first aid, CPR and AED use, and drug policies.",
+    "icono": "🏅"
   }
 ]

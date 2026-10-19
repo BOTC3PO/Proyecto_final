@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "Expert des Écoles Économiques Classiques",
     "descripcion": "Tu as terminé l'examen en parcourant la physiocratie, le mercantilisme, le libéralisme classique et l'école autrichienne, ainsi que le PIB et l'inflation et l'économie positive et normative, chef.",
@@ -2485,5 +2486,201 @@
     "nombre": "Maître de l'Expérience Utilisateur",
     "descripcion": "Tu as réussi l'examen en maîtrisant l'utilisabilité et les heuristiques de Nielsen, l'accessibilité WCAG, la hiérarchie visuelle, le prototypage et les tests utilisateurs.",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Penseur logique et épistémologue",
+    "descripcion": "Tu as réussi l'examen en maîtrisant la logique propositionnelle, la méthode scientifique et le rationalisme, le goût esthétique, l'épistémologie et l'éthique comme branche à part entière.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Explorateur de l'éthique et de l'existence",
+    "descripcion": "Tu as réussi l'examen en maîtrisant l'existence, le contractualisme, la déontologie, l'éthique de la vertu et l'histoire de la philosophie et ses courants.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Philosophe de l'être et de la beauté",
+    "descripcion": "Tu as réussi l'examen en maîtrisant le beau, ce qu'est l'art, la réalité, l'ontologie, l'utilitarisme, la validité d'un raisonnement et la bioéthique et la logique des prédicats.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Anthropologue culturel",
+    "descripcion": "Tu as réussi l'examen en maîtrisant la culture, la diversité culturelle, l'ethnocentrisme, les relations de parenté et les sous-domaines de l'anthropologie.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Analyste social",
+    "descripcion": "Tu as réussi l'examen en maîtrisant les faits sociaux, la stratification et les institutions.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Stratège de l'apprentissage",
+    "descripcion": "Tu as réussi l'examen en maîtrisant la métacognition et les techniques d'étude, la répétition espacée et la récupération.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Citoyen numérique critique",
+    "descripcion": "Tu as réussi l'examen en maîtrisant la vie privée et l'empreinte numérique, les sources primaires et secondaires, la fiabilité d'une source, la désinformation en ligne, les biais et les deepfakes, la publicité trompeuse et la vérification d'une information.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Détective de problèmes",
+    "descripcion": "Tu as réussi l'examen en maîtrisant la détection du problème, l'analyse des causes et des contraintes, la conception de solutions possibles, l'identification d'alternatives et la mise en œuvre de la solution.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Évaluateur de solutions",
+    "descripcion": "Tu as réussi l'examen en maîtrisant l'analyse coûts-avantages, la définition de la portée et des objectifs, l'évaluation du résultat, la planification des tâches et des jalons et l'amélioration et l'itération.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Gestionnaire de projets et de décisions",
+    "descripcion": "Tu as réussi l'examen en maîtrisant l'allocation des ressources, le risque et l'incertitude, le suivi et le contrôle, les compromis et la priorisation et la clôture et les leçons apprises.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Athlète théoricien",
+    "descripcion": "Tu as réussi l'examen en maîtrisant les dimensions et surfaces des sports, la physiologie de l'exercice, les joueurs, les positions et le score, l'alphabétisation corporelle et l'origine historique des sports.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Connaisseur du corps en mouvement",
+    "descripcion": "Tu as réussi l'examen en maîtrisant la fréquence cardiaque au repos, le sport comme phénomène culturel argentin, le pato, la fréquence cardiaque maximale et ses zones et l'indice de masse corporelle.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Gardien de la santé et du sport",
+    "descripcion": "Tu as réussi l'examen en maîtrisant les Jeux olympiques, la planification et la progression du volume, la prévention et les soins (RICE, échauffement, ergonomie), la prévention des addictions et la loi argentine 26 586, les premiers secours, la RCP et le DAE et les politiques en matière de drogues.",
+    "icono": "🏅"
   }
 ]

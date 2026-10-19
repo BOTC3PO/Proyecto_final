@@ -1,0 +1,16 @@
+[
+ {
+  "id": 957,
+  "cluster": 1,
+  "temas": [
+   "ciudadania-digital-privacidad-huella-digital",
+   "confiabilidad-y-verificacion-de-una-fuente",
+   "desinformacion-en-red",
+   "detectar-desinformacion-sesgo-deepfakes",
+   "fuente-primaria-vs-secundaria",
+   "publicidad-enganosa",
+   "verificacion-de-una-noticia"
+  ],
+  "preguntas": 165
+ }
+]

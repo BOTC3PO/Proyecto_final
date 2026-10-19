@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "古典派経済学の専門家",
     "descripcion": "重農主義、重商主義、古典的自由主義、オーストリア学派、さらにGDPとインフレ、実証経済学と規範経済学を巡って中間試験を完了しました、ボス。",
@@ -2485,5 +2486,201 @@
     "nombre": "ユーザー体験の達人",
     "descripcion": "ユーザビリティとニールセンのヒューリスティクス、WCAGアクセシビリティ、視覚的階層、プロトタイピング、ユーザーテストを習得して、中間試験に合格しました。",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "論理思考と認識論の達人",
+    "descripcion": "試験に合格し、命題論理、科学的方法と合理主義、美的趣味、認識論、独立した分野としての倫理を習得しました。",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "倫理と実存の探究者",
+    "descripcion": "試験に合格し、実存、契約主義、義務論、徳倫理、哲学史とその潮流を習得しました。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "存在と美の哲学者",
+    "descripcion": "試験に合格し、美、芸術とは何か、現実、存在論、功利主義、推論の妥当性、生命倫理と述語論理を習得しました。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "文化人類学者",
+    "descripcion": "試験に合格し、文化、文化的多様性、自民族中心主義、親族関係、人類学の下位分野を習得しました。",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "社会アナリスト",
+    "descripcion": "試験に合格し、社会的事実、階層化、制度を習得しました。",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "学習戦略家",
+    "descripcion": "試験に合格し、メタ認知、学習法、間隔反復、想起練習を習得しました。",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "批判的なデジタル市民",
+    "descripcion": "試験に合格し、プライバシーとデジタルの足跡、一次情報源と二次情報源、情報源の信頼性、ネット上の偽情報、偏見とディープフェイク、誇大広告、ニュースの検証を習得しました。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "問題発見の達人",
+    "descripcion": "試験に合格し、問題の発見、原因と制約の分析、解決策の設計、代替案の特定、解決策の実行を習得しました。",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "解決策の評価者",
+    "descripcion": "試験に合格し、費用対効果、範囲と目標の設定、結果の評価、タスクとマイルストーンの計画、改善と反復を習得しました。",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "プロジェクトと意思決定のマネージャー",
+    "descripcion": "試験に合格し、資源配分、リスクと不確実性、進捗管理と統制、トレードオフと優先順位付け、終結と教訓を習得しました。",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "スポーツ理論の達人",
+    "descripcion": "試験に合格し、競技場の寸法と競技面、運動生理学、選手・ポジション・得点、身体リテラシー、スポーツの歴史的起源を習得しました。",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "運動する身体の通",
+    "descripcion": "試験に合格し、安静時心拍数、アルゼンチンの文化現象としてのスポーツ、パト、最大心拍数とそのゾーン、体格指数（BMI）を習得しました。",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "健康とスポーツの守護者",
+    "descripcion": "試験に合格し、オリンピック、トレーニング量の計画と漸進、予防とケア（RICE、ウォームアップ、人間工学）、依存症予防とアルゼンチン法26.586、応急手当、心肺蘇生、AED、薬物政策を習得しました。",
+    "icono": "🏅"
   }
 ]

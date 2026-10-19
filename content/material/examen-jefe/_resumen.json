@@ -755,9 +755,9 @@
   "id": 772,
   "materia": "Economía",
   "cluster": 7,
-  "preguntas": 68,
-  "secciones_completas": 5,
-  "secciones_totales": 5
+  "preguntas": 91,
+  "secciones_completas": 6,
+  "secciones_totales": 6
  },
  {
   "id": 773,
@@ -1310,5 +1310,109 @@
   "preguntas": 125,
   "secciones_completas": 5,
   "secciones_totales": 5
+ },
+ {
+  "id": 951,
+  "materia": "Filosofía",
+  "cluster": 1,
+  "preguntas": 105,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 952,
+  "materia": "Filosofía",
+  "cluster": 2,
+  "preguntas": 100,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 953,
+  "materia": "Filosofía",
+  "cluster": 3,
+  "preguntas": 160,
+  "secciones_completas": 8,
+  "secciones_totales": 8
+ },
+ {
+  "id": 954,
+  "materia": "Antropología",
+  "cluster": 1,
+  "preguntas": 107,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 955,
+  "materia": "Sociología",
+  "cluster": 1,
+  "preguntas": 60,
+  "secciones_completas": 3,
+  "secciones_totales": 3
+ },
+ {
+  "id": 956,
+  "materia": "Aprendizaje",
+  "cluster": 1,
+  "preguntas": 50,
+  "secciones_completas": 2,
+  "secciones_totales": 2
+ },
+ {
+  "id": 957,
+  "materia": "Ciudadanía Digital",
+  "cluster": 1,
+  "preguntas": 165,
+  "secciones_completas": 7,
+  "secciones_totales": 7
+ },
+ {
+  "id": 958,
+  "materia": "Resolución de Problemas",
+  "cluster": 1,
+  "preguntas": 125,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 959,
+  "materia": "Resolución de Problemas",
+  "cluster": 2,
+  "preguntas": 125,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 960,
+  "materia": "Resolución de Problemas",
+  "cluster": 3,
+  "preguntas": 126,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 961,
+  "materia": "Ed. Física",
+  "cluster": 1,
+  "preguntas": 125,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 962,
+  "materia": "Ed. Física",
+  "cluster": 2,
+  "preguntas": 121,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 963,
+  "materia": "Ed. Física",
+  "cluster": 3,
+  "preguntas": 150,
+  "secciones_completas": 6,
+  "secciones_totales": 6
  }
 ]

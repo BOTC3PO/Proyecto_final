@@ -1428,7 +1428,8 @@
       "fisiocracia",
       "mercantilismo",
       "pbi-e-inflacion",
-      "liberalismo-clasico-y-escuela-austriaca"
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
     ],
     "nombre": "古典经济学派精通者",
     "descripcion": "你在这场阶段考核中梳理了重农主义、重商主义、古典自由主义和奥地利学派，还有国内生产总值与通货膨胀，以及实证经济学与规范经济学。",
@@ -2485,5 +2486,201 @@
     "nombre": "用户体验大师",
     "descripcion": "你通过了涵盖可用性与尼尔森启发式、WCAG无障碍、视觉层级、原型设计和用户测试的阶段考核。",
     "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "逻辑与认识论思想家",
+    "descripcion": "你通过了考试，掌握了命题逻辑、科学方法与理性主义、审美趣味、认识论、作为独立分支的伦理学。",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "伦理与存在探索者",
+    "descripcion": "你通过了考试，掌握了存在、契约论、义务论、美德伦理、哲学史及其流派。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "存在与美的哲学家",
+    "descripcion": "你通过了考试，掌握了美、艺术是什么、现实、本体论、功利主义、推理的有效性、生命伦理与谓词逻辑。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "文化人类学家",
+    "descripcion": "你通过了考试，掌握了文化、文化多样性、民族中心主义、亲属关系、人类学的分支领域。",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "社会分析师",
+    "descripcion": "你通过了考试，掌握了社会事实、社会分层、制度。",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "学习策略师",
+    "descripcion": "你通过了考试，掌握了元认知、学习技巧、间隔重复与提取练习。",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "具备批判力的数字公民",
+    "descripcion": "你通过了考试，掌握了隐私与数字足迹、一手与二手来源、信息来源的可靠性、网络虚假信息、偏见与深度伪造、误导性广告、新闻核实。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "问题侦探",
+    "descripcion": "你通过了考试，掌握了发现问题、分析原因与限制、设计可能的解决方案、识别备选方案、实施解决方案。",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "方案评估者",
+    "descripcion": "你通过了考试，掌握了成本效益分析、界定范围与目标、评估结果、规划任务与里程碑、改进与迭代。",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "项目与决策管理者",
+    "descripcion": "你通过了考试，掌握了资源分配、风险与不确定性、跟踪与控制、权衡取舍与优先级排序、收尾与经验教训。",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "体育理论达人",
+    "descripcion": "你通过了考试，掌握了运动场地尺寸与场地类型、运动生理学、运动员、位置与计分、身体素养、体育运动的历史起源。",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "运动人体通",
+    "descripcion": "你通过了考试，掌握了静息心率、作为阿根廷文化现象的体育、帕托球、最大心率及其区间、体重指数。",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "健康与体育守护者",
+    "descripcion": "你通过了考试，掌握了奥林匹克运动会、训练量的规划与递进、预防与护理（RICE、热身、人体工学）、成瘾预防与阿根廷第26.586号法、急救、心肺复苏与AED、毒品政策。",
+    "icono": "🏅"
   }
 ]
