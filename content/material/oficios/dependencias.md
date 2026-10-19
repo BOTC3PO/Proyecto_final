@@ -175,6 +175,12 @@ pendiente" en el header de cada uno.
 | `agricultor/calculo-agricola/` | `suelo-y-cultivo/` | Sección 4. |
 | `agricultor/modelos-de-produccion-agricola/` | `calculo-agricola/` | Sección 5 (`OF18`, tratado con neutralidad como las corrientes de `../../economia/`) + especializaciones `OF17a`-`OF17d` (ganadería, apicultura, horticultura, fruticultura) mencionadas como cierre, sin sub-secciones propias. |
 | `agricultor/diagnostico-agricola-por-casos/` | `modelos-de-produccion-agricola/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+| `agricultor/ganaderia-rumiantes-aves-y-cerdos/` | `fundamentos-agricultura/` | Nodo `OF17a`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Especialización del Agricultor (`troncos.md`), confirmada por Javier y nunca generada. |
+| `agricultor/apicultura/` | `fundamentos-agricultura/` | Nodo `OF17b`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Especialización (`troncos.md`). Sanidad apícola y registros SENASA verificados por búsqueda web; requisitos de traslado a confirmar. |
+| `agricultor/horticultura/` | `suelo-y-cultivo/` | Nodo `OF17c`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Especialización (`troncos.md`). |
+| `agricultor/fruticultura/` | `suelo-y-cultivo/` | Nodo `OF17d`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Especialización (`troncos.md`). |
+| `agricultor/control-integrado-de-plagas/` | `suelo-y-cultivo/`, `seguridad-agricultura/` | Nodo `OF12 §5`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Sub-ítem del diseño plegado en otra lección. Cruza con Ley 27.279 (envases). |
+| `agricultor/cosecha-y-poscosecha/` | `suelo-y-cultivo/` | Nodo `OF12 §5`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Sub-ítem del diseño plegado en otra lección. |
 
 ## Operario Agrícola (`OF13`)
 
@@ -185,6 +191,8 @@ pendiente" en el header de cada uno.
 | `operario-agricola/maquinaria-agricola/` | `seguridad-operario-agricola/` | Sección 3. |
 | `operario-agricola/dosificacion-agricola/` | `maquinaria-agricola/` | Sección 4. |
 | `operario-agricola/diagnostico-maquinaria-agricola-por-casos/` | `dosificacion-agricola/` | Sección 5, cierre — única sección con `cuestionario.md`. |
+| `operario-agricola/calibracion-de-sembradora-y-pulverizadora/` | `dosificacion-agricola/`, `maquinaria-agricola/` | Nodo `OF13`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Complementa dosificación con la calibración paso a paso (sin dosis de producto). |
+| `operario-agricola/mantenimiento-de-maquinaria-agricola/` | `maquinaria-agricola/` | Nodo `OF13 §3`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Era un apartado de la lección de maquinaria; ahora tiene lección propia. |
 
 ## Panadero (`OF14`)
 
@@ -196,6 +204,9 @@ pendiente" en el header de cada uno.
 | `panadero/procesos-panaderia/` | `materia-prima-panaderia/` | Sección 4. Amasado, fermentación, horneado, tipos de pan, normativa. |
 | `panadero/calculo-panaderia/` | `procesos-panaderia/` | Sección 5. Escalado por cantidad, tiempos de fermentación según temperatura. |
 | `panadero/diagnostico-panaderia-por-casos/` | `calculo-panaderia/` | Sección 6, cierre — única sección con `cuestionario.md`. |
+| `panadero/habilitacion-bromatologica-y-rotulado/` | `procesos-panaderia/` | Nodo `OF14 §7`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Compartida con Procesador de alimentos: acá el ángulo de panadería (rotulado, alérgenos, etiquetado frontal); el detalle de registros y trazabilidad está en `../procesador-de-alimentos/habilitacion-bromatologica-y-trazabilidad/`. |
+| `panadero/masa-madre-y-prefermentos/` | `procesos-panaderia/` | Nodo `OF14`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Complementa la fermentación panadera. |
+| `panadero/panificados-de-factura-y-pasteleria-basica/` | `procesos-panaderia/` | Nodo `OF14`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Ampliación opcional del plan; la planificación solo cubre tipos de pan. |
 
 ## Procesador de Alimentos (`OF15`)
 
@@ -206,6 +217,9 @@ pendiente" en el header de cada uno.
 | `procesador-de-alimentos/procesos-procesamiento-alimentos/` | `seguridad-e-higiene-procesamiento-alimentos/` | Sección 3. Pasteurización, conservación, envasado, deshidratación, normativa. |
 | `procesador-de-alimentos/calculo-procesamiento-alimentos/` | `procesos-procesamiento-alimentos/` | Sección 4. Concentración de solución conservante, tiempo y temperatura de proceso térmico. |
 | `procesador-de-alimentos/diagnostico-procesamiento-alimentos-por-casos/` | `calculo-procesamiento-alimentos/` | Sección 5, cierre — única sección con `cuestionario.md`. |
+| `procesador-de-alimentos/buenas-practicas-de-manufactura-bpm/` | `seguridad-e-higiene-procesamiento-alimentos/` | Nodo `OF15`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. BPM y POES; tema compartido con Panadero. |
+| `procesador-de-alimentos/habilitacion-bromatologica-y-trazabilidad/` | `procesos-procesamiento-alimentos/` | Nodo `OF15 §6`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Habilitación industrial, RNE/RNPA y trazabilidad; compartida con Panadero. |
+| `procesador-de-alimentos/haccp-aplicado-a-un-proceso/` | `seguridad-e-higiene-procesamiento-alimentos/` | Nodo `OF15`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Antes era el apartado «HACCP básico»; acá se desarrolla con un caso. |
 
 ## Técnico en Automatización y Robótica (`OF16`)
 
@@ -248,6 +262,9 @@ camino desbloqueado.
 | `tapicero/herramientas-tapiceria/` | `materiales-tapiceria/` | Sección 4. |
 | `tapicero/tecnicas-tapiceria/` | `herramientas-tapiceria/` | Sección 5. |
 | `tapicero/diagnostico-tapiceria-por-casos/` | `tecnicas-tapiceria/` | Sección 6, cierre. |
+| `tapicero/normativa-e-inflamabilidad-en-tapiceria/` | `materiales-tapiceria/` | Nodo `OF21 §7`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Sin números de norma: depende de la jurisdicción y del uso (a confirmar). |
+| `tapicero/sistemas-de-suspension-y-acojinado/` | `materiales-tapiceria/` | Nodo `OF21`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Fuente sugerida: *Manual de Tecnología de la Tapicería* (ONUDI). |
+| `tapicero/tapizado-de-automotor-y-cuero/` | `tecnicas-tapiceria/` | Nodo `OF21`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Ampliación opcional. |
 
 ## Modista / Corte y Confección (`OF22`)
 
@@ -259,6 +276,14 @@ camino desbloqueado.
 | `modista-corte-y-confeccion/herramientas-confeccion/` | `materiales-confeccion/` | Sección 4. |
 | `modista-corte-y-confeccion/tecnicas-confeccion/` | `herramientas-confeccion/` | Sección 5. |
 | `modista-corte-y-confeccion/diagnostico-confeccion-por-casos/` | `tecnicas-confeccion/` | Sección 6, cierre. |
+| `modista-corte-y-confeccion/patronaje-basico/` | | `fundamentos-confeccion/` | Los moldes son la base de la prenda y salen de las medidas de `fundamentos-confeccion/`. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/corte-de-tela/` | | `patronaje-basico/`, `materiales-confeccion/` | Del molde a las piezas: tendido, encaje y corte. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/costuras-basicas-y-ensamble/` | | `corte-de-tela/` | Unir piezas: tipos de costura y orden de armado. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/acabados-de-prenda/` | | `costuras-basicas-y-ensamble/` | Terminaciones que distinguen una prenda prolija. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/maquina-de-coser-ajuste-y-mantenimiento/` | | `herramientas-confeccion/` | Fallas típicas y cuidados de la herramienta central del oficio. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/entretelas-e-interfaces/` | | `materiales-confeccion/` | Telas de refuerzo que dan estructura a cuellos, puños y aberturas. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/etiquetado-de-composicion-textil/` | | `materiales-confeccion/` | Qué debe informar una prenda al venderse y cómo cuidarla. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `modista-corte-y-confeccion/confeccion-industrial-y-produccion-en-serie/` | | `costuras-basicas-y-ensamble/` | Del molde único a la serie: tiempos, calidad y organización. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
 
 ## Carpintero de Aluminio (`OF23`)
 
@@ -272,6 +297,13 @@ camino desbloqueado.
 | `carpintero-de-aluminio/calculo-carpinteria-aluminio/` | `tecnicas-carpinteria-aluminio/` | Sección 6. |
 | `carpintero-de-aluminio/lectura-de-planos-carpinteria-aluminio/` | `calculo-carpinteria-aluminio/` | Sección 7. |
 | `carpintero-de-aluminio/diagnostico-aberturas-por-casos/` | `lectura-de-planos-carpinteria-aluminio/` | Sección 8, cierre. |
+| `carpintero-de-aluminio/vidrio-y-dvh/` | | `materiales-carpinteria-aluminio/` | Profundiza la sección de vidrios, hoy fundida en materiales. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `carpintero-de-aluminio/herrajes-y-burletes/` | | `materiales-carpinteria-aluminio/` | Desarrolla herrajes, felpas y burletes que hoy son sección de materiales. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `carpintero-de-aluminio/instalacion-de-ventana-corrediza/` | | `tecnicas-carpinteria-aluminio/` | Pasa del taller a la obra: replanteo, colocación y sellado. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `carpintero-de-aluminio/instalacion-de-ventana-abatible-y-puertas/` | | `instalacion-de-ventana-corrediza/` | Extiende la instalación a aberturas con herrajes de giro y de cierre en varios puntos. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `carpintero-de-aluminio/sellado-e-impermeabilizacion/` | | `instalacion-de-ventana-corrediza/` | Selladores y puntos de filtración, que la instalación solo menciona. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `carpintero-de-aluminio/normas-de-calidad-iram-para-aluminio/` | | `calculo-carpinteria-aluminio/` | Qué se ensaya en una abertura y qué norma lo define. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `carpintero-de-aluminio/presupuesto-y-computo-de-obra/` | | `calculo-carpinteria-aluminio/` | Del cálculo de cortes y materiales al presupuesto que se entrega al cliente. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
 
 ## Tornero (`OF24`)
 
@@ -285,6 +317,15 @@ camino desbloqueado.
 | `tornero/calculo-torneria/` | `tecnicas-torneria/` | Sección 6. |
 | `tornero/lectura-de-planos-torneria/` | `calculo-torneria/` | Sección 7. |
 | `tornero/diagnostico-mecanizado-por-casos/` | `lectura-de-planos-torneria/` | Sección 8, cierre. |
+| `tornero/cilindrado-y-refrentado/` | | `tecnicas-torneria/`, `herramientas-torneria/` | Desarrolla las dos operaciones base que `tecnicas-torneria/` apenas nombra. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/roscado-en-torno/` | | `cilindrado-y-refrentado/`, `calculo-torneria/` | El roscado usa el paso y el avance calculados en `calculo-torneria/` y exige dominar el cilindrado. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/taladrado-y-mandrinado/` | | `cilindrado-y-refrentado/` | Operaciones de agujeros: partir de una cara refrentada. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/torneado-conico-y-operaciones-especiales/` | | `cilindrado-y-refrentado/` | Operaciones que suman al cilindrado y al refrentado: conos, tronzado, moleteado y ranurado. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/avance-y-ajuste-de-velocidades/` | | `calculo-torneria/` | Aplica los cálculos de `calculo-torneria/` para elegir parámetros de corte. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/acabado-superficial-y-metrologia/` | | `lectura-de-planos-torneria/` | Medición y rugosidad que `lectura-de-planos-torneria/` pide y el diagnóstico solo menciona. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/refrigeracion-y-lubricacion-de-corte/` | | `materiales-torneria/` | Fluidos de corte según el material de la pieza. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/mantenimiento-del-torno/` | | `fundamentos-torneria/` | Cuidados de rutina que alargan la vida y la precisión de la máquina. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
+| `tornero/protocolo-de-trabajo-en-tornos/` | | `seguridad-torneria/` | Checklist de arranque y parada, que ordena lo visto en seguridad. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`). |
 
 ## Cerrajero (`OF25`)
 
@@ -327,6 +368,14 @@ de esta tabla.
 | `cocina-gastronomia/materia-prima-cocina/` | `tecnicas-de-coccion/` | Sección 4. Cortes de verdura y de carne, técnicas de conservación, productos de temporada. |
 | `cocina-gastronomia/calculo-cocina/` | `materia-prima-cocina/` | Sección 5. Escalado de receta por comensales, rendimiento y merma, costeo de plato (food cost). |
 | `cocina-gastronomia/diagnostico-cocina-por-casos/` | `calculo-cocina/` | Sección 6, cierre — única sección con `cuestionario.md` (salsa cortada, guiso soso, carne dura). |
+| `cocina-gastronomia/manipulacion-de-alimentos-y-cadena-de-frio/` | `fundamentos-cocina/` | Desarrolla el apartado de manipulación y cadena de frío de `seguridad-e-higiene-cocina/`. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/alergenos-en-cocina/` | `manipulacion-de-alimentos-y-cadena-de-frio/` | Desarrolla el apartado de alérgenos. La lista oficial vigente se consulta en el Código Alimentario (no se fija acá). Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/haccp-basico/` | `alergenos-en-cocina/` | Desarrolla el apartado de HACCP; comparte base con `../procesador-de-alimentos/seguridad-e-higiene-procesamiento-alimentos/`. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/metodos-de-coccion-y-puntos-de-coccion/` | `haccp-basico/` | Separa húmedo, seco y combinado y los puntos de cocción que `tecnicas-de-coccion/` resume en un solo tema. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/cortes-de-cocina/` | `tecnicas-de-coccion/` | Desarrolla los cortes de verdura y carne de `materia-prima-cocina/`. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/tecnicas-de-conservacion/` | `cortes-de-cocina/` | Desarrolla la conservación de `materia-prima-cocina/`; alineada con el criterio de conservas de la Ruta B (solo dulces y pickles de heladera). Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/compras-inventario-y-gestion-de-cocina/` | `calculo-cocina/` | Tema nuevo (no figuraba en la planificación): ficha técnica, recepción, stock y punto de pedido. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/maridaje-y-servicio/` | `tecnicas-de-coccion/` | Tema nuevo, prioridad baja. Maridaje solo con bebidas sin alcohol (la plataforma tiene menores). Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
 
 ## Relojero (`OF27`)
 
@@ -338,6 +387,9 @@ de esta tabla.
 | `relojero/herramientas-relojeria/` | `materiales-relojeria/` | Sección 4. |
 | `relojero/tecnicas-relojeria/` | `herramientas-relojeria/` | Sección 5. |
 | `relojero/diagnostico-relojeria-por-casos/` | `tecnicas-relojeria/` | Sección 6, cierre. |
+| `relojero/tipos-de-movimiento-manual-automatico-y-cuarzo/` | `fundamentos-relojeria/` | Nodo `OF27 §1`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Antes un ítem. |
+| `relojero/complicaciones-cronografo-y-calendario/` | `tecnicas-relojeria/` | Nodo `OF27`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Ampliación sugerida. |
+| `relojero/oficio-artesanal-y-mercado/` | `diagnostico-relojeria-por-casos/` | Nodo `OF27 §7`. Decisión de Claude, no pedida (plan `../_plan-faltantes/oficios-b.md`). Lección informativa. Oficio libre sin habilitación específica, presupuesto y repuestos. |
 
 ---
 
@@ -497,6 +549,11 @@ Primera de las 6 ramas de "Informática ramificada" (sección homónima de `ofic
 | `backend/apis-rest/` | `../informatica/protocolo-http-peticion-respuesta/` | Raíz: recursos, métodos, códigos de estado, buenas prácticas. |
 | `backend/arquitectura-de-servidores/` | `apis-rest/`, `../informatica/diseno-y-arquitectura-de-software/` | Capas, caché, colas, escalado, disponibilidad. |
 | `backend/autenticacion-y-autorizacion/` | `arquitectura-de-servidores/`, `../informatica/permisos-y-usuarios/` | Contraseñas, sesiones y tokens, MFA, roles. Enfoque defensivo. |
+| `backend/acceso-a-datos-desde-el-backend/` | `apis-rest/`, `../sql/select-y-where/`, `../sql/transacciones-sql/` | Cómo el servidor habla con la base: conexión, consultas parametrizadas, ORM, transacciones y migraciones. La planificación solo decía «conecta con SQL». Decisión de Claude, no pedida: dependencia deducida. |
+| `backend/validacion-y-manejo-de-errores/` | `apis-rest/` | Validar la entrada, distinguir errores esperados de inesperados y responder con códigos y mensajes coherentes. Decisión de Claude, no pedida (laguna detectada en el plan de oficios). |
+| `backend/logs-y-monitoreo/` | `arquitectura-de-servidores/` | Qué registrar, niveles de log, métricas básicas y alertas; puente con la rama DevOps. Decisión de Claude, no pedida (laguna detectada en el plan de oficios). |
+| `backend/asincronia-y-colas-de-trabajo/` | `arquitectura-de-servidores/` | Tareas en segundo plano, colas, reintentos e idempotencia. `arquitectura-de-servidores` menciona «colas» sin desarrollarlas. Decisión de Claude, no pedida. |
+| `backend/diagnostico-backend-por-casos/` | `autenticacion-y-autorizacion/`, `acceso-a-datos-desde-el-backend/`, `validacion-y-manejo-de-errores/`, `logs-y-monitoreo/`, `asincronia-y-colas-de-trabajo/` | Cierre de la ruta, con el patrón de «diagnóstico por casos» que tienen los demás oficios: síntoma, hipótesis, verificación. Decisión de Claude, no pedida. |
 
 ## Informática ramificada — Frontend (agregado 2026-10-14)
 
@@ -563,3 +620,42 @@ Oficio #18 de `oficios-orientacion-vocacional-PLANIFICACION.md`. La **sección 1
 | `guia-turistico/diagnostico-turistico-por-casos/` | todos los anteriores de la ruta | Sección 4: 11 casos con método. |
 | `guia-turistico/habilitacion-de-guia-de-turismo/` | `protocolo-con-grupos-turisticos/` | Sección 5: Ley 1264 de CABA, otras jurisdicciones, formación. |
 | `guia-turistico/responsabilidad-civil-del-guia/` | `habilitacion-de-guia-de-turismo/`, `manejo-de-emergencias-en-excursion/` | Sección 5: artículos del CCyC y la Ley 24.240 aplicados al guía. |
+
+## Temas agregados 2026-10-19 (plan `oficios-b`, lote taller y técnicos)
+
+Decisión de Claude, no pedida: las dependencias son deducidas. Nodos propuestos en `../_plan-faltantes/oficios-b.md`; ninguno tiene ID en `troncos.md` todavía.
+
+| Tema (carpeta) | Depende de | Por qué |
+|---|---|---|
+| `mecanico/vehiculo-electrico-fundamentos/` | `sistemas-electricos-vehiculo/, frenos-y-suspension/` | Rama confirmada por Javier (2026-08-13) y nunca generada. Motor único, reductora, frenado regenerativo y batería de alta tensión con su seguridad. |
+| `mecanico/inyeccion-electronica-y-sensores/` | `motor/, sistemas-electricos-vehiculo/` | Sub-ítem del diseño sin lección propia; enlaza con los códigos del escáner de `diagnostico-automotor-por-casos/`. |
+| `mecanico/emisiones-y-verificacion-tecnica/` | `mantenimiento-mecanico/` | Hoy era un apartado de mantenimiento; catalizador, ensayo de gases y VTV. |
+| `mecanico/motos-motor-2-y-4-tiempos/` | `motor/` | Rama `mecanico-de-motos` (confirmada 2026-08-13, nunca generada), lección 1 de 5. Parte de la nota sobre motos que ya trae `motor/`. |
+| `mecanico/motos-carburacion-y-alimentacion/` | `motos-motor-2-y-4-tiempos/` | Rama motos, lección 2 de 5. |
+| `mecanico/motos-encendido-y-sistema-electrico/` | `motos-motor-2-y-4-tiempos/, sistemas-electricos-vehiculo/` | Rama motos, lección 3 de 5. Encendido CDI/bobina, magneto, regulador. |
+| `mecanico/motos-transmision-y-cadena/` | `motos-motor-2-y-4-tiempos/, transmision/` | Rama motos, lección 4 de 5. Embrague multidisco, caja, cadena. |
+| `mecanico/motos-frenos-y-suspension/` | `motos-motor-2-y-4-tiempos/, frenos-y-suspension/` | Rama motos, lección 5 de 5. |
+| `soldador/certificacion-iram-ias-por-proceso-y-posicion/` | `defectos-y-normativa-soldadura/` | Normativa que quedaba plegada en defectos. WPS/PQR, calificación de soldadores y posiciones. |
+| `soldador/inspeccion-y-ensayos-de-soldadura/` | `defectos-y-normativa-soldadura/` | Sección 7 del diseño sin lección propia. Inspección visual y ensayos. |
+| `soldador/parametros-de-soldadura-amperaje-y-electrodos/` | `procesos-soldadura/` | Selección de amperaje, electrodo y velocidad. |
+| `soldador/soldadura-estructural/` | `defectos-y-normativa-soldadura/, procesos-soldadura/` | Tema COMPARTIDO con Montador de estructuras (el Montador lo referencia, no lo repite). |
+| `metalurgico/fundicion-moldeo-y-colada/` | `procesos-metalurgicos/` | Apoya el caso «defecto de fundición» del diagnóstico. |
+| `metalurgico/tratamientos-termicos-en-detalle/` | `procesos-metalurgicos/` | Compartido con `../ciencia-de-materiales` (nodos CM3/CM4): acá la mirada de taller, sin repetir diagramas. |
+| `metalurgico/normas-de-calidad-de-proceso-metalurgico/` | `control-de-calidad-metalurgico/` | Normas de producto y ensayo, certificados y trazabilidad. |
+| `montador-de-estructuras/izaje-y-aparejos-en-detalle/` | `seguridad-montaje-estructuras/` | Seguridad crítica: eslingas, ángulos, señales de maniobra. |
+| `montador-de-estructuras/certificacion-y-habilitacion-trabajo-en-altura/` | `tecnicas-montaje-estructuras/` | Normativa que quedaba dentro de técnicas. Referencia la soldadura estructural del Soldador. |
+| `montador-de-estructuras/uniones-abulonadas-y-torque/` | `materiales-montaje-estructuras/` | Bulones estructurales, pretensado y torque. |
+| `tecnico-en-refrigeracion/habilitacion-y-normativa-refrigeracion/` | `seguridad-refrigeracion/` | Habilitación casi sin tratar; Montreal, Kigali y manejo de refrigerantes. |
+| `tecnico-en-refrigeracion/compresores-evaporadores-y-condensadores/` | `fundamentos-termodinamicos-refrigeracion/` | Componentes a fondo. |
+| `tecnico-en-refrigeracion/calculo-de-carga-termica-y-climatizacion/` | `fundamentos-termodinamicos-refrigeracion/` | Carga térmica y dimensionamiento; antes solo como instalación. |
+| `tecnico-en-refrigeracion/carga-de-gas-y-vacio-procedimiento/` | `herramientas-refrigeracion/, habilitacion-y-normativa-refrigeracion/` | Procedimiento de vacío, carga, recuperación y prueba. |
+| `tecnico-electromecanico/hidraulica-industrial/` | `elementos-de-maquinas-y-fluidos/` | Sección condensada en `elementos-de-maquinas-y-fluidos/`. |
+| `tecnico-electromecanico/neumatica-industrial/` | `elementos-de-maquinas-y-fluidos/` | Idem. |
+| `tecnico-electromecanico/plc-y-automatismos/` | `control-y-automatizacion/` | Tema COMPARTIDO con Técnico en automatización y robótica; el PID vive en `../tecnico-en-automatizacion-y-robotica/control-lazo-cerrado-y-pid-en-robotica/`. Las máquinas eléctricas (motores, trifásica) y el mecanizado se referencian desde Electricista y Tornero. |
+| `tecnico-electromecanico/mantenimiento-predictivo-y-gestion-de-ordenes/` | `mantenimiento-e-instrumentacion/` | Apartado actual ampliado: termografía, vibraciones, órdenes de trabajo, repuestos. |
+| `tecnico-en-automatizacion-y-robotica/seguridad-en-robotica-industrial/` | `robotica-industrial-y-vision/` | Separada de comunicaciones (compartían 310 palabras). Cobots, zonas, paradas. |
+| `tecnico-en-automatizacion-y-robotica/protocolos-de-comunicacion-robotica/` | `microcontroladores-y-programacion-embebida/` | Separada de seguridad. |
+| `tecnico-en-automatizacion-y-robotica/servomotores-paso-a-paso-y-bldc/` | `actuadores-y-sensores-robotica/` | Cada tipo de motor, su driver y su lazo. |
+| `tecnico-en-automatizacion-y-robotica/encoders-imu-y-camaras/` | `actuadores-y-sensores-robotica/` | Sensores propioceptivos y exteroceptivos. |
+| `tecnico-en-automatizacion-y-robotica/planificacion-de-trayectoria-y-navegacion/` | `cinematica-y-dinamica-robotica/` | Planificación, odometría/SLAM y evitación de obstáculos. |
+| `tecnico-en-automatizacion-y-robotica/control-lazo-cerrado-y-pid-en-robotica/` | `cinematica-y-dinamica-robotica/` | Tema COMPARTIDO con Electromecánico (nodos CTRL1–3a): acá vive el PID. |

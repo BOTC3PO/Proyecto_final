@@ -1,7 +1,7 @@
-# Catálogo de hasta 150 recetas — estructura curricular (pendiente)
+# Catálogo de hasta 150 recetas — estructura curricular (134 de 150 escritas)
 
 > Ruta B de Cocina/Gastronomía (`OF19`). Este archivo es **roadmap /
-> índice de estructura**, no contenido terminado — ver
+> índice de estructura y estado** (reconciliado el 2026-10-19 contra el árbol real); las recetas viven en las carpetas de cada categoría — ver
 > `oficios-orientacion-vocacional-PLANIFICACION.md`, sección
 > Cocina/Gastronomía (líneas 961-1032), donde Javier fue explícito en
 > que las categorías y cantidades ya están definidas pero **las
@@ -44,12 +44,27 @@ generen.)
 | Postres helados y fríos | 7 | intermedio |
 | **Total** | **150** | |
 
-**Estado: sólo la estructura de arriba está definida. Las 150 recetas
-individuales están pendientes de generar en otra ronda.** De esas 150,
-las dos únicas ya escritas (medallón de hamburguesa + masa de pan) y
-un ejemplo de mocktail están en este catálogo — ver abajo — y la
-receta final vive además en `../05-receta-final/teoria.md` como cierre
-de la cadena de prerrequisitos.
+### Estado real por categoría (2026-10-19)
+
+Conteo de archivos de receta en cada categoría (básicas, intermedias, avanzadas y especiales), contra la meta de la tabla de arriba. Las 2 recetas del equipo (`../recetas-del-equipo/`) son de Panificación y completan esa categoría. Todas las recetas están marcadas "no probada".
+
+| Categoría | Meta | Escritas | Faltan |
+|---|---:|---:|---:|
+| Fondos, salsas y guarniciones clásicas | 15 | 14 | 1 |
+| Cortes y técnicas de carnes | 10 | 10 | 0 |
+| Parrilla y asado | 15 | 12 | 3 |
+| Pastas caseras | 12 | 11 | 1 |
+| Panificación (incluye 2 del equipo) | 15 | 15 | 0 |
+| Repostería y pastelería | 15 | 13 | 2 |
+| Cocina regional argentina | 15 | 12 | 3 |
+| Cocina internacional | 20 | 17 | 3 |
+| Vegetales y guarniciones | 10 | 10 | 0 |
+| Fiambres, embutidos y conservas | 8 | 7 | 1 |
+| Bebidas sin alcohol | 8 | 7 | 1 |
+| Postres helados y fríos | 7 | 6 | 1 |
+| **Total** | **150** | **134** | **16** |
+
+Las 16 que faltan son casi todas **especiales** (las que dependen del equipo o de recetas regionales con respaldo institucional); el detalle y las decisiones de Javier están en [`PLAN-progresion.md`](PLAN-progresion.md), sección 9. La receta final de la cadena harina → brioche vive además en `../05-receta-final/teoria.md`. Antes decía «pendiente» y «las dos únicas ya escritas»: ese texto estaba desactualizado.
 
 ## Coctelería: sólo sin alcohol
 

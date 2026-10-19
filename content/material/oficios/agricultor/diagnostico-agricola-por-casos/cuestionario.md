@@ -1,4 +1,4 @@
-# Oficios — Agricultor — Diagnóstico agrícola por casos (cuestionario, 18 preguntas VBLang)
+# Oficios — Agricultor — Diagnóstico agrícola por casos (cuestionario, 26 preguntas VBLang)
 
 > Cierre del oficio (`OF12`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico agrícola —
@@ -379,4 +379,163 @@ enunciado: "Los cuatro casos de este tema comparten la misma lógica: observar e
 explicacion: |
   Es la síntesis final del método de diagnóstico agrícola de todo el
   tema.
+```
+
+### 19 — Umbral de acción
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso MIP"]
+
+enunciado: "¿Qué es el umbral de acción en el manejo integrado de plagas?"
+tipo: mc
+opciones_explicitas:
+  - "El nivel de plaga en el que hay que intervenir para no llegar al daño económico"
+  - "La cantidad de producto que se aplica"
+  - "El precio al que se vende el cultivo"
+respuesta: "El nivel de plaga en el que hay que intervenir para no llegar al daño económico"
+
+explicacion: |
+  Aplicar antes gasta recursos; aplicar tarde permite el daño.
+```
+
+### 20 — Plaga presente
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "basico"
+  tags: ["caso MIP"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Que haya una plaga en el lote significa siempre que hay que aplicar un producto."
+
+explicacion: |
+  Primero se monitorea y se compara con el umbral.
+```
+
+### 21 — Plazo de carencia
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso MIP"]
+
+enunciado: "¿Qué es el plazo de carencia?"
+tipo: mc
+opciones_explicitas:
+  - "El tiempo mínimo entre la última aplicación y la cosecha"
+  - "El tiempo que dura el producto en el envase"
+  - "El plazo para pagar el producto"
+respuesta: "El tiempo mínimo entre la última aplicación y la cosecha"
+
+explicacion: |
+  Respetarlo protege al consumidor.
+```
+
+### 22 — Envases vacíos
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "basico"
+  tags: ["caso MIP"]
+
+enunciado: "¿Qué corresponde hacer con los envases vacíos de fitosanitarios?"
+tipo: mc
+opciones_explicitas:
+  - "Triple lavado y entrega en un centro de acopio autorizado"
+  - "Quemarlos en el campo"
+  - "Reutilizarlos para guardar agua"
+respuesta: "Triple lavado y entrega en un centro de acopio autorizado"
+
+explicacion: |
+  La Ley 27.279 regula la gestión de estos envases.
+```
+
+### 23 — Resistencia
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "avanzado"
+  tags: ["caso MIP"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Repetir siempre el mismo producto favorece la aparición de individuos resistentes."
+
+explicacion: |
+  Por eso se alternan herramientas y modos de acción.
+```
+
+### 24 — Momento de cosecha de granos
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso cosecha"]
+
+enunciado: "Para decidir cuándo cosechar un grano, ¿qué se controla además de su madurez?"
+tipo: mc
+opciones_explicitas:
+  - "La humedad del grano"
+  - "El color del tractor"
+  - "La hora de la jornada"
+respuesta: "La humedad del grano"
+
+explicacion: |
+  El exceso de humedad causa problemas de almacenamiento.
+```
+
+### 25 — Granos húmedos almacenados
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "avanzado"
+  tags: ["caso cosecha"]
+
+enunciado: "Se guarda grano con exceso de humedad. ¿Qué riesgo aparece?"
+tipo: mc
+opciones_explicitas:
+  - "Hongos y micotoxinas"
+  - "Mayor peso por hectárea"
+  - "Mejor conservación"
+respuesta: "Hongos y micotoxinas"
+
+explicacion: |
+  Por eso se seca antes de almacenar.
+```
+
+### 26 — Registro de apiario
+
+```
+metadata:
+  materia: "oficios"
+  tema: "agricultor_diagnostico_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso especializaciones"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para trasladar colmenas hay que cumplir con los requisitos de registro y documentación que exige el SENASA."
+
+explicacion: |
+  Los procedimientos concretos se consultan en el organismo.
 ```

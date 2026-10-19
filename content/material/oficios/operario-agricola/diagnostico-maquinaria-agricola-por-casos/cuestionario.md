@@ -1,4 +1,4 @@
-# Oficios — Operario Agrícola — Diagnóstico de maquinaria agrícola por casos (cuestionario, 16 preguntas VBLang)
+# Oficios — Operario Agrícola — Diagnóstico de maquinaria agrícola por casos (cuestionario, 23 preguntas VBLang)
 
 > Cierre del oficio (`OF13`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de maquinaria
@@ -339,4 +339,145 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: verificar pr
 explicacion: |
   Es la síntesis final del método de diagnóstico de maquinaria
   agrícola de todo el tema.
+```
+
+### 17 — Líquido para calibrar
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "basico"
+  tags: ["caso calibración"]
+
+enunciado: "¿Con qué se calibra una pulverizadora?"
+tipo: mc
+opciones_explicitas:
+  - "Con agua limpia"
+  - "Con el producto a aplicar"
+  - "Con aceite"
+respuesta: "Con agua limpia"
+
+explicacion: |
+  Se evita exponerse al producto y contaminar.
+```
+
+### 18 — Presión y caudal
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso calibración"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Para duplicar el caudal de un pico conviene cambiarlo por otro de mayor caudal, en lugar de duplicar la presión."
+
+explicacion: |
+  El caudal no aumenta en proporción directa con la presión.
+```
+
+### 19 — Diferencia entre picos
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso calibración"]
+
+enunciado: "Al medir los picos, uno entrega mucho menos caudal que los demás. ¿Qué corresponde?"
+tipo: mc
+opciones_explicitas:
+  - "Revisarlo, limpiarlo o reemplazarlo"
+  - "Aumentar la presión de toda la barra"
+  - "Ignorarlo"
+respuesta: "Revisarlo, limpiarlo o reemplazarlo"
+
+explicacion: |
+  Una diferencia importante indica desgaste u obstrucción.
+```
+
+### 20 — Peso de mil semillas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "intermedio"
+  tags: ["caso calibración"]
+
+enunciado: "¿Por qué se usa el peso de mil semillas al calibrar una sembradora?"
+tipo: mc
+opciones_explicitas:
+  - "Porque el tamaño de la semilla cambia los kilos necesarios por hectárea"
+  - "Para medir la humedad"
+  - "Para saber el precio de la semilla"
+respuesta: "Porque el tamaño de la semilla cambia los kilos necesarios por hectárea"
+
+explicacion: |
+  Con el mismo número de semillas, los kilos varían según el tamaño.
+```
+
+### 21 — Mantenimiento preventivo
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "basico"
+  tags: ["caso mantenimiento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "El mantenimiento preventivo se hace antes de que la máquina falle, en intervalos regulares."
+
+explicacion: |
+  Evita fallas en épocas críticas.
+```
+
+### 22 — Antes de arrancar
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "basico"
+  tags: ["caso mantenimiento"]
+
+enunciado: "¿Qué se revisa antes de arrancar la máquina cada día?"
+tipo: mc
+opciones_explicitas:
+  - "Niveles de aceite, refrigerante y combustible, neumáticos y pérdidas"
+  - "Solo el color de la pintura"
+  - "Únicamente la radio"
+respuesta: "Niveles de aceite, refrigerante y combustible, neumáticos y pérdidas"
+
+explicacion: |
+  Es la rutina diaria básica.
+```
+
+### 23 — Intervenir una máquina
+
+```
+metadata:
+  materia: "oficios"
+  tema: "operario_agricola_diagnostico_maquinaria_agricola_por_casos"
+  nivel: "basico"
+  tags: ["caso mantenimiento"]
+
+enunciado: "Antes de hacer mantenimiento en una máquina, ¿qué corresponde?"
+tipo: mc
+opciones_explicitas:
+  - "Detenerla, apagarla y asegurarla"
+  - "Dejarla en marcha para ver la falla"
+  - "Retirar las protecciones con el motor encendido"
+respuesta: "Detenerla, apagarla y asegurarla"
+
+explicacion: |
+  Los sistemas hidráulicos además acumulan presión.
 ```

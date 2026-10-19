@@ -1,4 +1,4 @@
-# Oficios — Procesador de Alimentos — Diagnóstico por casos (cuestionario, 16 preguntas VBLang)
+# Oficios — Procesador de Alimentos — Diagnóstico por casos (cuestionario, 24 preguntas VBLang)
 
 > Cierre del oficio (`OF15`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de
@@ -330,4 +330,163 @@ enunciado: "Los dos casos de este tema comparten la misma lógica: reconstruir e
 
 explicacion: |
   Es la síntesis final del método de diagnóstico de todo el tema.
+```
+
+### 17 — Limpieza y desinfección
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "basico"
+  tags: ["caso BPM"]
+
+enunciado: "¿Cuál es la diferencia entre limpiar y desinfectar?"
+tipo: mc
+opciones_explicitas:
+  - "Limpiar saca la suciedad visible; desinfectar reduce los microorganismos a un nivel seguro"
+  - "Son lo mismo con distintos nombres"
+  - "Desinfectar elimina la suciedad y limpiar elimina los microbios"
+respuesta: "Limpiar saca la suciedad visible; desinfectar reduce los microorganismos a un nivel seguro"
+
+explicacion: |
+  Desinfectar sobre una superficie sucia no sirve.
+```
+
+### 18 — POES
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "basico"
+  tags: ["caso BPM"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un POES indica qué se limpia, con qué, cómo, cuándo y quién lo hace."
+
+explicacion: |
+  Es un procedimiento escrito de saneamiento.
+```
+
+### 19 — Rotación de materias primas
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "intermedio"
+  tags: ["caso BPM"]
+
+enunciado: "¿Qué significa que el almacenamiento use rotación de lo primero que entra es lo primero que sale?"
+tipo: mc
+opciones_explicitas:
+  - "Se usa primero la mercadería más antigua"
+  - "Se usa primero la más nueva"
+  - "Se descarta lo que llegó primero"
+respuesta: "Se usa primero la mercadería más antigua"
+
+explicacion: |
+  Evita vencimientos y deterioro.
+```
+
+### 20 — Trazabilidad hacia atrás
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "intermedio"
+  tags: ["caso trazabilidad"]
+
+enunciado: "Ante un problema en un producto terminado, ¿qué permite averiguar la trazabilidad hacia atrás?"
+tipo: mc
+opciones_explicitas:
+  - "Qué proveedor y qué lote de materia prima intervinieron"
+  - "A qué clientes se entregó el lote"
+  - "Cuánto costó producirlo"
+respuesta: "Qué proveedor y qué lote de materia prima intervinieron"
+
+explicacion: |
+  La trazabilidad hacia adelante informa a qué clientes llegó.
+```
+
+### 21 — Simulacro
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "avanzado"
+  tags: ["caso trazabilidad"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un simulacro de trazabilidad consiste en elegir un lote al azar y reconstruir su historia en pocas horas."
+
+explicacion: |
+  Es la forma de probar que el sistema funciona.
+```
+
+### 22 — Qué es un PCC
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "intermedio"
+  tags: ["caso HACCP"]
+
+enunciado: "En un proceso de jugo pasteurizado, ¿por qué la pasteurización es un punto crítico de control?"
+tipo: mc
+opciones_explicitas:
+  - "Porque ninguna etapa posterior elimina el peligro biológico si falla"
+  - "Porque es la etapa más cara"
+  - "Porque es la que más tiempo lleva"
+respuesta: "Porque ninguna etapa posterior elimina el peligro biológico si falla"
+
+explicacion: |
+  Un PCC es un paso donde el control es esencial para prevenir o eliminar el peligro.
+```
+
+### 23 — Muchos puntos críticos
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "avanzado"
+  tags: ["caso HACCP"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Declarar la mayor cantidad posible de PCC mejora el sistema HACCP."
+
+explicacion: |
+  Los PCC deben ser pocos y verdaderamente críticos; si no, el sistema es inmanejable.
+```
+
+### 24 — Instrumento sin calibrar
+
+```
+metadata:
+  materia: "oficios"
+  tema: "procesador_de_alimentos_diagnostico_procesamiento_alimentos_por_casos"
+  nivel: "avanzado"
+  tags: ["caso HACCP"]
+
+enunciado: "El termómetro que controla la pasteurización no está calibrado. ¿Cuál es el problema?"
+tipo: mc
+opciones_explicitas:
+  - "Da una falsa seguridad: se puede registrar un valor que no es el real"
+  - "Ninguno si se anotan los valores"
+  - "Solo afecta el aspecto del producto"
+respuesta: "Da una falsa seguridad: se puede registrar un valor que no es el real"
+
+explicacion: |
+  La verificación incluye calibrar los instrumentos.
 ```

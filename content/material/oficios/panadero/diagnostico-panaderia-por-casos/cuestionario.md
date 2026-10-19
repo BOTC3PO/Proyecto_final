@@ -1,4 +1,4 @@
-# Oficios — Panadero — Diagnóstico de panadería por casos (cuestionario, 16 preguntas VBLang)
+# Oficios — Panadero — Diagnóstico de panadería por casos (cuestionario, 24 preguntas VBLang)
 
 > Cierre del oficio (`OF14`). Ver `teoria.md` en esta misma carpeta.
 > Escrito a mano (Claude), casos técnicos de diagnóstico de panadería
@@ -336,4 +336,163 @@ enunciado: "Los tres casos de este tema comparten la misma lógica: reconstruir 
 explicacion: |
   Es la síntesis final del método de diagnóstico de panadería de todo
   el tema.
+```
+
+### 17 — Masa madre con moho de colores
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "intermedio"
+  tags: ["caso masa madre"]
+
+enunciado: "Una masa madre muestra manchas rosadas y verdes en la superficie. ¿Qué corresponde hacer?"
+tipo: mc
+opciones_explicitas:
+  - "Descartarla por completo y preparar una nueva"
+  - "Retirar la parte manchada y seguir usando el resto"
+  - "Agregarle más harina para que se recupere"
+respuesta: "Descartarla por completo y preparar una nueva"
+
+explicacion: |
+  El moho de colores indica contaminación: no se recupera y no se usa.
+```
+
+### 18 — Líquido grisáceo en la masa madre
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "intermedio"
+  tags: ["caso masa madre"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Una capa líquida grisácea sobre la masa madre suele indicar que tiene hambre y se resuelve mezclando o retirando el líquido y alimentándola."
+
+explicacion: |
+  No es señal de contaminación sino de falta de alimento.
+```
+
+### 19 — Prefermento líquido
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "basico"
+  tags: ["caso prefermento"]
+
+enunciado: "¿Cómo se llama el prefermento líquido hecho con partes iguales de harina y agua y un poco de levadura?"
+tipo: mc
+opciones_explicitas:
+  - "Poolish"
+  - "Biga"
+  - "Masa vieja"
+respuesta: "Poolish"
+
+explicacion: |
+  La biga es más firme; la masa vieja es un trozo de masa anterior.
+```
+
+### 20 — Descontar el prefermento
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "intermedio"
+  tags: ["caso prefermento"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Al usar un prefermento hay que descontar de la masa final la harina y el agua que ese prefermento ya aporta."
+
+explicacion: |
+  Si no se descuenta, la hidratación de la masa final queda desajustada.
+```
+
+### 21 — Facturas sin volumen
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "intermedio"
+  tags: ["caso facturas"]
+
+enunciado: "Una masa de facturas con mucha azúcar y grasa leva más despacio que una de pan común. ¿Por qué?"
+tipo: mc
+opciones_explicitas:
+  - "El azúcar en exceso y las grasas dificultan el trabajo de la levadura"
+  - "Porque la levadura no tolera la harina"
+  - "Porque se hornea a mayor temperatura"
+respuesta: "El azúcar en exceso y las grasas dificultan el trabajo de la levadura"
+
+explicacion: |
+  Por eso estas masas necesitan más tiempo o más levadura.
+```
+
+### 22 — Medialunas sin hojaldre
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "avanzado"
+  tags: ["caso facturas"]
+
+enunciado: "En un laminado, la grasa se ablandó y se mezcló con la masa. ¿Qué consecuencia tiene?"
+tipo: mc
+opciones_explicitas:
+  - "Se pierden las capas y no se logra el hojaldrado"
+  - "La masa leva más rápido"
+  - "El producto sale más crujiente"
+respuesta: "Se pierden las capas y no se logra el hojaldrado"
+
+explicacion: |
+  Se trabaja en frío y con reposos en heladera para evitarlo.
+```
+
+### 23 — Rótulo del producto envasado
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "basico"
+  tags: ["caso habilitación"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Un pan envasado listo para el consumo debe llevar un rótulo con la lista de ingredientes y el origen del producto."
+
+explicacion: |
+  El rótulo es una exigencia para alimentos envasados.
+```
+
+### 24 — Habilitación y calidad
+
+```
+metadata:
+  materia: "oficios"
+  tema: "panadero_diagnostico_panaderia_por_casos"
+  nivel: "basico"
+  tags: ["caso habilitación"]
+
+enunciado: "Un panadero elabora un pan excelente pero no tiene habilitación. ¿Qué es correcto afirmar?"
+tipo: mc
+opciones_explicitas:
+  - "Hacer bien el pan no lo habilita para venderlo"
+  - "Si el pan es bueno, no necesita habilitación"
+  - "La habilitación se tramita después de las primeras ventas"
+respuesta: "Hacer bien el pan no lo habilita para venderlo"
+
+explicacion: |
+  La habilitación es un requisito sanitario independiente de la calidad del producto.
 ```
