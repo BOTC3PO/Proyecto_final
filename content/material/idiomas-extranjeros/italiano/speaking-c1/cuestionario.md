@@ -481,21 +481,3 @@ explicacion: "'Pensare' se combina con la preposición 'di' cuando sigue al infi
 ```  
 
 ---
-
-### 25 — Falso soggetto y forma impersonale en oración negativa  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["falso soggetto", "impersonale"]  
-pasos:  
-  - "Identifica el falso soggetto y la forma impersonale correcta en una oración negativa."  
-respuesta: "Mai"  
-tipo: completar  
-respuestas_validas:  
-  - "Mai"  
-  - "mai"  
-enunciado: "La frase '______ si è mai visto un caso simile' usa el falso soggetto y forma impersonale correctamente en una oración negativa."  
-variables: []  
-explicacion: "'Mai' es el falso soggetto que introduce la oración impersonal. La forma impersonale 'si + verbo' se usa para acciones generales o anónimas, incluso en contextos negativos."

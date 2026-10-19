@@ -520,3 +520,4 @@ respuestas_validas:
 tipo: completar
 enunciado: "Il ne viendra pas, ___ tu voudrais venir."
 explicacion: "Con 'bien que', se invierte el sujeto si la oración subordinada está en condicional. Aquí, 'voudrais-tu' es la forma correcta para el condicional."
+```

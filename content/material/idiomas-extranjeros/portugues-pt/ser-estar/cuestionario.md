@@ -445,23 +445,3 @@ respuestas_validas:
 enunciado: "Ela ___ na sala de aula e ___ feliz com as notas."  
 explicacion: "'Estar' se usa para ubicaciones temporales ('na sala') y emociones actuales ('feliz'), que no son permanentes."  
 ```
-
-### 25 — Elección entre "ser" y "estar" (profesión vs. emoción)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "ser-estar"  
-  nivel: "A2"  
-  tags: ["elección", "contexto"]  
-pasos:  
-  - "Analizar si el contexto describe una profesión o una emoción."  
-  - "Seleccionar 'ser' para roles fijos y 'estar' para emociones temporales."  
-respuesta: "é"  
-tipo: mc  
-opciones_explicitas:  
-  - "é"  
-  - "está"  
-  - "faz"  
-enunciado: "O Pedro ___ engenheiro e ___ feliz com seu trabalho."  
-variables: {}  
-explicacion: "'Ser' describe la profesión permanente ('engenheiro'), mientras que 'estar' indica su estado emocional actual ('feliz')."

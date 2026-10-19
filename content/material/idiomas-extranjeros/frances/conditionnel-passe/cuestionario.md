@@ -530,3 +530,4 @@ opciones_explicitas:
 respuesta: "serions arrivés"
 enunciado: "Si nous étions partis plus tôt, nous ___ à l'heure."
 explicacion: "'Arriver' rige el auxiliar 'être', y el condicional pasado exige el condicional presente de ese auxiliar: 'serions' (no 'avions', que además sería el auxiliar equivocado) + participio 'arrivés', que concuerda en plural con 'nous'."
+```

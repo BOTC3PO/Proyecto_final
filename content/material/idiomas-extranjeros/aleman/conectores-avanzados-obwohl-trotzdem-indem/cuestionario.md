@@ -489,3 +489,4 @@ respuesta: "weil"
 tipo: mc
 enunciado: "Er wurde zum Chef ernannt, ________ er die wichtigsten Projekte übernommen hatte."
 explicacion: "'Weil' introduce la causa de una acción (ej. 'porque aceptó proyectos importantes'), mientras que 'indem' se usa para métodos o modos."
+```

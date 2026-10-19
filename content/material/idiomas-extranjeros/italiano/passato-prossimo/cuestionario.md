@@ -446,3 +446,4 @@ opciones_explicitas:
   - "Mangiamo una torta."  
 respuesta: "Hanno mangiato una torta."  
 explicacion: "'Mangiare' usa 'avere'. En tercera persona plural, el auxiliar es 'hanno', y el participio no cambia ('mangiato')."
+```

@@ -435,24 +435,3 @@ tipo: completar
 enunciado: "___ estudar. (completar)"
 explicacion: "'Tenho que' se usa para expresar obligación."
 ```
-
-### 25 — Adverbio de tiempo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adverbios", "tiempo"]
-pasos:
-  - "Elegir el adverbio correcto para indicar tiempo."
-opciones_explicitas:
-  - "agora"
-  - "ontem"
-  - "amanhã"
-  - "depois"
-respuesta: "ontem"
-tipo: mc
-enunciado: "Ele veio ___. (elegir)"
-variables:
-  - "adverbios": ["agora", "ontem", "amanhã", "depois"]
-explicacion: "'Ontem' indica tiempo en el pasado."

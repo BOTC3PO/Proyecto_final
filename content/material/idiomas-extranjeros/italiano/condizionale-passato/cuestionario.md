@@ -430,4 +430,5 @@ tipo: completar
 respuestas_validas:  
   - "non sarei andato"  
   - "Non sarei andato"  
-enunciado: "Se ___ (andare) al lavoro, non avrei perso il treno."```
+enunciado: "Se ___ (andare) al lavoro, non avrei perso il treno."
+```

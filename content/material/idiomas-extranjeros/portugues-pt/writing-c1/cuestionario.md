@@ -423,15 +423,3 @@ respuestas_validas:
   - "que"  
   - "Que"  
 ```
-
-### 24 — Uso del gerundio en oraciones con "enquanto" y sustantivos abstractos  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "writing-c1"  
-  nivel: "C1"  
-  tags: ["gerúndio", "sustantivo-abstracto", "estructura-sintáctica"]  
-pasos:  
-  - "Reconocer el uso correcto del gerundio en contexto de simultaneidad con sustantivos abstractos."  
-  - "Verificar si la oración está conectada de manera lógica y gramaticalmente coherente."  
-enunciado

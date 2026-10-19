@@ -471,22 +471,3 @@ tipo: mc
 enunciado: "Eles ___ muito cansados após o longo dia de trabalho."
 explicacion: "El pretérito perfecto de 'ser' para 'eles' es 'foram'. El adjetivo debe concordar con el sujeto plural en género y número."
 ```
-
-### 25 — Preterito-perfeito con verbo ter + participio (femenino)  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "preterito-perfeito"
-  nivel: "A2"
-  tags: ["ter", "participio"]
-pasos:
-  - "Completa la oración con el verbo 'ter' en pretérito perfecto para 'ela'."
-  - "Agrega el participio del verbo dado."
-respuesta: "teve"
-respuestas_validas:
-  - "teve"
-  - "Teve"
-tipo: completar
-enunciado: "Ela ___ que estudar muito antes da prova de amanhã."
-variables: {}
-explicacion: "El pretérito perfecto de 'ter' para 'ela' es 'teve'. Se usa con un participio para formar el pretérito perfecto compuesto."

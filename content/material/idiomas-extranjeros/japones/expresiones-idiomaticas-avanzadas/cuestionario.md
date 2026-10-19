@@ -511,3 +511,4 @@ respuestas_validas:
   - "気が付けた"
 enunciado: "彼女の隠れた感情に______。"
 explicacion: "「気が付く」 indica una percepción repentina. La forma 「～た」 encaja con el contexto de un descubrimiento pasado."
+```

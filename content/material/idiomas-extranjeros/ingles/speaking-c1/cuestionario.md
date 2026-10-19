@@ -452,3 +452,4 @@ respuestas_validas:
   - "Could be implemented to reduce pollution"
 tipo: completar
 enunciado: "The policy ___ in urban areas."
+```

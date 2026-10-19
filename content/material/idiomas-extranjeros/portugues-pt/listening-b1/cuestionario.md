@@ -459,22 +459,3 @@ respuestas_validas:
 enunciado: "Eu ___ estudar mais antes da prova de matemática."  
 explicacion: "O verbo 'precisar' indica necessidade. Nesse contexto, usa-se a forma pessoal 'preciso' para expressar obrigação imediata."  
 ```
-
-### 25 — Pergunta sobre tempo de futuro  
-```  
-metadata:  
-  materia: "portugues-pt"  
-  tema: "preposições"  
-  nivel: "B1"  
-  tags: ["sobre", "interesse"]  
-pasos:  
-  - "Reconhecer o sujeito e a função do verbo na oração."  
-  - "Identificar a preposição correta para expressar interesse ou tema."  
-respuesta: "em"  
-tipo: completar  
-respuestas_validas:  
-  - "em"  
-  - "Em"  
-enunciado: "Ela está interessada ___ novos projetos de voluntariado."  
-variables: []  
-explicacion: "A preposição 'em' é usada para expressar interesse em algo abstrato, como temas ou ideias. Nesse caso, complementa a expressão 'interessada em'."

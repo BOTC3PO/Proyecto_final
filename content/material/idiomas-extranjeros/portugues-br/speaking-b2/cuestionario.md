@@ -459,5 +459,3 @@ tipo: completar
 enunciado: "Eles ___ (trazer) um presente para a festa hoje."  
 explicacion: "'Trazer' es un verbo irregular en pretérito perfeito. Para el sujeto 'eles', la conjugación es 'trouxeram'."  
 ```
-
-### 25 — Uso de "ser" + adjetivo para

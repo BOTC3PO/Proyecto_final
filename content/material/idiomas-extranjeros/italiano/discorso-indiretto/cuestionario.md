@@ -484,7 +484,7 @@ explicacion: "Il pronome diretto 'il regalo' e l'indiretto 'ti' (rivolto a chi r
 
 
 
-### 22 — Discorso indiretto: espressione con "chiedere"  
+### 21 — Discorso indiretto: espressione con "chiedere"  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/italiano"
@@ -508,7 +508,7 @@ explicacion: "Il pronome diretto 'aiuto' e l'indiretto 'ti' (rivolto a chi ripor
 
 
 
-### 23 — Discorso indiretto: espressione con "fare"  
+### 22 — Discorso indiretto: espressione con "fare"  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/italiano"
@@ -532,7 +532,7 @@ explicacion: "Il pronome diretto 'un regalo' e l'indiretto 'ti' (rivolto a chi r
 
 
 
-### 24 — Discorso indiretto: espressione con "portare"  
+### 23 — Discorso indiretto: espressione con "portare"  
 ```yaml
 metadata:
   materia: "idiomas-extranjeros/italiano"
@@ -552,14 +552,3 @@ enunciado: "Luisa disse: 'Ti porto il libro.' → Luisa disse che ___ portava qu
 respuesta: "me lo"
 explicacion: "Il pronome diretto 'il libro' e l'indiretto 'ti' (rivolto a chi riporta il discorso) si uniscono in 'me lo' con la chiusura del verbo 'portare', poiché chi ascolta ora è lo stesso destinatario originale ('a me')."
 ```
-
-
-
-
-### 25 — Discorso indiretto: espressione con "dare"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "discorso-indiretto"
-  nivel: "B2"
-  tags: ["ver

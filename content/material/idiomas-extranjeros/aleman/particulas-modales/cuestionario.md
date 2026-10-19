@@ -459,4 +459,5 @@ enunciado: "Wenn du ______, hättest du es sicher geschafft!"
 tipo: completar  
 respuestas_validas:
   - "Konntest"
-  - "KONNTEST"```
+  - "KONNTEST"
+```

@@ -463,3 +463,4 @@ enunciado: "—— 電車が止まっています。—— そうですか、___
 opciones_explicitas: ["バスを使うことにしましょう", "バスを使うことになります", "バスを使うことになる"]  
 respuesta: "バスを使うことにしましょう"  
 explicacion: "'ことにしましょう' es la forma correcta para proponer una alternativa en contexto informal pero respetuoso."
+```

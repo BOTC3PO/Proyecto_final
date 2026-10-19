@@ -491,8 +491,3 @@ opciones_explicitas:
 enunciado: "Le professeur ___ je respecte le plus est mon directeur de thèse."
 explicacion: "'Respecter' no requiere preposición en este contexto, por lo que el pronombre correcto es 'que'."
 ```
-
-### 25 — Pronom relatif compo  
-```  
-metadata:  
-  materia

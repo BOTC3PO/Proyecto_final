@@ -464,3 +464,4 @@ respuestas_validas:
   - "watching sports on TV"
   - "Watching sports on TV"
 enunciado: "Elena and her friends enjoy cooking, hiking, and ________ together."
+```

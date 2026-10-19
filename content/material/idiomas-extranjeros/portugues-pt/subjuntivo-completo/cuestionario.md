@@ -424,15 +424,3 @@ respuestas_validas:
   - "SEJA"
 tipo: completar  
 ```
-
-### 24 — Subjuntivo em oração de hipótese com "se" e tempo presente  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "subjuntivo-completo"  
-  nivel: "B2"  
-  tags: ["hipótese", "presente"]  
-pasos:  
-  - "Identificar a hipótese não confirmada."  
-  - "Aplicar o subjuntivo presente quando necessário."  
-explicacion: "Orações condicionais com 'se' exigem o subjuntivo se houver incerteza sobre a realização do fato. Neste caso, o uso do presente indica uma hipótese não confirmada no

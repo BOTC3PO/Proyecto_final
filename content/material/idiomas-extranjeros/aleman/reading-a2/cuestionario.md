@@ -525,3 +525,4 @@ respuestas_validas:
   - "Meinem"
 enunciado: "Das ist ___ Bruder. Er heißt Max."
 explicacion: "'Meinem' es el posesivo correcto para 'Bruder' (masculino) en el caso dativo, ya que la oración usa 'ist' seguido de un sustantivo masculino."
+```

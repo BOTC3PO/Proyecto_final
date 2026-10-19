@@ -499,3 +499,4 @@ respuestas_validas:
   - "Morgen"
 enunciado: "___ kommen wir? (kommen = venir)"
 explicacion: "La expresión *morgen* indica 'mañana' en respuestas a preguntas de tiempo."
+```

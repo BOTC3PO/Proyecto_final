@@ -531,3 +531,4 @@ opciones_explicitas:
   - "Por exemplo"
 tipo: mc
 explicacion: "'Em resumo' é utilizado para concluir ou sintetizar um argumento complexo de forma clara."
+```

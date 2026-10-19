@@ -518,20 +518,3 @@ opciones_explicitas:
 respuesta: "彼の辞任は健康問題が理由でした"
 explicacion: "La estructura ～が理由で se usa para justificar una decisión o evento basado en un motivo específico."
 ```
-
-### 25 — 説明と理由（再）  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "writing-n1"
-  nivel: "N1"
-  tags: ["future result", "koto ni naru"]
-pasos:
-  - "Identificar el uso de ～ことになる para indicar un resultado inevitable."
-  - "Elegir la opción que describe una consecuencia lógica del contexto."
-opciones_explicitas:
-  - "彼はこのプロジェクトの失敗が責任者になることになりました"
-  - "彼はこのプロジェクトの成功が責任者になることになりました"
-  - "彼はこのプロジェクトの進捗が責任者になることになりました"
-respuesta: "彼はこのプロジェクトの失敗が責任者になることになりました"
-explicacion: "La estructura ～ことになる se usa para eventos futuros que se derivan de una situación ya existente."

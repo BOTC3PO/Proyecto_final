@@ -490,3 +490,4 @@ respuestas_validas:
   - "Some"
 enunciado: "I bought ___ chocolate for the party."
 explicacion: "En oraciones afirmativas con sustantivos no contables como 'chocolate', se usa el cuantificador 'some' en lugar de un artículo."
+```

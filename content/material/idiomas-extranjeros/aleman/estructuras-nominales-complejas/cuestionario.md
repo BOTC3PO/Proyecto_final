@@ -476,4 +476,5 @@ respuestas_validas:
   - "vergangene"  
   - "Vergangene"  
 enunciado: "Die ___ Veranstaltung, die wir letzte Woche besucht haben, war sehr informativ."
-explicacion: "El participio \"vergangene\" (pasada) describe la \"Veranstaltung\", femenino. La cláusula relativa indica una acción pasada (\"besucht\")."```
+explicacion: "El participio \"vergangene\" (pasada) describe la \"Veranstaltung\", femenino. La cláusula relativa indica una acción pasada (\"besucht\")."
+```

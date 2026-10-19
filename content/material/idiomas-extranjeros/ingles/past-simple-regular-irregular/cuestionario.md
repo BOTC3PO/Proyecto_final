@@ -448,22 +448,3 @@ opciones_explicitas:
   - "see"  
 respuesta: "saw"  
 ```
-
-### 25 — Irregular verb with time phrase and plural subject  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "past-simple-regular-irregular"  
-  nivel: "A2"  
-  tags: ["plural", "begin"]  
-pasos:  
-  - "Reconocer que 'begin' es irregular en pasado simple."  
-  - "Seleccionar la forma correcta de 'begin' en pasado para el sujeto plural."  
-respuesta: "began"  
-respuestas_validas:  
-  - "began"  
-  - "Began"  
-tipo: completar  
-enunciado: "The students ___ their exams at 9 AM yesterday."  
-variables: []  
-explicacion: "'Begin' tiene forma irregular en pasado simple ('began'), no se sigue la regla '-ed'."

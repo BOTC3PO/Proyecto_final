@@ -483,3 +483,4 @@ respuestas_validas:
   - "Enquanto"
 enunciado: "___ eu estava limpando a casa, o vizinho chegou."
 explicacion: "'Enquanto' introduce una acción simultánea que se interrumpe, requiriendo el gerundio 'estava limpando' con la preposición correcta."
+```

@@ -442,22 +442,3 @@ respuestas_validas:
 enunciado: "Ils ___ un café avant de partir."
 explicacion: "El verbo *prendre* (terminación -re) se conjuga como 'prennent' para el sujeto 'ils'. Las terminaciones del presente de los verbos -re son: je prends, tu prends, il/elle prend, nous prenons, vous prenez, ils/elles prennent."
 ```
-
-
-### 24 — Conjugation of *envoyer* (ellos)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "presente-verbos-er-ir-re"
-  nivel: "A1"
-  tags: ["presente", "re"]
-pasos:
-  - "Localizar el sujeto y la raíz del verbo."
-  - "Aplicar las terminaciones de los verbos -re (-ent)."
-respuesta: "envoient"
-tipo: completar
-respuestas_validas:
-  - "envoient"
-  - "Envoient"
-enunciado: "Ils ___ des lettres à leurs amis."
-explicacion: "El verbo *envoyer* (terminación

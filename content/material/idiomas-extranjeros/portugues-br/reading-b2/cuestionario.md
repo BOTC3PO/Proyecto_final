@@ -452,3 +452,4 @@ respuestas_validas:
 tipo: completar
 enunciado: "O professor ______ com os alunos todos os dias."  
 explicacion: "El sujeto 'o professor' es masculino singular, por lo que el verbo debe ser 'estudia'. 'Estudiamos', 'estudiar' o 'estudiam' no son correctas en este contexto."
+```

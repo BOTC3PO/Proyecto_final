@@ -491,24 +491,3 @@ respuestas_validas:
 explicacion: "'Que' introduz uma oração subordinada que exige o uso do subjuntivo em contextos de desejo ou possibilidade. Outras opções não se aplicam."
 enunciado: "Ela insistiu ___ eu tentasse novamente no concurso."
 ```
-
-### 25 — Uso de "se" em oração com verbo de ligação  
-```yaml
-metadata:
-  materia: "portugues-br"
-  tema: "preposições"
-  nivel: "C1"
-  tags: ["de", "a"]
-pasos:
-  - "Identificar o verbo que exige a preposição 'de'."
-  - "Verificar se a construção da frase está correta."
-respuesta: "de"
-tipo: completar
-respuestas_validas:
-  - "De"
-  - "DE"
-explicacion: "'De' é a preposição correta após verbos que indicam pertencimento ou origem. Nesse caso, completa o sentido da oração de forma natural."
-enunciado: "Ela falou ___ um cliente importante durante a reunião."
-variables:
-  - "cliente"
-  - "reunião"

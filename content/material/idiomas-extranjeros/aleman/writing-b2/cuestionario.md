@@ -19,7 +19,8 @@ respuestas_validas:
   - "Mit"
 tipo: completar
 enunciado: "Der Junge spielt ___ seinem Bruder. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el caso dativo, por lo que se usa \"seinem\" (dativo de \"der\") en lugar del acusativo."```  
+explicacion: "La preposición \"mit\" requiere el caso dativo, por lo que se usa \"seinem\" (dativo de \"der\") en lugar del acusativo."
+```
 
 ---
 
@@ -40,7 +41,8 @@ opciones_explicitas:
 respuesta: "ging"  
 tipo: mc
 enunciado: "Er ___ gestern ins Kino. (Präteritum)"
-explicacion: "El verbo \"gehen\" en Präteritum para el sujeto \"er\" es \"ging\", no \"geht\" (Presente) ni \"ganz\" (error ortográfico)."```  
+explicacion: "El verbo \"gehen\" en Präteritum para el sujeto \"er\" es \"ging\", no \"geht\" (Presente) ni \"ganz\" (error ortográfico)."
+```
 
 ---
 
@@ -59,7 +61,8 @@ respuestas_validas:
   - "Die"
 tipo: completar
 enunciado: "Ich interessiere mich ___ ___ Natur. (Präposition + Akkusativ)"
-explicacion: "La preposición \"für\" requiere el acusativo, por lo que se usa \"die\" en lugar de \"der\" (nominativo)."```  
+explicacion: "La preposición \"für\" requiere el acusativo, por lo que se usa \"die\" en lugar de \"der\" (nominativo)."
+```
 
 ---
 
@@ -80,7 +83,8 @@ opciones_explicitas:
 respuesta: "hat gearbeitet"  
 tipo: mc
 enunciado: "Er ___ im Büro, als der Strom ausfiel. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als...ausfiel\"), por lo que se usa el Perfekt \"hat gearbeitet\", no el Präteritum o Presente."```  
+explicacion: "El contexto indica un evento concluido (\"als...ausfiel\"), por lo que se usa el Perfekt \"hat gearbeitet\", no el Präteritum o Presente."
+```
 
 ---
 
@@ -99,7 +103,8 @@ respuestas_validas:
   - "Dem"
 tipo: completar
 enunciado: "Sie spricht ___ ___ Kunden. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"den\" (acusativo) no es válido aquí."```  
+explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"den\" (acusativo) no es válido aquí."
+```
 
 ---
 
@@ -120,7 +125,8 @@ opciones_explicitas:
 respuesta: "liest"  
 tipo: mc
 enunciado: "Sie ___ ein Buch. (Präsens)"
-explicacion: "El verbo \"lesen\" en Presente para \"sie\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."```  
+explicacion: "El verbo \"lesen\" en Presente para \"sie\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."
+```
 
 ---
 
@@ -139,7 +145,8 @@ respuestas_validas:
   - "Des"
 tipo: completar
 enunciado: "Er hat Angst ___ ___ Zukunft. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."```  
+explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
+```
 
 ---
 
@@ -160,7 +167,8 @@ opciones_explicitas:
 respuesta: "hat gegessen"  
 tipo: mc
 enunciado: "Wir ___ zu Hause, als es regnete. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als es regnete\"), por lo que se usa el Perfekt \"hat gegessen\", no el Präteritum o Presente."```  
+explicacion: "El contexto indica un evento concluido (\"als es regnete\"), por lo que se usa el Perfekt \"hat gegessen\", no el Präteritum o Presente."
+```
 
 ---
 
@@ -179,7 +187,8 @@ respuestas_validas:
   - "Den"
 tipo: completar
 enunciado: "Er spricht ___ ___ Chef. (Präposition + Akkusativ)"
-explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."```  
+explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."
+```
 
 ---
 
@@ -200,7 +209,8 @@ opciones_explicitas:
 respuesta: "fuhr"  
 tipo: mc
 enunciado: "Sie ___ gestern mit dem Auto. (Präteritum)"
-explicacion: "El verbo \"fahren\" en Präteritum para el sujeto \"sie\" es \"fuhr\", no \"fährt\" (Presente) ni \"fahre\" (Konjunktiv I)."```  
+explicacion: "El verbo \"fahren\" en Präteritum para el sujeto \"sie\" es \"fuhr\", no \"fährt\" (Presente) ni \"fahre\" (Konjunktiv I)."
+```
 
 ---
 
@@ -219,7 +229,8 @@ respuestas_validas:
   - "Dem"
 tipo: completar
 enunciado: "Er hilft ___ ___ Nachbarn. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."```  
+explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."
+```
 
 ---
 
@@ -240,7 +251,8 @@ opciones_explicitas:
 respuesta: "hat gearbeitet"  
 tipo: mc
 enunciado: "Wir ___ gestern viel. (Perfekt)"
-explicacion: "El Perfekt de \"arbeiten\" para el sujeto \"wir\" es \"haben gearbeitet\", no el Präteritum ni Presente."```  
+explicacion: "El Perfekt de \"arbeiten\" para el sujeto \"wir\" es \"haben gearbeitet\", no el Präteritum ni Presente."
+```
 
 ---
 
@@ -259,7 +271,8 @@ respuestas_validas:
   - "Des"
 tipo: completar
 enunciado: "Er hat Angst ___ ___ Gesundheit. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."```  
+explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
+```
 
 ---
 
@@ -280,7 +293,8 @@ opciones_explicitas:
 respuesta: "hat geträumt"  
 tipo: mc
 enunciado: "Sie ___ im Schlaf, als es klingelte. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als es klingelte\"), por lo que se usa el Perfekt \"hat geträumt\", no el Präteritum o Presente."```  
+explicacion: "El contexto indica un evento concluido (\"als es klingelte\"), por lo que se usa el Perfekt \"hat geträumt\", no el Präteritum o Presente."
+```
 
 ---
 
@@ -299,7 +313,8 @@ respuestas_validas:
   - "Den"
 tipo: completar
 enunciado: "Sie spricht ___ ___ Chef. (Präposition + Akkusativ)"
-explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."```  
+explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."
+```
 
 ---
 
@@ -320,7 +335,8 @@ opciones_explicitas:
 respuesta: "liest"  
 tipo: mc
 enunciado: "Er ___ ein Buch. (Präsens)"
-explicacion: "El verbo \"lesen\" en Presente para \"er\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."```  
+explicacion: "El verbo \"lesen\" en Presente para \"er\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."
+```
 
 ---
 
@@ -339,7 +355,8 @@ respuestas_validas:
   - "Dem"
 tipo: completar
 enunciado: "Sie hilft ___ ___ Nachbarn. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."```  
+explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."
+```
 
 ---
 
@@ -360,7 +377,8 @@ opciones_explicitas:
 respuesta: "fuhr"  
 tipo: mc
 enunciado: "Er ___ gestern mit dem Auto. (Präteritum)"
-explicacion: "El verbo \"fahren\" en Präteritum para el sujeto \"er\" es \"fuhr\", no \"fährt\" (Presente) ni \"fahre\" (Konjunktiv I)."```  
+explicacion: "El verbo \"fahren\" en Präteritum para el sujeto \"er\" es \"fuhr\", no \"fährt\" (Presente) ni \"fahre\" (Konjunktiv I)."
+```
 
 ---
 
@@ -379,7 +397,8 @@ respuestas_validas:
   - "Des"
 tipo: completar
 enunciado: "Er hat Angst ___ ___ Gesundheit. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."```  
+explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
+```
 
 ---
 
@@ -400,7 +419,8 @@ opciones_explicitas:
 respuesta: "hat geschlafen"  
 tipo: mc
 enunciado: "Er ___ den ganzen Tag, als es klingelte. (Perfekt)"
-explicacion: "El contexto indica un evento concluido (\"als es klingelte\"), por lo que se usa el Perfekt \"hat geschlafen\", no el Präteritum o Presente."```  
+explicacion: "El contexto indica un evento concluido (\"als es klingelte\"), por lo que se usa el Perfekt \"hat geschlafen\", no el Präteritum o Presente."
+```
 
 ---
 
@@ -419,7 +439,8 @@ respuestas_validas:
   - "Den"
 tipo: completar
 enunciado: "Er spricht ___ ___ Chef. (Präposition + Akkusativ)"
-explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."```  
+explicacion: "La preposición \"mit\" requiere el acusativo, por lo que se usa \"den\" en lugar de \"dem\" (dativo) ni \"der\" (nominativo)."
+```
 
 ---
 
@@ -440,7 +461,8 @@ opciones_explicitas:
 respuesta: "hat geschlafen"  
 tipo: mc
 enunciado: "Wir ___ gestern viel. (Perfekt)"
-explicacion: "El Perfekt de \"schlafen\" para el sujeto \"wir\" es \"haben geschlafen\", no el Präteritum ni Presente."```  
+explicacion: "El Perfekt de \"schlafen\" para el sujeto \"wir\" es \"haben geschlafen\", no el Präteritum ni Presente."
+```
 
 ---
 
@@ -459,7 +481,8 @@ respuestas_validas:
   - "Dem"
 tipo: completar
 enunciado: "Sie hilft ___ ___ Nachbarn. (Präposition + Dativ)"
-explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."```  
+explicacion: "La preposición \"mit\" requiere el dativo, por lo que se usa \"dem\" en lugar de \"den\" (acusativo) ni \"der\" (nominativo)."
+```
 
 ---
 
@@ -480,7 +503,8 @@ opciones_explicitas:
 respuesta: "liest"  
 tipo: mc
 enunciado: "Er ___ ein Buch. (Präsens)"
-explicacion: "El verbo \"lesen\" en Presente para \"er\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."```  
+explicacion: "El verbo \"lesen\" en Presente para \"er\" es \"liest\", no \"lies\" (Präteritum) ni duplicación innecesaria."
+```
 
 ---
 
@@ -499,4 +523,5 @@ respuestas_validas:
   - "Des"
 tipo: completar
 enunciado: "Er hat Angst ___ ___ Zukunft. (Präposition + Genitiv)"
-explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."```
+explicacion: "La preposición \"vor\" requiere el genitivo, por lo que se usa \"der\" (nominativo) no es válido aquí."
+```

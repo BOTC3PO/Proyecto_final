@@ -435,22 +435,3 @@ respuesta: "Podemos"
 tipo: mc
 enunciado: "___ ajudar, por favor?"
 ```
-
-### 25 — Uso de "ter" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "ter"]
-pasos:
-  - "Identificar el sujeto y el complemento en la oración."
-  - "Elegir la forma correcta de 'ter' según el sujeto."
-respuesta: "tens"
-respuestas_validas:
-  - "tens"
-  - "Tens"
-tipo: completar
-enunciado: "Você ___ um irmão, não é?"
-variables:
-  - "ter"

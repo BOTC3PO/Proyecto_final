@@ -455,22 +455,3 @@ tipo: mc
 enunciado: "___ lavoro, lui dorme. (mentre)"  
 explicacion: "'Mentre' indica acciones que ocurren simultáneamente, mientras que 'dopo che' es secuencial."  
 ```
-
-### 25 — Frase con "poco"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "listening-b1"  
-  nivel: "B1"  
-  tags: ["quantità", "avverbio"]  
-pasos:  
-  - "Escucha la oración y completa el espacio en blanco con el adverbio correcto para 'poco'."  
-  - "Verifica que 'poco' se use antes de sustantivos masculinos singulares."  
-respuesta: "poco"  
-tipo: completar  
-respuestas_validas:  
-  - "poco"  
-  - "Poco"  
-enunciado: "___ tempo hai? (poco)"  
-variables: []  
-explicacion: "'Poco' es el adverbio de cantidad que se usa antes de sustantivos masculinos singulares, como 'tempo'."

@@ -417,8 +417,3 @@ respuestas_validas:
   - "wird"  
   - "Wird"  
 ```
-
-### 24 — Voz pasiva en oraciones con verbos de transporte (bringen)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/aleman

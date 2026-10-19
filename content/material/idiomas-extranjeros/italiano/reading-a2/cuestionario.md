@@ -483,19 +483,3 @@ explicacion: "La preposición 'da' se usa para indicar el origen de un verbo int
 ```  
 
 ---
-
-### 25 — Verbo avere con pronombre reflexivo  
-```
-metadata:
-  materia: "italiano"
-  tema: "preposizioni-tempo"
-  nivel: "A2"
-  tags: ["preposizioni", "tempo"]
-tipo: completar
-enunciado: "La lezione finisce ___ mezzogiorno."
-respuesta: "a"
-respuestas_validas:
-  - "a"
-  - "A"
-pasos:
-  - Identificar el uso de la preposición con expresiones de tiempo.

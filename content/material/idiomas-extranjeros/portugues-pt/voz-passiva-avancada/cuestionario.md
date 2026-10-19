@@ -453,3 +453,4 @@ respuestas_validas:
   - "Foram anunciadas"
 enunciado: "As decisões _______ por uma comissão durante a reunião do conselho diretor."
 explicacion: "El sujeto 'as decisões' es femenino plural. El participio debe ser 'anunciadas', concordando con el sujeto."
+```

@@ -484,3 +484,4 @@ respuestas_validas:
   - "il suo"
   - "Il suo"
 explicacion: "El artículo 'il' (masculino singular) requiere que el adjetivo 'suo' esté en masculino singular, sin cambio de forma."
+```

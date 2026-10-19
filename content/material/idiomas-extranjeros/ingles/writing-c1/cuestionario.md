@@ -505,23 +505,3 @@ enunciado: "___ the data shows a significant increase in sales over the past qua
 ```
 
 ---
-
-### 25 — Correct Use of Adverbs for Frequency  
-```
-metadata:
-  materia: "ingles"
-  tema: "writing-c1"
-  nivel: "C1"
-  tags: ["adverbios", "frecuencia"]
-pasos:
-  - "Identificar el adverbio que describe la frecuencia de una acción."
-  - "Verificar que esté correctamente posicionado en la oración."
-explicacion: "'Frequently' indica repetición regular y se coloca después del verbo. 'Frequent' es adjetivo, lo cual no encaja aquí."
-respuesta: "frequently"
-respuestas_validas:
-  - "frequently"
-  - "FREQUENTLY"
-tipo: completar
-enunciado: "The director ___ reviews the progress of the project to ensure it stays on schedule."
-variables:
-  - "frequent"

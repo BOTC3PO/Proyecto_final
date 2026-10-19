@@ -483,22 +483,3 @@ explicacion: "'Combien coûtent' se usa para preguntar sobre el precio de algo. 
 ```  
 
 ---
-
-### 25 — Interrogativo "Pourquoi n'as-tu pas..." (negación)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "interrogativos"  
-  nivel: "A1-A2"  
-  tags: ["pourquoi", "negacion"]  
-pasos:  
-  - "Identificar el interrogativo que pregunta sobre la razón de una negación."  
-  - "Completar el espacio con 'n’as-tu pas' en la forma correcta."  
-respuesta: "N’as-tu pas"  
-respuestas_validas:  
-  - "N’as-tu pas"  
-  - "n’as-tu pas"  
-tipo: completar  
-enunciado: "_________ fait ton devoir?"  
-variables: []  
-explicacion: "'Pourquoi n’as-tu pas' se usa para preguntar sobre la razón de una acción negativa. La negación va entre el verbo y el sujeto."

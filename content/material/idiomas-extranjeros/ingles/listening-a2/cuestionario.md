@@ -477,3 +477,4 @@ respuestas_validas:
 tipo: completar
 enunciado: "A: What are you doing this weekend? B: ______, it's going to be fun!"
 explicacion: "La estructura 'I will' se usa para expresar planes futuros concretos y divertidos en el inglés."
+```

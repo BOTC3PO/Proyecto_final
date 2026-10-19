@@ -427,22 +427,3 @@ respuestas_validas:
 enunciado: "Se não houver mais chuva, _____ feliz com o dia ensolarado."  
 explicacion: "El verbo 'ficar' (regular) en futuro se conjuga como 'ficarei' para la primera persona del singular (eu)."  
 ```
-
-### 25 — Futuro con expresión de tiempo indefinido  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "futuro"  
-  nivel: "B1"  
-  tags: ["tiempo", "futuro"]  
-pasos:  
-  - "Elige la opción correcta para expresar un tiempo indefinido futuro."  
-respuesta: "Vou trabalhar"  
-tipo: mc  
-opciones_explicitas:  
-  - "Trabalharei"  
-  - "Vou trabalhar"  
-  - "Trabalharé"  
-enunciado: "_____ em uma empresa internacional, se conseguir o emprego."  
-variables: []  
-explicacion: "La estructura 'vou + infinitivo' se usa con expresiones de tiempo indefinido. La forma correcta es 'Vou trabalhar'."

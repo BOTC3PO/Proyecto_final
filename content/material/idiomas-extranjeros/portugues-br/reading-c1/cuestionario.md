@@ -402,10 +402,3 @@ opciones_explicitas:
 respuesta: "Frases de cierre"  
 explicacion: "La frase 'em resumo' es típica de una conclusión, lo cual indica que se usan recursos textuales para sintetizar ideas."  
 ```
-
-### 22 — Identificar el uso de un término técnico definido en contexto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "reading-c1"  
-  nivel: "C1

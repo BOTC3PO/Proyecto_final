@@ -437,19 +437,3 @@ respuestas_validas:
     - "だろう"
 explicacion: "'～だろう' se usa para suposiciones basadas en comportamientos o actitudes. Aquí, el interés por deportes lleva a una deducción sobre su hábito de practicarlo."
 ```
-
-### 25 — 推論の補完  
-```
-metadata:
-    materia: "idiomas-extranjeros/japones"
-    tema: "expresiones-de-deduccion"
-    nivel: "N3"
-    tags: ["deduccion", "consecuencia"]
-pasos:
-    - "Identificar la relación entre el suceso y su consecuencia."
-    - "Seleccionar la expresión que exprese una deducción directa de un hecho."
-respuesta: "はず"
-tipo: completar
-respuestas_validas:
-    - "はず"
-explicacion: "'～はず' se usa cuando hay una expectativa clara basada en el resultado mencionado. Aquí, la deliciosa manzana lleva a deducir su calidad o procedencia."

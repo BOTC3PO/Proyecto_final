@@ -476,3 +476,4 @@ opciones_explicitas:
   - "fosse"
 enunciado: "A causa di ___ ritardo, l'aereo partì in orario."
 explicacion: "'A causa di' requiere un participio passato o una preposizione. La opción correcta es 'dovuto', que actúa como participio passato en función de causa."
+```
