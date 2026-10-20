@@ -14,9 +14,9 @@ El gas es el oficio donde la distancia entre **saber** y **estar habilitado** pe
 
 ## Quién regula: el ENARGAS y las distribuidoras
 
-La actividad del gas por redes en la Argentina está regulada por un ente nacional, el **ENARGAS (Ente Nacional Regulador del Gas)**, creado en el marco de la Ley 24.076, que fijó el marco regulatorio del gas. El ENARGAS aprueba las **normas técnicas de seguridad** que deben cumplir las instalaciones, controla a las **distribuidoras** (las empresas que llevan el gas a cada zona) y supervisa el sistema de matriculación.
+La actividad del gas por redes en la Argentina está regulada por un ente nacional, el **ENARGAS (Ente Nacional Regulador del Gas)**, creado en el marco de la Ley 24.076, que fijó el marco regulatorio del gas. (Desde 2025 el ENARGAS se fusionó con el ENRE en un único organismo, el Ente Nacional Regulador del Gas y la Electricidad, ENReGE, creado por el Decreto 452/2025 y en funcionamiento desde mayo de 2026; las normas NAG siguen vigentes y los sitios del ENARGAS siguen operativos durante la transición.) El ENARGAS aprueba las **normas técnicas de seguridad** que deben cumplir las instalaciones, controla a las **distribuidoras** (las empresas que llevan el gas a cada zona) y supervisa el sistema de matriculación.
 
-La **distribuidora** de cada zona interviene en la práctica: es la que habilita la conexión a la red, la que verifica documentación y la que, en general, mantiene el registro de instaladores matriculados que actúan en su área. En 2022 el ENARGAS (Resolución 219/2022) dispuso además que las distribuidoras armen un registro unificado de instaladores matriculados a nivel nacional. Cuando un usuario pide una nueva conexión o una habilitación, es con la distribuidora con quien se tramita.
+La **distribuidora** de cada zona interviene en la práctica: es la que habilita la conexión a la red, la que verifica documentación y la que, en general, mantiene el registro de instaladores matriculados que actúan en su área. En 2022 el ENARGAS (Resolución 219/2022) había creado una base unificada nacional de instaladores matriculados, pero la derogó en enero de 2025 (Resolución 21/2025): hoy el registro sigue llevándose por distribuidora. Cuando un usuario pide una nueva conexión o una habilitación, es con la distribuidora con quien se tramita.
 
 ## La norma técnica: la NAG-200
 
