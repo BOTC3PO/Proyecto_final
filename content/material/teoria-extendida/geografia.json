@@ -83,7 +83,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p4",
-          "text": "Comencemos por preguntarnos: ¿qué es el ambiente para la ley y para la economía? En Argentina, y en gran parte del mundo, la respuesta tiene un sustento jurídico muy claro. La Ley 27.621, conocida como Ley de Educación Ambiental Integral, no es un capricho legislativo; es la instrumentación de un derecho constitucional. Al modificar el artículo 92 de la Ley de Educación Nacional, esta norma establece que la escuela tiene la obligación de transmitir conocimientos, valores y actitudes que fortalezcan la conservación del ambiente y la biodiversidad. Esto significa que la preocupación por los recursos naturales no es opcional en la formación ciudadana; es un mandato estatal basado en el artículo 41 de la Constitución Nacional, que garantiza el derecho a un ambiente sano."
+          "text": "Comencemos por preguntarnos: ¿qué es el ambiente para la ley y para la economía? En Argentina, y en gran parte del mundo, la respuesta tiene un sustento jurídico muy claro. La Ley 27.621, conocida como Ley de Educación Ambiental Integral, no es un capricho legislativo; es la instrumentación de un derecho constitucional. Esta norma, que se integra con la Ley de Educación Nacional, establece que la escuela tiene la obligación de transmitir conocimientos, valores y actitudes que fortalezcan la conservación del ambiente y la biodiversidad. Esto significa que la preocupación por los recursos naturales no es opcional en la formación ciudadana; es un mandato estatal basado en el artículo 41 de la Constitución Nacional, que garantiza el derecho a un ambiente sano."
         },
         {
           "type": "paragraph",
@@ -209,12 +209,12 @@
         {
           "type": "paragraph",
           "id": "cap-2-p6",
-          "text": "Pero hay un problema con este sistema angular: la Tierra gira. Y si giramos, el sol no ilumina todos los lugares al mismo tiempo. Si cada ciudad definiera su propio mediodía basándose en dónde está el sol, el caos sería total para los trenes, los aviones y las comunicaciones internacionales. Ahí es donde entra la necesidad de los husos horarios. Como la Tierra da una vuelta completa (360 grados) en 24 horas, dividimos el planeta en 24 franjas verticales, cada una de 15 grados de longitud. Cada huso representa una hora de diferencia. El huso cero, el de Greenwich, es nuestra referencia universal (UTC). Al moverse hacia el este, sumamos horas; al moverse hacia el oeste, restamos. Es un acuerdo político y técnico que nos permite vivir sincronizados a pesar de la rotación planetaria."
+          "text": "Pero hay un problema con este sistema angular: la Tierra gira. Y si giramos, el sol no ilumina todos los lugares al mismo tiempo. Si cada ciudad definiera su propio mediodía basándose en dónde está el sol, el caos sería total para los trenes, los aviones y las comunicaciones internacionales. Ahí es donde entra la necesidad de los husos horarios. Como la Tierra da una vuelta completa (360 grados) en 24 horas, dividimos el planeta en 24 franjas verticales, cada una de 15 grados de longitud. Cada huso representa una hora de diferencia. El huso cero, el de Greenwich, es nuestra referencia universal (UTC). Argentina usa el horario UTC−3 durante todo el año. Al moverse hacia el este, sumamos horas; al moverse hacia el oeste, restamos. Es un acuerdo político y técnico que nos permite vivir sincronizados a pesar de la rotación planetaria."
         },
         {
           "type": "paragraph",
           "id": "cap-2-p7",
-          "text": "Sin embargo, esta división en husos no es perfecta. Hay países que, por razones económicas o políticas, se saltan los límites geográficos de los husos (como China, que usa un solo horario para todo su vasto territorio, o países que adoptan medias horas como India o Nepal). Y luego está la Línea Internacional de Cambio de Fecha, cerca del meridiano 180°, donde un día se \"pierde\" o se \"gan\" al cruzar el océano Pacífico. Todo esto nos enseña algo fundamental: la geografía no es solo naturaleza; es también una construcción humana para organizar el tiempo y el espacio."
+          "text": "Sin embargo, esta división en husos no es perfecta. Hay países que, por razones económicas o políticas, se saltan los límites geográficos de los husos (como China, que usa un solo horario para todo su vasto territorio, o países que adoptan medias horas e incluso cuartos de hora, como India y Nepal). Y luego está la Línea Internacional de Cambio de Fecha, cerca del meridiano 180°, donde un día se \"pierde\" o se \"gana\" al cruzar el océano Pacífico. Todo esto nos enseña algo fundamental: la geografía no es solo naturaleza; es también una construcción humana para organizar el tiempo y el espacio."
         },
         {
           "type": "heading",
@@ -230,7 +230,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p10",
-          "text": "Pero cuidado con el promedio. La densidad poblacional es un dato agregado que puede ocultar realidades muy distintas. Pensemos en Argentina: tenemos una superficie enorme (más de 2,7 millones de km²) y una población de casi 46 millones de habitantes. Si hacemos la cuenta, obtenemos una densidad baja, alrededor de 17 habitantes por kilómetro cuadrado. Esto podría hacernos pensar que el país está \"vacío\". Pero esa visión es errónea. La población no se reparte uniformemente. Se concentra masivamente en el área metropolitana de Buenos Aires, en el litoral y en el noroeste, mientras que Patagonia, gran parte del Chaco y la Puna permanecen con densísimas extensiones de territorio casi despoblado."
+          "text": "Pero cuidado con el promedio. La densidad poblacional es un dato agregado que puede ocultar realidades muy distintas. Pensemos en Argentina: tenemos una superficie enorme (más de 2,7 millones de km²) y una población de casi 46 millones de habitantes. Si hacemos la cuenta, obtenemos una densidad baja, alrededor de 17 habitantes por kilómetro cuadrado. Esto podría hacernos pensar que el país está \"vacío\". Pero esa visión es errónea. La población no se reparte uniformemente. Se concentra masivamente en el área metropolitana de Buenos Aires, en el litoral y en el noroeste, mientras que Patagonia, gran parte del Chaco y la Puna permanecen con enormes extensiones de territorio casi despoblado."
         },
         {
           "type": "paragraph",
@@ -256,7 +256,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p15",
-          "text": "Dentro de esta corriente, existe una tensión histórica. Por un lado, está el preservacionismo, representado por John Muir, quien argumentaba que la naturaleza salvaje tiene un valor intrínseco, espiritual y estético que debe protegerse intacta, sin intervención humana. Por otro, está el conservacionismo utilitario, que acepta la intervención humana siempre que sea para maximizar el rendimiento sostenible del recurso. Hoy, esta corriente se refleja en las políticas de parques nacionales, la regulación de la caza y la gestión forestal certificada. Es una postura que busca equilibrar el desarrollo económico con la protección ambiental, sin romper el sistema productivo actual."
+          "text": "Junto a esta corriente existe una tensión histórica. Por un lado, está el preservacionismo, representado por John Muir, quien argumentaba que la naturaleza salvaje tiene un valor intrínseco, espiritual y estético que debe protegerse intacta, sin intervención humana. Por otro, está el conservacionismo utilitario, que acepta la intervención humana siempre que sea para maximizar el rendimiento sostenible del recurso. Hoy, esta corriente se refleja en las políticas de parques nacionales, la regulación de la caza y la gestión forestal certificada. Es una postura que busca equilibrar el desarrollo económico con la protección ambiental, sin romper el sistema productivo actual."
         },
         {
           "type": "paragraph",
@@ -266,7 +266,7 @@
         {
           "type": "paragraph",
           "id": "cap-2-p17",
-          "text": "El decrecimiento propone reducir deliberadamente el nivel de producción y consumo en los países ricos, no para empobrecerse, sino para liberar tiempo, reducir la presión sobre los ecosistemas y redistribuir la riqueza de manera más justa. No buscan \"crecer de forma verde\" (eficiencia energética), sino transformar el modelo de desarrollo para priorizar el bienestar social y la sostenibilidad ecológica por encima del acumulación de capital. Es una postura que desafía el sentido común económico dominante, que asume que más producción es siempre mejor. Mientras el conservacionismo intenta hacer compatible el crecimiento con la protección ambiental, el decrecimiento sostiene que esa compatibilidad es una ilusión y que debemos cambiar de dirección."
+          "text": "El decrecimiento propone reducir deliberadamente el nivel de producción y consumo en los países ricos, no para empobrecerse, sino para liberar tiempo, reducir la presión sobre los ecosistemas y redistribuir la riqueza de manera más justa. No buscan \"crecer de forma verde\" (eficiencia energética), sino transformar el modelo de desarrollo para priorizar el bienestar social y la sostenibilidad ecológica por encima de la acumulación de capital. Es una postura que desafía el sentido común económico dominante, que asume que más producción es siempre mejor. Mientras el conservacionismo intenta hacer compatible el crecimiento con la protección ambiental, el decrecimiento sostiene que esa compatibilidad es una ilusión y que debemos cambiar de dirección."
         },
         {
           "type": "heading",
@@ -330,7 +330,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p6",
-          "text": "Si encontrás una escala numérica como 1:100.000, leéla como \"uno en cien mil\". Esto significa que cada centímetro en el mapa equivale a cien mil centímetros en la realidad. Si medís tres centímetros entre dos pueblos en ese mapa, estás viendo una distancia real de trescientos mil centímetros, lo que convertido a kilómetros da un kilómetro y medio. Es fundamental entender que la escala no es solo un número frío; determina qué información podés ver. Una escala grande (con un denominador chico, como 1:10.000) te permite ver calles, veredas y detalles mínimos, pero solo de una zona muy chica. Una escala chica (con un denominador gigante, como 1:10.000.000) te muestra continentes enteros, pero borra por completo los detalles locales. Por eso, cuando cambiamos de escala, cambiamos de perspectiva: lo que es un detalle insignificante a escala global puede ser el centro del mundo a escala local."
+          "text": "Si encontrás una escala numérica como 1:100.000, leela como \"uno en cien mil\". Esto significa que cada centímetro en el mapa equivale a cien mil centímetros en la realidad. Si medís tres centímetros entre dos pueblos en ese mapa, estás viendo una distancia real de trescientos mil centímetros, lo que convertido a kilómetros da tres kilómetros. Es fundamental entender que la escala no es solo un número frío; determina qué información podés ver. Una escala grande (con un denominador chico, como 1:10.000) te permite ver calles, veredas y detalles mínimos, pero solo de una zona muy chica. Una escala chica (con un denominador gigante, como 1:10.000.000) te muestra continentes enteros, pero borra por completo los detalles locales. Por eso, cuando cambiamos de escala, cambiamos de perspectiva: lo que es un detalle insignificante a escala global puede ser el centro del mundo a escala local."
         },
         {
           "type": "paragraph",
@@ -356,7 +356,7 @@
         {
           "type": "paragraph",
           "id": "cap-3-p11",
-          "text": "En el caso de Argentina, esta organización se materializa en una jerarquía clara de unidades político-administrativas. El país se divide en 23 provincias más la Ciudad Autónoma de Buenos Aires. Las provincias, a su vez, se subdividen en departamentos (o partidos, en el caso de Buenos Aires), y estos en municipios. Cada nivel tiene su propio gobierno y competencias específicas. Mientras que el Estado nacional se ocupa de la moneda, la defensa y las relaciones internacionales, los municipios gestionan la recolección de basura, el alumbrado y el tránsito local. Esta división no es natural; es una construcción histórica y política que puede cambiar mediante tratados o decisiones internas."
+          "text": "En el caso de Argentina, esta organización se materializa en una jerarquía clara de unidades político-administrativas. El país se divide en 23 provincias más la Ciudad Autónoma de Buenos Aires. Las provincias, a su vez, se subdividen en departamentos (o partidos, en el caso de Buenos Aires) y se organizan en municipios, que son el nivel local de gobierno. Cada nivel tiene sus propias competencias. Mientras que el Estado nacional se ocupa de la moneda, la defensa y las relaciones internacionales, los municipios gestionan la recolección de basura, el alumbrado y el tránsito local. Esta división no es natural; es una construcción histórica y política que puede cambiar mediante tratados o decisiones internas."
         },
         {
           "type": "paragraph",
@@ -477,7 +477,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p6",
-          "text": "Pero la clave de toda representación cartográfica es la escala. La escala es el factor de reducción que nos permite pasar del mundo real al papel. Piénsalo así: si querés ver tu ciudad entera en una hoja de papel, tenés que reducir enormemente cada manzana; si querés ver todo el planeta, tenés que reducirlo aún más. La escala nos dice que cada centímetro en el mapa equivale a muchos kilómetros en la realidad."
+          "text": "Pero la clave de toda representación cartográfica es la escala. La escala es el factor de reducción que nos permite pasar del mundo real al papel. Pensalo así: si querés ver tu ciudad entera en una hoja de papel, tenés que reducir enormemente cada manzana; si querés ver todo el planeta, tenés que reducirlo aún más. La escala nos dice que cada centímetro en el mapa equivale a muchos kilómetros en la realidad."
         },
         {
           "type": "paragraph",
@@ -498,7 +498,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p10",
-          "text": "¿Qué es, exactamente? La deslocalización es la transferencia de actividades productivas desde países desarrollados hacia otros con menores costos operativos. No se trata de que las empresas desaparecen de sus lugares de origen, sino que reubican partes de su cadena de valor en territorios donde la mano de obra, los impuestos o la regulación ambiental son más baratos. Es una ecuación de costos versus beneficios."
+          "text": "¿Qué es, exactamente? La deslocalización es la transferencia de actividades productivas desde países desarrollados hacia otros con menores costos operativos. No se trata de que las empresas desaparezcan de sus lugares de origen, sino que reubican partes de su cadena de valor en territorios donde la mano de obra, los impuestos o la regulación ambiental son más baratos. Es una ecuación de costos versus beneficios."
         },
         {
           "type": "paragraph",
@@ -534,7 +534,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p17",
-          "text": "Por qué es importante mirar la producción de alimentos? Retomando conceptos biológicos sobre las cadenas tróficas y la regla del 10% de energía, entendemos que producir 1 kg de carne requiere alimentar al animal con muchos kilos de vegetales durante su vida. La mayor parte de esa energía se \"pierde\" en el metabolismo del animal, no en el producto final. Por eso, un alimento de origen animal \"carga\" con la huella de carbono de todo lo que hizo falta para producirlo, incluyendo la energía perdida en cada eslabón de la cadena. Comer carne tiene una huella de carbono mucho más alta que comer verduras, no solo por la emisión directa del ganado, sino por la deforestación necesaria para cultivar el pienso que los alimenta."
+          "text": "¿Por qué es importante mirar la producción de alimentos? Retomando conceptos biológicos sobre las cadenas tróficas y la regla del 10% de energía, entendemos que producir 1 kg de carne requiere alimentar al animal con muchos kilos de vegetales durante su vida. La mayor parte de esa energía se \"pierde\" en el metabolismo del animal, no en el producto final. Por eso, un alimento de origen animal \"carga\" con la huella de carbono de todo lo que hizo falta para producirlo, incluyendo la energía perdida en cada eslabón de la cadena. Comer carne tiene una huella de carbono mucho más alta que comer verduras, no solo por la emisión directa del ganado, sino por la deforestación necesaria para cultivar el alimento balanceado con que se los nutre."
         },
         {
           "type": "paragraph",
@@ -625,7 +625,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p28",
-          "text": "El NBI es un indicador compuesto que surge de la combinación de varias carencias. No se mide con una sola pregunta, sino que evalúa si un hogar satisface ciertas condiciones mínimas. Tradicionalmente, se considera que un hogar tiene NBI si cumple al menos una de estas condiciones: vive en una vivienda precaria (con materiales no dignos), tiene hacinamiento (demasiadas personas por habitación) o hay niños en el hogar que no asisten a la escuela. Es una herramienta poderosa porque captura la multidimensionalidad de la pobreza; no solo mira el dinero, sino también la falta de acceso a servicios básicos y educación."
+          "text": "El NBI es un indicador compuesto que surge de la combinación de varias carencias. No se mide con una sola pregunta, sino que evalúa si un hogar satisface ciertas condiciones mínimas. Según el INDEC, un hogar tiene NBI si cumple al menos una de cinco condiciones: vive en una vivienda precaria, no tiene retrete con descarga de agua, tiene hacinamiento (más de tres personas por cuarto), hay algún niño en edad escolar que no asiste a la escuela, o tiene baja capacidad de subsistencia (el jefe de hogar con muy poca educación y muchas personas que dependen de sus ingresos). Es una herramienta poderosa porque captura la multidimensionalidad de la pobreza; no solo mira el dinero, sino también la falta de acceso a servicios básicos y educación."
         },
         {
           "type": "paragraph",
@@ -635,7 +635,7 @@
         {
           "type": "paragraph",
           "id": "cap-4-p30",
-          "text": "El hacinamiento, por su parte, es un indicador de la calidad del espacio habitado. Refleja cuántas personas comparten una habitación o una vivienda. Un alto nivel de hacinamiento no solo afecta la privacidad y la dignidad, sino que también tiene consecuencias directas en la salud física y mental de las personas, facilitando la propagación de enfermedades y generando estrés familiar."
+          "text": "El hacinamiento, por su parte, es un indicador de la calidad del espacio habitado. Refleja cuántas personas comparten una habitación o una vivienda (en la medición del INDEC, se considera hacinamiento más de tres personas por cuarto). Un alto nivel de hacinamiento no solo afecta la privacidad y la dignidad, sino que también tiene consecuencias directas en la salud física y mental de las personas, facilitando la propagación de enfermedades y generando estrés familiar."
         },
         {
           "type": "heading",
@@ -741,7 +741,7 @@
         {
           "type": "paragraph",
           "id": "cap-5-p14",
-          "text": "Para clasificar estos movimientos internos, los geógrafos miran la duración y el destino. Una categoría importante es la migración fronteriza, que ha cobrado fuerza en los últimos años. ¿De qué se trata? De personas que se desplazan desde el interior del país hacia las zonas limítrofes. En Argentina, vemos flujos significativos hacia el norte (provincias como Misiones, Corrientes y Salta) impulsados por la agricultura, el turismo y proyectos de infraestructura, y también hacia el sur, hacia Tierra del Fuego, atraídos por la industria petrolera y el turismo de naturaleza. Esta migración fronteriza cambia rápidamente la dinámica social de esas regiones."
+          "text": "Para clasificar estos movimientos internos, los geógrafos miran la duración y el destino. Una categoría importante es la migración fronteriza, que ha cobrado fuerza en los últimos años. ¿De qué se trata? De personas que se desplazan desde el interior del país hacia las zonas limítrofes. En Argentina, vemos flujos significativos hacia el norte (provincias como Misiones, Corrientes y Salta) impulsados por la agricultura, el turismo y proyectos de infraestructura, y también hacia el sur, hacia Tierra del Fuego, atraídos por la industria (favorecida por un régimen de promoción) y el turismo de naturaleza. Esta migración fronteriza cambia rápidamente la dinámica social de esas regiones."
         },
         {
           "type": "paragraph",
@@ -762,12 +762,12 @@
         {
           "type": "paragraph",
           "id": "cap-5-p18",
-          "text": "La actividad minera se distribuye de manera desigual. En el Noroeste Argentino (NOA), la cordillera de los Andes es rica en metales preciosos como el oro y la plata, y, sobre todo, en litio. Aquí es donde la brújula nos indica un punto crucial: el \"Triángulo del Litio\". Este término geoeconómico abarca las salinas de Jujuy, Salta y Catamarca. Estas provincias, ubicadas en el extremo noroeste, son vitales a nivel mundial porque el litio es el componente clave de las baterías para vehículos eléctricos y la transición energética global. La demanda internacional ha provocado un boom minero en esta zona, atrayendo inversiones y, como veremos, generando tensiones sociales y ambientales."
+          "text": "La actividad minera se distribuye de manera desigual. En el Noroeste Argentino (NOA), la cordillera de los Andes es rica en metales preciosos como el oro y la plata, y, sobre todo, en litio. Aquí es donde la brújula nos indica un punto crucial: el \"Triángulo del Litio\". Este término geoeconómico abarca los salares de Argentina, Bolivia y Chile; en Argentina, los de Jujuy, Salta y Catamarca. Estas provincias, ubicadas en el extremo noroeste, son vitales a nivel mundial porque el litio es el componente clave de las baterías para vehículos eléctricos y la transición energética global. La demanda internacional ha provocado un boom minero en esta zona, atrayendo inversiones y, como veremos, generando tensiones sociales y ambientales."
         },
         {
           "type": "paragraph",
           "id": "cap-5-p19",
-          "text": "En el sur, la provincia de Santa Cruz tiene una larga tradición en la extracción de carbón, aunque con altibajos. Pero el gran actor energético del sur es el complejo de Vaca Muerta, ubicado en Neuquén. Aunque Neuquén está más al centro-norte que Santa Cruz, la región patagónica en general ha visto un aumento en la extracción de hidrocarbulos no convencionales. Esta actividad ha generado flujos de trabajadores especializados, muchos de ellos migrantes internos o temporales, que llegan a estas zonas remotas buscando empleo en la industria petrolera y gasífera."
+          "text": "En el sur, la provincia de Santa Cruz tiene una larga tradición en la extracción de carbón, aunque con altibajos. Pero el gran actor energético del sur es el complejo de Vaca Muerta, ubicado en Neuquén. Aunque Neuquén está más al centro-norte que Santa Cruz, la región patagónica en general ha visto un aumento en la extracción de hidrocarburos no convencionales. Esta actividad ha generado flujos de trabajadores especializados, muchos de ellos migrantes internos o temporales, que llegan a estas zonas remotas buscando empleo en la industria petrolera y gasífera."
         },
         {
           "type": "paragraph",
@@ -851,7 +851,7 @@
         {
           "type": "paragraph",
           "id": "cap-6-p4",
-          "text": "Pero hay una forma de pirámide que resulta particularmente elocuente para entender la globalización actual: la regresiva, o la que presenta una \"cintura\" estrecha. Si observás una pirámide y notás que los adultos entre los 20 y los 40 años son notablemente menos numerosos que los niños y los abuelos, esa angostura no es un error de cálculo. Es la firma visual de la migración. Esas personas se fueron, ya sea buscando trabajo o huyendo de conflictos, dejando un hueco en la estructura de edad que la pirámide no puede ocultar. Así, la demografía nos muestra que la población no está quieta; se mueve, envejece, se rejuvenece y se desplaza, y esa dinámica define la fuerza laboral y el mercado de consumo de cada lugar."
+          "text": "Pero hay una forma de pirámide que resulta particularmente elocuente para entender la globalización actual: la que presenta una \"cintura\" estrecha (que no hay que confundir con la pirámide regresiva, de base angosta, propia de poblaciones envejecidas). Si observás una pirámide y notás que los adultos entre los 20 y los 40 años son notablemente menos numerosos que los niños y los abuelos, esa angostura no es un error de cálculo. Es la firma visual de la migración. Esas personas se fueron, ya sea buscando trabajo o huyendo de conflictos, dejando un hueco en la estructura de edad que la pirámide no puede ocultar. Así, la demografía nos muestra que la población no está quieta; se mueve, envejece, se rejuvenece y se desplaza, y esa dinámica define la fuerza laboral y el mercado de consumo de cada lugar."
         },
         {
           "type": "paragraph",
@@ -939,12 +939,12 @@
         {
           "type": "paragraph",
           "id": "cap-7-p4",
-          "text": "Todo comienza con la forma del suelo. El relieve no es un escenario pasivo; es el primer actor que define el destino de un lugar. Cuando mirás hacia el oeste, los Andes se alzan como una muralla colossal. Esta cordillera no solo marca el límite con Chile, sino que actúa como un filtro gigante para la humedad. Imaginá los vientos húmedos que vienen del Pacífico; cuando chocan contra las laderas occidentales de las montañas, se ven obligados a subir. Al ascender, el aire se enfría, el vapor se condensa y llueve (o nieva) en el lado chileno. Al pasar la cima, el aire ya está seco y desciende caliente hacia la Argentina. Este fenómeno, llamado \"efecto de sombra de lluvia\", es la razón principal por la que la Patagonia argentina, aunque esté al este de la nieve eterna, es en gran parte árida y desértica. La montaña, al bloquear la humedad, crea un desiño a sus espaldas."
+          "text": "Todo comienza con la forma del suelo. El relieve no es un escenario pasivo; es el primer actor que define el destino de un lugar. Cuando mirás hacia el oeste, los Andes se alzan como una muralla colosal. Esta cordillera no solo marca el límite con Chile, sino que actúa como un filtro gigante para la humedad. Imaginá los vientos húmedos que vienen del Pacífico; cuando chocan contra las laderas occidentales de las montañas, se ven obligados a subir. Al ascender, el aire se enfría, el vapor se condensa y llueve (o nieva) en el lado chileno. Al pasar la cima, el aire ya está seco y desciende caliente hacia la Argentina. Este fenómeno, llamado \"efecto de sombra de lluvia\", es la razón principal por la que la Patagonia argentina, aunque esté al este de la nieve eterna, es en gran parte árida y desértica. La montaña, al bloquear la humedad, crea un desierto a sus espaldas."
         },
         {
           "type": "paragraph",
           "id": "cap-7-p5",
-          "text": "Esta relación entre altura y temperatura es clave. A mayor altitud, el aire es más tenue y retiene menos calor, por lo que la temperatura baja aproximadamente 6 grados centígrados cada mil metros que ganás en altura. Es por eso que en las cumbres andinas, incluso cerca del ecuador, hay nieve, mientras que en los valles interandinos, a menor altura, el clima es mucho más benigno. Pero el relieve no solo afecta la temperatura; determina también cómo se distribuye la vida. El relieve, combinado con la latitud (la distancia al ecuador), decide cuánta energía solar recibe cada zona y, en consecuencia, qué clima predomina."
+          "text": "Esta relación entre altura y temperatura es clave. A mayor altitud, el aire es más tenue y retiene menos calor, por lo que la temperatura baja aproximadamente 6 grados centígrados cada mil metros que ganás en altura. Es por eso que en las cumbres andinas, incluso en latitudes tropicales, hay nieve, mientras que en los valles interandinos, a menor altura, el clima es mucho más benigno. Pero el relieve no solo afecta la temperatura; determina también cómo se distribuye la vida. El relieve, combinado con la latitud (la distancia al ecuador), decide cuánta energía solar recibe cada zona y, en consecuencia, qué clima predomina."
         },
         {
           "type": "paragraph",
@@ -965,7 +965,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p9",
-          "text": "En cambio, si cruzás hacia el NOA (Noroeste Argentino), el panorama cambia drásticamente. Aquí convivimos con los valles áridos y los picos nevados. La vegetación se vuelve escasa, espinosa y adaptada a la sequía. En las zonas más bajas y calientes, como en algunas partes de Tucumán o Salta, el clima permite cultivos que no podrían crecer en el norte selvático, como la caña de azúcar o los viñedos de altura. Y en la Patagonia, el frío y la aridez dan lugar a estepas y matorrales bajos, donde la vida vegetal es resistente al viento y a la escasez de agua."
+          "text": "En cambio, si cruzás hacia el NOA (Noroeste Argentino), el panorama cambia drásticamente. Aquí convivimos con los valles áridos y los picos nevados. La vegetación se vuelve escasa, espinosa y adaptada a la sequía. En las zonas más bajas y cálidas, como en algunas partes de Tucumán o Salta, se cultiva caña de azúcar, y en los valles de altura, viñedos. Y en la Patagonia, el frío y la aridez dan lugar a estepas y matorrales bajos, donde la vida vegetal es resistente al viento y a la escasez de agua."
         },
         {
           "type": "paragraph",
@@ -986,7 +986,7 @@
         {
           "type": "paragraph",
           "id": "cap-7-p13",
-          "text": "En el norte del país, especialmente en el NEA y el norte de la Pampa, los tornados y las tormentas severas son frecuentes. Estos fenómenos violentos nacen del choque de masas de aire: cuando el aire cálido y húmedo del trópico choca con los frentes fríos que bajan del sur, se genera una inestabilidad atmosférica que puede dar lugar a tornados. El granizo asociado a estas tormentas puede destruir cosechas enteras en minutos. Por otro lado, en el NOA y Cuyo, la amenaza principal es la sequía. Aunque la aridez es estructural en estas regiones, los cambios en los patrones climáticos globales están intensificando las sequías, poniendo en riesgo el acceso al agua y la producción agropecuaria, que es vital para la economía nacional."
+          "text": "En el centro y el noreste del país, especialmente en la región pampeana, los tornados y las tormentas severas son frecuentes. Estos fenómenos violentos nacen del choque de masas de aire: cuando el aire cálido y húmedo del trópico choca con los frentes fríos que bajan del sur, se genera una inestabilidad atmosférica que puede dar lugar a tornados. El granizo asociado a estas tormentas puede destruir cosechas enteras en minutos. Por otro lado, en el NOA y Cuyo, la amenaza principal es la sequía. Aunque la aridez es estructural en estas regiones, los cambios en los patrones climáticos globales están intensificando las sequías, poniendo en riesgo el acceso al agua y la producción agropecuaria, que es vital para la economía nacional."
         },
         {
           "type": "paragraph",
@@ -1091,7 +1091,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p7",
-          "text": "Mientras tu cámara fotográfica solo registra el rojo, el verde y el azul, los satélites \"ven\" también el infrarrojo cercano, el térmico e incluso microondas. Esto es crucial para la geografía. Por ejemplo, la vegetación sana refleja mucha luz infrarroja cercana, mientras que el suelo desnudo o una planta enferma la refleja menos. Los científicos combinan estas bandas invisibles para crear imágenes en \"falso color\". En esas imágenes, los bosques saludables suelen aparecer en rojo intenso, lo que permite detectar la deforestación o el estrés hídrico de los cultivos mucho antes de que sea visible para un observador humano. Además, las microondas (radar) permiten ver a través de las nubes y funcionar de noche, algo vital para monitorear zonas como la selva amazónica, donde las nubes son constantes, o para medir la temperatura de la superficie en casos de incendios activos."
+          "text": "Mientras tu cámara fotográfica solo registra el rojo, el verde y el azul, los satélites \"ven\" también el infrarrojo cercano, el térmico e incluso microondas. Esto es crucial para la geografía. Por ejemplo, la vegetación sana refleja mucha luz infrarroja cercana, mientras que el suelo desnudo o una planta enferma la refleja menos. Los científicos combinan estas bandas invisibles para crear imágenes en \"falso color\". En esas imágenes, los bosques saludables suelen aparecer en rojo intenso, lo que permite detectar la deforestación o el estrés hídrico de los cultivos mucho antes de que sea visible para un observador humano. Además, las microondas (radar) permiten ver a través de las nubes y funcionar de noche, algo vital para monitorear zonas como la selva amazónica, donde las nubes son constantes. Los sensores térmicos, por su parte, permiten medir la temperatura de la superficie, por ejemplo en incendios activos."
         },
         {
           "type": "paragraph",
@@ -1133,7 +1133,7 @@
         {
           "type": "paragraph",
           "id": "cap-8-p15",
-          "text": "Por otro lado, en muchas regiones en desarrollo, el problema no es la falta de trabajadores, sino la falta de empleos formales. La informalidad laboral es una característica marcante de la geografía del trabajo actual. Millones de personas trabajan en la economía informal: sin contratos, sin protección social, con ingresos inestables. Los SIG ayudan a mapear esta economía invisible. Por ejemplo, analizando la densidad de comercios en zonas periféricas o el uso del suelo en horarios nocturnos mediante imágenes térmicas, se pueden estimar las zonas de mayor actividad económica informal que los censos tradicionales suelen pasar por alto."
+          "text": "Por otro lado, en muchas regiones en desarrollo, el problema no es la falta de trabajadores, sino la falta de empleos formales. La informalidad laboral es una característica marcada de la geografía del trabajo actual. Millones de personas trabajan en la economía informal: sin contratos, sin protección social, con ingresos inestables. Los SIG ayudan a mapear esta economía invisible. Por ejemplo, analizando la densidad de comercios en zonas periféricas o el uso del suelo en horarios nocturnos mediante imágenes térmicas, se pueden estimar las zonas de mayor actividad económica informal que los censos tradicionales suelen pasar por alto."
         },
         {
           "type": "paragraph",
