@@ -44,7 +44,7 @@ opciones_explicitas:
   - 1922
   - 1936
 respuesta: 1917
-explicacion: "La Declaración Balfour de 1917 fue un punto de inflexión crucial que dio legitimidad internacional al movimiento sionista y complicó la relación con la población árabe local."
+explicacion: "La Declaración Balfour de 1917 fue vista por el movimiento sionista como un respaldo internacional a su proyecto; la población árabe de la región la percibió como una promesa sobre su tierra hecha sin consultarla. Ambas lecturas forman parte del origen del conflicto."
 ```
 
 ### 4 — Fin del Califato Otomano
@@ -179,7 +179,7 @@ opciones_explicitas:
   - "La creación de una federación árabe unificada."
   - "El reconocimiento inmediato de Israel por parte de la Liga Árabe."
 respuesta: "El fin del mandato británico y la partición de Palestina en un estado judío y uno árabe."
-explicacion: "La resolución recomendó la partición de la tierra de Palestina bajo el mandato británico, lo que llevó a la proclamación del Estado de Israel en 1948."
+explicacion: "La resolución recomendó dividir el territorio del Mandato británico. El liderazgo sionista aceptó el plan y los líderes árabes de la época lo rechazaron; en 1948 se proclamó el Estado de Israel."
 ```
 
 ### 12 — Guerra de 1948
@@ -197,7 +197,7 @@ respuestas_validas:
   - "Rodas"
   - "la rodas"
   - "La Rodas"
-explicacion: "Los acuerdos de armisticio de Rodas en 1949 establecieron las líneas de alto el fuego (Línea Verde) que definieron las fronteras de facto de Israel hasta 1967."
+explicacion: "Los armisticios de 1949, firmados en Rodas, fijaron las líneas de alto el fuego (la Línea Verde), que no se concibieron como fronteras definitivas y rigieron hasta 1967."
 ```
 
 ### 13 — Nacionalización del Canal de Suez
@@ -244,14 +244,14 @@ metadata:
   nivel: "avanzado"
   tags: ["israel", "1967", "ocupación"]
 tipo: mc
-enunciado: "La Guerra de los Seis Días de 1967 resultó en la ocupación israelí de:"
+enunciado: "Tras la Guerra de los Seis Días de 1967, quedaron bajo control militar israelí:"
 opciones_explicitas:
   - "La Franja de Gaza, Cisjordania, la península del Sinaí y los Altos del Golán."
   - "Solo la Franja de Gaza y Cisjordania."
   - "El Líbano y la península del Sinaí."
   - "Iraq y Jordania."
 respuesta: "La Franja de Gaza, Cisjordania, la península del Sinaí y los Altos del Golán."
-explicacion: "Este conflicto cambió radicalmente el mapa geopolítico del Medio Oriente, poniendo a millones de palestinos bajo control militar israelí y asegurando el control del Sinaí y el Golán."
+explicacion: "El mapa de la región cambió. La ONU y la mayoría de los países consideran a estos territorios como ocupados; Israel sostiene que su estatus final debe definirse en negociaciones y señala razones de seguridad. El Sinaí fue devuelto a Egipto en 1982."
 ```
 
 ### 16 — Guerra de Yom Kippur
@@ -262,14 +262,14 @@ metadata:
   nivel: "avanzado"
   tags: ["egipto", "israel", "1973", "petróleo"]
 tipo: completar
-enunciado: "La guerra de 1973, iniciada por un ataque sorpresa de Egipto y Siria contra Israel, es conocida en el mundo árabe como la Guerra de ______."
+enunciado: "La guerra de 1973, iniciada por una ofensiva de Egipto y Siria sobre territorios que Israel controlaba desde 1967, es conocida en el mundo árabe como la Guerra de ______."
 respuesta: "Ramadán"
 respuestas_validas:
   - "ramadán"
   - "Ramadán"
   - "el ramadán"
   - "Ramadan"
-explicacion: "También llamada Guerra de Octubre por los israelíes, tuvo profundas consecuencias económicas globales debido al embargo petrolero de la OPEP."
+explicacion: "Se la llama Guerra de Ramadán o de Octubre en el mundo árabe y Guerra de Yom Kipur en Israel. Tuvo consecuencias económicas globales por el embargo petrolero de los países árabes productores."
 ```
 
 ### 17 — Acuerdos de Camp David
@@ -298,14 +298,14 @@ metadata:
   nivel: "avanzado"
   tags: ["libano", "olp", "1982"]
 tipo: completar
-enunciado: "En 1982, Israel lanzó una invasión a gran escala del Líbano para expulsar a la ______ de Beirut."
+enunciado: "En 1982, Israel lanzó una operación militar a gran escala en el Líbano, con el objetivo declarado de neutralizar a la ______, que operaba desde allí."
 respuesta: "OLP"
 respuestas_validas:
   - "olp"
   - "OLP"
   - "la OLP"
   - "OLP (Organización para la Liberación de Palestina)"
-explicacion: "La OLP fue obligada a salir de Beirut bajo garantía internacional, marcando un cambio en la dinámica de la guerra civil libanesa y la presencia palestina en el país."
+explicacion: "Israel justificó la operación por los ataques contra su territorio desde el Líbano; sus críticos, dentro y fuera de Israel, la consideraron desproporcionada. La OLP salió de Beirut bajo garantía internacional."
 ```
 
 ### 19 — Guerra Irán-Irak
@@ -350,14 +350,14 @@ metadata:
   nivel: "avanzado"
   tags: ["kuwait", "iraq", "saddam", "onu"]
 tipo: mc
-enunciado: "En agosto de 1990, Irak invadió y anexó Kuwait, lo que provocó la Resolución 678 de la ONU que autorizó:"
+enunciado: "En agosto de 1990, Irak invadió Kuwait. Tras otras resoluciones, la Resolución 678 del Consejo de Seguridad estableció que, si Irak no se retiraba antes del 15 de enero de 1991, los Estados podían usar:"
 opciones_explicitas:
-  - "El uso de la fuerza para liberar Kuwait."
+  - "«Todos los medios necesarios» para que Irak se retirara de Kuwait."
   - "Un embargo total a Estados Unidos."
   - "La intervención militar directa de la OLP."
   - "El reconocimiento de Kuwait como parte de Irak."
-respuesta: "El uso de la fuerza para liberar Kuwait."
-explicacion: "Esto llevó a la Guerra del Golfo de 1991, donde una coalición liderada por EE.UU. expulsó a las fuerzas iraquíes de Kuwait."
+respuesta: "«Todos los medios necesarios» para que Irak se retirara de Kuwait."
+explicacion: "Irak había acusado a Kuwait de producir petróleo por encima de su cuota de la OPEP, de extraer crudo del yacimiento compartido de Rumaila y de no perdonar sus deudas, y Kuwait rechazó esos reclamos. En 1991 una coalición liderada por EE.UU. actuó y las fuerzas iraquíes salieron de Kuwait."
 ```
 
 ### 22 — Acuerdos de Oslo
@@ -375,7 +375,7 @@ respuestas_validas:
   - "tierra por la paz"
   - "paz por tierra"
   - "Paz por tierra"
-explicacion: "Este principio implicaba que Israel retiraría sus fuerzas de territorios ocupados a cambio de reconocimiento mutuo y paz con los palestinos."
+explicacion: "El principio supone un intercambio: retiros territoriales a cambio de paz y reconocimiento mutuo entre Israel y la OLP. Cuestiones como Jerusalén, los refugiados, los asentamientos y las fronteras quedaron para negociaciones posteriores y cada parte las plantea desde su propia perspectiva."
 ```
 
 ### 23 — Guerra Civil Libanesa
@@ -422,12 +422,12 @@ metadata:
   nivel: "avanzado"
   tags: ["iraq", "2003", "saddam", "eeuu"]
 tipo: mc
-enunciado: "La invasión de Irak liderada por Estados Unidos en 2003 tuvo como justificación principal alegar que Saddam Hussein poseía:"
+enunciado: "La invasión de Irak liderada por Estados Unidos en 2003 tuvo como justificación principal que el gobierno de Saddam Hussein poseía:"
 opciones_explicitas:
   - "Armas de destrucción masiva."
   - "Vínculos directos con Al-Qaeda en Bagdad."
   - "Un programa nuclear avanzado."
   - "La intención de atacar a Israel."
 respuesta: "Armas de destrucción masiva."
-explicacion: "Aunque nunca se encontraron pruebas concluyentes de tales armas, este fue el pretexto central utilizado por la administración Bush para derrocar al régimen de Saddam Hussein."
+explicacion: "Fue la justificación central de la administración Bush. Después de la invasión no se hallaron arsenales de ese tipo. Los gobiernos que participaron y sus críticos siguen discrepando sobre la decisión y sus consecuencias."
 ```

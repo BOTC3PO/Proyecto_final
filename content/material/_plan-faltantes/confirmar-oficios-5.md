@@ -34,3 +34,8 @@ Escrito el 2026-10-19. Se crearon 32 lecciones nuevas (solo `teoria.md`) y se ag
 - **Soldadura estructural**: vive en `soldador/soldadura-estructural/`; el Montador lo referencia.
 - **Cuestionarios**: las lecciones nuevas son solo `teoria.md` (regla vigente); la evaluación se amplió en los 7 `diagnostico-*`.
 - **Nodos sin ID** en `troncos.md`: las 32 lecciones solo tienen fila en `oficios/dependencias.md`; las dependencias son deducidas.
+
+## Fresadora y CNC (agregado 2026-10-20)
+- Tema nuevo `oficios/tecnico-electromecanico/mecanizado-fresadora-y-cnc/` (teoría + 31 preguntas). Decisión de Claude: va en Electromecánico y enlaza a `tornero/`; ¿querés además una versión corta dentro de `tornero/`?
+- **Verificado por búsqueda:** vc = π·D·n/1000 (D en mm, n en rpm); vf = fz·z·n; concordante/convencional; G00, G01, G02/G03, M03/M05, G90/G91. **No se pudo respaldar con fuente:** que G54 y siguientes sean el origen de pieza (se aclara «en muchos controles»), ni el texto del Decreto 351/79 (se cita solo Ley 19.587 y su decreto reglamentario, sin artículos). Los sentidos de G02/G03 se marcan como convención: verificar con el manual de cada control.
+- Sin transcripción de normas ni de manuales de fabricantes; los valores de vc/fz de las preguntas son ilustrativos.

@@ -1,4 +1,4 @@
-# Geografía — Medio Oriente: petróleo, agua y conflictos (cuestionario, 23 preguntas VBLang)
+# Geografía — Medio Oriente: petróleo, agua y conflictos (cuestionario, 26 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 
@@ -253,7 +253,7 @@ opciones_explicitas:
 respuesta: "1948"
 
 explicacion: |
-  Su creación se vincula con el conflicto israelí-palestino.
+  Israel proclamó su independencia en 1948; los palestinos recuerdan ese año como la Nakba. Las dos memorias conviven en el conflicto israelí-palestino.
 ```
 
 ### 13 — Guerra del Golfo
@@ -265,7 +265,7 @@ metadata:
   nivel: "intermedio"
   tags: ["medio"]
 
-enunciado: "¿Qué país invadió Irak en 1990, lo que originó la Guerra del Golfo?"
+enunciado: "¿Qué país fue invadido por Irak el 2 de agosto de 1990, lo que originó la Guerra del Golfo?"
 tipo: mc
 opciones_explicitas:
   - "Kuwait"
@@ -275,7 +275,7 @@ opciones_explicitas:
 respuesta: "Kuwait"
 
 explicacion: |
-  La guerra se desarrolló entre 1990 y 1991.
+  Irak invadió Kuwait en agosto de 1990; la coalición actuó desde enero de 1991, después de la resolución 678 del Consejo de Seguridad.
 ```
 
 ### 14 — Región homogénea
@@ -484,4 +484,63 @@ respuesta: "Como el «Cuarto Vacío», un desierto de la península arábiga"
 
 explicacion: |
   Es uno de los mayores desiertos de arena continuos.
+```
+
+### 24 — Un mismo hecho, dos memorias
+
+```
+metadata:
+  materia: "geografia"
+  tema: "medio_oriente_petroleo_agua_y_conflictos"
+  nivel: "intermedio"
+  tags: ["conflictos", "perspectivas"]
+
+enunciado: "La guerra de 1948 se recuerda de dos maneras: como guerra de independencia en Israel y, entre los palestinos, como la ___."
+tipo: completar
+respuestas_validas:
+  - "Nakba"
+  - "nakba"
+  - "catástrofe"
+
+explicacion: |
+  Son dos relatos de los mismos hechos: para Israel, la creación de su Estado; para los palestinos, el desplazamiento de gran parte de su población.
+```
+
+### 25 — Qué autorizó la resolución 678
+
+```
+metadata:
+  materia: "geografia"
+  tema: "medio_oriente_petroleo_agua_y_conflictos"
+  nivel: "avanzado"
+  tags: ["conflictos", "onu"]
+
+enunciado: "¿Qué estableció la resolución 678 del Consejo de Seguridad (29 de noviembre de 1990)?"
+tipo: mc
+opciones_explicitas:
+  - "Que, si Irak no se retiraba de Kuwait antes del 15 de enero de 1991, los Estados podían usar «todos los medios necesarios»"
+  - "Que Kuwait debía ceder a Irak el yacimiento de Rumaila"
+  - "Que Irak debía ser dividido en tres Estados"
+  - "Que la OPEP debía fijar una cuota única para Irak y Kuwait"
+respuesta: "Que, si Irak no se retiraba de Kuwait antes del 15 de enero de 1991, los Estados podían usar «todos los medios necesarios»"
+
+explicacion: |
+  Fue una autorización condicionada a un plazo. Irak sostenía reclamos económicos sobre Kuwait; Kuwait y la coalición, que se debía restablecer la soberanía kuwaití.
+```
+
+### 26 — Qué dejó pendiente Oslo
+
+```
+metadata:
+  materia: "geografia"
+  tema: "medio_oriente_petroleo_agua_y_conflictos"
+  nivel: "avanzado"
+  tags: ["conflictos", "oslo"]
+
+enunciado: "Los Acuerdos de Oslo (1993 y 1995) dejaron para negociaciones posteriores cuestiones como Jerusalén, los refugiados, los asentamientos, las fronteras y la seguridad."
+tipo: vf
+respuesta: verdadero
+
+explicacion: |
+  Esas cuestiones, llamadas de «estatus final», siguen sin resolverse y cada parte las plantea según su propia perspectiva.
 ```
