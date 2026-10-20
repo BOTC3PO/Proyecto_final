@@ -1,6 +1,6 @@
 # Lengua — Narrativa argentina: dictadura y posdictadura (teoria)
 
-> Tema propuesto en `../../_plan-faltantes/PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../vanguardias-argentinas-florida-y-boedo/` y `../cortazar-y-el-cuento-contemporaneo/` (ver `../dependencias.md`).
+> Tema propuesto en `../../PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../vanguardias-argentinas-florida-y-boedo/` y `../cortazar-y-el-cuento-contemporaneo/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

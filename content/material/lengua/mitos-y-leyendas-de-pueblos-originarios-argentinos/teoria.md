@@ -1,6 +1,6 @@
 # Lengua — Mitos y leyendas de pueblos originarios argentinos (teoria)
 
-> Tema propuesto en `../../_plan-faltantes/PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../genero-narrativo/` (ver `../dependencias.md`).
+> Tema propuesto en `../../PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../genero-narrativo/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

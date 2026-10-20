@@ -1,6 +1,6 @@
 # Lengua — Literatura latinoamericana: realismo mágico y lo real maravilloso (teoria)
 
-> Tema propuesto en `../../_plan-faltantes/PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../boom-latinoamericano/` (ver `../dependencias.md`).
+> Tema propuesto en `../../PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../boom-latinoamericano/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

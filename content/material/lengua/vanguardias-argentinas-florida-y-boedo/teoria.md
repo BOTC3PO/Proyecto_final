@@ -1,6 +1,6 @@
 # Lengua — Vanguardias argentinas: Florida y Boedo (teoria)
 
-> Tema propuesto en `../../_plan-faltantes/PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../poesia-argentina-del-siglo-xx/` y `../literatura-gauchesca-y-martin-fierro/` (ver `../dependencias.md`).
+> Tema propuesto en `../../PLAN-REPARACIONES-TRONCOS.md` (sin ID en `troncos.md`). Depende de `../poesia-argentina-del-siglo-xx/` y `../literatura-gauchesca-y-martin-fierro/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
