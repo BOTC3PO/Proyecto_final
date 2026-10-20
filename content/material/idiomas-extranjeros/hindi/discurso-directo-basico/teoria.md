@@ -15,6 +15,14 @@ El **discurso directo** reproduce las palabras exactas con **comillas**, introdu
 - **Órdenes**: उसने मुझसे कहा कि मैं **आऊँ** (subjuntivo).
 - **Puntuación**: comillas “ ” y punto final «।» (*daṇḍa*).
 
+## Ampliación
+- **Más verbos introductorios**: बोलना (decir, hablar), सुनाना (contar), समझाना (explicar), जवाब देना (responder). Con respeto, el sujeto plural: उन्होंने कहा कि… (*unhoṃne kahā ki…*, «él/ella dijo que…» con cortesía).
+- **«Diciendo»**: el gerundio con **कहकर**: उसने «ठीक है» कहकर फ़ोन रख दिया (*usne «ṭhīk hai» kahkar fon rakh diyā*, «dijo “vale” y colgó»).
+- **Preguntas indirectas**: क्या + **कि** o **या नहीं**: उसने पूछा कि क्या मैं आऊँगा; उसने पूछा कि मैं आऊँगा या नहीं (preguntó si iría o no).
+- **Órdenes indirectas**: se pueden dar con subjuntivo (उसने कहा कि तुम बैठो) o con infinitivo + **को कहना**: उसने मुझे बैठने को कहा (me dijo que me sentara).
+- **Reflexivo अपना**: se refiere al sujeto de la oración principal: उसने कहा कि वह अपना काम करेगा (dijo que haría su trabajo).
+- **Fórmula impersonal**: **कहा जाता है कि** (se dice que), **माना जाता है कि** (se cree que), muy frecuente en textos formales y noticias.
+
 ## Errores comunes de hispanohablantes
 1. **Omitir कि** en el indirecto.
 2. **No cambiar los pronombres**.

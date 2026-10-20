@@ -17,6 +17,14 @@ El **genitivo** (родительный падеж) responde a **кого? че�
 - **Cantidad**: **много** времени, стакан **воды**, бутылка **молока**.
 - **Genitivo plural**: -ов (m.), sin terminación en -а femenino (книга → **книг**), -ей tras ь.
 
+## Ampliación
+- **Genitivo plural**: masculino **-ов** (столов), **-ей** tras ж, ч, ш, щ y ь (ножей, карандашей, учителей); femenino y neutro sin terminación (книга → книг, окно → окон), **-ей** tras ь (дверь → дверей) y **-ий** en -ие (здание → зданий).
+- **Genitivos irregulares**: друг → друзей, ребёнок → детей, человек → людей.
+- **Cuantificadores**: много, мало, несколько, сколько: много книг, мало времени, несколько дней.
+- **Fechas**: la fecha usa el genitivo para el mes: пятое января.
+- **Más preposiciones**: около дома, у окна, из-за дождя, после урока, до вечера.
+- **Ausencia en pasado y futuro**: Не было времени; Не будет денег (el verbo queda en neutro singular).
+
 ## Errores comunes de hispanohablantes
 1. **Usar nominativo tras нет**: *нет книга*.
 2. **Traducir «tener» con un verbo** (*я имею*): se dice *у меня есть*.

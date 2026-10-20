@@ -17,6 +17,13 @@ En C1, hablar es defender una postura con argumentos, conceder puntos, matizar c
 - **Cierre**: Подводя итог, …; Благодарю вас за внимание.
 - **Retórica e ironía**: Разве мы можем игнорировать последствия?; Какая блестящая идея!
 
+## Ampliación
+- **Conectores de argumentación**: во-первых, во-вторых, в-третьих; с одной стороны… с другой стороны…; кроме того; тем не менее; следовательно; таким образом.
+- **Pedir y ceder la palabra**: Позвольте возразить; Если позволите, я добавлю; Разрешите уточнить; Давайте вернёмся к вопросу о…
+- **Grados de certeza**: безусловно, по-видимому, вероятно, судя по всему, как известно.
+- **Estrategia**: preparar tres ideas con un ejemplo cada una, anunciar la estructura (Я остановлюсь на трёх аспектах), usar pausas con fórmulas (как бы это сказать…, иными словами) y reformular si no te entienden.
+- **Tipos de tarea**: monólogo de dos o tres minutos sobre un tema, debate con un interlocutor, respuesta a objeciones y negociación.
+
 ## Errores comunes de hispanohablantes
 1. **Hablar con registro coloquial** en un debate formal.
 2. **Ser demasiado tajante** sin modalizadores.

@@ -19,6 +19,13 @@ En B2, escribir es redactar textos claros y detallados sobre temas complejos: en
 - **Cortesía formal**: सादर निवेदन है कि आप … विचार करें.
 - **Precisión y nominalización**: दस प्रतिशत से बढ़कर पंद्रह प्रतिशत; कीमतों में वृद्धि से माँग में कमी आई.
 
+## Ampliación
+- **Estructura del ensayo**: **शीर्षक** (título), **प्रस्तावना** (introducción), **मुख्य भाग** (desarrollo), **उपसंहार / निष्कर्ष** (conclusión); un párrafo por idea central.
+- **Carta formal**: orden habitual: dirección del remitente y fecha; **सेवा में** + cargo y dirección del destinatario; **विषय:** línea de asunto; saludo (**महोदय / महोदया**); cuerpo en tres partes (presentación y objeto, descripción del problema, petición cortés); cierre **भवदीय** (atentamente, masculino) o **भवदीया** (femenino) + firma.
+- **Conectores formales**: क्योंकि (porque), **इसलिए** (por eso), **अतः** (por tanto), **फलस्वरूप** (como resultado), **यद्यपि … तथापि** (aunque… sin embargo), परंतु / किंतु (pero), **बल्कि** (sino que), **अन्यथा** (de lo contrario), इसके विपरीत (por el contrario).
+- **Puntuación**: el punto final es el **दंड (।)**; comas, signos de interrogación y comillas se usan como en español. Cuidar los signos del alfabeto: **ँ** (chandrabindu) y **ं** (anusvāra), el **nukta** (ज़, फ़) y las **मात्राएँ**.
+- **Revisión final**: concordancia de género y número, ने con pasados transitivos, forma oblicua ante posposición y registro uniforme (sin mezclar आप y तुम).
+
 ## Errores comunes de hispanohablantes
 1. **Mezclar registros**.
 2. **Usar subjuntivo incorrecto** tras सुझाव है कि.

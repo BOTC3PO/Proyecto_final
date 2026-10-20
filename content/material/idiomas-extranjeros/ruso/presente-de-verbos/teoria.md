@@ -23,6 +23,14 @@ Los verbos rusos se conjugan en presente añadiendo terminaciones según la pers
 - **Sin cópula**: Я студент. Он врач. Мы дома.
 - **Uso**: el presente ruso cubre presente simple y continuo (*Я читаю* = leo / estoy leyendo).
 
+## Ampliación
+- **Reflexivos**: заниматься → занимаюсь, занимаешься, занимается, занимаемся, занимаетесь, занимаются (**-сь** tras vocal, **-ся** tras consonante).
+- **Alternancias consonánticas**: видеть → вижу, видишь; ходить → хожу, ходишь; платить → плачу, платишь; писать → пишу, пишешь.
+- **Verbos en -авать**: давать → даю, даёшь, даёт, даём, даёте, дают.
+- **Más irregulares**: идти → иду, идёшь, идёт, идём, идёте, идут; мочь → могу, можешь, может, можем, можете, могут; есть (comer) → ем, ешь, ест, едим, едите, едят; ехать → еду, едешь, едет, едем, едете, едут.
+- **Preguntar y negar**: Ты читаешь? (con entonación); Я не читаю; Ты любишь читать?
+- **Posesión**: У меня есть книга (no se usa un verbo equivalente a *tener*).
+
 ## Errores comunes de hispanohablantes
 1. **Usar «быть» en presente**: *Я есть студент*.
 2. **Mezclar las dos conjugaciones**.

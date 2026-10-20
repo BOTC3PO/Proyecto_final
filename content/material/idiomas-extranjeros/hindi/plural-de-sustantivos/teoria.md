@@ -15,6 +15,14 @@ El plural hindi depende del **género** y de la **terminación** del sustantivo.
 - **Concordancia**: adjetivos y verbos: अच्छे लड़के खेलते हैं; अच्छी लड़कियाँ पढ़ती हैं.
 - **Con números**: plural directo: तीन किताबें.
 
+## Ampliación
+- **Femeninos en vocal larga**: los terminados en -ā añaden **-एँ**: माता → माताएँ, कथा → कथाएँ; los terminados en -ū acortan la vocal: बहू → बहुएँ. Los terminados en -i/-ī con consonante previa hacen **-इयाँ**: तिथि → तिथियाँ.
+- **Masculinos en -ā que no cambian**: palabras de origen sánscrito como पिता, राजा, नेता, देवता mantienen la forma en el plural directo (los dos padres = दो पिता); en el plural oblicuo toman **-ओं**: पिताओं को.
+- **Plural de respeto**: un sustantivo singular puede ir con verbo plural por cortesía: पिताजी आ रहे हैं (*pitājī ā rahe haiṃ*, «papá está llegando»).
+- **Vocativo plural**: **-ो** sin nasal: लड़को! (¡chicos!), बहनो और भाइयो! (¡hermanas y hermanos!), दोस्तो!
+- **Sustantivos de masa y colectivos**: पानी, दूध, चावल suelen ir en singular; लोग (gente) ya es plural.
+- **Regla práctica**: primero decidir el **género**, luego la **terminación** y, si va seguido de posposición, pasar a la **forma oblicua**: किताब → किताबें → किताबों में.
+
 ## Errores comunes de hispanohablantes
 1. **Añadir -s** al sustantivo.
 2. **No usar -ों** ante posposición.

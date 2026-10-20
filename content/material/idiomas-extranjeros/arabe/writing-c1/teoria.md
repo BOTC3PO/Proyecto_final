@@ -19,6 +19,15 @@ En C1, escribir es producir textos claros, bien estructurados y matizados: ensay
 - **Registros**: técnico (تجاوزت درجة الحرارة الحد…) y literario (مد الليل ستاره…).
 - **Concordancia**: plural no humano en f. sing.; iḍāfa correcta.
 
+## Ampliación
+- **Estilo nominal**: preferir el masdar con iḍāfa: تزايد عدد السكان أدى إلى…
+- **Verbos de opinión y cita**: يرى، يؤكد، يشير، يلاحظ، يحذّر.
+- **Relativas con pronombre**: الكتاب الذي قرأته؛ بحيث؛ حيث.
+- **Énfasis**: إنّ… لـ…؛ لا يستطيع أحد إلا…؛ ما هو إلا…
+- **Vocabulario abstracto**: ظاهرة، إشكالية، تحدٍّ، آلية، تداعيات.
+- **Cohesión**: usar pronombres de referencia y sinónimos para no repetir el mismo término.
+- **Revisión**: caso y modo (nominativo, acusativo y genitivo), concordancia del plural no humano y hamza.
+
 ## Errores comunes de hispanohablantes
 1. **Mezclar registros**.
 2. **Repetir conectores**.

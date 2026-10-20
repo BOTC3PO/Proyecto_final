@@ -22,6 +22,14 @@ El ruso distingue por pares los verbos de movimiento: **unidireccionales** (un t
 - **Con prefijos**: **по-** (empezar: пойти, поехать), **при-** (llegar: прийти, приехать), **у-** (irse: уйти, уехать), **вы-** (salir), **в-/во-** (entrar).
 - **Preposiciones**: в/на + acusativo (destino), из/с + genitivo (origen).
 
+## Ampliación
+- **Conjugación**: ездить — езжу, ездишь, ездит, ездим, ездите, ездят; лететь — лечу, летишь…; бежать — бегу, бежишь, бежит, бежим, бежите, бегут; плыть — плыву, плывёшь…
+- **Pasado**: идти — шёл, шла, шло, шли; ходить — ходил, ходила; ехать — ехал, ехала.
+- **Futuro con по-**: Завтра я пойду в кино; Мы поедем на море; Я полечу в Москву.
+- **Llegar y venir**: Он пришёл (llegó, y sigue allí); Он приходил (vino y ya se fue).
+- **Medios de transporte**: Я иду пешком; Я езжу на работу на автобусе.
+- **Prefijos con preposición**: войти в комнату, выйти из комнаты, подойти к дому, перейти через улицу, зайти в магазин.
+
 ## Errores comunes de hispanohablantes
 1. **Usar un solo verbo «ir»**.
 2. **Confundir идти y ехать** (pie/vehículo).

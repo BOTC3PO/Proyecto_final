@@ -16,6 +16,16 @@ El **subjuntivo** hindi (*sambhāvya*) expresa acciones no reales: deseos, suger
 - **Necesidad**: **ज़रूरी है कि** + subjuntivo: ज़रूरी है कि तुम **जाओ**.
 - **Optativo**: **खुश रहो!** (¡que seas feliz!), **भगवान करे** (ojalá que Dios lo haga), **आप बैठें** (siéntese).
 
+## Ampliación
+- **«Debería» con चाहिए**: मुझे जाना चाहिए (*mujhe jānā chāhie*, «debería ir»); el sujeto va en caso dativo y el verbo en infinitivo.
+- **Concesión con चाहे**: चाहे वह आए या न आए, हम जाएँगे (aunque venga o no, iremos).
+- **«Hasta que» con जब तक… न**: जब तक वह न आए, मैं रुकूँगा (esperaré hasta que venga).
+- **Condicional abierto y contrafactual**: abierto con subjuntivo — अगर वह आए तो मुझे बताना (si viene, avísame); irreal con el participio habitual — अगर मैं अमीर होता तो घर खरीदता (si fuera rico, compraría una casa).
+- **Cautela**: कहीं ऐसा न हो कि… (que no vaya a ser que…): कहीं ऐसा न हो कि वह देर से पहुँचे.
+- **Consejo impersonal**: बेहतर होगा कि तुम जाओ (sería mejor que fueras).
+- **Optativos fijos**: आपकी यात्रा शुभ हो (que tengas buen viaje), भगवान आपका भला करे (que Dios le bendiga), जीते रहो (que vivas mucho).
+- **Negación**: मैं नहीं चाहता कि वह जाए (no quiero que vaya); en los optativos y proverbios se usa **न**.
+
 ## Errores comunes de hispanohablantes
 1. **Usar indicativo tras चाहना कि**.
 2. **Confundir subjuntivo y futuro** (जाऊँ / जाऊँगा).

@@ -17,6 +17,16 @@ El ruso distingue la **condición real o posible** (**если**) de la **hipot�
 - **Finalidad**: **чтобы** (para): Я учусь, чтобы сдать экзамен. **Hasta que**: **пока не**.
 - **Consejo y deseo**: На твоём месте я **бы** пошёл; **Если бы** он пришёл! (¡ojalá viniera!).
 
+## Ampliación
+- **Irreal en el pasado**: tiene la misma forma que la irreal presente; lo aclara el contexto: Если бы я вчера знал, что ты придёшь, я бы испёк пирог.
+- **Deseo**: Если бы он пришёл! / Только бы он пришёл! (¡ojalá que venga!).
+- **Concesión**: Даже если пойдёт дождь, мы пойдём гулять.
+- **De lo contrario**: Надо идти, иначе мы опоздаем.
+- **Condición en registro formal**: в случае, если…; при условии, что…
+- **Condición real referida al pasado**: Если вчера шёл дождь, дорога мокрая.
+- **Futuro tras когда y как только**: Когда я приеду, я позвоню; Как только он придёт, мы начнём.
+- **Puntuación**: se escribe coma antes de *если*, *если бы* y *чтобы*.
+
 ## Errores comunes de hispanohablantes
 1. **Usar presente tras если бы**.
 2. **Olvidar бы** en la oración principal.

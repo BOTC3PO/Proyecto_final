@@ -21,6 +21,17 @@ Los adjetivos rusos **concuerdan con el sustantivo en género, número y caso**.
 - **Reglas ortográficas**: tras г, к, х, ж, ч, ш, щ no se escribe -ы sino -и (русские, хорошие).
 - **Sin cópula**: Дом большой. Книга новая.
 
+## Ampliación
+- **Declinación de новый**:
+  - masculino: новый / нового / новому / новый o нового / новым / о новом;
+  - femenino: новая / новой / новой / новую / новой / о новой;
+  - plural: новые / новых / новым / новые o новых / новыми / о новых.
+  - Orden de los casos: nominativo, genitivo, dativo, acusativo, instrumental, prepositivo.
+- **Formas cortas** (solo predicado): рад / рада / рады, должен, нужен, болен, готов: Я рад вас видеть; Мне нужен словарь.
+- **Colores**: красный, жёлтый, зелёный, чёрный, белый, синий (azul oscuro), голубой (celeste), серый, коричневый.
+- **Demostrativos y posesivos** concuerdan también: этот новый дом, моя новая книга.
+- **Adjetivos sustantivados**: столовая (comedor), мороженое (helado), взрослый (adulto), больной (enfermo).
+
 ## Errores comunes de hispanohablantes
 1. **Poner el adjetivo detrás** del sustantivo.
 2. **No concordar**: *новый книга*.

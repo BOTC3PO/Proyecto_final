@@ -13,6 +13,14 @@ La **nisba** convierte un sustantivo (país, ciudad, disciplina) en un **adjetiv
 - **Concordancia**: como cualquier adjetivo, va detrás del sustantivo y concuerda en género, número y definición: المدينة المصرية, اللغة العربية, الثقافة العربية.
 - **Ejemplos de nacionalidad**: هو إسباني وهي إسبانية; هم مصريون.
 
+## Ampliación
+- **Con ال**: المصري (el egipcio), العربي (el árabe); femenino: المصرية.
+- **Ciudades**: القاهرة → قاهري, بغداد → بغدادي, دمشق → دمشقي.
+- **Países con ال**: se omite el artículo y la terminación: السعودية → سعودي, المغرب → مغربي, الجزائر → جزائري, لبنان → لبناني, اليمن → يمني.
+- **Sustantivos comunes**: وطن → وطني (nacional), شعب → شعبي (popular), عالم → عالمي (mundial).
+- **Dual y plural**: مصريان (dual masculino, nominativo), مصريتان (dual femenino); plural sano masculino: مصريون (nominativo) y مصريين (acusativo y genitivo).
+- **Plural no humano**: el adjetivo va en femenino singular: المدن المصرية.
+
 ## Errores comunes de hispanohablantes
 1. **Dejar la ة**: ❌ *مدرستي* (mi escuela) en lugar de مدرسي.
 2. **Olvidar la concordancia**: ❌ *اللغة العربي*.

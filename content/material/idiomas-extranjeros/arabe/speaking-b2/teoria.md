@@ -18,6 +18,14 @@ En B2, hablar es participar en debates, exponer una postura con argumentos, conc
 - **Cierre**: وفي الختام، …؛ أشكركم على حسن استماعكم.
 - **Ironía suave**: يا لها من فكرة رائعة…
 
+## Ampliación
+- **Conectores del discurso**: أولًا، ثانيًا، ثالثًا؛ من ناحية… ومن ناحية أخرى…؛ إضافة إلى ذلك؛ ومع ذلك؛ ولذلك.
+- **Pedir la palabra**: هل لي أن أضيف نقطة؟ لو سمحتم، أودّ أن أعلّق على هذه النقطة.
+- **Cortesía y aclaración**: عفوًا، لم أفهم قصدك؛ هل يمكن أن توضح أكثر؟
+- **Muletillas útiles**: في الحقيقة، بصراحة، أعني…
+- **Estrategia**: tema, postura, dos argumentos, ejemplo y cierre; mantener la fuṣḥā ligera y no mezclar dialecto sin intención.
+- **Tipos de tarea**: monólogo breve, debate con réplica y simulación (negociación o entrevista).
+
 ## Errores comunes de hispanohablantes
 1. **Ser demasiado directo** sin matices.
 2. **Repetir «لكن»** en lugar de variar (غير أنّ, بينما).

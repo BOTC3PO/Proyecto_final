@@ -13,6 +13,14 @@ El árabe usa una sola forma, el **elativo** (*ism al-tafḍīl*) de molde **أ�
 - **Superlativo con ال**: **الأكبر** (el mayor); el femenino es **الكبرى**, **الصغرى**: أخي الأكبر, أختي الصغرى.
 - **Elativo no derivable**: colores y defectos físicos usan perífrasis (أكثر احمرارًا).
 
+## Ampliación
+- **Raíces duplicadas**: شديد → أشدّ (más fuerte), عزيز → أعزّ (más querido).
+- **Con números**: أكثر من عشرة (más de diez).
+- **Igualdad**: هو مثل أخيه (es como su hermano).
+- **Cuanto más… más…**: كلما درستَ أكثر، نجحتَ أكثر.
+- **Elativo en frases fijas**: الأحسن والأفضل, من الأفضل أن… (es mejor que…).
+- **Orden en la frase**: el elativo va antes de من y el segundo término queda en genitivo: هذا الكتاب أجمل من ذلك الكتاب.
+
 ## Errores comunes de hispanohablantes
 1. **Usar «عن» o «إلى»** en lugar de من para «que».
 2. **Poner ال en el elativo comparativo**: el comparativo lleva sustantivo/adjetivo sin ال.

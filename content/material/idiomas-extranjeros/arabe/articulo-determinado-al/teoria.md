@@ -13,6 +13,14 @@ El árabe tiene **un solo artículo**, el **definido ال**, invariable en géne
 - **Adjetivos**: si el sustantivo es definido, el adjetivo que lo califica también lleva ال: الكتاب **الكبير** (el libro grande). En una oración, el adjetivo predicado no lleva ال: الكتاب كبير (el libro es grande).
 - **Indefinido**: كتاب (un libro), مدرسة (una escuela).
 
+## Ampliación
+- **Pérdida de la alif en la pronunciación**: tras una vocal, la alif de ال no se pronuncia: في البيت *fī l-bayt*, ذهبتُ إلى المدرسة *ilā l-madrasa*.
+- **Países y ciudades**: llevan ال: العراق, اليابان, الأردن, لبنان, السودان, المغرب, الجزائر. No la llevan: مصر, سوريا, تونس, قطر, دمشق.
+- **Iḍāfa**: el primer término nunca lleva ال, y el definido lo marca el segundo: كتاب الطالب (el libro del estudiante).
+- **Demostrativos**: el sustantivo que sigue lleva ال: هذا الكتاب (este libro).
+- **Con prefijos**: بالقلم (con el lápiz), للمدرسة (para la escuela: ل + ال → لل), والكتاب (y el libro).
+- **Definición y adjetivo**: la concordancia incluye la definición: المدرسة الكبيرة (la escuela grande) frente a مدرسة كبيرة (una escuela grande).
+
 ## Errores comunes de hispanohablantes
 1. **Pronunciar la ل ante letra solar**: *al-shams* ❌ → *ash-shams* ✅.
 2. **Traducir «un/una»**: no existe artículo indefinido.

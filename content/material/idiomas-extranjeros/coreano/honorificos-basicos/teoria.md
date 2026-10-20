@@ -12,6 +12,15 @@ En coreano el respeto se marca en el verbo, en las partículas y en el vocabular
 - **-님**: sufijo de respeto (*사장님, 선생님*).
 - **Humilde (겸양)**: el hablante se rebaja (*도와드릴게요*, *선물을 드렸어요*).
 
+## Ampliación
+- **Niveles de cortesía**: **합쇼체** (-ㅂ니다/-습니다; formal, noticias, atención al cliente), **해요체** (-아요/-어요; cortés en la conversación diaria), **해체** (*banmal*; entre amigos o hacia menores) y, más raro, **하게체**.
+- **Pasado con -시-**: se coloca antes del pasado: 가다 → **가셨어요**, 읽다 → **읽으셨어요**.
+- **Pronombres humildes**: **저** (yo, humilde), **저희** (nosotros, humilde); para «tú» se evita 당신 y se usa el nombre con título (선생님, 사장님).
+- **Persona honorífica**: **분** (이분, 그분, 저분); 따님 / 아드님 (hija / hijo de otra persona); 생신 (cumpleaños), 병환 (enfermedad), 말씀 (palabras).
+- **Verbo humilde de «ver»**: 뵙다 → 내일 뵙겠습니다 (hasta mañana). Saludos de presentación: 처음 뵙겠습니다, 잘 부탁드립니다.
+- **Hipercorrección en servicios**: no se eleva a objetos: ❌ *커피 나오셨습니다* ✅ *커피 나왔습니다*. -시- eleva a personas, no a cosas.
+- **Regla práctica**: elige el nivel por la relación con el oyente; usa -시- cuando el sujeto sea alguien a quien debes respeto, y los verbos humildes cuando el acto lo hace el hablante hacia esa persona.
+
 ## Errores comunes de hispanohablantes
 1. **Honrar a uno mismo**: ❌ *제가 가십니다.* ✅ *제가 갑니다.*
 2. **Usar el honorífico con menores** o con personas de confianza cuando no corresponde.

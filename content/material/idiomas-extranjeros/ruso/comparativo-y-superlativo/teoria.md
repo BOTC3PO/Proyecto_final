@@ -13,6 +13,15 @@ El ruso tiene un **comparativo simple** (una sola palabra, invariable) y uno **c
 - **Superlativo**: **самый** + adjetivo (concuerda): **самый большой** дом, **самая красивая** школа; también **лучший, худший, наибольший**.
 - **Con всех / всего**: Он бегает **лучше всех** (que todos), Мне нравится **больше всего** (sobre todo).
 
+## Ampliación
+- **Comparativo con чем o genitivo**: Он старше меня; Она старше, чем я.
+- **Intensificar**: гораздо / намного больше (mucho más), немного меньше (un poco menos), ещё лучше (todavía mejor).
+- **Cuanto más… más…**: Чем больше, тем лучше.
+- **Más alternancias**: богатый → богаче, молодой → моложе, ранний → раньше, тонкий → тоньше.
+- **Superlativo formal con наи-**: наибольший, наилучший, наименьший.
+- **Forma simple y atributiva**: la forma en -ее / -ше no concuerda y se usa como predicado (Дом выше); como atributo se usa **более** (более высокий дом) o **старший, младший, лучший**.
+- **Lo más… posible**: как можно быстрее.
+
 ## Errores comunes de hispanohablantes
 1. **Formar comparativos regulares de los irregulares** (*большее*).
 2. **Poner más + adjetivo** como en español (*более* se usa menos).

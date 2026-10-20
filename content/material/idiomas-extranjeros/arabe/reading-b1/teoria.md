@@ -16,6 +16,14 @@ En B1, leer significa entender textos de temas conocidos (viajes, opiniones, anu
 - **Conectores**: لكن، لأنّ، ثم، بعد، قبل، بينما.
 - **Estrategia**: lee entero, marca verbos y conectores, localiza datos (fechas, cifras) y contesta.
 
+## Ampliación
+- **Preguntas típicas**: ¿de qué trata el texto?, ¿quién?, ¿cuándo?, ¿por qué?: من، متى، أين، لماذا، كم.
+- **Marcadores de tiempo**: أمس، اليوم، غدًا، في الأسبوع الماضي، بعد ذلك.
+- **Verbos de noticia**: قال، أعلن، أضاف، أكد.
+- **Palabras desconocidas**: busca la raíz de tres consonantes, el patrón y el contexto; además hay muchos préstamos (تلفزيون، كمبيوتر).
+- **Cifras**: en el Oriente árabe se usan las cifras orientales (١٢٣) y en el Magreb las occidentales (123).
+- **Estrategia**: primera lectura global, segunda lectura para localizar datos, y tercera para comprobar cada respuesta.
+
 ## Errores comunes de hispanohablantes
 1. **Leer el árabe sin vocalizar** confundiendo activa/pasiva.
 2. **Ignorar el subjuntivo** tras أن.

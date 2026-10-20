@@ -17,6 +17,14 @@ Los sustantivos rusos tienen tres géneros: **masculino, femenino y neutro**. El
 - **Préstamos indeclinables**: кофе (m.), метро, такси, кино, пальто (n.).
 - **Concordancia**: этот стол (m.), эта книга (f.), это окно (n.).
 
+## Ampliación
+- **Neutros en -мя**: son diez: время, имя, знамя, племя, пламя, бремя, семя, вымя, темя, стремя.
+- **Género común**: сирота, умница, плакса, коллега se usan para hombres y mujeres; el adjetivo concuerda con el sexo de la persona.
+- **Profesiones**: врач, учитель, инженер son masculinos, también para mujeres: Моя сестра — хороший врач.
+- **Plural nominativo**: -ы / -и (стол → столы, книга → книги); -а / -я en neutros (окно → окна, море → моря, слово → слова); -и tras г, к, х, ж, ч, ш, щ.
+- **Plurales irregulares**: брат → братья, друг → друзья, ребёнок → дети, человек → люди, мать → матери.
+- **Pistas por sufijo**: -тель es masculino (учитель); -ость, -ция y -ия son femeninos (радость, станция, история); -ие y -ство son neutros (здание, общество).
+
 ## Errores comunes de hispanohablantes
 1. **Trasladar el género español**: *cuchara* f. → ложка f., pero *кофе* m., *метро* n.
 2. **Feminizar папа** por acabar en -а.

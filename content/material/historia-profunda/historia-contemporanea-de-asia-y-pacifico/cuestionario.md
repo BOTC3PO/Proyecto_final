@@ -274,8 +274,9 @@ metadata:
   nivel: "avanzado"
   tags: ["kuwait", "iraq", "saddam-hussein"]
 tipo: vf
-enunciado: "En agosto de 1990, Irak invadió y anexó Kuwait, acusándolo de extraer petróleo por encima de los límites de la OPEP y de ser una \"colonia\" de Estados Unidos, lo que provocó la Guerra del Golfo liderada por una coalición internacional."
+enunciado: "En agosto de 1990, Irak invadió Kuwait y justificó su acción con acusaciones de sobreproducción de petróleo y otros reclamos económicos, lo que provocó una respuesta militar de una coalición internacional respaldada por resoluciones de la ONU."
 respuesta: verdadero
+explicacion: "Kuwait rechazó esos reclamos. Irak presentó su acción como la defensa de sus intereses; Kuwait y la coalición, como el restablecimiento de la soberanía de un Estado miembro de la ONU."
 ```
 
 ### 19 — Revolución de las Rosas en Georgia (Tipo MC)
@@ -321,8 +322,9 @@ metadata:
   nivel: "avanzado"
   tags: ["israel", "egypt", "guerra-yom-kipur"]
 tipo: vf
-enunciado: "La Guerra de Yom Kipur (1973) comenzó con un ataque sorpresa coordinado por Egipto y Siria contra Israel durante la festividad judía de Yom Kipur, lo que inicialmente sorprendió a las fuerzas israelíes pero terminó con una victoria estratégica israelí."
+enunciado: "La guerra de 1973 (de Yom Kipur para Israel, de Ramadán u Octubre en el mundo árabe) comenzó con una ofensiva coordinada de Egipto y Siria durante la festividad judía de Yom Kipur, que sorprendió inicialmente a las fuerzas israelíes."
 respuesta: verdadero
+explicacion: "El resultado se interpreta de manera distinta: Israel recuperó terreno en la fase final; para Egipto y Siria, la guerra recuperó la iniciativa y abrió el camino a las negociaciones que llevaron a Camp David."
 ```
 
 ### 22 — Tratado de Paz Israel-Egipto (1979) (Tipo MC)
@@ -340,6 +342,7 @@ opciones_explicitas:
   - "Los Altos del Golán."
   - "Cisjordania."
 respuesta: "La Península del Sinaí."
+explicacion: "El tratado de paz egipcio-israelí (1979) incluyó el retiro israelí del Sinaí, completado en 1982. Quedó pendiente la situación de los palestinos, que no formó parte de ese tratado."
 ```
 
 ### 23 — Guerra Irán-Irak (1980-1988) (Tipo Completar)

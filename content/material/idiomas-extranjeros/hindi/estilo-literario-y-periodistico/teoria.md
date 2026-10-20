@@ -20,6 +20,15 @@ El hindi literario se distingue por las **figuras retóricas** (*alaṅkār*), e
   - **Objetividad**: datos, cifras y atribución.
 - **Contraste**: el estilo literario embellece; el periodístico informa.
 
+## Ampliación
+- **Dos grandes familias de figuras**: **शब्दालंकार** (juegan con el sonido: अनुप्रास «aliteración», यमक «misma palabra con distinto sentido», श्लेष «doble sentido») y **अर्थालंकार** (juegan con el significado: उपमा, रूपक, उत्प्रेक्षा «suposición», अतिशयोक्ति «hipérbole»).
+- **अनुप्रास**: un verso clásico, «चारु चंद्र की चंचल किरणें», repite el sonido *c* para sugerir el temblor de la luz.
+- **Contexto literario**: **छायावाद** (primeras décadas del siglo XX; Jaishankar Prasad, Sumitranandan Pant, Nirala y Mahadevi Verma) busca lirismo y vocabulario sanscritizado; **Premchand** (1880–1936) escribe prosa realista en un hindi cercano al habla cotidiana.
+- **Pirámide invertida (उलटा पिरामिड)**: la noticia pone lo esencial —qué, quién, cuándo, dónde— en el primer párrafo y los detalles después.
+- **Titular periodístico**: frase nominal o verbo en presente/pasado simple, sin artículos ni adornos: बाढ़ से तीन गाँव प्रभावित.
+- **Atribución**: सूत्रों के अनुसार, पुलिस ने बताया कि…, **कहा गया है कि** (se ha dicho que) mantienen la objetividad.
+- **Registro**: la prensa mezcla hindi estándar con préstamos (सरकार, चुनाव, मीडिया); la literatura prefiere tatsama y arcaísmos.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir símil y metáfora**.
 2. **No concordar -सा/-सी/-से**.

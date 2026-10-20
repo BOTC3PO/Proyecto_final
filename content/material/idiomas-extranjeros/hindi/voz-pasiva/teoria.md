@@ -17,6 +17,14 @@ El hindi forma la **voz pasiva** con el **participio pasado del verbo principal 
 - **Pasiva de capacidad** (**से** + verbo + जाना, normalmente negativa): **मुझसे** यह काम नहीं होता; **मुझसे** चला नहीं जाता; **मुझसे** सोया नहीं जाता.
 - **Uso**: textos formales, prensa y descripciones impersonales: भारत में कई भाषाएँ बोली जाती हैं.
 
+## Ampliación
+- **Perfecto en pasiva**: participio + जा चुका: किताब पढ़ी जा चुकी है (*kitāb paṛhī jā chukī hai*, «el libro ya ha sido leído»).
+- **Sugerencia con subjuntivo pasivo**: अब चला जाए? (¿nos vamos ya?); कुछ खाया जाए (comamos algo).
+- **Aviso formal**: सूचित किया जाता है कि… (se informa que…), muy frecuente en comunicados y avisos oficiales.
+- **Pares transitivo–intransitivo como alternativa**: **खोलना / खुलना**, **तोड़ना / टूटना**, **बनाना / बनना**: दरवाज़ा खोला गया (la puerta fue abierta) frente a दरवाज़ा खुला (la puerta se abrió, sin agente). Si no hay agente, el hindi prefiere con frecuencia el verbo intransitivo.
+- **Pasiva con objeto de persona**: बच्चों को पढ़ाया जाता है (a los niños se les enseña); el objeto personal conserva को y el verbo queda en masculino singular.
+- **Agente**: se omite casi siempre; cuando se indica, **द्वारा** es más formal que **से**.
+
 ## Errores comunes de hispanohablantes
 1. **No concordar** participio y जाना con el sujeto pasivo.
 2. **Marcar el agente con ने** en pasiva.

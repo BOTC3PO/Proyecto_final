@@ -13,6 +13,15 @@ Los cardinales rusos tienen reglas de concordancia particulares: el **1** concue
 - **Compuestos**: cuenta el último número: **двадцать один** стол (nom. sg.), **двадцать два** студента (gen. sg.), **двадцать пять** студентов (gen. pl.).
 - **Excepciones**: números terminados en 11–14 exigen genitivo plural (одиннадцать столов).
 
+## Ampliación
+- **Decenas y centenas**: 60 шестьдесят, 70 семьдесят, 80 восемьдесят, 90 девяносто; 200 двести, 300 триста, 400 четыреста, 500 пятьсот; 1000 тысяча.
+- **Тысяча y миллион**: *тысяча* es femenino (две тысячи, пять тысяч); *миллион* es masculino (два миллиона, пять миллионов).
+- **Edad**: tras 1 se usa **год** (двадцать один год), tras 2–4 **года** (двадцать два года) y desde 5 y en 11–14 **лет** (двадцать пять лет, одиннадцать лет): Мне двадцать один год.
+- **Precios**: Сколько это стоит? — Это стоит сто рублей. 1 рубль, 2–4 рубля, 5 o más рублей.
+- **Animados en acusativo**: con 2, 3 y 4 se usa el genitivo (= acusativo animado): Я вижу двух студентов и трёх друзей.
+- **Los cardinales también se declinan**: два → двух (gen.), двум (dat.), двумя (instr.), о двух (prep.); пять → пяти (gen., dat., prep.), пятью (instr.).
+- **Hora**: Сейчас один час, два часа, пять часов.
+
 ## Errores comunes de hispanohablantes
 1. **Usar el plural nominativo** (*два столы*).
 2. **Usar два con sustantivo femenino** (*два книги* → две книги).

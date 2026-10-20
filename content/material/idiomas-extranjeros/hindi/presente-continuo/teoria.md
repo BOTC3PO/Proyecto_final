@@ -21,6 +21,14 @@ El **presente continuo** expresa una acción **en curso ahora**. Se forma con la
 - **Preguntas**: क्या तुम पढ़ रहे हो? तुम क्या कर रहे हो? तुम कहाँ जा रहे हो?
 - **Marcador**: **अभी** (ahora mismo).
 
+## Ampliación
+- **Otros tiempos continuos**: el auxiliar cambia, el bloque «raíz + रहा/रही/रहे» se mantiene. Pasado continuo: **था/थी/थे** (मैं पढ़ रहा था, *maiṃ paṛh rahā thā*, «estaba leyendo»). Con **होगा** expresa conjetura: वह सो रहा होगा (*vah so rahā hogā*, «estará durmiendo»).
+- **«Ya voy»**: con verbos de movimiento el continuo anuncia algo inminente: मैं आ रहा हूँ (*maiṃ ā rahā hūṃ*, «ya llego / ya voy»); वे जा रहे हैं puede significar «se van ahora».
+- **Verbos de estado**: *saber*, *querer*, *tener* y *gustar* no suelen ir en continuo; se usa el presente simple: मैं जानता हूँ (sé), मुझे चाहिए (necesito), मुझे पसंद है (me gusta).
+- **Sin ergatividad**: ने solo aparece en pasados perfectivos de verbos transitivos. En el continuo el sujeto va en caso directo y el verbo concuerda con él: वह खाना खा रही है, pero उसने खाना खाया.
+- **Marcadores**: अभी (ahora), अब (ahora, en este momento), **अभी-अभी** (hace un momento), इस समय (en este momento).
+- **Pregunta frecuente**: तुम क्या कर रहे हो? — मैं हिन्दी सीख रहा हूँ। (*tum kyā kar rahe ho? maiṃ hindī sīkh rahā hūṃ.*)
+
 ## Errores comunes de hispanohablantes
 1. **Usar -ता para acciones en curso**.
 2. **No concordar रहा/रही/रहे** con el sujeto.

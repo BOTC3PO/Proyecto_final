@@ -15,6 +15,15 @@ El coreano expresa la voz pasiva y la causativa con sufijos en la raíz verbal (
 - **Pasivo**: N하다 → N되다 (*연기하다 → 연기되다*), N받다 (*사랑받다, 칭찬받다*), N당하다 (matiz negativo: *사기를 당하다*), V-아/어지다 (*켜지다, 지어지다*).
 - **Agente en pasiva**: -에게/-한테/-에 의해 (*이 건물은 유명한 건축가에 의해 지어졌다*).
 
+## Ampliación
+- **El sufijo -우-** (solo causativo en el coreano estándar del sur): 자다 → **재우다** (hacer dormir), 타다 → **태우다** (hacer subir), 깨다 → **깨우다** (despertar), 서다 → **세우다** (detener, poner de pie), 비다 → **비우다** (vaciar). Qué verbo toma qué sufijo hay que memorizarlo.
+- **-에게/-한테 en pasiva**: 아이가 개에게 물렸어요 (el niño fue mordido por el perro); 물다 → 물리다.
+- **Ver y oír**: **보이다** y **들리다** no son voluntarios: 산이 보여요 (se ve la montaña), 음악이 들려요 (se oye música).
+- **-아/어지다**: cambio de estado o pasiva sin agente: 날씨가 따뜻해졌어요 (el tiempo se puso cálido), 이 노래는 많이 불려요.
+- **-게 되다**: «llegar a / terminar siendo», con matiz de circunstancias: 한국에 오게 됐어요 (acabé viniendo a Corea).
+- **Abierto / cerrado**: 문이 닫혔어요 (la puerta se cerró) frente a 문을 닫았어요 (cerré la puerta).
+- **Elegir entre -게 하다 y sufijo**: -게 하다 sirve para casi cualquier verbo; el sufijo es lo natural para acciones físicas básicas (먹이다, 입히다).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 열었어요 (activo) y 열렸어요 (pasivo).**
 2. **Traducir toda pasiva española con -이/히**: muchos verbos no tienen forma con sufijo y usan -되다 o -아/어지다.

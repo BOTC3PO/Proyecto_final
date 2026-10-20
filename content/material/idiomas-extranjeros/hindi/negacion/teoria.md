@@ -17,6 +17,15 @@ El hindi tiene tres partículas negativas principales: **नहीं** (negaci�
 - **Respuestas**: **हाँ** (sí), **नहीं** (no).
 - **Concordancia**: el verbo mantiene género y número (मैं नहीं खाती = mujer).
 
+## Ampliación
+- **न…न…** («ni… ni…»): न वह आया, न उसका भाई (*na vah āyā, na uskā bhāī*, «ni él vino ni su hermano»).
+- **Negación sin auxiliar**: en el presente habitual el auxiliar suele omitirse al negar: मैं चाय नहीं पीता (no tomo té); si se conserva, suena más enfático o formal.
+- **Más pronombres negativos**: **कोई भी नहीं** (absolutamente nadie), **कुछ भी नहीं** (absolutamente nada), **किसी को नहीं** (a nadie).
+- **Sin / a falta de**: **बिना** o **बग़ैर**: बिना चीनी के चाय (té sin azúcar); मैं बिना बताए चला गया (me fui sin avisar).
+- **Prefijos de negación**: **अ-/अन-** (असंभव «imposible», अनपढ़ «analfabeto»), **निर्-** (निडर «sin miedo»), **बे-** de origen persa (बेकार «inútil»), **ला-** (लापरवाह «descuidado»).
+- **Preguntas negativas**: क्या तुम नहीं आओगे? (¿no vendrás?). Se responde con el verbo: **आऊँगा** (sí, vendré) o **नहीं आऊँगा** (no vendré).
+- **Negar un pasado**: नहीं + participio: मैंने नहीं देखा (no vi), वह नहीं गया (no fue).
+
 ## Errores comunes de hispanohablantes
 1. **Colocar नहीं lejos del verbo**.
 2. **Usar नहीं en lugar de मत** en órdenes.

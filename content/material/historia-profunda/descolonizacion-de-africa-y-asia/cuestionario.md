@@ -133,7 +133,7 @@ respuestas_validas:
   - "octubre de 1956"
   - "1956"
   - "octubre"
-explicacion: "La crisis de Suez (1956) marcó el declive final de Gran Bretaña y Francia como potencias globiales independentes, obligadas a retirarse bajo presión de EE.UU. y la URSS."
+explicacion: "La crisis de Suez (1956) marcó el declive final de Gran Bretaña y Francia como potencias globales independientes, obligadas a retirarse bajo presión de EE.UU. y la URSS."
 ```
 
 ### 9 — Liderazgo de Sukarno

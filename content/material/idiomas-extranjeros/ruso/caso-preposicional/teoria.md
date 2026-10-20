@@ -17,6 +17,15 @@ El **prepositivo** (предложный падеж) se usa **siempre con prepos
 - **В / на**: en + lugar cerrado (в), sobre / eventos / actividades (на): в школе / на работе, на заводе, на уроке.
 - **Dirección vs lugar**: куда? → acusativo (Я иду **в парк**); где? → prepositivo (Я **в парке**).
 
+## Ampliación
+- **Pronombres tras о**: обо мне, о тебе, о нём, о ней, о нас, о вас, о них (en la 3.ª persona aparece una **н-** tras la preposición).
+- **Terminación -ии**: los sustantivos en -ие, -ия y -ия femeninos hacen el prepositivo en **-ии**: в здании, в Италии, в Англии, на станции.
+- **Adjetivos**: masculino y neutro **-ом / -ем**, femenino **-ой / -ей**: в новом доме, на большой улице, о хорошей книге, в синем море.
+- **Tiempo**: meses y años con **в**: в январе, в прошлом году; semanas con **на**: на этой неделе, на прошлой неделе.
+- **Medio de transporte**: Я еду **на автобусе**, на поезде, на самолёте.
+- **В o на**: espacios cerrados con **в** (в магазине, в театре, в классе); islas, regiones y eventos con **на** (на острове, на юге, на Кубе, на концерте, на уроке).
+- **Plural**: в городах, на улицах, о друзьях.
+
 ## Errores comunes de hispanohablantes
 1. **Usar acusativo para el lugar**: *Я в парк*.
 2. **Elegir en/на a partir del español**: *на работе*, *на заводе*.

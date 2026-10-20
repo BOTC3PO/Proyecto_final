@@ -25,7 +25,7 @@ Es una pelota dura, de unos 160 g. Se juega **únicamente con la cara plana del 
 
 Las faltas más comunes son el **juego con el pie**, la **obstrucción** (interponer el cuerpo entre el rival y la pelota), el **palo peligroso** y las **faltas de contacto**. Se reinician con un **tiro libre**. Si la falta ocurre dentro del círculo, hay otras sanciones:
 
-- **Córner corto** (*penalty corner*): una jugada preparada en la que los atacantes tiran desde dentro del círculo, con cinco defensores y el arquero detrás de la línea de fondo.
+- **Córner corto** (*penalty corner*): una jugada preparada en la que los atacantes tiran desde dentro del círculo, con hasta cinco defensores (el arquero incluido) detrás de la línea de fondo.
 - **Penal (*penalty stroke*)**: un duelo uno a uno contra el arquero, desde 6,40 m del arco, cuando se frustra una oportunidad clara de gol.
 
 ## 5. Tarjetas

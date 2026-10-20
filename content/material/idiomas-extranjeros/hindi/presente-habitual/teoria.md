@@ -22,6 +22,15 @@ El **presente habitual** hindi expresa acciones repetidas o generales. Se forma 
 - **Marcadores**: रोज़ (cada día), हमेशा (siempre), कभी-कभी (a veces).
 - **Ejemplos**: मैं दिल्ली में रहता हूँ; वह रोटी खाती है; हम स्कूल जाते हैं.
 
+## Ampliación
+- **Pasado habitual**: participio + **था/थी/थे** → मैं रोज़ पढ़ता था (*maiṃ roz paṛhtā thā*, «leía todos los días / solía leer»).
+- **Verdades generales**: सूरज पूरब में उगता है (el sol sale por el este); पानी सौ डिग्री पर उबलता है.
+- **Más marcadores de frecuencia**: अक्सर (a menudo), कभी-कभी (a veces), **शायद ही कभी** (casi nunca), हर रोज़ / रोज़ाना (a diario), हर हफ़्ते (cada semana), सुबह / शाम को (por la mañana / tarde), रविवार को (los domingos).
+- **Verbos con construcción dativa**: no usan el sujeto en nominativo: मुझे चाय पसंद है (me gusta el té); मुझे हिन्दी आती है (sé hindi).
+- **Profesiones y hábitos**: तुम क्या करते हो? (¿a qué te dedicas?) — मैं शिक्षक हूँ / मैं स्कूल में पढ़ाता हूँ.
+- **Participio sin auxiliar** al negar: मैं मांस नहीं खाता; el auxiliar se omite en la lengua hablada.
+- **Concordancia**: también el participio concuerda con el sujeto aunque el verbo tenga objeto: वह रोटी खाती है (ella come pan).
+
 ## Errores comunes de hispanohablantes
 1. **No concordar el género** del sujeto en el participio.
 2. **Olvidar el auxiliar** होना.

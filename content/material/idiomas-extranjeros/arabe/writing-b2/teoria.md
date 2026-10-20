@@ -19,6 +19,14 @@ En B2, escribir es redactar textos claros y detallados sobre temas complejos: en
 - **Cortesía formal**: نتشرف بتقديم…؛ معاليكم.
 - **Precisión**: datos y cifras concretos.
 
+## Ampliación
+- **Estructura**: مقدمة (introducción)، عرض (desarrollo)، خاتمة (conclusión).
+- **Conectores por función**: causa (لأنّ، بسبب، نظرًا لـ)، consecuencia (لذلك، ونتيجة لذلك)، contraste (لكن، غير أنّ، بينما، في المقابل)، adición (كما، وكذلك، فضلًا عن ذلك)، cierre (ختامًا، خلاصة القول).
+- **Puntuación**: coma árabe (،), punto y coma (؛) e interrogación (؟).
+- **Cartas formales**: se abre con تحية طيبة وبعد، y se cierra con وتفضلوا بقبول فائق الاحترام والتقدير.
+- **Párrafo**: idea principal, apoyo, ejemplo y enlace con el siguiente.
+- **Revisión**: concordancia, hamza, ta marbuta, artículo ال y caso.
+
 ## Errores comunes de hispanohablantes
 1. **Mezclar registros** (dialecto en texto formal).
 2. **Repetir «لكن» y «و»** sin variar conectores.

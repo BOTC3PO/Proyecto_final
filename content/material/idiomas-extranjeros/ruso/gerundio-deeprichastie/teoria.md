@@ -15,6 +15,14 @@ El **деепричастие** es una forma verbal invariable que expresa una *
 - **Negación**: **Не зная**, что делать, я остался.
 - **Equivalencia**: Читая книгу, он пил чай = **Когда** он читал книгу, он пил чай.
 
+## Ampliación
+- **Verbos en -авать**: conservan la sílaba -ва-: давать → давая, вставать → вставая.
+- **Verbos en -ти**: идти → идя.
+- **Límite del imperfectivo**: de verbos de raíz muy corta el gerundio imperfectivo suena forzado y se evita (por ejemplo *пиша* de писать); se usa otra construcción: Когда он пишет…
+- **Un solo sujeto**: Идя домой, я встретил друга (correcto); es incorrecto *Идя домой, у меня разболелась голова*, porque el sujeto de la segunda parte cambia.
+- **Funciones**: tiempo (Придя домой, он лёг спать), causa (Не зная языка, он не мог говорить), modo (Он ответил, улыбаясь).
+- **Posición y puntuación**: la construcción de gerundio va al principio, en medio o al final, siempre aislada con comas: Он вошёл, улыбаясь.
+
 ## Errores comunes de hispanohablantes
 1. **Usar el gerundio con sujeto distinto**.
 2. **Confundir gerundio y participio** (читая / читающий).

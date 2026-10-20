@@ -17,6 +17,14 @@ El **dativo** (дательный падеж) responde a **кому? чему?**
 - **Estados**: **Мне** холодно, **Мне** нужно идти, **Мне** нравится эта книга.
 - **Preposiciones**: **к** (hacia / a casa de): Я иду **к врачу**; **по** (por, según): по улице; **благодаря** (gracias a).
 
+## Ampliación
+- **Verbos que rigen dativo**: помогать, звонить, советовать, отвечать, верить, мешать, нравиться: Мне нравится этот фильм; Мне нравятся эти книги (el verbo concuerda con lo que gusta).
+- **Impersonales**: Мне жарко, холодно, скучно, интересно; Мне надо / нужно идти; Нам нельзя / можно.
+- **Preposición по**: по телефону, по почте, по средам y по субботам (todos los miércoles, todos los sábados), по этому вопросу.
+- **Preposición к**: к вечеру (hacia la tarde), к пяти часам (para las cinco), к врачу, к другу.
+- **Plurales irregulares**: друзьям, детям, людям.
+- **Edad**: Ему сорок лет.
+
 ## Errores comunes de hispanohablantes
 1. **Usar acusativo** para el complemento indirecto (*звоню маму*).
 2. **Decir *Я нравлюсь* por *me gusta***.

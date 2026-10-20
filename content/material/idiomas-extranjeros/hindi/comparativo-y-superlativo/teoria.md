@@ -15,6 +15,14 @@ El hindi no tiene una forma especial de comparativo: se usa la posposición **�
 - **Elección**: **दोनों में से** (de los dos), **सब में से** (de todos).
 - **Intensidad**: **बहुत** (muy), **थोड़ा** (un poco).
 
+## Ampliación
+- **Igualdad con जितना**: **X Y जितना adjetivo है** → वह मेरे जितना लंबा है (es tan alto como yo); **उतना ही … जितना** → वह उतना ही लंबा है जितना तुम (es tan alto como tú).
+- **Reforzar la comparación**: **और** (aún más): और बड़ा, और ज़्यादा; **काफ़ी** (bastante), **बहुत ही** (muy, muy).
+- **Superlativos con सबसे**: सबसे पहले (en primer lugar), सबसे ज़्यादा (el que más), सबसे कम (el que menos), सबसे आख़िर में (por último).
+- **Comparar acciones**: se usa el adverbio sin cambio: वह मुझसे तेज़ दौड़ता है (corre más rápido que yo).
+- **Formas sánscritas -तर y -तम** en registro formal: उच्च (alto), **उच्चतर** (superior), **उच्चतम** (supremo: उच्चतम न्यायालय, «Corte Suprema»); अधिक → **अधिकतम** (máximo); न्यून → **न्यूनतम** (mínimo).
+- **Elegir entre dos o más**: दोनों में से कौन-सा बेहतर है? (¿cuál de los dos es mejor?); सब में से (de todos).
+
 ## Errores comunes de hispanohablantes
 1. **Usar में o को** en lugar de से para «que».
 2. **No poner el oblicuo** con से (*तुम्हारा घर से*).

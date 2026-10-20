@@ -10,7 +10,7 @@
 
 ## Un país-continente
 
-China es uno de los países más grandes del planeta, con alrededor de 9,6 millones de kilómetros cuadrados, y el segundo más extenso de Asia después de Rusia. Su capital es Pekín. El relieve baja en escalones de oeste a este. En el oeste está la meseta del Tíbet, la más alta del mundo, rodeada por el Himalaya y otras cordilleras. Más al norte se extienden desiertos como el Taklamakán y el Gobi. Hacia el este el terreno desciende hacia grandes llanuras aluviales formadas por los ríos Huang He (río Amarillo) y Yangtsé, que desembocan en el Pacífico.
+China es uno de los países más grandes del planeta, con alrededor de 9,6 millones de kilómetros cuadrados. Su capital es Pekín. El relieve baja en escalones de oeste a este. En el oeste está la meseta del Tíbet, la más alta del mundo, rodeada por el Himalaya y otras cordilleras. Más al norte se extienden desiertos como el Taklamakán y el Gobi. Hacia el este el terreno desciende hacia grandes llanuras aluviales formadas por los ríos Huang He (río Amarillo) y Yangtsé, que desembocan en el Pacífico.
 
 Esa geografía explica la distribución de la gente. La mayor parte de la población vive en el este, en las llanuras y en las costas, donde el clima es más húmedo y hay tierras fértiles. El oeste, árido y montañoso, está mucho menos poblado. El norte es más seco y cultiva trigo y maíz; el sur, más cálido y lluvioso, cultiva sobre todo arroz.
 

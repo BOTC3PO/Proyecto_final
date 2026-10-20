@@ -16,6 +16,15 @@ Los numerales hindi del 1 al 100 son **irregulares**: hay que aprender cada uno.
 - **Ejemplos**: मेरे दो भाई हैं (tengo dos hermanos); मुझे पाँच किताबें चाहिए.
 - **Consejo**: memoriza por decenas; los números 21–99 no son regulares (इक्कीस, बाईस…).
 
+## Ampliación
+- **21–29**: इक्कीस 21, बाईस 22, तेईस 23, चौबीस 24, पच्चीस 25, छब्बीस 26, सत्ताईस 27, अट्ठाईस 28, उनतीस 29. El «29» y el «39» se forman restando uno a la decena siguiente (**उन-**).
+- **Ordinales**: पहला 1.º, दूसरा 2.º, तीसरा 3.º, चौथा 4.º, पाँचवाँ 5.º, छठा 6.º, सातवाँ 7.º; femenino: पहली, दूसरी, तीसरी, चौथी, पाँचवीं.
+- **Fracciones**: आधा ½, **पौना** ¾, **सवा** 1¼, **डेढ़** 1½, **ढाई** 2½: सवा सौ (125), डेढ़ सौ (150), ढाई सौ (250); y en la hora: सवा एक (1:15), साढ़े तीन (3:30), पौने चार (3:45).
+- **Edad**: मैं बीस साल का हूँ / मेरी उम्र बीस साल है.
+- **Aproximación**: दो-तीन (dos o tres), दो-चार (unos pocos), **लगभग** (aproximadamente).
+- **Comas indias**: 1,00,000 (एक लाख) y 1,00,00,000 (एक करोड़); la primera coma separa miles y las siguientes cada dos cifras.
+- **Teléfonos y años**: se leen cifra por cifra (teléfonos) o en dos pares (años: उन्नीस सौ इक्यानवे, 1991).
+
 ## Errores comunes de hispanohablantes
 1. **Intentar formar números** con reglas (como veinte y uno).
 2. **Confundir छह y छः**, o सात y आठ.

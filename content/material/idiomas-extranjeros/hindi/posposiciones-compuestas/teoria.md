@@ -15,6 +15,15 @@ Las **posposiciones compuestas** combinan una palabra de relación con **के*
 - **Con pronombres**: मेरे साथ (conmigo), उसके बारे में (sobre él).
 - **Género**: algunas usan **की**: की मदद से, की तरह.
 
+## Ampliación
+- **Más posposiciones de lugar**: के बीच में (entre), के आसपास (alrededor de), के बगल में (al lado de), की ओर / की तरफ़ (hacia), के दाईं / बाईं ओर (a la derecha / izquierda de).
+- **Fórmulas de causa, oposición y medio**: के कारण (a causa de), **के बावजूद** (a pesar de), के ख़िलाफ़ (contra), के पक्ष में (a favor de), के ज़रिए (por medio de), के मुकाबले (en comparación con), की जगह (en lugar de), के बदले (a cambio de).
+- **Tiempo**: के दौरान (durante), के बाद / से पहले (después de / antes de), **से लेकर … तक** (desde… hasta…): सुबह से लेकर शाम तक.
+- **Según**: के अनुसार y के मुताबिक़ introducen una fuente: रिपोर्ट के अनुसार.
+- **Casa de alguien**: **के यहाँ**: मैं दोस्त के यहाँ जा रहा हूँ (voy a casa de mi amigo); अलग de **के पास** (cerca de / posesión).
+- **Sin**: बिना … के: बिना पूछे (sin preguntar), पैसे के बिना (sin dinero).
+- **Orden**: la posposición compuesta siempre va después del sustantivo en oblicuo (घर के सामने, no *सामने घर के*).
+
 ## Errores comunes de hispanohablantes
 1. **Poner la posposición delante del sustantivo**.
 2. **Olvidar la forma oblicua** del sustantivo.

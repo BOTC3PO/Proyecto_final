@@ -23,6 +23,18 @@ Los pronombres personales rusos distinguen persona, número y (en 3.ª singular)
 - **Reflexivo свой**: se refiere al sujeto: Я читаю **свою** книгу.
 - **Acusativo**: Он видит **меня**; Я вижу **тебя**; Я люблю **тебя**.
 
+## Ampliación
+- **Declinación de los pronombres**:
+  - genitivo (= acusativo en 1.ª y 2.ª): меня, тебя, его, её, нас, вас, их;
+  - dativo: мне, тебе, ему, ей, нам, вам, им;
+  - instrumental: мной, тобой, им, ей, нами, вами, ими;
+  - prepositivo: обо мне, о тебе, о нём, о ней, о нас, о вас, о них.
+- **Н- eufónica**: en la 3.ª persona, tras preposición se añade н-: у него, у неё, у них, с ним, с ней, с ними, к нему.
+- **Posesión**: у меня есть, у тебя есть, у него есть, у неё есть, у нас есть, у вас есть, у них есть.
+- **Interrogativos**: кто, что, чей / чья / чьё / чьи: Чья это книга?
+- **Demostrativos**: этот / эта / это / эти; тот / та / то / те.
+- **Reflexivos**: себя y свой: Он любит свою работу.
+
 ## Errores comunes de hispanohablantes
 1. **Concordar el posesivo con el poseedor**: *его книга* no cambia aunque el poseedor sea femenino.
 2. **Usar ты con desconocidos**.

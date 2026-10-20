@@ -21,6 +21,14 @@ El futuro hindi se forma con la **raíz del verbo + una terminación de persona 
 - **Negación y pregunta**: मैं **नहीं** जाऊँगा; **क्या** तुम कल आओगे?
 - **Ejemplos**: कल मैं बाज़ार जाऊँगा; वह कल आएगा; हम खाना खाएँगे.
 
+## Ampliación
+- **Más verbos con vocal final** (raíz + terminación): खाना → खाऊँगा, खाओगे, खाएगा; सोना → सोऊँगा; रोना → रोऊँगा. Los verbos terminados en consonante añaden las terminaciones sin cambio: पढ़ना → पढ़ूँगा, पढ़ोगे, पढ़ेगा.
+- **Paradigma de करना, देना, लेना y होना**: करूँगा, करोगे, करेगा, करेंगे; दूँगा, दोगे, देगा, देंगे; लूँगा, लोगे, लेगा, लेंगे; **हूँगा, होगे, होगा, होंगे**.
+- **Futuro inmediato**: **-ने वाला** + है: मैं जाने वाला हूँ (*maiṃ jāne vālā hūṃ*, «estoy por irme»); बारिश होने वाली है (está por llover).
+- **Promesa, petición y cortesía**: मैं ज़रूर आऊँगा (vendré sin falta); क्या आप मेरी मदद करेंगे? (¿me ayudaría?). El futuro suaviza una petición.
+- **Conjetura sobre el pasado**: participio + होगा: उसने खा लिया होगा (*usne khā liyā hogā*, «ya habrá comido»).
+- **Marcadores de tiempo**: कल (ayer o mañana, según el verbo), **परसों** (anteayer o pasado mañana), आज रात (esta noche), कुछ दिनों में (en unos días), अगले महीने (el mes próximo).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir la terminación** de तुम (-ओगे) y आप (-एँगे).
 2. **No marcar el género** (-गा/-गी).

@@ -18,6 +18,15 @@ En B2, hablar es participar en debates, exponer una postura con argumentos, conc
 - **Cierre**: अंत में, मैं कहना चाहूँगा कि…; आपके ध्यान के लिए धन्यवाद.
 - **Retórica e ironía**: क्या हम सचमुच … कर सकते हैं?; वाह, क्या शानदार विचार है!
 
+## Ampliación
+- **Tomar y mantener el turno**: क्षमा कीजिए, मैं एक बात जोड़ना चाहूँगा (perdone, quisiera añadir algo); बीच में टोकने के लिए क्षमा चाहता हूँ (disculpe la interrupción); मुझे अपनी बात पूरी करने दीजिए (permítame terminar).
+- **Muletillas aceptables**: देखिए (mire), **दरअसल** (en realidad), **यानी / मतलब** (es decir), असल में, वैसे (por cierto), ख़ैर (en fin). Sirven para ganar tiempo, no para llenar.
+- **Léxico del debate**: तर्क (argumento), पक्ष / विपक्ष (a favor / en contra), निष्कर्ष (conclusión), प्रमाण (prueba), दृष्टिकोण (punto de vista).
+- **Estructura de una intervención**: tesis → dos razones → un ejemplo concreto → conclusión. Anunciar la estructura ayuda: मैं तीन बिंदुओं पर बात करूँगा।
+- **Registro**: usar **आप** y evitar **तू**; mezclar términos ingleses técnicos es normal (मीडिया, टेक्नोलॉजी), pero en un debate formal conviene preferir tatsama.
+- **Comprobar comprensión**: क्या मैं अपनी बात स्पष्ट कर पाया? (¿me he explicado bien?)
+- **Tareas típicas**: exposición breve con preguntas, defender una postura asignada (पक्ष में / विपक्ष में बोलना) y resolver un malentendido.
+
 ## Errores comunes de hispanohablantes
 1. **Ser demasiado directo** sin matices.
 2. **Repetir «लेकिन»** en lugar de variar (परंतु, किंतु).

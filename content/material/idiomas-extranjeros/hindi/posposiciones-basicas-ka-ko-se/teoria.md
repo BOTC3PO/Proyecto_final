@@ -15,6 +15,14 @@ El hindi usa **posposiciones** (van **después** del sustantivo) en lugar de pre
 - **Forma oblicua**: लड़का → **लड़के** को; कमरा → **कमरे** में; लड़की → लड़की को (sin cambio).
 - **Posición**: sustantivo (oblicuo) + posposición.
 
+## Ampliación
+- **Pronombres antes de una posposición**: मैं → मुझ (मुझे, मुझसे), वह → उस (उसका, उससे), यह → इस, वे → उन, कौन → किस. El posesivo de 1.ª y 2.ª persona es especial: मेरा, तुम्हारा, हमारा.
+- **में y पर**: में = dentro (बस में, en el autobús); पर = sobre una superficie (कुर्सी पर). También marcan tiempo: जनवरी में, 2020 में, रविवार को, दो बजे.
+- **से**: origen, instrumento y compañía, pero también **medio de transporte** (बस से जाता हूँ), **causa** (बीमारी से) y **desde** (कल से, desde ayer / mañana); **तक** = hasta (कल तक).
+- **को** con sensaciones: मुझे भूख लगी है; मुझे सर्दी हो गई है.
+- **का para parentesco**: मेरा भाई, उसकी बहन; concuerda con el poseído.
+- **ने** (ergativo): en el pasado perfectivo de verbos transitivos marca al agente: राम ने किताब पढ़ी (*rām ne kitāb paṛhī*); el verbo concuerda con el objeto. Se aprende más a fondo en el tema del pasado.
+
 ## Errores comunes de hispanohablantes
 1. **Poner la posposición delante** (*में घर*).
 2. **Olvidar la forma oblicua** (*लड़का को*).

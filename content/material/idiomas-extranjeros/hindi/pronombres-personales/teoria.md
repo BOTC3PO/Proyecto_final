@@ -20,6 +20,14 @@ El hindi distingue **tres grados de respeto** en la 2.ª persona (**तू, त�
 - **Posesivos** (concuerdan con el sustantivo poseído): **मेरा / मेरी / मेरे** (mi), **तुम्हारा**, **आपका / आपकी / आपके**, **उसका**, **हमारा**, **उनका**: मेरा घर (m.), मेरी किताब (f.), आपका नाम, हमारा घर.
 - **Ejemplos**: मैं छात्र हूँ (soy estudiante, m.); आप कैसे हैं? (¿cómo está usted?).
 
+## Ampliación
+- **Formas oblicuas** (antes de posposición): मैं → **मुझ** (मुझे, मुझसे, मुझमें), तुम → तुम (तुम्हें, तुमसे), वह → **उस** (उसे, उससे), यह → **इस**, हम → हम (हमें), वे → **उन** (उन्हें, उनसे), आप → आप (आपको, आपसे), कौन → **किस**.
+- **Reflexivos**: **अपना** (propio, concuerda con lo poseído): वह अपना काम करता है; **ख़ुद** (uno mismo): मैं ख़ुद करूँगा (lo haré yo mismo).
+- **Demostrativos**: यह / ये (este, estos; cerca), वह / वे (aquel, aquellos; lejos). En oblicuo: इस / इन, उस / उन.
+- **Tres formas de «tener»**: **मेरे पास** (posesión material: मेरे पास गाड़ी है), **मुझे** (experimentador: मुझे भूख लगी है, tengo hambre) y **मेरा** (parentesco: मेरे दो भाई हैं).
+- **Indefinidos**: कोई (alguien), कुछ (algo), सब (todos), हर कोई (cada uno).
+- **तू**: se reserva para familiares muy cercanos, niños, Dios y la poesía; con desconocidos puede ofender.
+
 ## Errores comunes de hispanohablantes
 1. **Usar तू con desconocidos**.
 2. **Concordar el posesivo con el poseedor** en lugar del objeto poseído.
