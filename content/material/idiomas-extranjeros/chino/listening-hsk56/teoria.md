@@ -42,6 +42,9 @@ En HSK 5-6 se escuchan **noticias, entrevistas, conferencias y debates**. Lo eva
 4. Si no entendés una palabra, usá los conectores para deducir el sentido global.
 5. Evitá elegir opciones demasiado absolutas (一定, 完全): los textos suelen matizar.
 
+### Vocabulario recurrente en noticias y debates
+趋势 (tendencia), 现象 (fenómeno), 政策 (política), 措施 (medida), 影响 (influencia), 研究表明 (las investigaciones muestran), 专家认为 (los expertos opinan), 调查显示 (la encuesta indica), 呼吁 (exhortar), 引起关注 (despertar atención). Con este vocabulario se reconocen la tesis y las fuentes del discurso.
+
 ## Errores comunes de hispanohablantes
 1. **Tomar 再考虑考虑 como aceptación.**
 2. **Perder los porcentajes y cifras.**

@@ -42,6 +42,11 @@ El chino forma preguntas sin cambiar el orden: se añade una partícula al final
 - *请问……* («perdone, ¿…?») abre una pregunta cortés: *请问，洗手间在哪儿？*
 - Para pedir repetición: *你说什么？ / 请再说一遍.*
 
+### Práctica breve
+Convertí en pregunta: *他是医生.* → *他是医生吗？* / *他是不是医生？*
+Preguntá por el dato subrayado: *我今天去图书馆.* → *你今天去哪儿？* / *你什么时候去图书馆？*
+Retomá la pregunta: *我很好，你呢？* *我的手机呢？*
+
 ## Errores comunes de hispanohablantes
 1. **Añadir 吗 a una pregunta con 什么/谁**: ❌ *你叫什么名字吗?*
 2. **Combinar V不V con 吗**: ❌ *你是不是学生吗?*

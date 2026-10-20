@@ -43,6 +43,9 @@ B: 一件衣服，听说比较便宜。
 ### Estrategias
 Leé la pregunta primero, identificá la palabra interrogativa y escuchá solo esa información; si oís dos horas, la correcta es la que responde a la pregunta, no la primera que aparece.
 
+### Vocabulario útil para escuchar
+一起 (juntos), 一下 (un momento / suaviza), 带 (llevar), 打电话 (llamar), 忘了 (olvidó), 觉得 (opinar), 还是 (o bien / todavía), 或者 (o), 已经 (ya), 非常 (muy), 对不起 / 没关系 (disculpas). Reconocer estas palabras permite seguir el hilo aunque se pierdan otras.
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 了 y 过.**
 2. **Perder los números grandes** (一百二十).

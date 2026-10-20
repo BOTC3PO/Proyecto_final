@@ -41,6 +41,13 @@ Como partícula, 过 se dice *guo* con tono neutro; como verbo («pasar») es *g
 ### Con 吗 o tiempo vago
 *你去过中国吗？* — *去过，一次.* — *没去过，但是我很想去.*
 
+### Práctica breve
+- *你吃过饺子吗？ — 吃过，但是没做过.* (¿Probaste dumplings? — Sí, pero nunca los preparé.)
+- *你学过几年汉语？ — 我学过两年.* (¿Cuántos años estudiaste? — Estudié dos años.)
+- *他从来没迟到过.* (Nunca llegó tarde.)
+- *这个地方我来过一次.* (Estuve una vez en este lugar.)
+Pensá siempre: ¿cuenta como **experiencia** (过) o como **hecho puntual** (了)?
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 过 con 了**.
 2. **Usar 不 en vez de 没**: ❌ *我不去过北京* ✅ *我没去过北京*.

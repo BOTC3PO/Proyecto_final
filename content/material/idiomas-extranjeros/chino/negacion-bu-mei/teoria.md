@@ -44,6 +44,13 @@ El chino niega con **不** y **没**. La elección depende del tipo de verbo y d
 ### Respuestas
 La respuesta corta repite el verbo: 去 / 不去, 去了 / 没去, 是 / 不是. **No existe un «sí» o «no» único**: se contesta con el verbo.
 
+### Práctica de contrastes
+- *我不喝咖啡.* (No tomo café: hábito.) / *我没喝咖啡.* (No tomé café: hoy, ayer.)
+- *他不来.* (No viene: decisión.) / *他没来.* (No vino: no ocurrió.)
+- *我不知道.* / *我不认识他.*
+- *我没有姐姐.* (No tengo hermana.)
+- *别忘了带钥匙！* (¡No te olvides de las llaves!)
+
 ## Errores comunes de hispanohablantes
 1. **Usar 不 para el pasado**: ❌ *我昨天不去*.
 2. **Usar 没 con 是**: ❌ *我没是学生*.

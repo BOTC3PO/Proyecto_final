@@ -41,6 +41,13 @@
 - *你吃了吗？* / *你吃饭了吗？* — pregunta si ya se realizó.
 - *你吃了什么？* — «qué comiste» (aquí 了 es natural).
 
+### Práctica breve
+- *昨天我看了一个电影.* (Ayer vi una película.)
+- *他回家了.* (Volvió a casa.)
+- *我吃了三个包子，现在饱了.* (Comí tres bollos y ya estoy lleno.)
+- *别忘了关门.* (No olvides cerrar la puerta.)
+- *你怎么了？ — 我感冒了.* (¿Qué te pasa? — Me resfrié.)
+
 ## Errores comunes de hispanohablantes
 1. **Usar 了 en todo pasado**: no se pone en hábitos pasados (*我小时候常去公园*).
 2. **Usar 了 y 没 juntos**: ❌ *我没吃了饭*.

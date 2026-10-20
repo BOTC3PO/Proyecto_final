@@ -112,3 +112,20 @@ Se agregó una sección «Ampliación» (antes de «Errores comunes») a **20 te
 - El verso de aliteración «चारु चंद्र की चंचल किरणें» se cita sin autor a propósito (no se confirmó la atribución).
 
 **No ampliados en esta tanda:** el resto de los temas de hindi y coreano ya superaban los 2.000 caracteres.
+
+## Teorías de chino ampliadas (2026-10-20)
+
+Se ampliaron las **28 teorías de chino** que estaban bajo 2.000 caracteres, con una sección «Ampliación» antes de «Errores comunes». Quedaron entre **2.674 y 3.299 caracteres** (promedio 2.975); ninguna llegó a 3.000 de forma uniforme en las más breves (`matices-de-particulas-aspectuales`, `particula-guo`, `listening-hsk2`, `negacion-bu-mei`, `listening-hsk1`, `orden-de-la-oracion`). No se tocaron cuestionarios y no hay referencias a audio.
+
+Temas: `listening-hsk1`, `listening-hsk2`, `listening-hsk34`, `listening-hsk56` (tipos de tarea, números, marcadores, estrategias y vocabulario de escucha), `negacion-bu-mei`, `particula-guo`, `particula-aspectual-le`, `matices-de-particulas-aspectuales`, `particulas-interrogativas-ma-ne`, `pinyin-y-tonos`, `orden-de-la-oracion`, `oraciones-condicionales`, `registro-formal-escrito`, `complementos-direccionales`, `oraciones-existenciales`, `particulas-modales-final-de-oracion`, `preguntas-retoricas-y-enfasis`, `preposiciones-guanyu-duiyu-zhiyu`, `construccion-shi-de`, `oraciones-con-verbos-en-serie-y-pivote`, `complementos-de-grado`, `pares-correlativos-y-concesivas`, `construccion-ba`, `estructuras-retoricas-avanzadas`, `construccion-bei-pasiva`, `conectores-de-parrafo`, `estructuras-comparativas`, `reduplicacion-y-verbos-separables`.
+
+**Verificación:** las reglas gramaticales y los ejemplos salen de gramática estándar del chino mandarín (HSK 2.0) y de conocimiento del modelo; no se pudo abrir ninguna fuente primaria desde este entorno (Chinese Grammar Wiki, Wiktionary y listas HSK no se consultaron página por página). **Sin revisión de hablante nativo.**
+Puntos a contrastar con un hablante o una gramática de referencia:
+- Pinyin de los ejemplos nuevos y los tonos en frases largas.
+- Reglas de colocación de la marca de tono y de ortografía del pinyin (`pinyin-y-tonos`).
+- Fórmulas de registro escrito (`registro-formal-escrito`): 兹证明, 顺祝商祺, 予以, 倘若.
+- Usos de 过 y 了 en la combinación con duración (`学了三年了` frente a `学了三年`).
+- Vocabulario y expresiones de `listening-hsk56` (下降了三成, 翻了一番, 恐怕, 未必, 不见得).
+- Idiomaticidad de los ejemplos con 着 y de las estructuras existenciales.
+
+**Quedó corto:** no hay teorías por debajo de 2.600 caracteres; ninguna supera los 3.300. Las destrezas de escucha (`listening-hsk*`) describen estrategias y vocabulario, pero no pueden incluir transcripciones de audio hasta que Javier genere los archivos en su servidor.

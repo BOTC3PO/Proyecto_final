@@ -45,6 +45,12 @@ Casi siempre la **segunda parte lleva un adverbio** (就, 才, 都, 也, 还): s
 | 只有天晴，我才去 | solo con buen tiempo |
 | 即使下雨，我也去 | llueva o no, voy |
 
+### Práctica de transformación
+- *你不来，我不去.* → *如果你不来，我就不去.*
+- *努力学习 / 取得好成绩.* → *只要努力学习，就能取得好成绩.*
+- *天气好 / 去爬山.* → *要是天气好，我们就去爬山.*
+- *不管 / 你同不同意 / 做.* → *不管你同不同意，我都要做.*
+
 ## Errores comunes de hispanohablantes
 1. **Omitir 就/才 en la segunda cláusula.**
 2. **Confundir 只要…就 (suficiente) con 只有…才 (necesario)**.

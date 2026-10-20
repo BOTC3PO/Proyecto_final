@@ -46,6 +46,9 @@ B: 三点，电影院门口。
 3. Distinguí lo que alguien **dijo** de lo que **hará**.
 4. Descartá opciones que repiten palabras del texto pero cambian el sentido (trampa de eco).
 
+### Contextos habituales
+Aeropuerto y estación (retrasos, cambios de horario, andén), hotel y restaurante (reservas, cancelaciones), oficina (reuniones, tareas), escuela (exámenes, tareas) y salud (síntomas, citas). Cada contexto trae su vocabulario fijo; reconocerlo en las primeras palabras ayuda a anticipar la pregunta.
+
 ## Errores comunes de hispanohablantes
 1. **Perder el marcador** que da la relación lógica.
 2. **Confundir 把 y 被.**

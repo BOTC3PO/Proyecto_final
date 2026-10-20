@@ -1,5 +1,21 @@
 # Lo que hay que confirmar (lista única)
 
+## Actualización 2026-10-20 (ronda de contenido sin escribir y neutralidad)
+
+**Resuelto en esta ronda:** futsal, rugby y hockey (Ed. Física); sistemas excretor, óseo, muscular e inmunitario (Biología); Brasil, China, Sudáfrica y Rusia/Asia Central (Geografía); fresadora y CNC (en `oficios/tecnico-electromecanico`); las 71 teorías cortas de idiomas ampliadas (chino 28, hindi 18, ruso 14, árabe 9, coreano 2; ahora entre 2.400 y 3.300 caracteres); conflicto israelí-palestino y Guerra del Golfo reescritos de forma neutral y con ambos relatos (Geografía de Medio Oriente, Historia contemporánea de Medio Oriente y Asia-Pacífico). Chino: HSK 2.0 se mantiene, HSK 3.0 queda para votación; tradicionales/simplificados: no se agregan (el examen usa simplificados).
+
+**Nuevas dudas de esta ronda** (detalle en `confirmar-huecos-ed-fisica-2.md`, `confirmar-huecos-biologia-2.md`, `confirmar-huecos-geografia-2.md`, `confirmar-neutralidad-medio-oriente.md`, `confirmar-oficios-5.md` e `confirmar-idiomas-resto.md`):
+- Neutralidad: no se pudo abrir la ONU; el texto exacto de la resolución 242 se cita en resumen y los hechos de mayo de 1967 no se verificaron. Las cifras de víctimas se omitieron a propósito. Revisá el tono final.
+- Mercosur: las fuentes se contradicen sobre Bolivia (el texto dice «en proceso de incorporación»).
+- Ed. Física: medidas de canchas y arcos, penal de hockey a 6,40 m, tackle bajo los hombros y resultados deportivos de Argentina (futsal 2016, Pumas 2007, Los Leones Río 2016) de memoria; en futsal el tiro libre directo sin barrera es desde la 6.ª falta acumulada.
+- Biología: huesos axiales/apendiculares, vértebras por región, un millón de nefronas, más de 600 músculos, VIH y linfocitos T colaboradores y la comparación músculo liso/cardíaco sin fuente. Siguen sin tema propio piel y sentidos.
+- CNC: G54 como origen de pieza, sentido de G02/G03 según el control y artículos del Decreto 351/79.
+- Idiomas: las 71 teorías ampliadas salen de gramáticas conocidas sin contraste fuente por fuente ni hablante nativo; revisar sobre todo vocalización árabe, acentos rusos, formularios formales y ejemplos de chino.
+
+**Nada nuevo en los bloqueantes de la fase final:** siguen siendo los exámenes jefe/grafo (ahora ≈170 errores del verificador), las líneas de ayuda y leyes de Salud y la revisión nativa de idiomas.
+
+---
+
 ## Estado final de la sesión (2026-10-19) — leer primero
 
 **Hecho y subido a `tareas_de_reparación`:** 64 temas académicos, 73 técnicos, 35 de idiomas (Chino 20 y Esperanto 15) más ampliación de teoría, unos 160 de oficios, 41 temas de huecos (Geografía 7, Física 4, Química 5, Biología 6, Lengua 4, Informática 3, Ed. Física 6, y los 6 de Salud con los 4 de la ronda anterior), 13 exámenes jefe nuevos y 2 libros (UX/Diseño, Ingeniería). Auditoría general y corrección de ≈1.000 defectos de preguntas (ver `AUDITORIA-MATERIAL.md`). Todos los cuestionarios pasan `validar_lote.ts`; `auditar_preguntas.ts` no deja defectos reales (solo avisos tolerados). Nada se probó en la app.
