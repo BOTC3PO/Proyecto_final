@@ -1,5 +1,11 @@
 # Lo que hay que confirmar (lista única)
 
+## Decisiones de Javier del 2026-10-20 (leer primero)
+- **Línea 135 y (011) 5275-1135: confirmadas como correctas**, pero son de prevención del suicidio/crisis; no se sabe si atienden otros problemas. El SAME no es 107 en todo el país: en algunas zonas es el 911 y en otras tiene su propio operativo. Ya se ajustó `salud/prevencion-del-suicidio`.
+- **Todas las páginas a verificar** están en `PAGINAS-A-VERIFICAR.md`, para revisar en otro entorno con internet.
+- **Exámenes jefe:** si se cambia el árbol general se rehacen, ignorando Oficios e Idiomas (el examen B2/C1 de idiomas es su examen jefe propio). Procedimiento y plan de ids en `REHACER-EXAMENES-JEFE.md`.
+- **Publicación:** Javier va a publicar después de estas confirmaciones.
+
 ## Actualización 2026-10-20 (ronda de contenido sin escribir y neutralidad)
 
 **Resuelto en esta ronda:** futsal, rugby y hockey (Ed. Física); sistemas excretor, óseo, muscular e inmunitario (Biología); Brasil, China, Sudáfrica y Rusia/Asia Central (Geografía); fresadora y CNC (en `oficios/tecnico-electromecanico`); las 71 teorías cortas de idiomas ampliadas (chino 28, hindi 18, ruso 14, árabe 9, coreano 2; ahora entre 2.400 y 3.300 caracteres); conflicto israelí-palestino y Guerra del Golfo reescritos de forma neutral y con ambos relatos (Geografía de Medio Oriente, Historia contemporánea de Medio Oriente y Asia-Pacífico). Chino: HSK 2.0 se mantiene, HSK 3.0 queda para votación; tradicionales/simplificados: no se agregan (el examen usa simplificados).
