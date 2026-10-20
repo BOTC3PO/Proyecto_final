@@ -17,7 +17,7 @@ prevención de rutina ya vista.
 **evitar** o tratar lesiones **leves**. Este módulo es distinto:
 situaciones de **emergencia real** donde una respuesta rápida y
 correcta puede salvar una vida — no reemplaza la llamada al sistema de
-emergencias (911/107 según el país), la complementa.
+emergencias (en Argentina, el 911 en buena parte del país y el 107, SAME, en la Ciudad de Buenos Aires; el número depende de la localidad), la complementa.
 
 ## 1. RCP: reanimación cardiopulmonar (`EF9a`)
 

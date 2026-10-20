@@ -3,7 +3,7 @@
 # Escribir en chino: HSK 2
 
 ## Introducción
-En HSK 2 se escriben párrafos breves de cinco a ocho frases sobre rutinas, experiencias y planes: mensajes, correos informales y notas. El escritor ya usa 了, 过, 比 y conectores simples, y controla unos 300 caracteres.
+En HSK 2 se escriben párrafos breves de cinco a ocho frases sobre rutinas, experiencias y planes: mensajes, correos informales y notas. El escritor ya usa 了, 过, 比 y conectores simples, y maneja unas 300 palabras (la lista acumulada de HSK 2 en su versión 2.0).
 
 ## Explicación central
 - **Estructuras**: 因为…所以…, 但是, 然后, 还, 也, 都.
