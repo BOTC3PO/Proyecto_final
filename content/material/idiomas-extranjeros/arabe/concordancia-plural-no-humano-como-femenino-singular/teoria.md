@@ -14,6 +14,13 @@ En árabe, la concordancia de los plurales depende de si se trata de **personas*
 - **Contraste**: الكتب جديدة (no humano) frente a الطلاب مجتهدون (humano).
 - **Excepciones**: en poesía o registro clásico puede aparecer el plural (جميلات), pero en árabe estándar moderno domina el femenino singular.
 
+## Ampliación
+- **Con numerales 3–10**: el contado va en plural genitivo y el adjetivo en femenino singular: ثلاثة كتب جديدة (tres libros nuevos).
+- **Dual**: el dual no se rige por esta regla y concuerda en dual: كتابان جديدان.
+- **Verbo antes del sujeto**: va en singular y concuerda en género con el sujeto humano: جاء الطلاب، جاءت الطالبات.
+- **Más ejemplos**: الأسئلة صعبة؛ الأبواب مفتوحة؛ النوافذ مغلقة؛ الحيوانات تعيش في الغابة.
+- **Pronombres**: para el plural no humano se usa ـها (قرأتُ الكتب وأحببتُها) y no ـهم.
+
 ## Errores comunes de hispanohablantes
 1. **Concordar en plural** con cosas: ❌ *الكتب جدد*.
 2. **Usar هؤلاء** con no humanos.

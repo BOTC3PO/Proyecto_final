@@ -25,6 +25,7 @@ En B2, hablar es participar en debates, exponer una postura con argumentos, conc
 - **Muletillas útiles**: في الحقيقة، بصراحة، أعني…
 - **Estrategia**: tema, postura, dos argumentos, ejemplo y cierre; mantener la fuṣḥā ligera y no mezclar dialecto sin intención.
 - **Tipos de tarea**: monólogo breve, debate con réplica y simulación (negociación o entrevista).
+- **Reformular**: بمعنى آخر، …؛ أي أنّ…
 
 ## Errores comunes de hispanohablantes
 1. **Ser demasiado directo** sin matices.

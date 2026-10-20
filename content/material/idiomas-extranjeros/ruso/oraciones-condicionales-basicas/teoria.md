@@ -26,6 +26,8 @@ El ruso distingue la **condición real o posible** (**если**) de la **hipot�
 - **Condición real referida al pasado**: Если вчера шёл дождь, дорога мокрая.
 - **Futuro tras когда y как только**: Когда я приеду, я позвоню; Как только он придёт, мы начнём.
 - **Puntuación**: se escribe coma antes de *если*, *если бы* y *чтобы*.
+- **Con то**: Если ты придёшь, то я буду рад.
+- **Con imperativo**: Позвони мне, если что-то случится.
 
 ## Errores comunes de hispanohablantes
 1. **Usar presente tras если бы**.

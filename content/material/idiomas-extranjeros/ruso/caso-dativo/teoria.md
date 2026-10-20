@@ -24,6 +24,8 @@ El **dativo** (дательный падеж) responde a **кому? чему?**
 - **Preposición к**: к вечеру (hacia la tarde), к пяти часам (para las cinco), к врачу, к другу.
 - **Plurales irregulares**: друзьям, детям, людям.
 - **Edad**: Ему сорок лет.
+- **Pregunta кому?**: Кому ты звонишь? — Я звоню брату.
+- **Verbos de comunicación**: говорить кому, писать кому, показывать кому: Я пишу письмо другу.
 
 ## Errores comunes de hispanohablantes
 1. **Usar acusativo** para el complemento indirecto (*звоню маму*).

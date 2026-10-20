@@ -24,6 +24,8 @@ El **instrumental** (творительный падеж) responde a **кем? �
 - **Adjetivos**: с хорошим другом, с новой подругой, с интересной книгой (**-ым / -им**, **-ой / -ей**).
 - **Agente de la voz pasiva**: Эта книга написана известным писателем.
 - **Plurales irregulares**: с друзьями, с детьми (дети), с людьми (люди).
+- **Preguntas y respuestas**: С кем ты живёшь? — Я живу с братом. Чем ты пишешь? — Ручкой. Кем ты работаешь? — Я работаю учителем.
+- **Profesión tras «стать»**: Она стала инженером; Он станет врачом.
 
 ## Errores comunes de hispanohablantes
 1. **Traducir «con» siempre por с + nominativo**.

@@ -20,6 +20,7 @@ El árabe tiene **un solo artículo**, el **definido ال**, invariable en géne
 - **Demostrativos**: el sustantivo que sigue lleva ال: هذا الكتاب (este libro).
 - **Con prefijos**: بالقلم (con el lápiz), للمدرسة (para la escuela: ل + ال → لل), والكتاب (y el libro).
 - **Definición y adjetivo**: la concordancia incluye la definición: المدرسة الكبيرة (la escuela grande) frente a مدرسة كبيرة (una escuela grande).
+- **En oración**: الطالب في المدرسة؛ الولد يقرأ الكتاب.
 
 ## Errores comunes de hispanohablantes
 1. **Pronunciar la ل ante letra solar**: *al-shams* ❌ → *ash-shams* ✅.

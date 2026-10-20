@@ -21,6 +21,8 @@ Los cardinales rusos tienen reglas de concordancia particulares: el **1** concue
 - **Animados en acusativo**: con 2, 3 y 4 se usa el genitivo (= acusativo animado): Я вижу двух студентов и трёх друзей.
 - **Los cardinales también se declinan**: два → двух (gen.), двум (dat.), двумя (instr.), о двух (prep.); пять → пяти (gen., dat., prep.), пятью (instr.).
 - **Hora**: Сейчас один час, два часа, пять часов.
+- **Ordinales**: первый, второй, третий (irregular: третья, третье), четвёртый, пятый, десятый; concuerdan como adjetivos: Я живу на третьем этаже.
+- **Años**: 2025 se lee «две тысячи двадцать пятый год»; en prepositivo: в две тысячи двадцать пятом году.
 
 ## Errores comunes de hispanohablantes
 1. **Usar el plural nominativo** (*два столы*).

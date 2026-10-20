@@ -21,6 +21,7 @@ En árabe, la oración **nominal** (*jumla ismiyya*) empieza por un nombre o pro
 - **Pasado con كان**: كان الجو جميلًا (el tiempo era bueno); el khabar pasa al acusativo.
 - **Interrogativos**: ما هذا؟ هذا قلم. من هذا؟ هذا أحمد. أين المدرسة؟ المدرسة هنا.
 - **Caso**: el mubtadaʾ y el khabar van en nominativo (الكتابُ جديدٌ).
+- **Más ejemplos**: أحمد طبيب؛ فاطمة معلمة؛ البيت كبير والحديقة جميلة.
 
 ## Errores comunes de hispanohablantes
 1. **Añadir un verbo «ser»** en presente.

@@ -20,6 +20,7 @@ La **nisba** convierte un sustantivo (país, ciudad, disciplina) en un **adjetiv
 - **Sustantivos comunes**: وطن → وطني (nacional), شعب → شعبي (popular), عالم → عالمي (mundial).
 - **Dual y plural**: مصريان (dual masculino, nominativo), مصريتان (dual femenino); plural sano masculino: مصريون (nominativo) y مصريين (acusativo y genitivo).
 - **Plural no humano**: el adjetivo va en femenino singular: المدن المصرية.
+- **En oración**: هي مغربية وهو لبناني؛ المطبخ المصري مشهور.
 
 ## Errores comunes de hispanohablantes
 1. **Dejar la ة**: ❌ *مدرستي* (mi escuela) en lugar de مدرسي.

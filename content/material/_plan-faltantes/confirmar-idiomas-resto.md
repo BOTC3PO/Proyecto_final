@@ -87,3 +87,28 @@ Longitud resultante: 2.500 a 3.200 caracteres; quedan algo por debajo de 3.000 `
 **Verificado por búsqueda web:** las cifras indo-arábigas orientales en el Oriente árabe frente a las occidentales en el Magreb. **No se pudo verificar** el texto literal de los anuncios del subte coreano (`listening-intermedio-alto`; quedó redactado como «fórmulas parecidas»). Todo lo demás (formas árabes, rusas, hindi, coreanas y chinas, 成语, horarios hindi `सवा/साढ़े/पौने`, vocabulario) salió de conocimiento del modelo sin hablante nativo.
 
 **Sin ampliar todavía** (siguen por debajo de 2.000 caracteres): 71 temas en total, a saber, chino 28 (entre ellos todos los `listening-*`, `negacion-bu-mei`, `particula-guo`, `matices-de-particulas-aspectuales`, `pinyin-y-tonos`), hindi 18, ruso 14, árabe 9 y coreano 2.
+
+## Teorías de ruso y árabe ampliadas (2026-10-20)
+
+Se agregó una sección «Ampliación» (declinaciones completas, reglas de uso, ejemplos, estrategias de lectura y habla, conectores y registro) a las **23 teorías** que estaban por debajo de 2.000 caracteres: 14 de ruso (números cardinales, caso preposicional, instrumental, genitivo y dativo, condicionales, adjetivos, gerundio, presente, pronombres, género, verbos de movimiento, comparativo y speaking-c1) y 9 de árabe (nisba, artículo, comparativo, oraciones nominales, concordancia del plural no humano, reading-b1, speaking-b2, writing-b2 y writing-c1). Ahora miden entre 2.400 y 2.960 caracteres (media ≈ 2.700): **no llegan a 3.000 en todos**.
+
+- Verificado por búsqueda: la regla de formación del gerundio imperfectivo (base del presente + -а/-я) y que de verbos de raíz muy corta suena forzado (*пиша*). Lo demás sale de gramáticas de referencia conocidas, sin contrastar fuente por fuente.
+- A revisar por un hablante nativo: acentos y ejemplos rusos; la vocalización mínima y las fórmulas formales árabes (تحية طيبة وبعد، وتفضلوا بقبول فائق الاحترام والتقدير، هل لي أن أضيف نقطة؟، ثغرات); los nisba de ciudades y países (قاهري، بغدادي، دمشقي، سعودي، مغربي، جزائري).
+- Sin referencias a audio. No se tocaron cuestionarios.
+
+
+## Teorías de hindi y coreano ampliadas (2026-10-20)
+
+Se agregó una sección «Ampliación» (antes de «Errores comunes») a **20 teorías** que tenían menos de 2.000 caracteres; ahora tienen entre 2.700 y 3.150 caracteres (Python `len`). No se tocaron los cuestionarios (se revalidaron los 20: 0 FAIL). Sin audio ni referencias a audio.
+
+- **Hindi (18):** presente-continuo, futuro, plural-de-sustantivos, negacion, imperativo-y-cortesia, discurso-directo-basico, comparativo-y-superlativo, interrogativos, subjuntivo-y-modo-optativo, pronombres-personales, numeros-cardinales, presente-habitual, speaking-b2, posposiciones-basicas-ka-ko-se, posposiciones-compuestas, writing-b2, estilo-literario-y-periodistico, voz-pasiva.
+- **Coreano (2):** honorificos-basicos, voz-pasiva-y-causativa.
+
+**Verificado por búsqueda web:** los numerales hindi 21–29 (इक्कीस … उनतीस), el formato de la carta formal hindi (सेवा में / विषय / महोदय / भवदीय) y que los sufijos causativos coreanos incluyen -우- (재우다, 태우다) con selección verbo por verbo.
+
+**De conocimiento propio, sin fuente primaria (revisar con hablante nativo):**
+- Hindi: pasado continuo y futuro de conjetura; futuro inmediato con -ने वाला; vocativo plural (लड़को, भाइयो); plurales de femeninos en vocal (माताएँ, बहुएँ); pasado habitual con था; fracciones सवा/डेढ़/ढाई/पौना; ordinales; construcciones con चाहे, जब तक… न y कहीं ऐसा न हो कि; el contraste de pares transitivo–intransitivo para evitar la pasiva; la clasificación शब्दालंकार / अर्थालंकार y los datos de छायावाद y Premchand; la «pirámide invertida» periodística; posposiciones compuestas (के बावजूद, के ज़रिए, के यहाँ).
+- Coreano: los niveles 합쇼체 / 해요체 / 해체 / 하게체; 뵙다; la hipercorrección *커피 나오셨습니다*; los causativos con -우- (깨우다, 세우다, 비우다) y -게 되다.
+- El verso de aliteración «चारु चंद्र की चंचल किरणें» se cita sin autor a propósito (no se confirmó la atribución).
+
+**No ampliados en esta tanda:** el resto de los temas de hindi y coreano ya superaban los 2.000 caracteres.

@@ -25,6 +25,8 @@ El **prepositivo** (предложный падеж) se usa **siempre con prepos
 - **Medio de transporte**: Я еду **на автобусе**, на поезде, на самолёте.
 - **В o на**: espacios cerrados con **в** (в магазине, в театре, в классе); islas, regiones y eventos con **на** (на острове, на юге, на Кубе, на концерте, на уроке).
 - **Plural**: в городах, на улицах, о друзьях.
+- **Con при**: при входе (a la entrada), при университете (junto a la universidad).
+- **Dónde estás**: Где ты? — Я в школе / на работе / дома (*дома* es un adverbio y no lleva preposición).
 
 ## Errores comunes de hispanohablantes
 1. **Usar acusativo para el lugar**: *Я в парк*.

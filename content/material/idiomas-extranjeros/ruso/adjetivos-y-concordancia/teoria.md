@@ -31,6 +31,8 @@ Los adjetivos rusos **concuerdan con el sustantivo en género, número y caso**.
 - **Colores**: красный, жёлтый, зелёный, чёрный, белый, синий (azul oscuro), голубой (celeste), серый, коричневый.
 - **Demostrativos y posesivos** concuerdan también: этот новый дом, моя новая книга.
 - **Adjetivos sustantivados**: столовая (comedor), мороженое (helado), взрослый (adulto), больной (enfermo).
+- **Cómo preguntar**: Какой? Какая? Какое? Какие? — Какой это дом? — Это большой дом.
+- **Ordinales y participios** concuerdan igual: третий этаж, третья неделя.
 
 ## Errores comunes de hispanohablantes
 1. **Poner el adjetivo detrás** del sustantivo.

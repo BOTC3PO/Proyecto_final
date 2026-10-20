@@ -24,6 +24,7 @@ El **genitivo** (родительный падеж) responde a **кого? че�
 - **Fechas**: la fecha usa el genitivo para el mes: пятое января.
 - **Más preposiciones**: около дома, у окна, из-за дождя, после урока, до вечера.
 - **Ausencia en pasado y futuro**: Не было времени; Не будет денег (el verbo queda en neutro singular).
+- **Preguntas**: Чей это дом? — Это дом брата. Кого нет дома? Чего нет в комнате?
 
 ## Errores comunes de hispanohablantes
 1. **Usar nominativo tras нет**: *нет книга*.

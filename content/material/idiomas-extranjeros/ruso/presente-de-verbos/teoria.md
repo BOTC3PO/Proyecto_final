@@ -30,6 +30,8 @@ Los verbos rusos se conjugan en presente añadiendo terminaciones según la pers
 - **Más irregulares**: идти → иду, идёшь, идёт, идём, идёте, идут; мочь → могу, можешь, может, можем, можете, могут; есть (comer) → ем, ешь, ест, едим, едите, едят; ехать → еду, едешь, едет, едем, едете, едут.
 - **Preguntar y negar**: Ты читаешь? (con entonación); Я не читаю; Ты любишь читать?
 - **Posesión**: У меня есть книга (no se usa un verbo equivalente a *tener*).
+- **Frecuencia**: всегда, обычно, часто, иногда, редко, никогда не: Я никогда не опаздываю.
+- **Preguntas**: Что ты делаешь? — Я читаю. Что вы делаете? — Мы отдыхаем.
 
 ## Errores comunes de hispanohablantes
 1. **Usar «быть» en presente**: *Я есть студент*.

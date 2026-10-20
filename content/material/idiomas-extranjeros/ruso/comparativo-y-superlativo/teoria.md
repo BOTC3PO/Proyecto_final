@@ -21,6 +21,7 @@ El ruso tiene un **comparativo simple** (una sola palabra, invariable) y uno **c
 - **Superlativo formal con наи-**: наибольший, наилучший, наименьший.
 - **Forma simple y atributiva**: la forma en -ее / -ше no concuerda y se usa como predicado (Дом выше); como atributo se usa **более** (более высокий дом) o **старший, младший, лучший**.
 - **Lo más… posible**: как можно быстрее.
+- **Preguntas**: Кто выше, ты или он? — Он выше меня.
 
 ## Errores comunes de hispanohablantes
 1. **Formar comparativos regulares de los irregulares** (*большее*).

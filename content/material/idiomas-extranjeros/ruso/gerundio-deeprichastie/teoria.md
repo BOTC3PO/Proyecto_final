@@ -22,6 +22,8 @@ El **деепричастие** es una forma verbal invariable que expresa una *
 - **Un solo sujeto**: Идя домой, я встретил друга (correcto); es incorrecto *Идя домой, у меня разболелась голова*, porque el sujeto de la segunda parte cambia.
 - **Funciones**: tiempo (Придя домой, он лёг спать), causa (Не зная языка, он не мог говорить), modo (Он ответил, улыбаясь).
 - **Posición y puntuación**: la construcción de gerundio va al principio, en medio o al final, siempre aislada con comas: Он вошёл, улыбаясь.
+- **Más ejemplos**: Сидя за столом, он писал письмо; Прочитав письмо, она заплакала.
+- **Equivalencia con el español**: el gerundio imperfectivo ruso (-я / -а) corresponde al gerundio español (*leyendo*, *hablando*).
 
 ## Errores comunes de hispanohablantes
 1. **Usar el gerundio con sujeto distinto**.

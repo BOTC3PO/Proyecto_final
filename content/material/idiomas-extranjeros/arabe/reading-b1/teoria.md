@@ -23,6 +23,7 @@ En B1, leer significa entender textos de temas conocidos (viajes, opiniones, anu
 - **Palabras desconocidas**: busca la raíz de tres consonantes, el patrón y el contexto; además hay muchos préstamos (تلفزيون، كمبيوتر).
 - **Cifras**: en el Oriente árabe se usan las cifras orientales (١٢٣) y en el Magreb las occidentales (123).
 - **Estrategia**: primera lectura global, segunda lectura para localizar datos, y tercera para comprobar cada respuesta.
+- **Ejemplo de anuncio**: تعلن مدرسة اللغات عن دورة جديدة تبدأ في الشهر القادم.
 
 ## Errores comunes de hispanohablantes
 1. **Leer el árabe sin vocalizar** confundiendo activa/pasiva.

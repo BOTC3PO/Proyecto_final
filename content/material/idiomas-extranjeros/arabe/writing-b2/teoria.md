@@ -26,6 +26,7 @@ En B2, escribir es redactar textos claros y detallados sobre temas complejos: en
 - **Cartas formales**: se abre con تحية طيبة وبعد، y se cierra con وتفضلوا بقبول فائق الاحترام والتقدير.
 - **Párrafo**: idea principal, apoyo, ejemplo y enlace con el siguiente.
 - **Revisión**: concordancia, hamza, ta marbuta, artículo ال y caso.
+- **Ejemplo de tesis**: يهدف هذا المقال إلى مناقشة أثر التكنولوجيا في التعليم.
 
 ## Errores comunes de hispanohablantes
 1. **Mezclar registros** (dialecto en texto formal).

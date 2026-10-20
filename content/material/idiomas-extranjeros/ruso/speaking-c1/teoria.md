@@ -23,6 +23,7 @@ En C1, hablar es defender una postura con argumentos, conceder puntos, matizar c
 - **Grados de certeza**: безусловно, по-видимому, вероятно, судя по всему, как известно.
 - **Estrategia**: preparar tres ideas con un ejemplo cada una, anunciar la estructura (Я остановлюсь на трёх аспектах), usar pausas con fórmulas (как бы это сказать…, иными словами) y reformular si no te entienden.
 - **Tipos de tarea**: monólogo de dos o tres minutos sobre un tema, debate con un interlocutor, respuesta a objeciones y negociación.
+- **Registro**: evitar muletillas coloquiales (ну, типа) y usar fórmulas impersonales: следует отметить, что…; необходимо подчеркнуть, что…
 
 ## Errores comunes de hispanohablantes
 1. **Hablar con registro coloquial** en un debate formal.

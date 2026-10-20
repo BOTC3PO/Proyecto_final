@@ -29,6 +29,7 @@ El ruso distingue por pares los verbos de movimiento: **unidireccionales** (un t
 - **Llegar y venir**: Он пришёл (llegó, y sigue allí); Он приходил (vino y ya se fue).
 - **Medios de transporte**: Я иду пешком; Я езжу на работу на автобусе.
 - **Prefijos con preposición**: войти в комнату, выйти из комнаты, подойти к дому, перейти через улицу, зайти в магазин.
+- **Preguntas y respuestas**: Куда ты идёшь? — Я иду в парк. Откуда ты приехал? — Я приехал из Мадрида; Я пришёл с работы (*на* → *с*).
 
 ## Errores comunes de hispanohablantes
 1. **Usar un solo verbo «ir»**.

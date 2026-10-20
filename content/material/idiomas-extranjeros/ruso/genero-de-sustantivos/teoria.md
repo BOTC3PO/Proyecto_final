@@ -24,6 +24,7 @@ Los sustantivos rusos tienen tres géneros: **masculino, femenino y neutro**. El
 - **Plural nominativo**: -ы / -и (стол → столы, книга → книги); -а / -я en neutros (окно → окна, море → моря, слово → слова); -и tras г, к, х, ж, ч, ш, щ.
 - **Plurales irregulares**: брат → братья, друг → друзья, ребёнок → дети, человек → люди, мать → матери.
 - **Pistas por sufijo**: -тель es masculino (учитель); -ость, -ция y -ия son femeninos (радость, станция, история); -ие y -ство son neutros (здание, общество).
+- **Concordancia en frases**: Мой брат — врач. Она — новая учительница. Это интересное слово.
 
 ## Errores comunes de hispanohablantes
 1. **Trasladar el género español**: *cuchara* f. → ложка f., pero *кофе* m., *метро* n.

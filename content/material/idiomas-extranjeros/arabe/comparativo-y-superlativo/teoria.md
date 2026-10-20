@@ -20,6 +20,7 @@ El árabe usa una sola forma, el **elativo** (*ism al-tafḍīl*) de molde **أ�
 - **Cuanto más… más…**: كلما درستَ أكثر، نجحتَ أكثر.
 - **Elativo en frases fijas**: الأحسن والأفضل, من الأفضل أن… (es mejor que…).
 - **Orden en la frase**: el elativo va antes de من y el segundo término queda en genitivo: هذا الكتاب أجمل من ذلك الكتاب.
+- **Más ejemplos**: هذا الطريق أقصر من ذاك؛ أحمد أطول من علي.
 
 ## Errores comunes de hispanohablantes
 1. **Usar «عن» o «إلى»** en lugar de من para «que».

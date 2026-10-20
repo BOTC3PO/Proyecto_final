@@ -27,6 +27,7 @@ En C1, escribir es producir textos claros, bien estructurados y matizados: ensay
 - **Vocabulario abstracto**: ظاهرة، إشكالية، تحدٍّ، آلية، تداعيات.
 - **Cohesión**: usar pronombres de referencia y sinónimos para no repetir el mismo término.
 - **Revisión**: caso y modo (nominativo, acusativo y genitivo), concordancia del plural no humano y hamza.
+- **Ejemplo de concesión**: وإن كانت هذه الحجة مقنعة، فإنها لا تخلو من ثغرات.
 
 ## Errores comunes de hispanohablantes
 1. **Mezclar registros**.
