@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #926]
+# Examen jefe — Experto en Desarrollo, Emoción y Conducta
 
-> Logro #926. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **142 preguntas totales** en 6/6 secciones.
+> Logro #926. Completaste el parcial dominando el desarrollo cognitivo según Piaget y Vygotsky, el condicionamiento y el aprendizaje psicológico, las emociones y su regulación y la motivación, la personalidad y la psicología de los grupos. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **142 preguntas totales** en 6/6 secciones.
 
 ---
 

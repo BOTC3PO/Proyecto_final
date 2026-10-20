@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #944]
+# Examen jefe — Maestro de la Lógica Digital y los Microcontroladores
 
-> Logro #944. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
+> Logro #944. Completaste el parcial dominando los instrumentos de medición: multímetro y osciloscopio, la lógica combinacional con sumadores y multiplexores, la lógica secuencial con flip-flops y contadores y las entradas y salidas digitales del microcontrolador y la comunicación serie UART, I2C y SPI. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **116 preguntas totales** en 5/5 secciones.
 
 ---
 

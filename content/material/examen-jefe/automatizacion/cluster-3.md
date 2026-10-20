@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #948]
+# Examen jefe — Experto en PLC, Redes y Control Avanzado
 
-> Logro #948. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **208 preguntas totales** en 9/9 secciones.
+> Logro #948. Completaste el parcial dominando la programación de PLC: ladder, temporizadores, contadores y GRAFCET, la neumática e hidráulica básica, las redes industriales y SCADA y la respuesta transitoria, la estabilidad, la sintonía de PID y la seguridad funcional con paradas de emergencia. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **208 preguntas totales** en 9/9 secciones.
 
 ---
 

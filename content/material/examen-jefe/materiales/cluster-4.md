@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #933]
+# Examen jefe — Maestro de Propiedades y Tratamientos de Materiales
 
-> Logro #933. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
+> Logro #933. Completaste el parcial dominando los tratamientos térmicos: temple, revenido y recocido, las propiedades eléctricas, magnéticas y térmicas de los materiales, la prevención de la corrosión y la protección superficial y la selección de materiales y la sostenibilidad. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #975]
+# Examen jefe — Historiador del Pensamiento
 
-> Logro #975. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **209 preguntas totales** en 9/9 secciones.
+> Logro #975. Completaste el parcial dominando los presocráticos y Sócrates, Platón y Aristóteles, la filosofía medieval y Santo Tomás, el empirismo de Hume, Kant y el idealismo, Marx y el materialismo histórico, la fenomenología y el existencialismo, la filosofía política y la filosofía del lenguaje y de la ciencia. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **209 preguntas totales** en 9/9 secciones.
 
 ---
 

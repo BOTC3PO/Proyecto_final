@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #990]
+# Examen jefe — Estratega del Aprendizaje
 
-> Logro #990. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **137 preguntas totales** en 6/6 secciones.
+> Logro #990. Completaste el parcial dominando la atención, la concentración y las distracciones, el error y la retroalimentación, la lectura activa y la toma de apuntes, la motivación para aprender, la planificación del estudio y la gestión del tiempo y el estudio con otros. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **137 preguntas totales** en 6/6 secciones.
 
 ---
 

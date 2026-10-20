@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #980]
+# Examen jefe — Etnógrafo en Terreno
 
-> Logro #980. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #980. Completaste el parcial dominando la economía y el poder en las sociedades, la etnografía y la observación participante, la identidad y la etnicidad, el mito, el ritual y la religión y los pueblos originarios de Argentina. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 

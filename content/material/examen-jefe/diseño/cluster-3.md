@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #971]
+# Examen jefe — Estratega de UX y Accesibilidad
 
-> Logro #971. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **202 preguntas totales** en 9/9 secciones.
+> Logro #971. Completaste el parcial dominando la ética del diseño y los patrones oscuros, los formularios y las microinteracciones, las diez heurísticas de Nielsen, la investigación de usuarios y la evaluación heurística, el diseño centrado en el usuario, los niveles WCAG y la navegación por teclado, la tipografía y los sistemas de diseño. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **202 preguntas totales** en 9/9 secciones.
 
 ---
 

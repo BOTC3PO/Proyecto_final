@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #943]
+# Examen jefe — Experto en Componentes, Diodos y Compuertas
 
-> Logro #943. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #943. Completaste el parcial dominando el divisor de tensión y el código de colores, la carga y descarga del capacitor RC y los inductores, el diodo, la rectificación y las fuentes y las compuertas NAND, NOR y XOR y su universalidad. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #935]
+# Examen jefe — Maestro del Trazado, el Croquis y el CAD
 
-> Logro #935. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
+> Logro #935. Completaste el parcial dominando los instrumentos de dibujo y los trazos básicos, el croquis y el relevamiento de medidas, la geometría descriptiva de punto, recta y plano y los cortes y secciones y el dibujo asistido por computadora. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
 
 ---
 

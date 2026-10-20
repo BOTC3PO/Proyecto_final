@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #1000]
+# Examen jefe — Estratega de los Deportes
 
-> Logro #1000. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **217 preguntas totales** en 9/9 secciones.
+> Logro #1000. Completaste el parcial dominando las capacidades físicas (fuerza, resistencia, flexibilidad y velocidad), la nutrición y la hidratación en la actividad física, y el reglamento y los fundamentos del básquet, el fútbol, el futsal, el handball, el hockey, el rugby y el vóley. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **217 preguntas totales** en 9/9 secciones.
 
 ---
 

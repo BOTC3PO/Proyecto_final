@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #985]
+# Examen jefe — Analista de la Sociedad
 
-> Logro #985. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **159 preguntas totales** en 7/7 secciones.
+> Logro #985. Completaste el parcial dominando el cambio social y los movimientos, los clásicos (Durkheim, Weber y Marx), la desigualdad y las clases hoy, los métodos de investigación social, la socialización y los roles, las normas, los valores y el control social, y el género como categoría social. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **159 preguntas totales** en 7/7 secciones.
 
 ---
 

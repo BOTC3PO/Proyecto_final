@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #945]
+# Examen jefe — Experto en Transistores, Operacionales y Señales
 
-> Logro #945. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #945. Completaste el parcial dominando el transistor como interruptor y amplificador, el amplificador operacional, las señales analógicas y digitales con ADC y DAC y el temporizador 555 y el prototipado en protoboard con soldadura y seguridad. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 

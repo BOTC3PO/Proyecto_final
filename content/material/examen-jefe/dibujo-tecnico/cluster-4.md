@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #937]
+# Examen jefe — Maestro de Tolerancias y Planos Especializados
 
-> Logro #937. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
+> Logro #937. Completaste el parcial dominando las tolerancias y ajustes, la rugosidad y el acabado superficial, las vistas auxiliares y los detalles y el dibujo arquitectónico y el dibujo eléctrico. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **114 preguntas totales** en 5/5 secciones.
 
 ---
 

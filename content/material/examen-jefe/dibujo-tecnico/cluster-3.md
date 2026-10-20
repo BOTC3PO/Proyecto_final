@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #936]
+# Examen jefe — Experto en Normas y Lectura de Planos
 
-> Logro #936. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
+> Logro #936. Completaste el parcial dominando los tipos de línea, los formatos y el rótulo, la geometría constructiva: tangencias y enlaces, la representación de roscas, tornillos y uniones y los símbolos de soldadura y la interpretación de planos de piezas y conjuntos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **113 preguntas totales** en 5/5 secciones.
 
 ---
 

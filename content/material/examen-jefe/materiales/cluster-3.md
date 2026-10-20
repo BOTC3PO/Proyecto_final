@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #932]
+# Examen jefe — Experto en Aleaciones, Aceros y Polímeros
 
-> Logro #932. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #932. Completaste el parcial dominando los defectos cristalinos y las dislocaciones, los diagramas de fase y las aleaciones, el endurecimiento y el conformado de los metales y el diagrama hierro-carbono con los aceros y los polímeros termoplásticos, termoestables y elastómeros. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

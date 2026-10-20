@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #939]
+# Examen jefe — Experto en Discurso, Medios e Imagen
 
-> Logro #939. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **144 preguntas totales** en 6/6 secciones.
+> Logro #939. Completaste el parcial dominando los medios masivos y digitales, el análisis del discurso y el encuadre mediático, la comunicación verbal y no verbal, oral y visual y la comunicación institucional y de crisis. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **144 preguntas totales** en 6/6 secciones.
 
 ---
 

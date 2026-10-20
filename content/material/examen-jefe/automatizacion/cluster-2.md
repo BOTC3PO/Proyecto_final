@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #947]
+# Examen jefe — Maestro de la Instrumentación y los Accionamientos
 
-> Logro #947. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
+> Logro #947. Completaste el parcial dominando el control on-off con histéresis, la instrumentación industrial y los lazos 4-20 mA, el modelado de sistemas dinámicos de primer orden y los motores eléctricos y variadores de frecuencia, y el mantenimiento y diagnóstico de sistemas automatizados. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 

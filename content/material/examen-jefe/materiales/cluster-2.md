@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #931]
+# Examen jefe — Maestro de la Estructura de los Materiales
 
-> Logro #931. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
+> Logro #931. Completaste el parcial dominando los enlaces y la estructura atómica de los materiales, las estructuras cristalinas y las celdas unitarias, los ensayos de tracción, dureza e impacto y los cerámicos, los vidrios y los materiales compuestos. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **118 preguntas totales** en 5/5 secciones.
 
 ---
 

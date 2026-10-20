@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #995]
+# Examen jefe — Ciudadano Digital Seguro
 
-> Logro #995. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **156 preguntas totales** en 7/7 secciones.
+> Logro #995. Completaste el parcial dominando los algoritmos, las burbujas y la economía de la atención, el ciberacoso y la convivencia en redes, las contraseñas y la autenticación, los derechos digitales y la protección de datos, la participación ciudadana en línea, el phishing y las estafas en línea y la propiedad intelectual y las licencias digitales. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **156 preguntas totales** en 7/7 secciones.
 
 ---
 

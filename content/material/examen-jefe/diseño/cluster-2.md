@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #970]
+# Examen jefe — Diseñador de Experiencias Digitales
 
-> Logro #970. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #970. Completaste el parcial dominando el análisis de datos de uso y métricas UX, la arquitectura de información y la navegación, el color en interfaces, el diseño para voz y conversación y el diseño responsive y mobile-first. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
 
 ---
 
