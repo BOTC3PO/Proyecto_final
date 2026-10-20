@@ -14,6 +14,38 @@ El orden básico del chino es **Sujeto + Verbo + Objeto**, como en español, per
 - **Preguntas**: 吗 al final (*你是老师吗?*); las palabras interrogativas ocupan el lugar de la respuesta (*你吃什么?*).
 - **Aspecto**: 了 y 过 tras el verbo (*我去过北京*); 在 antes del verbo (*我在吃米饭*).
 
+## Ampliación
+### El orden de los elementos
+Regla útil: **quién + cuándo + dónde + cómo + hace qué**.
+*我们 昨天 在学校 一起 学习汉语.* (Estudiamos chino juntos ayer en la escuela.)
+
+### Tiempo
+- Un adverbio de tiempo puede ir **antes o después del sujeto**: *昨天我去了. / 我昨天去了.*
+- Las unidades se ordenan de **mayor a menor**: *2025年3月5日, 星期三下午三点.*
+- La **duración** va después del verbo: *我学了两年汉语.* (Distinto del momento: *两年前我学汉语.*)
+
+### Lugar
+- *在 + lugar + V*: acción en un lugar. *我在家吃饭.*
+- *V + 在 + lugar*: el resultado queda en un lugar. *书放在桌子上.*
+- *来/去 + lugar*: *我去学校.* (Sin preposición.)
+
+### Predicados
+- **Adjetivo**: *她很高兴.* No se usa 是 con adjetivos: ❌ *她是高兴.*
+- **Doble objeto**: *他教我汉语. 我给他一本书.* (Receptor primero, cosa después.)
+- **Modificador + 的 + núcleo**: *我朋友的书, 昨天买的衣服, 很大的房子.*
+
+### Adverbios
+- 也, 都, 就, 才, 又, 再, 还 se colocan **antes del verbo** (o del adjetivo): *我们都不去.* 都 va después de 也: *我们也都是学生.*
+- 不 y 没 van **justo delante** del elemento negado.
+
+### Preguntas
+- Con 吗 (final): *你是学生吗？*
+- Con palabras interrogativas en el lugar de la respuesta: *你什么时候来？*
+- V不V: *你去不去？*
+
+### Tema y comentario
+El chino admite poner primero el **tema** (de qué se habla): *这本书我看过.* (Este libro, ya lo leí.) *汉字我觉得很难.*
+
 ## Errores comunes de hispanohablantes
 1. **Poner el lugar o el tiempo después del verbo**: ❌ *我学习在学校* ✅ *我在学校学习*.
 2. **Mover el adverbio**: ❌ *我是也学生* ✅ *我也是学生*.

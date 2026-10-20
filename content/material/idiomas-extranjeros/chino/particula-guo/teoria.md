@@ -13,6 +13,34 @@
 - **Diferencia con 了**: 我去了北京 (hecho concreto); 我去过北京 (experiencia, no necesariamente reciente).
 - **No se combina con 在/正在.**
 
+## Ampliación
+### Forma de la oración con 过
+- **Afirmación**: S + V + 过 + (O). *我吃过北京烤鸭.* (He comido pato laqueado de Pekín.)
+- **Frecuencia**: la cantidad de veces va después de 过: *我去过两次.* Con objeto: *我去过北京两次* o *我去过两次北京.*
+- **Negación**: 没(有) + V + 过: *我没(有)吃过.* Con *从来*: *我从来没去过中国.* (Nunca he ido a China.)
+- **Pregunta**: *你吃过吗？ / 你有没有吃过？ / 你吃过没有？*
+- **Respuesta corta**: *吃过.* / *没吃过.*
+
+### Valores de 过
+1. **Experiencia**: algo que ocurrió alguna vez y se considera como parte del bagaje: *我学过汉语.*
+2. **Cambio ya no vigente**: la acción terminó y no continúa: *他病过，现在好了.* (Estuvo enfermo; ya está bien.)
+3. **Repetición**: *这部电影我看过三遍.* (Vi tres veces esta película.)
+
+### 过 frente a 了
+| 了 | 过 |
+|---|---|
+| Hecho concreto en un momento dado | Experiencia sin importar cuándo |
+| *我昨天去了北京* | *我去过北京* |
+| Admite complementos de tiempo precisos | Suele ir con 曾经, 以前, 从来 |
+
+Si se da un momento preciso, suele usarse 了: *去年我去了北京* (aunque *去年我去过北京* también es posible si importa la experiencia).
+
+### Pronunciación
+Como partícula, 过 se dice *guo* con tono neutro; como verbo («pasar») es *guò* en cuarto tono: *过马路* (cruzar la calle).
+
+### Con 吗 o tiempo vago
+*你去过中国吗？* — *去过，一次.* — *没去过，但是我很想去.*
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 过 con 了**.
 2. **Usar 不 en vez de 没**: ❌ *我不去过北京* ✅ *我没去过北京*.

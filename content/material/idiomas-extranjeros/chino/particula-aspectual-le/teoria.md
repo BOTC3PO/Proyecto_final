@@ -14,6 +14,33 @@
 - **Con 在/正在**: no se combina con 了.
 - **Expresiones fijas**: 别忘了, 太好了, 你怎么了?
 
+## Ampliación
+### Cuándo una oración con 了 queda «completa»
+- Con **objeto cuantificado** la oración se sostiene sola: *我买了三本书.* (Compré tres libros.)
+- Con **objeto sin cantidad**, 了 tras el verbo pide continuación o un 了 final: *我买了书就回家了.* (Compré libros y volví a casa.) / *我买书了.* (Ya compré libros.)
+- Con **duración**: *我学了两年汉语.* (Estudié chino dos años.) *我学汉语学了两年了.* (Llevo dos años y sigo.)
+
+### 了 de cambio de estado
+- **Adjetivo + 了**: *天黑了, 他高了, 花红了.* (Anocheció, creció, la flor se puso roja.)
+- **不…了**: abandono de una situación: *我不去了.* (Ya no voy.) *他不抽烟了.* (Dejó de fumar.)
+- **别…了**: pedir que se deje de hacer algo: *别哭了.* (No llores más.)
+- **快…了 / 要…了**: inminencia: *春节快到了.*
+- **太 + adj + 了**: exclamación: *太好了！ 太贵了！*
+
+### Expresiones fijas
+好了 (ya está), 对了 («ah, por cierto»), 算了 (déjalo), 行了 (basta), 怎么了？ (¿qué pasó?), 知道了 (entendido), 明白了 (ya entendí).
+
+### Cuándo no se usa 了
+1. Acciones habituales: *我每天早上六点起床.*
+2. Futuro: *明天我去学校.*
+3. Verbos de estado o pensamiento sin cambio: *我知道他是老师.* (saber en general)
+4. Narraciones con adverbios de frecuencia: *他常常来.*
+5. Después de 在/正在: *他在看书* (no *他在看了书*).
+
+### Dos preguntas útiles
+- *你吃了吗？* / *你吃饭了吗？* — pregunta si ya se realizó.
+- *你吃了什么？* — «qué comiste» (aquí 了 es natural).
+
 ## Errores comunes de hispanohablantes
 1. **Usar 了 en todo pasado**: no se pone en hábitos pasados (*我小时候常去公园*).
 2. **Usar 了 y 没 juntos**: ❌ *我没吃了饭*.

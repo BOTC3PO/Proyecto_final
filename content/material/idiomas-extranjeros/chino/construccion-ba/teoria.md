@@ -13,6 +13,39 @@ La construcción **把** adelanta el objeto delante del verbo para expresar lo q
 - **Imperativo negativo**: *别把门关上。*
 - **No se usa 把** con verbos de estado o percepción: 有, 是, 喜欢, 知道, 来, 去, 看见…
 
+## Ampliación
+### Qué verbos y complementos aceptan 把
+Para ser natural, 把 pide que el verbo **transforme, mueva o altere** el objeto:
+- **Resultado**: *把作业做完, 把门打开, 把衣服洗干净.*
+- **Lugar**: *把书放在桌子上, 把车开到门口, 把垃圾扔进垃圾桶.*
+- **Dirección**: *把椅子搬出去, 把东西拿进来.*
+- **Receptor con 给**: *把钱还给他, 把书借给朋友.*
+- **Cambio de forma**: *把苹果切成两半, 把中文翻译成西班牙语.*
+- **Reduplicación**: *把房间收拾收拾, 把衣服洗一洗.*
+- **Atribución**: *把他当作朋友, 把这个叫做…, 把…看成….*
+
+### 把 frente a la oración SVO
+| SVO | 把 |
+|---|---|
+| *我写完了作业* | *我把作业写完了* |
+| Informa del hecho | Destaca qué pasó con el objeto |
+| El objeto puede ser indefinido | El objeto es conocido o específico |
+
+### Petición e instrucción
+La estructura es muy habitual en mandatos: *请把窗户关上！ 把手机给我！ 别把这件事告诉别人.* También aparece en recetas e instrucciones: *先把水烧开，再把面条放进去.*
+
+### Posición de modales y negación
+Se colocan **antes de 把**: *你应该把药吃了. 我没有把钥匙带来. 他可能把书弄丢了.* La negación **nunca** va tras el objeto.
+
+### Casos en que 把 no es natural
+1. Verbos sin resultado: ❌ *我把你喜欢.*
+2. Verbos de percepción: *看见, 听见, 知道.*
+3. Verbos de movimiento propio: *来, 去, 走.*
+4. Cuando el objeto es indefinido: *我把一本书买了* ✗.
+
+### Pista de uso
+Si podés preguntarte «¿qué le hice al objeto?» y la respuesta es un resultado, la forma con 把 suele ser la correcta.
+
 ## Errores comunes de hispanohablantes
 1. **Usar el orden español**: ❌ *我打开把灯了* ✅ *我把灯打开了*.
 2. **Dejar el verbo desnudo**: ❌ *我把作业做* ✅ *我把作业做完了*.

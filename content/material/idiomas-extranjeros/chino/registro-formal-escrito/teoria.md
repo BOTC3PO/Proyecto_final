@@ -15,6 +15,44 @@ El chino escrito formal (书面语) usa vocabulario, fórmulas y estructuras dif
 - **Léxico**: 该 (dicho), 系/为 (es), 之 (de), 均 (todo), 并 (y).
 - **Registro oral vs escrito**: 想 → 旨在, 因为 → 鉴于, 要 → 须.
 
+## Ampliación
+### Pares oral y escrito (口语 → 书面语)
+| Oral | Escrito |
+|---|---|
+| 但是 | 然而 |
+| 所以 | 因此 / 因而 |
+| 和 | 与 / 及 |
+| 因为 | 由于 / 鉴于 |
+| 如果 | 倘若 / 若 |
+| 以前 / 以后 | 此前 / 此后 |
+| 马上 | 立即 / 即刻 |
+| 都 | 均 |
+| 很多 | 大量 / 众多 |
+| 非常 | 极为 / 十分 |
+| 想 | 拟 / 打算 |
+
+### Documentos habituales
+- **通知 / 公告**: 为了…，现将…通知如下：. Cierre: 特此通知.
+- **申请**: 本人拟申请…，望批准. Cierre: 此致 / 敬礼.
+- **证明**: 兹证明…同学系我校学生. Cierre: 特此证明.
+- **合同**: 甲方 / 乙方 (partes), 双方 (ambas), 协议, 违约责任, 自…起生效.
+- **邀请函**: 谨定于…举行…，敬请光临.
+
+### Fórmulas de cortesía
+- **Apertura**: 尊敬的…，您好：
+- **Agradecimiento**: 感谢您的支持 / 承蒙关照.
+- **Petición**: 恳请 / 敬请 / 望 + verbo.
+- **Despedida**: 此致敬礼；顺祝商祺 (para empresas).
+
+### Rasgos sintácticos
+1. Oraciones **más largas** con varios modificadores antes del núcleo.
+2. Preferencia por palabras de **dos sílabas** y **cuatro caracteres** (四字格).
+3. Verbos formales con complemento nominal: 进行调查, 予以批准, 给予支持.
+4. Uso de 之 en modificadores fijos y de 系 / 为 por «ser».
+
+### Cuidado con el tono
+En este registro se evita la primera persona del singular excesiva: se usan 我方, 本人, 我校. Los imperativos se transforman en fórmulas (请勿吸烟 = «prohibido fumar»).
+
 ## Errores comunes de hispanohablantes
 1. **Usar el registro oral en documentos**: *别玩手机* en lugar de *不得使用个人手机*.
 2. **Mezclar 你 con 贵公司**: 'usted' se expresa con 您 y tratamientos.

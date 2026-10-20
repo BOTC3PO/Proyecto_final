@@ -22,6 +22,47 @@ Para graduar un adjetivo el chino usa **adverbios de grado** antes del adjetivo 
 - 比 + Adj + 多了 / 得多: 'mucho más'. *他比我高得多 / 高多了。*
 - Adj + 一点儿: 'un poco más'. *便宜一点儿。*
 
+## Ampliación
+### El complemento de grado con 得
+Después del verbo, 得 introduce una valoración de cómo se hace la acción:
+- *他说得很好.* *她跑得很快.* *你写得太慢了.*
+- **Con objeto**: se repite el verbo. *他说汉语说得很好.* O se coloca el objeto antes: *他汉语说得很好.*
+- **Negación**: la negación va delante del adjetivo: *她唱得不好.*
+- **Pregunta**: *他说得怎么样？* o *他说得好不好？*
+
+### Intensificadores frecuentes
+| Adverbio | Matiz |
+|---|---|
+| 很 | neutro, estándar |
+| 非常 | muy, enfático |
+| 特别 | especialmente |
+| 挺…的 | bastante (coloquial): *挺好的* |
+| 比较 | relativamente |
+| 相当 | considerablemente |
+| 真 | realmente: *真漂亮* |
+| 太…了 | demasiado o excelente: *太好了* |
+| 有点儿 | algo (suele ser negativo): *有点儿贵* |
+
+### 有点儿 y 一点儿
+- **有点儿 + adj**: opinión subjetiva, a menudo negativa. *这个有点儿贵.*
+- **adj + 一点儿**: comparación o petición. *便宜一点儿吧.* *快一点儿.*
+
+### Grado extremo
+- **…极了**: *好极了, 累极了.*
+- **…得很**: *热得很.*
+- **…死了 / …坏了**: *累死了, 忙坏了.*
+- **…得不得了 / …得要命**: *高兴得不得了, 热得要命.*
+
+### Preguntas de grado
+*多 + adj*: *多高？ 多大？ 多远？ 多重？* La respuesta usa una cantidad: *一米七, 二十岁.*
+
+### Exclamación
+*多么 + adj + 啊！* *多么漂亮啊！* *这么 / 那么 + adj*: *这么大, 那么远.*
+
+### Errores
+1. Poner 很 con un comparativo con 比: ❌ *他比我很高.*
+2. Olvidar 得: ❌ *他说很好.* ✅ *他说得很好.*
+
 ## Errores comunes de hispanohablantes
 1. **Combinar dos grados**: ❌ *很好极了* ✅ *好极了* / *很好*.
 2. **Poner 有点儿 tras el adjetivo**: ❌ *冷有点儿* ✅ *有点儿冷*; con 一点儿 sí va después (*大一点儿*).

@@ -17,6 +17,45 @@ El chino compara con **比**, **没有**, **不如**, **跟…一样** y con est
 - **V得 + 比 + O + adj**: *他跑得比我快. / 他汉语说得比我好.*
 - **和…相比** (formal): *和去年相比, 今年价格上涨了.*
 
+## Ampliación
+### Más patrones de 比
+- **比 con verbo**: *他比我早到.* *她比我会唱歌.*
+- **比 + 以前 / 去年 / 过去**: comparación temporal. *今年比去年热.* *生活比以前好多了.*
+- **Cantidad exacta**: *他比我大三岁, 高五厘米, 重十公斤.*
+- **A 比 B 多 / 少 + cantidad**: *这个班比那个班多五个人.*
+- **A 是 B 的 N 倍**: *这个房间是那个的两倍大.*
+- **更 / 还 + adj**: *弟弟比哥哥更聪明 / 还聪明.*
+
+### Igualdad y semejanza
+- **A 跟 B 一样 + adj**: *这个跟那个一样大.*
+- **A 跟 B 不一样**: *他的想法跟我不一样.*
+- **A 和 B 差不多**: *两个城市差不多大.*
+- **A 像 B 一样**: *她唱歌像歌手一样好.*
+- **A 有 B + 那么/这么 + adj**: *他没有你那么高.*
+
+### Inferioridad
+- **A 没有 B + adj**: *今天没有昨天冷.*
+- **A 不如 B**: *步行不如坐车快.*
+- **A 比不上 B**: *我比不上他.*
+
+### Comparar acciones
+- **V得 + 比**: *他跑得比我快.*
+- **比 + V + 得**: *他比我跑得快.* (Ambas formas son aceptables.)
+- **Con diferencia de grado**: *他比我跑得快一点儿.*
+
+### Progresión y superlativo
+- **越来越 + adj**: *越来越冷.*
+- **一天比一天 + adj**: *一天比一天好.*
+- **越…越…**: *越学越难.*
+- **最 + adj**: *最好的朋友.*
+- **之一**: *他是我最好的朋友之一.*
+- **和…相比 / 与…相比**: formal.
+
+### Restricciones
+1. No usar 很 / 非常 / 太 con 比.
+2. 比 no se niega con 不 en comparaciones normales (usar 没有).
+3. No existe forma sintética: se evita traducir «más grande que» con 更大 sin 比: ❌ *我更大他.*
+
 ## Errores comunes de hispanohablantes
 1. **Usar 很 con 比**: ❌ *比我很高* ✅ *比我更高* / *高得多*.
 2. **Negar con 不 delante del adjetivo**: ❌ *我比他不高* ✅ *我没有他高*.

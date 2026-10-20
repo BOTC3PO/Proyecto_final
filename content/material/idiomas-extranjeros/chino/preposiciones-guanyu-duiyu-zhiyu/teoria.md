@@ -21,6 +21,40 @@ En textos formales y en HSK 5-6, tres preposiciones indican **tema**: 关于, �
   - 对于 introduce un **objeto de valoración** (a quién o a qué se dirige).
   - 至于 **retoma** un tema secundario.
 
+## Ampliación
+### Preposiciones vecinas que conviene distinguir
+- **对** (hacia, con respecto a): *对我很好, 对健康有好处, 对这件事感兴趣.* A diferencia de 对于, 对 se usa también para el trato entre personas.
+- **向** (hacia, en dirección a): *向前走, 向老师请教.*
+- **给** (para, a): *给你打电话, 给孩子买书.*
+- **跟 / 和** (con): *跟朋友一起去.*
+- **为 / 为了** (por, con el fin de): *为大家服务, 为了健康, 他每天跑步.*
+- **按照 / 根据 / 依据** (según): *根据调查, 按照规定.*
+- **通过** (mediante): *通过努力, 他成功了.*
+- **随着** (a medida que): *随着经济发展, 生活水平提高了.*
+
+### Patrones con 对
+- **对…感兴趣** (interesarse por): *我对音乐感兴趣.*
+- **对…有帮助 / 有好处 / 有影响**: *运动对身体有好处.*
+- **对…负责** (responsabilizarse de): *他对工作很负责.*
+- **对…来说** (para…): *对学生来说，时间很宝贵.*
+
+### 关于 y 对于, con ejemplos opuestos
+| 关于 | 对于 |
+|---|---|
+| Tema del texto | Objeto de una opinión o actitud |
+| *关于气候变化的文章* | *对于气候变化，大家都很关心* |
+| Puede titular: *关于…的通知* | Pide verbo de actitud o valoración |
+| Rara vez va tras el sujeto | Puede ir tras el sujeto |
+
+### 至于 y la transición de tema
+至于 corta lo dicho y abre un asunto aparte: *价格我们可以谈。至于付款方式，以后再说.* Con negación: *至于他来不来，我不知道.*
+
+### Elección práctica
+1. Si anunciás un tema, usá 关于.
+2. Si hablás de una actitud o efecto, usá 对 o 对于.
+3. Si cambiás de punto, usá 至于.
+4. En títulos y documentos, 关于 es la forma estándar.
+
 ## Errores comunes de hispanohablantes
 1. **Usar 对于 donde se necesita 关于** (como título): 对于汉语的书 ✗.
 2. **Poner 关于 como adverbial tras el sujeto**: 我关于这个问题有意见 ✗ → 关于这个问题，我有意见。

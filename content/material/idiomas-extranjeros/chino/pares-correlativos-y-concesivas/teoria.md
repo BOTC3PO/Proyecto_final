@@ -31,6 +31,42 @@ Los **pares correlativos** (关联词) son conectores en dos partes que enlazan 
 2. 虽然 y 但是 se usan juntos, a diferencia del español «aunque… pero» (que se acepta pero es redundante).
 3. 除了…以外 puede significar «además de» (con 还/也) o «excepto» (con 都).
 
+## Ampliación
+### Más parejas muy usadas
+- **不是…就是…**: «o… o… (una de dos)». *他不是在看书，就是在睡觉.*
+- **要么…要么…**: «o bien… o bien…». *要么你去，要么我去.*
+- **宁可…也不…**: «preferir… antes que…». *宁可走路，也不坐那趟车.*
+- **与其…不如…**: «en vez de…, mejor…». *与其等他，不如自己去.*
+- **一方面…另一方面…**: «por un lado… por otro…».
+- **既…又… / 既…也…**: acumulan cualidades. *既聪明又努力.*
+- **不仅…还/也…**: variante de 不但…而且….
+- **先…再…, 先…然后…**: orden de acciones.
+- **只要…就…, 只有…才…**: suficiente frente a necesario.
+- **一旦…就…**: «una vez que…».
+- **一…就…**: «tan pronto como…». *一见面就聊起来.*
+- **越…越…**: *越学越有兴趣.*
+- **不管 / 无论…都…**: *无论你去哪儿，我都支持你.*
+- **除非…否则…**: «a menos que…».
+
+### Ubicación de los adverbios
+En la segunda parte aparece casi siempre **un adverbio** (就, 才, 也, 还, 都, 却): sin él la frase pierde fuerza. *虽然很贵，他却买了.* (却 contrasta; 但是 también.)
+
+### Diferencias finas
+| Par | Matiz |
+|---|---|
+| 虽然…但是 | concesión estándar |
+| 尽管…还是 | concesión con persistencia |
+| 即使…也 | hipotético: aunque llueva |
+| 既然…就 | a partir de un hecho dado |
+| 因为…所以 | causa y consecuencia |
+| 由于…因此 | formal |
+
+### Con sujeto diferente
+Si los sujetos difieren, el segundo va tras el conector: *虽然他很累，但是我很精神.* Si es el mismo, se omite en la segunda parte: *虽然很累，但是很高兴.*
+
+### Error de traducción
+En español «aunque… pero» es redundante; en chino 虽然…但是… es normal. Al revés, 因为…所以… también se usan juntos, aunque a veces puede omitirse uno.
+
 ## Errores comunes de hispanohablantes
 1. **Omitir la segunda mitad**: 虽然很累，很高兴 ✗.
 2. **Mezclar parejas**: 因为…但是… ✗.

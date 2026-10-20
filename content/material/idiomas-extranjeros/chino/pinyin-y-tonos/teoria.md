@@ -13,6 +13,40 @@ El **pinyin** es la transcripción fonética oficial del chino con letras latina
 - **Iniciales difíciles**: zh, ch, sh, r (retroflejas); j, q, x (palatales); z, c, s (dentales).
 - **Finales**: ü (como en *nǚ*), -ng, -n.
 
+## Ampliación
+### Los tonos con más detalle
+| Tono | Marca | Forma |
+|---|---|---|
+| 1.º | ā | alto y sostenido |
+| 2.º | á | asciende, como una pregunta |
+| 3.º | ǎ | baja y sube; en habla real, suele quedar en la parte baja |
+| 4.º | à | cae con firmeza |
+| neutro | a | corto y ligero |
+
+### Dónde se escribe la marca de tono
+1. Si hay *a*, va sobre la *a*: *hǎo, xiāng*.
+2. Si no, sobre la *o* o la *e*: *duō, lěi*.
+3. En *iu* y *ui* va sobre la **última** vocal: *liú, duì*.
+4. La *i* pierde el punto al llevar marca: *nǐ, yī*.
+
+### Ortografía del pinyin
+- Las sílabas sin consonante inicial se escriben con **y** o **w**: *yī, yǒu, wǒ, wèn*.
+- **ü** se escribe *u* tras *j, q, x* y *y*: *jù, qù, xué, yuǎn*; se conserva *ü* tras *n* y *l*: *nǚ, lǜ*.
+- Abreviaturas de finales: *iou → iu* (*liù*), *uei → ui* (*huí*), *uen → un* (*lùn*).
+- Las **i** de *zhi, chi, shi, ri, zi, ci, si* no suenan como la *i* española: es una vocal «de apoyo».
+
+### Pares de consonantes
+- **Sin aspiración / aspirada**: b/p, d/t, g/k, j/q, zh/ch, z/c. La aspirada va acompañada de un soplo de aire.
+- **Retroflejas** (zh, ch, sh, r): lengua curvada hacia atrás. **Palatales** (j, q, x): lengua hacia el paladar.
+
+### Erre final (儿化)
+En el habla de Pekín se añade *r*: 一点儿 *yìdiǎnr*, 玩儿 *wánr*. En pinyin se escribe con *r* al final.
+
+### Prácticas recomendadas
+1. Leé en voz alta pares mínimos: *mā / má / mǎ / mà*.
+2. Aplicá sandhi en listas: *nǐ hǎo*, *bù shì*, *yí gè*, *yì tiān*.
+3. Grabate y compará con una referencia.
+
 ## Errores comunes de hispanohablantes
 1. **Ignorar los tonos**: cambian la palabra.
 2. **Pronunciar zh/sh como en español**.

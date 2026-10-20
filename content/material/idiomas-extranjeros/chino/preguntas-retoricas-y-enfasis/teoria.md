@@ -28,6 +28,43 @@ Las **preguntas retóricas** (反问句) no piden información: afirman o niegan
 2. Entonación descendente al final.
 3. El sentido real es contrario a la forma afirmativa/negativa: 你不是…吗 = «Sí, vos…».
 
+## Ampliación
+### Cómo se traduce el sentido
+| Estructura | Sentido real |
+|---|---|
+| 你不是说…吗？ | «Vos dijiste que…» (reproche) |
+| 难道…吗？ | «¿Acaso…?» (el hablante cree que no) |
+| 哪儿有…？ | «No hay…» (negación enfática) |
+| 谁说…？ | «Nadie dijo…» |
+| 何必…呢？ | «No hace falta…» |
+| 怎么能…呢？ | «No se debe…» |
+
+### Más recursos de énfasis
+- **连…也/都…**: *连老师都不知道.* (Ni siquiera el profesor lo sabe.)
+- **一点儿也/都 + 不/没**: *我一点儿也不累.*
+- **越…越…**: *越着急越出错.*
+- **简直 / 根本**: *根本不可能.* (Es completamente imposible.)
+- **并不 / 并没有**: *他并不是不想去.* (En realidad no es que no quiera ir.)
+- **偏偏 / 反而**: *我想休息，偏偏有人来了.* *不但没好，反而更严重了.*
+
+### Intensificadores en la escritura
+- **极其, 格外, 相当, 无比**: *格外认真, 无比自豪.*
+- **何等**: *何等美丽！* (forma escrita).
+
+### Entonación
+La pregunta retórica se pronuncia con un tono **descendente y más fuerte**. En el texto, a menudo se acompaña de signos de exclamación o de combinación (？！).
+
+### Estrategia de lectura
+1. Identificá el marcador.
+2. Reformulá en afirmación o negación contraria.
+3. Preguntate qué emoción transmite (reproche, sorpresa, ironía).
+4. Elegí la opción que conserva esa emoción.
+
+### Ejemplos con respuesta implícita
+- *这么简单的问题，谁不会呢？* → Todos saben hacerlo.
+- *你怎么能这样说呢？* → No deberías decirlo así.
+- *我哪儿知道呢？* → No tengo idea.
+
 ## Errores comunes de hispanohablantes
 1. **Responder a una pregunta retórica como si fuera real**.
 2. **Usar 难道 en afirmativas**.

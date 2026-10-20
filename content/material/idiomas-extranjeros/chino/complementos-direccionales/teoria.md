@@ -11,6 +11,36 @@ Los **complementos direccionales** son verbos de dirección (上, 下, 进, 出,
 - **Posición del objeto**: si el objeto es una cosa, puede ir entre ambos o después: 他拿出一本书来。 / 他拿出来一本书。
 - **Sentidos figurados** (adelanto de HSK 3): 起来 («empezar», «parecer»), 下去 («continuar»), 出来 («distinguir»), 过来 («recuperarse»). 笑起来, 说下去, 看出来, 醒过来.
 
+## Ampliación
+### Cómo elegir 来 o 去
+La referencia es **el punto de vista de quien habla**: si el movimiento se acerca, 来; si se aleja, 去.
+- *他走进来了.* (Entró hacia donde estoy yo.)
+- *他走进去了.* (Entró hacia allá, lejos de mí.)
+- *我拿出手机来.* (Saqué el celular.) — El objeto va entre ambos o tras 出来: *我拿出来手机* se acepta, pero lo habitual es *拿出手机来.*
+
+### Combinaciones con valor real y figurado
+| Complemento | Sentido literal | Sentido extendido |
+|---|---|---|
+| 上 | subir, alcanzar | 关上 (cerrar), 穿上 (ponerse), 爱上 (enamorarse) |
+| 下 | bajar | 放下 (dejar), 留下 (dejar atrás), 停下 (detenerse) |
+| 出来 | salir | 看出来 (notar), 听出来 (reconocer por el oído) |
+| 起来 | levantarse | 想起来 (recordar), 笑起来 (empezar a reír), 看起来 (parece) |
+| 下去 | seguir bajando | 说下去 (seguir hablando) |
+| 过来 | venir | 醒过来 (despertar), 改过来 (corregir) |
+
+### Verbos de dirección solos
+进, 出, 上, 下, 回, 过, 起 pueden funcionar también como verbos: *回家, 上楼, 进房间.* Y se pueden combinar con 到 + lugar: *走到学校.*
+
+### Con lugares y objetos
+- **Lugar**: entre el direccional y 来/去: *他回学校去了.* *她走进房间来了.*
+- **Objeto movible**: *请把书拿出来.* (Con 把.)
+- **Personas**: *请进！ 请上来！*
+
+### Cuidado
+- 起 no se combina con 去 (no existe *起去*).
+- En imperativos suaves se usa 吧: *你过来吧.* (Vení.)
+- La dirección puede ser **figurada**: *坐下来* (sentarse), *安静下来* (calmarse).
+
 ## Errores comunes de hispanohablantes
 1. **Confundir 来 y 去**: 来 = hacia el hablante; 去 = alejándose.
 2. **Poner el lugar después de 来/去**: 他进来教室了 ✗; 他走进教室来了 ✓.

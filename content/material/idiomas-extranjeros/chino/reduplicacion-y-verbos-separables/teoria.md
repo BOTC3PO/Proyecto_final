@@ -24,6 +24,47 @@ Son verbos de «verbo + objeto» que parecen una palabra pero admiten elementos 
 - **No admiten objeto directo**: 我见面你 ✗ → 我跟你见面。 我结婚她 ✗ → 我跟她结婚。 他毕业大学 ✗ → 他大学毕业了。
 - **Preposiciones**: la persona se introduce con 跟 / 给 / 对: 跟老师聊天, 给他帮忙.
 
+## Ampliación
+### Reduplicación: efectos de significado
+| Forma | Efecto | Ejemplo |
+|---|---|---|
+| Verbo AA | breve, tentativa, cortés | *你听听这首歌.* |
+| A一A | tentativa más clara | *我想看一看.* |
+| A了A | acción realizada, breve | *他想了想，说…* |
+| Adjetivo AA | afectuoso o más vivo | *小小的手, 大大的眼睛* |
+| Adjetivo AABB | estado agradable | *高高兴兴, 清清楚楚* |
+| Sustantivo AA | «cada» | *天天, 年年, 家家* |
+| Clasificador AA | «todos» | *个个都好, 件件很贵* |
+
+### Reduplicación en imperativos suaves
+*你尝尝这个菜. 你想想这个问题. 你们休息休息.* Dan un tono amable, no brusco.
+
+### Verbos separables: más ejemplos
+- **见面**: *我们见过一次面. 昨天见了面.*
+- **睡觉**: *他睡了八个小时的觉. 我想睡一觉.*
+- **帮忙**: *请你帮个忙. 他帮了我很多忙.*
+- **生气**: *别生我的气.*
+- **毕业**: *他去年大学毕业了.*
+- **请假**: *我请了两天假.*
+- **结婚**: *他们结了婚. 我跟她结婚.*
+
+### Reglas prácticas
+1. Los separables **no** reciben objeto directo: se agrega con 跟 / 给 / 对.
+2. 了, 过, 着, cantidades y modificadores se colocan **entre** las dos partes.
+3. La duración también: *散了半小时步.*
+4. La reduplicación es AAB: *散散步, 聊聊天.*
+
+### Cuadro de contrastes
+| Incorrecto | Correcto |
+|---|---|
+| *我帮忙你* | *我帮你的忙 / 我帮你* |
+| *我见面老师* | *我跟老师见面* |
+| *她生气我* | *她生我的气* |
+| *他毕业大学* | *他大学毕业了* |
+
+### Observación
+Muchos verbos que en español son un solo verbo («bañarse», «casarse», «graduarse») son en chino un **verbo + objeto** separable. Reconocerlos evita errores de gramática.
+
 ## Errores comunes de hispanohablantes
 1. **Dar objeto directo a un separable**.
 2. **Reduplicar adjetivos con 很**: 很高高兴兴 ✗.

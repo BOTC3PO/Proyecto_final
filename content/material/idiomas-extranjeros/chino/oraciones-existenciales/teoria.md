@@ -15,6 +15,40 @@ Las **oraciones existenciales** (存现句) dicen que algo **existe, aparece o d
 - **Sujeto indefinido**: lo que existe suele tener un numeral + clasificador (一本书, 很多学生), no un sujeto definido (这本书).
 - **Negación**: 没有 + sujeto: 桌子上没有书。
 
+## Ampliación
+### Verbos que suelen usarse con 着
+- **Posición del cuerpo**: 坐着, 站着, 躺着, 蹲着.
+- **Objetos en un lugar**: 放着, 摆着, 挂着, 贴着, 停着.
+- **Escritura y signos**: 写着, 画着, 印着.
+- **Presencia de personas o animales**: 住着, 坐着, 趴着.
+  *楼上住着一位老人.* *墙上贴着一张海报.* *门口停着一辆车.*
+
+### Lleno o vacío
+- **V + 满了 + sujeto**: *屋子里坐满了人.* (La habitación está llena de gente.)
+- **一 + clasificador + 也没有**: *桌子上一本书也没有.* (No hay ni un libro.)
+- **全是 / 都是**: *地上全是水.*
+
+### Aparición y desaparición
+- **Aparición con 了 / 来**: *前面开来一辆公共汽车.* *院子里长出了一棵树.* *家里来了一位客人.*
+- **Desaparición con 了**: *我们班少了两个人.* *抽屉里丢了一把钥匙.*
+- **Eventos**: *城市里发生了一件事.* *天上出现了一道彩虹.*
+
+### 有, 是, 着: tres modos
+| Estructura | Función |
+|---|---|
+| 桌子上有一本书 | declara que existe |
+| 桌子上是一本书 | identifica lo que ocupa el espacio (único contenido) |
+| 桌子上放着一本书 | describe la posición/estado del objeto |
+
+### Uso en descripciones
+Estas oraciones son típicas en descripciones de imágenes, habitaciones o paisajes: se recorre el espacio de lo general a lo particular.
+*房间里有一张床。床上放着一个枕头。窗户旁边摆着一张书桌。*
+
+### Cuidado
+1. El sujeto suele ser **indefinido** (un, algunos, muchos).
+2. El lugar va al principio **sin** preposición.
+3. Para una acción real (poner), se usa 在 + lugar + V: *他在桌子上放书.*
+
 ## Errores comunes de hispanohablantes
 1. **Usar 在**: 在桌子上放着一本书 ✗ (aquí el lugar es tema, no complemento).
 2. **Un sujeto definido**: 桌子上放着这本书 suena forzado.
