@@ -15,7 +15,7 @@ El fútbol se rige por las **Leyes del Juego**, que redacta y actualiza cada añ
 
 ## 2. Jugadores y duración
 
-Cada equipo juega con **11 jugadores**, uno de ellos arquero. Un partido no puede comenzar ni continuar si un equipo tiene **menos de 7 jugadores**. El tiempo reglamentario son **dos tiempos de 45 minutos** con un descanso que no supera los 15 minutos. El árbitro **suma tiempo adicional** por las demoras (lesiones, cambios, festejos). Si en una competición alguien debe ganar y hay empate, se recurre a un desempate fijado por el reglamento de esa competición, como la prórroga o los **tiros desde el punto penal**.
+Cada equipo juega con **11 jugadores**, uno de ellos arquero. Un partido no puede comenzar ni continuar si un equipo tiene **menos de 7 jugadores**. El tiempo reglamentario son **dos tiempos de 45 minutos** con un descanso que no supera los 15 minutos. Si el reglamento de la competición lo permite, hay además breves pausas de hidratación (de no más de un minuto) y, con calor extremo, pausas de enfriamiento. El árbitro **suma tiempo adicional** por las demoras (lesiones, cambios, festejos). Si en una competición alguien debe ganar y hay empate, se recurre a un desempate fijado por el reglamento de esa competición, como la prórroga o los **tiros desde el punto penal**.
 
 ## 3. El gol y cómo se reinicia el juego
 

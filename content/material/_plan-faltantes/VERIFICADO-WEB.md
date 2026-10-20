@@ -51,8 +51,11 @@ Se abrió cada fuente en un Brave controlado por Playwright (depuración remota)
 - **ISO 1302 → ISO 21920-1:2021** (ya estaba bien). **ISO 10218-1 y -2:** las ediciones de 2011 están retiradas y rige la de **2025** (el tema ya lo decía).
 - **ISO 9001:2026** (publicada el 16-9-2026, sexta edición; las certificaciones con la de 2015 valen hasta el 30-9-2029): se agregó a `oficios/metalurgico/normas-de-calidad-de-proceso-metalurgico`. isotools.org solo cubre normas de gestión (9001, 14001, 27001...), así que fue útil solo para esta; el resto se contrastó en iso.org e iec.ch.
 
+## Leyes del Juego vigentes (IFAB 2025/26, PDF oficial; 2026-10-20)
+17 leyes (la 17 es el saque de esquina); un equipo con menos de 7 jugadores no puede comenzar ni continuar; dos tiempos iguales de 45 min (reducibles solo si lo acuerdan árbitro y equipos y lo permite el reglamento de la competición); entretiempo de hasta 15 min; prórroga en dos períodos de hasta 15 min. Novedad respecto de la edición 2015/16: las **pausas de hidratación («drinks break», máximo 1 min)** y las de enfriamiento, si las prevé el reglamento de la competición. Se agregó en `ed-fisica/reglamento-y-fundamentos-del-futbol`. Fuente: IFAB-Laws-of-the-Game-2025_26.pdf (AFC).
+
 ## Sigue sin verificar
 - Categorías y horas de matrícula del gasista y de otros oficios (el material es genérico a propósito y remite a ENARGAS/ENReGE).
 - Disposición ANMAT 2543/2026 (vapeadores) y trabajo de colmenas/traslado (SENASA).
 - Idiomas: **todo** lo lingüístico necesita hablantes nativos (alemán, francés, inglés, italiano, portugués, japonés, coreano, chino, árabe, ruso, hindi, esperanto). Dato nuevo: existe ya el **HSK 3.0 (sílabo 2025)**; sigue la decisión de Javier de mantener HSK 2.0 hasta la votación.
-- Leyes del Juego de la **edición vigente** de la IFAB (se contrastó la de 2015/16) y reglas FIBA oficiales (se contrastó un manual); todo lo que dependa de documentos pagos (IRAM, ISO completos).
+- Reglas FIBA oficiales (se contrastó un manual de baloncesto); todo lo que dependa de documentos pagos (IRAM, ISO completos).
