@@ -1,5 +1,7 @@
 # Cómo rehacer los exámenes jefe si cambia el árbol general
 
+> **Ejecutado el 2026-10-20.** En vez de recalcular todos los clusters (lo que reordenaba exámenes y logros ya existentes: ≈124 textos en 12 idiomas), se escribió `_qa_tools/agregar_clusters_nuevos.py`, que agrega los temas nuevos como clusters NUEVOS al final de cada materia, en orden de prerrequisitos, sin tocar los anteriores. Resultado: **31 clusters nuevos en 21 materias** (≈250 temas), 31 logros nuevos en los 12 archivos `logros-examen-jefe*.json` (ahora 208 en total) y `verificar_examen_jefe.py` en **0 errores** (quedan 2 avisos de Antropología por el nodo `H10`). Ids nuevos: Lengua 666, Historia profunda 702, Física 751, Geografía 804-805, Informática 827, Química 849, Biología 868-869, Arte 907, Psicología 926, Ciencia de Materiales 931-933, Dibujo Técnico 935-937, Comunicación 939, Electrónica 943-945, Automatización 947-948, UX/Diseño 970-971, Filosofía 975, Antropología 980, Sociología 985, Aprendizaje 990, Ciudadanía Digital 995 y Ed. Física 1000. Los ids viejos (930, 934, 938, 942, 946, 950-957, 961-963, etc.) siguen vigentes. Las traducciones de los logros nuevos no las revisó una persona nativa. Si más adelante se cambia el árbol de forma que reordene los clusters existentes, ahí sí corresponde el procedimiento completo de abajo.
+
 **Criterio (Javier, 2026-10-20):** si se cambia el árbol general (`troncos.md` y los `dependencias.md`), los exámenes jefe se rehacen, **ignorando Oficios e Idiomas**, como en el plan original, salvo que sea necesario.
 
 ## Qué se ignora y por qué
