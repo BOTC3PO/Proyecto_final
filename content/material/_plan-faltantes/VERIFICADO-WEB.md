@@ -46,6 +46,11 @@ Se abrió cada fuente en un Brave controlado por Playwright (depuración remota)
 - **Básquet (manual de baloncesto):** FIBA 4 cuartos de 10 min (NBA 12), prórrogas de 5 min, 5 faltas personales en FIBA (6 en NBA), aro a 10 pies. Coincide con `ed-fisica/reglamento-y-fundamentos-del-basquet`.
 - Los otros tres PDF (revista FIFA 2018, guía de fútbol de Olimpiadas Especiales y un manual de estructuración de baloncesto) no traen reglas contrastables con los temas.
 
+## Normas ISO/IEC (iso.org, iec.ch e isotools.org; 2026-10-20)
+- **Vigentes y bien citadas:** ISO 2553:2019 (símbolos de soldadura), ISO 286-1:2010 (tolerancias ISO), ISO 129-1:2018 (acotación), ISO 13849-1:2023 (nivel de desempeño PL), ISO 12100:2010, ISO 1219-1:2012 (símbolos hidráulicos/neumáticos), ISO 3758:2023 (etiquetas de cuidado textil), ISO 8601-1:2019 (fechas), ISO 9241-210:2019 (diseño centrado en el usuario), ISO 6947:2019 (posiciones de soldadura), IEC 62061:2021, IEC 60204-1:2016, IEC 60848:2013 (GRAFCET), **IEC 61131-3:2025** (nueva edición).
+- **ISO 1302 → ISO 21920-1:2021** (ya estaba bien). **ISO 10218-1 y -2:** las ediciones de 2011 están retiradas y rige la de **2025** (el tema ya lo decía).
+- **ISO 9001:2026** (publicada el 16-9-2026, sexta edición; las certificaciones con la de 2015 valen hasta el 30-9-2029): se agregó a `oficios/metalurgico/normas-de-calidad-de-proceso-metalurgico`. isotools.org solo cubre normas de gestión (9001, 14001, 27001...), así que fue útil solo para esta; el resto se contrastó en iso.org e iec.ch.
+
 ## Sigue sin verificar
 - Categorías y horas de matrícula del gasista y de otros oficios (el material es genérico a propósito y remite a ENARGAS/ENReGE).
 - Disposición ANMAT 2543/2026 (vapeadores) y trabajo de colmenas/traslado (SENASA).

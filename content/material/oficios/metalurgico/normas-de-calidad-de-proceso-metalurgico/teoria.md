@@ -32,7 +32,7 @@ Cada lote de material sale de la acería con un **certificado de calidad**, que 
 
 ## El sistema de gestión de calidad
 
-Las empresas suelen ordenar su trabajo con sistemas de gestión certificados (por ejemplo, el de la familia ISO 9001), con procedimientos escritos, control de documentos, calibración de instrumentos, auditorías y tratamiento de no conformidades. Un instrumento sin calibrar produce números sin valor: la dureza medida con un durómetro desajustado puede aprobar una pieza mala o rechazar una buena.
+Las empresas suelen ordenar su trabajo con sistemas de gestión certificados (por ejemplo, el de la familia ISO 9001, cuya edición vigente es la de 2026, publicada en septiembre de ese año, con un período de transición para quienes estaban certificados con la de 2015), con procedimientos escritos, control de documentos, calibración de instrumentos, auditorías y tratamiento de no conformidades. Un instrumento sin calibrar produce números sin valor: la dureza medida con un durómetro desajustado puede aprobar una pieza mala o rechazar una buena.
 
 ## En el taller
 
