@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #827]
+# Examen jefe — Constructor de Redes y Páginas Web
 
-> Logro #827. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 3 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **69 preguntas totales** en 3/3 secciones.
+> Logro #827. Completaste el parcial dominando las redes locales y el wifi, las bases de datos no relacionales y cómo se construye una página web con HTML, CSS y JavaScript. Pool agregado de los `cuestionario.md` ya validados de sus 3 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **69 preguntas totales** en 3/3 secciones.
 
 ---
 

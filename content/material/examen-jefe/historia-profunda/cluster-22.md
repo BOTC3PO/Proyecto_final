@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #702]
+# Examen jefe — Explorador de la Carrera Espacial
 
-> Logro #702. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 1 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **25 preguntas totales** en 1/1 secciones.
+> Logro #702. Completaste el parcial dominando la carrera espacial de la Guerra Fría: el Sputnik, el vuelo de Gagarin, la llegada del Apolo 11 a la Luna y la misión conjunta Apolo-Soyuz. Pool agregado de los `cuestionario.md` ya validados de sus 1 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **25 preguntas totales** en 1/1 secciones.
 
 ---
 

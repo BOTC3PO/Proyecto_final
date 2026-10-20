@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #907]
+# Examen jefe — Viajero por la Historia del Arte
 
-> Logro #907. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **199 preguntas totales** en 9/9 secciones.
+> Logro #907. Completaste el parcial recorriendo el arte de Egipto y Mesopotamia, el clásico, el románico y el gótico, el Renacimiento y el Barroco, el impresionismo, las vanguardias del siglo XX, el arte argentino y la fotografía y el cine como arte. Pool agregado de los `cuestionario.md` ya validados de sus 9 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **199 preguntas totales** en 9/9 secciones.
 
 ---
 

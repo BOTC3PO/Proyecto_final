@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #805]
+# Examen jefe — Ciudadano del Mundo
 
-> Logro #805. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **141 preguntas totales** en 6/6 secciones.
+> Logro #805. Completaste el parcial recorriendo Europa y la Unión Europea, Medio Oriente, Oceanía y la Antártida, Rusia y Asia Central y Sudáfrica, y sumaste las redes globales de transporte y comunicación. Pool agregado de los `cuestionario.md` ya validados de sus 6 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **141 preguntas totales** en 6/6 secciones.
 
 ---
 

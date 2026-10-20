@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #666]
+# Examen jefe — Maestro de la Literatura Argentina y Latinoamericana
 
-> Logro #666. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **186 preguntas totales** en 8/8 secciones.
+> Logro #666. Completaste el parcial dominando la gauchesca y el Martín Fierro, las vanguardias de Florida y Boedo, Borges y lo fantástico rioplatense, Cortázar, el realismo mágico, la narrativa posdictadura, la poesía argentina del siglo XX y los mitos y leyendas de los pueblos originarios. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **186 preguntas totales** en 8/8 secciones.
 
 ---
 

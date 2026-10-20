@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #868]
+# Examen jefe — Maestro de la Homeostasis y los Sentidos
 
-> Logro #868. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
+> Logro #868. Completaste el parcial dominando la homeostasis, los sentidos, las relaciones interespecíficas, la reproducción sexual y asexual y el sistema circulatorio. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
 
 ---
 

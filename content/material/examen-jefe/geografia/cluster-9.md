@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #804]
+# Examen jefe — Explorador de Continentes y Clima
 
-> Logro #804. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
+> Logro #804. Completaste el parcial recorriendo África, Asia, Brasil y China, y sumaste las causas, los efectos y los acuerdos del cambio climático. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 

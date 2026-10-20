@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #849]
+# Examen jefe — Maestro de Ácidos, Bases y Reacciones
 
-> Logro #849. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
+> Logro #849. Completaste el parcial dominando las leyes ponderales de Lavoisier y Proust, las teorías de ácidos y bases, la neutralización y la titulación, las reacciones orgánicas básicas y la química del agua. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **120 preguntas totales** en 5/5 secciones.
 
 ---
 

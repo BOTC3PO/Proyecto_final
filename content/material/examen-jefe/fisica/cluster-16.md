@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #751]
+# Examen jefe — Maestro de Fluidos, Termodinámica y Ondas
 
-> Logro #751. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 4 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **95 preguntas totales** en 4/4 secciones.
+> Logro #751. Completaste el parcial dominando la ecuación de Bernoulli y la dinámica de fluidos, la primera ley de la termodinámica, el movimiento armónico simple y las ondas estacionarias, y las energías renovables y su transformación. Pool agregado de los `cuestionario.md` ya validados de sus 4 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **95 preguntas totales** en 4/4 secciones.
 
 ---
 

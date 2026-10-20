@@ -1,6 +1,6 @@
-# Examen jefe — [PENDIENTE #869]
+# Examen jefe — Maestro del Cuerpo Humano
 
-> Logro #869. [PENDIENTE: descripción del logro]. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **162 preguntas totales** en 7/7 secciones.
+> Logro #869. Completaste el parcial dominando los sistemas digestivo, excretor, inmunitario, muscular, óseo y respiratorio, y la piel con su termorregulación. Pool agregado de los `cuestionario.md` ya validados de sus 7 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **162 preguntas totales** en 7/7 secciones.
 
 ---
 
