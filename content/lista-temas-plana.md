@@ -358,6 +358,11 @@ Currícula de primaria + secundaria argentina, con roce de nivel universitario i
 - Soluciones y concentración
 - Dilución de soluciones: C1V1 = C2V2
 - Ácido-base y pH
+- Ácidos y bases: Arrhenius y Brønsted-Lowry
+- Neutralización y titulación
+- Leyes ponderales: Lavoisier y Proust
+- Química del agua: dureza, pH potable
+- Reacciones orgánicas básicas
 - Propiedades coligativas: descenso crioscópico, ascenso ebulloscópico, presión osmótica
 - Gases ideales: PV = nRT
 - Presiones parciales: Ley de Dalton
@@ -583,6 +588,7 @@ Currícula de primaria + secundaria argentina, con roce de nivel universitario i
 - Energía potencial gravitatoria: Ep = m·g·h
 - Conservación de la energía mecánica
 - Potencia mecánica: P = W/t
+- Energías renovables y transformación de energía
 - Momento lineal: p = m·v
 - Impulso: J = F·Δt = Δp
 - Choques elásticos e inelásticos
@@ -595,6 +601,7 @@ Currícula de primaria + secundaria argentina, con roce de nivel universitario i
 - Cambios de estado: calor latente Q = m·L
 - Dilatación térmica lineal
 - Transmisión de calor: conducción, convección, radiación
+- Primera ley de la termodinámica: ΔU = Q − W
 - Máquina térmica: termodinámica
 - Entropía y segunda ley de la termodinámica
 - Energía libre de Gibbs (Química)
@@ -604,6 +611,7 @@ Currícula de primaria + secundaria argentina, con roce de nivel universitario i
 - Presión: P = F/A
 - Presión hidrostática: P = ρ·g·h
 - Caudal: Q = A·v
+- Ecuación de Bernoulli: dinámica de fluidos
 - Principio de Pascal: prensa hidráulica
 - Principio de Arquímedes: empuje y flotación
 - Mecánico (Oficios)

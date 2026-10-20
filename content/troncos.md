@@ -1648,6 +1648,21 @@ graph TD
   QM --> QDIL["Dilución de soluciones:<br/>C1V1 = C2V2"]
   QM --> QN["Ácido-base y pH"]
   QN --> QANALIT["Química analítica:<br/>titulación, espectroscopía, cromatografía"]
+  QN --> QACBA["Ácidos y bases:<br/>Arrhenius y Brønsted-Lowry"]
+  QG --> QACBA
+  QI --> QACBA
+  QACBA --> QNEUT["Neutralización y titulación"]
+  QN --> QNEUT
+  QM --> QNEUT
+  QK --> QNEUT
+  QI --> QLEYES["Leyes ponderales:<br/>Lavoisier y Proust"]
+  QD --> QLEYES
+  QM2P["Razón y porcentaje<br/>(Matemáticas)"] --> QLEYES
+  QG --> QAGUA["Química del agua:<br/>dureza, pH potable"]
+  QG2 --> QAGUA
+  QM --> QAGUA
+  QB --> QAGUA
+  QAGUA --> GAGUAP["Recursos hídricos<br/>(Geografía)"]
   QN --> QATMOS["Química de la atmósfera:<br/>ozono, lluvia ácida, esmog fotoquímico"]
   MET1P["Presión atmosférica<br/>(Meteorología)"] --> QATMOS
   QM --> QCOLIGa["Descenso crioscópico"]
@@ -1682,6 +1697,8 @@ graph TD
   QT --> QUc["Proteínas"]
   QT --> QUd["Ácidos nucleicos"]
   QT --> QV["Polímeros naturales y sintéticos"]
+  QT --> QORGRX["Reacciones orgánicas básicas:<br/>sustitución, adición, combustión"]
+  QK --> QORGRX
   QG --> QW["Oxidación y reducción:<br/>número de oxidación"]
   QW --> QX["Pilas y celdas galvánicas"]
   QX --> QSUPERCOND["Superconductividad"]
@@ -2483,6 +2500,9 @@ graph TD
   OND4c --> AR4
   OND4c --> E14P["Decibeles y escala Richter<br/>(Matemáticas / Física)"]
   OND1 --> OND6["Resonancia:<br/>frecuencia natural de una estructura"]
+  OND1 --> OND7["Movimiento armónico simple<br/>y ondas estacionarias"]
+  OND3 --> OND7
+  OND6 --> OND7
   N7P["Operaciones con fracciones<br/>(Matemáticas)"] --> RIT1["Ritmo y compás:<br/>pulso, figuras musicales"]
   OND2 --> RIT1
   RIT1 --> AR7["Danza: ritmo, tiempo<br/>y expresión corporal (Arte)"]
@@ -2575,6 +2595,11 @@ graph TD
   ENE1 --> ENE3["Conservación de la<br/>energía mecánica"]
   ENE2 --> ENE3
   ENE3 --> ENE4["Potencia mecánica:<br/>P = W/t"]
+  ENE3 --> ENE5["Energías renovables y<br/>transformación de energía"]
+  ENE4 --> ENE5
+  FIS6P2["Potencia eléctrica y<br/>generador (Física)"] --> ENE5
+  ENE5 --> E8N2P["Eficiencia energética doméstica<br/>(Vida Cotidiana)"]
+  ENE5 --> MATRIZP["Matriz energética<br/>(Economía / Cívica)"]
 
   ENE3 --> V1P["Distancia de frenado<br/>(Vida Cotidiana / Vial)"]
 
@@ -2623,6 +2648,10 @@ graph TD
   TER2 --> TER6b["Convección"]
   TER2 --> TER6c["Radiación"]
   TER2 --> F8["Máquina térmica:<br/>termodinámica"]
+  TER2 --> TER8["Primera ley de la<br/>termodinámica: ΔU = Q − W"]
+  ENE3 --> TER8
+  F7P2["Trabajo de una fuerza<br/>(Física)"] --> TER8
+  TER8 --> F8
   TER4 --> F8
   F8 --> TER7["Entropía y segunda ley<br/>de la termodinámica"]
   TER7 --> QGIBBSP["Energía libre de Gibbs<br/>(Química)"]
@@ -2655,6 +2684,9 @@ graph TD
   FLU1 --> FLU2["Presión hidrostática:<br/>P = ρ·g·h"]
   FLU1 --> FLU3["Caudal:<br/>Q = A·v"]
   FLU2 --> FLU4["Principio de Pascal:<br/>prensa hidráulica"]
+  FLU3 --> FLU6["Ecuación de Bernoulli:<br/>dinámica de fluidos"]
+  FLU4 --> FLU6
+  ENE3 --> FLU6
   FLU2 --> FLU5["Principio de Arquímedes:<br/>empuje y flotación"]
   FLU5 --> OF5P2["Mecánico<br/>(Oficios)"]
 

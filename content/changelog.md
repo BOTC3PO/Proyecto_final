@@ -999,3 +999,25 @@ y 2 nodos de salud sensibles (`trastornos-alimentarios`,
 `prevención-del-suicidio`) que existen como contenido real y valioso
 pero requieren diseño cuidadoso siguiendo las guías de mensaje seguro
 de la OMS antes de generarse — no agregados al grafo en este parche.
+
+---
+
+## Qué cambió en el parche v3.1
+
+Entran al mapa los 9 temas nuevos de Física y Química generados en la
+ronda de reparaciones, con los prerrequisitos de sus `dependencias.md`:
+
+- **Física**: `Bernoulli` (9.f, tras Caudal y Pascal), `Primera ley de la
+  termodinámica` (9.e, tras Calor, Conservación de la energía y Trabajo),
+  `Movimiento armónico simple y ondas estacionarias` (9.b, tras
+  Resonancia y Longitud de onda), `Energías renovables y transformación
+  de energía` (9.d, con cruces a Eficiencia energética doméstica y
+  Matriz energética de Economía/Cívica).
+- **Química** (Tronco 7): `Ácidos y bases` (Arrhenius/Brønsted-Lowry),
+  `Neutralización y titulación`, `Leyes ponderales`, `Reacciones
+  orgánicas básicas` y `Química del agua`.
+
+**Criterio sobre solapes**: un tema que aparece en dos materias (agua en
+Química y Geografía, energía en Física y Cívica, etc.) se conserva en
+ambas: el solape depende desde dónde se mira el tema. Se enlaza con
+nodos `P`, no se elimina.
