@@ -34,8 +34,14 @@ Se abrió cada fuente en un Brave controlado por Playwright (depuración remota)
 - **Fechas de ciencia, antropología y literatura** (Bernoulli 1738, Lavoisier 1789, Richter 1792, Dalton 1803, Arrhenius 1884-87, Brønsted-Lowry 1923, Mauss 1925, Barth 1969, van Gennep 1909, Doran 1981, Ur-Nammu c. 2100 a. C.; Cortázar, Pizarnik, Storni, Gelman, Lugones, Borges, Hernández): coinciden; «Casa tomada» (1946, Los Anales de Buenos Aires) y Storni se contrastaron en Wikipedia.
 - **Ley 11.723:** el tema no cita plazo de protección (la versión original del texto dice 30 años; hoy son 70 por la Ley 24.870).
 
+## Con los enlaces que pasó Javier (2026-10-20)
+- **Disposición ANMAT 3226/2011** (argentina.gob.ar/normativa/nacional/norma-181907): prohíbe la comercialización y el uso del cigarrillo electrónico; sanción 6-5-2011, BO 9-5-2011. Coincide con «desde 2011».
+- **Resultados deportivos confirmados:** futsal, Mundial 2016, final del 1-10-2016: Argentina 5 – Rusia 4 (campeón; Flashscore). Rugby 2007: los Pumas, **tercer puesto** (Wikipedia). Hockey: Los Leones, **oro en Río 2016**, final 4-2 a Bélgica (Wikipedia).
+- **HSK 2.0:** 150 / 300 / 600 / 1.200 / 2.500 / 5.000 palabras acumuladas por nivel (HSK 1 = 150, HSK 2 = 300), como figura en los temas. **HSK 3.0:** 9 niveles (300 / 500 / 1.000 / 2.000 / 3.600 / 5.400 y 11.000 combinadas para 7-9); un sitio de preparación (hsk1.org, no oficial) indica **lanzamiento mundial el 13-12-2026** y que no hay cronograma de retiro del HSK 2.0. Conviene confirmarlo en chinesetest.cn antes de decidir la votación.
+- No sirvieron para verificar reglas: el manual de CONMEBOL es un manual de entrenamiento (no las Leyes del Juego) y el de baloncesto de archive.org es de entrenamiento infantil, solo para préstamo.
+
 ## Sigue sin verificar
 - Categorías y horas de matrícula del gasista y de otros oficios (el material es genérico a propósito y remite a ENARGAS/ENReGE).
 - Disposición ANMAT 2543/2026 (vapeadores) y trabajo de colmenas/traslado (SENASA).
 - Idiomas: **todo** lo lingüístico necesita hablantes nativos (alemán, francés, inglés, italiano, portugués, japonés, coreano, chino, árabe, ruso, hindi, esperanto). Dato nuevo: existe ya el **HSK 3.0 (sílabo 2025)**; sigue la decisión de Javier de mantener HSK 2.0 hasta la votación.
-- Fútbol/básquet/resultados deportivos contra página oficial y, en general, todo lo que dependa de documentos pagos (IRAM, ISO completos).
+- Fútbol (Leyes del Juego de la IFAB) y básquet (reglas FIBA) contra la página oficial, y todo lo que dependa de documentos pagos (IRAM, ISO completos).
