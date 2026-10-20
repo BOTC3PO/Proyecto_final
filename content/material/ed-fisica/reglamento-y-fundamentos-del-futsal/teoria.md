@@ -17,7 +17,7 @@ El **futsal** (fútbol de salón o fútbol sala en su versión reglamentada) es 
 
 Cada equipo tiene **cinco jugadores en cancha: cuatro de campo y un arquero**, y los cambios son **ilimitados y "volantes"**: se puede entrar y salir en cualquier momento, por la zona de cambios, sin detener el juego. El partido tiene **dos tiempos de 20 minutos de juego efectivo**: el reloj se detiene cuando la pelota sale o el juego se interrumpe. Cada equipo puede pedir **un minuto de pausa (tiempo muerto) en cada tiempo**.
 
-La cancha es rectangular y más chica que la de fútbol. En las competencias internacionales ronda los **40 m de largo por 20 m de ancho**, con arcos de **3 m × 2 m**. El área no es rectangular: es un **cuarto de círculo de 6 m de radio** desde cada palo. Hay un **punto penal a 6 m** y un **segundo punto penal a 10 m**.
+La cancha es rectangular y más chica que la de fútbol. El reglamento admite entre 25 y 42 m de largo y entre 16 y 25 m de ancho; en las competencias internacionales ronda los **40 m por 20 m**, con arcos de **3 m × 2 m**. El área no es rectangular: es un **cuarto de círculo de 6 m de radio** desde cada palo. Hay un **punto penal a 6 m** y un **segundo punto penal a 10 m**.
 
 ## 3. La pelota y cómo se juega
 

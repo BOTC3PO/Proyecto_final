@@ -40,8 +40,14 @@ Se abrió cada fuente en un Brave controlado por Playwright (depuración remota)
 - **HSK 2.0:** 150 / 300 / 600 / 1.200 / 2.500 / 5.000 palabras acumuladas por nivel (HSK 1 = 150, HSK 2 = 300), como figura en los temas. **HSK 3.0:** 9 niveles (300 / 500 / 1.000 / 2.000 / 3.600 / 5.400 y 11.000 combinadas para 7-9); un sitio de preparación (hsk1.org, no oficial) indica **lanzamiento mundial el 13-12-2026** y que no hay cronograma de retiro del HSK 2.0. Conviene confirmarlo en chinesetest.cn antes de decidir la votación.
 - No sirvieron para verificar reglas: el manual de CONMEBOL es un manual de entrenamiento (no las Leyes del Juego) y el de baloncesto de archive.org es de entrenamiento infantil, solo para préstamo.
 
+## Con los PDF de Drive que pasó Javier (2026-10-20)
+- **Manual de entrenamiento de Futsal (UEFA):** 5 jugadores (4 + arquero) y 7 suplentes; cambios ilimitados; 2 períodos de 20 min de juego efectivo; sin fuera de juego; cancha de 25 a 42 m por 16 a 25 m; arcos de 3 × 2 m; punto penal a 6 m y segundo punto a 10 m; pelota con poco pique (50–65 cm soltada desde 2 m); saque lateral con el pie en 4 s; a partir de la sexta falta acumulada, tiro libre directo sin barrera. Todo coincide con `ed-fisica/reglamento-y-fundamentos-del-futsal`. Se agregó el rango de medidas de la cancha.
+- **Laws of the Game 2015/16 (FIFA):** hay 17 leyes (la 17 es el saque de esquina); un partido no empieza ni continúa con menos de 7 jugadores en un equipo; dos tiempos de 45 min; el entretiempo no supera los 15 min. Coincide con `ed-fisica/reglamento-y-fundamentos-del-futbol`. Es una edición vieja: las Leyes se revisan todos los años (el tema ya lo aclara).
+- **Básquet (manual de baloncesto):** FIBA 4 cuartos de 10 min (NBA 12), prórrogas de 5 min, 5 faltas personales en FIBA (6 en NBA), aro a 10 pies. Coincide con `ed-fisica/reglamento-y-fundamentos-del-basquet`.
+- Los otros tres PDF (revista FIFA 2018, guía de fútbol de Olimpiadas Especiales y un manual de estructuración de baloncesto) no traen reglas contrastables con los temas.
+
 ## Sigue sin verificar
 - Categorías y horas de matrícula del gasista y de otros oficios (el material es genérico a propósito y remite a ENARGAS/ENReGE).
 - Disposición ANMAT 2543/2026 (vapeadores) y trabajo de colmenas/traslado (SENASA).
 - Idiomas: **todo** lo lingüístico necesita hablantes nativos (alemán, francés, inglés, italiano, portugués, japonés, coreano, chino, árabe, ruso, hindi, esperanto). Dato nuevo: existe ya el **HSK 3.0 (sílabo 2025)**; sigue la decisión de Javier de mantener HSK 2.0 hasta la votación.
-- Fútbol (Leyes del Juego de la IFAB) y básquet (reglas FIBA) contra la página oficial, y todo lo que dependa de documentos pagos (IRAM, ISO completos).
+- Leyes del Juego de la **edición vigente** de la IFAB (se contrastó la de 2015/16) y reglas FIBA oficiales (se contrastó un manual); todo lo que dependa de documentos pagos (IRAM, ISO completos).
