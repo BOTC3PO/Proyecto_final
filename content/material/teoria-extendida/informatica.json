@@ -205,7 +205,7 @@
         {
           "type": "paragraph",
           "id": "cap-1-p23",
-          "text": "Ahora que entendés ambos conceptos por separado, mirá cómo interactúan en la vida real. Cuando abrís un documento de texto, el sistema operativo lee los datos del disco duro (no volátil) y los carga en la RAM (volátil). Una vez que el texto está en la RAM, el procesador puede leerlo y escribirlo sobre él utilizando las compuertas lógicas (AND, OR, NOT) para tomar decisiones: ¿este carácter es una letra o un número? ¿El cursor debe moverse a la derecha o a la izquierda?"
+          "text": "Ahora que entendés ambos conceptos por separado, mirá cómo interactúan en la vida real. Cuando abrís un documento de texto, el sistema operativo lee los datos del disco duro (no volátil) y los carga en la RAM (volátil). Una vez que el texto está en la RAM, el procesador puede leerlo y modificarlo utilizando las compuertas lógicas (AND, OR, NOT) para tomar decisiones: ¿este carácter es una letra o un número? ¿El cursor debe moverse a la derecha o a la izquierda?"
         },
         {
           "type": "paragraph",
