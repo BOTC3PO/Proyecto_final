@@ -265,7 +265,7 @@ respuestas_validas:
   - "135"
 
 explicacion: |
-  Es una línea de escucha para personas en crisis o con riesgo de suicidio, no un servicio de emergencias. Desde el resto del país se puede llamar al (011) 5275-1135, del mismo centro de ayuda. Ante una emergencia médica o un peligro inmediato, el número es el 911 o el del servicio de emergencias de tu zona; verificá siempre los números y horarios vigentes.
+  Es una línea de escucha para personas en crisis o con riesgo de suicidio, no un servicio de emergencias. Desde el resto del país se puede llamar al (011) 5275-1135 o al 0800 345 1435, del mismo centro de ayuda. Ante una emergencia médica o un peligro inmediato, el número es el 911 o el del servicio de emergencias de tu zona; verificá siempre los números y horarios vigentes.
 ```
 
 ### 15 — Dónde pedir ayuda
