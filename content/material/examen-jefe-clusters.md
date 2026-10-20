@@ -80,7 +80,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 31** (5): divisibilidad/regla-del-7-opcional, asintotas, teorema-de-bolzano, regla-de-lhopital, cuerpos-redondos-y-poliedros/cilindros
 - **Cluster 32** (6): cuerpos-redondos-y-poliedros/conos, cuerpos-redondos-y-poliedros/esferas, cuerpos-redondos-y-poliedros/piramides, cuerpos-redondos-y-poliedros/prismas, producto-escalar, cuerpos-redondos-y-poliedros/desarrollo-plano
 
-## Lengua (75 temas, 15 clusters)
+## Lengua (83 temas, 16 clusters)
 
 - **Cluster 1** (5): conciencia-fonologica, ortografia-y-tildacion, decodificacion-y-fluidez, signos-de-puntuacion, circuito-de-la-comunicacion
 - **Cluster 2** (5): comprension-idea-principal, escritura-como-tecnologia, tecnicas-de-estudio-resumen-y-organizadores-graficos, tipos-textuales, variedades-de-la-lengua
@@ -97,8 +97,9 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 13** (5): referencia-anafora-y-catafora, subordinada-adverbial-de-lugar, subordinada-adverbial-de-modo, subordinada-adverbial-de-tiempo, subordinada-causal
 - **Cluster 14** (5): subordinada-concesiva-y-final, subordinada-condicional, subordinada-consecutiva, subordinada-sustantiva-de-complemento-circunstancial, subordinada-sustantiva-de-complemento-de-regimen
 - **Cluster 15** (5): subordinada-sustantiva-de-complemento-de-un-adjetivo, subordinada-sustantiva-de-complemento-del-nombre, subordinada-sustantiva-de-complemento-directo, subordinada-sustantiva-de-sujeto, voz-activa-y-pasiva
+- **Cluster 16** (8): borges-y-la-literatura-fantastica-rioplatense, literatura-gauchesca-y-martin-fierro, cortazar-y-el-cuento-contemporaneo, literatura-latinoamericana-realismo-magico, mitos-y-leyendas-de-pueblos-originarios-argentinos, poesia-argentina-del-siglo-xx, vanguardias-argentinas-florida-y-boedo, narrativa-argentina-posdictadura
 
-## Historia profunda (109 temas, 21 clusters)
+## Historia profunda (110 temas, 22 clusters)
 
 - **Cluster 1** (5): escalas-de-tiempo-profundo, origen-del-universo, formacion-de-estrellas, galaxias-tipos-escala, nucleosintesis
 - **Cluster 2** (5): corrimiento-al-rojo-expansion-universo, agujeros-negros, formacion-del-sistema-solar, ley-de-hubble, movimiento-rotacion-traslacion
@@ -121,6 +122,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 19** (5): ampliacion-democratica-ley-saenz-pena, sociedad-de-masas-y-democracia-liberal, primera-guerra-mundial-y-revolucion-rusa, entreguerras-y-crisis-de-1929, golpes-de-estado-interrupciones
 - **Cluster 20** (5): segunda-guerra-mundial, peronismo-derechos-sociales, descolonizacion-de-africa-y-asia, guerras-mundiales, guerra-fria-descolonizacion
 - **Cluster 21** (9): terrorismo-de-estado-argentina, historia-contemporanea-de-africa, guerra-de-malvinas, historia-contemporanea-de-asia-y-pacifico, historia-contemporanea-de-medio-oriente, recuperacion-democratica-memoria, globalizacion-era-digital, historia-reciente-argentina, internet-redes-globalizacion-digital
+- **Cluster 22** (1): carrera-espacial-sputnik-y-apolo
 
 ## Historia (28 temas, 5 clusters)
 
@@ -130,7 +132,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 4** (5): escuela-de-los-annales, historia-cultural, materialismo-historico, positivismo, revoluciones
 - **Cluster 5** (8): independencias, revolucion-mexicana-1910-1920, guerras, guerra-civil-espanola-1936-1939, guerra-del-paraguay-y-triple-alianza, rosas-y-la-confederacion, conquista-del-desierto-y-campana-al-chaco, economias-regionales-tempranas
 
-## Geografía (40 temas, 8 clusters)
+## Geografía (51 temas, 10 clusters)
 
 - **Cluster 1** (5): coordenadas-y-husos-horarios, densidad-poblacion, escala-de-mapa, huella-de-carbono-agua-virtual, orientacion-puntos-cardinales
 - **Cluster 2** (5): mapa-plano-escala, coordenadas-geograficas, division-politica, sig-mapas-digitales, estados-y-globalizacion
@@ -140,6 +142,8 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 6** (5): america-latina-formacion-poblacion, conservacionismo, decrecimiento, ecologismo-politico, indicadores-sociales-de-argentina
 - **Cluster 7** (5): migraciones-internacionales, indice-de-desarrollo-humano, migraciones-internas-en-argentina, paises-de-america-latina, recursos-hidricos-y-gestion
 - **Cluster 8** (5): riesgos-naturales-argentinos, trabajo-y-desempleo-mundial, riesgos-ambientales-mundiales, turismo-mundial, urbanizacion-migracion-ciudad
+- **Cluster 9** (5): africa-regiones-recursos-y-desafios, asia-china-india-y-sudeste-asiatico, brasil-geografia-economia-y-relacion-con-argentina, cambio-climatico-causas-efectos-y-acuerdos, china-geografia-y-modelo-economico
+- **Cluster 10** (6): europa-y-union-europea, medio-oriente-petroleo-agua-y-conflictos, oceania-y-antartida, redes-de-transporte-y-comunicacion-globales, rusia-y-asia-central, sudafrica-geografia-y-sociedad
 
 ## Cívica (31 temas, 6 clusters)
 
@@ -150,7 +154,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 5** (5): simbolos-patrios, sistema-de-salud, sistema-electoral-dhondt, sistemas-politicos-comparados, sueldo-promedio-pais
 - **Cluster 6** (6): partidos-politicos, sufragio-restringido-universal, organismos-internacionales, teoria-del-poder, tratados-internacionales, tipos-de-estado
 
-## Química (42 temas, 8 clusters)
+## Química (47 temas, 9 clusters)
 
 - **Cluster 1** (5): balanceo-ecuaciones, concentracion-de-una-solucion, densidad, dilucion-soluciones, equilibrio-quimico-kc
 - **Cluster 2** (5): estados-y-cambios, cinetica-reaccion, equilibrio-solubilidad-ksp, estequiometria, medicion-de-laboratorio
@@ -160,8 +164,9 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 6** (5): geometria-molecular-vsepr, hidrocarburos-alcanos-alquenos-alquinos, nanotecnologia, grupos-funcionales, nomenclatura-compuestos
 - **Cluster 7** (5): biomoleculas-glucidos-lipidos-proteinas, mol-masa-molar, oxidacion-reduccion, gases-ideales, electrolisis
 - **Cluster 8** (7): petroleo-como-recurso-energetico, pilas-celdas-galvanicas, polimeros-naturales-sinteticos, presiones-parciales, superconductividad, termoquimica, energia-libre-gibbs
+- **Cluster 9** (5): acidos-y-bases-teorias-arrhenius-bronsted-lowry, leyes-ponderales-lavoisier-proust, neutralizacion-y-titulacion, quimica-del-agua, reacciones-organicas-basicas
 
-## Biología (37 temas, 7 clusters)
+## Biología (49 temas, 9 clusters)
 
 - **Cluster 1** (5): crecimiento-poblacional, genetica-mendeliana-punnett, grupos-sanguineos, cruce-dihibrido, herencia-ligada-al-sexo
 - **Cluster 2** (5): necesidades-basicas-seres-vivos, ser-vivo-caracteristicas, celula-organelas, ciclos-vida-metamorfosis, clasificacion-evolucion
@@ -170,8 +175,10 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 5** (5): biodiversidad-indices, adn-gen-proteina, conservacion-areas-protegidas, biotecnologia-pcr-crispr, nicho-ecologico
 - **Cluster 6** (5): partes-planta-germinacion, piramide-biomasas, quimiosintesis, seleccion-natural, sistemas-cuerpo-humano
 - **Cluster 7** (7): deriva-genetica-flujo-genico, especiacion, presion-arterial, filogenia-arboles-evolutivos, sistema-endocrino-hormonas-glandulas, sistema-nervioso-neurona-sinapsis, transgenicos-bioetica
+- **Cluster 8** (5): homeostasis-y-regulacion, los-sentidos-vista-oido-olfato-gusto-y-tacto, relaciones-interespecificas-simbiosis-parasitismo-competencia, reproduccion-sexual-y-asexual, sistema-circulatorio-corazon-y-sangre
+- **Cluster 9** (7): sistema-digestivo-y-nutricion, sistema-excretor-rinon-y-homeostasis-del-agua, sistema-inmunitario-defensas-y-memoria-inmune, sistema-muscular-y-contraccion, sistema-oseo-y-articulaciones, sistema-respiratorio-e-intercambio-gaseoso, sistema-tegumentario-piel-y-termorregulacion
 
-## Física (77 temas, 15 clusters)
+## Física (81 temas, 16 clusters)
 
 - **Cluster 1** (5): cargas-electricas, estatica/centro-de-gravedad, campo-electrico, corriente-electrica, estatica/momento-de-una-fuerza
 - **Cluster 2** (5): estructura-del-nucleo-atomico, estatica/equilibrio-de-cuerpo-rigido, decaimiento-radiactivo-alfa-beta-gamma, formulas-con-literales, fision-y-fusion-nuclear
@@ -188,8 +195,9 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 13** (5): tiro-vertical, circuitos-en-paralelo, circuitos-en-serie, potencia-electrica, circuitos-mixtos
 - **Cluster 14** (5): tormentas-y-fenomenos-severos, campo-magnetico-imanes-corrientes, trabajo-de-una-fuerza, induccion-electromagnetica-faraday-lenz, energia-cinetica
 - **Cluster 15** (7): generador-motor-transformador, choques-elasticos-inelasticos, energia-potencial-gravitatoria, transmision-calor-conduccion-conveccion-radiacion, conservacion-energia-mecanica, velocidad-aceleracion-instantaneas, potencia-mecanica
+- **Cluster 16** (4): ecuacion-de-bernoulli-dinamica-de-fluidos, energias-renovables-y-transformacion-de-energia, movimiento-armonico-simple-y-ondas-estacionarias, primera-ley-de-la-termodinamica
 
-## Informática (62 temas, 11 clusters)
+## Informática (65 temas, 12 clusters)
 
 - **Cluster 1** (5): algebra-booleana, complejidad-asintotica, ofimatica-planilla-de-calculo, que-es-la-tecnica-y-la-tecnologia, revolucion-informatica
 - **Cluster 2** (5): medios-tecnicos-extension-capacidades-humanas, historia-y-evolucion-de-los-sistemas-operativos, procesos-tecnicos-artesanales-e-industriales, arranque-de-la-computadora-boot, sistemas-numeracion
@@ -202,6 +210,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 9** (5): requisitos-funcionales-no-funcionales, normalizacion-bases-datos, diseno-y-arquitectura-de-software, segmentacion, control-de-versiones
 - **Cluster 10** (5): patrones-y-buenas-practicas, pruebas-unitarias-integracion, sistema-de-archivos, mantenimiento-y-deuda-tecnica, permisos-y-usuarios
 - **Cluster 11** (9): sistema-de-archivos-por-bitacora, sql-consultas-joins-agregaciones, subsistema-de-entrada-y-salida, tcp-ip-capas-enrutamiento, tipos-de-licencias-de-software, seguridad-de-red-firewall-vpn-cifrado, transacciones-acid, seguridad-informatica, virtualizacion-maquina-virtual-contenedor
+- **Cluster 12** (3): bases-de-datos-no-relacionales-nosql, como-se-construye-una-pagina-web-html-css-javascript, redes-locales-lan-wifi-y-topologias
 
 ## Ingeniería (11 temas, 2 clusters)
 
@@ -240,62 +249,83 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 3** (5): investigacion-prueba-y-fiscalia, fuentes-del-derecho, norma-jerarquia-y-vigencia, corrientes-interpretacion-juridica, interpretacion-normativa
 - **Cluster 4** (6): politica-criminal-garantismo-mano-dura, argumentacion-juridica, resolucion-de-conflictos-y-sentencia, juicio-oral, apelacion-e-instancias, ejecucion-de-la-sentencia
 
-## Dibujo Técnico (5 temas, 1 clusters)
+## Dibujo Técnico (20 temas, 4 clusters)
 
 - **Cluster 1** (5): sistemas-de-proyeccion, vistas-frontal-superior-lateral, perspectivas-isometrica-y-caballera, escalas-numericas-y-graficas, acotacion-normalizada
+- **Cluster 2** (5): cortes-y-secciones, croquis-y-relevamiento-de-medidas, dibujo-asistido-por-computadora-cad, geometria-descriptiva-punto-recta-plano, instrumentos-de-dibujo-y-trazos-basicos
+- **Cluster 3** (5): interpretar-planos-de-piezas-y-conjuntos, geometria-constructiva-tangencias-y-enlaces, representacion-de-roscas-tornillos-y-uniones, simbolos-de-soldadura-y-uniones, tipos-de-linea-formatos-y-rotulo
+- **Cluster 4** (5): tolerancias-y-ajustes, dibujo-arquitectonico-plantas-cortes-y-fachadas, dibujo-electrico-y-esquemas-de-instalaciones, rugosidad-y-acabado-superficial, vistas-auxiliares-y-detalles
 
-## Psicología (10 temas, 2 clusters)
+## Psicología (16 temas, 3 clusters)
 
 - **Cluster 1** (5): psicologia-modernidad-y-el-yo, autoconocimiento-como-busqueda-humana, dependencia-del-otro-cultura-como-herencia, memoria-y-olvido-represion-inconsciente, psicologia-cognitiva-percepcion-memoria-atencion
 - **Cluster 2** (5): lenguaje-pensamiento-y-creatividad, corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo, edades-del-ser-humano-ninez-pubertad-identidad, salud-mental-ansiedad-depresion-pedir-ayuda, sesgos-cognitivos-heuristicas-error-sistematico
+- **Cluster 3** (6): condicionamiento-y-aprendizaje-psicologico, desarrollo-cognitivo-piaget-vygotsky, emociones-y-regulacion-emocional, motivacion-y-necesidades, personalidad, psicologia-social-grupos-y-conformidad
 
-## Comunicación (5 temas, 1 clusters)
+## Comunicación (11 temas, 2 clusters)
 
 - **Cluster 1** (5): generos-periodisticos, teoria-de-la-comunicacion-emisor-receptor-canal-ruido, etica-y-responsabilidad-de-los-medios, corrientes-de-la-comunicacion, publicidad-y-persuasion
+- **Cluster 2** (6): analisis-del-discurso-y-encuadre-mediatico, comunicacion-institucional-y-de-crisis, comunicacion-oral-y-hablar-en-publico, comunicacion-verbal-y-no-verbal, comunicacion-visual-e-imagen, medios-masivos-y-medios-digitales
 
-## Electrónica (5 temas, 1 clusters)
+## Electrónica (20 temas, 4 clusters)
 
 - **Cluster 1** (5): componentes-resistencia-capacitor-diodo-transistor, circuitos-y-leyes-de-kirchhoff, logica-digital-puertas-and-or-not, microcontroladores-y-microprocesadores, sensores-y-actuadores
+- **Cluster 2** (5): capacitor-rc-carga-y-descarga, compuertas-nand-nor-xor-y-universalidad, diodo-polarizacion-rectificacion-y-fuentes, divisor-de-tension-y-codigo-de-colores, inductores-y-bobinas
+- **Cluster 3** (5): instrumentos-de-medicion-multimetro-y-osciloscopio, logica-combinacional-sumadores-multiplexores, microcontrolador-entradas-y-salidas-digitales, logica-secuencial-flip-flops-y-contadores, comunicacion-serie-uart-i2c-spi
+- **Cluster 4** (5): prototipado-protoboard-soldadura-y-seguridad, senales-analogicas-y-digitales-adc-dac, temporizador-555-y-osciladores, transistor-como-interruptor-y-amplificador, amplificador-operacional
 
-## Ciencia de Materiales (6 temas, 1 clusters)
+## Ciencia de Materiales (21 temas, 4 clusters)
 
 - **Cluster 1** (6): corrosion, elasticidad-ley-de-hooke-modulo-de-young, propiedades-mecanicas-dureza-tenacidad-ductilidad, plasticidad-y-punto-de-fluencia, familias-de-materiales-metales-ceramicos-polimeros-compuestos, fatiga-y-fractura
+- **Cluster 2** (5): enlaces-y-estructura-atomica-de-los-materiales, ensayos-de-materiales-traccion-dureza-impacto, ceramicos-y-vidrios, estructuras-cristalinas-y-celdas-unitarias, materiales-compuestos-fibras-y-matrices
+- **Cluster 3** (5): defectos-cristalinos-y-dislocaciones, diagramas-de-fase-y-aleaciones, endurecimiento-y-conformado-de-metales, diagrama-hierro-carbono-y-aceros, polimeros-termoplasticos-termoestables-elastomeros
+- **Cluster 4** (5): prevencion-de-la-corrosion-y-proteccion-superficial, propiedades-electricas-y-magneticas-de-los-materiales, propiedades-termicas-dilatacion-y-conductividad, seleccion-de-materiales-y-sostenibilidad, tratamientos-termicos-temple-revenido-recocido
 
-## Automatización (5 temas, 1 clusters)
+## Automatización (19 temas, 3 clusters)
 
 - **Cluster 1** (5): lazo-abierto-vs-lazo-cerrado, plc-logica-de-control-industrial, realimentacion-feedback, control-pid-proporcional-integral-derivativo, servomecanismos
+- **Cluster 2** (5): control-on-off-con-histeresis, instrumentacion-industrial-y-lazos-4-20-ma, modelado-de-sistemas-dinamicos-primer-orden, mantenimiento-y-diagnostico-de-sistemas-automatizados, motores-electricos-y-variadores-de-frecuencia
+- **Cluster 3** (9): neumatica-e-hidraulica-basica, plc-lenguaje-ladder-contactos-y-bobinas, redes-industriales-y-scada, grafcet-y-automatismos-secuenciales, plc-temporizadores-contadores-y-secuencias, respuesta-transitoria-y-regimen-permanente, seguridad-funcional-y-paradas-de-emergencia, estabilidad-de-sistemas-de-control, sintonia-de-pid-metodos-practicos
 
-## UX/Diseño (5 temas, 1 clusters)
+## UX/Diseño (19 temas, 3 clusters)
 
 - **Cluster 1** (5): usabilidad-heuristicas-de-nielsen, accesibilidad-wcag-contraste-lectores-de-pantalla, jerarquia-visual-e-informacion, prototipado-wireframe-mockup-prototipo-interactivo, pruebas-de-usuario
+- **Cluster 2** (5): analisis-de-datos-de-uso-y-metricas-ux, arquitectura-de-informacion-y-navegacion, color-en-interfaces, diseno-de-interfaces-para-voz-y-conversacion, diseno-responsive-y-mobile-first
+- **Cluster 3** (9): etica-del-diseno-patrones-oscuros, formularios-y-microinteracciones, heuristicas-de-nielsen-las-diez-completas, investigacion-de-usuarios-entrevistas-y-personas, evaluacion-heuristica-y-metodos-sin-usuarios, diseno-centrado-en-el-usuario-flujo-de-trabajo, niveles-wcag-a-aa-aaa-y-navegacion-por-teclado, tipografia-en-interfaces, sistemas-de-diseno-y-componentes
 
-## Arte (15 temas, 3 clusters)
+## Arte (24 temas, 4 clusters)
 
 - **Cluster 1** (5): acustica-instrumento-musical, composicion-y-proporcion, origen-del-arte, elementos-del-arte, principios-de-diseno
 - **Cluster 2** (5): ritmo-compas-pulso-figuras-musicales, narrativa-audiovisual/plano, danza-ritmo-tiempo-expresion-corporal, lenguaje-musical-pentagrama-escalas-intervalos, narrativa-audiovisual/encuadre
 - **Cluster 3** (5): armonia-basica-acordes-tonalidad, narrativa-audiovisual/montaje, rosetones-y-simetria, produccion-multimedial, teatro-dramaturgia-y-actuacion
+- **Cluster 4** (9): arte-antiguo-egipto-y-mesopotamia, arte-clasico-grecia-y-roma, arte-medieval-romanico-y-gotico, renacimiento-y-manierismo, barroco, impresionismo-y-postimpresionismo, vanguardias-del-siglo-xx, arte-argentino-colonial-al-siglo-xx, fotografia-y-cine-como-arte
 
-## Filosofía (18 temas, 3 clusters)
+## Filosofía (27 temas, 4 clusters)
 
 - **Cluster 1** (5): logica-proposicional, metodo-cientifico-racionalismo, el-gusto-estetico, epistemologia, etica-como-rama-propia
 - **Cluster 2** (5): existencia, contractualismo, deontologia, etica-de-la-virtud, historia-de-la-filosofia-y-corrientes
 - **Cluster 3** (8): lo-bello, que-es-el-arte, realidad, ser-ontologia, utilitarismo, validez-de-un-razonamiento, bioetica-general, logica-de-predicados
+- **Cluster 4** (9): empirismo-hume, fenomenologia-y-existencialismo, filosofia-del-lenguaje-y-ciencia, filosofia-politica, kant-y-el-idealismo, presocraticos-y-socrates, marx-y-el-materialismo-historico, platon-y-aristoteles, filosofia-medieval-santo-tomas
 
-## Antropología (5 temas, 1 clusters)
+## Antropología (10 temas, 2 clusters)
 
 - **Cluster 1** (5): cultura, diversidad-cultural, subcampos-de-la-antropologia, etnocentrismo, relaciones-de-parentesco
+- **Cluster 2** (5): economia-y-poder-en-las-sociedades, etnografia-y-observacion-participante, identidad-y-etnicidad, mito-ritual-y-religion, pueblos-originarios-de-argentina
 
-## Sociología (3 temas, 1 clusters)
+## Sociología (10 temas, 2 clusters)
 
 - **Cluster 1** (3): hechos-sociales, instituciones, estratificacion
+- **Cluster 2** (7): cambio-social-y-movimientos, clasicos-durkheim-weber-marx, desigualdad-y-clases-hoy, metodos-de-investigacion-social, socializacion-y-roles, normas-valores-y-control-social, genero-como-categoria-social
 
-## Aprendizaje (2 temas, 1 clusters)
+## Aprendizaje (8 temas, 2 clusters)
 
 - **Cluster 1** (2): metacognicion-saber-que-se-y-que-no-se, tecnicas-de-estudio-repaso-espaciado-recuperacion
+- **Cluster 2** (6): atencion-concentracion-y-distracciones, el-error-y-la-retroalimentacion, lectura-activa-y-toma-de-apuntes, motivacion-para-aprender, planificar-el-estudio-y-gestionar-el-tiempo, estudiar-con-otros
 
-## Ciudadanía Digital (7 temas, 1 clusters)
+## Ciudadanía Digital (14 temas, 2 clusters)
 
 - **Cluster 1** (7): ciudadania-digital-privacidad-huella-digital, confiabilidad-y-verificacion-de-una-fuente, desinformacion-en-red, detectar-desinformacion-sesgo-deepfakes, fuente-primaria-vs-secundaria, publicidad-enganosa, verificacion-de-una-noticia
+- **Cluster 2** (7): algoritmos-burbujas-y-economia-de-la-atencion, ciberacoso-y-convivencia-en-redes, contrasenas-y-autenticacion, derechos-digitales-y-proteccion-de-datos, participacion-ciudadana-en-linea, phishing-y-estafas-en-linea, propiedad-intelectual-y-licencias-digitales
 
 ## Resolución de Problemas (15 temas, 3 clusters)
 
@@ -303,11 +333,12 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 2** (5): costo-beneficio, definir-alcance-y-objetivos, evaluar-el-resultado, planificacion-tareas-e-hitos, mejorar-o-iterar
 - **Cluster 3** (5): asignacion-de-recursos, riesgo-e-incertidumbre, seguimiento-y-control, trade-offs-y-priorizacion, cierre-y-lecciones-aprendidas
 
-## Ed. Física (16 temas, 3 clusters)
+## Ed. Física (25 temas, 4 clusters)
 
 - **Cluster 1** (5): deportes-medidas-cancha-superficies, fisiologia-del-ejercicio, deportes-jugadores-posiciones-puntaje, alfabetizacion-corporal, deportes-origen-historico
 - **Cluster 2** (5): frecuencia-cardiaca-reposo, deporte-como-fenomeno-cultural-argentino, el-pato, frecuencia-cardiaca-maxima-zonas, imc-indice-masa-corporal
 - **Cluster 3** (6): juegos-olimpicos, planificacion-progresion-volumen, prevencion-cuidado-rice-calentamiento-ergonomia, prevencion-adicciones-ley-26586, primeros-auxilios-rcp-dea, politicas-de-drogas
+- **Cluster 4** (9): capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad, nutricion-e-hidratacion-en-la-actividad-fisica, reglamento-y-fundamentos-del-basquet, reglamento-y-fundamentos-del-futbol, reglamento-y-fundamentos-del-futsal, reglamento-y-fundamentos-del-handball, reglamento-y-fundamentos-del-hockey, reglamento-y-fundamentos-del-rugby, reglamento-y-fundamentos-del-voley
 
 ## Resumen
 

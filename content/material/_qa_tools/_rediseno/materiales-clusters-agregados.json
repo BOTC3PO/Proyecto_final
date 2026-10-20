@@ -1,0 +1,38 @@
+[
+ {
+  "id": 931,
+  "cluster": 2,
+  "temas": [
+   "enlaces-y-estructura-atomica-de-los-materiales",
+   "ensayos-de-materiales-traccion-dureza-impacto",
+   "ceramicos-y-vidrios",
+   "estructuras-cristalinas-y-celdas-unitarias",
+   "materiales-compuestos-fibras-y-matrices"
+  ],
+  "preguntas": 118
+ },
+ {
+  "id": 932,
+  "cluster": 3,
+  "temas": [
+   "defectos-cristalinos-y-dislocaciones",
+   "diagramas-de-fase-y-aleaciones",
+   "endurecimiento-y-conformado-de-metales",
+   "diagrama-hierro-carbono-y-aceros",
+   "polimeros-termoplasticos-termoestables-elastomeros"
+  ],
+  "preguntas": 118
+ },
+ {
+  "id": 933,
+  "cluster": 4,
+  "temas": [
+   "prevencion-de-la-corrosion-y-proteccion-superficial",
+   "propiedades-electricas-y-magneticas-de-los-materiales",
+   "propiedades-termicas-dilatacion-y-conductividad",
+   "seleccion-de-materiales-y-sostenibilidad",
+   "tratamientos-termicos-temple-revenido-recocido"
+  ],
+  "preguntas": 121
+ }
+]

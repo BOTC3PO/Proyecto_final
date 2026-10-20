@@ -1,0 +1,30 @@
+[
+ {
+  "id": 947,
+  "cluster": 2,
+  "temas": [
+   "control-on-off-con-histeresis",
+   "instrumentacion-industrial-y-lazos-4-20-ma",
+   "modelado-de-sistemas-dinamicos-primer-orden",
+   "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+   "motores-electricos-y-variadores-de-frecuencia"
+  ],
+  "preguntas": 115
+ },
+ {
+  "id": 948,
+  "cluster": 3,
+  "temas": [
+   "neumatica-e-hidraulica-basica",
+   "plc-lenguaje-ladder-contactos-y-bobinas",
+   "redes-industriales-y-scada",
+   "grafcet-y-automatismos-secuenciales",
+   "plc-temporizadores-contadores-y-secuencias",
+   "respuesta-transitoria-y-regimen-permanente",
+   "seguridad-funcional-y-paradas-de-emergencia",
+   "estabilidad-de-sistemas-de-control",
+   "sintonia-de-pid-metodos-practicos"
+  ],
+  "preguntas": 208
+ }
+]

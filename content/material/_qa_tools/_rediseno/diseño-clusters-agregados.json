@@ -1,0 +1,30 @@
+[
+ {
+  "id": 970,
+  "cluster": 2,
+  "temas": [
+   "analisis-de-datos-de-uso-y-metricas-ux",
+   "arquitectura-de-informacion-y-navegacion",
+   "color-en-interfaces",
+   "diseno-de-interfaces-para-voz-y-conversacion",
+   "diseno-responsive-y-mobile-first"
+  ],
+  "preguntas": 111
+ },
+ {
+  "id": 971,
+  "cluster": 3,
+  "temas": [
+   "etica-del-diseno-patrones-oscuros",
+   "formularios-y-microinteracciones",
+   "heuristicas-de-nielsen-las-diez-completas",
+   "investigacion-de-usuarios-entrevistas-y-personas",
+   "evaluacion-heuristica-y-metodos-sin-usuarios",
+   "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+   "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+   "tipografia-en-interfaces",
+   "sistemas-de-diseno-y-componentes"
+  ],
+  "preguntas": 202
+ }
+]

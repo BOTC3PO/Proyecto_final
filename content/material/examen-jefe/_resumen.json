@@ -376,6 +376,14 @@
   "secciones_totales": 5
  },
  {
+  "id": 666,
+  "materia": "Lengua",
+  "cluster": 16,
+  "preguntas": 186,
+  "secciones_completas": 8,
+  "secciones_totales": 8
+ },
+ {
   "id": 681,
   "materia": "Historia profunda",
   "cluster": 1,
@@ -544,6 +552,14 @@
   "secciones_totales": 9
  },
  {
+  "id": 702,
+  "materia": "Historia profunda",
+  "cluster": 22,
+  "preguntas": 25,
+  "secciones_completas": 1,
+  "secciones_totales": 1
+ },
+ {
   "id": 721,
   "materia": "Historia",
   "cluster": 1,
@@ -702,6 +718,14 @@
   "preguntas": 178,
   "secciones_completas": 7,
   "secciones_totales": 7
+ },
+ {
+  "id": 751,
+  "materia": "Física",
+  "cluster": 16,
+  "preguntas": 95,
+  "secciones_completas": 4,
+  "secciones_totales": 4
  },
  {
   "id": 766,
@@ -904,6 +928,22 @@
   "secciones_totales": 5
  },
  {
+  "id": 804,
+  "materia": "Geografía",
+  "cluster": 9,
+  "preguntas": 115,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 805,
+  "materia": "Geografía",
+  "cluster": 10,
+  "preguntas": 141,
+  "secciones_completas": 6,
+  "secciones_totales": 6
+ },
+ {
   "id": 816,
   "materia": "Informática",
   "cluster": 1,
@@ -992,6 +1032,14 @@
   "secciones_totales": 9
  },
  {
+  "id": 827,
+  "materia": "Informática",
+  "cluster": 12,
+  "preguntas": 69,
+  "secciones_completas": 3,
+  "secciones_totales": 3
+ },
+ {
   "id": 841,
   "materia": "Química",
   "cluster": 1,
@@ -1056,6 +1104,14 @@
   "secciones_totales": 7
  },
  {
+  "id": 849,
+  "materia": "Química",
+  "cluster": 9,
+  "preguntas": 120,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
   "id": 861,
   "materia": "Biología",
   "cluster": 1,
@@ -1108,6 +1164,22 @@
   "materia": "Biología",
   "cluster": 7,
   "preguntas": 183,
+  "secciones_completas": 7,
+  "secciones_totales": 7
+ },
+ {
+  "id": 868,
+  "materia": "Biología",
+  "cluster": 8,
+  "preguntas": 117,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 869,
+  "materia": "Biología",
+  "cluster": 9,
+  "preguntas": 162,
   "secciones_completas": 7,
   "secciones_totales": 7
  },
@@ -1216,6 +1288,14 @@
   "secciones_totales": 5
  },
  {
+  "id": 907,
+  "materia": "Arte",
+  "cluster": 4,
+  "preguntas": 199,
+  "secciones_completas": 9,
+  "secciones_totales": 9
+ },
+ {
   "id": 912,
   "materia": "Investigación",
   "cluster": 1,
@@ -1264,6 +1344,14 @@
   "secciones_totales": 5
  },
  {
+  "id": 926,
+  "materia": "Psicología",
+  "cluster": 3,
+  "preguntas": 142,
+  "secciones_completas": 6,
+  "secciones_totales": 6
+ },
+ {
   "id": 930,
   "materia": "Ciencia de Materiales",
   "cluster": 1,
@@ -1272,10 +1360,58 @@
   "secciones_totales": 6
  },
  {
+  "id": 931,
+  "materia": "Ciencia de Materiales",
+  "cluster": 2,
+  "preguntas": 118,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 932,
+  "materia": "Ciencia de Materiales",
+  "cluster": 3,
+  "preguntas": 118,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 933,
+  "materia": "Ciencia de Materiales",
+  "cluster": 4,
+  "preguntas": 121,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
   "id": 934,
   "materia": "Dibujo Técnico",
   "cluster": 1,
   "preguntas": 125,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 935,
+  "materia": "Dibujo Técnico",
+  "cluster": 2,
+  "preguntas": 113,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 936,
+  "materia": "Dibujo Técnico",
+  "cluster": 3,
+  "preguntas": 113,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 937,
+  "materia": "Dibujo Técnico",
+  "cluster": 4,
+  "preguntas": 114,
   "secciones_completas": 5,
   "secciones_totales": 5
  },
@@ -1288,10 +1424,42 @@
   "secciones_totales": 5
  },
  {
+  "id": 939,
+  "materia": "Comunicación",
+  "cluster": 2,
+  "preguntas": 144,
+  "secciones_completas": 6,
+  "secciones_totales": 6
+ },
+ {
   "id": 942,
   "materia": "Electrónica",
   "cluster": 1,
   "preguntas": 126,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 943,
+  "materia": "Electrónica",
+  "cluster": 2,
+  "preguntas": 118,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 944,
+  "materia": "Electrónica",
+  "cluster": 3,
+  "preguntas": 116,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 945,
+  "materia": "Electrónica",
+  "cluster": 4,
+  "preguntas": 114,
   "secciones_completas": 5,
   "secciones_totales": 5
  },
@@ -1304,12 +1472,44 @@
   "secciones_totales": 5
  },
  {
+  "id": 947,
+  "materia": "Automatización",
+  "cluster": 2,
+  "preguntas": 115,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 948,
+  "materia": "Automatización",
+  "cluster": 3,
+  "preguntas": 208,
+  "secciones_completas": 9,
+  "secciones_totales": 9
+ },
+ {
   "id": 950,
   "materia": "UX/Diseño",
   "cluster": 1,
   "preguntas": 125,
   "secciones_completas": 5,
   "secciones_totales": 5
+ },
+ {
+  "id": 970,
+  "materia": "UX/Diseño",
+  "cluster": 2,
+  "preguntas": 111,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 971,
+  "materia": "UX/Diseño",
+  "cluster": 3,
+  "preguntas": 202,
+  "secciones_completas": 9,
+  "secciones_totales": 9
  },
  {
   "id": 951,
@@ -1336,10 +1536,26 @@
   "secciones_totales": 8
  },
  {
+  "id": 975,
+  "materia": "Filosofía",
+  "cluster": 4,
+  "preguntas": 209,
+  "secciones_completas": 9,
+  "secciones_totales": 9
+ },
+ {
   "id": 954,
   "materia": "Antropología",
   "cluster": 1,
   "preguntas": 107,
+  "secciones_completas": 5,
+  "secciones_totales": 5
+ },
+ {
+  "id": 980,
+  "materia": "Antropología",
+  "cluster": 2,
+  "preguntas": 114,
   "secciones_completas": 5,
   "secciones_totales": 5
  },
@@ -1352,6 +1568,14 @@
   "secciones_totales": 3
  },
  {
+  "id": 985,
+  "materia": "Sociología",
+  "cluster": 2,
+  "preguntas": 159,
+  "secciones_completas": 7,
+  "secciones_totales": 7
+ },
+ {
   "id": 956,
   "materia": "Aprendizaje",
   "cluster": 1,
@@ -1360,10 +1584,26 @@
   "secciones_totales": 2
  },
  {
+  "id": 990,
+  "materia": "Aprendizaje",
+  "cluster": 2,
+  "preguntas": 137,
+  "secciones_completas": 6,
+  "secciones_totales": 6
+ },
+ {
   "id": 957,
   "materia": "Ciudadanía Digital",
   "cluster": 1,
   "preguntas": 165,
+  "secciones_completas": 7,
+  "secciones_totales": 7
+ },
+ {
+  "id": 995,
+  "materia": "Ciudadanía Digital",
+  "cluster": 2,
+  "preguntas": 156,
   "secciones_completas": 7,
   "secciones_totales": 7
  },
@@ -1414,5 +1654,13 @@
   "preguntas": 150,
   "secciones_completas": 6,
   "secciones_totales": 6
+ },
+ {
+  "id": 1000,
+  "materia": "Ed. Física",
+  "cluster": 4,
+  "preguntas": 217,
+  "secciones_completas": 9,
+  "secciones_totales": 9
  }
 ]

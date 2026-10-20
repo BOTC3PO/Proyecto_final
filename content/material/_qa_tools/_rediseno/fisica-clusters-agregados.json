@@ -1,0 +1,13 @@
+[
+ {
+  "id": 751,
+  "cluster": 16,
+  "temas": [
+   "ecuacion-de-bernoulli-dinamica-de-fluidos",
+   "energias-renovables-y-transformacion-de-energia",
+   "movimiento-armonico-simple-y-ondas-estacionarias",
+   "primera-ley-de-la-termodinamica"
+  ],
+  "preguntas": 95
+ }
+]
