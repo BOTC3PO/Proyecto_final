@@ -16,7 +16,11 @@ Hay **22 libros** en `teoria-extendida/*.json` (formato `book.pages@1.1`, un cap
 - **11 generados con Qwen** (2026-10): Arte, Biología, Cívica, Derecho, Economía, Geografía, Historia, Historia profunda, Informática, Lengua, Psicología.
   El 2026-10-19 se les quitó el Markdown inline: **el lector (`BookReader.tsx`) muestra el texto tal cual**, así que se veían los `**negritas**` y `*cursivas*` literales
   (1.100 negritas y unas 250 cursivas en total) y varias listas llegaban pegadas en un solo párrafo con ` *   ` (se separaron en párrafos). También se
-  corrigieron las anclas del índice (`cap-1` no cumplía el formato `página:ancla` que valida el editor). No se tocó el contenido.
+  corrigieron las anclas del índice (`cap-1` no cumplía el formato `página:ancla` que valida el editor).
+  El 2026-10-20 se revisó el **contenido** de los 11 (lectura completa, ~1.000 correcciones puntuales): errores fácticos y desactualizados de Argentina
+  (alcohol cero Ley 27.714, Código Civil y Comercial unificado, INADI disuelto, aportes de obra social, CUIT/ARCA, etc.), definiciones gramaticales
+  incorrectas en Lengua (coordinadas distributivas, sujeto simple/compuesto), errores de cálculo (escala 1:100.000), erratas, caracteres en chino,
+  LaTeX/backticks literales y mezcla de tuteo y voseo. Sigue siendo texto generado: conviene una lectura de docentes de cada materia.
 - **11 escritos a mano por Claude** (2026-10-19, pedido de Javier "escribí los libros faltantes"): Filosofía (5 capítulos), Antropología (2), Sociología (1),
   Aprendizaje (1), Ciudadanía digital (2), Comunicación (2), Turismo (2), Investigación (3), Educación física (4), ESI (3), Vida cotidiana (5).
   Son las materias narrativas que no tenían libro (las "sin decidir" de abajo, más Filosofía, Comunicación, Investigación y Turismo, que no figuraban).
@@ -27,7 +31,7 @@ Hay **22 libros** en `teoria-extendida/*.json` (formato `book.pages@1.1`, un cap
 `examen-jefe-clusters.md`, que mezclan temas sin relación); son más cortos (850 a 1.200 palabras) que los generados (unas 1.700); ESI y Vida cotidiana
 **no** se gamifican (siguen fuera de examen-jefe). Los números de leyes citados se verificaron donde fue posible (ver cada libro); lo que dependa de
 fechas (tarifas, descuentos bancarios, impuestos) se dejó afuera a propósito. *Sin hacer:* libros de Ingeniería y UX/Diseño (conceptuales pero chicos),
-revisión de los 11 libros viejos (siguen con el texto generado, repetitivo y a veces impreciso), traducciones, y definir si se carga un libro por materia
+traducciones, y definir si se carga un libro por materia
 o por capítulo.
 
 > Los números de la tabla de abajo (clusters, capítulos) son de agosto y están viejos: Economía tiene hoy 17 clusters, Historia profunda 21,
