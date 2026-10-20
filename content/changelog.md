@@ -1017,7 +1017,7 @@ ronda de reparaciones, con los prerrequisitos de sus `dependencias.md`:
   `Neutralización y titulación`, `Leyes ponderales`, `Reacciones
   orgánicas básicas` y `Química del agua`.
 
-**Criterio sobre solapes**: un tema que aparece en dos materias (agua en
-Química y Geografía, energía en Física y Cívica, etc.) se conserva en
-ambas: el solape depende desde dónde se mira el tema. Se enlaza con
-nodos `P`, no se elimina.
+**Criterio sobre solapes**: un tema que aparece en dos materias se
+fusiona en un solo tema visible desde ambas, o se deja como está. No se
+crean enlaces ni nodos duplicados intermedios. En este parche ningún
+solape se fusionó: quedan como estaban.
