@@ -154,3 +154,4 @@ fila antes de escribir teoría/cuestionario.
 | `guerra-de-malvinas/` | `terrorismo-de-estado-argentina/` | Nodo `AH13` de `troncos.md` (`AH12 → AH13`). |
 | `recuperacion-democratica-memoria/` | `guerra-de-malvinas/` | Nodo `AH14` de `troncos.md` (`AH13 → AH14`). |
 | `historia-reciente-argentina/` | `recuperacion-democratica-memoria/` | Nodo `AH15` de `troncos.md` (`AH14 → AH15`). |
+| `carrera-espacial-sputnik-y-apolo/` | `guerra-fria-descolonizacion/` | Nodo propuesto en `../PLAN-REPARACIONES-TRONCOS.md` («Hallazgo menor — carrera espacial»); sin ID en `troncos.md`. Cruza con `../fisica/gravitacion-universal/`. Decisión de Claude, no pedida: dependencia deducida. |
