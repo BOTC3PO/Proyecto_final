@@ -8,7 +8,7 @@
 1. **`verificar_examen_jefe.py` da 162 errores:** ≈250 temas nuevos no están en ningún examen jefe ni en `troncos.md`. Hay que rehacer clusters/pools/logros (`gen_examen_jefe_prereq_clusters.py`) y decidir si se agregan nodos al grafo. Las materias con examen que quedaron con temas fuera: Física, Química, Biología, Geografía, Lengua, Informática, Ed. Física, Arte, Filosofía, Psicología, Comunicación, Sociología, Antropología, Aprendizaje, Ciudadanía digital, Electrónica, Automatización, Dibujo técnico, Ciencia de Materiales, UX/Diseño, Economía (IPC). Dos avisos menores: Antropología cita el nodo `H10`.
 2. **Líneas de ayuda de prevención del suicidio** (135 y (011) 5275-1135) y **leyes de Salud**: confirmar en fuentes oficiales (no se pudieron abrir desde el entorno). El `0800 345 1435` se quitó por no poder confirmarlo.
 3. **Idiomas sin revisión nativa** (alemán, francés, inglés, italiano, portugués, japonés, coreano, chino, árabe, ruso, hindi, esperanto): todo salió de conocimiento del modelo; además, los `listening-*`, `writing-*` y `reading-*` que no se reescribieron tienen preguntas genéricas y errores de gramática posibles. 71 teorías de idiomas siguen por debajo de 2.000 caracteres.
-4. **Chino:** ¿HSK 2.0 o 3.0?; ¿simplificados o también tradicionales?
+4. **Chino:** decidido (2026-10-20): **se deja HSK 2.0** (niveles HSK1, 2, 3-4 y 5-6) y **HSK 3.0 queda para votación**; si se aprueba, hay que reetiquetar los temas y revisar las listas de vocabulario. Escritura: sigue en simplificados (los tradicionales no están decididos; hoy solo se mencionan en un tema).
 
 **Decisiones nuevas de los 41 temas de huecos** (detalle en `confirmar-huecos-*.md`):
 - Física/Química: ¿se agregan al grafo y a los exámenes?; solape `quimica-del-agua` ↔ `geografia/recursos-hidricos-y-gestion`; ¿unificar g = 9,8 m/s² (nuevos) con g = 10 (otros módulos)?; enlace de renovables con `vida-cotidiana/eficiencia-energetica-domestica` y Cívica/Economía.
@@ -69,7 +69,7 @@ Consolida los `confirmar-*.md` de cada tanda más lo pendiente de los lotes ante
 11. Las preguntas de cálculo usan valores ilustrativos: conviene revisión de un docente.
 
 **Idiomas**
-12. Chino: ¿HSK 2.0 (6 niveles, como está) o HSK 3.0 (9 niveles, implantación prevista desde julio de 2026)?
+12. Chino: **resuelto: HSK 2.0 se mantiene; HSK 3.0 queda para votación.**
 13. Chino: simplificados (como está) o también tradicionales. ¿Listas de vocabulario completas (300/500/1.000+) en lugar de 60 a 90 palabras por tema? Pinyin del sandhi: ¿otra convención?
 14. ¿Dependencias formales por idioma (`dependencias.md`) o alcanza con el plan de `idiomas-extranjeros-PLANIFICACION.md`?
 15. ¿Seguimos ampliando teoría de árabe, ruso, hindi y coreano (quedó entre 2.100 y 3.000 caracteres, no 3.000+; listados en `confirmar-idiomas-resto.md`) y de chino (HSK reading/speaking/writing: 1.400–2.600)?
