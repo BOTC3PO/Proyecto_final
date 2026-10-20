@@ -706,6 +706,24 @@
     "icono": "🔄🗣️"
   },
   {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "アルゼンチン・ラテンアメリカ文学の達人",
+    "descripcion": "試験では、ガウチョ文学と『マルティン・フィエロ』、フロリダ派とボエド派の前衛運動、ボルヘスとラプラタ地方の幻想文学、コルタサル、魔術的リアリズム、独裁後の物語、20世紀アルゼンチン詩、先住民族の神話と伝説を習得しました。",
+    "icono": "📚"
+  },
+  {
     "id": 681,
     "materia": "Historia profunda",
     "cluster": 1,
@@ -1025,6 +1043,17 @@
     "icono": "🌍"
   },
   {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "宇宙開発競争の探検家",
+    "descripcion": "試験では、冷戦期の宇宙開発競争、すなわちスプートニク、ガガーリンの飛行、アポロ11号の月面着陸、アポロ・ソユーズ共同ミッションを習得しました。",
+    "icono": "🚀"
+  },
+  {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
@@ -1328,6 +1357,20 @@
     "nombre": "エネルギーと機械の達人",
     "descripcion": "力学的エネルギー保存、重力による位置エネルギー、仕事率、弾性衝突と非弾性衝突、熱の伝達、発電機・モーター・変圧器を習得しました。",
     "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "流体・熱力学・波動の達人",
+    "descripcion": "試験では、ベルヌーイの式と流体力学、熱力学の第一法則、単振動と定常波、そして再生可能エネルギーとそのエネルギー変換を習得しました。",
+    "icono": "🌊"
   },
   {
     "id": 766,
@@ -1706,6 +1749,37 @@
     "icono": "🌋"
   },
   {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "大陸と気候の探検家",
+    "descripcion": "試験では、アフリカ、アジア、ブラジル、中国を学び、さらに気候変動の原因、影響、国際合意も習得しました。",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "世界市民",
+    "descripcion": "試験では、ヨーロッパと欧州連合、中東、オセアニアと南極、ロシアと中央アジア、南アフリカを学び、さらに世界の交通・通信ネットワークも習得しました。",
+    "icono": "🌏"
+  },
+  {
     "id": 816,
     "materia": "Informática",
     "cluster": 1,
@@ -1878,6 +1952,19 @@
     "icono": "🛡️"
   },
   {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "ネットワークとウェブの構築者",
+    "descripcion": "試験では、ローカルネットワークとWi-Fi、非リレーショナルデータベース、そしてHTML・CSS・JavaScriptによるウェブページの作り方を習得しました。",
+    "icono": "🌐"
+  },
+  {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
@@ -2000,6 +2087,21 @@
     "icono": "⚡"
   },
   {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "酸・塩基・反応の達人",
+    "descripcion": "試験では、ラボアジエとプルーストの質量に関する法則、酸と塩基の理論、中和と滴定、基本的な有機反応、水の化学を習得しました。",
+    "icono": "⚗️"
+  },
+  {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
@@ -2105,6 +2207,38 @@
     "nombre": "進化と生理学の専門家",
     "descripcion": "種分化、遺伝的浮動、系統発生、神経系と内分泌系、血圧、遺伝子組換え生物の生命倫理を習得して、中間試験を完了しました、ボス。",
     "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "恒常性と感覚の達人",
+    "descripcion": "試験では、恒常性、感覚、種間関係、有性生殖と無性生殖、循環器系を習得しました。",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "人体の達人",
+    "descripcion": "試験では、消化器系、排泄系、免疫系、筋系、骨格系、呼吸器系、そして皮膚とその体温調節を習得しました。",
+    "icono": "🦴"
   },
   {
     "id": 879,
@@ -2304,6 +2438,25 @@
     "icono": "🎭"
   },
   {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "美術史の旅人",
+    "descripcion": "試験では、エジプトとメソポタミアの美術、古典・ロマネスク・ゴシック美術、ルネサンスとバロック、印象派、20世紀の前衛、アルゼンチン美術、芸術としての写真と映画を学びました。",
+    "icono": "🏛️"
+  },
+  {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
@@ -2397,6 +2550,22 @@
     "icono": "💭"
   },
   {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "発達・感情・行動のエキスパート",
+    "descripcion": "ピアジェとヴィゴツキーの認知発達、条件づけと心理学的学習、感情とその調整、動機づけ・パーソナリティ・集団心理を習得して試験に合格しました。",
+    "icono": "🧠"
+  },
+  {
     "id": 930,
     "materia": "Ciencia de Materiales",
     "cluster": 1,
@@ -2413,6 +2582,51 @@
     "icono": "🔩"
   },
   {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "材料の構造のマスター",
+    "descripcion": "材料の結合と原子構造、結晶構造と単位格子、引張・硬さ・衝撃試験、セラミックス・ガラス・複合材料を習得して試験に合格しました。",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "合金・鋼・ポリマーのエキスパート",
+    "descripcion": "結晶欠陥と転位、状態図と合金、金属の強化と成形、鉄–炭素状態図と鋼、熱可塑性・熱硬化性ポリマーとエラストマーを習得して試験に合格しました。",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "材料の特性と処理のマスター",
+    "descripcion": "焼入れ・焼戻し・焼なましなどの熱処理、材料の電気的・磁気的・熱的特性、腐食の防止と表面保護、材料選定と持続可能性を習得して試験に合格しました。",
+    "icono": "🛠️"
+  },
+  {
     "id": 934,
     "materia": "Dibujo Técnico",
     "cluster": 1,
@@ -2425,6 +2639,51 @@
     ],
     "nombre": "製図の達人",
     "descripcion": "投影法、図面、等角図とキャビネット図、尺度と規格化された寸法記入を習得して、中間試験を完了しました、ボス。",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "製図・スケッチ・CADのマスター",
+    "descripcion": "製図器具と基本的な線の引き方、スケッチと寸法の実測、点・直線・平面の画法幾何学、断面図とコンピュータ支援設計を習得して試験に合格しました。",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "規格と図面読解のエキスパート",
+    "descripcion": "線の種類・用紙サイズ・表題欄、作図幾何：接線と接続、ねじ・ボルト・結合の表し方と溶接記号、部品図と組立図の読み取りを習得して試験に合格しました。",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "公差と専門図面のマスター",
+    "descripcion": "公差とはめあい、表面粗さと表面仕上げ、補助投影図と詳細図、建築図面と電気図面を習得して試験に合格しました。",
     "icono": "📏"
   },
   {
@@ -2443,6 +2702,22 @@
     "icono": "📰"
   },
   {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "言説・メディア・イメージのエキスパート",
+    "descripcion": "マスメディアとデジタルメディア、談話分析とメディアのフレーミング、言語・非言語、口頭・視覚によるコミュニケーション、組織広報と危機管理コミュニケーションを習得して試験に合格しました。",
+    "icono": "🎙️"
+  },
+  {
     "id": 942,
     "materia": "Electrónica",
     "cluster": 1,
@@ -2458,6 +2733,51 @@
     "icono": "🔌"
   },
   {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "部品・ダイオード・論理ゲートのエキスパート",
+    "descripcion": "分圧回路とカラーコード、RCコンデンサの充放電とインダクタ、ダイオード・整流・電源回路、NAND・NOR・XORゲートとその万能性を習得して試験に合格しました。",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "デジタル論理とマイコンのマスター",
+    "descripcion": "測定器：マルチメータとオシロスコープ、加算器とマルチプレクサによる組合せ論理、フリップフロップとカウンタによる順序論理、マイコンのデジタル入出力とシリアル通信（UART・I2C・SPI）を習得して試験に合格しました。",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "トランジスタ・オペアンプ・信号のエキスパート",
+    "descripcion": "スイッチ・増幅器としてのトランジスタ、オペアンプ、ADC・DACによるアナログ信号とデジタル信号、555タイマとブレッドボードでの試作（はんだ付けと安全）を習得して試験に合格しました。",
+    "icono": "⚡"
+  },
+  {
     "id": 946,
     "materia": "Automatización",
     "cluster": 1,
@@ -2471,6 +2791,40 @@
     "nombre": "制御システムの専門家",
     "descripcion": "開ループと閉ループ、フィードバック、PID制御、サーボ機構、PLCによる制御論理を習得しました、ボス。",
     "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "計装と駆動のマスター",
+    "descripcion": "ヒステリシス付きオンオフ制御、工業計装と4–20 mAループ、一次系の動的システムのモデル化、電動機とインバータ、自動化システムの保全と診断を習得して試験に合格しました。",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "PLC・ネットワーク・高度制御のエキスパート",
+    "descripcion": "PLCのプログラミング：ラダー・タイマ・カウンタ・GRAFCET、空気圧と油圧の基礎、産業用ネットワークとSCADA、過渡応答・安定性・PIDチューニング・非常停止を含む機能安全を習得して試験に合格しました。",
+    "icono": "🏭"
   },
   {
     "id": 950,
@@ -2681,6 +3035,143 @@
     ],
     "nombre": "健康とスポーツの守護者",
     "descripcion": "試験に合格し、オリンピック、トレーニング量の計画と漸進、予防とケア（RICE、ウォームアップ、人間工学）、依存症予防とアルゼンチン法26.586、応急手当、心肺蘇生、AED、薬物政策を習得しました。",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "デジタル体験デザイナー",
+    "descripcion": "試験に合格し、利用データの分析とUX指標、情報アーキテクチャとナビゲーション、インターフェースの色彩、音声・会話インターフェースの設計、レスポンシブ／モバイルファーストの設計を習得しました。",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "UXとアクセシビリティの戦略家",
+    "descripcion": "試験に合格し、デザイン倫理とダークパターン、フォームとマイクロインタラクション、ニールセンの10のヒューリスティクス、ユーザー調査とヒューリスティック評価、ユーザー中心設計、WCAGの達成レベルとキーボード操作、タイポグラフィ、デザインシステムを習得しました。",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "思想史の探究者",
+    "descripcion": "試験に合格し、ソクラテス以前の哲学者とソクラテス、プラトンとアリストテレス、中世哲学とトマス・アクィナス、ヒュームの経験論、カントとドイツ観念論、マルクスと史的唯物論、現象学と実存主義、政治哲学、言語哲学と科学哲学を習得しました。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "フィールド民族誌学者",
+    "descripcion": "試験に合格し、社会における経済と権力、民族誌と参与観察、アイデンティティとエスニシティ、神話・儀礼・宗教、アルゼンチンの先住民族を習得しました。",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "社会アナリスト",
+    "descripcion": "試験に合格し、社会変動と社会運動、古典（デュルケーム、ウェーバー、マルクス）、現代の不平等と階級、社会調査の方法、社会化と役割、規範・価値・社会統制、社会的カテゴリーとしてのジェンダーを習得しました。",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "学びの戦略家",
+    "descripcion": "試験に合格し、注意・集中と気が散ること、間違いとフィードバック、能動的な読書とノートの取り方、学ぶ意欲、学習計画と時間管理、他の人と学ぶことを習得しました。",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "安全なデジタル市民",
+    "descripcion": "試験に合格し、アルゴリズム・フィルターバブル・アテンション・エコノミー、ネットいじめとSNS上の共生、パスワードと認証、デジタルの権利とデータ保護、オンラインでの市民参加、フィッシングとネット詐欺、知的財産とデジタルライセンスを習得しました。",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "スポーツの戦略家",
+    "descripcion": "試験に合格し、体力の要素（筋力・持久力・柔軟性・スピード）、運動時の栄養と水分補給、そしてバスケットボール、サッカー、フットサル、ハンドボール、ホッケー、ラグビー、バレーボールのルールと基本を習得しました。",
     "icono": "🏅"
   }
 ]

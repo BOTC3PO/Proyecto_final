@@ -706,6 +706,24 @@
     "icono": "🔄🗣️"
   },
   {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "Meister der argentinischen und lateinamerikanischen Literatur",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Gaucholiteratur und den Martín Fierro, die Avantgarden von Florida und Boedo, Borges und das Fantastische am Río de la Plata, Cortázar, den magischen Realismus, die Erzählkunst nach der Diktatur, die argentinische Lyrik des 20. Jahrhunderts sowie die Mythen und Legenden der indigenen Völker gemeistert.",
+    "icono": "📚"
+  },
+  {
     "id": 681,
     "materia": "Historia profunda",
     "cluster": 1,
@@ -1025,6 +1043,17 @@
     "icono": "🌍"
   },
   {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "Entdecker des Wettlaufs ins All",
+    "descripcion": "Du hast die Prüfung bestanden und dabei den Wettlauf ins All im Kalten Krieg gemeistert: Sputnik, Gagarins Flug, die Mondlandung von Apollo 11 und die gemeinsame Mission Apollo-Sojus.",
+    "icono": "🚀"
+  },
+  {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
@@ -1328,6 +1357,20 @@
     "nombre": "Meister der Energie und ihrer Maschinen",
     "descripcion": "Du hast die Erhaltung der mechanischen Energie, die Gravitationsenergie, die Leistung, elastische und unelastische Stöße, die Wärmeübertragung sowie Generatoren, Motoren und Transformatoren gemeistert.",
     "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "Meister der Fluide, Thermodynamik und Wellen",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Bernoulli-Gleichung und die Strömungslehre, den ersten Hauptsatz der Thermodynamik, die harmonische Schwingung und stehende Wellen sowie erneuerbare Energien und ihre Umwandlung gemeistert.",
+    "icono": "🌊"
   },
   {
     "id": 766,
@@ -1706,6 +1749,37 @@
     "icono": "🌋"
   },
   {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "Entdecker der Kontinente und des Klimas",
+    "descripcion": "Du hast die Prüfung bestanden, indem du Afrika, Asien, Brasilien und China erkundet und dazu die Ursachen, die Folgen und die Abkommen zum Klimawandel gelernt hast.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "Weltbürger",
+    "descripcion": "Du hast die Prüfung bestanden, indem du Europa und die Europäische Union, den Nahen Osten, Ozeanien und die Antarktis, Russland und Zentralasien sowie Südafrika erkundet und dazu die globalen Verkehrs- und Kommunikationsnetze gelernt hast.",
+    "icono": "🌏"
+  },
+  {
     "id": 816,
     "materia": "Informática",
     "cluster": 1,
@@ -1878,6 +1952,19 @@
     "icono": "🛡️"
   },
   {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "Baumeister von Netzwerken und Webseiten",
+    "descripcion": "Du hast die Prüfung bestanden und dabei lokale Netzwerke und WLAN, nichtrelationale Datenbanken und den Aufbau einer Webseite mit HTML, CSS und JavaScript gemeistert.",
+    "icono": "🌐"
+  },
+  {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
@@ -2000,6 +2087,21 @@
     "icono": "⚡"
   },
   {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "Meister der Säuren, Basen und Reaktionen",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Gesetze der Massenverhältnisse von Lavoisier und Proust, die Säure-Base-Theorien, Neutralisation und Titration, die grundlegenden organischen Reaktionen und die Chemie des Wassers gemeistert.",
+    "icono": "⚗️"
+  },
+  {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
@@ -2105,6 +2207,38 @@
     "nombre": "Experte für Evolution und Physiologie",
     "descripcion": "Du hast die Prüfung abgeschlossen und dabei Artbildung, genetische Drift, Phylogenie, Nerven- und Hormonsystem, Blutdruck und die Bioethik der Transgene gemeistert, Chef.",
     "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "Meister der Homöostase und der Sinne",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Homöostase, die Sinne, die Beziehungen zwischen Arten, die geschlechtliche und ungeschlechtliche Fortpflanzung sowie das Kreislaufsystem gemeistert.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "Meister des menschlichen Körpers",
+    "descripcion": "Du hast die Prüfung bestanden und dabei Verdauungs-, Ausscheidungs-, Immun-, Muskel-, Knochen- und Atmungssystem sowie die Haut mit ihrer Temperaturregulation gemeistert.",
+    "icono": "🦴"
   },
   {
     "id": 879,
@@ -2304,6 +2438,25 @@
     "icono": "🎭"
   },
   {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "Reisender durch die Kunstgeschichte",
+    "descripcion": "Du hast die Prüfung bestanden, indem du die Kunst Ägyptens und Mesopotamiens, die Klassik, Romanik und Gotik, Renaissance und Barock, den Impressionismus, die Avantgarden des 20. Jahrhunderts, die argentinische Kunst sowie Fotografie und Film als Kunst durchlaufen hast.",
+    "icono": "🏛️"
+  },
+  {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
@@ -2397,6 +2550,22 @@
     "icono": "💭"
   },
   {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "Experte für Entwicklung, Emotion und Verhalten",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: die kognitive Entwicklung nach Piaget und Wygotski, Konditionierung und psychologisches Lernen, Emotionen und ihre Regulation und Motivation, Persönlichkeit und Gruppenpsychologie.",
+    "icono": "🧠"
+  },
+  {
     "id": 930,
     "materia": "Ciencia de Materiales",
     "cluster": 1,
@@ -2413,6 +2582,51 @@
     "icono": "🔩"
   },
   {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "Meister der Werkstoffstruktur",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Bindungen und atomare Struktur der Werkstoffe, Kristallstrukturen und Elementarzellen, Zug-, Härte- und Schlagversuche und Keramiken, Gläser und Verbundwerkstoffe.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "Experte für Legierungen, Stähle und Polymere",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Kristallfehler und Versetzungen, Phasendiagramme und Legierungen, Verfestigung und Umformung von Metallen sowie das Eisen-Kohlenstoff-Diagramm mit den Stählen und thermoplastische, duroplastische und elastomere Polymere.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "Meister der Werkstoffeigenschaften und Wärmebehandlung",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Wärmebehandlungen: Härten, Anlassen und Glühen, die elektrischen, magnetischen und thermischen Eigenschaften der Werkstoffe, Korrosionsschutz und Oberflächenschutz und Werkstoffauswahl und Nachhaltigkeit.",
+    "icono": "🛠️"
+  },
+  {
     "id": 934,
     "materia": "Dibujo Técnico",
     "cluster": 1,
@@ -2425,6 +2639,51 @@
     ],
     "nombre": "Meister des technischen Zeichnens",
     "descripcion": "Du hast die Prüfung abgeschlossen und dabei Projektionssysteme, Ansichten, isometrische und Kavalierperspektive, Maßstäbe und die normgerechte Bemaßung gemeistert, Chef.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "Meister von Zeichnen, Skizzieren und CAD",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Zeichengeräte und grundlegende Linienführung, Skizzen und Aufmaß, die darstellende Geometrie von Punkt, Gerade und Ebene und Schnitte und computergestütztes Zeichnen (CAD).",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "Experte für Normen und das Lesen von Plänen",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Linienarten, Formate und Schriftfeld, die Konstruktionsgeometrie mit Tangenten und Übergängen, die Darstellung von Gewinden, Schrauben und Verbindungen sowie Schweißsymbole und das Lesen von Zeichnungen von Einzelteilen und Baugruppen.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "Meister der Toleranzen und Fachzeichnungen",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Toleranzen und Passungen, Rauheit und Oberflächengüte, Hilfsansichten und Einzelheiten und Architekturzeichnen und Elektrozeichnen.",
     "icono": "📏"
   },
   {
@@ -2443,6 +2702,22 @@
     "icono": "📰"
   },
   {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "Experte für Diskurs, Medien und Bild",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Massenmedien und digitale Medien, Diskursanalyse und mediales Framing, verbale und nonverbale, mündliche und visuelle Kommunikation und institutionelle und Krisenkommunikation.",
+    "icono": "🎙️"
+  },
+  {
     "id": 942,
     "materia": "Electrónica",
     "cluster": 1,
@@ -2458,6 +2733,51 @@
     "icono": "🔌"
   },
   {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "Experte für Bauelemente, Dioden und Logikgatter",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: den Spannungsteiler und den Farbcode, das Laden und Entladen des RC-Kondensators sowie Induktivitäten, die Diode, die Gleichrichtung und Netzteile und NAND-, NOR- und XOR-Gatter und ihre Universalität.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "Meister der Digitaltechnik und Mikrocontroller",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Messgeräte: Multimeter und Oszilloskop, kombinatorische Logik mit Addierern und Multiplexern, sequentielle Logik mit Flipflops und Zählern und digitale Ein- und Ausgänge des Mikrocontrollers und die serielle Kommunikation UART, I2C und SPI.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "Experte für Transistoren, Operationsverstärker und Signale",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: den Transistor als Schalter und Verstärker, den Operationsverstärker, analoge und digitale Signale mit ADC und DAC und den Timer 555 sowie Prototyping auf dem Steckbrett mit Löten und Sicherheit.",
+    "icono": "⚡"
+  },
+  {
     "id": 946,
     "materia": "Automatización",
     "cluster": 1,
@@ -2471,6 +2791,40 @@
     "nombre": "Experte für Regelungssysteme",
     "descripcion": "Du hast offenen und geschlossenen Regelkreis, Rückkopplung, PID-Regelung, Servomechanismen und die Steuerungslogik mit SPS gemeistert, Chef.",
     "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "Meister der Messtechnik und Antriebe",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: die Zweipunktregelung mit Hysterese, industrielle Messtechnik und 4-20-mA-Schleifen, die Modellierung dynamischer Systeme erster Ordnung und Elektromotoren und Frequenzumrichter sowie Wartung und Diagnose automatisierter Anlagen.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "Experte für SPS, Netzwerke und fortgeschrittene Regelung",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: die SPS-Programmierung: Kontaktplan, Zeitgeber, Zähler und GRAFCET, grundlegende Pneumatik und Hydraulik, Industrienetzwerke und SCADA und das Übergangsverhalten, die Stabilität, die PID-Einstellung und die funktionale Sicherheit mit Not-Halt.",
+    "icono": "🏭"
   },
   {
     "id": 950,
@@ -2681,6 +3035,143 @@
     ],
     "nombre": "Hüter von Gesundheit und Sport",
     "descripcion": "Du hast die Prüfung bestanden und beherrschst die Olympischen Spiele, Planung und Steigerung des Trainingsumfangs, Vorbeugung und Pflege (RICE, Aufwärmen, Ergonomie), Suchtprävention und das argentinische Gesetz 26.586, Erste Hilfe, Herz-Lungen-Wiederbelebung und AED und Drogenpolitik.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "Designer digitaler Erlebnisse",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Analyse von Nutzungsdaten und UX-Metriken, Informationsarchitektur und Navigation, Farbe in Benutzeroberflächen, Sprach- und Dialogschnittstellen sowie responsives Mobile-First-Design.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "UX- und Barrierefreiheits-Stratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Designethik und Dark Patterns, Formulare und Mikrointeraktionen, Nielsens zehn Heuristiken, Nutzerforschung und heuristische Evaluation, nutzerzentriertes Design, WCAG-Stufen und Tastaturnavigation, Typografie und Designsysteme.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "Historiker des Denkens",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Vorsokratiker und Sokrates, Platon und Aristoteles, die mittelalterliche Philosophie und Thomas von Aquin, Humes Empirismus, Kant und den Idealismus, Marx und den historischen Materialismus, Phänomenologie und Existenzialismus, politische Philosophie sowie Sprach- und Wissenschaftsphilosophie.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "Feldethnograf",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Wirtschaft und Macht in Gesellschaften, Ethnografie und teilnehmende Beobachtung, Identität und Ethnizität, Mythos, Ritual und Religion sowie die indigenen Völker Argentiniens.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "Gesellschaftsanalytiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst sozialen Wandel und Bewegungen, die Klassiker (Durkheim, Weber und Marx), Ungleichheit und Klassen heute, Methoden der Sozialforschung, Sozialisation und Rollen, Normen, Werte und soziale Kontrolle sowie Geschlecht als soziale Kategorie.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "Lernstratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Aufmerksamkeit, Konzentration und Ablenkungen, Fehler und Feedback, aktives Lesen und Mitschreiben, Lernmotivation, Lernplanung und Zeitmanagement sowie gemeinsames Lernen.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "Sicherer digitaler Bürger",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Algorithmen, Filterblasen und die Aufmerksamkeitsökonomie, Cybermobbing und das Miteinander in sozialen Netzwerken, Passwörter und Authentifizierung, digitale Rechte und Datenschutz, bürgerschaftliche Beteiligung im Netz, Phishing und Online-Betrug sowie geistiges Eigentum und digitale Lizenzen.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "Sportstratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die körperlichen Fähigkeiten (Kraft, Ausdauer, Beweglichkeit und Schnelligkeit), Ernährung und Flüssigkeitszufuhr bei körperlicher Aktivität sowie Regeln und Grundlagen von Basketball, Fußball, Futsal, Handball, Hockey, Rugby und Volleyball.",
     "icono": "🏅"
   }
 ]

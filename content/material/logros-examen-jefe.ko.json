@@ -706,6 +706,24 @@
     "icono": "🔄🗣️"
   },
   {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "아르헨티나·라틴아메리카 문학의 달인",
+    "descripcion": "가우초 문학과 「마르틴 피에로」, 플로리다·보에도 전위 운동, 보르헤스와 라플라타 지역의 환상문학, 코르타사르, 마술적 사실주의, 독재 이후의 서사, 20세기 아르헨티나 시, 원주민의 신화와 전설을 마스터하며 시험을 마쳤습니다.",
+    "icono": "📚"
+  },
+  {
     "id": 681,
     "materia": "Historia profunda",
     "cluster": 1,
@@ -1025,6 +1043,17 @@
     "icono": "🌍"
   },
   {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "우주 경쟁 탐험가",
+    "descripcion": "냉전 시기의 우주 경쟁, 즉 스푸트니크, 가가린의 비행, 아폴로 11호의 달 착륙, 아폴로-소유즈 공동 임무를 마스터하며 시험을 마쳤습니다.",
+    "icono": "🚀"
+  },
+  {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
@@ -1328,6 +1357,20 @@
     "nombre": "에너지와 기계의 달인",
     "descripcion": "역학적 에너지 보존, 중력 위치 에너지, 일률, 탄성 충돌과 비탄성 충돌, 열의 전달, 발전기·모터·변압기를 마스터했습니다.",
     "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "유체·열역학·파동의 달인",
+    "descripcion": "베르누이 방정식과 유체 역학, 열역학 제1법칙, 단순 조화 운동과 정상파, 재생에너지와 그 변환을 마스터하며 시험을 마쳤습니다.",
+    "icono": "🌊"
   },
   {
     "id": 766,
@@ -1706,6 +1749,37 @@
     "icono": "🌋"
   },
   {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "대륙과 기후 탐험가",
+    "descripcion": "아프리카, 아시아, 브라질, 중국을 살펴보고 기후 변화의 원인과 영향, 국제 협약까지 더하며 시험을 마쳤습니다.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "세계 시민",
+    "descripcion": "유럽과 유럽 연합, 중동, 오세아니아와 남극, 러시아와 중앙아시아, 남아프리카를 살펴보고 전 세계 교통·통신망까지 더하며 시험을 마쳤습니다.",
+    "icono": "🌏"
+  },
+  {
     "id": 816,
     "materia": "Informática",
     "cluster": 1,
@@ -1878,6 +1952,19 @@
     "icono": "🛡️"
   },
   {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "네트워크와 웹페이지 제작자",
+    "descripcion": "근거리 네트워크와 와이파이, 비관계형 데이터베이스, HTML·CSS·JavaScript로 웹페이지를 만드는 방법을 마스터하며 시험을 마쳤습니다.",
+    "icono": "🌐"
+  },
+  {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
@@ -2000,6 +2087,21 @@
     "icono": "⚡"
   },
   {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "산·염기·반응의 달인",
+    "descripcion": "라부아지에와 프루스트의 질량 관련 법칙, 산과 염기 이론, 중화와 적정, 기초 유기 반응, 물의 화학을 마스터하며 시험을 마쳤습니다.",
+    "icono": "⚗️"
+  },
+  {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
@@ -2105,6 +2207,38 @@
     "nombre": "진화와 생리학 전문가",
     "descripcion": "종 분화, 유전자 부동, 계통 발생, 신경계와 내분비계, 혈압, 유전자 변형 생물의 생명윤리를 마스터하며 중간고사를 마쳤습니다, 보스.",
     "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "항상성과 감각의 달인",
+    "descripcion": "항상성, 감각, 종간 관계, 유성 생식과 무성 생식, 순환계를 마스터하며 시험을 마쳤습니다.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "인체의 달인",
+    "descripcion": "소화계, 배설계, 면역계, 근육계, 골격계, 호흡계, 그리고 피부와 체온 조절을 마스터하며 시험을 마쳤습니다.",
+    "icono": "🦴"
   },
   {
     "id": 879,
@@ -2304,6 +2438,25 @@
     "icono": "🎭"
   },
   {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "미술사 여행자",
+    "descripcion": "이집트와 메소포타미아 미술, 고전·로마네스크·고딕 미술, 르네상스와 바로크, 인상주의, 20세기 전위 예술, 아르헨티나 미술, 예술로서의 사진과 영화를 두루 살펴보며 시험을 마쳤습니다.",
+    "icono": "🏛️"
+  },
+  {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
@@ -2397,6 +2550,22 @@
     "icono": "💭"
   },
   {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "발달·감정·행동 전문가",
+    "descripcion": "피아제와 비고츠키의 인지 발달, 조건형성과 심리학적 학습, 감정과 감정 조절, 동기, 성격, 집단 심리을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🧠"
+  },
+  {
     "id": 930,
     "materia": "Ciencia de Materiales",
     "cluster": 1,
@@ -2413,6 +2582,51 @@
     "icono": "🔩"
   },
   {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "재료 구조의 달인",
+    "descripcion": "재료의 결합과 원자 구조, 결정 구조와 단위 격자, 인장·경도·충격 시험, 세라믹, 유리, 복합 재료을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "합금·강철·폴리머 전문가",
+    "descripcion": "결정 결함과 전위, 상태도와 합금, 금속의 강화와 성형, 철-탄소 상태도와 강, 열가소성·열경화성 폴리머와 엘라스토머을(를) 익혀 시험을 통과했습니다.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "재료 특성과 처리의 달인",
+    "descripcion": "담금질·뜨임·풀림 같은 열처리, 재료의 전기적·자기적·열적 특성, 부식 방지와 표면 보호, 재료 선정과 지속 가능성을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🛠️"
+  },
+  {
     "id": 934,
     "materia": "Dibujo Técnico",
     "cluster": 1,
@@ -2425,6 +2639,51 @@
     ],
     "nombre": "기술 제도의 달인",
     "descripcion": "투영 체계, 도면, 등각 투상과 카발리에 투상, 축척과 규격화된 치수 기입을 마스터하며 중간고사를 마쳤습니다, 보스.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "제도·스케치·CAD의 달인",
+    "descripcion": "제도 도구와 기본 선 긋기, 스케치와 치수 측정, 점·직선·평면의 화법기하학, 단면도와 컴퓨터 지원 설계을(를) 익혀 시험을 통과했습니다.",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "규격과 도면 해독 전문가",
+    "descripcion": "선의 종류, 도면 규격, 표제란, 작도 기하: 접선과 연결, 나사·볼트·결합의 표현과 용접 기호, 부품도와 조립도 해독을(를) 익혀 시험을 통과했습니다.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "공차와 전문 도면의 달인",
+    "descripcion": "공차와 끼워맞춤, 표면 거칠기와 표면 마감, 보조 투상도와 상세도, 건축 도면과 전기 도면을(를) 익혀 시험을 통과했습니다.",
     "icono": "📏"
   },
   {
@@ -2443,6 +2702,22 @@
     "icono": "📰"
   },
   {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "담론·미디어·이미지 전문가",
+    "descripcion": "대중 매체와 디지털 매체, 담화 분석과 미디어 프레이밍, 언어·비언어, 구두·시각 커뮤니케이션, 기관 커뮤니케이션과 위기 커뮤니케이션을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🎙️"
+  },
+  {
     "id": 942,
     "materia": "Electrónica",
     "cluster": 1,
@@ -2458,6 +2733,51 @@
     "icono": "🔌"
   },
   {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "부품·다이오드·논리 게이트 전문가",
+    "descripcion": "분압기와 색 코드, RC 커패시터의 충전·방전과 인덕터, 다이오드, 정류, 전원 장치, NAND·NOR·XOR 게이트와 그 범용성을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "디지털 논리와 마이크로컨트롤러의 달인",
+    "descripcion": "측정 기기: 멀티미터와 오실로스코프, 가산기와 멀티플렉서를 이용한 조합 논리, 플립플롭과 카운터를 이용한 순차 논리, 마이크로컨트롤러의 디지털 입출력과 직렬 통신(UART, I2C, SPI)을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "트랜지스터·연산 증폭기·신호 전문가",
+    "descripcion": "스위치와 증폭기로서의 트랜지스터, 연산 증폭기, ADC·DAC를 이용한 아날로그·디지털 신호, 555 타이머와 브레드보드 시제작(납땜과 안전)을(를) 익혀 시험을 통과했습니다.",
+    "icono": "⚡"
+  },
+  {
     "id": 946,
     "materia": "Automatización",
     "cluster": 1,
@@ -2471,6 +2791,40 @@
     "nombre": "제어 시스템 전문가",
     "descripcion": "개루프와 폐루프, 피드백, PID 제어, 서보 기구, PLC를 이용한 제어 논리를 마스터했습니다, 보스.",
     "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "계측과 구동의 달인",
+    "descripcion": "히스테리시스를 갖는 온오프 제어, 산업 계측과 4-20 mA 루프, 1차 동적 시스템의 모델링, 전동기와 주파수 인버터, 자동화 시스템의 유지보수와 진단을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "PLC·네트워크·고급 제어 전문가",
+    "descripcion": "PLC 프로그래밍: 래더, 타이머, 카운터, GRAFCET, 공압과 유압의 기초, 산업용 네트워크와 SCADA, 과도 응답, 안정성, PID 튜닝, 비상 정지를 포함한 기능 안전을(를) 익혀 시험을 통과했습니다.",
+    "icono": "🏭"
   },
   {
     "id": 950,
@@ -2681,6 +3035,143 @@
     ],
     "nombre": "건강과 스포츠의 수호자",
     "descripcion": "시험에 합격하여 올림픽, 훈련량의 계획과 점진, 예방과 관리(RICE, 준비운동, 인체공학), 중독 예방과 아르헨티나 법률 26.586, 응급처치, 심폐소생술, AED, 마약 정책을(를) 마스터했습니다.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "디지털 경험 디자이너",
+    "descripcion": "시험에 합격하며 사용 데이터 분석과 UX 지표, 정보 구조와 내비게이션, 인터페이스의 색, 음성·대화형 인터페이스 설계, 반응형·모바일 우선 설계을(를) 익혔습니다.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "UX·접근성 전략가",
+    "descripcion": "시험에 합격하며 디자인 윤리와 다크 패턴, 폼과 마이크로인터랙션, 닐슨의 10가지 휴리스틱, 사용자 조사와 휴리스틱 평가, 사용자 중심 설계, WCAG 수준과 키보드 탐색, 타이포그래피, 디자인 시스템을(를) 익혔습니다.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "사상사 탐구자",
+    "descripcion": "시험에 합격하며 소크라테스 이전 철학자와 소크라테스, 플라톤과 아리스토텔레스, 중세 철학과 토마스 아퀴나스, 흄의 경험론, 칸트와 관념론, 마르크스와 역사적 유물론, 현상학과 실존주의, 정치철학, 언어철학과 과학철학을(를) 익혔습니다.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "현장 민족지학자",
+    "descripcion": "시험에 합격하며 사회 속의 경제와 권력, 민족지학과 참여 관찰, 정체성과 민족성, 신화·의례·종교, 아르헨티나의 원주민을(를) 익혔습니다.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "사회 분석가",
+    "descripcion": "시험에 합격하며 사회 변동과 사회 운동, 고전 이론가(뒤르켐, 베버, 마르크스), 오늘날의 불평등과 계급, 사회 조사 방법, 사회화와 역할, 규범·가치·사회 통제, 사회적 범주로서의 젠더을(를) 익혔습니다.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "학습 전략가",
+    "descripcion": "시험에 합격하며 주의·집중과 방해 요소, 오류와 피드백, 능동적 읽기와 필기, 학습 동기, 학습 계획과 시간 관리, 함께 공부하기을(를) 익혔습니다.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "안전한 디지털 시민",
+    "descripcion": "시험에 합격하며 알고리즘·필터 버블·주의 경제, 사이버 괴롭힘과 온라인 공존, 비밀번호와 인증, 디지털 권리와 데이터 보호, 온라인 시민 참여, 피싱과 온라인 사기, 지식재산권과 디지털 라이선스을(를) 익혔습니다.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "스포츠 전략가",
+    "descripcion": "시험에 합격하며 신체 능력(근력, 지구력, 유연성, 속도), 신체 활동 중의 영양과 수분 섭취, 그리고 농구, 축구, 풋살, 핸드볼, 하키, 럭비, 배구의 규칙과 기본기을(를) 익혔습니다.",
     "icono": "🏅"
   }
 ]

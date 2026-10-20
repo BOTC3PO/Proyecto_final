@@ -706,6 +706,24 @@
     "icono": "🔄🗣️"
   },
   {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "Master of Argentine and Latin American Literature",
+    "descripcion": "You completed the exam by mastering gaucho literature and the Martín Fierro, the Florida and Boedo avant-gardes, Borges and the River Plate fantastic, Cortázar, magical realism, post-dictatorship narrative, 20th-century Argentine poetry, and the myths and legends of Indigenous peoples.",
+    "icono": "📚"
+  },
+  {
     "id": 681,
     "materia": "Historia profunda",
     "cluster": 1,
@@ -1025,6 +1043,17 @@
     "icono": "🌍"
   },
   {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "Space Race Explorer",
+    "descripcion": "You completed the exam by mastering the Cold War space race: Sputnik, Gagarin’s flight, the Apollo 11 Moon landing and the joint Apollo-Soyuz mission.",
+    "icono": "🚀"
+  },
+  {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
@@ -1328,6 +1357,20 @@
     "nombre": "Master of Energy and Its Machines",
     "descripcion": "You mastered conservation of mechanical energy, gravitational potential energy, power, elastic and inelastic collisions, heat transfer, and generators, motors, and transformers.",
     "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "Master of Fluids, Thermodynamics and Waves",
+    "descripcion": "You completed the exam by mastering Bernoulli’s equation and fluid dynamics, the first law of thermodynamics, simple harmonic motion and standing waves, and renewable energy and its transformation.",
+    "icono": "🌊"
   },
   {
     "id": 766,
@@ -1706,6 +1749,37 @@
     "icono": "🌋"
   },
   {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "Continents and Climate Explorer",
+    "descripcion": "You completed the exam by covering Africa, Asia, Brazil and China, and added the causes, effects and agreements on climate change.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "Citizen of the World",
+    "descripcion": "You completed the exam by covering Europe and the European Union, the Middle East, Oceania and Antarctica, Russia and Central Asia, and South Africa, and added global transport and communication networks.",
+    "icono": "🌏"
+  },
+  {
     "id": 816,
     "materia": "Informática",
     "cluster": 1,
@@ -1878,6 +1952,19 @@
     "icono": "🛡️"
   },
   {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "Network and Web Builder",
+    "descripcion": "You completed the exam by mastering local networks and Wi-Fi, non-relational databases and how a web page is built with HTML, CSS and JavaScript.",
+    "icono": "🌐"
+  },
+  {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
@@ -2000,6 +2087,21 @@
     "icono": "⚡"
   },
   {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "Master of Acids, Bases and Reactions",
+    "descripcion": "You completed the exam by mastering the laws of conservation and definite proportions of Lavoisier and Proust, acid-base theories, neutralization and titration, basic organic reactions and the chemistry of water.",
+    "icono": "⚗️"
+  },
+  {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
@@ -2105,6 +2207,38 @@
     "nombre": "Expert in Evolution and Physiology",
     "descripcion": "You completed the exam mastering speciation, genetic drift, phylogeny, the nervous and endocrine systems, blood pressure, and the bioethics of transgenics, boss.",
     "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "Master of Homeostasis and the Senses",
+    "descripcion": "You completed the exam by mastering homeostasis, the senses, interspecific relationships, sexual and asexual reproduction and the circulatory system.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "Master of the Human Body",
+    "descripcion": "You completed the exam by mastering the digestive, excretory, immune, muscular, skeletal and respiratory systems, and the skin with its temperature regulation.",
+    "icono": "🦴"
   },
   {
     "id": 879,
@@ -2304,6 +2438,25 @@
     "icono": "🎭"
   },
   {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "Traveller Through Art History",
+    "descripcion": "You completed the exam by covering the art of Egypt and Mesopotamia, classical, Romanesque and Gothic art, the Renaissance and the Baroque, Impressionism, the avant-gardes of the 20th century, Argentine art, and photography and film as art.",
+    "icono": "🏛️"
+  },
+  {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
@@ -2397,6 +2550,22 @@
     "icono": "💭"
   },
   {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "Expert in Development, Emotion and Behavior",
+    "descripcion": "You aced the exam covering cognitive development according to Piaget and Vygotsky, conditioning and psychological learning, emotions and their regulation, and motivation, personality and group psychology.",
+    "icono": "🧠"
+  },
+  {
     "id": 930,
     "materia": "Ciencia de Materiales",
     "cluster": 1,
@@ -2413,6 +2582,51 @@
     "icono": "🔩"
   },
   {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "Master of Materials Structure",
+    "descripcion": "You aced the exam covering bonding and atomic structure of materials, crystal structures and unit cells, tensile, hardness and impact tests, and ceramics, glasses and composite materials.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "Expert in Alloys, Steels and Polymers",
+    "descripcion": "You aced the exam covering crystal defects and dislocations, phase diagrams and alloys, the hardening and forming of metals and the iron-carbon diagram with steels, and thermoplastic, thermosetting and elastomeric polymers.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "Master of Material Properties and Treatments",
+    "descripcion": "You aced the exam covering heat treatments: quenching, tempering and annealing, the electrical, magnetic and thermal properties of materials, corrosion prevention and surface protection, and materials selection and sustainability.",
+    "icono": "🛠️"
+  },
+  {
     "id": 934,
     "materia": "Dibujo Técnico",
     "cluster": 1,
@@ -2425,6 +2639,51 @@
     ],
     "nombre": "Master of Technical Drawing",
     "descripcion": "You completed the exam mastering projection systems, views, isometric and cavalier perspectives, scales, and standardized dimensioning, boss.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "Master of Drafting, Sketching and CAD",
+    "descripcion": "You aced the exam covering drawing instruments and basic line work, sketching and taking measurements, descriptive geometry of the point, line and plane, and sections and computer-aided drafting.",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "Expert in Standards and Reading Drawings",
+    "descripcion": "You aced the exam covering line types, sheet formats and title blocks, constructive geometry: tangents and blends, the representation of threads, screws and joints, and welding symbols, and reading part and assembly drawings.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "Master of Tolerances and Specialized Drawings",
+    "descripcion": "You aced the exam covering tolerances and fits, roughness and surface finish, auxiliary views and details, and architectural and electrical drawing.",
     "icono": "📏"
   },
   {
@@ -2443,6 +2702,22 @@
     "icono": "📰"
   },
   {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "Expert in Discourse, Media and Image",
+    "descripcion": "You aced the exam covering mass and digital media, discourse analysis and media framing, verbal and nonverbal, oral and visual communication, and institutional and crisis communication.",
+    "icono": "🎙️"
+  },
+  {
     "id": 942,
     "materia": "Electrónica",
     "cluster": 1,
@@ -2458,6 +2733,51 @@
     "icono": "🔌"
   },
   {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "Expert in Components, Diodes and Logic Gates",
+    "descripcion": "You aced the exam covering the voltage divider and the color code, charging and discharging of the RC capacitor, and inductors, the diode, rectification and power supplies, and NAND, NOR and XOR gates and their universality.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "Master of Digital Logic and Microcontrollers",
+    "descripcion": "You aced the exam covering measuring instruments: multimeter and oscilloscope, combinational logic with adders and multiplexers, sequential logic with flip-flops and counters, and the microcontroller's digital inputs and outputs and serial communication (UART, I2C and SPI).",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "Expert in Transistors, Op-Amps and Signals",
+    "descripcion": "You aced the exam covering the transistor as a switch and amplifier, the operational amplifier, analog and digital signals with ADCs and DACs, and the 555 timer and breadboard prototyping with soldering and safety.",
+    "icono": "⚡"
+  },
+  {
     "id": 946,
     "materia": "Automatización",
     "cluster": 1,
@@ -2471,6 +2791,40 @@
     "nombre": "Expert in Control Systems",
     "descripcion": "You mastered open and closed loops, feedback, PID control, servomechanisms, and PLC control logic, boss.",
     "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "Master of Instrumentation and Drives",
+    "descripcion": "You aced the exam covering on-off control with hysteresis, industrial instrumentation and 4-20 mA loops, modeling first-order dynamic systems, and electric motors and variable-frequency drives, plus maintenance and diagnosis of automated systems.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "Expert in PLCs, Networks and Advanced Control",
+    "descripcion": "You aced the exam covering PLC programming: ladder logic, timers, counters and GRAFCET, basic pneumatics and hydraulics, industrial networks and SCADA, and transient response, stability, PID tuning and functional safety with emergency stops.",
+    "icono": "🏭"
   },
   {
     "id": 950,
@@ -2681,6 +3035,143 @@
     ],
     "nombre": "Guardian of Health and Sport",
     "descripcion": "You passed the exam mastering the Olympic Games, planning and progression of training volume, prevention and care (RICE, warm-up, ergonomics), addiction prevention and Argentine Law 26,586, first aid, CPR and AED use, and drug policies.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "Digital Experience Designer",
+    "descripcion": "You passed the exam by mastering usage data analysis and UX metrics, information architecture and navigation, color in interfaces, voice and conversational interface design, and responsive, mobile-first design.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "UX and Accessibility Strategist",
+    "descripcion": "You passed the exam by mastering design ethics and dark patterns, forms and microinteractions, Nielsen's ten heuristics, user research and heuristic evaluation, user-centered design, WCAG levels and keyboard navigation, typography, and design systems.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "Historian of Thought",
+    "descripcion": "You passed the exam by mastering the Presocratics and Socrates, Plato and Aristotle, medieval philosophy and Aquinas, Hume's empiricism, Kant and idealism, Marx and historical materialism, phenomenology and existentialism, political philosophy, and the philosophy of language and science.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "Field Ethnographer",
+    "descripcion": "You passed the exam by mastering economy and power in societies, ethnography and participant observation, identity and ethnicity, myth, ritual and religion, and the Indigenous peoples of Argentina.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "Society Analyst",
+    "descripcion": "You passed the exam by mastering social change and movements, the classics (Durkheim, Weber and Marx), inequality and class today, social research methods, socialization and roles, norms, values and social control, and gender as a social category.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "Learning Strategist",
+    "descripcion": "You passed the exam by mastering attention, concentration and distractions, errors and feedback, active reading and note-taking, motivation to learn, study planning and time management, and studying with others.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "Safe Digital Citizen",
+    "descripcion": "You passed the exam by mastering algorithms, filter bubbles and the attention economy, cyberbullying and coexistence on social networks, passwords and authentication, digital rights and data protection, online civic participation, phishing and online scams, and intellectual property and digital licenses.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "Sports Strategist",
+    "descripcion": "You passed the exam by mastering physical capacities (strength, endurance, flexibility and speed), nutrition and hydration in physical activity, and the rules and fundamentals of basketball, football, futsal, handball, hockey, rugby and volleyball.",
     "icono": "🏅"
   }
 ]

@@ -706,6 +706,24 @@
     "icono": "🔄🗣️"
   },
   {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "Majstro de la argentina kaj latinamerika literaturo",
+    "descripcion": "Vi finis la ekzamenon regante la gaŭĉan literaturon kaj la Martín Fierro, la avangardojn de Florida kaj Boedo, Borges kaj la fantastikon de la Rio de la Plata, Cortázar, la magian realismon, la prozon post la diktaturo, la argentinan poezion de la 20-a jarcento kaj la mitojn kaj legendojn de la indiĝenaj popoloj.",
+    "icono": "📚"
+  },
+  {
     "id": 681,
     "materia": "Historia profunda",
     "cluster": 1,
@@ -1025,6 +1043,17 @@
     "icono": "🌍"
   },
   {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "Esploristo de la kosma vetkuro",
+    "descripcion": "Vi finis la ekzamenon regante la kosman vetkuron de la Malvarma Milito: Sputnik, la flugon de Gagarin, la alteriĝon de Apolo 11 sur la Lunon kaj la komunan mision Apolo-Sojuz.",
+    "icono": "🚀"
+  },
+  {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
@@ -1328,6 +1357,20 @@
     "nombre": "Majstro de Energio kaj ĝiaj Maŝinoj",
     "descripcion": "Vi regis la konservadon de mekanika energio, gravitan potencialan energion, potencon, elastajn kaj nelastajn kolizojn, transdonon de varmo kaj generatorojn, motorojn kaj transformilojn.",
     "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "Majstro de fluidoj, termodinamiko kaj ondoj",
+    "descripcion": "Vi finis la ekzamenon regante la ekvacion de Bernoulli kaj la dinamikon de fluidoj, la unuan leĝon de termodinamiko, la simplan harmonian moviĝon kaj la ŝtatajn ondojn, kaj la renovigeblajn energiojn kaj ilian transformiĝon.",
+    "icono": "🌊"
   },
   {
     "id": 766,
@@ -1706,6 +1749,37 @@
     "icono": "🌋"
   },
   {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "Esploristo de kontinentoj kaj klimato",
+    "descripcion": "Vi finis la ekzamenon trairante Afrikon, Azion, Brazilon kaj Ĉinion, kaj aldonis la kaŭzojn, la efikojn kaj la interkonsentojn pri klimata ŝanĝo.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "Civitano de la mondo",
+    "descripcion": "Vi finis la ekzamenon trairante Eŭropon kaj la Eŭropan Union, Proksimorienton, Oceanion kaj Antarktikon, Rusion kaj Mezazion, kaj Sudafrikon, kaj aldonis la tutmondajn transport- kaj komunikretojn.",
+    "icono": "🌏"
+  },
+  {
     "id": 816,
     "materia": "Informática",
     "cluster": 1,
@@ -1878,6 +1952,19 @@
     "icono": "🛡️"
   },
   {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "Konstruanto de retoj kaj retpaĝoj",
+    "descripcion": "Vi finis la ekzamenon regante lokajn retojn kaj Wi-Fi, nerilatajn datumbazojn kaj kiel oni konstruas retpaĝon per HTML, CSS kaj JavaScript.",
+    "icono": "🌐"
+  },
+  {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
@@ -2000,6 +2087,21 @@
     "icono": "⚡"
   },
   {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "Majstro de acidoj, bazoj kaj reakcioj",
+    "descripcion": "Vi finis la ekzamenon regante la leĝojn de Lavoisier kaj Proust pri maso kaj proporcioj, la teoriojn pri acidoj kaj bazoj, neŭtraligon kaj titradon, la bazajn organikajn reakciojn kaj la kemion de la akvo.",
+    "icono": "⚗️"
+  },
+  {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
@@ -2105,6 +2207,38 @@
     "nombre": "Fakulo pri Evoluo kaj Fiziologio",
     "descripcion": "Vi plenumis la ekzamenon regante speciiĝon, genan drivon, filogenion, nervan kaj endokrinan sistemon, sangopremon kaj la bioetikon de transgenaj organismoj, ĉefo.",
     "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "Majstro de homeostazo kaj sensoj",
+    "descripcion": "Vi finis la ekzamenon regante la homeostazon, la sensojn, la interspeciajn rilatojn, la seksan kaj senseksan reproduktiĝon kaj la sangocirkuladan sistemon.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "Majstro de la homa korpo",
+    "descripcion": "Vi finis la ekzamenon regante la digestan, elimin-, imunan, muskolan, oston kaj spiran sistemojn, kaj la haŭton kun ĝia temperaturreguligo.",
+    "icono": "🦴"
   },
   {
     "id": 879,
@@ -2304,6 +2438,25 @@
     "icono": "🎭"
   },
   {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "Vojaĝanto tra la historio de la arto",
+    "descripcion": "Vi finis la ekzamenon trairante la artojn de Egiptio kaj Mezopotamio, la klasikan, la romanikan kaj la gotikan, la Renesancon kaj la Barokon, la impresionismon, la avangardojn de la 20-a jarcento, la argentinan arton kaj la fotografion kaj filmon kiel arton.",
+    "icono": "🏛️"
+  },
+  {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
@@ -2397,6 +2550,22 @@
     "icono": "💭"
   },
   {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "Fakulo pri Evoluo, Emocio kaj Konduto",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri la kogna evoluo laŭ Piaget kaj Vygotskij, kondiĉado kaj psikologia lernado, emocioj kaj ilia reguligo kaj instigo, personeco kaj grupa psikologio.",
+    "icono": "🧠"
+  },
+  {
     "id": 930,
     "materia": "Ciencia de Materiales",
     "cluster": 1,
@@ -2413,6 +2582,51 @@
     "icono": "🔩"
   },
   {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "Majstro pri la Strukturo de Materialoj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri ligoj kaj atoma strukturo de materialoj, kristalaj strukturoj kaj unuoĉeloj, streĉaj, malmolecaj kaj frapaj provoj kaj ceramikoj, vitroj kaj kunmetitaj materialoj.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "Fakulo pri Alojoj, Aceroj kaj Polimeroj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri kristalaj difektoj kaj dislokacioj, fazaj diagramoj kaj alojoj, hardado kaj formado de metaloj kaj la fer-karbona diagramo kun la aceroj kaj termoplastaj, termodurigeblaj kaj elastomeraj polimeroj.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "Majstro pri Ecoj kaj Traktadoj de Materialoj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri varmotraktadoj: hardado, trempado kaj recoco, elektraj, magnetaj kaj termaj ecoj de materialoj, antaŭzorgo kontraŭ korodo kaj surfaca protekto kaj elekto de materialoj kaj daŭrigebleco.",
+    "icono": "🛠️"
+  },
+  {
     "id": 934,
     "materia": "Dibujo Técnico",
     "cluster": 1,
@@ -2425,6 +2639,51 @@
     ],
     "nombre": "Majstro de Teknika Desegnado",
     "descripcion": "Vi plenumis la ekzamenon regante projekciajn sistemojn, vidojn, izometrian kaj kavaliran perspektivojn, skalojn kaj normigitan kotadon, ĉefo.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "Majstro pri Desegnado, Skizado kaj KAD",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri desegnaj instrumentoj kaj bazaj trasoj, skizado kaj mezurado, priskriba geometrio de punkto, rekto kaj ebeno kaj sekcoj kaj komputil-helpata desegnado.",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "Fakulo pri Normoj kaj Legado de Planoj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri specoj de linioj, formatoj kaj titolskatolo, konstrua geometrio: tanĝantoj kaj ligoj, prezento de ŝraŭboj, ŝraŭbfadenoj kaj kunmetoj, kaj simboloj de veldado kaj legado de planoj de pecoj kaj kunmetaĵoj.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "Majstro pri Toleroj kaj Specialaj Planoj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri toleroj kaj alĝustigoj, malglateco kaj surfaca finpoluro, helpaj vidoj kaj detaloj kaj arkitektura kaj elektra desegnado.",
     "icono": "📏"
   },
   {
@@ -2443,6 +2702,22 @@
     "icono": "📰"
   },
   {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "Fakulo pri Diskurso, Amaskomunikiloj kaj Bildo",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri amaskomunikiloj kaj ciferecaj komunikiloj, diskurskonado kaj amaskomunika enkadrigo, vorta kaj nevorta, parola kaj vidbilda komunikado kaj instituciaj kaj krizkomunikado.",
+    "icono": "🎙️"
+  },
+  {
     "id": 942,
     "materia": "Electrónica",
     "cluster": 1,
@@ -2458,6 +2733,51 @@
     "icono": "🔌"
   },
   {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "Fakulo pri Komponantoj, Diodoj kaj Logikaj Pordoj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri tensia dividilo kaj kolorkodo, ŝargado kaj senŝargado de la RC-kondensatoro kaj induktoroj, diodo, rektifado kaj elektroprovizoj kaj pordoj NAND, NOR kaj XOR kaj ilia universaleco.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "Majstro pri Cifereca Logiko kaj Mikroregiloj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri mezuriloj: multimetro kaj oscilografo, kombina logiko kun sumiloj kaj multipleksiloj, sinsekva logiko kun flipfloboj kaj nombriloj kaj ciferecaj enigoj kaj eligoj de la mikroregilo kaj seria komunikado (UART, I2C kaj SPI).",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "Fakulo pri Transistoroj, Operaciaj Amplifikiloj kaj Signaloj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri la transistoron kiel ŝaltilo kaj amplifikilo, la operacian amplifikilon, analogaj kaj ciferecaj signaloj kun ADC kaj DAC kaj la tempigilo 555 kaj prototipado sur eksperimenta tabulo kun lutado kaj sekureco.",
+    "icono": "⚡"
+  },
+  {
     "id": 946,
     "materia": "Automatización",
     "cluster": 1,
@@ -2471,6 +2791,40 @@
     "nombre": "Fakulo pri Kontrolaj Sistemoj",
     "descripcion": "Vi regis malferman kaj ferman bukon, religon, PID-kontrolon, servomekanismojn kaj kontrolan logikon per PLC, ĉefo.",
     "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "Majstro pri Instrumentado kaj Pelsistemoj",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri ŝalt-malŝalta reguligo kun histerezo, industria instrumentado kaj 4-20 mA-bukloj, modelado de unuaordaj dinamikaj sistemoj kaj elektraj motoroj kaj frekvencŝanĝiloj, kaj prizorgado kaj diagnozo de aŭtomatigitaj sistemoj.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "Fakulo pri PLC, Retoj kaj Altnivela Reguligo",
+    "descripcion": "Vi sukcese trapasis la ekzamenon pri programado de PLC: ŝtupara logiko, tempigiloj, nombriloj kaj GRAFCET, bazaj pneŭmatiko kaj hidraŭliko, industriaj retoj kaj SCADA kaj transira respondo, stabileco, agordo de PID kaj funkcia sekureco kun krizhaltigoj.",
+    "icono": "🏭"
   },
   {
     "id": 950,
@@ -2681,6 +3035,143 @@
     ],
     "nombre": "Gardisto de sano kaj sporto",
     "descripcion": "Vi trapasis la ekzamenon regante la Olimpikajn Ludojn, planadon kaj progresadon de la trejna volumeno, preventon kaj prizorgon (RICE, varmigo, ergonomio), preventon de dependecoj kaj la argentinan leĝon 26.586, unuan helpon, RCP kaj AED kaj drogpolitikojn.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "Dezajnisto de ciferecaj travivaĵoj",
+    "descripcion": "Vi trapasis la ekzamenon regante la analizon de uzdatumoj kaj UX-metrikoj, informarkitekturon kaj navigadon, koloron en interfacoj, voĉajn kaj konversaciajn interfacojn kaj respondeman mobil-unuan dezajnon.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "Strategiisto pri UX kaj alirebleco",
+    "descripcion": "Vi trapasis la ekzamenon regante dezajnan etikon kaj mallumajn ŝablonojn, formularojn kaj mikrointeragojn, la dek heŭristikojn de Nielsen, esploron de uzantoj kaj heŭristikan taksadon, uzantcentran dezajnon, nivelojn de WCAG kaj klavaran navigadon, tipografion kaj dezajnajn sistemojn.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "Historiisto de la pensado",
+    "descripcion": "Vi trapasis la ekzamenon regante la antaŭsokratanojn kaj Sokraton, Platonon kaj Aristotelon, la mezepokan filozofion kaj Tomason de Akvino, la empirismon de Hume, Kanton kaj idealismon, Marx kaj historian materiismon, fenomenologion kaj ekzistadismon, politikan filozofion kaj la filozofion de lingvo kaj scienco.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "Terena etnografo",
+    "descripcion": "Vi trapasis la ekzamenon regante ekonomion kaj povon en socioj, etnografion kaj partoprenan observadon, identecon kaj etnecon, mitojn, ritojn kaj religion kaj la indiĝenajn popolojn de Argentino.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "Analizisto de la socio",
+    "descripcion": "Vi trapasis la ekzamenon regante socian ŝanĝon kaj movadojn, la klasikulojn (Durkheim, Weber kaj Marx), neegalecon kaj klasojn hodiaŭ, metodojn de socia esplorado, socianiĝon kaj rolojn, normojn, valorojn kaj socian kontrolon kaj genron kiel socian kategorion.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "Strategiisto de lernado",
+    "descripcion": "Vi trapasis la ekzamenon regante atenton, koncentriĝon kaj distraĵojn, erarojn kaj religon, aktivan legadon kaj notadon, instigon lerni, planadon de studado kaj tempoadministradon kaj studadon kun aliaj.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "Sekura cifereca civitano",
+    "descripcion": "Vi trapasis la ekzamenon regante algoritmojn, filtrajn vezikojn kaj la atenteconomion, ciberĉikanadon kaj kunvivadon en retoj, pasvortojn kaj aŭtentigon, ciferecajn rajtojn kaj datumprotekton, civitanan partoprenon rete, ŝteladon de datumoj (phishing) kaj retajn fraŭdojn kaj intelektan proprieton kaj ciferecajn licencojn.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "Strategiisto de sportoj",
+    "descripcion": "Vi trapasis la ekzamenon regante la fizikajn kapablojn (forto, eltenemo, fleksebleco kaj rapideco), nutradon kaj hidratigon en fizika agado kaj la regulojn kaj fundamentojn de korbopilko, futbalo, futsalo, manpilko, hokeo, rugbeo kaj flugpilko.",
     "icono": "🏅"
   }
 ]

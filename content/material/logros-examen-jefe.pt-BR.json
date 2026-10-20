@@ -706,6 +706,24 @@
     "icono": "🔄🗣️"
   },
   {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "Mestre da Literatura Argentina e Latino-Americana",
+    "descripcion": "Você concluiu a prova dominando a literatura gauchesca e o Martín Fierro, as vanguardas de Florida e Boedo, Borges e o fantástico rio-platense, Cortázar, o realismo mágico, a narrativa pós-ditadura, a poesia argentina do século XX e os mitos e lendas dos povos originários.",
+    "icono": "📚"
+  },
+  {
     "id": 681,
     "materia": "Historia profunda",
     "cluster": 1,
@@ -1025,6 +1043,17 @@
     "icono": "🌍"
   },
   {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "Explorador da Corrida Espacial",
+    "descripcion": "Você concluiu a prova dominando a corrida espacial da Guerra Fria: o Sputnik, o voo de Gagarin, a chegada da Apollo 11 à Lua e a missão conjunta Apollo-Soyuz.",
+    "icono": "🚀"
+  },
+  {
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
@@ -1328,6 +1357,20 @@
     "nombre": "Mestre da Energia e das suas Máquinas",
     "descripcion": "Você dominou a conservação da energia mecânica, a energia potencial gravitacional, a potência, os choques elásticos e inelásticos, a transmissão do calor e geradores, motores e transformadores.",
     "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "Mestre de Fluidos, Termodinâmica e Ondas",
+    "descripcion": "Você concluiu a prova dominando a equação de Bernoulli e a dinâmica dos fluidos, a primeira lei da termodinâmica, o movimento harmônico simples e as ondas estacionárias, e as energias renováveis e sua transformação.",
+    "icono": "🌊"
   },
   {
     "id": 766,
@@ -1706,6 +1749,37 @@
     "icono": "🌋"
   },
   {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "Explorador de Continentes e Clima",
+    "descripcion": "Você concluiu a prova percorrendo a África, a Ásia, o Brasil e a China, e acrescentou as causas, os efeitos e os acordos sobre a mudança climática.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "Cidadão do Mundo",
+    "descripcion": "Você concluiu a prova percorrendo a Europa e a União Europeia, o Oriente Médio, a Oceania e a Antártida, a Rússia e a Ásia Central, e a África do Sul, e acrescentou as redes globais de transporte e comunicação.",
+    "icono": "🌏"
+  },
+  {
     "id": 816,
     "materia": "Informática",
     "cluster": 1,
@@ -1878,6 +1952,19 @@
     "icono": "🛡️"
   },
   {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "Construtor de Redes e Páginas Web",
+    "descripcion": "Você concluiu a prova dominando as redes locais e o wi-fi, os bancos de dados não relacionais e como se constrói uma página web com HTML, CSS e JavaScript.",
+    "icono": "🌐"
+  },
+  {
     "id": 841,
     "materia": "Química",
     "cluster": 1,
@@ -2000,6 +2087,21 @@
     "icono": "⚡"
   },
   {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "Mestre de Ácidos, Bases e Reações",
+    "descripcion": "Você concluiu a prova dominando as leis ponderais de Lavoisier e Proust, as teorias de ácidos e bases, a neutralização e a titulação, as reações orgânicas básicas e a química da água.",
+    "icono": "⚗️"
+  },
+  {
     "id": 861,
     "materia": "Biología",
     "cluster": 1,
@@ -2105,6 +2207,38 @@
     "nombre": "Especialista em Evolução e Fisiologia",
     "descripcion": "Você completou o parcial dominando a especiação, a deriva genética, a filogenia, o sistema nervoso e endócrino, a pressão arterial e a bioética dos transgênicos, chefe.",
     "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "Mestre da Homeostase e dos Sentidos",
+    "descripcion": "Você concluiu a prova dominando a homeostase, os sentidos, as relações interespecíficas, a reprodução sexuada e assexuada e o sistema circulatório.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "Mestre do Corpo Humano",
+    "descripcion": "Você concluiu a prova dominando os sistemas digestório, excretor, imunológico, muscular, ósseo e respiratório, e a pele com sua termorregulação.",
+    "icono": "🦴"
   },
   {
     "id": 879,
@@ -2304,6 +2438,25 @@
     "icono": "🎭"
   },
   {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "Viajante pela História da Arte",
+    "descripcion": "Você concluiu a prova percorrendo a arte do Egito e da Mesopotâmia, a arte clássica, românica e gótica, o Renascimento e o Barroco, o impressionismo, as vanguardas do século XX, a arte argentina e a fotografia e o cinema como arte.",
+    "icono": "🏛️"
+  },
+  {
     "id": 912,
     "materia": "Investigación",
     "cluster": 1,
@@ -2397,6 +2550,22 @@
     "icono": "💭"
   },
   {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "Especialista em Desenvolvimento, Emoção e Comportamento",
+    "descripcion": "Você passou na prova dominando o desenvolvimento cognitivo segundo Piaget e Vygotsky, o condicionamento e a aprendizagem psicológica, as emoções e a regulação emocional e a motivação, a personalidade e a psicologia dos grupos.",
+    "icono": "🧠"
+  },
+  {
     "id": 930,
     "materia": "Ciencia de Materiales",
     "cluster": 1,
@@ -2413,6 +2582,51 @@
     "icono": "🔩"
   },
   {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "Mestre da Estrutura dos Materiais",
+    "descripcion": "Você passou na prova dominando as ligações e a estrutura atómica dos materiais, as estruturas cristalinas e as células unitárias, os ensaios de tração, dureza e impacto e as cerâmicas, os vidros e os materiais compósitos.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "Especialista em Ligas, Aços e Polímeros",
+    "descripcion": "Você passou na prova dominando os defeitos cristalinos e as deslocações, os diagramas de fase e as ligas, o endurecimento e a conformação dos metais e o diagrama ferro-carbono com os aços e os polímeros termoplásticos, termoendurecíveis e elastómeros.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "Mestre das Propriedades e Tratamentos dos Materiais",
+    "descripcion": "Você passou na prova dominando os tratamentos térmicos: têmpera, revenido e recozimento, as propriedades elétricas, magnéticas e térmicas dos materiais, a prevenção da corrosão e a proteção superficial e a seleção de materiais e a sustentabilidade.",
+    "icono": "🛠️"
+  },
+  {
     "id": 934,
     "materia": "Dibujo Técnico",
     "cluster": 1,
@@ -2425,6 +2639,51 @@
     ],
     "nombre": "Mestre do Desenho Técnico",
     "descripcion": "Você completou o parcial dominando sistemas de projeção, vistas, perspectivas isométrica e cavaleira, escalas e cotagem normalizada, chefe.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "Mestre do Traçado, do Esboço e do CAD",
+    "descripcion": "Você passou na prova dominando os instrumentos de desenho e os traços básicos, o esboço e o levantamento de medidas, a geometria descritiva de ponto, reta e plano e os cortes e secções e o desenho assistido por computador.",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "Especialista em Normas e Leitura de Desenhos",
+    "descripcion": "Você passou na prova dominando os tipos de linha, os formatos e a legenda, a geometria construtiva: tangências e concordâncias, a representação de roscas, parafusos e uniões e os símbolos de soldadura e a interpretação de desenhos de peças e conjuntos.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "Mestre das Tolerâncias e dos Desenhos Especializados",
+    "descripcion": "Você passou na prova dominando as tolerâncias e os ajustamentos, a rugosidade e o acabamento superficial, as vistas auxiliares e os pormenores e o desenho arquitetónico e o desenho elétrico.",
     "icono": "📏"
   },
   {
@@ -2443,6 +2702,22 @@
     "icono": "📰"
   },
   {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "Especialista em Discurso, Meios e Imagem",
+    "descripcion": "Você passou na prova dominando os meios de comunicação de massa e digitais, a análise do discurso e o enquadramento mediático, a comunicação verbal e não verbal, oral e visual e a comunicação institucional e de crise.",
+    "icono": "🎙️"
+  },
+  {
     "id": 942,
     "materia": "Electrónica",
     "cluster": 1,
@@ -2458,6 +2733,51 @@
     "icono": "🔌"
   },
   {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "Especialista em Componentes, Díodos e Portas Lógicas",
+    "descripcion": "Você passou na prova dominando o divisor de tensão e o código de cores, a carga e a descarga do condensador RC e os indutores, o díodo, a retificação e as fontes de alimentação e as portas NAND, NOR e XOR e a sua universalidade.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "Mestre da Lógica Digital e dos Microcontroladores",
+    "descripcion": "Você passou na prova dominando os instrumentos de medição: multímetro e osciloscópio, a lógica combinatória com somadores e multiplexadores, a lógica sequencial com flip-flops e contadores e as entradas e saídas digitais do microcontrolador e a comunicação série (UART, I2C e SPI).",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "Especialista em Transístores, Amplificadores Operacionais e Sinais",
+    "descripcion": "Você passou na prova dominando o transístor como interruptor e amplificador, o amplificador operacional, os sinais analógicos e digitais com ADC e DAC e o temporizador 555 e a prototipagem em breadboard com soldadura e segurança.",
+    "icono": "⚡"
+  },
+  {
     "id": 946,
     "materia": "Automatización",
     "cluster": 1,
@@ -2471,6 +2791,40 @@
     "nombre": "Especialista em Sistemas de Controle",
     "descripcion": "Você dominou a malha aberta e fechada, a realimentação, o controle PID, os servomecanismos e a lógica de controle com CLP, chefe.",
     "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "Mestre da Instrumentação e dos Acionamentos",
+    "descripcion": "Você passou na prova dominando o controlo on-off com histerese, a instrumentação industrial e as malhas 4-20 mA, a modelação de sistemas dinâmicos de primeira ordem e os motores elétricos e variadores de frequência, e a manutenção e diagnóstico de sistemas automatizados.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "Especialista em PLC, Redes e Controlo Avançado",
+    "descripcion": "Você passou na prova dominando a programação de PLC: ladder, temporizadores, contadores e GRAFCET, a pneumática e a hidráulica básicas, as redes industriais e o SCADA e a resposta transitória, a estabilidade, a sintonia do PID e a segurança funcional com paragens de emergência.",
+    "icono": "🏭"
   },
   {
     "id": 950,
@@ -2681,6 +3035,143 @@
     ],
     "nombre": "Guardião da Saúde e do Esporte",
     "descripcion": "Você passou na prova dominando os Jogos Olímpicos, o planejamento e a progressão do volume, a prevenção e o cuidado (RICE, aquecimento, ergonomia), a prevenção de dependências e a Lei argentina 26.586, os primeiros socorros, a RCP e o DEA e as políticas de drogas.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "Designer de Experiências Digitais",
+    "descripcion": "Você passou na prova dominando a análise de dados de uso e métricas de UX, a arquitetura da informação e a navegação, a cor em interfaces, o design para voz e conversação e o design responsivo e mobile-first.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "Estrategista de UX e Acessibilidade",
+    "descripcion": "Você passou na prova dominando a ética do design e os dark patterns, os formulários e as microinterações, as dez heurísticas de Nielsen, a pesquisa com usuários e a avaliação heurística, o design centrado no usuário, os níveis WCAG e a navegação por teclado, a tipografia e os sistemas de design.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "Historiador do Pensamento",
+    "descripcion": "Você passou na prova dominando os pré-socráticos e Sócrates, Platão e Aristóteles, a filosofia medieval e Santo Tomás, o empirismo de Hume, Kant e o idealismo, Marx e o materialismo histórico, a fenomenologia e o existencialismo, a filosofia política e a filosofia da linguagem e da ciência.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "Etnógrafo de Campo",
+    "descripcion": "Você passou na prova dominando a economia e o poder nas sociedades, a etnografia e a observação participante, a identidade e a etnicidade, o mito, o ritual e a religião e os povos originários da Argentina.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "Analista da Sociedade",
+    "descripcion": "Você passou na prova dominando a mudança social e os movimentos, os clássicos (Durkheim, Weber e Marx), a desigualdade e as classes hoje, os métodos de pesquisa social, a socialização e os papéis, as normas, os valores e o controle social, e o gênero como categoria social.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "Estrategista da Aprendizagem",
+    "descripcion": "Você passou na prova dominando a atenção, a concentração e as distrações, o erro e o feedback, a leitura ativa e a tomada de notas, a motivação para aprender, o planejamento do estudo e a gestão do tempo e o estudo com outras pessoas.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "Cidadão Digital Seguro",
+    "descripcion": "Você passou na prova dominando os algoritmos, as bolhas e a economia da atenção, o cyberbullying e a convivência nas redes, as senhas e a autenticação, os direitos digitais e a proteção de dados, a participação cidadã on-line, o phishing e os golpes on-line, e a propriedade intelectual e as licenças digitais.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "Estrategista dos Esportes",
+    "descripcion": "Você passou na prova dominando as capacidades físicas (força, resistência, flexibilidade e velocidade), a nutrição e a hidratação na atividade física, e o regulamento e os fundamentos do basquete, do futebol, do futsal, do handebol, do hóquei, do rúgbi e do vôlei.",
     "icono": "🏅"
   }
 ]
