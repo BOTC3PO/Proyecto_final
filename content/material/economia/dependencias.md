@@ -84,9 +84,9 @@ Eggers Francisco, Casani/Llorente/Pérez). `teoria.md` con qwen,
 | `contabilidad-como-sistema-de-informacion/` | `estados-contables/` | Nodo `E20A4` (`E20D --> E20A4`). |
 | `indices-financieros/` | `estados-contables/` | Nodo `E20A5` (`E20D --> E20A5`), hermano de `E20A4`. |
 | `contabilidad-ambiental/` | `estados-contables/` | Nodo `E20A6` (`E20D --> E20A6`), hermano de `E20A4`/`E20A5`. |
-| `vision-y-mision-organizacional/` | `../gestion-de-proyectos/` (meta-tronco genérico, GP1) | Nodo `PROY1` (`GP1 --> PROY1`). |
+| `vision-y-mision-organizacional/` | `../resolucion-problemas/definir-alcance-y-objetivos/` (meta-tronco genérico, GP1) | Nodo `PROY1` (`GP1 --> PROY1`). |
 | `estudio-de-contexto-para-un-proyecto/` | `vision-y-mision-organizacional/` | Nodo `PROY2` (`PROY1 --> PROY2`). |
-| `tipos-de-proyecto/` | `../gestion-de-proyectos/` | Nodo `PROY3` (`GP1 --> PROY3`), hermano de `PROY1`. |
+| `tipos-de-proyecto/` | `../resolucion-problemas/definir-alcance-y-objetivos/` | Nodo `PROY3` (`GP1 --> PROY3`), hermano de `PROY1`. |
 | `costo-de-oportunidad/` | `iva/`, `precio-final/` | Nodo `ECF1` (`E2 --> ECF1`). 0 resultados en grep pese a ser de los conceptos más básicos de economía. |
 | `division-formal-microeconomia-macroeconomia/` | `costo-de-oportunidad/` | Nodo `ECF2` (`ECF1 --> ECF2`). |
 | `sectores-economicos/` | `division-formal-microeconomia-macroeconomia/` | Nodo `ECF3` (`ECF2 --> ECF3`). |

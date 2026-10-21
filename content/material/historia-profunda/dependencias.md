@@ -41,9 +41,9 @@ fila antes de escribir teoría/cuestionario.
 | `nucleosintesis/` | `formacion-de-estrellas/` | Nodo `U4` de `troncos.md` (`U3 → U4`). Cruce citado como "el más potente del mapa": alimenta `tabla-periodica-nivel2-cosmologico` y `../quimica/tabla-periodica-tendencias/` (nivel 2). |
 | `formacion-del-sistema-solar/` | `nucleosintesis/` | Nodo `U5` de `troncos.md` (`U4 → U5`). |
 | `movimiento-rotacion-traslacion/` | `formacion-del-sistema-solar/` | Nodo `AS1` de `troncos.md` (`U5 → AS1`). |
-| `estaciones-del-ano/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia/` | Nodo `AS2` de `troncos.md` (`AS1 → AS2`, `GO6P → AS2`). |
-| `fases-lunares/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia/` | Nodo `AS3` de `troncos.md` (`AS1 → AS3`, `GO6P → AS3`). |
-| `eclipses-sol-luna/` | `fases-lunares/`, `../matematica/circunferencia/` | Nodo `AS4` de `troncos.md` (`AS3 → AS4`, `GO6P → AS4`). |
+| `estaciones-del-ano/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia-y-circulo/` | Nodo `AS2` de `troncos.md` (`AS1 → AS2`, `GO6P → AS2`). |
+| `fases-lunares/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia-y-circulo/` | Nodo `AS3` de `troncos.md` (`AS1 → AS3`, `GO6P → AS3`). |
+| `eclipses-sol-luna/` | `fases-lunares/`, `../matematica/circunferencia-y-circulo/` | Nodo `AS4` de `troncos.md` (`AS3 → AS4`, `GO6P → AS4`). |
 | `movimiento-aparente-constelaciones/` | `movimiento-rotacion-traslacion/` | Nodo `AS5` de `troncos.md` (`AS1 → AS5`). |
 | `tierra-primitiva-diferenciacion/` | `formacion-del-sistema-solar/` | Nodo `U6` de `troncos.md` (`U5 → U6`). |
 | `tiempo-geologico-eones-eras-periodos/` | `tierra-primitiva-diferenciacion/` | Nodos `U7a/b/c` de `troncos.md` (`U6 → U7a → U7b → U7c`). Un solo módulo (eones, eras y períodos son la misma escala de anidamiento, no 3 habilidades distintas) — mismo criterio que otros "no se separa" del mapa. |
