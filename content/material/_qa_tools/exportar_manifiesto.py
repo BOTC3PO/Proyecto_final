@@ -128,10 +128,16 @@ def main():
             src = f.read_text(encoding="utf-8"); h = re.search(r"^#\s*(.+)$", src, flags=re.M)
             lang = f.stem; mm = re.search(r"Logro\s*#(\d+)", src)
             rutas = [t for (m, r), t in por_ruta.items() if m == "idiomas-extranjeros" and r.startswith(lang + "/")]
-            deps_ids = {d for t in rutas for d in t["dependencias"]}
-            finales = [t["id"] for t in rutas if t["id"] not in deps_ids]
+            # La certificación pide todo hasta B2 (o su equivalente); el C1 es un extra y no entra en el logro.
+            # Los temas no-C1 nunca dependen de uno C1, así que exigir los "finales" no-C1 exige todo lo demás (cierre transitivo).
+            C1 = {"C1", "N1", "HSK5-6", "HSK56", "AVANZADO", "AVANZADA"}
+            base = [t for t in rutas if (t["nivel"] or "").strip().upper() not in C1]
+            ids_base = {t["id"] for t in base}
+            deps_ids = {d for t in base for d in t["dependencias"] if d in ids_base}
+            finales = [t["id"] for t in base if t["id"] not in deps_ids]
             examenes.append({"id": f"cont:examen-jefe-idiomas/{lang}", "logro": int(mm.group(1)) if mm else None, "materia": "idiomas-extranjeros",
-                             "titulo": re.sub(r"^Examen jefe\s*[—-]\s*", "", h.group(1)).strip() if h else lang, "descripcion": "",
+                             "titulo": re.sub(r"^Examen jefe\s*[—-]\s*", "", h.group(1)).strip() if h else lang,
+                             "descripcion": "Certificación del idioma. Para rendirla hay que completar todos los temas hasta el nivel B2 (o su equivalente); el nivel C1 es un extra y no forma parte del logro.",
                              "temas": finales, "preguntas": [{"titulo": t, "dsl": b} for t, b in bloques(src)]})
     libros = []
     if not sel:
