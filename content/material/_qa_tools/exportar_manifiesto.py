@@ -108,6 +108,36 @@ def main():
             deps = [modulo_id(*x) for x in dd.get(rel, []) if x in existentes]
             temas.append({"id": modulo_id(m, rel), "materia": m, "ruta": rel, "titulo": titulo or rel, "teoria": texto, "nivel": nivel,
                           "dependencias": deps, "preguntas": preguntas})
-    salida.write_text(json.dumps({"version": 1, "temas": temas}, ensure_ascii=False), encoding="utf-8")
-    print(f"{len(temas)} temas, {sum(len(t['preguntas']) for t in temas)} preguntas, {sum(len(t['dependencias']) for t in temas)} dependencias -> {salida}")
+    por_ruta = {(t["materia"], t["ruta"]): t for t in temas}
+    def tema_de(materia, slug):
+        c = [t for (m, r), t in por_ruta.items() if m == materia and (r == slug or r.endswith("/" + slug)) and t["preguntas"]]
+        return c[0]["id"] if c else None
+    EJMAP = {"UX/Diseño": "diseño", "Ciencia de Materiales": "materiales", "Resolución de Problemas": "resolucion-problemas", "Dibujo Técnico": "dibujo-tecnico",
+             "Ciudadanía Digital": "ciudadania-digital", "Ed. Física": "ed-fisica"}
+    examenes = []
+    if not sel:
+        # Exámenes jefe de materia: juntan las preguntas de varios temas (las mismas de sus cuestionarios).
+        for l in json.load(open(MAT / "logros-examen-jefe.json", encoding="utf-8")):
+            m = EJMAP.get(l["materia"]) or __import__("verificar_examen_jefe").slug(l["materia"])
+            ids = [tema_de(m, x) for x in l["temas"]]
+            examenes.append({"id": f"cont:examen-jefe/{l['id']}", "logro": l["id"], "materia": m, "titulo": l["nombre"], "descripcion": l["descripcion"],
+                             "temas": [i for i in ids if i], "preguntas": []})
+        # Exámenes jefe de idiomas: tienen preguntas propias (no salen de los temas).
+        idi = MAT / "idiomas-extranjeros"
+        for f in sorted((MAT / "examen-jefe-idiomas").glob("*.md")):
+            src = f.read_text(encoding="utf-8"); h = re.search(r"^#\s*(.+)$", src, flags=re.M)
+            lang = f.stem; mm = re.search(r"Logro\s*#(\d+)", src)
+            rutas = [t for (m, r), t in por_ruta.items() if m == "idiomas-extranjeros" and r.startswith(lang + "/")]
+            deps_ids = {d for t in rutas for d in t["dependencias"]}
+            finales = [t["id"] for t in rutas if t["id"] not in deps_ids]
+            examenes.append({"id": f"cont:examen-jefe-idiomas/{lang}", "logro": int(mm.group(1)) if mm else None, "materia": "idiomas-extranjeros",
+                             "titulo": re.sub(r"^Examen jefe\s*[—-]\s*", "", h.group(1)).strip() if h else lang, "descripcion": "",
+                             "temas": finales, "preguntas": [{"titulo": t, "dsl": b} for t, b in bloques(src)]})
+    libros = []
+    if not sel:
+        for f in sorted((MAT / "teoria-extendida").glob("*.json")):
+            b = json.load(open(f, encoding="utf-8")); m = {"ux-diseno": "diseño"}.get(f.stem, f.stem)
+            libros.append({"id": f"cont:libro/{m}", "materia": m, "titulo": b["metadata"]["title"], "libro": json.dumps(b, ensure_ascii=False)})
+    salida.write_text(json.dumps({"version": 2, "temas": temas, "examenes": examenes, "libros": libros}, ensure_ascii=False), encoding="utf-8")
+    print(f"{len(temas)} temas, {sum(len(t['preguntas']) for t in temas)} preguntas, {sum(len(t['dependencias']) for t in temas)} dependencias, {len(examenes)} exámenes jefe, {len(libros)} libros -> {salida}")
 main()
