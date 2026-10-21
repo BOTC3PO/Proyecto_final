@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+"""Exporta el temario a un manifiesto JSON que consume `api/scripts/importar_contenido.ts`.
+
+Un registro por tema (carpeta con teoria.md y/o cuestionario.md): título, teoría limpia, nivel, preguntas VBLang
+(una por bloque ```), y dependencias resueltas a ids de módulo. No toca ninguna base.
+Uso: python3 content/material/_qa_tools/exportar_manifiesto.py SALIDA.json [materia ...]
+"""
+import json, re, sys, hashlib
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+MAT = Path(__file__).resolve().parents[1]
+EXCLUIR = ("_", "examen-jefe", "teoria-extendida")
+
+def modulo_id(materia, rel): return f"cont:{materia}/{rel}"
+
+def limpiar_teoria(t):
+    L = t.split("\n"); i = 0
+    while i < len(L) and not L[i].startswith("# "): i += 1
+    head = L[i][2:].strip() if i < len(L) else ""
+    rest = L[i + 1:]; j = 0
+    while j < len(rest) and not rest[j].strip(): j += 1
+    if j < len(rest) and rest[j].startswith(">"):            # párrafo inicial de referencias internas
+        while j < len(rest) and rest[j].strip(): j += 1
+        rest = rest[j:]
+    out, skip = [], False
+    for l in rest:
+        if re.match(r"^##\s+Tipo de teor[ií]a", l): skip = True; continue
+        if skip:
+            if l.startswith("## "): skip = False
+            elif l.strip() == "---": skip = False; continue
+            else: continue
+        out.append(l)
+    txt = "\n".join(out)
+    INT = re.compile(r"_plan-faltantes|_borradores|troncos\.md|dependencias\.md|PROCEDIMIENTO|lista-temas-plana|\bMAPA\b|\bDSL\b|VBLang|Borrador de partida|propuesto en|ficha-de-bloque|cuestionario\.md|teoria\.md")
+    txt = "\n\n".join(p for p in re.split(r"\n\s*\n", txt) if not INT.search(p))
+    def rp(m):
+        seg = [x for x in m.group(1).split("/") if x and x not in (".", "..") and not x.endswith(".md")]
+        return "«" + (seg[-1].replace("-", " ") if seg else "tema") + "»"
+    txt = re.sub(r"`((?:\.\./|\./)[^`]*)`", rp, txt)
+    head = re.sub(r"\s*\((teor[ií]a|cuestionario)[^)]*\)\s*$", "", head)
+    return head, txt.strip()
+
+def bloques(texto):
+    L = texto.split("\n"); out = []; titulo = ""; i = 0
+    while i < len(L):
+        if re.match(r"^###\s", L[i]): titulo = re.sub(r"^###\s*", "", L[i])
+        if re.match(r"^```\w*\s*$", L[i]):
+            j = i + 1
+            while j < len(L) and L[j].strip() != "```": j += 1
+            if j < len(L): out.append((titulo, "\n".join(L[i + 1:j]))); i = j
+        i += 1
+    return out
+
+def deps_de(materia):
+    """{tema_rel: [(materia_dest, rel_dest)]} leyendo las tablas de dependencias.md (rutas relativas a la materia o al tema)."""
+    p = MAT / materia / "dependencias.md"; res = {}
+    if not p.exists(): return res
+    for line in p.read_text(encoding="utf-8").splitlines():
+        if not line.strip().startswith("|"): continue
+        cols = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cols) < 2: continue
+        t = re.findall(r"`([^`]+?)/?`", cols[0])
+        if not t or set(cols[0]) <= set("-: "): continue
+        tema = t[0].strip("/").lstrip("./")
+        ds = []
+        for tok in re.findall(r"`([^`\s]+?)/?`", cols[1]):
+            tok = tok.strip("/")
+            if tok.endswith(".md") or tok in ("", "—", "-") or " " in tok: continue
+            for base in (MAT / materia / tema, MAT / materia):
+                tgt = (base / tok).resolve()
+                if tgt.exists() and tgt.is_dir():
+                    try: rel = tgt.relative_to(MAT)
+                    except ValueError: continue
+                    parts = rel.parts
+                    if len(parts) >= 2: ds.append((parts[0], "/".join(parts[1:])))
+                    break
+            else:
+                # tema hermano dentro del mismo oficio/materia (nombre corto)
+                par = Path(tema).parent
+                for cand in (par / tok, Path(tok)):
+                    if (MAT / materia / cand).is_dir(): ds.append((materia, cand.as_posix())); break
+        res.setdefault(tema, [])
+        for d in ds:
+            if d not in res[tema] and d != (materia, tema): res[tema].append(d)
+    return res
+
+def main():
+    salida = Path(sys.argv[1]); sel = sys.argv[2:]
+    mats = [p.name for p in sorted(MAT.iterdir()) if p.is_dir() and not p.name.startswith(EXCLUIR) and (not sel or p.name in sel)]
+    temas = []; existentes = set()
+    for m in mats:
+        for f in sorted((MAT / m).rglob("*.md")):
+            if f.name in ("teoria.md", "cuestionario.md"): existentes.add((m, f.parent.relative_to(MAT / m).as_posix()))
+    for m in mats:
+        dd = deps_de(m)
+        for (mm, rel) in sorted(x for x in existentes if x[0] == m):
+            d = MAT / m / rel
+            teo = d / "teoria.md"; cu = d / "cuestionario.md"
+            titulo, texto = (limpiar_teoria(teo.read_text(encoding="utf-8")) if teo.exists() else (rel.split("/")[-1], ""))
+            titulo = re.sub(r"^.*? — ", "", titulo) if " — " in titulo else titulo
+            preguntas = []; nivel = None
+            if cu.exists():
+                src = cu.read_text(encoding="utf-8")
+                for n, (t, b) in enumerate(bloques(src), 1):
+                    if re.search(r"\bMAPA\b|Tronco \d|`[A-Z]{1,6}\d+[a-z]?`|troncos\.md|dependencias\.md|\bDSL\b|VBLang|_plan-faltantes|PROCEDIMIENTO", b): continue
+                    mn = re.search(r'nivel:\s*"([^"]+)"', b); nivel = nivel or (mn.group(1).strip() if mn else None)
+                    preguntas.append({"titulo": t, "dsl": b})
+            deps = [modulo_id(*x) for x in dd.get(rel, []) if x in existentes]
+            temas.append({"id": modulo_id(m, rel), "materia": m, "ruta": rel, "titulo": titulo or rel, "teoria": texto, "nivel": nivel,
+                          "dependencias": deps, "preguntas": preguntas})
+    salida.write_text(json.dumps({"version": 1, "temas": temas}, ensure_ascii=False), encoding="utf-8")
+    print(f"{len(temas)} temas, {sum(len(t['preguntas']) for t in temas)} preguntas, {sum(len(t['dependencias']) for t in temas)} dependencias -> {salida}")
+main()
