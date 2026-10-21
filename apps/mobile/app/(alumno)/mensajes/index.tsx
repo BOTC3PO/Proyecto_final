@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
-import { apiGet, apiPost } from "../../../src/api/client";
+import { apiGetAllItems, apiPost } from "../../../src/api/client";
 import { colors } from "../../../src/theme/tokens";
 import type { Aviso, Hilo } from "../../../src/types/mensajeria";
 
@@ -21,8 +21,8 @@ export default function MensajesIndex() {
 
   useEffect(() => {
     let active = true;
-    apiGet<{ items: Hilo[] }>("/api/mensajeria/hilos")
-      .then((res) => active && setHilos(res.items ?? []))
+    apiGetAllItems<Hilo>("/api/mensajeria/hilos", 200)
+      .then((items) => active && setHilos(items))
       .catch(() => active && setHilos([]));
     return () => {
       active = false;
@@ -32,8 +32,8 @@ export default function MensajesIndex() {
   useEffect(() => {
     if (tab !== "avisos" || avisos !== null) return;
     let active = true;
-    apiGet<{ items: Aviso[] }>("/api/mensajeria/avisos")
-      .then((res) => active && setAvisos(res.items ?? []))
+    apiGetAllItems<Aviso>("/api/mensajeria/avisos", 200)
+      .then((items) => active && setAvisos(items))
       .catch(() => active && setAvisos([]));
     return () => {
       active = false;

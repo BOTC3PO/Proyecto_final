@@ -18,7 +18,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, AppState, Linking, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { apiGet, apiPost } from "../../src/api/client";
+import { apiGetAllItems, apiPost } from "../../src/api/client";
 import { colors } from "../../src/theme/tokens";
 import type { CuotaAlumno } from "../../src/types/padre";
 
@@ -48,8 +48,8 @@ export default function PadrePagos() {
   const esperandoRegreso = useRef(false);
 
   const load = () => {
-    apiGet<{ items: CuotaAlumno[] }>("/api/cuotas/mias")
-      .then((res) => setItems(res.items))
+    apiGetAllItems<CuotaAlumno>("/api/cuotas/mias", 200)
+      .then((items) => setItems(items))
       .catch((e) => setError(e instanceof Error ? e.message : "No pudimos cargar tus cuotas."));
   };
 

@@ -7,6 +7,7 @@
  */
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Text, TouchableOpacity, View } from "react-native";
+import { router } from "expo-router";
 import { apiGet } from "../../src/api/client";
 import { colors } from "../../src/theme/tokens";
 import type { ChildProgress } from "../../src/types/padre";
@@ -84,7 +85,12 @@ export default function PadreHijos() {
 
   return (
     <View className="flex-1 bg-vb-bg">
-      <Text className="text-2xl font-bold text-vb-text px-4 pt-4 pb-2">Hijos</Text>
+      <View className="flex-row items-center justify-between px-4 pt-4 pb-2">
+        <Text className="text-2xl font-bold text-vb-text">Hijos</Text>
+        <TouchableOpacity onPress={() => router.push("/(padre)/vincular")} className="border border-vb-border rounded-lg px-3 py-2">
+          <Text className="text-sm text-vb-primary">+ Agregar hijo</Text>
+        </TouchableOpacity>
+      </View>
       {error ? (
         <Text className="text-sm text-vb-danger px-4">{error}</Text>
       ) : !hijos ? (
@@ -96,7 +102,7 @@ export default function PadreHijos() {
           contentContainerStyle={{ padding: 16, paddingTop: 4, gap: 8 }}
           ListEmptyComponent={
             <Text className="text-sm text-vb-muted text-center mt-8">
-              Todavía no tenés hijos vinculados.
+              Todavía no tenés hijos vinculados. Tocá «Agregar hijo» e ingresá el código que te dio la escuela.
             </Text>
           }
           renderItem={({ item }) => <HijoCard hijo={item} />}

@@ -6,7 +6,7 @@
  */
 import { useEffect, useState } from "react";
 import { ActivityIndicator, ScrollView, Text, View } from "react-native";
-import { apiGet } from "../../src/api/client";
+import { apiGet, apiGetAllItems } from "../../src/api/client";
 import { useAuth } from "../../src/auth/AuthContext";
 import type { ModuloResumen, ProgressResponse, TareaResumen } from "../../src/types/dashboard";
 
@@ -23,7 +23,7 @@ export default function AlumnoInicio() {
     if (!user?.id) return;
     let active = true;
     Promise.all([
-      apiGet<{ items: ModuloResumen[] }>("/api/modulos"),
+      apiGetAllItems<ModuloResumen>("/api/modulos"),
       apiGet<ProgressResponse>(`/api/progreso?usuarioId=${user.id}`),
     ])
       .then(([modulesRes, progressRes]) => {
@@ -31,8 +31,8 @@ export default function AlumnoInicio() {
         const completedSet = new Set(
           progressRes.items.filter((i) => i.status === "completado").map((i) => i.moduloId),
         );
-        const total = modulesRes.items.length;
-        const completed = modulesRes.items.filter((m) => completedSet.has(m.id)).length;
+        const total = modulesRes.length;
+        const completed = modulesRes.filter((m) => completedSet.has(m.id)).length;
         setStats({
           completedModules: completed,
           modulesCount: total,

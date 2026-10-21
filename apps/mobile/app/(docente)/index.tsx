@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
 import { Feather } from "@expo/vector-icons";
-import { apiGet } from "../../src/api/client";
+import { apiGetAllItems } from "../../src/api/client";
 import { colors } from "../../src/theme/tokens";
 import type { Aula } from "../../src/types/docente";
 
@@ -17,8 +17,8 @@ export default function DocenteAulas() {
 
   useEffect(() => {
     let active = true;
-    apiGet<{ items: Aula[] }>("/api/aulas")
-      .then((res) => active && setAulas(res.items))
+    apiGetAllItems<Aula>("/api/aulas", 200)
+      .then((items) => active && setAulas(items))
       .catch((e) => active && setError(e instanceof Error ? e.message : "No se pudieron cargar las aulas."));
     return () => {
       active = false;
