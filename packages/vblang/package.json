@@ -13,13 +13,13 @@
     "prepare": "pnpm run build"
   },
   "dependencies": {
-    "mathjs": "^15.1.1"
+    "mathjs": "15.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.0",
+    "@types/node": "22.19.19",
     "typescript": "5.9.3",
-    "vitest": "^4.1.6",
-    "esbuild": "^0.28.0"
+    "vitest": "4.1.12",
+    "esbuild": "0.28.2"
   },
   "exports": {
     ".": {
