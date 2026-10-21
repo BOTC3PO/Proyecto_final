@@ -6,8 +6,8 @@
  */
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import * as SecureStore from "../lib/secureStorage";
-import { loginRequest, setAuthTokens, hydrateTokensFromStore, getAuthToken } from "../api/client";
-import type { User } from "../types/auth";
+import { apiGet, apiPost, loginRequest, setAuthTokens, hydrateTokensFromStore, getAuthToken, getRefreshToken } from "../api/client";
+import type { EscuelaDisponible, User } from "../types/auth";
 
 const USER_STORE_KEY = "auth.user";
 
@@ -25,6 +25,10 @@ type AuthContextValue = {
   status: AuthStatus;
   login: (identifier: string, password: string) => Promise<User>;
   logout: () => Promise<void>;
+  /** Escuelas a las que puede entrar esta cuenta (una sola mientras no haya membresías en otras). */
+  fetchMisEscuelas: () => Promise<EscuelaDisponible[]>;
+  /** Cambia la escuela activa: el backend emite un token nuevo con los roles de ESA escuela. `rol` solo hace falta para actuar con un rol que no es el principal. */
+  cambiarEscuela: (escuelaId: string, rol?: string) => Promise<User>;
 };
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -86,7 +90,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setStatus("signedOut");
   };
 
-  const value = useMemo(() => ({ user, status, login, logout }), [user, status]);
+  const fetchMisEscuelas = async (): Promise<EscuelaDisponible[]> => {
+    const res = await apiGet<{ items: EscuelaDisponible[] }>("/api/membresias/mis-escuelas");
+    return res.items ?? [];
+  };
+
+  // Espejo de `cambiarEscuela` en apps/web/src/auth/auth-provider.tsx: la cuenta no cambia, cambia la escuela
+  // activa y con ella los roles del token. El refresh token se conserva (el back solo reemite el access token).
+  const cambiarEscuela = async (escuelaId: string, rol?: string): Promise<User> => {
+    const data = await apiPost<{ escuelaId: string | null; role: string | null; roles: string[]; accessToken: string }>(
+      "/api/auth/escuela-activa",
+      { escuelaId, ...(rol ? { rol } : {}) },
+    );
+    await setAuthTokens(data.accessToken, getRefreshToken());
+    const base = user as User;
+    const nextRole = (data.role ?? base.role) as User["role"];
+    const nextUser: User = {
+      ...base,
+      role: nextRole,
+      roles: (data.roles.length > 0 ? data.roles : [nextRole]) as User["roles"],
+      schoolId: data.escuelaId ?? null,
+    };
+    await persistUser(nextUser);
+    setUser(nextUser);
+    return nextUser;
+  };
+
+  const value = useMemo(() => ({ user, status, login, logout, fetchMisEscuelas, cambiarEscuela }), [user, status]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

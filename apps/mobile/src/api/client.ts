@@ -162,6 +162,36 @@ export async function apiRequest<T>(
   return response.json() as Promise<T>;
 }
 
+/**
+ * La API pagina sus listados (H11: `?limit=&offset=` y `{ items, hasMore, limit, offset }`). Esto pide páginas
+ * hasta agotar la lista (tope `maxPages` por seguridad) y devuelve todos los `items`. Sirve también con
+ * endpoints que no devuelven `hasMore`: corta cuando una página viene corta o no trae nada nuevo.
+ */
+export async function apiGetAllItems<T extends { id?: string }>(path: string, pageSize = 100, maxPages = 20): Promise<T[]> {
+  const sep = path.includes("?") ? "&" : "?";
+  const out: T[] = [];
+  const vistos = new Set<string>();
+  for (let page = 0; page < maxPages; page++) {
+    const res = await apiRequest<{ items?: T[]; hasMore?: boolean; limit?: number }>(
+      `${path}${sep}limit=${pageSize}&offset=${page * pageSize}`,
+    );
+    const items = res.items ?? [];
+    let nuevos = 0;
+    for (const it of items) {
+      const k = it.id;
+      if (k !== undefined) {
+        if (vistos.has(k)) continue;
+        vistos.add(k);
+      }
+      out.push(it);
+      nuevos++;
+    }
+    const hayMas = res.hasMore ?? items.length >= (res.limit ?? pageSize);
+    if (!hayMas || nuevos === 0) break;
+  }
+  return out;
+}
+
 export const apiGet = <T>(path: string, options?: RequestOptions) => apiRequest<T>(path, options);
 export const apiPost = <T>(path: string, body: unknown, options?: RequestOptions) =>
   apiRequest<T>(path, { ...options, method: "POST", body: JSON.stringify(body) });

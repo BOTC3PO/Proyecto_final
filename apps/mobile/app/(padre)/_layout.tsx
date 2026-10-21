@@ -21,7 +21,7 @@ export default function PadreLayout() {
   // no a este shell (staff rankea más arriba). Sin PARENT ni staff,
   // fallback a alumno.
   const roles = user?.roles?.length ? user.roles : user?.role ? [user.role] : [];
-  if (roles.some((r) => r === "ADMIN" || r === "DIRECTIVO" || r === "TEACHER")) {
+  if (roles.some((r) => r === "ADMIN" || r === "ADMIN_ESCUELA" || r === "DIRECTIVO" || r === "TEACHER")) {
     return <Redirect href="/(docente)" />;
   }
   if (!roles.includes("PARENT")) return <Redirect href="/(alumno)" />;
@@ -43,6 +43,7 @@ export default function PadreLayout() {
         name="pagos"
         options={{ title: "Pagos", tabBarIcon: ({ color, size }) => <Feather name="credit-card" color={color} size={size} /> }}
       />
+      <Tabs.Screen name="vincular" options={{ href: null, title: "Agregar hijo" }} />
       <Tabs.Screen
         name="perfil"
         options={{ title: "Perfil", tabBarIcon: ({ color, size }) => <Feather name="user" color={color} size={size} /> }}

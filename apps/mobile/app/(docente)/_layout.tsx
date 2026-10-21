@@ -11,7 +11,7 @@ import { Feather } from "@expo/vector-icons";
 import { useAuth } from "../../src/auth/AuthContext";
 import { colors } from "../../src/theme/tokens";
 
-const STAFF_ROLES = new Set(["TEACHER", "DIRECTIVO", "ADMIN"]);
+const STAFF_ROLES = new Set(["TEACHER", "DIRECTIVO", "ADMIN", "ADMIN_ESCUELA"]);
 
 export default function DocenteLayout() {
   const { status, user } = useAuth();

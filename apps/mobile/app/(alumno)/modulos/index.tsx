@@ -8,7 +8,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
-import { apiGet } from "../../../src/api/client";
+import { apiGetAllItems } from "../../../src/api/client";
 import { colors } from "../../../src/theme/tokens";
 import type { Modulo } from "../../../src/types/modulo";
 
@@ -20,8 +20,8 @@ export default function ModulosIndex() {
 
   useEffect(() => {
     let active = true;
-    apiGet<{ items: Modulo[] }>("/api/modulos")
-      .then((res) => active && setModulos(res.items))
+    apiGetAllItems<Modulo>("/api/modulos")
+      .then((items) => active && setModulos(items))
       .catch((e) => active && setError(e instanceof Error ? e.message : "No se pudieron cargar los módulos."));
     return () => {
       active = false;

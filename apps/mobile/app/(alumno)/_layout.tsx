@@ -22,7 +22,7 @@ export default function AlumnoLayout() {
   // propio shell — un TEACHER+USER o PARENT+USER aterriza ahí igual
   // que el rol puro, no es sólo el caso "sin ningún otro rol".
   const roles = user?.roles?.length ? user.roles : user?.role ? [user.role] : [];
-  if (roles.some((r) => r === "ADMIN" || r === "DIRECTIVO" || r === "TEACHER")) {
+  if (roles.some((r) => r === "ADMIN" || r === "ADMIN_ESCUELA" || r === "DIRECTIVO" || r === "TEACHER")) {
     return <Redirect href="/(docente)" />;
   }
   if (roles.includes("PARENT")) return <Redirect href="/(padre)" />;

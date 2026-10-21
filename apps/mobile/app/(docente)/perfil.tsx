@@ -1,6 +1,7 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
 import { useAuth } from "../../src/auth/AuthContext";
+import { SelectorEscuela } from "../../src/components/SelectorEscuela";
 
 export default function DocentePerfil() {
   const { user, logout } = useAuth();
@@ -16,6 +17,8 @@ export default function DocentePerfil() {
         <Text className="text-xl font-bold text-vb-text">{user?.name}</Text>
         <Text className="text-sm text-vb-muted">{user?.role}</Text>
       </View>
+
+      <SelectorEscuela />
 
       <TouchableOpacity
         onPress={onLogout}

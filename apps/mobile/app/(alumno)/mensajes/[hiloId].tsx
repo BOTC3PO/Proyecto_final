@@ -24,6 +24,7 @@ export default function HiloDetalle() {
   const [mensajes, setMensajes] = useState<MensajeDirecto[] | null>(null);
   const [texto, setTexto] = useState("");
   const [sending, setSending] = useState(false);
+  const [errorEnvio, setErrorEnvio] = useState<string | null>(null);
   const listRef = useRef<FlatList<MensajeDirecto>>(null);
 
   useEffect(() => {
@@ -41,13 +42,16 @@ export default function HiloDetalle() {
     const body = texto.trim();
     if (!body || !otroId || sending) return;
     setSending(true);
+    setErrorEnvio(null);
     setTexto("");
     try {
       await apiPost<{ msgId: string }>("/api/mensajeria/hilos", { destinatarioId: otroId, body });
       const res = await apiGet<{ mensajes: MensajeDirecto[] }>(`/api/mensajeria/hilos/${hiloId}`);
       setMensajes(res.mensajes ?? []);
-    } catch {
+    } catch (e) {
       setTexto(body); // devolver el texto si falló, para no perderlo
+      // La API rechaza con un motivo legible (p. ej. 403 "Los alumnos no pueden escribirle a familias de otros alumnos").
+      setErrorEnvio(e instanceof Error ? e.message : "No se pudo enviar el mensaje.");
     } finally {
       setSending(false);
     }
@@ -97,6 +101,7 @@ export default function HiloDetalle() {
         />
       )}
 
+      {errorEnvio ? <Text className="text-sm text-vb-danger px-3 py-2 bg-vb-surface">{errorEnvio}</Text> : null}
       <View className="flex-row items-center gap-2 p-3 border-t border-vb-border bg-vb-surface">
         <TextInput
           value={texto}
