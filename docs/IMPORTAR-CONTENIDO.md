@@ -16,7 +16,7 @@ IMPORT_DB_ESPERADA=<nombre de la base> tsx scripts/importar_contenido.ts /tmp/ma
 Todo queda a nombre del administrador (el admin principal, o `--dueno=<usuarioId>`), con visibilidad pública.
 - **Tema** → `Modulo` `cont-<materia>--<ruta>` (ids seguros para URL: sin `:`, `/` ni `#`): teoría como un `theoryItems` tipo "Texto" y prerrequisitos en `dependencies` como `{id, type: "required"}`
   (los de `dependencias.md`, incluidos los cruces entre materias). Una `PlantillaEjercicio` por pregunta (`….pN`, visibilidad `privada`: no aparece en la
-  biblioteca de los docentes) y un `Quiz` de práctica que sortea **10 preguntas** por intento.
+  biblioteca de los docentes) y un `Quiz` **formal** que sortea **10 preguntas** por intento. Es formal a propósito: aprobarlo (60 %) marca el módulo como completado y desbloquea los siguientes; uno de práctica no avanza.
 - **Examen jefe** → `Modulo` `cont-examen-jefe--<logro>` de tipo evaluación (categoría "Evaluación", quiz `formal`). Depende de los temas que evalúa.
   Sortea **de 20 a 50 preguntas**: un cuarto del pool, con piso 20 y tope 50 (`preguntasDeExamen`). Los de materia reutilizan las plantillas de sus temas;
   los 13 de idiomas (`cont-examen-jefe-idiomas--<idioma>`) traen sus 500 preguntas propias (sortean 50). La certificación exige **todo hasta B2** (o su equivalente: JLPT N2, HSK 3-4, TOPIK intermedio-alto); los temas C1 (N1, HSK 5-6, avanzado) son un extra y no entran en el logro.

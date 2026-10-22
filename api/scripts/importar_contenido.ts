@@ -108,7 +108,8 @@ function filas(owner: string) {
       return pid;
     });
     poolDeTema.set(t.id, pids);
-    if (pids.length) cuestionario(t.id, `Práctica — ${t.titulo}`, pids, Math.min(POR_INTENTO_MODULO, pids.length), "practica");
+    // Formal: es el tipo de cuestionario que, al aprobarse, marca el módulo como completado (quiz-attempts.ts) y desbloquea los siguientes.
+    if (pids.length) cuestionario(t.id, `Cuestionario — ${t.titulo}`, pids, Math.min(POR_INTENTO_MODULO, pids.length), "formal");
   }
 
   for (const e of examenes) {

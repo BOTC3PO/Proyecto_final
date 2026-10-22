@@ -320,10 +320,17 @@ const buildQuizFromCollection = (
   version: QuizVersionRecord | null
 ) => {
   if (!metadata?.id) return null;
+  // La tabla `Quiz` no tiene columna `type` (queda `undefined` en `metadata`): el tipo vive en `settings.type` de la versión.
+  // Sin esto `quiz.type` llegaba siempre vacío y ni el progreso formal ni `quizType` en la respuesta funcionaban.
+  const tipoDeLaVersion = (() => {
+    if (!version?.settings) return undefined;
+    const t = (safeJsonParse<Record<string, unknown>>(version.settings, {}) as { type?: unknown }).type;
+    return t === "formal" || t === "practica" || t === "competencia" ? t : undefined;
+  })();
   const quiz: ModuleQuiz = {
     id: metadata.id,
     title: metadata.title,
-    type: metadata.type,
+    type: metadata.type ?? tipoDeLaVersion,
     mode: metadata.mode,
     visibility: metadata.visibility,
     schoolId: metadata.schoolId,
@@ -2452,10 +2459,17 @@ async function materializeSubmit(
         };
       }
 
+      // `QuizAttempt` no tiene columna de módulo (se perdió al migrar a Prisma): `attempt.moduleId` llegaba siempre vacío y el
+      // progreso nunca se registraba al entregar, así que ningún alumno desbloqueaba el módulo siguiente. El módulo sale del cuestionario.
+      const moduloDelIntento =
+        attempt.moduleId ??
+        (await prisma.quiz.findFirst({ where: { id: attempt.quizId }, select: { moduleId: true } }))?.moduleId ??
+        null;
+
       // Si es quiz formal y aprobó → actualizar progreso
-      if (quiz.type === "formal" && aprobado && attempt.moduleId) {
+      if (quiz.type === "formal" && aprobado && moduloDelIntento) {
         try {
-          const progresoFilter = { usuarioId: userId, moduloId: attempt.moduleId };
+          const progresoFilter = { usuarioId: userId, moduloId: moduloDelIntento };
           const existingProgreso = await prisma.progresoModulo.findFirst({ where: progresoFilter });
           if (existingProgreso) {
             await prisma.progresoModulo.update({
@@ -2471,11 +2485,11 @@ async function materializeSubmit(
       }
 
       // Si es formal y NO aprobó → marcar en_progreso
-      if (quiz.type === "formal" && !aprobado && attempt.moduleId) {
+      if (quiz.type === "formal" && !aprobado && moduloDelIntento) {
         try {
           const progresoFilter = {
             usuarioId: userId,
-            moduloId: attempt.moduleId,
+            moduloId: moduloDelIntento,
             status: { not: "completado" }
           };
           const existingProgreso = await prisma.progresoModulo.findFirst({ where: progresoFilter });
@@ -2488,7 +2502,7 @@ async function materializeSubmit(
             await prisma.progresoModulo.create({
               data: {
                 usuarioId: userId,
-                moduloId: attempt.moduleId,
+                moduloId: moduloDelIntento,
                 status: "en_progreso",
                 updatedAt: new Date().toISOString()
               }
