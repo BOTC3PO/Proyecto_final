@@ -24,7 +24,6 @@
  * import). Cualquier cambio acá DEBE reflejarse allá.
  */
 
-import { DeterministicPrng } from "./quiz-composition";
 import type { Dificultad } from "./quiz-posiciones";
 import { coerceDificultad } from "./quiz-posiciones";
 import type { ContextoSorteo, PoliticaSorteo } from "./quiz-sorteo";
@@ -459,6 +458,28 @@ function clavePregunta(p: PreguntaQuiz): string {
  * capacidad suficiente — no vuelve a validar acá (evita side-channel de
  * validar dos veces con distinta lógica).
  */
+/**
+ * Entero uniforme en `[0, n)` a partir de un seed de texto.
+ *
+ * No usa `DeterministicPrng`: su primera salida es casi lineal en el hash del seed, y los seeds de slots consecutivos
+ * difieren en un solo carácter, así que los slots elegían casi la misma posición y las preguntas de un pool se veían
+ * muy desparejas (una misma pregunta aparecía entre 15 y 103 veces en 300 alumnos, con ~76 esperadas). Acá: FNV-1a
+ * del seed y el finalizador de MurmurHash3 para que un cambio mínimo del seed cambie todos los bits.
+ */
+function indiceDeSeed(seed: string, n: number): number {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i += 1) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  h ^= h >>> 16;
+  h = Math.imul(h, 0x85ebca6b);
+  h ^= h >>> 13;
+  h = Math.imul(h, 0xc2b2ae35);
+  h ^= h >>> 16;
+  return (h >>> 0) % n;
+}
+
 export function elegirRelleno(
   preguntas: PreguntaQuiz[],
   slots: number,
@@ -488,7 +509,7 @@ export function elegirRelleno(
     const elegida =
       candidatas.length === 1
         ? candidatas[0]
-        : candidatas[new DeterministicPrng(seedBase(i)).int(0, candidatas.length - 1)];
+        : candidatas[indiceDeSeed(seedBase(i), candidatas.length)];
     usados.set(clavePregunta(elegida), (usados.get(clavePregunta(elegida)) ?? 0) + 1);
     elegidas.push(elegida);
   }
