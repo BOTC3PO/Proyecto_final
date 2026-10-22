@@ -476,8 +476,7 @@ pasos:
   - "Ver `../../informatica/algebra-booleana/`: es el mismo tipo de extensión, en dos materias distintas."
 
 explicacion: |
-  Verdadero: es la conexión explícita señalada en el agregado v2.6
-  del MAPA.
+  Verdadero: el álgebra booleana opera con proposiciones fijas, y la lógica de predicados con proposiciones que dependen de una variable.
 ```
 
 ### 20 — Aplicación: la base de las demostraciones matemáticas

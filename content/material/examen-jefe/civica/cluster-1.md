@@ -1,10 +1,10 @@
 # Examen jefe — Experto en Derechos y No Discriminación
 
-> Logro #879. Dominaste los derechos del niño, de género e indígenas, los organismos de protección contra la discriminación y la lectura de una encuesta electoral, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **110 preguntas totales** en 5/5 secciones.
+> Logro #879. Dominaste los derechos del niño, de género e indígenas, los organismos de protección contra la discriminación y la lectura de una encuesta electoral, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: derechos-nino (20 preguntas)
+## Sección: derechos-nino (19 preguntas)
 
 ```
 metadata:
@@ -280,25 +280,6 @@ respuesta: "El interés superior del niño"
 explicacion: |
   Es la aplicación clásica del principio en decisiones judiciales de
   familia.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_nino"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Por qué el MAPA cuelga este tema del nodo de Multicausalidad (Historia)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque entender cómo llegó a existir este marco de derechos requiere no atribuir el cambio normativo a una sola causa aislada"
-  - "Porque no tiene ninguna relación con Historia"
-  - "Porque la Multicausalidad reemplaza directamente al marco legal"
-respuesta: "Porque entender cómo llegó a existir este marco de derechos requiere no atribuir el cambio normativo a una sola causa aislada"
-
-explicacion: |
-  Mismo tipo de análisis histórico ya usado para otros procesos.
 ```
 
 ```
@@ -642,7 +623,7 @@ metadata:
   nivel: "intermedio"
   tags: ["aplicacion"]
 
-enunciado: "¿Qué relación tiene la lectura crítica de una encuesta electoral con `../../matematica/muestreo-y-sesgo/`?"
+enunciado: "¿Qué relación tiene la lectura crítica de una encuesta electoral con el muestreo y el sesgo?"
 tipo: mc
 opciones_explicitas:
   - "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
@@ -651,7 +632,7 @@ opciones_explicitas:
 respuesta: "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
 
 explicacion: |
-  Es el prerrequisito formal de este módulo, según `troncos.md`.
+  Metodología de contacto, representatividad de la muestra y tipos de sesgo son los mismos conceptos del muestreo, aplicados a la intención de voto.
 ```
 
 ```
@@ -768,7 +749,7 @@ explicacion: |
   encuestas en público.
 ```
 
-## Sección: derechos-indigenas (20 preguntas)
+## Sección: derechos-indigenas (19 preguntas)
 
 ```
 metadata:
@@ -1042,26 +1023,6 @@ respuesta: verdadero
 explicacion: |
   Es la definición de educación intercultural bilingüe según la
   teoría.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Qué relación tiene este tema con `../derechos-nino/` en la cadena de esta materia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
-  - "No tienen ninguna relación entre sí"
-  - "Los derechos indígenas reemplazan por completo a los derechos del niño"
-respuesta: "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
-
-explicacion: |
-  Ambos cuelgan del mismo nodo padre en el MAPA (`T7`) y comparten el
-  mismo tipo de marco normativo específico.
 ```
 
 ```
@@ -1650,7 +1611,7 @@ explicacion: |
   Sí, la promoción y difusión son pilares de su labor educativa y preventiva.
 ```
 
-## Sección: derechos-genero (20 preguntas)
+## Sección: derechos-genero (19 preguntas)
 
 ```
 metadata:
@@ -1907,25 +1868,6 @@ respuesta: "Educación, empleo, salud y participación política"
 
 explicacion: |
   Son los ámbitos explícitos que menciona la teoría.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Qué relación tiene este tema con `../derechos-indigenas/` en la cadena de esta materia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
-  - "No tienen ninguna relación entre sí"
-  - "Los derechos de género reemplazan a los derechos indígenas"
-respuesta: "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
-
-explicacion: |
-  Cierra la subrama de 3 hermanos del nodo `T7` del MAPA.
 ```
 
 ```

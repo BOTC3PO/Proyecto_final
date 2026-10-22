@@ -78,5 +78,4 @@ El teorema aparece en cualquier situación donde hace falta la distancia
 longitud mínima de una escalera apoyada contra una pared (conociendo la
 altura y la distancia de la base a la pared), la diagonal de una
 pantalla o de un terreno rectangular, o la distancia más corta entre dos
-puntos ubicados en una cuadrícula (la base de la geometría analítica que
-viene después, en el Tronco 3.b).
+puntos ubicados en una cuadrícula (la base de la geometría analítica que viene después).

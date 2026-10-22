@@ -378,32 +378,8 @@ explicacion: |
   micro en esta corriente.
 ```
 
-### 16 — Historia cultural depende de multicausalidad en el MAPA
 
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-### 17 — Las cuatro corrientes son lentes distintas, no etapas
+### 16 — Las cuatro corrientes son lentes distintas, no etapas
 
 ```
 metadata:
@@ -428,7 +404,7 @@ explicacion: |
   toda la subrama de corrientes historiográficas.
 ```
 
-### 18 — Ordenar el análisis para identificar un texto de historia cultural
+### 17 — Ordenar el análisis para identificar un texto de historia cultural
 
 ```
 metadata:
@@ -450,7 +426,7 @@ explicacion: |
   objeto de estudio, para concluir si corresponde a esta corriente.
 ```
 
-### 19 — Historia cultural cierra la subrama de corrientes historiográficas
+### 18 — Historia cultural cierra la subrama de corrientes historiográficas
 
 ```
 metadata:
@@ -475,7 +451,7 @@ explicacion: |
   corrientes historiográficas.
 ```
 
-### 20 — Aplicación: identificar el enfoque de un texto histórico
+### 19 — Aplicación: identificar el enfoque de un texto histórico
 
 ```
 metadata:

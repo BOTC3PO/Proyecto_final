@@ -302,7 +302,7 @@ metadata:
   nivel: "intermedio"
   tags: ["aplicacion"]
 
-enunciado: "¿Qué relación tiene la lectura crítica de una encuesta electoral con `../../matematica/muestreo-y-sesgo/`?"
+enunciado: "¿Qué relación tiene la lectura crítica de una encuesta electoral con el muestreo y el sesgo?"
 tipo: mc
 opciones_explicitas:
   - "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
@@ -311,7 +311,7 @@ opciones_explicitas:
 respuesta: "Es una aplicación directa: metodología de contacto, representatividad de la muestra y tipos de sesgo son exactamente los mismos conceptos, aplicados a intención de voto"
 
 explicacion: |
-  Es el prerrequisito formal de este módulo, según `troncos.md`.
+  Metodología de contacto, representatividad de la muestra y tipos de sesgo son los mismos conceptos del muestreo, aplicados a la intención de voto.
 ```
 
 ### 15 — Problema: diferencia mayor que el margen de error

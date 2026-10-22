@@ -59,9 +59,7 @@ conjunto, vista desde dos lados.
 
 Es la herramienta detrás de cualquier "elegir un grupo de personas sin
 que importen los roles" (un comité de 3 personas entre 10 candidatos,
-sin distinguir cargos), de las combinaciones de lotería, y —el puente
-más importante de este tronco— de la **probabilidad compuesta**
-(Tronco 4.b): calcular la probabilidad de eventos como "extraer 2
+sin distinguir cargos), de las combinaciones de lotería, y —el puente más importante de este bloque— de la **probabilidad compuesta**: calcular la probabilidad de eventos como "extraer 2
 cartas de un mismo color" o probabilidades genéticas complejas
 (Biología) se resuelve contando combinaciones de casos favorables
 sobre combinaciones de casos totales.

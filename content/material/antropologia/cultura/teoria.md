@@ -25,8 +25,7 @@ del trabajo y del tiempo libre.
 La clave del concepto es que la cultura **no se transmite por genes**.
 Un bebé humano nace sin ninguna cultura particular: aprende la que lo
 rodea (idioma, comida, costumbres) sin importar de qué ascendencia
-biológica venga. Esto conecta directo con `Hominización` (`H10` de
-Historia, Tronco 8.b): el salto de primate a *Homo* importa
+biológica venga. Esto conecta directo con Hominización (Historia profunda): el salto de primate a *Homo* importa
 antropológicamente porque en algún momento apareció la capacidad de
 acumular y transmitir aprendizaje de generación en generación **más
 rápido y más rico** de lo que permite la evolución biológica sola — eso

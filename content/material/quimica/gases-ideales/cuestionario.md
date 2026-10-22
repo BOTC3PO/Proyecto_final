@@ -262,27 +262,8 @@ explicacion: |
   Falso. Hay que convertir siempre a Kelvin (25°C = 298 K); usar el 25 directo da un resultado muy distinto al real.
 ```
 
-### 13 — Identificación de la constante R
 
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["constante_r", "teoria"]
-
-respuesta: "R"
-tipo: completar
-respuestas_validas:
-  - "R"
-
-enunciado: "La constante de los gases ideales ya está precargada en VBLang con el nombre ___."
-
-explicacion: |
-  El identificador `R` está disponible como constante global en el DSL.
-```
-
-### 14 — Despeje de la presión
+### 13 — Despeje de la presión
 
 ```
 metadata:
@@ -301,7 +282,7 @@ explicacion: |
   Pasando V al otro lado dividiendo: P = nRT/V.
 ```
 
-### 15 — Cálculo de volumen
+### 14 — Cálculo de volumen
 
 ```
 metadata:
@@ -329,7 +310,7 @@ explicacion: |
   V = ({n_val} × {r} × {t_val}) / {p_val}.
 ```
 
-### 16 — Ley de Gay-Lussac aplicada
+### 15 — Ley de Gay-Lussac aplicada
 
 ```
 metadata:
@@ -347,7 +328,7 @@ explicacion: |
   Correcto (Ley de Gay-Lussac): a volumen constante, presión y temperatura son directamente proporcionales.
 ```
 
-### 17 — Despeje de la temperatura
+### 16 — Despeje de la temperatura
 
 ```
 metadata:
@@ -366,7 +347,7 @@ explicacion: |
   Despejando T: T = PV / (n × R).
 ```
 
-### 18 — Efecto de la presión sobre el volumen
+### 17 — Efecto de la presión sobre el volumen
 
 ```
 metadata:
@@ -384,7 +365,7 @@ explicacion: |
   Correcto (Ley de Boyle): a temperatura constante, presión y volumen son inversamente proporcionales.
 ```
 
-### 19 — Unidades de la constante R
+### 18 — Unidades de la constante R
 
 ```
 metadata:
@@ -403,7 +384,7 @@ explicacion: |
   R = 0,0821 L·atm/(mol·K) es la forma de R consistente con presión en atmósferas y volumen en litros.
 ```
 
-### 20 — Por qué un gas necesita las 4 variables
+### 19 — Por qué un gas necesita las 4 variables
 
 ```
 metadata:

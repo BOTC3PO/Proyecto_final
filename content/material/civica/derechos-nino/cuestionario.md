@@ -310,28 +310,8 @@ explicacion: |
   familia.
 ```
 
-### 16 — Prerrequisito: multicausalidad
 
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_nino"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Por qué el MAPA cuelga este tema del nodo de Multicausalidad (Historia)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque entender cómo llegó a existir este marco de derechos requiere no atribuir el cambio normativo a una sola causa aislada"
-  - "Porque no tiene ninguna relación con Historia"
-  - "Porque la Multicausalidad reemplaza directamente al marco legal"
-respuesta: "Porque entender cómo llegó a existir este marco de derechos requiere no atribuir el cambio normativo a una sola causa aislada"
-
-explicacion: |
-  Mismo tipo de análisis histórico ya usado para otros procesos.
-```
-
-### 17 — No discriminación por discapacidad
+### 16 — No discriminación por discapacidad
 
 ```
 metadata:
@@ -348,7 +328,7 @@ explicacion: |
   Está entre los criterios de no discriminación mencionados.
 ```
 
-### 18 — Sistema de Protección Integral
+### 17 — Sistema de Protección Integral
 
 ```
 metadata:
@@ -369,7 +349,7 @@ explicacion: |
   Reemplazó al Patronato de Menores en su función institucional.
 ```
 
-### 19 — Participación no es voto igualitario
+### 18 — Participación no es voto igualitario
 
 ```
 metadata:
@@ -387,7 +367,7 @@ explicacion: |
   un adulto.
 ```
 
-### 20 — Síntesis
+### 19 — Síntesis
 
 ```
 metadata:

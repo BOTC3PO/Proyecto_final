@@ -1,6 +1,6 @@
 # Examen jefe — Pensador Lógico y Epistemólogo
 
-> Logro #951. Dominaste lógica proposicional, método científico y racionalismo, el gusto estético, epistemología y la ética como rama propia. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **105 preguntas totales** en 5/5 secciones.
+> Logro #951. Dominaste lógica proposicional, método científico y racionalismo, el gusto estético, epistemología y la ética como rama propia. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1823,10 +1823,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La epistemología es una rama distinta de la lógica: depende de `../logica-proposicional/` como base formal general, pero estudia una pregunta distinta (qué es el conocimiento), no la validez de razonamientos."
+enunciado: "La epistemología es una rama distinta de la lógica: se apoya en la lógica proposicional como base formal general, pero estudia una pregunta distinta (qué es el conocimiento), no la validez de razonamientos."
 
 pasos:
-  - "Ver `../dependencias.md`: por eso epistemología cuelga de `FI1` como hermana de `FI2` (validez), no como continuación de esa cadena."
+  - "La lógica estudia si un razonamiento es válido; la epistemología pregunta qué es conocer."
 
 explicacion: |
   Verdadero: son ramas clásicas distintas de Filosofía, aunque
@@ -1857,7 +1857,7 @@ explicacion: |
   filosófico.
 ```
 
-## Sección: etica-como-rama-propia (20 preguntas)
+## Sección: etica-como-rama-propia (19 preguntas)
 
 ```
 metadata:
@@ -2242,10 +2242,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La ética es una rama distinta de la lógica: depende de `../logica-proposicional/` como base formal general del mapa, pero estudia una pregunta distinta (qué es correcto), no la validez de razonamientos."
+enunciado: "La ética es una rama distinta de la lógica: se apoya en la lógica proposicional como base formal general, pero estudia una pregunta distinta (qué es lo correcto), no la validez de razonamientos."
 
 pasos:
-  - "Ver `../dependencias.md`: por eso cuelga de `FI1` como hermana de las otras ramas clásicas, no como continuación de la cadena de razonamiento."
+  - "La lógica estudia si un razonamiento es válido; la ética pregunta qué es correcto."
 
 explicacion: |
   Verdadero: cada rama clásica de Filosofía tiene su propio objeto de
@@ -2271,29 +2271,6 @@ respuesta_orden: ["Identificar la acción concreta a evaluar", "Determinar cuál
 explicacion: |
   El análisis va de identificar la acción concreta a elegir el marco
   de las tres preguntas centrales para evaluarla.
-```
-
-```
-metadata:
-  materia: "filosofia"
-  tema: "etica_como_rama_propia"
-  nivel: "avanzado"
-  tags: ["etica_como_rama_propia", "contexto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes del agregado v2.4 del MAPA, Filosofía sólo tenía nodos de lógica (`FI1`/`FI2`), sin ningún nodo dedicado específicamente a ética como rama propia."
-
-pasos:
-  - "Este tema cierra esa brecha, junto con metafísica y estética."
-
-explicacion: |
-  Verdadero: es el contexto histórico de por qué este nodo se agregó
-  al mapa en esa versión.
 ```
 
 ```

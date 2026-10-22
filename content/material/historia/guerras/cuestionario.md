@@ -159,29 +159,8 @@ explicacion: |
   guerra de independencia o la guerra civil.
 ```
 
-### 8 — Malvinas: nodo de referencia
 
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿En qué nodo de Tronco 8.c está el desarrollo real de la Guerra de Malvinas?"
-tipo: mc
-opciones_explicitas:
-  - "AH13"
-  - "AH5"
-  - "AH1"
-respuesta: "AH13"
-
-explicacion: |
-  El desarrollo completo vive en Tronco 8.c, citando el art. 92 b —
-  acá sólo se referencia, sin duplicarlo.
-```
-
-### 9 — Multicausalidad aplicada a una guerra
+### 8 — Multicausalidad aplicada a una guerra
 
 ```
 metadata:
@@ -199,7 +178,7 @@ explicacion: |
   cualquier proceso analizado con la herramienta de multicausalidad.
 ```
 
-### 10 — Causa y consecuencia entre dos guerras
+### 9 — Causa y consecuencia entre dos guerras
 
 ```
 metadata:
@@ -222,7 +201,7 @@ explicacion: |
   organizamos".
 ```
 
-### 11 — Por qué las guerras civiles siguen a las independencias
+### 10 — Por qué las guerras civiles siguen a las independencias
 
 ```
 metadata:
@@ -244,7 +223,7 @@ explicacion: |
   no sólo el argentino.
 ```
 
-### 12 — Dimensión ética aplicada a una guerra
+### 11 — Dimensión ética aplicada a una guerra
 
 ```
 metadata:
@@ -262,11 +241,10 @@ opciones_explicitas:
 respuesta: "Dimensión ética"
 
 explicacion: |
-  Es el mismo criterio que ya se aplicó a `AH12`/`AH13` (Terrorismo de
-  Estado y Malvinas) en Tronco 8.c.
+  La dimensión ética permite juzgar una guerra pasada sin reducirla a una fecha para memorizar.
 ```
 
-### 13 — Verdadero o falso: toda guerra es contra un enemigo externo
+### 12 — Verdadero o falso: toda guerra es contra un enemigo externo
 
 ```
 metadata:
@@ -284,7 +262,7 @@ explicacion: |
   interno, entre bandos del mismo país.
 ```
 
-### 14 — Guerra de independencia vs. guerra civil: diferencia clave
+### 13 — Guerra de independencia vs. guerra civil: diferencia clave
 
 ```
 metadata:
@@ -306,7 +284,7 @@ explicacion: |
   descritos en `teoria.md`.
 ```
 
-### 15 — Malvinas: soberanía en disputa, no existencia de Estados
+### 14 — Malvinas: soberanía en disputa, no existencia de Estados
 
 ```
 metadata:
@@ -329,7 +307,7 @@ explicacion: |
   guerras civiles.
 ```
 
-### 16 — Ordenar las 3 guerras de la cadena argentina
+### 15 — Ordenar las 3 guerras de la cadena argentina
 
 ```
 metadata:
@@ -351,7 +329,7 @@ explicacion: |
   (mediados del s. XIX) → Guerra de Malvinas (1982).
 ```
 
-### 17 — Intereses económicos en una guerra
+### 16 — Intereses económicos en una guerra
 
 ```
 metadata:
@@ -373,29 +351,8 @@ explicacion: |
   ideológicas.
 ```
 
-### 18 — Por qué no se duplica el desarrollo de AH5/AH6/AH12/AH13
 
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué `guerras/` no repite el desarrollo completo de las Guerras de independencia, guerras civiles y Malvinas, y sólo los referencia?"
-tipo: mc
-opciones_explicitas:
-  - "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
-  - "Porque esos temas no tienen ninguna relación con las guerras"
-  - "Porque el contenido de Tronco 8.c está desactualizado"
-respuesta: "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
-
-explicacion: |
-  Mismo criterio de "duplicación resuelta" ya aplicado en otros puntos
-  del MAPA (nota v2.4).
-```
-
-### 19 — Por qué depende de independencias
+### 17 — Por qué depende de independencias
 
 ```
 metadata:
@@ -417,7 +374,7 @@ explicacion: |
   pregunta sin resolver que dejó la independencia.
 ```
 
-### 20 — Resumen: 3 tipos, 1 herramienta de análisis
+### 18 — Resumen: 3 tipos, 1 herramienta de análisis
 
 ```
 metadata:
@@ -435,7 +392,5 @@ opciones_explicitas:
 respuesta: "Se benefician del mismo tipo de análisis histórico: multicausalidad, causa/consecuencia y dimensión ética"
 
 explicacion: |
-  Comparten estructura de análisis aunque el contenido y los actores
-  sean distintos — por eso el MAPA los agrupó como 3 nodos hermanos
-  (`H2a`/`H2b`/`H2c`) en vez de tratarlos como temas sin relación.
+  Los tres tipos de guerra se pueden analizar con las mismas herramientas (multicausalidad, causa y consecuencia, dimensión ética), aunque cambien el contenido y los actores.
 ```

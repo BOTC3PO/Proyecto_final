@@ -1,6 +1,6 @@
 # Examen jefe — Dominio de Constitución y Leyes
 
-> Logro #881. Dominaste la división de poderes, la jerarquía normativa de la Constitución Nacional, cómo se hace una ley, los derechos y garantías y los trámites y documentos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **117 preguntas totales** en 5/5 secciones.
+> Logro #881. Dominaste la división de poderes, la jerarquía normativa de la Constitución Nacional, cómo se hace una ley, los derechos y garantías y los trámites y documentos, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **115 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1807,7 +1807,7 @@ explicacion: |
   dogmática.
 ```
 
-## Sección: documentos-y-tramites (22 preguntas)
+## Sección: documentos-y-tramites (20 preguntas)
 
 ```
 metadata:
@@ -2085,46 +2085,6 @@ respuesta: "Con el sistema de salud (público, privado, mixto)"
 explicacion: |
   Es el registro que circula dentro de cualquiera de los 3 modelos de
   salud ya vistos en `../sistema-de-salud/`.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "documentos_y_tramites"
-  nivel: "avanzado"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué DNI, CUIL, voto e historia clínica se agrupan en un solo módulo, en vez de 4 carpetas separadas?"
-tipo: mc
-opciones_explicitas:
-  - "Porque son alfabetización cívica práctica del mismo tipo, no 4 habilidades separables entre sí"
-  - "Porque el MAPA los junta en un único nodo sin IDs propios"
-  - "Porque sólo uno de los 4 tiene contenido real"
-respuesta: "Porque son alfabetización cívica práctica del mismo tipo, no 4 habilidades separables entre sí"
-
-explicacion: |
-  Decisión propia (Paso 2 del procedimiento): son 4 hechos prácticos a
-  conocer, no 4 lecciones con habilidades distintas.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "documentos_y_tramites"
-  nivel: "intermedio"
-  tags: ["fundamento"]
-
-enunciado: "¿Qué otros 3 módulos dependen de este contenido, según el MAPA?"
-tipo: mc
-opciones_explicitas:
-  - "Señalización vial, prioridades de paso y alcoholemia y conducción"
-  - "Sistema de salud, impuestos y ciencia política"
-  - "Símbolos patrios y marchas patrióticas"
-respuesta: "Señalización vial, prioridades de paso y alcoholemia y conducción"
-
-explicacion: |
-  Los 3 módulos de educación vial cuelgan de estos 4 documentos por
-  igual en el MAPA (`C15a/b/c/d --> C18a/b/c`).
 ```
 
 ```

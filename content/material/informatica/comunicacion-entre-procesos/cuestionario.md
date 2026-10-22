@@ -79,25 +79,8 @@ explicacion: |
   El intercambio de mensajes es más seguro porque los procesos no compiten por el mismo espacio de memoria, reduciendo riesgos de corrupción accidental.
 ```
 
-### 5 — pregunta 5
 
-```
-metadata:
-  materia: "informatica"
-  tema: "comunicacion_entre_procesos"
-  nivel: "basico"
-  tags: ["lenguaje", "sintaxis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el lenguaje de descripción de ejercicios, los booleanos se escriben como 'true' o 'false'."
-
-explicacion: |
-  Falso. En este DSL, los booleanos literales son 'verdadero' y 'falso', sin comillas.
-```
-
-### 6 — pregunta 6
+### 5 — pregunta 6
 
 ```
 metadata:
@@ -116,7 +99,7 @@ explicacion: |
   La complejidad de implementación es una DESVENTAJA. Las ventajas son modularidad, seguridad, estabilidad y reutilización. La opción de "menor complejidad de código" es falsa.
 ```
 
-### 7 — pregunta 7
+### 6 — pregunta 7
 
 ```
 metadata:
@@ -134,7 +117,7 @@ explicacion: |
   Correcto. La IPC es fundamental para que aplicaciones aisladas colaboren, como cuando copiar y pegar texto involucra comunicación entre el editor y el sistema de almacenamiento temporal.
 ```
 
-### 8 — pregunta 8
+### 7 — pregunta 8
 
 ```
 metadata:
@@ -152,7 +135,7 @@ explicacion: |
   Correcto. Al usar canales definidos por el SO, los procesos mantienen su aislamiento interno, reduciendo riesgos de corrupción accidental de memoria.
 ```
 
-### 9 — pregunta 9
+### 8 — pregunta 9
 
 ```
 metadata:
@@ -170,7 +153,7 @@ explicacion: |
   Correcto. El sistema operativo trata a cada aplicación ejecutándose como un proceso independiente con su propio espacio de memoria.
 ```
 
-### 10 — pregunta 10
+### 9 — pregunta 10
 
 ```
 metadata:
@@ -188,7 +171,7 @@ explicacion: |
   Correcto. La modularidad mediante IPC permite crear sistemas más robustos, fáciles de actualizar y menos propensos a fallos catastróficos.
 ```
 
-### 11 — pregunta 11
+### 10 — pregunta 11
 
 ```
 metadata:
@@ -206,7 +189,7 @@ explicacion: |
   Correcto. La condición de carrera puede llevar a corrupción de datos, por lo que se requieren mecanismos de exclusión mutua o semáforos.
 ```
 
-### 12 — pregunta 12
+### 11 — pregunta 12
 
 ```
 metadata:
@@ -224,7 +207,7 @@ explicacion: |
   Correcto. El portapapeles es un ejemplo cotidiano de IPC, donde un proceso escribe datos y otro los lee desde una zona compartida o canal del SO.
 ```
 
-### 13 — pregunta 13
+### 12 — pregunta 13
 
 ```
 metadata:
@@ -242,7 +225,7 @@ explicacion: |
   Correcto. El aislamiento de memoria previene que un error en un proceso afecte la integridad de otros procesos o del kernel.
 ```
 
-### 14 — pregunta 14
+### 13 — pregunta 14
 
 ```
 metadata:
@@ -260,7 +243,7 @@ explicacion: |
   Correcto. Los gráficos requieren transferir grandes cantidades de píxeles o vectores rápidamente, lo que la memoria compartida facilita mejor que los mensajes.
 ```
 
-### 15 — pregunta 15
+### 14 — pregunta 15
 
 ```
 metadata:
@@ -278,7 +261,7 @@ explicacion: |
   Correcto. El SO proporciona la infraestructura (colas de mensajes, pipes, etc.) que actúa como el canal de comunicación.
 ```
 
-### 16 — pregunta 16
+### 15 — pregunta 16
 
 ```
 metadata:
@@ -296,7 +279,7 @@ explicacion: |
   Correcto. Los módulos pueden desarrollarse, probarse y actualizarse independientemente, facilitando el mantenimiento a largo plazo.
 ```
 
-### 17 — pregunta 17
+### 16 — pregunta 17
 
 ```
 metadata:
@@ -314,7 +297,7 @@ explicacion: |
   Correcto. La sobrecarga de copiar datos entre espacios de usuario y kernel (o entre procesos) es el principal costo del modelo de mensajes.
 ```
 
-### 18 — pregunta 18
+### 17 — pregunta 18
 
 ```
 metadata:
@@ -332,7 +315,7 @@ explicacion: |
   Correcto. Sin sincronización (mutex, semáforos), la escritura concurrente lleva a condiciones de carrera y corrupción de datos.
 ```
 
-### 19 — pregunta 19
+### 18 — pregunta 19
 
 ```
 metadata:
@@ -350,7 +333,7 @@ explicacion: |
   Correcto. El portapapeles es un servicio del SO que actúa como intermediario de datos entre el proceso que copia y el que pega.
 ```
 
-### 20 — pregunta 20
+### 19 — pregunta 20
 
 ```
 metadata:

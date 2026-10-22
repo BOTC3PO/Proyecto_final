@@ -46,8 +46,7 @@ Ninguna revolución tiene una sola causa — es el ejemplo de manual de
 
 ## Caso real: la Revolución de Mayo (1810)
 
-Desarrollo real en `../../historia/` no duplicado acá — ver la cadena
-de Tronco 8.c (`AH4`). Como ejemplo de multicausalidad aplicada: la
+El desarrollo completo está en la historia argentina y no se repite acá. Como ejemplo de multicausalidad aplicada: la
 Revolución de Mayo combinó el detonante puntual (la noticia de la caída
 de la Junta Central española ante la invasión napoleónica, que dejó sin
 autoridad reconocida al Virreinato) con causas más profundas y previas

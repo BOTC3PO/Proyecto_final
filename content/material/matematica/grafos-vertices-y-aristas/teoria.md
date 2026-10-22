@@ -78,7 +78,7 @@ sin excepción.
 ## Para qué sirve
 
 Es la estructura matemática base que sostiene, sin nombrarla siempre
-así, a "Enrutamiento" (redes de computadoras, Tronco 10.b) y a
+así, a "Enrutamiento" (redes de computadoras, Informática) y a
 "Escala de un mapa"/distribución de biomas (que ya piensan al
 territorio como puntos conectados) — el vocabulario común (vértice,
 arista, grado) que se retoma en los módulos que siguen para clasificar

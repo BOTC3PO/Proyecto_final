@@ -283,8 +283,7 @@ opciones_explicitas:
 respuesta: "Un router que busca el camino más corto para un paquete de datos está, en esencia, corriendo un BFS sobre el grafo de la red — descubre la ruta, no la memoriza de antemano"
 
 explicacion: |
-  Es la aplicación mencionada explícitamente en `troncos.md` como
-  motivo real para incluir teoría de grafos en el mapa.
+  Los routers usan recorridos como BFS para encontrar el camino más corto entre redes: es una de las aplicaciones reales de la teoría de grafos.
 ```
 
 ### 14 — Problema: nivel de un vértice en BFS
@@ -428,7 +427,5 @@ opciones_explicitas:
 respuesta: "Para recorrer sistemáticamente un grafo completo, encontrar caminos (BFS garantiza el más corto en grafos no ponderados) y resolver problemas como enrutamiento, redes sociales o detección de ciclos"
 
 explicacion: |
-  Cierra la cadena completa de Tronco 4.c: de vértices y aristas
-  sueltos a poder recorrer y resolver problemas reales sobre un
-  grafo.
+  Los recorridos BFS y DFS permiten pasar de vértices y aristas sueltos a resolver problemas reales sobre un grafo: caminos, enrutamiento, redes sociales y detección de ciclos.
 ```

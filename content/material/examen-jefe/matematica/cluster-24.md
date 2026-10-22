@@ -2976,9 +2976,7 @@ tipo: vf
 enunciado: "log₁₀(x) y ln(x) son exactamente la misma función, sólo con otro nombre."
 
 explicacion: |
-  Son logaritmos de distinta base: log₁₀ es base 10, ln es logaritmo
-  natural (base e) — dan resultados distintos para el mismo x (ver
-  `../logaritmos/` de Tronco 1).
+  Son logaritmos de distinta base: log₁₀ es base 10 y ln es el logaritmo natural (base e), y dan resultados distintos para el mismo x.
 ```
 
 ```

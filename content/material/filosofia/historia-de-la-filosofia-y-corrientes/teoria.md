@@ -15,7 +15,7 @@ corriente político-económica es una sección separable.
 Un panorama de las grandes etapas de la historia de la filosofía
 occidental, más las corrientes político-económicas modernas — con el
 mismo principio de **neutralidad** ya aplicado a las corrientes
-económicas del Tronco 1 (`../../economia/`): identificar qué sostiene
+económicas (Economía): identificar qué sostiene
 cada corriente, **nunca** evaluar cuál tiene razón.
 
 ## Grandes etapas de la filosofía occidental
@@ -59,7 +59,7 @@ cada una, sin evaluar cuál es correcta.
 
 ## Por qué la neutralidad es no negociable acá
 
-Igual que con las corrientes económicas del Tronco 1: el objetivo
+Igual que con las corrientes económicas: el objetivo
 educativo es que el alumno pueda **identificar** qué sostiene cada
 postura (para reconocerla en un texto, un discurso, un debate), no
 que el material le diga cuál elegir — se trata al mismo nivel que las

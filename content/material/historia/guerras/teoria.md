@@ -39,7 +39,7 @@ procesos se consolidan o fracasan.
   dos anteriores, porque no se discute la existencia de ninguno de los
   dos Estados, sólo la soberanía sobre un territorio puntual.
 
-## Analizar una guerra con las herramientas de Tronco 6
+## Analizar una guerra con las herramientas del pensamiento histórico
 
 Toda guerra se beneficia del mismo tipo de análisis que ya construyó
 esta cadena:
@@ -54,8 +54,7 @@ esta cadena:
   el patrón `AH5 → AH6` de la cadena argentina).
 - **Dimensión ética**: juzgar una guerra pasada (sus costos humanos,
   sus decisiones) sin reducirla a una fecha para memorizar — el mismo
-  criterio que ya se aplicó a `AH12`/`AH13` (Terrorismo de Estado y
-  Malvinas) en Tronco 8.c.
+  criterio que ya se aplicó al Terrorismo de Estado y a Malvinas en la historia argentina.
 
 ## Por qué las guerras civiles suelen seguir a una independencia
 

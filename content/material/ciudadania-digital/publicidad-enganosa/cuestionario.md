@@ -472,10 +472,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Publicidad engañosa y verificación de una noticia son dos nodos hermanos que dependen del mismo prerrequisito (detectar falacias) y aplican la misma lógica crítica a contextos distintos."
+enunciado: "Publicidad engañosa y verificación de una noticia dependen del mismo prerrequisito (detectar falacias) y aplican la misma lógica crítica a contextos distintos."
 
 pasos:
-  - "Ver `../verificacion-de-una-noticia/`: son nodos hermanos en el MAPA (`CD1`/`CD2`)."
+  - "Las dos aplican la misma lógica crítica: detectar falacias en un anuncio o en una noticia."
 
 explicacion: |
   Verdadero: es la relación entre los dos temas de Ciudadanía

@@ -310,29 +310,8 @@ explicacion: |
   solo caso concreto (Argentina).
 ```
 
-### 15 — Por qué Ciencia Política no abre materia nueva
 
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "avanzado"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué Ciencia Política se ubica dentro de la materia Cívica, en vez de abrir una materia propia?"
-tipo: mc
-opciones_explicitas:
-  - "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
-  - "Porque no es una orientación educativa real en Argentina"
-  - "Porque no tiene ningún contenido propio distinto de Cívica"
-respuesta: "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
-
-explicacion: |
-  Nota v2.8 de `troncos.md`: es una orientación NES real que completa
-  materias existentes, no un tronco nuevo.
-```
-
-### 16 — Verdadero o falso: en el presidencialismo el mandato es fijo
+### 15 — Verdadero o falso: en el presidencialismo el mandato es fijo
 
 ```
 metadata:
@@ -350,7 +329,7 @@ explicacion: |
   confianza legislativa.
 ```
 
-### 17 — Verdadero o falso: el Primer Ministro es elegido por voto popular directo
+### 16 — Verdadero o falso: el Primer Ministro es elegido por voto popular directo
 
 ```
 metadata:
@@ -368,7 +347,7 @@ explicacion: |
   o coalición con mayoría.
 ```
 
-### 18 — Verdadero o falso: Francia es parlamentarista puro
+### 17 — Verdadero o falso: Francia es parlamentarista puro
 
 ```
 metadata:
@@ -386,7 +365,7 @@ explicacion: |
   conviviendo con un Primer Ministro parlamentario.
 ```
 
-### 19 — Completar: quién elige al Primer Ministro
+### 18 — Completar: quién elige al Primer Ministro
 
 ```
 metadata:
@@ -404,7 +383,7 @@ explicacion: |
   De entre los legisladores del partido o coalición con mayoría.
 ```
 
-### 20 — Completar: qué hace caer a un gobierno parlamentarista
+### 19 — Completar: qué hace caer a un gobierno parlamentarista
 
 ```
 metadata:
@@ -422,7 +401,7 @@ explicacion: |
   La moción de censura del Parlamento retira la confianza al gobierno.
 ```
 
-### 21 — Ordenar: de más concentrado en el Ejecutivo a más dependiente del Parlamento
+### 20 — Ordenar: de más concentrado en el Ejecutivo a más dependiente del Parlamento
 
 ```
 metadata:

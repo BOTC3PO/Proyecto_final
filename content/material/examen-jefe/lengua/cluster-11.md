@@ -1,6 +1,6 @@
 # Examen jefe — Domina las Coordinadas y el Discurso Referido
 
-> Logro #661. Dominaste las coordinadas distributivas y disyuntivas, el discurso referido, la producción escrita compleja y la subordinada adjetiva. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #661. Dominaste las coordinadas distributivas y disyuntivas, el discurso referido, la producción escrita compleja y la subordinada adjetiva. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1508,7 +1508,7 @@ explicacion: |
   El estilo indirecto ofrece agilidad y economía narrativa, permitiendo resumir largos diálogos o pensamientos sin detener la acción con citas textuales.
 ```
 
-## Sección: produccion-escrita-compleja (20 preguntas)
+## Sección: produccion-escrita-compleja (19 preguntas)
 
 ```
 metadata:
@@ -1829,29 +1829,6 @@ pasos:
 explicacion: |
   Verdadero: el esquema de párrafos es una herramienta práctica
   central de la planificación.
-```
-
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "avanzado"
-  tags: ["prerrequisito", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Producción escrita compleja tiene dos prerrequisitos directos en el MAPA: oración compuesta (para combinar oraciones) y signos de puntuación (para que esas combinaciones se lean sin ambigüedad)."
-
-pasos:
-  - "Ambos prerrequisitos son necesarios en conjunto: combinar oraciones sin puntuar bien resulta igual de ilegible."
-
-explicacion: |
-  Verdadero: es el caso de un nodo con doble padre en el MAPA,
-  explicado en `../dependencias.md`.
 ```
 
 ```

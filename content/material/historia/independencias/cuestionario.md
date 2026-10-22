@@ -43,8 +43,7 @@ opciones_explicitas:
 respuesta: "Fue la consecuencia de la Revolución de Mayo, un proceso revolucionario previo"
 
 explicacion: |
-  Es la razón por la que `independencias/` depende de
-  `../revoluciones/` en `../dependencias.md`.
+  La independencia rioplatense fue consecuencia de la Revolución de Mayo de 1810, un proceso revolucionario previo.
 ```
 
 ### 3 — Ambigüedad de 1810
@@ -380,7 +379,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cruce"]
 
-enunciado: "¿Por qué el proceso de independencia rioplatense se conecta directamente con `../guerras/`?"
+enunciado: "¿Por qué el proceso de independencia rioplatense se conecta directamente con las guerras?"
 tipo: mc
 opciones_explicitas:
   - "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
@@ -389,8 +388,7 @@ opciones_explicitas:
 respuesta: "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
 
 explicacion: |
-  Es la razón por la que `H2c` (guerras) depende de `H2b`
-  (independencias) en `../dependencias.md`.
+  España resistió militarmente la independencia declarada, y eso generó las guerras de independencia: sin guerra no se consolidaba.
 ```
 
 ### 19 — Qué distingue independencia de revolución
@@ -415,24 +413,3 @@ explicacion: |
   conceptos distintos.
 ```
 
-### 20 — Por qué remite a Tronco 8.c
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué el desarrollo real y detallado de la independencia argentina se ubica en la cadena `AH4`-`AH5` de Tronco 8.c y no acá?"
-tipo: mc
-opciones_explicitas:
-  - "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
-  - "Porque Tronco 8.c no tiene relación alguna con la independencia"
-  - "Porque este tema y `AH4`/`AH5` tratan procesos completamente distintos"
-respuesta: "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
-
-explicacion: |
-  Mismo criterio de "no repetir el mismo tema dos veces" que ya usa el
-  MAPA en varios puntos (ver nota v2.4 sobre `AH12`/`AH13`).
-```

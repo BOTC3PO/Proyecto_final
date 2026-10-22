@@ -15,7 +15,7 @@ función logarítmica, cómo se relacionan entre sí, errores comunes).
 
 f(x) = aˣ (con a > 0, a ≠ 1) es una **función exponencial**. A
 diferencia de una potencia (donde la base es fija y el exponente
-varía, tema de Tronco 1), acá la variable está en el **exponente**.
+varía, tema de potencias), acá la variable está en el **exponente**.
 
 - **Dominio**: todos los reales (cualquier exponente tiene sentido).
 - **Imagen**: y > 0 — una potencia con base positiva **nunca** da 0 ni

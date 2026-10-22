@@ -1,10 +1,10 @@
 # Examen jefe — Dominio de Guerras y Procesos Americanos
 
-> Logro #725. Completaste el parcial sobre las independencias, la revolución mexicana, la guerra civil española, la guerra del Paraguay, Rosas y la Confederación, la Conquista del Desierto y las economías regionales tempranas. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **197 preguntas totales** en 8/8 secciones.
+> Logro #725. Completaste el parcial sobre las independencias, la revolución mexicana, la guerra civil española, la guerra del Paraguay, Rosas y la Confederación, la Conquista del Desierto y las economías regionales tempranas. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **194 preguntas totales** en 8/8 secciones.
 
 ---
 
-## Sección: independencias (20 preguntas)
+## Sección: independencias (19 preguntas)
 
 ```
 metadata:
@@ -41,8 +41,7 @@ opciones_explicitas:
 respuesta: "Fue la consecuencia de la Revolución de Mayo, un proceso revolucionario previo"
 
 explicacion: |
-  Es la razón por la que `independencias/` depende de
-  `../revoluciones/` en `../dependencias.md`.
+  La independencia rioplatense fue consecuencia de la Revolución de Mayo de 1810, un proceso revolucionario previo.
 ```
 
 ```
@@ -346,7 +345,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cruce"]
 
-enunciado: "¿Por qué el proceso de independencia rioplatense se conecta directamente con `../guerras/`?"
+enunciado: "¿Por qué el proceso de independencia rioplatense se conecta directamente con las guerras?"
 tipo: mc
 opciones_explicitas:
   - "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
@@ -355,8 +354,7 @@ opciones_explicitas:
 respuesta: "Porque España resistió militarmente la independencia declarada, generando las Guerras de independencia"
 
 explicacion: |
-  Es la razón por la que `H2c` (guerras) depende de `H2b`
-  (independencias) en `../dependencias.md`.
+  España resistió militarmente la independencia declarada, y eso generó las guerras de independencia: sin guerra no se consolidaba.
 ```
 
 ```
@@ -377,26 +375,6 @@ respuesta: "La revolución cambia el poder o la estructura interna de una socied
 explicacion: |
   Pueden estar conectadas (como en el caso rioplatense) pero son
   conceptos distintos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "independencias"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué el desarrollo real y detallado de la independencia argentina se ubica en la cadena `AH4`-`AH5` de Tronco 8.c y no acá?"
-tipo: mc
-opciones_explicitas:
-  - "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
-  - "Porque Tronco 8.c no tiene relación alguna con la independencia"
-  - "Porque este tema y `AH4`/`AH5` tratan procesos completamente distintos"
-respuesta: "Para no duplicar el mismo contenido con dos IDs distintos — acá se explica el proceso general, allá el caso puntual con más contexto"
-
-explicacion: |
-  Mismo criterio de "no repetir el mismo tema dos veces" que ya usa el
-  MAPA en varios puntos (ver nota v2.4 sobre `AH12`/`AH13`).
 ```
 
 ## Sección: revolucion-mexicana-1910-1920 (27 preguntas)
@@ -915,7 +893,7 @@ explicacion: |
   EE.UU. tuvo una postura ambigua, a veces apoyando a Madero o a Huerta según sus intereses, pero temiendo la inestabilidad en su frontera.
 ```
 
-## Sección: guerras (20 preguntas)
+## Sección: guerras (18 preguntas)
 
 ```
 metadata:
@@ -1063,26 +1041,6 @@ metadata:
   materia: "historia"
   tema: "guerras"
   nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿En qué nodo de Tronco 8.c está el desarrollo real de la Guerra de Malvinas?"
-tipo: mc
-opciones_explicitas:
-  - "AH13"
-  - "AH5"
-  - "AH1"
-respuesta: "AH13"
-
-explicacion: |
-  El desarrollo completo vive en Tronco 8.c, citando el art. 92 b —
-  acá sólo se referencia, sin duplicarlo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
-  nivel: "intermedio"
   tags: ["herramientas_analisis"]
 
 enunciado: "¿Casi ninguna guerra tiene una sola causa?"
@@ -1151,8 +1109,7 @@ opciones_explicitas:
 respuesta: "Dimensión ética"
 
 explicacion: |
-  Es el mismo criterio que ya se aplicó a `AH12`/`AH13` (Terrorismo de
-  Estado y Malvinas) en Tronco 8.c.
+  La dimensión ética permite juzgar una guerra pasada sin reducirla a una fecha para memorizar.
 ```
 
 ```
@@ -1256,26 +1213,6 @@ explicacion: |
 metadata:
   materia: "historia"
   tema: "guerras"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué `guerras/` no repite el desarrollo completo de las Guerras de independencia, guerras civiles y Malvinas, y sólo los referencia?"
-tipo: mc
-opciones_explicitas:
-  - "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
-  - "Porque esos temas no tienen ninguna relación con las guerras"
-  - "Porque el contenido de Tronco 8.c está desactualizado"
-respuesta: "Para no escribir el mismo contenido histórico dos veces con distintos IDs (`H2c` y `AH5`/`AH6`/`AH12`/`AH13`)"
-
-explicacion: |
-  Mismo criterio de "duplicación resuelta" ya aplicado en otros puntos
-  del MAPA (nota v2.4).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "guerras"
   nivel: "intermedio"
   tags: ["cruce"]
 
@@ -1308,9 +1245,7 @@ opciones_explicitas:
 respuesta: "Se benefician del mismo tipo de análisis histórico: multicausalidad, causa/consecuencia y dimensión ética"
 
 explicacion: |
-  Comparten estructura de análisis aunque el contenido y los actores
-  sean distintos — por eso el MAPA los agrupó como 3 nodos hermanos
-  (`H2a`/`H2b`/`H2c`) en vez de tratarlos como temas sin relación.
+  Los tres tipos de guerra se pueden analizar con las mismas herramientas (multicausalidad, causa y consecuencia, dimensión ética), aunque cambien el contenido y los actores.
 ```
 
 ## Sección: guerra-civil-espanola-1936-1939 (26 preguntas)

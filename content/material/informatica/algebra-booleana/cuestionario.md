@@ -390,7 +390,7 @@ tipo: vf
 enunciado: "La misma estructura lógica que empezó como error de razonamiento en lenguaje cotidiano (falacias, Lengua) y se formalizó con proposiciones (Filosofía) termina siendo la base física y de código de una computadora (álgebra booleana, Informática)."
 
 pasos:
-  - "Es el \"cruce inesperado\" señalado en `troncos.md` (v2.6), la misma lógica vista en tres materias distintas."
+  - "Es el mismo hilo lógico visto en tres materias: falacias en Lengua, proposiciones en Filosofía y circuitos en Informática."
 
 explicacion: |
   Verdadero: es la síntesis completa de la cadena de tres temas en

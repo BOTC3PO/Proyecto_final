@@ -1,6 +1,6 @@
 # Examen jefe — Filósofo del Ser y la Belleza
 
-> Logro #953. Dominaste lo bello, qué es el arte, la realidad, la ontología, el utilitarismo, la validez de un razonamiento y la bioética y la lógica de predicados. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **160 preguntas totales** en 8/8 secciones.
+> Logro #953. Dominaste lo bello, qué es el arte, la realidad, la ontología, el utilitarismo, la validez de un razonamiento y la bioética y la lógica de predicados. Pool agregado de los `cuestionario.md` ya validados de sus 8 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **159 preguntas totales** en 8/8 secciones.
 
 ---
 
@@ -1317,10 +1317,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Realidad cierra, junto con Ser y Existencia, la subrama de las tres preguntas metafísicas básicas: qué es ser, qué significa existir, y qué distingue lo real de lo aparente."
+enunciado: "Realidad completa, junto con Ser y Existencia, las tres preguntas metafísicas básicas: qué es ser, qué significa existir, y qué distingue lo real de lo aparente."
 
 pasos:
-  - "Ver `../ser-ontologia/` y `../existencia/`: los tres son hermanos que dependen del mismo padre en el MAPA."
+  - "Ser, existir y distinguir lo real de lo aparente son tres preguntas hermanas de la metafísica."
 
 explicacion: |
   Verdadero: es la síntesis completa de la subrama de metafísica
@@ -1826,7 +1826,7 @@ tipo: vf
 enunciado: "Entender qué significa \"ser\" en general es un paso previo útil antes de preguntar específicamente qué significa que algo particular \"exista\" (el tema siguiente, Existencia)."
 
 pasos:
-  - "Ver `../existencia/`: aunque los tres nodos son hermanos en el MAPA, el orden conceptual va de lo más general (ser) a lo más específico."
+  - "El orden conceptual va de lo más general (ser) a lo más específico (existir)."
 
 explicacion: |
   Verdadero: aunque no haya dependencia formal entre los tres nodos
@@ -2314,7 +2314,7 @@ explicacion: |
   tema a situaciones de la vida real.
 ```
 
-## Sección: validez-de-un-razonamiento (20 preguntas)
+## Sección: validez-de-un-razonamiento (19 preguntas)
 
 ```
 metadata:
@@ -2729,30 +2729,6 @@ respuesta_orden: ["Identificar las premisas y la conclusión del razonamiento", 
 explicacion: |
   El proceso va de identificar los componentes del razonamiento a
   formalizarlo y compararlo con las estructuras ya conocidas.
-```
-
-```
-metadata:
-  materia: "filosofia"
-  tema: "validez_de_un_razonamiento"
-  nivel: "avanzado"
-  tags: ["validez", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este mismo tema de validez es la base que reutiliza tanto Álgebra booleana (Informática) como Deducción, Contraejemplo, Reducción al absurdo e Inducción matemática (Matemática)."
-
-pasos:
-  - "Ver `../../informatica/algebra-booleana/`: es un nodo del MAPA con doble uso confirmado en distintas materias."
-
-explicacion: |
-  Verdadero: es el mismo concepto de validez lógica, aplicado luego
-  en dos contextos distintos (circuitos/código y demostración
-  matemática).
 ```
 
 ```
@@ -3596,8 +3572,7 @@ pasos:
   - "Ver `../../informatica/algebra-booleana/`: es el mismo tipo de extensión, en dos materias distintas."
 
 explicacion: |
-  Verdadero: es la conexión explícita señalada en el agregado v2.6
-  del MAPA.
+  Verdadero: el álgebra booleana opera con proposiciones fijas, y la lógica de predicados con proposiciones que dependen de una variable.
 ```
 
 ```

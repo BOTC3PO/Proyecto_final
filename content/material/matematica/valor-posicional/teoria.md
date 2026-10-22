@@ -72,7 +72,7 @@ redondea: si esa cifra es 5 o más, la cifra de la posición objetivo sube en
 1 (y todo lo que queda a la derecha se vuelve cero); si es menor a 5, queda
 igual. Ejemplo: redondear 683 a la centena más cercana — se mira la cifra de
 las decenas (8, que es ≥5) — el resultado es 700. Es la misma regla del
-redondeo de decimales (Tronco 1, "Decimales y redondeo"), aplicada a las
+redondeo de decimales ("Decimales y redondeo"), aplicada a las
 cifras enteras.
 
 ## Valor posicional con decimales

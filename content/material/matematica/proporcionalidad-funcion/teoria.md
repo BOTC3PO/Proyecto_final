@@ -13,9 +13,8 @@ errores comunes).
 
 ## Retomando razón y proporción, ahora como función
 
-En Tronco 1 (`../proporcion/`, `../regla-de-tres-directa/`,
-`../regla-de-tres-inversa/`) ya se vio la proporcionalidad como una
-técnica de cálculo. Ahora que existe el concepto de función, se puede ver
+Antes ya se vio la proporcionalidad como una técnica de cálculo
+(proporción, regla de tres directa y regla de tres inversa). Ahora que existe el concepto de función, se puede ver
 la misma idea de otra forma: la proporcionalidad **es** una función.
 
 ## Proporcionalidad directa: y = kx

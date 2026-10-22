@@ -424,10 +424,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Realidad cierra, junto con Ser y Existencia, la subrama de las tres preguntas metafísicas básicas: qué es ser, qué significa existir, y qué distingue lo real de lo aparente."
+enunciado: "Realidad completa, junto con Ser y Existencia, las tres preguntas metafísicas básicas: qué es ser, qué significa existir, y qué distingue lo real de lo aparente."
 
 pasos:
-  - "Ver `../ser-ontologia/` y `../existencia/`: los tres son hermanos que dependen del mismo padre en el MAPA."
+  - "Ser, existir y distinguir lo real de lo aparente son tres preguntas hermanas de la metafísica."
 
 explicacion: |
   Verdadero: es la síntesis completa de la subrama de metafísica

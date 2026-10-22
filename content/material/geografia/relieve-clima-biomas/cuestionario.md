@@ -425,7 +425,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cruce"]
 
-enunciado: "¿Un bioma es un ejemplo de qué concepto ya visto en `../region/`?"
+enunciado: "¿Un bioma es un ejemplo de qué concepto ya visto en Región?"
 tipo: mc
 opciones_explicitas:
   - "Región física, que agrupa territorio por un rasgo natural sin respetar límites políticos"
@@ -434,8 +434,7 @@ opciones_explicitas:
 respuesta: "Región física, que agrupa territorio por un rasgo natural sin respetar límites políticos"
 
 explicacion: |
-  Es la razón por la que `relieve-clima-biomas/` depende de
-  `../region/` en `../dependencias.md`.
+  Un bioma es una región física: agrupa territorio por un rasgo natural (clima, vegetación) sin respetar límites políticos.
 ```
 
 ### 21 — Meseta
@@ -503,25 +502,3 @@ explicacion: |
   Relieve (y latitud) → Clima → Bioma, en ese orden causal.
 ```
 
-### 24 — Por qué no se separa en 3 módulos
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_clima_biomas"
-  nivel: "avanzado"
-  tags: ["cadena_causal"]
-
-enunciado: "¿Por qué relieve, clima y bioma se tratan como una sola unidad de estudio en vez de tres temas separados?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada uno es la causa directa del siguiente: entender uno sin el anterior es quedarse a mitad de camino de la explicación"
-  - "Porque son exactamente lo mismo con distinto nombre"
-  - "Porque el MAPA los separó en 3 nodos distintos con IDs propios"
-respuesta: "Porque cada uno es la causa directa del siguiente: entender uno sin el anterior es quedarse a mitad de camino de la explicación"
-
-explicacion: |
-  A diferencia de `G12` o `H2` (que sí tienen sub-IDs `a`/`b`/`c` en el
-  MAPA), `G6` sigue siendo un solo nodo — señal de que se pensó como
-  unidad.
-```

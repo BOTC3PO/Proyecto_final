@@ -434,7 +434,5 @@ opciones_explicitas:
 respuesta: "Para entender la compatibilidad en transfusiones, calcular probabilidades de herencia, y como aplicación real de alelos múltiples y codominancia"
 
 explicacion: |
-  Junto con `../herencia-ligada-al-sexo/`, completa las dos mitades
-  del nodo `B3` del MAPA — dos mecanismos genéticos distintos, ambos
-  resueltos con probabilidad condicional.
+  Los grupos sanguíneos son una aplicación real de alelos múltiples y codominancia, y sirven para entender las transfusiones y calcular probabilidades de herencia.
 ```

@@ -410,32 +410,8 @@ explicacion: |
   no fija estudiado en la teoría.
 ```
 
-### 17 — Revisar qué queda excluido de un programa de estudio
 
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["seleccion", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier programa de estudio de historia, incluida esta cadena de Tronco 6, aplica implícitamente criterios de significancia al decidir qué temas incluir y cuáles dejar afuera."
-
-pasos:
-  - "Es la aplicación reflexiva de este concepto a la propia estructura del material de estudio."
-
-explicacion: |
-  Verdadero: es una aplicación autorreferencial de por qué este
-  concepto es relevante más allá de la teoría abstracta.
-```
-
-### 18 — Ordenar el proceso para evaluar la significancia de un hecho
+### 17 — Ordenar el proceso para evaluar la significancia de un hecho
 
 ```
 metadata:
@@ -457,7 +433,7 @@ explicacion: |
   criterios combinados de significancia.
 ```
 
-### 19 — Significancia histórica es un concepto argumentable, no absoluto
+### 18 — Significancia histórica es un concepto argumentable, no absoluto
 
 ```
 metadata:
@@ -482,7 +458,7 @@ explicacion: |
   naturaleza del concepto de significancia histórica.
 ```
 
-### 20 — Aplicación: justificar por qué estudiar un tema
+### 19 — Aplicación: justificar por qué estudiar un tema
 
 ```
 metadata:

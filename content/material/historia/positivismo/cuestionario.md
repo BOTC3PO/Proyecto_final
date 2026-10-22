@@ -353,32 +353,8 @@ explicacion: |
   caso concreto de investigación histórica.
 ```
 
-### 15 — El positivismo depende de multicausalidad en el MAPA
 
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es, en el fondo, un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la conexión conceptual explícita entre corrientes
-  historiográficas y multicausalidad.
-```
-
-### 16 — El positivismo busca objetividad científica
+### 15 — El positivismo busca objetividad científica
 
 ```
 metadata:
@@ -403,7 +379,7 @@ explicacion: |
   trabajo histórico.
 ```
 
-### 17 — El positivismo no es la única forma legítima de hacer historia
+### 16 — El positivismo no es la única forma legítima de hacer historia
 
 ```
 metadata:
@@ -428,7 +404,7 @@ explicacion: |
   presenta como la única correcta.
 ```
 
-### 18 — Ordenar el análisis para identificar un texto positivista
+### 17 — Ordenar el análisis para identificar un texto positivista
 
 ```
 metadata:
@@ -451,7 +427,7 @@ explicacion: |
   positivista.
 ```
 
-### 19 — Positivismo como primera corriente de la subrama
+### 18 — Positivismo como primera corriente de la subrama
 
 ```
 metadata:
@@ -476,7 +452,7 @@ explicacion: |
   subrama.
 ```
 
-### 20 — Aplicación: identificar el enfoque de un texto histórico
+### 19 — Aplicación: identificar el enfoque de un texto histórico
 
 ```
 metadata:

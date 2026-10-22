@@ -2800,7 +2800,7 @@ opciones_explicitas:
 respuesta: "Para contar cuántos casos favorables y cuántos casos totales hay, sin necesidad de enumerarlos todos, y así calcular la probabilidad como un cociente"
 
 explicacion: |
-  Es el puente directo hacia Probabilidad compuesta (Tronco 4.b).
+  Contar combinaciones permite saber cuántos casos favorables y cuántos casos totales hay sin enumerarlos todos, y así calcular la probabilidad como un cociente.
 ```
 
 ```
@@ -2927,8 +2927,7 @@ opciones_explicitas:
 respuesta: "Para contar cuántas formas hay de elegir una parte de un conjunto SIN importar el orden, sin repetir elementos"
 
 explicacion: |
-  Cierra el tronco de Conjuntos y combinatoria (4.a), y es la puerta
-  directa hacia Probabilidad compuesta (Tronco 4.b).
+  Las combinaciones cuentan las formas de elegir una parte de un conjunto cuando el orden no importa, y son la base para calcular probabilidades.
 ```
 
 ## Sección: permutaciones (24 preguntas)

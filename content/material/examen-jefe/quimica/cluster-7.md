@@ -1,6 +1,6 @@
 # Examen jefe — Experto en Mol, Gases y Redox
 
-> Logro #847. Completaste el parcial con mol y masa molar, gases ideales, oxidación-reducción y electrólisis, y sumaste biomoléculas como glúcidos, lípidos y proteínas, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #847. Completaste el parcial con mol y masa molar, gases ideales, oxidación-reducción y electrólisis, y sumaste biomoléculas como glúcidos, lípidos y proteínas, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **98 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -352,7 +352,7 @@ explicacion: |
   Correcto. La función enzimática (catalítica) es una de las funciones más importantes de las proteínas.
 ```
 
-## Sección: mol-masa-molar (20 preguntas)
+## Sección: mol-masa-molar (19 preguntas)
 
 ```
 metadata:
@@ -401,24 +401,6 @@ enunciado: "El número de Avogadro cambia dependiendo de la sustancia que se est
 
 explicacion: |
   Falso. El número de Avogadro es una constante universal; lo que cambia según la sustancia es la MASA de un mol (la masa molar).
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["constante", "nomenclatura"]
-
-respuesta: "N_A"
-tipo: completar
-respuestas_validas:
-  - "N_A"
-
-enunciado: "En VBLang, la constante del número de Avogadro ya está precargada con el nombre ___."
-
-explicacion: |
-  El identificador `N_A` está disponible como constante global, sin necesidad de declararlo.
 ```
 
 ```
@@ -1074,7 +1056,7 @@ explicacion: |
   Si el número de oxidación sube, es oxidación; si baja, es reducción.
 ```
 
-## Sección: gases-ideales (20 preguntas)
+## Sección: gases-ideales (19 preguntas)
 
 ```
 metadata:
@@ -1308,24 +1290,6 @@ enunciado: "Usar 25 grados Celsius directamente en la fórmula PV=nRT (sin conve
 
 explicacion: |
   Falso. Hay que convertir siempre a Kelvin (25°C = 298 K); usar el 25 directo da un resultado muy distinto al real.
-```
-
-```
-metadata:
-  materia: "quimica"
-  tema: "gases_ideales"
-  nivel: "basico"
-  tags: ["constante_r", "teoria"]
-
-respuesta: "R"
-tipo: completar
-respuestas_validas:
-  - "R"
-
-enunciado: "La constante de los gases ideales ya está precargada en VBLang con el nombre ___."
-
-explicacion: |
-  El identificador `R` está disponible como constante global en el DSL.
 ```
 
 ```

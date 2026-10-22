@@ -1128,8 +1128,7 @@ tipo: vf
 enunciado: "Cada corriente de este bloque ofrece una lógica interna propia y coherente para explicar cómo funciona la economía — conocerlas todas permite entender un debate económico actual, sin necesidad de adoptar una sola como la única válida."
 
 explicacion: |
-  Es la idea de cierre de todo el bloque de corrientes de pensamiento
-  económico (`E28a`-`E28i`).
+  Verdadero: cada corriente da una lógica propia y coherente, y conocerlas todas permite entender un debate económico actual sin adoptar una sola como única válida.
 ```
 
 ## Sección: keynesianismo (8 preguntas)

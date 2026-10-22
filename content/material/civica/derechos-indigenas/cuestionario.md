@@ -308,29 +308,8 @@ explicacion: |
   teoría.
 ```
 
-### 16 — Prerrequisito: derechos del niño
 
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_indigenas"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Qué relación tiene este tema con `../derechos-nino/` en la cadena de esta materia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
-  - "No tienen ninguna relación entre sí"
-  - "Los derechos indígenas reemplazan por completo a los derechos del niño"
-respuesta: "Es el hermano siguiente en la secuencia: ambos son especificaciones del marco general de derechos y garantías"
-
-explicacion: |
-  Ambos cuelgan del mismo nodo padre en el MAPA (`T7`) y comparten el
-  mismo tipo de marco normativo específico.
-```
-
-### 17 — Recursos naturales
+### 16 — Recursos naturales
 
 ```
 metadata:
@@ -352,7 +331,7 @@ explicacion: |
   comunidad.
 ```
 
-### 18 — Identidad cultural en la educación
+### 17 — Identidad cultural en la educación
 
 ```
 metadata:
@@ -373,7 +352,7 @@ explicacion: |
   Es parte integral del enfoque intercultural, no sólo lingüístico.
 ```
 
-### 19 — Conflictos de tierras
+### 18 — Conflictos de tierras
 
 ```
 metadata:
@@ -394,7 +373,7 @@ explicacion: |
   Es el cierre práctico de la teoría.
 ```
 
-### 20 — Síntesis
+### 19 — Síntesis
 
 ```
 metadata:

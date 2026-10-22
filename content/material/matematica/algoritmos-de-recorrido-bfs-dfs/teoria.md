@@ -82,8 +82,7 @@ descubrir que había un camino más directo por otra rama.
 
 ## Para qué sirve
 
-Son el algoritmo real detrás de "Enrutamiento" (redes de computadoras,
-Tronco 10.b): un router que busca el camino más corto para un paquete
+Son el algoritmo real detrás de "Enrutamiento" (redes de computadoras, Informática): un router que busca el camino más corto para un paquete
 de datos está, literalmente, corriendo un BFS sobre el grafo de la
 red — no memoriza rutas de antemano, las **descubre** recorriendo el
 grafo. BFS también es la base de "grados de separación" en redes

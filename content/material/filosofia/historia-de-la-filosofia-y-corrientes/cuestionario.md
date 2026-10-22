@@ -376,32 +376,8 @@ explicacion: |
   impuesta, incluyendo al Estado.
 ```
 
-### 16 — Neutralidad al presentar corrientes político-económicas
 
-```
-metadata:
-  materia: "filosofia"
-  tema: "historia_de_la_filosofia"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las corrientes político-económicas se presentan con el mismo criterio de neutralidad que las corrientes económicas del Tronco 1: identificar qué sostiene cada una, nunca evaluar cuál tiene razón."
-
-pasos:
-  - "Ver `../../economia/`: es el mismo principio ya aplicado en esa materia."
-
-explicacion: |
-  Verdadero: es el criterio de neutralidad no negociable en este
-  tema.
-```
-
-### 17 — Orden cronológico de las grandes etapas
+### 16 — Orden cronológico de las grandes etapas
 
 ```
 metadata:
@@ -424,7 +400,7 @@ explicacion: |
   filosofía occidental descrita en la teoría.
 ```
 
-### 18 — Nietzsche y la crítica de la moral tradicional
+### 17 — Nietzsche y la crítica de la moral tradicional
 
 ```
 metadata:
@@ -449,7 +425,7 @@ explicacion: |
   tradicional en el siglo XIX.
 ```
 
-### 19 — Sartre y Camus como referentes del existencialismo
+### 18 — Sartre y Camus como referentes del existencialismo
 
 ```
 metadata:
@@ -475,7 +451,7 @@ explicacion: |
   del existencialismo.
 ```
 
-### 20 — Historia de la filosofía como contexto de las otras ramas
+### 19 — Historia de la filosofía como contexto de las otras ramas
 
 ```
 metadata:

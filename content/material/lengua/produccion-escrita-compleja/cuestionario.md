@@ -353,32 +353,8 @@ explicacion: |
   central de la planificación.
 ```
 
-### 15 — Doble prerrequisito de producción escrita compleja
 
-```
-metadata:
-  materia: "lengua"
-  tema: "produccion_escrita_compleja"
-  nivel: "avanzado"
-  tags: ["prerrequisito", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Producción escrita compleja tiene dos prerrequisitos directos en el MAPA: oración compuesta (para combinar oraciones) y signos de puntuación (para que esas combinaciones se lean sin ambigüedad)."
-
-pasos:
-  - "Ambos prerrequisitos son necesarios en conjunto: combinar oraciones sin puntuar bien resulta igual de ilegible."
-
-explicacion: |
-  Verdadero: es el caso de un nodo con doble padre en el MAPA,
-  explicado en `../dependencias.md`.
-```
-
-### 16 — No mezclar varias ideas grandes en un párrafo
+### 15 — No mezclar varias ideas grandes en un párrafo
 
 ```
 metadata:
@@ -404,7 +380,7 @@ explicacion: |
   claridad.
 ```
 
-### 17 — Reconocer una etapa a partir de una acción concreta
+### 16 — Reconocer una etapa a partir de una acción concreta
 
 ```
 metadata:
@@ -432,7 +408,7 @@ explicacion: |
   etapa específica.
 ```
 
-### 18 — Aplicación: por qué separar redacción de revisión
+### 17 — Aplicación: por qué separar redacción de revisión
 
 ```
 metadata:
@@ -457,7 +433,7 @@ explicacion: |
   proceso en etapas mejora el resultado final.
 ```
 
-### 19 — Cohesión y coherencia como siguiente paso
+### 18 — Cohesión y coherencia como siguiente paso
 
 ```
 metadata:
@@ -482,7 +458,7 @@ explicacion: |
   directo de esos tres temas de cohesión y coherencia.
 ```
 
-### 20 — Aplicación: planificar antes de un texto largo real
+### 19 — Aplicación: planificar antes de un texto largo real
 
 ```
 metadata:

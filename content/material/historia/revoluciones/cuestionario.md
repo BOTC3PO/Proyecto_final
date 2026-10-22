@@ -189,8 +189,7 @@ tipo: input
 respuesta: 1810
 
 explicacion: |
-  Es el punto de partida de la cadena histórica argentina (`AH4` de
-  Tronco 8.c).
+  El proceso que llevó a la independencia argentina comenzó con la Revolución de Mayo de 1810.
 ```
 
 ### 10 — Revolución vs. guerra
@@ -230,9 +229,7 @@ opciones_explicitas:
 respuesta: "Porque las tensiones comerciales o de desigualdad muchas veces nacen de qué actividades económicas domina ese territorio"
 
 explicacion: |
-  Es la razón por la que `revoluciones/` cruza con
-  `../../geografia/recursos-actividades-economicas/` en
-  `../dependencias.md`.
+  Muchas tensiones comerciales y de desigualdad nacen de qué actividades económicas domina un territorio, y eso influye en las causas de una revolución.
 ```
 
 ### 12 — Grupo social sin representación
@@ -409,24 +406,3 @@ explicacion: |
   de Estado".
 ```
 
-### 20 — Por qué el desarrollo real está en Tronco 8.c
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué el nodo `H2a` de Tronco 6 remite su desarrollo real a `AH4` de Tronco 8.c, en vez de duplicar el contenido de la Revolución de Mayo en dos lugares?"
-tipo: mc
-opciones_explicitas:
-  - "Para no escribir el mismo tema histórico dos veces con distintos IDs, el mismo criterio ya usado con \"Memoria: terrorismo de Estado\" y `AH12`/`AH13`"
-  - "Porque Tronco 8.c no tiene ninguna relación con revoluciones"
-  - "Porque `H2a` y `AH4` son conceptos completamente distintos"
-respuesta: "Para no escribir el mismo tema histórico dos veces con distintos IDs, el mismo criterio ya usado con \"Memoria: terrorismo de Estado\" y `AH12`/`AH13`"
-
-explicacion: |
-  Es el mismo patrón de "duplicación resuelta" (agregado v2.4) que ya
-  usa el MAPA en otro punto de esta misma cadena.
-```
