@@ -51,6 +51,8 @@ export type QuizAttemptDetail = {
   maxScore?: number;
   timerSegundos?: number | null;
   deadline?: string | null;
+  /** Si es `true`, el alumno ve solo la nota: no el puntaje ni los porcentajes (F4-03 en la web). */
+  ocultarPuntos?: boolean;
 };
 
 export type QuizSubmitResult = {
@@ -61,4 +63,25 @@ export type QuizSubmitResult = {
   aprobado?: boolean;
   umbral?: number;
   message?: string;
+};
+
+/** `GET /api/quiz-attempts/:id/repaso` — en qué falló el alumno y qué temas repasar (ver `api/src/routes/quiz-repaso.ts`). */
+export type GrupoRepaso = {
+  tipo: "tema" | "seccion";
+  id: string;
+  titulo: string;
+  moduloId: string | null;
+  correctas: number;
+  total: number;
+  porcentaje: number;
+};
+export type PreguntaRepaso = { id: string; prompt: string; correcta: boolean; pendiente: boolean; explicacion: string | null; grupo: string };
+export type Repaso = {
+  disponible: boolean;
+  porcentaje: number | null;
+  umbral: number;
+  aprobado: boolean | null;
+  porGrupo: GrupoRepaso[];
+  recomendados: GrupoRepaso[];
+  preguntas: PreguntaRepaso[];
 };
