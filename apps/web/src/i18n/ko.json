@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "틀린 주제",
+  "repaso.tituloSecciones": "틀린 영역",
+  "repaso.msgDesaprobadoTemas": "아직 {umbral}%에 도달하지 못했어요. 끝이 아닙니다. 어떤 주제에서 틀렸는지 확인하고, 복습한 뒤 다시 도전해 보세요.",
+  "repaso.msgDesaprobadoSecciones": "아직 {umbral}%에 도달하지 못했어요. 가장 많이 틀린 영역입니다. 연습한 뒤 다시 도전해 보세요.",
+  "repaso.msgAprobadoConRepaso": "합격했어요. 다음 주제는 더 다져 볼 수 있어요:",
+  "repaso.msgAprobadoLimpio": "합격했고 약한 주제도 남지 않았어요. 잘했어요.",
+  "repaso.resultadoPorTema": "주제별 결과",
+  "repaso.detalleGrupo": "{total}문제 중 {correctas}문제 정답 · {porcentaje}%",
+  "repaso.ariaAciertos": "정답률 {porcentaje}%",
+  "repaso.repasarPrimero": "먼저 복습할 주제",
+  "repaso.abrirTema": "주제 열기",
+  "repaso.preguntasRevisar": "다시 볼 문제 ({n})",
+  "repaso.seccionGramatica": "문법",
+  "repaso.seccionLectura": "읽기",
+  "repaso.seccionAudicion": "듣기",
+  "repaso.seccionExpresionOral": "말하기",
+  "repaso.seccionEscritura": "쓰기"
 }

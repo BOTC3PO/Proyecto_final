@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "Temas em que erraste",
+  "repaso.tituloSecciones": "Partes em que erraste",
+  "repaso.msgDesaprobadoTemas": "Ainda não chegaste aos {umbral}%. Não é o fim: vê em que temas erraste, revê-os e tenta outra vez.",
+  "repaso.msgDesaprobadoSecciones": "Ainda não chegaste aos {umbral}%. Estas são as partes em que mais erraste: pratica-as e tenta outra vez.",
+  "repaso.msgAprobadoConRepaso": "Passaste. Estes temas ainda podem ser reforçados:",
+  "repaso.msgAprobadoLimpio": "Passaste e nenhum tema ficou fraco. Muito bem.",
+  "repaso.resultadoPorTema": "Resultado por tema",
+  "repaso.detalleGrupo": "{correctas} de {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% de respostas certas",
+  "repaso.repasarPrimero": "Rever primeiro",
+  "repaso.abrirTema": "Abrir o tema",
+  "repaso.preguntasRevisar": "Perguntas a rever ({n})",
+  "repaso.seccionGramatica": "Gramática",
+  "repaso.seccionLectura": "Leitura",
+  "repaso.seccionAudicion": "Compreensão oral",
+  "repaso.seccionExpresionOral": "Expressão oral",
+  "repaso.seccionEscritura": "Escrita"
 }

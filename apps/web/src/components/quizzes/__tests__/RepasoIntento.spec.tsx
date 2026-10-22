@@ -6,6 +6,13 @@ const apiGet = vi.fn();
 vi.mock("../../../lib/api", () => ({ apiGet: (...a: unknown[]) => apiGet(...a) }));
 
 import RepasoIntento, { etiquetaDeGrupo, mensajeInicial, tonoDe, type Repaso } from "../RepasoIntento";
+import { I18nContext } from "../../../i18n/I18nContext";
+import { CATALOGS, LANGUAGES } from "../../../i18n";
+import es from "../../../i18n/es.json";
+import en from "../../../i18n/en.json";
+
+const catalogo = (c: Record<string, string>) => (k: string) => c[k] ?? k;
+const tEs = catalogo(es as Record<string, string>);
 
 const grupo = (titulo: string, correctas: number, total: number, extra: Record<string, unknown> = {}) => ({
   tipo: "tema" as const, id: `cont-m--${titulo}`, titulo, moduloId: `cont-m--${titulo}`, correctas, total, porcentaje: Math.round((100 * correctas) / total), ...extra,
@@ -23,7 +30,10 @@ const repaso = (over: Partial<Repaso> = {}): Repaso => {
     ...over,
   };
 };
-const ver = (props: Record<string, unknown> = {}) => render(<MemoryRouter><RepasoIntento attemptId="a1" {...props} /></MemoryRouter>);
+const ver = (props: Record<string, unknown> = {}, c: Record<string, string> | null = null) => {
+  const arbol = <MemoryRouter><RepasoIntento attemptId="a1" {...props} /></MemoryRouter>;
+  return render(c ? <I18nContext.Provider value={{ lang: "en", setLang: () => {}, availableLanguages: LANGUAGES, t: catalogo(c) }}>{arbol}</I18nContext.Provider> : arbol);
+};
 
 describe("RepasoIntento", () => {
   beforeEach(() => { apiGet.mockReset(); });
@@ -89,12 +99,41 @@ describe("reglas del repaso", () => {
   });
   it("el mensaje distingue desaprobado, aprobado con temas flojos y aprobado limpio", () => {
     const base = { umbral: 60, porGrupo: [grupo("A", 1, 1)] };
-    expect(mensajeInicial({ ...base, aprobado: false, recomendados: [] }, false)).toMatch(/No es un final/);
-    expect(mensajeInicial({ ...base, aprobado: true, recomendados: [grupo("B", 0, 1)] }, false)).toMatch(/afianzar/);
-    expect(mensajeInicial({ ...base, aprobado: true, recomendados: [] }, false)).toMatch(/Bien hecho/);
+    expect(mensajeInicial({ ...base, aprobado: false, recomendados: [] }, false, tEs)).toMatch(/No es un final/);
+    expect(mensajeInicial({ ...base, aprobado: true, recomendados: [grupo("B", 0, 1)] }, false, tEs)).toMatch(/afianzar/);
+    expect(mensajeInicial({ ...base, aprobado: true, recomendados: [] }, false, tEs)).toMatch(/Bien hecho/);
   });
   it("traduce las secciones de idiomas y deja el resto igual", () => {
-    expect(etiquetaDeGrupo({ tipo: "seccion", titulo: "listening" })).toBe("Comprensión auditiva");
-    expect(etiquetaDeGrupo({ tipo: "tema", titulo: "listening" })).toBe("listening");
+    expect(etiquetaDeGrupo({ tipo: "seccion", titulo: "listening" }, tEs)).toBe("Comprensión auditiva");
+    expect(etiquetaDeGrupo({ tipo: "tema", titulo: "listening" }, tEs)).toBe("listening");
+  });
+});
+
+describe("idiomas del repaso", () => {
+  it("se muestra en el idioma elegido", async () => {
+    apiGet.mockResolvedValue(repaso());
+    ver({}, en as Record<string, string>);
+    expect(await screen.findByText("Topics where you missed questions")).toBeTruthy();
+    expect(screen.getByText(/You haven't reached 60% yet/)).toBeTruthy();
+    expect(screen.getByText("0 of 2 · 0%")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Open the topic" })).toBeTruthy();
+    expect(screen.getByText("Questions to review (1)")).toBeTruthy();
+  });
+
+  it("los 15 catálogos traducen cada texto y conservan los marcadores {umbral}, {correctas}, {total}, {porcentaje} y {n}", () => {
+    const claves = Object.keys(es).filter((k) => k.startsWith("repaso."));
+    expect(claves.length).toBe(17);
+    const marcadores = (txt: string) => (txt.match(/\{[a-z]+\}/g) ?? []).sort().join();
+    const problemas: string[] = [];
+    for (const [lang, cat] of Object.entries(CATALOGS)) {
+      for (const k of claves) {
+        const v = (cat as Record<string, string>)[k];
+        if (!v || !v.trim()) { problemas.push(`${lang}: falta ${k}`); continue; }
+        if (marcadores(v) !== marcadores((es as Record<string, string>)[k])) problemas.push(`${lang}: ${k} cambió los marcadores`);
+        // En idiomas con otra escritura, un texto igual al español es una traducción que falta (en los latinos puede coincidir).
+        if (["ja", "ko", "zh", "ar", "hi", "ru"].includes(lang) && v === (es as Record<string, string>)[k]) problemas.push(`${lang}: ${k} quedó sin traducir`);
+      }
+    }
+    expect(problemas).toEqual([]);
   });
 });

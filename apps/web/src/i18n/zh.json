@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "你出错的主题",
+  "repaso.tituloSecciones": "你出错的部分",
+  "repaso.msgDesaprobadoTemas": "你还没有达到 {umbral}%。这不是结束：看看在哪些主题上出了错，复习后再试一次。",
+  "repaso.msgDesaprobadoSecciones": "你还没有达到 {umbral}%。这些是你错得最多的部分：多加练习，然后再试一次。",
+  "repaso.msgAprobadoConRepaso": "你通过了。下面这些主题还可以再巩固：",
+  "repaso.msgAprobadoLimpio": "你通过了，而且没有薄弱的主题。做得好。",
+  "repaso.resultadoPorTema": "各主题结果",
+  "repaso.detalleGrupo": "共 {total} 题，答对 {correctas} 题 · {porcentaje}%",
+  "repaso.ariaAciertos": "正确率 {porcentaje}%",
+  "repaso.repasarPrimero": "优先复习",
+  "repaso.abrirTema": "打开主题",
+  "repaso.preguntasRevisar": "需要回顾的题目（{n}）",
+  "repaso.seccionGramatica": "语法",
+  "repaso.seccionLectura": "阅读",
+  "repaso.seccionAudicion": "听力",
+  "repaso.seccionExpresionOral": "口语",
+  "repaso.seccionEscritura": "写作"
 }

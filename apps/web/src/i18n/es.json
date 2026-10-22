@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "En qué temas fallaste",
+  "repaso.tituloSecciones": "En qué parte fallaste",
+  "repaso.msgDesaprobadoTemas": "Todavía no llegás al {umbral} %. No es un final: mirá en qué temas fallaste, repasalos y volvé a intentar.",
+  "repaso.msgDesaprobadoSecciones": "Todavía no llegás al {umbral} %. Estas son las partes donde más fallaste: practicalas y volvé a intentar.",
+  "repaso.msgAprobadoConRepaso": "Aprobaste. Estos temas todavía se pueden afianzar:",
+  "repaso.msgAprobadoLimpio": "Aprobaste y no quedó ningún tema flojo. Bien hecho.",
+  "repaso.resultadoPorTema": "Resultado por tema",
+  "repaso.detalleGrupo": "{correctas} de {total} · {porcentaje} %",
+  "repaso.ariaAciertos": "{porcentaje} % de aciertos",
+  "repaso.repasarPrimero": "Para repasar primero",
+  "repaso.abrirTema": "Abrir el tema",
+  "repaso.preguntasRevisar": "Preguntas para revisar ({n})",
+  "repaso.seccionGramatica": "Gramática",
+  "repaso.seccionLectura": "Lectura",
+  "repaso.seccionAudicion": "Comprensión auditiva",
+  "repaso.seccionExpresionOral": "Expresión oral",
+  "repaso.seccionEscritura": "Escritura"
 }

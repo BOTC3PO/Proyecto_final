@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "المستند",
   "verificacionPublica.institucion": "المؤسسة",
   "verificacionPublica.enlace": "الرابط",
-  "verificacionPublica.notas": "ملاحظات"
+  "verificacionPublica.notas": "ملاحظات",
+  "repaso.tituloTemas": "الموضوعات التي أخطأت فيها",
+  "repaso.tituloSecciones": "الأجزاء التي أخطأت فيها",
+  "repaso.msgDesaprobadoTemas": "لم تصل بعد إلى {umbral}%. هذه ليست النهاية: انظر في أي موضوعات أخطأت، وراجعها ثم حاول مرة أخرى.",
+  "repaso.msgDesaprobadoSecciones": "لم تصل بعد إلى {umbral}%. هذه هي الأجزاء التي أخطأت فيها أكثر: تدرّب عليها ثم حاول مرة أخرى.",
+  "repaso.msgAprobadoConRepaso": "لقد نجحت. ما زال بإمكانك تعزيز هذه الموضوعات:",
+  "repaso.msgAprobadoLimpio": "لقد نجحت ولم يبقَ أي موضوع ضعيف. أحسنت.",
+  "repaso.resultadoPorTema": "النتيجة حسب الموضوع",
+  "repaso.detalleGrupo": "{correctas} من {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% إجابات صحيحة",
+  "repaso.repasarPrimero": "راجع هذه أولاً",
+  "repaso.abrirTema": "افتح الموضوع",
+  "repaso.preguntasRevisar": "أسئلة للمراجعة ({n})",
+  "repaso.seccionGramatica": "القواعد",
+  "repaso.seccionLectura": "القراءة",
+  "repaso.seccionAudicion": "الاستماع",
+  "repaso.seccionExpresionOral": "التحدث",
+  "repaso.seccionEscritura": "الكتابة"
 }

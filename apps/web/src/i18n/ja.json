@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "間違えたテーマ",
+  "repaso.tituloSecciones": "間違えたパート",
+  "repaso.msgDesaprobadoTemas": "まだ{umbral}%に届いていません。これで終わりではありません。どのテーマで間違えたかを確認し、復習してからもう一度挑戦しましょう。",
+  "repaso.msgDesaprobadoSecciones": "まだ{umbral}%に届いていません。特に間違いの多かったパートです。練習してからもう一度挑戦しましょう。",
+  "repaso.msgAprobadoConRepaso": "合格です。次のテーマはさらに定着させることができます:",
+  "repaso.msgAprobadoLimpio": "合格です。苦手なテーマは残りませんでした。よくできました。",
+  "repaso.resultadoPorTema": "テーマ別の結果",
+  "repaso.detalleGrupo": "{total}問中{correctas}問正解 · {porcentaje}%",
+  "repaso.ariaAciertos": "正答率 {porcentaje}%",
+  "repaso.repasarPrimero": "最初に復習するテーマ",
+  "repaso.abrirTema": "テーマを開く",
+  "repaso.preguntasRevisar": "見直す問題 ({n})",
+  "repaso.seccionGramatica": "文法",
+  "repaso.seccionLectura": "読解",
+  "repaso.seccionAudicion": "聴解",
+  "repaso.seccionExpresionOral": "会話",
+  "repaso.seccionEscritura": "作文"
 }
