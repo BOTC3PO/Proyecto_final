@@ -42,6 +42,24 @@ def limpiar_teoria(t):
     head = re.sub(r"\s*\((teor[ií]a|cuestionario)[^)]*\)\s*$", "", head)
     return head, txt.strip()
 
+RUTA = re.compile(r"`((?:\.\./|\./)+[a-z0-9][a-z0-9\-/]*/)`")
+_TITULOS = {}
+def titulo_de(base, ruta):
+    """Título del tema al que apunta una ruta relativa (`../sujeto-y-predicado/`); si no existe, el nombre de la carpeta."""
+    destino = (base / ruta).resolve()
+    if destino not in _TITULOS:
+        t = destino / "teoria.md"
+        nombre = destino.name.replace("-", " ")
+        if t.exists():
+            h, _ = limpiar_teoria(t.read_text(encoding="utf-8"))
+            h = re.sub(r"^.*? — ", "", h) if " — " in h else h
+            nombre = h or nombre
+        _TITULOS[destino] = nombre[:1].upper() + nombre[1:]
+    return _TITULOS[destino]
+def humanizar_rutas(texto, base):
+    """Cambia las rutas internas entre temas por el nombre del tema: `../tesis/` -> «Tesis»."""
+    return RUTA.sub(lambda m: "«" + titulo_de(base, m.group(1)) + "»", texto)
+
 def bloques(texto):
     L = texto.split("\n"); out = []; titulo = ""; i = 0
     while i < len(L):
@@ -104,9 +122,11 @@ def main():
             if cu.exists():
                 src = cu.read_text(encoding="utf-8")
                 for n, (t, b) in enumerate(bloques(src), 1):
-                    if re.search(r"\bMAPA\b|Tronco \d|`[A-Z]{1,6}\d+[a-z]?`|troncos\.md|dependencias\.md|\bDSL\b|VBLang|_plan-faltantes|PROCEDIMIENTO", b): continue
+                    # `A1` y similares son celdas de planilla en Ofimática, no ids del mapa de temas.
+                    interno = r"\bMAPA\b|Tronco \d|troncos\.md|dependencias\.md|\bDSL\b|VBLang|_plan-faltantes|PROCEDIMIENTO" + ("" if "ofimatica" in rel else r"|`[A-Z]{1,6}\d+[a-z]?`")
+                    if re.search(interno, b): continue
                     mn = re.search(r'nivel:\s*"([^"]+)"', b); nivel = nivel or (mn.group(1).strip() if mn else None)
-                    preguntas.append({"titulo": t, "dsl": b})
+                    preguntas.append({"titulo": humanizar_rutas(t, d), "dsl": humanizar_rutas(b, d)})
             deps = [modulo_id(*x) for x in dd.get(rel, []) if x in existentes]
             temas.append({"id": modulo_id(m, rel), "materia": m, "ruta": rel, "titulo": titulo or rel, "teoria": texto, "nivel": nivel,
                           "dependencias": deps, "preguntas": preguntas})
