@@ -11,7 +11,9 @@ sys.path.insert(0, str(Path(__file__).parent))
 MAT = Path(__file__).resolve().parents[1]
 EXCLUIR = ("_", "examen-jefe", "teoria-extendida")
 
-def modulo_id(materia, rel): return f"cont:{materia}/{rel}"
+def modulo_id(materia, rel):
+    """Id seguro para URL (sin `:`, `/` ni `#`): cont-<materia>--<ruta con -- en vez de />."""
+    return f"cont-{materia}--{rel.replace('/', '--')}"
 
 def limpiar_teoria(t):
     L = t.split("\n"); i = 0
@@ -120,7 +122,7 @@ def main():
         for l in json.load(open(MAT / "logros-examen-jefe.json", encoding="utf-8")):
             m = EJMAP.get(l["materia"]) or __import__("verificar_examen_jefe").slug(l["materia"])
             ids = [tema_de(m, x) for x in l["temas"]]
-            examenes.append({"id": f"cont:examen-jefe/{l['id']}", "logro": l["id"], "materia": m, "titulo": l["nombre"], "descripcion": l["descripcion"],
+            examenes.append({"id": f"cont-examen-jefe--{l['id']}", "logro": l["id"], "materia": m, "titulo": l["nombre"], "descripcion": l["descripcion"],
                              "temas": [i for i in ids if i], "preguntas": []})
         # Exámenes jefe de idiomas: tienen preguntas propias (no salen de los temas).
         idi = MAT / "idiomas-extranjeros"
@@ -135,7 +137,7 @@ def main():
             ids_base = {t["id"] for t in base}
             deps_ids = {d for t in base for d in t["dependencias"] if d in ids_base}
             finales = [t["id"] for t in base if t["id"] not in deps_ids]
-            examenes.append({"id": f"cont:examen-jefe-idiomas/{lang}", "logro": int(mm.group(1)) if mm else None, "materia": "idiomas-extranjeros",
+            examenes.append({"id": f"cont-examen-jefe-idiomas--{lang}", "logro": int(mm.group(1)) if mm else None, "materia": "idiomas-extranjeros",
                              "titulo": re.sub(r"^Examen jefe\s*[—-]\s*", "", h.group(1)).strip() if h else lang,
                              "descripcion": "Certificación del idioma. Para rendirla hay que completar todos los temas hasta el nivel B2 (o su equivalente); el nivel C1 es un extra y no forma parte del logro.",
                              "temas": finales, "preguntas": [{"titulo": t, "dsl": b} for t, b in bloques(src)]})
@@ -143,7 +145,7 @@ def main():
     if not sel:
         for f in sorted((MAT / "teoria-extendida").glob("*.json")):
             b = json.load(open(f, encoding="utf-8")); m = {"ux-diseno": "diseño"}.get(f.stem, f.stem)
-            libros.append({"id": f"cont:libro/{m}", "materia": m, "titulo": b["metadata"]["title"], "libro": json.dumps(b, ensure_ascii=False)})
+            libros.append({"id": f"cont-libro--{m}", "materia": m, "titulo": b["metadata"]["title"], "libro": json.dumps(b, ensure_ascii=False)})
     salida.write_text(json.dumps({"version": 2, "temas": temas, "examenes": examenes, "libros": libros}, ensure_ascii=False), encoding="utf-8")
     print(f"{len(temas)} temas, {sum(len(t['preguntas']) for t in temas)} preguntas, {sum(len(t['dependencias']) for t in temas)} dependencias, {len(examenes)} exámenes jefe, {len(libros)} libros -> {salida}")
 main()

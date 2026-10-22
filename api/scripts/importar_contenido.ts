@@ -16,7 +16,7 @@
  * Los módulos con prerrequisitos se abren solos al completarlos; un directivo o docente puede habilitar uno a mano.
  *
  * Seguridad: sin `--aplicar` es un ensayo (no escribe). Con `--aplicar` exige `IMPORT_DB_ESPERADA=<nombre de la base>` y
- * lo compara con `select current_database()`. Es idempotente: ids determinísticos (`cont:...`), lo existente se omite; con
+ * lo compara con `select current_database()`. Es idempotente: ids determinísticos (`cont-...`), lo existente se omite; con
  * `--actualizar` se reemplaza lo importado antes (salvo cuestionarios con intentos).
  *
  *   tsx scripts/importar_contenido.ts MANIFIESTO.json [--materia=x,y] [--dueno=<usuarioId>] [--aplicar] [--actualizar]
@@ -55,7 +55,12 @@ const temas = manifiesto.temas.filter((t) => !materias || materias.includes(t.ma
 const examenes = (manifiesto.examenes ?? []).filter((e) => !materias || materias.includes(e.materia));
 const libros = (manifiesto.libros ?? []).filter((l) => !materias || materias.includes(l.materia));
 const now = new Date().toISOString();
-const slugDe = (id: string) => id.replace(/^cont:/, "").replace(/[^a-z0-9]+/gi, "--").toLowerCase().slice(0, 190);
+const slugDe = (id: string) => id.replace(/^cont-/, "").replace(/[^a-z0-9]+/gi, "--").toLowerCase().slice(0, 190);
+/** Etiquetas de la metadata de una pregunta (`tags: ["gramatica", "examen-jefe"]`). */
+const tagsDelDsl = (dsl: string): string[] => {
+  const m = dsl.match(/^\s*tags:\s*\[([^\]]*)\]/m);
+  return m ? m[1].split(",").map((t) => t.trim().replace(/^["']|["']$/g, "")).filter(Boolean) : [];
+};
 const trozos = <T,>(a: T[], n: number) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, (i + 1) * n));
 
 function filas(owner: string) {
@@ -83,7 +88,7 @@ function filas(owner: string) {
     });
     const v = validarCuestionarioPreguntas(c);
     if (!v.ok) { errores.push(`${moduloId}: ${v.errores.join("; ")}`); return; }
-    const qid = `${moduloId}#quiz`, vid = `${moduloId}#v1`;
+    const qid = `${moduloId}.quiz`, vid = `${moduloId}.v1`;
     quizzes.push({ id: qid, moduleId: moduloId, title: titulo.slice(0, 200), isActive: true, currentVersionId: vid, createdAt: now, updatedAt: now });
     versiones.push({
       id: vid, quizId: qid, versionNumber: 1, schemaVersion: 1, questions: JSON.stringify([]), seedPolicy: 1,
@@ -94,11 +99,11 @@ function filas(owner: string) {
   for (const t of temas) {
     modulo({
       id: t.id, slug: slugDe(t.id), titulo: t.titulo, subject: t.materia, level: t.nivel,
-      theoryItems: JSON.stringify(t.teoria ? [{ id: `${t.id}#teoria`, title: t.titulo, type: "Texto", detail: t.teoria }] : []),
+      theoryItems: JSON.stringify(t.teoria ? [{ id: `${t.id}.teoria`, title: t.titulo, type: "Texto", detail: t.teoria }] : []),
       dependencies: JSON.stringify(t.dependencias.filter((d) => ids.has(d)).map((id) => ({ id, type: "required" }))),
     });
     const pids = t.preguntas.map((p, i) => {
-      const pid = `${t.id}#p${i + 1}`;
+      const pid = `${t.id}.p${i + 1}`;
       plantilla(pid, t.id, `${t.titulo} — ${p.titulo || `pregunta ${i + 1}`}`, t.materia, [t.ruta.split("/").pop() ?? null, t.nivel], p.dsl);
       return pid;
     });
@@ -108,8 +113,8 @@ function filas(owner: string) {
 
   for (const e of examenes) {
     const propias = e.preguntas.map((p, i) => {
-      const pid = `${e.id}#p${i + 1}`;
-      plantilla(pid, e.id, `${e.titulo} — ${p.titulo || `pregunta ${i + 1}`}`, e.materia, ["examen-jefe"], p.dsl);
+      const pid = `${e.id}.p${i + 1}`;
+      plantilla(pid, e.id, `${e.titulo} — ${p.titulo || `pregunta ${i + 1}`}`, e.materia, [...new Set([...tagsDelDsl(p.dsl), "examen-jefe"])], p.dsl);
       return pid;
     });
     const pool = propias.length ? propias : e.temas.flatMap((tid) => poolDeTema.get(tid) ?? []);
@@ -117,7 +122,7 @@ function filas(owner: string) {
     if (faltan.length) { errores.push(`${e.id}: temas que no están en el manifiesto: ${faltan.join(", ")}`); continue; }
     modulo({
       id: e.id, slug: slugDe(e.id), titulo: `Examen jefe — ${e.titulo}`, subject: e.materia, category: "Evaluación",
-      theoryItems: JSON.stringify(e.descripcion ? [{ id: `${e.id}#intro`, title: e.titulo, type: "Texto", detail: e.descripcion }] : []),
+      theoryItems: JSON.stringify(e.descripcion ? [{ id: `${e.id}.intro`, title: e.titulo, type: "Texto", detail: e.descripcion }] : []),
       dependencies: JSON.stringify(e.temas.map((id) => ({ id, type: "required" }))),
     });
     if (pool.length) cuestionario(e.id, `Examen jefe — ${e.titulo}`, pool, preguntasDeExamen(pool.length), "formal");
@@ -127,7 +132,7 @@ function filas(owner: string) {
     librosFilas.push({ id: l.id, json: l.libro, updatedAt: now, ownerUserId: owner, visibility: "publica" });
     modulo({
       id: l.id, slug: slugDe(l.id), titulo: l.titulo, subject: l.materia, category: "Libro", libroId: l.id,
-      theoryItems: JSON.stringify([{ id: `${l.id}#libro`, title: l.titulo, type: "Libro", detail: l.id }]),
+      theoryItems: JSON.stringify([{ id: `${l.id}.libro`, title: l.titulo, type: "Libro", detail: l.id }]),
       dependencies: JSON.stringify([]),
     });
   }
@@ -159,7 +164,7 @@ async function main() {
   if (process.env.IMPORT_DB_ESPERADA !== db) { console.error(`Abortado: IMPORT_DB_ESPERADA (${process.env.IMPORT_DB_ESPERADA ?? "sin definir"}) no coincide con la base actual (${db}).`); process.exit(1); }
 
   if (flag("actualizar")) {
-    const conIntentos = await prisma.quizAttempt.findMany({ where: { quizId: { startsWith: "cont:" } }, select: { quizId: true }, distinct: ["quizId"] });
+    const conIntentos = await prisma.quizAttempt.findMany({ where: { quizId: { startsWith: "cont-" } }, select: { quizId: true }, distinct: ["quizId"] });
     const protegidos = new Set(conIntentos.map((a) => a.quizId));
     if (protegidos.size) console.warn(`${protegidos.size} cuestionarios tienen intentos y no se reemplazan.`);
     const qs = f.quizzes.map((q) => q.id).filter((id) => !protegidos.has(id));
