@@ -13,11 +13,10 @@ paralelos.
 
 ## Qué es un algoritmo de recorrido
 
-Un **algoritmo de recorrido** visita **sistemáticamente** todos los
-vértices alcanzables de un grafo, empezando desde un vértice inicial,
-**sin repetir** ninguno — la forma automática de explorar un grafo
-completo (o encontrar caminos dentro de él) sin dejar nada afuera ni
-visitar dos veces lo mismo.
+Un **algoritmo de recorrido** visita **sistemáticamente** todos los vértices
+alcanzables de un grafo, empezando desde un vértice inicial, **sin repetir**
+ninguno. Es la forma automática de explorar un grafo completo (o encontrar
+caminos dentro de él) sin dejar nada afuera ni visitar dos veces lo mismo.
 
 Los dos algoritmos estándar son **BFS** y **DFS**, que exploran en
 **órdenes distintos**.
@@ -50,10 +49,10 @@ primero en entrar es el primero en salir).
 **BFS desde A** (visitando los vecinos en orden alfabético cuando hay
 más de uno disponible): `A, B, C, D, E, F`.
 
-**Propiedad clave**: en un grafo **no ponderado**, BFS **siempre**
-encuentra el camino **más corto** (menos aristas) desde el vértice
-inicial a cualquier otro — porque visita los vértices en el orden
-exacto de su distancia (en cantidad de aristas) al inicio.
+**Propiedad clave**: en un grafo **no ponderado**, BFS **siempre** encuentra
+el camino **más corto** (menos aristas) desde el vértice inicial a cualquier
+otro. Esto ocurre porque visita los vértices en el orden exacto de su
+distancia al inicio, medida en cantidad de aristas.
 
 ## DFS: recorrido en profundidad (Depth-First Search)
 
@@ -82,10 +81,10 @@ descubrir que había un camino más directo por otra rama.
 
 ## Para qué sirve
 
-Son el algoritmo real detrás de "Enrutamiento" (redes de computadoras, Informática): un router que busca el camino más corto para un paquete
-de datos está, literalmente, corriendo un BFS sobre el grafo de la
-red — no memoriza rutas de antemano, las **descubre** recorriendo el
-grafo. BFS también es la base de "grados de separación" en redes
+Son el algoritmo real detrás de "Enrutamiento" (redes de computadoras,
+Informática). Un router que busca el camino más corto para un paquete de
+datos está, literalmente, corriendo un BFS sobre el grafo de la red. No
+memoriza rutas de antemano: las **descubre** recorriendo el grafo. BFS también es la base de "grados de separación" en redes
 sociales (¿cuántos saltos hay entre dos personas?), y DFS es la base
 de explorar exhaustivamente un árbol de decisiones o detectar
 dependencias circulares (ciclos) en un grafo.

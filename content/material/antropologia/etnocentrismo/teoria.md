@@ -13,11 +13,10 @@ mucho contenido nuevo.
 
 ## Qué es el etnocentrismo
 
-El **etnocentrismo** es la tendencia a juzgar otras culturas usando
-como única vara de medida los valores, normas y costumbres de la
-**propia** cultura — como si la propia fuera la referencia universal y
-"normal", y las demás fueran desviaciones, atrasos o errores respecto
-de ella.
+El **etnocentrismo** es la tendencia a juzgar otras culturas usando como
+única vara de medida los valores, normas y costumbres de la **propia**
+cultura. Es como si la propia fuera la referencia universal y "normal", y
+las demás fueran desviaciones, atrasos o errores respecto de ella.
 
 Es el error opuesto al relativismo cultural que ya presentó
 `../diversidad-cultural/`: en vez de entender una práctica ajena desde
@@ -26,9 +25,9 @@ marco de quien observa.
 
 ## Por qué es tan común
 
-El etnocentrismo no requiere mala intención explícita: aparece casi
-automáticamente porque cada persona crece dentro de una sola cultura y
-la vive como "lo normal", sin darse cuenta de que buena parte de lo que
+El etnocentrismo no requiere mala intención explícita. Aparece casi
+automáticamente porque cada persona crece dentro de una sola cultura y la
+vive como "lo normal". No se da cuenta de que buena parte de lo que
 considera de sentido común es, en realidad, una convención cultural
 particular (qué se come, cómo se saluda, qué ropa es "apropiada"). El
 error aparece cuando esa sensación de "normalidad" se convierte en vara
@@ -48,17 +47,16 @@ de juicio sobre otras culturas.
 
 Reconocer el etnocentrismo como sesgo a evitar **no significa** que
 ninguna práctica cultural pueda criticarse nunca (ver el matiz que ya
-hizo `../diversidad-cultural/` sobre derechos humanos). La diferencia
-está en el método: una crítica fundamentada parte de entender la
-práctica en su contexto y usa criterios explícitos (por ejemplo,
-derechos humanos universalmente reconocidos); el etnocentrismo
-descalifica de entrada, sin ese trabajo previo de comprensión, sólo
-porque "no se hace así en mi cultura".
+hizo `../diversidad-cultural/` sobre derechos humanos). La diferencia está en el método. Una crítica fundamentada parte de entender
+la práctica en su contexto y usa criterios explícitos (por ejemplo, derechos
+humanos universalmente reconocidos). El etnocentrismo descalifica de
+entrada, sin ese trabajo previo de comprensión, solo porque "no se hace así
+en mi cultura".
 
 ## Para qué sirve
 
 Identificar el etnocentrismo (en uno mismo y en discursos ajenos) es la
-herramienta central que deja esta materia: permite leer con criterio
+herramienta central que deja esta materia. Permite leer con criterio
 noticias, discursos políticos o comentarios cotidianos sobre "culturas
-raras" y detectar cuándo la descripción es en realidad un juicio de
+raras". Y permite detectar cuándo la descripción es en realidad un juicio de
 valor disfrazado de observación neutral.

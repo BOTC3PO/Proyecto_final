@@ -34,30 +34,27 @@ valorar en el arte, no sinónimo de "buen arte" en general.
   entre las partes de un todo (la simetría de un rostro, las
   proporciones de un edificio clásico) — idea muy influyente desde
   la Antigüedad griega.
-- **Belleza natural vs. belleza artística**: la belleza de un paisaje
-  natural (no hecho por nadie) plantea un problema distinto de la
-  belleza de una obra hecha deliberadamente por un artista — ¿es el
-  mismo tipo de belleza, o dos fenómenos distintos que comparten
-  nombre?
-- **Lo bello vs. lo sublime**: distinción clásica (Kant, Burke) — lo
-  **bello** genera placer tranquilo, armonioso; lo **sublime** genera
-  una mezcla de asombro y hasta temor frente a algo inmenso o
-  poderoso (una tormenta, el océano, una montaña gigantesca) — no es
-  "bello" en el sentido de armonioso, pero produce una experiencia
-  estética intensa igual.
+- **Belleza natural vs. belleza artística**: la belleza de un paisaje natural
+  (no hecho por nadie) plantea un problema distinto de la belleza de una
+  obra hecha deliberadamente por un artista. ¿Es el mismo tipo de belleza, o
+  dos fenómenos distintos que comparten nombre?
+- **Lo bello vs. lo sublime**: distinción clásica (Kant, Burke). Lo **bello**
+  genera placer tranquilo, armonioso. Lo **sublime** genera una mezcla de
+  asombro y hasta temor frente a algo inmenso o poderoso (una tormenta, el
+  océano, una montaña gigantesca). No es "bello" en el sentido de armonioso,
+  pero produce igual una experiencia estética intensa.
 
 ## Belleza y función (el caso del diseño)
 
-En objetos con función práctica (una silla, un edificio), a veces se
-discute si la belleza es independiente de qué tan bien cumple su
-función, o si un diseño "bello" es, precisamente, el que cumple mejor
-su función con elegancia — otro punto sin consenso filosófico
-definitivo.
+En objetos con función práctica (una silla, un edificio), a veces se discute
+si la belleza es independiente de qué tan bien cumple su función. Otra
+posibilidad es que un diseño "bello" sea, precisamente, el que cumple mejor
+su función con elegancia. Es otro punto sin consenso filosófico definitivo.
 
 ## Para qué sirve
 
-Lo bello cierra, junto con `../que-es-el-arte/` y
-`../el-gusto-estetico/`, la subrama completa de estética: qué es el
-arte, cómo se lo juzga, y qué hace que algo — dentro de ese universo
-más amplio — se considere específicamente bello (distinto de sublime,
-de valioso, o de simplemente "bien hecho").
+Lo bello cierra, junto con `../que-es-el-arte/` y `../el-gusto-estetico/`,
+la subrama completa de estética: qué es el arte, cómo se lo juzga y qué hace
+que algo se considere específicamente bello, dentro de ese universo más
+amplio. Lo bello es distinto de lo sublime, de lo valioso o de lo
+simplemente "bien hecho".

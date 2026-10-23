@@ -39,32 +39,30 @@ Texto de referencia: Milton Friedman, *Capitalismo y libertad* (1962).
 
 ## Qué sostiene el neoliberalismo
 
-El neoliberalismo es el nombre que se le da a la aplicación práctica,
-como programa de política económica en distintos países desde la
-década de 1980, de ideas cercanas al monetarismo y a la escuela
-austríaca: privatización de empresas estatales, apertura comercial,
-desregulación de mercados y reducción del gasto público. A diferencia
-del ordoliberalismo —que también nace del cruce entre liberalismo
-clásico y keynesianismo pero insiste en un marco estatal fuerte que
-sostenga activamente la competencia—, el neoliberalismo confía más en
-que reducir la intervención estatal, en general, basta para que el
-mercado funcione bien por sí solo.
+El neoliberalismo es el nombre que se le da a la aplicación práctica, como
+programa de política económica en distintos países desde la década de 1980,
+de ideas cercanas al monetarismo y a la escuela austríaca. Sus medidas
+típicas son la privatización de empresas estatales, la apertura comercial,
+la desregulación de mercados y la reducción del gasto público. El ordoliberalismo también nace del cruce entre liberalismo clásico y
+keynesianismo, pero insiste en un marco estatal fuerte que sostenga
+activamente la competencia. El neoliberalismo, en cambio, confía más en que
+reducir la intervención estatal, en general, basta para que el mercado
+funcione bien por sí solo.
 
-Se lo asocia con políticas aplicadas en el Reino Unido (gobierno de
-Margaret Thatcher), Estados Unidos (gobierno de Ronald Reagan) y Chile
-(los economistas conocidos como "Chicago Boys", formados en la
-Universidad de Chicago donde enseñaba el propio Friedman), y con el
-conjunto de recomendaciones que se conoció como "Consenso de
+Se lo asocia con políticas aplicadas en el Reino Unido (gobierno de Margaret
+Thatcher), Estados Unidos (gobierno de Ronald Reagan) y Chile. En Chile las
+impulsaron los economistas conocidos como "Chicago Boys", formados en la
+Universidad de Chicago donde enseñaba el propio Friedman. También se lo
+asocia con el conjunto de recomendaciones que se conoció como "Consenso de
 Washington" para América Latina a fines de los años 80.
 
 ## La fuente: Milton Friedman
 
 Texto de referencia: Milton Friedman (con Rose Friedman), *Libertad de
-elegir* (1980), su obra de divulgación más influyente sobre estas
-ideas — una defensa amplia y accesible del rol del mercado libre en
-prácticamente todos los ámbitos de la vida económica y social,
-publicada como complemento de una serie documental de televisión del
-mismo nombre.
+elegir* (1980), su obra de divulgación más influyente sobre estas ideas. Es
+una defensa amplia y accesible del rol del mercado libre en prácticamente
+todos los ámbitos de la vida económica y social. Se publicó como complemento
+de una serie documental de televisión del mismo nombre.
 
 ## Su lugar en la cadena de corrientes
 

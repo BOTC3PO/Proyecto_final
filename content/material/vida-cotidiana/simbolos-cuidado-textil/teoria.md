@@ -35,10 +35,10 @@ Cada proceso de cuidado tiene su propia forma geométrica:
 
 ## Lavado: la tina con agua
 
-Dentro de la tina, los **puntos** indican la **temperatura máxima** del
-agua (más puntos, más temperatura permitida), y las **líneas debajo**
-del símbolo indican qué tan suave debe ser el ciclo (más líneas, más
-suave/delicado el programa, con menos agitación y centrifugado).
+Dentro de la tina, los **puntos** indican la **temperatura máxima** del agua
+(más puntos, más temperatura permitida). Las **líneas debajo** del símbolo
+indican qué tan suave debe ser el ciclo (más líneas, más suave o delicado el
+programa, con menos agitación y centrifugado).
 
 ## Blanqueador: el triángulo
 
@@ -60,20 +60,19 @@ temperatura máxima segura:
 
 ## Limpieza profesional: el círculo
 
-Un círculo indica que la prenda admite (o requiere) limpieza en
-tintorería, con letras adentro que especifican el tipo de solvente que
-puede usar el profesional (letras como **P** o **F** para limpieza en
-seco con distintos solventes; **W** para limpieza profesional en
-húmedo). Un círculo tachado con una X significa que la prenda **no debe
+Un círculo indica que la prenda admite (o requiere) limpieza en tintorería.
+Las letras adentro especifican el tipo de solvente que puede usar el
+profesional: **P** o **F** para limpieza en seco con distintos solventes, y
+**W** para limpieza profesional en húmedo. Un círculo tachado con una X significa que la prenda **no debe
 limpiarse en tintorería**.
 
 ## Secado: el cuadrado
 
-El cuadrado indica cómo secar la prenda — con un círculo adentro, indica
-que puede ir a secadora (y, según los puntos/líneas, con qué intensidad
-de calor); sin círculo adentro, suele indicar secado al aire, con
-distintas variantes según la forma de las líneas (colgado, extendido en
-plano, a la sombra).
+El cuadrado indica cómo secar la prenda. Con un círculo adentro, indica que
+puede ir a secadora (y, según los puntos o líneas, con qué intensidad de
+calor). Sin círculo adentro, suele indicar secado al aire, con distintas
+variantes según la forma de las líneas (colgado, extendido en plano, a la
+sombra).
 
 ## Cualquier símbolo tachado significa "prohibido"
 

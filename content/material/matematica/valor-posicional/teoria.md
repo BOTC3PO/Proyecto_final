@@ -40,11 +40,11 @@ escrito.
 ## Qué es el valor posicional
 
 En el sistema decimal (base 10), cada cifra de un número vale distinto según
-su posición: la de más a la derecha son las **unidades**, la siguiente hacia
-la izquierda son las **decenas** (vale ×10), la siguiente las **centenas**
-(×100), después las **unidades de mil** (×1.000), **decenas de mil**
-(×10.000), **centenas de mil** (×100.000), y así siempre multiplicando por
-10 al moverse un lugar más a la izquierda. La misma cifra "3" vale 3, 30,
+su posición. La de más a la derecha son las **unidades**. La siguiente hacia
+la izquierda son las **decenas** (vale ×10), después las **centenas**
+(×100), las **unidades de mil** (×1.000), las **decenas de mil** (×10.000) y
+las **centenas de mil** (×100.000). Así siempre: se multiplica por 10 al
+moverse un lugar más a la izquierda. La misma cifra "3" vale 3, 30,
 300 o 3.000 según dónde esté parada — por eso importa el *lugar*, no sólo
 qué dígito es.
 
@@ -68,8 +68,8 @@ menor), y la primera cifra donde difieren decide cuál es mayor.
 
 Redondear un número entero a la decena, centena o millar más cercano es
 mirar la cifra que está *un lugar a la derecha* de la posición a la que se
-redondea: si esa cifra es 5 o más, la cifra de la posición objetivo sube en
-1 (y todo lo que queda a la derecha se vuelve cero); si es menor a 5, queda
+redondea. Si esa cifra es 5 o más, la cifra de la posición objetivo sube en
+1 y todo lo que queda a la derecha se vuelve cero. Si es menor a 5, queda
 igual. Ejemplo: redondear 683 a la centena más cercana — se mira la cifra de
 las decenas (8, que es ≥5) — el resultado es 700. Es la misma regla del
 redondeo de decimales ("Decimales y redondeo"), aplicada a las

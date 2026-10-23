@@ -13,11 +13,10 @@ propias.
 
 ## Qué es una línea de tiempo
 
-Una **línea de tiempo** es una representación gráfica donde los
-hechos se ordenan de izquierda a derecha (o de arriba a abajo) según
-el momento en que ocurrieron — el eje horizontal (o vertical)
-representa el paso del tiempo, y cada hecho se ubica en el punto que
-le corresponde.
+Una **línea de tiempo** es una representación gráfica donde los hechos se
+ordenan de izquierda a derecha (o de arriba a abajo) según el momento en que
+ocurrieron. El eje horizontal (o vertical) representa el paso del tiempo, y
+cada hecho se ubica en el punto que le corresponde.
 
 ## Antes y después: la relación más básica
 
@@ -30,11 +29,10 @@ aunque no se mencione ningún año.
 
 ## Simultaneidad: cuando dos hechos ocurren "al mismo tiempo"
 
-Dos hechos pueden ser **simultáneos** (ocurrir en el mismo período),
-incluso en lugares muy distintos del mundo — reconocer la
-simultaneidad ayuda a entender que la historia no es una sola línea
-de sucesos, sino muchos procesos ocurriendo en paralelo en distintas
-regiones.
+Dos hechos pueden ser **simultáneos** (ocurrir en el mismo período), incluso
+en lugares muy distintos del mundo. Reconocer la simultaneidad ayuda a
+entender que la historia no es una sola línea de sucesos, sino muchos
+procesos ocurriendo en paralelo en distintas regiones.
 
 ## Duración: cuánto tiempo pasó
 
@@ -45,16 +43,15 @@ técnicamente "antes y después".
 
 ## Por qué una línea de tiempo ayuda a pensar (no sólo a memorizar)
 
-Ordenar hechos visualmente en una línea de tiempo hace evidentes
-relaciones que un listado de fechas sueltas no muestra: qué hechos
-son cercanos entre sí (y podrían estar relacionados), cuáles están
-muy separados, y dónde hay "vacíos" en el registro histórico
-disponible.
+Ordenar hechos visualmente en una línea de tiempo hace evidentes relaciones
+que un listado de fechas sueltas no muestra. Se ve qué hechos son cercanos
+entre sí (y podrían estar relacionados), cuáles están muy separados y dónde
+hay "vacíos" en el registro histórico disponible.
 
 ## Para qué sirve
 
-Este es el punto de partida de todo el pensamiento histórico: sin
-poder ordenar hechos en el tiempo, no se puede avanzar hacia unidades
-más precisas (`../decada-siglo-milenio/`) ni hacia herramientas de
-análisis más complejas como causa y consecuencia o cambio y
-continuidad, que dependen de saber qué pasó antes y qué pasó después.
+Este es el punto de partida de todo el pensamiento histórico. Sin poder
+ordenar hechos en el tiempo, no se puede avanzar hacia unidades más precisas
+(`../decada-siglo-milenio/`). Tampoco se puede avanzar hacia herramientas de
+análisis más complejas como causa y consecuencia o cambio y continuidad, que
+dependen de saber qué pasó antes y qué pasó después.

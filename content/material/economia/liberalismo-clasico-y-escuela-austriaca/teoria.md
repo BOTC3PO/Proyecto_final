@@ -44,11 +44,10 @@ defensa del libre comercio.
 
 ## Escuela austríaca (desde finales del siglo XIX)
 
-Nacida más de un siglo después que el liberalismo clásico, la escuela
-austríaca retoma y profundiza su confianza en el mercado libre, con un
-argumento específico: sostiene que la economía es demasiado compleja
-para que un Estado central pueda planificarla con la información que
-tiene disponible. Para esta corriente, los precios que surgen libremente en un mercado son la
+La escuela austríaca nació más de un siglo después que el liberalismo
+clásico. Retoma y profundiza su confianza en el mercado libre, con un
+argumento específico: la economía es demasiado compleja para que un Estado
+central pueda planificarla con la información que tiene disponible. Para esta corriente, los precios que surgen libremente en un mercado son la
 única forma eficiente de coordinar las decisiones de millones de personas.
 Cada precio resume información dispersa (qué escasea, qué se necesita, qué
 cuesta producir) que ningún planificador central podría reunir a tiempo. Por eso es
@@ -69,12 +68,12 @@ individuales.
 
 ## Una idea que atraviesa a ambas: los efectos que no se ven
 
-Un argumento que el liberalismo clásico y la escuela austríaca
-comparten, popularizado por el economista Henry Hazlitt en *La
-economía en una lección* (1946), es que una buena política económica
-no se juzga sólo por sus efectos inmediatos y visibles sobre un grupo,
-sino también por sus efectos indirectos y menos visibles sobre todos
-los demás grupos, a mediano y largo plazo. Por ejemplo: un arancel que
+El liberalismo clásico y la escuela austríaca comparten un argumento,
+popularizado por el economista Henry Hazlitt en *La economía en una lección*
+(1946). Una buena política económica no se juzga solo por sus efectos
+inmediatos y visibles sobre un grupo. También hay que mirar sus efectos
+indirectos y menos visibles sobre todos los demás grupos, a mediano y largo
+plazo. Por ejemplo: un arancel que
 protege a una industria local (efecto visible, inmediato) también
 encarece ese producto para todos los consumidores y le resta recursos
 a otras industrias que podrían haberse expandido con ese dinero
@@ -84,11 +83,11 @@ aparte.
 
 ## Por qué es el nodo bisagra de este bloque
 
-De esta corriente parten, por caminos distintos, tres ramas: el
-socialismo utópico (que cuestiona que el mercado libre resuelva por sí
-solo las condiciones de vida de los trabajadores), el keynesianismo
-(que cuestiona que el mercado se autorregule siempre rápido frente a
-una crisis) y la economía feminista (que señala un punto ciego en
-cómo se mide la producción de un país). Cada una construye su crítica
+De esta corriente parten, por caminos distintos, tres ramas. Una es el
+socialismo utópico, que cuestiona que el mercado libre resuelva por sí solo
+las condiciones de vida de los trabajadores. Otra es el keynesianismo, que
+cuestiona que el mercado se autorregule siempre rápido frente a una crisis.
+La tercera es la economía feminista, que señala un punto ciego en cómo se
+mide la producción de un país. Cada una construye su crítica
 tomando como punto de partida, precisamente, esta confianza en el
 mercado libre.

@@ -20,16 +20,16 @@ Esto contradice una idea muy difundida: no es una población «extinguida» ni s
 
 ## Diversidad de pueblos y lenguas
 
-Cada pueblo tiene su historia, su territorio y su lengua. A modo de ejemplo: el pueblo mapuche, en la Patagonia y el centro del país; los guaraníes, en el noreste y noroeste; los qom (toba), wichí, pilagá y mocoví en el Chaco; los kollas, diaguitas, quechuas y atacama en el noroeste andino; los huarpes en Cuyo; los selk'nam y tehuelches (aónikenk) en el sur. Hay lenguas indígenas que se siguen hablando, como el quechua, el guaraní, el mapuzugun y el qom l'aqtaqa, y otras en riesgo de desaparecer.
+Cada pueblo tiene su historia, su territorio y su lengua. A modo de ejemplo: el pueblo mapuche, en la Patagonia y el centro del país. Los guaraníes, en el noreste y noroeste. Los qom (toba), wichí, pilagá y mocoví en el Chaco. Los kollas, diaguitas, quechuas y atacama en el noroeste andino. Los huarpes en Cuyo. Los selk'nam y tehuelches (aónikenk) en el sur. Hay lenguas indígenas que se siguen hablando, como el quechua, el guaraní, el mapuzugun y el qom l'aqtaqa, y otras en riesgo de desaparecer.
 
 ## Marco de derechos (resumen)
 
 El análisis jurídico completo está en `../../civica/derechos-indigenas/`; acá se resume para ubicar el panorama. La situación de estos pueblos cambió en el plano legal en las últimas décadas.
 
-- **Constitución Nacional, artículo 75, inciso 17** (reforma de 1994): reconoce la **preexistencia étnica y cultural** de los pueblos indígenas argentinos; garantiza el respeto a su identidad y una educación bilingüe e intercultural; reconoce la personería jurídica de sus comunidades y la posesión y propiedad comunitaria de las tierras que tradicionalmente ocupan; y asegura su participación en la gestión de los recursos naturales que los afectan.
+- **Constitución Nacional, artículo 75, inciso 17** (reforma de 1994): reconoce la **preexistencia étnica y cultural** de los pueblos indígenas argentinos. Garantiza el respeto a su identidad y una educación bilingüe e intercultural. Reconoce la personería jurídica de sus comunidades y la posesión y propiedad comunitaria de las tierras que tradicionalmente ocupan. Y asegura su participación en la gestión de los recursos naturales que los afectan.
 - **Ley 23.302 (1985)**: creó el Instituto Nacional de Asuntos Indígenas (INAI).
 - **Convenio 169 de la OIT** sobre pueblos indígenas y tribales, aprobado en Argentina por la Ley 24.071: establece el derecho a la **consulta libre, previa e informada** sobre medidas que los afecten.
-- **Ley 26.160 (2006)**: declaró la emergencia en materia de posesión y propiedad de las tierras que ocupan las comunidades indígenas y dispuso un relevamiento técnico-jurídico-catastral de esas tierras; sus plazos fueron prorrogados varias veces, por lo que conviene consultar la normativa vigente.
+- **Ley 26.160 (2006)**: declaró la emergencia en materia de posesión y propiedad de las tierras que ocupan las comunidades indígenas. Dispuso un relevamiento técnico-jurídico-catastral de esas tierras. Sus plazos fueron prorrogados varias veces, por lo que conviene consultar la normativa vigente.
 
 El **12 de octubre** se conmemora en Argentina como Día del Respeto a la Diversidad Cultural (antes se llamaba Día de la Raza).
 

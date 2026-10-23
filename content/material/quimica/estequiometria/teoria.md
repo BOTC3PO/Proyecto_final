@@ -15,18 +15,17 @@ diapositivas.
 ## Qué es la estequiometría
 
 La **estequiometría** calcula las cantidades exactas de reactivos y
-productos que participan en una reacción química, usando la ecuación
-balanceada (ver `../balanceo-ecuaciones/`) como una "receta de cocina":
-si la receta dice 2 tazas de harina por cada torta, la ecuación
-balanceada dice cuántas moléculas de cada sustancia hacen falta o se
-producen.
+productos que participan en una reacción química. Usa la ecuación balanceada
+(ver `../balanceo-ecuaciones/`) como una "receta de cocina". Si la receta
+dice 2 tazas de harina por cada torta, la ecuación balanceada dice cuántas
+moléculas de cada sustancia hacen falta o se producen.
 
 ## El mol
 
-El **mol** es la unidad con la que se cuenta la "cantidad de sustancia"
-en química, de la misma forma que una "docena" cuenta 12 unidades: 1 mol
-son siempre 6,022 × 10²³ partículas (átomos, moléculas, iones — el
-**número de Avogadro**), sin importar de qué sustancia se trate.
+El **mol** es la unidad con la que se cuenta la "cantidad de sustancia" en
+química, de la misma forma que una "docena" cuenta 12 unidades. 1 mol son
+siempre 6,022 × 10²³ partículas (átomos, moléculas, iones), el **número de
+Avogadro**, sin importar de qué sustancia se trate.
 
 ## Masa molar
 
@@ -51,10 +50,10 @@ que la fórmula tiene sentido. De ahí se despeja también la masa:
 
 ## Relación mol a mol: los coeficientes de la ecuación balanceada
 
-Los **coeficientes** de una ecuación ya balanceada (2, 1, 2 en
-`2H₂ + O₂ → 2H₂O`) indican la proporción de **moles**, no de gramos, en
-la que reaccionan las sustancias: por cada 2 moles de H₂ que reaccionan,
-hace falta 1 mol de O₂, y se producen 2 moles de H₂O. Esa razón es la
+Los **coeficientes** de una ecuación ya balanceada (2, 1, 2 en `2H₂ + O₂ →
+2H₂O`) indican la proporción de **moles**, no de gramos, en la que
+reaccionan las sustancias. Por cada 2 moles de H₂ que reaccionan, hace falta
+1 mol de O₂ y se producen 2 moles de H₂O. Esa razón es la
 misma sin importar cuánta cantidad real se use — es lo que permite
 "escalar" la receta hacia arriba o hacia abajo.
 
@@ -74,11 +73,11 @@ los coeficientes de la ecuación relacionan partículas (moles), no gramos.
 
 ## El reactivo limitante
 
-Cuando se mezclan dos reactivos y no están en la proporción exacta que
-pide la ecuación balanceada, uno de los dos se termina primero: ese es el
-**reactivo limitante**, y es el que determina la máxima cantidad de
-producto que se puede formar — el otro reactivo queda sobrante ("en
-exceso"), sin importar cuánto sobre.
+Cuando se mezclan dos reactivos y no están en la proporción exacta que pide
+la ecuación balanceada, uno de los dos se termina primero. Ese es el
+**reactivo limitante**, y es el que determina la máxima cantidad de producto
+que se puede formar. El otro reactivo queda sobrante ("en exceso"), sin
+importar cuánto sobre.
 
 ## Para qué sirve
 

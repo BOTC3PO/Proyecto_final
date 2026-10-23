@@ -25,10 +25,10 @@ bienes y servicios finales que produce un país durante un período
 (normalmente, un año). Es la forma estándar de medir **qué tan grande**
 es la economía de un país.
 
-- **"Producto"**: se cuenta lo que se PRODUCE, no lo que se vende de
-  segunda mano ni lo que ya se contó en un producto anterior (la
-  harina que se usa para hacer pan no se cuenta aparte del pan ya
-  terminado, para no contarla dos veces).
+- **"Producto"**: se cuenta lo que se PRODUCE, no lo que se vende de segunda
+  mano ni lo que ya se contó en un producto anterior. La harina que se usa
+  para hacer pan no se cuenta aparte del pan ya terminado, para no contarla
+  dos veces.
 - **"Bruto"**: no se descuenta el desgaste del capital usado para
   producir (máquinas, edificios).
 - **"Interno"**: se cuenta lo producido DENTRO del país, sin importar
@@ -62,18 +62,17 @@ PBI per cápita = PBI total / población
 ## La inflación, ahora a escala de todo el país
 
 Ya se vio, en la lectura personal, que la inflación reduce el
-rendimiento real de un ahorro. Visto a escala país, la **inflación**
-es el **aumento generalizado y sostenido de los precios** de la
-economía en su conjunto — no que un solo producto se puso más caro
-(eso puede pasar por una razón puntual, como una mala cosecha), sino
-que **la mayoría** de los precios sube de forma sostenida en el
-tiempo.
+rendimiento real de un ahorro. Visto a escala país, la **inflación** es el **aumento generalizado y
+sostenido de los precios** de la economía en su conjunto. No es que un solo
+producto se puso más caro (eso puede pasar por una razón puntual, como una
+mala cosecha). Es que **la mayoría** de los precios sube de forma sostenida
+en el tiempo.
 
 ## Cómo se mide: el índice de precios
 
 Para medir la inflación de todo un país, no alcanza con mirar un solo
-producto: se usa un **índice de precios** (por ejemplo, el IPC, Índice
-de Precios al Consumidor), que sigue el precio de una **canasta**
+producto. Se usa un **índice de precios** (por ejemplo, el IPC, Índice de
+Precios al Consumidor). Ese índice sigue el precio de una **canasta**
 representativa de bienes y servicios que consume una familia típica, y
 compara esa canasta mes a mes o año a año.
 

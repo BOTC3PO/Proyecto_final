@@ -15,9 +15,9 @@ entrega oral son secciones separables.
 ## El mismo contenido, puesto de pie
 
 Todo lo que ya se sabe de `../tesis/`, `../argumentos/` y
-`../contraargumentos/` sigue valiendo acá — la diferencia es que
-ahora hay que comunicarlo **en tiempo real, frente a otra persona**,
-sin la posibilidad de tachar y reescribir como en un texto.
+`../contraargumentos/` sigue valiendo acá. La diferencia es que ahora hay
+que comunicarlo **en tiempo real, frente a otra persona**, sin la
+posibilidad de tachar y reescribir como en un texto.
 
 ## Planificación de una exposición oral
 
@@ -48,24 +48,22 @@ información apretada que nadie retiene.
 
 ## Manejo de los nervios
 
-Es normal sentir nervios antes de hablar en público — algunas
-estrategias prácticas: ensayar en voz alta (no sólo leer en
-silencio), llegar con tiempo al lugar, y recordar que la audiencia
-generalmente quiere que a quien expone le vaya bien, no busca que
-falle.
+Es normal sentir nervios antes de hablar en público. Algunas estrategias
+prácticas: ensayar en voz alta (no solo leer en silencio), llegar con tiempo
+al lugar y recordar que la audiencia generalmente quiere que a quien expone
+le vaya bien, no busca que falle.
 
 ## Diferencia con la exposición escrita
 
-Una exposición oral se puede (y conviene) **repetir información
-clave** de forma deliberada (algo que en un texto escrito sonaría
-redundante) — porque la audiencia no puede "volver atrás" a releer,
-recordar los puntos centrales ayuda a que no se pierdan en el camino.
+En una exposición oral se puede (y conviene) **repetir información clave**
+de forma deliberada, algo que en un texto escrito sonaría redundante. La
+audiencia no puede "volver atrás" a releer, así que recordar los puntos
+centrales ayuda a que no se pierdan en el camino.
 
 ## Para qué sirve
 
-Este tema es el primer nodo de la subrama de comunicación en vivo, y
-es prerrequisito directo de `../presentacion-con-apoyo-visual/`
-(agregar diapositivas/gráficos a esta base oral) y contribuye
-directamente a `../../arte/teatro-dramaturgia-y-actuacion/` (la
-actuación reutiliza técnicas de entrega oral, llevadas a un contexto
-de ficción).
+Este tema es el primer nodo de la subrama de comunicación en vivo. Es
+prerrequisito directo de `../presentacion-con-apoyo-visual/`, que agrega
+diapositivas o gráficos a esta base oral. También contribuye directamente a
+`../../arte/teatro-dramaturgia-y-actuacion/`: la actuación reutiliza
+técnicas de entrega oral, llevadas a un contexto de ficción.

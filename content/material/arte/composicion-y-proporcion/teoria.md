@@ -21,27 +21,27 @@ distintas, puede transmitir sensaciones completamente diferentes.
 
 ## Proporción: relación de tamaño entre las partes
 
-La **proporción** en arte es la relación de tamaño entre las partes de
-una obra entre sí, y de cada parte con el todo — la misma idea de razón
-y proporción ya vista en Matemática, aplicada al espacio visual en vez de
-a números sueltos.
+La **proporción** en arte es la relación de tamaño entre las partes de una
+obra entre sí, y de cada parte con el todo. Es la misma idea de razón y
+proporción ya vista en Matemática, aplicada al espacio visual en vez de a
+números sueltos.
 
 ## La regla de tercios
 
 Una de las herramientas de composición más usadas: se divide el área de
 la obra con dos líneas horizontales y dos verticales, formando una
-cuadrícula de 3×3 (como un "numerito" de tres en línea). En vez de ubicar
-el punto de interés principal justo en el centro, se lo ubica sobre una
-de esas líneas, o mejor aún, en una de las cuatro intersecciones — el
-resultado suele verse más dinámico y equilibrado que centrar todo.
+cuadrícula de 3×3 (como un "numerito" de tres en línea). En vez de ubicar el punto de interés principal justo en el centro, se lo
+ubica sobre una de esas líneas o, mejor aún, en una de las cuatro
+intersecciones. El resultado suele verse más dinámico y equilibrado que
+centrar todo.
 
 ## La proporción áurea
 
-Una relación de proporción particular, ≈1,618 (llamada **número áureo**,
-representado con la letra griega φ), que aparece de forma recurrente en
-la naturaleza (la disposición de las semillas de un girasol, la forma de
-algunas conchas marinas) y que se usó históricamente en arte y
-arquitectura como guía de composición "agradable a la vista". Un
+Hay una relación de proporción particular, ≈1,618, llamada **número áureo**
+y representada con la letra griega φ. Aparece de forma recurrente en la
+naturaleza (la disposición de las semillas de un girasol, la forma de
+algunas conchas marinas). Se usó históricamente en arte y arquitectura como
+guía de composición "agradable a la vista". Un
 **rectángulo áureo** es aquel en el que el lado mayor mide
 aproximadamente 1,618 veces el lado menor.
 
@@ -55,10 +55,10 @@ color, de tamaño, de nitidez), o simplemente dejarlo como lo único
 
 ## El formato ya es una decisión compositiva
 
-Elegir el **formato** de una obra — horizontal (apaisado, típico de
-paisajes), vertical (retrato) o cuadrado — no es un detalle técnico
-menor: condiciona directamente qué composiciones son posibles y cuáles
-no, y es de las primeras decisiones que toma quien compone una imagen.
+Elegir el **formato** de una obra no es un detalle técnico menor. Puede ser
+horizontal (apaisado, típico de paisajes), vertical (retrato) o cuadrado. El
+formato condiciona directamente qué composiciones son posibles y cuáles no,
+y es de las primeras decisiones que toma quien compone una imagen.
 
 ## Composición simétrica vs. asimétrica
 

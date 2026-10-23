@@ -32,31 +32,28 @@ formas principales:
 - **Altitud**: a mayor altura, menor temperatura (la temperatura baja en
   promedio unos 6°C cada 1.000 metros de altura) — por eso hay nieve en
   la cima de montañas incluso cerca del ecuador.
-- **Efecto de barrera (sombra de lluvia)**: una cordillera bloquea el
-  paso de nubes cargadas de humedad; el lado donde el viento choca con
-  la montaña recibe mucha lluvia, mientras el lado opuesto queda mucho
-  más seco (la Patagonia argentina, al este de los Andes, es en gran
-  parte árida por este efecto — la humedad del Pacífico se descarga del
-  lado chileno).
+- **Efecto de barrera (sombra de lluvia)**: una cordillera bloquea el paso de
+  nubes cargadas de humedad. El lado donde el viento choca con la montaña
+  recibe mucha lluvia, mientras el lado opuesto queda mucho más seco. La
+  Patagonia argentina, al este de los Andes, es en gran parte árida por este
+  efecto: la humedad del Pacífico se descarga del lado chileno.
 
 ## Clima: el patrón de largo plazo
 
-El **clima** es el patrón promedio de temperatura y precipitaciones de
-una zona a lo largo de muchos años (a diferencia del **tiempo**
-meteorológico, que es el estado puntual de la atmósfera en un momento
-dado — "clima" es la estadística de largo plazo, "tiempo" es el dato de
-hoy). Los factores que más determinan el clima de un lugar:
+El **clima** es el patrón promedio de temperatura y precipitaciones de una
+zona a lo largo de muchos años. El **tiempo** meteorológico, en cambio, es
+el estado puntual de la atmósfera en un momento dado. "Clima" es la
+estadística de largo plazo, "tiempo" es el dato de hoy. Los factores que más determinan el clima de un lugar:
 
 - **Latitud**: determina cuánta radiación solar directa recibe la zona
   (cerca del ecuador, el Sol pega más directo todo el año; cerca de los
   polos, más oblicuo) — es la base de las grandes zonas climáticas
   (tropical, templada, polar).
 - **Altitud**: como se explicó, enfría con la altura.
-- **Cercanía al mar**: el agua modera la temperatura (se calienta y
-  enfría más lento que la tierra), por eso las zonas costeras suelen
-  tener menos diferencia entre verano e invierno que las zonas del
-  interior de un continente (clima continental, con veranos e inviernos
-  extremos).
+- **Cercanía al mar**: el agua modera la temperatura, porque se calienta y
+  enfría más lento que la tierra. Por eso las zonas costeras suelen tener
+  menos diferencia entre verano e invierno que las zonas del interior de un
+  continente (clima continental, con veranos e inviernos extremos).
 - **Corrientes marinas y vientos**: pueden traer humedad o sequía, calor
   o frío desde otras zonas.
 

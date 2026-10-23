@@ -39,10 +39,9 @@ Es el criterio práctico más común para distinguir ambos casos:
 ## El diagrama de árbol
 
 Un **diagrama de árbol** representa visualmente todos los resultados
-posibles de un experimento de varios pasos, como ramas que se van
-abriendo: cada paso agrega una nueva "generación" de ramas, una por
-cada resultado posible de ese paso, con su probabilidad anotada sobre
-la rama.
+posibles de un experimento de varios pasos, como ramas que se van abriendo.
+Cada paso agrega una nueva "generación" de ramas, una por cada resultado
+posible de ese paso, con su probabilidad anotada sobre la rama.
 
 ```
                     ┌─ Cara (0,5)
@@ -50,24 +49,24 @@ la rama.
                     └─ Ceca (0,5)
 ```
 
-La cantidad total de "caminos" completos del árbol (de la raíz a cada
-hoja final) es exactamente el principio multiplicativo de
-`../principio-multiplicativo-de-conteo/`, dibujado rama por rama: si
-el primer paso tiene `n₁` ramas y el segundo `n₂`, hay `n₁ × n₂`
-caminos completos.
+La cantidad total de "caminos" completos del árbol (de la raíz a cada hoja
+final) es exactamente el principio multiplicativo de
+`../principio-multiplicativo-de-conteo/`, dibujado rama por rama. Si el
+primer paso tiene `n₁` ramas y el segundo `n₂`, hay `n₁ × n₂` caminos
+completos.
 
 ## Multiplicar a lo largo de una rama
 
-La probabilidad de llegar a una hoja específica del árbol (una
-secuencia completa de resultados) es el **producto** de las
-probabilidades de cada rama que se recorre en el camino — sea el caso
-independiente o dependiente (la única diferencia es si esas
-probabilidades cambian de un paso al siguiente o no).
+La probabilidad de llegar a una hoja específica del árbol (una secuencia
+completa de resultados) es el **producto** de las probabilidades de cada
+rama que se recorre en el camino. Vale tanto para el caso independiente como
+para el dependiente. La única diferencia es si esas probabilidades cambian
+de un paso al siguiente o no.
 
 ## Para qué sirve
 
 Es el prerrequisito real de `../probabilidad-compuesta/` (calcular la
-probabilidad de varios eventos a la vez): sin saber si los eventos son
-independientes o no, y sin poder organizar visualmente los caminos
-posibles con un árbol, calcular esa probabilidad compuesta se vuelve
-un cálculo a ciegas.
+probabilidad de varios eventos a la vez). Sin saber si los eventos son
+independientes o no, y sin poder organizar visualmente los caminos posibles
+con un árbol, calcular esa probabilidad compuesta se vuelve un cálculo a
+ciegas.

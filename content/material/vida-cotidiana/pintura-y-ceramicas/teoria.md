@@ -13,25 +13,24 @@ comparten la misma base de área, mejor separados en diapositivas.
 
 ## El área es la base de todo
 
-Calcular cuánta pintura o cuántos cerámicos hacen falta para un ambiente
-no necesita ninguna fórmula geométrica nueva: es aplicar directo el área
-ya vista en `../../matematica/perimetro-y-area/` a una superficie real
-(paredes o piso), y después dividirla por lo que rinde cada producto.
+Calcular cuánta pintura o cuántos cerámicos hacen falta para un ambiente no
+necesita ninguna fórmula geométrica nueva. Es aplicar directo el área ya
+vista en `../../matematica/perimetro-y-area/` a una superficie real (paredes
+o piso) y después dividirla por lo que rinde cada producto.
 
 ## Cuánta pintura hace falta
 
 **Paso 1 — área a pintar**: el área de las paredes es el perímetro del
-ambiente por la altura, **menos** el área de puertas y ventanas (esas
-superficies no se pintan) — la misma lógica de figuras compuestas con
-resta ya vista en `../../matematica/area-poligonos-regulares-y-compuestas/`.
+ambiente por la altura, **menos** el área de puertas y ventanas, que no se
+pintan. Es la misma lógica de figuras compuestas con resta ya vista en
+`../../matematica/area-poligonos-regulares-y-compuestas/`.
 
 **Paso 2 — rendimiento del producto**: cada lata de pintura indica cuánto
-cubre por litro. Como referencia típica, una pintura látex de interior
-sobre una pared lisa rinde entre 10 y 12 m² por litro **por mano** — pero
-ese número varía según la marca, la textura de la pared (una pared con
-textura o un revoque nuevo consume bastante más) y el color, así que
-siempre conviene revisar el rendimiento declarado en el envase concreto
-que se va a usar.
+cubre por litro. Como referencia típica, una pintura látex de interior sobre una pared lisa
+rinde entre 10 y 12 m² por litro **por mano**. Ese número varía según la
+marca, la textura de la pared (una pared con textura o un revoque nuevo
+consume bastante más) y el color. Por eso siempre conviene revisar el
+rendimiento declarado en el envase concreto que se va a usar.
 
 **Paso 3 — cantidad de manos**: para lograr un color parejo casi siempre
 hacen falta **2 manos**, no una sola — eso duplica la cantidad de
@@ -42,9 +41,9 @@ Litros necesarios = (área a pintar / rendimiento por litro) × cantidad de mano
 ```
 
 **Paso 4 — redondear hacia arriba**: la pintura se vende en envases de
-tamaño fijo (1 L, 4 L, 10 L, 20 L...), así que el resultado del cálculo
-se redondea siempre **hacia arriba** al envase disponible más
-conveniente — no se puede comprar "2,3 litros".
+tamaño fijo (1 L, 4 L, 10 L, 20 L...). Por eso el resultado del cálculo se
+redondea siempre **hacia arriba** al envase disponible más conveniente. No
+se puede comprar "2,3 litros".
 
 ## Cuántos cerámicos hacen falta
 

@@ -28,27 +28,25 @@ propia opinión, no adoptar la del material.
 
 ## Qué señala la economía feminista y del cuidado
 
-Señala un punto de medición específico: el Producto Bruto Interno
-(PBI, ver [PBI e inflación](../pbi-e-inflacion/teoria.md)) sólo cuenta
-la producción que pasa por el mercado — y por lo tanto **no cuenta**
-el trabajo doméstico y de cuidado no remunerado (limpiar, cocinar,
-cuidar niños o adultos mayores), un trabajo real que sostiene a
-cualquier economía pero que, al no tener precio de mercado, queda
-invisible en las estadísticas oficiales.
+Señala un punto de medición específico. El Producto Bruto Interno (PBI, ver
+[PBI e inflación](../pbi-e-inflacion/teoria.md)) solo cuenta la producción
+que pasa por el mercado. Por lo tanto, **no cuenta** el trabajo doméstico y
+de cuidado no remunerado (limpiar, cocinar, cuidar niños o adultos mayores).
+Es un trabajo real que sostiene a cualquier economía pero que, al no tener
+precio de mercado, queda invisible en las estadísticas oficiales.
 
-Texto de referencia: Marilyn Waring, *If Women Counted* (1988), que
-plantea esta observación puntual sobre medición económica — no es, en
-este tema, un desarrollo del debate feminista más amplio, sino
-específicamente este señalamiento sobre qué cuenta y qué no cuenta el
-PBI.
+Texto de referencia: Marilyn Waring, *If Women Counted* (1988), que plantea
+esta observación puntual sobre medición económica. En este tema no se
+desarrolla el debate feminista más amplio, sino específicamente este
+señalamiento sobre qué cuenta y qué no cuenta el PBI.
 
 ## Su lugar en la cadena de corrientes
 
 Esta corriente toma como punto de partida crítico tanto al liberalismo
-clásico (que confía en el mercado como forma de coordinar y medir la
-actividad económica) como al marxismo (que ya había puesto el foco en
-el trabajo como fuente de valor, aunque sin extender ese análisis al
-trabajo doméstico no remunerado). Cierra, en 1988, la línea temporal
+clásico como al marxismo. El liberalismo clásico confía en el mercado como
+forma de coordinar y medir la actividad económica. El marxismo ya había
+puesto el foco en el trabajo como fuente de valor, aunque sin extender ese
+análisis al trabajo doméstico no remunerado. Cierra, en 1988, la línea temporal
 de este bloque de corrientes.
 
 ## Una línea de tiempo, no una escalera: repaso de las nueve corrientes
@@ -90,7 +88,7 @@ mejor:
 
 ## Cierre del bloque
 
-Cada una de las nueve corrientes de este bloque ofrece una lógica
-interna propia y coherente para explicar cómo funciona la economía —
-conocerlas todas permite entender un debate económico actual, sin
-necesidad de adoptar una sola como la única válida.
+Cada una de las nueve corrientes de este bloque ofrece una lógica interna
+propia y coherente para explicar cómo funciona la economía. Conocerlas todas
+permite entender un debate económico actual, sin necesidad de adoptar una
+sola como la única válida.
