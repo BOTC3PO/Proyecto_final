@@ -61,8 +61,8 @@ de Gobierno elegido por el Parlamento (el Primer Ministro).
 
 ## Cómo comparar sistemas sin tomar postura
 
-La pregunta neutral para comparar cualquier sistema es siempre la
-misma: **¿de dónde saca su legitimidad el Jefe de Gobierno, y qué puede
-hacer caer su gobierno antes de tiempo?** Presidencialismo: legitimidad
-directa del voto popular, cae sólo por juicio político. Parlamentarismo:
+La pregunta neutral para comparar cualquier sistema es siempre la misma:
+**¿de dónde saca su legitimidad el Jefe de Gobierno, y qué puede hacer caer
+su gobierno antes de tiempo?** En el presidencialismo, la legitimidad es
+directa del voto popular y el gobierno cae solo por juicio político. Parlamentarismo:
 legitimidad de la confianza del Parlamento, cae por moción de censura.

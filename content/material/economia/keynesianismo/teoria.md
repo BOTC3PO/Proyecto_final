@@ -51,13 +51,13 @@ en cambio, limitarse a garantizar las reglas del juego.
 
 ## Su lugar en la cadena de corrientes
 
-El keynesianismo parte, por un lado, de la confianza del liberalismo
-clásico y la escuela austríaca en el mercado como mecanismo central de
-coordinación económica — no la rechaza, sólo cuestiona que funcione
-sin fallas en todo momento — y por otro, dialoga con la pregunta que
-dejó planteada el marxismo sobre las crisis del capitalismo, aunque
-ofrece una respuesta distinta: no reemplazar el sistema, sino
-corregirlo con intervención estatal puntual en los momentos de crisis.
+El keynesianismo parte, por un lado, de la confianza del liberalismo clásico
+y la escuela austríaca en el mercado como mecanismo central de coordinación
+económica. No la rechaza: solo cuestiona que funcione sin fallas en todo
+momento. Por otro lado, dialoga con la pregunta que dejó planteada el
+marxismo sobre las crisis del capitalismo. Ofrece una respuesta distinta: no
+reemplazar el sistema, sino corregirlo con intervención estatal puntual en
+los momentos de crisis.
 De esta corriente parten, a su vez, dos respuestas distintas sobre
 cuánto y cómo debe intervenir el Estado el resto del tiempo: el
 ordoliberalismo y el neoliberalismo.

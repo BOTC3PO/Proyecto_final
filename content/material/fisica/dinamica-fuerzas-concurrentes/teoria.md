@@ -23,10 +23,10 @@ actúa una sola fuerza sobre algo.
 
 ## El diagrama de cuerpo libre
 
-Un **diagrama de cuerpo libre** es un dibujo simplificado del objeto
-(reducido a un punto) con **todas** las fuerzas que actúan sobre él
-dibujadas como vectores que salen de ese punto — sin dibujar los objetos
-que las ejercen (la cuerda, el piso, el aire), sólo las fuerzas en sí.
+Un **diagrama de cuerpo libre** es un dibujo simplificado del objeto,
+reducido a un punto. Muestra **todas** las fuerzas que actúan sobre él,
+dibujadas como vectores que salen de ese punto. No se dibujan los objetos
+que las ejercen (la cuerda, el piso, el aire), solo las fuerzas en sí.
 Es la herramienta central para resolver cualquier problema de dinámica:
 si falta una fuerza en el diagrama, el resultado va a estar mal.
 

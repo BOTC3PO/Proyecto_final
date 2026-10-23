@@ -63,8 +63,8 @@ más comúnmente, **recursión** (que es, en el fondo, una pila
 implícita).
 
 **DFS desde A** (mismo criterio, primer vecino no visitado en orden
-alfabético): `A, B, D, F, C, E` — se mete por la rama de B hasta el
-final (llega hasta F) antes de volver a probar la rama de C.
+alfabético): `A, B, D, F, C, E`. Se mete por la rama de B hasta el final
+(llega hasta F) antes de volver a probar la rama de C.
 
 **DFS no garantiza** el camino más corto — puede llegar a un vértice
 lejano recorriendo un camino innecesariamente largo, antes de

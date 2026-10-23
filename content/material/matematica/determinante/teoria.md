@@ -38,9 +38,9 @@ A = | a  b  c |
 det(A) = aei + bfg + cdh − ceg − afh − bdi
 ```
 
-Una forma práctica de recordarlo: repetir las dos primeras columnas a la
-derecha de la matriz, sumar los productos de las tres diagonales que van
-de arriba-izquierda a abajo-derecha, y restar los productos de las tres
+Una forma práctica de recordarlo: se repiten las dos primeras columnas a la
+derecha de la matriz. Se suman los productos de las tres diagonales que van
+de arriba-izquierda a abajo-derecha. Y se restan los productos de las tres
 diagonales que van de abajo-izquierda a arriba-derecha.
 
 ```

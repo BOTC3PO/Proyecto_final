@@ -27,8 +27,7 @@ para que cada estudiante pueda tomar decisiones informadas.
 
 ## 2. Qué es un "consumo problemático"
 
-Un **consumo problemático** no es sólo el consumo de sustancias ilegales. La
-ley usa un concepto más amplio, que incluye también el uso problemático de
+Un **consumo problemático** no es sólo el consumo de sustancias ilegales. La ley usa un concepto más amplio. Incluye también el uso problemático de
 sustancias legales (alcohol, tabaco, medicamentos) y, más ampliamente,
 cualquier consumo (incluidas pantallas, apuestas, etc.) que **afecta
 negativamente** la vida cotidiana, la salud, los vínculos o las

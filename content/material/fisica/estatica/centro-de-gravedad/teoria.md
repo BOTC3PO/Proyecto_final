@@ -63,10 +63,9 @@ contacto con el suelo). Por eso:
 
 - Cuanto más **baja** esté el centro de gravedad, más estable es el
   objeto (los autos de carrera son bajos a propósito).
-- Cuanto más **ancha** la base de apoyo, más margen hay antes de que
-  el centro de gravedad se salga de ella (por qué una grúa usa
-  contrapesos, o por qué es más fácil hacer pie en una postura con las
-  piernas separadas).
+- Cuanto más **ancha** la base de apoyo, más margen hay antes de que el centro
+  de gravedad se salga de ella. Por eso una grúa usa contrapesos, y por eso
+  es más fácil hacer pie en una postura con las piernas separadas.
 
 Nota aparte, para quien siga leyendo sobre el tema: en un campo gravitatorio
 perfectamente uniforme, el centro de gravedad y el **centro de masa** son el

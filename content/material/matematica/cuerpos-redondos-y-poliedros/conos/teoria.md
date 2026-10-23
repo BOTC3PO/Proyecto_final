@@ -57,7 +57,7 @@ Usando la generatriz **g** (el lado inclinado):
 
 ## Cono vs. cilindro: qué cambia y qué no
 
-El cono tiene una sola base (como la pirámide tiene una sola base, contra
-las dos del prisma) y su volumen es un tercio del cilindro equivalente —
-exactamente el mismo patrón "pirámide es a prisma" que "cono es a
-cilindro", sólo que con base circular en vez de poligonal.
+El cono tiene una sola base, como la pirámide, contra las dos del prisma. Su
+volumen es un tercio del cilindro equivalente. Es exactamente el mismo
+patrón "pirámide es a prisma" que "cono es a cilindro", solo que con base
+circular en vez de poligonal.

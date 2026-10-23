@@ -28,7 +28,7 @@ Esta diferencia generó enfrentamientos directos, como la formación de la Liga 
 
 ## 4. Guerras civiles y su impacto
 
-Las guerras civiles entre unitarios y federales se convirtieron en una constante del siglo XIX argentino. Desde la batalla de Cepeda (1820), que provocó la caída del gobierno central del Directorio y dio inicio a la llamada "anarquía del año XX", hasta los conflictos con Rosas en la década de 1840, el debate sobre el modelo de Estado no solo fue un tema político, sino también social y económico.
+Las guerras civiles entre unitarios y federales se convirtieron en una constante del siglo XIX argentino. La batalla de Cepeda (1820) provocó la caída del gobierno central del Directorio y dio inicio a la llamada "anarquía del año XX". Desde ahí hasta los conflictos con Rosas en la década de 1840, el debate sobre el modelo de Estado no solo fue un tema político, sino también social y económico.
 
 La lucha por el poder generó divisiones internas en la sociedad argentina: las élites porteñas apoyaron al centralismo unitario, mientras que los grupos rurales y provinciales respaldaron a los federales. Estos conflictos marcaron una etapa de inestabilidad institucional, pero también sentaron las bases para futuras reformas.
 

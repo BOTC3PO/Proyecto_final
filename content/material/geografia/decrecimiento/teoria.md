@@ -62,11 +62,10 @@ dramática.
 ## Revaluar "bienestar" sin depender del crecimiento
 
 Un argumento central de Latouche (y del decrecimiento en general) es que el
-bienestar humano no depende linealmente del consumo material. Propone
-repensar conceptos como "felicidad" y "calidad de vida" de forma
-independiente del crecimiento económico: más tiempo libre, más vínculos
-comunitarios y menos trabajo dedicado a producir bienes que no se necesitan,
-en vez de más PBI per cápita como medida única de progreso.
+bienestar humano no depende linealmente del consumo material. Propone repensar conceptos como "felicidad" y "calidad de vida" de forma
+independiente del crecimiento económico. Propone más tiempo libre, más
+vínculos comunitarios y menos trabajo dedicado a producir bienes que no se
+necesitan, en vez de más PBI per cápita como medida única de progreso.
 
 ## Distinción con "decrecimiento" como recesión económica
 

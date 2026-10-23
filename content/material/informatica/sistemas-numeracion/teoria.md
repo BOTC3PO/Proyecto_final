@@ -46,11 +46,10 @@ de 16.
 
 El hexadecimal no es un capricho: **16 = 2⁴**, así que **cada dígito
 hexadecimal representa exactamente 4 bits** (un grupo de 4 bits se
-llama, informalmente, un "nibble"). Como consecuencia, **2 dígitos
-hexadecimales representan exactamente 1 byte (8 bits)** — escribir
-binario largo es tedioso y propenso a errores; escribir el mismo valor
-en hexadecimal es mucho más corto y más fácil de leer para una persona,
-sin perder la correspondencia exacta con los bits.
+llama, informalmente, un "nibble"). Como consecuencia, **2 dígitos hexadecimales representan exactamente 1 byte
+(8 bits)**. Escribir binario largo es tedioso y propenso a errores. Escribir
+el mismo valor en hexadecimal es mucho más corto y más fácil de leer para
+una persona, sin perder la correspondencia exacta con los bits.
 
 **Ejemplo**: el byte binario `11111111` (8 bits, todos en 1) se escribe
 en hexadecimal como `FF` — mucho más compacto — y en decimal equivale a

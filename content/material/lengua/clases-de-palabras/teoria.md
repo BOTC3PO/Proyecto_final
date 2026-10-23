@@ -52,10 +52,9 @@ dentro de una frase. El español reconoce, clásicamente, 9 clases.
 
 ## Para qué sirve
 
-Saber a qué clase pertenece una palabra es el paso previo para
-entender **cómo se construye** una oración: la conjugación verbal
-(`../conjugacion-verbal-indicativo/`), la concordancia
-(`../concordancia-nominal-y-verbal/`) y la división en sujeto y
-predicado (`../sujeto-y-predicado/`) — los tres módulos que siguen —
-todos presuponen poder identificar primero si una palabra es un
-sustantivo, un verbo o un adjetivo.
+Saber a qué clase pertenece una palabra es el paso previo para entender
+**cómo se construye** una oración. Los tres módulos que siguen presuponen
+poder identificar primero si una palabra es un sustantivo, un verbo o un
+adjetivo. Son la conjugación verbal (`../conjugacion-verbal-indicativo/`),
+la concordancia (`../concordancia-nominal-y-verbal/`) y la división en
+sujeto y predicado (`../sujeto-y-predicado/`).

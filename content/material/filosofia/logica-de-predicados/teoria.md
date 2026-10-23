@@ -72,7 +72,7 @@ particulares que la proposicional no puede formalizar.
 
 Este tema cierra, del lado de Filosofía, el mismo salto de nivel que
 `../../informatica/algebra-booleana/` deja pendiente del lado de
-Informática (booleana opera con proposiciones fijas; predicados,
-con proposiciones que dependen de una variable) — es la base formal
-de cómo funcionan las demostraciones matemáticas rigurosas y ciertos
-lenguajes de programación lógica.
+Informática. La booleana opera con proposiciones fijas; los predicados, con
+proposiciones que dependen de una variable. Es la base formal de cómo
+funcionan las demostraciones matemáticas rigurosas y ciertos lenguajes de
+programación lógica.

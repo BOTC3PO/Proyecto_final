@@ -20,7 +20,7 @@ Son los elementos que definen las tareas esenciales del sistema, sin importar c�
 
 ## 2. ¿Qué son los requisitos no funcionales?
 
-Los requisitos no funcionales definen **cómo debe hacer lo que hace el sistema**, es decir, atributos de calidad o restricciones técnicas que garantizan su correcto funcionamiento. Incluyen aspectos como rendimiento ("El sistema debe responder en menos de 2 segundos"), seguridad ("Las contraseñas deben estar encriptadas"), disponibilidad ("El servicio debe estar operativo el 99,5% del tiempo") o usabilidad ("La interfaz debe ser accesible para personas con discapacidad visual").
+Los requisitos no funcionales definen **cómo debe hacer lo que hace el sistema**, es decir, atributos de calidad o restricciones técnicas que garantizan su correcto funcionamiento. Incluyen aspectos como el rendimiento ("El sistema debe responder en menos de 2 segundos") y la seguridad ("Las contraseñas deben estar encriptadas"). También la disponibilidad ("El servicio debe estar operativo el 99,5% del tiempo") y la usabilidad ("La interfaz debe ser accesible para personas con discapacidad visual").
 
 Aunque no describen funciones específicas, son críticos para que el sistema sea confiable, escalable y aceptado por los usuarios. Por ejemplo: una aplicación podría cumplir con un requisito funcional de "guardar datos", pero si su rendimiento es lento (requisito no funcional), la experiencia del usuario se verá afectada.
 

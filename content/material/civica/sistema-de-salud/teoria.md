@@ -48,14 +48,13 @@ como un derecho garantizado, no como un producto de mercado.
 
 Los servicios de salud se financian con seguros y prepagas que compiten
 por cobertura — cada persona paga (directamente o vía su empleador) por
-el plan que elige. En su versión más radical, asociada a la **escuela
-austriaca** (la misma corriente ya nombrada en
+el plan que elige. En su versión más radical, asociada a la **escuela austriaca** (la misma
+corriente ya nombrada en
 `../../economia/liberalismo-clasico-y-escuela-austriaca/`), el argumento es
-que el hospital público es un modelo de negocio centralizado y
-obsoleto: en un mercado sin regulación estatal, los servicios de salud
-se desagregarían en oferentes especializados y competitivos (más
-eficientes que un monopolio estatal), en vez de concentrarse en un
-único edificio. Argumento a favor: la competencia entre prestadores
+que el hospital público es un modelo de negocio centralizado y obsoleto. En
+un mercado sin regulación estatal, los servicios de salud se desagregarían
+en oferentes especializados y competitivos, más eficientes que un monopolio
+estatal. No se concentrarían en un único edificio. Argumento a favor: la competencia entre prestadores
 mejora la calidad y baja los costos, y quien paga más recibe más rápido
 y mejor atención.
 

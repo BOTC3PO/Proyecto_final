@@ -10,7 +10,7 @@
 
 ## 1. De la caza a la producción
 
-La Revolución Neolítica fue un giro decisivo en la historia del ser humano: dejó atrás una forma de vida basada en la caza, la pesca y la recolección de alimentos naturales para adoptar sistemas que implicaban cultivar plantas y criar animales. Este proceso no fue instantáneo ni uniforme; se desarrolló gradualmente entre 12.000 y 5.000 años atrás en diversas regiones del mundo, como el Cercano Oriente, China o Mesoamérica.
+La Revolución Neolítica fue un giro decisivo en la historia del ser humano. Dejó atrás una forma de vida basada en la caza, la pesca y la recolección de alimentos naturales. Adoptó sistemas que implicaban cultivar plantas y criar animales. Este proceso no fue instantáneo ni uniforme; se desarrolló gradualmente entre 12.000 y 5.000 años atrás en diversas regiones del mundo, como el Cercano Oriente, China o Mesoamérica.
 
 El cambio respondió a condiciones climáticas más estables tras la última glaciación, lo que permitió experimentar con semillas y especies animales. La domesticación no fue un acto de control absoluto: se trató de una relación simbiótica donde humanos y plantas/animales modificaron mutuamente su comportamiento para adaptarse a convivir.
 

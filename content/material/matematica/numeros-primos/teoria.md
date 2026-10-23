@@ -33,10 +33,10 @@ divisores: el 1 y él mismo. Si tiene más de 2 divisores, se llama
 ## Cómo reconocer si un número es primo
 
 Se prueba dividirlo por los números primos más chicos (2, 3, 5, 7, 11...)
-uno por uno. Las reglas de divisibilidad ya vistas (ver
-`../divisibilidad/`) sirven de atajo: si es par, ya se sabe que no es primo
-(salvo que sea el 2); si la suma de cifras es múltiplo de 3, tampoco; si
-termina en 0 o 5, tampoco (salvo que sea el propio 5). Alcanza con probar
+uno por uno. Las reglas de divisibilidad ya vistas (ver `../divisibilidad/`) sirven de
+atajo. Si es par, ya se sabe que no es primo (salvo que sea el 2). Si la
+suma de cifras es múltiplo de 3, tampoco. Si termina en 0 o 5, tampoco
+(salvo que sea el propio 5). Alcanza con probar
 hasta la raíz cuadrada del número: si ningún primo hasta ahí lo divide,
 ninguno más grande lo va a dividir tampoco.
 

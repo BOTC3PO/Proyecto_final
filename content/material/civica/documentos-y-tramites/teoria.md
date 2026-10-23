@@ -63,9 +63,9 @@ privado, mixto).
 ## Por qué estos 4 alimentan Educación Vial
 
 Los 4 documentos comparten algo relevante para `../senalizacion-vial/`,
-`../prioridades-de-paso/` y `../alcoholemia-y-conduccion/`: son la
-**identificación legal** que un conductor debe poder acreditar en un
-control de tránsito (DNI), que certifica su aporte y cobertura si sufre
-un accidente (CUIL/obra social e historia clínica), y que en conjunto
-conforman el marco de ciudadanía práctica sobre el cual se apoya
-cualquier norma de circulación.
+`../prioridades-de-paso/` y `../alcoholemia-y-conduccion/`. Son la
+**identificación legal** que un conductor debe poder acreditar en un control
+de tránsito (DNI). También certifican su aporte y cobertura si sufre un
+accidente (CUIL, obra social e historia clínica). En conjunto conforman el
+marco de ciudadanía práctica sobre el cual se apoya cualquier norma de
+circulación.

@@ -62,11 +62,11 @@ puntuales sí cambian seguido, por eso no se hardcodean acá.
 ## El patrón para leer cualquier impuesto
 
 Frente a cualquier impuesto nuevo que aparezca en una noticia, conviene
-hacerse 2 preguntas: **¿qué nivel de gobierno lo cobra?** (nacional,
-provincial o municipal) y **¿qué servicio público específico ayuda a
-financiar?** — sin esas 2 respuestas, "pagar impuestos" es un concepto
-abstracto sin conexión con los servicios que un ciudadano recibe a
-cambio.
+hacerse 2 preguntas. La primera: **¿qué nivel de gobierno lo cobra?**
+(nacional, provincial o municipal). La segunda: **¿qué servicio público
+específico ayuda a financiar?** Sin esas 2 respuestas, "pagar impuestos" es
+un concepto abstracto, sin conexión con los servicios que un ciudadano
+recibe a cambio.
 
 ## Nota importante
 

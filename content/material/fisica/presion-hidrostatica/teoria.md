@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es la presión hidrostática?
 
-La **presión hidrostática** es el valor de la fuerza por unidad de área que un fluido ejerce sobre las paredes del recipiente que lo contiene o sobre cualquier cuerpo sumergido en él, debido exclusivamente al peso de la columna de fluido que está encima. A diferencia de la presión atmosférica (que actúa desde arriba), esta se genera internamente por el propio peso del líquido.
+La **presión hidrostática** es el valor de la fuerza por unidad de área que un fluido ejerce sobre las paredes del recipiente que lo contiene o sobre cualquier cuerpo sumergido en él. Se debe exclusivamente al peso de la columna de fluido que está encima. A diferencia de la presión atmosférica (que actúa desde arriba), esta se genera internamente por el propio peso del líquido.
 
 Un ejemplo claro es bucear en una piscina: cuanto más profundo estás, mayor es la sensación de oído "tapado", lo que indica un aumento de presión. Esto ocurre porque hay más agua encima tuyo a medida que te hundes.
 

@@ -27,10 +27,9 @@ del material.
 ## Qué sostiene el mercantilismo
 
 El mercantilismo fue la corriente económica dominante en Europa entre
-los siglos XVI y XVIII, durante la expansión colonial. Sostiene que la
-riqueza de una nación se mide por la cantidad de oro y plata que
-acumula — no por lo que produce o consume su población, sino por el
-metal precioso que logra retener o atraer del resto del mundo.
+los siglos XVI y XVIII, durante la expansión colonial. Sostiene que la riqueza de una nación se mide por la cantidad de oro y plata
+que acumula. No se mide por lo que produce o consume su población, sino por
+el metal precioso que logra retener o atraer del resto del mundo.
 
 De esa idea se desprende su receta de política económica: el Estado
 debe intervenir activamente en el comercio para conseguir una

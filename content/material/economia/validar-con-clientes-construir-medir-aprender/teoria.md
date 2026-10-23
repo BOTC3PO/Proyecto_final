@@ -10,7 +10,7 @@
 
 ## 1. El ciclo de Construir-Medir-Aprender
 
-El núcleo de la metodología Lean Startup es el ciclo **Construir-Medir-Aprender**, que se repite constantemente para validar hipótesis empresariales con la menor inversión de tiempo y recursos posible. Este proceso comienza al construir un producto o servicio básico que represente la idea central del emprendimiento, luego se mide su impacto en el mercado mediante datos reales (como comportamiento de usuarios o retroalimentación directa), y finalmente se aprende de esos resultados para ajustar la propuesta. La velocidad con la que se completa este ciclo es clave: cuanto más rápido se obtengan lecciones, más oportunidades hay de corregir errores antes de invertir en soluciones erróneas.
+El núcleo de la metodología Lean Startup es el ciclo **Construir-Medir-Aprender**, que se repite constantemente para validar hipótesis empresariales con la menor inversión de tiempo y recursos posible. Este proceso comienza al construir un producto o servicio básico que represente la idea central del emprendimiento. Luego se mide su impacto en el mercado mediante datos reales (como comportamiento de usuarios o retroalimentación directa). Finalmente se aprende de esos resultados para ajustar la propuesta. La velocidad con la que se completa este ciclo es clave: cuanto más rápido se obtengan lecciones, más oportunidades hay de corregir errores antes de invertir en soluciones erróneas.
 
 <!-- IMAGEN: Diagrama del ciclo Construir-Medir-Aprender con flechas que conectan cada paso -->
 

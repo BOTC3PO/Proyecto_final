@@ -62,9 +62,9 @@ en medición significan cosas distintas:
   necesariamente cerca del valor real. Depende sobre todo del error
   aleatorio.
 
-Es posible ser preciso sin ser exacto (varias mediciones muy parecidas
-entre sí, pero todas alejadas del valor real por un error sistemático —
-como tiros al blanco muy agrupados, pero lejos del centro) y exacto sin
-ser preciso (mediciones muy dispersas entre sí, pero cuyo promedio da
-cerca del valor real — tiros dispersos por todo el blanco, pero
-centrados en promedio).
+Es posible ser preciso sin ser exacto. Son varias mediciones muy parecidas
+entre sí, pero todas alejadas del valor real por un error sistemático, como
+tiros al blanco muy agrupados pero lejos del centro. También es posible ser
+exacto sin ser preciso. Son mediciones muy dispersas entre sí, pero cuyo
+promedio da cerca del valor real, como tiros dispersos por todo el blanco
+pero centrados en promedio.

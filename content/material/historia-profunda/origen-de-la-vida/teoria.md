@@ -32,7 +32,7 @@ A medida que las moléculas orgánicas se multiplicaron, surgieron estructuras m
 
 ## 4. De las moléculas a las células
 
-El paso de moléculas autónomas a estructuras organizadas como células implicó la formación de membranas lipídicas que encapsularon compuestos orgánicos, creando compartimentos aislados. Estos "protocelulas" podrían haber desarrollado mecanismos para replicar su material genético y metabolizar nutrientes, condiciones esenciales para la evolución biológica. Aunque no se conocen los detalles exactos de este proceso (que sigue siendo objeto de investigación), se cree que combinaciones casuales de moléculas y ambientes favorables generaron sistemas capaces de autorreplicarse, marcando el inicio de la vida tal como la conocemos.
+El paso de moléculas autónomas a estructuras organizadas como células implicó la formación de membranas lipídicas que encapsularon compuestos orgánicos, creando compartimentos aislados. Estos "protocelulas" podrían haber desarrollado mecanismos para replicar su material genético y metabolizar nutrientes, condiciones esenciales para la evolución biológica. No se conocen los detalles exactos de este proceso, que sigue siendo objeto de investigación. Se cree que combinaciones casuales de moléculas y ambientes favorables generaron sistemas capaces de autorreplicarse. Eso marcó el inicio de la vida tal como la conocemos.
 
 ---
 

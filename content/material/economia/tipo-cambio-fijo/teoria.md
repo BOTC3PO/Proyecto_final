@@ -55,11 +55,10 @@ en general.
   defender el valor fijado en todo momento — si en algún momento no
   le alcanzan, no puede sostener la promesa (ver
   [devaluación](../devaluacion/teoria.md)).
-- El país **pierde independencia** en su política monetaria: no puede
-  usar libremente la tasa de interés o la emisión de dinero para
-  otros objetivos (por ejemplo, estimular el empleo), porque cualquier
-  decisión que presione el tipo de cambio pone en riesgo el
-  compromiso de mantenerlo fijo.
+- El país **pierde independencia** en su política monetaria. No puede usar
+  libremente la tasa de interés o la emisión de dinero para otros objetivos
+  (por ejemplo, estimular el empleo). Cualquier decisión que presione el
+  tipo de cambio pone en riesgo el compromiso de mantenerlo fijo.
 
 ## Un ejemplo histórico real (mecánica, sin evaluar si fue una buena decisión)
 

@@ -55,10 +55,10 @@ parecen ciertas fallan justo en esos bordes.
 
 Los contraejemplos refutan afirmaciones **universales** ("para todo x...").
 No sirven de la misma forma para afirmaciones **existenciales** ("existe
-algún x tal que..."): para esas, un ejemplo que cumpla **prueba** la
-afirmación (alcanza con encontrar uno), y para refutarlas hace falta
-mostrar que **ningún** caso funciona — lo cual sí requiere una
-demostración general, no un solo contraejemplo.
+algún x tal que..."). Para esas, un ejemplo que cumpla **prueba** la
+afirmación, porque alcanza con encontrar uno. Para refutarlas hace falta
+mostrar que **ningún** caso funciona, y eso sí requiere una demostración
+general, no un solo contraejemplo.
 
 ## Errores comunes
 

@@ -44,11 +44,10 @@ se calcula igual:
 
 **V = Área de la base × altura**
 
-Es la misma idea que ya se usó para el prisma rectangular (donde "área de
-la base" era largo × ancho), generalizada a cualquier polígono: si la
-base es un triángulo, se usa el área del triángulo (ver
-`../../perimetro-y-area/`); si es un trapecio, el área del trapecio; y
-así con cualquier forma.
+Es la misma idea que ya se usó para el prisma rectangular, donde "área de la
+base" era largo × ancho, generalizada a cualquier polígono. Si la base es un
+triángulo, se usa el área del triángulo (ver `../../perimetro-y-area/`). Si
+es un trapecio, el área del trapecio. Y así con cualquier forma.
 
 ## Cantidad de caras, aristas y vértices
 

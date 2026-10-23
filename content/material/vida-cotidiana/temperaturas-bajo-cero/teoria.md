@@ -42,11 +42,10 @@ Si la temperatura pasa de un valor negativo a uno positivo (o al
 revés), es fácil calcular mal la diferencia "a ojo". El truco es
 siempre aplicar la resta completa, con los signos correctos:
 
-**Ejemplo**: la temperatura sube de -5°C a 3°C. La diferencia **no** es
-"3 grados" (mirando sólo el número final) ni "8" porque "se ve a ojo":
-es exactamente `3 - (-5) = 3 + 5 = 8` grados de suba — el termómetro
-tuvo que subir los 5 grados hasta llegar a 0, y después 3 grados más
-hasta llegar a 3.
+**Ejemplo**: la temperatura sube de -5°C a 3°C. La diferencia **no** es "3 grados", mirando solo el número final, ni "8"
+porque "se ve a ojo". Es exactamente `3 - (-5) = 3 + 5 = 8` grados de suba.
+El termómetro tuvo que subir los 5 grados hasta llegar a 0, y después 3
+grados más hasta llegar a 3.
 
 ## Dónde aparece en la vida real
 

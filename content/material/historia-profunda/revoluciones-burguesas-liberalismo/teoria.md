@@ -18,7 +18,7 @@ La Revolución Francesa (1789-1799) marcó un punto de inflexión al desafiar lo
 
 ## 2. El liberalismo como filosofía política
 
-El liberalismo no fue una ideología nacida con la Revolución Francesa, sino que se consolidó en ese contexto al articular ideas previas de la Ilustración. Filósofos como Locke, Montesquieu y Rousseau cuestionaron el poder absoluto del monarca y defendieron conceptos como la libertad individual, la separación de poderes y la soberanía popular. Estas ideas se tradujeron en prácticas concretas: la **Declaración de los Derechos del Hombre y del Ciudadano** (1789) estableció que todos nacen libres e iguales en derechos, un principio que rompió con la visión tradicional de los derechos como concesiones reales.
+El liberalismo no fue una ideología nacida con la Revolución Francesa, sino que se consolidó en ese contexto al articular ideas previas de la Ilustración. Filósofos como Locke, Montesquieu y Rousseau cuestionaron el poder absoluto del monarca y defendieron conceptos como la libertad individual, la separación de poderes y la soberanía popular. Estas ideas se tradujeron en prácticas concretas. La **Declaración de los Derechos del Hombre y del Ciudadano** (1789) estableció que todos nacen libres e iguales en derechos. Fue un principio que rompió con la visión tradicional de los derechos como concesiones reales.
 
 ---
 

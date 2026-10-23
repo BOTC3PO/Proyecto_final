@@ -26,10 +26,10 @@ fórmula de fuerza detrás):
    barre **áreas iguales en tiempos iguales**. Consecuencia directa: un
    planeta se mueve **más rápido** cuando está más cerca del Sol
    (**perihelio**) y **más lento** cuando está más lejos (**afelio**).
-3. **Ley de los períodos** (o ley armónica): el cuadrado del período
-   orbital `T` es proporcional al cubo del semieje mayor `a` de la
-   órbita: `T² ∝ a³` (la misma constante de proporcionalidad para
-   todos los planetas que orbitan el mismo Sol).
+3. **Ley de los períodos** (o ley armónica): el cuadrado del período orbital
+   `T` es proporcional al cubo del semieje mayor `a` de la órbita: `T² ∝
+   a³`. La constante de proporcionalidad es la misma para todos los planetas
+   que orbitan el mismo Sol.
 
 Kepler nunca explicó **por qué** valen estas tres leyes — sólo las
 describió a partir de lo que se observaba.

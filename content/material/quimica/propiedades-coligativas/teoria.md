@@ -22,7 +22,7 @@ al solvente, no cuáles son.
 
 **Salvedad importante**: si el soluto se **disocia** en iones (como una
 sal), cada "unidad" de soluto se separa en varias partículas. 1 mol de NaCl
-aporta 2 moles de partículas (Na⁺ + Cl⁻), así que su efecto es el doble que
+aporta 2 moles de partículas (Na⁺ + Cl⁻). Por eso su efecto es el doble que
 1 mol de azúcar, que no se disocia y queda como molécula entera.
 
 ## 2. Descenso crioscópico (ΔT congelamiento)

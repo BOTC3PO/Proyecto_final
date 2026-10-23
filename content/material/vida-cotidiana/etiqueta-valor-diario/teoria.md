@@ -49,10 +49,10 @@ sodio de referencia recomendado para todo el día.
 ## Por qué el %VD permite comparar entre productos
 
 A diferencia de comparar directamente los gramos o miligramos de un
-nutriente, el %VD ya viene "normalizado" a la misma referencia diaria —
-por eso permite comparar productos con tamaños de porción distintos: un
-%VD de sodio del 15% dice lo mismo sin importar si la porción de ese
-producto era de 30 g o de 100 g.
+nutriente, el %VD ya viene "normalizado" a la misma referencia diaria. Por
+eso permite comparar productos con tamaños de porción distintos. Un %VD de
+sodio del 15% dice lo mismo sin importar si la porción de ese producto era
+de 30 g o de 100 g.
 
 ## Una regla práctica para leerlo rápido
 

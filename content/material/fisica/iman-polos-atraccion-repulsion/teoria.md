@@ -34,7 +34,7 @@ Por ejemplo: si tienes un imán en forma de barra y lo cortas por el medio, cada
 
 ## 4. ¿Cómo se identifican los polos?
 
-Para saber cuál es el polo norte de un imán, puedes usar otro imán ya conocido: si uno de sus extremos se aleja al acercarlo a la punta del imán desconocido, esa punta es igual que la del imán que usaste. Si, en cambio, se jala hacia él, son polos opuestos.
+Para saber cuál es el polo norte de un imán, puedes usar otro imán ya conocido. Si uno de sus extremos se aleja al acercarlo a la punta del imán desconocido, esa punta es igual que la del imán que usaste. Si, en cambio, se jala hacia él, son polos opuestos.
 
 También existen imanes permanentes con marcas o colores específicos (como el rojo para norte y el azul para sur), pero esto varía según el fabricante. En la naturaleza, los minerales como la magnetita muestran comportamientos similares, aunque su intensidad es menor.
 

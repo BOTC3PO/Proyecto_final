@@ -13,11 +13,10 @@ componentes separables.
 
 ## Qué es la estructura narrativa
 
-La **estructura narrativa** es el orden en que se organizan y
-presentan los hechos de una historia — no siempre coincide con el
-orden en que esos hechos "realmente" ocurrieron dentro de la ficción
-(eso es justamente lo que distingue la estructura clásica de otras
-más complejas).
+La **estructura narrativa** es el orden en que se organizan y presentan los
+hechos de una historia. No siempre coincide con el orden en que esos hechos
+"realmente" ocurrieron dentro de la ficción. Eso es justamente lo que
+distingue la estructura clásica de otras más complejas.
 
 ## La estructura clásica: tres partes
 

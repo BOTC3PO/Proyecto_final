@@ -45,10 +45,10 @@ compra menos cosas que antes, aunque el número en pesos haya subido.
 aumento real (aprox.) ≈ aumento nominal − inflación del período
 ```
 
-(Es una aproximación simple y suficiente para entender la dirección
-del efecto — el cálculo exacto de "variación real" usa una fórmula
-compuesta, no resta directa, pero para valores chicos la resta ya
-muestra si el resultado es positivo o negativo.)
+(Es una aproximación simple y suficiente para entender la dirección del
+efecto. El cálculo exacto de "variación real" usa una fórmula compuesta, no
+resta directa. Pero para valores chicos la resta ya muestra si el resultado
+es positivo o negativo.)
 
 ## Elegir el período favorable (el mismo patrón del eje truncado)
 

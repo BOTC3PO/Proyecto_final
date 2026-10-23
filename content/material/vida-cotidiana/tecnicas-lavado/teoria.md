@@ -19,10 +19,10 @@ cambian el resultado (temperatura, centrifugado, carga, secado).
   controlar la fuerza y evitar la fricción y el retorcido de un ciclo de
   máquina.
 - **A máquina**: prendas resistentes (algodón, toallas, sábanas, ropa de
-  trabajo), usando el ciclo que corresponda según la etiqueta —
-  incluidas las máquinas tienen, casi siempre, un ciclo "delicado" que
-  imita mejor el cuidado de un lavado a mano para prendas que lo
-  necesiten sin tener que lavarlas literalmente a mano.
+  trabajo), usando el ciclo que corresponda según la etiqueta. Las máquinas
+  tienen, casi siempre, un ciclo "delicado" que imita mejor el cuidado de un
+  lavado a mano. Sirve para prendas que lo necesiten sin tener que lavarlas
+  literalmente a mano.
 
 ## La temperatura del agua importa
 

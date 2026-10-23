@@ -25,13 +25,12 @@ hace obligatorio algo que la Ley General del Ambiente (25.675) ya establecía
 en principio, y lo cristaliza en la currícula educativa.
 
 El **artículo 25 de la Ley 27.621** incorporó y reescribió el **inciso g del
-artículo 92 de la Ley de Educación Nacional (26.206)**. Hoy ese inciso
-establece como objetivo de la política educativa nacional "el desarrollo de
-conocimientos, valores y actitudes que fortalezcan la importancia del
-ambiente, la biodiversidad y los recursos naturales, su respeto,
-conservación, preservación y prevención del daño, conforme el artículo 41 de
-la Constitución Nacional, la Ley 25.675 y leyes especiales sobre la materia
-y acuerdos internacionales en la materia".
+artículo 92 de la Ley de Educación Nacional (26.206)**. Hoy ese inciso establece como objetivo de la política educativa nacional "el
+desarrollo de conocimientos, valores y actitudes que fortalezcan la
+importancia del ambiente, la biodiversidad y los recursos naturales, su
+respeto, conservación, preservación y prevención del daño". Lo hace
+"conforme el artículo 41 de la Constitución Nacional, la Ley 25.675 y leyes
+especiales sobre la materia y acuerdos internacionales en la materia".
 
 Es decir: `AM1` no es un tema "libre" de Geografía, es un **mandato
 curricular explícito** — la ley argentina exige que la escuela enseñe

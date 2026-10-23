@@ -41,11 +41,10 @@ qué materiales podían **condensarse** (solidificarse) en cada zona:
 - **Cerca del Sol** (zona caliente): sólo materiales con punto de
   fusión alto (roca, metal) podían solidificarse — de ahí los
   planetas rocosos (Mercurio, Venus, Tierra, Marte).
-- **Lejos del Sol** (zona fría): además de roca y metal, también se
-  podían solidificar hielos (agua, metano, amoníaco) — mucha más
-  materia disponible para formar planetas — de ahí los gigantes
-  gaseosos y helados (Júpiter, Saturno, Urano, Neptuno), mucho más
-  grandes.
+- **Lejos del Sol** (zona fría): además de roca y metal, también se podían
+  solidificar hielos (agua, metano, amoníaco). Había mucha más materia
+  disponible para formar planetas. De ahí los gigantes gaseosos y helados
+  (Júpiter, Saturno, Urano, Neptuno), mucho más grandes.
 
 ## 5. De polvo a planeta: acreción
 

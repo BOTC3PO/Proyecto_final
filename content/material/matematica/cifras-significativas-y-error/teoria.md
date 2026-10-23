@@ -38,9 +38,8 @@ decimal.
   significativos** (sólo ubican la coma). 0,0042 tiene 2 cifras
   significativas (el 4 y el 2), no 5.
 - **Los ceros a la DERECHA, después de la coma decimal, SÍ son
-  significativos** (indican que se midió con esa precisión). 3,40 tiene 3
-  cifras significativas — ese último 0 dice "medí hasta el centésimo, y
-  dio exactamente 0". 100,0 tiene 4 cifras significativas.
+  significativos** (indican que se midió con esa precisión). 3,40 tiene 3 cifras significativas: ese último 0 dice "medí hasta el
+  centésimo, y dio exactamente 0". 100,0 tiene 4 cifras significativas.
 - **Los ceros al final de un número entero SIN coma decimal son
   ambiguos** (por convención escolar, no se cuentan como significativos
   salvo que el problema aclare lo contrario). 1200 se toma como 2 cifras

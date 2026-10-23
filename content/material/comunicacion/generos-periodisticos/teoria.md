@@ -22,7 +22,7 @@ La **entrevista** es un género que combina **información y profundidad**, ya s
 
 ## 4. Otros géneros periodísticos
 
-Además de la noticia y la opinión, existen otros formatos como el **reportaje**, que combina elementos narrativos con investigación profunda; la **crónica**, que recoge eventos en tiempo real con un enfoque más literario; o el **análisis**, que desglosa datos complejos para su comprensión. Cada uno tiene reglas específicas: por ejemplo, el reportaje suele incluir testimonios directos y contexto geográfico, mientras que el análisis prioriza la interpretación de estadísticas o leyes. Estos géneros son herramientas clave para que los medios informen, educen y contextualicen a su audiencia.
+Además de la noticia y la opinión, existen otros formatos. El **reportaje** combina elementos narrativos con investigación profunda. La **crónica** recoge eventos en tiempo real con un enfoque más literario. El **análisis** desglosa datos complejos para su comprensión. Cada uno tiene reglas específicas: por ejemplo, el reportaje suele incluir testimonios directos y contexto geográfico, mientras que el análisis prioriza la interpretación de estadísticas o leyes. Estos géneros son herramientas clave para que los medios informen, educen y contextualicen a su audiencia.
 
 ## N. Conexión con lo que sigue
 

@@ -69,10 +69,9 @@ velocidad.
 ## Masa vs. peso (aclaración necesaria)
 
 La **masa** es la cantidad de materia de un objeto (se mide en
-kilogramos, kg) y **no cambia** según dónde esté el objeto. El **peso**
-es la fuerza con la que la gravedad atrae a esa masa (se mide en
-Newton, N) y **sí depende** del lugar — el mismo objeto pesa menos en la
-Luna que en la Tierra, aunque su masa sea idéntica en los dos lugares.
+kilogramos, kg) y **no cambia** según dónde esté el objeto. El **peso** es la fuerza con la que la gravedad atrae a esa masa (se mide en
+Newton, N) y **sí depende** del lugar. El mismo objeto pesa menos en la Luna
+que en la Tierra, aunque su masa sea idéntica en los dos lugares.
 Esta distinción se retoma con más detalle en
 `../segunda-fma/`.
 

@@ -55,12 +55,12 @@ P(X=2) = (4² × e^(−4)) / 2! = (16 × 0,0183) / 2 ≈ 0,147
 
 ## Por qué "eventos raros"
 
-El nombre clásico de esta distribución es "ley de los sucesos raros":
-se aplica cuando hay **muchísimas oportunidades** de que algo pase,
-pero la probabilidad de que pase **en cada oportunidad puntual** es
-muy baja (por ejemplo: en cada segundo del día, la probabilidad de que
-suene el teléfono es minúscula, pero sumada a lo largo de una hora
-entera da un promedio de 4 llamadas). Es, de hecho, el caso límite de
+El nombre clásico de esta distribución es "ley de los sucesos raros". Se
+aplica cuando hay **muchísimas oportunidades** de que algo pase, pero la
+probabilidad de que pase **en cada oportunidad puntual** es muy baja. Por
+ejemplo, en cada segundo del día la probabilidad de que suene el teléfono es
+minúscula, pero sumada a lo largo de una hora entera da un promedio de 4
+llamadas. Es, de hecho, el caso límite de
 la distribución binomial cuando `n` (la cantidad de oportunidades) es
 muy grande y `p` (la probabilidad de cada una) es muy chica, con
 `n×p = λ` constante.

@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es la historia reciente?
 
-La historia reciente no se refiere solo a lo que ocurrió hace poco tiempo, sino a un tipo de estudio que se distingue por su cercanía temporal y su vinculación con los sujetos sociales aún presentes o cuyas vivencias dejaron testimonios directos. A diferencia de la historia tradicional, que suele enfocarse en procesos largos como la formación del Estado o la independencia, esta área analiza eventos donde el pasado sigue activo en la memoria pública y las discusiones contemporáneas. Por ejemplo, los hechos de 1976 o 1983 no solo son fechas históricas, sino que siguen generando debates políticos, culturales y legales en la sociedad argentina actual.
+La historia reciente no se refiere solo a lo que ocurrió hace poco tiempo. Es un tipo de estudio que se distingue por su cercanía temporal y su vinculación con los sujetos sociales aún presentes, o cuyas vivencias dejaron testimonios directos. A diferencia de la historia tradicional, que suele enfocarse en procesos largos como la formación del Estado o la independencia, esta área analiza eventos donde el pasado sigue activo en la memoria pública y las discusiones contemporáneas. Por ejemplo, los hechos de 1976 o 1983 no solo son fechas históricas, sino que siguen generando debates políticos, culturales y legales en la sociedad argentina actual.
 
 <!-- IMAGEN: Cronología comparativa entre historia tradicional (siglos XIX-XX) e historia reciente (desde 1950 hasta hoy) -->
 
