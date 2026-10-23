@@ -75,15 +75,19 @@ def deps_de(materia):
     """{tema_rel: [(materia_dest, rel_dest)]} leyendo las tablas de dependencias.md (rutas relativas a la materia o al tema)."""
     p = MAT / materia / "dependencias.md"; res = {}
     if not p.exists(): return res
+    dep_idx = 1   # columna "Depende de": cambia según la tabla (Matemática tiene una de 4 columnas con "Nodo" en el medio)
     for line in p.read_text(encoding="utf-8").splitlines():
         if not line.strip().startswith("|"): continue
         cols = [c.strip() for c in line.strip().strip("|").split("|")]
         if len(cols) < 2: continue
+        if cols[0].lower().startswith("tema") and any("depende" in c.lower() for c in cols):
+            dep_idx = next(i for i, c in enumerate(cols) if "depende" in c.lower()); continue
         t = re.findall(r"`([^`]+?)/?`", cols[0])
         if not t or set(cols[0]) <= set("-: "): continue
+        if len(cols) <= dep_idx: continue
         tema = t[0].strip("/").lstrip("./")
         ds = []
-        for tok in re.findall(r"`([^`\s]+?)/?`", cols[1]):
+        for tok in re.findall(r"`([^`\s]+?)/?`", cols[dep_idx]):
             tok = tok.strip("/")
             if tok.endswith(".md") or tok in ("", "—", "-") or " " in tok: continue
             for base in (MAT / materia / tema, MAT / materia):
