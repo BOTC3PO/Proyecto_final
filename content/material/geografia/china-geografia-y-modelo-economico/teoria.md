@@ -26,7 +26,7 @@ En 2013 el gobierno chino lanzó la Iniciativa de la Franja y la Ruta, un conjun
 
 China se urbanizó a gran velocidad: cientos de millones de personas se mudaron del campo a ciudades como Shanghái, Cantón o Pekín. Desde 1980 y hasta 2015 se aplicó la política del hijo único, que se flexibilizó por etapas y terminó a fines de 2015, con vigencia desde enero de 2016. Sus efectos más discutidos son el envejecimiento de la población y un desequilibrio entre varones y mujeres. Hoy el país busca estimular la natalidad.
 
-El crecimiento industrial dejó problemas ambientales, como la contaminación del aire y del agua. Al mismo tiempo, China es líder en la fabricación de paneles solares y vehículos eléctricos y construyó obras hidroeléctricas de gran escala sobre el Yangtsé, como la presa de las Tres Gargantas, que a la vez es cuestionada por sus costos sociales y ambientales (`../cambio-climatico-causas-efectos-y-acuerdos/`).
+El crecimiento industrial dejó problemas ambientales, como la contaminación del aire y del agua. Al mismo tiempo, China es líder en la fabricación de paneles solares y vehículos eléctricos. Construyó obras hidroeléctricas de gran escala sobre el Yangtsé, como la presa de las Tres Gargantas. Esa presa es cuestionada, a la vez, por sus costos sociales y ambientales (`../cambio-climatico-causas-efectos-y-acuerdos/`).
 
 ## Hong Kong, Macao y Taiwán
 

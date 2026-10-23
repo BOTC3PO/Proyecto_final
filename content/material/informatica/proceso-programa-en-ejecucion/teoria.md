@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es un proceso?
 
-Un **proceso** es una instancia activa de un programa en ejecución dentro del ordenador. Mientras que un programa es simplemente un conjunto de instrucciones almacenadas en el disco (como un archivo `.exe` o `.py`), el proceso es lo que ocurre cuando ese programa se carga en la memoria RAM y comienza a ser ejecutado por la CPU.
+Un **proceso** es una instancia activa de un programa en ejecución dentro del ordenador. Un programa es simplemente un conjunto de instrucciones almacenadas en el disco (como un archivo `.exe` o `.py`). El proceso, en cambio, es lo que ocurre cuando ese programa se carga en la memoria RAM y comienza a ser ejecutado por la CPU.
 
 Para entenderlo, piensa en un libro: es un objeto estático. Pero si estás leyéndolo ahora mismo, esa acción de leer (el acto de abrir el libro, darle vuelta a las páginas, etc.) sería el equivalente al proceso. El programa es lo que se escribe; el proceso es lo que ocurre cuando se pone en marcha.
 

@@ -10,7 +10,7 @@
 
 ## 1. Del colapso micénico al "Edad oscura"
 
-Tras el colapso de la civilización micénica alrededor del 1200 a.C., Grecia entró en un período de fragmentación y declive demográfico conocido tradicionalmente como la "Edad Oscura". La escritura lineal B desapareció, dejando a la población griega sin un sistema burocrático centralizado. Sin embargo, esta desestructuración no fue un vacío absoluto, sino un espacio de reorganización social. Las comunidades se volvieron más localistas y autónomas, basándose en lazos de parentesco y la protección de las deidades locales. Fue en este contexto de dispersión y recuperación gradual donde germinaron las semillas de lo que luego sería la identidad griega: no una nación unida, sino una comunidad cultural compartida basada en la lengua, la religión y el *ethos* común, frente al "bárbaro" (el no griego).
+Tras el colapso de la civilización micénica alrededor del 1200 a.C., Grecia entró en un período de fragmentación y declive demográfico conocido tradicionalmente como la "Edad Oscura". La escritura lineal B desapareció, dejando a la población griega sin un sistema burocrático centralizado. Sin embargo, esta desestructuración no fue un vacío absoluto, sino un espacio de reorganización social. Las comunidades se volvieron más localistas y autónomas, basándose en lazos de parentesco y la protección de las deidades locales. En este contexto de dispersión y recuperación gradual germinaron las semillas de lo que luego sería la identidad griega. No era una nación unida, sino una comunidad cultural compartida, basada en la lengua, la religión y el *ethos* común. Se definía frente al "bárbaro" (el no griego).
 
 ## 2. El surgimiento de la Polis: Ciudad-Estado y Ciudadanía
 

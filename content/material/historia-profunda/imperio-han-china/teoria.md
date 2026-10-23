@@ -4,7 +4,7 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — Análisis del periodo Han (206 a.C. – 220 d.C.) como la era fundacional de la identidad cultural y administrativa china, caracterizada por la síntesis entre el legalismo estatal y la ética confuciana, así como por la expansión territorial y el establecimiento de las Rutas de la Seda.
+**Presentación** — Análisis del periodo Han (206 a.C. – 220 d.C.) como la era fundacional de la identidad cultural y administrativa china. Se caracterizó por la síntesis entre el legalismo estatal y la ética confuciana. También por la expansión territorial y el establecimiento de las Rutas de la Seda.
 
 ---
 

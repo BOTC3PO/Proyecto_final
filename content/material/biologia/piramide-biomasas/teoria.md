@@ -49,18 +49,17 @@ sostienen aproximadamente 100 kg de zorros (consumidores secundarios).
 
 ## 4. Por qué casi nunca hay más de 4-5 niveles
 
-Como cada nivel pierde el 90% de la energía/biomasa del anterior, después
-de 4 o 5 niveles la cantidad disponible es tan chica que ya no alcanza
-para sostener una población viable — por eso las pirámides tróficas
-reales rara vez tienen más de 4-5 niveles (a diferencia de la materia,
-que se recicla indefinidamente, la energía se agota rápido subiendo
-niveles).
+Cada nivel pierde el 90% de la energía o biomasa del anterior. Por eso,
+después de 4 o 5 niveles, la cantidad disponible es tan chica que ya no
+alcanza para sostener una población viable. Las pirámides tróficas reales
+rara vez tienen más de 4-5 niveles. A diferencia de la materia, que se
+recicla indefinidamente, la energía se agota rápido subiendo niveles.
 
 ## 5. Diferencia con otros tipos de pirámide ecológica
 
-Existen también pirámides de **números** (cantidad de individuos por
-nivel) y de **energía** — la de biomasa es la más común porque es más
-fácil de medir (pesar) que contar individuos o medir energía
-directamente, y casi siempre da la forma piramidal clásica (a
-diferencia de la de números, que a veces se "invierte": un solo árbol
-grande puede sostener miles de insectos herbívoros).
+Existen también pirámides de **números** (cantidad de individuos por nivel)
+y de **energía**. La de biomasa es la más común, porque es más fácil de
+medir (pesar) que contar individuos o medir energía directamente. Casi
+siempre da la forma piramidal clásica. La de números, en cambio, a veces se
+"invierte": un solo árbol grande puede sostener miles de insectos
+herbívoros.

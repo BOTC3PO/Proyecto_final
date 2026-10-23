@@ -78,9 +78,9 @@ En la suma y en el producto, da lo mismo el orden ("la suma de un número y
 - **"5 disminuido en un número"** / "la diferencia entre 5 y un número" →
   **5 − x** (5 es el que pierde el número).
 
-Es el error más común de todo el tema: traducir "la diferencia entre A y
-B" siempre como A − B en ese orden literal — que de hecho es la traducción
-correcta (el primero nombrado es el que resta al segundo), pero se
+Es el error más común de todo el tema: traducir "la diferencia entre A y B"
+siempre como A − B en ese orden literal. De hecho, esa es la traducción
+correcta, porque el primero nombrado es el que resta al segundo. Pero se
 confunde fácil con "un número menos 5", donde "un número" tampoco es
 necesariamente el primero que aparece en la frase completa si la frase
 arranca con otra palabra.

@@ -32,11 +32,10 @@ ordenadas**, cada uno por separado.
 ## Por qué es simplemente un promedio
 
 Promediar dos números siempre da el valor que está exactamente en el
-medio de los dos, en la recta numérica. Como el eje x y el eje y son,
-cada uno, una recta numérica (ver `../plano-cartesiano/`), promediar las
-abscisas da la posición horizontal del medio, y promediar las ordenadas
-da la posición vertical del medio — sin necesitar ninguna fórmula más
-compleja que eso.
+medio de los dos, en la recta numérica. El eje x y el eje y son, cada uno, una recta numérica (ver
+`../plano-cartesiano/`). Por eso, promediar las abscisas da la posición
+horizontal del medio, y promediar las ordenadas da la posición vertical del
+medio. No hace falta ninguna fórmula más compleja que eso.
 
 ## El punto medio equidista de los dos extremos
 
@@ -54,8 +53,8 @@ juntos.
 
 ## Para qué sirve
 
-Encontrar el centro exacto de un objeto o de un espacio (el centro de
-una mesa, el punto medio de una cancha), trazar la mediatriz de un
-segmento (la recta perpendicular que pasa justo por su punto medio), o
-ubicar el centro de un segmento en cualquier diseño o construcción sobre
-un plano de coordenadas.
+Sirve para encontrar el centro exacto de un objeto o de un espacio (el
+centro de una mesa, el punto medio de una cancha). Sirve para trazar la
+mediatriz de un segmento, que es la recta perpendicular que pasa justo por
+su punto medio. Y sirve para ubicar el centro de un segmento en cualquier
+diseño o construcción sobre un plano de coordenadas.

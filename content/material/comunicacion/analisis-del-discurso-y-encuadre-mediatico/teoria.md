@@ -14,7 +14,7 @@ Una noticia no copia la realidad: la **selecciona, ordena y presenta**. De todo 
 
 ## 2. La agenda: de qué se habla
 
-La **teoría de la agenda (agenda-setting)**, formulada por Maxwell McCombs y Donald Shaw a partir de un estudio sobre la campaña electoral de 1968 en Estados Unidos, plantea que los medios no nos dicen *qué pensar*, pero influyen mucho en *sobre qué pensamos*: los temas a los que dan más espacio y repetición suelen ser vistos por el público como más importantes. En el proceso intervienen los **gatekeepers** (los que deciden qué entra) y criterios de **noticiabilidad**: novedad, cercanía, impacto, conflicto, prominencia de las personas involucradas.
+La **teoría de la agenda (agenda-setting)** fue formulada por Maxwell McCombs y Donald Shaw a partir de un estudio sobre la campaña electoral de 1968 en Estados Unidos. Plantea que los medios no nos dicen *qué pensar*, pero influyen mucho en *sobre qué pensamos*. Los temas a los que dan más espacio y repetición suelen ser vistos por el público como más importantes. En el proceso intervienen los **gatekeepers** (los que deciden qué entra) y criterios de **noticiabilidad**: novedad, cercanía, impacto, conflicto, prominencia de las personas involucradas.
 
 ## 3. El encuadre: cómo se cuenta
 

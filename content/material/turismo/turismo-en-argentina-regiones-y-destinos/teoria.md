@@ -36,7 +36,7 @@ La promoción turística suele agrupar el territorio en regiones, aunque los nom
 
 ## Patrimonio mundial y cultural
 
-La UNESCO inscribió varios sitios argentinos en la Lista del Patrimonio Mundial, entre ellos el Parque Nacional Los Glaciares (1981), el Parque Nacional Iguazú (1984), Península Valdés (1999), la Cueva de las Manos (1999), el Parque Provincial Ischigualasto y el Parque Nacional Talampaya (2000) y la Quebrada de Humahuaca (2003). El tango rioplatense, compartido con Uruguay, integra la lista del patrimonio cultural inmaterial (2009). Estas distinciones aumentan la visibilidad y la afluencia de visitantes, pero también exigen protección (ver `../turismo-sostenible-y-comunitario/`).
+La UNESCO inscribió varios sitios argentinos en la Lista del Patrimonio Mundial. Entre ellos están el Parque Nacional Los Glaciares (1981), el Parque Nacional Iguazú (1984), Península Valdés (1999) y la Cueva de las Manos (1999). También el Parque Provincial Ischigualasto y el Parque Nacional Talampaya (2000), y la Quebrada de Humahuaca (2003). El tango rioplatense, compartido con Uruguay, integra la lista del patrimonio cultural inmaterial (2009). Estas distinciones aumentan la visibilidad y la afluencia de visitantes, pero también exigen protección (ver `../turismo-sostenible-y-comunitario/`).
 
 ## Estacionalidad y productos
 

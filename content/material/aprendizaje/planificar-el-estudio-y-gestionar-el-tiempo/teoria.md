@@ -18,7 +18,7 @@ Un objetivo vago, como "estudiar historia", no dice cuándo terminaste. Los obje
 
 ## Qué hacer primero: urgente e importante
 
-Una herramienta clásica es la **matriz de Eisenhower**, que clasifica las tareas según dos criterios: qué tan **urgentes** son (tienen fecha cercana) y qué tan **importantes** (aportan a tus objetivos). Lo importante y urgente se hace ya; lo importante pero no urgente se agenda (acá cae el estudio sostenido, que si se descuida se vuelve urgente); lo urgente pero poco importante se acorta o delega; lo ni urgente ni importante se deja de lado.
+Una herramienta clásica es la **matriz de Eisenhower**, que clasifica las tareas según dos criterios: qué tan **urgentes** son (tienen fecha cercana) y qué tan **importantes** (aportan a tus objetivos). Lo importante y urgente se hace ya. Lo importante pero no urgente se agenda (acá cae el estudio sostenido, que si se descuida se vuelve urgente). Lo urgente pero poco importante se acorta o delega. Lo ni urgente ni importante se deja de lado.
 
 ## Cuánto tiempo necesitás: el error de calcular
 

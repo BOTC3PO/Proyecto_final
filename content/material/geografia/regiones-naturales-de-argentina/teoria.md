@@ -30,7 +30,7 @@ Al oeste, encontramos a **Cuyo**, conformado por Mendoza, San Juan y La Rioja. E
 
 ## La inmensidad del sur: la Patagonia
 
-La **Patagonia** ocupa la mitad sur del país, desde el río Colorado hasta el fin del mundo en Tierra del Fuego. Es una región de enormes extensiones, baja densidad de población y paisajes dramáticos: estepas, desiertos, glaciares y fiordos. El clima es frío y ventoso, con precipitaciones que disminuyen de este a oeste. La economía se basa en la ganadería ovina (carne y lana), la extracción de petróleo y gas en el subsuelo, y cada vez más, el turismo de naturaleza, atraído por lugares como el Glaciar Perito Moreno o las playas de la costa atlántica.
+La **Patagonia** ocupa la mitad sur del país, desde el río Colorado hasta el fin del mundo en Tierra del Fuego. Es una región de enormes extensiones, baja densidad de población y paisajes dramáticos: estepas, desiertos, glaciares y fiordos. El clima es frío y ventoso, con precipitaciones que disminuyen de este a oeste. La economía se basa en la ganadería ovina (carne y lana) y en la extracción de petróleo y gas en el subsuelo. Cada vez más se basa también en el turismo de naturaleza, atraído por lugares como el Glaciar Perito Moreno o las playas de la costa atlántica.
 
 ## Aplicación práctica: Analizando tu entorno
 

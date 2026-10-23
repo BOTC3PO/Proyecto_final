@@ -10,7 +10,7 @@
 
 ## Del mito a la razón
 
-Antes de que existiera la filosofía, las sociedades griegas explicaban el mundo con relatos míticos: los dioses mandaban el rayo, el mar o las estaciones. Hacia el siglo VI a.C., en las ciudades griegas de la costa de Asia Menor, algunos pensadores empezaron a preguntarse por el origen y el orden de la naturaleza sin recurrir solo a los dioses, sino a causas que podían discutirse con argumentos. Se los llama presocráticos porque son anteriores a Sócrates, aunque algunos fueron sus contemporáneos. De casi ninguno se conservan obras completas: conocemos fragmentos y lo que otros autores contaron sobre ellos.
+Antes de que existiera la filosofía, las sociedades griegas explicaban el mundo con relatos míticos: los dioses mandaban el rayo, el mar o las estaciones. Hacia el siglo VI a.C., en las ciudades griegas de la costa de Asia Menor, algunos pensadores empezaron a preguntarse por el origen y el orden de la naturaleza. Lo hacían sin recurrir solo a los dioses, sino a causas que podían discutirse con argumentos. Se los llama presocráticos porque son anteriores a Sócrates, aunque algunos fueron sus contemporáneos. De casi ninguno se conservan obras completas: conocemos fragmentos y lo que otros autores contaron sobre ellos.
 
 ## La pregunta por el arjé
 

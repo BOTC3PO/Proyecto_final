@@ -4,7 +4,7 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — El análisis de cómo el conflicto bélico de 1914-1918 actuó como catalizador para la desintegración de los imperios multinacionales, la radicalización política y el surgimiento de la Unión Soviética, marcando el fin de la hegemonía europea y el inicio de la era moderna.
+**Presentación** — El análisis de cómo el conflicto bélico de 1914-1918 actuó como catalizador para la desintegración de los imperios multinacionales, la radicalización política y el surgimiento de la Unión Soviética. Marcó el fin de la hegemonía europea y el inicio de la era moderna.
 
 ---
 

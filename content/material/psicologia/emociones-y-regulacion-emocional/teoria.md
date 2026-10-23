@@ -10,7 +10,7 @@
 
 ## 1. Qué es una emoción
 
-Una emoción es una respuesta rápida del organismo ante algo que importa: un examen, una pelea, un abrazo. Tiene varios componentes a la vez: un cambio **en el cuerpo** (el corazón se acelera, se tensan los músculos), una **valoración** de la situación ("esto es peligroso", "esto me da bronca"), una **expresión** (la cara, la voz, los gestos) y una **tendencia a actuar** (huir, atacar, acercarse).
+Una emoción es una respuesta rápida del organismo ante algo que importa: un examen, una pelea, un abrazo. Tiene varios componentes a la vez. Hay un cambio **en el cuerpo** (el corazón se acelera, se tensan los músculos). Hay una **valoración** de la situación ("esto es peligroso", "esto me da bronca"). Hay una **expresión** (la cara, la voz, los gestos). Y hay una **tendencia a actuar** (huir, atacar, acercarse).
 
 No hay que confundirla con otras dos cosas parecidas. El **sentimiento** es la experiencia consciente de esa emoción, el modo en que se la vive y se la nombra. El **estado de ánimo** es más difuso y duradero: se puede estar "de mal humor" todo el día sin saber bien por qué.
 

@@ -14,7 +14,7 @@ El sistema inmunitario protege al cuerpo de **patógenos** (bacterias, virus, ho
 
 ## 2. Primera línea: las barreras
 
-Las barreras impiden que los patógenos entren: la **piel** intacta, las **mucosas** (que atrapan partículas en la nariz y las vías respiratorias), las lágrimas y la saliva (con sustancias que dañan a las bacterias), el **ácido del estómago** y la **flora normal** de la piel y el intestino, que compite con los microbios dañinos.
+Las barreras impiden que los patógenos entren. Son la **piel** intacta, las **mucosas** (que atrapan partículas en la nariz y las vías respiratorias), las lágrimas y la saliva (con sustancias que dañan a las bacterias) y el **ácido del estómago**. También la **flora normal** de la piel y el intestino, que compite con los microbios dañinos.
 
 ## 3. Inmunidad innata: respuesta rápida e inespecífica
 

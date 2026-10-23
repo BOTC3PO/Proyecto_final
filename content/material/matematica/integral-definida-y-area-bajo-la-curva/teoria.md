@@ -36,7 +36,7 @@ $$
 \int_{a}^{b} f(x) \, dx = F(b) - F(a)
 $$
 
-Esto significa que el proceso se reduce a tres pasos sencillos: primero, encontrar la primitiva $F(x)$ de la función dada; segundo, evaluar esa primitiva en el límite superior ($b$); y tercero, restarle el valor de la primitiva evaluada en el límite inferior ($a$). Este método transforma un problema geométrico complejo en un álgebra simple.
+Esto significa que el proceso se reduce a tres pasos sencillos. Primero, encontrar la primitiva $F(x)$ de la función dada. Segundo, evaluar esa primitiva en el límite superior ($b$). Y tercero, restarle el valor de la primitiva evaluada en el límite inferior ($a$). Este método transforma un problema geométrico complejo en un álgebra simple.
 
 ## Aplicación práctica: Ejemplo argentino
 

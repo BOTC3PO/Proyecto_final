@@ -19,10 +19,10 @@ esa persona (y otros) hicieron durante su vida laboral activa.
 
 ## El sistema de reparto (cómo funciona en Argentina)
 
-A diferencia de un "ahorro individual" (donde cada uno junta su propia
-plata para el futuro), el sistema argentino es de **reparto**: lo que
-aportan HOY los trabajadores activos financia las jubilaciones que se
-pagan HOY, no una cuenta personal que cada uno junta para sí mismo. Es un
+A diferencia de un "ahorro individual", donde cada uno junta su propia plata
+para el futuro, el sistema argentino es de **reparto**. Lo que aportan HOY
+los trabajadores activos financia las jubilaciones que se pagan HOY, y no
+una cuenta personal que cada uno junta para sí mismo. Es un
 pacto entre generaciones: la generación activa sostiene a la generación
 jubilada, con la expectativa de que la próxima generación activa la
 sostenga a ella cuando le toque jubilarse.
@@ -37,11 +37,11 @@ requisitos propios.
 
 ## Qué pasa si no se llegó a los 30 años de aportes
 
-Existen mecanismos para quienes llegan a la edad pero no completaron los
-30 años de aportes (moratorias previsionales, la Prestación Universal para
-el Adulto Mayor - PUAM) — variantes que cambian con el tiempo según la
-legislación vigente, pero la idea de fondo es que el sistema busca dar
-alguna cobertura incluso a quien no completó el régimen general.
+Existen mecanismos para quienes llegan a la edad pero no completaron los 30
+años de aportes: las moratorias previsionales y la Prestación Universal para
+el Adulto Mayor (PUAM). Son variantes que cambian con el tiempo según la
+legislación vigente. La idea de fondo es que el sistema busca dar alguna
+cobertura incluso a quien no completó el régimen general.
 
 ## Quién administra el sistema
 

@@ -18,7 +18,7 @@ Agustín (354–430), obispo de Hipona, en el norte de África, es la gran figur
 
 ## La escolástica y la querella de los universales
 
-Desde el siglo XI las escuelas catedralicias y las universidades dieron nombre a la **escolástica**, un modo de hacer filosofía y teología basado en la lectura de autoridades, la discusión ordenada de objeciones y respuestas, y la búsqueda de una síntesis. Anselmo de Canterbury propuso un famoso argumento a favor de la existencia de Dios, a partir de la idea misma de un ser mayor que el cual nada puede pensarse. Más tarde se lo llamó argumento ontológico y fue muy discutido.
+Desde el siglo XI las escuelas catedralicias y las universidades dieron nombre a la **escolástica**. Es un modo de hacer filosofía y teología basado en la lectura de autoridades, la discusión ordenada de objeciones y respuestas, y la búsqueda de una síntesis. Anselmo de Canterbury propuso un famoso argumento a favor de la existencia de Dios, a partir de la idea misma de un ser mayor que el cual nada puede pensarse. Más tarde se lo llamó argumento ontológico y fue muy discutido.
 
 Otra gran discusión fue la **querella de los universales**: ¿existen realmente las ideas generales, como humanidad o blancura, o son solo nombres que usamos para agrupar cosas individuales? Los realistas sostenían que los universales existen; los nominalistas, que solo existen los individuos y los universales son palabras. El debate prolonga el desacuerdo entre Platón y Aristóteles.
 

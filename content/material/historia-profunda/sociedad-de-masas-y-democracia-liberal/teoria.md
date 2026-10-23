@@ -4,7 +4,7 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — Análisis de la transformación estructural del siglo XIX y principios del XX, donde la expansión del sufragio, la industrialización y los medios de comunicación masiva desafiaron los fundamentos del liberalismo clásico, dando lugar a nuevas formas de organización política y social.
+**Presentación** — Análisis de la transformación estructural del siglo XIX y principios del XX. La expansión del sufragio, la industrialización y los medios de comunicación masiva desafiaron los fundamentos del liberalismo clásico. Así surgieron nuevas formas de organización política y social.
 
 ---
 

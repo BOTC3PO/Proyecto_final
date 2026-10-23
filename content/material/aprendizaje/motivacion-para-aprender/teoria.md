@@ -26,7 +26,7 @@ Los psicólogos Edward Deci y Richard Ryan propusieron que la motivación se sos
 - **Competencia**: sentir que uno puede hacerlo y que está progresando.
 - **Vinculación**: sentirse conectado con otras personas y reconocido por ellas.
 
-Esto da pistas prácticas: elegir en qué orden estudiar los temas, o cómo presentar un trabajo, aumenta la autonomía; dividir una meta grande en logros alcanzables mejora la sensación de competencia; estudiar con otros o compartir lo aprendido refuerza la vinculación.
+Esto da pistas prácticas. Elegir en qué orden estudiar los temas, o cómo presentar un trabajo, aumenta la autonomía. Dividir una meta grande en logros alcanzables mejora la sensación de competencia. Estudiar con otros o compartir lo aprendido refuerza la vinculación.
 
 ## Mentalidad de crecimiento
 

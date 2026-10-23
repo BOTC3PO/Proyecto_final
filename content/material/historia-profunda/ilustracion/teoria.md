@@ -4,7 +4,7 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — Un movimiento intelectual y cultural del siglo XVIII que, al poner la razón humana como eje central, cuestionó las estructuras tradicionales de poder, la autoridad religiosa y el saber escolástico, sentando las bases epistemológicas y políticas de la modernidad occidental.
+**Presentación** — Un movimiento intelectual y cultural del siglo XVIII que puso la razón humana como eje central. Cuestionó las estructuras tradicionales de poder, la autoridad religiosa y el saber escolástico. Así sentó las bases epistemológicas y políticas de la modernidad occidental.
 
 ---
 

@@ -43,7 +43,7 @@ El patrón más importante del ladder es el **enclavamiento** o autorretención.
 
 Al pulsar marcha, la bobina se activa y su contacto auxiliar queda cerrado, manteniendo la señal aunque se suelte el pulsador. Al pulsar parada, se abre el contacto NC y se corta la señal. Es la versión programada del clásico circuito de contactores.
 
-En instalaciones reales el pulsador de parada se cablea **físicamente normalmente cerrado**: su entrada vale 1 en reposo y 0 al pulsarlo (o si se corta el cable). En ese caso, en el programa se usa un contacto NA sobre esa entrada: el motor solo puede funcionar mientras la entrada de parada esté en 1, de modo que un cable cortado lo detiene en lugar de dejarlo en marcha. Esto se llama lógica de falla segura.
+En instalaciones reales el pulsador de parada se cablea **físicamente normalmente cerrado**: su entrada vale 1 en reposo y 0 al pulsarlo (o si se corta el cable). En ese caso, en el programa se usa un contacto NA sobre esa entrada. El motor solo puede funcionar mientras la entrada de parada esté en 1. Así, un cable cortado lo detiene en lugar de dejarlo en marcha. Esto se llama lógica de falla segura.
 
 ## 5. Otras instrucciones útiles
 

@@ -4,7 +4,7 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — El análisis de la transformación estructural de la Europa feudal entre los siglos XIII y XIV, caracterizada por el agotamiento del modelo agrícola medieval y el colapso demográfico provocado por la peste negra, marcando el fin de una era y el inicio de la transición hacia la modernidad.
+**Presentación** — El análisis de la transformación estructural de la Europa feudal entre los siglos XIII y XIV. Se caracterizó por el agotamiento del modelo agrícola medieval y el colapso demográfico provocado por la peste negra. Marcó el fin de una era y el inicio de la transición hacia la modernidad.
 
 ---
 

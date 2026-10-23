@@ -10,7 +10,7 @@
 
 ## 1. De un estímulo a una sensación
 
-Los sentidos son los canales por los que el sistema nervioso recibe información del ambiente. En todos ocurre lo mismo: un **receptor sensorial** capta un **estímulo** (luz, sonido, una sustancia química, presión, temperatura), lo convierte en una señal eléctrica, esa señal viaja por nervios hasta el cerebro (ver `../sistema-nervioso-neurona-sinapsis/`) y allí se interpreta como una **sensación** o **percepción**. Lo que "vemos" o "oímos" ocurre en el cerebro, no en el ojo o el oído.
+Los sentidos son los canales por los que el sistema nervioso recibe información del ambiente. En todos ocurre lo mismo. Un **receptor sensorial** capta un **estímulo** (luz, sonido, una sustancia química, presión, temperatura) y lo convierte en una señal eléctrica. Esa señal viaja por nervios hasta el cerebro (ver `../sistema-nervioso-neurona-sinapsis/`). Allí se interpreta como una **sensación** o **percepción**. Lo que "vemos" o "oímos" ocurre en el cerebro, no en el ojo o el oído.
 
 Según el estímulo que captan, los receptores pueden ser:
 

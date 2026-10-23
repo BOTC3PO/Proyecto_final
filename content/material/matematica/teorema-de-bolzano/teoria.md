@@ -18,7 +18,7 @@ La condición de continuidad es clave. Si la función tuviera un salto o una dis
 
 ## Interpretación gráfica y condiciones de aplicación
 
-Para visualizar mejor el teorema, imaginá una curva dibujada sobre un papel sin levantar el lápiz. Si el punto de inicio de la curva está por debajo del eje de las $x$ (valor negativo) y el punto final está por encima (valor positivo), la curva obligatoriamente debe cruzar el eje en algún momento entre esos dos puntos. Matemáticamente, esto significa que existe al menos un número $c$ tal que $a < c < b$ y $f(c) = 0$.
+Para visualizar mejor el teorema, imaginá una curva dibujada sobre un papel sin levantar el lápiz. Si el punto de inicio de la curva está por debajo del eje de las $x$ (valor negativo) y el punto final está por encima (valor positivo), la curva obligatoriamente debe cruzar el eje en algún momento. Lo hace entre esos dos puntos. Matemáticamente, esto significa que existe al menos un número $c$ tal que $a < c < b$ y $f(c) = 0$.
 
 Es importante notar que el teorema no nos dice *dónde* está exactamente ese punto $c$, ni nos dice cuántas veces la función cruza el eje. Podría cruzarlo una vez, tres veces, o mil veces; lo único que garantiza es que cruzará al menos una vez. Esta propiedad es lo que se conoce como el Teorema del Valor Intermedio aplicado específicamente al cero.
 

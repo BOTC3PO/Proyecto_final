@@ -34,7 +34,7 @@ Se ven también en sociedades modernas: una graduación, el viaje de egresados, 
 
 La **religión** es un sistema de creencias y prácticas ligadas a lo que una comunidad considera sagrado. Durkheim distinguió lo **sagrado** (lo separado, venerado, protegido por prohibiciones) de lo **profano** (lo cotidiano). Las religiones suelen incluir relatos (mitos), normas morales, ritos, espacios y tiempos especiales, y una comunidad de creyentes. Cumplen funciones variadas: dan sentido ante la muerte y el sufrimiento, ofrecen reglas de convivencia, crean identidad colectiva. También pueden ser fuente de conflicto cuando se las usa para excluir.
 
-En Argentina conviven muchas formas de religiosidad. Junto a las confesiones organizadas existen devociones populares como las de la Difunta Correa (en San Juan) o el Gauchito Gil (en Corrientes), con santuarios a la vera de las rutas y ofrendas, y rituales de pueblos originarios, como los agradecimientos a la Pachamama en el noroeste en agosto. La libertad de culto está garantizada por la Constitución Nacional.
+En Argentina conviven muchas formas de religiosidad. Junto a las confesiones organizadas existen devociones populares como las de la Difunta Correa (en San Juan) o el Gauchito Gil (en Corrientes). Tienen santuarios a la vera de las rutas y ofrendas. También hay rituales de pueblos originarios, como los agradecimientos a la Pachamama en el noroeste en agosto. La libertad de culto está garantizada por la Constitución Nacional.
 
 ## Rituales no religiosos
 

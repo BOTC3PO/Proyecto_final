@@ -46,7 +46,7 @@ Se registra la unidad con cada medida y se mide dos veces cuando es importante.
 
 ## 5. Relevamiento de un local
 
-Para un ambiente se relevan **largo y ancho** midiendo cada pared y comprobando con las **diagonales** que los ángulos son rectos (si las dos diagonales son iguales en un rectángulo, el ambiente está a escuadra); las **alturas**; la posición y tamaño de **aberturas** (puertas, ventanas) con su antepecho; y los elementos fijos como columnas, instalaciones y artefactos. Se hace primero la planta y luego los cortes necesarios. Hay que marcar el norte si es relevante.
+Para un ambiente se relevan **largo y ancho**, midiendo cada pared y comprobando con las **diagonales** que los ángulos son rectos. Si las dos diagonales son iguales en un rectángulo, el ambiente está a escuadra. También se relevan las **alturas**, la posición y tamaño de **aberturas** (puertas, ventanas) con su antepecho, y los elementos fijos como columnas, instalaciones y artefactos. Se hace primero la planta y luego los cortes necesarios. Hay que marcar el norte si es relevante.
 
 ## 6. Errores frecuentes
 

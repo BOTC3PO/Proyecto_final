@@ -22,7 +22,7 @@ Con los contractualistas (`../contractualismo/`) llegó una respuesta moderna: e
 
 ## Poder dividido
 
-Charles de Montesquieu (1689–1755), en *Del espíritu de las leyes* (1748), sostuvo que el poder tiende a abusar de sí mismo y que, para evitarlo, hay que dividirlo: que el legislativo, el ejecutivo y el judicial estén en manos distintas y se limiten entre sí. Esta **separación de poderes** es el fundamento de las constituciones republicanas, incluida la argentina. Se vincula con `../../civica/`.
+Charles de Montesquieu (1689–1755), en *Del espíritu de las leyes* (1748), sostuvo que el poder tiende a abusar de sí mismo. Para evitarlo, hay que dividirlo: que el legislativo, el ejecutivo y el judicial estén en manos distintas y se limiten entre sí. Esta **separación de poderes** es el fundamento de las constituciones republicanas, incluida la argentina. Se vincula con `../../civica/`.
 
 ## Libertad
 

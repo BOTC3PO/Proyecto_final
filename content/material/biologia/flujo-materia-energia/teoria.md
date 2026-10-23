@@ -36,20 +36,20 @@ entrada" grande de energía nueva al sistema.
 ## 3. Por qué la energía se pierde en cada paso (no se recicla)
 
 Cada vez que un organismo usa energía (para moverse, mantener su
-temperatura, crecer), una parte se transforma en **calor** y se
-disipa al ambiente — el calor no se puede "recapturar" para usarlo de
-nuevo como energía útil (segunda ley de la termodinámica). Por eso,
+temperatura, crecer), una parte se transforma en **calor** y se disipa al
+ambiente. Ese calor no se puede "recapturar" para usarlo de nuevo como
+energía útil (segunda ley de la termodinámica). Por eso,
 cuando la energía pasa de un nivel a otro en una cadena trófica (ver
 `../cadenas-redes-troficas/`), **se va perdiendo** en cada paso — nunca
 el 100% pasa al siguiente nivel.
 
 ## 4. Consecuencia: la energía necesita reposición constante
 
-Como la energía no se recicla (a diferencia de la materia), un
-ecosistema necesita una **entrada constante** de energía nueva (el
-sol, básicamente) para seguir funcionando — si el sol "se apagara", la
-materia seguiría estando ahí (los átomos no desaparecen), pero el
-ecosistema colapsaría rápido por falta de energía utilizable.
+Como la energía no se recicla (a diferencia de la materia), un ecosistema
+necesita una **entrada constante** de energía nueva (el sol, básicamente)
+para seguir funcionando. Si el sol "se apagara", la materia seguiría estando
+ahí (los átomos no desaparecen), pero el ecosistema colapsaría rápido por
+falta de energía utilizable.
 
 ## 5. Resumen con una analogía
 

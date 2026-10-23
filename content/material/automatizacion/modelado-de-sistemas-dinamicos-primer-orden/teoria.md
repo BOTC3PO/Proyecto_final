@@ -14,7 +14,7 @@ Para controlar un proceso hay que saber cómo responde. Un modelo es una descrip
 
 ## 2. El sistema de primer orden
 
-Muchos procesos cotidianos se comportan, en primera aproximación, como un sistema de primer orden: un calentador de agua, el llenado de un tanque con una salida, la velocidad de un motor ante un cambio de tensión, la carga de un capacitor a través de una resistencia. Su rasgo común es que la salida no cambia de golpe: se acerca de a poco a un valor final, cada vez más lento.
+Muchos procesos cotidianos se comportan, en primera aproximación, como un sistema de primer orden. Algunos ejemplos son un calentador de agua, el llenado de un tanque con una salida, la velocidad de un motor ante un cambio de tensión y la carga de un capacitor a través de una resistencia. Su rasgo común es que la salida no cambia de golpe: se acerca de a poco a un valor final, cada vez más lento.
 
 Se describe con dos números:
 

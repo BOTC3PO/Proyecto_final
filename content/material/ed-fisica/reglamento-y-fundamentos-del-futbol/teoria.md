@@ -33,7 +33,7 @@ La **tarjeta amarilla** es una amonestación y la **tarjeta roja** significa exp
 
 ## 5. Posición adelantada (fuera de juego)
 
-Un atacante está en posición adelantada cuando, en el momento en que un compañero juega la pelota, cualquier parte de su cabeza, cuerpo o pies que pueda marcar un gol está **más cerca de la línea de meta rival que la pelota y que el penúltimo adversario** (el último suele ser el arquero). Estar en esa posición **no es una infracción por sí mismo**: se sanciona si el jugador interviene en la jugada. No hay posición adelantada en la propia mitad de cancha ni directamente en un saque de arco, un saque lateral o un córner.
+Un atacante está en posición adelantada cuando, en el momento en que un compañero juega la pelota, cualquier parte de su cabeza, cuerpo o pies que pueda marcar un gol está **más cerca de la línea de meta rival que la pelota y que el penúltimo adversario**. El último adversario suele ser el arquero. Estar en esa posición **no es una infracción por sí mismo**: se sanciona si el jugador interviene en la jugada. No hay posición adelantada en la propia mitad de cancha ni directamente en un saque de arco, un saque lateral o un córner.
 
 ## 6. Árbitros y tecnología
 

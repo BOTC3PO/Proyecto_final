@@ -10,7 +10,7 @@
 
 ## Una definición de partida
 
-El turismo es un fenómeno social, cultural y económico que implica el desplazamiento de personas fuera de su entorno habitual por motivos personales, profesionales o de negocios. La definición internacional que usan los organismos de estadística, elaborada por la organización mundial del sector (hoy llamada ONU Turismo), tiene dos ideas clave: **el viaje es fuera del lugar donde la persona vive y trabaja de forma cotidiana** y el objetivo **no es establecerse** allí ni ganar un sueldo del lugar visitado. Por eso, quien se muda a otra ciudad o viaja todos los días a trabajar no hace turismo.
+El turismo es un fenómeno social, cultural y económico que implica el desplazamiento de personas fuera de su entorno habitual por motivos personales, profesionales o de negocios. La definición internacional que usan los organismos de estadística la elaboró la organización mundial del sector (hoy llamada ONU Turismo). Tiene dos ideas clave. La primera: **el viaje es fuera del lugar donde la persona vive y trabaja de forma cotidiana**. La segunda: el objetivo **no es establecerse** allí ni ganar un sueldo del lugar visitado. Por eso, quien se muda a otra ciudad o viaja todos los días a trabajar no hace turismo.
 
 ## Viajero, visitante, turista y excursionista
 
