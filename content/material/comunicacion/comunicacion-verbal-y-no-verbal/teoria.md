@@ -39,7 +39,7 @@ Las palabras y el cuerpo pueden **reforzar, complementar o contradecir** lo que 
 
 ## 5. Cultura y contexto
 
-Los gestos y las distancias **no son universales**. Hacer el gesto de "ok" con la mano o levantar el pulgar puede ser positivo en un país y ofensivo en otro; la forma de saludar (beso, apretón de manos, reverencia) cambia por cultura; el contacto visual directo puede ser señal de atención o de desafío según el lugar. Interpretar un gesto aislado es riesgoso: hay que mirar el **conjunto** (palabras, tono, contexto) y la **historia previa** con esa persona.
+Los gestos y las distancias **no son universales**. Hacer el gesto de "ok" con la mano o levantar el pulgar puede ser positivo en un país y ofensivo en otro. La forma de saludar (beso, apretón de manos, reverencia) cambia por cultura. El contacto visual directo puede ser señal de atención o de desafío según el lugar. Interpretar un gesto aislado es riesgoso: hay que mirar el **conjunto** (palabras, tono, contexto) y la **historia previa** con esa persona.
 
 ## 6. Comunicación no verbal en entornos digitales
 

@@ -29,7 +29,7 @@ En contraste, la Unión Soviética promovió la **COMECON** (Comunidad Económic
 
 La Guerra Fría no solo fue una lucha ideológica o económica: también estuvo marcada por la amenaza nuclear. El **incidente de los misiles en Cuba** (1962) fue uno de los momentos más tensos, cuando Estados Unidos descubrió que la Unión Soviética había instalado misiles nucleares en la isla caribeña. Esta acción puso al borde del conflicto global: el presidente Kennedy ordenó un bloqueo marítimo, y por poco se llega a una guerra nuclear.  
 
-Este episodio evidenció cómo las decisiones de ambas potencias podían tener consecuencias catastróficas para todo el planeta. Aunque lograron evitar la confrontación directa (la URSS retiró los misiles y EE.UU. prometió no invadir Cuba), este evento marcó un punto de inflexión en las relaciones internacionales, llevando a ambas partes a buscar formas de desescalada, como el **Tratado de No Proliferación Nuclear** (1968).  
+Este episodio evidenció cómo las decisiones de ambas potencias podían tener consecuencias catastróficas para todo el planeta. Lograron evitar la confrontación directa: la URSS retiró los misiles y EE.UU. prometió no invadir Cuba. Aun así, este evento marcó un punto de inflexión en las relaciones internacionales. Llevó a ambas partes a buscar formas de desescalada, como el **Tratado de No Proliferación Nuclear** (1968).  
 
 <!-- IMAGEN: fotografía del bloqueo naval durante la crisis de los misiles -->  
 

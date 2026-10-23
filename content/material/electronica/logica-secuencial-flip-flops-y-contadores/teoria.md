@@ -18,7 +18,7 @@ El latch SR (de Set y Reset) se arma con dos compuertas NOR o NAND realimentadas
 
 ## 3. El reloj y los flip-flops
 
-En los sistemas digitales, para que muchos elementos de memoria cambien de forma ordenada, se usa una señal de reloj, una onda cuadrada de frecuencia fija. Un flip-flop es un elemento de memoria que solo cambia de estado en un flanco del reloj, es decir, en el instante en que la señal pasa de 0 a 1 (flanco de subida) o de 1 a 0 (flanco de bajada). Entre flancos, ignora los cambios de la entrada. Esta sincronización evita que los cambios se propaguen de forma desordenada.
+En los sistemas digitales, para que muchos elementos de memoria cambien de forma ordenada, se usa una señal de reloj, una onda cuadrada de frecuencia fija. Un flip-flop es un elemento de memoria que solo cambia de estado en un flanco del reloj. Es decir, en el instante en que la señal pasa de 0 a 1 (flanco de subida) o de 1 a 0 (flanco de bajada). Entre flancos, ignora los cambios de la entrada. Esta sincronización evita que los cambios se propaguen de forma desordenada.
 
 ## 4. Flip-flops D, JK y T
 

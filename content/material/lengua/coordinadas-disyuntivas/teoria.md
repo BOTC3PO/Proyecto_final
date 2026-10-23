@@ -12,7 +12,7 @@
 
 En el análisis gramatical, las oraciones coordinadas disyuntivas son aquellas en las que dos o más proposiciones se unen mediante una conjunción disyuntiva. A diferencia de las coordinadas copulativas, que suman información (como "y" o "e"), las disyuntivas presentan una relación de alternancia, opción o exclusión entre los elementos conectados. Básicamente, le dicen al lector o al oyente que debe elegir entre las posibilidades planteadas, o que se cumple una de ellas, pero no necesariamente ambas al mismo tiempo.
 
-Las palabras que cumplen esta función son llamadas conjunciones disyuntivas. La más común en español es "o", pero también existen variantes como "ó" (que ya no se usa salvo en contextos numéricos para evitar confusión con la letra 'o'), "ya... ya...", "bien... bien...", y en registros más formales o literarios, "u" (que se usa cuando la palabra siguiente comienza con 'o' o 'ho' para evitar la cacofonía, es decir, el choque de sonidos iguales). Por ejemplo, decimos "café o té", pero "u hombre" (aunque esta última forma es muy poco frecuente en el habla cotidiana rioplatense actual).
+Las palabras que cumplen esta función son llamadas conjunciones disyuntivas. La más común en español es "o", pero también existen variantes. Una es "ó", que ya no se usa salvo en contextos numéricos para evitar confusión con la letra 'o'. Otras son "ya... ya..." y "bien... bien...". En registros más formales o literarios, se usa "u" cuando la palabra siguiente comienza con 'o' o 'ho', para evitar la cacofonía, es decir, el choque de sonidos iguales. Por ejemplo, decimos "café o té", pero "u hombre" (aunque esta última forma es muy poco frecuente en el habla cotidiana rioplatense actual).
 
 ## La lógica de la opción y la exclusión
 

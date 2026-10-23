@@ -16,7 +16,7 @@ Esta construcción es fundamental porque revela cómo el lenguaje organiza la in
 
 ## Características y marcadores sintácticos
 
-La clave para identificar este tipo de oración está en la preposición que la introduce. A diferencia de las subordinadas sustantivas de complemento directo, que suelen ir introducidas por "que" sin preposición previa, o las de sujeto, que pueden aparecer en diversas posiciones, las de régimen preposicional siempre llevan una preposición antes del nexo (generalmente "que", "si" o un pronombre interrogativo). Esta preposición no es opcional; si la quitamos, la oración pierde su sentido gramatical o cambia completamente.
+La clave para identificar este tipo de oración está en la preposición que la introduce. Las subordinadas sustantivas de complemento directo suelen ir introducidas por "que" sin preposición previa. Las de sujeto pueden aparecer en diversas posiciones. Las de régimen preposicional, en cambio, siempre llevan una preposición antes del nexo (generalmente "que", "si" o un pronombre interrogativo). Esta preposición no es opcional; si la quitamos, la oración pierde su sentido gramatical o cambia completamente.
 
 Los verbos que requieren este tipo de complemento son aquellos que, por su significado, necesitan un "puente" para llegar a su objeto. Por ejemplo, no decimos "esperar la llegada", sino "esperar **a** la llegada" en contextos más formales, o más comúnmente, "pensar **en** algo". Cuando ese "algo" es una oración, la preposición se mantiene. Por lo tanto, el esquema básico es: Verbo principal + Preposición obligatoria + Nexo + Oración subordinada. Es crucial notar que la preposición pertenece sintácticamente a la subordinada, aunque semánticamente complete al verbo principal.
 

@@ -29,7 +29,7 @@ Cuando dos especies viven en contacto estrecho y prolongado se habla de **simbio
 
 ## 4. La competencia
 
-En la **competencia (−/−)** dos especies (o dos individuos) necesitan el mismo recurso limitado —alimento, agua, luz, refugio, espacio— y ambas salen perjudicadas. El principio de **exclusión competitiva**, formulado a partir de los experimentos de Gause con paramecios en la década de 1930, dice que dos especies con exactamente el mismo nicho no pueden convivir indefinidamente en el mismo lugar: una termina desplazando a la otra, o bien las dos se diferencian (por ejemplo, comen presas de distinto tamaño). Esto se relaciona con el concepto de **nicho ecológico** (ver `../nicho-ecologico/`) y con la capacidad de carga del ambiente (ver `../dinamica-poblacional-capacidad-carga/`).
+En la **competencia (−/−)** dos especies (o dos individuos) necesitan el mismo recurso limitado —alimento, agua, luz, refugio, espacio— y ambas salen perjudicadas. El principio de **exclusión competitiva** se formuló a partir de los experimentos de Gause con paramecios en la década de 1930. Dice que dos especies con exactamente el mismo nicho no pueden convivir indefinidamente en el mismo lugar. Una termina desplazando a la otra, o bien las dos se diferencian (por ejemplo, comen presas de distinto tamaño). Esto se relaciona con el concepto de **nicho ecológico** (ver `../nicho-ecologico/`) y con la capacidad de carga del ambiente (ver `../dinamica-poblacional-capacidad-carga/`).
 
 ## 5. Resumen
 

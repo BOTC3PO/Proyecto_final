@@ -25,11 +25,11 @@ razonamiento, no de si sus premisas son ciertas en el mundo real.
 
 ## Validez ≠ verdad de las premisas
 
-Este es el punto que más confunde al empezar: un razonamiento puede
-ser **válido** aunque sus premisas sean **falsas** (la estructura
-lógica funciona igual), y puede ser **inválido** aunque su conclusión
-sea **verdadera** (llegó bien por casualidad, no por la estructura del
-razonamiento).
+Este es el punto que más confunde al empezar. Un razonamiento puede ser
+**válido** aunque sus premisas sean **falsas**, porque la estructura lógica
+funciona igual. Y puede ser **inválido** aunque su conclusión sea
+**verdadera**: llegó bien por casualidad, no por la estructura del
+razonamiento.
 
 "Todos los gatos vuelan. Firulais es un gato. Por lo tanto, Firulais
 vuela." — Es **válido** (la conclusión se sigue necesariamente de las

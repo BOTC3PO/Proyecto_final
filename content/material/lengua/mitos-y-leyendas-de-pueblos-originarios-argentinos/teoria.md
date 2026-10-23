@@ -24,7 +24,7 @@ Estas categorías sirven para estudiar los relatos, pero cada pueblo tiene sus p
 
 **Mundo andino (noroeste).** La **Pachamama** es una deidad andina relacionada con la tierra y la fertilidad. El noroeste argentino es una de las regiones más ricas en leyendas y mitos autóctonos. La tradición de ofrecer algo a la tierra se mantiene en muchas comunidades; cada comunidad tiene sus propias formas.
 
-**Pueblo guaraní (noreste).** Entre los relatos guaraníes figuran el **Yasy Yateré**, que se presenta como hijo de Taú y Keraná y se asocia con el rapto de niños, y el **Pombero**, un duende que cuida el monte y los animales y castiga a quienes cazan o talan de más. Estos relatos se conocen en Paraguay y en provincias como Misiones, Corrientes, Chaco y Formosa. En ellos hay una enseñanza sobre el respeto a la naturaleza.
+**Pueblo guaraní (noreste).** Entre los relatos guaraníes figuran el **Yasy Yateré** y el **Pombero**. El Yasy Yateré se presenta como hijo de Taú y Keraná y se asocia con el rapto de niños. El Pombero es un duende que cuida el monte y los animales y castiga a quienes cazan o talan de más. Estos relatos se conocen en Paraguay y en provincias como Misiones, Corrientes, Chaco y Formosa. En ellos hay una enseñanza sobre el respeto a la naturaleza.
 
 **Pueblo mapuche (sur).** Un relato central es el de **Kai Kai** y **Treng Treng**, dos serpientes. Kai Kai provoca un diluvio y Treng Treng hace elevar la tierra para que la gente se salve en los cerros. Hay varias versiones: en algunas Treng Treng es una serpiente protectora, en otras la historia cambia en los detalles. Los mapuche viven en Argentina y en Chile, y los relatos circulan en ambos lados de la cordillera.
 

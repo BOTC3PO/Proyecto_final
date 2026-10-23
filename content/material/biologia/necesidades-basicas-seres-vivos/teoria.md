@@ -55,4 +55,4 @@ Importante: la reproducción no es necesaria para que un individuo sobreviva, pe
 
 ## N. Conexión con lo que sigue
 
-Este tema completa el estudio de las funciones vitales iniciado en `../ser-vivo-caracteristicas/`, y servirá como base para entender cómo cada proceso (como la fotosíntesis o la respiración) se adapta según el tipo de organismo, como veremos en nutricion autotrofa y reproduccion vegetal.
+Este tema completa el estudio de las funciones vitales iniciado en `../ser-vivo-caracteristicas/`. Servirá como base para entender cómo cada proceso (como la fotosíntesis o la respiración) se adapta según el tipo de organismo, como veremos en nutricion autotrofa y reproduccion vegetal.

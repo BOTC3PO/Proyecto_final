@@ -29,7 +29,7 @@ No es una línea recta: se vuelve a etapas anteriores cuando una prueba muestra 
 
 El **Design Thinking** es una versión popularizada del mismo ciclo, con etapas habituales: empatizar, definir, idear, prototipar y probar. Fue difundido por la escuela de diseño de Stanford y por la consultora IDEO. Su aporte es la insistencia en la empatía y en idear muchas alternativas.
 
-Tiene también críticas. Se objeta que, al presentarse como un método de cinco pasos rígidos, simplifica un proceso que en la práctica es desordenado; que a veces se aplica como un ritual de talleres con notas adhesivas sin llegar a investigación real; y que no sustituye el conocimiento técnico del problema. Ninguno de estos modelos es una receta: se adaptan al proyecto.
+Tiene también críticas. Se objeta que, al presentarse como un método de cinco pasos rígidos, simplifica un proceso que en la práctica es desordenado. También se objeta que a veces se aplica como un ritual de talleres con notas adhesivas, sin llegar a investigación real. Y que no sustituye el conocimiento técnico del problema. Ninguno de estos modelos es una receta: se adaptan al proyecto.
 
 ## 4. Roles y colaboración
 

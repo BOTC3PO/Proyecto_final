@@ -36,7 +36,7 @@ Un error común es clasificar una restricción como un requisito (como confundir
 
 ## 6. Cómo afectan el proceso de diseño
 
-Los requisitos y las restricciones actúan como **filtros** en la búsqueda de soluciones. Los requisitos definen la meta; las restricciones, los caminos permitidos para alcanzarla. Por ejemplo: si un requisito es "el puente debe durar 100 años" (vida útil) y una restricción es "no se puede usar acero especial", el ingeniero debe buscar alternativas de diseño que compensen la limitación del material con otros elementos (como estructuras más robustas).
+Los requisitos y las restricciones actúan como **filtros** en la búsqueda de soluciones. Los requisitos definen la meta; las restricciones, los caminos permitidos para alcanzarla. Por ejemplo, un requisito es "el puente debe durar 100 años" (vida útil) y una restricción es "no se puede usar acero especial". El ingeniero debe buscar alternativas de diseño que compensen la limitación del material con otros elementos (como estructuras más robustas).
 
 ## N. Conexión con lo que sigue
 

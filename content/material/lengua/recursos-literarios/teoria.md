@@ -94,8 +94,8 @@ de las palabras (sintácticos).
 
 ## Para qué sirve
 
-Reconocer recursos literarios permite leer con más profundidad
-poesía y narrativa (entender por qué el autor eligió esa forma y no
-otra) y es una herramienta directa para la escritura propia: variar el
-estilo con metáforas, enumeraciones o anáforas en vez de usar siempre
+Reconocer recursos literarios permite leer con más profundidad poesía y
+narrativa, porque se entiende por qué el autor eligió esa forma y no otra.
+También es una herramienta directa para la escritura propia: se puede variar
+el estilo con metáforas, enumeraciones o anáforas en vez de usar siempre
 lenguaje literal y directo.

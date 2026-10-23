@@ -31,7 +31,7 @@ El parámetro más usado es la **Ra**, la rugosidad media aritmética: el promed
 
 ## 4. Rangos de referencia
 
-Como orden de magnitud habitual en tablas de talleres: el torneado o fresado común da del orden de unos pocos micrómetros de Ra (por ejemplo de 1,6 a 6,3 µm); el rectificado, valores del orden de décimas (0,2 a 0,8 µm); y el lapeado o pulido, del orden de centésimas o décimas. Estos rangos son indicativos y dependen de la máquina, la herramienta y el material.
+Como orden de magnitud habitual en tablas de talleres, el torneado o fresado común da unos pocos micrómetros de Ra (por ejemplo, de 1,6 a 6,3 µm). El rectificado da valores del orden de décimas (0,2 a 0,8 µm). El lapeado o pulido, del orden de centésimas o décimas. Estos rangos son indicativos y dependen de la máquina, la herramienta y el material.
 
 ## 5. Cómo se indica en el plano
 

@@ -86,8 +86,7 @@ el tamaño del círculo.
 ## Comparar figuras
 
 El perímetro y el área son magnitudes independientes: no se puede deducir
-una a partir de la otra sin conocer la forma completa. Dos rectángulos
-distintos pueden compartir perímetro pero no área (un rectángulo de 2×8
-tiene perímetro 20 y área 16; uno de 5×5 tiene el mismo perímetro 20 pero
-área 25) — de todos los rectángulos con un perímetro dado, el cuadrado es
-el que tiene mayor área.
+una a partir de la otra sin conocer la forma completa. Dos rectángulos distintos pueden compartir perímetro pero no área. Un
+rectángulo de 2×8 tiene perímetro 20 y área 16. Uno de 5×5 tiene el mismo
+perímetro 20 pero área 25. De todos los rectángulos con un perímetro dado,
+el cuadrado es el que tiene mayor área.

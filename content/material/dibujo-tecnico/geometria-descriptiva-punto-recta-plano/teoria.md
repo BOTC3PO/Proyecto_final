@@ -35,7 +35,7 @@ Una recta queda definida por dos puntos; se proyecta uniendo sus proyecciones. S
 - **Oblicua**: no paralela a ningún plano; ambas proyecciones están acortadas.
 - **Vertical**: perpendicular al plano horizontal; se proyecta como un punto en él.
 
-La **verdadera magnitud** de una recta oblicua no se ve directamente. Se obtiene girándola hasta ponerla paralela a un plano, o por el método del triángulo rectángulo: se construye un triángulo con la diferencia de cotas y la proyección horizontal como catetos, y su hipotenusa es la longitud real (usando el teorema de Pitágoras de `matematica/teorema-de-pitagoras/`).
+La **verdadera magnitud** de una recta oblicua no se ve directamente. Se obtiene girándola hasta ponerla paralela a un plano, o por el método del triángulo rectángulo. Este método construye un triángulo con la diferencia de cotas y la proyección horizontal como catetos. Su hipotenusa es la longitud real, usando el teorema de Pitágoras de `matematica/teorema-de-pitagoras/`.
 
 ## 5. Plano
 

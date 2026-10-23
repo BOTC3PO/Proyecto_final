@@ -20,7 +20,7 @@ No hace falta un gimnasio ni competir para obtener beneficios.
 
 ## 2. Cuánto se recomienda
 
-La Organización Mundial de la Salud recomienda, para **niños y adolescentes de 5 a 17 años**, un promedio de **60 minutos diarios de actividad física de intensidad moderada a vigorosa**, mayormente aeróbica, e incorporar al menos tres días por semana actividades que fortalezcan músculos y huesos. Para **adultos**, entre 150 y 300 minutos semanales de actividad moderada (o la mitad de vigorosa). Cualquier actividad suma, y es mejor algo que nada.
+La Organización Mundial de la Salud recomienda, para **niños y adolescentes de 5 a 17 años**, un promedio de **60 minutos diarios de actividad física de intensidad moderada a vigorosa**, mayormente aeróbica. Recomienda además incorporar al menos tres días por semana actividades que fortalezcan músculos y huesos. Para **adultos**, entre 150 y 300 minutos semanales de actividad moderada (o la mitad de vigorosa). Cualquier actividad suma, y es mejor algo que nada.
 
 Intensidad moderada: aumenta la respiración y los latidos pero permite hablar (caminar rápido, andar en bicicleta tranquilo). Vigorosa: cuesta hablar (correr, nadar rápido, fútbol intenso).
 

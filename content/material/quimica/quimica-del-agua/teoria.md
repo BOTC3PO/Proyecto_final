@@ -42,7 +42,7 @@ El agua potable es la que cumple los límites de calidad física, química y mic
 
 ## 6. Contaminantes y salud
 
-Entre los contaminantes están los microorganismos (bacterias, virus, parásitos), los nitratos de fertilizantes, los metales pesados y el **arsénico**, que en algunas regiones de la Argentina está presente de forma natural en las aguas subterráneas y provoca una enfermedad crónica llamada hidroarsenicismo. El Código Alimentario establece un valor guía de 0,01 mg/L (10 µg/L) como objetivo para el arsénico. Hervir el agua mata microorganismos, pero **no** elimina arsénico ni nitratos.
+Entre los contaminantes están los microorganismos (bacterias, virus, parásitos), los nitratos de fertilizantes, los metales pesados y el **arsénico**. En algunas regiones de la Argentina el arsénico está presente de forma natural en las aguas subterráneas y provoca una enfermedad crónica llamada hidroarsenicismo. El Código Alimentario establece un valor guía de 0,01 mg/L (10 µg/L) como objetivo para el arsénico. Hervir el agua mata microorganismos, pero **no** elimina arsénico ni nitratos.
 
 ## 7. Concentraciones pequeñas
 

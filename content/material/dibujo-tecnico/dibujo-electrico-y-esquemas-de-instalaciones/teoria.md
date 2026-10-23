@@ -35,7 +35,7 @@ Una pregunta clave es: ¿qué protege a qué, y qué pasa si falla este elemento
 
 ## 5. Reglas de dibujo
 
-Las conexiones se trazan con líneas rectas, horizontales y verticales, evitando cruces innecesarios; los cruces sin conexión no llevan punto; los componentes se identifican con letras y números; y el esquema se ordena de modo que la energía fluya de izquierda a derecha o de arriba hacia abajo. Las líneas siguen la jerarquía normalizada (`tipos-de-linea-formatos-y-rotulo/`), y el rótulo identifica el proyecto y la revisión.
+Las conexiones se trazan con líneas rectas, horizontales y verticales, evitando cruces innecesarios. Los cruces sin conexión no llevan punto. Los componentes se identifican con letras y números. Y el esquema se ordena de modo que la energía fluya de izquierda a derecha o de arriba hacia abajo. Las líneas siguen la jerarquía normalizada (`tipos-de-linea-formatos-y-rotulo/`), y el rótulo identifica el proyecto y la revisión.
 
 ## 6. Seguridad
 

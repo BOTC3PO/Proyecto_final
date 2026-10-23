@@ -48,10 +48,10 @@ como una huella digital de esos datos:
 
 ## Por qué la cadena es difícil de alterar
 
-Como cada bloque incluye el hash del anterior, alterar una transacción
-de un bloque viejo cambiaría su hash — y ese cambio "rompería" el
-enlace con todos los bloques posteriores, porque cada uno de ellos
-guardó el hash ORIGINAL del bloque que se intentó modificar. Para que la alteración pase desapercibida, habría que recalcular también
+Cada bloque incluye el hash del anterior. Por eso, alterar una transacción
+de un bloque viejo cambiaría su hash. Ese cambio "rompería" el enlace con
+todos los bloques posteriores, porque cada uno de ellos guardó el hash
+ORIGINAL del bloque que se intentó modificar. Para que la alteración pase desapercibida, habría que recalcular también
 todos los bloques siguientes, en la mayoría de las copias de la red al mismo
 tiempo. En la práctica, eso es extremadamente costoso cuanto más vieja es la
 transacción que se quiere alterar.

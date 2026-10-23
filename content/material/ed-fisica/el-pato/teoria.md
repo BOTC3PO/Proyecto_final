@@ -28,7 +28,7 @@ Es un juego de contacto físico permitido. Los jugadores pueden "forcejear": dis
 
 ## Habilidades técnicas y seguridad
 
-Jugar al pato exige un dominio ecuestre avanzado: manejar el caballo con las piernas y el peso del cuerpo mientras las dos manos están ocupadas (una sostiene las riendas y el rebenque, la otra el pato), a distintas velocidades y en contacto físico con otros jinetes. Requiere fuerza de brazo y equilibrio para forcejear sin caerse, y buena puntería para encestar en movimiento.
+Jugar al pato exige un dominio ecuestre avanzado. Hay que manejar el caballo con las piernas y el peso del cuerpo mientras las dos manos están ocupadas: una sostiene las riendas y el rebenque, la otra el pato. Todo esto ocurre a distintas velocidades y en contacto físico con otros jinetes. Requiere fuerza de brazo y equilibrio para forcejear sin caerse, y buena puntería para encestar en movimiento.
 
 La seguridad es central dado el historial violento del juego original: cascos, elementos de protección, reglamentación estricta del forcejeo y caballos entrenados específicamente para el deporte son hoy obligatorios en la práctica federada.
 

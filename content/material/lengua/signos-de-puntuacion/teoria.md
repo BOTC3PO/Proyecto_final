@@ -78,7 +78,7 @@ a la abuela.
 ## Para qué sirve
 
 Una puntuación correcta es lo que hace que un texto se pueda leer sin
-ambigüedad — es el prerrequisito directo de `../produccion-escrita-compleja/`
-(siguiente tema): sin dominar coma, punto, punto y coma y dos puntos,
-combinar oraciones largas y complejas se vuelve ilegible aunque la
+ambigüedad. Es el prerrequisito directo de `../produccion-escrita-compleja/`
+(siguiente tema). Sin dominar coma, punto, punto y coma y dos puntos,
+combinar oraciones largas y complejas se vuelve ilegible, aunque la
 gramática de cada oración sea correcta.

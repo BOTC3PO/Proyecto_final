@@ -20,7 +20,7 @@ Finalmente, el esmog fotoquímico es una mezcla compleja de contaminantes que se
 
 ## Aplicación práctica y ejemplos en Argentina
 
-Para visualizar estos conceptos, podemos analizar casos concretos de nuestra región. En la Patagonia, la lluvia ácida ha sido un problema histórico debido a las emisiones de centrales térmicas que queman carbón, rico en azufre. Aunque la normativa ha mejorado, el monitoreo de la acidez en lagos y ríos sigue siendo crucial para preservar la biodiversidad única de la zona, como las truchas y otros peces de agua dulce que son sensibles a los cambios de pH.
+Para visualizar estos conceptos, podemos analizar casos concretos de nuestra región. En la Patagonia, la lluvia ácida ha sido un problema histórico debido a las emisiones de centrales térmicas que queman carbón, rico en azufre. La normativa ha mejorado. Aun así, el monitoreo de la acidez en lagos y ríos sigue siendo crucial para preservar la biodiversidad única de la zona. Allí viven, por ejemplo, las truchas y otros peces de agua dulce que son sensibles a los cambios de pH.
 
 En cuanto al esmog fotoquímico, la Ciudad Autónoma de Buenos Aires y el Gran Buenos Aires son ejemplos claros. Durante los días de verano con mucho sol y poca ventilación, es común observar una bruma blanquecina o amarillenta sobre la ciudad. Esta niebla no es humedad, sino esmog. Las autoridades ambientales emiten alertas sanitarias cuando los niveles de ozono y partículas finas superan ciertos límites, recomendando evitar el ejercicio físico al aire libre. Esto ilustra directamente cómo la química del aire impacta en la salud pública inmediata.
 

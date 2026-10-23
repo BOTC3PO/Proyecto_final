@@ -10,7 +10,7 @@
 
 ## 1. Normalizar para entenderse
 
-Un plano lo interpretan personas que no lo dibujaron. Para que todos lean lo mismo, el dibujo técnico usa convenciones normalizadas: qué significa cada tipo de línea, qué tamaños de papel se emplean y qué datos lleva el rótulo. En la Argentina estas convenciones las fijan las normas IRAM (por ejemplo IRAM 4502 para las líneas, IRAM 4504 para los formatos y su plegado, e IRAM 4508 para el rótulo y la lista de materiales, según figuran en los programas de las cátedras de ingeniería); a nivel internacional las armoniza la ISO. Los números exactos y sus versiones deben consultarse en la edición vigente.
+Un plano lo interpretan personas que no lo dibujaron. Para que todos lean lo mismo, el dibujo técnico usa convenciones normalizadas: qué significa cada tipo de línea, qué tamaños de papel se emplean y qué datos lleva el rótulo. En la Argentina estas convenciones las fijan las normas IRAM. Por ejemplo, IRAM 4502 para las líneas, IRAM 4504 para los formatos y su plegado, e IRAM 4508 para el rótulo y la lista de materiales, según figuran en los programas de las cátedras de ingeniería. A nivel internacional las armoniza la ISO. Los números exactos y sus versiones deben consultarse en la edición vigente.
 
 ## 2. Tipos de línea
 

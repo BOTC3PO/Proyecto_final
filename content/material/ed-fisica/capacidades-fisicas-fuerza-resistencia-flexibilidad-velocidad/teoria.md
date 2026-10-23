@@ -40,7 +40,7 @@ La **flexibilidad** es la capacidad de lograr el máximo recorrido de las articu
 
 Para mejorar una capacidad hace falta una **carga adecuada, progresiva y regular**, como se vio en `../planificacion-progresion-volumen/`, y respetar el descanso. Rige el **principio de especificidad**: cada capacidad mejora con el tipo de ejercicio que la exige.
 
-En la escuela se usan **pruebas simples** para ver la evolución: el salto horizontal sin carrera (fuerza explosiva de piernas), la carrera de 12 minutos del test de Cooper (resistencia aeróbica), una carrera corta cronometrada (velocidad) o el alcance sentado hacia adelante (flexibilidad). Comparar con uno mismo a lo largo del tiempo es más útil que compararse con otros.
+En la escuela se usan **pruebas simples** para ver la evolución. Son el salto horizontal sin carrera (fuerza explosiva de piernas), la carrera de 12 minutos del test de Cooper (resistencia aeróbica), una carrera corta cronometrada (velocidad) y el alcance sentado hacia adelante (flexibilidad). Comparar con uno mismo a lo largo del tiempo es más útil que compararse con otros.
 
 ## 7. Conexión con lo que sigue
 
