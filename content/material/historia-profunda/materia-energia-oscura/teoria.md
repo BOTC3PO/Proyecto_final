@@ -18,7 +18,7 @@ Aunque no emite ni absorbe luz, su presencia es crucial para explicar fenómenos
 
 ## 2. Evidencia gravitacional en las galaxias espirales
 
-Al estudiar las curvas de rotación de las galaxias espirales, los astrónomos descubrieron un problema: las estrellas en la periferia de estas galaxias se mueven a velocidades que no se pueden explicar solo con la masa visible (como estrellas y gas). Según las leyes de Newton, si solo hubiera la materia que vemos, las estrellas más externas deberían girar más lentamente. Sin embargo, lo que ocurre es lo contrario: su velocidad se mantiene constante o incluso aumenta a medida que nos alejamos del centro galáctico.
+Al estudiar las curvas de rotación de las galaxias espirales, los astrónomos descubrieron un problema. Las estrellas en la periferia de estas galaxias se mueven a velocidades que no se pueden explicar solo con la masa visible (como estrellas y gas). Según las leyes de Newton, si solo hubiera la materia que vemos, las estrellas más externas deberían girar más lentamente. Sin embargo, lo que ocurre es lo contrario: su velocidad se mantiene constante o incluso aumenta a medida que nos alejamos del centro galáctico.
 
 Esta discrepancia implica que debe existir una masa adicional —la materia oscura— distribuida en forma de halo alrededor de las galaxias, proporcionando la gravedad necesaria para mantener unidas a sus componentes externos.
 
@@ -26,7 +26,7 @@ Esta discrepancia implica que debe existir una masa adicional —la materia oscu
 
 ## 3. El rol de la materia oscura en la estructura cósmica
 
-La materia oscura no solo explica la dinámica interna de las galaxias, sino que también es fundamental para entender cómo se formó y evoluciona la estructura del universo a gran escala. Al ser una masa gravitacionalmente activa pero "invisible", actúa como un andamio sobre el cual se agrupan las galaxias visibles.
+La materia oscura no solo explica la dinámica interna de las galaxias. También es fundamental para entender cómo se formó y evoluciona la estructura del universo a gran escala. Al ser una masa gravitacionalmente activa pero "invisible", actúa como un andamio sobre el cual se agrupan las galaxias visibles.
 
 Su distribución no uniforme en el cosmos ayuda a explicar por qué existen cúmulos de galaxias y por qué ciertas regiones del universo son más densas que otras. Sin la gravedad extra que proporciona, la materia visible no tendría suficiente fuerza para formar estructuras tan grandes como las que observamos hoy.
 

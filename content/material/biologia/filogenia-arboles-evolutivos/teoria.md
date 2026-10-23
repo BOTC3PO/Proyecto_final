@@ -12,10 +12,10 @@
 ## 1. ¿Qué es un árbol filogenético?
 
 Una vez que la especiación (`../especiacion/`) generó muchas especies
-distintas a partir de ancestros comunes, la **filogenia** es el
-estudio de esas relaciones de parentesco evolutivo, y el **árbol
-filogenético** (o cladograma) es el diagrama que las representa —
-igual que un árbol genealógico familiar, pero a escala de especies.
+distintas a partir de ancestros comunes, aparece la **filogenia**: el
+estudio de esas relaciones de parentesco evolutivo. El **árbol
+filogenético** (o cladograma) es el diagrama que las representa, igual que
+un árbol genealógico familiar pero a escala de especies.
 
 ## 2. Las partes de un árbol filogenético
 
@@ -31,10 +31,9 @@ igual que un árbol genealógico familiar, pero a escala de especies.
 
 ## 3. Cómo leer parentesco: el nodo común más reciente
 
-La regla clave para leer un árbol: **dos especies están más
-emparentadas cuanto más reciente es su ancestro común** (el nodo del
-que ambas ramas se separan), no por lo parecidas que se vean a simple
-vista.
+La regla clave para leer un árbol: **dos especies están más emparentadas
+cuanto más reciente es su ancestro común** (el nodo del que ambas ramas se
+separan). No importa lo parecidas que se vean a simple vista.
 
 - Dos especies que comparten un nodo cercano a las puntas del árbol
   (ancestro común reciente) están muy emparentadas.
@@ -46,18 +45,18 @@ vista.
 
 ## 4. Error común: leer el árbol como una escalera de progreso
 
-Un árbol filogenético **no** ordena a las especies de "más primitiva"
-a "más evolucionada" de izquierda a derecha — todas las especies que
-llegan hasta las puntas del árbol (las que existen hoy) tienen
-**exactamente la misma cantidad de tiempo evolutivo** desde el
-ancestro común, sin importar en qué posición del dibujo aparezcan. El
+Un árbol filogenético **no** ordena a las especies de "más primitiva" a "más
+evolucionada" de izquierda a derecha. Todas las especies que llegan hasta
+las puntas del árbol (las que existen hoy) tienen **exactamente la misma
+cantidad de tiempo evolutivo** desde el ancestro común, sin importar en qué
+posición del dibujo aparezcan. El
 orden de las ramas en el papel es una elección de dibujo, no
 información evolutiva.
 
 ## 5. Conexión con lo que viene
 
-Los árboles filogenéticos hoy se construyen comparando **secuencias
-de ADN** entre especies (más similitud de secuencia = ancestro común
-más reciente) — la misma evidencia molecular ya vista en
-`../clasificacion-evolucion/`, ahora usada para reconstruir el árbol
-completo, no sólo para comparar 2 especies sueltas.
+Los árboles filogenéticos hoy se construyen comparando **secuencias de ADN**
+entre especies: a más similitud de secuencia, ancestro común más reciente.
+Es la misma evidencia molecular ya vista en `../clasificacion-evolucion/`,
+ahora usada para reconstruir el árbol completo y no solo para comparar 2
+especies sueltas.

@@ -14,7 +14,7 @@ El Derecho Administrativo es una rama del derecho público que se encarga de nor
 
 ## 2. ¿Quiénes intervienen en una relación administrativa?
 
-En cualquier situación donde el Estado actúa, siempre hay dos partes: por un lado, la **Administración Pública**, que representa al Estado y ejecuta sus funciones (como el Ministerio de Salud o la Municipalidad), y por otro, los **ciudadanos** o **particulares**, que son las personas afectadas por esas decisiones. Esta relación no se limita a casos de conflictos, sino también a situaciones cotidianas donde el Estado brinda servicios: cuando un vecino solicita un certificado de nacimiento, cuando una empresa contrata con el gobierno o cuando alguien denuncia una falta de transparencia en un proceso.
+En cualquier situación donde el Estado actúa, siempre hay dos partes. Por un lado está la **Administración Pública**, que representa al Estado y ejecuta sus funciones (como el Ministerio de Salud o la Municipalidad). Por otro están los **ciudadanos** o **particulares**, que son las personas afectadas por esas decisiones. Esta relación no se limita a casos de conflictos. También aparece en situaciones cotidianas donde el Estado brinda servicios: cuando un vecino solicita un certificado de nacimiento, cuando una empresa contrata con el gobierno o cuando alguien denuncia una falta de transparencia en un proceso.
 
 ## 3. ¿Por qué es derecho público y no privado?
 
@@ -26,4 +26,4 @@ La aplicación del Derecho Administrativo no es solo teórica: define procedimie
 
 ## N. Conexión con lo que sigue
 
-Este tema es clave para entender cómo se estructura la relación entre el Estado y los ciudadanos, lo cual servirá como base para estudiar temas como los **derechos de los particulares frente a la administración**, las **formas de control sobre los actos oficiales** o las **responsabilidades del poder público**. Ver derecho administrativo procedimientos.
+Este tema es clave para entender cómo se estructura la relación entre el Estado y los ciudadanos. Servirá como base para estudiar temas como los **derechos de los particulares frente a la administración**, las **formas de control sobre los actos oficiales** o las **responsabilidades del poder público**. Ver derecho administrativo procedimientos.

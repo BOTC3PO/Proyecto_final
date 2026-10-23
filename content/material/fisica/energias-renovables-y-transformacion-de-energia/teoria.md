@@ -29,15 +29,15 @@ Una fuente es **renovable** cuando se repone en una escala de tiempo humana: el 
 
 La **potencia** es energía por unidad de tiempo (watt, W). La **energía** consumida o producida es potencia por tiempo y en la factura eléctrica se mide en **kilowatt-hora** (kWh): `1 kWh = 3,6 millones de joules`. Un artefacto de 100 W encendido 10 horas consume 1 kWh.
 
-El **factor de capacidad** compara la energía realmente generada con la que se habría generado funcionando siempre a potencia nominal durante el período; en un parque eólico o solar es menor que el 100 % porque el viento y el Sol son variables.
+El **factor de capacidad** compara la energía realmente generada con la que se habría generado funcionando siempre a potencia nominal durante el período. En un parque eólico o solar es menor que el 100 % porque el viento y el Sol son variables.
 
 ## 5. Desafíos: intermitencia y almacenamiento
 
-El Sol y el viento no están siempre disponibles, así que se necesita **almacenar** o complementar: baterías, centrales de **bombeo** (se sube agua a un embalse cuando sobra energía y se la turbina cuando falta), redes más grandes y otras fuentes de respaldo.
+El Sol y el viento no están siempre disponibles, así que se necesita **almacenar** o complementar. Las opciones son las baterías, las centrales de **bombeo** (se sube agua a un embalse cuando sobra energía y se la turbina cuando falta), redes más grandes y otras fuentes de respaldo.
 
 ## 6. El caso argentino
 
-La Ley 27.191, que modificó la Ley 26.190, fijó una meta del 20 % de fuentes renovables en el consumo de energía eléctrica al 31 de diciembre de 2025 y del 35 % para 2030 (el cumplimiento de esas metas debe consultarse en los informes oficiales actualizados). Argentina combina grandes centrales hidroeléctricas, parques eólicos en la Patagonia y parques solares como Cauchari, en Jujuy, de unos 300 MW y en operación comercial desde 2020, ubicado en la puna, donde la irradiación es muy alta.
+La Ley 27.191, que modificó la Ley 26.190, fijó una meta del 20 % de fuentes renovables en el consumo de energía eléctrica al 31 de diciembre de 2025 y del 35 % para 2030. El cumplimiento de esas metas debe consultarse en los informes oficiales actualizados. Argentina combina grandes centrales hidroeléctricas, parques eólicos en la Patagonia y parques solares como Cauchari, en Jujuy, de unos 300 MW y en operación comercial desde 2020, ubicado en la puna, donde la irradiación es muy alta.
 
 ## 7. Eficiencia energética
 

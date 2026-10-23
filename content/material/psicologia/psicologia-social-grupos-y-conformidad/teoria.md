@@ -14,13 +14,13 @@ La psicología social estudia cómo los pensamientos, sentimientos y conductas d
 
 ## 2. Conformidad: el experimento de Asch
 
-La **conformidad** es cambiar la conducta o la opinión para ajustarse a un grupo. En los años cincuenta, Solomon Asch pidió a participantes que compararan la longitud de unas líneas, algo muy fácil. Pero estaban acompañados por cómplices del investigador que, en algunas rondas, daban a propósito una respuesta incorrecta. Aun con la respuesta evidente, muchos participantes terminaron acompañando al grupo en el error: en promedio, cerca de un tercio de las respuestas críticas coincidió con la del grupo, y alrededor de tres de cada cuatro personas se conformaron al menos una vez. Cuando había un solo cómplice que disentía, la conformidad bajaba mucho: **tener un aliado** facilita animarse a pensar distinto.
+La **conformidad** es cambiar la conducta o la opinión para ajustarse a un grupo. En los años cincuenta, Solomon Asch pidió a participantes que compararan la longitud de unas líneas, algo muy fácil. Pero estaban acompañados por cómplices del investigador que, en algunas rondas, daban a propósito una respuesta incorrecta. Aun con la respuesta evidente, muchos participantes terminaron acompañando al grupo en el error. En promedio, cerca de un tercio de las respuestas críticas coincidió con la del grupo, y alrededor de tres de cada cuatro personas se conformaron al menos una vez. Cuando había un solo cómplice que disentía, la conformidad bajaba mucho: **tener un aliado** facilita animarse a pensar distinto.
 
 Se distinguen dos motivos de conformidad: la influencia **normativa** (queremos ser aceptados y evitar el rechazo) y la **informacional** (pensamos que el grupo sabe más que nosotros).
 
 ## 3. Obediencia: el experimento de Milgram
 
-En 1961 Stanley Milgram estudió la **obediencia a la autoridad**. A los participantes se les pedía que aplicaran lo que creían descargas eléctricas a otra persona (en realidad un actor, sin descargas reales) cuando se equivocaba en una tarea, con intensidad creciente, mientras un investigador con guardapolvo les decía que continuaran. Una proporción alta llegó hasta el nivel máximo en la versión original. El experimento mostró que personas comunes pueden hacer cosas que les generan conflicto cuando una figura de autoridad les da la orden y se sienten poco responsables. Se lo discute hoy por razones éticas (el estrés de los participantes) y metodológicas, pero sigue siendo clave para pensar cómo se explican conductas dañinas colectivas **sin reducirlas a "gente mala"**.
+En 1961 Stanley Milgram estudió la **obediencia a la autoridad**. A los participantes se les pedía que aplicaran lo que creían descargas eléctricas a otra persona cuando se equivocaba en una tarea. En realidad era un actor y no había descargas reales. La intensidad iba en aumento, mientras un investigador con guardapolvo les decía que continuaran. Una proporción alta llegó hasta el nivel máximo en la versión original. El experimento mostró que personas comunes pueden hacer cosas que les generan conflicto cuando una figura de autoridad les da la orden y se sienten poco responsables. Se lo discute hoy por razones éticas (el estrés de los participantes) y metodológicas, pero sigue siendo clave para pensar cómo se explican conductas dañinas colectivas **sin reducirlas a "gente mala"**.
 
 ## 4. Estereotipos, prejuicios y discriminación
 
@@ -41,7 +41,7 @@ Los prejuicios se alimentan de la categorización "nosotros / ellos", la compete
 
 ## 6. Qué hacer con esto
 
-Conocer estos fenómenos no nos vuelve inmunes, pero ayuda a: animarse a decir lo que se piensa cuando uno disiente, cuestionar órdenes injustas, reconocer los propios estereotipos y, ante una emergencia, **actuar en lugar de esperar que lo haga otro**.
+Conocer estos fenómenos no nos vuelve inmunes, pero ayuda a animarse a decir lo que se piensa cuando uno disiente, a cuestionar órdenes injustas y a reconocer los propios estereotipos. Y, ante una emergencia, ayuda a **actuar en lugar de esperar que lo haga otro**.
 
 ## N. Conexión con lo que sigue
 

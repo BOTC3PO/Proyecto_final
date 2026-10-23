@@ -10,7 +10,7 @@
 
 ## 1. Medir es conectar un instrumento al circuito
 
-Todo instrumento modifica un poco aquello que mide, así que hay que elegir cómo conectarlo para que su efecto sea mínimo. La regla de base depende de la magnitud: la tensión se mide en paralelo con el componente, porque se compara el potencial entre dos puntos; la corriente se mide en serie, porque el instrumento tiene que ser atravesado por la corriente que se quiere medir; y la resistencia se mide con el componente fuera del circuito y sin tensión aplicada.
+Todo instrumento modifica un poco aquello que mide, así que hay que elegir cómo conectarlo para que su efecto sea mínimo. La regla de base depende de la magnitud. La tensión se mide en paralelo con el componente, porque se compara el potencial entre dos puntos. La corriente se mide en serie, porque el instrumento tiene que ser atravesado por la corriente que se quiere medir. La resistencia se mide con el componente fuera del circuito y sin tensión aplicada.
 
 ## 2. El multímetro
 
@@ -26,11 +26,11 @@ Si no se conoce el valor aproximado, se empieza con el rango más alto y se baja
 
 ## 5. Incertidumbre
 
-Ninguna medición es exacta. Los instrumentos tienen una exactitud especificada por el fabricante (por ejemplo, un porcentaje de la lectura más unas cifras del último dígito), y además influyen la resolución de la pantalla, la temperatura y la forma en que se conectan las puntas. Por eso un resultado se escribe con su incertidumbre, y se repiten las mediciones para detectar errores groseros.
+Ninguna medición es exacta. El fabricante especifica la exactitud de los instrumentos (por ejemplo, un porcentaje de la lectura más unas cifras del último dígito). Además influyen la resolución de la pantalla, la temperatura y la forma en que se conectan las puntas. Por eso un resultado se escribe con su incertidumbre, y se repiten las mediciones para detectar errores groseros.
 
 ## 6. El osciloscopio
 
-El osciloscopio muestra cómo varía una tensión en el tiempo. En la pantalla, el eje horizontal es el tiempo y el vertical es la tensión. Tiene dos controles esenciales: la escala vertical, en voltios por división, y la base de tiempo, en segundos (o milisegundos) por división. Con ellos se leen magnitudes contando divisiones en la cuadrícula. El período T es el tiempo de un ciclo completo y la frecuencia es f = 1 / T. La tensión pico a pico (Vpp) es la distancia vertical entre el valor más alto y el más bajo; para una señal senoidal el valor eficaz es Vrms = Vp / √2, donde Vp es la tensión de pico, la mitad de Vpp. La punta del osciloscopio tiene un cable de masa que debe conectarse con cuidado, porque la masa del instrumento suele estar conectada a tierra.
+El osciloscopio muestra cómo varía una tensión en el tiempo. En la pantalla, el eje horizontal es el tiempo y el vertical es la tensión. Tiene dos controles esenciales: la escala vertical, en voltios por división, y la base de tiempo, en segundos (o milisegundos) por división. Con ellos se leen magnitudes contando divisiones en la cuadrícula. El período T es el tiempo de un ciclo completo y la frecuencia es f = 1 / T. La tensión pico a pico (Vpp) es la distancia vertical entre el valor más alto y el más bajo. Para una señal senoidal, el valor eficaz es Vrms = Vp / √2, donde Vp es la tensión de pico, la mitad de Vpp. La punta del osciloscopio tiene un cable de masa que debe conectarse con cuidado, porque la masa del instrumento suele estar conectada a tierra.
 
 ## N. Conexión con lo que sigue
 

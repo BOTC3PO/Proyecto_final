@@ -20,11 +20,11 @@ La clasificación no es idéntica en todos los autores: algunos ubican la veloci
 
 La **fuerza** es la capacidad de los músculos para vencer una resistencia mediante la tensión muscular. La resistencia puede ser el propio cuerpo (flexiones, sentadillas), un objeto (una pelota medicinal) o un compañero.
 
-Suele distinguirse entre **fuerza máxima** (la mayor tensión que se puede generar), **fuerza explosiva o potencia** (generar mucha fuerza en poco tiempo, como en un salto) y **resistencia a la fuerza** (sostener esfuerzos repetidos, como en una serie larga de abdominales). En la adolescencia se trabaja primero la técnica y el control del movimiento, con el propio peso corporal y cargas livianas, y con supervisión de un docente.
+Suele distinguirse entre tres tipos. La **fuerza máxima** es la mayor tensión que se puede generar. La **fuerza explosiva o potencia** es generar mucha fuerza en poco tiempo, como en un salto. La **resistencia a la fuerza** es sostener esfuerzos repetidos, como en una serie larga de abdominales. En la adolescencia se trabaja primero la técnica y el control del movimiento, con el propio peso corporal y cargas livianas, y con supervisión de un docente.
 
 ## 3. Resistencia
 
-La **resistencia** es la capacidad de mantener un esfuerzo durante el mayor tiempo posible. Se habla de **resistencia aeróbica** cuando el esfuerzo es de intensidad moderada y el cuerpo obtiene la energía con oxígeno (trote continuo, natación suave, ciclismo), y de **resistencia anaeróbica** cuando el esfuerzo es muy intenso y breve, o se repite con pausas cortas (carreras cortas repetidas).
+La **resistencia** es la capacidad de mantener un esfuerzo durante el mayor tiempo posible. Se habla de **resistencia aeróbica** cuando el esfuerzo es de intensidad moderada y el cuerpo obtiene la energía con oxígeno (trote continuo, natación suave, ciclismo). Se habla de **resistencia anaeróbica** cuando el esfuerzo es muy intenso y breve, o se repite con pausas cortas (carreras cortas repetidas).
 
 Se relaciona directamente con los **sistemas energéticos** de `../alfabetizacion-corporal/` y con la frecuencia cardíaca de `../frecuencia-cardiaca-maxima-zonas/`: cuando la resistencia mejora, el corazón bombea más sangre por latido y la frecuencia en reposo tiende a bajar.
 
@@ -40,7 +40,7 @@ La **flexibilidad** es la capacidad de lograr el máximo recorrido de las articu
 
 Para mejorar una capacidad hace falta una **carga adecuada, progresiva y regular**, como se vio en `../planificacion-progresion-volumen/`, y respetar el descanso. Rige el **principio de especificidad**: cada capacidad mejora con el tipo de ejercicio que la exige.
 
-En la escuela se usan **pruebas simples** para ver la evolución: salto horizontal sin carrera (fuerza explosiva de piernas), la carrera de 12 minutos del test de Cooper (resistencia aeróbica), una carrera corta cronometrada (velocidad) o el alcance sentado hacia adelante (flexibilidad). Comparar con uno mismo a lo largo del tiempo es más útil que compararse con otros.
+En la escuela se usan **pruebas simples** para ver la evolución: el salto horizontal sin carrera (fuerza explosiva de piernas), la carrera de 12 minutos del test de Cooper (resistencia aeróbica), una carrera corta cronometrada (velocidad) o el alcance sentado hacia adelante (flexibilidad). Comparar con uno mismo a lo largo del tiempo es más útil que compararse con otros.
 
 ## 7. Conexión con lo que sigue
 

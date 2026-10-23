@@ -10,7 +10,7 @@
 
 ## 1. Qué es (y qué no es) el bullying
 
-El bullying o acoso escolar es una forma de violencia entre pares que reúne tres rasgos: es **intencional** (busca dañar), es **repetido en el tiempo** y hay un **desequilibrio de poder** (quien agrede es más fuerte, popular o está respaldado por un grupo, y quien lo recibe tiene dificultad para defenderse). Una pelea ocasional entre dos compañeros de fuerzas parejas, o un conflicto puntual, es un problema de convivencia que hay que resolver, pero no es bullying.
+El bullying o acoso escolar es una forma de violencia entre pares que reúne tres rasgos. Es **intencional** (busca dañar). Es **repetido en el tiempo**. Y hay un **desequilibrio de poder**: quien agrede es más fuerte, popular o está respaldado por un grupo, y quien lo recibe tiene dificultad para defenderse. Una pelea ocasional entre dos compañeros de fuerzas parejas, o un conflicto puntual, es un problema de convivencia que hay que resolver, pero no es bullying.
 
 ## 2. Formas que puede tomar
 
@@ -25,7 +25,7 @@ Hay quien agrede, quien recibe y un tercer grupo muy importante: **los testigos*
 
 ## 4. Señales de alerta
 
-En quien lo sufre pueden aparecer: no querer ir a la escuela, dolores de cabeza o de panza frecuentes, cambios de humor, aislamiento, caída del rendimiento, pertenencias que faltan o se rompen, dejar de usar el celular de golpe o mostrarse muy ansioso con él. Ninguna señal sola prueba nada; importa el conjunto y la persistencia.
+En quien lo sufre pueden aparecer estas señales: no querer ir a la escuela, dolores de cabeza o de panza frecuentes, cambios de humor, aislamiento y caída del rendimiento. También pertenencias que faltan o se rompen, dejar de usar el celular de golpe o mostrarse muy ansioso con él. Ninguna señal sola prueba nada; importa el conjunto y la persistencia.
 
 ## 5. Consecuencias
 
@@ -39,7 +39,7 @@ El acoso puede afectar el bienestar emocional, el sueño, el aprendizaje y la co
 
 ## 7. Marco legal
 
-La **Ley 26.892** (2013) promueve la convivencia y el abordaje de la conflictividad social en las instituciones educativas: las escuelas deben tener acuerdos de convivencia elaborados con participación de la comunidad educativa y estrategias para prevenir y atender estas situaciones. Se enmarca en el derecho de niñas, niños y adolescentes a ser tratados con respeto y a estudiar en un ambiente seguro.
+La **Ley 26.892** (2013) promueve la convivencia y el abordaje de la conflictividad social en las instituciones educativas. Las escuelas deben tener acuerdos de convivencia elaborados con participación de la comunidad educativa, y estrategias para prevenir y atender estas situaciones. Se enmarca en el derecho de niñas, niños y adolescentes a ser tratados con respeto y a estudiar en un ambiente seguro.
 
 ## N. Conexión con lo que sigue
 

@@ -14,19 +14,19 @@ El cuerpo se defiende de virus y bacterias con el **sistema inmune**. Cuando se 
 
 ## 2. Qué es una vacuna
 
-Una **vacuna** es una preparación que presenta al sistema inmune una versión inofensiva de un agente (microorganismos debilitados o inactivados, fragmentos, o instrucciones para producir una proteína) para que **aprenda a reconocerlo sin pasar por la enfermedad**. Así genera memoria inmunológica. No “contagia” la enfermedad que previene. Puede producir efectos leves y pasajeros (dolor en el lugar, fiebre baja), que muestran que el cuerpo está respondiendo; las reacciones graves son muy poco frecuentes y están vigiladas.
+Una **vacuna** es una preparación que presenta al sistema inmune una versión inofensiva de un agente: microorganismos debilitados o inactivados, fragmentos, o instrucciones para producir una proteína. Así el cuerpo **aprende a reconocerlo sin pasar por la enfermedad**. Así genera memoria inmunológica. No “contagia” la enfermedad que previene. Puede producir efectos leves y pasajeros (dolor en el lugar, fiebre baja), que muestran que el cuerpo está respondiendo; las reacciones graves son muy poco frecuentes y están vigiladas.
 
 Se prueban en estudios clínicos por fases y son controladas por las autoridades sanitarias; en Argentina interviene la ANMAT.
 
 ## 3. Inmunidad de grupo
 
-Cuando una gran parte de la población está vacunada, el agente circula con dificultad y quedan **protegidas indirectamente** las personas que no pueden vacunarse (bebés muy pequeños, personas con ciertas enfermedades) o en quienes la vacuna no funcionó. A esto se llama **inmunidad de grupo** o de rebaño. El porcentaje necesario depende de lo contagiosa que sea la enfermedad: el sarampión, muy contagioso, requiere coberturas muy altas.
+Cuando una gran parte de la población está vacunada, el agente circula con dificultad. Quedan **protegidas indirectamente** las personas que no pueden vacunarse (bebés muy pequeños, personas con ciertas enfermedades) o en quienes la vacuna no funcionó. A esto se llama **inmunidad de grupo** o de rebaño. El porcentaje necesario depende de lo contagiosa que sea la enfermedad: el sarampión, muy contagioso, requiere coberturas muy altas.
 
 Cuando las coberturas bajan, vuelven brotes de enfermedades que estaban controladas.
 
 ## 4. El Calendario Nacional de Vacunación y la Ley 27.491
 
-En Argentina, la **Ley 27.491** (publicada en el Boletín Oficial en enero de 2019), de control de enfermedades prevenibles por vacunación, declara la vacunación de interés nacional y establece que las vacunas del **Calendario Nacional de Vacunación** son **obligatorias y gratuitas** en los vacunatorios públicos. El Ministerio de Salud de la Nación define y actualiza el calendario, que incluye vacunas desde el nacimiento hasta la adultez y para distintos grupos (embarazadas, personal de salud, personas con ciertas condiciones). El calendario cambia con el tiempo, por eso conviene consultar el vigente en argentina.gob.ar.
+En Argentina, la **Ley 27.491** (publicada en el Boletín Oficial en enero de 2019) regula el control de enfermedades prevenibles por vacunación. Declara la vacunación de interés nacional y establece que las vacunas del **Calendario Nacional de Vacunación** son **obligatorias y gratuitas** en los vacunatorios públicos. El Ministerio de Salud de la Nación define y actualiza el calendario, que incluye vacunas desde el nacimiento hasta la adultez y para distintos grupos (embarazadas, personal de salud, personas con ciertas condiciones). El calendario cambia con el tiempo, por eso conviene consultar el vigente en argentina.gob.ar.
 
 En la adolescencia suelen aplicarse refuerzos y vacunas como la que previene el virus del papiloma humano (HPV, asociado a varios tipos de cáncer) y la de la triple bacteriana acelular. Se pide el **carnet de vacunación** para trámites escolares y otros.
 

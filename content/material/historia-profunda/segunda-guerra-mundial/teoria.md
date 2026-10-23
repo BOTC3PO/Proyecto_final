@@ -12,7 +12,7 @@
 
 La Segunda Guerra Mundial no fue un evento aislado, sino la continuación de las contradicciones irresueltas de la Primera Guerra Mundial y la Crisis de 1929. El Tratado de Versalles (1919) había impuesto a Alemania condiciones humillantes que generaron un resentimiento nacionalista profundo, explotado políticamente por el Partido Nacionalsocialista Obrero Alemán (NSDAP). La llegada de Adolf Hitler al poder en 1933 marcó el inicio de un desafío directo al *statu quo* internacional.
 
-Paralelamente, en Italia, el fascismo de Benito Mussolini había buscado restaurar el imperio romano, mientras que en Japón, el militarismo expansionista impulsaba una agenda imperialista en Asia continental. La falta de cohesión de la Sociedad de Naciones y la política de apaciguamiento adoptada por las potencias democráticas (especialmente Gran Bretaña y Francia) ante las primeras agresiones —la reocupación de Renania, la anexión de Austria (*Anschluss*) y la crisis de los Sudetes— crearon un clima de permisividad que incentivó la agresividad del Eje.
+Paralelamente, en Italia, el fascismo de Benito Mussolini había buscado restaurar el imperio romano, mientras que en Japón, el militarismo expansionista impulsaba una agenda imperialista en Asia continental. La Sociedad de Naciones carecía de cohesión, y las potencias democráticas (especialmente Gran Bretaña y Francia) adoptaron una política de apaciguamiento ante las primeras agresiones: la reocupación de Renania, la anexión de Austria (*Anschluss*) y la crisis de los Sudetes. Esto creó un clima de permisividad que incentivó la agresividad del Eje.
 
 ## 2. La fase de la "Guerra Relámpago" y el dominio del Eje (1939-1941)
 
@@ -30,7 +30,7 @@ La entrada de Estados Unidos en la guerra tras el ataque japonés a Pearl Harbor
 
 En el Pacífico, Japón buscaba asegurar recursos naturales y crear una "Esfera de Coprosperidad" en Asia, chocando directamente con los intereses estadounidenses y británicos. Aunque Japón logró victorias iniciales en Filipinas y el sudeste asiático, la Batalla del Mar del Coral (mayo de 1942) y, decisivamente, la Batalla de Midway (junio de 1942) frenaron la expansión naval japonesa.
 
-En el norte de África, la campaña contra las fuerzas del Eje, lideradas por el Afrika Korps alemán y los italianos, culminó con la victoria aliada en El Alamein (1942) y el desembarco en el norte de África (Operación Tórcola), abriendo la puerta a la invasión de Sicilia e Italia.
+En el norte de África, la campaña contra las fuerzas del Eje, lideradas por el Afrika Korps alemán y los italianos, culminó con la victoria aliada en El Alamein (1942) y el desembarco en el norte de África (Operación Tórcola). Esto abrió la puerta a la invasión de Sicilia e Italia.
 
 ## 4. El giro de la marea: De la ofensiva a la derrota del Eje (1943-1945)
 
@@ -46,6 +46,6 @@ A diferencia de Europa, la guerra en el Pacífico no terminó con una invasión 
 
 Las consecuencias de la guerra fueron profundas. La Europa tradicionalmente dominante fue dividida en dos bloques de influencia, iniciando la Guerra Fría. Estados Unidos y la Unión Soviética emergieron como superpotencias globales. La creación de la Organización de las Naciones Unidas (ONU) en 1945 buscó prevenir futuros conflictos globales, aunque la división ideológica limitó su eficacia inicial.
 
-El conflicto también dejó una huella moral irreparable con el descubrimiento del Holocausto y la implementación de la política de exterminio sistemático por parte del régimen nazi, lo que llevó a los Juicios de Núremberg y al establecimiento del concepto de "crímenes contra la humanidad". La guerra aceleró procesos de descolonización en Asia y África, al debilitar a las metrópolis europeas y empoderar a los movimientos nacionalistas locales.
+El conflicto también dejó una huella moral irreparable con el descubrimiento del Holocausto y la política de exterminio sistemático del régimen nazi. Esto llevó a los Juicios de Núremberg y al establecimiento del concepto de "crímenes contra la humanidad". La guerra aceleró procesos de descolonización en Asia y África, al debilitar a las metrópolis europeas y empoderar a los movimientos nacionalistas locales.
 
 <!-- IMAGEN: Fotografía histórica de la firma de la rendición japonesa a bordo del USS Missouri -->
