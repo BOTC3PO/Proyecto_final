@@ -18,7 +18,7 @@ Es fundamental entender que, aunque haya oposición de sentido, ambas partes man
 
 Los nexos que introducen estas oraciones son principalmente la conjunción adversativa "pero" y sus variantes como "mas" (en contextos literarios o formales), "sino", "sin embargo", "no obstante", "aunque" (en algunos contextos concesivos-adversativos) y "por el contrario". La posición del nexo es flexible, lo que permite variar el ritmo y el énfasis del discurso.
 
-Cuando el nexo es una conjunción simple como "pero", se escribe sin coma antes si la oración es corta, pero generalmente se coloca una coma antes del nexo si la primera proposición es larga o si se quiere marcar una pausa enfática. Por ejemplo: "Quería ir al cine, pero estaba lloviendo". En cambio, cuando usamos locuciones adverbiales como "sin embargo" o "no obstante", estas suelen ir entre comas, ya sea al inicio de la segunda proposición o en medio de ella, actuando como conectores discursivos más marcados.
+Cuando el nexo es una conjunción simple como "pero", se escribe sin coma antes si la oración es corta. Generalmente se coloca una coma antes del nexo si la primera proposición es larga o si se quiere marcar una pausa enfática. Por ejemplo: "Quería ir al cine, pero estaba lloviendo". En cambio, cuando usamos locuciones adverbiales como "sin embargo" o "no obstante", estas suelen ir entre comas, ya sea al inicio de la segunda proposición o en medio de ella, actuando como conectores discursivos más marcados.
 
 ## Importancia en la comprensión lectora y la escritura
 

@@ -18,7 +18,7 @@ Entender este concepto es fundamental para la expresión escrita y oral porque n
 
 Para detectar una subordinada de tiempo, buscamos palabras que actúen como nexos o conectores temporales. Estas palabras introducen la cláusula subordinada y la vinculan con la principal. Las más comunes incluyen *cuando*, *mientras*, *en cuanto*, *antes de que*, *después de que*, *hasta que*, *tan pronto como* y *desde que*. Es importante notar que muchas de estas expresiones exigen un uso específico del modo verbal (indicativo o subjuntivo), lo cual es un detalle gramatical clave.
 
-Por ejemplo, cuando usamos *antes de que*, casi siempre requerimos el subjuntivo en la subordinada (*Antes de que llegues, avísame*), mientras que con *cuando* referidos a hechos habituales o pasados, solemos usar el indicativo (*Cuando iba al colegio, me compraba alfajores*). Esta distinción no es solo una regla mecánica, sino que refleja la relación de anterioridad, simultaneidad o posterioridad entre los eventos. Si la acción de la subordinada es futura respecto al momento de habla o incierta, el subjuntivo se vuelve casi obligatorio.
+Por ejemplo, cuando usamos *antes de que*, casi siempre requerimos el subjuntivo en la subordinada (*Antes de que llegues, avísame*). Con *cuando* referido a hechos habituales o pasados, en cambio, solemos usar el indicativo (*Cuando iba al colegio, me compraba alfajores*). Esta distinción no es solo una regla mecánica, sino que refleja la relación de anterioridad, simultaneidad o posterioridad entre los eventos. Si la acción de la subordinada es futura respecto al momento de habla o incierta, el subjuntivo se vuelve casi obligatorio.
 
 ## Aplicación práctica en textos argentinos
 

@@ -20,7 +20,7 @@ Este principio se basa en dos ideas fundamentales: primero, que las leyes deben 
 
 ## 2. Control del poder para evitar abusos
 
-El Estado de Derecho no solo regula lo que los ciudadanos pueden hacer, sino también **cómo se ejerce el poder público**. Para prevenir que una sola persona o grupo controle todo, se establece la **división de poderes**: separar las funciones del gobierno en tres ramas principales: Ejecutivo (que aplica las leyes), Legislativo (que las crea) y Judicial (que las interpreta y aplica).
+El Estado de Derecho no solo regula lo que los ciudadanos pueden hacer, sino también **cómo se ejerce el poder público**. Para prevenir que una sola persona o grupo controle todo, se establece la **división de poderes**. Consiste en separar las funciones del gobierno en tres ramas principales: Ejecutivo (que aplica las leyes), Legislativo (que las crea) y Judicial (que las interpreta y aplica).
 
 Esta división es clave porque permite que cada rama controle a las otras. Por ejemplo, si el Poder Ejecutivo quiere aprobar una medida urgente, el Legislativo debe validarla. Si se sospecha de un abuso de autoridad, el Poder Judicial puede intervenir para investigar o anular la acción. Sin esta separación, existe el riesgo de que un solo órgano concentre demasiado poder y abuse de él.
 

@@ -16,7 +16,7 @@ La poesía argentina del siglo XX cambia mucho en pocas décadas. Una forma úti
 
 **Leopoldo Lugones** (1874-1938) viene del modernismo (`../modernismo/`) y renueva la lengua poética con libros como ***Lunario sentimental*** (1909), donde juega con metáforas, humor y neologismos. Se convierte en la figura que los jóvenes admiran y a la vez quieren superar.
 
-**Alfonsina Storni** (1892-1938), nacida en Suiza y criada en la Argentina, escribe una poesía de voz femenina que cuestiona los roles de género de su tiempo, con libros como ***La inquietud del rosal*** (1916), ***Ocre*** (1925) y ***Mundo de siete pozos*** (1934). Su poesía pasa de un tono romántico a una expresión más seca y moderna.
+**Alfonsina Storni** (1892-1938), nacida en Suiza y criada en la Argentina, escribe una poesía de voz femenina que cuestiona los roles de género de su tiempo. Sus libros incluyen ***La inquietud del rosal*** (1916), ***Ocre*** (1925) y ***Mundo de siete pozos*** (1934). Su poesía pasa de un tono romántico a una expresión más seca y moderna.
 
 ## Las vanguardias de los años veinte
 

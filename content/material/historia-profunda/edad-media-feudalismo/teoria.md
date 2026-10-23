@@ -16,7 +16,7 @@ La desaparición del Imperio Romano de Occidente en el año 476 d.C. marcó el f
 
 ## 2. La sociedad feudal: tres pilares interdependientes
 
-La estructura social feudal se basó en una división clara entre tres grupos que definían las relaciones humanas: **los que luchan**, **los que oran** y **los que trabajan**. Los nobles (señores feudales) eran los encargados de gobernar, proteger tierras y liderar ejércitos; el clero (sacerdotes, monjes y obispos) se dedicaba a la religión, la educación y la administración espiritual; y los siervos o campesinos, en su mayoría agrícolas, mantenían la economía mediante el trabajo de las tierras.
+La estructura social feudal se basó en una división clara entre tres grupos que definían las relaciones humanas: **los que luchan**, **los que oran** y **los que trabajan**. Los nobles (señores feudales) eran los encargados de gobernar, proteger tierras y liderar ejércitos. El clero (sacerdotes, monjes y obispos) se dedicaba a la religión, la educación y la administración espiritual. Los siervos o campesinos, en su mayoría agrícolas, mantenían la economía mediante el trabajo de las tierras.
 
 Esta jerarquía no era estática: un noble dependía del clero para legitimar su poder, y ambos necesitaban a los campesinos para sostenerse. La interdependencia entre estos grupos fue clave para mantener la estabilidad en una Europa fracturada por guerras constantes y falta de autoridad central.
 

@@ -55,10 +55,10 @@ Aunque se usan como sinónimos en el habla cotidiana, tienen un matiz:
 
 ## Cómo se traza un límite: accidentes naturales vs. líneas artificiales
 
-- **Límites naturales**: siguen un accidente geográfico real. Puede ser un río
-  (el límite entre Argentina y Uruguay sigue en gran parte el río Uruguay),
-  una cordillera (el límite entre Argentina y Chile sigue en gran parte la
-  Cordillera de los Andes, por la línea de las altas cumbres) o una costa.
+- **Límites naturales**: siguen un accidente geográfico real. Puede ser un río: el límite entre Argentina y Uruguay sigue en gran parte el
+  río Uruguay. Puede ser una cordillera: el límite entre Argentina y Chile
+  sigue en gran parte la Cordillera de los Andes, por la línea de las altas
+  cumbres. O puede ser una costa.
 - **Límites artificiales**: no siguen ningún accidente geográfico. Son líneas
   trazadas por tratado o decisión política, a menudo rectas o siguiendo un
   paralelo o meridiano. Varios límites en África y en el oeste de Estados

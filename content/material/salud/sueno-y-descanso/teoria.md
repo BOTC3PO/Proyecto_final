@@ -42,7 +42,7 @@ Si no se puede dormir, quedarse mirando el reloj empeora la ansiedad: es mejor l
 
 ## 5. Cuándo consultar
 
-Conviene hablar con un adulto de confianza y consultar a un profesional de la salud en estos casos: somnolencia intensa durante el día aunque se duerma lo suficiente, ronquidos fuertes con pausas para respirar, dificultad persistente para dormirse durante semanas, pesadillas frecuentes, o sueño que se acompaña de angustia o tristeza persistente (ver `../../psicologia/salud-mental-ansiedad-depresion-pedir-ayuda/`). **No tomes pastillas para dormir ni suplementos sin indicación médica**, y no uses bebidas energizantes para "aguantar".
+Conviene hablar con un adulto de confianza y consultar a un profesional de la salud en estos casos: somnolencia intensa durante el día aunque se duerma lo suficiente, ronquidos fuertes con pausas para respirar, dificultad persistente para dormirse durante semanas y pesadillas frecuentes. También si el sueño se acompaña de angustia o tristeza persistente (ver `../../psicologia/salud-mental-ansiedad-depresion-pedir-ayuda/`). **No tomes pastillas para dormir ni suplementos sin indicación médica**, y no uses bebidas energizantes para "aguantar".
 
 ## N. Conexión con lo que sigue
 

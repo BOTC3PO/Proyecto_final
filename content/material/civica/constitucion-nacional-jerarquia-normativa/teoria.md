@@ -30,7 +30,7 @@ Una **norma de menor rango no puede contradecir a una superior**. Por ejemplo, u
 
 ## 4. Control de constitucionalidad
 
-El **control de constitucionalidad** es el mecanismo mediante el cual se verifica si una norma cumple con la Constitución. En Argentina es un sistema **difuso y a posteriori**: cualquier juez, de cualquier fuero e instancia, puede declarar la inconstitucionalidad de una norma cuando se aplica a un caso concreto que está juzgando — no existe un tribunal especializado que revise leyes en abstracto antes de que entren en vigor (a diferencia de otros países, como Chile o Francia, que sí tienen ese mecanismo). El fallo sólo tiene efecto para ese caso puntual (no deroga la norma en general), salvo que la Corte Suprema siente un precedente que los tribunales inferiores suelen seguir.
+El **control de constitucionalidad** es el mecanismo mediante el cual se verifica si una norma cumple con la Constitución. En Argentina es un sistema **difuso y a posteriori**. Cualquier juez, de cualquier fuero e instancia, puede declarar la inconstitucionalidad de una norma cuando se aplica a un caso concreto que está juzgando. No existe un tribunal especializado que revise leyes en abstracto antes de que entren en vigor, a diferencia de otros países, como Chile o Francia, que sí tienen ese mecanismo. El fallo sólo tiene efecto para ese caso puntual (no deroga la norma en general), salvo que la Corte Suprema siente un precedente que los tribunales inferiores suelen seguir.
 
 Este control asegura que la jerarquía normativa se respete y evita que leyes o reglamentos violen los derechos garantizados por el texto constitucional.
 

@@ -56,10 +56,10 @@ hay excepciones importantes que conviene conocer:
   cantidades.
 - **Tiempo de cocción**: es la excepción más importante, y la que más se
   ignora. El tiempo de cocción **NO** escala proporcional a la cantidad
-  de comida. Duplicar la masa de un pan no duplica el tiempo que tarda
-  en hornearse — depende de cómo se transfiere el calor hacia el centro
-  (relacionado con el volumen y la superficie de contacto, no con una
-  simple regla de tres). Para saber si algo está listo, conviene mirar
+  de comida. Duplicar la masa de un pan no duplica el tiempo que tarda en hornearse.
+  Depende de cómo se transfiere el calor hacia el centro, que se relaciona
+  con el volumen y la superficie de contacto. No es una simple regla de
+  tres. Para saber si algo está listo, conviene mirar
   la temperatura interna o señales visuales/de textura, no calcular el
   tiempo con una regla de tres.
 

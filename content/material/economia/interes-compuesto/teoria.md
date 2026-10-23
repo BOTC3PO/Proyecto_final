@@ -62,10 +62,10 @@ capital, y la diferencia se agranda cuanto más períodos pasan.
 
 Igual que en interés simple, si la tasa es anual pero se quiere calcular
 la capitalización mensual, hay que convertir la tasa anual a mensual (o
-el tiempo a la unidad de la tasa) antes de aplicar la fórmula. Cuando la capitalización es más frecuente que el período de la tasa nominal
-(por ejemplo, una tasa anual que capitaliza mes a mes), el monto final
-termina siendo mayor que si capitalizara una sola vez al año con esa misma
-tasa nominal. La diferencia entre "tasa nominal" y "tasa efectiva" es,
+el tiempo a la unidad de la tasa) antes de aplicar la fórmula. Cuando la capitalización es más frecuente que el período de la tasa nominal,
+el monto final termina siendo mayor. Es el caso, por ejemplo, de una tasa
+anual que capitaliza mes a mes, comparada con capitalizar una sola vez al
+año con esa misma tasa nominal. La diferencia entre "tasa nominal" y "tasa efectiva" es,
 justamente, el tema del próximo módulo (`CFT vs. tasa nominal`).
 
 ## Dónde aparece en la vida real

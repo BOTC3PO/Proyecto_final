@@ -82,7 +82,7 @@ del esfuerzo se "pierde" venciendo la fricción en vez de mover la carga.
 
 ## Para qué sirve
 
-Es el puente real entre la Física y los oficios: un carpintero
-haciendo palanca con una barra, un mecánico usando una llave larga, un
-albañil subiendo materiales por una rampa en vez de levantarlos
-derecho, todos usan ventaja mecánica todos los días sin nombrarla así.
+Es el puente real entre la Física y los oficios. Un carpintero haciendo
+palanca con una barra, un mecánico usando una llave larga y un albañil
+subiendo materiales por una rampa en vez de levantarlos derecho usan ventaja
+mecánica todos los días, sin nombrarla así.

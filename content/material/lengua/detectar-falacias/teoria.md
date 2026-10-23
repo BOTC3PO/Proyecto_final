@@ -71,8 +71,7 @@ razonamiento).
 ## Para qué sirve
 
 Detectar falacias es una herramienta de lectura crítica (noticias,
-publicidad, debates) y es el puente directo hacia **Lógica
-proposicional** (Filosofía, tema siguiente): las falacias son errores
-de razonamiento en lenguaje cotidiano; la lógica formal da las
-herramientas para analizar la validez de un razonamiento de forma
-más precisa y sistemática.
+publicidad, debates). Es el puente directo hacia **Lógica proposicional**
+(Filosofía, tema siguiente). Las falacias son errores de razonamiento en
+lenguaje cotidiano. La lógica formal da las herramientas para analizar la
+validez de un razonamiento de forma más precisa y sistemática.

@@ -66,7 +66,7 @@ el mismo tiempo de reacción y desaceleración:
   distancia de frenado como si fuera la distancia total.
 - No convertir unidades: si la velocidad está en km/h, hay que pasarla
   a m/s antes de aplicar las fórmulas (que están en el sistema SI).
-- Suponer que la desaceleración de frenado es siempre la misma — en
-  realidad depende del estado de los frenos, los neumáticos, y si el
-  piso está mojado o seco (un piso mojado da una desaceleración menor,
-  y por lo tanto mayor distancia de frenado).
+- Otro error es suponer que la desaceleración de frenado es siempre la misma.
+  En realidad depende del estado de los frenos, los neumáticos y si el piso
+  está mojado o seco. Un piso mojado da una desaceleración menor y, por lo
+  tanto, mayor distancia de frenado.

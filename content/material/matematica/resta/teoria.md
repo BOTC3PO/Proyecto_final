@@ -68,7 +68,7 @@ error grosero.
 
 Dentro de los números naturales, el minuendo siempre tiene que ser mayor o
 igual que el sustraendo — "no se le puede quitar a algo más de lo que
-tiene". Cuando eso no alcanza (el sustraendo es mayor), la resta sigue
-teniendo sentido, pero el resultado ya no es un natural: es un número
-negativo, tema de `N`úmeros enteros (ver el próximo tema del Tronco 1
-después de Multiplicación y división, en `../dependencias.md`).
+tiene". Cuando eso no alcanza (el sustraendo es mayor), la resta sigue teniendo
+sentido, pero el resultado ya no es un natural. Es un número negativo, tema
+de `N`úmeros enteros (ver el próximo tema del Tronco 1 después de
+Multiplicación y división, en `../dependencias.md`).

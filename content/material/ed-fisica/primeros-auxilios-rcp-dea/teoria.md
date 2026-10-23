@@ -42,9 +42,9 @@ paro. Si detecta un ritmo que un shock eléctrico puede corregir (fibrilación
 ventricular), aplica ese shock para intentar restablecer un ritmo normal.
 
 **Punto clave**: el DEA está diseñado para ser usado por personas sin
-entrenamiento médico — da instrucciones por voz paso a paso y **no
-aplica el shock** si detecta que no corresponde (es seguro, no puede
-"empeorar" la situación por errores del usuario). Se usa en conjunto
+entrenamiento médico. Da instrucciones por voz paso a paso y **no aplica el
+shock** si detecta que no corresponde. Es seguro: no puede "empeorar" la
+situación por errores del usuario. Se usa en conjunto
 con la RCP, no en su lugar.
 
 ## 3. Atragantamiento (`EF9c`)

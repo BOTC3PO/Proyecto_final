@@ -73,9 +73,8 @@ escuadra perfecta sin transportador.
 ## Aplicaciones
 
 El teorema aparece en cualquier situación donde hace falta la distancia "en
-diagonal" conociendo dos distancias perpendiculares entre sí. Por ejemplo:
-la longitud mínima de una escalera apoyada contra una pared (conociendo la
-altura y la distancia de la base a la pared), la diagonal de una pantalla o
-de un terreno rectangular, o la distancia más corta entre dos puntos
-ubicados en una cuadrícula (la base de la geometría analítica que viene
-después).
+diagonal" conociendo dos distancias perpendiculares entre sí. Por ejemplo: la longitud mínima de una escalera apoyada contra una pared
+(conociendo la altura y la distancia de la base a la pared) o la diagonal de
+una pantalla o de un terreno rectangular. También la distancia más corta
+entre dos puntos ubicados en una cuadrícula, que es la base de la geometría
+analítica que viene después.

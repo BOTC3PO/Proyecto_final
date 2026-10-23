@@ -12,7 +12,7 @@
 
 El capitalismo industrial es un modelo económico que se desarrolló a partir del siglo XIX, marcado por la **propiedad privada de los medios de producción** (fábricas, maquinaria, tierras) y la **búsqueda constante de ganancia**. A diferencia de sistemas anteriores, donde la producción estaba orientada al consumo local o a la subsistencia, en este sistema se prioriza la fabricación de mercancías para su venta en el mercado, con el objetivo de obtener excedentes económicos.
 
-En este contexto, los medios de producción (como las fábricas) no pertenecen a los trabajadores, sino a **capitalistas** que invierten recursos para generar riqueza. Esta separación entre quienes poseen los bienes productivos y quienes realizan el trabajo conduce a una estructura social basada en relaciones de dependencia económica: los obreros necesitan vender su capacidad laboral (fuerza de trabajo) para sobrevivir, mientras que los capitalistas obtienen ganancias mediante la explotación del esfuerzo humano.
+En este contexto, los medios de producción (como las fábricas) no pertenecen a los trabajadores, sino a **capitalistas** que invierten recursos para generar riqueza. Esta separación entre quienes poseen los bienes productivos y quienes realizan el trabajo conduce a una estructura social basada en relaciones de dependencia económica. Los obreros necesitan vender su capacidad laboral (fuerza de trabajo) para sobrevivir. Los capitalistas obtienen ganancias mediante la explotación del esfuerzo humano.
 
 <!-- IMAGEN: Esquema comparativo entre sistema feudal y capitalismo industrial, destacando la propiedad de medios de producción -->
 

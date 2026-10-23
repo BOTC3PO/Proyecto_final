@@ -62,9 +62,8 @@ entonación de pie).
 
 ## Un patrón común
 
-Los 4 símbolos comparten algo: son objeto de **ley y protocolo
-oficial** (uso obligatorio en actos escolares desde 1903/1909), no de
-opinión — a diferencia de otros contenidos de Cívica donde se presentan
-corrientes de pensamiento distintas sin tomar postura, acá el objetivo
-es simplemente **conocer el símbolo** (quién lo creó, cuándo, qué
-representa cada elemento).
+Los 4 símbolos comparten algo: son objeto de **ley y protocolo oficial**
+(uso obligatorio en actos escolares desde 1903/1909), no de opinión. En
+otros contenidos de Cívica se presentan corrientes de pensamiento distintas
+sin tomar postura. Acá el objetivo es simplemente **conocer el símbolo**:
+quién lo creó, cuándo y qué representa cada elemento.

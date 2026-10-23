@@ -75,11 +75,11 @@ información disponible.
 
 ## Cómo se relacionan estas dos posturas
 
-Marx nunca respondió directamente a este argumento (murió en 1883,
-antes de que Mises lo formulara), y distintos economistas marxistas y
-socialistas del siglo XX propusieron respuestas propias — desde
-mecanismos de "precios sombra" calculados por planificadores hasta
-formas de mercado dentro de un marco de propiedad colectiva. El debate sobre si esas respuestas resuelven o no el problema que plantea
+Marx nunca respondió directamente a este argumento, porque murió en 1883,
+antes de que Mises lo formulara. Distintos economistas marxistas y
+socialistas del siglo XX propusieron respuestas propias. Fueron desde
+mecanismos de "precios sombra" calculados por planificadores hasta formas de
+mercado dentro de un marco de propiedad colectiva. El debate sobre si esas respuestas resuelven o no el problema que plantea
 Mises sigue discutiéndose en la historia del pensamiento económico. Este
 material no toma partido en esa discusión. El objetivo es que quien estudia
 reconozca ambos argumentos, no que adopte uno de los dos.

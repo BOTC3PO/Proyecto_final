@@ -28,7 +28,7 @@ Sergei Eisenstein, en «El acorazado Potemkin» (1925), exploró el montaje, la 
 
 ## 5. En Argentina
 
-El cine llegó al país en 1896. «El Apóstol» (1917), de Quirino Cristiani, se considera el primer largometraje animado de la historia, aunque se perdió y solo se conservan fragmentos. «La historia oficial» (1986), de Luis Puenzo, ganó el Oscar a la mejor película extranjera, y «El secreto de sus ojos» lo ganó en 2010. La fotografía y el cine argentinos dialogaron con los movimientos de cada época, y hoy se mezclan con el video, las redes y las herramientas digitales de la `produccion-multimedial/`.
+El cine llegó al país en 1896. «El Apóstol» (1917), de Quirino Cristiani, se considera el primer largometraje animado de la historia. Se perdió y solo se conservan fragmentos. «La historia oficial» (1986), de Luis Puenzo, ganó el Oscar a la mejor película extranjera, y «El secreto de sus ojos» lo ganó en 2010. La fotografía y el cine argentinos dialogaron con los movimientos de cada época, y hoy se mezclan con el video, las redes y las herramientas digitales de la `produccion-multimedial/`.
 
 ## N. Conexión con lo que sigue
 

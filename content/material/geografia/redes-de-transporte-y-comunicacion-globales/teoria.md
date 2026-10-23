@@ -16,7 +16,7 @@ La globalización no existiría sin redes que muevan personas, mercancías e inf
 
 El barco mueve la mayor parte del comercio mundial en volumen, porque tiene el menor costo por tonelada transportada, aunque es lento. Su gran salto fue el contenedor estandarizado, popularizado desde la década de 1950 por el empresario estadounidense Malcolm McLean: las mercancías se cargan en cajas metálicas del mismo tamaño que pasan del barco al tren o al camión sin descargarse. Los buques portacontenedores y los grandes puertos de transbordo, como Shanghái, Singapur o Róterdam, organizan hoy las cadenas de suministro.
 
-Las rutas dependen de canales y estrechos que funcionan como cuellos de botella. El canal de Suez (1869) une el Mediterráneo y el mar Rojo; el canal de Panamá (1914) une el Atlántico y el Pacífico y fue ampliado en 2016; el estrecho de Malaca y el de Ormuz son pasos obligados para el comercio asiático y el petróleo. Una interrupción en cualquiera de ellos afecta los precios y los tiempos de entrega en todo el mundo.
+Las rutas dependen de canales y estrechos que funcionan como cuellos de botella. El canal de Suez (1869) une el Mediterráneo y el mar Rojo. El canal de Panamá (1914) une el Atlántico y el Pacífico y fue ampliado en 2016. El estrecho de Malaca y el de Ormuz son pasos obligados para el comercio asiático y el petróleo. Una interrupción en cualquiera de ellos afecta los precios y los tiempos de entrega en todo el mundo.
 
 ## Transporte terrestre y aéreo
 

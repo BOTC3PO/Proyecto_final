@@ -49,11 +49,10 @@ clasificar. El signo en sí no es el foco: lo es la magnitud.
 ## Elasticidad vs. pendiente: no son lo mismo
 
 Es un error común confundir la elasticidad con la **pendiente** de la
-curva de demanda (ΔP/ΔQ, en unidades absolutas). La pendiente depende de
-las unidades en que se miden precio y cantidad; la elasticidad **no**
-(porque usa porcentajes) — por eso la elasticidad permite comparar la
-sensibilidad de productos completamente distintos entre sí (pan vs.
-autos), cosa que la pendiente sola no permite.
+curva de demanda (ΔP/ΔQ, en unidades absolutas). La pendiente depende de las unidades en que se miden precio y cantidad. La
+elasticidad **no**, porque usa porcentajes. Por eso la elasticidad permite
+comparar la sensibilidad de productos completamente distintos entre sí (pan
+vs. autos), cosa que la pendiente sola no permite.
 
 ## Elasticidad puntual (con derivada)
 

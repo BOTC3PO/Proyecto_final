@@ -14,7 +14,7 @@ Hasta ahora estudiaste la presión de un líquido en reposo (`../presion-hidrost
 
 ## 2. Las hipótesis del modelo
 
-La ecuación de Bernoulli describe un fluido ideal. Eso significa cuatro cosas: es **incompresible** (la densidad no cambia), no tiene **viscosidad** (no hay rozamiento interno), el flujo es **estacionario** (en cada punto la velocidad no varía con el tiempo) y el análisis se hace **a lo largo de una línea de corriente**. Ningún fluido real cumple todo esto, pero el agua en una tubería lisa o el aire a velocidades moderadas se acercan lo suficiente para que el modelo sirva.
+La ecuación de Bernoulli describe un fluido ideal. Eso significa cuatro cosas. El fluido es **incompresible** (la densidad no cambia). No tiene **viscosidad** (no hay rozamiento interno). El flujo es **estacionario** (en cada punto la velocidad no varía con el tiempo). Y el análisis se hace **a lo largo de una línea de corriente**. Ningún fluido real cumple todo esto, pero el agua en una tubería lisa o el aire a velocidades moderadas se acercan lo suficiente para que el modelo sirva.
 
 ## 3. Continuidad: más angosto, más rápido
 

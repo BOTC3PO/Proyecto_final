@@ -20,9 +20,12 @@ La incertidumbre se diferencia del riesgo en que no permite asignar probabilidad
 
 ## 3. Componentes esenciales del riesgo
 
-Para que un problema sea clasificado como de riesgo, deben cumplirse dos condiciones:  
-1) **Conocimiento de la probabilidad**: Se requiere información sobre cuán probable es cada resultado (ejemplo: el 70% de posibilidad de lluvia en una predicción meteorológica).  
-2) **Claridad sobre los resultados posibles**: Debe haber un conjunto definido de escenarios que puedan ocurrir, sin ambigüedades.  
+Para que un problema sea clasificado como de riesgo, deben cumplirse dos
+condiciones. La primera es el **conocimiento de la probabilidad**: se
+requiere información sobre cuán probable es cada resultado (por ejemplo, el
+70% de posibilidad de lluvia en una predicción meteorológica). La segunda es
+la **claridad sobre los resultados posibles**: debe haber un conjunto
+definido de escenarios que puedan ocurrir, sin ambigüedades.  
 
 Si falta cualquiera de estos elementos, el problema entra en la categoría de incertidumbre. Esto no es solo una cuestión teórica: en contextos como inversiones, políticas públicas o ingeniería, la distinción determina qué métodos se usan para tomar decisiones.
 

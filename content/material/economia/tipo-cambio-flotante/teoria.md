@@ -62,11 +62,9 @@ fijo en mente.
 
 A diferencia del régimen fijo, un banco central bajo flotación no
 necesita mantener un nivel enorme de reservas sólo para sostener un
-valor prometido — porque no prometió ningún valor puntual. Eso le deja
-más margen para usar la tasa de interés y otras herramientas de
-política monetaria con otros objetivos (como controlar la inflación o
-estimular el empleo), a diferencia de lo que le pasa a un país con
-tipo de cambio fijo.
+valor prometido — porque no prometió ningún valor puntual. Eso le deja más margen para usar la tasa de interés y otras herramientas de
+política monetaria con otros objetivos, como controlar la inflación o
+estimular el empleo. Le pasa lo contrario a un país con tipo de cambio fijo.
 
 ## Dónde aparece en la vida real
 

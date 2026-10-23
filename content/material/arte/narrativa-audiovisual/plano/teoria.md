@@ -71,7 +71,7 @@ toma continua.
 ## Para qué sirve
 
 Elegir bien el tamaño de un plano es la primera decisión narrativa de
-cualquier pieza audiovisual: antes de pensar en el encuadre concreto (ver
-`../encuadre/`) o en cómo se edita (ver `../montaje/`), hay que decidir
-qué tan cerca o lejos del sujeto va a estar la cámara, según qué se
+cualquier pieza audiovisual. Antes de pensar en el encuadre concreto (ver
+`../encuadre/`) o en cómo se edita (ver `../montaje/`), hay que decidir qué
+tan cerca o lejos del sujeto va a estar la cámara. Eso depende de qué se
 quiere contar en ese momento de la historia.

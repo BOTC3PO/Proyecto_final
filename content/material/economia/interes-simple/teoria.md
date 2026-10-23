@@ -64,9 +64,9 @@ exactamente lo mismo; a partir de ahí, el compuesto siempre da más.
 ## Dónde aparece en la vida real
 
 - **Plazo fijo tradicional en Argentina**: dentro de un mismo período de
-  imposición (el plazo pactado, ej. 30 días), el banco no capitaliza —
-  aplica la tasa nominal anual (TNA) proporcional a los días del plazo
-  sobre el capital depositado, sin interés sobre interés durante ese
+  imposición (el plazo pactado, por ejemplo 30 días), el banco no
+  capitaliza. Aplica la tasa nominal anual (TNA) proporcional a los días del
+  plazo sobre el capital depositado, sin interés sobre interés durante ese
   plazo. Es interés simple aplicado a un plazo corto. (La mecánica es
   estable; la TNA vigente en cada momento no — no se hardcodea acá.)
 - **Préstamos informales entre personas**: cuando se pacta "te devuelvo

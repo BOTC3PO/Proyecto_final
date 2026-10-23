@@ -45,10 +45,10 @@ castigar a quienes ese mismo entorno "arruinó".
 
 Robert Owen (1771-1858) no era un teórico de escritorio: era un
 empresario textil exitoso que, en 1800, se hizo cargo de la gestión de
-los molinos de algodón de New Lanark, en Escocia. Ahí puso en práctica sus ideas de forma concreta: redujo la jornada laboral,
-prohibió trabajar a los niños más pequeños, construyó viviendas dignas para
-los obreros y fundó una de las primeras escuelas infantiles del mundo dentro
-de la propia fábrica. Demostró, con los propios registros contables de la
+los molinos de algodón de New Lanark, en Escocia. Ahí puso en práctica sus ideas de forma concreta. Redujo la jornada laboral,
+prohibió trabajar a los niños más pequeños y construyó viviendas dignas para
+los obreros. Fundó, dentro de la propia fábrica, una de las primeras
+escuelas infantiles del mundo. Demostró, con los propios registros contables de la
 empresa, que ese trato más humano no arruinaba el negocio: New Lanark siguió
 siendo rentable.
 

@@ -12,7 +12,7 @@
 
 `usabilidad-heuristicas-de-nielsen/` presentó cuatro ideas: visibilidad del estado, prevención y recuperación de errores, y consistencia. La lista completa de Jakob Nielsen tiene diez heurísticas, y son las que el Nielsen Norman Group sigue publicando con esos nombres. Surgieron del trabajo de Rolf Molich y Jakob Nielsen en 1990 y se refinaron en 1994 con un análisis de cientos de problemas de usabilidad reales. Desde entonces el listado casi no cambió, lo que muestra que describen comportamientos humanos y no modas tecnológicas.
 
-Las diez son: visibilidad del estado del sistema; correspondencia entre el sistema y el mundo real; control y libertad del usuario; consistencia y estándares; prevención de errores; reconocer en lugar de recordar; flexibilidad y eficiencia de uso; diseño estético y minimalista; ayudar a reconocer, diagnosticar y recuperarse de los errores; y ayuda y documentación.
+Las diez son: visibilidad del estado del sistema; correspondencia entre el sistema y el mundo real; control y libertad del usuario; consistencia y estándares; prevención de errores. Siguen: reconocer en lugar de recordar; flexibilidad y eficiencia de uso; diseño estético y minimalista; ayudar a reconocer, diagnosticar y recuperarse de los errores; y ayuda y documentación.
 
 ## 2. Las seis que faltaban
 

@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es un estado nacional?
 
-Un Estado Nacional es una forma de organización política que se caracteriza por tener **un territorio delimitado**, **una población definida** que vive allí, **un gobierno soberano** con autoridad exclusiva sobre ese espacio y una **identidad cultural o histórica común** entre sus habitantes. Esta identidad puede ser lingüística, religiosa, étnica o basada en tradiciones compartidas. La idea clave es que no basta tener un territorio o una población: hay que unirlos bajo un gobierno con la misma visión de pertenencia.
+Un Estado Nacional es una forma de organización política. Se caracteriza por tener **un territorio delimitado** y **una población definida** que vive allí. Tiene **un gobierno soberano** con autoridad exclusiva sobre ese espacio. Y tiene una **identidad cultural o histórica común** entre sus habitantes. Esta identidad puede ser lingüística, religiosa, étnica o basada en tradiciones compartidas. La idea clave es que no basta tener un territorio o una población: hay que unirlos bajo un gobierno con la misma visión de pertenencia.
 
 <!-- IMAGEN: Mapa político con contornos nacionales y elementos culturales superpuestos (ejemplo: banderas, idiomas) -->.
 

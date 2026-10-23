@@ -42,10 +42,9 @@ triángulos con un vértice en común (el que después se convierte en el
 ## Desarrollo del cilindro
 
 El desarrollo de un cilindro (ver `../cilindros/`) tiene: **dos círculos**
-(las bases) más **un rectángulo** para la superficie lateral. Ese
-rectángulo tiene ancho igual a la **altura** del cilindro, y largo igual a
-la **circunferencia de la base** (2 × π × r) — porque al enrollar el
-rectángulo, ese lado largo es justo lo que "le da la vuelta" al círculo.
+(las bases) más **un rectángulo** para la superficie lateral. Ese rectángulo tiene ancho igual a la **altura** del cilindro y largo igual
+a la **circunferencia de la base** (2 × π × r). Al enrollar el rectángulo,
+ese lado largo es justo lo que "le da la vuelta" al círculo.
 
 ## Desarrollo del cono
 

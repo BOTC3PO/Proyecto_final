@@ -48,4 +48,4 @@ También explica por qué los gases tienden a expandirse espontáneamente en un 
 
 ## N. Conexión con lo que sigue
 
-Este tema es base para entender cómo funcionan los motores térmicos, la eficiencia energética y procesos como la formación de estructuras en sistemas no equilibrados (como en la química o la biología), que se tratan en motores termicos y procesos espontaneos.
+Este tema es base para entender cómo funcionan los motores térmicos y la eficiencia energética. También sirve para procesos como la formación de estructuras en sistemas no equilibrados (como en la química o la biología), que se tratan en motores termicos y procesos espontaneos.
