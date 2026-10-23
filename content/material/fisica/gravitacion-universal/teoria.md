@@ -45,18 +45,17 @@ F = G × m₁ × m₂ / r²
 
 - `m₁`, `m₂`: las dos masas.
 - `r`: la distancia entre sus centros.
-- `G`: la **constante de gravitación universal**, `G ≈ 6,674×10⁻¹¹
-  N·m²/kg²` — un número extremadamente chico, la razón por la que la
-  atracción gravitatoria entre objetos cotidianos (dos personas, una
-  silla y una mesa) es imperceptible: sólo se vuelve significativa
-  cuando al menos una de las masas es enorme (un planeta, una
-  estrella).
+- `G`: la **constante de gravitación universal**, `G ≈ 6,674×10⁻¹¹ N·m²/kg²`.
+  Es un número extremadamente chico, y por eso la atracción gravitatoria
+  entre objetos cotidianos (dos personas, una silla y una mesa) es
+  imperceptible. Solo se vuelve significativa cuando al menos una de las
+  masas es enorme (un planeta, una estrella).
 
-Esta única fórmula, combinada con lo que ya se sabe de fuerza
-centrípeta (necesaria para mantener una órbita), **deriva
-matemáticamente** las tres leyes de Kepler — la elipse, la ley de las
-áreas y la proporción `T² ∝ a³` dejan de ser sólo un patrón observado y
-pasan a ser una consecuencia necesaria de esta fuerza.
+Esta única fórmula, combinada con lo que ya se sabe de fuerza centrípeta
+(necesaria para mantener una órbita), **deriva matemáticamente** las tres
+leyes de Kepler. La elipse, la ley de las áreas y la proporción `T² ∝ a³`
+dejan de ser solo un patrón observado y pasan a ser una consecuencia
+necesaria de esta fuerza.
 
 ## El peso, un caso particular
 
@@ -67,14 +66,14 @@ fórmula, con `m₁` = masa del planeta y `r` = su radio:
 peso = G × M_planeta × m / R_planeta²
 ```
 
-Por eso `g` (9,8 m/s² en la Tierra) no es una constante universal como
-`G` — depende de la masa y el radio de cada planeta, y por eso el peso
-de un mismo objeto es distinto en la Luna o en Marte.
+Por eso `g` (9,8 m/s² en la Tierra) no es una constante universal como `G`.
+Depende de la masa y el radio de cada planeta, y por eso el peso de un mismo
+objeto es distinto en la Luna o en Marte.
 
 ## Para qué sirve
 
-Es la misma ley que explica por qué la Luna orbita la Tierra, por qué
-los planetas orbitan el Sol, por qué un satélite artificial se mantiene
-en órbita, y le da mecanismo real a por qué el sistema solar tiene la
-forma que tiene — sin ella, las leyes de Kepler serían sólo una
-coincidencia observada, no algo necesario.
+Es la misma ley que explica por qué la Luna orbita la Tierra, por qué los
+planetas orbitan el Sol y por qué un satélite artificial se mantiene en
+órbita. Le da un mecanismo real a por qué el sistema solar tiene la forma
+que tiene. Sin ella, las leyes de Kepler serían solo una coincidencia
+observada, no algo necesario.

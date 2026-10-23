@@ -21,14 +21,14 @@ sin evaluar cuál tiene razón.
 
 ## Qué sostiene el decrecimiento
 
-El **decrecimiento** sostiene que el crecimiento económico continuo —el
+El **decrecimiento** sostiene que el crecimiento económico continuo es en sí
+mismo insostenible en un planeta de recursos finitos. Ese crecimiento es el
 objetivo casi universal de la política económica moderna, medido por el
-crecimiento del PBI año tras año— es en sí mismo insostenible en un
-planeta de recursos finitos, y que la solución no puede ser sólo
-"crecer de forma más limpia" (crecimiento verde): hay que reducir
-deliberadamente el nivel de producción y consumo material de las
-economías más ricas, en vez de intentar sostenerlo con mejor tecnología
-o mejores incentivos.
+aumento del PBI año tras año. Para esta corriente, la solución no puede ser
+solo "crecer de forma más limpia" (crecimiento verde). Hay que reducir
+deliberadamente el nivel de producción y consumo material de las economías
+más ricas, en vez de intentar sostenerlo con mejor tecnología o mejores
+incentivos.
 
 ## Por qué es la postura más radical del espectro
 
@@ -52,22 +52,21 @@ aleja del sentido común económico dominante:
 
 **Serge Latouche**, economista, filósofo y politólogo francés
 (profesor emérito de la Universidad Paris-Sud), es la referencia más
-citada de esta corriente. Su libro ***La apuesta por el decrecimiento:
-¿cómo salir del imaginario dominante?*** (Icaria) argumenta que el
-crecimiento infinito es matemáticamente imposible en un planeta finito
-y que, además, genera desigualdades crecientes — propone elegir
-voluntariamente una sociedad de decrecimiento antes de que un colapso
-ecológico lo imponga de forma brutal y dramática.
+citada de esta corriente. Su libro ***La apuesta por el decrecimiento: ¿cómo salir del imaginario
+dominante?*** (Icaria) argumenta que el crecimiento infinito es
+matemáticamente imposible en un planeta finito y que, además, genera
+desigualdades crecientes. Propone elegir voluntariamente una sociedad de
+decrecimiento antes de que un colapso ecológico lo imponga de forma brutal y
+dramática.
 
 ## Revaluar "bienestar" sin depender del crecimiento
 
-Un argumento central de Latouche (y del decrecimiento en general) es
-que el bienestar humano no depende linealmente del consumo material:
-propone repensar conceptos como "felicidad" y "calidad de vida" de
-forma independiente del crecimiento económico — más tiempo libre, más
-vínculos comunitarios, menos trabajo dedicado a producir bienes que no
-se necesitan, en vez de más PBI per cápita como medida única de
-progreso.
+Un argumento central de Latouche (y del decrecimiento en general) es que el
+bienestar humano no depende linealmente del consumo material. Propone
+repensar conceptos como "felicidad" y "calidad de vida" de forma
+independiente del crecimiento económico: más tiempo libre, más vínculos
+comunitarios y menos trabajo dedicado a producir bienes que no se necesitan,
+en vez de más PBI per cápita como medida única de progreso.
 
 ## Distinción con "decrecimiento" como recesión económica
 
@@ -75,6 +74,6 @@ Un matiz importante que suele generar confusión: el decrecimiento que
 propone esta corriente NO es lo mismo que una recesión económica (una
 caída no planificada y sufrida del PBI, con desempleo y crisis social).
 El decrecimiento que propone Latouche es una **reducción deliberada y
-planificada** del nivel de producción/consumo material, acompañada de
-una redistribución para que esa reducción no recaiga en los más pobres
-— es una elección de política económica, no un colapso no controlado.
+planificada** del nivel de producción y consumo material. Va acompañada de
+una redistribución para que esa reducción no recaiga en los más pobres. Es
+una elección de política económica, no un colapso no controlado.

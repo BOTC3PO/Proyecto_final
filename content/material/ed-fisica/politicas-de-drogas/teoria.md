@@ -34,11 +34,10 @@ de drogas, con el objetivo de eliminar el acceso a las sustancias.
 
 - **Argumento central**: si no hay acceso legal, baja el consumo; la
   ilegalidad desalienta el uso y protege a la sociedad.
-- **Crítica que recibe**: quienes la critican argumentan que no
-  eliminó el consumo, empujó el mercado a la clandestinidad (sin
-  control de calidad ni regulación), y que la criminalización afecta
-  más a los consumidores vulnerables que a las redes de tráfico
-  grandes.
+- **Crítica que recibe**: quienes la critican argumentan que no eliminó el
+  consumo y que empujó el mercado a la clandestinidad, sin control de
+  calidad ni regulación. También sostienen que la criminalización afecta más
+  a los consumidores vulnerables que a las redes de tráfico grandes.
 
 ## 3. Reducción de daños
 
@@ -63,11 +62,10 @@ Dos ideas relacionadas pero distintas:
 - **Despenalización**: dejar de tratar el consumo (o la tenencia para
   consumo personal) como delito penal — puede seguir habiendo sanción
   administrativa, pero no cárcel.
-- **Legalización regulada**: ir más allá y permitir la venta legal de
-  una sustancia bajo control estatal (licencias, impuestos, controles
-  de calidad y edad) — el ejemplo más conocido es el alcohol y el
-  tabaco en la mayoría de los países, y el cannabis en un número
-  creciente de jurisdicciones.
+- **Legalización regulada**: ir más allá y permitir la venta legal de una
+  sustancia bajo control estatal (licencias, impuestos, controles de calidad
+  y edad). El ejemplo más conocido es el alcohol y el tabaco en la mayoría
+  de los países, y el cannabis en un número creciente de jurisdicciones.
 
 - **Argumento central**: sacar el mercado de la clandestinidad permite
   controlar calidad, recaudar impuestos, y dedicar los recursos

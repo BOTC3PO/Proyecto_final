@@ -13,11 +13,11 @@ informe técnico son áreas separables.
 
 ## Qué es un informe técnico
 
-Un **informe técnico** es un documento que comunica de forma
-estructurada los resultados de un trabajo, investigación, análisis o
-proceso — pensado para que un lector (a menudo sin haber participado
-del trabajo) entienda qué se hizo, qué se encontró y qué se
-recomienda, sin necesitar explicaciones adicionales.
+Un **informe técnico** es un documento que comunica de forma estructurada
+los resultados de un trabajo, investigación, análisis o proceso. Está
+pensado para que un lector, a menudo sin haber participado del trabajo,
+entienda qué se hizo, qué se encontró y qué se recomienda, sin necesitar
+explicaciones adicionales.
 
 ## Secciones típicas de un informe técnico
 
@@ -37,18 +37,17 @@ recomienda, sin necesitar explicaciones adicionales.
 ## El resumen ejecutivo va primero, aunque se escriba último
 
 Es habitual escribir el resumen ejecutivo **al final** del proceso de
-redacción (cuando ya se sabe con precisión qué decir de forma
-resumida), pero se ubica **al principio** del documento, porque es lo
-primero que va a leer la mayoría de los destinatarios.
+redacción, cuando ya se sabe con precisión qué decir de forma resumida. Pero
+se ubica **al principio** del documento, porque es lo primero que va a leer
+la mayoría de los destinatarios.
 
 ## Objetividad y datos concretos
 
-A diferencia de un correo o un CV (que tienen un componente más
-personal), el informe técnico prioriza la **objetividad**: describir
-lo que se hizo y encontró con datos verificables, evitando opiniones
-sin sustento o adjetivos vagos ("los resultados fueron muy buenos" en
-vez de "los resultados mejoraron un 23% respecto del período
-anterior").
+A diferencia de un correo o un CV, que tienen un componente más personal, el
+informe técnico prioriza la **objetividad**. Describe lo que se hizo y
+encontró con datos verificables, y evita opiniones sin sustento o adjetivos
+vagos ("los resultados fueron muy buenos" en vez de "los resultados
+mejoraron un 23% respecto del período anterior").
 
 ## Estructura clara con títulos y numeración
 
@@ -68,7 +67,7 @@ particular.
 ## Para qué sirve
 
 El informe técnico es el género de escritura profesional más usado en
-contextos de investigación, ingeniería, ciencia, consultoría y
-gestión de proyectos — cierra la subrama de escritura profesional
-junto con `../cv/` y `../correo-formal/`, los tres géneros concretos
-de mayor demanda práctica en la vida laboral real.
+contextos de investigación, ingeniería, ciencia, consultoría y gestión de
+proyectos. Cierra la subrama de escritura profesional junto con `../cv/` y
+`../correo-formal/`, los tres géneros concretos de mayor demanda práctica en
+la vida laboral real.

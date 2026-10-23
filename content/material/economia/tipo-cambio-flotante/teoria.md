@@ -14,11 +14,11 @@ mercado, minuto a minuto, sin ningún número prometido de antemano.
 
 ## El régimen opuesto al tipo de cambio fijo
 
-Mientras que bajo un [tipo de cambio fijo](../tipo-cambio-fijo/teoria.md)
-el banco central promete sostener un valor exacto, bajo un **tipo de
-cambio flotante** el valor de la moneda lo determina, minuto a minuto,
+Bajo un [tipo de cambio fijo](../tipo-cambio-fijo/teoria.md), el banco
+central promete sostener un valor exacto. Bajo un **tipo de cambio
+flotante**, en cambio, el valor de la moneda lo determina, minuto a minuto,
 la [oferta y la demanda](../oferta-y-demanda/teoria.md) del mercado
-cambiario — el mismo mecanismo de precio de equilibrio ya visto para
+cambiario. Es el mismo mecanismo de precio de equilibrio ya visto para
 cualquier otro bien, aplicado acá a una moneda.
 
 ## Cómo se mueve el precio
@@ -35,29 +35,28 @@ equilibrio todo el tiempo.
 ## Flotación limpia vs. flotación administrada
 
 En la práctica, pocos países dejan flotar su moneda por completo sin
-ninguna intervención (**flotación limpia**). La mayoría hace lo que se
-llama **flotación administrada** (o "sucia"): el banco central deja
-que el precio se mueva libremente la mayor parte del tiempo, pero
-interviene puntualmente (comprando o vendiendo algo de sus reservas)
-para suavizar movimientos muy bruscos, sin comprometerse a un valor
-fijo como en el régimen fijo.
+ninguna intervención (**flotación limpia**). La mayoría hace lo que se llama **flotación administrada** (o "sucia"). El
+banco central deja que el precio se mueva libremente la mayor parte del
+tiempo. Pero interviene puntualmente (comprando o vendiendo algo de sus
+reservas) para suavizar movimientos muy bruscos, sin comprometerse a un
+valor fijo como en el régimen fijo.
 
 ## La ventaja: absorbe shocks automáticamente
 
-Si algo externo golpea la economía de un país (por ejemplo, cae el
-precio internacional de lo que exporta), bajo un tipo de cambio
-flotante ese golpe se absorbe, en parte, con una depreciación de la
-moneda — sin que el banco central tenga que gastar reservas
-defendiendo un valor que dejó de ser sostenible. El ajuste es
+Supongamos que algo externo golpea la economía de un país, por ejemplo, cae
+el precio internacional de lo que exporta. Bajo un tipo de cambio flotante,
+ese golpe se absorbe en parte con una depreciación de la moneda. El banco
+central no tiene que gastar reservas defendiendo un valor que dejó de ser
+sostenible. El ajuste es
 **automático y gradual**, en vez de una crisis puntual como puede
 ocurrir cuando un régimen fijo se rompe de golpe.
 
 ## La desventaja: menos previsibilidad
 
-Lo que se gana en flexibilidad, se pierde en certeza: el valor de la
-moneda puede variar bastante de un día para otro, lo que complica
-planificar una importación, una exportación o una inversión a mediano
-plazo con un número fijo en mente.
+Lo que se gana en flexibilidad, se pierde en certeza. El valor de la moneda
+puede variar bastante de un día para otro. Eso complica planificar una
+importación, una exportación o una inversión a mediano plazo con un número
+fijo en mente.
 
 ## No hace falta acumular tantas reservas para "defender" un precio
 

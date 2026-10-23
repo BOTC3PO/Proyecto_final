@@ -21,11 +21,10 @@ puede resolver solo (paz, comercio, salud global, derechos humanos).
 
 Creada en 1945, tras la Segunda Guerra Mundial, para "mantener la paz y
 la seguridad internacionales" (su objetivo fundacional). Casi todos los
-países del mundo son miembros. Su órgano más conocido es el **Consejo
-de Seguridad**, con 5 miembros permanentes (Estados Unidos, Rusia,
-China, Reino Unido, Francia) que tienen **poder de veto** — pueden
-bloquear cualquier resolución con un solo voto en contra, aunque el
-resto del Consejo esté de acuerdo. Tiene organismos especializados
+países del mundo son miembros. Su órgano más conocido es el **Consejo de Seguridad**, con 5 miembros
+permanentes (Estados Unidos, Rusia, China, Reino Unido, Francia) que tienen
+**poder de veto**. Pueden bloquear cualquier resolución con un solo voto en
+contra, aunque el resto del Consejo esté de acuerdo. Tiene organismos especializados
 dependientes: la **OMS** (Organización Mundial de la Salud), la
 **UNESCO** (educación, ciencia y cultura), entre otros.
 
@@ -39,11 +38,11 @@ americano.
 
 ## Mercosur
 
-Bloque económico regional (Argentina, Brasil, Paraguay, Uruguay como
-miembros plenos originales, con Venezuela suspendida y Bolivia en
-proceso de adhesión), creado en 1991 por el Tratado de Asunción, para
-promover el libre comercio y la circulación de bienes entre sus
-miembros mediante la eliminación de aranceles internos.
+Bloque económico regional. Sus miembros plenos originales son Argentina,
+Brasil, Paraguay y Uruguay, con Venezuela suspendida y Bolivia en proceso de
+adhesión. Fue creado en 1991 por el Tratado de Asunción para promover el
+libre comercio y la circulación de bienes entre sus miembros, mediante la
+eliminación de aranceles internos.
 
 ## FMI (Fondo Monetario Internacional)
 
@@ -56,17 +55,16 @@ renegociaciones a lo largo de su historia.
 
 ## Por qué depende de partidos políticos
 
-`../partidos-politicos/` ya explicó cómo compiten organizaciones
-**dentro** de un Estado por el poder; este módulo da el último paso de
-la cadena de Ciencia Política: entender que, **entre** Estados, no hay
-un "gobierno mundial" que gane una elección — hay organismos de
-cooperación con reglas y poderes de veto propios, muy distintos a la
-lógica electoral interna ya vista.
+`../partidos-politicos/` ya explicó cómo compiten organizaciones **dentro**
+de un Estado por el poder. Este módulo da el último paso de la cadena de
+Ciencia Política: **entre** Estados no hay un "gobierno mundial" que gane
+una elección. Hay organismos de cooperación con reglas y poderes de veto
+propios, muy distintos a la lógica electoral interna ya vista.
 
 ## Conexión hacia adelante
 
-Este módulo es la base directa de `../tratados-internacionales/`: los
-tratados que un país firma casi siempre se negocian y administran
-dentro del marco de alguno de estos organismos (la ONU, en particular,
-promueve la mayoría de los tratados de derechos humanos con jerarquía
-constitucional en Argentina).
+Este módulo es la base directa de `../tratados-internacionales/`. Los
+tratados que un país firma casi siempre se negocian y administran dentro del
+marco de alguno de estos organismos. La ONU, en particular, promueve la
+mayoría de los tratados de derechos humanos con jerarquía constitucional en
+Argentina.

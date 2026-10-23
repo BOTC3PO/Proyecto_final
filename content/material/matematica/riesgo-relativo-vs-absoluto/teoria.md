@@ -36,21 +36,20 @@ crítico de este tema.
 ## El problema: un RR alto puede esconder un riesgo absoluto mínimo
 
 **Ejemplo**: un estudio encuentra que cierto hábito **duplica** el
-riesgo de una enfermedad muy rara (`RR = 2`). Si el riesgo absoluto
-sin el hábito es de `1 en 1.000.000`, duplicarlo lleva a `2 en
-1.000.000` — la diferencia real (**riesgo absoluto**) es de apenas
-`1 en 1.000.000`, prácticamente insignificante en términos prácticos,
-aunque el titular diga "duplica el riesgo" (matemáticamente cierto).
+riesgo de una enfermedad muy rara (`RR = 2`). Si el riesgo absoluto sin el hábito es de `1 en 1.000.000`, duplicarlo lleva
+a `2 en 1.000.000`. La diferencia real (**riesgo absoluto**) es de apenas `1
+en 1.000.000`, prácticamente insignificante en términos prácticos, aunque el
+titular diga "duplica el riesgo" (matemáticamente cierto).
 
 ```
 diferencia de riesgo (absoluta) = P(evento|expuesto) − P(evento|no expuesto)
 ```
 
-**El mismo `RR = 2` puede significar cosas muy distintas** según cuál
-sea el riesgo base: si el riesgo sin exposición fuera `10%`, duplicarlo
-a `20%` es un aumento absoluto de 10 puntos porcentuales — mucho más
-relevante en la práctica que el ejemplo anterior, aunque el riesgo
-relativo (`RR=2`) sea idéntico en ambos casos.
+**El mismo `RR = 2` puede significar cosas muy distintas** según cuál sea el
+riesgo base. Si el riesgo sin exposición fuera `10%`, duplicarlo a `20%` es
+un aumento absoluto de 10 puntos porcentuales. Eso es mucho más relevante en
+la práctica que el ejemplo anterior, aunque el riesgo relativo (`RR=2`) sea
+idéntico en ambos casos.
 
 ## Cómo leer un titular de salud con cuidado
 

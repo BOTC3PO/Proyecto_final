@@ -37,31 +37,30 @@ rival, identificar su falla, y responder de forma clara en el momento.
 - **Pedir evidencia concreta**: si el rival da una cifra o un dato sin
   fuente, pedirla en el momento pone en evidencia la debilidad del
   argumento (`../detectar-falacias/`, cifras sin sustento).
-- **Distinguir la parte válida de la débil**: un argumento del rival
-  puede tener una parte razonable y otra floja — señalar
-  específicamente cuál es la floja es más preciso (y más difícil de
-  rebatir) que descartar todo el argumento en bloque.
+- **Distinguir la parte válida de la débil**: un argumento del rival puede
+  tener una parte razonable y otra floja. Señalar específicamente cuál es la
+  floja es más preciso (y más difícil de rebatir) que descartar todo el
+  argumento en bloque.
 
 ## Escuchar activamente (no sólo esperar el turno)
 
-Un error común es preparar la respuesta propia mientras el rival
-todavía está hablando, sin escuchar realmente lo que dice — eso lleva
-a responder a un argumento distinto del que realmente se hizo (una
-forma involuntaria de la falacia del espantapájaros,
-`../detectar-falacias/`). Escuchar activamente es lo que permite
+Un error común es preparar la respuesta propia mientras el rival todavía
+está hablando, sin escuchar realmente lo que dice. Eso lleva a responder a
+un argumento distinto del que realmente se hizo, una forma involuntaria de
+la falacia del espantapájaros (`../detectar-falacias/`). Escuchar activamente es lo que permite
 refutar el argumento **real**, no una versión imaginada de él.
 
 ## Mantener la calma bajo presión
 
-Un debate en vivo genera presión de tiempo y, a veces, tensión
-emocional — perder la calma o subir el tono no fortalece un
-argumento, y puede hacer que la audiencia perciba menos credibilidad
-en quien lo pierde, más allá de quién tenga razón en el fondo.
+Un debate en vivo genera presión de tiempo y, a veces, tensión emocional.
+Perder la calma o subir el tono no fortalece un argumento. Además, puede
+hacer que la audiencia perciba menos credibilidad en quien lo pierde, más
+allá de quién tenga razón en el fondo.
 
 ## Para qué sirve
 
-Este tema aplica `../detectar-falacias/` bajo presión de tiempo real,
-y es la base directa de `../negociacion/` (que agrega el objetivo de
-llegar a un acuerdo, no sólo "ganar") y de `../persuasion-etica-vs-manipulacion/`
-(distinguir técnicas legítimas de manipulación, aplicado a este mismo
-contexto de debate en vivo).
+Este tema aplica `../detectar-falacias/` bajo presión de tiempo real. Es la
+base directa de `../negociacion/`, que agrega el objetivo de llegar a un
+acuerdo y no solo "ganar". También lo es de
+`../persuasion-etica-vs-manipulacion/`, que distingue técnicas legítimas de
+manipulación, aplicado a este mismo contexto de debate en vivo.
