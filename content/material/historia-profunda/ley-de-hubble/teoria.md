@@ -28,7 +28,7 @@ La constante de Hubble (**H₀**) tiene unidades de **km/s/Mpc**. Por ejemplo, s
 
 La Ley de Hubble es la base para entender que el universo no es estático: **se expande**. Esto llevó a la formulación del modelo del **Big Bang**, que propone que todo comenzó desde un punto extremadamente denso y caliente hace unos 13.800 millones de años. La expansión observada no es una "explosión" en el espacio, sino que el espacio-tiempo mismo se estira.
 
-Además, la constante **H₀** es clave para calcular la edad del universo: si asumimos que la expansión ha sido constante (lo cual no es exactamente cierto, pero sirve como aproximación), se puede estimar que el universo tiene unos 13.800 millones de años. Sin embargo, mediciones recientes muestran discrepancias entre distintos métodos para calcular **H₀**, lo que sugiere que la expansión no es uniforme en todas las escalas.
+Además, la constante **H₀** es clave para calcular la edad del universo. Si asumimos que la expansión ha sido constante (lo cual no es exactamente cierto, pero sirve como aproximación), se puede estimar que el universo tiene unos 13.800 millones de años. Sin embargo, mediciones recientes muestran discrepancias entre distintos métodos para calcular **H₀**, lo que sugiere que la expansión no es uniforme en todas las escalas.
 
 ---
 

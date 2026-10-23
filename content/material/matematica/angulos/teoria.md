@@ -52,14 +52,14 @@ a cada lado de una línea recta cortada por otra.
 Cuando dos rectas se cruzan, se forman cuatro ángulos. Los que quedan
 enfrentados (no uno al lado del otro, sino cruzados en diagonal) se
 llaman **opuestos por el vértice**, y siempre son **iguales** entre sí.
-Ejemplo: si dos rectas se cruzan y uno de los ángulos formados mide 50°,
-el ángulo opuesto a él (el que queda del otro lado del cruce) también
-mide 50°, y los otros dos ángulos (adyacentes a ambos) miden 130° cada
-uno (180 − 50, porque son suplementarios de los primeros).
+Ejemplo: si dos rectas se cruzan y uno de los ángulos formados mide 50°, el
+ángulo opuesto a él (el que queda del otro lado del cruce) también mide 50°.
+Los otros dos ángulos (adyacentes a ambos) miden 130° cada uno (180 − 50,
+porque son suplementarios de los primeros).
 
 ## Para qué sirven estas relaciones
 
-Conocer estas relaciones permite calcular la medida de un ángulo sin
-medirlo directamente, sólo sabiendo cómo se relaciona con otro ángulo ya
-conocido — una herramienta central para el módulo siguiente,
-`../triangulos/`, donde la suma de los ángulos internos es siempre 180°.
+Conocer estas relaciones permite calcular la medida de un ángulo sin medirlo
+directamente, solo sabiendo cómo se relaciona con otro ángulo ya conocido.
+Es una herramienta central para el módulo siguiente, `../triangulos/`, donde
+la suma de los ángulos internos es siempre 180°.

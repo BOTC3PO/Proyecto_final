@@ -15,10 +15,10 @@ la OMS, y el octógono de exceso de azúcares.
 
 ## Azúcares totales no es lo mismo que azúcares agregados
 
-- **Azúcares totales**: toda la azúcar que tiene el producto, sin
-  importar de dónde viene — incluye tanto la que el alimento ya tenía
-  de forma natural (la fructosa de una fruta, la lactosa de la leche)
-  como la que se sumó durante la elaboración.
+- **Azúcares totales**: toda la azúcar que tiene el producto, sin importar de
+  dónde viene. Incluye tanto la que el alimento ya tenía de forma natural
+  (la fructosa de una fruta, la lactosa de la leche) como la que se sumó
+  durante la elaboración.
 - **Azúcares agregados**: sólo la azúcar que se **sumó durante el
   procesamiento** del producto (azúcar de mesa, jarabe de maíz de alta
   fructosa, miel agregada, entre otros) — no la que el alimento ya tenía
@@ -59,11 +59,11 @@ producto envasado lleva el octógono de advertencia.
 
 ## El octógono de "EXCESO EN AZÚCARES" (Ley 27.642)
 
-Según la Resolución Conjunta 7/2022 (que reglamenta la Ley 27.642),
-un producto envasado debe llevar el sello **"EXCESO EN AZÚCARES"**
-cuando los azúcares aportan **10% o más** de las calorías totales del
-producto (20% durante el período de transición para pequeñas y medianas
-empresas). Es el mismo umbral que recomienda la OMS para el consumo
+Según la Resolución Conjunta 7/2022 (que reglamenta la Ley 27.642), un
+producto envasado debe llevar el sello **"EXCESO EN AZÚCARES"** cuando los
+azúcares aportan **10% o más** de las calorías totales del producto. Durante
+el período de transición para pequeñas y medianas empresas, el umbral es
+20%. Es el mismo umbral que recomienda la OMS para el consumo
 diario, aplicado acá al producto en sí, no a la dieta completa de una
 persona.
 

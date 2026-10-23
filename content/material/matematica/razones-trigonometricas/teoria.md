@@ -44,9 +44,9 @@ Opuesto/Adyacente.
 ## Por qué da siempre el mismo valor, sin importar el tamaño
 
 Esta es la razón por la que este módulo depende de
-`../semejanza-y-teorema-de-thales/`: dos triángulos rectángulos que
-comparten un mismo ángulo agudo son **semejantes** (por el criterio AA —
-el ángulo recto es igual en ambos, y el ángulo agudo elegido también).
+`../semejanza-y-teorema-de-thales/`. Dos triángulos rectángulos que
+comparten un mismo ángulo agudo son **semejantes** (por el criterio AA). El
+ángulo recto es igual en ambos, y el ángulo agudo elegido también.
 En triángulos semejantes, los lados correspondientes son
 **proporcionales**: por eso el cociente entre dos lados (la razón
 trigonométrica) da exactamente el mismo número, sea un triángulo chico o
@@ -85,9 +85,9 @@ Nótese la simetría: `sen(30°) = cos(60°)`, y `sen(60°) = cos(30°)` — los
 
 ## Para qué sirve
 
-Conociendo un ángulo agudo y un lado de un triángulo rectángulo, las
-razones trigonométricas permiten calcular los otros dos lados sin
-medirlos — la base para el módulo siguiente en el mapa (funciones
-trigonométricas y vectores), y para cualquier problema real de
-triangulación: la altura de un edificio a partir del ángulo de
-elevación, o la distancia que recorre una rampa a un ángulo dado.
+Conociendo un ángulo agudo y un lado de un triángulo rectángulo, las razones
+trigonométricas permiten calcular los otros dos lados sin medirlos. Es la
+base para el módulo siguiente en el mapa (funciones trigonométricas y
+vectores) y para cualquier problema real de triangulación: la altura de un
+edificio a partir del ángulo de elevación, o la distancia que recorre una
+rampa a un ángulo dado.

@@ -15,10 +15,10 @@ cuánto tiempo, y qué la puede prolongar.
 ## La garantía legal es obligatoria, no un favor del vendedor
 
 En Argentina, la **Ley 24.240 de Defensa del Consumidor** establece una
-**garantía legal** para los productos que se compran — no depende de que
-el vendedor "quiera" darla, ni de que el consumidor la pida
-explícitamente: existe por ley, y es **gratuita** (no se puede cobrar
-por una reparación o cambio que corresponda dentro de ese plazo).
+**garantía legal** para los productos que se compran. No depende de que el
+vendedor "quiera" darla, ni de que el consumidor la pida explícitamente:
+existe por ley. Es **gratuita**, es decir, no se puede cobrar por una
+reparación o cambio que corresponda dentro de ese plazo.
 
 ## Los plazos mínimos
 
@@ -37,11 +37,11 @@ golpe accidental o usar el producto para algo distinto de lo previsto).
 
 ## El tiempo en reparación prolonga la garantía
 
-Un punto importante: el tiempo durante el cual el consumidor **no pudo
-usar el producto** por estar en reparación (dentro de la garantía) se
-suma al plazo de garantía original — el "reloj" de la garantía no sigue
-corriendo mientras el producto está en el service, en poder del
-vendedor o del fabricante.
+Un punto importante: el tiempo durante el cual el consumidor **no pudo usar
+el producto** por estar en reparación (dentro de la garantía) se suma al
+plazo de garantía original. El "reloj" de la garantía no sigue corriendo
+mientras el producto está en el service, en poder del vendedor o del
+fabricante.
 
 ## Garantía legal vs. garantía extendida (comercial)
 

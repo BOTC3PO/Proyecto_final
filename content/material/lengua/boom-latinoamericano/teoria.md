@@ -15,12 +15,10 @@ son secciones separables.
 
 El **Boom latinoamericano** ocurre en la **década de 1960 y 70** —
 más de medio siglo después de la Generación del 98
-(`../generacion-del-98/`), el eslabón anterior de esta cadena. La
-distancia temporal es real y se marca a propósito: el MAPA los
-encadena como los dos últimos movimientos literarios importantes en
-español, pero no son consecutivos en el tiempo — entre ambos pasaron,
-sin cubrirse acá, la Generación del 27 española, las vanguardias y
-otros movimientos intermedios.
+(`../generacion-del-98/`), el eslabón anterior de esta cadena. La distancia temporal es real y se marca a propósito. El MAPA los encadena
+como los dos últimos movimientos literarios importantes en español, pero no
+son consecutivos en el tiempo. Entre ambos pasaron, sin cubrirse acá, la
+Generación del 27 española, las vanguardias y otros movimientos intermedios.
 
 El Boom coincide con un momento de efervescencia política y cultural
 en América Latina (Revolución Cubana, auge de las industrias
@@ -63,10 +61,9 @@ marca distintiva del realismo mágico.
 
 ## Para qué sirve
 
-El Boom latinoamericano cierra esta cadena de movimientos literarios
-en español mostrando el punto más alto de reconocimiento
-internacional de la literatura hispanoamericana — y sirve de puente
-temático hacia el **texto argumentativo** (siguiente rama de la
-currícula): muchas de estas obras incluyen una fuerte carga política
-y de denuncia que se analiza con las mismas herramientas de tesis,
-argumentos y contraargumentos.
+El Boom latinoamericano cierra esta cadena de movimientos literarios en
+español, y muestra el punto más alto de reconocimiento internacional de la
+literatura hispanoamericana. Sirve de puente temático hacia el **texto
+argumentativo** (siguiente rama de la currícula). Muchas de estas obras
+incluyen una fuerte carga política y de denuncia, que se analiza con las
+mismas herramientas de tesis, argumentos y contraargumentos.

@@ -11,11 +11,10 @@
 
 ## 1. Qué es el grooming
 
-El **grooming** es el proceso por el cual un adulto se contacta con
-un/a menor de edad por internet (redes sociales, juegos online, chats)
-con la intención de generar confianza para, progresivamente, buscar
-abuso sexual (a distancia o presencial) o material con contenido
-sexual. No es un hecho aislado — es un **proceso gradual** con etapas
+El **grooming** es el proceso por el cual un adulto se contacta con un/a
+menor de edad por internet (redes sociales, juegos online, chats). Su
+intención es generar confianza para, progresivamente, buscar abuso sexual (a
+distancia o presencial) o material con contenido sexual. No es un hecho aislado — es un **proceso gradual** con etapas
 reconocibles.
 
 ## 2. Las etapas típicas del grooming
@@ -52,12 +51,12 @@ medios digitales, no sólo el grooming:
 
 - **Sextorsión**: chantajear con material íntimo (propio o de
   terceros) para obtener algo (dinero, más material, favores).
-- **Difusión no consentida de imágenes íntimas** ("porn revenge" en
-  inglés): compartir fotos/videos íntimos de alguien sin su
-  consentimiento — es un delito, no "algo que pasa", incluso si la
-  imagen fue tomada con consentimiento originalmente (el
-  consentimiento para que la vea una persona no es consentimiento
-  para que la vea cualquiera, retomando `../consentimiento/`).
+- **Difusión no consentida de imágenes íntimas** ("porn revenge" en inglés):
+  compartir fotos o videos íntimos de alguien sin su consentimiento. Es un
+  delito, no "algo que pasa", incluso si la imagen fue tomada con
+  consentimiento originalmente. El consentimiento para que la vea una
+  persona no es consentimiento para que la vea cualquiera (retomando
+  `../consentimiento/`).
 - **Ciberacoso** (cyberbullying): hostigamiento sostenido por medios
   digitales.
 

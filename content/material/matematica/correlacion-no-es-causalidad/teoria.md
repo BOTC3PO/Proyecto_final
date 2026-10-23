@@ -62,19 +62,18 @@ real que conecte ambas cosas: es coincidencia estadística.
 Un estudio puramente **observacional** (medir variables tal como
 ocurren, sin intervenir) nunca puede, por sí solo, probar causalidad
 — siempre queda abierta la posibilidad de una tercera variable o de
-causalidad inversa. La forma estándar de probar causalidad es el
-**experimento controlado y aleatorizado**: dividir al azar a los
-participantes en un **grupo que recibe el tratamiento** y un **grupo
-de control** que no lo recibe (o recibe un placebo), y comparar los
-resultados. La aleatorización reparte parejo cualquier tercera
+causalidad inversa. La forma estándar de probar causalidad es el **experimento controlado y
+aleatorizado**. Se divide al azar a los participantes en un **grupo que
+recibe el tratamiento** y un **grupo de control** que no lo recibe (o recibe
+un placebo), y se comparan los resultados. La aleatorización reparte parejo cualquier tercera
 variable posible entre ambos grupos, así que si hay una diferencia de
 resultado, es mucho más razonable atribuirla al tratamiento.
 
 ## Para qué sirve
 
 Es la herramienta de pensamiento crítico esencial para leer noticias,
-estudios y estadísticas: cada vez que un titular dice "el estudio
-encontró que A está relacionado con B", vale preguntarse si hay
-evidencia de causalidad real (experimento controlado) o sólo
-correlación observacional, que podría explicarse por causalidad
-inversa, una tercera variable, o pura coincidencia.
+estudios y estadísticas. Cada vez que un titular dice "el estudio encontró
+que A está relacionado con B", vale preguntarse si hay evidencia de
+causalidad real (experimento controlado) o solo correlación observacional.
+Esa correlación podría explicarse por causalidad inversa, una tercera
+variable o pura coincidencia.

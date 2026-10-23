@@ -55,11 +55,10 @@ El signo de `cos(θ)` en la fórmula determina el signo del trabajo:
   moverse, no hace ningún trabajo físico (`d = 0`), aunque los músculos
   se cansen. El cansancio es gasto de energía biológica, no trabajo
   mecánico sobre la bolsa.
-- **Caminar cargando algo, a velocidad constante horizontal**: la
-  fuerza que se ejerce para sostener el peso es **vertical**, pero el
-  desplazamiento es **horizontal** — son perpendiculares, así que esa
-  fuerza no hace trabajo (aunque otras fuerzas, como la que impulsa el
-  caminar, sí lo hagan).
+- **Caminar cargando algo, a velocidad constante horizontal**: la fuerza que
+  se ejerce para sostener el peso es **vertical**, pero el desplazamiento es
+  **horizontal**. Son perpendiculares, así que esa fuerza no hace trabajo.
+  Otras fuerzas, como la que impulsa el caminar, sí lo hacen.
 - **Movimiento circular uniforme**: la fuerza centrípeta (la que
   mantiene un objeto girando en círculo) es siempre perpendicular a la
   velocidad en cada instante — por eso no cambia la rapidez del objeto,
@@ -89,8 +88,8 @@ real del concepto de trabajo.
 
 ## Para qué sirve
 
-El trabajo es la magnitud que conecta fuerza, movimiento y energía: es
-lo que permite calcular cuánta energía hace falta (o se libera) para
-mover algo una cierta distancia, y explica por qué algunas fuerzas
-(como la normal o la fuerza centrípeta) nunca "gastan" ni "aportan"
-energía, sin importar cuán grandes sean.
+El trabajo es la magnitud que conecta fuerza, movimiento y energía. Permite
+calcular cuánta energía hace falta (o se libera) para mover algo una cierta
+distancia. Y explica por qué algunas fuerzas (como la normal o la fuerza
+centrípeta) nunca "gastan" ni "aportan" energía, sin importar cuán grandes
+sean.

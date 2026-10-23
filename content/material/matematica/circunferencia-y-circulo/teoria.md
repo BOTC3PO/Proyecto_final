@@ -65,17 +65,17 @@ clave:
 ```
 
 Es decir, un ángulo inscripto mide **la mitad** del ángulo central que
-abarca el mismo arco. Un caso particular muy usado: si un ángulo
-inscripto abarca un arco de 180° (una semicircunferencia, es decir sus
-lados terminan en los dos extremos de un diámetro), el ángulo inscripto
-mide siempre 90° — el triángulo formado es siempre rectángulo, sin
-importar dónde esté el tercer vértice sobre la circunferencia.
+abarca el mismo arco. Un caso particular muy usado: si un ángulo inscripto abarca un arco de 180°
+(una semicircunferencia, es decir, sus lados terminan en los dos extremos de
+un diámetro), el ángulo inscripto mide siempre 90°. El triángulo formado es
+siempre rectángulo, sin importar dónde esté el tercer vértice sobre la
+circunferencia.
 
 ## Para qué sirve
 
 Estos elementos y relaciones son la base de todo lo que se construye
-alrededor de una circunferencia: desde calcular cuánto material hace
-falta para un caño o una rueda, hasta el diseño de rosetones y patrones
-circulares simétricos (ver más adelante), pasando por cualquier
-instrumento (relojes, radares, engranajes) que dependa de ángulos
-medidos desde un centro.
+alrededor de una circunferencia. Van desde calcular cuánto material hace
+falta para un caño o una rueda hasta el diseño de rosetones y patrones
+circulares simétricos (ver más adelante). Sirven también para cualquier
+instrumento (relojes, radares, engranajes) que dependa de ángulos medidos
+desde un centro.

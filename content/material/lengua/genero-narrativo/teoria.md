@@ -46,17 +46,16 @@ historia que contar — sólo una descripción de hechos sin tensión.
 
 ## Diferencia entre fábula, leyenda y mito
 
-Las tres son formas breves y tradicionales, pero se distinguen por
-**qué explican y quién protagoniza**: la fábula usa animales para
-dejar una enseñanza moral explícita; la leyenda mezcla un hecho real
-con elementos fantásticos para explicar un origen local; el mito
-recurre a dioses/seres sobrenaturales para explicar fenómenos del
-mundo (por qué existe el día y la noche, por ejemplo).
+Las tres son formas breves y tradicionales, pero se distinguen por **qué
+explican y quién protagoniza**. La fábula usa animales para dejar una
+enseñanza moral explícita. La leyenda mezcla un hecho real con elementos
+fantásticos para explicar un origen local. El mito recurre a dioses o seres
+sobrenaturales para explicar fenómenos del mundo (por qué existe el día y la
+noche, por ejemplo).
 
 ## Para qué sirve
 
-El género narrativo es la base para las tres subramas siguientes de
-la currícula: **narrador**, **punto de vista** y **estructura
-narrativa** — que profundizan específicamente en CÓMO se cuenta la
-historia (quién la cuenta, desde dónde, y en qué orden), no sólo en
-QUÉ se cuenta.
+El género narrativo es la base para las tres subramas siguientes de la
+currícula: **narrador**, **punto de vista** y **estructura narrativa**.
+Profundizan específicamente en CÓMO se cuenta la historia (quién la cuenta,
+desde dónde y en qué orden), no solo en QUÉ se cuenta.

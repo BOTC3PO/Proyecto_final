@@ -46,11 +46,10 @@ todos pasando por el centro.
 
 ## Combinar ambas simetrías
 
-Cuando un patrón tiene tanto simetría rotacional de orden `n` como `n`
-ejes de simetría axial, se dice que tiene **simetría diédrica** — el
-tipo de simetría más completo posible en un patrón plano centrado
-(salvo el caso límite del círculo, con infinitos ejes y cualquier
-ángulo de rotación). No hace falta memorizar el nombre técnico: lo
+Cuando un patrón tiene tanto simetría rotacional de orden `n` como `n` ejes
+de simetría axial, se dice que tiene **simetría diédrica**. Es el tipo de
+simetría más completo posible en un patrón plano centrado. El caso límite es
+el círculo, con infinitos ejes y cualquier ángulo de rotación. No hace falta memorizar el nombre técnico: lo
 importante es reconocer que un rosetón bien diseñado suele combinar las
 dos transformaciones, no usar sólo una.
 
@@ -68,7 +67,6 @@ dos transformaciones, no usar sólo una.
 ## Para qué sirve
 
 Entender esta construcción explica por qué los rosetones (y, en general,
-cualquier mandala o patrón radial) se ven ordenados y armónicos a pesar
-de su complejidad visual: no son dibujos libres, son la aplicación
-sistemática de un ángulo de repetición fijo sobre una sola unidad de
-diseño.
+cualquier mandala o patrón radial) se ven ordenados y armónicos a pesar de
+su complejidad visual. No son dibujos libres: son la aplicación sistemática
+de un ángulo de repetición fijo sobre una sola unidad de diseño.

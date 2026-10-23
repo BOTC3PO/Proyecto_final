@@ -17,11 +17,10 @@ completa.
 
 Cada oración de un texto tiene, en términos simples, dos partes: el
 **tema** (de qué habla, generalmente lo ya conocido o mencionado
-antes) y el **rema** (lo nuevo que se dice sobre ese tema). La
-**progresión temática** es el patrón según el cual el tema de cada
-oración se relaciona con la información de las oraciones anteriores —
-es lo que hace que un texto avance de forma ordenada y no salte de un
-lado a otro sin conexión.
+antes) y el **rema** (lo nuevo que se dice sobre ese tema). La **progresión temática** es el patrón según el cual el tema de cada
+oración se relaciona con la información de las oraciones anteriores. Es lo
+que hace que un texto avance de forma ordenada y no salte de un lado a otro
+sin conexión.
 
 ## Progresión de tema constante
 
@@ -64,9 +63,8 @@ saltar de tema en tema sin ningún patrón reconocible.
 
 ## Para qué sirve
 
-La progresión temática cierra la subrama de cohesión y coherencia:
-mientras los **conectores** marcan relaciones lógicas y la
-**referencia** evita repetición, la progresión temática es el patrón
-general que asegura que el texto avance de forma reconocible de una
-oración a la siguiente — el nivel más alto de organización de un
-texto bien escrito.
+La progresión temática cierra la subrama de cohesión y coherencia. Los
+**conectores** marcan relaciones lógicas y la **referencia** evita
+repetición. La progresión temática, en cambio, es el patrón general que
+asegura que el texto avance de forma reconocible de una oración a la
+siguiente. Es el nivel más alto de organización de un texto bien escrito.

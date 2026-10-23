@@ -19,11 +19,10 @@ lógica matemática que el pH.
 El sonido más flojo que el oído humano detecta y el sonido de un avión
 despegando difieren en intensidad física por un factor de **billones**.
 La energía de un temblor apenas perceptible y la de un terremoto
-devastador difieren por un factor todavía más grande. Escribir esos
-números tal cual sería impracticable — por eso se usan escalas
-**logarítmicas**: comprimen un rango enorme de valores físicos en una
-escala de números chicos y manejables (decibeles de 0 a 140 y pico;
-magnitud Richter de 1 a 9 y pico).
+devastador difieren por un factor todavía más grande. Escribir esos números tal cual sería impracticable. Por eso se usan escalas
+**logarítmicas**, que comprimen un rango enorme de valores físicos en una
+escala de números chicos y manejables (decibeles de 0 a 140 y pico; magnitud
+Richter de 1 a 9 y pico).
 
 ## Decibeles: la escala del sonido
 
@@ -36,11 +35,10 @@ dB = 10 × log₁₀(I / I₀)
   humana).
 
 **Cada 10 dB de aumento representan 10 veces más intensidad física**
-del sonido. Curiosamente, el oído humano no lo percibe así: un aumento
-de 10 dB se percibe, aproximadamente, como **el doble de fuerte** —
-aunque la intensidad física se haya multiplicado por 10, la
-**percepción** de sonoridad sigue su propia escala (también
-logarítmica, pero con otra base de comparación). Un aumento de apenas
+del sonido. Curiosamente, el oído humano no lo percibe así. Un aumento de 10 dB se
+percibe, aproximadamente, como **el doble de fuerte**, aunque la intensidad
+física se haya multiplicado por 10. La **percepción** de sonoridad sigue su
+propia escala (también logarítmica, pero con otra base de comparación). Un aumento de apenas
 **3 dB** ya representa, aproximadamente, el **doble** de intensidad
 física.
 

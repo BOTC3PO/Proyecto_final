@@ -57,11 +57,10 @@ intercambiables en la mayoría de los contextos — no hay una forma
 ## Relación con el imperativo
 
 El **imperativo** (dar una orden directa: "¡Cierra la puerta!") es,
-técnicamente, otro modo verbal — pero comparte formas con el
-subjuntivo en un caso importante: el **imperativo negativo** usa
-**exactamente las mismas formas** que el presente de subjuntivo
-("¡No cierres la puerta!" usa "cierres", la misma forma que "espero
-que cierres la puerta").
+técnicamente, otro modo verbal. Pero comparte formas con el subjuntivo en un
+caso importante: el **imperativo negativo** usa **exactamente las mismas
+formas** que el presente de subjuntivo. "¡No cierres la puerta!" usa
+"cierres", la misma forma que "espero que cierres la puerta".
 
 **Ejemplo de imperativo afirmativo**: el imperativo de "cerrar" para
 "tú" es "cierra" (toma la forma del presente de indicativo de "tú"
@@ -69,10 +68,9 @@ sin la "-s" final: "cierras" → "cierra").
 
 ## Para qué sirve
 
-El subjuntivo es, para muchos estudiantes de español (incluso nativos
-en producción escrita formal), el modo más difícil de dominar,
-precisamente porque su uso depende de reconocer una intención
-subjetiva (duda, deseo, emoción) en el verbo o expresión principal, no
-de una regla mecánica simple — es la razón por la que se lo separó del
-indicativo en un módulo propio, aunque comparta con él buena parte de
+El subjuntivo es, para muchos estudiantes de español (incluso nativos en
+producción escrita formal), el modo más difícil de dominar. Su uso depende
+de reconocer una intención subjetiva (duda, deseo, emoción) en el verbo o
+expresión principal, no de una regla mecánica simple. Por eso se lo separó
+del indicativo en un módulo propio, aunque comparta con él buena parte de
 las irregularidades de raíz.

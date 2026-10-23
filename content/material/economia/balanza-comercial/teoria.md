@@ -44,11 +44,10 @@ Balanza comercial = Exportaciones - Importaciones
 ## Ni superávit ni déficit son automáticamente "buenos" o "malos"
 
 Es un error común pensar que superávit siempre es bueno y déficit
-siempre es malo. Un país puede tener déficit comercial porque está
-importando maquinaria para invertir en su propia producción futura
-(una razón de crecimiento), o puede tener superávit porque atraviesa
-una recesión que hace caer sus importaciones (una señal de debilidad,
-no de fortaleza). El número solo, sin contexto, no alcanza para
+siempre es malo. Un país puede tener déficit comercial porque está importando maquinaria para
+invertir en su propia producción futura (una razón de crecimiento). O puede
+tener superávit porque atraviesa una recesión que hace caer sus
+importaciones (una señal de debilidad, no de fortaleza). El número solo, sin contexto, no alcanza para
 juzgarlo.
 
 ## Exportaciones e importaciones: qué cuenta cada una
@@ -60,12 +59,11 @@ juzgarlo.
 
 ## Una pieza de un cuadro más grande
 
-La balanza comercial es, en rigor, sólo una parte de un cuadro más
-amplio que los economistas llaman **balanza de pagos** (que también
-incluye inversiones, préstamos y otros movimientos de dinero entre
-países) — pero la balanza comercial, por sí sola, es la pieza que más
-se menciona en el debate público, y la que hace falta entender antes
-de avanzar en esta sub-rama.
+La balanza comercial es, en rigor, solo una parte de un cuadro más amplio
+que los economistas llaman **balanza de pagos**, que también incluye
+inversiones, préstamos y otros movimientos de dinero entre países. Pero la
+balanza comercial, por sí sola, es la pieza que más se menciona en el debate
+público. Y es la que hace falta entender antes de avanzar en esta sub-rama.
 
 ## Dónde aparece en la vida real
 

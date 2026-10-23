@@ -29,11 +29,11 @@ flechita arriba (`v⃗`) o en negrita (**v**).
 
 ## Componentes de un vector
 
-Si un vector va desde el origen del plano cartesiano `(0, 0)` hasta un
-punto `(x, y)`, ese par `(x, y)` son sus **componentes**: cuánto avanza
-en la dirección horizontal, y cuánto en la vertical (la misma idea de
-`../coordenadas-de-un-punto/`, ahora interpretada como un
-desplazamiento, no sólo una posición).
+Si un vector va desde el origen del plano cartesiano `(0, 0)` hasta un punto
+`(x, y)`, ese par `(x, y)` son sus **componentes**: cuánto avanza en la
+dirección horizontal y cuánto en la vertical. Es la misma idea de
+`../coordenadas-de-un-punto/`, ahora interpretada como un desplazamiento y
+no solo como una posición.
 
 ## El módulo (magnitud)
 
@@ -61,10 +61,10 @@ y = |v| × sen(θ)
 ## Vectores equivalentes
 
 Dos vectores con el **mismo módulo** y la **misma dirección** son
-considerados el **mismo vector**, sin importar en qué punto del plano
-esté dibujado su origen — un vector "libre" se puede trasladar sin
-cambiar lo que representa (es la misma idea de traslación ya vista en
-`../transformaciones-geometricas/traslacion/`).
+considerados el **mismo vector**, sin importar en qué punto del plano esté
+dibujado su origen. Un vector "libre" se puede trasladar sin cambiar lo que
+representa. Es la misma idea de traslación ya vista en
+`../transformaciones-geometricas/traslacion/`.
 
 ## Casos especiales
 

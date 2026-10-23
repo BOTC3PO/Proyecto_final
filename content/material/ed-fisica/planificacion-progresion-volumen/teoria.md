@@ -28,11 +28,10 @@ carga) en más de un **10% por semana** respecto a la semana anterior.
 
 **Por qué existe esta regla**: el cuerpo necesita tiempo para
 adaptarse (`../fisiologia-del-ejercicio/` — huesos, tendones y
-articulaciones se adaptan más lento que el sistema cardiovascular). Un
-aumento demasiado brusco del volumen es la causa más común de
-lesiones por sobreuso (fracturas por estrés, tendinitis) — no porque
-el cuerpo no pueda llegar a soportar ese volumen, sino porque no tuvo
-tiempo de adaptarse a la velocidad con la que se le pidió.
+articulaciones se adaptan más lento que el sistema cardiovascular). Un aumento demasiado brusco del volumen es la causa más común de lesiones
+por sobreuso (fracturas por estrés, tendinitis). No es porque el cuerpo no
+pueda llegar a soportar ese volumen, sino porque no tuvo tiempo de adaptarse
+a la velocidad con la que se le pidió.
 
 Ejemplo: si esta semana corrí 20 km en total, la próxima semana no
 debería superar los 22 km (20 × 1,10) para mantenerme dentro de un
@@ -42,8 +41,8 @@ margen seguro de progresión.
 
 La Organización Mundial de la Salud (OMS) recomienda, para adultos, un
 **mínimo** de 150 minutos semanales de actividad física aeróbica de
-intensidad moderada (o 75 minutos de intensidad vigorosa, o una
-combinación equivalente) para mantener beneficios básicos de salud
+intensidad moderada. Equivale a 75 minutos de intensidad vigorosa, o a una
+combinación equivalente. Sirve para mantener beneficios básicos de salud
 cardiovascular y metabólica.
 
 **Puntos clave de esta recomendación**:

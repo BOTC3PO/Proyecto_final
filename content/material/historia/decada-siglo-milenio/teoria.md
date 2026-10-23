@@ -21,11 +21,10 @@ en unidades más grandes y manejables:
 
 ## El truco de calcular el siglo a partir del año
 
-Un error común: pensar que el año 1850 pertenece al siglo 18. En
-realidad, el **siglo XIX** (19) va del año **1801 al 1900** — para
-saber a qué siglo pertenece un año, hay que dividirlo por 100 y
-**sumar 1** (salvo que el año termine exactamente en 00, que
-pertenece al siglo anterior).
+Un error común: pensar que el año 1850 pertenece al siglo 18. En realidad, el **siglo XIX** (19) va del año **1801 al 1900**. Para saber a
+qué siglo pertenece un año, hay que dividirlo por 100 y **sumar 1**. La
+excepción es el año que termina exactamente en 00, que pertenece al siglo
+anterior.
 
 Ejemplos:
 - 1850 → 1850/100 = 18,5 → se redondea hacia arriba → siglo XIX.
@@ -50,12 +49,11 @@ del siglo) — en el uso cotidiano, se acepta la convención más simple
 
 ## Por qué importa manejar estas unidades
 
-Hablar de "la Revolución Industrial, siglo XVIII-XIX" es mucho más
-manejable mentalmente que enumerar cada año del proceso — las
-unidades de agrupación permiten pensar en **escalas de tiempo**
-apropiadas según qué se esté analizando: para hechos puntuales, el
-año; para procesos, la década o el siglo; para grandes etapas de la
-humanidad, el milenio.
+Hablar de "la Revolución Industrial, siglo XVIII-XIX" es mucho más manejable
+mentalmente que enumerar cada año del proceso. Las unidades de agrupación
+permiten pensar en **escalas de tiempo** apropiadas según qué se esté
+analizando. Para hechos puntuales, el año. Para procesos, la década o el
+siglo. Para grandes etapas de la humanidad, el milenio.
 
 ## Para qué sirve
 

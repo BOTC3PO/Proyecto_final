@@ -45,9 +45,9 @@ división aparece primero.
 ## Los paréntesis cambian el resultado
 
 Poner (o sacar) un paréntesis puede cambiar completamente el resultado de
-una expresión, porque fuerza a resolver esa parte antes que el resto:
-(2+3)×4 = 20 es un número distinto de 2+3×4 = 14, con exactamente los
-mismos números y las mismas operaciones — sólo cambia el paréntesis.
+una expresión, porque fuerza a resolver esa parte antes que el resto.
+(2+3)×4 = 20 es un número distinto de 2+3×4 = 14, con exactamente los mismos
+números y las mismas operaciones. Solo cambia el paréntesis.
 
 ## Ejemplo resuelto paso a paso
 
@@ -63,7 +63,7 @@ mismos números y las mismas operaciones — sólo cambia el paréntesis.
   "sumo 2 y 3, después multiplico por 4" = 20, en vez de 14).
 - Creer que la multiplicación siempre va antes que la división (o la suma
   antes que la resta), en vez de mirar cuál aparece primero.
-- Olvidarse de aplicar una potencia al resultado completo de un paréntesis
-  (ej.: (a+b)² no es a² + b² — hay que resolver el paréntesis primero, o
-  usar la propiedad distributiva correcta del cuadrado de un binomio, que
-  es tema de Álgebra más adelante).
+- Otro error común es olvidarse de aplicar una potencia al resultado completo
+  de un paréntesis. Por ejemplo, (a+b)² no es a² + b². Hay que resolver el
+  paréntesis primero, o usar la propiedad distributiva correcta del cuadrado
+  de un binomio, que es tema de Álgebra más adelante.

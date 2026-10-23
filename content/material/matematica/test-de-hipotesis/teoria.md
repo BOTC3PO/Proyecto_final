@@ -68,11 +68,10 @@ Ningún test es infalible — puede fallar en dos direcciones distintas:
 ## Relación con el intervalo de confianza
 
 Un test de hipótesis usa exactamente el mismo aparato matemático que
-`../intervalo-de-confianza/` (error estándar, valores z) — la
-diferencia es la pregunta que responde cada uno: el intervalo estima
-**un rango** de valores plausibles; el test decide **sí o no** sobre
-una afirmación puntual, comparando qué tan lejos cae el resultado
-observado de lo que H₀ predeciría.
+`../intervalo-de-confianza/` (error estándar, valores z). La diferencia es
+la pregunta que responde cada uno. El intervalo estima **un rango** de
+valores plausibles. El test decide **sí o no** sobre una afirmación puntual,
+comparando qué tan lejos cae el resultado observado de lo que H₀ predeciría.
 
 ## Significancia estadística no es lo mismo que importancia práctica
 
@@ -84,8 +83,8 @@ p-valor muy bajo.
 
 ## Para qué sirve
 
-Es la herramienta detrás de ensayos clínicos ("¿este medicamento
-funciona mejor que un placebo?"), control de calidad ("¿esta máquina
-cambió su producción?") y prácticamente cualquier estudio científico
-que necesite decidir, con datos limitados, si un patrón observado es
-real o producto del azar.
+Es la herramienta detrás de ensayos clínicos ("¿este medicamento funciona
+mejor que un placebo?") y del control de calidad ("¿esta máquina cambió su
+producción?"). También de prácticamente cualquier estudio científico que
+necesite decidir, con datos limitados, si un patrón observado es real o
+producto del azar.
