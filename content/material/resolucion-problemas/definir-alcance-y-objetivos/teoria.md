@@ -20,7 +20,7 @@ Para que un objetivo sea útil en la resolución de problemas, debe cumplir con 
 
 ## 3. Componentes de los Objetivos
 
-Un objetivo bien definido incluye varios elementos clave: el **entregable**, que es el producto tangible o intangible que se debe producir para completar una fase; las **restricciones**, que son los límites físicos, financieros o temporales del proyecto; y las **metas**, que son los resultados finales que se buscan alcanzar. Por ejemplo, en un proyecto de diseño web, el entregable podría ser el sitio web funcional, mientras que una meta podría ser aumentar la tasa de conversión en un 20%.
+Un objetivo bien definido incluye varios elementos clave. El **entregable** es el producto tangible o intangible que se debe producir para completar una fase. Las **restricciones** son los límites físicos, financieros o temporales del proyecto. Las **metas** son los resultados finales que se buscan alcanzar. Por ejemplo, en un proyecto de diseño web, el entregable podría ser el sitio web funcional, mientras que una meta podría ser aumentar la tasa de conversión en un 20%.
 
 <!-- IMAGEN: cuadro comparativo entre entregables, restricciones y metas -->
 

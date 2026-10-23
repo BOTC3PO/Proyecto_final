@@ -37,10 +37,10 @@ O₂:  2 / 1 = 2   ← menor → O₂ es el limitante
 
 ## 3. Cálculo con el reactivo limitante
 
-Una vez identificado el limitante, **todos** los cálculos de producto
-(o de cuánto se consume del otro reactivo) se hacen a partir de **sus**
-moles — el reactivo en exceso no importa para esas cuentas, sólo importa
-cuánto sobra al final.
+Una vez identificado el limitante, **todos** los cálculos de producto (o de
+cuánto se consume del otro reactivo) se hacen a partir de **sus** moles. El
+reactivo en exceso no importa para esas cuentas. Solo importa cuánto sobra
+al final.
 
 ## 4. Rendimiento porcentual
 

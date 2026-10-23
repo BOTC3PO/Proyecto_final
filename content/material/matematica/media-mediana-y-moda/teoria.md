@@ -52,11 +52,10 @@ valores empatan en la frecuencia máxima).
 ## Por qué a veces no coinciden
 
 Con datos simétricos y sin valores extremos, las tres suelen dar
-resultados parecidos. Pero un solo valor muy alejado del resto (un
-**valor atípico**) puede correr mucho la media, sin afectar
-prácticamente a la mediana — es la semilla de
-`../cual-miente-y-cuando/` (próximo módulo): entender **por qué**
-pasa esto, y cuándo conviene mirar la mediana en vez de la media.
+resultados parecidos. Pero un solo valor muy alejado del resto (un **valor atípico**) puede correr
+mucho la media, sin afectar prácticamente a la mediana. Es la semilla de
+`../cual-miente-y-cuando/` (próximo módulo): entender **por qué** pasa esto,
+y cuándo conviene mirar la mediana en vez de la media.
 
 ## Para qué sirve
 

@@ -71,8 +71,8 @@ descendiente con fenotipo recesivo, el individuo original era `Aa`
 
 ## Para qué sirve
 
-Es la herramienta estándar para predecir (en términos de probabilidad,
-no de certeza) cómo se van a repartir los rasgos hereditarios en la
-descendencia — la base de `../herencia-ligada-al-sexo/` y
+Es la herramienta estándar para predecir cómo se van a repartir los rasgos
+hereditarios en la descendencia, en términos de probabilidad y no de
+certeza. Es la base de `../herencia-ligada-al-sexo/` y
 `../grupos-sanguineos/` (los módulos que siguen), que aplican la misma
 lógica a mecanismos genéticos más específicos.

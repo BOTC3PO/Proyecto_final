@@ -37,11 +37,11 @@ separan). No importa lo parecidas que se vean a simple vista.
 
 - Dos especies que comparten un nodo cercano a las puntas del árbol
   (ancestro común reciente) están muy emparentadas.
-- Dos especies que sólo comparten un nodo cerca de la raíz (ancestro
-  común muy antiguo) están lejanamente emparentadas, aunque una rama
-  del medio "se parezca más" visualmente — la similitud superficial
-  **no** es el criterio, el árbol se basa en el parentesco real (hoy
-  reconstruido con ADN, ver `../adn-gen-proteina/`).
+- Dos especies que solo comparten un nodo cerca de la raíz (ancestro común muy
+  antiguo) están lejanamente emparentadas, aunque una rama del medio "se
+  parezca más" visualmente. La similitud superficial **no** es el criterio.
+  El árbol se basa en el parentesco real, hoy reconstruido con ADN (ver
+  `../adn-gen-proteina/`).
 
 ## 4. Error común: leer el árbol como una escalera de progreso
 

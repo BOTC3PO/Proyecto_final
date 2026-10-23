@@ -38,10 +38,10 @@ conductor. Es decir, aunque una provincia mantenga el límite de 0,5 g/l para
 sus calles internas, ese límite no aplica en las rutas nacionales que
 atraviesan esa provincia.
 
-**Este es un punto en debate legislativo activo**: no hay un único
-número vigente en todo el país — el límite real depende de en qué
-jurisdicción y en qué tipo de vía se esté circulando, y de si esa
-provincia adoptó o no la política de alcohol cero. Este módulo no fija
+**Este es un punto en debate legislativo activo**: no hay un único número
+vigente en todo el país. El límite real depende de en qué jurisdicción y en
+qué tipo de vía se esté circulando. También depende de si esa provincia
+adoptó o no la política de alcohol cero. Este módulo no fija
 un único número como "la respuesta correcta" universal, sino que
 enseña la lógica de esa variabilidad.
 

@@ -70,7 +70,7 @@ propios, sin consenso definitivo entre filósofos.
 
 ## Para qué sirve
 
-Esta rama da el marco general (las tres preguntas) antes de bajar a
-las corrientes normativas específicas: utilitarismo, deontología,
-ética de la virtud y contractualismo — cada una responde de forma
-distinta a una (o varias) de esas tres preguntas centrales.
+Esta rama da el marco general (las tres preguntas) antes de bajar a las
+corrientes normativas específicas. Esas corrientes son el utilitarismo, la
+deontología, la ética de la virtud y el contractualismo. Cada una responde
+de forma distinta a una (o varias) de esas tres preguntas centrales.

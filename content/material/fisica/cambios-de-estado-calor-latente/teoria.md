@@ -31,7 +31,7 @@ $$ Q = m \cdot L $$
 Donde:
 - $ Q $ es la cantidad de energía (en joules o calorias),
 - $ m $ es la masa de la sustancia (en kg o gramos),
-- $ L $ es el **calor latente específico** de la sustancia, que varía según el material y el tipo de cambio de estado (por ejemplo, para la fusión del hielo es 334 kJ/kg, mientras que para su evaporación es 2260 kJ/kg).
+- $ L $ es el **calor latente específico** de la sustancia. Varía según el material y el tipo de cambio de estado. Por ejemplo, para la fusión del hielo es 334 kJ/kg, mientras que para su evaporación es 2260 kJ/kg.
 
 Esta fórmula se diferencia de $ Q = m \cdot c \cdot \Delta T $, usada en cambios de temperatura, porque **no incluye un cambio térmico** (ΔT), solo una transformación estructural.
 

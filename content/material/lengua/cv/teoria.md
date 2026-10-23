@@ -63,8 +63,8 @@ comunica más claramente qué se hizo realmente.
 
 ## Para qué sirve
 
-El CV es el primer contacto escrito con un potencial empleador — un
-documento donde la brevedad, la selección estratégica de información
-y la corrección formal (reutilizando `../produccion-escrita-compleja/`
-y todo lo aprendido de ortografía/puntuación) tienen consecuencias
-prácticas directas y concretas en la vida real.
+El CV es el primer contacto escrito con un potencial empleador. Es un
+documento donde la brevedad, la selección estratégica de información y la
+corrección formal tienen consecuencias prácticas directas y concretas en la
+vida real. Reutiliza `../produccion-escrita-compleja/` y todo lo aprendido
+de ortografía y puntuación.

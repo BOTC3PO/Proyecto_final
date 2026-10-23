@@ -40,9 +40,9 @@ un número entero de éxitos.
 ## Variable aleatoria continua
 
 Es **continua** cuando puede tomar **cualquier valor** dentro de un
-intervalo, no sólo valores enteros contables: la altura de una
+intervalo, no solo valores enteros contables. Ejemplos son la altura de una
 persona (1,73 m, 1,734 m, 1,7341 m... siempre hay un valor más preciso
-posible), el tiempo de espera de un colectivo, la temperatura.
+posible), el tiempo de espera de un colectivo y la temperatura.
 
 Acá `P(X = valor exacto)` **siempre da (esencialmente) cero** — hay
 infinitos valores posibles entre dos números cualesquiera, así que la

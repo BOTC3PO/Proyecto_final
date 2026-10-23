@@ -71,7 +71,6 @@ compró el pan?" (pregunta con expectativa de que sí lo compró).
 ## Para qué sirve
 
 Reconocer estas transformaciones es la base para formular preguntas
-correctas (con tilde en la palabra interrogativa) y para entender por
-qué "no" antes del verbo cambia el sentido completo de una oración sin
-tocar su estructura sintáctica (sujeto, predicado y complementos
-siguen ahí).
+correctas, con tilde en la palabra interrogativa. También permite entender
+por qué "no" antes del verbo cambia el sentido completo de una oración sin
+tocar su estructura sintáctica. Sujeto, predicado y complementos siguen ahí.

@@ -55,7 +55,7 @@ necesariamente compartir el programa político, y viceversa.
 
 Independientemente de su origen en el pensamiento de Marx, el materialismo
 histórico introdujo un aporte que muchos historiadores de corrientes
-distintas siguen usando: prestar atención a las condiciones económicas y
+distintas siguen usando. Es prestar atención a las condiciones económicas y
 sociales de fondo, no solo a la política de la elite. Esa influencia se
 nota, por ejemplo, en `../escuela-de-los-annales/` (tema siguiente).
 

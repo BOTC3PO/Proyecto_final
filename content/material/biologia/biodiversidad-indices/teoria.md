@@ -56,11 +56,11 @@ riqueza + equitatividad = diversidad real.)
 
 ## 4. Por qué importa medir biodiversidad
 
-Los índices de biodiversidad sirven para **comparar** ecosistemas
-entre sí, o el mismo ecosistema **a lo largo del tiempo** (¿mejoró o
-empeoró tras un incendio, una sequía, la llegada de una especie
-invasora?) — es la herramienta que permite decidir dónde y cómo actuar
-en conservación (`../conservacion-areas-protegidas/`).
+Los índices de biodiversidad sirven para **comparar** ecosistemas entre sí,
+o el mismo ecosistema **a lo largo del tiempo**. Por ejemplo, ¿mejoró o
+empeoró tras un incendio, una sequía, la llegada de una especie invasora? Es
+la herramienta que permite decidir dónde y cómo actuar en conservación
+(`../conservacion-areas-protegidas/`).
 
 ## 5. Conexión con lo que sigue
 
