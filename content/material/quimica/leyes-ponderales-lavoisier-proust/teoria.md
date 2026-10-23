@@ -14,7 +14,7 @@ Antes de que se conociera el átomo, los químicos del siglo XVIII y comienzos d
 
 ## 2. Ley de conservación de la masa (Lavoisier)
 
-Antoine Lavoisier, que difundió su enunciado en su *Tratado elemental de química* (1789), mostró que en una reacción química hecha en un sistema cerrado **la masa total de los reactivos es igual a la masa total de los productos**. La materia no se crea ni se destruye: los átomos se reordenan.
+Antoine Lavoisier difundió su enunciado en su *Tratado elemental de química* (1789). Mostró que, en una reacción química hecha en un sistema cerrado, **la masa total de los reactivos es igual a la masa total de los productos**. La materia no se crea ni se destruye: los átomos se reordenan.
 
 Cuando parece que la masa cambia, hay una sustancia que entra o sale del sistema. Una vela encendida "pierde" masa porque sus productos son gases que se van; un trozo de hierro que se oxida "gana" masa porque se combina con oxígeno del aire. Si se pesa todo el sistema cerrado, la masa se conserva.
 
@@ -22,17 +22,17 @@ Ejemplo: 12 g de carbono se combinan con 32 g de oxígeno para dar 44 g de dióx
 
 ## 3. Ley de las proporciones definidas (Proust)
 
-Joseph Proust, hacia 1800, concluyó que **un compuesto puro contiene siempre los mismos elementos en la misma proporción de masas**, sin importar de dónde provenga o cómo se prepare. En el agua, por ejemplo, por cada 1 g de hidrógeno hay 8 g de oxígeno: 9 g de agua contienen 1 g de H y 8 g de O, o sea 11,1 % de hidrógeno y 88,9 % de oxígeno, tanto en agua de mar como de lluvia.
+Joseph Proust, hacia 1800, concluyó que **un compuesto puro contiene siempre los mismos elementos en la misma proporción de masas**, sin importar de dónde provenga o cómo se prepare. En el agua, por ejemplo, por cada 1 g de hidrógeno hay 8 g de oxígeno. Así, 9 g de agua contienen 1 g de H y 8 g de O, o sea 11,1 % de hidrógeno y 88,9 % de oxígeno, tanto en agua de mar como de lluvia.
 
-Consecuencia: si se mezclan reactivos en proporciones distintas a la definida, uno de ellos sobra. Con 3 g de H y 24 g de O solo reaccionan 3 g de H (porque 24 g de O piden 3 g de H) y se forman 27 g de agua; ese ejemplo ya anticipa el reactivo limitante (`../reactivo-limitante-rendimiento/`).
+Consecuencia: si se mezclan reactivos en proporciones distintas a la definida, uno de ellos sobra. Con 3 g de H y 24 g de O solo reaccionan 3 g de H (porque 24 g de O piden 3 g de H), y se forman 27 g de agua. Ese ejemplo ya anticipa el reactivo limitante (`../reactivo-limitante-rendimiento/`).
 
 ## 4. Ley de las proporciones múltiples (Dalton)
 
-John Dalton, entre 1803 y 1808, observó que **cuando dos elementos forman más de un compuesto, las masas de uno que se combinan con una masa fija del otro están en relación de números enteros pequeños**. Con 12 g de carbono, el monóxido de carbono (CO) contiene 16 g de oxígeno y el dióxido (CO₂) 32 g: la relación es 1 : 2. Con 28 g de nitrógeno, los óxidos N₂O, NO y NO₂ contienen 16 g, 32 g y 64 g de oxígeno: 1 : 2 : 4. Esta ley fue una pista fuerte de que la materia está formada por átomos que se combinan en números enteros.
+John Dalton observó, entre 1803 y 1808, lo siguiente: **cuando dos elementos forman más de un compuesto, las masas de uno que se combinan con una masa fija del otro están en relación de números enteros pequeños**. Con 12 g de carbono, el monóxido de carbono (CO) contiene 16 g de oxígeno y el dióxido (CO₂) 32 g: la relación es 1 : 2. Con 28 g de nitrógeno, los óxidos N₂O, NO y NO₂ contienen 16 g, 32 g y 64 g de oxígeno: 1 : 2 : 4. Esta ley fue una pista fuerte de que la materia está formada por átomos que se combinan en números enteros.
 
 ## 5. Ley de las proporciones recíprocas (Richter)
 
-Jeremias Richter, en 1792, señaló que **las masas de dos elementos que se combinan con una misma masa de un tercero guardan relación, o un múltiplo simple de ella, con las masas con que se combinan entre sí**. Es la ley que justifica asignar a cada elemento una masa de combinación propia, antecedente de la masa atómica.
+Jeremias Richter señaló en 1792 lo siguiente: **las masas de dos elementos que se combinan con una misma masa de un tercero guardan relación, o un múltiplo simple de ella, con las masas con que se combinan entre sí**. Es la ley que justifica asignar a cada elemento una masa de combinación propia, antecedente de la masa atómica.
 
 ## 6. Cómo se usan en los cálculos
 

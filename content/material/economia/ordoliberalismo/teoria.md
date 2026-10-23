@@ -31,37 +31,33 @@ ascenso del nazismo—, dentro de la llamada Escuela de Friburgo. Su
 nombre viene de la palabra latina *ordo* (orden): sostiene que el
 mercado libre no funciona bien por sí solo, sin más, ni tampoco
 funciona bien un Estado que lo reemplace por completo con
-planificación central. Lo que hace falta, según esta corriente, es un
-**marco legal e institucional fuerte** que el Estado debe diseñar y
-sostener activamente, para que la competencia entre empresas siga
-siendo real y no degenere en monopolios o carteles que la asfixien
-desde adentro.
+planificación central. Lo que hace falta, según esta corriente, es un **marco legal e institucional
+fuerte** que el Estado debe diseñar y sostener activamente. Su objetivo es
+que la competencia entre empresas siga siendo real y no degenere en
+monopolios o carteles que la asfixien desde adentro.
 
-Esta corriente distingue explícitamente entre dos versiones de la
-economía de mercado: una "pura" (competencia genuina, con muchos
-oferentes compitiendo de verdad) y una "degenerada" (mercados
-concentrados, congelados por el poder de unas pocas empresas
-dominantes) — de la misma forma en que distingue, en una economía
-autosuficiente, al campesino libre de la degeneración feudal. Para el
-ordoliberalismo, dejar que el mercado funcione "solo", sin ese marco
-de reglas, no garantiza la competencia genuina: puede terminar, con el
-tiempo, degenerando en su propia versión de un pequeño grupo que
-concentra el poder económico — el mismo resultado que esta corriente
-también le critica al colectivismo, aunque por un camino distinto.
+Esta corriente distingue explícitamente entre dos versiones de la economía
+de mercado: una "pura" (competencia genuina, con muchos oferentes
+compitiendo de verdad) y una "degenerada" (mercados concentrados, congelados
+por el poder de unas pocas empresas dominantes). Es la misma forma en que
+distingue, en una economía autosuficiente, al campesino libre de la
+degeneración feudal. Para el ordoliberalismo, dejar que el mercado funcione "solo", sin ese marco
+de reglas, no garantiza la competencia genuina. Con el tiempo puede terminar
+degenerando en su propia versión de un pequeño grupo que concentra el poder
+económico: el mismo resultado que esta corriente también le critica al
+colectivismo, aunque por un camino distinto.
 
 ## La fuente: Wilhelm Röpke y la "Tercera Vía"
 
 Texto de referencia: Wilhelm Röpke, *Civitas Humana* (1944, traducido
-al inglés en 1948 como *A Humane Order of Society*). Röpke describe su
-propia posición, explícitamente, como una **"Tercera Vía"** (*Third
-Way*) o **"Humanismo Económico"** (*Economic Humanism*), situada entre
-el capitalismo histórico —al que critica con dureza por permitir la
-concentración monopólica— y el colectivismo, al que rechaza por
-completo por concentrar el poder político en manos de una minoría
-gobernante. En sus propias palabras (traducidas del inglés): la tarea
-no es sólo "preservar" la economía de mercado tal cual existe, sino
-"purificarla y hacerla estable y duradera" frente a la distorsión que
-producen el monopolio y la interferencia estatal irracional por igual.
+al inglés en 1948 como *A Humane Order of Society*). Röpke describe su propia posición, explícitamente, como una **"Tercera
+Vía"** (*Third Way*) o **"Humanismo Económico"** (*Economic Humanism*). La
+sitúa entre el capitalismo histórico, al que critica con dureza por permitir
+la concentración monopólica, y el colectivismo, al que rechaza por completo
+por concentrar el poder político en manos de una minoría gobernante. En sus propias palabras (traducidas del inglés), la tarea no es sólo
+"preservar" la economía de mercado tal cual existe, sino "purificarla y
+hacerla estable y duradera" frente a la distorsión que producen el monopolio
+y la interferencia estatal irracional por igual.
 
 ## Aplicación real: la "economía social de mercado" alemana
 
