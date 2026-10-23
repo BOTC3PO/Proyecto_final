@@ -25,10 +25,10 @@ mercado* o *ecocapitalismo*) sostiene que los mecanismos de mercado —
 propiedad privada, precios, incentivos económicos — son herramientas
 más eficaces para proteger el ambiente que la regulación estatal
 directa (leyes de "comando y control" que prohíben o limitan por
-decreto). La idea central: si algo tiene un dueño claro y un precio,
-alguien tiene un incentivo económico concreto para cuidarlo; si es "de
-nadie" (un río, el aire), nadie internaliza el costo de dañarlo — el
-llamado problema de la "tragedia de los comunes".
+decreto). La idea central: si algo tiene un dueño claro y un precio, alguien tiene un
+incentivo económico concreto para cuidarlo. Si es "de nadie" (un río, el
+aire), nadie internaliza el costo de dañarlo. Es el llamado problema de la
+"tragedia de los comunes".
 
 ## Propiedad privada como herramienta ambiental
 
@@ -46,11 +46,10 @@ El instrumento más conocido de esta corriente es el sistema de
 **"cap and trade"** (límite y comercio) de derechos de emisión: el
 Estado fija un límite total de emisiones permitidas (el *cap*) y emite
 certificados que las empresas pueden comprar y vender entre sí (el
-*trade*). Quien contamina menos de lo permitido puede vender su
-excedente de derechos a quien necesita emitir más — en teoría, esto
-dirige la reducción de emisiones hacia quien puede lograrla al menor
-costo, en vez de imponer el mismo límite parejo a todos sin importar su
-costo real de adaptación.
+*trade*). Quien contamina menos de lo permitido puede vender su excedente de derechos
+a quien necesita emitir más. En teoría, esto dirige la reducción de
+emisiones hacia quien puede lograrla al menor costo, en vez de imponer el
+mismo límite parejo a todos sin importar su costo real de adaptación.
 
 ## Referencia real: Anderson y Leal
 

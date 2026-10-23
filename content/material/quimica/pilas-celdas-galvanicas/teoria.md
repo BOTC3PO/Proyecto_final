@@ -11,14 +11,13 @@
 
 ## 1. La idea central
 
-Una **pila** (celda galvánica o voltaica) es un dispositivo que
-aprovecha una reacción **redox espontánea** (ver
-`../oxidacion-reduccion/`) para generar **corriente eléctrica** —
-en vez de dejar que los electrones salten directo del reductor al
-oxidante (como en la reacción Zn+Cu²⁺ mezclados en un vaso, que sólo da
-calor), se **separan físicamente** los dos procesos y se obliga a los
-electrones a viajar por un cable — esa corriente de electrones es la
-que se aprovecha.
+Una **pila** (celda galvánica o voltaica) es un dispositivo que aprovecha
+una reacción **redox espontánea** (ver `../oxidacion-reduccion/`) para
+generar **corriente eléctrica**. En la reacción Zn+Cu²⁺ mezclados en un
+vaso, los electrones saltan directo del reductor al oxidante y solo se
+obtiene calor. En una pila, en cambio, los dos procesos se **separan
+físicamente** y se obliga a los electrones a viajar por un cable. Esa
+corriente de electrones es la que se aprovecha.
 
 ## 2. Las 2 partes: ánodo y cátodo
 
@@ -33,17 +32,17 @@ oxidaci-Ó-n... o simplemente memorizar el par).
 ## 3. El puente salino
 
 Los dos electrodos están en soluciones separadas (**semiceldas**),
-conectadas por un **puente salino** — permite el paso de iones para
-mantener la neutralidad eléctrica de cada solución (sin él, la
-solución del ánodo se cargaría cada vez más positiva, y la del cátodo
-cada vez más negativa, y la reacción se frenaría).
+conectadas por un **puente salino**. El puente permite el paso de iones para
+mantener la neutralidad eléctrica de cada solución. Sin él, la solución del
+ánodo se cargaría cada vez más positiva y la del cátodo cada vez más
+negativa, y la reacción se frenaría.
 
 ## 4. Dirección del flujo de electrones
 
-Los electrones **siempre** viajan del ánodo (donde se liberan, al
-oxidarse el metal) al cátodo (donde se consumen, al reducirse el otro
-ion) **a través del cable externo** — nunca a través de la solución ni
-del puente salino (eso es sólo para iones).
+Los electrones **siempre** viajan del ánodo (donde se liberan, al oxidarse
+el metal) al cátodo (donde se consumen, al reducirse el otro ion) **a través
+del cable externo**. Nunca viajan a través de la solución ni del puente
+salino, que es solo para iones.
 
 ## 5. Ejemplo: pila de Zn-Cu (Daniell)
 
@@ -52,7 +51,7 @@ del puente salino (eso es sólo para iones).
 Cátodo (Cu):   Cu²⁺ + 2e⁻ → Cu      (reducción)
 ```
 
-El zinc metálico se va "gastando" (se disuelve como Zn²⁺), y se
-deposita cobre metálico nuevo sobre el electrodo de cobre — mientras
-tanto, los electrones liberados en el ánodo viajan por el cable hacia
-el cátodo, generando la corriente que se puede usar.
+El zinc metálico se va "gastando" (se disuelve como Zn²⁺), y se deposita
+cobre metálico nuevo sobre el electrodo de cobre. Mientras tanto, los
+electrones liberados en el ánodo viajan por el cable hacia el cátodo y
+generan la corriente que se puede usar.

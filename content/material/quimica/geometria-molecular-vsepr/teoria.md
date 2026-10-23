@@ -13,11 +13,10 @@ comunes, cómo afecta a la polaridad de la molécula).
 ## 1. La idea central de VSEPR
 
 VSEPR = **V**alence **S**hell **E**lectron **P**air **R**epulsion
-(repulsión de pares de electrones de la capa de valencia). Los pares de
-electrones alrededor de un átomo central (tanto los que forman enlaces
-como los pares libres/no enlazantes) se **repelen entre sí** y se
-acomodan lo más lejos posible unos de otros — eso es lo que define la
-forma 3D de la molécula. No hace falta más física que esa: "cargas
+(repulsión de pares de electrones de la capa de valencia). Los pares de electrones alrededor de un átomo central (tanto los que forman
+enlaces como los pares libres o no enlazantes) se **repelen entre sí** y se
+acomodan lo más lejos posible unos de otros. Eso es lo que define la forma
+3D de la molécula. No hace falta más física que esa: "cargas
 iguales se repelen, así que se separan al máximo".
 
 ## 2. Geometrías más comunes (átomo central sin pares libres)

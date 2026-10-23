@@ -18,7 +18,7 @@ La importancia de distinguir entre los distintos tipos de sociedades radica en c
 
 La **Sociedad de Responsabilidad Limitada (S.R.L.)** es quizás el tipo de sociedad más común para las pequeñas y medianas empresas en Argentina. Su característica principal es que la responsabilidad de los socios se limita al capital que han aportado. Esto significa que, si la empresa tiene deudas, los acreedores solo pueden reclamar los bienes de la sociedad, no los bienes personales de los socios (como su casa o auto), siempre que se haya respetado la separación patrimonial.
 
-Por otro lado, existe la figura del **comerciante unipersonal** o la sociedad unipersonal. En el primer caso, una sola persona es dueña y gestiona el negocio, respondiendo con todo su patrimonio personal por las deudas. La sociedad unipersonal es una evolución legal que permite que una sola persona constituya una sociedad, combinando la flexibilidad de la gestión individual con la protección del patrimonio separada del de la empresa, aunque su regulación ha variado a lo largo del tiempo.
+Por otro lado, existe la figura del **comerciante unipersonal** o la sociedad unipersonal. En el primer caso, una sola persona es dueña y gestiona el negocio, respondiendo con todo su patrimonio personal por las deudas. La sociedad unipersonal es una evolución legal que permite que una sola persona constituya una sociedad. Combina la flexibilidad de la gestión individual con la protección del patrimonio, que queda separado del de la empresa. Su regulación, de todos modos, ha variado a lo largo del tiempo.
 
 ## Sociedades Anónimas (S.A.) y Cooperativas
 
@@ -28,8 +28,8 @@ Finalmente, las **Cooperativas** representan un modelo diferente, basado en la s
 
 ## Aplicación práctica: ¿Cuál elegir en la vida real?
 
-Imaginemos tres escenarios típicos argentinos para aplicar estos conceptos. Si Juan quiere abrir una panadería en Buenos Aires con su hermano, y ambos quieren trabajar allí y gestionar el negocio, una **S.R.L.** es ideal porque es más sencilla de constituir y mantener que una S.A., y protege sus bienes personales.
+Imaginemos tres escenarios típicos argentinos para aplicar estos conceptos. Si Juan quiere abrir una panadería en Buenos Aires con su hermano y ambos quieren trabajar allí y gestionar el negocio, una **S.R.L.** es ideal. Es más sencilla de constituir y mantener que una S.A., y protege sus bienes personales.
 
-Si María quiere lanzar una app tecnológica y necesita millones de pesos de inversores que no van a trabajar en la empresa, una **S.A.** es la opción correcta, ya que permite emitir acciones y atraer capital externo sin perder el control operativo si se estructura bien.
+Si María quiere lanzar una app tecnológica y necesita millones de pesos de inversores que no van a trabajar en la empresa, una **S.A.** es la opción correcta. Permite emitir acciones y atraer capital externo, y se puede mantener el control operativo si se estructura bien.
 
-Por último, si un grupo de productores de limón en Tucumán (la provincia argentina líder en este cultivo) quiere vender su producto directamente al consumidor final para mejorar sus precios, formar una **Cooperativa** les permite tener mayor poder de negociación y compartir costos logísticos, asegurando que los beneficios queden en la comunidad productora y no en un dueño externo.
+Por último, imaginá un grupo de productores de limón en Tucumán (la provincia argentina líder en este cultivo) que quiere vender su producto directamente al consumidor final para mejorar sus precios. Formar una **Cooperativa** les da mayor poder de negociación y les permite compartir costos logísticos. Además, asegura que los beneficios queden en la comunidad productora y no en un dueño externo.

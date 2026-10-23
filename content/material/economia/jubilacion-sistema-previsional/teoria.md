@@ -38,10 +38,10 @@ un sistema previsional.
   otra parte va a una cuenta de capitalización individual (que varía
   según lo que rindió esa inversión).
 
-Ningún modelo es intrínsecamente "el correcto": cada uno reparte el
-riesgo de forma distinta (el de reparto depende de que haya suficientes
-trabajadores activos financiando a los pasivos; el de capitalización
-depende de cómo rinda la inversión de cada cuenta individual).
+Ningún modelo es intrínsecamente "el correcto": cada uno reparte el riesgo
+de forma distinta. El de reparto depende de que haya suficientes
+trabajadores activos financiando a los pasivos. El de capitalización depende
+de cómo rinda la inversión de cada cuenta individual.
 
 ## La historia real en Argentina: de las AFJP al SIPA
 
@@ -105,24 +105,21 @@ para capitalizar.
 
 Calcular el "valor futuro" de los aportes tiene sentido claro en un
 sistema de capitalización individual (donde cada aporte va a una cuenta
-propia que efectivamente se invierte y crece). En un sistema de reparto
-puro, el aporte de hoy no se acumula en una cuenta personal — se usa de
-inmediato para pagar la jubilación de alguien más — así que ese cálculo
-de valor futuro no describe cómo funciona el sistema de reparto en sí,
-aunque sirve igual para entender la lógica de cualquier ahorro personal
-adicional.
+propia que efectivamente se invierte y crece). En un sistema de reparto puro, el aporte de hoy no se acumula en una cuenta
+personal: se usa de inmediato para pagar la jubilación de alguien más. Por
+eso ese cálculo de valor futuro no describe cómo funciona el sistema de
+reparto en sí. Igual sirve para entender la lógica de cualquier ahorro
+personal adicional.
 
 ## Por qué se habla de ahorro previsional propio, además del aporte obligatorio
 
 Un sistema de reparto depende de que haya suficientes trabajadores
-activos aportando por cada persona jubilada. Con una población que, en
-general, vive más años y tiene menos hijos que antes (una tendencia
-demográfica, no una opinión política), esa relación activos/pasivos
-tiende a ajustarse con el tiempo en cualquier país con este modelo — por
-eso muchos especialistas en finanzas personales recomiendan armar,
-además del aporte obligatorio, un ahorro previsional propio (por
-ejemplo, con los conceptos ya vistos de interés compuesto y
-diversificación).
+activos aportando por cada persona jubilada. En general, la población vive más años y tiene menos hijos que antes (una
+tendencia demográfica, no una opinión política). Por eso la relación entre
+activos y pasivos tiende a ajustarse con el tiempo en cualquier país con
+este modelo. Muchos especialistas en finanzas personales recomiendan armar,
+además del aporte obligatorio, un ahorro previsional propio (por ejemplo,
+con los conceptos ya vistos de interés compuesto y diversificación).
 
 ## Dónde aparece en la vida real
 

@@ -10,11 +10,10 @@
 
 ## 1. El problema: nuestra intuición de tiempo es demasiado chica
 
-Una vida humana dura, como mucho, un siglo. Nuestra intuición de
-"mucho tiempo" está calibrada para años y décadas — pero la historia
-del universo y de la Tierra se mide en **millones** y **miles de
-millones** de años, escalas para las que ningún ser humano tiene
-experiencia directa.
+Una vida humana dura, como mucho, un siglo. Nuestra intuición de "mucho tiempo" está calibrada para años y décadas. Pero
+la historia del universo y de la Tierra se mide en **millones** y **miles de
+millones** de años, escalas para las que ningún ser humano tiene experiencia
+directa.
 
 ```
 Edad del universo: ~13.800.000.000 años (13,8 mil millones)
@@ -57,10 +56,10 @@ una fracción minúscula de la escala de tiempo del universo.
 
 ## 4. Por qué este módulo va primero
 
-Cada tema que sigue en este tronco (formación de estrellas, origen de
-la vida, extinciones) se ubica en algún punto de esta línea de tiempo
-gigantesca — sin la escala como referencia, cualquier fecha ("hace
-4.600 millones de años") es sólo un número sin sentido intuitivo.
+Cada tema que sigue en este tronco (formación de estrellas, origen de la
+vida, extinciones) se ubica en algún punto de esta línea de tiempo
+gigantesca. Sin la escala como referencia, cualquier fecha ("hace 4.600
+millones de años") es solo un número sin sentido intuitivo.
 
 ## 5. Conexión con lo que sigue
 

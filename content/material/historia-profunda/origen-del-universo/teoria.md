@@ -21,12 +21,11 @@ espacio mismo se estira.
 
 ## 2. Qué pasó justo después (en términos generales)
 
-En fracciones de segundo, el universo pasó por una expansión
-brutalmente rápida y un enfriamiento progresivo que permitió, con el
-tiempo, que se formaran las primeras partículas subatómicas, luego los
-primeros átomos simples (hidrógeno y helio, ver
-`../nucleosintesis/`), y mucho después (cientos de millones de años)
-las primeras estrellas y galaxias.
+En fracciones de segundo, el universo pasó por una expansión brutalmente
+rápida y por un enfriamiento progresivo. Con el tiempo se formaron las
+primeras partículas subatómicas y luego los primeros átomos simples
+(hidrógeno y helio, ver `../nucleosintesis/`). Mucho después, cientos de
+millones de años más tarde, aparecieron las primeras estrellas y galaxias.
 
 ## 3. La evidencia: no es sólo una teoría sin sustento
 
@@ -48,9 +47,9 @@ Bang:
 
 ## 4. Por qué "Big Bang" es un nombre un poco engañoso
 
-El nombre lo puso, irónicamente, un científico (Fred Hoyle) que no
-estaba de acuerdo con la teoría — lo dijo de forma despectiva en una
-transmisión de radio y el nombre quedó. Sugiere una explosión visible
+El nombre lo puso, irónicamente, un científico (Fred Hoyle) que no estaba de
+acuerdo con la teoría. Lo dijo de forma despectiva en una transmisión de
+radio, y el nombre quedó. Sugiere una explosión visible
 y ruidosa, cuando en realidad describe una expansión del espacio-tiempo
 mismo, sin sonido (no había aire) y sin un punto central observable
 desde "afuera".
@@ -58,6 +57,6 @@ desde "afuera".
 ## 5. Conexión con lo que sigue
 
 El Big Bang deja al universo lleno de gas de hidrógeno y helio, sin
-elementos más pesados todavía — el siguiente paso es cómo ese gas se
-agrupa por gravedad hasta encender las primeras estrellas, el tema de
+elementos más pesados todavía. El siguiente paso es cómo ese gas se agrupa
+por gravedad hasta encender las primeras estrellas, el tema de
 `../formacion-de-estrellas/`.

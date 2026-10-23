@@ -9,7 +9,7 @@
 
 ## 1. El modelo agroexportador: base de una estructura productiva especializada  
 
-La Argentina consolidó su economía durante el siglo XIX y principios del XX bajo un modelo centrado en la producción y exportación de materias primas agrícolas y ganaderas, como cereales, carne vacuna y yerba mate. Esta especialización fue impulsada por la demanda creciente de Europa, que buscaba abastecer su población con alimentos tras los conflictos internos y la industrialización.  
+La Argentina consolidó su economía durante el siglo XIX y principios del XX bajo un modelo centrado en producir y exportar materias primas agrícolas y ganaderas, como cereales, carne vacuna y yerba mate. Esta especialización fue impulsada por la demanda creciente de Europa, que buscaba abastecer su población con alimentos tras los conflictos internos y la industrialización.  
 
 La estructura productiva se organizó alrededor de grandes extensiones agrícolas y ganaderas, con una infraestructura orientada a facilitar el transporte de esas mercancías hacia puertos como Buenos Aires o Rosario. Sin embargo, esta dependencia generó un desequilibrio: la economía no desarrolló industrias que transformaran esos productos ni sectores que procesaran su valor agregado, limitándose a ser proveedora de materias primas.  
 
@@ -19,7 +19,7 @@ La estructura productiva se organizó alrededor de grandes extensiones agrícola
 
 ## 2. La dependencia estructural de los precios internacionales  
 
-El éxito del modelo agroexportador dependía directamente de los precios que los productos argentinos alcanzaran en mercados extranjeros. Cuando esos precios subían, la economía crecía gracias al ingreso de divisas; pero cuando caían —como sucedió con la soja durante crisis globales—, el país enfrentaba una fuerte presión sobre su balanza comercial y su capacidad para financiar importaciones esenciales (materias primas industriales, tecnología, etc.).  
+El éxito del modelo agroexportador dependía directamente de los precios que los productos argentinos alcanzaran en mercados extranjeros. Cuando esos precios subían, la economía crecía gracias al ingreso de divisas. Cuando caían —como sucedió con la soja durante crisis globales—, el país enfrentaba una fuerte presión sobre su balanza comercial y sobre su capacidad para financiar importaciones esenciales (materias primas industriales, tecnología, etc.).  
 
 Esta volatilidad generó un ciclo de dependencia: las fluctuaciones en los precios internacionales no solo afectaban el ingreso de dólares, sino también la estabilidad fiscal del Estado. Para mitigar riesgos, se implementaron políticas como el control cambiario o subsidios a exportadores, pero estas medidas a menudo reforzaron la dependencia del sector primario.  
 
@@ -39,12 +39,12 @@ Esta falta de diversificación limitó el crecimiento de sectores productivos co
 
 La estructura productiva basada en commodities expone a la Argentina a riesgos geopolíticos, climáticos y económicos internacionales. Por ejemplo, un cambio en las políticas comerciales de países importadores (como China o Estados Unidos) puede afectar abruptamente el volumen de exportaciones argentinas.  
 
-Además, esta dependencia ha llevado a políticas proteccionistas, subsidios a la producción agrícola y regulaciones cambiarias, que aunque buscan estabilizar la economía, no resuelven la estructura subyacente: una economía cuya riqueza principal se genera en el campo, sin un sector industrial robusto para transformar esa riqueza.  
+Además, esta dependencia ha llevado a políticas proteccionistas, subsidios a la producción agrícola y regulaciones cambiarias. Buscan estabilizar la economía, pero no resuelven la estructura subyacente: una economía cuya riqueza principal se genera en el campo, sin un sector industrial robusto para transformarla.  
 
 ---
 
 ## 5. Conexión con lo que sigue  
 
-Este análisis de la dependencia estructural prepara para entender cómo intentos posteriores de diversificar la economía —como la industrialización del Estado durante los años 1940 o las políticas de importación sustituida— buscaban superar estas limitaciones, aunque enfrentaron desafíos propios.  
+Este análisis de la dependencia estructural prepara para entender los intentos posteriores de diversificar la economía, como la industrialización del Estado durante los años 1940 o las políticas de importación sustituida. Buscaban superar estas limitaciones, aunque enfrentaron desafíos propios.  
 
 Frase que conecta este tema con el/los próximo(s) tema(s) del mapa: industrializacion y politicas economicas.
