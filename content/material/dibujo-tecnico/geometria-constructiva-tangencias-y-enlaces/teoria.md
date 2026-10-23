@@ -32,9 +32,9 @@ Para trazar la tangente desde un punto exterior se construye la circunferencia q
 
 ## 5. Enlaces (empalmes)
 
-Un **enlace** o **empalme** es un arco que une dos rectas o dos arcos con continuidad, es decir, tangente a ambos. Es el redondeo de una esquina. Para enlazar dos rectas que se cortan con un arco de radio R: se trazan paralelas a cada recta a distancia R; su cruce es el **centro del arco**; las perpendiculares desde ese centro a cada recta dan los **puntos de tangencia**. Con el compás en el centro se traza el arco entre ambos puntos.
+Un **enlace** o **empalme** es un arco que une dos rectas o dos arcos con continuidad, es decir, tangente a ambos. Es el redondeo de una esquina. Para enlazar dos rectas que se cortan con un arco de radio R: se trazan paralelas a cada recta a distancia R. Su cruce es el **centro del arco**. Las perpendiculares desde ese centro a cada recta dan los **puntos de tangencia**. Con el compás en el centro se traza el arco entre ambos puntos.
 
-El mismo razonamiento se aplica a enlazar una recta con una circunferencia o dos circunferencias entre sí: el centro del arco de enlace está a una distancia R de cada elemento (a R de la recta; a R más o menos el radio de la circunferencia, según el arco quede por fuera o por dentro).
+El mismo razonamiento se aplica a enlazar una recta con una circunferencia, o dos circunferencias entre sí. El centro del arco de enlace está a una distancia R de cada elemento. Es a R de la recta, y a R más o menos el radio de la circunferencia, según el arco quede por fuera o por dentro.
 
 ## 6. Dónde se ve
 

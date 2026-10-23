@@ -52,23 +52,22 @@ mismo límite parejo a todos sin importar su costo real de adaptación.
 
 ## Referencia real: Anderson y Leal
 
-**Terry L. Anderson** y **Donald R. Leal**, en su libro ***Free Market
-Environmentalism*** (1991), sistematizaron esta corriente: argumentan
-que la propiedad privada y la responsabilidad civil (poder demandar a
-quien contamina) son herramientas más efectivas para la sostenibilidad
-que la regulación de "comando y control", que —según esta postura—
-desalienta la inversión y la innovación empresarial en soluciones
-ambientales.
+**Terry L. Anderson** y **Donald R. Leal**, en su libro ***Free Market Environmentalism*** (1991),
+sistematizaron esta corriente. Argumentan que la propiedad privada y la
+responsabilidad civil (poder demandar a quien contamina) son herramientas
+más efectivas para la sostenibilidad que la regulación de "comando y
+control". Según esta postura, esa regulación desalienta la inversión y la
+innovación empresarial en soluciones ambientales.
 
 ## Crítica interna: coasianos vs. libertarios
 
-Dentro del ambientalismo de mercado hay matices: los **coasianos**
-(en referencia al economista Ronald Coase) proponen el comercio
-supranacional de derechos de carbono como solución práctica; los
-**libertarios** más estrictos, en cambio, se oponen incluso al cap and
-trade por considerarlo una intervención gubernamental disfrazada — la
-única solución legítima, para ellos, sería la propiedad privada y la
-responsabilidad civil sin ningún mercado regulado por el Estado.
+Dentro del ambientalismo de mercado hay matices. Los **coasianos** (en
+referencia al economista Ronald Coase) proponen el comercio supranacional de
+derechos de carbono como solución práctica. Los **libertarios** más
+estrictos, en cambio, se oponen incluso al cap and trade por considerarlo
+una intervención gubernamental disfrazada. Para ellos, la única solución
+legítima sería la propiedad privada y la responsabilidad civil sin ningún
+mercado regulado por el Estado.
 
 ## Por qué se distingue de las otras 3 corrientes
 

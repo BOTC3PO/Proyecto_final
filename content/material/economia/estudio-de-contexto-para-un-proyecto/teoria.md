@@ -16,7 +16,7 @@ En el ámbito de la economía, este estudio se divide generalmente en dos nivele
 
 ## Análisis del entorno local: el microentorno
 
-El entorno local está compuesto por los actores con los que la organización tiene una relación directa y frecuente. Aquí es donde se aplica el concepto de *microentorno*. Los elementos clave incluyen a los clientes, cuya satisfacción y comportamiento definen la viabilidad del producto o servicio; los proveedores, cuya confiabilidad y costos impactan directamente en la cadena de valor; y los competidores, cuya presencia obliga a la organización a diferenciarse mediante precios, calidad o innovación.
+El entorno local está compuesto por los actores con los que la organización tiene una relación directa y frecuente. Aquí es donde se aplica el concepto de *microentorno*. Los elementos clave incluyen a los clientes, cuya satisfacción y comportamiento definen la viabilidad del producto o servicio. Incluyen a los proveedores, cuya confiabilidad y costos impactan directamente en la cadena de valor. Y a los competidores, cuya presencia obliga a la organización a diferenciarse mediante precios, calidad o innovación.
 
 Además, en el nivel local, las condiciones geográficas y la infraestructura disponible juegan un papel determinante. Por ejemplo, la accesibilidad a una zona comercial, la disponibilidad de mano de obra calificada en el barrio o la ciudad, y hasta la cultura vecinal pueden influir en el éxito del proyecto. Una organización que ignora estas variables locales corre el riesgo de fracasar por no adaptarse a las necesidades específicas de su comunidad inmediata, por muy bien definida que tenga su visión estratégica.
 
@@ -28,6 +28,6 @@ Asimismo, los aspectos sociales y tecnológicos de la región son vitales. La ed
 
 ## Aplicación práctica: ejemplo en el contexto argentino
 
-Para visualizar este concepto, imaginemos el lanzamiento de una fábrica de muebles sustentables en la provincia de Córdoba. En el **nivel local**, el estudio de contexto debería identificar zonas industriales con buena conexión vial hacia las principales ciudades del conurbano, evaluar la disponibilidad de madera certificada de proveedores locales y analizar a las carpinterías tradicionales de la zona como posibles competidores o aliados.
+Para visualizar este concepto, imaginemos el lanzamiento de una fábrica de muebles sustentables en la provincia de Córdoba. En el **nivel local**, el estudio de contexto debería identificar zonas industriales con buena conexión vial hacia las principales ciudades del conurbano. También debería evaluar la disponibilidad de madera certificada de proveedores locales. Y analizar a las carpinterías tradicionales de la zona como posibles competidores o aliados.
 
 En el **nivel regional**, el análisis debería considerar la economía provincial, basada en turismo y tecnología, lo que sugiere un mercado potencial para muebles de diseño moderno y ecológico. También debe tenerse en cuenta la normativa provincial sobre residuos y emisiones, así como la situación económica general que afecta el poder adquisitivo de la clase media cordobesa. Al integrar ambos niveles, el proyecto no solo define su misión ("crear muebles de calidad"), sino que ajusta su estrategia para ser viable en el ecosistema económico específico donde se insertará.

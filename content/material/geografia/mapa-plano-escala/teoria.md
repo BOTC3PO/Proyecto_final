@@ -71,11 +71,11 @@ hoja plana es matemáticamente imposible sin distorsionar algo — no
 existe una proyección perfecta. Según qué se prioriza mantener, se
 distorsiona otra cosa:
 
-- Mantener las **formas** correctas (útil para navegación) distorsiona
-  el **tamaño relativo** de las áreas — la proyección Mercator, muy
-  usada históricamente, agranda mucho los países cercanos a los polos
-  (Groenlandia se ve casi tan grande como África, cuando en realidad
-  África es unas 14 veces más grande).
+- Mantener las **formas** correctas (útil para navegación) distorsiona el
+  **tamaño relativo** de las áreas. La proyección Mercator, muy usada
+  históricamente, agranda mucho los países cercanos a los polos. Groenlandia
+  se ve casi tan grande como África, cuando en realidad África es unas 14
+  veces más grande.
 - Mantener el **tamaño relativo** correcto (útil para comparar
   superficies) distorsiona las **formas**.
 

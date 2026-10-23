@@ -28,7 +28,7 @@ El **error productivo** es aquel que, al analizarlo, permite comprender mejor. P
 
 ## La paradoja de la confianza
 
-Los investigadores David Butterfield y Janet Metcalfe encontraron en 2001 un fenómeno llamado **hipercorrección**: cuando una persona estaba muy segura de una respuesta que resultó equivocada, y recibía la corrección, era más probable que después recordara la correcta que si hubiera estado poco segura. La sorpresa de equivocarse con confianza llama la atención y favorece la memoria. Por eso conviene intentar responder antes de mirar la solución, aunque no se esté seguro.
+Los investigadores David Butterfield y Janet Metcalfe encontraron en 2001 un fenómeno llamado **hipercorrección**. Cuando una persona estaba muy segura de una respuesta que resultó equivocada y recibía la corrección, era más probable que después recordara la correcta. Con una persona poco segura, esa probabilidad era menor. La sorpresa de equivocarse con confianza llama la atención y favorece la memoria. Por eso conviene intentar responder antes de mirar la solución, aunque no se esté seguro.
 
 ## La retroalimentación
 
@@ -45,7 +45,7 @@ Una nota sola, sin comentarios, rara vez enseña cómo mejorar.
 
 ## Cómo recibirla
 
-Recibir una corrección puede doler. Algunas ideas para aprovecharla: leer los comentarios antes de mirar solamente la nota; distinguir entre la crítica al trabajo y la crítica a uno mismo; preguntar cuando no se entiende; y elegir uno o dos puntos concretos para mejorar la próxima vez, en vez de intentar corregir todo a la vez.
+Recibir una corrección puede doler. Algunas ideas para aprovecharla: leer los comentarios antes de mirar solamente la nota, y distinguir entre la crítica al trabajo y la crítica a uno mismo. También conviene preguntar cuando no se entiende. Y elegir uno o dos puntos concretos para mejorar la próxima vez, en vez de intentar corregir todo a la vez.
 
 ## La autoevaluación
 

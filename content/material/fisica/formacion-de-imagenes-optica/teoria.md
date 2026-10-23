@@ -36,7 +36,7 @@ La ubicación del objeto respecto a los elementos ópticos define si la imagen e
   - Si está **entre el foco y el centro**, la imagen es real, invertida y mayor.
   - Si está **detrás del foco**, la imagen se vuelve virtual, derecha y aumentada.
 
-Este comportamiento también ocurre en lentes: si un objeto está dentro de la distancia focal de una lente convergente, la imagen es virtual; si está más allá del foco, la imagen es siempre real (invertida, y de tamaño mayor, igual o menor según la distancia exacta al doble del foco).
+Este comportamiento también ocurre en lentes. Si un objeto está dentro de la distancia focal de una lente convergente, la imagen es virtual. Si está más allá del foco, la imagen es siempre real: invertida, y de tamaño mayor, igual o menor según la distancia exacta al doble del foco.
 
 ---
 

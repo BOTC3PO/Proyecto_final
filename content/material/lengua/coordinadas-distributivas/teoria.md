@@ -30,8 +30,8 @@ Un error común es confundir con una distributiva cualquier oración con "y" don
 
 ## Aplicación práctica: ejemplos en contexto argentino
 
-Para reconocer estas estructuras, pensemos en usos reales. En una crónica deportiva podríamos leer: *"El equipo, ya por la lluvia, ya por el cansancio, no pudo sostener el ritmo del primer tiempo"* — "ya... ya..." distribuye dos posibles causas, sin afirmar cuál de las dos fue exactamente la responsable ni excluir a la otra.
+Para reconocer estas estructuras, pensemos en usos reales. En una crónica deportiva podríamos leer: *"El equipo, ya por la lluvia, ya por el cansancio, no pudo sostener el ritmo del primer tiempo"*. "Ya... ya..." distribuye dos posibles causas. No afirma cuál de las dos fue exactamente la responsable ni excluye a la otra.
 
-En una descripción de un aula: *"Unos alumnos resuelven el ejercicio en el pizarrón, otros lo hacen en sus carpetas"* — "unos... otros..." reparte la actividad entre dos subgrupos de la misma clase, mostrando dos formas distintas y simultáneas de trabajar sobre la misma consigna.
+En una descripción de un aula: *"Unos alumnos resuelven el ejercicio en el pizarrón, otros lo hacen en sus carpetas"*. "Unos... otros..." reparte la actividad entre dos subgrupos de la misma clase. Muestra dos formas distintas y simultáneas de trabajar sobre la misma consigna.
 
 Reconocer la coordinación distributiva te permite distinguir con precisión cuándo un texto está repartiendo una acción entre partes de un grupo o entre momentos alternos, y cuándo, en cambio, simplemente suma (copulativa), ofrece una alternativa (disyuntiva) o contrasta (adversativa). Cada tipo de coordinación marca una relación lógica distinta entre las ideas del texto.

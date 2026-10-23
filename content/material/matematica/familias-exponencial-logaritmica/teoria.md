@@ -49,9 +49,9 @@ a^(logₐ x) = x
 logₐ(aˣ) = x
 ```
 
-Sus gráficos son reflejos uno del otro respecto a la recta y = x — el
-dominio de una es la imagen de la otra, y viceversa (por eso el dominio
-de log es x>0, que es exactamente la imagen de la exponencial).
+Sus gráficos son reflejos uno del otro respecto a la recta y = x. El dominio
+de una es la imagen de la otra, y viceversa. Por eso el dominio de log es
+x>0, que es exactamente la imagen de la exponencial.
 
 ## Ejemplo con base 10 (la más simple para calcular a mano)
 
@@ -62,11 +62,10 @@ Son exactamente inversas: g(f(2)) = log₁₀(100) = 2. ✓
 
 ## Comparar crecimiento exponencial con lineal
 
-Una función lineal crece **sumando siempre lo mismo** por cada paso; una
-exponencial crece **multiplicando siempre por lo mismo** — por eso, a la
-larga, cualquier exponencial con a>1 termina superando a cualquier
-función lineal, sin importar cuán grande sea la pendiente de esta
-última.
+Una función lineal crece **sumando siempre lo mismo** por cada paso. Una
+exponencial crece **multiplicando siempre por lo mismo**. Por eso, a la
+larga, cualquier exponencial con a>1 termina superando a cualquier función
+lineal, sin importar cuán grande sea la pendiente de esta última.
 
 ## Errores comunes
 

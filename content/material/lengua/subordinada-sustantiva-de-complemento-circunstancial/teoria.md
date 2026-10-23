@@ -10,7 +10,7 @@
 
 ## Un repaso rápido: ¿qué es una subordinada sustantiva?
 
-Como ya viste en otros temas, una subordinada sustantiva es una cláusula que ocupa, dentro de la oración principal, el lugar que ocuparía un sustantivo: puede ser sujeto ("*Que llueva* me preocupa"), complemento directo ("Quiero *que vengas*"), atributo ("El problema es *que no hay tiempo*") o complemento de régimen ("Me arrepiento *de haber mentido*"). Esta sección se enfoca en una quinta función, menos conocida pero igual de real: la de **Complemento Circunstancial (CC)**.
+Como ya viste en otros temas, una subordinada sustantiva es una cláusula que ocupa, dentro de la oración principal, el lugar que ocuparía un sustantivo. Puede ser sujeto ("*Que llueva* me preocupa"), complemento directo ("Quiero *que vengas*"), atributo ("El problema es *que no hay tiempo*") o complemento de régimen ("Me arrepiento *de haber mentido*"). Esta sección se enfoca en una quinta función, menos conocida pero igual de real: la de **Complemento Circunstancial (CC)**.
 
 ## ¿Qué es una subordinada sustantiva de CC?
 
@@ -23,7 +23,7 @@ Un adverbio o CC genuino (de tiempo, lugar o modo) se reemplaza por un adverbio 
 La clave para distinguir una subordinada sustantiva de CC es doble:
 
 1.  **Se puede sustituir por una preposición + "eso"**, no por un adverbio simple. "Vino *para que la ayudáramos*" → "Vino *para eso*" (no "Vino *así*", que sonaría forzado o cambiaría el sentido).
-2.  **La preposición aporta un significado circunstancial real** (causa, finalidad, condición, concesión), a diferencia del **complemento de régimen (CR)**, donde la preposición es una exigencia arbitraria del verbo sin significado circunstancial propio: "insistir **en**", "confiar **en**", "arrepentirse **de**" no indican causa, lugar ni modo — son simplemente la preposición que ese verbo puntual exige.
+2.  **La preposición aporta un significado circunstancial real** (causa, finalidad, condición, concesión). En el **complemento de régimen (CR)**, en cambio, la preposición es una exigencia arbitraria del verbo, sin significado circunstancial propio. "Insistir **en**", "confiar **en**", "arrepentirse **de**" no indican causa, lugar ni modo: son simplemente la preposición que ese verbo puntual exige.
 
 Ejemplos de subordinada sustantiva de CC, organizados por el tipo de circunstancia que expresan:
 

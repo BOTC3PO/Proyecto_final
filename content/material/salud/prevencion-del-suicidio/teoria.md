@@ -6,7 +6,7 @@
 
 **Presentación** — Señales de alerta, mitos, cómo acompañar, dónde pedir ayuda y cómo hablar del tema de forma segura (guías de la OMS). Diseño deliberado: no describe métodos.
 
-> **Si estás pensando en hacerte daño o en quitarte la vida, no estás solo/a y hay ayuda. En Argentina podés llamar al 135 (gratuito desde Capital Federal y Gran Buenos Aires) o al (011) 5275-1135 o al 0800 345 1435 desde todo el país: son las líneas del Centro de Asistencia al Suicida de Buenos Aires, una organización sin fines de lucro que atiende de 8 a 24 h con voluntarios (los llamados llevan varios minutos y la línea puede dar ocupado; si pasa, volvé a intentar). Son líneas de escucha y contención para personas en crisis o con riesgo de suicidio, y no reemplazan a los servicios de emergencia. Si hay peligro inmediato o una emergencia médica, llamá al 911 o al servicio de emergencias de tu zona (en algunos lugares el SAME tiene su propio número u operativo) o acudí a una guardia. Verificá siempre los números vigentes en argentina.gob.ar.**
+> **Si estás pensando en hacerte daño o en quitarte la vida, no estás solo/a y hay ayuda. En Argentina podés llamar al 135 (gratuito desde Capital Federal y Gran Buenos Aires) o al (011) 5275-1135 o al 0800 345 1435 desde todo el país. Son las líneas del Centro de Asistencia al Suicida de Buenos Aires, una organización sin fines de lucro que atiende de 8 a 24 h con voluntarios. Los llamados llevan varios minutos y la línea puede dar ocupado: si pasa, volvé a intentar. Son líneas de escucha y contención para personas en crisis o con riesgo de suicidio, y no reemplazan a los servicios de emergencia. Si hay peligro inmediato o una emergencia médica, llamá al 911 o al servicio de emergencias de tu zona (en algunos lugares el SAME tiene su propio número u operativo) o acudí a una guardia. Verificá siempre los números vigentes en argentina.gob.ar.**
 
 ---
 
@@ -48,7 +48,7 @@ Vínculos de confianza con familia, amistades o docentes; sentido de pertenencia
 
 ## 6. Hablar del tema de forma segura
 
-Las guías de la OMS para comunicar sobre el suicidio recomiendan: hablar del tema con respeto, **sin sensacionalismo**, sin describir métodos ni lugares, sin presentar el suicidio como solución o como algo "romántico" o inevitable, **y siempre difundiendo dónde pedir ayuda** y mensajes de esperanza y recuperación. Esto vale para la prensa, las escuelas y las redes sociales.
+Las guías de la OMS para comunicar sobre el suicidio recomiendan hablar del tema con respeto y **sin sensacionalismo**. Recomiendan no describir métodos ni lugares, y no presentar el suicidio como solución ni como algo "romántico" o inevitable. Y recomiendan **siempre difundir dónde pedir ayuda**, junto con mensajes de esperanza y recuperación. Esto vale para la prensa, las escuelas y las redes sociales.
 
 ## 7. Marco legal
 

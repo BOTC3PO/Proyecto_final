@@ -22,7 +22,7 @@ Se suelen distinguir varios niveles. Las **costumbres o usos sociales** son paut
 
 Para que las normas se cumplan, la sociedad dispone de **sanciones**, que pueden ser positivas (premios, elogios, ascensos) o negativas (castigos, reproches, multas). El conjunto de mecanismos que una sociedad usa para lograr que sus miembros se ajusten a las normas se llama **control social**.
 
-Se distingue entre control **formal**, ejercido por instituciones con reglas escritas (la policía, la justicia, el reglamento de una escuela), y control **informal**, que ejercen la familia, los amigos o la comunidad mediante la burla, la exclusión, la vergüenza o la aprobación. El control informal suele ser más eficaz en la vida cotidiana de lo que se imagina: mucha gente cumple una norma no porque tenga miedo a una multa sino por temor a lo que dirían los demás.
+Se distingue entre control **formal** e **informal**. El control **formal** lo ejercen instituciones con reglas escritas (la policía, la justicia, el reglamento de una escuela). El control **informal** lo ejercen la familia, los amigos o la comunidad mediante la burla, la exclusión, la vergüenza o la aprobación. El control informal suele ser más eficaz en la vida cotidiana de lo que se imagina: mucha gente cumple una norma no porque tenga miedo a una multa sino por temor a lo que dirían los demás.
 
 ## Desviación
 
@@ -38,4 +38,4 @@ Howard Becker, desde la teoría del **etiquetamiento**, propuso otra mirada: la 
 
 ## Para qué sirve
 
-Entender las normas, sanciones y desviaciones permite analizar con más criterio debates como la convivencia en la escuela, el uso de las redes o las leyes: ayuda a distinguir entre lo que es costumbre, lo que es moral y lo que es ley, y a preguntarse quién define qué es desviado.
+Entender las normas, sanciones y desviaciones permite analizar con más criterio debates como la convivencia en la escuela, el uso de las redes o las leyes. Ayuda a distinguir entre lo que es costumbre, lo que es moral y lo que es ley. Y ayuda a preguntarse quién define qué es desviado.

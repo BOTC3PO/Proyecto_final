@@ -32,7 +32,7 @@ Las diez son: visibilidad del estado del sistema; correspondencia entre el siste
 
 Una evaluación heurística consiste en recorrer la interfaz con la lista en la mano y anotar cada punto donde una heurística se incumple. Conviene que la hagan varias personas por separado y después junten los resultados, porque cada evaluador detecta problemas distintos. Cada hallazgo se describe con la pantalla, la heurística violada y una frase concreta del tipo "no hay forma de cancelar la subida de un archivo".
 
-Ejemplo: una app de turnos médicos que muestra el mensaje "Error 403" viola la heurística de ayudar a recuperarse de los errores (no explica qué pasó ni cómo seguir) y también la de correspondencia con el mundo real (usa un código técnico).
+Ejemplo: una app de turnos médicos que muestra el mensaje "Error 403" viola la heurística de ayudar a recuperarse de los errores, porque no explica qué pasó ni cómo seguir. También viola la de correspondencia con el mundo real, porque usa un código técnico.
 
 ## 4. Límites
 

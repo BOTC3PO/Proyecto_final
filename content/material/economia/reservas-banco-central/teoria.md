@@ -56,11 +56,11 @@ central tiene guardado para usar cuando hace falta".
 
 ## Reservas brutas y reservas netas
 
-No toda reserva que figura en la cuenta de un banco central está
-igualmente "libre para usar": las **reservas brutas** son el total de
-activos; las **reservas netas** restan compromisos de corto plazo que
-ya están comprometidos (como depósitos de bancos comerciales en el
-banco central, o líneas de crédito que hay que devolver pronto). Esta
+No toda reserva que figura en la cuenta de un banco central está igualmente
+"libre para usar". Las **reservas brutas** son el total de activos. Las
+**reservas netas** restan compromisos de corto plazo que ya están
+comprometidos, como depósitos de bancos comerciales en el banco central o
+líneas de crédito que hay que devolver pronto. Esta
 distinción es habitual en el debate público sobre cuánta "munición"
 real tiene un banco central para intervenir.
 
@@ -70,11 +70,10 @@ Algunos países diseñan a su banco central para que funcione con
 **autonomía** respecto del gobierno de turno: que no esté obligado a
 emitir dinero para financiar el gasto público, ni a bajar la tasa de
 interés por pedido del gobierno. Otros países mantienen a su banco
-central bajo control más directo del Poder Ejecutivo. Es una decisión
-de diseño institucional con argumentos de ambos lados (más autonomía
-suele asociarse con menos inflación, pero también con menos
-herramientas para el gobierno electo en una emergencia) — no hay un
-único modelo "correcto" adoptado por todos los países.
+central bajo control más directo del Poder Ejecutivo. Es una decisión de diseño institucional con argumentos de ambos lados. Más
+autonomía suele asociarse con menos inflación, pero también con menos
+herramientas para el gobierno electo en una emergencia. No hay un único
+modelo "correcto" adoptado por todos los países.
 
 ## Dónde aparece en la vida real
 

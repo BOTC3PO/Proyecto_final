@@ -17,7 +17,7 @@ mejor separados en diapositivas.
 ## Qué es un desarrollo plano
 
 El **desarrollo plano** (o "red") de un cuerpo 3D es la figura plana (2D)
-que, al doblarse por sus líneas de unión, arma exactamente ese cuerpo —
+que, al doblarse por sus líneas de unión, arma exactamente ese cuerpo. Es
 como desarmar una caja de cartón por sus pliegues hasta que queda
 completamente plana, o al revés. Sirve para dos cosas prácticas. Una es calcular la superficie total del
 cuerpo, sumando el área de cada pieza del desarrollo, ya que un área 2D es

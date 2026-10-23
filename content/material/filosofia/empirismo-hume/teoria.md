@@ -14,7 +14,7 @@
 
 ## John Locke
 
-John Locke (1632–1704) publicó en 1689–1690 el *Ensayo sobre el entendimiento humano*. Rechazó la existencia de ideas innatas: al nacer, la mente es como una hoja en blanco (la imagen de la *tabula rasa*) y todo lo que sabemos proviene de la experiencia, que puede ser **sensación** (lo que captamos con los sentidos) o **reflexión** (la atención de la mente sobre sus propias operaciones). Con esos materiales se forman ideas simples, que la mente combina en ideas complejas. Locke también distinguió las cualidades primarias de los objetos, como la forma o el movimiento, de las secundarias, como el color o el sabor, que dependerían del modo en que los percibimos.
+John Locke (1632–1704) publicó en 1689–1690 el *Ensayo sobre el entendimiento humano*. Rechazó la existencia de ideas innatas: al nacer, la mente es como una hoja en blanco (la imagen de la *tabula rasa*). Todo lo que sabemos proviene de la experiencia. Esta puede ser **sensación** (lo que captamos con los sentidos) o **reflexión** (la atención de la mente sobre sus propias operaciones). Con esos materiales se forman ideas simples, que la mente combina en ideas complejas. Locke también distinguió las cualidades primarias de los objetos, como la forma o el movimiento, de las secundarias, como el color o el sabor, que dependerían del modo en que los percibimos.
 
 ## George Berkeley
 
@@ -42,7 +42,7 @@ De ahí sale el **problema de la inducción**. Inferimos que el futuro se parece
 
 ### El yo y la ética
 
-Aplicó el mismo criterio a la identidad personal. Al mirar dentro de sí, decía, no encontraba un yo simple y permanente, sino un flujo de percepciones; el yo sería un «haz» de percepciones. En ética sostuvo que la razón sola no mueve a actuar: las pasiones y los sentimientos son lo que motiva, y se le atribuye haber notado que no se puede pasar sin más de lo que **es** a lo que **debe ser**.
+Aplicó el mismo criterio a la identidad personal. Al mirar dentro de sí, decía, no encontraba un yo simple y permanente, sino un flujo de percepciones; el yo sería un «haz» de percepciones. En ética sostuvo que la razón sola no mueve a actuar. Lo que motiva son las pasiones y los sentimientos. Se le atribuye haber notado que no se puede pasar sin más de lo que **es** a lo que **debe ser**.
 
 ## Importancia
 
