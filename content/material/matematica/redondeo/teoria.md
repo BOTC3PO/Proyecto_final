@@ -16,9 +16,9 @@
 ## La regla (repaso, aplicada a decimales)
 
 Redondear a una cierta cantidad de cifras decimales es mirar la cifra que
-sigue justo después de la posición a la que se redondea: si es 5 o más,
-la última cifra que queda sube en 1; si es menor a 5, queda igual — y se
-descarta todo lo que sigue.
+sigue justo después de la posición a la que se redondea. Si es 5 o más, la
+última cifra que queda sube en 1. Si es menor a 5, queda igual. En ambos
+casos se descarta todo lo que sigue.
 
 **Ejemplo**: redondear 3,14159 a 2 cifras decimales — se mira la tercera
 cifra decimal (1, que es menor a 5) → 3,14. Redondear el mismo número a 4

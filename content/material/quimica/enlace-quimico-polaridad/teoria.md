@@ -26,11 +26,10 @@ o **compartir** electrones con otro.
 | Covalente no polar | Chica (<0,4) | Se **comparten parejo** | H₂, O₂, Cl₂ |
 | Metálico | — (entre metales) | Los electrones de valencia se deslocalizan en un "mar de electrones" compartido por todos los átomos | Cu, Fe |
 
-**Regla práctica**: no hay que memorizar un valor exacto de corte — la
-idea es un continuo: cuanto más se diferencia la electronegatividad de
-los dos átomos, más "iónico" es el enlace (un átomo le termina sacando
-el electrón al otro); cuanto más parecida es, más "covalente puro"
-(comparten parejo).
+**Regla práctica**: no hay que memorizar un valor exacto de corte. La idea
+es un continuo. Cuanto más se diferencia la electronegatividad de los dos
+átomos, más "iónico" es el enlace (un átomo le termina sacando el electrón
+al otro). Cuanto más parecida es, más "covalente puro" (comparten parejo).
 
 ## 3. Polaridad
 

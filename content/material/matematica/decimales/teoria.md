@@ -38,10 +38,9 @@ fracción equivalente.
 ## Comparar decimales
 
 Se alinean las comas (como alinear el valor posicional) y se compara cifra
-por cifra de izquierda a derecha, igual que con los enteros. Ojo con la
-cantidad de cifras: 0,5 es igual a 0,50 (agregar un cero al final de un
-decimal no cambia su valor), y 0,45 es MAYOR que 0,5 sólo si se comparan
-mal las cifras — en realidad 0,5 (=0,50) es mayor que 0,45.
+por cifra de izquierda a derecha, igual que con los enteros. Ojo con la cantidad de cifras. 0,5 es igual a 0,50: agregar un cero al final
+de un decimal no cambia su valor. 0,45 parece MAYOR que 0,5 solo si se
+comparan mal las cifras. En realidad 0,5 (=0,50) es mayor que 0,45.
 
 ## Sumar y restar decimales
 

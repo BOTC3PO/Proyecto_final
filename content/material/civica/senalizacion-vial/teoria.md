@@ -51,8 +51,8 @@ verde: rutas y autopistas; fondo azul: información de servicios.
 
 ## Por qué depende de documentos y trámites
 
-`../documentos-y-tramites/` ya explicó qué es el DNI y el trámite
-asociado a votar/circular con identificación — este módulo presupone
-ese marco de identificación legal del conductor (licencia de conducir,
-DNI) como condición previa para poder circular legalmente, antes de
-entrar en el contenido específico de qué significa cada señal.
+`../documentos-y-tramites/` ya explicó qué es el DNI y el trámite asociado a
+votar o circular con identificación. Este módulo presupone ese marco de
+identificación legal del conductor (licencia de conducir, DNI) como
+condición previa para poder circular legalmente. Recién después entra en el
+contenido específico de qué significa cada señal.

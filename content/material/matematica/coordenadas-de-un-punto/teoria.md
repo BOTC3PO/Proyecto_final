@@ -48,8 +48,8 @@ Para marcar el punto `(x, y)` en el plano:
 
 ## Para qué sirve
 
-Un par ordenado es la forma más compacta de describir una posición
-exacta en el plano — sin él, no se podría medir la distancia entre dos
-puntos (`../distancia-entre-dos-puntos/`), hallar el punto que está
-justo en el medio de un segmento (`../punto-medio-de-un-segmento/`), ni
-escribir la ecuación de una recta.
+Un par ordenado es la forma más compacta de describir una posición exacta en
+el plano. Sin él, no se podría medir la distancia entre dos puntos
+(`../distancia-entre-dos-puntos/`). Tampoco hallar el punto que está justo
+en el medio de un segmento (`../punto-medio-de-un-segmento/`), ni escribir
+la ecuación de una recta.

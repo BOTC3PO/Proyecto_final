@@ -38,10 +38,10 @@ del "esqueleto" visible de la molécula — distorsiona la geometría:
 | 4 | 2 | Angular / doblada | H₂O |
 
 **Por qué el agua no es lineal**: el oxígeno tiene 4 pares alrededor (2
-enlaces O-H + 2 pares libres), así que el arreglo de base es
-tetraédrico — pero como sólo se "ven" los 2 átomos de H, la forma visible
-es angular (~104,5°, un poco menos que el tetraédrico puro porque los
-pares libres repelen más fuerte que los enlazantes).
+enlaces O-H + 2 pares libres), así que el arreglo de base es tetraédrico.
+Pero como solo se "ven" los 2 átomos de H, la forma visible es angular
+(~104,5°). Es un poco menos que el tetraédrico puro porque los pares libres
+repelen más fuerte que los enlazantes.
 
 ## 4. De la geometría a la polaridad de la molécula
 

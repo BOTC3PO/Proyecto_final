@@ -43,11 +43,11 @@ ADN → (transcripción) → ARN → (traducción) → Proteína
 
 ## 4. Por qué esto importa: el gen determina el rasgo
 
-Como una proteína específica hace un trabajo específico en la célula
-(estructural, enzimático, etc.), y el gen determina qué proteína se
-fabrica, el gen termina determinando (junto con el ambiente, en muchos
-casos) un **rasgo observable** del organismo — el color de ojos, el
-grupo sanguíneo, etc. Esa cadena (gen → proteína → rasgo) es la base de
+Una proteína específica hace un trabajo específico en la célula
+(estructural, enzimático, etc.), y el gen determina qué proteína se fabrica.
+Por eso el gen termina determinando (junto con el ambiente, en muchos casos)
+un **rasgo observable** del organismo: el color de ojos, el grupo sanguíneo,
+etc. Esa cadena (gen → proteína → rasgo) es la base de
 `../genetica-mendeliana-punnett/`.
 
 ## 5. Mutación: un error en la copia

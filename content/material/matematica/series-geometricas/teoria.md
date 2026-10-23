@@ -30,10 +30,10 @@ multiplica por 2).
 
 ## Crecimiento geométrico vs. aritmético
 
-Una sucesión aritmética crece de forma **lineal** (constante paso a
-paso); una geométrica (con r > 1) crece **exponencialmente**, cada vez
-más rápido — el mismo tipo de crecimiento que una población que se
-duplica, o un capital con interés compuesto.
+Una sucesión aritmética crece de forma **lineal**, constante paso a paso.
+Una geométrica (con r > 1) crece **exponencialmente**, cada vez más rápido.
+Es el mismo tipo de crecimiento que una población que se duplica, o un
+capital con interés compuesto.
 
 ## La suma de una serie geométrica finita
 

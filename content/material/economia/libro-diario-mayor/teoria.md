@@ -28,12 +28,11 @@ económicamente.
 
 ## El Libro Mayor: organizado por cuenta
 
-El **Libro Mayor** reorganiza esa misma información, pero **por
-cuenta**: cada cuenta (Caja, Mercadería, Préstamos a pagar...) tiene su
-propia "hoja", donde se acumulan **todos** los movimientos que la
-afectaron a lo largo del tiempo, sin importar en qué fecha ocurrieron —
-para poder calcular de un vistazo el **saldo actual** de esa cuenta
-puntual.
+El **Libro Mayor** reorganiza esa misma información, pero **por cuenta**.
+Cada cuenta (Caja, Mercadería, Préstamos a pagar...) tiene su propia "hoja".
+Allí se acumulan **todos** los movimientos que la afectaron a lo largo del
+tiempo, sin importar en qué fecha ocurrieron. Así se puede calcular de un
+vistazo el **saldo actual** de esa cuenta puntual.
 
 ## "Pasar al mayor": el proceso que conecta ambos libros
 

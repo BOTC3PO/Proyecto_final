@@ -45,8 +45,8 @@ tipos de mezcla, métodos de separación).
 | Tamizado | Tamaño de partícula (sólido-sólido) | Sólidos de distinto tamaño de grano |
 | Separación magnética | Propiedad magnética | Sólido magnético de uno que no lo es |
 
-**Regla práctica para elegir el método**: mirar qué par de estados
-físicos hay que separar (sólido-líquido, líquido-líquido, sólido-sólido)
-y qué propiedad distingue a los componentes (tamaño, densidad, punto de
-ebullición, solubilidad, magnetismo) — el método sale de cruzar esas dos
+**Regla práctica para elegir el método**: mirar qué par de estados físicos
+hay que separar (sólido-líquido, líquido-líquido, sólido-sólido) y qué
+propiedad distingue a los componentes (tamaño, densidad, punto de
+ebullición, solubilidad, magnetismo). El método sale de cruzar esas dos
 cosas, no de memorizar una lista suelta.

@@ -48,7 +48,7 @@ recién después, para la fotosíntesis de la planta ya crecida.)
 
 ## 4. Por qué importa el orden raíz→tallo
 
-La radícula sale primero porque la planta necesita **anclarse y
-empezar a absorber agua** antes de gastar energía en crecer hacia
-arriba — sin raíz, el brote que sale no tendría cómo sostenerse ni
-alimentarse una vez que se agoten las reservas de la semilla.
+La radícula sale primero porque la planta necesita **anclarse y empezar a
+absorber agua** antes de gastar energía en crecer hacia arriba. Sin raíz, el
+brote que sale no tendría cómo sostenerse ni alimentarse una vez que se
+agoten las reservas de la semilla.

@@ -29,7 +29,7 @@ comparar contra la tabla del 3 (3, 6, 9).
 
 ## Por qué funciona (nota, no imprescindible para aplicarla)
 
-10 deja resto 1 al dividirlo por 3 (10 = 3×3+1). Por eso cada potencia de
-10 (10, 100, 1.000...) también deja resto 1 al dividirla por 3 — y el
-resto de dividir el número completo por 3 termina siendo, exactamente, el
-resto de dividir la suma de sus cifras por 3.
+10 deja resto 1 al dividirlo por 3 (10 = 3×3+1). Por eso cada potencia de 10 (10, 100, 1.000...) también deja resto 1 al
+dividirla por 3. Entonces el resto de dividir el número completo por 3
+termina siendo, exactamente, el resto de dividir la suma de sus cifras por
+3.

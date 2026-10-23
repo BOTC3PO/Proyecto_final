@@ -47,12 +47,11 @@ tienen en común?
 
 ## Por qué ningún intento cierra el debate del todo
 
-Cada definición histórica explica bien algunos casos de arte y falla
-en otros — es un ejemplo clásico de "concepto en disputa" en
-filosofía: no hay consenso sobre la definición correcta, y presentar
-las distintas propuestas (sin declarar una ganadora) es el enfoque más
-honesto, igual criterio de neutralidad ya aplicado en otros temas de
-esta materia.
+Cada definición histórica explica bien algunos casos de arte y falla en
+otros. Es un ejemplo clásico de "concepto en disputa" en filosofía: no hay
+consenso sobre la definición correcta. Presentar las distintas propuestas,
+sin declarar una ganadora, es el enfoque más honesto. Es el mismo criterio
+de neutralidad ya aplicado en otros temas de esta materia.
 
 ## Para qué sirve
 

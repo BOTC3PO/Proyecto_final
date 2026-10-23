@@ -35,11 +35,11 @@ reconocida por la sociedad.
 
 ## Por qué las instituciones persisten
 
-Una institución sobrevive a las personas que la integran en un momento
-dado: la familia, la escuela o el Estado siguen existiendo aunque
-cambien todos sus miembros individuales, porque el **rol** (padre/madre,
-docente, funcionario) está definido independientemente de quién lo
-ocupe en cada momento. Esto es lo que la distingue de un grupo informal
+Una institución sobrevive a las personas que la integran en un momento dado.
+La familia, la escuela o el Estado siguen existiendo aunque cambien todos
+sus miembros individuales. Esto es así porque el **rol** (padre o madre,
+docente, funcionario) está definido independientemente de quién lo ocupe en
+cada momento. Esto es lo que la distingue de un grupo informal
 cualquiera (un grupo de amigos no tiene roles fijos ni sobrevive
 necesariamente el cambio de sus integrantes).
 

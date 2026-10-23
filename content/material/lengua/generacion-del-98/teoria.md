@@ -58,9 +58,8 @@ responden a preocupaciones muy distintas:
 
 ## Para qué sirve
 
-Comparar Modernismo y Generación del 98 lado a lado es el
-prerrequisito para entender por qué, pese a compartir época, tomaron
-caminos estéticos e ideológicos opuestos — y prepara el terreno para
-el último movimiento de la cadena, el **Boom latinoamericano**, que
-retoma (mucho después) la pregunta por la identidad nacional/regional
-pero desde Hispanoamérica.
+Comparar Modernismo y Generación del 98 lado a lado es el prerrequisito para
+entender por qué, pese a compartir época, tomaron caminos estéticos e
+ideológicos opuestos. También prepara el terreno para el último movimiento
+de la cadena, el **Boom latinoamericano**. Este retoma (mucho después) la
+pregunta por la identidad nacional o regional, pero desde Hispanoamérica.

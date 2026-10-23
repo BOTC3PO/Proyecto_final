@@ -20,10 +20,10 @@ lugar).
 
 ## Lados y ángulos correspondientes
 
-Cuando se dice que dos triángulos son congruentes, hay que tener claro
-CUÁL lado de uno corresponde a CUÁL lado del otro (y lo mismo con los
-ángulos) — el orden en que se nombran los vértices de cada triángulo
-indica esa correspondencia. No hace falta verificar los 3 lados Y los 3
+Cuando se dice que dos triángulos son congruentes, hay que tener claro CUÁL
+lado de uno corresponde a CUÁL lado del otro, y lo mismo con los ángulos. El
+orden en que se nombran los vértices de cada triángulo indica esa
+correspondencia. No hace falta verificar los 3 lados Y los 3
 ángulos (6 datos en total) para confirmar que dos triángulos son
 congruentes: alcanza con verificar una combinación más chica, gracias a
 los **criterios de congruencia**.

@@ -28,7 +28,7 @@ Las rocas metamórficas surgen cuando una roca existente — ya sea ígnea, sedi
 
 ## 4. Círculo del ciclo de las rocas
 
-El proceso de formación, erosión y transformación de las rocas no ocurre aislado. Las tres categorías están interconectadas: las rocas ígneas pueden erosionarse para formar sedimentos que generan rocas sedimentarias; estas, bajo condiciones extremas, se convierten en metamórficas; y si el calor es suficiente, incluso las metamórficas pueden fundirse de nuevo para originar magma. Este ciclo constante redefine la superficie terrestre a lo largo de millones de años.
+El proceso de formación, erosión y transformación de las rocas no ocurre aislado. Las tres categorías están interconectadas. Las rocas ígneas pueden erosionarse para formar sedimentos que generan rocas sedimentarias. Estas, bajo condiciones extremas, se convierten en metamórficas. Y si el calor es suficiente, incluso las metamórficas pueden fundirse de nuevo para originar magma. Este ciclo constante redefine la superficie terrestre a lo largo de millones de años.
 
 <!-- IMAGEN: Diagrama del ciclo de las rocas con flechas que muestran transformaciones entre los tipos -->
 

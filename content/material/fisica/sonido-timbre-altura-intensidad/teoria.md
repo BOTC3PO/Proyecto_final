@@ -34,7 +34,7 @@ El timbre es lo que permite identificar el origen de un sonido, incluso si dos f
 
 ## 4. Relación entre propiedades y percepción humana
 
-La combinación de altura, intensidad y timbre define cómo percibimos cualquier sonido. Por ejemplo, al escuchar una palabra en un ruido de fondo, usamos el **timbre** para reconocer la voz del hablante (aunque su tono o volumen cambie), mientras que la **altura** nos ayuda a interpretar si se trata de una vocal alta o baja. Esta interacción entre propiedades es clave en áreas como la ingeniería acústica, el diseño musical y la comunicación.
+La combinación de altura, intensidad y timbre define cómo percibimos cualquier sonido. Por ejemplo, al escuchar una palabra en un ruido de fondo, usamos el **timbre** para reconocer la voz del hablante, aunque su tono o volumen cambie. La **altura**, en cambio, nos ayuda a interpretar si se trata de una vocal alta o baja. Esta interacción entre propiedades es clave en áreas como la ingeniería acústica, el diseño musical y la comunicación.
 
 ---
 

@@ -13,9 +13,9 @@
 ## Qué es la regla de tres inversa
 
 Es un método para resolver problemas con dos magnitudes que son
-**inversamente proporcionales**: cuando una aumenta, la otra
-**disminuye** (y viceversa), de manera que el **producto** de las dos se
-mantiene constante — al revés que en la regla directa (ver
+**inversamente proporcionales**. Cuando una aumenta, la otra **disminuye**
+(y viceversa), de manera que el **producto** de las dos se mantiene
+constante. Es al revés que en la regla directa (ver
 `../regla-de-tres-directa/teoria.md`), donde lo constante era el
 **cociente**.
 

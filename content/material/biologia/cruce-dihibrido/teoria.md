@@ -19,10 +19,10 @@ combinan sus herencias.
 
 ## 2. Ley de la segregación independiente
 
-Mendel encontró que, si los dos genes están en cromosomas distintos (o
-muy separados en el mismo cromosoma), **se heredan de forma
-independiente** uno del otro — que un descendiente reciba el alelo
-dominante del gen 1 no influye en qué alelo recibe del gen 2. Esto
+Mendel encontró que, si los dos genes están en cromosomas distintos (o muy
+separados en el mismo cromosoma), **se heredan de forma independiente** uno
+del otro. Que un descendiente reciba el alelo dominante del gen 1 no influye
+en qué alelo recibe del gen 2. Esto
 permite tratar cada gen como un sorteo aparte y **combinar** las
 probabilidades.
 

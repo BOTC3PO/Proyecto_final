@@ -16,10 +16,10 @@ distintos y complementarios, secciones separables.
 El teatro combina dos habilidades distintas: **escribir** el texto
 teatral (dramaturgia) e **interpretarlo** frente a público (actuación).
 `../../lengua/genero-dramatico/` ya cubrió la FORMA del texto teatral
-(diálogo, acotaciones, actos/escenas) — este tema no repite eso, se
-enfoca en la escritura como **oficio** (cómo se construye
-dramáticamente una historia) y en la actuación como **arte escénico**
-(cómo se la interpreta en vivo).
+(diálogo, acotaciones, actos y escenas). Este tema no repite eso. Se enfoca
+en la escritura como **oficio** (cómo se construye dramáticamente una
+historia) y en la actuación como **arte escénico** (cómo se la interpreta en
+vivo).
 
 ## Dramaturgia: construir el conflicto dramático
 

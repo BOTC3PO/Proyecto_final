@@ -36,13 +36,12 @@ contra el despido arbitrario, organización sindical y seguridad social.
 
 ## Derechos implícitos (art. 33)
 
-El art. 33 establece que la enumeración de derechos de la Constitución
-**no es cerrada**: existen otros derechos no enumerados explícitamente
-pero que nacen del principio de soberanía del pueblo y de la forma
-republicana de gobierno — esto es lo que permitió, con el tiempo,
-reconocer derechos que no estaban escritos literalmente en 1853 (por
-ejemplo, el derecho a la intimidad, reconocido después por vía judicial
-y hoy también explícito en el art. 19).
+El art. 33 establece que la enumeración de derechos de la Constitución **no
+es cerrada**. Existen otros derechos no enumerados explícitamente, pero que
+nacen del principio de soberanía del pueblo y de la forma republicana de
+gobierno. Esto permitió, con el tiempo, reconocer derechos que no estaban
+escritos literalmente en 1853. Por ejemplo, el derecho a la intimidad,
+reconocido después por vía judicial y hoy también explícito en el art. 19.
 
 ## Garantías: cómo se hacen valer los derechos
 

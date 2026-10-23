@@ -27,14 +27,13 @@ brazos).
 
 ## 3. El encendido: fusión nuclear
 
-Cuando la presión y la temperatura en el centro de la nube colapsada
-son suficientemente altas (millones de grados), los núcleos de
-hidrógeno empiezan a **fusionarse** para formar helio, liberando una
-enorme cantidad de energía — ese es el momento en que "nace" una
-estrella: deja de colapsar sin control (la energía liberada empuja
-hacia afuera, contrarrestando la gravedad que empuja hacia adentro) y
-entra en un equilibrio estable que puede durar millones o miles de
-millones de años.
+Cuando la presión y la temperatura en el centro de la nube colapsada son
+suficientemente altas (millones de grados), los núcleos de hidrógeno
+empiezan a **fusionarse** para formar helio, liberando una enorme cantidad
+de energía. Ese es el momento en que "nace" una estrella. Deja de colapsar
+sin control, porque la energía liberada empuja hacia afuera y contrarresta
+la gravedad que empuja hacia adentro. Entra en un equilibrio estable que
+puede durar millones o miles de millones de años.
 
 ```
 Gravedad (hacia adentro) ⇄ Presión de la fusión (hacia afuera)

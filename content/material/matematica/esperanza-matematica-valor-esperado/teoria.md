@@ -58,10 +58,11 @@ tomar valores enteros de 0 a `n`.
 
 ## Para qué sirve
 
-Es la base de cualquier decisión racional bajo incertidumbre: cuánto
-cobrar por un seguro (la aseguradora calcula el valor esperado del
-siniestro), si conviene una inversión de riesgo (comparando el valor
-esperado del retorno contra el de una alternativa más segura), o
-simplemente si un juego de azar conviene jugarlo.
+Es la base de cualquier decisión racional bajo incertidumbre. Sirve para
+saber cuánto cobrar por un seguro, porque la aseguradora calcula el valor
+esperado del siniestro. Sirve para decidir si conviene una inversión de
+riesgo, comparando el valor esperado del retorno contra el de una
+alternativa más segura. O simplemente para saber si un juego de azar
+conviene jugarlo.
 `../../economia/valor-esperado-riesgo/` retoma exactamente esta
 fórmula para decidir sobre inversiones financieras.

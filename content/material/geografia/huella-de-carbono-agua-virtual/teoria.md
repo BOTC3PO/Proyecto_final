@@ -17,11 +17,11 @@ una actividad, un producto o una persona a lo largo de un período. Incluye
 desde fabricar algo hasta transportarlo, usarlo y desecharlo.
 
 **Por qué la carne tiene huella más alta que las verduras**: retomando
-`../../biologia/cadenas-redes-troficas/` y la regla del 10% de energía
-que se transmite entre niveles tróficos — producir 1 kg de carne
-requiere alimentar al animal con **muchos** kg de vegetales durante su
-vida (la mayor parte de esa energía se "pierde" en el metabolismo del
-animal, no en el producto final). Un alimento de origen animal
+`../../biologia/cadenas-redes-troficas/` y la regla del 10% de energía que
+se transmite entre niveles tróficos. Producir 1 kg de carne requiere
+alimentar al animal con **muchos** kg de vegetales durante su vida. La mayor
+parte de esa energía se "pierde" en el metabolismo del animal, no en el
+producto final. Un alimento de origen animal
 "carga" con la huella de todo lo que hizo falta para producirlo,
 incluida la energía perdida en cada eslabón de la cadena.
 

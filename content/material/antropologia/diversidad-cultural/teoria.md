@@ -25,12 +25,11 @@ existen y existieron en el mundo.
 
 El **relativismo cultural** es el principio metodológico (no un juicio
 moral) de que una práctica cultural debe entenderse **desde el marco de
-esa misma cultura**, y no desde los valores de otra. No implica que
-"todo vale" sin ningún límite (una postura extrema conocida como
-relativismo absoluto, que la mayoría de la Antropología actual matiza
-frente a violaciones graves de derechos humanos), sino que evita el
-error metodológico de evaluar una práctica ajena únicamente con la vara
-de la propia cultura antes de entenderla en su contexto.
+esa misma cultura**, y no desde los valores de otra. No implica que "todo vale" sin ningún límite. Esa postura extrema se conoce
+como relativismo absoluto, y la mayoría de la Antropología actual la matiza
+frente a violaciones graves de derechos humanos. Lo que sí evita es el error
+metodológico de evaluar una práctica ajena únicamente con la vara de la
+propia cultura antes de entenderla en su contexto.
 
 ## Ejemplos de diversidad real
 

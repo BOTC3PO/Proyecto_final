@@ -61,7 +61,7 @@ sujeto como en el predicado.
 
 Distinguir el núcleo de sus modificadores permite **simplificar**
 mentalmente una oración larga y compleja a su esqueleto básico (sujeto
-núcleo + verbo núcleo), sin perder de vista qué información extra
-aporta cada modificador — la base de cualquier análisis sintáctico
-más detallado, y una herramienta práctica real para resumir o
-parafrasear un texto sin perder su sentido central.
+núcleo + verbo núcleo). Se hace sin perder de vista qué información extra
+aporta cada modificador. Es la base de cualquier análisis sintáctico más
+detallado, y una herramienta práctica real para resumir o parafrasear un
+texto sin perder su sentido central.

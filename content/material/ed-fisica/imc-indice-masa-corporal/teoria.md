@@ -63,8 +63,8 @@ de salud.
 
 ## 4. Conexión con lo que ya se vio
 
-El IMC es un ejemplo más de cómo un número simple, calculado con una
-fórmula básica (potencias), puede dar información útil pero limitada
-— la misma idea de "el indicador no es el territorio" que aparece en
-`../../biologia/biodiversidad-indices/` (la riqueza sola tampoco
-alcanza para medir diversidad real).
+El IMC es un ejemplo más de cómo un número simple, calculado con una fórmula
+básica (potencias), puede dar información útil pero limitada. Es la misma
+idea de "el indicador no es el territorio" que aparece en
+`../../biologia/biodiversidad-indices/`: la riqueza sola tampoco alcanza
+para medir diversidad real.

@@ -18,7 +18,7 @@ Una **fuente primaria** es un registro original que proviene directamente del mo
 
 ## 2. ¿Cómo identificar una fuente primaria?
 
-Para determinar si algo es primario, preguntate: *¿Esta información fue creada en el momento del hecho o después?* Un ejemplo claro es un video grabado durante la transmisión de un discurso presidencial (primario) versus un artículo de opinión escrito sobre ese mismo discurso semanas después (secundario). Las fuentes primarias son siempre **originales**, mientras que las secundarias se basan en análisis, comentarios o reinterpretaciones.
+Para determinar si algo es primario, preguntate: *¿Esta información fue creada en el momento del hecho o después?* Un ejemplo claro es un video grabado durante la transmisión de un discurso presidencial (primario). Un artículo de opinión escrito sobre ese mismo discurso semanas después es, en cambio, secundario. Las fuentes primarias son siempre **originales**, mientras que las secundarias se basan en análisis, comentarios o reinterpretaciones.
 
 ---
 

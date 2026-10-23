@@ -33,10 +33,10 @@ diagrama de árbol.
 
 ## Regla del "O": eventos que se excluyen mutuamente
 
-Si dos eventos no pueden ocurrir juntos (**mutuamente excluyentes** —
-por ejemplo, "sale 2" y "sale 5" en un mismo tiro de dado), la
-probabilidad de que ocurra **cualquiera de los dos** (A O B) es la
-suma de sus probabilidades:
+Si dos eventos no pueden ocurrir juntos (**mutuamente excluyentes**), la
+probabilidad de que ocurra **cualquiera de los dos** (A O B) es la suma de
+sus probabilidades. Por ejemplo, "sale 2" y "sale 5" en un mismo tiro de
+dado:
 
 ```
 P(A o B) = P(A) + P(B)          (si A y B son mutuamente excluyentes)

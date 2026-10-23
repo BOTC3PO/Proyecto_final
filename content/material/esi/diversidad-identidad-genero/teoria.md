@@ -31,12 +31,11 @@ Sancionada en Argentina en 2012 (una de las más avanzadas del mundo en
 su momento), establece que toda persona tiene derecho a:
 
 - Ser tratada de acuerdo a su identidad de género auto-percibida.
-- Solicitar la rectificación registral de su nombre y sexo en el DNI
-  para que coincida con su identidad de género, **sin necesidad de**
-  cirugía, tratamiento hormonal ni diagnóstico/informe médico o
-  psicológico previo — el único requisito es la solicitud de la
-  propia persona (mayor de 18 años; con procedimiento específico
-  para menores).
+- Solicitar la rectificación registral de su nombre y sexo en el DNI, para que
+  coincida con su identidad de género. No hace falta cirugía, tratamiento
+  hormonal ni diagnóstico o informe médico o psicológico previo. El único
+  requisito es la solicitud de la propia persona (mayor de 18 años; con
+  procedimiento específico para menores).
 - Acceder a tratamientos médicos de adecuación de la imagen corporal a
   la identidad de género (si la persona lo desea), incluidos en el
   sistema de salud público y privado.

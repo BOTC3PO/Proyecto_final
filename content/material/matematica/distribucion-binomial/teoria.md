@@ -13,12 +13,11 @@ diapositivas.
 
 ## Cuándo se aplica
 
-La **distribución binomial** cuenta cuántos **éxitos** se obtienen en
-`n` intentos **independientes**, todos con la **misma** probabilidad
-`p` de éxito, y sólo **dos resultados posibles** por intento (éxito o
-fracaso): cuántas caras salen en varios tiros de moneda, cuántos
-tiros de penal convierte un jugador, cuántos productos de un lote
-salen defectuosos.
+La **distribución binomial** cuenta cuántos **éxitos** se obtienen en `n`
+intentos **independientes**. Todos tienen la **misma** probabilidad `p` de
+éxito, y solo **dos resultados posibles** por intento (éxito o fracaso). Por
+ejemplo: cuántas caras salen en varios tiros de moneda, cuántos tiros de
+penal convierte un jugador, cuántos productos de un lote salen defectuosos.
 
 ## La fórmula
 

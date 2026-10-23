@@ -63,10 +63,10 @@ Esa persona, entrenando en Zona 3, debería mantener su pulso entre
 ## 5. Punto clave: más intenso no siempre es "mejor"
 
 Entrenar siempre en Zona 5 no es más efectivo que entrenar de forma
-planificada entre zonas — cada zona construye una capacidad distinta,
-y entrenar siempre al máximo lleva a fatiga acumulada y mayor riesgo
-de lesión (ver `../prevencion-cuidado-rice-calentamiento-ergonomia/`),
-sin necesariamente mejor rendimiento.
+planificada entre zonas. Cada zona construye una capacidad distinta.
+Entrenar siempre al máximo lleva a fatiga acumulada y mayor riesgo de lesión
+(ver `../prevencion-cuidado-rice-calentamiento-ergonomia/`), sin
+necesariamente mejor rendimiento.
 
 ## 6. Conexión con lo que ya se vio
 

@@ -24,7 +24,7 @@ múltiplo de 3).
 
 ## La relación con la regla del 3
 
-Todo número divisible por 9 es también divisible por 3 (porque toda suma
-de cifras múltiplo de 9 también es múltiplo de 3) — pero no al revés: un
-número puede ser divisible por 3 sin serlo por 9 (como 471 en el ejemplo
-de arriba). La regla del 9 es más exigente.
+Todo número divisible por 9 es también divisible por 3, porque toda suma de
+cifras múltiplo de 9 también es múltiplo de 3. Pero no al revés: un número
+puede ser divisible por 3 sin serlo por 9 (como 471 en el ejemplo de
+arriba). La regla del 9 es más exigente.

@@ -54,9 +54,9 @@ tenían con él.
 
 ## Para qué sirve
 
-La homotecia es la transformación detrás de cualquier ampliación o
-reducción que mantiene las proporciones: una fotocopia ampliada o
-reducida, el zoom de una imagen digital, o la sombra que proyecta un
-objeto desde una fuente de luz puntual (el centro de homotecia es la
-fuente de luz, y la razón depende de la distancia entre el objeto, la
-luz y la superficie donde cae la sombra).
+La homotecia es la transformación detrás de cualquier ampliación o reducción
+que mantiene las proporciones. Ejemplos son una fotocopia ampliada o
+reducida, el zoom de una imagen digital o la sombra que proyecta un objeto
+desde una fuente de luz puntual. En el último caso, el centro de homotecia
+es la fuente de luz, y la razón depende de la distancia entre el objeto, la
+luz y la superficie donde cae la sombra.

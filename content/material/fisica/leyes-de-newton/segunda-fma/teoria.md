@@ -52,10 +52,10 @@ de esta ley: es la fuerza necesaria para darle una aceleración de
 
 ## El peso: la aplicación más directa de F = m·a
 
-El **peso** de un objeto es la fuerza con la que la gravedad lo atrae —
-y es, literalmente, un caso particular de la segunda ley, con la
-aceleración de la gravedad (`g`, aproximadamente 10 m/s² en cálculos
-simples) en el lugar de `a`:
+El **peso** de un objeto es la fuerza con la que la gravedad lo atrae. Es,
+literalmente, un caso particular de la segunda ley, con la aceleración de la
+gravedad (`g`, aproximadamente 10 m/s² en cálculos simples) en el lugar de
+`a`:
 
 ```
 Peso = m × g

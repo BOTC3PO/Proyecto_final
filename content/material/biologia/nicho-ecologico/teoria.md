@@ -13,10 +13,10 @@
 
 - **Hábitat** (`../habitats-adaptacion/`): el lugar físico donde vive
   una especie — su "dirección postal".
-- **Nicho ecológico**: el **rol completo** que una especie cumple en
-  ese ambiente — qué come, de qué se alimentan de ella, qué recursos
-  usa, cuándo está activa, cómo se reproduce, con qué otras especies
-  compite — su "profesión", no su dirección.
+- **Nicho ecológico**: el **rol completo** que una especie cumple en ese
+  ambiente. Incluye qué come, de qué se alimentan de ella, qué recursos usa,
+  cuándo está activa, cómo se reproduce y con qué otras especies compite. Es
+  su "profesión", no su dirección.
 
 Dos especies pueden compartir el mismo hábitat pero tener nichos
 distintos (ej.: un búho y un halcón pueden vivir en el mismo bosque,

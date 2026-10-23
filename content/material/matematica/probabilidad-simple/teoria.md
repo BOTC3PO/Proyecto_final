@@ -20,9 +20,9 @@ equivalentemente, entre 0% y 100%.
 P(evento) = casos favorables / casos totales
 ```
 
-**Ejemplo**: al tirar un dado de 6 caras, la probabilidad de que salga
-un número par (2, 4 o 6) es `3/6 = 0,5 = 50%` — hay 3 casos favorables
-(2, 4, 6) sobre 6 casos totales posibles (1 al 6).
+**Ejemplo**: al tirar un dado de 6 caras, la probabilidad de que salga un
+número par (2, 4 o 6) es `3/6 = 0,5 = 50%`. Hay 3 casos favorables (2, 4, 6)
+sobre 6 casos totales posibles (1 al 6).
 
 ## El espacio muestral
 
