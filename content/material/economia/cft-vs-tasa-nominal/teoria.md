@@ -49,15 +49,15 @@ aproximadamente **79,6%** — bastante más alta que el 60% nominal. Cuanto
 más seguido capitaliza, mayor es la brecha entre TNA y TEA.
 
 **Caso especial**: si la capitalización es una sola vez al año (`n = 1`),
-TNA y TEA dan exactamente el mismo número — recién con `n > 1` aparece la
-diferencia (el mismo patrón que interés simple vs. compuesto en `t = 1`).
+TNA y TEA dan exactamente el mismo número. Recién con `n > 1` aparece la
+diferencia, el mismo patrón que interés simple vs. compuesto en `t = 1`.
 
 ## Del CFT hacia atrás: no hay una fórmula única
 
-El cálculo real del CFT que usan las entidades financieras es más
-complejo que sumar un par de números: técnicamente es la tasa interna de
-retorno (TIR) de todo el flujo de pagos del crédito (cuotas, seguros,
-comisiones, IVA, en cada fecha en que se cobran), anualizada. No hay una
+El cálculo real del CFT que usan las entidades financieras es más complejo
+que sumar un par de números. Técnicamente es la tasa interna de retorno
+(TIR) de todo el flujo de pagos del crédito, anualizada. Incluye cuotas,
+seguros, comisiones e IVA, en cada fecha en que se cobran. No hay una
 fórmula cerrada simple porque depende de qué costos cobra cada producto
 y cuándo.
 

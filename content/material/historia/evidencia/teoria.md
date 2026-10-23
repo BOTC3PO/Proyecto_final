@@ -40,10 +40,10 @@ especulación, sin importar qué tan razonable suene.
   ese dato es más confiable que si viene de una sola fuente aislada.
 - **Consistencia interna**: una fuente que se contradice a sí misma
   es menos confiable que una internamente coherente.
-- **Ausencia (o transparencia) de conflicto de interés**: una fuente
-  producida por alguien con un interés directo en cómo se cuentan los
-  hechos (un gobierno hablando de su propio desempeño) necesita
-  contrastarse con más cuidado que una fuente sin ese interés directo.
+- **Ausencia (o transparencia) de conflicto de interés**: una fuente producida
+  por alguien con un interés directo en cómo se cuentan los hechos (un
+  gobierno hablando de su propio desempeño) necesita contrastarse con más
+  cuidado. Una fuente sin ese interés directo requiere menos cautela.
 - **Corroboración material**: cuando existe, la evidencia material
   (restos arqueológicos, registros no narrativos como censos o
   recibos) puede confirmar o contradecir lo que dicen las fuentes
@@ -60,16 +60,16 @@ participaron.
 
 ## Triangulación: la estrategia central
 
-La estrategia más sólida para evaluar evidencia es la
-**triangulación**: cruzar información de varias fuentes de tipo
-distinto (documentos, testimonios, evidencia material) para ver si
-coinciden — cuantas más fuentes independientes coincidan en un dato,
-más confiable es esa reconstrucción del pasado.
+La estrategia más sólida para evaluar evidencia es la **triangulación**:
+cruzar información de varias fuentes de tipo distinto (documentos,
+testimonios, evidencia material) para ver si coinciden. Cuantas más fuentes
+independientes coincidan en un dato, más confiable es esa reconstrucción del
+pasado.
 
 ## Para qué sirve
 
 Este tema completa, con el criterio de confiabilidad, lo que
-`../interpretar-una-fuente-historica/` empezó con la clasificación y
-el análisis crítico — juntos dan las herramientas completas para
-evaluar qué tan sólida es cualquier afirmación sobre el pasado, la
-base de cualquier investigación histórica seria.
+`../interpretar-una-fuente-historica/` empezó con la clasificación y el
+análisis crítico. Juntos dan las herramientas completas para evaluar qué tan
+sólida es cualquier afirmación sobre el pasado, la base de cualquier
+investigación histórica seria.

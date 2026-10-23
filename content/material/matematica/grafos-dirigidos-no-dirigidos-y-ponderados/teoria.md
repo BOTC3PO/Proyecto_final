@@ -12,10 +12,10 @@
 
 ## Grafos no dirigidos
 
-En un grafo **no dirigido**, cada arista es **simétrica**: si hay una
-conexión entre A y B, se puede recorrer en cualquiera de los dos
-sentidos indistintamente — "A conectado con B" es exactamente lo
-mismo que "B conectado con A". Es el tipo de grafo por defecto de
+En un grafo **no dirigido**, cada arista es **simétrica**. Si hay una
+conexión entre A y B, se puede recorrer en cualquiera de los dos sentidos
+indistintamente: "A conectado con B" es exactamente lo mismo que "B
+conectado con A". Es el tipo de grafo por defecto de
 `../grafos-vertices-y-aristas/`.
 
 **Ejemplos reales**: una amistad mutua en una red social, una calle de
@@ -27,10 +27,10 @@ En un grafo **dirigido**, cada arista tiene un **sentido**: una
 conexión de A hacia B (se dibuja con una flecha, `A → B`) **no**
 implica que exista la conexión inversa `B → A`.
 
-**Ejemplos reales**: "seguir" a alguien en una red social (que vos
-sigas a alguien no significa que esa persona te siga a vos), una calle
-de un solo sentido, un enlace de una página web hacia otra (que la
-página A enlace a la B no implica que B enlace a A).
+**Ejemplos reales**: "seguir" a alguien en una red social (que vos sigas a
+alguien no significa que esa persona te siga a vos), una calle de un solo
+sentido o un enlace de una página web hacia otra (que la página A enlace a
+la B no implica que B enlace a A).
 
 ### Grado de entrada y grado de salida
 
@@ -69,9 +69,8 @@ libremente:
 
 ## Para qué sirve
 
-Elegir bien qué tipo de grafo modela una situación real es el primer
-paso antes de aplicar cualquier algoritmo: un mapa de rutas con
-calles de un solo sentido necesita un grafo **dirigido**, y si además
-importa la distancia, también **ponderado** — un algoritmo que ignore
-alguna de esas dos características va a dar resultados incorrectos
-para el problema real.
+Elegir bien qué tipo de grafo modela una situación real es el primer paso
+antes de aplicar cualquier algoritmo. Un mapa de rutas con calles de un solo
+sentido necesita un grafo **dirigido**. Si además importa la distancia,
+también **ponderado**. Un algoritmo que ignore alguna de esas dos
+características va a dar resultados incorrectos para el problema real.

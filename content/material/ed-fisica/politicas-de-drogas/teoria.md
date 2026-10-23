@@ -76,10 +76,10 @@ Dos ideas relacionadas pero distintas:
 
 ## 5. Cómo leer las 3 posturas
 
-No son necesariamente excluyentes en la práctica — muchos países
-combinan elementos (ej.: reducción de daños + despenalización del
-consumo personal + prohibición de la venta) — pero representan 3
-prioridades distintas que vale la pena distinguir con claridad: **cero
-acceso** (prohibicionismo), **minimizar el daño mientras exista
-consumo** (reducción de daños), y **regular el mercado en vez de
-perseguirlo** (despenalización/legalización).
+No son necesariamente excluyentes en la práctica. Muchos países combinan
+elementos (por ejemplo, reducción de daños, despenalización del consumo
+personal y prohibición de la venta). Pero representan 3 prioridades
+distintas que vale la pena distinguir con claridad: **cero acceso**
+(prohibicionismo), **minimizar el daño mientras exista consumo** (reducción
+de daños) y **regular el mercado en vez de perseguirlo**
+(despenalización/legalización).

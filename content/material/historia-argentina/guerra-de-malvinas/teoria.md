@@ -18,11 +18,11 @@ El conflicto se desarrolló en tres etapas clave. La primera fue la **invasión 
 
 ## 3. El hundimiento del ARA General Belgrano
 
-Uno de los episodios más polémicos fue el hundimiento del crucero **ARA General Belgrano** por el submarino nuclear británico HMS Conqueror el 2 de mayo, cuando la embarcación navegaba fuera de la zona de exclusión total declarada por el Reino Unido. El ataque provocó la muerte de 323 tripulantes y generó una fuerte controversia internacional sobre la legalidad del hundimiento, precisamente por encontrarse el crucero fuera de esa zona. <!-- IMAGEN: esquema con la zona de exclusión y la posición del hundimiento -->
+Uno de los episodios más polémicos fue el hundimiento del crucero **ARA General Belgrano** por el submarino nuclear británico HMS Conqueror el 2 de mayo. La embarcación navegaba fuera de la zona de exclusión total declarada por el Reino Unido. El ataque provocó la muerte de 323 tripulantes. Generó una fuerte controversia internacional sobre la legalidad del hundimiento, precisamente por encontrarse el crucero fuera de esa zona. <!-- IMAGEN: esquema con la zona de exclusión y la posición del hundimiento -->
 
 ## 4. Contexto internacional
 
-El conflicto no fue solo un enfrentamiento local, sino una confrontación geopolítica. El Reino Unido contó con el apoyo de Estados Unidos y la OTAN, mientras que Argentina perdió respaldo en la ONU y en América Latina. La guerra marcó un antes y un después para ambos países: en Argentina, fue el punto final de la dictadura militar; en el Reino Unido, reforzó su identidad nacional y su poder naval. <!-- IMAGEN: mapas de alianzas durante el conflicto -->
+El conflicto no fue solo un enfrentamiento local, sino una confrontación geopolítica. El Reino Unido contó con el apoyo de Estados Unidos y la OTAN, mientras que Argentina perdió respaldo en la ONU y en América Latina. La guerra marcó un antes y un después para ambos países. En Argentina, fue el punto final de la dictadura militar. En el Reino Unido, reforzó su identidad nacional y su poder naval. <!-- IMAGEN: mapas de alianzas durante el conflicto -->
 
 ## 5. Memoria y legado
 

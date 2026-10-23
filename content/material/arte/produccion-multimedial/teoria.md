@@ -61,10 +61,10 @@ experiencia coherente, no como piezas sueltas mal pegadas.
 
 ## Integrar video
 
-- **Consistencia técnica**: mantener la misma resolución y la misma
-  cantidad de cuadros por segundo (frame rate) entre los distintos
-  videos que se combinan en un mismo proyecto, para que no se note un
-  salto de calidad o de fluidez entre uno y otro.
+- **Consistencia técnica**: mantener la misma resolución y la misma cantidad
+  de cuadros por segundo (frame rate) entre los distintos videos que se
+  combinan en un mismo proyecto. Así no se nota un salto de calidad o de
+  fluidez entre uno y otro.
 - **Elementos superpuestos**: gráficos, texto o subtítulos que se
   agregan sobre un video tienen que integrarse con el montaje ya hecho
   (ver `../narrativa-audiovisual/montaje/`), sin tapar información
@@ -72,17 +72,17 @@ experiencia coherente, no como piezas sueltas mal pegadas.
 
 ## El principio general: coherencia y jerarquía
 
-Sin importar el recurso, dos preguntas se repiten siempre: **¿todos los
-elementos comparten un mismo estilo coherente** (misma tipografía, misma
-paleta de color, mismo tono)?, y **¿está claro, en cada momento, cuál es
-el elemento protagonista**, para que texto, imagen, sonido y video no
-compitan todos a la vez por la atención del espectador? Es la misma
+Sin importar el recurso, dos preguntas se repiten siempre. La primera:
+**¿todos los elementos comparten un mismo estilo coherente** (misma
+tipografía, misma paleta de color, mismo tono)? La segunda: **¿está claro,
+en cada momento, cuál es el elemento protagonista**, para que texto, imagen,
+sonido y video no compitan todos a la vez por la atención del espectador? Es la misma
 tensión entre unidad y variedad ya vista en `../principios-de-diseno/`,
 aplicada ahora a una producción con varios tipos de medios a la vez.
 
 ## Para qué sirve
 
-Integrar bien estos cuatro recursos es lo que separa un proyecto
-multimedial que se siente profesional y cuidado de uno que se siente
-improvisado, aunque cada recurso individual (la foto, el clip de audio,
-el video) sea de buena calidad por separado.
+Integrar bien estos cuatro recursos es lo que separa un proyecto multimedial
+que se siente profesional y cuidado de uno que se siente improvisado. Esto
+es así aunque cada recurso individual (la foto, el clip de audio, el video)
+sea de buena calidad por separado.

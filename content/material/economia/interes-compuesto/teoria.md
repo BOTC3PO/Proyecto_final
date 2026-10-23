@@ -45,11 +45,10 @@ con los mismos números.
 ## Por qué "el interés genera interés" importa
 
 El salto conceptual central es que un porcentaje se puede aplicar sobre
-un resultado que **ya tenía** un porcentaje aplicado antes. Es el mismo
-mecanismo que explica por qué "+20% y después −20%" no vuelve al valor
-original, y es lo que hace que la deuda de una tarjeta de crédito no
-pagada crezca cada vez más rápido: cada mes se cobra interés sobre el
-saldo anterior, que ya incluye el interés del mes pasado.
+un resultado que **ya tenía** un porcentaje aplicado antes. Es el mismo mecanismo que explica por qué "+20% y después −20%" no vuelve al
+valor original. También es lo que hace que la deuda de una tarjeta de
+crédito no pagada crezca cada vez más rápido: cada mes se cobra interés
+sobre el saldo anterior, que ya incluye el interés del mes pasado.
 
 ## Comparación con el interés simple
 
@@ -63,20 +62,19 @@ capital, y la diferencia se agranda cuanto más períodos pasan.
 
 Igual que en interés simple, si la tasa es anual pero se quiere calcular
 la capitalización mensual, hay que convertir la tasa anual a mensual (o
-el tiempo a la unidad de la tasa) antes de aplicar la fórmula. Cuando la
-capitalización es más frecuente que el período de la tasa nominal (por
-ejemplo, una tasa anual que capitaliza mes a mes), el monto final termina
-siendo mayor que si capitalizara una sola vez al año con esa misma tasa
-nominal — la diferencia entre "tasa nominal" y "tasa efectiva" es,
+el tiempo a la unidad de la tasa) antes de aplicar la fórmula. Cuando la capitalización es más frecuente que el período de la tasa nominal
+(por ejemplo, una tasa anual que capitaliza mes a mes), el monto final
+termina siendo mayor que si capitalizara una sola vez al año con esa misma
+tasa nominal. La diferencia entre "tasa nominal" y "tasa efectiva" es,
 justamente, el tema del próximo módulo (`CFT vs. tasa nominal`).
 
 ## Dónde aparece en la vida real
 
-- **Plazo fijo renovado varias veces**: si se retira el capital más el
-  interés al vencimiento y se vuelve a depositar todo junto (capital +
-  interés) en un nuevo plazo fijo, el segundo período ya está generando
-  interés sobre interés — aunque cada plazo individual, por sí solo, se
-  calculó con interés simple.
+- **Plazo fijo renovado varias veces**: si se retira el capital más el interés
+  al vencimiento y se vuelve a depositar todo junto (capital + interés) en
+  un nuevo plazo fijo, el segundo período ya está generando interés sobre
+  interés. Esto ocurre aunque cada plazo individual, por sí solo, se haya
+  calculado con interés simple.
 - **Deuda de tarjeta de crédito no pagada**: los intereses de un saldo no
   cancelado se capitalizan período a período, por eso una deuda chica sin
   pagar puede crecer rápido con el tiempo.

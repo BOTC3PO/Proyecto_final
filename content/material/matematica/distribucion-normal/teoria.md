@@ -13,10 +13,9 @@ tres ideas separables que conviene mostrar una por una.
 ## La campana de Gauss
 
 La **distribución normal** (o campana de Gauss) es la forma que toman
-muchísimos fenómenos naturales cuando se los grafica: la mayoría de los
-casos se agrupan cerca del centro, y cada vez hay menos casos a medida
-que uno se aleja hacia los extremos, en forma simétrica hacia ambos
-lados.
+muchísimos fenómenos naturales cuando se los grafica. La mayoría de los
+casos se agrupan cerca del centro, y cada vez hay menos casos a medida que
+uno se aleja hacia los extremos, en forma simétrica hacia ambos lados.
 
 Queda **completamente definida por sólo dos números**, los mismos dos
 que ya se construyeron en los módulos anteriores:
@@ -24,10 +23,10 @@ que ya se construyeron en los módulos anteriores:
 - La **media** (μ): dónde está el centro de la campana.
 - El **desvío estándar** (σ): qué tan ancha o angosta es la campana.
 
-En una distribución normal perfecta, media, mediana y moda coinciden
-en el mismo valor — es el caso ideal en el que un solo promedio SÍ
-representa bien a todo el conjunto (a diferencia de lo visto en
-`../cual-miente-y-cuando/`, que aplica a distribuciones asimétricas).
+En una distribución normal perfecta, media, mediana y moda coinciden en el
+mismo valor. Es el caso ideal en el que un solo promedio SÍ representa bien
+a todo el conjunto. Es lo contrario de lo visto en
+`../cual-miente-y-cuando/`, que aplica a distribuciones asimétricas.
 
 ## La regla empírica (68-95-99,7)
 
@@ -63,11 +62,11 @@ Lengua, aunque tengan medias y desvíos distintos).
 
 ## Para qué sirve
 
-La normal aparece todo el tiempo porque, cuando muchos factores
-pequeños e independientes se suman (altura de una persona, error de
-una medición, tiempo de reacción), el resultado tiende a distribuirse
-así — es, de hecho, la razón detrás del **teorema central del límite**
-(un módulo más adelante en esta cadena). También es el puente hacia
+La normal aparece todo el tiempo porque, cuando muchos factores pequeños e
+independientes se suman (altura de una persona, error de una medición,
+tiempo de reacción), el resultado tiende a distribuirse así. Es, de hecho,
+la razón detrás del **teorema central del límite** (un módulo más adelante
+en esta cadena). También es el puente hacia
 `../variable-aleatoria-discreta-continua/`: la normal es el ejemplo
 central de variable aleatoria **continua** (puede tomar cualquier
 valor dentro de un intervalo), a diferencia de la binomial, que es

@@ -37,10 +37,10 @@ Se representan con letras: **p**, **q**, **r**...
   verdaderas.
 - **Disyunción** (p ∨ q, "p o q"): verdadera si **al menos una** es
   verdadera (disyunción inclusiva, la más común en lógica).
-- **Condicional** (p → q, "si p, entonces q"): falsa **sólo** cuando p
-  es verdadera y q es falsa — en cualquier otro caso, es verdadera
-  (esto sorprende al principio: un condicional con antecedente falso
-  es siempre verdadero, sin importar el consecuente).
+- **Condicional** (p → q, "si p, entonces q"): es falso **solo** cuando p es
+  verdadera y q es falsa. En cualquier otro caso, es verdadero. Esto
+  sorprende al principio: un condicional con antecedente falso es siempre
+  verdadero, sin importar el consecuente.
 - **Bicondicional** (p ↔ q, "p si y sólo si q"): verdadera cuando
   **ambas tienen el mismo valor** de verdad (las dos verdaderas o las
   dos falsas).
@@ -72,17 +72,15 @@ Tabla de verdad del condicional (p → q) — la que más sorprende:
 
 ## Relación con las falacias ya vistas
 
-El condicional formaliza justamente el tipo de relación que fallaba
-en la falacia de **pendiente resbaladiza**
-(`../../lengua/detectar-falacias/`): afirmar "si p entonces q" sin
-justificar por qué p realmente lleva a q es tratar al condicional como
-verdadero sin evidencia — la lógica proposicional da el marco para
-exigir esa justificación.
+El condicional formaliza justamente el tipo de relación que fallaba en la
+falacia de **pendiente resbaladiza** (`../../lengua/detectar-falacias/`).
+Afirmar "si p entonces q" sin justificar por qué p realmente lleva a q es
+tratar al condicional como verdadero sin evidencia. La lógica proposicional
+da el marco para exigir esa justificación.
 
 ## Para qué sirve
 
-La lógica proposicional es el prerrequisito directo de **validez de
-un razonamiento** (tema siguiente): antes de evaluar si una cadena de
-proposiciones conectadas lógicamente es válida, hace falta dominar
-qué significa cada conector y cómo se comporta en una tabla de
-verdad.
+La lógica proposicional es el prerrequisito directo de **validez de un
+razonamiento** (tema siguiente). Antes de evaluar si una cadena de
+proposiciones conectadas lógicamente es válida, hace falta dominar qué
+significa cada conector y cómo se comporta en una tabla de verdad.

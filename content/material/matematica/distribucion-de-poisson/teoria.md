@@ -13,11 +13,11 @@ necesita varias diapositivas.
 ## Qué modela
 
 La **distribución de Poisson** cuenta **cuántos eventos ocurren en un
-intervalo fijo** (de tiempo o de espacio), cuando esos eventos pasan
-al azar, de forma independiente entre sí, a una tasa promedio
-constante: cuántas llamadas recibe un call center en una hora, cuántos
-autos cruzan un semáforo poco transitado en un minuto, cuántos errores
-de tipeo hay en una página.
+intervalo fijo** (de tiempo o de espacio). Se usa cuando esos eventos pasan
+al azar, de forma independiente entre sí, a una tasa promedio constante. Por
+ejemplo: cuántas llamadas recibe un call center en una hora, cuántos autos
+cruzan un semáforo poco transitado en un minuto, cuántos errores de tipeo
+hay en una página.
 
 Es discreta (`../variable-aleatoria-discreta-continua/`): siempre
 cuenta una cantidad entera de eventos (0, 1, 2, 3...).
@@ -28,10 +28,10 @@ Queda definida por un solo parámetro, **λ** (lambda): la **cantidad
 promedio de eventos que ocurren en el intervalo**. Si un call center
 recibe en promedio 4 llamadas por hora, λ = 4.
 
-A diferencia de la exponencial (donde λ era una tasa por unidad de
-tiempo), acá λ **ya es directamente el promedio de eventos del
-intervalo que interesa** — y también es, sin ningún cálculo extra, el
-**valor esperado** de la distribución: `E(X) = λ`.
+A diferencia de la exponencial (donde λ era una tasa por unidad de tiempo),
+acá λ **ya es directamente el promedio de eventos del intervalo que
+interesa**. También es, sin ningún cálculo extra, el **valor esperado** de
+la distribución: `E(X) = λ`.
 
 ## La fórmula: P(X=k)
 

@@ -49,10 +49,10 @@ números más grandes.
 ## El algoritmo en columna
 
 Para multiplicar un número de varias cifras por otro de una sola cifra, se
-multiplica esa cifra por cada cifra del otro número, de derecha a
-izquierda, llevando de la misma forma que en la suma: si un producto
-parcial da 10 o más, se escribe la cifra de las unidades y se lleva el
-resto a la siguiente columna, donde se suma al próximo producto. Para
+multiplica esa cifra por cada cifra del otro número, de derecha a izquierda.
+Se lleva de la misma forma que en la suma. Si un producto parcial da 10 o
+más, se escribe la cifra de las unidades y se lleva el resto a la siguiente
+columna, donde se suma al próximo producto. Para
 multiplicar dos números de varias cifras, se repite el procedimiento una
 vez por cada cifra del segundo factor (corriendo un lugar hacia la
 izquierda cada vez) y se suman todos esos productos parciales al final.
@@ -60,14 +60,14 @@ izquierda cada vez) y se suman todos esos productos parciales al final.
 ## Multiplicar por 10, 100, 1.000...
 
 Multiplicar por una potencia de 10 es agregar tantos ceros al final como
-ceros tenga esa potencia (10 → 1 cero, 100 → 2 ceros...): en realidad, cada
+ceros tenga esa potencia (10 → 1 cero, 100 → 2 ceros...). En realidad, cada
 cifra del número se corrió un lugar hacia la izquierda en el valor
-posicional (ver `../valor-posicional/teoria.md`), lo que en la escritura se
+posicional (ver `../valor-posicional/teoria.md`), y en la escritura eso se
 ve como agregar ceros.
 
 ## Estimar antes de multiplicar
 
-Redondear los factores antes de multiplicar (a la decena, centena...) da
-un resultado aproximado que sirve para controlar que la cuenta exacta no
-tenga un error grosero — un error de multiplicación suele ser mucho más
-grande que uno de suma o resta, así que estimar antes ayuda más acá.
+Redondear los factores antes de multiplicar (a la decena, centena...) da un
+resultado aproximado. Sirve para controlar que la cuenta exacta no tenga un
+error grosero. Un error de multiplicación suele ser mucho más grande que uno
+de suma o resta, así que estimar antes ayuda más acá.

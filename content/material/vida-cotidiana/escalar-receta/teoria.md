@@ -34,11 +34,11 @@ cantidad de harina es `200 × 2,5 = 500 g`.
 
 ## La proporción entre ingredientes no cambia
 
-Aunque las cantidades absolutas de cada ingrediente cambian al escalar,
-la **proporción entre dos ingredientes de la misma receta** se mantiene
-igual — si en la receta original había el doble de harina que de azúcar,
-esa relación 2:1 sigue siendo así en la receta escalada, sin importar el
-factor de escala aplicado.
+Aunque las cantidades absolutas de cada ingrediente cambian al escalar, la
+**proporción entre dos ingredientes de la misma receta** se mantiene igual.
+Si en la receta original había el doble de harina que de azúcar, esa
+relación 2:1 sigue siendo así en la receta escalada, sin importar el factor
+de escala aplicado.
 
 ## No todo escala perfectamente lineal
 
@@ -66,11 +66,11 @@ hay excepciones importantes que conviene conocer:
 ## El redondeo práctico
 
 A veces el resultado exacto de la regla de tres no es un número
-práctico en la cocina (por ejemplo, "1,33 huevos"). En esos casos, se
-puede redondear la cantidad a algo manejable, o ajustar el número de
-porciones objetivo para que el resultado dé una cantidad más práctica de
-cada ingrediente (por ejemplo, elegir hacer para 8 porciones en vez de
-10, si eso hace que todas las cantidades den números más cómodos).
+práctico en la cocina (por ejemplo, "1,33 huevos"). En esos casos, se puede redondear la cantidad a algo manejable. También se
+puede ajustar el número de porciones objetivo para que el resultado dé una
+cantidad más práctica de cada ingrediente. Por ejemplo, elegir hacer para 8
+porciones en vez de 10, si eso hace que todas las cantidades den números más
+cómodos.
 
 ## Dónde aparece en la vida real
 

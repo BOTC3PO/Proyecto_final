@@ -54,31 +54,29 @@ al inglés en 1948 como *A Humane Order of Society*). Röpke describe su propia 
 Vía"** (*Third Way*) o **"Humanismo Económico"** (*Economic Humanism*). La
 sitúa entre el capitalismo histórico, al que critica con dureza por permitir
 la concentración monopólica, y el colectivismo, al que rechaza por completo
-por concentrar el poder político en manos de una minoría gobernante. En sus propias palabras (traducidas del inglés), la tarea no es sólo
-"preservar" la economía de mercado tal cual existe, sino "purificarla y
-hacerla estable y duradera" frente a la distorsión que producen el monopolio
-y la interferencia estatal irracional por igual.
+por concentrar el poder político en manos de una minoría gobernante. En sus propias palabras (traducidas del inglés), la tarea no es solo
+"preservar" la economía de mercado tal cual existe. Es "purificarla y
+hacerla estable y duradera" frente a la distorsión que producen por igual el
+monopolio y la interferencia estatal irracional.
 
 ## Aplicación real: la "economía social de mercado" alemana
 
-Las ideas del ordoliberalismo, junto con las de otros economistas de
-la misma tradición (como Alfred Müller-Armack, que acuñó el término),
-fueron la base intelectual directa de la **"economía social de
-mercado"** (*soziale Marktwirtschaft*) aplicada en Alemania Occidental
-después de la Segunda Guerra Mundial, bajo el ministro de Economía
-Ludwig Erhard: mercado libre y competencia real, sostenidos por reglas
-estatales fuertes contra los monopolios, combinados con una red de
-protección social (seguro de salud, jubilación) financiada de forma
-mixta. Es, en gran medida, el mismo modelo que describe el sistema de
+Las ideas del ordoliberalismo, junto con las de otros economistas de la
+misma tradición (como Alfred Müller-Armack, que acuñó el término), fueron la
+base intelectual directa de la **"economía social de mercado"** (*soziale
+Marktwirtschaft*). Se aplicó en Alemania Occidental después de la Segunda
+Guerra Mundial, bajo el ministro de Economía Ludwig Erhard. Combinaba
+mercado libre y competencia real, sostenidos por reglas estatales fuertes
+contra los monopolios, con una red de protección social (seguro de salud,
+jubilación) financiada de forma mixta. Es, en gran medida, el mismo modelo que describe el sistema de
 salud "mixto" (ni completamente público ni completamente privado)
 tratado en Cívica.
 
 ## Su lugar en la cadena de corrientes
 
-El ordoliberalismo comparte con el keynesianismo la idea de que el
-Estado tiene un rol activo que cumplir en la economía, pero discrepa
-en cuál es ese rol: para el keynesianismo, el Estado interviene sobre
-todo con gasto público en los momentos de crisis; para el
-ordoliberalismo, el Estado interviene todo el tiempo, pero como
-"árbitro" que sostiene las reglas de la competencia — no como jugador
-que gasta o produce directamente.
+El ordoliberalismo comparte con el keynesianismo la idea de que el Estado
+tiene un rol activo que cumplir en la economía, pero discrepa en cuál es ese
+rol. Para el keynesianismo, el Estado interviene sobre todo con gasto
+público en los momentos de crisis. Para el ordoliberalismo, el Estado
+interviene todo el tiempo, pero como "árbitro" que sostiene las reglas de la
+competencia, no como jugador que gasta o produce directamente.

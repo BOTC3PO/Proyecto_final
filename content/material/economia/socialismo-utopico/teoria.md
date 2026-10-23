@@ -23,13 +23,13 @@ cuál tiene razón.
 
 ## Qué sostiene el socialismo utópico
 
-A comienzos del siglo XIX, durante la Revolución Industrial británica,
-el socialismo utópico sostiene que las condiciones de vida y de
-trabajo de la clase obrera (jornadas larguísimas, trabajo infantil,
-salarios de subsistencia) no son un costo inevitable del progreso
-industrial, sino el resultado de una organización social mal diseñada
-— y que, por lo tanto, pueden mejorarse rediseñando el entorno en que
-vive y trabaja la gente, sin necesidad de una revolución política
+A comienzos del siglo XIX, durante la Revolución Industrial británica, el
+socialismo utópico sostiene que las condiciones de vida y de trabajo de la
+clase obrera no son un costo inevitable del progreso industrial. Esas
+condiciones eran jornadas larguísimas, trabajo infantil y salarios de
+subsistencia. Para esta corriente, son el resultado de una organización
+social mal diseñada. Por lo tanto, pueden mejorarse rediseñando el entorno
+en que vive y trabaja la gente, sin necesidad de una revolución política
 violenta.
 
 Su idea central es que **el carácter de una persona lo forma el entorno en
@@ -63,11 +63,10 @@ económicamente en el tiempo.
 
 ## Por qué "utópico"
 
-El nombre "socialismo utópico" no lo eligieron sus propios
-protagonistas, sino que se lo puso después una corriente posterior —
-el marxismo — para distinguir sus propias ideas ("socialismo
-científico", según Marx y Engels) de las de Owen y otros reformadores
-de su generación. Para el marxismo, el socialismo utópico proponía buenas intenciones y
+El nombre "socialismo utópico" no lo eligieron sus propios protagonistas. Se
+lo puso después una corriente posterior, el marxismo, para distinguir sus
+propias ideas ("socialismo científico", según Marx y Engels) de las de Owen
+y otros reformadores de su generación. Para el marxismo, el socialismo utópico proponía buenas intenciones y
 experimentos aislados (una fábrica, una comunidad). Le faltaba un análisis
 sistemático de por qué el sistema económico en su conjunto produce esas
 condiciones, y una estrategia para transformarlo a esa escala. Esa crítica, y la respuesta a la

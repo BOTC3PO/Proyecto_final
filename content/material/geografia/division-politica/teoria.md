@@ -13,10 +13,10 @@ qué distingue un límite de una frontera.
 ## Qué es la división política
 
 La **división política** es cómo se organiza un territorio en unidades
-administrativas con gobierno propio, delimitadas por **límites**
-reconocidos formalmente (a diferencia del relieve o el clima, que son
-rasgos naturales, la división política es una construcción humana e
-histórica — puede cambiar por tratados, guerras o decisiones internas).
+administrativas con gobierno propio, delimitadas por **límites** reconocidos
+formalmente. El relieve o el clima son rasgos naturales. La división
+política, en cambio, es una construcción humana e histórica, y puede cambiar
+por tratados, guerras o decisiones internas.
 
 ## Jerarquía típica de unidades
 
@@ -55,17 +55,16 @@ Aunque se usan como sinónimos en el habla cotidiana, tienen un matiz:
 
 ## Cómo se traza un límite: accidentes naturales vs. líneas artificiales
 
-- **Límites naturales**: siguen un accidente geográfico real — un río
-  (el límite entre Argentina y Uruguay sigue en gran parte el río
-  Uruguay), una cordillera (el límite entre Argentina y Chile sigue en
-  gran parte la Cordillera de los Andes, por la línea de las altas
-  cumbres), o una costa.
-- **Límites artificiales**: no siguen ningún accidente geográfico, son
-  líneas trazadas por tratado o decisión política — a menudo rectas o
-  siguiendo un paralelo/meridiano (varios límites en África y en el
-  oeste de Estados Unidos son así, herencia de acuerdos coloniales o de
-  reparto que no tuvieron en cuenta rasgos del territorio ni a las
-  poblaciones que ya vivían ahí).
+- **Límites naturales**: siguen un accidente geográfico real. Puede ser un río
+  (el límite entre Argentina y Uruguay sigue en gran parte el río Uruguay),
+  una cordillera (el límite entre Argentina y Chile sigue en gran parte la
+  Cordillera de los Andes, por la línea de las altas cumbres) o una costa.
+- **Límites artificiales**: no siguen ningún accidente geográfico. Son líneas
+  trazadas por tratado o decisión política, a menudo rectas o siguiendo un
+  paralelo o meridiano. Varios límites en África y en el oeste de Estados
+  Unidos son así. Son herencia de acuerdos coloniales o de reparto que no
+  tuvieron en cuenta rasgos del territorio ni a las poblaciones que ya
+  vivían ahí.
 
 ## Por qué esto es distinto de "Región" (`G5B`)
 
