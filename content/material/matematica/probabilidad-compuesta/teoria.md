@@ -14,10 +14,10 @@ separar en diapositivas.
 ## Combinar varios eventos
 
 La **probabilidad compuesta** calcula la probabilidad de que ocurran
-**varios eventos a la vez** (o al menos uno de varios), combinando lo
-ya visto en `../probabilidad-simple/` (la probabilidad de un solo
-evento) con `../independencia-de-eventos-y-diagrama-de-arbol/` (cómo
-se relacionan varios eventos entre sí).
+**varios eventos a la vez** (o al menos uno de varios). Combina lo ya visto
+en `../probabilidad-simple/` (la probabilidad de un solo evento) con
+`../independencia-de-eventos-y-diagrama-de-arbol/` (cómo se relacionan
+varios eventos entre sí).
 
 ## Regla del "Y": eventos independientes, ambos a la vez
 
@@ -64,9 +64,9 @@ P(A o B) = P(A) + P(B) − P(A y B)
 
 ## Para qué sirve
 
-Es la herramienta detrás de calcular probabilidades genéticas
-(cuadro de Punnett: la probabilidad de heredar un alelo de cada
-progenitor son eventos independientes que se multiplican), de
-cualquier análisis de riesgo con varios factores, y de decisiones
-cotidianas ("¿cuál es la probabilidad de que llueva Y se corte la
-luz?", "¿cuál es la probabilidad de sacar un as O una figura?").
+Es la herramienta detrás de calcular probabilidades genéticas. En el cuadro
+de Punnett, la probabilidad de heredar un alelo de cada progenitor son
+eventos independientes que se multiplican. También sirve para cualquier
+análisis de riesgo con varios factores y para decisiones cotidianas: "¿cuál
+es la probabilidad de que llueva Y se corte la luz?", "¿cuál es la
+probabilidad de sacar un as O una figura?".

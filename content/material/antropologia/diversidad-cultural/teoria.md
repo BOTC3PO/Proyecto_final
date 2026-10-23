@@ -14,10 +14,10 @@ cultural y ejemplos concretos son secciones separables.
 
 `../cultura/` explicó que cada grupo humano desarrolla su propio
 sistema de costumbres, creencias, idioma y organización aprendidos.
-Como distintos grupos humanos, en distintos lugares y momentos
-históricos, resolvieron los mismos problemas básicos (cómo alimentarse,
-cómo criar hijos, cómo organizar el poder, qué hacer con la muerte) de
-formas **distintas y no intercambiables**, el resultado es la
+Distintos grupos humanos, en distintos lugares y momentos históricos,
+resolvieron los mismos problemas básicos de formas **distintas y no
+intercambiables**. Esos problemas son cómo alimentarse, cómo criar hijos,
+cómo organizar el poder, qué hacer con la muerte. El resultado es la
 **diversidad cultural**: la variedad real de sistemas culturales que
 existen y existieron en el mundo.
 
@@ -48,11 +48,11 @@ de la propia cultura antes de entenderla en su contexto.
 ## Diversidad no es jerarquía
 
 Reconocer diversidad cultural es distinto de establecer un ranking de
-culturas "más avanzadas" o "más atrasadas" — esa idea de jerarquía
-(común en el pensamiento colonial del siglo XIX) es hoy rechazada por
-la Antropología como método científico: no hay una sola línea de
-"progreso" cultural única que todas las sociedades deban seguir, hay
-**variedad de soluciones válidas** a problemas humanos compartidos.
+culturas "más avanzadas" o "más atrasadas". Esa idea de jerarquía era común
+en el pensamiento colonial del siglo XIX, y hoy la Antropología la rechaza
+como método científico. No hay una sola línea de "progreso" cultural única
+que todas las sociedades deban seguir. Hay **variedad de soluciones
+válidas** a problemas humanos compartidos.
 
 ## Para qué sirve
 

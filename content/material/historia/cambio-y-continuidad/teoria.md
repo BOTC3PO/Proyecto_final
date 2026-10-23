@@ -35,10 +35,10 @@ muestra ambas cosas a la vez:
 
 ## El error de exagerar el cambio ("todo cambió")
 
-Es común, sobre todo al estudiar "revoluciones" o "hitos", asumir que
-todo cambió radicalmente de un día para el otro — en la práctica, la
-mayoría de los procesos sociales, económicos y culturales cambian
-**gradualmente**, incluso después de un evento político dramático.
+Es común, sobre todo al estudiar "revoluciones" o "hitos", asumir que todo
+cambió radicalmente de un día para el otro. En la práctica, la mayoría de
+los procesos sociales, económicos y culturales cambian **gradualmente**,
+incluso después de un evento político dramático.
 
 ## El error de exagerar la continuidad ("nada cambió realmente")
 
@@ -49,11 +49,11 @@ encontrar el balance específico entre ambos, caso por caso.
 
 ## Ritmos distintos de cambio según el ámbito
 
-El cambio político (una nueva ley, un nuevo gobierno) puede ser
-rápido; el cambio social o cultural (formas de pensar, costumbres)
-suele ser mucho más lento — comparar dos momentos históricos requiere
-prestar atención a que distintos aspectos de una sociedad cambian a
-**ritmos distintos**, no todos al mismo tiempo.
+El cambio político (una nueva ley, un nuevo gobierno) puede ser rápido. El
+cambio social o cultural (formas de pensar, costumbres) suele ser mucho más
+lento. Comparar dos momentos históricos requiere prestar atención a que
+distintos aspectos de una sociedad cambian a **ritmos distintos**, no todos
+al mismo tiempo.
 
 ## Cómo se relaciona con causa y consecuencia
 
@@ -65,8 +65,8 @@ incompleta.
 
 ## Para qué sirve
 
-Cambio y continuidad es el prerrequisito directo de
-`../multicausalidad/` (tema siguiente, que extiende el análisis de
-causa-consecuencia a que un hecho tenga varias causas a la vez) y da
-la herramienta central para evitar simplificar procesos históricos
-complejos en relatos de "todo cambió" o "nada cambió realmente".
+Cambio y continuidad es el prerrequisito directo de `../multicausalidad/`
+(tema siguiente), que extiende el análisis de causa-consecuencia a que un
+hecho tenga varias causas a la vez. Da la herramienta central para evitar
+simplificar procesos históricos complejos en relatos de "todo cambió" o
+"nada cambió realmente".

@@ -15,24 +15,21 @@ corriente, no se evalúa si es correcta.
 
 ## El criterio central: lo pequeño revela lo grande
 
-La **historia cultural** (también asociada a la **microhistoria**)
-propone algo que invierte la lógica de escala de las corrientes
-anteriores: en vez de mirar grandes estructuras (Annales,
-`../escuela-de-los-annales/`) o grandes figuras (positivismo,
-`../positivismo/`), analiza **un caso chico y aparentemente
-insignificante** en profundidad — y muestra que ese caso puede
-**revelar** toda una estructura social, mental o cultural de su
-época.
+La **historia cultural** (también asociada a la **microhistoria**) propone
+algo que invierte la lógica de escala de las corrientes anteriores. En vez
+de mirar grandes estructuras (Annales, `../escuela-de-los-annales/`) o
+grandes figuras (positivismo, `../positivismo/`), analiza **un caso chico y
+aparentemente insignificante** en profundidad. Muestra que ese caso puede
+**revelar** toda una estructura social, mental o cultural de su época.
 
 ## Referente clave: Carlo Ginzburg
 
 **Carlo Ginzburg**, historiador italiano, es el referente central de
-esta corriente. Su obra más famosa (*El queso y los gusanos*, 1976)
-reconstruye el caso de un molinero friulano del siglo XVI, juzgado
-por la Inquisición por sus ideas heterodoxas sobre el origen del
-mundo — un caso individual y localizado que Ginzburg usa para iluminar
-la mentalidad popular de toda una época, algo que las fuentes
-oficiales (el foco del positivismo) rara vez documentan.
+esta corriente. Su obra más famosa (*El queso y los gusanos*, 1976) reconstruye el caso de
+un molinero friulano del siglo XVI, juzgado por la Inquisición por sus ideas
+heterodoxas sobre el origen del mundo. Es un caso individual y localizado
+que Ginzburg usa para iluminar la mentalidad popular de toda una época. Las
+fuentes oficiales, el foco del positivismo, rara vez la documentan.
 
 ## Por qué mirar lo micro (no sólo lo macro)
 
@@ -61,9 +58,9 @@ en vez de sólo tratados y decretos oficiales.
 
 ## Para qué sirve
 
-La historia cultural cierra esta subrama de corrientes
-historiográficas, completando el recorrido: hechos y figuras
-(positivismo) → clases y producción (materialismo histórico) →
-estructuras de larga duración (Annales) → lo micro que revela lo
-macro (historia cultural) — cuatro lentes distintas y legítimas para
-la misma disciplina, ninguna reemplaza del todo a las demás.
+La historia cultural cierra esta subrama de corrientes historiográficas y
+completa el recorrido: hechos y figuras (positivismo) → clases y producción
+(materialismo histórico) → estructuras de larga duración (Annales) → lo
+micro que revela lo macro (historia cultural). Son cuatro lentes distintas y
+legítimas para la misma disciplina, y ninguna reemplaza del todo a las
+demás.

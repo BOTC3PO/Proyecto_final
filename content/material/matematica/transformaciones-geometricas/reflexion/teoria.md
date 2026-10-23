@@ -38,22 +38,21 @@ rotación, que fija un solo punto, o la traslación, que no fija ninguno).
 
 Una figura tiene **simetría axial** (o simetría de espejo) si existe al
 menos un eje respecto del cual la figura reflejada coincide exactamente
-con la original. Por ejemplo, un cuadrado tiene 4 ejes de simetría
-(las dos diagonales y las dos líneas que unen los puntos medios de lados
-opuestos); un círculo tiene infinitos ejes (cualquier diámetro); una
-letra como la `A` tiene un solo eje (vertical); una letra como la `N` no
-tiene ningún eje de simetría.
+con la original. Por ejemplo, un cuadrado tiene 4 ejes de simetría (las dos diagonales y las
+dos líneas que unen los puntos medios de lados opuestos). Un círculo tiene
+infinitos ejes (cualquier diámetro). Una letra como la `A` tiene un solo eje
+(vertical). Una letra como la `N` no tiene ningún eje de simetría.
 
 ## Reflexión doble
 
-Aplicar dos reflexiones seguidas sobre ejes distintos no es lo mismo que
-no hacer nada: el resultado equivale a una **rotación** alrededor del
-punto donde se cruzan esos dos ejes — es la conexión entre reflexión y
-rotación que hace que ambas aparezcan juntas en el diseño de rosetones.
+Aplicar dos reflexiones seguidas sobre ejes distintos no es lo mismo que no
+hacer nada. El resultado equivale a una **rotación** alrededor del punto
+donde se cruzan esos dos ejes. Esa es la conexión entre reflexión y rotación
+que hace que ambas aparezcan juntas en el diseño de rosetones.
 
 ## Para qué sirve
 
 La reflexión es la base de cualquier diseño simétrico tipo espejo: el
 reflejo de un objeto en el agua o en un vidrio, el diseño de un logotipo
-simétrico, o — junto con la rotación — los patrones de un rosetón (ver
+simétrico o, junto con la rotación, los patrones de un rosetón (ver
 `../../../arte/rosetones-y-simetria/`).

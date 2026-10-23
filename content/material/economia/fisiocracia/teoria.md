@@ -25,18 +25,17 @@ cuál tiene razón.
 
 La fisiocracia surgió en Francia durante el siglo XVIII, como reacción
 directa a las ideas mercantilistas que dominaban la política económica
-europea. Sostiene que la única fuente real de riqueza es la tierra y
-la agricultura: para esta corriente, la industria y el comercio no
-crean riqueza nueva, sólo transforman o mueven una riqueza que ya fue
-generada por la naturaleza a través del trabajo agrícola.
+europea. Sostiene que la única fuente real de riqueza es la tierra y la agricultura.
+Para esta corriente, la industria y el comercio no crean riqueza nueva: solo
+transforman o mueven una riqueza que ya fue generada por la naturaleza a
+través del trabajo agrícola.
 
 Esta idea tiene una consecuencia política directa, resumida en su lema
 más célebre: *"laissez faire, laissez passer"* (dejar hacer, dejar
-pasar). Si la riqueza nace de un proceso natural (el cultivo de la
-tierra), el Estado debe intervenir lo menos posible en la economía,
-dejando que un "orden natural" la regule por sí solo — una postura
-opuesta al intervencionismo mercantilista de aranceles y restricciones
-al comercio.
+pasar). Si la riqueza nace de un proceso natural (el cultivo de la tierra), el
+Estado debe intervenir lo menos posible en la economía. Debe dejar que un
+"orden natural" la regule por sí solo. Es una postura opuesta al
+intervencionismo mercantilista de aranceles y restricciones al comercio.
 
 ## La fuente: François Quesnay
 
@@ -50,9 +49,8 @@ nacionales o contabilidad macroeconómica.
 ## Su lugar en la cadena de corrientes
 
 Junto con el mercantilismo, la fisiocracia es uno de los dos puntos de
-partida de este bloque de corrientes económicas: ambas reaccionan a
+partida de este bloque de corrientes económicas. Ambas reaccionan a
 condiciones económicas del siglo XVIII europeo, y ambas anteceden al
-liberalismo clásico de Adam Smith, que combina el rechazo fisiócrata a
-la intervención estatal con una idea distinta sobre el origen de la
-riqueza (ya no la tierra, sino el trabajo y el intercambio libre en un
-mercado).
+liberalismo clásico de Adam Smith. Este combina el rechazo fisiócrata a la
+intervención estatal con una idea distinta sobre el origen de la riqueza: ya
+no la tierra, sino el trabajo y el intercambio libre en un mercado.

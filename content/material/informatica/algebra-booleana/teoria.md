@@ -29,10 +29,10 @@ con información a nivel de circuitos y de código.
   una** entrada es 1.
 - **NOT** (¬, equivalente a la negación): invierte el valor (1→0,
   0→1).
-- **XOR** (or exclusivo, "o uno u otro pero no ambos"): resultado 1
-  sólo si las entradas son **distintas** entre sí (una es 1 y la otra
-  0) — no tiene equivalente directo entre los conectores lógicos
-  básicos ya vistos, es una combinación derivada.
+- **XOR** (or exclusivo, "o uno u otro pero no ambos"): el resultado es 1 solo
+  si las entradas son **distintas** entre sí (una es 1 y la otra 0). No
+  tiene equivalente directo entre los conectores lógicos básicos ya vistos:
+  es una combinación derivada.
 
 ## Tabla de verdad de AND (idéntica a la conjunción, en binario)
 
@@ -54,10 +54,10 @@ con información a nivel de circuitos y de código.
 
 ## En circuitos: las compuertas lógicas físicas
 
-Cada operación booleana corresponde a una **compuerta lógica**, un
-componente físico real de un circuito electrónico (dentro de un chip)
-que recibe señales eléctricas de entrada (1 = hay corriente, 0 = no
-hay) y produce una salida según la tabla de verdad correspondiente.
+Cada operación booleana corresponde a una **compuerta lógica**. Es un
+componente físico real de un circuito electrónico (dentro de un chip).
+Recibe señales eléctricas de entrada (1 = hay corriente, 0 = no hay) y
+produce una salida según la tabla de verdad correspondiente.
 Millones de estas compuertas combinadas forman el procesador de
 cualquier computadora.
 
@@ -75,9 +75,8 @@ si (edad >= 18) AND (tiene_permiso):
 
 ## Para qué sirve
 
-Álgebra booleana cierra el cruce Lengua→Filosofía→Informática: la
-misma estructura lógica que empezó como error de razonamiento en
-lenguaje cotidiano (falacias) y se formalizó con proposiciones
-(lógica proposicional, validez) termina siendo la base física y de
-código de cómo funciona una computadora — desde el circuito más
-pequeño hasta la condición de un programa.
+Álgebra booleana cierra el cruce Lengua→Filosofía→Informática. La misma
+estructura lógica empezó como error de razonamiento en lenguaje cotidiano
+(falacias) y se formalizó con proposiciones (lógica proposicional, validez).
+Termina siendo la base física y de código de cómo funciona una computadora,
+desde el circuito más pequeño hasta la condición de un programa.

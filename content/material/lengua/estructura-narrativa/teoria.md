@@ -49,11 +49,10 @@ Cuando no coincide, aparecen dos recursos:
 
 ## Por qué un autor rompe el orden lineal
 
-Adelantar o retrasar información (con flashback/flashforward) es una
-decisión narrativa, igual que elegir el narrador o la focalización:
-genera intriga, explica el presente con el pasado, o anticipa el
-futuro para crear expectativa — sin cambiar QUÉ pasó, sólo el orden
-en que el lector se entera.
+Adelantar o retrasar información (con flashback o flashforward) es una
+decisión narrativa, igual que elegir el narrador o la focalización. Genera
+intriga, explica el presente con el pasado o anticipa el futuro para crear
+expectativa. No cambia QUÉ pasó, solo el orden en que el lector se entera.
 
 ## Cómo reconocer si un texto rompe el orden lineal
 
@@ -64,8 +63,8 @@ flashforward.
 
 ## Para qué sirve
 
-Distinguir estructura clásica de estructuras con saltos temporales es
-la base para analizar narraciones más complejas (novelas y películas
-que no cuentan la historia en orden) y cierra la subrama completa de
-análisis narrativo: quién cuenta (narrador), desde dónde (punto de
-vista) y en qué orden (estructura).
+Distinguir estructura clásica de estructuras con saltos temporales es la
+base para analizar narraciones más complejas, como novelas y películas que
+no cuentan la historia en orden. Cierra la subrama completa de análisis
+narrativo: quién cuenta (narrador), desde dónde (punto de vista) y en qué
+orden (estructura).

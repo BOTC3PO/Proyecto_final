@@ -15,11 +15,11 @@ describe qué sostiene esta corriente, no se evalúa si es correcta.
 
 ## El criterio central: el deber, no las consecuencias
 
-La **deontología** (del griego "deon" = deber) responde a la misma
-primera pregunta de `../etica-como-rama-propia/` ("¿qué hace correcta
-a una acción?") con un criterio distinto al de `../utilitarismo/`:
-una acción es correcta si cumple con un **deber moral**, sin importar
-cuáles sean sus consecuencias.
+La **deontología** (del griego "deon" = deber) responde a la misma primera
+pregunta de `../etica-como-rama-propia/` ("¿qué hace correcta a una
+acción?") con un criterio distinto al de `../utilitarismo/`. Una acción es
+correcta si cumple con un **deber moral**, sin importar cuáles sean sus
+consecuencias.
 
 ## Referente clásico: Kant y el imperativo categórico
 
@@ -52,19 +52,17 @@ resultado que se busque lograr.
 
 ## El dilema del tranvía, desde la deontología
 
-A diferencia del análisis utilitarista de `../utilitarismo/` (que
-favorecía desviar el tranvía para minimizar muertes), un análisis
-deontológico puede objetar que **decidir activamente** desviar el
-tranvía hacia una persona es usarla como medio (su muerte se
-convierte en el instrumento para salvar a las otras 5) — distintas
-formulaciones deontológicas llegan a conclusiones distintas sobre este
-caso, mostrando que el debate sigue abierto incluso dentro de esta
-corriente.
+El análisis utilitarista de `../utilitarismo/` favorecía desviar el tranvía
+para minimizar muertes. Un análisis deontológico puede objetar que **decidir
+activamente** desviar el tranvía hacia una persona es usarla como medio: su
+muerte se convierte en el instrumento para salvar a las otras 5. Distintas
+formulaciones deontológicas llegan a conclusiones distintas sobre este caso,
+lo que muestra que el debate sigue abierto incluso dentro de esta corriente.
 
 ## Para qué sirve
 
-La deontología es el contraste directo con el utilitarismo dentro de
-esta subrama: mismas preguntas de fondo (¿qué hace correcta a una
-acción?), respuestas radicalmente distintas (resultado vs. deber) —
-la comparación entre ambas es la base para entender por qué los
-dilemas éticos no tienen una única respuesta "correcta" evidente.
+La deontología es el contraste directo con el utilitarismo dentro de esta
+subrama. Tienen las mismas preguntas de fondo (¿qué hace correcta a una
+acción?) y respuestas radicalmente distintas (resultado vs. deber). La
+comparación entre ambas es la base para entender por qué los dilemas éticos
+no tienen una única respuesta "correcta" evidente.

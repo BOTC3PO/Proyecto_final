@@ -12,13 +12,12 @@ se previenen, cómo se detectan).
 
 ## 1. Qué son las ITS y cómo se transmiten (`ES3a`)
 
-Las **ITS** (infecciones de transmisión sexual) son infecciones
-causadas por virus, bacterias u otros microorganismos
-(`../../biologia/microbiologia-virus-inmunitario/`) que se transmiten
-principalmente a través de relaciones sexuales sin protección
-(contacto genital, oral o anal), aunque algunas también pueden
-transmitirse por otras vías (contacto con sangre, de madre a hijo/a
-durante el embarazo o parto).
+Las **ITS** (infecciones de transmisión sexual) son infecciones causadas por
+virus, bacterias u otros microorganismos
+(`../../biologia/microbiologia-virus-inmunitario/`). Se transmiten
+principalmente a través de relaciones sexuales sin protección (contacto
+genital, oral o anal). Algunas también pueden transmitirse por otras vías,
+como el contacto con sangre o de madre a hijo/a durante el embarazo o parto.
 
 **Dato clave**: muchas ITS pueden transmitirse aunque la persona
 infectada **no tenga síntomas visibles** — no es posible saber con
@@ -39,10 +38,10 @@ relación sexual — reduce significativamente (aunque no elimina al
 - Realizarse controles periódicos si hay actividad sexual, incluso sin
   síntomas.
 
-**Punto clave**: la abstinencia es la única forma de riesgo cero, pero
-no es la única estrategia de prevención válida ni realista para
-quienes ya son o eligen ser sexualmente activos — la ESI no promueve
-un único camino, da información para decisiones informadas.
+**Punto clave**: la abstinencia es la única forma de riesgo cero. Pero no es
+la única estrategia de prevención válida ni realista para quienes ya son o
+eligen ser sexualmente activos. La ESI no promueve un único camino: da
+información para decisiones informadas.
 
 ## 3. Detección (`ES3c`)
 
@@ -56,10 +55,10 @@ síntomas. La detección temprana importa porque:
 - Reduce el tiempo durante el cual la persona puede, sin saberlo,
   transmitir la infección a otras personas.
 
-**Barreras reales para hacerse el test**: el estigma social y la
-vergüenza son, en la práctica, un obstáculo tan real como el acceso
-físico al sistema de salud — parte de la educación sexual integral es
-reducir ese estigma, no sólo dar el dato médico.
+**Barreras reales para hacerse el test**: el estigma social y la vergüenza
+son, en la práctica, un obstáculo tan real como el acceso físico al sistema
+de salud. Parte de la educación sexual integral es reducir ese estigma, no
+solo dar el dato médico.
 
 ## 4. Conexión con lo que sigue
 

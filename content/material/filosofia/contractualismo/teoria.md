@@ -27,11 +27,11 @@ convivir, en un acuerdo (contrato) hipotético entre iguales.
   imaginaron un "estado de naturaleza" anterior a la sociedad, y
   cómo las personas acordarían (contrato social) reglas de convivencia
   para salir de ese estado.
-- **John Rawls** (siglo XX): reformuló la idea con el experimento
-  mental del **velo de ignorancia** — imaginar que se diseñan las
-  reglas de una sociedad sin saber qué posición se va a ocupar en ella
-  (rico o pobre, mayoría o minoría) — para garantizar reglas justas
-  sin sesgo hacia la propia posición.
+- **John Rawls** (siglo XX): reformuló la idea con el experimento mental del
+  **velo de ignorancia**. Consiste en imaginar que se diseñan las reglas de
+  una sociedad sin saber qué posición se va a ocupar en ella (rico o pobre,
+  mayoría o minoría). Así se garantizan reglas justas, sin sesgo hacia la
+  propia posición.
 
 ## El velo de ignorancia (el aporte central de Rawls)
 
@@ -56,15 +56,14 @@ propia — porque no se sabe de antemano cuál será.
 ## Aplicación práctica: instituciones y reglas sociales
 
 El contractualismo se usa especialmente para pensar la justicia de
-**instituciones y reglas sociales** (leyes, sistemas de impuestos,
-acceso a salud/educación) más que acciones individuales puntuales —
-"¿esta regla es la que la sociedad aceptaría de mutuo acuerdo, en
+**instituciones y reglas sociales** (leyes, sistemas de impuestos, acceso a
+salud y educación), más que de acciones individuales puntuales. La pregunta
+es: "¿esta regla es la que la sociedad aceptaría de mutuo acuerdo, en
 condiciones justas de negociación?".
 
 ## Para qué sirve
 
-El contractualismo cierra la subrama de dilemas éticos, mostrando una
-cuarta forma distinta de responder "¿qué es actuar bien?": ni el
-resultado, ni el deber, ni el carácter, sino el **acuerdo justo entre
-partes iguales** — con aplicación directa a debates sobre justicia
-social e instituciones.
+El contractualismo cierra la subrama de dilemas éticos y muestra una cuarta
+forma distinta de responder "¿qué es actuar bien?". No es el resultado, ni
+el deber, ni el carácter, sino el **acuerdo justo entre partes iguales**.
+Tiene aplicación directa a debates sobre justicia social e instituciones.

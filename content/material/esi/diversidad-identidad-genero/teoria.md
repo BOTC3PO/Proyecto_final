@@ -44,19 +44,17 @@ su momento), establece que toda persona tiene derecho a:
 ## 3. Por qué "sin diagnóstico previo" es un punto central de la ley
 
 Antes de esta ley, en muchos países (incluida Argentina) se exigía un
-diagnóstico médico/psiquiátrico para "autorizar" el cambio de nombre y
-género — la Ley 26.743 reconoce la identidad de género como una
-decisión de la propia persona, no algo que un tercero deba certificar
-o autorizar. Es el principio de **autopercepción**: la persona es
+diagnóstico médico o psiquiátrico para "autorizar" el cambio de nombre y
+género. La Ley 26.743 reconoce la identidad de género como una decisión de
+la propia persona, no algo que un tercero deba certificar o autorizar. Es el principio de **autopercepción**: la persona es
 quien mejor conoce su propia identidad.
 
 ## 4. Trato respetuoso: más allá de lo legal
 
-Independientemente del DNI, usar el nombre y los pronombres con los
-que una persona se identifica (a veces llamado "nombre social") es una
-forma concreta de respeto cotidiano, aplicable en la escuela y en
-cualquier ámbito, incluso antes o sin necesidad de un trámite legal
-formal.
+Independientemente del DNI, usar el nombre y los pronombres con los que una
+persona se identifica (a veces llamado "nombre social") es una forma
+concreta de respeto cotidiano. Es aplicable en la escuela y en cualquier
+ámbito, incluso antes o sin necesidad de un trámite legal formal.
 
 ## 5. Conexión con lo que ya se vio
 

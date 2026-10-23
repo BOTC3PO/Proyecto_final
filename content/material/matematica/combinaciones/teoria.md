@@ -17,13 +17,13 @@ importa), no necesita separarse en varias diapositivas.
 
 Una **combinación** es cada una de las formas distintas de elegir `k`
 elementos de un conjunto de `n` elementos (con `k ≤ n`), sin repetir
-ninguno, donde el **orden no importa**: elegir A y luego B es
-exactamente lo mismo que elegir B y luego A — es la misma elección.
+ninguno. El **orden no importa**: elegir A y luego B es exactamente lo mismo
+que elegir B y luego A. Es la misma elección.
 
-**Ejemplo**: con las letras A, B, C, D, las combinaciones de a 2
-letras son `AB`, `AC`, `AD`, `BC`, `BD`, `CD` — sólo 6 (comparado con
-las 12 variaciones de a 2 del módulo anterior, porque acá `AB` y `BA`
-cuentan como una sola).
+**Ejemplo**: con las letras A, B, C, D, las combinaciones de a 2 letras son
+`AB`, `AC`, `AD`, `BC`, `BD`, `CD`. Son solo 6, comparado con las 12
+variaciones de a 2 del módulo anterior, porque acá `AB` y `BA` cuentan como
+una sola.
 
 ## La fórmula
 
@@ -57,9 +57,10 @@ conjunto, vista desde dos lados.
 
 ## Para qué sirve
 
-Es la herramienta detrás de cualquier "elegir un grupo de personas sin
-que importen los roles" (un comité de 3 personas entre 10 candidatos,
-sin distinguir cargos), de las combinaciones de lotería, y —el puente más importante de este bloque— de la **probabilidad compuesta**: calcular la probabilidad de eventos como "extraer 2
-cartas de un mismo color" o probabilidades genéticas complejas
-(Biología) se resuelve contando combinaciones de casos favorables
-sobre combinaciones de casos totales.
+Es la herramienta detrás de cualquier "elegir un grupo de personas sin que
+importen los roles" (un comité de 3 personas entre 10 candidatos, sin
+distinguir cargos) y de las combinaciones de lotería. También es el puente
+más importante de este bloque hacia la **probabilidad compuesta**. Calcular
+la probabilidad de eventos como "extraer 2 cartas de un mismo color", o
+probabilidades genéticas complejas (Biología), se resuelve contando
+combinaciones de casos favorables sobre combinaciones de casos totales.
