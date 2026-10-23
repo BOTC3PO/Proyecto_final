@@ -72,7 +72,7 @@ la fuerza neta es cero.
 
 ## Para qué sirve
 
-La segunda ley es la fórmula central de la dinámica: permite predecir
-cómo se va a mover un objeto (cuánto va a acelerar) con sólo conocer la
-fuerza neta que actúa sobre él y su masa — la base de
+La segunda ley es la fórmula central de la dinámica. Permite predecir cómo
+se va a mover un objeto (cuánto va a acelerar) con solo conocer la fuerza
+neta que actúa sobre él y su masa. Es la base de
 `../tercera-accion-reaccion/` y de todo el bloque de dinámica que sigue.

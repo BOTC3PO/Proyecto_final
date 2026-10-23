@@ -56,11 +56,10 @@ valores chicos de `n`.
 
 - **Simetría**: `C(n,k) = C(n,n-k)` — por eso cada fila del triángulo
   de Pascal es un palíndromo (se lee igual del derecho y del revés).
-- **Suma de todos los coeficientes**: si `a=b=1`, la fórmula se reduce
-  a `2ⁿ = C(n,0) + C(n,1) + ... + C(n,n)` — la suma de todos los
-  coeficientes de la fila `n` del triángulo de Pascal es siempre una
-  potencia de 2 (la misma cuenta que dice cuántos subconjuntos tiene
-  un conjunto de `n` elementos).
+- **Suma de todos los coeficientes**: si `a=b=1`, la fórmula se reduce a `2ⁿ =
+  C(n,0) + C(n,1) + ... + C(n,n)`. La suma de todos los coeficientes de la
+  fila `n` del triángulo de Pascal es siempre una potencia de 2. Es la misma
+  cuenta que dice cuántos subconjuntos tiene un conjunto de `n` elementos.
 
 ## Relación con la distribución binomial
 
@@ -72,8 +71,7 @@ por un lado, probabilidad por el otro.
 
 ## Para qué sirve
 
-Permite calcular un término específico de una expansión (por ejemplo,
-"¿cuál es el coeficiente de `a³b²` en `(a+b)⁵`?") sin necesitar
-desarrollar todo el binomio a mano — y es, además, la razón algebraica
-detrás de por qué la fórmula de la distribución binomial tiene
-exactamente esa forma.
+Permite calcular un término específico de una expansión (por ejemplo, "¿cuál
+es el coeficiente de `a³b²` en `(a+b)⁵`?") sin necesitar desarrollar todo el
+binomio a mano. Es, además, la razón algebraica detrás de por qué la fórmula
+de la distribución binomial tiene exactamente esa forma.

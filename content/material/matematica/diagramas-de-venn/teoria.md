@@ -57,8 +57,8 @@ región sólo-B = |B| − |A∩B|
 
 ## Para qué sirve
 
-Aparece en probabilidad simple (clasificar un espacio muestral en
-casos que cumplen una condición, otra, o ninguna) y en cualquier
+Aparece en probabilidad simple, para clasificar un espacio muestral en casos
+que cumplen una condición, otra, o ninguna. También aparece en cualquier
 disciplina que necesite mostrar visualmente relaciones de inclusión y
-superposición entre categorías (Biología: clasificación de especies;
-Informática: relaciones entre conjuntos de datos).
+superposición entre categorías: Biología (clasificación de especies) o
+Informática (relaciones entre conjuntos de datos).

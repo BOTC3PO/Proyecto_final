@@ -25,11 +25,11 @@ Un **proyecto de ley** puede tener origen en:
 
 Todo proyecto entra por una de las 2 cámaras del Congreso (**cámara de
 origen**) y, si se aprueba ahí, pasa a la otra (**cámara revisora**).
-Hay excepciones puntuales fijadas por la Constitución sobre por cuál
-cámara debe empezar cierto tipo de proyecto (por ejemplo, los proyectos
-de ley sobre contribuciones/impuestos y de reclutamiento de tropas
-deben iniciarse en Diputados, la cámara considerada más representativa
-de la población).
+Hay excepciones puntuales fijadas por la Constitución sobre por cuál cámara
+debe empezar cierto tipo de proyecto. Por ejemplo, los proyectos de ley
+sobre contribuciones o impuestos y de reclutamiento de tropas deben
+iniciarse en Diputados, la cámara considerada más representativa de la
+población.
 
 ## El circuito básico
 

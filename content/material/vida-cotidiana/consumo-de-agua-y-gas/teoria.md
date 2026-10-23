@@ -58,10 +58,10 @@ Consumo promedio diario = consumo total del período / cantidad de días del per
 
 ## Detectar una pérdida (fuga)
 
-Un aumento brusco e inexplicado en el consumo de agua, sin que haya
-cambiado la cantidad de personas en la casa ni los hábitos de uso, es una
-señal típica de una **pérdida** (una canilla o cañería que gotea o
-pierde, muchas veces sin verse). Un chequeo práctico real: cerrar todas
+Un aumento brusco e inexplicado en el consumo de agua es una señal típica de
+una **pérdida**. Es el caso cuando no cambió la cantidad de personas en la
+casa ni los hábitos de uso. Puede ser una canilla o cañería que gotea o
+pierde, muchas veces sin verse. Un chequeo práctico real: cerrar todas
 las canillas de la casa y ver si el medidor de agua sigue girando o
 avanzando — si lo hace, hay una pérdida en algún punto de la instalación.
 
@@ -76,8 +76,8 @@ que leer.
 ## Para qué sirve
 
 Entender esta mecánica permite leer la propia factura de servicios con
-sentido crítico (verificar que el consumo facturado coincide con la
-diferencia real de lecturas), comparar el consumo propio entre meses o
-contra el de otro hogar, y detectar a tiempo un problema como una
-pérdida de agua, que de otra forma sólo se nota cuando ya generó un
-gasto grande.
+sentido crítico, verificando que el consumo facturado coincide con la
+diferencia real de lecturas. Permite comparar el consumo propio entre meses
+o contra el de otro hogar. Y permite detectar a tiempo un problema como una
+pérdida de agua, que de otra forma solo se nota cuando ya generó un gasto
+grande.

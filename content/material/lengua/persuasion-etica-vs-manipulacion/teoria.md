@@ -13,11 +13,11 @@
 
 ## Por qué este tema tiene dos prerrequisitos
 
-Distinguir persuasión legítima de manipulación reusa dos cosas a la
-vez: las técnicas de convencer en vivo (`../debate-refutar-en-vivo/`)
-y el vocabulario de errores de razonamiento (`../detectar-falacias/`)
-— porque una manipulación suele ser, en el fondo, una falacia usada
-**a sabiendas**, con intención de engañar.
+Distinguir persuasión legítima de manipulación reusa dos cosas a la vez: las
+técnicas de convencer en vivo (`../debate-refutar-en-vivo/`) y el
+vocabulario de errores de razonamiento (`../detectar-falacias/`). Una
+manipulación suele ser, en el fondo, una falacia usada **a sabiendas**, con
+intención de engañar.
 
 ## El criterio central: transparencia y respeto por la autonomía
 
@@ -63,9 +63,9 @@ decida con información real?".
 
 ## Para qué sirve
 
-Este tema cierra la subrama de comunicación en vivo con una capa
-ética: no sólo cómo comunicar y convencer efectivamente, sino cuándo
-esas técnicas cruzan la línea hacia algo que no respeta la autonomía
-del otro — una distinción relevante en publicidad
+Este tema cierra la subrama de comunicación en vivo con una capa ética. No
+se trata solo de cómo comunicar y convencer efectivamente, sino de cuándo
+esas técnicas cruzan la línea hacia algo que no respeta la autonomía del
+otro. Es una distinción relevante en publicidad
 (`../../../ciudadania-digital/publicidad-enganosa/`), política, ventas y
 cualquier contexto donde se busca influir en decisiones ajenas.

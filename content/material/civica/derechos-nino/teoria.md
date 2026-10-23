@@ -50,15 +50,16 @@ Niñas, Niños y Adolescentes**.
 
 ## Por qué depende de multicausalidad (Historia)
 
-`troncos.md` cuelga este nodo de `T7` (Multicausalidad, Historia) —
-entender cómo llegó a existir este marco de derechos (por qué el viejo
-"Patronato" fue reemplazado, qué causas sociales, jurídicas e
-internacionales confluyeron) presupone la misma herramienta de no
-atribuir un cambio normativo a una sola causa aislada.
+`troncos.md` cuelga este nodo de `T7` (Multicausalidad, Historia). Entender
+cómo llegó a existir este marco de derechos presupone la misma herramienta
+de no atribuir un cambio normativo a una sola causa aislada. Hay que
+preguntarse por qué el viejo "Patronato" fue reemplazado y qué causas
+sociales, jurídicas e internacionales confluyeron.
 
 ## Para qué sirve
 
 Reconocer estos derechos es la base para leer con criterio situaciones
 reales (una escuela, un tribunal, una noticia) donde está en juego el
-interés superior del niño — y distinguirlo de otros marcos de derechos
-específicos vistos en `../derechos-indigenas/` y `../derechos-genero/`.
+interés superior del niño. También ayuda a distinguirlo de otros marcos de
+derechos específicos vistos en `../derechos-indigenas/` y
+`../derechos-genero/`.

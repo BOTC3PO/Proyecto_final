@@ -12,10 +12,10 @@ registra un movimiento real.
 
 ## La regla de oro: todo movimiento afecta al menos dos cuentas
 
-El principio de **partida doble** dice que **ningún movimiento
-económico de una empresa se registra en una sola cuenta**: siempre
-afecta a **dos o más cuentas al mismo tiempo**, una por el Debe y otra
-por el Haber (ver [debe y haber en un balance](../debe-haber-balance/teoria.md)).
+El principio de **partida doble** dice que **ningún movimiento económico de
+una empresa se registra en una sola cuenta**. Siempre afecta a **dos o más
+cuentas al mismo tiempo**, una por el Debe y otra por el Haber (ver [debe y
+haber en un balance](../debe-haber-balance/teoria.md)).
 
 ## La regla que nunca se rompe: Debe = Haber
 
@@ -39,10 +39,10 @@ Debe:   Mercadería      $100.000
 Haber:  Caja            $100.000
 ```
 
-Las dos cuentas son de **Activo**: "Mercadería" aumenta (por el Debe,
-gana valor) y "Caja" disminuye (por el Haber, pierde valor) — el activo
-total de la empresa no cambia, sólo cambió de forma (de efectivo a
-mercadería), y el Debe ($100.000) es igual al Haber ($100.000).
+Las dos cuentas son de **Activo**. "Mercadería" aumenta (por el Debe, gana
+valor) y "Caja" disminuye (por el Haber, pierde valor). El activo total de
+la empresa no cambia: solo cambió de forma, de efectivo a mercadería. El
+Debe ($100.000) es igual al Haber ($100.000).
 
 ## Por qué "doble": origen y destino de cada movimiento
 

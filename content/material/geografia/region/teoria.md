@@ -32,23 +32,22 @@ tener ningún límite oficial trazado en absoluto.
   "los Balcanes", "el Cono Sur". Tampoco respeta límites políticos
   exactos, y sus bordes suelen ser más difusos que los de una región
   física.
-- **Región funcional (o nodal)**: territorio organizado alrededor de un
-  centro con el que se relaciona funcionalmente — el "área
-  metropolitana" de una ciudad grande (el Gran Buenos Aires: la Ciudad
-  Autónoma más los partidos del conurbano que funcionan como una sola
-  unidad económica y de transporte, aunque sean jurisdicciones
-  políticas distintas).
+- **Región funcional (o nodal)**: territorio organizado alrededor de un centro
+  con el que se relaciona funcionalmente. Un ejemplo es el "área
+  metropolitana" de una ciudad grande, como el Gran Buenos Aires. Incluye la
+  Ciudad Autónoma más los partidos del conurbano que funcionan como una sola
+  unidad económica y de transporte, aunque sean jurisdicciones políticas
+  distintas.
 - **Región formal (o administrativa)**: la única que sí coincide con
   límites políticos oficiales — una provincia, un país. Es el punto
   donde región y división política se solapan.
 
 ## Por qué "División política se le acerca pero es más estrecho"
 
-La división política es, en rigor, un CASO PARTICULAR de región (la
-región formal/administrativa) — pero reducir "región" sólo a eso deja
-afuera todas las formas de agrupar territorio que no siguen ningún
-límite oficial: biomas, cuencas, áreas culturales, áreas metropolitanas
-funcionales. Antes de este nodo, el mapa cubría 4 de los 5 Temas de la
+La división política es, en rigor, un CASO PARTICULAR de región (la región
+formal o administrativa). Pero reducir "región" solo a eso deja afuera todas
+las formas de agrupar territorio que no siguen ningún límite oficial:
+biomas, cuencas, áreas culturales, áreas metropolitanas funcionales. Antes de este nodo, el mapa cubría 4 de los 5 Temas de la
 Geografía clásicos (Ubicación, Lugar, Interacción Humano-Ambiental,
 Movimiento) pero le faltaba justamente este quinto: Región.
 

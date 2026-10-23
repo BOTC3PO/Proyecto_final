@@ -28,12 +28,11 @@ F = k × q₁ × q₂ / r²
 
 Es **exactamente la misma forma matemática** que `F = G×m₁×m₂/r²` de
 `../gravitacion-universal/` — proporcional al producto, inversamente
-proporcional al cuadrado de la distancia. Es el mismo patrón aplicado a
-un fenómeno distinto: ahí donde la gravitación siempre es un número
-enorme dividiendo (G es chiquito), acá las cargas cotidianas (medidas
-en microcoulombs, µC) ya dan fuerzas del orden de los Newtons — la
-electricidad es, comparada masa a masa, muchísimo más intensa que la
-gravedad.
+proporcional al cuadrado de la distancia. Es el mismo patrón aplicado a un fenómeno distinto. En la gravitación, G es
+chiquito, así que siempre hay un número enorme dividiendo. Acá, las cargas
+cotidianas (medidas en microcoulombs, µC) ya dan fuerzas del orden de los
+Newtons. La electricidad es, comparada masa a masa, muchísimo más intensa
+que la gravedad.
 
 ## La diferencia clave: puede atraer O repeler
 
@@ -52,8 +51,8 @@ por separado, en palabras.
 
 ## Para qué sirve
 
-Es la base de toda la electrostática: por qué un globo frotado se pega
-a la pared, por qué dos objetos cargados con electricidad estática se
-alejan o se acercan, y el punto de partida para entender fuerzas y
-campos eléctricos más complejos (con más de dos cargas, o cargas en
-movimiento) en cursos más avanzados.
+Es la base de toda la electrostática: por qué un globo frotado se pega a la
+pared, y por qué dos objetos cargados con electricidad estática se alejan o
+se acercan. También es el punto de partida para entender fuerzas y campos
+eléctricos más complejos (con más de dos cargas, o cargas en movimiento) en
+cursos más avanzados.

@@ -54,16 +54,16 @@ idéntico en ambos casos.
 ## Cómo leer un titular de salud con cuidado
 
 Frente a "esto duplica el riesgo de aquello", la pregunta crítica es:
-**¿duplica de qué número a qué número?** Sin el riesgo **absoluto**
-de base, el riesgo **relativo** solo no permite evaluar si la noticia
-importa de verdad para una decisión personal.
+**¿duplica de qué número a qué número?** Sin el riesgo **absoluto** de base,
+el riesgo **relativo** solo no permite evaluar si la noticia importa de
+verdad para una decisión personal.
 
 ## Para qué sirve
 
-Los estudios científicos serios (y el periodismo de salud honesto)
-reportan **ambos** números: el riesgo relativo (para comparar el
-tamaño del efecto) y el riesgo absoluto o la diferencia de riesgo
-(para saber si, en la práctica, vale la pena preocuparse). Es la misma
+Los estudios científicos serios (y el periodismo de salud honesto) reportan
+**ambos** números. El riesgo relativo sirve para comparar el tamaño del
+efecto. El riesgo absoluto, o la diferencia de riesgo, sirve para saber si
+en la práctica vale la pena preocuparse. Es la misma
 lógica de `../grafico-eje-truncado/` y
 `../correlacion-no-es-causalidad/`: un dato técnicamente correcto
 puede, sin ningún error de cálculo, dar una impresión completamente

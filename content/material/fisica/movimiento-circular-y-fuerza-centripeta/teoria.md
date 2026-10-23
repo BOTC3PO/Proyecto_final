@@ -54,21 +54,20 @@ centrípeta, tiene que haber una fuerza neta que la produzca:
 F_c = m × v² / r = m × ω² × r
 ```
 
-**Punto clave, fácil de confundir**: la fuerza centrípeta **no es una
-fuerza nueva** que se suma a las demás — es el **nombre que se le da**
-a la fuerza neta (la resultante de las fuerzas reales que sí actúan:
-tensión de una cuerda, gravedad, normal, rozamiento) cuando esa
-resultante apunta hacia el centro de una trayectoria circular. En un
+**Punto clave, fácil de confundir**: la fuerza centrípeta **no es una fuerza
+nueva** que se suma a las demás. Es el **nombre que se le da** a la fuerza
+neta cuando esa resultante apunta hacia el centro de una trayectoria
+circular. Esa fuerza neta es la resultante de las fuerzas reales que sí
+actúan: tensión de una cuerda, gravedad, normal, rozamiento. En un
 auto tomando una curva, es el rozamiento entre las ruedas y el asfalto.
 En un satélite orbitando, es la gravedad. En una piedra atada a una
 cuerda girando, es la tensión de la cuerda.
 
 ## Para qué sirve
 
-Explica por qué hace falta peralte (inclinación) en una ruta con
-curvas, por qué una centrifugadora de lavarropas separa el agua de la
-ropa, por qué un satélite no necesita motores para mantenerse en
-órbita, y por qué, si la cuerda de una piedra girando se corta, la
-piedra sale disparada en línea recta (tangente), no hacia afuera en
-línea curva — sin la fuerza centrípeta, no hay nada que la mantenga en
-el círculo.
+Explica por qué hace falta peralte (inclinación) en una ruta con curvas, por
+qué una centrifugadora de lavarropas separa el agua de la ropa y por qué un
+satélite no necesita motores para mantenerse en órbita. También explica por
+qué, si la cuerda de una piedra girando se corta, la piedra sale disparada
+en línea recta (tangente) y no hacia afuera en línea curva. Sin la fuerza
+centrípeta, no hay nada que la mantenga en el círculo.

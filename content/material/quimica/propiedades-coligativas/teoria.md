@@ -21,10 +21,9 @@ estas propiedades — lo que importa es cuántas partículas hay estorbando
 al solvente, no cuáles son.
 
 **Salvedad importante**: si el soluto se **disocia** en iones (como una
-sal), cada "unidad" de soluto se separa en varias partículas — 1 mol de
-NaCl aporta 2 moles de partículas (Na⁺ + Cl⁻), así que su efecto es el
-doble que 1 mol de azúcar (que no se disocia, queda como molécula
-entera).
+sal), cada "unidad" de soluto se separa en varias partículas. 1 mol de NaCl
+aporta 2 moles de partículas (Na⁺ + Cl⁻), así que su efecto es el doble que
+1 mol de azúcar, que no se disocia y queda como molécula entera.
 
 ## 2. Descenso crioscópico (ΔT congelamiento)
 
@@ -60,10 +59,10 @@ temperatura.
 
 Cuando dos soluciones de distinta concentración están separadas por una
 **membrana semipermeable** (deja pasar el solvente, no el soluto), el
-solvente se mueve espontáneamente desde el lado **menos** concentrado
-hacia el lado **más** concentrado (ósmosis), hasta igualar
-concentraciones o hasta que se aplique una presión que lo frene — esa
-presión es la **presión osmótica**.
+solvente se mueve espontáneamente desde el lado **menos** concentrado hacia
+el lado **más** concentrado. Es la ósmosis. Sigue hasta igualar
+concentraciones o hasta que se aplique una presión que lo frene: esa presión
+es la **presión osmótica**.
 
 ```
 π = M × R × T

@@ -16,11 +16,10 @@ Presentación completa.
 
 La **tesis** es la postura u opinión central que un texto
 argumentativo (`../tipos-textuales/`) defiende — la idea que el autor
-quiere que el lector termine aceptando. Es el equivalente, en un texto
-argumentativo, a lo que la **idea principal** (`../comprension-idea-principal/`)
-es en cualquier texto: el mensaje central, pero acá con una diferencia
-clave — la tesis no describe un hecho neutral, **toma una postura**
-sobre algo debatible.
+quiere que el lector termine aceptando. Es el equivalente, en un texto argumentativo, a lo que la **idea principal**
+(`../comprension-idea-principal/`) es en cualquier texto: el mensaje
+central. Pero acá hay una diferencia clave: la tesis no describe un hecho
+neutral, **toma una postura** sobre algo debatible.
 
 ## Cómo reconocer una tesis
 
@@ -53,8 +52,8 @@ lugar a tesis opuestas según el autor.
 
 ## Para qué sirve
 
-Identificar la tesis es el primer paso obligatorio para analizar
-cualquier texto argumentativo: sin saber qué postura se defiende, no
-se puede evaluar si los **argumentos** (siguiente tema) realmente la
-sostienen, ni anticipar qué **contraargumentos** (tema que cierra la
-cadena) tendría sentido considerar.
+Identificar la tesis es el primer paso obligatorio para analizar cualquier
+texto argumentativo. Sin saber qué postura se defiende, no se puede evaluar
+si los **argumentos** (siguiente tema) realmente la sostienen. Tampoco se
+puede anticipar qué **contraargumentos** (tema que cierra la cadena) tendría
+sentido considerar.

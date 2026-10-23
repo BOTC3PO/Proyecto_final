@@ -72,17 +72,16 @@ sin conexión entre ellas.
 
 ## Otra estrategia: inferir por contexto
 
-Además de la familia de palabras, se puede inferir el significado de
-una palabra desconocida a partir del **contexto** de la oración
-completa — las palabras y la situación que la rodean suelen dar
-pistas suficientes, aunque nunca se haya visto esa palabra antes.
+Además de la familia de palabras, se puede inferir el significado de una
+palabra desconocida a partir del **contexto** de la oración completa. Las
+palabras y la situación que la rodean suelen dar pistas suficientes, aunque
+nunca se haya visto esa palabra antes.
 
 ## Para qué sirve
 
 Ampliar el vocabulario (tanto receptivo como expresivo) es uno de los
-predictores más fuertes de la comprensión lectora a largo plazo — un
-lector que no conoce el significado de muchas palabras de un texto,
-por más que decodifique con fluidez, va a tener dificultad para
-entenderlo. Es también la base directa de `../clases-de-palabras/`
+predictores más fuertes de la comprensión lectora a largo plazo. Un lector
+que no conoce el significado de muchas palabras de un texto va a tener
+dificultad para entenderlo, por más que decodifique con fluidez. Es también la base directa de `../clases-de-palabras/`
 (el módulo que sigue): antes de clasificar una palabra según su
 función gramatical, hace falta reconocerla y entender qué significa.

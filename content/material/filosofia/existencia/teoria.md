@@ -22,10 +22,10 @@ que un elemento particular está en el mundo.
 
 ## El problema de afirmar la no-existencia
 
-Una paradoja clásica: para decir "los unicornios no existen", parece
-que primero hay que **pensar en** los unicornios (tener la idea) para
-poder negar su existencia — ¿cómo se puede hablar significativamente
-de algo que, según la propia afirmación, no existe?
+Una paradoja clásica: para decir "los unicornios no existen", parece que
+primero hay que **pensar en** los unicornios (tener la idea) para poder
+negar su existencia. ¿Cómo se puede hablar significativamente de algo que,
+según la propia afirmación, no existe?
 
 ## Existencia como predicado (el debate de Kant)
 
@@ -40,11 +40,11 @@ existencia de Dios sólo a partir de su definición).
 
 ## Existencia posible vs. existencia real
 
-Los filósofos distinguen entre lo que **podría existir** (un
-"unicornio" es un concepto coherente, sin contradicción interna, aunque
-no exista de hecho) y lo que **efectivamente existe** en el mundo
-(un "cuadrado redondo" ni siquiera podría existir, porque es
-contradictorio en sí mismo). No toda idea coherente corresponde a algo
+Los filósofos distinguen entre lo que **podría existir** y lo que
+**efectivamente existe** en el mundo. Un "unicornio" es un concepto
+coherente, sin contradicción interna, aunque no exista de hecho. Un
+"cuadrado redondo" ni siquiera podría existir, porque es contradictorio en
+sí mismo. No toda idea coherente corresponde a algo
 real.
 
 ## Existencia y tiempo

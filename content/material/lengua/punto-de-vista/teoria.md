@@ -46,8 +46,8 @@ la información antes de llegar al lector.
 
 Nota práctica: un narrador en 3ª persona **también** puede tener
 focalización interna, si el relato se limita a lo que percibe un solo
-personaje aunque no use "yo" — es el caso más avanzado, cuando
-persona gramatical y focalización no coinciden de forma obvia.
+personaje aunque no use "yo". Es el caso más avanzado, cuando persona
+gramatical y focalización no coinciden de forma obvia.
 
 ## Por qué importa distinguir punto de vista de narrador
 
@@ -58,8 +58,8 @@ la perspectiva de quién se cuenta?" tiene respuesta en focalización
 
 ## Para qué sirve
 
-Distinguir el punto de vista es necesario para analizar textos donde
-el narrador oculta o revela información deliberadamente (novelas de
-misterio, por ejemplo) y es el paso previo directo a **estructura
-narrativa**: una vez establecido desde dónde se cuenta, se puede
-analizar en qué orden se cuenta.
+Distinguir el punto de vista es necesario para analizar textos donde el
+narrador oculta o revela información deliberadamente (novelas de misterio,
+por ejemplo). Es también el paso previo directo a **estructura narrativa**:
+una vez establecido desde dónde se cuenta, se puede analizar en qué orden se
+cuenta.

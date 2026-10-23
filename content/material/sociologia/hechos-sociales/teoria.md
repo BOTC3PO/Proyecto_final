@@ -40,19 +40,20 @@ saludo.
 Si sólo se analizara a cada persona por separado (por qué "Juan" decide
 tal cosa), se perdería el patrón: por qué miles de personas sin
 conocerse actúan de forma parecida frente a la misma situación social.
-La Sociología busca esas regularidades a **nivel colectivo**, con
-métodos propios (encuestas, estadística social, observación de campo,
-análisis de instituciones) — parecidos a los que usa `poblacion-piramides-migraciones/`
-para leer el dato demográfico, pero aplicados a comportamiento y
-creencias, no sólo a estructura de edad/sexo.
+La Sociología busca esas regularidades a **nivel colectivo**, con métodos
+propios: encuestas, estadística social, observación de campo, análisis de
+instituciones. Son parecidos a los que usa
+`poblacion-piramides-migraciones/` para leer el dato demográfico, pero
+aplicados a comportamiento y creencias, y no solo a estructura de edad y
+sexo.
 
 ## Multicausalidad aplicada a lo social
 
-Un hecho social casi nunca tiene una sola causa (mismo principio que
-`../../historia/multicausalidad/` aplicado a la historia): una tasa de
-divorcio que sube, por ejemplo, puede combinarse con cambios
-económicos, legales, culturales y religiosos a la vez — nunca una sola
-variable explica todo el fenómeno.
+Un hecho social casi nunca tiene una sola causa, el mismo principio que
+`../../historia/multicausalidad/` aplica a la historia. Una tasa de divorcio
+que sube, por ejemplo, puede combinarse con cambios económicos, legales,
+culturales y religiosos a la vez. Nunca una sola variable explica todo el
+fenómeno.
 
 ## Para qué sirve
 

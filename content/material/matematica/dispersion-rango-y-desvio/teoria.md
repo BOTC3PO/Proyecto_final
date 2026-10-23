@@ -70,10 +70,10 @@ miden cosas distintas o que tienen promedios muy distintos entre sí.
 
 ## Para qué sirve
 
-Rango y desvío estándar son las dos formas más comunes de responder
-"¿qué tan parecidos son estos datos entre sí?" — el rango da una idea
-rápida y grosera, el desvío estándar es la medida que de verdad se usa
-en estadística. Media y desvío estándar juntos son, además, los dos
-únicos números que definen por completo una **distribución normal**
-(el módulo que sigue): ahí se retoma el desvío para ver qué proporción
-de los datos cae dentro de 1, 2 o 3 desvíos de la media.
+Rango y desvío estándar son las dos formas más comunes de responder "¿qué
+tan parecidos son estos datos entre sí?". El rango da una idea rápida y
+grosera. El desvío estándar es la medida que de verdad se usa en
+estadística. Media y desvío estándar juntos son, además, los dos únicos números que
+definen por completo una **distribución normal** (el módulo que sigue). Ahí
+se retoma el desvío para ver qué proporción de los datos cae dentro de 1, 2
+o 3 desvíos de la media.

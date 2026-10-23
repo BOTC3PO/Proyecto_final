@@ -52,19 +52,18 @@ Ambas son posturas filosóficas con argumentos propios, no hay una
 
 ## Apariencia, sueño, simulación: variaciones del mismo problema
 
-El problema de la realidad reaparece en distintas formas a lo largo
-de la historia de la filosofía: el mito de la caverna de Platón
-(¿y si sólo vemos sombras, no las cosas mismas?), la duda cartesiana
-del sueño (¿cómo sé que no estoy soñando ahora mismo?), y en la
-filosofía contemporánea, el experimento mental del "cerebro en una
-cubeta" (¿y si toda mi experiencia es una simulación?) — todas son
-variaciones de la misma pregunta: ¿cómo distinguir lo real de lo que
-sólo parece real?
+El problema de la realidad reaparece en distintas formas a lo largo de la
+historia de la filosofía. Está el mito de la caverna de Platón (¿y si solo
+vemos sombras, no las cosas mismas?). Está la duda cartesiana del sueño
+(¿cómo sé que no estoy soñando ahora mismo?). Y en la filosofía
+contemporánea, el experimento mental del "cerebro en una cubeta" (¿y si toda
+mi experiencia es una simulación?). Todas son variaciones de la misma
+pregunta: ¿cómo distinguir lo real de lo que solo parece real?
 
 ## Para qué sirve
 
 Realidad cierra, junto con `../ser-ontologia/` y `../existencia/`, la
-subrama de metafísica básica: qué significa ser (en general), qué
-significa que algo particular exista, y qué distingue lo real de lo
-aparente — las tres preguntas fundamentales que dan marco a cualquier
-otra pregunta metafísica más específica.
+subrama de metafísica básica. Esas tres preguntas son qué significa ser (en
+general), qué significa que algo particular exista y qué distingue lo real
+de lo aparente. Dan marco a cualquier otra pregunta metafísica más
+específica.

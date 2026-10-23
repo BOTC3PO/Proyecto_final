@@ -13,11 +13,11 @@ empresa custodie tu plata en el medio.
 
 ## Cómo funciona un exchange tradicional (centralizado)
 
-Un exchange tradicional de criptomonedas (un **CEX**, exchange
-centralizado) funciona parecido a un banco o una casa de cambio: la
-empresa **custodia** el dinero de sus usuarios en sus propias cuentas,
-lleva un libro de órdenes (quién quiere comprar, quién quiere vender,
-a qué precio) y hace de intermediario en cada operación. Para operar,
+Un exchange tradicional de criptomonedas (un **CEX**, exchange centralizado)
+funciona parecido a un banco o una casa de cambio. La empresa **custodia**
+el dinero de sus usuarios en sus propias cuentas. Lleva un libro de órdenes
+(quién quiere comprar, quién quiere vender, a qué precio) y hace de
+intermediario en cada operación. Para operar,
 hay que confiarle tus fondos a esa empresa.
 
 ## Qué es un DEX
@@ -52,11 +52,11 @@ el precio dentro de ese pool es el tema siguiente (`E32`).
 - **Ventaja**: nadie más controla tus fondos en ningún momento salvo
   el instante exacto del intercambio, ejecutado por código público y
   verificable — no hace falta confiar en una empresa.
-- **Riesgo**: si el código del contrato tiene un error, o si operás
-  mal (por ejemplo, aprobás una operación mirando mal la pantalla), no
-  hay una empresa a la que reclamarle ni un soporte técnico que
-  revierta la operación — la misma inmutabilidad que da la ventaja
-  quita la posibilidad de deshacer un error.
+- **Riesgo**: si el código del contrato tiene un error, o si operás mal (por
+  ejemplo, aprobás una operación mirando mal la pantalla), no hay una
+  empresa a la que reclamarle ni un soporte técnico que revierta la
+  operación. La misma inmutabilidad que da la ventaja quita la posibilidad
+  de deshacer un error.
 
 ## Dónde aparece en la vida real
 

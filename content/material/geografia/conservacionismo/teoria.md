@@ -27,12 +27,11 @@ postura y formarse su propia opinión.
 ## Qué sostiene el conservacionismo
 
 El **conservacionismo** es la corriente más antigua y consolidada del
-ambientalismo moderno. Sostiene que la naturaleza (bosques, especies,
-paisajes) tiene un valor que justifica protegerla activamente —ya sea
-por su valor intrínseco, por su utilidad futura para la humanidad, o
-por ambas razones a la vez— y que el Estado tiene un rol central en esa
-protección: crear áreas protegidas, parques nacionales, regular la caza
-y la tala.
+ambientalismo moderno. Sostiene que la naturaleza (bosques, especies, paisajes) tiene un valor que
+justifica protegerla activamente. Ese valor puede ser intrínseco, o su
+utilidad futura para la humanidad, o ambas razones a la vez. Además, el
+Estado tiene un rol central en esa protección: crear áreas protegidas y
+parques nacionales, y regular la caza y la tala.
 
 ## Dos corrientes internas dentro del conservacionismo clásico
 
@@ -54,14 +53,13 @@ fines del siglo XIX, una tensión interna entre dos visiones:
 **Aldo Leopold** (1887-1948), referencia real de esta corriente, tendió
 un puente entre ambas visiones: combinó la apreciación casi espiritual
 de la naturaleza de Muir con la intención de gestionarla con criterio
-científico de Pinchot. Su obra de referencia es ***A Sand County
-Almanac*** (1949, publicada póstumamente), donde introduce el concepto
-de **"ética de la tierra"** (*land ethic*): la idea de que la comunidad
-moral a la que le debemos consideración ética no termina en los seres
-humanos, sino que se extiende al suelo, el agua, las plantas y los
-animales — "una cosa es correcta cuando tiende a preservar la
-integridad, estabilidad y belleza de la comunidad biótica; es incorrecta
-cuando tiende a lo contrario".
+científico de Pinchot. Su obra de referencia es ***A Sand County Almanac*** (1949, publicada
+póstumamente), donde introduce el concepto de **"ética de la tierra"**
+(*land ethic*). La comunidad moral a la que le debemos consideración ética
+no termina en los seres humanos, sino que se extiende al suelo, el agua, las
+plantas y los animales. En sus palabras: "una cosa es correcta cuando tiende
+a preservar la integridad, estabilidad y belleza de la comunidad biótica; es
+incorrecta cuando tiende a lo contrario".
 
 ## Por qué se distingue de las otras 3 corrientes
 

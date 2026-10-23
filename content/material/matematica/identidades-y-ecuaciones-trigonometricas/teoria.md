@@ -65,16 +65,15 @@ notables — sin necesitar calculadora ni una función inversa.
 ## Más de una solución
 
 Una ecuación trigonométrica casi siempre tiene **más de una solución**
-dentro de una vuelta completa (0° a 360°). Por ejemplo, `sen(θ) = 0,5`
-se cumple tanto en `θ = 30°` como en `θ = 150°` — ambos ángulos dan el
-mismo valor de seno, por la simetría del círculo unitario (30° y 150°
-son suplementarios, y el seno de un ángulo y su suplemento son
-siempre iguales).
+dentro de una vuelta completa (0° a 360°). Por ejemplo, `sen(θ) = 0,5` se cumple tanto en `θ = 30°` como en `θ = 150°`.
+Ambos ángulos dan el mismo valor de seno, por la simetría del círculo
+unitario: 30° y 150° son suplementarios, y el seno de un ángulo y su
+suplemento son siempre iguales.
 
 ## Para qué sirve
 
 Distinguir identidad de ecuación, y saber resolver una ecuación
-trigonométrica simple, es la base para trabajar con cualquier fenómeno
-que dependa de "en qué momento" ocurre algo dentro de un ciclo
-periódico — por ejemplo, en qué punto de su órbita un satélite alcanza
-cierta altura, o en qué instante una onda alcanza cierta amplitud.
+trigonométrica simple, es la base para trabajar con cualquier fenómeno que
+dependa de "en qué momento" ocurre algo dentro de un ciclo periódico. Por
+ejemplo, en qué punto de su órbita un satélite alcanza cierta altura, o en
+qué instante una onda alcanza cierta amplitud.

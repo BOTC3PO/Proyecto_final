@@ -27,17 +27,16 @@ forense (amplificar el poco ADN encontrado en la escena de un crimen).
 
 ## 2. ADN recombinante: combinar ADN de organismos distintos
 
-El **ADN recombinante** se construye **cortando y pegando** ADN de
-distintas fuentes — se corta un gen de interés de un organismo (con
-enzimas de corte específicas) y se **inserta** en el ADN de otro
-organismo (a menudo una bacteria, que se reproduce rápido y es fácil de
-cultivar). El organismo receptor queda "programado" para fabricar la
+El **ADN recombinante** se construye **cortando y pegando** ADN de distintas
+fuentes. Se corta un gen de interés de un organismo, con enzimas de corte
+específicas. Luego se lo **inserta** en el ADN de otro organismo, a menudo
+una bacteria, que se reproduce rápido y es fácil de cultivar. El organismo receptor queda "programado" para fabricar la
 proteína de ese gen extra.
 
 **Ejemplo real**: la insulina humana que se usa para tratar diabetes se
-fabrica así — se inserta el gen humano de la insulina en bacterias, que
-la producen en grandes cantidades (antes, la insulina se extraía de
-páncreas de cerdos y vacas, mucho menos eficiente).
+fabrica así. Se inserta el gen humano de la insulina en bacterias, que la
+producen en grandes cantidades. Antes, la insulina se extraía de páncreas de
+cerdos y vacas, un método mucho menos eficiente.
 
 ## 3. CRISPR: editar el ADN con precisión
 

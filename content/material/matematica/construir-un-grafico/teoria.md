@@ -42,16 +42,16 @@ vistazo.
 
 ## Elegir una buena escala
 
-La escala numérica tiene que cubrir el rango de los datos sin
-desperdiciar espacio (un gráfico de valores entre 40 y 60 con una
-escala de 0 a 1000 aplasta toda la variación real en una línea casi
-plana) y, en un gráfico de **barras**, el eje numérico debería empezar
-en **0** — si no, la altura relativa de las barras deja de representar
-fielmente la proporción real entre los valores.
+La escala numérica tiene que cubrir el rango de los datos sin desperdiciar
+espacio. Un gráfico de valores entre 40 y 60 con una escala de 0 a 1000
+aplasta toda la variación real en una línea casi plana. Además, en un
+gráfico de **barras** el eje numérico debería empezar en **0**. Si no, la
+altura relativa de las barras deja de representar fielmente la proporción
+real entre los valores.
 
 ## Para qué sirve
 
-Construir un buen gráfico es comunicar datos de forma clara y honesta:
-el tipo correcto, con los elementos completos y una escala razonable,
-hace que cualquiera pueda leerlo sin necesitar la tabla original al
-lado — y sin, sin querer, dar una impresión equivocada de los datos.
+Construir un buen gráfico es comunicar datos de forma clara y honesta. Con
+el tipo correcto, los elementos completos y una escala razonable, cualquiera
+puede leerlo sin necesitar la tabla original al lado. Y no se da, sin
+querer, una impresión equivocada de los datos.

@@ -19,11 +19,10 @@ directamente `../conciencia-fonologica/`: sin poder distinguir bien
 los sonidos del habla, es muy difícil aprender qué sonido corresponde
 a cada letra.
 
-En español, la correspondencia entre letra y sonido es bastante
-**regular** (a diferencia de idiomas como el inglés, donde una misma
-letra puede sonar de formas muy distintas según la palabra) — eso hace
-que decodificar en español sea, en general, más predecible una vez
-aprendidas las reglas básicas.
+En español, la correspondencia entre letra y sonido es bastante **regular**.
+En otros idiomas, como el inglés, una misma letra puede sonar de formas muy
+distintas según la palabra. Por eso decodificar en español es, en general,
+más predecible una vez aprendidas las reglas básicas.
 
 ## Qué es la fluidez lectora
 
@@ -66,10 +65,10 @@ aislada.
 
 ## Para qué sirve
 
-La fluidez lectora es uno de los indicadores más usados en la escuela
-para evaluar el progreso de la alfabetización inicial (a través de
-"running records" o registros de lectura oral), precisamente porque
-predice bien la comprensión: un lector que decodifica con esfuerzo
-rara vez comprende bien lo que lee, sin importar cuánto vocabulario
-tenga — el paso siguiente, `../vocabulario-y-familia-de-palabras/`,
-presupone que decodificar ya no consume toda la atención del lector.
+La fluidez lectora es uno de los indicadores más usados en la escuela para
+evaluar el progreso de la alfabetización inicial (a través de "running
+records" o registros de lectura oral). Se usa porque predice bien la
+comprensión. Un lector que decodifica con esfuerzo rara vez comprende bien
+lo que lee, sin importar cuánto vocabulario tenga. El paso siguiente,
+`../vocabulario-y-familia-de-palabras/`, presupone que decodificar ya no
+consume toda la atención del lector.

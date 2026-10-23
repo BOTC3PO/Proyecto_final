@@ -32,17 +32,16 @@ promediarse; en una chica, un evento aleatorio pesa mucho más).
 
 Dos casos clásicos:
 
-- **Efecto fundador**: un grupo pequeño se separa de una población
-  grande y coloniza un lugar nuevo — por azar, ese grupo chico no
-  representa fielmente la variación genética de la población
-  original, así que la nueva población arranca con frecuencias
-  distintas (ej.: poblaciones aisladas en islas).
-- **Cuello de botella**: un evento catastrófico (desastre natural,
-  epidemia, caza excesiva) elimina a la mayor parte de una población
-  de golpe — los pocos sobrevivientes, elegidos básicamente al azar
-  por el desastre (no porque tuvieran mejores genes), determinan la
-  variación genética de ahí en adelante — se pierde diversidad
-  genética de forma irreversible.
+- **Efecto fundador**: un grupo pequeño se separa de una población grande y
+  coloniza un lugar nuevo. Por azar, ese grupo chico no representa fielmente
+  la variación genética de la población original, así que la nueva población
+  arranca con frecuencias distintas (por ejemplo, poblaciones aisladas en
+  islas).
+- **Cuello de botella**: un evento catastrófico (desastre natural, epidemia,
+  caza excesiva) elimina a la mayor parte de una población de golpe. Los
+  pocos sobrevivientes, elegidos básicamente al azar por el desastre (no
+  porque tuvieran mejores genes), determinan la variación genética de ahí en
+  adelante. Se pierde diversidad genética de forma irreversible.
 
 **Punto clave**: en la deriva genética, un individuo puede sobrevivir
 o morir, reproducirse o no, **sin que eso tenga nada que ver** con si

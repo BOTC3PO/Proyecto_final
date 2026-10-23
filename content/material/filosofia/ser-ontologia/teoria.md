@@ -20,19 +20,17 @@ disciplina (junto a epistemología, ética, lógica y estética).
 
 ## La pregunta del ser (ontología)
 
-La **ontología** (del griego "ser" + "estudio") pregunta: **¿qué
-significa "ser" algo?** No pregunta por una cosa en particular (¿qué
-es una silla?), sino por la pregunta más general y abstracta detrás de
-cualquier afirmación de existencia: ¿qué tienen en común todas las
-cosas que "son"?
+La **ontología** (del griego "ser" + "estudio") pregunta: **¿qué significa
+"ser" algo?** No pregunta por una cosa en particular (¿qué es una silla?),
+sino por la pregunta más general y abstracta detrás de cualquier afirmación
+de existencia. ¿Qué tienen en común todas las cosas que "son"?
 
 ## Categorías del ser (Aristóteles)
 
-Aristóteles propuso categorías para clasificar los distintos "modos"
-de ser algo: **sustancia** (lo que existe por sí mismo, como una
-persona o un árbol) frente a **accidentes** (propiedades que
-dependen de una sustancia para existir, como el color o el tamaño de
-esa persona o árbol). Una sustancia puede cambiar sus accidentes
+Aristóteles propuso categorías para clasificar los distintos "modos" de ser
+algo. La **sustancia** es lo que existe por sí mismo, como una persona o un
+árbol. Los **accidentes** son propiedades que dependen de una sustancia para
+existir, como el color o el tamaño de esa persona o árbol. Una sustancia puede cambiar sus accidentes
 (envejecer, cambiar de color) y seguir siendo "la misma" en su ser.
 
 ## Ser vs. parecer
