@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "Domínio dos Impérios do Mundo Antigo",
-    "descripcion": "Completaste o parcial sobre a Mesopotâmia, Alexandre Magno e o helenismo, a expansão do Império Romano e os povos originários do atual território argentino.",
+    "descripcion": "Concluíste a prova sobre a Mesopotâmia, as civilizações antigas, Alexandre Magno e o helenismo, e a expansão do Império Romano.",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "Mestre do Absolutismo e do Iluminismo",
-    "descripcion": "Dominaste o absolutismo europeu, o Iluminismo, a Revolução Industrial, a conquista e a colónia na Argentina e o vice-reino com o seu comércio, chefe.",
+    "descripcion": "Dominaste o absolutismo europeu, o Iluminismo e a Revolução Industrial, chefe.",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "Especialista na Independência Argentina",
-    "descripcion": "Passaste no parcial sobre a Revolução de Maio, as guerras de independência e as guerras civis entre unitários e federais, junto com a eletrificação e o início da pegada humana no clima.",
+    "nombre": "Especialista em Eletrificação e Clima",
+    "descripcion": "Foste aprovado na prova sobre a eletrificação da fábrica e do lar e o início da pegada humana no clima.",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "Domínio da Ordem Liberal e Nacional",
-    "descripcion": "Completaste o parcial dominando as revoluções burguesas e o liberalismo, os Estados nacionais, o imperialismo, a Constituição de 1853 e o modelo agroexportador com imigração.",
+    "descripcion": "Concluíste a prova dominando as revoluções burguesas e o liberalismo, os estados nacionais e o imperialismo.",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "Mestre do Início do Século XX",
-    "descripcion": "Dominaste a sociedade de massas e a democracia liberal, a Primeira Guerra Mundial e a Revolução Russa, o período entre guerras e a crise de 1929, a Lei Sáenz Peña e os golpes de Estado, chefe.",
+    "descripcion": "Dominaste a sociedade de massas e a democracia liberal, a Primeira Guerra Mundial e a Revolução Russa, e o período entreguerras e a crise de 1929, chefe.",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "Especialista em Guerras e Guerra Fria",
-    "descripcion": "Passaste no parcial sobre as guerras mundiais, a Segunda Guerra Mundial, a Guerra Fria, a descolonização da África e da Ásia e o peronismo com os seus direitos sociais.",
+    "descripcion": "Foste aprovado na prova sobre as guerras mundiais, a Segunda Guerra Mundial, a Guerra Fria e a descolonização da África e da Ásia.",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "Domínio da História Recente",
-    "descripcion": "Completaste o parcial dominando o terrorismo de Estado, as Malvinas e a recuperação democrática na Argentina, a história contemporânea da África, da Ásia e do Médio Oriente, e a globalização da era digital.",
+    "descripcion": "Concluíste a prova dominando a história contemporânea da África, da Ásia e do Médio Oriente, e a globalização na era digital.",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "Especialista em Fontes e Cronologia",
-    "descripcion": "Dominaste a interpretação de fontes históricas, as linhas do tempo, a década, o século e o milénio, e casos argentinos como a Reforma Universitária de 1918 e a crise de 2001, chefe.",
+    "descripcion": "Dominaste a interpretação de fontes históricas, as linhas do tempo, e a década, o século e o milénio, chefe.",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "Domínio da Periodização e da Causalidade",
-    "descripcion": "Completaste o parcial dominando a periodização, o antes e o depois de Cristo, causa e consequência, a Semana Trágica de 1919 e a industrialização por substituição de importações.",
+    "descripcion": "Concluíste a prova dominando a periodização, o antes e depois de Cristo, e causa e consequência.",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "Domínio das Guerras e dos Processos Americanos",
-    "descripcion": "Completaste o parcial sobre as independências, a revolução mexicana, a guerra civil espanhola, a guerra do Paraguai, Rosas e a Confederação, a Conquista do Deserto e as economias regionais precoces.",
+    "descripcion": "Concluíste a prova sobre as independências, a Revolução Mexicana, as guerras e a Guerra Civil Espanhola.",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "Estratega dos Desportos",
     "descripcion": "Passaste no exame dominando as capacidades físicas (força, resistência, flexibilidade e velocidade), a nutrição e a hidratação na atividade física, e o regulamento e os fundamentos do basquetebol, do futebol, do futsal, do andebol, do hóquei, do râguebi e do voleibol.",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Domínio da Argentina Colonial e da Independência",
+    "descripcion": "Concluíste a prova sobre os povos originários, a conquista e a colónia, o vice-reino e seu comércio, a Revolução de Maio e as guerras de independência argentinas.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Mestre da Organização Nacional",
+    "descripcion": "Dominaste as guerras civis entre unitários e federais, a Constituição de 1853, Rosas e a Confederação, a Guerra do Paraguai e as primeiras economias regionais, chefe.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Especialista no Estado Liberal e na Ampliação Democrática",
+    "descripcion": "Concluíste a prova sobre a Conquista do Deserto e a campanha do Chaco, o modelo agroexportador e a imigração, a Lei Sáenz Peña, os golpes de Estado e a Reforma Universitária de 1918.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Mestre da Argentina do Século XX e da Democracia",
+    "descripcion": "Dominaste o peronismo e os direitos sociais, a Semana Trágica, o terrorismo de Estado, a industrialização por substituição de importações, as Malvinas, a recuperação democrática, a história recente e a crise de 2001, chefe.",
+    "icono": "🕊️"
   }
 ]

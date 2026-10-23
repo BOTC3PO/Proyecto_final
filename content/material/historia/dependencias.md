@@ -43,13 +43,5 @@ Argentina y Latinoamericana. Siglo XIX*, *Historia 4* Serie Huellas).
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `rosas-y-la-confederacion/` | `../historia-profunda/guerras-civiles-unitarios-federales/`, `guerras/` | Nodo `AH6B` (`AH6 --> AH6B`). Desarrollo real de Rosas/Confederación que `AH6` sólo mencionaba de pasada. |
-| `economias-regionales-tempranas/` | `rosas-y-la-confederacion/` | Nodo `AH6C` (`AH6B --> AH6C`). |
-| `guerra-del-paraguay-y-triple-alianza/` | `../historia-profunda/organizacion-nacional-constitucion-1853/`, `guerras/` | Nodo `AH7B` (`AH7 --> AH7B`). Antes figuraba como `guerra-del-paraguay/` (nombre viejo de la carpeta). `guerras/` como prerrequisito local *deducido acá, no está en el MAPA*: es un caso concreto del proceso general de guerra que ese tema explica. |
-| `conquista-del-desierto-y-campana-al-chaco/` | `guerra-del-paraguay-y-triple-alianza/` | Nodo `AH7C` (`AH7B --> AH7C`). Antes figuraba como `conquista-del-desierto/` (nombre viejo de la carpeta). |
-| `reforma-universitaria-1918/` | `../historia-profunda/ampliacion-democratica-ley-saenz-pena/` | Nodo `AH9B` (`AH9 --> AH9B`). Confirmado 4 veces en fuentes independientes durante esta ronda. |
-| `semana-tragica-1919/` | `../historia-profunda/ampliacion-democratica-ley-saenz-pena/` | Nodo `AH9C` (`AH9 --> AH9C`), hermano de `AH9B`. |
-| `industrializacion-por-sustitucion-de-importaciones-isi/` | `reforma-universitaria-1918/`, `semana-tragica-1919/` | Nodo `ISI1` (`AH10 --> ISI1`, y `ISI1 --> AH11` Peronismo). Modelo económico que explica de dónde sale el peronismo que viene después. |
-| `crisis-de-2001/` | `../historia-profunda/historia-reciente-argentina/` | Nodo `AH15B` (`AH15 --> AH15B`). |
 | `revolucion-mexicana-1910-1920/` | `../historia-profunda/primera-guerra-mundial-y-revolucion-rusa/`, `revoluciones/` | Nodo `HM9B` (`HM9 --> HM9B`), proceso hermano latinoamericano, no consecuencia de la PGM. |
 | `guerra-civil-espanola-1936-1939/` | `../historia-profunda/entreguerras-y-crisis-de-1929/`, `guerras/` | Nodo `HM10B` (`HM10 --> HM10B`), antesala directa de la Segunda Guerra Mundial en la posición cronológica exacta. |

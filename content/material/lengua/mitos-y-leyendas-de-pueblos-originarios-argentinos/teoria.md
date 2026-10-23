@@ -43,4 +43,4 @@ Muchos relatos llegaron a la escritura gracias a recopiladores, antropólogos y 
 
 ## N. Conexión con lo que sigue
 
-Para entender el marco en que estos relatos tienen sentido, mirá `../../antropologia/mito-ritual-y-religion/` y `../../antropologia/pueblos-originarios-de-argentina/`. Para la historia de los pueblos en el territorio, `../../historia-profunda/pueblos-originarios-territorio-argentino/`.
+Para entender el marco en que estos relatos tienen sentido, mirá `../../antropologia/mito-ritual-y-religion/` y `../../antropologia/pueblos-originarios-de-argentina/`. Para la historia de los pueblos en el territorio, `../../historia-argentina/pueblos-originarios-territorio-argentino/`.

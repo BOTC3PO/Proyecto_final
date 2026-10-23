@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "古代世界帝国掌握者",
-    "descripcion": "你完成了关于美索不达米亚、亚历山大大帝与希腊化、罗马帝国扩张，以及今阿根廷领土上原住民族的阶段考核。",
+    "descripcion": "你完成了关于美索不达米亚、古代文明、亚历山大大帝与希腊化时代以及罗马帝国扩张的期中考试。",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "专制主义与启蒙运动大师",
-    "descripcion": "你掌握了欧洲专制主义、启蒙运动、工业革命、阿根廷的征服与殖民地，以及总督区及其贸易。",
+    "descripcion": "你掌握了欧洲的绝对君主制、启蒙运动和工业革命，老大。",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "阿根廷独立精通者",
-    "descripcion": "你通过了关于五月革命、独立战争、统一派与联邦派内战，以及电气化和人类对气候影响之始的阶段考核。",
+    "nombre": "电气化与气候专家",
+    "descripcion": "你通过了关于工厂与家庭电气化以及人类对气候影响之始的期中考试。",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "自由主义与民族秩序掌握者",
-    "descripcion": "你在这场阶段考核中掌握了资产阶级革命与自由主义、民族国家、帝国主义、1853年宪法，以及伴随移民的农业出口模式。",
+    "descripcion": "你掌握了资产阶级革命与自由主义、民族国家和帝国主义，完成了期中考试。",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "20世纪初大师",
-    "descripcion": "你掌握了大众社会与自由民主、第一次世界大战与俄国革命、两次大战之间的时期与1929年危机、萨恩斯·培尼亚法和政变。",
+    "descripcion": "你掌握了大众社会与自由民主、第一次世界大战与俄国革命，以及两次大战之间的时期与1929年危机，老大。",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "战争与冷战精通者",
-    "descripcion": "你通过了关于世界大战、第二次世界大战、冷战、非洲和亚洲的去殖民化，以及庇隆主义及其社会权利的阶段考核。",
+    "descripcion": "你通过了关于世界大战、第二次世界大战、冷战以及非洲和亚洲去殖民化的期中考试。",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "近代史掌握者",
-    "descripcion": "你在这场阶段考核中掌握了国家恐怖主义、马尔维纳斯群岛与阿根廷的民主恢复、非洲亚洲和中东的当代史，以及数字时代的全球化。",
+    "descripcion": "你掌握了非洲、亚洲和中东的当代史以及数字时代的全球化，完成了期中考试。",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "史料与年代学精通者",
-    "descripcion": "你掌握了历史史料的解读、时间轴、十年、世纪和千年，以及1918年大学改革和2001年危机等阿根廷案例。",
+    "descripcion": "你掌握了历史资料的解读、时间线以及十年、世纪和千年的概念，老大。",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "历史分期与因果掌握者",
-    "descripcion": "你在这场阶段考核中掌握了历史分期、公元前与公元后、因果关系、1919年悲惨一周，以及进口替代工业化。",
+    "descripcion": "你掌握了历史分期、公元前与公元后以及因果关系，完成了期中考试。",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "美洲战争与进程掌握者",
-    "descripcion": "你完成了关于各国独立、墨西哥革命、西班牙内战、巴拉圭战争、罗萨斯与联邦、沙漠征服以及早期区域经济的阶段考核。",
+    "descripcion": "你完成了关于独立运动、墨西哥革命、战争和西班牙内战的期中考试。",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "体育战略家",
     "descripcion": "你通过了考试，掌握了身体素质（力量、耐力、柔韧性和速度）、体育活动中的营养与补水，以及篮球、足球、五人制足球、手球、曲棍球、橄榄球和排球的规则与基础。",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "阿根廷殖民时期与独立精通者",
+    "descripcion": "你完成了关于原住民、征服与殖民时期、总督辖区及其贸易、五月革命和阿根廷独立战争的期中考试。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "国家组建大师",
+    "descripcion": "你掌握了统一派与联邦派的内战、1853年宪法、罗萨斯与联邦、巴拉圭战争以及早期的地区经济，老大。",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "自由主义国家与民主扩展专家",
+    "descripcion": "你完成了关于沙漠征服与查科战役、农业出口模式与移民、萨恩斯·培尼亚法、政变以及1918年大学改革的期中考试。",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "20世纪阿根廷与民主大师",
+    "descripcion": "你掌握了庇隆主义与社会权利、悲剧周、国家恐怖主义、进口替代工业化、马尔维纳斯群岛、民主恢复、近期历史以及2001年危机，老大。",
+    "icono": "🕊️"
   }
 ]

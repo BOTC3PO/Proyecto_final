@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "Beherrschung der Imperien der Antike",
-    "descripcion": "Du hast die Prüfung zu Mesopotamien, Alexander dem Großen und dem Hellenismus, der Expansion des Römischen Reiches und den Urvölkern auf dem Gebiet des heutigen Argentiniens abgeschlossen.",
+    "descripcion": "Du hast die Prüfung zu Mesopotamien, den antiken Zivilisationen, Alexander dem Großen und dem Hellenismus sowie zur Ausdehnung des Römischen Reiches abgeschlossen.",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "Meister von Absolutismus und Aufklärung",
-    "descripcion": "Du hast den europäischen Absolutismus, die Aufklärung, die Industrielle Revolution, die Eroberung und Kolonie in Argentinien sowie das Vizekönigreich mit seinem Handel gemeistert, Chef.",
+    "descripcion": "Du hast den europäischen Absolutismus, die Aufklärung und die Industrielle Revolution gemeistert, Boss.",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "Experte für die argentinische Unabhängigkeit",
-    "descripcion": "Du hast die Prüfung zur Mairevolution, zu den Unabhängigkeitskriegen und den Bürgerkriegen zwischen Unitariern und Föderalisten bestanden, dazu zur Elektrifizierung und zum Beginn des menschlichen Fußabdrucks im Klima.",
+    "nombre": "Experte für Elektrifizierung und Klima",
+    "descripcion": "Du hast die Prüfung zur Elektrifizierung von Fabrik und Haushalt und zum Beginn des menschlichen Fußabdrucks im Klima bestanden.",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "Beherrschung der liberalen und nationalen Ordnung",
-    "descripcion": "Du hast die Prüfung abgeschlossen und dabei bürgerliche Revolutionen und Liberalismus, Nationalstaaten, Imperialismus, die Verfassung von 1853 und das Agrarexportmodell mit Einwanderung gemeistert.",
+    "descripcion": "Du hast die Prüfung abgeschlossen und die bürgerlichen Revolutionen und den Liberalismus, die Nationalstaaten und den Imperialismus gemeistert.",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "Meister des frühen 20. Jahrhunderts",
-    "descripcion": "Du hast die Massengesellschaft und die liberale Demokratie, den Ersten Weltkrieg und die Russische Revolution, die Zwischenkriegszeit und die Krise von 1929, das Sáenz-Peña-Gesetz und die Staatsstreiche gemeistert, Chef.",
+    "descripcion": "Du hast die Massengesellschaft und die liberale Demokratie, den Ersten Weltkrieg und die Russische Revolution sowie die Zwischenkriegszeit und die Krise von 1929 gemeistert, Boss.",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "Experte für Kriege und Kalten Krieg",
-    "descripcion": "Du hast die Prüfung zu den Weltkriegen, zum Zweiten Weltkrieg, zum Kalten Krieg, zur Dekolonisierung Afrikas und Asiens und zum Peronismus mit seinen Sozialrechten bestanden.",
+    "descripcion": "Du hast die Prüfung zu den Weltkriegen, dem Zweiten Weltkrieg, dem Kalten Krieg und der Entkolonialisierung Afrikas und Asiens bestanden.",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "Beherrschung der jüngeren Geschichte",
-    "descripcion": "Du hast die Prüfung abgeschlossen und dabei den Staatsterrorismus, die Malvinen und die demokratische Wiederherstellung in Argentinien, die Zeitgeschichte Afrikas, Asiens und des Nahen Ostens sowie die Globalisierung im digitalen Zeitalter gemeistert.",
+    "descripcion": "Du hast die Prüfung abgeschlossen und die Zeitgeschichte Afrikas, Asiens und des Nahen Ostens sowie die Globalisierung im digitalen Zeitalter gemeistert.",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "Experte für Quellen und Chronologie",
-    "descripcion": "Du hast die Interpretation historischer Quellen, Zeitleisten, das Jahrzehnt, das Jahrhundert und das Jahrtausend sowie argentinische Fälle wie die Universitätsreform von 1918 und die Krise von 2001 gemeistert, Chef.",
+    "descripcion": "Du hast die Interpretation historischer Quellen, Zeitleisten sowie Jahrzehnt, Jahrhundert und Jahrtausend gemeistert, Boss.",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "Beherrschung von Periodisierung und Kausalität",
-    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die Periodisierung, vor und nach Christus, Ursache und Folge, die Tragische Woche von 1919 und die importsubstituierende Industrialisierung gemeistert.",
+    "descripcion": "Du hast die Prüfung abgeschlossen und die Periodisierung, vor und nach Christus sowie Ursache und Folge gemeistert.",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "Beherrschung amerikanischer Kriege und Prozesse",
-    "descripcion": "Du hast die Prüfung zu den Unabhängigkeiten, der Mexikanischen Revolution, dem Spanischen Bürgerkrieg, dem Paraguaykrieg, Rosas und der Konföderation, der Wüstenkampagne und den frühen Regionalwirtschaften abgeschlossen.",
+    "descripcion": "Du hast die Prüfung zu den Unabhängigkeitsbewegungen, der Mexikanischen Revolution, den Kriegen und dem Spanischen Bürgerkrieg abgeschlossen.",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "Sportstratege",
     "descripcion": "Du hast die Prüfung bestanden und beherrschst die körperlichen Fähigkeiten (Kraft, Ausdauer, Beweglichkeit und Schnelligkeit), Ernährung und Flüssigkeitszufuhr bei körperlicher Aktivität sowie Regeln und Grundlagen von Basketball, Fußball, Futsal, Handball, Hockey, Rugby und Volleyball.",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Meister des kolonialen Argentiniens und der Unabhängigkeit",
+    "descripcion": "Du hast die Prüfung zu den indigenen Völkern, Eroberung und Kolonie, dem Vizekönigreich und seinem Handel, der Mairevolution und den argentinischen Unabhängigkeitskriegen abgeschlossen.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Meister der nationalen Organisation",
+    "descripcion": "Du hast die Bürgerkriege zwischen Unitariern und Föderalisten, die Verfassung von 1853, Rosas und die Konföderation, den Paraguaykrieg und die frühen regionalen Wirtschaften gemeistert, Boss.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Experte für den liberalen Staat und die demokratische Erweiterung",
+    "descripcion": "Du hast die Prüfung zur Wüstenkampagne und zum Chaco-Feldzug, zum Agrarexportmodell und zur Einwanderung, zum Sáenz-Peña-Gesetz, zu den Staatsstreichen und zur Universitätsreform von 1918 abgeschlossen.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Meister des Argentiniens des 20. Jahrhunderts und der Demokratie",
+    "descripcion": "Du hast den Peronismus und die Sozialrechte, die Tragische Woche, den Staatsterrorismus, die importsubstituierende Industrialisierung, Malvinas, die demokratische Wiederherstellung, die jüngste Geschichte und die Krise von 2001 gemeistert, Boss.",
+    "icono": "🕊️"
   }
 ]

@@ -475,9 +475,9 @@
     "id": 692,
     "materia": "Historia profunda",
     "cluster": 12,
-    "preguntas": 125,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 100,
+    "secciones_completas": 4,
+    "secciones_totales": 4
   },
   {
     "id": 693,
@@ -507,49 +507,49 @@
     "id": 696,
     "materia": "Historia profunda",
     "cluster": 16,
-    "preguntas": 125,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 75,
+    "secciones_completas": 3,
+    "secciones_totales": 3
   },
   {
     "id": 697,
     "materia": "Historia profunda",
     "cluster": 17,
-    "preguntas": 123,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 48,
+    "secciones_completas": 2,
+    "secciones_totales": 2
   },
   {
     "id": 698,
     "materia": "Historia profunda",
     "cluster": 18,
-    "preguntas": 125,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 75,
+    "secciones_completas": 3,
+    "secciones_totales": 3
   },
   {
     "id": 699,
     "materia": "Historia profunda",
     "cluster": 19,
-    "preguntas": 126,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 75,
+    "secciones_completas": 3,
+    "secciones_totales": 3
   },
   {
     "id": 700,
     "materia": "Historia profunda",
     "cluster": 20,
-    "preguntas": 126,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 101,
+    "secciones_completas": 4,
+    "secciones_totales": 4
   },
   {
     "id": 701,
     "materia": "Historia profunda",
     "cluster": 21,
-    "preguntas": 221,
-    "secciones_completas": 9,
-    "secciones_totales": 9
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
   },
   {
     "id": 702,
@@ -563,17 +563,17 @@
     "id": 721,
     "materia": "Historia",
     "cluster": 1,
-    "preguntas": 103,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 60,
+    "secciones_completas": 3,
+    "secciones_totales": 3
   },
   {
     "id": 722,
     "materia": "Historia",
     "cluster": 2,
-    "preguntas": 109,
-    "secciones_completas": 5,
-    "secciones_totales": 5
+    "preguntas": 60,
+    "secciones_completas": 3,
+    "secciones_totales": 3
   },
   {
     "id": 723,
@@ -595,9 +595,9 @@
     "id": 725,
     "materia": "Historia",
     "cluster": 5,
-    "preguntas": 194,
-    "secciones_completas": 8,
-    "secciones_totales": 8
+    "preguntas": 90,
+    "secciones_completas": 4,
+    "secciones_totales": 4
   },
   {
     "id": 736,
@@ -1496,22 +1496,6 @@
     "secciones_totales": 5
   },
   {
-    "id": 970,
-    "materia": "UX/Diseño",
-    "cluster": 2,
-    "preguntas": 111,
-    "secciones_completas": 5,
-    "secciones_totales": 5
-  },
-  {
-    "id": 971,
-    "materia": "UX/Diseño",
-    "cluster": 3,
-    "preguntas": 202,
-    "secciones_completas": 9,
-    "secciones_totales": 9
-  },
-  {
     "id": 951,
     "materia": "Filosofía",
     "cluster": 1,
@@ -1536,26 +1520,10 @@
     "secciones_totales": 8
   },
   {
-    "id": 975,
-    "materia": "Filosofía",
-    "cluster": 4,
-    "preguntas": 209,
-    "secciones_completas": 9,
-    "secciones_totales": 9
-  },
-  {
     "id": 954,
     "materia": "Antropología",
     "cluster": 1,
     "preguntas": 107,
-    "secciones_completas": 5,
-    "secciones_totales": 5
-  },
-  {
-    "id": 980,
-    "materia": "Antropología",
-    "cluster": 2,
-    "preguntas": 114,
     "secciones_completas": 5,
     "secciones_totales": 5
   },
@@ -1568,14 +1536,6 @@
     "secciones_totales": 3
   },
   {
-    "id": 985,
-    "materia": "Sociología",
-    "cluster": 2,
-    "preguntas": 159,
-    "secciones_completas": 7,
-    "secciones_totales": 7
-  },
-  {
     "id": 956,
     "materia": "Aprendizaje",
     "cluster": 1,
@@ -1584,26 +1544,10 @@
     "secciones_totales": 2
   },
   {
-    "id": 990,
-    "materia": "Aprendizaje",
-    "cluster": 2,
-    "preguntas": 137,
-    "secciones_completas": 6,
-    "secciones_totales": 6
-  },
-  {
     "id": 957,
     "materia": "Ciudadanía Digital",
     "cluster": 1,
     "preguntas": 165,
-    "secciones_completas": 7,
-    "secciones_totales": 7
-  },
-  {
-    "id": 995,
-    "materia": "Ciudadanía Digital",
-    "cluster": 2,
-    "preguntas": 156,
     "secciones_completas": 7,
     "secciones_totales": 7
   },
@@ -1656,11 +1600,99 @@
     "secciones_totales": 6
   },
   {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "preguntas": 111,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "preguntas": 202,
+    "secciones_completas": 9,
+    "secciones_totales": 9
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "preguntas": 209,
+    "secciones_completas": 9,
+    "secciones_totales": 9
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "preguntas": 114,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "preguntas": 159,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "preguntas": 137,
+    "secciones_completas": 6,
+    "secciones_totales": 6
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "preguntas": 156,
+    "secciones_completas": 7,
+    "secciones_totales": 7
+  },
+  {
     "id": 1000,
     "materia": "Ed. Física",
     "cluster": 4,
     "preguntas": 217,
     "secciones_completas": 9,
     "secciones_totales": 9
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "preguntas": 125,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "preguntas": 130,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "preguntas": 122,
+    "secciones_completas": 5,
+    "secciones_totales": 5
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "preguntas": 191,
+    "secciones_completas": 8,
+    "secciones_totales": 8
   }
 ]

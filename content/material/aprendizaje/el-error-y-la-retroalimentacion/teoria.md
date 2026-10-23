@@ -49,7 +49,7 @@ Recibir una corrección puede doler. Algunas ideas para aprovecharla: leer los c
 
 ## La autoevaluación
 
-También se puede generar retroalimentación propia: comparar con las respuestas correctas, usar listas de verificación, explicarle el tema a alguien o intentar resolver ejercicios sin mirar. Es parte de la metacognición (`../../aprendizaje/metacognicion-saber-que-se-y-que-no-se/`) y de la práctica de recuperación (`../tecnicas-de-estudio-repaso-espaciado-recuperacion/`).
+También se puede generar retroalimentación propia: comparar con las respuestas correctas, usar listas de verificación, explicarle el tema a alguien o intentar resolver ejercicios sin mirar. Es parte de la metacognición (`../metacognicion-saber-que-se-y-que-no-se/`) y de la práctica de recuperación (`../tecnicas-de-estudio-repaso-espaciado-recuperacion/`).
 
 ## Para qué sirve
 

@@ -61,4 +61,4 @@ atribuir un cambio normativo a una sola causa aislada.
 Reconocer estos derechos es la base para leer con criterio situaciones
 reales (una escuela, un tribunal, una noticia) donde está en juego el
 interés superior del niño — y distinguirlo de otros marcos de derechos
-específicos vistos en `../../civica/derechos-indigenas/` y `../../civica/derechos-genero/`.
+específicos vistos en `../derechos-indigenas/` y `../derechos-genero/`.

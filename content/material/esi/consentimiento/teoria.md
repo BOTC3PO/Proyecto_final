@@ -57,6 +57,6 @@ socialmente se minimizan.
 
 Entender el consentimiento con precisión es la base para identificar
 señales de violencia (`../violencia-de-genero-senales/`) y para
-entender por qué ciertos derechos (`../../esi/derechos-leyes-26150-27610-linea144/`)
+entender por qué ciertos derechos (`../derechos-leyes-26150-27610-linea144/`)
 existen específicamente para proteger la capacidad de decidir sobre el
 propio cuerpo.

@@ -51,6 +51,6 @@ gobierno, territorio y población) puede cumplir.
 
 El Preámbulo es la síntesis de PARA QUÉ existe el Estado argentino tal
 como se organizó — el paso siguiente es ver el CONTENIDO concreto de
-derechos que ese Estado garantiza (`../../civica/derechos-y-garantias/`, la parte
+derechos que ese Estado garantiza (`../derechos-y-garantias/`, la parte
 dogmática de la Constitución) y CÓMO se reparte el poder para
 cumplir esos objetivos (`../division-de-poderes/`).
