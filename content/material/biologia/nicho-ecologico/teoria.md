@@ -24,10 +24,10 @@ pero uno caza de noche y el otro de día).
 
 ## 2. El nicho explica por qué la capacidad de carga (K) varía por especie
 
-`../dinamica-poblacional-capacidad-carga/` mostró que cada ambiente
-tiene una capacidad de carga (K) — pero **K no es un solo número por
-ambiente**, es distinto para cada especie que vive ahí, porque cada
-una usa los recursos de forma diferente (nicho distinto). Un mismo
+`../dinamica-poblacional-capacidad-carga/` mostró que cada ambiente tiene
+una capacidad de carga (K). Pero **K no es un solo número por ambiente**: es
+distinto para cada especie que vive ahí, porque cada una usa los recursos de
+forma diferente (nicho distinto). Un mismo
 bosque puede sostener muchos insectos pero pocos zorros, no porque el
 bosque "tenga menos capacidad" en general, sino porque el nicho del
 zorro (necesita mucho territorio, come presas específicas) permite
@@ -35,18 +35,17 @@ menos individuos que el nicho del insecto.
 
 ## 3. Exclusión competitiva: dos especies no pueden ocupar el mismo nicho
 
-Si dos especies distintas intentan ocupar **exactamente** el mismo
-nicho en el mismo lugar (mismos recursos, mismo momento, misma forma
-de usarlos), compiten directamente por todo lo mismo — a largo plazo,
-una de las dos termina desplazando a la otra (la elimina localmente,
-la obliga a migrar, o la obliga a cambiar de nicho). Este principio se
+Si dos especies distintas intentan ocupar **exactamente** el mismo nicho en
+el mismo lugar (mismos recursos, mismo momento, misma forma de usarlos),
+compiten directamente por todo lo mismo. A largo plazo, una de las dos
+termina desplazando a la otra: la elimina localmente, la obliga a migrar o
+la obliga a cambiar de nicho. Este principio se
 llama **exclusión competitiva**.
 
-Por eso, en la naturaleza, especies que coexisten en el mismo hábitat
-casi siempre tienen nichos **al menos ligeramente distintos**
-(diferencian su horario de actividad, su tipo de presa, la altura del
-árbol donde buscan alimento, etc.) — es lo que permite que convivan
-sin eliminarse mutuamente.
+Por eso, en la naturaleza, las especies que coexisten en el mismo hábitat
+casi siempre tienen nichos **al menos ligeramente distintos**: diferencian
+su horario de actividad, su tipo de presa, la altura del árbol donde buscan
+alimento, etc. Eso es lo que permite que convivan sin eliminarse mutuamente.
 
 ## 4. Nicho fundamental vs. nicho realizado
 

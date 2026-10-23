@@ -10,7 +10,7 @@
 
 ## 1. El colapso del imperio y los límites artificiales
 
-La descolonización africana no fue un proceso uniforme, sino un conjunto de rupturas políticas aceleradas por el debilitamiento de las potencias europeas tras la Segunda Guerra Mundial y la presión del movimiento anticolonial global. Sin embargo, la independencia política no borró las estructuras territoriales heredadas. Las fronteras coloniales, trazadas durante la Conferencia de Berlín (1884-1885) con criterios geométricos o de negociación entre metrópolis, ignoraron las realidades étnicas, lingüísticas y económicas preexistentes.
+La descolonización africana no fue un proceso uniforme, sino un conjunto de rupturas políticas. Las aceleraron el debilitamiento de las potencias europeas tras la Segunda Guerra Mundial y la presión del movimiento anticolonial global. Sin embargo, la independencia política no borró las estructuras territoriales heredadas. Las fronteras coloniales, trazadas durante la Conferencia de Berlín (1884-1885) con criterios geométricos o de negociación entre metrópolis, ignoraron las realidades étnicas, lingüísticas y económicas preexistentes.
 
 Este desajuste entre el Estado político y la sociedad civil fue la primera gran contradicción de la era postcolonial. Al independizarse, los nuevos líderes heredaron administraciones diseñadas para la extracción de recursos y el control militar, no para la representación democrática ni la integración nacional. La pregunta fundamental, formulada por el historiador Mahmood Mamdani, era si el Estado africano sería una herramienta de desarrollo o simplemente un aparato de poder vacío.
 
@@ -40,7 +40,7 @@ Esta crisis económica socavó la legitimidad de los gobiernos, tanto militares 
 
 La transición democrática no trajo paz automática. En muchos países, la apertura política reactivó tensiones étnicas y regionales que habían sido suprimidas por los regímenes autoritarios. Los casos más trágicos incluyen la guerra civil en Ruanda, que culminó en el genocidio de 1994, y los conflictos en Sierra Leona, Liberia y la República Democrática del Congo.
 
-Estos conflictos mostraron cómo las identidades étnicas podían ser instrumentalizadas políticamente para acceder a recursos y poder estatal. La comunidad internacional, dividida y reacia a intervenir en conflictos "internos" tras la experiencia de Somalia, tardó en responder. La creación de la Unión Africana (UA) en 2002, sustituyendo a la Organización de la Unidad Africana (OAU), marcó un intento de cambiar este paradigma, adoptando el principio de "derecho a intervenir" en casos de crímenes de guerra y genocidio, aunque su efectividad sigue siendo objeto de debate.
+Estos conflictos mostraron cómo las identidades étnicas podían ser instrumentalizadas políticamente para acceder a recursos y poder estatal. La comunidad internacional, dividida y reacia a intervenir en conflictos "internos" tras la experiencia de Somalia, tardó en responder. La creación de la Unión Africana (UA) en 2002, que sustituyó a la Organización de la Unidad Africana (OAU), marcó un intento de cambiar este paradigma. Adoptó el principio de "derecho a intervenir" en casos de crímenes de guerra y genocidio, aunque su efectividad sigue siendo objeto de debate.
 
 ## 6. El nuevo milenio: crecimiento, neocolonialismo y desafíos actuales
 

@@ -35,10 +35,9 @@ que se resta es el **sustraendo**, y el resultado es la **diferencia** (o
 ## Por qué NO es conmutativa ni asociativa
 
 A diferencia de la suma, en la resta **el orden importa**: a − b casi
-nunca da lo mismo que b − a (siquiera el signo cambia). Tampoco es
-asociativa: (a − b) − c no da lo mismo que a − (b − c) — restar de a dos
-en una cadena de restas hay que hacerlo siempre de izquierda a derecha, en
-el orden en que aparecen, sin poder reagrupar como en la suma.
+nunca da lo mismo que b − a (siquiera el signo cambia). Tampoco es asociativa: (a − b) − c no da lo mismo que a − (b − c). En una
+cadena de restas hay que restar de a dos, siempre de izquierda a derecha, en
+el orden en que aparecen. No se puede reagrupar como en la suma.
 
 ## La prueba de la resta
 
@@ -50,11 +49,10 @@ nuevo. Esta verificación ("la prueba de la resta") es la misma idea que
 ## El algoritmo en columna: restar "pidiendo prestado"
 
 Igual que en la suma se alinean los números por su valor posicional y se
-opera columna por columna, de derecha a izquierda. Si en una columna la
-cifra de arriba (del minuendo) es más chica que la de abajo (del
-sustraendo), no se puede restar directamente: se le **pide prestada** una
-unidad a la columna de al lado (que baja su cifra en 1 y le presta 10 a la
-columna actual). Es el espejo exacto de la "llevada" de la suma: ahí se
+opera columna por columna, de derecha a izquierda. Si en una columna la cifra de arriba (del minuendo) es más chica que la de
+abajo (del sustraendo), no se puede restar directamente. Se le **pide
+prestada** una unidad a la columna de al lado, que baja su cifra en 1 y le
+presta 10 a la columna actual. Es el espejo exacto de la "llevada" de la suma: ahí se
 empuja un sobrante hacia la izquierda; acá se pide un préstamo desde la
 izquierda. Ejemplo: 52 − 27 → unidades: 2 es menor que 7, se pide prestado
 a las decenas (que bajan de 5 a 4) y queda 12 − 7 = 5; decenas: 4 − 2 = 2 →

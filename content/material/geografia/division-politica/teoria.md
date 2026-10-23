@@ -35,11 +35,11 @@ tener estos niveles (los nombres cambian según el país):
 - **Capital**: la ciudad sede del gobierno de cada nivel (capital
   nacional, capital provincial).
 
-En Argentina específicamente: el país se divide en 23 provincias más la
-Ciudad Autónoma de Buenos Aires (con estatus especial, no es una
-provincia pero tiene autonomía similar); las provincias se dividen en
-departamentos (o partidos, en la provincia de Buenos Aires); los
-departamentos/partidos, en municipios.
+En Argentina específicamente, el país se divide en 23 provincias más la
+Ciudad Autónoma de Buenos Aires. Esta tiene un estatus especial: no es una
+provincia, pero tiene autonomía similar. Las provincias se dividen en
+departamentos (o partidos, en la provincia de Buenos Aires), y los
+departamentos o partidos, en municipios.
 
 ## Límite vs. frontera
 
@@ -70,8 +70,7 @@ Aunque se usan como sinónimos en el habla cotidiana, tienen un matiz:
 ## Por qué esto es distinto de "Región" (`G5B`)
 
 La división política es siempre una decisión formal, con límites
-oficiales y gobierno reconocido. Una **región** (ver `../region/`) puede
-agrupar territorio por un rasgo compartido (cultura, clima, bioma) sin
-que ese agrupamiento tenga ningún límite político oficial ni gobierno
-propio — una región cultural puede atravesar varios países sin que eso
-cambie ni un límite ni una frontera.
+oficiales y gobierno reconocido. Una **región** (ver `../region/`) puede agrupar territorio por un rasgo
+compartido (cultura, clima, bioma) sin que ese agrupamiento tenga ningún
+límite político oficial ni gobierno propio. Una región cultural puede
+atravesar varios países sin que eso cambie ni un límite ni una frontera.

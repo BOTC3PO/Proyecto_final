@@ -46,18 +46,17 @@ hormonas predominan en cada cuerpo:
 
 ## 4. La pubertad no ocurre al mismo ritmo para todos
 
-El momento y la velocidad de estos cambios varía mucho de persona a
-persona (rango normal amplio, típicamente entre los 8 y 14 años según
-el cuerpo) — no hay un "momento correcto" único, y compararse con
-otros no es un buen indicador de si algo anda bien o mal.
+El momento y la velocidad de estos cambios varía mucho de persona a persona
+(rango normal amplio, típicamente entre los 8 y 14 años según el cuerpo). No
+hay un "momento correcto" único, y compararse con otros no es un buen
+indicador de si algo anda bien o mal.
 
 ## 5. Anatomía básica: lo que cambia y cómo se llama
 
-Conocer el nombre correcto de las partes del cuerpo (en vez de
-eufemismos o apodos) es parte de la alfabetización en salud — permite
-comunicarse con claridad con un profesional de salud si algo genera
-duda o preocupación, y es la base para entender los temas que siguen
-(ITS, consentimiento).
+Conocer el nombre correcto de las partes del cuerpo (en vez de eufemismos o
+apodos) es parte de la alfabetización en salud. Permite comunicarse con
+claridad con un profesional de salud si algo genera duda o preocupación.
+Además, es la base para entender los temas que siguen (ITS, consentimiento).
 
 ## 6. Conexión con lo que sigue
 

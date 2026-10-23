@@ -34,7 +34,7 @@ La resistencia real de un cerámico depende del defecto más grande que contenga
 
 ## 5. Procesamiento
 
-Como los cerámicos funden a temperaturas muy altas, no se los suele colar como los metales. El método clásico parte de polvos: se les da forma (prensado, moldeo con agua, colado), se secan con cuidado para evitar grietas y se **sinterizan**, es decir, se calientan a alta temperatura, por debajo del punto de fusión, hasta que las partículas se unen. Durante el proceso la pieza se contrae.
+Como los cerámicos funden a temperaturas muy altas, no se los suele colar como los metales. El método clásico parte de polvos. Se les da forma (prensado, moldeo con agua, colado) y se secan con cuidado para evitar grietas. Después se **sinterizan**: se calientan a alta temperatura, por debajo del punto de fusión, hasta que las partículas se unen. Durante el proceso la pieza se contrae.
 
 ## 6. El vidrio
 
@@ -48,4 +48,4 @@ El **cemento Portland** se fabrica calentando piedra caliza y arcilla hasta form
 
 ## 8. Aplicaciones y precauciones
 
-Los cerámicos se eligen cuando se busca resistir el calor, el desgaste o la corrosión, y se diseñan con cuidado para que trabajen a compresión y para evitar concentraciones de tensiones: esquinas redondeadas, espesores parejos y sin entallas. Hay que evitar golpes y choques térmicos.
+Los cerámicos se eligen cuando se busca resistir el calor, el desgaste o la corrosión. Se diseñan con cuidado para que trabajen a compresión y para evitar concentraciones de tensiones: esquinas redondeadas, espesores parejos y sin entallas. Hay que evitar golpes y choques térmicos.

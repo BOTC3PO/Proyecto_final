@@ -34,12 +34,11 @@ enzima. La relación enzima-sustrato es muy específica — cada enzima
 actúa sólo sobre **un sustrato en particular** (o un grupo muy
 reducido de sustratos parecidos), no sobre cualquier molécula.
 
-Esto se explica con el modelo **llave-cerradura** (o su versión más
-precisa, "encaje inducido"): la forma tridimensional de la enzima
-tiene un sitio específico (**sitio activo**) que encaja con la forma
-del sustrato, igual que una llave encaja sólo en su cerradura
-correspondiente — un sustrato con una forma distinta simplemente no
-encaja, y la enzima no actúa sobre él.
+Esto se explica con el modelo **llave-cerradura** (o su versión más precisa,
+"encaje inducido"). La forma tridimensional de la enzima tiene un sitio
+específico (**sitio activo**) que encaja con la forma del sustrato, igual
+que una llave encaja solo en su cerradura correspondiente. Un sustrato con
+una forma distinta simplemente no encaja, y la enzima no actúa sobre él.
 
 ## 3. Temperatura y pH: factores que afectan la actividad enzimática (`BENZc`)
 
@@ -64,8 +63,8 @@ su forma funcional cuando las condiciones vuelven a la normalidad.
 
 ## 4. Conexión con lo que ya se vio
 
-Este módulo completa el mecanismo detrás de reacciones que ya
-aparecían mencionadas sin explicar cómo funcionaban: la fotosíntesis y
-la respiración celular (`../fotosintesis-respiracion-celular/`)
-dependen enteramente de que sus enzimas mantengan su forma correcta —
-por eso ambos procesos son sensibles a temperaturas extremas.
+Este módulo completa el mecanismo detrás de reacciones que ya aparecían
+mencionadas sin explicar cómo funcionaban. La fotosíntesis y la respiración
+celular (`../fotosintesis-respiracion-celular/`) dependen enteramente de que
+sus enzimas mantengan su forma correcta. Por eso ambos procesos son
+sensibles a temperaturas extremas.

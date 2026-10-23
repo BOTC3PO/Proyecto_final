@@ -31,7 +31,7 @@ La energía mecánica total de un oscilador con resorte es `E = ½·k·A²` y se
 
 ## 5. Ondas estacionarias
 
-Cuando dos ondas iguales viajan en sentidos opuestos (por ejemplo, una onda que se refleja en el extremo de una cuerda) se superponen y forman una **onda estacionaria**: un patrón que no avanza, con puntos que no se mueven (**nodos**) y puntos de máxima oscilación (**antinodos** o vientres).
+Cuando dos ondas iguales viajan en sentidos opuestos (por ejemplo, una onda que se refleja en el extremo de una cuerda), se superponen y forman una **onda estacionaria**. Es un patrón que no avanza, con puntos que no se mueven (**nodos**) y puntos de máxima oscilación (**antinodos** o vientres).
 
 **Cuerda fija en ambos extremos** (guitarra, violín). Solo entran ondas con nodos en los extremos, de modo que `L = n·λ/2` y las frecuencias permitidas son:
 

@@ -21,10 +21,10 @@
 
 Ya vimos (`../prevencion-adicciones-ley-26586/`) que el consumo
 problemático es un fenómeno real con causas biológicas y sociales.
-La pregunta que separa a las 3 posturas es: **¿qué debe hacer el
-Estado frente a las drogas?** — cada una prioriza un objetivo
-distinto (reducir el consumo, reducir el daño, o regular el mercado),
-y cada una tiene argumentos y críticas.
+La pregunta que separa a las 3 posturas es: **¿qué debe hacer el Estado
+frente a las drogas?** Cada una prioriza un objetivo distinto (reducir el
+consumo, reducir el daño o regular el mercado), y cada una tiene argumentos
+y críticas.
 
 ## 2. Prohibicionismo
 
@@ -42,13 +42,13 @@ de drogas, con el objetivo de eliminar el acceso a las sustancias.
 
 ## 3. Reducción de daños
 
-Postura que no exige la abstinencia total como condición para
-intervenir: el Estado debe **minimizar los daños** del consumo
-(salud, contagios, sobredosis) sin necesariamente perseguir
-penalmente al consumidor — ejemplos de política de reducción de
-daños: distribución de jeringas estériles (para reducir contagio de
-VIH/hepatitis en consumo inyectable), test de sustancias en eventos,
-disponibilidad de naloxona (revierte sobredosis de opioides).
+Postura que no exige la abstinencia total como condición para intervenir. El
+Estado debe **minimizar los daños** del consumo (salud, contagios,
+sobredosis) sin necesariamente perseguir penalmente al consumidor. Ejemplos
+de política de reducción de daños: distribución de jeringas estériles (para
+reducir el contagio de VIH/hepatitis en el consumo inyectable), test de
+sustancias en eventos y disponibilidad de naloxona (revierte la sobredosis
+de opioides).
 
 - **Argumento central**: mientras exista consumo (lo haya o no
   "guerra contra las drogas"), es mejor reducir el daño concreto a la

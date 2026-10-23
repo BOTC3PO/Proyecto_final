@@ -24,7 +24,7 @@ Los ponderadores no se actualizan todos los meses: se fijan con una encuesta y s
 
 ## 3. Relevamiento de precios
 
-Todos los meses, encuestadores del INDEC y de las direcciones provinciales de estadística relevan los precios de miles de productos en comercios de distintas ciudades (también hay precios que se toman de fuentes administradas, como las tarifas públicas). Para que la comparación tenga sentido se sigue **el mismo producto, de la misma marca y presentación, en el mismo tipo de local**, mes tras mes. Si el producto desaparece, se lo reemplaza por uno equivalente.
+Todos los meses, encuestadores del INDEC y de las direcciones provinciales de estadística relevan los precios de miles de productos en comercios de distintas ciudades. También hay precios que se toman de fuentes administradas, como las tarifas públicas. Para que la comparación tenga sentido se sigue **el mismo producto, de la misma marca y presentación, en el mismo tipo de local**, mes tras mes. Si el producto desaparece, se lo reemplaza por uno equivalente.
 
 El país se divide en **regiones** (GBA, Pampeana, Noreste, Noroeste, Cuyo y Patagonia), cada una con su propio IPC y sus propios ponderadores. El dato nacional combina las seis. Por eso la inflación puede ser algo distinta entre regiones, y también por eso el índice no refleja con exactitud la experiencia de cada hogar.
 

@@ -46,11 +46,10 @@ sombreado y perspectiva, da la ilusión de tener volumen).
 ## 4. Textura
 
 La **textura** es cómo se percibe (o se sugiere) la superficie de algo al
-tacto: lisa, rugosa, suave, áspera. Puede ser **real** (una textura
-física, que efectivamente se siente al tocarla, como en una escultura o
-un collage con materiales distintos) o **visual/implícita** (sugerida
-sólo con la técnica de dibujo o pintura, en una superficie que en
-realidad es lisa).
+tacto: lisa, rugosa, suave, áspera. Puede ser **real**: una textura física, que efectivamente se siente al
+tocarla, como en una escultura o un collage con materiales distintos. O
+puede ser **visual/implícita**: sugerida solo con la técnica de dibujo o
+pintura, en una superficie que en realidad es lisa.
 
 ## 5. Valor (claroscuro)
 
@@ -72,15 +71,14 @@ perspectiva que hacen que una superficie plana parezca tener distancia).
 
 ## 7. Color
 
-El **color** tiene tres propiedades: **matiz** (el color en sí: rojo,
-azul, verde — su posición en el círculo cromático), **saturación** (qué
-tan intenso o "puro" es ese color, frente a un gris apagado del mismo
-matiz) y **valor** (qué tan claro u oscuro es, ver el punto 5). Los
-colores se combinan según su posición en el círculo cromático:
-**primarios** (rojo, azul, amarillo — no se obtienen mezclando otros),
-**secundarios** (mezcla de dos primarios) y **complementarios** (los que
-quedan enfrentados en el círculo, y generan el máximo contraste posible
-entre sí al usarse juntos).
+El **color** tiene tres propiedades. El **matiz** es el color en sí (rojo,
+azul, verde), su posición en el círculo cromático. La **saturación** es qué
+tan intenso o "puro" es ese color, frente a un gris apagado del mismo matiz.
+El **valor** es qué tan claro u oscuro es (ver el punto 5). Los colores se combinan según su posición en el círculo cromático. Los
+**primarios** (rojo, azul, amarillo) no se obtienen mezclando otros. Los
+**secundarios** son la mezcla de dos primarios. Los **complementarios** son
+los que quedan enfrentados en el círculo y generan el máximo contraste
+posible entre sí al usarse juntos.
 
 ## Para qué sirve
 

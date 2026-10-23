@@ -58,9 +58,9 @@ Interés total = Total pagado - C
 ```
 
 A igual capital y tasa, **más cuotas (n) significa una cuota mensual más
-baja, pero más interés total pagado** a lo largo del préstamo — se paga
-menos por mes, pero durante más tiempo, y cada mes de más es interés
-adicional sobre el saldo que todavía no se amortizó.
+baja, pero más interés total pagado** a lo largo del préstamo. Se paga menos
+por mes, pero durante más tiempo, y cada mes de más es interés adicional
+sobre el saldo que todavía no se amortizó.
 
 ## No es el único sistema que existe
 

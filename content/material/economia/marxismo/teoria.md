@@ -39,13 +39,13 @@ del medio de producción. Para el marxismo, esa diferencia no es un
 pago justo por el riesgo empresarial, sino la fuente estructural de la
 ganancia capitalista.
 
-A diferencia del socialismo utópico, que proponía reformar una fábrica
-o fundar una comunidad como ejemplo a imitar, el marxismo se presenta
-a sí mismo como "socialismo científico": un análisis sistemático de
-las leyes de funcionamiento del capitalismo como sistema (no de un
-caso aislado), del que se desprende una estrategia de transformación a
-esa misma escala — la organización política de la clase trabajadora
-para tomar el control de los medios de producción.
+A diferencia del socialismo utópico, que proponía reformar una fábrica o
+fundar una comunidad como ejemplo a imitar, el marxismo se presenta a sí
+mismo como "socialismo científico". Es un análisis sistemático de las leyes
+de funcionamiento del capitalismo como sistema, no de un caso aislado. De
+ese análisis se desprende una estrategia de transformación a esa misma
+escala: la organización política de la clase trabajadora para tomar el
+control de los medios de producción.
 
 Texto de referencia: Karl Marx, *El Capital* (1867), la obra central
 del marxismo como corriente económica.
@@ -63,10 +63,9 @@ permite calcular si un proceso productivo es eficiente o
 desperdicia recursos frente a alternativas posibles.
 
 Mises sostiene que una comunidad socialista, al eliminar la propiedad
-privada de los medios de producción, elimina también el mercado donde
-esos medios (maquinaria, materias primas, terrenos industriales) se
-compran y venden — y sin ese mercado, no hay precios reales para
-ellos. Su conclusión: "allí donde no hay mercado no existe el sistema
+privada de los medios de producción, elimina también el mercado donde esos
+medios (maquinaria, materias primas, terrenos industriales) se compran y
+venden. Sin ese mercado, no hay precios reales para ellos. Su conclusión: "allí donde no hay mercado no existe el sistema
 de precios, y allí donde no hay sistema de precios no puede haber
 cálculo económico". Sin esa herramienta, sostiene Mises, ni siquiera
 un planificador con las mejores intenciones puede saber si está
@@ -80,8 +79,7 @@ Marx nunca respondió directamente a este argumento (murió en 1883,
 antes de que Mises lo formulara), y distintos economistas marxistas y
 socialistas del siglo XX propusieron respuestas propias — desde
 mecanismos de "precios sombra" calculados por planificadores hasta
-formas de mercado dentro de un marco de propiedad colectiva. El debate
-sobre si esas respuestas resuelven o no el problema que plantea Mises
-sigue discutiéndose en la historia del pensamiento económico; este
-material no toma partido en esa discusión — el objetivo es que quien
-estudia reconozca ambos argumentos, no que adopte uno de los dos.
+formas de mercado dentro de un marco de propiedad colectiva. El debate sobre si esas respuestas resuelven o no el problema que plantea
+Mises sigue discutiéndose en la historia del pensamiento económico. Este
+material no toma partido en esa discusión. El objetivo es que quien estudia
+reconozca ambos argumentos, no que adopte uno de los dos.

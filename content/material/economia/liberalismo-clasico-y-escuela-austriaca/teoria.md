@@ -37,10 +37,10 @@ en el comercio.
 
 Texto de referencia: Adam Smith, *La riqueza de las naciones* (1776),
 considerado el texto fundacional de la economía moderna como
-disciplina. Frente al mercantilismo (que veía el comercio como un
-juego de suma cero, donde lo que gana un país lo pierde otro), Smith
-sostiene que el intercambio libre y voluntario beneficia a ambas
-partes a la vez — es la base de su defensa del libre comercio.
+disciplina. El mercantilismo veía el comercio como un juego de suma cero, donde lo que
+gana un país lo pierde otro. Frente a eso, Smith sostiene que el intercambio
+libre y voluntario beneficia a ambas partes a la vez. Es la base de su
+defensa del libre comercio.
 
 ## Escuela austríaca (desde finales del siglo XIX)
 
@@ -48,11 +48,10 @@ Nacida más de un siglo después que el liberalismo clásico, la escuela
 austríaca retoma y profundiza su confianza en el mercado libre, con un
 argumento específico: sostiene que la economía es demasiado compleja
 para que un Estado central pueda planificarla con la información que
-tiene disponible. Los precios que surgen libremente en un mercado son,
-para esta corriente, la única forma eficiente de coordinar las
-decisiones de millones de personas — cada precio resume información
-dispersa (qué escasea, qué se necesita, qué cuesta producir) que
-ningún planificador central podría reunir a tiempo. Por eso es
+tiene disponible. Para esta corriente, los precios que surgen libremente en un mercado son la
+única forma eficiente de coordinar las decisiones de millones de personas.
+Cada precio resume información dispersa (qué escasea, qué se necesita, qué
+cuesta producir) que ningún planificador central podría reunir a tiempo. Por eso es
 fuertemente crítica de la intervención estatal y de la planificación
 centralizada.
 
@@ -61,12 +60,12 @@ donde argumenta que la planificación económica centralizada, aunque se
 proponga con buenas intenciones, tiende a concentrar un poder que
 termina erosionando las libertades individuales.
 
-Otro autor de la misma tradición es Ludwig von Mises, para quien la
-acción humana individual (elegir, valorar, intercambiar) es la unidad
-básica de análisis de toda la economía — de ahí que la escuela
-austríaca desconfíe de los modelos matemáticos agregados que tratan a
-"la economía" como si fuera una sola cosa medible desde arriba, en vez
-de millones de decisiones individuales.
+Otro autor de la misma tradición es Ludwig von Mises. Para él, la acción
+humana individual (elegir, valorar, intercambiar) es la unidad básica de
+análisis de toda la economía. De ahí que la escuela austríaca desconfíe de
+los modelos matemáticos agregados que tratan a "la economía" como si fuera
+una sola cosa medible desde arriba, en vez de millones de decisiones
+individuales.
 
 ## Una idea que atraviesa a ambas: los efectos que no se ven
 

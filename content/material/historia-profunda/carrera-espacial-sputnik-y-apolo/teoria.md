@@ -20,7 +20,7 @@ Estados Unidos puso en órbita su primer satélite, el Explorer 1, a comienzos d
 
 ## 3. 1961: el primer ser humano en el espacio
 
-El **12 de abril de 1961** el cosmonauta soviético **Yuri Gagarin** hizo en la nave Vostok 1 una órbita a la Tierra que duró unos 108 minutos, y se convirtió en la primera persona en viajar al espacio. Fue otro triunfo soviético. Pocas semanas después, el presidente estadounidense John F. Kennedy propuso ante el Congreso llevar a una persona a la Luna y traerla de regreso antes de que terminara la década. Desde ese momento la Luna fue la meta de la competencia.
+El **12 de abril de 1961** el cosmonauta soviético **Yuri Gagarin** hizo una órbita a la Tierra en la nave Vostok 1. Duró unos 108 minutos, y Gagarin se convirtió en la primera persona en viajar al espacio. Fue otro triunfo soviético. Pocas semanas después, el presidente estadounidense John F. Kennedy propuso ante el Congreso llevar a una persona a la Luna y traerla de regreso antes de que terminara la década. Desde ese momento la Luna fue la meta de la competencia.
 
 ## 4. Primeros, récords y costos
 
@@ -32,7 +32,7 @@ El **20 de julio de 1969** la misión **Apolo 11** llevó a **Neil Armstrong** y
 
 ## 6. 1975: de la competencia a la cooperación
 
-Con la distensión de los años setenta, ambos países acordaron una misión conjunta. En **julio de 1975**, la nave estadounidense Apolo y la soviética Soyuz 19 se acoplaron en órbita en el **Proyecto de Prueba Apolo-Soyuz**, y las tripulaciones (Thomas Stafford, Vance Brand y Donald Slayton por un lado, y Alexei Leonov y Valeri Kubasov por el otro) se dieron la mano en vivo. Fue la primera misión espacial tripulada en la que participaron dos países distintos.
+Con la distensión de los años setenta, ambos países acordaron una misión conjunta. En **julio de 1975**, la nave estadounidense Apolo y la soviética Soyuz 19 se acoplaron en órbita en el **Proyecto de Prueba Apolo-Soyuz**. Las tripulaciones (Thomas Stafford, Vance Brand y Donald Slayton por un lado, y Alexei Leonov y Valeri Kubasov por el otro) se dieron la mano en vivo. Fue la primera misión espacial tripulada en la que participaron dos países distintos.
 
 ## 7. Cómo se lo cuenta
 

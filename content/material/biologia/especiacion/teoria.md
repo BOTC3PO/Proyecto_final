@@ -51,15 +51,15 @@ después desaparezca.
 
 ## 4. Cómo se sabe que ya son especies distintas
 
-El criterio central sigue siendo el mismo de `../clasificacion-evolucion/`:
-si se vuelven a poner en contacto (por ejemplo, si desaparece la
-barrera geográfica) y **ya no logran reproducirse** entre sí y dejar
-descendencia fértil, la especiación ya ocurrió — son especies
+El criterio central sigue siendo el mismo de `../clasificacion-evolucion/`.
+Si las poblaciones se vuelven a poner en contacto (por ejemplo, si
+desaparece la barrera geográfica) y **ya no logran reproducirse** entre sí y
+dejar descendencia fértil, la especiación ya ocurrió. Son especies
 distintas.
 
 ## 5. Conexión con lo que ya se vio
 
-La especiación es la **consecuencia acumulada** de todo lo visto en
-este tramo del tronco: variación heredable + selección natural y/o
-deriva genética actuando sin flujo génico que las contrarreste,
-sostenido durante suficientes generaciones.
+La especiación es la **consecuencia acumulada** de todo lo visto en este
+tramo del tronco: variación heredable, selección natural y/o deriva
+genética. Actúan sin flujo génico que las contrarreste, y durante
+suficientes generaciones.
