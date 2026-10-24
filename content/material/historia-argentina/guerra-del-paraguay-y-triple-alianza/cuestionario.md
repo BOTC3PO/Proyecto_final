@@ -1,4 +1,4 @@
-# Historia — guerra del paraguay y triple alianza (cuestionario, 33 preguntas VBLang)
+# Pensamiento histórico — guerra del paraguay y triple alianza (cuestionario, 33 preguntas VBLang)
 
 > Tema: `historia-argentina/guerra-del-paraguay-y-triple-alianza`. Ver `teoria.md` en esta misma carpeta.
 
@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["lideres", "solano_lopez"]
@@ -30,7 +30,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["lideres", "mitre"]
@@ -51,7 +51,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["tratados", "navegacion"]
@@ -73,7 +73,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["causas", "economia"]
@@ -94,7 +94,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["fin", "solano_lopez"]
@@ -116,7 +116,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["navegacion", "tratados"]
@@ -138,7 +138,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["tratados", "fronteras"]
@@ -158,7 +158,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["brasil", "contraataque"]
@@ -179,7 +179,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["estrategia", "superioridad"]
@@ -200,7 +200,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["causas", "clima_politico"]
@@ -221,7 +221,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["cronologia", "duracion"]

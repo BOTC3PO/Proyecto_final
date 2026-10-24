@@ -16,10 +16,6 @@ La **intensidad de corriente eléctrica**, representada con $ I $, es el flujo d
 
 La **Ley de Ohm** establece que, en un conductor ohmico, la diferencia de potencial $ V $ aplicada es directamente proporcional a la corriente $ I $ que circula, siempre que la temperatura y otras condiciones permanezcan constantes. Matemáticamente, se expresa como $ V = I \cdot R $, donde $ R $ es la **resistencia eléctrica** del material. Esto significa que si aumenta el voltaje manteniendo fija la resistencia, la corriente crece en igual proporción.
 
-![Gráfico de voltaje (V) en el eje X y corriente (I) en el eje Y, mostrando una línea recta con pendiente R](https://upload.wikimedia.org/wikipedia/commons/0/04/A_graph_showing_the_relationship_between_current_and_voltage_%28Ohm%27s_law%29.png)
-
-*Imagen: «A graph showing the relationship between current and voltage (Ohm's law)», Youtetsu, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_graph_showing_the_relationship_between_current_and_voltage_%28Ohm%27s_law%29.png).*
-
 ## 3. Unidades básicas del circuito eléctrico
 
 Para entender la Ley de Ohm es clave conocer las unidades de medida involucradas:  

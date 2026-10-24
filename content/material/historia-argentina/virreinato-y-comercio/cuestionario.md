@@ -1,4 +1,4 @@
-# Historia Profunda — Virreinato y comercio (cuestionario, 25 preguntas VBLang)
+# Historia — Virreinato y comercio (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["reformas_borbonicas", "geopolitica"]
@@ -35,7 +35,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["comercio", "defensa"]
@@ -55,7 +55,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["geografia_colonial"]
@@ -74,7 +74,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["geopolitica", "administracion"]
@@ -98,7 +98,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["comercio", "contrabando"]
@@ -118,7 +118,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["monopolio", "españa", "comercio"]
@@ -138,7 +138,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["puertos", "comercio", "españa"]
@@ -157,7 +157,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["contrabando", "descontento", "economía"]
@@ -176,7 +176,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["buenos_aires", "contrabando", "descontento"]
@@ -195,7 +195,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["flujo", "comercio", "ruta"]
@@ -219,7 +219,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["comercio", "reformas_borbonicas", "virreinato"]
@@ -236,7 +236,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["buenos_aires", "puertos", "comercio"]
@@ -258,7 +258,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["monopolio", "reformas"]
@@ -277,7 +277,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["procesos", "reformas_borbonicas"]
@@ -296,7 +296,7 @@ respuesta_orden: ["Monopolio de flotas y galeones", "Reglamento de Libre Comerci
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["economía", "impuestos"]
@@ -319,7 +319,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["monopolio", "espana", "comercio"]
@@ -339,7 +339,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["puerto", "aduana", "impuestos"]
@@ -362,7 +362,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["causas", "revolucion", "economia"]
@@ -381,7 +381,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["secuencia", "tensiones", "revolucion"]
@@ -400,7 +400,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["invasiones_inglesas", "comercio"]
@@ -423,7 +423,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["economía", "monopolio", "rebelión"]
@@ -446,7 +446,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["impuestos", "fisco", "revolución"]
@@ -472,7 +472,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["contrabando", "comercio_ilegal"]
@@ -495,7 +495,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["orden", "procesos"]
@@ -514,7 +514,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["aduana", "puerto", "recaudación"]

@@ -1,4 +1,4 @@
-# Historia Profunda — Ampliacion democratica ley saenz pena (cuestionario, 25 preguntas VBLang)
+# Historia — Ampliacion democratica ley saenz pena (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["argentina", "democracia", "ley_saenz_pena"]
@@ -39,7 +39,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["fraude", "sistema_electoral", "cambio_politico"]
@@ -63,7 +63,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["participacion", "sufragio"]
@@ -87,7 +87,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["orden", "proceso_historico"]
@@ -111,7 +111,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["consecuencias", "radicalismo", "poder"]
@@ -133,7 +133,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["electoral", "fraude", "argentina"]
@@ -152,7 +152,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["fraude", "oligarquia", "control"]
@@ -176,7 +176,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["ley_saenz_pena", "reforma", "democracia"]
@@ -197,7 +197,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["proceso", "ley", "reforma"]
@@ -216,7 +216,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["consecuencia", "radicalismo", "voto"]
@@ -238,7 +238,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["argentina", "democracia", "irrigoyen"]
@@ -258,7 +258,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["ley_saenz_pena", "voto_secreto"]
@@ -281,7 +281,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["caracteristicas", "voto"]
@@ -301,7 +301,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["irrigoyen", "presidencia"]
@@ -322,7 +322,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["consecuencias", "politica"]
@@ -345,7 +345,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["sufragio", "argentina", "ley_saenz_pena"]
@@ -364,7 +364,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["sufragio_femenino", "evita", "derechos"]
@@ -390,7 +390,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["cronologia", "historia_argentina"]
@@ -409,7 +409,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["caracteristicas", "voto"]
@@ -428,7 +428,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["democracia", "exclusiones"]
@@ -451,7 +451,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["voto_cantado", "sistema_oligarquico"]
@@ -474,7 +474,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["caracteristicas_ley"]
@@ -500,7 +500,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["comparativa", "fraude"]
@@ -530,7 +530,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["obligatoriedad"]
@@ -553,7 +553,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["consecuencias_politicas"]

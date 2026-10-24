@@ -2,7 +2,7 @@
 
 > Tema del MAPA: `SOC1a` (`G8 --> SOC1a`, `T7 --> SOC1a`). Depende de
 > `../../geografia/poblacion-piramides-migraciones/` y
-> `../../historia/multicausalidad/` (ver `../dependencias.md`).
+> `../../pensamiento-historico/multicausalidad/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -50,7 +50,7 @@ sexo.
 ## Multicausalidad aplicada a lo social
 
 Un hecho social casi nunca tiene una sola causa, el mismo principio que
-`../../historia/multicausalidad/` aplica a la historia. Una tasa de divorcio
+`../../pensamiento-historico/multicausalidad/` aplica a la historia. Una tasa de divorcio
 que sube, por ejemplo, puede combinarse con cambios económicos, legales,
 culturales y religiosos a la vez. Nunca una sola variable explica todo el
 fenómeno.

@@ -1,4 +1,4 @@
-# Historia Profunda — Conquista y colonia argentina (cuestionario, 25 preguntas VBLang)
+# Historia — Conquista y colonia argentina (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["conquista", "fundaciones"]
@@ -37,7 +37,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["ordenar", "cronologia"]
@@ -62,7 +62,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["buenos_aires", "conquista"]
@@ -101,7 +101,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["geografia_historica"]
@@ -124,7 +124,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["organizacion_colonial", "virreinatos"]
@@ -144,7 +144,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["virreinatos", "reformas_borbonicas"]
@@ -163,7 +163,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["orden_cronologico", "virreinatos"]
@@ -182,7 +182,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["capitales", "geografia_colonial"]
@@ -202,7 +202,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["reformas", "geopolitica"]
@@ -221,7 +221,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["fundacion", "buenos_aires", "conquista"]
@@ -241,7 +241,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["fundacion", "buenos_aires", "fracaso"]
@@ -262,7 +262,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["fundacion", "buenos_aires", "juan_de_garay"]
@@ -286,7 +286,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "fundaciones"]
@@ -306,7 +306,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "avanzado"
   tags: ["fundadores", "comparativa"]
@@ -329,7 +329,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["mapuche", "resistencia", "territorio"]
@@ -349,7 +349,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["mestizaje", "sociedad", "colonia"]
@@ -377,7 +377,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["demografia", "impacto", "enfermedades"]
@@ -400,7 +400,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "avanzado"
   tags: ["encomienda", "sistema", "colonia"]
@@ -420,7 +420,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["cosmovision", "religión", "impacto"]
@@ -443,7 +443,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["conquista", "expediciones"]
@@ -465,7 +465,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["instituciones", "virreinato"]
@@ -488,7 +488,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "avanzado"
   tags: ["cronologia", "conquista"]
@@ -507,7 +507,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["instituciones", "cabildo"]
@@ -529,7 +529,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["economia", "monopolio"]

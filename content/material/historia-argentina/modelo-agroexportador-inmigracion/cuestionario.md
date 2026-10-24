@@ -1,4 +1,4 @@
-# Historia Profunda — Modelo agroexportador inmigracion (cuestionario, 25 preguntas VBLang)
+# Historia — Modelo agroexportador inmigracion (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador"
   nivel: "basico"
   tags: ["economia", "exportacion"]
@@ -34,7 +34,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador"
   nivel: "intermedio"
   tags: ["capital", "infraestructura"]
@@ -56,7 +56,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "inmigracion_masiva"
   nivel: "basico"
   tags: ["demografia", "inmigracion"]
@@ -75,7 +75,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador"
   nivel: "intermedio"
   tags: ["causalidad", "procesos"]
@@ -94,7 +94,7 @@ respuesta_orden: ["Expansión de la frontera agrícola", "Llegada de ferrocarril
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador"
   nivel: "avanzado"
   tags: ["estado", "politica"]
@@ -114,7 +114,7 @@ respuesta: "Un motor de dependencia externa"
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["inmigracion", "economia", "modelo_agroexportador"]
@@ -133,7 +133,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["nacionalidades", "europa"]
@@ -152,7 +152,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["causas", "europa"]
@@ -172,7 +172,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["politica_migratoria", "leyes"]
@@ -191,7 +191,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["causalidad", "procesos"]
@@ -215,7 +215,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["economia", "demanda"]
@@ -235,7 +235,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["transporte", "ferrocarriles"]
@@ -255,7 +255,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["frontera", "territorio"]
@@ -280,7 +280,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["inversion", "britania"]
@@ -300,7 +300,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["logica", "procesos"]
@@ -320,7 +320,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["demografia", "inmigracion"]
@@ -339,7 +339,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["cultura", "lenguaje"]
@@ -359,7 +359,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["urbanismo", "geografia"]
@@ -378,7 +378,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["clases_sociales", "urbanismo"]
@@ -400,7 +400,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["vivienda", "cultura"]
@@ -422,7 +422,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["economia", "exportacion"]
@@ -446,7 +446,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["inmigracion", "demografia"]
@@ -470,7 +470,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["transporte", "infraestructura"]
@@ -490,7 +490,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["puertos", "comercio"]
@@ -509,7 +509,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["proceso", "logistica"]

@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["diaguitas", "norte", "geografia"]
@@ -25,7 +25,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["tehuelches", "patagonia", "nómadas"]
@@ -42,7 +42,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["guaraníes", "litoral", "agricultura"]
@@ -64,7 +64,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["ordenar", "geografia"]
@@ -81,7 +81,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["mapuches", "sur", "territorio"]
@@ -102,7 +102,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["diaguitas", "agricultura", "sedentarismo"]
@@ -120,7 +120,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["tehuelches", "nómadas", "caza"]
@@ -141,7 +141,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["diaguitas", "inca", "influencia"]
@@ -158,7 +158,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["organización", "social", "secuencia"]
@@ -175,7 +175,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["nómadas", "sedentarios", "comparación"]
@@ -195,7 +195,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["incas", "collasuyo", "noroeste_argentino"]
@@ -213,7 +213,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["incas", "administracion", "territorio"]
@@ -233,7 +233,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["caminos", "qhapaq_ñan", "incas"]
@@ -251,7 +251,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["agricultura", "terrazas", "tecnologia"]
@@ -268,7 +268,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["expansion", "etapas", "incas"]
@@ -290,7 +290,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["mapuches", "geografia"]
@@ -308,7 +308,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["guaraníes", "litoral"]
@@ -327,7 +327,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["diaguitas", "noroeste"]
@@ -345,7 +345,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["tehuelches", "patagonia"]
@@ -363,7 +363,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["repaso", "geografia"]
@@ -385,7 +385,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["geografia", "etnias"]
@@ -406,7 +406,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["estilos_de_vida", "antropologia"]
@@ -427,7 +427,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["cultura"]
@@ -444,7 +444,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["cronologia", "territorio"]
@@ -461,7 +461,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["geografia"]
@@ -484,7 +484,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["conquista", "fundaciones"]
@@ -504,7 +504,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["ordenar", "cronologia"]
@@ -527,7 +527,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["buenos_aires", "conquista"]
@@ -562,7 +562,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["geografia_historica"]
@@ -583,7 +583,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["organizacion_colonial", "virreinatos"]
@@ -601,7 +601,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["virreinatos", "reformas_borbonicas"]
@@ -618,7 +618,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["orden_cronologico", "virreinatos"]
@@ -635,7 +635,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["capitales", "geografia_colonial"]
@@ -653,7 +653,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["reformas", "geopolitica"]
@@ -670,7 +670,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["fundacion", "buenos_aires", "conquista"]
@@ -688,7 +688,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["fundacion", "buenos_aires", "fracaso"]
@@ -707,7 +707,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["fundacion", "buenos_aires", "juan_de_garay"]
@@ -729,7 +729,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "fundaciones"]
@@ -747,7 +747,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "avanzado"
   tags: ["fundadores", "comparativa"]
@@ -768,7 +768,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["mapuche", "resistencia", "territorio"]
@@ -786,7 +786,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["mestizaje", "sociedad", "colonia"]
@@ -812,7 +812,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["demografia", "impacto", "enfermedades"]
@@ -833,7 +833,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "avanzado"
   tags: ["encomienda", "sistema", "colonia"]
@@ -851,7 +851,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["cosmovision", "religión", "impacto"]
@@ -872,7 +872,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["conquista", "expediciones"]
@@ -892,7 +892,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "basico"
   tags: ["instituciones", "virreinato"]
@@ -913,7 +913,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "avanzado"
   tags: ["cronologia", "conquista"]
@@ -930,7 +930,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["instituciones", "cabildo"]
@@ -950,7 +950,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_y_colonia_argentina"
   nivel: "intermedio"
   tags: ["economia", "monopolio"]
@@ -971,7 +971,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["reformas_borbonicas", "geopolitica"]
@@ -989,7 +989,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["comercio", "defensa"]
@@ -1007,7 +1007,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["geografia_colonial"]
@@ -1024,7 +1024,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["geopolitica", "administracion"]
@@ -1046,7 +1046,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["comercio", "contrabando"]
@@ -1064,7 +1064,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["monopolio", "españa", "comercio"]
@@ -1082,7 +1082,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["puertos", "comercio", "españa"]
@@ -1099,7 +1099,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["contrabando", "descontento", "economía"]
@@ -1116,7 +1116,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["buenos_aires", "contrabando", "descontento"]
@@ -1133,7 +1133,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["flujo", "comercio", "ruta"]
@@ -1155,7 +1155,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["comercio", "reformas_borbonicas", "virreinato"]
@@ -1170,7 +1170,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["buenos_aires", "puertos", "comercio"]
@@ -1190,7 +1190,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["monopolio", "reformas"]
@@ -1207,7 +1207,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["procesos", "reformas_borbonicas"]
@@ -1224,7 +1224,7 @@ respuesta_orden: ["Monopolio de flotas y galeones", "Reglamento de Libre Comerci
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["economía", "impuestos"]
@@ -1245,7 +1245,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["monopolio", "espana", "comercio"]
@@ -1263,7 +1263,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["puerto", "aduana", "impuestos"]
@@ -1284,7 +1284,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["causas", "revolucion", "economia"]
@@ -1301,7 +1301,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["secuencia", "tensiones", "revolucion"]
@@ -1318,7 +1318,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["invasiones_inglesas", "comercio"]
@@ -1339,7 +1339,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["economía", "monopolio", "rebelión"]
@@ -1360,7 +1360,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "basico"
   tags: ["impuestos", "fisco", "revolución"]
@@ -1384,7 +1384,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["contrabando", "comercio_ilegal"]
@@ -1405,7 +1405,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "avanzado"
   tags: ["orden", "procesos"]
@@ -1422,7 +1422,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "virreinato_y_comercio"
   nivel: "intermedio"
   tags: ["aduana", "puerto", "recaudación"]
@@ -1447,7 +1447,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["mayo_1810", "virrey", "independencia"]
@@ -1465,7 +1465,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["primera_junta", "gobierno"]
@@ -1486,7 +1486,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["causas", "contexto"]
@@ -1504,7 +1504,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["cronologia", "eventos"]
@@ -1521,7 +1521,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["caracter", "gobierno"]
@@ -1538,7 +1538,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["contexto", "napoleon", "monarquia"]
@@ -1557,7 +1557,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["causas", "autoridad", "colonia"]
@@ -1591,7 +1591,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["soberania", "derecho"]
@@ -1609,7 +1609,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["causas", "impacto"]
@@ -1626,7 +1626,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["primera_junta", "saavedra", "mayo"]
@@ -1644,7 +1644,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["moreno", "secretario"]
@@ -1661,7 +1661,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["mascara_de_fecundidad", "fernando_vii"]
@@ -1679,7 +1679,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["integrantes", "primera_junta"]
@@ -1703,7 +1703,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["orden_gobiernos", "etapas"]
@@ -1720,7 +1720,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["revolucion_de_mayo", "independencia", "procesos_historicos"]
@@ -1737,7 +1737,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["cabildo_abierto", "soberania"]
@@ -1758,7 +1758,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["cronologia", "procesos"]
@@ -1775,7 +1775,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["causas", "consecuencias"]
@@ -1795,7 +1795,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["soberania", "debate"]
@@ -1817,7 +1817,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["cabildo", "mayo_1810"]
@@ -1834,7 +1834,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["primera_junta", "gobierno"]
@@ -1855,7 +1855,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["virrey", "cisneros"]
@@ -1874,7 +1874,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["cronologia", "mayo"]
@@ -1891,7 +1891,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["prensa", "ideologia"]
@@ -1912,7 +1912,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["tucuman", "independencia"]
@@ -1929,7 +1929,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["declaracion", "tucuman"]
@@ -1946,7 +1946,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["contexto", "monarquia"]
@@ -1963,7 +1963,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["belgrano", "congreso"]
@@ -1980,7 +1980,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["orden", "procesos"]
@@ -1998,7 +1998,7 @@ respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San L
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["san_martin", "cruce_de_los_andes", "independencia"]
@@ -2018,7 +2018,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["logistica", "ejercito_de_los_andes"]
@@ -2041,7 +2041,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["estrategia", "plan_continental"]
@@ -2058,7 +2058,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["plan_continental", "peru"]
@@ -2076,7 +2076,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["batalla_de_chacabuco", "victoria"]
@@ -2091,7 +2091,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "estrategia", "independencia"]
@@ -2109,7 +2109,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["san_martin", "chile", "batalla"]
@@ -2126,7 +2126,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "peru", "logistica"]
@@ -2143,7 +2143,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["san_martin", "orden_cronologico"]
@@ -2160,7 +2160,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "bolivar", "guayaquil"]
@@ -2180,7 +2180,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["revolucion_de_mayo", "cabildo_abierto"]
@@ -2198,7 +2198,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["declaracion_independencia", "congreso_tucuman"]
@@ -2215,7 +2215,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "procesos_historicos"]
@@ -2232,7 +2232,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["san_martin", "cruce_de_los_andes"]
@@ -2253,7 +2253,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["soberania", "consecuencias"]
@@ -2272,7 +2272,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["revolucion_mayo", "fechas"]
@@ -2289,7 +2289,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["congreso_tucuman", "independencia"]
@@ -2312,7 +2312,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "procesos"]
@@ -2329,7 +2329,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["batallas", "san martin"]
@@ -2350,7 +2350,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "campana_libertadora"]

@@ -1,7 +1,7 @@
 # Cívica — Derechos del niño (teoria)
 
 > Tema del MAPA: `C9a` (`T7 --> C9a`, art. 92 inciso d de la Ley 26.206).
-> Depende de `../../historia/multicausalidad/` (ver `../dependencias.md`).
+> Depende de `../../pensamiento-historico/multicausalidad/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 

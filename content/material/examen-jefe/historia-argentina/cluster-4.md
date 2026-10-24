@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["peronismo", "politica", "argentina"]
@@ -26,7 +26,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["clase_obrera", "movimiento_sustitutivo"]
@@ -43,7 +43,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["justicia_social", "derechos_laborales"]
@@ -67,7 +67,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["doctrina", "peronismo"]
@@ -84,7 +84,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["proceso_historico", "ordenar"]
@@ -101,7 +101,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos_laborales", "peronismo"]
@@ -121,7 +121,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos_laborales", "vacaciones"]
@@ -138,7 +138,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["sindicatos", "derechos_laborales"]
@@ -156,7 +156,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["jubilaciones", "seguridad_social"]
@@ -173,7 +173,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["ordenar", "derechos_laborales"]
@@ -190,7 +190,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos", "voto_femenino", "eva_peron"]
@@ -208,7 +208,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["eva_peron", "liderazgo"]
@@ -225,7 +225,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["elecciones", "hitos"]
@@ -245,7 +245,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["derechos_civiles", "ciudadania"]
@@ -262,7 +262,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["democracia", "participacion"]
@@ -279,7 +279,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["polarizacion", "sociedad"]
@@ -300,7 +300,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["clases_sociales", "trabajadores"]
@@ -319,7 +319,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["oposición", "sectores_sociales"]
@@ -341,7 +341,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["legado", "politica_argentina"]
@@ -360,7 +360,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["proceso_historico", "derechos"]
@@ -377,7 +377,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos_laborales", "peronismo"]
@@ -398,7 +398,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["voto_femenino", "derechos_civiles"]
@@ -416,7 +416,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["justicia_social", "distribucion_riqueza"]
@@ -437,7 +437,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["secuencia_historica", "derechos"]
@@ -457,7 +457,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["trabajo", "dignidad"]
@@ -998,7 +998,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["conceptos", "derechos_humanos"]
@@ -1016,7 +1016,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "metodos"]
@@ -1033,7 +1033,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["proceso", "metodologia"]
@@ -1053,7 +1053,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["robo_identidad", "economía"]
@@ -1068,7 +1068,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["derecho", "ilegalidad"]
@@ -1090,7 +1090,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["dictadura", "derechos_humanos"]
@@ -1107,7 +1107,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["madres_de_plaza_de_mayo", "resistencia"]
@@ -1124,7 +1124,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["vuelos_de_la_muerte", "exterminio"]
@@ -1146,7 +1146,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["procedimiento", "represion"]
@@ -1163,7 +1163,7 @@ respuesta_orden: ["Secuestro/Detención", "Traslado a un CCD", "Interrogatorio y
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "derechos_humanos", "argentina"]
@@ -1181,7 +1181,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["dictadura", "derechos_humanos"]
@@ -1199,7 +1199,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "terrorismo_oficial_estado"
   nivel: "avanzado"
   tags: ["derechos_humanos", "memoria"]
@@ -1225,7 +1225,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "instituciones"]
@@ -1243,7 +1243,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["derechos_humanos", "memoria"]
@@ -1261,7 +1261,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["derechos_humanos", "madres", "abuelas"]
@@ -1279,7 +1279,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["abuelas", "identidad", "derechos_humanos"]
@@ -1299,7 +1299,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["historia", "cronologia", "derechos_humanos"]
@@ -1317,7 +1317,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["terminologia", "derechos_humanos"]
@@ -1335,7 +1335,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "derechos_humanos"]
@@ -1356,7 +1356,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["derechos_humanos", "identidad"]
@@ -1383,7 +1383,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["instituciones", "dictadura"]
@@ -1404,7 +1404,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["secuencia", "represion"]
@@ -1424,7 +1424,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["terminologia", "memoria"]
@@ -1447,7 +1447,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["definicion"]
@@ -1469,7 +1469,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["cronologia"]
@@ -1489,7 +1489,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["contexto"]
@@ -1509,7 +1509,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["politica economica"]
@@ -1530,7 +1530,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["organismos"]
@@ -1553,7 +1553,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["nacionalizaciones"]
@@ -1573,7 +1573,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["estructura productiva"]
@@ -1594,7 +1594,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["efectos sociales"]
@@ -1614,7 +1614,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["debilidades estructurales"]
@@ -1635,7 +1635,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["restriccion externa"]
@@ -1656,7 +1656,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["restriccion externa"]
@@ -1677,7 +1677,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["declive"]
@@ -1697,7 +1697,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["alcance regional"]
@@ -1718,7 +1718,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["industria automotriz"]
@@ -1739,7 +1739,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["industria siderurgica"]
@@ -1764,7 +1764,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["propaganda"]
@@ -1784,7 +1784,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["legado"]
@@ -1806,7 +1806,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["sectores industriales"]
@@ -1826,7 +1826,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["debates actuales"]
@@ -1848,7 +1848,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["consumo"]
@@ -1869,7 +1869,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["sigla"]
@@ -1892,7 +1892,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["ciclo economico"]
@@ -1916,7 +1916,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["conflictos", "soberania", "1982"]
@@ -1933,7 +1933,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["cronologia", "eventos"]
@@ -1953,7 +1953,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["naval", "tactic"]
@@ -1975,7 +1975,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["diplomacia", "soberania"]
@@ -1995,7 +1995,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["politica", "dictadura"]
@@ -2012,7 +2012,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["soberania", "historia", "argentina"]
@@ -2029,7 +2029,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["derecho_internacional", "soberania"]
@@ -2046,7 +2046,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["cronologia", "conflictos"]
@@ -2067,7 +2067,7 @@ respuesta_orden: ["1833", "1982", "Actualidad"]
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["derecho_internacional", "onu"]
@@ -2084,7 +2084,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["guerra", "1982"]
@@ -2101,7 +2101,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["dictadura", "contexto"]
@@ -2119,7 +2119,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["legitimidad", "objetivos"]
@@ -2140,7 +2140,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["cronologia", "fechas"]
@@ -2157,7 +2157,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["causas", "crisis"]
@@ -2174,7 +2174,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["junta_militar", "decisión"]
@@ -2192,7 +2192,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["politica", "dictadura", "democracia"]
@@ -2212,7 +2212,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["consecuencias", "dictadura"]
@@ -2229,7 +2229,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["democracia", "elecciones"]
@@ -2253,7 +2253,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["orden", "cronologia"]
@@ -2270,7 +2270,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["legitimidad", "juicio"]
@@ -2287,7 +2287,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["cronologia", "conflicto"]
@@ -2305,7 +2305,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["hechos", "maritimo"]
@@ -2323,7 +2323,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
@@ -2361,7 +2361,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["inicio", "fecha"]
@@ -2384,7 +2384,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "dictadura", "argentina"]
@@ -2402,7 +2402,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "1983"]
@@ -2421,7 +2421,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["derechos-humanos", "1985"]
@@ -2440,7 +2440,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["transicion", "procesos", "orden"]
@@ -2457,7 +2457,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["derechos_humanos", "etica", "memoria"]
@@ -2477,7 +2477,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["juicio_a_las_juntas", "derechos_humanos", "argentina"]
@@ -2495,7 +2495,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "justicia"]
@@ -2515,7 +2515,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["delitos", "terrorismo_de_estado"]
@@ -2532,7 +2532,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["conadep", "derechos_humanos"]
@@ -2550,7 +2550,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["sitios_de_memoria", "museos"]
@@ -2571,7 +2571,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["verdad", "justicia", "derechos_humanos"]
@@ -2588,7 +2588,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["cronologia", "democracia"]
@@ -2605,7 +2605,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["justicia", "impunidad"]
@@ -2625,7 +2625,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "argentina", "1983"]
@@ -2643,7 +2643,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["presidencia", "democracia", "alfonsin"]
@@ -2664,7 +2664,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["procesos", "historia"]
@@ -2687,7 +2687,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "continuidad"]
@@ -2704,7 +2704,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["derechos_humanos", "memoria"]
@@ -2725,7 +2725,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["memoria", "conadep"]
@@ -2744,7 +2744,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["justicia", "derechos_humanos"]
@@ -2765,7 +2765,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["conceptos", "derechos_humanos"]
@@ -2782,7 +2782,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["cronologia", "transicion"]
@@ -2799,7 +2799,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["movimientos_sociales", "memoria"]
@@ -2821,7 +2821,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["conceptos", "memoria"]
@@ -2838,7 +2838,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["memoria", "sujetos"]
@@ -2857,7 +2857,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["temporalidad"]
@@ -2880,7 +2880,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["metodologia"]
@@ -2897,7 +2897,7 @@ respuesta_orden: ["Recolección de testimonios orales", "Análisis de archivos e
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["sujetos", "testimonio"]
@@ -2915,7 +2915,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["crisis_2001", "economia"]
@@ -2934,7 +2934,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["protestas", "social"]
@@ -2951,7 +2951,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["politica", "sucesion"]
@@ -2968,7 +2968,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["economia", "convertibilidad"]
@@ -2985,7 +2985,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "crisis"]
@@ -3002,7 +3002,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["metodologia", "temporalidad"]
@@ -3022,7 +3022,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["fuentes", "metodologia"]
@@ -3043,7 +3043,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["politica", "interpretacion"]
@@ -3064,7 +3064,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["metodologia", "procesos"]
@@ -3081,7 +3081,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["metodologia"]
@@ -3102,7 +3102,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["metodologia", "fuentes", "pensamiento_critico"]
@@ -3120,7 +3120,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["fuentes", "evidencia"]
@@ -3142,7 +3142,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["metodologia", "critica"]
@@ -3159,7 +3159,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["subjetividad", "metodologia"]
@@ -3175,7 +3175,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["causalidad", "complejidad"]
@@ -3197,7 +3197,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["democracia", "politica"]
@@ -3214,7 +3214,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["crisis", "economia"]
@@ -3235,7 +3235,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["derechos_humanos", "justicia"]
@@ -3256,7 +3256,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["politica", "gobierno"]
@@ -3276,7 +3276,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["ordenar", "presidencias"]
@@ -3302,7 +3302,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["corralito", "fechas"]
@@ -3323,7 +3323,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["convertibilidad", "déficit_fiscal"]
@@ -3343,7 +3343,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["inflación", "déficit"]
@@ -3359,7 +3359,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["estancamiento", "desempleo"]
@@ -3378,7 +3378,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["fmi", "ajuste"]
@@ -3397,7 +3397,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["reservas", "déficit"]
@@ -3417,7 +3417,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["fuga de capitales", "pánico"]
@@ -3436,7 +3436,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["corralito", "medidas"]
@@ -3455,7 +3455,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["liquidez", "banco"]
@@ -3474,7 +3474,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["actividad económica", "restricción"]
@@ -3493,7 +3493,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["empresas", "liquidez"]
@@ -3512,7 +3512,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["derechos", "legitimidad"]
@@ -3531,7 +3531,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["protesta", "social"]
@@ -3547,7 +3547,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["política", "gobierno"]
@@ -3566,7 +3566,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["presidencia", "tiempo"]
@@ -3582,7 +3582,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["fechas", "diciembre"]
@@ -3598,7 +3598,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["fechas", "diciembre"]
@@ -3614,7 +3614,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["de la rúa", "presidencia"]
@@ -3633,7 +3633,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["vicepresidente", "renuncia"]
@@ -3653,7 +3653,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["confianza", "pánico"]
@@ -3672,7 +3672,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["síntoma", "corralito"]

@@ -1,4 +1,4 @@
-# Historia Profunda — Peronismo derechos sociales (cuestionario, 25 preguntas VBLang)
+# Historia — Peronismo derechos sociales (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["peronismo", "politica", "argentina"]
@@ -35,7 +35,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["clase_obrera", "movimiento_sustitutivo"]
@@ -54,7 +54,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["justicia_social", "derechos_laborales"]
@@ -80,7 +80,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["doctrina", "peronismo"]
@@ -99,7 +99,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["proceso_historico", "ordenar"]
@@ -118,7 +118,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos_laborales", "peronismo"]
@@ -140,7 +140,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos_laborales", "vacaciones"]
@@ -159,7 +159,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["sindicatos", "derechos_laborales"]
@@ -179,7 +179,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["jubilaciones", "seguridad_social"]
@@ -198,7 +198,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["ordenar", "derechos_laborales"]
@@ -217,7 +217,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos", "voto_femenino", "eva_peron"]
@@ -237,7 +237,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["eva_peron", "liderazgo"]
@@ -256,7 +256,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["elecciones", "hitos"]
@@ -278,7 +278,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["derechos_civiles", "ciudadania"]
@@ -297,7 +297,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["democracia", "participacion"]
@@ -316,7 +316,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["polarizacion", "sociedad"]
@@ -339,7 +339,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["clases_sociales", "trabajadores"]
@@ -360,7 +360,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["oposición", "sectores_sociales"]
@@ -384,7 +384,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["legado", "politica_argentina"]
@@ -405,7 +405,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["proceso_historico", "derechos"]
@@ -424,7 +424,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["derechos_laborales", "peronismo"]
@@ -447,7 +447,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["voto_femenino", "derechos_civiles"]
@@ -467,7 +467,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "basico"
   tags: ["justicia_social", "distribucion_riqueza"]
@@ -490,7 +490,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "avanzado"
   tags: ["secuencia_historica", "derechos"]
@@ -512,7 +512,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "peronismo_derechos_sociales"
   nivel: "intermedio"
   tags: ["trabajo", "dignidad"]

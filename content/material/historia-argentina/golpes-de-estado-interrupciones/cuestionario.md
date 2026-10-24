@@ -1,4 +1,4 @@
-# Historia Profunda — Golpes de estado interrupciones (cuestionario, 26 preguntas VBLang)
+# Historia — Golpes de estado interrupciones (cuestionario, 26 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["definicion", "politica"]
@@ -35,7 +35,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["caracteristicas", "instituciones"]
@@ -78,7 +78,7 @@ respuesta_orden: ["Crisis política o social", "Acción de las fuerzas armadas o
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["consecuencias", "derecho"]
@@ -98,7 +98,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["comparacion"]
@@ -117,7 +117,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["argentina", "siglo_xx", "democracia"]
@@ -136,7 +136,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["historia", "argentina"]
@@ -155,7 +155,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["historia", "argentina"]
@@ -178,7 +178,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["historia", "argentina"]
@@ -198,7 +198,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["historia", "argentina", "estadistica"]
@@ -223,7 +223,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["argentina", "democracia", "irrigoyen"]
@@ -243,7 +243,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["patrones", "militarismo"]
@@ -266,7 +266,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["contexto", "crisis"]
@@ -285,7 +285,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["secuencia", "orden"]
@@ -304,7 +304,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["consecuencias", "democracia"]
@@ -322,7 +322,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["argentina", "dictadura", "1976"]
@@ -342,7 +342,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["derechos_humanos", "terrorismo_de_estado"]
@@ -362,7 +362,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["fechas", "periodo"]
@@ -385,7 +385,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["fechas", "periodo"]
@@ -404,7 +404,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["conceptos", "derechos_humanos"]
@@ -427,7 +427,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["duracion", "fechas"]
@@ -446,7 +446,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["argentina", "siglo_xx", "dictadura"]
@@ -469,7 +469,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
@@ -492,7 +492,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["dictadura", "proceso"]
@@ -512,7 +512,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["liderazgo", "militar"]
@@ -535,7 +535,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["democracia", "retorno"]

@@ -46,4 +46,4 @@ Es preferible nombrar al pueblo concreto («comunidad wichí», «pueblo mapuche
 
 ## N. Conexión con lo que sigue
 
-Este tema se conecta con `../../civica/derechos-indigenas/` (derechos y Constitución), `../../geografia/` (poblaciones y regiones) y `../../historia/` (formación del Estado y relaciones con los pueblos originarios).
+Este tema se conecta con `../../civica/derechos-indigenas/` (derechos y Constitución), `../../geografia/` (poblaciones y regiones) y `../../pensamiento-historico/` (formación del Estado y relaciones con los pueblos originarios).

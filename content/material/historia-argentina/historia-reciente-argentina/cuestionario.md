@@ -1,4 +1,4 @@
-# Historia Profunda — Historia reciente argentina (cuestionario, 25 preguntas VBLang)
+# Historia — Historia reciente argentina (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["conceptos", "memoria"]
@@ -34,7 +34,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["memoria", "sujetos"]
@@ -55,7 +55,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["temporalidad"]
@@ -80,7 +80,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["metodologia"]
@@ -99,7 +99,7 @@ respuesta_orden: ["Recolección de testimonios orales", "Análisis de archivos e
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["sujetos", "testimonio"]
@@ -119,7 +119,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["crisis_2001", "economia"]
@@ -140,7 +140,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["protestas", "social"]
@@ -159,7 +159,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["politica", "sucesion"]
@@ -178,7 +178,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["economia", "convertibilidad"]
@@ -197,7 +197,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "crisis"]
@@ -216,7 +216,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["metodologia", "temporalidad"]
@@ -238,7 +238,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["fuentes", "metodologia"]
@@ -261,7 +261,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["politica", "interpretacion"]
@@ -284,7 +284,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["metodologia", "procesos"]
@@ -303,7 +303,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["metodologia"]
@@ -326,7 +326,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["metodologia", "fuentes", "pensamiento_critico"]
@@ -346,7 +346,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["fuentes", "evidencia"]
@@ -370,7 +370,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["metodologia", "critica"]
@@ -389,7 +389,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["subjetividad", "metodologia"]
@@ -407,7 +407,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["causalidad", "complejidad"]
@@ -431,7 +431,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "basico"
   tags: ["democracia", "politica"]
@@ -450,7 +450,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["crisis", "economia"]
@@ -473,7 +473,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["derechos_humanos", "justicia"]
@@ -496,7 +496,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "intermedio"
   tags: ["politica", "gobierno"]
@@ -518,7 +518,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "historia_reciente_argentina"
   nivel: "avanzado"
   tags: ["ordenar", "presidencias"]
