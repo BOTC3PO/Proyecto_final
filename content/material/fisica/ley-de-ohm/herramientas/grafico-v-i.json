@@ -1,0 +1,38 @@
+{
+ "titulo": "Corriente según la tensión",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "math",
+   "title": "I = V / R: cada recta es una resistencia distinta",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "x/1",
+     "label": "R = 1 Ω"
+    },
+    {
+     "id": "f2",
+     "expression": "x/2",
+     "label": "R = 2 Ω"
+    },
+    {
+     "id": "f3",
+     "expression": "x/4",
+     "label": "R = 4 Ω"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 12,
+   "yMin": 0,
+   "yMax": 12,
+   "showGrid": true,
+   "showLegend": true
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Eje horizontal: tensión V (voltios). Eje vertical: corriente I (amperios). A mayor resistencia, la recta es menos empinada."
+  }
+ ]
+}
