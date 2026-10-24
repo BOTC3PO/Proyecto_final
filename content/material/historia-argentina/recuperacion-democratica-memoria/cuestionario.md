@@ -1,4 +1,4 @@
-# Historia Profunda — Recuperacion democratica memoria (cuestionario, 23 preguntas VBLang)
+# Historia — Recuperacion democratica memoria (cuestionario, 23 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "dictadura", "argentina"]
@@ -35,7 +35,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "1983"]
@@ -56,7 +56,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["derechos-humanos", "1985"]
@@ -77,7 +77,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["transicion", "procesos", "orden"]
@@ -96,7 +96,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["derechos_humanos", "etica", "memoria"]
@@ -118,7 +118,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["juicio_a_las_juntas", "derechos_humanos", "argentina"]
@@ -138,7 +138,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "justicia"]
@@ -160,7 +160,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["delitos", "terrorismo_de_estado"]
@@ -179,7 +179,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["conadep", "derechos_humanos"]
@@ -199,7 +199,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["sitios_de_memoria", "museos"]
@@ -222,7 +222,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["verdad", "justicia", "derechos_humanos"]
@@ -241,7 +241,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["cronologia", "democracia"]
@@ -260,7 +260,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["justicia", "impunidad"]
@@ -282,7 +282,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "argentina", "1983"]
@@ -302,7 +302,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["presidencia", "democracia", "alfonsin"]
@@ -325,7 +325,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["procesos", "historia"]
@@ -350,7 +350,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["democracia", "continuidad"]
@@ -369,7 +369,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["derechos_humanos", "memoria"]
@@ -392,7 +392,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["memoria", "conadep"]
@@ -413,7 +413,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["justicia", "derechos_humanos"]
@@ -436,7 +436,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "basico"
   tags: ["conceptos", "derechos_humanos"]
@@ -455,7 +455,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "avanzado"
   tags: ["cronologia", "transicion"]
@@ -474,7 +474,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "recuperacion_democratica_memoria"
   nivel: "intermedio"
   tags: ["movimientos_sociales", "memoria"]

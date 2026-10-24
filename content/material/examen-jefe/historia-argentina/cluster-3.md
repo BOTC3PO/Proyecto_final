@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["conquista_del_desierto", "julio_arentino_roca"]
@@ -27,7 +27,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["conquista_del_desierto", "pueblos_originarios"]
@@ -50,7 +50,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["campana_al_chaco", "cronologia"]
@@ -66,7 +66,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["campana_al_chaco", "gobierno"]
@@ -85,7 +85,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["consecuencias", "demografia"]
@@ -101,7 +101,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["conquista_del_desierto", "fechas", "roca"]
@@ -120,7 +120,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["roca", "liderazgo", "militar"]
@@ -136,7 +136,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["territorio", "patagonia", "pampa"]
@@ -152,7 +152,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["pueblos_originarios", "mapuche", "pehuenche"]
@@ -168,7 +168,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["ideologia", "civilizacion", "barbarie"]
@@ -184,7 +184,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["chaco", "fechas", "cronologia"]
@@ -203,7 +203,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["juarez_celman", "presidencia", "gobierno"]
@@ -219,7 +219,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["violencia", "militar", "realidad"]
@@ -235,7 +235,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["cronologia", "chaco"]
@@ -251,7 +251,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["derecho", "propiedad", "originales"]
@@ -267,7 +267,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["economia", "exportacion"]
@@ -283,7 +283,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["roca", "politica"]
@@ -299,7 +299,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["estado", "soberania"]
@@ -315,7 +315,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["inmigracion", "demografia"]
@@ -331,7 +331,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["soberania", "indigena"]
@@ -347,7 +347,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["comparacion", "objetivos"]
@@ -363,7 +363,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["herencia", "desigualdad"]
@@ -379,7 +379,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["economia", "inversion"]
@@ -395,7 +395,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["historia", "contacto"]
@@ -413,7 +413,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador"
   nivel: "basico"
   tags: ["economia", "exportacion"]
@@ -430,7 +430,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador"
   nivel: "intermedio"
   tags: ["capital", "infraestructura"]
@@ -450,7 +450,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "inmigracion_masiva"
   nivel: "basico"
   tags: ["demografia", "inmigracion"]
@@ -467,7 +467,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador"
   nivel: "intermedio"
   tags: ["causalidad", "procesos"]
@@ -484,7 +484,7 @@ respuesta_orden: ["Expansión de la frontera agrícola", "Llegada de ferrocarril
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador"
   nivel: "avanzado"
   tags: ["estado", "politica"]
@@ -502,7 +502,7 @@ respuesta: "Un motor de dependencia externa"
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["inmigracion", "economia", "modelo_agroexportador"]
@@ -519,7 +519,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["nacionalidades", "europa"]
@@ -536,7 +536,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["causas", "europa"]
@@ -554,7 +554,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["politica_migratoria", "leyes"]
@@ -571,7 +571,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["causalidad", "procesos"]
@@ -593,7 +593,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["economia", "demanda"]
@@ -611,7 +611,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["transporte", "ferrocarriles"]
@@ -629,7 +629,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["frontera", "territorio"]
@@ -652,7 +652,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["inversion", "britania"]
@@ -670,7 +670,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["logica", "procesos"]
@@ -688,7 +688,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["demografia", "inmigracion"]
@@ -705,7 +705,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["cultura", "lenguaje"]
@@ -723,7 +723,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["urbanismo", "geografia"]
@@ -740,7 +740,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["clases_sociales", "urbanismo"]
@@ -760,7 +760,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["vivienda", "cultura"]
@@ -780,7 +780,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["economia", "exportacion"]
@@ -802,7 +802,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "basico"
   tags: ["inmigracion", "demografia"]
@@ -824,7 +824,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["transporte", "infraestructura"]
@@ -842,7 +842,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "intermedio"
   tags: ["puertos", "comercio"]
@@ -859,7 +859,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "modelo_agroexportador_inmigracion"
   nivel: "avanzado"
   tags: ["proceso", "logistica"]
@@ -878,7 +878,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["argentina", "democracia", "ley_saenz_pena"]
@@ -900,7 +900,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["fraude", "sistema_electoral", "cambio_politico"]
@@ -922,7 +922,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["participacion", "sufragio"]
@@ -944,7 +944,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["orden", "proceso_historico"]
@@ -966,7 +966,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["consecuencias", "radicalismo", "poder"]
@@ -986,7 +986,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["electoral", "fraude", "argentina"]
@@ -1003,7 +1003,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["fraude", "oligarquia", "control"]
@@ -1025,7 +1025,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["ley_saenz_pena", "reforma", "democracia"]
@@ -1044,7 +1044,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["proceso", "ley", "reforma"]
@@ -1061,7 +1061,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["consecuencia", "radicalismo", "voto"]
@@ -1081,7 +1081,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["argentina", "democracia", "irrigoyen"]
@@ -1099,7 +1099,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["ley_saenz_pena", "voto_secreto"]
@@ -1120,7 +1120,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["caracteristicas", "voto"]
@@ -1138,7 +1138,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["irrigoyen", "presidencia"]
@@ -1157,7 +1157,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["consecuencias", "politica"]
@@ -1178,7 +1178,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["sufragio", "argentina", "ley_saenz_pena"]
@@ -1195,7 +1195,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["sufragio_femenino", "evita", "derechos"]
@@ -1219,7 +1219,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["cronologia", "historia_argentina"]
@@ -1236,7 +1236,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["caracteristicas", "voto"]
@@ -1253,7 +1253,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["democracia", "exclusiones"]
@@ -1274,7 +1274,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["voto_cantado", "sistema_oligarquico"]
@@ -1295,7 +1295,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["caracteristicas_ley"]
@@ -1319,7 +1319,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "intermedio"
   tags: ["comparativa", "fraude"]
@@ -1347,7 +1347,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "basico"
   tags: ["obligatoriedad"]
@@ -1368,7 +1368,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "ampliacion_democratica_ley_saenz_pena"
   nivel: "avanzado"
   tags: ["consecuencias_politicas"]
@@ -1394,7 +1394,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["definicion", "politica"]
@@ -1412,7 +1412,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["caracteristicas", "instituciones"]
@@ -1451,7 +1451,7 @@ respuesta_orden: ["Crisis política o social", "Acción de las fuerzas armadas o
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["consecuencias", "derecho"]
@@ -1469,7 +1469,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["comparacion"]
@@ -1486,7 +1486,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["argentina", "siglo_xx", "democracia"]
@@ -1503,7 +1503,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["historia", "argentina"]
@@ -1520,7 +1520,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["historia", "argentina"]
@@ -1541,7 +1541,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["historia", "argentina"]
@@ -1559,7 +1559,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["historia", "argentina", "estadistica"]
@@ -1582,7 +1582,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["argentina", "democracia", "irrigoyen"]
@@ -1600,7 +1600,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["patrones", "militarismo"]
@@ -1621,7 +1621,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["contexto", "crisis"]
@@ -1638,7 +1638,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["secuencia", "orden"]
@@ -1655,7 +1655,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["consecuencias", "democracia"]
@@ -1671,7 +1671,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["argentina", "dictadura", "1976"]
@@ -1689,7 +1689,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["derechos_humanos", "terrorismo_de_estado"]
@@ -1707,7 +1707,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["fechas", "periodo"]
@@ -1728,7 +1728,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["fechas", "periodo"]
@@ -1745,7 +1745,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["conceptos", "derechos_humanos"]
@@ -1766,7 +1766,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["duracion", "fechas"]
@@ -1783,7 +1783,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["argentina", "siglo_xx", "dictadura"]
@@ -1804,7 +1804,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
@@ -1825,7 +1825,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["dictadura", "proceso"]
@@ -1843,7 +1843,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "intermedio"
   tags: ["liderazgo", "militar"]
@@ -1864,7 +1864,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "golpes_de_estado_interrupciones"
   nivel: "basico"
   tags: ["democracia", "retorno"]
@@ -1883,7 +1883,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "contexto_social"]
@@ -1902,7 +1902,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "manifiesto"]
@@ -1921,7 +1921,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "derechos"]
@@ -1940,7 +1940,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "cogobierno"]
@@ -1959,7 +1959,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "geografia"]
@@ -1978,7 +1978,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "pedagogia"]
@@ -1997,7 +1997,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "sociedad"]
@@ -2016,7 +2016,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "avanzado"
   tags: ["reforma_universitaria_1918", "impacto"]
@@ -2035,7 +2035,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "evaluacion"]
@@ -2054,7 +2054,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "alcance"]
@@ -2073,7 +2073,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "definiciones"]
@@ -2092,7 +2092,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "cronologia"]
@@ -2111,7 +2111,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "filosofia"]
@@ -2130,7 +2130,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "metodos"]
@@ -2149,7 +2149,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "avanzado"
   tags: ["reforma_universitaria_1918", "estructura_academica"]
@@ -2168,7 +2168,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "simbolismo"]
@@ -2187,7 +2187,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "academico"]
@@ -2206,7 +2206,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "sociedad"]
@@ -2225,7 +2225,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "economia"]
@@ -2244,7 +2244,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "historia_institucional"]
@@ -2263,7 +2263,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "democracia"]
@@ -2282,7 +2282,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "reforma_universitaria_1918"
   nivel: "avanzado"
   tags: ["reforma_universitaria_1918", "impacto_historico"]

@@ -1,4 +1,4 @@
-# Historia — conquista del desierto y campana al chaco (cuestionario, 24 preguntas VBLang)
+# Pensamiento histórico — conquista del desierto y campana al chaco (cuestionario, 24 preguntas VBLang)
 
 > Tema: `historia-argentina/conquista-del-desierto-y-campana-al-chaco`. Ver `teoria.md` en esta misma carpeta.
 
@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["conquista_del_desierto", "julio_arentino_roca"]
@@ -29,7 +29,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["conquista_del_desierto", "pueblos_originarios"]
@@ -54,7 +54,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["campana_al_chaco", "cronologia"]
@@ -72,7 +72,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["campana_al_chaco", "gobierno"]
@@ -93,7 +93,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["consecuencias", "demografia"]
@@ -111,7 +111,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["conquista_del_desierto", "fechas", "roca"]
@@ -132,7 +132,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["roca", "liderazgo", "militar"]
@@ -150,7 +150,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["territorio", "patagonia", "pampa"]
@@ -168,7 +168,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["pueblos_originarios", "mapuche", "pehuenche"]
@@ -186,7 +186,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["ideologia", "civilizacion", "barbarie"]
@@ -204,7 +204,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["chaco", "fechas", "cronologia"]
@@ -225,7 +225,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["juarez_celman", "presidencia", "gobierno"]
@@ -243,7 +243,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["violencia", "militar", "realidad"]
@@ -261,7 +261,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "basico"
   tags: ["cronologia", "chaco"]
@@ -279,7 +279,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["derecho", "propiedad", "originales"]
@@ -297,7 +297,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["economia", "exportacion"]
@@ -315,7 +315,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["roca", "politica"]
@@ -333,7 +333,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["estado", "soberania"]
@@ -351,7 +351,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["inmigracion", "demografia"]
@@ -369,7 +369,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["soberania", "indigena"]
@@ -387,7 +387,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["comparacion", "objetivos"]
@@ -405,7 +405,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "avanzado"
   tags: ["herencia", "desigualdad"]
@@ -423,7 +423,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["economia", "inversion"]
@@ -441,7 +441,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "conquista_del_desierto_y_campana_al_chaco"
   nivel: "intermedio"
   tags: ["historia", "contacto"]

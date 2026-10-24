@@ -1,4 +1,4 @@
-# Historia Profunda — Guerras de independencia argentina (cuestionario, 25 preguntas VBLang)
+# Historia — Guerras de independencia argentina (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["tucuman", "independencia"]
@@ -34,7 +34,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["declaracion", "tucuman"]
@@ -53,7 +53,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["contexto", "monarquia"]
@@ -72,7 +72,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["belgrano", "congreso"]
@@ -91,7 +91,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["orden", "procesos"]
@@ -111,7 +111,7 @@ respuesta_orden: ["Revolución de Mayo", "Primer Triunvirato", "Batalla de San L
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["san_martin", "cruce_de_los_andes", "independencia"]
@@ -133,7 +133,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["logistica", "ejercito_de_los_andes"]
@@ -158,7 +158,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["estrategia", "plan_continental"]
@@ -177,7 +177,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["plan_continental", "peru"]
@@ -197,7 +197,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["batalla_de_chacabuco", "victoria"]
@@ -214,7 +214,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "estrategia", "independencia"]
@@ -234,7 +234,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["san_martin", "chile", "batalla"]
@@ -253,7 +253,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "peru", "logistica"]
@@ -272,7 +272,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["san_martin", "orden_cronologico"]
@@ -291,7 +291,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "bolivar", "guayaquil"]
@@ -313,7 +313,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["revolucion_de_mayo", "cabildo_abierto"]
@@ -333,7 +333,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["declaracion_independencia", "congreso_tucuman"]
@@ -352,7 +352,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "procesos_historicos"]
@@ -371,7 +371,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["san_martin", "cruce_de_los_andes"]
@@ -394,7 +394,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["soberania", "consecuencias"]
@@ -415,7 +415,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["revolucion_mayo", "fechas"]
@@ -434,7 +434,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "basico"
   tags: ["congreso_tucuman", "independencia"]
@@ -459,7 +459,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["cronologia", "procesos"]
@@ -478,7 +478,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "avanzado"
   tags: ["batallas", "san martin"]
@@ -501,7 +501,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_de_independencia_argentina"
   nivel: "intermedio"
   tags: ["san_martin", "campana_libertadora"]

@@ -1,2271 +1,2386 @@
-# Examen jefe — Maestro del Pensamiento Histórico
+# Examen jefe — Experto en Cielo y Universo Oscuro
 
-> Logro #723. Dominaste la significancia histórica, el cambio y la continuidad, la evidencia, la multicausalidad y la dimensión ética, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **98 preguntas totales** en 5/5 secciones.
+> Logro #683. Dominaste la materia y energía oscura junto con el cielo observable: estaciones, fases lunares, eclipses y el movimiento aparente de las constelaciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: significancia-historica (19 preguntas)
+## Sección: materia-energia-oscura (25 preguntas)
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
+  tema: "materia_energia_oscura"
   nivel: "basico"
-  tags: ["significancia_historica", "definicion"]
+  tags: ["materia_oscura", "luz", "gravedad"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "invisible"
+tipo: completar
+respuestas_validas:
+  - "invisible"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La significancia histórica es el criterio que usan los historiadores para decidir qué hechos merecen ser estudiados, recordados y enseñados."
-
-pasos:
-  - "Nadie puede estudiar cada detalle de todo lo que ocurrió en el pasado."
+enunciado: "Debido a que la materia oscura no emite, refleja ni absorbe radiación electromagnética, su naturaleza es ___________ para nuestros instrumentos ópticos tradicionales."
 
 explicacion: |
-  Verdadero: es la definición central de significancia histórica.
+  La materia oscura es invisible al espectro electromagnético (luz, radio, rayos X, etc.), lo que impide su detección directa mediante telescopios convencionales.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["significancia_historica", "seleccion"]
+  tags: ["galaxias", "rotación", "gravedad"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Todo lo que ocurrió en el pasado es, en sentido literal, \"historia\", pero nadie puede ni querría estudiar cada detalle de cada día de cada persona que vivió alguna vez."
-
-pasos:
-  - "Es la razón por la que hace falta un criterio de selección."
-
-explicacion: |
-  Verdadero: es el punto de partida de por qué existe este concepto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "impacto_profundo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "impacto profundo"
+respuesta: "La velocidad de rotación se mantiene constante o aumenta en la periferia"
 tipo: mc
-opciones_explicitas: ["impacto profundo", "alcance amplio", "duración de los efectos"]
+opciones_explicitas: ["La velocidad de rotación disminuye conforme nos alejamos del centro", "La velocidad de rotación se mantiene constante o aumenta en la periferia", "Las galaxias colapsarían por falta de masa", "La gravedad es nula en los bordes de la galaxia"]
 
-enunciado: "El criterio que evalúa si un hecho afectó a las personas de forma significativa (una guerra mundial vs. una discusión de vecinos) se llama..."
-
-pasos:
-  - "Es uno de los cinco criterios de significancia mencionados en la teoría."
+enunciado: "Al observar las curvas de rotación de las galaxias espirales, se detecta que las estrellas en la periferia se mueven a una velocidad que contradice la masa visible. ¿Cuál es la observación real?"
 
 explicacion: |
-  El impacto profundo evalúa la intensidad del efecto de un hecho
-  sobre las personas afectadas.
+  Si solo existiera la materia visible, las estrellas externas deberían girar más lento. El hecho de que mantengan velocidades altas sugiere la presencia de una masa adicional (materia oscura) que proporciona la gravedad necesaria.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
+  tema: "materia_energia_oscura"
+  nivel: "basico"
+  tags: ["gravedad", "masa"]
+
+respuesta: "gravitacionales"
+tipo: completar
+respuestas_validas:
+  - "gravitacionales"
+
+enunciado: "Dado que no podemos ver la materia oscura, su existencia se infiere únicamente a través de sus efectos ___________ sobre la materia bariónica (visible)."
+
+explicacion: |
+  La materia oscura interactúa principalmente a través de la gravedad, alterando el movimiento de las estrellas y la luz (lentes gravitacionales).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["criterios", "alcance_amplio"]
+  tags: ["composición", "universo"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "alcance amplio"
+respuesta: "Materia oscura"
 tipo: mc
-opciones_explicitas: ["impacto profundo", "alcance amplio", "resonancia hoy"]
+opciones_explicitas: ["Materia bariónica", "Materia oscura", "Energía oscura", "Radiación de fondo"]
 
-enunciado: "El criterio que evalúa si un hecho afectó a muchas personas o regiones, o sólo a un grupo muy chico y localizado, se llama..."
-
-pasos:
-  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
+enunciado: "La masa adicional necesaria para explicar la cohesión de los cúmulos de galaxias y las curvas de rotación galáctica se conoce como ___________."
 
 explicacion: |
-  El alcance amplio evalúa cuántas personas o regiones se vieron
-  afectadas por un hecho.
+  La materia oscura constituye aproximadamente el 27% del universo, mientras que la materia ordinaria (bariónica) es solo un 5%.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "duracion_de_efectos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "duración de los efectos"
-tipo: mc
-opciones_explicitas: ["duración de los efectos", "alcance amplio", "revela algo más general"]
-
-enunciado: "El criterio que evalúa si las consecuencias de un hecho se sintieron sólo un momento, o durante generaciones, se llama..."
-
-pasos:
-  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
-
-explicacion: |
-  La duración de los efectos evalúa por cuánto tiempo se sintieron
-  las consecuencias de un hecho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "resonancia_hoy"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "resonancia/relevancia hoy"
-tipo: mc
-opciones_explicitas: ["resonancia/relevancia hoy", "impacto profundo", "alcance amplio"]
-
-enunciado: "El criterio que evalúa si un hecho ayuda a entender el presente o problemas actuales se llama..."
-
-pasos:
-  - "Es otro de los cinco criterios de significancia mencionados en la teoría."
-
-explicacion: |
-  La resonancia/relevancia hoy evalúa si el hecho sigue siendo útil
-  para entender problemas actuales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
+  tema: "materia_energia_oscura"
   nivel: "avanzado"
-  tags: ["criterios", "revela_algo_general"]
+  tags: ["metodología", "evidencia"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "masa_visible"
+tipo: completar
+respuestas_validas:
+  - "masa_visible"
 
-respuesta: "revela algo más general"
+enunciado: "La discrepancia observada entre la velocidad de rotación galáctica y la cantidad de ___ es la principal prueba de la existencia de la materia oscura."
+
+explicacion: |
+  La falta de masa visible suficiente para explicar la velocidad de las galaxias es la evidencia fundamental que llevó a la hipótesis de la materia oscura.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "basico"
+  tags: ["cosmologia", "expansion_universo"]
+
 tipo: mc
-opciones_explicitas: ["revela algo más general", "duración de los efectos", "impacto profundo"]
+opciones_explicitas: ["Materia oscura", "Energía oscura", "Materia bariónica", "Radiación cósmica"]
+respuesta: "Energía oscura"
 
-enunciado: "El criterio que evalúa si un hecho es un ejemplo que ilumina un proceso más amplio, aunque en sí mismo sea un episodio menor, se llama..."
-
-pasos:
-  - "Es el quinto criterio de significancia mencionado en la teoría."
+enunciado: "A finales de la década de 1990, se descubrió que el universo no solo se expande, sino que lo hace de forma acelerada. El fenómeno responsable de esta aceleración es la ________."
 
 explicacion: |
-  Un hecho puede ser significativo no por su magnitud propia, sino
-  por lo que revela sobre un proceso histórico más general.
+  La energía oscura es una forma de energía que permea todo el espacio y actúa como una fuerza repulsiva que acelera la expansión del universo, diferenciándose de la materia oscura que actúa principalmente mediante la gravedad.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["significancia_cambiante"]
+  tags: ["hitos", "astronomia"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mismo hecho puede considerarse muy significativo en un momento histórico y perder relevancia después, o al revés."
-
-pasos:
-  - "La significancia histórica cambia según qué preguntas le interesan a cada generación."
-
-explicacion: |
-  Verdadero: es un matiz central sobre la naturaleza no fija de la
-  significancia histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["historiografia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia política tradicional prioriza reyes y batallas como significativos; la historia social prioriza la vida cotidiana de la gente común."
-
-pasos:
-  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: distintas corrientes historiográficas eligen distinto tipo de hechos como significativos."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo la corriente
-  historiográfica influye en qué se considera significativo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["no_es_gusto_personal"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Decir \"me interesa la historia militar, así que sólo eso es significativo\" es un juicio válido y suficiente de significancia histórica."
-
-pasos:
-  - "La significancia se argumenta con criterios (impacto, alcance, duración, resonancia), no es una simple cuestión de gusto individual."
-
-explicacion: |
-  Falso: la significancia histórica no es una preferencia personal
-  sin fundamento, requiere argumentación con criterios objetivos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["hecho_pequeno_significativo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El asesinato de un solo archiduque puede desencadenar consecuencias enormes (una guerra mundial), volviéndolo altamente significativo pese a su escala aparentemente menor en el momento en que ocurrió."
-
-pasos:
-  - "El tamaño aparente de un hecho no determina por sí solo su significancia."
-
-explicacion: |
-  Verdadero: es el ejemplo central de por qué la magnitud aparente de
-  un hecho no es el único criterio de significancia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "intermedio"
-  tags: ["criterios", "practica"]
-
-variables:
-  hechos: ["una reforma que cambió cómo funciona una sociedad durante siglos", "un evento que ayuda a entender debates políticos actuales"]
-  criterios: ["duración de los efectos", "resonancia/relevancia hoy"]
   idx: uno_de([0, 1])
+  escenario: [[1998, "el descubrimiento de la expansión acelerada"], [2011, "el otorgamiento del Premio Nobel de Física por dicho descubrimiento"]]
 
-respuesta: criterios[idx]
+tipo: completar
+respuestas_validas:
+  - "1998"
+  - "2011"
+
+enunciado: "La evidencia observacional que cambió la cosmología moderna y señaló la existencia de la energía oscura fue publicada en el año {escenario[idx][0]}, marcando {escenario[idx][1]}."
+
+explicacion: |
+  En 1998, las observaciones de supernovas lejanas demostraron que la expansión del universo se está acelerando, lo que llevó a la inclusión de la energía oscura en el modelo estándar de la cosmología.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "avanzado"
+  tags: ["materia_oscura", "energia_oscura"]
+
 tipo: mc
-opciones_explicitas: ["impacto profundo", "alcance amplio", "duración de los efectos", "resonancia/relevancia hoy"]
+opciones_explicitas: ["Atrae la materia mediante gravedad", "Repele el espacio mediante presión negativa", "Es visible mediante espectroscopia", "Es una partícula subatómica conocida"]
+respuesta: "Repele el espacio mediante presión negativa"
 
-enunciado: "\"{hechos[idx]}\" se evalúa principalmente con el criterio de..."
-
-pasos:
-  - "Cada descripción corresponde principalmente a uno de los criterios de significancia estudiados."
+enunciado: "Mientras que la materia oscura ejerce una atracción gravitatoria que ayuda a la formación de estructuras, la energía oscura se caracteriza por su capacidad de ________."
 
 explicacion: |
-  Reconocer qué criterio aplica a un caso concreto es la práctica
-  central de este tema.
+  La energía oscura posee una presión negativa que contrarresta la gravedad a escalas cosmogónicas, provocando que la expansión del universo sea acelerada en lugar de frenarse.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Decidir qué del pasado vale la pena estudiar presupone ya tener un marco de períodos organizado donde ubicar esa selección."
-
-pasos:
-  - "Ver `../periodizacion-historica/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Significancia histórica es uno de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto a causa/consecuencia y cambio/continuidad."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/` y `../cambio-y-continuidad/`: son los otros conceptos de ese marco ya cubiertos en la cadena."
-
-explicacion: |
-  Verdadero: es el mismo marco teórico ya mencionado en temas
-  anteriores de esta cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["criterios", "combinacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Evaluar la significancia de un hecho suele combinar varios de los cinco criterios a la vez (impacto, alcance, duración, resonancia, revelar algo general), no basta con aplicar sólo uno."
-
-pasos:
-  - "Un hecho puede ser significativo por varias razones combinadas al mismo tiempo."
-
-explicacion: |
-  Verdadero: es una aplicación práctica de cómo se usan estos
-  criterios en conjunto, no de forma aislada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["significancia_cambiante", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un hecho que en su momento pareció menor puede ganar significancia histórica más adelante, si se descubre que anticipaba o explicaba un proceso posterior importante."
-
-pasos:
-  - "Es la aplicación concreta de que la significancia cambia con el tiempo."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del principio de significancia
-  no fija estudiado en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["significancia_historica", "metodo"]
+  tags: ["teoria", "futuro_universo"]
 
-enunciado: "Ordená los pasos para evaluar si un hecho histórico es significativo."
+tipo: mc
+opciones_explicitas: ["Big Crunch", "Big Freeze", "Big Bounce", "Punto de equilibrio"]
+respuesta: "Big Freeze"
+
+enunciado: "Si la energía oscura continúa dominando la expansión del universo de manera constante, el escenario más probable para el destino final del cosmos es el ________."
+
+explicacion: |
+  El 'Big Freeze' (Gran Congelamiento) ocurre cuando la expansión es tan rápida que las galaxias se alejan tanto que el universo se enfría hasta alcanzar un estado de entropía máxima donde no puede haber más procesos físicos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "intermedio"
+  tags: ["cronologia", "hitos"]
+
 tipo: ordenar
-opciones_explicitas:
-  - "Identificar el hecho y a quiénes afectó directamente"
-  - "Evaluar impacto profundo y alcance amplio de ese efecto"
-  - "Evaluar la duración de los efectos y su resonancia en el presente"
-  - "Concluir si, combinando esos criterios, el hecho merece un lugar en el estudio histórico"
-respuesta_orden: ["Identificar el hecho y a quiénes afectó directamente", "Evaluar impacto profundo y alcance amplio de ese efecto", "Evaluar la duración de los efectos y su resonancia en el presente", "Concluir si, combinando esos criterios, el hecho merece un lugar en el estudio histórico"]
+opciones_explicitas: ["Modelo de materia oscura fría", "Descubrimiento de la expansión acelerada", "Aceptación del modelo Lambda-CDM"]
+
+respuesta_orden: ["Modelo de materia oscura fría", "Descubrimiento de la expansión acelerada", "Aceptación del modelo Lambda-CDM"]
+
+enunciado: "Ordena cronológicamente estos hitos que permitieron consolidar la visión actual del universo dominado por componentes oscuros:"
+
 explicacion: |
-  El proceso va de identificar el hecho a evaluar los distintos
-  criterios combinados de significancia.
+  Primero se postuló la existencia de la materia oscura para explicar la rotación galáctica; en 1998 se descubrió la aceleración (energía oscura); finalmente, esto llevó a la adopción del modelo Lambda-CDM (materia oscura fría + constante cosmológica/energía oscura).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["significancia_historica", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintos historiadores pueden argumentar distinta significancia para un mismo hecho, según qué criterios prioricen o desde qué corriente historiográfica trabajen, sin que exista una respuesta única y absoluta."
-
-pasos:
-  - "Es la síntesis de por qué la significancia es un juicio argumentado, no un hecho fijo."
-
-explicacion: |
-  Verdadero: es la conclusión central de este tema sobre la
-  naturaleza del concepto de significancia histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["significancia_historica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al proponer un tema histórico para estudiar, conviene poder justificar su significancia con criterios concretos (impacto, alcance, duración, resonancia), en vez de sólo decir que \"parece interesante\"."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al proponer o
-  justificar el estudio de un hecho histórico.
-```
-
-## Sección: cambio-y-continuidad (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
   nivel: "basico"
-  tags: ["cambio_y_continuidad", "definicion"]
+  tags: ["cosmologia", "composicion"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1, 2])
+  datos: [["5%", "materia ordinaria"], ["27%", "materia oscura"], ["68%", "energía oscura"]]
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["5%", "27%", "68%"]
+respuesta: datos[idx][0]
+tipo: mc
 
-enunciado: "Al comparar dos momentos históricos, siempre hay elementos que cambiaron y elementos que se mantuvieron igual (continuidad)."
-
-pasos:
-  - "Ningún proceso histórico es 100% cambio radical ni 100% continuidad absoluta."
+enunciado: "Según el modelo estándar de la cosmología, la fracción del universo compuesta por {datos[idx][1]} es aproximadamente del ___."
 
 explicacion: |
-  Verdadero: es la definición central de este tema.
+  La composición estimada del universo es: 5% materia ordinaria, 27% materia oscura y 68% energía oscura.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
+  nivel: "basico"
+  tags: ["energia_oscura"]
+
+respuesta: "energía oscura"
+tipo: completar
+respuestas_validas:
+  - "energía oscura"
+
+enunciado: "El componente que constituye aproximadamente el 68% del universo y es responsable de la expansión acelerada se denomina ___."
+
+explicacion: |
+  La energía oscura es el componente dominante del universo, representando cerca del 68% de su densidad total.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["cambio_y_continuidad", "metodo"]
+  tags: ["orden", "densidad"]
 
-variables:
-  n: uno_de([1, 1])
+opciones_explicitas: ["Materia ordinaria", "Materia oscura", "Energía oscura"]
+respuesta_orden: ["Materia ordinaria", "Materia oscura", "Energía oscura"]
+tipo: ordenar
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El trabajo del análisis histórico es identificar específicamente qué cambió y qué no, en vez de asumir que todo cambió o que nada cambió."
-
-pasos:
-  - "Es el objetivo central de este tema."
+enunciado: "Ordena los componentes del universo de menor a mayor abundancia (porcentaje de densidad):"
 
 explicacion: |
-  Verdadero: es el objetivo metodológico central del análisis de
-  cambio y continuidad.
+  El orden correcto de menor a mayor es: Materia ordinaria (5%), Materia oscura (27%) y Energía oscura (68%).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["ejemplo_revolucion_de_mayo"]
+  tags: ["calculo", "porcentajes"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1, 2])
+  escenario: [["5", "materia ordinaria"], ["27", "materia oscura"], ["68", "energía oscura"]]
 
-respuesta: verdadero
-tipo: vf
+respuesta: escenario[idx][0]
+tipo: completar
+tolerancia_abs: 0.1
 
-enunciado: "Después de la Revolución de Mayo (1810), se reemplazó la autoridad virreinal por un gobierno local (la Primera Junta): es un ejemplo de cambio."
+enunciado: "Si el universo tiene una densidad total de 100 unidades, ¿cuántas unidades corresponden a la {escenario[idx][1]}?"
 
 pasos:
-  - "Es uno de los cambios concretos mencionados en el ejemplo de la teoría."
+  - "Identificar el porcentaje correspondiente al componente mencionado."
+  - "Multiplicar el porcentaje por la densidad total (100)."
 
 explicacion: |
-  Verdadero: es un cambio político concreto y verificable ocurrido
-  tras la Revolución de Mayo.
+  El valor corresponde al porcentaje asignado a la {escenario[idx][1]} en el modelo cosmológico actual.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["ejemplo_revolucion_de_mayo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Después de la Revolución de Mayo, la estructura social (esclavitud, roles de género, jerarquías) no cambió de inmediato: es un ejemplo de continuidad."
-
-pasos:
-  - "Es una de las continuidades concretas mencionadas en el ejemplo de la teoría."
-
-explicacion: |
-  Verdadero: muestra que un evento político dramático no cambia
-  automáticamente todos los aspectos de una sociedad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["error_exagerar_cambio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Es un error común, sobre todo al estudiar \"revoluciones\" o \"hitos\", asumir que todo cambió radicalmente de un día para el otro."
-
-pasos:
-  - "En la práctica, la mayoría de los procesos sociales, económicos y culturales cambian gradualmente."
-
-explicacion: |
-  Verdadero: es uno de los dos errores centrales que este tema busca
-  evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["error_exagerar_continuidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El error opuesto es minimizar los cambios reales que sí ocurrieron, asumiendo que \"en el fondo todo sigue igual\"."
-
-pasos:
-  - "Es el otro de los dos errores centrales que este tema busca evitar."
-
-explicacion: |
-  Verdadero: es el segundo error central, opuesto al de exagerar el
-  cambio.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
   nivel: "avanzado"
-  tags: ["error_exagerar_cambio", "error_exagerar_continuidad"]
+  tags: ["conceptos"]
 
 variables:
-  n: uno_de([1, 1])
+  caso: [["verdadero", "La energía oscura es el componente más abundante."], ["falso", "La materia oscura es el componente más abundante."]]
+  seleccionada: uno_de(caso)
 
-respuesta: verdadero
-tipo: vf
+respuesta: seleccionada[0]
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
 
-enunciado: "Tanto exagerar el cambio como exagerar la continuidad distorsionan el análisis histórico; la habilidad central es encontrar el balance específico entre ambos, caso por caso."
-
-pasos:
-  - "Ninguno de los dos extremos es correcto por defecto; hace falta analizar cada caso en particular."
+enunciado: "Analiza la siguiente afirmación: {seleccionada[1]}. ¿Es correcta?"
 
 explicacion: |
-  Verdadero: es la conclusión central sobre cómo evitar ambos
-  errores.
+  La afirmación es {seleccionada[1]}. La materia ordinaria solo representa el 5%, mientras que la energía oscura es la mayoritaria con un 68%.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
+  nivel: "basico"
+  tags: ["cosmologia", "misterio"]
+
+respuesta: "materia_oscura"
+tipo: mc
+opciones_explicitas: ["materia_oscura", "energia_oscura", "materia_bariónica", "radiación_cósmica"]
+
+enunciado: "Aunque no podemos verla directamente, sabemos que existe la ___ debido a su influencia gravitatoria en las galaxias."
+
+explicacion: |
+  La materia oscura no emite, absorbe ni refleja luz, lo que la hace invisible, pero su gravedad es fundamental para mantener unidas a las galaxias.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["ritmos_de_cambio"]
+  tags: ["expansion", "energia_oscura"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "Big Freeze"
+tipo: mc
+opciones_explicitas: ["Big Crunch", "Big Freeze", "Big Rip", "Big Bounce"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El cambio político (una nueva ley, un nuevo gobierno) puede ser rápido; el cambio social o cultural (formas de pensar, costumbres) suele ser mucho más lento."
-
-pasos:
-  - "Es la razón por la que distintos aspectos de una sociedad cambian a ritmos distintos."
+enunciado: "Si la energía oscura domina y acelera la expansión del universo de manera constante e indefinida, el destino más probable del universo es el ___."
 
 explicacion: |
-  Verdadero: es el concepto central de \"ritmos distintos de cambio\"
-  descrito en la teoría.
+  La energía oscura actúa como una fuerza repulsiva que acelera la expansión del universo. Dependiendo de su densidad, el universo podría terminar en un enfriamiento eterno (Big Freeze) o un desgarro final (Big Rip).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["ritmos_de_cambio"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Comparar dos momentos históricos requiere prestar atención a que distintos aspectos de una sociedad (político, económico, cultural, social) no cambian todos al mismo ritmo."
-
-pasos:
-  - "Es la conclusión central sobre los ritmos distintos de cambio."
-
-explicacion: |
-  Verdadero: es una consideración central para un análisis riguroso
-  de cambio y continuidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
   nivel: "avanzado"
-  tags: ["causa_y_consecuencia", "prerrequisito"]
+  tags: ["gravedad", "evidencia"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: 5
+tipo: completar
+tolerancia_abs: 0.1
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para saber si algo \"cambió\", hace falta identificar qué causó ese cambio (o su ausencia); comparar dos momentos sin analizar las causas es una comparación incompleta."
+enunciado: "Si la materia visible representa aproximadamente el 5% del universo, y la materia oscura el 27%, ¿qué porcentaje aproximado del universo corresponde a la energía oscura?"
 
 pasos:
-  - "Ver `../causa-y-consecuencia/`: es el prerrequisito directo de este tema."
+  - "Sumar el porcentaje de materia visible y materia oscura: 5 + 27 = 32"
+  - "Restar ese total al 100% del universo: 100 - 32 = 68"
 
 explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
+  Según el modelo estándar de cosmología (Lambda-CDM), la energía oscura constituye aproximadamente el 68% del contenido energético-material del universo.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
+  tema: "materia_energia_oscura"
+  nivel: "basico"
+  tags: ["terminologia"]
+
+respuesta_orden: ["materia_oscura", "energia_oscura", "materia_visible"]
+tipo: ordenar
+opciones_explicitas: ["materia_oscura", "energia_oscura", "materia_visible"]
+
+enunciado: "Ordena estos componentes del universo de mayor a menor abundancia (según el modelo actual):"
+
+explicacion: |
+  El orden correcto de abundancia es: Energía Oscura (~68%), Materia Oscura (~27%) y Materia Visible (~5%).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
   nivel: "intermedio"
-  tags: ["cambio_y_continuidad", "practica"]
+  tags: ["fisica_particulas"]
+
+respuesta: "es_desconocida"
+tipo: completar
+respuestas_validas:
+  - "es_desconocida"
+  - "es_desconocida"
+
+enunciado: "A pesar de las décadas de investigación, la naturaleza exacta de la energía oscura ___."
+
+explicacion: |
+  Aunque detectamos su efecto en la expansión acelerada del cosmos, la identidad de la partícula o campo que la compone sigue siendo uno de los mayores misterios de la ciencia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "intermedio"
+  tags: ["astronomia", "materia_oscura"]
 
 variables:
-  ejemplos: ["tras una revolución, se sancionó una nueva constitución", "tras una revolución, las mismas familias mantuvieron el control de las tierras y el poder económico durante décadas"]
-  tipos: ["cambio", "continuidad"]
+  datos: [["curvas_rotacion", "materia_oscura"], ["expansion_acelerada", "energia_oscura"], ["lentes_gravitacionales", "materia_oscura"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["materia_oscura", "energia_oscura"]
+
+enunciado: "Se observa que las galaxias rotan mucho más rápido de lo que la masa visible permitiría, sugiriendo la presencia de una masa no visible. Este fenómeno de {datos[idx][0]} es una evidencia de:"
+
+explicacion: |
+  La materia oscura proporciona la masa extra necesaria para explicar las velocidades orbitales de las estrellas en las galaxias y la distorsión de la luz por lente gravitacional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "avanzado"
+  tags: ["cosmologia", "energia_oscura"]
+
+variables:
+  datos: [["aceleracion_expansion", "energia_oscura"], ["colapso_gravitacional", "materia_oscura"]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["materia_oscura", "energia_oscura"]
+
+enunciado: "La observación de supernovas tipo Ia indica que la expansión del universo se está acelerando. Este efecto de {datos[idx][0]} es causado por la:"
+
+explicacion: |
+  La energía oscura actúa como una presión negativa que contrarresta la gravedad a escalas cosmológicas, impulsando la expansión acelerada del espacio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "intermedio"
+  tags: ["cosmologia", "estructura_cosmica"]
+
+respuesta: "energia_oscura"
+tipo: completar
+respuestas_validas:
+  - "energia_oscura"
+
+enunciado: "Mientras que la materia oscura ayuda a la formación de galaxias mediante su atracción gravitatoria, la responsable de la repulsión espacial que separa los cúmulos de galaxias es la ___."
+
+explicacion: |
+  La materia oscura es atractiva (favorece la agrupación de materia), mientras que la energía oscura es repulsiva (favorece la expansión).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "basico"
+  tags: ["lentes_gravitacionales", "materia_oscura"]
+
+variables:
+  datos: [["distorsion_luz", "materia_oscura"], ["expansión_lineal", "energia_oscura"]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["materia_oscura", "energia_oscura"]
+
+enunciado: "La detección de la {datos[idx][0]} en cúmulos de galaxias permite mapear la distribución de la:"
+
+explicacion: |
+  La luz se curva al pasar cerca de grandes masas. Como la masa observada no es suficiente para causar la curvatura detectada, se infiere la presencia de materia oscura.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "materia_energia_oscura"
+  nivel: "avanzado"
+  tags: ["modelo_estandar", "cosmologia"]
+
+respuesta: "materia_oscura"
+tipo: completar
+respuestas_validas:
+  - "materia_oscura"
+
+enunciado: "En el modelo estándar de cosmología, la energía oscura es la fuerza que domina la expansión, mientras que la ___ es la componente que permite la formación de estructuras a gran escala."
+
+explicacion: |
+  Es un error conceptual común: la energía oscura domina la expansión (dinámica global), la materia oscura domina la formación de estructuras (dinámica local/regional).
+```
+
+## Sección: estaciones-del-ano (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["astronomia", "mitos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "El cambio de las estaciones del año ocurre principalmente porque la Tierra se acerca o se aleja del Sol en su órbita elíptica."
+
+explicacion: |
+  Falso. La distancia al Sol no es la causa de las estaciones: de hecho la Tierra está más cerca del Sol en enero (verano austral/invierno boreal) que en julio. La causa real es la inclinación del eje terrestre.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["eje_terrestre", "inclinacion"]
+
+variables:
+  angulo_eje: 23.5
+
+respuesta: "inclinación del eje"
+tipo: completar
+respuestas_validas:
+  - "inclinación del eje"
+  - "inclinación terrestre"
+  - "eje inclinado"
+
+enunciado: "La causa fundamental de que existan las estaciones es la ___ de la Tierra respecto a su plano orbital."
+
+explicacion: |
+  La inclinación de aproximadamente {angulo_eje}° hace que la radiación solar se distribuya de forma desigual sobre la superficie terrestre a lo largo del año.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["radiacion", "angulo"]
+
+respuesta: "mayor intensidad"
+tipo: mc
+opciones_explicitas: ["menor intensidad", "mayor intensidad", "misma intensidad", "intensidad nula"]
+
+enunciado: "Cuando un hemisferio está inclinado hacia el Sol, los rayos solares inciden con un ángulo más perpendicular y la energía se concentra en un área menor, resultando en una ___ de radiación por unidad de superficie."
+
+explicacion: |
+  Al incidir de forma más perpendicular, la energía solar se concentra en un área más pequeña, lo que aumenta la temperatura local y genera el verano.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "avanzado"
+  tags: ["hemisferios", "estaciones"]
+
+variables:
   idx: uno_de([0, 1])
+  escenario: [["verano", "invierno"], ["invierno", "verano"]]
 
-respuesta: tipos[idx]
+respuesta: escenario[idx][1]
 tipo: mc
-opciones_explicitas: ["cambio", "continuidad"]
+opciones_explicitas: ["verano", "invierno"]
 
-enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Una nueva institución es un cambio; el mantenimiento de una estructura de poder previa es una continuidad."
+enunciado: "Debido a la inclinación del eje, si el hemisferio norte está experimentando {escenario[idx][0]}, ¿qué estación experimenta al mismo tiempo el hemisferio sur?"
 
 explicacion: |
-  Distinguir cambio de continuidad en un caso concreto es la
-  aplicación central de este tema.
+  La inclinación hace que un hemisferio reciba más energía directa mientras el otro recibe rayos más oblicuos y dispersos, creando estaciones opuestas y simultáneas.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["cambio_y_continuidad", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un proceso histórico puede describirse correctamente como 100% cambio radical o 100% continuidad absoluta, sin ningún matiz intermedio."
-
-pasos:
-  - "Siempre hay elementos que cambian y elementos que se mantienen, la realidad histórica no cae en un extremo absoluto."
-
-explicacion: |
-  Falso: la afirmación de la teoría es exactamente lo contrario,
-  ningún proceso histórico es un extremo absoluto.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["ritmos_de_cambio", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al analizar un mismo evento histórico, se puede encontrar cambio en el ámbito político y continuidad en el ámbito social, ambos a la vez."
-
-pasos:
-  - "Es la aplicación práctica de que distintos aspectos de una sociedad cambian a ritmos distintos."
-
-explicacion: |
-  Verdadero: es una consecuencia directa de analizar los distintos
-  ámbitos de una sociedad por separado.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["ejemplo_revolucion_de_mayo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El hecho de que un país se independizara políticamente no garantiza que sus estructuras económicas o sociales cambiaran al mismo ritmo o en la misma medida."
-
-pasos:
-  - "Coherente con el ejemplo de la Revolución de Mayo mencionado en la teoría."
-
-explicacion: |
-  Verdadero: es una aplicación general del principio de ritmos
-  distintos de cambio a procesos de independencia política.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cambio y continuidad es otro de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto con causa y consecuencia."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: ambos temas forman parte del mismo marco teórico de referencia."
-
-explicacion: |
-  Verdadero: es el mismo contexto académico ya mencionado en el tema
-  anterior de la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["error_exagerar_cambio", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un relato histórico que afirma \"tras la revolución, absolutamente todo cambió de un día para el otro en todos los aspectos de la sociedad\" es un análisis riguroso y equilibrado según los criterios de este tema."
-
-pasos:
-  - "Es un ejemplo del error de exagerar el cambio, ignorando las continuidades reales que también existieron."
-
-explicacion: |
-  Falso: ese relato exagera el cambio, exactamente el error central
-  que este tema busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["error_exagerar_continuidad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Un relato histórico que afirma \"la revolución no cambió absolutamente nada, todo siguió exactamente igual\" es un análisis riguroso y equilibrado según los criterios de este tema."
-
-pasos:
-  - "Es un ejemplo del error de exagerar la continuidad, ignorando los cambios reales que sí ocurrieron."
-
-explicacion: |
-  Falso: ese relato exagera la continuidad, el otro error central que
-  este tema busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "intermedio"
-  tags: ["cambio_y_continuidad", "metodo"]
-
-enunciado: "Ordená los pasos para analizar cambio y continuidad entre dos momentos históricos."
-tipo: ordenar
-opciones_explicitas:
-  - "Comparar los dos momentos en distintos ámbitos (político, social, económico, cultural)"
-  - "Identificar específicamente qué cambió en cada ámbito"
-  - "Identificar específicamente qué se mantuvo igual en cada ámbito"
-  - "Analizar las causas de esos cambios (o de su ausencia) en cada caso"
-respuesta_orden: ["Comparar los dos momentos en distintos ámbitos (político, social, económico, cultural)", "Identificar específicamente qué cambió en cada ámbito", "Identificar específicamente qué se mantuvo igual en cada ámbito", "Analizar las causas de esos cambios (o de su ausencia) en cada caso"]
-explicacion: |
-  El proceso va de comparar por ámbitos a identificar cambios y
-  continuidades específicos, cerrando con el análisis causal de cada
-  uno.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cambio y continuidad es prerrequisito directo de multicausalidad, que extiende el análisis de causa-consecuencia a que un hecho tenga varias causas a la vez."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el tema siguiente y último de la cadena de pensamiento histórico cubierta en esta sesión."
-
-explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "cambio_y_continuidad"
-  nivel: "avanzado"
-  tags: ["cambio_y_continuidad", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al estudiar cualquier proceso histórico (una revolución, una reforma, una transición), conviene identificar tanto lo que cambió como lo que se mantuvo, evitando simplificar el relato hacia uno solo de los dos extremos."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al análisis
-  equilibrado de cualquier proceso histórico.
-```
-
-## Sección: evidencia (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
+  tema: "estaciones_del_ano"
   nivel: "basico"
-  tags: ["evidencia", "definicion"]
+  tags: ["luz_solar"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "perpendicular"
+tipo: completar
+respuestas_validas:
+  - "perpendicular"
+  - "directa"
+  - "recta"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Toda afirmación histórica debe apoyarse en evidencia (fuentes que la respalden); sin evidencia, es sólo una opinión o especulación."
-
-pasos:
-  - "No importa qué tan razonable suene una afirmación, sin evidencia no es un aporte histórico riguroso."
+enunciado: "En el solsticio de verano, el sol alcanza su máxima altura en el cielo porque los rayos inciden de forma casi ___ sobre el trópico correspondiente."
 
 explicacion: |
-  Verdadero: es el punto de partida central de este tema.
+  La máxima concentración de calor ocurre cuando el ángulo de incidencia es lo más cercano posible a los 90 grados (perpendicular).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["alcance"]
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["astronomia", "estaciones"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: mc
+opciones_explicitas: ["Verano", "Invierno", "Equinoccio"]
 
-respuesta: verdadero
-tipo: vf
+enunciado: "Cuando un hemisferio terrestre está inclinado hacia el Sol, recibe mayor radiación solar y experimenta la estación de ___."
 
-enunciado: "Este tema no repite qué es fuente primaria vs. secundaria, ya visto en interpretar una fuente histórica; profundiza específicamente en criterios de confiabilidad."
-
-pasos:
-  - "Ver `../interpretar-una-fuente-historica/`: es la aclaración de alcance central de este tema."
+respuesta: "Verano"
 
 explicacion: |
-  Verdadero: es la delimitación de alcance explícita entre estos dos
-  temas relacionados.
+  La inclinación del eje terrestre hacia el Sol durante un periodo determinado provoca que la radiación sea más directa y los días sean más largos, definiendo el verano.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "cercania_a_hechos"]
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["hemisferios", "estaciones"]
 
 variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En general, una fuente primaria contemporánea a los hechos es más confiable para reconstruir detalles concretos que una fuente muy posterior basada en memoria o tradición oral distante."
-
-pasos:
-  - "Es uno de los criterios de confiabilidad mencionados en la teoría, aunque no es una regla absoluta."
-
-explicacion: |
-  Verdadero: es el criterio de cercanía a los hechos, con el matiz de
-  que \"en general\" no es una regla sin excepciones.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "independencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si varias fuentes independientes entre sí (que no se copiaron unas a otras) coinciden en un dato, ese dato es más confiable que si viene de una sola fuente aislada."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la coincidencia entre fuentes independientes es un
-  criterio central de confiabilidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "consistencia_interna"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente que se contradice a sí misma es menos confiable que una internamente coherente."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la consistencia interna es un criterio básico para
-  evaluar la confiabilidad de una fuente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "conflicto_de_interes"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente producida por alguien con un interés directo en cómo se cuentan los hechos (un gobierno hablando de su propio desempeño) necesita contrastarse con más cuidado que una fuente sin ese interés directo."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: el conflicto de interés es un factor central a
-  considerar al evaluar la confiabilidad de una fuente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "corroboracion_material"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La evidencia material (restos arqueológicos, registros no narrativos como censos o recibos), cuando existe, puede confirmar o contradecir lo que dicen las fuentes narrativas."
-
-pasos:
-  - "Es otro de los criterios de confiabilidad mencionados en la teoría."
-
-explicacion: |
-  Verdadero: la corroboración con evidencia material es un criterio
-  adicional de confiabilidad, distinto de las fuentes narrativas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["confiabilidad_gradual"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La confiabilidad de una fuente no es binaria (confiable/no confiable), sino una cuestión de grado que varía según para qué se usa la fuente."
-
-pasos:
-  - "Una fuente muy sesgada puede seguir siendo confiable para reconstruir hechos puntuales verificables, aunque no para reconstruir motivaciones."
-
-explicacion: |
-  Verdadero: es un matiz central sobre la naturaleza gradual de la
-  confiabilidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["confiabilidad_gradual", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una carta muy sesgada políticamente puede seguir siendo confiable para confirmar una fecha o un nombre concreto, aunque no lo sea para reconstruir las motivaciones políticas de quien la escribió."
-
-pasos:
-  - "Es la aplicación práctica de que la confiabilidad varía según para qué se usa la fuente."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de por qué la confiabilidad no es
-  un juicio único sobre toda la fuente en bloque.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["triangulacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La triangulación consiste en cruzar información de varias fuentes de tipo distinto (documentos, testimonios, evidencia material) para ver si coinciden."
-
-pasos:
-  - "Es la estrategia central para evaluar evidencia descrita en la teoría."
-
-explicacion: |
-  Verdadero: es la definición central de triangulación en este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["triangulacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cuantas más fuentes independientes coincidan en un dato, más confiable es esa reconstrucción del pasado."
-
-pasos:
-  - "Es la conclusión central de por qué la triangulación es la estrategia más sólida."
-
-explicacion: |
-  Verdadero: es el principio central de la triangulación como
-  estrategia de evaluación de evidencia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["criterios_de_confiabilidad", "practica"]
-
-variables:
-  situaciones: ["tres cronistas de distintos países, sin contacto entre sí, describen la misma batalla con detalles coincidentes", "una carta que primero dice que el rey estaba en la capital y más adelante dice que estaba de viaje ese mismo día"]
-  criterios: ["independencia de la fuente", "consistencia interna (ausente)"]
   idx: uno_de([0, 1])
+  escenario: [["Norte", "Sur", "Verano", "Invierno"], ["Sur", "Norte", "Invierno", "Verano"]]
 
-respuesta: criterios[idx]
 tipo: mc
-opciones_explicitas: ["independencia de la fuente", "consistencia interna (ausente)", "conflicto de interés", "corroboración material"]
+opciones_explicitas: ["Verano", "Invierno"]
 
-enunciado: "\"{situaciones[idx]}\" es un ejemplo relacionado con el criterio de..."
+enunciado: "Si en el hemisferio {escenario[idx][0]} es {escenario[idx][2]}, ¿qué estación es al mismo tiempo en el hemisferio {escenario[idx][1]}?"
 
-pasos:
-  - "Fuentes distintas que coinciden sin contacto entre sí: independencia. Una fuente que se contradice: falta de consistencia interna."
+respuesta: escenario[idx][3]
 
 explicacion: |
-  Reconocer qué criterio de confiabilidad aplica a un caso concreto
-  es la práctica central de este tema.
+  Las estaciones están invertidas entre hemisferios: cuando uno está inclinado hacia el Sol (verano), el otro está inclinado alejándose de él (invierno).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["radiacion", "duracion_dia"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: completar
+respuestas_validas:
+  - "mayor"
+
+enunciado: "Debido a la inclinación hacia el Sol, el verano se caracteriza por recibir una radiación ___ que el resto del año."
+
+respuesta: "mayor"
+
+explicacion: |
+  La inclinación aumenta la densidad de energía solar por unidad de superficie y prolonga la duración de la luz solar diaria.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["ciclo", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Verano", "Otoño", "Invierno", "Primavera"]
+
+enunciado: "Ordena cronológicamente las estaciones del año comenzando desde el verano."
+
+respuesta_orden: ["Verano", "Otoño", "Invierno", "Primavera"]
+
+explicacion: |
+  El ciclo estacional sigue un orden regular determinado por la posición de la Tierra en su órbita.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["energia", "sol"]
+
+tipo: completar
+respuestas_validas:
+  - "menor"
+
+enunciado: "Si la radiación solar es máxima en el verano, en el invierno la radiación solar es ___ que en el verano."
+
+respuesta: "menor"
+
+explicacion: |
+  En el invierno, la inclinación aleja el hemisferio del Sol, resultando en una menor intensidad de radiación solar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["astronomia", "estaciones"]
+
+respuesta: "igual"
+tipo: completar
+respuestas_validas:
+  - "igual"
+
+enunciado: "Durante los equinoccios de primavera y de otoño, la duración del día y la noche es ___."
+
+explicacion: |
+  En los equinoccios, el Sol está directamente sobre el ecuador terrestre, lo que provoca que el día y la noche tengan aproximadamente la misma duración.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["solsticio", "verano"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Evaluar la confiabilidad de una fuente reusa el mismo tipo de escrutinio que exige establecer una relación causal con evidencia real, no sólo cercanía temporal."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: es el prerrequisito directo de este tema."
+enunciado: "Si nos encontramos en el Hemisferio Norte, el solsticio de verano coincide con el día más largo del año."
 
 explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
+  En el Hemisferio Norte, el solsticio de verano marca el punto donde el Sol alcanza su máxima declinación norte, resultando en el día más largo del año.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["big_six"]
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["secuencia", "estaciones"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta_orden: ["equinoccio de primavera", "solsticio de verano", "equinoccio de otoño", "solsticio de invierno"]
+tipo: ordenar
+opciones_explicitas: ["equinoccio de primavera", "solsticio de verano", "equinoccio de otoño", "solsticio de invierno"]
+
+enunciado: "Ordena cronológicamente las estaciones del año comenzando por el equinoccio de primavera:"
+
+explicacion: |
+  El ciclo estándar comienza con la primavera (equinoccio), sigue con el verano (solsticio), luego el otoño (equinoccio) y termina con el invierno (solsticio).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["solsticio", "invierno"]
+
+respuesta: "solsticio de invierno"
+tipo: mc
+opciones_explicitas: ["solsticio de verano", "equinoccio de primavera", "equinoccio de otoño", "solsticio de invierno"]
+
+enunciado: "¿En qué momento astronómico ocurre el día más corto del año (en el hemisferio correspondiente)?"
+
+explicacion: |
+  El solsticio de invierno es el momento en que el hemisferio está más inclinado lejos del Sol, resultando en el día más corto y la noche más larga.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "avanzado"
+  tags: ["calculo", "astronomia"]
+
+respuesta: "mayor"
+tipo: completar
+respuestas_validas:
+  - "mayor"
+
+enunciado: "Si estamos en el solsticio de verano (en el hemisferio correspondiente), la duración del día es ___ que la de la noche."
+
+explicacion: |
+  En el solsticio de verano, la inclinación de la Tierra permite que ese hemisferio reciba luz solar por más tiempo, haciendo que el día sea más largo que la noche.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["geografia", "clima", "latitud"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Evidencia es uno de los 6 conceptos del marco \"Big Six\" de pensamiento histórico, junto a causa/consecuencia y significancia histórica."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/` y `../significancia-historica/`: son otros conceptos de ese mismo marco."
+enunciado: "En las regiones de clima ecuatorial, la diferencia estacional de temperatura es mínima porque el ángulo de incidencia solar se mantiene casi constante durante todo el año."
 
 explicacion: |
-  Verdadero: es el mismo marco teórico ya mencionado en varios temas
-  de esta cadena.
+  En las zonas ecuatoriales, el sol incide de forma casi perpendicular todo el año, manteniendo temperaturas estables. En las zonas templadas y polares, en cambio, el ángulo cambia mucho más a lo largo del año, provocando estaciones marcadas.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["confiabilidad_gradual"]
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["astronomia", "clima"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "cambio"
+tipo: completar
+respuestas_validas:
+  - "cambio"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Incluso una fuente muy sesgada o parcial suele aportar algún tipo de información confiable, aunque haya que contrastarla con cuidado."
-
-pasos:
-  - "Es coherente con la idea de que la confiabilidad es una cuestión de grado, no un juicio absoluto."
+enunciado: "En las zonas polares, la marcada diferencia estacional se debe a que el ángulo de incidencia solar experimenta un gran ___ durante el ciclo anual."
 
 explicacion: |
-  Verdadero: es la aplicación práctica de que ninguna fuente es
-  completamente confiable ni completamente inútil.
+  El movimiento de traslación combinado con la inclinación del eje hace que en los polos el ángulo de incidencia solar varíe drásticamente, causando cambios extremos de temperatura.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["cercania_a_hechos", "matiz"]
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["clima", "latitud"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1])
+  datos: [["Ecuador", "mínima"], ["Zonas Templadas", "máxima"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["mínima", "máxima"]
+
+enunciado: "Considerando el escenario de {datos[idx][0]}, la variación estacional de la temperatura es ___."
+
+explicacion: |
+  En el Ecuador, la radiación solar es constante durante todo el año, por lo que la variación térmica es mínima; en las zonas templadas, en cambio, la variación es máxima.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "avanzado"
+  tags: ["astronomia", "geografia"]
+
+respuesta: "inclinación del eje"
+tipo: mc
+opciones_explicitas: ["inclinación del eje", "distancia al Sol", "velocidad de rotación", "forma de la órbita"]
+
+enunciado: "De los siguientes factores, ¿cuál es el que determina principalmente la variación del ángulo de incidencia solar y, con ella, la estacionalidad en cada latitud?"
+
+explicacion: |
+  La inclinación del eje terrestre es el factor principal que hace que el ángulo de incidencia varíe según la latitud y la época del año, no la distancia al Sol.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["clima"]
+
+respuesta: "estabilidad"
+tipo: completar
+respuestas_validas:
+  - "estabilidad"
+  - "constancia"
+
+enunciado: "En el ecuador, la ausencia de estaciones térmicas marcadas se debe principalmente a la ___ del ángulo de incidencia solar a lo largo del año."
+
+explicacion: |
+  A diferencia de las latitudes altas, en el ecuador el ángulo de incidencia solar casi no cambia entre enero y julio, así que no hay una estación notablemente más fría o más cálida que otra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["astronomia", "hemisferios"]
+
+variables:
+  idx: uno_de([0, 1, 2, 3])
+  datos: [["Diciembre", "Verano", "Hemisferio Sur"], ["Junio", "Invierno", "Hemisferio Sur"], ["Diciembre", "Invierno", "Hemisferio Norte"], ["Junio", "Verano", "Hemisferio Norte"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Verano", "Invierno", "Otoño", "Primavera"]
+
+enunciado: "Si nos encontramos en el mes de {datos[idx][0]} y estamos en el {datos[idx][2]}, ¿qué estación del año estamos experimentando?"
+
+explicacion: |
+  En el Hemisferio Sur, el sol incide más directamente sobre el Trópico de Capricornio en diciembre (verano) y sobre el Trópico de Cáncer en junio (invierno); en el Hemisferio Norte es al revés.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["astronomia", "solsticio"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["Solsticio de Diciembre", "Invierno", "Hemisferio Norte"], ["Solsticio de Junio", "Invierno", "Hemisferio Sur"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Verano", "Invierno", "Otoño", "Primavera"]
+
+enunciado: "Durante el {datos[idx][0]}, en el {datos[idx][2]} la duración del día es la más corta del año. Esto define la estación de:"
+
+explicacion: |
+  El solsticio de invierno marca el inicio de la estación más fría en el hemisferio correspondiente, debido a la inclinación del eje terrestre.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "intermedio"
+  tags: ["comparacion", "hemisferios"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["Primavera", "Otoño"], ["Otoño", "Primavera"]]
+
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Primavera"
+  - "Otoño"
+
+enunciado: "Si en el Hemisferio Norte estamos en la estación de {datos[idx][0]}, en el Hemisferio Sur estamos en la estación de ___."
+
+explicacion: |
+  Las estaciones son opuestas entre hemisferios debido a la inclinación del eje de la Tierra respecto al plano de su órbita.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["equinoccio", "astronomia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["Equinoccio de Marzo", "Primavera", "Hemisferio Norte"], ["Equinoccio de Septiembre", "Otoño", "Hemisferio Norte"]]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["Primavera", "Otoño", "Verano", "Invierno"]
+
+enunciado: "En el {datos[idx][0]} en el {datos[idx][2]}, el día y la noche tienen la misma duración. Esto marca el inicio de la:"
+
+explicacion: |
+  Los equinoccios (marzo y septiembre) representan los momentos en que el sol cruza el ecuador celeste, equilibrando la luz y la sombra en todo el planeta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "estaciones_del_ano"
+  nivel: "basico"
+  tags: ["secuencia", "ciclos"]
+
+respuesta_orden: ["Verano", "Otoño", "Invierno", "Primavera"]
+tipo: ordenar
+opciones_explicitas: ["Verano", "Otoño", "Invierno", "Primavera"]
+
+enunciado: "Ordena las estaciones siguiendo el ciclo natural comenzando desde el Verano."
+
+explicacion: |
+  El ciclo astronómico sigue siempre el mismo orden: Verano → Otoño → Invierno → Primavera (y vuelve a empezar).
+```
+
+## Sección: fases-lunares (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "mitos"]
 
 respuesta: falso
 tipo: vf
 
-enunciado: "Una fuente contemporánea a los hechos es SIEMPRE más confiable que una fuente posterior, sin ninguna excepción."
-
-pasos:
-  - "La teoría marca explícitamente \"en general, no siempre\": una fuente contemporánea puede estar igualmente sesgada o incluso más comprometida con los hechos que una posterior con perspectiva."
+enunciado: "Un error común es pensar que las fases lunares ocurren porque la Tierra proyecta su sombra sobre la Luna."
 
 explicacion: |
-  Falso: es una tendencia general, no una regla absoluta sin
-  excepciones.
+  Las fases lunares no son causadas por la sombra de la Tierra. La sombra de la Tierra sobre la Luna sólo ocurre durante un eclipse lunar, un evento mucho más raro y específico.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["corroboracion_material", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Si una crónica narrativa afirma que una ciudad tenía cierta cantidad de habitantes, y los restos arqueológicos disponibles contradicen esa cifra, la evidencia material puede llevar a reconsiderar la confiabilidad de la crónica en ese punto."
-
-pasos:
-  - "Es la aplicación práctica de por qué la corroboración material es un criterio útil de confiabilidad."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo la evidencia material
-  puede confirmar o contradecir fuentes narrativas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "intermedio"
-  tags: ["evidencia", "metodo"]
-
-enunciado: "Ordená los pasos para evaluar la confiabilidad de una fuente histórica, después de ya clasificarla como primaria o secundaria."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si la fuente es internamente consistente, sin contradecirse"
-  - "Revisar si hay un conflicto de interés evidente en quien la produjo"
-  - "Buscar otras fuentes independientes que confirmen o contradigan el mismo dato"
-  - "Contrastar, si existe, con evidencia material disponible"
-respuesta_orden: ["Revisar si la fuente es internamente consistente, sin contradecirse", "Revisar si hay un conflicto de interés evidente en quien la produjo", "Buscar otras fuentes independientes que confirmen o contradigan el mismo dato", "Contrastar, si existe, con evidencia material disponible"]
-explicacion: |
-  El proceso aplica sucesivamente los criterios de confiabilidad
-  descritos en la teoría, terminando con la triangulación completa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["evidencia", "significancia_historica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Evidencia (qué tan confiable es una fuente) y significancia histórica (qué del pasado vale la pena estudiar) son dos conceptos hermanos del marco Big Six, complementarios pero distintos entre sí."
-
-pasos:
-  - "Ver `../significancia-historica/`: ambos cuelgan de puntos distintos de la misma cadena de pensamiento histórico."
-
-explicacion: |
-  Verdadero: son dos preguntas distintas (qué estudiar vs. cómo saber
-  si es confiable lo que se encuentra) que se complementan en la
-  investigación histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "evidencia"
-  nivel: "avanzado"
-  tags: ["evidencia", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer una fuente histórica sobre un tema controvertido, conviene aplicar la triangulación: buscar otras fuentes independientes que confirmen o contradigan la información, en vez de aceptar una sola fuente como suficiente."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al analizar
-  cualquier fuente histórica real, especialmente sobre temas
-  controvertidos.
-```
-
-## Sección: dimension-etica (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
+  tema: "fases_lunares"
   nivel: "basico"
-  tags: ["dimension_etica", "definicion"]
+  tags: ["astronomia", "geometria"]
 
-variables:
-  n: uno_de([1, 1])
+opciones_explicitas: ["La sombra de la Tierra", "La posición de la Luna respecto al Sol y la Tierra", "La atmósfera terrestre", "La distancia de la Luna a la Tierra"]
+respuesta: "La posición de la Luna respecto al Sol y la Tierra"
+tipo: mc
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La dimensión ética pregunta qué le debemos, hoy, a la memoria de lo ocurrido, no sólo qué pasó en el pasado."
-
-pasos:
-  - "Es una pregunta sobre la responsabilidad del presente, no sobre el pasado en sí."
+enunciado: "¿Cuál es la causa real de que veamos diferentes fases lunares?"
 
 explicacion: |
-  Verdadero: es la definición central de dimensión ética en historia.
+  Las fases dependen de la geometría entre el Sol, la Tierra y la Luna. Lo que vemos es la fracción de la cara iluminada de la Luna que es visible desde nuestra perspectiva en la Tierra.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
+  tema: "fases_lunares"
   nivel: "intermedio"
-  tags: ["dimension_etica", "big_six", "diferenciacion"]
+  tags: ["astronomia", "terminologia"]
 
-variables:
-  n: uno_de([1, 1])
+respuestas_validas:
+  - "porción"
+  - "parte"
+  - "fracción"
+respuesta: "porción"
+tipo: completar
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "A diferencia de causa/consecuencia, cambio/continuidad y multicausalidad, que responden preguntas de hecho (qué pasó, por qué), la dimensión ética responde una pregunta distinta: qué debemos hoy frente a eso."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`, `../cambio-y-continuidad/`, `../multicausalidad/`: son los conceptos de hecho ya estudiados."
+enunciado: "Las fases lunares representan la ___ de la cara iluminada de la Luna que podemos observar desde la Tierra, según su posición orbital."
 
 explicacion: |
-  Verdadero: es la distinción central entre este tema y los
-  conceptos anteriores de la cadena.
+  Como la Luna siempre tiene una mitad iluminada por el Sol, lo que cambia es la porción de esa mitad que nuestro ángulo de visión nos permite ver.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
+  tema: "fases_lunares"
   nivel: "intermedio"
-  tags: ["proposito"]
+  tags: ["astronomia", "eventos"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "eclipse lunar"
+tipo: completar
+respuestas_validas:
+  - "eclipse lunar"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin esta habilidad enseñada explícitamente, un tema histórico grave puede quedar reducido a una fecha para memorizar, en vez de ser una herramienta de juicio que ayuda a evitar repetir el error."
-
-pasos:
-  - "Es la razón central por la que este concepto se incluyó explícitamente en el mapa."
+enunciado: "Si la Luna entra en la sombra proyectada por la Tierra (un evento raro, no mensual), estamos ante un ___."
 
 explicacion: |
-  Verdadero: es el propósito central de este tema, mencionado en la
-  teoría.
+  Cuando la Tierra interfiere en la luz solar hacia la Luna, se produce un eclipse lunar, no una fase lunar normal (las fases ocurren todos los meses, los eclipses no).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "quien_cuenta"]
-
-variables:
-  n: uno_de([1, 1])
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "conceptos"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Las víctimas, los perpetradores, el Estado y los historiadores académicos pueden tener versiones legítimas pero parciales de un mismo hecho, y ninguna reemplaza del todo a las demás."
-
-pasos:
-  - "Es una de las preguntas centrales de la dimensión ética mencionadas en la teoría."
+enunciado: "La Luna siempre tiene una mitad iluminada por el Sol, independientemente de la fase que veamos desde la Tierra."
 
 explicacion: |
-  Verdadero: es una de las preguntas centrales de este tema.
+  Verdadero. La Luna siempre recibe luz solar (salvo en eclipses); lo que cambia es nuestra perspectiva de esa mitad iluminada según la posición orbital de la Luna.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "victimas"]
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "luna nueva"
+tipo: completar
+respuestas_validas:
+  - "luna nueva"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Distintas sociedades han respondido de formas distintas qué le deben a las víctimas de un hecho histórico grave: reconocimiento, verdad, justicia, reparación."
-
-pasos:
-  - "Juicios penales, comisiones de la verdad, monumentos y educación obligatoria son ejemplos de respuestas concretas mencionadas en la teoría."
+enunciado: "La fase en la que la Luna se encuentra entre la Tierra y el Sol, por lo que su cara iluminada no es visible desde nuestro planeta, se denomina ___."
 
 explicacion: |
-  Verdadero: es otra de las preguntas centrales de este tema.
+  En la luna nueva, el ángulo entre el Sol, la Luna y la Tierra es de 0°, lo que impide ver la parte iluminada.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
+
+opciones_explicitas: ["luna llena", "cuarto creciente", "luna nueva", "cuarto menguante"]
+respuesta: "luna llena"
+tipo: mc
+
+enunciado: "Cuando la Luna se encuentra opuesta al Sol con respecto a la Tierra, la vemos totalmente iluminada. ¿Cómo se llama esta fase?"
+
+explicacion: |
+  La luna llena ocurre cuando la Tierra está entre el Sol y la Luna.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
   nivel: "intermedio"
-  tags: ["preguntas_centrales", "practica"]
+  tags: ["astronomia", "luna"]
+
+opciones_explicitas: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
+respuesta_orden: ["luna creciente iluminante", "cuarto creciente", "gibosa creciente", "luna llena"]
+tipo: ordenar
+
+enunciado: "Ordena las siguientes fases lunares según aparecen en el ciclo de crecimiento (de menor a mayor iluminación):"
+
+explicacion: |
+  Después de la luna nueva, la parte visible crece primero como una pequeña astilla (creciente iluminante), luego alcanza la mitad (cuarto creciente) y finalmente se ensancha antes de la luna llena (gibosa creciente).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "intermedio"
+  tags: ["astronomia", "luna"]
 
 variables:
-  herramientas: ["juicios penales", "comisiones de la verdad", "monumentos"]
+  idx: uno_de([0, 1])
+  datos: [["gibosa creciente", "cuarto creciente"], ["gibosa menguante", "luna llena"]]
+
+opciones_explicitas: ["gibosa creciente", "gibosa menguante", "cuarto creciente", "cuarto menguante"]
+respuesta: datos[idx][0]
+tipo: mc
+
+enunciado: "Si una fase ocurre justo después de la {datos[idx][1]} (y antes de la luna llena/nueva siguiente), ¿cuál es el nombre de esa fase intermedia?"
+
+explicacion: |
+  La fase gibosa es aquella en la que la Luna se ve iluminada en más de la mitad pero todavía no llega a ser llena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
+
+respuesta: "0.5"
+tipo: completar
+respuestas_validas:
+  - "0.5"
+  - "0,5"
+  - "1/2"
+  - "50%"
+
+enunciado: "En las fases de 'cuarto creciente' y 'cuarto menguante', la fracción (en decimal) de la cara visible de la Luna que está iluminada es ___."
+
+pasos:
+  - "Identificar que en el cuarto, la Luna está exactamente a la mitad de su ciclo de iluminación."
+
+explicacion: |
+  En las fases de cuarto, la Luna presenta exactamente la mitad de su cara visible iluminada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
+
+respuesta: "29.5"
+tipo: completar
+respuestas_validas:
+  - "29.5"
+  - "29,5"
+  - "29"
+
+enunciado: "El ciclo completo de las fases de la Luna, conocido como mes sinódico o lunación, dura aproximadamente ___ días."
+
+explicacion: |
+  El ciclo sinódico es el tiempo que tarda la Luna en volver a la misma fase respecto al Sol y la Tierra, unos 29,5 días.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["fases", "luna_nueva"]
+
+respuesta: "la cara iluminada mira al Sol"
+tipo: mc
+opciones_explicitas: ["la cara iluminada mira a la Tierra", "la cara iluminada mira al Sol", "la Luna deja de recibir luz solar"]
+
+enunciado: "Durante la fase de Luna Nueva, no podemos ver el disco lunar porque ___."
+
+explicacion: |
+  En la Luna Nueva, la Luna se encuentra entre la Tierra y el Sol: la cara que vemos desde nuestro planeta es la que está en sombra, mientras la cara iluminada mira hacia el Sol.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["fases", "luna_llena"]
+
+respuesta: "la cara iluminada mira a la Tierra"
+tipo: completar
+respuestas_validas:
+  - "la cara iluminada mira a la Tierra"
+
+enunciado: "En la fase de Luna Llena, podemos ver el disco completo porque ___."
+
+explicacion: |
+  En la Luna Llena, la Tierra se encuentra entre el Sol y la Luna, así que la cara iluminada es la que observamos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "intermedio"
+  tags: ["orden", "fases"]
+
+opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+respuesta_orden: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+tipo: ordenar
+
+enunciado: "Ordena cronológicamente las fases lunares desde la ausencia de luz visible hasta la plenitud del disco."
+
+explicacion: |
+  El ciclo comienza con la Luna Nueva (oscuridad), sigue con el crecimiento de la parte visible (creciente), llega al máximo (llena) y luego decrece (menguante).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["logica", "fases"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "En fase de Luna Llena vemos el disco completo porque la parte iluminada de la Luna apunta hacia la Tierra."
+
+explicacion: |
+  Correcto. En Luna Llena, la Tierra queda entre el Sol y la Luna, así que la cara iluminada de la Luna mira de frente hacia nosotros.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["luna", "astronomia"]
+
+respuesta: "sincrónica"
+tipo: completar
+respuestas_validas:
+  - "sincrónica"
+  - "sincronizada"
+
+enunciado: "El fenómeno por el cual la Luna tarda el mismo tiempo en rotar sobre su propio eje que en completar su órbita alrededor de la Tierra se denomina rotación ___."
+
+explicacion: |
+  Debido a que los períodos de rotación y traslación son iguales, la misma cara de la Luna siempre está orientada hacia la Tierra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["luna", "astronomia"]
+
+respuesta: "cara visible"
+tipo: completar
+respuestas_validas:
+  - "cara visible"
+
+enunciado: "Gracias a la rotación sincrónica, la parte de la Luna que siempre está orientada hacia nosotros se conoce como la ___."
+
+explicacion: |
+  La rotación sincrónica impide que veamos la cara oculta desde la Tierra, manteniendo siempre la misma cara frente a nosotros: la cara visible.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "intermedio"
+  tags: ["luna", "astronomia"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La existencia de una 'cara oculta' de la Luna depende de las fases lunares (luna llena, luna nueva, etc.)."
+
+explicacion: |
+  Falso. La cara oculta es consecuencia de la rotación sincrónica y es independiente de las fases lunares: es la parte que no vemos por la rotación, no por la iluminación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "intermedio"
+  tags: ["luna", "astronomia"]
+
+respuesta: "rotación y traslación"
+tipo: mc
+opciones_explicitas: ["rotación y traslación", "distancia y tamaño", "gravedad y magnetismo"]
+
+enunciado: "La razón por la cual no podemos ver la cara oculta de la Luna se debe a la igualdad entre sus períodos de ___."
+
+explicacion: |
+  Como la Luna tarda lo mismo en rotar que en orbitar, la cara que mira a la Tierra siempre es la misma.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "avanzado"
+  tags: ["luna", "astronomia"]
+
+respuesta_orden: ["rotación sincrónica", "cara visible", "cara oculta"]
+tipo: ordenar
+
+opciones_explicitas: ["rotación sincrónica", "cara visible", "cara oculta"]
+
+enunciado: "Ordena estos conceptos según la relación de causa y efecto: primero la causa física, después sus dos consecuencias."
+
+explicacion: |
+  La rotación sincrónica es la causa física; de ella se derivan la existencia de una cara visible y una cara oculta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
+
+variables:
+  idx: uno_de([0, 1])
+  porcentajes: [0.0, 1.0]
+  fases: ["Luna Nueva", "Luna Llena"]
+
+respuesta: fases[idx]
+tipo: mc
+opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Cuarto Menguante", "Luna Llena"]
+
+enunciado: "Si la iluminación visible de la Luna es del {redondear(porcentajes[idx] * 100, 0)}%, ¿qué fase lunar estamos observando?"
+
+explicacion: |
+  0% de iluminación visible es Luna Nueva; 100% es Luna Llena. (El 50% no alcanza para distinguir por sí solo entre cuarto creciente y cuarto menguante — hace falta saber si la iluminación está aumentando o disminuyendo.)
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [[100, "Luna Llena"], [0, "Luna Nueva"]]
+
+respuesta: datos[idx][0]
+tipo: completar
+respuestas_validas:
+  - datos[idx][0]
+
+enunciado: "Si la Luna se encuentra en fase {datos[idx][1]}, el porcentaje de su cara visible que está iluminado es ___%."
+
+explicacion: |
+  En la fase {datos[idx][1]}, la iluminación visible es del {datos[idx][0]}%.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "intermedio"
+  tags: ["astronomia", "luna"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["Luna Nueva", 0], ["Luna Llena", 100]]
+
+respuesta: datos[idx][0]
+tipo: completar
+respuestas_validas:
+  - "Luna Nueva"
+  - "Luna Llena"
+
+enunciado: "Cuando la Luna presenta una iluminación visible del {datos[idx][1]}%, la fase se llama ___."
+
+explicacion: |
+  La fase con {datos[idx][1]}% de iluminación visible es la {datos[idx][0]}.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "intermedio"
+  tags: ["astronomia", "luna"]
+
+respuesta_orden: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+tipo: ordenar
+opciones_explicitas: ["Luna Nueva", "Cuarto Creciente", "Luna Llena", "Cuarto Menguante"]
+
+enunciado: "Ordena cronológicamente las fases lunares desde la ausencia de luz visible hasta la plenitud."
+
+explicacion: |
+  El ciclo lunar comienza con la Luna Nueva, sigue con el cuarto creciente, luego la Luna Llena y finalmente el cuarto menguante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "fases_lunares"
+  nivel: "basico"
+  tags: ["astronomia", "luna"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Si la Luna tiene un 100% de iluminación visible, se trata de una Luna Nueva."
+
+explicacion: |
+  Falso: 100% de iluminación visible corresponde a la Luna Llena, no a la Luna Nueva (que es 0%).
+```
+
+## Sección: movimiento-aparente-constelaciones (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["astronomia", "rotacion_terrestre"]
+
+respuesta: "rotación terrestre"
+tipo: completar
+respuestas_validas:
+  - "rotación terrestre"
+
+enunciado: "El movimiento aparente de las estrellas durante la noche, donde parecen desplazarse de este a oeste, es causado en realidad por la ___ de la Tierra."
+
+explicacion: |
+  Aunque parece que el cielo gira alrededor de nosotros, es la Tierra la que gira sobre su propio eje de oeste a este, lo que genera la ilusión de movimiento estelar en sentido contrario.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["observacion", "astronomia"]
+
+respuesta: "Este-Oeste"
+tipo: mc
+opciones_explicitas: ["Este-Oeste", "Oeste-Este", "Norte-Sur", "Sur-Norte"]
+
+enunciado: "Debido a la rotación terrestre, ¿en qué dirección aparente vemos que se desplazan las estrellas durante la noche?"
+
+explicacion: |
+  Como la Tierra rota hacia el Este, los objetos celestes parecen moverse hacia el Oeste.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["geocentrismo", "heliocentrismo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es el movimiento de las constelaciones causado por el desplazamiento físico de las estrellas alrededor de la Tierra?"
+
+explicacion: |
+  Falso. Las estrellas tienen sus propios movimientos propios (muy lentos), pero el movimiento diario que vemos es un efecto óptico de nuestra rotación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "avanzado"
+  tags: ["eje_terrestre", "estrellas_fijas"]
+
+respuesta: "Polo Norte Celeste"
+tipo: mc
+opciones_explicitas: ["Polo Norte Celeste", "Ecuador Celeste", "Polo Sur Celeste"]
+
+enunciado: "En el hemisferio norte, las estrellas parecen girar alrededor de un punto fijo en el cielo llamado ___."
+
+explicacion: |
+  El eje de rotación de la Tierra apunta hacia las estrellas que parecen estar en el centro del movimiento circular, como la Estrella Polar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["observacion", "secuencia"]
+
+respuesta_orden: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
+tipo: ordenar
+opciones_explicitas: ["Aparición por el Este", "Paso por el Meridiano", "Ocultación por el Oeste"]
+
+enunciado: "Ordena el ciclo de movimiento aparente de una estrella desde que sale hasta que se pone:"
+
+pasos:
+  - "La estrella aparece en el horizonte."
+  - "La estrella alcanza su punto más alto."
+  - "La estrella desaparece bajo el horizonte."
+
+explicacion: |
+  Debido a la rotación de la Tierra, el ciclo sigue siempre este orden: sale por el este, cruza el cielo (meridiano) y se pone por el oeste.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["astronomia", "tierra", "sol"]
+
+respuesta: "traslación"
+tipo: completar
+respuestas_validas:
+  - "traslación"
+  - "traslación de la Tierra"
+
+enunciado: "El cambio en las constelaciones visibles a lo largo de los meses ocurre debido al movimiento de ___ de la Tierra alrededor del Sol."
+
+explicacion: |
+  La Tierra se desplaza en su órbita alrededor del Sol. Esto hace que, según nuestra posición en la órbita, la parte del cielo que queda en la oscuridad (noche) cambie, permitiéndonos ver diferentes estrellas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["estaciones", "cielo_nocturno"]
+
+variables:
+  escenario: uno_de([["Orión", "invierno"], ["Escorpio", "verano"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["invierno", "verano", "primavera", "otoño"]
+
+enunciado: "Si en una fecha determinada observamos con claridad la constelación de {escenario[0]}, esto indica que estamos en la estación de {escenario[1]}."
+
+explicacion: |
+  Las constelaciones estacionales dependen de la posición de la Tierra respecto al Sol. Por ejemplo, la constelación de Orión es típica del cielo de invierno en el hemisferio norte.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["perspectiva", "sol"]
+
+respuesta: "Sol"
+tipo: completar
+respuestas_validas:
+  - "Sol"
+  - "Sol"
+
+enunciado: "Las constelaciones que vemos en el cielo nocturno cambian porque, al movernos en nuestra órbita, el ___ queda situado entre la Tierra y las estrellas que antes veíamos, ocultándolas durante la noche."
+
+explicacion: |
+  Durante el día, el Sol "tapa" la luz de las estrellas que se encuentran en la misma dirección. Al cambiar nuestra posición orbital, las estrellas que antes eran visibles de noche ahora están en la dirección del Sol.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "avanzado"
+  tags: ["orden", "ciclo_anual"]
+
+respuesta_orden: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
+tipo: ordenar
+opciones_explicitas: ["Eje terrestre", "Traslación", "Cambio de constelaciones"]
+
+enunciado: "Ordena la secuencia lógica de causas que explica por qué vemos diferentes estrellas cada mes:"
+
+pasos:
+  - "La Tierra tiene un eje de rotación."
+  - "La Tierra realiza un movimiento de traslación alrededor del Sol."
+  - "La perspectiva de las estrellas cambia, mostrando nuevas constelaciones."
+
+explicacion: |
+  El ciclo es una consecuencia directa del movimiento orbital de la Tierra alrededor del Sol.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "¿Es el movimiento de rotación (sobre su propio eje) la causa principal por la que las constelaciones cambian de una estación a otra?"
+
+explicacion: |
+  Falso. La rotación causa el ciclo día/noche, pero es la traslación la que causa el cambio de las constelaciones visibles a lo largo de los meses.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["astronomia", "orientacion"]
+
+respuesta: "eje de rotación"
+tipo: completar
+respuestas_validas:
+  - "eje de rotación"
+
+enunciado: "La estrella Polaris parece permanecer casi fija en el cielo debido a que se encuentra alineada con el ___ de la Tierra."
+
+explicacion: |
+  Debido a que la Tierra gira alrededor de su eje, las estrellas parecen moverse en círculos. Como Polaris está casi sobre el eje, su movimiento aparente es mínimo, manteniéndola como punto de referencia constante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["orientacion", "navegacion"]
+
+opciones_explicitas: ["Determinar la hora exacta", "Orientarse en el hemisferio norte", "Predecir eclipses lunares", "Calcular la distancia a la Luna"]
+
+respuesta: "Orientarse en el hemisferio norte"
+tipo: mc
+
+enunciado: "¿Cuál es la principal utilidad histórica de la estrella Polar para los navegantes?"
+
+explicacion: |
+  Al estar situada cerca del polo norte celeste, su posición permite identificar rápidamente el norte geográfico, siendo vital para la navegación en el hemisferio norte.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["movimiento_aparente", "rotacion"]
+
+variables:
+  respuesta_correcta: "se mueven en arcos circulares"
+
+tipo: mc
+opciones_explicitas: ["se mueven en líneas rectas", "se mueven en arcos circulares"]
+respuesta: respuesta_correcta
+
+enunciado: "Debido a la rotación terrestre, las estrellas que no son Polaris parecen moverse en el cielo siguiendo un patrón de ___."
+
+explicacion: |
+  La rotación de la Tierra sobre su eje provoca que las estrellas tracen trayectorias curvas o arcos en la bóveda celeste durante la noche.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["geometria_celeste"]
+
+respuesta: "norte"
+tipo: completar
+respuestas_validas:
+  - "norte"
+
+enunciado: "Si observamos el cielo nocturno en el hemisferio norte, la estrella que marca el punto cardinal ___ es la Polaris."
+
+explicacion: |
+  Polaris es la estrella que indica la dirección del norte celeste, sirviendo como brújula natural.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "avanzado"
+  tags: ["observacion", "secuencia"]
+
+opciones_explicitas: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
+
+respuesta_orden: ["Localizar la Osa Mayor", "Identificar la estrella Polaris", "Determinar el Norte"]
+tipo: ordenar
+
+enunciado: "Un navegante antiguo sigue este proceso para orientarse usando las estrellas. Ordena los pasos correctamente:"
+
+explicacion: |
+  Para encontrar el norte de forma fiable, primero se busca una constelación conocida (como la Osa Mayor), luego se localiza la estrella guía (Polaris) y finalmente se establece el punto cardinal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["astronomia", "conceptos_basicos"]
+
+respuesta: "patrón aparente"
+tipo: completar
+respuestas_validas:
+  - "patrón aparente"
+
+enunciado: "Una constelación no es un grupo de estrellas unidas físicamente, sino un ___ formado por estrellas que parecen estar juntas desde nuestra perspectiva."
+
+explicacion: |
+  Las estrellas de una constelación pueden estar a cientos o miles de años luz de distancia unas de otras; solo parecen estar cerca debido a nuestra perspectiva desde la Tierra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["distancia", "perspectiva"]
+
+opciones_explicitas: ["Están físicamente unidas por la gravedad", "Están a distancias muy distintas de la Tierra", "Tienen la misma edad y composición", "Se mueven siempre en la misma dirección"]
+
+respuesta: "Están a distancias muy distintas de la Tierra"
+tipo: mc
+
+enunciado: "Sobre la distancia real de las estrellas que forman una constelación, es correcto afirmar que:"
+
+explicacion: |
+  Aunque en el cielo nocturno parezcan formar un dibujo coherente, la mayoría de las veces las estrellas de una constelación no tienen ninguna relación física de distancia entre sí.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["perspectiva", "geometria_espacial"]
+
+tipo: mc
+enunciado: "Las estrellas de una constelación suelen estar a distancias radicalmente distintas de la Tierra, algunas mucho más cerca que otras. Sin embargo, las vemos formando una figura plana en el cielo. ¿Cuál es la explicación de este efecto?"
+opciones_explicitas:
+  - "La perspectiva visual proyecta estrellas a distancias muy distintas sobre un mismo plano aparente"
+  - "Las estrellas de una constelación están realmente cerca unas de otras en el espacio"
+  - "Todas las estrellas se encuentran exactamente a la misma distancia de la Tierra"
+  - "Las constelaciones son figuras físicas dibujadas en el espacio interestelar"
+respuesta: "La perspectiva visual proyecta estrellas a distancias muy distintas sobre un mismo plano aparente"
+
+explicacion: |
+  Lo que vemos es una proyección: la línea de visión aplana la profundidad real del espacio, así que estrellas separadas por años luz de distancia entre sí pueden parecer vecinas cuando en realidad no lo están.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["estrellas", "patrones"]
+
+respuesta: "no están relacionadas físicamente entre sí"
+tipo: completar
+respuestas_validas:
+  - "no están relacionadas físicamente entre sí"
+
+enunciado: "A diferencia de un sistema estelar como el Sol y sus planetas, las estrellas que componen una constelación ___."
+
+explicacion: |
+  La agrupación es una ilusión óptica causada por la línea de visión. Físicamente, son objetos independientes que navegan por el espacio en direcciones distintas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["orden_logico", "perspectiva"]
+
+opciones_explicitas: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
+
+respuesta_orden: ["Luz de la estrella", "Distancia real de la estrella", "Posición aparente en el cielo", "Formación de la constelación"]
+tipo: ordenar
+
+enunciado: "Ordena los conceptos según el proceso que explica la creación de una constelación (desde el origen físico hasta la percepción humana):"
+
+explicacion: |
+  Primero la luz viaja desde la estrella (1), la estrella tiene una distancia real (2), esa luz llega con una posición específica (3) y el ojo humano percibe el patrón (4).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "basico"
+  tags: ["astronomia", "estaciones"]
+
+respuesta: "Leo"
+tipo: mc
+opciones_explicitas: ["Leo", "Tauro", "Cáncer", "Orión"]
+
+enunciado: "Durante la primavera en el hemisferio norte, ¿cuál de las siguientes constelaciones se encuentra en su punto más alto (culminación) en el cielo nocturno?"
+
+explicacion: |
+  Debido al movimiento de traslación de la Tierra, diferentes constelaciones son visibles en diferentes épocas del año. Leo es la constelación clásica de las noches de primavera, mientras que Tauro y Orión son constelaciones invernales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "movimiento_aparente_constelaciones"
+  nivel: "intermedio"
+  tags: ["zodiaco", "estaciones"]
+
+variables:
+  datos: [["verano", "Escorpio"], ["invierno", "Géminis"], ["otoño", "Libra"]]
   idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
+respuesta: datos[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Escorpio"
+  - "Géminis"
+  - "Libra"
 
-enunciado: "\"{herramientas[idx]}\" es un ejemplo mencionado en la teoría de cómo una sociedad puede responder a la pregunta de qué le debe a las víctimas de un hecho histórico grave."
-
-pasos:
-  - "Son ejemplos concretos de las distintas formas en que las sociedades intentan responder esa pregunta."
+enunciado: "Si estamos en la estación de {datos[idx][0]}, la constelación del zodiaco que es más visible hacia el mediodía es ___."
 
 explicacion: |
-  Verdadero: son ejemplos de mecanismos reales que distintas
-  sociedades han usado para responder esta pregunta ética.
+  La posición del Sol en el zodiaco determina qué constelaciones son visibles durante el día y cuáles durante la noche en una estación específica.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "prevencion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Entender las condiciones que hicieron posible un hecho grave es parte de la responsabilidad de estudiarlo, no sólo narrar los hechos en sí."
-
-pasos:
-  - "Es otra de las preguntas centrales de la dimensión ética mencionadas en la teoría."
-
-explicacion: |
-  Verdadero: es otra de las preguntas centrales de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["preguntas_centrales", "memoria_selectiva"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Qué monumentos se erigen, qué fechas se conmemoran y qué se enseña en la escuela son decisiones que reflejan valores del presente, no sólo hechos del pasado."
-
-pasos:
-  - "Es otra de las preguntas centrales de la dimensión ética mencionadas en la teoría, sobre la memoria selectiva."
-
-explicacion: |
-  Verdadero: es otra de las preguntas centrales de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["memoria_selectiva"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La memoria histórica es selectiva: no todo lo ocurrido se conmemora o enseña de la misma manera, y esas decisiones son parte de lo que estudia la dimensión ética."
-
-pasos:
-  - "Es la conclusión central sobre el carácter selectivo de la memoria colectiva."
-
-explicacion: |
-  Verdadero: es un concepto central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["juicio_historico", "juicio_etico", "diferenciacion"]
-
-variables:
-  afirmaciones: ["el hecho X ocurrió por razones económicas y políticas combinadas", "el hecho X fue incorrecto y genera una responsabilidad hoy"]
-  tipos: ["juicio histórico", "juicio ético"]
-  idx: uno_de([0, 1])
-
-respuesta: tipos[idx]
-tipo: mc
-opciones_explicitas: ["juicio histórico", "juicio ético"]
-
-enunciado: "\"{afirmaciones[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Analizar por qué ocurrió algo es un juicio histórico; evaluar si fue correcto/incorrecto y qué responsabilidad genera es un juicio ético."
-
-explicacion: |
-  Distinguir juicio histórico de juicio ético es la aplicación
-  central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["juicio_historico", "juicio_etico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El juicio histórico (por qué ocurrió algo) y el juicio ético (si fue correcto y qué responsabilidad genera hoy) son ambos necesarios para entender un hecho grave del pasado, pero son preguntas distintas."
-
-pasos:
-  - "Ver `../../filosofia/etica-como-rama-propia/`: es la misma distinción entre descripción y evaluación, aplicada ahora al pasado histórico."
-
-explicacion: |
-  Verdadero: es la distinción central de este tema entre analizar y
-  evaluar un hecho histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["consenso_variable"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Algunos juicios éticos sobre el pasado tienen amplio consenso; otros (como la forma exacta de reparar un daño histórico) son objeto de debate legítimo."
-
-pasos:
-  - "Reconocer esa diferencia es parte de manejar esta dimensión con rigor, no con simplificación."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre la variedad de consenso
-  posible en juicios éticos históricos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["consenso_variable", "anacronismo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Hasta qué punto juzgar a personas del pasado con estándares éticos actuales es uno de los temas de debate legítimo mencionados en la teoría, sin una respuesta única y cerrada."
-
-pasos:
-  - "Es un ejemplo concreto de la variedad de consenso posible dentro de la dimensión ética."
-
-explicacion: |
-  Verdadero: es un ejemplo específico mencionado del tipo de debate
-  legítimo dentro de esta dimensión.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Juzgar qué le debemos a la memoria de lo ocurrido presupone ya poder distinguir qué de ese pasado cambió y qué sigue vigente hoy (deudas no saldadas, patrones que persisten)."
-
-pasos:
-  - "Ver `../cambio-y-continuidad/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["big_six", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dimensión ética es el sexto y último concepto del marco Big Six de pensamiento histórico, cerrando el conjunto completo de esta cadena."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`, `../cambio-y-continuidad/`, `../significancia-historica/`, `../evidencia/`: son los otros 5 conceptos del marco ya cubiertos."
-
-explicacion: |
-  Verdadero: es el sexto concepto del marco Big Six, completando el
-  conjunto de herramientas de pensamiento histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["memoria_selectiva", "presente"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un país decida hoy erigir (o retirar) un monumento a una figura histórica es una decisión que dice tanto sobre los valores actuales de esa sociedad como sobre el hecho histórico en sí."
-
-pasos:
-  - "Es la aplicación práctica de que la memoria histórica refleja valores del presente."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo las decisiones de memoria
-  colectiva combinan pasado y presente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["dimension_etica", "rigor"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La dimensión ética permite reemplazar el análisis histórico riguroso (causas, evidencia) por un juicio moral directo sobre los hechos, sin necesitar evidencia ni análisis causal."
-
-pasos:
-  - "Ambos tipos de juicio (histórico y ético) son necesarios; uno no sustituye al otro."
-
-explicacion: |
-  Falso: el juicio ético se construye SOBRE el análisis histórico
-  riguroso, no lo reemplaza.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "intermedio"
-  tags: ["dimension_etica", "metodo"]
-
-enunciado: "Ordená los pasos para abordar la dimensión ética de un hecho histórico grave, después de ya analizarlo históricamente (causas, evidencia)."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar quiénes tienen versiones legítimas pero parciales del hecho (víctimas, perpetradores, historiadores)"
-  - "Preguntarse qué le debe la sociedad actual a las víctimas del hecho"
-  - "Analizar las condiciones que hicieron posible el hecho, para pensar cómo evitar repetirlo"
-  - "Revisar qué se recuerda y qué se olvida hoy sobre ese hecho, y por qué"
-respuesta_orden: ["Identificar quiénes tienen versiones legítimas pero parciales del hecho (víctimas, perpetradores, historiadores)", "Preguntarse qué le debe la sociedad actual a las víctimas del hecho", "Analizar las condiciones que hicieron posible el hecho, para pensar cómo evitar repetirlo", "Revisar qué se recuerda y qué se olvida hoy sobre ese hecho, y por qué"]
-explicacion: |
-  El proceso recorre las cuatro preguntas centrales de la dimensión
-  ética descritas en la teoría, en un orden lógico de análisis.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["dimension_etica", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La dimensión ética es lo que conecta el estudio del pasado con la responsabilidad del presente, la razón última por la que estudiar historia importa más allá de acumular información."
-
-pasos:
-  - "Es la síntesis central de por qué este tema cierra el marco Big Six de esta manera."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre el propósito de este
-  tema dentro de toda la cadena de pensamiento histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "dimension_etica"
-  nivel: "avanzado"
-  tags: ["dimension_etica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al estudiar un hecho histórico grave (una dictadura, un genocidio, una injusticia masiva), conviene complementar el análisis de causas y evidencia con las preguntas de la dimensión ética: qué le debemos a las víctimas y cómo se evita repetir el error."
-
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al estudio
-  responsable de hechos históricos graves.
-```
-
-## Sección: multicausalidad (19 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "basico"
-  tags: ["multicausalidad", "definicion"]
+  tags: ["estrellas", "noche"]
 
 variables:
-  n: uno_de([1, 1])
+  estrellas: [["Sirio", "Canis Mayor"], ["Betelgeuse", "Orión"], ["Arcturus", "Boote"]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La multicausalidad reconoce que un hecho histórico importante casi nunca tiene una única causa profunda, sino que suele ser el resultado de la combinación de varias causas de distinto tipo."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: es una extensión de ese concepto ya estudiado."
-
-explicacion: |
-  Verdadero: es la definición central de multicausalidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["dimensiones_de_causas", "economicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "económicas"
+respuesta: estrellas[idx][1]
 tipo: mc
-opciones_explicitas: ["económicas", "políticas", "sociales"]
+opciones_explicitas: ["Canis Mayor", "Orión", "Boote"]
 
-enunciado: "Una crisis fiscal del Estado o malas cosechas son ejemplos de causas de dimensión..."
-
-pasos:
-  - "Se relacionan con la producción, el comercio o la distribución de recursos."
+enunciado: "La estrella {estrellas[idx][0]} es la estrella principal de la constelación de ___."
 
 explicacion: |
-  Las causas económicas involucran crisis, desigualdad o cambios en
-  la producción/comercio.
+  {estrellas[idx][0]} es una de las estrellas más brillantes y es el componente central de la constelación de {estrellas[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["dimensiones_de_causas", "politicas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "políticas"
-tipo: mc
-opciones_explicitas: ["económicas", "políticas", "culturales/ideológicas"]
-
-enunciado: "Una crisis de legitimidad de un gobierno o un conflicto de poder son ejemplos de causas de dimensión..."
-
-pasos:
-  - "Se relacionan con el ejercicio y la legitimidad del poder."
-
-explicacion: |
-  Las causas políticas involucran crisis de legitimidad, conflictos
-  de poder o decisiones de gobierno.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["dimensiones_de_causas", "sociales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "sociales"
-tipo: mc
-opciones_explicitas: ["sociales", "ambientales/geográficas", "económicas"]
-
-enunciado: "Tensiones entre grupos sociales o movimientos populares son ejemplos de causas de dimensión..."
-
-pasos:
-  - "Se relacionan con las relaciones entre distintos grupos de una sociedad."
-
-explicacion: |
-  Las causas sociales involucran tensiones entre grupos, movimientos
-  populares o cambios demográficos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["dimensiones_de_causas", "culturales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "culturales/ideológicas"
-tipo: mc
-opciones_explicitas: ["culturales/ideológicas", "económicas", "políticas"]
-
-enunciado: "Nuevas ideas como el liberalismo o el nacionalismo, que cambian cómo la gente entiende su situación, son ejemplos de causas de dimensión..."
-
-pasos:
-  - "Se relacionan con cambios en las ideas y creencias de una sociedad."
-
-explicacion: |
-  Las causas culturales/ideológicas involucran ideas que transforman
-  cómo la gente interpreta su realidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["dimensiones_de_causas", "ambientales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "ambientales/geográficas"
-tipo: mc
-opciones_explicitas: ["ambientales/geográficas", "sociales", "políticas"]
-
-enunciado: "Una sequía o una epidemia que condiciona decisiones humanas son ejemplos de causas de dimensión..."
-
-pasos:
-  - "Se relacionan con el ambiente físico y los recursos naturales disponibles."
-
-explicacion: |
-  Las causas ambientales/geográficas involucran fenómenos naturales
-  que condicionan decisiones humanas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un hecho histórico importante (una revolución, una guerra, el colapso de un imperio) casi siempre combina causas de varias dimensiones a la vez, no de una sola."
-
-pasos:
-  - "Es la conclusión central sobre por qué la multicausalidad es relevante."
-
-explicacion: |
-  Verdadero: es la afirmación central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "intermedio"
-  tags: ["error_causa_unica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Explicar un hecho histórico complejo con una sola causa es una simplificación que suele estar incompleta, aunque esa causa en sí no sea falsa."
-
-pasos:
-  - "No es que la causa mencionada sea falsa, sino que no alcanza sola para explicar todo lo ocurrido."
-
-explicacion: |
-  Verdadero: es el error central que este tema busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "avanzado"
-  tags: ["error_causa_unica", "detectar_falacias"]
+  tags: ["secuencia", "ecliptic"]
 
 variables:
-  n: uno_de([1, 1])
+  grupos: [["Aries", "Tauro", "Géminis"], ["Cáncer", "Leo", "Virgo"], ["Libra", "Escorpio", "Sagitario"]]
+  grupo_seleccionado: uno_de(grupos)
 
-respuesta: verdadero
-tipo: vf
+respuesta_orden: grupo_seleccionado
+tipo: ordenar
+opciones_explicitas: grupo_seleccionado
 
-enunciado: "El error de la causa única se relaciona con la generalización apresurada ya vista en `../../lengua/detectar-falacias/`: tomar una causa real y tratarla como si fuera la única, ignorando las demás."
-
-pasos:
-  - "Ver `../../lengua/detectar-falacias/`: es la conexión directa entre este error histórico y esa falacia ya estudiada."
+enunciado: "Ordene las siguientes constelaciones según su orden de aparición en el zodíaco (eclíptica) para el grupo seleccionado:"
 
 explicacion: |
-  Verdadero: es la conexión entre este tema y el vocabulario de
-  falacias ya conocido de Lengua.
+  El orden de las constelaciones zodiacales sigue la trayectoria aparente del Sol a través del cielo.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["peso_de_causas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Reconocer multicausalidad no significa que todas las causas combinadas pesen lo mismo; el análisis incluye evaluar cuál (o cuáles) fue más determinante."
-
-pasos:
-  - "Sin caer en la simplificación de reducirlo todo a una sola causa."
-
-explicacion: |
-  Verdadero: es un matiz importante, la multicausalidad no significa
-  \"todas las causas son igual de importantes\", sino que hay varias
-  actuando a la vez con distinto peso posible.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["ejemplo_revolucion_francesa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Revolución Francesa de 1789 combina causas económicas (crisis fiscal, malas cosechas), políticas (crisis de legitimidad de la monarquía), sociales (tensión entre estamentos) e ideológicas (ideas ilustradas)."
-
-pasos:
-  - "Es el ejemplo desarrollado en la teoría para ilustrar multicausalidad en un caso histórico real."
-
-explicacion: |
-  Verdadero: es el ejemplo central de multicausalidad usado en este
-  tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["ejemplo_revolucion_francesa"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ninguna de las causas mencionadas de la Revolución Francesa (económica, política, social, ideológica) explica sola el proceso completo."
-
-pasos:
-  - "Es la conclusión del ejemplo desarrollado en la teoría."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de por qué la multicausalidad
-  importa en este caso histórico específico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
+  tema: "movimiento_aparente_constelaciones"
   nivel: "intermedio"
-  tags: ["dimensiones_de_causas", "practica"]
+  tags: ["sol", "ecliptic"]
 
 variables:
-  causas: ["el Tercer Estado no tenía representación política real en el sistema de estamentos", "una epidemia redujo drásticamente la mano de obra disponible en el campo"]
-  dimensiones: ["social/política", "ambiental/geográfica"]
+  par: [["Géminis", "Sagitario"], ["Sagitario", "Géminis"], ["Virgo", "Piscis"]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: par[idx][1]
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si el Sol se encuentra en la constelación de {par[idx][0]}, la constelación opuesta en el cielo nocturno será ___."
+
+explicacion: |
+  Cuando el Sol está en una constelación, esa constelación es invisible de noche. La constelación opuesta es la que se observa en su punto más alto durante la medianoche.
+```
+
+## Sección: eclipses-sol-luna (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia", "eclipse_solar"]
+
+tipo: mc
+opciones_explicitas: ["La Luna se interpone entre la Tierra y el Sol", "La Tierra se interpone entre el Sol y la Luna", "El Sol se interpone entre la Tierra y la Luna"]
+respuesta: "La Luna se interpone entre la Tierra y el Sol"
+
+enunciado: "Un eclipse solar ocurre cuando ___."
+
+explicacion: |
+  Para que ocurra un eclipse solar, la Luna debe estar posicionada exactamente entre la Tierra y el Sol, proyectando su sombra sobre nuestra superficie.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["fases_lunares", "eclipse_solar"]
+
+enunciado: "Para que sea posible observar un eclipse solar, la Luna debe encontrarse en fase de ___."
+
+pasos:
+  - "Identificar la fase lunar necesaria para que la Luna esté entre la Tierra y el Sol."
+
+opciones_explicitas: ["Luna Llena", "Luna Nueva"]
+respuesta: "Luna Nueva"
+tipo: mc
+
+explicacion: |
+  Solo cuando la Luna está en fase de Luna Nueva puede alinearse entre la Tierra y el Sol para producir un eclipse solar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["eclipse_lunar", "fases_lunares"]
+
+tipo: completar
+enunciado: "Un eclipse lunar ocurre únicamente durante la fase de ___."
+respuesta: "Luna Llena"
+explicacion: |
+  Un eclipse lunar requiere que la Tierra esté entre el Sol y la Luna, lo cual solo sucede cuando la Luna está en su fase de Luna Llena.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["secuencia", "eclipse_lunar"]
+
+tipo: ordenar
+opciones_explicitas: ["Sol", "Tierra", "Luna"]
+respuesta_orden: ["Sol", "Tierra", "Luna"]
+
+enunciado: "Ordena los cuerpos celestes desde el que emite la luz hasta el que recibe la sombra durante un eclipse lunar:"
+
+explicacion: |
+  En un eclipse lunar, la secuencia es: la luz del Sol viaja hacia la Tierra, la Tierra bloquea la luz y proyecta su sombra sobre la Luna.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["conceptos", "eclipse"]
+
+variables:
+  escenario: uno_de([0, 1])
+  datos: [["Sol - Tierra - Luna", "lunar"], ["Sol - Luna - Tierra", "solar"]]
+
+enunciado: "Si la posición de los astros es {datos[escenario][0]}, entonces el eclipse es de tipo ___."
+
+opciones_explicitas: ["solar", "lunar"]
+respuestas_validas:
+  - "lunar"
+  - "solar"
+respuesta: datos[escenario][1]
+tipo: completar
+
+explicacion: |
+  La clave para identificar el eclipse es observar qué cuerpo está en el medio: si es la Luna, el eclipse es solar; si es la Tierra, es lunar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia", "geometria_celestial"]
+
+respuesta: 5
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Aunque la Luna orbita la Tierra cada mes, no siempre se produce un eclipse porque su órbita está inclinada aproximadamente ___ grados respecto a la eclíptica (el plano de la órbita terrestre)."
+
+explicacion: |
+  La órbita de la Luna tiene una inclinación de unos 5° respecto al plano de la Tierra alrededor del Sol. Esta inclinación hace que, la mayoría de las veces, la Luna pase por encima o por debajo del Sol desde nuestra perspectiva.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia", "alineacion"]
+
+opciones_explicitas: ["Eclíptica", "Eje terrestre", "Órbita solar", "Cinturón de asteroides"]
+
+respuesta: "Eclíptica"
+tipo: mc
+
+enunciado: "Para que ocurra un eclipse, la Luna debe estar alineada con el Sol y la Tierra en el plano de la ___."
+
+explicacion: |
+  Un eclipse solo ocurre cuando la Luna, la Tierra y el Sol se encuentran en un punto llamado 'nodos lunares', donde la órbita lunar cruza el plano de la eclíptica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["fases_lunares", "eclipses"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["Luna Nueva", "Solar"], ["Luna Llena", "Lunar"]]
+
+respuesta: datos[escenario_idx][1]
+tipo: mc
+opciones_explicitas: ["Solar", "Lunar", "Ninguno"]
+
+enunciado: "Si la Luna se encuentra en fase de {datos[escenario_idx][0]}, se requiere una alineación perfecta para producir un eclipse de tipo {datos[escenario_idx][1]}."
+
+explicacion: |
+  La fase de Luna Nueva es necesaria para los eclipses solares, mientras que la Luna Llena es necesaria para los eclipses lunares.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "avanzado"
+  tags: ["geometria", "nodos"]
+
+opciones_explicitas: ["Nodos lunares", "Equinoccios", "Solsticios", "Perigeos"]
+
+respuesta: "Nodos lunares"
+tipo: mc
+
+enunciado: "La razón por la cual los eclipses no ocurren en cada fase de Luna Nueva o Luna Llena es que la Luna solo cruza el plano de la eclíptica en dos puntos específicos llamados ___."
+
+explicacion: |
+  Esos puntos de intersección se llaman nodos. Solo cuando la Luna está en uno de estos nodos durante la fase de luna nueva o llena, se produce el fenómeno.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["orden", "alineacion"]
+
+opciones_explicitas: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
+
+respuesta_orden: ["Luna Nueva -> Eclipse Solar", "Luna Llena -> Eclipse Lunar"]
+tipo: ordenar
+
+enunciado: "Ordena las condiciones necesarias para los dos tipos principales de eclipses:"
+
+pasos:
+  - "Condición para eclipse solar"
+  - "Condición para eclipse lunar"
+
+explicacion: |
+  Para un eclipse solar necesitamos Luna Nueva y alineación en el nodo. Para un eclipse lunar necesitamos Luna Llena y alineación en el nodo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia", "conceptos_basicos"]
+
+respuesta: "umbra"
+tipo: completar
+respuestas_validas:
+  - "umbra"
+
+enunciado: "La parte más oscura y central de la sombra proyectada por la Luna sobre la Tierra se denomina ___."
+
+explicacion: |
+  La umbra es la zona de sombra total donde la luz del Sol queda completamente bloqueada. La penumbra es la zona exterior donde solo se bloquea una parte de la luz.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["eclipses", "solar"]
+
+variables:
+  escenario: uno_de([["la Luna cubre totalmente el Sol", "total"], ["la Luna cubre solo una parte del Sol", "parcial"], ["la Luna está entre la Tierra y el Sol pero es más pequeña y deja un anillo", "anular"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["total", "parcial", "anular"]
+
+enunciado: "Si durante un eclipse solar la Luna no logra cubrir completamente el disco solar, dejando ver un borde luminoso alrededor, estamos ante un eclipse ___."
+
+explicacion: |
+  En un eclipse parcial, la Luna solo cubre una fracción del Sol. En el total, lo cubre todo; en el anular, el diámetro aparente de la Luna es menor que el del Sol.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia"]
+
+respuesta: "penumbra"
+tipo: mc
+opciones_explicitas: ["umbra", "penumbra", "antumbra"]
+
+enunciado: "Cuando un observador se encuentra en la región donde el Sol es parcialmente ocultado por la Luna, se encuentra en la zona de:"
+
+explicacion: |
+  La penumbra es la región de sombra parcial que rodea a la umbra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["observacion"]
+
+respuesta_orden: ["crescendo", "totalidad", "decrescendo"]
+tipo: ordenar
+opciones_explicitas: ["crescendo", "totalidad", "decrescendo"]
+
+enunciado: "Ordena cronológicamente las fases de un eclipse solar total desde que comienza el oscurecimiento hasta que termina:"
+
+explicacion: |
+  Primero ocurre el aumento gradual de la sombra (crescendo), luego la fase de oscuridad máxima (totalidad) y finalmente el regreso de la luz (decrescendo).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "avanzado"
+  tags: ["calculo", "geometria"]
+
+respuesta: 384400
+tipo: completar
+tolerancia_abs: 5000
+
+enunciado: "¿Cuál es la distancia promedio entre la Tierra y la Luna, en kilómetros?"
+
+explicacion: |
+  La distancia promedio es de unos 384.400 km, aunque varía entre unos 363.300 km (perigeo) y 405.500 km (apogeo) debido a la órbita elíptica de la Luna.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia", "visibilidad"]
+
+respuesta: "Luna"
+tipo: "mc"
+opciones_explicitas: ["Sol", "Luna", "Estrellas", "Planetas"]
+
+enunciado: "Durante un eclipse lunar, el cuerpo celeste que se oscurece debido a la sombra de la Tierra es la ___."
+
+explicacion: |
+  En un eclipse lunar, la Tierra se interpone entre el Sol y la Luna, proyectando su sombra sobre el satélite. Como la Luna está visible para cualquier punto de la Tierra que esté en la zona de noche, el fenómeno es observable desde toda la mitad nocturna del planeta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["geometria", "sombra"]
+
+variables:
+  caso: uno_de([0, 1])
+
+respuesta: "umbra"
+tipo: "completar"
+respuestas_validas:
+  - "umbra"
+  - "penumbra"
+
+enunciado: "En un eclipse solar, la parte de la sombra donde la totalidad del Sol es bloqueada por la Luna se denomina ___."
+
+explicacion: |
+  La sombra de la Luna tiene dos partes: la umbra (sombra total) y la penumbra (sombra parcial). La umbra es un cono muy estrecho que toca la superficie terrestre solo en una franja muy pequeña, razón por la cual los eclipses totales de Sol son raros de ver en un lugar específico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["comparacion", "visibilidad"]
+
+respuesta: "mayor"
+tipo: "mc"
+opciones_explicitas: ["menor", "mayor", "igual", "nula"]
+
+enunciado: "Comparado con la franja angosta de un eclipse solar, el área de visibilidad de un eclipse lunar es ___."
+
+explicacion: |
+  Un eclipse lunar es visible para cualquier persona que esté en la parte de la Tierra donde la Luna está en el cielo (la mitad nocturna). Un eclipse solar requiere que la pequeña sombra de la Luna pase exactamente por tu ubicación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["alineacion", "orden"]
+
+tipo: "ordenar"
+opciones_explicitas: ["Sol", "Tierra", "Luna"]
+respuesta_orden: ["Sol", "Tierra", "Luna"]
+
+enunciado: "Para que ocurra un eclipse lunar, los astros deben alinearse en el siguiente orden desde el Sol hacia la Luna:"
+
+explicacion: |
+  En el eclipse lunar, el orden es Sol - Tierra - Luna. La Tierra queda en el medio, proyectando su sombra sobre la Luna.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "avanzado"
+  tags: ["probabilidad", "observacion"]
+
+variables:
+  escenario: uno_de([0, 1])
+
+respuesta: "frecuente"
+tipo: "mc"
+opciones_explicitas: ["frecuente", "infrecuente"]
+
+enunciado: "Debido a que la sombra de la Luna es muy pequeña y se desplaza rápidamente por la Tierra, ver un eclipse solar total en un mismo punto es un evento ___."
+
+explicacion: |
+  Como la umbra lunar es un cono estrecho, la probabilidad de que esa línea exacta pase por tu ciudad es muy baja, haciendo que los eclipses solares totales sean eventos muy poco frecuentes en una ubicación geográfica dada.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia", "posiciones"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["Luna entre la Tierra y el Sol", "Solar"], ["Tierra entre la Luna y el Sol", "Lunar"]]
+
+enunciado: "Si observamos que la posición de los cuerpos celestes es {datos[idx][0]}, estamos presenciando un eclipse de tipo ___."
+
+respuestas_validas:
+  - "Solar"
+  - "Lunar"
+
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  Un eclipse solar ocurre cuando la Luna se interpone entre la Tierra y el Sol, proyectando su sombra sobre nuestro planeta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia"]
+
+variables:
+  escenario_datos: [["Sol-Luna-Tierra", "Solar"], ["Sol-Tierra-Luna", "Lunar"]]
   idx: uno_de([0, 1])
 
-respuesta: dimensiones[idx]
-tipo: mc
-opciones_explicitas: ["social/política", "ambiental/geográfica", "económica", "cultural/ideológica"]
+enunciado: "Dada la configuración {escenario_datos[idx][0]}, el tipo de eclipse es ___."
 
-enunciado: "La causa \"{causas[idx]}\" corresponde a la dimensión..."
+respuestas_validas:
+  - "Solar"
+  - "Lunar"
 
-pasos:
-  - "Identificar a qué dimensión (económica, política, social, cultural, ambiental) corresponde cada causa concreta."
+respuesta: escenario_datos[idx][1]
+tipo: completar
 
 explicacion: |
-  Clasificar causas por dimensión es la práctica central de este
-  tema.
+  La posición relativa determina qué cuerpo proyecta la sombra sobre el otro.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["causa_y_consecuencia", "multicausalidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La multicausalidad no invalida el análisis de causa-consecuencia ya estudiado, sino que lo extiende: sigue habiendo causas inmediatas y profundas, sólo que ahora se reconoce que suele haber varias a la vez."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: es la relación de extensión entre ambos temas."
-
-explicacion: |
-  Verdadero: es la relación de continuidad conceptual entre estos dos
-  temas de la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Reconocer varias causas combinadas presupone ya dominar el análisis de causa-consecuencia simple y el de cambio/continuidad, para poder combinar causas sin perder de vista qué cambió y qué no."
-
-pasos:
-  - "Ver `../cambio-y-continuidad/`: es el prerrequisito directo de este tema."
-
-explicacion: |
-  Verdadero: es la conexión central entre este tema y su
-  prerrequisito.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["big_six"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el mapa, multicausalidad es una extensión del concepto de causa y consecuencia del marco Big Six, no un séptimo concepto independiente de ese marco."
-
-pasos:
-  - "Ver `../causa-y-consecuencia/`: el marco Big Six original tiene 6 conceptos, y multicausalidad profundiza uno de ellos."
-
-explicacion: |
-  Verdadero: es la relación conceptual explícita mencionada en la
-  teoría entre estos dos temas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["error_causa_unica", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Afirmar que \"la Revolución Francesa ocurrió únicamente por la crisis económica, sin ningún otro factor relevante\" es un análisis histórico completo y riguroso."
-
-pasos:
-  - "Es un ejemplo del error de la causa única, ignorando las causas políticas, sociales e ideológicas también relevantes."
-
-explicacion: |
-  Falso: es exactamente el error que este tema busca evitar, reducir
-  un proceso complejo a una sola causa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
+  tema: "eclipses_sol_luna"
   nivel: "intermedio"
-  tags: ["multicausalidad", "metodo"]
+  tags: ["astronomia"]
 
-enunciado: "Ordená los pasos para analizar las múltiples causas de un hecho histórico complejo."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar todas las causas posibles del hecho, sin limitarse a una sola"
-  - "Clasificar cada causa según su dimensión (económica, política, social, cultural, ambiental)"
-  - "Evaluar el peso relativo de cada causa, sin asumir que todas pesan igual"
-  - "Concluir cómo se combinaron esas causas para producir el hecho analizado"
-respuesta_orden: ["Identificar todas las causas posibles del hecho, sin limitarse a una sola", "Clasificar cada causa según su dimensión (económica, política, social, cultural, ambiental)", "Evaluar el peso relativo de cada causa, sin asumir que todas pesan igual", "Concluir cómo se combinaron esas causas para producir el hecho analizado"]
+variables:
+  idx: uno_de([0, 1])
+  datos: [["La Tierra bloquea la luz solar hacia la Luna", "Lunar"], ["La Luna bloquea la luz solar hacia la Tierra", "Solar"]]
+
+enunciado: "Si ocurre que {datos[idx][0]}, el eclipse es ___."
+
+respuestas_validas:
+  - "Lunar"
+  - "Solar"
+
+respuesta: datos[idx][1]
+tipo: completar
+
 explicacion: |
-  El proceso va de identificar todas las causas posibles a
-  clasificarlas y evaluar su peso relativo antes de concluir.
+  El eclipse se nombra según el cuerpo que queda en la zona de sombra.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["multicausalidad", "aplicacion"]
+  tema: "eclipses_sol_luna"
+  nivel: "basico"
+  tags: ["astronomia"]
 
 variables:
-  n: uno_de([1, 1])
+  datos: [["Sol - Luna - Tierra", "Solar"], ["Sol - Tierra - Luna", "Lunar"]]
+  idx: uno_de([0, 1])
 
-respuesta: verdadero
-tipo: vf
+enunciado: "En la configuración {datos[idx][0]}, el eclipse es ___."
 
-enunciado: "Al analizar un hecho histórico o un fenómeno actual complejo (una crisis económica, un conflicto social), conviene identificar varias causas posibles de distintas dimensiones, en vez de conformarse con una única explicación simple."
+opciones_explicitas:
+  - "Solar"
+  - "Lunar"
 
-pasos:
-  - "Es la aplicación práctica directa de todos los principios estudiados en este tema."
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+tipo: completar
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema al análisis
-  riguroso de cualquier hecho complejo, histórico o actual.
+  En el primer caso la Luna está en el medio (Solar), en el segundo la Tierra (Lunar).
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "eclipses_sol_luna"
+  nivel: "intermedio"
+  tags: ["astronomia"]
+
+variables:
+  idx: uno_de([0, 1])
+  datos: [["La Luna entra en la umbra terrestre", "Lunar"], ["La Tierra entra en la umbra lunar", "Solar"]]
+
+enunciado: "Si el evento es {datos[idx][0]}, el tipo de eclipse es ___."
+
+respuestas_validas:
+  - "Lunar"
+  - "Solar"
+
+respuesta: datos[idx][1]
+tipo: completar
+
+explicacion: |
+  Cuando la Luna entra en la sombra de la Tierra, vemos un eclipse lunar.
 ```
 

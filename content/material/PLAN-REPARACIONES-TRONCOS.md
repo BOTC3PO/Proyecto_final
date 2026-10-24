@@ -301,11 +301,11 @@ su contenido real, no por dónde está guardado.
 
 Confirmado 2026-08-12 vía `Ciencias Sociales 5 Bonaerense` (Estación
 Mandioca, 2019 — currículum real, provincia de Buenos Aires):
-`historia-profunda/guerras-civiles-unitarios-federales` (`AH6`) es un
+`historia/guerras-civiles-unitarios-federales` (`AH6`) es un
 único nodo genérico sobre el conflicto unitarios/federales que sólo
 menciona a Rosas de pasada ("conflictos con Rosas en la década de
 1840"), sin desarrollar su gobernación, la Confederación, ni las
-economías regionales tempranas. Grep en todo `material/historia-profunda/`
+economías regionales tempranas. Grep en todo `material/historia/`
 confirma: "Rosas"/"Caseros"/"Urquiza" no aparecen en ningún
 teoria.md/cuestionario.md dedicado — sólo pasadas menciones en otros
 temas. Candidato: 1-2 nodos nuevos entre `AH6` y `AH7`
@@ -511,7 +511,7 @@ no piden nodo nuevo.
 Confirmado 2026-08-12 vía `ACTIVA 6.pdf` (Ciencias Sociales 6
 Bonaerense, real, currículum actual): dos hechos centrales y siempre
 enseñados de la historia argentina post-1853 no tienen nodo propio en
-`troncos.md` ni mención en ningún `material/historia-profunda/*/`:
+`troncos.md` ni mención en ningún `material/historia/*/`:
 **Guerra del Paraguay / Triple Alianza** y **Conquista del Desierto**
 (sólo aparecen de pasada dentro de `modelo-agroexportador-inmigracion`,
 nunca desarrolladas). Además `AH10` ("Golpes de Estado e
@@ -886,7 +886,7 @@ Confirmado 2026-08-13 vía `Historia 4 - Serie Huellas (2013).pdf`
 Universitaria de arriba — buena señal cruzada):
 
 - `guerra-civil-espanola` (1936-1939, franquismo) — 0 resultados en
-  grep y en `material/historia-profunda/`. Cuelga entre `HM10`
+  grep y en `material/historia/`. Cuelga entre `HM10`
   (Entreguerras) y `H28` (Segunda Guerra Mundial) — suele enseñarse
   como antesala directa de la Segunda Guerra.
 - `revolucion-mexicana` (1910-1920) — también 0 resultados. Gran

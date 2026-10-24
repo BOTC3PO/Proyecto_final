@@ -1,4 +1,4 @@
-# Historia Profunda — Guerra de malvinas (cuestionario, 25 preguntas VBLang)
+# Historia — Guerra de malvinas (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["conflictos", "soberania", "1982"]
@@ -34,7 +34,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["cronologia", "eventos"]
@@ -56,7 +56,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["naval", "tactic"]
@@ -80,7 +80,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["diplomacia", "soberania"]
@@ -102,7 +102,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["politica", "dictadura"]
@@ -121,7 +121,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["soberania", "historia", "argentina"]
@@ -140,7 +140,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["derecho_internacional", "soberania"]
@@ -159,7 +159,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["cronologia", "conflictos"]
@@ -182,7 +182,7 @@ respuesta_orden: ["1833", "1982", "Actualidad"]
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["derecho_internacional", "onu"]
@@ -201,7 +201,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["guerra", "1982"]
@@ -220,7 +220,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["dictadura", "contexto"]
@@ -240,7 +240,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["legitimidad", "objetivos"]
@@ -263,7 +263,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["cronologia", "fechas"]
@@ -282,7 +282,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["causas", "crisis"]
@@ -301,7 +301,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["junta_militar", "decisión"]
@@ -321,7 +321,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["politica", "dictadura", "democracia"]
@@ -343,7 +343,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["consecuencias", "dictadura"]
@@ -362,7 +362,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["democracia", "elecciones"]
@@ -388,7 +388,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["orden", "cronologia"]
@@ -407,7 +407,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["legitimidad", "juicio"]
@@ -426,7 +426,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "basico"
   tags: ["cronologia", "conflicto"]
@@ -446,7 +446,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["hechos", "maritimo"]
@@ -466,7 +466,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
@@ -508,7 +508,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerra_de_malvinas"
   nivel: "intermedio"
   tags: ["inicio", "fecha"]

@@ -1,4 +1,4 @@
-# Historia — crisis de 2001 (cuestionario, 21 preguntas VBLang)
+# Pensamiento histórico — crisis de 2001 (cuestionario, 21 preguntas VBLang)
 
 > Tema: `historia-argentina/crisis-de-2001`. Ver `teoria.md` en esta misma carpeta.
 
@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["corralito", "fechas"]
@@ -31,7 +31,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["convertibilidad", "déficit_fiscal"]
@@ -53,7 +53,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["inflación", "déficit"]
@@ -71,7 +71,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["estancamiento", "desempleo"]
@@ -92,7 +92,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["fmi", "ajuste"]
@@ -113,7 +113,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["reservas", "déficit"]
@@ -135,7 +135,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["fuga de capitales", "pánico"]
@@ -156,7 +156,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["corralito", "medidas"]
@@ -177,7 +177,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["liquidez", "banco"]
@@ -198,7 +198,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["actividad económica", "restricción"]
@@ -219,7 +219,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["empresas", "liquidez"]
@@ -240,7 +240,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["derechos", "legitimidad"]
@@ -261,7 +261,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["protesta", "social"]
@@ -279,7 +279,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["política", "gobierno"]
@@ -300,7 +300,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["presidencia", "tiempo"]
@@ -318,7 +318,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["fechas", "diciembre"]
@@ -336,7 +336,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "basico"
   tags: ["fechas", "diciembre"]
@@ -354,7 +354,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["de la rúa", "presidencia"]
@@ -375,7 +375,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["vicepresidente", "renuncia"]
@@ -397,7 +397,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["confianza", "pánico"]
@@ -418,7 +418,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "crisis_de_2001"
   nivel: "intermedio"
   tags: ["síntoma", "corralito"]

@@ -1,8 +1,8 @@
 # Cívica — Marchas patrióticas: marcha↔efeméride↔hecho histórico (teoria)
 
 > Tema del MAPA: `C9C` (`H2a/H2b/H2c --> C9C`). Depende de
-> `../../historia/revoluciones/`, `../../historia/independencias/` y
-> `../../historia/guerras/` (ver `../dependencias.md`).
+> `../../pensamiento-historico/revoluciones/`, `../../pensamiento-historico/independencias/` y
+> `../../pensamiento-historico/guerras/` (ver `../dependencias.md`).
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -60,8 +60,8 @@ Cada marcha patriótica se puede leer con la misma pregunta en 3 pasos:
    para otro?** (casi siempre, el hecho tiene peso simbólico en la
    construcción de la identidad nacional — no es azaroso).
 
-Este módulo depende de `../../historia/revoluciones/`,
-`../../historia/independencias/` y `../../historia/guerras/`. Sin conocer el
+Este módulo depende de `../../pensamiento-historico/revoluciones/`,
+`../../pensamiento-historico/independencias/` y `../../pensamiento-historico/guerras/`. Sin conocer el
 hecho histórico real (la Revolución de Mayo, la campaña sanmartiniana, la
 Guerra de Malvinas), la marcha queda reducida a "una canción que se canta en
 la escuela", sin la conexión que le da sentido.

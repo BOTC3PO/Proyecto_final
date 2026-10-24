@@ -376,7 +376,7 @@ camino desbloqueado.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `herrero-forjador/fundamentos-herreria/` | `../fisica/calor-q-m-c-deltat/`, `../historia-profunda/metalurgia-cobre-hierro/` | Sección 1. Compartido con `../soldadura/` (si existe la carpeta). |
+| `herrero-forjador/fundamentos-herreria/` | `../fisica/calor-q-m-c-deltat/`, `../historia/metalurgia-cobre-hierro/` | Sección 1. Compartido con `../soldadura/` (si existe la carpeta). |
 | `herrero-forjador/seguridad-herreria/` | `fundamentos-herreria/` | Sección 2. |
 | `herrero-forjador/materiales-herreria/` | `seguridad-herreria/` | Sección 3. |
 | `herrero-forjador/herramientas-herreria/` | `materiales-herreria/` | Sección 4. |

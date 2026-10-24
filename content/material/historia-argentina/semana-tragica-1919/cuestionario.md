@@ -1,4 +1,4 @@
-# Historia — semana tragica 1919 (cuestionario, 27 preguntas VBLang)
+# Pensamiento histórico — semana tragica 1919 (cuestionario, 27 preguntas VBLang)
 
 > Tema: `historia-argentina/semana-tragica-1919`. Ver `teoria.md` en esta misma carpeta.
 
