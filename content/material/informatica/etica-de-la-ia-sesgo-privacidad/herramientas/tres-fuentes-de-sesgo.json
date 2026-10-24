@@ -1,0 +1,22 @@
+{
+ "titulo": "Sesgos en los datos, en el diseño y en el uso",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Ejemplos",
+   "headers": [
+    "En los datos",
+    "En el diseño",
+    "En el uso real"
+   ],
+   "rows": [
+    [
+     "Pocas imágenes de ciertos grupos",
+     "Se optimiza una métrica que ignora a una minoría",
+     "Se usa un modelo fuera del contexto para el que se entrenó"
+    ]
+   ]
+  }
+ ]
+}

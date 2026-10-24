@@ -7,7 +7,12 @@ import { getDescriptoresMatematicas } from "./matematicas/index";
 import { getDescriptoresQuimica } from "./quimica/index";
 import { getDescriptoresEconomia } from "./economia/index";
 import { getDescriptoresInformatica } from "./informatica/index";
-import { getDescriptoresBasic } from "./basic/banco";
+import { getDescriptoresBasic, listBancoTemplates } from "./basic/banco";
+// F6-07: el import ejecuta el side-effect que registra los 25 bancos
+// estáticos de F6-02/F6-03 en el TEMPLATE_REGISTRY. Sin este import,
+// `getDescriptoresBasic()` devuelve [] y los bancos no aparecen en el
+// catálogo estático. Idempotente.
+import "./bancos-init";
 
 export type CatalogItem = {
   id: string;
@@ -59,8 +64,44 @@ function labelFromId(subtipoId: string): string {
   return subtipoId.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
 }
 
+/**
+ * F6-06 — subtipos retirados del catálogo de CREACIÓN.
+ *
+ * Estos 6 subtipos (los upgrades PARAMETRIZABLE de F6-05) ahora tienen un
+ * reemplazo cableado como plantilla VBLang OFICIAL (F6-01,
+ * `PlantillaEjercicio` con `ownerUserId: SYSTEM_OWNER_ID`), por lo que ya no
+ * se ofrecen como "generador" para cuestionarios nuevos. El `.ts` original
+ * NO se modifica: `generarEjercicio(subtipo, ...)` sigue funcionando para
+ * quizzes legacy que ya referencian estos subtipos (ver
+ * `BaseGenerador.toDescriptor()` — `generate()` con `subtipo` explícito no
+ * pasa por `this.subtipos`).
+ *
+ * Los ~55 subtipos BANCO de F6-02/F6-03 NO se retiran todavía: sus bancos
+ * (`BANCOS_*`) no están cableados en ningún catálogo/UI de creación
+ * (`registerBancosXxx()` solo se llama desde sus propios `__tests__`), así
+ * que retirarlos dejaría ese contenido sin forma de crearse. Ese wiring es
+ * un prerrequisito para su retiro futuro.
+ */
+const SUBTIPOS_RETIRADOS: Record<string, string[]> = {
+  "biologia/biologia": ["genetica_mendel", "piramide_biomasas"],
+  "informatica/informatica": ["algebra_booleana"],
+  "quimica/atomos_enlaces": ["particulas_subatomicas", "configuracion_electronica"],
+  "matematicas/aritmetica": ["probabilidad_simple"],
+};
+
 export function getStaticCatalog(): CatalogItem[] {
   const prng = new DeterministicPrng(0);
+  // F6-07: mapa de labels para bancos estáticos. El descriptor no carga
+  // el título de cada banco; lo leemos de la metadata del template
+  // registrado en el TEMPLATE_REGISTRY. Si el init no se ejecutó
+  // (tests con `clearBancoTemplates()`), el mapa queda vacío y los bancos
+  // caen al fallback `d.id` (no aparecen en absoluto porque la registry
+  // está vacía → `getDescriptoresBasic` devuelve []).
+  const bancoLabels = new Map<string, string>();
+  for (const tpl of listBancoTemplates()) {
+    bancoLabels.set(`basic/${tpl.metadata.id}`, tpl.metadata.titulo);
+  }
+
   const all: GeneratorDescriptor[] = [
     ...getDescriptoresBiologia(prng),
     ...getDescriptoresFisica(prng),
@@ -68,15 +109,26 @@ export function getStaticCatalog(): CatalogItem[] {
     ...getDescriptoresQuimica(prng),
     ...getDescriptoresEconomia(prng),
     ...getDescriptoresInformatica(prng),
-    // WO08: bancos hand-authored registrados (vacío si no hay ninguno).
+    // F6-07: bancos hand-authored registrados (25 bancos, ≈206 preguntas
+    // únicas). El registry se popula via el side-effect del import
+    // `./bancos-init` arriba. Si los tests hacen `clearBancoTemplates()`
+    // en beforeEach, este `getDescriptoresBasic` devuelve [].
     ...getDescriptoresBasic(prng),
   ];
-  return all.map((d) => ({
-    id: d.id,
-    materia: MATERIA_LABELS[d.materia as string] ?? d.materia,
-    label: GENERATOR_LABELS[d.id] ?? d.id,
-    subtipos: d.subtipos.map((s) => ({ id: s, label: labelFromId(s) })),
-  }));
+  return all.map((d) => {
+    const retirados = SUBTIPOS_RETIRADOS[d.id] ?? [];
+    return {
+      id: d.id,
+      materia: MATERIA_LABELS[d.materia as string] ?? d.materia,
+      // F6-07: prioridad de label — label del banco (si está en el
+      // registry) → label del GENERATOR_LABELS (legacy) → fallback al id.
+      label:
+        bancoLabels.get(d.id) ?? GENERATOR_LABELS[d.id] ?? d.id,
+      subtipos: d.subtipos
+        .filter((s) => !retirados.includes(s))
+        .map((s) => ({ id: s, label: labelFromId(s) })),
+    };
+  });
 }
 
 export function getDescriptoresFromModule(

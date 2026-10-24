@@ -1,0 +1,5 @@
+A: Bonan matenon! Kiel vi nomiĝas?
+B: Mia nomo estas Ana. Kaj vi?
+A: Mi nomiĝas Petro. Ĉu vi parolas Esperanton?
+B: Jes, iom. Kie estas la stacidomo?
+A: Rekte kaj dekstren. Ĝis revido!

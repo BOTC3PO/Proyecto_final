@@ -1,0 +1,488 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㄱ",
+  "hablado": "기역",
+  "voz": "piper:kss",
+  "segundos": 3.04
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㄴ",
+  "hablado": "니은",
+  "voz": "piper:kss",
+  "segundos": 3.74
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㄷ",
+  "hablado": "디귿",
+  "voz": "piper:kss",
+  "segundos": 3.23
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㄹ",
+  "hablado": "리을",
+  "voz": "piper:kss",
+  "segundos": 3.72
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅁ",
+  "hablado": "미음",
+  "voz": "piper:kss",
+  "segundos": 3.48
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅂ",
+  "hablado": "비읍",
+  "voz": "piper:kss",
+  "segundos": 3.46
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅅ",
+  "hablado": "시옷",
+  "voz": "piper:kss",
+  "segundos": 3.51
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅇ",
+  "hablado": "이응",
+  "voz": "piper:kss",
+  "segundos": 3.58
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅈ",
+  "hablado": "지읒",
+  "voz": "piper:kss",
+  "segundos": 3.6
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅊ",
+  "hablado": "치읓",
+  "voz": "piper:kss",
+  "segundos": 3.46
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅋ",
+  "hablado": "키읔",
+  "voz": "piper:kss",
+  "segundos": 3.81
+ },
+ {
+  "id": 12,
+  "file": "012.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅌ",
+  "hablado": "티읕",
+  "voz": "piper:kss",
+  "segundos": 2.97
+ },
+ {
+  "id": 13,
+  "file": "013.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅍ",
+  "hablado": "피읖",
+  "voz": "piper:kss",
+  "segundos": 3.48
+ },
+ {
+  "id": 14,
+  "file": "014.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅎ",
+  "hablado": "히읗",
+  "voz": "piper:kss",
+  "segundos": 2.93
+ },
+ {
+  "id": 15,
+  "file": "015.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㄲ",
+  "hablado": "쌍기역",
+  "voz": "piper:kss",
+  "segundos": 3.74
+ },
+ {
+  "id": 16,
+  "file": "016.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㄸ",
+  "hablado": "쌍디귿",
+  "voz": "piper:kss",
+  "segundos": 3.67
+ },
+ {
+  "id": 17,
+  "file": "017.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅃ",
+  "hablado": "쌍비읍",
+  "voz": "piper:kss",
+  "segundos": 3.97
+ },
+ {
+  "id": 18,
+  "file": "018.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅆ",
+  "hablado": "쌍시옷",
+  "voz": "piper:kss",
+  "segundos": 4.04
+ },
+ {
+  "id": 19,
+  "file": "019.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅉ",
+  "hablado": "쌍지읒",
+  "voz": "piper:kss",
+  "segundos": 4.0
+ },
+ {
+  "id": 20,
+  "file": "020.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅏ",
+  "hablado": "아",
+  "voz": "piper:kss",
+  "segundos": 2.79
+ },
+ {
+  "id": 21,
+  "file": "021.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅑ",
+  "hablado": "야",
+  "voz": "piper:kss",
+  "segundos": 3.23
+ },
+ {
+  "id": 22,
+  "file": "022.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅓ",
+  "hablado": "어",
+  "voz": "piper:kss",
+  "segundos": 2.65
+ },
+ {
+  "id": 23,
+  "file": "023.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅕ",
+  "hablado": "여",
+  "voz": "piper:kss",
+  "segundos": 3.02
+ },
+ {
+  "id": 24,
+  "file": "024.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅗ",
+  "hablado": "오",
+  "voz": "piper:kss",
+  "segundos": 2.86
+ },
+ {
+  "id": 25,
+  "file": "025.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅛ",
+  "hablado": "요",
+  "voz": "piper:kss",
+  "segundos": 3.44
+ },
+ {
+  "id": 26,
+  "file": "026.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅜ",
+  "hablado": "우",
+  "voz": "piper:kss",
+  "segundos": 2.74
+ },
+ {
+  "id": 27,
+  "file": "027.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅠ",
+  "hablado": "유",
+  "voz": "piper:kss",
+  "segundos": 3.11
+ },
+ {
+  "id": 28,
+  "file": "028.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅡ",
+  "hablado": "으",
+  "voz": "piper:kss",
+  "segundos": 3.11
+ },
+ {
+  "id": 29,
+  "file": "029.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅣ",
+  "hablado": "이",
+  "voz": "piper:kss",
+  "segundos": 3.0
+ },
+ {
+  "id": 30,
+  "file": "030.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅐ",
+  "hablado": "애",
+  "voz": "piper:kss",
+  "segundos": 3.07
+ },
+ {
+  "id": 31,
+  "file": "031.mp3",
+  "tipo": "letra",
+  "etiqueta": "ㅔ",
+  "hablado": "에",
+  "voz": "piper:kss",
+  "segundos": 2.81
+ },
+ {
+  "id": 32,
+  "file": "032.mp3",
+  "tipo": "letra",
+  "etiqueta": "가",
+  "hablado": "가",
+  "voz": "piper:kss",
+  "segundos": 3.11
+ },
+ {
+  "id": 33,
+  "file": "033.mp3",
+  "tipo": "letra",
+  "etiqueta": "나",
+  "hablado": "나",
+  "voz": "piper:kss",
+  "segundos": 3.28
+ },
+ {
+  "id": 34,
+  "file": "034.mp3",
+  "tipo": "letra",
+  "etiqueta": "다",
+  "hablado": "다",
+  "voz": "piper:kss",
+  "segundos": 3.04
+ },
+ {
+  "id": 35,
+  "file": "035.mp3",
+  "tipo": "letra",
+  "etiqueta": "라",
+  "hablado": "라",
+  "voz": "piper:kss",
+  "segundos": 2.86
+ },
+ {
+  "id": 36,
+  "file": "036.mp3",
+  "tipo": "letra",
+  "etiqueta": "마",
+  "hablado": "마",
+  "voz": "piper:kss",
+  "segundos": 3.32
+ },
+ {
+  "id": 37,
+  "file": "037.mp3",
+  "tipo": "letra",
+  "etiqueta": "바",
+  "hablado": "바",
+  "voz": "piper:kss",
+  "segundos": 3.09
+ },
+ {
+  "id": 38,
+  "file": "038.mp3",
+  "tipo": "letra",
+  "etiqueta": "사",
+  "hablado": "사",
+  "voz": "piper:kss",
+  "segundos": 3.21
+ },
+ {
+  "id": 39,
+  "file": "039.mp3",
+  "tipo": "letra",
+  "etiqueta": "아",
+  "hablado": "아",
+  "voz": "piper:kss",
+  "segundos": 2.51
+ },
+ {
+  "id": 40,
+  "file": "040.mp3",
+  "tipo": "letra",
+  "etiqueta": "자",
+  "hablado": "자",
+  "voz": "piper:kss",
+  "segundos": 2.97
+ },
+ {
+  "id": 41,
+  "file": "041.mp3",
+  "tipo": "letra",
+  "etiqueta": "차",
+  "hablado": "차",
+  "voz": "piper:kss",
+  "segundos": 3.16
+ },
+ {
+  "id": 42,
+  "file": "042.mp3",
+  "tipo": "letra",
+  "etiqueta": "카",
+  "hablado": "카",
+  "voz": "piper:kss",
+  "segundos": 2.93
+ },
+ {
+  "id": 43,
+  "file": "043.mp3",
+  "tipo": "letra",
+  "etiqueta": "타",
+  "hablado": "타",
+  "voz": "piper:kss",
+  "segundos": 3.25
+ },
+ {
+  "id": 44,
+  "file": "044.mp3",
+  "tipo": "letra",
+  "etiqueta": "파",
+  "hablado": "파",
+  "voz": "piper:kss",
+  "segundos": 3.11
+ },
+ {
+  "id": 45,
+  "file": "045.mp3",
+  "tipo": "letra",
+  "etiqueta": "하",
+  "hablado": "하",
+  "voz": "piper:kss",
+  "segundos": 2.93
+ },
+ {
+  "id": 46,
+  "file": "046.mp3",
+  "tipo": "letra",
+  "etiqueta": "까",
+  "hablado": "까",
+  "voz": "piper:kss",
+  "segundos": 3.25
+ },
+ {
+  "id": 47,
+  "file": "047.mp3",
+  "tipo": "palabra",
+  "etiqueta": "한국",
+  "hablado": "한국",
+  "voz": "piper:kss",
+  "segundos": 3.62
+ },
+ {
+  "id": 48,
+  "file": "048.mp3",
+  "tipo": "palabra",
+  "etiqueta": "학교",
+  "hablado": "학교",
+  "voz": "piper:kss",
+  "segundos": 3.86
+ },
+ {
+  "id": 49,
+  "file": "049.mp3",
+  "tipo": "palabra",
+  "etiqueta": "산",
+  "hablado": "산",
+  "voz": "piper:kss",
+  "segundos": 3.41
+ },
+ {
+  "id": 50,
+  "file": "050.mp3",
+  "tipo": "palabra",
+  "etiqueta": "강",
+  "hablado": "강",
+  "voz": "piper:kss",
+  "segundos": 3.3
+ },
+ {
+  "id": 51,
+  "file": "051.mp3",
+  "tipo": "palabra",
+  "etiqueta": "사랑",
+  "hablado": "사랑",
+  "voz": "piper:kss",
+  "segundos": 3.3
+ },
+ {
+  "id": 52,
+  "file": "052.mp3",
+  "tipo": "palabra",
+  "etiqueta": "물",
+  "hablado": "물",
+  "voz": "piper:kss",
+  "segundos": 3.32
+ },
+ {
+  "id": 53,
+  "file": "053.mp3",
+  "tipo": "palabra",
+  "etiqueta": "밥",
+  "hablado": "밥",
+  "voz": "piper:kss",
+  "segundos": 3.04
+ },
+ {
+  "id": 54,
+  "file": "054.mp3",
+  "tipo": "palabra",
+  "etiqueta": "친구",
+  "hablado": "친구",
+  "voz": "piper:kss",
+  "segundos": 3.81
+ }
+]

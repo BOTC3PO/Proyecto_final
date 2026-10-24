@@ -1,0 +1,42 @@
+{
+ "titulo": "Puerta NOT",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "shape",
+   "title": "Símbolo de la puerta NOT",
+   "collection": "logica",
+   "canvasWidth": 460,
+   "canvasHeight": 180,
+   "items": [
+    {
+     "id": "s1",
+     "shapeId": "not_gate",
+     "x": 200,
+     "y": 60,
+     "label": "NOT"
+    }
+   ],
+   "connectors": []
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Tabla de verdad",
+   "headers": [
+    "Entrada",
+    "Salida"
+   ],
+   "rows": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  }
+ ]
+}

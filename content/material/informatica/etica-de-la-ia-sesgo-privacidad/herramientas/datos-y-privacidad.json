@@ -1,0 +1,53 @@
+{
+ "titulo": "Recorrido de los datos y privacidad",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Puntos críticos",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Recolección (¿hay consentimiento?)",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Almacenamiento (¿está protegido?)",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Entrenamiento (¿se anonimizó?)",
+     "x": 425,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Uso del modelo (¿se filtran datos?)",
+     "x": 638,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

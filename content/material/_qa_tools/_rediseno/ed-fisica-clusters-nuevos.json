@@ -1,0 +1,39 @@
+[
+ {
+  "id": 961,
+  "cluster": 1,
+  "temas": [
+   "deportes-medidas-cancha-superficies",
+   "fisiologia-del-ejercicio",
+   "deportes-jugadores-posiciones-puntaje",
+   "alfabetizacion-corporal",
+   "deportes-origen-historico"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 962,
+  "cluster": 2,
+  "temas": [
+   "frecuencia-cardiaca-reposo",
+   "deporte-como-fenomeno-cultural-argentino",
+   "el-pato",
+   "frecuencia-cardiaca-maxima-zonas",
+   "imc-indice-masa-corporal"
+  ],
+  "preguntas": 121
+ },
+ {
+  "id": 963,
+  "cluster": 3,
+  "temas": [
+   "juegos-olimpicos",
+   "planificacion-progresion-volumen",
+   "prevencion-cuidado-rice-calentamiento-ergonomia",
+   "prevencion-adicciones-ley-26586",
+   "primeros-auxilios-rcp-dea",
+   "politicas-de-drogas"
+  ],
+  "preguntas": 150
+ }
+]

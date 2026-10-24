@@ -84,4 +84,22 @@ respuestas_validas:
   - "parque"
 `,
   },
+  {
+    id: "enunciados-suma-variantes",
+    titulo: "Suma con variantes de enunciado",
+    descripcion:
+      "Elige una variante al azar del bloque enunciados: para cada ejercicio. Mismo seed produce la misma variante; la validación cubre todas las variantes en 100 simulaciones.",
+    codigoDsl: `variables:
+  a: random(1, 100)
+  b: random(1, 100)
+
+enunciados:
+  - "Cuanto es {a} + {b}?"
+  - "Calcula la suma de {a} y {b}."
+  - "Resolvé el ejercicio: cuanto suman {a} y {b}?"
+
+tipo: input
+respuesta: a + b
+`,
+  },
 ];

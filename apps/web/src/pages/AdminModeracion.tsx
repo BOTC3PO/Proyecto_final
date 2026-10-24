@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchClasesPublicas,
   fetchMensajesReportados,
   banUsuario,
   advertenciaUsuario,
+  resolverMensajeReportado,
   type ClasePublica,
   type MensajeReportado,
 } from "../services/admin";
@@ -12,6 +14,7 @@ type BanModal = { userId: string; nombre: string } | null;
 type WarnModal = { userId: string; nombre: string } | null;
 
 export default function AdminModeracion() {
+  const { t, lang } = useI18n();
   const [clases, setClases] = useState<ClasePublica[]>([]);
   const [mensajes, setMensajes] = useState<MensajeReportado[]>([]);
   const [loadingClases, setLoadingClases] = useState(true);
@@ -41,6 +44,20 @@ export default function AdminModeracion() {
   };
 
   useEffect(() => { loadData(); }, []);
+
+  const handleResolver = async (id: string, estado: "revisado" | "descartado") => {
+    setSubmitting(true);
+    setActionMsg(null);
+    try {
+      await resolverMensajeReportado(id, estado);
+      setMensajes((prev) => prev.filter((m) => m.id !== id));
+      setActionMsg(estado === "revisado" ? "Reporte marcado como revisado." : "Reporte descartado.");
+    } catch (e: unknown) {
+      setActionMsg(`Error: ${(e as Error).message}`);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const handleBan = async () => {
     if (!banModal || !banMotivo.trim()) { setActionMsg("El motivo es requerido."); return; }
@@ -75,8 +92,8 @@ export default function AdminModeracion() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Moderación</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Supervisa el contenido público de la plataforma y aplica acciones de moderación.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.moderacion")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("adminModeracion.supervisaElContenidoPublicoDe")}</p>
         </div>
 
         {error && (
@@ -85,14 +102,14 @@ export default function AdminModeracion() {
         {actionMsg && (
           <div className={`rounded-xl border px-4 py-3 text-sm ${actionMsg.startsWith("Error") ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
             {actionMsg}
-            <button onClick={() => setActionMsg(null)} className="ml-3 text-xs underline">Cerrar</button>
+            <button onClick={() => setActionMsg(null)} className="ml-3 text-xs underline">{t("comun.cerrar")}</button>
           </div>
         )}
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
           <div className="border-b border-[var(--c-border)] px-6 py-4">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">Aulas públicas</h2>
-            <p className="mt-0.5 text-xs text-[var(--c-muted)]">Últimas aulas con acceso público en la plataforma.</p>
+            <h2 className="text-lg font-semibold text-[var(--c-text)]">{t("adminModeracion.aulasPublicas")}</h2>
+            <p className="mt-0.5 text-xs text-[var(--c-muted)]">{t("adminModeracion.ultimasAulasConAccesoPublico")}</p>
           </div>
           {loadingClases ? (
             <div className="space-y-3 p-6">
@@ -101,7 +118,7 @@ export default function AdminModeracion() {
               ))}
             </div>
           ) : clases.length === 0 ? (
-            <p className="p-6 text-sm text-[var(--c-muted)]">No hay aulas públicas activas.</p>
+            <p className="p-6 text-sm text-[var(--c-muted)]">{t("adminModeracion.noHayAulasPublicasActivas")}</p>
           ) : (
             <div className="divide-y divide-[var(--c-border)]">
               {clases.map((c) => (
@@ -110,13 +127,11 @@ export default function AdminModeracion() {
                     <p className="text-sm font-medium text-[var(--c-text)]">{c.nombre ?? c.name ?? c._id}</p>
                     {c.updatedAt && (
                       <p className="text-xs text-[var(--c-muted)]">
-                        Actualizado: {new Date(c.updatedAt).toLocaleDateString("es")}
+                        Actualizado: {new Date(c.updatedAt).toLocaleDateString(lang)}
                       </p>
                     )}
                   </div>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">
-                    Pública
-                  </span>
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">{t("comun.publica")}</span>
                 </div>
               ))}
             </div>
@@ -125,8 +140,8 @@ export default function AdminModeracion() {
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
           <div className="border-b border-[var(--c-border)] px-6 py-4">
-            <h2 className="text-lg font-semibold text-[var(--c-text)]">Mensajes reportados</h2>
-            <p className="mt-0.5 text-xs text-[var(--c-muted)]">Mensajes marcados como inapropiados por otros usuarios.</p>
+            <h2 className="text-lg font-semibold text-[var(--c-text)]">{t("adminModeracion.mensajesReportados")}</h2>
+            <p className="mt-0.5 text-xs text-[var(--c-muted)]">{t("adminModeracion.mensajesMarcadosComoInapropiadosPor")}</p>
           </div>
           {loadingMensajes ? (
             <div className="space-y-3 p-6">
@@ -135,21 +150,40 @@ export default function AdminModeracion() {
               ))}
             </div>
           ) : mensajes.length === 0 ? (
-            <p className="p-6 text-sm text-[var(--c-muted)]">No hay mensajes reportados.</p>
+            <p className="p-6 text-sm text-[var(--c-muted)]">{t("adminModeracion.noHayMensajesReportados")}</p>
           ) : (
             <div className="divide-y divide-[var(--c-border)]">
               {mensajes.map((m) => (
-                <div key={m._id} className="flex flex-wrap items-start justify-between gap-2 px-6 py-3">
+                <div key={m.id} className="flex flex-wrap items-start justify-between gap-2 px-6 py-3">
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm text-[var(--c-text)] line-clamp-2">{m.cuerpo ?? m.body ?? "(sin contenido)"}</p>
-                    {m.tipo && <p className="mt-0.5 text-xs text-[var(--c-muted)]">Tipo: {m.tipo}</p>}
-                    {m.createdAt && (
-                      <p className="text-xs text-[var(--c-muted)]">{new Date(m.createdAt).toLocaleDateString("es")}</p>
-                    )}
+                    <p className="text-sm text-[var(--c-text)] whitespace-pre-wrap break-words">{m.cuerpo || "(sin contenido)"}</p>
+                    {m.motivo && <p className="mt-0.5 text-xs text-[var(--c-muted)]">Motivo: {m.motivo}</p>}
+                    <p className="text-xs text-[var(--c-muted)]">
+                      Autor: <span className="font-mono">{m.autorId}</span> · Reportó: <span className="font-mono">{m.reportadoPor}</span>
+                      {m.createdAt && <> · {new Date(m.createdAt).toLocaleDateString(lang)}</>}
+                    </p>
                   </div>
-                  <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600">
-                    Reportado
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-600">{t("adminModeracion.reportado")}</span>
+                    <button
+                      onClick={() => setWarnModal({ userId: m.autorId, nombre: m.autorId })}
+                      className="rounded-lg border border-amber-200 px-2 py-1 text-xs font-semibold text-amber-700 hover:bg-amber-50"
+                    >Advertir</button>
+                    <button
+                      onClick={() => setBanModal({ userId: m.autorId, nombre: m.autorId })}
+                      className="rounded-lg border border-red-200 px-2 py-1 text-xs font-semibold text-red-700 hover:bg-red-50"
+                    >Banear</button>
+                    <button
+                      disabled={submitting}
+                      onClick={() => void handleResolver(m.id, "revisado")}
+                      className="rounded-lg border border-emerald-200 px-2 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-50 disabled:opacity-50"
+                    >Revisado</button>
+                    <button
+                      disabled={submitting}
+                      onClick={() => void handleResolver(m.id, "descartado")}
+                      className="rounded-lg border border-[var(--c-border)] px-2 py-1 text-xs font-semibold text-[var(--c-muted)] hover:bg-[var(--c-bg)] disabled:opacity-50"
+                    >Descartar</button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -158,57 +192,49 @@ export default function AdminModeracion() {
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-              Acción rápida por ID de usuario
-            </p>
-            <p className="text-xs text-[var(--c-muted)] mt-0.5">
-              Aplica un ban o advertencia directamente ingresando el ID del usuario.
-              Para buscar usuarios usa <a href="/admin/usuarios" className="text-[var(--c-primary)] underline">Gestión de usuarios</a>.
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("adminModeracion.accionRapidaPorIdDe")}</p>
+            <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("adminModeracion.aplicaUnBanOAdvertencia")}<a href="/admin/usuarios" className="text-[var(--c-primary)] underline">{t("adminModeracion.gestionDeUsuarios")}</a>.
             </p>
           </div>
           <div className="p-4 flex flex-wrap gap-3">
             <button
               onClick={() => setBanModal({ userId: "", nombre: "usuario por ID" })}
               className="rounded-xl border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 hover:bg-red-50 transition-colors"
-            >
-              Banear por ID
-            </button>
+            >{t("adminModeracion.banearPorId")}</button>
             <button
               onClick={() => setWarnModal({ userId: "", nombre: "usuario por ID" })}
               className="rounded-xl border border-amber-200 px-4 py-2 text-sm font-semibold text-amber-700 hover:bg-amber-50 transition-colors"
-            >
-              Advertir por ID
-            </button>
+            >{t("adminModeracion.advertirPorId")}</button>
           </div>
         </section>
 
         {banModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
             <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
-              <h3 className="text-lg font-semibold text-[var(--c-text)]">Banear usuario</h3>
+              <h3 className="text-lg font-semibold text-[var(--c-text)]">{t("adminModeracion.banearUsuario")}</h3>
               <div className="mt-4 space-y-3">
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">ID del usuario *</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.idDelUsuario")}</span>
                   <input
                     type="text"
                     value={banModal.userId}
                     onChange={(e) => setBanModal({ ...banModal, userId: e.target.value })}
-                    placeholder="ID del usuario"
+                    placeholder={t("adminModeracion.idDelUsuario2")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">Motivo *</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.motivo")}</span>
                   <input
                     type="text"
                     value={banMotivo}
                     onChange={(e) => setBanMotivo(e.target.value)}
-                    placeholder="Ej: Contenido inapropiado"
+                    placeholder={t("adminModeracion.ejContenidoInapropiado")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">Duración (días, 0 = permanente)</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.duracionDiasPermanente")}</span>
                   <input
                     type="number"
                     min={0}
@@ -230,9 +256,7 @@ export default function AdminModeracion() {
                 <button
                   onClick={() => { setBanModal(null); setActionMsg(null); setBanMotivo(""); setBanDias("1"); }}
                   className="flex-1 rounded-xl border border-[var(--c-border)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >
-                  Cancelar
-                </button>
+                >{t("comun.cancelar")}</button>
               </div>
             </div>
           </div>
@@ -241,38 +265,38 @@ export default function AdminModeracion() {
         {warnModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
             <div className="w-full max-w-md rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6">
-              <h3 className="text-lg font-semibold text-[var(--c-text)]">Enviar advertencia</h3>
+              <h3 className="text-lg font-semibold text-[var(--c-text)]">{t("adminModeracion.enviarAdvertencia")}</h3>
               <div className="mt-4 space-y-3">
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">ID del usuario *</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.idDelUsuario")}</span>
                   <input
                     type="text"
                     value={warnModal.userId}
                     onChange={(e) => setWarnModal({ ...warnModal, userId: e.target.value })}
-                    placeholder="ID del usuario"
+                    placeholder={t("adminModeracion.idDelUsuario2")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">Motivo *</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.motivo")}</span>
                   <input
                     type="text"
                     value={warnMotivo}
                     onChange={(e) => setWarnMotivo(e.target.value)}
-                    placeholder="Ej: Lenguaje ofensivo"
+                    placeholder={t("adminModeracion.ejLenguajeOfensivo")}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-[var(--c-muted)]">Severidad</span>
+                  <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminModeracion.severidad")}</span>
                   <select
                     value={warnSeveridad}
                     onChange={(e) => setWarnSeveridad(e.target.value)}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="baja">Baja</option>
-                    <option value="media">Media</option>
-                    <option value="alta">Alta</option>
+                    <option value="baja">{t("adminModeracion.baja")}</option>
+                    <option value="media">{t("adminModeracion.media")}</option>
+                    <option value="alta">{t("adminModeracion.alta")}</option>
                   </select>
                 </label>
               </div>
@@ -288,9 +312,7 @@ export default function AdminModeracion() {
                 <button
                   onClick={() => { setWarnModal(null); setActionMsg(null); setWarnMotivo(""); setWarnSeveridad("baja"); }}
                   className="flex-1 rounded-xl border border-[var(--c-border)] px-4 py-2.5 text-sm font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >
-                  Cancelar
-                </button>
+                >{t("comun.cancelar")}</button>
               </div>
             </div>
           </div>

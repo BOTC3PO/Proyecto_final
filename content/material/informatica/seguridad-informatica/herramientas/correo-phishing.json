@@ -1,0 +1,54 @@
+{
+ "titulo": "Cómo funciona el phishing",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Engaño paso a paso",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Correo con el logo de una entidad legítima",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Enlace falso",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Sitio falso que pide datos",
+     "x": 425,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Robo de credenciales",
+     "x": 638,
+     "y": 0,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

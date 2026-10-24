@@ -1,0 +1,58 @@
+{
+ "titulo": "Elementos esenciales de una empresa",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Empresa",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Capital",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Fuerza de trabajo",
+     "x": 212,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Organización",
+     "x": 425,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Empresa con objetivos",
+     "x": 212,
+     "y": 126,
+     "shape": "circle",
+     "color": "#f3e8ff"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n4"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+[
+ {
+  "id": 868,
+  "cluster": 8,
+  "temas": [
+   "homeostasis-y-regulacion",
+   "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+   "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+   "reproduccion-sexual-y-asexual",
+   "sistema-circulatorio-corazon-y-sangre"
+  ],
+  "preguntas": 117
+ },
+ {
+  "id": 869,
+  "cluster": 9,
+  "temas": [
+   "sistema-digestivo-y-nutricion",
+   "sistema-excretor-rinon-y-homeostasis-del-agua",
+   "sistema-inmunitario-defensas-y-memoria-inmune",
+   "sistema-muscular-y-contraccion",
+   "sistema-oseo-y-articulaciones",
+   "sistema-respiratorio-e-intercambio-gaseoso",
+   "sistema-tegumentario-piel-y-termorregulacion"
+  ],
+  "preguntas": 162
+ }
+]

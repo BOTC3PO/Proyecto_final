@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { apiGet, apiPost } from '../lib/api';
+import { useI18n } from "../i18n/I18nContext";
 
 type EducationMessage = {
   id: string;
@@ -17,15 +18,15 @@ type CoinFeedback = {
 
 type SimulationScenario = {
   id: string;
-  title: string;
-  question: string;
+  titleKey: string;
+  questionKey: string;
   impact: {
     coinDelta: number;
     foreignCoinDelta: number;
     fixedTermRateDelta: number;
     fciRateDelta: number;
   };
-  learning: string;
+  learningKey: string;
 };
 
 type SaldoResponse = {
@@ -87,43 +88,57 @@ type FciPosicion = {
 const ECONOMIC_SIMULATIONS: SimulationScenario[] = [
   {
     id: "sim-demanda",
-    title: "Demanda inesperada",
-    question: "¿Qué pasaría si sube la demanda por un producto escolar clave?",
+    titleKey: "economia.demandaInesperada",
+    questionKey: "economia.quePasariaSiSubeLa",
     impact: {
       coinDelta: -15,
       foreignCoinDelta: 0,
       fixedTermRateDelta: 3,
       fciRateDelta: 1
     },
-    learning: "Cuando la demanda sube, los precios suben y conviene revisar el ahorro."
+    learningKey: "economia.cuandoLaDemandaSubeLos"
   },
   {
     id: "sim-dolar",
-    title: "Movimiento del tipo de cambio",
-    question: "¿Qué pasaría si el tipo de cambio se encarece en una semana?",
+    titleKey: "economia.movimientoDelTipoDeCambio",
+    questionKey: "economia.quePasariaSiElTipo",
     impact: {
       coinDelta: -10,
       foreignCoinDelta: 0.2,
       fixedTermRateDelta: 0,
       fciRateDelta: -1
     },
-    learning: "Un cambio fuerte en FX afecta decisiones de compra y ahorro."
+    learningKey: "economia.unCambioFuerteEnFx"
   },
   {
     id: "sim-confianza",
-    title: "Confianza en la economía",
-    question: "¿Qué pasaría si la confianza mejora y baja la urgencia de gastar?",
+    titleKey: "economia.confianzaEnLaEconomia",
+    questionKey: "economia.quePasariaSiLaConfianza",
     impact: {
       coinDelta: 12,
       foreignCoinDelta: 0,
       fixedTermRateDelta: -2,
       fciRateDelta: 1
     },
-    learning: "Más confianza suele impulsar el ahorro y mejorar el saldo disponible."
+    learningKey: "economia.masConfianzaSueleImpulsarEl"
   }
 ];
 
 const FOREIGN_EXCHANGE_RATE = 100;
+
+const CICLO_TIPO_LABEL_KEYS: Record<string, string> = {
+  inflacion: "economia.cicloTipoInflacion",
+  hiperinflacion: "economia.cicloTipoHiperinflacion",
+  deflacion: "economia.cicloTipoDeflacion",
+  bonus: "economia.cicloTipoBonus",
+  penalizacion: "economia.cicloTipoPenalizacion",
+  otro: "economia.cicloTipoOtro",
+};
+
+const INSTRUMENTO_ESTADO_LABEL_KEYS: Record<string, string> = {
+  activo: "perfil.activo",
+  rescatado: "economia.estadoRescatado",
+};
 
 const defaultEconomyState: EconomyState = {
   coins: 120,
@@ -133,6 +148,7 @@ const defaultEconomyState: EconomyState = {
 };
 
 export default function Economia() {
+  const { t, lang } = useI18n();
   const { user } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'tablero' | 'invertir' | 'simulador' | 'intercambio'>('tablero');
@@ -281,7 +297,7 @@ export default function Economia() {
     try {
       const result = await apiPost<{
         id: string; interes: number; total: number;
-        venceAt: string; saldoRestante: number;
+        venceAt: string; saldoRestante: number; tasaAnual: number;
       }>("/api/instrumentos/plazo-fijo", {
         monto: fixedTermAmount,
         tasaAnual: fixedTermRate,
@@ -294,7 +310,7 @@ export default function Economia() {
       setPlazos((prev) => [...prev, {
         id: result.id,
         monto: fixedTermAmount,
-        tasa_anual: fixedTermRate,
+        tasa_anual: result.tasaAnual ?? fixedTermRate, // la tasa la fija el servidor
         dias: fixedTermDays,
         interes: result.interes,
         total: result.total,
@@ -304,7 +320,7 @@ export default function Economia() {
         rescatado_at: null,
       }]);
       setInstrumentoMsg(
-        `✓ Plazo fijo abierto. Vence el ${new Date(result.venceAt).toLocaleDateString("es-AR")}. ` +
+        `✓ Plazo fijo abierto. Vence el ${new Date(result.venceAt).toLocaleDateString(lang)}. ` +
         `Recibirás ${result.total.toFixed(2)} 🪙.`
       );
       setCoinFeedback({
@@ -314,7 +330,7 @@ export default function Economia() {
       });
     } catch (err) {
       setInstrumentoMsg(
-        err instanceof Error ? err.message : "No se pudo abrir el plazo fijo."
+        err instanceof Error ? err.message : t("economia.noSePudoAbrirEl")
       );
     } finally {
       setPfInvirtiendo(false);
@@ -367,7 +383,7 @@ export default function Economia() {
       });
     } catch (err) {
       setInstrumentoMsg(
-        err instanceof Error ? err.message : "No se pudo abrir el FCI."
+        err instanceof Error ? err.message : t("economia.noSePudoAbrirEl2")
       );
     } finally {
       setFciInvirtiendo(false);
@@ -400,7 +416,7 @@ export default function Economia() {
       });
     } catch (err) {
       setInstrumentoMsg(
-        err instanceof Error ? err.message : "No se pudo rescatar."
+        err instanceof Error ? err.message : t("economia.noSePudoRescatar")
       );
     } finally {
       setRescatando(null);
@@ -418,7 +434,7 @@ export default function Economia() {
         tone: "spend"
       });
       pushEducationMessage({
-        title: "Cambio de moneda",
+        title: t("economia.cambioDeMoneda"),
         body: `Aprendés que las monedas tienen valor de cambio: ${FOREIGN_EXCHANGE_RATE} 🪙 = 1 FX.`,
         tone: "info"
       });
@@ -437,7 +453,7 @@ export default function Economia() {
   const handleTransfer = async () => {
     if (!transferTo.trim() || transferAmount <= 0) {
       pushEducationMessage({
-        title: 'Datos incompletos',
+        title: t("economia.datosIncompletos"),
         body: 'Completá el destinatario y el monto para enviar monedas.',
         tone: 'warning',
       });
@@ -445,7 +461,7 @@ export default function Economia() {
     }
     if (economy.coins < transferAmount) {
       pushEducationMessage({
-        title: 'Saldo insuficiente',
+        title: t("economia.saldoInsuficiente"),
         body: `Tenés ${economy.coins} 🪙 pero querés enviar ${transferAmount}.`,
         tone: 'warning',
       });
@@ -459,7 +475,7 @@ export default function Economia() {
       });
       setEconomy((prev) => ({ ...prev, coins: prev.coins - transferAmount }));
       pushEducationMessage({
-        title: '¡Enviado!',
+        title: t("economia.enviado"),
         body: `Enviaste ${transferAmount} 🪙 a ${transferTo}.`,
         tone: 'success',
       });
@@ -469,8 +485,8 @@ export default function Economia() {
       window.dispatchEvent(new CustomEvent('vb:coins-updated'));
     } catch (err) {
       pushEducationMessage({
-        title: 'Error al enviar',
-        body: err instanceof Error ? err.message : 'No se pudo completar el envío.',
+        title: t("economia.errorAlEnviar"),
+        body: err instanceof Error ? err.message : t("economia.noSePudoCompletarEl"),
         tone: 'warning',
       });
     }
@@ -483,8 +499,8 @@ export default function Economia() {
         {/* Encabezado */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-[var(--c-text)]">Economía</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-1">Tu tablero financiero educativo</p>
+            <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("dropdown.economia")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-1">{t("economia.tuTableroFinancieroEducativo")}</p>
           </div>
           <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5 flex-shrink-0">
             <span aria-hidden="true">🪙</span>
@@ -498,17 +514,17 @@ export default function Economia() {
         {cicloActivo && (
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-              <p className="text-xs text-[var(--c-muted)] mb-1">Ciclo económico</p>
-              <p className="text-base font-semibold text-[var(--c-text)] capitalize">{cicloActivo.tipo}</p>
+              <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.cicloEconomico")}</p>
+              <p className="text-base font-semibold text-[var(--c-text)] capitalize">{t(CICLO_TIPO_LABEL_KEYS[cicloActivo.tipo] ?? cicloActivo.tipo)}</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">Intensidad {cicloActivo.intensidad}/10</p>
             </div>
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-              <p className="text-xs text-[var(--c-muted)] mb-1">Tasa plazo fijo</p>
-              <p className="text-base font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</p>
-              <p className="text-xs text-[var(--c-muted)] mt-0.5">Tasa variable</p>
+              <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.tasaPlazoFijo")}</p>
+              <p className="text-base font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% {t("economia.anual")}</p>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.tasaVariable")}</p>
             </div>
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-              <p className="text-xs text-[var(--c-muted)] mb-1">Moneda extranjera</p>
+              <p className="text-xs text-[var(--c-muted)] mb-1">{t("economia.monedaExtranjera")}</p>
               <p className="text-base font-semibold text-[var(--c-text)]">{economy.foreignCoins} FX</p>
               <p className="text-xs text-[var(--c-muted)] mt-0.5">1 FX = 100 monedas</p>
             </div>
@@ -529,10 +545,10 @@ export default function Economia() {
         {/* Tabs */}
         <div className="flex gap-1 border-b border-[var(--c-border)]">
           {([
-            { key: 'tablero',     label: 'Tablero' },
-            { key: 'invertir',    label: 'Invertir' },
-            { key: 'simulador',   label: 'Simulador' },
-            { key: 'intercambio', label: 'Intercambio' },
+            { key: 'tablero',     label: t("economia.tablero") },
+            { key: 'invertir',    label: t("economia.invertir") },
+            { key: 'simulador',   label: t("economia.simulador") },
+            { key: 'intercambio', label: t("economia.intercambio") },
           ] as const).map(({ key, label }) => (
             <button
               key={key}
@@ -555,7 +571,7 @@ export default function Economia() {
             {/* Tablero económico */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Tablero Económico</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.tableroEconomico")}</h3>
                 {cicloActivo && (
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]">
                     Ciclo {cicloActivo.tipo}
@@ -563,25 +579,25 @@ export default function Economia() {
                 )}
               </div>
               <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
-                <span className="text-xs text-[var(--c-muted)]">Monedas disponibles</span>
+                <span className="text-xs text-[var(--c-muted)]">{t("economia.monedasDisponibles")}</span>
                 <span className="text-sm font-semibold text-[var(--c-text)]">
                   {economy.coins.toLocaleString('es-AR')} 🪙
                 </span>
               </div>
               <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
-                <span className="text-xs text-[var(--c-muted)]">Moneda extranjera</span>
+                <span className="text-xs text-[var(--c-muted)]">{t("economia.monedaExtranjera")}</span>
                 <span className="text-sm font-semibold text-[var(--c-text)]">{economy.foreignCoins} FX</span>
               </div>
               {cicloActivo && (
                 <>
                   <div className="flex items-center justify-between py-2 border-b border-[var(--c-border)]">
-                    <span className="text-xs text-[var(--c-muted)]">Tasa plazo fijo</span>
-                    <span className="text-sm font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% anual</span>
+                    <span className="text-xs text-[var(--c-muted)]">{t("economia.tasaPlazoFijo")}</span>
+                    <span className="text-sm font-semibold text-[var(--c-text)]">{cicloActivo.tasa}% {t("economia.anual")}</span>
                   </div>
                   <div className="flex items-center justify-between py-2">
-                    <span className="text-xs text-[var(--c-muted)]">Vigencia del ciclo</span>
+                    <span className="text-xs text-[var(--c-muted)]">{t("economia.vigenciaDelCiclo")}</span>
                     <span className="text-xs text-[var(--c-muted)]">
-                      hasta {new Date(cicloActivo.fin).toLocaleDateString('es-AR')}
+                      hasta {new Date(cicloActivo.fin).toLocaleDateString(lang)}
                     </span>
                   </div>
                 </>
@@ -590,12 +606,12 @@ export default function Economia() {
 
             {/* Compra de moneda extranjera */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Compra de moneda extranjera</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.compraDeMonedaExtranjera")}</h3>
               <p className="text-xs text-[var(--c-muted)]">
-                Simulá el cambio de tus monedas a FX. Tipo de cambio: 100 monedas = 1 FX.
+                {t("economia.simulaCambioFx")}
               </p>
               <div>
-                <label className="text-xs text-[var(--c-muted)] block mb-1.5">Monedas a cambiar</label>
+                <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.monedasACambiar")}</label>
                 <input
                   type="number"
                   min={100}
@@ -605,15 +621,13 @@ export default function Economia() {
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                 />
                 <p className="text-xs text-[var(--c-muted)] mt-1.5">
-                  Recibís: {Math.floor(exchangeAmount / 100)} FX
+                  {t("economia.recibis")} {Math.floor(exchangeAmount / 100)} FX
                 </p>
               </div>
               <button
                 onClick={handleExchange}
                 className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-              >
-                Comprar FX
-              </button>
+              >{t("economia.comprarFx")}</button>
             </div>
           </div>
         )}
@@ -625,16 +639,14 @@ export default function Economia() {
             {/* Plazo fijo */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <div>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Plazo fijo educativo</h3>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                  Bloqueá tus monedas por un tiempo y ganá intereses.
-                </p>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.plazoFijoEducativo")}</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.bloqueaTusMonedasPorUn")}</p>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { label: 'Monto', value: fixedTermAmount, set: setFixedTermAmount, min: 100 },
-                  { label: 'Tasa % anual', value: fixedTermRate, set: setFixedTermRate, min: 1 },
-                  { label: 'Días', value: fixedTermDays, set: setFixedTermDays, min: 1 },
+                  { label: t("comun.monto"), value: fixedTermAmount, set: setFixedTermAmount, min: 100 },
+                  { label: t("economia.tasaAnual"), value: fixedTermRate, set: setFixedTermRate, min: 1 },
+                  { label: t("economia.dias"), value: fixedTermDays, set: setFixedTermDays, min: 1 },
                 ].map(({ label, value, set, min }) => (
                   <div key={label}>
                     <label className="text-[10px] text-[var(--c-muted)] block mb-1">{label}</label>
@@ -648,13 +660,13 @@ export default function Economia() {
               </div>
               <div className="rounded-xl bg-[var(--c-bg)] border border-[var(--c-border)] px-4 py-3">
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="text-[var(--c-muted)]">Interés estimado</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.interesEstimado")}</span>
                   <span className="font-semibold text-[var(--c-success)]">
                     🪙 {fixedTermInterest.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[var(--c-muted)]">Total al vencer</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.totalAlVencer")}</span>
                   <span className="font-semibold text-[var(--c-text)]">
                     🪙 {fixedTermTotal.toFixed(2)}
                   </span>
@@ -665,11 +677,11 @@ export default function Economia() {
                 disabled={pfInvirtiendo}
                 className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
               >
-                {pfInvirtiendo ? 'Invirtiendo...' : 'Invertir en plazo fijo'}
+                {pfInvirtiendo ? t("economia.invirtiendo") : t("economia.invertirEnPlazoFijo")}
               </button>
               {plazos.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
-                  <p className="text-xs font-medium text-[var(--c-muted)]">Plazos activos</p>
+                  <p className="text-xs font-medium text-[var(--c-muted)]">{t("economia.plazosActivos")}</p>
                   {plazos.map((p) => (
                     <div key={p.id} className="flex items-center justify-between text-xs">
                       <span className="text-[var(--c-text)]">🪙 {p.monto} · {p.dias}d · {p.tasa_anual}%</span>
@@ -679,11 +691,11 @@ export default function Economia() {
                           disabled={rescatando === p.id}
                           className="text-[var(--c-primary)] hover:underline disabled:opacity-40"
                         >
-                          {rescatando === p.id ? '...' : 'Rescatar'}
+                          {rescatando === p.id ? '...' : t("economia.rescatar")}
                         </button>
                       )}
                       {p.estado !== 'activo' && (
-                        <span className="text-[var(--c-muted)]">{p.estado}</span>
+                        <span className="text-[var(--c-muted)]">{t(INSTRUMENTO_ESTADO_LABEL_KEYS[p.estado] ?? p.estado)}</span>
                       )}
                     </div>
                   ))}
@@ -695,16 +707,14 @@ export default function Economia() {
             {/* FCI */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4">
               <div>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">FCI de desbloqueo rápido</h3>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                  Rendimiento variable. Rescate en 24hs.
-                </p>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.fciDeDesbloqueoRapido")}</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.rendimientoVariableRescateEn24hs")}</p>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { label: 'Monto', value: fciAmount, set: setFciAmount, min: 100 },
-                  { label: 'Tasa % mensual', value: fciRate, set: setFciRate, min: 1 },
-                  { label: 'Días', value: fciDays, set: setFciDays, min: 1 },
+                  { label: t("comun.monto"), value: fciAmount, set: setFciAmount, min: 100 },
+                  { label: t("economia.tasaMensual"), value: fciRate, set: setFciRate, min: 1 },
+                  { label: t("economia.dias"), value: fciDays, set: setFciDays, min: 1 },
                 ].map(({ label, value, set, min }) => (
                   <div key={label}>
                     <label className="text-[10px] text-[var(--c-muted)] block mb-1">{label}</label>
@@ -718,13 +728,13 @@ export default function Economia() {
               </div>
               <div className="rounded-xl bg-[var(--c-bg)] border border-[var(--c-border)] px-4 py-3">
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="text-[var(--c-muted)]">Ganancia estimada</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.gananciaEstimada")}</span>
                   <span className="font-semibold text-[var(--c-success)]">
                     🪙 {fciInterest.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-[var(--c-muted)]">Total al vencer</span>
+                  <span className="text-[var(--c-muted)]">{t("economia.totalAlVencer")}</span>
                   <span className="font-semibold text-[var(--c-text)]">
                     🪙 {fciTotal.toFixed(2)}
                   </span>
@@ -735,11 +745,11 @@ export default function Economia() {
                 disabled={fciInvirtiendo}
                 className="w-full rounded-xl bg-[var(--c-success)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
               >
-                {fciInvirtiendo ? 'Invirtiendo...' : 'Invertir en FCI'}
+                {fciInvirtiendo ? t("economia.invirtiendo") : t("economia.invertirEnFci")}
               </button>
               {fcis.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-[var(--c-border)]">
-                  <p className="text-xs font-medium text-[var(--c-muted)]">Posiciones activas</p>
+                  <p className="text-xs font-medium text-[var(--c-muted)]">{t("economia.posicionesActivas")}</p>
                   {fcis.map((f) => (
                     <div key={f.id} className="flex items-center justify-between text-xs">
                       <span className="text-[var(--c-text)]">🪙 {f.monto} · {f.dias}d · {f.tasa_mensual}%m</span>
@@ -749,11 +759,11 @@ export default function Economia() {
                           disabled={rescatando === f.id}
                           className="text-[var(--c-primary)] hover:underline disabled:opacity-40"
                         >
-                          {rescatando === f.id ? '...' : 'Rescatar'}
+                          {rescatando === f.id ? '...' : t("economia.rescatar")}
                         </button>
                       )}
                       {f.estado !== 'activo' && (
-                        <span className="text-[var(--c-muted)]">{f.estado}</span>
+                        <span className="text-[var(--c-muted)]">{t(INSTRUMENTO_ESTADO_LABEL_KEYS[f.estado] ?? f.estado)}</span>
                       )}
                     </div>
                   ))}
@@ -768,10 +778,8 @@ export default function Economia() {
           <div className="space-y-4">
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
               <div>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Simulador de eventos económicos</h3>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                  Mini-simulaciones "¿qué pasaría si...?" para practicar antes de activar eventos reales.
-                </p>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.simuladorDeEventosEconomicos")}</h3>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.miniSimulacionesQuePasariaSi")}</p>
               </div>
               {ECONOMIC_SIMULATIONS.map((scenario) => (
                 <div key={scenario.id} className="border border-[var(--c-border)] rounded-xl overflow-hidden">
@@ -780,11 +788,11 @@ export default function Economia() {
                     className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-[var(--c-bg)] transition-colors"
                   >
                     <div>
-                      <p className="text-sm font-medium text-[var(--c-text)]">{scenario.title}</p>
-                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{scenario.question}</p>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{t(scenario.titleKey)}</p>
+                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{t(scenario.questionKey)}</p>
                     </div>
                     <span className="text-xs text-[var(--c-primary)] flex-shrink-0 ml-3">
-                      {openSimulationId === scenario.id ? 'Ocultar' : 'Ver resultado'}
+                      {openSimulationId === scenario.id ? t("economia.ocultar") : t("economia.verResultado")}
                     </span>
                   </button>
                   {openSimulationId === scenario.id && (
@@ -792,7 +800,7 @@ export default function Economia() {
                       <div className="grid grid-cols-2 gap-2 text-xs">
                         {scenario.impact.coinDelta !== 0 && (
                           <div className={`rounded-lg px-3 py-2 ${scenario.impact.coinDelta > 0 ? 'bg-[color-mix(in_srgb,var(--c-success)_10%,transparent)] text-[var(--c-success)]' : 'bg-[color-mix(in_srgb,var(--c-danger)_10%,transparent)] text-[var(--c-danger)]'}`}>
-                            Monedas: {scenario.impact.coinDelta > 0 ? '+' : ''}{scenario.impact.coinDelta}
+                            {t("menualumno.monedas")}: {scenario.impact.coinDelta > 0 ? '+' : ''}{scenario.impact.coinDelta}
                           </div>
                         )}
                         {scenario.impact.foreignCoinDelta !== 0 && (
@@ -802,11 +810,11 @@ export default function Economia() {
                         )}
                         {scenario.impact.fixedTermRateDelta !== 0 && (
                           <div className="rounded-lg px-3 py-2 bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] text-[var(--c-warning)]">
-                            Tasa PF: {scenario.impact.fixedTermRateDelta > 0 ? '+' : ''}{scenario.impact.fixedTermRateDelta}%
+                            {t("economia.tasaPf")}: {scenario.impact.fixedTermRateDelta > 0 ? '+' : ''}{scenario.impact.fixedTermRateDelta}%
                           </div>
                         )}
                       </div>
-                      <p className="text-xs text-[var(--c-muted)] italic">{scenario.learning}</p>
+                      <p className="text-xs text-[var(--c-muted)] italic">{t(scenario.learningKey)}</p>
                     </div>
                   )}
                 </div>
@@ -816,7 +824,7 @@ export default function Economia() {
             {/* Mensajes educativos */}
             {educationMessages.length > 0 && (
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">Mensajes educativos</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.mensajesEducativos")}</h3>
                 {educationMessages.slice(-3).map((msg) => (
                   <div
                     key={msg.id}
@@ -841,17 +849,15 @@ export default function Economia() {
         {activeTab === 'intercambio' && (
           <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-4 max-w-md">
             <div>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Intercambio entre alumnos</h3>
-              <p className="text-xs text-[var(--c-muted)] mt-0.5">
-                Enviá monedas a compañeros de forma simple.
-              </p>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("economia.intercambioEntreAlumnos")}</h3>
+              <p className="text-xs text-[var(--c-muted)] mt-0.5">{t("economia.enviaMonedasACompanerosDe")}</p>
             </div>
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-[var(--c-muted)] block mb-1.5">Destinatario</label>
+                <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.destinatario")}</label>
                 <input
                   type="text"
-                  placeholder="Ej: Juan Pérez"
+                  placeholder={t("economia.ejJuanPerez")}
                   value={transferTo}
                   onChange={(e) => setTransferTo(e.target.value)}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
@@ -859,7 +865,7 @@ export default function Economia() {
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">Monto</label>
+                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("comun.monto")}</label>
                   <input
                     type="number" min={1} value={transferAmount}
                     onChange={(e) => setTransferAmount(Number(e.target.value))}
@@ -867,10 +873,10 @@ export default function Economia() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">Nota (opcional)</label>
+                  <label className="text-xs text-[var(--c-muted)] block mb-1.5">{t("economia.notaOpcional")}</label>
                   <input
                     type="text"
-                    placeholder="Gracias por ayudar"
+                    placeholder={t("economia.graciasPorAyudar")}
                     value={transferNote}
                     onChange={(e) => setTransferNote(e.target.value)}
                     className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
@@ -884,12 +890,12 @@ export default function Economia() {
               disabled={!transferTo.trim() || transferAmount <= 0 || economy.coins < transferAmount}
               className="w-full rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
             >
-              Enviar {transferAmount > 0 ? `${transferAmount} 🪙` : 'monedas'}
+              {t("economia.enviar")} {transferAmount > 0 ? `${transferAmount} 🪙` : t("menualumno.monedas")}
             </button>
 
             {/* Saldo disponible */}
             <p className="text-xs text-[var(--c-muted)] text-center">
-              Disponible: {economy.coins.toLocaleString('es-AR')} 🪙
+              {t("economia.disponible")}: {economy.coins.toLocaleString('es-AR')} 🪙
             </p>
           </div>
         )}

@@ -4,12 +4,19 @@
  * DIFF-07: cada card es interactiva — el profe puede responder ("Tu respuesta…"
  * o eligiendo una opción) y comprobar, viendo si la corrección automática la da
  * por buena. La clave de respuesta queda oculta hasta comprobar / revelar.
+ *
+ * Envuelto en React.memo: las cards sólo cambian cuando cambia el `preview`
+ * (es decir, tras un debounce de compilación) o al pulsar Regenerar. Los
+ * re-renders del padre por otras causas (toggle de modo, saveStatus, modales)
+ * ya no propagan a las 3 cards ni a sus estados internos de respuesta.
  */
 
-import { useState } from "react";
-import type { ModuleQuizQuestion } from "@vb/vblang";
+import { memo, useState } from "react";
+import { respuestaNumericaCorrecta, type ModuleQuizQuestion } from "@vb/vblang";
+import MarcarMapaRenderer from "../quiz-renderers/MarcarMapaRenderer";
 import type { PreviewItem } from "../../hooks/usePlantillaPreview";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface PreviewPanelProps {
   preview: PreviewItem[];
   onRegenerate: () => void;
@@ -26,7 +33,18 @@ function norm(s: string): string {
   return s.trim().toLowerCase();
 }
 
-/** ¿La respuesta `user` es correcta según la clave (con tolerancia numérica)? */
+/**
+ * ¿La respuesta `user` es correcta según la clave?
+ *
+ * La parte numérica delega en `respuestaNumericaCorrecta` de `@vb/vblang`, la
+ * MISMA función que corrige el server. Antes este preview tenía su propio
+ * criterio y era más permisivo que la corrección real (normalizaba la coma y
+ * tenía epsilon, cosas que el grader sin tolerancia no hacía): el docente
+ * probaba acá, lo veía en verde, y a sus alumnos les daba mal.
+ *
+ * El atajo de texto sigue siendo case-insensitive sólo acá (divergencia
+ * preexistente con el server, que es case-sensitive; no es de §7).
+ */
 function isCorrect(q: ModuleQuizQuestion, user: string): boolean {
   const keys = Array.isArray(q.answerKey)
     ? q.answerKey
@@ -35,47 +53,39 @@ function isCorrect(q: ModuleQuizQuestion, user: string): boolean {
       : [];
   const u = user.trim();
   if (u === "" || keys.length === 0) return false;
-  const uNum = Number(u.replace(",", "."));
-  for (const raw of keys) {
+  return keys.some((raw) => {
     const k = String(raw);
     if (norm(k) === norm(u)) return true;
-    const kNum = Number(k.replace(",", "."));
-    if (Number.isFinite(uNum) && Number.isFinite(kNum)) {
-      const tol = q.toleranciaRelativa ?? 0;
-      const denom = Math.abs(kNum) > 1e-9 ? Math.abs(kNum) : 1;
-      if (Math.abs(uNum - kNum) / denom <= tol + 1e-9) return true;
-    }
-  }
-  return false;
+    return respuestaNumericaCorrecta(u, k, q.toleranciaRelativa, q.toleranciaAbsoluta);
+  });
 }
 
 /** Tipos que tienen autocorrección simple en el preview. */
 const INTERACTIVE_TYPES = new Set(["mc", "vf", "input", "completar"]);
 
-export default function PreviewPanel({
+function PreviewPanel({
   preview,
   onRegenerate,
 }: PreviewPanelProps) {
+  const { t } = useI18n();
   return (
     <div
       role="region"
-      aria-label="Vista previa de la plantilla"
+      aria-label={t("previewPanel.vistaPreviaDeLaPlantilla")}
       className="panel-section flex h-full"
       data-testid="vblang-preview-panel"
     >
       <div className="panel-section__head">
-        <h3 className="panel-section__title">Vista previa</h3>
+        <h3 className="panel-section__title">{t("comun.vistaPrevia")}</h3>
         <button
           type="button"
           onClick={onRegenerate}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-3 py-1 text-xs font-medium text-white hover:opacity-90"
-        >
-          Regenerar
-        </button>
+        >{t("previewPanel.regenerar")}</button>
       </div>
       <div className="panel-section__body space-y-3">
         {preview.length === 0 ? (
-          <p className="text-xs text-[var(--c-hint)]">Sin preview todavía.</p>
+          <p className="text-xs text-[var(--c-hint)]">{t("previewPanel.sinPreviewTodavia")}</p>
         ) : (
           preview.map((item, idx) => (
             <PreviewCard key={`${item.seed}-${idx}`} item={item} />
@@ -85,6 +95,8 @@ export default function PreviewPanel({
     </div>
   );
 }
+
+export default memo(PreviewPanel);
 
 function PreviewCard({ item }: { item: PreviewItem }) {
   return (
@@ -111,6 +123,7 @@ function PreviewCard({ item }: { item: PreviewItem }) {
 
 /** Zona de respuesta interactiva + comprobación por card. */
 function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
+  const { t } = useI18n();
   const tipo = question.questionType ?? "input";
   const [text, setText] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
@@ -123,7 +136,42 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
     !!question.options &&
     question.options.length > 0;
 
-  // Tipos sin autocorrección en el preview (ordenar, mapa, etc.): sólo revelar.
+  // PLAN tiza-autoria-avanzada §8 — `marcar_mapa` mostraba SÓLO el texto del
+  // enunciado y un "Ver respuesta". Ahora que el mapa se puede autorear desde
+  // Tiza (§1), el docente tiene que poder verlo y clickearlo acá: se monta el
+  // MISMO renderer que ve el alumno, con la respuesta correcta revelable.
+  if (tipo === "marcar_mapa" && question.mapaId) {
+    return (
+      <div className="mt-2 space-y-1.5" data-testid="preview-mapa">
+        <MarcarMapaRenderer
+          mapaId={question.mapaId}
+          paisIso={question.paisIso}
+          modoRespuesta={question.modoRespuestaMapa}
+          encuadre={question.encuadre}
+          selectedKey={selected ?? undefined}
+          correctKey={revealed ? answerKeyString(question.answerKey) : undefined}
+          onSelect={(key) => setSelected(key)}
+        />
+        <div className="text-xs">
+          <button
+            type="button"
+            onClick={() => setRevealed((v) => !v)}
+            className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-[var(--c-text)]"
+          >
+            {revealed ? t("previewPanel.ocultarRespuesta") : t("previewPanel.verRespuesta")}
+          </button>
+          {revealed && (
+            <span className="ml-2 text-[var(--c-hint)]">
+              {answerKeyString(question.answerKey)}
+            </span>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Tipos sin autocorrección en el preview (ordenar, etc.): sólo revelar, pero
+  // diciendo POR QUÉ no se puede responder acá en vez de dejarlo implícito.
   if (!interactive) {
     return (
       <div className="mt-2 text-xs">
@@ -132,11 +180,11 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
           onClick={() => setRevealed((v) => !v)}
           className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-[var(--c-text)]"
         >
-          {revealed ? "Ocultar respuesta" : "Ver respuesta"}
+          {revealed ? t("previewPanel.ocultarRespuesta") : t("previewPanel.verRespuesta")}
         </button>
         {revealed && (
           <p className="mt-1 text-[var(--c-hint)]">
-            Respuesta: {answerKeyString(question.answerKey)}
+            {t("previewPanel.respuesta")} {answerKeyString(question.answerKey)}
           </p>
         )}
       </div>
@@ -150,7 +198,7 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
   return (
     <div className="mt-2 space-y-1.5">
       {usesOptions ? (
-        <ul role="radiogroup" aria-label="Tu respuesta" className="space-y-1">
+        <ul role="radiogroup" aria-label={t("previewPanel.tuRespuesta")} className="space-y-1">
           {question.options!.map((opt, i) => (
             <li key={i}>
               <label className="flex items-center gap-2 text-[var(--c-text)]">
@@ -170,13 +218,13 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
         </ul>
       ) : (
         <input
-          aria-label="Tu respuesta"
+          aria-label={t("previewPanel.tuRespuesta")}
           value={text}
           onChange={(e) => {
             setText(e.target.value);
             setChecked(false);
           }}
-          placeholder="Tu respuesta…"
+          placeholder={t("previewPanel.tuRespuesta2")}
           className="w-full rounded border border-[var(--c-border,#cbd5e1)] px-2 py-1 text-sm"
         />
       )}
@@ -187,9 +235,7 @@ function InteractiveAnswer({ question }: { question: ModuleQuizQuestion }) {
           disabled={!canCheck}
           onClick={() => setChecked(true)}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-2 py-1 text-xs font-medium text-white disabled:opacity-40"
-        >
-          Comprobar
-        </button>
+        >{t("previewPanel.comprobar")}</button>
         {checked && (
           <span
             role="status"

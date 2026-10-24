@@ -23,6 +23,8 @@ export type DashListBlock =
   | "respuestas_validas"
   | "pasos"
   | "etiquetas_pedidas"
+  | "spans_pedidos"
+  | "etiquetas_disponibles"
   | "restricciones";
 
 export const DASH_LIST_BLOCKS: readonly DashListBlock[] = [
@@ -30,6 +32,8 @@ export const DASH_LIST_BLOCKS: readonly DashListBlock[] = [
   "respuestas_validas",
   "pasos",
   "etiquetas_pedidas",
+  "spans_pedidos",
+  "etiquetas_disponibles",
   "restricciones",
 ] as const;
 
@@ -87,7 +91,9 @@ export type ListItemShape =
   /** Texto con interpolaciones `{var}` (pasos). */
   | "interpolable"
   /** Objeto `{ palabra, etiqueta }` (etiquetas_pedidas). */
-  | "etiqueta";
+  | "etiqueta"
+  /** Objeto `{ desde, hasta, etiqueta }` con índices de palabra (spans_pedidos). */
+  | "span";
 
 export interface ListField extends FieldBase {
   kind: "list";

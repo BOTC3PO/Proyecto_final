@@ -37,20 +37,27 @@ export abstract class BaseGenerador {
           { calcular: () => ({ resultado: 0, pasos: [] }) }
         );
         if (enunciadoTemplate) {
-          const ctx: Record<string, unknown> = {
-            ...("datos" in ejercicio ? ejercicio.datos ?? {} : {}),
-            subtipo: ejercicio.subtipo,
-            dificultad: ejercicio.dificultad,
-            ...(ejercicio.tipo === "quiz" ? {
-              respuesta: ejercicio.opciones[ejercicio.indiceCorrecto],
-            } : {}),
-            ...(ejercicio.tipo === "numerico" ? { resultado: ejercicio.resultado } : {}),
-            ...(ejercicio.tipo === "completar" ? { respuesta: ejercicio.respuestaCorrecta } : {}),
-          };
-          return {
-            ...ejercicio,
-            enunciado: applyEnunciadoTemplateExt(enunciadoTemplate, ctx),
-          };
+          const template = Array.isArray(enunciadoTemplate)
+            ? enunciadoTemplate.length > 0
+              ? enunciadoTemplate[Math.floor((prng ?? this.prng).next() * enunciadoTemplate.length)]
+              : undefined
+            : enunciadoTemplate;
+          if (template) {
+            const ctx: Record<string, unknown> = {
+              ...("datos" in ejercicio ? ejercicio.datos ?? {} : {}),
+              subtipo: ejercicio.subtipo,
+              dificultad: ejercicio.dificultad,
+              ...(ejercicio.tipo === "quiz" ? {
+                respuesta: ejercicio.opciones[ejercicio.indiceCorrecto],
+              } : {}),
+              ...(ejercicio.tipo === "numerico" ? { resultado: ejercicio.resultado } : {}),
+              ...(ejercicio.tipo === "completar" ? { respuesta: ejercicio.respuestaCorrecta } : {}),
+            };
+            return {
+              ...ejercicio,
+              enunciado: applyEnunciadoTemplateExt(template, ctx),
+            };
+          }
         }
         return ejercicio;
       },

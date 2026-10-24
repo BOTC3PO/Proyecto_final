@@ -1,0 +1,34 @@
+{
+ "titulo": "De qué depende la resistencia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "latex",
+   "content": "R = \\rho\\,\\dfrac{L}{A}",
+   "displayMode": true
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Efectos",
+   "headers": [
+    "Si aumenta…",
+    "La resistencia…"
+   ],
+   "rows": [
+    [
+     "La longitud L",
+     "Aumenta"
+    ],
+    [
+     "El grosor (área A)",
+     "Disminuye"
+    ],
+    [
+     "La temperatura (en un metal)",
+     "Aumenta"
+    ]
+   ]
+  }
+ ]
+}

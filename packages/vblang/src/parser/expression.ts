@@ -1,5 +1,6 @@
-import { Token, TokenKind } from "../lexer/tokens.js";
-import {
+import { TokenKind } from "../lexer/tokens.js";
+import type { Token } from "../lexer/tokens.js";
+import type {
   BinOpKind,
   Expr,
   ForComprehension,

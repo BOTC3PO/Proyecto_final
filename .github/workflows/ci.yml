@@ -1,0 +1,83 @@
+# G4 — integración continua: tipos, pruebas (API, web y contra Postgres real) y compuerta de seguridad.
+# No hay secretos: las claves de las pruebas son valores descartables.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: vb
+          POSTGRES_PASSWORD: vb
+          POSTGRES_DB: virtualbook_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U vb -d virtualbook_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      JWT_SECRET: ci-jwt-secret-descartable
+      DATABASE_URL: postgresql://vb:vb@localhost:5432/virtualbook_test
+      PG_TEST_DATABASE_URL: postgresql://vb:vb@localhost:5432/virtualbook_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@12.3.4
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter api exec prisma generate
+      - name: Tipos de la API
+        run: pnpm --filter api typecheck
+      - name: Migraciones desde cero (base vacía)
+        run: pnpm --filter api exec prisma migrate deploy
+      - name: Que ninguna prueba quede fuera de la lista
+        run: pnpm --filter api check:tests
+      - name: Pruebas de la API (base en memoria)
+        run: pnpm --filter api test
+      - name: Pruebas de la API contra Postgres real
+        run: pnpm --filter api test:pg
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@12.3.4
+      - run: pnpm install --frozen-lockfile
+      - name: Tipos y compilación de la web
+        run: pnpm --filter web build
+        env:
+          VITE_API_BASE_URL: https://ci.invalid
+      - name: Pruebas de la web
+        run: pnpm --filter web test
+
+  seguridad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g pnpm@12.3.4
+      # Falla ante avisos altos/críticos nuevos fuera de la app móvil (ver tools/audit-aceptados.json).
+      - name: pnpm audit
+        run: node tools/audit-gate.mjs

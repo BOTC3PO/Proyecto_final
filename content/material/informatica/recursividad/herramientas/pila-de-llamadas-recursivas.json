@@ -1,0 +1,52 @@
+{
+ "titulo": "Pila de llamadas recursivas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "factorial(3)",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "factorial(3) = 3 · factorial(2)",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "factorial(2) = 2 · factorial(1)",
+     "x": 0,
+     "y": 92,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n3",
+     "label": "factorial(1) = 1 (caso base)",
+     "x": 0,
+     "y": 184,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "llama"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "llama"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Al llegar al caso base, las llamadas vuelven resolviendo: factorial(1) = 1, factorial(2) = 2, factorial(3) = 6."
+  }
+ ]
+}

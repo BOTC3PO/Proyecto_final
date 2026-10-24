@@ -164,6 +164,37 @@ describe("infer / funciones", () => {
   });
 });
 
+describe("infer / combinatoria (fallback a math.js, MATHJS_SIGNATURES)", () => {
+  // Bug real: el evaluador ya resolvía estas 4 vía fallback a math.js
+  // (`create(all)` en math-setup.ts no las deshabilita), pero no estaban
+  // en MATHJS_SIGNATURES — el linter las marcaba "función desconocida"
+  // aunque funcionaran en runtime. Ver evaluator/builtins.test.ts para
+  // el lado de ejecución.
+  it("factorial(5) → number, sin issues", () => {
+    const { type, issues } = infer("factorial(5)");
+    expect(type).toEqual(T.number);
+    expect(issues).toEqual([]);
+  });
+
+  it("combinations(5, 2) → number, sin issues", () => {
+    const { type, issues } = infer("combinations(5, 2)");
+    expect(type).toEqual(T.number);
+    expect(issues).toEqual([]);
+  });
+
+  it("permutations(5, 2) → number, sin issues", () => {
+    const { type, issues } = infer("permutations(5, 2)");
+    expect(type).toEqual(T.number);
+    expect(issues).toEqual([]);
+  });
+
+  it("gamma(5) → number, sin issues", () => {
+    const { type, issues } = infer("gamma(5)");
+    expect(type).toEqual(T.number);
+    expect(issues).toEqual([]);
+  });
+});
+
 describe("infer / filtrar (lazy con item)", () => {
   it("filtrar numérico", () => {
     const { type } = infer("filtrar([1, 2, 3], item > 0)");

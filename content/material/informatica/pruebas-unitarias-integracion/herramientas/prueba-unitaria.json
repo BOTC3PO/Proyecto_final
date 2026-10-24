@@ -1,0 +1,84 @@
+{
+ "titulo": "Prueba unitaria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Función aislada",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Entrada",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Función bajo prueba",
+     "x": 238,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Salida",
+     "x": 475,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n4",
+     "label": "¿Coincide con lo esperado?",
+     "x": 475,
+     "y": 115,
+     "shape": "diamond",
+     "color": "#e5e7eb"
+    },
+    {
+     "id": "n5",
+     "label": "OK",
+     "x": 250,
+     "y": 115,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n6",
+     "label": "Error",
+     "x": 475,
+     "y": 218,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5",
+     "label": "sí"
+    },
+    {
+     "id": "e5",
+     "fromId": "n4",
+     "toId": "n6",
+     "label": "no"
+    }
+   ]
+  }
+ ]
+}

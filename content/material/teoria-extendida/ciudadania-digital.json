@@ -1,0 +1,240 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-ciudadania-digital",
+    "title": "Ciudadanía digital — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "Tu huella en la red: privacidad, rastros y decisiones cotidianas",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Qué creer en internet: fuentes, noticias falsas, deepfakes y publicidad engañosa",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "Tu huella en la red: privacidad, rastros y decisiones cotidianas",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "Tu huella en la red: privacidad, rastros y decisiones cotidianas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Cada vez que usamos un celular dejamos marcas. Buscamos una dirección, pedimos comida, comentamos una publicación, miramos un video hasta la mitad. Ninguno de esos gestos parece importante por separado, pero todos quedan registrados en algún lugar. La ciudadanía digital es el conjunto de conocimientos y hábitos que necesitamos para participar en la vida en línea con criterio, con derechos y con responsabilidad. Uno de sus pilares es entender qué rastro dejamos, quién puede verlo y qué podemos hacer para controlarlo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Qué es la huella digital"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "La huella digital es el rastro que dejamos al navegar por internet y al usar servicios conectados. Tiene una parte activa, que es lo que publicamos nosotros mismos a propósito: un posteo, una foto, un comentario, un perfil. Y tiene una parte pasiva, mucho menos visible: las búsquedas que hicimos, las páginas que visitamos, el tiempo que pasamos en cada una, las cookies que se guardan en nuestro dispositivo, el modelo del teléfono, el sistema operativo, el tipo de conexión, las ubicaciones por las que pasamos si el GPS estaba activo. Cuando buscamos algo en un buscador, la empresa guarda esa consulta, y si luego visitamos otro sitio que usa sus herramientas de análisis, puede reconocer ese patrón."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "En la vida diaria, la huella se va construyendo con acciones aparentemente inocentes. Si siempre leemos las mismas noticias o compramos en la misma tienda en línea, empezamos a recibir anuncios acordes. Si tenemos activado el historial de ubicaciones, los mapas guardan por dónde nos movemos, y eso puede revelar rutinas: dónde vivimos, dónde trabajamos o estudiamos, a qué hora salimos. Los elementos por separado parecen poca cosa, pero combinados forman un retrato detallado de una persona, de sus intereses, de sus hábitos y hasta de su estado de ánimo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Esa información tiene valor. Sirve para personalizar servicios, y eso puede ser útil. Pero también puede usarse para orientar la publicidad, para manipular opiniones, para vender datos a terceros sin que lo sepamos o para tomar decisiones sobre nosotros, como evaluar un crédito, filtrar candidatos a un empleo o fijar precios distintos. Por eso la huella digital no es un asunto técnico sino un asunto de derechos y de decisiones personales."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h7",
+          "level": 3,
+          "text": "Privacidad y visibilidad no son lo mismo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Mucha gente cree que el modo incógnito del navegador garantiza privacidad total. No es así. Lo que hace es evitar que el historial de navegación y las cookies queden guardados en el propio dispositivo al cerrar la ventana. Pero no impide que los sitios web que visitamos registren nuestra visita, ni que el proveedor de internet o quien administra la red wifi, como una empresa, una escuela o un bar, pueda ver a qué sitios nos conectamos. Tampoco oculta la dirección IP, que identifica a nuestra conexión. En otras palabras, el modo incógnito protege nuestro rastro frente a quien use después el mismo dispositivo, no frente a internet."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Conviene distinguir, entonces, entre dos conceptos que se confunden. La visibilidad es quién puede ver lo que publicamos: configurar una cuenta como privada limita a los seguidores que ven nuestras fotos. La privacidad es más amplia: es nuestro control sobre qué datos nuestros se recolectan, para qué se usan y con quién se comparten, incluidos aquellos que nunca publicamos. Podemos tener un perfil muy cerrado y, aun así, estar generando datos todo el tiempo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h10",
+          "level": 3,
+          "text": "Qué dice la ley en la Argentina"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "La protección de los datos personales está regulada en nuestro país por la Ley 25.326, de protección de datos personales, que reconoce a las personas el derecho de acceder a la información que sobre ellas guardan los bancos de datos, de pedir que se corrija, se actualice o se elimine, y exige que los datos se recojan con consentimiento y para una finalidad determinada. Se la conoce también como ley de habeas data. Además existen delitos informáticos tipificados en el Código Penal tras la Ley 26.388, como el acceso indebido a sistemas o a comunicaciones electrónicas, y el grooming, que consiste en el acoso a un menor a través de medios digitales con fines sexuales, fue incorporado como delito por la Ley 26.904. Conocer estas normas importa porque muchos de los daños en línea, como la difusión de imágenes íntimas sin consentimiento, el robo de identidad o la suplantación, tienen consecuencias legales reales."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h12",
+          "level": 3,
+          "text": "Gestionar la huella con criterio"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "Nadie puede borrar su huella por completo, pero sí gestionarla. Hay hábitos sencillos que reducen el riesgo. Revisar la configuración de privacidad de las redes y de las aplicaciones. Mirar qué permisos se le otorgan a cada aplicación, y preguntarse si una linterna necesita acceder a los contactos o a la ubicación. Desactivar el historial de ubicaciones cuando no hace falta. Usar contraseñas distintas y largas para cada cuenta, y activar la verificación en dos pasos. Pensar antes de publicar, con una pregunta simple: si esto lo viera cualquier persona, hoy o dentro de diez años, incluidos un futuro empleador o un familiar, ¿me parecería bien? Porque lo que se publica puede copiarse, capturarse y circular de maneras que ya no controlamos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "También conviene buscarse a uno mismo en internet de vez en cuando, para saber qué información aparece y qué impresión da. Si hay contenido propio o ajeno que perjudica y se puede pedir su eliminación, se puede recurrir a los canales de reclamo de las plataformas. Y vale la pena recordar que respetamos la privacidad ajena como esperamos que respeten la nuestra: pedir permiso antes de publicar la foto de otra persona, no reenviar conversaciones privadas, no difundir datos de terceros. Ser ciudadano digital es, en buena medida, ser consciente de que cada clic tiene efectos, para uno y para los demás."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Qué creer en internet: fuentes, noticias falsas, deepfakes y publicidad engañosa",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Qué creer en internet: fuentes, noticias falsas, deepfakes y publicidad engañosa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Nunca hubo tanta información al alcance de la mano ni tanta dificultad para saber en qué confiar. Cualquier persona puede publicar, y los algoritmos de las plataformas distribuyen lo que genera más reacciones, no lo que es más cierto. En ese escenario, la capacidad de evaluar la información se vuelve tan importante como saber leer. Este capítulo reúne las herramientas básicas para hacerlo: distinguir tipos de fuentes, verificar una noticia, reconocer la desinformación y detectar los trucos de la publicidad engañosa."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Fuentes primarias y secundarias"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Una fuente primaria es un registro original, producido en el momento del hecho que se estudia y sin interpretaciones posteriores. Una carta de la época, una fotografía tomada en el lugar, la grabación de un discurso, un acta, un documento oficial creado durante el acontecimiento. Una fuente secundaria, en cambio, no se produjo durante el hecho sino después, y lo interpreta, analiza o contextualiza: un artículo de prensa, un libro de historia escrito décadas más tarde, un documental, una reseña. Un video de un discurso presidencial es una fuente primaria; una nota de opinión sobre ese discurso es una fuente secundaria."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "La distinción importa en internet por una razón práctica. Las fuentes primarias nos acercan a lo que realmente ocurrió, pero pueden ser fragmentarias o estar fuera de contexto: un video de treinta segundos no muestra lo que pasó antes ni después. Las fuentes secundarias ayudan a entender, pero pueden filtrar, resumir o distorsionar. Lo recomendable es tener presente cuál estamos leyendo y, ante un dato importante, volver a la fuente original en lugar de quedarse con el comentario de alguien más."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h6",
+          "level": 3,
+          "text": "Cómo evaluar si una fuente es confiable"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p7",
+          "text": "Una fuente confiable es aquella cuyo origen se puede rastrear, cuyos datos están actualizados y cuyas afirmaciones se respaldan con evidencias o referencias verificables. Para evaluarla conviene hacerse algunas preguntas. Quién publica y qué responsabilidades asume: un medio con trayectoria, con responsables identificables y con una forma de contacto, no es lo mismo que una cuenta anónima. Con qué fin se publica: informar, vender, convencer o simplemente generar clics. Quién es el autor y si tiene experiencia en el tema. Qué fuentes cita, y si esas fuentes existen y dicen lo que se les atribuye. Cuándo fue publicada, porque una noticia real pero vieja, vuelta a circular como si fuera de hoy, es una de las formas más frecuentes de engaño."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "El tipo de dominio puede dar una pista, no una garantía. Un sitio de un organismo oficial o de una universidad suele tener controles institucionales, pero eso no lo vuelve infalible, y un dominio comercial puede pertenecer a un medio muy serio. Lo que cuenta es el conjunto de señales y no un indicador único. Entre las señales de alerta están el lenguaje sensacionalista y urgente, los titulares que prometen revelar un secreto, la ausencia de fuentes concretas, la falta de fecha, los textos con errores groseros de redacción y las afirmaciones que presionan para compartir antes de pensar."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h9",
+          "level": 3,
+          "text": "Verificar una noticia, paso a paso"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "Frente a una noticia concreta, un procedimiento simple ayuda a no tropezar. Primero, revisar la fuente: quién la publica y si tiene credibilidad. Citar una fuente prestigiosa es un argumento de autoridad pertinente; citar una sin credibilidad no lo es, aunque suene convincente. Segundo, revisar la fecha, para descartar que sea un contenido viejo recirculado. Tercero, contrastar con otras fuentes independientes: si algo importante es cierto, es probable que otros medios también lo estén cubriendo, y que solo una fuente aislada lo mencione es una señal para investigar más, aunque no una prueba de falsedad. Cuarto, distinguir el hecho de la opinión, es decir, qué parte del texto describe lo que pasó y qué parte lo interpreta o lo valora. Y quinto, antes de compartir, preguntarse si uno quiere que su nombre quede asociado a esa información."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h11",
+          "level": 3,
+          "text": "Error, desinformación y los mecanismos que la propagan"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "No toda información falsa es desinformación. La clave está en la intención. Compartir una estadística mal leída o una noticia sin verificar es un error involuntario. La desinformación, en cambio, es información falsa o manipulada que se difunde deliberadamente para engañar, confundir o influir. El ejemplo clásico es el video editado para que una frase parezca decir otra cosa. Los contenidos desinformantes suelen diseñarse para provocar emociones fuertes, como miedo, indignación o euforia, porque esas emociones empujan a compartir sin verificar."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Varios factores la hacen circular tan rápido. Los algoritmos de las redes privilegian el contenido que provoca interacción, y lo escandaloso suele provocar más. La repetición produce una apariencia de verdad: cuanto más veces vemos algo, más familiar nos resulta, y la familiaridad se confunde con credibilidad. Y existen cuentas automatizadas y organizadas que simulan una popularidad que no existe. Estos mecanismos explican que una falsedad pueda dar la vuelta al mundo antes de que alguien consiga desmentirla."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h14",
+          "level": 3,
+          "text": "Deepfakes y sesgos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p15",
+          "text": "Los deepfakes son videos o audios generados o modificados con técnicas de inteligencia artificial para hacer que una persona parezca decir o hacer algo que no ocurrió. Su calidad mejora rápidamente, y por eso ya no alcanza con confiar en la propia mirada. Existen herramientas de detección que buscan inconsistencias en los movimientos faciales, la iluminación o el audio, pero ninguna es infalible. La defensa más sólida sigue siendo metodológica: verificar la fuente original, buscar si otros medios confiables informan lo mismo y desconfiar de los contenidos que, además de asombrosos, llegan sin contexto y empujan a una reacción inmediata."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p16",
+          "text": "También hay que distinguir la falsedad del sesgo. Un contenido sesgado puede no contener datos falsos y, sin embargo, inclinar la interpretación mediante lo que selecciona, lo que omite y el lenguaje que elige. Un titular que dice que científicos confirman que el chocolate adelgaza puede basarse en un estudio real pero pequeño, con un resultado limitado, y presentarlo como si fuera una conclusión general. Detectar el sesgo requiere preguntar qué datos se muestran, cuáles faltan y quién gana si creemos lo que se nos dice."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h17",
+          "level": 3,
+          "text": "Publicidad engañosa: lo que parece decir y no dice"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p18",
+          "text": "La publicidad también compite por nuestra confianza. Muchos anuncios usan frases que suenan a promesa concreta pero que, miradas con atención, no afirman nada verificable. Hay cuatro técnicas muy comunes. La primera es el comparativo sin punto de comparación: hasta cincuenta por ciento más eficaz, pero más eficaz que qué. La segunda, el superlativo vacío: el mejor café del mundo, medido por quién y con qué criterio. La tercera, la cifra sin fuente ni metodología: nueve de cada diez recomiendan, sin decir cuántas personas se consultaron, quiénes eran ni quién financió el estudio. La cuarta, el testimonio como prueba: a mí me funcionó, que es una anécdota y no una evidencia."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p19",
+          "text": "El derecho protege al consumidor frente a estas prácticas. El Código Civil y Comercial de la Nación prohíbe la publicidad que contenga indicaciones falsas o que induzca a error sobre elementos esenciales del producto o servicio, o que haga comparaciones que conduzcan a error, y establece que las precisiones que se hacen en la publicidad se tienen por incluidas en el contrato y obligan al oferente. La Ley de Defensa del Consumidor dice lo mismo. Saber que existe esa protección ayuda a reclamar, pero la primera defensa sigue siendo la lectura crítica."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p20",
+          "text": "Todo lo anterior puede resumirse en un hábito: antes de creer o compartir, detenerse un momento. Preguntarse quién lo dice, con qué evidencia, desde cuándo, quién más lo confirma y a quién le conviene que lo creamos. Esa pausa de pocos segundos es la mejor vacuna que tenemos contra la desinformación."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    }
+  ]
+}

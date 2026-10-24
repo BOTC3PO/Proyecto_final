@@ -1,0 +1,27 @@
+[
+ {
+  "id": 918,
+  "cluster": 1,
+  "temas": [
+   "modelizacion-matematica",
+   "problema-y-restricciones",
+   "disciplinas-de-la-ingenieria",
+   "investigar-soluciones-existentes",
+   "diseno-conceptual"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 919,
+  "cluster": 2,
+  "temas": [
+   "modelado-y-calculo",
+   "prototipo",
+   "resistencia-de-materiales",
+   "ensayo-y-medicion",
+   "optimizacion-e-iteracion",
+   "comunicar-la-solucion"
+  ],
+  "preguntas": 150
+ }
+]

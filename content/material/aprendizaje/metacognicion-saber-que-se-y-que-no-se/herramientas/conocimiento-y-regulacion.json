@@ -1,0 +1,52 @@
+{
+ "titulo": "Metacognición: conocimiento y regulación",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Metacognición",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Conocimiento metacognitivo: qué sé y cómo aprendo",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Regulación: planificar, monitorear, evaluar",
+     "x": 325,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Ajusto la estrategia",
+     "x": 162,
+     "y": 126,
+     "color": "#fef9c3"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "informa lo que planifico"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1",
+     "label": "actualiza lo que sé"
+    }
+   ]
+  }
+ ]
+}

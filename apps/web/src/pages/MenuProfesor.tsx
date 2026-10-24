@@ -2,14 +2,18 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAulaId } from "../lib/aula-id";
 import { useAuth } from "../auth/use-auth";
+import { useI18n } from "../i18n/I18nContext";
 import { apiGet, apiPost } from "../lib/api";
-import type { Module, ModuleDependency } from "../domain/module/module.types";
+import type { Module } from "../domain/module/module.types";
+import { resolveMateria } from "../domain/module/materia";
+import { getRequiredDependencyIds, getUnlocksDependencyIds } from "../domain/module/module-dependencies";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   fetchProfesorMenuDashboard,
   filterProfesorQuickLinks,
   type ProfesorMenuDashboard
 } from "../services/profesor";
+import { listarCuestionarios } from "../domain/quiz/quizPreguntasApi";
 
 type LocalConceptLink = {
   id: string;
@@ -23,22 +27,6 @@ type LocalConceptMapSpec = {
   nodes: { id: string; label: string; description?: string }[];
   links: LocalConceptLink[];
 };
-
-const getRequiredDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
-  dependencies
-    .map((dependency) => {
-      if (typeof dependency === "string") return dependency;
-      return dependency.type === "required" ? dependency.id : null;
-    })
-    .filter((dependency): dependency is string => Boolean(dependency));
-
-const getUnlocksDependencyIds = (dependencies: Array<ModuleDependency | string>) =>
-  dependencies
-    .map((dependency) => {
-      if (typeof dependency === "string") return null;
-      return dependency.type === "unlocks" ? dependency.id : null;
-    })
-    .filter((dependency): dependency is string => Boolean(dependency));
 
 const collectDependencyChain = (startId: string, adjacency: Map<string, string[]>) => {
   const visited = new Set<string>();
@@ -61,9 +49,11 @@ const collectDependencyChain = (startId: string, adjacency: Map<string, string[]
 
 export default function menuProfesor() {
   const { user } = useAuth();
+  const { t } = useI18n();
   const [modules, setModules] = useState<Module[]>([]);
   const [modulesStatus, setModulesStatus] = useState<"loading" | "ready" | "error">("loading");
   const [_modulesError, setModulesError] = useState<string | null>(null);
+  const [cuestionariosCount, setCuestionariosCount] = useState(0);
   const [searchTerm] = useState("");
   const [selectedCategory] = useState("todas");
   const [selectedVisibility] = useState("todas");
@@ -78,7 +68,7 @@ export default function menuProfesor() {
     message: string;
   }>({
     status: "loading",
-    message: "Cargando el menú del profesor..."
+    message: t("menuProfesor.cargandoElMenuDelProfesor")
   });
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [modoAulaActivo, setModoAulaActivo] = useState(false);
@@ -156,7 +146,7 @@ export default function menuProfesor() {
           description: module.description,
           level: module.level,
           durationMinutes: module.durationMinutes,
-          subject: module.subject ?? module.category,
+          subject: resolveMateria(module) === "Sin materia" ? null : resolveMateria(module),
           category: module.category,
           visibility: module.visibility ?? "privado",
           dependencies: module.dependencies ?? [],
@@ -173,9 +163,22 @@ export default function menuProfesor() {
         setModules([]);
         setModulesStatus("error");
         setModulesError(
-          error instanceof Error ? error.message : "No se pudieron cargar los módulos."
+          error instanceof Error ? error.message : t("menuProfesor.noSePudieronCargarLos")
         );
       });
+    return () => {
+      active = false;
+    };
+  }, [user?.id]);
+
+  useEffect(() => {
+    let active = true;
+    listarCuestionarios()
+      .then((items) => {
+        if (!active) return;
+        setCuestionariosCount(items.length);
+      })
+      .catch(() => {});
     return () => {
       active = false;
     };
@@ -269,7 +272,7 @@ export default function menuProfesor() {
     if (dashboardError) {
       setMenuState({
         status: "error",
-        message: "No pudimos cargar el menú del profesor. Intenta nuevamente más tarde."
+        message: t("menuProfesor.noPudimosCargarElMenu")
       });
       return;
     }
@@ -277,7 +280,7 @@ export default function menuProfesor() {
     if (dashboardLoading || modulesStatus === "loading") {
       setMenuState({
         status: "loading",
-        message: "Cargando el menú del profesor..."
+        message: t("menuProfesor.cargandoElMenuDelProfesor")
       });
       return;
     }
@@ -287,7 +290,7 @@ export default function menuProfesor() {
 
   const _subjectOptions = useMemo(() => {
     const subjects = modules
-      .map((module) => module.subject || module.category)
+      .map(resolveMateria)
       .filter((subject): subject is string => Boolean(subject));
     return Array.from(new Set(subjects)).sort((a, b) => a.localeCompare(b));
   }, [modules]);
@@ -298,7 +301,7 @@ export default function menuProfesor() {
       return modules;
     }
     return modules.filter(
-      (module) => (module.subject || module.category) === selectedSubject
+      (module) => resolveMateria(module) === selectedSubject
     );
   }, [modules, selectedSubject]);
 
@@ -384,7 +387,7 @@ export default function menuProfesor() {
       .map((module) => ({
         id: module.id,
         label: module.title,
-        description: module.subject || module.category
+        description: resolveMateria(module) === "Sin materia" ? undefined : resolveMateria(module),
       }));
 
     const links = dependencyLinks.filter((link) =>
@@ -444,6 +447,32 @@ export default function menuProfesor() {
     }
   }, [graphModules, moduleById, selectedGraphModuleId]);
 
+  const KPI_LABEL_KEY: Record<string, string> = {
+    aulas: 'menuProfesor.aulasActivas',
+    modulos: 'menuProfesor.modulosCreados',
+    asistencia: 'menuProfesor.estudiantesActivos2',
+  };
+  const KPI_HELPER_KEY: Record<string, string> = {
+    aulas: 'menuProfesor.clasesEnLasQueEstas',
+    modulos: 'menuProfesor.contenidoDisponibleParaTus',
+    asistencia: 'menuProfesor.alumnosUnicosEnTus',
+  };
+  const QUICK_LINK_LABEL_KEY: Record<string, string> = {
+    aulas: 'nav.aulas',
+    calificaciones: 'profesorCalificaciones.calificaciones',
+    materiales: 'nav.materiales',
+    evaluaciones: 'nav.evaluaciones',
+    modulos: 'nav.modulos',
+    asistencia: 'profesorAsistencia.asistencia',
+    reportes: 'nav.reportes',
+    mensajes: 'nav.mensajes',
+    configuracion: 'hijosProgreso.configuracion',
+    encuestas: 'dropdown.encuestas',
+    estadisticas: 'profesorEstadisticas.estadisticas',
+    crear_modulo: 'menuProfesor.crearModulo',
+    calendario: 'nav.calendario',
+  };
+
   const QUICK_LINK_ICONS: Record<string, string> = {
     aulas:                '🏫',
     cursos:               '📚',
@@ -458,7 +487,6 @@ export default function menuProfesor() {
     encuestas:            '📣',
     estadisticas:         '📈',
     crear_modulo:         '➕',
-    editor_cuestionarios: '✏️',
     calendario:           '📅',
   };
 
@@ -488,6 +516,83 @@ export default function menuProfesor() {
           {/* ── Contenido principal (col izquierda + centro) ─────── */}
           <div className="flex-1 min-w-0 space-y-4">
 
+            {/* FIX-TEST4-X-04 — Modo Aula como tarjeta PROMINENTE
+                arriba de los KPI. Antes estaba anidada dentro de
+                "Mis aulas" (línea ~523 del código viejo) y era fácil
+                de pasar por alto. Ahora tiene borde grueso,
+                indicador de estado (verde/rojo) y un selector de
+                aula inline. El countdown del timer se mantiene
+                abajo, en la fila compacta. */}
+            <div
+              data-testid="panel-modo-aula-prominente"
+              className={`rounded-xl border-2 p-4 flex flex-col sm:flex-row sm:items-center gap-4 ${
+                modoAulaActivo
+                  ? 'border-[var(--c-success)] bg-[var(--c-success-soft)]'
+                  : 'border-[var(--c-warning)] bg-[var(--c-warning-soft)]'
+              }`}
+            >
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div
+                  className={`w-3 h-3 rounded-full flex-shrink-0 ${
+                    modoAulaActivo ? 'bg-[var(--c-success)] animate-pulse' : 'bg-[var(--c-warning)]'
+                  }`}
+                />
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] mb-0.5">
+                    {t('menuProfesor.modoAula')}
+                  </p>
+                  <p className="text-sm font-medium text-[var(--c-text)] truncate">
+                    {modoAulaActivo
+                      ? t('menuProfesor.losAlumnosTienenAccesoCompleto')
+                      : t('menuProfesor.restringidoActivaElModoAula')}
+                  </p>
+                  {modoAulaActivo && (
+                    <p className="text-xs text-[var(--c-success)] mt-0.5">
+                      {t('menuProfesor.tiendaYEconomiaDeshabilitadasPara')}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {!modoAulaActivo && (
+                  aulas.some(a => a.status === 'ACTIVE' || a.status === 'activa') ? (
+                    <select
+                      value={modoAulaAulaId}
+                      onChange={(e) => setModoAulaAulaId(e.target.value)}
+                      className="rounded-lg text-xs px-2 py-1.5 bg-[var(--c-surface)] border border-[var(--c-warning)] text-[var(--c-text)] focus:outline-none"
+                      aria-label={t('menuProfesor.aulaParaModoAula')}
+                    >
+                      {aulas.filter(a =>
+                        (a.status === 'ACTIVE' || a.status === 'activa')
+                      ).map(a => (
+                        <option key={getAulaId(a)} value={getAulaId(a)}>
+                          {a.name}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span className="text-xs text-[var(--c-muted)] px-2 py-1.5">{t('menuProfesor.sinAulasActivas')}</span>
+                  )
+                )}
+                <button
+                  disabled={modoAulaLoading || !modoAulaAulaId}
+                  onClick={handleToggleModoAula}
+                  className={`rounded-lg px-4 py-1.5 text-xs font-semibold transition-opacity disabled:opacity-40 ${
+                    modoAulaActivo
+                      ? 'bg-[var(--c-success)] text-[var(--c-accent-fg)] hover:opacity-90'
+                      : 'bg-[var(--c-warning)] text-[var(--c-accent-fg)] hover:opacity-90'
+                  }`}
+                >
+                  {modoAulaLoading
+                    ? '...'
+                    : modoAulaActivo
+                      ? t('menuProfesor.desactivar')
+                      : t('menuProfesor.activarModoAula')}
+                </button>
+              </div>
+            </div>
+
             {/* Stats KPI — 4 columnas */}
             <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
               {dashboard?.kpiCards.map((card) => (
@@ -497,10 +602,10 @@ export default function menuProfesor() {
                   className="group bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 hover:border-[var(--c-primary)] transition-colors"
                 >
                   <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-2">
-                    {card.label}
+                    {KPI_LABEL_KEY[card.id] ? t(KPI_LABEL_KEY[card.id]) : card.label}
                   </p>
                   <p className="text-3xl font-semibold text-[var(--c-text)]">{card.value}</p>
-                  <p className="text-xs text-[var(--c-muted)] mt-1">{card.helper}</p>
+                  <p className="text-xs text-[var(--c-muted)] mt-1">{KPI_HELPER_KEY[card.id] ? t(KPI_HELPER_KEY[card.id]) : card.helper}</p>
                 </Link>
               ))}
               {!dashboard?.kpiCards.length && [1,2,3,4].map(i => (
@@ -512,61 +617,23 @@ export default function menuProfesor() {
             <div className="grid gap-4 lg:grid-cols-2">
 
               {/* ── Mis aulas ──────────────────────────────────── */}
-              <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
+              <div className="min-w-0 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
-                  <h3 className="text-sm font-semibold text-[var(--c-text)]">Mis aulas</h3>
+                  <h3 className="text-sm font-semibold text-[var(--c-text)]">{t('menuProfesor.misAulas')}</h3>
                   <Link to="/profesor/aulas" className="text-xs text-[var(--c-primary)] hover:underline">
-                    Ver todas →
+                    {t('menuProfesor.verTodas')}
                   </Link>
                 </div>
 
-                {/* Modo aula */}
-                <div className={`mx-4 mt-3 mb-2 rounded-xl px-4 py-3 ${
-                  modoAulaActivo
-                    ? 'bg-[var(--c-primary)]'
-                    : 'bg-[var(--c-text)]'
-                }`}>
-                  <p className="text-[9px] uppercase tracking-widest font-semibold text-white/60 mb-1">
-                    Modo Aula
-                  </p>
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-sm font-medium text-white">
-                      {modoAulaActivo
-                        ? 'Los alumnos tienen acceso completo'
-                        : 'Restringido · activá el modo aula'}
-                    </p>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      {!modoAulaActivo && (
-                        <select
-                          value={modoAulaAulaId}
-                          onChange={(e) => setModoAulaAulaId(e.target.value)}
-                          className="rounded-lg text-xs px-2 py-1 bg-white/20 text-white border border-white/30 focus:outline-none"
-                        >
-                          {aulas.filter(a =>
-                            (a.status === 'ACTIVE' || a.status === 'activa')
-                          ).map(a => (
-                            <option key={getAulaId(a)} value={getAulaId(a)}>
-                              {a.name}
-                            </option>
-                          ))}
-                        </select>
-                      )}
-                      <button
-                        disabled={modoAulaLoading || !modoAulaAulaId}
-                        onClick={handleToggleModoAula}
-                        className="rounded-lg px-3 py-1 text-xs font-semibold transition-opacity disabled:opacity-40 bg-[#e85d3a] text-white hover:opacity-90"
-                      >
-                        {modoAulaLoading ? '...' : modoAulaActivo ? 'Desactivar' : 'Activar'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                {/* FIX-TEST4-X-04 — la tarjeta de "Modo Aula" se
+                    movió ARRIBA del panel (panel-modo-aula-prominente).
+                    Acá solo queda la lista de aulas. */}
 
                 {/* Lista de aulas */}
                 <div className="px-2 pb-3">
                   {aulas.length === 0 && (
                     <p className="text-xs text-[var(--c-muted)] px-2 py-4 text-center">
-                      Sin aulas asignadas.
+                      {t('menuProfesor.sinAulasAsignadas')}
                     </p>
                   )}
                   {aulas.slice(0, 6).map((a) => {
@@ -588,7 +655,7 @@ export default function menuProfesor() {
                             ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
                             : 'bg-[color-mix(in_srgb,var(--c-muted)_12%,transparent)] text-[var(--c-muted)]'
                         }`}>
-                          {activa ? 'Activa' : 'Archivada'}
+                          {activa ? t('profesorAulaConfiguracion.activa') : t('profesorAulaConfiguracion.archivada')}
                         </span>
                       </Link>
                     );
@@ -600,10 +667,10 @@ export default function menuProfesor() {
                   <div className="border-t border-[var(--c-border)] px-4 py-3">
                     <div className="flex items-center justify-between mb-2">
                       <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)]">
-                        Módulos activos
+                        {t('menuProfesor.modulosActivos')}
                       </p>
                       <Link to="/modulos" className="text-[10px] text-[var(--c-primary)] hover:underline">
-                        Gestionar →
+                        {t('menuProfesor.gestionar')}
                       </Link>
                     </div>
                     {modules.slice(0, 3).map((m, i) => (
@@ -614,7 +681,7 @@ export default function menuProfesor() {
                         <div className="flex-1 min-w-0">
                           <p className="text-xs font-medium text-[var(--c-text)] truncate">{m.title}</p>
                           <p className="text-[10px] text-[var(--c-muted)]">
-                            {m.category} · {m.durationMinutes ?? '?'} min
+                            {m.category}{m.durationMinutes != null ? ` · ${m.durationMinutes} min` : ''}
                           </p>
                         </div>
                         <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full flex-shrink-0 ${
@@ -632,56 +699,60 @@ export default function menuProfesor() {
                 {/* CTA cuando no hay módulos */}
                 {modules.length === 0 && modulesStatus === 'ready' && (
                   <div className="border-t border-[var(--c-border)] px-4 py-4 text-center">
-                    <p className="text-xs text-[var(--c-muted)] mb-2">Todavía no creaste módulos.</p>
+                    <p className="text-xs text-[var(--c-muted)] mb-2">{t('menuProfesor.todaviaNoCreasteModulos')}</p>
                     <Link
                       to="/modulos/crear"
                       className="inline-flex items-center gap-1 rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
                     >
-                      + Crear primer módulo
+                      {t('menuProfesor.crearPrimerModulo')}
                     </Link>
                   </div>
                 )}
               </div>
 
               {/* ── Evaluaciones + Planificación (apiladas) ──────── */}
-              <div className="space-y-4">
+              <div className="min-w-0 space-y-4">
 
-                {/* Evaluaciones recientes */}
+                {/* Evaluaciones recientes — FIX-PANEL-EVALUACIONES */}
                 <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                   <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Evaluaciones recientes</h3>
-                    <Link to="/profesor/evaluaciones" className="text-xs text-[var(--c-primary)] hover:underline">
-                      Ver todas →
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">{t('menuProfesor.evaluacionesRecientes')}</h3>
+                    <Link to="/profesor/calificaciones" className="text-xs text-[var(--c-primary)] hover:underline">
+                      {t('menuProfesor.verTodas')}
                     </Link>
                   </div>
                   <div className="px-2 py-2">
-                    {modules.slice(0, 4).map((m) => (
+                    {dashboard?.recentEvaluations?.map((evaluation) => (
                       <Link
-                        key={m.id}
-                        to={`/modulos/${m.id}/editar`}
+                        key={evaluation.id}
+                        to={`/profesor/intentos/${evaluation.id}`}
+                        data-testid="panel-evaluacion-reciente"
                         className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--c-bg)] transition-colors"
                       >
-                        <span className="text-sm text-[var(--c-text)] truncate">{m.title}</span>
-                        <span className="text-[10px] text-[var(--c-muted)] flex-shrink-0 ml-2">
-                          {m.category}
+                        <span className="text-sm text-[var(--c-text)] truncate">{evaluation.title}</span>
+                        <span
+                          className="text-[10px] text-[var(--c-muted)] flex-shrink-0 ml-2"
+                          data-testid="panel-evaluacion-categoria"
+                        >
+                          {evaluation.category}
                         </span>
                       </Link>
                     ))}
-                    {modules.length === 0 && modulesStatus === 'ready' && (
+                    {dashboard?.recentEvaluations?.length === 0 && (
                       <div className="px-4 py-6 text-center space-y-3">
                         <p className="text-2xl">📋</p>
                         <p className="text-xs text-[var(--c-muted)]">
-                          Creá tu primer módulo para luego armar evaluaciones.
+                          {t('menuProfesor.todaviaNoHayEvaluacionesRecientes')}
                         </p>
                         <Link
                           to="/modulos/crear"
                           className="inline-flex items-center gap-1 rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90"
                         >
-                          + Crear módulo
+                          {t('menuProfesor.crearModulo')}
                         </Link>
                       </div>
                     )}
-                    {modulesStatus === 'loading' && (
+                    {dashboardLoading && (
                       <div className="space-y-2 p-3">
                         {[1,2,3].map(i => <div key={i} className="h-6 rounded bg-[var(--c-border)] animate-pulse" />)}
                       </div>
@@ -689,10 +760,10 @@ export default function menuProfesor() {
                   </div>
                   <div className="px-4 pb-3">
                     <Link
-                      to="/profesor/evaluaciones"
+                      to="/profesor/calificaciones"
                       className="block w-full text-center rounded-xl border border-[var(--c-border)] py-2 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                     >
-                      + Nueva evaluación
+                      {t('menuProfesor.verCalificaciones')}
                     </Link>
                   </div>
                 </div>
@@ -700,9 +771,9 @@ export default function menuProfesor() {
                 {/* Planificación semanal */}
                 <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                   <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Planificación semanal</h3>
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">{t('menuProfesor.planificacionSemanal')}</h3>
                     <Link to="/profesor/calendario" className="text-xs text-[var(--c-primary)] hover:underline">
-                      Ver calendario →
+                      {t('menuProfesor.verCalendario')}
                     </Link>
                   </div>
                   <div className="px-2 py-2">
@@ -719,13 +790,13 @@ export default function menuProfesor() {
                       <div className="px-4 py-6 text-center space-y-3">
                         <p className="text-2xl">📅</p>
                         <p className="text-xs text-[var(--c-muted)]">
-                          No hay actividades programadas esta semana.
+                          {t('menuProfesor.noHayActividadesProgramadasEsta')}
                         </p>
                         <Link
                           to="/profesor/calendario"
                           className="inline-flex items-center gap-1 rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                         >
-                          Ir al calendario →
+                          {t('menuProfesor.irAlCalendario')}
                         </Link>
                       </div>
                     )}
@@ -740,13 +811,13 @@ export default function menuProfesor() {
                 <span className="text-2xl flex-shrink-0">🕒</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <p className="text-xs text-[var(--c-muted)]">Próxima clase</p>
+                    <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.proximaClase')}</p>
                     <p className="text-xs font-semibold text-[var(--c-text)]">
-                      {dashboard?.progressNextClass ?? 0}% preparado
+                      {dashboard?.progressNextClass ?? 0}% {t('menuProfesor.preparado')}
                     </p>
                   </div>
                   <p className="text-sm font-semibold text-[var(--c-text)] truncate mb-1.5">
-                    {dashboard?.nextClass.detail ?? 'Sin clases asignadas'}
+                    {dashboard?.nextClass.detail ?? t('menuProfesor.sinClasesAsignadas')}
                   </p>
                   <div className="h-1.5 w-full bg-[var(--c-border)] rounded-full">
                     <div
@@ -757,7 +828,7 @@ export default function menuProfesor() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <p className="text-xs text-[var(--c-muted)]">Duración modo aula</p>
+                <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.duracionModoAula')}</p>
                 <select
                   value={modoAulaDuracion}
                   onChange={(e) => setModoAulaDuracion(Number(e.target.value))}
@@ -768,7 +839,7 @@ export default function menuProfesor() {
                   ))}
                 </select>
                 <div className="text-xs text-[var(--c-muted)]">
-                  Estudiantes activos: <span className="font-semibold text-[var(--c-text)]">{dashboard?.activeStudents ?? 0}</span>
+                  {t('menuProfesor.estudiantesActivos')} <span className="font-semibold text-[var(--c-text)]">{dashboard?.activeStudents ?? 0}</span>
                 </div>
               </div>
             </div>
@@ -781,32 +852,42 @@ export default function menuProfesor() {
             {/* Resumen */}
             <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
               <p className="text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)]">
-                Resumen
+                {t('menuProfesor.resumen')}
               </p>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <p className="text-xs text-[var(--c-muted)]">Estudiantes activos</p>
+                  <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.estudiantesActivos2')}</p>
                   <p className="text-sm font-semibold text-[var(--c-text)]">
                     {dashboard?.activeStudents ?? 0}
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-xs text-[var(--c-muted)]">Aulas activas</p>
+                  <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.aulasActivas')}</p>
                   <p className="text-sm font-semibold text-[var(--c-text)]">
                     {aulas.filter(a => a.status === 'ACTIVE' || a.status === 'activa').length}
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-xs text-[var(--c-muted)]">Módulos creados</p>
+                  <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.modulosCreados')}</p>
                   <p className="text-sm font-semibold text-[var(--c-text)]">{modules.length}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-xs text-[var(--c-muted)]">Evaluaciones</p>
+                  <p className="text-xs text-[var(--c-muted)]">{t('nav.cuestionarios')}</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">{cuestionariosCount}</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">{t('menuProfesor.cuestionariosHechos')}</p>
+                  <p className="text-sm font-semibold text-[var(--c-text)]">
+                    {dashboard?.quizzesCompletedByStudents ?? 0}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-[var(--c-muted)]">{t('nav.evaluaciones')}</p>
                   <Link
                     to="/profesor/evaluaciones"
                     className="text-sm font-semibold text-[var(--c-primary)] hover:underline"
                   >
-                    Ver →
+                    {t('menuProfesor.ver')}
                   </Link>
                 </div>
               </div>
@@ -816,7 +897,7 @@ export default function menuProfesor() {
             {quickLinks && quickLinks.academico.length > 0 && (
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                 <p className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] border-b border-[var(--c-border)]">
-                  Accesos rápidos
+                  {t('menuProfesor.accesosRapidos')}
                 </p>
                 {quickLinks.academico.map((link) => (
                   <Link
@@ -827,7 +908,7 @@ export default function menuProfesor() {
                     <span className="text-base flex-shrink-0">
                       {QUICK_LINK_ICONS[link.id] ?? '→'}
                     </span>
-                    <span className="truncate">{link.label}</span>
+                    <span className="truncate">{QUICK_LINK_LABEL_KEY[link.id] ? t(QUICK_LINK_LABEL_KEY[link.id]) : link.label}</span>
                   </Link>
                 ))}
               </div>
@@ -837,7 +918,7 @@ export default function menuProfesor() {
             {quickLinks && quickLinks.gestion.length > 0 && (
               <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
                 <p className="px-4 py-2.5 text-[10px] uppercase tracking-widest font-semibold text-[var(--c-muted)] border-b border-[var(--c-border)]">
-                  Gestión
+                  {t('sidebar.gestion')}
                 </p>
                 {quickLinks.gestion.map((link) => (
                   <Link
@@ -848,7 +929,7 @@ export default function menuProfesor() {
                     <span className="text-base flex-shrink-0">
                       {QUICK_LINK_ICONS[link.id] ?? '→'}
                     </span>
-                    <span className="truncate">{link.label}</span>
+                    <span className="truncate">{QUICK_LINK_LABEL_KEY[link.id] ? t(QUICK_LINK_LABEL_KEY[link.id]) : link.label}</span>
                   </Link>
                 ))}
               </div>
@@ -859,7 +940,7 @@ export default function menuProfesor() {
               to="/modulos/crear"
               className="block w-full text-center rounded-xl bg-[var(--c-primary)] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
             >
-              + Crear módulo
+              {t('menuProfesor.crearModulo')}
             </Link>
 
           </div>

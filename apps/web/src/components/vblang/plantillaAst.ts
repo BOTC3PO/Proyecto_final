@@ -12,9 +12,11 @@
 import { emitExpr } from "@vb/vblang";
 import type {
   Bloque,
+  CampoKV,
   Expr,
   Plantilla,
   TextoOInterpolacion,
+  TipoPregunta,
 } from "@vb/vblang";
 import { parseExprText } from "./exprParse";
 
@@ -76,6 +78,121 @@ export const arrayLit = (items: Expr[]): Expr => ({
   items,
   loc: DUMMY_LOC,
 });
+export const nullLit = (): Expr => ({ kind: "null", loc: DUMMY_LOC });
+export const objLit = (
+  entries: { key: string; value: Expr }[],
+): Expr => ({
+  kind: "object",
+  entries: entries.map((e) => ({ key: e.key, value: e.value, loc: DUMMY_LOC })),
+  loc: DUMMY_LOC,
+});
+
+/**
+ * Valor de una `Expr` que es un literal numérico, contemplando el signo.
+ *
+ * Los editores visuales ESCRIBEN los negativos como `numLit(-5)`, pero el
+ * round-trip `serialize → parse` los devuelve como unario (`-` aplicado a
+ * `num`): quien chequea sólo `kind === "num"` lee vacío para todo negativo y
+ * después lo pisa con basura (los límites de `random`, los ítems de lista).
+ * Único lector de literales numéricos para toda la UI.
+ */
+export function numLiteral(expr: Expr | undefined): number | null {
+  if (!expr) return null;
+  if (expr.kind === "num") return expr.value;
+  if (expr.kind === "unary" && (expr.op === "-" || expr.op === "+")) {
+    const inner = numLiteral(expr.arg);
+    if (inner === null) return null;
+    return expr.op === "-" ? -inner : inner;
+  }
+  return null;
+}
+
+/* ---------------- bridge literal JS ↔ Expr (WO-4: data pura) ---------------- */
+
+/**
+ * Construye una `Expr` literal a partir de un valor JS puro (número, string,
+ * booleano, null, array, objeto). Pensado para data estructurada (ej. el bloque
+ * `visual:`), no para fórmulas. Las claves `undefined` de un objeto se omiten.
+ */
+export function literalToExpr(value: unknown): Expr {
+  if (typeof value === "number") return numLit(value);
+  if (typeof value === "string") return strLit(value);
+  if (typeof value === "boolean") return boolLit(value);
+  if (value === null || value === undefined) return nullLit();
+  if (Array.isArray(value)) return arrayLit(value.map(literalToExpr));
+  if (typeof value === "object") {
+    return objLit(
+      Object.entries(value as Record<string, unknown>)
+        .filter(([, v]) => v !== undefined)
+        .map(([key, v]) => ({ key, value: literalToExpr(v) })),
+    );
+  }
+  return nullLit();
+}
+
+/**
+ * Inverso de `literalToExpr`: extrae el valor JS de una `Expr` literal. Devuelve
+ * `undefined` para expresiones que no son data pura (var, binop, fun_call…),
+ * para preservarlas sin romper (no se editan desde estos campos).
+ */
+export function exprToLiteral(expr: Expr): unknown {
+  switch (expr.kind) {
+    case "num":
+      return expr.value;
+    case "str":
+      return expr.value;
+    case "bool":
+      return expr.value;
+    case "null":
+      return null;
+    case "array":
+      return expr.items.map(exprToLiteral);
+    case "object": {
+      const out: Record<string, unknown> = {};
+      for (const e of expr.entries) out[e.key] = exprToLiteral(e.value);
+      return out;
+    }
+    default:
+      // Un negativo llega acá como unario, no como `num`: sin esto, la data
+      // pura con números negativos se leía como `undefined`.
+      return numLiteral(expr) ?? undefined;
+  }
+}
+
+/**
+ * WO-4 — Lee el bloque `visual:` como un objeto JS plano (cada campo kv por
+ * `exprToLiteral`). `null` si no hay bloque. Útil para los editores de visual
+ * ricos (line-chart, timeline, latex), que trabajan con la forma de `VisualSpec`.
+ */
+export function readVisualRaw(p: Plantilla): Record<string, unknown> | null {
+  const b = getBlock(p, "visual");
+  if (!b) return null;
+  const out: Record<string, unknown> = {};
+  for (const c of b.campos) out[c.key] = exprToLiteral(c.value);
+  return out;
+}
+
+/**
+ * Escribe el bloque `visual:` desde un objeto JS plano (cada clave → campo kv
+ * vía `literalToExpr`). `null`/objeto vacío quita el bloque (round-trip sin
+ * basura). El orden de las claves se preserva (orden de inserción del objeto).
+ */
+export function writeVisualRaw(
+  p: Plantilla,
+  obj: Record<string, unknown> | null,
+): Plantilla {
+  if (!obj || Object.keys(obj).length === 0) return withoutBlock(p, "visual");
+  const campos: CampoKV[] = Object.entries(obj)
+    .filter(([, v]) => v !== undefined)
+    .map(([key, v]) => ({ key, value: literalToExpr(v), loc: DUMMY_LOC }));
+  return withBlock(p, { kind: "visual", campos, loc: DUMMY_LOC });
+}
+
+/** `kind` declarado en el bloque `visual:`, o `null` si no hay visual. */
+export function readVisualKind(p: Plantilla): string | null {
+  const k = readVisualRaw(p)?.kind;
+  return typeof k === "string" ? k : null;
+}
 
 /** Texto a mostrar para una expresión que representa un string. */
 export function exprToStringValue(expr: Expr | undefined): string {
@@ -111,6 +228,306 @@ export function partesToText(partes: TextoOInterpolacion[]): string {
     }
   }
   return out;
+}
+
+/* ---------------- enunciados (lista de variantes) ---------------- */
+
+/**
+ * PLAN-E §15 — una variante del bloque `enunciados:` como la edita la UI:
+ * texto plano + tipo propio opcional (ausente = hereda el de la plantilla).
+ */
+export interface EnunciadoVariante {
+  text: string;
+  tipo?: TipoPregunta;
+}
+
+/**
+ * Lee el bloque `enunciados:` como variantes editables (cada texto ya pasado
+ * por `partesToText`). Si el bloque no existe, devuelve `[]`. Si el bloque
+ * `enunciado:` (singular) está presente, devuelve `[]` también — son
+ * mutuamente excluyentes.
+ */
+export function readEnunciados(p: Plantilla): EnunciadoVariante[] {
+  const b = getBlock(p, "enunciados");
+  if (!b) return [];
+  return b.items.map((it) => ({
+    text: partesToText(it.partes),
+    ...(it.tipo !== undefined ? { tipo: it.tipo } : {}),
+  }));
+}
+
+/**
+ * Escribe el bloque `enunciados:` a partir de variantes. Cada texto se
+ * parsea con `textToPartes` para preservar las interpolaciones; el `tipo`
+ * propio (si hay) se preserva en el ítem del AST. Si el array queda vacío,
+ * elimina el bloque (round-trip sin basura).
+ */
+export function writeEnunciados(
+  p: Plantilla,
+  items: EnunciadoVariante[],
+): Plantilla {
+  if (items.length === 0) {
+    return withoutBlock(p, "enunciados");
+  }
+  const variantes = items.map(({ text, tipo }) => ({
+    partes: textToPartes(text),
+    ...(tipo !== undefined ? { tipo } : {}),
+    loc: DUMMY_LOC,
+  }));
+  return withBlock(p, { kind: "enunciados", items: variantes, loc: DUMMY_LOC });
+}
+
+/**
+ * Migra el bloque `enunciado:` a `enunciados:` con una sola variante. Usado
+ * por el botón "Convertir en variantes" en el editor visual.
+ */
+export function enunciadoToVariantes(p: Plantilla): Plantilla {
+  const single = getBlock(p, "enunciado");
+  if (!single) return p;
+  const text = partesToText(single.partes);
+  let next = withoutBlock(p, "enunciado");
+  next = writeEnunciados(next, [{ text }]);
+  return next;
+}
+
+/**
+ * Migra el bloque `enunciados:` a `enunciado:` tomando la primera variante
+ * como el nuevo enunciado único. Si la lista está vacía no hace nada.
+ */
+export function variantesToEnunciado(p: Plantilla): Plantilla {
+  const variantes = getBlock(p, "enunciados");
+  if (!variantes || variantes.items.length === 0) return p;
+  const first = variantes.items[0].partes;
+  let next = withoutBlock(p, "enunciados");
+  next = withBlock(next, { kind: "enunciado", partes: first, loc: DUMMY_LOC });
+  return next;
+}
+
+/**
+ * Devuelve los nombres de las variables declaradas en el bloque `variables:`
+ * en el orden en que aparecen. Si el bloque no existe, devuelve `[]`. Pensado
+ * para alimentar el autocompletado del editor de código.
+ */
+export function extractDeclaredVariables(p: Plantilla): string[] {
+  const b = getBlock(p, "variables");
+  if (!b) return [];
+  return b.declaraciones.map((d) => d.nombre);
+}
+
+/* ---------------- WO-1: bloques antes solo editables en DSL crudo ---------------- */
+
+/*
+ * Hallazgos de la investigación (forma de cada bloque, ver ast.ts):
+ *  - respuesta_nombre  → { expr: Expr }      (análogo a respuesta_iso; string).
+ *  - tolerancia_abs    → { valor: number }   (número crudo, sin `%`).
+ *  - explicacion       → { partes: [...] }   (string interpolable, como enunciado).
+ *  - restricciones     → { condiciones: Expr[] }  (dash-list de fórmulas).
+ *  - pistas            → { items: PasoItem[] }     (lista ordenada interpolable).
+ *
+ * Dónde se renderiza cada uno (PlantillaEditorSchema):
+ *  - respuesta_nombre / tolerancia_abs → dentro de la Section "Tipo de pregunta"
+ *    (junto al mapa y a `tolerancia`, respectivamente).
+ *  - explicacion / pistas / restricciones → Sections propias tras "Puntaje y pista".
+ *
+ * Decisión sobre `metadata.pista` (única) vs bloque `pistas:` (plural):
+ *  CONVIVEN. Son semánticamente distintos: `metadata.pista` es la pista única
+ *  legada (se muestra completa) y `pistas:` es la secuencia escalonada (F2-02)
+ *  que el alumno pide de a una. Migrar `metadata.pista`→`pistas:` cambiaría el
+ *  DSL de plantillas viejas (rompe el round-trip idempotente y la semántica),
+ *  así que NO se migra: cada uno tiene su editor y se preservan ambos.
+ */
+
+/** respuesta_nombre: respuesta por nombre (análogo a respuesta_iso). */
+export function readRespuestaNombre(p: Plantilla): string {
+  const b = getBlock(p, "respuesta_nombre");
+  return b ? exprToStringValue(b.expr) : "";
+}
+
+/** Escribe (o quita, con "") `respuesta_nombre:` como string literal. */
+export function writeRespuestaNombre(p: Plantilla, text: string): Plantilla {
+  return text.trim() === ""
+    ? withoutBlock(p, "respuesta_nombre")
+    : withBlock(p, {
+        kind: "respuesta_nombre",
+        expr: strLit(text),
+        loc: DUMMY_LOC,
+      });
+}
+
+/** tolerancia_abs: número crudo (sin `%`). "" si no hay bloque. */
+export function readToleranciaAbs(p: Plantilla): string {
+  const b = getBlock(p, "tolerancia_abs");
+  return b ? String(b.valor) : "";
+}
+
+/**
+ * Escribe `tolerancia_abs:`. "" quita el bloque; un número no finito (ej. "-"
+ * a medio escribir) devuelve `null` para que el caller mantenga el buffer.
+ */
+export function writeToleranciaAbs(p: Plantilla, text: string): Plantilla | null {
+  if (text.trim() === "") return withoutBlock(p, "tolerancia_abs");
+  const n = Number(text);
+  if (!Number.isFinite(n)) return null;
+  return withBlock(p, { kind: "tolerancia_abs", valor: n, loc: DUMMY_LOC });
+}
+
+/**
+ * `opciones: N` — la OTRA forma de tener opciones en un `mc`.
+ *
+ * Ningún schema declara este bloque, así que no aparecía en ninguna interfaz,
+ * pero el runtime lo usa (`generate.ts`): si la respuesta es NUMÉRICA, genera
+ * `N - 1` distractores numéricos alrededor de ella con el PRNG. Es la
+ * alternativa a listar `opciones_explicitas` a mano, y la que sirve para
+ * matemática/física donde los distractores son números.
+ *
+ * Excluyente con `opciones_explicitas`: el runtime mira las explícitas primero,
+ * así que si están las dos, la cantidad se ignora.
+ */
+export function readOpcionesCantidad(p: Plantilla): string {
+  const b = getBlock(p, "opciones");
+  return b ? String(b.cantidad) : "";
+}
+
+/** `""` quita el bloque; un valor no entero ≥ 2 devuelve `null` (no se guarda). */
+export function writeOpcionesCantidad(p: Plantilla, text: string): Plantilla | null {
+  if (text.trim() === "") return withoutBlock(p, "opciones");
+  const n = Number(text);
+  if (!Number.isInteger(n) || n < 2) return null;
+  return withBlock(p, { kind: "opciones", cantidad: n, loc: DUMMY_LOC });
+}
+
+/* ---------------- WO-10: encuadre (vista bloqueada del mapa) ---------------- */
+
+/**
+ * Lee el `encuadre` del bloque `mapa:` como string "oeste, sur, este, norte".
+ * Formato de input/salida: cuatro números separados por comas/espacios.
+ * Vacío si no hay encuadre (vista interactiva, comportamiento previo).
+ */
+export function readEncuadre(p: Plantilla): string {
+  const b = getBlock(p, "mapa");
+  return b?.encuadre ? b.encuadre.join(", ") : "";
+}
+
+/**
+ * Escribe (o quita, con "") el `encuadre` del bloque `mapa:`.
+ *  - `null` si el texto no parsea como 4 números válidos (el caller no debe
+ *    commitear; BufferedText conserva el valor y muestra error).
+ *  - Crea el bloque `mapa:` con `world_countries` si no existe, para que el
+ *    docente pueda fijar el encuadre antes de elegir el mapa (round-trip
+ *    idempotente). El render del alumno toma este encuadre y lockea la vista
+ *    (pan/zoom OFF, recortado al viewBox).
+ */
+export function writeEncuadre(
+  p: Plantilla,
+  text: string,
+): Plantilla | null {
+  if (text.trim() === "") {
+    const b = getBlock(p, "mapa");
+    if (!b) return p;
+    const { encuadre: _drop, ...rest } = b;
+    void _drop;
+    return withBlock(p, { ...rest, loc: DUMMY_LOC } as Bloque);
+  }
+  // Parseo tolerante: separadores coma, espacio, o `;`.
+  const parts = text.split(/[,;\s]+/).map((s) => s.trim()).filter((s) => s !== "");
+  if (parts.length !== 4) return null;
+  const nums = parts.map(Number);
+  if (nums.some((n) => !Number.isFinite(n))) return null;
+  // Validación geográfica: oeste < este, sur < norte.
+  const [west, south, east, north] = nums;
+  if (west >= east || south >= north) return null;
+  const encuadre = [west, south, east, north] as [number, number, number, number];
+  const b = getBlock(p, "mapa");
+  if (!b) {
+    return withBlock(p, {
+      kind: "mapa",
+      nombre: "world_countries",
+      encuadre,
+      loc: DUMMY_LOC,
+    });
+  }
+  return withBlock(p, { ...b, encuadre, loc: DUMMY_LOC });
+}
+
+/** explicacion: string único interpolable (mismo modelo que enunciado). */
+export function readExplicacion(p: Plantilla): string {
+  const b = getBlock(p, "explicacion");
+  return b ? partesToText(b.partes) : "";
+}
+
+/** Escribe (o quita, con "") `explicacion:` parseando interpolaciones `{var}`. */
+export function writeExplicacion(p: Plantilla, text: string): Plantilla {
+  return text.trim() === ""
+    ? withoutBlock(p, "explicacion")
+    : withBlock(p, {
+        kind: "explicacion",
+        partes: textToPartes(text),
+        loc: DUMMY_LOC,
+      });
+}
+
+/** restricciones: dash-list de fórmulas, leídas como texto editable. */
+export function readRestricciones(p: Plantilla): string[] {
+  const b = getBlock(p, "restricciones");
+  return b ? b.condiciones.map(exprToText) : [];
+}
+
+/**
+ * Escribe `restricciones:` desde una lista de fórmulas en texto. Cada texto se
+ * parsea con el parser real; los vacíos o que no parsean se descartan del AST
+ * (el caller mantiene su buffer visible y marca el error inline). Lista sin
+ * fórmulas válidas => quita el bloque (round-trip sin basura).
+ */
+export function writeRestricciones(p: Plantilla, texts: string[]): Plantilla {
+  const condiciones: Expr[] = [];
+  for (const t of texts) {
+    if (t.trim() === "") continue;
+    const expr = textToExpr(t);
+    if (expr) condiciones.push(expr);
+  }
+  if (condiciones.length === 0) return withoutBlock(p, "restricciones");
+  return withBlock(p, { kind: "restricciones", condiciones, loc: DUMMY_LOC });
+}
+
+/** pistas (plural): secuencia ordenada de pistas escalonadas, como texto. */
+export function readPistas(p: Plantilla): string[] {
+  const b = getBlock(p, "pistas");
+  return b ? b.items.map((it) => partesToText(it.partes)) : [];
+}
+
+/**
+ * Escribe `pistas:` desde una lista de strings. Mismo criterio que
+ * `writeEnunciados`: cada string se conserva (incluso vacío) para que agregar
+ * filas no las haga desaparecer; lista vacía => quita el bloque. NO toca
+ * `metadata.pista` (la pista única conviven con esta secuencia).
+ */
+export function writePistas(p: Plantilla, texts: string[]): Plantilla {
+  if (texts.length === 0) return withoutBlock(p, "pistas");
+  const items = texts.map((text) => ({
+    partes: textToPartes(text),
+    loc: DUMMY_LOC,
+  }));
+  return withBlock(p, { kind: "pistas", items, loc: DUMMY_LOC });
+}
+
+/** pasos: secuencia ordenada de pasos de resolución, como texto. */
+export function readPasos(p: Plantilla): string[] {
+  const b = getBlock(p, "pasos");
+  return b ? b.pasos.map((it) => partesToText(it.partes)) : [];
+}
+
+/**
+ * Escribe `pasos:` desde una lista de strings. Mismo criterio que
+ * `writePistas`: cada string se conserva (incluso vacío) para que agregar
+ * filas no las haga desaparecer; lista vacía => quita el bloque.
+ */
+export function writePasos(p: Plantilla, texts: string[]): Plantilla {
+  if (texts.length === 0) return withoutBlock(p, "pasos");
+  const pasos = texts.map((text) => ({
+    partes: textToPartes(text),
+    loc: DUMMY_LOC,
+  }));
+  return withBlock(p, { kind: "pasos", pasos, loc: DUMMY_LOC });
 }
 
 /**

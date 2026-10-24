@@ -10,6 +10,8 @@ import {
   ReferenceLine,
 } from "recharts";
 
+import { useI18n } from "../../i18n/I18nContext";
+import { AudioBlockRenderer } from "../../blocks/renderers/AudioBlockRenderer";
 interface VisualizerRendererProps {
   spec: VisualSpec | undefined;
 }
@@ -220,6 +222,21 @@ export default function VisualizerRenderer({ spec }: VisualizerRendererProps) {
     return <CircuitDiagram elements={spec.elements} />;
   }
 
+  if (spec.kind === "audio") {
+    return (
+      <AudioBlockRenderer
+        block={{
+          id: "vs-audio",
+          type: "audio",
+          url: spec.url,
+          alt: spec.alt,
+          caption: spec.caption,
+          mimeType: spec.mimeType,
+        }}
+      />
+    );
+  }
+
   return null;
 }
 
@@ -250,6 +267,7 @@ function circuitSymbolKind(
  * representar circuitos en serie de física básica.
  */
 function CircuitDiagram({ elements }: { elements: CircuitElement[] }) {
+  const { t } = useI18n();
   const W = 360;
   const H = 220;
   const margin = 40;
@@ -377,9 +395,7 @@ function CircuitDiagram({ elements }: { elements: CircuitElement[] }) {
       })}
 
       {elements.length === 0 && (
-        <text x={W / 2} y={H / 2} textAnchor="middle" fontSize={12} fill="#94a3b8">
-          Circuito vacío
-        </text>
+        <text x={W / 2} y={H / 2} textAnchor="middle" fontSize={12} fill="#94a3b8">{t("visualizerRenderer.circuitoVacio")}</text>
       )}
     </svg>
   );

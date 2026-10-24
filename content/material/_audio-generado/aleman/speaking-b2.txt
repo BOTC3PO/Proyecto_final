@@ -1,0 +1,4 @@
+Student: Herr Professor, ich habe eine Frage zu der Arbeit. Darf ich sie stellen?
+Professor: Natürlich! Was ist es?
+Student: Ich verstehe nicht, wie ich die Quellen zitieren soll. Soll ich sie in der Arbeit erwähnen oder nur am Ende aufschreiben?
+Professor: Du musst sie im Text erwähnen und dann am Ende in einer Liste aufschreiben. Das ist die gängige Regel.

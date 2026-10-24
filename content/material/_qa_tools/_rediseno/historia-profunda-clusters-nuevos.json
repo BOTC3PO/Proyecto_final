@@ -1,0 +1,258 @@
+[
+ {
+  "id": 681,
+  "cluster": 1,
+  "temas": [
+   "escalas-de-tiempo-profundo",
+   "origen-del-universo",
+   "formacion-de-estrellas",
+   "galaxias-tipos-escala",
+   "nucleosintesis"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 682,
+  "cluster": 2,
+  "temas": [
+   "corrimiento-al-rojo-expansion-universo",
+   "agujeros-negros",
+   "formacion-del-sistema-solar",
+   "ley-de-hubble",
+   "movimiento-rotacion-traslacion"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 683,
+  "cluster": 3,
+  "temas": [
+   "materia-energia-oscura",
+   "estaciones-del-ano",
+   "fases-lunares",
+   "movimiento-aparente-constelaciones",
+   "eclipses-sol-luna"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 684,
+  "cluster": 4,
+  "temas": [
+   "tabla-periodica-nivel2-cosmologico",
+   "tierra-primitiva-diferenciacion",
+   "atmosfera-primitiva",
+   "minerales-estructura-cristalina",
+   "origen-de-la-vida"
+  ],
+  "preguntas": 124
+ },
+ {
+  "id": 685,
+  "cluster": 5,
+  "temas": [
+   "rocas-igneas-sedimentarias-metamorficas",
+   "procariotas",
+   "tiempo-geologico-eones-eras-periodos",
+   "gran-oxidacion",
+   "datacion-radiometrica"
+  ],
+  "preguntas": 123
+ },
+ {
+  "id": 686,
+  "cluster": 6,
+  "temas": [
+   "eucariotas",
+   "fotosintesis-cambio-atmosfera-nivel2",
+   "multicelularidad",
+   "tectonica-placas-deriva-continental",
+   "explosion-cambrica"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 687,
+  "cluster": 7,
+  "temas": [
+   "ciclo-de-las-rocas",
+   "conquista-tierra-firme",
+   "distribucion-biomas",
+   "cinco-extinciones-masivas",
+   "paleoclima-glaciaciones"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 688,
+  "cluster": 8,
+  "temas": [
+   "radiacion-mamiferos",
+   "cambio-climatico-linea-base-historica",
+   "hominizacion",
+   "relieve-sismos-volcanes",
+   "paleolitico"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 689,
+  "cluster": 9,
+  "temas": [
+   "seleccion-natural-evidencias-nivel2",
+   "herramientas-arte-rupestre",
+   "poblamiento-planeta-america",
+   "revolucion-neolitica",
+   "sedentarizacion-excedente"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 690,
+  "cluster": 10,
+  "temas": [
+   "division-del-trabajo",
+   "metalurgia-cobre-hierro",
+   "propiedad-jerarquia-estado",
+   "escritura-primeras-ciudades",
+   "antigua-grecia"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 691,
+  "cluster": 11,
+  "temas": [
+   "antigua-roma",
+   "antiguo-egipto",
+   "china-antigua",
+   "civilizaciones-de-america-precolombinas",
+   "india-antigua"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 692,
+  "cluster": 12,
+  "temas": [
+   "mesopotamia",
+   "pueblos-originarios-territorio-argentino",
+   "civilizaciones-antiguas",
+   "expansion-del-imperio-romano",
+   "imperio-de-alejandro-magno-helenistico"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 693,
+  "cluster": 13,
+  "temas": [
+   "imperio-han-china",
+   "imperio-persa",
+   "imperios-expansion",
+   "caida-de-roma-y-alta-edad-media",
+   "edad-media-feudalismo"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 694,
+  "cluster": 14,
+  "temas": [
+   "imperio-bizantino",
+   "islam-y-expansion-arabe",
+   "edad-media-plena",
+   "baja-edad-media-y-crisis",
+   "renacimiento-y-reforma"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 695,
+  "cluster": 15,
+  "temas": [
+   "ciencia-revolucion-cientifica",
+   "imprenta",
+   "navegacion",
+   "conquista-colonizacion-america",
+   "modernidad-imprenta-navegacion-ciencia"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 696,
+  "cluster": 16,
+  "temas": [
+   "absolutismo-europeo",
+   "conquista-y-colonia-argentina",
+   "ilustracion",
+   "virreinato-y-comercio",
+   "revolucion-industrial"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 697,
+  "cluster": 17,
+  "temas": [
+   "revolucion-de-mayo",
+   "electrificacion-fabrica-hogar",
+   "guerras-de-independencia-argentina",
+   "huella-humana-en-el-clima-inicio",
+   "guerras-civiles-unitarios-federales"
+  ],
+  "preguntas": 123
+ },
+ {
+  "id": 698,
+  "cluster": 18,
+  "temas": [
+   "revoluciones-burguesas-liberalismo",
+   "organizacion-nacional-constitucion-1853",
+   "estados-nacionales",
+   "modelo-agroexportador-inmigracion",
+   "imperialismo"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 699,
+  "cluster": 19,
+  "temas": [
+   "ampliacion-democratica-ley-saenz-pena",
+   "sociedad-de-masas-y-democracia-liberal",
+   "primera-guerra-mundial-y-revolucion-rusa",
+   "entreguerras-y-crisis-de-1929",
+   "golpes-de-estado-interrupciones"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 700,
+  "cluster": 20,
+  "temas": [
+   "segunda-guerra-mundial",
+   "peronismo-derechos-sociales",
+   "descolonizacion-de-africa-y-asia",
+   "guerras-mundiales",
+   "guerra-fria-descolonizacion"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 701,
+  "cluster": 21,
+  "temas": [
+   "terrorismo-de-estado-argentina",
+   "historia-contemporanea-de-africa",
+   "guerra-de-malvinas",
+   "historia-contemporanea-de-asia-y-pacifico",
+   "historia-contemporanea-de-medio-oriente",
+   "recuperacion-democratica-memoria",
+   "globalizacion-era-digital",
+   "historia-reciente-argentina",
+   "internet-redes-globalizacion-digital"
+  ],
+  "preguntas": 221
+ }
+]

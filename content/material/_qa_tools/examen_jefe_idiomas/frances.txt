@@ -1,0 +1,595 @@
+# gramatica
+Q | Il faut que tu ＿＿ plus tôt demain. | viennes | viens | viendras | viendrais | Après il faut que: subjonctif présent.
+Q | Bien qu'il ＿＿ malade, il est venu travailler. | soit | est | sera | était | Bien que + subjonctif.
+Q | Je doute qu'il ＿＿ raison. | ait | a | aura | avait | Douter que + subjonctif.
+Q | Je pense qu'il ＿＿ raison. | a | ait | eût | aurait été | Penser (affirmatif) + indicatif.
+Q | Je ne pense pas qu'il ＿＿ venir. | puisse | peut | pourra | pouvait | Penser négatif + subjonctif.
+Q | Si j'＿＿ plus de temps, je voyagerais davantage. | avais | aurais | aie | ai | Si + imparfait, conditionnel présent.
+Q | Si tu ＿＿ prévenu, nous serions venus. | avais | aurais | avais eu | as | Si + plus-que-parfait, conditionnel passé.
+Q | Quand il ＿＿, nous mangerons. | arrivera | arrive-t-il | arriverait | arrivât | Après quand, futur simple pour futur.
+Q | Après qu'il ＿＿ parti, elle pleurera. | sera | soit | fût | serait | Après que + futur antérieur pour une action antérieure au futur.
+Q | Le livre ＿＿ je t'ai parlé est épuisé. | dont | que | où | lequel de | Parler de qqch: dont.
+Q | L'homme ＿＿ j'ai rencontré hier est médecin. | que | dont | qui | où | COD relatif: que.
+Q | La ville ＿＿ il habite est très belle. | où | que | dont | laquelle | Lieu: où.
+Q | Voici la raison pour ＿＿ il a démissionné. | laquelle | lequel | qui | dont | Pour + relatif féminin: laquelle.
+Q | Les amis avec ＿＿ je voyage sont canadiens. | qui | lesquels de | dont | que | Personnes après préposition: qui.
+Q | Ce ＿＿ me plaît, c'est sa franchise. | qui | que | dont | quoi | Ce qui = sujet.
+Q | Ce ＿＿ il faut, c'est du courage. | qu'il | qui | dont | quoi | Ce que/qu'il = COD.
+Q | Il est parti sans ＿＿ dire au revoir. | nous | nous le | leur | nos | Sans + infinitif avec pronom: sans nous dire.
+Q | Elle a acheté des pommes et ＿＿ a donné à ses voisins. | en | les | leur | y | En remplace un partitif/des.
+Q | Je pense souvent à mes vacances; j'＿＿ pense souvent. | y | en | les | leur | Penser à qqch: y.
+Q | As-tu parlé à Paul ? Oui, je ＿＿ ai parlé. | lui | le | y | en | Parler à qqn: lui.
+Q | Les fleurs, je ＿＿ ai offertes à ma mère. | les lui | lui les | leur les | les y | Ordre des pronoms: les lui.
+Q | Donne-＿＿ le livre. | -moi | moi | -me | me | Impératif affirmatif: donne-moi.
+Q | Ne ＿＿ le dis pas ! | me | moi | le moi | m'y | Impératif négatif: ne me le dis pas.
+Q | Nous avons vu ＿＿ films hier. | de très bons | des très bons | de très bonnes | des très bonne | Devant adjectif pluriel: de.
+Q | Il n'a pas ＿＿ argent. | d' | de l' | du | des | Négation: pas de/d'.
+Q | ＿＿ deux heures que je l'attends. | Cela fait | C'est fait | Il fait | Elle est | Cela fait + durée + que.
+Q | Ils se sont ＿＿ la main. | serré | serrés | serrée | serrer | Accord: COD après le verbe ⇒ pas d'accord.
+Q | Les lettres qu'elle a ＿＿ sont longues. | écrites | écrit | écrire | écrits | Accord avec COD antéposé féminin pluriel.
+Q | Elle s'est ＿＿ tôt. | levée | levé | levés | lever | Verbe pronominal: accord avec sujet féminin.
+Q | Nous nous sommes ＿＿ des lettres. | écrit | écrits | écrites | écrire | COI, pas d'accord.
+Q | Elle est ＿＿ à Paris hier. | allée | allé | allés | aller | Être + accord: allée.
+Q | Il n'a ＿＿ d'argent pour partir en vacances. | pas | jamais de | plus de | rien de | Négation simple: ne ... pas de.
+Q | Il ne reste ＿＿ de pain. | plus | pas | rien | jamais | Ne ... plus de: reste plus de pain.
+Q | Aucun élève ＿＿ absent. | n'est | ne sont | est | n'ont | Aucun + ne + singulier.
+Q | ＿＿ ne sait la réponse. | Personne | Aucun de pas | Rien | Pas un | Personne ne + verbe.
+Q | Il a plu toute la nuit; ＿＿, les routes sont inondées. | par conséquent | pourtant | en revanche | d'ailleurs | Conséquence.
+Q | Il est fatigué; ＿＿, il continue de travailler. | pourtant | donc | ainsi | car | Concession: pourtant.
+Q | Il habite en ville, ＿＿ sa sœur préfère la campagne. | alors que | pour que | de peur que | tandis de | Opposition: alors que.
+Q | Je te prête le livre à condition ＿＿ tu me le rendes. | que | de | pour | dont | À condition que + subjonctif.
+Q | Il a travaillé dur ＿＿ réussir. | pour | afin | de peur de | quoique | Pour + infinitif (but).
+Q | Il travaille dur afin ＿＿ ses enfants ＿＿ heureux. | que / soient | de / soient | que / sont | de / sont | Afin que + subjonctif.
+Q | Il a peur ＿＿ tu ne viennes pas. | que | de | à | pour que | Avoir peur que + (ne) + subjonctif.
+Q | ＿＿ que vous soyez fatigué, vous devez finir ce travail. | Bien | Même | Pourvu | Sans | Bien que + subjonctif.
+Q | Il est le seul qui ＿＿ le faire. | puisse | peut | pourra | pouvait | Antécédent avec seul: subjonctif.
+Q | On cherche quelqu'un qui ＿＿ parler chinois. | sache | sait | saura | savait | Relative de recherche: subjonctif.
+Q | Il ＿＿ mieux agir tôt que tard. | vaut | faut | est | fait | Il vaut mieux + infinitif.
+Q | Il ＿＿ mieux partir maintenant. | vaut | faut | est | fait | Il vaut mieux.
+Q | Cette mesure a été ＿＿ par le gouvernement. | adoptée | adopté | adopter | adoptés | Accord passif.
+Q | Le rapport ＿＿ demain. | sera publié | serait publiant | est publier | sera publie | Passif futur.
+Q | On dit qu'il ＿＿ très riche. | est | soit | serait été | sera eu | Dire que + indicatif.
+Q | Elle ＿＿ partir dès demain. | doit | devrait eu | doive de | devra qu' | Devoir + infinitif.
+Q | Sans l'aide de Marie, nous ＿＿ échoué. | aurions | avions | aurons | aurions eu | Hypothèse irréelle passé.
+Q | Il a fait ＿＿ sa voiture. | réparer | réparé | de réparer | à réparer | Faire + infinitif (causatif).
+Q | Elle s'est fait ＿＿ les cheveux. | couper | coupée | coupés | coupant | Se faire + infinitif.
+Q | Il a laissé ＿＿ la porte ouverte. | la | à | de | pour | Laisser + COD.
+Q | Je le lui ＿＿ dit hier. | ai | ait | avais eu | aie | Passé composé.
+Q | En ＿＿ les résultats, nous avons décidé de continuer. | voyant | vu | vus | ayant vu de | Gérondif: en voyant.
+Q | Le film étant fini, ＿＿ | nous sommes partis. | nous partons de. | partis nous. | nous partirons été. | Participe absolu.
+Q | ＿＿ sa maladie, il a continué à travailler. | Malgré | Bien | Quoique | Pendant que | Malgré + nom.
+Q | ＿＿ la pluie, la fête a eu lieu. | Malgré | Grâce | En raison | À cause | Concession: malgré.
+Q | Il a réussi ＿＿ à sa persévérance. | grâce | à cause | malgré | faute | Grâce à + cause positive.
+Q | Il a échoué ＿＿ de préparation. | faute | grâce | pour | malgré | Faute de + nom = par manque de.
+Q | ＿＿ deux mois, il n'a pas donné de nouvelles. | Depuis | Pendant | En | Il y a | Depuis + durée jusqu'à maintenant.
+Q | Il a fini ＿＿ deux heures. | en | pendant | depuis | dans | Durée nécessaire: en deux heures.
+Q | Le train part ＿＿ dix minutes. | dans | en | pendant | depuis | Dans = dans un futur.
+Q | Il a habité à Lyon ＿＿ cinq ans. | pendant | dans | en | y a | Pendant = durée passée.
+Q | Il est parti ＿＿ trois jours. | il y a | depuis | dans | pendant | Il y a + durée = moment passé.
+Q | Il ＿＿ que je vienne. | faut | vaut | est | va | Il faut que + subjonctif.
+Q | Elle est ＿＿ que sa sœur. | plus grande | plus grand | la plus grande | très grande | Comparatif de supériorité.
+Q | C'est le film ＿＿ intéressant que j'aie vu. | le plus | plus | très | tant | Superlatif avec subjonctif.
+Q | Plus il travaille, ＿＿ il réussit. | mieux | meilleur | le mieux | bien | Plus ..., mieux ...
+Q | Elle chante ＿＿ que sa sœur. | mieux | meilleur | plus bien | plus bon | Adverbe: mieux.
+Q | Ce vin est ＿＿ que l'autre. | meilleur | mieux | plus bon | plus mieux | Adjectif: meilleur.
+Q | Nous ＿＿ hier soir au cinéma. | sommes allés | avons allé | sommes allé | allons | Passé composé avec être.
+Q | Quand j'étais petit, j'＿＿ souvent à la campagne. | allais | suis allé | irai | irais | Imparfait habituel.
+Q | Hier, pendant qu'il ＿＿, le téléphone a sonné. | dormait | dormit | a dormi | dormira | Imparfait + passé composé.
+Q | Il ＿＿ de partir quand elle est arrivée. | venait | est venu | vient | viendra | Venir de + infinitif à l'imparfait.
+Q | Demain, à cette heure-ci, je ＿＿ dans l'avion. | serai | suis | étais | serais | Futur simple.
+Q | Dès que j'＿＿ fini, je t'appellerai. | aurai | ai | avais | aie | Futur antérieur.
+Q | Il a dit qu'il ＿＿ le lendemain. | viendrait | viendra | vient | est venu | Concordance des temps.
+Q | Elle m'a demandé si je ＿＿ libre. | étais | suis | serai | sois | Discours indirect au passé.
+Q | Il m'a dit : « Viens ! » ⇒ Il m'a dit ＿＿. | de venir | que je viens | à venir | de viens | Impératif indirect: de + infinitif.
+Q | Elle a demandé ＿＿ il faisait. | ce qu' | ce que il | qu'est-ce qu' | quoi | Discours indirect: ce qu'il faisait.
+Q | Choisissez le sens: Il a pris ses jambes à son cou. | Il s'est enfui. | Il a marché lentement. | Il s'est blessé. | Il a dansé. | Idiome: s'enfuir.
+Q | Choisissez le sens: Elle a un cœur d'or. | Elle est très généreuse. | Elle est riche. | Elle est malade. | Elle est jalouse. | Idiome: générosité.
+Q | Choisissez le sens: Il pleut des cordes. | Il pleut très fort. | Il pleut peu. | Il neige. | Il y a du vent. | Idiome: forte pluie.
+Q | Choisissez le sens: Il a le cafard. | Il est déprimé. | Il a peur des insectes. | Il est fatigué. | Il est content. | Idiome: avoir le cafard.
+Q | Choisissez le sens: Elle a posé un lapin à son ami. | Elle ne s'est pas présentée au rendez-vous. | Elle a offert un animal. | Elle a chassé. | Elle a menti sur son âge. | Poser un lapin = ne pas venir.
+Q | Choisissez le sens: On a coupé la poire en deux. | On a fait un compromis. | On a mangé un fruit. | On s'est disputé. | On a cassé quelque chose. | Idiome: compromis.
+Q | Choisissez le sens: Il est tombé dans les pommes. | Il s'est évanoui. | Il a mangé des fruits. | Il a glissé. | Il est parti. | Idiome: s'évanouir.
+Q | Choisissez le sens: Ça coûte les yeux de la tête. | C'est très cher. | C'est gratuit. | C'est dangereux. | C'est beau. | Idiome: très cher.
+Q | Choisissez le sens: Il fait la sourde oreille. | Il refuse d'écouter. | Il est sourd. | Il écoute bien. | Il chante. | Idiome: faire la sourde oreille.
+Q | Choisissez le sens: Elle a le mal du pays. | Elle regrette son pays. | Elle est malade. | Elle est en colère. | Elle voyage. | Avoir le mal du pays.
+Q | Que signifie « pénurie » ? | manque | abondance | victoire | histoire | Pénurie = manque grave.
+Q | Que signifie « entreprendre » ? | commencer une action importante | abandonner | détruire | oublier | Entreprendre = emprender.
+Q | Que signifie « fiable » ? | en qui on peut avoir confiance | rapide | ancien | cher | Fiable = fiable/fidedigno.
+Q | Que signifie « atténuer » ? | rendre moins fort | rendre plus fort | supprimer | cacher | Atténuer = atenuar.
+Q | Que signifie « aborder » ? | commencer à traiter | quitter | refuser | copier | Aborder un sujet = abordar.
+Q | Que signifie « fournir » ? | donner, procurer | prendre | jeter | acheter | Fournir = proporcionar.
+Q | Que signifie « négliger » ? | ne pas prêter attention | soigner | admirer | copier | Négliger = descuidar.
+Q | Que signifie « stupéfait » ? | très surpris | content | fâché | fatigué | Stupéfait = atónito.
+Q | Que signifie « mesure » dans « prendre des mesures » ? | décisions d'action | dimensions | musique | règle | Prendre des mesures = tomar medidas.
+Q | Que signifie « enjeu » ? | ce qu'on peut gagner ou perdre | jeu d'enfant | joie | erreur | Enjeu = lo que está en juego.
+Q | Que signifie « dénoncer » ? | révéler publiquement | cacher | admirer | cuisiner | Dénoncer = denunciar.
+Q | Que signifie « inéluctable » ? | qu'on ne peut éviter | facile | drôle | rare | Inéluctable = ineludible.
+Q | Que signifie « ressortissant » ? | citoyen d'un pays | ancien élève | touriste | employé | Ressortissant = nacional.
+Q | Que signifie « précaire » ? | instable | fort | riche | rapide | Précaire = precario.
+Q | Que signifie « tributaire de » ? | dépendant de | responsable de | ennemi de | libre de | Tributaire de = dependiente de.
+Q | Que signifie « aléatoire » ? | dépendant du hasard | certain | obligatoire | logique | Aléatoire = aleatorio.
+Q | Formez le nom: La ＿＿ du problème est difficile. (résoudre) | résolution | résoudre | résolu | résolvant | Nom: résolution.
+Q | Formez le nom: Sa ＿＿ à l'égard de tous est remarquable. (gentil) | gentillesse | gentiment | gentil | gentilé | Nom: gentillesse.
+Q | Formez l'adjectif: C'est une décision ＿＿. (justifier) | justifiable | justifiant | justification | justifié à | Adjectif en -able.
+Q | Formez l'adverbe: Il a répondu ＿＿. (prudent) | prudemment | prudentement | prudement | prudentment | Adverbe: -emment.
+Q | Formez l'adverbe: Elle travaille ＿＿. (constant) | constamment | constantement | constant | constanment | -amment pour -ant.
+Q | Formez le nom: La ＿＿ des prix inquiète les ménages. (augmenter) | augmentation | augmentant | augmenté | augmenteur | Nom: augmentation.
+Q | Formez l'adjectif: Une personne ＿＿. (fiable, contraire) | peu fiable | infiable | non fiable de | défiable | Contraire usuel: peu fiable.
+Q | Formez le nom: L'＿＿ de ce produit est interdite. (importer) | importation | importance | importeur | importable | Importation (commerce).
+Q | Formez le nom: Il a un grand ＿＿ de l'humour. (sentir) | sens | sensation | sentiment de | sensible | Avoir le sens de l'humour.
+Q | Formez le nom: La ＿＿ de l'eau est un enjeu majeur. (gérer) | gestion | gérance | gérant | gérable | Gestion de l'eau.
+Q | Choisissez la préposition: Il s'intéresse ＿＿ l'histoire. | à | de | pour | sur | S'intéresser à.
+Q | Choisissez la préposition: Elle est fière ＿＿ son fils. | de | à | pour | en | Être fier de.
+Q | Choisissez la préposition: Il a renoncé ＿＿ ce projet. | à | de | pour | sur | Renoncer à.
+Q | Choisissez la préposition: Elle se plaint ＿＿ bruit. | du | au | pour le | sur | Se plaindre de.
+Q | Choisissez la préposition: Il compte ＿＿ toi. | sur | à | de | pour | Compter sur.
+Q | Choisissez la préposition: Nous dépendons ＿＿ le climat. | de | à | sur | pour | Dépendre de.
+Q | Choisissez la préposition: Elle a réussi ＿＿ convaincre. | à | de | pour | sur | Réussir à + infinitif.
+Q | Choisissez la préposition: Il refuse ＿＿ signer. | de | à | pour | sur | Refuser de + infinitif.
+Q | Choisissez la préposition: Elle songe ＿＿ démissionner. | à | de | pour | sur | Songer à.
+Q | Choisissez la préposition: Il s'est excusé ＿＿ son retard. | de | à | pour de | sur | S'excuser de.
+Q | Choisissez la préposition: Elle est opposée ＿＿ ce projet. | à | de | pour | sur | Être opposé à.
+Q | Choisissez la préposition: Cela consiste ＿＿ faire un rapport. | à | de | pour | en | Consister à + infinitif.
+Q | Choisissez la préposition: Il est capable ＿＿ tout. | de | à | pour | sur | Capable de.
+Q | Choisissez la préposition: Ils luttent ＿＿ la pauvreté. | contre | à | de | sur | Lutter contre.
+Q | Choisissez la préposition: Il faut veiller ＿＿ la sécurité. | à | de | sur | pour | Veiller à.
+Q | Choisissez la préposition: Elle a parié ＿＿ lui. | sur | à | de | pour | Parier sur.
+Q | Choisissez la forme: Nous ＿＿ que tu viennes. | souhaitons | souhaitent | souhaite | souhaiter | Conjugaison.
+Q | Choisissez la forme: Ils ＿＿ leurs devoirs. | font | faisent | fait | faites | Faire: ils font.
+Q | Choisissez la forme: Vous ＿＿ la vérité. | dites | disez | dit | disent | Dire: vous dites.
+Q | Choisissez la forme: Il faut que nous ＿＿ à l'heure. | soyons | sommes | serons | étions | Subjonctif d'être.
+Q | Choisissez la forme: Il faut qu'elle ＿＿ ses clés. | prenne | prend | prendra | prit | Subjonctif de prendre.
+Q | Choisissez la forme: Qu'ils ＿＿ tranquilles ! | restent | reste | resteront | restaient | Subjonctif/impératif à la 3e personne.
+Q | Choisissez la forme: Je voudrais que vous ＿＿ plus attentifs. | soyez | êtes | serez | seriez | Vouloir que + subjonctif.
+Q | Choisissez la forme: Avant qu'elle ＿＿, dis-lui la vérité. | parte | part | partira | partait | Avant que + subjonctif.
+Q | Choisissez la forme: Jusqu'à ce qu'il ＿＿, nous attendrons. | vienne | vient | viendra | venait | Jusqu'à ce que + subjonctif.
+Q | Choisissez la forme: Je suis content que tu ＿＿ là. | sois | es | seras | étais | Émotion + subjonctif.
+Q | Choisissez la forme: Il est probable qu'il ＿＿ demain. | viendra | vienne | viendrait | vînt | Il est probable que + indicatif.
+Q | Choisissez la forme: Il est possible qu'il ＿＿ demain. | vienne | viendra | vient | viendrait | Il est possible que + subjonctif.
+Q | Choisissez la forme: Il semble qu'elle ＿＿ raison. | ait | a | aura | avait | Il semble que + subjonctif.
+Q | Choisissez la forme: Il me semble qu'elle ＿＿ raison. | a | ait | eût | soit | Il me semble que + indicatif.
+Q | Choisissez la forme: Bien que ce ＿＿ difficile, nous réussirons. | soit | est | sera | serait | Bien que + subjonctif.
+# reading
+@R La semaine de quatre jours séduit un nombre croissant d'entreprises. Ses partisans affirment que les salariés, plus reposés, travaillent avec davantage de concentration. Les sceptiques objectent que dans les secteurs à horaires fixes, comme le commerce ou les soins, une telle réduction est difficile à appliquer. Les premières expériences suggèrent que la productivité se maintient, mais reste à savoir si ces résultats seront durables.
+Q | Quelle est l'idée principale du texte ? | La semaine de quatre jours est prometteuse mais pas applicable partout. | Elle a échoué. | Tout le monde l'adopte. | La productivité s'effondre. | Nuance entre avantages et limites.
+Q | Où la réduction est-elle jugée difficile ? | dans les secteurs à horaires fixes | dans les bureaux | à l'école | à domicile | Commerce et soins.
+Q | Que suggèrent les premières expériences ? | La productivité se maintient. | Les coûts explosent. | Les salariés démissionnent. | Rien n'est connu. | Productividad estable.
+Q | Que signifie « partisans » ? | personnes qui soutiennent | opposants | patrons | clients | Partisans = partidarios.
+Q | Les effets à long terme sont | encore incertains | prouvés | négatifs | sans importance | Pendiente de confirmar.
+@@
+@R Le musée a décidé d'ouvrir gratuitement le premier dimanche de chaque mois. La mesure a fait doubler la fréquentation, mais elle a aussi provoqué des files d'attente interminables et une usure accrue des salles. Le directeur reconnaît que l'expérience est un succès mitigé : elle a élargi le public, sans pour autant faire venir ceux qui, faute de temps ou de repères, n'osaient pas franchir la porte.
+Q | Qu'a entraîné la gratuité ? | Le doublement de la fréquentation | La fermeture du musée | Une baisse du public | Une hausse des prix | Se dobló la afluencia.
+Q | Quels inconvénients sont cités ? | des files d'attente et une usure accrue | des vols | du bruit seulement | des travaux | Colas y desgaste.
+Q | Comment le directeur juge-t-il l'expérience ? | Comme un succès mitigé | Comme un échec total | Comme un triomphe | Comme sans intérêt | Succès mitigé.
+Q | Quel public n'est pas touché ? | ceux qui n'osaient pas entrer | les touristes | les enfants | les scolaires | No llega a quienes no se atrevían.
+Q | « Mitigé » signifie ici | partagé, nuancé | excellent | mauvais | rapide | Mitigé = con matices.
+@@
+@R Le romancier a publié cette année un livre étrange, à mi-chemin entre le journal intime et l'enquête. L'auteur y interroge la mémoire de sa famille sans jamais prétendre livrer une vérité définitive. Certains critiques regrettent l'absence de conclusion; d'autres voient dans ce refus de trancher la marque d'une honnêteté rare.
+Q | Quelle est la forme du livre ? | mi-journal intime, mi-enquête | un roman policier | un recueil de poèmes | une biographie classique | Genre mixte.
+Q | Que fait l'auteur de la mémoire familiale ? | Il l'interroge sans conclure | Il la dénonce | Il l'ignore | Il la célèbre | Interroga sin cerrar.
+Q | Que regrettent certains critiques ? | l'absence de conclusion | la longueur | le prix | le style | Falta de conclusión.
+Q | Que voient d'autres critiques dans ce refus ? | une honnêteté rare | de la paresse | un défaut | de la maladresse | Honestidad.
+Q | « Trancher » signifie ici | décider de manière nette | couper du pain | fuir | oublier | Trancher = zanjar.
+@@
+@R À force de vouloir tout mesurer, les entreprises risquent d'oublier ce qui ne se compte pas. Les indicateurs de performance, utiles pour piloter, finissent parfois par dicter les comportements: on soigne le chiffre plutôt que le service rendu. Plusieurs sociologues invitent donc à compléter les tableaux de bord par des retours qualitatifs, moins commodes mais souvent plus éclairants.
+Q | Quel risque signale le texte ? | oublier ce qui ne se compte pas | ne rien mesurer | trop dépenser | recruter mal | Riesgo de medirlo todo.
+Q | Que finissent parfois par faire les indicateurs ? | dicter les comportements | disparaître | s'améliorer | coûter moins | Condicionan conductas.
+Q | Que proposent les sociologues ? | ajouter des retours qualitatifs | supprimer les chiffres | embaucher | licencier | Complementar con lo cualitativo.
+Q | « Piloter » signifie ici | diriger, gérer | voler | copier | enseigner | Piloter = gestionar.
+Q | Le ton de l'auteur est | critique et nuancé | enthousiaste | indifférent | comique | Crítico matizado.
+@@
+@R Dans les villes, la végétalisation des toits est encouragée. Elle réduit la chaleur estivale, retient l'eau de pluie et abrite des insectes. Toutefois, son coût et la charge supplémentaire pour les bâtiments anciens freinent son développement. Les municipalités qui la soutiennent par des aides financières obtiennent de meilleurs résultats que celles qui se contentent de l'imposer.
+Q | Quel avantage est cité ? | Elle réduit la chaleur estivale. | Elle augmente le bruit. | Elle diminue l'espace. | Elle coûte moins. | Reduce el calor.
+Q | Qu'est-ce qui freine son développement ? | le coût et la charge sur les bâtiments anciens | le manque d'insectes | la pluie | les lois | Coste y peso.
+Q | Quelles municipalités réussissent le mieux ? | celles qui la soutiennent financièrement | celles qui l'imposent | celles qui l'interdisent | celles qui l'ignorent | Ayudas económicas.
+Q | « Freiner » signifie | ralentir | accélérer | interdire | créer | Freiner = frenar.
+Q | Le texte est | informatif | polémique | humoristique | narratif | Informativo.
+@@
+@R La traductrice, qui a passé vingt ans à faire connaître des auteurs étrangers, affirme que traduire n'est pas remplacer des mots par d'autres. C'est retrouver la voix d'un texte, son rythme, ses silences. Elle admet que cette fidélité-là suppose parfois de trahir la lettre pour sauver l'esprit, un compromis que les puristes ne lui pardonnent pas toujours.
+Q | Selon elle, traduire consiste à | retrouver la voix du texte | remplacer des mots | résumer | corriger | Recuperar la voz del texto.
+Q | Que suppose parfois cette fidélité ? | trahir la lettre pour sauver l'esprit | suivre le mot à mot | ajouter des notes | supprimer le texte | Traicionar la letra.
+Q | Qui lui reproche ce compromis ? | les puristes | les auteurs | les lecteurs | les éditeurs | Los puristas.
+Q | Depuis combien de temps traduit-elle ? | vingt ans | deux ans | dix ans | cinq ans | Veinte años.
+Q | « Ne pas pardonner » implique ici | une critique persistante | de la joie | de l'ignorance | de l'oubli | Reproche.
+@@
+@R L'agriculteur a converti son exploitation au bio il y a dix ans. Les débuts ont été difficiles: rendements en baisse, charges en hausse. Aujourd'hui, il estime que le pari est gagné, car la qualité de ses produits lui permet de les vendre plus cher en circuit court. Il reconnaît cependant que sans l'appui d'une coopérative, il aurait sans doute abandonné.
+Q | Quand a-t-il converti son exploitation ? | il y a dix ans | l'an dernier | il y a deux ans | il y a vingt ans | Diez años.
+Q | Comment ont été les débuts ? | difficiles | faciles | rentables | rapides | Difíciles.
+Q | Pourquoi estime-t-il avoir gagné son pari ? | il vend plus cher en circuit court | il a plus de terres | il produit plus | il a moins de travail | Venta directa mejor pagada.
+Q | Qu'aurait-il fait sans la coopérative ? | Il aurait abandonné. | Il aurait réussi seul. | Il aurait vendu ses terres. | Il aurait migré. | Habría abandonado.
+Q | « Charges » signifie ici | dépenses | tâches | armes | colis | Charges = costes.
+@@
+@R Le projet de loi vise à mieux protéger les lanceurs d'alerte. Il leur garantit l'anonymat et interdit toute mesure de représailles. Les associations saluent une avancée, mais regrettent que la procédure exige de passer d'abord par la hiérarchie, ce qui peut dissuader les employés qui craignent précisément d'être identifiés.
+Q | Que vise le projet de loi ? | protéger les lanceurs d'alerte | les sanctionner | les rémunérer | les former | Proteger denunciantes.
+Q | Que garantit-il ? | l'anonymat | un salaire | un emploi à vie | une prime | Anonimato.
+Q | Que regrettent les associations ? | l'obligation de passer par la hiérarchie | l'absence de loi | la durée | le coût | Deben pasar por la jerarquía.
+Q | Pourquoi cette procédure peut-elle dissuader ? | On risque d'être identifié. | Elle est chère. | Elle est longue. | Elle est secrète. | Riesgo de ser identificado.
+Q | « Représailles » signifie | mesures de vengeance | récompenses | conseils | rapports | Represalias.
+@@
+@R Le sommeil des adolescents est chroniquement insuffisant. Décaler l'heure de début des cours d'une heure, comme l'ont fait certains lycées, améliore l'assiduité et réduit les accidents de la route. Les opposants craignent la désorganisation des emplois du temps, un inconvénient jugé modeste par les chercheurs au regard des bénéfices observés.
+Q | Qu'améliore le décalage des cours ? | l'assiduité et la sécurité routière | les notes seulement | les salaires | les vacances | Asistencia y accidentes.
+Q | Que craignent les opposants ? | la désorganisation des emplois du temps | la fatigue | le coût des cours | le bruit | Horarios.
+Q | Comment les chercheurs jugent-ils cet inconvénient ? | modeste | énorme | inacceptable | inexistant | Modesto.
+Q | « Décaler » signifie | déplacer dans le temps | supprimer | avancer toujours | copier | Decaler = desplazar.
+Q | Quelle est la conclusion probable ? | Les bénéfices l'emportent. | Il faut abandonner. | Rien ne change. | Le sommeil est inutile. | Beneficios mayores.
+@@
+@R Le village avait perdu son dernier café et, avec lui, son lieu de rencontre. Les habitants ont créé une association, racheté le local et l'exploitent ensemble. Le café dégage un modeste bénéfice, mais la présidente insiste: l'essentiel n'est pas financier, il est de préserver un endroit où l'on se croise encore.
+Q | Qu'a perdu le village ? | son dernier café | son école | sa mairie | sa gare | Último café.
+Q | Comment a-t-il été sauvé ? | Par une association d'habitants | Par la commune | Par un groupe | Par un don | Asociación vecinal.
+Q | Que dit la présidente ? | L'essentiel n'est pas financier. | Le profit est le but. | Le café va fermer. | Il faut vendre. | Lo importante no es económico.
+Q | « Se croiser » signifie ici | se rencontrer | se disputer | se perdre | partir | Cruzarse = encontrarse.
+Q | Le café génère | un modeste bénéfice | de grosses pertes | de gros profits | rien | Modesto beneficio.
+@@
+@R La chercheuse explique que la disparition des abeilles n'est pas seulement due aux pesticides. Le manque de fleurs variées, dû aux monocultures, les prive d'une alimentation équilibrée. Les exploitants qui aménagent des bandes fleuries constatent une hausse des rendements, car la pollinisation est assurée par davantage d'insectes.
+Q | Qu'autre menace les abeilles ? | le manque de fleurs variées | trop de fleurs | la pluie | le miel | Falta de diversidad.
+Q | Que produisent les monocultures ? | une alimentation déséquilibrée | une alimentation variée | du miel | des fleurs | Alimentación pobre.
+Q | Que constatent les exploitants ? | une hausse des rendements | une baisse des rendements | plus de travail | moins d'abeilles | Más rendimiento.
+Q | Pourquoi les rendements augmentent-ils ? | Plus d'insectes pollinisent. | Il pleut plus. | Il y a plus d'engrais. | Les champs sont plus grands. | Polinización.
+Q | « Aménager » signifie | organiser un espace | détruire | vendre | mesurer | Aménager = acondicionar.
+@@
+@R L'affaire s'est dénouée sans éclat. À la barre, chaque témoin a nuancé sa déposition, jusqu'à ce que l'accusation ressemble à un édifice privé de ses piliers. Le verdict n'a surpris personne, pas même l'accusé, qui avait passé la dernière audience à fixer le plafond.
+Q | Comment s'est dénouée l'affaire ? | sans éclat | de façon spectaculaire | par un aveu | par une émeute | Sin sobresaltos.
+Q | Que faisait chaque témoin ? | nuancer sa déposition | l'aggraver | fuir | crier | Matizaba.
+Q | L'image de l'édifice suggère que l'accusation | perdait ses fondements | était solide | coûtait cher | était neuve | Perdía apoyo.
+Q | Le comportement de l'accusé suggère qu'il | s'attendait au verdict | était furieux | était surpris | était innocent | Esperaba el resultado.
+Q | « Verdict » désigne | la décision du tribunal | un discours | une loi | un plaidoyer | Verdict = veredicto.
+@@
+@R L'urbaniste estime que la ville ressemble moins à une machine qu'à un écosystème: ses parties s'adaptent, se concurrencent et coopèrent sans qu'aucun plan ne l'ait prévu. Les quartiers les plus réussis seraient ceux qu'on a peu planifiés, en laissant aux habitants la place d'improviser.
+Q | À quoi compare-t-il la ville ? | à un écosystème | à une machine | à un livre | à un musée | Ecosistema.
+Q | Quels quartiers réussissent le mieux ? | ceux peu planifiés | ceux très planifiés | les anciens | les nouveaux | Poco planificados.
+Q | Que laisse-t-on aux habitants ? | la place d'improviser | rien | des ordres | des plans | Improvisar.
+Q | « S'adapter » signifie | s'ajuster à une situation | partir | disparaître | commander | Adaptarse.
+Q | La thèse principale est que la ville | ne se réduit pas à un plan | est une machine | est prévisible | est inutile | Más ecosistema.
+@@
+@R Avec le développement du streaming, la découverte musicale passe désormais par des algorithmes. Ses défenseurs y voient une démocratisation; ses détracteurs, un enfermement dans ses goûts. Une étude récente montre que les auditeurs qui suivent les listes personnalisées explorent nettement moins de genres que ceux qui cherchent librement.
+Q | Comment passe la découverte musicale ? | par des algorithmes | par la radio | par des critiques | par des concerts | Algoritmos.
+Q | Que reprochent les détracteurs ? | un enfermement dans ses goûts | un coût élevé | un manque d'accès | la qualité | Encierro en gustos.
+Q | Que montre l'étude ? | Les auditeurs de listes explorent moins de genres. | Tous explorent plus. | Le streaming est gratuit. | La radio progresse. | Menos géneros.
+Q | « Détracteurs » signifie | opposants | fans | musiciens | patrons | Detractor.
+Q | Le texte présente | les deux points de vue | un seul point de vue | une publicité | un poème | Equilibrado.
+@@
+@R Le directeur de la rédaction défend le journalisme de long format. À rebours de l'urgence permanente, il veut offrir des enquêtes approfondies, quitte à publier moins souvent. Les annonceurs, dit-il, y sont sensibles: un lecteur attentif est un lecteur fidèle. Ses détracteurs rétorquent que ce pari n'est viable que pour de rares titres bénéficiant d'un mécénat.
+Q | Que défend le directeur ? | le journalisme de long format | l'information instantanée | la publicité | la gratuité | Formato largo.
+Q | Que veut-il éviter ? | l'urgence permanente | les annonceurs | les enquêtes | les lecteurs | Urgencia.
+Q | Quel argument avancent ses détracteurs ? | Le pari n'est viable que pour peu de titres. | Il coûte peu. | Il séduit tous les lecteurs. | Il est illégal. | Pocos títulos.
+Q | « À rebours de » signifie | à l'inverse de | à cause de | avec | après | A contracorriente.
+Q | Qui, selon lui, apprécie ce format ? | les annonceurs | les jeunes | les concurrents | les ministres | Anunciantes.
+@@
+@R L'exposition dédiée aux petits objets du quotidien invite le visiteur à regarder autrement ce qu'il ne voit plus. Une cuillère, un bouton, une clé: chacun raconte une époque, un métier, une manière de vivre. Le commissaire précise qu'il n'a voulu ni nostalgie ni érudition, mais une attention.
+Q | Que présente l'exposition ? | des objets du quotidien | des tableaux | des voitures | des bijoux | Objetos cotidianos.
+Q | Que veut susciter le commissaire ? | une attention | de la nostalgie | de l'érudition | du choc | Atención.
+Q | Que raconte chaque objet ? | une époque et une manière de vivre | un mystère | un procès | un voyage | Época y modo de vida.
+Q | « Commissaire » désigne ici | organisateur de l'exposition | policier | juge | guide | Comisario de exposición.
+Q | Le ton est | posé | violent | comique | pressé | Sosegado.
+@@
+@R Face à la montée des eaux, certaines communes littorales envisagent de déplacer leurs habitants. L'idée, longtemps taboue, gagne du terrain: entretenir des digues coûte de plus en plus cher, et leur efficacité diminue. Reste à savoir qui financera la relocalisation, et comment préserver l'identité de villages entiers.
+Q | Que envisagent certaines communes ? | déplacer leurs habitants | construire des digues | fermer les plages | vendre des terrains | Reubicar.
+Q | Pourquoi l'idée gagne-t-elle du terrain ? | Les digues coûtent cher et perdent en efficacité. | Il pleut moins. | La mer baisse. | Les habitants le demandent tous. | Costes crecientes.
+Q | Quelle question reste ouverte ? | qui financera la relocalisation | qui construira les digues | où bâtir des ports | qui pêchera | Financiación.
+Q | « Taboue » signifie | dont on évite de parler | populaire | ancienne | gratuite | Tabú.
+Q | L'expression « gagner du terrain » signifie | progresser | perdre | reculer | disparaître | Ganar terreno.
+@@
+@R La sociologue observe que le travail à distance a modifié les liens entre collègues. Si les tâches individuelles gagnent en efficacité, les échanges informels, ceux qui nourrissent l'innovation, se raréfient. Les entreprises qui imposent un retour total au bureau risquent de susciter du ressentiment, tandis que celles qui y renoncent perdent une culture commune.
+Q | Qu'a modifié le travail à distance ? | les liens entre collègues | les salaires | les horaires | les transports | Relaciones.
+Q | Que se raréfie ? | les échanges informels | les tâches | les réunions | les mails | Intercambios informales.
+Q | Quel risque pour un retour total au bureau ? | du ressentiment | plus d'innovation | moins de bruit | plus de télétravail | Resentimiento.
+Q | Que perdent celles qui y renoncent ? | une culture commune | des salariés | de l'argent | des locaux | Cultura común.
+Q | « Se raréfier » signifie | devenir moins fréquent | augmenter | changer | apparaître | Rarefacerse.
+@@
+@R Le poète refuse depuis toujours les cérémonies. Quand on lui a annoncé qu'il recevait le grand prix, il a d'abord cru à une plaisanterie, puis il s'est excusé de ne pouvoir venir. Il a fait lire un court texte à sa place, où il remercie surtout ses lecteurs, « ceux qui font vivre un poème en le portant avec eux ».
+Q | Comment le poète a-t-il d'abord réagi ? | Il a cru à une plaisanterie. | Il a exulté. | Il a refusé net. | Il a pleuré. | Broma.
+Q | Qu'a-t-il fait le jour de la cérémonie ? | Il a fait lire un texte à sa place. | Il est venu. | Il a chanté. | Il a écrit un livre. | Texto leído.
+Q | Qui remercie-t-il surtout ? | ses lecteurs | le jury | sa famille | les éditeurs | Lectores.
+Q | Son attitude envers les cérémonies est | de refus constant | d'enthousiasme | de curiosité | de peur | Rechazo.
+Q | « Plaisanterie » signifie | blague | prix | poème | ordre | Plaisanterie = broma.
+@@
+@R La réforme de l'école prévoit de réduire l'effectif des classes dans les zones défavorisées. Les enseignants s'en félicitent, mais rappellent que la taille des classes ne fait pas tout: sans formation continue ni moyens matériels, les bénéfices resteront limités. Le ministre promet un accompagnement, sans en préciser le calendrier.
+Q | Que prévoit la réforme ? | des classes moins nombreuses | plus de vacances | moins de cours | un nouvel examen | Menos alumnos.
+Q | Comment réagissent les enseignants ? | Ils se félicitent avec des réserves. | Ils protestent. | Ils l'ignorent. | Ils démissionnent. | Con reservas.
+Q | Que faut-il en plus selon eux ? | formation continue et moyens matériels | plus d'élèves | moins d'heures | des sanctions | Formación y medios.
+Q | Que promet le ministre ? | un accompagnement sans calendrier | rien | des fonds immédiats | une démission | Sin fecha.
+Q | « S'en féliciter » signifie | s'en réjouir | s'en plaindre | s'en méfier | s'en moquer | Felicitarse.
+@@
+@R Après des années de croissance, le marché du livre stagne. Les éditeurs invoquent la hausse du prix du papier et la concurrence des livres audio. Certains misent sur des tirages plus courts et des éditions soignées, très demandées comme cadeaux, ce qui autorise un optimisme prudent.
+Q | Comment évolue le marché du livre ? | Il stagne. | Il explose. | Il disparaît. | Il double. | Estancado.
+Q | Qu'invoquent les éditeurs ? | le prix du papier et le livre audio | la télévision | la pluie | la crise politique | Papel y audiolibros.
+Q | Sur quoi misent certains ? | tirages courts et éditions soignées | prix bas | publicité | films | Tiradas cortas.
+Q | Quelle est l'attitude finale ? | un optimisme prudent | un pessimisme total | de l'indifférence | de la colère | Prudente.
+Q | « Tirage » désigne | le nombre d'exemplaires imprimés | un ticket | une loterie | un rayon | Tirada.
+@@
+@R La navigatrice a battu le record de traversée en solitaire. Interrogée sur son secret, elle évoque moins la technique que la patience: accepter que la mer décide, renoncer à contrôler ce qui ne dépend pas de soi. Elle avoue que la plus grande difficulté n'a pas été le froid mais la solitude des nuits sans vent.
+Q | Quel record a-t-elle battu ? | traversée en solitaire | vitesse en course | plongée | distance à pied | Travesía en solitario.
+Q | Que met-elle en avant plutôt que la technique ? | la patience | la force | la chance | l'argent | Paciencia.
+Q | Quelle a été sa plus grande difficulté ? | la solitude des nuits sans vent | le froid | la faim | la peur du vent | Soledad.
+Q | Que faut-il accepter selon elle ? | que la mer décide | de tout contrôler | de gagner | de renoncer | La mer decide.
+Q | « Renoncer à » signifie | abandonner l'idée de | choisir | demander | copier | Renunciar.
+@@
+@R Le débat sur l'affichage de la nationalité dans les statistiques est vif. Ses partisans y voient un outil pour évaluer les discriminations; ses adversaires craignent des usages détournés. Un comité d'experts suggère un compromis: des données anonymisées, accessibles aux seuls chercheurs, avec des contrôles réguliers.
+Q | Quel est le sujet du débat ? | l'affichage de la nationalité dans les statistiques | les impôts | l'école | les retraites | Estadísticas.
+Q | Que voient les partisans ? | un outil pour évaluer les discriminations | une menace | un coût | un gain politique | Herramienta.
+Q | Que craignent les adversaires ? | des usages détournés | des coûts | des erreurs | la lenteur | Usos indebidos.
+Q | Que suggère le comité ? | des données anonymisées et contrôlées | l'interdiction totale | la publication ouverte | l'abandon | Compromiso.
+Q | « Détournés » signifie ici | utilisés à d'autres fins | perdus | rapides | interdits | Desviados.
+@@
+@R La restauratrice a dû fermer pendant six mois. À la réouverture, elle a changé de carte: moins de plats, mais des produits locaux. Ses clients, dit-elle, ont d'abord été surpris, puis ont adopté le nouveau format. Elle estime que la crise l'a obligée à faire ce qu'elle repoussait depuis des années, à savoir simplifier.
+Q | Combien de temps a-t-elle fermé ? | six mois | deux mois | un an | une semaine | Seis meses.
+Q | Qu'a-t-elle changé ? | la carte | l'adresse | le nom | le chef | Menú.
+Q | Comment ont réagi les clients ? | Surpris d'abord, puis conquis | Fâchés | Indifférents | Partis | Sorpresa y aceptación.
+Q | Qu'a-t-elle fait grâce à la crise ? | simplifier | agrandir | fermer | vendre | Simplificar.
+Q | « Repousser » signifie ici | remettre à plus tard | rejeter avec violence | attirer | pousser en avant | Postergar.
+@@
+@R Les chercheurs ont observé pendant dix ans un groupe de renards vivant en banlieue. Contrairement à leurs congénères de la campagne, ils se déplacent peu, car la nourriture est abondante près des habitations. Leur nombre dépendrait davantage de la gestion des déchets que des espaces verts, ce qui invite à repenser les stratégies de régulation.
+Q | Combien de temps a duré l'observation ? | dix ans | un an | deux ans | vingt ans | Diez años.
+Q | Pourquoi ces renards se déplacent-ils peu ? | La nourriture est abondante. | Ils sont malades. | Il y a des barrières. | Ils dorment. | Comida abundante.
+Q | De quoi dépend leur nombre ? | de la gestion des déchets | des espaces verts | du climat | de la chasse | Residuos.
+Q | Que invitent à repenser ces résultats ? | les stratégies de régulation | l'éducation | l'architecture | le tourisme | Regulación.
+Q | « Congénères » signifie | individus de la même espèce | parents | voisins | ennemis | Congéneres.
+@@
+# listening
+@L Journaliste: Vous dirigez une start-up de solaire. Comment ont été les débuts ? Directeur: Difficiles. Nous avions une bonne idée mais pas de capital. C'est seulement quand un investisseur nous a fait confiance que nous avons pu embaucher.
+Q | Qu'est-ce qui manquait au début ? | du capital | une idée | des clients | un local | Falta de capital.
+Q | Quand ont-ils pu embaucher ? | après la confiance d'un investisseur | tout de suite | jamais | après deux ans | Con inversor.
+Q | Quel est le domaine de l'entreprise ? | le solaire | l'informatique | la mode | l'alimentation | Solar.
+Q | Comment le directeur décrit-il les débuts ? | difficiles | faciles | ennuyeux | drôles | Difíciles.
+Q | Quel est le rôle de la journaliste ? | poser des questions | vendre | investir | diriger | Entrevista.
+@@
+@L Elle: Tu as entendu ? Le train pour Lyon est supprimé. Lui: Non, qu'est-ce qui s'est passé ? Elle: Un arbre est tombé sur la voie. Il y a un car de remplacement, mais il met presque deux fois plus de temps. Lui: Alors je prends la voiture.
+Q | Pourquoi le train est-il supprimé ? | Un arbre est tombé sur la voie. | Grève | Accident | Neige | Árbol.
+Q | Qu'y a-t-il à la place ? | un car de remplacement | un avion | un taxi | rien | Autocar.
+Q | Combien de temps met le car ? | presque deux fois plus | deux fois moins | autant | trois jours | Casi el doble.
+Q | Que décide-t-il ? | de prendre la voiture | de rester | de prendre le car | d'attendre | Coche.
+Q | Où va le train ? | à Lyon | à Paris | à Nice | à Lille | Lyon.
+@@
+@L Professeur: La numérisation transforme le travail en profondeur. Contrairement à une crainte répandue, des postes disparaissent, mais d'autres naissent, dans des métiers qui n'ont pas encore de nom. L'essentiel est donc de savoir se former tout au long de la vie.
+Q | Quel est le message principal ? | Il faut se former en continu. | Tous les emplois disparaissent. | La numérisation est sans effet. | Il n'y a pas de nouveaux métiers. | Formación continua.
+Q | Qu'apparaît à côté des suppressions ? | de nouveaux métiers | de nouvelles écoles | de nouvelles lois | de nouvelles villes | Nuevos empleos.
+Q | « En profondeur » signifie | de façon fondamentale | superficiellement | rapidement | doucement | Profundamente.
+Q | Quelle est la crainte répandue ? | la disparition d'emplois | le coût | le bruit | les voyages | Miedo al desempleo.
+Q | L'attitude du professeur est | équilibrée | hostile | naïve | craintive | Equilibrada.
+@@
+@L Cliente: Bonjour, j'ai acheté ce grille-pain il y a trois semaines et il ne marche plus. Vendeur: Avez-vous le ticket de caisse ? Cliente: Oui, le voici. Vendeur: Alors nous pouvons l'échanger ou vous rembourser. Cliente: Je préférerais un remboursement.
+Q | Quel est le problème ? | L'appareil ne marche plus. | Il est trop cher. | Il est trop grand. | Il est volé. | No funciona.
+Q | Que demande le vendeur ? | le ticket de caisse | l'emballage | la carte d'identité | la garantie seule | Ticket.
+Q | Quelles options propose-t-il ? | échange ou remboursement | réparation seule | rien | bon d'achat | Cambio o reembolso.
+Q | Que choisit la cliente ? | le remboursement | un nouvel appareil | une réparation | un bon | Reembolso.
+Q | Depuis quand possède-t-elle l'appareil ? | trois semaines | trois ans | hier | trois mois | Tres semanas.
+@@
+@L Speaker: Bonsoir, mesdames et messieurs. Cette nuit, il pleuvra sur l'ensemble du pays, avec de la neige au-dessus de 1200 mètres. Demain, matinée brumeuse; les nuages se dissiperont dans la journée, et le soleil brillera par moments l'après-midi, avec un maximum de 14 degrés.
+Q | Où neige-t-il cette nuit ? | au-dessus de 1200 mètres | partout | sur la côte | nulle part | Nieve en altura.
+Q | Comment sera la matinée ? | brumeuse | ensoleillée | orageuse | chaude | Neblina.
+Q | Que se passera-t-il l'après-midi ? | Le soleil brillera par moments. | Il neigera. | Il y aura une tempête. | Il pleuvra fort. | Sol intermitente.
+Q | Quelle est la température maximale ? | 14 degrés | 4 degrés | 24 degrés | 40 degrés | 14.
+Q | Ce document est | un bulletin météo | une publicité | un entretien | un article | Boletín.
+@@
+@L Étudiante: Je n'arriverai pas à rendre mon mémoire vendredi. Directeur: Pourquoi ? Étudiante: J'ai trouvé plus de sources que prévu et je ne sais pas comment les organiser. Directeur: C'est un bon problème. Limitez-vous aux trois principales, et nous repoussons le délai d'une semaine.
+Q | Pourquoi ne peut-elle pas rendre son mémoire ? | Elle a trop de sources. | Elle est malade. | Elle n'a pas de sources. | Elle n'a pas de temps. | Demasiadas fuentes.
+Q | Que conseille le directeur ? | se limiter à trois sources | chercher plus | abandonner | tout refaire | Tres fuentes.
+Q | De combien repousse-t-il le délai ? | d'une semaine | d'un mois | d'un jour | pas du tout | Una semana.
+Q | Comment qualifie-t-il le problème ? | un bon problème | un désastre | insoluble | gênant | Buen problema.
+Q | Quand devait-il être rendu ? | vendredi | lundi | en juin | demain | Viernes.
+@@
+@L Reporter: Le maire a annoncé aujourd'hui la construction d'un nouveau pont pour quarante millions d'euros. Des opposants dénoncent un gaspillage alors que les écoles manquent de moyens. Le maire répond que ce pont dynamisera toute la région.
+Q | Qu'a annoncé le maire ? | la construction d'un pont | la démolition d'un pont | un impôt | des élections | Puente.
+Q | Combien coûte-t-il ? | quarante millions d'euros | quatre millions | quatre cents millions | quatorze millions | 40 M.
+Q | Que dénoncent les opposants ? | un gaspillage alors que les écoles manquent de moyens | la laideur | la taille | le manque de plan | Falta dinero escuelas.
+Q | Comment se défend le maire ? | Le pont dynamisera la région. | Il se tait. | Il annule. | Il cite les écoles. | Beneficio económico.
+Q | Ce texte est | une brève d'actualité | un poème | une publicité | une lettre | Noticia.
+@@
+@L Mère: Comment s'est passé ton premier jour ? Fille: Fatigant mais bien. Tout le monde a été gentil, et mon chef m'a tout de suite confié un projet. Mère: Dès le premier jour ? Fille: Oui, j'avais un peu peur, mais c'est agréable d'avoir autant de responsabilités.
+Q | Comment s'est passé le premier jour ? | fatigant mais bien | mal | ennuyeux | catastrophique | Cansado pero bien.
+Q | Que lui a confié son chef ? | un projet | des vacances | une prime | un licenciement | Proyecto.
+Q | Comment se sent-elle ? | un peu inquiète mais contente | en colère | triste | indifférente | Miedo y alegría.
+Q | Les collègues ont été | gentils | froids | absents | sévères | Amables.
+Q | Qui parle avec qui ? | la fille avec sa mère | le chef avec la mère | deux collègues | deux amis | Madre e hija.
+@@
+@L Médecin: Vos analyses sont globalement bonnes, mais la tension est un peu élevée. Je vous conseille de bouger davantage et de réduire le sel. Nous referons un contrôle dans trois mois, et si rien ne change, nous parlerons de médicaments.
+Q | Qu'est-ce qui est trop élevé ? | la tension | le sucre | la température | le poids | Tensión.
+Q | Que doit faire le patient ? | bouger plus et réduire le sel | prendre des médicaments | rien | rester au lit | Ejercicio y sal.
+Q | Quand aura lieu le prochain contrôle ? | dans trois mois | dans trois jours | dans un an | demain | Tres meses.
+Q | Quand parlera-t-on de médicaments ? | si rien ne change | tout de suite | jamais | l'an prochain | Si no cambia.
+Q | Les analyses sont globalement | bonnes | mauvaises | dangereuses | incertaines | Buenas.
+@@
+@L Agence: Votre vol pour Vienne a été annulé. Nous pouvons vous transférer sur celui de jeudi, ou vous rembourser intégralement. Client: Jeudi, c'est trop tard, j'ai un rendez-vous mercredi. Agence: Alors il ne reste que le remboursement, et vous devrez réserver vous-même un autre vol.
+Q | Qu'est-il arrivé au vol ? | Il a été annulé. | Il a été retardé. | Il a été avancé. | Il a été vendu. | Cancelado.
+Q | Que propose l'agence ? | transfert ou remboursement | train | hôtel | bon d'achat | Cambio o reembolso.
+Q | Pourquoi jeudi ne convient-il pas ? | Le client a un rendez-vous mercredi. | Il est malade. | Il n'a pas d'argent. | Il n'aime pas voler. | Cita el miércoles.
+Q | Que reste-t-il finalement ? | le remboursement | le transfert | un bon | une indemnité | Reembolso.
+Q | Où doit aller le client ? | à Vienne | à Berlin | à Zurich | à Prague | Viena.
+@@
+@L Entraîneur: Vous avez bien joué en première mi-temps, mais vous avez perdu trop de ballons. Il faut être plus calmes et mieux utiliser les espaces. Capitaine: Et s'ils pressent haut ? Entraîneur: Alors on joue long vers les ailes.
+Q | Que félicite l'entraîneur ? | la première mi-temps | la défense | les supporters | le terrain | Primera parte.
+Q | Que critique-t-il ? | trop de ballons perdus | pas assez de courses | des disputes | un retard | Pérdidas.
+Q | Que doivent faire les joueurs ? | être plus calmes | courir plus | presser haut | abandonner | Calma.
+Q | Que faire si l'adversaire presse haut ? | jouer long vers les ailes | reculer | changer | s'arrêter | Balones largos.
+Q | Qui pose la question ? | le capitaine | l'entraîneur | un supporter | l'arbitre | Capitán.
+@@
+@L Journaliste: Comment expliquez-vous le succès de votre parti ? Ministre: Nous avons proposé des solutions concrètes plutôt que d'attiser les peurs. Journaliste: Vos adversaires disent que vous n'avez pas de plan de financement. Ministre: C'est faux. Il est sur la table, il suffit de le lire.
+Q | Comment explique-t-elle le succès ? | par des solutions concrètes | par la chance | par l'argent | par la publicité | Soluciones.
+Q | Que reprochent les adversaires ? | l'absence de plan de financement | des mensonges | de la corruption | de l'inaction | Falta de plan.
+Q | Comment réagit-elle ? | Elle dément. | Elle avoue. | Elle se tait. | Elle part. | Lo niega.
+Q | Le ton de la ministre est | assuré | craintif | indifférent | triste | Seguro.
+Q | Qu'est-ce qui est « sur la table » ? | le plan de financement | un contrat | un livre | une facture | Plan.
+@@
+@L Annonce: Mesdames et messieurs, en raison d'un incident de signalisation, le TGV 574 à destination de Marseille aura environ vingt minutes de retard. Nous vous prions de nous excuser. Les voyageurs pour Avignon sont invités à emprunter le TER voie 7, qui part dans cinq minutes.
+Q | Pourquoi le TGV a-t-il du retard ? | un incident de signalisation | une grève | un accident | la météo | Señalización.
+Q | Quel est le retard ? | environ vingt minutes | deux heures | cinq minutes | une heure | Veinte minutos.
+Q | Où va le TGV ? | à Marseille | à Avignon | à Lyon | à Nice | Marsella.
+Q | Que doivent faire les voyageurs pour Avignon ? | prendre le TER voie 7 | attendre | prendre un taxi | prendre le TGV | TER.
+Q | Quand part le TER ? | dans cinq minutes | dans une heure | tout de suite | jamais | Cinco minutos.
+@@
+@L Voisin: Je voudrais me plaindre du bruit. Hier soir, on a fait la fête jusqu'à trois heures. Voisine: Je suis désolée. C'était l'anniversaire de mon fils, nous n'avions pas pensé que ça s'entendait autant. Voisin: Je comprends, mais cela ne doit pas se reproduire. Voisine: Bien sûr, je transmettrai le message.
+Q | De quoi se plaint le voisin ? | du bruit | des ordures | du parking | du loyer | Ruido.
+Q | Pourquoi faisait-on la fête ? | pour l'anniversaire du fils | un mariage | le Nouvel An | un emménagement | Cumpleaños.
+Q | Comment réagit la voisine ? | Elle s'excuse. | Elle s'énerve. | Elle nie. | Elle rit. | Se disculpa.
+Q | Que demande le voisin ? | que cela ne se reproduise pas | de l'argent | une plainte | un déménagement | No repetir.
+Q | Jusqu'à quelle heure a duré la fête ? | trois heures | dix heures | minuit | cinq heures | Tres.
+@@
+@L Professeure: Le changement climatique n'est pas un problème du futur mais du présent. Les phénomènes extrêmes se multiplient, les récoltes souffrent, les côtes sont menacées. On ne peut pas entièrement l'arrêter, mais chaque dixième de degré en moins réduit sensiblement les conséquences.
+Q | Quand est-il un problème ? | dès à présent | seulement dans le futur | jamais | dans cent ans | Presente.
+Q | Qu'est-ce qui se multiplie ? | les phénomènes extrêmes | les récoltes | les côtes | les pluies seulement | Fenómenos extremos.
+Q | Peut-on l'arrêter totalement ? | non | oui | oui, au nord | peut-être | No del todo.
+Q | Qu'est-ce qui réduit les conséquences ? | chaque dixième de degré en moins | plus de voitures | plus d'industrie | ne rien faire | Cada décima.
+Q | Le ton est | pressant | joyeux | ironique | indifférent | Insistente.
+@@
+@L Elle: Je pense vendre mon appartement. Lui: Vraiment ? Tu viens de le rénover. Elle: Justement. Sa valeur a augmenté et les taux sont encore raisonnables. Avec le produit de la vente, je pourrais acheter plus petit, en centre-ville. Lui: Ça semble sensé, mais ne précipite rien.
+Q | Que pense faire la femme ? | vendre son appartement | louer une maison | déménager sans vendre | se marier | Vender.
+Q | Pourquoi maintenant ? | Sa valeur a augmenté. | Elle a besoin d'argent. | Elle le déteste. | Il y a une dispute. | Valor.
+Q | Que veut-elle acheter ? | plus petit en centre-ville | une maison à la campagne | une voiture | un terrain | Piso céntrico.
+Q | Que conseille l'homme ? | de ne rien précipiter | de vendre tout de suite | de ne rien faire | d'attendre cinq ans | Prudencia.
+Q | L'appartement a été | récemment rénové | loué | vendu | détruit | Reformado.
+@@
+@L Employé: Le rapport est prêt, mais j'ai un doute sur les chiffres. Chef: Lesquels ? Employé: Les ventes du troisième trimestre sont si élevées que je soupçonne une erreur de saisie. Chef: Vérifiez donc avant l'envoi.
+Q | Qu'est-ce qui inquiète l'employé ? | les chiffres de vente | la mise en page | le délai | le titre | Cifras.
+Q | Que soupçonne-t-il ? | une erreur de saisie | une fraude | un vol | un virus | Error.
+Q | Que demande le chef ? | vérifier avant l'envoi | envoyer tout de suite | licencier | tout refaire | Revisar.
+Q | Quel trimestre est concerné ? | le troisième | le premier | le deuxième | le quatrième | Tercero.
+Q | Le rapport est | prêt | non commencé | perdu | publié | Listo.
+@@
+@L Voix: Vous êtes bien sur la messagerie de Madame Berger. Je suis absente jusqu'au 15 mai. En cas d'urgence, contactez mon collègue, Monsieur Lang, au 4 5 6 7. Je répondrai à votre message à mon retour.
+Q | Jusqu'à quand est-elle absente ? | jusqu'au 15 mai | jusqu'à la fin mai | jusqu'à demain | jusqu'à lundi | 15 mayo.
+Q | Qui contacter en cas d'urgence ? | Monsieur Lang | Madame Berger | la direction | le standard | Sr. Lang.
+Q | Quand répondra-t-elle ? | à son retour | tout de suite | jamais | demain | Al volver.
+Q | Quel est ce document ? | un message de répondeur | une publicité | une lettre | une conversation | Buzón.
+Q | Quel est le numéro du collègue ? | 4567 | 7654 | 4576 | 5467 | 4567.
+@@
+@L Enseignant: Avant de commencer le nouveau sujet, discutez en groupes de ce que vous savez déjà sur le développement durable. Notez trois points, puis chaque groupe présentera un résultat. Vous avez dix minutes.
+Q | Que doivent faire d'abord les élèves ? | discuter en groupes de ce qu'ils savent | passer un test | écouter | rentrer | Grupo.
+Q | Combien de points doivent-ils noter ? | trois | deux | cinq | dix | Tres.
+Q | Que se passe-t-il ensuite ? | Chaque groupe présente un résultat. | L'enseignant corrige. | Pause. | Test. | Presentación.
+Q | Combien de temps ont-ils ? | dix minutes | une heure | cinq minutes | vingt minutes | Diez.
+Q | Quel est le sujet ? | le développement durable | l'histoire | le sport | la politique | Sostenibilidad.
+@@
+@L Collègue A: Le client s'est encore plaint. Collègue B: De quoi cette fois ? Collègue A: Il dit que la livraison était incomplète. Pourtant nous avons tout emballé selon la liste. Collègue B: Quelque chose s'est peut-être perdu pendant le transport. J'appelle le transporteur.
+Q | De quoi se plaint le client ? | d'une livraison incomplète | du prix | de la qualité | d'un retard | Incompleta.
+Q | Que disent les collègues sur l'emballage ? | Tout a été emballé selon la liste. | Il manquait quelque chose. | Rien n'a été emballé. | Le client ment. | Según la lista.
+Q | Que suppose le collègue B ? | une perte pendant le transport | une fraude | une erreur du client | un vol en entrepôt | Transporte.
+Q | Que va-t-il faire ? | appeler le transporteur | appeler le client | appeler la police | démissionner | Transportista.
+Q | Le client se plaint | encore | pour la première fois | jamais | rarement | Otra vez.
+@@
+# writing
+Q | Choisissez le connecteur: Le projet est coûteux; ＿＿, il est rentable à long terme. | cependant | c'est pourquoi | de plus | en effet | Opposition: cependant.
+Q | Choisissez le connecteur: Il n'a pas étudié; ＿＿, il a échoué. | par conséquent | pourtant | en revanche | d'ailleurs | Conséquence.
+Q | Choisissez le connecteur: Dépêchez-vous; ＿＿, vous manquerez le train. | sinon | donc | de plus | cependant | Sinon = de lo contrario.
+Q | Choisissez le connecteur: La ville est belle; ＿＿, elle est très chère. | néanmoins | c'est pourquoi | ainsi | donc | Restriction.
+Q | Choisissez le connecteur: ＿＿ le temps était mauvais, la fête a eu lieu. | Bien que | Parce que | Pour que | Au cas où | Concession.
+Q | Choisissez le connecteur: Les prix montent; ＿＿, les salaires baissent. | parallèlement | c'est-à-dire | donc | par exemple | Parallèlement = al mismo tiempo.
+Q | Choisissez le connecteur: Il a de l'expérience; ＿＿, il est très jeune. | de surcroît | pourtant | donc | sinon | De surcroît = además (ajout).
+Q | Quelle formule d'appel convient à une lettre formelle ? | Madame, Monsieur, | Salut, | Coucou, | Chers tous, | Formule formelle.
+Q | Quelle formule finale convient à une lettre formelle ? | Veuillez agréer, Madame, Monsieur, l'expression de mes salutations distinguées. | Bisous. | À plus. | Bye. | Formule de politesse.
+Q | Quelle phrase est la plus polie ? | Pourriez-vous m'indiquer quand les documents arriveront ? | Dites-moi quand ça arrive. | Quand ça arrive ? | Je veux savoir quand. | Conditionnel de politesse.
+Q | Quelle phrase convient à une réclamation ? | Je vous prie de bien vouloir remédier à ce défaut dans les meilleurs délais. | Tout va bien. | Merci pour rien. | Peu importe. | Réclamation formelle.
+Q | Quelle phrase est la plus formelle ? | Je souhaiterais postuler au poste proposé. | Je veux ce boulot. | Je le prendrais bien, ce job. | Donnez-moi le poste. | Registre soutenu.
+Q | Quelle phrase est correcte ? | Elle s'est inscrite à un cours. | Elle s'a inscrit à un cours. | Elle s'est inscrit à un cours. | Elle est inscrite à se cours. | Accord du participe des verbes pronominaux.
+Q | Quelle phrase est correctement ponctuée ? | Le rapport, qui est long, m'a pris des heures. | Le rapport qui est long, m'a pris des heures. | Le rapport, qui est long m'a pris des heures. | Le rapport qui, est long m'a pris des heures. | Incise entre virgules.
+Q | Quelle orthographe est correcte ? | Il a cent euros. | Il a cents euros. | Il a cent euro. | Il a sents euros. | Cent invariable devant euros s'il n'est pas multiplié.
+Q | Quelle orthographe est correcte ? | quelque chose | quel que chose | quelquechose | quelques chose | Quelque chose.
+Q | Quelle orthographe est correcte ? | parce que | par ce que (cause) | parceque | par-ce-que | Parce que en trois mots pour la cause.
+Q | Quelle orthographe est correcte ? | d'ailleurs | d'ailleur | dailleurs | d'ailleures | D'ailleurs.
+Q | Quel mot est correctement écrit ? | développement | dévelopement | développment | dévelopemant | Développement.
+Q | Quel mot est correctement écrit ? | occasion | ocasion | occassion | occation | Occasion.
+Q | Quel mot est correctement écrit ? | connaissance | connaisance | conaissance | connaissence | Connaissance.
+Q | Quel mot est correctement écrit ? | appartement | apartement | appartemant | apparetment | Appartement.
+Q | Quelle phrase ne contient aucune faute ? | Les enfants que j'ai vus jouaient dans le jardin. | Les enfants que j'ai vu jouaient dans le jardin. | Les enfants que j'ai vus jouait dans le jardin. | Les enfants que j'ai vue jouaient dans le jardin. | Accord COD antéposé.
+Q | Quelle phrase ne contient aucune faute ? | Bien qu'il soit fatigué, il continue. | Bien qu'il est fatigué, il continue. | Bien qu'il sera fatigué, il continue. | Bien qu'il serait fatigué, il continue. | Subjonctif après bien que.
+Q | Quelle phrase ne contient aucune faute ? | Il faut que nous partions tôt. | Il faut que nous partons tôt. | Il faut que nous partirons tôt. | Il faut que nous partirions tôt. | Subjonctif présent.
+Q | Quelle phrase ne contient aucune faute ? | Je voudrais que vous m'aidiez. | Je voudrais que vous m'aidez. | Je voudrais que vous m'aiderez. | Je voudrais que vous m'aidiez pas. | Subjonctif après vouloir que.
+Q | Quelle phrase ne contient aucune faute ? | Quels que soient vos choix, je vous soutiens. | Quel que soient vos choix, je vous soutiens. | Quelque soient vos choix, je vous soutiens. | Quels que sont vos choix, je vous soutiens. | Quel que + être au subjonctif, accord.
+Q | Transformez au passif: « On a construit un pont. » | Un pont a été construit. | Un pont a construit. | Un pont est construire. | Un pont a été construite. | Passé composé passif.
+Q | Transformez au passif: « Le jury choisira le gagnant. » | Le gagnant sera choisi par le jury. | Le gagnant choisira le jury. | Le gagnant est choisir. | Le gagnant a été choisira. | Futur passif.
+Q | Transformez au discours indirect: Il dit: « Je suis fatigué. » | Il dit qu'il est fatigué. | Il dit que je suis fatigué. | Il dit qu'il était fatigué hier. | Il dit qu'il soit fatigué. | Discours indirect présent.
+Q | Transformez au discours indirect: Elle a dit: « J'arriverai demain. » | Elle a dit qu'elle arriverait le lendemain. | Elle a dit qu'elle arrivera demain. | Elle a dit qu'elle arrive demain. | Elle a dit que j'arriverai demain. | Concordance des temps.
+Q | Complétez: Si tu m'avais prévenu, je ＿＿ venu. | serais | suis | serai | étais | Si + plus-que-parfait ⇒ conditionnel passé (serais venu).
+Q | Reformulez avec « bien que »: « Il est malade mais il travaille. » | Bien qu'il soit malade, il travaille. | Bien qu'il est malade, il travaille. | Bien qu'il serait malade, il travaille. | Bien qu'il était malade, il travaille. | Bien que + subjonctif.
+Q | Reformulez avec « afin que »: « Je te dis ça pour que tu comprennes. » | Je te dis ça afin que tu comprennes. | Je te dis ça afin que tu comprends. | Je te dis ça afin de tu comprennes. | Je te dis ça afin que tu comprendras. | Afin que + subjonctif.
+Q | Reformulez avec gérondif: « Il travaille et il écoute de la musique. » | Il travaille en écoutant de la musique. | Il travaille en écouter de la musique. | Il travaille écoutant en de la musique. | Il travaille en écoute de la musique. | Gérondif.
+Q | Reformulez: « C'est ce livre que j'aime. » | Ce livre, je l'aime. | Ce livre, j'aime le. | Ce livre, je aime. | Ce livre, j'aime lui. | Dislocation avec pronom.
+Q | Quelle phrase est la plus concise ? | Nous nous sommes rencontrés mardi. | Nous avons eu une rencontre qui a eu lieu le jour de mardi. | La rencontre que nous avons eue était mardi. | Il y a eu une rencontre entre nous mardi dernier passé. | Concision.
+Q | Quelle phrase est parallèle ? | Elle aime lire, nager et cuisiner. | Elle aime lire, la natation et cuisiner. | Elle aime de lire, nager et la cuisine. | Elle aime lire, nager et à cuisiner. | Parallélisme.
+Q | Quelle phrase évite la répétition ? | Le directeur a félicité l'équipe, dont il a salué le travail. | Le directeur a félicité l'équipe et le directeur a salué le travail de l'équipe. | Le directeur a félicité l'équipe, l'équipe a travaillé, le directeur l'a dit. | Le directeur, le directeur a félicité l'équipe. | Relative pour éviter la répétition.
+Q | Quel est le meilleur début d'un essai sur l'écologie ? | La protection de l'environnement est l'un des grands défis de notre époque. | Je vais parler d'écologie. | L'écologie, c'est l'écologie. | Bonjour, aujourd'hui l'écologie. | Introduction.
+Q | Quelle est la meilleure conclusion d'un essai ? | En définitive, la protection de l'environnement est indispensable. | Voilà, c'est tout. | Fin. | Merci de m'avoir lu. | Conclusion.
+Q | Quel est le meilleur registre pour un article de presse ? | Le nombre d'étudiants a augmenté ces dernières années. | Y a plein d'étudiants maintenant. | Ça déborde d'étudiants, c'est fou. | Les étudiants, ils sont trop nombreux. | Registre neutre.
+Q | Quel verbe convient ? Il ＿＿ une décision. | prend | fait | donne | met | Prendre une décision.
+Q | Quel verbe convient ? Le gouvernement ＿＿ des mesures. | prend | fait | met | donne | Prendre des mesures.
+Q | Quel verbe convient ? Cette loi ＿＿ en vigueur demain. | entre | va | passe | vient | Entrer en vigueur.
+Q | Quel verbe convient ? Elle ＿＿ un rôle important. | joue | fait | tient de | a fait | Jouer un rôle.
+Q | Quel verbe convient ? Il ＿＿ la responsabilité de l'échec. | assume | fait | donne | met | Assumer la responsabilité.
+Q | Quel verbe convient ? Le rapport ＿＿ à la conclusion que... | aboutit | arrive à la | va à | vient à | Aboutir à.
+Q | Quel nom convient ? Nous faisons face à un grand ＿＿. | défi | défit | défaut de | défilé | Défi = reto.
+Q | Quel nom convient ? Il a un vrai ＿＿ pour les langues. | talent | talon | tolérance | tablette | Talent pour.
+Q | Quelle préposition convient ? Il a insisté ＿＿ ce point. | sur | à | de | pour | Insister sur.
+Q | Quelle préposition convient ? Ils ont abouti ＿＿ un accord. | à | de | pour | sur | Aboutir à.
+Q | Quelle préposition convient ? Elle est responsable ＿＿ la sécurité. | de | à | pour de | sur | Être responsable de.
+Q | Quelle préposition convient ? Il s'est heurté ＿＿ un obstacle. | à | de | pour | sur | Se heurter à.
+Q | Quelle préposition convient ? Cela dépend ＿＿ les circonstances. | des | aux | sur les | pour les | Dépendre de.
+Q | Quelle préposition convient ? Il se fie ＿＿ son intuition. | à | de | pour | sur | Se fier à.
+Q | Quelle forme est correcte ? Nous avons ＿＿ le résultat. | atteint | atteinte | atteints | atteignu | Participe passé d'atteindre.
+Q | Quelle forme est correcte ? Il a ＿＿ la lettre. | écrit | écris | écrite | écrire | Participe passé d'écrire.
+Q | Quelle forme est correcte ? Elle a ＿＿ ses clés. | perdu | perdue | perdus | perdre | Participe passé de perdre.
+Q | Quelle forme est correcte ? Les livres qu'il a ＿＿ sont épuisés. | publiés | publié | publiée | publier | Accord avec COD antéposé pluriel.
+Q | Quelle forme est correcte ? Ils se sont ＿＿ trop tard. | réveillés | réveillé | réveiller | réveillée | Accord du pronominal.
+Q | Quelle forme est correcte ? Les décisions ont été ＿＿ hier. | prises | pris | prise | prendre | Accord passif.
+Q | Quelle forme est correcte ? Elles sont ＿＿ à l'heure. | arrivées | arrivé | arrivés | arrivée | Être + accord féminin pluriel.
+Q | Quelle forme est correcte ? Ce matin, nous ＿＿ le courrier. | avons reçu | sommes reçu | ont reçu | avons reçus | Avoir + participe passé.
+Q | Quelle forme est correcte ? Il faut que tu ＿＿ prudent. | sois | es | seras | serais | Subjonctif d'être.
+Q | Quelle forme est correcte ? Il est indispensable que nous ＿＿ ensemble. | travaillions | travaillons | travaillerons | travaillions eu | Subjonctif.
+Q | Quelle forme est correcte ? Il n'y a rien ＿＿ je puisse faire. | que | dont | qui | quoi | Subjonctif dans la relative avec que.
+Q | Quelle forme est correcte ? Il a dit qu'il ＿＿ bientôt. | viendrait | viendra | viendrais | vienne | Concordance.
+Q | Quelle forme est correcte ? Tu ＿＿ cinq minutes de retard. | as | es | a | avez | Avoir du retard.
+Q | Quelle forme est correcte ? C'est la seule solution ＿＿ soit possible. | qui | que | dont | où | Relative sujet.
+Q | Quelle forme est correcte ? Cette décision, je ne ＿＿ ai jamais regrettée. | l' | lui | y | en | Pronom COD féminin.
+Q | Quelle forme est correcte ? Il ne parle ＿＿ à personne. | pas | jamais rien | que | plus rien | Négation.
+Q | Quelle forme est correcte ? Elle a ＿＿ de partir. | décidé | décidée | décidés | décider | Participe passé avec avoir sans COD antéposé.
+Q | Quelle forme est correcte ? Ils ont ＿＿ les résultats. | comparé | comparés | comparée | comparer | Participe passé de comparer.
+Q | Choisissez le connecteur: Il a beaucoup travaillé; ＿＿, il a réussi. | aussi | pourtant | en revanche | sinon | Aussi en début de phrase = c'est pourquoi.
+# speaking
+Q | Vous n'avez pas compris. Que dites-vous poliment ? | Excusez-moi, pourriez-vous répéter, s'il vous plaît ? | Quoi ? | Répète ! | Encore ! | Demande polie.
+Q | Un collègue vous remercie. Que répondez-vous ? | Je vous en prie, c'est tout naturel. | Merci aussi toi. | De rien pas. | Il n'y a de quoi. | Réponse naturelle.
+Q | Vous souhaitez exprimer un désaccord poli. Que dites-vous ? | Je ne partage pas tout à fait votre avis, car les chiffres montrent autre chose. | Faux ! | N'importe quoi. | C'est absurde. | Désaccord poli.
+Q | Vous voulez interrompre poliment. Que dites-vous ? | Excusez-moi de vous interrompre, puis-je ajouter quelque chose ? | Tais-toi. | C'est mon tour. | Stop. | Interruption polie.
+Q | Vous refusez une invitation. Que dites-vous ? | Merci beaucoup, mais malheureusement j'ai déjà un engagement. | Non. | Pas envie. | Je ne viens pas, salut. | Refus poli.
+Q | Vous avez besoin de temps pour réfléchir. Que dites-vous ? | C'est une question intéressante; laissez-moi y réfléchir un instant. | Sais pas. | Aucune idée. | Demande à un autre. | Gagner du temps.
+Q | Vous demandez votre chemin. Que dites-vous ? | Excusez-moi, pour aller à la gare, s'il vous plaît ? | La gare où ? | Dis la gare. | Gare, vite ! | Demande polie.
+Q | Vous vous plaignez à l'hôtel. Que dites-vous ? | Malheureusement, le chauffage de ma chambre ne fonctionne pas; pourriez-vous vérifier ? | Votre chauffage est nul. | Réparez ça tout de suite. | Votre hôtel est mauvais. | Plainte formelle.
+Q | On vous félicite pour votre examen. Que répondez-vous ? | Merci beaucoup, je suis très content. | Oui, évidemment. | C'était facile. | Je sais. | Réponse naturelle.
+Q | Vous faites une proposition. Que dites-vous ? | Et si nous reportions le rendez-vous ? | On reporte. | Rendez-vous report. | Reporte, toi. | Suggestion.
+Q | Vous donnez votre opinion. Que dites-vous ? | À mon avis, nous devrions poursuivre ce projet. | Je avis projet. | Le projet est avis. | Avis poursuivre. | Formule d'opinion.
+Q | Vous confirmez un accord. Que dites-vous ? | Tout à fait, je suis du même avis. | Oui non. | Pas vrai. | Peut-être comme ça. | Accord.
+Q | Vous demandez de l'aide. Que dites-vous ? | Pourriez-vous m'aider un instant, s'il vous plaît ? | Aide-moi maintenant. | Tu m'aides. | Donne aide. | Demande polie.
+Q | Quelqu'un s'excuse de son retard. Que répondez-vous ? | Ce n'est pas grave, asseyez-vous. | C'est votre problème. | Trop tard ! | Encore ! | Réponse compréhensive.
+Q | Vous ne savez pas répondre en entretien. Que dites-vous ? | Je ne peux pas vous répondre précisément, mais je me renseignerai volontiers. | Je sais pas. | Aucune idée. | Demandez à un autre. | Réponse professionnelle.
+Q | Vous voulez l'addition au restaurant. Que dites-vous ? | Pourrions-nous avoir l'addition, s'il vous plaît ? | L'addition ! | Donne l'addition. | Payer maintenant. | Demande polie.
+Q | Vous voulez terminer la conversation. Que dites-vous ? | J'ai été ravi de vous parler, mais je dois malheureusement partir. | Je pars. | Assez parlé. | Salut, ennuyeux. | Clôture polie.
+Q | Vous introduisez une explication. Que dites-vous ? | Je voudrais brièvement expliquer comment cela fonctionne. | J'explique bref comment. | Expliquer moi maintenant. | C'est comme ça. | Introduction formelle.
+Q | Vous concluez une présentation. Que dites-vous ? | Je vous remercie de votre attention; je suis à votre disposition pour vos questions. | Fini. | C'est tout, au revoir. | Terminé, partez. | Clôture professionnelle.
+Q | Vous voulez souligner un point. Que dites-vous ? | Je tiens à souligner que la sécurité passe avant tout. | La sécurité est sécurité. | Je souligne sécurité. | Moi sécurité. | Emphase.
+Q | Vous donnez un exemple. Que dites-vous ? | Un exemple en est le nouveau service de bus. | Exemple le bus. | Bus nouveau exemple est. | Exemples bus de. | Exemplification.
+Q | Vous exprimez une incertitude. Que dites-vous ? | Je n'en suis pas tout à fait sûr, mais je crois que c'est mardi. | C'est mardi pas sûr. | Mardi sûr non moi. | Moi pas mardi. | Incertitude.
+Q | Vous donnez un conseil. Que dites-vous ? | À votre place, j'accepterais cette offre. | Accepte. | Tu dois accepter. | Offre accepter maintenant. | Conseil.
+Q | Vous prenez congé à la fin d'un dîner d'affaires. Que dites-vous ? | Je vous remercie de cette invitation, la soirée a été très agréable. | Merci, salut. | Je rentre. | Le dîner était moyen. | Prise de congé formelle.
+Q | Vous critiquez avec tact. Que dites-vous ? | Je trouve que le rapport pourrait être un peu plus détaillé. | Le rapport est nul. | Votre rapport ne vaut rien. | Inutilisable. | Critique tempérée.
+Q | Vous faites une promesse. Que dites-vous ? | Je m'assurerai que le rapport soit sur votre bureau lundi. | Rapport peut-être lundi. | Je ne promets rien, lundi. | Lundi rapport éventuel. | Promesse.
+Q | Vous invitez quelqu'un à s'exprimer. Que dites-vous ? | Qu'en pensez-vous, Madame Weber ? | Weber, parle. | Dites-moi, vite. | Weber, maintenant. | Invitation polie.
+Q | Vous demandez de la compréhension. Que dites-vous ? | Je vous demande de bien vouloir comprendre que nous devons reporter la réunion. | Comprenez. | Réunion reportée, point. | Vous devez comprendre. | Demande de compréhension.
+Q | Vous exprimez la surprise. Que dites-vous ? | Vraiment ? Je n'y aurais jamais pensé ! | Tu mens. | Impossible chose. | Ça surprend moi. | Surprise.
+Q | Vous offrez quelque chose. Que dites-vous ? | Puis-je vous offrir un café ? | Café bois. | Tu veux café. | Prends café. | Offre polie.
+Q | On vous propose de l'aide. Que répondez-vous ? | C'est très gentil, merci, mais je m'en sors. | Je n'ai pas besoin de toi. | Non. | Laisse-moi. | Refus poli.
+Q | Vous atténuez votre opinion. Que dites-vous ? | Il se pourrait que cette mesure ne suffise pas. | Elle ne suffit jamais. | Tout le monde le sait. | C'est ainsi, point. | Atténuation.
+Q | Vous comparez deux options. Que dites-vous ? | D'un côté, c'est moins cher; de l'autre, c'est moins durable. | Moins cher et durable pas. | Cher ou durable. | L'un est, l'autre non. | Contraste.
+Q | Vous changez de sujet. Que dites-vous ? | À propos, avez-vous entendu parler du nouveau projet ? | Autre sujet. | Assez, sujet. | Changer sujet. | Changement de sujet.
+Q | Vous demandez une précision. Que dites-vous ? | Qu'entendez-vous exactement par ce terme ? | Explique terme. | Terme quoi. | Je comprends pas. | Clarification.
+Q | Vous confirmez un rendez-vous. Que dites-vous ? | Nous nous verrons donc jeudi à dix heures. | Jeudi dix heures nous. | Jeudi, je viens. | À jeudi dix toi. | Confirmation.
+Q | Quelqu'un vous annonce un malheur. Que dites-vous ? | Je suis vraiment désolé. Puis-je faire quelque chose pour vous ? | C'est de sa faute. | Ce n'est rien. | C'est la vie. | Empathie.
+Q | Vous demandez poliment le silence. Que dites-vous ? | Pourriez-vous faire un peu moins de bruit, s'il vous plaît ? | Silence ! | Tais-toi ! | Ferme-la. | Demande polie.
+Q | Vous demandez l'accord de quelqu'un. Que dites-vous ? | Êtes-vous d'accord avec cela ? | Tu accord ? | D'accord vous cela ? | Oui ou quoi ? | Question polie.
+Q | Vous exprimez un regret. Que dites-vous ? | Je regrette vivement que nous n'ayons pas trouvé d'accord. | Je regrette accord non. | Désolé accord. | Pas d'accord, dommage. | Regret formel.
+Q | Vous vous excusez d'un retard. Que dites-vous ? | Veuillez excuser mon retard; le train avait du retard. | Retard désolé. | Moi en retard, oui. | Tard train moi. | Excuse formelle.
+Q | Vous résumez. Que dites-vous ? | En résumé, nous devons rester flexibles. | Résumé nous flexibles. | Fin flexibles. | Tout flexible fin. | Résumé.
+Q | Vous demandez du temps. Que dites-vous ? | Pourrais-je y réfléchir jusqu'à demain ? | Je réfléchis demain. | Demain réfléchir toi. | Réfléchir non. | Demande de délai.
+Q | Vous présentez quelqu'un. Que dites-vous ? | Permettez-moi de vous présenter ma collègue, Madame Weber. | Voici Weber, voilà. | Madame Weber, vous. | Collègue Weber ici. | Présentation.
+Q | Vous remerciez pour un cadeau. Que dites-vous ? | C'est vraiment très aimable de votre part, merci beaucoup ! | Merci cadeau. | J'ai un cadeau. | Bon, oui. | Remerciement.
+Q | Vous étayez une affirmation. Que dites-vous ? | Cela peut être démontré à l'aide des chiffres actuels. | C'est ainsi, crois-moi. | Chiffres égaux. | Tout le monde le dit. | Argument chiffré.
+Q | Vous appelez pour parler à une collègue. Que dites-vous ? | Bonjour, pourrais-je parler à Madame Weber, s'il vous plaît ? | Weber, maintenant ! | Je veux Weber. | Donne Weber. | Appel formel.
+Q | Vous voulez prendre la parole en réunion. Que dites-vous ? | Si je peux me permettre une remarque... | À moi. | Écoutez-moi ! | Je parle maintenant. | Prise de parole.
+Q | Vous demandez de reporter un rendez-vous. Que dites-vous ? | Serait-il possible de reporter notre rendez-vous à la semaine prochaine ? | Rendez-vous semaine toi. | Je reporte, ok. | Rendez-vous parti. | Demande polie.
+Q | Vous exprimez un accord avec réserve. Que dites-vous ? | Sur le principe, je suis d'accord, mais je vois un risque. | Je ne suis pas d'accord, oui. | Tout est bien, mais non. | Oui et non rien. | Accord réservé.

@@ -1,0 +1,37 @@
+{
+ "titulo": "Jerarquía de memoria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "De más rápida a más lenta",
+   "headers": [
+    "Nivel",
+    "Velocidad",
+    "Capacidad"
+   ],
+   "rows": [
+    [
+     "Registros de la CPU",
+     "La más rápida",
+     "Bytes"
+    ],
+    [
+     "Caché L1 / L2 / L3",
+     "Muy rápida",
+     "Kilobytes a megabytes"
+    ],
+    [
+     "Memoria RAM",
+     "Rápida",
+     "Gigabytes"
+    ],
+    [
+     "Disco (SSD o HDD)",
+     "Lenta",
+     "Cientos de gigabytes a terabytes"
+    ]
+   ]
+  }
+ ]
+}

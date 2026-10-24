@@ -9,45 +9,32 @@ import StaffLayout from "./layouts/StaffLayout";
 import RoleLayout from "./layouts/RoleLayout";
 import { lazyWithRetry } from "./lib/lazyWithRetry";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
+import { useI18n } from "./i18n/I18nContext";
 
 // Páginas estáticas — necesarias en la carga inicial o muy pequeñas
-import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
 
-// Herramientas educativas (stubs pequeños, mismo módulo)
-import {
-  HerramientasEducativas,
-  HerramientasMapaEditor,
-  HerramientasEstadistica,
-  HerramientasCienciasSociales,
-  HerramientasFilosofia,
-  HerramientasArte,
-  HerramientasBiologia,
-  HerramientasMusica,
-  HerramientasPolitica,
-  HerramientasCivica,
-  HerramientasAmbiental,
-  HerramientasInformatica,
-  HerramientasNaturales,
-  HerramientasCocina,
-  HerramientasVidaPractica,
-} from "./stubs/herramientas";
+// Herramientas educativas — sólo sobrevive el editor de mapas; el hub y los
+// stubs en blanco están en `archive/web/stubs/herramientas.tsx`.
 
 // ── Lazy imports ───────────────────────────────────────────────────────────────
 
 const HomePage            = lazyWithRetry(() => import("./pages/Home"));
-const Pricing             = lazyWithRetry(() => import("./pages/Pricing"));
 const Contact             = lazyWithRetry(() => import("./pages/Contact"));
 const Explorar            = lazyWithRetry(() => import("./pages/Explorar"));
 const Metodologia         = lazyWithRetry(() => import("./pages/metodologia"));
 const MenuAlumno          = lazyWithRetry(() => import("./pages/menu-alumno"));
 const Clases              = lazyWithRetry(() => import("./pages/aula"));
+const AulaMapaModulos     = lazyWithRetry(() => import("./pages/AulaMapaModulos"));
 const MisClases           = lazyWithRetry(() => import("./pages/MisClases"));
 const BookEditorPage      = lazyWithRetry(() => import("./bookEditor/BookEditorPage"));
 const BlockEditorPage     = lazyWithRetry(() => import("./blocks/v2/BlockEditorPage"));
+const PresentacionEditorPage = lazyWithRetry(() => import("./pages/herramientas/PresentacionEditorPage"));
+const MapaEditorPage      = lazyWithRetry(() => import("./pages/herramientas/MapaEditorPage"));
+const LineaTiempoEditorPage = lazyWithRetry(() => import("./pages/herramientas/LineaTiempoEditorPage"));
 const ProfesorAulas       = lazyWithRetry(() => import("./pages/ProfesorAulas"));
 const ProfesorConfiguracion = lazyWithRetry(() => import("./pages/ProfesorConfiguracion"));
 const ProfesorEstadisticas  = lazyWithRetry(() => import("./pages/ProfesorEstadisticas"));
@@ -56,9 +43,7 @@ const ProfesorMateriales    = lazyWithRetry(() => import("./pages/ProfesorMateri
 const ModulosList          = lazyWithRetry(() => import("./pages/modulos/ModulosList"));
 const ModuloDetail         = lazyWithRetry(() => import("./pages/modulos/ModuloDetail"));
 const ModuloEditor         = lazyWithRetry(() => import("./pages/modulos/ModuloEditor"));
-const ReproductorModulos   = lazyWithRetry(() => import("./pages/modulos/ReproductorModulos"));
 const ProfesorEncuestas     = lazyWithRetry(() => import("./pages/ProfesorEncuestas"));
-const ProfesorCursoNuevo    = lazyWithRetry(() => import("./pages/ProfesorCursoNuevo"));
 const HijosProgreso         = lazyWithRetry(() => import("./pages/HijosProgreso"));
 const ProfesorReportes      = lazyWithRetry(() => import("./pages/ProfesorReportes"));
 const AlumnoEncuestas       = lazyWithRetry(() => import("./pages/AlumnoEncuestas"));
@@ -66,21 +51,21 @@ const QuizAttempt           = lazyWithRetry(() => import("./pages/quizzes/QuizAt
 const ProfesorCalendario    = lazyWithRetry(() => import("./pages/ProfesorCalendario"));
 
 // Ya eran lazy — mantener igual
-const LaboratorioWeb3    = lazyWithRetry(() => import("./pages/LaboratorioWeb3"));
-const EditorCuestionarios = lazyWithRetry(() => import("./pages/EditorCuestionarios"));
-const EditorCuestionariosV2 = lazyWithRetry(() => import("./pages/EditorCuestionariosV2"));
+// PLAN-CUESTIONARIOS — los editores clásicos V1/V2 (EditorCuestionarios,
+// EditorCuestionariosV2) quedaron DESCONECTADOS del router y hoy viven en
+// `archive/web/pages/`: el sistema de cuestionarios es Tiza
+// (/cuestionarios + /plantillas/nueva?quizId=…).
+const CuestionariosIndex   = lazyWithRetry(() => import("./pages/CuestionariosIndex"));
 const PlantillasIndex      = lazyWithRetry(() => import("./pages/PlantillasIndex"));
 const PlantillasBiblioteca = lazyWithRetry(() => import("./pages/PlantillasBiblioteca"));
-const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditor"));
+const PlantillaEditor      = lazyWithRetry(() => import("./pages/PlantillaEditorTiza"));
 const VblangDatasetsIndex  = lazyWithRetry(() => import("./pages/VblangDatasetsIndex"));
 const DatasetEditor        = lazyWithRetry(() => import("./pages/DatasetEditor"));
-const AdminGeneradores    = lazyWithRetry(() => import("./pages/AdminGeneradores"));
 
 // Resto de páginas → lazy
 const HijosAgregar             = lazyWithRetry(() => import("./pages/HijosAgregar"));
 const Admin                    = lazyWithRetry(() => import("./pages/Admin"));
 const AdminUsuarios             = lazyWithRetry(() => import("./pages/AdminUsuarios"));
-const AdminCursos               = lazyWithRetry(() => import("./pages/AdminCursos"));
 const AdminMaterias             = lazyWithRetry(() => import("./pages/AdminMaterias"));
 const AdminModeracion           = lazyWithRetry(() => import("./pages/AdminModeracion"));
 const PlantillasModeracion      = lazyWithRetry(() => import("./pages/admin/PlantillasModeracion"));
@@ -88,38 +73,52 @@ const AdminReportesGlobal       = lazyWithRetry(() => import("./pages/AdminRepor
 const Perfil                    = lazyWithRetry(() => import("./pages/Perfil"));
 const Tareas                    = lazyWithRetry(() => import("./pages/Tareas"));
 const Progreso                  = lazyWithRetry(() => import("./pages/Progreso"));
-const ProfesorCursos            = lazyWithRetry(() => import("./pages/ProfesorCursos"));
+// FIX-TEST4-PROF-01 — antes había `ProfesorCursos` y
+// `ProfesorCursoNuevo` como páginas separadas. Leían el mismo
+// endpoint `/api/aulas` que `ProfesorAulas` y eran visualmente
+// distintas pero mostraban los mismos datos. Eliminadas: la
+// fuente canónica es ahora `ProfesorAulas` (ruta `/profesor/aulas`).
 const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
+const ProfesorIntentoDetalle    = lazyWithRetry(() => import("./pages/profesor/IntentoDetalle"));
 const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
 const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
+
 const EnterpriseMiembros        = lazyWithRetry(() => import("./pages/EnterpriseMiembros"));
+const EnterpriseFamilias        = lazyWithRetry(() => import("./pages/EnterpriseFamilias"));
 const EnterpriseModulos         = lazyWithRetry(() => import("./pages/EnterpriseModulos"));
 const EnterpriseComisiones      = lazyWithRetry(() => import("./pages/EnterpriseComisiones"));
+const EnterprisePersonalizacion = lazyWithRetry(() => import("./pages/EnterprisePersonalizacion"));
+const EnterpriseCobros          = lazyWithRetry(() => import("./pages/EnterpriseCobros"));
+const Pagos                     = lazyWithRetry(() => import("./pages/Pagos"));
 const AdminComisiones           = lazyWithRetry(() => import("./pages/AdminComisiones"));
+const AdminEscuelas             = lazyWithRetry(() => import("./pages/AdminEscuelas"));
+const AdminVerificaciones       = lazyWithRetry(() => import("./pages/AdminVerificaciones"));
+const Invitaciones              = lazyWithRetry(() => import("./pages/Invitaciones"));
+const RevisionEscuela           = lazyWithRetry(() => import("./pages/RevisionEscuela"));
+const RegistrarEscuela          = lazyWithRetry(() => import("./pages/RegistrarEscuela"));
 const MenuProfesor              = lazyWithRetry(() => import("./pages/MenuProfesor"));
 const ProfesorAulaConfiguracion = lazyWithRetry(() => import("./pages/ProfesorAulaConfiguracion"));
 const Terminos                  = lazyWithRetry(() => import("./pages/Terminos"));
+const Creditos                  = lazyWithRetry(() => import("./pages/Creditos")); // huevo de pascua, sin link en ningún nav
 const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
-const GuestOnboarding           = lazyWithRetry(() => import("./pages/GuestOnboarding"));
-const Gobernanza                = lazyWithRetry(() => import("./pages/Gobernanza"));
-const GobernanzaPropuesta       = lazyWithRetry(() => import("./pages/GobernanzaPropuesta"));
-const GobernanzaNuevaPropuesta  = lazyWithRetry(() => import("./pages/GobernanzaNuevaPropuesta"));
 const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria"));
 const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
 const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
-const UiShowcase                = lazyWithRetry(() => import("./pages/dev/UiShowcase"));
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
-const PageLoader = () => (
-  <div className="flex min-h-screen items-center justify-center">
-    <p className="text-sm text-slate-400 animate-pulse">Cargando...</p>
-  </div>
-);
+const PageLoader = () => {
+  const { t } = useI18n();
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <p className="text-sm text-slate-400 animate-pulse">{t("comun.cargando")}</p>
+    </div>
+  );
+};
 
 const withSuspense = (element: ReactNode) => (
   <RouteErrorBoundary>
@@ -148,52 +147,42 @@ export const router = createBrowserRouter([
           { index: true, element: withSuspense(<HomePage />) },
 
           { path: "explorar",   element: withSuspense(<Explorar />) },
-          { path: "precios",    element: withSuspense(<Pricing />) },
-          { path: "pricing",    element: <Navigate to="/precios" replace /> },
           { path: "login",      element: <Login /> },
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
 
-          { path: "landing",          element: <Landing /> },
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },
+          { path: "creditos",        element: withSuspense(<Creditos />) }, // huevo de pascua, no linkear en nav/footer
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
-          { path: "laboratorio-web3", element: withSuspense(<LaboratorioWeb3 />) },
-          { path: "onboarding-guest",    element: withSuspense(<GuestOnboarding />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
           { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
 
-          // Herramientas Educativas (public)
-          { path: "herramientas",                    element: <HerramientasEducativas /> },
-          { path: "herramientas/estadistica",        element: <HerramientasEstadistica /> },
-          { path: "herramientas/ciencias-sociales",  element: <HerramientasCienciasSociales /> },
-          { path: "herramientas/mapa-editor",        element: <HerramientasMapaEditor /> },
-          { path: "herramientas/filosofia",          element: <HerramientasFilosofia /> },
-          { path: "herramientas/arte",               element: <HerramientasArte /> },
-          { path: "herramientas/biologia",           element: <HerramientasBiologia /> },
-          { path: "herramientas/musica",             element: <HerramientasMusica /> },
-          { path: "herramientas/politica",           element: <HerramientasPolitica /> },
-          { path: "herramientas/civica",             element: <HerramientasCivica /> },
-          { path: "herramientas/ambiental",          element: <HerramientasAmbiental /> },
-          { path: "herramientas/informatica",        element: <HerramientasInformatica /> },
-          { path: "herramientas/naturales",          element: <HerramientasNaturales /> },
-          { path: "herramientas/cocina",             element: <HerramientasCocina /> },
-          { path: "herramientas/vida-practica",      element: <HerramientasVidaPractica /> },
+          // Herramientas Educativas (public) — sólo el editor de mapas; el
+          // resto de rutas /herramientas/* se archivó (stubs en blanco).
+          { path: "herramientas/mapa-editor",        element: withSuspense(<MapaEditorPage />) },
 
           { path: "404", element: <NotFound /> },
-
-          // Showcase del sistema de diseño (Fase D.2) — solo en desarrollo.
-          ...(import.meta.env.DEV
-            ? [{ path: "dev/ui", element: withSuspense(<UiShowcase />) }]
-            : []),
         ],
       },
 
-      // ── Layout Alumno (USER + vista alumno para staff) ────────────────────
+      // ── Layout Alumno (USER + PARENT) ──────────────────────────────────────
+      // FIX-VISTA-PREVIA-STAFF — TEACHER/DIRECTIVO/ADMIN sacados de este
+      // `allow`: entrar acá bajo su PROPIA cuenta (sin cambiar a la cuenta
+      // espejo) producía bugs visuales sistemáticos en varias páginas
+      // (navbar mezclado, labels de rol incorrectos, dashboards mostrando
+      // datos propios como si fueran de un alumno — ver
+      // docs/qa/bug-visual-aula-rol-dual.md y
+      // docs/qa/test-parte-3-profesor*.md, bugs 2.5/2.6). La única forma
+      // real de ver el lado alumno sigue siendo la cuenta espejo
+      // (switchCuenta, sesión distinta con role=USER real). La excepción
+      // es `/clases/:aulaId`: eso es la vista de gestión del aula que un
+      // docente/directivo/admin SÍ usa con su cuenta propia — ahora vive
+      // en `/aulas/:aulaId` bajo el layout staff (ver más abajo).
       {
         element: (
-          <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
+          <ProtectedRoute allow={['USER', 'PARENT']}>
             <AlumnoLayout />
           </ProtectedRoute>
         ),
@@ -211,6 +200,10 @@ export const router = createBrowserRouter([
             element: withSuspense(<Clases />),
           },
           {
+            path: 'clases/:aulaId/mapa',
+            element: withSuspense(<AulaMapaModulos />),
+          },
+          {
             path: 'tareas',
             element: withSuspense(<Tareas />),
           },
@@ -225,6 +218,10 @@ export const router = createBrowserRouter([
           {
             path: 'economia',
             element: withSuspense(<Economia />),
+          },
+          {
+            path: 'pagos',
+            element: withSuspense(<Pagos />),
           },
           {
             path: 'tienda-temas',
@@ -253,21 +250,18 @@ export const router = createBrowserRouter([
               </ProtectedRoute>
             ),
           },
+          // FIX-TEST4-PROF-01 — antes `/profesor/cursos` y
+          // `/profesor/cursos/nuevo` mostraban los mismos datos
+          // que `/profesor/aulas` con distinto layout. Ahora
+          // redirigen a la página canónica de aulas. El enlace
+          // canónico es `/profesor/aulas`.
           {
             path: 'profesor/cursos',
-            element: (
-              <ProtectedRoute allow={['TEACHER']}>
-                {withSuspense(<ProfesorCursos />)}
-              </ProtectedRoute>
-            ),
+            element: <Navigate to="/profesor/aulas" replace />,
           },
           {
             path: 'profesor/cursos/nuevo',
-            element: (
-              <ProtectedRoute allow={['TEACHER']}>
-                {withSuspense(<ProfesorCursoNuevo />)}
-              </ProtectedRoute>
-            ),
+            element: <Navigate to="/profesor/aulas" replace />,
           },
           {
             path: 'profesor/aulas',
@@ -284,6 +278,19 @@ export const router = createBrowserRouter([
                 {withSuspense(<ProfesorAulaConfiguracion />)}
               </ProtectedRoute>
             ),
+          },
+          // FIX-VISTA-PREVIA-STAFF — vista de gestión del aula (feed de
+          // novedades, tomar asistencia, publicar anuncio, progreso,
+          // etc.) para TEACHER/DIRECTIVO/ADMIN con su cuenta propia.
+          // Mismo componente que usa el alumno (`Clases` = pages/aula.tsx,
+          // internamente ya distingue el rol vía isTeacherOfClass/
+          // isTeacher), pero servido bajo StaffLayout para no mezclar
+          // el navbar/chrome de alumno. Reemplaza el uso de
+          // `/clases/:aulaId` para estos tres roles (ver "Entrar"/"Ver"
+          // en ProfesorAulas.tsx / EnterpriseAulas.tsx).
+          {
+            path: 'aulas/:aulaId',
+            element: withSuspense(<Clases />),
           },
           {
             path: 'profesor/evaluaciones',
@@ -314,6 +321,16 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorCalificaciones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            // F5-03 — detalle de un intento para el docente: muestra el
+            // panel de eventos informativos (salidas de pestaña, canario).
+            path: 'profesor/intentos/:attemptId',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorIntentoDetalle />)}
               </ProtectedRoute>
             ),
           },
@@ -374,14 +391,6 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'admin/cursos',
-            element: (
-              <ProtectedRoute allow={['ADMIN']}>
-                {withSuspense(<AdminCursos />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
             path: 'admin/materias',
             element: (
               <ProtectedRoute allow={['ADMIN']}>
@@ -392,7 +401,9 @@ export const router = createBrowserRouter([
           {
             path: 'admin/moderacion',
             element: (
-              <ProtectedRoute allow={['ADMIN']}>
+              // El admin de escuela también modera, pero el back le acota
+              // el alcance a la suya (ver lib alcanceModeracion).
+              <ProtectedRoute allow={['ADMIN', 'ADMIN_ESCUELA']}>
                 {withSuspense(<AdminModeracion />)}
               </ProtectedRoute>
             ),
@@ -414,10 +425,45 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'admin/generadores',
+            path: 'admin/verificaciones',
             element: (
               <ProtectedRoute allow={['ADMIN']}>
-                {withSuspense(<AdminGeneradores />)}
+                {withSuspense(<AdminVerificaciones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'admin/escuelas',
+            element: (
+              <ProtectedRoute allow={['ADMIN']}>
+                {withSuspense(<AdminEscuelas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'escuela/revision',
+            element: (
+              <ProtectedRoute allow={['ADMIN', 'ADMIN_ESCUELA', 'DIRECTIVO']}>
+                {withSuspense(<RevisionEscuela />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'invitaciones',
+            element: (
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'ADMIN_ESCUELA', 'PARENT']}>
+                {withSuspense(<Invitaciones />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            // Cualquier usuario autenticado puede pedir el alta de su
+            // escuela: no hay rol previo de "directivo", se obtiene al
+            // registrarla.
+            path: 'registrar-escuela',
+            element: (
+              <ProtectedRoute allow={['USER', 'TEACHER', 'DIRECTIVO', 'ADMIN', 'PARENT']}>
+                {withSuspense(<RegistrarEscuela />)}
               </ProtectedRoute>
             ),
           },
@@ -462,6 +508,14 @@ export const router = createBrowserRouter([
             ),
           },
           {
+            path: 'enterprise/familias',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO', 'ADMIN_ESCUELA']}>
+                {withSuspense(<EnterpriseFamilias />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: 'enterprise/modulos',
             element: (
               <ProtectedRoute allow={['DIRECTIVO']}>
@@ -478,34 +532,26 @@ export const router = createBrowserRouter([
             ),
           },
           {
+            path: 'enterprise/cobros',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO']}>
+                {withSuspense(<EnterpriseCobros />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'enterprise/personalizacion',
+            element: (
+              <ProtectedRoute allow={['DIRECTIVO']}>
+                {withSuspense(<EnterprisePersonalizacion />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: 'enterprise/calendario',
             element: (
               <ProtectedRoute allow={['DIRECTIVO', 'ADMIN']}>
                 {withSuspense(<ProfesorCalendario />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'gobernanza',
-            element: (
-              <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-                {withSuspense(<Gobernanza />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'gobernanza/propuestas/nueva',
-            element: (
-              <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-                {withSuspense(<GobernanzaNuevaPropuesta />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'gobernanza/propuestas/:id',
-            element: (
-              <ProtectedRoute allow={['ADMIN', 'DIRECTIVO', 'TEACHER']}>
-                {withSuspense(<GobernanzaPropuesta />)}
               </ProtectedRoute>
             ),
           },
@@ -593,14 +639,6 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'reproductor',
-            element: (
-              <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN', 'DIRECTIVO']}>
-                {withSuspense(<ReproductorModulos />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
             path: 'quiz/attempt/:attemptId',
             element: (
               <ProtectedRoute allow={['USER', 'PARENT', 'TEACHER', 'ADMIN']}>
@@ -609,18 +647,10 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'profesor/editor-cuestionarios',
+            path: 'cuestionarios',
             element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
-                {withSuspense(<EditorCuestionarios />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
-            path: 'profesor/editor-cuestionarios-v2',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO', 'USER']}>
-                {withSuspense(<EditorCuestionariosV2 />)}
+              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
+                {withSuspense(<CuestionariosIndex />)}
               </ProtectedRoute>
             ),
           },
@@ -673,14 +703,6 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'datasets/nuevo',
-            element: (
-              <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
-                {withSuspense(<DatasetEditor />)}
-              </ProtectedRoute>
-            ),
-          },
-          {
             path: 'datasets/:id',
             element: (
               <ProtectedRoute allow={['TEACHER', 'ADMIN', 'DIRECTIVO']}>
@@ -703,6 +725,9 @@ export const router = createBrowserRouter([
           { path: "editor/:id",         element: withSuspense(<BookEditorPage />) },
           { path: "bloques/editor",     element: withSuspense(<BlockEditorPage />) },
           { path: "bloques/editor/:id", element: withSuspense(<BlockEditorPage />) },
+          // PLAN-G §1 (item 25) — reabrir una presentación / línea de tiempo guardada como material.
+          { path: "herramientas/presentacion-editor", element: withSuspense(<PresentacionEditorPage />) },
+          { path: "herramientas/linea-tiempo-editor", element: withSuspense(<LineaTiempoEditorPage />) },
         ],
       },
 

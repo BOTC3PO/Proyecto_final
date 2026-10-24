@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { apiGet } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
+import { MATERIA_FALLBACK } from "../../domain/module/materia";
 
+import { useI18n } from "../../i18n/I18nContext";
 type BancoItem = {
   quizId: string;
   title: string;
@@ -27,6 +29,13 @@ type BancoCuestionariosMultiProps = {
   onConfirm: (selections: ConfirmPayload[]) => void;
 };
 
+// WO-BUG — token canónico para el filtro "Sin materia". Coincide con
+// el fallback del helper `resolveMateria` (materia.ts). El back
+// devuelve `materia` como string vacío para cuestionarios legacy sin
+// la columna poblada; el front los agrupa acá para que SIGAN siendo
+// seleccionables en vez de desaparecer en silencio.
+const SIN_MATERIA = MATERIA_FALLBACK;
+
 function mulberry32(seed: number) {
   return () => {
     let t = (seed += 0x6d2b79f5);
@@ -47,6 +56,7 @@ export default function BancoCuestionariosMulti({
   origen,
   onConfirm,
 }: BancoCuestionariosMultiProps) {
+  const { t } = useI18n();
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [materiaFilter, setMateriaFilter] = useState("");
@@ -82,11 +92,27 @@ export default function BancoCuestionariosMulti({
       .catch(() => setStatus("error"));
   }, [origen, search]);
 
-  const allMaterias = Array.from(new Set(items.map((i) => i.materia).filter(Boolean))) as string[];
+  // WO-BUG — derivar la materia efectiva (string vacío → "Sin materia")
+  // para que el filtro y el dropdown agrupen los cuestionarios legacy.
+  // Antes `allMaterias` filtraba con `filter(Boolean)`, así que los
+  // cuestionarios sin materia desaparecían del dropdown y de la lista
+  // en cuanto se elegía una materia — exactamente el bug reportado.
+  const materiaEfectiva = (item: BancoItem) => item.materia || SIN_MATERIA;
+  const tieneMateria = (m: string) => m !== SIN_MATERIA;
+  const allMateriasRaw = Array.from(new Set(items.map(materiaEfectiva)));
+  const allMaterias = allMateriasRaw.filter(tieneMateria).sort((a, b) => a.localeCompare(b, "es"));
+  const hasSinMateria = allMateriasRaw.some((m) => !tieneMateria(m));
   const allTipos = Array.from(new Set(items.map((i) => i.tipo)));
 
   const filtered = items.filter((item) => {
-    if (materiaFilter && item.materia !== materiaFilter) return false;
+    if (materiaFilter) {
+      const itemMateria = materiaEfectiva(item);
+      if (materiaFilter === SIN_MATERIA) {
+        if (tieneMateria(itemMateria)) return false;
+      } else if (itemMateria !== materiaFilter) {
+        return false;
+      }
+    }
     if (tipoFilter && item.tipo !== tipoFilter) return false;
     return true;
   });
@@ -122,18 +148,24 @@ export default function BancoCuestionariosMulti({
       <div className="flex flex-wrap gap-2">
         <input
           className="flex-1 min-w-0 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-xs focus:outline-none focus:border-[var(--c-primary)]"
-          placeholder="Buscar..."
+          placeholder={t("bancoCuestionariosMulti.buscar")}
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        {allMaterias.length > 0 && (
+        {(allMaterias.length > 0 || hasSinMateria) && (
           <select
             value={materiaFilter}
             onChange={(e) => setMateriaFilter(e.target.value)}
             className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-xs"
           >
-            <option value="">Materia</option>
+            <option value="">{t("comun.materia")}</option>
             {allMaterias.map((m) => <option key={m} value={m}>{m}</option>)}
+            {/* WO-BUG — los cuestionarios sin materia ahora son
+                visibles y seleccionables. Antes desaparecían en
+                silencio y no se podían elegir. */}
+            {hasSinMateria && (
+              <option value={SIN_MATERIA}>{SIN_MATERIA}</option>
+            )}
           </select>
         )}
         {allTipos.length > 1 && (
@@ -142,19 +174,19 @@ export default function BancoCuestionariosMulti({
             onChange={(e) => setTipoFilter(e.target.value)}
             className="rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-2 py-1.5 text-xs"
           >
-            <option value="">Tipo</option>
+            <option value="">{t("comun.tipo")}</option>
             {allTipos.map((t) => <option key={t} value={t}>{t}</option>)}
           </select>
         )}
       </div>
 
-      {status === "loading" && <p className="text-xs text-[var(--c-muted)]">Cargando...</p>}
-      {status === "error" && <p className="text-xs text-red-500">Error al cargar el banco.</p>}
+      {status === "loading" && <p className="text-xs text-[var(--c-muted)]">{t("comun.cargando2")}</p>}
+      {status === "error" && <p className="text-xs text-red-500">{t("bancoCuestionariosMulti.errorAlCargarElBanco")}</p>}
       {status === "idle" && total > 0 && (
         <p className="text-xs text-[var(--c-muted)]">{total} disponible{total !== 1 ? "s" : ""}</p>
       )}
       {status === "idle" && filtered.length === 0 && total === 0 && (
-        <p className="text-xs text-[var(--c-muted)]">No hay cuestionarios aquí.</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("bancoCuestionariosMulti.noHayCuestionariosAqui")}</p>
       )}
 
       {/* Cards */}
@@ -179,15 +211,20 @@ export default function BancoCuestionariosMulti({
               <div className="min-w-0 flex-1">
                 <p className="text-xs font-semibold text-[var(--c-text)] truncate">{item.title}</p>
                 <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-                  {item.materia && (
-                    <span className="text-[9px] bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">{item.materia}</span>
-                  )}
+                  {/* WO-BUG — siempre se muestra el badge de materia.
+                      Los cuestionarios legacy sin materia (o con
+                      string vacío) caen acá como "Sin materia" en
+                      vez de quedar sin etiqueta, lo que los hacía
+                      indistinguibles. */}
+                  <span className="text-[9px] bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">
+                    {materiaEfectiva(item)}
+                  </span>
                   <span className={`text-[9px] rounded px-1.5 py-0.5 ${ORIGEN_BADGE[item.origen] ?? "bg-gray-100 text-gray-600"}`}>
                     {item.origen === "admin" ? "Global" : "Escuela"}
                   </span>
                   <span className="text-[9px] text-[var(--c-muted)]">{item.questionCount} preg.</span>
                   {item.generatorId && (
-                    <span className="text-[9px] bg-blue-100 text-blue-700 rounded px-1.5 py-0.5">Auto</span>
+                    <span className="text-[9px] bg-blue-100 text-blue-700 rounded px-1.5 py-0.5">{t("bancoCuestionariosMulti.auto")}</span>
                   )}
                 </div>
                 {item.previewQuestions.slice(0, 2).map((pq, pi) => (
@@ -233,7 +270,7 @@ export default function BancoCuestionariosMulti({
                   onChange={(e) => setNPerQuiz(Math.max(1, parseInt(e.target.value) || 1))}
                   className="w-12 rounded border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-1.5 py-0.5 text-xs text-center"
                 />
-                <span className="text-[10px] text-[var(--c-muted)]">por cuestionario</span>
+                <span className="text-[10px] text-[var(--c-muted)]">{t("bancoCuestionariosMulti.porCuestionario")}</span>
               </div>
             )}
           </div>
@@ -241,9 +278,7 @@ export default function BancoCuestionariosMulti({
             type="button"
             onClick={handleConfirm}
             className="w-full rounded-lg bg-[var(--c-primary)] py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
-          >
-            Importar al cuestionario
-          </button>
+          >{t("bancoCuestionariosMulti.importarAlCuestionario")}</button>
         </div>
       )}
     </div>

@@ -1,0 +1,138 @@
+[
+ {
+  "id": 816,
+  "cluster": 1,
+  "temas": [
+   "algebra-booleana",
+   "complejidad-asintotica",
+   "ofimatica-planilla-de-calculo",
+   "que-es-la-tecnica-y-la-tecnologia",
+   "revolucion-informatica"
+  ],
+  "preguntas": 116
+ },
+ {
+  "id": 817,
+  "cluster": 2,
+  "temas": [
+   "medios-tecnicos-extension-capacidades-humanas",
+   "historia-y-evolucion-de-los-sistemas-operativos",
+   "procesos-tecnicos-artesanales-e-industriales",
+   "arranque-de-la-computadora-boot",
+   "sistemas-numeracion"
+  ],
+  "preguntas": 121
+ },
+ {
+  "id": 818,
+  "cluster": 3,
+  "temas": [
+   "tipos-de-so-por-dispositivo",
+   "cpu-unidad-de-control-y-alu",
+   "unidades-almacenamiento",
+   "ciclo-de-instruccion-fetch-decode-execute",
+   "memoria-ram-cache-jerarquia"
+  ],
+  "preguntas": 119
+ },
+ {
+  "id": 819,
+  "cluster": 4,
+  "temas": [
+   "algoritmo-secuencia-de-pasos",
+   "almacenamiento-volatil-vs-no-volatil",
+   "buses-y-entrada-salida",
+   "variables-y-tipos-de-dato",
+   "estructuras-de-control-condicionales"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 820,
+  "cluster": 5,
+  "temas": [
+   "estructuras-de-control-bucles",
+   "funciones-y-modularidad",
+   "estructuras-de-datos-listas-pilas-colas",
+   "poo-clases-y-objetos",
+   "algoritmos-busqueda-ordenamiento"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 821,
+  "cluster": 6,
+  "temas": [
+   "archivos-y-persistencia",
+   "inteligencia-artificial-reglas-a-aprendizaje",
+   "modelo-relacional-tabla-registro-clave-primaria",
+   "etica-de-la-ia-sesgo-privacidad",
+   "criptografia-clave-simetrica-asimetrica-hash"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 822,
+  "cluster": 7,
+  "temas": [
+   "direccionamiento-ip-dns",
+   "proceso-programa-en-ejecucion",
+   "protocolo-http-peticion-respuesta",
+   "comunicacion-entre-procesos",
+   "memoria-asignacion-memoria-virtual"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 823,
+  "cluster": 8,
+  "temas": [
+   "planificacion-de-procesos",
+   "paginacion",
+   "interrupciones",
+   "recursividad",
+   "relaciones-y-claves-foraneas"
+  ],
+  "preguntas": 120
+ },
+ {
+  "id": 824,
+  "cluster": 9,
+  "temas": [
+   "requisitos-funcionales-no-funcionales",
+   "normalizacion-bases-datos",
+   "diseno-y-arquitectura-de-software",
+   "segmentacion",
+   "control-de-versiones"
+  ],
+  "preguntas": 123
+ },
+ {
+  "id": 825,
+  "cluster": 10,
+  "temas": [
+   "patrones-y-buenas-practicas",
+   "pruebas-unitarias-integracion",
+   "sistema-de-archivos",
+   "mantenimiento-y-deuda-tecnica",
+   "permisos-y-usuarios"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 826,
+  "cluster": 11,
+  "temas": [
+   "sistema-de-archivos-por-bitacora",
+   "sql-consultas-joins-agregaciones",
+   "subsistema-de-entrada-y-salida",
+   "tcp-ip-capas-enrutamiento",
+   "tipos-de-licencias-de-software",
+   "seguridad-de-red-firewall-vpn-cifrado",
+   "transacciones-acid",
+   "seguridad-informatica",
+   "virtualizacion-maquina-virtual-contenedor"
+  ],
+  "preguntas": 215
+ }
+]

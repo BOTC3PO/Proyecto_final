@@ -1,0 +1,64 @@
+{
+ "titulo": "De un proceso inicial a una versión mejorada",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Mejorar paso a paso",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Proceso inicial",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Medir y detectar fallas",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Probar un cambio",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Estandarizar lo que funciona",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Versión mejorada",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

@@ -16,6 +16,7 @@ import type {
   Plantilla,
   TextField,
   TipoPregunta,
+  VariableDecl,
 } from "@vb/vblang";
 import { CONSTANTES_GLOBALES, QUESTION_TYPE_SCHEMAS } from "@vb/vblang";
 import {
@@ -27,6 +28,7 @@ import {
   getBlock,
   hasBlock,
   numLit,
+  numLiteral,
   partesToText,
   strLit,
   textToExpr,
@@ -51,6 +53,12 @@ const ANSWER_BLOCKS: Bloque["kind"][] = [
   "unidad",
   "tolerancia",
   "correccion",
+  // PLAN-E §21 Parte A — selección múltiple.
+  "multiple",
+  "puntaje_parcial",
+  // PLAN-E §21 Parte B — análisis por rangos de palabras.
+  "spans_pedidos",
+  "etiquetas_disponibles",
 ];
 
 /* ---------------- lecturas ---------------- */
@@ -100,6 +108,10 @@ export function readBoolField(p: Plantilla, field: Field): boolean {
     const b = getBlock(p, "respuesta");
     return b?.expr.kind === "bool" ? b.expr.value : false;
   }
+  if (field.block === "multiple") {
+    const b = getBlock(p, "multiple");
+    return b ? b.valor : false;
+  }
   return false;
 }
 
@@ -112,6 +124,10 @@ export function readEnumField(p: Plantilla, field: Field): string {
     const b = getBlock(p, "correccion");
     return b ? b.modo : "";
   }
+  if (field.block === "puntaje_parcial") {
+    const b = getBlock(p, "puntaje_parcial");
+    return b ? b.modo : "";
+  }
   return "";
 }
 
@@ -122,6 +138,10 @@ export function readListStrings(p: Plantilla, field: ListField): string[] {
   }
   if (field.block === "respuestas_validas") {
     const b = getBlock(p, "respuestas_validas");
+    return b ? b.items.map(exprToStringValue) : [];
+  }
+  if (field.block === "etiquetas_disponibles") {
+    const b = getBlock(p, "etiquetas_disponibles");
     return b ? b.items.map(exprToStringValue) : [];
   }
   return [];
@@ -140,6 +160,30 @@ export function readEtiquetas(p: Plantilla): EtiquetaRow[] {
     const etiqueta = et.campos.find((c) => c.key === "etiqueta");
     return {
       palabra: palabra ? exprToStringValue(palabra.value) : "",
+      etiqueta: etiqueta ? exprToStringValue(etiqueta.value) : "",
+    };
+  });
+}
+
+/** PLAN-E §21 Parte B — fila del editor de spans (índices de palabra). */
+export interface SpanRow {
+  desde: number;
+  hasta: number;
+  etiqueta: string;
+}
+
+export function readSpans(p: Plantilla): SpanRow[] {
+  const b = getBlock(p, "spans_pedidos");
+  if (!b) return [];
+  return b.spans.map((sp) => {
+    const num = (key: string): number => {
+      const c = sp.campos.find((x) => x.key === key);
+      return c?.value.kind === "num" ? c.value.value : 0;
+    };
+    const etiqueta = sp.campos.find((x) => x.key === "etiqueta");
+    return {
+      desde: num("desde"),
+      hasta: num("hasta"),
       etiqueta: etiqueta ? exprToStringValue(etiqueta.value) : "",
     };
   });
@@ -203,6 +247,11 @@ export function writeNumberField(
   if (text.trim() === "") return withoutBlock(p, "tolerancia");
   const n = Number(text);
   if (!Number.isFinite(n)) return null; // ej. "-" intermedio
+  // El schema ya declara `allowNegative: false` para tolerancia y nadie lo
+  // miraba: una tolerancia negativa se guardaba, generaba un DSL que el parser
+  // rechaza (`tolerancia: -2`) y el bloque terminaba perdiéndose sin aviso.
+  // `null` = "no se guarda" (el caller conserva lo tipeado).
+  if (field.kind === "number" && !field.allowNegative && n < 0) return null;
   return withBlock(p, {
     kind: "tolerancia",
     valor: n,
@@ -212,6 +261,12 @@ export function writeNumberField(
 }
 
 export function writeBoolField(p: Plantilla, field: Field, value: boolean): Plantilla {
+  if (field.block === "multiple") {
+    // `multiple: false` = ausente (round-trip sin basura).
+    return value
+      ? withBlock(p, { kind: "multiple", valor: true, loc: DUMMY_LOC })
+      : withoutBlock(p, "multiple");
+  }
   if (field.block !== "respuesta") return p;
   return withBlock(p, { kind: "respuesta", expr: boolLit(value), loc: DUMMY_LOC });
 }
@@ -228,6 +283,14 @@ export function writeEnumField(p: Plantilla, field: Field, value: string): Plant
     return withBlock(p, {
       kind: "correccion",
       modo: value === "manual" ? "manual" : "ninguna",
+      loc: DUMMY_LOC,
+    });
+  }
+  if (field.block === "puntaje_parcial") {
+    if (value === "") return withoutBlock(p, "puntaje_parcial");
+    return withBlock(p, {
+      kind: "puntaje_parcial",
+      modo: value === "proporcional" ? "proporcional" : "todo_o_nada",
       loc: DUMMY_LOC,
     });
   }
@@ -253,7 +316,28 @@ export function writeListStrings(
       loc: DUMMY_LOC,
     });
   }
+  if (field.block === "etiquetas_disponibles") {
+    // Lista opcional: vacía = bloque ausente (round-trip sin basura).
+    if (items.length === 0) return withoutBlock(p, "etiquetas_disponibles");
+    return withBlock(p, {
+      kind: "etiquetas_disponibles",
+      items: items.map(strLit),
+      loc: DUMMY_LOC,
+    });
+  }
   return p;
+}
+
+export function writeSpans(p: Plantilla, rows: SpanRow[]): Plantilla {
+  const spans: EtiquetaPedida[] = rows.map((r) => ({
+    id: "",
+    campos: [
+      { key: "desde", value: numLit(r.desde) },
+      { key: "hasta", value: numLit(r.hasta) },
+      { key: "etiqueta", value: strLit(r.etiqueta) },
+    ],
+  }));
+  return withBlock(p, { kind: "spans_pedidos", spans, loc: DUMMY_LOC });
 }
 
 export function writeEtiquetas(p: Plantilla, rows: EtiquetaRow[]): Plantilla {
@@ -339,6 +423,27 @@ function seedBlocks(tipo: TipoPregunta): Bloque[] {
         loc: DUMMY_LOC,
       });
       break;
+    case "analisis_spans":
+      blocks.push({
+        kind: "texto_analizar",
+        expr: strLit("El perro grande corre por el parque"),
+        loc: DUMMY_LOC,
+      });
+      blocks.push({
+        kind: "spans_pedidos",
+        spans: [
+          {
+            id: "",
+            campos: [
+              { key: "desde", value: numLit(0) },
+              { key: "hasta", value: numLit(2) },
+              { key: "etiqueta", value: strLit("sujeto") },
+            ],
+          },
+        ],
+        loc: DUMMY_LOC,
+      });
+      break;
     case "identificar_palabras":
       blocks.push({
         kind: "texto_analizar",
@@ -354,6 +459,14 @@ function seedBlocks(tipo: TipoPregunta): Bloque[] {
     case "abierta":
       // WO07 — abierta no lleva clave de respuesta; sólo el modo de corrección.
       blocks.push({ kind: "correccion", modo: "ninguna", loc: DUMMY_LOC });
+      break;
+    case "expresion":
+      // PLAN tiza-autoria-avanzada §1 — faltaba el caso: elegir "Respuesta
+      // simbólica" dejaba la plantilla SIN ningún bloque de respuesta, y el
+      // parser exige al menos uno ("Si no hay `generador:`, debe haber al menos
+      // un campo de respuesta"). O sea el tipo era inelegible desde cualquier
+      // interfaz: al cambiar a él, el DSL resultante no parseaba.
+      blocks.push({ kind: "respuesta_expr", expr: strLit(""), loc: DUMMY_LOC });
       break;
   }
   return blocks;
@@ -556,6 +669,274 @@ export function contarVariables(p: Plantilla): number {
   return getBlock(p, "variables")?.declaraciones.length ?? 0;
 }
 
+/* ---------------- VB-B6: lectura/escritura de variables ---------------- */
+
+/**
+ * VB-B6 — `readVariable`: lee una variable del bloque `variables:`.
+ * Devuelve `null` si el índice está fuera de rango. La localización
+ * es del AST original (no se usa para editar; sirve sólo para
+ * preservar identidad en round-trips).
+ */
+export function readVariable(p: Plantilla, index: number): VariableDecl | null {
+  const decls = getBlock(p, "variables")?.declaraciones ?? [];
+  return index >= 0 && index < decls.length ? decls[index]! : null;
+}
+
+/**
+ * VB-B6 — `addVariable`: agrega una `VariableDecl` al final del
+ * bloque `variables:` (o en la posición `atIndex` si se pasa).
+ * Si el bloque no existe, lo crea. Crea la variable con un nombre
+ * único derivado de `baseName` (sufijos `_2`, `_3`…) si ya existe.
+ */
+export function addVariable(
+  p: Plantilla,
+  decl: VariableDecl,
+  atIndex?: number,
+): Plantilla {
+  const existing = getBlock(p, "variables");
+  const current = existing?.declaraciones ?? [];
+  // Si la decl que entra tiene un nombre duplicado, generamos uno
+  // único para no chocar con el linter (`var-duplicada`).
+  const taken = new Set(current.map((d) => d.nombre));
+  if (taken.has(decl.nombre)) {
+    let i = 2;
+    while (taken.has(`${decl.nombre}_${i}`)) i++;
+    decl = { ...decl, nombre: `${decl.nombre}_${i}` };
+  }
+  const idx = atIndex === undefined ? current.length : Math.max(0, Math.min(atIndex, current.length));
+  const next = [...current.slice(0, idx), decl, ...current.slice(idx)];
+  const newBlock: Bloque = existing
+    ? { ...existing, declaraciones: next }
+    : { kind: "variables", declaraciones: next, loc: DUMMY_LOC };
+  return withBlock(p, newBlock);
+}
+
+/**
+ * VB-B6 — `updateVariable`: reemplaza la variable en `index` con la
+ * `VariableDecl` provista. Mantiene la posición original y el orden
+ * de las demás. Si el índice está fuera de rango, devuelve la
+ * plantilla sin cambios.
+ */
+export function updateVariable(
+  p: Plantilla,
+  index: number,
+  decl: VariableDecl,
+): Plantilla {
+  const existing = getBlock(p, "variables");
+  if (!existing) return p;
+  const current = existing.declaraciones;
+  if (index < 0 || index >= current.length) return p;
+  const next = current.map((d, i) => (i === index ? decl : d));
+  return withBlock(p, { ...existing, declaraciones: next });
+}
+
+/**
+ * PLAN casos-limite §11 — reescribe las REFERENCIAS a una variable.
+ *
+ * `updateVariable` con un `nombre` distinto sólo cambia la declaración: las
+ * interpolaciones del enunciado y las expresiones que la usaban seguían
+ * apuntando al nombre viejo, así que el editor clásico producía plantillas que
+ * morían con "variable indefinida: a" (Tiza lo evitaba dejando el campo
+ * `readOnly`, que era tapar el problema, no resolverlo).
+ *
+ * Recorre el árbol entero y renombra los nodos `var`. Con eso alcanza para los
+ * dos casos: las expresiones (`a * 2`) y las interpolaciones del texto (`{a}`
+ * parsea a un `interp` que contiene un `var`). No toca `fun_call.name` ni
+ * `field` (son funciones y propiedades, no variables).
+ */
+function renameRefs<T>(nodo: T, viejo: string, nuevo: string): T {
+  if (Array.isArray(nodo)) {
+    return nodo.map((x) => renameRefs(x, viejo, nuevo)) as unknown as T;
+  }
+  if (nodo === null || typeof nodo !== "object") return nodo;
+
+  const obj = nodo as Record<string, unknown>;
+  if (obj.kind === "var" && obj.name === viejo) {
+    return { ...obj, name: nuevo } as unknown as T;
+  }
+  // `para x en …`: dentro del cuerpo, `x` es la variable del bucle y tapa a la
+  // de la plantilla. Si se llaman igual, adentro no hay nada que renombrar.
+  if (obj.kind === "for_comp" && obj.variable === viejo) {
+    return {
+      ...obj,
+      iterable: renameRefs(obj.iterable, viejo, nuevo),
+    } as unknown as T;
+  }
+
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(obj)) out[k] = renameRefs(v, viejo, nuevo);
+  return out as unknown as T;
+}
+
+/** Un nombre de variable válido para el DSL (mismo criterio que el lexer). */
+const IDENT_RE = /^[A-Za-z_][A-Za-z0-9_]*$/;
+
+/**
+ * PLAN casos-limite §11 — renombra la variable en `index` Y todas sus
+ * referencias. Devuelve `null` si el nombre no sirve (vacío, no es un
+ * identificador válido, o ya lo usa otra variable), misma convención que
+ * `writeNumberField`: `null` = no se guarda.
+ */
+export function renameVariable(
+  p: Plantilla,
+  index: number,
+  nombre: string,
+): Plantilla | null {
+  const existing = getBlock(p, "variables");
+  if (!existing) return null;
+  const current = existing.declaraciones;
+  if (index < 0 || index >= current.length) return null;
+  const decl = current[index]!;
+  const nuevo = nombre.trim();
+  if (nuevo === decl.nombre) return p;
+  if (!IDENT_RE.test(nuevo)) return null;
+  if (current.some((d, i) => i !== index && d.nombre === nuevo)) return null;
+
+  const renombrada = renameRefs(p, decl.nombre, nuevo);
+  const bloque = getBlock(renombrada, "variables");
+  if (!bloque) return null;
+  return withBlock(renombrada, {
+    ...bloque,
+    declaraciones: bloque.declaraciones.map((d, i) =>
+      i === index ? { ...d, nombre: nuevo } : d,
+    ),
+  });
+}
+
+/**
+ * VB-B6 — `removeVariable`: elimina la variable en `index`. Si el
+ * bloque queda vacío, lo elimina también. Si el índice está fuera
+ * de rango, devuelve la plantilla sin cambios.
+ */
+export function removeVariable(p: Plantilla, index: number): Plantilla {
+  const existing = getBlock(p, "variables");
+  if (!existing) return p;
+  const current = existing.declaraciones;
+  if (index < 0 || index >= current.length) return p;
+  const next = current.filter((_, i) => i !== index);
+  if (next.length === 0) return withoutBlock(p, "variables");
+  return withBlock(p, { ...existing, declaraciones: next });
+}
+
+/**
+ * VB-B6 — factories de expresiones para los tipos más comunes
+ * de variable. El form las usa al "+Añadir" para arrancar con un
+ * seed razonable según el tipo elegido.
+ */
+export function makeRandomIntExpr(lo: number, hi: number): Expr {
+  return {
+    kind: "fun_call",
+    name: "random",
+    args: [numLit(lo), numLit(hi)],
+    loc: DUMMY_LOC,
+  };
+}
+
+export function makeRandomFloatExpr(lo: number, hi: number): Expr {
+  return {
+    kind: "fun_call",
+    name: "random_float",
+    args: [numLit(lo), numLit(hi)],
+    loc: DUMMY_LOC,
+  };
+}
+
+export function makeListExpr(items: string[]): Expr {
+  return arrayLit(
+    items.map((s) => {
+      // Intentamos como número si parece un número, si no como string.
+      const n = Number(s);
+      if (s.trim() !== "" && Number.isFinite(n)) return numLit(n);
+      return strLit(s);
+    }),
+  );
+}
+
+/** VB-B6 — clasifica la `Expr` de una variable en uno de los tipos
+ *  editables del form. Usado para inicializar los inputs cuando el
+ *  usuario edita una variable existente (no asumimos un tipo
+ *  hardcodeado).
+ *
+ *  El subtipo "Rango" se retiró (2026-07-26): escribía `rango(lo, hi)`, una
+ *  función que VBLang nunca tuvo (no está en `BUILTIN_NAMES`), así que toda
+ *  variable creada así fallaba al generar con "función desconocida: rango".
+ *  Su intención —un valor entre Inicio y Fin— es exactamente `random(lo, hi)`.
+ *  No había ninguna plantilla que lo usara, ni en el repo ni en la base. */
+export type VariableKind = "random-int" | "random-float" | "list" | "expr";
+
+export function classifyVariable(expr: Expr): VariableKind {
+  if (expr.kind === "fun_call") {
+    switch (expr.name) {
+      case "random":
+        return "random-int";
+      case "random_float":
+        return "random-float";
+      case "uno_de":
+      case "choice":
+        return "list";
+      default:
+        return "expr";
+    }
+  }
+  if (expr.kind === "array") {
+    return "list";
+  }
+  return "expr";
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — ítems de una lista, o `null` si la expresión
+ * no es una lista. Cubre las tres formas que acepta el DSL: array desnudo
+ * (`[1, 2]`), `uno_de([...])`/`choice([...])` y los argumentos sueltos
+ * (`uno_de(1, 2)`).
+ */
+export function listItemExprs(expr: Expr): Expr[] | null {
+  if (expr.kind === "array") return expr.items;
+  if (expr.kind === "fun_call" && (expr.name === "uno_de" || expr.name === "choice")) {
+    const primero = expr.args[0];
+    if (primero?.kind === "array") return primero.items;
+    return expr.args;
+  }
+  return null;
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — ¿esta lista se puede editar como texto sin
+ * perder nada?
+ *
+ * Sólo si cada ítem es un literal de string o de número. Un array de OBJETOS
+ * (`[{ nombre: "Argentina", iso: "ARG" }]`, que es lo que usa la plantilla de
+ * ejemplo del mapa) o una lista por referencia (`uno_de(paises)`) se veía como
+ * texto plano en los editores y el round-trip la destruía: los objetos volvían
+ * como strings escapados —matando `{pais.capital}`— y la referencia volvía como
+ * lista vacía. El linter lo cantaba después, con la plantilla ya arruinada.
+ *
+ * Los editores usan esto para NO ofrecer el editor de lista en esos casos y
+ * mandar a modo Código, que es de fidelidad total.
+ */
+export function listaEditableComoTexto(expr: Expr): boolean {
+  const items = listItemExprs(expr);
+  if (items === null) return false;
+  // Una lista vacía sí es editable (es el punto de partida para llenarla).
+  return items.every((it) => it.kind === "str" || numLiteral(it) !== null);
+}
+
+/**
+ * PLAN tiza-autoria-avanzada §0 — reescribe los ítems de una lista
+ * **conservando su forma**. Antes los editores escribían siempre
+ * `uno_de([...])`, así que a un array desnudo le aparecía un wrapper que no
+ * tenía y `uno_de(paises)` pasaba a recibir un string en vez de un array.
+ */
+export function withListItems(expr: Expr, items: string[]): Expr {
+  const lista = makeListExpr(items);
+  if (expr.kind === "array") return lista;
+  if (expr.kind === "fun_call" && (expr.name === "uno_de" || expr.name === "choice")) {
+    return { ...expr, args: [lista] };
+  }
+  // No era una lista todavía (subtipo recién cambiado): forma canónica.
+  return { kind: "fun_call", name: "uno_de", args: [lista], loc: DUMMY_LOC };
+}
+
 /**
  * Estima cuántas combinaciones distintas puede generar la plantilla a partir de
  * sus variables: producto de los rangos `random(min,max)` y los `uno_de([...])`.
@@ -592,10 +973,15 @@ export function combinacionesPosibles(p: Plantilla): {
 /** Bloques no cubiertos por la UI schema-driven (se preservan read-only). */
 const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   "enunciado",
+  // `enunciados:` (plural) SÍ se edita (EnunciadoField → lista de variantes);
+  // faltaba acá y `unhandledBlocks` lo reportaba como no manejado por error.
+  "enunciados",
   "tipo",
   "respuesta",
   "respuestas_validas",
   "respuesta_iso",
+  // WO-1: respuesta por nombre (alternativa a respuesta_iso en el mapa).
+  "respuesta_nombre",
   "respuesta_orden",
   "etiquetas_pedidas",
   "opciones_explicitas",
@@ -603,9 +989,22 @@ const HANDLED_BLOCKS = new Set<Bloque["kind"]>([
   "texto_analizar",
   "unidad",
   "tolerancia",
+  // WO-1: tolerancia absoluta (número crudo, junto a la relativa).
+  "tolerancia_abs",
   "correccion",
+  // PLAN-E §21 Parte A — selección múltiple.
+  "multiple",
+  "puntaje_parcial",
+  // PLAN-E §21 Parte B — análisis por rangos de palabras.
+  "spans_pedidos",
+  "etiquetas_disponibles",
   "generador",
   "variables",
+  // WO-1: restricciones (dash-list de fórmulas) y pistas escalonadas (plural).
+  "restricciones",
+  "pistas",
+  // WO-1: explicación que se muestra tras responder.
+  "explicacion",
   "visual",
   "pasos",
   "metadata",
@@ -675,4 +1074,47 @@ export function hasNonImageVisual(p: Plantilla): boolean {
   if (!b) return false;
   const kind = b.campos.find((c) => c.key === "kind")?.value;
   return !(kind?.kind === "str" && kind.value === "static-image");
+}
+
+/* ---------------- add-on visual: Audio ---------------- */
+// Mismo shape que `AudioSpec`/`AudioBlock` a propósito — permite reusar
+// `AudioBlockEditor`/`AudioBlockRenderer` (apps/web/src/blocks/) tal cual.
+
+export interface AudioValue {
+  url: string;
+  alt: string;
+  caption?: string;
+  mimeType?: string;
+}
+
+/** Lee el visual como audio, o `null` si no hay o no es audio. */
+export function readAudio(p: Plantilla): AudioValue | null {
+  const kind = visualCampo(p, "kind");
+  if (!(kind?.kind === "str" && kind.value === "audio")) return null;
+  const url = visualCampo(p, "url");
+  const alt = visualCampo(p, "alt");
+  const caption = visualCampo(p, "caption");
+  const mimeType = visualCampo(p, "mimeType");
+  return {
+    url: url?.kind === "str" ? url.value : "",
+    alt: alt?.kind === "str" ? alt.value : "",
+    caption: caption?.kind === "str" ? caption.value : undefined,
+    mimeType: mimeType?.kind === "str" ? mimeType.value : undefined,
+  };
+}
+
+/** Escribe (o reemplaza) el visual como audio. */
+export function writeAudio(p: Plantilla, v: AudioValue): Plantilla {
+  const campos = [
+    { key: "kind", value: strLit("audio"), loc: DUMMY_LOC },
+    { key: "url", value: strLit(v.url), loc: DUMMY_LOC },
+    { key: "alt", value: strLit(v.alt), loc: DUMMY_LOC },
+    ...(v.caption != null
+      ? [{ key: "caption", value: strLit(v.caption), loc: DUMMY_LOC }]
+      : []),
+    ...(v.mimeType != null
+      ? [{ key: "mimeType", value: strLit(v.mimeType), loc: DUMMY_LOC }]
+      : []),
+  ];
+  return withBlock(p, { kind: "visual", campos, loc: DUMMY_LOC });
 }

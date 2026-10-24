@@ -55,11 +55,24 @@ export function validate(
   let passed = 0;
   let totalTime = 0;
 
+  // Tarea 06: si la plantilla declara `enunciados:`, garantizar cobertura de
+  // TODAS las variantes. En las primeras `min(items.length, iterations)`
+  // simulaciones forzamos la variante i % items.length (determinista) para
+  // que una interpolacion rota en cualquier variante falle. El resto
+  // mantiene la seleccion aleatoria.
+  const varianteCount = compiled.enunciados?.length ?? 0;
+  const forceWindow = Math.min(varianteCount, iterations);
+
   for (let i = 0; i < iterations; i++) {
     const seed = `${prefix}-${i}`;
+    const forceVariant = i < forceWindow ? i % varianteCount : undefined;
     const t0 = performance.now();
     try {
-      const result = generate(compiled, { seed, provider: opts?.provider });
+      const result = generate(compiled, {
+        seed,
+        provider: opts?.provider,
+        ...(forceVariant !== undefined ? { forceVariant } : {}),
+      });
       verifyResultIntegrity(result, compiled, seed, warningBucket);
       passed++;
     } catch (e) {
@@ -159,6 +172,18 @@ function verifyResultIntegrity(
       severity: "warning",
       code: "tolerancia-invalida",
       message: "tolerancia debe ser positiva",
+      count: 1,
+      sampleSeed: seed,
+    });
+  }
+
+  // F2-04: tolerancia_abs inválida. Default ausente = 0 (preserva el
+  // comportamiento previo). Si está presente, debe ser ≥ 0.
+  if (result.toleranciaAbs !== undefined && result.toleranciaAbs < 0) {
+    addWarning(warnings, {
+      severity: "warning",
+      code: "tolerancia-abs-invalida",
+      message: "tolerancia_abs debe ser ≥ 0",
       count: 1,
       sampleSeed: seed,
     });

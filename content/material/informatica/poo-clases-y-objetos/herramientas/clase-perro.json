@@ -1,0 +1,22 @@
+{
+ "titulo": "Clase Perro",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Clase y atributos",
+   "headers": [
+    "Clase",
+    "Atributos",
+    "Métodos"
+   ],
+   "rows": [
+    [
+     "Perro",
+     "nombre, raza",
+     "ladrar()"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+[
+ {
+  "id": 935,
+  "cluster": 2,
+  "temas": [
+   "cortes-y-secciones",
+   "croquis-y-relevamiento-de-medidas",
+   "dibujo-asistido-por-computadora-cad",
+   "geometria-descriptiva-punto-recta-plano",
+   "instrumentos-de-dibujo-y-trazos-basicos"
+  ],
+  "preguntas": 113
+ },
+ {
+  "id": 936,
+  "cluster": 3,
+  "temas": [
+   "interpretar-planos-de-piezas-y-conjuntos",
+   "geometria-constructiva-tangencias-y-enlaces",
+   "representacion-de-roscas-tornillos-y-uniones",
+   "simbolos-de-soldadura-y-uniones",
+   "tipos-de-linea-formatos-y-rotulo"
+  ],
+  "preguntas": 113
+ },
+ {
+  "id": 937,
+  "cluster": 4,
+  "temas": [
+   "tolerancias-y-ajustes",
+   "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+   "dibujo-electrico-y-esquemas-de-instalaciones",
+   "rugosidad-y-acabado-superficial",
+   "vistas-auxiliares-y-detalles"
+  ],
+  "preguntas": 114
+ }
+]

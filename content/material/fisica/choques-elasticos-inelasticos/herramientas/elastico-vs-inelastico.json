@@ -1,0 +1,32 @@
+{
+ "titulo": "Choque elástico y choque inelástico",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué se conserva",
+   "headers": [
+    "",
+    "Elástico",
+    "Inelástico"
+   ],
+   "rows": [
+    [
+     "Momento lineal",
+     "Se conserva",
+     "Se conserva"
+    ],
+    [
+     "Energía cinética",
+     "Se conserva (2 J → 2 J en el ejemplo)",
+     "Disminuye (2 J → 1 J en el ejemplo)"
+    ],
+    [
+     "Destino de la energía perdida",
+     "—",
+     "Calor, sonido y deformación"
+    ]
+   ]
+  }
+ ]
+}

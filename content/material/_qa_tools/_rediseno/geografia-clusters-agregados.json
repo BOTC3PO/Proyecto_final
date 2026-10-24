@@ -1,0 +1,27 @@
+[
+ {
+  "id": 804,
+  "cluster": 9,
+  "temas": [
+   "africa-regiones-recursos-y-desafios",
+   "asia-china-india-y-sudeste-asiatico",
+   "brasil-geografia-economia-y-relacion-con-argentina",
+   "cambio-climatico-causas-efectos-y-acuerdos",
+   "china-geografia-y-modelo-economico"
+  ],
+  "preguntas": 115
+ },
+ {
+  "id": 805,
+  "cluster": 10,
+  "temas": [
+   "europa-y-union-europea",
+   "medio-oriente-petroleo-agua-y-conflictos",
+   "oceania-y-antartida",
+   "redes-de-transporte-y-comunicacion-globales",
+   "rusia-y-asia-central",
+   "sudafrica-geografia-y-sociedad"
+  ],
+  "preguntas": 141
+ }
+]

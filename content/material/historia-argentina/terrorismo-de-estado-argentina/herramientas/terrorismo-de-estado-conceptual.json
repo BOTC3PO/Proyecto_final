@@ -1,0 +1,58 @@
+{
+ "titulo": "Terrorismo de Estado: mecanismos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Mapa conceptual",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Terrorismo de Estado",
+     "x": 250,
+     "y": 80,
+     "shape": "circle",
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Desaparición forzada",
+     "x": 0,
+     "y": 0,
+     "color": "#e5e7eb"
+    },
+    {
+     "id": "n3",
+     "label": "Tortura",
+     "x": 500,
+     "y": 0,
+     "color": "#e5e7eb"
+    },
+    {
+     "id": "n4",
+     "label": "Detención clandestina",
+     "x": 250,
+     "y": 195,
+     "color": "#e5e7eb"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n1",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n1",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

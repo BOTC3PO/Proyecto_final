@@ -1,0 +1,57 @@
+{
+ "titulo": "Modelo AIDA en una campaña",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "AIDA",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Atención: un afiche llamativo",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Interés: beneficios del producto",
+     "x": 212,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Deseo: testimonios y oferta",
+     "x": 425,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Acción: \"Comprá hoy\"",
+     "x": 638,
+     "y": 0,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

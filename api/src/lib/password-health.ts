@@ -1,5 +1,6 @@
 import { recordAuditLog } from "./audit-log";
 import { prisma } from "./prisma";
+import { resolvePrimaryRole } from "./roles";
 import { isPasswordHashUsable } from "./passwords";
 
 export const markUsersWithoutUsablePasswordForReset = async (params: {
@@ -12,7 +13,7 @@ export const markUsersWithoutUsablePasswordForReset = async (params: {
   const whereClause = targetUserId ? { id: targetUserId } : {};
   const candidates = await prisma.usuario.findMany({
     where: whereClause,
-    select: { id: true, role: true, passwordHash: true, passwordResetRequired: true }
+    select: { id: true, roles: true, passwordHash: true, passwordResetRequired: true }
   });
 
   for (const user of candidates) {
@@ -28,7 +29,7 @@ export const markUsersWithoutUsablePasswordForReset = async (params: {
       targetId: user.id,
       metadata: {
         reason,
-        role: user.role,
+        role: resolvePrimaryRole(user),
         hadPasswordHash: typeof user.passwordHash === "string"
       }
     });

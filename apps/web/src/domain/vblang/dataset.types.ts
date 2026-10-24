@@ -23,6 +23,8 @@ export interface DatasetListItem {
   ownerUserId: string;
   schoolId?: string;
   columnas: ColumnasMap;
+  /** PLAN-E §20: URL externa (HTTPS, CSV/JSON) para refresco manual. */
+  sourceUrl?: string;
   filasCount: number;
   createdAt: string;
   updatedAt: string;
@@ -64,6 +66,13 @@ export interface DatasetUpdateInput {
   visibility?: Visibility;
   /** ATENCIÓN: cambiar columnas en un dataset existente NO está soportado en v1. */
   columnas?: ColumnasMap;
+  /** null borra la URL de origen. */
+  sourceUrl?: string | null;
+}
+
+export interface DatasetRefreshResponse {
+  ok: true;
+  filas: number;
 }
 
 export interface DatasetAddRowsResponse {

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { solicitarCambioRol } from "../services/roles";
+import { crearCuentaAlumnoPadre } from "../services/padres";
+import { crearCuentaAlumnoStaff } from "../services/cuenta-alumno-staff";
+import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
-import EsperandoPago from "../components/EsperandoPago";
-import {
-  fetchEstadoSuscripcion, fetchHistorialPagos,
-  fetchLimites, iniciarSuscripcion,
-  cancelarSuscripcion, solicitarReembolso,
-  type EstadoSuscripcion, type PagoHistorial,
-  type LimitesEscuela,
-} from "../services/suscripciones";
+import { useI18n } from "../i18n/I18nContext";
+import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
+import LogroCard, { getTier } from "../ui/LogroCard";
+
+type TipoDestino = "ALUMNO" | "PRINCIPAL" | "PADRE" | "ALUMNO_HIJO";
 
 type PerfilData = {
   id: string;
@@ -22,6 +24,12 @@ type PerfilData = {
   warningCount: number;
   modulosCompletados: { publicos: number; privados: number; total: number };
   hijos: Array<{ id: string; nombre: string; usuario: string }>;
+  // FASE 5 + FASE 6 — vínculo a la cuenta espejo/vinculada.
+  //   - PADRE: el destino es la cuenta de padre del alumno (FASE 6).
+  //   - ALUMNO: el destino es la cuenta espejo del padre (FASE 5).
+  //   - PRINCIPAL: este user es el espejo y el destino es el principal.
+  //   - ALUMNO_HIJO: este user es el padre y el destino es el alumno.
+  cuentaVinculada?: { destinoUsuarioId: string; tipoDestino: TipoDestino } | null;
 };
 
 type ProgressItem = {
@@ -43,38 +51,26 @@ type FortalezaMateria = {
   porcentaje: number;
 };
 
-type Logro = {
-  id: string;
-  label: string;
-  descripcion: string;
-  icono: string;
-  obtenido: boolean;
-};
+type Logro =
+  | { id: string; kind: "binario"; label: string; descripcion: string; icono: string; obtenido: boolean }
+  | { id: string; kind: "tier"; label: string; descripcion: string; icono: string; porcentaje: number };
 
-const ROLE_LABELS: Record<string, string> = {
-  ADMIN: "Administrador",
-  USER: "Alumno",
-  TEACHER: "Docente",
-  PARENT: "Padre/Madre",
-  DIRECTIVO: "Directivo",
-  GUEST: "Invitado",
-};
+/** "Dorado · 88%" / "¡Perfecto! Platino · 100%" / "No obtenido" (bloqueado). */
+function tierLabelFor(porcentaje: number, t: (key: string) => string): string {
+  const { tier, esPerfecto } = getTier(porcentaje);
+  if (tier === "bloqueado") return t("perfil.noObtenido");
+  const nombre = t(`perfil.logros.tier${tier.charAt(0).toUpperCase()}${tier.slice(1)}`);
+  const base = `${nombre} · ${Math.round(porcentaje)}%`;
+  return esPerfecto ? `${t("perfil.logros.perfecto")} ${base}` : base;
+}
 
-const THEME_SWATCH_COLORS: Record<string, string> = {
-  "clasico-vb":  "#2563eb",
-  "clasico":     "#1e40af",
-  "minimal":     "#1a1a18",
-  "aurora":      "#7c3aed",
-  "bosque":      "#15803d",
-  "nocturno":    "#1e293b",
-  "nocturno-vb": "#0f172a",
-  "vibrante":    "#e11d48",
-  "galaxy":      "#4f46e5",
-  "sunset":      "#f97316",
-  "ocean":       "#0891b2",
-  "candy":       "#ec4899",
-  "neon":        "#22d3ee",
-  "admin":       "#6b7280",
+const ROLE_LABEL_KEY: Record<string, string> = {
+  ADMIN: "perfil.administrador",
+  USER: "matrizProgreso.alumno",
+  TEACHER: "perfil.docente",
+  PARENT: "register.rolPadre",
+  DIRECTIVO: "comun.directivo",
+  GUEST: "comun.invitado",
 };
 
 const ROLE_COLORS: Record<string, string> = {
@@ -95,17 +91,10 @@ export default function Perfil() {
   const [logros, setLogros] = useState<Logro[]>([]);
   const [progresoStatus, setProgresoStatus] =
     useState<"idle" | "loading" | "ready">("idle");
-  const [suscripcion, setSuscripcion] =
-    useState<EstadoSuscripcion | null>(null);
-  const [historial, setHistorial] = useState<PagoHistorial[]>([]);
-  const [limites, setLimites] = useState<LimitesEscuela | null>(null);
-  const [suscLoading, setSuscLoading] = useState(true);
-  const [payerEmail, setPayerEmail] = useState("");
-  const [suscAccion, setSuscAccion] =
-    useState<"idle" | "loading" | "error" | "ok">("idle");
-  const [suscMsg, setSuscMsg] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "suscripcion" | "apariencia">("perfil");
-  const { theme, setTheme, availableThemes } = useTheme();
+  const [activeTab, setActiveTab] = useState<"perfil" | "progreso" | "logros" | "apariencia">("perfil");
+  const navigate = useNavigate();
+  const { theme, setTheme, availableThemes, isThemeOwned } = useTheme();
+  const { lang, setLang, availableLanguages, t } = useI18n();
 
   useEffect(() => {
     let active = true;
@@ -139,7 +128,7 @@ export default function Perfil() {
         // Agrupar por materia
         const porMateria = new Map<string, { total: number; completados: number }>();
         for (const m of modulosRes.items) {
-          const materia = m.subject ?? m.category ?? "General";
+          const materia = resolveMateria(m);
           const entry = porMateria.get(materia) ?? { total: 0, completados: 0 };
           entry.total += 1;
           if (completadosIds.has(m.id)) entry.completados += 1;
@@ -163,51 +152,48 @@ export default function Perfil() {
         const logrosCalc: Logro[] = [
           {
             id: "primer-modulo",
-            label: "Primer paso",
-            descripcion: "Completaste tu primer módulo.",
+            kind: "binario",
+            label: t("perfil.primerPaso"),
+            descripcion: t("perfil.completasteTuPrimerModulo"),
             icono: "🎯",
             obtenido: totalCompletados >= 1,
           },
           {
             id: "cinco-modulos",
-            label: "En camino",
-            descripcion: "Completaste 5 módulos.",
+            kind: "binario",
+            label: t("perfil.enCamino"),
+            descripcion: t("perfil.completaste5Modulos"),
             icono: "📚",
             obtenido: totalCompletados >= 5,
           },
           {
             id: "diez-modulos",
-            label: "Estudioso",
-            descripcion: "Completaste 10 módulos.",
+            kind: "binario",
+            label: t("perfil.estudioso"),
+            descripcion: t("perfil.completaste10Modulos"),
             icono: "🏆",
             obtenido: totalCompletados >= 10,
           },
           {
             id: "veinticinco-modulos",
-            label: "Experto",
-            descripcion: "Completaste 25 módulos.",
+            kind: "binario",
+            label: t("perfil.experto"),
+            descripcion: t("perfil.completaste25Modulos"),
             icono: "⭐",
             obtenido: totalCompletados >= 25,
           },
-          // Logros por materia — uno por cada materia con 100%
+          // Un logro tiereado por materia (reemplaza los pares dominio-/avanzado-
+          // de antes: mismo dato `porcentaje`, una sola tarjeta con color/nivel
+          // según la nota real en vez de 2 tarjetas binarias fijas en 75/100).
           ...fortalezasCalc
-            .filter((f) => f.porcentaje === 100 && f.total >= 3)
-            .map((f) => ({
-              id: `dominio-${f.materia.toLowerCase()}`,
-              label: `Dominio de ${f.materia}`,
-              descripcion: `Completaste todos los módulos de ${f.materia}.`,
+            .filter((f) => f.total >= 2 && f.porcentaje >= 60)
+            .map((f): Logro => ({
+              id: `materia-${f.materia.toLowerCase()}`,
+              kind: "tier",
+              label: `${t("perfil.dominioDe")} ${f.materia}`,
+              descripcion: `${t("perfil.completasteTodosLosModulosDe")} ${f.materia}.`,
               icono: "🎓",
-              obtenido: true,
-            })),
-          // Logro por materia con más del 75%
-          ...fortalezasCalc
-            .filter((f) => f.porcentaje >= 75 && f.total >= 2)
-            .map((f) => ({
-              id: `avanzado-${f.materia.toLowerCase()}`,
-              label: `Avanzado en ${f.materia}`,
-              descripcion: `Superaste el 75% de los módulos de ${f.materia}.`,
-              icono: "💡",
-              obtenido: true,
+              porcentaje: f.porcentaje,
             })),
         ];
 
@@ -222,73 +208,6 @@ export default function Perfil() {
     return () => { active = false; };
   }, [perfil?.id]);
 
-  useEffect(() => {
-    let active = true;
-    Promise.all([
-      fetchEstadoSuscripcion(),
-      fetchHistorialPagos(),
-      fetchLimites(),
-    ])
-      .then(([estado, hist, lim]) => {
-        if (!active) return;
-        setSuscripcion(estado);
-        setHistorial(hist);
-        setLimites(lim.limites);
-      })
-      .catch(() => {})
-      .finally(() => { if (!active) return; setSuscLoading(false); });
-    return () => { active = false; };
-  }, [perfil?.id]);
-
-  const handleSuscribir = async (
-    tipo: "escuela" | "profesor" | "alumno"
-  ) => {
-    if (!payerEmail.trim()) {
-      setSuscMsg("Ingresá tu email de MercadoPago.");
-      return;
-    }
-    setSuscAccion("loading");
-    setSuscMsg(null);
-    try {
-      const result = await iniciarSuscripcion({
-        tipo,
-        payerEmail: payerEmail.trim(),
-        backUrl: window.location.href,
-      });
-      window.location.href = result.initPoint;
-    } catch (err) {
-      setSuscAccion("error");
-      setSuscMsg(
-        err instanceof Error ? err.message : "No se pudo iniciar el pago."
-      );
-    }
-  };
-
-  const handleCancelar = async (suscripcionId: string) => {
-    setSuscAccion("loading");
-    try {
-      const result = await cancelarSuscripcion(suscripcionId);
-      setSuscMsg(result.mensaje);
-      setSuscAccion("ok");
-      const updated = await fetchEstadoSuscripcion();
-      setSuscripcion(updated);
-    } catch {
-      setSuscAccion("error");
-      setSuscMsg("No se pudo cancelar.");
-    }
-  };
-
-  const handleReembolso = async (suscripcionId: string) => {
-    setSuscAccion("loading");
-    try {
-      const result = await solicitarReembolso(suscripcionId);
-      setSuscMsg(result.mensaje);
-      setSuscAccion("ok");
-    } catch {
-      setSuscAccion("error");
-      setSuscMsg("No se pudo solicitar el reembolso.");
-    }
-  };
 
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
@@ -314,12 +233,10 @@ export default function Perfil() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <p className="text-base font-semibold text-[var(--c-text)] truncate">{perfil.fullName}</p>
                   <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${ROLE_COLORS[perfil.role] ?? "bg-gray-100 text-gray-600"}`}>
-                    {ROLE_LABELS[perfil.role] ?? perfil.role}
+                    {ROLE_LABEL_KEY[perfil.role] ? t(ROLE_LABEL_KEY[perfil.role]) : perfil.role}
                   </span>
                   {perfil.isBanned && (
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]">
-                      Suspendido
-                    </span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] text-[var(--c-danger)]">{t("perfil.suspendido")}</span>
                   )}
                 </div>
                 <p className="text-xs text-[var(--c-muted)] mt-0.5">@{perfil.username}</p>
@@ -330,16 +247,14 @@ export default function Perfil() {
             {/* Tabs */}
             <div className="flex gap-1 border-b border-[var(--c-border)]">
               {([
-                { key: "perfil",      label: "Datos" },
-                { key: "progreso",    label: "Progreso" },
-                { key: "logros",      label: "Logros" },
-                ...(perfil?.role !== 'ADMIN'
-                  ? [{ key: "suscripcion" as const, label: "Suscripción" }]
-                  : []),
-                ...(availableThemes.length > 1
-                  ? [{ key: "apariencia" as const, label: "Apariencia" }]
-                  : []),
-              ] as { key: "perfil" | "progreso" | "logros" | "suscripcion" | "apariencia"; label: string }[]).map(({ key, label }) => (
+                { key: "perfil",      label: t("perfil.datos") },
+                { key: "progreso",    label: t("nav.progreso") },
+                { key: "logros",      label: t("perfil.logros") },
+                // Apariencia siempre visible: aloja tema (gated adentro
+                // por availableThemes.length > 1) e idioma (siempre hay
+                // más de un idioma disponible).
+                { key: "apariencia" as const, label: t("perfil.apariencia") },
+              ] as { key: "perfil" | "progreso" | "logros" | "apariencia"; label: string }[]).map(({ key, label }) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
@@ -357,14 +272,23 @@ export default function Perfil() {
             {/* ── TAB: DATOS ── */}
             {activeTab === "perfil" && (
               <div className="space-y-3">
+                {/* FIX-TEST4-ROLE-02 — antes un USER adulto no
+                    tenía forma de auto-solicitar un cambio de rol.
+                    Ahora hay un banner arriba de los datos
+                    personales con un selector y un botón. El
+                    back valida que sea mayor de 18 años y que
+                    el rol no sea el actual. */}
+                <RoleSolicitudBanner
+                  currentRole={perfil.role}
+                />
                 {[
-                  { label: "Nombre completo", value: perfil.fullName },
-                  { label: "Usuario",         value: `@${perfil.username}` },
-                  { label: "Email",           value: perfil.email },
-                  { label: "Miembro desde",   value: perfil.createdAt
-                      ? new Date(perfil.createdAt).toLocaleDateString("es-AR")
+                  { label: t("perfil.nombreCompleto"), value: perfil.fullName },
+                  { label: t("common.usuarioFallback"),         value: `@${perfil.username}` },
+                  { label: t("register.labelEmail"),           value: perfil.email },
+                  { label: t("perfil.miembroDesde"),   value: perfil.createdAt
+                      ? new Date(perfil.createdAt).toLocaleDateString(lang)
                       : "—" },
-                  { label: "Módulos completados", value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} públicos · ${perfil.modulosCompletados.privados} privados)` },
+                  { label: t("comun.modulosCompletados"), value: `${perfil.modulosCompletados.total} (${perfil.modulosCompletados.publicos} ${t("comun.publicos")} · ${perfil.modulosCompletados.privados} ${t("comun.privados")})` },
                 ].map(({ label, value }) => (
                   <div key={label} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl px-4 py-3 flex items-center justify-between gap-3">
                     <p className="text-xs text-[var(--c-muted)]">{label}</p>
@@ -374,19 +298,37 @@ export default function Perfil() {
                 {perfil.warningCount > 0 && (
                   <div className="bg-[color-mix(in_srgb,var(--c-warning)_8%,transparent)] border border-[color-mix(in_srgb,var(--c-warning)_25%,transparent)] rounded-xl px-4 py-3">
                     <p className="text-xs font-medium text-[var(--c-warning)]">
-                      {perfil.warningCount} advertencia{perfil.warningCount > 1 ? "s" : ""} registrada{perfil.warningCount > 1 ? "s" : ""}
+                      {perfil.warningCount} {perfil.warningCount > 1 ? t("perfil.advertenciasRegistradas") : t("perfil.advertenciaRegistrada")}
                     </p>
                   </div>
                 )}
 
+                {/* Mi cuenta de alumno — espejo opt-in (solo PARENT) */}
+                {perfil.role === "PARENT" && (
+                  <MiCuentaAlumnoCard
+                    tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
+                  />
+                )}
+
+                {/* FASE 4 — Mi cuenta de alumno (staff): crear o vincular una
+                    existente. Resuelve el caso del staff sin espejo, que al
+                    "Ver como alumno" caía a /login. */}
+                {(perfil.role === "TEACHER" || perfil.role === "DIRECTIVO" || perfil.role === "ADMIN") && (
+                  <MiCuentaAlumnoStaffCard
+                    tieneEspejo={perfil.cuentaVinculada?.tipoDestino === "ALUMNO"}
+                  />
+                )}
+
+                {/* K8 — el rol de padre/madre ya no se autoasigna: lo da la escuela (alta o código de invitación). */}
+
                 {/* Hijos vinculados (solo PARENT) */}
                 {perfil.role === "PARENT" && (
                   <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-                    <p className="text-sm font-medium text-[var(--c-text)] mb-3">Hijos vinculados</p>
+                    <p className="text-sm font-medium text-[var(--c-text)] mb-3">{t("perfil.hijosVinculados")}</p>
                     {perfil.hijos.length === 0 ? (
                       <p className="text-xs text-[var(--c-muted)]">
-                        No tenés hijos vinculados.{" "}
-                        <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">Agregar un hijo</a>
+                        {t("perfil.noTenesHijosVinculados")}{" "}
+                        <a href="/hijos/agregar" className="text-[var(--c-primary)] underline">{t("perfil.agregarUnHijo")}</a>
                       </p>
                     ) : (
                       <div className="space-y-2">
@@ -399,9 +341,7 @@ export default function Perfil() {
                             <a
                               href="/hijos"
                               className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                            >
-                              Ver progreso
-                            </a>
+                            >{t("perfil.verProgreso")}</a>
                           </div>
                         ))}
                       </div>
@@ -423,13 +363,13 @@ export default function Perfil() {
                 )}
                 {progresoStatus === "ready" && fortalezas.length === 0 && (
                   <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">Sin datos de progreso por materia todavía.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("perfil.sinDatosDeProgresoPor")}</p>
                   </div>
                 )}
                 {fortalezas.map((f) => (
                   <div key={f.materia} className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm font-medium text-[var(--c-text)]">{f.materia}</p>
+                      <p className="text-sm font-medium text-[var(--c-text)]">{f.materia === MATERIA_FALLBACK ? t("comun.sinMateria") : f.materia}</p>
                       <span className="text-xs font-semibold text-[var(--c-primary)]">{f.porcentaje}%</span>
                     </div>
                     <div className="h-1.5 w-full bg-[var(--c-border)] rounded-full">
@@ -442,7 +382,7 @@ export default function Perfil() {
                       />
                     </div>
                     <p className="text-xs text-[var(--c-muted)] mt-1.5">
-                      {f.completados} de {f.total} módulos
+                      {f.completados} {t("menualumno.deLabel")} {f.total} {f.total === 1 ? t("comun.modulo") : t("comun.modulos")}
                     </p>
                   </div>
                 ))}
@@ -454,254 +394,118 @@ export default function Perfil() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {logros.length === 0 && (
                   <div className="col-span-2 rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
-                    <p className="text-sm text-[var(--c-muted)]">Sin logros disponibles todavía.</p>
+                    <p className="text-sm text-[var(--c-muted)]">{t("perfil.sinLogrosDisponiblesTodavia")}</p>
                   </div>
                 )}
-                {logros.map((logro) => (
-                  <div
-                    key={logro.id}
-                    className={`rounded-xl border p-4 flex items-start gap-3 ${
-                      logro.obtenido
-                        ? "border-[var(--c-border)] bg-[var(--c-surface)]"
-                        : "border-[var(--c-border)] bg-[var(--c-surface)] opacity-40"
-                    }`}
-                  >
-                    <span className="text-2xl flex-shrink-0">{logro.icono}</span>
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--c-text)]">{logro.label}</p>
-                      <p className="text-xs text-[var(--c-muted)] mt-0.5">{logro.descripcion}</p>
-                      {!logro.obtenido && (
-                        <p className="text-[10px] text-[var(--c-muted)] mt-1">No obtenido</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                {logros.map((logro) =>
+                  logro.kind === "binario" ? (
+                    <LogroCard
+                      key={logro.id}
+                      kind="binario"
+                      icono={logro.icono}
+                      label={logro.label}
+                      descripcion={logro.descripcion}
+                      obtenido={logro.obtenido}
+                      estadoLabel={logro.obtenido ? t("perfil.logros.completado") : t("perfil.noObtenido")}
+                    />
+                  ) : (
+                    <LogroCard
+                      key={logro.id}
+                      kind="tier"
+                      icono={logro.icono}
+                      label={logro.label}
+                      descripcion={logro.descripcion}
+                      porcentaje={logro.porcentaje}
+                      tierLabel={tierLabelFor(logro.porcentaje, t)}
+                    />
+                  )
+                )}
               </div>
             )}
 
-            {/* ── TAB: SUSCRIPCIÓN ── */}
-            {activeTab === "suscripcion" && perfil?.role !== 'ADMIN' && (
-              <div className="space-y-4">
-                {suscLoading && (
-                  <div className="h-24 rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] animate-pulse" />
-                )}
-
-                {!suscLoading && suscripcion && (
-                  <>
-                    {/* Esperando confirmación de un pago recién iniciado.
-                        Al volver de MercadoPago la suscripción queda "pendiente";
-                        la acreditación real llega por webhook → polleamos hasta activa. */}
-                    {(suscripcion.personal?.estado === "pendiente" ||
-                      suscripcion.escuela?.estado === "pendiente") && (
-                      <EsperandoPago
-                        estaConfirmado={(e) =>
-                          e.personal?.estado === "activa" ||
-                          e.escuela?.estado === "activa"
-                        }
-                        onConfirmado={(e) => {
-                          setSuscripcion(e);
-                          setSuscAccion("ok");
-                          setSuscMsg(null);
-                          fetchHistorialPagos().then(setHistorial).catch(() => {});
-                        }}
-                      />
-                    )}
-
-                    {/* Suscripción personal */}
-                    {suscripcion.personal && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold text-[var(--c-text)]">Suscripción personal</p>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            suscripcion.personal.estado === "activa"
-                              ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
-                              : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
-                          }`}>
-                            {suscripcion.personal.estado}
-                          </span>
-                        </div>
-                        <p className="text-2xl font-semibold text-[var(--c-text)] capitalize">{suscripcion.personal.plan}</p>
-                        <p className="text-xs text-[var(--c-muted)]">
-                          Vence: {new Date(suscripcion.personal.periodo_fin).toLocaleDateString("es-AR")}
-                        </p>
-                        {suscripcion.personal.estado === "activa" && (
-                          <div className="flex gap-3 pt-1">
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleCancelar(suscripcion.personal!.id)}
-                              className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-muted)] hover:text-[var(--c-danger)] hover:border-[var(--c-danger)] transition-colors disabled:opacity-40"
-                            >
-                              Cancelar
-                            </button>
-                            {!suscripcion.personal.reembolso_solicitado && (
-                              <button
-                                disabled={suscAccion === "loading"}
-                                onClick={() => handleReembolso(suscripcion.personal!.id)}
-                                className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)] disabled:opacity-40"
-                              >
-                                Solicitar reembolso
-                              </button>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Suscripción escuela */}
-                    {suscripcion.escuela && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-5 space-y-2">
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold text-[var(--c-text)]">Suscripción escuela</p>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                            suscripcion.escuela.estado === "activa"
-                              ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
-                              : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
-                          }`}>
-                            {suscripcion.escuela.estado}
-                          </span>
-                        </div>
-                        <p className="text-2xl font-semibold text-[var(--c-text)] capitalize">{suscripcion.escuela.plan}</p>
-                        <p className="text-xs text-[var(--c-muted)]">
-                          Vence: {new Date(suscripcion.escuela.periodo_fin).toLocaleDateString("es-AR")}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Multiplicador */}
-                    {suscripcion.multiplicador && (
-                      <div className="bg-[color-mix(in_srgb,var(--c-success)_8%,transparent)] border border-[color-mix(in_srgb,var(--c-success)_20%,transparent)] rounded-xl px-4 py-3">
-                        <p className="text-xs font-semibold text-[var(--c-success)]">Multiplicador activo</p>
-                        <p className="text-xs text-[var(--c-muted)] mt-0.5">+15% de monedas en la economía del aula</p>
-                      </div>
-                    )}
-
-                    {/* Límites */}
-                    {limites && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-                        <p className="text-xs font-medium text-[var(--c-muted)] mb-2">Límites del plan</p>
-                        <div className="grid grid-cols-2 gap-1.5 text-xs text-[var(--c-text)]">
-                          <span>Profesores: hasta {limites.max_profesores}</span>
-                          <span>Directivos: hasta {limites.max_directivos}</span>
-                          <span>Aulas activas: hasta {limites.max_aulas}</span>
-                          <span>Alumnos/aula: hasta {limites.max_alumnos_por_aula}</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Formulario suscribirse */}
-                    {!suscripcion.personal && suscripcion.paymentsEnabled && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
-                        <p className="text-sm font-medium text-[var(--c-text)]">Activar suscripción</p>
-                        <input
-                          type="email"
-                          placeholder="Tu email de MercadoPago"
-                          className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
-                          value={payerEmail}
-                          onChange={(e) => setPayerEmail(e.target.value)}
-                        />
-                        <div className="flex flex-wrap gap-2">
-                          {perfil.role === "USER" && (
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleSuscribir("alumno")}
-                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
-                            >
-                              Alumno — $1.000/mes
-                            </button>
-                          )}
-                          {perfil.role === "TEACHER" && (
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleSuscribir("profesor")}
-                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
-                            >
-                              Expandir aulas — $150/mes
-                            </button>
-                          )}
-                          {perfil.role === "DIRECTIVO" && (
-                            <button
-                              disabled={suscAccion === "loading"}
-                              onClick={() => handleSuscribir("escuela")}
-                              className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
-                            >
-                              Escuela — desde $300/mes
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {!suscripcion.paymentsEnabled && (
-                      <p className="text-sm text-[var(--c-muted)]">
-                        Los pagos están deshabilitados en este sistema. Contactá al administrador para gestionar tu suscripción.
-                      </p>
-                    )}
-
-                    {suscMsg && (
-                      <p className={`text-xs ${suscAccion === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}>
-                        {suscMsg}
-                      </p>
-                    )}
-
-                    {/* Historial de pagos */}
-                    {historial.length > 0 && (
-                      <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4">
-                        <p className="text-sm font-medium text-[var(--c-text)] mb-3">Historial de pagos</p>
-                        <div className="space-y-2">
-                          {historial.slice(0, 5).map((pago) => (
-                            <div key={pago.id} className="flex items-center justify-between text-xs">
-                              <span className="text-[var(--c-muted)]">
-                                {new Date(pago.created_at).toLocaleDateString("es-AR")}
-                              </span>
-                              <span className="text-[var(--c-text)] font-medium">
-                                ${pago.monto.toLocaleString("es-AR")} {pago.moneda}
-                              </span>
-                              <span className={`rounded-full px-2 py-0.5 font-semibold ${
-                                pago.estado === "pagado"
-                                  ? "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
-                                  : pago.estado === "reembolsado"
-                                  ? "bg-[color-mix(in_srgb,var(--c-primary)_12%,transparent)] text-[var(--c-primary)]"
-                                  : "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
-                              }`}>
-                                {pago.estado}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            )}
             {/* ── TAB: APARIENCIA ── */}
-            {activeTab === "apariencia" && availableThemes.length > 1 && (
-              <div className="space-y-3">
-                <p className="text-sm text-[var(--c-muted)]">
-                  Elegí el tema visual de la plataforma.
-                </p>
-                <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-                  {THEME_OPTIONS.filter((opt) => availableThemes.some((t) => t.id === opt.id)).map((opt) => (
+            {activeTab === "apariencia" && (
+              <div className="space-y-6">
+                {availableThemes.length > 1 && (
+                  <div className="space-y-3">
+                    <p className="text-sm text-[var(--c-muted)]">{t("perfil.elegiElTemaVisualDe")}</p>
+                    <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                      {THEME_OPTIONS.filter((opt) => availableThemes.some((th) => th.id === opt.id)).map((opt) => {
+                        const owned = isThemeOwned(opt.id);
+                        return (
+                          <button
+                            key={opt.id}
+                            type="button"
+                            data-theme={opt.id}
+                            // FIX-TEMAS-SIN-COMPRAR — antes este selector no
+                            // chequeaba si el tema estaba comprado; ahora
+                            // setTheme() ya lo bloquea del lado del context,
+                            // acá sólo reflejamos el estado (deshabilitado +
+                            // link a la tienda) para que no sea un click
+                            // silencioso que no hace nada.
+                            onClick={() => owned && setTheme(opt.id)}
+                            disabled={!owned}
+                            title={owned ? undefined : t("perfil.comprarEnLaTienda")}
+                            className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                              !owned
+                                ? "border-[var(--c-border)] bg-[var(--c-surface)] opacity-50 cursor-not-allowed"
+                                : theme === opt.id
+                                ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
+                                : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
+                            }`}
+                          >
+                            <span
+                              className="w-4 h-4 rounded-full shrink-0 border border-black/10"
+                              style={{ backgroundColor: "var(--c-primary)" }}
+                            />
+                            {/* FIX-TEMA-CIRCULOS — mismo catálogo tema.<id>
+                                que StaffSidebar.tsx, en vez del nombre
+                                crudo de THEME_OPTIONS. */}
+                            <span className="text-sm font-medium text-[var(--c-text)]">{t(`tema.${opt.id}`)}</span>
+                            {!owned ? (
+                              <span className="ml-auto text-xs font-semibold text-[var(--c-muted)]">🔒 {opt.price}</span>
+                            ) : theme === opt.id && (
+                              <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">{t("perfil.activo")}</span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
                     <button
-                      key={opt.id}
                       type="button"
-                      onClick={() => setTheme(opt.id)}
-                      className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
-                        theme === opt.id
-                          ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
-                          : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
-                      }`}
-                    >
-                      <span
-                        className="w-6 h-6 rounded-full shrink-0 border border-black/10"
-                        style={{ backgroundColor: THEME_SWATCH_COLORS[opt.id] ?? "#888" }}
-                      />
-                      <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
-                      {theme === opt.id && (
-                        <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">Activo</span>
-                      )}
-                    </button>
-                  ))}
+                      onClick={() => navigate('/tienda-temas')}
+                      className="text-xs font-medium text-[var(--c-primary)] hover:underline"
+                    >{t("perfil.irALaTiendaDeTemas")}</button>
+                  </div>
+                )}
+
+                {/* PLAN-T — selector de idioma de interfaz, persistido en
+                    localStorage (mismo patrón que ThemeContext). Cambia sin
+                    recargar: todo componente que usa useI18n() re-renderiza. */}
+                <div className="space-y-3">
+                  <p className="text-sm text-[var(--c-muted)]">
+                    {t("perfil.idiomaDescripcion")}
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                    {availableLanguages.map((opt) => (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => setLang(opt.id)}
+                        data-testid={`idioma-${opt.id}`}
+                        className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
+                          lang === opt.id
+                            ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_8%,transparent)] ring-1 ring-[var(--c-primary)]"
+                            : "border-[var(--c-border)] bg-[var(--c-surface)] hover:border-[var(--c-primary)]"
+                        }`}
+                      >
+                        <span className="text-sm font-medium text-[var(--c-text)]">{opt.name}</span>
+                        {lang === opt.id && (
+                          <span className="ml-auto text-xs font-semibold text-[var(--c-primary)]">{t("perfil.activo")}</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -709,6 +513,277 @@ export default function Perfil() {
         )}
 
       </div>
+    </div>
+  );
+}
+
+// FASE 5 — espejo opt-in del padre. El padre NO recibe su cuenta de
+// alumno en el registro: la crea acá on-demand si quiere estudiar.
+// Una vez creada, "Entrar como alumno" dispara el switch (mismo
+// mecanismo que el staff) y aterriza en el panel de alumno.
+function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
+  const { t } = useI18n();
+  const { user, cambiarEscuela } = useAuth();
+  const navigate = useNavigate();
+  // Estado local: refleja si el espejo ya existe (al cargar o tras crearlo).
+  const [existe, setExiste] = useState(tieneEspejo);
+  const [creando, setCreando] = useState(false);
+  const [entrando, setEntrando] = useState(false);
+  const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+
+  const handleCrear = async () => {
+    setCreando(true);
+    setMsg(null);
+    try {
+      const res = await crearCuentaAlumnoPadre();
+      setExiste(true);
+      setMsg({
+        kind: "ok",
+        text: res.created
+          ? t("perfil.tuCuentaDeAlumnoEsta")
+          : t("perfil.yaTeniasUnaCuentaDe"),
+      });
+    } catch (err) {
+      setMsg({
+        kind: "err",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoCrearLa"),
+      });
+    } finally {
+      setCreando(false);
+    }
+  };
+
+  const handleEntrar = async () => {
+    setEntrando(true);
+    setMsg(null);
+    try {
+      await cambiarEscuela(user?.schoolId ?? '', 'USER');
+      const landing = '/alumno';
+      navigate(landing);
+    } catch (err) {
+      setEntrando(false);
+      setMsg({
+        kind: "err",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoEntrarComo"),
+      });
+    }
+  };
+
+  return (
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
+      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.miCuentaDeAlumno")}</p>
+      <p className="text-xs text-[var(--c-muted)]">{t("perfil.ademasDeMonitorearATus")}</p>
+      <div className="pt-1">
+        {existe ? (
+          <button
+            onClick={handleEntrar}
+            disabled={entrando}
+            data-testid="padre-entrar-como-alumno"
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {entrando ? t("perfil.entrando") : t("dropdown.entrarComoAlumno")}
+          </button>
+        ) : (
+          <button
+            onClick={handleCrear}
+            disabled={creando}
+            data-testid="padre-crear-cuenta-alumno"
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {creando ? t("comun.creando") : t("perfil.crearMiCuentaDeAlumno")}
+          </button>
+        )}
+      </div>
+      {msg && (
+        <p className={`text-xs ${msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
+          {msg.text}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// FASE 4 — cuenta de alumno para STAFF. Resuelve el caso del staff sin
+// espejo (que al "Ver como alumno" caía a /login): puede crear su cuenta
+// de alumno o vincular una cuenta USER existente. Una vez que existe,
+// "Entrar como alumno" dispara el switch (mismo mecanismo que el padre).
+function MiCuentaAlumnoStaffCard({ tieneEspejo }: { tieneEspejo: boolean }) {
+  const { t } = useI18n();
+  const { user, cambiarEscuela } = useAuth();
+  const navigate = useNavigate();
+  const [existe, setExiste] = useState(tieneEspejo);
+  const [busy, setBusy] = useState<null | "crear" | "vincular" | "entrar">(null);
+  const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+
+  const handleCrear = async () => {
+    setBusy("crear");
+    setMsg(null);
+    try {
+      const res = await crearCuentaAlumnoStaff();
+      setExiste(true);
+      setMsg({
+        kind: "ok",
+        text: res.created
+          ? t("perfil.tuCuentaDeAlumnoEsta")
+          : t("perfil.yaTeniasUnaCuentaDe"),
+      });
+    } catch (err) {
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : t("perfil.noSePudoCrearLa") });
+    } finally {
+      setBusy(null);
+    }
+  };
+
+
+  const handleEntrar = async () => {
+    setBusy("entrar");
+    setMsg(null);
+    try {
+      await cambiarEscuela(user?.schoolId ?? '', 'USER');
+      const landing = '/alumno';
+      navigate(landing);
+    } catch (err) {
+      setBusy(null);
+      setMsg({ kind: "err", text: err instanceof Error ? err.message : t("perfil.noSePudoEntrarComo") });
+    }
+  };
+
+  return (
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-2">
+      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.miCuentaDeAlumno")}</p>
+      <p className="text-xs text-[var(--c-muted)]">{t("perfil.teDejaPrevisualizarLaExperiencia")}</p>
+      {existe ? (
+        <div className="pt-1">
+          <button
+            onClick={handleEntrar}
+            disabled={busy === "entrar"}
+            data-testid="staff-entrar-como-alumno"
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {busy === "entrar" ? t("perfil.entrando") : t("dropdown.entrarComoAlumno")}
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-2 pt-1">
+          <button
+            onClick={handleCrear}
+            disabled={busy === "crear"}
+            data-testid="staff-crear-cuenta-alumno"
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+          >
+            {busy === "crear" ? t("comun.creando") : t("perfil.crearMiCuentaDeAlumno")}
+          </button>
+        </div>
+      )}
+      {msg && (
+        <p className={`text-xs ${msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
+          {msg.text}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// FIX-TEST4-ROLE-02 — banner que permite a un USER adulto
+// solicitar un cambio de rol. El back valida la edad y la
+// idempotencia (no duplica solicitudes pendientes).
+function RoleSolicitudBanner({ currentRole }: { currentRole: string }) {
+  const { t } = useI18n();
+  const [open, setOpen] = useState(false);
+  const [targetRole, setTargetRole] = useState<"TEACHER" | "PARENT" | "DIRECTIVO" | "ADMIN">("TEACHER");
+  const [motivo, setMotivo] = useState("");
+  const [sending, setSending] = useState(false);
+  const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+
+  // Solo USER puede pedir (los demás roles no necesitan pedir).
+  if (currentRole !== "USER") return null;
+
+  const handleSubmit = async () => {
+    setSending(true);
+    setMsg(null);
+    try {
+      const res = await solicitarCambioRol({ targetRole, motivo });
+      setMsg({
+        kind: "ok",
+        text: res.alreadyPending
+          ? t("perfil.yaTenesUnaSolicitudPendiente")
+          : t("perfil.solicitudEnviadaElAdminLa")
+      });
+      setOpen(false);
+      setMotivo("");
+    } catch (err) {
+      setMsg({
+        kind: "err",
+        text: err instanceof Error ? err.message : t("perfil.noSePudoEnviarLa")
+      });
+    } finally {
+      setSending(false);
+    }
+  };
+
+  return (
+    <div className="rounded-xl border-2 border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_5%,transparent)] p-4 space-y-3">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-sm font-semibold text-[var(--c-text)]">{t("perfil.queresCambiarTuRol")}</p>
+          <p className="text-xs text-[var(--c-muted)] mt-1">{t("perfil.siTenesMasDe18")}</p>
+        </div>
+        {!open && (
+          <button
+            onClick={() => setOpen(true)}
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity shrink-0"
+            data-testid="perfil-solicitar-rol"
+          >{t("perfil.solicitar")}</button>
+        )}
+      </div>
+
+      {open && (
+        <div className="space-y-2">
+          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">{t("perfil.rolDeseado")}<select
+              value={targetRole}
+              onChange={(e) => setTargetRole(e.target.value as "TEACHER" | "PARENT" | "DIRECTIVO" | "ADMIN")}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            >
+              <option value="TEACHER">{t("perfil.docente")}</option>
+              <option value="PARENT">{t("register.rolPadre")}</option>
+              <option value="DIRECTIVO">{t("perfil.directivoDeEscuela")}</option>
+              <option value="ADMIN">{t("perfil.administrador")}</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-medium text-[var(--c-text)]">{t("perfil.motivoOpcional")}<textarea
+              rows={2}
+              value={motivo}
+              onChange={(e) => setMotivo(e.target.value)}
+              placeholder={t("perfil.contaleAlAdminPorQue")}
+              className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+            />
+          </label>
+          <div className="flex gap-2 justify-end">
+            <button
+              onClick={() => { setOpen(false); setMsg(null); }}
+              disabled={sending}
+              className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
+            >{t("comun.cancelar")}</button>
+            <button
+              onClick={handleSubmit}
+              disabled={sending}
+              className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+            >
+              {sending ? t("quizAttempt.enviando") : t("perfil.enviarSolicitud")}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {msg && (
+        <p
+          className={`text-xs ${
+            msg.kind === "ok" ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"
+          }`}
+        >
+          {msg.text}
+        </p>
+      )}
     </div>
   );
 }

@@ -1,20 +1,22 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { DesbloquearSchema, ModoAulaSchema, UmbralSchema } from "../schema/escrituras";
+import { validarCuerpo } from "../lib/validar";
+import { hasRole } from "../lib/roles";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
+import { aulaGestionable } from "../lib/aula-gestion";
 
 export const pedagogico = Router();
 
 const getId = (req: { user?: { id?: string; _id?: { toString?: () => string } } }) =>
   req.user?.id ?? req.user?._id?.toString?.() ?? null;
 
-const getRole = (req: { user?: { role?: string } }) =>
-  req.user?.role ?? null;
-
-const isStaff = (role: string | null) =>
-  ["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "");
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
 
 const genId = (prefix: string) =>
-  `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  `${prefix}-${randomUUID()}`;
 
 // ── GET /api/pedagogico/umbral/:quizId ──────────────────────
 pedagogico.get("/api/pedagogico/umbral/:quizId", requireUser, async (req, res) => {
@@ -28,17 +30,25 @@ pedagogico.get("/api/pedagogico/umbral/:quizId", requireUser, async (req, res) =
 // ── POST /api/pedagogico/umbral ─────────────────────────────
 pedagogico.post("/api/pedagogico/umbral", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
-  const { quizId, moduloId, umbral } = req.body as Record<string, unknown>;
-  if (!quizId || !moduloId || typeof umbral !== "number") {
-    return res.status(400).json({ error: "quizId, moduloId y umbral requeridos" });
-  }
-  if (umbral < 0 || umbral > 100) {
-    return res.status(400).json({ error: "umbral debe ser entre 0 y 100" });
+  const pedido = validarCuerpo(UmbralSchema, req, res);
+  if (!pedido) return;
+  const { quizId, moduloId, umbral } = pedido;
+
+  // El umbral de un cuestionario lo fija quien gestiona su módulo: el ADMIN, su dueño o el personal de la
+  // escuela dueña (visibilidad "escuela"). Antes valía cualquier docente sobre cualquier cuestionario.
+  if (!hasRole(user, "ADMIN")) {
+    const modulo = await prisma.modulo.findFirst({ where: { id: String(moduloId), isDeleted: { not: true } } });
+    const escuelaUsuario = (req as never as { user?: { schoolId?: string | null } }).user?.schoolId ?? null;
+    const puede =
+      !!modulo &&
+      ((!!userId && modulo.ownerUserId === userId) ||
+        (modulo.visibility === "escuela" && !!modulo.schoolId && modulo.schoolId === escuelaUsuario));
+    if (!puede) return res.status(403).json({ error: "sin permiso sobre este módulo" });
   }
 
   const now = new Date().toISOString();
@@ -59,24 +69,25 @@ pedagogico.post("/api/pedagogico/umbral", requireUser, async (req, res) => {
 
 // ── GET /api/pedagogico/riesgo/:aulaId ──────────────────────
 pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) => {
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
   try {
     const { aulaId: _aulaIdRaw } = req.params; const aulaId = _aulaIdRaw as string;
 
-    const aula = await prisma.clase.findFirst({
-      where: { id: aulaId, isDeleted: { not: true } },
-      select: { id: true },
-    });
-    if (!aula) return res.status(404).json({ error: "aula no encontrada" });
+    const aula = await aulaGestionable(req as never, res, aulaId);
+    if (!aula) return;
 
+    // PLAN-A §4 — `rolEnClase` real es "STUDENT" (el rol de cuenta "USER"
+    // nunca se escribe en ClaseMiembro); con "USER" esto siempre daba
+    // panel de riesgo vacío.
     const miembros = await prisma.claseMiembro.findMany({
-      where: { claseId: aulaId, rolEnClase: "USER" },
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
       select: { usuarioId: true },
     });
+    // FASE 4 — el espejo-alumno no aparece en el panel de riesgo.
     const alumnoIds = miembros.map((m) => m.usuarioId).filter(Boolean) as string[];
 
     if (!alumnoIds.length) return res.json({ items: [] });
@@ -135,45 +146,24 @@ pedagogico.get("/api/pedagogico/riesgo/:aulaId", requireUser, async (req, res) =
 // ── POST /api/pedagogico/desbloquear ────────────────────────
 pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
-  const { moduloId, alumnoId, aulaId, motivo } = req.body as Record<string, unknown>;
-
-  if (!moduloId || !alumnoId || !aulaId) {
-    return res.status(400).json({ error: "moduloId, alumnoId y aulaId requeridos" });
-  }
+  const pedido = validarCuerpo(DesbloquearSchema, req, res);
+  if (!pedido) return;
+  const { moduloId, alumnoId, aulaId, motivo } = pedido;
 
   try {
-    const aula = await prisma.clase.findFirst({
-      where: { id: String(aulaId), isDeleted: { not: true } },
-      select: { escuelaId: true, createdBy: true, teacherId: true },
-    });
+    const aula = await aulaGestionable(req as never, res, String(aulaId));
+    if (!aula) return;
 
-    if (!aula) {
-      return res.status(404).json({ error: "aula no encontrada" });
-    }
-
-    if (role !== "ADMIN") {
-      const userSchoolId = (req as never as { user?: { schoolId?: string } }).user?.schoolId ?? null;
-      if (role === "DIRECTIVO") {
-        const aulaSchool = aula.escuelaId ?? null;
-        if (!aulaSchool || aulaSchool !== userSchoolId) {
-          return res.status(403).json({ error: "sin permiso sobre esta aula" });
-        }
-      } else {
-        const isCreator = aula.createdBy === userId;
-        const isTeacher = aula.teacherId === userId;
-        if (!isCreator && !isTeacher) {
-          return res.status(403).json({ error: "sin permiso sobre esta aula" });
-        }
-      }
-    }
-
+    // PLAN-A §4 — mismo mismatch: `rolEnClase` real es "STUDENT", nunca
+    // "USER". Con "USER" esta verificación rechazaba (403) a CUALQUIER
+    // alumno real de la aula.
     const isMember = await prisma.claseMiembro.findFirst({
-      where: { claseId: String(aulaId), usuarioId: String(alumnoId), rolEnClase: "USER" },
+      where: { claseId: String(aulaId), usuarioId: String(alumnoId), rolEnClase: "STUDENT" },
     });
     if (!isMember) {
       return res.status(403).json({ error: "el alumno no pertenece a esta aula" });
@@ -201,12 +191,12 @@ pedagogico.post("/api/pedagogico/desbloquear", requireUser, async (req, res) => 
       usuarioId: String(alumnoId),
       aulaId: String(aulaId),
       desbloqueadoBy: userId ?? "unknown",
-      motivo: typeof motivo === "string" ? motivo : null,
+      motivo: motivo ?? null,
       createdAt: now,
     },
     update: {
       desbloqueadoBy: userId ?? "unknown",
-      motivo: typeof motivo === "string" ? motivo : null,
+      motivo: motivo ?? null,
       createdAt: now,
     },
   });
@@ -242,20 +232,17 @@ pedagogico.get("/api/pedagogico/modo-aula/:aulaId", requireUser, async (req, res
 // ── POST /api/pedagogico/modo-aula ──────────────────────────
 pedagogico.post("/api/pedagogico/modo-aula", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!isStaff(role)) {
+  const user = getUserFromReq(req as never);
+  if (!hasRole(user, "TEACHER") && !hasRole(user, "DIRECTIVO") && !hasRole(user, "ADMIN")) {
     return res.status(403).json({ error: "solo profesores" });
   }
 
-  const { aulaId, activo, restricciones } = req.body as Record<string, unknown>;
+  const pedido = validarCuerpo(ModoAulaSchema, req, res);
+  if (!pedido) return;
+  const { aulaId, activo, restricciones } = pedido;
+  if (!(await aulaGestionable(req as never, res, String(aulaId)))) return;
 
-  if (!aulaId) {
-    return res.status(400).json({ error: "aulaId requerido" });
-  }
-
-  const restriccionesStr = Array.isArray(restricciones)
-    ? restricciones.join(",")
-    : "tienda,economia";
+  const restriccionesStr = restricciones ? restricciones.join(",") : "tienda,economia";
 
   const now = new Date().toISOString();
 

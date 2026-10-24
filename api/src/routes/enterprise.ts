@@ -1,5 +1,7 @@
+import { hasRole, resolvePrimaryRole } from "../lib/roles";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { generateId } from "../lib/ids";
 import { ENV } from "../lib/env";
 import { fetchActiveStudentSummary } from "../lib/enterprise-billing";
@@ -12,8 +14,22 @@ import {
   isClassroomActiveStatus,
   normalizeClassroomStatus
 } from "../schema/aula";
+import { ensureUniqueClassCode } from "./aulas";
 
 export const enterprise = Router();
+
+/**
+ * Toda la gestión institucional (miembros, aulas, módulos, mensajes reportados, contratos, facturación,
+ * reportes) es solo para quien administra la escuela. Antes estas rutas pedían solo sesión y plan: un
+ * alumno o una madre podían listar a todos los miembros de la escuela, leer los mensajes reportados o crear
+ * aulas. Ver `tests/integracion/sec-c3-enterprise-roles.test.ts`.
+ */
+const ROLES_GESTION_ESCOLAR = ["ADMIN", "DIRECTIVO", "ADMIN_ESCUELA"];
+enterprise.use("/api/enterprise", requireUser, (req, res, next) => {
+  const user = req.user as Parameters<typeof hasRole>[0];
+  if (ROLES_GESTION_ESCOLAR.some((rol) => hasRole(user, rol))) return next();
+  return res.status(403).json({ error: "sin permiso de gestión de la escuela" });
+});
 
 const clampLimit = (value: string | undefined) => {
   const parsed = Number(value ?? 20);
@@ -51,20 +67,29 @@ enterprise.get(
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
     const { escuelaFilter } = buildSchoolFilters(schoolId);
-    const items = await prisma.usuario.findMany({
-      where: {
-        ...escuelaFilter,
-        isDeleted: { not: true }
-      },
-      select: { id: true, fullName: true, role: true, escuelaId: true, username: true }
-    });
-    const staff = items.map((item) => ({
+    const pagina = leerPagina(req.query);
+    const { items, ...paginacion } = recortar(
+      await prisma.usuario.findMany({
+        where: {
+          ...escuelaFilter,
+          isDeleted: { not: true }
+        },
+        select: { id: true, fullName: true, roles: true, escuelaId: true, username: true },
+        orderBy: [{ fullName: "asc" }, { id: "asc" }],
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    );
+    // PLAN-multirol Fase 3 — ya no hay cuentas espejo que sacar del roster.
+    const staff = items
+      .map((item) => ({
       id: item.id ?? "",
       name: item.fullName ?? item.username ?? "Sin nombre",
-      role: item.role ?? "USER",
+      role: resolvePrimaryRole(item) ?? "USER",
       schoolId: normalizeSchoolId(item.escuelaId) ?? schoolId
     }));
-    res.json({ staff });
+    res.json({ staff, ...paginacion });
   }
 );
 
@@ -80,7 +105,7 @@ enterprise.get(
     const staffCount = await prisma.usuario.count({
       where: {
         ...escuelaFilter,
-        role: { in: ["ADMIN", "TEACHER"] },
+        roles: { hasSome: ["ADMIN", "TEACHER"] },
         isDeleted: { not: true }
       }
     });
@@ -198,7 +223,7 @@ enterprise.post(
     const lookupIds = [adminId, ...uniqueTeacherIds];
     const users = await prisma.usuario.findMany({
       where: { id: { in: lookupIds }, isDeleted: { not: true } },
-      select: { id: true, role: true, escuelaId: true }
+      select: { id: true, roles: true, escuelaId: true }
     });
     const usersById = new Map(users.map((user) => [user.id ?? "", user]));
     const adminUser = usersById.get(adminId);
@@ -206,7 +231,7 @@ enterprise.post(
       res.status(400).json({ error: "admin not found" });
       return;
     }
-    const adminRole = adminUser.role;
+    const adminRole = resolvePrimaryRole(adminUser);
     if (adminRole !== "DIRECTIVO" && adminRole !== "TEACHER" && adminRole !== "ADMIN") {
       res.status(400).json({ error: "admin role invalid" });
       return;
@@ -222,7 +247,7 @@ enterprise.post(
         res.status(400).json({ error: "teacher not found" });
         return;
       }
-      if (teacherUser.role !== "TEACHER") {
+      if (resolvePrimaryRole(teacherUser) !== "TEACHER") {
         res.status(400).json({ error: "teacher role invalid" });
         return;
       }
@@ -257,8 +282,20 @@ enterprise.post(
       res.status(400).json({ error: "classCode only available for ACTIVE classrooms" });
       return;
     }
-    const result = await prisma.clase.create({ data: parsed as any });
-    res.status(201).json({ id: result.id, classroomId: parsed.id });
+    // FIX-CLASSCODE-ENTERPRISE — este create no generaba código de clase
+    // (a diferencia de POST /api/aulas), dejando `code`/`classCode` en null;
+    // la UI caía a mostrar el id largo (aula-<uuid>), que no sirve para
+    // unirse. Mismo generador que aulas.ts; sólo para aulas ACTIVE.
+    const finalClassCode =
+      parsed.classCode ??
+      (isClassroomActiveStatus(normalizedStatus) ? await ensureUniqueClassCode() : undefined);
+    const result = await prisma.clase.create({
+      data: {
+        ...parsed,
+        ...(finalClassCode ? { code: finalClassCode, classCode: finalClassCode } : {})
+      } as any
+    });
+    res.status(201).json({ id: result.id, classroomId: parsed.id, classCode: finalClassCode ?? null });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
@@ -274,12 +311,12 @@ enterprise.get(
     if (!schoolId) return;
     const limit = clampLimit(req.query.limit as string | undefined);
     const offset = Number(req.query.offset ?? 0);
-    const items = await (prisma as any).mensajeReportado?.findMany({
-      where: { schoolId },
+    const items = await prisma.mensajeReportado.findMany({
+      where: { escuelaId: schoolId },
       skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
       take: limit,
       orderBy: { createdAt: "desc" }
-    }) ?? [];
+    });
     res.json({ items, limit, offset });
   }
 );
@@ -291,7 +328,7 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const rows = await prisma.enterpriseContrato.findMany({ where: { schoolId } });
+    const rows = await prisma.enterpriseContrato.findMany({ where: { schoolId }, take: 500 });
     const items = rows.map((r) => ({ ...JSON.parse(r.json), id: r.id }));
     res.json(items);
   }
@@ -354,7 +391,7 @@ enterprise.get(
   async (req, res) => {
     const schoolId = resolveSchoolId(req as { user?: { schoolId?: string | null } }, res);
     if (!schoolId) return;
-    const rows = await prisma.enterpriseReporte.findMany({ where: { schoolId } as any });
+    const rows = await prisma.enterpriseReporte.findMany({ where: { schoolId } as any, take: 500 });
     const items = rows.map((r) => ({ ...JSON.parse(r.json), id: r.id }));
     res.json(items);
   }

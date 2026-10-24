@@ -32,6 +32,18 @@ export const EconomiaConfigSchema = z.object({
     activa: z.boolean()
   }),
   rankingFactors: z.array(z.number().nonnegative()).length(10),
+  /**
+   * K9 — monedas que da completar por primera vez un cuestionario según su dificultad. Es una tabla FIJA que
+   * define solo el ADMIN: ningún docente cambia cuánto vale un módulo. El ADMIN además puede fijar un monto
+   * propio para un módulo concreto (catálogo de recompensas, tipo "modulo"), que gana sobre esta tabla.
+   */
+  recompensasPorDificultad: z
+    .object({
+      basico: z.number().nonnegative(),
+      intermedio: z.number().nonnegative(),
+      avanzado: z.number().nonnegative()
+    })
+    .optional(),
   updatedAt: z.string().datetime()
 });
 
@@ -90,6 +102,10 @@ export const EventoEconomicoSchema = z.object({
 export const ExamenEconomiaSchema = z.object({
   id: z.string().min(1),
   aulaId: z.string().min(1).optional(),
+  /** "ticket": la subasta vende un único ticket (el docente crea una por ticket). */
+  modo: z.enum(["ticket"]).optional(),
+  /** Módulo de tipo examen al que se aplican los tickets (para canjearlos tras rendirlo). */
+  moduloId: z.string().min(1).optional(),
   nombre: z.string().min(1),
   fechaExamen: z.string().datetime(),
   estado: z.enum(["anunciado", "cerrado"]),
@@ -97,6 +113,10 @@ export const ExamenEconomiaSchema = z.object({
   maxCompra: z.number().int().positive(),
   impuestoTasa: z.number().min(0).max(1),
   precioPromedio: z.number().nonnegative().optional(),
+  // Los fija el servidor al abrir la subasta (ver `precioInicialTicket`); el cliente no los manda.
+  precioInicial: z.number().nonnegative().optional(),
+  monedasAula: z.number().nonnegative().optional(),
+  alumnosAula: z.number().int().nonnegative().optional(),
   updatedAt: z.string().datetime()
 });
 
@@ -105,7 +125,8 @@ export const PujaExamenSchema = z.object({
   examenId: z.string().min(1),
   usuarioId: z.string().min(1),
   aulaId: z.string().min(1).optional(),
-  puntos: z.number().positive(),
+  // Los tickets son enteros.
+  puntos: z.number().int().positive(),
   montoPorPunto: z.number().positive(),
   estado: z.enum(["pendiente", "aceptada", "rechazada"]),
   createdAt: z.string().datetime(),

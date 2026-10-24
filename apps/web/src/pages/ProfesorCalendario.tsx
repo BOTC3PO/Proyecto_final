@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import { useHasAnyRole, useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
+import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchCalendarioUnificado, crearEventoEscuela,
   crearEventoAula, eliminarEventoEscuela,
-  eliminarEventoAula,
+  eliminarEventoAula, editarEventoEscuela, editarEventoAula,
   type EventoCalendario, type TipoEventoAula,
   type TipoEventoEscuela,
 } from "../services/calendarioUnificado";
@@ -29,6 +32,20 @@ const TIPO_CONFIG: Record<string, {
   evento_institucional: { label: "Institucional",  color: "text-teal-700",    bg: "bg-teal-50",    border: "border-teal-300",    peso: 2 },
 };
 
+const TIPO_LABEL_KEY: Record<string, string> = {
+  clase:                "profesorCalendario.clase",
+  evaluacion:           "profesorCalendario.evaluacion",
+  evento:               "profesorCalendario.evento",
+  feriado:              "profesorCalendario.feriado",
+  vacaciones:           "profesorCalendario.vacaciones",
+  sin_clases:           "profesorCalendario.sinClases",
+  acto_escolar:         "profesorCalendario.actoEscolar",
+  evento_institucional: "profesorCalendario.institucional",
+};
+
+const DIAS_KEYS = ["profesorCalendario.dom","profesorCalendario.lun","profesorCalendario.mar","profesorCalendario.mie","profesorCalendario.jue","profesorCalendario.vie","profesorCalendario.sab"];
+const MESES_KEYS = ["profesorCalendario.enero","profesorCalendario.febrero","profesorCalendario.marzo","profesorCalendario.abril","profesorCalendario.mayo","profesorCalendario.junio","profesorCalendario.julio","profesorCalendario.agosto","profesorCalendario.septiembre","profesorCalendario.octubre","profesorCalendario.noviembre","profesorCalendario.diciembre"];
+
 const TIPOS_ESCUELA: TipoEventoEscuela[] = [
   "feriado", "vacaciones", "acto_escolar",
   "evento_institucional", "sin_clases",
@@ -36,12 +53,6 @@ const TIPOS_ESCUELA: TipoEventoEscuela[] = [
 
 const TIPOS_AULA: TipoEventoAula[] = [
   "clase", "evaluacion", "evento", "sin_clases",
-];
-
-const DIAS = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
-const MESES = [
-  "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-  "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 ];
 
 function getDias(year: number, month: number): (Date | null)[] {
@@ -72,10 +83,16 @@ function eventoEnDia(ev: EventoCalendario, dia: string): boolean {
 }
 
 export default function ProfesorCalendario() {
+  const { t, lang } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
-  const role = user?.role ?? "";
-  const canEditEscuela = ["DIRECTIVO","ADMIN"].includes(role);
-  const canEditAula = ["TEACHER","DIRECTIVO","ADMIN"].includes(role);
+  // MULTIROL-02: canEditEscuela = directivo o admin. canEditAula = staff.
+  // Migrado a helpers centralizados (multi-rol friendly): un TEACHER+USER
+  // puede editar aulas (TEACHER en su array), un DIRECTIVO+USER puede
+  // editar escuela (DIRECTIVO).
+  const isStaff = useIsStaff();
+  const canEditEscuela = useHasAnyRole(["DIRECTIVO", "ADMIN"]);
+  const canEditAula = isStaff;
 
   const hoy = new Date();
   const [year, setYear] = useState(hoy.getFullYear());
@@ -101,25 +118,46 @@ export default function ProfesorCalendario() {
   });
   const [guardando, setGuardando] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  // FIX-TEST4-CALENDARIO-EDIT — modal de edición. Cuando es null,
+  // no se muestra. Cuando tiene un evento, se renderiza el form
+  // prellenado con los datos del evento.
+  const [editando, setEditando] = useState<EventoCalendario | null>(null);
+  const [editForm, setEditForm] = useState({
+    tipo: "" as TipoEventoEscuela | TipoEventoAula,
+    titulo: "",
+    descripcion: "",
+    fechaInicio: "",
+    fechaFin: "",
+    aulaId: "",
+  });
+  const [editGuardando, setEditGuardando] = useState(false);
 
   useEffect(() => {
     if (!user?.id) return;
     apiGet<{ items: Classroom[] }>("/api/aulas")
       .then((data) => {
         const items = data.items ?? [];
-        const misAulas = role === "TEACHER"
-          ? items.filter((a) =>
-              a.createdBy === user.id ||
-              a.teacherIds?.includes(user.id)
-            )
-          : items;
+        // QA-FIX-08 — el filtro "docente del aula" lo calcula el
+        // back (criterio canónico de QA-FIX-05: admin, owner por
+        // createdBy/teacherId/teacherOfRecord, o miembro con
+        // rolEnClase === "TEACHER"). Antes se intentaba filtrar
+        // acá con `a.teacherIds?.includes(user.id)`, pero ese
+        // campo es phantom (el back usa teacherId/teacherOfRecord
+        // singulares y nunca poblaba teacherIds), así que un
+        // TEACHER-miembro quedaba fuera del dropdown.
+        const misAulas = items.filter((a) => a.viewerIsTeacher === true);
         setAulas(misAulas);
-        if (misAulas[0]) {
+        // FIX-CALENDARIO-B: solo autoseccionar la primera aula si
+        // el usuario está en el tab "aula" (TEACHER por default).
+        // DIRECTIVO/ADMIN arrancan en el tab "escuela" y ahí el
+        // default debe ser "Global" (aulaId vacío) — sino el
+        // directivo crea eventos escuela acotados sin querer.
+        if (misAulas[0] && !canEditEscuela) {
           setForm((f) => ({ ...f, aulaId: misAulas[0].id }));
         }
       })
       .catch(() => {});
-  }, [user?.id, role]);
+  }, [user?.id, canEditEscuela]);
 
   const cargarEventos = () => {
     const { desde, hasta } = rangoMes(year, month);
@@ -173,12 +211,16 @@ export default function ProfesorCalendario() {
     const tabEfectivo = canEditEscuela ? tab : "aula";
     try {
       if (tabEfectivo === "escuela") {
+        // FIX-CALENDARIO-B: si el usuario eligió un aula en el
+        // tab escuela, mandar `aulaId` para acotar el evento.
+        // Si está vacío, se omite (evento global).
         await crearEventoEscuela({
           tipo: form.tipo as TipoEventoEscuela,
           titulo: form.titulo.trim(),
           descripcion: form.descripcion.trim() || undefined,
           fechaInicio: form.fechaInicio,
           fechaFin: form.fechaFin || form.fechaInicio,
+          aulaId: form.aulaId || undefined,
         });
       } else {
         await crearEventoAula({
@@ -190,11 +232,11 @@ export default function ProfesorCalendario() {
           fechaFin: form.fechaFin || undefined,
         });
       }
-      setMsg("✓ Evento guardado");
+      setMsg(t("profesorCalendario.eventoGuardado"));
       setForm((f) => ({ ...f, titulo: "", descripcion: "" }));
       cargarEventos();
     } catch {
-      setMsg("No se pudo guardar el evento.");
+      setMsg(t("profesorCalendario.noSePudoGuardarEl"));
     } finally {
       setGuardando(false);
     }
@@ -211,14 +253,63 @@ export default function ProfesorCalendario() {
     } catch { /* ignorar */ }
   };
 
+  // FIX-TEST4-CALENDARIO-EDIT — abrir el modal con los datos del
+  // evento prellenados. Para escuela, el aulaId es opcional.
+  const handleAbrirEditar = (ev: EventoCalendario) => {
+    setEditando(ev);
+    setEditForm({
+      tipo: ev.tipo,
+      titulo: ev.titulo,
+      descripcion: ev.descripcion ?? "",
+      fechaInicio: ev.fechaInicio,
+      fechaFin: ev.fechaFin,
+      aulaId: ev.aulaId ?? "",
+    });
+  };
+
+  const handleCerrarEditar = () => {
+    setEditando(null);
+    setEditGuardando(false);
+  };
+
+  const handleGuardarEdicion = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editando) return;
+    if (!editForm.titulo.trim() || !editForm.fechaInicio) return;
+    setEditGuardando(true);
+    try {
+      if (editando.origen === "escuela") {
+        await editarEventoEscuela(editando.id, {
+          tipo: editForm.tipo as TipoEventoEscuela,
+          titulo: editForm.titulo.trim(),
+          descripcion: editForm.descripcion.trim(),
+          fechaInicio: editForm.fechaInicio,
+          fechaFin: editForm.fechaFin || editForm.fechaInicio,
+          aulaId: editForm.aulaId || undefined,
+        });
+      } else {
+        await editarEventoAula(editando.id, {
+          tipo: editForm.tipo as TipoEventoAula,
+          titulo: editForm.titulo.trim(),
+          descripcion: editForm.descripcion.trim(),
+          fechaInicio: editForm.fechaInicio,
+          fechaFin: editForm.fechaFin || undefined,
+        });
+      }
+      cargarEventos();
+      handleCerrarEditar();
+    } catch { /* ignorar */ }
+    finally { setEditGuardando(false); }
+  };
+
   const eventosHoy = diaSeleccionado
     ? eventosPorDia(diaSeleccionado) : [];
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Calendario</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Vista unificada de tu escuela y tus aulas.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.calendario")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorCalendario.vistaUnificadaDeTuEscuela")}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
@@ -228,7 +319,7 @@ export default function ProfesorCalendario() {
               ←
             </button>
             <span className="w-44 text-center text-base font-semibold text-[var(--c-text)]">
-              {MESES[month - 1]} {year}
+              {t(MESES_KEYS[month - 1])} {year}
             </span>
             <button type="button" onClick={nextMes}
               className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm hover:bg-[var(--c-bg)]">
@@ -240,9 +331,7 @@ export default function ProfesorCalendario() {
               setYear(hoy.getFullYear());
               setMonth(hoy.getMonth() + 1);
             }}
-            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:bg-[var(--c-bg)]">
-            Hoy
-          </button>
+            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-muted)] hover:bg-[var(--c-bg)]">{t("common.hoy")}</button>
 
           <div className="flex gap-2 ml-auto">
             <button type="button"
@@ -251,18 +340,14 @@ export default function ProfesorCalendario() {
                 mostrarEscuela
                   ? "bg-teal-50 text-teal-700 border-teal-300"
                   : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
-              }`}>
-              🏫 Escuela
-            </button>
+              }`}>{t("profesorCalendario.escuela")}</button>
             <button type="button"
               onClick={() => setMostrarAulas((v) => !v)}
               className={`rounded-lg px-3 py-1 text-xs font-medium border transition-colors ${
                 mostrarAulas
                   ? "bg-blue-50 text-blue-700 border-blue-300"
                   : "bg-[var(--c-bg)] text-[var(--c-muted)] border-[var(--c-border)]"
-              }`}>
-              📚 Aulas
-            </button>
+              }`}>{t("profesorCalendario.aulas")}</button>
           </div>
         </div>
 
@@ -270,7 +355,7 @@ export default function ProfesorCalendario() {
           {Object.entries(TIPO_CONFIG).map(([tipo, cfg]) => (
             <span key={tipo}
               className={`rounded-full border px-2 py-0.5 text-xs font-medium ${cfg.bg} ${cfg.color} ${cfg.border}`}>
-              {cfg.label}
+              {TIPO_LABEL_KEY[tipo] ? t(TIPO_LABEL_KEY[tipo]) : cfg.label}
             </span>
           ))}
         </div>
@@ -278,10 +363,10 @@ export default function ProfesorCalendario() {
         <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="grid grid-cols-7 border-b border-[var(--c-border)] bg-[var(--c-bg)]">
-              {DIAS.map((d) => (
-                <div key={d}
+              {DIAS_KEYS.map((dk) => (
+                <div key={dk}
                   className="py-2 text-center text-xs font-semibold text-[var(--c-muted)]">
-                  {d}
+                  {t(dk)}
                 </div>
               ))}
             </div>
@@ -337,7 +422,7 @@ export default function ProfesorCalendario() {
                         })}
                         {evs.length > 3 && (
                           <div className="text-[10px] text-[var(--c-muted)] pl-1">
-                            +{evs.length - 3} más
+                            +{evs.length - 3} {t("comun.mas")}
                           </div>
                         )}
                       </div>
@@ -353,15 +438,13 @@ export default function ProfesorCalendario() {
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                 <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
                   {new Date(diaSeleccionado + "T12:00:00")
-                    .toLocaleDateString("es-AR", {
+                    .toLocaleDateString(lang, {
                       weekday: "long", day: "numeric",
                       month: "long"
                     })}
                 </h2>
                 {eventosHoy.length === 0 ? (
-                  <p className="text-xs text-[var(--c-muted)]">
-                    Sin eventos en este día.
-                  </p>
+                  <p className="text-xs text-[var(--c-muted)]">{t("profesorCalendario.sinEventosEnEsteDia")}</p>
                 ) : (
                   <div className="space-y-2">
                     {eventosHoy.map((ev) => {
@@ -394,13 +477,13 @@ export default function ProfesorCalendario() {
                               )}
                               <div className="flex items-center gap-2 mt-1">
                                 <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${cfg?.bg} ${cfg?.color} ${cfg?.border}`}>
-                                  {cfg?.label ?? ev.tipo}
+                                  {TIPO_LABEL_KEY[ev.tipo] ? t(TIPO_LABEL_KEY[ev.tipo]) : (cfg?.label ?? ev.tipo)}
                                 </span>
                                 {ev.fechaFin !== ev.fechaInicio && (
                                   <span className="text-[10px] text-[var(--c-muted)]">
                                     hasta {new Date(
                                       ev.fechaFin + "T12:00:00"
-                                    ).toLocaleDateString("es-AR", {
+                                    ).toLocaleDateString(lang, {
                                       day: "numeric", month: "short"
                                     })}
                                   </span>
@@ -408,14 +491,25 @@ export default function ProfesorCalendario() {
                               </div>
                             </div>
                             {canDelete && (
-                              <button
-                                type="button"
-                                onClick={() => handleEliminar(ev)}
-                                className="shrink-0 text-[var(--c-muted)] hover:text-red-400 transition-colors"
-                                title="Eliminar"
-                              >
-                                ✕
-                              </button>
+                              <div className="shrink-0 flex items-center gap-1">
+                                {/* FIX-TEST4-CALENDARIO-EDIT — botón Editar
+                                    junto a Eliminar. Mismas reglas de
+                                    ownership que el delete. */}
+                                <button
+                                  type="button"
+                                  onClick={() => handleAbrirEditar(ev)}
+                                  className="rounded-md px-2 py-1 text-[11px] font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
+                                  title={t("comun.editar")}
+                                >{t("comun.editar")}</button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleEliminar(ev)}
+                                  className="text-[var(--c-muted)] hover:text-red-400 transition-colors px-1"
+                                  title={t("comun.eliminar")}
+                                >
+                                  ✕
+                                </button>
+                              </div>
                             )}
                           </div>
                         </div>
@@ -428,54 +522,52 @@ export default function ProfesorCalendario() {
 
             {(canEditEscuela || canEditAula) && (
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
-                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">
-                  Agregar evento
-                </h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)] mb-3">{t("profesorCalendario.agregarEvento")}</h2>
 
                 {canEditEscuela && canEditAula && (
                   <div className="flex gap-1 mb-3 border-b border-[var(--c-border)]">
-                    {(["escuela","aula"] as const).map((t) => (
-                      <button key={t} type="button"
+                    {(["escuela","aula"] as const).map((tabKey) => (
+                      <button key={tabKey} type="button"
                         onClick={() => {
-                          setTab(t);
+                          setTab(tabKey);
                           setForm((f) => ({
                             ...f,
-                            tipo: t === "escuela" ? "feriado" : "clase",
+                            tipo: tabKey === "escuela" ? "feriado" : "clase",
+                            // FIX-CALENDARIO-B: resetear el aulaId al
+                            // cambiar de tab para que el dropdown
+                            // escuela arranque en "Global".
+                            aulaId: tabKey === "aula" && aulas[0] ? aulas[0].id : "",
                           }));
                         }}
                         className={`px-3 py-1.5 text-xs font-medium border-b-2 -mb-px transition-colors ${
-                          tab === t
+                          tab === tabKey
                             ? "border-[var(--c-primary)] text-[var(--c-primary)]"
                             : "border-transparent text-[var(--c-muted)]"
                         }`}>
-                        {t === "escuela" ? "🏫 Escuela" : "📚 Aula"}
+                        {tabKey === "escuela" ? t("profesorCalendario.escuela") : t("profesorCalendario.aula")}
                       </button>
                     ))}
                   </div>
                 )}
 
                 <form onSubmit={handleGuardar} className="space-y-3">
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Tipo
-                    <select
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
                       value={form.tipo}
                       onChange={(e) => setForm((f) => ({
                         ...f, tipo: e.target.value
                       }))}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     >
-                      {(tab === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((t) => (
-                        <option key={t} value={t}>
-                          {TIPO_CONFIG[t]?.label ?? t}
+                      {(tab === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((tv) => (
+                        <option key={tv} value={tv}>
+                          {TIPO_LABEL_KEY[tv] ? t(TIPO_LABEL_KEY[tv]) : (TIPO_CONFIG[tv]?.label ?? tv)}
                         </option>
                       ))}
                     </select>
                   </label>
 
                   {tab === "aula" && aulas.length > 0 && (
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Aula
-                      <select
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.aula")}<select
                         value={form.aulaId}
                         onChange={(e) => setForm((f) => ({
                           ...f, aulaId: e.target.value
@@ -491,34 +583,54 @@ export default function ProfesorCalendario() {
                     </label>
                   )}
 
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Título *
-                    <input type="text" required
+                  {/* FIX-CALENDARIO-B: dropdown opcional de aula en
+                      el tab escuela. Vacío = global; con valor =
+                      acotado a esa aula. El directivo/admin ve
+                      todas las aulas de la escuela. */}
+                  {tab === "escuela" && aulas.length > 0 && (
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.aplicarA")}<select
+                        value={form.aulaId}
+                        onChange={(e) => setForm((f) => ({
+                          ...f, aulaId: e.target.value
+                        }))}
+                        className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                      >
+                        <option value="">{t("profesorCalendario.todaLaEscuelaGlobal")}</option>
+                        {aulas.map((a) => (
+                          <option key={a.id} value={a.id}>
+                            {a.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input type="text" required
                       value={form.titulo}
                       onChange={(e) => setForm((f) => ({
                         ...f, titulo: e.target.value
                       }))}
-                      placeholder="Ej: Día del maestro"
+                      placeholder={t("profesorCalendario.ejDiaDelMaestro")}
+                      onInvalid={onInvalid}
+                      onInput={onInput}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Desde *
-                      <input type="date" required
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.desde")}<input type="date" required
                         value={form.fechaInicio}
                         onChange={(e) => setForm((f) => ({
                           ...f, fechaInicio: e.target.value,
                           fechaFin: f.fechaFin < e.target.value
                             ? e.target.value : f.fechaFin,
                         }))}
+                        onInvalid={onInvalid}
+                        onInput={onInput}
                         className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                       />
                     </label>
-                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                      Hasta
-                      <input type="date"
+                    <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.hasta")}<input type="date"
                         value={form.fechaFin}
                         min={form.fechaInicio}
                         onChange={(e) => setForm((f) => ({
@@ -529,22 +641,25 @@ export default function ProfesorCalendario() {
                     </label>
                   </div>
 
-                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">
-                    Descripción
-                    <textarea rows={2}
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.descripcion")}<textarea rows={2}
                       value={form.descripcion}
                       onChange={(e) => setForm((f) => ({
                         ...f, descripcion: e.target.value
                       }))}
-                      placeholder="Opcional"
+                      placeholder={t("profesorCalendario.opcional")}
                       className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     />
                   </label>
 
                   <button type="submit"
-                    disabled={guardando || !form.titulo.trim() || !form.fechaInicio}
-                    className="w-full rounded-xl bg-[var(--c-primary)] py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-colors">
-                    {guardando ? "Guardando..." : "Guardar evento"}
+                    disabled={
+                      guardando ||
+                      !form.titulo.trim() ||
+                      !form.fechaInicio ||
+                      (tab === "aula" && !form.aulaId)
+                    }
+                    className="w-full rounded-xl bg-[var(--c-primary)] py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                    {guardando ? t("comun.guardando2") : t("profesorCalendario.guardarEvento")}
                   </button>
 
                   {msg && (
@@ -559,6 +674,118 @@ export default function ProfesorCalendario() {
             )}
           </div>
         </div>
+
+        {/* FIX-TEST4-CALENDARIO-EDIT — modal de edición. Reutiliza el
+            mismo shape que el form de creación. Se monta solo cuando
+            `editando` no es null. */}
+        {editando && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="calendario-editar-titulo"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+            onClick={handleCerrarEditar}
+          >
+            <div
+              className="w-full max-w-md rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] p-5 shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3
+                id="calendario-editar-titulo"
+                className="text-base font-semibold text-[var(--c-text)]"
+              >
+                {t("profesorCalendario.editarEvento")} {editando.origen === "escuela" ? t("profesorCalendario.deEscuela") : t("profesorCalendario.delAula")}
+              </h3>
+              <form onSubmit={handleGuardarEdicion} className="mt-3 space-y-3">
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
+                    value={editForm.tipo}
+                    onChange={(e) => setEditForm((f) => ({
+                      ...f, tipo: e.target.value as TipoEventoEscuela | TipoEventoAula,
+                    }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  >
+                    {(editando.origen === "escuela" ? TIPOS_ESCUELA : TIPOS_AULA).map((tv) => (
+                      <option key={tv} value={tv}>
+                        {TIPO_LABEL_KEY[tv] ? t(TIPO_LABEL_KEY[tv]) : (TIPO_CONFIG[tv]?.label ?? tv)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                {editando.origen === "escuela" && aulas.length > 0 && (
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.aplicarA")}<select
+                      value={editForm.aulaId}
+                      onChange={(e) => setEditForm((f) => ({
+                        ...f, aulaId: e.target.value
+                      }))}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    >
+                      <option value="">{t("profesorCalendario.todaLaEscuelaGlobal")}</option>
+                      {aulas.map((a) => (
+                        <option key={a.id} value={a.id}>
+                          {a.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input type="text" required
+                    value={editForm.titulo}
+                    onChange={(e) => setEditForm((f) => ({
+                      ...f, titulo: e.target.value
+                    }))}
+                    onInvalid={onInvalid}
+                    onInput={onInput}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorCalendario.desde")}<input type="date" required
+                      value={editForm.fechaInicio}
+                      onChange={(e) => setEditForm((f) => ({
+                        ...f, fechaInicio: e.target.value
+                      }))}
+                      onInvalid={onInvalid}
+                      onInput={onInput}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.hasta")}<input type="date"
+                      value={editForm.fechaFin}
+                      onChange={(e) => setEditForm((f) => ({
+                        ...f, fechaFin: e.target.value
+                      }))}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                </div>
+
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.descripcion")}<textarea rows={2}
+                    value={editForm.descripcion}
+                    onChange={(e) => setEditForm((f) => ({
+                      ...f, descripcion: e.target.value
+                    }))}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+
+                <div className="flex justify-end gap-2 pt-2">
+                  <button type="button"
+                    onClick={handleCerrarEditar}
+                    disabled={editGuardando}
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors">{t("comun.cancelar")}</button>
+                  <button type="submit"
+                    disabled={editGuardando || !editForm.titulo.trim() || !editForm.fechaInicio}
+                    className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity">
+                    {editGuardando ? t("comun.guardando2") : t("comun.guardarCambios")}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
   );
 }

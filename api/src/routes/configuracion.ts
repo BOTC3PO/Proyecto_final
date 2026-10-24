@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { ModuleConfigListSchema, ModuleConfigListUpdateSchema } from "../schema/configuracion";
+import { requireAdmin } from "../lib/admin-auth";
 
 export const configuracion = Router();
 
@@ -101,7 +102,7 @@ configuracion.get("/api/config/categorias", async (_req, res) => {
   res.json({ items: config.items, updatedAt: config.updatedAt });
 });
 
-configuracion.patch("/api/config/materias", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+configuracion.patch("/api/config/materias", requireAdmin, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleConfigListUpdateSchema.parse(req.body ?? {});
     const updated = await updateConfigList("materias", parsed.items);
@@ -111,7 +112,7 @@ configuracion.patch("/api/config/materias", ...bodyLimitMB(ENV.MAX_PAGE_MB), asy
   }
 });
 
-configuracion.patch("/api/config/categorias", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+configuracion.patch("/api/config/categorias", requireAdmin, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const parsed = ModuleConfigListUpdateSchema.parse(req.body ?? {});
     const updated = await updateConfigList("categorias", parsed.items);

@@ -51,6 +51,25 @@ const BINOP_RIGHT_ASSOC: Partial<Record<BinOpKind, boolean>> = { "^": true };
 /** Identificador válido para clave de objeto sin comillas. */
 const IDENT_RE = /^[a-záéíóúñA-ZÁÉÍÓÚÑ_][a-záéíóúñA-ZÁÉÍÓÚÑ_0-9]*$/;
 
+/**
+ * WO-4 — palabras reservadas que el lexer SIEMPRE tokeniza como keyword
+ * (`y`, `o`, `no`, `verdadero`, `falso`, `nulo`, `for`, `in`). Como clave de
+ * objeto NO pueden ir sin comillas (el parser sólo acepta IDENT o STRING como
+ * clave), así que el serializador las cita aunque matcheen `IDENT_RE`. Sin
+ * esto, un objeto con clave `y` (p. ej. los puntos `{x, y}` de un line-chart)
+ * se emitiría como `y: 2` y no re-parsearía (round-trip roto).
+ */
+const ALWAYS_KEYWORD_KEYS = new Set([
+  "y",
+  "o",
+  "no",
+  "verdadero",
+  "falso",
+  "nulo",
+  "for",
+  "in",
+]);
+
 function escapeDslString(value: string): string {
   let out = "";
   for (const ch of value) {
@@ -123,7 +142,10 @@ export function emitExpr(expr: Expr): string {
 }
 
 function emitObjectEntry(e: ObjectEntry): string {
-  const key = IDENT_RE.test(e.key) ? e.key : quoteDslString(e.key);
+  const key =
+    IDENT_RE.test(e.key) && !ALWAYS_KEYWORD_KEYS.has(e.key)
+      ? e.key
+      : quoteDslString(e.key);
   return `${key}: ${emitExpr(e.value)}`;
 }
 
@@ -304,6 +326,9 @@ function emitBloque(b: Bloque): string {
     }
     case "respuesta":
       return `respuesta: ${emitExpr(b.expr)}`;
+    // WO-11 — respuesta simbólica. Misma forma de surface que `respuesta:`.
+    case "respuesta_expr":
+      return `respuesta_expr: ${emitExpr(b.expr)}`;
     case "respuesta_iso":
       return `respuesta_iso: ${emitExpr(b.expr)}`;
     case "respuesta_nombre":
@@ -316,23 +341,59 @@ function emitBloque(b: Bloque): string {
       return `unidad: ${quoteDslString(b.valor)}`;
     case "tolerancia":
       return `tolerancia: ${formatNumber(b.valor)}${b.esPorcentaje ? "%" : ""}`;
+    case "tolerancia_abs":
+      // F2-04: número crudo, sin `%` (siempre absoluto). Mismo formato que
+      // `tolerancia:` sin el sufijo de porcentaje.
+      return `tolerancia_abs: ${formatNumber(b.valor)}`;
     case "opciones":
       return `opciones: ${b.cantidad}`;
     case "tipo":
       return `tipo: ${b.valor}`;
     case "enunciado":
       return `enunciado: ${emitInterpolatedString(b.partes)}`;
+    case "enunciados": {
+      // Mismo formato que `pasos:`: bloque multilinea con `- "..."` por
+      // variante, escapando strings via emitInterpolatedString (que ya
+      // maneja { } literales y caracteres especiales).
+      if (b.items.length === 0) return "enunciados:";
+      // PLAN-E §15: variante con tipo propio → `- mc "..."`.
+      const body = b.items
+        .map(
+          (it) =>
+            `${INDENT}- ${it.tipo ? `${it.tipo} ` : ""}${emitInterpolatedString(it.partes)}`,
+        )
+        .join("\n");
+      return `enunciados:\n${body}`;
+    }
     case "pasos": {
       if (b.pasos.length === 0) return "pasos:";
       const body = b.pasos.map((p) => emitPaso(p, INDENT)).join("\n");
       return `pasos:\n${body}`;
     }
+    case "explicacion":
+      // F2-03: string único interpolable. Mismo patrón que `enunciado:` y
+      // `unidad:`. El bloque `explicacion:` (a diferencia de `enunciado:`)
+      // no soporta multilínea con `|` (siempre es una sola frase por
+      // semántica del modelo: una sola explicación por pregunta).
+      return `explicacion: ${emitInterpolatedString(b.partes)}`;
+    case "pistas": {
+      // F2-02: una sola pista se emite inline (round-trip con la forma
+      // inline); varias, como lista `- "..."`. El parser acepta ambas.
+      if (b.items.length === 0) return "pistas:";
+      if (b.items.length === 1) {
+        return `pistas: ${emitInterpolatedString(b.items[0].partes)}`;
+      }
+      const body = b.items.map((p) => emitPaso(p, INDENT)).join("\n");
+      return `pistas:\n${body}`;
+    }
     case "generador":
       return `generador: ${b.id}`;
     case "dataset":
       return `dataset: ${b.nombre}`;
-    case "mapa":
-      return `mapa: ${b.nombre}`;
+    case "mapa": {
+      const enc = b.encuadre ? ` encuadre [${b.encuadre.join(", ")}]` : "";
+      return `mapa: ${b.nombre}${enc}`;
+    }
     case "etiquetas_pedidas": {
       if (b.etiquetas.length === 0) return "etiquetas_pedidas:";
       const body = b.etiquetas
@@ -342,6 +403,22 @@ function emitBloque(b: Bloque): string {
     }
     case "correccion":
       return `correccion: ${b.modo}`;
+    case "multiple":
+      return `multiple: ${b.valor ? "true" : "false"}`;
+    case "puntaje_parcial":
+      return `puntaje_parcial: ${b.modo}`;
+    case "spans_pedidos": {
+      // PLAN-E §21 Parte B — mismo formato de ítem que `etiquetas_pedidas:`.
+      const body = b.spans
+        .map((s) => emitEtiquetaPedida(s, INDENT))
+        .join("\n");
+      return `spans_pedidos:\n${body}`;
+    }
+    case "etiquetas_disponibles": {
+      if (b.items.length === 0) return "etiquetas_disponibles:";
+      const body = b.items.map((i) => `${INDENT}- ${emitExpr(i)}`).join("\n");
+      return `etiquetas_disponibles:\n${body}`;
+    }
     case "opciones_explicitas": {
       if (b.items.length === 0) return "opciones_explicitas:";
       // Si hay una sola expresión y NO es un literal-array multi-elemento,

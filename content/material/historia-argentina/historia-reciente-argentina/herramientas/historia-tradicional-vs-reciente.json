@@ -1,0 +1,32 @@
+{
+ "titulo": "Historia tradicional e historia reciente",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cronología comparativa",
+   "headers": [
+    "",
+    "Historia tradicional",
+    "Historia reciente"
+   ],
+   "rows": [
+    [
+     "Período",
+     "Siglos XIX y XX",
+     "Desde alrededor de 1950 hasta hoy"
+    ],
+    [
+     "Protagonistas",
+     "Se estudian procesos cerrados",
+     "Hay actores vivos que pueden testimoniar"
+    ],
+    [
+     "Fuentes",
+     "Documentos de archivo",
+     "Archivo, testimonios, prensa, imágenes"
+    ]
+   ]
+  }
+ ]
+}

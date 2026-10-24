@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/use-auth';
+import { usePrimaryRole } from '../auth/use-roles';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
+import { useI18n } from "../i18n/I18nContext";
 
 const ROLE_DASHBOARD: Record<string, string> = {
   ADMIN: '/admin',
@@ -12,54 +14,60 @@ const ROLE_DASHBOARD: Record<string, string> = {
 };
 
 export default function HomePage() {
+  const { t } = useI18n();
   const { user } = useAuth();
+  // MULTIROL-02: el redirect inicial sigue siendo por "rol principal"
+  // (mayor jerarquía), igual que antes. Un TEACHER+USER cae en
+  // /profesor. El roleLabel POR AULA (con qué rol "actuar" en una
+  // vista específica) es Fase 3.
+  const primary = usePrimaryRole();
   const navigate = useNavigate();
   useDocumentMeta({
-    title: 'Virtual Book — Plataforma Educativa Interactiva',
-    description: 'Aprende a tu ritmo con módulos interactivos, juegos educativos y herramientas para profesores. La plataforma educativa que revoluciona el aprendizaje.',
+    title: t("home.virtualBookPlataformaEducativaInteractiva"),
+    description: t("home.aprendeATuRitmoCon2"),
   });
 
   useEffect(() => {
-    const dashboard = user?.role ? ROLE_DASHBOARD[user.role] : null;
+    const dashboard = primary ? ROLE_DASHBOARD[primary] : null;
     if (dashboard) {
       navigate(dashboard, { replace: true });
     }
-  }, [user, navigate]);
+  }, [user, navigate, primary]);
 
   return (
-    <main className="flex-grow">
+    <div className="flex-grow">
       <div className="my-12">
-        <h2 className="mt-8 mb-3 text-6xl font-bold text-center text-blue-600">Revoluciona el Aprendizaje</h2>
-        <h3 className="mb-5 text-center text">Aprende a tu ritmo con módulos interactivos y juegos educativos personalizados.</h3>
+        <h2 className="mt-8 mb-3 text-4xl sm:text-6xl font-bold text-center text-blue-600 px-4">{t("home.revolucionaElAprendizaje")}</h2>
+        <h3 className="mb-5 text-center text">{t("home.aprendeATuRitmoCon")}</h3>
       </div>
 
-      <div className="flex w-full h-12 mb-8 justify-evenly">
-        <Link to="/register" className="flex items-center px-6 py-2 bg-blue-500 rounded hover:bg-blue-600 transition-colors">
-          <p className="text-white">Empieza como Estudiante</p>
+      <div className="flex flex-col sm:flex-row w-full gap-3 sm:gap-0 mb-8 justify-evenly px-4 sm:px-0">
+        <Link to="/register" className="flex items-center justify-center px-6 py-2 bg-blue-500 rounded hover:bg-blue-600 transition-colors">
+          <p className="text-white">{t("home.empiezaComoEstudiante")}</p>
         </Link>
-        <Link to="/explorar" className="flex items-center px-6 py-2 bg-gray-400 rounded hover:bg-gray-500 transition-colors">
-          <p>Explora como Profesor</p>
+        <Link to="/explorar" className="flex items-center justify-center px-6 py-2 bg-gray-400 rounded hover:bg-gray-500 transition-colors">
+          <p>{t("home.exploraComoProfesor")}</p>
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 p-8 pl-12 mt-16 text-center bg-gray-100 md:grid-cols-4 min-h-64">
+      <div className="grid grid-cols-2 gap-4 p-8 mt-16 text-center bg-gray-100 md:grid-cols-4 min-h-64">
         <div className="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-          <p className="mb-2 font-semibold">Aprendizaje Personalizado</p>
-          <p className="text-sm text-gray-600">Los módulos se adaptan a tu nivel y progreso.</p>
+          <p className="mb-2 font-semibold">{t("home.aprendizajePersonalizado")}</p>
+          <p className="text-sm text-gray-600">{t("home.losModulosSeAdaptanA")}</p>
         </div>
         <div className="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-          <p className="mb-2 font-semibold">Juegos Educativos</p>
-          <p className="text-sm text-gray-600">Aprende jugando y diviértete mientras refuerzas tus conocimientos.</p>
+          <p className="mb-2 font-semibold">{t("nav.juegosEducativos")}</p>
+          <p className="text-sm text-gray-600">{t("home.aprendeJugandoYDivierteteMientras")}</p>
         </div>
         <div className="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-          <p className="mb-2 font-semibold">Herramientas para Profesores</p>
-          <p className="text-sm text-gray-600">Crea contenido y monitorea el desempeño de tus alumnos.</p>
+          <p className="mb-2 font-semibold">{t("home.herramientasParaProfesores")}</p>
+          <p className="text-sm text-gray-600">{t("home.creaContenidoYMonitoreaEl")}</p>
         </div>
         <div className="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-          <p className="mb-2 font-semibold">Acceso Seguro</p>
-          <p className="text-sm text-gray-600">Protegemos tus datos y garantizamos privacidad en todo momento.</p>
+          <p className="mb-2 font-semibold">{t("home.accesoSeguro")}</p>
+          <p className="text-sm text-gray-600">{t("home.protegemosTusDatosYGarantizamos")}</p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

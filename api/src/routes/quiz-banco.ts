@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { isStaffRole } from "../lib/authorization";
+import { sanitizeQuestionsForStudent } from "../lib/sanitize-questions";
 
 export const quizBanco = Router();
 
@@ -106,7 +108,22 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
     const items: BancoItem[] = [];
 
     for (const quiz of quizzes) {
-      const version = quiz.versions[0];
+      // WO-BUG-fix — el InMemoryPrisma usado en tests no soporta
+      // `include` anidado, así que `quiz.versions` puede venir
+      // `undefined`. Fallback a un findMany separado (mismo patrón
+      // que el resto del archivo y que `cloneModuloDeep`). En el
+      // prisma real con `include` el findMany devuelve [] y usamos
+      // el `versions[0]` que vino en el include.
+      let version =
+        Array.isArray((quiz as { versions?: unknown[] }).versions) &&
+        (quiz as { versions?: unknown[] }).versions!.length > 0
+          ? (quiz as { versions: { versionNumber?: number; settings?: string | null; questions?: string | null; generatorId?: string | null; count?: number | null; id: string }[] }).versions[0]
+          : undefined;
+      if (!version) {
+        const versions = await prisma.quizVersion.findMany({ where: { quizId: quiz.id } });
+        versions.sort((a, b) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+        version = versions[0];
+      }
       if (!version) continue;
 
       const settings = parseJsonSafe<Record<string, unknown>>(version.settings ?? null, {});
@@ -123,7 +140,11 @@ quizBanco.get("/api/quizzes/banco", requireUser, async (req, res) => {
       const versionMateria = String(settings.materia ?? "");
       if (materia && versionMateria && versionMateria !== materia) continue;
 
-      const modulo = moduloMap.get(quiz.moduleId);
+      // Filtrado arriba por `moduleId: { in: moduloIds } }` — estos
+      // quizzes siempre tienen módulo; el `?? ""` es sólo para el tipo
+      // (Quiz.moduleId es nullable desde PLAN-CORRECCIONES C2, por los
+      // quizzes "sueltos", que no aparecen en el banco).
+      const modulo = moduloMap.get(quiz.moduleId ?? "");
       const origenValue: "admin" | "escuela" =
         modulo?.schoolId ? "escuela" : "admin";
 
@@ -160,31 +181,28 @@ quizBanco.get("/api/quizzes/banco/:quizId/questions", requireUser, async (req, r
     const user = req.user as { schoolId?: string | null } | undefined;
     const userSchoolId = typeof user?.schoolId === "string" ? user.schoolId : null;
 
-    const quiz = await prisma.quiz.findUnique({
-      where: { id: quizId },
-      include: {
-        versions: {
-          orderBy: { versionNumber: "desc" },
-          take: 1,
-        },
-        modulo: {
-          select: { visibility: true, schoolId: true },
-        },
-      },
-    });
-
+    const quiz = await prisma.quiz.findUnique({ where: { id: quizId } });
     if (!quiz) {
       res.status(404).json({ error: "Quiz not found" });
       return;
     }
 
-    const version = quiz.versions[0];
+    // Traemos version y modulo por separado (mismo patrón que en modulos.ts):
+    // el InMemoryPrisma usado por tests no soporta `include` anidado.
+    const versions = await prisma.quizVersion.findMany({ where: { quizId } });
+    versions.sort((a, b) => (b.versionNumber ?? 0) - (a.versionNumber ?? 0));
+    const version = versions[0];
     if (!version) {
       res.status(404).json({ error: "No version found" });
       return;
     }
+    const modulo = quiz.moduleId
+      ? await prisma.modulo.findFirst({ where: { id: quiz.moduleId } })
+      : null;
 
-    const { visibility, schoolId: moduleSchoolId } = quiz.modulo;
+    const visibility = modulo?.visibility ?? null;
+    const moduleSchoolId = modulo?.schoolId ?? null;
+    const moduleOwnerId = modulo?.ownerUserId ?? null;
     const isAdmin = visibility === "publico" && moduleSchoolId === null;
     const isEscuela =
       visibility === "escuela" &&
@@ -196,7 +214,22 @@ quizBanco.get("/api/quizzes/banco/:quizId/questions", requireUser, async (req, r
       return;
     }
 
-    const questions = parseJsonSafe<ModuleQuizQuestion[]>(version.questions ?? null, []);
+    // V2-04 — staff y dueño del módulo ven las preguntas intactas; un alumno
+    // o parent del mismo colegio recibe la versión sanitizada (canario).
+    const userWithRole = user as { role?: string | null; id?: string } | undefined;
+    const requesterRole = userWithRole?.role ?? null;
+    const requesterId =
+      (typeof userWithRole?.id === "string" && userWithRole.id) || null;
+    const canSeeAnswers =
+      isStaffRole(requesterRole) || (!!requesterId && requesterId === moduleOwnerId);
+
+    const rawQuestions = parseJsonSafe<ModuleQuizQuestion[]>(
+      version.questions ?? null,
+      []
+    );
+    const questions = canSeeAnswers
+      ? rawQuestions
+      : sanitizeQuestionsForStudent(rawQuestions, version.id);
     const title = quiz.title ?? "";
 
     const response: Record<string, unknown> = { quizId: quiz.id, title, questions };

@@ -1,0 +1,32 @@
+{
+ "titulo": "Tolerancia y convergencia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Valores ilustrativos",
+   "headers": [
+    "Tolerancia",
+    "Iteraciones hasta converger",
+    "Efecto"
+   ],
+   "rows": [
+    [
+     "0,1",
+     "3",
+     "Rápido pero impreciso"
+    ],
+    [
+     "0,001",
+     "8",
+     "Equilibrio"
+    ],
+    [
+     "0,000001",
+     "20",
+     "Preciso pero más costoso"
+    ]
+   ]
+  }
+ ]
+}

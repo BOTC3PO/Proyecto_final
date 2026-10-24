@@ -1,7 +1,11 @@
+import { hasRole } from "../lib/roles";
 import express, { Router } from "express";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
+import { sincronizarMembresia } from "../lib/memberships";
 import { requireUser } from "../lib/user-auth";
+import { isParentInRoles, resolveRoles, resolvePrimaryRole } from "../lib/roles";
+import { vincularHijoCore } from "../lib/vinculo-padre-hijo";
 
 export const padres = Router();
 
@@ -35,6 +39,13 @@ const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$
 
 const normalizeUsername = (value: string) => value.trim().replace(/^@/, "");
 
+// `isMinor` local: en este archivo valida el HIJO (no el requester).
+// La convención acá es la OPUESTA al helper canónico de
+// `lib/age.ts`: sin `birthdate` del hijo asumimos mayor (porque un
+// hijo sin fecha registrada no puede bloquear el alta — solo se le
+// pide aprobación). El autoservicio de la Fase 6 (alumno→padre)
+// usa el helper canónico porque ahí SÍ queremos bloquear sin
+// birthdate. No unificar: las dos convenciones son intencionales.
 const isMinor = (birthdate?: Date | string | null) => {
   if (!birthdate) return false;
   const bd = birthdate instanceof Date ? birthdate : new Date(birthdate);
@@ -73,6 +84,16 @@ const ensureParentAccess = async (params: {
 padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
   const parentId = resolveParentId(req);
   if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+  // K8 — vincular a un menor por su nombre de usuario lo dejaba aprobado al instante y sin que nadie de la
+  // escuela lo supiera: cualquiera que se registrara como padre veía los datos de cualquier alumno. Ahora
+  // el vínculo lo crea la escuela (alta del padre por el directivo) o se canjea un código que ella emite
+  // (`POST /api/hijos/canjear`). Queda solo para el ADMIN (soporte).
+  if (!hasRole(req.user as never, "ADMIN")) {
+    return res.status(403).json({
+      error: "Para vincular a tu hijo pedí un código de invitación a la escuela y canjealo.",
+      code: "REQUIERE_CODIGO"
+    });
+  }
   try {
     const parsed = VinculoHijoSchema.parse(req.body);
     const username = normalizeUsername(parsed.usuario);
@@ -84,67 +105,99 @@ padres.post("/api/hijos", requireUser, ...bodyLimitMB(2), async (req, res) => {
     });
     if (!child?.id) return res.status(404).json({ error: "child not found" });
     const childId = child.id;
-    const existing = await prisma.progresoModuloVinculo.findFirst({
-      where: { parentId, childId },
+
+    // FIX-BUG-ROLE-03 — antes no había validación de roles
+    // en este endpoint. Un USER/TEACHER/DIRECTIVO sin rol
+    // PARENT podía agregarse como padre de alguien. También
+    // podía agregarse a sí mismo como su propio hijo
+    // (circular). Ahora:
+    //   - El solicitante debe tener rol PARENT (o ser ADMIN
+    //     para casos de testing/soporte).
+    //   - El child no puede ser el mismo user.
+    //   - El child debe tener un rol compatible con "ser
+    //     hijo" (USER/TEACHER). No tiene sentido tener
+    //     un PARENT/DIRECTIVO/ADMIN como hijo de otro padre.
+    const requester = await prisma.usuario.findFirst({
+      where: { id: parentId, isDeleted: { not: true } },
+      select: { roles: true },
     });
-    if (existing && existing.estado !== "revocado") {
-      return res.status(409).json({ error: "child already linked" });
+    if (!requester) {
+      return res.status(401).json({ error: "parent no encontrado" });
     }
-    const activeCount = await prisma.progresoModuloVinculo.count({
-      where: {
-        childId,
-        estado: { not: "revocado" },
-        ...(existing ? { id: { not: existing.id } } : {}),
-      },
-    });
-    if (activeCount >= 2) {
-      return res.status(409).json({ error: "child already has max parents" });
-    }
-    const now = new Date();
-    if (existing) {
-      await prisma.progresoModuloVinculo.updateMany({
-        where: { id: existing.id },
-        data: {
-          estado: existing.estado === "aprobado" ? "aprobado" : "pendiente",
-          solicitadoAt: existing.solicitadoAt ?? now.toISOString(),
-          updatedAt: now.toISOString(),
-          nombre: parsed.nombre,
-          usuario: parsed.usuario,
-          grado: parsed.grado,
-          escuela: parsed.escuela ?? null,
-          notas: parsed.notas ?? null,
-          permisos: JSON.stringify({
-            tareas: parsed.permisosTareas,
-            mensajes: parsed.permisosMensajes,
-          }),
-        },
+    if (resolvePrimaryRole(requester) !== "PARENT" && resolvePrimaryRole(requester) !== "ADMIN") {
+      return res.status(403).json({
+        error: "Solo usuarios con rol padre/madre (o admin) pueden vincular hijos."
       });
-      return res.json({ ok: true, estado: existing.estado === "aprobado" ? "aprobado" : "pendiente" });
     }
+    // Validaciones de vínculo + idempotencia: núcleo compartido con el
+    // alta por directivo (`POST /api/usuarios/:parentId/hijos`). El
+    // estado de un vínculo NUEVO depende de si el hijo es menor.
     const minor = isMinor(child.birthdate ?? null);
-    await prisma.progresoModuloVinculo.create({
-      data: {
-        parentId,
-        childId,
-        estado: minor ? "aprobado" : "pendiente",
-        solicitadoAt: now.toISOString(),
-        createdAt: now.toISOString(),
-        updatedAt: now.toISOString(),
+    const result = await vincularHijoCore({
+      parentId,
+      childId,
+      estadoSiNuevo: minor ? "aprobado" : "pendiente",
+      datos: {
         nombre: parsed.nombre,
         usuario: parsed.usuario,
         grado: parsed.grado,
         escuela: parsed.escuela ?? null,
         notas: parsed.notas ?? null,
-        permisos: JSON.stringify({
-          tareas: parsed.permisosTareas,
-          mensajes: parsed.permisosMensajes,
-        }),
+        permisosTareas: parsed.permisosTareas,
+        permisosMensajes: parsed.permisosMensajes,
       },
     });
-    return res.status(201).json({ ok: true, estado: minor ? "aprobado" : "pendiente" });
+    if (!result.ok) return res.status(result.status).json({ error: result.error });
+    return res.status(result.status).json({ ok: true, estado: result.estado });
   } catch (e: any) {
     return res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
+});
+
+// ─── FASE 5 — espejo opt-in del padre ───────────────────────────────────
+// POST /api/padres/crear-cuenta-alumno
+// El padre crea (on-demand) su propia cuenta de alumno para estudiar.
+// NO se auto-crea en el registro: es opt-in. Idempotente — si ya existe
+// devuelve el mismo espejo. Tras crearlo, el padre puede usar el switch
+// (`/api/auth/cambiar-cuenta`) para entrar como alumno.
+// PLAN-multirol Fase 3 — antes esto creaba una CUENTA ESPEJO de alumno para
+// el padre (segunda cuenta de la misma persona). Ahora le agrega el ROL de
+// alumno a su propia cuenta: una membresía STUDENT en su escuela. Para
+// estudiar cambia de rol (POST /api/auth/escuela-activa con `rol: "USER"`),
+// no de cuenta.
+padres.post("/api/padres/crear-cuenta-alumno", requireUser, ...bodyLimitMB(1), async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+
+  const requester = await prisma.usuario.findFirst({
+    where: { id: parentId, isDeleted: { not: true } },
+    select: { roles: true, escuelaId: true }
+  });
+  if (!requester) return res.status(401).json({ error: "parent no encontrado" });
+  if (!isParentInRoles(resolveRoles(requester))) {
+    return res.status(403).json({
+      error: "Solo una cuenta de padre/madre puede crear su cuenta de alumno."
+    });
+  }
+  if (!requester.escuelaId) {
+    return res.status(409).json({ error: "la cuenta no tiene escuela asignada" });
+  }
+
+  const yaEra = await prisma.membresia.findFirst({
+    where: { usuarioId: parentId, escuelaId: requester.escuelaId, rol: "STUDENT", estado: "activa" }
+  });
+  await sincronizarMembresia({
+    usuarioId: parentId,
+    escuelaId: requester.escuelaId,
+    rolUsuario: "USER"
+  });
+
+  return res.status(yaEra ? 200 : 201).json({
+    ok: true,
+    created: !yaEra,
+    escuelaId: requester.escuelaId,
+    rol: "USER"
+  });
 });
 
 padres.get("/api/padres/hijos/:id/limites", requireUser, async (req, res) => {
@@ -205,6 +258,30 @@ padres.patch("/api/padres/hijos/:id/limites", requireUser, ...bodyLimitMB(1), as
   } catch (e: any) {
     return res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
+});
+
+// POST /api/padres/hijos/:id/revocar
+// PLAN-C §5 diferido (b): el estado "revocado" ya existía en el modelo
+// (`ensureParentAccess`/`vincularHijoCore` lo leen) pero no había ruta
+// que lo escribiera. No reutiliza `ensureParentAccess` porque esa
+// función exige aprobación para vínculos "pendiente" — acá el padre
+// debe poder cancelar tanto un vínculo aprobado como uno pendiente.
+padres.post("/api/padres/hijos/:id/revocar", requireUser, async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "parent not authenticated" });
+  const childId = getParamId(req.params.id);
+  if (!childId) return res.status(400).json({ error: "invalid child id" });
+
+  const vinculo = await prisma.progresoModuloVinculo.findFirst({
+    where: { parentId, childId, estado: { not: "revocado" } },
+  });
+  if (!vinculo) return res.status(404).json({ error: "vinculo not found" });
+
+  await prisma.progresoModuloVinculo.updateMany({
+    where: { parentId, childId },
+    data: { estado: "revocado", updatedAt: new Date().toISOString() },
+  });
+  return res.json({ ok: true });
 });
 
 // GET /api/padres/hijos/:id/actividades
@@ -310,9 +387,21 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
         take: 50,
       });
 
-      // Buscar módulos para obtener materia
-      const moduleIds = [...new Set(
+      // attempt.quizId apunta al Quiz, no al Modulo — hay que resolver el
+      // quiz primero para sacar título y moduleId, y recién ahí buscar el
+      // módulo (mismo patrón que quiz-attempts.ts al armar ProfesorCalificaciones).
+      const quizIds = [...new Set(
         attempts.map((a) => String((a as any).quizId ?? "")).filter(Boolean)
+      )];
+      const quizzes = quizIds.length
+        ? await prisma.quiz.findMany({
+            where: { id: { in: quizIds } },
+            select: { id: true, title: true, moduleId: true },
+          })
+        : [];
+      const quizMap = new Map(quizzes.map((q) => [q.id, q]));
+      const moduleIds = [...new Set(
+        quizzes.map((q) => q.moduleId).filter((id): id is string => Boolean(id))
       )];
       const modules = moduleIds.length
         ? await prisma.modulo.findMany({
@@ -332,12 +421,13 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
       }>>();
 
       for (const attempt of attempts) {
-        const mod = moduleMap.get(String((attempt as any).quizId ?? ""));
+        const quiz = quizMap.get(String((attempt as any).quizId ?? ""));
+        const mod = quiz?.moduleId ? moduleMap.get(quiz.moduleId) : undefined;
         const materia = String((mod as any)?.subject ?? (mod as any)?.category ?? "General");
         if (!porMateria.has(materia)) porMateria.set(materia, []);
         porMateria.get(materia)!.push({
           quizId: String(attempt.quizId ?? ""),
-          quizTitle: undefined,
+          quizTitle: quiz?.title ?? undefined,
           score: typeof attempt.score === "number" ? attempt.score : null,
           maxScore: typeof attempt.maxScore === "number" ? attempt.maxScore : null,
           fecha: String(attempt.submittedAt ?? attempt.startedAt ?? ""),
@@ -365,3 +455,45 @@ padres.get("/api/padres/hijos/:id/boletin", requireUser,
     }
   }
 );
+
+// ─── FASE 5 — área informativa: las aulas del hijo ──────────────────────
+// GET /api/padres/hijos/:id/aulas
+// Solo lectura. Una vez creado el vínculo padre–hijo, la(s) clase(s)
+// del hijo aparecen para el padre. El padre NO opera el aula (no es
+// docente ni alumno de ella): solo la ve. El acceso lo gobierna
+// `ensureParentAccess` (vínculo no revocado + aprobación si corresponde).
+padres.get("/api/padres/hijos/:id/aulas", requireUser, async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "not authenticated" });
+
+  const childId = getParamId(req.params.id);
+  if (!childId) return res.status(400).json({ error: "childId required" });
+
+  const access = await ensureParentAccess({ parentId, childId });
+  if (!access.ok) return res.status(access.status).json({ error: access.error });
+
+  try {
+    const memberships = await prisma.claseMiembro.findMany({
+      where: { usuarioId: childId, rolEnClase: "STUDENT" },
+      select: { claseId: true }
+    });
+    const claseIds = [...new Set(memberships.map((m) => m.claseId).filter(Boolean))] as string[];
+    if (claseIds.length === 0) return res.json({ aulas: [] });
+
+    const clases = await prisma.clase.findMany({
+      where: { id: { in: claseIds }, isDeleted: { not: true }, status: "ACTIVE" },
+      select: { id: true, name: true, grade: true }
+    });
+
+    const aulas = clases.map((c) => ({
+      id: c.id,
+      nombre: c.name ?? "Aula",
+      grado: c.grade ?? null
+    }));
+    return res.json({ aulas });
+  } catch (err) {
+    return res.status(500).json({
+      error: err instanceof Error ? err.message : "error"
+    });
+  }
+});

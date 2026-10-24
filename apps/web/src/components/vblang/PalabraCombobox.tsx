@@ -23,6 +23,7 @@ import {
   lookupPalabra,
   prefixPalabra,
   type EntradaDiccionario,
+  type LookupResult,
 } from "../../services/diccionario";
 
 export interface PalabraComboboxProps {
@@ -41,8 +42,15 @@ export interface PalabraComboboxProps {
    */
   onLookup?: (word: string, entry: EntradaDiccionario | null) => void;
   /** Inyectables para tests; por defecto pegan al servicio real. */
-  fetchPrefix?: (q: string) => Promise<string[]>;
-  fetchLookup?: typeof lookupPalabra;
+  fetchPrefix?: (q: string, lang: string) => Promise<string[]>;
+  fetchLookup?: (word: string, lang: string) => Promise<LookupResult | null>;
+  /**
+   * QA-FIX-10: idioma del diccionario. Se pasa a `fetchPrefix` y
+   * `fetchLookup`. Default "es" (compatibilidad con consumidores
+   * existentes). En la práctica lo setea el `<LangSelector>` del
+   * editor de plantillas.
+   */
+  lang?: string;
 }
 
 const DEBOUNCE_MS = 200;
@@ -57,6 +65,7 @@ export default function PalabraCombobox({
   onLookup,
   fetchPrefix = prefixPalabra,
   fetchLookup = lookupPalabra,
+  lang = "es",
 }: PalabraComboboxProps) {
   const baseId = useId();
   const listId = `${baseId}-listbox`;
@@ -75,7 +84,8 @@ export default function PalabraCombobox({
     onLookupRef.current = onLookup;
   });
 
-  // Consulta debounced: sugerencias (prefix) + validación/lookup en paralelo.
+  // QA-FIX-10: el lang entra al efecto para que cambiar el idioma
+  // re-dispare la consulta con el nuevo `lang`.
   useEffect(() => {
     const q = value.trim();
     if (q.length < minChars) {
@@ -85,7 +95,7 @@ export default function PalabraCombobox({
     }
     let cancelled = false;
     const handle = setTimeout(() => {
-      void Promise.all([fetchPrefix(q), fetchLookup(q)]).then(
+      void Promise.all([fetchPrefix(q, lang), fetchLookup(q, lang)]).then(
         ([sugs, look]) => {
           if (cancelled) return;
           setOptions(sugs);
@@ -100,7 +110,7 @@ export default function PalabraCombobox({
       cancelled = true;
       clearTimeout(handle);
     };
-  }, [value, minChars, fetchPrefix, fetchLookup]);
+  }, [value, minChars, fetchPrefix, fetchLookup, lang]);
 
   // Cerrar al hacer clic fuera.
   useEffect(() => {

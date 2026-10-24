@@ -1,0 +1,32 @@
+{
+ "titulo": "Asentamientos nómadas y sedentarios",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Producción y acumulación",
+   "headers": [
+    "",
+    "Nómadas",
+    "Sedentarios"
+   ],
+   "rows": [
+    [
+     "Producción",
+     "Lo que se caza y recolecta",
+     "Agricultura y ganadería"
+    ],
+    [
+     "Acumulación",
+     "Mínima: hay que cargarlo todo",
+     "Excedentes y graneros"
+    ],
+    [
+     "Propiedad",
+     "Casi no hay",
+     "Tierras, bienes y herencias"
+    ]
+   ]
+  }
+ ]
+}

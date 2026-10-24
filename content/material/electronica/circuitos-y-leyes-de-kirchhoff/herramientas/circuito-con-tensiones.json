@@ -1,0 +1,62 @@
+{
+ "titulo": "Circuito cerrado con tensiones",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "shape",
+   "title": "Fuente y dos resistencias en serie",
+   "collection": "electrica",
+   "canvasWidth": 560,
+   "canvasHeight": 240,
+   "items": [
+    {
+     "id": "s1",
+     "shapeId": "fuente_dc",
+     "x": 0,
+     "y": 90,
+     "label": "V = 12 V"
+    },
+    {
+     "id": "s2",
+     "shapeId": "resistencia",
+     "x": 190,
+     "y": 10,
+     "label": "R₁: 8 V"
+    },
+    {
+     "id": "s3",
+     "shapeId": "resistencia",
+     "x": 380,
+     "y": 90,
+     "label": "R₂: 4 V"
+    }
+   ],
+   "connectors": [
+    {
+     "id": "c1",
+     "fromId": "s1",
+     "toId": "s2",
+     "style": "arrow"
+    },
+    {
+     "id": "c2",
+     "fromId": "s2",
+     "toId": "s3",
+     "style": "arrow"
+    },
+    {
+     "id": "c3",
+     "fromId": "s3",
+     "toId": "s1",
+     "style": "arrow"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "latex",
+   "content": "V = V_1 + V_2 \\;\\Rightarrow\\; 12\\,\\mathrm{V} = 8\\,\\mathrm{V} + 4\\,\\mathrm{V}",
+   "displayMode": true
+  }
+ ]
+}

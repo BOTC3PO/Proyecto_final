@@ -1,0 +1,114 @@
+# Catálogo de hasta 150 recetas — estructura curricular (134 de 150 escritas)
+
+> Ruta B de Cocina/Gastronomía (`OF19`). Este archivo es **roadmap /
+> índice de estructura y estado** (reconciliado el 2026-10-19 contra el árbol real); las recetas viven en las carpetas de cada categoría — ver
+> `oficios-orientacion-vocacional-PLANIFICACION.md`, sección
+> Cocina/Gastronomía (líneas 961-1032), donde Javier fue explícito en
+> que las categorías y cantidades ya están definidas pero **las
+> recetas individuales se generan/curan en otra ronda**, por el
+> volumen (150 recetas no se improvisan de una sola vez). No inventar
+> acá recetas completas para llenar la tabla.
+
+## Por qué existe este catálogo
+
+Gastronomía es una salida laboral real y rentable, lo que justifica
+tener un volumen grande de recetas (no sólo la cadena harina→brioche
+de `../01-harina/` a `../05-receta-final/`, que es el mínimo para
+demostrar comprensión de panificación). Las categorías de abajo están
+sacadas de currícula real de escuelas de gastronomía, no inventadas:
+
+- [Instituto Campechano](https://transparencia.instcamp.edu.mx/wp-content/uploads/2017/01/PLAN-DE-ESTUDIOS_GASTRONOMIA.pdf)
+- [UABJO](https://gastronomia.uabjo.mx/media/5/2017/02/MapaCurricularLG.pdf)
+- [UCASAL](https://www.ucasal.edu.ar/wp-content/uploads/2025/11/PLAN-DE-ESTUDIO-LICENCIATURA-EN-GASTRONOMIA.pdf)
+- [Cocineros Patagónicos](https://cocinerospatagonicos.com/landing-informativa/tec-superior-en-gastronomia/)
+
+(Fuentes para la **estructura curricular**, no para las recetas
+puntuales en sí, que quedan a criterio propio/de los devs cuando se
+generen.)
+
+## Tabla de categorías (estructura, no recetas escritas)
+
+| Categoría | Cantidad | Nivel |
+|---|---:|---|
+| Fondos, salsas y guarniciones clásicas | 15 | básico→intermedio |
+| Cortes y técnicas de carnes | 10 | básico→intermedio |
+| Parrilla y asado (fuerte en Argentina) | 15 | básico→avanzado |
+| Pastas caseras | 12 | básico→intermedio |
+| Panificación (conecta con la cadena harina→brioche ya definida) | 15 | básico→avanzado |
+| Repostería y pastelería | 15 | intermedio→avanzado |
+| Cocina regional argentina | 15 | básico→avanzado |
+| Cocina internacional (por región) | 20 | intermedio→avanzado |
+| Vegetales y guarniciones | 10 | básico |
+| Fiambres, embutidos y conservas | 8 | intermedio |
+| Bebidas **sin alcohol** (mate, malta como sustituto histórico del café, mocktails) | 8 | básico |
+| Postres helados y fríos | 7 | intermedio |
+| **Total** | **150** | |
+
+### Estado real por categoría (2026-10-19)
+
+Conteo de archivos de receta en cada categoría (básicas, intermedias, avanzadas y especiales), contra la meta de la tabla de arriba. Las 2 recetas del equipo (`../recetas-del-equipo/`) son de Panificación y completan esa categoría. Todas las recetas están marcadas "no probada".
+
+| Categoría | Meta | Escritas | Faltan |
+|---|---:|---:|---:|
+| Fondos, salsas y guarniciones clásicas | 15 | 14 | 1 |
+| Cortes y técnicas de carnes | 10 | 10 | 0 |
+| Parrilla y asado | 15 | 12 | 3 |
+| Pastas caseras | 12 | 11 | 1 |
+| Panificación (incluye 2 del equipo) | 15 | 15 | 0 |
+| Repostería y pastelería | 15 | 13 | 2 |
+| Cocina regional argentina | 15 | 12 | 3 |
+| Cocina internacional | 20 | 17 | 3 |
+| Vegetales y guarniciones | 10 | 10 | 0 |
+| Fiambres, embutidos y conservas | 8 | 7 | 1 |
+| Bebidas sin alcohol | 8 | 7 | 1 |
+| Postres helados y fríos | 7 | 6 | 1 |
+| **Total** | **150** | **134** | **16** |
+
+Las 16 que faltan son casi todas **especiales** (las que dependen del equipo o de recetas regionales con respaldo institucional); el detalle y las decisiones de Javier están en [`PLAN-progresion.md`](PLAN-progresion.md), sección 9. La receta final de la cadena harina → brioche vive además en `../05-receta-final/teoria.md`. Antes decía «pendiente» y «las dos únicas ya escritas»: ese texto estaba desactualizado.
+
+## Coctelería: sólo sin alcohol
+
+La categoría "Bebidas" queda limitada a **sin alcohol** — la
+plataforma tiene alumnos menores de edad, no corresponde enseñar
+preparación de bebidas alcohólicas como contenido educativo regular
+(si no fuera por eso, entraría algo como Yegua Negra). En cambio sí
+entra cultura real sin ese problema: mate, malta como sustituto
+histórico del café (costumbre real, poco conocida hoy), mocktails.
+
+### Ejemplo ya escrito: Mojito de cereza (sin alcohol)
+
+Ingredientes: 1/4 taza de cerezas dulces, 1/2 vaso de jugo de lima
+fresco, 4 hojas de menta fresca, 1/2 vaso de agua con gas.
+
+Preparación:
+1. Lavar y cortar las cerezas en trozos que pasen por el popote/pajilla.
+2. Agregar al vaso el jugo de lima y las cerezas picadas.
+3. Mezclar con cuchara de madera, triturando un poco la cereza.
+4. Aplastar la menta fresca lavada con la mano (para liberar aroma) y
+   agregar al vaso.
+5. Incorporar hielo y completar con agua con gas.
+
+## Fermentación/maceración: teoría de ciencia, no receta ejecutable
+
+Las únicas bebidas con alcohol realmente reconocidas en Argentina son
+limoncello y Hesperidina (licor de naranja) — sirven como ejemplo real
+y reconocible para explicar **qué pasa químicamente al fermentar o
+macerar algo** (extracción de aceites esenciales de cáscara cítrica en
+alcohol, fermentación de azúcares), como contenido de ciencia/historia,
+**NO como receta que el alumno deba ejecutar** — mismo criterio que
+otros temas sensibles del mapa: se explica el proceso, no se enseña a
+producir ni a consumir.
+
+## Balance conocido/desconocido en Cocina regional argentina
+
+El asado es lo más sabido de lejos — esa categoría, cuando se generen
+sus 15 recetas, no debería ser sólo asado repetido, sino usar el
+margen para meter platos regionales menos conocidos (más allá de lo
+obvio), con el mismo criterio de trasfondo histórico que ya usa el
+resto del mapa (Historia profunda, corrientes de pensamiento).
+
+> Orden de producción, niveles (básicas a especiales) y reparto por nivel: ver [`PLAN-progresion.md`](PLAN-progresion.md).
+
+> **Avance (2026-10-03): piloto de la Ruta B hecho.** Nivel 0 (`../nivel-0-tecnica/`), ficha de Fondos y salsas (`../fondos-y-salsas/ficha-de-bloque.md`), 6 básicas de Fondos y salsas (`../fondos-y-salsas/basicas/`) y 4 básicas de Panificación (`../panificacion/basicas/`), más 2 especiales del equipo (`../recetas-del-equipo/`). Son 12 de las 150 recetas; todas "no probadas". Cada receta lista en su campo "Verificación" lo que no se pudo confirmar con dos fuentes.
+
+> **Avance (2026-10-05): las 43 recetas básicas están escritas.** Fondos y salsas (6), Panificación (4), Vegetales y guarniciones (6), Pastas caseras (4), Cortes y técnicas de carnes (3), Parrilla y asado (3), Fiambres, embutidos y conservas (2), Repostería y pastelería (3), Postres helados y fríos (2), Bebidas sin alcohol (4), Cocina regional argentina (3) y Cocina internacional (3). Más las 2 especiales del equipo, son 45 de las 150; todas "no probadas". Faltan 49 intermedias, 35 avanzadas y 21 especiales (cifra de esa fecha; ver `PLAN-progresion.md`, sección 9, para el estado vigente: 122 de 150 escritas al 2026-10-13), y revisar el campo "Verificación" de cada receta.

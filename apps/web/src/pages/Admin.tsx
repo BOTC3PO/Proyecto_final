@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nContext";
 import {
   fetchAdminStats,
   fetchEconomiaConfig,
@@ -10,49 +11,49 @@ import {
 
 const adminSections = [
   {
-    label: 'Usuarios',
+    label: "nav.usuarios",
     to: '/admin/usuarios',
-    desc: 'Busca, modera y gestiona roles de los usuarios de la plataforma.',
+    desc: "admin.buscaModeraYGestionaRoles",
   },
   {
-    label: 'Materias',
+    label: "nav.materias",
     to: '/admin/materias',
-    desc: 'Crea, edita y activa/desactiva materias disponibles en la plataforma.',
+    desc: "admin.creaEditaYActivaDesactiva",
   },
   {
-    label: 'Módulos públicos',
+    label: "admin.modulosPublicos",
     to: '/modulos',
-    desc: 'Explora y crea módulos de aprendizaje de acceso público.',
+    desc: "admin.exploraYCreaModulosDe",
   },
   {
-    label: 'Moderación',
+    label: "nav.moderacion",
     to: '/admin/moderacion',
-    desc: 'Gestiona aulas públicas, mensajes reportados, bans y advertencias.',
+    desc: "admin.gestionaAulasPublicasMensajesReportados",
   },
   {
-    label: 'Reportes',
+    label: "nav.reportes",
     to: '/admin/reportes',
-    desc: 'Estadísticas globales de la plataforma: usuarios, módulos y moderación.',
-  },
-  {
-    label: 'Gobernanza',
-    to: '/gobernanza',
-    desc: 'Propuestas de cambio y votaciones colaborativas entre administradores.',
+    desc: "admin.estadisticasGlobalesDeLaPlataforma",
   },
 ];
 
 export default function Admin() {
+  const { t } = useI18n();
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [config, setConfig] = useState<EconomiaConfig | null>(null);
   const [loadingStats, setLoadingStats] = useState(true);
   const [loadingConfig, setLoadingConfig] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
+  const [saveOk, setSaveOk] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const [emisionDiaria, setEmisionDiaria] = useState("");
   const [recompensaMaxima, setRecompensaMaxima] = useState("");
   const [recompensaDiaria, setRecompensaDiaria] = useState("");
+  const [premioBasico, setPremioBasico] = useState("10");
+  const [premioIntermedio, setPremioIntermedio] = useState("20");
+  const [premioAvanzado, setPremioAvanzado] = useState("30");
   const [inflacionTasa, setInflacionTasa] = useState("");
   const [inflacionActiva, setInflacionActiva] = useState(false);
   const [deflacionTasa, setDeflacionTasa] = useState("");
@@ -71,6 +72,11 @@ export default function Admin() {
         setEmisionDiaria(String(data.limites.emisionDiaria));
         setRecompensaMaxima(String(data.limites.recompensaMaxima));
         setRecompensaDiaria(String(data.limites.recompensaDiaria));
+        if (data.recompensasPorDificultad) {
+          setPremioBasico(String(data.recompensasPorDificultad.basico));
+          setPremioIntermedio(String(data.recompensasPorDificultad.intermedio));
+          setPremioAvanzado(String(data.recompensasPorDificultad.avanzado));
+        }
         setInflacionTasa(String(data.inflacion.tasa));
         setInflacionActiva(data.inflacion.activa);
         setDeflacionTasa(String(data.deflacion.tasa));
@@ -93,13 +99,20 @@ export default function Admin() {
           recompensaMaxima: Number(recompensaMaxima),
           recompensaDiaria: Number(recompensaDiaria),
         },
+        recompensasPorDificultad: {
+          basico: Math.max(0, Number(premioBasico) || 0),
+          intermedio: Math.max(0, Number(premioIntermedio) || 0),
+          avanzado: Math.max(0, Number(premioAvanzado) || 0),
+        },
         inflacion: { tasa: inflacionLimitada, activa: inflacionActiva },
         deflacion: { tasa: deflacionLimitada, activa: deflacionActiva },
       });
       setConfig(updated);
-      setSaveMsg("Configuración guardada correctamente.");
+      setSaveOk(true);
+      setSaveMsg(t("admin.configuracionGuardadaCorrectamente"));
     } catch (e: unknown) {
-      setSaveMsg(`Error: ${(e as Error).message}`);
+      setSaveOk(false);
+      setSaveMsg(`${t("comun.error")}: ${(e as Error).message}`);
     } finally {
       setSaving(false);
     }
@@ -109,10 +122,8 @@ export default function Admin() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
 
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Panel administrativo</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">
-          Supervisión global de la plataforma.
-        </p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("admin.panelAdministrativo")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("admin.supervisionGlobalDeLaPlataforma")}</p>
       </div>
 
       {error && (
@@ -126,10 +137,10 @@ export default function Admin() {
         {loadingStats
           ? [1,2,3,4].map(i => <div key={i} className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />)
           : ([
-              { label: 'Usuarios totales',  value: stats?.totalUsuarios ?? 0,      color: 'text-[var(--c-primary)]' },
-              { label: 'Escuelas activas',  value: stats?.escuelasActivas ?? 0,    color: 'text-[var(--c-success)]' },
-              { label: 'Módulos públicos',  value: stats?.modulosPublicos ?? 0,    color: 'text-[var(--c-accent)]'  },
-              { label: 'Eventos mod. (30d)',value: stats?.eventosModeracion ?? 0,  color: 'text-[var(--c-warning)]' },
+              { label: t("admin.usuariosTotales"),  value: stats?.totalUsuarios ?? 0,      color: 'text-[var(--c-primary)]' },
+              { label: t("admin.escuelasActivas"),  value: stats?.escuelasActivas ?? 0,    color: 'text-[var(--c-success)]' },
+              { label: t("admin.modulosPublicos"),  value: stats?.modulosPublicos ?? 0,    color: 'text-[var(--c-accent)]'  },
+              { label: t("admin.eventosMod30d"),value: stats?.eventosModeracion ?? 0,  color: 'text-[var(--c-warning)]' },
             ]).map((item) => (
               <div key={item.label} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                 <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{item.label}</p>
@@ -143,9 +154,7 @@ export default function Admin() {
 
         {/* Secciones del admin como lista */}
         <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
-          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
-            Secciones
-          </p>
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">{t("admin.secciones")}</p>
           {adminSections.map((item) => (
             <Link
               key={item.label}
@@ -154,9 +163,9 @@ export default function Admin() {
             >
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-[var(--c-text)] group-hover:text-[var(--c-primary)] transition-colors">
-                  {item.label}
+                  {t(item.label)}
                 </p>
-                <p className="text-xs text-[var(--c-muted)] mt-0.5 line-clamp-1">{item.desc}</p>
+                <p className="text-xs text-[var(--c-muted)] mt-0.5 line-clamp-1">{t(item.desc)}</p>
               </div>
               <span className="text-xs text-[var(--c-muted)] flex-shrink-0 mt-0.5">→</span>
             </Link>
@@ -166,9 +175,7 @@ export default function Admin() {
         {/* Configuración de economía */}
         <div className="lg:col-span-2 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-              Configuración de economía global
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("admin.configuracionDeEconomiaGlobal")}</p>
             {config && (
               <p className="text-[10px] text-[var(--c-muted)]">
                 {config.moneda.nombre} ({config.moneda.simbolo})
@@ -183,11 +190,27 @@ export default function Admin() {
           ) : (
             <div className="p-4 grid gap-4 sm:grid-cols-2">
               <div className="space-y-3">
-                <p className="text-xs font-semibold text-[var(--c-text)]">Límites de emisión</p>
+                <p className="text-xs font-semibold text-[var(--c-text)]">{t("admin.limitesDeEmision")}</p>
                 {[
-                  { label: 'Emisión diaria máxima',           value: emisionDiaria,    set: setEmisionDiaria },
-                  { label: 'Recompensa máxima por acción',    value: recompensaMaxima, set: setRecompensaMaxima },
-                  { label: 'Recompensa diaria máx. por user', value: recompensaDiaria, set: setRecompensaDiaria },
+                  { label: t("admin.emisionDiariaMaxima"),           value: emisionDiaria,    set: setEmisionDiaria },
+                  { label: t("admin.recompensaMaximaPorAccion"),    value: recompensaMaxima, set: setRecompensaMaxima },
+                  { label: t("admin.recompensaDiariaMaxPorUser"), value: recompensaDiaria, set: setRecompensaDiaria },
+                ].map(({ label, value, set }) => (
+                  <label key={label} className="flex flex-col gap-1">
+                    <span className="text-[10px] text-[var(--c-muted)]">{label}</span>
+                    <input
+                      type="number" min={0} value={value}
+                      onChange={(e) => set(e.target.value)}
+                      className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                    />
+                  </label>
+                ))}
+                <p className="text-xs font-semibold text-[var(--c-text)] pt-2">Monedas por completar un cuestionario (según dificultad)</p>
+                <p className="text-[10px] text-[var(--c-muted)]">Valores fijos para toda la plataforma: los docentes eligen la dificultad, no cuánto paga.</p>
+                {[
+                  { label: "Dificultad básica",     value: premioBasico,     set: setPremioBasico },
+                  { label: "Dificultad intermedia", value: premioIntermedio, set: setPremioIntermedio },
+                  { label: "Dificultad avanzada",   value: premioAvanzado,   set: setPremioAvanzado },
                 ].map(({ label, value, set }) => (
                   <label key={label} className="flex flex-col gap-1">
                     <span className="text-[10px] text-[var(--c-muted)]">{label}</span>
@@ -201,7 +224,7 @@ export default function Admin() {
               </div>
 
               <div className="space-y-3">
-                <p className="text-xs font-semibold text-[var(--c-text)]">Inflación y deflación</p>
+                <p className="text-xs font-semibold text-[var(--c-text)]">{t("admin.inflacionYDeflacion")}</p>
                 <div className="flex items-center gap-2">
                   <input
                     id="inflacion-activa" type="checkbox"
@@ -209,10 +232,10 @@ export default function Admin() {
                     onChange={(e) => setInflacionActiva(e.target.checked)}
                     className="h-4 w-4 rounded border-[var(--c-border)] accent-[var(--c-primary)]"
                   />
-                  <label htmlFor="inflacion-activa" className="text-sm text-[var(--c-text)]">Inflación activa</label>
+                  <label htmlFor="inflacion-activa" className="text-sm text-[var(--c-text)]">{t("admin.inflacionActiva")}</label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de inflación (0–0.1, máx 10%)</span>
+                  <span className="text-[10px] text-[var(--c-muted)]">{t("admin.tasaDeInflacion00")}</span>
                   <input
                     type="number" min={0} max={0.1} step={0.01} value={inflacionTasa}
                     onChange={(e) => setInflacionTasa(e.target.value)}
@@ -226,10 +249,10 @@ export default function Admin() {
                     onChange={(e) => setDeflacionActiva(e.target.checked)}
                     className="h-4 w-4 rounded border-[var(--c-border)] accent-[var(--c-primary)]"
                   />
-                  <label htmlFor="deflacion-activa" className="text-sm text-[var(--c-text)]">Deflación activa</label>
+                  <label htmlFor="deflacion-activa" className="text-sm text-[var(--c-text)]">{t("admin.deflacionActiva")}</label>
                 </div>
                 <label className="flex flex-col gap-1">
-                  <span className="text-[10px] text-[var(--c-muted)]">Tasa de deflación (0–0.1, máx 10%)</span>
+                  <span className="text-[10px] text-[var(--c-muted)]">{t("admin.tasaDeDeflacion00")}</span>
                   <input
                     type="number" min={0} max={0.1} step={0.01} value={deflacionTasa}
                     onChange={(e) => setDeflacionTasa(e.target.value)}
@@ -244,10 +267,10 @@ export default function Admin() {
                   disabled={saving}
                   className="rounded-xl bg-[var(--c-primary)] px-5 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                 >
-                  {saving ? 'Guardando...' : 'Guardar configuración'}
+                  {saving ? t("comun.guardando") : t("admin.guardarConfiguracion")}
                 </button>
                 {saveMsg && (
-                  <p className={`text-sm ${saveMsg.startsWith('Error') ? 'text-[var(--c-danger)]' : 'text-[var(--c-success)]'}`}>
+                  <p className={`text-sm ${saveOk ? 'text-[var(--c-success)]' : 'text-[var(--c-danger)]'}`}>
                     {saveMsg}
                   </p>
                 )}

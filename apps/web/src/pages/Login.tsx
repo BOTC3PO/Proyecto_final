@@ -1,7 +1,10 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiPost } from "../lib/api";
+import { useI18n } from "../i18n/I18nContext";
+import BrandMark from "../components/Brand";
+import { homePathForRole } from "../routing/homePath";
 
 type LoginForm = {
   user: string;
@@ -9,9 +12,18 @@ type LoginForm = {
   remember: boolean;
 };
 
+// PLAN-M — sólo se sigue un returnTo same-origin ("/algo"); nunca "//host"
+// (protocol-relative) ni una URL absoluta, para no abrir un open-redirect.
+function safeReturnTo(path: string | null): string | null {
+  return path && path.startsWith("/") && !path.startsWith("//") ? path : null;
+}
+
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const { t } = useI18n();
+  const [searchParams] = useSearchParams();
+  const returnTo = safeReturnTo(searchParams.get("returnTo"));
   const [form, setForm] = useState<LoginForm>({
     user: "",
     password: "",
@@ -35,8 +47,8 @@ export default function Login() {
 
   const validate = () => {
     const err: Partial<LoginForm> = {};
-    if (!form.user.trim()) err.user = "Ingresá tu correo o usuario.";
-    if (!form.password.trim()) err.password = "Ingresá tu contraseña.";
+    if (!form.user.trim()) err.user = t("login.errorUsuario");
+    if (!form.password.trim()) err.password = t("login.errorContrasena");
     setErrors(err);
     return Object.keys(err).length === 0;
   };
@@ -53,16 +65,24 @@ export default function Login() {
         email: string;
         fullName?: string;
         role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
+        /** MULTIROL-02: el back emite `roles[]` desde Fase 1. El front
+         *  lo consume acá. Si el back no lo manda (token viejo), el
+         *  provider lo promueve a `[role]` (ver `auth-provider.tsx`). */
+        roles?: ReadonlyArray<"ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST">;
         guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
         schoolId?: string | null;
         accessToken: string;
         refreshToken?: string;
       }>("/api/auth/login", { identifier: form.user, password: form.password });
+      const roles = Array.isArray(payload.roles) && payload.roles.length > 0
+        ? payload.roles
+        : [payload.role];
       login(
         {
           id: payload.id,
           name: payload.fullName?.trim() || payload.username,
           role: payload.role,
+          roles,
           guestOnboardingStatus: payload.guestOnboardingStatus ?? null,
           schoolId: payload.schoolId ?? null,
         },
@@ -70,17 +90,9 @@ export default function Login() {
         payload.refreshToken ?? null,
         { remember: form.remember },
       );
-      const redirectByRole: Record<typeof payload.role, string> = {
-        ADMIN: "/admin",
-        TEACHER: "/profesor",
-        DIRECTIVO: "/enterprise",
-        USER: "/menualumno",
-        PARENT: "/menualumno",
-        GUEST: "/",
-      };
-      navigate(redirectByRole[payload.role] ?? "/");
+      navigate(returnTo ?? homePathForRole(payload.role));
     } catch (error) {
-      const message = error instanceof Error ? error.message : "No pudimos iniciar sesión.";
+      const message = error instanceof Error ? error.message : t("login.errorGenerico");
       setStatus({ loading: false, error: message });
       return;
     }
@@ -88,20 +100,24 @@ export default function Login() {
   };
 
   return (
-    <main className="flex-1 bg-[#f3f4f6]">
+    <div className="flex-1 bg-[#f3f4f6]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-16 flex items-center justify-center">
           <section className="w-full max-w-xl rounded-xl bg-white shadow-sm border border-gray-200">
             <div className="p-8 sm:p-10">
+              <div className="mb-6 flex items-center justify-center gap-2">
+                <BrandMark size={28} />
+                <span className="text-lg font-bold text-gray-900">{t("comun.virtualBook")}</span>
+              </div>
               <h1 className="text-center text-2xl font-semibold text-gray-900">
-                Iniciar Sesión
+                {t("common.iniciarSesionBtn")}
               </h1>
 
               <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                 {/* Usuario */}
                 <div className="space-y-1.5">
                   <label htmlFor="user" className="block text-sm font-medium text-gray-700">
-                    Correo Electrónico o Usuario público
+                    {t("login.labelUsuario")}
                   </label>
                   <input
                     id="user"
@@ -120,7 +136,7 @@ export default function Login() {
                 {/* Contraseña */}
                 <div className="space-y-1.5">
                   <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                    Contraseña
+                    {t("auth.contrasena")}
                   </label>
                   <input
                     id="password"
@@ -147,10 +163,10 @@ export default function Login() {
                       onChange={handleChange}
                       className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="text-sm text-gray-700">Recuérdame</span>
+                    <span className="text-sm text-gray-700">{t("login.recuerdame")}</span>
                   </label>
                   <Link to="/recuperar" className="text-sm text-blue-600 hover:text-blue-700">
-                    ¿Olvidaste tu contraseña?
+                    {t("login.olvidasteContrasena")}
                   </Link>
                 </div>
 
@@ -166,13 +182,13 @@ export default function Login() {
                   className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-white text-sm font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
                   disabled={status.loading}
                 >
-                  {status.loading ? "Ingresando..." : "Iniciar Sesión"}
+                  {status.loading ? t("login.ingresando") : t("common.iniciarSesionBtn")}
                 </button>
 
                 <p className="text-center text-sm text-gray-600">
-                  ¿No tienes una cuenta?{" "}
+                  {t("login.noTienesCuenta")}{" "}
                   <Link to="/register" className="font-medium text-blue-600 hover:text-blue-700">
-                    Regístrate
+                    {t("login.registrate")}
                   </Link>
                 </p>
               </form>
@@ -180,6 +196,6 @@ export default function Login() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

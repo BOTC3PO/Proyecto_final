@@ -1,9 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiGet } from "../lib/api";
+import { useMaterias } from "../domain/materia/useMaterias";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { useAuth } from "../auth/use-auth";
+import { useCanActAsLearner, useHasRole, useIsTeacher } from "../auth/use-roles";
+import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   createClassroom,
   fetchClassrooms,
@@ -12,7 +16,7 @@ import {
   type ClassroomProgressSnapshot
 } from "../services/aulas";
 
-const formatAccess = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "Pública" : "Privada");
+const formatAccessKey = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "comun.publica" : "comun.privada");
 const formatPercent = (value: number) => `${Math.round(value)}%`;
 
 const emptyForm = {
@@ -25,7 +29,15 @@ const emptyForm = {
 };
 
 export default function ProfesorAulas() {
+  const { t, lang } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
+  // MULTIROL-02: leer cada rol por helper centralizado. Un USER
+  // también cuenta como teacher-of-classroom si su rol principal es
+  // distinto pero la lógica de visibilidad sigue siendo "es staff".
+  const isTeacher = useIsTeacher();
+  const canActAsLearner = useCanActAsLearner();
+  const isParent = useHasRole("PARENT");
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +52,8 @@ export default function ProfesorAulas() {
   );
   const [mostrarArchivadas, setMostrarArchivadas] = useState(false);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; name: string }>>([]);
-  const [materias, setMaterias] = useState<string[]>([]);
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts).
+  const { materias } = useMaterias();
 
   useEffect(() => {
     let active = true;
@@ -105,26 +118,24 @@ export default function ProfesorAulas() {
       .catch(() => {});
   }, []);
 
-  useEffect(() => {
-    apiGet<{ items: Array<{ nombre: string }> }>("/api/materias")
-      .then((data) => {
-        setMaterias((data.items ?? []).map((m) => m.nombre));
-      })
-      .catch(() => {});
-  }, []);
+  // PLAN-A §1 — la escuela efectiva del aula a crear: la elegida en el
+  // form (dropdown "Escuela") o, si no eligió ninguna, la del usuario.
+  // Si ninguna resuelve, no hay forma de crear el aula sin un ZodError
+  // crudo del backend — bloqueamos el submit acá con un mensaje claro.
+  const effectiveSchoolId = form.institutionId || user?.schoolId || "";
 
   const visibleClassrooms = useMemo(() => {
     if (!user) return [];
-    if (user.role === "TEACHER") {
+    if (isTeacher) {
       // El backend ya filtra por escuela y membresía
       // No filtrar de nuevo en el frontend
       return classrooms;
     }
-    if (user.role === "USER" || user.role === "PARENT") {
+    if (canActAsLearner || isParent) {
       return classrooms.filter((classroom) => classroom.accessType === "publica");
     }
     return classrooms;
-  }, [classrooms, user]);
+  }, [classrooms, user, isTeacher, canActAsLearner, isParent]);
 
   useEffect(() => {
     setReportSelections((prev) => {
@@ -151,6 +162,10 @@ export default function ProfesorAulas() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitError(null);
+    if (!editingId && !effectiveSchoolId) {
+      setSubmitError("Tu cuenta no tiene escuela asignada. Pedile a un administrador que te asigne una escuela antes de crear aulas.");
+      return;
+    }
     setIsSubmitting(true);
     try {
       if (editingId) {
@@ -196,12 +211,12 @@ export default function ProfesorAulas() {
             {
               userId: user._id ?? user.id,
               roleInClass: "TEACHER" as const,
-              schoolId: user.schoolId ?? "",
+              schoolId: effectiveSchoolId,
             },
             {
               userId: user._id ?? user.id,
               roleInClass: "ADMIN" as const,
-              schoolId: user.schoolId ?? "",
+              schoolId: effectiveSchoolId,
             },
           ] : [],
         };
@@ -323,75 +338,75 @@ export default function ProfesorAulas() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas virtuales</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-0.5">Acceso y administración de aulas para tus cursos.</p>
+            <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorAulas.aulasVirtuales")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorAulas.accesoYAdministracionDeAulas")}</p>
           </div>
-          {user?.role !== "TEACHER" && (
-            <span className="rounded-md bg-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-muted)]">
-              Solo docentes pueden crear aulas
-            </span>
+          {!isTeacher && (
+            <span className="rounded-md bg-[var(--c-border)] px-4 py-2 text-sm text-[var(--c-muted)]">{t("profesorAulas.soloDocentesPuedenCrearAulas")}</span>
           )}
         </div>
 
-        {user?.role === "TEACHER" && (
+        {isTeacher && (
           <section id="crear" className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
               <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-                {editingId ? 'Editar aula' : 'Crear nueva aula'}
+                {editingId ? t('profesorAulas.editarAula') : t('profesorAulas.crearNuevaAula')}
               </p>
             </div>
             <form className="p-4 grid gap-3 md:grid-cols-2" onSubmit={handleSubmit}>
               <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-[var(--c-text)]">Nombre del aula</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("profesorAulaConfiguracion.nombreDelAula")}</label>
                 <input
                   value={form.name}
                   onChange={(event) => handleFieldChange("name", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </div>
               <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-[var(--c-text)]">Estado</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("comun.estado")}</label>
                 <select
                   value={form.status}
                   onChange={(event) => handleFieldChange("status", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                 >
-                  <option value="ACTIVE">Activa</option>
-                  <option value="ARCHIVED">Archivada</option>
-                  <option value="LOCKED">Bloqueada</option>
+                  <option value="ACTIVE">{t("profesorAulaConfiguracion.activa")}</option>
+                  <option value="ARCHIVED">{t("profesorAulaConfiguracion.archivada")}</option>
+                  <option value="LOCKED">{t("profesorAulaConfiguracion.bloqueada")}</option>
                 </select>
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-[var(--c-text)]">Descripción</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("comun.descripcion")}</label>
                 <textarea
                   value={form.description}
                   onChange={(event) => handleFieldChange("description", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                   rows={3}
                   required
+                  onInvalid={onInvalid}
+                  onInput={onInput}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[var(--c-text)]">Tipo de acceso</label>
+                <label className="block text-sm font-medium text-[var(--c-text)]">{t("enterpriseDashboard.tipoDeAcceso")}</label>
                 <select
                   value={form.accessType}
                   onChange={(event) => handleFieldChange("accessType", event.target.value)}
                   className="mt-1 w-full rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 focus:outline-none focus:border-[var(--c-primary)]"
                 >
-                  <option value="publica">Pública</option>
-                  <option value="privada">Privada</option>
+                  <option value="publica">{t("comun.publica")}</option>
+                  <option value="privada">{t("comun.privada")}</option>
                 </select>
               </div>
               <div>
-                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-                  Escuela
-                  <select
+                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">{t("sidebar.escuela")}<select
                     value={form.institutionId}
                     onChange={(e) => setForm((f) => ({ ...f, institutionId: e.target.value }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="">Sin escuela (aula personal)</option>
+                    <option value="">{t("profesorAulas.sinEscuelaAulaPersonal")}</option>
                     {escuelas.map((e) => (
                       <option key={e.id} value={e.id}>{e.name}</option>
                     ))}
@@ -399,14 +414,12 @@ export default function ProfesorAulas() {
                 </label>
               </div>
               <div>
-                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">
-                  Materia
-                  <select
+                <label className="flex flex-col gap-1 text-sm font-medium text-[var(--c-text)]">{t("comun.materia")}<select
                     value={form.category ?? ""}
                     onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
                     className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                   >
-                    <option value="">General</option>
+                    <option value="">{t("profesorAulas.general")}</option>
                     {materias.map((m) => (
                       <option key={m} value={m}>{m}</option>
                     ))}
@@ -416,19 +429,20 @@ export default function ProfesorAulas() {
               <div className="flex flex-wrap items-center gap-3 md:col-span-2">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || (!editingId && !effectiveSchoolId)}
                   className="rounded-md bg-[var(--c-primary)] px-4 py-2 text-white hover:opacity-90 disabled:opacity-60"
                 >
-                  {editingId ? "Guardar cambios" : "Crear aula"}
+                  {editingId ? t("comun.guardarCambios") : t("enterpriseDashboard.crearAula2")}
                 </button>
+                {!editingId && !effectiveSchoolId && (
+                  <span className="text-sm text-[var(--c-danger)]">{t("profesorAulas.tuCuentaNoTieneEscuela")}</span>
+                )}
                 {editingId && (
                   <button
                     type="button"
                     className="rounded-md border border-[var(--c-border)] px-4 py-2 text-[var(--c-text)] hover:bg-[var(--c-bg)]"
                     onClick={resetForm}
-                  >
-                    Cancelar edición
-                  </button>
+                  >{t("profesorAulas.cancelarEdicion")}</button>
                 )}
                 {submitError && <span className="text-sm text-[var(--c-danger)]">{submitError}</span>}
               </div>
@@ -445,7 +459,7 @@ export default function ProfesorAulas() {
             <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700">{error}</div>
           ) : visibleClassrooms.length === 0 ? (
             <div className="rounded-lg border border-dashed border-[var(--c-border)] p-6 text-[var(--c-muted)]">
-              {user?.role === "TEACHER"
+              {isTeacher
                 ? "Todavía no creaste aulas. Usa \"Crear aula\" para comenzar."
                 : "No hay aulas disponibles para tu rol todavía."}
             </div>
@@ -453,7 +467,7 @@ export default function ProfesorAulas() {
             <>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-[var(--c-text)]">
-                  Mis aulas ({visibleClassrooms.length})
+                  {t('menuProfesor.misAulas')} ({visibleClassrooms.length})
                 </p>
                 <label className="flex items-center gap-2 text-xs text-[var(--c-muted)] cursor-pointer">
                   <input
@@ -461,9 +475,7 @@ export default function ProfesorAulas() {
                     checked={mostrarArchivadas}
                     onChange={(e) => setMostrarArchivadas(e.target.checked)}
                     className="rounded"
-                  />
-                  Mostrar archivadas
-                </label>
+                  />{t("profesorAulas.mostrarArchivadas")}</label>
               </div>
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {aulasFiltradas.map((classroom) => (
@@ -481,46 +493,50 @@ export default function ProfesorAulas() {
                           : "bg-green-100 text-green-700"
                       }`}
                     >
-                      {getClassroomStatusLabel(classroom.status ?? "ACTIVE")}
+                      {t(getClassroomStatusLabelKey(classroom.status ?? "ACTIVE"))}
                     </span>
                   </div>
                   <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[var(--c-muted)]">
-                    <span className="rounded-full bg-blue-50 px-2 py-1 text-blue-700">{formatAccess(classroom.accessType)}</span>
+                    <span className="rounded-full bg-blue-50 px-2 py-1 text-blue-700">{t(formatAccessKey(classroom.accessType))}</span>
                     {classroom.category && (
                       <span className="rounded-full bg-purple-50 px-2 py-1 text-purple-700">{classroom.category}</span>
                     )}
                     {classroom.institutionId && <span>Institución: {classroom.institutionId}</span>}
                   </div>
                   <div className="mt-4 flex items-center justify-between text-xs text-[var(--c-muted)]">
-                    <span>Creada por {classroom.createdBy}</span>
-                    <span>{new Date(classroom.updatedAt).toLocaleDateString()}</span>
+                    <span>
+                      {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del
+                          docente en lugar del ID crudo. */}
+                      {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
+                    </span>
+                    <span>{new Date(classroom.updatedAt).toLocaleDateString(lang)}</span>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Progreso de estudiantes</h3>
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("profesorAulas.progresoDeEstudiantes")}</h3>
                     {progressError && (
                       <p className="mt-1 text-xs text-[var(--c-danger)]">Error al cargar progreso: {progressError}</p>
                     )}
                     <p className="mt-1 text-[var(--c-muted)]">
-                      Última actualización: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
+                      {t("moduloDetail.ultimaActualizacion")}: {progressByClassroom[classroom.id]?.lastUpdate ?? "--"}
                     </p>
                     <div className="mt-3 grid grid-cols-2 gap-3 text-[11px] text-[var(--c-muted)]">
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.totalStudents ?? 0}</p>
-                        <p>Estudiantes registrados</p>
+                        <p>{t("profesorAulas.estudiantesRegistrados")}</p>
                       </div>
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.activeStudents ?? 0}</p>
-                        <p>Activos esta semana</p>
+                        <p>{t("profesorAulas.activosEstaSemana")}</p>
                       </div>
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">
                           {formatPercent(progressByClassroom[classroom.id]?.avgCompletion ?? 0)}
                         </p>
-                        <p>Progreso promedio</p>
+                        <p>{t("profesorAulas.progresoPromedio")}</p>
                       </div>
                       <div className="rounded-md bg-[var(--c-surface)] px-3 py-2 border border-[var(--c-border)]">
                         <p className="font-semibold text-[var(--c-text)]">{progressByClassroom[classroom.id]?.avgScore ?? 0}</p>
-                        <p>Score promedio</p>
+                        <p>{t("profesorAulas.scorePromedio")}</p>
                       </div>
                     </div>
                     <ul className="mt-3 space-y-2">
@@ -529,7 +545,7 @@ export default function ProfesorAulas() {
                           <div>
                             <p className="font-semibold text-[var(--c-text)]">{student.name}</p>
                             <p className="text-[11px] text-[var(--c-muted)]">
-                              Progreso {formatPercent(student.completion)} · Score {student.score}
+                              {t("nav.progreso")} {formatPercent(student.completion)} · {t("intentoDetalle.score")} {student.score}
                             </p>
                           </div>
                           <span
@@ -541,26 +557,26 @@ export default function ProfesorAulas() {
                                 : "bg-blue-100 text-blue-700"
                             }`}
                           >
-                            {student.status === "destacado" ? "Destacado" : student.status === "en_riesgo" ? "En riesgo" : "Al día"}
+                            {student.status === "destacado" ? t("profesorAulas.destacado") : student.status === "en_riesgo" ? t("profesorReportes.enRiesgo") : t("profesorAulas.alDia")}
                           </span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-4 text-xs text-[var(--c-muted)]">
-                    <h3 className="text-sm font-semibold text-[var(--c-text)]">Reportes grupales e individuales</h3>
-                    <p className="mt-1 text-[var(--c-muted)]">Configura el formato y descarga reportes según tu necesidad.</p>
+                    <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("profesorAulas.reportesGrupalesEIndividuales")}</h3>
+                    <p className="mt-1 text-[var(--c-muted)]">{t("profesorAulas.configuraElFormatoYDescarga")}</p>
                     <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <label className="text-[11px] text-[var(--c-muted)]">Formato</label>
+                      <label className="text-[11px] text-[var(--c-muted)]">{t("profesorAulas.formato")}</label>
                       <select
                         value={reportSelections[classroom.id]?.format ?? "pdf"}
                         onChange={(event) => updateReportSelection(classroom.id, { format: event.target.value as "pdf" | "xlsx" })}
                         className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-2 py-1 text-[11px] focus:outline-none focus:border-[var(--c-primary)]"
                       >
                         <option value="pdf">PDF</option>
-                        <option value="xlsx">Excel</option>
+                        <option value="xlsx">{t("profesorAulas.excel")}</option>
                       </select>
-                      <label className="ml-2 text-[11px] text-[var(--c-muted)]">Estudiante</label>
+                      <label className="ml-2 text-[11px] text-[var(--c-muted)]">{t("profesorAulas.estudiante")}</label>
                       <select
                         value={reportSelections[classroom.id]?.studentId ?? ""}
                         onChange={(event) => updateReportSelection(classroom.id, { studentId: event.target.value })}
@@ -578,65 +594,149 @@ export default function ProfesorAulas() {
                         type="button"
                         className="rounded-md border border-[var(--c-border)] px-3 py-1 text-[11px] font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)]"
                         onClick={() => handleReportDownload(classroom, "grupal")}
-                      >
-                        Descargar grupal
-                      </button>
+                      >{t("profesorAulas.descargarGrupal")}</button>
                       <button
                         type="button"
                         className="rounded-md border border-emerald-200 px-3 py-1 text-[11px] font-semibold text-emerald-700 hover:bg-emerald-50"
                         onClick={() => handleReportDownload(classroom, "individual")}
-                      >
-                        Descargar individual
-                      </button>
+                      >{t("profesorAulas.descargarIndividual")}</button>
                     </div>
                   </div>
-                  {user?.role === "TEACHER" && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <Link
-                        to={`/profesor/aulas/${
-                          (classroom as { _id?: string } & typeof classroom)
-                            ._id ?? classroom.id
-                        }`}
-                        className="rounded-md border border-[var(--c-border)]
-                          px-3 py-1 text-xs text-[var(--c-primary)]
-                          hover:bg-[var(--c-bg)]"
-                      >
-                        Configurar
-                      </Link>
-                      <button
-                        type="button"
-                        className="rounded-md border border-[var(--c-border)] px-3 py-1 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)]"
-                        onClick={() => startEdit(classroom)}
-                      >
-                        Editar
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md border border-amber-200 px-3 py-1 text-xs text-amber-700 hover:bg-amber-50"
-                        onClick={() => handleArchiveToggle(classroom)}
-                        disabled={isSubmitting || normalizeClassroomStatus(classroom.status) === "LOCKED"}
-                      >
-                        {normalizeClassroomStatus(classroom.status) === "LOCKED"
-                          ? "Bloqueada"
-                          : normalizeClassroomStatus(classroom.status) === "ARCHIVED"
-                          ? "Reactivar"
-                          : "Archivar"}
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md border border-[var(--c-border)] px-3 py-1 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)]"
-                        onClick={() => handleReuseContent(classroom)}
-                      >
-                        Reutilizar contenido
-                      </button>
-                    </div>
+        {isTeacher && (
+                    // FIX-BUG-NEW-01 — antes había 4 botones de
+                    // acción visibles (Configurar, Editar,
+                    // Archivar, Reutilizar) que saturaban la
+                    // card. Ahora: dos botones primarios
+                    // prominentes ("Entrar" y "Configurar") y un
+                    // menú kebab con el resto. "Entrar" lleva a
+                    // la vista del aula (`/aulas/:aulaId`,
+                    // StaffLayout — FIX-VISTA-PREVIA-STAFF), así
+                    // el docente entra al aula con un click desde
+                    // el listado sin la navegación de alumno.
+                    <AulaCardActions
+                      classroomId={(classroom as { _id?: string } & typeof classroom)._id ?? classroom.id}
+                      isSubmitting={isSubmitting}
+                      isLocked={normalizeClassroomStatus(classroom.status) === "LOCKED"}
+                      isArchived={normalizeClassroomStatus(classroom.status) === "ARCHIVED"}
+                      onEdit={() => startEdit(classroom)}
+                      onArchive={() => handleArchiveToggle(classroom)}
+                      onReuse={() => handleReuseContent(classroom)}
+                    />
                   )}
-                </article>
-              ))}
-            </div>
-            </>
-          )}
-        </section>
+                 </article>
+               ))}
+             </div>
+             </>
+           )}
+         </section>
+       </div>
+   );
+}
+
+/**
+ * FIX-BUG-NEW-01 — Componente de acciones de la card de aula.
+ * Dos botones primarios ("Entrar" y "Configurar") + menú kebab
+ * con el resto de acciones. "Entrar" navega a la vista del aula
+ * (`/aulas/:aulaId`, bajo StaffLayout — FIX-VISTA-PREVIA-STAFF);
+ * el docente entra con un click desde el listado sin tener que
+ * configurar primero.
+ */
+function AulaCardActions({
+  classroomId,
+  isSubmitting,
+  isLocked,
+  isArchived,
+  onEdit,
+  onArchive,
+  onReuse,
+}: {
+  classroomId: string;
+  isSubmitting: boolean;
+  isLocked: boolean;
+  isArchived: boolean;
+  onEdit: () => void;
+  onArchive: () => void;
+  onReuse: () => void;
+}) {
+  const { t } = useI18n();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div className="mt-4 flex flex-wrap items-center gap-2">
+      <Link
+        to={`/aulas/${encodeURIComponent(classroomId)}`}
+        data-testid={`aula-card-entrar-${classroomId}`}
+        // FIX-BUG-NEW-01 — botón primario "Entrar" siempre
+        // visible. La card es para teachers; el docente entra
+        // al aula con un click sin pasar por Configurar.
+        className="inline-flex items-center gap-1.5 rounded-md bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 transition-opacity"
+      >
+        {t("profesorAulas.entrar")}
+      </Link>
+      <Link
+        to={`/profesor/aulas/${encodeURIComponent(classroomId)}`}
+        data-testid={`aula-card-configurar-${classroomId}`}
+        className="inline-flex items-center gap-1.5 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+      >
+        {t("profesorAulas.configurar")}
+      </Link>
+
+      {/* Menú kebab con el resto de acciones */}
+      <div className="relative" ref={ref}>
+        <button
+          type="button"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={t("profesorAulas.masOpciones")}
+          data-testid={`aula-card-menu-${classroomId}`}
+          className="inline-flex items-center justify-center rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] w-7 h-7 text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors"
+        >
+          ⋯
+        </button>
+        {menuOpen && (
+          <div
+            role="menu"
+            className="absolute right-0 mt-1 w-44 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-lg z-20 overflow-hidden"
+          >
+            <button
+              type="button"
+              onClick={() => { onEdit(); setMenuOpen(false); }}
+              className="block w-full text-left px-3 py-2 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+            >
+              Editar datos
+            </button>
+            <button
+              type="button"
+              onClick={() => { onArchive(); setMenuOpen(false); }}
+              disabled={isSubmitting || isLocked}
+              className="block w-full text-left px-3 py-2 text-xs text-amber-700 hover:bg-amber-50 disabled:opacity-50 transition-colors"
+            >
+              {isLocked
+                ? "Bloqueada"
+                : isArchived
+                ? "Reactivar"
+                : "Archivar"}
+            </button>
+            <button
+              type="button"
+              onClick={() => { onReuse(); setMenuOpen(false); }}
+              className="block w-full text-left px-3 py-2 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+            >
+              Reutilizar contenido
+            </button>
+          </div>
+        )}
       </div>
+    </div>
   );
 }

@@ -1,0 +1,4 @@
+Tourist: Entschuldigen Sie, wie komme ich zum Museum?
+Local: Gehen Sie geradeaus bis zur Ampel, dann links abbiegen. Das Museum ist gegenüber der Bank.
+Tourist: Vielen Dank! Wie lange dauert die Fahrt mit dem Bus?
+Local: Das hängt davon ab, wo Sie herkommen. Aber mit dem Bus brauchen Sie etwa 20 Minuten.

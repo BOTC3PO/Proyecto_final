@@ -79,9 +79,19 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
   const get = <K extends BloqueKind>(k: K) =>
     bloques.find((b) => b.kind === k) as Extract<Bloque, { kind: K }> | undefined;
 
-  if (!has("enunciado")) {
+  // Tarea 05: `enunciado:` y `enunciados:` son mutuamente excluyentes.
+  if (has("enunciado") && has("enunciados")) {
+    const enunc = get("enunciado")!;
     throw new ParseError(
-      "Falta el bloque obligatorio `enunciado:`",
+      "Usá `enunciado:` o `enunciados:`, no ambos",
+      enunc.loc.line,
+      enunc.loc.col,
+    );
+  }
+
+  if (!has("enunciado") && !has("enunciados")) {
+    throw new ParseError(
+      "Falta el bloque obligatorio `enunciado:` (o `enunciados:` con una lista de variantes)",
       1,
       1,
     );
@@ -90,11 +100,13 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
   const hasGenerador = has("generador");
   const hasAlgunaRespuesta =
     has("respuesta") ||
+    has("respuesta_expr") ||
     has("respuestas_validas") ||
     has("respuesta_iso") ||
     has("respuesta_nombre") ||
     has("respuesta_orden") ||
-    has("etiquetas_pedidas");
+    has("etiquetas_pedidas") ||
+    has("spans_pedidos");
 
   const tipoBloqueTmp = get("tipo") as TipoBloque | undefined;
   // WO07: `abierta` es el ÚNICO tipo sin clave de respuesta (informativa o de
@@ -110,12 +122,31 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
     );
   }
 
+  // WO-11 — `respuesta:` (numérica/exacta) y `respuesta_expr:` (simbólica)
+  // no pueden coexistir: son semánticas distintas. El parser rechaza el
+  // conflicto para que el docente elija explícitamente.
+  if (has("respuesta") && has("respuesta_expr")) {
+    const rb = bloques.find((b) => b.kind === "respuesta")!;
+    throw new ParseError(
+      "no declares `respuesta:` y `respuesta_expr:` en la misma plantilla: uno es numérico/exacto, el otro es simbólico",
+      rb.loc.line,
+      rb.loc.col,
+    );
+  }
+
   // Inferir tipo
   let tipoInferido: TipoPregunta;
   if (has("respuesta_iso")) tipoInferido = "marcar_mapa";
   else if (has("respuesta_nombre") && has("mapa")) tipoInferido = "marcar_mapa";
   else if (has("respuesta_orden")) tipoInferido = "ordenar";
   else if (has("etiquetas_pedidas")) tipoInferido = "analisis_sintactico";
+  // PLAN-E §21 Parte B — spans por rango de palabras.
+  else if (has("spans_pedidos")) tipoInferido = "analisis_spans";
+  // WO-11 — `respuesta_expr` infiere `tipo: expresion` (cambio aditivo;
+  // los tipos existentes no se ven afectados). Si el `tipo:` está
+  // declarado como `input` o `expresion` y hay `respuesta_expr`, se
+  // respeta la declaración explícita.
+  else if (has("respuesta_expr")) tipoInferido = "expresion";
   else tipoInferido = "input";
 
   const tipoBloque = tipoBloqueTmp;
@@ -159,6 +190,28 @@ function validarBloquesObligatorios(bloques: Bloque[]): TipoPregunta {
         );
       }
       tipoInferido = "analisis_sintactico";
+    } else if (declarado === "analisis_spans") {
+      // PLAN-E §21 Parte B.
+      if (!has("spans_pedidos") || !has("texto_analizar")) {
+        throw new ParseError(
+          "`tipo: analisis_spans` requiere `spans_pedidos:` y `texto_analizar:`",
+          tipoBloque.loc.line,
+          tipoBloque.loc.col,
+        );
+      }
+      tipoInferido = "analisis_spans";
+    } else if (declarado === "expresion") {
+      // WO-11 — `tipo: expresion` requiere `respuesta_expr:` (string
+      // con la expresión algebraica esperada). El otro bloque de
+      // respuesta (`respuesta:`) no tiene la semántica simbólica.
+      if (!has("respuesta_expr")) {
+        throw new ParseError(
+          "`tipo: expresion` requiere `respuesta_expr:` con la expresión simbólica esperada",
+          tipoBloque.loc.line,
+          tipoBloque.loc.col,
+        );
+      }
+      tipoInferido = "expresion";
     } else if (declarado === "mc") {
       if (!has("opciones") && !has("opciones_explicitas")) {
         throw new ParseError(

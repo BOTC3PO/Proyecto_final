@@ -53,14 +53,44 @@ export function getProximosCiclos(n = 5, fecha?: Date): CicloEconomico[] {
     .slice(0, n);
 }
 
-// Calcular el factor de ajuste económico para hoy
-export function getAjusteEconomico(fecha?: Date): {
+// FIX-TEST4-ADMIN-01 — antes `getAjusteEconomico` solo leía
+// del JSON hardcodeado (`calendario_economico.json`), ignorando
+// los overrides del panel de admin (`inflacion.activa`,
+// `deflacion.activa`, `hiperinflacion.activa` en `economia_config`).
+// Ahora se acepta un `override` opcional: si está presente y es
+// distinto a `normal`, gana sobre el JSON. Si es `null` o
+// `normal`, cae al comportamiento histórico (JSON). Esto
+// preserva el default automático del calendario económico pero
+// permite que el admin fuerce una configuración manual.
+export type AjusteOverride = {
+  modo: "normal" | "inflacion" | "deflacion" | "hiperinflacion";
+  precioFactor: number;
+  recompensaFactor: number;
+  tasa: number;
+  aceleracion?: number;
+};
+
+export function getAjusteEconomico(
+  fecha?: Date,
+  override?: AjusteOverride | null
+): {
   tipo: TipoEconomico;
   precioFactor: number;
   recompensaFactor: number;
   tasa: number;
   intensidad: number;
 } {
+  // Override del panel: si está activo y no es "normal", gana.
+  if (override && override.modo !== "normal") {
+    return {
+      tipo: override.modo,
+      precioFactor: override.precioFactor,
+      recompensaFactor: override.recompensaFactor,
+      tasa: override.tasa,
+      intensidad: 5,
+    };
+  }
+
   const ciclo = getCicloActivo(fecha);
 
   if (!ciclo || ciclo.tipo === "normal") {

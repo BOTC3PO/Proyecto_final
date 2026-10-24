@@ -1,8 +1,12 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
 import { requireAdmin } from "../lib/admin-auth";
 import { requireUser } from "../lib/user-auth";
+import { getCanonicalMembershipRole } from "../lib/membership-roles";
+import { resolvePrimaryRole } from "../lib/roles";
+import { desactivarMembresia, sincronizarMembresia } from "../lib/memberships";
 
 export const adminRouter = Router();
 
@@ -28,14 +32,15 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
       skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,
       take: Number.isNaN(limit) || limit <= 0 ? 50 : limit,
       orderBy: { createdAt: "desc" },
-      select: { id: true, fullName: true, username: true, email: true, role: true, createdAt: true, isBanned: true, warningCount: true }
+      select: { id: true, fullName: true, username: true, email: true, roles: true, escuelaId: true, createdAt: true, isBanned: true, warningCount: true }
     });
     const usuarios = items.map((item) => ({
       id: item.id,
       nombre: item.fullName ?? item.username ?? "Sin nombre",
       username: item.username ?? "",
       email: item.email ?? "",
-      rol: item.role ?? "USER",
+      rol: resolvePrimaryRole(item) ?? "USER",
+      escuelaId: item.escuelaId ?? null,
       estado: "Activo",
       isBanned: item.isBanned === true,
       warningCount: typeof item.warningCount === "number" ? item.warningCount : 0,
@@ -81,7 +86,7 @@ adminRouter.get("/api/admin/usuarios/:id/modulos-completados", requireAdmin, asy
 
 adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) => {
   try {
-    const { role } = req.body ?? {};
+    const { role, escuelaId: escuelaIdInput } = req.body ?? {};
     const allowedRoles = ["ADMIN", "USER", "TEACHER", "PARENT", "DIRECTIVO", "GUEST"];
     if (!role || !allowedRoles.includes(role)) {
       return res.status(400).json({ error: "role inválido" });
@@ -91,24 +96,55 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
     const actorDoc = actorId
       ? await prisma.usuario.findFirst({ where: { id: actorId } })
       : null;
-    const isBootstrap = actorDoc && (actorDoc as Record<string, unknown>).createdBy === undefined;
-    if (!isBootstrap) {
+    // Antes acá se miraba `actorDoc.createdBy`, una columna que no existe
+    // en `usuarios`: el chequeo daba true para TODOS y el candado no
+    // bloqueaba a nadie. Ahora es una marca explícita en la fila.
+    if (!actorDoc?.esAdminPrincipal) {
       return res.status(403).json({
-        error: "Solo el administrador principal puede promover directamente. Usa gobernanza.",
-        requiresGovernance: true
+        error: "Solo el administrador principal puede cambiar roles."
       });
     }
     const targetId = String(req.params.id);
     if (!targetId) return res.status(400).json({ error: "invalid id" });
     const target = await prisma.usuario.findFirst({ where: { id: targetId, isDeleted: false } });
     if (!target) return res.status(404).json({ error: "usuario no encontrado" });
+
+    // PLAN-A §1 — este endpoint promovía el rol sin tocar `escuelaId` nunca,
+    // dejando TEACHER/DIRECTIVO huérfanos de escuela (item 33) cada vez que
+    // se promovía a alguien acá en lugar de por /api/usuarios. Exigimos que
+    // el target ya tenga escuela o que venga una en el body.
+    const escuelaId = typeof escuelaIdInput === "string" && escuelaIdInput.trim() ? escuelaIdInput.trim() : null;
+    if (["TEACHER", "DIRECTIVO"].includes(role) && !target.escuelaId && !escuelaId) {
+      return res.status(422).json({
+        error: "Este usuario no tiene escuela asignada. Incluí escuelaId en el body para asignarle una al promoverlo."
+      });
+    }
+
+    const escuelaEfectiva = escuelaId ?? target.escuelaId ?? null;
     await prisma.usuario.updateMany({
       where: { id: targetId },
-      data: { role, updatedAt: new Date().toISOString() }
+      data: {
+        roles: [role],
+        ...(escuelaId ? { escuelaId } : {}),
+        updatedAt: new Date().toISOString()
+      }
+    });
+    // PLAN-multirol — cambiar el rol dejaba la membresía con el rol VIEJO.
+    // Se da de baja el anterior (queda registrado con `fechaBaja`, que es
+    // lo que permite saltearlo al elegir el rol principal) y se da de alta
+    // el nuevo.
+    const rolViejo = getCanonicalMembershipRole(resolvePrimaryRole(target));
+    if (escuelaEfectiva && rolViejo && rolViejo !== getCanonicalMembershipRole(role)) {
+      await desactivarMembresia({ usuarioId: targetId, escuelaId: escuelaEfectiva, rol: rolViejo });
+    }
+    await sincronizarMembresia({
+      usuarioId: targetId,
+      escuelaId: escuelaEfectiva,
+      rolUsuario: role
     });
     await prisma.moderacionEvento.create({
       data: {
-        id: `me-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        id: `me-${randomUUID()}`,
         tipo: "role_change",
         usuarioId: targetId,
         motivo: `Rol cambiado a ${role}`,
@@ -116,6 +152,61 @@ adminRouter.patch("/api/admin/usuarios/:id/rol", requireAdmin, async (req, res) 
       }
     });
     res.json({ ok: true, role });
+  } catch {
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+// PLAN-C §2 (ítem 27) — reasignar/corregir la escuela de un usuario, sin
+// tocar su rol. A diferencia de PATCH .../rol (arriba), esto NO está
+// restringido al admin principal: es reorganización administrativa (a qué
+// escuela pertenece), no una escalada de privilegios. `escuelaId: null`
+// deja al usuario explícitamente sin escuela (admin de plataforma).
+adminRouter.patch("/api/admin/usuarios/:id/escuela", requireAdmin, async (req, res) => {
+  try {
+    const targetId = String(req.params.id);
+    const target = await prisma.usuario.findFirst({ where: { id: targetId, isDeleted: false } });
+    if (!target) return res.status(404).json({ error: "usuario no encontrado" });
+
+    const { escuelaId: escuelaIdInput } = req.body ?? {};
+    let escuelaId: string | null = null;
+    if (escuelaIdInput !== null && escuelaIdInput !== undefined) {
+      if (typeof escuelaIdInput !== "string" || !escuelaIdInput.trim()) {
+        return res.status(400).json({ error: "escuelaId inválido" });
+      }
+      const escuela = await prisma.escuela.findFirst({
+        where: { id: escuelaIdInput, isDeleted: { not: true } }
+      });
+      if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
+      escuelaId = escuela.id;
+    }
+
+    await prisma.usuario.updateMany({
+      where: { id: targetId },
+      data: { escuelaId, updatedAt: new Date().toISOString() }
+    });
+    // PLAN-multirol — reasignar la escuela dejaba la membresía apuntando a
+    // la ANTERIOR, y `usuarios.ts` autoriza leyéndola: el usuario quedaba
+    // autorizado contra una escuela a la que ya no pertenece.
+    const rolMembresia = getCanonicalMembershipRole(resolvePrimaryRole(target));
+    if (target.escuelaId && rolMembresia && target.escuelaId !== escuelaId) {
+      await desactivarMembresia({
+        usuarioId: targetId,
+        escuelaId: target.escuelaId,
+        rol: rolMembresia
+      });
+    }
+    await sincronizarMembresia({ usuarioId: targetId, escuelaId, rolUsuario: resolvePrimaryRole(target) });
+    await prisma.moderacionEvento.create({
+      data: {
+        id: `me-${randomUUID()}`,
+        tipo: "escuela_reasignada",
+        usuarioId: targetId,
+        motivo: escuelaId ? `Escuela asignada: ${escuelaId}` : "Escuela removida (admin de plataforma)",
+        createdAt: new Date().toISOString()
+      }
+    });
+    res.json({ ok: true, escuelaId });
   } catch {
     res.status(500).json({ error: "internal server error" });
   }
@@ -141,34 +232,33 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
     const dias = Number(req.query.dias ?? 30);
     const desde = new Date(Date.now() - dias * 24 * 60 * 60 * 1000).toISOString();
 
-    const [usuariosRecientes, usuariosTotalesArr, eventosRecientes, topModulos] = await Promise.all([
+    const [usuariosRecientes, usuariosTotales, eventosRecientes, completadosPorModulo] = await Promise.all([
       prisma.usuario.findMany({
         where: { isDeleted: false, createdAt: { gte: desde } },
-        select: { createdAt: true, role: true }
+        select: { createdAt: true, roles: true },
+        take: 20000
       }),
-      prisma.usuario.findMany({
-        where: { isDeleted: false },
-        select: { id: true }
-      }),
+      prisma.usuario.count({ where: { isDeleted: false } }),
       prisma.moderacionEvento.findMany({
         where: { createdAt: { gte: desde } },
         orderBy: { createdAt: "desc" },
         take: 20,
         select: { tipo: true, motivo: true, createdAt: true }
       }),
-      prisma.progresoModulo.findMany({
+      // Se cuenta en la base, módulo por módulo (antes se traía una fila por cada módulo completado de cada alumno).
+      prisma.progresoModulo.groupBy({
+        by: ["moduloId"],
         where: { status: "completado" },
-        select: { moduloId: true }
+        _count: { _all: true }
       })
     ]);
 
-    const usuariosTotales = usuariosTotalesArr.length;
     const totalActivos = usuariosTotales; // no isActive field in Prisma schema
 
     const countByModulo = new Map<string, number>();
-    for (const p of topModulos) {
+    for (const p of completadosPorModulo) {
       const key = p.moduloId;
-      if (key) countByModulo.set(key, (countByModulo.get(key) ?? 0) + 1);
+      if (key) countByModulo.set(key, p._count?._all ?? 0);
     }
     const topModuloIds = [...countByModulo.entries()]
       .sort((a, b) => b[1] - a[1])
@@ -192,7 +282,7 @@ adminRouter.get("/api/admin/reportes-global", requireAdmin, async (req, res) => 
         periodo: dias,
         total: usuariosRecientes.length,
         porRol: usuariosRecientes.reduce((acc: Record<string, number>, u) => {
-          const r = u.role ?? "USER";
+          const r = resolvePrimaryRole(u) ?? "USER";
           acc[r] = (acc[r] ?? 0) + 1;
           return acc;
         }, {})
@@ -217,16 +307,24 @@ adminRouter.get("/api/admin/cursos", requireAdmin, async (_req, res) => {
 
 adminRouter.get("/api/materias", requireUser, async (_req, res) => {
   try {
+    // Antes esto mergeaba con un array `FALLBACK` hardcodeado (mismas 12
+    // materias duplicadas en `useMaterias.ts` del front) para que la UI
+    // nunca se quedara sin opciones con la tabla vacía. Las 12 ya están
+    // sembradas como filas reales (ver sesión 2026-07-21) — el fallback
+    // hardcodeado hacía que 10 de las 12 materias activas del editor de
+    // módulos no existieran como filas y por lo tanto no se pudieran
+    // controlar (renombrar/desactivar) desde /admin/materias. Ahora la
+    // tabla es la única fuente: lo que no esté acá, no se ofrece.
     const rows = await prisma.materia.findMany();
     const items = rows
       .map((r) => {
         try { return JSON.parse(r.json); } catch { return null; }
       })
       .filter(Boolean)
-      .filter((m: Record<string, unknown>) => m.isDeleted !== true)
-      .sort((a: Record<string, unknown>, b: Record<string, unknown>) =>
-        String(a.nombre ?? "").localeCompare(String(b.nombre ?? ""))
-      );
+      .filter((m: Record<string, unknown>) => m.isDeleted !== true && m.activa !== false)
+      .map((m: Record<string, unknown>) => ({ nombre: String(m.nombre ?? "").trim() }))
+      .filter((m) => m.nombre.length > 0)
+      .sort((a, b) => a.nombre.localeCompare(b.nombre));
     return res.json({ items });
   } catch (err) {
     return res.status(500).json({

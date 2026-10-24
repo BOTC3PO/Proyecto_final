@@ -1,13 +1,19 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import type { Block, Book, BookAsset, BookNote, Page } from "../domain/book/book.types";
+import { useAuth } from "../auth/use-auth";
+import BookReader from "./BookReader";
+import BrandMark from "../components/Brand";
 import { useBookEditor } from "./state/useBookEditor";
 import type { EditorAction } from "./state/bookEditor.reducer";
 import { ensureUniqueIds } from "./services/ids";
 import { exportBookToDownload, importBookFromFile } from "./services/importExport";
 import { migrateToV11ForEditor } from "./services/migrate";
-import { fetchBook, fetchBooks, saveBook } from "./services/booksApi";
-import type { BookListItem } from "./services/booksApi";
+import { canEditLibro, fetchBook, fetchBookWithMeta, fetchBooks, saveBook } from "./services/booksApi";
+import type { BookListItem, BookMeta } from "./services/booksApi";
+import { makeEmptyBook } from "./services/newBook";
+import Toast from "../components/Toast";
+import type { ToastVariant } from "../components/Toast";
 
 // ===== Helpers =====
 function classNames(...xs: Array<string | false | null | undefined>) {
@@ -79,52 +85,14 @@ declare global {
 }
 
 // ===== EMPTY_BOOK =====
-const EMPTY_BOOK: Book = {
-  schema: "book.pages@1.1",
-  metadata: {
-    id: "book-draft",
-    title: "Nuevo documento",
-    language: "es",
-    difficulty: 3,
-    theme: {
-      paperColor: "#E0C9A6",
-      textColor: "#2B2B2B",
-      fontFamily: "serif",
-      baseFontSizePx: 18,
-      lineHeight: 1.6,
-    },
-  },
-  structure: {
-    pageNumbering: { startAt: 1 },
-    index: [],
-  },
-  assets: [],
-  pages: [
-    {
-      id: "p001",
-      number: 1,
-      title: "Página 1",
-      anchors: [{ id: "a1", label: "Inicio" }],
-      content: [
-        {
-          type: "heading",
-          id: "p001_h1_001",
-          level: 1,
-          text: "Título",
-          blockStyle: { align: "left" },
-          textStyle: { bold: true },
-        },
-        {
-          type: "paragraph",
-          id: "p001_p_001",
-          runs: [{ text: "Escribe aquí tu contenido..." }],
-          blockStyle: { align: "left" },
-        },
-      ],
-    },
-  ],
-  notes: [],
-};
+// SEC-LIBRO — antes había acá una constante `EMPTY_BOOK` con
+// `metadata.id = "book-draft"` fijo. Cada usuario que abría
+// `/editor` (sin id) levantaba el MISMO id; el primero lo creaba,
+// y los siguientes al guardar pegaban un POST con el mismo id →
+// el back lo trataba como SOBRESCRITURA y rechazaba con 403 a
+// cualquiera que no fuera dueño o ADMIN (por canEditLibro).
+// Movido a `services/newBook.ts` como factory `makeEmptyBook()`
+// que genera un id único por libro nuevo.
 
 // ===== Modal =====
 function Modal({
@@ -205,19 +173,25 @@ function ToolbarButton({
   active,
   title,
   onClick,
+  disabled,
 }: {
   children: React.ReactNode;
   active?: boolean;
   title?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }) {
   return (
     <button
+      type="button"
       title={title}
       onClick={onClick}
+      disabled={disabled}
       className={classNames(
         "min-w-[24px] h-6 px-1.5 text-xs rounded flex items-center justify-center transition-colors",
-        active
+        disabled
+          ? "text-[var(--c-muted)] opacity-40 cursor-not-allowed"
+          : active
           ? "bg-[color-mix(in_srgb,var(--c-primary)_15%,transparent)] text-[var(--c-primary)]"
           : "text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]"
       )}
@@ -1200,7 +1174,8 @@ function LibraryModal({
       dispatch({ type: "LOAD_BOOK", book });
       onClose();
     } catch (e: unknown) {
-      alert("Error al cargar: " + String(e));
+      // G3 Fase 3.2 — el modal ya tiene un slot de error accesible; nada de alert().
+      setErr("Error al cargar: " + String(e));
     }
   };
 
@@ -1328,7 +1303,8 @@ function InlineBlock({
     const style: React.CSSProperties = {
       fontFamily: blockFontFamily,
       fontSize,
-      color: textColor,
+      // PLAN-W fase 1 (corrección): color de textStyle antes no se veía acá.
+      color: block.textStyle?.color ?? textColor,
       textAlign: align,
       fontWeight: block.textStyle?.bold !== false ? "bold" : "normal",
       fontStyle: block.textStyle?.italic ? "italic" : "normal",
@@ -1384,7 +1360,12 @@ function InlineBlock({
     const style: React.CSSProperties = {
       fontFamily: blockFontFamily,
       fontSize: blockFontSize,
-      color: textColor,
+      // PLAN-W fase 1 (corrección): el lienzo tiene que mostrar lo que la
+      // toolbar setea en runs[0].style — antes B/I/U/color no se veían acá.
+      color: run0?.style?.color ?? textColor,
+      fontWeight: run0?.style?.bold ? "bold" : "normal",
+      fontStyle: run0?.style?.italic ? "italic" : "normal",
+      textDecoration: run0?.style?.underline ? "underline" : undefined,
       textAlign: align,
       textIndent: indentPx ? `${indentPx}px` : undefined,
       background: "transparent",
@@ -1427,6 +1408,36 @@ function InlineBlock({
                   patch: { text: e.target.value },
                 })
               }
+              // PLAN-W §3 fase 2 — escritura fluida: Enter parte el
+              // párrafo en el punto del cursor y mueve el foco al
+              // nuevo (sin pasar por AddBlockBar); Backspace en un
+              // párrafo VACÍO lo borra y sube el foco al anterior.
+              onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+                const el = e.currentTarget;
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  const pos = el.selectionStart ?? text.length;
+                  dispatch({
+                    type: "SPLIT_PARAGRAPH",
+                    pageId: page.id,
+                    blockId: block.id,
+                    beforeText: text.slice(0, pos),
+                    afterText: text.slice(pos),
+                  });
+                  return;
+                }
+                if (
+                  e.key === "Backspace" &&
+                  text.length === 0 &&
+                  (el.selectionStart ?? 0) === 0 &&
+                  pageIdx > 0
+                ) {
+                  e.preventDefault();
+                  const previous = page.content[pageIdx - 1];
+                  dispatch({ type: "DELETE_BLOCK", pageId: page.id, blockId: block.id });
+                  dispatch({ type: "SELECT_BLOCK", blockId: previous.id });
+                }
+              }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
             />
           ) : (
@@ -1558,7 +1569,7 @@ function PageCanvas({
       <div className="flex-1 space-y-2">
         {page.content.length === 0 && (
           <p className="text-center text-[var(--c-muted)] italic text-sm py-16">
-            Página vacía — usa el panel inferior para agregar bloques
+            Página vacía — usa la barra de arriba para agregar bloques
           </p>
         )}
         {page.content.map((block) => (
@@ -1590,6 +1601,11 @@ function AddBlockBar({
 }: {
   dispatch: (a: EditorAction) => void;
 }) {
+  // PLAN-W §3 fase 2 — Enter al final de un párrafo existente crea el
+  // siguiente (escritura fluida, ver InlineBlock), pero "Párrafo" se
+  // queda acá: sigue siendo la única forma de arrancar un párrafo en
+  // una página vacía o después de un bloque no-texto (imagen/divisor),
+  // donde no hay un párrafo previo desde el cual presionar Enter.
   const types: Array<{ t: Block["type"]; label: string }> = [
     { t: "heading", label: "Título" },
     { t: "paragraph", label: "Párrafo" },
@@ -1639,6 +1655,22 @@ export default function BookEditorPage() {
   // Save feedback
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
+  // G3 Fase 3.2 — feedback no-bloqueante (reemplaza los alert()).
+  const [toast, setToast] = useState<{ msg: string; variant: ToastVariant } | null>(null);
+
+  // G3 4.a-1 — panel de issues de validación (antes: sólo el conteo en el badge,
+  // los mensajes no se mostraban en ningún lado).
+  const [showIssues, setShowIssues] = useState(false);
+
+  // SEC-LIBRO — metadata de ownership del libro cargado (solo
+  // cuando viene de un id existente). Si el viewer no puede editar
+  // (no es dueño, ni staff de la escuela dueña en libros escuela,
+  // ni admin), montamos `BookReader` en vez del editor. Defensa en
+  // profundidad: aun si esto se evita en el front, el back rechaza
+  // el POST con 403.
+  const [bookMeta, setBookMeta] = useState<BookMeta | null>(null);
+  const { user } = useAuth();
+
   // Import file ref
   const importRef = useRef<HTMLInputElement>(null);
 
@@ -1647,16 +1679,34 @@ export default function BookEditorPage() {
     const loadInitial = async () => {
       if (params.id) {
         try {
-          const b = await fetchBook(params.id);
+          // SEC-LIBRO — usamos fetchBookWithMeta para conocer
+          // ownerUserId/visibility/schoolId y decidir editor vs
+          // lector. El editor seguía abriendo aunque el back
+          // fuera a rechazar el guardado.
+          const { book: b, meta } = await fetchBookWithMeta(params.id);
           const migrated = migrateToV11ForEditor(b);
           const { book: uniq } = ensureUniqueIds(migrated);
           dispatch({ type: "LOAD_BOOK", book: uniq });
+          setBookMeta(meta);
           runValidation(uniq);
         } catch {
-          dispatch({ type: "LOAD_BOOK", book: EMPTY_BOOK });
+          // SEC-LIBRO — al fallar la carga creamos un libro nuevo
+          // con id fresco (ver makeEmptyBook). Antes usábamos un
+          // EMPTY_BOOK constante con id "book-draft" fijo que
+          // colisionaba con cualquier libro huérfano existente al
+          // intentar guardar.
+          dispatch({ type: "LOAD_BOOK", book: makeEmptyBook() });
+          setBookMeta(null);
         }
       } else {
-        dispatch({ type: "LOAD_BOOK", book: EMPTY_BOOK });
+        // /editor sin id → libro nuevo, el viewer es el creador
+        // potencial. No hay meta hasta que se guarde. Cada
+        // apertura genera un id distinto para que el POST de
+        // guardado caiga en el camino de CREACIÓN (no de
+        // sobrescritura) y queden los owner/visibility/schoolId
+        // del usuario actual.
+        dispatch({ type: "LOAD_BOOK", book: makeEmptyBook() });
+        setBookMeta(null);
       }
     };
     loadInitial();
@@ -1671,7 +1721,7 @@ export default function BookEditorPage() {
   // ===== FSA handlers =====
   const openLocalFile = useCallback(async () => {
     if (!window.showOpenFilePicker) {
-      alert("File System Access API no soportada en este navegador. Usa Chrome/Edge.");
+      setToast({ msg: "File System Access API no soportada en este navegador. Usa Chrome/Edge.", variant: "warning" });
       return;
     }
     try {
@@ -1691,7 +1741,7 @@ export default function BookEditorPage() {
       setFsaFileName(handle.name);
     } catch (e: unknown) {
       if (e instanceof Error && e.name === "AbortError") return;
-      alert("Error al abrir archivo: " + String(e));
+      setToast({ msg: "Error al abrir archivo: " + String(e), variant: "danger" });
     }
   }, [dispatch]);
 
@@ -1756,7 +1806,7 @@ export default function BookEditorPage() {
         setFsaHandle(null);
         setFsaFileName(file.name);
       } catch (err: unknown) {
-        alert("Error al importar: " + String(err));
+        setToast({ msg: "Error al importar: " + String(err), variant: "danger" });
       }
       e.target.value = "";
     },
@@ -1767,14 +1817,15 @@ export default function BookEditorPage() {
     if (!book) return;
     setSaveStatus('saving');
     try {
-      const res = await saveBook(book);
-      alert(`Guardado en servidor. ID: ${res.id}`);
+      // El "✓ Guardado" del header ya da el feedback de éxito; el ID interno no
+      // le sirve al docente (era el peor de los alert()).
+      await saveBook(book);
       dispatch({ type: "MARK_DIRTY", dirty: false });
       setSaveStatus('saved');
       setTimeout(() => setSaveStatus('idle'), 2000);
     } catch (e: unknown) {
       setSaveStatus('error');
-      alert("Error al guardar: " + String(e));
+      setToast({ msg: "Error al guardar: " + String(e), variant: "danger" });
     }
   }, [book, dispatch]);
 
@@ -1801,6 +1852,46 @@ export default function BookEditorPage() {
     return (
       <div className="h-screen flex items-center justify-center bg-[var(--c-bg)]">
         <p className="text-[var(--c-muted)] text-lg">Cargando editor…</p>
+      </div>
+    );
+  }
+
+  // SEC-LIBRO — si el viewer no puede editar este libro
+  // (alumno, profe ajeno, o staff de otra escuela cuando el libro
+  // es escuela), mostramos el lector read-only. Replica el
+  // criterio del back (`canEditLibro` en
+  // `api/src/routes/libros.ts`); el back es la autoridad pero
+  // queremos UX correcta. Solo aplica cuando hay un libro
+  // cargado por id (params.id presente). Sin id (libro nuevo),
+  // el viewer es el creador potencial: lo dejamos editar y el
+  // back decidirá en el guardado (solo staff puede crear).
+  const viewerForLibro = user
+    ? { id: user.id, role: user.role ?? null, roles: user.roles, schoolId: user.schoolId ?? null }
+    : null;
+  const isReadOnlyMode = !!params.id && !!bookMeta && !canEditLibro(bookMeta, viewerForLibro);
+
+  if (isReadOnlyMode) {
+    return (
+      <div className="h-screen flex flex-col overflow-hidden bg-[var(--c-bg)]">
+        <header
+          role="banner"
+          className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] flex items-center px-4 gap-3 h-11"
+        >
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1 px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)]"
+            title="Volver"
+          >
+            ← Volver
+          </button>
+          <div className="w-px h-4 bg-[var(--c-border)]" />
+          <span className="text-xs text-[var(--c-muted)]">Lector de libro</span>
+          <div className="flex-1" />
+          <span className="text-[10px] text-[var(--c-muted)]">Solo lectura</span>
+        </header>
+        <main className="flex-1 overflow-y-auto">
+          <BookReader book={book} />
+        </main>
       </div>
     );
   }
@@ -1842,9 +1933,7 @@ export default function BookEditorPage() {
 
         {/* Logo / título editable */}
         <div className="flex items-center gap-2 min-w-0 max-w-[220px]">
-          <div className="w-5 h-5 rounded bg-[var(--c-primary)] flex items-center justify-center flex-shrink-0">
-            <span className="text-white text-[9px] font-bold">VB</span>
-          </div>
+          <BrandMark size={20} />
           <span className="text-[10px] text-[var(--c-muted)] hidden sm:block flex-shrink-0">
             Editor de texto
           </span>
@@ -1947,61 +2036,102 @@ export default function BookEditorPage() {
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
           Imágenes
         </button>
-        <button onClick={() => setShowLibrary(true)} title="Biblioteca"
+        <button onClick={() => setShowLibrary(true)} title="Mis documentos"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors">
-          Biblioteca
+          Mis documentos
         </button>
         <button onClick={() => setShowJson(true)} title="Ver JSON" aria-label="Ver JSON"
           className="px-2 py-1 text-xs rounded text-[var(--c-muted)] hover:bg-[var(--c-bg)] hover:text-[var(--c-text)] transition-colors font-mono">
           <span aria-hidden="true">{'{ }'}</span>
         </button>
 
-        {/* Issues badge */}
+        {/* Issues badge — clickeable: abre el panel con los mensajes (G3 4.a-1) */}
         {(errorCount > 0 || warnCount > 0) && (
-          <div className="flex gap-1">
-            {errorCount > 0 && (
-              <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded">
-                {errorCount}E
-              </span>
-            )}
-            {warnCount > 0 && (
-              <span className="text-[10px] bg-amber-500 text-white px-1.5 py-0.5 rounded">
-                {warnCount}W
-              </span>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setShowIssues((v) => !v)}
+              aria-expanded={showIssues}
+              aria-label={`Ver ${errorCount + warnCount} problemas de validación`}
+              title="Ver problemas de validación"
+              className="flex gap-1 items-center cursor-pointer rounded hover:opacity-80 transition-opacity"
+            >
+              {errorCount > 0 && (
+                <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded">
+                  {errorCount}E
+                </span>
+              )}
+              {warnCount > 0 && (
+                <span className="text-[10px] bg-amber-500 text-white px-1.5 py-0.5 rounded">
+                  {warnCount}W
+                </span>
+              )}
+            </button>
+            {showIssues && (
+              <div
+                role="region"
+                aria-label="Problemas de validación"
+                className="absolute right-0 top-full mt-2 w-96 max-h-80 overflow-y-auto rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] shadow-lg z-30 p-2 space-y-1"
+              >
+                {issues.map((issue, i) => (
+                  <div key={i} className="flex items-start gap-2 text-xs p-1.5 rounded hover:bg-[var(--c-bg)]">
+                    <span className={`flex-shrink-0 px-1 rounded text-white text-[10px] ${issue.level === "error" ? "bg-red-600" : "bg-amber-500"}`}>
+                      {issue.level === "error" ? "E" : "W"}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="text-[var(--c-text)]">{issue.message}</span>
+                      {issue.path && (
+                        <span className="block text-[10px] text-[var(--c-muted)] font-mono truncate">{issue.path}</span>
+                      )}
+                    </span>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )}
       </header>
 
-      {/* ===== TOOLBAR WORD-STYLE ===== */}
-      {hasSelectedBlock && selectedBlock && selectedPage && (
+      {/* ===== TOOLBAR WORD-STYLE =====
+          PLAN-W §3 fase 1 — siempre visible (antes sólo aparecía con un
+          bloque seleccionado). Sin bloque, los controles quedan
+          deshabilitados en vez de desaparecer, como la cinta de Word. */}
+      {(() => {
+        const block = selectedBlock;
+        const page = selectedPage;
+        const isDisabled = !block || !page;
+        const isParagraph = block?.type === 'paragraph';
+        const isHeading = block?.type === 'heading';
+        return (
         <div className="flex-shrink-0 border-b border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 flex items-center gap-1 flex-wrap">
 
           {/* Fuente */}
           <select
-            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 focus:outline-none focus:border-[var(--c-primary)]"
+            disabled={isDisabled}
+            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 focus:outline-none focus:border-[var(--c-primary)] disabled:opacity-40 disabled:cursor-not-allowed"
             style={{
               width: 110,
               fontFamily:
-                selectedBlock.type === 'paragraph'
-                  ? (selectedBlock.runs?.[0]?.style?.fontFamily ?? book.metadata.theme?.fontFamily ?? '')
-                  : selectedBlock.type === 'heading'
-                  ? (selectedBlock.textStyle?.fontFamily ?? '')
+                isParagraph
+                  ? (block.runs?.[0]?.style?.fontFamily ?? book.metadata.theme?.fontFamily ?? '')
+                  : isHeading
+                  ? (block.textStyle?.fontFamily ?? '')
                   : '',
             }}
             value={
-              selectedBlock.type === 'paragraph'
-                ? (selectedBlock.runs?.[0]?.style?.fontFamily ?? '')
-                : selectedBlock.type === 'heading'
-                ? (selectedBlock.textStyle?.fontFamily ?? '')
+              isParagraph
+                ? (block.runs?.[0]?.style?.fontFamily ?? '')
+                : isHeading
+                ? (block.textStyle?.fontFamily ?? '')
                 : ''
             }
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              if (!block || !page) return;
               const val = e.target.value;
-              if (selectedBlock.type === 'paragraph') {
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { fontFamily: val || undefined } });
-              } else if (selectedBlock.type === 'heading') {
-                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { fontFamily: val || undefined } } });
+              if (block.type === 'paragraph') {
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { fontFamily: val || undefined } });
+              } else if (block.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { fontFamily: val || undefined } } });
               }
             }}
           >
@@ -2013,42 +2143,44 @@ export default function BookEditorPage() {
 
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
-          {/* Tamaño (solo párrafo) */}
-          {selectedBlock.type === 'paragraph' && (
-            <select
-              className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-14 focus:outline-none focus:border-[var(--c-primary)]"
-              value={selectedBlock.runs?.[0]?.style?.fontSizePx ?? ''}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                const val = Number(e.target.value);
-                if (!val) return;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { fontSizePx: val } });
-              }}
-            >
-              <option value="">px</option>
-              {[8,9,10,11,12,14,16,18,20,22,24,28,32,36,40,48,60,72].map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
-            </select>
-          )}
+          {/* Tamaño (solo párrafo; sin selección se muestra deshabilitado) */}
+          <select
+            disabled={isDisabled || !isParagraph}
+            className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-14 focus:outline-none focus:border-[var(--c-primary)] disabled:opacity-40 disabled:cursor-not-allowed"
+            value={isParagraph ? (block.runs?.[0]?.style?.fontSizePx ?? '') : ''}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              if (!block || !page || block.type !== 'paragraph') return;
+              const val = Number(e.target.value);
+              if (!val) return;
+              dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { fontSizePx: val } });
+            }}
+          >
+            <option value="">px</option>
+            {[8,9,10,11,12,14,16,18,20,22,24,28,32,36,40,48,60,72].map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
 
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
           {/* Bold */}
           <ToolbarButton
+            disabled={isDisabled}
             active={
-              selectedBlock.type === 'paragraph'
-                ? !!selectedBlock.runs?.[0]?.style?.bold
-                : selectedBlock.type === 'heading'
-                ? !!selectedBlock.textStyle?.bold
+              isParagraph
+                ? !!block.runs?.[0]?.style?.bold
+                : isHeading
+                ? !!block.textStyle?.bold
                 : false
             }
             title="Negrita (Ctrl+B)"
             onClick={() => {
-              if (selectedBlock.type === 'paragraph') {
-                const cur = !!selectedBlock.runs?.[0]?.style?.bold;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { bold: !cur } });
-              } else if (selectedBlock.type === 'heading') {
-                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { bold: !selectedBlock.textStyle?.bold } } });
+              if (!block || !page) return;
+              if (block.type === 'paragraph') {
+                const cur = !!block.runs?.[0]?.style?.bold;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { bold: !cur } });
+              } else if (block.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { bold: !block.textStyle?.bold } } });
               }
             }}
           >
@@ -2057,40 +2189,41 @@ export default function BookEditorPage() {
 
           {/* Italic */}
           <ToolbarButton
+            disabled={isDisabled}
             active={
-              selectedBlock.type === 'paragraph'
-                ? !!selectedBlock.runs?.[0]?.style?.italic
-                : selectedBlock.type === 'heading'
-                ? !!selectedBlock.textStyle?.italic
+              isParagraph
+                ? !!block.runs?.[0]?.style?.italic
+                : isHeading
+                ? !!block.textStyle?.italic
                 : false
             }
             title="Cursiva (Ctrl+I)"
             onClick={() => {
-              if (selectedBlock.type === 'paragraph') {
-                const cur = !!selectedBlock.runs?.[0]?.style?.italic;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { italic: !cur } });
-              } else if (selectedBlock.type === 'heading') {
-                dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { italic: !selectedBlock.textStyle?.italic } } });
+              if (!block || !page) return;
+              if (block.type === 'paragraph') {
+                const cur = !!block.runs?.[0]?.style?.italic;
+                dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { italic: !cur } });
+              } else if (block.type === 'heading') {
+                dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { italic: !block.textStyle?.italic } } });
               }
             }}
           >
             <em>I</em>
           </ToolbarButton>
 
-          {/* Underline (solo párrafo) */}
-          {selectedBlock.type === 'paragraph' && (
-            <ToolbarButton
-              active={!!selectedBlock.runs?.[0]?.style?.underline}
-              title="Subrayado (Ctrl+U)"
-              onClick={() => {
-                if (selectedBlock.type !== 'paragraph') return;
-                const cur = !!selectedBlock.runs?.[0]?.style?.underline;
-                dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { underline: !cur } });
-              }}
-            >
-              <span style={{ textDecoration: 'underline' }}>U</span>
-            </ToolbarButton>
-          )}
+          {/* Underline (solo párrafo; deshabilitado si no aplica) */}
+          <ToolbarButton
+            disabled={isDisabled || !isParagraph}
+            active={isParagraph && !!block.runs?.[0]?.style?.underline}
+            title="Subrayado (Ctrl+U)"
+            onClick={() => {
+              if (!block || !page || block.type !== 'paragraph') return;
+              const cur = !!block.runs?.[0]?.style?.underline;
+              dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { underline: !cur } });
+            }}
+          >
+            <span style={{ textDecoration: 'underline' }}>U</span>
+          </ToolbarButton>
 
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
@@ -2098,17 +2231,19 @@ export default function BookEditorPage() {
           {(['left','center','right','justify'] as const).map((align) => (
             <ToolbarButton
               key={align}
+              disabled={isDisabled}
               title={align}
               active={
-                (selectedBlock.type === 'paragraph' || selectedBlock.type === 'heading')
-                  ? selectedBlock.blockStyle?.align === align
+                (isParagraph || isHeading)
+                  ? block.blockStyle?.align === align
                   : false
               }
               onClick={() => {
-                if (selectedBlock.type === 'paragraph') {
-                  dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { align } });
-                } else if (selectedBlock.type === 'heading') {
-                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { blockStyle: { align } } });
+                if (!block || !page) return;
+                if (block.type === 'paragraph') {
+                  dispatch({ type: "UPDATE_PARAGRAPH_BLOCKSTYLE", pageId: page.id, blockId: block.id, patch: { align } });
+                } else if (block.type === 'heading') {
+                  dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { blockStyle: { align } } });
                 }
               }}
             >
@@ -2122,57 +2257,101 @@ export default function BookEditorPage() {
           <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
 
           {/* Color de texto */}
-          <label className="flex items-center gap-1 cursor-pointer" title="Color de texto">
+          <label className={classNames("flex items-center gap-1", isDisabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer")} title="Color de texto">
             <span className="text-xs text-[var(--c-muted)]">A</span>
             <input
               type="color"
-              className="w-5 h-5 rounded cursor-pointer border border-[var(--c-border)]"
+              disabled={isDisabled}
+              className="w-5 h-5 rounded cursor-pointer border border-[var(--c-border)] disabled:cursor-not-allowed"
               value={
-                selectedBlock.type === 'paragraph'
-                  ? (selectedBlock.runs?.[0]?.style?.color ?? '#000000')
-                  : selectedBlock.type === 'heading'
-                  ? (selectedBlock.textStyle?.color ?? '#000000')
+                isParagraph
+                  ? (block.runs?.[0]?.style?.color ?? '#000000')
+                  : isHeading
+                  ? (block.textStyle?.color ?? '#000000')
                   : '#000000'
               }
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                if (!block || !page) return;
                 const color = e.target.value;
-                if (selectedBlock.type === 'paragraph') {
-                  dispatch({ type: "UPDATE_RUN_STYLE", pageId: selectedPage.id, blockId: selectedBlock.id, runIndex: 0, patch: { color } });
-                } else if (selectedBlock.type === 'heading') {
-                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { textStyle: { color } } });
+                if (block.type === 'paragraph') {
+                  dispatch({ type: "UPDATE_RUN_STYLE", pageId: page.id, blockId: block.id, runIndex: 0, patch: { color } });
+                } else if (block.type === 'heading') {
+                  dispatch({ type: "UPDATE_HEADING", pageId: page.id, blockId: block.id, patch: { textStyle: { color } } });
                 }
               }}
             />
           </label>
 
-          {/* Nivel de heading */}
-          {selectedBlock.type === 'heading' && (
-            <>
-              <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
-              <select
-                className="text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 h-6 w-16 focus:outline-none"
-                value={selectedBlock.level}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                  dispatch({ type: "UPDATE_HEADING", pageId: selectedPage.id, blockId: selectedBlock.id, patch: { level: Number(e.target.value) as 1|2|3|4|5|6 } });
+          {/* PLAN-W §3 fase 1 — galería de estilos: Normal / Título 1-4
+              convierten el bloque actual (párrafo ↔ título), como los
+              estilos rápidos de Word. Reemplaza al select H1-H6 previo. */}
+          <div className="w-px h-4 bg-[var(--c-border)] mx-0.5" />
+          <div className="flex items-center gap-0.5" role="group" aria-label="Estilos de bloque">
+            <ToolbarButton
+              disabled={isDisabled || (!isParagraph && !isHeading)}
+              active={isParagraph}
+              title="Texto normal"
+              onClick={() => {
+                if (!block || !page) return;
+                dispatch({ type: "CONVERT_BLOCK", pageId: page.id, blockId: block.id, to: "paragraph" });
+              }}
+            >
+              Normal
+            </ToolbarButton>
+            {([1, 2, 3, 4] as const).map((l) => (
+              <ToolbarButton
+                key={l}
+                disabled={isDisabled || (!isParagraph && !isHeading)}
+                active={isHeading && block.level === l}
+                title={`Título ${l}`}
+                onClick={() => {
+                  if (!block || !page) return;
+                  dispatch({ type: "CONVERT_BLOCK", pageId: page.id, blockId: block.id, to: { heading: l } });
                 }}
               >
-                {[1,2,3,4,5,6].map((l) => <option key={l} value={l}>H{l}</option>)}
-              </select>
-            </>
-          )}
+                <span style={{ fontSize: 13 - l, fontWeight: 700 }}>T{l}</span>
+              </ToolbarButton>
+            ))}
+          </div>
 
           {/* Spacer */}
           <div className="flex-1" />
 
           {/* Tipo de bloque */}
           <span className="text-xs text-[var(--c-muted)] px-2 py-1 rounded bg-[var(--c-bg)]">
-            {selectedBlock.type === 'paragraph' ? '¶ Párrafo'
-              : selectedBlock.type === 'heading' ? `H${(selectedBlock as { level: number }).level} Título`
-              : selectedBlock.type === 'image' ? 'Imagen'
-              : selectedBlock.type === 'divider' ? '─ Separador'
-              : selectedBlock.type === 'pageBreak' ? 'Salto de página'
-              : (selectedBlock as { type: string }).type}
+            {!block ? 'Sin selección'
+              : block.type === 'paragraph' ? '¶ Párrafo'
+              : block.type === 'heading' ? `H${(block as { level: number }).level} Título`
+              : block.type === 'image' ? 'Imagen'
+              : block.type === 'divider' ? '─ Separador'
+              : block.type === 'pageBreak' ? 'Salto de página'
+              : (block as { type: string }).type}
           </span>
+        </div>
+        );
+      })()}
+
+      {/* WO-13 — banner de procedencia. Aparece si el libro que se
+          está editando es una copia (creada por copy-on-write al
+          guardar, o por el botón "Duplicar" futuro). Le recuerda al
+          docente que está editando SU copia, no el original. */}
+      {bookMeta?.clonedFrom && (
+        <div
+          role="status"
+          aria-live="polite"
+          data-testid="libro-copied-from-banner"
+          className="flex-shrink-0 flex items-start gap-3 border-b border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-900"
+        >
+          <span aria-hidden="true" className="text-base">📋</span>
+          <div className="min-w-0 flex-1">
+            <p className="font-medium">
+              Estás editando una copia
+              {bookMeta.clonedFrom.title ? ` de “${bookMeta.clonedFrom.title}”` : ""}.
+            </p>
+            <p className="mt-0.5 text-xs text-amber-800/80">
+              El original quedó intacto. Esta copia es tuya y podés editarla libremente.
+            </p>
+          </div>
         </div>
       )}
 
@@ -2221,7 +2400,7 @@ export default function BookEditorPage() {
                     >
                       {page.title || `Pág. ${idx + 1}`}
                     </p>
-                    <p className="text-xs text-[var(--c-muted)]">{page.content.length} bloques</p>
+                    <p className="text-xs text-[var(--c-muted)] truncate">{page.content.length} bloques</p>
                   </div>
                   {isActive && (
                     <div className="flex flex-col gap-0.5 opacity-0 group-hover:opacity-100">
@@ -2376,6 +2555,14 @@ export default function BookEditorPage() {
       )}
       {showJson && (
         <JsonModal book={book} onClose={() => setShowJson(false)} />
+      )}
+      {toast && (
+        <Toast
+          message={toast.msg}
+          variant={toast.variant}
+          onClose={() => setToast(null)}
+          durationMs={5000}
+        />
       )}
     </div>
   );

@@ -1,0 +1,32 @@
+{
+ "titulo": "Conductor y aislante",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Paso de la corriente",
+   "headers": [
+    "",
+    "Conductor",
+    "Aislante"
+   ],
+   "rows": [
+    [
+     "Electrones libres",
+     "Muchos",
+     "Casi ninguno"
+    ],
+    [
+     "Resistencia",
+     "Baja",
+     "Muy alta"
+    ],
+    [
+     "Ejemplos",
+     "Cobre, aluminio",
+     "Goma, vidrio, plástico"
+    ]
+   ]
+  }
+ ]
+}

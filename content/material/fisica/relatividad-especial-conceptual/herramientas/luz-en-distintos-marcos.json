@@ -1,0 +1,24 @@
+{
+ "titulo": "La luz en marcos inerciales",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Dos observadores",
+   "headers": [
+    "Observador",
+    "Velocidad medida de la luz"
+   ],
+   "rows": [
+    [
+     "En reposo respecto de la fuente",
+     "c ≈ 300.000 km/s"
+    ],
+    [
+     "Moviéndose hacia la fuente a velocidad constante",
+     "c ≈ 300.000 km/s (la misma)"
+    ]
+   ]
+  }
+ ]
+}

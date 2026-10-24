@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react"
 import type { ShapeBlock } from "../types"
 import { COLLECTIONS } from "../shapes/collections"
 
@@ -8,8 +9,18 @@ interface Props {
 export function ShapeBlockRenderer({ block }: Props) {
   const width = block.canvasWidth ?? 800
   const height = block.canvasHeight ?? 500
-  const collection = COLLECTIONS[block.collection]
   const connectors = block.connectors ?? []
+
+  // El lienzo tiene medidas fijas (800×500 por defecto): en pantallas angostas se escala para que no se corte.
+  const contenedor = useRef<HTMLDivElement>(null)
+  const [escala, setEscala] = useState(1)
+  useEffect(() => {
+    const el = contenedor.current
+    if (!el || typeof ResizeObserver === "undefined") return
+    const ro = new ResizeObserver(() => setEscala(Math.min(1, el.clientWidth / width) || 1))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [width])
 
   const itemCenter = (itemId: string) => {
     const item = block.items.find((i) => i.id === itemId)
@@ -29,6 +40,7 @@ export function ShapeBlockRenderer({ block }: Props) {
   }
 
   return (
+    <div ref={contenedor} style={{ width: "100%", maxWidth: width, height: height * escala }}>
     <div
       style={{
         position: "relative",
@@ -37,6 +49,8 @@ export function ShapeBlockRenderer({ block }: Props) {
         background: "white",
         border: "1px solid #d1d5db",
         overflow: "hidden",
+        transform: `scale(${escala})`,
+        transformOrigin: "top left",
       }}
     >
       {/* SVG layer for connectors */}
@@ -100,7 +114,22 @@ export function ShapeBlockRenderer({ block }: Props) {
 
       {/* Shape items */}
       {block.items.map((item) => {
-        const shape = collection.shapes.find((s) => s.id === item.shapeId)
+        // FIX-FORMAS-RENDERER — antes el renderer buscaba el shape
+        // SOLO dentro de `block.collection` (la colección "activa"
+        // del bloque). Si el docente agregaba una forma desde la
+        // pestaña "Física" y luego cambiaba la colección activa a
+        // "Básica" (o el bloque se guardaba con `collection` des-
+        // sincronizada del shape), el `find` devolvía undefined y la
+        // forma desaparecía. La herramienta "Formas" quedaba
+        // inutilizable: las formas agregadas no se renderizaban —
+        // bug 7.7 de `docs/qa/test-parte-3-profesor.md`.
+        //
+        // El editor (`ShapeBlockEditor`) ya hacía la búsqueda
+        // correcta con `Object.values(COLLECTIONS).flatMap(...)`.
+        // Alineamos el renderer con ese patrón.
+        const shape = Object.values(COLLECTIONS)
+          .flatMap((col) => col.shapes)
+          .find((s) => s.id === item.shapeId)
         if (!shape) return null
         return (
           <div
@@ -130,6 +159,7 @@ export function ShapeBlockRenderer({ block }: Props) {
           </div>
         )
       })}
+    </div>
     </div>
   )
 }

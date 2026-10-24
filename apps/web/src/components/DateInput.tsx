@@ -8,6 +8,8 @@ import React, {
 
 } from "react";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 
 export interface DateInputProps {
   label?: string;
@@ -60,7 +62,7 @@ function stripTime(d: Date) {
 }
 
 export default function DateInput({
-  label = "Cumpleaños",
+  label,
   placeholder = "DD/MM/AAAA",
   value = "",
   onChange = () => {},
@@ -71,7 +73,17 @@ export default function DateInput({
   maxDate,
   readOnlyInput = true,
 }: DateInputProps) {
+  const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const containerRef = useRef<HTMLDivElement>(null);
+  const dateFieldRef = useRef<HTMLInputElement>(null);
+
+  // El input es readOnly y se completa vía el date-picker (no por tipeo), así
+  // que el evento nativo `input` nunca dispara — limpiamos setCustomValidity
+  // acá cuando `value` cambia a algo no vacío.
+  useEffect(() => {
+    if (value) dateFieldRef.current?.setCustomValidity("");
+  }, [value]);
   const [isOpen, setIsOpen] = useState(false);
 
   const parsed = useMemo(() => parseDDMMYYYY(value), [value]);
@@ -191,9 +203,9 @@ export default function DateInput({
 
   return (
     <div className="relative w-full" ref={containerRef} onKeyDown={onKeyDown}>
-      {label && (
+      {(label ?? t("register.labelCumpleanos")) && (
         <label htmlFor={id} className="block text-gray-800 text-sm mb-2 font-medium">
-          {label}{required ? " *" : ""}
+          {label ?? t("register.labelCumpleanos")}{required ? " *" : ""}
         </label>
       )}
 
@@ -214,6 +226,9 @@ export default function DateInput({
           aria-expanded={isOpen}
           aria-controls={id ? `${id}-dialog` : undefined}
           required={required}
+          onInvalid={onInvalid}
+          onInput={onInput}
+          ref={dateFieldRef}
         />
         <button
           type="button"

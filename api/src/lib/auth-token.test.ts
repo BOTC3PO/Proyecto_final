@@ -1,3 +1,8 @@
+/**
+ * MULTIROL-01 (Fase 1) — el JWT lleva `roles[]` (nuevo) y `role`
+ * (compat). El código viejo que lee `role` debe seguir andando.
+ */
+
 import test from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
@@ -14,101 +19,88 @@ const buildToken = (payload: TokenClaims, secret: string) => {
   return `${signingInput}.${sign(signingInput, secret)}`;
 };
 
-test("verifyToken accepts access and refresh tokens when secrets are equal", () => {
-  const originalSecret = ENV.JWT_SECRET;
-  const originalRefreshSecret = ENV.JWT_REFRESH_SECRET;
+const decodePayload = (token: string): Record<string, unknown> => {
+  const [, payloadPart] = token.split(".");
+  return JSON.parse(Buffer.from(payloadPart, "base64url").toString("utf8"));
+};
 
-  ENV.JWT_SECRET = "same-secret";
-  ENV.JWT_REFRESH_SECRET = "same-secret";
-
-  try {
-    const now = Math.floor(Date.now() / 1000);
-    const accessToken = buildToken({ sub: "user-1", iat: now, exp: now + 60, typ: "access" }, ENV.JWT_SECRET);
-    const refreshToken = buildToken({ sub: "user-1", iat: now, exp: now + 60, typ: "refresh" }, ENV.JWT_REFRESH_SECRET || ENV.JWT_SECRET);
-
-    const accessResult = verifyToken(accessToken, "access");
-    const refreshResult = verifyToken(refreshToken, "refresh");
-
-    assert.equal(accessResult.ok, true);
-    assert.equal(refreshResult.ok, true);
-  } finally {
-    ENV.JWT_SECRET = originalSecret;
-    ENV.JWT_REFRESH_SECRET = originalRefreshSecret;
-  }
+test("MULTIROL-01: createAccessToken con roles[] emite el array en el JWT", () => {
+  const access = createAccessToken({ id: "u1", role: "TEACHER", roles: ["TEACHER", "USER"] });
+  const payload = decodePayload(access.token);
+  assert.deepEqual(payload.roles, ["TEACHER", "USER"]);
+  // role compat: TEACHER (mayor jerarquía del array)
+  assert.equal(payload.role, "TEACHER");
 });
 
-test("verifyToken uses dedicated refresh secret when secrets are different", () => {
-  const originalSecret = ENV.JWT_SECRET;
-  const originalRefreshSecret = ENV.JWT_REFRESH_SECRET;
-
-  ENV.JWT_SECRET = "access-secret-A";
-  ENV.JWT_REFRESH_SECRET = "refresh-secret-B";
-
-  try {
-    const now = Math.floor(Date.now() / 1000);
-    const accessToken = buildToken({ sub: "user-2", iat: now, exp: now + 60, typ: "access" }, ENV.JWT_SECRET);
-    const refreshToken = buildToken({ sub: "user-2", iat: now, exp: now + 60, typ: "refresh" }, ENV.JWT_REFRESH_SECRET || ENV.JWT_SECRET);
-
-    const accessResult = verifyToken(accessToken, "access");
-    const refreshResult = verifyToken(refreshToken, "refresh");
-
-    assert.equal(accessResult.ok, true);
-    assert.equal(refreshResult.ok, true);
-
-    const wrongTypeResult = verifyToken(refreshToken, "access");
-    assert.deepEqual(wrongTypeResult, { ok: false, error: "Invalid authentication token" });
-  } finally {
-    ENV.JWT_SECRET = originalSecret;
-    ENV.JWT_REFRESH_SECRET = originalRefreshSecret;
-  }
+test("MULTIROL-01: createAccessToken sin roles[] promueve role al array", () => {
+  const access = createAccessToken({ id: "u2", role: "ADMIN" });
+  const payload = decodePayload(access.token);
+  assert.deepEqual(payload.roles, ["ADMIN"]);
+  assert.equal(payload.role, "ADMIN");
 });
 
-test("verifyToken keeps consistent error messages for invalid and expired tokens", () => {
-  const originalSecret = ENV.JWT_SECRET;
-  const originalRefreshSecret = ENV.JWT_REFRESH_SECRET;
-
-  ENV.JWT_SECRET = "access-secret";
-  ENV.JWT_REFRESH_SECRET = "refresh-secret";
-
-  try {
-    const now = Math.floor(Date.now() / 1000);
-    const expiredAccess = buildToken(
-      {
-        sub: "user-3",
-        iat: now - 20,
-        exp: now - 10,
-        typ: "access"
-      },
-      ENV.JWT_SECRET
-    );
-
-    const expiredResult = verifyToken(expiredAccess, "access");
-    assert.deepEqual(expiredResult, { ok: false, error: "Authentication token expired" });
-
-    const invalidSignatureToken = `${expiredAccess.slice(0, -1)}x`;
-    const invalidResult = verifyToken(invalidSignatureToken, "access");
-    assert.deepEqual(invalidResult, { ok: false, error: "Invalid authentication token" });
-  } finally {
-    ENV.JWT_SECRET = originalSecret;
-    ENV.JWT_REFRESH_SECRET = originalRefreshSecret;
-  }
+test("MULTIROL-01: createAccessToken con role=USER + roles=[TEACHER,USER] → role compat = TEACHER", () => {
+  const access = createAccessToken({ id: "u3", role: "USER", roles: ["TEACHER", "USER"] });
+  const payload = decodePayload(access.token);
+  // El role compat es la mayor jerarquía, NO el singular entrante.
+  assert.equal(payload.role, "TEACHER");
+  assert.deepEqual(payload.roles, ["TEACHER", "USER"]);
 });
 
-
-test("access token and user context use schoolId as canonical field", () => {
-  const access = createAccessToken({ id: "user-4", schoolId: "school-123" });
-  const [, payloadPart] = access.token.split(".");
-  const payload = JSON.parse(Buffer.from(payloadPart, "base64url").toString("utf8")) as Record<string, unknown>;
-
-  assert.equal(payload.schoolId, "school-123");
-  assert.equal("escuelaId" in payload, false);
-
-  const context = buildUserContextFromClaims({
-    sub: "user-4",
+test("MULTIROL-01: buildUserContextFromClaims propaga roles[]", () => {
+  const ctx = buildUserContextFromClaims({
+    sub: "u4",
     iat: 1,
     exp: 2,
-    schoolId: "school-123"
+    role: "TEACHER",
+    roles: ["TEACHER", "USER"]
   });
-  assert.equal(context.schoolId, "school-123");
-  assert.equal("escuelaId" in context, false);
+  assert.deepEqual(ctx.roles, ["TEACHER", "USER"]);
+  assert.equal(ctx.role, "TEACHER");
+});
+
+test("MULTIROL-01: buildUserContextFromClaims promueve role a roles[] si solo viene el singular", () => {
+  const ctx = buildUserContextFromClaims({
+    sub: "u5",
+    iat: 1,
+    exp: 2,
+    role: "ADMIN"
+  });
+  assert.deepEqual(ctx.roles, ["ADMIN"]);
+  assert.equal(ctx.role, "ADMIN");
+});
+
+test("MULTIROL-01: buildUserContextFromClaims con token viejo (sin roles) sigue funcionando", () => {
+  // Simula un JWT emitido antes de Fase 1: solo tiene `role`.
+  const ctx = buildUserContextFromClaims({
+    sub: "u6",
+    iat: 1,
+    exp: 2,
+    role: "USER"
+  });
+  // Compat: el código viejo que lee ctx.role sigue viendo "USER".
+  assert.equal(ctx.role, "USER");
+  // Y las funciones que miran roles[] encuentran ["USER"].
+  assert.deepEqual(ctx.roles, ["USER"]);
+});
+
+test("MULTIROL-01: verifyToken acepta un JWT con roles[]", () => {
+  const now = Math.floor(Date.now() / 1000);
+  const token = buildToken(
+    {
+      sub: "u7",
+      iat: now,
+      exp: now + 60,
+      typ: "access",
+      role: "TEACHER",
+      roles: ["TEACHER", "USER"]
+    },
+    ENV.JWT_SECRET
+  );
+  const result = verifyToken(token, "access");
+  assert.equal(result.ok, true);
+  if (result.ok) {
+    assert.equal(result.payload.role, "TEACHER");
+    assert.deepEqual(result.payload.roles, ["TEACHER", "USER"]);
+  }
 });

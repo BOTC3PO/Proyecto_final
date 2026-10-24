@@ -1,0 +1,5 @@
+A: Oi, João! Você chegou cedo hoje.
+B: Sim, eu estava com tempo livre. O que você vai tomar?
+A: Um suco de laranja, por favor.
+B: Claro! E o café? Vai querer um também?
+A: Não, obrigado. Estou com pressa agora.

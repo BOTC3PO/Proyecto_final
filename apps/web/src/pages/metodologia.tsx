@@ -1,16 +1,18 @@
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
+import { useI18n } from '../i18n/I18nContext';
 
 export default function metodologia(){
+  const { t } = useI18n();
   useDocumentMeta({
-    title: 'Metodología de Enseñanza — Virtual Book',
-    description: 'Conoce nuestra metodología inspirada en Montessori: aprendizaje personalizado, progresión por competencias y pensamiento crítico.',
+    title: t('metodologia.metodologiaDeEnsenanzaVirtualBook'),
+    description: t('metodologia.conoceNuestraMetodologiaInspiradaEn'),
   });
   return(
 <>
   <section className="bg-sky-500 text-white">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
-      <h1 className="text-3xl md:text-4xl font-bold">Metodología de Enseñanza</h1>
-      <p className="mt-4 opacity-95">Una aproximación moderna y adaptativa al aprendizaje, inspirada en Montessori y potenciada por tecnología.</p>
+      <h1 className="text-3xl md:text-4xl font-bold">{t('metodologia.metodologiaDeEnsenanza')}</h1>
+      <p className="mt-4 opacity-95">{t('metodologia.unaAproximacionModernaYAdaptativa')}</p>
     </div>
   </section>
 
@@ -18,85 +20,85 @@ export default function metodologia(){
   <main className="flex-1">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       <section className="bg-white rounded-xl shadow p-6">
-        <h2 className="text-2xl font-bold text-blue-700">Principios Fundamentales</h2>
+        <h2 className="text-2xl font-bold text-blue-700">{t('metodologia.principiosFundamentales')}</h2>
         <div className="mt-3 bg-gray-50 rounded p-4">
-          <p className="font-medium">Nuestro sistema es modular y adaptativo; cada estudiante avanza a su ritmo manteniendo estándares.</p>
+          <p className="font-medium">{t('metodologia.nuestroSistemaEsModularY')}</p>
           <ul className="list-disc ml-5 mt-3 space-y-1">
-            <li>Aprendizaje personalizado</li>
-            <li>Progresión por competencias</li>
-            <li>Pensamiento crítico y eliminación de sesgos</li>
-            <li>Ejemplos prácticos cotidianos</li>
-            <li>Fortalecimiento de habilidades existentes</li>
+            <li>{t('metodologia.aprendizajePersonalizado')}</li>
+            <li>{t('metodologia.progresionPorCompetencias')}</li>
+            <li>{t('metodologia.pensamientoCriticoYEliminacionDe')}</li>
+            <li>{t('metodologia.ejemplosPracticosCotidianos')}</li>
+            <li>{t('metodologia.fortalecimientoDeHabilidadesExistentes')}</li>
           </ul>
         </div>
       </section>
 
       <section className="bg-white rounded-xl shadow p-6">
-        <h2 className="text-2xl font-bold text-blue-700">Sistema Modular</h2>
-        <p className="mt-2 font-medium">Módulos interconectados que permiten una progresión natural y lógica.</p>
+        <h2 className="text-2xl font-bold text-blue-700">{t('metodologia.sistemaModular')}</h2>
+        <p className="mt-2 font-medium">{t('metodologia.modulosInterconectadosQuePermitenUna')}</p>
         <div className="grid md:grid-cols-2 gap-6 mt-4">
           <div>
-            <h3 className="text-sky-700 font-semibold">Estructura Modular</h3>
+            <h3 className="text-sky-700 font-semibold">{t('metodologia.estructuraModular')}</h3>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Bloqueo por prerrequisitos</li>
-              <li>Competencias demostradas</li>
-              <li>Flexibilidad del profesor</li>
+              <li>{t('metodologia.bloqueoPorPrerrequisitos')}</li>
+              <li>{t('metodologia.competenciasDemostradas')}</li>
+              <li>{t('metodologia.flexibilidadDelProfesor')}</li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sky-700 font-semibold">Evaluación Continua</h3>
+            <h3 className="text-sky-700 font-semibold">{t('metodologia.evaluacionContinua')}</h3>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Dificultad adaptativa</li>
-              <li>Reconocimientos por rendimiento</li>
-              <li>Seguimiento detallado</li>
+              <li>{t('metodologia.dificultadAdaptativa')}</li>
+              <li>{t('metodologia.reconocimientosPorRendimiento')}</li>
+              <li>{t('metodologia.seguimientoDetallado')}</li>
             </ul>
           </div>
         </div>
       </section>
 
       <section className="bg-white rounded-xl shadow p-6">
-        <h2 className="text-2xl font-bold text-blue-700">Rol del Profesor</h2>
-        <p className="mt-2 font-medium">Inspirado en Montessori, con flexibilidad para diversos contextos.</p>
+        <h2 className="text-2xl font-bold text-blue-700">{t('metodologia.rolDelProfesor')}</h2>
+        <p className="mt-2 font-medium">{t('metodologia.inspiradoEnMontessoriConFlexibilidad')}</p>
         <div className="grid md:grid-cols-2 gap-6 mt-4">
           <div>
-            <h3 className="text-sky-700 font-semibold">Facilitador del Aprendizaje</h3>
+            <h3 className="text-sky-700 font-semibold">{t('metodologia.facilitadorDelAprendizaje')}</h3>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Observación y guía</li>
-              <li>Intervención flexible</li>
-              <li>Apoyo individual o grupal</li>
+              <li>{t('metodologia.observacionYGuia')}</li>
+              <li>{t('metodologia.intervencionFlexible')}</li>
+              <li>{t('metodologia.apoyoIndividualOGrupal')}</li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sky-700 font-semibold">Gestión del Aula</h3>
+            <h3 className="text-sky-700 font-semibold">{t('metodologia.gestionDelAula')}</h3>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Desbloqueo de módulos</li>
-              <li>Adaptación del material</li>
-              <li>Seguimiento de progreso</li>
+              <li>{t('metodologia.desbloqueoDeModulos')}</li>
+              <li>{t('metodologia.adaptacionDelMaterial')}</li>
+              <li>{t('metodologia.seguimientoDeProgreso')}</li>
             </ul>
           </div>
         </div>
       </section>
 
       <section className="bg-white rounded-xl shadow p-6">
-        <h2 className="text-2xl font-bold text-blue-700">Enfoque Práctico</h2>
-        <p className="mt-2 font-medium">Cada tema inicia con la identificación del problema y herramientas para resolverlo.</p>
+        <h2 className="text-2xl font-bold text-blue-700">{t('metodologia.enfoquePractico')}</h2>
+        <p className="mt-2 font-medium">{t('metodologia.cadaTemaIniciaConLa')}</p>
         <div className="grid md:grid-cols-2 gap-6 mt-4">
           <div>
-            <h3 className="text-sky-700 font-semibold">Proceso de Aprendizaje</h3>
+            <h3 className="text-sky-700 font-semibold">{t('metodologia.procesoDeAprendizaje')}</h3>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Definición del problema</li>
-              <li>Herramientas necesarias</li>
-              <li>Práctica guiada</li>
-              <li>Evaluación adaptativa</li>
+              <li>{t('metodologia.definicionDelProblema')}</li>
+              <li>{t('metodologia.herramientasNecesarias')}</li>
+              <li>{t('metodologia.practicaGuiada')}</li>
+              <li>{t('metodologia.evaluacionAdaptativa')}</li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sky-700 font-semibold">Ejemplo: Matemáticas</h3>
+            <h3 className="text-sky-700 font-semibold">{t('metodologia.ejemploMatematicas')}</h3>
             <ul className="list-disc ml-5 mt-2 space-y-1">
-              <li>Números naturales y operaciones</li>
-              <li>Fórmulas y ecuaciones</li>
-              <li>Múltiples respuestas correctas</li>
-              <li>Dificultad creciente</li>
+              <li>{t('metodologia.numerosNaturalesYOperaciones')}</li>
+              <li>{t('metodologia.formulasYEcuaciones')}</li>
+              <li>{t('metodologia.multiplesRespuestasCorrectas')}</li>
+              <li>{t('metodologia.dificultadCreciente')}</li>
             </ul>
           </div>
         </div>

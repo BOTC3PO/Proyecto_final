@@ -1,0 +1,32 @@
+{
+ "titulo": "Teoría falsable y teoría no falsable",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Criterio de Popper",
+   "headers": [
+    "",
+    "Falsable",
+    "No falsable"
+   ],
+   "rows": [
+    [
+     "Ejemplo",
+     "Todos los cisnes son blancos",
+     "Todo lo que ocurre tiene un propósito"
+    ],
+    [
+     "¿Puede ser refutada por una prueba?",
+     "Sí: un cisne negro la refuta",
+     "No: cualquier hecho encaja"
+    ],
+    [
+     "Carácter",
+     "Científica",
+     "No científica"
+    ]
+   ]
+  }
+ ]
+}

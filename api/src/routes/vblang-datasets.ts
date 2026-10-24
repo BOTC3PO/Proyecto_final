@@ -1,8 +1,11 @@
 import { randomUUID } from "crypto";
 import { Router } from "express";
+import { BlockList, isIP } from "node:net";
+import { lookup as dnsLookup } from "node:dns/promises";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import {
   DatasetCreateSchema,
   DatasetFilaUpdateSchema,
@@ -14,7 +17,15 @@ import { validateDatasetFilas } from "../lib/vblang-validation";
 
 export const vblangDatasets = Router();
 
-type AuthUser = { _id?: string; role?: string; schoolId?: string | null };
+// MULTIROL-01 (Fase 1): `roles[]` opcional. Los chequeos `user.role
+// === "ADMIN"` se migran a `hasRole(user, "ADMIN")` que mira el
+// array primero.
+type AuthUser = {
+  _id?: string;
+  role?: string;
+  roles?: string[];
+  schoolId?: string | null;
+};
 
 type DatasetRow = {
   id: string;
@@ -24,6 +35,7 @@ type DatasetRow = {
   nombre: string;
   descripcion: string | null;
   columnas: string;
+  sourceUrl?: string | null;
   isDeleted: boolean;
   createdAt: string;
   updatedAt: string;
@@ -51,9 +63,208 @@ function parseDatos(raw: string): Record<string, unknown> {
   return {};
 }
 
+// ─── PLAN-E §20 — datasets externos ─────────────────────────────────────────
+// Fetch server-side de una URL HTTPS (CSV o JSON) para refrescar las filas.
+// El runtime no cambia: sigue leyendo VblangDatasetFila.
+
+const EXTERNO_MAX_BYTES = 2 * 1024 * 1024; // 2MB
+const EXTERNO_MAX_FILAS = 5000;
+const EXTERNO_TIMEOUT_MS = 10_000;
+
+// Bloqueo SSRF: el chequeo de hostname literal no alcanza cuando un atacante
+// controla un dominio público (p.ej. localtest.me, lvh.me, attacker.com → 127.0.0.1)
+// que resuelve a una IP privada. Por eso también resolvemos el hostname y
+// rechazamos si alguna IP cae en un rango privado / loopback / link-local.
+// DNS rebinding (cambio de IP entre check y fetch) sigue fuera de alcance v1.
+const PRIVATE_IP_BLOCKLIST = new BlockList();
+PRIVATE_IP_BLOCKLIST.addSubnet("0.0.0.0", 8);
+PRIVATE_IP_BLOCKLIST.addSubnet("10.0.0.0", 8);
+PRIVATE_IP_BLOCKLIST.addSubnet("100.64.0.0", 10); // CGNAT (RFC 6598)
+PRIVATE_IP_BLOCKLIST.addSubnet("127.0.0.0", 8);
+PRIVATE_IP_BLOCKLIST.addSubnet("169.254.0.0", 16);
+PRIVATE_IP_BLOCKLIST.addSubnet("172.16.0.0", 12);
+PRIVATE_IP_BLOCKLIST.addSubnet("192.0.0.0", 24);
+PRIVATE_IP_BLOCKLIST.addSubnet("192.0.2.0", 24); // TEST-NET-1
+PRIVATE_IP_BLOCKLIST.addSubnet("192.88.99.0", 24); // 6to4 anycast
+PRIVATE_IP_BLOCKLIST.addSubnet("192.168.0.0", 16);
+PRIVATE_IP_BLOCKLIST.addSubnet("198.18.0.0", 15); // benchmarking
+PRIVATE_IP_BLOCKLIST.addSubnet("198.51.100.0", 24); // TEST-NET-2
+PRIVATE_IP_BLOCKLIST.addSubnet("203.0.113.0", 24); // TEST-NET-3
+PRIVATE_IP_BLOCKLIST.addSubnet("224.0.0.0", 4); // multicast
+PRIVATE_IP_BLOCKLIST.addSubnet("240.0.0.0", 4); // reservados
+PRIVATE_IP_BLOCKLIST.addSubnet("255.255.255.255", 32);
+// Nota: NO incluimos ::ffff:0:0/96 (IPv4-mapped IPv6): añadir esa subred a un
+// BlockList de Node 24 rompe los chequeos IPv4 (bloquea TODO IPv4). En su lugar,
+// `ipEsPrivadaOLocal` detecta esa forma manualmente y la trata como IPv4.
+PRIVATE_IP_BLOCKLIST.addSubnet("::1", 128, "ipv6"); // loopback IPv6
+PRIVATE_IP_BLOCKLIST.addSubnet("::", 128, "ipv6");
+PRIVATE_IP_BLOCKLIST.addSubnet("64:ff9b::", 96, "ipv6"); // NAT64
+PRIVATE_IP_BLOCKLIST.addSubnet("100::", 64, "ipv6"); // discard-only (RFC 6666)
+PRIVATE_IP_BLOCKLIST.addSubnet("2001::", 32, "ipv6"); // Teredo
+PRIVATE_IP_BLOCKLIST.addSubnet("2001:db8::", 32, "ipv6"); // documentation
+PRIVATE_IP_BLOCKLIST.addSubnet("fc00::", 7, "ipv6"); // Unique Local Address
+PRIVATE_IP_BLOCKLIST.addSubnet("fe80::", 10, "ipv6"); // link-local IPv6
+PRIVATE_IP_BLOCKLIST.addSubnet("ff00::", 8, "ipv6"); // multicast IPv6
+
+function ipEsPrivadaOLocal(ip: string): boolean {
+  let family = isIP(ip);
+  if (family === 0) return true; // IP no parseable → tratarla como prohibida
+  // IPv4-mapped IPv6 (::ffff:a.b.c.d) → chequear contra el rango IPv4 privado.
+  let toCheck = ip;
+  if (family === 6 && ip.toLowerCase().startsWith("::ffff:")) {
+    const v4 = ip.slice("::ffff:".length);
+    if (isIP(v4) === 4) {
+      family = 4;
+      toCheck = v4;
+    }
+  }
+  return PRIVATE_IP_BLOCKLIST.check(toCheck, family === 4 ? "ipv4" : "ipv6");
+}
+
+function esHostProhibido(hostname: string, resolvedIps: string[] = []): boolean {
+  const h = hostname.toLowerCase();
+  if (h === "localhost" || h.endsWith(".local") || h.endsWith(".internal")) return true;
+  if (/^(127\.|10\.|192\.168\.|169\.254\.|0\.)/.test(h)) return true;
+  if (/^172\.(1[6-9]|2\d|3[01])\./.test(h)) return true;
+  if (h.includes(":")) return true; // IPv6 literal
+  for (const ip of resolvedIps) {
+    if (ipEsPrivadaOLocal(ip)) return true;
+  }
+  return false;
+}
+
+/** CSV mínimo con soporte de comillas (RFC 4180: "" escapa comilla, saltos dentro de comillas). */
+export function parseCsv(text: string): Array<Record<string, string>> {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = "";
+  let inQuotes = false;
+  const src = text.replace(/^﻿/, "");
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (src[i + 1] === '"') {
+          cell += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cell += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      row.push(cell);
+      cell = "";
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && src[i + 1] === "\n") i++;
+      row.push(cell);
+      cell = "";
+      rows.push(row);
+      row = [];
+    } else {
+      cell += ch;
+    }
+  }
+  if (cell !== "" || row.length > 0) {
+    row.push(cell);
+    rows.push(row);
+  }
+  const nonEmpty = rows.filter((r) => r.some((c) => c.trim() !== ""));
+  if (nonEmpty.length < 2) return [];
+  const header = nonEmpty[0].map((h) => h.trim());
+  return nonEmpty.slice(1).map((r) => {
+    const obj: Record<string, string> = {};
+    header.forEach((col, idx) => {
+      obj[col] = r[idx] ?? "";
+    });
+    return obj;
+  });
+}
+
+/** Coerciona valores crudos (strings de CSV, o JSON laxo) a los tipos de `columnas`. */
+export function coerceFilas(
+  columnas: ColumnasMap,
+  filas: Array<Record<string, unknown>>,
+): Array<Record<string, unknown>> {
+  return filas.map((fila) => {
+    const out: Record<string, unknown> = {};
+    for (const [col, tipo] of Object.entries(columnas)) {
+      const raw = fila[col];
+      if (typeof raw === "string" && tipo === "number") {
+        const n = Number(raw.trim().replace(",", "."));
+        out[col] = Number.isFinite(n) ? n : raw;
+      } else if (typeof raw === "string" && tipo === "boolean") {
+        const lower = raw.trim().toLowerCase();
+        if (["true", "1", "si", "sí", "verdadero"].includes(lower)) out[col] = true;
+        else if (["false", "0", "no", "falso"].includes(lower)) out[col] = false;
+        else out[col] = raw;
+      } else if (tipo === "string" && (typeof raw === "number" || typeof raw === "boolean")) {
+        out[col] = String(raw);
+      } else if (raw !== undefined) {
+        out[col] = raw;
+      }
+      // columna faltante: se deja sin definir y validateDatasetFilas la reporta
+    }
+    return out;
+  });
+}
+
+/** Baja y parsea la fuente externa. Lanza Error con mensaje apto para el usuario. */
+async function fetchFilasExternas(
+  sourceUrl: string,
+): Promise<Array<Record<string, unknown>>> {
+  const url = new URL(sourceUrl);
+  if (url.protocol !== "https:") throw new Error("La URL debe ser HTTPS");
+  let resolvedIps: string[] = [];
+  try {
+    const resolved = await dnsLookup(url.hostname, { all: true });
+    resolvedIps = resolved.map((r) => r.address);
+  } catch {
+    // Resolución DNS fallida: tratar como host no permitido (fail-closed).
+    throw new Error("Host no permitido");
+  }
+  if (esHostProhibido(url.hostname, resolvedIps)) throw new Error("Host no permitido");
+
+  const res = await fetch(sourceUrl, {
+    signal: AbortSignal.timeout(EXTERNO_TIMEOUT_MS),
+    redirect: "error",
+  });
+  if (!res.ok) throw new Error(`La fuente respondió ${res.status}`);
+  const contentLength = Number(res.headers.get("content-length") ?? "0");
+  if (contentLength > EXTERNO_MAX_BYTES) {
+    throw new Error("La fuente supera el límite de 2MB");
+  }
+  const text = await res.text();
+  if (text.length > EXTERNO_MAX_BYTES) {
+    throw new Error("La fuente supera el límite de 2MB");
+  }
+
+  const contentType = res.headers.get("content-type") ?? "";
+  const esJson =
+    contentType.includes("json") || url.pathname.toLowerCase().endsWith(".json");
+  if (esJson) {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(text);
+    } catch {
+      throw new Error("El JSON de la fuente no es válido");
+    }
+    if (!Array.isArray(parsed)) {
+      throw new Error("El JSON debe ser un array de objetos");
+    }
+    return parsed.filter(
+      (f): f is Record<string, unknown> => !!f && typeof f === "object",
+    );
+  }
+  return parseCsv(text);
+}
+
 function canReadDataset(row: DatasetRow, user: AuthUser): boolean {
   if (row.isDeleted) return false;
-  if (user.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   if (row.ownerUserId === user._id) return true;
   if (
     row.visibility === "escuela" &&
@@ -71,7 +282,7 @@ function canReadDataset(row: DatasetRow, user: AuthUser): boolean {
 vblangDatasets.get("/api/vblang/datasets", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.json({ items: [], total: 0 });
       return;
     }
@@ -159,6 +370,7 @@ vblangDatasets.get("/api/vblang/datasets", requireUser, async (req, res) => {
         ownerUserId: r.ownerUserId,
         schoolId: r.schoolId ?? undefined,
         columnas: parseColumnas(r.columnas),
+        sourceUrl: r.sourceUrl ?? undefined,
         filasCount: (r as unknown as { _count?: { filas: number } })._count?.filas ?? 0,
         createdAt: r.createdAt,
         updatedAt: r.updatedAt,
@@ -249,6 +461,7 @@ vblangDatasets.get("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       ownerUserId: row.ownerUserId,
       schoolId: row.schoolId ?? undefined,
       columnas: parseColumnas(row.columnas),
+      sourceUrl: row.sourceUrl ?? undefined,
       // Sprint 9B: incluimos el id de cada fila para que el editor pueda
       // direccionar PUT/DELETE por filaId. Mantenemos `datos` como Record
       // para compatibilidad con el preview del DSL (uno_de(dataset)).
@@ -267,7 +480,7 @@ vblangDatasets.get("/api/vblang/datasets/:id", requireUser, async (req, res) => 
 vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.status(403).json({ error: "Solo creadores de contenido pueden crear datasets" });
       return;
     }
@@ -312,6 +525,7 @@ vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
           nombre: data.nombre,
           descripcion: data.descripcion ?? null,
           columnas: JSON.stringify(data.columnas),
+          sourceUrl: data.sourceUrl ?? null,
           isDeleted: false,
           createdAt: now,
           updatedAt: now,
@@ -343,6 +557,7 @@ vblangDatasets.post("/api/vblang/datasets", requireUser, async (req, res) => {
       ownerUserId: created!.ownerUserId,
       schoolId: created!.schoolId ?? undefined,
       columnas: parseColumnas(created!.columnas),
+      sourceUrl: created!.sourceUrl ?? undefined,
       filas: filas.map((f) => ({ id: f.id, datos: parseDatos(f.datos) })),
       createdAt: created!.createdAt,
       updatedAt: created!.updatedAt,
@@ -364,7 +579,7 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       res.status(404).json({ error: "Dataset no encontrado" });
       return;
     }
-    if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+    if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede modificar" });
       return;
     }
@@ -381,6 +596,7 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
     if (data.descripcion !== undefined) update.descripcion = data.descripcion;
     if (data.visibility !== undefined) update.visibility = data.visibility;
     if (data.columnas !== undefined) update.columnas = JSON.stringify(data.columnas);
+    if (data.sourceUrl !== undefined) update.sourceUrl = data.sourceUrl;
     const updated = await prisma.vblangDataset.update({
       where: { id },
       data: update,
@@ -393,6 +609,7 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       ownerUserId: updated.ownerUserId,
       schoolId: updated.schoolId ?? undefined,
       columnas: parseColumnas(updated.columnas),
+      sourceUrl: updated.sourceUrl ?? undefined,
       createdAt: updated.createdAt,
       updatedAt: updated.updatedAt,
     });
@@ -402,6 +619,88 @@ vblangDatasets.put("/api/vblang/datasets/:id", requireUser, async (req, res) => 
       .json({ error: err instanceof Error ? err.message : "internal server error" });
   }
 });
+
+// POST /api/vblang/datasets/:id/refresh — PLAN-E §20
+// Baja la fuente externa (sourceUrl) y REEMPLAZA todas las filas del dataset.
+vblangDatasets.post(
+  "/api/vblang/datasets/:id/refresh",
+  requireUser,
+  async (req, res) => {
+    try {
+      const user = (req as { user?: AuthUser }).user ?? {};
+      const id = String(req.params.id);
+      const row = await prisma.vblangDataset.findUnique({ where: { id } });
+      if (!row || row.isDeleted) {
+        res.status(404).json({ error: "Dataset no encontrado" });
+        return;
+      }
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
+        res.status(403).json({ error: "Solo el owner o ADMIN puede refrescar" });
+        return;
+      }
+      const sourceUrl = row.sourceUrl;
+      if (!sourceUrl) {
+        res.status(400).json({ error: "El dataset no tiene URL de origen" });
+        return;
+      }
+
+      let crudas: Array<Record<string, unknown>>;
+      try {
+        crudas = await fetchFilasExternas(sourceUrl);
+      } catch (err) {
+        res.status(422).json({
+          error: err instanceof Error ? err.message : "No se pudo leer la fuente",
+        });
+        return;
+      }
+      if (crudas.length === 0) {
+        res.status(422).json({ error: "La fuente no tiene filas" });
+        return;
+      }
+      if (crudas.length > EXTERNO_MAX_FILAS) {
+        res.status(422).json({
+          error: `La fuente tiene ${crudas.length} filas; el máximo es ${EXTERNO_MAX_FILAS}`,
+        });
+        return;
+      }
+
+      const columnas = parseColumnas(row.columnas);
+      const filas = coerceFilas(columnas, crudas);
+      const validation = validateDatasetFilas(columnas, filas);
+      if (!validation.ok) {
+        res.status(422).json({
+          error: "Filas inválidas",
+          filaIndex: validation.filaIndex,
+          message: validation.message,
+        });
+        return;
+      }
+
+      const now = new Date().toISOString();
+      await prisma.$transaction(async (tx) => {
+        await tx.vblangDatasetFila.deleteMany({ where: { datasetId: id } });
+        await tx.vblangDatasetFila.createMany({
+          data: filas.map((datos, i) => ({
+            id: randomUUID(),
+            datasetId: id,
+            orden: i,
+            datos: JSON.stringify(datos),
+            createdAt: now,
+          })),
+        });
+        await tx.vblangDataset.update({
+          where: { id },
+          data: { updatedAt: now },
+        });
+      });
+      res.json({ ok: true, filas: filas.length });
+    } catch (err) {
+      res
+        .status(500)
+        .json({ error: err instanceof Error ? err.message : "internal server error" });
+    }
+  },
+);
 
 // POST /api/vblang/datasets/:id/filas
 vblangDatasets.post(
@@ -416,7 +715,7 @@ vblangDatasets.post(
         res.status(404).json({ error: "Dataset no encontrado" });
         return;
       }
-      if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo el owner o ADMIN puede agregar filas" });
         return;
       }
@@ -477,7 +776,7 @@ vblangDatasets.put(
         res.status(404).json({ error: "Dataset no encontrado" });
         return;
       }
-      if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo el owner o ADMIN puede modificar filas" });
         return;
       }
@@ -534,7 +833,7 @@ vblangDatasets.delete(
         res.status(404).json({ error: "Dataset no encontrado" });
         return;
       }
-      if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+      if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo el owner o ADMIN puede eliminar filas" });
         return;
       }
@@ -569,7 +868,7 @@ vblangDatasets.delete("/api/vblang/datasets/:id", requireUser, async (req, res) 
       res.status(404).json({ error: "Dataset no encontrado" });
       return;
     }
-    if (row.ownerUserId !== user._id && user.role !== "ADMIN") {
+    if (row.ownerUserId !== user._id && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede eliminar" });
       return;
     }

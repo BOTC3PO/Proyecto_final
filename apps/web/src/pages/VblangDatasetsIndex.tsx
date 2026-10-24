@@ -13,6 +13,7 @@ import {
   deleteDataset,
   listDatasets,
 } from "../domain/vblang/datasetApi";
+import { useI18n } from "../i18n/I18nContext";
 import type {
   ColumnaTipo,
   DatasetListItem,
@@ -31,6 +32,12 @@ const VISIBILITY_BADGE: Record<string, string> = {
   publica: "bg-emerald-100 text-emerald-700",
 };
 
+const VISIBILITY_LABEL_KEY: Record<string, string> = {
+  privada: "comun.privada",
+  escuela: "sidebar.escuela",
+  publica: "comun.publica",
+};
+
 function DatasetCard({
   item,
   mode,
@@ -40,6 +47,7 @@ function DatasetCard({
   mode: DatasetsIndexMode;
   onDelete: (id: string) => void;
 }) {
+  const { t, lang } = useI18n();
   const updated = new Date(item.updatedAt);
   const cols = Object.keys(item.columnas);
   return (
@@ -53,8 +61,8 @@ function DatasetCard({
             {item.nombre}
           </h3>
           <p className="text-xs text-[var(--c-muted,#64748b)] truncate">
-            {cols.length} columna{cols.length === 1 ? "" : "s"} ·{" "}
-            {item.filasCount} fila{item.filasCount === 1 ? "" : "s"}
+            {cols.length} {cols.length === 1 ? t("comun.columna") : t("comun.columnas")} ·{" "}
+            {item.filasCount} {item.filasCount === 1 ? t("comun.fila") : t("comun.filas")}
           </p>
         </Link>
         <span
@@ -62,7 +70,7 @@ function DatasetCard({
             VISIBILITY_BADGE[item.visibility] ?? "bg-slate-100 text-slate-700"
           }`}
         >
-          {item.visibility}
+          {VISIBILITY_LABEL_KEY[item.visibility] ? t(VISIBILITY_LABEL_KEY[item.visibility]) : item.visibility}
         </span>
       </header>
       {item.descripcion && (
@@ -82,24 +90,24 @@ function DatasetCard({
           ))}
           {cols.length > 6 && (
             <span className="text-[10px] text-slate-400">
-              +{cols.length - 6} más
+              +{cols.length - 6} {t("comun.mas")}
             </span>
           )}
         </div>
       )}
       <footer className="mt-3 flex items-center justify-between text-[10px] text-[var(--c-muted,#64748b)]">
-        <span>Actualizado {updated.toLocaleDateString()}</span>
+        <span>{t("comun.actualizado")} {updated.toLocaleDateString(lang)}</span>
         {mode === "mias" && (
           <button
             type="button"
             onClick={() => {
-              if (window.confirm(`¿Eliminar dataset "${item.nombre}"?`)) {
+              if (window.confirm(`${t("vblangDatasetsIndex.eliminarDataset")} "${item.nombre}"?`)) {
                 onDelete(item.id);
               }
             }}
             className="rounded-md border border-red-200 px-2 py-1 text-[10px] font-medium text-red-700 hover:bg-red-50"
           >
-            Eliminar
+            {t("comun.eliminar")}
           </button>
         )}
       </footer>
@@ -118,6 +126,7 @@ interface ColumnaDraft {
 }
 
 function CreateModal({ onClose, onCreated }: CreateModalProps) {
+  const { t } = useI18n();
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [visibility, setVisibility] = useState<"privada" | "escuela" | "publica">(
@@ -139,7 +148,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!nombre.trim()) {
-      setError("El nombre es requerido.");
+      setError(t("vblangDatasetsIndex.elNombreEsRequerido"));
       return;
     }
     const map: Record<string, ColumnaTipo> = {};
@@ -147,13 +156,13 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
       const key = c.nombre.trim();
       if (!key) continue;
       if (map[key]) {
-        setError(`Columna "${key}" duplicada.`);
+        setError(`${t("vblangDatasetsIndex.columna")} "${key}" ${t("vblangDatasetsIndex.duplicada")}.`);
         return;
       }
       map[key] = c.tipo;
     }
     if (Object.keys(map).length === 0) {
-      setError("Necesitás al menos una columna.");
+      setError(t("vblangDatasetsIndex.necesitasAlMenosUnaColumna"));
       return;
     }
     setSubmitting(true);
@@ -167,7 +176,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
       });
       onCreated(ds.id);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo crear el dataset.");
+      setError(err instanceof Error ? err.message : t("vblangDatasetsIndex.noSePudoCrearEl"));
       setSubmitting(false);
     }
   };
@@ -184,33 +193,31 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
         className="w-full max-w-lg rounded-xl bg-white p-5 shadow-xl space-y-4"
       >
         <header className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Nuevo dataset</h2>
+          <h2 className="text-lg font-semibold">{t("vblangDatasetsIndex.nuevoDataset")}</h2>
           <button
             type="button"
             onClick={onClose}
             className="text-slate-400 hover:text-slate-700 text-lg leading-none"
-            aria-label="Cerrar"
+            aria-label={t("comun.cerrar")}
           >
             ×
           </button>
         </header>
 
         <label className="block space-y-1">
-          <span className="text-xs font-medium text-slate-600">Nombre</span>
+          <span className="text-xs font-medium text-slate-600">{t("comun.nombre")}</span>
           <input
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="paises"
+            placeholder={t("vblangDatasetsIndex.ejPaises")}
             autoFocus
           />
         </label>
 
         <label className="block space-y-1">
-          <span className="text-xs font-medium text-slate-600">
-            Descripción (opcional)
-          </span>
+          <span className="text-xs font-medium text-slate-600">{t("comun.descripcionOpcional")}</span>
           <textarea
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
@@ -220,20 +227,20 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
         </label>
 
         <label className="block space-y-1">
-          <span className="text-xs font-medium text-slate-600">Visibilidad</span>
+          <span className="text-xs font-medium text-slate-600">{t("comun.visibilidad")}</span>
           <select
             value={visibility}
             onChange={(e) => setVisibility(e.target.value as typeof visibility)}
             className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm"
           >
-            <option value="privada">Privada</option>
-            <option value="escuela">Escuela</option>
-            <option value="publica">Pública</option>
+            <option value="privada">{t("comun.privada")}</option>
+            <option value="escuela">{t("sidebar.escuela")}</option>
+            <option value="publica">{t("comun.publica")}</option>
           </select>
         </label>
 
         <div className="space-y-2">
-          <p className="text-xs font-medium text-slate-600">Columnas</p>
+          <p className="text-xs font-medium text-slate-600">{t("vblangDatasetsIndex.columnas")}</p>
           {columnas.map((c, idx) => (
             <div key={idx} className="flex items-center gap-2">
               <input
@@ -259,7 +266,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
                   type="button"
                   onClick={() => removeColumna(idx)}
                   className="text-slate-400 hover:text-red-600 text-lg leading-none px-1"
-                  aria-label="Eliminar columna"
+                  aria-label={t("vblangDatasetsIndex.eliminarColumna")}
                 >
                   ×
                 </button>
@@ -270,12 +277,9 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             type="button"
             onClick={addColumna}
             className="text-xs font-medium text-blue-600 hover:underline"
-          >
-            + Agregar columna
-          </button>
+          >{t("vblangDatasetsIndex.agregarColumna")}</button>
           <p className="text-[10px] text-amber-700 bg-amber-50 border border-amber-200 rounded p-2">
-            Las columnas se definen al crear el dataset. En v1 no se pueden
-            agregar/eliminar después; solo editar filas.
+            {t("vblangDatasetsIndex.lasColumnasSeDefinenAl")}
           </p>
         </div>
 
@@ -290,15 +294,13 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
             type="button"
             onClick={onClose}
             className="rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-100"
-          >
-            Cancelar
-          </button>
+          >{t("comun.cancelar")}</button>
           <button
             type="submit"
             disabled={submitting}
             className="rounded-md bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:bg-slate-300"
           >
-            {submitting ? "Creando…" : "Crear dataset"}
+            {submitting ? t("comun.creando") : t("vblangDatasetsIndex.crearDataset")}
           </button>
         </div>
       </form>
@@ -309,6 +311,7 @@ function CreateModal({ onClose, onCreated }: CreateModalProps) {
 export default function VblangDatasetsIndex({
   mode = "mias",
 }: VblangDatasetsIndexProps) {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const [items, setItems] = useState<DatasetListItem[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -332,7 +335,7 @@ export default function VblangDatasetsIndex({
       })
       .catch((err) => {
         setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Error de carga");
+        setErrorMessage(err instanceof Error ? err.message : t("comun.errorDeCarga"));
       });
   }, [q, visibilityFilter, mode]);
 
@@ -346,7 +349,7 @@ export default function VblangDatasetsIndex({
       load();
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo eliminar el dataset.",
+        err instanceof Error ? err.message : t("vblangDatasetsIndex.noSePudoEliminarEl"),
       );
     }
   };
@@ -358,15 +361,13 @@ export default function VblangDatasetsIndex({
     >
       <div className="mx-auto max-w-6xl space-y-4">
         <header className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold">Datasets VBLang</h1>
+          <h1 className="text-2xl font-bold">{t("vblangDatasetsIndex.datasetsVblang")}</h1>
           <button
             type="button"
             onClick={() => setCreateOpen(true)}
             className="rounded-md bg-[var(--c-primary,#3b82f6)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
             data-testid="datasets-new-button"
-          >
-            + Nuevo dataset
-          </button>
+          >{t("vblangDatasetsIndex.nuevoDataset2")}</button>
         </header>
 
         <nav className="flex gap-2 border-b border-[var(--c-border,#e2e8f0)]">
@@ -380,9 +381,7 @@ export default function VblangDatasetsIndex({
                   : "text-[var(--c-muted,#64748b)]"
               }`
             }
-          >
-            Mis datasets
-          </NavLink>
+          >{t("vblangDatasetsIndex.misDatasets")}</NavLink>
           <NavLink
             to="/datasets/biblioteca"
             className={({ isActive }) =>
@@ -392,15 +391,13 @@ export default function VblangDatasetsIndex({
                   : "text-[var(--c-muted,#64748b)]"
               }`
             }
-          >
-            Biblioteca
-          </NavLink>
+          >{t("plantillasIndex.biblioteca")}</NavLink>
         </nav>
 
         <section className="flex flex-wrap gap-2">
           <input
             type="search"
-            placeholder="Buscar…"
+            placeholder={t("plantillasIndex.buscar")}
             value={q}
             onChange={(e) => setQ(e.target.value)}
             className="flex-1 min-w-[12rem] rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
@@ -414,17 +411,15 @@ export default function VblangDatasetsIndex({
             }
             className="rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] px-3 py-1.5 text-sm"
           >
-            <option value="todas">Todas</option>
-            <option value="privadas">Privadas</option>
-            <option value="escuela">Escuela</option>
-            <option value="publicas">Públicas</option>
+            <option value="todas">{t("comun.todas")}</option>
+            <option value="privadas">{t("plantillasIndex.privadas")}</option>
+            <option value="escuela">{t("sidebar.escuela")}</option>
+            <option value="publicas">{t("plantillasIndex.publicas")}</option>
           </select>
         </section>
 
         {status === "loading" && (
-          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">
-            Cargando…
-          </p>
+          <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("comun.cargando")}</p>
         )}
         {status === "error" && (
           <p className="text-sm text-red-600">{errorMessage}</p>
@@ -433,17 +428,15 @@ export default function VblangDatasetsIndex({
           <div className="rounded-xl border-2 border-dashed border-[var(--c-border,#e2e8f0)] py-10 text-center">
             <p className="text-sm text-[var(--c-muted,#64748b)]">
               {mode === "biblioteca"
-                ? "No hay datasets compartidos todavía."
-                : "Todavía no creaste datasets."}
+                ? t("vblangDatasetsIndex.noHayDatasetsCompartidosTodavia")
+                : t("vblangDatasetsIndex.todaviaNoCreasteDatasets")}
             </p>
             {mode === "mias" && (
               <button
                 type="button"
                 onClick={() => setCreateOpen(true)}
                 className="mt-3 inline-block text-sm text-[var(--c-primary,#3b82f6)] hover:underline"
-              >
-                Crear el primer dataset →
-              </button>
+              >{t("vblangDatasetsIndex.crearElPrimerDataset")}</button>
             )}
           </div>
         )}

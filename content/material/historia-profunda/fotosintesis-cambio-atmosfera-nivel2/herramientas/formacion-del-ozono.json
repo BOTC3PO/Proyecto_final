@@ -1,0 +1,53 @@
+{
+ "titulo": "Formación de la capa de ozono",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Con la radiación ultravioleta",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "O₂ absorbe luz UV",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Se divide en 2 átomos de O",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Cada O se une a un O₂",
+     "x": 425,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Se forma O₃ (ozono)",
+     "x": 638,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

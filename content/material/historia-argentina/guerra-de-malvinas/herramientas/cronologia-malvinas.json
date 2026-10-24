@@ -1,0 +1,40 @@
+{
+ "titulo": "Fechas clave de la Guerra de Malvinas (1982)",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "1982",
+   "headers": [
+    "Fecha",
+    "Hecho"
+   ],
+   "rows": [
+    [
+     "2 de abril",
+     "Desembarco argentino en las islas"
+    ],
+    [
+     "3 de abril",
+     "Resolución 502 del Consejo de Seguridad de la ONU"
+    ],
+    [
+     "2 de mayo",
+     "Hundimiento del crucero ARA General Belgrano"
+    ],
+    [
+     "4 de mayo",
+     "Hundimiento del destructor británico HMS Sheffield"
+    ],
+    [
+     "21 de mayo",
+     "Desembarco británico en San Carlos"
+    ],
+    [
+     "14 de junio",
+     "Rendición argentina en Puerto Argentino"
+    ]
+   ]
+  }
+ ]
+}

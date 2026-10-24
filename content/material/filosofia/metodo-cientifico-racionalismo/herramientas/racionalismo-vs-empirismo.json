@@ -1,0 +1,32 @@
+{
+ "titulo": "Racionalismo y empirismo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cómo se obtiene el conocimiento",
+   "headers": [
+    "",
+    "Racionalismo",
+    "Empirismo"
+   ],
+   "rows": [
+    [
+     "Fuente principal",
+     "La razón",
+     "La experiencia sensible"
+    ],
+    [
+     "Representantes",
+     "Descartes, Spinoza, Leibniz",
+     "Locke, Berkeley, Hume"
+    ],
+    [
+     "Ideas innatas",
+     "Admite que existen",
+     "Las rechaza: la mente es una \"hoja en blanco\""
+    ]
+   ]
+  }
+ ]
+}

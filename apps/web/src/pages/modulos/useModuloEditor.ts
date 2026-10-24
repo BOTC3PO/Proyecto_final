@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { NavigateFunction } from "react-router-dom";
 import { apiGet } from "../../lib/api";
+import { useMaterias } from "../../domain/materia/useMaterias";
 import type { Module, ModuleDependency, ModuleQuiz } from "../../domain/module/module.types";
 import { getSubjectCapabilities } from "../../domain/module/module.types";
 import type { TheoryItem } from "../../components/modulos/TheoryItemCard";
@@ -25,7 +26,11 @@ export type ModuleFormState = {
   durationMinutes: number;
   visibility: Module["visibility"];
   visibilitySchoolId: string;
+  // PLAN-X §7 — oculto de los listados generales salvo dueño/invitado/aula.
+  descatalogado: boolean;
   dependencies: ModuleDependency[];
+  /** WO-3 — escala de notas del módulo (id de sistema del catálogo de scoring). */
+  scoringSystemId?: string;
 };
 
 export type BookResult = { id: string; title: string };
@@ -78,7 +83,7 @@ export function useModuloEditor(
   const defaultForm: ModuleFormState = {
     title: "", description: "", subject: "", category: "sin-categoria",
     level: "", durationMinutes: 30, visibility: "publico",
-    visibilitySchoolId: "", dependencies: [],
+    visibilitySchoolId: "", descatalogado: false, dependencies: [],
   };
 
   const [form, setForm] = useState<ModuleFormState>(() => {
@@ -114,21 +119,19 @@ export function useModuloEditor(
     return [];
   });
 
-  const FALLBACK_SUBJECTS = [
-    'Matemáticas', 'Lengua', 'Historia', 'Geografía',
-    'Física', 'Química', 'Biología', 'Informática',
-    'Economía', 'Filosofía', 'Arte', 'Educación Física',
-  ];
-  const [materias, setMaterias] = useState<string[]>([]);
-  useEffect(() => {
-    apiGet<{ items: Array<{ nombre: string }> }>('/api/materias')
-      .then((data) => {
-        const nombres = (data.items ?? []).map((m) => m.nombre).filter(Boolean);
-        setMaterias(nombres.length > 0 ? nombres : FALLBACK_SUBJECTS);
-      })
-      .catch(() => setMaterias(FALLBACK_SUBJECTS));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // WO-13 — provenance del módulo que se está editando. Se setea en
+  // el load (`persistence.loadModule`) si el módulo que el back
+  // devuelve tiene `clonedFrom` poblado. La UI lo usa para mostrar
+  // un banner "Estás editando una copia de…".
+  const [clonedFrom, setClonedFrom] = useState<{
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null>(null);
+
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts). Antes este
+  // hook duplicaba el fetch + fallback contra `/api/materias`.
+  const { materias } = useMaterias();
 
   const [newTheoryItem, setNewTheoryItem] = useState<{
     title: string;
@@ -156,7 +159,6 @@ export function useModuloEditor(
 
   const [slidesEditorFor, setSlidesEditorFor] = useState<"new" | string | null>(null);
   const [blockEditorFor, setBlockEditorFor] = useState<"new" | string | null>(null);
-  const [quizPreviewOpen, setQuizPreviewOpen] = useState<Record<string, boolean>>({});
   const [quizBlurErrors, setQuizBlurErrors] = useState<Record<string, string[]>>({});
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
@@ -164,6 +166,10 @@ export function useModuloEditor(
   const [depResults, setDepResults] = useState<Array<{ id: string; title: string }>>([]);
   const [depLoading, setDepLoading] = useState(false);
   const [depPickerOpen, setDepPickerOpen] = useState(false);
+  // ITEM-24 — nombres resueltos de los módulos dependencia (para no mostrar
+  // el ID crudo en la UI). `undefined` = todavía no resuelto, `null` =
+  // se intentó resolver y el módulo ya no existe ("módulo eliminado").
+  const [depModuleNames, setDepModuleNames] = useState<Record<string, string | null>>({});
 
   // Auto-guardar borrador en sessionStorage (solo módulos nuevos).
   // BUG-08: incluir `quizzes` además de form/theoryItems para que el borrador
@@ -180,14 +186,34 @@ export function useModuloEditor(
   }, [form, theoryItems, quizzes, id]);
 
   // ── Load module data on mount (edit mode) ─────────────────────────────────
+  // FIX-TEST4-MOD-02 — antes el form se inicializaba con
+  // `defaultForm` (vacío) y se rehidrataba en este useEffect
+  // post-mount, causando un "flash" donde el usuario veía el form
+  // vacío durante un frame antes de que aparezcan los datos del
+  // servidor. Ahora exponemos `isModuleLoading` para que la UI
+  // pueda mostrar un skeleton mientras carga.
+  const [isModuleLoading, setIsModuleLoading] = useState(isEditing);
   useEffect(() => {
-    if (!isEditing || !id) return;
+    if (!isEditing || !id) {
+      setIsModuleLoading(false);
+      return;
+    }
+    setIsModuleLoading(true);
     let active = true;
     persistence.loadModule(id).then((result) => {
-      if (!active || !result) return;
+      if (!active || !result) {
+        if (!active) return;
+        setIsModuleLoading(false);
+        return;
+      }
       setForm({ ...result.form, category: result.form.category || "sin-categoria" });
       setTheoryItems(result.theoryItems);
       setQuizzes(result.quizzes.map(ensureQuizDefaults));
+      // WO-13 — si el módulo es una copia, persistir provenance
+      // para que el banner de "Estás editando una copia de…"
+      // aparezca al cargar.
+      setClonedFrom(result.clonedFrom ?? null);
+      setIsModuleLoading(false);
       // Los datos del servidor tienen prioridad — limpiar draft
       try { sessionStorage.removeItem(DRAFT_KEY(id)); } catch { /* ignorar */ }
     });
@@ -306,6 +332,29 @@ export function useModuloEditor(
     setNewBookTitle("");
     setBookPickerFor(null);
     setTuesdayPickerFor(null);
+  };
+
+  // PLAN-G §1 (item 25) — insertar un material guardado como TheoryItem.
+  // Copia snapshot (no referencia viva): editar el material después no
+  // actualiza este item, igual que `clonedFromId` en Libro/Quiz (WO-13).
+  const MATERIAL_TIPO_TO_THEORY_TYPE: Record<string, string> = {
+    mapa: "HerramientaStandalone",
+    timeline: "HerramientaStandalone",
+    interactivo: "Herramienta",
+    presentacion: "Presentación",
+  };
+
+  const insertMaterialTheoryItem = (material: { id: string; tipo: string; titulo: string; contenido: unknown }) => {
+    const type = MATERIAL_TIPO_TO_THEORY_TYPE[material.tipo];
+    if (!type) return;
+    const nextItem: TheoryItem = {
+      id: `theory-${Date.now()}`,
+      title: material.titulo,
+      type,
+      detail: JSON.stringify(material.contenido),
+      sourceMaterialId: material.id,
+    };
+    setTheoryItems((prev) => [...prev, nextItem]);
   };
 
   const updateTheoryItem = (itemId: string, patch: Partial<TheoryItem>) => {
@@ -440,6 +489,9 @@ export function useModuloEditor(
     const alreadyAdded = form.dependencies.some((d) => d.id === mod.id);
     if (alreadyAdded) return;
     updateForm("dependencies", [...form.dependencies, { id: mod.id, type: "required" as const }]);
+    // El picker ya conoce el título (viene de la búsqueda): lo guardamos de
+    // una para no tener que resolverlo de nuevo contra el servidor.
+    setDepModuleNames((prev) => ({ ...prev, [mod.id]: mod.title }));
     setDepPickerOpen(false);
     setDepSearch("");
     setDepResults([]);
@@ -455,6 +507,37 @@ export function useModuloEditor(
       form.dependencies.map((d) => (d.id === depId ? { ...d, type } : d)),
     );
   };
+
+  // ITEM-24 — las dependencias que llegan del servidor (módulo ya guardado)
+  // sólo traen `{ id, type }`; resolvemos el título consultando el módulo
+  // referenciado. Si ya no existe (404 u otro error), lo marcamos `null`
+  // para que la UI muestre "módulo eliminado" en vez del ID crudo.
+  const dependencyIdsKey = form.dependencies.map((d) => d.id).join(",");
+  useEffect(() => {
+    const missingIds = form.dependencies
+      .map((d) => d.id)
+      .filter((depId) => !(depId in depModuleNames));
+    if (missingIds.length === 0) return;
+    let cancelled = false;
+    void Promise.all(
+      missingIds.map((depId) =>
+        apiGet<{ title?: string }>(`/api/modulos/${depId}`)
+          .then((mod): [string, string | null] => [depId, mod.title ?? null])
+          .catch((): [string, string | null] => [depId, null]),
+      ),
+    ).then((entries) => {
+      if (cancelled) return;
+      setDepModuleNames((prev) => {
+        const next = { ...prev };
+        for (const [depId, title] of entries) next[depId] = title;
+        return next;
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dependencyIdsKey]);
 
   // ── School search ──────────────────────────────────────────────────────────
   const searchEscuelas = useCallback(async (q: string) => {
@@ -479,8 +562,20 @@ export function useModuloEditor(
     const generalOk =
       form.title.trim().length > 0 &&
       form.description.trim().length > 0 &&
-      form.subject.length > 0 &&
-      form.level.trim().length > 0;
+      // FIX-MODULO-CRASH — `form.subject` puede ser `undefined` si
+      // el form se construyó sin pasar por `useModuloPersistence`
+      // (p.ej. modo creación, donde se inicializa con `defaultForm`
+      // sin subject). Default a "" para no crashear.
+      (form.subject ?? "").length > 0 &&
+      // FIX-MODULO-CRASH-LEVEL — `form.level` puede ser `undefined`
+      // cuando se edita un módulo cuyo `level` no está persistido en
+      // el back (mismo riesgo que `subject`, ya fixeado). Default a ""
+      // para no crashear al cambiar la materia (cualquier setForm
+      // re-evalúa este useMemo y dispara el `.trim()`).
+      // PLAN-W §2 — en categoría "evaluacion" el input de Nivel está
+      // oculto (mismo criterio que `isEvaluacionMode`); no puede ser
+      // parte de lo que falta para completar la sección.
+      (form.category === "evaluacion" || (form.level ?? "").trim().length > 0);
     const theoryOk = theoryItems.length > 0;
     const quizzesOk =
       quizzes.length === 0 ||
@@ -511,6 +606,15 @@ export function useModuloEditor(
       quizzes,
       navigate,
       setValidationErrors,
+      // PLAN-Y — tras guardar, los quizzes `localOnly` ya existen en el
+      // server: se limpia el flag para que el próximo guardado no re-mande
+      // su title/type/visibility (Tiza pasa a ser su único editor).
+      onSaved: () =>
+        setQuizzes((prev) =>
+          prev.some((q) => q.localOnly)
+            ? prev.map((q) => (q.localOnly ? { ...q, localOnly: false } : q))
+            : prev,
+        ),
     });
   };
 
@@ -535,6 +639,7 @@ export function useModuloEditor(
     newTheoryItem,
     setNewTheoryItem,
     handleAddTheoryItem,
+    insertMaterialTheoryItem,
     updateTheoryItem,
     removeTheoryItem,
     moveTheoryItem,
@@ -550,12 +655,11 @@ export function useModuloEditor(
     handleBlockDone,
     // Quizzes
     quizzes,
+    setQuizzes,
     addQuiz,
     updateQuiz,
     removeQuiz,
     handleImportQuizzes,
-    quizPreviewOpen,
-    setQuizPreviewOpen,
     quizBlurErrors,
     validateQuizTitle,
     sectionStatus,
@@ -602,7 +706,17 @@ export function useModuloEditor(
     removeDependency,
     updateDependencyType,
     searchModules,
+    depModuleNames,
     // Submit
     handleSubmit,
+    // FIX-TEST4-MOD-02 — flag de carga inicial del módulo. La UI
+    // lo usa para mostrar un skeleton en vez del form vacío
+    // durante el primer render en modo edición.
+    isModuleLoading,
+    // WO-13 — provenance del módulo que se está editando (null si
+    // el módulo NO es una copia). La UI lo usa para mostrar un
+    // banner "Estás editando una copia de…".
+    clonedFrom,
+    setClonedFrom,
   };
 }

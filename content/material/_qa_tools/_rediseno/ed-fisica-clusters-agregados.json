@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1000,
+  "cluster": 4,
+  "temas": [
+   "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+   "nutricion-e-hidratacion-en-la-actividad-fisica",
+   "reglamento-y-fundamentos-del-basquet",
+   "reglamento-y-fundamentos-del-futbol",
+   "reglamento-y-fundamentos-del-futsal",
+   "reglamento-y-fundamentos-del-handball",
+   "reglamento-y-fundamentos-del-hockey",
+   "reglamento-y-fundamentos-del-rugby",
+   "reglamento-y-fundamentos-del-voley"
+  ],
+  "preguntas": 217
+ }
+]

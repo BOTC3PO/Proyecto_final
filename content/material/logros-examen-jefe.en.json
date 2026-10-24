@@ -1,0 +1,3217 @@
+[
+  {
+    "id": 601,
+    "materia": "Matemática",
+    "cluster": 1,
+    "temas": [
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
+      "conjuntos-pertenencia-e-inclusion",
+      "conteo",
+      "valor-posicional"
+    ],
+    "nombre": "Master Trigonometry and Sets",
+    "descripcion": "You applied trigonometric ratios and the law of sines and cosines, and worked with set membership, counting, and place value in the same exam.",
+    "icono": "📐"
+  },
+  {
+    "id": 602,
+    "materia": "Matemática",
+    "cluster": 2,
+    "temas": [
+      "grafos-vertices-y-aristas",
+      "union-interseccion-y-diferencia",
+      "arboles-grafo-sin-ciclos",
+      "grafos-dirigidos-no-dirigidos-y-ponderados",
+      "leer-una-tabla"
+    ],
+    "nombre": "Master of Graphs and Trees",
+    "descripcion": "You mastered vertices, edges, trees, and weighted graphs, plus set unions, intersections, and differences, and reading tables.",
+    "icono": "🌳"
+  },
+  {
+    "id": 603,
+    "materia": "Matemática",
+    "cluster": 3,
+    "temas": [
+      "caminos-y-ciclos",
+      "leer-grafico/barras",
+      "algoritmos-de-recorrido-bfs-dfs",
+      "leer-grafico/lineas",
+      "leer-grafico/torta"
+    ],
+    "nombre": "Master Paths, BFS, and DFS",
+    "descripcion": "You traced paths and cycles with BFS and DFS, and read bar, line, and pie charts flawlessly.",
+    "icono": "🔍"
+  },
+  {
+    "id": 604,
+    "materia": "Matemática",
+    "cluster": 4,
+    "temas": [
+      "magnitud-unidad-instrumento",
+      "construir-un-grafico",
+      "grafico-eje-truncado",
+      "media-mediana-y-moda",
+      "vectores-modulo-y-direccion"
+    ],
+    "nombre": "Master of Graphs and Measures",
+    "descripcion": "You built charts, spotted truncated axes, calculated mean, median, and mode, and worked with the magnitude and direction of vectors.",
+    "icono": "📊"
+  },
+  {
+    "id": 605,
+    "materia": "Matemática",
+    "cluster": 5,
+    "temas": [
+      "cual-miente-y-cuando",
+      "funciones-trigonometricas-seno-coseno",
+      "suma-de-vectores-y-descomposicion",
+      "identidades-y-ecuaciones-trigonometricas",
+      "regresion-lineal"
+    ],
+    "nombre": "Master Trigonometry and Regression",
+    "descripcion": "You worked with trigonometric functions, identities, vector addition and decomposition, and linear regression, and spotted who lies and when.",
+    "icono": "📐"
+  },
+  {
+    "id": 606,
+    "materia": "Matemática",
+    "cluster": 6,
+    "temas": [
+      "sistema-metrico-y-conversiones",
+      "correlacion-no-es-causalidad",
+      "analisis-dimensional",
+      "angulos",
+      "cifras-significativas-y-error"
+    ],
+    "nombre": "Master of Units and Analysis",
+    "descripcion": "You converted units, analyzed dimensions and significant figures, measured angles, and told correlation apart from causation, boss.",
+    "icono": "📏"
+  },
+  {
+    "id": 607,
+    "materia": "Matemática",
+    "cluster": 7,
+    "temas": [
+      "circunferencia-y-circulo",
+      "error-sistematico-vs-aleatorio",
+      "perimetro-y-area",
+      "poligonos",
+      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+    ],
+    "nombre": "Master Perimeter, Area, and Statistics",
+    "descripcion": "You calculated the perimeter and area of polygons and circles, and worked with quartiles, percentiles, and variance in frequency tables.",
+    "icono": "⭕"
+  },
+  {
+    "id": 608,
+    "materia": "Matemática",
+    "cluster": 8,
+    "temas": [
+      "area-poligonos-regulares-y-compuestas",
+      "dispersion-rango-y-desvio",
+      "volumen-y-capacidad",
+      "distribucion-normal",
+      "variable-aleatoria-discreta-continua"
+    ],
+    "nombre": "Master of Areas and Normal Distribution",
+    "descripcion": "You calculated areas of composite polygons, volume, and capacity, and mastered the normal distribution, dispersion, and random variables.",
+    "icono": "📐"
+  },
+  {
+    "id": 609,
+    "materia": "Matemática",
+    "cluster": 9,
+    "temas": [
+      "muestreo-y-sesgo",
+      "triangulos",
+      "teorema-central-del-limite",
+      "congruencia-de-triangulos",
+      "intervalo-de-confianza"
+    ],
+    "nombre": "Expert in Sampling and Triangles",
+    "descripcion": "You mastered sampling, bias, the central limit theorem, confidence intervals, and triangle congruence.",
+    "icono": "🎯"
+  },
+  {
+    "id": 610,
+    "materia": "Matemática",
+    "cluster": 10,
+    "temas": [
+      "semejanza-y-teorema-de-thales",
+      "teorema-de-pitagoras",
+      "test-de-hipotesis",
+      "transformaciones-geometricas/homotecia",
+      "transformaciones-geometricas/reflexion"
+    ],
+    "nombre": "Master of Similarity and Pythagoras",
+    "descripcion": "You applied Thales' and Pythagoras' theorems, homotheties and reflections, and completed a hypothesis test, boss.",
+    "icono": "📐"
+  },
+  {
+    "id": 611,
+    "materia": "Matemática",
+    "cluster": 11,
+    "temas": [
+      "transformaciones-geometricas/rotacion",
+      "transformaciones-geometricas/traslacion",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
+      "diagramas-de-venn"
+    ],
+    "nombre": "Master Transformations and Sets",
+    "descripcion": "You rotated and translated figures, and worked with the Poisson and exponential distributions and Venn diagrams.",
+    "icono": "🔄"
+  },
+  {
+    "id": 612,
+    "materia": "Matemática",
+    "cluster": 12,
+    "temas": [
+      "suma",
+      "principio-multiplicativo-de-conteo",
+      "multiplicacion",
+      "combinaciones",
+      "permutaciones"
+    ],
+    "nombre": "Master of Counting and Operations",
+    "descripcion": "You mastered addition and basic multiplication along with the counting principle, combinations, and permutations.",
+    "icono": "🔢"
+  },
+  {
+    "id": 613,
+    "materia": "Matemática",
+    "cluster": 13,
+    "temas": [
+      "independencia-de-eventos-y-diagrama-de-arbol",
+      "potencias",
+      "probabilidad-simple",
+      "logaritmos",
+      "probabilidad-compuesta"
+    ],
+    "nombre": "Master Probability and Powers",
+    "descripcion": "You calculated simple and compound probability with tree diagrams, and worked with powers and logarithms, boss.",
+    "icono": "🎲"
+  },
+  {
+    "id": 614,
+    "materia": "Matemática",
+    "cluster": 14,
+    "temas": [
+      "raices",
+      "distribucion-binomial",
+      "esperanza-matematica-valor-esperado",
+      "irracionales-y-reales",
+      "probabilidad-condicional"
+    ],
+    "nombre": "Expert in Probability and Roots",
+    "descripcion": "You calculated roots of irrational and real numbers, and mastered the binomial distribution, expected value, and conditional probability.",
+    "icono": "🎲"
+  },
+  {
+    "id": 615,
+    "materia": "Matemática",
+    "cluster": 15,
+    "temas": [
+      "resta",
+      "sucesiones-aritmeticas",
+      "dinero",
+      "division",
+      "hora-y-reloj"
+    ],
+    "nombre": "Master of Basic Operations",
+    "descripcion": "You mastered subtraction, division, handling money, telling time, and arithmetic sequences.",
+    "icono": "🕐"
+  },
+  {
+    "id": 616,
+    "materia": "Matemática",
+    "cluster": 16,
+    "temas": [
+      "jerarquia-operaciones",
+      "numeros-enteros",
+      "divisibilidad/multiplos",
+      "lenguaje-algebraico",
+      "divisibilidad/divisores"
+    ],
+    "nombre": "Master Order of Operations and Divisibility",
+    "descripcion": "You applied order of operations with integers, calculated multiples and divisors, and translated algebraic language.",
+    "icono": "➗"
+  },
+  {
+    "id": 617,
+    "materia": "Matemática",
+    "cluster": 17,
+    "temas": [
+      "expresiones-equivalentes",
+      "divisibilidad/regla-del-2",
+      "divisibilidad/regla-del-3",
+      "divisibilidad/regla-del-4",
+      "divisibilidad/regla-del-5"
+    ],
+    "nombre": "Master of Divisibility Rules",
+    "descripcion": "You mastered the divisibility rules from 2 to 5 and built equivalent expressions, boss.",
+    "icono": "➗"
+  },
+  {
+    "id": 618,
+    "materia": "Matemática",
+    "cluster": 18,
+    "temas": [
+      "divisibilidad/regla-del-6",
+      "divisibilidad/regla-del-10",
+      "divisibilidad/regla-del-8",
+      "divisibilidad/regla-del-9",
+      "ecuacion-primer-grado"
+    ],
+    "nombre": "Master Divisibility and Equations",
+    "descripcion": "You completed the divisibility rules for 6, 8, 9, and 10, and solved first-degree equations.",
+    "icono": "✖️"
+  },
+  {
+    "id": 619,
+    "materia": "Matemática",
+    "cluster": 19,
+    "temas": [
+      "numeros-primos",
+      "demostracion-contraejemplo",
+      "demostracion-deduccion",
+      "demostracion-induccion",
+      "demostracion-reduccion-al-absurdo"
+    ],
+    "nombre": "Master of Proofs",
+    "descripcion": "You mastered prime numbers and proof techniques: counterexample, deduction, induction, and proof by contradiction.",
+    "icono": "🧠"
+  },
+  {
+    "id": 620,
+    "materia": "Matemática",
+    "cluster": 20,
+    "temas": [
+      "despejar-formula",
+      "funcion-dominio",
+      "funcion-imagen",
+      "inecuaciones",
+      "funcion-inversa-composicion"
+    ],
+    "nombre": "Master Functions and Inequalities",
+    "descripcion": "You isolated formulas, solved inequalities, and worked with domain, range, composition, and inverse of functions.",
+    "icono": "📉"
+  },
+  {
+    "id": 621,
+    "materia": "Matemática",
+    "cluster": 21,
+    "temas": [
+      "funcion-lineal-pendiente",
+      "mcd",
+      "operaciones-enteros",
+      "fracciones",
+      "mcm"
+    ],
+    "nombre": "Master of Fractions and Linear Functions",
+    "descripcion": "You calculated GCD and LCM, operated with fractions and integers, and analyzed the slope of the linear function.",
+    "icono": "📈"
+  },
+  {
+    "id": 622,
+    "materia": "Matemática",
+    "cluster": 22,
+    "temas": [
+      "plano-cartesiano",
+      "operaciones-fracciones",
+      "coordenadas-de-un-punto",
+      "decimales",
+      "distancia-entre-dos-puntos"
+    ],
+    "nombre": "Master the Cartesian Plane",
+    "descripcion": "You plotted coordinates and calculated distance between points on the Cartesian plane, and operated with fractions and decimals.",
+    "icono": "🧭"
+  },
+  {
+    "id": 623,
+    "materia": "Matemática",
+    "cluster": 23,
+    "temas": [
+      "notacion-cientifica",
+      "ecuacion-de-la-recta",
+      "polinomios-factoreo",
+      "proporcionalidad-funcion",
+      "division-polinomios-ruffini"
+    ],
+    "nombre": "Master of Polynomials and the Line",
+    "descripcion": "You factored polynomials, divided using Ruffini's rule, found the equation of a line, and used scientific notation, boss.",
+    "icono": "📐"
+  },
+  {
+    "id": 624,
+    "materia": "Matemática",
+    "cluster": 24,
+    "temas": [
+      "ecuacion-cuadratica",
+      "punto-medio-de-un-segmento",
+      "funcion-cuadratica-parabola",
+      "numeros-complejos",
+      "familias-exponencial-logaritmica"
+    ],
+    "nombre": "Master the Quadratic Function",
+    "descripcion": "You solved quadratic equations, graphed parabolas, calculated the midpoint of a segment, and worked with complex numbers.",
+    "icono": "🔵"
+  },
+  {
+    "id": 625,
+    "materia": "Matemática",
+    "cluster": 25,
+    "temas": [
+      "forma-polar-complejos",
+      "ecuaciones-exponenciales-logaritmicas",
+      "limite",
+      "razon",
+      "continuidad"
+    ],
+    "nombre": "Master of Limits and Complex Numbers",
+    "descripcion": "You calculated limits and continuity of functions, solved exponential and logarithmic equations, and expressed complex numbers in polar form.",
+    "icono": "∞"
+  },
+  {
+    "id": 626,
+    "materia": "Matemática",
+    "cluster": 26,
+    "temas": [
+      "proporcion",
+      "derivada",
+      "rectas-paralelas-y-perpendiculares",
+      "integral",
+      "optimizacion"
+    ],
+    "nombre": "Master Derivatives and Integrals",
+    "descripcion": "You calculated derivatives and integrals, solved optimization problems, and worked with parallel and perpendicular lines.",
+    "icono": "∫"
+  },
+  {
+    "id": 627,
+    "materia": "Matemática",
+    "cluster": 27,
+    "temas": [
+      "ecuaciones-diferenciales",
+      "redondeo",
+      "regla-de-tres-directa",
+      "secciones-conicas-circunferencia",
+      "porcentaje"
+    ],
+    "nombre": "Master of Differential Equations",
+    "descripcion": "You solved differential equations and conic sections, and applied the rule of three, percentages, and rounding, boss.",
+    "icono": "🌀"
+  },
+  {
+    "id": 628,
+    "materia": "Matemática",
+    "cluster": 28,
+    "temas": [
+      "regla-de-tres-inversa",
+      "sistemas-dos-ecuaciones",
+      "sucesiones-y-series",
+      "matrices/operaciones",
+      "series-geometricas"
+    ],
+    "nombre": "Master Systems and Series",
+    "descripcion": "You solved systems of two equations, operated with matrices, and worked with sequences, geometric series, and the inverse rule of three.",
+    "icono": "🔢"
+  },
+  {
+    "id": 629,
+    "materia": "Matemática",
+    "cluster": 29,
+    "temas": [
+      "matrices/sistemas-nxn",
+      "tecnicas-de-integracion",
+      "determinante",
+      "teorema-de-bayes",
+      "matriz-inversa"
+    ],
+    "nombre": "Master of Matrices and Bayes",
+    "descripcion": "You calculated determinants and inverse matrices, solved nxn systems, applied integration techniques, and Bayes' theorem.",
+    "icono": "🧮"
+  },
+  {
+    "id": 630,
+    "materia": "Matemática",
+    "cluster": 30,
+    "temas": [
+      "riesgo-relativo-vs-absoluto",
+      "teorema-del-binomio",
+      "concavidad-y-puntos-de-inflexion",
+      "variaciones",
+      "integral-definida-y-area-bajo-la-curva"
+    ],
+    "nombre": "Master the Binomial and Calculus",
+    "descripcion": "You applied the binomial theorem and variations, calculated relative and absolute risk, and analyzed concavity and definite integrals.",
+    "icono": "📈"
+  },
+  {
+    "id": 631,
+    "materia": "Matemática",
+    "cluster": 31,
+    "temas": [
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
+      "cuerpos-redondos-y-poliedros/cilindros"
+    ],
+    "nombre": "Master of Asymptotes and L'Hôpital",
+    "descripcion": "You worked with asymptotes, Bolzano's theorem, and L'Hôpital's rule, calculated cylinder volumes, and applied the divisibility rule of 7.",
+    "icono": "📉"
+  },
+  {
+    "id": 632,
+    "materia": "Matemática",
+    "cluster": 32,
+    "temas": [
+      "cuerpos-redondos-y-poliedros/conos",
+      "cuerpos-redondos-y-poliedros/esferas",
+      "cuerpos-redondos-y-poliedros/piramides",
+      "cuerpos-redondos-y-poliedros/prismas",
+      "producto-escalar",
+      "cuerpos-redondos-y-poliedros/desarrollo-plano"
+    ],
+    "nombre": "Master the Geometric Solids",
+    "descripcion": "You calculated cones, spheres, pyramids, and prisms, developed their nets, and applied the dot product between vectors.",
+    "icono": "🔺"
+  },
+  {
+    "id": 651,
+    "materia": "Lengua",
+    "cluster": 1,
+    "temas": [
+      "conciencia-fonologica",
+      "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
+      "circuito-de-la-comunicacion"
+    ],
+    "nombre": "Mastery of Spelling and Early Reading",
+    "descripcion": "You completed the exam mastering phonological awareness, decoding and fluency, spelling and accent marks, punctuation, and the communication circuit.",
+    "icono": "✍️"
+  },
+  {
+    "id": 652,
+    "materia": "Lengua",
+    "cluster": 2,
+    "temas": [
+      "comprension-idea-principal",
+      "escritura-como-tecnologia",
+      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+      "tipos-textuales",
+      "variedades-de-la-lengua"
+    ],
+    "nombre": "Expert in Comprehension and Text Types",
+    "descripcion": "You mastered the main idea, text types, language varieties, writing as a technology, and study techniques such as summaries and graphic organizers, boss.",
+    "icono": "📖"
+  },
+  {
+    "id": 653,
+    "materia": "Lengua",
+    "cluster": 3,
+    "temas": [
+      "genero-dramatico",
+      "genero-lirico",
+      "genero-narrativo",
+      "generos-discursivos",
+      "narrador"
+    ],
+    "nombre": "Master of Literary Genres",
+    "descripcion": "You mastered the dramatic, lyric, and narrative genres and discursive genres without missing a single question on the narrator.",
+    "icono": "🎭📖"
+  },
+  {
+    "id": 654,
+    "materia": "Lengua",
+    "cluster": 4,
+    "temas": [
+      "generos-periodisticos",
+      "paratextos",
+      "punto-de-vista",
+      "recursos-literarios",
+      "estructura-narrativa"
+    ],
+    "nombre": "Master Narrative and Journalistic Devices",
+    "descripcion": "You completed the exam mastering journalistic genres, paratexts, point of view, and literary devices, boss.",
+    "icono": "📰🖋️"
+  },
+  {
+    "id": 655,
+    "materia": "Lengua",
+    "cluster": 5,
+    "temas": [
+      "romanticismo",
+      "tesis",
+      "realismo",
+      "argumentos",
+      "modernismo"
+    ],
+    "nombre": "Master of Literary Movements and the Thesis",
+    "descripcion": "You mastered Romanticism, Realism, and Modernism, and learned to build a thesis with solid arguments.",
+    "icono": "🖋️📜"
+  },
+  {
+    "id": 656,
+    "materia": "Lengua",
+    "cluster": 6,
+    "temas": [
+      "contraargumentos",
+      "generacion-del-98",
+      "detectar-falacias",
+      "boom-latinoamericano",
+      "debate-refutar-en-vivo"
+    ],
+    "nombre": "Master of Refutation and the Latin American Boom",
+    "descripcion": "You completed the exam mastering counterarguments, fallacy detection, live debate, and the Generation of '98, boss.",
+    "icono": "🗣️⚖️"
+  },
+  {
+    "id": 657,
+    "materia": "Lengua",
+    "cluster": 7,
+    "temas": [
+      "exposicion-oral",
+      "negociacion",
+      "persuasion-etica-vs-manipulacion",
+      "presentacion-con-apoyo-visual",
+      "subjetivemas-y-modalizadores"
+    ],
+    "nombre": "Master Persuasion and Oral Presentation",
+    "descripcion": "You mastered oral presentation, negotiation, and presentation with visual aids, telling ethical persuasion apart from manipulation.",
+    "icono": "🎤🤝"
+  },
+  {
+    "id": 658,
+    "materia": "Lengua",
+    "cluster": 8,
+    "temas": [
+      "texto-teatral",
+      "vocabulario-y-familia-de-palabras",
+      "clases-de-palabras",
+      "concordancia-nominal-y-verbal",
+      "conjugacion-verbal-indicativo"
+    ],
+    "nombre": "Master of Theatrical Text and Grammar",
+    "descripcion": "You completed the exam mastering theatrical text, word classes, nominal and verbal agreement, and indicative conjugation, boss.",
+    "icono": "🎭📝"
+  },
+  {
+    "id": 659,
+    "materia": "Lengua",
+    "cluster": 9,
+    "temas": [
+      "sujeto-y-predicado",
+      "conjugacion-verbal-subjuntivo",
+      "nucleos-y-modificadores",
+      "tipos-de-sujeto",
+      "objetos-y-circunstanciales"
+    ],
+    "nombre": "Mastery of Subject and Predicate",
+    "descripcion": "You mastered types of subject, heads and modifiers, objects and adverbials, and subjunctive conjugation.",
+    "icono": "🔍📐"
+  },
+  {
+    "id": 660,
+    "materia": "Lengua",
+    "cluster": 10,
+    "temas": [
+      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+      "oracion-compuesta-coordinacion-y-subordinacion",
+      "oraciones-negativas-e-interrogativas",
+      "coordinadas-adversativas",
+      "coordinadas-copulativas"
+    ],
+    "nombre": "Master of Phrases and Compound Sentences",
+    "descripcion": "You completed the exam mastering noun, adjective, prepositional, and verb phrases, coordination and subordination, and interrogative sentences, boss.",
+    "icono": "🧩📝"
+  },
+  {
+    "id": 661,
+    "materia": "Lengua",
+    "cluster": 11,
+    "temas": [
+      "coordinadas-distributivas",
+      "coordinadas-disyuntivas",
+      "discurso-referido",
+      "produccion-escrita-compleja",
+      "subordinada-adjetiva-o-de-relativo"
+    ],
+    "nombre": "Master Coordination and Reported Speech",
+    "descripcion": "You mastered distributive and disjunctive coordination, reported speech, complex written production, and the relative clause.",
+    "icono": "🔗🗨️"
+  },
+  {
+    "id": 662,
+    "materia": "Lengua",
+    "cluster": 12,
+    "temas": [
+      "conectores-textuales",
+      "correo-formal",
+      "cv",
+      "informe-tecnico",
+      "progresion-tematica"
+    ],
+    "nombre": "Expert in Professional Writing",
+    "descripcion": "You completed the exam mastering the formal email, the CV, the technical report, textual connectors, and thematic progression, boss.",
+    "icono": "💼📧"
+  },
+  {
+    "id": 663,
+    "materia": "Lengua",
+    "cluster": 13,
+    "temas": [
+      "referencia-anafora-y-catafora",
+      "subordinada-adverbial-de-lugar",
+      "subordinada-adverbial-de-modo",
+      "subordinada-adverbial-de-tiempo",
+      "subordinada-causal"
+    ],
+    "nombre": "Master of Adverbial Clauses",
+    "descripcion": "You mastered anaphora and cataphora, and adverbial clauses of place, manner, time, and cause.",
+    "icono": "🔗🕰️"
+  },
+  {
+    "id": 664,
+    "materia": "Lengua",
+    "cluster": 14,
+    "temas": [
+      "subordinada-concesiva-y-final",
+      "subordinada-condicional",
+      "subordinada-consecutiva",
+      "subordinada-sustantiva-de-complemento-circunstancial",
+      "subordinada-sustantiva-de-complemento-de-regimen"
+    ],
+    "nombre": "Mastery of Conditional and Consecutive Clauses",
+    "descripcion": "You completed the exam mastering concessive, purpose, conditional, and consecutive clauses, along with noun clauses functioning as adverbial complement and prepositional object, boss.",
+    "icono": "🔀📋"
+  },
+  {
+    "id": 665,
+    "materia": "Lengua",
+    "cluster": 15,
+    "temas": [
+      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+      "subordinada-sustantiva-de-complemento-del-nombre",
+      "subordinada-sustantiva-de-complemento-directo",
+      "subordinada-sustantiva-de-sujeto",
+      "voz-activa-y-pasiva"
+    ],
+    "nombre": "Master of Noun Clauses and Voice",
+    "descripcion": "You mastered noun clauses functioning as subject, direct object, and noun complement, and closed it out by telling active from passive voice.",
+    "icono": "🔄🗣️"
+  },
+  {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "Master of Argentine and Latin American Literature",
+    "descripcion": "You completed the exam by mastering gaucho literature and the Martín Fierro, the Florida and Boedo avant-gardes, Borges and the River Plate fantastic, Cortázar, magical realism, post-dictatorship narrative, 20th-century Argentine poetry, and the myths and legends of Indigenous peoples.",
+    "icono": "📚"
+  },
+  {
+    "id": 681,
+    "materia": "Historia profunda",
+    "cluster": 1,
+    "temas": [
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
+    ],
+    "nombre": "Master of the Origin of the Universe",
+    "descripcion": "You completed the exam mastering deep-time scales, the origin of the universe, nucleosynthesis, star formation, and types of galaxies.",
+    "icono": "🌌"
+  },
+  {
+    "id": 682,
+    "materia": "Historia profunda",
+    "cluster": 2,
+    "temas": [
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
+    ],
+    "nombre": "Mastery of Cosmic Expansion",
+    "descripcion": "You passed the exam on Hubble's law, redshift, black holes, the formation of the solar system, and rotation and revolution motions, boss.",
+    "icono": "🔭"
+  },
+  {
+    "id": 683,
+    "materia": "Historia profunda",
+    "cluster": 3,
+    "temas": [
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
+    ],
+    "nombre": "Expert in the Sky and the Dark Universe",
+    "descripcion": "You mastered dark matter and dark energy along with the observable sky: seasons, moon phases, eclipses, and the apparent motion of constellations.",
+    "icono": "🌙"
+  },
+  {
+    "id": 684,
+    "materia": "Historia profunda",
+    "cluster": 4,
+    "temas": [
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
+    ],
+    "nombre": "Master of the Primitive Earth",
+    "descripcion": "You completed the exam mastering the primitive Earth and its differentiation, the primitive atmosphere, minerals, the cosmological periodic table, and the origin of life.",
+    "icono": "🌋"
+  },
+  {
+    "id": 685,
+    "materia": "Historia profunda",
+    "cluster": 5,
+    "temas": [
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
+    ],
+    "nombre": "Expert in Geological Time",
+    "descripcion": "You mastered eons, eras, and periods, radiometric dating, rock types, prokaryotes, and the Great Oxidation, boss.",
+    "icono": "🪨"
+  },
+  {
+    "id": 686,
+    "materia": "Historia profunda",
+    "cluster": 6,
+    "temas": [
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
+    ],
+    "nombre": "Mastery of Complex Life",
+    "descripcion": "You passed the exam on eukaryotes, photosynthesis and atmospheric change, multicellularity, the Cambrian explosion, and plate tectonics.",
+    "icono": "🦠"
+  },
+  {
+    "id": 687,
+    "materia": "Historia profunda",
+    "cluster": 7,
+    "temas": [
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
+    ],
+    "nombre": "Master of Extinctions and Ancient Climates",
+    "descripcion": "You completed the exam mastering the conquest of dry land, the five mass extinctions, paleoclimate and glaciations, the rock cycle, and the distribution of biomes.",
+    "icono": "🦖"
+  },
+  {
+    "id": 688,
+    "materia": "Historia profunda",
+    "cluster": 8,
+    "temas": [
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
+    ],
+    "nombre": "Expert in Mammals and Human Origins",
+    "descripcion": "You mastered mammalian radiation, hominization, and the Paleolithic, plus relief with its earthquakes and volcanoes and the baseline of climate change, boss.",
+    "icono": "🦴"
+  },
+  {
+    "id": 689,
+    "materia": "Historia profunda",
+    "cluster": 9,
+    "temas": [
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
+    ],
+    "nombre": "Mastery of the Neolithic Revolution",
+    "descripcion": "You completed the exam mastering natural selection, tools and cave art, the settlement of the Americas, the Neolithic revolution, and sedentarization with surplus.",
+    "icono": "🌾"
+  },
+  {
+    "id": 690,
+    "materia": "Historia profunda",
+    "cluster": 10,
+    "temas": [
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
+    ],
+    "nombre": "Master of the First States",
+    "descripcion": "You passed the exam on the division of labor, metallurgy, property and hierarchy leading to the State, writing with the first cities, and ancient Greece.",
+    "icono": "🏺"
+  },
+  {
+    "id": 691,
+    "materia": "Historia profunda",
+    "cluster": 11,
+    "temas": [
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
+    ],
+    "nombre": "Expert in Great Ancient Civilizations",
+    "descripcion": "You mastered Rome, Egypt, China, India, and the pre-Columbian civilizations of the Americas, boss.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 692,
+    "materia": "Historia profunda",
+    "cluster": 12,
+    "temas": [
+      "mesopotamia",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
+      "imperio-de-alejandro-magno-helenistico"
+    ],
+    "nombre": "Mastery of Ancient World Empires",
+    "descripcion": "You completed the exam on Mesopotamia, the ancient civilizations, Alexander the Great and Hellenism, and the expansion of the Roman Empire.",
+    "icono": "⚔️"
+  },
+  {
+    "id": 693,
+    "materia": "Historia profunda",
+    "cluster": 13,
+    "temas": [
+      "imperio-han-china",
+      "imperio-persa",
+      "imperios-expansion",
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
+    ],
+    "nombre": "Master of Empires and Feudalism",
+    "descripcion": "You mastered the Han and Persian empires, imperial expansion, the fall of Rome with the Early Middle Ages, and feudalism, boss.",
+    "icono": "🏰"
+  },
+  {
+    "id": 694,
+    "materia": "Historia profunda",
+    "cluster": 14,
+    "temas": [
+      "imperio-bizantino",
+      "islam-y-expansion-arabe",
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
+    ],
+    "nombre": "Expert in the Middle Ages and the Renaissance",
+    "descripcion": "You passed the exam on the Byzantine Empire, Islam and its Arab expansion, the High Middle Ages, the crisis of the Late Middle Ages, and the Renaissance with the Reformation.",
+    "icono": "📜"
+  },
+  {
+    "id": 695,
+    "materia": "Historia profunda",
+    "cluster": 15,
+    "temas": [
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
+    ],
+    "nombre": "Mastery of Modernity and Conquest",
+    "descripcion": "You completed the exam mastering the scientific revolution, the printing press, navigation, and the conquest and colonization of the Americas.",
+    "icono": "⛵"
+  },
+  {
+    "id": 696,
+    "materia": "Historia profunda",
+    "cluster": 16,
+    "temas": [
+      "absolutismo-europeo",
+      "ilustracion",
+      "revolucion-industrial"
+    ],
+    "nombre": "Master of Absolutism and the Enlightenment",
+    "descripcion": "You mastered European absolutism, the Enlightenment, and the Industrial Revolution, boss.",
+    "icono": "👑"
+  },
+  {
+    "id": 697,
+    "materia": "Historia profunda",
+    "cluster": 17,
+    "temas": [
+      "electrificacion-fabrica-hogar",
+      "huella-humana-en-el-clima-inicio"
+    ],
+    "nombre": "Expert in Electrification and Climate",
+    "descripcion": "You passed the exam on the electrification of the factory and the home, and the start of the human imprint on the climate.",
+    "icono": "🇦🇷"
+  },
+  {
+    "id": 698,
+    "materia": "Historia profunda",
+    "cluster": 18,
+    "temas": [
+      "revoluciones-burguesas-liberalismo",
+      "estados-nacionales",
+      "imperialismo"
+    ],
+    "nombre": "Mastery of the Liberal and National Order",
+    "descripcion": "You completed the exam, mastering the bourgeois revolutions and liberalism, nation-states, and imperialism.",
+    "icono": "📈"
+  },
+  {
+    "id": 699,
+    "materia": "Historia profunda",
+    "cluster": 19,
+    "temas": [
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929"
+    ],
+    "nombre": "Master of the Early 20th Century",
+    "descripcion": "You mastered mass society and liberal democracy, the First World War and the Russian Revolution, and the interwar period and the 1929 crisis, boss.",
+    "icono": "📰"
+  },
+  {
+    "id": 700,
+    "materia": "Historia profunda",
+    "cluster": 20,
+    "temas": [
+      "segunda-guerra-mundial",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
+    ],
+    "nombre": "Expert in Wars and the Cold War",
+    "descripcion": "You passed the exam on the world wars, the Second World War, the Cold War, and the decolonization of Africa and Asia.",
+    "icono": "🕊️"
+  },
+  {
+    "id": 701,
+    "materia": "Historia profunda",
+    "cluster": 21,
+    "temas": [
+      "historia-contemporanea-de-africa",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "globalizacion-era-digital",
+      "internet-redes-globalizacion-digital"
+    ],
+    "nombre": "Mastery of Recent History",
+    "descripcion": "You completed the exam, mastering the contemporary history of Africa, Asia, and the Middle East, and globalization in the digital age.",
+    "icono": "🌍"
+  },
+  {
+    "id": 702,
+    "materia": "Historia profunda",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "Space Race Explorer",
+    "descripcion": "You completed the exam by mastering the Cold War space race: Sputnik, Gagarin’s flight, the Apollo 11 Moon landing and the joint Apollo-Soyuz mission.",
+    "icono": "🚀"
+  },
+  {
+    "id": 721,
+    "materia": "Historia",
+    "cluster": 1,
+    "temas": [
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "decada-siglo-milenio"
+    ],
+    "nombre": "Expert in Sources and Chronology",
+    "descripcion": "You mastered the interpretation of historical sources, timelines, and the decade, the century, and the millennium, boss.",
+    "icono": "🗂️"
+  },
+  {
+    "id": 722,
+    "materia": "Historia",
+    "cluster": 2,
+    "temas": [
+      "antes-y-despues-de-cristo",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
+    ],
+    "nombre": "Mastery of Periodization and Causality",
+    "descripcion": "You completed the exam, mastering periodization, before and after Christ, and cause and consequence.",
+    "icono": "⏳"
+  },
+  {
+    "id": 723,
+    "materia": "Historia",
+    "cluster": 3,
+    "temas": [
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
+    ],
+    "nombre": "Master of Historical Thinking",
+    "descripcion": "You mastered historical significance, change and continuity, evidence, multicausality, and the ethical dimension, boss.",
+    "icono": "🧠"
+  },
+  {
+    "id": 724,
+    "materia": "Historia",
+    "cluster": 4,
+    "temas": [
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
+    ],
+    "nombre": "Expert in Historiographical Currents",
+    "descripcion": "You passed the exam on the Annales School, cultural history, historical materialism, positivism, and the study of revolutions.",
+    "icono": "📚"
+  },
+  {
+    "id": 725,
+    "materia": "Historia",
+    "cluster": 5,
+    "temas": [
+      "independencias",
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939"
+    ],
+    "nombre": "Mastery of American Wars and Processes",
+    "descripcion": "You completed the exam on the independence movements, the Mexican Revolution, wars, and the Spanish Civil War.",
+    "icono": "🗺️"
+  },
+  {
+    "id": 736,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
+      "campo-electrico",
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
+    ],
+    "nombre": "Charges, Electric Field, and Statics",
+    "descripcion": "You completed the exam mastering electric charges, electric field, and current, as well as the moment of a force and the center of gravity in statics.",
+    "icono": "⚡"
+  },
+  {
+    "id": 737,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
+    ],
+    "nombre": "Atomic Nucleus and Rigid-Body Equilibrium",
+    "descripcion": "You mastered alpha, beta, and gamma decay, nuclear fission and fusion, and nuclear structure, plus rigid-body equilibrium and formulas with literals.",
+    "icono": "☢️"
+  },
+  {
+    "id": 738,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
+    ],
+    "nombre": "Master of Coulomb and Newton",
+    "descripcion": "You passed the exam with Coulomb's law and the magnetism of magnets, along with Newton's first and second laws and simple machines, boss.",
+    "icono": "🧲"
+  },
+  {
+    "id": 739,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
+      "dinamica-fuerzas-concurrentes",
+      "oscilacion-periodo"
+    ],
+    "nombre": "Mastery of Kinematics and Dynamics",
+    "descripcion": "You completed the exam with uniform and uniformly accelerated motion, Newton's third law, concurrent forces, and the period of oscillation.",
+    "icono": "🚀"
+  },
+  {
+    "id": 740,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
+    ],
+    "nombre": "Expert in Momentum and Waves",
+    "descripcion": "You mastered linear momentum, impulse, and universal gravitation, as well as frequency and the relationship between wavelength and propagation speed.",
+    "icono": "🌊"
+  },
+  {
+    "id": 741,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
+    ],
+    "nombre": "Quantum Light and Circular Motion",
+    "descripcion": "You completed the exam mastering the electromagnetic spectrum, wave-particle duality, and medical physics, along with circular motion and the inclined plane with friction, boss.",
+    "icono": "💡"
+  },
+  {
+    "id": 742,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
+    ],
+    "nombre": "Expert in Pressure and Fluids",
+    "descripcion": "You mastered pressure, hydrostatic and atmospheric pressure, and flow rate, and added reflection in plane and curved mirrors.",
+    "icono": "💧"
+  },
+  {
+    "id": 743,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
+    ],
+    "nombre": "Fluids and Meteorology",
+    "descripcion": "You passed the exam with Archimedes' principle and Pascal's principle, and with air masses and fronts, cloud formation, and precipitation.",
+    "icono": "☁️"
+  },
+  {
+    "id": 744,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
+    ],
+    "nombre": "Master of Geometric Optics",
+    "descripcion": "You completed the exam mastering refraction and Snell's law, converging and diverging lenses, and image formation, along with resonance and special relativity.",
+    "icono": "🔭"
+  },
+  {
+    "id": 745,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "semivida-desintegracion-exponencial",
+      "ojo-humano-instrumento-optico",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
+    ],
+    "nombre": "Sound, Vision, and Half-Life",
+    "descripcion": "You mastered sound (timbre, pitch, and intensity), decibels and the Richter scale, the human eye as an optical instrument, half-life, and thermal equilibrium, boss.",
+    "icono": "🔊"
+  },
+  {
+    "id": 746,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
+    ],
+    "nombre": "Mastery of Heat and Thermometry",
+    "descripcion": "You completed the exam with heat Q=m·c·ΔT, thermal expansion, latent heat, temperature scales, and heat engines.",
+    "icono": "🌡️"
+  },
+  {
+    "id": 747,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
+    ],
+    "nombre": "Ohm's Law and Oblique Launch",
+    "descripcion": "You passed the exam with voltage, resistance, and Ohm's law, and also with oblique projectile motion and entropy in the second law of thermodynamics.",
+    "icono": "🔌"
+  },
+  {
+    "id": 748,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
+    ],
+    "nombre": "Expert in Electric Circuits",
+    "descripcion": "You mastered series, parallel, and mixed circuits along with electric power, and added vertical launch, boss.",
+    "icono": "🔋"
+  },
+  {
+    "id": 749,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
+    ],
+    "nombre": "Electromagnetism, Work, and Energy",
+    "descripcion": "You completed the exam mastering magnetic field, Faraday-Lenz induction, work done by a force, and kinetic energy, as well as storms and severe weather phenomena.",
+    "icono": "🧭"
+  },
+  {
+    "id": 750,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
+    ],
+    "nombre": "Master of Energy and Its Machines",
+    "descripcion": "You mastered conservation of mechanical energy, gravitational potential energy, power, elastic and inelastic collisions, heat transfer, and generators, motors, and transformers.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "Master of Fluids, Thermodynamics and Waves",
+    "descripcion": "You completed the exam by mastering Bernoulli’s equation and fluid dynamics, the first law of thermodynamics, simple harmonic motion and standing waves, and renewable energy and its transformation.",
+    "icono": "🌊"
+  },
+  {
+    "id": 766,
+    "materia": "Economía",
+    "cluster": 1,
+    "temas": [
+      "blockchain-claves-wallet",
+      "capitalismo-industrial-trabajo-asalariado",
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
+    ],
+    "nombre": "Blockchain, Marginal Cost, and Balance Sheet",
+    "descripcion": "You completed the exam covering blockchain keys and wallets, smart contracts, marginal cost, and the debit-credit of the balance sheet, boss.",
+    "icono": "⛓️"
+  },
+  {
+    "id": 767,
+    "materia": "Economía",
+    "cluster": 2,
+    "temas": [
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
+    ],
+    "nombre": "Mastery of Equity and Elasticity",
+    "descripcion": "You mastered the fundamental accounting equation and the structure of equity, as well as elasticity, productive dependence, and how to spot a business opportunity.",
+    "icono": "📊"
+  },
+  {
+    "id": 768,
+    "materia": "Economía",
+    "cluster": 3,
+    "temas": [
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
+    ],
+    "nombre": "Master of Interest and Rates",
+    "descripcion": "You completed the exam calculating simple and compound interest, VAT, and the difference between CFT and nominal rate, without losing sight of the origin of surplus and money.",
+    "icono": "💹"
+  },
+  {
+    "id": 769,
+    "materia": "Economía",
+    "cluster": 4,
+    "temas": [
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
+    ],
+    "nombre": "Expert in Credit and Digital Finance",
+    "descripcion": "You mastered the installment of a French-system loan, fixed-term deposits versus inflation, double-entry bookkeeping, and swaps on decentralized exchanges, boss.",
+    "icono": "🏦"
+  },
+  {
+    "id": 770,
+    "materia": "Economía",
+    "cluster": 5,
+    "temas": [
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
+    ],
+    "nombre": "Master Accounting Records and Pools",
+    "descripcion": "You completed the exam with the journal and general ledger, financial statements, environmental accounting, final price, and AMM liquidity pools.",
+    "icono": "📒"
+  },
+  {
+    "id": 771,
+    "materia": "Economía",
+    "cluster": 6,
+    "temas": [
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
+    ],
+    "nombre": "Master of Micro and Accounting",
+    "descripcion": "You mastered the split between micro and macroeconomics, supply and demand, opportunity cost, financial ratios, and accounting as an information system.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 772,
+    "materia": "Economía",
+    "cluster": 7,
+    "temas": [
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
+    ],
+    "nombre": "Expert in Classical Economic Schools",
+    "descripcion": "You completed the exam covering physiocracy, mercantilism, classical liberalism, and the Austrian school, as well as GDP and inflation and positive and normative economics, boss.",
+    "icono": "📜"
+  },
+  {
+    "id": 773,
+    "materia": "Economía",
+    "cluster": 8,
+    "temas": [
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
+    ],
+    "nombre": "Mastery of Trade and Salary",
+    "descripcion": "You mastered the trade balance, comparative advantage, and economic sectors, and also learned to read a general and an Argentine pay slip.",
+    "icono": "🌍"
+  },
+  {
+    "id": 774,
+    "materia": "Economía",
+    "cluster": 9,
+    "temas": [
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
+    ],
+    "nombre": "Expert in Social Security and Work",
+    "descripcion": "You completed the exam with retirement, health coverage, the pension system, and the monotributo, and closed with a look at utopian socialism, boss.",
+    "icono": "🧾"
+  },
+  {
+    "id": 775,
+    "materia": "Economía",
+    "cluster": 10,
+    "temas": [
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
+    ],
+    "nombre": "Marx, Keynes, and Exchange Rates",
+    "descripcion": "You mastered Marxism, Keynesianism, and feminist and care economics, along with the fixed exchange rate and the country's average salary.",
+    "icono": "🧠"
+  },
+  {
+    "id": 776,
+    "materia": "Economía",
+    "cluster": 11,
+    "temas": [
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
+    ],
+    "nombre": "Master of Exchange and Neoliberalism",
+    "descripcion": "You completed the exam mastering the floating exchange rate, devaluation, and central bank reserves, as well as neoliberalism and ordoliberalism, boss.",
+    "icono": "💱"
+  },
+  {
+    "id": 777,
+    "materia": "Economía",
+    "cluster": 12,
+    "temas": [
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
+    ],
+    "nombre": "Organizations and Public Debt",
+    "descripcion": "You mastered the types and elements of organizations, and also internal and external public debt and default.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 778,
+    "materia": "Economía",
+    "cluster": 13,
+    "temas": [
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
+    ],
+    "nombre": "Expert in Organizational Management",
+    "descripcion": "You completed the exam with organizational culture and structure, internal and external environment, objectives and goals, and project types.",
+    "icono": "🏢"
+  },
+  {
+    "id": 779,
+    "materia": "Economía",
+    "cluster": 14,
+    "temas": [
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
+    ],
+    "nombre": "Master of Administration",
+    "descripcion": "You mastered administrative planning and budgeting, types of companies, cooperativism and mutualism, and how to coordinate people and resources, boss.",
+    "icono": "🤝"
+  },
+  {
+    "id": 780,
+    "materia": "Economía",
+    "cluster": 15,
+    "temas": [
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
+    ],
+    "nombre": "Mastery of Management and Results",
+    "descripcion": "You completed the exam with the income statement, gross and net margins, management control and indicators, continuous improvement, and the validate-build-measure-learn cycle.",
+    "icono": "📈"
+  },
+  {
+    "id": 781,
+    "materia": "Economía",
+    "cluster": 16,
+    "temas": [
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
+    ],
+    "nombre": "Expert in Entrepreneurship and Break-Even",
+    "descripcion": "You mastered the MVP, the business model canvas, the investor pitch, the break-even point, and productivity, boss.",
+    "icono": "🚀"
+  },
+  {
+    "id": 782,
+    "materia": "Economía",
+    "cluster": 17,
+    "temas": [
+      "valor-esperado-riesgo",
+      "vision-y-mision-organizacional",
+      "fondo-emergencia-diversificacion",
+      "estudio-de-contexto-para-un-proyecto",
+      "seguros"
+    ],
+    "nombre": "Master of Risk and Financial Planning",
+    "descripcion": "You calculated expected value and risk, built a diversified emergency fund, and evaluated insurance and organizational mission.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 796,
+    "materia": "Geografía",
+    "cluster": 1,
+    "temas": [
+      "coordenadas-y-husos-horarios",
+      "densidad-poblacion",
+      "escala-de-mapa",
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
+    ],
+    "nombre": "Master of Maps and Coordinates",
+    "descripcion": "You completed the exam with map scale, orientation, coordinates, and time zones, and added population density and carbon footprint and virtual water.",
+    "icono": "🧭"
+  },
+  {
+    "id": 797,
+    "materia": "Geografía",
+    "cluster": 2,
+    "temas": [
+      "mapa-plano-escala",
+      "coordenadas-geograficas",
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
+    ],
+    "nombre": "Expert in Cartography and GIS",
+    "descripcion": "You mastered scale maps, geographic coordinates, and geographic information systems, along with political division, states, and globalization, boss.",
+    "icono": "🗺️"
+  },
+  {
+    "id": 798,
+    "materia": "Geografía",
+    "cluster": 3,
+    "temas": [
+      "region",
+      "sig-gps",
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
+    ],
+    "nombre": "Master Territory and Remote Sensing",
+    "descripcion": "You completed the exam with region, relief, climate and biomes, resources and economic activities, and the GIS tools of GPS and satellite imagery.",
+    "icono": "🛰️"
+  },
+  {
+    "id": 799,
+    "materia": "Geografía",
+    "cluster": 4,
+    "temas": [
+      "regiones-naturales-de-argentina",
+      "geografia-economica-agricola-argentina",
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
+    ],
+    "nombre": "Expert in Productive Geography",
+    "descripcion": "You mastered the natural regions of Argentina, mining and hydrocarbons, agricultural and industrial geography, and industry and energy in Latin America, boss.",
+    "icono": "⛏️"
+  },
+  {
+    "id": 800,
+    "materia": "Geografía",
+    "cluster": 5,
+    "temas": [
+      "poblacion-piramides-migraciones",
+      "produccion-agraria-mundial-y-biotecnologia",
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
+    ],
+    "nombre": "Population, Environment, and World Agriculture",
+    "descripcion": "You completed the exam with population pyramids and migrations, agricultural production and biotechnology, environment and resources, Anglo-Saxon America, and liberal environmentalism.",
+    "icono": "🌾"
+  },
+  {
+    "id": 801,
+    "materia": "Geografía",
+    "cluster": 6,
+    "temas": [
+      "america-latina-formacion-poblacion",
+      "conservacionismo",
+      "decrecimiento",
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
+    ],
+    "nombre": "Master of Environmentalism and Society",
+    "descripcion": "You mastered conservationism, degrowth, and political ecologism, along with the formation of the Latin American population and Argentina's social indicators, boss.",
+    "icono": "🌱"
+  },
+  {
+    "id": 802,
+    "materia": "Geografía",
+    "cluster": 7,
+    "temas": [
+      "migraciones-internacionales",
+      "indice-de-desarrollo-humano",
+      "migraciones-internas-en-argentina",
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
+    ],
+    "nombre": "Expert in Migration and Development",
+    "descripcion": "You completed the exam with international and internal migration, the human development index, the countries of Latin America, and water resource management.",
+    "icono": "👥"
+  },
+  {
+    "id": 803,
+    "materia": "Geografía",
+    "cluster": 8,
+    "temas": [
+      "riesgos-naturales-argentinos",
+      "trabajo-y-desempleo-mundial",
+      "riesgos-ambientales-mundiales",
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
+    ],
+    "nombre": "Mastery of Risks and Urbanization",
+    "descripcion": "You mastered Argentina's natural hazards and the world's environmental risks, as well as tourism, work and unemployment, and urbanization, boss.",
+    "icono": "🌋"
+  },
+  {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "Continents and Climate Explorer",
+    "descripcion": "You completed the exam by covering Africa, Asia, Brazil and China, and added the causes, effects and agreements on climate change.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "Citizen of the World",
+    "descripcion": "You completed the exam by covering Europe and the European Union, the Middle East, Oceania and Antarctica, Russia and Central Asia, and South Africa, and added global transport and communication networks.",
+    "icono": "🌏"
+  },
+  {
+    "id": 816,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
+    ],
+    "nombre": "Logic, Complexity, and the Digital Revolution",
+    "descripcion": "You completed the exam with Boolean algebra, asymptotic complexity, and spreadsheets, along with the concept of technique and technology and the computing revolution.",
+    "icono": "💻"
+  },
+  {
+    "id": 817,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
+    ],
+    "nombre": "Technique, Numeration, and Booting",
+    "descripcion": "You mastered technical means, craft and industrial processes, the history of operating systems, computer startup, and numeral systems, boss.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 818,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
+    ],
+    "nombre": "Expert in Computer Architecture",
+    "descripcion": "You passed the exam with the CPU, the fetch-decode-execute cycle, the RAM and cache memory hierarchy, storage units, and OS types by device.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 819,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
+    ],
+    "nombre": "Algorithm and Hardware Fundamentals",
+    "descripcion": "You completed the exam mastering algorithms, variables, and conditionals, as well as I/O buses and volatile versus non-volatile storage.",
+    "icono": "🧮"
+  },
+  {
+    "id": 820,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
+    ],
+    "nombre": "Master of Programming",
+    "descripcion": "You mastered arithmetic, relational, and logical operators, loops, functions, data structures (lists, stacks, and queues), object-oriented programming, and search and sorting algorithms.",
+    "icono": "👨‍💻"
+  },
+  {
+    "id": 821,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
+    ],
+    "nombre": "Data, AI, and Cryptography",
+    "descripcion": "You completed the exam with files and persistence, the relational model, artificial intelligence and its ethics, and symmetric, asymmetric, and hash cryptography, boss.",
+    "icono": "🔐"
+  },
+  {
+    "id": 822,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "direccionamiento-ip-dns",
+      "proceso-programa-en-ejecucion",
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
+    ],
+    "nombre": "Networks, Processes, and Virtual Memory",
+    "descripcion": "You passed the exam with IP addressing, DNS, and HTTP, and with processes, interprocess communication, and virtual memory.",
+    "icono": "🌐"
+  },
+  {
+    "id": 823,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
+      "recursividad",
+      "relaciones-y-claves-foraneas"
+    ],
+    "nombre": "Mastery of the Operating System Core",
+    "descripcion": "You mastered process scheduling, paging, and interrupts, as well as recursion and foreign keys.",
+    "icono": "⚡"
+  },
+  {
+    "id": 824,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "requisitos-funcionales-no-funcionales",
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
+    ],
+    "nombre": "Software Engineering and Databases",
+    "descripcion": "You completed the exam with functional and non-functional requirements, design and architecture, version control, database normalization, and segmentation, boss.",
+    "icono": "📐"
+  },
+  {
+    "id": 825,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
+      "sistema-de-archivos",
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
+    ],
+    "nombre": "Software Quality and Files",
+    "descripcion": "You mastered patterns and best practices, unit and integration tests, maintenance and technical debt, along with the file system and user permissions.",
+    "icono": "🧪"
+  },
+  {
+    "id": 826,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sistema-de-archivos-por-bitacora",
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "transacciones-acid",
+      "seguridad-informatica",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "Expert in Systems, Networks, and Security",
+    "descripcion": "You completed the exam with SQL and ACID transactions, TCP/IP, network security and computer security, virtualization, input/output, journaling file systems, and software licenses, boss.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "Network and Web Builder",
+    "descripcion": "You completed the exam by mastering local networks and Wi-Fi, non-relational databases and how a web page is built with HTML, CSS and JavaScript.",
+    "icono": "🌐"
+  },
+  {
+    "id": 841,
+    "materia": "Química",
+    "cluster": 1,
+    "temas": [
+      "balanceo-ecuaciones",
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
+    ],
+    "nombre": "Master of Solutions and Equilibrium",
+    "descripcion": "You completed the exam with solution concentration and dilution, equation balancing, density, and Kc chemical equilibrium, boss.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 842,
+    "materia": "Química",
+    "cluster": 2,
+    "temas": [
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
+    ],
+    "nombre": "Expert in Reactions and Stoichiometry",
+    "descripcion": "You mastered stoichiometry, reaction kinetics, Ksp solubility equilibrium, states and changes of matter, and laboratory measurements.",
+    "icono": "🧪"
+  },
+  {
+    "id": 843,
+    "materia": "Química",
+    "cluster": 3,
+    "temas": [
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
+    ],
+    "nombre": "Master Atoms, Mixtures, and pH",
+    "descripcion": "You completed the exam with atomic models and subatomic particles, mixture separation methods, pH and pOH, and colligative properties, boss.",
+    "icono": "⚛️"
+  },
+  {
+    "id": 844,
+    "materia": "Química",
+    "cluster": 4,
+    "temas": [
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
+    ],
+    "nombre": "Expert in Atomic Structure and Analytics",
+    "descripcion": "You mastered atomic and mass numbers, electron configuration, limiting reagent and yield, analytical chemistry, and atmospheric chemistry.",
+    "icono": "🔬"
+  },
+  {
+    "id": 845,
+    "materia": "Química",
+    "cluster": 5,
+    "temas": [
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
+    ],
+    "nombre": "Master of Bonds and the Periodic Table",
+    "descripcion": "You completed the exam with periodic trends, chemical bonding and polarity, types of reactions, and carbon's tetravalence, not forgetting laboratory safety, boss.",
+    "icono": "🔗"
+  },
+  {
+    "id": 846,
+    "materia": "Química",
+    "cluster": 6,
+    "temas": [
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
+    ],
+    "nombre": "Mastery of Organic Chemistry",
+    "descripcion": "You mastered VSEPR molecular geometry, hydrocarbons, functional groups, and compound nomenclature, and you also saw nanotechnology.",
+    "icono": "🧬"
+  },
+  {
+    "id": 847,
+    "materia": "Química",
+    "cluster": 7,
+    "temas": [
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
+    ],
+    "nombre": "Expert in Moles, Gases, and Redox",
+    "descripcion": "You completed the exam with the mole and molar mass, ideal gases, oxidation-reduction and electrolysis, and added biomolecules such as carbohydrates, lipids, and proteins, boss.",
+    "icono": "🔋"
+  },
+  {
+    "id": 848,
+    "materia": "Química",
+    "cluster": 8,
+    "temas": [
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
+      "superconductividad",
+      "termoquimica",
+      "energia-libre-gibbs"
+    ],
+    "nombre": "Master of Energy and Materials",
+    "descripcion": "You mastered thermochemistry and Gibbs free energy, galvanic cells, and petroleum as an energy resource, as well as polymers, partial pressures, and superconductivity.",
+    "icono": "⚡"
+  },
+  {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "Master of Acids, Bases and Reactions",
+    "descripcion": "You completed the exam by mastering the laws of conservation and definite proportions of Lavoisier and Proust, acid-base theories, neutralization and titration, basic organic reactions and the chemistry of water.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 861,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
+    ],
+    "nombre": "Master of Genetic Inheritance",
+    "descripcion": "You completed the exam mastering Punnett squares, the dihybrid cross, sex-linked inheritance, and blood groups, as well as population growth.",
+    "icono": "🧬"
+  },
+  {
+    "id": 862,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion"
+    ],
+    "nombre": "Fundamentals of Living Things",
+    "descripcion": "You mastered what defines a living being, its basic needs, the cell and its organelles, life cycles with metamorphosis, and evolutionary classification, boss.",
+    "icono": "🔬"
+  },
+  {
+    "id": 863,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
+      "enzimas-proteina-sustrato-ph",
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
+    ],
+    "nombre": "Expert in Metabolism and Energy",
+    "descripcion": "You passed the exam on photosynthesis and cellular respiration, enzymes, the flow of matter and energy, habitat adaptation, and microbiology with the immune system.",
+    "icono": "⚡"
+  },
+  {
+    "id": 864,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
+    ],
+    "nombre": "Mastery of Ecosystems and Cell Division",
+    "descripcion": "You completed the exam combining food webs, biogeochemical cycles, and carrying capacity with mitosis and meiosis, and even Chagas disease as a case study.",
+    "icono": "🌿"
+  },
+  {
+    "id": 865,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
+    ],
+    "nombre": "Expert in Biodiversity and Biotechnology",
+    "descripcion": "You mastered biodiversity indices, the ecological niche, and protected areas, along with the path from DNA to gene to protein and tools such as PCR and CRISPR.",
+    "icono": "🧪"
+  },
+  {
+    "id": 866,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
+    ],
+    "nombre": "Master of Evolution and the Human Body",
+    "descripcion": "You passed the exam on natural selection, chemosynthesis, and biomass pyramids, plus the parts of the plant, germination, and the systems of the human body.",
+    "icono": "🌱"
+  },
+  {
+    "id": 867,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "Expert in Evolution and Physiology",
+    "descripcion": "You completed the exam mastering speciation, genetic drift, phylogeny, the nervous and endocrine systems, blood pressure, and the bioethics of transgenics, boss.",
+    "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "Master of Homeostasis and the Senses",
+    "descripcion": "You completed the exam by mastering homeostasis, the senses, interspecific relationships, sexual and asexual reproduction and the circulatory system.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "Master of the Human Body",
+    "descripcion": "You completed the exam by mastering the digestive, excretory, immune, muscular, skeletal and respiratory systems, and the skin with its temperature regulation.",
+    "icono": "🦴"
+  },
+  {
+    "id": 879,
+    "materia": "Cívica",
+    "cluster": 1,
+    "temas": [
+      "derechos-nino",
+      "encuesta-electoral",
+      "derechos-indigenas",
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
+    ],
+    "nombre": "Expert in Rights and Non-Discrimination",
+    "descripcion": "You mastered children's rights, gender rights, and Indigenous rights, the bodies that protect against discrimination, and how to read an election poll, boss.",
+    "icono": "✊"
+  },
+  {
+    "id": 880,
+    "materia": "Cívica",
+    "cluster": 2,
+    "temas": [
+      "estado-de-derecho-por-que-importa",
+      "marchas-patrioticas",
+      "organizacion-del-estado",
+      "origen-estado-derecho",
+      "constitucion-preambulo"
+    ],
+    "nombre": "Master of the Rule of Law",
+    "descripcion": "You completed the exam mastering the origin and importance of the rule of law, the organization of the State, the preamble of the Constitution, and the patriotic marches.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 881,
+    "materia": "Cívica",
+    "cluster": 3,
+    "temas": [
+      "division-de-poderes",
+      "constitucion-nacional-jerarquia-normativa",
+      "como-se-hace-una-ley",
+      "derechos-y-garantias",
+      "documentos-y-tramites"
+    ],
+    "nombre": "Mastery of the Constitution and Laws",
+    "descripcion": "You mastered the separation of powers, the normative hierarchy of the National Constitution, how a law is made, rights and guarantees, and procedures and documents, boss.",
+    "icono": "📕"
+  },
+  {
+    "id": 882,
+    "materia": "Cívica",
+    "cluster": 4,
+    "temas": [
+      "impuestos",
+      "alcoholemia-y-conduccion",
+      "prioridades-de-paso",
+      "proyecto-ciudadano-participativo",
+      "senalizacion-vial"
+    ],
+    "nombre": "Responsible Citizen on the Road",
+    "descripcion": "You passed the boss exam on taxes, drunk driving, road signs, and civic participation.",
+    "icono": "🚦"
+  },
+  {
+    "id": 883,
+    "materia": "Cívica",
+    "cluster": 5,
+    "temas": [
+      "simbolos-patrios",
+      "sistema-de-salud",
+      "sistema-electoral-dhondt",
+      "sistemas-politicos-comparados",
+      "sueldo-promedio-pais"
+    ],
+    "nombre": "Master of the Country's Systems",
+    "descripcion": "You passed the exam on national symbols, the health system, the D'Hondt method, and comparative political systems, boss.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 884,
+    "materia": "Cívica",
+    "cluster": 6,
+    "temas": [
+      "partidos-politicos",
+      "sufragio-restringido-universal",
+      "organismos-internacionales",
+      "teoria-del-poder",
+      "tratados-internacionales",
+      "tipos-de-estado"
+    ],
+    "nombre": "Master of Power and International Politics",
+    "descripcion": "You passed the boss exam on political parties, the evolution of suffrage, international treaties, and types of state.",
+    "icono": "🌐"
+  },
+  {
+    "id": 894,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
+    ],
+    "nombre": "Master of the Branches of Law",
+    "descripcion": "You mastered the map of the branches of law and their pillars: constitutional, civil, commercial, and administrative.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 895,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-internacional",
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
+    ],
+    "nombre": "Expert in Criminal and Labor Law",
+    "descripcion": "You completed the exam on criminal, labor, and international law, and on how a legally relevant event becomes a complaint and an investigation, boss.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 896,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "fuentes-del-derecho",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
+      "interpretacion-normativa"
+    ],
+    "nombre": "Mastery of Sources and Interpretation",
+    "descripcion": "You mastered the sources of law, the hierarchy and validity of norms, the schools of interpretation, and the investigation with the prosecutor's office and evidence.",
+    "icono": "📜"
+  },
+  {
+    "id": 897,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "politica-criminal-garantismo-mano-dura",
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
+    ],
+    "nombre": "Master of Criminal Procedure and the Sentence",
+    "descripcion": "You passed the exam covering legal argumentation, oral trial, ruling and sentence, appeals and instances, execution of the sentence, and the debate of garantismo versus tough-on-crime.",
+    "icono": "🔨"
+  },
+  {
+    "id": 904,
+    "materia": "Arte",
+    "cluster": 1,
+    "temas": [
+      "acustica-instrumento-musical",
+      "composicion-y-proporcion",
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
+    ],
+    "nombre": "Master of the Foundations of Art",
+    "descripcion": "You completed the exam mastering the origin of art, its elements and principles of design, composition and proportion, and the acoustics of the musical instrument.",
+    "icono": "🎨"
+  },
+  {
+    "id": 905,
+    "materia": "Arte",
+    "cluster": 2,
+    "temas": [
+      "ritmo-compas-pulso-figuras-musicales",
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
+    ],
+    "nombre": "Expert in Rhythm, Music, and Shot",
+    "descripcion": "You mastered pulse, meter, and musical note values, the staff with scales and intervals, dance and body expression, and the audiovisual shot and framing, boss.",
+    "icono": "🎼"
+  },
+  {
+    "id": 906,
+    "materia": "Arte",
+    "cluster": 3,
+    "temas": [
+      "armonia-basica-acordes-tonalidad",
+      "narrativa-audiovisual/montaje",
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
+    ],
+    "nombre": "Mastery of Harmony, Editing, and Stage",
+    "descripcion": "You passed the exam on harmony and chords, audiovisual editing, multimedia production, theater and dramaturgy, and the symmetry of rose windows.",
+    "icono": "🎭"
+  },
+  {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "Traveller Through Art History",
+    "descripcion": "You completed the exam by covering the art of Egypt and Mesopotamia, classical, Romanesque and Gothic art, the Renaissance and the Baroque, Impressionism, the avant-gardes of the 20th century, Argentine art, and photography and film as art.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 912,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "construir-y-usar-un-modelo-cientifico",
+      "trabajo-de-campo-enfoque-socioantropologico"
+    ],
+    "nombre": "Initiate in the Scientific Method",
+    "descripcion": "You completed the exam mastering observation and the researchable question, the good hypothesis, qualitative and quantitative methodology, scientific models, and fieldwork.",
+    "icono": "🔎"
+  },
+  {
+    "id": 913,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "corrientes-filosofia-de-la-ciencia",
+      "diseno-experimental-variables-y-control",
+      "tecnicas-de-investigacion-social",
+      "recoleccion-de-datos",
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
+    ],
+    "nombre": "Expert in Research Design and Analysis",
+    "descripcion": "You mastered experimental design, data collection, statistical analysis, evidence-based argumentation, and the communication of conclusions, along with philosophy of science and social research techniques.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "Master of the Start of Engineering Design",
+    "descripcion": "You completed the exam mastering the problem and its constraints, researching solutions, conceptual design, mathematical modeling, and the engineering disciplines.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "Expert in Building and Validating Solutions",
+    "descripcion": "You passed the exam on modeling and calculation, strength of materials, prototype, testing and measurement, iterative optimization, and how to communicate the solution, boss.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "Expert in the Self, Memory, and Culture",
+    "descripcion": "You completed the exam mastering the psychology of modernity and the self, self-knowledge, culture as heritage, and memory, forgetting, and repression.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Master of Currents and the Human Mind",
+    "descripcion": "You mastered psychological schools, cognitive biases, language, thought, and creativity, the ages of the human being, and mental health, boss.",
+    "icono": "💭"
+  },
+  {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "Expert in Development, Emotion and Behavior",
+    "descripcion": "You aced the exam covering cognitive development according to Piaget and Vygotsky, conditioning and psychological learning, emotions and their regulation, and motivation, personality and group psychology.",
+    "icono": "🧠"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "Expert in Material Behavior",
+    "descripcion": "You passed the exam on elasticity and Hooke's law, plasticity and yield point, hardness and toughness, fatigue and fracture, corrosion, and the families of materials.",
+    "icono": "🔩"
+  },
+  {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "Master of Materials Structure",
+    "descripcion": "You aced the exam covering bonding and atomic structure of materials, crystal structures and unit cells, tensile, hardness and impact tests, and ceramics, glasses and composite materials.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "Expert in Alloys, Steels and Polymers",
+    "descripcion": "You aced the exam covering crystal defects and dislocations, phase diagrams and alloys, the hardening and forming of metals and the iron-carbon diagram with steels, and thermoplastic, thermosetting and elastomeric polymers.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "Master of Material Properties and Treatments",
+    "descripcion": "You aced the exam covering heat treatments: quenching, tempering and annealing, the electrical, magnetic and thermal properties of materials, corrosion prevention and surface protection, and materials selection and sustainability.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "Master of Technical Drawing",
+    "descripcion": "You completed the exam mastering projection systems, views, isometric and cavalier perspectives, scales, and standardized dimensioning, boss.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "Master of Drafting, Sketching and CAD",
+    "descripcion": "You aced the exam covering drawing instruments and basic line work, sketching and taking measurements, descriptive geometry of the point, line and plane, and sections and computer-aided drafting.",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "Expert in Standards and Reading Drawings",
+    "descripcion": "You aced the exam covering line types, sheet formats and title blocks, constructive geometry: tangents and blends, the representation of threads, screws and joints, and welding symbols, and reading part and assembly drawings.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "Master of Tolerances and Specialized Drawings",
+    "descripcion": "You aced the exam covering tolerances and fits, roughness and surface finish, auxiliary views and details, and architectural and electrical drawing.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "Expert in Communication and Media",
+    "descripcion": "You mastered communication theory and its currents, journalistic genres, media ethics, and advertising and persuasion.",
+    "icono": "📰"
+  },
+  {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "Expert in Discourse, Media and Image",
+    "descripcion": "You aced the exam covering mass and digital media, discourse analysis and media framing, verbal and nonverbal, oral and visual communication, and institutional and crisis communication.",
+    "icono": "🎙️"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Master of Circuits and Digital Control",
+    "descripcion": "You completed the exam on resistors, capacitors, diodes, and transistors, Kirchhoff's laws, digital logic, microcontrollers, sensors, and actuators.",
+    "icono": "🔌"
+  },
+  {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "Expert in Components, Diodes and Logic Gates",
+    "descripcion": "You aced the exam covering the voltage divider and the color code, charging and discharging of the RC capacitor, and inductors, the diode, rectification and power supplies, and NAND, NOR and XOR gates and their universality.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "Master of Digital Logic and Microcontrollers",
+    "descripcion": "You aced the exam covering measuring instruments: multimeter and oscilloscope, combinational logic with adders and multiplexers, sequential logic with flip-flops and counters, and the microcontroller's digital inputs and outputs and serial communication (UART, I2C and SPI).",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "Expert in Transistors, Op-Amps and Signals",
+    "descripcion": "You aced the exam covering the transistor as a switch and amplifier, the operational amplifier, analog and digital signals with ADCs and DACs, and the 555 timer and breadboard prototyping with soldering and safety.",
+    "icono": "⚡"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "Expert in Control Systems",
+    "descripcion": "You mastered open and closed loops, feedback, PID control, servomechanisms, and PLC control logic, boss.",
+    "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "Master of Instrumentation and Drives",
+    "descripcion": "You aced the exam covering on-off control with hysteresis, industrial instrumentation and 4-20 mA loops, modeling first-order dynamic systems, and electric motors and variable-frequency drives, plus maintenance and diagnosis of automated systems.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "Expert in PLCs, Networks and Advanced Control",
+    "descripcion": "You aced the exam covering PLC programming: ladder logic, timers, counters and GRAFCET, basic pneumatics and hydraulics, industrial networks and SCADA, and transient response, stability, PID tuning and functional safety with emergency stops.",
+    "icono": "🏭"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "Master of User Experience",
+    "descripcion": "You passed the exam mastering usability and Nielsen's heuristics, WCAG accessibility, visual hierarchy, prototyping, and user testing.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Logical Thinker and Epistemologist",
+    "descripcion": "You passed the exam mastering propositional logic, the scientific method and rationalism, aesthetic taste, epistemology, and ethics as a branch of its own.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Explorer of Ethics and Existence",
+    "descripcion": "You passed the exam mastering existence, contractualism, deontology, virtue ethics, and the history of philosophy and its currents.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Philosopher of Being and Beauty",
+    "descripcion": "You passed the exam mastering beauty, what art is, reality, ontology, utilitarianism, the validity of an argument, and bioethics and predicate logic.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Cultural Anthropologist",
+    "descripcion": "You passed the exam mastering culture, cultural diversity, ethnocentrism, kinship relations, and the subfields of anthropology.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Social Analyst",
+    "descripcion": "You passed the exam mastering social facts, stratification, and institutions.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Learning Strategist",
+    "descripcion": "You passed the exam mastering metacognition and study techniques, spaced repetition and retrieval practice.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Critical Digital Citizen",
+    "descripcion": "You passed the exam mastering privacy and digital footprint, primary vs. secondary sources, source reliability, online disinformation, bias and deepfakes, misleading advertising, and news verification.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Problem Detective",
+    "descripcion": "You passed the exam mastering problem detection, analyzing causes and constraints, designing possible solutions, identifying alternatives, and implementing the solution.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Solution Evaluator",
+    "descripcion": "You passed the exam mastering cost-benefit analysis, defining scope and objectives, evaluating the result, planning tasks and milestones, and improving and iterating.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Project and Decision Manager",
+    "descripcion": "You passed the exam mastering resource allocation, risk and uncertainty, monitoring and control, trade-offs and prioritization, and closure and lessons learned.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Theory Athlete",
+    "descripcion": "You passed the exam mastering sports dimensions and surfaces, exercise physiology, players, positions and scoring, body literacy, and the historical origins of sports.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Expert in the Body in Motion",
+    "descripcion": "You passed the exam mastering resting heart rate, sport as an Argentine cultural phenomenon, the game of pato, maximum heart rate and its zones, and body mass index.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Guardian of Health and Sport",
+    "descripcion": "You passed the exam mastering the Olympic Games, planning and progression of training volume, prevention and care (RICE, warm-up, ergonomics), addiction prevention and Argentine Law 26,586, first aid, CPR and AED use, and drug policies.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "Digital Experience Designer",
+    "descripcion": "You passed the exam by mastering usage data analysis and UX metrics, information architecture and navigation, color in interfaces, voice and conversational interface design, and responsive, mobile-first design.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "UX and Accessibility Strategist",
+    "descripcion": "You passed the exam by mastering design ethics and dark patterns, forms and microinteractions, Nielsen's ten heuristics, user research and heuristic evaluation, user-centered design, WCAG levels and keyboard navigation, typography, and design systems.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "Historian of Thought",
+    "descripcion": "You passed the exam by mastering the Presocratics and Socrates, Plato and Aristotle, medieval philosophy and Aquinas, Hume's empiricism, Kant and idealism, Marx and historical materialism, phenomenology and existentialism, political philosophy, and the philosophy of language and science.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "Field Ethnographer",
+    "descripcion": "You passed the exam by mastering economy and power in societies, ethnography and participant observation, identity and ethnicity, myth, ritual and religion, and the Indigenous peoples of Argentina.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "Society Analyst",
+    "descripcion": "You passed the exam by mastering social change and movements, the classics (Durkheim, Weber and Marx), inequality and class today, social research methods, socialization and roles, norms, values and social control, and gender as a social category.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "Learning Strategist",
+    "descripcion": "You passed the exam by mastering attention, concentration and distractions, errors and feedback, active reading and note-taking, motivation to learn, study planning and time management, and studying with others.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "Safe Digital Citizen",
+    "descripcion": "You passed the exam by mastering algorithms, filter bubbles and the attention economy, cyberbullying and coexistence on social networks, passwords and authentication, digital rights and data protection, online civic participation, phishing and online scams, and intellectual property and digital licenses.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "Sports Strategist",
+    "descripcion": "You passed the exam by mastering physical capacities (strength, endurance, flexibility and speed), nutrition and hydration in physical activity, and the rules and fundamentals of basketball, football, futsal, handball, hockey, rugby and volleyball.",
+    "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Mastery of Colonial Argentina and Independence",
+    "descripcion": "You completed the exam on the native peoples, the conquest and colony, the viceroyalty and its trade, the May Revolution, and the Argentine wars of independence.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Master of National Organization",
+    "descripcion": "You mastered the civil wars between Unitarians and Federalists, the 1853 Constitution, Rosas and the Confederation, the Paraguayan War, and the early regional economies, boss.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Expert in the Liberal State and Democratic Expansion",
+    "descripcion": "You completed the exam on the Conquest of the Desert and the Chaco campaign, the agro-export model and immigration, the Sáenz Peña Law, the coups d'état, and the 1918 University Reform.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Master of 20th-Century Argentina and Democracy",
+    "descripcion": "You mastered Peronism and social rights, the Tragic Week, state terrorism, import-substitution industrialization, the Falklands/Malvinas, the democratic recovery, recent history, and the 2001 crisis, boss.",
+    "icono": "🕊️"
+  }
+]

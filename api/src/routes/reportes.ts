@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { isStaffRole, requirePolicy } from "../lib/authorization";
 import { ENTERPRISE_FEATURES, requireEnterpriseFeature } from "../lib/entitlements";
@@ -7,18 +6,9 @@ import { toObjectId } from "../lib/ids";
 import { buildSimplePdf } from "../lib/pdf";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
+import { soloAlumnosReales } from "../lib/inscripcion-prueba";
 
 export const reportes = Router();
-
-const objectIdString = z.string().regex(/^[a-fA-F0-9]{24}$/);
-
-const SolicitudVinculoSchema = z.object({
-  childId: objectIdString
-});
-
-const AprobacionVinculoSchema = z.object({
-  parentId: objectIdString
-});
 
 const getAuthenticatedUserId = (req: any) => {
   const userId = req.user?._id;
@@ -37,37 +27,6 @@ const isMinor = (birthdate?: Date | null) => {
 // NOTE: vinculos_padre_hijo, parent_invites, eventos_reportes_padres and
 // economia_transacciones are not yet in the Prisma schema. Their operations
 // are stubbed as no-ops until those models are added.
-
-const findParentInvite = async (
-  parentId: string,
-  childId: string
-) => {
-  // TODO: migrate to prisma.parentInvite once model is defined
-  return null as null | {
-    _id?: string | null;
-    overrideParentLimit?: boolean;
-    overrideApprovedBy?: string;
-    createdBy?: string;
-    expiresAt?: Date;
-  };
-};
-
-const resolveOverrideApprovedBy = (invite: Awaited<ReturnType<typeof findParentInvite>>): string | null => {
-  if (!invite) return null;
-  const candidate = invite.overrideApprovedBy ?? invite.createdBy ?? null;
-  if (!candidate) return null;
-  return String(candidate);
-};
-
-const logOverrideParentLimit = async (params: {
-  parentId: string;
-  childId: string;
-  inviteId: unknown;
-  overrideApprovedBy: string;
-  requestedBy: string;
-}) => {
-  // TODO: migrate to prisma.eventoReportePadre once model is defined
-};
 
 const logReportePadre = async (params: {
   parentId: string;
@@ -105,42 +64,6 @@ const validarAccesoPadre = async (
   // TODO: migrate vinculos_padre_hijo to Prisma — returning 403 until model exists
   return { ok: false, status: 403, error: "no link" as const };
 };
-
-reportes.post("/api/vinculos/solicitar", requireUser, async (req, res) => {
-  const parentId = getAuthenticatedUserId(req);
-  try {
-    const parsed = SolicitudVinculoSchema.parse(req.body);
-    const childId = parsed.childId;
-    if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
-
-    const invite = await findParentInvite(parentId, childId);
-    if (!invite) {
-      return res.status(403).json({ error: "institutional invite required" });
-    }
-    // TODO: full vinculos_padre_hijo logic requires that model in Prisma
-    return res.status(501).json({ error: "vinculos not yet migrated to Prisma" });
-  } catch (e: any) {
-    return res.status(400).json({ error: e?.message ?? "invalid payload" });
-  }
-});
-
-reportes.post("/api/vinculos/aprobar", requireUser, async (req, res) => {
-  const childId = getAuthenticatedUserId(req);
-  try {
-    const parsed = AprobacionVinculoSchema.parse(req.body);
-    const parentId = parsed.parentId;
-    if (!parentId || !childId) return res.status(400).json({ error: "invalid parent or child id" });
-
-    const invite = await findParentInvite(parentId, childId);
-    if (!invite) {
-      return res.status(403).json({ error: "institutional invite required" });
-    }
-    // TODO: full vinculos_padre_hijo logic requires that model in Prisma
-    return res.status(501).json({ error: "vinculos not yet migrated to Prisma" });
-  } catch (e: any) {
-    return res.status(400).json({ error: e?.message ?? "invalid payload" });
-  }
-});
 
 reportes.get("/api/vinculos/validar", requireUser, async (req, res) => {
   const parentId = getAuthenticatedUserId(req);
@@ -344,7 +267,10 @@ const buildReporteData = async (
   const scopedMiembros = roleFilter
     ? claseMiembros.filter((m) => roleFilter.has(String(m.rolEnClase).toUpperCase()))
     : claseMiembros;
-  const memberUserIds = uniqueIds(scopedMiembros.map((m) => m.usuarioId));
+  // PLAN-multirol Fase 3 — choke point: las inscripciones de prueba
+  // quedan fuera de TODAS las agregaciones aguas abajo (listado de
+  // usuarios, promedios, asistencia, boletines).
+  const memberUserIds = uniqueIds(soloAlumnosReales(scopedMiembros).map((m) => m.usuarioId));
 
   const userWhere: Record<string, unknown> = {
     ...buildSchoolFilter(scopedSchoolId),
@@ -354,13 +280,17 @@ const buildReporteData = async (
     (userWhere as any).role = { in: filtros.roles };
   }
   if (memberUserIds.length) {
+    // `memberUserIds` ya viene sin espejos (choke point de arriba).
     (userWhere as any).id = { in: memberUserIds };
   }
+  // PLAN-multirol Fase 3 — antes acá se excluían las cuentas espejo del
+  // listado sin scope de aula. Ya no hace falta: no hay cuentas de más que
+  // filtrar, la persona es una sola y lo "de prueba" es su inscripción.
 
   const totalUsuarios = await prisma.usuario.count({ where: userWhere as any });
   const usuarios = await prisma.usuario.findMany({
     where: userWhere as any,
-    select: { id: true, fullName: true, username: true, role: true },
+    select: { id: true, fullName: true, username: true, roles: true },
     skip: pagination.offset,
     take: pagination.limit
   });

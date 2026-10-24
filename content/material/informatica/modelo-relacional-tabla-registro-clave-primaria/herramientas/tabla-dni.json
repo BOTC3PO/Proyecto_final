@@ -1,0 +1,32 @@
+{
+ "titulo": "Una tabla del modelo relacional",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Personas",
+   "headers": [
+    "DNI",
+    "Apellido",
+    "Fecha de nacimiento"
+   ],
+   "rows": [
+    [
+     "30123456",
+     "Gómez",
+     "1990-04-12"
+    ],
+    [
+     "32456789",
+     "Pérez",
+     "1988-11-03"
+    ],
+    [
+     "40111222",
+     "Rossi",
+     "2001-07-25"
+    ]
+   ]
+  }
+ ]
+}

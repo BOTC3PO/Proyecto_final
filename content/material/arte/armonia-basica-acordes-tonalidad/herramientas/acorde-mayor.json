@@ -1,0 +1,32 @@
+{
+ "titulo": "Acorde mayor de Do",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Acorde de Do mayor (Do – Mi – Sol)",
+   "headers": [
+    "Nota",
+    "Intervalo desde la tónica",
+    "Semitonos"
+   ],
+   "rows": [
+    [
+     "Do",
+     "tónica",
+     0
+    ],
+    [
+     "Mi",
+     "tercera mayor",
+     4
+    ],
+    [
+     "Sol",
+     "quinta justa",
+     7
+    ]
+   ]
+  }
+ ]
+}

@@ -34,28 +34,84 @@ const parseLimit = (value: unknown) => {
   return Math.min(2000, Math.max(1, num));
 };
 
-const getSqliteServiceIfEnabled = async () => {
-  if (ENV.DB_KIND !== "sqlite") return { disabled: true as const };
+type ServiceResult =
+  | { disabled: true }
+  | { service: ReturnType<typeof import("../db/sqliteDictionary")["getSqliteDictionaryService"]> }
+  | { schemaError: { code: string; message: string; path: string } }
+  | { error: string };
+
+const getSqliteServiceIfEnabled = async (): Promise<ServiceResult> => {
+  if (ENV.DB_KIND !== "sqlite") return { disabled: true };
   try {
     const sqliteModule = await import("../db/sqliteDictionary");
-    return { service: sqliteModule.getSqliteDictionaryService() } as const;
+    return { service: sqliteModule.getSqliteDictionaryService() };
   } catch (error) {
+    // QA-FIX-09: schema validation failures (RAW_WIKTIONARY, UNKNOWN_SCHEMA,
+    // NO_TABLES, FILE_MISSING) are surfaced as 503 with the actionable
+    // message. The dictionary module also logs a warning once at init,
+    // so the operator sees the cause both in the server log and in the
+    // HTTP response.
+    if (error && typeof error === "object" && (error as { name?: string }).name === "DictionarySchemaError") {
+      const err = error as { code: string; message: string; path: string };
+      return {
+        schemaError: {
+          code: err.code,
+          message: err.message,
+          path: err.path
+        }
+      };
+    }
     const message = ENV.NODE_ENV === "production" ? "sqlite unavailable" : String(error);
-    return { error: message } as const;
+    return { error: message };
   }
 };
+
+// QA-FIX-03: el handler de Express, cuando un async route rechaza,
+// devuelve un 500 con el stack trace (en dev) o un HTML genérico (en
+// producción con Express por defecto). Eso es el "500 genérico" del
+// síntoma. Lo que queremos es un 500 con `{ error: <causa clara> }`
+// en el mismo shape que ya usan los otros endpoints de este router.
+//
+// `safeOperation` envuelve una operación síncrona sobre el servicio
+// y devuelve `{ ok: true, value }` o `{ ok: false, error }`. Se loguea
+// siempre (un 500 con causa diagnóstica es más útil que un stack).
+function safeOperation<T>(fn: () => T): { ok: true; value: T } | { ok: false; error: string } {
+  try {
+    return { ok: true, value: fn() };
+  } catch (error) {
+    const message = ENV.NODE_ENV === "production" ? "dictionary lookup failed" : String(error);
+    console.error("[dictionary] operation failed:", error);
+    return { ok: false, error: message };
+  }
+}
 
 dictionary.get("/api/dictionary/health", async (_req, res) => {
   const result = await getSqliteServiceIfEnabled();
   if ("disabled" in result) return res.status(503).json({ ok: false, error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({
+      ok: false,
+      code: se.code,
+      error: se.message
+    });
+  }
   if ("error" in result) return res.status(500).json({ ok: false, error: result.error });
   return res.json(result.service.getHealth());
 });
 
 dictionary.get("/api/dictionary/lookup", async (req, res) => {
   const result = await getSqliteServiceIfEnabled();
-  if ("disabled" in result) return res.status(503).json({ ok: false, error: "dictionary disabled" });
-  if ("error" in result) return res.status(500).json({ ok: false, error: result.error });
+  if ("disabled" in result) return res.status(503).json({ found: false, error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({
+      found: false,
+      code: se.code,
+      error: se.message
+    });
+  }
+  if ("error" in result) return res.status(500).json({ found: false, error: result.error });
   const service = result.service;
 
   const lang = parseLang(req.query.lang);
@@ -68,18 +124,36 @@ dictionary.get("/api/dictionary/lookup", async (req, res) => {
     return res.status(400).json({ error: "invalid word (expected 1-128 chars)" });
   }
 
-  const entry = service.lookup(lang, word);
+  // QA-FIX-03: el lookup puede lanzar si el .sqlite fue generado sin
+  // la tabla/columnas esperadas, si el binding de better-sqlite3 se
+  // rompió, o si la conexión se cerró. Antes esto burbujeaba como
+  // 500 genérico de Express. Ahora devolvemos 500 con causa diagnóstica
+  // y la palabra inexistente sigue devolviendo { found: false }, no
+  // 500.
+  const looked = safeOperation(() => service.lookup(lang, word));
+  if (!looked.ok) {
+    return res.status(500).json({ found: false, error: looked.error });
+  }
+  const entry = looked.value;
   if (!entry) {
     return res.json({ found: false });
   }
-
   return res.json({ found: true, entry });
 });
 
 dictionary.get("/api/dictionary/prefix", async (req, res) => {
   const result = await getSqliteServiceIfEnabled();
-  if ("disabled" in result) return res.status(503).json({ ok: false, error: "dictionary disabled" });
-  if ("error" in result) return res.status(500).json({ ok: false, error: result.error });
+  if ("disabled" in result) return res.status(503).json({ count: 0, entries: [], error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({
+      count: 0,
+      entries: [],
+      code: se.code,
+      error: se.message
+    });
+  }
+  if ("error" in result) return res.status(500).json({ count: 0, entries: [], error: result.error });
   const service = result.service;
 
   const lang = parseLang(req.query.lang);
@@ -93,6 +167,33 @@ dictionary.get("/api/dictionary/prefix", async (req, res) => {
     return res.status(400).json({ error: "invalid q (expected 1-64 chars)" });
   }
 
-  const entries = service.prefix(lang, q, limit);
+  // QA-FIX-03: idem lookup — ver safeOperation arriba.
+  const looked = safeOperation(() => service.prefix(lang, q, limit));
+  if (!looked.ok) {
+    return res.status(500).json({ count: 0, entries: [], error: looked.error });
+  }
+  const entries = looked.value;
   return res.json({ count: entries.length, entries });
+});
+
+// QA-FIX-10: selector de idioma del diccionario. Devuelve los códigos
+// de idioma REALES del archivo (`SELECT DISTINCT lang`), NUNCA una
+// lista fija — así el front puede ofrecer un dropdown que no mienta.
+// Mismo trato de errores que /health/lookup/prefix: 503 con causa si
+// el diccionario no es servible (QA-FIX-09).
+dictionary.get("/api/dictionary/languages", async (_req, res) => {
+  const result = await getSqliteServiceIfEnabled();
+  if ("disabled" in result) return res.status(503).json({ languages: [], error: "dictionary disabled" });
+  if ("schemaError" in result) {
+    const se = result.schemaError;
+    return res.status(503).json({ languages: [], code: se.code, error: se.message });
+  }
+  if ("error" in result) return res.status(500).json({ languages: [], error: result.error });
+  const service = result.service;
+
+  const looked = safeOperation(() => service.languages());
+  if (!looked.ok) {
+    return res.status(500).json({ languages: [], error: looked.error });
+  }
+  return res.json({ languages: looked.value });
 });

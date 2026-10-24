@@ -31,13 +31,22 @@ export const QuizAttemptSubmitSchema = z.object({
         answerKey: z.union([z.string(), z.array(z.string())]).optional(),
         points: z.number().positive().optional(),
         toleranciaRelativa: z.number().optional(),
+        // F2-04: tolerancia absoluta (el cliente la envía cuando la plantilla
+        // la declara; sin esto zod la stripeaba y el criterio F2-04 se perdía
+        // en el path no-autoritativo).
+        toleranciaAbsoluta: z.number().optional(),
+        // WO-11 — tipo de pregunta ("expresion" → equivalencia simbólica).
+        questionType: z.string().optional(),
         // WO07 — pregunta abierta: sin clave de respuesta.
         //  - "ninguna": informativa, no puntúa (se excluye del maxScore).
         //  - "manual": la corrige el profe; el ítem queda pendiente al enviar.
         correccion: z.enum(["ninguna", "manual"]).optional(),
         manualGrading: z.boolean().optional(),
         // Enunciado para que el profe lo vea en la pantalla de corrección.
-        prompt: z.string().optional()
+        prompt: z.string().optional(),
+        // PLAN-E §21 — puntaje proporcional para answerKey array (mc múltiple
+        // y analisis_spans) en el path no-autoritativo.
+        puntajeParcial: z.enum(["todo_o_nada", "proporcional"]).optional()
       })
     )
     .optional(),
@@ -48,6 +57,17 @@ export const QuizAttemptSubmitSchema = z.object({
   presentedIds: z.array(z.string()).optional()
 });
 
+// F5-01 — guardado incremental de UNA respuesta (entrega por pregunta).
+// La idempotencia es por (intento, questionId): el endpoint hace upsert de
+// `answers[questionId]`, así que reenviar la misma respuesta (reintento de la
+// cola offline) no duplica — sólo actualiza. `clientTs` es opcional (marca de
+// tiempo del cliente, para depurar la cola; no afecta el resultado).
+export const QuizAttemptAnswerSchema = z.object({
+  questionId: z.string().min(1),
+  response: z.union([z.string(), z.array(z.string())]),
+  clientTs: z.number().int().nonnegative().optional()
+});
+
 // WO07 — corrección manual de UN ítem abierto por parte del profe.
 export const QuizAttemptGradeSchema = z.object({
   questionId: z.string().min(1),
@@ -56,6 +76,64 @@ export const QuizAttemptGradeSchema = z.object({
   feedback: z.string().optional()
 });
 
+// FIX-CALIFICACIONES — helper: preprocesa un campo string del query.
+// Convierte "" (string vacío) o whitespace-only a `undefined` para que
+// el `.min(1)` no lo rechace con un 400 críptico. El front
+// (`ProfesorCalificaciones.tsx`) hardcodeaba `?moduleId=&` y eso rompía
+// la pantalla de calificaciones; ahora el back tolera el string vacío
+// como "no provisto".
+const emptyStringToUndefined = z.preprocess(
+  (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+  z.string().min(1).optional()
+);
+
+// F3-04 — query params para listar intentos / pedir resumen del alumno.
+// FIX-CALIFICACIONES — el refine ahora acepta `aulaId` solo (no sólo
+// `quizId || moduleId`). La pantalla de calificaciones del aula pide
+// "todos los intentos del aula" y no fuerza un módulo específico, así
+// que `aulaId` solo es un modo válido (el handler igual valida que el
+// requester sea staff del aula). Al menos uno de los tres
+// (`quizId`, `moduleId`, `aulaId`) tiene que estar.
+export const QuizAttemptListQuerySchema = z.object({
+  quizId: emptyStringToUndefined,
+  moduleId: emptyStringToUndefined,
+  aulaId: emptyStringToUndefined,
+  userId: emptyStringToUndefined,
+  limit: z.coerce.number().int().min(1).max(200).optional().default(50)
+}).refine((v) => v.quizId || v.moduleId || v.aulaId, {
+  message: "Se requiere al menos `quizId`, `moduleId` o `aulaId`."
+});
+
+export const QuizAttemptSummaryQuerySchema = z.object({
+  quizId: z.string().min(1)
+});
+
+// F5-03 — eventos informativos del intento (informativo, no penaliza).
+// El runner del alumno envía periódicamente el contador de salidas de pestaña
+// (visibilitychange→hidden) mientras el intento está en curso. El servidor
+// hace MERGE en el JSON `grading` del intento (mismo canal que el canario de
+// V2-04), preservando flags previos.
+//
+// PRIVACIDAD: el cliente NUNCA envía QUÉ pestaña/app se abrió, sólo el
+// contador agregado. La Fullscreen API del navegador no expone esa
+// información (sólo emite el evento de foco perdido) y F5-03 mantiene esa
+// garantía. El docente ve un número ("salió N veces") y nada más.
+export const QuizAttemptEventsPatchSchema = z.object({
+  // Cantidad de veces que la pestaña perdió visibilidad durante la
+  // evaluación. El cliente lo incrementa con cada visibilitychange→hidden.
+  // Es un counter monotónico: cada PATCH trae el valor más reciente visto
+  // por el cliente, no un delta. Esto garantiza idempotencia: si el server
+  // recibe un valor menor (por orden de red) lo descarta silenciosamente.
+  tabSwitchCount: z.number().int().nonnegative().optional()
+}).refine(
+  (v) => Object.keys(v).length > 0,
+  { message: "Debe incluir al menos un evento." }
+);
+
 export type QuizAttemptCreate = z.infer<typeof QuizAttemptCreateSchema>;
 export type QuizAttemptSubmit = z.infer<typeof QuizAttemptSubmitSchema>;
+export type QuizAttemptAnswer = z.infer<typeof QuizAttemptAnswerSchema>;
 export type QuizAttemptGrade = z.infer<typeof QuizAttemptGradeSchema>;
+export type QuizAttemptListQuery = z.infer<typeof QuizAttemptListQuerySchema>;
+export type QuizAttemptSummaryQuery = z.infer<typeof QuizAttemptSummaryQuerySchema>;
+export type QuizAttemptEventsPatch = z.infer<typeof QuizAttemptEventsPatchSchema>;

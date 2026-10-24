@@ -35,14 +35,26 @@ export function checkOrdenar(
   return correcta.every((v, i) => v === userArr[i]);
 }
 
+function normalizeMapName(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
 export function checkMarcarMapa(
   question: ModuleQuizQuestion,
   userAnswer: unknown,
 ): boolean {
-  return (
-    typeof userAnswer === "string" &&
-    question.respuestaIsoCorrecta === userAnswer
-  );
+  if (typeof userAnswer !== "string") return false;
+  const modo = question.modoRespuestaMapa ?? "iso";
+  if (modo === "nombre") {
+    const correcta = question.respuestaNombreCorrecta;
+    if (!correcta) return false;
+    return normalizeMapName(userAnswer) === normalizeMapName(correcta);
+  }
+  return question.respuestaIsoCorrecta === userAnswer;
 }
 
 export function checkAnalisisSintactico(
@@ -56,6 +68,19 @@ export function checkAnalisisSintactico(
   const keys = Object.keys(correctas);
   if (keys.length === 0) return false;
   return keys.every((k) => correctas[k] === user[k]);
+}
+
+/**
+ * PLAN-E §21 Parte B — analisis_spans: la respuesta del alumno y el answerKey
+ * son arrays de strings canónicos `"desde-hasta:etiqueta"`. Comparación exacta
+ * por conjunto (el puntaje proporcional lo calcula el server; acá sólo el
+ * verde/rojo todo-o-nada del feedback inmediato).
+ */
+export function checkAnalisisSpans(
+  question: ModuleQuizQuestion,
+  userAnswer: unknown,
+): boolean {
+  return checkIdentificarPalabras(question, userAnswer);
 }
 
 export function checkIdentificarPalabras(
@@ -83,6 +108,8 @@ export function checkAnswerSpecial(
       return checkMarcarMapa(question, userAnswer);
     case "analisis_sintactico":
       return checkAnalisisSintactico(question, userAnswer);
+    case "analisis_spans":
+      return checkAnalisisSpans(question, userAnswer);
     case "identificar_palabras":
       return checkIdentificarPalabras(question, userAnswer);
     default:

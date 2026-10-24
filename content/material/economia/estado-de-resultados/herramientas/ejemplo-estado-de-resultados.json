@@ -1,0 +1,36 @@
+{
+ "titulo": "Ejemplo de estado de resultados",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Estado de resultados (pesos)",
+   "headers": [
+    "Concepto",
+    "Importe"
+   ],
+   "rows": [
+    [
+     "Ventas netas",
+     1000000
+    ],
+    [
+     "– Costo de la mercadería vendida",
+     -600000
+    ],
+    [
+     "= Resultado bruto",
+     400000
+    ],
+    [
+     "– Gastos de administración y comercialización",
+     -250000
+    ],
+    [
+     "= Resultado neto",
+     150000
+    ]
+   ]
+  }
+ ]
+}

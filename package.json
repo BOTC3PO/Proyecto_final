@@ -3,11 +3,13 @@
     "express-rate-limit": "7.5.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19"
+    "@types/cors": "2.8.19"
   },
-    "scripts": {
+  "scripts": {
     "test": "pnpm --filter ./apps/web test",
     "test:web": "pnpm --filter ./apps/web test",
-    "test:api": "pnpm --filter ./api test"
+    "test:api": "pnpm --filter ./api test",
+    "dev": "pnpm --filter api --filter web --parallel run dev",
+    "dev:mobile": "pnpm --filter api --filter web --filter mobile --parallel run dev"
   }
 }

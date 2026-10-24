@@ -1,7 +1,14 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { requireUser } from "../lib/user-auth";
 import { prisma } from "../lib/prisma";
+import { aulaGestionable } from "../lib/aula-gestion";
+import { validarCuerpo } from "../lib/validar";
+import { ActividadAulaCrearSchema, ActividadAulaEditarSchema, EventoEscuelaCrearSchema, EventoEscuelaEditarSchema } from "../schema/calendario";
+import { hasRole, resolveRoles } from "../lib/roles";
+// `hasRole` se usa en los guards específicos (chequeo de un rol
+// puntual: ADMIN). `resolveRoles` y `hasAnyRole` cubren el resto.
 
 export const calendario = Router();
 
@@ -14,15 +21,25 @@ const getSchoolId = (req: { user?: { schoolId?: string | null } }) =>
 const getRole = (req: { user?: { role?: string } }) =>
   req.user?.role ?? null;
 
+// MULTIROL-01: helper local para chequear pertenencia a un set de
+// roles (mira primero el array `roles`, después el singular `role`).
+const hasAnyRole = (user: unknown, allowed: string[]) => {
+  if (!user || typeof user !== "object") return false;
+  const u = user as { role?: string; roles?: string[] };
+  const roles = resolveRoles({ role: u.role, roles: u.roles });
+  return roles.some((r) => allowed.includes(r));
+};
+
+const getUserFromReq = (req: { user?: { role?: string; roles?: string[] } }) => req.user ?? null;
+
 const genId = (prefix: string) =>
-  `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  `${prefix}-${randomUUID()}`;
 
 // ── GET /api/calendario/unificado ───────────────────────────
 calendario.get("/api/calendario/unificado", requireUser,
   async (req, res) => {
     const userId = getId(req as never);
     const schoolId = getSchoolId(req as never);
-    const role = getRole(req as never);
     if (!userId) return res.status(401).json({ error: "no autenticado" });
 
     const desde = typeof req.query.desde === "string"
@@ -47,8 +64,33 @@ calendario.get("/api/calendario/unificado", requireUser,
       escuelaId?: string;
     }> = [];
 
+    // FIX-CALENDARIO-B: aulas a las que el usuario tiene acceso. Se
+    // llena dentro del bloque try (silencioso) más abajo y se usa
+    // para filtrar la visibilidad de los eventos escuela acotados a
+    // un aula. Si el try falla, queda como Set vacío y los acotados
+    // solo los ven los staff (más restrictivo, pero los globales
+    // siguen funcionando).
+    //
+    // FIX-CALENDARIO-B: el procesamiento de los eventos escuela
+    // (incluyendo el filtro de visibilidad de los acotados) se hace
+    // DESPUÉS del try block, no antes, para que `userAulaIds` ya
+    // esté populado.
+    const userAulaIds = new Set<string>();
+    const aulaMap = new Map<string, string>();
+    let escuelaEventos: Array<{
+      id: string;
+      escuelaId: string;
+      aulaId?: string | null;
+      tipo: string;
+      titulo: string;
+      descripcion: string | null;
+      fechaInicio: string;
+      fechaFin: string;
+    }> = [];
+    let aulasAcotadasMap = new Map<string, { id: string; name: string; escuelaId: string }>();
+
     if (schoolId) {
-      const escuelaEventos = await prisma.calendarioEscuela.findMany({
+      escuelaEventos = (await prisma.calendarioEscuela.findMany({
         where: {
           escuelaId: schoolId,
           isDeleted: false,
@@ -56,39 +98,72 @@ calendario.get("/api/calendario/unificado", requireUser,
           fechaFin: { gte: desde },
         },
         orderBy: { fechaInicio: "asc" },
-      });
+      })) as typeof escuelaEventos;
 
-      for (const e of escuelaEventos) {
-        eventos.push({
-          id: e.id,
-          tipo: e.tipo,
-          titulo: e.titulo,
-          descripcion: e.descripcion,
-          fechaInicio: e.fechaInicio,
-          fechaFin: e.fechaFin,
-          origen: "escuela",
-          escuelaId: e.escuelaId,
-        });
-      }
+      // FIX-CALENDARIO-B: para los eventos escuela con `aulaId`
+      // (acotados a un aula), necesitamos resolver el `aulaNombre` y
+      // validar que el aula referenciada pertenece a la escuela del
+      // evento (defensa contra datos corruptos). Pre-fetchamos solo
+      // las aulas referenciadas para no pagar un findMany del total
+      // de aulas de la escuela.
+      const aulasAcotadasIds = [
+        ...new Set(
+          escuelaEventos
+            .map((e) => e.aulaId)
+            .filter((id): id is string => typeof id === "string" && id.length > 0)
+        ),
+      ];
+      const aulasAcotadas = aulasAcotadasIds.length > 0
+        ? await prisma.clase.findMany({
+            where: { id: { in: aulasAcotadasIds } },
+            select: { id: true, name: true, escuelaId: true },
+          })
+        : [];
+      aulasAcotadasMap = new Map(
+        aulasAcotadas.map((a) => [a.id, a])
+      );
     }
 
     try {
       let aulaWhere: Prisma.ClaseWhereInput = { isDeleted: false, status: "ACTIVE" };
 
-      if (role === "USER") {
+      if (hasRole(getUserFromReq(req as never), "USER")
+        && !hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
+        // PLAN-A §4 — `rolEnClase` es el rol EN LA CLASE (enum canónico
+        // ADMIN|TEACHER|STUDENT, ver ClassroomRoleSchema en schema/aula.ts
+        // y todos los `/api/aulas/unirse` etc.), no el `role` de cuenta
+        // ("USER"). Filtrar por "USER" nunca matcheaba ningún
+        // ClaseMiembro real (siempre se escribe "STUDENT") ⇒ el alumno
+        // nunca veía eventos de sus aulas.
         aulaWhere = {
           ...aulaWhere,
-          miembros: { some: { usuarioId: userId!, rolEnClase: "USER" } },
+          miembros: { some: { usuarioId: userId!, rolEnClase: "STUDENT" } },
         };
-      } else if (role === "TEACHER") {
+      } else if (hasRole(getUserFromReq(req as never), "TEACHER")) {
+        // FIX-CALENDARIO — usar el criterio canónico de "docente del aula"
+        // (QA-FIX-05, `isClassroomTeacher` en `classroom-scope.ts:57-67`):
+        // admin, owner por `createdBy`/`teacherId`/`teacherOfRecord`, o
+        // miembro con `rolEnClase === "TEACHER"`. Antes el OR solo tenía
+        // `createdBy`/`teacherId`, así que un TEACHER-miembro veía sus
+        // aulas en el dropdown de `ProfesorCalendario` (post-QA-FIX-08)
+        // pero el feed unificado las descartaba y sus eventos no
+        // aparecían. (Ver `docs/qa/diagnostico_calendario.md`.)
+        //
+        // NOTA: este OR es la traducción del helper `isClassroomTeacher`
+        // a Prisma `where`. Si en el futuro el helper cambia, hay que
+        // actualizar este OR en consecuencia — o mejor aún, refactorizar
+        // el helper para devolver también un `where` de Prisma y reusarlo
+        // desde acá y desde `aulas.ts:135-160`.
         aulaWhere = {
           ...aulaWhere,
           OR: [
             { createdBy: userId! },
             { teacherId: userId! },
+            { teacherOfRecord: userId! },
+            { miembros: { some: { usuarioId: userId!, rolEnClase: "TEACHER" } } },
           ],
         };
-      } else if ((role === "DIRECTIVO" || role === "ADMIN") && schoolId) {
+      } else if (hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN"]) && schoolId) {
         aulaWhere = { ...aulaWhere, escuelaId: schoolId };
       }
 
@@ -97,7 +172,15 @@ calendario.get("/api/calendario/unificado", requireUser,
         select: { id: true, name: true }
       });
 
-      const aulaMap = new Map(aulas.map((a) => [a.id, a.name]));
+      // FIX-CALENDARIO-B: poplar `userAulaIds` y `aulaMap` para que
+      // el filtro de visibilidad de los eventos escuela acotados
+      // (más arriba) pueda usar la misma info.
+      for (const a of aulas) {
+        if (a.id) {
+          userAulaIds.add(a.id);
+          if (a.name) aulaMap.set(a.id, a.name);
+        }
+      }
       const aulaIds = aulas.map((a) => a.id).filter(Boolean);
 
       if (aulaIds.length > 0) {
@@ -125,6 +208,49 @@ calendario.get("/api/calendario/unificado", requireUser,
         }
       }
     } catch { /* si Prisma falla devolver solo escuela */ }
+
+    // FIX-CALENDARIO-B: procesar los eventos escuela AHORA que
+    // `userAulaIds` y `aulaMap` ya están populados (o quedaron
+    // vacíos si el try falló). Si el try falló, los acotados solo
+    // los ven los staff, los globales se muestran a todos los de
+    // la escuela.
+    if (schoolId) {
+      const isStaff = hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN"]);
+      for (const e of escuelaEventos) {
+        if (e.aulaId) {
+          const aulaRef = aulasAcotadasMap.get(e.aulaId);
+          if (!aulaRef || aulaRef.escuelaId !== e.escuelaId) continue;
+          // Visibilidad acotada: solo staff o usuarios con acceso a
+          // esa aula ven el evento.
+          if (!isStaff && !userAulaIds.has(e.aulaId)) continue;
+          eventos.push({
+            id: e.id,
+            tipo: e.tipo,
+            titulo: e.titulo,
+            descripcion: e.descripcion,
+            fechaInicio: e.fechaInicio,
+            fechaFin: e.fechaFin,
+            origen: "escuela",
+            escuelaId: e.escuelaId,
+            aulaId: e.aulaId,
+            aulaNombre: aulaMap.get(e.aulaId) ?? aulaRef.name,
+          });
+          continue;
+        }
+        // Evento global (aulaId null): visible para todos los de la
+        // escuela (comportamiento histórico).
+        eventos.push({
+          id: e.id,
+          tipo: e.tipo,
+          titulo: e.titulo,
+          descripcion: e.descripcion,
+          fechaInicio: e.fechaInicio,
+          fechaFin: e.fechaFin,
+          origen: "escuela",
+          escuelaId: e.escuelaId,
+        });
+      }
+    }
 
     return res.json({ eventos, desde, hasta });
   }
@@ -156,18 +282,36 @@ calendario.get("/api/calendario/escuela", requireUser, async (req, res) => {
 calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
   const userId = getId(req as never);
   const schoolId = getSchoolId(req as never);
-  const role = getRole(req as never);
 
-  if (!["DIRECTIVO", "ADMIN", "TEACHER"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN", "TEACHER"])) {
     return res.status(403).json({ error: "forbidden" });
   }
   if (!schoolId) return res.status(400).json({ error: "escuela requerida" });
 
-  const { tipo, titulo, descripcion, fechaInicio, fechaFin } =
-    req.body as Record<string, unknown>;
+  const evento = validarCuerpo(EventoEscuelaCrearSchema, req, res);
+  if (!evento) return;
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } = evento;
+  if (fechaFin && fechaFin < fechaInicio) {
+    return res.status(400).json({ error: "fechaFin: no puede ser anterior a fechaInicio" });
+  }
 
-  if (!tipo || !titulo || !fechaInicio) {
-    return res.status(400).json({ error: "tipo, titulo y fechaInicio requeridos" });
+  // FIX-CALENDARIO-B: `aulaId` opcional. Si viene, validar que el
+  // aula exista y pertenezca a la escuela del usuario. Si no
+  // viene o viene vacío, el evento es global (comportamiento
+  // histórico intacto).
+  let aulaIdPersist: string | null = null;
+  if (typeof aulaId === "string" && aulaId.length > 0) {
+    const aula = await prisma.clase.findFirst({
+      where: { id: aulaId, isDeleted: { not: true } },
+      select: { id: true, escuelaId: true },
+    });
+    if (!aula) {
+      return res.status(400).json({ error: "aulaId no existe" });
+    }
+    if (aula.escuelaId !== schoolId) {
+      return res.status(400).json({ error: "aulaId no pertenece a la escuela" });
+    }
+    aulaIdPersist = aula.id;
   }
 
   const id = genId("cal");
@@ -177,6 +321,9 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
     data: {
       id,
       escuelaId: schoolId,
+      // FIX-CALENDARIO-B: persistir aulaId (nullable). null =
+      // global. Decisión B del diagnóstico (no M:N).
+      aulaId: aulaIdPersist,
       tipo: String(tipo),
       titulo: String(titulo),
       descripcion: typeof descripcion === "string" ? descripcion : null,
@@ -187,13 +334,12 @@ calendario.post("/api/calendario/escuela", requireUser, async (req, res) => {
     },
   });
 
-  return res.status(201).json({ id, ok: true });
+  return res.status(201).json({ id, ok: true, aulaId: aulaIdPersist });
 });
 
 // ── DELETE /api/calendario/escuela/:id ──────────────────────
 calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) => {
-  const role = getRole(req as never);
-  if (!["DIRECTIVO", "ADMIN"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["DIRECTIVO", "ADMIN"])) {
     return res.status(403).json({ error: "sin permiso" });
   }
 
@@ -206,7 +352,7 @@ calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) =
     return res.status(404).json({ error: "evento no encontrado" });
   }
 
-  if (role !== "ADMIN") {
+  if (!hasRole(getUserFromReq(req as never), "ADMIN")) {
     const schoolId = getSchoolId(req as never);
     if (!schoolId || evento.escuelaId !== schoolId) {
       return res.status(403).json({ error: "sin permiso sobre este evento" });
@@ -221,21 +367,130 @@ calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) =
   return res.json({ ok: true });
 });
 
+// ── PATCH /api/calendario/escuela/:id ────────────────────────
+// FIX-TEST4-CALENDARIO-EDIT — antes no había endpoint para editar
+// eventos. El docente creaba un evento y no podía cambiarle la
+// hora o el título sin borrarlo y volver a crearlo. Ahora PATCH
+// parcial: solo se actualizan los campos presentes en el body.
+calendario.patch("/api/calendario/escuela/:id", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const evento = await prisma.calendarioEscuela.findFirst({
+    where: { id: String(req.params.id), isDeleted: false },
+    select: { escuelaId: true, createdBy: true },
+  });
+  if (!evento) return res.status(404).json({ error: "evento no encontrado" });
+
+  // Ownership: ADMIN puede todo; DIRECTIVO de la escuela o autor
+  // original pueden editar; TEACHER solo si es el autor.
+  const user = getUserFromReq(req as never);
+  const isAdmin = hasRole(user, "ADMIN");
+  const schoolId = getSchoolId(req as never);
+  const isDirectivoOfSchool =
+    (hasRole(user, "DIRECTIVO") || hasRole(user, "ADMIN_ESCUELA")) && evento.escuelaId === schoolId;
+  const isAuthor = evento.createdBy === userId;
+  if (!isAdmin && !isDirectivoOfSchool && !isAuthor) {
+    return res.status(403).json({ error: "sin permiso sobre este evento" });
+  }
+
+  const cambios = validarCuerpo(EventoEscuelaEditarSchema, req, res);
+  if (!cambios) return;
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin, aulaId } = cambios;
+
+  const data: Record<string, unknown> = {};
+  if (tipo) data.tipo = tipo;
+  if (titulo) data.titulo = titulo;
+  if (typeof descripcion === "string") data.descripcion = descripcion;
+  if (fechaInicio) data.fechaInicio = fechaInicio;
+  if (fechaFin) data.fechaFin = fechaFin;
+  if (typeof aulaId === "string") {
+    // Validar que el aula pertenezca a la escuela si viene un aulaId
+    if (aulaId.length > 0) {
+      const aula = await prisma.clase.findFirst({
+        where: { id: aulaId, isDeleted: { not: true } },
+        select: { escuelaId: true },
+      });
+      if (!aula) return res.status(400).json({ error: "aulaId no existe" });
+      if (aula.escuelaId !== evento.escuelaId) {
+        return res.status(400).json({ error: "aulaId no pertenece a la escuela" });
+      }
+      data.aulaId = aulaId;
+    } else {
+      data.aulaId = null;
+    }
+  }
+
+  if (Object.keys(data).length === 0) {
+    return res.status(400).json({ error: "nada que actualizar" });
+  }
+
+  await prisma.calendarioEscuela.update({
+    where: { id: String(req.params.id) },
+    data,
+  });
+
+  return res.json({ ok: true });
+});
+
+// ── PATCH /api/calendario/aula/:id ──────────────────────────
+// FIX-TEST4-CALENDARIO-EDIT — paralelo al de escuela, edita una
+// actividad_aula existente. Mismas reglas de ownership.
+calendario.patch("/api/calendario/aula/:id", requireUser, async (req, res) => {
+  const userId = getId(req as never);
+  if (!userId) return res.status(401).json({ error: "no autenticado" });
+
+  const actividad = await prisma.actividadAula.findFirst({
+    where: { id: String(req.params.id), isDeleted: false },
+    select: { aulaId: true, createdBy: true },
+  });
+  if (!actividad) return res.status(404).json({ error: "actividad no encontrada" });
+
+  const user = getUserFromReq(req as never);
+  const isAdmin = hasRole(user, "ADMIN");
+  if (!isAdmin && actividad.createdBy !== userId) {
+    return res.status(403).json({ error: "sin permiso sobre esta actividad" });
+  }
+
+  const cambios = validarCuerpo(ActividadAulaEditarSchema, req, res);
+  if (!cambios) return;
+  const { tipo, titulo, descripcion, fechaInicio, fechaFin } = cambios;
+
+  const data: Record<string, unknown> = {};
+  if (tipo) data.tipo = tipo;
+  if (titulo) data.titulo = titulo;
+  if (typeof descripcion === "string") data.descripcion = descripcion;
+  if (fechaInicio) data.fecha = fechaInicio;
+  if (fechaFin) data.fechaFin = fechaFin;
+
+  if (Object.keys(data).length === 0) {
+    return res.status(400).json({ error: "nada que actualizar" });
+  }
+
+  await prisma.actividadAula.update({
+    where: { id: String(req.params.id) },
+    data,
+  });
+
+  return res.json({ ok: true });
+});
+
 // ── POST /api/calendario/aula ───────────────────────────────
 calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
 
-  if (!["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
     return res.status(403).json({ error: "sin permiso" });
   }
 
-  const { aulaId, tipo, titulo, descripcion, fechaInicio, fechaFin } =
-    req.body as Record<string, unknown>;
-
-  if (!aulaId || !tipo || !titulo || !fechaInicio) {
-    return res.status(400).json({ error: "aulaId, tipo, titulo y fechaInicio requeridos" });
+  const actividad = validarCuerpo(ActividadAulaCrearSchema, req, res);
+  if (!actividad) return;
+  const { aulaId, tipo, titulo, descripcion, fechaInicio, fechaFin } = actividad;
+  if (fechaFin && fechaFin < fechaInicio) {
+    return res.status(400).json({ error: "fechaFin: no puede ser anterior a fechaInicio" });
   }
+  // Solo quien gestiona el aula puede agendarle actividades: antes valía cualquier docente sobre cualquier aula.
+  if (!(await aulaGestionable(req as never, res, String(aulaId)))) return;
 
   const id = genId("act");
   const now = new Date().toISOString();
@@ -260,8 +515,7 @@ calendario.post("/api/calendario/aula", requireUser, async (req, res) => {
 // ── DELETE /api/calendario/aula/:id ─────────────────────────
 calendario.delete("/api/calendario/aula/:id", requireUser, async (req, res) => {
   const userId = getId(req as never);
-  const role = getRole(req as never);
-  if (!["TEACHER", "DIRECTIVO", "ADMIN"].includes(role ?? "")) {
+  if (!hasAnyRole(getUserFromReq(req as never), ["TEACHER", "DIRECTIVO", "ADMIN"])) {
     return res.status(403).json({ error: "sin permiso" });
   }
 
@@ -274,7 +528,7 @@ calendario.delete("/api/calendario/aula/:id", requireUser, async (req, res) => {
     return res.status(404).json({ error: "actividad no encontrada" });
   }
 
-  if (role !== "ADMIN" && actividad.createdBy !== userId) {
+  if (!hasRole(getUserFromReq(req as never), "ADMIN") && actividad.createdBy !== userId) {
     return res.status(403).json({ error: "sin permiso sobre esta actividad" });
   }
 

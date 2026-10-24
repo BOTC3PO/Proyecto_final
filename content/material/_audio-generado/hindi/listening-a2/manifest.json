@@ -1,0 +1,202 @@
+[
+ {
+  "n": 1,
+  "file": "q01.mp3",
+  "text": "नमस्ते! आप कैसे हैं?",
+  "spoken": "नमस्ते! आप कैसे हैं?",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.75
+ },
+ {
+  "n": 2,
+  "file": "q02.mp3",
+  "text": "मेरा नाम मारिया है, मैं स्पेन से हूँ।",
+  "spoken": "मेरा नाम मारिया है, मैं स्पेन से हूँ।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.75
+ },
+ {
+  "n": 3,
+  "file": "q03.mp3",
+  "text": "मेरी उम्र बीस साल है।",
+  "spoken": "मेरी उम्र बीस साल है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.83
+ },
+ {
+  "n": 4,
+  "file": "q04.mp3",
+  "text": "अभी आठ बजे हैं।",
+  "spoken": "अभी आठ बजे हैं।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.58
+ },
+ {
+  "n": 5,
+  "file": "q05.mp3",
+  "text": "हम सोमवार को मिलेंगे।",
+  "spoken": "हम सोमवार को मिलेंगे।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.79
+ },
+ {
+  "n": 6,
+  "file": "q06.mp3",
+  "text": "यह किताब पाँच रुपये की है।",
+  "spoken": "यह किताब पाँच रुपये की है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.11
+ },
+ {
+  "n": 7,
+  "file": "q07.mp3",
+  "text": "स्कूल बाईं तरफ़ है।",
+  "spoken": "स्कूल बाईं तरफ़ है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.62
+ },
+ {
+  "n": 8,
+  "file": "q08.mp3",
+  "text": "आज बहुत ठंड है।",
+  "spoken": "आज बहुत ठंड है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.56
+ },
+ {
+  "n": 9,
+  "file": "q09.mp3",
+  "text": "मुझे चाय और रोटी चाहिए।",
+  "spoken": "मुझे चाय और रोटी चाहिए।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.05
+ },
+ {
+  "n": 10,
+  "file": "q10.mp3",
+  "text": "मेरा एक भाई और दो बहनें हैं।",
+  "spoken": "मेरा एक भाई और दो बहनें हैं।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.47
+ },
+ {
+  "n": 11,
+  "file": "q11.mp3",
+  "text": "मेरे पिताजी डॉक्टर हैं और माँ शिक्षिका हैं।",
+  "spoken": "मेरे पिताजी डॉक्टर हैं और माँ शिक्षिका हैं।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 3.35
+ },
+ {
+  "n": 12,
+  "file": "q12.mp3",
+  "text": "मैं एक बड़े शहर में रहता हूँ।",
+  "spoken": "मैं एक बड़े शहर में रहता हूँ।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.39
+ },
+ {
+  "n": 13,
+  "file": "q13.mp3",
+  "text": "मैं बस से काम पर जाता हूँ।",
+  "spoken": "मैं बस से काम पर जाता हूँ।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.09
+ },
+ {
+  "n": 14,
+  "file": "q14.mp3",
+  "text": "मुझे खेल पसंद है, संगीत नहीं।",
+  "spoken": "मुझे खेल पसंद है, संगीत नहीं।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.62
+ },
+ {
+  "n": 15,
+  "file": "q15.mp3",
+  "text": "दुकान कहाँ है? पास में है।",
+  "spoken": "दुकान कहाँ है? पास में है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.96
+ },
+ {
+  "n": 16,
+  "file": "q16.mp3",
+  "text": "गरमियों में बहुत गरमी होती है।",
+  "spoken": "गरमियों में बहुत गरमी होती है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.39
+ },
+ {
+  "n": 17,
+  "file": "q17.mp3",
+  "text": "कल मैं अपने दोस्त से मिलूँगा।",
+  "spoken": "कल मैं अपने दोस्त से मिलूँगा।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.18
+ },
+ {
+  "n": 18,
+  "file": "q18.mp3",
+  "text": "मैं हिन्दी सीखना चाहता हूँ।",
+  "spoken": "मैं हिन्दी सीखना चाहता हूँ।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.07
+ },
+ {
+  "n": 19,
+  "file": "q19.mp3",
+  "text": "किताब मेज़ पर है।",
+  "spoken": "किताब मेज़ पर है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.45
+ },
+ {
+  "n": 20,
+  "file": "q20.mp3",
+  "text": "मैं शुक्रवार को दिल्ली जाऊँगा।",
+  "spoken": "मैं शुक्रवार को दिल्ली जाऊँगा।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.39
+ },
+ {
+  "n": 21,
+  "file": "q21.mp3",
+  "text": "आप कहाँ से हैं?",
+  "spoken": "आप कहाँ से हैं?",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.26
+ },
+ {
+  "n": 22,
+  "file": "q22.mp3",
+  "text": "कक्षा में तीस छात्र हैं।",
+  "spoken": "कक्षा में तीस छात्र हैं।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.83
+ },
+ {
+  "n": 23,
+  "file": "q23.mp3",
+  "text": "बहुत धन्यवाद! — कोई बात नहीं।",
+  "spoken": "बहुत धन्यवाद! — कोई बात नहीं।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 2.41
+ },
+ {
+  "n": 24,
+  "file": "q24.mp3",
+  "text": "नमस्ते! आप कैसे हैं?",
+  "spoken": "नमस्ते! आप कैसे हैं?",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.75
+ },
+ {
+  "n": 25,
+  "file": "q25.mp3",
+  "text": "मेरा नाम मारिया है।",
+  "spoken": "मेरा नाम मारिया है।",
+  "voice": "kokoro:hm_omega",
+  "seconds": 1.79
+ }
+]

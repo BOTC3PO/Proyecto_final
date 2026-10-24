@@ -1,0 +1,100 @@
+[
+ {
+  "id": 841,
+  "cluster": 1,
+  "temas": [
+   "balanceo-ecuaciones",
+   "concentracion-de-una-solucion",
+   "densidad",
+   "dilucion-soluciones",
+   "equilibrio-quimico-kc"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 842,
+  "cluster": 2,
+  "temas": [
+   "estados-y-cambios",
+   "cinetica-reaccion",
+   "equilibrio-solubilidad-ksp",
+   "estequiometria",
+   "medicion-de-laboratorio"
+  ],
+  "preguntas": 114
+ },
+ {
+  "id": 843,
+  "cluster": 3,
+  "temas": [
+   "mezclas-metodos-separacion",
+   "ph-poh",
+   "modelos-atomicos",
+   "propiedades-coligativas",
+   "atomo-particulas-subatomicas"
+  ],
+  "preguntas": 104
+ },
+ {
+  "id": 844,
+  "cluster": 4,
+  "temas": [
+   "quimica-analitica",
+   "numero-atomico-masico",
+   "quimica-de-la-atmosfera",
+   "configuracion-electronica",
+   "reactivo-limitante-rendimiento"
+  ],
+  "preguntas": 110
+ },
+ {
+  "id": 845,
+  "cluster": 5,
+  "temas": [
+   "seguridad-laboratorio",
+   "tabla-periodica-tendencias",
+   "tipos-reacciones-quimicas",
+   "enlace-quimico-polaridad",
+   "carbono-tetravalencia-cadenas"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 846,
+  "cluster": 6,
+  "temas": [
+   "geometria-molecular-vsepr",
+   "hidrocarburos-alcanos-alquenos-alquinos",
+   "nanotecnologia",
+   "grupos-funcionales",
+   "nomenclatura-compuestos"
+  ],
+  "preguntas": 102
+ },
+ {
+  "id": 847,
+  "cluster": 7,
+  "temas": [
+   "biomoleculas-glucidos-lipidos-proteinas",
+   "mol-masa-molar",
+   "oxidacion-reduccion",
+   "gases-ideales",
+   "electrolisis"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 848,
+  "cluster": 8,
+  "temas": [
+   "petroleo-como-recurso-energetico",
+   "pilas-celdas-galvanicas",
+   "polimeros-naturales-sinteticos",
+   "presiones-parciales",
+   "superconductividad",
+   "termoquimica",
+   "energia-libre-gibbs"
+  ],
+  "preguntas": 164
+ }
+]

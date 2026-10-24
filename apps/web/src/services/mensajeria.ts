@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from "../lib/api";
+import { apiGet, apiPost, apiPut, apiDelete } from "../lib/api";
 
 export type Hilo = {
   id: string;
@@ -9,12 +9,16 @@ export type Hilo = {
   ultimoMsg: string | null;
   ultimoAt: string | null;
   noLeidos: number;
+  /** "soporte" = chat grupal de soporte (administración, dirección y familia). */
+  tipo?: "soporte";
 };
 
 export type MensajeDirecto = {
   id: string;
   hilo_id: string;
   sender_id: string;
+  /** Solo en los hilos de soporte (grupales): quién escribió. */
+  sender_nombre?: string | null;
   body: string;
   leido: number;
   created_at: string;
@@ -64,6 +68,11 @@ export async function enviarMensaje(
   return apiPost("/api/mensajeria/hilos", { destinatarioId, body });
 }
 
+/** H3 — reportar un mensaje recibido; queda en el panel de moderación de la escuela. */
+export async function reportarMensaje(mensajeId: string, motivo?: string): Promise<{ id: string; ok: boolean }> {
+  return apiPost(`/api/mensajeria/mensajes/${encodeURIComponent(mensajeId)}/reportar`, { motivo });
+}
+
 export async function fetchAvisos(): Promise<Aviso[]> {
   const data = await apiGet<{ items: Aviso[] }>("/api/mensajeria/avisos");
   return data.items ?? [];
@@ -80,6 +89,20 @@ export async function crearAviso(params: {
 
 export async function marcarAvisoLeido(avisoId: string): Promise<void> {
   await apiPost(`/api/mensajeria/avisos/${avisoId}/leer`, {});
+}
+
+// FIX-TEST4-AVISOS-EDIT — antes el back no tenía PUT/DELETE para
+// avisos. Ahora se pueden editar y borrar. Mismas reglas de
+// ownership que el back: solo el autor o ADMIN.
+export async function editarAviso(
+  avisoId: string,
+  params: { titulo?: string; cuerpo?: string; destino?: string; aulaId?: string },
+): Promise<void> {
+  await apiPut(`/api/mensajeria/avisos/${avisoId}`, params);
+}
+
+export async function eliminarAviso(avisoId: string): Promise<void> {
+  await apiDelete(`/api/mensajeria/avisos/${avisoId}`);
 }
 
 export async function buscarUsuarios(q: string): Promise<UsuarioBusqueda[]> {

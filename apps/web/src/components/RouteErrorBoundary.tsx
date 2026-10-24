@@ -4,6 +4,38 @@ import { Link } from "react-router-dom";
 type Props = { children: ReactNode };
 type State = { error: Error | null; retrying: boolean };
 
+// Mensajes de cada navegador cuando un módulo cargado bajo demanda no se puede traer: Chrome ("Failed to
+// fetch dynamically imported module"), Firefox ("error loading dynamically imported module"), Safari
+// ("Importing a module script failed") y el cargador clásico ("Loading chunk N failed").
+export const esErrorDeChunk = (error: Error): boolean =>
+  /Failed to fetch|Loading chunk|dynamically imported module|Importing a module script failed|Unable to preload CSS/i.test(
+    error.message
+  );
+
+const CLAVE_RECARGA = 'vb:recarga-por-chunk';
+const VENTANA_RECARGA_MS = 60_000;
+
+/**
+ * Después de publicar una versión nueva, una pestaña abierta con la anterior pide archivos con hash que
+ * ya no existen. `React.lazy` guarda la promesa rechazada, así que reintentar sin recargar nunca lo
+ * arregla: hay que traer la página nueva. Se recarga una sola vez por minuto para no entrar en un bucle
+ * si el problema es otro (por ejemplo, sin conexión).
+ */
+export const recargarSiCorresponde = (
+  ahora: number = Date.now(),
+  almacen: Pick<Storage, 'getItem' | 'setItem'> | null = (() => {
+    try { return window.sessionStorage; } catch { return null; }
+  })(),
+  recargar: () => void = () => window.location.reload()
+): boolean => {
+  let ultima = 0;
+  try { ultima = Number(almacen?.getItem(CLAVE_RECARGA) ?? 0); } catch { /* sin almacenamiento */ }
+  if (ahora - ultima < VENTANA_RECARGA_MS) return false;
+  try { almacen?.setItem(CLAVE_RECARGA, String(ahora)); } catch { /* sin almacenamiento */ }
+  recargar();
+  return true;
+};
+
 export class RouteErrorBoundary extends Component<Props, State> {
   state: State = { error: null, retrying: false };
 
@@ -13,9 +45,15 @@ export class RouteErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("[RouteErrorBoundary]", error, info);
+    if (esErrorDeChunk(error)) recargarSiCorresponde();
   }
 
   handleRetry = () => {
+    // Un módulo que falló al cargar no se recupera remontando: se recarga la página.
+    if (this.state.error && esErrorDeChunk(this.state.error)) {
+      window.location.reload();
+      return;
+    }
     this.setState({ retrying: true, error: null });
     // Forzar recarga del chunk limpiando el cache del módulo
     setTimeout(() => {
@@ -35,10 +73,7 @@ export class RouteErrorBoundary extends Component<Props, State> {
     }
 
     if (error) {
-      const isChunkError =
-        error.message.includes("Failed to fetch") ||
-        error.message.includes("Loading chunk") ||
-        error.message.includes("dynamically imported module");
+      const isChunkError = esErrorDeChunk(error);
 
       return (
         <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">

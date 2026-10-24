@@ -8,6 +8,7 @@ import type {
   Plantilla,
 } from "@vb/vblang";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface Props {
   plantilla: Plantilla;
   onChange: (next: Plantilla) => void;
@@ -42,6 +43,7 @@ function strLit(value: string): Expr {
 }
 
 export default function OpcionesEditor({ plantilla, onChange }: Props) {
+  const { t } = useI18n();
   const opcionesBlock = findBlock(plantilla, "opciones");
   const opcionesExplBlock = findBlock(plantilla, "opciones_explicitas");
 
@@ -143,18 +145,14 @@ export default function OpcionesEditor({ plantilla, onChange }: Props) {
             name="opciones-mode"
             checked={!isExplicit}
             onChange={() => handleModeToggle(false)}
-          />
-          Cantidad
-        </label>
+          />{t("generadorSelector.cantidad")}</label>
         <label className="flex items-center gap-1">
           <input
             type="radio"
             name="opciones-mode"
             checked={isExplicit}
             onChange={() => handleModeToggle(true)}
-          />
-          Opciones explícitas
-        </label>
+          />{t("opcionesEditor.opcionesExplicitas")}</label>
       </div>
 
       {!isExplicit && (
@@ -192,7 +190,7 @@ export default function OpcionesEditor({ plantilla, onChange }: Props) {
                 onClick={() => removeExplItem(i)}
                 disabled={opcionesExplBlock.items.length <= 2}
                 className="text-xs text-red-600 hover:underline disabled:opacity-30"
-                aria-label="Quitar opción"
+                aria-label={t("opcionesEditor.quitarOpcion")}
               >
                 −
               </button>
@@ -202,32 +200,24 @@ export default function OpcionesEditor({ plantilla, onChange }: Props) {
             type="button"
             onClick={addExplItem}
             className="text-xs text-[var(--c-primary,#3b82f6)] hover:underline"
-          >
-            + Agregar opción
-          </button>
+          >{t("quizEditorManual.agregarOpcion")}</button>
         </div>
       )}
 
       {confirmSwitch && (
         <div className="rounded border border-amber-300 bg-amber-50 p-2 text-xs space-y-1">
-          <p>
-            Cambiar a modo Cantidad descartará las opciones explícitas actuales. ¿Continuar?
-          </p>
+          <p>{t("opcionesEditor.cambiarAModoCantidadDescartara")}</p>
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => setConfirmSwitch(false)}
               className="rounded border border-[var(--c-border,#e2e8f0)] px-2 py-0.5 text-xs"
-            >
-              Cancelar
-            </button>
+            >{t("comun.cancelar")}</button>
             <button
               type="button"
               onClick={doSwitchToCantidad}
               className="rounded bg-amber-500 px-2 py-0.5 text-xs text-white font-semibold"
-            >
-              Continuar
-            </button>
+            >{t("opcionesEditor.continuar")}</button>
           </div>
         </div>
       )}

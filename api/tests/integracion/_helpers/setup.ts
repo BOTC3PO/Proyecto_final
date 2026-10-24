@@ -7,10 +7,13 @@
  */
 
 process.env.NODE_ENV = "test";
+// Hash de contraseñas barato en pruebas (en producción son 600.000 iteraciones).
+process.env.PASSWORD_HASH_ITERATIONS = process.env.PASSWORD_HASH_ITERATIONS ?? "1000";
 process.env.JWT_SECRET = process.env.JWT_SECRET ?? "test-secret-vblang";
 process.env.DATABASE_URL =
   process.env.DATABASE_URL ?? "postgresql://test:test@localhost:5432/test";
 
+import crypto from "node:crypto";
 import path from "node:path";
 import Module from "node:module";
 import { InMemoryPrisma } from "./in-memory-prisma";
@@ -41,6 +44,24 @@ installModule(prismaPath, { prisma });
 const entitlementsPath = path.join(apiSrc, "lib", "entitlements.ts");
 installModule(entitlementsPath, {
   enforceSubscriptionAccess: async () => true,
+  ENTERPRISE_FEATURES: {
+    DASHBOARD: "enterprise_dashboard",
+    CLASSROOMS: "enterprise_classrooms",
+    MEMBERS: "enterprise_members",
+    MODULES: "enterprise_modules",
+    MESSAGES: "enterprise_messages",
+    CONTRACTS: "enterprise_contracts",
+    REPORTS: "enterprise_reports",
+    PARENTS: "enterprise_parents",
+    INSTITUTIONAL_BENEFITS: "enterprise_institutional_benefits",
+    AUDIT: "enterprise_audit",
+    ADVANCED_MODERATION: "enterprise_advanced_moderation",
+    ADMIN_TOOLS: "enterprise_admin_tools",
+    ECONOMY: "economy",
+    QUIZZES: "quizzes",
+  },
+  requireEnterpriseFeature: () => (_req: unknown, _res: unknown, next: () => void) => next(),
+  requireActiveInstitutionBenefit: (_req: unknown, _res: unknown, next: () => void) => next(),
 });
 
 // 3. Resetters in case the test suite re-imports.
@@ -50,12 +71,72 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.usuario.rows = [];
   prisma.vblangDataset.rows = [];
   prisma.vblangDatasetFila.rows = [];
+  prisma.formula.rows = [];
   prisma.suscripcion.rows = [];
   prisma.historialPago.rows = [];
   prisma.limiteEscuela.rows = [];
   prisma.escuela.rows = [];
   prisma.transaccionEscuela.rows = [];
   prisma.liquidacionEscuela.rows = [];
+  prisma.clase.rows = [];
+  prisma.claseMiembro.rows = [];
+  prisma.claseModulo.rows = [];
+  prisma.clasePeriodo.rows = [];
+  prisma.actividadAula.rows = [];
+  prisma.calendarioEscuela.rows = [];
+  prisma.modulo.rows = [];
+  prisma.moduloInvitacion.rows = [];
+  prisma.quiz.rows = [];
+  prisma.quizVersion.rows = [];
+  prisma.quizAttempt.rows = [];
+  prisma.quizUmbral.rows = [];
+  prisma.progresoModulo.rows = [];
+  prisma.encuesta.rows = [];
+  prisma.encuestaRespuesta.rows = [];
+  prisma.bloqueJson.rows = [];
+  prisma.configModulo.rows = [];
+  // PLAN-G §1 (item 25) — materiales guardados (mapa/timeline/interactivo/presentacion).
+  prisma.material.rows = [];
+  prisma.materialVersion.rows = [];
+  // FASE 1 — limpiar también las tablas de membresia y la puente de
+  // cuentas vinculadas. Cada test empieza con un store limpio.
+  prisma.membresia.rows = [];
+  prisma.cuentaVinculada.rows = [];
+  // FASE 5 — vínculos padre↔hijo.
+  prisma.progresoModuloVinculo.rows = [];
+  // "Niveles por aula con mapa de flujo" — desbloqueos manuales.
+  prisma.moduloDesbloqueo.rows = [];
+  prisma.auditLog.rows = [];
+  // FASE 6 — `suggestions` (solicitar-rol crea filas acá).
+  prisma.suggestion.rows = [];
+  // FASE 7 — `modoAula` (restricciones por aula).
+  prisma.modoAula.rows = [];
+  // SEC-LIBRO — tabla de libros con dueño/ámbito.
+  prisma.libro.rows = [];
+  // PLAN-A §2 — publicaciones/comentarios/moderación de aula.
+  prisma.publicacion.rows = [];
+  prisma.comentario.rows = [];
+  prisma.moderacionEvento.rows = [];
+  // F8 — refresh token rotation store.
+  prisma.refreshToken.rows = [];
+  // PLAN-A §3 — asistencia.
+  prisma.asistencia.rows = [];
+  // PLAN-A §3.4 — log de eventos para reportes del padre.
+  prisma.eventoReportePadre.rows = [];
+  // PLAN-B Fase 2 — núcleo de cobros escuela→familias.
+  prisma.cobroEscuela.rows = [];
+  prisma.cuotaAlumno.rows = [];
+  prisma.pago.rows = [];
+  prisma.escuelaPasarela.rows = [];
+  // PLAN-B Fase 6 — saldo inicial de alumno.
+  prisma.economiaTransaccion.rows = [];
+  prisma.economiaSaldo.rows = [];
+  prisma.economiaConfig.rows = [];
+  // FIX-MENSAJERIA-ESCUELA-EFECTIVA — hilos 1:1 y avisos.
+  prisma.hilo.rows = [];
+  prisma.mensajeDirecto.rows = [];
+  prisma.aviso.rows = [];
+  prisma.avisoLeido.rows = [];
   return prisma;
 }
 
@@ -70,17 +151,32 @@ export type Role = "ADMIN" | "TEACHER" | "DIRECTIVO" | "STUDENT" | "PARENT";
 export function seedUser(opts: {
   id: string;
   role: Role;
+  roles?: string[];
   schoolId?: string | null;
   fullName?: string;
+  // FASE 1 — opcional, default null. Solo se setea en espejos
+  // alumno del staff.
+  tipoCuenta?: string | null;
 }): void {
+  // MULTIROL-01: si no se pasa `roles`, se promueve `role` a
+  // array de un elemento (compat con los seeds preexistentes).
+  const roles = opts.roles ?? [opts.role];
   prisma.usuario.rows.push({
     id: opts.id,
     username: opts.id,
     email: `${opts.id}@test.local`,
     fullName: opts.fullName ?? opts.id,
     role: opts.role,
+    roles,
+    // El candado de "sólo el admin principal cambia roles" ahora es una
+    // columna real; los seeds ADMIN de los tests representan al principal.
+    esAdminPrincipal: opts.role === "ADMIN",
     escuelaId: opts.schoolId ?? null,
     isDeleted: false,
+    // FASE 1 — el helper por defecto crea cuentas reales (sin
+    // marcador). Los tests que necesiten espejos setean
+    // explícitamente `tipoCuenta: "ESPEJO_ALUMNO"`.
+    tipoCuenta: opts.tipoCuenta ?? null,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   });
@@ -89,19 +185,42 @@ export function seedUser(opts: {
 export function tokenFor(opts: {
   id: string;
   role: Role;
+  roles?: string[];
   schoolId?: string | null;
+  switchedFrom?: string;
 }): string {
+  const roles = opts.roles ?? [opts.role];
   return createAccessToken({
     id: opts.id,
     role: opts.role,
+    roles,
+    // El candado de "sólo el admin principal cambia roles" ahora es una
+    // columna real; los seeds ADMIN de los tests representan al principal.
+    esAdminPrincipal: opts.role === "ADMIN",
     schoolId: opts.schoolId ?? null,
+    ...(opts.switchedFrom ? { switchedFrom: opts.switchedFrom } : {}),
   }).token;
+}
+
+export function seedVinculacion(idA: string, idB: string): void {
+  const a = idA < idB ? idA : idB;
+  const b = idA < idB ? idB : idA;
+  prisma.cuentaVinculada.rows.push({
+    id: crypto.randomUUID(),
+    usuarioAId: a,
+    usuarioBId: b,
+    createdAt: new Date().toISOString(),
+  });
 }
 
 export async function startServer(
   routers: express.RequestHandler[],
 ): Promise<{ baseUrl: string; close: () => Promise<void> }> {
   const app = express();
+  // Mismo carve-out que api/src/index.ts: los webhooks de pago necesitan
+  // el body CRUDO para verificar firma, no el JSON ya parseado.
+  app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
+  app.use("/api/pasarelas/webhook", express.raw({ type: "application/json" }));
   app.use(express.json());
   for (const r of routers) app.use(r);
   app.use((_req, res) => res.status(404).json({ error: "not found" }));

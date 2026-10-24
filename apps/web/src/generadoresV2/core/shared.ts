@@ -140,7 +140,7 @@ export function placeholder(
   dificultad: Dificultad
 ): EjercicioCompletar {
   return {
-    id: `placeholder-${subtipo}-${Math.floor(Math.random() * 1e6)}`,
+    id: `placeholder-${materia}-${subtipo}-${dificultad}`,
     tipo: "completar",
     materia,
     subtipo,

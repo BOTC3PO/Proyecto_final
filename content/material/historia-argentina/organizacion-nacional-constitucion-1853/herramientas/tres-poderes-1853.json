@@ -1,0 +1,53 @@
+{
+ "titulo": "Los tres poderes de la Constitución de 1853",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "División y control mutuo",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Poder Legislativo: Congreso (Senado y Diputados)",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Poder Ejecutivo: Presidente",
+     "x": 375,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Poder Judicial: tribunales independientes",
+     "x": 188,
+     "y": 150,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "crea las leyes que aplica"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "nombra jueces"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1",
+     "label": "controla la constitucionalidad"
+    }
+   ]
+  }
+ ]
+}

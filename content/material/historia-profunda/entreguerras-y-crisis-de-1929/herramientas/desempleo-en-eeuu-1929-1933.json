@@ -1,0 +1,33 @@
+{
+ "titulo": "Desempleo en Estados Unidos, 1929-1933",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "chart",
+   "title": "Tasa de desempleo (valores aproximados)",
+   "chartType": "bar",
+   "data": {
+    "labels": [
+     "1929",
+     "1930",
+     "1931",
+     "1932",
+     "1933"
+    ],
+    "datasets": [
+     {
+      "label": "Desempleo (%)",
+      "values": [
+       3.2,
+       8.7,
+       15.9,
+       23.6,
+       24.9
+      ]
+     }
+    ]
+   },
+   "yAxisLabel": "%"
+  }
+ ]
+}

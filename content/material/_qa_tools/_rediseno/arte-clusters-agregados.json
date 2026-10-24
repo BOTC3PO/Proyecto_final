@@ -1,0 +1,18 @@
+[
+ {
+  "id": 907,
+  "cluster": 4,
+  "temas": [
+   "arte-antiguo-egipto-y-mesopotamia",
+   "arte-clasico-grecia-y-roma",
+   "arte-medieval-romanico-y-gotico",
+   "renacimiento-y-manierismo",
+   "barroco",
+   "impresionismo-y-postimpresionismo",
+   "vanguardias-del-siglo-xx",
+   "arte-argentino-colonial-al-siglo-xx",
+   "fotografia-y-cine-como-arte"
+  ],
+  "preguntas": 199
+ }
+]

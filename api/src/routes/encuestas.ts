@@ -3,8 +3,19 @@ import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { assertClassroomWritable } from "../lib/classroom";
 import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
+import { requireUser } from "../lib/user-auth";
+import { isStaffRole } from "../lib/authorization";
 
 export const encuestas = Router();
+
+const requireStaff = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  const user = (req as { user?: { role?: string } }).user;
+  if (!isStaffRole(user?.role)) {
+    res.status(403).json({ error: "Staff role required" });
+    return;
+  }
+  next();
+};
 
 type SurveyDoc = {
   _id?: string;
@@ -31,6 +42,14 @@ const clampLimit = (value: string | undefined) => {
 
 const bodyLimitMB = (maxMb: number) => [express.json({ limit: `${maxMb}mb` })];
 
+const parseSurveyOptions = (options: unknown): Array<{ id: string; label: string }> =>
+  typeof options === "string" ? (JSON.parse(options) as Array<{ id: string; label: string }>) : [];
+
+const withParsedOptions = <T extends { options: unknown }>(survey: T) => ({
+  ...survey,
+  options: parseSurveyOptions(survey.options)
+});
+
 const requireAulaId = (req: express.Request, res: express.Response) => {
   const aulaId = req.query.aulaId;
   if (typeof aulaId !== "string" || !aulaId.trim()) {
@@ -40,7 +59,7 @@ const requireAulaId = (req: express.Request, res: express.Response) => {
   return aulaId;
 };
 
-encuestas.get("/api/encuestas", async (req, res) => {
+encuestas.get("/api/encuestas", requireUser, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const limit = clampLimit(req.query.limit as string | undefined);
@@ -51,22 +70,25 @@ encuestas.get("/api/encuestas", async (req, res) => {
     take: limit,
     orderBy: { updatedAt: "desc" }
   });
-  res.json({ items, limit, offset });
+  res.json({ items: items.map(withParsedOptions), limit, offset });
 });
 
-encuestas.get("/api/encuestas/:id", async (req, res) => {
+encuestas.get("/api/encuestas/:id", requireUser, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
-  const item = await prisma.encuesta.findFirst({ where: { id: req.params.id, classroomId: aulaId } });
+  const id = String(req.params.id ?? "");
+  const item = await prisma.encuesta.findFirst({ where: { id, classroomId: aulaId } });
   if (!item) return res.status(404).json({ error: "not found" });
-  res.json(item);
+  res.json(withParsedOptions(item));
 });
 
-encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.post("/api/encuestas", requireUser, requireStaff, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
     const now = new Date().toISOString();
+    const userId = (req as { user?: { _id?: string } }).user?._id ?? "";
     const payload = {
       ...req.body,
+      createdBy: userId,
       status: req.body?.status ?? "activa",
       createdAt: req.body?.createdAt ?? now,
       updatedAt: req.body?.updatedAt ?? now
@@ -89,10 +111,11 @@ encuestas.post("/api/encuestas", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, re
   }
 });
 
-encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.put("/api/encuestas/:id", requireUser, requireStaff, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    const id = String(req.params.id ?? "");
     const parsed = SurveyUpdateSchema.parse(req.body);
-    const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id } });
+    const survey = await prisma.encuesta.findFirst({ where: { id } });
     if (!survey) return res.status(404).json({ error: "not found" });
     const classroom = await prisma.clase.findFirst({
       where: { id: survey.classroomId },
@@ -108,17 +131,18 @@ encuestas.put("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req,
       ...(options !== undefined ? { options: JSON.stringify(options) } : {}),
       updatedAt: new Date().toISOString()
     };
-    await prisma.encuesta.updateMany({ where: { id: req.params.id }, data: update });
+    await prisma.encuesta.updateMany({ where: { id }, data: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
 
-encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.patch("/api/encuestas/:id", requireUser, requireStaff, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   try {
+    const id = String(req.params.id ?? "");
     const parsed = SurveyUpdateSchema.parse(req.body);
-    const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id } });
+    const survey = await prisma.encuesta.findFirst({ where: { id } });
     if (!survey) return res.status(404).json({ error: "not found" });
     const classroom = await prisma.clase.findFirst({
       where: { id: survey.classroomId },
@@ -134,15 +158,16 @@ encuestas.patch("/api/encuestas/:id", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (re
       ...(options !== undefined ? { options: JSON.stringify(options) } : {}),
       updatedAt: new Date().toISOString()
     };
-    await prisma.encuesta.updateMany({ where: { id: req.params.id }, data: update });
+    await prisma.encuesta.updateMany({ where: { id }, data: update });
     res.json({ ok: true });
   } catch (e: any) {
     res.status(400).json({ error: e?.message ?? "invalid payload" });
   }
 });
 
-encuestas.delete("/api/encuestas/:id", async (req, res) => {
-  const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id } });
+encuestas.delete("/api/encuestas/:id", requireUser, requireStaff, async (req, res) => {
+  const id = String(req.params.id ?? "");
+  const survey = await prisma.encuesta.findFirst({ where: { id } });
   if (!survey) return res.status(404).json({ error: "not found" });
   const classroom = await prisma.clase.findFirst({
     where: { id: survey.classroomId },
@@ -152,19 +177,22 @@ encuestas.delete("/api/encuestas/:id", async (req, res) => {
   if (!assertClassroomWritable(res, classroom)) {
     return;
   }
-  const result = await prisma.encuesta.deleteMany({ where: { id: req.params.id } });
+  const result = await prisma.$transaction(async (tx) => {
+    await tx.encuestaRespuesta.deleteMany({ where: { surveyId: id } });
+    return tx.encuesta.deleteMany({ where: { id } });
+  });
   if (result.count === 0) return res.status(404).json({ error: "not found" });
   res.status(204).send();
 });
 
-encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
+encuestas.post("/api/encuestas/:id/votos", requireUser, ...bodyLimitMB(ENV.MAX_PAGE_MB), async (req, res) => {
   const aulaId = req.body?.aulaId;
   if (typeof aulaId !== "string" || !aulaId.trim()) {
     return res.status(400).json({ error: "aulaId is required" });
   }
-  const usuarioId = req.header("x-usuario-id");
-  if (typeof usuarioId !== "string" || !usuarioId.trim()) {
-    return res.status(400).json({ error: "x-usuario-id header is required" });
+  const usuarioId = (req as { user?: { _id?: string } }).user?._id;
+  if (!usuarioId) {
+    return res.status(401).json({ error: "Missing authentication" });
   }
   try {
     const classroom = await prisma.clase.findFirst({
@@ -175,11 +203,9 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
     if (!assertClassroomWritable(res, classroom)) {
       return;
     }
-    const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id, classroomId: aulaId } });
+    const survey = await prisma.encuesta.findFirst({ where: { id: String(req.params.id ?? ""), classroomId: aulaId } });
     if (!survey) return res.status(404).json({ error: "not found" });
-    const optionList = (typeof survey.options === "string"
-      ? (JSON.parse(survey.options) as Array<{ id: string; label: string }>)
-      : []) as Array<{ id: string; label: string }>;
+    const optionList = parseSurveyOptions(survey.options);
     const optionIds = new Set(optionList.map((option) => option.id));
     if (survey.status === "cerrada" || survey.status === "archivada") {
       return res.status(400).json({ error: "survey closed" });
@@ -284,10 +310,10 @@ encuestas.post("/api/encuestas/:id/votos", ...bodyLimitMB(ENV.MAX_PAGE_MB), asyn
   }
 });
 
-encuestas.get("/api/encuestas/:id/resultados", async (req, res) => {
+encuestas.get("/api/encuestas/:id/resultados", requireUser, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
-  const survey = await prisma.encuesta.findFirst({ where: { id: req.params.id, classroomId: aulaId } });
+  const survey = await prisma.encuesta.findFirst({ where: { id: String(req.params.id ?? ""), classroomId: aulaId } });
   if (!survey) return res.status(404).json({ error: "not found" });
   const now = new Date();
   const canShowResults =
@@ -299,9 +325,7 @@ encuestas.get("/api/encuestas/:id/resultados", async (req, res) => {
   const responses = await prisma.encuestaRespuesta.findMany({
     where: { surveyId: survey.id, classroomId: aulaId }
   });
-  const optionList = (typeof survey.options === "string"
-    ? (JSON.parse(survey.options) as Array<{ id: string; label: string }>)
-    : []) as Array<{ id: string; label: string }>;
+  const optionList = parseSurveyOptions(survey.options);
   const totalVotes = responses.length;
   if (survey.type === "puntuacion") {
     const totals = new Map<string, number>();

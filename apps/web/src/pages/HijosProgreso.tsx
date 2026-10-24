@@ -1,11 +1,16 @@
 import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchProgresoHijos, type ChildProgress } from "../services/progreso";
+import { useI18n } from "../i18n/I18nContext";
 import {
-  fetchActividadesHijo, fetchBoletinHijo,
-  type ActividadHijo, type MateriaBoletin,
+  fetchActividadesHijo, fetchBoletinHijo, fetchAulasHijo,
+  fetchLimitesHijo, actualizarLimitesHijo, revocarVinculoHijo,
+  type ActividadHijo, type MateriaBoletin, type AulaHijo, type LimitesHijo,
 } from "../services/padres";
 
 export default function HijosProgreso() {
+  const { t, lang } = useI18n();
+  const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState("");
   const [area, setArea] = useState<"Todas" | "Matemática" | "Lengua" | "Ciencias" | "Historia" | "Geografía" | "Arte" | "Otro">("Todas");
   const [seleccionado, setSeleccionado] = useState<string | null>(null);
@@ -14,9 +19,14 @@ export default function HijosProgreso() {
   const [error, setError] = useState<string | null>(null);
   const [actividades, setActividades] = useState<ActividadHijo[]>([]);
   const [boletin, setBoletin] = useState<MateriaBoletin[]>([]);
+  const [aulas, setAulas] = useState<AulaHijo[]>([]);
   const [actividadesLoading, setActividadesLoading] = useState(false);
   const [boletinLoading, setBoletinLoading] = useState(false);
-  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin">("modulos");
+  const [tab, setTab] = useState<"modulos" | "actividades" | "boletin" | "configuracion">("modulos");
+  const [limites, setLimites] = useState<LimitesHijo | null>(null);
+  const [limitesLoading, setLimitesLoading] = useState(false);
+  const [guardandoLimites, setGuardandoLimites] = useState(false);
+  const [revocando, setRevocando] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -51,8 +61,45 @@ export default function HijosProgreso() {
       .then((data) => { if (!active) return; setBoletin(data.materias ?? []); })
       .catch(() => { if (!active) return; setBoletin([]); })
       .finally(() => { if (!active) return; setBoletinLoading(false); });
+    // FASE 5 — aulas del hijo (solo lectura). Aparecen una vez creado
+    // el vínculo padre–hijo.
+    fetchAulasHijo(seleccionado)
+      .then((data) => { if (!active) return; setAulas(data); })
+      .catch(() => { if (!active) return; setAulas([]); });
+    setLimitesLoading(true);
+    fetchLimitesHijo(seleccionado)
+      .then((data) => { if (!active) return; setLimites(data); })
+      .catch(() => { if (!active) return; setLimites(null); })
+      .finally(() => { if (!active) return; setLimitesLoading(false); });
     return () => { active = false; };
   }, [seleccionado]);
+
+  const guardarLimites = async (cambios: Partial<Pick<LimitesHijo, "permisosTareas" | "permisosMensajes" | "notas">>) => {
+    if (!seleccionado) return;
+    setGuardandoLimites(true);
+    try {
+      const actualizado = await actualizarLimitesHijo(seleccionado, cambios);
+      setLimites(actualizado);
+    } finally {
+      setGuardandoLimites(false);
+    }
+  };
+
+  const onRevocarVinculo = async () => {
+    if (!seleccionado) return;
+    const ok = window.confirm(
+      "¿Revocar el vínculo con este hijo? Vas a dejar de ver su progreso, boletín y actividades hasta que se vuelva a vincular."
+    );
+    if (!ok) return;
+    setRevocando(true);
+    try {
+      await revocarVinculoHijo(seleccionado);
+      setHijosData((prev) => prev.filter((h) => h.id !== seleccionado));
+      setSeleccionado(null);
+    } finally {
+      setRevocando(false);
+    }
+  };
 
   const hijos = useMemo(() => {
     const byName = (c: ChildProgress) =>
@@ -82,13 +129,13 @@ export default function HijosProgreso() {
         <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 sm:p-6">
           <div className="flex flex-col md:flex-row gap-4 md:items-end md:justify-between">
             <div>
-              <h1 className="text-xl font-semibold text-[var(--c-text)]">Hijos</h1>
-              <p className="text-sm text-[var(--c-muted)]">Seguimiento del progreso por alumno/a.</p>
+              <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("hijosProgreso.hijos")}</h1>
+              <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.seguimientoDelProgresoPorAlumno")}</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="text"
-                placeholder="Buscar por nombre o @usuario"
+                placeholder={t("hijosProgreso.buscarPorNombreOUsuario")}
                 value={busqueda}
                 onChange={onBuscar}
                 className={`w-full sm:w-64 ${inputCls}`}
@@ -155,7 +202,7 @@ export default function HijosProgreso() {
               );
             })}
             {!loading && !error && hijos.length === 0 && (
-              <p className="text-sm text-[var(--c-muted)]">No hay hijos registrados.</p>
+              <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.noHayHijosRegistrados")}</p>
             )}
           </div>
         </div>
@@ -182,12 +229,31 @@ export default function HijosProgreso() {
               </div>
             </div>
 
+            {/* FASE 5 — Aulas del hijo (solo lectura). Una vez creado el
+                vínculo, la(s) clase(s) del hijo aparecen acá. */}
+            {aulas.length > 0 && (
+              <div className="mt-4">
+                <p className="text-xs font-medium text-[var(--c-muted)] mb-1.5">{t("nav.aulas")}</p>
+                <div className="flex flex-wrap gap-2">
+                  {aulas.map((a) => (
+                    <span
+                      key={a.id}
+                      className="text-xs px-2.5 py-1 rounded-full border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)]"
+                    >
+                      {a.nombre}{a.grado ? ` · ${a.grado}` : ""}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Tabs */}
             <div className="mt-5 flex gap-1 border-b border-[var(--c-border)]">
               {([
-                { key: "modulos", label: "Módulos" },
-                { key: "actividades", label: "Próximas actividades" },
-                { key: "boletin", label: "Boletín" },
+                { key: "modulos", label: t("nav.modulos") },
+                { key: "actividades", label: t("hijosProgreso.proximasActividades") },
+                { key: "boletin", label: t("hijosProgreso.boletin") },
+                { key: "configuracion", label: t("hijosProgreso.configuracion") },
               ] as const).map((t) => (
                 <button
                   key={t.key}
@@ -227,19 +293,28 @@ export default function HijosProgreso() {
                         <div style={{ width: `${m.progreso}%` }} className="h-1.5 rounded-full bg-[var(--c-primary)]" />
                       </div>
                       <div className="mt-1 flex items-center justify-between text-xs text-[var(--c-muted)]">
-                        <span>Progreso</span>
+                        <span>{t("nav.progreso")}</span>
                         <span>{m.progreso}%</span>
                       </div>
                       <div className="mt-3 flex items-center gap-2">
-                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Ver detalles</button>
-                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Abrir módulo</button>
-                        <button className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors">Informe</button>
+                        <button
+                          onClick={() => navigate(`/modulos/${m.id}`)}
+                          className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                        >{t("hijosProgreso.verDetalles")}</button>
+                        <button
+                          onClick={() => navigate(`/modulos/${m.id}/jugar`)}
+                          className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                        >{t("hijosProgreso.abrirModulo")}</button>
+                        <button
+                          onClick={() => setTab("boletin")}
+                          className="text-xs rounded-lg border border-[var(--c-border)] px-3 py-1 text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+                        >{t("hijosProgreso.informe")}</button>
                       </div>
                     </div>
                   ))}
                 </div>
                 {modulosFiltrados.length === 0 && (
-                  <p className="text-sm text-[var(--c-muted)] mt-4">No hay módulos para el filtro seleccionado.</p>
+                  <p className="text-sm text-[var(--c-muted)] mt-4">{t("hijosProgreso.noHayModulosParaEl")}</p>
                 )}
               </div>
             )}
@@ -253,7 +328,7 @@ export default function HijosProgreso() {
                   </>
                 )}
                 {!actividadesLoading && actividades.length === 0 && (
-                  <p className="text-sm text-[var(--c-muted)]">No hay actividades próximas para este alumno.</p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.noHayActividadesProximasPara")}</p>
                 )}
                 {!actividadesLoading && actividades.map((act) => (
                   <div key={act.id}
@@ -290,7 +365,7 @@ export default function HijosProgreso() {
                   </>
                 )}
                 {!boletinLoading && boletin.length === 0 && (
-                  <p className="text-sm text-[var(--c-muted)]">No hay evaluaciones formales registradas.</p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("hijosProgreso.noHayEvaluacionesFormalesRegistradas")}</p>
                 )}
                 {!boletinLoading && boletin.map((materia) => (
                   <div key={materia.materia}
@@ -317,7 +392,7 @@ export default function HijosProgreso() {
                           <div className="flex items-center gap-3">
                             {ev.fecha && (
                               <span className="text-[var(--c-muted)]">
-                                {new Date(ev.fecha).toLocaleDateString("es-AR")}
+                                {new Date(ev.fecha).toLocaleDateString(lang)}
                               </span>
                             )}
                             <span className={`font-semibold ${
@@ -333,6 +408,66 @@ export default function HijosProgreso() {
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {tab === "configuracion" && (
+              <div className="mt-5 space-y-6 max-w-lg">
+                {limitesLoading && (
+                  <div className="h-24 rounded-xl animate-pulse bg-[var(--c-border)]" />
+                )}
+                {!limitesLoading && limites && (
+                  <div className="space-y-3">
+                    <p className="text-xs font-medium text-[var(--c-muted)]">{t("hijosProgreso.limitesYPermisos")}</p>
+                    <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
+                      <input
+                        type="checkbox"
+                        checked={limites.permisosTareas}
+                        disabled={guardandoLimites}
+                        onChange={(e) => {
+                          setLimites({ ...limites, permisosTareas: e.target.checked });
+                          void guardarLimites({ permisosTareas: e.target.checked });
+                        }}
+                      />{t("hijosProgreso.puedeVerTareasModulosAsignados")}</label>
+                    <label className="flex items-center gap-2 text-sm text-[var(--c-text)]">
+                      <input
+                        type="checkbox"
+                        checked={limites.permisosMensajes}
+                        disabled={guardandoLimites}
+                        onChange={(e) => {
+                          setLimites({ ...limites, permisosMensajes: e.target.checked });
+                          void guardarLimites({ permisosMensajes: e.target.checked });
+                        }}
+                      />{t("hijosProgreso.puedeRecibirMensajes")}</label>
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--c-muted)] mb-1" htmlFor="notas-hijo">{t("hijosProgreso.notas")}</label>
+                      <textarea
+                        id="notas-hijo"
+                        rows={3}
+                        className={`w-full ${inputCls}`}
+                        defaultValue={limites.notas ?? ""}
+                        disabled={guardandoLimites}
+                        onBlur={(e) => {
+                          if (e.target.value !== (limites.notas ?? "")) {
+                            void guardarLimites({ notas: e.target.value });
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <div className="pt-4 border-t border-[var(--c-border)]">
+                  <p className="text-xs font-medium text-[var(--c-muted)] mb-2">{t("hijosProgreso.zonaDeRiesgo")}</p>
+                  <button
+                    type="button"
+                    onClick={onRevocarVinculo}
+                    disabled={revocando}
+                    className="text-xs rounded-lg border border-[var(--c-danger)] text-[var(--c-danger)] px-3 py-1.5 hover:bg-[color-mix(in_srgb,var(--c-danger)_10%,transparent)] transition-colors disabled:opacity-50"
+                  >
+                    {revocando ? "Revocando…" : "Revocar vínculo con este hijo"}
+                  </button>
+                </div>
               </div>
             )}
           </section>

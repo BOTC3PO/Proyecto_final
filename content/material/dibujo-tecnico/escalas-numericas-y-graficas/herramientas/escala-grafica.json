@@ -1,0 +1,26 @@
+{
+ "titulo": "Escala gráfica",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cómo leer una escala gráfica",
+   "headers": [
+    "Marca en la barra",
+    "0",
+    "1",
+    "2",
+    "3 km"
+   ],
+   "rows": [
+    [
+     "Distancia real",
+     "0 km",
+     "1 km",
+     "2 km",
+     "3 km"
+    ]
+   ]
+  }
+ ]
+}

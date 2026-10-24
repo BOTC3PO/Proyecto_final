@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { generateId } from "../lib/ids";
 import { requirePolicy } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
@@ -55,11 +56,13 @@ resourceLinks.get(
       filter.visibility = "publico";
     }
 
-    const items = await prisma.resourceLink.findMany({
-      where: filter as any,
-      orderBy: { updatedAt: "desc" }
-    });
-    res.json({ items });
+    const pagina = leerPagina(req.query);
+    res.json(
+      recortar(
+        await prisma.resourceLink.findMany({ where: filter as any, orderBy: { updatedAt: "desc" }, take: pagina.take, skip: pagina.skip }),
+        pagina
+      )
+    );
   }
 );
 

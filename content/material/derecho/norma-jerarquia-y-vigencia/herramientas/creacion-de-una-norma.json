@@ -1,0 +1,64 @@
+{
+ "titulo": "Creación de una norma",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Desde la iniciativa hasta el Boletín Oficial",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Iniciativa (proyecto)",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Debate y votación",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Sanción",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Promulgación",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Publicación en el Boletín Oficial",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

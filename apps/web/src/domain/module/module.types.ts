@@ -20,6 +20,17 @@ export type ModuleQuizStatus = "draft" | "published" | "archived";
 export type ModuleQuizMode = "manual" | "generated";
 export type ModuleQuizSeedPolicy = "perAttempt" | "fixed";
 
+// WO-9 — Modo de presentación del cuestionario al alumno. Re-exportado
+// desde el módulo de intentos (single source of truth) para evitar
+// definiciones duplicadas que TS trataría como tipos distintos.
+export {
+  type ModoPresentacion,
+  MODOS_PRESENTACION_VALIDOS as MODOS_PRESENTACION,
+  MODO_PRESENTACION_DEFAULT,
+  PREGUNTAS_POR_PAGINA_DEFAULT,
+} from "../quiz/intentos";
+import type { ModoPresentacion } from "../quiz/intentos";
+
 export type ModuleQuiz = {
   id: string;
   title: string;
@@ -33,6 +44,23 @@ export type ModuleQuiz = {
   competitionRules?: string;
   competitionRulesVisibility?: ModuleQuizVisibility;
   questions?: ModuleQuizQuestion[];
+  /**
+   * WO-tiza-config (Fase 5) — sólo-lectura, lo setea el GET del módulo: el
+   * quiz usa el modelo "preguntas nativas" de Tiza (`settings.preguntas`,
+   * el que realmente lee `quiz-attempts`). La UI lo usa para mostrar
+   * "Preguntas nativas en Tiza →" como entrada principal en vez del badge
+   * legacy armado desde `generatorId`. No se envía al guardar (el server
+   * lo ignora).
+   */
+  tienePreguntasNativas?: boolean;
+  /**
+   * PLAN-Y — sólo-cliente: el quiz fue creado en ESTA sesión del editor
+   * (ej. "Usar plantilla del banco") y todavía no existe en el servidor.
+   * El payload de guardado manda `title`/`type`/`visibility` únicamente
+   * para estos (creación); para los ya persistidos la config es de Tiza y
+   * el guardado del módulo no la toca. Se limpia tras guardar con éxito.
+   */
+  localOnly?: boolean;
   generatorId?: string;
   generatorVersion?: number;
   params?: Record<string, unknown>;
@@ -43,10 +71,82 @@ export type ModuleQuiz = {
   displayCount?: number;
   umbralAprobacion?: number; // 0-100, default 60
   /**
+   * F4-03 — Toggle "ocultar puntos al alumno". Si es `true`, el reproductor
+   * del alumno (post-submit) NO muestra el `Puntaje: X / Y` ni el
+   * porcentaje en el `message` del backend; sólo la nota (escala del
+   * profesor). Persistido en `QuizVersion.settings.ocultarPuntos`. Default
+   * `false` (mostrar todo) — preserva el comportamiento previo.
+   */
+  ocultarPuntos?: boolean;
+  // F4-04 — Config del modo evaluación (F3-04 + F4-04), persistida en
+  // `settings`. El host compone con `parseEvaluacionConfig` para resolver
+  // defaults por tipo. Si están ausentes, el front usa el default.
+  /** `null` = ilimitado. Entero ≥ 1 = tope. `0` se coerce a null (alias). */
+  maxIntentos?: number | null;
+  politicaNota?: "mejor" | "ultima" | "primera" | "promedio";
+  /** WO-3 — política de sorteo de variantes (`fijo_por_alumno` | `por_intento`). */
+  politicaSorteo?: "fijo_por_alumno" | "por_intento";
+  /** `null` = sin timer. Entero ≥ 1 = segundos. */
+  timerSegundos?: number | null;
+  fullscreenOnStart?: boolean;
+  /**
+   * WO-9 — Modo de presentación del cuestionario al alumno.
+   * Default `lista` (preserva comportamiento previo a WO-9). Sólo
+   * se respeta en la vista del alumno (QuizAttempt). Persistido en
+   * `QuizVersion.settings.modoPresentacion`.
+   */
+  modoPresentacion?: ModoPresentacion;
+  /**
+   * WO-9 — Tamaño de página cuando `modoPresentacion === "paginado"`.
+   * Default 5 si está ausente. Persistido en
+   * `QuizVersion.settings.preguntasPorPagina`.
+   */
+  preguntasPorPagina?: number;
+  /**
+   * WO-14 — Política de ruteo por dificultad (`fija` | `manual` |
+   * `adaptativa_simple`). Default `fija` (preserva el comportamiento previo
+   * a WO-14: la dificultad se ignoraba). Persistido en
+   * `QuizVersion.settings.politicaDificultad`.
+   */
+  politicaDificultad?: "fija" | "manual" | "adaptativa_simple";
+  /**
+   * WO-14 — Dificultad inicial (usada por `fija` para todas las posiciones,
+   * o como punto de partida de `adaptativa_simple`). Default `intermedio`.
+   * Persistido en `QuizVersion.settings.dificultadInicial`.
+   */
+  dificultadInicial?: "basico" | "intermedio" | "avanzado";
+  /**
+   * WO-14 — Ventana (N últimas respuestas) que mira `adaptativa_simple`
+   * para subir/bajar 1 nivel de dificultad. Default 2. Persistido en
+   * `QuizVersion.settings.dificultadVentana`.
+   */
+  dificultadVentana?: number;
+  /**
+   * PLAN-D §1 — Qué hace el server cuando vence el timer sin submit
+   * (`auto` | `gracia60`). Sólo tiene efecto si `timerSegundos` no es
+   * `null`. Default `auto`. Persistido en
+   * `QuizVersion.settings.politicaExpiracion`.
+   */
+  politicaExpiracion?: "auto" | "gracia60";
+  /**
    * Composición a nivel quiz (pool, selección, variantes, peso por defecto).
    * Se persiste en `QuizVersion.settings.composition`. NO es parte del DSL.
+   *
+   * MODELO VIEJO (1.0). Se conserva por compatibilidad: el reproductor del
+   * alumno todavía lo consume. El editor 2.0 (WO-2/F4-03) edita `posiciones`
+   * y deriva el cuestionario por posiciones desde acá vía `migrarCuestionario`.
    */
   composition?: import("../quiz/composition").QuizComposition;
+  /**
+   * WO-2 / F4-03 — Cuestionario por posiciones (schema v2). Es la fuente de
+   * verdad del editor 2.0: posiciones numeradas, pool de variantes por
+   * posición (alternativas), tema y puntaje por posición. Si está ausente, el
+   * editor lo deriva de `composition`+`questions` (migración lazy) y lo
+   * materializa acá en la primera edición. Se persiste junto al resto del quiz
+   * (en `settings`), sin tabla nueva. El reproductor (fuera de alcance de
+   * WO-2) sigue leyendo `questions`/`composition`.
+   */
+  posiciones?: import("../quiz/posiciones").CuestionarioPosiciones;
 };
 
 export type ModuleDependencyType = "required" | "unlocks";
@@ -76,10 +176,20 @@ export type ModuleQuizQuestion = {
     | "ordenar"
     | "marcar_mapa"
     | "analisis_sintactico"
+    | "analisis_spans"
     | "identificar_palabras"
-    | "abierta";
+    | "abierta"
+    | "expresion";
   options?: string[];
   answerKey?: string | string[];
+  /**
+   * Explicación que se muestra al alumno tras responder. Provista por:
+   *  - `explicacion:` en el DSL VBLang (F2-03, gana sobre el fallback).
+   *  - `ejercicio.explicacion` de los generadores nativos.
+   *  - Fallback: `pasos.join("\n")` si hay `pasos:`.
+   *  - Fallback final: `País correcto: <nombre>` para `marcar_mapa`.
+   * El renderer decide CUÁNDO mostrarla (siempre, sólo tras mal, etc.).
+   */
   explanation?: string;
   /**
    * Peso de la pregunta en el puntaje del quiz (default 1). Es composición a
@@ -90,9 +200,22 @@ export type ModuleQuizQuestion = {
   visualContext?: string;
   // Numeric exercise fields
   toleranciaRelativa?: number;
+  /**
+   * F2-04: tolerancia absoluta. Número crudo en la misma unidad que la
+   * respuesta. Si está presente, el criterio de corrección combinado es
+   * `|r-e| ≤ max(|e|·tol_rel, tol_abs)`. Default ausente = 0
+   * (comportamiento previo preservado).
+   */
+  toleranciaAbsoluta?: number;
   unidades?: Record<string, string>;
   datos?: Record<string, unknown>;
   pasos?: string[];
+  /**
+   * F2-02: pistas escalonadas (texto ya interpolado, en orden). El alumno las
+   * pide de a una a cambio de puntos. El costo/visibilidad es composición de
+   * quiz; NO forma parte del DSL de la plantilla.
+   */
+  pistas?: string[];
   // Visual attached by generator
   visualSpec?: import("../../generadoresV2/core/types").VisualSpec;
 
@@ -101,18 +224,38 @@ export type ModuleQuizQuestion = {
   items?: string[];
   /** marcar_mapa: identificador del mapa a cargar (ej. "politico_mundo"). */
   mapaId?: string;
+  /** marcar_mapa: modo de respuesta — "iso" compara por código, "nombre" por name_es. */
+  modoRespuestaMapa?: "iso" | "nombre";
   /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
   respuestaIsoCorrecta?: string;
-  /** analisis_sintactico / identificar_palabras: texto a presentar al alumno. */
+  /** marcar_mapa modo nombre: nombre correcto (name_es del feature). */
+  respuestaNombreCorrecta?: string;
+  /** WO-5: marcar_mapa + provincias: código ISO del país (2 letras). */
+  paisIso?: string;
+  /** marcar_mapa: bounding box fijo [oeste, sur, este, norte] para lock de vista. */
+  encuadre?: [number, number, number, number];
+  /** analisis_sintactico / analisis_spans / identificar_palabras: texto a presentar al alumno. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+  /**
+   * PLAN-E §21 Parte B — analisis_spans: etiquetas visibles para el alumno
+   * (correctas + distractores). La clave viaja SÓLO en `answerKey` como
+   * strings canónicos `"desde-hasta:etiqueta"` (la sanitización la cubre).
+   */
+  etiquetasDisponibles?: string[];
 
   // WO07 — pregunta abierta (sin clave de respuesta).
   /** abierta: `ninguna` no puntúa; `manual` la corrige el profe. */
   correccion?: "ninguna" | "manual";
   /** abierta + `manual`: el ítem queda pendiente de corrección al enviar. */
   manualGrading?: boolean;
+
+  // PLAN-E §21 Parte A — mc de selección múltiple.
+  /** mc múltiple: checkboxes; answerKey (docente) es array con las correctas. */
+  multiple?: boolean;
+  /** mc múltiple: `proporcional` = max(0, aciertos − de más) / correctas. */
+  puntajeParcial?: "todo_o_nada" | "proporcional";
 };
 
 export type ModuleGeneratorRef = {
@@ -367,14 +510,30 @@ export type Module = {
   schoolId?: string;
   title: string;
   description: string;
-  subject: string;
-  category: string;
-  level: string;
-  durationMinutes: number;
+  // FIX-TEST4-MOD-01 — el back ahora persiste `subject`,
+  // `level`, `category` y `duration_minutes` como columnas
+  // reales (migración 20260618000000_modulo_category_duration).
+  // Módulos viejos de la beta 0.0.4 vienen con `null` en estos
+  // campos. La UI los muestra como "Sin categoría" / "Sin
+  // nivel" / "—" según corresponda.
+  subject?: string | null;
+  category?: string | null;
+  level?: string | null;
+  durationMinutes?: number | null;
   recommendedCourse?: string;
   visibility: ModuleVisibility;
   visibilityConfig?: ModuleVisibilityConfig | null;
+  // PLAN-X §7 — el profesor dueño oculta el módulo de los listados
+  // generales sin borrarlo; sigue visible para invitados y aulas.
+  descatalogado?: boolean;
   dependencies: ModuleDependency[];
+  // FIX-DEPENDENCIAS — calculado por el back para el requester actual
+  // (GET /api/modulos/:id): true si falta completar alguna dependencia
+  // "required". `missingDependencies` trae título resuelto para mostrar
+  // "Completá primero: X". Ausente en respuestas donde el back no lo
+  // calculó (ej. listados) — tratar como no bloqueado.
+  isLocked?: boolean;
+  missingDependencies?: { id: string; title: string }[];
   scoringConfig?: ModuleScoringConfig;
   rewardsConfig?: ModuleRewardsConfig;
   generatorRef?: ModuleGeneratorRef | null;
@@ -388,4 +547,18 @@ export type Module = {
   createdByRole?: "admin" | "docente";
   authorName?: string;
   updatedAt: string;
+  /**
+   * WO-13 — procedencia de copia (sólo presente si este módulo es
+   * una copia de otro). El back lo persiste en
+   * `modulos.cloned_from_*` (migración 20260623022846_wo13_provenance)
+   * y lo expone en el GET. La UI lo usa para mostrar "Copiado de:
+   * <título>" sin tener que cruzar refs. `id` puede ser un id que
+   * ya no existe (el original fue borrado); `title` y `ownerUserId`
+   * son snapshot al momento de copiar.
+   */
+  clonedFrom?: {
+    id: string;
+    title: string | null;
+    ownerUserId: string | null;
+  } | null;
 };

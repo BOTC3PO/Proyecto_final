@@ -1,0 +1,211 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-antropologia",
+    "title": "Antropología — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "Cultura, diversidad y el error de juzgar desde uno mismo",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Parentesco y los cuatro campos de la antropología",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "Cultura, diversidad y el error de juzgar desde uno mismo",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "Cultura, diversidad y el error de juzgar desde uno mismo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "En la vida cotidiana usamos la palabra cultura de un modo bastante acotado. Decimos que alguien es culto cuando sabe mucho, o hablamos de cultura para referirnos a las bellas artes, a la pintura, la música, la literatura. La antropología, la ciencia que estudia al ser humano en su dimensión biológica y cultural, usa la palabra en un sentido mucho más amplio, y ese cambio de sentido es la puerta de entrada a toda la disciplina. Para la antropología, cultura es todo lo que un grupo humano aprende y se transmite socialmente: el idioma que habla, lo que come y cómo lo prepara, las formas de criar a los hijos, las creencias, las normas de cortesía, las herramientas, el modo de organizar el trabajo y el tiempo libre. Una cumbia, un mate compartido, una receta heredada y un código de tránsito son, todos, cultura."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Lo que se aprende y no se hereda"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "El rasgo decisivo de esta definición es que la cultura se aprende, no se hereda por los genes. Un bebé humano nace sin ninguna cultura particular. Si un niño nacido en una familia de origen coreano es criado desde los primeros días en Rosario, hablará castellano rioplatense, tomará mate y hará suyas las costumbres que lo rodean. Lo que el niño hereda biológicamente no determina qué lengua habla ni qué creencias tiene; lo que determina todo eso es el entorno en el que crece."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "Esto tiene una consecuencia importante para entender la historia de nuestra especie. En algún momento de la evolución, en el paso de los primates a los primeros miembros del género Homo, apareció algo nuevo: la capacidad de acumular aprendizaje y transmitirlo de una generación a otra mucho más rápido y de forma mucho más rica de lo que permite la evolución biológica por sí sola. Fabricar herramientas, controlar el fuego, enseñar a los más jóvenes cómo cazar o cómo cocinar, son formas de transmisión cultural. En cierto sentido, tener cultura es lo que nos define como seres humanos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Los antropólogos distinguen dos componentes. La cultura material comprende los objetos y las tecnologías: las herramientas, las viviendas, la vestimenta. La cultura no material o simbólica comprende lo que no se puede tocar: las creencias, los valores, las normas, la lengua, el arte, los rituales. Las dos están conectadas, porque una casa es a la vez un objeto físico y una expresión de ideas sobre cómo debe vivir una familia. El proceso por el cual cada persona incorpora la cultura de su grupo desde el nacimiento, a través de la familia, la escuela y la comunidad, se llama enculturación. Es tan profundo y tan temprano que casi nunca lo advertimos: nadie recuerda haber aprendido su lengua materna."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h7",
+          "level": 3,
+          "text": "Muchas culturas, no una sola"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Si la cultura se aprende, entonces cada grupo humano, en cada lugar y en cada época, pudo resolver los problemas básicos de la vida de modo diferente: cómo alimentarse, cómo criar a los hijos, cómo repartir el poder, qué hacer con los muertos, cómo explicar el origen del mundo. El resultado es la diversidad cultural, que es la variedad real de sistemas que existen y existieron. No se trata de versiones mejores o peores de un mismo modelo, sino de soluciones distintas y en general no intercambiables, cada una coherente dentro de su propio marco."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Los ejemplos abundan. En los sistemas de parentesco, quién cuenta como familia varía mucho: hay sociedades que reconocen el parentesco por línea materna, otras por línea paterna, y otras que le dan un lugar central a figuras de crianza que no son los padres biológicos. Los ritos de paso, esas ceremonias que marcan el pasaje de la niñez a la adultez, adoptan formas muy variadas, desde pruebas físicas hasta celebraciones religiosas. Y hasta las nociones de tiempo y de trabajo cambian: no todas las culturas organizan el día o la semana alrededor del calendario laboral moderno de occidente."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "Para estudiar esa variedad, la antropología adoptó un principio de método llamado relativismo cultural, cuyo impulso inicial vino de antropólogos como Franz Boas a comienzos del siglo veinte. Dice que una práctica cultural debe entenderse primero desde el marco de la propia cultura en que ocurre, y no desde los valores de otra. Es importante entender qué es y qué no es. Es una regla metodológica, no un juicio moral: pedir que primero se comprenda no es lo mismo que decir que todo está bien. Tampoco implica que valga cualquier cosa. Una postura extrema, el relativismo absoluto, sostendría que ninguna práctica puede criticarse jamás, y la mayoría de la antropología actual la matiza, sobre todo frente a violaciones graves de los derechos humanos. Lo que el relativismo evita es un error de método, el de evaluar una práctica ajena únicamente con la vara de la propia antes de haber comprendido qué función cumple en su contexto."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "Y aquí hay que decirlo con claridad: diversidad no es jerarquía. Que las culturas sean distintas no significa que unas sean más avanzadas que otras en una escalera única. Esa idea, la del progreso lineal desde lo salvaje hasta la civilización occidental, estuvo muy extendida en el siglo diecinueve y fue una de las que la antropología moderna se dedicó a desmontar."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h12",
+          "level": 3,
+          "text": "El etnocentrismo: la trampa más común"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "El error opuesto al relativismo se llama etnocentrismo. Consiste en juzgar otras culturas usando como única vara los valores, las normas y las costumbres de la propia, como si la propia fuera la referencia universal y normal, y las demás fueran desviaciones, atrasos o equivocaciones."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Lo notable del etnocentrismo es que no requiere mala intención. Aparece de manera casi automática, porque cada persona crece dentro de una sola cultura y la vive como lo normal. Mucho de lo que consideramos sentido común, qué se come, cómo se saluda, qué ropa es apropiada para una ocasión, es en realidad una convención cultural particular que nunca cuestionamos porque nunca vimos otra. El problema empieza cuando esa sensación de normalidad se convierte en un criterio para juzgar a los demás."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p15",
+          "text": "Las formas cotidianas del etnocentrismo son fáciles de reconocer una vez que se las busca. Es etnocentrista creer que la propia lengua es más lógica o más rica que otra sin ninguna base lingüística, porque todas las lenguas humanas son sistemas complejos y capaces de expresar lo que sus hablantes necesitan. Lo es calificar de atrasada o primitiva una práctica ajena por el solo hecho de que es distinta de la propia, sin entender para qué sirve dentro de su cultura. Y lo es suponer que la manera de organizar la familia, el trabajo o la religión que uno conoce es la única natural o correcta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p16",
+          "text": "Conviene no confundir esta idea con una prohibición de criticar. Reconocer el etnocentrismo como un sesgo a evitar no significa que ninguna práctica pueda ser cuestionada nunca. Significa que, antes de criticar, hay que intentar comprender, y que la crítica debe apoyarse en razones que se puedan discutir y no en la simple extrañeza de lo que no es como lo nuestro. La diferencia entre un juicio informado y un prejuicio está justamente ahí. Y también vale para uno mismo: la antropología nos invita a mirar nuestras propias costumbres con la misma curiosidad con que miraríamos las de un pueblo lejano, preguntándonos qué tienen de convención y qué de necesidad."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Parentesco y los cuatro campos de la antropología",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Parentesco y los cuatro campos de la antropología"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Hay una institución que está presente en todas las sociedades humanas conocidas, y que además es la primera con la que nos topamos al nacer: el parentesco. La antropología lo define como el sistema de relaciones sociales basadas en la descendencia y en la alianza, entre las que se cuentan la descendencia biológica y también la adopción y el matrimonio. No es simplemente la lista de personas que forman nuestra familia, sino una estructura de reglas que dice quiénes somos, de dónde venimos, con quiénes tenemos obligaciones, a quiénes podemos heredar o de quiénes heredamos, e incluso con quiénes podemos o no podemos casarnos. Antes de que existieran los Estados, las leyes escritas o los mercados, los grupos humanos ya se organizaban mediante reglas de parentesco."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Familia no es sinónimo de familia nuclear"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Es tentador pensar que la familia es, por naturaleza, un padre, una madre y sus hijos viviendo juntos. Ese modelo, llamado familia nuclear, es predominante en las ciudades argentinas contemporáneas, pero es una forma entre muchas posibles. En otras sociedades, y también en buena parte del interior de nuestro país, la familia es mucho más extensa: abuelos, tíos, primos y a veces vecinos o compadres comparten la crianza, la economía y la vida cotidiana. Para entenderlo, los antropólogos usan algunos conceptos. Un linaje es un grupo de personas que pueden trazar su ascendencia común a través de una línea directa, ya sea paterna o materna, y que son capaces de demostrar cómo están emparentadas. Un clan es un grupo más amplio cuyos miembros afirman descender de un antepasado común, aunque no siempre puedan reconstruir los eslabones, y que a menudo lo simboliza con un nombre o un emblema."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Los vínculos de parentesco se dividen en dos grandes familias. Los de consanguinidad se basan en el vínculo biológico o, en términos jurídicos, en la adopción, y conectan a una persona con sus ascendientes y descendientes. La herramienta que los ordena es la genealogía, ese mapa que muestra quién desciende de quién. Los de afinidad surgen a través del matrimonio o de la unión estable. Aunque no existe un vínculo biológico con los suegros, los cuñados o los yernos y nueras, la sociedad les asigna un estatus y obligaciones muy claros. En muchas culturas el matrimonio no es solo la unión de dos individuos sino la alianza entre dos grupos familiares, con intercambio de bienes, de obligaciones y de lealtades."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Las reglas que cada cultura establece sobre con quién se puede casar, cómo se cuenta la descendencia, cómo se hereda y qué obligaciones tienen entre sí los parientes son notablemente variadas. Algunas sociedades cuentan la descendencia solo por la madre, otras solo por el padre, y otras por ambos lados. Esa variedad es una de las pruebas más claras de que el parentesco es una construcción cultural y no un hecho natural puro, porque si fuera estrictamente biológico no habría tantas maneras de organizarlo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h7",
+          "level": 3,
+          "text": "El parentesco en la Argentina de hoy"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "Aplicados a nuestra realidad, estos conceptos permiten mirar con más atención lo que pasa en nuestras familias. La estructura extensa sigue siendo fuerte en muchas zonas del interior y en los barrios populares, donde las redes de parientes y vecinos sostienen el cuidado de los chicos y de los mayores. La ciudad, en cambio, favorece la familia nuclear y también formas más reducidas. A esto se suman las nuevas formas familiares que desafían las definiciones tradicionales basadas solo en la biología: familias monoparentales, familias ensambladas formadas por parejas que traen hijos de uniones anteriores, familias homoparentales que se pudieron constituir legalmente con la sanción de la ley de matrimonio igualitario en el año 2010. La antropología invita a mirar más allá del papel legal o biológico y a observar las prácticas cotidianas: quién cuida a los niños, quién aporta el sustento, quién toma las decisiones, quién es considerado parte de la familia a la hora de las fiestas."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h9",
+          "level": 3,
+          "text": "Una ciencia con cuatro caras"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "Para estudiar algo tan vasto como el ser humano, la antropología se divide en cuatro grandes subcampos que se complementan. La antropología física o biológica estudia la variación biológica de las poblaciones humanas, actuales y pasadas. Se apoya en la evolución, en la anatomía comparada y en la genética para reconstruir cómo nos volvimos lo que somos, y también estudia la adaptación a distintos ambientes. Por ejemplo, investiga cómo las poblaciones que viven a gran altura en los Andes desarrollaron mecanismos fisiológicos que les permiten respirar mejor con menos oxígeno, o cómo la dieta influyó en rasgos genéticos de distintos pueblos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "La arqueología reconstruye la historia humana a partir de los restos materiales que dejaron las sociedades: herramientas, cerámicas, arquitectura, residuos orgánicos. Permite estudiar a pueblos que no dejaron escritura y complementa lo que cuentan las fuentes escritas. La lingüística antropológica estudia la relación entre el lenguaje y la cultura. No se limita a la gramática: se pregunta cómo el habla moldea la percepción del mundo y las relaciones sociales, y registra y documenta las lenguas, entre ellas las lenguas indígenas de la Argentina, como el mapuche, el guaraní o el quechua, muchas de las cuales están amenazadas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "El cuarto subcampo es la antropología social y cultural, que se concentra en las estructuras sociales, las creencias, los rituales y la vida cotidiana de los grupos humanos. A diferencia de otras ciencias sociales que buscan leyes generales, prioriza el estudio detallado de contextos específicos, con un método propio, la etnografía, que consiste en convivir con el grupo estudiado durante un tiempo prolongado, observar y participar de su vida y entenderla desde adentro, a través de entrevistas y de observación. Esa mirada de cerca es lo que le permite captar sentidos que una encuesta no alcanzaría a ver."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Las aplicaciones de la antropología son concretas. Con los pueblos originarios, proporciona herramientas para comprender las cosmovisiones mapuche o guaraní y facilita el diálogo intercultural en temas como la educación bilingüe e intercultural, reconocida en la Ley de Educación Nacional, o la gestión de los territorios, un campo en el que la Constitución nacional reconoce derechos específicos de las comunidades. También se aplica al estudio de las migraciones, de la salud, de las relaciones laborales, de las comunidades digitales. En todos los casos, lo que la disciplina aporta es la misma actitud: mirar con atención, preguntar antes de juzgar y desconfiar de las explicaciones que dan por natural lo que en realidad es aprendido."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    }
+  ]
+}

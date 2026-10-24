@@ -7,6 +7,8 @@ export type AvanceModulo = {
 };
 
 export type ProgresoSugerencia = {
+  kind: "vacio" | "completo" | "progreso";
+  restantes?: number;
   titulo: string;
   mensaje: string;
 };

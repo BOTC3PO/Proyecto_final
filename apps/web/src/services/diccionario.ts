@@ -1,4 +1,5 @@
 import { apiGet } from "../lib/api";
+import wiktionaryEditions from "../data/wiktionary-editions.json";
 
 export type EntradaDiccionario = {
   word?: string;
@@ -43,6 +44,84 @@ export async function prefixPalabra(
   } catch {
     return [];
   }
+}
+
+// ─── QA-FIX-10 + FIX-DICT-SELECTOR: selector de idioma del diccionario ────────
+
+/**
+ * FIX-DICT-SELECTOR: catálogo de las 198 ediciones de Wiktionary, usado
+ * SOLO para PRESENTACIÓN (código → nombre legible). El selector NO
+ * ofrece los 198 — ofrece solo los idiomas REALES del diccionario
+ * (`/api/dictionary/languages`, SELECT DISTINCT del archivo).
+ *
+ * El JSON tiene dos campos por edición:
+ *  - `english`: nombre nativo/local del idioma (ej. `fr` → "français")
+ *  - `local`: nombre en inglés del idioma (ej. `fr` → "French")
+ *
+ * Usamos `english` (nombre nativo) porque es lo que el usuario ve en
+ * la UI de su propio idioma — ej. un hispanohablante prefiere "français"
+ * sobre "French" para el francés.
+ */
+type WiktionaryEdition = {
+  english: string;
+  local: string;
+  url: string;
+};
+
+const EDITIONS = wiktionaryEditions as Record<string, WiktionaryEdition>;
+
+/**
+ * Tabla de códigos de idioma → nombre legible nativo. Construida desde
+ * las 198 ediciones de Wiktionary al cargar el módulo. Si un código
+ * no está en el JSON, `displayLangName` cae al fallback (muestra el
+ * código tal cual, ej. "oc").
+ */
+export const LANG_NAMES: Record<string, string> = Object.fromEntries(
+  Object.entries(EDITIONS).map(([code, edition]) => [code, edition.english])
+);
+
+/**
+ * Devuelve el nombre legible de un código de idioma, o el código
+ * tal cual si no está en la tabla. NUNCA rompe — la UI siempre
+ * muestra algo identificable.
+ */
+export function displayLangName(code: string): string {
+  return LANG_NAMES[code] ?? code;
+}
+
+export type LanguagesResult = {
+  languages: string[];
+};
+
+/**
+ * Pide al back los códigos de idioma REALES del diccionario
+ * (`SELECT DISTINCT lang`). Devuelve `null` si el endpoint no
+ * responde OK (diccionario deshabilitado, schema inválido, 500).
+ *
+ * El consumidor (LangSelector) usa esto para:
+ *  - si devuelve `[]` o `null` → mostrar "diccionario no disponible"
+ *  - si devuelve varios → poblar el `<select>` con nombres legibles
+ *  - default: prefiere "es" si está presente, si no el primero
+ */
+export async function fetchLanguages(): Promise<string[] | null> {
+  try {
+    const data = await apiGet<LanguagesResult>(`/api/dictionary/languages`);
+    return Array.isArray(data.languages) ? data.languages : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Default preferido: "es" si está presente, si no el primero de la
+ * lista. Si la lista está vacía, devuelve "es" como último recurso
+ * (asume el default histórico y deja que el lookup falle en silencio
+ * si el archivo no lo tiene).
+ */
+export function pickDefaultLang(languages: string[]): string {
+  if (languages.length === 0) return "es";
+  if (languages.includes("es")) return "es";
+  return languages[0];
 }
 
 /**

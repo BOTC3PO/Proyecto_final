@@ -1,0 +1,32 @@
+{
+ "titulo": "Pila, cola y lista",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "Estructura",
+    "Orden de salida",
+    "Operaciones típicas"
+   ],
+   "rows": [
+    [
+     "Pila",
+     "El último en entrar es el primero en salir (LIFO)",
+     "apilar, desapilar"
+    ],
+    [
+     "Cola",
+     "El primero en entrar es el primero en salir (FIFO)",
+     "encolar, desencolar"
+    ],
+    [
+     "Lista",
+     "Se accede a cualquier posición",
+     "insertar, borrar, buscar"
+    ]
+   ]
+  }
+ ]
+}

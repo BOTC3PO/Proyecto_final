@@ -1,0 +1,37 @@
+{
+ "titulo": "Espejo cóncavo y espejo convexo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Cóncavo",
+    "Convexo"
+   ],
+   "rows": [
+    [
+     "Superficie reflectora",
+     "Curvada hacia adentro",
+     "Curvada hacia afuera"
+    ],
+    [
+     "Rayos paralelos",
+     "Convergen",
+     "Divergen"
+    ],
+    [
+     "Usos",
+     "Espejos de maquillaje, odontología, faros",
+     "Retrovisores de autos, espejos de seguridad"
+    ],
+    [
+     "Imagen",
+     "Real o virtual",
+     "Virtual, derecha y menor"
+    ]
+   ]
+  }
+ ]
+}

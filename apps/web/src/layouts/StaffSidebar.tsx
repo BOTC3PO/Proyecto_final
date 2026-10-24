@@ -1,191 +1,653 @@
-import { NavLink, Link, useLocation } from 'react-router-dom';
+/**
+ * layouts/StaffSidebar.tsx — sidebar de staff (rediseño División 6).
+ *
+ * Reconstruido sobre los primitivos de `ui/` (NavItem orientación `sidebar`,
+ * Avatar, Menu) + la escala de tokens. La LÓGICA se reutiliza intacta:
+ * secciones e ítems salen de `navConfig` (NAV_BY_ROLE / DROPDOWN_BY_ROLE), el
+ * rol de `usePrimaryRole`, el espejo de `cuentaVinculada`/`switchCuenta`. Acá
+ * sólo se reconstruye el *chrome*.
+ *
+ * A11y: landmark `<nav>` con nombre; `aria-current="page"` por NavItem; foco
+ * visible global; menú de usuario accesible (Escape, teclado) vía Menu.
+ */
+import { Link } from 'react-router-dom';
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { useAuth } from '../auth/use-auth';
+import { usePrimaryRole } from '../auth/use-roles';
 import { useTheme } from '../theme/ThemeContext';
+import { useSchoolBranding } from '../hooks/useSchoolBranding';
 import { NAV_BY_ROLE, DROPDOWN_BY_ROLE } from '../nav/navConfig';
-import { useState, useEffect, useRef } from 'react';
+import { Avatar, Menu, Modal, NavItem, type MenuTriggerProps } from '../ui';
+import BrandMark from '../components/Brand';
+import SelectorEscuela from '../components/SelectorEscuela';
+import { useMisEscuelas } from '../hooks/useMisEscuelas';
+import { useI18n } from '../i18n/I18nContext';
 
+// `label` (de sección) y los `items` (ids de NAV_BY_ROLE) son claves de
+// traducción — ver namespaces `sidebar.` / `nav.` en i18n/es.json.
+// NOTA: 'Asistencia'/'Calificaciones' no existen como id en NAV_BY_ROLE
+// hoy (no están en TEACHER); se dejan tal cual (sectionItems los filtra
+// a 0 resultados silenciosamente, comportamiento preexistente).
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
-    { label: 'Académico', items: ['Panel', 'Aulas', 'Materiales', 'Módulos', 'Plantillas', 'Datasets', 'Evaluaciones'] },
-    { label: 'Gestión',   items: ['Asistencia', 'Calificaciones', 'Reportes', 'Encuestas'] },
-    { label: 'Escuela',   items: ['Calendario', 'Mensajes', 'Gobernanza'] },
+    { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
+    { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
+    { label: 'escuela',   items: ['calendario', 'mensajes'] },
+  ],
+  ADMIN_ESCUELA: [
+    { label: 'escuela', items: ['panelEscuela', 'aulas', 'miembros', 'mensajes'] },
+    { label: 'control', items: ['moderacion', 'revisionContenido', 'reportes'] },
   ],
   DIRECTIVO: [
-    { label: 'Escuela',        items: ['Panel escuela', 'Aulas', 'Miembros', 'Módulos', 'Plantillas', 'Datasets'] },
-    { label: 'Administración', items: ['Reportes', 'Calendario', 'Gobernanza', 'Mensajes'] },
+    { label: 'escuela',        items: ['panelEscuela', 'aulas', 'miembros', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'personalizacion'] },
+    { label: 'administracion', items: ['cobros', 'comisiones', 'reportes', 'calendario', 'mensajes'] },
   ],
   ADMIN: [
-    { label: 'Sistema',  items: ['Panel', 'Usuarios', 'Materias', 'Módulos', 'Plantillas', 'Datasets'] },
-    { label: 'Control',  items: ['Moderación', 'Moderar plantillas', 'Reportes', 'Mensajes'] },
+    { label: 'sistema',  items: ['panel', 'usuarios', 'materias', 'modulos', 'cuestionarios', 'plantillas', 'datasets'] },
+    { label: 'control',  items: ['moderacion', 'moderarPlantillas', 'reportes', 'escuelas', 'verificaciones', 'comisiones', 'mensajes'] },
   ],
 };
 
-const THEME_SWATCHES: Record<string, string> = {
-  'clasico-vb': '#2563eb',
-  'clasico':    '#1e40af',
-  'minimal':    '#1a1a18',
-  'aurora':     '#7c3aed',
-  'bosque':     '#15803d',
-  'admin':      '#ffffff',
+const ROLE_LABEL_KEY: Record<string, string> = {
+  TEACHER: 'perfil.docente',
+  DIRECTIVO: 'comun.directivo',
+  ADMIN_ESCUELA: 'roles.adminEscuela',
+  ADMIN: 'perfil.administrador',
 };
 
-function Sidebar() {
-  const { user, logout } = useAuth();
-  const { theme, setTheme, availableThemes } = useTheme();
-  const location = useLocation();
-  const role = user?.role ?? 'TEACHER';
+// Fila del menú de usuario con hover token-puro.
+function MenuRow({ children, onClick, danger }: {
+  children: ReactNode;
+  onClick: () => void;
+  danger?: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const style: CSSProperties = {
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    gap: 'var(--space-2)',
+    paddingBlock: 'var(--space-2)',
+    paddingInline: 'var(--space-4)',
+    fontSize: 'var(--text-xs)',
+    color: danger ? 'var(--c-danger)' : 'var(--c-text)',
+    fontWeight: danger ? 'var(--fw-medium)' : 'var(--fw-regular)',
+    background: hovered
+      ? danger
+        ? 'color-mix(in srgb, var(--c-danger) 6%, transparent)'
+        : 'var(--c-hover)'
+      : 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    textAlign: 'left',
+    transition: 'background-color 120ms ease',
+  };
+  return (
+    <button
+      type="button"
+      role="menuitem"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={style}
+    >
+      {children}
+    </button>
+  );
+}
+
+function SidebarMenuTrigger({ menu, initials, name, roleLabel }: {
+  menu: MenuTriggerProps;
+  initials: string;
+  name: string;
+  roleLabel: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={menu.onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-haspopup={menu["aria-haspopup"]}
+      aria-expanded={menu["aria-expanded"]}
+      aria-controls={menu["aria-controls"]}
+      style={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        gap: 'var(--space-3)',
+        paddingBlock: 'var(--space-3)',
+        paddingInline: 'var(--space-4)',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      <Avatar initials={initials} size="md" aria-hidden="true" />
+      <span style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+        <span
+          style={{
+            display: 'block',
+            fontSize: 'var(--text-xs)',
+            fontWeight: 'var(--fw-medium)',
+            color: 'var(--c-text)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {name}
+        </span>
+        <span style={{ display: 'block', fontSize: 'var(--text-xs)', color: 'var(--c-muted)' }}>
+          {roleLabel}
+        </span>
+      </span>
+      <svg
+        aria-hidden="true"
+        width="14"
+        height="14"
+        style={{
+          color: 'var(--c-muted)',
+          flexShrink: 0,
+          transition: 'transform 120ms ease',
+          transform: menu["aria-expanded"] ? 'rotate(180deg)' : 'none',
+        }}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
+}
+
+// Disparador compacto del desplegable de tema — mismo patrón visual que
+// SidebarMenuTrigger (swatch chico + texto de dos líneas + chevron que
+// rota), para no gastar la franja fija que ocupaba la grilla de círculos.
+function ThemeMenuTrigger({ menu, activeId, label, tema }: {
+  menu: MenuTriggerProps;
+  activeId: string;
+  label: string;
+  tema: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={menu.onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-haspopup={menu["aria-haspopup"]}
+      aria-expanded={menu["aria-expanded"]}
+      aria-controls={menu["aria-controls"]}
+      style={{
+        display: 'flex',
+        width: '100%',
+        alignItems: 'center',
+        gap: 'var(--space-3)',
+        paddingBlock: 'var(--space-2)',
+        paddingInline: 'var(--space-4)',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      <span
+        data-theme={activeId}
+        aria-hidden="true"
+        style={{
+          width: 'var(--space-3)',
+          height: 'var(--space-3)',
+          borderRadius: '50%',
+          flexShrink: 0,
+          background: 'linear-gradient(135deg, var(--c-primary), var(--c-accent))',
+          boxShadow: 'inset 0 0 0 1px rgba(128, 128, 128, 0.55)',
+        }}
+      />
+      <span style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+        <span
+          style={{
+            display: 'block',
+            fontSize: 'var(--text-xs)',
+            fontWeight: 'var(--fw-medium)',
+            color: 'var(--c-text)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {label}
+        </span>
+        <span style={{ display: 'block', fontSize: 'var(--text-xs)', color: 'var(--c-muted)' }}>
+          {tema}
+        </span>
+      </span>
+      <svg
+        aria-hidden="true"
+        width="14"
+        height="14"
+        style={{
+          color: 'var(--c-muted)',
+          flexShrink: 0,
+          transition: 'transform 120ms ease',
+          transform: menu["aria-expanded"] ? 'rotate(180deg)' : 'none',
+        }}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
+}
+
+function Sidebar({ variant = 'desktop', onNavigate }: {
+  variant?: 'desktop' | 'drawer';
+  onNavigate?: () => void;
+}) {
+  const { user, logout, cambiarEscuela } = useAuth();
+  const { theme, setTheme, availableThemes, isThemeOwned } = useTheme();
+  const { t } = useI18n();
+  const schoolBranding = useSchoolBranding();
+  const { escuelas } = useMisEscuelas();
+  const rolesEscuelaActiva = escuelas.find((e) => e.escuelaId === user?.schoolId)?.roles ?? [];
+
+  // PLAN-multirol Fase 3 — antes esto saltaba a la CUENTA espejo. Ahora
+  // es un cambio de ROL dentro de la misma cuenta: si la persona tiene
+  // membresía de alumno en su escuela, la sesión pasa a actuar como tal.
+  const puedeEntrarComoAlumno = Boolean(user?.schoolId) && rolesEscuelaActiva.includes('USER');
+  const handleEntrarComoAlumno = async () => {
+    if (!user?.schoolId) return;
+    try {
+      await cambiarEscuela(user.schoolId, 'USER');
+      window.location.assign('/alumno');
+    } catch (e) {
+      console.error('Error al entrar como alumno:', e);
+    }
+  };
+  // MULTIROL-02: el sidebar secciona por "rol principal" (mayor
+  // jerarquía). Un ADMIN+TEACHER sigue viendo el sidebar de ADMIN.
+  const primary = usePrimaryRole();
+  const role = primary ?? 'TEACHER';
   const navItems = NAV_BY_ROLE[role as keyof typeof NAV_BY_ROLE] ?? [];
   const dropdownItems = DROPDOWN_BY_ROLE[role as keyof typeof DROPDOWN_BY_ROLE] ?? [];
   const sections = SIDEBAR_SECTIONS[role] ?? [{ label: '', items: navItems.map(i => i.label) }];
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const initials = user?.name
     ? user.name.split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase()
     : '?';
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node))
-        setUserMenuOpen(false);
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
-
-  useEffect(() => { setUserMenuOpen(false); }, [location.pathname]);
-
   return (
-    <aside className="w-56 flex-shrink-0 flex flex-col border-r border-[var(--c-border)] bg-[var(--c-surface)] h-screen sticky top-0 overflow-y-auto will-change-transform">
+    <aside
+      className={
+        variant === 'desktop'
+          ? 'hidden md:flex flex-col flex-shrink-0 w-56 h-screen overflow-y-auto'
+          : 'flex flex-col w-56 h-full overflow-y-auto'
+      }
+      style={{
+        position: variant === 'desktop' ? 'sticky' : undefined,
+        top: variant === 'desktop' ? 0 : undefined,
+        borderRightWidth: variant === 'desktop' ? '1px' : undefined,
+        borderRightStyle: variant === 'desktop' ? 'solid' : undefined,
+        borderRightColor: 'var(--c-border)',
+        background: 'var(--c-surface)',
+        willChange: 'transform',
+      }}
+    >
       {/* Logo */}
-      <div className="h-14 flex items-center px-5 border-b border-[var(--c-border)] flex-shrink-0">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div
-            className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0"
-            style={{ background: 'var(--c-primary)' }}
-          >
-            <span className="text-white text-[11px] font-bold tracking-tight">VB</span>
-          </div>
-          <span className="text-sm font-semibold text-[var(--c-text)] tracking-tight">
-            Virtual Book
+      <div
+        className="flex items-center flex-shrink-0"
+        style={{
+          height: 'var(--space-8)',
+          paddingInline: 'var(--space-5)',
+          borderBottomWidth: '1px',
+          borderBottomStyle: 'solid',
+          borderBottomColor: 'var(--c-border)',
+        }}
+      >
+        <Link to="/" className="flex items-center" style={{ gap: 'var(--space-2)', textDecoration: 'none' }}>
+          {schoolBranding?.logoUrl ? (
+            <img
+              src={schoolBranding.logoUrl}
+              alt={t('common.logoEscuela')}
+              className="flex-shrink-0"
+              style={{ width: 'var(--space-6)', height: 'var(--space-6)', objectFit: 'contain', borderRadius: 'var(--r-md)' }}
+            />
+          ) : (
+            <BrandMark size={24} />
+          )}
+          <span style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--fw-semibold)', color: 'var(--c-text)' }}>
+            {t("comun.virtualBook")}
           </span>
         </Link>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 py-3 overflow-y-auto">
+      <nav
+        aria-label={t('aria.navLateral')}
+        className="flex-1 overflow-y-auto"
+        style={{ paddingBlock: 'var(--space-3)' }}
+        onClick={onNavigate}
+      >
         {sections.map((section) => {
           const sectionItems = navItems.filter(item =>
             section.items.includes(item.label)
           );
           if (sectionItems.length === 0) return null;
           return (
-            <div key={section.label} className="mb-4">
+            <div key={section.label} style={{ marginBottom: 'var(--space-4)' }}>
               {section.label && (
-                <p className="px-5 pb-1.5 text-[10px] font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-                  {section.label}
+                <p
+                  style={{
+                    margin: 0,
+                    paddingInline: 'var(--space-5)',
+                    paddingBottom: 'var(--space-1)',
+                    fontSize: 'var(--text-xs)',
+                    fontWeight: 'var(--fw-semibold)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: 'var(--c-muted)',
+                  }}
+                >
+                  {t(`sidebar.${section.label}`)}
                 </p>
               )}
               {sectionItems.map(item => (
-                <NavLink
+                <NavItem
                   key={item.to}
                   to={item.to}
                   end={item.exact ?? true}
-                  className={({ isActive }) =>
-                    `flex items-center px-5 py-2 text-sm transition-colors border-l-2 ${
-                      isActive
-                        ? 'border-[var(--c-primary)] text-[var(--c-primary)] font-medium bg-[color-mix(in_srgb,var(--c-primary)_6%,transparent)]'
-                        : 'border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)] hover:bg-[var(--c-bg)]'
-                    }`
-                  }
+                  orientation="sidebar"
                 >
-                  {item.label}
-                </NavLink>
+                  {t(`nav.${item.label}`)}
+                </NavItem>
               ))}
             </div>
           );
         })}
       </nav>
 
-      {/* Selector de tema */}
+      {/* Selector de tema — FIX-TEMA-CIRCULOS-03: pasa de una grilla de
+          círculos siempre visible a un desplegable (mismo primitivo `Menu`
+          que ya usa el menú de usuario más abajo, con `placement="up"` para
+          no quedar tapado por el footer), así el sidebar deja de gastar una
+          franja fija en esto todo el tiempo. */}
+      {/* PLAN-multirol Fase 2 — selector de escuela. Se auto-oculta si la
+          persona pertenece a una sola (el caso normal), así que no gasta
+          franja para nadie salvo quien realmente tiene varias. */}
+      <SelectorEscuela />
+
       {availableThemes.length > 1 && (
-        <div className="px-5 py-3 border-t border-[var(--c-border)]">
-          <p className="text-[10px] text-[var(--c-muted)] mb-2 uppercase tracking-widest font-medium">Tema</p>
-          <div className="flex gap-1.5 flex-wrap">
-            {availableThemes.map(t => (
-              <button
-                key={t.id}
-                onClick={() => setTheme(t.id)}
-                title={t.name}
-                className="w-5 h-5 rounded-full border-2 transition-all flex-shrink-0"
+        <div
+          style={{
+            borderTopWidth: '1px',
+            borderTopStyle: 'solid',
+            borderTopColor: 'var(--c-border)',
+          }}
+        >
+          <Menu
+            align="start"
+            placement="up"
+            fullWidth
+            panelWidth="100%"
+            trigger={(p) => (
+              <ThemeMenuTrigger menu={p} activeId={theme} label={t(`tema.${theme}`)} tema={t('common.tema')} />
+            )}
+          >
+            {({ close }) => (
+              <div
                 style={{
-                  background: THEME_SWATCHES[t.id] ?? 'var(--c-primary)',
-                  borderColor: theme === t.id ? 'var(--c-text)' : 'transparent',
-                  outline: theme === t.id ? '2px solid var(--c-border)' : 'none',
-                  outlineOffset: '1px',
+                  padding: 'var(--space-3) var(--space-4)',
+                  background: 'var(--c-surface)',
                 }}
-              />
-            ))}
-          </div>
+              >
+                <div className="flex flex-wrap" style={{ gap: 'var(--space-2)' }}>
+                  {availableThemes.map(opt => {
+                    // FIX-TEMA-CIRCULOS — el nombre venía crudo de
+                    // THEME_OPTIONS (ThemeContext.tsx), sin pasar por el
+                    // catálogo de traducciones. Ahora usa `tema.<id>`.
+                    const themeLabel = t(`tema.${opt.id}`);
+                    const owned = isThemeOwned(opt.id);
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        data-theme={opt.id}
+                        onClick={() => { if (owned) { setTheme(opt.id); close(); } }}
+                        disabled={!owned}
+                        title={owned ? themeLabel : `${themeLabel} — ${t('perfil.comprarEnLaTienda')}`}
+                        aria-label={`${t('common.tema')} ${themeLabel}`}
+                        aria-pressed={theme === opt.id}
+                        className="flex-shrink-0"
+                        style={{
+                          // FIX-TEMA-CIRCULOS-02 — --space-3 (12px) a
+                          // --space-2 (8px): más chico. El fondo pasa de un
+                          // color plano (`--c-primary`, siempre
+                          // representativo por el `data-theme={opt.id}` de
+                          // arriba, que scopea las custom properties SOLO a
+                          // este botón) a un degradé primary→accent del
+                          // mismo tema: más "representativo" sin depender de
+                          // un mapa de colores duplicado (ver THEME_META en
+                          // TiendaTemas.tsx, que hace lo mismo a mano para
+                          // su propia vista previa más grande).
+                          width: 'var(--space-2)',
+                          height: 'var(--space-2)',
+                          borderRadius: '50%',
+                          borderWidth: '1px',
+                          borderStyle: 'solid',
+                          background: 'linear-gradient(135deg, var(--c-primary), var(--c-accent))',
+                          // FIX-TEMA-CIRCULOS-03 — ring gris semitransparente
+                          // SIEMPRE presente (no sólo en el tema activo):
+                          // sin esto, temas casi negros (minimal/minimal-v2,
+                          // primary=accent≈#1a1a1a) quedaban invisibles
+                          // contra un `--c-surface` oscuro (ej. tiza-dark),
+                          // porque el borde de "activo" era la única fuente
+                          // de contraste y ahí era `transparent`. Gris medio
+                          // semi-transparente da contraste contra fondos y
+                          // colores claros U oscuros por igual.
+                          boxShadow: '0 1px 2px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(128, 128, 128, 0.55)',
+                          borderColor: theme === opt.id ? 'var(--c-text)' : 'transparent',
+                          outline: theme === opt.id ? '2px solid var(--c-border)' : 'none',
+                          outlineOffset: '1px',
+                          opacity: owned ? 1 : 0.35,
+                          cursor: owned ? 'pointer' : 'not-allowed',
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </Menu>
         </div>
       )}
 
       {/* Usuario */}
-      <div className="border-t border-[var(--c-border)] flex-shrink-0" ref={menuRef}>
-        <button
-          onClick={() => setUserMenuOpen(v => !v)}
-          className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[var(--c-bg)] transition-colors"
+      <div
+        style={{
+          borderTopWidth: '1px',
+          borderTopStyle: 'solid',
+          borderTopColor: 'var(--c-border)',
+          flexShrink: 0,
+        }}
+      >
+        <Menu
+          align="start"
+          placement="up"
+          fullWidth
+          panelWidth="100%"
+          trigger={(p) => (
+            <SidebarMenuTrigger
+              menu={p}
+              initials={initials}
+              name={user?.name ?? ''}
+              roleLabel={ROLE_LABEL_KEY[role] ? t(ROLE_LABEL_KEY[role]) : role}
+            />
+          )}
         >
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-semibold"
-            style={{ background: 'var(--c-primary)' }}
-          >
-            {initials}
-          </div>
-          <div className="flex-1 text-left min-w-0">
-            <p className="text-xs font-medium text-[var(--c-text)] truncate">{user?.name}</p>
-            <p className="text-[10px] text-[var(--c-muted)]">
-              {role === 'TEACHER' ? 'Docente' : role === 'DIRECTIVO' ? 'Directivo' : 'Admin'}
-            </p>
-          </div>
-          <svg className="w-3.5 h-3.5 text-[var(--c-muted)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d={userMenuOpen ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'} />
-          </svg>
-        </button>
-
-        {userMenuOpen && (
-          <div className="border-t border-[var(--c-border)] bg-[var(--c-surface)]">
-            {dropdownItems.map((item, i) => {
-              if (item.kind === 'divider')
-                return <div key={i} className="border-t border-[var(--c-border)]" />;
-              if (item.kind === 'logout')
+          {({ close }) => (
+            <div
+              style={{
+                borderTopWidth: '1px',
+                borderTopStyle: 'solid',
+                borderTopColor: 'var(--c-border)',
+                background: 'var(--c-surface)',
+              }}
+            >
+              {dropdownItems.map((item, i) => {
+                if (item.kind === 'divider')
+                  return (
+                    <div
+                      key={i}
+                      style={{ borderTopWidth: '1px', borderTopStyle: 'solid', borderTopColor: 'var(--c-border)' }}
+                    />
+                  );
+                if (item.kind === 'logout')
+                  return (
+                    <MenuRow key="logout" danger onClick={() => { close(); logout(); }}>
+                      {t('dropdown.cerrarSesion')}
+                    </MenuRow>
+                  );
+                if (item.id === 'verComoAlumno') {
+                  if (!puedeEntrarComoAlumno) return null;
+                  return (
+                    <MenuRow
+                      key="entrar-como-alumno"
+                      onClick={() => { close(); void handleEntrarComoAlumno(); }}
+                    >
+                      {t('dropdown.entrarComoAlumno')}
+                    </MenuRow>
+                  );
+                }
                 return (
-                  <button
-                    key="logout"
-                    onClick={() => { setUserMenuOpen(false); logout(); }}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-[var(--c-danger)] hover:bg-[color-mix(in_srgb,var(--c-danger)_6%,transparent)] transition-colors"
-                  >
-                    Cerrar sesión
-                  </button>
+                  <MenuRowItemLink key={item.to} to={item.to} onClick={close}>
+                    {t(`dropdown.${item.label}`)}
+                  </MenuRowItemLink>
                 );
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setUserMenuOpen(false)}
-                  className="flex items-center gap-2 px-4 py-2.5 text-xs text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-        )}
+              })}
+            </div>
+          )}
+        </Menu>
       </div>
     </aside>
   );
 }
 
-export default function StaffSidebar() {
-  return <Sidebar />;
+// Ítem-link del menú de usuario (hover token-puro).
+function MenuRowItemLink({ to, children, onClick }: {
+  to: string;
+  children: ReactNode;
+  onClick: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Link
+      to={to}
+      role="menuitem"
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 'var(--space-2)',
+        paddingBlock: 'var(--space-2)',
+        paddingInline: 'var(--space-4)',
+        fontSize: 'var(--text-xs)',
+        color: 'var(--c-text)',
+        textDecoration: 'none',
+        background: hovered ? 'var(--c-hover)' : 'transparent',
+        transition: 'background-color 120ms ease',
+      }}
+    >
+      {children}
+    </Link>
+  );
+}
+
+// PLAN-I §1 — drawer off-canvas < md, sidebar sticky sin cambios >= md.
+// `open`/`onClose` son opcionales: si el layout que lo monta ya tiene su
+// propia barra superior (StaffLayout.tsx) los controla ahí y pasa las
+// props; si no (RoleLayout.tsx, sin topbar) el componente se autogestiona
+// y renderiza su propio botón hamburguesa flotante.
+export type StaffSidebarProps = {
+  open?: boolean;
+  onClose?: () => void;
+};
+
+export default function StaffSidebar({ open: openProp, onClose: onCloseProp }: StaffSidebarProps = {}) {
+  const { t } = useI18n();
+  const controlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = controlled ? Boolean(openProp) : internalOpen;
+  const close = () => (controlled ? onCloseProp?.() : setInternalOpen(false));
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) close();
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controlled, onCloseProp]);
+
+  return (
+    <>
+      {!controlled && (
+        <button
+          type="button"
+          onClick={() => setInternalOpen(true)}
+          aria-label={t('aria.abrirNav')}
+          aria-expanded={open}
+          aria-controls="staff-sidebar-drawer"
+          className="md:hidden fixed inline-flex"
+          style={{
+            top: 'var(--space-3)',
+            left: 'var(--space-3)',
+            zIndex: 30,
+            padding: 'var(--space-2)',
+            borderRadius: 'var(--r-md)',
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            borderColor: 'var(--c-border)',
+            background: 'var(--c-surface)',
+            color: 'var(--c-text)',
+            cursor: 'pointer',
+          }}
+        >
+          <svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      )}
+      <Sidebar variant="desktop" />
+      <Modal
+        open={open}
+        onClose={close}
+        ariaLabel={t('aria.navegacion')}
+        id="staff-sidebar-drawer"
+        closeOnBackdrop
+        style={{
+          position: 'fixed',
+          inset: '0 auto 0 0',
+          width: '14rem',
+          maxWidth: '85vw',
+          height: '100vh',
+          maxHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          borderRadius: 0,
+        }}
+      >
+        <Sidebar variant="drawer" onNavigate={close} />
+      </Modal>
+    </>
+  );
 }

@@ -17,8 +17,15 @@ export type ModuleQuizQuestionType =
   | "ordenar"
   | "marcar_mapa"
   | "analisis_sintactico"
+  | "analisis_spans"
   | "identificar_palabras"
-  | "abierta";
+  | "abierta"
+  /**
+   * WO-11 — respuesta simbólica (expresión algebraica). Se corrige por
+   * equivalencia simbólica (numérica + algebraica vía math.simplify).
+   * Ver `docs/vblang/wo-11-eje-simbolico.md`.
+   */
+  | "expresion";
 
 export interface ModuleQuizQuestion {
   /** ID estable de la pregunta. */
@@ -51,12 +58,24 @@ export interface ModuleQuizQuestion {
   visualContext?: string;
   /** Tolerancia siempre RELATIVA (ratio). El adaptador la calcula. */
   toleranciaRelativa?: number;
+  /**
+   * F2-04: tolerancia absoluta. Número crudo en la misma unidad que la
+   * respuesta. Si está presente, se usa `max(|e|·tol_rel, tol_abs)` como
+   * umbral de aceptación. Default ausente = 0 (comportamiento previo).
+   */
+  toleranciaAbsoluta?: number;
   /** Mapa de unidades. Convención: `{ resultado: "<unidad>" }`. */
   unidades?: Record<string, string>;
   /** Variables crudas que el reproductor puede mostrar/usar. */
   datos?: Record<string, unknown>;
   /** Pasos de resolución (uno por línea). */
   pasos?: string[];
+  /**
+   * F2-02: pistas escalonadas ya interpoladas, en orden. El alumno las pide de
+   * a una a cambio de puntos. El costo/visibilidad es composición de quiz (no
+   * vive en el DSL, igual que `points`): el adaptador sólo propaga el texto.
+   */
+  pistas?: string[];
   /**
    * Visual armado por el caller (el paquete no construye visuales).
    */
@@ -67,12 +86,29 @@ export interface ModuleQuizQuestion {
   items?: string[];
   /** marcar_mapa: identificador del mapa a cargar. */
   mapaId?: string;
+  /** marcar_mapa: modo de respuesta — "iso" compara por código, "nombre" por name_es. */
+  modoRespuestaMapa?: "iso" | "nombre";
   /** marcar_mapa: ISO correcto (también copiado a `answerKey` por conveniencia). */
   respuestaIsoCorrecta?: string;
-  /** analisis_sintactico / identificar_palabras: texto completo a presentar. */
+  /** marcar_mapa modo nombre: nombre correcto (name_es del feature). */
+  respuestaNombreCorrecta?: string;
+  /** WO-5: marcar_mapa + provincias: código ISO del país (2 letras) para cargar
+   *  el TopoJSON de provincias. No revela la respuesta (sólo el país). */
+  paisIso?: string;
+  /** marcar_mapa: bounding box fijo [oeste, sur, este, norte] para lock de vista. */
+  encuadre?: [number, number, number, number];
+  /** analisis_sintactico / analisis_spans / identificar_palabras: texto completo a presentar. */
   textoAnalizar?: string;
   /** analisis_sintactico: pares (palabra, etiqueta correcta) — incluye la respuesta. */
   etiquetasPedidas?: Array<{ palabra: string; etiqueta: string }>;
+  /**
+   * PLAN-E §21 Parte B — analisis_spans: etiquetas que ve el alumno
+   * (correctas + distractores). La clave correcta NO viaja acá: va en
+   * `answerKey` como strings canónicos `"desde-hasta:etiqueta"` (índices de
+   * PALABRA 0-based inclusive), así la sanitización la cubre con el canario
+   * y la corrección server-side reusa el camino genérico de arrays.
+   */
+  etiquetasDisponibles?: string[];
 
   /* ----- WO07 — pregunta abierta ----- */
   /**
@@ -85,6 +121,19 @@ export interface ModuleQuizQuestion {
    * reproductor no la auto-corrige y la deja "pendiente".
    */
   manualGrading?: boolean;
+
+  /* ----- PLAN-E §21 Parte A — mc de selección múltiple ----- */
+  /**
+   * mc múltiple: `answerKey` es array con TODAS las correctas y el player
+   * usa checkboxes. Este flag debe sobrevivir la sanitización (el alumno no
+   * ve `answerKey`, pero necesita saber que es multi-selección).
+   */
+  multiple?: boolean;
+  /**
+   * mc múltiple: modo de puntaje. `proporcional` =
+   * max(0, aciertos − marcadas de más) / total correctas. Default todo_o_nada.
+   */
+  puntajeParcial?: "todo_o_nada" | "proporcional";
 }
 
 export interface AdapterOptions {

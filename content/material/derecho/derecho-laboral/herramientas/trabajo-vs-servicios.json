@@ -1,0 +1,37 @@
+{
+ "titulo": "Contrato de trabajo y contrato de servicios profesionales",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "La subordinación marca la diferencia",
+   "headers": [
+    "",
+    "Contrato de trabajo",
+    "Servicios profesionales"
+   ],
+   "rows": [
+    [
+     "Subordinación",
+     "Sí: recibe órdenes y cumple horarios",
+     "No: trabaja con autonomía"
+    ],
+    [
+     "Quién pone los medios",
+     "El empleador",
+     "El profesional"
+    ],
+    [
+     "Remuneración",
+     "Salario",
+     "Honorarios por servicio"
+    ],
+    [
+     "Derechos laborales",
+     "Vacaciones, aguinaldo, indemnización",
+     "No corresponden"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "titulo": "Trueque entre dos productores",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Trueque",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Productor A: tiene trigo, necesita telas",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Intercambio directo",
+     "x": 288,
+     "y": 80,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Productor B: tiene telas, necesita trigo",
+     "x": 575,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "entrega trigo"
+    },
+    {
+     "id": "e2",
+     "fromId": "n3",
+     "toId": "n2",
+     "label": "entrega telas"
+    }
+   ]
+  }
+ ]
+}

@@ -18,6 +18,7 @@ import { generadorAsistidoProvider } from "../../vblang/provider";
 import { precargarDataset } from "../../vblang/datasetCache";
 import { extractDatasetName } from "../../vblang/utils";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface QuizGeneratedPreviewProps {
   generatorId: string;
   count: number;
@@ -38,6 +39,7 @@ export default function QuizGeneratedPreview({
   count,
   max = 3,
 }: QuizGeneratedPreviewProps) {
+  const { t } = useI18n();
   const isPlantilla = generatorId.startsWith(PLANTILLA_PREFIX);
   const plantillaId = isPlantilla
     ? generatorId.slice(PLANTILLA_PREFIX.length)
@@ -88,17 +90,12 @@ export default function QuizGeneratedPreview({
 
   if (!isPlantilla) {
     return (
-      <p className="text-xs text-[var(--c-muted)]">
-        La vista previa en vivo está disponible para plantillas VBLang. Este
-        generador se previsualiza al rendir el examen.
-      </p>
+      <p className="text-xs text-[var(--c-muted)]">{t("quizGeneratedPreview.laVistaPreviaEnVivo")}</p>
     );
   }
   if (state.status === "loading") {
     return (
-      <p className="text-xs text-[var(--c-muted)]" aria-live="polite">
-        Generando vista previa…
-      </p>
+      <p className="text-xs text-[var(--c-muted)]" aria-live="polite">{t("quizGeneratedPreview.generandoVistaPrevia")}</p>
     );
   }
   if (state.status === "error") {
@@ -111,7 +108,7 @@ export default function QuizGeneratedPreview({
   if (state.status === "ok") {
     if (state.prompts.length === 0) {
       return (
-        <p className="text-xs text-[var(--c-muted)]">Sin ejemplos para mostrar.</p>
+        <p className="text-xs text-[var(--c-muted)]">{t("quizGeneratedPreview.sinEjemplosParaMostrar")}</p>
       );
     }
     return (

@@ -1,0 +1,32 @@
+{
+ "titulo": "Botón sin contraste y con contraste",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Mismo botón, dos versiones",
+   "headers": [
+    "",
+    "Sin contraste",
+    "Con alto contraste"
+   ],
+   "rows": [
+    [
+     "Colores",
+     "Gris claro sobre blanco",
+     "Blanco sobre azul oscuro"
+    ],
+    [
+     "Relación de contraste",
+     "menos de 3:1",
+     "más de 7:1"
+    ],
+    [
+     "Efecto",
+     "Pasa desapercibido",
+     "Se ve de inmediato"
+    ]
+   ]
+  }
+ ]
+}

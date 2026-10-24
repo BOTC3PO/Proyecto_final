@@ -1,0 +1,5 @@
+A: Bonan tagon! Mia nomo estas Anna. Ĉu vi parolas Esperanton?
+B: Jes, iom. Kie vi loĝas?
+A: Mi loĝas en Madrido, sed mi laboras en Barcelono.
+B: Ĉu vi iras per buso?
+A: Ne, per trajno je la oka horo.

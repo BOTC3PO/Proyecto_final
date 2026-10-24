@@ -1,0 +1,39 @@
+{
+ "titulo": "Q = m·c·ΔT con ejemplos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "latex",
+   "content": "Q = m\\cdot c\\cdot \\Delta T",
+   "displayMode": true
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Ejemplos",
+   "headers": [
+    "Sustancia",
+    "m (kg)",
+    "c (J/kg·°C)",
+    "ΔT (°C)",
+    "Q (J)"
+   ],
+   "rows": [
+    [
+     "Agua",
+     2,
+     4186,
+     10,
+     83720
+    ],
+    [
+     "Hierro",
+     0.5,
+     450,
+     100,
+     22500
+    ]
+   ]
+  }
+ ]
+}

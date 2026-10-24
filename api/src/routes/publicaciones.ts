@@ -1,11 +1,14 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
+import { leerPagina, recortar } from "../lib/paginacion";
 import { isClassroomActiveStatus, normalizeClassroomStatus } from "../schema/aula";
 import { requirePolicy } from "../lib/authorization";
-import { requireClassroomScope } from "../lib/classroom-scope";
+import { requireClassroomScope, isClassroomTeacher } from "../lib/classroom-scope";
 import { createRateLimiter } from "../lib/rate-limit";
 import { requireUser } from "../lib/user-auth";
+import { resolveUserNames, initialsFromName } from "../lib/resolve-user-names";
 
 export const publicaciones = Router();
 
@@ -22,14 +25,21 @@ type PublicationAttachment = {
 
 type CreatePublicationPayload = {
   contenido: string;
-  authorInitials?: string;
   title?: string;
   archivos?: PublicationAttachment[];
+};
+
+type UpdatePublicationPayload = {
+  contenido: string;
 };
 
 type CreateCommentPayload = {
   contenido: string;
 };
+
+const MAX_CONTENIDO = 10_000;
+const MAX_TITULO = 200;
+const MAX_ARCHIVOS = 20;
 
 const getRequester = (req: {
   user?: { _id?: { toString?: () => string }; role?: string; fullName?: string; schoolId?: string | null };
@@ -41,6 +51,7 @@ const getRequesterId = (requester: { _id?: { toString?: () => string } } | undef
 const sanitizeAttachments = (archivos: unknown): PublicationAttachment[] => {
   if (!Array.isArray(archivos)) return [];
   return archivos
+    .slice(0, MAX_ARCHIVOS)
     .filter((item) => item && typeof item === "object")
     .map((item) => {
       const record = item as Record<string, unknown>;
@@ -68,11 +79,32 @@ publicaciones.get(
     if (accessLevel !== "admin" && accessLevel !== "staff" && accessLevel !== "learner") {
       return res.status(403).json({ error: "forbidden" });
     }
-    const items = await prisma.publicacion.findMany({
-      where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
-      orderBy: { publishedAt: "desc" }
+    const pagina = leerPagina(req.query, { porDefecto: 100 });
+    const { items: rows, ...paginacion } = recortar(
+      await prisma.publicacion.findMany({
+        where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
+        orderBy: { publishedAt: "desc" },
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    );
+    // FIX-PUBLICACIONES-AUTOR — antes el front mandaba `authorInitials`
+    // al crear, pero `Publicacion` no tiene esa columna (se descartaba
+    // en silencio) y el GET nunca resolvía `authorId` a un nombre: el
+    // feed siempre mostraba "?" sin importar quién publicó. Resolvemos
+    // acá, igual que `createdByName`/`teacherName` en aulas.ts.
+    const nameMap = await resolveUserNames(rows.map((r) => r.authorId));
+    const items = rows.map((r) => {
+      const authorName = nameMap.get(r.authorId) ?? null;
+      return {
+        ...r,
+        authorName,
+        authorInitials: authorName ? initialsFromName(authorName) : "?",
+        isOwn: r.authorId === requesterId
+      };
     });
-    res.json({ items });
+    res.json({ items, ...paginacion });
   }
 );
 
@@ -87,23 +119,32 @@ publicaciones.post(
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
       return res.status(400).json({ error: "contenido requerido" });
     }
+    if (payload.contenido.length > MAX_CONTENIDO || (payload.title ?? "").length > MAX_TITULO) {
+      return res.status(400).json({ error: "contenido o título demasiado largo" });
+    }
     const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     const classroom = res.locals.classroom;
-    const currentStatus = normalizeClassroomStatus(classroom.status);
-    if (!currentStatus) {
-      return res.status(409).json({ error: "invalid classroom status" });
-    }
+    // PLAN-A §2 — aulas legacy sin `status` (o con un valor no
+    // reconocido) devolvían 409 "invalid classroom status" sin ninguna
+    // pista de qué pasaba ni cómo arreglarlo, y le impedían publicar a un
+    // profesor con un aula perfectamente en uso. Mismo fallback que ya
+    // usa `PUT /api/aulas/:id` (status ausente ⇒ ACTIVE, documentado):
+    // un aula sin status es, en la práctica, un aula activa legacy.
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (!isClassroomActiveStatus(currentStatus)) {
-      return res.status(403).json({ error: "classroom is read-only" });
+      return res.status(403).json({
+        error: "classroom is read-only",
+        detail: `El aula tiene estado ${currentStatus}; sólo se puede publicar en aulas ACTIVE.`
+      });
     }
     const now = new Date();
     const nowIso = now.toISOString();
     const attachmentList = sanitizeAttachments(payload.archivos);
     const publication = await prisma.publicacion.create({
       data: {
-        id: `pub-${Date.now()}`,
+        id: `pub-${randomUUID()}`,
         aulaId: req.params.id as string as string,
         authorId: requesterId,
         title: payload.title?.trim() || "Nueva publicación",
@@ -139,6 +180,91 @@ publicaciones.post(
   }
 );
 
+// FIX-PUBLICACIONES-EDITAR — sólo quien publicó puede editar el
+// contenido de su propio mensaje. A diferencia del DELETE, el staff
+// del aula no puede editar palabras ajenas (moderar ≠ reescribir).
+publicaciones.patch(
+  "/api/aulas/:id/publicaciones/:pubId",
+  requireUser,
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
+  async (req, res) => {
+    const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
+    const requesterId = getRequesterId(requester);
+    if (!requesterId) return res.status(403).json({ error: "forbidden" });
+    const payload = req.body as UpdatePublicationPayload | undefined;
+    if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
+      return res.status(400).json({ error: "contenido requerido" });
+    }
+    if (payload.contenido.length > MAX_CONTENIDO) return res.status(400).json({ error: "contenido demasiado largo" });
+    const publication = await prisma.publicacion.findFirst({
+      where: { id: req.params.pubId as string, aulaId: req.params.id as string, isDeleted: { not: true } }
+    });
+    if (!publication) return res.status(404).json({ error: "publicacion not found" });
+    if (publication.authorId !== requesterId) {
+      return res.status(403).json({ error: "solo quien publicó puede editar este mensaje" });
+    }
+    const updated = await prisma.publicacion.update({
+      where: { id: publication.id },
+      data: { body: payload.contenido.trim(), updatedAt: new Date().toISOString() }
+    });
+    await recordAuditLog({
+      actorId: requesterId,
+      action: "publicaciones.update",
+      targetType: "publicacion",
+      targetId: publication.id,
+      metadata: { aulaId: publication.aulaId }
+    });
+    res.json(updated);
+  }
+);
+
+// FIX-PUBLICACIONES-BORRAR — el dueño del mensaje siempre puede
+// borrar el propio; además el staff del aula (mismo criterio que
+// habilita crear publicaciones) puede moderar y borrar cualquiera.
+// Soft delete: reusa isDeleted/deletedBy, que ya existían en el
+// modelo pero nunca se escribían desde una ruta.
+publicaciones.delete(
+  "/api/aulas/:id/publicaciones/:pubId",
+  requireUser,
+  requireClassroomScope({ allowMemberRoles: "any", allowSchoolMatch: true }),
+  async (req, res) => {
+    const requester = getRequester(req as { user?: { _id?: { toString?: () => string }; role?: string } });
+    const requesterId = getRequesterId(requester);
+    if (!requesterId) return res.status(403).json({ error: "forbidden" });
+    const publication = await prisma.publicacion.findFirst({
+      where: { id: req.params.pubId as string, aulaId: req.params.id as string, isDeleted: { not: true } }
+    });
+    if (!publication) return res.status(404).json({ error: "publicacion not found" });
+    const classroom = res.locals.classroom;
+    const isOwner = publication.authorId === requesterId;
+    const isStaffOfClass = isClassroomTeacher(classroom, requesterId, requester?.role ?? null);
+    if (!isOwner && !isStaffOfClass) {
+      return res.status(403).json({ error: "forbidden" });
+    }
+    await prisma.publicacion.update({
+      where: { id: publication.id },
+      data: { isDeleted: true, deletedBy: requesterId, updatedAt: new Date().toISOString() }
+    });
+    await prisma.moderacionEvento.create({
+      data: {
+        tipo: "publicacion_borrada",
+        publicacionId: publication.id,
+        aulaId: publication.aulaId,
+        usuarioId: requesterId,
+        createdAt: new Date().toISOString()
+      }
+    });
+    await recordAuditLog({
+      actorId: requesterId,
+      action: "publicaciones.delete",
+      targetType: "publicacion",
+      targetId: publication.id,
+      metadata: { aulaId: publication.aulaId, isOwner }
+    });
+    res.json({ ok: true });
+  }
+);
+
 publicaciones.get(
   "/api/aulas/:id/publicaciones/:pubId/comentarios",
   requireUser,
@@ -159,10 +285,16 @@ publicaciones.get(
       where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }
     });
     if (!publication) return res.status(404).json({ error: "publicacion not found" });
-    const rows = await prisma.comentario.findMany({
-      where: { publicacionId: req.params.pubId as string },
-      orderBy: { createdAt: "asc" }
-    });
+    const pagina = leerPagina(req.query);
+    const { items: rows, ...paginacion } = recortar(
+      await prisma.comentario.findMany({
+        where: { publicacionId: req.params.pubId as string },
+        orderBy: { createdAt: "asc" },
+        take: pagina.take,
+        skip: pagina.skip
+      }),
+      pagina
+    );
     const items = rows
       .map((row) => {
         try {
@@ -172,7 +304,7 @@ publicaciones.get(
         }
       })
       .filter(Boolean);
-    res.json({ items });
+    res.json({ items, ...paginacion });
   }
 );
 
@@ -187,18 +319,31 @@ publicaciones.post(
     if (!payload || typeof payload.contenido !== "string" || payload.contenido.trim() === "") {
       return res.status(400).json({ error: "contenido requerido" });
     }
+    if (payload.contenido.length > MAX_CONTENIDO) return res.status(400).json({ error: "contenido demasiado largo" });
     const requester = getRequester(req as {
       user?: { _id?: { toString?: () => string }; role?: string; fullName?: string };
     });
     const requesterId = getRequesterId(requester);
     if (!requesterId) return res.status(403).json({ error: "forbidden" });
     const classroom = res.locals.classroom;
-    const currentStatus = normalizeClassroomStatus(classroom.status);
-    if (!currentStatus) {
-      return res.status(409).json({ error: "invalid classroom status" });
-    }
+    // PLAN-A §2 — aulas legacy sin `status` (o con un valor no
+    // reconocido) devolvían 409 "invalid classroom status" sin ninguna
+    // pista de qué pasaba ni cómo arreglarlo, y le impedían publicar a un
+    // profesor con un aula perfectamente en uso. Mismo fallback que ya
+    // usa `PUT /api/aulas/:id` (status ausente ⇒ ACTIVE, documentado):
+    // un aula sin status es, en la práctica, un aula activa legacy.
+    const currentStatus = normalizeClassroomStatus(classroom.status) ?? "ACTIVE";
     if (!isClassroomActiveStatus(currentStatus)) {
-      return res.status(403).json({ error: "classroom is read-only" });
+      return res.status(403).json({
+        error: "classroom is read-only",
+        detail: `El aula tiene estado ${currentStatus}; sólo se puede publicar en aulas ACTIVE.`
+      });
+    }
+    // Tarea 14 — ajuste del aula: el docente/directivo puede desactivar
+    // los comentarios de alumnos por aula. `undefined` (aulas legacy) se
+    // trata como habilitado, igual que el default de la columna.
+    if (classroom.allowComments === false) {
+      return res.status(403).json({ error: "comments disabled for this classroom" });
     }
     const publication = await prisma.publicacion.findFirst({
       where: { id: req.params.pubId as string as string, aulaId: req.params.id as string as string, isDeleted: { not: true } }
@@ -207,7 +352,7 @@ publicaciones.post(
     const now = new Date();
     const nowIso = now.toISOString();
     const comment = {
-      id: `com-${Date.now()}`,
+      id: `com-${randomUUID()}`,
       aulaId: req.params.id as string as string,
       publicacionId: req.params.pubId as string as string,
       body: payload.contenido.trim(),

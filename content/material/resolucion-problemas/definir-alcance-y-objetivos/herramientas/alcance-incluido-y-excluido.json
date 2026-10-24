@@ -1,0 +1,28 @@
+{
+ "titulo": "Alcance: tareas incluidas y excluidas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Proyecto: sitio web para un club",
+   "headers": [
+    "Incluidas",
+    "Excluidas"
+   ],
+   "rows": [
+    [
+     "Diseño del sitio",
+     "Compra del dominio"
+    ],
+    [
+     "Carga de contenidos",
+     "Fotografía profesional"
+    ],
+    [
+     "Formulario de contacto",
+     "Tienda online"
+    ]
+   ]
+  }
+ ]
+}

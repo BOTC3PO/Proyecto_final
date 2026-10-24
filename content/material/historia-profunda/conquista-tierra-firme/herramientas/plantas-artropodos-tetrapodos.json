@@ -1,0 +1,42 @@
+{
+ "titulo": "Conquista de la tierra firme: cronología",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Hace…",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "470 millones de años: plantas",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "428 millones de años: artrópodos",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "365 millones de años: tetrápodos",
+     "x": 475,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}
