@@ -57,16 +57,15 @@ para incorporar un contraargumento sin debilitar la propia postura.
 
 ## Diferencia entre contraargumento y simplemente estar equivocado
 
-Un buen contraargumento no es un espantapájaros (una versión débil o
-distorsionada de la postura contraria, fácil de tirar abajo) — para
-que la refutación sea convincente, el contraargumento elegido debe
-ser el **más fuerte y honesto** que la postura contraria realmente
-podría dar.
+Un buen contraargumento no es un espantapájaros, es decir, una versión débil
+o distorsionada de la postura contraria, fácil de tirar abajo. Para que la
+refutación sea convincente, el contraargumento elegido debe ser el **más
+fuerte y honesto** que la postura contraria realmente podría dar.
 
 ## Para qué sirve
 
 Dominar contraargumentos cierra el análisis completo del texto
 argumentativo: tesis (qué se defiende), argumentos (por qué) y
-contraargumentos (qué dirían en contra, y por qué de todas formas la
-tesis se sostiene) — la estructura que usan los textos argumentativos
-más sólidos, en periodismo, ensayo y debate.
+contraargumentos (qué dirían en contra, y por qué de todas formas la tesis
+se sostiene). Es la estructura que usan los textos argumentativos más
+sólidos, en periodismo, ensayo y debate.

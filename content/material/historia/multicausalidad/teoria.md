@@ -41,35 +41,34 @@ estas dimensiones a la vez, no de una sola.
 
 ## El error de la causa única
 
-Explicar un hecho histórico complejo con **una sola causa** ("la
-Revolución Francesa ocurrió por la crisis económica", punto) es una
-simplificación que suele estar incompleta — no es que esa causa sea
-falsa, sino que **no alcanza sola** para explicar todo lo ocurrido.
+Explicar un hecho histórico complejo con **una sola causa** ("la Revolución
+Francesa ocurrió por la crisis económica", punto) es una simplificación que
+suele estar incompleta. No es que esa causa sea falsa, sino que **no alcanza
+sola** para explicar todo lo ocurrido.
 Este error se combina con la generalización apresurada
 (`../../lengua/detectar-falacias/`): tomar una causa real y tratarla
 como si fuera la única, ignorando las demás.
 
 ## Causas no siempre tienen el mismo peso
 
-Reconocer multicausalidad no significa que todas las causas
-combinadas pesen lo mismo — el trabajo del análisis histórico incluye
-evaluar cuál (o cuáles) de las causas combinadas fue más determinante,
-sin caer en la simplificación de reducirlo todo a una sola.
+Reconocer multicausalidad no significa que todas las causas combinadas pesen
+lo mismo. El trabajo del análisis histórico incluye evaluar cuál (o cuáles)
+de ellas fue más determinante, sin caer en la simplificación de reducirlo
+todo a una sola.
 
 ## Ejemplo: la Revolución Francesa (1789)
 
-Combina, entre otras: causas económicas (crisis fiscal del Estado,
-malas cosechas), políticas (crisis de legitimidad de la monarquía
-absoluta), sociales (tensión entre los estamentos, el Tercer Estado
-sin representación real) e ideológicas (ideas ilustradas sobre
-igualdad y soberanía popular) — ninguna sola explica el proceso
-completo.
+Combina, entre otras, causas económicas (crisis fiscal del Estado, malas
+cosechas), políticas (crisis de legitimidad de la monarquía absoluta),
+sociales (tensión entre los estamentos, el Tercer Estado sin representación
+real) e ideológicas (ideas ilustradas sobre igualdad y soberanía popular).
+Ninguna sola explica el proceso completo.
 
 ## Para qué sirve
 
-Multicausalidad cierra la cadena de herramientas básicas de
-pensamiento histórico (línea de tiempo → unidades de tiempo →
-períodos → causa/consecuencia → cambio/continuidad → multicausalidad):
-es la herramienta más avanzada de esta cadena, que evita el error más
-común al explicar hechos históricos complejos: reducirlos a una sola
-causa cuando en realidad combinan varias.
+Multicausalidad cierra la cadena de herramientas básicas de pensamiento
+histórico (línea de tiempo → unidades de tiempo → períodos →
+causa/consecuencia → cambio/continuidad → multicausalidad). Es la
+herramienta más avanzada de esta cadena. Evita el error más común al
+explicar hechos históricos complejos: reducirlos a una sola causa cuando en
+realidad combinan varias.

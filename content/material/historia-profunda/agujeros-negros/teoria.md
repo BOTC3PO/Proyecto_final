@@ -18,7 +18,7 @@ Durante el colapso final de una estrella masiva, la **gravedad** se convierte en
 
 ## 3. El ciclo de vida estelar
 
-El proceso de formación de un agujero negro está ligado al **ciclo de vida estelar**, una secuencia que comienza con la natalidad de una estrella a partir de una nube de gas y termina con su muerte, ya sea como enana blanca, estrella de neutrones o agujero negro. Las estrellas masivas consumen su combustible nuclear mucho más rápido que las menores, lo que acelera su evolución. Una vez que el hidrógeno se transforma en helio y luego en elementos más pesados, como hierro, la fusión deja de liberar energía. Ese agotamiento del **combustible nuclear** marca el inicio del colapso gravitacional irreversible.
+El proceso de formación de un agujero negro está ligado al **ciclo de vida estelar**. Es una secuencia que comienza con la natalidad de una estrella a partir de una nube de gas. Termina con su muerte, ya sea como enana blanca, estrella de neutrones o agujero negro. Las estrellas masivas consumen su combustible nuclear mucho más rápido que las menores, lo que acelera su evolución. Una vez que el hidrógeno se transforma en helio y luego en elementos más pesados, como hierro, la fusión deja de liberar energía. Ese agotamiento del **combustible nuclear** marca el inicio del colapso gravitacional irreversible.
 
 ## 4. Implicaciones para el universo
 

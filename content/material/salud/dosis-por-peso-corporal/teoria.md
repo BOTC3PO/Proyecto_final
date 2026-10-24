@@ -61,8 +61,8 @@ No es exclusivo de medicamentos — la misma lógica aparece en:
 
 ## 5. Conexión con lo que ya se vio
 
-Este tema es un ejemplo más de aplicar proporcionalidad matemática a
-un contexto de salud real — la misma estructura que aparece en el
-Índice de Pearl (`../../esi/indice-de-pearl/`) o el IMC
-(`../../../ed-fisica/imc-indice-masa-corporal/`): una fórmula simple,
+Este tema es un ejemplo más de aplicar proporcionalidad matemática a un
+contexto de salud real. Tiene la misma estructura que aparece en el Índice
+de Pearl (`../../esi/indice-de-pearl/`) o el IMC
+(`../../../ed-fisica/imc-indice-masa-corporal/`). Es una fórmula simple,
 pero con consecuencias reales si se aplica mal.

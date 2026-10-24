@@ -12,7 +12,9 @@
 
 La región que hoy corresponde a Irak fue el primer centro de desarrollo urbano del planeta. Entre los ríos Tigris y Éufrates, las comunidades agrícolas se organizaron en ciudades-estado independientes como Ur o Babilonia. La fertilidad de las tierras aluviales permitió excedentes productivos, lo que generó clases sociales especializadas: sacerdotes, escribas y gobernantes. El sistema de escritura cuneiforme, inventado en Sumer, fue un hito clave para registrar leyes, comercio y mitos.
 
-<!-- IMAGEN: mapa de Mesopotamia con los ríos Tigris y Éufrates -->
+![mapa de Mesopotamia con los ríos Tigris y Éufrates](https://upload.wikimedia.org/wikipedia/commons/5/50/Fertile_Crescent_Mesopotamian_map.png)
+
+*Imagen: «Fertile Crescent Mesopotamian map», Akbarali, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fertile_Crescent_Mesopotamian_map.png).*
 
 ---
 
@@ -34,15 +36,13 @@ En Asia Oriental, el Huang He (Río Amarillo) dio forma a una civilización que 
 
 ## 4. El Indus Valley: organización urbana sin escritura
 
-A pesar de no haber dejado registros escritos, la civilización del Valle del Indo (actual Pakistán y Punjab) alcanzó un alto nivel de desarrollo. Ciudades como Mohenjo-Daro tenían planificación urbana avanzada: calles ortogonales, sistemas de cloacas y viviendas con techos de paja. Su economía se basaba en el comercio marítimo con Mesopotamia, usando sellos de piedra (estampados, con motivos de animales y una escritura aún no descifrada) para identificar mercancías — a diferencia de los sellos cilíndricos, que fueron una tecnología característica de Mesopotamia, no del Valle del Indo.
+A pesar de no haber dejado registros escritos, la civilización del Valle del Indo (actual Pakistán y Punjab) alcanzó un alto nivel de desarrollo. Ciudades como Mohenjo-Daro tenían planificación urbana avanzada: calles ortogonales, sistemas de cloacas y viviendas con techos de paja. Su economía se basaba en el comercio marítimo con Mesopotamia. Usaban sellos de piedra (estampados, con motivos de animales y una escritura aún no descifrada) para identificar mercancías. Los sellos cilíndricos, en cambio, fueron una tecnología característica de Mesopotamia, no del Valle del Indo.
 
 ---
 
 ## 5. Cronología y diferencias regionales
 
 Aunque todas surgieron alrededor del 3500 a.C., cada civilización tuvo un ritmo distinto: Mesopotamia y Egipto se consolidaron primero, seguidas por el Indus Valley (2600 a.C.) y China (1900 a.C.). Sus logros reflejan su entorno: las escrituras surgieron en Mesopotamia y Egipto; la arquitectura monumental en Egipto; y la filosofía política en China. Estas diferencias no son accidentales, sino el resultado de su relación con los ríos y su capacidad para gestionar recursos.
-
-<!-- IMAGEN: cronología comparativa de civilizaciones antiguas -->
 
 ---
 

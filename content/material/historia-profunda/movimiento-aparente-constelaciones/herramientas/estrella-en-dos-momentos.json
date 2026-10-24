@@ -1,0 +1,24 @@
+{
+ "titulo": "Posición de una estrella durante la noche",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Una misma estrella",
+   "headers": [
+    "Hora",
+    "Posición en el cielo"
+   ],
+   "rows": [
+    [
+     "21:00",
+     "Alta, hacia el este"
+    ],
+    [
+     "03:00",
+     "Más al oeste, más baja"
+    ]
+   ]
+  }
+ ]
+}

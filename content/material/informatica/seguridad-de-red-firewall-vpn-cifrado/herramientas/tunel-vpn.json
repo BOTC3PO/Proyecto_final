@@ -1,0 +1,45 @@
+{
+ "titulo": "Túnel VPN",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Conexión segura",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Dispositivo del usuario",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Túnel cifrado a través de Internet",
+     "x": 288,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Red privada de la empresa",
+     "x": 575,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

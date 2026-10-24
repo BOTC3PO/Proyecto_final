@@ -1,0 +1,56 @@
+{
+ "titulo": "Tres actores del destino turístico",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Flujos de comunicación",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Sector público",
+     "x": 250,
+     "y": 0,
+     "shape": "circle",
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Sector privado",
+     "x": 0,
+     "y": 172,
+     "shape": "circle",
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Comunidad local",
+     "x": 500,
+     "y": 172,
+     "shape": "circle",
+     "color": "#fef9c3"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "normas y apoyo"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "empleo y servicios"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1",
+     "label": "demandas"
+    }
+   ]
+  }
+ ]
+}

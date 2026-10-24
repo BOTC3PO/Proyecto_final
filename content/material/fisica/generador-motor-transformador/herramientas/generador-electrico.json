@@ -1,0 +1,53 @@
+{
+ "titulo": "Cómo genera un generador",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Inducción electromagnética",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Energía mecánica: gira el rotor",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Bobinas se mueven en el campo del estator",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Cambia el flujo magnético",
+     "x": 425,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Se induce una tensión",
+     "x": 638,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

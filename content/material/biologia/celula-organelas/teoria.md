@@ -49,8 +49,8 @@ central — la célula **animal** no tiene ninguna de las 3.
 
 ## 5. La célula como sistema completo
 
-Cada organela tiene una función puntual, pero **todas trabajan juntas**
-como un sistema — el núcleo manda la orden, el ribosoma fabrica la
-proteína, el retículo y el Golgi la empaquetan y distribuyen, la
-mitocondria aporta la energía para todo el proceso. Ninguna organela
+Cada organela tiene una función puntual, pero **todas trabajan juntas** como
+un sistema. El núcleo manda la orden y el ribosoma fabrica la proteína. El
+retículo y el Golgi la empaquetan y distribuyen. La mitocondria aporta la
+energía para todo el proceso. Ninguna organela
 "funciona sola".

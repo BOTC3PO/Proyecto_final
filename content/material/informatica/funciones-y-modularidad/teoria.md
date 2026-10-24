@@ -12,8 +12,6 @@
 
 La modularidad es el principio que permite dividir un programa complejo en partes más pequeñas, independientes y manejables. En lugar de escribir todo el código en un solo bloque, se lo estructura en bloques lógicos llamados **funciones**, cada uno con una tarea específica. Esto facilita no solo la lectura del código, sino también su mantenimiento: si hay un error, se puede corregir únicamente donde es necesario; si se necesita modificar algo, no afecta al resto del programa. Además, permite reutilizar bloques de código en distintas partes del mismo programa o incluso en otros proyectos.
 
-<!-- IMAGEN: diagrama de un programa dividido en funciones como módulos independientes -->
-
 ---
 
 ## 2. Componentes de una función
@@ -43,8 +41,6 @@ Además, la reutilización facilita la **prueba unitaria** de cada parte del pro
 Cuando un programa incluye funciones, el **flujo de control** cambia dinámicamente. Al llamar a una función (por ejemplo, `calcular_area(5, 3)`), la computadora se detiene en el punto de llamada y ejecuta las instrucciones definidas dentro de esa función. Una vez finalizada, vuelve al lugar donde fue invocada para continuar con lo siguiente.
 
 Este mecanismo es clave para organizar tareas complejas: una función puede llamar a otra, formando cadenas de operaciones que simplifican la lógica principal del programa.
-
-<!-- IMAGEN: flujo de ejecución con llamada a función y retorno -->
 
 ---
 

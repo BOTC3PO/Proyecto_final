@@ -30,12 +30,12 @@ tratado ratificado, la ley pierde frente al tratado.
 
 ## El escalón especial: el artículo 75 inciso 22
 
-La reforma constitucional de 1994 fue más allá de ese esquema general:
-le dio a **un grupo específico de tratados de derechos humanos**
-directamente **jerarquía constitucional** — es decir, no quedan "por
-debajo" de la Constitución sino "en pie de igualdad" con ella (se
-entienden como complementarios de los derechos y garantías ya vistos en
-`../../civica/derechos-y-garantias/`).
+La reforma constitucional de 1994 fue más allá de ese esquema general. Le
+dio a **un grupo específico de tratados de derechos humanos** directamente
+**jerarquía constitucional**. Es decir, no quedan "por debajo" de la
+Constitución sino "en pie de igualdad" con ella. Se entienden como
+complementarios de los derechos y garantías ya vistos en
+`../derechos-y-garantias/`.
 
 El artículo 75 inciso 22 enumera, en su texto original de 1994, **11
 instrumentos** con esa jerarquía constitucional, entre ellos:
@@ -51,24 +51,24 @@ instrumentos** con esa jerarquía constitucional, entre ellos:
 - La Convención contra la Tortura y otros Tratos o Penas Crueles,
   Inhumanos o Degradantes
 - La Convención sobre los Derechos del Niño (ya vista en
-  `../../civica/derechos-nino/`)
+  `../derechos-nino/`)
 
-El propio artículo prevé que este listado **puede crecer**: otros
-tratados de derechos humanos pueden sumarse con jerarquía constitucional
-si el Congreso los aprueba con el voto de **dos tercios de la totalidad
-de los miembros de cada Cámara** (una mayoría agravada, más difícil de
-alcanzar que una ley común). Con las incorporaciones posteriores a
+El propio artículo prevé que este listado **puede crecer**. Otros tratados
+de derechos humanos pueden sumarse con jerarquía constitucional si el
+Congreso los aprueba con el voto de **dos tercios de la totalidad de los
+miembros de cada Cámara**. Es una mayoría agravada, más difícil de alcanzar
+que una ley común. Con las incorporaciones posteriores a
 1994, el número total de instrumentos con jerarquía constitucional
 asciende hoy a **15**.
 
 ## Por qué era un hueco real del MAPA
 
-`../../civica/derechos-y-garantias/` (parte dogmática de la Constitución) ya
-citaba varios de estos derechos como si vinieran "de la Constitución",
-sin explicar que en realidad una parte importante de ese contenido
-llega por la vía de tratados internacionales con este rango especial —
-este módulo cierra ese hueco: cómo un tratado firmado con otros países
-puede terminar teniendo el mismo peso que la propia Constitución.
+`../derechos-y-garantias/` (parte dogmática de la Constitución) ya citaba
+varios de estos derechos como si vinieran "de la Constitución". No explicaba
+que una parte importante de ese contenido llega por la vía de tratados
+internacionales con este rango especial. Este módulo cierra ese hueco: cómo
+un tratado firmado con otros países puede terminar teniendo el mismo peso
+que la propia Constitución.
 
 ## Por qué depende de organismos internacionales
 

@@ -58,8 +58,8 @@ causa vistas en `../oracion-compuesta-coordinacion-y-subordinacion/`.
 
 ## Para qué sirve
 
-Reconocer y clasificar argumentos permite evaluar qué tan sólido es un
-texto argumentativo (¿tiene varios tipos de argumento, o repite el
-mismo?) y es prerrequisito directo de **contraargumentos** (siguiente
-tema): sólo se puede anticipar y refutar la postura contraria si
-primero se sabe construir bien los propios argumentos.
+Reconocer y clasificar argumentos permite evaluar qué tan sólido es un texto
+argumentativo: ¿tiene varios tipos de argumento, o repite el mismo? Es
+prerrequisito directo de **contraargumentos** (siguiente tema). Solo se
+puede anticipar y refutar la postura contraria si primero se sabe construir
+bien los propios argumentos.

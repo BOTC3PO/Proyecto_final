@@ -26,7 +26,7 @@ Se dibuja solo la parte que interesa (la cara inclinada y lo que tiene), no la p
 
 ## 4. Vistas de detalle
 
-Cuando una zona es muy chica para ser leída o acotada con claridad (una ranura, una rosca, un entalle), se la encierra con una circunferencia fina, se la identifica con una letra y se dibuja **ampliada** en otro lugar, indicando su escala ("Detalle A, escala 5:1"). Se aclara la escala de ampliación aparte de la del resto del dibujo.
+Cuando una zona es muy chica para ser leída o acotada con claridad (una ranura, una rosca, un entalle), se la encierra con una circunferencia fina y se la identifica con una letra. Después se dibuja **ampliada** en otro lugar, indicando su escala ("Detalle A, escala 5:1"). Se aclara la escala de ampliación aparte de la del resto del dibujo.
 
 ## 5. Cómo se interpretan
 

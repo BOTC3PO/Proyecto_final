@@ -12,7 +12,9 @@
 
 La relatividad especial, propuesta por Albert Einstein en 1905, es una teoría física que describe cómo las leyes de la naturaleza se comportan cuando se mueven a velocidades cercanas a la luz. A diferencia de lo que postulaban Newton o Galileo, esta teoría establece que no hay un marco de referencia absoluto: todo depende del observador y su estado de movimiento.
 
-<!-- IMAGEN: Comparación entre sistemas inerciales (marcos en reposo o con velocidad constante) y cómo se perciben los fenómenos físicos en cada uno -->
+![Comparación entre sistemas inerciales (marcos en reposo o con velocidad constante) y cómo se perciben los fenómenos físicos en cada uno](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Inertial_frames.svg/960px-Inertial_frames.svg.png)
+
+*Imagen: «Inertial frames», Vectorised by User:Sushant savla from the work by, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Inertial_frames.svg).*
 
 ---
 
@@ -29,8 +31,6 @@ Esta idea revolucionó la física porque desechaba la noción de un espacio abso
 El segundo principio es aún más sorprendente: **la velocidad de la luz en el vacío es siempre la misma**, sin importar cómo se mueva quien la mida. Se representa con la letra $ c \approx 300.000\,\text{km/s} $.  
 
 Esto no parece lógico a primera vista. Si, por ejemplo, un coche se acelera hacia adelante y enciende sus luces, ¿no deberían las luces moverse más rápido que si el auto estuviera quieto? La relatividad especial responde que **no**: la luz siempre va a $ c $, lo cual implica que el tiempo y el espacio no son absolutos.  
-
-<!-- IMAGEN: Representación de un rayo de luz viajando a velocidad constante en distintos marcos inerciales -->
 
 ---
 

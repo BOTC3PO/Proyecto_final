@@ -17,13 +17,12 @@ mejor separados en diapositivas.
 ## Qué es un desarrollo plano
 
 El **desarrollo plano** (o "red") de un cuerpo 3D es la figura plana (2D)
-que, al doblarse por sus líneas de unión, arma exactamente ese cuerpo —
+que, al doblarse por sus líneas de unión, arma exactamente ese cuerpo. Es
 como desarmar una caja de cartón por sus pliegues hasta que queda
-completamente plana, o al revés. Sirve para dos cosas prácticas: calcular
-la superficie total del cuerpo (sumando el área de cada pieza del
-desarrollo, ya que un área 2D es más fácil de calcular que una superficie
-3D directamente) y para construir el cuerpo físicamente con papel o
-cartón.
+completamente plana, o al revés. Sirve para dos cosas prácticas. Una es calcular la superficie total del
+cuerpo, sumando el área de cada pieza del desarrollo, ya que un área 2D es
+más fácil de calcular que una superficie 3D directamente. La otra es
+construir el cuerpo físicamente con papel o cartón.
 
 ## Desarrollo del prisma
 
@@ -43,10 +42,9 @@ triángulos con un vértice en común (el que después se convierte en el
 ## Desarrollo del cilindro
 
 El desarrollo de un cilindro (ver `../cilindros/`) tiene: **dos círculos**
-(las bases) más **un rectángulo** para la superficie lateral. Ese
-rectángulo tiene ancho igual a la **altura** del cilindro, y largo igual a
-la **circunferencia de la base** (2 × π × r) — porque al enrollar el
-rectángulo, ese lado largo es justo lo que "le da la vuelta" al círculo.
+(las bases) más **un rectángulo** para la superficie lateral. Ese rectángulo tiene ancho igual a la **altura** del cilindro y largo igual
+a la **circunferencia de la base** (2 × π × r). Al enrollar el rectángulo,
+ese lado largo es justo lo que "le da la vuelta" al círculo.
 
 ## Desarrollo del cono
 
@@ -63,10 +61,10 @@ A diferencia de los otros cuatro cuerpos, la **esfera no se puede
 "desenrollar" en una figura plana sin deformarla**. Es un hecho
 matemático real (no una limitación de este módulo): una superficie
 curvada en dos direcciones a la vez (como la esfera) no puede aplanarse
-sin estirar o cortar algo. Es la misma razón por la que todo mapa plano
-del mundo (que intenta "desenrollar" la superficie esférica de la Tierra)
-tiene que deformar algo — países cerca de los polos se ven más grandes de
-lo que son en la proyección más usada, por ejemplo. Para representar una
+sin estirar o cortar algo. Es la misma razón por la que todo mapa plano del mundo, que intenta
+"desenrollar" la superficie esférica de la Tierra, tiene que deformar algo.
+Por ejemplo, los países cerca de los polos se ven más grandes de lo que son
+en la proyección más usada. Para representar una
 esfera con material plano, hace falta cortarla en gajos (como una pelota
 de fútbol, hecha de muchos parches curvos, no de un desarrollo plano
 único).

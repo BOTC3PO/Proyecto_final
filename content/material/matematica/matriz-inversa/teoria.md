@@ -52,11 +52,10 @@ hecha, o algo así).
 
 ## Para qué sirve: resolver sistemas
 
-Un sistema de ecuaciones Ax = b (A es la matriz de coeficientes, x el
-vector de incógnitas, b los términos independientes) se puede resolver
-directamente despejando x = A⁻¹ · b — el mismo movimiento que despejar
-x = c/a en una ecuación de un número, pero con matrices en vez de
-números sueltos.
+Un sistema de ecuaciones Ax = b (A es la matriz de coeficientes, x el vector
+de incógnitas, b los términos independientes) se puede resolver directamente
+despejando x = A⁻¹ · b. Es el mismo movimiento que despejar x = c/a en una
+ecuación de un número, pero con matrices en vez de números sueltos.
 
 ## Errores comunes
 

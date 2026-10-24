@@ -32,19 +32,18 @@ el tipo de mancha:
 El agua es polar (ver [tensión superficial y
 emulsiones](../tension-superficial-y-emulsiones/teoria.md)): igual que no
 se mezcla con aceite en una sartén, tampoco disuelve una mancha de grasa
-por sí sola. Hace falta un **tensioactivo** (la base de cualquier jabón o
-detergente) — una molécula con una punta que se pega a la grasa y otra
-punta que se pega al agua, que rodea la suciedad grasa y permite que el
-agua se la lleve, el mismo mecanismo que ya explica cómo la lecitina
-estabiliza una mayonesa.
+por sí sola. Hace falta un **tensioactivo**, la base de cualquier jabón o detergente. Es
+una molécula con una punta que se pega a la grasa y otra punta que se pega
+al agua. Rodea la suciedad grasa y permite que el agua se la lleve. Es el
+mismo mecanismo que ya explica cómo la lecitina estabiliza una mayonesa.
 
 ## El error clásico: agua caliente sobre una mancha de sangre o huevo
 
-Con una mancha de **proteína**, el agua caliente es contraproducente: el
-calor **desnaturaliza** la proteína (el mismo proceso que endurece un
-huevo al cocinarlo), haciendo que se coagule y se pegue todavía más fuerte
-a las fibras de la tela — la mancha queda "fijada", mucho más difícil de
-sacar después. Por eso la recomendación estándar es siempre **agua fría**
+Con una mancha de **proteína**, el agua caliente es contraproducente. El
+calor **desnaturaliza** la proteína (el mismo proceso que endurece un huevo
+al cocinarlo), y hace que se coagule y se pegue todavía más fuerte a las
+fibras de la tela. La mancha queda "fijada", mucho más difícil de sacar
+después. Por eso la recomendación estándar es siempre **agua fría**
 para manchas de sangre, huevo o leche: mientras la proteína sigue sin
 coagular, se puede disolver y arrastrar con más facilidad.
 

@@ -37,10 +37,10 @@ escalar con el ángulo entre los vectores.
 
 ## Producto escalar y perpendicularidad
 
-De la segunda fórmula sale una propiedad clave: si `v · w = 0`, y
-ninguno de los dos vectores es el vector nulo, entonces necesariamente
-`cos(θ) = 0`, lo que significa `θ = 90°` — los vectores son
-**perpendiculares** (u **ortogonales**). Es la misma idea del criterio
+De la segunda fórmula sale una propiedad clave. Si `v · w = 0` y ninguno de
+los dos vectores es el vector nulo, entonces necesariamente `cos(θ) = 0`, lo
+que significa `θ = 90°`. Los vectores son **perpendiculares** (u
+**ortogonales**). Es la misma idea del criterio
 de perpendicularidad de pendientes
 (`../rectas-paralelas-y-perpendiculares/`), ahora expresada con
 vectores.
@@ -72,16 +72,15 @@ mismo resultado sin importar el orden.
 v · v = |v|²
 ```
 
-Tiene sentido con la fórmula de componentes: `vₓ×vₓ + v_y×v_y` es
-exactamente lo que va dentro de la raíz cuadrada de la fórmula del
-módulo — por eso el producto de un vector consigo mismo da el cuadrado
-de su propio módulo.
+Tiene sentido con la fórmula de componentes. `vₓ×vₓ + v_y×v_y` es
+exactamente lo que va dentro de la raíz cuadrada de la fórmula del módulo.
+Por eso el producto de un vector consigo mismo da el cuadrado de su propio
+módulo.
 
 ## Para qué sirve
 
-El producto escalar aparece en el cálculo del **trabajo** de una fuerza
-en Física (`W = F × d × cos(θ)`, con `F` la fuerza, `d` el
-desplazamiento, y `θ` el ángulo entre ambos): una fuerza que empuja
-perpendicular al movimiento no hace ningún trabajo, aunque tenga
-magnitud — y el producto escalar es exactamente la herramienta que
-explica por qué.
+El producto escalar aparece en el cálculo del **trabajo** de una fuerza en
+Física: `W = F × d × cos(θ)`, con `F` la fuerza, `d` el desplazamiento y `θ`
+el ángulo entre ambos. Una fuerza que empuja perpendicular al movimiento no
+hace ningún trabajo, aunque tenga magnitud. El producto escalar es
+exactamente la herramienta que explica por qué.

@@ -1,0 +1,32 @@
+{
+ "titulo": "Agua dulce y agua salada",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "El mismo cuerpo en dos líquidos",
+   "headers": [
+    "",
+    "Agua dulce",
+    "Agua salada"
+   ],
+   "rows": [
+    [
+     "Densidad",
+     "1000 kg/m³",
+     "≈ 1025 kg/m³"
+    ],
+    [
+     "Empuje a igual volumen sumergido",
+     "menor",
+     "mayor"
+    ],
+    [
+     "Altura de flotación",
+     "Flota más hundido",
+     "Flota más alto"
+    ]
+   ]
+  }
+ ]
+}

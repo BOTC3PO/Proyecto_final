@@ -28,7 +28,7 @@ Lo más importante del presupuesto es su naturaleza **preventiva**. No se elabor
 
 ## 4. El ciclo del presupuesto: desde la planificación hasta la evaluación
 
-El proceso presupuestario no termina con su aprobación. Incluye varias etapas: **formulación**, donde se definen metas y recursos; **aprobación**, que requiere autorización política o legal; **ejecución**, donde se cumplen los compromisos planificados; **seguimiento**, para monitorear avances y ajustar desviaciones; y finalmente, **evaluación**, que analiza si el presupuesto logró sus objetivos. Esta secuencia asegura que cada paso esté alineado con la visión estratégica de la organización.
+El proceso presupuestario no termina con su aprobación. Incluye varias etapas. La **formulación** es donde se definen metas y recursos. La **aprobación** requiere autorización política o legal. En la **ejecución** se cumplen los compromisos planificados. El **seguimiento** monitorea avances y ajusta desviaciones. Y finalmente, la **evaluación** analiza si el presupuesto logró sus objetivos. Esta secuencia asegura que cada paso esté alineado con la visión estratégica de la organización.
 
 ---
 

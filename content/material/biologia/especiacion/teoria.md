@@ -36,30 +36,28 @@ después desaparezca.
 
 ## 3. Dos tipos de especiación, según el tipo de aislamiento
 
-- **Especiación alopátrica** (la más común): el aislamiento es
-  **geográfico** — una barrera física (una cordillera, un río, un
-  brazo de mar, la separación de un continente) divide físicamente a
-  la población en dos grupos que ya no pueden encontrarse para
-  reproducirse. Ejemplo clásico: las ardillas del Gran Cañón
+- **Especiación alopátrica** (la más común): el aislamiento es **geográfico**.
+  Una barrera física (una cordillera, un río, un brazo de mar, la separación
+  de un continente) divide físicamente a la población en dos grupos que ya
+  no pueden encontrarse para reproducirse. Ejemplo clásico: las ardillas del Gran Cañón
   (Kaibab/Abert), separadas por el cañón mismo.
-- **Especiación simpátrica** (menos común, sin barrera física): el
-  aislamiento es **reproductivo** aunque las poblaciones compartan el
-  mismo territorio — por ejemplo, si parte de una población cambia su
-  época de floración/apareamiento, o su preferencia de hábitat/pareja
-  dentro de la misma zona, de forma que deja de cruzarse con el resto
-  aunque estén físicamente cerca.
+- **Especiación simpátrica** (menos común, sin barrera física): el aislamiento
+  es **reproductivo**, aunque las poblaciones compartan el mismo territorio.
+  Por ejemplo, parte de una población cambia su época de floración o
+  apareamiento, o su preferencia de hábitat o pareja dentro de la misma
+  zona. Así deja de cruzarse con el resto, aunque estén físicamente cerca.
 
 ## 4. Cómo se sabe que ya son especies distintas
 
-El criterio central sigue siendo el mismo de `../clasificacion-evolucion/`:
-si se vuelven a poner en contacto (por ejemplo, si desaparece la
-barrera geográfica) y **ya no logran reproducirse** entre sí y dejar
-descendencia fértil, la especiación ya ocurrió — son especies
+El criterio central sigue siendo el mismo de `../clasificacion-evolucion/`.
+Si las poblaciones se vuelven a poner en contacto (por ejemplo, si
+desaparece la barrera geográfica) y **ya no logran reproducirse** entre sí y
+dejar descendencia fértil, la especiación ya ocurrió. Son especies
 distintas.
 
 ## 5. Conexión con lo que ya se vio
 
-La especiación es la **consecuencia acumulada** de todo lo visto en
-este tramo del tronco: variación heredable + selección natural y/o
-deriva genética actuando sin flujo génico que las contrarreste,
-sostenido durante suficientes generaciones.
+La especiación es la **consecuencia acumulada** de todo lo visto en este
+tramo del tronco: variación heredable, selección natural y/o deriva
+genética. Actúan sin flujo génico que las contrarreste, y durante
+suficientes generaciones.

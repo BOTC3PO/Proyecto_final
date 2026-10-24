@@ -62,9 +62,8 @@ usa cardinales — es el sistema que no cambia según el observador.
 
 ## Por qué importa antes de leer un mapa
 
-Todo mapa tiene una rosa de los vientos (o al menos una flecha marcando
-el norte) porque, sin saber hacia dónde apunta el norte del mapa, no se
-puede relacionar lo dibujado con el territorio real: un mapa girado 90°
-respecto al terreno es ilegible aunque tenga toda la información
-correcta. Esta es la razón por la que `orientacion-puntos-cardinales/`
+Todo mapa tiene una rosa de los vientos (o al menos una flecha marcando el
+norte). Sin saber hacia dónde apunta el norte del mapa, no se puede
+relacionar lo dibujado con el territorio real. Un mapa girado 90° respecto
+al terreno es ilegible aunque tenga toda la información correcta. Esta es la razón por la que `orientacion-puntos-cardinales/`
 es el primer escalón antes de `mapa-plano-escala/`.

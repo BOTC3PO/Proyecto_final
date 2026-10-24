@@ -59,17 +59,16 @@ convencer.
 
 ## Sesgo no es lo mismo que mentira
 
-Un documento puede ser sincero y fiel a lo que su autor percibió, y
-aun así estar sesgado por su posición social, su época o sus
-creencias — el trabajo del historiador no es "descartar" fuentes
-sesgadas (todas lo están, en algún grado), sino **entender el sesgo**
-para poder leer la fuente con más precisión.
+Un documento puede ser sincero y fiel a lo que su autor percibió, y aun así
+estar sesgado por su posición social, su época o sus creencias. El trabajo
+del historiador no es "descartar" fuentes sesgadas, porque todas lo están en
+algún grado. Es **entender el sesgo** para poder leer la fuente con más
+precisión.
 
 ## Para qué sirve
 
-Interpretar fuentes históricas con este método crítico es la
-aplicación de las mismas herramientas de `../lengua/contraargumentos/`
-(sopesar una postura sabiendo su origen e interés) a documentos del
-pasado — y es la base de cualquier trabajo serio de investigación
-histórica, no sólo memorizar fechas y hechos ya interpretados por
-otros.
+Interpretar fuentes históricas con este método crítico es aplicar las mismas
+herramientas de `../lengua/contraargumentos/` (sopesar una postura sabiendo
+su origen e interés) a documentos del pasado. Es la base de cualquier
+trabajo serio de investigación histórica, y no solo de memorizar fechas y
+hechos ya interpretados por otros.

@@ -13,10 +13,9 @@ errores comunes).
 
 ## Qué es un límite
 
-El **límite** de f(x) cuando x se acerca a un valor a (se escribe
-lim(x→a) f(x)) es el valor al que se **acerca** f(x) a medida que x se
-acerca a a — sin que haga falta que f esté siquiera definida
-exactamente en a. Es una pregunta sobre el **comportamiento cercano**, no
+El **límite** de f(x) cuando x se acerca a un valor a (se escribe lim(x→a)
+f(x)) es el valor al que se **acerca** f(x) a medida que x se acerca a a. No
+hace falta que f esté siquiera definida exactamente en a. Es una pregunta sobre el **comportamiento cercano**, no
 sobre el valor puntual.
 
 ## Límite de una función continua: simplemente evaluar

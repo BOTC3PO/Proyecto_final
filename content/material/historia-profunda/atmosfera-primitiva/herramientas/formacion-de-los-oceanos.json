@@ -1,0 +1,64 @@
+{
+ "titulo": "Formación de los océanos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Del vapor al océano",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Vapor de agua en la atmósfera",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "La Tierra se enfría",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "El vapor se condensa",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Lluvias durante milenios",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Océanos primordiales",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

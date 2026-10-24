@@ -22,7 +22,7 @@ Un producto crece: decenas de pantallas, varias personas diseñando y programand
 
 ## 3. Atomic Design
 
-Brad Frost propuso pensar la interfaz como una construcción por niveles: los **átomos** (un botón, una etiqueta, un campo), las **moléculas** (un campo con su etiqueta y mensaje de ayuda), los **organismos** (un encabezado con logotipo, menú y buscador), las **plantillas** y las **páginas**. No es una regla rígida sino una forma de ordenar lo simple y lo compuesto.
+Brad Frost propuso pensar la interfaz como una construcción por niveles. Los **átomos** son un botón, una etiqueta, un campo. Las **moléculas** son un campo con su etiqueta y mensaje de ayuda. Los **organismos** son un encabezado con logotipo, menú y buscador. Después vienen las **plantillas** y las **páginas**. No es una regla rígida sino una forma de ordenar lo simple y lo compuesto.
 
 ## 4. Beneficios y costos
 

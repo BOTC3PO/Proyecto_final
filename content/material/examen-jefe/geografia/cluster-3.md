@@ -1,10 +1,10 @@
 # Examen jefe — Domina Territorio y Teledetección
 
-> Logro #798. Completaste el parcial con región, relieve, clima y biomas, recursos y actividades económicas, y las herramientas SIG de GPS e imágenes satelitales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **106 preguntas totales** en 5/5 secciones.
+> Logro #798. Completaste el parcial con región, relieve, clima y biomas, recursos y actividades económicas, y las herramientas SIG de GPS e imágenes satelitales. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: region (20 preguntas)
+## Sección: region (19 preguntas)
 
 ```
 metadata:
@@ -363,26 +363,6 @@ respuesta: "Región cultural/geopolítica, sin coincidir con un único país"
 explicacion: |
   Agrupa varios países por cercanía geográfica e histórica compartida,
   no por ser una sola unidad política.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "region"
-  nivel: "avanzado"
-  tags: ["marco_ncge"]
-
-enunciado: "¿Por qué se agregó específicamente el nodo \"Región\" al mapa, en vez de asumir que ya estaba cubierto por división política?"
-tipo: mc
-opciones_explicitas:
-  - "Porque división política es más estrecho: sólo cubre el caso formal, dejando afuera regiones físicas, culturales y funcionales sin límite oficial"
-  - "Porque división política nunca se relaciona con región"
-  - "Porque los 5 Temas de la Geografía no incluyen a Región"
-respuesta: "Porque división política es más estrecho: sólo cubre el caso formal, dejando afuera regiones físicas, culturales y funcionales sin límite oficial"
-
-explicacion: |
-  Es la nota explícita de `troncos.md` (agregado v2.4): "División
-  política se le acerca pero es más estrecho".
 ```
 
 ## Sección: sig-gps (20 preguntas)
@@ -777,7 +757,7 @@ explicacion: |
   capas de información aparte que se agregan después.
 ```
 
-## Sección: relieve-clima-biomas (24 preguntas)
+## Sección: relieve-clima-biomas (23 preguntas)
 
 ```
 metadata:
@@ -1160,7 +1140,7 @@ metadata:
   nivel: "intermedio"
   tags: ["cruce"]
 
-enunciado: "¿Un bioma es un ejemplo de qué concepto ya visto en `../region/`?"
+enunciado: "¿Un bioma es un ejemplo de qué concepto ya visto en Región?"
 tipo: mc
 opciones_explicitas:
   - "Región física, que agrupa territorio por un rasgo natural sin respetar límites políticos"
@@ -1169,8 +1149,7 @@ opciones_explicitas:
 respuesta: "Región física, que agrupa territorio por un rasgo natural sin respetar límites políticos"
 
 explicacion: |
-  Es la razón por la que `relieve-clima-biomas/` depende de
-  `../region/` en `../dependencias.md`.
+  Un bioma es una región física: agrupa territorio por un rasgo natural (clima, vegetación) sin respetar límites políticos.
 ```
 
 ```
@@ -1230,27 +1209,6 @@ respuesta_orden: ["Relieve", "Clima", "Bioma"]
 
 explicacion: |
   Relieve (y latitud) → Clima → Bioma, en ese orden causal.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "relieve_clima_biomas"
-  nivel: "avanzado"
-  tags: ["cadena_causal"]
-
-enunciado: "¿Por qué relieve, clima y bioma se tratan como una sola unidad de estudio en vez de tres temas separados?"
-tipo: mc
-opciones_explicitas:
-  - "Porque cada uno es la causa directa del siguiente: entender uno sin el anterior es quedarse a mitad de camino de la explicación"
-  - "Porque son exactamente lo mismo con distinto nombre"
-  - "Porque el MAPA los separó en 3 nodos distintos con IDs propios"
-respuesta: "Porque cada uno es la causa directa del siguiente: entender uno sin el anterior es quedarse a mitad de camino de la explicación"
-
-explicacion: |
-  A diferencia de `G12` o `H2` (que sí tienen sub-IDs `a`/`b`/`c` en el
-  MAPA), `G6` sigue siendo un solo nodo — señal de que se pensó como
-  unidad.
 ```
 
 ## Sección: sig-imagenes-satelitales (20 preguntas)

@@ -14,8 +14,6 @@ Las **tareas** son actividades concretas que requieren tiempo, esfuerzo y recurs
 
 Los **hitos**, por otro lado, no son actividades que se hagan. Son puntos de control que marcan la finalización de una fase importante del proyecto. Por ejemplo: "Finalizar investigación para el informe" o "Entrega de la primera versión del trabajo". Un hito no dura, es solo un momento en el tiempo donde se verifica si algo está listo.
 
-<!-- IMAGEN: Comparación entre tareas (con barras de duración) y hitos (marcadores en una línea de tiempo) -->
-
 ---
 
 ## 2. ¿Por qué los hitos son clave en la planificación?
@@ -51,7 +49,9 @@ También es común planificar sin hitos claros. Si no hay puntos de control, es 
 
 Para visualizar el trabajo, se pueden usar herramientas como **listas de tareas**, **calendarios** o incluso diagramas como el **Gantt** (una barra que muestra cada tarea con su duración). En proyectos más grandes, los hitos se marcan en la parte superior del Gantt para destacar las fechas clave.
 
-<!-- IMAGEN: Ejemplo de un diagrama Gantt con tareas y hitos señalados -->
+![Ejemplo de un diagrama Gantt con tareas y hitos señalados](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/GanttChartAnatomy.svg/960px-GanttChartAnatomy.svg.png)
+
+*Imagen: «GanttChartAnatomy», GanttChartAnatomy.png: Original uploader was Garry, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GanttChartAnatomy.svg).*
 
 ---
 

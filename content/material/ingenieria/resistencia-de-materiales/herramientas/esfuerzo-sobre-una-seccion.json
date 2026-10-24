@@ -1,0 +1,38 @@
+{
+ "titulo": "Esfuerzo sobre una sección",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "latex",
+   "content": "\\sigma = \\dfrac{F}{A}",
+   "displayMode": true
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Qué significa cada símbolo",
+   "headers": [
+    "Símbolo",
+    "Qué es",
+    "Unidad"
+   ],
+   "rows": [
+    [
+     "σ",
+     "Esfuerzo",
+     "Pa (N/m²)"
+    ],
+    [
+     "F",
+     "Fuerza aplicada",
+     "N"
+    ],
+    [
+     "A",
+     "Área de la sección transversal",
+     "m²"
+    ]
+   ]
+  }
+ ]
+}

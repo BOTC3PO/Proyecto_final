@@ -289,28 +289,8 @@ explicacion: |
   Son los ámbitos explícitos que menciona la teoría.
 ```
 
-### 15 — Prerrequisito: derechos indígenas
 
-```
-metadata:
-  materia: "civica"
-  tema: "derechos_genero"
-  nivel: "intermedio"
-  tags: ["prerrequisito"]
-
-enunciado: "¿Qué relación tiene este tema con `../derechos-indigenas/` en la cadena de esta materia?"
-tipo: mc
-opciones_explicitas:
-  - "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
-  - "No tienen ninguna relación entre sí"
-  - "Los derechos de género reemplazan a los derechos indígenas"
-respuesta: "Es el último hermano de la secuencia: los 3 (niño, indígenas, género) son especificaciones distintas del art. 92"
-
-explicacion: |
-  Cierra la subrama de 3 hermanos del nodo `T7` del MAPA.
-```
-
-### 16 — Discriminación cultural vs. legal
+### 15 — Discriminación cultural vs. legal
 
 ```
 metadata:
@@ -328,7 +308,7 @@ explicacion: |
   desigualdad, no sólo normas legales explícitas.
 ```
 
-### 17 — Ley 26.206 y art. 92
+### 16 — Ley 26.206 y art. 92
 
 ```
 metadata:
@@ -351,7 +331,7 @@ explicacion: |
   `../../geografia/ambiente-y-recursos/` (inciso g).
 ```
 
-### 18 — Ratificación argentina
+### 17 — Ratificación argentina
 
 ```
 metadata:
@@ -368,7 +348,7 @@ explicacion: |
   Confirmado con la reforma constitucional de 1994 (art. 75 inc. 22).
 ```
 
-### 19 — Distinguir norma vigente de debate en curso
+### 18 — Distinguir norma vigente de debate en curso
 
 ```
 metadata:
@@ -389,7 +369,7 @@ explicacion: |
   Es el cierre práctico de la teoría.
 ```
 
-### 20 — Síntesis
+### 19 — Síntesis
 
 ```
 metadata:

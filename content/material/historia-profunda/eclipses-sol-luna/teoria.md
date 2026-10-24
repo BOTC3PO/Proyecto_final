@@ -12,7 +12,9 @@
 
 Un eclipse solar ocurre cuando la Luna se interpone entre el Sol y la Tierra, bloqueando parcial o totalmente la luz del Sol desde nuestra perspectiva. Para que esto suceda, los tres cuerpos deben alinearse con precisión: Sol — Luna — Tierra. La sombra de la Luna proyectada sobre la superficie terrestre es lo que genera el fenómeno. Solo en días específicos, cuando esta alineación es exacta, se produce un eclipse.
 
-<!-- IMAGEN: diagrama de alineación solar-lunar -->
+![diagrama de alineación solar-lunar](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Geometry_of_Solar_eclipses_and_Lunar_eclipses.svg/960px-Geometry_of_Solar_eclipses_and_Lunar_eclipses.svg.png)
+
+*Imagen: «Geometry of Solar eclipses and Lunar eclipses», Scrawler, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Geometry_of_Solar_eclipses_and_Lunar_eclipses.svg).*
 
 ---
 
@@ -26,7 +28,9 @@ Para que la Luna esté entre el Sol y la Tierra, debe estar en fase de **Luna Nu
 
 Un eclipse lunar ocurre cuando la Tierra se interpone entre el Sol y la Luna, bloqueando la luz solar que normalmente ilumina a la Luna. Esto solo puede suceder durante una **Luna Llena**, ya que en esa fase la Luna está alineada con el Sol pero del lado opuesto de la Tierra. La sombra terrestre cubre parcial o totalmente la superficie lunar, cambiando su color y visibilidad.
 
-<!-- IMAGEN: tipos de eclipses -->
+![tipos de eclipses](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Types_of_solar_eclipse_ESA521436.png/960px-Types_of_solar_eclipse_ESA521436.png)
+
+*Imagen: «Types of solar eclipse ESA521436», European Space Agency, CC BY-SA 3.0 igo. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Types_of_solar_eclipse_ESA521436.png).*
 
 ---
 

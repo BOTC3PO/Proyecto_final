@@ -49,11 +49,11 @@ frenar excesos de los otros dos. Ejemplos reales del sistema argentino:
 
 ## Cómo se eligen (adelanto)
 
-Los miembros del Poder Legislativo y el Poder Ejecutivo se eligen por
-voto popular (ver `../sistema-electoral-dhondt/` para el mecanismo de
-reparto de bancas legislativas); los jueces del Poder Judicial **no** se
-eligen por voto, se nombran (Presidente + acuerdo del Senado) para
-garantizar independencia del ciclo electoral.
+Los miembros del Poder Legislativo y el Poder Ejecutivo se eligen por voto
+popular (ver `../sistema-electoral-dhondt/` para el mecanismo de reparto de
+bancas legislativas). Los jueces del Poder Judicial **no** se eligen por
+voto: se nombran (Presidente + acuerdo del Senado). Así se garantiza su
+independencia del ciclo electoral.
 
 ## Para qué sirve
 

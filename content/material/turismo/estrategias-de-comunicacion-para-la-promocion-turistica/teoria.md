@@ -10,7 +10,7 @@
 
 ## 1. Qué es una estrategia de comunicación en turismo
 
-Una estrategia de comunicación en el ámbito turístico es un plan diseñado para transmitir información sobre un **destino turístico** (espacio geográfico con servicios y atracciones que se promocionan) a posibles visitantes, con el objetivo de generar interés, conciencia o acciones concretas como reservar un viaje. No se trata solo de publicidad: incluye desde la creación de contenidos hasta la elección de canales adecuados para llegar al público objetivo.
+Una estrategia de comunicación en el ámbito turístico es un plan diseñado para transmitir información sobre un **destino turístico** a posibles visitantes. Un destino turístico es un espacio geográfico con servicios y atracciones que se promocionan. El objetivo es generar interés, conciencia o acciones concretas como reservar un viaje. No se trata solo de publicidad: incluye desde la creación de contenidos hasta la elección de canales adecuados para llegar al público objetivo.
 
 Estas estrategias buscan destacar las ventajas únicas del destino, como paisajes, cultura, gastronomía o experiencias inolvidables. Por ejemplo, si un pueblo tiene una fiesta tradicional única, su campaña debe enfatizar esa singularidad para atraer a turistas interesados en ese tipo de eventos.
 

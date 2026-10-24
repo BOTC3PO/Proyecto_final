@@ -43,10 +43,10 @@ caminos distintos con exactamente la misma longitud mínima.
 
 ## Qué es un ciclo
 
-Un **ciclo** es, literalmente, un camino particular: uno que **empieza
-y termina en el mismo vértice**, sin repetir ningún otro vértice en el
-medio (y con al menos 3 vértices distintos involucrados, para que no
-sea sólo ir y volver por la misma arista).
+Un **ciclo** es, literalmente, un camino particular: uno que **empieza y
+termina en el mismo vértice**, sin repetir ningún otro vértice en el medio.
+Además, involucra al menos 3 vértices distintos, para que no sea solo ir y
+volver por la misma arista.
 
 ```
 A ─── B
@@ -68,19 +68,18 @@ de `../arboles-grafo-sin-ciclos/`, el módulo que sigue.
 
 Un grafo es **conexo** cuando existe **al menos un camino** entre
 cualquier par de vértices — no hay ningún vértice (ni grupo de
-vértices) completamente aislado del resto. Un grafo puede tener
-ciclos y seguir siendo conexo, o no tener ciclos y no ser conexo (si
-está partido en varios pedazos sin conexión entre sí) — "conexo" y
-"acíclico" son dos propiedades **independientes**, aunque ambas se
-combinan en la definición de árbol del módulo que sigue.
+vértices) completamente aislado del resto. Un grafo puede tener ciclos y seguir siendo conexo. O puede no tener ciclos
+y no ser conexo, si está partido en varios pedazos sin conexión entre sí.
+"Conexo" y "acíclico" son dos propiedades **independientes**, aunque ambas
+se combinan en la definición de árbol del módulo que sigue.
 
 ## Para qué sirve
 
-Detectar ciclos es crítico en muchos sistemas reales: una dependencia
-circular en software (el módulo A necesita al B, que necesita al C,
-que necesita al A) es un ciclo que impide compilar o resolver el
-orden de carga; un circuito eléctrico necesita un ciclo cerrado para
-que fluya la corriente; una red de tuberías con un ciclo permite
-rutas alternativas si una cañería se rompe. Encontrar el camino más
+Detectar ciclos es crítico en muchos sistemas reales. Una dependencia
+circular en software (el módulo A necesita al B, que necesita al C, que
+necesita al A) es un ciclo que impide compilar o resolver el orden de carga.
+Un circuito eléctrico necesita un ciclo cerrado para que fluya la corriente.
+Una red de tuberías con un ciclo permite rutas alternativas si una cañería
+se rompe. Encontrar el camino más
 corto (con o sin pesos) es, además, exactamente el problema que
 resuelven los algoritmos de `../algoritmos-de-recorrido-bfs-dfs/`.

@@ -1,0 +1,32 @@
+{
+ "titulo": "Taller doméstico y fábrica industrial",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Taller doméstico",
+    "Fábrica industrial"
+   ],
+   "rows": [
+    [
+     "Lugar",
+     "En la casa",
+     "Edificio especializado"
+    ],
+    [
+     "Fuerza motriz",
+     "Muscular",
+     "Máquina de vapor"
+    ],
+    [
+     "Organización",
+     "Familiar",
+     "Jornadas y disciplina de fábrica"
+    ]
+   ]
+  }
+ ]
+}

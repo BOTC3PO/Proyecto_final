@@ -1,0 +1,32 @@
+{
+ "titulo": "Emociones normales y patológicas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Criterios para distinguirlas",
+   "headers": [
+    "",
+    "Normal",
+    "Patológico"
+   ],
+   "rows": [
+    [
+     "Intensidad",
+     "Proporcional a la situación",
+     "Desproporcionada"
+    ],
+    [
+     "Duración",
+     "Pasa con el tiempo",
+     "Persiste semanas o meses"
+    ],
+    [
+     "Efecto en la vida diaria",
+     "Poco o ninguno",
+     "Interfiere con estudio, trabajo o vínculos"
+    ]
+   ]
+  }
+ ]
+}

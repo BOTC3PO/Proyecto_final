@@ -1,6 +1,6 @@
 # Examen jefe — Ciudadano Responsable en la Vía Pública
 
-> Logro #882. Completaste el examen jefe sobre impuestos, alcoholemia al conducir, señalización vial y la participación ciudadana. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **104 preguntas totales** en 5/5 secciones.
+> Logro #882. Completaste el examen jefe sobre impuestos, alcoholemia al conducir, señalización vial y la participación ciudadana. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **103 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1648,7 +1648,7 @@ explicacion: |
   especies nativas en tres meses".
 ```
 
-## Sección: senalizacion-vial (20 preguntas)
+## Sección: senalizacion-vial (19 preguntas)
 
 ```
 metadata:
@@ -1901,26 +1901,6 @@ respuesta: "Derogó los artículos de la Ley 27.214 que la hacían obligatoria a
 explicacion: |
   El contenido sigue siendo currícula real donde se dicta, pero sin
   respaldo de obligatoriedad nacional.
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué este módulo depende de `../documentos-y-tramites/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
-  - "Porque no tiene relación real con ese módulo"
-  - "Porque el DNI reemplaza a la licencia de conducir"
-respuesta: "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
-
-explicacion: |
-  El MAPA cuelga los 3 nodos de educación vial de los 4 documentos ya
-  vistos.
 ```
 
 ```

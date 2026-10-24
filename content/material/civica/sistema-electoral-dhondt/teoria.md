@@ -14,9 +14,9 @@ separables.
 ## El problema: repartir bancas de forma proporcional
 
 Una banca legislativa se elige por voto popular (`../division-de-poderes/`),
-pero **repartir bancas exactamente proporcional a los votos casi nunca
-da un número entero**: si un partido saca el 33,3% de los votos y hay 5
-bancas en juego, "le tocarían" 1,665 bancas — un número que no existe.
+pero **repartir bancas exactamente proporcional a los votos casi nunca da un
+número entero**. Si un partido saca el 33,3% de los votos y hay 5 bancas en
+juego, "le tocarían" 1,665 bancas, un número que no existe.
 Se necesita un **método de reparto** que reparta bancas enteras
 respetando lo más posible la proporción de votos. El más usado en
 Argentina (elecciones de diputados nacionales, entre otras) es el
@@ -55,24 +55,24 @@ Ordenando los cocientes de mayor a menor: **10.000 (A), 6.000 (B), 5.000
 (A), 3.500 (C), 3.333,33 (A)** — los primeros 5 valores, porque hay 5
 bancas. Reparto final: **A obtiene 3 bancas, B obtiene 1, C obtiene 1.**
 
-Nótese que A sacó el 52,6% de los votos y obtuvo el 60% de las bancas
-(3 de 5) — el método D'Hondt tiende a **favorecer levemente a los
-partidos más grandes** frente a un reparto perfectamente proporcional,
-a cambio de evitar la fragmentación excesiva del cuerpo legislativo (a
-diferencia de otros métodos, como Hare, más proporcionales pero que
-facilitan más partidos chicos con representación).
+Nótese que A sacó el 52,6% de los votos y obtuvo el 60% de las bancas (3 de
+5). El método D'Hondt tiende a **favorecer levemente a los partidos más
+grandes** frente a un reparto perfectamente proporcional. A cambio, evita la
+fragmentación excesiva del cuerpo legislativo. Otros métodos, como Hare, son
+más proporcionales pero facilitan que haya más partidos chicos con
+representación.
 
 ## Piso electoral
 
-En Argentina, para entrar al reparto de bancas de diputados nacionales,
-una lista debe superar el **3% de los votos válidos emitidos del padrón
-electoral del distrito** — quien no llega a ese piso queda fuera del
-reparto D'Hondt directamente, aunque haya sacado votos.
+En Argentina, para entrar al reparto de bancas de diputados nacionales, una
+lista debe superar el **3% de los votos válidos emitidos del padrón
+electoral del distrito**. Quien no llega a ese piso queda fuera del reparto
+D'Hondt directamente, aunque haya sacado votos.
 
 ## Para qué sirve
 
-Entender este mecanismo permite leer con criterio resultados
-electorales reales ("el partido X sacó 25% de los votos pero obtuvo
-30% de las bancas" no es un error ni una trampa, es el efecto esperado
-del método D'Hondt) y hacer el cálculo real de reparto a mano, no sólo
-memorizar el nombre del método.
+Entender este mecanismo permite leer con criterio resultados electorales
+reales. "El partido X sacó 25% de los votos pero obtuvo 30% de las bancas"
+no es un error ni una trampa: es el efecto esperado del método D'Hondt.
+También permite hacer el cálculo real de reparto a mano, y no solo memorizar
+el nombre del método.

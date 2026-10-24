@@ -56,8 +56,8 @@ importa o no se sabe quién hizo la acción.
 
 ## Para qué sirve
 
-Reconocer la transformación activa/pasiva es útil para variar el
-estilo de un texto (poner el foco en quién recibe la acción, no en
-quién la hace — típico de noticias: "el edificio fue inaugurado ayer"
-en vez de nombrar primero a la autoridad) y es la base para entender
-por qué algunos verbos no admiten pasiva.
+Reconocer la transformación activa/pasiva es útil para variar el estilo de
+un texto. Permite poner el foco en quién recibe la acción, no en quién la
+hace, algo típico de las noticias: "el edificio fue inaugurado ayer" en vez
+de nombrar primero a la autoridad. También es la base para entender por qué
+algunos verbos no admiten pasiva.

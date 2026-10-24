@@ -136,29 +136,8 @@ explicacion: |
   nacer/quedarse ahí en esa proporción.
 ```
 
-### 7 — Por qué no se separan pirámides y migraciones
 
-```
-metadata:
-  materia: "geografia"
-  tema: "poblacion_piramides_migraciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué este tema trata pirámides y migraciones como una sola unidad, en vez de dos módulos separados?"
-tipo: mc
-opciones_explicitas:
-  - "Porque leer correctamente una pirámide YA incluye identificar evidencia de migraciones en su forma"
-  - "Porque las migraciones no tienen ninguna relación con las pirámides"
-  - "Porque el MAPA los separó en dos nodos con IDs distintos"
-respuesta: "Porque leer correctamente una pirámide YA incluye identificar evidencia de migraciones en su forma"
-
-explicacion: |
-  Es la decisión propia anotada en `../dependencias.md`: son la misma
-  unidad de "dinámica poblacional" en la enseñanza real.
-```
-
-### 8 — Qué es una migración
+### 7 — Qué es una migración
 
 ```
 metadata:
@@ -180,7 +159,7 @@ explicacion: |
   el destino.
 ```
 
-### 9 — Emigración vs. inmigración
+### 8 — Emigración vs. inmigración
 
 ```
 metadata:
@@ -201,7 +180,7 @@ explicacion: |
   La misma persona que emigra de un país, inmigra al otro.
 ```
 
-### 10 — Migración interna
+### 9 — Migración interna
 
 ```
 metadata:
@@ -223,7 +202,7 @@ explicacion: |
   frontera de país.
 ```
 
-### 11 — Factores de expulsión
+### 10 — Factores de expulsión
 
 ```
 metadata:
@@ -245,7 +224,7 @@ explicacion: |
   (pull) son del lado del destino.
 ```
 
-### 12 — Factores de atracción
+### 11 — Factores de atracción
 
 ```
 metadata:
@@ -267,7 +246,7 @@ explicacion: |
   migración concreta.
 ```
 
-### 13 — Verdadero o falso: una migración tiene una sola causa
+### 12 — Verdadero o falso: una migración tiene una sola causa
 
 ```
 metadata:
@@ -284,7 +263,7 @@ explicacion: |
   Es multicausalidad aplicada al movimiento de personas.
 ```
 
-### 14 — Recursos económicos como factor de migración
+### 13 — Recursos económicos como factor de migración
 
 ```
 metadata:
@@ -293,7 +272,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cruce"]
 
-enunciado: "¿Por qué `poblacion-piramides-migraciones/` depende de `../recursos-actividades-economicas/`?"
+enunciado: "¿Por qué los recursos y las actividades económicas de un territorio se relacionan con la población y sus migraciones?"
 tipo: mc
 opciones_explicitas:
   - "Porque la disponibilidad de recursos y trabajo en un territorio es una de las causas más comunes de por qué la población se mueve o se concentra"
@@ -302,10 +281,10 @@ opciones_explicitas:
 respuesta: "Porque la disponibilidad de recursos y trabajo en un territorio es una de las causas más comunes de por qué la población se mueve o se concentra"
 
 explicacion: |
-  Es la razón anotada en `../dependencias.md`.
+  La disponibilidad de recursos y de trabajo en un territorio es una de las causas más comunes de por qué la población se mueve o se concentra.
 ```
 
-### 15 — Migración interna: campo a ciudad
+### 14 — Migración interna: campo a ciudad
 
 ```
 metadata:
@@ -328,7 +307,7 @@ explicacion: |
   agrícola).
 ```
 
-### 16 — Verdadero o falso: toda pirámide tiene forma triangular
+### 15 — Verdadero o falso: toda pirámide tiene forma triangular
 
 ```
 metadata:
@@ -346,7 +325,7 @@ explicacion: |
   natalidad y mortalidad de cada país.
 ```
 
-### 17 — Lectura de una pirámide sin dato aparte de migración
+### 16 — Lectura de una pirámide sin dato aparte de migración
 
 ```
 metadata:
@@ -364,7 +343,7 @@ explicacion: |
   necesitar un dato separado.
 ```
 
-### 18 — Grupos de edad en una pirámide
+### 17 — Grupos de edad en una pirámide
 
 ```
 metadata:
@@ -381,7 +360,7 @@ explicacion: |
   Grupos de 5 años (0-4, 5-9, 10-14…) son el estándar habitual.
 ```
 
-### 19 — Reunificación familiar
+### 18 — Reunificación familiar
 
 ```
 metadata:
@@ -403,7 +382,7 @@ explicacion: |
   algo que empuja a irse del origen.
 ```
 
-### 20 — Desastre natural como motivo migratorio
+### 19 — Desastre natural como motivo migratorio
 
 ```
 metadata:
@@ -424,7 +403,7 @@ explicacion: |
   Empuja a la población a irse del lugar de origen.
 ```
 
-### 21 — Poblaciones envejeciendo
+### 20 — Poblaciones envejeciendo
 
 ```
 metadata:
@@ -446,7 +425,7 @@ explicacion: |
   frecuente en países desarrollados.
 ```
 
-### 22 — Migración internacional
+### 21 — Migración internacional
 
 ```
 metadata:
@@ -468,7 +447,7 @@ explicacion: |
   país con intención de quedarse.
 ```
 
-### 23 — Ordenar tipos de pirámide según envejecimiento creciente
+### 22 — Ordenar tipos de pirámide según envejecimiento creciente
 
 ```
 metadata:
@@ -490,7 +469,7 @@ explicacion: |
   (envejeciendo).
 ```
 
-### 24 — Resumen: qué combina este tema
+### 23 — Resumen: qué combina este tema
 
 ```
 metadata:

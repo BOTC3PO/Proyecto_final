@@ -69,11 +69,11 @@ otro que no lo está. Puede ser:
 Como se vio en [escalar una receta](../escalar-receta/teoria.md) y en la
 [reacción de Maillard](../reaccion-maillard/teoria.md), el tiempo de
 cocción y de enfriado no escala de forma lineal con la cantidad de
-comida. Una olla grande tarda más en enfriarse (o en calentarse) que una
-porción chica — así que, al escalar una receta a mayor cantidad, esa
-comida puede pasar más tiempo dentro de la zona de peligro si no se
-toman medidas para enfriarla o calentarla más rápido (por ejemplo,
-repartirla en recipientes más chicos para que se enfríe antes).
+comida. Una olla grande tarda más en enfriarse (o en calentarse) que una porción
+chica. Por eso, al escalar una receta a mayor cantidad, esa comida puede
+pasar más tiempo dentro de la zona de peligro si no se toman medidas. Hay
+que enfriarla o calentarla más rápido, por ejemplo repartiéndola en
+recipientes más chicos para que se enfríe antes.
 
 ## Dónde aparece en la vida real
 

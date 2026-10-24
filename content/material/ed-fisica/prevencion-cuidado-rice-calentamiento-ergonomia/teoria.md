@@ -60,12 +60,11 @@ acumulado.
 
 ## 4. Ergonomía: cuidar el cuerpo también fuera del entrenamiento (`EF4d`)
 
-La **ergonomía** es diseñar cómo uno se sienta, se para o se mueve en
-la vida diaria (estudiar, usar el celular, la mochila del colegio)
-para minimizar el estrés físico sobre el cuerpo — malas posturas
-sostenidas durante horas (por ejemplo, encorvado sobre el celular) son
-una causa común de dolores que después se confunden con "lesiones
-deportivas".
+La **ergonomía** es diseñar cómo uno se sienta, se para o se mueve en la
+vida diaria (estudiar, usar el celular, la mochila del colegio) para
+minimizar el estrés físico sobre el cuerpo. Las malas posturas sostenidas
+durante horas (por ejemplo, encorvado sobre el celular) son una causa común
+de dolores que después se confunden con "lesiones deportivas".
 
 ## 5. Sueño: la recuperación que no se ve (`EF4e`)
 
@@ -78,10 +77,9 @@ recuperación.
 
 ## 6. Los 5 ejes, la misma idea
 
-RICE, entrada en calor, evitar el sobreentrenamiento, ergonomía y
-sueño son 5 formas distintas de la misma idea: **el cuerpo necesita
-cuidado antes, durante y después del esfuerzo**, no sólo durante el
-entrenamiento en sí.
+RICE, entrada en calor, evitar el sobreentrenamiento, ergonomía y sueño son
+5 formas distintas de la misma idea: **el cuerpo necesita cuidado antes,
+durante y después del esfuerzo**, no solo durante el entrenamiento en sí.
 
 ## 7. Conexión con lo que sigue
 

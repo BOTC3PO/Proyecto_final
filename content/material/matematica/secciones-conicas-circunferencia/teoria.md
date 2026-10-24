@@ -74,7 +74,7 @@ distancia al cuadrado desde el centro) con `r²`:
 
 ## Para qué sirve
 
-Escribir la circunferencia como ecuación permite trabajarla con álgebra
-en vez de sólo con dibujo: verificar si un punto exacto está dentro,
+Escribir la circunferencia como ecuación permite trabajarla con álgebra en
+vez de solo con dibujo. Se puede verificar si un punto exacto está dentro,
 sobre o fuera de un área circular (una zona de cobertura, un radar, el
-alcance de una señal), sin necesidad de medir sobre un gráfico.
+alcance de una señal) sin necesidad de medir sobre un gráfico.

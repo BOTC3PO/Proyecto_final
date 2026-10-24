@@ -1,0 +1,32 @@
+{
+ "titulo": "Fábrica a vapor y fábrica eléctrica",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cómo llega la energía a las máquinas",
+   "headers": [
+    "",
+    "Vapor",
+    "Motores eléctricos"
+   ],
+   "rows": [
+    [
+     "Fuente",
+     "Una máquina de vapor central",
+     "Un motor en cada máquina"
+    ],
+    [
+     "Transmisión",
+     "Ejes y correas por todo el galpón",
+     "Cable eléctrico"
+    ],
+    [
+     "Disposición",
+     "Máquinas cerca del eje",
+     "Libre, según el proceso productivo"
+    ]
+   ]
+  }
+ ]
+}

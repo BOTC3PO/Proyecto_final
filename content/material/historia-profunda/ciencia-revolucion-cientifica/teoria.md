@@ -14,7 +14,9 @@ La Revolución Científica no surgió en un vacío, sino como fruto de las trans
 
 Este renacimiento del conocimiento antiguo se vio complementado por la invención de la imprenta de tipos móviles por Johannes Gutenberg hacia 1440. La difusión masiva de libros permitió la estandarización de datos, tablas astronómicas y diagramas anatómicos, facilitando que los científicos de diferentes regiones pudieran comparar resultados y construir sobre el trabajo de sus contemporáneos de manera más eficiente que nunca. La crítica textual aplicada a los textos sagrados, impulsada por la Reforma Protestante, también fomentó una mentalidad de cuestionamiento de la autoridad establecida, un espíritu que pronto se dirigió hacia la naturaleza y los textos científicos tradicionales.
 
-<!-- IMAGEN: Portada de la edición princeps de las obras de Arquímedes traducidas al latín, destacando la intersección entre el saber clásico y el nuevo interés matemático -->
+![Portada de la edición princeps de las obras de Arquímedes traducidas al latín, destacando la intersección entre el saber clásico y el nuevo interés matemático](https://upload.wikimedia.org/wikipedia/commons/b/b6/Archimedes_-_Opere%2C_1544_-_1291605_pagina_55.jpeg)
+
+*Imagen: «Archimedes - Opere, 1544 - 1291605 pagina 55», Archimedes, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Archimedes_-_Opere,_1544_-_1291605_pagina_55.jpeg).*
 
 ## 2. La revolución astronómica: De la Tierra al Sol
 
@@ -34,7 +36,7 @@ Esta etapa fue crucial porque estableció que la naturaleza obedece leyes matem�
 
 El clímax de la Revolución Científica clásica llegó con Isaac Newton y la publicación de los *Philosophiæ Naturalis Principia Mathematica* en 1687. Newton logró la gran unificación: demostró que la misma fuerza que hace caer una manzana a la Tierra (la gravedad) es la que mantiene a la Luna en órbita y a los planetas girando alrededor del Sol.
 
-Al formular sus tres leyes del movimiento y la ley de gravitación universal, Newton demostró que el universo funciona como una máquina compleja pero predecible, regida por principios matemáticos simples. El cielo y la tierra, que Aristóteles había separado en esferas distintas (la sublunar corruptible y la celeste inmutable), pasaron a estar gobernados por las mismas leyes físicas. Este enfoque mecanicista no eliminó necesariamente la fe de los científicos (Newton era un devoto), pero cambió la forma en que se conceptualizaba a Dios: de un interventor constante a un "Gran Arquitecto" que estableció las leyes iniciales y dejó que el universo funcionara según ellas.
+Al formular sus tres leyes del movimiento y la ley de gravitación universal, Newton demostró que el universo funciona como una máquina compleja pero predecible, regida por principios matemáticos simples. El cielo y la tierra, que Aristóteles había separado en esferas distintas (la sublunar corruptible y la celeste inmutable), pasaron a estar gobernados por las mismas leyes físicas. Este enfoque mecanicista no eliminó necesariamente la fe de los científicos (Newton era un devoto). Pero cambió la forma en que se conceptualizaba a Dios: de un interventor constante a un "Gran Arquitecto". Este estableció las leyes iniciales y dejó que el universo funcionara según ellas.
 
 ## 5. El método inductivo y Francis Bacon
 

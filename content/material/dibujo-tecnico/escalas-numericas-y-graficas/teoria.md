@@ -12,7 +12,9 @@
 
 La **escala** es la relación matemática que establece cuánto se reduce o amplía un objeto al representarlo en un plano. Por ejemplo, si dibujás una puerta de 2 metros de alto con una escala de 1:50, significa que en el papel medirá 4 centímetros (2 m ÷ 50 = 0,04 m = 4 cm). Esta proporción permite trabajar con objetos grandes, como edificios, o muy pequeños, como piezas mecánicas, sin perder precisión.
 
-<!-- IMAGEN: Ejemplo de escala numérica aplicada a un dibujo técnico -->
+![Ejemplo de escala numérica aplicada a un dibujo técnico](https://upload.wikimedia.org/wikipedia/commons/c/cb/Graphical_scale.gif)
+
+*Imagen: «Graphical scale», Milhaus, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Graphical_scale.gif).*
 
 ## 2. Escalas numéricas: cómo se leen
 
@@ -27,8 +29,6 @@ Estas escalas son clave para interpretar planos arquitectónicos, maquetas o pie
 ## 3. Escalas gráficas: el dibujo como regla
 
 Las **escalas gráficas** son líneas graduadas directamente en los planos, que funcionan como una "regla" visual. Están compuestas por segmentos divididos en partes iguales, indicando las medidas reales correspondientes a cada sección. Por ejemplo, si una escala gráfica está dividida en 5 cm que representan 1 metro, puedes medir directamente con un comps o regla sobre el dibujo y obtener la medida real sin cálculos.
-
-<!-- IMAGEN: Escala gráfica con divisiones marcadas para medir distancias -->
 
 Esta herramienta es útil cuando se necesita rapidez en las mediciones, como en planos de construcción o mapas. Sin embargo, su precisión depende de la calidad del dibujo y de que se respete la proporción durante el trazado.
 

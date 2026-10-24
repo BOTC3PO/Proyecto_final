@@ -29,8 +29,6 @@ La metacognición se compone de dos dimensiones principales: **el conocimiento**
 - El **conocimiento** es el "sé" que te permite reconocer tus habilidades, limitaciones y estilos de aprendizaje.  
 - La **regulación** es el "hago" que implica planificar, monitorear y evaluar tu proceso. Por ejemplo: si descubrís que un método de estudio no funciona, ajustarlo a otro.  
 
-<!-- IMAGEN: Diagrama con dos círculos interconectados: uno etiquetado “Conocimiento” (sé qué se y cómo aprendo) y otro “Regulación” (planificar, monitorear, evaluar) -->.  
-
 ---
 
 ## 4. La importancia del autoconocimiento  

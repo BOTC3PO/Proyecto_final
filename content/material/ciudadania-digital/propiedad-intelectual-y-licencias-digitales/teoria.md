@@ -51,7 +51,7 @@ El **software** tiene sus propias licencias. Las licencias *copyleft* exigen que
 
 ## 6. Inteligencia artificial y autoría
 
-Cada vez se usan más imágenes, textos y música creados con ayuda de inteligencia artificial. Es un tema en discusión: tradicionalmente el derecho de autor se asocia a una persona creadora, y los países y los tribunales todavía están definiendo cómo tratar el contenido generado con IA y el uso de obras ajenas para entrenar esos sistemas. Por eso no hay una regla simple para memorizar: informate sobre la norma vigente, aclará cuándo usaste IA en un trabajo y respetá las reglas de tu escuela.
+Cada vez se usan más imágenes, textos y música creados con ayuda de inteligencia artificial. Es un tema en discusión. Tradicionalmente el derecho de autor se asocia a una persona creadora. Los países y los tribunales todavía están definiendo cómo tratar el contenido generado con IA y el uso de obras ajenas para entrenar esos sistemas. Por eso no hay una regla simple para memorizar: informate sobre la norma vigente, aclará cuándo usaste IA en un trabajo y respetá las reglas de tu escuela.
 
 ## 7. Buenas prácticas
 

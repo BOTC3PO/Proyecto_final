@@ -1,0 +1,78 @@
+{
+ "titulo": "Búsqueda lineal",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Diagrama de flujo",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Inicio: i = 0",
+     "x": 0,
+     "y": 0,
+     "color": "#e5e7eb"
+    },
+    {
+     "id": "n2",
+     "label": "¿lista[i] es el objetivo?",
+     "x": 250,
+     "y": 0,
+     "shape": "diamond",
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Encontrado: devolver i",
+     "x": 525,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n4",
+     "label": "i = i + 1",
+     "x": 250,
+     "y": 115,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n5",
+     "label": "¿Se acabó la lista? No encontrado",
+     "x": 525,
+     "y": 115,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "sí"
+    },
+    {
+     "id": "e3",
+     "fromId": "n2",
+     "toId": "n4",
+     "label": "no"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n4",
+     "toId": "n2",
+     "label": "repetir"
+    }
+   ]
+  }
+ ]
+}

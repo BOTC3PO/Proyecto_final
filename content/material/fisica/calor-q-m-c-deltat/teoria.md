@@ -12,8 +12,6 @@
 
 El **calor** no es una propiedad de los cuerpos, sino un proceso: es la **energía térmica que se transfiere entre dos objetos o sistemas cuando hay una diferencia de temperatura**. Siempre fluye del cuerpo más caliente al más frío hasta equilibrarse. Por ejemplo, si dejas caer un hierro rojo en agua fría, el calor pasa del hierro al agua. Es clave entender que no se trata de "calor" como algo que poseen los objetos, sino de **energía en movimiento**.
 
-<!-- IMAGEN: Dos recipientes con líquidos a distinta temperatura conectados por una tubería; flechas indicando el flujo del calor desde el más caliente al más frío -->
-
 ---
 
 ## 2. Calor específico y capacidad térmica
@@ -41,8 +39,6 @@ $$
 Q = 2 \cdot 4186 \cdot 10 = 83.720 \, \text{J}
 $$
 
-<!-- IMAGEN: Diagrama de la fórmula Q = m·c·ΔT con ejemplos numéricos -->
-
 ---
 
 ## 4. Proporcionalidad entre variables
@@ -59,7 +55,7 @@ Por ejemplo, calentar 1 kg de agua desde 20°C hasta 30°C requiere menos energ�
 
 Esta relación se usa en situaciones cotidianas y técnicas:  
 - **Calentadores solares**: Calculan cuánto calor captarán los fluidos según su masa y material.  
-- **Cocina**: Ayuda a explicar por qué una olla de aluminio transmite el calor al agua más rápido que una de hierro: el aluminio tiene una conductividad térmica mucho mayor (aunque, de hecho, su calor específico —900 J/(kg·°C)— es más alto que el del hierro, 450 J/(kg·°C), por lo que la olla en sí misma necesita más energía para calentarse).  
+- **Cocina**: ayuda a explicar por qué una olla de aluminio transmite el calor al agua más rápido que una de hierro. La causa es que el aluminio tiene una conductividad térmica mucho mayor. De hecho, su calor específico (900 J/(kg·°C)) es más alto que el del hierro (450 J/(kg·°C)), por lo que la olla en sí misma necesita más energía para calentarse.  
 - **Termografía**: En medicina, la variación de temperatura en tejidos ayuda a detectar inflamaciones.
 
 ---

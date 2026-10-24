@@ -11,15 +11,7 @@ Antropología (cultura, diversidad, etnocentrismo) cuelga de
 Homo sin la herramienta conceptual de "cultura" que explica por qué ese
 paso importa.
 
-**Nota sobre la dependencia con `H10`**: `troncos.md` dibuja
-`H10P --> ANTRO1a` (variante "Historia profunda" del nodo), pero
-`material/historia/` todavía **no tiene una carpeta `hominizacion/`**
-creada (no aparece en `../historia/dependencias.md`). Siguiendo el Paso 4
-de `../PROCEDIMIENTO.md` ("Depende de: qué otras carpetas YA CREADAS
-hacen falta antes"), no se linkea un path que no existe — se deja
-constancia acá de la dependencia conceptual con el nodo `H10` del MAPA
-para cuando esa carpeta se cree, y por ahora `cultura/` no lista
-dependencia de carpeta previa.
+**Nota sobre la dependencia con `H10`**: `troncos.md` dibuja `H10P --> ANTRO1a`. Ya existe la carpeta `../historia-profunda/hominizacion/`, así que `cultura/` y `subcampos-de-la-antropologia/` la listan como prerrequisito.
 
 **Decisión propia (no pedida, Paso 2): split en 3 carpetas**
 (`cultura/`, `diversidad-cultural/`, `etnocentrismo/`), mismo criterio
@@ -32,10 +24,10 @@ carpeta de tema nueva agrega su fila antes de escribir teoría/cuestionario.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `cultura/` | *(ninguna carpeta creada — nodo `H10`/Hominización de Historia aún sin carpeta propia, ver nota arriba)* | Nodo `ANTRO1a` de `troncos.md` (`H10P --> ANTRO1a`). Primer nodo: qué es "cultura" en sentido antropológico (todo lo aprendido y transmitido socialmente — no sólo "cultura" en sentido de bellas artes) es el concepto base de toda la materia. |
+| `cultura/` | `../historia-profunda/hominizacion/` (Hominización) | Nodo `ANTRO1a` de `troncos.md` (`H10P --> ANTRO1a`). Primer nodo: qué es "cultura" en sentido antropológico (todo lo aprendido y transmitido socialmente — no sólo "cultura" en sentido de bellas artes) es el concepto base de toda la materia. |
 | `diversidad-cultural/` | `cultura/` | Nodo `ANTRO1b` de `troncos.md` (`ANTRO1a --> ANTRO1b`). Que existan culturas distintas con costumbres, valores y normas propias presupone ya tener el concepto general de cultura — sin él, "diversidad cultural" es sólo "hay países distintos", no una idea antropológica. |
 | `etnocentrismo/` | `diversidad-cultural/` | Nodo `ANTRO1c` de `troncos.md` (`ANTRO1b --> ANTRO1c`), cierre de la cadena. El etnocentrismo (juzgar otras culturas con la vara de la propia, como si la propia fuera la norma universal) sólo se entiende como error una vez que ya se aceptó que existe diversidad cultural real y legítima. |
-| `subcampos-de-la-antropologia/` | *(ninguna — cuelga de `H10`, igual que `cultura/`)* | Nodo `ANTRO2` de `troncos.md` (`H10P --> ANTRO2`, agregado 2026-08-13). Clasificación de la disciplina (física, arqueológica, lingüística, social) — cuelga directo del mismo punto de entrada que `cultura/`, no de la cadena `ANTRO1a-c`. |
+| `subcampos-de-la-antropologia/` | `../historia-profunda/hominizacion/` (Hominización) | Nodo `ANTRO2` de `troncos.md` (`H10P --> ANTRO2`, agregado 2026-08-13). Clasificación de la disciplina (física, arqueológica, lingüística, social) — cuelga directo del mismo punto de entrada que `cultura/`, no de la cadena `ANTRO1a-c`. |
 | `relaciones-de-parentesco/` | `diversidad-cultural/` | Nodo `ANTRO3` de `troncos.md` (`ANTRO1b --> ANTRO3`, agregado 2026-08-13). Los sistemas de parentesco son uno de los ejes clásicos donde se estudia la diversidad cultural ya vista. |
 | `etnografia-y-observacion-participante/` | `cultura/`, `diversidad-cultural/` | Tema nuevo de `_plan-faltantes/academicas.md`, sin ID en `troncos.md`. Método de la disciplina; presupone el concepto de cultura y de diversidad. Cruza con `../investigacion/trabajo-de-campo-enfoque-socioantropologico/` y `../investigacion/metodologia-cualitativa-vs-cuantitativa/` (enlazados, no duplicados). Decisión de Claude, no pedida. |
 | `identidad-y-etnicidad/` | `diversidad-cultural/` | Tema nuevo de `_plan-faltantes/academicas.md`. Identidad colectiva y grupos étnicos (Barth, Anderson); presupone la diversidad cultural. Decisión de Claude, no pedida. |

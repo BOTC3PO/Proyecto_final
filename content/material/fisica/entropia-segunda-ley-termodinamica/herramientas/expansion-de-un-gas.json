@@ -1,0 +1,42 @@
+{
+ "titulo": "Expansión libre de un gas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Entropía en aumento",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Gas en una mitad, membrana en el medio",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Se rompe la membrana",
+     "x": 250,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "El gas se dispersa por todo el recipiente",
+     "x": 500,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

@@ -24,21 +24,20 @@ puede hacer que un corte quede tierno y otro quede como una suela.
 ## Coagulación: las fibras musculares se endurecen con el calor
 
 Las proteínas de las fibras musculares tienen, en crudo, una forma
-plegada y enrollada. Con el calor, esa forma se **desnaturaliza**: la
-proteína se despliega y luego sus cadenas se entrelazan entre sí de una
-forma nueva, más rígida — es el mismo proceso, en esencia, que hace que
-la clara de huevo cruda (transparente y líquida) pase a blanca y sólida
-al cocinarla. Cuanto más tiempo y más temperatura, más se endurecen y más
+plegada y enrollada. Con el calor, esa forma se **desnaturaliza**: la proteína se despliega y
+luego sus cadenas se entrelazan entre sí de una forma nueva, más rígida. Es
+esencialmente el mismo proceso que hace que la clara de huevo cruda
+(transparente y líquida) pase a blanca y sólida al cocinarla. Cuanto más tiempo y más temperatura, más se endurecen y más
 agua expulsan esas fibras — por eso una carne muy cocida siempre queda
 más seca y más dura que la misma carne apenas cocida.
 
 ## Gelificación: el colágeno se transforma en gelatina
 
 El colágeno, en cambio, necesita **tiempo prolongado a temperatura
-moderada** (aproximadamente entre 65°C y 80°C) para transformarse: sus
-cadenas largas y resistentes se rompen de a poco en fragmentos más
-chicos que sí se disuelven en agua — literalmente la misma
-**gelatina** que se usa en postres. Ese colágeno convertido en gelatina
+moderada** (aproximadamente entre 65°C y 80°C) para transformarse. Sus
+cadenas largas y resistentes se rompen de a poco en fragmentos más chicos
+que sí se disuelven en agua. Es literalmente la misma **gelatina** que se
+usa en postres. Ese colágeno convertido en gelatina
 aporta jugosidad y una textura suave, muy distinta de lo fibroso y duro
 que es el colágeno crudo.
 
@@ -63,8 +62,7 @@ que es el colágeno crudo.
 Es común escuchar que "sellar la carne atrapa los jugos adentro". La
 costra dorada que se forma al sellar es, en realidad, [reacción de
 Maillard](../reaccion-maillard/teoria.md) (sabor y color, no una barrera
-impermeable) — no existe tal sello que impida la salida de líquido. Lo
-que sí determina cuánto jugo retiene la carne es, principalmente, cuánto
-se desnaturalizaron y se encogieron sus fibras musculares por el calor:
-menos cocción (dentro de lo seguro) y temperaturas más controladas
-retienen más jugosidad que sellar fuerte por sí solo.
+impermeable) — no existe tal sello que impida la salida de líquido. Lo que sí determina cuánto jugo retiene la carne es, principalmente, cuánto
+se desnaturalizaron y se encogieron sus fibras musculares por el calor.
+Menos cocción (dentro de lo seguro) y temperaturas más controladas retienen
+más jugosidad que sellar fuerte por sí solo.

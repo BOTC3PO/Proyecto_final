@@ -62,10 +62,10 @@ mantenerlo, la misma idea que ya apareció con la inercia en
 
 ## El coeficiente de rozamiento (μ)
 
-El **coeficiente de rozamiento** `μ` es un número (sin unidades) que
-depende de **qué materiales** están en contacto (madera con madera,
-goma con asfalto, hielo con metal...) — no depende del área de contacto
-ni, en la mayoría de los casos simples, de la velocidad.
+El **coeficiente de rozamiento** `μ` es un número (sin unidades) que depende
+de **qué materiales** están en contacto (madera con madera, goma con
+asfalto, hielo con metal...). No depende del área de contacto ni, en la
+mayoría de los casos simples, de la velocidad.
 
 ## Combinando ambas ideas: plano inclinado con rozamiento
 
@@ -83,8 +83,8 @@ objeto se queda quieto.
 
 ## Para qué sirve
 
-Este bloque explica situaciones muy concretas: por qué cuesta más
-empujar algo cuesta arriba que en plano; por qué una rampa muy inclinada
-hace que los objetos se deslicen solos; y por qué el rozamiento, aunque
-suele tratarse como una "molestia", es lo que permite caminar, frenar un
-auto o que algo se quede quieto sobre una rampa en primer lugar.
+Este bloque explica situaciones muy concretas. Por qué cuesta más empujar
+algo cuesta arriba que en plano. Por qué una rampa muy inclinada hace que
+los objetos se deslicen solos. Y por qué el rozamiento, aunque suele
+tratarse como una "molestia", es lo que permite caminar, frenar un auto o
+que algo se quede quieto sobre una rampa en primer lugar.

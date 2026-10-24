@@ -24,7 +24,9 @@ Para que se forme una roca sedimentaria, primero debe haber **erosión**. Los ag
 
 Una vez depositados, los sedimentos quedan enterrados bajo capas sucesivas de material. La **compactación** (debido al peso de las capas superiores) reduce el espacio entre las partículas, mientras que la **cementación** (a través de minerales disueltos en agua) une las partículas en una estructura sólida. Este proceso colectivo se llama litificación.
 
-<!-- IMAGEN: Diagrama del ciclo geológico con capas sedimentarias formándose a partir de sedimentos -->
+![Diagrama del ciclo geológico con capas sedimentarias formándose a partir de sedimentos](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Rock_Cycle_with_labels.svg/960px-Rock_Cycle_with_labels.svg.png)
+
+*Imagen: «Rock Cycle with labels», Carie Frantz, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rock_Cycle_with_labels.svg).*
 
 ---
 

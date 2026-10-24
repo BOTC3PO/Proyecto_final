@@ -18,10 +18,9 @@ diferencia con la caramelización, y conexión con escalar una receta.
 
 La **reacción de Maillard** es un conjunto de reacciones químicas entre
 un **azúcar reductor** y un **aminoácido o proteína** (más precisamente,
-un grupo amino libre), activadas por el calor. Produce compuestos de
-color marrón (llamados **melanoidinas**) y cientos de compuestos
-aromáticos nuevos — es la razón química detrás del sabor y el color
-"tostado" de la comida cocinada, algo que no está presente ni en el
+un grupo amino libre), activadas por el calor. Produce compuestos de color marrón (llamados **melanoidinas**) y cientos de
+compuestos aromáticos nuevos. Es la razón química detrás del sabor y el
+color "tostado" de la comida cocinada, algo que no está presente ni en el
 alimento crudo ni en el hervido. Fue descripta por primera vez en 1912
 por el químico francés **Louis-Camille Maillard**.
 
@@ -75,13 +74,12 @@ esos azúcares y las proteínas que también tiene la cebolla.
 
 Como se vio en [escalar una receta](../escalar-receta/teoria.md), los
 ingredientes escalan de forma proporcional al cambiar la cantidad de
-porciones, pero la **superficie de contacto** de un alimento con el
-calor no crece en la misma proporción que su **volumen** al hacer una
-porción más grande (un trozo de carne más grande tiene, relativamente,
-menos superficie por unidad de volumen que uno más chico). Por eso, agrandar
-una porción de carne no garantiza automáticamente "más" dorado por
-Maillard en la superficie sólo por escalar la receta — es otro ejemplo
-de por qué el tiempo y el proceso de cocción no escalan linealmente,
+porciones. Pero la **superficie de contacto** de un alimento con el calor no
+crece en la misma proporción que su **volumen** al hacer una porción más
+grande. Un trozo de carne más grande tiene, relativamente, menos superficie
+por unidad de volumen que uno más chico. Por eso, agrandar una porción de carne no garantiza automáticamente "más"
+dorado por Maillard en la superficie solo por escalar la receta. Es otro
+ejemplo de por qué el tiempo y el proceso de cocción no escalan linealmente,
 igual que ya se vio con el tiempo de horneado.
 
 ## Dónde aparece en la vida real

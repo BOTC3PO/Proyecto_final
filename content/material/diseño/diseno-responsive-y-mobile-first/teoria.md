@@ -28,7 +28,7 @@ El enfoque contrario, *desktop first*, tiende a dejar versiones móviles con par
 
 ## 4. Pantalla táctil
 
-Los dedos son menos precisos que un cursor. Los elementos tocables necesitan un tamaño suficiente y separación entre sí. Las pautas WCAG 2.2 piden en el nivel AA un tamaño mínimo de objetivo de 24 por 24 píxeles CSS (con algunas excepciones), y recomiendan tamaños mayores, del orden de 44 por 44 en el nivel AAA y en guías de plataformas. Además, las acciones frecuentes deben quedar al alcance del pulgar, y no hay "hover": cualquier información que aparezca solo al pasar el cursor no existe en una pantalla táctil.
+Los dedos son menos precisos que un cursor. Los elementos tocables necesitan un tamaño suficiente y separación entre sí. Las pautas WCAG 2.2 piden en el nivel AA un tamaño mínimo de objetivo de 24 por 24 píxeles CSS (con algunas excepciones). Recomiendan tamaños mayores, del orden de 44 por 44, en el nivel AAA y en guías de plataformas. Además, las acciones frecuentes deben quedar al alcance del pulgar, y no hay "hover": cualquier información que aparezca solo al pasar el cursor no existe en una pantalla táctil.
 
 ## 5. Prioridad de contenido
 

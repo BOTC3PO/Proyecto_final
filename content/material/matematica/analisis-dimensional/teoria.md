@@ -48,10 +48,9 @@ entre sí — de ahí nacen las unidades derivadas de arriba (m/s, m², kg/m³).
 ## Verificar una fórmula por sus unidades
 
 Cuando una fórmula da un resultado, sus unidades tienen que coincidir con
-lo que se está calculando. Ejemplo: si la fórmula del área de un
-rectángulo es `base × altura`, y base y altura están en metros, el
-resultado va a estar en m × m = m² — que es justo la unidad esperada para
-un área. Si un cálculo diera como resultado una unidad "rara" (como m/s
+lo que se está calculando. Ejemplo: la fórmula del área de un rectángulo es `base × altura`. Si base y
+altura están en metros, el resultado va a estar en m × m = m². Esa es justo
+la unidad esperada para un área. Si un cálculo diera como resultado una unidad "rara" (como m/s
 para lo que se supone que es un área), eso es una señal de que la fórmula
 o el planteo tiene un error.
 

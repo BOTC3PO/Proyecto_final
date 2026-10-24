@@ -27,8 +27,6 @@ Cualquier modelo científico se construye con tres elementos clave:
 2. **Relaciones**: Se establecen reglas que conectan las variables (como una fórmula matemática o una ley física).  
 3. **Límites de validez**: Cada modelo funciona dentro de ciertas condiciones. Un modelo para predecir el comportamiento de un gas, por ejemplo, solo es útil cuando la presión no supera un valor específico.
 
-<!-- IMAGEN: Diagrama con tres cajas etiquetadas "Variables", "Relaciones" y "Límites de validez", conectadas por flechas que muestran cómo interactúan en un modelo científico -->
-
 ## 4. Validación y ajuste
 
 Una vez construido, el modelo debe probarse contra datos reales para verificar si es útil. Si predice resultados que no coinciden con lo observado, hay que revisar qué variables se omitieron o cuál es la relación incorrecta. Esto puede llevar a un ciclo de mejora: ajustar el modelo, validarlo nuevamente y repetir hasta que sea confiable.

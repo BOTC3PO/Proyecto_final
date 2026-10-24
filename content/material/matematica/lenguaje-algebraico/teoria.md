@@ -21,7 +21,7 @@ resultado — es una **receta**: tomá el número que sea, multiplicalo por 2.
 Esa receta se escribe 2x, y sirve tanto si x vale 3 como si vale 300.
 
 Traducir un enunciado en palabras a una expresión algebraica es, en el
-fondo, el mismo trabajo que hace un traductor entre dos idiomas: cada frase
+fondo, el mismo trabajo que hace un traductor entre dos idiomas. Cada frase
 en castellano tiene una expresión simbólica equivalente, y el orden de las
 palabras no siempre coincide con el orden de los símbolos.
 
@@ -78,9 +78,9 @@ En la suma y en el producto, da lo mismo el orden ("la suma de un número y
 - **"5 disminuido en un número"** / "la diferencia entre 5 y un número" →
   **5 − x** (5 es el que pierde el número).
 
-Es el error más común de todo el tema: traducir "la diferencia entre A y
-B" siempre como A − B en ese orden literal — que de hecho es la traducción
-correcta (el primero nombrado es el que resta al segundo), pero se
+Es el error más común de todo el tema: traducir "la diferencia entre A y B"
+siempre como A − B en ese orden literal. De hecho, esa es la traducción
+correcta, porque el primero nombrado es el que resta al segundo. Pero se
 confunde fácil con "un número menos 5", donde "un número" tampoco es
 necesariamente el primero que aparece en la frase completa si la frase
 arranca con otra palabra.
@@ -106,10 +106,10 @@ arranca con otra palabra.
 
 - Traducir "un número disminuido en 5" como 5 − x en vez de x − 5 (la
   resta no es conmutativa: el orden de la frase importa).
-- Olvidar el paréntesis cuando una operación se aplica a un resultado
-  compuesto completo ("el triple de [un número aumentado en 5]" sin el
-  paréntesis queda igual a "el triple de un número, aumentado en 5" — dos
-  frases distintas, misma expresión por error).
+- Otro error común es olvidar el paréntesis cuando una operación se aplica a
+  un resultado compuesto completo. "El triple de [un número aumentado en 5]"
+  sin el paréntesis queda igual a "el triple de un número, aumentado en 5".
+  Son dos frases distintas, pero con la misma expresión por error.
 - Confundir "el cuadrado de un número" (x²) con "el doble de un número"
   (2x) — son operaciones distintas (potencia vs. multiplicación) que a
   veces se mezclan al traducir rápido.

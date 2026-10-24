@@ -22,7 +22,7 @@ Para comprender mejor este concepto, es útil pensar en términos de trade-offs,
 
 En situaciones donde las decisiones son binarias, el cálculo es directo. Sin embargo, en la vida real y en la macroeconomía, las decisiones son más complejas. Por ejemplo, cuando un gobierno decide invertir en infraestructura de salud, el costo de oportunidad es la infraestructura educativa que no pudo construir con ese mismo presupuesto. No se puede tener todo al mismo tiempo con los mismos recursos.
 
-Es importante destacar que el costo de oportunidad no siempre es monetario. A menudo incluye factores intangibles como el tiempo, la comodidad o la satisfacción personal. Por ejemplo, si decidís quedarte en tu ciudad natal en lugar de mudarte a Buenos Aires por un trabajo mejor pagado, el costo de oportunidad incluye no solo el salario perdido, sino también la experiencia de vivir en otra cultura, la red de contactos que no se construye y los cambios en tu estilo de vida. Valorar correctamente estos elementos es clave para una toma de decisiones efectiva.
+Es importante destacar que el costo de oportunidad no siempre es monetario. A menudo incluye factores intangibles como el tiempo, la comodidad o la satisfacción personal. Por ejemplo, si decidís quedarte en tu ciudad natal en lugar de mudarte a Buenos Aires por un trabajo mejor pagado, el costo de oportunidad incluye no solo el salario perdido. Incluye también la experiencia de vivir en otra cultura, la red de contactos que no se construye y los cambios en tu estilo de vida. Valorar correctamente estos elementos es clave para una toma de decisiones efectiva.
 
 ## Aplicación práctica: El costo de oportunidad en la vida cotidiana argentina
 

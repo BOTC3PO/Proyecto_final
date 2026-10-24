@@ -36,21 +36,21 @@ figuras con fórmula propia ya vistas.
 
 ## Área de figuras compuestas
 
-Una **figura compuesta** es una que combina dos o más figuras simples
-(las de `../perimetro-y-area/`: cuadrados, rectángulos, triángulos,
-trapecios, círculos o medios círculos...) — por ejemplo, un living con
-forma de "L", una ventana rectangular con un semicírculo arriba, o un
-patio cuadrado con una fuente circular en el medio.
+Una **figura compuesta** es una que combina dos o más figuras simples (las
+de `../perimetro-y-area/`: cuadrados, rectángulos, triángulos, trapecios,
+círculos o medios círculos...). Por ejemplo, un living con forma de "L", una
+ventana rectangular con un semicírculo arriba o un patio cuadrado con una
+fuente circular en el medio.
 
 Para calcular su área **no hace falta una fórmula nueva**: alcanza con:
 
 1. **Descomponer** la figura compuesta en figuras simples ya conocidas.
 2. Calcular el área de cada una por separado, con las fórmulas ya
    vistas.
-3. **Sumar** las áreas si las figuras simples se agregan (como la "L", o
-   la ventana con el semicírculo), o **restar** si una figura queda
-   "recortada" dentro de otra (como el patio con la fuente en el medio,
-   donde el área útil es el cuadrado MENOS el círculo).
+3. **Sumar** las áreas si las figuras simples se agregan (como la "L", o la
+   ventana con el semicírculo). **Restar** si una figura queda "recortada"
+   dentro de otra (como el patio con la fuente en el medio, donde el área
+   útil es el cuadrado MENOS el círculo).
 
 La clave está en identificar bien qué figuras simples forman la
 compuesta y si corresponde sumar o restar cada una — el cálculo en sí ya
@@ -60,7 +60,7 @@ está resuelto en `../perimetro-y-area/`.
 
 El apotema aparece en cualquier diseño con simetría radial (mosaicos,
 rosetones, tuercas hexagonales, señales de tránsito con forma de
-octógono). Descomponer figuras compuestas es la habilidad real detrás de
-calcular cuánto piso, pintura o material hace falta para un espacio con
-forma irregular — nadie mide una habitación en forma de "L" con una sola
-fórmula, la separa en dos rectángulos.
+octógono). Descomponer figuras compuestas es la habilidad real detrás de calcular
+cuánto piso, pintura o material hace falta para un espacio con forma
+irregular. Nadie mide una habitación en forma de "L" con una sola fórmula:
+la separa en dos rectángulos.

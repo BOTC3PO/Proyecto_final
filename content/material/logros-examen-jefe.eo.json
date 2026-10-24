@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "Regu la Imperiojn de la Antikva Mondo",
-    "descripcion": "Vi plenumis la ekzamenon pri Mezopotamio, Aleksandro la Granda kaj helenismo, la vastiĝo de la Romia Imperio kaj la indiĝenaj popoloj de la nuna argentina teritorio.",
+    "descripcion": "Vi kompletigis la ekzamenon pri Mezopotamio, la antikvaj civilizacioj, Aleksandro la Granda kaj la helenismo, kaj la vastiĝo de la Romia Imperio.",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "Majstro de Absolutismo kaj Lumepoko",
-    "descripcion": "Vi regis eŭropan absolutismon, la Lumepokon, la Industrian Revolucion, konkeron kaj kolonion en Argentino kaj la vicreĝecon kun ĝia komerco, ĉefo.",
+    "descripcion": "Vi majstris la eŭropan absolutismon, la Klerismon kaj la Industrian Revolucion, estro.",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "Fakulo pri la Argentina Sendependiĝo",
-    "descripcion": "Vi trapasis la ekzamenon pri la Revolucio de Majo, la sendependiĝajn militojn kaj la civilajn militojn inter unitaristoj kaj federaciistoj, kune kun elektrizado kaj la komenco de la homa spuro en la klimato.",
+    "nombre": "Fakulo pri Elektrizado kaj Klimato",
+    "descripcion": "Vi sukcesis en la ekzameno pri la elektrizado de la fabriko kaj la hejmo kaj pri la komenco de la homa spuro en la klimato.",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "Regu la Liberalan kaj Nacian Ordon",
-    "descripcion": "Vi plenumis la ekzamenon regante la burĝajn revoluciojn kaj liberalismon, naciajn ŝtatojn, imperiismon, la Konstitucion de 1853 kaj la agroeksportan modelon kun enmigrado.",
+    "descripcion": "Vi kompletigis la ekzamenon, majstrante la burĝajn revoluciojn kaj la liberalismon, la naciajn ŝtatojn kaj la imperiismon.",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "Majstro de la Frua 20-a Jarcento",
-    "descripcion": "Vi regis amasan socion kaj liberalan demokration, la Unuan Mondmiliton kaj la Rusan Revolucion, la interbataladan periodon kaj la krizon de 1929, la Leĝon Sáenz Peña kaj la puĉojn, ĉefo.",
+    "descripcion": "Vi majstris la amasan socion kaj la liberalan demokration, la Unuan Mondmiliton kaj la Rusan Revolucion, kaj la interbataladan periodon kaj la krizon de 1929, estro.",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "Fakulo pri Militoj kaj Malvarma Milito",
-    "descripcion": "Vi trapasis la ekzamenon pri la mondmilitoj, la Dua Mondmilito, la Malvarma Milito, la malkoloniigon de Afriko kaj Azio kaj la peronismon kun siaj sociaj rajtoj.",
+    "descripcion": "Vi sukcesis en la ekzameno pri la mondmilitoj, la Dua Mondmilito, la Malvarma Milito kaj la senkolonigo de Afriko kaj Azio.",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "Regu la Lastatempan Historion",
-    "descripcion": "Vi plenumis la ekzamenon regante ŝtatan terorismon, Malvinojn kaj la demokratian restarigon en Argentino, la nuntempan historion de Afriko, Azio kaj Meza Oriento, kaj la tutmondiĝon de la cifereca epoko.",
+    "descripcion": "Vi kompletigis la ekzamenon, majstrante la nuntempan historion de Afriko, Azio kaj Mezoriento, kaj la tutmondiĝon de la cifereca epoko.",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "Fakulo pri Fontoj kaj Kronologio",
-    "descripcion": "Vi regis la interpreton de historiaj fontoj, templinioj, jardeko, jarcento kaj jarmilo, kaj argentinajn kazojn kiel la Universitatan Reformon de 1918 kaj la krizon de 2001, ĉefo.",
+    "descripcion": "Vi majstris la interpreton de historiaj fontoj, la templinion, kaj la jardekon, la jarcenton kaj la jarmilon, estro.",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "Regu Periodigon kaj Kaŭzecon",
-    "descripcion": "Vi plenumis la ekzamenon regante periodigon, antaŭ kaj post Kristo, kaŭzon kaj sekvon, la Tragikan Semajnon de 1919 kaj la industriigon per anstataŭigo de importoj.",
+    "descripcion": "Vi kompletigis la ekzamenon, majstrante la periodigon, antaŭ kaj post Kristo, kaj kaŭzon kaj sekvon.",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "Regu Militojn kaj Amerikajn Procezojn",
-    "descripcion": "Vi plenumis la ekzamenon pri sendependiĝoj, la meksika revolucio, la hispana enlanda milito, la milito de Paragvajo, Rosas kaj la Konfederacio, la Konkero de la Dezerto kaj fruaj regionaj ekonomioj.",
+    "descripcion": "Vi kompletigis la ekzamenon pri la sendependiĝoj, la Meksika Revolucio, la militoj kaj la Hispana Enlanda Milito.",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "Strategiisto de sportoj",
     "descripcion": "Vi trapasis la ekzamenon regante la fizikajn kapablojn (forto, eltenemo, fleksebleco kaj rapideco), nutradon kaj hidratigon en fizika agado kaj la regulojn kaj fundamentojn de korbopilko, futbalo, futsalo, manpilko, hokeo, rugbeo kaj flugpilko.",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Majstro de Kolonia Argentino kaj Sendependiĝo",
+    "descripcion": "Vi kompletigis la ekzamenon pri la indiĝenaj popoloj, la konkero kaj kolonio, la vickrajno kaj ĝia komerco, la Maja Revolucio kaj la argentinaj sendependiĝaj militoj.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Majstro de la Nacia Organizo",
+    "descripcion": "Vi majstris la enlandajn militojn inter unitaristoj kaj federalistoj, la Konstitucion de 1853, Rosas kaj la Konfederacion, la Paragvajan Militon kaj la fruajn regionajn ekonomiojn, estro.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Fakulo pri la Liberala Ŝtato kaj la Demokratia Vastigo",
+    "descripcion": "Vi kompletigis la ekzamenon pri la Konkero de la Dezerto kaj la kampanjo al Chaco, la agro-eksporta modelo kaj enmigrado, la Leĝo Sáenz Peña, la ŝtatrenversoj kaj la Universitata Reformo de 1918.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Majstro de la Argentino de la 20-a Jarcento kaj de la Demokratio",
+    "descripcion": "Vi majstris la peronismon kaj la sociajn rajtojn, la Tragikan Semajnon, la ŝtatan terorismon, la importsubstituan industriigon, Malvinojn, la demokratian restarigon, la lastatempan historion kaj la krizon de 2001, estro.",
+    "icono": "🕊️"
   }
 ]

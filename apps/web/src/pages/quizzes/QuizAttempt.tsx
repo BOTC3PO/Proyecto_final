@@ -27,6 +27,7 @@ import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
 import PostSubmitResult from "../../components/quizzes/PostSubmitResult";
 import CanjearTickets from "../../components/quizzes/CanjearTickets";
+import RepasoIntento from "../../components/quizzes/RepasoIntento";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 import {
@@ -1663,6 +1664,9 @@ export default function QuizAttempt() {
               </div>
             </div>
           </Card>
+
+          {/* Qué temas repasar: solo con el intento entregado */}
+          {result && attemptId && <RepasoIntento attemptId={attemptId} ocultarPuntos={attempt?.ocultarPuntos === true} />}
 
           {/* Competition ranking */}
           {esCompetencia && ranking.length > 0 && (

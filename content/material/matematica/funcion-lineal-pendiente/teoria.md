@@ -31,7 +31,7 @@ m = (y₂ − y₁) / (x₂ − x₁)
 
 **El orden importa, pero de forma consistente**: mientras se reste en el
 mismo orden arriba y abajo (y₂ antes que y₁, y x₂ antes que x₁), el
-resultado es el mismo sin importar cuál punto se llame "1" y cuál "2".
+resultado es el mismo. No importa cuál punto se llame "1" y cuál "2".
 
 ## El signo de la pendiente
 

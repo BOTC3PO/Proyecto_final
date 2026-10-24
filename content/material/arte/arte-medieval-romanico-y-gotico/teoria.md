@@ -24,7 +24,7 @@ La decoración se concentra en las portadas, los capiteles y los ábsides. En el
 
 ## 4. El gótico (desde mediados del siglo XII)
 
-Hacia 1140, en la abadía de Saint-Denis, cerca de París, el abad Suger impulsó una nueva arquitectura. El gótico se basa en tres soluciones técnicas: el arco apuntado u ojival, la bóveda de crucería, formada por nervios que se cruzan y concentran el peso en puntos, y los arbotantes y contrafuertes, que sostienen desde afuera el empuje de la bóveda. Con eso los muros dejaron de cargar el peso y pudieron abrirse con grandes ventanales de vidrieras.
+Hacia 1140, en la abadía de Saint-Denis, cerca de París, el abad Suger impulsó una nueva arquitectura. El gótico se basa en tres soluciones técnicas. La primera es el arco apuntado u ojival. La segunda es la bóveda de crucería, formada por nervios que se cruzan y concentran el peso en puntos. La tercera son los arbotantes y contrafuertes, que sostienen desde afuera el empuje de la bóveda. Con eso los muros dejaron de cargar el peso y pudieron abrirse con grandes ventanales de vidrieras.
 
 La luz coloreada de los vitrales tenía un sentido simbólico: era la presencia de lo divino. Los rosetones, enormes ventanas circulares sobre las portadas, retoman la geometría radial que ya estudiaste en `rosetones-y-simetria/`. Las catedrales, como Notre-Dame de París (comenzada hacia 1163), Chartres, Reims o Amiens, se levantaron en ciudades que crecían gracias al comercio, y expresaron el orgullo de la ciudad y la fe de sus habitantes.
 

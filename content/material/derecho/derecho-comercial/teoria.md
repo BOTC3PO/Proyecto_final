@@ -23,7 +23,7 @@ Toda actividad comercial se sustenta en tres elementos clave:
 2. **Fuerza de trabajo**: los recursos humanos que realizan las tareas productivas, administrativas o servicios.  
 3. **Organización**: la estructura interna que define cómo se distribuyen responsabilidades, decisiones y procesos dentro de la empresa.  
 
-Estos componentes interactúan para permitir la operación continua de una actividad económica. Por ejemplo, un pequeño taller necesita capital para adquirir herramientas, personal calificado para trabajar y una organización clara para asignar roles entre mecánicos, contables y vendedores. <!-- IMAGEN: Diagrama de los elementos esenciales de una empresa (capital, fuerza de trabajo, organización y objetivos) -->
+Estos componentes interactúan para permitir la operación continua de una actividad económica. Por ejemplo, un pequeño taller necesita capital para adquirir herramientas, personal calificado para trabajar y una organización clara para asignar roles entre mecánicos, contables y vendedores.
 
 ## 4. Actos y contratos típicos del comercio
 

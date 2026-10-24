@@ -43,11 +43,10 @@ dos pueblos representa `3 × 50.000 = 150.000 cm` reales, que son
 
 Además de la escala numérica, muchos mapas incluyen una **escala
 gráfica**: una barra dibujada directamente sobre el mapa, marcada con
-las distancias reales que representa cada tramo. Su ventaja: si el mapa
-se agranda o se achica (por ejemplo, al fotocopiarlo o al hacer zoom en
-una imagen), la escala gráfica **se agranda o achica junto con el
-dibujo**, y sigue siendo correcta — mientras que la escala numérica
-(el "1:50.000" escrito) deja de ser válida apenas el mapa cambia de
+las distancias reales que representa cada tramo. Su ventaja: si el mapa se agranda o se achica (por ejemplo, al fotocopiarlo
+o al hacer zoom en una imagen), la escala gráfica **se agranda o achica
+junto con el dibujo** y sigue siendo correcta. La escala numérica (el
+"1:50.000" escrito), en cambio, deja de ser válida apenas el mapa cambia de
 tamaño, porque ese número asumía el tamaño original.
 
 ## Escala "grande" no es la que tiene el número más grande

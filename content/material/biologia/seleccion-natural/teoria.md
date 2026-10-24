@@ -48,11 +48,10 @@ ya vista en `../clasificacion-evolucion/`, ahora con su mecanismo.
 - **Pinzones de Darwin (Galápagos)**: distintas islas con distinto
   tipo de semillas favorecieron picos de distinta forma/tamaño en
   poblaciones antes emparentadas.
-- **Polilla del abedul (*Biston betularia*), Inglaterra industrial**:
-  la contaminación oscureció los troncos de los árboles; la forma
-  oscura de la polilla (antes rara) pasó a predominar porque quedaba
-  mejor camuflada de los pájaros — cuando bajó la contaminación, la
-  tendencia se revirtió.
+- **Polilla del abedul (*Biston betularia*), Inglaterra industrial**: la
+  contaminación oscureció los troncos de los árboles. La forma oscura de la
+  polilla (antes rara) pasó a predominar porque quedaba mejor camuflada de
+  los pájaros. Cuando bajó la contaminación, la tendencia se revirtió.
 - **Resistencia a antibióticos/pesticidas**: el uso masivo de un
   antibiótico no "genera" bacterias resistentes — selecciona a las
   pocas que ya tenían, por mutación previa, algo de resistencia, que

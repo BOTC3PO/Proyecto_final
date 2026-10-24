@@ -1,0 +1,38 @@
+{
+ "titulo": "P = F / A con ejemplos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "latex",
+   "content": "P = \\dfrac{F}{A}",
+   "displayMode": true
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "La misma fuerza, distinta área",
+   "headers": [
+    "Fuerza F (N)",
+    "Área A (m²)",
+    "Presión P (Pa)"
+   ],
+   "rows": [
+    [
+     100,
+     2,
+     50
+    ],
+    [
+     100,
+     0.01,
+     10000
+    ],
+    [
+     100,
+     0.0001,
+     1000000
+    ]
+   ]
+  }
+ ]
+}

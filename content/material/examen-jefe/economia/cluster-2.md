@@ -967,9 +967,7 @@ tipo: vf
 enunciado: "La idea central de la elasticidad es usar variaciones RELATIVAS (porcentuales) en vez de ABSOLUTAS, lo que permite comparar sensibilidades entre magnitudes de escalas muy distintas."
 
 explicacion: |
-  Es el resumen del módulo: el mismo principio de 'porcentaje' ya
-  trabajado en Tronco 1, aplicado ahora a comparar dos tasas de cambio
-  entre sí.
+  Verdadero: usar variaciones relativas (porcentuales) permite comparar sensibilidades entre magnitudes de escalas muy distintas.
 ```
 
 ## Sección: estructura-del-patrimonio (20 preguntas)

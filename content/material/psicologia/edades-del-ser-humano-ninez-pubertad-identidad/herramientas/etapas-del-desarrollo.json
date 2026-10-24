@@ -1,0 +1,64 @@
+{
+ "titulo": "Etapas del desarrollo humano",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cronograma",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Infancia",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Niñez",
+     "x": 175,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Adolescencia",
+     "x": 350,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Adultez",
+     "x": 525,
+     "y": 0
+    },
+    {
+     "id": "n5",
+     "label": "Vejez",
+     "x": 700,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

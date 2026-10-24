@@ -65,7 +65,7 @@ y qué cuenta como "distinto".
 
 ## Para qué sirve
 
-Explica por qué una clave de 4 dígitos tiene 10.000 combinaciones
-posibles (10×10×10×10), por qué una patente de auto con 3 letras y 3
-números tiene miles de combinaciones, y por qué elegir un outfit con
-varias prendas se multiplica en vez de sumarse.
+Explica por qué una clave de 4 dígitos tiene 10.000 combinaciones posibles
+(10×10×10×10). Explica por qué una patente de auto con 3 letras y 3 números
+tiene miles de combinaciones. Y explica por qué elegir un outfit con varias
+prendas se multiplica en vez de sumarse.

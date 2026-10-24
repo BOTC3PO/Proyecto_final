@@ -14,7 +14,9 @@ Tras la división administrativa del Imperio Romano en el siglo IV, Constantinop
 
 A diferencia de Roma, que dependía de una extensa red de carreteras terrestres vulnerables a las invasiones bárbaras, Constantinopla estaba protegida por el Mar de Mármara y sus famosas murallas teodosianas. Esto permitió que la estructura estatal romana, con su burocracia compleja y su sistema fiscal, sobreviviera en Oriente mientras Occidente colapsaba. El latín mantuvo su estatus oficial durante los primeros siglos, pero el griego, lengua de la cultura helenística, se impuso progresivamente en la administración y la vida cotidiana, marcando el inicio de una identidad distinta a la del occidente latino.
 
-<!-- IMAGEN: Mapa que muestra la posición estratégica de Constantinopla entre los estrechos de Bósforo y Dardanelos, destacando las rutas comerciales terrestres y marítimas -->
+![Mapa que muestra la posición estratégica de Constantinopla entre los estrechos de Bósforo y Dardanelos, destacando las rutas comerciales terrestres y marítimas](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/1901_maps_of_The_Dardanelles_and_the_Troad_and_The_Bosphorus_and_Constantinople.jpg/960px-1901_maps_of_The_Dardanelles_and_the_Troad_and_The_Bosphorus_and_Constantinople.jpg)
+
+*Imagen: «1901 maps of The Dardanelles and the Troad and The Bosphorus and Constantinople», Edward Stanford, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:1901_maps_of_The_Dardanelles_and_the_Troad_and_The_Bosphorus_and_Constantinople.jpg).*
 
 ## 2. La figura de Justiniano y la codificación del derecho
 
@@ -38,4 +40,4 @@ Simultáneamente, el imperio enfrentó la amenaza del Islam emergente. Tras las 
 
 El debilitamiento interno, exacerbado por la Cuarta Cruzada (1204), que saw saqueada Constantinopla por los cruzados occidentales y estableció un imperio latino efímero, fragmentó el estado bizantino. Aunque los emperadores griegos recuperaron la capital en 1261, el imperio nunca recuperó su fuerza anterior, reduciéndose a un pequeño estado regional rodeado de enemigos.
 
-En 1453, el sultán otomano Mehmed II conquistó Constantinopla tras un largo sitio. La caída de la ciudad marcó el fin simbólico del Imperio Romano de Oriente y, para muchos historiadores, el cierre de la Edad Media. No obstante, la influencia bizantina perduró: preservó los textos clásicos griegos que alimentaron el Renacimiento italiano, estableció las bases del derecho canónico ortodoxo y definió la cultura política de los estados balcánicos y rusos, quienes se consideraron herederos de la "Tercera Roma".
+En 1453, el sultán otomano Mehmed II conquistó Constantinopla tras un largo sitio. La caída de la ciudad marcó el fin simbólico del Imperio Romano de Oriente y, para muchos historiadores, el cierre de la Edad Media. No obstante, la influencia bizantina perduró. Preservó los textos clásicos griegos que alimentaron el Renacimiento italiano. Estableció las bases del derecho canónico ortodoxo. Y definió la cultura política de los estados balcánicos y rusos, que se consideraron herederos de la "Tercera Roma".

@@ -12,7 +12,9 @@
 
 Todo imán tiene dos zonas donde el campo magnético es más intenso: los **polos**. Estos se denominan convencionalmente **Norte (N)** y **Sur (S)**, aunque no tienen nada que ver con la geografía terrestre. La designación surge de cómo interactúan entre sí y con otros imanes. Por ejemplo, si sostienes un imán por el medio, notarás que una punta se orienta hacia el norte geográfico; esa es la **punta norte** del imán.
 
-<!-- IMAGEN: Dibujo de un imán con etiquetas "N" y "S" en sus extremos -->
+![Dibujo de un imán con etiquetas "N" y "S" en sus extremos](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Bar_magnet_crop.jpg/960px-Bar_magnet_crop.jpg)
+
+*Imagen: «Bar magnet crop», File:Bar magnet.jpg: Photo taken by Aney / derivat, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bar_magnet_crop.jpg).*
 
 ---
 
@@ -34,7 +36,7 @@ Por ejemplo: si tienes un imán en forma de barra y lo cortas por el medio, cada
 
 ## 4. ¿Cómo se identifican los polos?
 
-Para saber cuál es el polo norte de un imán, puedes usar otro imán ya conocido: si uno de sus extremos se aleja al acercarlo a la punta del imán desconocido, esa punta es igual que la del imán que usaste. Si, en cambio, se jala hacia él, son polos opuestos.
+Para saber cuál es el polo norte de un imán, puedes usar otro imán ya conocido. Si uno de sus extremos se aleja al acercarlo a la punta del imán desconocido, esa punta es igual que la del imán que usaste. Si, en cambio, se jala hacia él, son polos opuestos.
 
 También existen imanes permanentes con marcas o colores específicos (como el rojo para norte y el azul para sur), pero esto varía según el fabricante. En la naturaleza, los minerales como la magnetita muestran comportamientos similares, aunque su intensidad es menor.
 

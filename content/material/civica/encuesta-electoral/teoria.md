@@ -13,11 +13,11 @@ son cuatro chequeos separables antes de confiar en un número.
 ## Qué es una encuesta electoral
 
 Una encuesta electoral aplica exactamente lo visto en
-`../../matematica/muestreo-y-sesgo/`: en vez de preguntarle a **todo**
-el padrón electoral (un censo, carísimo e inviable antes de una
-elección), se le pregunta a una **muestra** de votantes y se
-**generaliza** el resultado al electorado completo — con toda la
-incertidumbre que eso conlleva.
+`../../matematica/muestreo-y-sesgo/`. En vez de preguntarle a **todo** el
+padrón electoral (un censo, carísimo e inviable antes de una elección), se
+le pregunta a una **muestra** de votantes. Después se **generaliza** el
+resultado al electorado completo, con toda la incertidumbre que eso
+conlleva.
 
 ## El margen de error
 
@@ -27,10 +27,10 @@ probablemente está dentro de ese rango, no es un número exacto. Es la
 misma lógica del intervalo de confianza — más muestra, margen más
 chico; menos muestra, margen más grande.
 
-**Empate técnico**: si la diferencia entre dos candidatos es **menor**
-que el margen de error combinado de la encuesta, no se puede afirmar
-con confianza quién va primero — es un "empate técnico", aunque los
-números crudos muestren a uno arriba del otro.
+**Empate técnico**: si la diferencia entre dos candidatos es **menor** que
+el margen de error combinado de la encuesta, no se puede afirmar con
+confianza quién va primero. Es un "empate técnico", aunque los números
+crudos muestren a uno arriba del otro.
 
 ## Los indecisos y el "no sabe / no contesta"
 
@@ -58,10 +58,10 @@ porque no depende de una intención futura, sino de un voto ya emitido.
 
 ## Por qué la fecha importa
 
-La intención de voto **cambia con el tiempo** — una encuesta de dos
-semanas antes de la elección puede no reflejar la situación del día de
-la votación, sobre todo si hubo un evento relevante en el medio
-(debate, escándalo, anuncio de gobierno). Comparar encuestas de fechas
+La intención de voto **cambia con el tiempo**. Una encuesta de dos semanas
+antes de la elección puede no reflejar la situación del día de la votación,
+sobre todo si hubo un evento relevante en el medio (debate, escándalo,
+anuncio de gobierno). Comparar encuestas de fechas
 muy distintas como si midieran lo mismo es un error común.
 
 ## Sesgos comunes en encuestas políticas

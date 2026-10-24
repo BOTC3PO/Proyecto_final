@@ -473,7 +473,7 @@ tipo: vf
 enunciado: "Entender qué significa \"ser\" en general es un paso previo útil antes de preguntar específicamente qué significa que algo particular \"exista\" (el tema siguiente, Existencia)."
 
 pasos:
-  - "Ver `../existencia/`: aunque los tres nodos son hermanos en el MAPA, el orden conceptual va de lo más general (ser) a lo más específico."
+  - "El orden conceptual va de lo más general (ser) a lo más específico (existir)."
 
 explicacion: |
   Verdadero: aunque no haya dependencia formal entre los tres nodos

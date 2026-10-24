@@ -66,7 +66,7 @@ centradas en aplicar un criterio o regla en el momento de decidir.
 
 ## Para qué sirve
 
-La ética de la virtud completa el panorama de las tres primeras
-corrientes normativas de esta subrama, mostrando que hay más de una
-pregunta posible detrás de "¿qué es actuar bien?" — no sólo qué acción
-elegir, sino qué tipo de persona formarse a lo largo del tiempo.
+La ética de la virtud completa el panorama de las tres primeras corrientes
+normativas de esta subrama. Muestra que hay más de una pregunta posible
+detrás de "¿qué es actuar bien?". No se trata solo de qué acción elegir,
+sino de qué tipo de persona formarse a lo largo del tiempo.

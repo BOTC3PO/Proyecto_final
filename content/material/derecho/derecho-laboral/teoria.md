@@ -14,8 +14,6 @@ El derecho laboral es la rama del derecho que regula las relaciones jurídicas q
 
 Este derecho se basa en principios como la igualdad, la no discriminación, la libertad de sindicato y la protección contra el abuso de poder. Su existencia responde a la necesidad histórica de equilibrar relaciones de fuerza en contextos donde el trabajador depende del empleador para su subsistencia.
 
-<!-- IMAGEN: Comparación entre contrato de trabajo y contrato de servicios profesionales, destacando la subordinación como elemento distintivo -->
-
 ---
 
 ## 2. Elementos esenciales del contrato de trabajo

@@ -12,8 +12,6 @@
 
 La resistencia eléctrica es la propiedad de un material que **se opone al paso de la corriente eléctrica** a través de él. Cuanto mayor sea esta oposición, menor será el flujo de electrones en condiciones iguales. Esta característica depende del tipo de material: los conductores (como el cobre) ofrecen poca resistencia, mientras que los aislantes (como el plástico) la aumentan drásticamente.
 
-<!-- IMAGEN: Comparación entre conductor e aislante con flechas que muestran la facilidad o dificultad del flujo de corriente -->
-
 ---
 
 ## 2. Unidades y símbolos
@@ -29,8 +27,6 @@ La resistencia de un material no depende solo del tipo de sustancia, sino tambi�
 - Un conductor más largo ofrece mayor resistencia.
 - Un alambre con mayor área transversal (más grueso) reduce la oposición al flujo.
 - El calor generalmente disminuye la resistencia en metales, pero aumenta en semiconductores.
-
-<!-- IMAGEN: Diagrama que relaciona longitud, grosor y temperatura con el valor de resistencia -->
 
 ---
 

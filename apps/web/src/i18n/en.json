@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "ID document",
   "verificacionPublica.institucion": "Institution",
   "verificacionPublica.enlace": "Link",
-  "verificacionPublica.notas": "Notes"
+  "verificacionPublica.notas": "Notes",
+  "repaso.tituloTemas": "Topics where you missed questions",
+  "repaso.tituloSecciones": "Parts where you missed questions",
+  "repaso.msgDesaprobadoTemas": "You haven't reached {umbral}% yet. It's not the end: see which topics you missed, review them and try again.",
+  "repaso.msgDesaprobadoSecciones": "You haven't reached {umbral}% yet. These are the parts where you missed the most: practice them and try again.",
+  "repaso.msgAprobadoConRepaso": "You passed. These topics could still be strengthened:",
+  "repaso.msgAprobadoLimpio": "You passed and no topic was left weak. Well done.",
+  "repaso.resultadoPorTema": "Result by topic",
+  "repaso.detalleGrupo": "{correctas} of {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% correct",
+  "repaso.repasarPrimero": "Review these first",
+  "repaso.abrirTema": "Open the topic",
+  "repaso.preguntasRevisar": "Questions to review ({n})",
+  "repaso.seccionGramatica": "Grammar",
+  "repaso.seccionLectura": "Reading",
+  "repaso.seccionAudicion": "Listening",
+  "repaso.seccionExpresionOral": "Speaking",
+  "repaso.seccionEscritura": "Writing"
 }

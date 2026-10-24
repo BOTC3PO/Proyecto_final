@@ -1,0 +1,32 @@
+{
+ "titulo": "Hechos relevantes según el área del derecho",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Ejemplos",
+   "headers": [
+    "Área",
+    "Hecho",
+    "Consecuencia jurídica"
+   ],
+   "rows": [
+    [
+     "Familia",
+     "Nacimiento, matrimonio",
+     "Filiación, derechos y deberes"
+    ],
+    [
+     "Penal",
+     "Un delito",
+     "Pena"
+    ],
+    [
+     "Civil",
+     "Un daño o un contrato",
+     "Reparación u obligaciones"
+    ]
+   ]
+  }
+ ]
+}

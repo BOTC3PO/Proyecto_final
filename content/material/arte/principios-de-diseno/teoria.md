@@ -64,11 +64,10 @@ tamaño.
 
 ## 7. Movimiento
 
-El **movimiento**, como principio de diseño, es la sensación de acción o
-la forma en que la composición guía la mirada del espectador a través de
-la obra — no un movimiento real (salvo en video), sino sugerido por
-líneas, disposición de los elementos o dirección de las miradas dentro
-de la escena.
+El **movimiento**, como principio de diseño, es la sensación de acción o la
+forma en que la composición guía la mirada del espectador a través de la
+obra. No es un movimiento real (salvo en video), sino sugerido por líneas,
+disposición de los elementos o dirección de las miradas dentro de la escena.
 
 ## 8. Patrón
 
@@ -95,7 +94,7 @@ sensación específica.
 
 ## Para qué sirve
 
-Estos 10 principios son las herramientas concretas con las que se aplica
-la composición: cualquier decisión de diseño — desde un cuadro hasta un
-afiche o una interfaz digital — se puede describir y evaluar en términos
-de estos 10 conceptos.
+Estos 10 principios son las herramientas concretas con las que se aplica la
+composición. Cualquier decisión de diseño, desde un cuadro hasta un afiche o
+una interfaz digital, se puede describir y evaluar en términos de estos 10
+conceptos.

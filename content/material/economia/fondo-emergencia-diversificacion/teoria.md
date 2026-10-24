@@ -34,11 +34,11 @@ Dos reglas lo definen:
 
 ## Por qué hace falta, aunque ya se tengan otras inversiones
 
-Sin un fondo de emergencia, un gasto imprevisto obliga a elegir entre
-dos opciones malas: pedir un préstamo (a menudo con una tasa de interés
-alta, como una tarjeta de crédito) o vender una inversión en el peor
-momento posible (si esa inversión bajó de precio justo cuando hace
-falta la plata, hay que vender igual, con pérdida). El fondo de
+Sin un fondo de emergencia, un gasto imprevisto obliga a elegir entre dos
+opciones malas. Una es pedir un préstamo, a menudo con una tasa de interés
+alta, como una tarjeta de crédito. La otra es vender una inversión en el
+peor momento posible: si esa inversión bajó de precio justo cuando hace
+falta la plata, hay que vender igual, con pérdida. El fondo de
 emergencia evita las dos cosas: es la plata que ya estaba separada, sin
 tener que endeudarse ni malvender nada.
 
@@ -60,11 +60,10 @@ activos elegidos.
 **Ejemplo clásico**: una heladería gana mucho en los días soleados y
 poco en los días de lluvia; una fábrica de paraguas gana poco en los
 días soleados y mucho en los días de lluvia. Invertir todo en una sola
-de las dos deja el resultado muy atado al clima. Invertir la mitad en
-cada una da, en promedio, el mismo valor esperado que el promedio de las
-dos por separado — pero con mucha menos variación: cuando el clima le va
-mal a una, le va bien a la otra, y el resultado combinado queda más
-estable que cualquiera de las dos por separado.
+de las dos deja el resultado muy atado al clima. Invertir la mitad en cada una da, en promedio, el mismo valor esperado que
+el promedio de las dos por separado, pero con mucha menos variación. Cuando
+el clima le va mal a una, le va bien a la otra, y el resultado combinado
+queda más estable que cualquiera de las dos por separado.
 
 ## El valor esperado de un portafolio diversificado
 
@@ -86,7 +85,7 @@ activos elegidos no reaccionan siempre igual a los mismos eventos.
   distintas (y a veces distintos países y tipos de activo).
 - **No tener todos los ahorros en una sola moneda o un solo banco**:
   también es una forma de diversificación.
-- **El fondo de emergencia y la diversificación no compiten entre sí**:
-  el fondo de emergencia es la parte líquida y de bajo riesgo que cubre
-  lo imprevisto; el resto de los ahorros, pensado para crecer a más
-  largo plazo, es donde tiene sentido diversificar.
+- **El fondo de emergencia y la diversificación no compiten entre sí**. El
+  fondo de emergencia es la parte líquida y de bajo riesgo que cubre lo
+  imprevisto. El resto de los ahorros, pensado para crecer a más largo
+  plazo, es donde tiene sentido diversificar.

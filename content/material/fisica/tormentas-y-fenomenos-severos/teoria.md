@@ -15,18 +15,17 @@
 ## La idea común: energía atmosférica concentrada
 
 Todos los fenómenos de este módulo son la misma idea de fondo llevada al
-extremo: una gran cantidad de energía atmosférica (calor, humedad,
-diferencia de presión) se **concentra** en un área relativamente chica y
-se libera de golpe, en vez de disiparse gradualmente. Cuanta más energía
+extremo. Una gran cantidad de energía atmosférica (calor, humedad,
+diferencia de presión) se **concentra** en un área relativamente chica y se
+libera de golpe, en vez de disiparse gradualmente. Cuanta más energía
 concentrada, más severo el fenómeno.
 
 ## Tormenta eléctrica
 
-Se forma dentro de un cumulonimbo (`../formacion-de-nubes/`): las
-corrientes de aire fuertes hacen chocar gotitas de agua y cristales de
-hielo entre sí, generando **fricción** que separa cargas eléctricas
-(`../cargas-electricas/`) — la parte superior de la nube queda cargada
-positiva, la inferior negativa. Cuando la diferencia de carga es
+Se forma dentro de un cumulonimbo (`../formacion-de-nubes/`). Las corrientes
+de aire fuertes hacen chocar gotitas de agua y cristales de hielo entre sí.
+Esa **fricción** separa cargas eléctricas (`../cargas-electricas/`): la
+parte superior de la nube queda cargada positiva y la inferior, negativa. Cuando la diferencia de carga es
 suficiente, se descarga de golpe: eso es el **rayo** (la luz) y el
 **trueno** (el sonido de esa descarga calentando el aire a su alrededor
 casi instantáneamente, expandiéndolo violentamente).
@@ -34,12 +33,11 @@ casi instantáneamente, expandiéndolo violentamente).
 ## Tornado
 
 Un **tornado** es una columna de aire en rotación muy violenta, que
-conecta la base de un cumulonimbo con el suelo. Se forma cuando, dentro
-de la tormenta, hay una fuerte diferencia de velocidad/dirección del
-viento entre distintas alturas (**cizalladura del viento**), que hace
-girar horizontalmente una masa de aire; una corriente ascendente muy
-fuerte dentro de la tormenta puede inclinar ese giro hasta ponerlo
-vertical, formando un embudo giratorio que baja hasta tocar tierra.
+conecta la base de un cumulonimbo con el suelo. Se forma cuando, dentro de la tormenta, hay una fuerte diferencia de
+velocidad o dirección del viento entre distintas alturas (**cizalladura del
+viento**). Eso hace girar horizontalmente una masa de aire. Una corriente
+ascendente muy fuerte puede inclinar ese giro hasta ponerlo vertical, y
+forma un embudo giratorio que baja hasta tocar tierra.
 
 - Se mide con la **escala Fujita mejorada (EF)**, de EF0 a EF5, según el
   **daño causado** (no midiendo el viento directamente, sino
@@ -57,10 +55,10 @@ vertical, formando un embudo giratorio que baja hasta tocar tierra.
 
 ## Huracán / ciclón / tifón: el mismo fenómeno, distinto nombre regional
 
-Es un sistema de tormentas organizado en espiral alrededor de un centro
-de baja presión muy marcada (el "ojo"), que se alimenta del calor y
-humedad de un océano cálido (por eso sólo se forman sobre agua tibia,
-nunca sobre tierra ni sobre agua fría). **Es exactamente el mismo
+Es un sistema de tormentas organizado en espiral alrededor de un centro de
+baja presión muy marcada (el "ojo"). Se alimenta del calor y la humedad de
+un océano cálido. Por eso solo se forman sobre agua tibia, nunca sobre
+tierra ni sobre agua fría. **Es exactamente el mismo
 fenómeno físico**, y sólo cambia el nombre según la región del mundo
 donde ocurre:
 
@@ -87,19 +85,19 @@ daño y pérdida de vidas.
 ## Granizo severo
 
 Ya visto el mecanismo en `../precipitacion/` (capas sucesivas de hielo
-dentro de un cumulonimbo). Se considera **severo** cuando las piedras
-superan cierto tamaño (convencionalmente, más de 2 cm de diámetro, del
-tamaño de una moneda grande en adelante) — indica que las corrientes
-internas de la tormenta son muy intensas, suficientes para sostener la
-piedra en el aire el tiempo necesario para que crezca tanto.
+dentro de un cumulonimbo). Se considera **severo** cuando las piedras superan cierto tamaño
+(convencionalmente, más de 2 cm de diámetro, del tamaño de una moneda grande
+en adelante). Indica que las corrientes internas de la tormenta son muy
+intensas: suficientes para sostener la piedra en el aire el tiempo necesario
+para que crezca tanto.
 
 ## Por qué alimentan a Cambio climático (`AM3P`)
 
 Los eventos severos (más tornados, huracanes más intensos, granizo más
-frecuente) son, en la práctica, uno de los datos concretos con los que
-se mide si el clima ya cambió — la misma **línea de base histórica** que
-usa el módulo de Cambio climático para comparar el clima de hoy contra
-el de décadas pasadas. No implica que cada evento puntual sea "culpa"
+frecuente) son, en la práctica, uno de los datos concretos con los que se
+mide si el clima ya cambió. Es la misma **línea de base histórica** que usa
+el módulo de Cambio climático para comparar el clima de hoy contra el de
+décadas pasadas. No implica que cada evento puntual sea "culpa"
 del cambio climático (la variabilidad natural siempre existió), sino que
 un cambio en la *frecuencia o intensidad promedio* a lo largo de muchos
 años es la señal que se analiza.

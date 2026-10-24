@@ -34,8 +34,6 @@ El Balanced Scorecard es un marco para medir el desempeño organizacional desde 
 
 Este enfoque evita la reducción del éxito a métricas económicas exclusivamente. Por ejemplo, una empresa podría priorizar mejorar la experiencia del cliente (perspectiva 2) incluso si eso incrementa costos a corto plazo, si se espera un impacto positivo en el largo plazo.
 
-<!-- IMAGEN: Cuadro comparativo de las cuatro perspectivas con ejemplos de indicadores -->
-
 ## 4. Indicadores clave (KPIs): desde la teoría hasta la práctica
 
 Los KPIs (Key Performance Indicators) son indicadores seleccionados para medir el progreso hacia metas críticas. Su elección depende del tipo de organización y sus objetivos: una empresa manufacturera podría priorizar la tasa de defectos en producción, mientras que un servicio enfocaría en tiempos de respuesta al cliente.

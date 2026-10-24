@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "Les thèmes où tu as fait des erreurs",
+  "repaso.tituloSecciones": "Les parties où tu as fait des erreurs",
+  "repaso.msgDesaprobadoTemas": "Tu n'as pas encore atteint {umbral} %. Ce n'est pas une fin : regarde les thèmes où tu as fait des erreurs, révise-les et réessaie.",
+  "repaso.msgDesaprobadoSecciones": "Tu n'as pas encore atteint {umbral} %. Voici les parties où tu as fait le plus d'erreurs : entraîne-toi et réessaie.",
+  "repaso.msgAprobadoConRepaso": "Réussi. Ces thèmes peuvent encore être consolidés :",
+  "repaso.msgAprobadoLimpio": "Réussi, et aucun thème n'est resté fragile. Bravo.",
+  "repaso.resultadoPorTema": "Résultat par thème",
+  "repaso.detalleGrupo": "{correctas} sur {total} · {porcentaje} %",
+  "repaso.ariaAciertos": "{porcentaje} % de bonnes réponses",
+  "repaso.repasarPrimero": "À réviser en premier",
+  "repaso.abrirTema": "Ouvrir le thème",
+  "repaso.preguntasRevisar": "Questions à revoir ({n})",
+  "repaso.seccionGramatica": "Grammaire",
+  "repaso.seccionLectura": "Lecture",
+  "repaso.seccionAudicion": "Compréhension orale",
+  "repaso.seccionExpresionOral": "Expression orale",
+  "repaso.seccionEscritura": "Écriture"
 }

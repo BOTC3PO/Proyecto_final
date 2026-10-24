@@ -77,7 +77,7 @@ patrón clásico de la herencia ligada al X (una madre afectada
 ## Para qué sirve
 
 Explica por qué ciertas enfermedades genéticas (hemofilia, daltonismo,
-distrofia muscular de Duchenne) afectan de forma muy desigual a
-varones y mujeres, y es la base del asesoramiento genético para
-calcular el riesgo real de un hijo, según su sexo, en familias con
-antecedentes de estas condiciones.
+distrofia muscular de Duchenne) afectan de forma muy desigual a varones y
+mujeres. Es la base del asesoramiento genético: permite calcular el riesgo
+real de un hijo, según su sexo, en familias con antecedentes de estas
+condiciones.

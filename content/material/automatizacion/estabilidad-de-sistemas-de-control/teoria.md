@@ -48,4 +48,4 @@ Para un polinomio de segundo orden a·s² + b·s + c, la condición es simple: l
 
 ## 6. Qué se hace en la práctica
 
-Se verifica la estabilidad con el modelo, se deja un **margen de seguridad** respecto del límite (porque el modelo no es exacto y la planta cambia con el uso) y se prueba en la planta con cuidado, aumentando la ganancia de a poco. Un sistema que apenas es estable es un sistema peligroso.
+Se verifica la estabilidad con el modelo y se deja un **margen de seguridad** respecto del límite, porque el modelo no es exacto y la planta cambia con el uso. Después se prueba en la planta con cuidado, aumentando la ganancia de a poco. Un sistema que apenas es estable es un sistema peligroso.

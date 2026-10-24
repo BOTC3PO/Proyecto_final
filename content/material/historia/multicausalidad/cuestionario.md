@@ -457,32 +457,8 @@ explicacion: |
   clasificarlas y evaluar su peso relativo antes de concluir.
 ```
 
-### 19 — Multicausalidad cierra la cadena de pensamiento histórico
 
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["multicausalidad", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Multicausalidad cierra la cadena de herramientas básicas de pensamiento histórico: línea de tiempo, unidades de tiempo, períodos, causa/consecuencia, cambio/continuidad y multicausalidad."
-
-pasos:
-  - "Ver `../linea-de-tiempo-y-antes-despues/`: es el primer nodo de toda esta cadena de Tronco 6."
-
-explicacion: |
-  Verdadero: es la síntesis de toda la cadena de 7 temas de
-  pensamiento histórico cubierta en esta sesión.
-```
-
-### 20 — Aplicación: analizar un hecho histórico o actual con multicausalidad
+### 19 — Aplicación: analizar un hecho histórico o actual con multicausalidad
 
 ```
 metadata:

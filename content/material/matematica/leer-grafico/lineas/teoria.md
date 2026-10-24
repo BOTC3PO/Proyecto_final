@@ -14,20 +14,19 @@ tendencia), no necesita separarse en varias diapositivas.
 
 ## Qué es un gráfico de líneas
 
-Un **gráfico de líneas** conecta con segmentos los puntos de una
-serie de datos, casi siempre a lo largo del **tiempo** (eje
-horizontal): cada punto marca un valor en un momento dado, y la línea
-que los une ayuda a ver la **tendencia** — si el valor sube, baja, o
-se mantiene estable.
+Un **gráfico de líneas** conecta con segmentos los puntos de una serie de
+datos, casi siempre a lo largo del **tiempo** (eje horizontal). Cada punto
+marca un valor en un momento dado, y la línea que los une ayuda a ver la
+**tendencia**: si el valor sube, baja o se mantiene estable.
 
 ## Por qué el eje horizontal suele ser tiempo
 
-A diferencia de un gráfico de barras (categorías sin orden numérico
-propio), el eje horizontal de un gráfico de líneas representa casi
-siempre una magnitud **continua y ordenada** — meses, años, horas — lo
-que hace que "conectar los puntos" tenga sentido: entre dos meses
-consecutivos, el valor real pasó por algún camino intermedio (aunque
-el gráfico no lo muestre con exactitud).
+En un gráfico de barras, las categorías no tienen un orden numérico propio.
+En un gráfico de líneas, en cambio, el eje horizontal representa casi
+siempre una magnitud **continua y ordenada** (meses, años, horas). Por eso
+"conectar los puntos" tiene sentido: entre dos meses consecutivos, el valor
+real pasó por algún camino intermedio, aunque el gráfico no lo muestre con
+exactitud.
 
 ## Cómo leer la tendencia
 
@@ -48,8 +47,7 @@ verticalmente hasta la línea, y de ahí hasta el eje numérico.
 
 Es el gráfico correcto para mostrar evolución en el tiempo: la
 temperatura a lo largo del día, el precio de un producto mes a mes,
-el crecimiento de una población, la cotización de una moneda. Ver la
-forma completa de la línea (no sólo un punto) es lo que permite
-detectar tendencias, y es la base de `../../construir-un-grafico/`
-(módulo siguiente) y del pensamiento crítico frente a un "gráfico con
-eje truncado" que exagera una tendencia real.
+el crecimiento de una población, la cotización de una moneda. Ver la forma completa de la línea (no solo un punto) es lo que permite
+detectar tendencias. Es la base de `../../construir-un-grafico/` (módulo
+siguiente) y del pensamiento crítico frente a un "gráfico con eje truncado"
+que exagera una tendencia real.

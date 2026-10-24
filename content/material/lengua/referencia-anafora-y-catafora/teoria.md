@@ -77,8 +77,8 @@ claro si "él" es Juan o Pedro. Revisar que cada referencia tenga un
 
 ## Para qué sirve
 
-La referencia es la segunda herramienta de cohesión de esta subrama
-(junto con `../conectores-textuales/` y `../progresion-tematica/`):
-mientras los conectores marcan relaciones lógicas entre ideas, la
-referencia evita repetición manteniendo claro de qué (o quién) se
-sigue hablando a lo largo del texto.
+La referencia es la segunda herramienta de cohesión de esta subrama (junto
+con `../conectores-textuales/` y `../progresion-tematica/`). Los conectores
+marcan relaciones lógicas entre ideas. La referencia, en cambio, evita
+repetición manteniendo claro de qué (o quién) se sigue hablando a lo largo
+del texto.

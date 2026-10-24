@@ -14,13 +14,11 @@ El Estado de Derecho no es un mero conjunto de leyes, sino una forma de organiza
 
 Este principio se basa en dos ideas fundamentales: primero, que las leyes deben ser claras, públicas y aplicables a todos sin distinción. Segundo, que **no existen leyes especiales** para algunos grupos, como los poderosos o los líderes políticos. Por ejemplo, si un funcionario público comete un delito, no puede recibir un trato preferencial: debe responder ante la justicia igual que cualquier ciudadano.
 
-<!-- IMAGEN: Esquema de tres pilares: "ley superior", "igualdad ante la ley" y "independencia judicial" -->.
-
 ---
 
 ## 2. Control del poder para evitar abusos
 
-El Estado de Derecho no solo regula lo que los ciudadanos pueden hacer, sino también **cómo se ejerce el poder público**. Para prevenir que una sola persona o grupo controle todo, se establece la **división de poderes**: separar las funciones del gobierno en tres ramas principales: Ejecutivo (que aplica las leyes), Legislativo (que las crea) y Judicial (que las interpreta y aplica).
+El Estado de Derecho no solo regula lo que los ciudadanos pueden hacer, sino también **cómo se ejerce el poder público**. Para prevenir que una sola persona o grupo controle todo, se establece la **división de poderes**. Consiste en separar las funciones del gobierno en tres ramas principales: Ejecutivo (que aplica las leyes), Legislativo (que las crea) y Judicial (que las interpreta y aplica).
 
 Esta división es clave porque permite que cada rama controle a las otras. Por ejemplo, si el Poder Ejecutivo quiere aprobar una medida urgente, el Legislativo debe validarla. Si se sospecha de un abuso de autoridad, el Poder Judicial puede intervenir para investigar o anular la acción. Sin esta separación, existe el riesgo de que un solo órgano concentre demasiado poder y abuse de él.
 

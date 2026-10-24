@@ -1,6 +1,6 @@
 # Examen jefe — Explorador de la Ética y la Existencia
 
-> Logro #952. Dominaste la existencia, el contractualismo, la deontología, la ética de la virtud y la historia de la filosofía y sus corrientes. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #952. Dominaste la existencia, el contractualismo, la deontología, la ética de la virtud y la historia de la filosofía y sus corrientes. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **99 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1841,7 +1841,7 @@ explicacion: |
   tema, en contraste con utilitarismo y deontología.
 ```
 
-## Sección: historia-de-la-filosofia-y-corrientes (20 preguntas)
+## Sección: historia-de-la-filosofia-y-corrientes (19 preguntas)
 
 ```
 metadata:
@@ -2183,29 +2183,6 @@ pasos:
 explicacion: |
   El anarquismo rechaza específicamente la autoridad jerárquica
   impuesta, incluyendo al Estado.
-```
-
-```
-metadata:
-  materia: "filosofia"
-  tema: "historia_de_la_filosofia"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las corrientes político-económicas se presentan con el mismo criterio de neutralidad que las corrientes económicas del Tronco 1: identificar qué sostiene cada una, nunca evaluar cuál tiene razón."
-
-pasos:
-  - "Ver `../../economia/`: es el mismo principio ya aplicado en esa materia."
-
-explicacion: |
-  Verdadero: es el criterio de neutralidad no negociable en este
-  tema.
 ```
 
 ```

@@ -56,11 +56,11 @@ Ejemplo: `Zn + 2HCl → ZnCl₂ + H₂` (el zinc desplaza al hidrógeno del
 lado de los reactivos, y ese mismo elemento aparece **solo** del lado
 de los productos (cambió de compañero).
 
-**Regla práctica**: para que un desplazamiento ocurra de verdad (no
-sólo esté "escrito"), el elemento que desplaza tiene que ser **más
-reactivo** que el que desplaza (esto se puede comparar con la serie de
-actividad de los metales — dato que no hace falta memorizar para este
-nivel, alcanza con identificar el patrón de la ecuación).
+**Regla práctica**: para que un desplazamiento ocurra de verdad, y no solo
+esté "escrito", el elemento que desplaza tiene que ser **más reactivo** que
+el que desplaza. Esto se puede comparar con la serie de actividad de los
+metales. No hace falta memorizar ese dato para este nivel: alcanza con
+identificar el patrón de la ecuación.
 
 ## 4. Cómo distinguir los 3 de un vistazo
 

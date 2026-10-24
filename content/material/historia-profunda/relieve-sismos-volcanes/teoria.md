@@ -12,13 +12,17 @@
 
 El relieve de la Tierra no es un fenómeno aleatorio: su formación está íntimamente ligada a los movimientos de las placas tectónicas. La mayor parte de las estructuras geográficas, como montañas, fosas oceánicas y dorsales submarinas, se generan en los **bordes de las placas**. Allí, la fricción entre bloques gigantes de roca provoca tensiones que se liberan a través de movimientos bruscos (sismos) o deformaciones lentas (formación de relieve). Por ejemplo, cuando dos placas colisionan en un borde convergente, una puede hundirse bajo la otra, creando fosas y elevando cordilleras. Este proceso no es instantáneo: ocurre a lo largo de millones de años, pero su impacto es visible hoy en el paisaje.
 
-<!-- IMAGEN: Diagrama de los bordes de placas tectónicas con ejemplos de relieve -->
+![Diagrama de los bordes de placas tectónicas con ejemplos de relieve](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Plate_Boundaries_Inforgraphic.jpg/960px-Plate_Boundaries_Inforgraphic.jpg)
+
+*Imagen: «Plate Boundaries Inforgraphic», Page Quinton, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plate_Boundaries_Inforgraphic.jpg).*
 
 ## 2. Tipos de límites entre placas
 
 Los bordes entre placas se clasifican según cómo interactúan los bloques. En un **límite divergente**, las placas se alejan: el material del manto ascendente forma dorsales oceánicas, como la dorsal mesoatlántica. En un **límite convergente**, una placa se hunde bajo otra (subducción), generando fosas y cordilleras (como los Andes). Finalmente, en un **límite transformante**, las placas se deslizan lateralmente, causando fallas como la de San Andrés. Cada tipo de límite no solo modela el relieve, sino que también define patrones de actividad sísmica y volcánica.
 
-<!-- IMAGEN: Comparación de los tres tipos de límites con ejemplos geográficos -->
+![Comparación de los tres tipos de límites con ejemplos geográficos](https://upload.wikimedia.org/wikipedia/commons/d/dc/Tectonic_plate_boundaries2.png)
+
+*Imagen: «Tectonic plate boundaries2», USGS/USGov, modified by Eurico Zimbres, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tectonic_plate_boundaries2.png).*
 
 ## 3. Formación de cordilleras y fosas
 
@@ -28,7 +32,9 @@ Las **cordilleras** surgen principalmente en zonas de colisión convergente. Cua
 
 Los **sismos** (terremotos) ocurren cuando las placas se mueven bruscamente, liberando energía acumulada en fallas. La magnitud depende de la profundidad y el tamaño del desplazamiento. Por otro lado, los **volcanes** aparecen principalmente en bordes divergentes (donde el magma rellena el vacío entre placas) o convergentes (donde la subducción genera magma al fundir rocas). La erupción volcánica puede crear nuevas islas, como Hawái, o modificar paisajes existentes, como en los Andes. Ambos fenómenos son manifestaciones directas de la dinámica interna del planeta.
 
-<!-- IMAGEN: Esquema de un volcán y su relación con la subducción -->
+![Esquema de un volcán y su relación con la subducción](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Volcanic_Arc_System_SVG_en.svg/960px-Volcanic_Arc_System_SVG_en.svg.png)
+
+*Imagen: «Volcanic Arc System SVG en», MagentaGreen, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg).*
 
 ## N. Conexión con lo que sigue
 

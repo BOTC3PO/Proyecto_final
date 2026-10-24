@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "Bei diesen Themen hast du Fehler gemacht",
+  "repaso.tituloSecciones": "In diesen Teilen hast du Fehler gemacht",
+  "repaso.msgDesaprobadoTemas": "Du hast die {umbral} % noch nicht erreicht. Das ist kein Ende: Sieh dir an, bei welchen Themen du Fehler gemacht hast, wiederhole sie und versuche es noch einmal.",
+  "repaso.msgDesaprobadoSecciones": "Du hast die {umbral} % noch nicht erreicht. In diesen Teilen hast du die meisten Fehler gemacht: Übe sie und versuche es noch einmal.",
+  "repaso.msgAprobadoConRepaso": "Bestanden. Diese Themen kannst du noch festigen:",
+  "repaso.msgAprobadoLimpio": "Bestanden, und kein Thema ist schwach geblieben. Gut gemacht.",
+  "repaso.resultadoPorTema": "Ergebnis nach Thema",
+  "repaso.detalleGrupo": "{correctas} von {total} · {porcentaje} %",
+  "repaso.ariaAciertos": "{porcentaje} % richtig",
+  "repaso.repasarPrimero": "Zuerst wiederholen",
+  "repaso.abrirTema": "Thema öffnen",
+  "repaso.preguntasRevisar": "Fragen zum Nachsehen ({n})",
+  "repaso.seccionGramatica": "Grammatik",
+  "repaso.seccionLectura": "Lesen",
+  "repaso.seccionAudicion": "Hörverstehen",
+  "repaso.seccionExpresionOral": "Sprechen",
+  "repaso.seccionEscritura": "Schreiben"
 }

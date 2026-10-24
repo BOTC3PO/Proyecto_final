@@ -18,10 +18,10 @@ lo largo del tiempo.
 
 ## 2. Crecimiento exponencial: sin límites
 
-Si a una población le sobran recursos (comida, espacio, sin
-depredadores), crece de forma **exponencial**: cuantos más individuos
-hay, más individuos nuevos se suman por unidad de tiempo — la curva
-se dispara cada vez más rápido, sin techo. Esto ocurre en la
+Si a una población le sobran recursos (comida, espacio, sin depredadores),
+crece de forma **exponencial**. Cuantos más individuos hay, más individuos
+nuevos se suman por unidad de tiempo, y la curva se dispara cada vez más
+rápido, sin techo. Esto ocurre en la
 naturaleza, pero **sólo por períodos cortos** (ej.: una especie recién
 introducida en un ambiente sin depredadores ni competencia).
 
@@ -56,17 +56,16 @@ si mejoran (ej.: más lluvia), **K** puede subir.
 ## 5. Qué pasa si una población supera la capacidad de carga
 
 Si una población crece por encima de **K** (por ejemplo, tras un año
-excepcionalmente bueno), el ambiente ya no alcanza para todos —
-aumenta la mortalidad (por falta de alimento, enfermedades que se
-propagan más fácil en densidades altas, etc.) hasta que la población
-vuelve a bajar cerca de **K**. La capacidad de carga actúa como un
+excepcionalmente bueno), el ambiente ya no alcanza para todos. Aumenta la
+mortalidad por falta de alimento, por enfermedades que se propagan más fácil
+en densidades altas, etc. Eso ocurre hasta que la población vuelve a bajar
+cerca de **K**. La capacidad de carga actúa como un
 punto de equilibrio al que la población tiende a volver, no como un
 techo absoluto que nunca se cruza.
 
 ## 6. Conexión con lo que sigue
 
-Este módulo da el marco general de "cuántos". `../nicho-ecologico/`
-explica **por qué** cada especie tiene su propio valor de K en un
-mismo ambiente (dos especies usan los recursos de forma distinta), y
+Este módulo da el marco general de "cuántos". `../nicho-ecologico/` explica **por qué** cada especie tiene su propio valor
+de K en un mismo ambiente: dos especies usan los recursos de forma distinta.
 `../biodiversidad-indices/` retoma la idea de población para medir
 biodiversidad (cuántas especies, y cuántos individuos de cada una).

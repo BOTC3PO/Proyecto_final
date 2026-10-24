@@ -10,17 +10,17 @@
 
 ## 1. El motor del cambio
 
-La Revolución Industrial fue posible gracias a una innovación clave: el uso del **carbón mineral** como fuente de energía para impulsar la **máquina de vapor**. Ojo con un error común: la máquina de vapor no fue "inventada" por James Watt — el inventor original fue Thomas Newcomen (1712); lo que hizo Watt, a finales del siglo XVIII, fue perfeccionarla radicalmente (agregando un condensador separado, patentado en 1769), haciéndola mucho más eficiente y práctica para uso industrial. Antes, los talleres dependían de fuerzas naturales como el agua o la madera, limitando su capacidad y ubicación. La máquina de vapor permitió concentrar energía en un solo lugar, independientemente del entorno geográfico. Esto revolucionó sectores como la minería, la textil y el transporte, acelerando la producción en masa.
+La Revolución Industrial fue posible gracias a una innovación clave: el uso del **carbón mineral** como fuente de energía para impulsar la **máquina de vapor**. Ojo con un error común: la máquina de vapor no fue "inventada" por James Watt. El inventor original fue Thomas Newcomen (1712). Watt, a finales del siglo XVIII, la perfeccionó radicalmente agregando un condensador separado, patentado en 1769. Así la hizo mucho más eficiente y práctica para uso industrial. Antes, los talleres dependían de fuerzas naturales como el agua o la madera, limitando su capacidad y ubicación. La máquina de vapor permitió concentrar energía en un solo lugar, independientemente del entorno geográfico. Esto revolucionó sectores como la minería, la textil y el transporte, acelerando la producción en masa.
 
-<!-- IMAGEN: Esquema de una máquina de vapor con tubos de carbón y pistones -->
+![Esquema de una máquina de vapor con tubos de carbón y pistones](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steam_engine_diagram_1908.png/960px-Steam_engine_diagram_1908.png)
+
+*Imagen: «Steam engine diagram 1908», James E. Homans, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Steam_engine_diagram_1908.png).*
 
 ---
 
 ## 2. El sistema de trabajo
 
 Antes de la industrialización, la producción se realizaba en casa por encargo (sistema *putting-out*), donde los artesanos fabricaban piezas usando herramientas manuales. Con el surgimiento de las **fábricas**, este modelo cambió radicalmente: los trabajadores se concentraron en grandes edificios equipados con máquinas, bajo supervisión directa. Este **factory system** aumentó la eficiencia pero también generó condiciones laborales duras, con jornadas largas y salarios bajos. La separación entre trabajo y hogar marcó el inicio de una nueva estructura social.
-
-<!-- IMAGEN: Comparación entre un taller doméstico y una fábrica industrial -->
 
 ---
 

@@ -48,10 +48,10 @@ petróleo:
 ## 4. Por qué importa la longitud de la cadena
 
 Las propiedades físicas de un polímero (dureza, flexibilidad, punto de
-fusión) dependen fuertemente de **cuántos** monómeros tiene la cadena y
-de cómo se entrelazan entre sí — el mismo monómero (etileno) da
-polietileno de baja densidad (flexible, para bolsas) o de alta densidad
-(rígido, para caños), según cómo se arme la cadena.
+fusión) dependen fuertemente de **cuántos** monómeros tiene la cadena y de
+cómo se entrelazan entre sí. El mismo monómero (etileno) da polietileno de
+baja densidad (flexible, para bolsas) o de alta densidad (rígido, para
+caños), según cómo se arme la cadena.
 
 ## 5. El problema ambiental (mención breve)
 

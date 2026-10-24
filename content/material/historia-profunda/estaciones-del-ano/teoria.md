@@ -34,10 +34,10 @@ terrestre de ~23,5° (`../movimiento-rotacion-traslacion/`), es el
 
 ## 3. Por qué las estaciones están invertidas entre hemisferios
 
-Como la inclinación del eje es una sola dirección fija en el espacio,
-cuando el hemisferio norte está inclinado hacia el Sol, el hemisferio
-sur está necesariamente inclinado en contra (y viceversa) — de ahí que
-mientras en el hemisferio norte es verano, en el hemisferio sur es
+La inclinación del eje apunta siempre en una única dirección fija en el
+espacio. Por eso, cuando el hemisferio norte está inclinado hacia el Sol, el
+hemisferio sur está necesariamente inclinado en contra (y viceversa). De ahí
+que mientras en el hemisferio norte es verano, en el hemisferio sur es
 invierno, al mismo tiempo.
 
 ## 4. Los cuatro momentos clave del año
@@ -56,10 +56,10 @@ concretas sobre ella), hay 4 puntos de referencia:
 ## 5. Estaciones cerca del ecuador
 
 Cerca del ecuador, la inclinación del eje casi no cambia el ángulo de
-incidencia de la luz a lo largo del año — por eso las zonas
-ecuatoriales tienen mucha menos diferencia estacional de temperatura
-que las zonas templadas o polares (aunque sí pueden tener estaciones
-marcadas por lluvia en vez de temperatura).
+incidencia de la luz a lo largo del año. Por eso las zonas ecuatoriales
+tienen mucha menos diferencia estacional de temperatura que las zonas
+templadas o polares, aunque sí pueden tener estaciones marcadas por lluvia
+en vez de temperatura.
 
 ## 6. Conexión con lo que sigue
 

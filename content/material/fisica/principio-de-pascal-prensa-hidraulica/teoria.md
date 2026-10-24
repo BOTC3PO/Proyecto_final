@@ -20,9 +20,7 @@ Este fenómeno es posible gracias a las propiedades de los líquidos: su capacid
 
 La **prensa hidráulica** es un dispositivo que aprovecha el principio de Pascal para multiplicar fuerzas. Su estructura básica incluye dos cilindros conectados por una tubería llena de fluido incompresible (generalmente aceite). Cada cilindro tiene un émbolo: uno pequeño y otro grande.
 
-Cuando se aplica una fuerza $ F_1 $ sobre el émbolo pequeño, esta genera una presión $ P = \frac{F_1}{A_1} $, donde $ A_1 $ es el área del primer émbolo. Esta presión se transmite al fluido y actúa sobre el segundo émbolo de área $ A_2 $. Al ser la presión igual en ambos ($ \frac{F_1}{A_1} = \frac{F_2}{A_2} $), si $ A_2 > A_1 $, entonces $ F_2 > F_1 $: se obtiene una **fuerza mayor** con una **fuerza menor aplicada**, siempre que el sistema esté en equilibrio.
-
-<!-- IMAGEN: Esquema de prensa hidráulica con dos émbolos, flechas indicando fuerzas y áreas. -->
+Cuando se aplica una fuerza $ F_1 $ sobre el émbolo pequeño, esta genera una presión $ P = \frac{F_1}{A_1} $, donde $ A_1 $ es el área del primer émbolo. Esta presión se transmite al fluido y actúa sobre el segundo émbolo de área $ A_2 $. Al ser la presión igual en ambos ($ \frac{F_1}{A_1} = \frac{F_2}{A_2} $), si $ A_2 > A_1 $, entonces $ F_2 > F_1 $. Se obtiene una **fuerza mayor** con una **fuerza menor aplicada**, siempre que el sistema esté en equilibrio.
 
 ---
 

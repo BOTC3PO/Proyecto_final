@@ -1,0 +1,69 @@
+{
+ "titulo": "Del excedente a la especialización",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Efecto en cadena",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Excedente de alimentos",
+     "x": 0,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "No todos producen alimentos",
+     "x": 238,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Artesanía",
+     "x": 475,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n4",
+     "label": "Comercio",
+     "x": 475,
+     "y": 80,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n5",
+     "label": "Gobierno",
+     "x": 475,
+     "y": 161,
+     "color": "#dbeafe"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n2",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

@@ -14,11 +14,10 @@
 
 La **conciencia fonológica** es la capacidad de **percibir y
 manipular los sonidos del habla**, por separado de su significado y
-**por separado de la escritura**. Es una habilidad **auditiva y oral**
-— un chico puede tenerla bien desarrollada sin saber todavía leer ni
-escribir una sola letra: reconocer que "gato" y "pato" riman, o que
-"sol" tiene un sonido que "pan" no tiene, no requiere ver las palabras
-escritas.
+**por separado de la escritura**. Es una habilidad **auditiva y oral**. Un chico puede tenerla bien
+desarrollada sin saber todavía leer ni escribir una sola letra. Reconocer
+que "gato" y "pato" riman, o que "sol" tiene un sonido que "pan" no tiene,
+no requiere ver las palabras escritas.
 
 ## Los niveles, de lo más grande a lo más fino
 

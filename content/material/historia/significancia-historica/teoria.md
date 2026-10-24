@@ -40,10 +40,10 @@ enseñados, y cuáles quedan fuera.
 
 ## La significancia no es fija ni objetiva
 
-Un mismo hecho puede considerarse muy significativo en un momento
-histórico y perder relevancia después (o al revés) — la significancia
-histórica **cambia** con el tiempo, según qué preguntas y problemas
-le interesan a cada generación de historiadores y de sociedades.
+Un mismo hecho puede considerarse muy significativo en un momento histórico
+y perder relevancia después (o al revés). La significancia histórica
+**cambia** con el tiempo, según qué preguntas y problemas le interesan a
+cada generación de historiadores y de sociedades.
 Distintas historiografías (`../../filosofia/historia-de-la-filosofia-y-corrientes/`,
 sección de corrientes) pueden priorizar distinto tipo de hechos como
 significativos (la historia política tradicional prioriza reyes y
@@ -52,23 +52,22 @@ común).
 
 ## No confundir "significativo" con "que a mí me gusta"
 
-La significancia histórica no es una preferencia personal ("me
-interesa la historia militar, así que sólo eso es significativo") —
-es un juicio que se argumenta con los criterios arriba mencionados
-(impacto, alcance, duración, resonancia), no una simple cuestión de
-gusto individual.
+La significancia histórica no es una preferencia personal ("me interesa la
+historia militar, así que solo eso es significativo"). Es un juicio que se
+argumenta con los criterios arriba mencionados (impacto, alcance, duración,
+resonancia), no una simple cuestión de gusto individual.
 
 ## Un hecho "pequeño" puede ser muy significativo
 
-El tamaño aparente de un hecho no determina su significancia: un
-episodio puntual y localizado (el asesinato de un archiduque) puede
-desencadenar consecuencias enormes (una guerra mundial), volviéndolo
-altamente significativo pese a su escala aparentemente menor en el
-momento en que ocurrió.
+El tamaño aparente de un hecho no determina su significancia. Un episodio
+puntual y localizado (el asesinato de un archiduque) puede desencadenar
+consecuencias enormes (una guerra mundial). Eso lo vuelve altamente
+significativo, pese a su escala aparentemente menor en el momento en que
+ocurrió.
 
 ## Para qué sirve
 
-Este tema da el criterio para decidir qué merece un lugar en un
-programa de estudio, un libro de historia o una línea de tiempo — la
-misma pregunta que, implícitamente, ya se aplicó al elegir qué temas
-cubrir en toda esta cadena de Historia.
+Este tema da el criterio para decidir qué merece un lugar en un programa de
+estudio, un libro de historia o una línea de tiempo. Es la misma pregunta
+que, implícitamente, ya se aplicó al elegir qué temas cubrir en toda esta
+cadena de Historia.

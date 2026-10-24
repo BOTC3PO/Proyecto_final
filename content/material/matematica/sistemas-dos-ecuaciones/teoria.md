@@ -12,11 +12,10 @@ tres métodos, casos especiales, errores comunes).
 
 ## Qué es un sistema de dos ecuaciones
 
-Hasta acá, una ecuación tenía una sola incógnita (x). Un **sistema de dos
-ecuaciones con dos incógnitas** son dos ecuaciones que comparten las
-mismas dos letras (x e y), y la solución es el **par de valores** (x, y)
-que cumple **las dos ecuaciones al mismo tiempo** — no alcanza con que
-cumpla una sola.
+Hasta acá, una ecuación tenía una sola incógnita (x). Un **sistema de dos ecuaciones con dos incógnitas** son dos ecuaciones que
+comparten las mismas dos letras (x e y). La solución es el **par de
+valores** (x, y) que cumple **las dos ecuaciones al mismo tiempo**. No
+alcanza con que cumpla una sola.
 
 Ejemplo:
 ```

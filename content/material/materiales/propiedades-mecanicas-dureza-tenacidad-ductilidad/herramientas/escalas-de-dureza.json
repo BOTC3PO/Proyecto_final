@@ -1,0 +1,37 @@
+{
+ "titulo": "Escalas de dureza",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cada escala, para un tipo de material",
+   "headers": [
+    "Escala",
+    "Se usa sobre",
+    "Cómo se mide"
+   ],
+   "rows": [
+    [
+     "Vickers (HV)",
+     "Metales y cerámicos",
+     "Huella de una pirámide de diamante"
+    ],
+    [
+     "Rockwell (HR)",
+     "Aceros y metales",
+     "Profundidad de la huella"
+    ],
+    [
+     "Shore",
+     "Plásticos y gomas",
+     "Penetración de un indentador"
+    ],
+    [
+     "Mohs",
+     "Minerales",
+     "Quién raya a quién"
+    ]
+   ]
+  }
+ ]
+}

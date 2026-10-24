@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "Temoj en kiuj vi eraris",
+  "repaso.tituloSecciones": "Partoj en kiuj vi eraris",
+  "repaso.msgDesaprobadoTemas": "Vi ankoraŭ ne atingis {umbral}%. Tio ne estas fino: rigardu en kiuj temoj vi eraris, ripetu ilin kaj provu denove.",
+  "repaso.msgDesaprobadoSecciones": "Vi ankoraŭ ne atingis {umbral}%. Jen la partoj en kiuj vi plej multe eraris: ekzercu ilin kaj provu denove.",
+  "repaso.msgAprobadoConRepaso": "Vi sukcesis. Ĉi tiujn temojn eblas ankoraŭ plifirmigi:",
+  "repaso.msgAprobadoLimpio": "Vi sukcesis kaj neniu temo restis malforta. Bone farite.",
+  "repaso.resultadoPorTema": "Rezulto laŭ temo",
+  "repaso.detalleGrupo": "{correctas} el {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% korektaj",
+  "repaso.repasarPrimero": "Ripetu unue",
+  "repaso.abrirTema": "Malfermi la temon",
+  "repaso.preguntasRevisar": "Demandoj por revizii ({n})",
+  "repaso.seccionGramatica": "Gramatiko",
+  "repaso.seccionLectura": "Legado",
+  "repaso.seccionAudicion": "Aŭdkomprenado",
+  "repaso.seccionExpresionOral": "Parolado",
+  "repaso.seccionEscritura": "Skribado"
 }

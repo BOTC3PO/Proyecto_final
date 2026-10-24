@@ -46,21 +46,19 @@ Ninguna revolución tiene una sola causa — es el ejemplo de manual de
 
 ## Caso real: la Revolución de Mayo (1810)
 
-Desarrollo real en `../../historia/` no duplicado acá — ver la cadena
-de Tronco 8.c (`AH4`). Como ejemplo de multicausalidad aplicada: la
-Revolución de Mayo combinó el detonante puntual (la noticia de la caída
-de la Junta Central española ante la invasión napoleónica, que dejó sin
-autoridad reconocida al Virreinato) con causas más profundas y previas
-(ideas ilustradas circulando entre la élite criolla, tensiones
-comerciales por el monopolio español, precedentes como las Invasiones
-Inglesas de 1806-1807 que mostraron que Buenos Aires podía organizarse
-militarmente sin depender de la corona).
+El desarrollo completo está en la historia argentina y no se repite acá. Como ejemplo de multicausalidad aplicada, la Revolución de Mayo combinó un
+detonante puntual con causas más profundas y previas. El detonante fue la
+noticia de la caída de la Junta Central española ante la invasión
+napoleónica, que dejó sin autoridad reconocida al Virreinato. Las causas
+previas eran las ideas ilustradas circulando entre la élite criolla y las
+tensiones comerciales por el monopolio español. También los precedentes como
+las Invasiones Inglesas de 1806-1807, que mostraron que Buenos Aires podía
+organizarse militarmente sin depender de la corona.
 
 ## Por qué "revolución" no es sinónimo de "guerra"
 
 Una revolución es, en sí misma, un cambio de estructura de poder o
-sociedad — no necesariamente un enfrentamiento armado prolongado. Puede
-derivar en una guerra (ver `../guerras/`) si el poder derrocado, o un
-tercero, resiste con las armas, pero el proceso revolucionario en sí
-(el cambio de régimen) y la guerra que puede seguirle son dos procesos
+sociedad — no necesariamente un enfrentamiento armado prolongado. Puede derivar en una guerra (ver `../guerras/`) si el poder derrocado, o un
+tercero, resiste con las armas. Pero el proceso revolucionario en sí (el
+cambio de régimen) y la guerra que puede seguirle son dos procesos
 distintos, aunque a menudo encadenados en la práctica histórica.

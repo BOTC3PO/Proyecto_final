@@ -55,11 +55,11 @@ nivel de restricción:
 
 ## 4. Por qué las áreas protegidas aisladas no alcanzan
 
-Una única área protegida chica y aislada, rodeada de zonas urbanizadas
-o agrícolas, no sostiene indefinidamente su biodiversidad: las
-poblaciones dentro de ella quedan chicas (más deriva genética,
-`../deriva-genetica-flujo-genico/`) y sin conexión con otras
-poblaciones de la misma especie (sin flujo génico). Por eso la
+Una única área protegida chica y aislada, rodeada de zonas urbanizadas o
+agrícolas, no sostiene indefinidamente su biodiversidad. Las poblaciones
+dentro de ella quedan chicas, con más deriva genética
+(`../deriva-genetica-flujo-genico/`). Además quedan sin conexión con otras
+poblaciones de la misma especie, es decir, sin flujo génico. Por eso la
 conservación moderna prioriza **redes** de áreas protegidas conectadas
 por corredores, no áreas sueltas.
 

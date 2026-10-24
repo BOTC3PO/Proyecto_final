@@ -14,11 +14,11 @@ separables del proceso de escritura.
 
 ## Por qué "compleja": combina todo lo anterior
 
-Este tema no enseña una técnica nueva: **integra** lo que ya se vio en
-la rama gramatical (`../oracion-compuesta-coordinacion-y-subordinacion/`)
-y en la de corrección formal (`../signos-de-puntuacion/`) para producir
-un texto largo, coherente y bien puntuado — no una oración suelta, sino
-varios párrafos que se sostienen entre sí.
+Este tema no enseña una técnica nueva: **integra** lo que ya se vio en la
+rama gramatical (`../oracion-compuesta-coordinacion-y-subordinacion/`) y en
+la de corrección formal (`../signos-de-puntuacion/`). El objetivo es
+producir un texto largo, coherente y bien puntuado: no una oración suelta,
+sino varios párrafos que se sostienen entre sí.
 
 ## El proceso de escritura tiene etapas
 
@@ -49,23 +49,23 @@ solo párrafo ni fragmentar una sola idea en varios sin necesidad.
 ## Variar la estructura sintáctica
 
 Un texto complejo bien escrito combina oraciones simples y compuestas
-(coordinadas y subordinadas, `../oracion-compuesta-coordinacion-y-subordinacion/`)
-en vez de repetir siempre la misma estructura corta — la variedad
-sintáctica es lo que distingue la escritura "compleja" (madura) de
-encadenar sólo oraciones simples sueltas.
+(coordinadas y subordinadas,
+`../oracion-compuesta-coordinacion-y-subordinacion/`) en vez de repetir
+siempre la misma estructura corta. La variedad sintáctica es lo que
+distingue la escritura "compleja" (madura) de encadenar solo oraciones
+simples sueltas.
 
 ## Puntuación al servicio de la complejidad
 
 Cuanto más larga y combinada es una oración, más depende de una buena
-puntuación (`../signos-de-puntuacion/`) para seguir siendo legible —
-es la razón concreta por la que este tema tiene esos dos prerrequisitos
-directos (oración compuesta + puntuación) en vez de uno solo.
+puntuación (`../signos-de-puntuacion/`) para seguir siendo legible. Esa es
+la razón concreta por la que este tema tiene esos dos prerrequisitos
+directos (oración compuesta y puntuación) en vez de uno solo.
 
 ## Para qué sirve
 
-Este tema es la base práctica para escribir cualquier texto extenso
-con calidad: es prerrequisito directo de **cohesión y coherencia**
-(conectores, referencia y progresión temática — los tres temas que
-siguen), que refinan específicamente CÓMO se conectan las oraciones y
-párrafos entre sí una vez que ya se sabe producir un borrador
-completo.
+Este tema es la base práctica para escribir cualquier texto extenso con
+calidad. Es prerrequisito directo de **cohesión y coherencia** (conectores,
+referencia y progresión temática, los tres temas que siguen). Esos temas
+refinan específicamente CÓMO se conectan las oraciones y los párrafos entre
+sí, una vez que ya se sabe producir un borrador completo.

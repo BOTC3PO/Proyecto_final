@@ -455,33 +455,8 @@ explicacion: |
   formalizarlo y compararlo con las estructuras ya conocidas.
 ```
 
-### 19 — Validez de un razonamiento como puente a otras materias
 
-```
-metadata:
-  materia: "filosofia"
-  tema: "validez_de_un_razonamiento"
-  nivel: "avanzado"
-  tags: ["validez", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este mismo tema de validez es la base que reutiliza tanto Álgebra booleana (Informática) como Deducción, Contraejemplo, Reducción al absurdo e Inducción matemática (Matemática)."
-
-pasos:
-  - "Ver `../../informatica/algebra-booleana/`: es un nodo del MAPA con doble uso confirmado en distintas materias."
-
-explicacion: |
-  Verdadero: es el mismo concepto de validez lógica, aplicado luego
-  en dos contextos distintos (circuitos/código y demostración
-  matemática).
-```
-
-### 20 — Aplicación: detectar un razonamiento inválido en un debate
+### 19 — Aplicación: detectar un razonamiento inválido en un debate
 
 ```
 metadata:

@@ -1,0 +1,51 @@
+{
+ "titulo": "De la norma al caso real",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Interpretar es aplicar la norma al caso",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Texto de la norma",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Interpretación del juez",
+     "x": 250,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Caso real",
+     "x": 500,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n3",
+     "toId": "n2"
+    },
+    {
+     "id": "e3",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "decisión"
+    }
+   ]
+  }
+ ]
+}

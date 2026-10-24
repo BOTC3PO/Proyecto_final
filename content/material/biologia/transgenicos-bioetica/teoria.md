@@ -14,11 +14,11 @@ debate).
 
 ## 1. Qué es un organismo transgénico
 
-Un **organismo transgénico** (u OGM, organismo genéticamente
-modificado) es aquel que tiene en su ADN un **gen de otra especie**,
-insertado artificialmente mediante ADN recombinante o CRISPR (ver
-`../biotecnologia-pcr-crispr/`) — algo que casi nunca ocurriría de
-forma natural entre especies tan distintas.
+Un **organismo transgénico** (u OGM, organismo genéticamente modificado) es
+aquel que tiene en su ADN un **gen de otra especie**, insertado
+artificialmente mediante ADN recombinante o CRISPR (ver
+`../biotecnologia-pcr-crispr/`). Es algo que casi nunca ocurriría de forma
+natural entre especies tan distintas.
 
 **Ejemplos reales**:
 - **Soja resistente a herbicidas**: tiene un gen bacteriano que la
@@ -50,10 +50,9 @@ forma natural entre especies tan distintas.
 ## 4. Por qué esto es un debate "bioético" y no sólo técnico
 
 La pregunta "¿se puede hacer un transgénico?" ya está resuelta
-(técnicamente sí, hace décadas). La pregunta bioética es distinta:
-"¿se **debería**, y bajo qué condiciones?" — ahí entran las corrientes
-éticas (utilitarismo: ¿el resultado neto es positivo?; deontología:
-¿hay un deber/derecho que se viola, independiente del resultado?;
-ética de la virtud; contractualismo) que se ven en detalle en
-`../../filosofia/` — acá sólo se nombra la conexión, no se desarrolla
-cada corriente.
+(técnicamente sí, hace décadas). La pregunta bioética es distinta: "¿se **debería**, y bajo qué
+condiciones?". Ahí entran las corrientes éticas que se ven en detalle en
+`../../filosofia/`: el utilitarismo (¿el resultado neto es positivo?), la
+deontología (¿hay un deber o derecho que se viola, independiente del
+resultado?), la ética de la virtud y el contractualismo. Acá solo se nombra
+la conexión, no se desarrolla cada corriente.

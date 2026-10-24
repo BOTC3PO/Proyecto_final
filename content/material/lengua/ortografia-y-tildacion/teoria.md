@@ -57,12 +57,12 @@ gramaticales distintas (`../clases-de-palabras/`):
 
 ## Diptongos, hiatos y tildación
 
-Cuando dos vocales van juntas, importa si forman **diptongo**
-(vocal fuerte + débil, o dos débiles, en una sola sílaba: "cie-lo") o
-**hiato** (dos vocales fuertes juntas, o una fuerte + débil tónica,
-en sílabas distintas: "ca-os", "pa-ís" — este último lleva tilde en la
-vocal débil aunque rompa la regla general de graves, porque marca el
-hiato).
+Cuando dos vocales van juntas, importa si forman **diptongo** o **hiato**.
+El diptongo es vocal fuerte + débil, o dos débiles, en una sola sílaba:
+"cie-lo". El hiato es dos vocales fuertes juntas, o una fuerte + débil
+tónica, en sílabas distintas: "ca-os", "pa-ís". Este último lleva tilde en
+la vocal débil aunque rompa la regla general de graves, porque marca el
+hiato.
 
 ## Para qué sirve
 

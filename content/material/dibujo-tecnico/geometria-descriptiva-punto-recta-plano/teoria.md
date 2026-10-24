@@ -10,7 +10,7 @@
 
 ## 1. Resolver el espacio con dibujos planos
 
-La **geometría descriptiva** estudia cómo representar en el plano los elementos del espacio (puntos, rectas, planos, cuerpos) y cómo resolver con construcciones gráficas problemas como la distancia entre dos rectas, la intersección de dos planos o la verdadera magnitud de un segmento. Su creador, **Gaspard Monge**, la sistematizó a fines del siglo XVIII. Es la base científica de las vistas del dibujo técnico.
+La **geometría descriptiva** estudia cómo representar en el plano los elementos del espacio (puntos, rectas, planos, cuerpos). También estudia cómo resolver con construcciones gráficas problemas como la distancia entre dos rectas, la intersección de dos planos o la verdadera magnitud de un segmento. Su creador, **Gaspard Monge**, la sistematizó a fines del siglo XVIII. Es la base científica de las vistas del dibujo técnico.
 
 ## 2. El método de Monge
 
@@ -35,7 +35,7 @@ Una recta queda definida por dos puntos; se proyecta uniendo sus proyecciones. S
 - **Oblicua**: no paralela a ningún plano; ambas proyecciones están acortadas.
 - **Vertical**: perpendicular al plano horizontal; se proyecta como un punto en él.
 
-La **verdadera magnitud** de una recta oblicua no se ve directamente; se obtiene girándola hasta ponerla paralela a un plano, o por el método del triángulo rectángulo (se construye un triángulo con la diferencia de cotas y la proyección horizontal como catetos; su hipotenusa es la longitud real, usando el teorema de Pitágoras de `matematica/teorema-de-pitagoras/`).
+La **verdadera magnitud** de una recta oblicua no se ve directamente. Se obtiene girándola hasta ponerla paralela a un plano, o por el método del triángulo rectángulo. Este método construye un triángulo con la diferencia de cotas y la proyección horizontal como catetos. Su hipotenusa es la longitud real, usando el teorema de Pitágoras de `matematica/teorema-de-pitagoras/`.
 
 ## 5. Plano
 

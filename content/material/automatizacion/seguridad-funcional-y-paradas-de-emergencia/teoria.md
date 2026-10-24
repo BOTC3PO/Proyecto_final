@@ -12,11 +12,11 @@
 
 Las máquinas automáticas pueden lastimar: una prensa que baja, una cinta que arrastra, un robot que se mueve más rápido de lo que una persona reacciona. La **seguridad funcional** es la parte de la seguridad de una máquina que depende de que funcionen correctamente sus sistemas de control y protección. No se trata solo de poner una reja: se trata de que cuando algo falla, la máquina pase a un estado seguro.
 
-Un principio básico: el sistema de seguridad debe considerar que las fallas pueden ocurrir (un cable que se corta, un contacto que se pega, un sensor que deja de responder) y estar diseñado para que esas fallas no produzcan un peligro.
+Un principio básico: el sistema de seguridad debe suponer que las fallas pueden ocurrir (un cable que se corta, un contacto que se pega, un sensor que deja de responder). Tiene que estar diseñado para que esas fallas no produzcan un peligro.
 
 ## 2. La parada de emergencia
 
-El dispositivo más conocido es el pulsador de **parada de emergencia**: un hongo rojo sobre fondo amarillo, que al apretarlo se traba mecánicamente en la posición pulsada y exige una acción deliberada para soltarlo (girarlo o tirar de él). Reglas esenciales:
+El dispositivo más conocido es el pulsador de **parada de emergencia**: un hongo rojo sobre fondo amarillo. Al apretarlo se traba mecánicamente en la posición pulsada, y soltarlo exige una acción deliberada (girarlo o tirar de él). Reglas esenciales:
 
 - Debe ser fácil de alcanzar, visible y de acción directa.
 - Al activarlo, la máquina se detiene y **no vuelve a arrancar sola** al liberarlo: hace falta una orden de rearme y de marcha.
@@ -57,4 +57,4 @@ La asignación del nivel requerido surge de una **evaluación de riesgos**: cuá
 
 ## 7. Bloqueo y etiquetado
 
-Para trabajos de mantenimiento se aplica el procedimiento de **bloqueo y etiquetado** (LOTO): se desconecta y se bloquea con candado personal cada fuente de energía (eléctrica, neumática, hidráulica, mecánica), se verifica la ausencia de energía y se coloca una etiqueta. Cada persona que trabaja coloca su propio candado, y solo ella lo retira.
+Para trabajos de mantenimiento se aplica el procedimiento de **bloqueo y etiquetado** (LOTO). Se desconecta cada fuente de energía (eléctrica, neumática, hidráulica, mecánica) y se la bloquea con candado personal. Después se verifica la ausencia de energía y se coloca una etiqueta. Cada persona que trabaja coloca su propio candado, y solo ella lo retira.

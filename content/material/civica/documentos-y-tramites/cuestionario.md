@@ -311,51 +311,9 @@ explicacion: |
   salud ya vistos en `../sistema-de-salud/`.
 ```
 
-### 15 — Por qué estos 4 documentos van en 1 sola carpeta
 
-```
-metadata:
-  materia: "civica"
-  tema: "documentos_y_tramites"
-  nivel: "avanzado"
-  tags: ["fundamento"]
 
-enunciado: "¿Por qué DNI, CUIL, voto e historia clínica se agrupan en un solo módulo, en vez de 4 carpetas separadas?"
-tipo: mc
-opciones_explicitas:
-  - "Porque son alfabetización cívica práctica del mismo tipo, no 4 habilidades separables entre sí"
-  - "Porque el MAPA los junta en un único nodo sin IDs propios"
-  - "Porque sólo uno de los 4 tiene contenido real"
-respuesta: "Porque son alfabetización cívica práctica del mismo tipo, no 4 habilidades separables entre sí"
-
-explicacion: |
-  Decisión propia (Paso 2 del procedimiento): son 4 hechos prácticos a
-  conocer, no 4 lecciones con habilidades distintas.
-```
-
-### 16 — Qué alimentan estos 4 documentos
-
-```
-metadata:
-  materia: "civica"
-  tema: "documentos_y_tramites"
-  nivel: "intermedio"
-  tags: ["fundamento"]
-
-enunciado: "¿Qué otros 3 módulos dependen de este contenido, según el MAPA?"
-tipo: mc
-opciones_explicitas:
-  - "Señalización vial, prioridades de paso y alcoholemia y conducción"
-  - "Sistema de salud, impuestos y ciencia política"
-  - "Símbolos patrios y marchas patrióticas"
-respuesta: "Señalización vial, prioridades de paso y alcoholemia y conducción"
-
-explicacion: |
-  Los 3 módulos de educación vial cuelgan de estos 4 documentos por
-  igual en el MAPA (`C15a/b/c/d --> C18a/b/c`).
-```
-
-### 17 — Verdadero o falso: el CUIL es lo mismo que el CUIT
+### 15 — Verdadero o falso: el CUIL es lo mismo que el CUIT
 
 ```
 metadata:
@@ -373,7 +331,7 @@ explicacion: |
   quien factura como monotributista o empresa.
 ```
 
-### 18 — Verdadero o falso: en Argentina hay que inscribirse para votar
+### 16 — Verdadero o falso: en Argentina hay que inscribirse para votar
 
 ```
 metadata:
@@ -391,7 +349,7 @@ explicacion: |
   inscripción aparte.
 ```
 
-### 19 — Verdadero o falso: el DNI se tramita por primera vez a los 18
+### 17 — Verdadero o falso: el DNI se tramita por primera vez a los 18
 
 ```
 metadata:
@@ -408,7 +366,7 @@ explicacion: |
   Se tramita desde el nacimiento y se renueva periódicamente.
 ```
 
-### 20 — Completar: organismo que emite el DNI
+### 18 — Completar: organismo que emite el DNI
 
 ```
 metadata:
@@ -426,7 +384,7 @@ explicacion: |
   Registro Nacional de las Personas.
 ```
 
-### 21 — Completar: ley del voto obligatorio hasta
+### 19 — Completar: ley del voto obligatorio hasta
 
 ```
 metadata:
@@ -445,7 +403,7 @@ explicacion: |
   16) y después de los 70.
 ```
 
-### 22 — Ordenar: los 4 documentos en la vida de una persona
+### 20 — Ordenar: los 4 documentos en la vida de una persona
 
 ```
 metadata:

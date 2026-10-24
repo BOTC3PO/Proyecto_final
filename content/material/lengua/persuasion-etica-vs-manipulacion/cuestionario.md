@@ -4,32 +4,8 @@
 
 ---
 
-### 1 — Este tema tiene dos prerrequisitos
 
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "basico"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema reusa dos cosas a la vez: las técnicas de convencer en vivo del debate, y el vocabulario de errores de razonamiento de detectar falacias."
-
-pasos:
-  - "Ver `../debate-refutar-en-vivo/` y `../detectar-falacias/`: son los dos prerrequisitos de este tema."
-
-explicacion: |
-  Verdadero: es la razón por la que este nodo tiene doble padre en el
-  MAPA.
-```
-
-### 2 — Criterio central: transparencia y autonomía
+### 1 — Criterio central: transparencia y autonomía
 
 ```
 metadata:
@@ -53,7 +29,7 @@ explicacion: |
   Verdadero: es el criterio central de este tema.
 ```
 
-### 3 — Definición de persuasión ética
+### 2 — Definición de persuasión ética
 
 ```
 metadata:
@@ -78,7 +54,7 @@ explicacion: |
   teoría.
 ```
 
-### 4 — Definición de manipulación
+### 3 — Definición de manipulación
 
 ```
 metadata:
@@ -102,7 +78,7 @@ explicacion: |
   Verdadero: es la definición de manipulación descrita en la teoría.
 ```
 
-### 5 — Presión de urgencia artificial
+### 4 — Presión de urgencia artificial
 
 ```
 metadata:
@@ -128,7 +104,7 @@ explicacion: |
   falsa.
 ```
 
-### 6 — Explotar el miedo desproporcionado
+### 5 — Explotar el miedo desproporcionado
 
 ```
 metadata:
@@ -154,7 +130,7 @@ explicacion: |
   desproporcionado.
 ```
 
-### 7 — Ocultar información relevante
+### 6 — Ocultar información relevante
 
 ```
 metadata:
@@ -180,7 +156,7 @@ explicacion: |
   relevante.
 ```
 
-### 8 — Usar falacias a sabiendas
+### 7 — Usar falacias a sabiendas
 
 ```
 metadata:
@@ -205,7 +181,7 @@ explicacion: |
   prerrequisito de falacias.
 ```
 
-### 9 — Presentar datos verificables con su fuente
+### 8 — Presentar datos verificables con su fuente
 
 ```
 metadata:
@@ -231,7 +207,7 @@ explicacion: |
   necesaria para decidir informadamente.
 ```
 
-### 10 — Reconocer las limitaciones del propio argumento
+### 9 — Reconocer las limitaciones del propio argumento
 
 ```
 metadata:
@@ -257,7 +233,7 @@ explicacion: |
   completa y honesta de la situación.
 ```
 
-### 11 — Apelar a una emoción genuina y relevante
+### 10 — Apelar a una emoción genuina y relevante
 
 ```
 metadata:
@@ -283,7 +259,7 @@ explicacion: |
   real y proporcional al problema, no exagerada.
 ```
 
-### 12 — La misma técnica puede ser ética o manipuladora
+### 11 — La misma técnica puede ser ética o manipuladora
 
 ```
 metadata:
@@ -308,7 +284,7 @@ explicacion: |
   emocional como manipuladora de forma automática.
 ```
 
-### 13 — Clasificar una técnica según su uso concreto
+### 12 — Clasificar una técnica según su uso concreto
 
 ```
 metadata:
@@ -336,7 +312,7 @@ explicacion: |
   ética o manipuladora según cómo se emplee.
 ```
 
-### 14 — La manipulación distorsiona o explota, no sólo persuade
+### 13 — La manipulación distorsiona o explota, no sólo persuade
 
 ```
 metadata:
@@ -361,7 +337,7 @@ explicacion: |
   distorsiona información o se explotan sesgos psicológicos.
 ```
 
-### 15 — Relación con publicidad engañosa
+### 14 — Relación con publicidad engañosa
 
 ```
 metadata:
@@ -386,7 +362,7 @@ explicacion: |
   prácticas en otros contextos ya estudiados.
 ```
 
-### 16 — La transparencia es central en la persuasión ética
+### 15 — La transparencia es central en la persuasión ética
 
 ```
 metadata:
@@ -411,7 +387,7 @@ explicacion: |
   persuasión ética.
 ```
 
-### 17 — Manipulación no requiere usar falacias explícitamente
+### 16 — Manipulación no requiere usar falacias explícitamente
 
 ```
 metadata:
@@ -436,7 +412,7 @@ explicacion: |
   el catálogo de falacias ya estudiado.
 ```
 
-### 18 — Ordenar el análisis para distinguir persuasión de manipulación
+### 17 — Ordenar el análisis para distinguir persuasión de manipulación
 
 ```
 metadata:
@@ -459,7 +435,7 @@ explicacion: |
   tema.
 ```
 
-### 19 — Persuasión ética vs. manipulación cierra la subrama de comunicación en vivo
+### 18 — Persuasión ética vs. manipulación cierra la subrama de comunicación en vivo
 
 ```
 metadata:
@@ -484,7 +460,7 @@ explicacion: |
   subrama completa de comunicación oral.
 ```
 
-### 20 — Aplicación: evaluar un discurso persuasivo
+### 19 — Aplicación: evaluar un discurso persuasivo
 
 ```
 metadata:

@@ -14,10 +14,11 @@ esperado + las 4 estrategias de gestión del riesgo.
 
 ## Un seguro es transferir el riesgo, no eliminarlo
 
-Como se vio en [valor esperado y riesgo](../valor-esperado-riesgo/teoria.md),
-contratar un seguro es la lectura inversa del valor esperado: quien se
-asegura paga un monto fijo y chico (la prima) para transferirle a otro
-(la aseguradora) el riesgo de una pérdida grande y poco probable. El
+Como se vio en [valor esperado y
+riesgo](../valor-esperado-riesgo/teoria.md), contratar un seguro es la
+lectura inversa del valor esperado. Quien se asegura paga un monto fijo y
+chico (la prima) para transferirle a otro (la aseguradora) el riesgo de una
+pérdida grande y poco probable. El
 seguro no hace que el riesgo desaparezca — lo traslada.
 
 ## Vocabulario del seguro
@@ -40,19 +41,19 @@ seguro no hace que el riesgo desaparezca — lo traslada.
 
 ## Por qué existe la franquicia
 
-La franquicia cumple dos funciones: **baja el costo de la prima** (la
-aseguradora asume menos riesgo, así que cobra menos por asegurar), y
-**evita que se reclamen siniestros chiquitos** — sin franquicia,
-cualquier daño menor terminaría generando trámites de reclamo que
-cuestan más administrarlos que lo que valen.
+La franquicia cumple dos funciones. Por un lado, **baja el costo de la
+prima**: la aseguradora asume menos riesgo, así que cobra menos por
+asegurar. Por otro, **evita que se reclamen siniestros chiquitos**: sin
+franquicia, cualquier daño menor terminaría generando trámites de reclamo
+que cuestan más administrarlos que lo que valen.
 
 ## Cómo calcula la prima una aseguradora (idea general)
 
-La aseguradora no fija la prima al azar: la calcula, para un grupo
-grande de asegurados similares, en base al **valor esperado del costo
-de los siniestros** (probabilidad de que ocurra un siniestro, multiplicado
-por su costo promedio), más un margen que cubre sus gastos administrativos
-y su ganancia. Por eso, en promedio, la prima que se paga suele ser
+La aseguradora no fija la prima al azar. La calcula, para un grupo grande de
+asegurados similares, en base al **valor esperado del costo de los
+siniestros** (probabilidad de que ocurra un siniestro, multiplicado por su
+costo promedio). A eso le suma un margen que cubre sus gastos
+administrativos y su ganancia. Por eso, en promedio, la prima que se paga suele ser
 **mayor** que el valor esperado puro de lo que costaría el siniestro —
 la aseguradora necesita cobrar de más para poder cubrir los siniestros
 grandes y seguir funcionando.

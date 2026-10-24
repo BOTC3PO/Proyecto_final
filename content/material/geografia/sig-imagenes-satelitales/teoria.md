@@ -57,19 +57,18 @@ vegetación en rojo intenso para verla mejor).
 
 ## Resolución: qué tan chico se puede distinguir
 
-La **resolución espacial** de una imagen satelital indica el tamaño
-real del área que representa cada píxel — un satélite de "10 metros de
-resolución" no puede distinguir nada más chico que un cuadrado de 10 m
-de lado (dos autos estacionados uno al lado del otro se ven como un solo
-punto). Hay un compromiso real entre resolución, cobertura y frecuencia
-de paso: un satélite que fotografía todo el planeta todos los días
-(alta frecuencia) suele tener menor resolución que uno especializado
-que pasa cada varias semanas por el mismo punto con mucho más detalle.
+La **resolución espacial** de una imagen satelital indica el tamaño real del
+área que representa cada píxel. Un satélite de "10 metros de resolución" no
+puede distinguir nada más chico que un cuadrado de 10 m de lado. Dos autos
+estacionados uno al lado del otro se ven como un solo punto. Hay un compromiso real entre resolución, cobertura y frecuencia de paso. Un
+satélite que fotografía todo el planeta todos los días (alta frecuencia)
+suele tener menor resolución que uno especializado, que pasa cada varias
+semanas por el mismo punto con mucho más detalle.
 
 ## Diferencia con el GPS
 
-El GPS (ver `../sig-gps/`) sólo da una posición (un punto); las
-imágenes satelitales dan una **imagen completa de una zona entera**,
-sin necesitar receptor alguno en tierra — son dos tecnologías satelitales
-con propósitos completamente distintos que conviven en un mismo mapa
-digital (ver `../sig-mapas-digitales/`) como capas separadas.
+El GPS (ver `../sig-gps/`) solo da una posición (un punto). Las imágenes
+satelitales dan una **imagen completa de una zona entera**, sin necesitar
+receptor alguno en tierra. Son dos tecnologías satelitales con propósitos
+completamente distintos, que conviven en un mismo mapa digital (ver
+`../sig-mapas-digitales/`) como capas separadas.

@@ -55,11 +55,10 @@ respecto de la media:
 varianza = Σ(cada valor − media)² / cantidad de valores
 ```
 
-**Por qué al cuadrado**: si se promediaran las distancias sin elevar
-al cuadrado, las distancias positivas (valores por encima de la
-media) y negativas (valores por debajo) se cancelarían entre sí, y el
-resultado siempre daría 0 — sin importar cuán dispersos estén
-realmente los datos. Elevar al cuadrado vuelve todas las distancias
+**Por qué al cuadrado**: si se promediaran las distancias sin elevar al
+cuadrado, las distancias positivas (valores por encima de la media) y
+negativas (valores por debajo) se cancelarían entre sí. El resultado siempre
+daría 0, sin importar cuán dispersos estén realmente los datos. Elevar al cuadrado vuelve todas las distancias
 positivas antes de promediarlas.
 
 **Ejemplo**: con los valores 2, 4, 6 (media = 4): las distancias son
@@ -72,10 +71,9 @@ para completar la idea.
 
 ## Para qué sirve
 
-Es el paso intermedio real entre "un promedio simple" y "entender la
-forma completa de un conjunto de datos": la tabla de frecuencia
-organiza, los cuartiles ubican posiciones relativas sin necesitar ver
-todos los datos, y la varianza cuantifica qué tan parecidos (o
-dispersos) son entre sí — la pieza que faltaba para responder de
-verdad "cuánto se pierde al resumir en un solo número", la pregunta
-central de `../cual-miente-y-cuando/`.
+Es el paso intermedio real entre "un promedio simple" y "entender la forma
+completa de un conjunto de datos". La tabla de frecuencia organiza. Los
+cuartiles ubican posiciones relativas sin necesitar ver todos los datos. La
+varianza cuantifica qué tan parecidos (o dispersos) son entre sí. Es la
+pieza que faltaba para responder de verdad "cuánto se pierde al resumir en
+un solo número", la pregunta central de `../cual-miente-y-cuando/`.

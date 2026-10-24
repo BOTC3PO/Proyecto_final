@@ -14,7 +14,7 @@ En el siglo XX, muchos filósofos concluyeron que antes de resolver los grandes 
 
 ## Frege y la lógica
 
-Gottlob Frege (1848–1925), cuya lógica se ve en `../logica-de-predicados/`, distinguió en 1892 entre el **sentido** y la **referencia** de una expresión. «El lucero del alba» y «el lucero de la tarde» se refieren al mismo astro, Venus, pero no significan lo mismo para quien las usa: tienen la misma referencia y distinto sentido. Esta distinción explica por qué descubrir que dos nombres designan lo mismo puede ser informativo.
+Gottlob Frege (1848–1925), cuya lógica se ve en `../logica-de-predicados/`, distinguió en 1892 entre el **sentido** y la **referencia** de una expresión. «El lucero del alba» y «el lucero de la tarde» se refieren al mismo astro, Venus. Pero no significan lo mismo para quien las usa. Tienen la misma referencia y distinto sentido. Esta distinción explica por qué descubrir que dos nombres designan lo mismo puede ser informativo.
 
 ## Wittgenstein
 

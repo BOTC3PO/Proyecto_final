@@ -1,0 +1,29 @@
+{
+ "titulo": "Presión según la profundidad",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "latex",
+   "content": "P = \\rho\\, g\\, h",
+   "displayMode": true
+  },
+  {
+   "id": "b2",
+   "type": "math",
+   "title": "Agua: P = 9800 · h (en Pa)",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "9800*x",
+     "label": "Presión hidrostática"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 10,
+   "showGrid": true,
+   "showLegend": true,
+   "yMin": 0,
+   "yMax": 100000
+  }
+ ]
+}

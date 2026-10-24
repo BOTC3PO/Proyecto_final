@@ -29,25 +29,24 @@ estas características:
 
 ## 2. Por qué "casi todas" y no "todas siempre"
 
-Algunas excepciones complican una lista tan simple: por ejemplo, una
-mula (cruza de caballo y burro) es un ser vivo pero **no puede
-reproducirse** — sigue siendo un ser vivo porque cumple con el resto de
-las características, y porque su **especie** (caballo, burro) sí se
-reproduce. La lista describe el patrón general, no una regla sin
+Algunas excepciones complican una lista tan simple. Por ejemplo, una mula
+(cruza de caballo y burro) es un ser vivo pero **no puede reproducirse**.
+Sigue siendo un ser vivo porque cumple con el resto de las características y
+porque su **especie** (caballo, burro) sí se reproduce. La lista describe el patrón general, no una regla sin
 excepción para cada individuo suelto.
 
 ## 3. El caso límite: los virus
 
-Los virus son el ejemplo más citado de "caso límite": no tienen
-organización celular propia, no se "alimentan", y sólo pueden
-reproducirse **usando la maquinaria de una célula que infectan** — por
-eso hay debate científico sobre si son "seres vivos" o no. Se ven en
+Los virus son el ejemplo más citado de "caso límite". No tienen organización
+celular propia, no se "alimentan" y solo pueden reproducirse **usando la
+maquinaria de una célula que infectan**. Por eso hay debate científico sobre
+si son "seres vivos" o no. Se ven en
 detalle en `../microbiologia-virus-inmunitario/`.
 
 ## 4. Conexión con lo que sigue
 
-Esta lista de características es la base que se aplica una y otra vez
-en el resto del tronco: las plantas (`../partes-planta-germinacion/`),
-los ciclos de vida (`../ciclos-vida-metamorfosis/`), la célula
-(`../celula-organelas/`) — todos son "instancias" concretas de estas
-mismas ideas generales.
+Esta lista de características es la base que se aplica una y otra vez en el
+resto del tronco: las plantas (`../partes-planta-germinacion/`), los ciclos
+de vida (`../ciclos-vida-metamorfosis/`), la célula
+(`../celula-organelas/`). Todos son "instancias" concretas de estas mismas
+ideas generales.

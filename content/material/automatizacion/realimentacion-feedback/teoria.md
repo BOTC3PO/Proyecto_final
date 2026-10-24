@@ -25,7 +25,12 @@ Un sistema con realimentación opera dentro de un *lazo de control cerrado*, don
 - **Controlador**: Basado en el valor del error, genera una señal de control que ajusta la entrada del sistema.
 - **Actuador**: Ejecuta las instrucciones del controlador (como abrir una válvula o encender un motor).
 
-Estos componentes forman una cadena continua: la salida se vuelve entrada, lo que permite corregir en tiempo real cualquier desviación. <!-- IMAGEN: diagrama de un sistema de control con sensor, comparador, controlador y actuador -->.
+Estos componentes forman una cadena continua: la salida se vuelve entrada, lo que permite corregir en tiempo real cualquier desviación.
+
+![diagrama de un sistema de control con sensor, comparador, controlador y actuador](https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Simple_feedback_control_loop.svg/960px-Simple_feedback_control_loop.svg.png)
+
+*Imagen: «Simple feedback control loop», Simple_feedback_control_loop.png: en:User:Ap
+deriv, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_feedback_control_loop.svg).*
 
 ---
 

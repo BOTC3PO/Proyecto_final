@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es la apelación?
 
-La **apelación** es un medio procesal que permite a una parte impugnar una resolución judicial dictada por un tribunal inferior, solicitando su revisión ante un órgano jurisdiccional de nivel superior. Este recurso se basa en la idea de que ningún juez o tribunal tiene facultad absoluta para decidir sobre un caso: siempre existe una instancia jerárquicamente mayor que puede examinar si hubo errores en el procedimiento, en la interpretación del derecho o en la aplicación de las pruebas.
+La **apelación** es un medio procesal que permite a una parte impugnar una resolución judicial dictada por un tribunal inferior, solicitando su revisión ante un órgano jurisdiccional de nivel superior. Este recurso se basa en la idea de que ningún juez o tribunal tiene facultad absoluta para decidir sobre un caso. Siempre existe una instancia jerárquicamente mayor que puede examinar si hubo errores en el procedimiento, en la interpretación del derecho o en la aplicación de las pruebas.
 
 El recurso de apelación no anula automáticamente la decisión original. Su finalidad es corregir fallos procesales o materiales, no reevaluar sustancialmente los hechos o la prueba. Para ser admisible, debe presentarse dentro de un plazo fijo (generalmente 10 días hábiles) y cumplir con requisitos formales como el pago de una garantía judicial.
 

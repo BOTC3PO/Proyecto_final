@@ -1,0 +1,45 @@
+{
+ "titulo": "Atmósfera primitiva y energía externa",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Ingredientes de la química prebiótica",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Gases reductores: CH₄, NH₃, H₂, H₂O",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Energía externa: rayos, UV, calor volcánico",
+     "x": 0,
+     "y": 103,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Moléculas orgánicas simples",
+     "x": 375,
+     "y": 52,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n3"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

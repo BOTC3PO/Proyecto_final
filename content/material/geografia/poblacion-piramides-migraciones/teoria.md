@@ -14,14 +14,13 @@ esa lectura casi siempre revela sus migraciones.
 
 ## La pirámide poblacional: qué muestra
 
-Una **pirámide poblacional** es un gráfico de barras horizontales
-apiladas por grupo de edad (habitualmente de a 5 años: 0-4, 5-9, 10-14…),
-con hombres de un lado y mujeres del otro, donde el largo de cada barra
-representa la cantidad de personas de ese grupo. Se llama "pirámide"
-porque, en una población con natalidad alta y esperanza de vida
-creciente por edad, la forma típica es ancha en la base (muchos niños)
-y angosta en la cima (pocos adultos mayores) — aunque, como se ve más
-abajo, no todas las poblaciones reales tienen esa forma clásica.
+Una **pirámide poblacional** es un gráfico de barras horizontales apiladas
+por grupo de edad (habitualmente de a 5 años: 0-4, 5-9, 10-14…), con hombres
+de un lado y mujeres del otro. El largo de cada barra representa la cantidad
+de personas de ese grupo. Se llama "pirámide" porque, en una población con natalidad alta y esperanza
+de vida creciente por edad, la forma típica es ancha en la base (muchos
+niños) y angosta en la cima (pocos adultos mayores). Como se ve más abajo,
+no todas las poblaciones reales tienen esa forma clásica.
 
 ## Tres formas típicas y qué cuentan
 
@@ -40,13 +39,12 @@ abajo, no todas las poblaciones reales tienen esa forma clásica.
 
 ## Cómo una pirámide revela una migración sin decirlo
 
-Una pirámide con una "cintura" angosta en un rango de edad específico
-(por ejemplo, adultos de 20 a 35 años notablemente menos numerosos que
-los grupos de edad vecinos) es, en la práctica, evidencia visual directa
-de una migración: ese grupo de edad se fue del territorio (emigración)
-o nunca llegó a nacer/quedarse ahí en esa proporción — no hace falta un
-dato aparte de "migración" para detectarlo, la propia forma del gráfico
-ya lo muestra. Es la razón concreta por la que este tema no se separa en
+Una pirámide con una "cintura" angosta en un rango de edad específico es, en
+la práctica, evidencia visual directa de una migración. Por ejemplo, adultos
+de 20 a 35 años notablemente menos numerosos que los grupos de edad vecinos.
+Ese grupo de edad se fue del territorio (emigración) o nunca llegó a nacer o
+quedarse ahí en esa proporción. No hace falta un dato aparte de "migración"
+para detectarlo: la propia forma del gráfico ya lo muestra. Es la razón concreta por la que este tema no se separa en
 dos módulos: leer una pirámide correctamente YA incluye identificar
 migraciones.
 

@@ -63,8 +63,8 @@ tiene que tener pendiente `−1/m`.
 
 ## Para qué sirve
 
-Verificar perpendicularidad y paralelismo con números (en vez de "a
-ojo") es lo que permite confirmar propiedades geométricas de figuras
-dadas por coordenadas — si un terreno es realmente rectangular, si dos
-calles trazadas en un plano son paralelas, o si una estructura tiene los
-ángulos rectos que se supone que tiene.
+Verificar perpendicularidad y paralelismo con números, en vez de "a ojo",
+permite confirmar propiedades geométricas de figuras dadas por coordenadas.
+Por ejemplo, si un terreno es realmente rectangular, si dos calles trazadas
+en un plano son paralelas o si una estructura tiene los ángulos rectos que
+se supone que tiene.

@@ -355,32 +355,8 @@ explicacion: |
   figuras) permite identificar la corriente historiográfica aplicada.
 ```
 
-### 15 — Materialismo histórico depende de multicausalidad en el MAPA
 
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en
-  `../positivismo/`.
-```
-
-### 16 — Las clases sociales tienen intereses económicos distintos
+### 15 — Las clases sociales tienen intereses económicos distintos
 
 ```
 metadata:
@@ -406,7 +382,7 @@ explicacion: |
   histórico.
 ```
 
-### 17 — El materialismo histórico no ignora la política por completo
+### 16 — El materialismo histórico no ignora la política por completo
 
 ```
 metadata:
@@ -431,7 +407,7 @@ explicacion: |
   incorpora (no ignora) el análisis político.
 ```
 
-### 18 — Ordenar el análisis para identificar un texto materialista histórico
+### 17 — Ordenar el análisis para identificar un texto materialista histórico
 
 ```
 metadata:
@@ -454,7 +430,7 @@ explicacion: |
   esta corriente.
 ```
 
-### 19 — Materialismo histórico como segunda corriente de la subrama
+### 18 — Materialismo histórico como segunda corriente de la subrama
 
 ```
 metadata:
@@ -479,7 +455,7 @@ explicacion: |
   subrama.
 ```
 
-### 20 — Aplicación: identificar el enfoque de un texto histórico
+### 19 — Aplicación: identificar el enfoque de un texto histórico
 
 ```
 metadata:

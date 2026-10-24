@@ -26,7 +26,7 @@ La Constitución reconoce once idiomas oficiales, entre ellos el zulú, el xhosa
 
 ## Del apartheid a la democracia
 
-En 1948 el Partido Nacional ganó las elecciones con un programa de apartheid, un sistema legal de segregación racial que clasificaba a las personas por su origen y les asignaba derechos muy desiguales: la población negra, mayoritaria, quedó privada de derechos políticos y se la obligó a vivir en territorios y barrios separados. Se apoyaba en prácticas de segregación anteriores. Hubo resistencia interna, encabezada por organizaciones como el Congreso Nacional Africano, y presión internacional con sanciones.
+En 1948 el Partido Nacional ganó las elecciones con un programa de apartheid, un sistema legal de segregación racial. Clasificaba a las personas por su origen y les asignaba derechos muy desiguales. La población negra, mayoritaria, quedó privada de derechos políticos y se la obligó a vivir en territorios y barrios separados. Se apoyaba en prácticas de segregación anteriores. Hubo resistencia interna, encabezada por organizaciones como el Congreso Nacional Africano, y presión internacional con sanciones.
 
 En 1990 se levantó la prohibición de los movimientos antiapartheid y se liberó a Nelson Mandela. El 27 de abril de 1994 se realizaron las primeras elecciones en que pudieron votar todos los sudafricanos, y Mandela asumió como presidente el 10 de mayo de 1994. La Constitución vigente se aprobó en 1996. El fin del apartheid legal no eliminó de inmediato sus efectos: la desigualdad económica y territorial persiste, con altos niveles de pobreza y desempleo y fuertes contrastes entre barrios.
 

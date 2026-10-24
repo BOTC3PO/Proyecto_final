@@ -28,7 +28,7 @@ La **neumática** usa aire comprimido para generar movimiento y fuerza; la **hid
 
 ## 4. Componentes de un circuito hidráulico
 
-Un circuito hidráulico básico tiene: un **depósito** de aceite, una **bomba** (que impulsa el caudal), una **válvula limitadora de presión** que protege el sistema abriendo cuando la presión excede el máximo, **válvulas distribuidoras** para elegir el sentido del flujo, **actuadores** (cilindros o motores hidráulicos), filtros y tuberías o mangueras. La bomba entrega caudal; la presión la fija la carga, hasta el límite de la válvula.
+Un circuito hidráulico básico tiene un **depósito** de aceite y una **bomba**, que impulsa el caudal. Tiene una **válvula limitadora de presión**, que protege el sistema abriendo cuando la presión excede el máximo. Tiene **válvulas distribuidoras**, para elegir el sentido del flujo. Y tiene **actuadores** (cilindros o motores hidráulicos), filtros y tuberías o mangueras. La bomba entrega caudal; la presión la fija la carga, hasta el límite de la válvula.
 
 ## 5. Fuerza de un cilindro
 

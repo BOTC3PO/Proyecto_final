@@ -26,7 +26,7 @@ La crisis culminó en la *Hégira* (622), la emigración de Mahoma y sus seguido
 
 Tras la muerte de Mahoma, la comunidad enfrentó la pregunta de quién lo sucedería. Los primeros cuatro sucesores, conocidos como los *Califas Bien Guiados* (632–661), fueron Abū Bakr, ʿUmar, ʿUthmān y ʿAlī. Durante este periodo, la expansión árabe pasó de ser una consolidación interna a una conquista imperial.
 
-Bajo el califa ʿUmar ibn al-Jattab, los ejércitos árabes, motivados tanto por el entusiasmo religioso como por la necesidad económica y la estructura tribal que canalizaba la violencia hacia el exterior, se lanzaron contra los dos grandes imperios vecinos: el Bizantino y el Sasánida. Ambos imperios estaban agotados por décadas de guerras entre sí y por crisis internas. Entre 634 y 644, los árabes conquistaron Siria, Palestina, Egipto y Mesopotamia. La derrota sasánida fue total, mientras que el Imperio Bizantino perdió sus provincias más ricas del sur. Esta rápida victoria no fue casualidad: los ejércitos árabes eran móviles y ligeros, y a menudo encontraron a la población local, cansada de la persecución religiosa bizantina o persa, como menos opresiva que sus antiguos gobernantes.
+Bajo el califa ʿUmar ibn al-Jattab, los ejércitos árabes se lanzaron contra los dos grandes imperios vecinos: el Bizantino y el Sasánida. Los motivaba tanto el entusiasmo religioso como la necesidad económica. Además, la estructura tribal canalizaba la violencia hacia el exterior. Ambos imperios estaban agotados por décadas de guerras entre sí y por crisis internas. Entre 634 y 644, los árabes conquistaron Siria, Palestina, Egipto y Mesopotamia. La derrota sasánida fue total, mientras que el Imperio Bizantino perdió sus provincias más ricas del sur. Esta rápida victoria no fue casualidad: los ejércitos árabes eran móviles y ligeros, y a menudo encontraron a la población local, cansada de la persecución religiosa bizantina o persa, como menos opresiva que sus antiguos gobernantes.
 
 ## 4. La dinastía omeya y la consolidación del imperio
 
@@ -34,7 +34,9 @@ En 661, Muawiyah I estableció la dinastía omeya, trasladando la capital a Dama
 
 Los omeyas implementaron políticas administrativas cruciales para la supervivencia del imperio. Tradujeron la burocracia persa y bizantina a sus necesidades, estableciendo un sistema fiscal y postal eficiente. Sin embargo, su mayor revolución fue lingüística: en el siglo VIII, el califa ʿAbd al-Malik decretó que el árabe reemplazara al griego y al pahlavi como lenguas oficiales de la administración. Esto no solo facilitó la gestión, sino que aceleró la arabización de las élites locales. Aunque muchos pueblos conquistados (coptos, sirios, beréberes, persas) mantuvieron su identidad cultural, adoptaron gradualmente el árabe como lengua de cultura y comercio, un proceso conocido como islamización lingüística.
 
-<!-- IMAGEN: Representación artística de la conquista de Al-Ándalus o mapa del Califato Omeya mostrando su extensión desde la India hasta España. -->
+![Representación artística de la conquista de Al-Ándalus o mapa del Califato Omeya mostrando su extensión desde la India hasta España.](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Umayyad-caliphate.svg/960px-Umayyad-caliphate.svg.png)
+
+*Imagen: «Umayyad-caliphate», Cattette, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Umayyad-caliphate.svg).*
 
 ## 5. El legado cultural y la transición abasí
 

@@ -12,15 +12,11 @@
 
 Un sensor es un dispositivo diseñado para detectar cambios en una magnitud física del entorno, como temperatura, luz, presión o movimiento, y convertir esa información en una señal eléctrica que puede ser procesada por un sistema electrónico. Por ejemplo, un termómetro digital usa un sensor de temperatura que transforma el calor ambiental en voltaje, permitiendo que un microcontrolador mida y registre la lectura. Los sensores son esenciales para que los sistemas automatizados "perciban" su entorno.
 
-<!-- IMAGEN: Diagrama de un sensor convirtiendo una magnitud física (ejemplo: luz) en una señal eléctrica -->
-
 ---
 
 ## 2. ¿Qué hacen los actuadores?
 
 Los actuadores funcionan como el "musculo" de un sistema electrónico: reciben señales eléctricas provenientes de un controlador y las transforman en acciones físicas. Por ejemplo, un motor eléctrico es un actuador que convierte energía eléctrica en movimiento mecánico, mientras que una válvula neumática puede abrirse o cerrarse según la señal recibida. A diferencia de los sensores, los actuadores no captan información, sino que ejecutan órdenes.
-
-<!-- IMAGEN: Esquema de un actuador (ejemplo: motor) recibiendo una señal y generando movimiento -->
 
 ---
 
@@ -32,8 +28,6 @@ En cualquier sistema automatizado, el flujo de trabajo se organiza en tres etapa
 3. **Acción**: Un actuador ejecuta la respuesta física (ejemplo: encender un ventilador).  
 
 Este ciclo se repite constantemente en sistemas como termostatos, robots industriales o alarmas de seguridad.
-
-<!-- IMAGEN: Flujo de información desde el sensor al controlador y luego al actuador -->
 
 ---
 

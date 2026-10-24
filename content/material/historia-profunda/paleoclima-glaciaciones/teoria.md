@@ -12,7 +12,9 @@
 
 El paleoclima es la rama de la ciencia que reconstruye las condiciones climáticas de la Tierra en épocas anteriores al registro histórico, usando evidencias naturales como rocas, sedimentos o restos biológicos. No se trata solo de conocer temperaturas o precipitaciones del pasado, sino de entender cómo esos cambios afectaron ecosistemas, niveles del mar y la evolución de las especies. Por ejemplo, los científicos analizan capas de hielo antiguas para determinar qué gases de efecto invernadero estaban presentes en la atmósfera hace miles de años.
 
-<!-- IMAGEN: Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas -->
+![Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas](https://upload.wikimedia.org/wikipedia/commons/3/31/GISP2_1855m_ice_core_layers.png)
+
+*Imagen: «GISP2 1855m ice core layers», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GISP2_1855m_ice_core_layers.png).*
 
 ---
 
@@ -20,7 +22,9 @@ El paleoclima es la rama de la ciencia que reconstruye las condiciones climátic
 
 Los métodos para estudiar el paleoclima varían según los materiales disponibles. Uno de los más precisos es la extracción de **núcleos de hielo** en regiones polares o montañosas, donde las capas de nieve se preservan durante siglos. Estos núcleos contienen burbujas de aire atrapadas que guardan información sobre la composición atmosférica del pasado, como el nivel de dióxido de carbono o metano. También se analizan sedimentos marinos y anillos de árboles para registrar patrones de lluvia, temperaturas o sequías prolongadas.
 
-<!-- IMAGEN: Comparación entre núcleos de hielo de Groenlandia y Antártida con gráficos de CO₂ histórico -->
+![Comparación entre núcleos de hielo de Groenlandia y Antártida con gráficos de CO₂ histórico](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Co2-temperature-records.svg/960px-Co2-temperature-records.svg.png)
+
+*Imagen: «Co2-temperature-records», Leland McInnes (talk) (Uploads), CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Co2-temperature-records.svg).*
 
 ---
 
@@ -36,7 +40,9 @@ Cuando no hay sedimentos ni hielo, los investigadores usan **fósiles** como pis
 
 Las glaciaciones son períodos en los que grandes extensiones de la Tierra se cubren de hielo, alterando el relieve, los cursos fluviales y el nivel del mar. Durante las últimas glaciaciones (hace unos 100.000 años), partes de Europa, América del Norte y Asia estaban bajo capas de hielo kilométricas. Estos eventos no solo modificaron la geografía física, sino que también influyeron en la migración humana y el desarrollo de culturas primitivas.
 
-<!-- IMAGEN: Mapa con zonas cubiertas por glaciares durante la última era glacial -->
+![Mapa con zonas cubiertas por glaciares durante la última era glacial](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Laurentide_ice_sheet_map.jpg/960px-Laurentide_ice_sheet_map.jpg)
+
+*Imagen: «Laurentide ice sheet map», April S. Dalton, Chris R. Stokes, Christine L. Bat, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Laurentide_ice_sheet_map.jpg).*
 
 ---
 

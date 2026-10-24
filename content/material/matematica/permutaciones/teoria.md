@@ -24,10 +24,9 @@ repetir ninguno.
 ## De dónde sale la fórmula
 
 Es una aplicación directa del principio multiplicativo
-(`../principio-multiplicativo-de-conteo/`): para ordenar `n`
-elementos, hay `n` opciones para el primer lugar, `n−1` para el
-segundo (ya se usó uno), `n−2` para el tercero, y así hasta llegar a 1
-opción para el último lugar:
+(`../principio-multiplicativo-de-conteo/`). Para ordenar `n` elementos, hay
+`n` opciones para el primer lugar, `n−1` para el segundo (ya se usó uno),
+`n−2` para el tercero, y así hasta llegar a 1 opción para el último lugar:
 
 ```
 n × (n−1) × (n−2) × ... × 2 × 1 = n!
@@ -51,9 +50,9 @@ rápido, incluso para conjuntos chicos.
 
 ## Para qué sirve
 
-Explica de cuántas formas distintas se puede ordenar una fila de
-personas, los resultados posibles de una carrera (quién llega primero,
-segundo, tercero...) con todos los corredores, o de cuántas maneras se
+Explica de cuántas formas distintas se puede ordenar una fila de personas y
+cuáles son los resultados posibles de una carrera con todos los corredores
+(quién llega primero, segundo, tercero...). También de cuántas maneras se
 puede armar una lista de reproducción usando todas las canciones de un
 álbum. Es también el bloque que hace falta para las fórmulas de
 `../variaciones/` y `../combinaciones/` (ambas se escriben en términos

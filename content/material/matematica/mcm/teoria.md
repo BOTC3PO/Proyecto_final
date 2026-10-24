@@ -38,10 +38,10 @@ resultado que con la lista de múltiplos, pero sin tener que listar nada.
 
 ## Método 3: por factorización prima
 
-Se factoriza cada número, y el MCM es el producto de **todos** los primos
-que aparecen en cualquiera de las dos factorizaciones, usando el **mayor**
-exponente con el que aparece cada uno (al revés que el MCD, que usaba el
-menor).
+Se factoriza cada número. El MCM es el producto de **todos** los primos que
+aparecen en cualquiera de las dos factorizaciones, usando el **mayor**
+exponente con el que aparece cada uno. Es al revés que el MCD, que usaba el
+menor.
 
 **Ejemplo**: 4 = 2². 6 = 2 × 3. El mayor exponente del 2 es 2 (en el 4). El
 mayor exponente del 3 es 1 (en el 6). MCM = 2² × 3 = 4 × 3 = 12.
@@ -56,7 +56,7 @@ mayor exponente del 3 es 1 (en el 6). MCM = 2² × 3 = 4 × 3 = 12.
 
 ## Para qué sirve
 
-El MCM sirve para sumar o restar fracciones con distinto denominador
-(usando el MCM de los denominadores como "común denominador"), y para
-saber cuándo dos sucesos periódicos coinciden de nuevo (dos colectivos que
-pasan cada tantos minutos, dos luces que titilan con distinto ritmo...).
+El MCM sirve para sumar o restar fracciones con distinto denominador, usando
+el MCM de los denominadores como "común denominador". También sirve para
+saber cuándo dos sucesos periódicos coinciden de nuevo, como dos colectivos
+que pasan cada tantos minutos o dos luces que titilan con distinto ritmo.

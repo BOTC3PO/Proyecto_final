@@ -16,13 +16,9 @@ El Paleolítico (del griego *paleo*, antiguo, y *lithos*, piedra) es la primera 
 
 La economía paleolítica giraba en torno a la **caza de animales** y la **recolección de plantas comestibles**, lo que exigía un estilo de vida **nómada**. Los grupos humanos se movían constantemente para seguir las migraciones de presas o aprovechar recursos estacionales, como frutos silvestres o vegetación disponible en ciertas épocas del año. Este desplazamiento no era aleatorio: seguían rutas establecidas y conocían el entorno con profundidad.
 
-<!-- IMAGEN: mapa conceptual que muestra la relación entre caza/recolección y movilidad de grupos humanos -->
-
 ## 3. Tecnología lítica: piedra tallada
 
 La principal innovación técnica del Paleolítico fue la **talla de la piedra** mediante percusión, un proceso que consistía en golpear una roca para separar fragmentos con bordes afilados. Estas herramientas, como los *bifaces* o las *lascas*, servían para cortar carne, desollar animales o preparar alimentos. A diferencia del Neolítico, donde la piedra se pulía, en el Paleolítico la funcionalidad dependía de la forma bruta y afilada de los fragmentos.
-
-<!-- IMAGEN: comparación entre herramientas líticas paleolíticas (talladas) y neolíticas (pulidas) -->
 
 ## 4. Sociedad y organización
 
@@ -32,7 +28,9 @@ Las sociedades paleolíticas eran **pequeñas comunidades** de apenas decenas de
 
 Aunque no se trata de un tema central en la economía, el Paleolítico dejó huellas significativas en la **expresión artística** humana. Las pinturas rupestres encontradas en cuevas (como las de Altamira o Lascaux) representan animales y escenas de caza, posiblemente con fines rituales o educativos. También se han encontrado figuras talladas en huesos o piedra (*venus figurines*), que podrían reflejar creencias sobre la fertilidad o el rol de la mujer.
 
-<!-- IMAGEN: ilustración de una pintura rupestre paleolítica con animales y símbolos -->
+![ilustración de una pintura rupestre paleolítica con animales y símbolos](https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg)
+
+*Imagen: «Lascaux painting», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg).*
 
 ## 6. Transición al Neolítico
 

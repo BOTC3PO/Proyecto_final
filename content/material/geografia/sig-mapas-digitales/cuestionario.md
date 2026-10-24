@@ -345,9 +345,7 @@ opciones_explicitas:
 respuesta: "Coordenadas con una capa de datos encima"
 
 explicacion: |
-  Es la síntesis que usa `troncos.md` para explicar por qué mapas
-  digitales, GPS e imágenes satelitales cuelgan del mismo nodo de
-  coordenadas.
+  Un sistema de información geográfica son coordenadas con una capa de datos encima: cada dato queda ubicado en un punto del mapa.
 ```
 
 ### 17 — Combinar capas según necesidad
@@ -430,6 +428,5 @@ opciones_explicitas:
 respuesta: "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
 
 explicacion: |
-  Por eso el MAPA las separó en 3 nodos hermanos (`G12a`/`G12b`/`G12c`)
-  en vez de tratarlas como una sola habilidad.
+  Los mapas digitales, el GPS y las imágenes satelitales son tecnologías distintas que se combinan en una app de mapas moderna.
 ```

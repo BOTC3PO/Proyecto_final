@@ -15,8 +15,6 @@ $$\sigma = \frac{F}{A}$$
 
 Esta magnitud permite evaluar si un material puede resistir cargas sin romperse. Por ejemplo, en un cable de acero que sostiene un peso, la tensión ayuda a determinar si el diámetro del cable es suficiente para evitar su rotura.
 
-<!-- IMAGEN: Diagrama mostrando una fuerza aplicada sobre una sección transversal con flechas indicando dirección y área -->
-
 ---
 
 ## 2. Tipos de carga que actúan en materiales
@@ -30,7 +28,9 @@ Los materiales pueden soportar diferentes **tipos de esfuerzo** según la direcc
 
 Cada tipo de carga requiere análisis específico para diseñar estructuras seguras y eficientes.
 
-<!-- IMAGEN: Ilustración comparando los cuatro tipos de esfuerzo con ejemplos cotidianos -->
+![Ilustración comparando los cuatro tipos de esfuerzo con ejemplos cotidianos](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Different-types-of-mechanical-stress.svg/960px-Different-types-of-mechanical-stress.svg.png)
+
+*Imagen: «Different-types-of-mechanical-stress», MikeRun, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Different-types-of-mechanical-stress.svg).*
 
 ---
 

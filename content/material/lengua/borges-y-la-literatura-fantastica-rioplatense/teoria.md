@@ -32,7 +32,7 @@ En la literatura fantástica ocurre algo que **no cabe en las leyes del mundo co
 
 ## Un poco de historia literaria
 
-La tradición rioplatense incluye antecedentes del siglo XIX y del modernismo (como los cuentos de Leopoldo Lugones, *Las fuerzas extrañas*, 1906) y continúa con autores posteriores: Julio Cortázar (`../cortazar-y-el-cuento-contemporaneo/`), que publicó su primer cuento en una revista dirigida por Borges, y escritores actuales. Los cuentos de Borges influyeron en la literatura mundial y en el **Boom latinoamericano** (`../boom-latinoamericano/`).
+La tradición rioplatense incluye antecedentes del siglo XIX y del modernismo, como los cuentos de Leopoldo Lugones (*Las fuerzas extrañas*, 1906). Continúa con autores posteriores: Julio Cortázar (`../cortazar-y-el-cuento-contemporaneo/`), que publicó su primer cuento en una revista dirigida por Borges, y escritores actuales. Los cuentos de Borges influyeron en la literatura mundial y en el **Boom latinoamericano** (`../boom-latinoamericano/`).
 
 ## Cómo leer a Borges
 

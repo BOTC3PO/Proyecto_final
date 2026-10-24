@@ -65,8 +65,8 @@ lugar, tiempo, cantidad, causa, etc. No se reemplaza por un pronombre
 
 ## Para qué sirve
 
-Distinguir estos tres complementos es la base para reconocer la
-**voz pasiva** (el OD de la activa pasa a ser sujeto de la pasiva —
-tema siguiente de la currícula) y para entender por qué algunos verbos
-piden dos complementos a la vez (transitivos con OD+OI, como "dar",
+Distinguir estos tres complementos es la base para reconocer la **voz
+pasiva**: el OD de la activa pasa a ser sujeto de la pasiva (tema siguiente
+de la currícula). También es la base para entender por qué algunos verbos
+piden dos complementos a la vez, como los transitivos con OD+OI ("dar",
 "regalar", "contar").

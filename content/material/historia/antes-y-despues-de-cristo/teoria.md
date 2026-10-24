@@ -41,11 +41,11 @@ Ejemplo: de 300 a.C. a 200 d.C. → 300 + 200 = **500 años**.
 
 Pensarlo como una recta numérica ayuda: el a.C. equivale a números
 negativos y el d.C. a números positivos, pero **sin el cero** entre
-medio. Ir de -300 a +200 en una recta numérica normal (con cero) sería
-restar (-300 - 200 = -500, en valor absoluto 500) — el resultado
-numérico coincide con sumar los valores absolutos porque, aunque no
-haya año 0 real, el efecto práctico de "saltar" del -1 al +1
-directamente no cambia la distancia total recorrida.
+medio. Ir de -300 a +200 en una recta numérica normal (con cero) sería restar: -300
+- 200 = -500, en valor absoluto 500. El resultado numérico coincide con
+sumar los valores absolutos. Aunque no haya año 0 real, el efecto práctico
+de "saltar" del -1 al +1 directamente no cambia la distancia total
+recorrida.
 
 ## Calcular intervalos completamente dentro de a.C. o d.C.
 

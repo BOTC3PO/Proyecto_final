@@ -16,11 +16,10 @@ decisión puntual de algún país fue correcta o no.
 
 ## Qué es un default
 
-Un **default** (cese de pagos) ocurre cuando un Estado **no cumple**
-con los pagos comprometidos de su deuda — no paga el interés, no paga
-el capital al vencer, o ninguno de los dos — ya sea porque no puede
-(no consigue el dinero o la moneda extranjera necesaria) o porque
-decide no hacerlo.
+Un **default** (cese de pagos) ocurre cuando un Estado **no cumple** con los
+pagos comprometidos de su deuda: no paga el interés, no paga el capital al
+vencer, o ninguno de los dos. Puede ser porque no puede (no consigue el
+dinero o la moneda extranjera necesaria) o porque decide no hacerlo.
 
 ## Puede ser de deuda interna, externa, o ambas
 
@@ -40,16 +39,15 @@ afectados y las herramientas disponibles no son las mismas.
 
 ## Qué pasa después de un default
 
-- **Pérdida de acceso al crédito internacional**: después de un
-  default, es mucho más difícil (y más caro) para ese país volver a
-  pedir dinero prestado en los mercados internacionales — los
-  prestamistas exigen una tasa de interés más alta para compensar el
-  riesgo mayor que perciben.
-- **Negociación con los acreedores**: en vez de pagar según lo
-  pactado, el Estado suele negociar una **reestructuración**: una
-  **quita** (pagar menos del monto original), una extensión de los
-  plazos, o una combinación de ambas, para poder volver a cumplir con
-  lo que quede acordado.
+- **Pérdida de acceso al crédito internacional**: después de un default, es
+  mucho más difícil (y más caro) para ese país volver a pedir dinero
+  prestado en los mercados internacionales. Los prestamistas exigen una tasa
+  de interés más alta para compensar el riesgo mayor que perciben.
+- **Negociación con los acreedores**: en vez de pagar según lo pactado, el
+  Estado suele negociar una **reestructuración**. Puede ser una **quita**
+  (pagar menos del monto original), una extensión de los plazos o una
+  combinación de ambas, para poder volver a cumplir con lo que quede
+  acordado.
 - **Riesgo de litigios**, en el caso de deuda externa: algunos
   acreedores pueden negarse a aceptar la reestructuración y llevar el
   reclamo a tribunales extranjeros, buscando cobrar el monto original
@@ -58,11 +56,10 @@ afectados y las herramientas disponibles no son las mismas.
 ## Un ejemplo histórico real (mecánica, sin evaluar si fue correcto o no)
 
 Argentina declaró un default de su deuda externa en diciembre de 2001,
-en medio de una crisis económica más amplia. El país negoció después
-una reestructuración con la mayoría de sus acreedores (con una quita
-importante sobre el valor original), mientras que un grupo de bonistas
-que no aceptó esa reestructuración llevó el reclamo a tribunales de
-Estados Unidos, un litigio que se extendió por años. Es un ejemplo
+en medio de una crisis económica más amplia. El país negoció después una reestructuración con la mayoría de sus
+acreedores, con una quita importante sobre el valor original. Un grupo de
+bonistas no aceptó esa reestructuración y llevó el reclamo a tribunales de
+Estados Unidos, en un litigio que se extendió por años. Es un ejemplo
 real de cómo puede evolucionar un default en la práctica: negociación
 con la mayoría, y litigio con quienes no aceptan los nuevos términos.
 

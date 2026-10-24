@@ -22,31 +22,30 @@ magnitud, o longitud).
 
 ## Qué se conserva y qué cambia
 
-Una traslación es una **isometría** (del griego "igual medida"): la
-figura trasladada (la **imagen**) es **congruente** a la original (ver
-`../../congruencia-de-triangulos/`) — mismo tamaño, misma forma, y
-también la misma orientación (no queda "espejada" ni girada, a
-diferencia de la reflexión y la rotación). Lo único que cambia es la
+Una traslación es una **isometría** (del griego "igual medida"). La figura
+trasladada (la **imagen**) es **congruente** a la original (ver
+`../../congruencia-de-triangulos/`): tiene el mismo tamaño, la misma forma y
+también la misma orientación. No queda "espejada" ni girada, a diferencia de
+la reflexión y la rotación. Lo único que cambia es la
 posición.
 
 ## Sin puntos fijos
 
-A diferencia de la rotación (que deja fijo el centro de rotación) o la
-reflexión (que deja fija toda la línea del eje), una traslación no deja
-ningún punto en su lugar — salvo el caso trivial de un vector de
-longitud cero, que no mueve nada.
+La rotación deja fijo el centro de rotación, y la reflexión deja fija toda
+la línea del eje. Una traslación, en cambio, no deja ningún punto en su
+lugar, salvo el caso trivial de un vector de longitud cero, que no mueve
+nada.
 
 ## Traslaciones repetidas
 
-Aplicar la misma traslación varias veces seguidas equivale a sumar el
-vector tantas veces como se repita: es la idea detrás de un patrón de
-baldosas o de un papel tapiz — la misma figura se repite deslizándose
-siempre el mismo vector, una y otra vez.
+Aplicar la misma traslación varias veces seguidas equivale a sumar el vector
+tantas veces como se repita. Es la idea detrás de un patrón de baldosas o de
+un papel tapiz: la misma figura se repite deslizándose siempre el mismo
+vector, una y otra vez.
 
 ## Para qué sirve
 
 La traslación es la transformación más simple de las cuatro (junto con
-`../rotacion/`, `../reflexion/` y `../homotecia/`), y la base para
-entender patrones repetitivos: mosaicos, guardas, papel tapiz, cualquier
-diseño donde un mismo motivo se repite sin cambiar de tamaño ni de
-orientación.
+`../rotacion/`, `../reflexion/` y `../homotecia/`). Es la base para entender
+patrones repetitivos: mosaicos, guardas, papel tapiz, cualquier diseño donde
+un mismo motivo se repite sin cambiar de tamaño ni de orientación.

@@ -40,10 +40,10 @@ pero sin el desborde emocional del Romanticismo.
 
 ## Diferencia con el Realismo
 
-Donde el Realismo buscaba mostrar la realidad social tal cual es (con
-objetividad y crítica), el Modernismo busca **embellecer** la
-realidad a través del lenguaje — vuelve a poner el foco en la forma y
-la estética, no en la denuncia social.
+El Realismo buscaba mostrar la realidad social tal cual es, con objetividad
+y crítica. El Modernismo, en cambio, busca **embellecer** la realidad a
+través del lenguaje. Vuelve a poner el foco en la forma y la estética, no en
+la denuncia social.
 
 ## Autor central: Rubén Darío
 

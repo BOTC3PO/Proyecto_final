@@ -46,19 +46,17 @@ gobierno**, no sólo influir sobre quien ya está en el poder.
 ## Argentina: un caso de multipartidismo con 2 coaliciones fuertes
 
 El sistema argentino no encaja perfectamente en bipartidismo puro ni en
-multipartidismo disperso: hay varios partidos, pero desde hace años
-tienden a agruparse en **2 grandes coaliciones** (frentes electorales)
-que concentran la mayoría del voto, sin dejar de convivir con partidos
-provinciales y de menor escala con peso relevante en distritos
-puntuales.
+multipartidismo disperso. Hay varios partidos, pero desde hace años tienden
+a agruparse en **2 grandes coaliciones** (frentes electorales) que
+concentran la mayoría del voto. Conviven con partidos provinciales y de
+menor escala, con peso relevante en distritos puntuales.
 
 ## Por qué depende de sistemas comparados
 
 Este módulo presupone ya conocer cómo se organiza el poder ejecutivo y
-legislativo entre países (`../sistemas-politicos-comparados/`), porque
-el rol de un partido político cambia según el sistema: en el
-parlamentarismo, el partido que gana **forma directamente el gobierno**
-(el líder del partido mayoritario suele ser el Primer Ministro); en el
-presidencialismo, ganar la presidencia y ganar la mayoría legislativa
-son 2 elecciones separadas, que pueden dar resultados distintos
-(gobierno dividido).
+legislativo entre países (`../sistemas-politicos-comparados/`), porque el
+rol de un partido político cambia según el sistema. En el parlamentarismo,
+el partido que gana **forma directamente el gobierno**: el líder del partido
+mayoritario suele ser el Primer Ministro. En el presidencialismo, ganar la
+presidencia y ganar la mayoría legislativa son 2 elecciones separadas, que
+pueden dar resultados distintos (gobierno dividido).

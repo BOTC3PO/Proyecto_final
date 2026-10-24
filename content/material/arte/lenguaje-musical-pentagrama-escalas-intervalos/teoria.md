@@ -10,7 +10,11 @@
 
 ## 1. El pentagrama
 
-El pentagrama es la base visual sobre la que se construye toda la notación musical. Está formado por cinco líneas horizontales paralelas y cuatro espacios entre ellas, que sirven para ubicar las notas según su altura (pitch). Cada línea y espacio representa una nota específica, cuyo nombre depende de la clave utilizada en el pentagrama. Por ejemplo, la **clave de Sol**, representada por un símbolo curvo que abraza la segunda línea del pentagrama, indica que esa línea corresponde a la nota *Sol*. <!-- IMAGEN: pentagrama con cinco líneas y cuatro espacios, clave de Sol en la segunda línea -->.
+El pentagrama es la base visual sobre la que se construye toda la notación musical. Está formado por cinco líneas horizontales paralelas y cuatro espacios entre ellas, que sirven para ubicar las notas según su altura (pitch). Cada línea y espacio representa una nota específica, cuyo nombre depende de la clave utilizada en el pentagrama. Por ejemplo, la **clave de Sol**, representada por un símbolo curvo que abraza la segunda línea del pentagrama, indica que esa línea corresponde a la nota *Sol*.
+
+![pentagrama con cinco líneas y cuatro espacios, clave de Sol en la segunda línea](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Music_notation.svg/960px-Music_notation.svg.png)
+
+*Imagen: «Music notation», Benjamin D. Esham (bdesham), Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Music_notation.svg).*
 
 ## 2. Nombres de las notas
 

@@ -320,10 +320,17 @@ const buildQuizFromCollection = (
   version: QuizVersionRecord | null
 ) => {
   if (!metadata?.id) return null;
+  // La tabla `Quiz` no tiene columna `type` (queda `undefined` en `metadata`): el tipo vive en `settings.type` de la versión.
+  // Sin esto `quiz.type` llegaba siempre vacío y ni el progreso formal ni `quizType` en la respuesta funcionaban.
+  const tipoDeLaVersion = (() => {
+    if (!version?.settings) return undefined;
+    const t = (safeJsonParse<Record<string, unknown>>(version.settings, {}) as { type?: unknown }).type;
+    return t === "formal" || t === "practica" || t === "competencia" ? t : undefined;
+  })();
   const quiz: ModuleQuiz = {
     id: metadata.id,
     title: metadata.title,
-    type: metadata.type,
+    type: metadata.type ?? tipoDeLaVersion,
     mode: metadata.mode,
     visibility: metadata.visibility,
     schoolId: metadata.schoolId,
@@ -546,6 +553,11 @@ const resolveStoredPresented = (
 // `gradeAnswers`/`buildFeedback`. Conserva answerKey/tolerancia/peso/modo del
 // servidor pero usa el id del CLIENTE para que `answers[id]` resuelva (el id del
 // cliente trae un contador de módulo no reproducible; ver questionHashPrefix).
+// Repaso — de qué plantilla (= tema) salió cada pregunta. No viaja en `ModuleQuizQuestion` (tipo compartido con vblang):
+// se guarda aparte, por identidad de objeto, desde que se materializa hasta que se corrige.
+const plantillaDeMaterializada = new WeakMap<object, string>();
+const plantillaDeGradable = new WeakMap<object, string>();
+
 const serverQuestionToGradable = (
   sq: ModuleQuizQuestion,
   id: string
@@ -753,6 +765,7 @@ async function materializarPreguntasNativas(
       id: idEstablePorSlot(materializada),
       ...(slot.pregunta.puntaje !== undefined ? { points: slot.pregunta.puntaje } : {})
     };
+    plantillaDeMaterializada.set(conPuntaje, plantillaId);
     materializadas.push(conPuntaje);
   }
 
@@ -803,7 +816,10 @@ const resolvePreguntasGrading = async (
   const gradingQuestions: ModuleQuiz["questions"] = materializadas.map((materializada) => {
     const prefix = questionHashPrefix(materializada.id);
     const clientId = clientIdByPrefix.get(prefix) ?? materializada.id;
-    return serverQuestionToGradable(materializada, clientId);
+    const gradable = serverQuestionToGradable(materializada, clientId);
+    const pid = plantillaDeMaterializada.get(materializada);
+    if (pid) plantillaDeGradable.set(gradable, pid);
+    return gradable;
   });
 
   return { gradingQuestions, serverAuthoritative: true, mismatchQuestions: [] };
@@ -2330,6 +2346,14 @@ async function materializeSubmit(
         grading.tiempoElapsedSec = tiempoCheck.elapsedSec;
         grading.tiempoLimiteSec = tiempoCheck.limitSec;
       }
+      // Repaso — enunciado y plantilla de cada pregunta, para explicarle al alumno en qué temas falló
+      // (`GET /api/quiz-attempts/:id/repaso`). Solo las que salen de plantillas de un cuestionario por preguntas.
+      const repaso: Record<string, { prompt: string; plantillaId: string }> = {};
+      for (const q of gradingQuestions ?? []) {
+        const pid = plantillaDeGradable.get(q as object);
+        if (pid) repaso[q.id] = { prompt: String(q.prompt ?? "").slice(0, 400), plantillaId: pid };
+      }
+      if (Object.keys(repaso).length > 0) (grading as Record<string, unknown>).repaso = repaso;
       for (const { question, weight } of manual) {
         grading.items[question.id] = {
           prompt: question.prompt,
@@ -2435,10 +2459,17 @@ async function materializeSubmit(
         };
       }
 
+      // `QuizAttempt` no tiene columna de módulo (se perdió al migrar a Prisma): `attempt.moduleId` llegaba siempre vacío y el
+      // progreso nunca se registraba al entregar, así que ningún alumno desbloqueaba el módulo siguiente. El módulo sale del cuestionario.
+      const moduloDelIntento =
+        attempt.moduleId ??
+        (await prisma.quiz.findFirst({ where: { id: attempt.quizId }, select: { moduleId: true } }))?.moduleId ??
+        null;
+
       // Si es quiz formal y aprobó → actualizar progreso
-      if (quiz.type === "formal" && aprobado && attempt.moduleId) {
+      if (quiz.type === "formal" && aprobado && moduloDelIntento) {
         try {
-          const progresoFilter = { usuarioId: userId, moduloId: attempt.moduleId };
+          const progresoFilter = { usuarioId: userId, moduloId: moduloDelIntento };
           const existingProgreso = await prisma.progresoModulo.findFirst({ where: progresoFilter });
           if (existingProgreso) {
             await prisma.progresoModulo.update({
@@ -2454,11 +2485,11 @@ async function materializeSubmit(
       }
 
       // Si es formal y NO aprobó → marcar en_progreso
-      if (quiz.type === "formal" && !aprobado && attempt.moduleId) {
+      if (quiz.type === "formal" && !aprobado && moduloDelIntento) {
         try {
           const progresoFilter = {
             usuarioId: userId,
-            moduloId: attempt.moduleId,
+            moduloId: moduloDelIntento,
             status: { not: "completado" }
           };
           const existingProgreso = await prisma.progresoModulo.findFirst({ where: progresoFilter });
@@ -2471,7 +2502,7 @@ async function materializeSubmit(
             await prisma.progresoModulo.create({
               data: {
                 usuarioId: userId,
-                moduloId: attempt.moduleId,
+                moduloId: moduloDelIntento,
                 status: "en_progreso",
                 updatedAt: new Date().toISOString()
               }

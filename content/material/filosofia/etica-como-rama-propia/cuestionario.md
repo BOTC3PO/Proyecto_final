@@ -421,10 +421,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La ética es una rama distinta de la lógica: depende de `../logica-proposicional/` como base formal general del mapa, pero estudia una pregunta distinta (qué es correcto), no la validez de razonamientos."
+enunciado: "La ética es una rama distinta de la lógica: se apoya en la lógica proposicional como base formal general, pero estudia una pregunta distinta (qué es lo correcto), no la validez de razonamientos."
 
 pasos:
-  - "Ver `../dependencias.md`: por eso cuelga de `FI1` como hermana de las otras ramas clásicas, no como continuación de la cadena de razonamiento."
+  - "La lógica estudia si un razonamiento es válido; la ética pregunta qué es correcto."
 
 explicacion: |
   Verdadero: cada rama clásica de Filosofía tiene su propio objeto de
@@ -454,32 +454,8 @@ explicacion: |
   de las tres preguntas centrales para evaluarla.
 ```
 
-### 19 — Ética como rama propia cierra un hueco del MAPA
 
-```
-metadata:
-  materia: "filosofia"
-  tema: "etica_como_rama_propia"
-  nivel: "avanzado"
-  tags: ["etica_como_rama_propia", "contexto"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes del agregado v2.4 del MAPA, Filosofía sólo tenía nodos de lógica (`FI1`/`FI2`), sin ningún nodo dedicado específicamente a ética como rama propia."
-
-pasos:
-  - "Este tema cierra esa brecha, junto con metafísica y estética."
-
-explicacion: |
-  Verdadero: es el contexto histórico de por qué este nodo se agregó
-  al mapa en esa versión.
-```
-
-### 20 — Aplicación: distinguir juicio moral de dato empírico
+### 19 — Aplicación: distinguir juicio moral de dato empírico
 
 ```
 metadata:

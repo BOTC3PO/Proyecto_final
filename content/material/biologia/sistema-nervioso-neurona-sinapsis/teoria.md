@@ -16,7 +16,7 @@ La unidad básica de funcionamiento es la neurona, una célula altamente especia
 
 ## La neurona: la unidad funcional
 
-La neurona tiene una forma característica que refleja su función. Está compuesta por tres partes principales: el cuerpo celular (soma), donde se encuentra el núcleo y se realizan las funciones metabólicas básicas; las dendritas, que son prolongaciones cortas y ramificadas que reciben los mensajes de otras neuronas; y el axón, una prolongación larga que lleva el impulso nervioso desde el cuerpo celular hacia las terminales para enviarlo a otras células.
+La neurona tiene una forma característica que refleja su función. Está compuesta por tres partes principales. El cuerpo celular (soma) es donde se encuentra el núcleo y se realizan las funciones metabólicas básicas. Las dendritas son prolongaciones cortas y ramificadas que reciben los mensajes de otras neuronas. El axón es una prolongación larga que lleva el impulso nervioso desde el cuerpo celular hacia las terminales, para enviarlo a otras células.
 
 El impulso nervioso viaja por el axón en forma de señal eléctrica. Para que esta señal viaje más rápido y eficientemente, muchos axones están recubiertos por una capa aislante llamada vaina de mielina, formada por células gliales. Esta vaina permite que el impulso "salte" de un nodo a otro (nodos de Ranvier), acelerando enormemente la transmisión de la información. Si la mielina se daña, como ocurre en algunas enfermedades autoinmunes, la comunicación entre el cerebro y el resto del cuerpo se vuelve lenta o falla, lo que demuestra su importancia crítica.
 

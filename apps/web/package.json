@@ -1,7 +1,7 @@
 {
   "name": "web",
   "private": true,
-  "version": "0.0.5",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -36,7 +36,7 @@
     "@xyflow/react": "12.10.2",
     "animejs": "3.2.2",
     "d3-geo": "3.1.1",
-    "dompurify": "3.4.16",
+    "dompurify": "3.4.17",
     "glob": "13.0.0",
     "katex": "0.16.47",
     "lucide-react": "0.561.0",
@@ -48,7 +48,7 @@
     "recharts": "3.8.1",
     "tailwindcss": "4.1.18",
     "topojson-client": "3.1.0",
-    "zod": "4.3.5"
+    "zod": "4.6.6"
   },
   "devDependencies": {
     "@eslint/js": "9.39.2",

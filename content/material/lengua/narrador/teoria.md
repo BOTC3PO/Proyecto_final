@@ -46,12 +46,12 @@ efecto quiere lograr.
 
 ## Por qué importa la elección del narrador
 
-Cada tipo genera un efecto distinto en el lector: el protagonista da
-inmediatez y subjetividad (pero limita lo que se puede saber, sólo lo
-que el protagonista sabe); el omnisciente da amplitud de información
-(pero pierde la sorpresa de no saber qué piensan los personajes); el
-observador genera distancia y misterio (el lector interpreta igual
-que si viera la escena, sin ayuda del narrador).
+Cada tipo genera un efecto distinto en el lector. El protagonista da
+inmediatez y subjetividad, pero limita lo que se puede saber a lo que el
+protagonista sabe. El omnisciente da amplitud de información, pero pierde la
+sorpresa de no saber qué piensan los personajes. El observador genera
+distancia y misterio: el lector interpreta igual que si viera la escena, sin
+ayuda del narrador.
 
 ## Para qué sirve
 

@@ -50,10 +50,10 @@ Además del color, separar por **tipo de tela** evita otros problemas:
 
 ## Separar también por nivel de suciedad
 
-Una práctica relacionada, aunque no sea estrictamente "color" ni
-"tela": separar la ropa muy sucia (por ejemplo, con barro o manchas
-fuertes) de la ropa con poca suciedad, para no tener que usar un ciclo
-más intenso del necesario en toda la carga sólo por unas pocas prendas.
+Una práctica relacionada, aunque no sea estrictamente "color" ni "tela", es
+separar la ropa muy sucia (por ejemplo, con barro o manchas fuertes) de la
+ropa con poca suciedad. Así no hay que usar un ciclo más intenso del
+necesario en toda la carga solo por unas pocas prendas.
 
 ## Dónde aparece en la vida real
 

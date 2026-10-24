@@ -35,10 +35,10 @@ más comunes, de menor a mayor:
 
 ## Se ignoran constantes y términos de menor orden
 
-Big O describe el comportamiento para n **grande**, así que se
-simplifica: O(3n+5) se escribe O(n) (la constante 3 y el +5 no cambian
-el orden de crecimiento); O(n²+n) se escribe O(n²) (el término n² domina
-sobre n cuando n crece mucho).
+Big O describe el comportamiento para n **grande**, así que se simplifica.
+O(3n+5) se escribe O(n), porque la constante 3 y el +5 no cambian el orden
+de crecimiento. O(n²+n) se escribe O(n²), porque el término n² domina sobre
+n cuando n crece mucho.
 
 ## Por qué importa el orden y no el valor puntual
 

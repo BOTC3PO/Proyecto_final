@@ -20,8 +20,6 @@ Una **solución técnica** es el resultado del proceso de diseño: un producto, 
 
 Los **requisitos** definen qué debe hacer la solución. Son las expectativas mínimas o ideales del cliente, usuario o contexto. Por ejemplo, un requisito podría ser "el puente debe soportar 50 toneladas de peso". Estos son objetivos claros que orientan el diseño: si no se cumplen, la solución no es válida.
 
-<!-- IMAGEN: Diagrama comparando requisitos (ej.: "soportar 50 t") con restricciones (ej.: "costo máximo $1M") --> 
-
 ## 4. Restricciones: lo que limita las opciones
 
 Las **restricciones** son condiciones externas o internas que no pueden ignorarse. Pueden ser técnicas, económicas, legales o de tiempo. Por ejemplo, si el presupuesto para un puente es de $1 millón, esa es una restricción: la solución no puede costar más. A diferencia de los requisitos (lo que se quiere), las restricciones (lo que no se permite) definen los límites del espacio de soluciones posibles.
@@ -36,7 +34,7 @@ Un error común es clasificar una restricción como un requisito (como confundir
 
 ## 6. Cómo afectan el proceso de diseño
 
-Los requisitos y las restricciones actúan como **filtros** en la búsqueda de soluciones. Los requisitos definen la meta; las restricciones, los caminos permitidos para alcanzarla. Por ejemplo: si un requisito es "el puente debe durar 100 años" (vida útil) y una restricción es "no se puede usar acero especial", el ingeniero debe buscar alternativas de diseño que compensen la limitación del material con otros elementos (como estructuras más robustas).
+Los requisitos y las restricciones actúan como **filtros** en la búsqueda de soluciones. Los requisitos definen la meta; las restricciones, los caminos permitidos para alcanzarla. Por ejemplo, un requisito es "el puente debe durar 100 años" (vida útil) y una restricción es "no se puede usar acero especial". El ingeniero debe buscar alternativas de diseño que compensen la limitación del material con otros elementos (como estructuras más robustas).
 
 ## N. Conexión con lo que sigue
 

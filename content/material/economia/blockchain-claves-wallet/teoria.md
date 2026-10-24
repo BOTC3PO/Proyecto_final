@@ -20,12 +20,11 @@ ningún banco.
 ## El problema que resuelve una blockchain
 
 Un banco tradicional guarda un registro central de cuánta plata tiene
-cada cuenta: si el banco dice que algo pasó, se confía en el banco. Una
-**blockchain** (cadena de bloques) resuelve el mismo problema —llevar
-un registro confiable de transacciones— pero **sin ningún banco ni
-autoridad central**: el registro lo mantienen, de forma coordinada,
-miles de computadoras (nodos) repartidas por el mundo, y todas tienen
-una copia idéntica.
+cada cuenta: si el banco dice que algo pasó, se confía en el banco. Una **blockchain** (cadena de bloques) resuelve el mismo problema —llevar un
+registro confiable de transacciones— pero **sin ningún banco ni autoridad
+central**. El registro lo mantienen, de forma coordinada, miles de
+computadoras (nodos) repartidas por el mundo, y todas tienen una copia
+idéntica.
 
 ## Qué es un bloque, y por qué forman una cadena
 
@@ -49,13 +48,12 @@ como una huella digital de esos datos:
 
 ## Por qué la cadena es difícil de alterar
 
-Como cada bloque incluye el hash del anterior, alterar una transacción
-de un bloque viejo cambiaría su hash — y ese cambio "rompería" el
-enlace con todos los bloques posteriores, porque cada uno de ellos
-guardó el hash ORIGINAL del bloque que se intentó modificar. Para que
-la alteración pase desapercibida, habría que recalcular también todos
-los bloques siguientes, en la mayoría de las copias de la red al mismo
-tiempo — en la práctica, extremadamente costoso cuanto más vieja es la
+Cada bloque incluye el hash del anterior. Por eso, alterar una transacción
+de un bloque viejo cambiaría su hash. Ese cambio "rompería" el enlace con
+todos los bloques posteriores, porque cada uno de ellos guardó el hash
+ORIGINAL del bloque que se intentó modificar. Para que la alteración pase desapercibida, habría que recalcular también
+todos los bloques siguientes, en la mayoría de las copias de la red al mismo
+tiempo. En la práctica, eso es extremadamente costoso cuanto más vieja es la
 transacción que se quiere alterar.
 
 ## El par de claves: pública y privada
@@ -78,11 +76,10 @@ reconstruir la clave privada a partir de la pública.
 ## Firmar una transacción
 
 Cuando alguien envía una transacción, la **firma digitalmente** con su
-clave privada. Cualquier nodo de la red puede usar la clave pública
-correspondiente para verificar que esa firma es válida — confirmando
-que quien envió la transacción realmente tiene la clave privada
-correspondiente, sin que esa clave privada se revele en ningún momento
-del proceso.
+clave privada. Cualquier nodo de la red puede usar la clave pública correspondiente para
+verificar que esa firma es válida. Así confirma que quien envió la
+transacción realmente tiene la clave privada, sin que esa clave se revele en
+ningún momento del proceso.
 
 ## Qué es una wallet ("billetera")
 

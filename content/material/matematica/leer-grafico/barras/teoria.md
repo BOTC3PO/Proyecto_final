@@ -36,10 +36,9 @@ tiene) y se lee el número donde coincide.
 
 ## Para qué sirve
 
-Sirve para **comparar categorías** entre sí de un vistazo: cuál vendió
-más, cuál tiene menos stock, cuál sacó más votos — cualquier
-comparación donde las categorías no tienen un orden numérico propio
-(a diferencia de un gráfico de líneas, donde el eje horizontal suele
-ser tiempo). Es el tipo de gráfico más común para mostrar resultados
+Sirve para **comparar categorías** entre sí de un vistazo: cuál vendió más,
+cuál tiene menos stock, cuál sacó más votos. Sirve en cualquier comparación
+donde las categorías no tienen un orden numérico propio. En un gráfico de
+líneas, en cambio, el eje horizontal suele ser tiempo. Es el tipo de gráfico más común para mostrar resultados
 de una encuesta, ventas por producto, o resultados electorales por
 candidato.

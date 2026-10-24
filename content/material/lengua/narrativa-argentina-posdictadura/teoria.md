@@ -10,7 +10,7 @@
 
 ## Un contexto histórico
 
-Entre el 24 de marzo de 1976 y diciembre de 1983, la Argentina vivió bajo una dictadura militar. Fue un período marcado por la censura, la persecución política, el exilio de muchos escritores y la desaparición forzada de personas. Con la vuelta de la democracia, la literatura empezó a ocuparse de ese pasado de maneras muy distintas. Este tema describe cómo lo hicieron algunos autores, sin juzgar posturas políticas: lo que interesa acá es cómo la narrativa responde a los hechos, que pueden consultarse en `../../historia-profunda/historia-reciente-argentina/` y en `../../historia-profunda/terrorismo-de-estado-argentina/`.
+Entre el 24 de marzo de 1976 y diciembre de 1983, la Argentina vivió bajo una dictadura militar. Fue un período marcado por la censura, la persecución política, el exilio de muchos escritores y la desaparición forzada de personas. Con la vuelta de la democracia, la literatura empezó a ocuparse de ese pasado de maneras muy distintas. Este tema describe cómo lo hicieron algunos autores, sin juzgar posturas políticas: lo que interesa acá es cómo la narrativa responde a los hechos, que pueden consultarse en `../../historia-argentina/historia-reciente-argentina/` y en `../../historia-argentina/terrorismo-de-estado-argentina/`.
 
 ## Escribir bajo censura
 

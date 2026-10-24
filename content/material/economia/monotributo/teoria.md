@@ -18,9 +18,9 @@
 
 El monotributo (Régimen Simplificado para Pequeños Contribuyentes) es una
 forma simplificada de estar inscripto ante AFIP para quienes trabajan de
-forma independiente (no en relación de dependencia): en vez de liquidar
-IVA y Ganancias por separado como el régimen general, se paga **una única
-cuota mensual fija**, que integra varios conceptos en un solo pago.
+forma independiente (no en relación de dependencia). En vez de liquidar IVA
+y Ganancias por separado como el régimen general, se paga **una única cuota
+mensual fija**, que integra varios conceptos en un solo pago.
 
 ## La categoría
 
@@ -67,7 +67,7 @@ beneficios distintos al monotributo general.
 ## Monotributo vs. relación de dependencia
 
 Un monotributista **no** tiene los mismos descuentos que un empleado en
-relación de dependencia (ver `../recibo-de-sueldo/argentina/`): en vez de
-un 17% descontado de un sueldo bruto, paga una cuota fija mensual,
-calculada aparte, sin importar cuánto facturó exactamente ese mes
-puntual (dentro del rango de su categoría).
+relación de dependencia (ver `../recibo-de-sueldo/argentina/`). En vez de un
+17% descontado de un sueldo bruto, paga una cuota fija mensual, calculada
+aparte. No importa cuánto facturó exactamente ese mes puntual, dentro del
+rango de su categoría.

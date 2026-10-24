@@ -1,0 +1,70 @@
+{
+ "titulo": "Pirámide normativa argentina",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cada nivel deriva su validez del anterior",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Constitución Nacional",
+     "x": 188,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Tratados internacionales (art. 75 inc. 22)",
+     "x": 188,
+     "y": 92,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Leyes nacionales",
+     "x": 188,
+     "y": 184,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n4",
+     "label": "Leyes provinciales",
+     "x": 188,
+     "y": 276,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n5",
+     "label": "Decretos y reglamentos",
+     "x": 188,
+     "y": 368,
+     "color": "#e5e7eb"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "prevalece sobre"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

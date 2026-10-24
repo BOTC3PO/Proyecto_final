@@ -12,10 +12,11 @@ coeficiente que mide qué tan bien ajusta son tres ideas separables.
 
 ## Qué es la regresión lineal
 
-Cuando se grafican pares de datos numéricos (por ejemplo, "horas de
-estudio" en el eje x y "nota obtenida" en el eje y — la nube de puntos
-de `../construir-un-grafico/`), muchas veces los puntos sugieren una
-tendencia: a medida que uno crece, el otro también (o al revés). La
+Cuando se grafican pares de datos numéricos, muchas veces los puntos
+sugieren una tendencia. Por ejemplo, "horas de estudio" en el eje x y "nota
+obtenida" en el eje y forman la nube de puntos de
+`../construir-un-grafico/`. A medida que uno crece, el otro también (o al
+revés). La
 **regresión lineal** es el método para encontrar la **recta que mejor
 describe** esa tendencia.
 
@@ -32,12 +33,10 @@ y = m·x + b
 
 Entre todas las rectas posibles, se elige la que hace **mínima la
 suma de las distancias verticales al cuadrado** entre cada punto real
-y la recta (el método de **mínimos cuadrados**). Se usan distancias al
-**cuadrado** por la misma razón que en la varianza
-(`../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`): si se
-sumaran las distancias sin elevar al cuadrado, las que quedan por
-encima de la recta y las que quedan por debajo se cancelarían entre
-sí.
+y la recta (el método de **mínimos cuadrados**). Se usan distancias al **cuadrado** por la misma razón que en la varianza
+(`../tablas-de-frecuencia-cuartiles-percentiles-y-varianza/`). Si se sumaran
+las distancias sin elevar al cuadrado, las que quedan por encima de la recta
+y las que quedan por debajo se cancelarían entre sí.
 
 ## El coeficiente de correlación (r)
 

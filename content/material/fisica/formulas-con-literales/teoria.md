@@ -70,7 +70,7 @@ F = m·a → m = F/a = 50/2 = 25 kg.
 
 ## Nota sobre unidades
 
-Este módulo trabaja con los NÚMEROS ya en unidades consistentes (SI) —
-convertir unidades (por ejemplo, km/h a m/s) es una habilidad aparte que
-no se cubre en detalle acá; los enunciados ya vienen con las unidades
-ajustadas para que el cálculo dé directo.
+Este módulo trabaja con los NÚMEROS ya en unidades consistentes (SI).
+Convertir unidades (por ejemplo, km/h a m/s) es una habilidad aparte que no
+se cubre en detalle acá. Los enunciados ya vienen con las unidades ajustadas
+para que el cálculo dé directo.

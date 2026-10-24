@@ -1,0 +1,64 @@
+{
+ "titulo": "Proceso de verificación de una noticia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Antes de creer o compartir",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Leer la noticia completa",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Identificar la fuente original",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Buscar otras fuentes confiables",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Comprobar fecha, imagen y contexto",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Decidir si compartir",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "titulo": "El calor fluye del más caliente al más frío",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Dos recipientes conectados",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Líquido caliente (80 °C)",
+     "x": 0,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Líquido frío (20 °C)",
+     "x": 375,
+     "y": 0,
+     "color": "#dbeafe"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "flujo de calor Q"
+    }
+   ]
+  }
+ ]
+}

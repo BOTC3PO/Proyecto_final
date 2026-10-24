@@ -14,8 +14,7 @@ estrategias para encontrarlas son pasos separables.
 
 `../decodificacion-y-fluidez/` enseñó a convertir letras en sonido y
 leer con soltura. Este tema es el siguiente paso: **entender de qué
-trata** lo que se lee — el primer nodo de la rama de comprensión de
-Tronco 5 (en paralelo a la rama gramatical ya vista).
+trata** lo que se lee — el primer tema de la rama de comprensión (en paralelo a la rama gramatical ya vista).
 
 ## Qué es la idea principal
 

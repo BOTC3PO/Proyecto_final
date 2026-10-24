@@ -32,10 +32,10 @@ multiplicado por la cantidad de términos.
 
 ## Por qué funciona (el truco de Gauss)
 
-Cuentan que Gauss, de chico, sumó los números del 1 al 100 en segundos:
-emparejó el primero con el último (1+100=101), el segundo con el
-anteúltimo (2+99=101)... cada par suma siempre lo mismo (101), y hay 50
-pares → 50×101 = 5.050. Esa es, exactamente, la fórmula de arriba aplicada
+Cuentan que Gauss, de chico, sumó los números del 1 al 100 en segundos.
+Emparejó el primero con el último (1+100=101), el segundo con el anteúltimo
+(2+99=101), y así. Cada par suma siempre lo mismo (101), y hay 50 pares →
+50×101 = 5.050. Esa es, exactamente, la fórmula de arriba aplicada
 a a₁=1, d=1, n=100.
 
 ## Caso especial: suma de los primeros N números naturales

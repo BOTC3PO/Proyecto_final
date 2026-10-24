@@ -54,8 +54,8 @@ puro.
 
 ## Para qué sirve
 
-Identificar el tipo textual predominante es el prerrequisito directo
-para dos ramas de la currícula: los **géneros literarios** (que
-especializan el tipo narrativo, lírico y dramático) y los
-**recursos literarios**, que aplican sobre cualquier tipo de texto
-pero se estudian sobre todo en textos narrativos y líricos.
+Identificar el tipo textual predominante es el prerrequisito directo para
+dos ramas de la currícula. Una son los **géneros literarios**, que
+especializan el tipo narrativo, lírico y dramático. La otra son los
+**recursos literarios**, que aplican sobre cualquier tipo de texto pero se
+estudian sobre todo en textos narrativos y líricos.

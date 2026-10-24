@@ -51,10 +51,9 @@ velocidad siempre da la distancia, sea constante o no.)
 ## Encuentro de dos móviles
 
 Cuando dos objetos se mueven al mismo tiempo (uno detrás del otro, o en
-sentidos opuestos), sus posiciones son dos funciones lineales del
-tiempo — encontrar cuándo (y dónde) se encuentran es resolver el sistema
-de esas dos ecuaciones (ver
-`../../matematica/sistemas-dos-ecuaciones/`).
+sentidos opuestos), sus posiciones son dos funciones lineales del tiempo.
+Encontrar cuándo y dónde se encuentran es resolver el sistema de esas dos
+ecuaciones (ver `../../matematica/sistemas-dos-ecuaciones/`).
 
 ## Ejemplo resuelto
 

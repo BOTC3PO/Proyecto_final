@@ -46,20 +46,18 @@ que dar exactamente el dividendo original.
 ## Por qué NO es conmutativa ni asociativa, y el caso de dividir por 0
 
 Igual que la resta, en la división el orden importa: a ÷ b casi nunca da
-lo mismo que b ÷ a. Tampoco es asociativa. Y hay un caso que no tiene
-resultado posible: **dividir por 0 no está definido** — no existe ningún
-número que, multiplicado por 0, dé un resultado distinto de 0, así que no
-hay cociente posible salvo que el dividendo también sea 0 (y ni así hay un
-único resultado).
+lo mismo que b ÷ a. Tampoco es asociativa. Y hay un caso que no tiene resultado posible: **dividir por 0 no está
+definido**. No existe ningún número que, multiplicado por 0, dé un resultado
+distinto de 0. Por eso no hay cociente posible, salvo que el dividendo
+también sea 0, y ni así hay un único resultado.
 
 ## El algoritmo de la división larga
 
 Se toman las cifras del dividendo de a una (o de a varias, hasta que el
-número formado sea mayor o igual que el divisor), se busca cuántas veces
-entra el divisor ahí (esa es la cifra del cociente), se multiplica esa
-cifra por el divisor y se resta al número tomado — el resultado de esa
-resta es lo que "baja" a juntarse con la próxima cifra del dividendo, y se
-repite. Es, en el fondo, restar el divisor repetidas veces, organizado por
+número formado sea mayor o igual que el divisor). Se busca cuántas veces
+entra el divisor ahí; esa es la cifra del cociente. Se multiplica esa cifra
+por el divisor y se resta al número tomado. El resultado de esa resta es lo
+que "baja" a juntarse con la próxima cifra del dividendo, y se repite. Es, en el fondo, restar el divisor repetidas veces, organizado por
 columnas para no tener que hacerlo una por una.
 
 ## Estimar antes de dividir

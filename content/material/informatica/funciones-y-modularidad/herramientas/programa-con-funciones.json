@@ -1,0 +1,57 @@
+{
+ "titulo": "Un programa dividido en funciones",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Módulos independientes",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Programa principal",
+     "x": 188,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "calcular_total()",
+     "x": 0,
+     "y": 115,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "validar_datos()",
+     "x": 188,
+     "y": 115,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n4",
+     "label": "mostrar_resultado()",
+     "x": 375,
+     "y": 115,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n1",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n1",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

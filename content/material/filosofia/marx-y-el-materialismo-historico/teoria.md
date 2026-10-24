@@ -14,11 +14,11 @@ Igual que en `../historia-de-la-filosofia-y-corrientes/` y en `../../economia/ma
 
 ## De Hegel a Marx
 
-Karl Marx (Tréveris, 1818–Londres, 1883) se formó en la tradición de Hegel, para quien la historia es un proceso dialéctico del Espíritu. Marx conservó la idea de que la historia avanza mediante contradicciones y superaciones, pero la **invirtió**: lo que mueve la historia no son las ideas ni el Espíritu, sino las condiciones materiales de la vida, es decir, cómo las personas producen lo necesario para vivir. Por eso su posición se llama **materialismo histórico**. Trabajó junto con Friedrich Engels, con quien escribió *La ideología alemana* (1845–1846) y el *Manifiesto del Partido Comunista* (1848).
+Karl Marx (Tréveris, 1818–Londres, 1883) se formó en la tradición de Hegel, para quien la historia es un proceso dialéctico del Espíritu. Marx conservó la idea de que la historia avanza mediante contradicciones y superaciones, pero la **invirtió**. Lo que mueve la historia no son las ideas ni el Espíritu, sino las condiciones materiales de la vida, es decir, cómo las personas producen lo necesario para vivir. Por eso su posición se llama **materialismo histórico**. Trabajó junto con Friedrich Engels, con quien escribió *La ideología alemana* (1845–1846) y el *Manifiesto del Partido Comunista* (1848).
 
 ## Base y superestructura
 
-En el prólogo de 1859 a su *Contribución a la crítica de la economía política* resumió el planteo con una imagen: la **base** (o estructura) económica de una sociedad está formada por las **fuerzas productivas** (trabajo, técnicas, herramientas, recursos) y las **relaciones de producción** (quién posee los medios de producción y quién trabaja para quién). Sobre esa base se levanta una **superestructura**: las instituciones jurídicas y políticas, y las formas de conciencia, como la religión, la moral, el arte y la filosofía. La frase más citada dice que no es la conciencia de las personas la que determina su ser, sino su ser social el que determina su conciencia.
+En el prólogo de 1859 a su *Contribución a la crítica de la economía política* resumió el planteo con una imagen. La **base** (o estructura) económica de una sociedad está formada por las **fuerzas productivas** (trabajo, técnicas, herramientas, recursos) y las **relaciones de producción** (quién posee los medios de producción y quién trabaja para quién). Sobre esa base se levanta una **superestructura**: las instituciones jurídicas y políticas, y las formas de conciencia, como la religión, la moral, el arte y la filosofía. La frase más citada dice que no es la conciencia de las personas la que determina su ser, sino su ser social el que determina su conciencia.
 
 ## Modos de producción y lucha de clases
 
@@ -26,7 +26,7 @@ La historia, en esta lectura, se divide en **modos de producción**: comunidad p
 
 ## Alienación e ideología
 
-En los *Manuscritos económico-filosóficos* de 1844, Marx describió la **alienación** (o enajenación): bajo el capitalismo, el trabajador se separa del producto de su trabajo, de la actividad misma, de los demás y de sus propias capacidades, porque el producto pertenece a otro y el trabajo se vive como obligación. Desarrolló además el concepto de **ideología**: ideas que presentan como naturales o universales los intereses de la clase dominante, por lo que las ideas dominantes de una época tienden a ser las de quienes dominan. Con estas nociones se explica por qué la filosofía y la cultura no son neutrales respecto de la sociedad en que nacen.
+En los *Manuscritos económico-filosóficos* de 1844, Marx describió la **alienación** (o enajenación). Bajo el capitalismo, el trabajador se separa del producto de su trabajo, de la actividad misma, de los demás y de sus propias capacidades. El producto pertenece a otro y el trabajo se vive como obligación. Desarrolló además el concepto de **ideología**: ideas que presentan como naturales o universales los intereses de la clase dominante, por lo que las ideas dominantes de una época tienden a ser las de quienes dominan. Con estas nociones se explica por qué la filosofía y la cultura no son neutrales respecto de la sociedad en que nacen.
 
 ## La filosofía como práctica
 

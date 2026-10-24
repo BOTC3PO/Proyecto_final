@@ -12,8 +12,6 @@
 
 La invención de la imprenta con tipos móviles por Johannes Gutenberg hacia 1450 marcó un antes y un después en la historia del saber. Antes, los textos religiosos, filosóficos o científicos eran copiados a mano por monjes en scriptoriums, un proceso lento que limitaba su difusión a elites educadas. La imprenta permitió producir cientos de ejemplares idénticos en pocos días, reduciendo costos y tiempos. Esto no solo multiplicó el acceso a la Biblia (como en la traducción de Lutero), sino que también facilitó la circulación de tratados científicos, mapas náuticos y obras literarias, acelerando el intercambio intelectual entre ciudades y países.
 
-<!-- IMAGEN: Comparación entre un manuscrito medieval y un libro impreso con tipos móviles -->
-
 ---
 
 ## 2. La estandarización del conocimiento y la ciencia
@@ -32,7 +30,9 @@ La proliferación de libros no fue solo cuantitativa: también generó un cambio
 
 La expansión marítima del siglo XVI se vio impulsada por la imprenta. Los cartógrafos podían imprimir mapas actualizados con nuevas rutas o coordenadas, lo que ayudaba a marineros a navegar con mayor seguridad. Además, las expediciones generaban conocimientos geográficos y científicos (como los de América) que se publicaban en libros, integrando la ciencia con el comercio y el poder imperial. La imprenta convirtió a la navegación no solo en una actividad económica, sino también en un motor de descubrimientos científicos.
 
-<!-- IMAGEN: Mapa del mundo impreso por Mercator en 1569, mostrando rutas marítimas y notaciones sobre tierras nuevas -->
+![Mapa del mundo impreso por Mercator en 1569, mostrando rutas marítimas y notaciones sobre tierras nuevas](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mercator_1569_world_map_composite.jpg/960px-Mercator_1569_world_map_composite.jpg)
+
+*Imagen: «Mercator 1569 world map composite», Gerardus Mercator, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mercator_1569_world_map_composite.jpg).*
 
 ---
 

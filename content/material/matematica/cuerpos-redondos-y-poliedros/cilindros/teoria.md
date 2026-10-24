@@ -58,7 +58,6 @@ la capacidad de una lata, un vaso o un tanque cilíndrico.
 
 ## Cilindro vs. prisma: qué cambia y qué no
 
-Lo único que cambia respecto de un prisma es CÓMO se calcula el área de
-la base (círculo en vez de polígono) — la lógica de "área de la base ×
-altura" para el volumen es exactamente la misma idea ya vista en
-`../prismas/`.
+Lo único que cambia respecto de un prisma es CÓMO se calcula el área de la
+base (círculo en vez de polígono). La lógica de "área de la base × altura"
+para el volumen es exactamente la misma idea ya vista en `../prismas/`.

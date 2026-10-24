@@ -73,4 +73,4 @@ Esta notación permite identificar rápidamente la composición nuclear de un á
 
 ## N. Conexión con lo que sigue
 
-El conocimiento del número atómico y el número másico se vuelve esencial al analizar la configuración electrónica de los elementos, ya que el valor de Z determina cuántos electrones posee un átomo neutro, y por ende, cómo se distribuyen en sus niveles energéticos (`../configuracion-electronica/`).
+El conocimiento del número atómico y el número másico se vuelve esencial al analizar la configuración electrónica de los elementos. El valor de Z determina cuántos electrones posee un átomo neutro y, por ende, cómo se distribuyen en sus niveles energéticos (`../configuracion-electronica/`).

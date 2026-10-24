@@ -14,7 +14,9 @@ La historia de Egipto es inseparable de su geografía. El historiador griego Her
 
 Hacia el 3100 a.C., según la tradición histórica, el rey Menes (o Narmer) unificó el Alto Egipto (el sur, valle estrecho) y el Bajo Egipto (el norte, delta fértil). Esta unificación no fue solo política, sino simbólica, representada por la doble corona que llevaba el faraón. El Estado centralizado resultante necesitaba una burocracia eficiente para gestionar el riego, el almacenamiento de granos y la recolección de impuestos, lo que impulsó el desarrollo de la escritura jeroglífica y la administración estatal temprana.
 
-<!-- IMAGEN: Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas -->
+![Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Narmer_palette_%28obverse%29.jpg/960px-Narmer_palette_%28obverse%29.jpg)
+
+*Imagen: «Narmer palette (obverse)», anonymous, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Narmer_palette_%28obverse%29.jpg).*
 
 ## 2. Los grandes periodos dinásticos
 
@@ -26,7 +28,7 @@ El **Reino Medio** (c. 2055-1650 a.C.) surgió tras la reunificación bajo Mentu
 
 ## 3. El Imperio y la expansión territorial
 
-El **Reino Nuevo** (c. 1550-1069 a.C.) marcó la apogeo del poderío militar egipcio. Tras expulsar a los hicsos, los faraones de la XVIII dinastía, como Ahmose I y Hatshepsut, iniciaron una política de expansión. Bajo Tutmosis III, Egipto se convirtió en una potencia imperial, controlando territorios desde el Éufrates hasta la cuarta catarata del Nilo. Este periodo también vio cambios religiosos significativos con la efímera revolución de Akenatón, quien intentó imponer el monoteísmo en torno al disco solar Atón, generando una tensión teológica profunda que fue revertida por su sucesor Tutankamón y posteriormente por la dinastía de los Ramsés.
+El **Reino Nuevo** (c. 1550-1069 a.C.) marcó la apogeo del poderío militar egipcio. Tras expulsar a los hicsos, los faraones de la XVIII dinastía, como Ahmose I y Hatshepsut, iniciaron una política de expansión. Bajo Tutmosis III, Egipto se convirtió en una potencia imperial, controlando territorios desde el Éufrates hasta la cuarta catarata del Nilo. Este periodo también vio cambios religiosos significativos con la efímera revolución de Akenatón. Intentó imponer el monoteísmo en torno al disco solar Atón. Eso generó una tensión teológica profunda, que fue revertida por su sucesor Tutankamón y posteriormente por la dinastía de los Ramsés.
 
 La dinastía XIX, liderada por figuras como Ramsés II, consolidó las fronteras y firmó el primer tratado de paz internacional conocido con el imperio hitita. El Reino Nuevo declinó gradualmente debido a las invasiones de los "Pueblos del Mar", conflictos internos y la creciente influencia del clero de Amón en Tebas, que rivalizaba con el poder real.
 

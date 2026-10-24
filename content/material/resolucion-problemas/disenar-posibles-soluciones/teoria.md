@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué significa diseñar soluciones?
 
-Diseñar posibles soluciones no es solo pensar en una respuesta, sino crear un conjunto diverso de caminos para abordar el desafío. Esto implica dejar de lado la idea de que hay "una solución correcta" y reconocer que existen múltiples formas de resolver un problema. Por ejemplo, si el objetivo es reducir el desperdicio de comida en una escuela, no se trata solo de inventar una campaña educativa: también podría incluirse mejorar la logística de distribución, fomentar la donación a comedores o incluso adaptar menús según las preferencias de los estudiantes. La clave es evitar quedarse con la primera idea que surge y explorar opciones distintas.
+Diseñar posibles soluciones no es solo pensar en una respuesta, sino crear un conjunto diverso de caminos para abordar el desafío. Esto implica dejar de lado la idea de que hay "una solución correcta" y reconocer que existen múltiples formas de resolver un problema. Por ejemplo, el objetivo es reducir el desperdicio de comida en una escuela. No se trata solo de inventar una campaña educativa. También podría incluirse mejorar la logística de distribución, fomentar la donación a comedores o incluso adaptar menús según las preferencias de los estudiantes. La clave es evitar quedarse con la primera idea que surge y explorar opciones distintas.
 
 ## 2. El poder del pensamiento divergente
 

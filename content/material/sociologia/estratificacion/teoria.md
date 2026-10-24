@@ -29,11 +29,11 @@ quién accede a determinada educación, quién ocupa determinado cargo.
 - **Sistema de estamentos**: propio de sociedades feudales (nobleza,
   clero, campesinado); la posición se hereda pero hay algo más de
   margen que en las castas (ascenso religioso, matrimonio, guerra).
-- **Sistema de clases sociales**: propio de las sociedades modernas
-  (clase alta, media, baja/trabajadora); a diferencia de castas y
-  estamentos, se basa principalmente en criterios económicos (ingreso,
-  propiedad, ocupación) y **admite movilidad** — cambiar de clase
-  durante la vida es posible, aunque no siempre fácil.
+- **Sistema de clases sociales**: propio de las sociedades modernas (clase
+  alta, media, baja o trabajadora). A diferencia de castas y estamentos, se
+  basa principalmente en criterios económicos (ingreso, propiedad,
+  ocupación) y **admite movilidad**. Cambiar de clase durante la vida es
+  posible, aunque no siempre fácil.
 
 ## Movilidad social
 
@@ -63,8 +63,8 @@ movilidad.
 
 ## Para qué sirve
 
-Entender estratificación es la base para leer con criterio debates
-sobre desigualdad, pobreza y política redistributiva — sin confundir
-"hay estratos" (un hecho casi universal en toda sociedad compleja) con
-"la desigualdad actual es justa o inevitable" (un juicio de valor
-distinto, que esta materia no resuelve por sí sola).
+Entender estratificación es la base para leer con criterio debates sobre
+desigualdad, pobreza y política redistributiva. Hay que no confundir "hay
+estratos" (un hecho casi universal en toda sociedad compleja) con "la
+desigualdad actual es justa o inevitable". Esto último es un juicio de valor
+distinto, que esta materia no resuelve por sí sola.

@@ -47,17 +47,16 @@ la decena" primero).
 
 Para sumar números de más de una cifra, se alinean por su valor posicional
 (unidades debajo de unidades, decenas debajo de decenas...) y se suma
-columna por columna, de derecha a izquierda. Si el resultado de una columna
-es 10 o más, se escribe sólo la cifra de las unidades de ese resultado y se
-**lleva 1** a la columna siguiente (porque esas diez unidades son, en
-realidad, una decena de la columna de al lado). Ejemplo: 27 + 15 → unidades:
+columna por columna, de derecha a izquierda. Si el resultado de una columna es 10 o más, se escribe solo la cifra de las
+unidades de ese resultado y se **lleva 1** a la columna siguiente. Esas diez
+unidades son, en realidad, una decena de la columna de al lado. Ejemplo: 27 + 15 → unidades:
 7+5=12, se escribe 2 y se lleva 1; decenas: 2+1+1(la llevada)=4 → resultado
 42.
 
 ## Estimar antes de sumar
 
 Redondear los sumandos a la decena o centena más cercana (ver
-`../valor-posicional/teoria.md`) antes de sumar da un resultado aproximado
-que sirve para controlar que la cuenta exacta no tenga un error grosero —
-si el estimado da "cerca de 40" y la cuenta exacta dio 420, algo salió mal
-en el cálculo.
+`../valor-posicional/teoria.md`) antes de sumar da un resultado aproximado.
+Sirve para controlar que la cuenta exacta no tenga un error grosero. Si el
+estimado da "cerca de 40" y la cuenta exacta dio 420, algo salió mal en el
+cálculo.

@@ -379,32 +379,8 @@ explicacion: |
   niveles de tiempo propuestos por Braudel.
 ```
 
-### 16 — Escuela de los Annales depende de multicausalidad en el MAPA
 
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-### 17 — La geografía como estructura de larga duración
+### 16 — La geografía como estructura de larga duración
 
 ```
 metadata:
@@ -429,7 +405,7 @@ explicacion: |
   de la larga duración de esta corriente.
 ```
 
-### 18 — Ordenar el análisis para identificar un texto de la Escuela de los Annales
+### 17 — Ordenar el análisis para identificar un texto de la Escuela de los Annales
 
 ```
 metadata:
@@ -451,7 +427,7 @@ explicacion: |
   tiempo, para concluir si corresponde a esta corriente.
 ```
 
-### 19 — Escuela de los Annales como tercera corriente de la subrama
+### 18 — Escuela de los Annales como tercera corriente de la subrama
 
 ```
 metadata:
@@ -476,7 +452,7 @@ explicacion: |
   subrama.
 ```
 
-### 20 — Aplicación: identificar el enfoque de un texto histórico
+### 19 — Aplicación: identificar el enfoque de un texto histórico
 
 ```
 metadata:

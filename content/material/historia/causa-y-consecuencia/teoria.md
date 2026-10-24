@@ -26,12 +26,11 @@ distintas.
 - **Causas inmediatas**: el hecho puntual que "dispara" directamente
   un acontecimiento (el asesinato del archiduque Francisco Fernando
   como causa inmediata de la Primera Guerra Mundial).
-- **Causas profundas (o estructurales)**: condiciones de fondo que
-  venían gestándose desde antes, sin las cuales la causa inmediata no
-  habría tenido el mismo efecto (las tensiones entre potencias
-  europeas, las alianzas militares, el nacionalismo — todo eso ya
-  existía antes del asesinato, y explica por qué ese hecho puntual
-  desató una guerra mundial y no un conflicto menor).
+- **Causas profundas (o estructurales)**: condiciones de fondo que venían
+  gestándose desde antes, sin las cuales la causa inmediata no habría tenido
+  el mismo efecto. Las tensiones entre potencias europeas, las alianzas
+  militares y el nacionalismo ya existían antes del asesinato. Explican por
+  qué ese hecho puntual desató una guerra mundial y no un conflicto menor.
 
 ## Correlación no es causalidad (el error más común)
 
@@ -61,9 +60,9 @@ hacia adelante o hacia atrás.
 
 ## Para qué sirve
 
-Este es el primero de los conceptos del marco "Big Six" de
-pensamiento histórico cubiertos en este mapa — es el prerrequisito
-directo de `../cambio-y-continuidad/` (comparar qué cambió y qué se
-mantuvo presupone ya poder identificar qué causó cada cambio) y,
-más adelante, de `../multicausalidad/` (reconocer que rara vez hay
-una sola causa detrás de un hecho histórico importante).
+Este es el primero de los conceptos del marco "Big Six" de pensamiento
+histórico cubiertos en este mapa. Es el prerrequisito directo de
+`../cambio-y-continuidad/`: comparar qué cambió y qué se mantuvo presupone
+ya poder identificar qué causó cada cambio. Más adelante lo es de
+`../multicausalidad/`, que reconoce que rara vez hay una sola causa detrás
+de un hecho histórico importante.

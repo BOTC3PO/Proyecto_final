@@ -12,7 +12,9 @@
 
 Hace unos 470 millones de años, el planeta era un lugar dominado por océanos y mares, con pocos lugares donde la vida pudiera establecerse fuera del agua. Fue entonces cuando las primeras formas de vida en colonizar la tierra firme fueron las **plantas**. Estos organismos, aún primitivos, desarrollaron estructuras que les permitieron fijarse al suelo y absorber nutrientes sin depender exclusivamente del agua. Su aparición marcó un hito crucial: el comienzo de la transformación del planeta.
 
-<!-- IMAGEN: Ilustración de plantas primitivas en una costa rocosa, con raíces sencillas y tallos blandos -->
+![Ilustración de plantas primitivas en una costa rocosa, con raíces sencillas y tallos blandos](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Amgueddfa_Cymru_-_Cooksonia_pertoni_-_211800.jpeg/960px-Amgueddfa_Cymru_-_Cooksonia_pertoni_-_211800.jpeg)
+
+*Imagen: «Amgueddfa Cymru - Cooksonia pertoni - 211800», CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Amgueddfa_Cymru_-_Cooksonia_pertoni_-_211800.jpeg).*
 
 ---
 
@@ -43,8 +45,6 @@ Estos primeros tetrápodos eran anfibios primitivos, como **Ichthyostega** o **A
 ## 5. La huella de la conquista
 
 La transición del medio acuático al terrestre no fue un evento aislado, sino una serie de adaptaciones acumuladas a lo largo de millones de años. Cada grupo que colonizó la tierra firme dejó una huella en el entorno y en los siguientes habitantes. Las plantas modificaron el clima al liberar oxígeno; los artrópodos dieron lugar a redes tróficas complejas; y los tetrápodos abrieron camino para la evolución de mamíferos, aves y reptiles.
-
-<!-- IMAGEN: Cronología visual con marcas en 470 Ma (plantas), 428 Ma (artrópodos) y 365 Ma (tetrápodos) -->
 
 ---
 

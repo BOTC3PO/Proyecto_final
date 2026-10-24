@@ -12,7 +12,7 @@
 
 `usabilidad-heuristicas-de-nielsen/` presentó cuatro ideas: visibilidad del estado, prevención y recuperación de errores, y consistencia. La lista completa de Jakob Nielsen tiene diez heurísticas, y son las que el Nielsen Norman Group sigue publicando con esos nombres. Surgieron del trabajo de Rolf Molich y Jakob Nielsen en 1990 y se refinaron en 1994 con un análisis de cientos de problemas de usabilidad reales. Desde entonces el listado casi no cambió, lo que muestra que describen comportamientos humanos y no modas tecnológicas.
 
-Las diez son: visibilidad del estado del sistema; correspondencia entre el sistema y el mundo real; control y libertad del usuario; consistencia y estándares; prevención de errores; reconocer en lugar de recordar; flexibilidad y eficiencia de uso; diseño estético y minimalista; ayudar a reconocer, diagnosticar y recuperarse de los errores; y ayuda y documentación.
+Las diez son: visibilidad del estado del sistema; correspondencia entre el sistema y el mundo real; control y libertad del usuario; consistencia y estándares; prevención de errores. Siguen: reconocer en lugar de recordar; flexibilidad y eficiencia de uso; diseño estético y minimalista; ayudar a reconocer, diagnosticar y recuperarse de los errores; y ayuda y documentación.
 
 ## 2. Las seis que faltaban
 
@@ -32,7 +32,7 @@ Las diez son: visibilidad del estado del sistema; correspondencia entre el siste
 
 Una evaluación heurística consiste en recorrer la interfaz con la lista en la mano y anotar cada punto donde una heurística se incumple. Conviene que la hagan varias personas por separado y después junten los resultados, porque cada evaluador detecta problemas distintos. Cada hallazgo se describe con la pantalla, la heurística violada y una frase concreta del tipo "no hay forma de cancelar la subida de un archivo".
 
-Ejemplo: una app de turnos médicos que muestra el mensaje "Error 403" viola la heurística de ayudar a recuperarse de los errores (no explica qué pasó ni cómo seguir) y también la de correspondencia con el mundo real (usa un código técnico).
+Ejemplo: una app de turnos médicos que muestra el mensaje "Error 403" viola la heurística de ayudar a recuperarse de los errores, porque no explica qué pasó ni cómo seguir. También viola la de correspondencia con el mundo real, porque usa un código técnico.
 
 ## 4. Límites
 

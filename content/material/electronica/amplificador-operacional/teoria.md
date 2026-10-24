@@ -12,7 +12,7 @@
 
 Un amplificador operacional (u operacional, u "op-amp") es un circuito integrado que amplifica la diferencia entre dos tensiones. Tiene dos entradas, la inversora (marcada con un signo menos) y la no inversora (con un signo más), una salida y dos terminales de alimentación. Dentro hay muchos transistores, pero se lo usa como un bloque único con propiedades muy convenientes.
 
-El modelo ideal tiene tres características: ganancia muy grande (tendiendo a infinito), resistencia de entrada muy alta (casi no toma corriente de las entradas) y resistencia de salida muy baja (puede entregar su tensión a distintas cargas sin que esta cambie). Los componentes reales se parecen bastante a este modelo, con límites que hay que tener en cuenta.
+El modelo ideal tiene tres características. La ganancia es muy grande (tendiendo a infinito). La resistencia de entrada es muy alta (casi no toma corriente de las entradas). La resistencia de salida es muy baja (puede entregar su tensión a distintas cargas sin que esta cambie). Los componentes reales se parecen bastante a este modelo, con límites que hay que tener en cuenta.
 
 ## 2. La realimentación negativa
 

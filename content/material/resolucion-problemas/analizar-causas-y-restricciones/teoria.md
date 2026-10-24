@@ -26,8 +26,6 @@ Ambos conceptos son vitales para resolver problemas, pero tienen roles distintos
 - Causa del retraso: mala planificación.  
 - Restricción para resolverlo: falta de personal capacitado.  
 
-<!-- IMAGEN: tabla comparativa con columnas "Causa" y "Restricción", ejemplos en filas -->
-
 ## N. Conexión con lo que sigue
 
 Este análisis es el pilar para avanzar hacia proponer soluciones y evaluar impacto, donde las causas guiarán los cambios necesarios y las restricciones definirán qué opciones son realistas.

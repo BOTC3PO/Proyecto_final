@@ -1,0 +1,32 @@
+{
+ "titulo": "Granito y basalto",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Dos rocas ígneas",
+   "headers": [
+    "",
+    "Granito",
+    "Basalto"
+   ],
+   "rows": [
+    [
+     "Tipo",
+     "Intrusivo (se enfría lento bajo tierra)",
+     "Extrusivo (se enfría rápido en superficie)"
+    ],
+    [
+     "Textura",
+     "Cristales grandes, visibles",
+     "Cristales muy pequeños"
+    ],
+    [
+     "Color",
+     "Claro",
+     "Oscuro"
+    ]
+   ]
+  }
+ ]
+}

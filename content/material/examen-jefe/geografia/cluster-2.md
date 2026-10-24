@@ -1161,8 +1161,7 @@ opciones_explicitas:
 respuesta: "Porque sin saber leer los símbolos y la escala del mapa no se puede identificar dónde empieza y termina cada jurisdicción"
 
 explicacion: |
-  Es la razón por la que `division-politica/` depende de
-  `../mapa-plano-escala/` en `../dependencias.md`.
+  Sin saber leer los símbolos y la escala de un mapa no se puede identificar dónde empieza y termina cada jurisdicción.
 ```
 
 ## Sección: sig-mapas-digitales (20 preguntas)
@@ -1476,9 +1475,7 @@ opciones_explicitas:
 respuesta: "Coordenadas con una capa de datos encima"
 
 explicacion: |
-  Es la síntesis que usa `troncos.md` para explicar por qué mapas
-  digitales, GPS e imágenes satelitales cuelgan del mismo nodo de
-  coordenadas.
+  Un sistema de información geográfica son coordenadas con una capa de datos encima: cada dato queda ubicado en un punto del mapa.
 ```
 
 ```
@@ -1553,8 +1550,7 @@ opciones_explicitas:
 respuesta: "Son tres tecnologías distintas que se combinan en una app de mapas moderna"
 
 explicacion: |
-  Por eso el MAPA las separó en 3 nodos hermanos (`G12a`/`G12b`/`G12c`)
-  en vez de tratarlas como una sola habilidad.
+  Los mapas digitales, el GPS y las imágenes satelitales son tecnologías distintas que se combinan en una app de mapas moderna.
 ```
 
 ## Sección: estados-y-globalizacion (22 preguntas)

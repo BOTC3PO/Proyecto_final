@@ -53,20 +53,20 @@ Cantidad demandada = Cantidad ofrecida   →   precio de equilibrio
   ejemplo: filas o "sold out" apenas sale un producto muy pedido a
   precio bajo).
 
-En un mercado libre, estos desequilibrios tienden a corregirse solos:
-si sobra mercadería, los vendedores bajan el precio para venderla; si
-falta, suben el precio porque saben que hay demanda para pagarlo más
-caro — y en ambos casos el precio se mueve hacia el equilibrio.
+En un mercado libre, estos desequilibrios tienden a corregirse solos. Si
+sobra mercadería, los vendedores bajan el precio para venderla. Si falta,
+suben el precio porque saben que hay demanda para pagarlo más caro. En ambos
+casos el precio se mueve hacia el equilibrio.
 
 ## Movimiento a lo largo de la curva vs. desplazamiento de la curva
 
 - **Movimiento a lo largo de la curva**: sólo cambia el precio, y con
   él la cantidad (siguiendo la misma ley de oferta o demanda).
-- **Desplazamiento de toda la curva**: cambia algo distinto del precio
-  (una moda nueva que aumenta las ganas de comprar algo, un impuesto
-  nuevo que encarece producir, una sequía que reduce la cosecha
-  disponible) — esto mueve el punto de equilibrio mismo, no sólo un
-  punto sobre la curva vieja.
+- **Desplazamiento de toda la curva**: cambia algo distinto del precio. Por
+  ejemplo, una moda nueva que aumenta las ganas de comprar algo, un impuesto
+  nuevo que encarece producir o una sequía que reduce la cosecha disponible.
+  Esto mueve el punto de equilibrio mismo, no solo un punto sobre la curva
+  vieja.
 
 ## Dónde aparece en la vida real
 

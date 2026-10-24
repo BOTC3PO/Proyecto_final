@@ -99,7 +99,14 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 15** (5): subordinada-sustantiva-de-complemento-de-un-adjetivo, subordinada-sustantiva-de-complemento-del-nombre, subordinada-sustantiva-de-complemento-directo, subordinada-sustantiva-de-sujeto, voz-activa-y-pasiva
 - **Cluster 16** (8): borges-y-la-literatura-fantastica-rioplatense, literatura-gauchesca-y-martin-fierro, cortazar-y-el-cuento-contemporaneo, literatura-latinoamericana-realismo-magico, mitos-y-leyendas-de-pueblos-originarios-argentinos, poesia-argentina-del-siglo-xx, vanguardias-argentinas-florida-y-boedo, narrativa-argentina-posdictadura
 
-## Historia profunda (110 temas, 22 clusters)
+## Historia argentina (23 temas, 4 clusters)
+
+- **Cluster 1** (5): pueblos-originarios-territorio-argentino, conquista-y-colonia-argentina, virreinato-y-comercio, revolucion-de-mayo, guerras-de-independencia-argentina
+- **Cluster 2** (5): guerras-civiles-unitarios-federales, organizacion-nacional-constitucion-1853, rosas-y-la-confederacion, guerra-del-paraguay-y-triple-alianza, economias-regionales-tempranas
+- **Cluster 3** (5): conquista-del-desierto-y-campana-al-chaco, modelo-agroexportador-inmigracion, ampliacion-democratica-ley-saenz-pena, golpes-de-estado-interrupciones, reforma-universitaria-1918
+- **Cluster 4** (8): peronismo-derechos-sociales, semana-tragica-1919, terrorismo-de-estado-argentina, industrializacion-por-sustitucion-de-importaciones-isi, guerra-de-malvinas, recuperacion-democratica-memoria, historia-reciente-argentina, crisis-de-2001
+
+## Historia profunda (95 temas, 22 clusters)
 
 - **Cluster 1** (5): escalas-de-tiempo-profundo, origen-del-universo, formacion-de-estrellas, galaxias-tipos-escala, nucleosintesis
 - **Cluster 2** (5): corrimiento-al-rojo-expansion-universo, agujeros-negros, formacion-del-sistema-solar, ley-de-hubble, movimiento-rotacion-traslacion
@@ -112,25 +119,25 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 9** (5): seleccion-natural-evidencias-nivel2, herramientas-arte-rupestre, poblamiento-planeta-america, revolucion-neolitica, sedentarizacion-excedente
 - **Cluster 10** (5): division-del-trabajo, metalurgia-cobre-hierro, propiedad-jerarquia-estado, escritura-primeras-ciudades, antigua-grecia
 - **Cluster 11** (5): antigua-roma, antiguo-egipto, china-antigua, civilizaciones-de-america-precolombinas, india-antigua
-- **Cluster 12** (5): mesopotamia, pueblos-originarios-territorio-argentino, civilizaciones-antiguas, expansion-del-imperio-romano, imperio-de-alejandro-magno-helenistico
+- **Cluster 12** (4): mesopotamia, civilizaciones-antiguas, expansion-del-imperio-romano, imperio-de-alejandro-magno-helenistico
 - **Cluster 13** (5): imperio-han-china, imperio-persa, imperios-expansion, caida-de-roma-y-alta-edad-media, edad-media-feudalismo
 - **Cluster 14** (5): imperio-bizantino, islam-y-expansion-arabe, edad-media-plena, baja-edad-media-y-crisis, renacimiento-y-reforma
 - **Cluster 15** (5): ciencia-revolucion-cientifica, imprenta, navegacion, conquista-colonizacion-america, modernidad-imprenta-navegacion-ciencia
-- **Cluster 16** (5): absolutismo-europeo, conquista-y-colonia-argentina, ilustracion, virreinato-y-comercio, revolucion-industrial
-- **Cluster 17** (5): revolucion-de-mayo, electrificacion-fabrica-hogar, guerras-de-independencia-argentina, huella-humana-en-el-clima-inicio, guerras-civiles-unitarios-federales
-- **Cluster 18** (5): revoluciones-burguesas-liberalismo, organizacion-nacional-constitucion-1853, estados-nacionales, modelo-agroexportador-inmigracion, imperialismo
-- **Cluster 19** (5): ampliacion-democratica-ley-saenz-pena, sociedad-de-masas-y-democracia-liberal, primera-guerra-mundial-y-revolucion-rusa, entreguerras-y-crisis-de-1929, golpes-de-estado-interrupciones
-- **Cluster 20** (5): segunda-guerra-mundial, peronismo-derechos-sociales, descolonizacion-de-africa-y-asia, guerras-mundiales, guerra-fria-descolonizacion
-- **Cluster 21** (9): terrorismo-de-estado-argentina, historia-contemporanea-de-africa, guerra-de-malvinas, historia-contemporanea-de-asia-y-pacifico, historia-contemporanea-de-medio-oriente, recuperacion-democratica-memoria, globalizacion-era-digital, historia-reciente-argentina, internet-redes-globalizacion-digital
+- **Cluster 16** (3): absolutismo-europeo, ilustracion, revolucion-industrial
+- **Cluster 17** (2): electrificacion-fabrica-hogar, huella-humana-en-el-clima-inicio
+- **Cluster 18** (3): revoluciones-burguesas-liberalismo, estados-nacionales, imperialismo
+- **Cluster 19** (3): sociedad-de-masas-y-democracia-liberal, primera-guerra-mundial-y-revolucion-rusa, entreguerras-y-crisis-de-1929
+- **Cluster 20** (4): segunda-guerra-mundial, descolonizacion-de-africa-y-asia, guerras-mundiales, guerra-fria-descolonizacion
+- **Cluster 21** (5): historia-contemporanea-de-africa, historia-contemporanea-de-asia-y-pacifico, historia-contemporanea-de-medio-oriente, globalizacion-era-digital, internet-redes-globalizacion-digital
 - **Cluster 22** (1): carrera-espacial-sputnik-y-apolo
 
-## Historia (28 temas, 5 clusters)
+## Historia (20 temas, 5 clusters)
 
-- **Cluster 1** (5): crisis-de-2001, interpretar-una-fuente-historica, linea-de-tiempo-y-antes-despues, reforma-universitaria-1918, decada-siglo-milenio
-- **Cluster 2** (5): semana-tragica-1919, antes-y-despues-de-cristo, industrializacion-por-sustitucion-de-importaciones-isi, periodizacion-historica, causa-y-consecuencia
+- **Cluster 1** (3): interpretar-una-fuente-historica, linea-de-tiempo-y-antes-despues, decada-siglo-milenio
+- **Cluster 2** (3): antes-y-despues-de-cristo, periodizacion-historica, causa-y-consecuencia
 - **Cluster 3** (5): significancia-historica, cambio-y-continuidad, evidencia, dimension-etica, multicausalidad
 - **Cluster 4** (5): escuela-de-los-annales, historia-cultural, materialismo-historico, positivismo, revoluciones
-- **Cluster 5** (8): independencias, revolucion-mexicana-1910-1920, guerras, guerra-civil-espanola-1936-1939, guerra-del-paraguay-y-triple-alianza, rosas-y-la-confederacion, conquista-del-desierto-y-campana-al-chaco, economias-regionales-tempranas
+- **Cluster 5** (4): independencias, revolucion-mexicana-1910-1920, guerras, guerra-civil-espanola-1936-1939
 
 ## Geografía (51 temas, 10 clusters)
 

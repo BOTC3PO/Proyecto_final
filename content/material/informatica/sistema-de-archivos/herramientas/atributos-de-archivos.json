@@ -1,0 +1,37 @@
+{
+ "titulo": "Atributos de dos archivos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Metadatos",
+   "headers": [
+    "Atributo",
+    "foto.jpg",
+    "notas.txt"
+   ],
+   "rows": [
+    [
+     "Tipo",
+     "Imagen JPEG",
+     "Texto plano"
+    ],
+    [
+     "Tamaño",
+     "2,4 MB",
+     "3 KB"
+    ],
+    [
+     "Última modificación",
+     "12/03/2026",
+     "02/04/2026"
+    ],
+    [
+     "Permisos",
+     "Lectura y escritura",
+     "Solo lectura"
+    ]
+   ]
+  }
+ ]
+}

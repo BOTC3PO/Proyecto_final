@@ -18,7 +18,7 @@ Una de las formas más potentes de aprender es **explicar a otro**. Para hacerlo
 
 ## Aprendizaje cooperativo
 
-No toda actividad en grupo es cooperación. Los investigadores hermanos David y Roger Johnson sostienen que el aprendizaje cooperativo funciona cuando se dan cinco condiciones: **interdependencia positiva** (el éxito de cada uno depende del de los demás), **responsabilidad individual** (cada integrante responde por su parte), **interacción cara a cara** (se ayudan y explican), **habilidades sociales** (comunicar, escuchar, resolver desacuerdos) y **reflexión grupal** (evaluar cómo trabajaron).
+No toda actividad en grupo es cooperación. Los investigadores hermanos David y Roger Johnson sostienen que el aprendizaje cooperativo funciona cuando se dan cinco condiciones. La primera es la **interdependencia positiva**: el éxito de cada uno depende del de los demás. La segunda, la **responsabilidad individual**: cada integrante responde por su parte. La tercera, la **interacción cara a cara**: se ayudan y explican. La cuarta, las **habilidades sociales**: comunicar, escuchar, resolver desacuerdos. La quinta, la **reflexión grupal**: evaluar cómo trabajaron.
 
 ## Riesgos del trabajo grupal
 

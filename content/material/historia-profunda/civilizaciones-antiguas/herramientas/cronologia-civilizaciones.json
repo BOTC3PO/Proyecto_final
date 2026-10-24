@@ -1,0 +1,37 @@
+{
+ "titulo": "Cronología comparativa de civilizaciones antiguas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Origen aproximado",
+   "headers": [
+    "Civilización",
+    "Río",
+    "Hacia el año"
+   ],
+   "rows": [
+    [
+     "Mesopotamia",
+     "Tigris y Éufrates",
+     "3500 a. C."
+    ],
+    [
+     "Egipto",
+     "Nilo",
+     "3100 a. C."
+    ],
+    [
+     "Valle del Indo",
+     "Indo",
+     "2600 a. C."
+    ],
+    [
+     "China (dinastía Shang)",
+     "Huang He",
+     "1600 a. C."
+    ]
+   ]
+  }
+ ]
+}

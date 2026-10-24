@@ -35,9 +35,9 @@ fila con una columna es una **celda**, y contiene un dato puntual.
 ## Cómo leer un valor puntual
 
 Para encontrar un dato, hay que ubicar primero la fila correcta (por
-ejemplo, el producto que interesa) y después la columna correcta (el
-dato que se busca de ese producto) — el valor está en la celda donde
-se cruzan ambas.
+ejemplo, el producto que interesa) y después la columna correcta (el dato
+que se busca de ese producto). El valor está en la celda donde se cruzan
+ambas.
 
 ## Totales de fila y de columna
 
@@ -54,9 +54,9 @@ stock, cuál es la diferencia entre dos valores de la misma columna.
 
 ## Para qué sirve
 
-Es la habilidad de base para leer **cualquier** dato tabulado (una
-boleta, un horario, una tabla de resultados deportivos, una planilla
-de cálculo) y el prerrequisito directo de los gráficos (próximos
-módulos) y de la probabilidad simple — un gráfico no es más que una
-tabla dibujada, y clasificar un espacio muestral empieza, casi
-siempre, por organizar los datos en una tabla.
+Es la habilidad de base para leer **cualquier** dato tabulado (una boleta,
+un horario, una tabla de resultados deportivos, una planilla de cálculo). Es
+el prerrequisito directo de los gráficos (próximos módulos) y de la
+probabilidad simple. Un gráfico no es más que una tabla dibujada, y
+clasificar un espacio muestral empieza, casi siempre, por organizar los
+datos en una tabla.

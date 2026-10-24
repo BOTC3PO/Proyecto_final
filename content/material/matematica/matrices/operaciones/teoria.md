@@ -63,8 +63,8 @@ A · B = | a11·b11+a12·b21   a11·b12+a12·b22 |
 ```
 
 El elemento de la fila 1, columna 1 del resultado usa la fila 1 de A y la
-columna 1 de B; el de fila 1, columna 2 usa la fila 1 de A y la columna 2
-de B, y así.
+columna 1 de B. El de fila 1, columna 2 usa la fila 1 de A y la columna 2 de
+B, y así.
 
 **Importante**: la multiplicación de matrices **no es conmutativa** — en
 general, A·B ≠ B·A (ni siquiera tienen por qué tener el mismo tamaño).

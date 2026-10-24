@@ -22,7 +22,7 @@ $$
 CO_2 + H_2O + H_2S + O_2 \rightarrow [CH_2O] + H_2SO_4
 $$
 
-Donde $[CH_2O]$ representa la materia orgánica sintetizada (como glucosa) y $H_2SO_4$ es el ácido sulfúrico resultante. La energía liberada en esta reacción se almacena en moléculas de ATP, que luego se utilizan para fijar el carbono del dióxido de carbono en moléculas orgánicas estables, similar al ciclo de Calvin en la fotosíntesis, pero con una fuente de energía química distinta.
+Donde $[CH_2O]$ representa la materia orgánica sintetizada (como glucosa) y $H_2SO_4$ es el ácido sulfúrico resultante. La energía liberada en esta reacción se almacena en moléculas de ATP. Luego se utilizan para fijar el carbono del dióxido de carbono en moléculas orgánicas estables. Es similar al ciclo de Calvin en la fotosíntesis, pero con una fuente de energía química distinta.
 
 Las bacterias nitrificantes, por otro lado, oxidan amoníaco ($NH_3$) a nitrito ($NO_2^-$) y luego a nitrato ($NO_3^-$). Este proceso es clave en el ciclo del nitrógeno, ya que transforma el nitrógeno en formas que las plantas pueden absorber. La energía obtenida de estas oxidaciones es menor que la de la fotosíntesis, lo que explica por qué las comunidades quimiosintéticas suelen crecer más lentamente y tener tasas de reproducción más bajas.
 

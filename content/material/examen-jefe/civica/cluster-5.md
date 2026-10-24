@@ -1,6 +1,6 @@
 # Examen jefe — Maestro de los Sistemas del País
 
-> Logro #883. Aprobaste el parcial sobre los símbolos patrios, el sistema de salud, el método D'Hondt y los sistemas políticos comparados, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **108 preguntas totales** en 5/5 secciones.
+> Logro #883. Aprobaste el parcial sobre los símbolos patrios, el sistema de salud, el método D'Hondt y los sistemas políticos comparados, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **107 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1245,7 +1245,7 @@ explicacion: |
   Sin ese marco, "banca" es una palabra sin contexto institucional.
 ```
 
-## Sección: sistemas-politicos-comparados (21 preguntas)
+## Sección: sistemas-politicos-comparados (20 preguntas)
 
 ```
 metadata:
@@ -1523,26 +1523,6 @@ respuesta: "Porque comparar sistemas entre países presupone entender antes la d
 explicacion: |
   Se compara la variante entre países de algo que ya se entendió en un
   solo caso concreto (Argentina).
-```
-
-```
-metadata:
-  materia: "civica"
-  tema: "sistemas_politicos_comparados"
-  nivel: "avanzado"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué Ciencia Política se ubica dentro de la materia Cívica, en vez de abrir una materia propia?"
-tipo: mc
-opciones_explicitas:
-  - "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
-  - "Porque no es una orientación educativa real en Argentina"
-  - "Porque no tiene ningún contenido propio distinto de Cívica"
-respuesta: "Porque completa materias ya existentes (Cívica, Historia) sin abrir una fila nueva en el listado de materias"
-
-explicacion: |
-  Nota v2.8 de `troncos.md`: es una orientación NES real que completa
-  materias existentes, no un tronco nuevo.
 ```
 
 ```

@@ -597,25 +597,8 @@ explicacion: |
   La fragua es la fuente de calor, pero también de peligros si no se maneja con rigor. El riesgo de incendio y explosión es real, especialmente si se utilizan combustibles inadecuados o hay fugas.
 ```
 
-### 28 — pregunta 28
 
-```
-metadata:
-  materia: "Oficios"
-  tema: "herrero_forjador_seguridad_herreria"
-  nivel: "intermedio"
-  tags: ["matematicas", "logaritmo", "naturaleza"]
-
-respuesta: "log(x)"
-tipo: completar
-
-enunciado: "En el contexto de cálculos técnicos aplicados a la forja (ej. transferencia de calor), ¿qué función del DSL representa el logaritmo natural (base e)?"
-
-explicacion: |
-  En VBLang y matemáticas avanzadas, `log(x)` se refiere al logaritmo natural (base e). Para base 10 se usa `log10(x)`. Es importante distinguirlos en cálculos de transferencia de calor o eficiencia.
-```
-
-### 29 — pregunta 29
+### 28 — pregunta 29
 
 ```
 metadata:
@@ -633,7 +616,7 @@ explicacion: |
   La constante `c` representa la velocidad de la luz en el vacío. En cálculos de radiación térmica o física aplicada a la forja, es una constante fundamental.
 ```
 
-### 30 — pregunta 30
+### 29 — pregunta 30
 
 ```
 metadata:
@@ -651,7 +634,7 @@ explicacion: |
   La fragua es central en el proceso de forja, pero su manejo requiere estrictas normas de seguridad debido al riesgo de incendio y explosión.
 ```
 
-### 31 — pregunta 31
+### 30 — pregunta 31
 
 ```
 metadata:
@@ -674,7 +657,7 @@ explicacion: |
   Cálculo simple de temperatura final. En herrería, controlar la temperatura es crucial para la calidad del metal y la seguridad del operario.
 ```
 
-### 32 — pregunta 32
+### 31 — pregunta 32
 
 ```
 metadata:
@@ -692,7 +675,7 @@ explicacion: |
   Las chispas tienden a subir por la manga debido al calor y al movimiento. Los guantes largos cubren esta zona vulnerable, evitando quemaduras en muñecas y antebrazos.
 ```
 
-### 33 — pregunta 33
+### 32 — pregunta 33
 
 ```
 metadata:
@@ -714,7 +697,7 @@ explicacion: |
   El factorial de 4 (4!) es 24. Esto representa el número de formas de ordenar la inspección de 4 elementos distintos.
 ```
 
-### 34 — pregunta 34
+### 33 — pregunta 34
 
 ```
 metadata:
@@ -732,7 +715,7 @@ explicacion: |
   Las chispas son fuentes de ignición potenciales. Mantener el área libre de materiales inflamables es una medida de seguridad básica para prevenir incendios.
 ```
 
-### 35 — pregunta 35
+### 34 — pregunta 35
 
 ```
 metadata:

@@ -14,8 +14,6 @@ La jerarquía de memoria está diseñada para equilibrar dos variables clave: **
 
 En el extremo superior de esta jerarquía se encuentra la **memoria caché**, una capa muy rápida que almacena copias de los datos más frecuentemente usados. A continuación está la **RAM (memoria principal)**, que es más lenta que la caché pero tiene mayor capacidad y permite el acceso aleatorio a sus datos. Por último, en el extremo opuesto, se encuentra el **almacenamiento secundario** (disco duro o SSD), que aunque ofrece una gran cantidad de espacio, su velocidad es significativamente menor.
 
-<!-- IMAGEN: Jerarquía de memoria con niveles desde CPU a disco -->
-
 ---
 
 ## 2. ¿Por qué la RAM es volátil?
@@ -34,7 +32,9 @@ El **caché** es una capa de memoria ubicada físicamente muy cerca de los núcl
 - **Caché L2**: Más grande que el L1, pero un poco más lento. Puede estar en el mismo chip que la CPU o en una capa adyacente.
 - **Caché L3**: El más grande de todos y compartido entre varios núcleos. Es más lento que el L1 y L2, pero aún mucho más rápido que la RAM.
 
-<!-- IMAGEN: Comparación visual de los niveles L1, L2 y L3 en una CPU -->
+![Comparación visual de los niveles L1, L2 y L3 en una CPU](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Typical_Cpu_cache_organization.svg/960px-Typical_Cpu_cache_organization.svg.png)
+
+*Imagen: «Typical Cpu cache organization», Chomwitt, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Typical_Cpu_cache_organization.svg).*
 
 ---
 

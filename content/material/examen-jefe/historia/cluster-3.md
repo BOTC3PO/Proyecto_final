@@ -1,10 +1,10 @@
 # Examen jefe — Maestro del Pensamiento Histórico
 
-> Logro #723. Dominaste la significancia histórica, el cambio y la continuidad, la evidencia, la multicausalidad y la dimensión ética, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #723. Dominaste la significancia histórica, el cambio y la continuidad, la evidencia, la multicausalidad y la dimensión ética, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **98 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: significancia-historica (20 preguntas)
+## Sección: significancia-historica (19 preguntas)
 
 ```
 metadata:
@@ -378,29 +378,6 @@ pasos:
 explicacion: |
   Verdadero: es la aplicación práctica del principio de significancia
   no fija estudiado en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "significancia_historica"
-  nivel: "avanzado"
-  tags: ["seleccion", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cualquier programa de estudio de historia, incluida esta cadena de Tronco 6, aplica implícitamente criterios de significancia al decidir qué temas incluir y cuáles dejar afuera."
-
-pasos:
-  - "Es la aplicación reflexiva de este concepto a la propia estructura del material de estudio."
-
-explicacion: |
-  Verdadero: es una aplicación autorreferencial de por qué este
-  concepto es relevante más allá de la teoría abstracta.
 ```
 
 ```
@@ -1850,7 +1827,7 @@ explicacion: |
   responsable de hechos históricos graves.
 ```
 
-## Sección: multicausalidad (20 preguntas)
+## Sección: multicausalidad (19 preguntas)
 
 ```
 metadata:
@@ -2267,29 +2244,6 @@ respuesta_orden: ["Identificar todas las causas posibles del hecho, sin limitars
 explicacion: |
   El proceso va de identificar todas las causas posibles a
   clasificarlas y evaluar su peso relativo antes de concluir.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "multicausalidad"
-  nivel: "avanzado"
-  tags: ["multicausalidad", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Multicausalidad cierra la cadena de herramientas básicas de pensamiento histórico: línea de tiempo, unidades de tiempo, períodos, causa/consecuencia, cambio/continuidad y multicausalidad."
-
-pasos:
-  - "Ver `../linea-de-tiempo-y-antes-despues/`: es el primer nodo de toda esta cadena de Tronco 6."
-
-explicacion: |
-  Verdadero: es la síntesis de toda la cadena de 7 temas de
-  pensamiento histórico cubierta en esta sesión.
 ```
 
 ```

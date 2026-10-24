@@ -12,11 +12,11 @@ corriente político-económica es una sección separable.
 
 ## Qué cubre este tema
 
-Un panorama de las grandes etapas de la historia de la filosofía
-occidental, más las corrientes político-económicas modernas — con el
-mismo principio de **neutralidad** ya aplicado a las corrientes
-económicas del Tronco 1 (`../../economia/`): identificar qué sostiene
-cada corriente, **nunca** evaluar cuál tiene razón.
+Es un panorama de las grandes etapas de la historia de la filosofía
+occidental, más las corrientes político-económicas modernas. Aplica el mismo
+principio de **neutralidad** ya usado con las corrientes económicas
+(Economía): identificar qué sostiene cada corriente, **nunca** evaluar cuál
+tiene razón.
 
 ## Grandes etapas de la filosofía occidental
 
@@ -59,15 +59,15 @@ cada una, sin evaluar cuál es correcta.
 
 ## Por qué la neutralidad es no negociable acá
 
-Igual que con las corrientes económicas del Tronco 1: el objetivo
-educativo es que el alumno pueda **identificar** qué sostiene cada
-postura (para reconocerla en un texto, un discurso, un debate), no
-que el material le diga cuál elegir — se trata al mismo nivel que las
-corrientes filosóficas puramente teóricas de esta lista.
+Igual que con las corrientes económicas, el objetivo educativo es que el
+alumno pueda **identificar** qué sostiene cada postura, para reconocerla en
+un texto, un discurso o un debate. No es que el material le diga cuál
+elegir. Se las trata al mismo nivel que las corrientes filosóficas puramente
+teóricas de esta lista.
 
 ## Para qué sirve
 
-Este panorama da contexto histórico a todo lo demás visto en
-Filosofía (de dónde viene cada rama y corriente ya estudiada) y
-conecta con Historia y Ciencias Sociales — el mismo tema de
-`troncos.md` alimenta directamente varios nodos de esas materias.
+Este panorama da contexto histórico a todo lo demás visto en Filosofía: de
+dónde viene cada rama y corriente ya estudiada. También conecta con Historia
+y Ciencias Sociales, porque el mismo tema de `troncos.md` alimenta
+directamente varios nodos de esas materias.

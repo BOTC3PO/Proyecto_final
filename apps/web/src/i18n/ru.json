@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Документ",
   "verificacionPublica.institucion": "Учреждение",
   "verificacionPublica.enlace": "Ссылка",
-  "verificacionPublica.notas": "Примечания"
+  "verificacionPublica.notas": "Примечания",
+  "repaso.tituloTemas": "Темы, в которых были ошибки",
+  "repaso.tituloSecciones": "Разделы, в которых были ошибки",
+  "repaso.msgDesaprobadoTemas": "Вы пока не дошли до {umbral}%. Это не конец: посмотрите, в каких темах были ошибки, повторите их и попробуйте ещё раз.",
+  "repaso.msgDesaprobadoSecciones": "Вы пока не дошли до {umbral}%. В этих разделах было больше всего ошибок: потренируйтесь и попробуйте ещё раз.",
+  "repaso.msgAprobadoConRepaso": "Вы сдали. Эти темы можно ещё закрепить:",
+  "repaso.msgAprobadoLimpio": "Вы сдали, и слабых тем не осталось. Отличная работа.",
+  "repaso.resultadoPorTema": "Результат по темам",
+  "repaso.detalleGrupo": "{correctas} из {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% правильных ответов",
+  "repaso.repasarPrimero": "Повторить в первую очередь",
+  "repaso.abrirTema": "Открыть тему",
+  "repaso.preguntasRevisar": "Вопросы для повторения ({n})",
+  "repaso.seccionGramatica": "Грамматика",
+  "repaso.seccionLectura": "Чтение",
+  "repaso.seccionAudicion": "Аудирование",
+  "repaso.seccionExpresionOral": "Говорение",
+  "repaso.seccionEscritura": "Письмо"
 }

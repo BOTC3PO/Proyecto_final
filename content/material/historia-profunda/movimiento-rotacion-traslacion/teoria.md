@@ -11,11 +11,11 @@
 
 ## 1. Rotación: el giro sobre su propio eje
 
-La Tierra gira sobre su propio eje (una línea imaginaria entre el
-Polo Norte y el Polo Sur) una vez cada aproximadamente **24 horas** —
-este movimiento se llama **rotación**, y es el que causa el **día y la
-noche**: la mitad de la Tierra que en un momento dado mira hacia el
-Sol tiene de día, y la mitad opuesta tiene de noche.
+La Tierra gira sobre su propio eje (una línea imaginaria entre el Polo Norte
+y el Polo Sur) una vez cada aproximadamente **24 horas**. Este movimiento se
+llama **rotación**, y es el que causa el **día y la noche**: la mitad de la
+Tierra que en un momento dado mira hacia el Sol tiene de día, y la mitad
+opuesta tiene de noche.
 
 **Error común**: no es el Sol el que "se mueve" alrededor de la
 Tierra — es la Tierra la que gira, y por eso el Sol *parece* moverse
@@ -32,11 +32,10 @@ sus focos.
 ## 3. El eje inclinado: la clave de las estaciones
 
 El eje de rotación de la Tierra **no** está perpendicular al plano de
-su órbita — está inclinado unos **23,5°**. Esta inclinación se
-mantiene aproximadamente constante mientras la Tierra se traslada
-alrededor del Sol, lo que hace que distintos hemisferios reciban la
-luz solar de forma más o menos directa según el momento del año — el
-mecanismo exacto detrás de `../estaciones-del-ano/`.
+su órbita — está inclinado unos **23,5°**. Esta inclinación se mantiene aproximadamente constante mientras la Tierra se
+traslada alrededor del Sol. Por eso distintos hemisferios reciben la luz
+solar de forma más o menos directa según el momento del año: es el mecanismo
+exacto detrás de `../estaciones-del-ano/`.
 
 ```
         eje inclinado ~23,5°
@@ -60,16 +59,16 @@ movimientos distintos con causas y efectos distintos:
 
 ## 5. Por qué "un día" no es exactamente 24 horas ni "un año" 365 días
 
-Son aproximaciones prácticas: la rotación real tarda unos 23 horas 56
+Son aproximaciones prácticas: la rotación real tarda unas 23 horas 56
 minutos (el "día solar" de 24 horas se ajusta por el movimiento de
-traslación simultáneo), y la traslación real tarda unos 365 días y
-cuarto — de ahí el año bisiesto cada 4 años, para compensar ese cuarto
-de día acumulado.
+traslación simultáneo), y la traslación real tarda unos 365 días y cuarto.
+De ahí el año bisiesto cada 4 años, para compensar ese cuarto de día
+acumulado.
 
 ## 6. Conexión con lo que sigue
 
-Con la rotación y la traslación como base, los siguientes temas
-aplican estos movimientos a fenómenos concretos: las estaciones
-(`../estaciones-del-ano/`), las fases de la Luna
-(`../fases-lunares/`), y el movimiento aparente de las estrellas en el
-cielo nocturno (`../movimiento-aparente-constelaciones/`).
+Con la rotación y la traslación como base, los siguientes temas aplican
+estos movimientos a fenómenos concretos. Son las estaciones
+(`../estaciones-del-ano/`), las fases de la Luna (`../fases-lunares/`) y el
+movimiento aparente de las estrellas en el cielo nocturno
+(`../movimiento-aparente-constelaciones/`).

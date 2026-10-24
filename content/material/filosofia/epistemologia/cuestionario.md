@@ -474,10 +474,10 @@ variables:
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La epistemología es una rama distinta de la lógica: depende de `../logica-proposicional/` como base formal general, pero estudia una pregunta distinta (qué es el conocimiento), no la validez de razonamientos."
+enunciado: "La epistemología es una rama distinta de la lógica: se apoya en la lógica proposicional como base formal general, pero estudia una pregunta distinta (qué es el conocimiento), no la validez de razonamientos."
 
 pasos:
-  - "Ver `../dependencias.md`: por eso epistemología cuelga de `FI1` como hermana de `FI2` (validez), no como continuación de esa cadena."
+  - "La lógica estudia si un razonamiento es válido; la epistemología pregunta qué es conocer."
 
 explicacion: |
   Verdadero: son ramas clásicas distintas de Filosofía, aunque

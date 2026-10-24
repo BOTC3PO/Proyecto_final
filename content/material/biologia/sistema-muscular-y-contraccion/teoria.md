@@ -40,7 +40,7 @@ Los filamentos no se acortan: lo que se acorta es el sarcómero, porque se super
 
 ## 5. De dónde sale la energía
 
-El ATP que usa el músculo se obtiene por distintas vías (ver `../fotosintesis-respiracion-celular/`): una reserva inmediata y muy breve; la degradación de glucosa sin oxígeno, rápida pero que produce ácido láctico; y la respiración celular con oxígeno, más lenta pero sostenida. En un esfuerzo corto e intenso predominan las primeras vías; en uno prolongado y moderado, la respiración con oxígeno (ver `../../ed-fisica/fisiologia-del-ejercicio/` y `../../ed-fisica/capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad/`).
+El ATP que usa el músculo se obtiene por distintas vías (ver `../fotosintesis-respiracion-celular/`). Una es una reserva inmediata y muy breve. Otra es la degradación de glucosa sin oxígeno, rápida pero que produce ácido láctico. La tercera es la respiración celular con oxígeno, más lenta pero sostenida. En un esfuerzo corto e intenso predominan las primeras vías; en uno prolongado y moderado, la respiración con oxígeno (ver `../../ed-fisica/fisiologia-del-ejercicio/` y `../../ed-fisica/capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad/`).
 
 ## 6. Cuidar los músculos
 

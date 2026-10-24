@@ -26,10 +26,10 @@ Especie → Género → Familia → Orden → Clase → Filo → Reino → Domin
 revés).
 
 **Nomenclatura binomial**: cada especie tiene un nombre científico de 2
-partes, **Género + especie** (en itálica/cursiva), ej.: *Homo sapiens*
-(humano), *Panthera leo* (león) — el mismo nombre en cualquier idioma,
-evita la confusión de los nombres comunes (que cambian según la
-región).
+partes, **Género + especie** (en itálica o cursiva). Por ejemplo, *Homo
+sapiens* (humano) o *Panthera leo* (león). Es el mismo nombre en cualquier
+idioma y evita la confusión de los nombres comunes, que cambian según la
+región.
 
 ## 2. La idea central de la evolución
 

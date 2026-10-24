@@ -25,22 +25,21 @@ Un **proyecto de ley** puede tener origen en:
 
 Todo proyecto entra por una de las 2 cámaras del Congreso (**cámara de
 origen**) y, si se aprueba ahí, pasa a la otra (**cámara revisora**).
-Hay excepciones puntuales fijadas por la Constitución sobre por cuál
-cámara debe empezar cierto tipo de proyecto (por ejemplo, los proyectos
-de ley sobre contribuciones/impuestos y de reclutamiento de tropas
-deben iniciarse en Diputados, la cámara considerada más representativa
-de la población).
+Hay excepciones puntuales fijadas por la Constitución sobre por cuál cámara
+debe empezar cierto tipo de proyecto. Por ejemplo, los proyectos de ley
+sobre contribuciones o impuestos y de reclutamiento de tropas deben
+iniciarse en Diputados, la cámara considerada más representativa de la
+población.
 
 ## El circuito básico
 
 1. **Cámara de origen**: se presenta, se debate en comisiones, se
    vota. Si se aprueba, pasa a la cámara revisora.
-2. **Cámara revisora**: debate y vota el mismo texto.
-   - Si lo aprueba **igual** (sin cambios): pasa al Poder Ejecutivo.
-   - Si le hace **modificaciones**: vuelve a la cámara de origen, que
-     puede aceptar los cambios (con mayoría simple) o insistir con el
-     texto original (necesita mayoría absoluta o, según el caso, dos
-     tercios, para imponerse sobre la revisora).
+2. **Cámara revisora**: debate y vota el mismo texto. - Si lo aprueba **igual**
+   (sin cambios): pasa al Poder Ejecutivo. - Si le hace **modificaciones**:
+   vuelve a la cámara de origen. Esta puede aceptar los cambios (con mayoría
+   simple) o insistir con el texto original. Para imponerse sobre la
+   revisora, necesita mayoría absoluta o, según el caso, dos tercios.
 3. **Poder Ejecutivo**: puede **promulgar** la ley (expresa o
    tácitamente, si no se pronuncia dentro de los 10 días hábiles) o
    **vetarla** (total o parcialmente) — este último paso ya se vio en

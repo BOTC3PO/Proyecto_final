@@ -14,10 +14,10 @@ orden), no necesita separarse en varias diapositivas.
 
 ## Elegir una PARTE, importa el orden
 
-Una **variación** es cada una de las formas distintas de elegir y
-ordenar `k` elementos de un conjunto de `n` elementos (con `k ≤ n`),
-**sin repetir** ninguno, donde el **orden sí importa** (elegir A y
-luego B no es lo mismo que elegir B y luego A).
+Una **variación** es cada una de las formas distintas de elegir y ordenar
+`k` elementos de un conjunto de `n` elementos (con `k ≤ n`), **sin repetir**
+ninguno. El **orden sí importa**: elegir A y luego B no es lo mismo que
+elegir B y luego A.
 
 **Ejemplo**: con las letras A, B, C, D, las variaciones de a 2 letras
 son `AB`, `BA`, `AC`, `CA`, `AD`, `DA`, `BC`, `CB`, `BD`, `DB`, `CD`,
@@ -44,9 +44,8 @@ Una permutación es el caso particular de una variación donde `k = n`
 
 ## Para qué sirve
 
-Explica de cuántas formas distintas se pueden repartir 1er, 2do y 3er
-premio entre `n` participantes (donde importa quién queda en qué
-puesto, y una vez que alguien gana el 1er premio ya no puede ganar el
-2do), o de cuántas formas se puede armar un código usando `k` símbolos
-distintos elegidos de un conjunto de `n` símbolos disponibles, sin
-repetir ninguno.
+Explica de cuántas formas distintas se pueden repartir 1er, 2do y 3er premio
+entre `n` participantes. Ahí importa quién queda en qué puesto, y una vez
+que alguien gana el 1er premio ya no puede ganar el 2do. También explica de
+cuántas formas se puede armar un código usando `k` símbolos distintos
+elegidos de un conjunto de `n` símbolos disponibles, sin repetir ninguno.

@@ -261,7 +261,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cruce"]
 
-enunciado: "¿Por qué `ambiente-y-recursos/` depende de `../poblacion-piramides-migraciones/`?"
+enunciado: "¿Por qué el ambiente y los recursos de un territorio se relacionan con su población y sus movimientos?"
 tipo: mc
 opciones_explicitas:
   - "Porque la presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve"
@@ -270,7 +270,7 @@ opciones_explicitas:
 respuesta: "Porque la presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve"
 
 explicacion: |
-  Es la razón anotada en `../dependencias.md`.
+  La presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve.
 ```
 
 ### 14 — Conservación
@@ -398,30 +398,8 @@ explicacion: |
   inciden, no es un vínculo automático.
 ```
 
-### 20 — Este tema como base de las corrientes
 
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Qué distingue a este tema (`AM1`) de los 4 nodos de corrientes de pensamiento ambiental que cuelgan de él?"
-tipo: mc
-opciones_explicitas:
-  - "Este tema es descriptivo/técnico (qué es el ambiente, qué exige la ley); las corrientes entran en la discusión ideológica sobre qué hacer al respecto"
-  - "Son exactamente el mismo tipo de contenido, sin ninguna diferencia"
-  - "Este tema ya incluye toda la discusión ideológica"
-respuesta: "Este tema es descriptivo/técnico (qué es el ambiente, qué exige la ley); las corrientes entran en la discusión ideológica sobre qué hacer al respecto"
-
-explicacion: |
-  Es la transición explícita hacia `../conservacionismo/`,
-  `../ambientalismo-liberal/`, `../ecologismo-politico/` y
-  `../decrecimiento/`.
-```
-
-### 21 — Recursos naturales, repaso de cruce
+### 20 — Recursos naturales, repaso de cruce
 
 ```
 metadata:
@@ -443,7 +421,7 @@ explicacion: |
   construir el concepto de presión ambiental.
 ```
 
-### 22 — Objetivo declarado de la Ley 27.621
+### 21 — Objetivo declarado de la Ley 27.621
 
 ```
 metadata:

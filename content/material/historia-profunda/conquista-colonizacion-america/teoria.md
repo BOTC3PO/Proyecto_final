@@ -13,7 +13,9 @@ En 1492, Cristóbal Colón emprendió un viaje desde España con el objetivo de 
 
 La llegada de los españoles no fue un acto único ni pacífico: implicó contactos iniciales, intercambios culturales y comerciales, pero también conflictos violentos. La introducción de enfermedades como la viruela o el sarampión, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo en la caída de civilizaciones poderosas, aunque no siempre directo ni inmediato. (El cólera, en cambio, no llegó a América hasta el siglo XIX.)  
 
-<!-- IMAGEN: Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos -->  
+![Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg/960px-Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg)
+
+*Imagen: «Fra Mauro World Map, c.1450 (1806 copy)», Fra Mauro (W. Fraser), Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fra_Mauro_World_Map,_c.1450_%281806_copy%29.jpg).*
 
 ---
 
@@ -23,7 +25,9 @@ La expansión española se fundamentó en la toma de poder sobre grandes imperio
 
 Por su parte, Francisco Pizarro conquistó el imperio inca en 1532, aprovechando la debilidad interna tras una guerra civil y la propagación de enfermedades. La captura del inca Atahualpa fue clave para desestabilizar el gobierno central. Estos casos muestran cómo los conquistadores no actuaron solos: siempre contaron con apoyos locales, recursos logísticos y una visión imperialista de España.  
 
-<!-- IMAGEN: Representación artística del asedio a Tenochtitlán o la captura del inca Atahualpa -->  
+![Representación artística del asedio a Tenochtitlán o la captura del inca Atahualpa](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg/960px-Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg)
+
+*Imagen: «Museo de América Conquest of Mexico 04», unknown, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg).*
 
 ---
 
@@ -33,7 +37,9 @@ Tras las primeras conquistas, se necesitó un marco para distribuir los territor
 
 El tratado reflejaba el interés de ambas naciones por evitar guerras y asegurar sus expansiones. Sin embargo, su aplicación fue flexible: Portugal se enfocó en Brasil, mientras que España dominó gran parte del continente. Esta división marcó el inicio de un sistema colonial basado en la explotación de recursos naturales y la imposición cultural.  
 
-<!-- IMAGEN: Mapa con la línea de demarcación del Tratado de Tordesillas -->  
+![Mapa con la línea de demarcación del Tratado de Tordesillas](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Map_of_Meridian_Line_set_under_the_Treaty_of_Tordesillas.jpg/960px-Map_of_Meridian_Line_set_under_the_Treaty_of_Tordesillas.jpg)
+
+*Imagen: «Map of Meridian Line set under the Treaty of Tordesillas», Map by Antonio de Herrera y Tordesillas, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Map_of_Meridian_Line_set_under_the_Treaty_of_Tordesillas.jpg).*
 
 ---
 
@@ -42,8 +48,6 @@ El tratado reflejaba el interés de ambas naciones por evitar guerras y asegurar
 La conquista no fue el fin, sino el comienzo de un proceso más prolongado: la colonización. España estableció en América una estructura administrativa centrada en virreinatos (como el Virreynato del Perú o el de Nueva España) para controlar recursos como las minas de plata y el comercio de productos tropicales.  
 
 Este sistema implicó la explotación laboral de los indígenas mediante sistemas como el *encomienda* y, posteriormente, el *mita*, junto con la introducción de esclavos africanos tras la prohibición del trabajo indígena en ciertas áreas. Además, se impusieron religión, lengua y costumbres europeas a través de misiones y leyes coloniales.  
-
-<!-- IMAGEN: Diagrama de la estructura colonial española con virreinatos y sistemas económicos -->  
 
 ---
 

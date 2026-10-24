@@ -25,12 +25,11 @@ consolidarse.
 
 En el caso rioplatense (y en la mayoría de los procesos americanos), la
 independencia no fue el primer paso — fue la consecuencia de un
-proceso revolucionario previo (ver `../revoluciones/`). La Revolución de
-Mayo de 1810 no declaró la independencia: constituyó una Junta de
-gobierno local que, formalmente, decía gobernar "en nombre" del rey
-depuesto — una ambigüedad deliberada que le dio tiempo a definir el
-verdadero objetivo (autonomía dentro del imperio vs. independencia
-total) mientras se consolidaba.
+proceso revolucionario previo (ver `../revoluciones/`). La Revolución de Mayo de 1810 no declaró la independencia. Constituyó una
+Junta de gobierno local que, formalmente, decía gobernar "en nombre" del rey
+depuesto. Fue una ambigüedad deliberada, que le dio tiempo a definir el
+verdadero objetivo (autonomía dentro del imperio vs. independencia total)
+mientras se consolidaba.
 
 ## De la revolución a la independencia: por qué no fue inmediato
 
@@ -42,25 +41,23 @@ total) mientras se consolidaba.
   que España intentaba reconquistar el territorio, la postura
   independentista se consolidó como la única salida viable.
 - **Declaración formal (1816)**: el Congreso de Tucumán declaró la
-  independencia de las Provincias Unidas en Sudamérica, 6 años después
-  de la Revolución de Mayo — el proceso completo llevó más tiempo que
-  el evento fundacional que se suele recordar como "punto de partida".
+  independencia de las Provincias Unidas en Sudamérica, 6 años después de la
+  Revolución de Mayo. El proceso completo llevó más tiempo que el evento
+  fundacional que se suele recordar como "punto de partida".
 
 ## Por qué la independencia necesitó una guerra
 
 Declarar la independencia no la hace efectiva por sí sola: España no
 reconoció esa declaración y siguió enviando fuerzas militares para
-reconquistar el territorio. Eso es lo que convierte a la independencia
-en un **proceso de Guerras de independencia** (ver `../guerras/`) — la
-declaración política y la victoria militar que la sostiene son dos
-cosas distintas, aunque en la práctica una depende de la otra para
-consolidarse.
+reconquistar el territorio. Eso es lo que convierte a la independencia en un **proceso de Guerras de
+independencia** (ver `../guerras/`). La declaración política y la victoria
+militar que la sostiene son dos cosas distintas, aunque en la práctica una
+depende de la otra para consolidarse.
 
 ## Independencia como proceso continental
 
-El proceso rioplatense no fue aislado: campañas como las de San Martín
-(cruce de los Andes, liberación de Chile y participación en la de Perú)
-y Bolívar (norte de Sudamérica) muestran que la independencia
-hispanoamericana se pensó, en parte, como un proyecto continental —
-ningún territorio quedaba realmente seguro mientras España mantuviera
-fuerzas en la región.
+El proceso rioplatense no fue aislado. Campañas como las de San Martín
+(cruce de los Andes, liberación de Chile y participación en la de Perú) y
+Bolívar (norte de Sudamérica) muestran que la independencia hispanoamericana
+se pensó, en parte, como un proyecto continental. Ningún territorio quedaba
+realmente seguro mientras España mantuviera fuerzas en la región.

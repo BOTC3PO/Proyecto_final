@@ -12,8 +12,6 @@
 
 El planificador, también llamado **scheduler**, es un componente fundamental del sistema operativo que decide cuál proceso debe usar la CPU en cada momento. Su función principal es optimizar el uso de los recursos del procesador para garantizar que todas las tareas se ejecuten de manera eficiente y sin interrupciones innecesarias. Por ejemplo, cuando varios programas están abiertos al mismo tiempo, el planificador determina cuál debe tener prioridad para evitar que la computadora se congele o responda lentamente.
 
-<!-- IMAGEN: Diagrama simplificado de un sistema operativo mostrando el scheduler como un módulo que recibe procesos en estado "Listo" y los envía a la CPU -->
-
 ## 2. Tipos de planificación
 
 La planificación puede ser **preemptiva** o **no preemptiva**, según cómo se maneje la interrupción de un proceso que ya está usando la CPU:

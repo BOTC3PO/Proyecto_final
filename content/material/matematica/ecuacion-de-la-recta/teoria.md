@@ -45,23 +45,22 @@ Para dibujar `y = mx + b` sin necesidad de tabular muchos puntos:
 - Si `m = 0`, la recta es **horizontal**: `y = b` para cualquier x. Sólo
   cruza el eje x si además `b = 0`.
 - Una recta **vertical** (`x = k`, para cualquier k) tiene pendiente
-  **indefinida** (no se puede escribir como `y = mx + b`, porque
-  cualquier valor de x da infinitos valores de y) — es el único tipo de
-  recta que esta forma de ecuación no puede representar.
+  **indefinida**. No se puede escribir como `y = mx + b`, porque cualquier
+  valor de x da infinitos valores de y. Es el único tipo de recta que esta
+  forma de ecuación no puede representar.
 
 ## Deducir la ecuación viendo dos puntos marcados en el plano
 
-Dados dos puntos ya ubicados en el plano, se puede leer (o calcular con
-la fórmula de pendiente ya conocida) la ecuación completa de la recta
-que pasa por ambos: la pendiente sale de comparar cuánto sube/baja la
-recta entre los dos puntos, y la ordenada al origen se lee directo donde
-la recta cruza el eje y (o se despeja si no cruza justo en un punto
-marcado).
+Dados dos puntos ya ubicados en el plano, se puede leer (o calcular con la
+fórmula de pendiente ya conocida) la ecuación completa de la recta que pasa
+por ambos. La pendiente sale de comparar cuánto sube o baja la recta entre
+los dos puntos. La ordenada al origen se lee directo donde la recta cruza el
+eje y, o se despeja si no cruza justo en un punto marcado.
 
 ## Para qué sirve
 
 Pasar de la fórmula al dibujo (y viceversa) es lo que permite resolver
-problemas geométricos reales con una ecuación: encontrar dónde se cruza
-una recta con los ejes, verificar si un punto dado está sobre una recta,
-o preparar el terreno para comparar dos rectas entre sí
+problemas geométricos reales con una ecuación. Se puede encontrar dónde se
+cruza una recta con los ejes, verificar si un punto dado está sobre una
+recta o preparar el terreno para comparar dos rectas entre sí
 (`../rectas-paralelas-y-perpendiculares/`).

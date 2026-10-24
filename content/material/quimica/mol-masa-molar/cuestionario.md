@@ -59,27 +59,8 @@ explicacion: |
   Falso. El número de Avogadro es una constante universal; lo que cambia según la sustancia es la MASA de un mol (la masa molar).
 ```
 
-### 4 — Identificación de la constante
 
-```
-metadata:
-  materia: "quimica"
-  tema: "mol_masa_molar"
-  nivel: "basico"
-  tags: ["constante", "nomenclatura"]
-
-respuesta: "N_A"
-tipo: completar
-respuestas_validas:
-  - "N_A"
-
-enunciado: "En VBLang, la constante del número de Avogadro ya está precargada con el nombre ___."
-
-explicacion: |
-  El identificador `N_A` está disponible como constante global, sin necesidad de declararlo.
-```
-
-### 5 — Relación masa molar-tabla periódica
+### 4 — Relación masa molar-tabla periódica
 
 ```
 metadata:
@@ -98,7 +79,7 @@ explicacion: |
   La masa molar de un elemento (en g/mol) es numéricamente igual a su masa atómica de la tabla periódica (en u).
 ```
 
-### 6 — Cálculo de masa molar: H2O
+### 5 — Cálculo de masa molar: H2O
 
 ```
 metadata:
@@ -125,7 +106,7 @@ explicacion: |
   La masa molar de H2O es (2 × 1) + 16 = 18 g/mol.
 ```
 
-### 7 — Cálculo de masa molar: CO2
+### 6 — Cálculo de masa molar: CO2
 
 ```
 metadata:
@@ -152,7 +133,7 @@ explicacion: |
   La masa molar de CO2 es 12 + (2 × 16) = 44 g/mol.
 ```
 
-### 8 — Cálculo de masa molar: NaCl
+### 7 — Cálculo de masa molar: NaCl
 
 ```
 metadata:
@@ -175,7 +156,7 @@ explicacion: |
   La masa molar de NaCl es 23 + 35,5 = 58,5 g/mol.
 ```
 
-### 9 — Concepto de masa molar de un compuesto
+### 8 — Concepto de masa molar de un compuesto
 
 ```
 metadata:
@@ -193,7 +174,7 @@ explicacion: |
   Correcto. Para un compuesto se suman las masas atómicas de cada átomo, según su cantidad en la fórmula.
 ```
 
-### 10 — Cálculo de moles
+### 9 — Cálculo de moles
 
 ```
 metadata:
@@ -217,7 +198,7 @@ explicacion: |
   n = m / M = {masa} / {masa_molar} = {moles_deseados} moles.
 ```
 
-### 11 — Cálculo de masa
+### 10 — Cálculo de masa
 
 ```
 metadata:
@@ -240,7 +221,7 @@ explicacion: |
   m = n × M = {moles} × {masa_molar} g/mol.
 ```
 
-### 12 — Fórmula de los moles
+### 11 — Fórmula de los moles
 
 ```
 metadata:
@@ -258,7 +239,7 @@ explicacion: |
   Correcto. n = m / M relaciona la masa de una muestra con su masa molar para obtener la cantidad de sustancia.
 ```
 
-### 13 — Unidades de masa molar
+### 12 — Unidades de masa molar
 
 ```
 metadata:
@@ -278,7 +259,7 @@ explicacion: |
   La masa molar es la masa de un mol de sustancia, así que su unidad es g/mol.
 ```
 
-### 14 — Partículas en 1 mol exacto
+### 13 — Partículas en 1 mol exacto
 
 ```
 metadata:
@@ -297,7 +278,7 @@ explicacion: |
   Por definición, 1 mol contiene N_A partículas (aproximadamente 6,022×10²³), sin importar de qué sustancia se trate.
 ```
 
-### 15 — Cálculo de moles de agua
+### 14 — Cálculo de moles de agua
 
 ```
 metadata:
@@ -324,7 +305,7 @@ explicacion: |
   n = m / M = {gramos} / {masa_molar_agua} moles.
 ```
 
-### 16 — Relación masa-partículas
+### 15 — Relación masa-partículas
 
 ```
 metadata:
@@ -342,7 +323,7 @@ explicacion: |
   Verdadero. El número de partículas se relaciona con los moles mediante N = n × N_A.
 ```
 
-### 17 — Notación de masa molar
+### 16 — Notación de masa molar
 
 ```
 metadata:
@@ -361,7 +342,7 @@ explicacion: |
   La masa molar se representa con "M" (mayúscula). "m" es la masa en gramos, "n" son los moles, y "N" es el número de partículas.
 ```
 
-### 18 — Masa molar de un elemento (sodio)
+### 17 — Masa molar de un elemento (sodio)
 
 ```
 metadata:
@@ -383,7 +364,7 @@ explicacion: |
   Para un elemento, la masa molar coincide numéricamente con la masa atómica: {masa_atomica_na} g/mol.
 ```
 
-### 19 — Diferencia entre masa molar y número de moles
+### 18 — Diferencia entre masa molar y número de moles
 
 ```
 metadata:
@@ -401,7 +382,7 @@ explicacion: |
   Falso. La masa molar (M) es una propiedad fija de cada sustancia (g/mol); el número de moles (n) depende de cuánta cantidad de esa sustancia hay en la muestra.
 ```
 
-### 20 — Cálculo combinado: moles a partir de fórmula
+### 19 — Cálculo combinado: moles a partir de fórmula
 
 ```
 metadata:

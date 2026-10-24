@@ -3002,8 +3002,6 @@ opciones_explicitas:
 respuesta: "Para organizar datos repetidos, ubicar posiciones relativas dentro de un conjunto, y medir cuán dispersos están entre sí — un resumen mucho más completo que un solo promedio"
 
 explicacion: |
-  Es el puente directo hacia `Dispersión: rango y desvío` (el próximo
-  módulo del MAPA), que retoma la varianza para llegar al desvío
-  estándar.
+  Juntas dan un resumen mucho más completo que un solo promedio, y la varianza es el paso previo para llegar al desvío estándar.
 ```
 

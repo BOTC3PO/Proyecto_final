@@ -46,10 +46,10 @@ estándar** — los promedios de muestras grandes varían menos entre sí
 que los promedios de muestras chicas, y se acercan más a la media
 poblacional real.
 
-**Ejemplo**: con σ = 20, una muestra de n=25 da un error estándar de
-`20/√25 = 4`; una muestra de n=100 (4 veces más grande) da
-`20/√100 = 2` — el error estándar se **reduce a la mitad**, no a un
-cuarto, porque depende de la **raíz** de n.
+**Ejemplo**: con σ = 20, una muestra de n=25 da un error estándar de `20/√25
+= 4`. Una muestra de n=100 (4 veces más grande) da `20/√100 = 2`. El error
+estándar se **reduce a la mitad**, no a un cuarto, porque depende de la
+**raíz** de n.
 
 ## La regla práctica de n ≥ 30
 

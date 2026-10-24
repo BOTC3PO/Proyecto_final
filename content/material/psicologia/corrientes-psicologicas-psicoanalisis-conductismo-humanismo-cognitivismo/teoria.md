@@ -12,7 +12,9 @@
 
 El psicoanálisis surge a finales del siglo XIX como una forma de entender la mente humana desde los procesos inconscientes. Su creador, Sigmund Freud, propuso que gran parte de nuestras acciones, pensamientos y emociones están determinadas por deseos, recuerdos y conflictos que no somos conscientes. Para Freud, el ser humano está dividido en tres partes: el **yo** (consciente), el **superyo** (moral) y el **ello** (inconsciente). Los traumas infantiles o deseos reprimidos pueden manifestarse a través de síntomas físicos, sueños o errores cotidianos como "lapsus". Aunque hoy se critica su falta de rigor científico, el psicoanálisis abrió camino para estudiar lo no observable en la mente.
 
-<!-- IMAGEN: Esquema del tripartido psíquico según Freud: yo, superyo y ello con flechas que muestran sus interacciones -->
+![Esquema del tripartido psíquico según Freud: yo, superyo y ello con flechas que muestran sus interacciones](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Id_ego_superego.png/960px-Id_ego_superego.png)
+
+*Imagen: «Id ego superego», Aszokalski, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Id_ego_superego.png).*
 
 ---
 
@@ -20,7 +22,9 @@ El psicoanálisis surge a finales del siglo XIX como una forma de entender la me
 
 A principios del siglo XX, el **conductismo** se convirtió en la corriente dominante al rechazar cualquier estudio de procesos internos como "subjetivos" o "no comprobables". Su base está en la idea de que la psicología debe centrarse en lo observable: cómo los estímulos del entorno (E) generan respuestas (R) en el sujeto. John B. Watson y luego B.F. Skinner desarrollaron modelos donde se analizaba, por ejemplo, cómo un sonido (estímulo) provoca una reacción específica (respuesta), como el reflejo de un perro al escuchar un timbre. Este enfoque fue clave para aplicaciones prácticas en educación y terapia, aunque también fue criticado por ignorar la complejidad del pensamiento.
 
-<!-- IMAGEN: Diagrama de E (estímulo) → R (respuesta), con ejemplos como el condicionamiento clásico de Pavlov -->
+![Diagrama de E (estímulo) → R (respuesta), con ejemplos como el condicionamiento clásico de Pavlov](https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Pavlov%27s_dog_conditioning.svg/960px-Pavlov%27s_dog_conditioning.svg.png)
+
+*Imagen: «Pavlov's dog conditioning», Maxxl², CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pavlov%27s_dog_conditioning.svg).*
 
 ---
 
@@ -28,15 +32,15 @@ A principios del siglo XX, el **conductismo** se convirtió en la corriente domi
 
 A mediados del siglo XX, el **humanismo** desafió a las corrientes anteriores al insistir en la importancia de la experiencia subjetiva y el crecimiento personal. Figuras como Carl Rogers y Abraham Maslow destacaron que cada persona tiene un potencial único para autorrealizarse. Para ellos, el ser humano no es solo un producto de estímulos o conflictos internos, sino un agente activo en su propio desarrollo. La teoría de Maslow sobre la "pirámide de necesidades" mostró cómo los individuos buscan satisfacer primero necesidades básicas (alimentación, seguridad) para luego aspirar a logros creativos y espirituales.
 
-<!-- IMAGEN: Pirámide de necesidades humanas según Maslow, con ejemplos en cada nivel -->
+![Pirámide de necesidades humanas según Maslow, con ejemplos en cada nivel](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Gu-MaslowsHierarchyOfNeeds.svg/960px-Gu-MaslowsHierarchyOfNeeds.svg.png)
+
+*Imagen: «Gu-MaslowsHierarchyOfNeeds», FireflySixtySeven, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gu-MaslowsHierarchyOfNeeds.svg).*
 
 ---
 
 ## 4. El cognitivismo: la mente como computadora
 
 A partir de los años 60, el **cognitivismo** tomó el relevo al recuperar el estudio de procesos internos, pero desde un enfoque más científico. Esta corriente comparaba la mente con una computadora: procesa información, almacena datos y resuelve problemas. Jean Piaget estudió cómo los niños construyen su conocimiento a través de etapas, mientras que modelos modernos analizan cómo la memoria o el lenguaje funcionan como sistemas internos. El cognitivismo integró ideas del psicoanálisis (los procesos no conscientes) y el conductismo (la importancia de lo observable), pero con herramientas más precisas, como la neurociencia.
-
-<!-- IMAGEN: Comparación entre el cerebro humano y un ordenador, destacando entradas, procesamiento y salidas -->
 
 ---
 

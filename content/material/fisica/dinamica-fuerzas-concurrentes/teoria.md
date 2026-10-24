@@ -23,10 +23,10 @@ actúa una sola fuerza sobre algo.
 
 ## El diagrama de cuerpo libre
 
-Un **diagrama de cuerpo libre** es un dibujo simplificado del objeto
-(reducido a un punto) con **todas** las fuerzas que actúan sobre él
-dibujadas como vectores que salen de ese punto — sin dibujar los objetos
-que las ejercen (la cuerda, el piso, el aire), sólo las fuerzas en sí.
+Un **diagrama de cuerpo libre** es un dibujo simplificado del objeto,
+reducido a un punto. Muestra **todas** las fuerzas que actúan sobre él,
+dibujadas como vectores que salen de ese punto. No se dibujan los objetos
+que las ejercen (la cuerda, el piso, el aire), solo las fuerzas en sí.
 Es la herramienta central para resolver cualquier problema de dinámica:
 si falta una fuerza en el diagrama, el resultado va a estar mal.
 
@@ -62,16 +62,15 @@ casi todos los problemas clásicos de fuerzas concurrentes.
 Una lámpara cuelga de dos cables que forman ángulos distintos con el
 techo. Sobre la lámpara actúan tres fuerzas: su **peso** (hacia abajo) y
 la **tensión** de cada uno de los dos cables (hacia arriba, en la
-dirección de cada cable). Para que la lámpara esté en equilibrio (no
-caiga ni suba), la suma de las componentes verticales de ambas
-tensiones tiene que ser exactamente igual al peso, y la suma de las
-componentes horizontales tiene que dar cero (los dos cables se
-"empujan" horizontalmente uno contra el otro).
+dirección de cada cable). Para que la lámpara esté en equilibrio (no caiga ni suba), la suma de las
+componentes verticales de ambas tensiones tiene que ser exactamente igual al
+peso. La suma de las componentes horizontales tiene que dar cero, porque los
+dos cables se "empujan" horizontalmente uno contra el otro.
 
 ## Para qué sirve
 
-Resolver fuerzas concurrentes es el paso que conecta la teoría de las
-leyes de Newton con problemas reales: calcular la tensión de un cable
-que sostiene algo, verificar si una estructura aguanta el peso que
-carga, o predecir el movimiento de un objeto empujado desde varias
-direcciones a la vez.
+Resolver fuerzas concurrentes es el paso que conecta la teoría de las leyes
+de Newton con problemas reales. Permite calcular la tensión de un cable que
+sostiene algo, verificar si una estructura aguanta el peso que carga o
+predecir el movimiento de un objeto empujado desde varias direcciones a la
+vez.

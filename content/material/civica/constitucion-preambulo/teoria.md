@@ -12,13 +12,12 @@ son secciones separables.
 
 ## Qué es el Preámbulo
 
-El **Preámbulo** es la introducción de la Constitución Nacional
-Argentina (sancionada en 1853, con reformas posteriores, la última
-integral en 1994): no tiene fuerza de artículo (no impone una
-obligación puntual como sí lo hacen los artículos), pero funciona como
-declaración de **objetivos e intención** de todo el texto que sigue —
-la Corte Suprema lo usa como criterio de interpretación de la
-Constitución completa.
+El **Preámbulo** es la introducción de la Constitución Nacional Argentina
+(sancionada en 1853, con reformas posteriores, la última integral en 1994).
+No tiene fuerza de artículo: no impone una obligación puntual como sí lo
+hacen los artículos. Pero funciona como declaración de **objetivos e
+intención** de todo el texto que sigue, y la Corte Suprema lo usa como
+criterio de interpretación de la Constitución completa.
 
 ## El texto y sus objetivos
 
@@ -40,17 +39,17 @@ abierta a la inmigración.
 
 ## Por qué depende de "Organización del Estado"
 
-El Preámbulo sólo tiene sentido una vez que ya se entiende qué es el
-Estado que se está organizando (`../organizacion-del-estado/`): "unión
-nacional" presupone entender que existían provincias/territorios
-previos que se unieron, y "afianzar la justicia" o "proveer a la
-defensa común" son funciones que sólo un Estado organizado (con
-gobierno, territorio y población) puede cumplir.
+El Preámbulo solo tiene sentido una vez que ya se entiende qué es el Estado
+que se está organizando (`../organizacion-del-estado/`). "Unión nacional"
+presupone entender que existían provincias o territorios previos que se
+unieron. "Afianzar la justicia" o "proveer a la defensa común" son funciones
+que solo un Estado organizado (con gobierno, territorio y población) puede
+cumplir.
 
 ## Para qué sirve
 
-El Preámbulo es la síntesis de PARA QUÉ existe el Estado argentino tal
-como se organizó — el paso siguiente es ver el CONTENIDO concreto de
-derechos que ese Estado garantiza (`../../civica/derechos-y-garantias/`, la parte
-dogmática de la Constitución) y CÓMO se reparte el poder para
-cumplir esos objetivos (`../division-de-poderes/`).
+El Preámbulo es la síntesis de PARA QUÉ existe el Estado argentino tal como
+se organizó. El paso siguiente es ver el CONTENIDO concreto de derechos que
+ese Estado garantiza (`../derechos-y-garantias/`, la parte dogmática de la
+Constitución). Y también CÓMO se reparte el poder para cumplir esos
+objetivos (`../division-de-poderes/`).

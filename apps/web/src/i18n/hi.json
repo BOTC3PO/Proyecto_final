@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "दस्तावेज़",
   "verificacionPublica.institucion": "संस्था",
   "verificacionPublica.enlace": "लिंक",
-  "verificacionPublica.notas": "टिप्पणियाँ"
+  "verificacionPublica.notas": "टिप्पणियाँ",
+  "repaso.tituloTemas": "जिन विषयों में आपसे गलतियाँ हुईं",
+  "repaso.tituloSecciones": "जिन हिस्सों में आपसे गलतियाँ हुईं",
+  "repaso.msgDesaprobadoTemas": "आप अभी {umbral}% तक नहीं पहुँचे हैं। यह अंत नहीं है: देखिए किन विषयों में गलतियाँ हुईं, उन्हें दोहराइए और फिर से कोशिश कीजिए।",
+  "repaso.msgDesaprobadoSecciones": "आप अभी {umbral}% तक नहीं पहुँचे हैं। इन हिस्सों में सबसे ज़्यादा गलतियाँ हुईं: इनका अभ्यास कीजिए और फिर से कोशिश कीजिए।",
+  "repaso.msgAprobadoConRepaso": "आप उत्तीर्ण हुए। इन विषयों को और मज़बूत किया जा सकता है:",
+  "repaso.msgAprobadoLimpio": "आप उत्तीर्ण हुए और कोई विषय कमज़ोर नहीं रहा। बहुत बढ़िया।",
+  "repaso.resultadoPorTema": "विषय के अनुसार परिणाम",
+  "repaso.detalleGrupo": "{total} में से {correctas} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% सही",
+  "repaso.repasarPrimero": "पहले इन्हें दोहराइए",
+  "repaso.abrirTema": "विषय खोलें",
+  "repaso.preguntasRevisar": "दोहराने के लिए प्रश्न ({n})",
+  "repaso.seccionGramatica": "व्याकरण",
+  "repaso.seccionLectura": "पठन",
+  "repaso.seccionAudicion": "श्रवण",
+  "repaso.seccionExpresionOral": "बोलचाल",
+  "repaso.seccionEscritura": "लेखन"
 }

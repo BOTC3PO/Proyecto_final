@@ -35,22 +35,21 @@ rendimiento_real = (1 + tasa_nominal) / (1 + inflación) - 1
 - **rendimiento_real** = lo que realmente ganó (o perdió) el poder
   adquisitivo del dinero.
 
-**Ejemplo**: un plazo fijo pagó una tasa nominal anual del 80%, en un año
-en que la inflación fue del 90%: `rendimiento_real = (1,80 / 1,90) - 1 ≈
--0,0526`, es decir, un rendimiento real de **aproximadamente -5,3%** —
-aunque el dinero creció un 80% en pesos, compró un 5,3% MENOS de lo que
-podía comprar el capital original. Ganar pesos, en este caso, no evitó
+**Ejemplo**: un plazo fijo pagó una tasa nominal anual del 80%, en un año en
+que la inflación fue del 90%. El rendimiento real es `rendimiento_real =
+(1,80 / 1,90) - 1 ≈ -0,0526`, es decir, **aproximadamente -5,3%**. Aunque el
+dinero creció un 80% en pesos, compró un 5,3% MENOS de lo que podía comprar
+el capital original. Ganar pesos, en este caso, no evitó
 perder poder de compra.
 
 ## La aproximación simple, y por qué falla con inflación alta
 
 Es común escuchar la aproximación: `rendimiento_real ≈ tasa_nominal -
 inflación`. Es una simplificación válida (Fisher lo demostró) sólo
-cuando ambas tasas son **chicas**. Con tasas grandes — como las que suele
-tener Argentina, con inflación e interés nominal de decenas o más del
-100% anual — esa resta simple se aleja bastante del resultado exacto de
-la fórmula de Fisher, porque ignora el término `× (1 + inflación)` que
-divide todo. Para un cálculo confiable, conviene usar siempre la fórmula
+cuando ambas tasas son **chicas**. Con tasas grandes, como las que suele tener Argentina (inflación e interés
+nominal de decenas o más del 100% anual), esa resta simple se aleja bastante
+del resultado exacto de la fórmula de Fisher. Ignora el término `× (1 +
+inflación)` que divide todo. Para un cálculo confiable, conviene usar siempre la fórmula
 completa, no la resta.
 
 ## Rendimiento real negativo: se puede "ganar" y perder al mismo tiempo
@@ -72,7 +71,7 @@ punto más, ni un punto menos.
 - **Elegir dónde poner los ahorros**: comparar la tasa nominal de un
   plazo fijo contra la inflación esperada, no sólo mirar qué banco paga
   el número más alto.
-- **Negociar un sueldo o un contrato de alquiler**: un aumento nominal
-  del salario que queda por debajo de la inflación del período es, en
-  términos reales, una pérdida de poder adquisitivo, aunque el número en
+- **Negociar un sueldo o un contrato de alquiler**: un aumento nominal del
+  salario que queda por debajo de la inflación del período es, en términos
+  reales, una pérdida de poder adquisitivo. Esto ocurre aunque el número en
   el recibo de sueldo sea más alto que antes.

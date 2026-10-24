@@ -64,11 +64,11 @@ P(enfermo|positivo) = P(positivo|enfermo) × P(enfermo) / P(positivo)
 
 **El resultado sorprende**: aunque el test parece muy confiable (99%
 de sensibilidad), la probabilidad real de estar enfermo dado un
-resultado positivo es de sólo ≈ **16,7%**, no 99%. La razón es que la
-enfermedad es tan rara que, aunque el test casi nunca falle con un
-enfermo real, la enorme cantidad de sanos hace que los falsos
-positivos (5% de una población gigante de sanos) superen ampliamente
-a los verdaderos positivos (99% de una población chica de enfermos).
+resultado positivo es de sólo ≈ **16,7%**, no 99%. La razón es que la enfermedad es tan rara que, aunque el test casi nunca
+falle con un enfermo real, la enorme cantidad de sanos genera muchos falsos
+positivos. Esos falsos positivos (5% de una población gigante de sanos)
+superan ampliamente a los verdaderos positivos (99% de una población chica
+de enfermos).
 
 ## Por qué importa la probabilidad a priori
 
@@ -81,9 +81,8 @@ fallacy).
 
 ## Para qué sirve
 
-Es la base matemática de los filtros de spam (actualizar la
-probabilidad de que un mail sea spam, dado que contiene ciertas
-palabras), de diagnósticos médicos bien interpretados, y de cualquier
-sistema que necesite actualizar una creencia a medida que llega
-evidencia nueva, en vez de tratar cada observación como si fuera
-información completa por sí sola.
+Es la base matemática de los filtros de spam (actualizar la probabilidad de
+que un mail sea spam, dado que contiene ciertas palabras) y de diagnósticos
+médicos bien interpretados. También de cualquier sistema que necesite
+actualizar una creencia a medida que llega evidencia nueva, en vez de tratar
+cada observación como si fuera información completa por sí sola.

@@ -41,9 +41,9 @@ fila antes de escribir teoría/cuestionario.
 | `nucleosintesis/` | `formacion-de-estrellas/` | Nodo `U4` de `troncos.md` (`U3 → U4`). Cruce citado como "el más potente del mapa": alimenta `tabla-periodica-nivel2-cosmologico` y `../quimica/tabla-periodica-tendencias/` (nivel 2). |
 | `formacion-del-sistema-solar/` | `nucleosintesis/` | Nodo `U5` de `troncos.md` (`U4 → U5`). |
 | `movimiento-rotacion-traslacion/` | `formacion-del-sistema-solar/` | Nodo `AS1` de `troncos.md` (`U5 → AS1`). |
-| `estaciones-del-ano/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia/` | Nodo `AS2` de `troncos.md` (`AS1 → AS2`, `GO6P → AS2`). |
-| `fases-lunares/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia/` | Nodo `AS3` de `troncos.md` (`AS1 → AS3`, `GO6P → AS3`). |
-| `eclipses-sol-luna/` | `fases-lunares/`, `../matematica/circunferencia/` | Nodo `AS4` de `troncos.md` (`AS3 → AS4`, `GO6P → AS4`). |
+| `estaciones-del-ano/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia-y-circulo/` | Nodo `AS2` de `troncos.md` (`AS1 → AS2`, `GO6P → AS2`). |
+| `fases-lunares/` | `movimiento-rotacion-traslacion/`, `../matematica/circunferencia-y-circulo/` | Nodo `AS3` de `troncos.md` (`AS1 → AS3`, `GO6P → AS3`). |
+| `eclipses-sol-luna/` | `fases-lunares/`, `../matematica/circunferencia-y-circulo/` | Nodo `AS4` de `troncos.md` (`AS3 → AS4`, `GO6P → AS4`). |
 | `movimiento-aparente-constelaciones/` | `movimiento-rotacion-traslacion/` | Nodo `AS5` de `troncos.md` (`AS1 → AS5`). |
 | `tierra-primitiva-diferenciacion/` | `formacion-del-sistema-solar/` | Nodo `U6` de `troncos.md` (`U5 → U6`). |
 | `tiempo-geologico-eones-eras-periodos/` | `tierra-primitiva-diferenciacion/` | Nodos `U7a/b/c` de `troncos.md` (`U6 → U7a → U7b → U7c`). Un solo módulo (eones, eras y períodos son la misma escala de anidamiento, no 3 habilidades distintas) — mismo criterio que otros "no se separa" del mapa. |
@@ -135,23 +135,10 @@ fila antes de escribir teoría/cuestionario.
 | `internet-redes-globalizacion-digital/` | `electrificacion-fabrica-hogar/`, `globalizacion-era-digital/`, `../informatica/revolucion-informatica/` | Nodo `TEC3` de `troncos.md` (`TEC2 → TEC3`, `H30 → TEC3`; cierra la cadena piedra→metal→imprenta→vapor/electricidad→cables submarinos). |
 | `huella-humana-en-el-clima-inicio/` | `revolucion-industrial/` | Nodo `AM4` de `troncos.md` (`H24 → AM4`). Sin tag de materia ajena — queda en Historia Profunda junto a `cambio-climatico-linea-base-historica` (`AM3`), su antecedente directo. |
 
-## 8.c — Argentina insertada en la línea
+## 8.c — Línea universal posterior
+
+La cadena argentina de 8.c (`AH1`-`AH15`) pasó a [`../historia-argentina/dependencias.md`](../historia-argentina/dependencias.md).
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `pueblos-originarios-territorio-argentino/` | `poblamiento-planeta-america/`, `civilizaciones-de-america-precolombinas/` | Nodo `AH1` de `troncos.md` (raíz de 8.c, sin flecha entrante dentro de 8.c). *Deducido acá, no está en el MAPA* (el MAPA sólo dice que 8.c está "colgada de 8.b"). Se apoya en el poblamiento de América y en las civilizaciones precolombinas. |
-| `conquista-y-colonia-argentina/` | `pueblos-originarios-territorio-argentino/`, `conquista-colonizacion-america/` | Nodo `AH2` de `troncos.md` (`AH1 → AH2`). La segunda dependencia (`conquista-colonizacion-america`) está deducida acá, no en el MAPA. |
-| `virreinato-y-comercio/` | `conquista-y-colonia-argentina/` | Nodo `AH3` de `troncos.md` (`AH2 → AH3`). |
-| `revolucion-de-mayo/` | `virreinato-y-comercio/`, `ilustracion/` | Nodo `AH4` de `troncos.md` (`AH3 → AH4`). La dependencia de `ilustracion` está deducida acá, no en el MAPA. |
-| `guerras-de-independencia-argentina/` | `revolucion-de-mayo/` | Nodo `AH5` de `troncos.md` (`AH4 → AH5`). |
-| `guerras-civiles-unitarios-federales/` | `guerras-de-independencia-argentina/` | Nodo `AH6` de `troncos.md` (`AH5 → AH6`). |
-| `organizacion-nacional-constitucion-1853/` | `guerras-civiles-unitarios-federales/` | Nodo `AH7` de `troncos.md` (`AH6 → AH6B → AH6C → AH7`). `AH6B`/`AH6C` aún no tienen carpeta, por eso se colapsa a `AH6`. |
-| `modelo-agroexportador-inmigracion/` | `organizacion-nacional-constitucion-1853/` | Nodo `AH8` de `troncos.md` (`AH7 → AH7B → AH7C → AH8`). `AH7B`/`AH7C` aún no tienen carpeta, se colapsa a `AH7`. Alimenta `../economia/estructura-productiva-dependencia/`. |
-| `ampliacion-democratica-ley-saenz-pena/` | `modelo-agroexportador-inmigracion/` | Nodo `AH9` de `troncos.md` (`AH8 → AH9`). Alimenta `../civica/sufragio-restringido-universal/`. |
-| `golpes-de-estado-interrupciones/` | `ampliacion-democratica-ley-saenz-pena/`, `entreguerras-y-crisis-de-1929/` | Nodo `AH10` de `troncos.md` (`AH9 → AH9B/AH9C → AH10`). `AH9B`/`AH9C` aún no tienen carpeta, se colapsa a `AH9`. La dependencia de `entreguerras-y-crisis-de-1929` (contexto del golpe de 1930) está deducida acá, no en el MAPA. |
-| `peronismo-derechos-sociales/` | `golpes-de-estado-interrupciones/` | Nodo `AH11` de `troncos.md` (`AH10 → ISI1 → AH11`). `ISI1` aún no tiene carpeta, se colapsa a `AH10`. |
-| `terrorismo-de-estado-argentina/` | `peronismo-derechos-sociales/` | Nodo `AH12` de `troncos.md` (`AH11 → AH12`). Alimenta `../civica/estado-de-derecho-por-que-importa/`. |
-| `guerra-de-malvinas/` | `terrorismo-de-estado-argentina/` | Nodo `AH13` de `troncos.md` (`AH12 → AH13`). |
-| `recuperacion-democratica-memoria/` | `guerra-de-malvinas/` | Nodo `AH14` de `troncos.md` (`AH13 → AH14`). |
-| `historia-reciente-argentina/` | `recuperacion-democratica-memoria/` | Nodo `AH15` de `troncos.md` (`AH14 → AH15`). |
 | `carrera-espacial-sputnik-y-apolo/` | `guerra-fria-descolonizacion/` | Nodo propuesto en `../PLAN-REPARACIONES-TRONCOS.md` («Hallazgo menor — carrera espacial»); sin ID en `troncos.md`. Cruza con `../fisica/gravitacion-universal/`. Decisión de Claude, no pedida: dependencia deducida. |

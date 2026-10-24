@@ -2701,7 +2701,6 @@ opciones_explicitas:
 respuesta: "Para calcular la probabilidad de que ocurran varios eventos a la vez, o al menos uno de varios, combinando las reglas del Y y del O"
 
 explicacion: |
-  Cierra este bloque de Tronco 4.b y es la puerta directa al cuadro
-  de Punnett de Biología — el mismo cálculo, otra notación.
+  La probabilidad compuesta combina las reglas del Y y del O; es el mismo cálculo del cuadro de Punnett en Biología, con otra notación.
 ```
 

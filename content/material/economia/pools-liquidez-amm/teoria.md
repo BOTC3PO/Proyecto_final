@@ -36,31 +36,30 @@ producto entre las dos reservas del pool:
 reserva_A × reserva_B = k   (k se mantiene constante)
 ```
 
-Cuando alguien hace un swap (por ejemplo, deposita Token A para
-llevarse Token B), la reserva de A **sube** y la reserva de B
-**baja** — pero la fórmula obliga a que el producto de las dos
-reservas siga dando el mismo número `k` de antes. El **precio** de un
+Cuando alguien hace un swap (por ejemplo, deposita Token A para llevarse
+Token B), la reserva de A **sube** y la reserva de B **baja**. Pero la
+fórmula obliga a que el producto de las dos reservas siga dando el mismo
+número `k` de antes. El **precio** de un
 token, en cualquier momento, es simplemente la relación entre las dos
 reservas (cuánto B hay por cada A).
 
 ## Por qué las operaciones grandes mueven más el precio
 
-Como el precio depende de la RELACIÓN entre las dos reservas, un swap
-grande cambia esa relación de forma más brusca que uno chico —
-haciendo que el precio final que recibe quien hace el swap sea peor
-cuanto más grande es la operación. Esto se llama **slippage**
+Como el precio depende de la RELACIÓN entre las dos reservas, un swap grande
+cambia esa relación de forma más brusca que uno chico. Por eso el precio
+final que recibe quien hace el swap es peor cuanto más grande es la
+operación. Esto se llama **slippage**
 (deslizamiento): la diferencia entre el precio esperado al empezar la
 operación y el precio real obtenido al terminarla.
 
 ## El riesgo de ser proveedor de liquidez: pérdida impermanente
 
-Si el precio de mercado de los dos tokens de un pool cambia mucho
-entre sí (por fuera del pool, en el resto del mercado), la
-composición del pool se reacomoda para seguir cumpliendo `x × y = k`
-— y eso puede dejar al proveedor de liquidez con una combinación de
-tokens que vale, en conjunto, **menos** de lo que hubiera valido si
-simplemente se hubiera quedado con los tokens originales sin
-depositarlos. A esto se lo llama **pérdida impermanente**: "impermanente"
+Si el precio de mercado de los dos tokens de un pool cambia mucho entre sí
+(por fuera del pool, en el resto del mercado), la composición del pool se
+reacomoda para seguir cumpliendo `x × y = k`. Eso puede dejar al proveedor
+de liquidez con una combinación de tokens que vale, en conjunto, **menos**
+de lo que hubiera valido si simplemente se hubiera quedado con los tokens
+originales sin depositarlos. A esto se lo llama **pérdida impermanente**: "impermanente"
 porque sólo se vuelve una pérdida real si el proveedor retira sus
 fondos del pool en ese momento — si los precios vuelven a acercarse,
 la pérdida se reduce o desaparece.

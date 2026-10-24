@@ -1,0 +1,20 @@
+{
+ "titulo": "Proximidad en un formulario",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Agrupar lo que se relaciona",
+   "headers": [
+    "Mal",
+    "Bien"
+   ],
+   "rows": [
+    [
+     "Etiqueta lejos del campo; todos los campos con la misma separación",
+     "Etiqueta pegada a su campo; grupos separados (datos personales / domicilio)"
+    ]
+   ]
+  }
+ ]
+}

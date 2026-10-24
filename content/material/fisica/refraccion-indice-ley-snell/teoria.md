@@ -48,7 +48,9 @@ La ley de Snell no solo explica fenómenos naturales (como el arcoíris o la apa
 - **Fibras ópticas**: Usan reflexión total interna, un caso extremo de la ley de Snell, para transmitir señales de luz a grandes distancias.
 - **Prismas**: Redirigen la luz mediante refracción controlada (como en gafas de visión nocturna o telescopios).
 
-<!-- IMAGEN: Diagrama de un rayo incidente que pasa de aire a agua, mostrando ángulos de incidencia y refracción con la normal -->
+![Diagrama de un rayo incidente que pasa de aire a agua, mostrando ángulos de incidencia y refracción con la normal](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Snells_law_mk.svg/960px-Snells_law_mk.svg.png)
+
+*Imagen: «Snells law mk», Oleg Alexandrov (derivative by B. Jankuloski), Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Snells_law_mk.svg).*
 
 ---
 

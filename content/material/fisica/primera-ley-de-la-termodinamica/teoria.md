@@ -43,7 +43,7 @@ Para un gas ideal monoatómico, la energía interna es `U = (3/2)·n·R·T`, de 
 
 ## 5. Un poco de historia
 
-James Prescott Joule, en la década de 1840, mostró con un experimento de paletas girando dentro de agua que una cantidad fija de trabajo mecánico produce siempre el mismo aumento de temperatura: calor y trabajo son dos formas de energía en tránsito. Esa equivalencia llevó a formular la primera ley a mediados del siglo XIX.
+James Prescott Joule, en la década de 1840, mostró con un experimento de paletas girando dentro de agua que una cantidad fija de trabajo mecánico produce siempre el mismo aumento de temperatura. Entonces calor y trabajo son dos formas de energía en tránsito. Esa equivalencia llevó a formular la primera ley a mediados del siglo XIX.
 
 ## 6. Consecuencia práctica
 

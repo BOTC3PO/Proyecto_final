@@ -38,7 +38,7 @@ La **mediana** es preferible cuando los datos tienen valores atípicos o están 
 
 ## 4. Interpretación crítica de los resultados
 
-El análisis estadístico no es solo calcular números: requiere contexto. Una media alta puede ocultar desigualdades si hay mucha dispersión. Por ejemplo, si un curso tiene una nota promedio de 7, pero la mitad aprobaron con 6 y la otra mitad con 8, eso indica estabilidad; en cambio, si la mitad aprobó con 4 y la otra mitad con 10, la dispersión alta sugiere inconsistencia.  
+El análisis estadístico no es solo calcular números: requiere contexto. Una media alta puede ocultar desigualdades si hay mucha dispersión. Por ejemplo, un curso tiene una nota promedio de 7. Si la mitad aprobó con 6 y la otra mitad con 8, eso indica estabilidad. En cambio, si la mitad aprobó con 4 y la otra mitad con 10, la dispersión alta sugiere inconsistencia.  
 
 También es clave comparar medidas entre grupos. Si un medicamento reduce el tiempo de recuperación de una enfermedad en promedio en 3 días, pero la desviación estándar es muy alta, eso podría indicar que funciona bien para algunos pacientes y no para otros.
 

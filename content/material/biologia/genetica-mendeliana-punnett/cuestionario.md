@@ -208,7 +208,7 @@ metadata:
   nivel: "intermedio"
   tags: ["probabilidad_compuesta", "aplicacion"]
 
-enunciado: "¿Qué relación tiene el cuadro de Punnett con `../../matematica/probabilidad-compuesta/`?"
+enunciado: "¿Qué relación tiene el cuadro de Punnett con la probabilidad compuesta?"
 tipo: mc
 opciones_explicitas:
   - "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
@@ -217,8 +217,7 @@ opciones_explicitas:
 respuesta: "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
 
 explicacion: |
-  Es el cruce que más rinde de todo el bloque de probabilidad y
-  estadística, según `troncos.md`.
+  Es probabilidad compuesta (eventos independientes que se multiplican) con una notación visual de cuadraditos en vez de una fórmula.
 ```
 
 ### 11 — Problema: contar casillas con fenotipo recesivo

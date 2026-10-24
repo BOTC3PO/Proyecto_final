@@ -43,18 +43,17 @@ esa masa.
 ## No siempre está "dentro" del material
 
 El centro de gravedad es un punto matemático, no necesita estar sobre
-material sólido. El ejemplo clásico: una rosquilla (o una dona):
-su centro de gravedad está en el agujero del medio, en el aire —
-porque es el promedio de toda la masa distribuida alrededor, no un
-punto que tenga que "tocar" el objeto.
+material sólido. El ejemplo clásico es una rosquilla (o una dona). Su centro de gravedad está
+en el agujero del medio, en el aire. Es el promedio de toda la masa
+distribuida alrededor, no un punto que tenga que "tocar" el objeto.
 
 ## Cómo se encuentra experimentalmente
 
-Se puede hallar el centro de gravedad de un objeto irregular
-suspendiéndolo libremente (colgado) desde un punto cualquiera de su
-borde y trazando la vertical hacia abajo (la que marca la plomada);
-repitiendo desde un segundo punto distinto, la segunda vertical se
-cruza con la primera exactamente en el centro de gravedad.
+Se puede hallar el centro de gravedad de un objeto irregular suspendiéndolo
+libremente (colgado) desde un punto cualquiera de su borde. Se traza la
+vertical hacia abajo, la que marca la plomada. Se repite desde un segundo
+punto distinto: la segunda vertical se cruza con la primera exactamente en
+el centro de gravedad.
 
 ## Para qué sirve: estabilidad
 
@@ -64,14 +63,13 @@ contacto con el suelo). Por eso:
 
 - Cuanto más **baja** esté el centro de gravedad, más estable es el
   objeto (los autos de carrera son bajos a propósito).
-- Cuanto más **ancha** la base de apoyo, más margen hay antes de que
-  el centro de gravedad se salga de ella (por qué una grúa usa
-  contrapesos, o por qué es más fácil hacer pie en una postura con las
-  piernas separadas).
+- Cuanto más **ancha** la base de apoyo, más margen hay antes de que el centro
+  de gravedad se salga de ella. Por eso una grúa usa contrapesos, y por eso
+  es más fácil hacer pie en una postura con las piernas separadas.
 
-Nota aparte, para quien siga leyendo sobre el tema: en un campo
-gravitatorio perfectamente uniforme (como el que se asume siempre en
-la superficie de la Tierra, para objetos de tamaño cotidiano), el
-centro de gravedad y el **centro de masa** son el mismo punto — la
-distinción sólo importa en campos gravitatorios no uniformes (objetos
-astronómicos enormes), fuera del alcance de este módulo.
+Nota aparte, para quien siga leyendo sobre el tema: en un campo gravitatorio
+perfectamente uniforme, el centro de gravedad y el **centro de masa** son el
+mismo punto. Ese es el campo que se asume siempre en la superficie de la
+Tierra, para objetos de tamaño cotidiano. La distinción solo importa en
+campos gravitatorios no uniformes (objetos astronómicos enormes), fuera del
+alcance de este módulo.

@@ -10,7 +10,7 @@
 
 ## ¿Qué es la ecuación contable y por qué es el pilar de la economía?
 
-La ecuación contable fundamental, expresada como **Activo = Pasivo + Patrimonio Neto**, es la base sobre la cual se construye todo el sistema de registro financiero de una empresa. No es simplemente una fórmula matemática, sino una representación lógica de la realidad económica: todo lo que una organización posee o tiene derecho a cobrar (activo) fue financiado de dos maneras posibles: con dinero prestado por terceros (pasivo) o con recursos propios de sus dueños o socios (patrimonio neto).
+La ecuación contable fundamental, expresada como **Activo = Pasivo + Patrimonio Neto**, es la base sobre la cual se construye todo el sistema de registro financiero de una empresa. No es simplemente una fórmula matemática, sino una representación lógica de la realidad económica. Todo lo que una organización posee o tiene derecho a cobrar (activo) fue financiado de dos maneras posibles. Una es con dinero prestado por terceros (pasivo). La otra es con recursos propios de sus dueños o socios (patrimonio neto).
 
 Entender esta igualdad es crucial porque garantiza el equilibrio interno de la contabilidad. Si los recursos de la empresa no se pueden explicar claramente como deuda o como capital propio, hay un error en el registro. Esta ecuación permite a los administradores, inversores y el Estado comprender la salud financiera de una organización, ya que muestra no solo cuánto vale la empresa, sino también de dónde vino ese valor. Sin este principio, sería imposible saber si una compañía es solvente o si está en riesgo de quiebra.
 

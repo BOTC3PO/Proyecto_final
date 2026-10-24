@@ -423,6 +423,5 @@ opciones_explicitas:
 respuesta: "Porque sin saber leer los símbolos y la escala del mapa no se puede identificar dónde empieza y termina cada jurisdicción"
 
 explicacion: |
-  Es la razón por la que `division-politica/` depende de
-  `../mapa-plano-escala/` en `../dependencias.md`.
+  Sin saber leer los símbolos y la escala de un mapa no se puede identificar dónde empieza y termina cada jurisdicción.
 ```

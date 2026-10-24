@@ -24,7 +24,7 @@ El enfoque **cuantitativo** trabaja con números y busca medir, comparar y encon
 - **Grupo focal**: una discusión guiada entre varias personas sobre un tema.
 - **Análisis de fuentes secundarias**: usar datos ya producidos por otros, como estadísticas oficiales, documentos o noticias.
 
-En la Argentina, el INDEC produce dos fuentes centrales: el **Censo Nacional de Población, Hogares y Viviendas**, que se realiza cada diez años (el más reciente fue en 2022), y la **Encuesta Permanente de Hogares (EPH)**, que se aplica en forma continua para medir empleo, ingresos y pobreza.
+En la Argentina, el INDEC produce dos fuentes centrales. Una es el **Censo Nacional de Población, Hogares y Viviendas**, que se realiza cada diez años (el más reciente fue en 2022). La otra es la **Encuesta Permanente de Hogares (EPH)**, que se aplica en forma continua para medir empleo, ingresos y pobreza.
 
 ## Población, muestra y representatividad
 

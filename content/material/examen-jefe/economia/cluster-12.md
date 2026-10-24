@@ -2148,7 +2148,6 @@ tipo: vf
 enunciado: "Desde la balanza comercial hasta el default de deuda, toda esta sub-rama sigue el mismo hilo: cómo un país se relaciona económicamente con el resto del mundo, y qué puede salir bien o mal en esa relación."
 
 explicacion: |
-  Es el cierre conceptual de toda la sub-rama de Economía
-  Internacional (`E33`-`E37`).
+  Verdadero: toda la sub-rama trata de cómo un país se relaciona económicamente con el resto del mundo, y qué puede salir bien o mal en esa relación.
 ```
 

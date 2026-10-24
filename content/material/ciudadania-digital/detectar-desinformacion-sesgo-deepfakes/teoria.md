@@ -18,7 +18,7 @@ Un *deepfake* es un tipo de contenido audiovisual (video o audio) generado media
 
 ## 2. Sesgos en la información
 
-El sesgo no siempre es visible a simple vista, pero se detecta cuando los medios o creadores de contenido seleccionan datos, omiten contexto o usan lenguaje que influye en cómo se interpreta la información. Por ejemplo, un titular como *"Científicos confirman que el chocolate cura el acné"* sugiere una afirmación generalizada sin mencionar limitaciones del estudio, mientras que uno como *"El 90% de los expertos afirma que el chocolate es malo"* usa porcentajes para dar falsa autoridad a una opinión. Estas estrategias buscan polarizar o manipular al lector, y su detección requiere leer con atención, buscar fuentes múltiples y cuestionar la intención detrás del mensaje.
+El sesgo no siempre es visible a simple vista, pero se detecta cuando los medios o creadores de contenido seleccionan datos, omiten contexto o usan lenguaje que influye en cómo se interpreta la información. Por ejemplo, un titular como *"Científicos confirman que el chocolate cura el acné"* sugiere una afirmación generalizada sin mencionar limitaciones del estudio. Uno como *"El 90% de los expertos afirma que el chocolate es malo"*, en cambio, usa porcentajes para dar falsa autoridad a una opinión. Estas estrategias buscan polarizar o manipular al lector, y su detección requiere leer con atención, buscar fuentes múltiples y cuestionar la intención detrás del mensaje.
 
 ---
 
@@ -41,4 +41,4 @@ Además, prestar atención a términos exagerados ("¡Sorpresa!", "Nunca antes v
 
 ## 5. Conexión con lo que sigue
 
-Este tema se conecta con responsabilidad civil en la red, donde se analiza el impacto de la difusión de deepfakes en la vida pública, y con etica de la inteligencia artificial, para entender los límites éticos del uso de IA en la creación de contenido.
+Este tema se conecta con responsabilidad civil en la red, donde se analiza el impacto de la difusión de deepfakes en la vida pública. También se conecta con ética de la inteligencia artificial, para entender los límites éticos del uso de IA en la creación de contenido.

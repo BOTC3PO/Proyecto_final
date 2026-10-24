@@ -58,10 +58,10 @@ de alta y baja presión que se ven en los mapas del clima.
 Una **isobara** es una línea en un mapa que une puntos con la **misma
 presión atmosférica** — igual idea que las curvas de nivel de un mapa de
 relieve (`../../geografia/relieve-clima-biomas/`), pero para presión en
-vez de altura. Isobaras muy juntas (muy cercanas entre sí) indican un
-cambio de presión brusco en poco espacio, lo que se traduce en **vientos
-fuertes** (el aire se mueve rápido de la zona de alta a la de baja
-presión para compensar la diferencia).
+vez de altura. Isobaras muy juntas (muy cercanas entre sí) indican un cambio de presión
+brusco en poco espacio. Eso se traduce en **vientos fuertes**: el aire se
+mueve rápido de la zona de alta a la de baja presión para compensar la
+diferencia.
 
 ## Alta presión (anticiclón) y baja presión (ciclón/depresión)
 
@@ -76,16 +76,15 @@ presión para compensar la diferencia).
   `../formacion-de-nubes/`.
 
 El viento siempre sopla **de la zona de alta hacia la zona de baja
-presión**, buscando equilibrar la diferencia — el mismo principio que
-iguala cualquier diferencia de presión (como el aire que sale de un globo
-inflado hacia la presión más baja de afuera).
+presión**, buscando equilibrar la diferencia. Es el mismo principio que
+iguala cualquier diferencia de presión, como el aire que sale de un globo
+inflado hacia la presión más baja de afuera.
 
 ## Relación con el relieve, clima y biomas
 
 `../../geografia/relieve-clima-biomas/` describe *qué* clima tiene cada
-región (seco, húmedo, templado) sin explicar el mecanismo de fondo. La
-presión atmosférica es una pieza de ese mecanismo: por ejemplo, muchas
+región (seco, húmedo, templado) sin explicar el mecanismo de fondo. La presión atmosférica es una pieza de ese mecanismo. Por ejemplo, muchas
 zonas desérticas del planeta coinciden con **bandas de alta presión
-subtropical** permanente (aire que desciende, se comprime y se seca), y
+subtropical** permanente (aire que desciende, se comprime y se seca). Y
 buena parte de las lluvias tropicales coinciden con **bajas presiones
 ecuatoriales** (aire cálido y húmedo que asciende todo el año).

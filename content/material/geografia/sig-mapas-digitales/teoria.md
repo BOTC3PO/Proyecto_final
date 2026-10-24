@@ -25,11 +25,10 @@ mapa **responda preguntas**, no sólo se muestre.
 Un SIG organiza la información en **capas** independientes que se
 pueden mostrar u ocultar por separado: una capa de calles, una de
 edificios, una de tránsito en vivo, una de imágenes satelitales de
-fondo, una de límites administrativos. El usuario puede combinar sólo
-las capas que necesita — es la misma idea de un mapa temático de papel
-(elegir qué mostrar y qué no) pero con la posibilidad de prender y
-apagar capas al instante, en vez de tener que dibujar un mapa nuevo por
-cada combinación.
+fondo, una de límites administrativos. El usuario puede combinar solo las capas que necesita. Es la misma idea de
+un mapa temático de papel (elegir qué mostrar y qué no), pero con la
+posibilidad de prender y apagar capas al instante. No hace falta dibujar un
+mapa nuevo por cada combinación.
 
 ## Por qué "coordenadas con una capa de datos encima"
 
@@ -42,10 +41,10 @@ calcular distancias o rutas desde y hacia ahí.
 
 ## Qué hace posible un mapa digital que uno de papel no
 
-- **Zoom continuo**: en papel, la escala es fija; en digital, se puede
-  acercar o alejar y el sistema recalcula qué nivel de detalle mostrar
-  en cada nivel de zoom (a mucho zoom aparecen nombres de calles chicas
-  que no entrarían en un mapa impreso de todo un país).
+- **Zoom continuo**: en papel, la escala es fija. En digital, se puede acercar
+  o alejar, y el sistema recalcula qué nivel de detalle mostrar en cada
+  nivel de zoom. A mucho zoom aparecen nombres de calles chicas que no
+  entrarían en un mapa impreso de todo un país.
 - **Rutas y cálculo de distancias**: el sistema puede calcular
   automáticamente el camino más corto o más rápido entre dos puntos,
   algo que en papel requeriría medir a mano.

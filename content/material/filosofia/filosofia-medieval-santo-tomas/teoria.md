@@ -14,11 +14,11 @@ Entre la caída del Imperio romano de Occidente (siglo V) y el Renacimiento, la 
 
 ## Agustín de Hipona
 
-Agustín (354–430), obispo de Hipona, en el norte de África, es la gran figura de los primeros siglos. Se formó en la retórica y se acercó a la filosofía platónica, que reinterpretó en clave cristiana: las Ideas pasaron a ser pensamientos de Dios. Sostuvo que la fe y la razón se ayudan, y se le atribuye la fórmula «cree para entender». En sus *Confesiones* reflexionó sobre el tiempo, la memoria y la interioridad, y en *La ciudad de Dios* pensó la historia como el cruce entre dos ciudades, la de los que aman a Dios y la de los que se aman a sí mismos. También trató el problema del mal, que explicó no como algo positivo creado por Dios, sino como ausencia o privación de bien.
+Agustín (354–430), obispo de Hipona, en el norte de África, es la gran figura de los primeros siglos. Se formó en la retórica y se acercó a la filosofía platónica, que reinterpretó en clave cristiana: las Ideas pasaron a ser pensamientos de Dios. Sostuvo que la fe y la razón se ayudan, y se le atribuye la fórmula «cree para entender». En sus *Confesiones* reflexionó sobre el tiempo, la memoria y la interioridad. En *La ciudad de Dios* pensó la historia como el cruce entre dos ciudades: la de los que aman a Dios y la de los que se aman a sí mismos. También trató el problema del mal, que explicó no como algo positivo creado por Dios, sino como ausencia o privación de bien.
 
 ## La escolástica y la querella de los universales
 
-Desde el siglo XI las escuelas catedralicias y las universidades dieron nombre a la **escolástica**, un modo de hacer filosofía y teología basado en la lectura de autoridades, la discusión ordenada de objeciones y respuestas, y la búsqueda de una síntesis. Anselmo de Canterbury propuso un famoso argumento a favor de la existencia de Dios a partir de la idea misma de un ser mayor que el cual nada puede pensarse, que más tarde se llamó argumento ontológico y fue muy discutido.
+Desde el siglo XI las escuelas catedralicias y las universidades dieron nombre a la **escolástica**. Es un modo de hacer filosofía y teología basado en la lectura de autoridades, la discusión ordenada de objeciones y respuestas, y la búsqueda de una síntesis. Anselmo de Canterbury propuso un famoso argumento a favor de la existencia de Dios, a partir de la idea misma de un ser mayor que el cual nada puede pensarse. Más tarde se lo llamó argumento ontológico y fue muy discutido.
 
 Otra gran discusión fue la **querella de los universales**: ¿existen realmente las ideas generales, como humanidad o blancura, o son solo nombres que usamos para agrupar cosas individuales? Los realistas sostenían que los universales existen; los nominalistas, que solo existen los individuos y los universales son palabras. El debate prolonga el desacuerdo entre Platón y Aristóteles.
 
@@ -32,7 +32,7 @@ Tomás de Aquino (1224 o 1225–1274), fraile dominico y maestro en París, dio 
 
 Para demostrar que Dios existe propuso **cinco vías**, argumentos que parten de hechos de la experiencia: el movimiento, la causalidad, la contingencia de los seres, los grados de perfección y el orden del mundo. Todos concluyen en la necesidad de un primer motor, una causa primera y un ser necesario. Siguió a Aristóteles en muchas cosas, como en el hilemorfismo y en la idea de que el conocimiento parte de lo sensible, pero lo corrigió donde chocaba con la fe.
 
-En ética y política desarrolló la **ley natural**, la idea de que la razón humana puede descubrir ciertos principios de lo bueno y lo justo, y que las leyes humanas son justas en la medida en que se ajustan a ellos. Esta noción tuvo mucha influencia posterior en el derecho y en los debates sobre derechos humanos.
+En ética y política desarrolló la **ley natural**. Es la idea de que la razón humana puede descubrir ciertos principios de lo bueno y lo justo. Las leyes humanas son justas en la medida en que se ajustan a ellos. Esta noción tuvo mucha influencia posterior en el derecho y en los debates sobre derechos humanos.
 
 ## Cómo se cierra la etapa
 

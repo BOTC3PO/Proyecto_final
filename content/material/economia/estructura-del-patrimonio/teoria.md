@@ -10,7 +10,7 @@
 
 ## ¿Qué es el patrimonio y por qué lo estudiamos?
 
-El patrimonio es el conjunto de bienes, derechos y obligaciones que posee una persona o, en nuestro caso, una empresa. Imaginá que tenés una casa: la casa en sí es un bien, el dinero que te queda en el bolsillo después de pagar la cuota del banco es un derecho (lo que te pertenece), y la deuda pendiente con la entidad financiera es una obligación. Juntos, estos elementos definen la situación económica real de quien los posee.
+El patrimonio es el conjunto de bienes, derechos y obligaciones que posee una persona o, en nuestro caso, una empresa. Imaginá que tenés una casa. La casa en sí es un bien. El dinero que te queda en el bolsillo después de pagar la cuota del banco es un derecho (lo que te pertenece). Y la deuda pendiente con la entidad financiera es una obligación. Juntos, estos elementos definen la situación económica real de quien los posee.
 
 En el contexto de la economía y la contabilidad, entender el patrimonio es fundamental porque nos permite saber si una empresa está sana, si puede pagar sus cuentas o si tiene capacidad para crecer. Sin esta estructura clara, sería imposible tomar decisiones informadas, ya sea para invertir, pedir un préstamo o simplemente gestionar los recursos diarios. Es como el tablero de puntuación de un juego: te dice exactamente dónde estás parado.
 

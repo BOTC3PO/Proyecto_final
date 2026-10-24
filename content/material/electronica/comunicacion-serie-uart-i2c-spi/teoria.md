@@ -10,7 +10,7 @@
 
 ## 1. Serie versus paralelo
 
-Para enviar un byte entre dos dispositivos se puede usar una línea por cada bit, enviando los ocho a la vez (comunicación paralela), o una sola línea por la que los bits viajan uno tras otro (comunicación serie). La paralela es rápida pero necesita muchos cables y es sensible a las diferencias de tiempo entre ellos. La serie usa pocos conductores, por lo que es la elegida para distancias largas y para ahorrar pines. Los tres protocolos de este tema son seriales.
+Para enviar un byte entre dos dispositivos se puede usar una línea por cada bit y enviar los ocho a la vez (comunicación paralela). O se puede usar una sola línea por la que los bits viajan uno tras otro (comunicación serie). La paralela es rápida pero necesita muchos cables y es sensible a las diferencias de tiempo entre ellos. La serie usa pocos conductores, por lo que es la elegida para distancias largas y para ahorrar pines. Los tres protocolos de este tema son seriales.
 
 ## 2. Síncrono y asíncrono
 
@@ -30,7 +30,7 @@ El SPI es un protocolo síncrono más rápido que el I2C. Usa cuatro líneas: SC
 
 ## 6. Cómo elegir
 
-UART sirve para enlaces punto a punto simples. I2C conviene para muchos dispositivos lentos con pocos cables. SPI es la elección cuando importa la velocidad. En todos los casos hay que respetar los niveles de tensión de los dispositivos, ya que conectar uno de 5 V a otro de 3,3 V puede dañarlo, y los dos extremos deben usar el mismo protocolo y la misma configuración.
+UART sirve para enlaces punto a punto simples. I2C conviene para muchos dispositivos lentos con pocos cables. SPI es la elección cuando importa la velocidad. En todos los casos hay que respetar los niveles de tensión de los dispositivos, ya que conectar uno de 5 V a otro de 3,3 V puede dañarlo. Además, los dos extremos deben usar el mismo protocolo y la misma configuración.
 
 ## N. Conexión con lo que sigue
 

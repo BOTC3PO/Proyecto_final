@@ -14,7 +14,9 @@ Una imagen **real** se forma cuando los rayos de luz convergen en un punto físi
 
 En cambio, una **imagen virtual** surge cuando los rayos de luz no convergen físicamente, sino que su prolongación aparente lo hace. Esto ocurre en sistemas como espejos planos o convexos: aunque parece que los rayos provienen de un punto detrás del espejo, allí no hay convergencia real. Por eso, una imagen virtual **no se puede proyectar** y solo se observa al mirar directamente el sistema óptico.
 
-<!-- IMAGEN: Esquema con rayos convergentes (imagen real) y divergentes (imagen virtual), indicando la diferencia en su formación -->.
+![Esquema con rayos convergentes (imagen real) y divergentes (imagen virtual), indicando la diferencia en su formación](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Thin_lens_images_mk.svg/960px-Thin_lens_images_mk.svg.png)
+
+*Imagen: «Thin lens images mk», Cmgleederivative by B. Jankuloski, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Thin_lens_images_mk.svg).*
 
 ---
 
@@ -36,7 +38,7 @@ La ubicación del objeto respecto a los elementos ópticos define si la imagen e
   - Si está **entre el foco y el centro**, la imagen es real, invertida y mayor.
   - Si está **detrás del foco**, la imagen se vuelve virtual, derecha y aumentada.
 
-Este comportamiento también ocurre en lentes: si un objeto está dentro de la distancia focal de una lente convergente, la imagen es virtual; si está más allá del foco, la imagen es siempre real (invertida, y de tamaño mayor, igual o menor según la distancia exacta al doble del foco).
+Este comportamiento también ocurre en lentes. Si un objeto está dentro de la distancia focal de una lente convergente, la imagen es virtual. Si está más allá del foco, la imagen es siempre real: invertida, y de tamaño mayor, igual o menor según la distancia exacta al doble del foco.
 
 ---
 

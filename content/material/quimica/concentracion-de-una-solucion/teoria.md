@@ -21,10 +21,10 @@ es el solvente.
 
 ## Qué es la concentración
 
-La **concentración** indica cuánto soluto hay por cada cantidad de
-solución — es, en el fondo, la misma idea de "cantidad por unidad de
-volumen (o masa)" que ya apareció en `../densidad/`, aplicada a una
-mezcla en vez de a una sustancia pura.
+La **concentración** indica cuánto soluto hay por cada cantidad de solución.
+Es, en el fondo, la misma idea de "cantidad por unidad de volumen (o masa)"
+que ya apareció en `../densidad/`, aplicada a una mezcla en vez de a una
+sustancia pura.
 
 ## Concentración porcentual masa/volumen (%m/V)
 

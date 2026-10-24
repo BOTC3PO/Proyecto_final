@@ -16,9 +16,9 @@ comunes).
 ## Qué es la reducción al absurdo
 
 La **reducción al absurdo** es una técnica de demostración que prueba una
-afirmación P de una forma indirecta: en vez de argumentar directamente a
-favor de P, se **supone que P es falsa**, y a partir de esa suposición se
-llega a una **contradicción** (algo lógicamente imposible). Como suponer
+afirmación P de una forma indirecta. En vez de argumentar directamente a
+favor de P, se **supone que P es falsa**. A partir de esa suposición se
+llega a una **contradicción**, algo lógicamente imposible. Como suponer
 "P es falsa" lleva a algo imposible, esa suposición tiene que estar mal
 — así que P tiene que ser **verdadera**.
 

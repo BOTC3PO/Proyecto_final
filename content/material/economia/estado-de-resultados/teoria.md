@@ -23,7 +23,7 @@ Por ejemplo:
 - Costos y gastos: $8 500  
 - Resultado: $1 500 (ganancia)  
 
-Este cálculo es fundamental para tomar decisiones sobre inversión, distribución de utilidades o ajuste de precios. <!-- IMAGEN: Ejemplo de estado de resultados con columnas de ingresos, costos y resultado neto -->.
+Este cálculo es fundamental para tomar decisiones sobre inversión, distribución de utilidades o ajuste de precios.
 
 ## 3. Clasificación del resultado
 

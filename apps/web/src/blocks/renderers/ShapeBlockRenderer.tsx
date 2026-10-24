@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react"
 import type { ShapeBlock } from "../types"
 import { COLLECTIONS } from "../shapes/collections"
 
@@ -9,6 +10,17 @@ export function ShapeBlockRenderer({ block }: Props) {
   const width = block.canvasWidth ?? 800
   const height = block.canvasHeight ?? 500
   const connectors = block.connectors ?? []
+
+  // El lienzo tiene medidas fijas (800×500 por defecto): en pantallas angostas se escala para que no se corte.
+  const contenedor = useRef<HTMLDivElement>(null)
+  const [escala, setEscala] = useState(1)
+  useEffect(() => {
+    const el = contenedor.current
+    if (!el || typeof ResizeObserver === "undefined") return
+    const ro = new ResizeObserver(() => setEscala(Math.min(1, el.clientWidth / width) || 1))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [width])
 
   const itemCenter = (itemId: string) => {
     const item = block.items.find((i) => i.id === itemId)
@@ -28,6 +40,7 @@ export function ShapeBlockRenderer({ block }: Props) {
   }
 
   return (
+    <div ref={contenedor} style={{ width: "100%", maxWidth: width, height: height * escala }}>
     <div
       style={{
         position: "relative",
@@ -36,6 +49,8 @@ export function ShapeBlockRenderer({ block }: Props) {
         background: "white",
         border: "1px solid #d1d5db",
         overflow: "hidden",
+        transform: `scale(${escala})`,
+        transformOrigin: "top left",
       }}
     >
       {/* SVG layer for connectors */}
@@ -144,6 +159,7 @@ export function ShapeBlockRenderer({ block }: Props) {
           </div>
         )
       })}
+    </div>
     </div>
   )
 }

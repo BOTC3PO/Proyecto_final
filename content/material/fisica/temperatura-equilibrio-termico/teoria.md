@@ -44,7 +44,7 @@ Por ejemplo, si calientas una taza de café con leche fría, el calor se transfi
 
 El **flujo de calor** siempre ocurre en un sentido único: desde lo que tiene mayor temperatura hacia lo que tiene menor, sin excepciones. Esto se debe a que los sistemas tienden al equilibrio térmico, minimizando las diferencias energéticas.
 
-Este principio es fundamental para entender fenómenos cotidianos como el enfriamiento de objetos, la conducción del calor en metales o incluso por qué no se puede transferir energía térmica desde un objeto más frío a uno más caliente sin intervención externa (como una máquina refrigeradora).
+Este principio es fundamental para entender fenómenos cotidianos como el enfriamiento de objetos y la conducción del calor en metales. También explica por qué no se puede transferir energía térmica desde un objeto más frío a uno más caliente sin intervención externa, como una máquina refrigeradora.
 
 ---
 

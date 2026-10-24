@@ -42,7 +42,7 @@ Muchos problemas atribuidos al control son en realidad del instrumento o del act
 
 ## 4. Diagnóstico de un PLC
 
-Cuando una máquina para, se parte de las indicaciones del propio PLC: luces de estado (marcha, error, batería), los códigos de falla y la información de diagnóstico del programa. Una buena práctica es ver en línea el estado de las entradas y salidas: si el sensor está activo y la entrada del PLC no lo refleja, el problema está en el cableado o en la entrada; si la entrada está bien y la salida no responde, hay que revisar el programa o la salida. Se sigue la cadena entre causa y efecto: sensor, cable, módulo de entrada, programa, módulo de salida, actuador.
+Cuando una máquina para, se parte de las indicaciones del propio PLC: luces de estado (marcha, error, batería), los códigos de falla y la información de diagnóstico del programa. Una buena práctica es ver en línea el estado de las entradas y salidas. Si el sensor está activo y la entrada del PLC no lo refleja, el problema está en el cableado o en la entrada. Si la entrada está bien y la salida no responde, hay que revisar el programa o la salida. Se sigue la cadena entre causa y efecto: sensor, cable, módulo de entrada, programa, módulo de salida, actuador.
 
 Las alarmas bien configuradas ayudan: un mensaje que dice qué condición no se cumple vale más que una luz roja genérica.
 

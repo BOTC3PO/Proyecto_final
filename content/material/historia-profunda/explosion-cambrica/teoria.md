@@ -12,7 +12,9 @@
 
 La Explosión Cámbrica comenzó hace unos **541 millones de años**, marcando el inicio del periodo Cámbrico. Este evento fue un punto de inflexión en la historia de la vida en la Tierra, ya que durante este tiempo se registraron cambios radicales en los ecosistemas marinos. Antes de esta etapa, los registros fósiles muestran organismos simples y estructuralmente homogéneos, como los del período Ediacárico. Pero con la Explosión Cámbrica, aparecieron formas complejas con sistemas nerviosos, aparatos digestivos y esqueletos duros que permitieron su preservación en rocas sedimentarias.
 
-<!-- IMAGEN: Comparación entre fósiles de Ediacara (arriba) y organismos del periodo Cámbrico (abajo), destacando la diversidad morfológica emergente -->
+![Comparación entre fósiles de Ediacara (arriba) y organismos del periodo Cámbrico (abajo), destacando la diversidad morfológica emergente](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Unknown_Ediacaran_biota%28%E6%9C%AA%E7%9F%A5%E3%81%AE%E3%82%A8%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AB%E3%83%A9%E7%94%9F%E7%89%A9%EF%BC%89.jpg/960px-Unknown_Ediacaran_biota%28%E6%9C%AA%E7%9F%A5%E3%81%AE%E3%82%A8%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AB%E3%83%A9%E7%94%9F%E7%89%A9%EF%BC%89.jpg)
+
+*Imagen: «Unknown Ediacaran biota(未知のエディアカラ生物）», Masahiro miyasaka, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Unknown_Ediacaran_biota%28%E6%9C%AA%E7%9F%A5%E3%81%AE%E3%82%A8%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AB%E3%83%A9%E7%94%9F%E7%89%A9%EF%BC%89.jpg).*
 
 ## 2. Aparición de los phyla
 

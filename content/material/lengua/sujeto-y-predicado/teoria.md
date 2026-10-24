@@ -43,11 +43,11 @@ del predicado es "**corre**".
 
 ## El sujeto tácito (o elíptico)
 
-El sujeto no siempre aparece **expresado** en la oración — puede ser
+El sujeto no siempre aparece **expresado** en la oración. Puede ser
 **tácito** (también llamado elíptico u omitido), deducible por la
-**desinencia verbal**: en "Comieron toda la pizza", el sujeto no
-aparece escrito, pero la terminación "-ieron" indica tercera persona
-del plural (ellos/ellas) — el sujeto tácito es "ellos" o "ellas".
+**desinencia verbal**. En "Comieron toda la pizza", el sujeto no aparece
+escrito, pero la terminación "-ieron" indica tercera persona del plural
+(ellos o ellas). El sujeto tácito es "ellos" o "ellas".
 
 ## Oraciones sin sujeto: las impersonales
 
@@ -77,7 +77,7 @@ no "se vende").
 
 Identificar correctamente el sujeto de una oración es el paso previo
 indispensable para aplicar bien la concordancia verbal
-(`../concordancia-nominal-y-verbal/`) — y distinguir sujeto de
-predicado es la base de cualquier análisis sintáctico más complejo,
-como identificar núcleos, modificadores, objetos y circunstanciales
-más adelante en la currícula de Lengua.
+(`../concordancia-nominal-y-verbal/`). Distinguir sujeto de predicado es,
+además, la base de cualquier análisis sintáctico más complejo, como
+identificar núcleos, modificadores, objetos y circunstanciales más adelante
+en la currícula de Lengua.

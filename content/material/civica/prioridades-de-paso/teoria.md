@@ -19,11 +19,11 @@ el contenido sigue siendo currícula real donde se dicta.
 
 ## La regla general: prioridad de derecha
 
-En una **bocacalle sin semáforo ni señalización** (situación default,
-la más común en calles de barrio), la regla general de la Ley de
-Tránsito 24.449 es la **prioridad de paso del que viene por la
-derecha**: si dos vehículos llegan a un cruce al mismo tiempo, el que
-viene por la mano derecha del otro tiene el paso.
+En una **bocacalle sin semáforo ni señalización** (situación default, la más
+común en calles de barrio), la regla general de la Ley de Tránsito 24.449 es
+la **prioridad de paso del que viene por la derecha**. Si dos vehículos
+llegan a un cruce al mismo tiempo, el que viene por la mano derecha del otro
+tiene el paso.
 
 ## Excepciones a la prioridad de derecha
 
@@ -46,15 +46,15 @@ viene por la mano derecha del otro tiene el paso.
 
 ## Peatones
 
-En una senda peatonal señalizada (con o sin semáforo propio), el
-peatón que ya inició el cruce tiene prioridad sobre cualquier vehículo
-que quiera girar en esa esquina — el vehículo debe esperar a que el
-peatón complete el cruce, no sólo "ceder el paso" de forma pasiva.
+En una senda peatonal señalizada (con o sin semáforo propio), el peatón que
+ya inició el cruce tiene prioridad sobre cualquier vehículo que quiera girar
+en esa esquina. El vehículo debe esperar a que el peatón complete el cruce,
+no solo "ceder el paso" de forma pasiva.
 
 ## Por qué depende de documentos y trámites
 
-Igual que `../senalizacion-vial/`: presupone el marco de habilitación
-legal para conducir (licencia de conducir, DNI) antes de entrar en el
-contenido específico de las reglas de circulación — sin ese marco
-previo, "quién tiene prioridad" es una regla sin un sujeto legal
-(conductor habilitado) al que aplicarle la obligación.
+Igual que `../senalizacion-vial/`, este tema presupone el marco de
+habilitación legal para conducir (licencia de conducir, DNI) antes de entrar
+en el contenido específico de las reglas de circulación. Sin ese marco
+previo, "quién tiene prioridad" es una regla sin un sujeto legal (conductor
+habilitado) al que aplicarle la obligación.

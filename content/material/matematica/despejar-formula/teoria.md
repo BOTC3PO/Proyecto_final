@@ -14,12 +14,11 @@ denominador, errores comunes).
 ## Lo mismo que resolver una ecuación, con letras en vez de números
 
 Una fórmula como P = 2(b + h) es, en el fondo, una ecuación con varias
-letras en lugar de una sola incógnita. "Despejar b" significa exactamente
-lo mismo que "resolver la ecuación para b": dejarla sola de un lado,
-usando las mismas reglas de la balanza ya vistas en
-`../ecuacion-primer-grado/teoria.md` — lo único que cambia es que del otro
-lado, en vez de quedar un número, queda una **expresión con las demás
-letras**.
+letras en lugar de una sola incógnita. "Despejar b" significa exactamente lo mismo que "resolver la ecuación para
+b": dejarla sola de un lado, usando las mismas reglas de la balanza ya
+vistas en `../ecuacion-primer-grado/teoria.md`. Lo único que cambia es que
+del otro lado, en vez de quedar un número, queda una **expresión con las
+demás letras**.
 
 Por ejemplo, despejar b de P = 2(b + h):
 1. Dividir los dos lados por 2: P/2 = b + h

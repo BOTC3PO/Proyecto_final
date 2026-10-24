@@ -1,0 +1,32 @@
+{
+ "titulo": "Máquina virtual y contenedor",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Máquina virtual",
+    "Contenedor"
+   ],
+   "rows": [
+    [
+     "Qué incluye",
+     "Sistema operativo completo y hardware emulado",
+     "Solo la aplicación y sus dependencias"
+    ],
+    [
+     "Kernel",
+     "Propio",
+     "Comparte el del sistema anfitrión"
+    ],
+    [
+     "Arranque y peso",
+     "Lento y pesado",
+     "Rápido y liviano"
+    ]
+   ]
+  }
+ ]
+}

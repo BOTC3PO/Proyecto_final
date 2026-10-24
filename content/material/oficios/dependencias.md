@@ -55,7 +55,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `plomero/fundamentos-plomeria/` | `../fisica/caudal/`, `../matematica/volumen-y-capacidad/` | Sección 1. Presión, caudal, volumen y capacidad, unidades. |
+| `plomero/fundamentos-plomeria/` | `../fisica/caudal-q-a-v/`, `../matematica/volumen-y-capacidad/` | Sección 1. Presión, caudal, volumen y capacidad, unidades. |
 | `plomero/seguridad-plomeria/` | `fundamentos-plomeria/` | Sección 2. |
 | `plomero/herramientas-plomeria/` | `seguridad-plomeria/` | Sección 3. |
 | `plomero/materiales-plomeria/` | `herramientas-plomeria/` | Sección 4. |
@@ -70,7 +70,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `albanil-constructor/fundamentos-albanileria/` | `../geografia/area-de-poligonos-regulares-y-compuestas/`, `../matematica/volumen-y-capacidad/` | Sección 1. Área de polígonos, volumen y capacidad, escalas de plano, replanteo en terreno. |
+| `albanil-constructor/fundamentos-albanileria/` | `../matematica/area-poligonos-regulares-y-compuestas/`, `../matematica/volumen-y-capacidad/` | Sección 1. Área de polígonos, volumen y capacidad, escalas de plano, replanteo en terreno. |
 | `albanil-constructor/seguridad-albanileria/` | `fundamentos-albanileria/` | Sección 2. |
 | `albanil-constructor/herramientas-albanileria/` | `seguridad-albanileria/` | Sección 3. |
 | `albanil-constructor/materiales-albanileria/` | `herramientas-albanileria/` | Sección 4. |
@@ -88,7 +88,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `carpintero/fundamentos-carpinteria/` | `../geometria-analitica/rectas-y-angulos/` | Sección 1. Distinto de `../carpintero-de-aluminio/` (`OF23`, perfiles de aluminio para aberturas) — este oficio trabaja madera maciza y tableros. |
+| `carpintero/fundamentos-carpinteria/` | `../matematica/rectas-paralelas-y-perpendiculares/` | Sección 1. Distinto de `../carpintero-de-aluminio/` (`OF23`, perfiles de aluminio para aberturas) — este oficio trabaja madera maciza y tableros. |
 | `carpintero/seguridad-carpinteria/` | `fundamentos-carpinteria/` | Sección 2. |
 | `carpintero/herramientas-carpinteria/` | `seguridad-carpinteria/` | Sección 3. |
 | `carpintero/materiales-carpinteria/` | `herramientas-carpinteria/` | Sección 4. |
@@ -103,7 +103,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `gasista/fundamentos-gasista/` | `../quimica/gases-ideales/`, `../fisica/presion/` | Sección 1. Gases ideales, presión, poder calorífico, combustión completa/incompleta. |
+| `gasista/fundamentos-gasista/` | `../quimica/gases-ideales/`, `../fisica/presion-f-sobre-a/` | Sección 1. Gases ideales, presión, poder calorífico, combustión completa/incompleta. |
 | `gasista/seguridad-gasista/` | `fundamentos-gasista/` | Sección 2 — la más crítica del oficio (monóxido de carbono, qué no hacer ante olor a gas). |
 | `gasista/herramientas-gasista/` | `seguridad-gasista/` | Sección 3. |
 | `gasista/materiales-gasista/` | `herramientas-gasista/` | Sección 4. |
@@ -153,7 +153,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `metalurgico/fundamentos-metalurgia/` | `../quimica/oxidacion-y-reduccion/`, `../fisica/calor-q-m-c-deltat/` | Sección 1. Comparte el piso térmico con `../soldador/`. |
+| `metalurgico/fundamentos-metalurgia/` | `../quimica/oxidacion-reduccion/`, `../fisica/calor-q-m-c-deltat/` | Sección 1. Comparte el piso térmico con `../soldador/`. |
 | `metalurgico/seguridad-metalurgia/` | `fundamentos-metalurgia/` | Sección 2. |
 | `metalurgico/procesos-metalurgicos/` | `seguridad-metalurgia/` | Sección 3. Fundición, laminado, forjado, temple, revenido, recocido. |
 | `metalurgico/materiales-metalurgicos/` | `procesos-metalurgicos/` | Sección 4. Aleaciones ferrosas/no ferrosas, aceros según uso. |
@@ -175,7 +175,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `tecnico-electromecanico/fundamentos-electromecanica/` | `../fisica/generador-motor-transformador/`, `../fisica/energia-cinetica/` | Sección 1. Metrología, estática/dinámica/cinemática, torque, vibraciones, dibujo técnico industrial. Comparte piso mecánico con `../mecanico/`. |
+| `tecnico-electromecanico/fundamentos-electromecanica/` | `../fisica/generador-motor-transformador/`, `../fisica/energia-cinetica/` | Sección 1. Metrología, estática/dinámica/cinemática, torque, vibraciones, dibujo técnico industrial. Comparte piso mecánico con `mecanico/fundamentos-mecanicos-automotor/`. |
 | `tecnico-electromecanico/seguridad-electromecanica/` | `fundamentos-electromecanica/` | Sección 2. Variante extendida de `../electricista/seguridad-electricista/` + riesgos mecánicos/energías residuales. |
 | `tecnico-electromecanico/materiales-y-mecanizado-electromecanica/` | `seguridad-electromecanica/` | Sección 3. Comparte materiales con `../metalurgico/`. |
 | `tecnico-electromecanico/elementos-de-maquinas-y-fluidos/` | `materiales-y-mecanizado-electromecanica/` | Sección 4. Ejes/rodamientos/engranajes, hidráulica, neumática. |
@@ -188,7 +188,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `agricultor/fundamentos-agricultura/` | `../biologia/fotosintesis-y-respiracion-celular/`, `../quimica/acido-base-y-ph/` | Sección 1. A diferencia de `../operario-agricola/` (`OF13`), que ejecuta, el Agricultor decide qué y cuándo plantar. |
+| `agricultor/fundamentos-agricultura/` | `../biologia/fotosintesis-respiracion-celular/`, `../quimica/ph-poh/` | Sección 1. A diferencia de `../operario-agricola/` (`OF13`), que ejecuta, el Agricultor decide qué y cuándo plantar. |
 | `agricultor/seguridad-agricultura/` | `fundamentos-agricultura/` | Sección 2. |
 | `agricultor/suelo-y-cultivo/` | `seguridad-agricultura/` | Sección 3. |
 | `agricultor/calculo-agricola/` | `suelo-y-cultivo/` | Sección 4. |
@@ -205,7 +205,7 @@ pendiente" en el header de cada uno.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `operario-agricola/fundamentos-operario-agricola/` | `../matematica/proporcionalidad-funcion/`, base mecánica compartida con `../mecanico/` | Sección 1. A diferencia de `../agricultor/` (`OF12`), que decide, el Operario Agrícola ejecuta y mantiene la maquinaria. |
+| `operario-agricola/fundamentos-operario-agricola/` | `../matematica/proporcionalidad-funcion/`, base mecánica compartida con `mecanico/fundamentos-mecanicos-automotor/` | Sección 1. A diferencia de `../agricultor/` (`OF12`), que decide, el Operario Agrícola ejecuta y mantiene la maquinaria. |
 | `operario-agricola/seguridad-operario-agricola/` | `fundamentos-operario-agricola/` | Sección 2. |
 | `operario-agricola/maquinaria-agricola/` | `seguridad-operario-agricola/` | Sección 3. |
 | `operario-agricola/dosificacion-agricola/` | `maquinaria-agricola/` | Sección 4. |
@@ -251,20 +251,20 @@ camino desbloqueado.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `tecnico-en-automatizacion-y-robotica/fundamentos-robotica/` | `../tecnico-electromecanico/diagnostico-electromecanico-por-casos/`, `../informatica/estructuras-de-control-bucles/`, `../electronica/sensores-y-actuadores/` | Sección 1. Matemática para robótica (vectores/matrices), sistemas de coordenadas, bucles como base del control robótico. |
+| `tecnico-en-automatizacion-y-robotica/fundamentos-robotica/` | `tecnico-electromecanico/diagnostico-electromecanico-por-casos/`, `../informatica/estructuras-de-control-bucles/`, `../electronica/sensores-y-actuadores/` | Sección 1. Matemática para robótica (vectores/matrices), sistemas de coordenadas, bucles como base del control robótico. |
 | `tecnico-en-automatizacion-y-robotica/microcontroladores-y-programacion-embebida/` | `fundamentos-robotica/` | Sección 5 del diseño. GPIO/ADC/PWM, UART/I2C/SPI, algoritmos y POO aplicados a sistemas embebidos. |
 | `tecnico-en-automatizacion-y-robotica/actuadores-y-sensores-robotica/` | `microcontroladores-y-programacion-embebida/` | Secciones 7-8. Servomotores/paso a paso/BLDC, encoders/IMU/cámaras/LIDAR. |
 | `tecnico-en-automatizacion-y-robotica/cinematica-y-dinamica-robotica/` | `actuadores-y-sensores-robotica/` | Secciones 9-11. Cinemática directa/inversa, matrices homogéneas, dinámica de manipuladores, control de trayectoria. |
 | `tecnico-en-automatizacion-y-robotica/robotica-industrial-y-vision/` | `cinematica-y-dinamica-robotica/` | Secciones 12-13. SCARA/delta/cobots, procesamiento de imagen y detección de objetos. |
 | `tecnico-en-automatizacion-y-robotica/ia-y-software-robotico/` | `robotica-industrial-y-vision/` | Secciones 14-16. Machine learning/redes neuronales/aprendizaje por refuerzo, ROS (nodos/tópicos), SLAM y planificación de trayectoria. |
 | `tecnico-en-automatizacion-y-robotica/seguridad-y-comunicaciones-robotica/` | `ia-y-software-robotico/` | Secciones 17-19 salvo diagnóstico. Seguridad en robótica industrial, protocolos de comunicación. |
-| `tecnico-en-automatizacion-y-robotica/diagnostico-robotica-por-casos/` | `seguridad-y-comunicaciones-robotica/` | Sección 18, cierre — única sección con `cuestionario.md`. Diagnóstico multivariable, mismo patrón que `../tecnico-electromecanico/diagnostico-electromecanico-por-casos/`. |
+| `tecnico-en-automatizacion-y-robotica/diagnostico-robotica-por-casos/` | `seguridad-y-comunicaciones-robotica/` | Sección 18, cierre — única sección con `cuestionario.md`. Diagnóstico multivariable, mismo patrón que `tecnico-electromecanico/diagnostico-electromecanico-por-casos/`. |
 
 ## Jardinero / Paisajista (`OF20`)
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `jardinero-paisajista/fundamentos-botanicos/` | `../biologia/partes-de-una-planta-y-germinacion/` | Sección 1. Morfología/fisiología de la planta, condicionantes, identificación y sistemática. |
+| `jardinero-paisajista/fundamentos-botanicos/` | `../biologia/partes-planta-germinacion/` | Sección 1. Morfología/fisiología de la planta, condicionantes, identificación y sistemática. |
 | `jardinero-paisajista/seguridad-jardineria/` | `fundamentos-botanicos/` | Sección 2. |
 | `jardinero-paisajista/materiales-jardineria/` | `seguridad-jardineria/` | Sección 3. |
 | `jardinero-paisajista/herramientas-y-maquinaria-jardineria/` | `materiales-jardineria/` | Sección 4. |
@@ -303,7 +303,7 @@ camino desbloqueado.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `modista-corte-y-confeccion/fundamentos-confeccion/` | `../matematica/razon-y-proporcion/` | Sección 1. |
+| `modista-corte-y-confeccion/fundamentos-confeccion/` | `../matematica/proporcion/` | Sección 1. |
 | `modista-corte-y-confeccion/seguridad-confeccion/` | `fundamentos-confeccion/` | Sección 2. |
 | `modista-corte-y-confeccion/materiales-confeccion/` | `seguridad-confeccion/` | Sección 3. |
 | `modista-corte-y-confeccion/herramientas-confeccion/` | `materiales-confeccion/` | Sección 4. |
@@ -322,7 +322,7 @@ camino desbloqueado.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `carpintero-de-aluminio/fundamentos-carpinteria-aluminio/` | `../matematica/rectas-paralelas-y-perpendiculares/` (mismo prerrequisito que `../carpinteria/`) | Sección 1. |
+| `carpintero-de-aluminio/fundamentos-carpinteria-aluminio/` | `../matematica/rectas-paralelas-y-perpendiculares/` (mismo prerrequisito que `carpintero/fundamentos-carpinteria/`) | Sección 1. |
 | `carpintero-de-aluminio/seguridad-carpinteria-aluminio/` | `fundamentos-carpinteria-aluminio/` | Sección 2. |
 | `carpintero-de-aluminio/materiales-carpinteria-aluminio/` | `seguridad-carpinteria-aluminio/` | Sección 3. |
 | `carpintero-de-aluminio/herramientas-carpinteria-aluminio/` | `materiales-carpinteria-aluminio/` | Sección 4. |
@@ -376,7 +376,7 @@ camino desbloqueado.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `herrero-forjador/fundamentos-herreria/` | `../fisica/calor-q-mc-deltat/`, `../historia-profunda/metalurgia/` | Sección 1. Compartido con `../soldadura/` (si existe la carpeta). |
+| `herrero-forjador/fundamentos-herreria/` | `../fisica/calor-q-m-c-deltat/`, `../historia-profunda/metalurgia-cobre-hierro/` | Sección 1. Compartido con `../soldadura/` (si existe la carpeta). |
 | `herrero-forjador/seguridad-herreria/` | `fundamentos-herreria/` | Sección 2. |
 | `herrero-forjador/materiales-herreria/` | `seguridad-herreria/` | Sección 3. |
 | `herrero-forjador/herramientas-herreria/` | `materiales-herreria/` | Sección 4. |
@@ -395,13 +395,19 @@ de esta tabla.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `cocina-gastronomia/fundamentos-cocina/` | `../../vida-cotidiana/escalar-una-receta/`, `../../fisica/temperatura-equilibrio-termico/` | Sección 1. Escalado de receta por comensales (ficha técnica) y temperatura de cocción/servicio — comparte piso con `../panadero/fundamentos-panaderia/`. |
+| `cocina-gastronomia/fundamentos-cocina/` | `../vida-cotidiana/escalar-receta/`, `../fisica/temperatura-equilibrio-termico/` | Sección 1. Escalado de receta por comensales (ficha técnica) y temperatura de cocción/servicio — comparte piso con `../panadero/fundamentos-panaderia/`. |
 | `cocina-gastronomia/seguridad-e-higiene-cocina/` | `fundamentos-cocina/` | Sección 2. Manipulación de alimentos, cadena de frío, alérgenos, HACCP básico — comparte base con `../procesador-de-alimentos/seguridad-e-higiene-procesamiento-alimentos/`, aplicada a cocina de restaurante en vez de industria alimentaria. |
 | `cocina-gastronomia/tecnicas-de-coccion/` | `seguridad-e-higiene-cocina/` | Sección 3. Mise en place, métodos de cocción húmeda/seca/combinada, puntos de cocción. |
 | `cocina-gastronomia/materia-prima-cocina/` | `tecnicas-de-coccion/` | Sección 4. Cortes de verdura y de carne, técnicas de conservación, productos de temporada. |
 | `cocina-gastronomia/calculo-cocina/` | `materia-prima-cocina/` | Sección 5. Escalado de receta por comensales, rendimiento y merma, costeo de plato (food cost). |
 | `cocina-gastronomia/diagnostico-cocina-por-casos/` | `calculo-cocina/` | Sección 6, cierre — única sección con `cuestionario.md` (salsa cortada, guiso soso, carne dura). |
 | `cocina-gastronomia/manipulacion-de-alimentos-y-cadena-de-frio/` | `fundamentos-cocina/` | Desarrolla el apartado de manipulación y cadena de frío de `seguridad-e-higiene-cocina/`. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
+| `cocina-gastronomia/recetas/nivel-0-tecnica/` | `fundamentos-cocina/`, `seguridad-e-higiene-cocina/` | Ruta B (recetas), nivel 0: técnica sin receta. Va antes de cualquier receta (`PLAN-progresion.md`). |
+| `cocina-gastronomia/recetas/01-harina/` | `recetas/nivel-0-tecnica/` | Ruta B, primera receta de la serie de masas. |
+| `cocina-gastronomia/recetas/02-panificacion-basica/` | `recetas/01-harina/` | Ruta B, serie de masas. |
+| `cocina-gastronomia/recetas/03-tipos-de-pan/` | `recetas/02-panificacion-basica/` | Ruta B, serie de masas. |
+| `cocina-gastronomia/recetas/04-pan-brioche/` | `recetas/03-tipos-de-pan/` | Ruta B, serie de masas. |
+| `cocina-gastronomia/recetas/05-receta-final/` | `recetas/04-pan-brioche/` | Ruta B, cierre de la serie de masas. |
 | `cocina-gastronomia/alergenos-en-cocina/` | `manipulacion-de-alimentos-y-cadena-de-frio/` | Desarrolla el apartado de alérgenos. La lista oficial vigente se consulta en el Código Alimentario (no se fija acá). Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
 | `cocina-gastronomia/haccp-basico/` | `alergenos-en-cocina/` | Desarrolla el apartado de HACCP; comparte base con `../procesador-de-alimentos/seguridad-e-higiene-procesamiento-alimentos/`. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
 | `cocina-gastronomia/metodos-de-coccion-y-puntos-de-coccion/` | `haccp-basico/` | Separa húmedo, seco y combinado y los puntos de cocción que `tecnicas-de-coccion/` resume en un solo tema. Decisión de Claude, no pedida (plan en `../_plan-faltantes/oficios-a.md`, sección 9). Lección ampliada de Ruta A, con cuestionario no obligatorio; no cambia la cadena que cierra el logro (secciones 1 a 6 y diagnóstico). |
@@ -414,7 +420,7 @@ de esta tabla.
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `relojero/fundamentos-relojeria/` | `../fisica/conservacion-de-la-energia-mecanica/` | Sección 1. El resorte que guarda/libera energía es ese concepto a escala miniatura. |
+| `relojero/fundamentos-relojeria/` | `../fisica/conservacion-energia-mecanica/` | Sección 1. El resorte que guarda/libera energía es ese concepto a escala miniatura. |
 | `relojero/seguridad-relojeria/` | `fundamentos-relojeria/` | Sección 2. |
 | `relojero/materiales-relojeria/` | `seguridad-relojeria/` | Sección 3. |
 | `relojero/herramientas-relojeria/` | `materiales-relojeria/` | Sección 4. |
@@ -601,7 +607,7 @@ Primera de las 6 ramas de "Informática ramificada" (sección homónima de `ofic
 | `backend/apis-rest/` | `../informatica/protocolo-http-peticion-respuesta/` | Raíz: recursos, métodos, códigos de estado, buenas prácticas. |
 | `backend/arquitectura-de-servidores/` | `apis-rest/`, `../informatica/diseno-y-arquitectura-de-software/` | Capas, caché, colas, escalado, disponibilidad. |
 | `backend/autenticacion-y-autorizacion/` | `arquitectura-de-servidores/`, `../informatica/permisos-y-usuarios/` | Contraseñas, sesiones y tokens, MFA, roles. Enfoque defensivo. |
-| `backend/acceso-a-datos-desde-el-backend/` | `apis-rest/`, `../sql/select-y-where/`, `../sql/transacciones-sql/` | Cómo el servidor habla con la base: conexión, consultas parametrizadas, ORM, transacciones y migraciones. La planificación solo decía «conecta con SQL». Decisión de Claude, no pedida: dependencia deducida. |
+| `backend/acceso-a-datos-desde-el-backend/` | `apis-rest/`, `sql/select-y-where/`, `sql/transacciones-sql/` | Cómo el servidor habla con la base: conexión, consultas parametrizadas, ORM, transacciones y migraciones. La planificación solo decía «conecta con SQL». Decisión de Claude, no pedida: dependencia deducida. |
 | `backend/validacion-y-manejo-de-errores/` | `apis-rest/` | Validar la entrada, distinguir errores esperados de inesperados y responder con códigos y mensajes coherentes. Decisión de Claude, no pedida (laguna detectada en el plan de oficios). |
 | `backend/logs-y-monitoreo/` | `arquitectura-de-servidores/` | Qué registrar, niveles de log, métricas básicas y alertas; puente con la rama DevOps. Decisión de Claude, no pedida (laguna detectada en el plan de oficios). |
 | `backend/asincronia-y-colas-de-trabajo/` | `arquitectura-de-servidores/` | Tareas en segundo plano, colas, reintentos e idempotencia. `arquitectura-de-servidores` menciona «colas» sin desarrollarlas. Decisión de Claude, no pedida. |

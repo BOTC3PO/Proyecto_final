@@ -17,10 +17,10 @@ es correcta — mismo criterio que el resto de Filosofía.
 ## El criterio central: maximizar el bienestar general
 
 El **utilitarismo** responde a la primera pregunta central de
-`../etica-como-rama-propia/` ("¿qué hace correcta a una acción?") con
-un criterio basado en las **consecuencias**: una acción es correcta si
-produce el **mayor bienestar/felicidad posible para el mayor número
-de personas** — "la mayor felicidad para el mayor número".
+`../etica-como-rama-propia/` ("¿qué hace correcta a una acción?") con un
+criterio basado en las **consecuencias**. Una acción es correcta si produce
+el **mayor bienestar o felicidad posible para el mayor número de personas**:
+"la mayor felicidad para el mayor número".
 
 ## Referentes clásicos
 
@@ -41,19 +41,17 @@ sino el **resultado neto** de la acción.
 ## El dilema del tranvía (ejemplo clásico para pensar el criterio)
 
 Un tranvía va a atropellar a 5 personas; se puede desviar a otra vía
-donde atropellaría a 1 sola persona. El razonamiento utilitarista
-puro tendería a favorecer desviar el tranvía (1 muerte en vez de 5,
-mayor bienestar neto) — este dilema se usa históricamente para
-discutir tanto a favor como en contra del criterio utilitarista (ver
-también `../deontologia/`, que suele responder distinto a este mismo
-caso).
+donde atropellaría a 1 sola persona. El razonamiento utilitarista puro tendería a favorecer desviar el tranvía (1
+muerte en vez de 5, mayor bienestar neto). Este dilema se usa históricamente
+para discutir tanto a favor como en contra del criterio utilitarista. Ver
+también `../deontologia/`, que suele responder distinto a este mismo caso.
 
 ## Críticas típicas (mencionadas con neutralidad, no como conclusión)
 
 Una crítica común es que el utilitarismo podría, en teoría, justificar
-sacrificar a una minoría si eso maximiza el bienestar de la mayoría —
-un problema que otras corrientes (como la deontología) señalan como
-razón para no aceptar el criterio consecuencialista sin matices. No se
+sacrificar a una minoría si eso maximiza el bienestar de la mayoría. Otras
+corrientes, como la deontología, señalan esto como razón para no aceptar el
+criterio consecuencialista sin matices. No se
 declara aquí cuál corriente "tiene razón": se listan las críticas como
 parte de describir la corriente, no como veredicto.
 

@@ -10,7 +10,7 @@
 
 ## 1. La noticia
 
-La **noticia** es el género periodístico más básico y directo, destinado a informar sobre hechos recientes que requieren conocimiento público. Su estructura se basa en la **objetividad**, es decir, en transmitir los datos sin inclinaciones personales ni juicios de valor. Para cumplir su propósito, debe responder a las preguntas fundamentales: ¿qué pasó? (hecho), ¿quién lo hizo o fue afectado?, ¿cuándo y dónde ocurrió? y ¿cómo se desarrolló? (contexto). La noticia prioriza la **veracidad** de los datos, la **precisión** en el relato y la **inmediatez** al informar. Los medios suelen usar fuentes confiables para respaldar los hechos, y su redacción sigue un esquema claro: titular atractivo, desarrollo ordenado por relevancia (importante primero) y cierre con información complementaria. <!-- IMAGEN: Ejemplo de estructura de una noticia -->
+La **noticia** es el género periodístico más básico y directo, destinado a informar sobre hechos recientes que requieren conocimiento público. Su estructura se basa en la **objetividad**, es decir, en transmitir los datos sin inclinaciones personales ni juicios de valor. Para cumplir su propósito, debe responder a las preguntas fundamentales: ¿qué pasó? (hecho), ¿quién lo hizo o fue afectado?, ¿cuándo y dónde ocurrió? y ¿cómo se desarrolló? (contexto). La noticia prioriza la **veracidad** de los datos, la **precisión** en el relato y la **inmediatez** al informar. Los medios suelen usar fuentes confiables para respaldar los hechos, y su redacción sigue un esquema claro: titular atractivo, desarrollo ordenado por relevancia (importante primero) y cierre con información complementaria.
 
 ## 2. Opinión vs Información
 
@@ -18,11 +18,11 @@ El **artículo de opinión** no busca informar en el sentido estricto, sino expr
 
 ## 3. La entrevista
 
-La **entrevista** es un género que combina **información y profundidad**, ya sea para obtener datos específicos (como en una noticia) o para explorar un tema desde múltiples ángulos (en un análisis). Su forma más común es el **diálogo entre un entrevistador y un entrevistado**, donde se plantean preguntas guiadas por un propósito: investigar, educar o entretener. Las entrevistas pueden ser formales (en contextos profesionales) o informales (para relatos personales). La clave está en preparar preguntas claras, escuchar activamente y resumir las respuestas de manera coherente. <!-- IMAGEN: Flujo de una entrevista periodística -->
+La **entrevista** es un género que combina **información y profundidad**, ya sea para obtener datos específicos (como en una noticia) o para explorar un tema desde múltiples ángulos (en un análisis). Su forma más común es el **diálogo entre un entrevistador y un entrevistado**, donde se plantean preguntas guiadas por un propósito: investigar, educar o entretener. Las entrevistas pueden ser formales (en contextos profesionales) o informales (para relatos personales). La clave está en preparar preguntas claras, escuchar activamente y resumir las respuestas de manera coherente.
 
 ## 4. Otros géneros periodísticos
 
-Además de la noticia y la opinión, existen otros formatos como el **reportaje**, que combina elementos narrativos con investigación profunda; la **crónica**, que recoge eventos en tiempo real con un enfoque más literario; o el **análisis**, que desglosa datos complejos para su comprensión. Cada uno tiene reglas específicas: por ejemplo, el reportaje suele incluir testimonios directos y contexto geográfico, mientras que el análisis prioriza la interpretación de estadísticas o leyes. Estos géneros son herramientas clave para que los medios informen, educen y contextualicen a su audiencia.
+Además de la noticia y la opinión, existen otros formatos. El **reportaje** combina elementos narrativos con investigación profunda. La **crónica** recoge eventos en tiempo real con un enfoque más literario. El **análisis** desglosa datos complejos para su comprensión. Cada uno tiene reglas específicas: por ejemplo, el reportaje suele incluir testimonios directos y contexto geográfico, mientras que el análisis prioriza la interpretación de estadísticas o leyes. Estos géneros son herramientas clave para que los medios informen, educen y contextualicen a su audiencia.
 
 ## N. Conexión con lo que sigue
 

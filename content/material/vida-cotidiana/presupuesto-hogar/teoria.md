@@ -15,9 +15,8 @@ de reparto del ingreso.
 ## Qué es un presupuesto del hogar
 
 Un **presupuesto** es un plan de cómo se van a usar los ingresos de un
-período (casi siempre, un mes): cuánto entra, y en qué se va a gastar
-cada parte, antes de que el mes ya haya pasado y sea tarde para
-decidirlo.
+período (casi siempre, un mes). Dice cuánto entra y en qué se va a gastar
+cada parte, antes de que el mes ya haya pasado y sea tarde para decidirlo.
 
 ## Gastos fijos
 
@@ -70,11 +69,10 @@ Las dos clasificaciones se cruzan, no son la misma cosa con otro nombre.
 
 La regla 50/30/20 es un punto de partida orientativo, pensado para
 ayudar a repartir el ingreso de forma razonable — no significa que toda
-persona o familia tenga que cumplir esos porcentajes exactos. Alguien
-con un alquiler muy alto respecto a su ingreso, por ejemplo, puede
-necesitar ajustar la proporción; lo importante es la idea de fondo:
-separar conscientemente necesidades, deseos y ahorro, en vez de gastar
-sin un plan y ver qué queda al final (si queda algo).
+persona o familia tenga que cumplir esos porcentajes exactos. Alguien con un alquiler muy alto respecto a su ingreso, por ejemplo, puede
+necesitar ajustar la proporción. Lo importante es la idea de fondo: separar
+conscientemente necesidades, deseos y ahorro, en vez de gastar sin un plan y
+ver qué queda al final (si queda algo).
 
 ## Dónde aparece en la vida real
 

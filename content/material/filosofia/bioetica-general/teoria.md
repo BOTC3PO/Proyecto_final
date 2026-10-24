@@ -16,7 +16,7 @@ Esta disciplina es fundamental en nuestra sociedad contemporánea porque la cien
 
 ## Eutanasia: el derecho a morir con dignidad
 
-La eutanasia plantea uno de los dilemas más intensos: ¿tiene el individuo el derecho a decidir sobre su propia muerte cuando sufre una enfermedad incurable o un sufrimiento intolerable? Desde una perspectiva filosófica, se debate entre el principio de autonomía, que defiende la libertad personal para gestionar el propio cuerpo y destino, y el principio de sacralidad de la vida, que sostiene que la vida es un bien absoluto que no debe ser interrumpido intencionalmente.
+La eutanasia plantea uno de los dilemas más intensos: ¿tiene el individuo el derecho a decidir sobre su propia muerte cuando sufre una enfermedad incurable o un sufrimiento intolerable? Desde una perspectiva filosófica, se debate entre dos principios. El principio de autonomía defiende la libertad personal para gestionar el propio cuerpo y destino. El principio de sacralidad de la vida sostiene que la vida es un bien absoluto que no debe ser interrumpido intencionalmente.
 
 En este debate, es crucial distinguir entre la eutanasia activa (donde se administra una sustancia para causar la muerte) y la eutanasia pasiva o suspensión de tratamientos (dejar de intervenir para que la enfermedad siga su curso natural). También se habla de la muerte digna, que busca aliviar el sufrimiento sin acelerar ni posponer artificialmente la muerte. La discusión no es solo ética, sino también política y jurídica, ya que diferentes países y provincias han tomado posturas distintas, reflejando los valores predominantes de cada cultura.
 

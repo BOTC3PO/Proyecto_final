@@ -403,3 +403,29 @@ test("sortearCuestionarioPreguntas: cobertura parcial de listas es un error expl
     /falta declarar.*"b"/,
   );
 });
+
+// ── Regresión: el relleno se reparte parejo entre las preguntas de un pool ──────────────────────────────────────────
+// Antes los seeds de slots consecutivos (que difieren en un solo carácter) daban casi la misma posición: en 300 alumnos una
+// pregunta se veía entre 15 y 103 veces con ~76 esperadas, y un examen jefe podía sortear casi todo de 3 de sus 5 temas.
+test("elegirRelleno: el sorteo entre alumnos es parejo (sin sesgo hacia el principio de la lista)", async () => {
+  const { sortearCuestionarioPreguntas, parseCuestionarioPreguntas } = await import("../../src/lib/quiz-preguntas");
+  const N = 157, K = 40, ALUMNOS = 300;
+  const c = parseCuestionarioPreguntas({
+    cantidadGlobal: K,
+    preguntas: Array.from({ length: N }, (_, i) => ({ plantillaId: `p${i}`, tipo: "relleno", poolId: "x", maxRepeticiones: 1 })),
+  });
+  const cuenta = new Array<number>(N).fill(0);
+  for (let a = 0; a < ALUMNOS; a++) {
+    for (const s of sortearCuestionarioPreguntas(c, { quizId: "q", alumnoId: `alumno-${a}`, intento: 1 }).slots) cuenta[Number(s.pregunta.plantillaId.slice(1))]++;
+  }
+  const esperado = (ALUMNOS * K) / N;
+  const tercio = (a: number, b: number) => cuenta.slice(a, b).reduce((x, y) => x + y, 0) / ((b - a) * esperado);
+  for (const [a, b] of [[0, 52], [52, 105], [105, 157]] as const) {
+    const r = tercio(a, b);
+    assert.ok(r > 0.9 && r < 1.1, `el tramo ${a}-${b} se vio ${r.toFixed(2)}x lo esperado`);
+  }
+  assert.ok(Math.min(...cuenta) > esperado * 0.5 && Math.max(...cuenta) < esperado * 1.5, `rango ${Math.min(...cuenta)}–${Math.max(...cuenta)} con ${esperado.toFixed(0)} esperadas`);
+  // Un mismo alumno ve cuestionarios distintos entre intentos si la política es por intento.
+  const intentos = new Set([1, 2, 3, 4, 5].map((i) => sortearCuestionarioPreguntas(c, { quizId: "q", alumnoId: "alumno-1", intento: i, politica: "por_intento" }).slots.map((s) => s.pregunta.plantillaId).join()));
+  assert.equal(intentos.size, 5);
+});

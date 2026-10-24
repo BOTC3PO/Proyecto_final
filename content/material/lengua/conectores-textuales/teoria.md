@@ -55,9 +55,9 @@ adversativo ("sin embargo"), no un consecutivo.
 
 ## Para qué sirve
 
-Los conectores son la primera de las tres herramientas de cohesión de
-esta subrama (junto con **referencia** y **progresión temática**):
-mientras la puntuación (`../signos-de-puntuacion/`) organiza dentro
-de la oración, los conectores organizan la relación lógica ENTRE
-oraciones y párrafos — el paso siguiente para que un texto largo se
-lea como una unidad, no como fragmentos sueltos.
+Los conectores son la primera de las tres herramientas de cohesión de esta
+subrama (junto con **referencia** y **progresión temática**). La puntuación
+(`../signos-de-puntuacion/`) organiza dentro de la oración. Los conectores,
+en cambio, organizan la relación lógica ENTRE oraciones y párrafos. Es el
+paso siguiente para que un texto largo se lea como una unidad, no como
+fragmentos sueltos.

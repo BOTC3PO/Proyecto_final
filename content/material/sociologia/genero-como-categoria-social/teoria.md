@@ -35,7 +35,7 @@ Las desigualdades de género se cruzan con otras, como la clase social, el orige
 
 ## Cambios y leyes en la Argentina
 
-Algunos hitos legales son la Ley 26.150 de Educación Sexual Integral (2006), la Ley 26.485 de protección integral para prevenir, sancionar y erradicar la violencia contra las mujeres (2009), la Ley 26.743 de Identidad de Género (2012), la Ley 27.412 de paridad de género en ámbitos de representación política (2017) y la Ley 27.499 "Micaela" de capacitación en género para quienes integran los tres poderes del Estado (2018).
+Algunos hitos legales son la Ley 26.150 de Educación Sexual Integral (2006) y la Ley 26.485 de protección integral para prevenir, sancionar y erradicar la violencia contra las mujeres (2009). También la Ley 26.743 de Identidad de Género (2012) y la Ley 27.412 de paridad de género en ámbitos de representación política (2017). Y la Ley 27.499 "Micaela" de capacitación en género para quienes integran los tres poderes del Estado (2018).
 
 ## Diversidad
 

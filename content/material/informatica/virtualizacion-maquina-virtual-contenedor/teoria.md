@@ -25,8 +25,6 @@ Una máquina virtual emula hardware completo, incluyendo su propio procesador, m
 
 Por otro lado, los **contenedores** comparten el kernel del sistema operativo anfitrión. En lugar de emular hardware, crean un entorno aislado dentro del mismo kernel, usando solo las partes necesarias para ejecutar una aplicación o servicio. Esto hace que los contenedores sean más ligeros y rápidos de arrancar y detener.  
 
-<!-- IMAGEN: Comparación entre máquina virtual (con hardware emulado) y contenedor (sobre el kernel del host) -->  
-
 ---
 
 ## 3. Ventajas de los contenedores  

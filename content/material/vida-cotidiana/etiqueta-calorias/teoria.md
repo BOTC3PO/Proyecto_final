@@ -34,18 +34,18 @@ la etiqueta" sin fijarse cuántas porciones tiene realmente el envase.
 
 ## Comparar productos: por 100 g o 100 ml
 
-Para comparar la densidad calórica de productos distintos (con tamaños
-de porción diferentes), conviene expresar las calorías por 100 g o 100
-ml de producto, no por porción — así la comparación es pareja, sin
-importar qué tamaño de porción haya elegido declarar cada marca.
+Para comparar la densidad calórica de productos distintos (con tamaños de
+porción diferentes), conviene expresar las calorías por 100 g o 100 ml de
+producto, no por porción. Así la comparación es pareja, sin importar qué
+tamaño de porción haya elegido declarar cada marca.
 
 ## El octógono de "EXCESO EN CALORÍAS" (Ley 27.642)
 
-En Argentina, la **Ley 27.642** ("Ley de Etiquetado Frontal" o de
-Promoción de la Alimentación Saludable) obliga a incluir un sello de
-advertencia en forma de **octógono negro**, con letras blancas, en el
-frente del envase, cuando un producto envasado supera ciertos límites de
-nutrientes considerados críticos — entre ellos, las calorías. **ANMAT**
+En Argentina, la **Ley 27.642** ("Ley de Etiquetado Frontal" o de Promoción
+de la Alimentación Saludable) obliga a incluir un sello de advertencia en el
+frente del envase. Es un **octógono negro**, con letras blancas. Se exige
+cuando un producto envasado supera ciertos límites de nutrientes
+considerados críticos, entre ellos las calorías. **ANMAT**
 (Administración Nacional de Medicamentos, Alimentos y Tecnología
 Médica) fiscaliza su cumplimiento.
 

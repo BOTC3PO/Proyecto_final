@@ -58,17 +58,17 @@ Volumen = Masa / Densidad
 
 ## Flotación
 
-Comparar densidades explica por qué algo flota o se hunde en un líquido:
-si la densidad de un objeto es **menor** que la del líquido, flota (como
-el corcho o el aceite en agua); si es **mayor**, se hunde (como el hierro
-o el plomo en agua). Objetos de la misma sustancia, sin importar su
+Comparar densidades explica por qué algo flota o se hunde en un líquido. Si
+la densidad de un objeto es **menor** que la del líquido, flota (como el
+corcho o el aceite en agua). Si es **mayor**, se hunde (como el hierro o el
+plomo en agua). Objetos de la misma sustancia, sin importar su
 tamaño, siempre se comportan igual frente al mismo líquido — otra vez,
 por ser una propiedad intensiva.
 
 ## Para qué sirve
 
 La densidad permite identificar materiales (por ejemplo, distinguir oro
-verdadero de una imitación, comparando su densidad con la conocida),
-explicar por qué el hielo flota en el agua (el hielo es menos denso que
-el agua líquida), y es el punto de partida para todo el bloque de
-presión en fluidos, empuje y flotación que se estudia en Física.
+verdadero de una imitación, comparando su densidad con la conocida). Explica
+por qué el hielo flota en el agua, ya que es menos denso que el agua
+líquida. Y es el punto de partida para todo el bloque de presión en fluidos,
+empuje y flotación que se estudia en Física.

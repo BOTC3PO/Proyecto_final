@@ -64,9 +64,8 @@ Los verdaderos pares acción-reacción en esta escena son otros dos:
 
 ## Para qué sirve
 
-Entender bien la tercera ley (y no confundirla con el equilibrio de
-fuerzas sobre un mismo objeto) es lo que explica cómo es posible
-moverse, nadar o propulsar un cohete: **todo empuje viene acompañado de
-un empuje de vuelta**, sobre un objeto distinto — y ese empuje de vuelta
-es, muchas veces, la fuerza que realmente causa el movimiento que se
-observa.
+Entender bien la tercera ley (y no confundirla con el equilibrio de fuerzas
+sobre un mismo objeto) es lo que explica cómo es posible moverse, nadar o
+propulsar un cohete. **Todo empuje viene acompañado de un empuje de
+vuelta**, sobre un objeto distinto. Ese empuje de vuelta es, muchas veces,
+la fuerza que realmente causa el movimiento que se observa.

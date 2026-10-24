@@ -63,16 +63,16 @@ transversal.
 
 ## El corolario de Thales en el triángulo
 
-Un caso particular, muy usado: si se traza una recta paralela a uno de los
-lados de un triángulo, y esa paralela corta a los otros dos lados, los
-divide en segmentos proporcionales — y además, el triángulo chico que
-queda formado (entre el vértice y la paralela) es **semejante** al
-triángulo original completo.
+Un caso particular, muy usado: se traza una recta paralela a uno de los
+lados de un triángulo, y esa paralela corta a los otros dos lados. Los
+divide en segmentos proporcionales. Además, el triángulo chico que queda
+formado (entre el vértice y la paralela) es **semejante** al triángulo
+original completo.
 
-¿Por qué son semejantes? Porque la paralela genera, con cada lado que
-corta, un ángulo igual al que ya existía en ese vértice del triángulo
-grande (ángulos correspondientes entre paralelas) — y el triángulo chico
-comparte además el ángulo del vértice de arriba con el triángulo grande.
+¿Por qué son semejantes? La paralela genera, con cada lado que corta, un ángulo igual al que ya
+existía en ese vértice del triángulo grande (ángulos correspondientes entre
+paralelas). Además, el triángulo chico comparte el ángulo del vértice de
+arriba con el triángulo grande.
 Dos ángulos iguales alcanzan (criterio AA) para garantizar la semejanza.
 
 ## Cómo escalan el perímetro y el área
@@ -90,11 +90,11 @@ lados del segundo son `k` veces los del primero):
 La semejanza y el Teorema de Thales permiten calcular medidas que serían
 imposibles de tomar directamente:
 
-- **Alturas indirectas**: medir la altura de un poste o un árbol comparando
-  la sombra que proyecta con la sombra de un objeto de altura conocida (un
-  bastón, una persona) en el mismo momento del día — ambos triángulos
-  (objeto-sombra) son semejantes porque el sol forma el mismo ángulo con
-  el piso para los dos.
+- **Alturas indirectas**: medir la altura de un poste o un árbol comparando la
+  sombra que proyecta con la sombra de un objeto de altura conocida (un
+  bastón, una persona) en el mismo momento del día. Ambos triángulos
+  (objeto-sombra) son semejantes porque el sol forma el mismo ángulo con el
+  piso para los dos.
 - **Mapas y planos**: toda escala (1:500, 1:100.000) es una razón de
   semejanza entre el dibujo y la realidad.
 - **División de un segmento en partes iguales** con regla y compás, usando

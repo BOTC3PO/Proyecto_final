@@ -26,10 +26,10 @@ M = F × d
 ```
 
 - `F`: la magnitud de la fuerza aplicada.
-- `d`: el **brazo de palanca** — la distancia **perpendicular** desde
-  el eje (o punto) de giro hasta la línea de acción de la fuerza (no
-  la distancia hasta el punto donde se aplica la fuerza, sino hasta la
-  recta imaginaria que la fuerza recorrería).
+- `d`: el **brazo de palanca**, la distancia **perpendicular** desde el eje (o
+  punto) de giro hasta la línea de acción de la fuerza. No es la distancia
+  hasta el punto donde se aplica la fuerza, sino hasta la recta imaginaria
+  que la fuerza recorrería.
 - `M`: el momento resultante, en Newton-metro (N·m).
 
 Si la fuerza no es perpendicular al brazo, sólo la componente
@@ -54,10 +54,10 @@ momento. Es la razón física de por qué:
 ## El sentido de giro
 
 Un momento puede hacer girar en sentido **horario** o
-**antihorario**. Por convención habitual, el sentido antihorario se
-toma como positivo y el horario como negativo — así, para saber el
-efecto neto de varias fuerzas girando un mismo cuerpo, se suman sus
-momentos con signo (los que giran en sentidos opuestos se restan).
+**antihorario**. Por convención habitual, el sentido antihorario se toma como positivo y el
+horario como negativo. Así, para saber el efecto neto de varias fuerzas
+girando un mismo cuerpo, se suman sus momentos con signo. Los que giran en
+sentidos opuestos se restan.
 
 ## El momento depende del punto de referencia
 

@@ -4,7 +4,7 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — El análisis de cómo el conflicto bélico de 1914-1918 actuó como catalizador para la desintegración de los imperios multinacionales, la radicalización política y el surgimiento de la Unión Soviética, marcando el fin de la hegemonía europea y el inicio de la era moderna.
+**Presentación** — El análisis de cómo el conflicto bélico de 1914-1918 actuó como catalizador para la desintegración de los imperios multinacionales, la radicalización política y el surgimiento de la Unión Soviética. Marcó el fin de la hegemonía europea y el inicio de la era moderna.
 
 ---
 
@@ -20,7 +20,9 @@ En el Frente Occidental, la estancación táctica dio lugar a la guerra de trinc
 
 Sin embargo, este equilibrio se rompió con la entrada de Estados Unidos en 1917 y el bloqueo naval británico. Alemania, asfixiada económicamente, recurrió a la guerra submarina ilimitada, una decisión estratégica que provocó la intervención norteamericana. La guerra se volvió "total" no solo en el frente, sino en la retaguardia: la economía civil se subordinó a la producción bélica, y la población civil sufrió hambrunas y enfermedades, debilitando el soporte social de los regímenes en guerra.
 
-<!-- IMAGEN: Mapa estratégico de los frentes de batalla en Europa y el Medio Oriente hacia 1917, mostrando la estancación en el oeste y la movilidad en el este -->
+![Mapa estratégico de los frentes de batalla en Europa y el Medio Oriente hacia 1917, mostrando la estancación en el oeste y la movilidad en el este](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Western_Front_1917-es.svg/960px-Western_Front_1917-es.svg.png)
+
+*Imagen: «Western Front 1917-es», Rowanwindwhistler, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Western_Front_1917-es.svg).*
 
 ## 3. La Revolución Rusa: del caos zarista al bolchevismo
 

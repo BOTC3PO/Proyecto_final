@@ -14,7 +14,7 @@ Un microcontrolador se comunica con el mundo mediante pines. Un pin digital pued
 
 ## 2. Límites de corriente
 
-Los pines de un microcontrolador entregan o absorben corrientes pequeñas, del orden de unas decenas de miliamperios como máximo, y la suma de todos los pines también tiene un tope. Un LED necesita una resistencia en serie para no superar ese límite. Y las cargas más exigentes, como motores, relés o tiras de LED, no se conectan directamente al pin: se maneja un transistor con el pin, como se vio en el tema del transistor, y es el transistor el que gobierna la carga.
+Los pines de un microcontrolador entregan o absorben corrientes pequeñas, del orden de unas decenas de miliamperios como máximo, y la suma de todos los pines también tiene un tope. Un LED necesita una resistencia en serie para no superar ese límite. Y las cargas más exigentes, como motores, relés o tiras de LED, no se conectan directamente al pin. El pin maneja un transistor, como se vio en el tema del transistor, y es el transistor el que gobierna la carga.
 
 ## 3. Leer un pulsador: entradas flotantes
 
@@ -22,11 +22,11 @@ Un pulsador conecta un punto con otro cuando se lo presiona. Si se conecta solo 
 
 ## 4. El rebote de los pulsadores
 
-Un pulsador mecánico no cierra limpiamente: al presionarlo, los contactos rebotan durante unos pocos milisegundos y generan muchos cambios rápidos de 0 a 1 antes de estabilizarse. Si el programa cuenta cada cambio, un solo toque se interpreta como varios. Hay dos formas de resolverlo: por hardware, con un capacitor que filtra los cambios rápidos (el circuito RC visto antes), o por software, ignorando los cambios que ocurren dentro de una ventana de unos milisegundos después de uno ya detectado (antirrebote o debounce).
+Un pulsador mecánico no cierra limpiamente: al presionarlo, los contactos rebotan durante unos pocos milisegundos y generan muchos cambios rápidos de 0 a 1 antes de estabilizarse. Si el programa cuenta cada cambio, un solo toque se interpreta como varios. Hay dos formas de resolverlo. Por hardware, con un capacitor que filtra los cambios rápidos (el circuito RC visto antes). O por software, ignorando los cambios que ocurren dentro de una ventana de unos milisegundos después de uno ya detectado (antirrebote o debounce).
 
 ## 5. Estructura típica de un programa
 
-Un programa de microcontrolador suele tener una parte de configuración que se ejecuta una vez, donde se definen qué pines son entradas y cuáles salidas, y un bucle principal que se repite indefinidamente: leer entradas, decidir con condicionales y escribir salidas. Es la aplicación directa de los bucles y condicionales de Informática. Para temporizar acciones conviene medir el tiempo transcurrido y no detener todo el programa con una pausa, para que el resto siga funcionando.
+Un programa de microcontrolador suele tener una parte de configuración que se ejecuta una vez, donde se definen qué pines son entradas y cuáles salidas. Después tiene un bucle principal que se repite indefinidamente: leer entradas, decidir con condicionales y escribir salidas. Es la aplicación directa de los bucles y condicionales de Informática. Para temporizar acciones conviene medir el tiempo transcurrido y no detener todo el programa con una pausa, para que el resto siga funcionando.
 
 ## 6. PWM: simular una salida analógica
 

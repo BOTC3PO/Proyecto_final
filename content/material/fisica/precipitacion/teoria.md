@@ -43,11 +43,10 @@ La precipitación es una etapa del **ciclo del agua**:
 - **Nieve**: cristales de hielo sólidos. Se forma cuando la temperatura
   se mantiene por debajo de 0°C **en todo el trayecto** desde la nube
   hasta el suelo — el cristal no llega a derretirse.
-- **Granizo**: bolitas de hielo compacto. Se forma dentro de nubes de
-  desarrollo vertical muy intensas (cumulonimbos): una gotita es
-  arrastrada varias veces hacia arriba y hacia abajo por corrientes de
-  aire fuertes, congelándose en capas sucesivas cada vez que sube a la
-  parte más fría de la nube, hasta que pesa demasiado y cae.
+- **Granizo**: bolitas de hielo compacto. Se forma dentro de nubes de desarrollo vertical muy intensas (cumulonimbos).
+  Una gotita es arrastrada varias veces hacia arriba y hacia abajo por
+  corrientes de aire fuertes. Se congela en capas sucesivas cada vez que
+  sube a la parte más fría de la nube, hasta que pesa demasiado y cae.
 - **Aguanieve**: mezcla de lluvia y nieve, cuando la temperatura está
   justo en el límite (parte del trayecto por encima de 0°C, parte por
   debajo, sin que el cristal termine de derretirse ni de mantenerse
@@ -58,9 +57,9 @@ La precipitación es una etapa del **ciclo del agua**:
 - **Estratos / nimboestratos** (ascenso lento y uniforme, típico de
   frente cálido): llovizna sostenida y suave — gotas chicas, caída lenta.
 - **Cúmulos que crecen mucho / cumulonimbos** (ascenso brusco, típico de
-  frente frío): lluvia intensa de corta duración, y si la nube es muy
-  potente, granizo — las corrientes internas fuertes son justamente lo
-  que arma capas de hielo en las bolitas de granizo.
+  frente frío): lluvia intensa de corta duración y, si la nube es muy
+  potente, granizo. Las corrientes internas fuertes son justamente lo que
+  arma capas de hielo en las bolitas de granizo.
 - Nubes que no crecen lo suficiente (cúmulos chicos, cirros): **no
   llueven** — las gotitas/cristales nunca llegan a pesar lo suficiente
   para vencer la corriente de aire que las sostiene.

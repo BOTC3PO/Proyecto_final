@@ -22,6 +22,6 @@ cifras** es múltiplo de 8 (o son 000).
 ## Por qué mira TRES cifras
 
 Con la regla del 4 alcanzaba con dos cifras porque 100 ya es múltiplo de 4.
-Para 8 hace falta un paso más: 100 no es múltiplo de 8, pero 1.000 sí — por
+Para 8 hace falta un paso más: 100 no es múltiplo de 8, pero 1.000 sí. Por
 eso todo lo que esté "de las unidades de mil para arriba" ya es
-automáticamente múltiplo de 8, y sólo importan las últimas tres cifras.
+automáticamente múltiplo de 8, y solo importan las últimas tres cifras.

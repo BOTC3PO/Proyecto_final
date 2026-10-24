@@ -10,7 +10,7 @@
 
 ## 1. Definición de conclusión
 
-La **conclusión** no es un resumen mecánico de lo que ya se dijo, sino una síntesis crítica que vincula los hallazgos obtenidos con la pregunta de investigación original y los objetivos planteados. Su función es mostrar cómo los datos responden a las hipótesis formuladas o qué nuevas preguntas surgen del análisis. Por ejemplo, si un estudio buscaba evaluar el impacto de una campaña educativa en el uso de mascarillas, la conclusión no solo diría "la campaña funcionó", sino que explicaría *cómo* lo hizo (a través de mayor conciencia, por ejemplo) y qué limitaciones tuvo (como la falta de seguimiento a largo plazo).
+La **conclusión** no es un resumen mecánico de lo que ya se dijo, sino una síntesis crítica que vincula los hallazgos obtenidos con la pregunta de investigación original y los objetivos planteados. Su función es mostrar cómo los datos responden a las hipótesis formuladas o qué nuevas preguntas surgen del análisis. Por ejemplo, un estudio buscaba evaluar el impacto de una campaña educativa en el uso de mascarillas. La conclusión no solo diría "la campaña funcionó". También explicaría *cómo* lo hizo (a través de mayor conciencia, por ejemplo) y qué limitaciones tuvo (como la falta de seguimiento a largo plazo).
 
 ---
 

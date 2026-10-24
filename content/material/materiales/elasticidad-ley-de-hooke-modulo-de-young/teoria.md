@@ -10,7 +10,7 @@
 
 ## 1. La Ley de Hooke: relación entre fuerza y deformación
 
-La Ley de Hooke describe la relación lineal que existe entre la fuerza aplicada a un material y la deformación que experimenta, siempre que no se exceda su límite elástico. Esto significa que, dentro de ese rango, si duplicamos la fuerza, la deformación también se duplicará, manteniéndose proporcional. La fórmula más conocida es $ F = -kx $, donde $ F $ es la fuerza aplicada, $ k $ es una constante que depende del material y de su geometría, y $ x $ es el desplazamiento o alargamiento producido. El signo negativo indica que la fuerza de recuperación actúa en sentido opuesto a la deformación.
+La Ley de Hooke describe la relación lineal que existe entre la fuerza aplicada a un material y la deformación que experimenta, siempre que no se exceda su límite elástico. Esto significa que, dentro de ese rango, si duplicamos la fuerza, la deformación también se duplicará, manteniéndose proporcional. La fórmula más conocida es $ F = -kx $. Acá $ F $ es la fuerza aplicada, $ k $ es una constante que depende del material y de su geometría, y $ x $ es el desplazamiento o alargamiento producido. El signo negativo indica que la fuerza de recuperación actúa en sentido opuesto a la deformación.
 
 Esta ley no se aplica solo a resortes, sino a cualquier cuerpo elástico, como cables, vigas o incluso tejidos biológicos, siempre y cuando las cargas no provoquen daños permanentes. Su validez es fundamental para diseñar estructuras que resistan tensiones sin deformarse de manera irreversible.
 

@@ -39,18 +39,17 @@ Una esfera de radio 3 cm tiene volumen (4 ÷ 3) × π × 3³ = (4 ÷ 3) × π ×
 
 ## Media esfera (hemisferio)
 
-Muchos objetos reales son media esfera (un domo, un tazón): su volumen es
+Muchos objetos reales son media esfera (un domo, un tazón). Su volumen es
 simplemente la mitad del de la esfera completa, **V = ((4 ÷ 3) × π × r³) ÷
-2**, y su superficie curva es la mitad de la superficie de la esfera
-completa (sin contar la base circular plana que la cierra, que se suma
-aparte si hace falta el área total).
+2**. Su superficie curva es la mitad de la superficie de la esfera completa.
+La base circular plana que la cierra no se cuenta ahí, y se suma aparte si
+hace falta el área total.
 
 ## Comparar la esfera con otros cuerpos redondos
 
 De los tres cuerpos redondos vistos en esta rama (cilindro, cono, esfera),
-la esfera es la única que no tiene ninguna cara plana ni base. Para un
-mismo radio, el volumen de la esfera está entre el del cono y el del
-cilindro: el cilindro (de igual radio y altura = 2r) es el más "generoso"
-en volumen, la esfera queda en el medio, y el cono (de igual radio y
-altura = 2r) es el más chico — una relación clásica que Arquímedes ya
-había descubierto.
+la esfera es la única que no tiene ninguna cara plana ni base. Para un mismo radio, el volumen de la esfera está entre el del cono y el del
+cilindro. El cilindro (de igual radio y altura = 2r) es el más "generoso" en
+volumen, la esfera queda en el medio y el cono (de igual radio y altura =
+2r) es el más chico. Es una relación clásica que Arquímedes ya había
+descubierto.

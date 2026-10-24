@@ -12,8 +12,6 @@
 
 Una norma jurídica es un mandato general, abstracto y obligatorio emitido por un poder público que establece cómo deben actuar las personas en la sociedad. Puede ser positiva (exige hacer algo), negativa (prohíbe algo) o determinante (establece una regla concreta). Su validez depende de su lugar dentro del ordenamiento legal y de su relación con otras normas.
 
-<!-- IMAGEN: Diagrama sencillo mostrando el proceso de creación de una norma, desde la iniciativa hasta su publicación en el Boletín Oficial -->
-
 ---
 
 ## 2. La pirámide de jerarquía normativa argentina
@@ -35,7 +33,9 @@ Cada provincia tiene su propia legislatura que emite leyes válidas solo dentro 
 ### 5) **Decretos y reglamentos**  
 Son normas de menor rango, emitidas por el Poder Ejecutivo (nacional o provincial) para desarrollar leyes específicas. Solo tienen vigencia mientras no se modifiquen o deroguen las leyes que regulan.
 
-<!-- IMAGEN: Pirámide con los cinco niveles mencionados, indicando la relación de subordinación entre ellos -->
+![Pirámide con los cinco niveles mencionados, indicando la relación de subordinación entre ellos](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hierarquia_das_normas_jur%C3%ADdicas_-_Hierarchy_of_laws.png/960px-Hierarquia_das_normas_jur%C3%ADdicas_-_Hierarchy_of_laws.png)
+
+*Imagen: «Hierarquia das normas jurídicas - Hierarchy of laws», Awikimate, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hierarquia_das_normas_jur%C3%ADdicas_-_Hierarchy_of_laws.png).*
 
 ---
 
@@ -57,8 +57,6 @@ Si dos normas del mismo nivel entran en conflicto, prevalece la última promulga
 
 ### c) **Especialidad**  
 Una norma más específica sobre un tema anula a otra general. Ejemplo: una ley provincial sobre transporte urbano prevalece sobre una ley nacional de tránsito en temas locales.
-
-<!-- IMAGEN: Flujo gráfico mostrando los tres principios mencionados, con ejemplos de aplicación -->
 
 ---
 

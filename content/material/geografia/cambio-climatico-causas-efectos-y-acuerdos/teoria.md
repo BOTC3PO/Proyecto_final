@@ -16,7 +16,7 @@ El tiempo atmosférico es el estado de la atmósfera en un momento y lugar, como
 
 La atmósfera contiene gases, como el vapor de agua, el dióxido de carbono y el metano, que retienen parte del calor que la Tierra emite. Ese efecto invernadero natural es necesario: sin él el planeta sería demasiado frío para la vida. El problema es que las actividades humanas desde la Revolución Industrial aumentaron la concentración de esos gases y reforzaron el efecto.
 
-Las principales causas son la quema de combustibles fósiles (carbón, petróleo y gas), que libera dióxido de carbono; la deforestación, que libera el carbono guardado en los bosques y reduce su capacidad de absorber más; y ciertas actividades agropecuarias, como la ganadería y los arrozales, que emiten metano. La temperatura media global subió algo más de un grado respecto de la época preindustrial.
+Las principales causas son tres. La quema de combustibles fósiles (carbón, petróleo y gas) libera dióxido de carbono. La deforestación libera el carbono guardado en los bosques y reduce su capacidad de absorber más. Y ciertas actividades agropecuarias, como la ganadería y los arrozales, emiten metano. La temperatura media global subió algo más de un grado respecto de la época preindustrial.
 
 ## Efectos sobre el territorio
 

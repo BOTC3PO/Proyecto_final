@@ -1,0 +1,36 @@
+{
+ "titulo": "Vela, gas y lámpara incandescente",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Iluminación",
+   "headers": [
+    "",
+    "Vela",
+    "Lámpara de gas",
+    "Lámpara incandescente"
+   ],
+   "rows": [
+    [
+     "Fuente de luz",
+     "Llama de cera",
+     "Llama de gas",
+     "Filamento calentado por electricidad"
+    ],
+    [
+     "Riesgo de incendio",
+     "Alto",
+     "Alto",
+     "Bajo"
+    ],
+    [
+     "Encendido",
+     "Con fuego",
+     "Con fuego",
+     "Con un interruptor"
+    ]
+   ]
+  }
+ ]
+}

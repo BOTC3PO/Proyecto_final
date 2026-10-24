@@ -44,8 +44,8 @@ al punto de forma clara y concisa.
 
 Si el correo pide algo, conviene que quede **explícito y fácil de
 identificar** qué se está pidiendo (una fecha, una confirmación, un
-documento) — un correo formal ambiguo obliga a la otra persona a
-adivinar o preguntar de vuelta, perdiendo tiempo de ambos lados.
+documento). Un correo formal ambiguo obliga a la otra persona a adivinar o
+preguntar de vuelta, y se pierde tiempo de ambos lados.
 
 ## Errores comunes
 
@@ -60,8 +60,8 @@ adivinar o preguntar de vuelta, perdiendo tiempo de ambos lados.
 
 ## Para qué sirve
 
-El correo formal es la herramienta de comunicación escrita más usada
-en la vida laboral y académica cotidiana — dominar su estructura y
-tono evita malentendidos y transmite profesionalismo, con la misma
-base de `../produccion-escrita-compleja/` aplicada a este formato
-específico y de altísima frecuencia de uso real.
+El correo formal es la herramienta de comunicación escrita más usada en la
+vida laboral y académica cotidiana. Dominar su estructura y tono evita
+malentendidos y transmite profesionalismo. Tiene la misma base de
+`../produccion-escrita-compleja/`, aplicada a este formato específico y de
+altísima frecuencia de uso real.

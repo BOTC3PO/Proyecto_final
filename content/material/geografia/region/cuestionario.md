@@ -401,24 +401,3 @@ explicacion: |
   no por ser una sola unidad política.
 ```
 
-### 20 — Por qué Región cierra el marco de los 5 Temas
-
-```
-metadata:
-  materia: "geografia"
-  tema: "region"
-  nivel: "avanzado"
-  tags: ["marco_ncge"]
-
-enunciado: "¿Por qué se agregó específicamente el nodo \"Región\" al mapa, en vez de asumir que ya estaba cubierto por división política?"
-tipo: mc
-opciones_explicitas:
-  - "Porque división política es más estrecho: sólo cubre el caso formal, dejando afuera regiones físicas, culturales y funcionales sin límite oficial"
-  - "Porque división política nunca se relaciona con región"
-  - "Porque los 5 Temas de la Geografía no incluyen a Región"
-respuesta: "Porque división política es más estrecho: sólo cubre el caso formal, dejando afuera regiones físicas, culturales y funcionales sin límite oficial"
-
-explicacion: |
-  Es la nota explícita de `troncos.md` (agregado v2.4): "División
-  política se le acerca pero es más estrecho".
-```

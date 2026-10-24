@@ -1,0 +1,32 @@
+{
+ "titulo": "Escala de frecuencias",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "De menor a mayor",
+   "headers": [
+    "Tipo de onda",
+    "Frecuencia aproximada"
+   ],
+   "rows": [
+    [
+     "Sonido audible",
+     "20 Hz a 20 kHz"
+    ],
+    [
+     "Ondas de radio",
+     "kHz a GHz"
+    ],
+    [
+     "Microondas",
+     "1 a 300 GHz"
+    ],
+    [
+     "Luz visible",
+     "430 a 750 THz"
+    ]
+   ]
+  }
+ ]
+}

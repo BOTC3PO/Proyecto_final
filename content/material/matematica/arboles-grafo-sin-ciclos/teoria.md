@@ -67,11 +67,10 @@ de datos y algoritmos de búsqueda eficientes.
 introduce acá de cero. Una **lista enlazada**, una **pila** o una
 **cola** son, en el fondo, árboles "degenerados": cada nodo tiene como
 mucho un solo hijo, así que el árbol completo es una única cadena
-lineal, sin ninguna ramificación. Un **árbol binario de búsqueda**
-(cada nodo con hasta 2 hijos, ordenados) es el caso central que
-justifica por qué "árbol" es una estructura de datos tan usada: permite
-buscar, insertar y borrar de forma mucho más eficiente que recorrer
-una lista entera.
+lineal, sin ninguna ramificación. Un **árbol binario de búsqueda** (cada nodo con hasta 2 hijos, ordenados) es
+el caso central que justifica por qué "árbol" es una estructura de datos tan
+usada. Permite buscar, insertar y borrar de forma mucho más eficiente que
+recorrer una lista entera.
 
 ## Aplicaciones reales
 
@@ -86,9 +85,8 @@ una lista entera.
 
 ## Para qué sirve
 
-Es la estructura que aparece, con otro nombre, en decenas de
-contextos distintos (jerarquías, clasificaciones, estructuras de
-datos) — reconocerla como "el mismo objeto matemático" (grafo conexo
-sin ciclos) permite reutilizar las mismas herramientas (como los
-algoritmos de recorrido del módulo que sigue) en todos esos contextos
-a la vez.
+Es la estructura que aparece, con otro nombre, en decenas de contextos
+distintos (jerarquías, clasificaciones, estructuras de datos). Reconocerla
+como "el mismo objeto matemático" (grafo conexo sin ciclos) permite
+reutilizar las mismas herramientas en todos esos contextos a la vez, como
+los algoritmos de recorrido del módulo que sigue.

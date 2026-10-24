@@ -1,0 +1,32 @@
+{
+ "titulo": "Historia reciente y tradicional: fuentes y actores",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué cambia",
+   "headers": [
+    "",
+    "Historia tradicional",
+    "Historia reciente"
+   ],
+   "rows": [
+    [
+     "Fuentes típicas",
+     "Actas, cartas, leyes",
+     "Testimonios orales, archivos desclasificados, fotografías"
+    ],
+    [
+     "Actores",
+     "Gobernantes y figuras del pasado",
+     "Víctimas, testigos, organismos de derechos humanos"
+    ],
+    [
+     "Distancia temporal",
+     "Larga",
+     "Corta: las memorias siguen en disputa"
+    ]
+   ]
+  }
+ ]
+}

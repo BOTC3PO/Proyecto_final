@@ -1,0 +1,53 @@
+[
+ {
+  "id": 1001,
+  "cluster": 1,
+  "temas": [
+   "pueblos-originarios-territorio-argentino",
+   "conquista-y-colonia-argentina",
+   "virreinato-y-comercio",
+   "revolucion-de-mayo",
+   "guerras-de-independencia-argentina"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 1002,
+  "cluster": 2,
+  "temas": [
+   "guerras-civiles-unitarios-federales",
+   "organizacion-nacional-constitucion-1853",
+   "rosas-y-la-confederacion",
+   "guerra-del-paraguay-y-triple-alianza",
+   "economias-regionales-tempranas"
+  ],
+  "preguntas": 130
+ },
+ {
+  "id": 1003,
+  "cluster": 3,
+  "temas": [
+   "conquista-del-desierto-y-campana-al-chaco",
+   "modelo-agroexportador-inmigracion",
+   "ampliacion-democratica-ley-saenz-pena",
+   "golpes-de-estado-interrupciones",
+   "reforma-universitaria-1918"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 1004,
+  "cluster": 4,
+  "temas": [
+   "peronismo-derechos-sociales",
+   "semana-tragica-1919",
+   "terrorismo-de-estado-argentina",
+   "industrializacion-por-sustitucion-de-importaciones-isi",
+   "guerra-de-malvinas",
+   "recuperacion-democratica-memoria",
+   "historia-reciente-argentina",
+   "crisis-de-2001"
+  ],
+  "preguntas": 191
+ }
+]

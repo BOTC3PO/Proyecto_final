@@ -1,0 +1,28 @@
+{
+ "titulo": "Volumen desplazado",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Un cuerpo sumergido en agua",
+   "headers": [
+    "Dato",
+    "Valor"
+   ],
+   "rows": [
+    [
+     "Volumen sumergido del cuerpo",
+     "200 cm³ = 0,0002 m³"
+    ],
+    [
+     "Volumen de agua desplazada",
+     "200 cm³"
+    ],
+    [
+     "Empuje E = ρ · g · V",
+     "1000 · 9,8 · 0,0002 = 1,96 N"
+    ]
+   ]
+  }
+ ]
+}

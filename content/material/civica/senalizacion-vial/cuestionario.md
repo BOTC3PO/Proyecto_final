@@ -283,29 +283,8 @@ explicacion: |
   respaldo de obligatoriedad nacional.
 ```
 
-### 14 — Por qué depende de documentos y trámites
 
-```
-metadata:
-  materia: "civica"
-  tema: "senalizacion_vial"
-  nivel: "intermedio"
-  tags: ["fundamento"]
-
-enunciado: "¿Por qué este módulo depende de `../documentos-y-tramites/`?"
-tipo: mc
-opciones_explicitas:
-  - "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
-  - "Porque no tiene relación real con ese módulo"
-  - "Porque el DNI reemplaza a la licencia de conducir"
-respuesta: "Porque presupone el marco de identificación legal del conductor (DNI, licencia) antes de entrar en el contenido de las señales"
-
-explicacion: |
-  El MAPA cuelga los 3 nodos de educación vial de los 4 documentos ya
-  vistos.
-```
-
-### 15 — Verdadero o falso: todas las señales de reglamentación son circulares
+### 14 — Verdadero o falso: todas las señales de reglamentación son circulares
 
 ```
 metadata:
@@ -322,7 +301,7 @@ explicacion: |
   El octógono de "Pare" es la excepción del grupo.
 ```
 
-### 16 — Verdadero o falso: las señales de prevención prohíben algo
+### 15 — Verdadero o falso: las señales de prevención prohíben algo
 
 ```
 metadata:
@@ -340,7 +319,7 @@ explicacion: |
   con prudencia.
 ```
 
-### 17 — Verdadero o falso: la Educación Vial es obligatoria a nivel nacional hoy
+### 16 — Verdadero o falso: la Educación Vial es obligatoria a nivel nacional hoy
 
 ```
 metadata:
@@ -357,7 +336,7 @@ explicacion: |
   Desde el Decreto 436/2025, es decisión de cada provincia.
 ```
 
-### 18 — Completar: color de fondo del PARE
+### 17 — Completar: color de fondo del PARE
 
 ```
 metadata:
@@ -376,7 +355,7 @@ explicacion: |
   tener fondo blanco con borde rojo.
 ```
 
-### 19 — Completar: color de fondo de las señales de prevención
+### 18 — Completar: color de fondo de las señales de prevención
 
 ```
 metadata:
@@ -394,7 +373,7 @@ explicacion: |
   Color universal para advertir peligro.
 ```
 
-### 20 — Ordenar: por nivel de urgencia del mensaje
+### 19 — Ordenar: por nivel de urgencia del mensaje
 
 ```
 metadata:

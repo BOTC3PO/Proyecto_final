@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "Dominá los Imperios del Mundo Antiguo",
-    "descripcion": "Te la rebuscaste con Mesopotamia, Alejandro Magno y el helenismo, la expansión del Imperio romano y los pueblos originarios del actual territorio argentino.",
+    "descripcion": "Completaste el parcial sobre Mesopotamia, las civilizaciones antiguas, Alejandro Magno y el helenismo, y la expansión del Imperio romano.",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "Maestro del Absolutismo y la Ilustración",
-    "descripcion": "Te mandaste con el absolutismo europeo, la Ilustración, la Revolución Industrial, la conquista y colonia en Argentina y el virreinato con su comercio, jefe.",
+    "descripcion": "Dominaste el absolutismo europeo, la Ilustración y la Revolución Industrial, jefe.",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "Crack de la Independencia Argentina",
-    "descripcion": "Aprobaste el parcial de la Revolución de Mayo, las guerras de independencia y las guerras civiles entre unitarios y federales, y encima la electrificación y el inicio de la huella humana en el clima.",
+    "nombre": "Experto en Electrificación y Clima",
+    "descripcion": "Aprobaste el parcial sobre la electrificación de la fábrica y el hogar y el inicio de la huella humana en el clima.",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "Dominá el Orden Liberal y Nacional",
-    "descripcion": "Te laburaste las revoluciones burguesas y el liberalismo, los estados nacionales, el imperialismo, la Constitución de 1853 y el modelo agroexportador con inmigración.",
+    "descripcion": "Completaste el parcial dominando las revoluciones burguesas y el liberalismo, los estados nacionales y el imperialismo.",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "Maestro del Siglo XX Temprano",
-    "descripcion": "Te bancaste la sociedad de masas y la democracia liberal, la Primera Guerra Mundial y la Revolución Rusa, el período de entreguerras y la crisis de 1929, la Ley Sáenz Peña y los golpes de Estado, jefe.",
+    "descripcion": "Dominaste la sociedad de masas y la democracia liberal, la Primera Guerra Mundial y la Revolución Rusa, y el período de entreguerras y la crisis de 1929, jefe.",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "Crack de Guerras y Guerra Fría",
-    "descripcion": "Aprobaste el parcial de las guerras mundiales, la Segunda Guerra Mundial, la Guerra Fría, la descolonización de África y Asia y el peronismo con sus derechos sociales.",
+    "descripcion": "Aprobaste el parcial sobre las guerras mundiales, la Segunda Guerra Mundial, la Guerra Fría y la descolonización de África y Asia.",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "Dominá la Historia Reciente",
-    "descripcion": "Te laburaste el terrorismo de Estado, Malvinas y la recuperación democrática en Argentina, la historia contemporánea de África, Asia y Medio Oriente, y la globalización de la era digital.",
+    "descripcion": "Completaste el parcial dominando la historia contemporánea de África, Asia y Medio Oriente, y la globalización de la era digital.",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "Crack de Fuentes y Cronología",
-    "descripcion": "Te mandaste con la interpretación de fuentes históricas, las líneas de tiempo, la década, el siglo y el milenio, y casos argentinos como la Reforma Universitaria de 1918 y la crisis de 2001, jefe.",
+    "descripcion": "Dominaste la interpretación de fuentes históricas, las líneas de tiempo, y la década, el siglo y el milenio, jefe.",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "Dominá Periodización y Causalidad",
-    "descripcion": "Te laburaste la periodización, el antes y después de Cristo, causa y consecuencia, la Semana Trágica de 1919 y la industrialización por sustitución de importaciones.",
+    "descripcion": "Completaste el parcial dominando la periodización, el antes y después de Cristo, y causa y consecuencia.",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "Dominá Guerras y Procesos Americanos",
-    "descripcion": "Te la rebuscaste con las independencias, la revolución mexicana, la guerra civil española, la guerra del Paraguay, Rosas y la Confederación, la Conquista del Desierto y las economías regionales tempranas.",
+    "descripcion": "Completaste el parcial sobre las independencias, la Revolución mexicana, las guerras y la guerra civil española.",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "Estratega de los Deportes",
     "descripcion": "Aprobaste el parcial dominando las capacidades físicas (fuerza, resistencia, flexibilidad y velocidad), la nutrición y la hidratación en la actividad física, y el reglamento y los fundamentos del básquet, el fútbol, el futsal, el handball, el hockey, el rugby y el vóley.",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Dominio de la Argentina Colonial y la Independencia",
+    "descripcion": "Completaste el parcial sobre los pueblos originarios, la conquista y colonia, el virreinato y su comercio, la Revolución de Mayo y las guerras de independencia argentinas.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Maestro de la Organización Nacional",
+    "descripcion": "Dominaste las guerras civiles entre unitarios y federales, la Constitución de 1853, Rosas y la Confederación, la guerra del Paraguay y las economías regionales tempranas, jefe.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Experto en el Estado Liberal y la Ampliación Democrática",
+    "descripcion": "Completaste el parcial sobre la Conquista del Desierto y la campaña al Chaco, el modelo agroexportador y la inmigración, la Ley Sáenz Peña, los golpes de Estado y la Reforma Universitaria de 1918.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Maestro de la Argentina del Siglo XX y la Democracia",
+    "descripcion": "Dominaste el peronismo y los derechos sociales, la Semana Trágica, el terrorismo de Estado, la industrialización por sustitución de importaciones, Malvinas, la recuperación democrática, la historia reciente y la crisis de 2001, jefe.",
+    "icono": "🕊️"
   }
 ]

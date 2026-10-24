@@ -1,0 +1,32 @@
+{
+ "titulo": "Ejemplo de fórmula",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Símbolos en una fórmula",
+   "headers": [
+    "Símbolo",
+    "Qué significa",
+    "Ejemplo"
+   ],
+   "rows": [
+    [
+     "=",
+     "Empieza una fórmula",
+     "=A1+B1"
+    ],
+    [
+     ":",
+     "Rango de celdas",
+     "=SUMA(A1:A3)"
+    ],
+    [
+     "$",
+     "Fija la fila o la columna",
+     "=$A$1*2"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "titulo": "Flota o se hunde",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparando peso y empuje",
+   "headers": [
+    "Situación",
+    "Condición",
+    "Resultado"
+   ],
+   "rows": [
+    [
+     "Flota",
+     "Empuje = peso (densidad del cuerpo < densidad del fluido)",
+     "Queda parcialmente sumergido"
+    ],
+    [
+     "Se hunde",
+     "Peso > empuje (densidad del cuerpo > densidad del fluido)",
+     "Cae al fondo"
+    ]
+   ]
+  }
+ ]
+}

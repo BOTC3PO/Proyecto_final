@@ -42,17 +42,17 @@ de $100.000, esa categoría representa `30 × 100.000 / 100 = $30.000`.
 
 ## Cuándo conviene (y cuándo no)
 
-Un gráfico de torta sirve bien cuando hay **pocas categorías** (hasta
-5 o 6) y lo que importa es la **proporción de cada una sobre el
-total** — no sirve para comparar magnitudes absolutas entre categorías
-de gráficos distintos (dos tortas de tamaños distintos no se pueden
-comparar "a ojo" si no muestran también los totales), ni cuando hay
-demasiadas categorías chicas (las porciones se vuelven ilegibles).
+Un gráfico de torta sirve bien cuando hay **pocas categorías** (hasta 5 o 6)
+y lo que importa es la **proporción de cada una sobre el total**. No sirve
+para comparar magnitudes absolutas entre gráficos distintos: dos tortas de
+tamaños distintos no se pueden comparar "a ojo" si no muestran también los
+totales. Tampoco sirve cuando hay demasiadas categorías chicas, porque las
+porciones se vuelven ilegibles.
 
 ## Para qué sirve
 
 Es el gráfico típico para mostrar cómo se reparte un presupuesto, la
-composición de una población por edad o género, o los resultados de
-una encuesta cuando importa qué fracción del total eligió cada opción
-(a diferencia de un gráfico de barras, que también podría mostrar lo
-mismo, pero sin remarcar tan directamente que todo suma el 100%).
+composición de una población por edad o género, o los resultados de una
+encuesta cuando importa qué fracción del total eligió cada opción. Un
+gráfico de barras también podría mostrar lo mismo, pero sin remarcar tan
+directamente que todo suma el 100%.

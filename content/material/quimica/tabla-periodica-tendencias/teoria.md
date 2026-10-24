@@ -41,12 +41,11 @@ masa, como se ordenaba históricamente antes de conocerse el protón).
 | Energía de ionización (sacar un electrón) | Disminuye (el electrón externo está más lejos del núcleo) | Aumenta |
 | Electronegatividad (atraer electrones en un enlace) | Disminuye | Aumenta |
 
-**Regla práctica para no memorizar 3 tablas**: todas estas tendencias
-salen de la misma idea — a medida que se avanza en un período, el núcleo
-tiene más protones (más carga +) tirando de los mismos electrones de
-valencia (mismo nivel), así que los atrae con más fuerza: el átomo se
-achica, y cuesta más sacarle o atraerle un electrón cuesta menos (más
-electronegativo). Al bajar en un grupo, se agrega un nivel entero nuevo,
+**Regla práctica para no memorizar 3 tablas**: todas estas tendencias salen
+de la misma idea. A medida que se avanza en un período, el núcleo tiene más
+protones (más carga +) tirando de los mismos electrones de valencia (mismo
+nivel), así que los atrae con más fuerza. El átomo se achica, cuesta más
+sacarle un electrón y le cuesta menos atraer uno (es más electronegativo). Al bajar en un grupo, se agrega un nivel entero nuevo,
 más lejos del núcleo: todo se afloja (radio sube, el resto baja).
 
 **Excepción**: el flúor (no el elemento "más grande") es el elemento con

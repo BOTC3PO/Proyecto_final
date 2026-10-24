@@ -48,7 +48,7 @@ El **SCADA** (supervisión, control y adquisición de datos) amplía esa idea a 
 
 ## 6. Niveles de la automatización
 
-Una forma habitual de ordenar los sistemas es por niveles: en la base están los sensores y actuadores (campo); arriba los PLC y controladores (control); luego el SCADA y las HMI (supervisión); después los sistemas de gestión de la producción; y en la cima la gestión de la empresa. Los datos suben y las órdenes bajan.
+Una forma habitual de ordenar los sistemas es por niveles. En la base están los sensores y actuadores (campo). Arriba, los PLC y controladores (control). Luego el SCADA y las HMI (supervisión). Después los sistemas de gestión de la producción. Y en la cima, la gestión de la empresa. Los datos suben y las órdenes bajan.
 
 ## 7. Seguridad informática en planta
 

@@ -1,6 +1,6 @@
 # Examen jefe — Redes, Procesos y Memoria Virtual
 
-> Logro #822. Aprobaste el parcial con direccionamiento IP, DNS y HTTP, y con procesos, comunicación entre procesos y memoria virtual. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **122 preguntas totales** en 5/5 secciones.
+> Logro #822. Aprobaste el parcial con direccionamiento IP, DNS y HTTP, y con procesos, comunicación entre procesos y memoria virtual. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **121 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -1443,7 +1443,7 @@ explicacion: |
   Cada método tiene una semántica definida: GET para lectura, POST para creación, PUT para actualización y DELETE para eliminación.
 ```
 
-## Sección: comunicacion-entre-procesos (20 preguntas)
+## Sección: comunicacion-entre-procesos (19 preguntas)
 
 ```
 metadata:
@@ -1510,22 +1510,6 @@ enunciado: "¿Qué mecanismo es generalmente más seguro por defecto al no reque
 
 explicacion: |
   El intercambio de mensajes es más seguro porque los procesos no compiten por el mismo espacio de memoria, reduciendo riesgos de corrupción accidental.
-```
-
-```
-metadata:
-  materia: "informatica"
-  tema: "comunicacion_entre_procesos"
-  nivel: "basico"
-  tags: ["lenguaje", "sintaxis"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En el lenguaje de descripción de ejercicios, los booleanos se escriben como 'true' o 'false'."
-
-explicacion: |
-  Falso. En este DSL, los booleanos literales son 'verdadero' y 'falso', sin comillas.
 ```
 
 ```

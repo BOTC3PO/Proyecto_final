@@ -67,9 +67,9 @@ costosa para producir agricultura de riego.
 
 ## Ejemplo argentino
 
-La combinación relieve/clima/bioma de la Pampa húmeda (llanura, clima
-templado, pastizal con suelo fértil) explica directamente por qué
-Argentina desarrolló históricamente su perfil agroexportador
-(cereales, oleaginosas, carne) — el mismo territorio que la Geografía
-describe es la base material que la Historia (ver
-`../../historia/`) y la Economía explican desde otro ángulo.
+La combinación relieve, clima y bioma de la Pampa húmeda (llanura, clima
+templado, pastizal con suelo fértil) explica directamente por qué Argentina
+desarrolló históricamente su perfil agroexportador (cereales, oleaginosas,
+carne). El mismo territorio que la Geografía describe es la base material
+que la Historia (ver `../../historia/`) y la Economía explican desde otro
+ángulo.

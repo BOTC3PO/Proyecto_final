@@ -18,9 +18,9 @@ varones y 18 mujeres — la razón entre varones y mujeres es 12:18 (o 12/18).
 
 ## Razón vs. fracción
 
-Se escriben igual (a/b), pero no siempre significan lo mismo: una fracción
+Se escriben igual (a/b), pero no siempre significan lo mismo. Una fracción
 compara una parte con el TODO (3/4 de una torta, donde 4 es el total de
-partes); una razón compara dos cantidades que pueden ser independientes
+partes). Una razón compara dos cantidades que pueden ser independientes
 entre sí (12 varones comparados con 18 mujeres, donde ninguno de los dos es
 "el total" del otro).
 

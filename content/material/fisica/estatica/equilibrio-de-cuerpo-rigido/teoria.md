@@ -29,11 +29,11 @@ Un cuerpo rígido está en **equilibrio completo** cuando se cumplen
    ΣM = 0
    ```
 
-**Por qué hacen falta las dos**: un cuerpo puede tener fuerza neta cero
-y sin embargo estar girando cada vez más rápido, si el momento neto no
-es cero — es el caso de un **par de fuerzas** (dos fuerzas de igual
-magnitud, sentido opuesto, aplicadas en puntos distintos): se cancelan
-como fuerza, pero generan un momento neto que no es cero. Al revés,
+**Por qué hacen falta las dos**: un cuerpo puede tener fuerza neta cero y
+sin embargo estar girando cada vez más rápido, si el momento neto no es
+cero. Es el caso de un **par de fuerzas**: dos fuerzas de igual magnitud,
+sentido opuesto, aplicadas en puntos distintos. Se cancelan como fuerza,
+pero generan un momento neto que no es cero. Al revés,
 un cuerpo puede no estar girando (momento neto cero respecto de su
 centro de gravedad) y sin embargo estar acelerando en línea recta, si
 la fuerza neta no es cero.
@@ -74,9 +74,8 @@ extremo) que hay que encontrar:
 
 ## Para qué sirve
 
-Es el marco que explica por qué una escalera apoyada contra una pared
-no se cae (mientras se cumplan las dos condiciones), por qué un puente
-sostiene su propio peso repartido entre sus apoyos, y — el puente
-directo hacia `../../maquinas-simples/` — por qué una palanca en
-equilibrio relaciona la fuerza aplicada y la carga exactamente a través
-de `ΣM=0`.
+Es el marco que explica por qué una escalera apoyada contra una pared no se
+cae (mientras se cumplan las dos condiciones) y por qué un puente sostiene
+su propio peso repartido entre sus apoyos. También es el puente directo
+hacia `../../maquinas-simples/`: explica por qué una palanca en equilibrio
+relaciona la fuerza aplicada y la carga exactamente a través de `ΣM=0`.

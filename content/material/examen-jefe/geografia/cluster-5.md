@@ -1,10 +1,10 @@
 # Examen jefe — Población, Ambiente y Agro Mundial
 
-> Logro #800. Completaste el parcial con pirámides de población y migraciones, producción agraria y biotecnología, ambiente y recursos, América anglosajona y ambientalismo liberal. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **111 preguntas totales** en 5/5 secciones.
+> Logro #800. Completaste el parcial con pirámides de población y migraciones, producción agraria y biotecnología, ambiente y recursos, América anglosajona y ambientalismo liberal. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **109 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: poblacion-piramides-migraciones (24 preguntas)
+## Sección: poblacion-piramides-migraciones (23 preguntas)
 
 ```
 metadata:
@@ -130,26 +130,6 @@ explicacion: |
 metadata:
   materia: "geografia"
   tema: "poblacion_piramides_migraciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué este tema trata pirámides y migraciones como una sola unidad, en vez de dos módulos separados?"
-tipo: mc
-opciones_explicitas:
-  - "Porque leer correctamente una pirámide YA incluye identificar evidencia de migraciones en su forma"
-  - "Porque las migraciones no tienen ninguna relación con las pirámides"
-  - "Porque el MAPA los separó en dos nodos con IDs distintos"
-respuesta: "Porque leer correctamente una pirámide YA incluye identificar evidencia de migraciones en su forma"
-
-explicacion: |
-  Es la decisión propia anotada en `../dependencias.md`: son la misma
-  unidad de "dinámica poblacional" en la enseñanza real.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "poblacion_piramides_migraciones"
   nivel: "basico"
   tags: ["migraciones", "vocabulario"]
 
@@ -267,7 +247,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cruce"]
 
-enunciado: "¿Por qué `poblacion-piramides-migraciones/` depende de `../recursos-actividades-economicas/`?"
+enunciado: "¿Por qué los recursos y las actividades económicas de un territorio se relacionan con la población y sus migraciones?"
 tipo: mc
 opciones_explicitas:
   - "Porque la disponibilidad de recursos y trabajo en un territorio es una de las causas más comunes de por qué la población se mueve o se concentra"
@@ -276,7 +256,7 @@ opciones_explicitas:
 respuesta: "Porque la disponibilidad de recursos y trabajo en un territorio es una de las causas más comunes de por qué la población se mueve o se concentra"
 
 explicacion: |
-  Es la razón anotada en `../dependencias.md`.
+  La disponibilidad de recursos y de trabajo en un territorio es una de las causas más comunes de por qué la población se mueve o se concentra.
 ```
 
 ```
@@ -848,7 +828,7 @@ explicacion: |
   La globalización corporativa de la biotecnología supera a las determinantes geográficas tradicionales en la toma de decisiones agrícolas.
 ```
 
-## Sección: ambiente-y-recursos (22 preguntas)
+## Sección: ambiente-y-recursos (21 preguntas)
 
 ```
 metadata:
@@ -1080,7 +1060,7 @@ metadata:
   nivel: "avanzado"
   tags: ["cruce"]
 
-enunciado: "¿Por qué `ambiente-y-recursos/` depende de `../poblacion-piramides-migraciones/`?"
+enunciado: "¿Por qué el ambiente y los recursos de un territorio se relacionan con su población y sus movimientos?"
 tipo: mc
 opciones_explicitas:
   - "Porque la presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve"
@@ -1089,7 +1069,7 @@ opciones_explicitas:
 respuesta: "Porque la presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve"
 
 explicacion: |
-  Es la razón anotada en `../dependencias.md`.
+  La presión ambiental sobre un territorio está ligada directamente a cuánta población vive ahí y cómo se mueve.
 ```
 
 ```
@@ -1203,27 +1183,6 @@ respuesta: falso
 explicacion: |
   Es una tendencia de base, pero la tecnología y la regulación también
   inciden, no es un vínculo automático.
-```
-
-```
-metadata:
-  materia: "geografia"
-  tema: "ambiente_y_recursos"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Qué distingue a este tema (`AM1`) de los 4 nodos de corrientes de pensamiento ambiental que cuelgan de él?"
-tipo: mc
-opciones_explicitas:
-  - "Este tema es descriptivo/técnico (qué es el ambiente, qué exige la ley); las corrientes entran en la discusión ideológica sobre qué hacer al respecto"
-  - "Son exactamente el mismo tipo de contenido, sin ninguna diferencia"
-  - "Este tema ya incluye toda la discusión ideológica"
-respuesta: "Este tema es descriptivo/técnico (qué es el ambiente, qué exige la ley); las corrientes entran en la discusión ideológica sobre qué hacer al respecto"
-
-explicacion: |
-  Es la transición explícita hacia `../conservacionismo/`,
-  `../ambientalismo-liberal/`, `../ecologismo-politico/` y
-  `../decrecimiento/`.
 ```
 
 ```

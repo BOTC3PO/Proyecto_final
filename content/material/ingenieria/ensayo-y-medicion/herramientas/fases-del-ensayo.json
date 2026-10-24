@@ -1,0 +1,64 @@
+{
+ "titulo": "Fases del ensayo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Flujo de trabajo",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Preparar la probeta",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Aplicar la carga",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Medir",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Registrar los datos",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Analizar los resultados",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

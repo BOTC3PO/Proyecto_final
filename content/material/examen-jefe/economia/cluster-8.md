@@ -1110,8 +1110,7 @@ opciones_explicitas:
 respuesta: "El de \"por qué esta decisión y no otra\", comparando costos relativos en vez de valores absolutos"
 
 explicacion: |
-  Es la analogía que hace la teoría del MAPA para explicar por qué
-  esta idea cruza con Administración.
+  Los dos comparan costos relativos y no valores absolutos para decidir: por qué esta decisión y no otra.
 ```
 
 ```

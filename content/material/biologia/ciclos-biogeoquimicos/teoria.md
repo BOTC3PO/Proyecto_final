@@ -13,10 +13,10 @@ nitrógeno).
 
 ## 1. Qué es un ciclo biogeoquímico
 
-Un **ciclo biogeoquímico** describe cómo un elemento químico (o
-compuesto, como el agua) se mueve entre los seres vivos (parte
-**bio-**) y el ambiente físico no vivo (parte **-geo-**: suelo, aire,
-agua, rocas) — de ahí el nombre. A diferencia de la energía, estos
+Un **ciclo biogeoquímico** describe cómo un elemento químico (o compuesto,
+como el agua) se mueve entre los seres vivos (parte **bio-**) y el ambiente
+físico no vivo (parte **-geo-**: suelo, aire, agua, rocas). De ahí el
+nombre. A diferencia de la energía, estos
 elementos **no se pierden**: cambian de forma y de lugar, pero
 permanecen en el sistema.
 
@@ -63,7 +63,6 @@ ser vivo puede usarlo directo** — hace falta "fijarlo" primero:
 ## 5. Por qué importa esta distinción (materia vs. energía, otra vez)
 
 Estos 3 ciclos son la prueba concreta de la idea ya vista en
-`../flujo-materia-energia/`: la materia (agua, carbono, nitrógeno)
-**siempre vuelve** a estar disponible, en algún punto del ciclo — a
-diferencia de la energía, que se disipa y necesita reposición
-constante desde el sol.
+`../flujo-materia-energia/`: la materia (agua, carbono, nitrógeno) **siempre
+vuelve** a estar disponible, en algún punto del ciclo. La energía, en
+cambio, se disipa y necesita reposición constante desde el sol.

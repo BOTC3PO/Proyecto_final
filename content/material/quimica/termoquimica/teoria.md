@@ -43,9 +43,9 @@ estable (ej.: O₂ gas, C sólido/grafito) es **0** por definición — es el
 ## 3. Ley de Hess
 
 Si una reacción se puede escribir como la suma de 2 o más reacciones
-intermedias, el `ΔH` total es la **suma** de los `ΔH` de esas
-reacciones intermedias — no importa el camino, sólo el estado inicial y
-el final (`ΔH` es una función de estado).
+intermedias, el `ΔH` total es la **suma** de los `ΔH` de esas reacciones
+intermedias. No importa el camino, solo el estado inicial y el final: `ΔH`
+es una función de estado.
 
 ```
 Reacción A→B→C  es igual a  ΔH(A→B) + ΔH(B→C)

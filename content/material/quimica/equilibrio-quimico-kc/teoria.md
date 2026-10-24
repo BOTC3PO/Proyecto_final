@@ -13,12 +13,11 @@ principio de Le Chatelier).
 ## 1. Equilibrio dinámico (no es que la reacción "se para")
 
 Muchas reacciones son **reversibles**: los productos pueden reaccionar
-entre sí y volver a formar los reactivos. El **equilibrio** se alcanza
-cuando la velocidad de la reacción **directa** (reactivos→productos) se
-iguala a la velocidad de la reacción **inversa**
-(productos→reactivos) — en ese punto, las concentraciones ya no
-cambian, pero la reacción **sigue ocurriendo en ambos sentidos** (por
-eso es "dinámico", no que se detuvo).
+entre sí y volver a formar los reactivos. El **equilibrio** se alcanza cuando la velocidad de la reacción **directa**
+(reactivos→productos) se iguala a la velocidad de la reacción **inversa**
+(productos→reactivos). En ese punto, las concentraciones ya no cambian, pero
+la reacción **sigue ocurriendo en ambos sentidos**. Por eso es "dinámico":
+no es que se detuvo.
 
 ## 2. La constante de equilibrio Kc
 

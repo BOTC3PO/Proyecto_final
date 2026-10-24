@@ -1,0 +1,32 @@
+{
+ "titulo": "Cómo se resuelven los conflictos entre normas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Tres principios",
+   "headers": [
+    "Principio",
+    "Qué dice",
+    "Ejemplo"
+   ],
+   "rows": [
+    [
+     "Jerarquía",
+     "La norma superior anula a la inferior",
+     "Una ley nacional invalida un decreto provincial que la contradiga"
+    ],
+    [
+     "Lex posterior",
+     "Entre normas del mismo nivel, prevalece la más reciente",
+     "Dos leyes: se aplica la última"
+    ],
+    [
+     "Especialidad",
+     "La norma específica prevalece sobre la general",
+     "Ley provincial de transporte urbano frente a la ley nacional de tránsito"
+    ]
+   ]
+  }
+ ]
+}

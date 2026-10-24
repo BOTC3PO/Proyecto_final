@@ -14,7 +14,7 @@ Las ciencias naturales hacen experimentos; la Antropología, en cambio, aprende 
 
 ## Un punto de partida: Malinowski
 
-A comienzos del siglo XX, muchos estudiosos escribían sobre pueblos lejanos sin haberlos visitado: leían informes de viajeros, misioneros y funcionarios. El polaco Bronisław Malinowski cambió esa costumbre. Durante la Primera Guerra Mundial pasó más de dos años en las islas Trobriand, en el Pacífico, aprendió la lengua local y vivió en las aldeas. Su libro *Los argonautas del Pacífico occidental* (1922) se volvió el modelo del trabajo de campo: para entender a otros hay que compartir su vida cotidiana, hablar su idioma y registrar lo que hacen, no solo lo que dicen que hacen.
+A comienzos del siglo XX, muchos estudiosos escribían sobre pueblos lejanos sin haberlos visitado: leían informes de viajeros, misioneros y funcionarios. El polaco Bronisław Malinowski cambió esa costumbre. Durante la Primera Guerra Mundial pasó más de dos años en las islas Trobriand, en el Pacífico, aprendió la lengua local y vivió en las aldeas. Su libro *Los argonautas del Pacífico occidental* (1922) se volvió el modelo del trabajo de campo. Para entender a otros hay que compartir su vida cotidiana, hablar su idioma y registrar lo que hacen, no solo lo que dicen que hacen.
 
 ## La observación participante
 
@@ -29,7 +29,7 @@ Las herramientas más habituales son:
 
 ## Mirada de adentro y mirada de afuera
 
-Los antropólogos distinguen dos puntos de vista. La perspectiva **emic** es la de los propios protagonistas: cómo ellos nombran y entienden lo que hacen. La perspectiva **etic** es la del analista, que usa categorías de la disciplina para comparar. La buena etnografía parte de lo emic y luego lo interpreta. El antropólogo Clifford Geertz llamó **descripción densa** a esa forma de escribir: no alcanza con contar que alguien guiñó un ojo; hay que explicar si fue un tic, una señal de complicidad o una burla, es decir, qué significa para quienes participan de la escena.
+Los antropólogos distinguen dos puntos de vista. La perspectiva **emic** es la de los propios protagonistas: cómo ellos nombran y entienden lo que hacen. La perspectiva **etic** es la del analista, que usa categorías de la disciplina para comparar. La buena etnografía parte de lo emic y luego lo interpreta. El antropólogo Clifford Geertz llamó **descripción densa** a esa forma de escribir. No alcanza con contar que alguien guiñó un ojo. Hay que explicar si fue un tic, una señal de complicidad o una burla, es decir, qué significa para quienes participan de la escena.
 
 ## Extrañar lo familiar
 

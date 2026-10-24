@@ -43,7 +43,7 @@ pero acá se lleva de a 60, no de a 10). Ejemplo: 8:45 + 40 minutos → 45+40
 
 ## Restar horarios "pidiendo prestado" en base 60
 
-Si al restar los minutos, el minuendo tiene menos minutos que el
-sustraendo, se pide prestada 1 hora (=60 minutos) a la columna de las
-horas, igual que pedir prestada una decena en la resta común (ver
-`../resta/teoria.md`) — sólo que acá se presta de a 60, no de a 10.
+Si al restar los minutos, el minuendo tiene menos minutos que el sustraendo,
+se pide prestada 1 hora (=60 minutos) a la columna de las horas. Es igual
+que pedir prestada una decena en la resta común (ver `../resta/teoria.md`),
+solo que acá se presta de a 60, no de a 10.

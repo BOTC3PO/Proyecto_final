@@ -12,8 +12,6 @@
 
 Los metales son materiales que se distinguen por su enlace metálico, donde los átomos ceden electrones formando una red de cationes inmersa en un "mar de electrones". Esta estructura permite el libre movimiento de carga eléctrica y calor, lo que explica su alta conductividad térmica y eléctrica. Además, su naturaleza atómica les da ductilidad: pueden deformarse sin romperse, lo que los hace ideales para aplicaciones como cables eléctricos o estructuras metálicas.
 
-<!-- IMAGEN: Diagrama de enlace metálico mostrando cationes y electrones libres -->
-
 ---
 
 ## 2. Cerámicos: rigidez y resistencia térmica

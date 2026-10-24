@@ -50,11 +50,10 @@ exactamente dos veces:
 suma de todos los grados = 2 × cantidad de aristas
 ```
 
-Esta propiedad (a veces llamada "lema del apretón de manos" — si cada
-arista fuera un saludo de manos entre dos personas, la cantidad total
-de manos dadas siempre es el doble de la cantidad de saludos) implica
-que la suma de los grados de un grafo **siempre es un número par**,
-sin excepción.
+Esta propiedad se llama a veces "lema del apretón de manos": si cada arista
+fuera un saludo de manos entre dos personas, la cantidad total de manos
+dadas siempre es el doble de la cantidad de saludos. Implica que la suma de
+los grados de un grafo **siempre es un número par**, sin excepción.
 
 ## Formas de representar un grafo
 
@@ -77,9 +76,8 @@ sin excepción.
 
 ## Para qué sirve
 
-Es la estructura matemática base que sostiene, sin nombrarla siempre
-así, a "Enrutamiento" (redes de computadoras, Tronco 10.b) y a
-"Escala de un mapa"/distribución de biomas (que ya piensan al
-territorio como puntos conectados) — el vocabulario común (vértice,
-arista, grado) que se retoma en los módulos que siguen para clasificar
-tipos de grafos y sus recorridos.
+Es la estructura matemática base que sostiene, sin nombrarla siempre así, a
+"Enrutamiento" (redes de computadoras, Informática) y a "Escala de un mapa"
+y distribución de biomas, que ya piensan al territorio como puntos
+conectados. Su vocabulario común (vértice, arista, grado) se retoma en los
+módulos que siguen para clasificar tipos de grafos y sus recorridos.

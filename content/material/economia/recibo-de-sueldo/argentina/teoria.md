@@ -30,11 +30,10 @@ $249.000.
 ## Aportes vs. contribuciones patronales
 
 Los **aportes** (los tres de arriba) los paga el empleado, y por eso se
-ven descontados en su propio recibo. Las **contribuciones patronales** son
-un porcentaje adicional que paga el EMPLEADOR (no el empleado) sobre el
-mismo bruto, para los mismos sistemas — no aparecen restadas en el recibo
-del trabajador, pero forman parte del costo laboral total que asume la
-empresa.
+ven descontados en su propio recibo. Las **contribuciones patronales** son un porcentaje adicional que paga el
+EMPLEADOR (no el empleado) sobre el mismo bruto, para los mismos sistemas.
+No aparecen restadas en el recibo del trabajador. Pero forman parte del
+costo laboral total que asume la empresa.
 
 ## Cuota sindical
 

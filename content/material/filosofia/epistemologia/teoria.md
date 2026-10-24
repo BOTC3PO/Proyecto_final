@@ -54,17 +54,17 @@ justificación).
 
 ## El problema de Gettier (mención breve)
 
-En el siglo XX, el filósofo Edmund Gettier mostró casos donde alguien
-tiene una creencia verdadera y justificada, pero por una cadena de
-casualidades que hace dudoso llamarlo "conocimiento" — un problema
-abierto de la filosofía contemporánea que muestra que la definición
-clásica, aunque útil, no cierra el tema por completo.
+En el siglo XX, el filósofo Edmund Gettier mostró casos donde alguien tiene
+una creencia verdadera y justificada, pero por una cadena de casualidades
+que hace dudoso llamarlo "conocimiento". Es un problema abierto de la
+filosofía contemporánea. Muestra que la definición clásica, aunque útil, no
+cierra el tema por completo.
 
 ## Para qué sirve
 
-La epistemología da el vocabulario para distinguir con precisión
-"creer", "opinar" y "saber" — útil no sólo en filosofía, sino en
-cualquier análisis de qué tan confiable es una afirmación (la misma
-pregunta que aparece en `../../lengua/detectar-falacias/` y en
+La epistemología da el vocabulario para distinguir con precisión "creer",
+"opinar" y "saber". Es útil no solo en filosofía, sino en cualquier análisis
+de qué tan confiable es una afirmación. Es la misma pregunta que aparece en
+`../../lengua/detectar-falacias/` y en
 `../../../ciudadania-digital/verificacion-de-una-noticia/`, ahora
-formalizada).
+formalizada.

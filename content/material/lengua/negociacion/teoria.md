@@ -13,10 +13,10 @@ centrales de negociación son secciones separables.
 ## De "ganar el debate" a "llegar a un acuerdo"
 
 `../debate-refutar-en-vivo/` tenía un objetivo implícito de
-convencer/rebatir. La **negociación** cambia el objetivo: no se trata
-de que una parte "gane" y la otra "pierda", sino de llegar a un
-**acuerdo que ambas partes puedan aceptar** — aunque eso implique que
-ninguna consiga el 100% de lo que quería al principio.
+convencer/rebatir. La **negociación** cambia el objetivo. No se trata de que una parte "gane" y
+la otra "pierda", sino de llegar a un **acuerdo que ambas partes puedan
+aceptar**. Eso puede implicar que ninguna consiga el 100% de lo que quería
+al principio.
 
 ## Posiciones vs. intereses (la distinción central)
 

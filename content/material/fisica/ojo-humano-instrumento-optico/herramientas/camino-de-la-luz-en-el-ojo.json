@@ -1,0 +1,75 @@
+{
+ "titulo": "Camino de la luz hasta la retina",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "De un objeto a la imagen",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Objeto",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Córnea",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Pupila",
+     "x": 475,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Cristalino (lente convergente)",
+     "x": 475,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Retina (imagen invertida)",
+     "x": 238,
+     "y": 103
+    },
+    {
+     "id": "n6",
+     "label": "Nervio óptico y cerebro",
+     "x": 0,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    }
+   ]
+  }
+ ]
+}

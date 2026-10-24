@@ -58,9 +58,9 @@ Interés total = Total pagado - C
 ```
 
 A igual capital y tasa, **más cuotas (n) significa una cuota mensual más
-baja, pero más interés total pagado** a lo largo del préstamo — se paga
-menos por mes, pero durante más tiempo, y cada mes de más es interés
-adicional sobre el saldo que todavía no se amortizó.
+baja, pero más interés total pagado** a lo largo del préstamo. Se paga menos
+por mes, pero durante más tiempo, y cada mes de más es interés adicional
+sobre el saldo que todavía no se amortizó.
 
 ## No es el único sistema que existe
 
@@ -70,10 +70,9 @@ francés porque es el que corresponde al MAPA, pero vale la pena conocer
 que existen otros, con una lógica distinta:
 
 - **Sistema alemán**: la **amortización de capital** es la que se
-  mantiene constante en cada cuota (no la cuota total). Como el interés
-  se calcula sobre un saldo que baja siempre en la misma cantidad, el
-  interés de cada cuota decrece mes a mes — y como consecuencia, **la
-  cuota total es decreciente**: arranca más alta que en el sistema
+  mantiene constante en cada cuota (no la cuota total). Como el interés se calcula sobre un saldo que baja siempre en la misma
+  cantidad, el interés de cada cuota decrece mes a mes. Como consecuencia,
+  **la cuota total es decreciente**: arranca más alta que en el sistema
   francés y termina más baja.
 - **Sistema americano**: durante todo el préstamo sólo se pagan los
   **intereses** en cada cuota; el **capital completo se devuelve de una

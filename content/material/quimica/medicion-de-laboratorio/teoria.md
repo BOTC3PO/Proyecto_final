@@ -77,8 +77,8 @@ sigue de más, se la repita las veces que se la repita).
 
 ## Para qué sirve
 
-Estas técnicas son lo que separa una medición de laboratorio confiable
-de una llena de errores evitables — la base de cualquier práctica
-experimental real, desde preparar una solución con la concentración
+Estas técnicas son lo que separa una medición de laboratorio confiable de
+una llena de errores evitables. Son la base de cualquier práctica
+experimental real. Van desde preparar una solución con la concentración
 exacta (ver `../concentracion-de-una-solucion/`) hasta un experimento que
 otro laboratorio pueda reproducir con el mismo resultado.

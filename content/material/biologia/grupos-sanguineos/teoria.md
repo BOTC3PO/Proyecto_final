@@ -64,10 +64,10 @@ ABO, Rh positivo).
 
 ## Para qué sirve
 
-Es la base de la compatibilidad en transfusiones de sangre (una
-persona tipo O es "donante universal" porque no tiene ni `Iᴬ` ni `Iᴮ`
-que puedan generar rechazo) y de cálculos de probabilidad en
-determinación de paternidad: si un hijo es tipo O, ninguno de sus
-padres biológicos puede ser tipo AB puro sin que haya otra explicación
-— el genotipo de los hijos acota, con certeza matemática en algunos
-casos, qué genotipos eran posibles en los padres.
+Es la base de la compatibilidad en transfusiones de sangre. Una persona tipo
+O es "donante universal" porque no tiene ni `Iᴬ` ni `Iᴮ` que puedan generar
+rechazo. También es la base de cálculos de probabilidad en determinación de
+paternidad. Si un hijo es tipo O, ninguno de sus padres biológicos puede ser
+tipo AB puro sin que haya otra explicación. El genotipo de los hijos acota,
+con certeza matemática en algunos casos, qué genotipos eran posibles en los
+padres.

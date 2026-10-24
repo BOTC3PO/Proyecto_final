@@ -10,7 +10,11 @@
 
 ## 1. Ingeniería civil
 
-La ingeniería civil aborda el diseño, construcción y mantenimiento de infraestructuras esenciales para la sociedad. Se enfoca en estructuras como puentes, carreteras, represas y edificios, garantizando su seguridad, durabilidad y funcionalidad. <!-- IMAGEN: infraestructura civil con ejemplos de obras --> Además, esta rama incluye la gestión de recursos naturales, como el agua y los suelos, para proyectos que combinan utilidad pública con impacto ambiental controlado.
+La ingeniería civil aborda el diseño, construcción y mantenimiento de infraestructuras esenciales para la sociedad. Se enfoca en estructuras como puentes, carreteras, represas y edificios, garantizando su seguridad, durabilidad y funcionalidad. Además, esta rama incluye la gestión de recursos naturales, como el agua y los suelos, para proyectos que combinan utilidad pública con impacto ambiental controlado.
+
+![infraestructura civil con ejemplos de obras](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Hoover_Dam_generator_hall_NV1.jpg/960px-Hoover_Dam_generator_hall_NV1.jpg)
+
+*Imagen: «Hoover Dam generator hall NV1», Acroterion, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hoover_Dam_generator_hall_NV1.jpg).*
 
 ## 2. Ingeniería química
 

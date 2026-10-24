@@ -20,10 +20,10 @@ censar a toda la población casi siempre es demasiado caro, lento o
 directamente imposible.
 
 El objetivo del **muestreo** es elegir esa muestra de forma que sea
-**representativa**: que sus características (promedios, proporciones,
-dispersión) se parezcan a las de la población completa, para poder
-sacar conclusiones sobre toda la población a partir de lo medido en la
-muestra.
+**representativa**. Sus características (promedios, proporciones,
+dispersión) tienen que parecerse a las de la población completa. Así se
+pueden sacar conclusiones sobre toda la población a partir de lo medido en
+la muestra.
 
 ## Formas de armar una muestra
 
@@ -47,10 +47,10 @@ muestra.
 
 ## Qué es el sesgo
 
-Una muestra está **sesgada** cuando el método usado para elegirla
-favorece sistemáticamente a cierto tipo de casos sobre otros, de forma
-que la muestra NO representa a la población real — no por mala suerte
-puntual, sino por cómo se construyó.
+Una muestra está **sesgada** cuando el método usado para elegirla favorece
+sistemáticamente a cierto tipo de casos sobre otros, y por eso NO representa
+a la población real. No es por mala suerte puntual, sino por cómo se
+construyó.
 
 - **Sesgo de selección**: el método de elegir la muestra ya excluye a
   ciertos grupos de entrada (encuestar sólo en la calle en horario
@@ -62,27 +62,25 @@ puntual, sino por cómo se construyó.
   resto de la población (más motivación, más tiempo libre, opiniones
   más extremas).
 
-**Caso histórico clásico**: en 1936, una encuesta estadounidense muy
-grande (más de 2 millones de respuestas) predijo mal el resultado de
-una elección presidencial, porque armó su lista de encuestados a
-partir de guías telefónicas y registros de autos — en plena
-Depresión, eso sesgaba la muestra hacia la clase media-alta, un grupo
-que no representaba al electorado completo. El ejemplo quedó como caso
+**Caso histórico clásico**: en 1936, una encuesta estadounidense muy grande
+(más de 2 millones de respuestas) predijo mal el resultado de una elección
+presidencial. Armó su lista de encuestados a partir de guías telefónicas y
+registros de autos. En plena Depresión, eso sesgaba la muestra hacia la
+clase media-alta, un grupo que no representaba al electorado completo. El ejemplo quedó como caso
 de estudio estándar: **una muestra gigante sigue estando sesgada si el
 método de selección está sesgado** — el tamaño no arregla el sesgo.
 
 ## Muestreo, sesgo y la distribución normal
 
-Cuando se repite el muestreo muchas veces (tomar muchas muestras
-distintas de la misma población y calcular el promedio de cada una),
-esos promedios tienden a distribuirse en forma de campana —
-exactamente la razón por la que `../distribucion-normal/` es
-prerrequisito de este módulo. Ese comportamiento se formaliza en
+Cuando se repite el muestreo muchas veces (tomar muchas muestras distintas
+de la misma población y calcular el promedio de cada una), esos promedios
+tienden a distribuirse en forma de campana. Esa es exactamente la razón por
+la que `../distribucion-normal/` es prerrequisito de este módulo. Ese comportamiento se formaliza en
 `../teorema-central-del-limite/`, el módulo que sigue.
 
 ## Para qué sirve
 
-Es la base de cualquier encuesta, estudio científico o control de
-calidad: sin un método de muestreo cuidado, no importa cuántos datos
-se recolecten — si el método está sesgado, las conclusiones sobre la
-población van a estar torcidas en la misma dirección que el sesgo.
+Es la base de cualquier encuesta, estudio científico o control de calidad.
+Sin un método de muestreo cuidado, no importa cuántos datos se recolecten.
+Si el método está sesgado, las conclusiones sobre la población van a estar
+torcidas en la misma dirección que el sesgo.

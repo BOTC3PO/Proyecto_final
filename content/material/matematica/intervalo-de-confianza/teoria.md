@@ -14,12 +14,11 @@ conviene remarcar, no necesita varias diapositivas.
 
 Un promedio calculado de una muestra casi nunca coincide exactamente
 con el promedio real de la población — pero, gracias al
-`../teorema-central-del-limite/`, se sabe **cómo** varía ese error. Un
-**intervalo de confianza** aprovecha esa información para reportar,
-en vez de un único número, un **rango de valores** que probablemente
-contiene el valor real de la población, junto con un **nivel de
-confianza** (habitualmente 90%, 95% o 99%) que indica qué tan seguido
-ese método acierta.
+`../teorema-central-del-limite/`, se sabe **cómo** varía ese error. Un **intervalo de confianza** aprovecha esa información para reportar, en
+vez de un único número, un **rango de valores** que probablemente contiene
+el valor real de la población. Lo acompaña un **nivel de confianza**
+(habitualmente 90%, 95% o 99%) que indica qué tan seguido ese método
+acierta.
 
 ```
 IC = media muestral ± margen de error
@@ -54,21 +53,21 @@ confianza es `50 ± 3,92`, es decir, de `46,08` a `53,92`.
 
 ## La interpretación correcta (y el error más común)
 
-"95% de confianza" **no** significa "hay un 95% de probabilidad de que
-el valor real de la población esté dentro de ESTE intervalo puntual"
-— una vez calculado, el intervalo ya contiene al valor real o no lo
-contiene, no hay azar de por medio en ese momento.
+"95% de confianza" **no** significa "hay un 95% de probabilidad de que el
+valor real de la población esté dentro de ESTE intervalo puntual". Una vez
+calculado, el intervalo ya contiene al valor real o no lo contiene. No hay
+azar de por medio en ese momento.
 
-La interpretación correcta es sobre el **método**: si se repitiera el
-proceso de muestreo muchas veces, y se calculara un intervalo de
-confianza del 95% cada vez, **aproximadamente el 95% de esos
-intervalos** (no de las veces que se mira el mismo intervalo)
-contendrían el verdadero valor poblacional.
+La interpretación correcta es sobre el **método**. Si se repitiera el
+proceso de muestreo muchas veces y se calculara un intervalo de confianza
+del 95% cada vez, **aproximadamente el 95% de esos intervalos** contendrían
+el verdadero valor poblacional. No se trata de las veces que se mira el
+mismo intervalo.
 
 ## Para qué sirve
 
-Es la forma estándar en que una encuesta o un estudio reporta
-incertidumbre de manera honesta: en vez de dar un único número como
-si fuera exacto, da un rango y dice qué tan confiable es el método
-que lo produjo — la base de la frase "±3 puntos, con un 95% de
-confianza" que acompaña a cualquier encuesta seria.
+Es la forma estándar en que una encuesta o un estudio reporta incertidumbre
+de manera honesta. En vez de dar un único número como si fuera exacto, da un
+rango y dice qué tan confiable es el método que lo produjo. Es la base de la
+frase "±3 puntos, con un 95% de confianza" que acompaña a cualquier encuesta
+seria.

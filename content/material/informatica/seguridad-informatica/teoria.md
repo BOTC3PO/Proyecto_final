@@ -12,8 +12,6 @@
 
 La seguridad informática se enfoca en identificar y prevenir riesgos que comprometan la integridad de información, sistemas o usuarios. Entre las amenazas más frecuentes está el *phishing*, una práctica que usa correos electrónicos, mensajes o sitios web falsos para engañar a los usuarios. Por ejemplo, un mensaje falso que imita al banco del usuario puede pedirle datos personales bajo la excusa de "verificar su cuenta". El objetivo no es dañar hardware ni mejorar conexiones, sino obtener información confidencial como contraseñas o números de tarjetas.
 
-<!-- IMAGEN: Diagrama de un correo phishing con enlace falso y logotipo de entidad legítima -->
-
 ## 2. Malware: más que virus
 
 El término *malware* (software malicioso) no se limita a los virus, como podría pensarse. Incluye una amplia gama de programas diseñados para alterar el funcionamiento normal de un sistema o robar información. Ejemplos incluyen:
@@ -26,8 +24,6 @@ Un error común es asociar *malware* exclusivamente con la destrucción de archi
 ## 3. Ransomware: el secuestro digital
 
 El ransomware es una forma específica de malware que cifra archivos importantes del usuario y exige un rescate para desbloquearlos. A diferencia de otros tipos, no siempre borra datos, sino que los encripta de manera que solo se pueden recuperar con una clave proporcionada por el atacante. Este método es especialmente peligroso porque incluso si el usuario paga, no hay garantía de recuperación total.
-
-<!-- IMAGEN: Comparativa entre archivos normales y cifrados por ransomware -->
 
 ## 4. Protección activa y pasiva
 

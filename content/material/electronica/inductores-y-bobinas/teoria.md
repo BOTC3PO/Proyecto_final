@@ -38,7 +38,7 @@ crece con la frecuencia: a frecuencias altas el inductor se opone mucho al paso 
 
 ## 5. Usos habituales
 
-Los inductores se usan en filtros, combinados con capacitores para separar frecuencias; en fuentes conmutadas, donde almacenan energía en cada ciclo; en circuitos de radio, para sintonizar frecuencias; y como bobinas de choque, para impedir que el ruido de alta frecuencia circule por una línea. Los transformadores son dos bobinas acopladas por un mismo núcleo y se estudian aparte.
+Los inductores se usan en filtros, combinados con capacitores para separar frecuencias. Se usan en fuentes conmutadas, donde almacenan energía en cada ciclo. Se usan en circuitos de radio, para sintonizar frecuencias. Y se usan como bobinas de choque, para impedir que el ruido de alta frecuencia circule por una línea. Los transformadores son dos bobinas acopladas por un mismo núcleo y se estudian aparte.
 
 ## 6. Una precaución importante
 

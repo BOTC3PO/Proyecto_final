@@ -67,12 +67,11 @@ vivir permanentemente resolviendo crisis, sin margen para nada más.
 
 ## Conexión con el presupuesto del hogar
 
-Es el mismo tipo de razonamiento que la regla 50/30/20 aplicada al
-dinero (ver `../presupuesto-hogar/teoria.md`): el tiempo, como el
-ingreso, es un recurso limitado, y clasificarlo antes de "gastarlo" (en
-vez de reaccionar sin plan) ayuda a que las prioridades reales no queden
-sistemáticamente relegadas por lo que sólo grita más fuerte en el
-momento.
+Es el mismo tipo de razonamiento que la regla 50/30/20 aplicada al dinero
+(ver `../presupuesto-hogar/teoria.md`). El tiempo, como el ingreso, es un
+recurso limitado. Clasificarlo antes de "gastarlo", en vez de reaccionar sin
+plan, ayuda a que las prioridades reales no queden sistemáticamente
+relegadas por lo que solo grita más fuerte en el momento.
 
 ## Dónde aparece en la vida real
 

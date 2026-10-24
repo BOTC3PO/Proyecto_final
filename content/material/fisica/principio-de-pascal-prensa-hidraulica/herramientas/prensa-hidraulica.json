@@ -1,0 +1,51 @@
+{
+ "titulo": "Prensa hidráulica",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Principio de Pascal",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Émbolo chico: fuerza F₁, área A₁",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "El líquido transmite la presión P",
+     "x": 288,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Émbolo grande: fuerza F₂, área A₂",
+     "x": 575,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "latex",
+   "content": "\\dfrac{F_1}{A_1} = \\dfrac{F_2}{A_2}",
+   "displayMode": true
+  }
+ ]
+}

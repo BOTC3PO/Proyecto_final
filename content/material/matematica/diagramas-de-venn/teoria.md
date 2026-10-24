@@ -45,10 +45,10 @@ significado matemático.
 
 ## Contar elementos con el diagrama
 
-Cuando un problema da las cantidades de cada región (en vez de listar
-los elementos), conviene completar el diagrama región por región,
-empezando siempre por la **intersección** (el centro), porque las
-otras regiones se calculan restando esa cantidad de los totales:
+Cuando un problema da las cantidades de cada región (en vez de listar los
+elementos), conviene completar el diagrama región por región, empezando
+siempre por la **intersección** (el centro). Las otras regiones se calculan
+restando esa cantidad de los totales:
 
 ```
 región sólo-A = |A| − |A∩B|
@@ -57,8 +57,8 @@ región sólo-B = |B| − |A∩B|
 
 ## Para qué sirve
 
-Aparece en probabilidad simple (clasificar un espacio muestral en
-casos que cumplen una condición, otra, o ninguna) y en cualquier
+Aparece en probabilidad simple, para clasificar un espacio muestral en casos
+que cumplen una condición, otra, o ninguna. También aparece en cualquier
 disciplina que necesite mostrar visualmente relaciones de inclusión y
-superposición entre categorías (Biología: clasificación de especies;
-Informática: relaciones entre conjuntos de datos).
+superposición entre categorías: Biología (clasificación de especies) o
+Informática (relaciones entre conjuntos de datos).

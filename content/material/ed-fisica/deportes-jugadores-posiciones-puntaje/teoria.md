@@ -33,18 +33,18 @@ jugadores necesarios para cubrirlo.
 | Vóley | Punto por jugada | 1 punto (gana el set el que llega primero a 25, con 2 de diferencia) |
 | Handball | Gol | 1 punto |
 
-**Detalle importante del básquet**: no todos los puntos valen lo
-mismo — un tiro convertido desde más lejos de la línea de 3 puntos
-vale más que uno cercano, a diferencia del fútbol o el handball donde
-todo gol vale igual sin importar la distancia.
+**Detalle importante del básquet**: no todos los puntos valen lo mismo. Un
+tiro convertido desde más lejos de la línea de 3 puntos vale más que uno
+cercano. En el fútbol o el handball, en cambio, todo gol vale igual sin
+importar la distancia.
 
 ## 3. El líbero en vóley: una posición especial
 
-El **líbero** en vóley es una posición defensiva especializada con
-reglas propias: usa una camiseta de color distinto, no puede rematar
-ni sacar, y puede ingresar/salir de la cancha sin que cuente como
-sustitución normal — existe específicamente para reforzar la defensa
-sin gastar cambios de jugadores.
+El **líbero** en vóley es una posición defensiva especializada con reglas
+propias. Usa una camiseta de color distinto y no puede rematar ni sacar.
+Puede ingresar y salir de la cancha sin que cuente como sustitución normal.
+Existe específicamente para reforzar la defensa sin gastar cambios de
+jugadores.
 
 ## 4. Por qué existen posiciones fijas
 

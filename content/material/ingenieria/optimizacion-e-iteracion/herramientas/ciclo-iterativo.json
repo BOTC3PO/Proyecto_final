@@ -1,0 +1,58 @@
+{
+ "titulo": "Ciclo iterativo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Iterar",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Solución inicial",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Evaluación",
+     "x": 475,
+     "y": 115
+    },
+    {
+     "id": "n3",
+     "label": "Ajuste",
+     "x": 238,
+     "y": 230
+    },
+    {
+     "id": "n4",
+     "label": "Solución mejorada",
+     "x": 0,
+     "y": 115
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

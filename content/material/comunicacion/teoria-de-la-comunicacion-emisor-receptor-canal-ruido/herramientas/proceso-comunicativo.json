@@ -1,0 +1,70 @@
+{
+ "titulo": "Elementos del proceso comunicativo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Flujo del mensaje y puntos de distorsión",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Emisor",
+     "x": 0,
+     "y": 46,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Mensaje (codificado)",
+     "x": 225,
+     "y": 46,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Canal",
+     "x": 450,
+     "y": 46,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Receptor (decodifica)",
+     "x": 675,
+     "y": 46,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n5",
+     "label": "Ruido",
+     "x": 338,
+     "y": 150,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n5",
+     "toId": "n3",
+     "label": "distorsiona"
+    }
+   ]
+  }
+ ]
+}

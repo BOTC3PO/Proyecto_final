@@ -12,11 +12,11 @@ necesita varias diapositivas.
 
 ## Qué modela
 
-La **distribución exponencial** describe **cuánto tiempo pasa hasta
-que ocurre el próximo evento**, cuando los eventos suceden al azar
-pero a una **tasa promedio constante**: cuánto se tarda en llegar el
-próximo colectivo, cuánto dura una lamparita antes de quemarse, cuánto
-pasa hasta la próxima llamada a un call center.
+La **distribución exponencial** describe **cuánto tiempo pasa hasta que
+ocurre el próximo evento**, cuando los eventos suceden al azar pero a una
+**tasa promedio constante**. Por ejemplo: cuánto se tarda en llegar el
+próximo colectivo, cuánto dura una lamparita antes de quemarse, cuánto pasa
+hasta la próxima llamada a un call center.
 
 Es continua (`../variable-aleatoria-discreta-continua/`): el tiempo
 puede tomar cualquier valor, no sólo minutos enteros.
@@ -56,10 +56,10 @@ evento **ya haya ocurrido** para el tiempo `t` es el complemento:
 P(T ≤ t) = 1 − e^(−λt)
 ```
 
-**Ejemplo**: con λ = 3 colectivos por hora, la probabilidad de esperar
-más de 20 minutos (1/3 de hora) es `e^(−3×1/3) = e^(−1) ≈ 0,368` — a
-pesar de que 20 minutos es el promedio, hay casi un 37% de chance de
-esperar más que eso (la distribución no es simétrica como la normal).
+**Ejemplo**: con λ = 3 colectivos por hora, la probabilidad de esperar más
+de 20 minutos (1/3 de hora) es `e^(−3×1/3) = e^(−1) ≈ 0,368`. A pesar de que
+20 minutos es el promedio, hay casi un 37% de chance de esperar más que eso.
+La distribución no es simétrica como la normal.
 
 ## Relación con la distribución de Poisson
 

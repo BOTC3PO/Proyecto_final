@@ -1,0 +1,36 @@
+{
+ "titulo": "Partes internas de un motor eléctrico",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Partes",
+   "headers": [
+    "Parte",
+    "Función"
+   ],
+   "rows": [
+    [
+     "Estator",
+     "Parte fija: imanes o bobinas que crean el campo magnético"
+    ],
+    [
+     "Rotor",
+     "Parte móvil con bobinas: gira"
+    ],
+    [
+     "Conmutador y escobillas",
+     "Invierten la corriente para que el giro continúe"
+    ],
+    [
+     "Eje",
+     "Transmite el movimiento"
+    ],
+    [
+     "Carcasa",
+     "Protege y sostiene"
+    ]
+   ]
+  }
+ ]
+}

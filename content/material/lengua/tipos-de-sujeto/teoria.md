@@ -16,7 +16,7 @@ El estudio de los tipos de sujeto se basa en dos criterios principales: su prese
 
 ## Sujeto simple y compuesto
 
-**Nota importante**: "bimembre" y "unimembre" NO son términos que clasifiquen al sujeto — son una clasificación de la *oración completa* (una oración bimembre tiene sujeto y predicado diferenciados, como "Juan corre"; una oración unimembre no se puede dividir así, como "¡Fuego!" o "Llueve"). La clasificación real y complementaria a tácito/expreso para el sujeto es **simple vs. compuesto**, según cuántos núcleos tiene.
+**Nota importante**: "bimembre" y "unimembre" NO son términos que clasifiquen al sujeto. Son una clasificación de la *oración completa*. Una oración bimembre tiene sujeto y predicado diferenciados, como "Juan corre". Una oración unimembre no se puede dividir así, como "¡Fuego!" o "Llueve". La clasificación real y complementaria a tácito/expreso para el sujeto es **simple vs. compuesto**, según cuántos núcleos tiene.
 
 El **sujeto simple** tiene un solo núcleo (un sustantivo o pronombre), acompañado o no de modificadores. Por ejemplo, en "Los estudiantes de la escuela pública llegaron tarde", el sujeto es "Los estudiantes de la escuela pública": tiene un único núcleo, "estudiantes", aunque esté acompañado de modificadores ("los", "de la escuela pública"). En "Juan come manzanas", el sujeto "Juan" también es simple, sin modificadores. Es el tipo de sujeto más frecuente, tenga o no palabras que lo acompañen.
 

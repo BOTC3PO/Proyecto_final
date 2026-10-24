@@ -13,7 +13,9 @@ La Guerra Fría definió un orden mundial dominado por dos bloques contrapuestos
 
 Este equilibrio de poder generó una lógica de **contención**, donde ambas partes buscaban evitar la expansión del otro. Por ejemplo, Estados Unidos impulsó la OTAN (1949) como alianza militar occidental, mientras la URSS respondió creando el Pacto de Varsovia (1955) y respaldó movimientos antiimperialistas en África, Asia y América Latina. Esta dinámica no solo polarizó a las naciones, sino que también influyó en los procesos de independencia de colonias, al convertirlas en escenarios de lucha por el control ideológico y estratégico.  
 
-<!-- IMAGEN: mapa del mundo dividido en bloques capitalista y socialista -->  
+![mapa del mundo dividido en bloques capitalista y socialista](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Cold_war_europe_military_alliances_map_en.png/960px-Cold_war_europe_military_alliances_map_en.png)
+
+*Imagen: «Cold war europe military alliances map en», CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cold_war_europe_military_alliances_map_en.png).*
 
 ---
 
@@ -29,9 +31,11 @@ En contraste, la Unión Soviética promovió la **COMECON** (Comunidad Económic
 
 La Guerra Fría no solo fue una lucha ideológica o económica: también estuvo marcada por la amenaza nuclear. El **incidente de los misiles en Cuba** (1962) fue uno de los momentos más tensos, cuando Estados Unidos descubrió que la Unión Soviética había instalado misiles nucleares en la isla caribeña. Esta acción puso al borde del conflicto global: el presidente Kennedy ordenó un bloqueo marítimo, y por poco se llega a una guerra nuclear.  
 
-Este episodio evidenció cómo las decisiones de ambas potencias podían tener consecuencias catastróficas para todo el planeta. Aunque lograron evitar la confrontación directa (la URSS retiró los misiles y EE.UU. prometió no invadir Cuba), este evento marcó un punto de inflexión en las relaciones internacionales, llevando a ambas partes a buscar formas de desescalada, como el **Tratado de No Proliferación Nuclear** (1968).  
+Este episodio evidenció cómo las decisiones de ambas potencias podían tener consecuencias catastróficas para todo el planeta. Lograron evitar la confrontación directa: la URSS retiró los misiles y EE.UU. prometió no invadir Cuba. Aun así, este evento marcó un punto de inflexión en las relaciones internacionales. Llevó a ambas partes a buscar formas de desescalada, como el **Tratado de No Proliferación Nuclear** (1968).  
 
-<!-- IMAGEN: fotografía del bloqueo naval durante la crisis de los misiles -->  
+![fotografía del bloqueo naval durante la crisis de los misiles](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/P-3A_VP-44_over_USS_Barry_%28DD-933%29_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg/960px-P-3A_VP-44_over_USS_Barry_%28DD-933%29_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg)
+
+*Imagen: «P-3A VP-44 over USS Barry (DD-933) and Metallurg Anosov during Cuban Missile Crisis 1962», U.S. Navy, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:P-3A_VP-44_over_USS_Barry_%28DD-933%29_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg).*
 
 ---
 

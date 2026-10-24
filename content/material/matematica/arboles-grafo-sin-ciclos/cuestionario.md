@@ -345,8 +345,7 @@ opciones_explicitas:
 respuesta: "Porque tiene una raíz (el ancestro común más antiguo representado) y se ramifica sin volver a juntarse en ningún ciclo, con las especies actuales como hojas"
 
 explicacion: |
-  Es el mismo caso mencionado en `troncos.md` como aplicación de
-  teoría de grafos sin nombrarla así en Biología.
+  Un árbol filogenético es un grafo conexo sin ciclos: tiene una raíz (el ancestro común) y se ramifica sin volver a juntarse.
 ```
 
 ### 17 — Relación con estructuras de datos

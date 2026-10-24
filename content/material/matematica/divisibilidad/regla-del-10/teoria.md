@@ -13,10 +13,9 @@
 
 ## La regla
 
-Un número es divisible por 10 si su **última cifra es 0**. Es el caso más
-simple de todos: como 10 = 2 × 5, y las últimas cifras válidas para 2 son
-{0,2,4,6,8} y para 5 son {0,5}, la única cifra que cumple las dos reglas a
-la vez es el 0.
+Un número es divisible por 10 si su **última cifra es 0**. Es el caso más simple de todos. Como 10 = 2 × 5, las últimas cifras válidas
+para 2 son {0,2,4,6,8} y para 5 son {0,5}. La única cifra que cumple las dos
+reglas a la vez es el 0.
 
 **Ejemplos**: 340 es divisible por 10 (termina en 0). 345 no lo es (termina
 en 5: cumple la regla del 5, pero no la del 2).

@@ -10,13 +10,15 @@
 
 ## 1. El contexto de transición: de la Edad Media a la Modernidad
 
-El periodo que abarca los siglos XIV al XVI no fue una ruptura abrupta, sino una evolución compleja. Tras la crisis del siglo XIV (la Peste Negra, las guerras y la hambruna), Europa experimentó una lenta recuperación demográfica y económica. El florecimiento de las ciudades italianas, especialmente Florencia, Venecia y Génova, creó una burguesía mercantil con nuevos patrones de consumo. Esta riqueza no solo financió el arte, sino que también permitió la emergencia de una intelectualidad laica interesada en los textos antiguos. El Renacimiento, iniciado en Italia, se caracterizó por el *studia humanitatis*: un retorno a los autores clásicos griegos y romanos, no como mera imitación, sino como herramienta para comprender la condición humana y la historia desde una perspectiva más crítica y secular.
+El periodo que abarca los siglos XIV al XVI no fue una ruptura abrupta, sino una evolución compleja. Tras la crisis del siglo XIV (la Peste Negra, las guerras y la hambruna), Europa experimentó una lenta recuperación demográfica y económica. El florecimiento de las ciudades italianas, especialmente Florencia, Venecia y Génova, creó una burguesía mercantil con nuevos patrones de consumo. Esta riqueza no solo financió el arte, sino que también permitió la emergencia de una intelectualidad laica interesada en los textos antiguos. El Renacimiento, iniciado en Italia, se caracterizó por el *studia humanitatis*: un retorno a los autores clásicos griegos y romanos. No era mera imitación, sino una herramienta para comprender la condición humana y la historia desde una perspectiva más crítica y secular.
 
 ## 2. El Humanismo: la nueva mirada sobre el mundo
 
 El Humanismo no fue un movimiento político, sino una corriente intelectual y educativa. Sus protagonistas, los humanistas, buscaban purificar el latín y el griego volviendo a las fuentes originales (*ad fontes*). Figuras como Petrarca, Erasmus de Róterdam y Tomás Moro enfatizaron el valor de la dignidad humana y la capacidad de la razón para mejorar la sociedad.
 
-<!-- IMAGEN: Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico -->
+![Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg/960px-Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg)
+
+*Imagen: «Hans Holbein d. J. (Werkstatt) - Bildnis des Erasmus von Rotterdam (ca. 1530)», Workshop of Hans Holbein the Younger, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg).*
 
 Este enfoque crítico afectó directamente a la religión. Los humanistas aplicaron sus métodos filológicos a la Biblia y a los escritos de los Padres de la Iglesia, descubriendo discrepancias en las traducciones latinas utilizadas por la Iglesia católica. Esta "desmitificación" textual preparó el terreno intelectual para cuestionar la autoridad institucional de Roma, demostrando que la verdad podía estar en los textos originales, no necesariamente en la tradición eclesiástica consolidada.
 

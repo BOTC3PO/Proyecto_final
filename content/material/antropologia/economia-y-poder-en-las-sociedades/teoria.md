@@ -24,7 +24,7 @@ Las sociedades reales combinan las tres, con distinto peso.
 
 ## El don y la reciprocidad
 
-El antropólogo francés Marcel Mauss, en su *Ensayo sobre el don* (1925), mostró que dar un regalo es una obligación social que genera vínculos: se debe **dar, recibir y devolver**. Un obsequio nunca es del todo «gratis», porque crea un compromiso. Marshall Sahlins distinguió luego tipos de reciprocidad según la cercanía: la **generalizada** (entre familiares, sin llevar cuentas, como cuidar a un hijo), la **equilibrada** (un intercambio de valor parecido en un plazo razonable) y la **negativa** (intentar sacar ventaja, como en el regateo o el robo).
+El antropólogo francés Marcel Mauss, en su *Ensayo sobre el don* (1925), mostró que dar un regalo es una obligación social que genera vínculos: se debe **dar, recibir y devolver**. Un obsequio nunca es del todo «gratis», porque crea un compromiso. Marshall Sahlins distinguió luego tipos de reciprocidad según la cercanía. La **generalizada** se da entre familiares, sin llevar cuentas, como cuidar a un hijo. La **equilibrada** es un intercambio de valor parecido en un plazo razonable. La **negativa** es intentar sacar ventaja, como en el regateo o el robo.
 
 Dos casos clásicos:
 
@@ -46,7 +46,7 @@ Esta clasificación no es una escala de «progreso»: ninguna forma es superior 
 
 ## Autoridad, prestigio y liderazgo
 
-El poder no se basa siempre en la fuerza o la riqueza. Puede apoyarse en la edad, la sabiduría, la generosidad, el parentesco o el prestigio ritual. En algunas sociedades de Melanesia, el «gran hombre» (*big man*) alcanza su posición no por herencia sino por su habilidad para reunir seguidores y repartir bienes; en otras, los líderes deben hablar en nombre del grupo y no pueden dar órdenes.
+El poder no se basa siempre en la fuerza o la riqueza. Puede apoyarse en la edad, la sabiduría, la generosidad, el parentesco o el prestigio ritual. En algunas sociedades de Melanesia, el «gran hombre» (*big man*) alcanza su posición no por herencia sino por su habilidad para reunir seguidores y repartir bienes. En otras, los líderes deben hablar en nombre del grupo y no pueden dar órdenes.
 
 ## Por qué importa
 

@@ -33,11 +33,11 @@ impeachment).
 
 ## Parlamentarismo
 
-El Jefe de Estado (rey, en una monarquía parlamentaria, o presidente,
-en una república parlamentaria) es una figura mayormente protocolar/de
-representación; el verdadero jefe de gobierno es el **Primer Ministro**,
-elegido por el Parlamento (no directamente por voto popular) de entre
-los legisladores del partido o coalición con mayoría. El gobierno
+El Jefe de Estado (rey, en una monarquía parlamentaria, o presidente, en una
+república parlamentaria) es una figura mayormente protocolar o de
+representación. El verdadero jefe de gobierno es el **Primer Ministro**. Lo
+elige el Parlamento (no directamente el voto popular) de entre los
+legisladores del partido o coalición con mayoría. El gobierno
 depende de mantener la confianza del Parlamento — si la pierde (moción
 de censura), cae y se llama a nuevas elecciones o se forma otro
 gobierno, sin esperar a que termine un mandato fijo. Ejemplo: Reino
@@ -61,8 +61,8 @@ de Gobierno elegido por el Parlamento (el Primer Ministro).
 
 ## Cómo comparar sistemas sin tomar postura
 
-La pregunta neutral para comparar cualquier sistema es siempre la
-misma: **¿de dónde saca su legitimidad el Jefe de Gobierno, y qué puede
-hacer caer su gobierno antes de tiempo?** Presidencialismo: legitimidad
-directa del voto popular, cae sólo por juicio político. Parlamentarismo:
+La pregunta neutral para comparar cualquier sistema es siempre la misma:
+**¿de dónde saca su legitimidad el Jefe de Gobierno, y qué puede hacer caer
+su gobierno antes de tiempo?** En el presidencialismo, la legitimidad es
+directa del voto popular y el gobierno cae solo por juicio político. Parlamentarismo:
 legitimidad de la confianza del Parlamento, cae por moción de censura.

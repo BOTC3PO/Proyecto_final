@@ -22,7 +22,7 @@ En *El suicidio* (1897) mostró que un acto que parece puramente individual var�
 
 ## Max Weber: comprender el sentido de la acción
 
-Weber (1864-1920), alemán, puso el foco en la **acción social**: la conducta a la que la persona le da un sentido y que toma en cuenta a otros. Propuso que la sociología debe **comprender** ese sentido (en alemán, *verstehen*) y no sólo observar desde afuera. Distinguió cuatro tipos de acción: **racional con arreglo a fines** (se calculan medios para lograr un objetivo), **racional con arreglo a valores** (se actúa según una convicción, sin importar el resultado), **afectiva** (guiada por emociones) y **tradicional** (guiada por la costumbre).
+Weber (1864-1920), alemán, puso el foco en la **acción social**: la conducta a la que la persona le da un sentido y que toma en cuenta a otros. Propuso que la sociología debe **comprender** ese sentido (en alemán, *verstehen*) y no sólo observar desde afuera. Distinguió cuatro tipos de acción. La **racional con arreglo a fines** calcula medios para lograr un objetivo. La **racional con arreglo a valores** actúa según una convicción, sin importar el resultado. La **afectiva** está guiada por emociones. La **tradicional** está guiada por la costumbre.
 
 En *La ética protestante y el espíritu del capitalismo* (1904-1905) argumentó que ciertas ideas religiosas, como la valoración del trabajo y el ahorro, favorecieron el desarrollo del capitalismo moderno. Estudió también la **burocracia**, un modo de organización basado en reglas impersonales, jerarquías y cargos, y los tres tipos de **dominación legítima**: tradicional, carismática y legal-racional.
 
@@ -32,7 +32,7 @@ Marx (1818-1883), alemán, puso el centro en la economía y el conflicto. Para �
 
 ## Cómo se comparan
 
-Durkheim pregunta qué mantiene unida a una sociedad. Weber pregunta qué sentido le dan las personas a lo que hacen. Marx pregunta quién tiene el poder económico y cómo eso genera conflicto. Si se analiza, por ejemplo, el trabajo en una plataforma de reparto, Durkheim llevaría a mirar la división del trabajo y las normas, Weber la racionalidad y la burocracia de la empresa, y Marx la relación entre quien posee la plataforma y quien trabaja para ella.
+Durkheim pregunta qué mantiene unida a una sociedad. Weber pregunta qué sentido le dan las personas a lo que hacen. Marx pregunta quién tiene el poder económico y cómo eso genera conflicto. Si se analiza, por ejemplo, el trabajo en una plataforma de reparto, cada autor llevaría a mirar algo distinto. Durkheim, la división del trabajo y las normas. Weber, la racionalidad y la burocracia de la empresa. Marx, la relación entre quien posee la plataforma y quien trabaja para ella.
 
 ## Para qué sirve
 

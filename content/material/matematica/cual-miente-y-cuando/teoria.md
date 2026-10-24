@@ -22,11 +22,10 @@ verdad completa" de una situación con muchos matices.
 
 La media se deja arrastrar por **valores atípicos** — unos pocos casos
 extremos pueden subir (o bajar) mucho el promedio, sin que ese número
-represente al caso "típico". Es el ejemplo clásico del sueldo
-promedio de un país: si unas pocas personas ganan muchísimo, el
-promedio puede quedar muy por encima de lo que gana la mayoría real de
-la población — mientras que la **mediana** (el sueldo del que está
-justo en el medio) no se ve casi afectada por esos casos extremos.
+represente al caso "típico". Es el ejemplo clásico del sueldo promedio de un país. Si unas pocas personas
+ganan muchísimo, el promedio puede quedar muy por encima de lo que gana la
+mayoría real de la población. La **mediana** (el sueldo del que está justo
+en el medio), en cambio, no se ve casi afectada por esos casos extremos.
 
 ## Cuándo la mediana no es suficiente
 
@@ -48,16 +47,15 @@ nada especial del conjunto — o puede no existir directamente.
 ## Una pregunta para desconfiar de un solo número
 
 Frente a cualquier resumen estadístico (un promedio, una mediana, un
-porcentaje), la pregunta útil es: **¿qué información se pierde al
-resumir todo en un solo número?** — ¿hay valores atípicos que empujan
-la media?, ¿hay mucha dispersión que la mediana no muestra?, ¿el
-"típico" (moda) es realmente representativo, o sólo el más frecuente
-por poco?
+porcentaje), la pregunta útil es: **¿qué información se pierde al resumir
+todo en un solo número?** ¿Hay valores atípicos que empujan la media? ¿Hay
+mucha dispersión que la mediana no muestra? ¿El "típico" (moda) es realmente
+representativo, o solo el más frecuente por poco?
 
 ## Para qué sirve
 
 Es la base del pensamiento crítico frente a cualquier estadística que
-aparece en una noticia, una publicidad o un debate político: "el
-salario promedio subió" puede ser cierto y, al mismo tiempo, esconder
-que la mayoría de la gente está peor — no por manipulación siempre,
-sino porque un solo número nunca cuenta toda la historia.
+aparece en una noticia, una publicidad o un debate político. "El salario
+promedio subió" puede ser cierto y, al mismo tiempo, esconder que la mayoría
+de la gente está peor. No siempre es por manipulación, sino porque un solo
+número nunca cuenta toda la historia.

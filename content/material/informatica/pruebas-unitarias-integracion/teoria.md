@@ -14,8 +14,6 @@ Las pruebas unitarias son un tipo de verificación que se centra en validar el f
 
 Para aplicar una prueba unitaria, se simulan entradas específicas y se comparan las salidas obtenidas con los valores predeterminados. Esta metodología permite detectar errores temprano en el ciclo de desarrollo, antes de que afecten a otros módulos del software.
 
-<!-- IMAGEN: Diagrama mostrando una función aislada con flechas de entrada/salida y un indicador de "OK" o "Error" -->
-
 ---
 
 ## 2. ¿Qué son las pruebas de integración?
@@ -23,8 +21,6 @@ Para aplicar una prueba unitaria, se simulan entradas específicas y se comparan
 Las pruebas de integración, en cambio, evalúan cómo interactúan los componentes entre sí dentro del sistema. A diferencia de las unitarias, no se aíslan los módulos: se prueban juntos para verificar que el flujo de datos y la comunicación entre ellos funcionen correctamente. Por ejemplo, si una función llama a otra o a un servicio externo, una prueba de integración asegurará que esa conexión sea estable y que los resultados sean consistentes.
 
 Estas pruebas son esenciales para detectar problemas en la interfaz entre módulos, como errores de compatibilidad, fallos en la transmisión de parámetros o conflictos de estado. Aunque suelen requerir más recursos (como un entorno simulado), son clave para garantizar que el software funcione como una unidad coherente.
-
-<!-- IMAGEN: Esquema mostrando dos módulos conectados con flechas y un mensaje "Prueba de interacción" -->
 
 ---
 

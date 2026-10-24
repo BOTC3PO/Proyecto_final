@@ -63,11 +63,11 @@ contradicciones.
 ## Un caso real: Argentina
 
 Argentina usa el huso **UTC−3** (3 horas detrás de Greenwich) todo el
-año, sin horario de verano desde 2009. Esto es una decisión política de
-cada país (algunos ajustan el reloj según la estación, otros no) y
-puede cambiar — lo estable es el mecanismo: la posición en longitud fija
-un huso "natural", pero el huso legal que usa cada país es una decisión
-de gobierno, no siempre coincide exactamente con el huso geográfico.
+año, sin horario de verano desde 2009. Esto es una decisión política de cada país (algunos ajustan el reloj según
+la estación, otros no) y puede cambiar. Lo estable es el mecanismo: la
+posición en longitud fija un huso "natural". Pero el huso legal que usa cada
+país es una decisión de gobierno, y no siempre coincide exactamente con el
+huso geográfico.
 
 ## Para qué sirve
 

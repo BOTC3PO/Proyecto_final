@@ -71,10 +71,10 @@ esa fusión que "cuesta" energía:
 
 ## 6. Por qué esto cambia cómo se entiende la tabla periódica
 
-Cada átomo de calcio en nuestros huesos, cada átomo de hierro en
-nuestra sangre, se fabricó dentro de una estrella que murió antes de
-que existiera el sistema solar — "somos polvo de estrellas" no es una
-frase poética, es literal. Este es el cruce que conecta directamente
+Cada átomo de calcio en nuestros huesos y cada átomo de hierro en nuestra
+sangre se fabricó dentro de una estrella que murió antes de que existiera el
+sistema solar. "Somos polvo de estrellas" no es una frase poética, es
+literal. Este es el cruce que conecta directamente
 con `../../quimica/tabla-periodica-tendencias/` (nivel 2).
 
 ## 7. Conexión con lo que sigue

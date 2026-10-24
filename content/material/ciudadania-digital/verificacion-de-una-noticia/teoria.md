@@ -47,12 +47,11 @@ grado de carga valorativa según las palabras elegidas.
 
 ## Paso 5 — Detectar apelación a la emoción
 
-Titulares diseñados para generar indignación o miedo extremo
-("¡Esto va a cambiar tu vida para siempre!") suelen priorizar el
-impacto emocional (y los clics) por sobre la precisión informativa —
-no es una prueba de falsedad, pero es una señal de alerta adicional,
-relacionada con la **apelación a la popularidad**
-(`../../lengua/detectar-falacias/`): cuanto más viral, no
+Los titulares diseñados para generar indignación o miedo extremo ("¡Esto va
+a cambiar tu vida para siempre!") suelen priorizar el impacto emocional (y
+los clics) por sobre la precisión informativa. No es una prueba de falsedad,
+pero es una señal de alerta adicional. Se relaciona con la **apelación a la
+popularidad** (`../../lengua/detectar-falacias/`): cuanto más viral, no
 necesariamente más verdadero.
 
 ## No caer en el extremo opuesto: escepticismo excesivo

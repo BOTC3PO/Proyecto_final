@@ -22,7 +22,9 @@ En este sistema, los rayos proyectantes son siempre **paralelos entre sí** y pe
 
 La proyección ortogonal es la base para dibujos técnicos industriales y arquitectónicos. Se usan varias vistas (como alzado, planta y perfil) para mostrar el objeto desde diferentes direcciones sin distorsionar ninguna dimensión. Por ejemplo, si un cubo se dibuja en proyección ortogonal, sus lados aparecerán como rectángulos perfectos, no como rombos o figuras inclinadas.
 
-<!-- IMAGEN: Esquema de una caja mostrando tres vistas ortogonales: alzado, planta y perfil -->
+![Esquema de una caja mostrando tres vistas ortogonales: alzado, planta y perfil](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Conventions_of_placing_vues_in_technical_drawings.svg/960px-Conventions_of_placing_vues_in_technical_drawings.svg.png)
+
+*Imagen: «Conventions of placing vues in technical drawings», GregorDS, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Conventions_of_placing_vues_in_technical_drawings.svg).*
 
 ---
 
@@ -34,7 +36,9 @@ La variante más común es la **isométrica**, donde los tres ejes principales f
 
 Otras versiones incluyen la **dimétrica** (dos ejes con la misma escala y el tercero distinto) y la **trimétrica** (todos los ejes a escalas diferentes). La elección depende de lo que se quiere destacar del objeto: por ejemplo, en piezas mecánicas complejas suele usarse la trimétrica para mostrar detalles en múltiples direcciones.
 
-<!-- IMAGEN: Comparación entre proyección isométrica y ortogonal de un cilindro -->
+![Comparación entre proyección isométrica y ortogonal de un cilindro](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/3D_shapes_in_isometric_projection.svg/960px-3D_shapes_in_isometric_projection.svg.png)
+
+*Imagen: «3D shapes in isometric projection», Cmglee, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:3D_shapes_in_isometric_projection.svg).*
 
 ---
 

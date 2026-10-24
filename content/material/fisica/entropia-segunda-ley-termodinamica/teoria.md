@@ -22,8 +22,6 @@ El calor no fluye solo por casualidad; tiene una dirección definida. Si dejas d
 
 Este flujo no es reversible. Si querés que el calor vaya del cuerpo frío al caliente, tenés que invertir trabajo (como en una nevera). Pero si dejas los cuerpos solos, **nunca verás el calor ir hacia atrás**. Este comportamiento está ligado a la entropía: cuando el calor se mueve de un lugar a otro, aumenta el desorden total del universo.
 
-<!-- IMAGEN: Dos bloques, uno caliente y otro frío, conectados por una flecha que indica el flujo de calor desde el caliente al frío -->
-
 ---
 
 ## 3. Sistemas aislados y procesos irreversibles
@@ -42,10 +40,8 @@ La entropía es clave para entender por qué ciertos procesos ocurren y otros no
 
 También explica por qué los gases tienden a expandirse espontáneamente en un espacio vacío. Sus moléculas se dispersan, aumentando el desorden —y con él, la entropía— del sistema.
 
-<!-- IMAGEN: Un gas dentro de un recipiente dividido por una membrana que se rompe; las moléculas se dispersan hacia todo el espacio -->
-
 ---
 
 ## N. Conexión con lo que sigue
 
-Este tema es base para entender cómo funcionan los motores térmicos, la eficiencia energética y procesos como la formación de estructuras en sistemas no equilibrados (como en la química o la biología), que se tratan en motores termicos y procesos espontaneos.
+Este tema es base para entender cómo funcionan los motores térmicos y la eficiencia energética. También sirve para procesos como la formación de estructuras en sistemas no equilibrados (como en la química o la biología), que se tratan en motores termicos y procesos espontaneos.

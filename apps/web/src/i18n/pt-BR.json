@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "Temas em que você errou",
+  "repaso.tituloSecciones": "Partes em que você errou",
+  "repaso.msgDesaprobadoTemas": "Você ainda não chegou a {umbral}%. Não é o fim: veja em quais temas você errou, revise-os e tente de novo.",
+  "repaso.msgDesaprobadoSecciones": "Você ainda não chegou a {umbral}%. Estas são as partes em que você mais errou: pratique-as e tente de novo.",
+  "repaso.msgAprobadoConRepaso": "Você passou. Estes temas ainda podem ser reforçados:",
+  "repaso.msgAprobadoLimpio": "Você passou e nenhum tema ficou fraco. Muito bem.",
+  "repaso.resultadoPorTema": "Resultado por tema",
+  "repaso.detalleGrupo": "{correctas} de {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% de acertos",
+  "repaso.repasarPrimero": "Revisar primeiro",
+  "repaso.abrirTema": "Abrir o tema",
+  "repaso.preguntasRevisar": "Perguntas para revisar ({n})",
+  "repaso.seccionGramatica": "Gramática",
+  "repaso.seccionLectura": "Leitura",
+  "repaso.seccionAudicion": "Compreensão auditiva",
+  "repaso.seccionExpresionOral": "Expressão oral",
+  "repaso.seccionEscritura": "Escrita"
 }

@@ -14,10 +14,10 @@ errores comunes).
 ## Tiro vertical: MRUV con a = −g
 
 El **tiro vertical** es exactamente un MRUV (ver `../mruv/`), con dos
-particularidades: la aceleración es siempre la de la gravedad
-(g ≈ 10 m/s² en cálculos simples), y se toma la convención **"arriba es
-positivo"** — por eso la aceleración aparece con signo **negativo**
-(la gravedad siempre tira hacia abajo).
+particularidades. La aceleración es siempre la de la gravedad (g ≈ 10 m/s²
+en cálculos simples). Y se toma la convención **"arriba es positivo"**, por
+eso la aceleración aparece con signo **negativo** (la gravedad siempre tira
+hacia abajo).
 
 ```
 v(t) = v₀ − g·t
@@ -77,8 +77,8 @@ y(t) = y₀ − ½g·t²
   gravedad sigue actuando ahí, sólo la velocidad es 0 en ese instante.
 - Perder la consistencia de signos (mezclar "arriba positivo" con
   fórmulas que asumen "abajo positivo" a mitad de la resolución).
-- Aplicar la fórmula del tiempo total de vuelo (2v₀/g) cuando el objeto
-  NO vuelve al mismo nivel de partida (por ejemplo, se lanza desde un
-  balcón hacia arriba, pero cae al piso, más abajo del punto de
-  lanzamiento) — ahí hace falta resolver la ecuación cuadrática
-  completa, no el atajo de la simetría.
+- Otro error es aplicar la fórmula del tiempo total de vuelo (2v₀/g) cuando el
+  objeto NO vuelve al mismo nivel de partida. Por ejemplo, se lanza desde un
+  balcón hacia arriba, pero cae al piso, más abajo del punto de lanzamiento.
+  Ahí hace falta resolver la ecuación cuadrática completa, no el atajo de la
+  simetría.

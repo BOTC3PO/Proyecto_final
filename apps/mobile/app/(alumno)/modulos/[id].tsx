@@ -10,7 +10,8 @@
  *     referencia un Page, es el mismo `detail` como string; hallazgo
  *     al releer TheoryItemCard.tsx para esta parte del plan).
  *   - Enlace abre por Linking (nativo, no hace falta WebView para una URL).
- *   - Todo lo demás (Presentación, Herramienta, HerramientaStandalone,
+ *   - Herramienta con solo imágenes/tablas/texto: se dibuja nativa (`HerramientaNativa`).
+ *   - Todo lo demás (Presentación, Herramienta con diagramas, HerramientaStandalone,
  *     Libro, TuesdayJS) abre el módulo completo en WebContent — reusa
  *     el mismo TheoryItemCard de la web (BookReaderOverlay,
  *     SlidePresenter, BlockRenderer, herramientas standalone) en vez
@@ -29,6 +30,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 import { apiGet, apiPost } from "../../../src/api/client";
 import { colors } from "../../../src/theme/tokens";
+import { HerramientaNativa, docNativo } from "../../../src/components/HerramientaNativa";
 import type { ModuloDetalle, ModuloQuizResumen, TheoryItem } from "../../../src/types/modulo";
 import type { QuizAttemptCreateResponse } from "../../../src/types/quiz";
 
@@ -78,7 +80,25 @@ function TheoryRow({ item, onOpenWeb }: { item: TheoryItem; onOpenWeb: () => voi
     );
   }
 
-  // Presentación, Herramienta, HerramientaStandalone, Libro, TuesdayJS.
+  // Herramienta con solo imágenes, tablas y texto: se muestra acá mismo, sin abrir la web.
+  const bloques = item.type === "Herramienta" ? docNativo(item.detail) : null;
+  if (bloques) {
+    return (
+      <TouchableOpacity
+        onPress={() => setExpanded((v) => !v)}
+        className="bg-vb-surface border border-vb-border rounded-xl p-3.5"
+      >
+        <View className="flex-row items-center gap-2">
+          <Feather name={bloques[0]?.type === "image" ? "image" : "grid"} size={16} color={colors.muted} />
+          <Text className="text-sm font-medium text-vb-text flex-1">{item.title}</Text>
+          <Feather name={expanded ? "chevron-up" : "chevron-down"} size={16} color={colors.muted} />
+        </View>
+        {expanded ? <View className="mt-2"><HerramientaNativa bloques={bloques} /></View> : null}
+      </TouchableOpacity>
+    );
+  }
+
+  // Presentación, Herramienta con diagramas, HerramientaStandalone, Libro, TuesdayJS.
   return (
     <TouchableOpacity
       onPress={onOpenWeb}

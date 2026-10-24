@@ -1,0 +1,36 @@
+{
+ "titulo": "Lo planificado y lo real",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Desvíos",
+   "headers": [
+    "Actividad",
+    "Planificado",
+    "Real",
+    "Desvío"
+   ],
+   "rows": [
+    [
+     "Cimientos",
+     "10 días",
+     "12 días",
+     "+2"
+    ],
+    [
+     "Estructura",
+     "20 días",
+     "18 días",
+     "−2"
+    ],
+    [
+     "Terminaciones",
+     "15 días",
+     "21 días",
+     "+6"
+    ]
+   ]
+  }
+ ]
+}

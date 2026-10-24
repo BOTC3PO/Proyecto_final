@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es la mejora continua?
 
-La mejora continua <!-- IMAGEN: gráfico de flechas que van desde un proceso inicial hasta una versión mejorada, con pasos intermedios --> se basa en la idea de que los sistemas económicos, organizaciones o procesos productivos no son estáticos. En lugar de esperar a que algo falle para actuar, se enfoca en realizar ajustes **incrementales** y **constantes**, pequeños cambios que, con el tiempo, generan transformaciones significativas. Esto contrasta con enfoques que buscan resolver problemas mediante modificaciones drásticas o únicas.
+La mejora continua se basa en la idea de que los sistemas económicos, organizaciones o procesos productivos no son estáticos. En lugar de esperar a que algo falle para actuar, se enfoca en realizar ajustes **incrementales** y **constantes**, pequeños cambios que, con el tiempo, generan transformaciones significativas. Esto contrasta con enfoques que buscan resolver problemas mediante modificaciones drásticas o únicas.
 
 Este concepto es especialmente útil en contextos industriales, donde la eficiencia, la calidad del producto y la reducción de costos son prioridades. La mejora continua no se limita a buscar grandes innovaciones, sino a perfeccionar lo que ya existe, evitando desperdicios y mejorando la sostenibilidad.
 
@@ -33,7 +33,9 @@ Una herramienta clave para implementar la mejora continua es el **ciclo PDCA**, 
 3. **Verificar (Check)**: Evaluar los resultados obtenidos, comparándolos con los objetivos establecidos.
 4. **Actuar (Act)**: Si se lograron mejoras, estandarizar las acciones y repetir el ciclo; si no, ajustar el plan y volver a empezar.
 
-<!-- IMAGEN: diagrama del ciclo PDCA en forma de rueda con flechas que conectan cada etapa -->
+![diagrama del ciclo PDCA en forma de rueda con flechas que conectan cada etapa](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/PDCA_Cycle.svg/960px-PDCA_Cycle.svg.png)
+
+*Imagen: «PDCA Cycle», Karn-b - Karn Bulsuk (http://www.bulsuk.com). Orig, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:PDCA_Cycle.svg).*
 
 Este proceso es **iterativo**. No se trata de resolver un problema una vez, sino de crear un sistema donde la mejora sea constante y adaptativa. Por ejemplo, una fábrica podría usar el PDCA para reducir errores en su línea de ensamblaje: planificar una revisión de protocolos, probar los nuevos pasos, analizar si se redujeron los defectos y luego integrar esos cambios permanentemente.
 

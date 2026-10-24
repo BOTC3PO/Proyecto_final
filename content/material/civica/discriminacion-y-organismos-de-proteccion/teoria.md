@@ -22,7 +22,7 @@ Junto a este marco legal, existe el Instituto Nacional contra la Discriminación
 
 ## Aplicación práctica y ejemplos en la vida cotidiana
 
-Comprender estos conceptos nos ayuda a actuar mejor en nuestra vida diaria. Un ejemplo claro de aplicación de la Ley 26.743 es cuando un estudiante trans solicita a su institución educativa el uso de su nombre social en las listas de asistencia y en los legajos, sin tener que presentar un cambio judicial previo. La escuela, como espacio de socialización, tiene la obligación de respetar esa elección para garantizar un ambiente digno y libre de discriminación.
+Comprender estos conceptos nos ayuda a actuar mejor en nuestra vida diaria. Un ejemplo claro de aplicación de la Ley 26.743 es cuando un estudiante trans solicita a su institución educativa el uso de su nombre social en las listas de asistencia y en los legajos. No tiene que presentar un cambio judicial previo. La escuela, como espacio de socialización, tiene la obligación de respetar esa elección para garantizar un ambiente digno y libre de discriminación.
 
 En el ámbito laboral, la discriminación puede manifestarse cuando un empleador pregunta innecesariamente sobre el estado civil o la orientación sexual de un candidato durante una entrevista. Aquí, el INADI puede brindar asesoramiento para que tanto el trabajador como el empleador conozcan sus derechos y deberes. Asimismo, en el acceso a servicios públicos o privados, si una persona es denegada por su apariencia o origen, puede presentar una denuncia ante el organismo correspondiente.
 

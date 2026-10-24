@@ -10,7 +10,7 @@
 
 ## 1. Más que contactos y bobinas
 
-Con contactos y bobinas se resuelven enclavamientos, pero la automatización real casi siempre incluye tiempo y cantidad: esperar cinco segundos antes de arrancar una cinta, contar doce cajas antes de cerrar un pallet, mantener una luz encendida un rato después de que alguien salió. Para eso el PLC trae **temporizadores** y **contadores**, que son bloques de función estándar de la norma IEC 61131-3.
+Con contactos y bobinas se resuelven enclavamientos, pero la automatización real casi siempre incluye tiempo y cantidad. Por ejemplo, esperar cinco segundos antes de arrancar una cinta, contar doce cajas antes de cerrar un pallet o mantener una luz encendida un rato después de que alguien salió. Para eso el PLC trae **temporizadores** y **contadores**, que son bloques de función estándar de la norma IEC 61131-3.
 
 ## 2. Temporizador a la conexión (TON)
 

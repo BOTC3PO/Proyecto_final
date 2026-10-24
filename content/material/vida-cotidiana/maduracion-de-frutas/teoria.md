@@ -16,8 +16,8 @@ madura sí.
 ## Por qué una banana verde no es dulce
 
 Una fruta verde (banana, manzana, mango) todavía inmadura tiene gran parte
-de sus carbohidratos guardados como **almidón** — una molécula grande,
-formada por muchas unidades de glucosa encadenadas, que casi no tiene sabor
+de sus carbohidratos guardados como **almidón**. Es una molécula grande,
+formada por muchas unidades de glucosa encadenadas. Casi no tiene sabor
 dulce porque la lengua no puede "leer" una molécula tan grande.
 
 A medida que la fruta madura, enzimas propias de la planta (principalmente
@@ -46,9 +46,9 @@ sobre una zona con poco almidón y muchos azúcares libres, la mancha queda
 mucho más clara o directamente no se forma.
 
 Resultado esperado: la banana verde se tiñe de un violeta-negro intenso y
-parejo (todavía es casi todo almidón); la banana bien madura apenas
-cambia de color o queda mucho más tenue (la mayor parte de ese almidón ya
-se rompió en azúcares).
+parejo, porque todavía es casi todo almidón. La banana bien madura apenas
+cambia de color o queda mucho más tenue, porque la mayor parte de ese
+almidón ya se rompió en azúcares.
 
 ## Por qué esto no es sólo curiosidad de cocina
 

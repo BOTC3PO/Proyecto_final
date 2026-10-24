@@ -1,10 +1,10 @@
 # Examen jefe — Experto en Corrientes Historiográficas
 
-> Logro #724. Aprobaste el parcial sobre la Escuela de los Annales, la historia cultural, el materialismo histórico, el positivismo y el estudio de las revoluciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **100 preguntas totales** en 5/5 secciones.
+> Logro #724. Aprobaste el parcial sobre la Escuela de los Annales, la historia cultural, el materialismo histórico, el positivismo y el estudio de las revoluciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **95 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: escuela-de-los-annales (20 preguntas)
+## Sección: escuela-de-los-annales (19 preguntas)
 
 ```
 metadata:
@@ -355,29 +355,6 @@ explicacion: |
 metadata:
   materia: "historia"
   tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
   nivel: "intermedio"
   tags: ["larga_duracion", "practica"]
 
@@ -463,7 +440,7 @@ explicacion: |
   enfoque historiográfico de un texto real.
 ```
 
-## Sección: historia-cultural (20 preguntas)
+## Sección: historia-cultural (19 preguntas)
 
 ```
 metadata:
@@ -814,29 +791,6 @@ metadata:
   materia: "historia"
   tema: "historia_cultural"
   nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en las
-  corrientes anteriores de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
   tags: ["neutralidad", "sintesis"]
 
 variables:
@@ -921,7 +875,7 @@ explicacion: |
   enfoque historiográfico de un texto real.
 ```
 
-## Sección: materialismo-historico (20 preguntas)
+## Sección: materialismo-historico (19 preguntas)
 
 ```
 metadata:
@@ -1250,29 +1204,6 @@ explicacion: |
 metadata:
   materia: "historia"
   tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la misma conexión conceptual ya vista en
-  `../positivismo/`.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
   nivel: "intermedio"
   tags: ["lucha_de_clases"]
 
@@ -1383,7 +1314,7 @@ explicacion: |
   enfoque historiográfico de un texto real.
 ```
 
-## Sección: positivismo (20 preguntas)
+## Sección: positivismo (19 preguntas)
 
 ```
 metadata:
@@ -1710,29 +1641,6 @@ explicacion: |
 metadata:
   materia: "historia"
   tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Cada corriente historiográfica es, en el fondo, un modelo distinto de qué causas priorizar al explicar un hecho histórico — por eso este tema depende de multicausalidad en el MAPA."
-
-pasos:
-  - "Ver `../multicausalidad/`: es el prerrequisito directo de este tema y sus tres hermanos."
-
-explicacion: |
-  Verdadero: es la conexión conceptual explícita entre corrientes
-  historiográficas y multicausalidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
   nivel: "intermedio"
   tags: ["neutralidad_del_historiador"]
 
@@ -1842,7 +1750,7 @@ explicacion: |
   enfoque historiográfico de un texto real.
 ```
 
-## Sección: revoluciones (20 preguntas)
+## Sección: revoluciones (19 preguntas)
 
 ```
 metadata:
@@ -2011,8 +1919,7 @@ tipo: input
 respuesta: 1810
 
 explicacion: |
-  Es el punto de partida de la cadena histórica argentina (`AH4` de
-  Tronco 8.c).
+  El proceso que llevó a la independencia argentina comenzó con la Revolución de Mayo de 1810.
 ```
 
 ```
@@ -2048,9 +1955,7 @@ opciones_explicitas:
 respuesta: "Porque las tensiones comerciales o de desigualdad muchas veces nacen de qué actividades económicas domina ese territorio"
 
 explicacion: |
-  Es la razón por la que `revoluciones/` cruza con
-  `../../geografia/recursos-actividades-economicas/` en
-  `../dependencias.md`.
+  Muchas tensiones comerciales y de desigualdad nacen de qué actividades económicas domina un territorio, y eso influye en las causas de una revolución.
 ```
 
 ```
@@ -2209,25 +2114,5 @@ respuesta: "Que cambia las reglas de fondo (poder, propiedad, o ambas), no sólo
 explicacion: |
   Es el criterio central que separa "revolución" de "reforma" o "golpe
   de Estado".
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué el nodo `H2a` de Tronco 6 remite su desarrollo real a `AH4` de Tronco 8.c, en vez de duplicar el contenido de la Revolución de Mayo en dos lugares?"
-tipo: mc
-opciones_explicitas:
-  - "Para no escribir el mismo tema histórico dos veces con distintos IDs, el mismo criterio ya usado con \"Memoria: terrorismo de Estado\" y `AH12`/`AH13`"
-  - "Porque Tronco 8.c no tiene ninguna relación con revoluciones"
-  - "Porque `H2a` y `AH4` son conceptos completamente distintos"
-respuesta: "Para no escribir el mismo tema histórico dos veces con distintos IDs, el mismo criterio ya usado con \"Memoria: terrorismo de Estado\" y `AH12`/`AH13`"
-
-explicacion: |
-  Es el mismo patrón de "duplicación resuelta" (agregado v2.4) que ya
-  usa el MAPA en otro punto de esta misma cadena.
 ```
 

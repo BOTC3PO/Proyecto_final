@@ -21,56 +21,53 @@ corriente, sin evaluar cuál tiene razón.
 ## Qué sostiene el ambientalismo liberal (o de mercado)
 
 El **ambientalismo liberal** (también llamado *ambientalismo de libre
-mercado* o *ecocapitalismo*) sostiene que los mecanismos de mercado —
-propiedad privada, precios, incentivos económicos — son herramientas
-más eficaces para proteger el ambiente que la regulación estatal
-directa (leyes de "comando y control" que prohíben o limitan por
-decreto). La idea central: si algo tiene un dueño claro y un precio,
-alguien tiene un incentivo económico concreto para cuidarlo; si es "de
-nadie" (un río, el aire), nadie internaliza el costo de dañarlo — el
-llamado problema de la "tragedia de los comunes".
+mercado* o *ecocapitalismo*) sostiene que los mecanismos de mercado son
+herramientas más eficaces para proteger el ambiente que la regulación
+estatal directa. Esos mecanismos son la propiedad privada, los precios y los
+incentivos económicos. La regulación directa sería la de las leyes de
+"comando y control", que prohíben o limitan por decreto. La idea central: si algo tiene un dueño claro y un precio, alguien tiene un
+incentivo económico concreto para cuidarlo. Si es "de nadie" (un río, el
+aire), nadie internaliza el costo de dañarlo. Es el llamado problema de la
+"tragedia de los comunes".
 
 ## Propiedad privada como herramienta ambiental
 
-A diferencia del conservacionismo (que confía en que el Estado
-administre áreas protegidas), el ambientalismo liberal propone que
-asignar derechos de propiedad privada sobre un recurso —incluso sobre
-algo tan intangible como el derecho a emitir cierta cantidad de
-contaminación— genera el incentivo correcto: el dueño de un bosque
-privado tiene interés económico directo en que ese bosque no se
-degrade, porque su valor futuro depende de su estado de conservación.
+El conservacionismo confía en que el Estado administre áreas protegidas. En
+cambio, el ambientalismo liberal propone asignar derechos de propiedad
+privada sobre un recurso, incluso sobre algo tan intangible como el derecho
+a emitir cierta cantidad de contaminación. Eso genera el incentivo correcto:
+el dueño de un bosque privado tiene interés económico directo en que ese
+bosque no se degrade, porque su valor futuro depende de su estado de
+conservación.
 
 ## Cap and trade: el mecanismo de mercado más citado
 
-El instrumento más conocido de esta corriente es el sistema de
-**"cap and trade"** (límite y comercio) de derechos de emisión: el
-Estado fija un límite total de emisiones permitidas (el *cap*) y emite
-certificados que las empresas pueden comprar y vender entre sí (el
-*trade*). Quien contamina menos de lo permitido puede vender su
-excedente de derechos a quien necesita emitir más — en teoría, esto
-dirige la reducción de emisiones hacia quien puede lograrla al menor
-costo, en vez de imponer el mismo límite parejo a todos sin importar su
-costo real de adaptación.
+El instrumento más conocido de esta corriente es el sistema de **"cap and
+trade"** (límite y comercio) de derechos de emisión. El Estado fija un
+límite total de emisiones permitidas (el *cap*). Luego emite certificados
+que las empresas pueden comprar y vender entre sí (el *trade*). Quien contamina menos de lo permitido puede vender su excedente de derechos
+a quien necesita emitir más. En teoría, esto dirige la reducción de
+emisiones hacia quien puede lograrla al menor costo, en vez de imponer el
+mismo límite parejo a todos sin importar su costo real de adaptación.
 
 ## Referencia real: Anderson y Leal
 
-**Terry L. Anderson** y **Donald R. Leal**, en su libro ***Free Market
-Environmentalism*** (1991), sistematizaron esta corriente: argumentan
-que la propiedad privada y la responsabilidad civil (poder demandar a
-quien contamina) son herramientas más efectivas para la sostenibilidad
-que la regulación de "comando y control", que —según esta postura—
-desalienta la inversión y la innovación empresarial en soluciones
-ambientales.
+**Terry L. Anderson** y **Donald R. Leal**, en su libro ***Free Market Environmentalism*** (1991),
+sistematizaron esta corriente. Argumentan que la propiedad privada y la
+responsabilidad civil (poder demandar a quien contamina) son herramientas
+más efectivas para la sostenibilidad que la regulación de "comando y
+control". Según esta postura, esa regulación desalienta la inversión y la
+innovación empresarial en soluciones ambientales.
 
 ## Crítica interna: coasianos vs. libertarios
 
-Dentro del ambientalismo de mercado hay matices: los **coasianos**
-(en referencia al economista Ronald Coase) proponen el comercio
-supranacional de derechos de carbono como solución práctica; los
-**libertarios** más estrictos, en cambio, se oponen incluso al cap and
-trade por considerarlo una intervención gubernamental disfrazada — la
-única solución legítima, para ellos, sería la propiedad privada y la
-responsabilidad civil sin ningún mercado regulado por el Estado.
+Dentro del ambientalismo de mercado hay matices. Los **coasianos** (en
+referencia al economista Ronald Coase) proponen el comercio supranacional de
+derechos de carbono como solución práctica. Los **libertarios** más
+estrictos, en cambio, se oponen incluso al cap and trade por considerarlo
+una intervención gubernamental disfrazada. Para ellos, la única solución
+legítima sería la propiedad privada y la responsabilidad civil sin ningún
+mercado regulado por el Estado.
 
 ## Por qué se distingue de las otras 3 corrientes
 

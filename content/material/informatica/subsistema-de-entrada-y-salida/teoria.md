@@ -22,7 +22,7 @@ La comunicación entre la CPU (unidad central de procesamiento) y los dispositiv
 
 Históricamente, la conexión se hacía mediante puertos específicos como el paralelo o el serial, pero hoy en día predominan los buses universales como USB (Interfaz Serial Universal) y los estándares inalámbricos como Bluetooth. Estos protocolos estandarizan la forma en que los dispositivos se conectan, permitiendo que un mouse comprado en cualquier parte del mundo funcione en tu computadora sin necesidad de drivers complicados, siempre que el sistema operativo lo soporte.
 
-Además, existe un concepto llamado "mapeo de memoria" que permite a la CPU comunicarse con los dispositivos de E/S como si fueran parte de la memoria principal. Esto simplifica enormemente la programación, ya que el procesador no necesita instrucciones especiales para leer o escribir datos en un disco duro o en una tarjeta gráfica; simplemente accede a direcciones de memoria específicas que el hardware ha reservado para esa función.
+Además, existe un concepto llamado "mapeo de memoria" que permite a la CPU comunicarse con los dispositivos de E/S como si fueran parte de la memoria principal. Esto simplifica enormemente la programación. El procesador no necesita instrucciones especiales para leer o escribir datos en un disco duro o en una tarjeta gráfica. Simplemente accede a direcciones de memoria específicas que el hardware ha reservado para esa función.
 
 ## Aplicación práctica: Tu computadora en acción
 

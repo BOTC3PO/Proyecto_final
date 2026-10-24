@@ -21,10 +21,10 @@
 
 Ya vimos (`../prevencion-adicciones-ley-26586/`) que el consumo
 problemático es un fenómeno real con causas biológicas y sociales.
-La pregunta que separa a las 3 posturas es: **¿qué debe hacer el
-Estado frente a las drogas?** — cada una prioriza un objetivo
-distinto (reducir el consumo, reducir el daño, o regular el mercado),
-y cada una tiene argumentos y críticas.
+La pregunta que separa a las 3 posturas es: **¿qué debe hacer el Estado
+frente a las drogas?** Cada una prioriza un objetivo distinto (reducir el
+consumo, reducir el daño o regular el mercado), y cada una tiene argumentos
+y críticas.
 
 ## 2. Prohibicionismo
 
@@ -34,21 +34,20 @@ de drogas, con el objetivo de eliminar el acceso a las sustancias.
 
 - **Argumento central**: si no hay acceso legal, baja el consumo; la
   ilegalidad desalienta el uso y protege a la sociedad.
-- **Crítica que recibe**: quienes la critican argumentan que no
-  eliminó el consumo, empujó el mercado a la clandestinidad (sin
-  control de calidad ni regulación), y que la criminalización afecta
-  más a los consumidores vulnerables que a las redes de tráfico
-  grandes.
+- **Crítica que recibe**: quienes la critican argumentan que no eliminó el
+  consumo y que empujó el mercado a la clandestinidad, sin control de
+  calidad ni regulación. También sostienen que la criminalización afecta más
+  a los consumidores vulnerables que a las redes de tráfico grandes.
 
 ## 3. Reducción de daños
 
-Postura que no exige la abstinencia total como condición para
-intervenir: el Estado debe **minimizar los daños** del consumo
-(salud, contagios, sobredosis) sin necesariamente perseguir
-penalmente al consumidor — ejemplos de política de reducción de
-daños: distribución de jeringas estériles (para reducir contagio de
-VIH/hepatitis en consumo inyectable), test de sustancias en eventos,
-disponibilidad de naloxona (revierte sobredosis de opioides).
+Postura que no exige la abstinencia total como condición para intervenir. El
+Estado debe **minimizar los daños** del consumo (salud, contagios,
+sobredosis) sin necesariamente perseguir penalmente al consumidor. Ejemplos
+de política de reducción de daños: distribución de jeringas estériles (para
+reducir el contagio de VIH/hepatitis en el consumo inyectable), test de
+sustancias en eventos y disponibilidad de naloxona (revierte la sobredosis
+de opioides).
 
 - **Argumento central**: mientras exista consumo (lo haya o no
   "guerra contra las drogas"), es mejor reducir el daño concreto a la
@@ -63,11 +62,10 @@ Dos ideas relacionadas pero distintas:
 - **Despenalización**: dejar de tratar el consumo (o la tenencia para
   consumo personal) como delito penal — puede seguir habiendo sanción
   administrativa, pero no cárcel.
-- **Legalización regulada**: ir más allá y permitir la venta legal de
-  una sustancia bajo control estatal (licencias, impuestos, controles
-  de calidad y edad) — el ejemplo más conocido es el alcohol y el
-  tabaco en la mayoría de los países, y el cannabis en un número
-  creciente de jurisdicciones.
+- **Legalización regulada**: ir más allá y permitir la venta legal de una
+  sustancia bajo control estatal (licencias, impuestos, controles de calidad
+  y edad). El ejemplo más conocido es el alcohol y el tabaco en la mayoría
+  de los países, y el cannabis en un número creciente de jurisdicciones.
 
 - **Argumento central**: sacar el mercado de la clandestinidad permite
   controlar calidad, recaudar impuestos, y dedicar los recursos
@@ -78,10 +76,10 @@ Dos ideas relacionadas pero distintas:
 
 ## 5. Cómo leer las 3 posturas
 
-No son necesariamente excluyentes en la práctica — muchos países
-combinan elementos (ej.: reducción de daños + despenalización del
-consumo personal + prohibición de la venta) — pero representan 3
-prioridades distintas que vale la pena distinguir con claridad: **cero
-acceso** (prohibicionismo), **minimizar el daño mientras exista
-consumo** (reducción de daños), y **regular el mercado en vez de
-perseguirlo** (despenalización/legalización).
+No son necesariamente excluyentes en la práctica. Muchos países combinan
+elementos (por ejemplo, reducción de daños, despenalización del consumo
+personal y prohibición de la venta). Pero representan 3 prioridades
+distintas que vale la pena distinguir con claridad: **cero acceso**
+(prohibicionismo), **minimizar el daño mientras exista consumo** (reducción
+de daños) y **regular el mercado en vez de perseguirlo**
+(despenalización/legalización).

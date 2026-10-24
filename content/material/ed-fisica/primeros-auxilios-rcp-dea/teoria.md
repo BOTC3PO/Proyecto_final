@@ -15,9 +15,10 @@ prevención de rutina ya vista.
 
 `../prevencion-cuidado-rice-calentamiento-ergonomia/` cubrió cómo
 **evitar** o tratar lesiones **leves**. Este módulo es distinto:
-situaciones de **emergencia real** donde una respuesta rápida y
-correcta puede salvar una vida — no reemplaza la llamada al sistema de
-emergencias (en Argentina, el 911 en buena parte del país y el 107, SAME, en la Ciudad de Buenos Aires; el número depende de la localidad), la complementa.
+situaciones de **emergencia real** donde una respuesta rápida y correcta
+puede salvar una vida. No reemplaza la llamada al sistema de emergencias: la
+complementa. En Argentina es el 911 en buena parte del país y el 107 (SAME)
+en la Ciudad de Buenos Aires; el número depende de la localidad.
 
 ## 1. RCP: reanimación cardiopulmonar (`EF9a`)
 
@@ -36,23 +37,22 @@ indicarle a alguien que lo haga) antes de empezar.
 
 ## 2. DEA: desfibrilador externo automático (`EF9b`)
 
-Un **DEA** es un dispositivo que analiza el ritmo cardíaco de una
-persona en paro y, si detecta un ritmo que un shock eléctrico puede
-corregir (fibrilación ventricular), aplica ese shock para intentar
-restablecer un ritmo normal.
+Un **DEA** es un dispositivo que analiza el ritmo cardíaco de una persona en
+paro. Si detecta un ritmo que un shock eléctrico puede corregir (fibrilación
+ventricular), aplica ese shock para intentar restablecer un ritmo normal.
 
 **Punto clave**: el DEA está diseñado para ser usado por personas sin
-entrenamiento médico — da instrucciones por voz paso a paso y **no
-aplica el shock** si detecta que no corresponde (es seguro, no puede
-"empeorar" la situación por errores del usuario). Se usa en conjunto
+entrenamiento médico. Da instrucciones por voz paso a paso y **no aplica el
+shock** si detecta que no corresponde. Es seguro: no puede "empeorar" la
+situación por errores del usuario. Se usa en conjunto
 con la RCP, no en su lugar.
 
 ## 3. Atragantamiento (`EF9c`)
 
-Cuando algo obstruye la vía aérea de una persona (comida, objeto) y no
-puede toser, hablar ni respirar, se aplica la **maniobra de Heimlich**:
-compresiones abdominales rápidas hacia arriba, por detrás de la
-persona, para generar presión de aire que expulse el objeto. Si la
+Cuando algo (comida, un objeto) obstruye la vía aérea de una persona y no
+puede toser, hablar ni respirar, se aplica la **maniobra de Heimlich**. Son
+compresiones abdominales rápidas hacia arriba, por detrás de la persona, que
+generan presión de aire para expulsar el objeto. Si la
 persona **puede** toser con fuerza, se la anima a seguir tosiendo —
 la maniobra es sólo para obstrucción **total**.
 
@@ -77,7 +77,6 @@ trata.
 
 ## 6. El hilo común: actuar rápido y pedir ayuda
 
-Las 5 situaciones comparten una misma lógica: reconocer la emergencia
-rápido, actuar con el protocolo correcto mientras se pide ayuda
-profesional, y no reemplazar esa ayuda profesional con el primer
-auxilio — el primer auxilio gana tiempo, no cierra el caso.
+Las 5 situaciones comparten una misma lógica: reconocer la emergencia rápido
+y actuar con el protocolo correcto mientras se pide ayuda profesional. El
+primer auxilio no reemplaza esa ayuda: gana tiempo, no cierra el caso.

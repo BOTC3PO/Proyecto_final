@@ -59,11 +59,10 @@ y existe en dos formas:
   `../escala-de-mapa/`).
 - **Escala gráfica**: una barra dibujada directamente en el mapa, con
   marcas que indican distancias reales (ej.: una barra de 3 cm marcada
-  "0 — 50 — 100 km"). Su ventaja sobre la numérica: si el mapa se
-  agranda o achica (una fotocopia, un zoom en pantalla), la barra
-  gráfica se agranda o achica junto con el mapa y sigue siendo
-  correcta — la escala numérica, en cambio, deja de ser válida apenas
-  el mapa cambia de tamaño.
+  "0 — 50 — 100 km"). Su ventaja sobre la numérica: si el mapa se agranda o achica (una fotocopia,
+  un zoom en pantalla), la barra gráfica se agranda o achica junto con el
+  mapa y sigue siendo correcta. La escala numérica, en cambio, deja de ser
+  válida apenas el mapa cambia de tamaño.
 
 ## Toda proyección distorsiona algo
 
@@ -72,11 +71,11 @@ hoja plana es matemáticamente imposible sin distorsionar algo — no
 existe una proyección perfecta. Según qué se prioriza mantener, se
 distorsiona otra cosa:
 
-- Mantener las **formas** correctas (útil para navegación) distorsiona
-  el **tamaño relativo** de las áreas — la proyección Mercator, muy
-  usada históricamente, agranda mucho los países cercanos a los polos
-  (Groenlandia se ve casi tan grande como África, cuando en realidad
-  África es unas 14 veces más grande).
+- Mantener las **formas** correctas (útil para navegación) distorsiona el
+  **tamaño relativo** de las áreas. La proyección Mercator, muy usada
+  históricamente, agranda mucho los países cercanos a los polos. Groenlandia
+  se ve casi tan grande como África, cuando en realidad África es unas 14
+  veces más grande.
 - Mantener el **tamaño relativo** correcto (útil para comparar
   superficies) distorsiona las **formas**.
 
@@ -85,8 +84,8 @@ compromiso distinto entre qué preservar y qué sacrificar.
 
 ## Por qué esto va antes de coordenadas y división política
 
-Saber qué tipo de mapa se está leyendo y a qué escala está dibujado es
-el prerrequisito para cualquier lectura posterior: antes de ubicar una
-coordenada o distinguir un límite político hay que entender que el
-papel (o la pantalla) que se tiene enfrente es una representación
-reducida y con un propósito específico, no el territorio mismo.
+Saber qué tipo de mapa se está leyendo y a qué escala está dibujado es el
+prerrequisito para cualquier lectura posterior. Antes de ubicar una
+coordenada o distinguir un límite político, hay que entender que el papel (o
+la pantalla) que se tiene enfrente es una representación reducida y con un
+propósito específico, no el territorio mismo.

@@ -12,15 +12,15 @@
 
 Hace unos 2.400 millones de años, la Tierra sufrió un cambio radical en su atmósfera: la aparición masiva de oxígeno libre. Este fenómeno se llamó Gran Oxidación y fue posible gracias a las **cianobacterias**, organismos unicelulares que desarrollaron la capacidad de realizar la **fotosíntesis oxigénica**. Estas bacterias absorbían dióxido de carbono (CO₂) y agua (H₂O), utilizando energía solar para producir glucosa y liberar oxígeno como subproducto. Aunque su existencia data de al menos 3.000 millones de años, no fue hasta el periodo conocido como **Eones del Proterozoico** que su actividad se expandió lo suficiente como para alterar la composición atmosférica.
 
-<!-- IMAGEN: diagrama simplificado de la fotosíntesis en cianobacterias, mostrando entrada de CO₂ y H₂O, salida de O₂ y glucosa -->
-
 ---
 
 ## 2. Destino inicial del oxígeno
 
 El oxígeno generado no se acumuló directamente en la atmósfera. Al principio, reaccionó con elementos presentes en los océanos. El hierro disuelto en el agua marina, que hasta entonces existía en forma de iones ferrosos (Fe²⁺), combinó con el oxígeno para formar **óxido férrico** (Fe³⁺). Este proceso dio lugar a la formación de depósitos masivos llamados **formaciones de hierro bandeado (BIF)**, capas alternadas de óxido de hierro y sílice que hoy se encuentran en rocas antiguas. Estos sedimentos son una evidencia clave del inicio de la Gran Oxidación.
 
-<!-- IMAGEN: imagen de una sección de formación de hierro bandeado (BIF), con bandas claras y oscuras -->
+![imagen de una sección de formación de hierro bandeado (BIF), con bandas claras y oscuras](https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/BIF_Banded_Iron_Formation.jpg/960px-BIF_Banded_Iron_Formation.jpg)
+
+*Imagen: «BIF Banded Iron Formation», Bramfab, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:BIF_Banded_Iron_Formation.jpg).*
 
 ---
 

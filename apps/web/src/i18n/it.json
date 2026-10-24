@@ -4318,5 +4318,22 @@
   "verificacionPublica.documento": "Documento",
   "verificacionPublica.institucion": "Institución",
   "verificacionPublica.enlace": "Enlace",
-  "verificacionPublica.notas": "Notas"
+  "verificacionPublica.notas": "Notas",
+  "repaso.tituloTemas": "Gli argomenti in cui hai sbagliato",
+  "repaso.tituloSecciones": "Le parti in cui hai sbagliato",
+  "repaso.msgDesaprobadoTemas": "Non hai ancora raggiunto il {umbral}%. Non è la fine: guarda in quali argomenti hai sbagliato, ripassali e riprova.",
+  "repaso.msgDesaprobadoSecciones": "Non hai ancora raggiunto il {umbral}%. Queste sono le parti in cui hai sbagliato di più: esercitati e riprova.",
+  "repaso.msgAprobadoConRepaso": "Hai superato la prova. Questi argomenti si possono ancora consolidare:",
+  "repaso.msgAprobadoLimpio": "Hai superato la prova e nessun argomento è rimasto debole. Ottimo lavoro.",
+  "repaso.resultadoPorTema": "Risultato per argomento",
+  "repaso.detalleGrupo": "{correctas} su {total} · {porcentaje}%",
+  "repaso.ariaAciertos": "{porcentaje}% di risposte corrette",
+  "repaso.repasarPrimero": "Da ripassare per primi",
+  "repaso.abrirTema": "Apri l'argomento",
+  "repaso.preguntasRevisar": "Domande da rivedere ({n})",
+  "repaso.seccionGramatica": "Grammatica",
+  "repaso.seccionLectura": "Lettura",
+  "repaso.seccionAudicion": "Comprensione orale",
+  "repaso.seccionExpresionOral": "Espressione orale",
+  "repaso.seccionEscritura": "Scrittura"
 }

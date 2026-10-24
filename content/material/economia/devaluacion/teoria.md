@@ -51,11 +51,11 @@ valor más débil, y a partir de ahí intenta defender ESE nuevo número.
   ahora cuesta menos en dólares para un comprador extranjero, lo que
   puede aumentar las exportaciones — y con eso, ayudar a corregir un
   déficit de la [balanza comercial](../balanza-comercial/teoria.md).
-- **Perjudica a quien tiene deudas en moneda extranjera**: si alguien
-  debe dólares pero gana en moneda local, después de una devaluación
-  necesita MÁS moneda local que antes para pagar la misma deuda en
-  dólares — el mismo problema que afecta a un país con
-  [deuda pública externa](../deuda-publica-externa/teoria.md).
+- **Perjudica a quien tiene deudas en moneda extranjera**: si alguien debe
+  dólares pero gana en moneda local, después de una devaluación necesita MÁS
+  moneda local que antes para pagar la misma deuda en dólares. Es el mismo
+  problema que afecta a un país con [deuda pública
+  externa](../deuda-publica-externa/teoria.md).
 
 ## Dónde aparece en la vida real
 

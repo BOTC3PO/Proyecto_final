@@ -52,7 +52,9 @@ Los PLCs se utilizan en casi cualquier área donde haya necesidad de control aut
 - **Edificios inteligentes:** Regulación de iluminación, climatización y sistemas de acceso.
 - **Industria energética:** Monitoreo de redes eléctricas o control de turbinas en centrales.
 
-<!-- IMAGEN: Diagrama simplificado de un PLC con sus componentes principales (CPU, memoria, módulos I/O, alimentación) y su conexión a sensores/actuadores. -->
+![Diagrama simplificado de un PLC con sus componentes principales (CPU, memoria, módulos I/O, alimentación) y su conexión a sensores/actuadores.](https://upload.wikimedia.org/wikipedia/commons/f/fa/PLC_Block_Diagram.jpg)
+
+*Imagen: «PLC Block Diagram», ProVision, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:PLC_Block_Diagram.jpg).*
 
 ## N. Conexión con lo que sigue
 

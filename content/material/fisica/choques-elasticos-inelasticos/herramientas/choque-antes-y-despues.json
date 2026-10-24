@@ -1,0 +1,36 @@
+{
+ "titulo": "Dos esferas antes y después de un choque",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Dos esferas de 1 kg (momento total: 2 kg·m/s)",
+   "headers": [
+    "",
+    "Antes",
+    "Después (elástico)",
+    "Después (inelástico, quedan pegadas)"
+   ],
+   "rows": [
+    [
+     "Esfera 1",
+     "2 m/s",
+     "0 m/s",
+     "1 m/s"
+    ],
+    [
+     "Esfera 2",
+     "0 m/s",
+     "2 m/s",
+     "1 m/s"
+    ],
+    [
+     "Momento total",
+     "2 kg·m/s",
+     "2 kg·m/s",
+     "2 kg·m/s"
+    ]
+   ]
+  }
+ ]
+}

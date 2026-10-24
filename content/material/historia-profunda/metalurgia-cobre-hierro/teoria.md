@@ -22,7 +22,7 @@ La fundición es la etapa crucial donde los minerales se convierten en metales p
 
 ## 4. De la Edad del Cobre a la del Hierro
 
-Aunque el cobre fue fundamental, su uso no duró eternamente. El hierro, aunque más difícil de trabajar en sus primeras etapas, ofrecía ventajas superiores: era más abundante, resistente al desgaste y podía forjarse en herramientas aún más eficientes. La transición a la **Edad del Hierro** no fue un reemplazo abrupto, sino una evolución gradual: los pueblos adaptaron técnicas de fundición del cobre para procesar el hierro, mejorando métodos como la **sinterización**, donde se calentaban los minerales a altas temperaturas sin llegar a fundirlos completamente. Esta etapa no solo cambió las herramientas agrícolas y militares, sino que también redefinió relaciones de poder, ya que poseer conocimientos metalúrgicos avanzados convertía a ciertos grupos en dominantes.
+Aunque el cobre fue fundamental, su uso no duró eternamente. El hierro, aunque más difícil de trabajar en sus primeras etapas, ofrecía ventajas superiores: era más abundante, resistente al desgaste y podía forjarse en herramientas aún más eficientes. La transición a la **Edad del Hierro** no fue un reemplazo abrupto, sino una evolución gradual. Los pueblos adaptaron técnicas de fundición del cobre para procesar el hierro. Mejoraron métodos como la **sinterización**, donde se calentaban los minerales a altas temperaturas sin llegar a fundirlos completamente. Esta etapa no solo cambió las herramientas agrícolas y militares, sino que también redefinió relaciones de poder, ya que poseer conocimientos metalúrgicos avanzados convertía a ciertos grupos en dominantes.
 
 ## N. Conexión con lo que sigue
 

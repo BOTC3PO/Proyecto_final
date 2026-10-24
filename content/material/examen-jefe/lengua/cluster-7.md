@@ -1,6 +1,6 @@
 # Examen jefe — Domina la Persuasión y la Exposición Oral
 
-> Logro #657. Dominaste la exposición oral, la negociación y la presentación con apoyo visual, distinguiendo la persuasión ética de la manipulación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **102 preguntas totales** en 5/5 secciones.
+> Logro #657. Dominaste la exposición oral, la negociación y la presentación con apoyo visual, distinguiendo la persuasión ética de la manipulación. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **101 preguntas totales** en 5/5 secciones.
 
 ---
 
@@ -926,30 +926,7 @@ explicacion: |
   la vida diaria.
 ```
 
-## Sección: persuasion-etica-vs-manipulacion (20 preguntas)
-
-```
-metadata:
-  materia: "lengua"
-  tema: "persuasion_etica_vs_manipulacion"
-  nivel: "basico"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Este tema reusa dos cosas a la vez: las técnicas de convencer en vivo del debate, y el vocabulario de errores de razonamiento de detectar falacias."
-
-pasos:
-  - "Ver `../debate-refutar-en-vivo/` y `../detectar-falacias/`: son los dos prerrequisitos de este tema."
-
-explicacion: |
-  Verdadero: es la razón por la que este nodo tiene doble padre en el
-  MAPA.
-```
+## Sección: persuasion-etica-vs-manipulacion (19 preguntas)
 
 ```
 metadata:

@@ -37,7 +37,9 @@ El punto culminante fue el surgimiento del **Tawantinsuyu** (Imperio Inca) en el
 2.  La redistribución de recursos a través del sistema de *mit'a* (trabajo por turnos).
 3.  La imposición de la lengua **quechua** como lingua franca, junto con el respeto relativo a las deidades locales de los pueblos conquistados.
 
-<!-- IMAGEN: Detalle de la ingeniería de Machu Picchu o del sistema de andenes incaicos -->
+![Detalle de la ingeniería de Machu Picchu o del sistema de andenes incaicos](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Terraces_at_Machu_Picchu_1.jpg/960px-Terraces_at_Machu_Picchu_1.jpg)
+
+*Imagen: «Terraces at Machu Picchu 1», Gedankenstuecke, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Terraces_at_Machu_Picchu_1.jpg).*
 
 ## 4. El norte y el sur: complejidades diversas
 
@@ -49,6 +51,6 @@ En el norte de Sudamérica, los **Taínos** en el Caribe y los **Muisca** en la 
 
 ## 5. Legado y colapso: más que la conquista europea
 
-Es crucial entender que el "colapso" de estas civilizaciones no fue inmediato ni total con la llegada de los españoles. El factor devastador principal no fue solo la superioridad militar europea, sino la introducción de enfermedades (viruela, sarampión) contra las cuales las poblaciones americanas no tenían inmunidad, causando una mortandad estimada entre el 70% y el 90% en las primeras décadas de contacto.
+Es crucial entender que el "colapso" de estas civilizaciones no fue inmediato ni total con la llegada de los españoles. El factor devastador principal no fue solo la superioridad militar europea, sino la introducción de enfermedades como la viruela y el sarampión. Las poblaciones americanas no tenían inmunidad contra ellas. Causaron una mortandad estimada entre el 70% y el 90% en las primeras décadas de contacto.
 
 Sin embargo, las estructuras sociales, agrícolas y culturales persistieron. El maíz, la papa, el tomate y el chocolate se integraron a la dieta global, transformando la demografía mundial. Hoy, millones de descendientes de estos pueblos mantienen vivas sus lenguas, cosmovisiones y prácticas agrícolas, desafiando la narrativa de una desaparición completa. La historia profunda de América no termina en 1492, sino que continúa en la resistencia y adaptación de sus pueblos originarios.

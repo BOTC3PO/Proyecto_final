@@ -32,10 +32,9 @@ confundirlas es un error común:
 
 **Neto = Bruto − Descuentos**, y **Bruto = Básico + Adicionales**.
 
-Cuando alguien dice "gano tanto por mes", casi siempre se refiere al
-neto (lo que ve reflejado en su cuenta) — pero el número que suele
-figurar en la oferta de trabajo, o el que se usa para negociar un
-aumento, es el bruto.
+Cuando alguien dice "gano tanto por mes", casi siempre se refiere al neto,
+que es lo que ve reflejado en su cuenta. Pero el número que suele figurar en
+la oferta de trabajo, o el que se usa para negociar un aumento, es el bruto.
 
 ## Por qué existen los descuentos
 

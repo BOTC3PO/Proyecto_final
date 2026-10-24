@@ -29,6 +29,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 import { apiGet, apiPost } from "../../src/api/client";
 import { colors } from "../../src/theme/tokens";
+import { RepasoIntento } from "../../src/components/RepasoIntento";
 import { useDeadlineCountdown, formatRemaining } from "../../src/hooks/useDeadlineCountdown";
 import { NATIVE_QUESTION_TYPES } from "../../src/types/quiz";
 import type { AttemptAnswerValue, QuizAttemptDetail, QuizQuestion, QuizSubmitResult } from "../../src/types/quiz";
@@ -121,20 +122,21 @@ export default function QuizAttemptScreen() {
 
   if (result || attempt.status !== "in_progress") {
     return (
-      <View className="flex-1 bg-vb-bg items-center justify-center px-6 gap-3">
+      <ScrollView className="flex-1 bg-vb-bg" contentContainerStyle={{ alignItems: "center", paddingHorizontal: 24, paddingVertical: 32, gap: 12 }}>
         <Feather name="check-circle" size={40} color={colors.success} />
         <Text className="text-lg font-bold text-vb-text text-center">
           {result?.message ?? "Intento ya enviado"}
         </Text>
-        {(result?.score ?? attempt.score) !== undefined && (
+        {!attempt.ocultarPuntos && (result?.score ?? attempt.score) !== undefined && (
           <Text className="text-sm text-vb-muted">
             Puntaje: {result?.score ?? attempt.score} / {result?.maxScore ?? attempt.maxScore}
           </Text>
         )}
+        <RepasoIntento attemptId={String(attemptId)} ocultarPuntos={attempt.ocultarPuntos === true} />
         <TouchableOpacity onPress={() => router.back()} className="bg-vb-primary rounded-lg px-5 py-2.5 mt-2">
           <Text className="text-white font-semibold">Volver</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     );
   }
 

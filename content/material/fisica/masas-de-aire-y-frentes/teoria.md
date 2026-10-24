@@ -13,9 +13,9 @@ cuatro tipos de frente entre masas de aire distintas.
 ## Qué es una masa de aire
 
 Una **masa de aire** es un volumen grande de atmósfera con temperatura y
-humedad relativamente uniformes en toda su extensión horizontal, porque
-permaneció mucho tiempo (varios días) estacionada sobre una región —
-la región de origen le "contagia" sus características de presión,
+humedad relativamente uniformes en toda su extensión horizontal. Se forma
+porque permaneció mucho tiempo (varios días) estacionada sobre una región.
+La región de origen le "contagia" sus características de presión,
 temperatura y humedad (ya vistas en `../presion-atmosferica/`).
 
 ## Cómo se clasifican las masas de aire
@@ -41,10 +41,10 @@ Combinando ambos criterios se obtienen los cuatro tipos principales:
 
 ## Qué es un frente
 
-Un **frente** es la zona de contacto (el límite) entre dos masas de aire
-de características distintas, que no se mezclan fácilmente porque tienen
-densidades diferentes (la masa más fría y densa se desliza por debajo de
-la más cálida y liviana). En esa zona de contacto se producen los cambios
+Un **frente** es la zona de contacto (el límite) entre dos masas de aire de
+características distintas. Estas no se mezclan fácilmente porque tienen
+densidades diferentes: la masa más fría y densa se desliza por debajo de la
+más cálida y liviana. En esa zona de contacto se producen los cambios
 de clima más marcados y repentinos.
 
 ## Frente frío

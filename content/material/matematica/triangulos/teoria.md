@@ -63,7 +63,7 @@ figura).
 ## Ejemplo aplicado
 
 Un triángulo tiene dos ángulos de 50° y 70°. El tercero mide
-180 − (50 + 70) = 60°. Como los tres ángulos (50°, 70°, 60°) son agudos,
-es un triángulo acutángulo; y como sus tres medidas son distintas, además
-es escaleno (asumiendo que también sus lados son todos distintos, lo cual
-es consistente con tener sus tres ángulos distintos).
+180 − (50 + 70) = 60°. Como los tres ángulos (50°, 70°, 60°) son agudos, es un triángulo
+acutángulo. Además, como sus tres medidas son distintas, es escaleno. Esto
+es consistente: tres ángulos distintos implican también lados todos
+distintos.

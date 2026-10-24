@@ -34,33 +34,33 @@ FCR (lpm) = pulsaciones contadas en 30 segundos × 2
 
 Una única medición puede estar distorsionada por factores puntuales:
 nervios, haberse movido justo antes, cafeína reciente, mala hora del
-día. **Medir varios días distintos y promediar** (`../../matematica/media-mediana-y-moda/`)
-da una estimación mucho más confiable de la FCR real de una persona
-que una sola medición aislada — es la misma razón por la que
-`../../matematica/muestreo-y-sesgo/` prefiere una muestra a un único
-dato suelto.
+día. **Medir varios días distintos y promediar**
+(`../../matematica/media-mediana-y-moda/`) da una estimación mucho más
+confiable de la FCR real de una persona que una sola medición aislada. Es la
+misma razón por la que `../../matematica/muestreo-y-sesgo/` prefiere una
+muestra a un único dato suelto.
 
-**Si una medición sale muy atípica** (por ejemplo, un día con mucho
-estrés previo), conviene usar la **mediana** de las mediciones en vez
-de la media — la mediana no se deja arrastrar por ese valor extremo,
-igual que en `../../matematica/cual-miente-y-cuando/`.
+**Si una medición sale muy atípica** (por ejemplo, un día con mucho estrés
+previo), conviene usar la **mediana** de las mediciones en vez de la media.
+La mediana no se deja arrastrar por ese valor extremo, igual que en
+`../../matematica/cual-miente-y-cuando/`.
 
 ## Relación con la condición física
 
-Una FCR **más baja** suele indicar **mejor condición cardiovascular**:
-un corazón entrenado se vuelve más eficiente y bombea más sangre por
-cada latido (mayor volumen sistólico), así que necesita latir **menos
-veces** por minuto para mover la misma cantidad de sangre. Por eso los
+Una FCR **más baja** suele indicar **mejor condición cardiovascular**. Un
+corazón entrenado se vuelve más eficiente y bombea más sangre por cada
+latido (mayor volumen sistólico). Por eso necesita latir **menos veces** por
+minuto para mover la misma cantidad de sangre. Por eso los
 atletas de resistencia entrenados suelen tener una FCR bastante por
 debajo de 60 lpm, sin que eso sea un problema de salud — al contrario.
 
 ## Seguimiento a lo largo del tiempo
 
-Comparar el **promedio** de FCR de una semana de entrenamiento contra
-el promedio de semanas anteriores es una forma directa de medir
-progreso cardiovascular: una FCR promedio que baja con el tiempo,
-manteniendo el mismo nivel de reposo, suele indicar que el corazón se
-está volviendo más eficiente.
+Comparar el **promedio** de FCR de una semana de entrenamiento contra el
+promedio de semanas anteriores es una forma directa de medir progreso
+cardiovascular. Una FCR promedio que baja con el tiempo, manteniendo el
+mismo nivel de reposo, suele indicar que el corazón se está volviendo más
+eficiente.
 
 ## Para qué sirve
 

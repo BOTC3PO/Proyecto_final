@@ -61,8 +61,8 @@ vez de siempre ser exactamente ese número.
 
 Una forma más precisa de medir el riesgo (además de "mirar qué tan lejos
 está el peor caso") es la **varianza** y su raíz cuadrada, el **desvío
-estándar**: promedian, ponderados por probabilidad, qué tan lejos está
-cada resultado posible del valor esperado.
+estándar**. Promedian, ponderados por probabilidad, qué tan lejos está cada
+resultado posible del valor esperado.
 
 ```
 Varianza = p1 × (resultado1 - E(X))² + p2 × (resultado2 - E(X))² + ...
@@ -78,9 +78,8 @@ estándar igual a 0.
 
 En general, las inversiones con mayor riesgo (desvío estándar más alto)
 suelen ofrecer, en promedio, un valor esperado más alto — nadie asumiría
-un riesgo mayor sin la posibilidad de una recompensa mayor. Es la
-relación conocida como **riesgo-retorno**: un plazo fijo es de bajo
-riesgo y bajo rendimiento esperado; una acción o un negocio propio puede
+un riesgo mayor sin la posibilidad de una recompensa mayor. Es la relación conocida como **riesgo-retorno**. Un plazo fijo es de bajo
+riesgo y bajo rendimiento esperado. Una acción o un negocio propio puede
 tener un valor esperado más alto, pero con más dispersión de resultados
 posibles (incluida la posibilidad real de pérdida).
 
@@ -89,11 +88,11 @@ posibles (incluida la posibilidad real de pérdida).
 - **Elegir entre plazo fijo y otras inversiones**: no sólo comparar
   cuánto rinde en promedio, sino cuánta variación de resultados está
   dispuesto a tolerar quien invierte.
-- **Un seguro**: es, en el fondo, la lectura inversa del valor esperado
-  — quien contrata un seguro acepta un valor esperado ligeramente
-  negativo (lo que paga de prima, en promedio, es un poco más de lo que
-  espera cobrar) a cambio de reducir su riesgo (evitar la posibilidad de
-  una pérdida grande e inesperada).
+- **Un seguro**: es, en el fondo, la lectura inversa del valor esperado. Quien
+  contrata un seguro acepta un valor esperado ligeramente negativo (lo que
+  paga de prima, en promedio, es un poco más de lo que espera cobrar). A
+  cambio, reduce su riesgo, porque evita la posibilidad de una pérdida
+  grande e inesperada.
 - **Diversificar** (repartir el dinero en varias inversiones en vez de
   una sola) es una forma de reducir el riesgo total sin necesariamente
   reducir el valor esperado.

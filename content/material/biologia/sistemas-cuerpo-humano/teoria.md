@@ -44,11 +44,11 @@ Célula → Tejido → Órgano → Sistema → Organismo
 
 ## 3. Los sistemas no funcionan aislados
 
-Ningún sistema trabaja solo: por ejemplo, para que un músculo se mueva
-(sistema muscular) hace falta que el sistema **nervioso** mande la
-señal, el sistema **circulatorio** traiga oxígeno y glucosa, y el
-sistema **respiratorio** haya capturado ese oxígeno del aire — todos
-los sistemas están **integrados**, la especialización no significa
+Ningún sistema trabaja solo. Por ejemplo, para que un músculo se mueva
+(sistema muscular) hace falta que el sistema **nervioso** mande la señal.
+Hace falta que el sistema **circulatorio** traiga oxígeno y glucosa, y que
+el sistema **respiratorio** haya capturado ese oxígeno del aire. Todos los
+sistemas están **integrados**: la especialización no significa
 independencia.
 
 ## 4. Homeostasis: el objetivo compartido de todos los sistemas

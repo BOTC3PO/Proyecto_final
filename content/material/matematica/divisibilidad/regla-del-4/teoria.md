@@ -23,7 +23,6 @@ divisible por 4.
 
 ## Por qué mira DOS cifras y no una
 
-La regla del 2 alcanza con una cifra porque 10 ya es múltiplo de 2. Para 4
-hace falta un paso más: 10 no es múltiplo de 4, pero 100 sí — por eso todo
-lo que esté "de las centenas para arriba" ya es automáticamente múltiplo
-de 4, y sólo importan las últimas dos cifras.
+La regla del 2 alcanza con una cifra porque 10 ya es múltiplo de 2. Para 4 hace falta un paso más: 10 no es múltiplo de 4, pero 100 sí. Por eso
+todo lo que esté "de las centenas para arriba" ya es automáticamente
+múltiplo de 4, y solo importan las últimas dos cifras.

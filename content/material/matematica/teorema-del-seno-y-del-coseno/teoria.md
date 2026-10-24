@@ -70,8 +70,8 @@ simples, más rápidas de aplicar.
 
 ## Para qué sirve
 
-Estos dos teoremas son la herramienta real detrás de la **triangulación**:
-calcular distancias o alturas inaccesibles (un cerro, un edificio desde
-un ángulo incómodo, la distancia entre dos puntos separados por un
-obstáculo) midiendo sólo algunos ángulos y una distancia de referencia,
-sin necesidad de que el triángulo formado tenga un ángulo recto.
+Estos dos teoremas son la herramienta real detrás de la **triangulación**.
+Permiten calcular distancias o alturas inaccesibles (un cerro, un edificio
+desde un ángulo incómodo, la distancia entre dos puntos separados por un
+obstáculo). Para eso alcanza con medir solo algunos ángulos y una distancia
+de referencia. El triángulo formado no necesita tener un ángulo recto.

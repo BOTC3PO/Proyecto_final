@@ -20,11 +20,11 @@ reclamar activamente.
 
 ## Un contrato inteligente se cumple solo
 
-Un **contrato inteligente** (smart contract) es un programa que corre
-sobre una [blockchain](../blockchain-claves-wallet/teoria.md): una
-regla del tipo **"si pasa X, entonces hacé Y"**, escrita en código, que
-se ejecuta **automáticamente** en cuanto se cumple la condición — sin
-que ninguna de las partes tenga que reclamarle nada a nadie.
+Un **contrato inteligente** (smart contract) es un programa que corre sobre
+una [blockchain](../blockchain-claves-wallet/teoria.md). Es una regla del
+tipo **"si pasa X, entonces hacé Y"**, escrita en código. Se ejecuta
+**automáticamente** en cuanto se cumple la condición, sin que ninguna de las
+partes tenga que reclamarle nada a nadie.
 
 ```
 si (condición se cumple) → entonces (acción ocurre automáticamente)
@@ -32,11 +32,11 @@ si (condición se cumple) → entonces (acción ocurre automáticamente)
 
 ## Por qué es la misma idea que un condicional de programación
 
-No hay ninguna magia nueva acá: es el mismo `si-entonces` (condicional)
-que existe en cualquier lenguaje de programación, sólo que en vez de
-correr en el servidor de una empresa, corre distribuido en la red de
-la blockchain — heredando la misma propiedad de no depender de una
-autoridad central que ya tenía [E29](../blockchain-claves-wallet/teoria.md).
+No hay ninguna magia nueva acá. Es el mismo `si-entonces` (condicional) que
+existe en cualquier lenguaje de programación. La diferencia es que, en vez
+de correr en el servidor de una empresa, corre distribuido en la red de la
+blockchain. Así hereda la misma propiedad de no depender de una autoridad
+central que ya tenía [E29](../blockchain-claves-wallet/teoria.md).
 
 ## Ejemplo: un depósito en garantía (escrow) automático
 
@@ -51,11 +51,10 @@ se cumple la condición programada.
 
 Un contrato inteligente, por su cuenta, **sólo puede ver información
 que ya está dentro de la blockchain** — no sabe, por ejemplo, si un
-vuelo se retrasó en el mundo real. Para que un contrato pueda
-reaccionar a un hecho del mundo real (el resultado de un partido, el
-precio de una acción, si un vuelo llegó tarde) hace falta un
-**oráculo**: un servicio externo que trae ese dato de afuera y lo
-"inyecta" en la blockchain para que el contrato lo pueda usar. El
+vuelo se retrasó en el mundo real. Para que un contrato pueda reaccionar a un hecho del mundo real (el
+resultado de un partido, el precio de una acción, si un vuelo llegó tarde)
+hace falta un **oráculo**. Es un servicio externo que trae ese dato de
+afuera y lo "inyecta" en la blockchain para que el contrato lo pueda usar. El
 oráculo es, en la práctica, el punto más débil del sistema: si el
 oráculo informa mal un dato, el contrato ejecuta la acción igual,
 aunque el dato real haya sido otro.

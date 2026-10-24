@@ -51,14 +51,13 @@ ya es una resta directa.
 ## El orden de los puntos no cambia el resultado
 
 Igual que con la pendiente en `../funcion-lineal-pendiente/`, no importa
-cuál punto se llame "1" y cuál "2": como las diferencias están elevadas
-al cuadrado, el resultado da exactamente igual sin importar el orden
-(restar al revés sólo cambia el signo de `Δx` y `Δy`, y el cuadrado
-elimina ese signo).
+cuál punto se llame "1" y cuál "2". Como las diferencias están elevadas al
+cuadrado, el resultado da exactamente igual sin importar el orden. Restar al
+revés solo cambia el signo de `Δx` y `Δy`, y el cuadrado elimina ese signo.
 
 ## Para qué sirve
 
-Calcular distancias reales entre ubicaciones dadas por coordenadas (un
-mapa, un plano de un edificio, un videojuego), y es la base para decidir
-si un triángulo dibujado en el plano es equilátero, isósceles o
-escaleno, sólo a partir de las coordenadas de sus tres vértices.
+Sirve para calcular distancias reales entre ubicaciones dadas por
+coordenadas (un mapa, un plano de un edificio, un videojuego). Es también la
+base para decidir si un triángulo dibujado en el plano es equilátero,
+isósceles o escaleno, solo a partir de las coordenadas de sus tres vértices.

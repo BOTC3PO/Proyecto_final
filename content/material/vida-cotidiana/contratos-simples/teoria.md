@@ -15,7 +15,7 @@ los dos resguardos legales más directos para un consumidor.
 ## Qué es una cláusula abusiva
 
 Una **cláusula abusiva** es una condición dentro de un contrato que
-desequilibra la relación en contra del consumidor: limita sus derechos,
+desequilibra la relación en contra del consumidor. Limita sus derechos,
 amplía de forma desproporcionada los del proveedor, o limita la
 responsabilidad del proveedor por daños que le cause al consumidor.
 
@@ -40,17 +40,16 @@ que él mismo aceptó, si esas cláusulas violan sus derechos básicos.
 
 ## El derecho de arrepentimiento
 
-En compras hechas **fuera del local comercial** (por internet,
-teléfono, catálogo), el consumidor tiene **10 días corridos** desde la
-compra (o desde que recibe el producto, según el caso) para
-**arrepentirse y devolverlo, sin dar ningún motivo**, con derecho a que
-le reintegren el dinero.
+En compras hechas **fuera del local comercial** (por internet, teléfono,
+catálogo), el consumidor tiene **10 días corridos** desde la compra (o desde
+que recibe el producto, según el caso). En ese plazo puede **arrepentirse y
+devolverlo, sin dar ningún motivo**, con derecho a que le reintegren el
+dinero.
 
-Es distinto de una compra hecha **físicamente en el local**: ahí, salvo
-que haya una falla cubierta por garantía, la posibilidad de cambiar o
-devolver un producto depende de la política comercial de cada negocio,
-no de un derecho legal de arrepentimiento como el de las compras a
-distancia.
+Es distinto de una compra hecha **físicamente en el local**. Ahí, salvo que
+haya una falla cubierta por garantía, la posibilidad de cambiar o devolver
+un producto depende de la política comercial de cada negocio. No hay un
+derecho legal de arrepentimiento como el de las compras a distancia.
 
 ## Dónde aparece en la vida real
 

@@ -1,0 +1,37 @@
+{
+ "titulo": "Jerarquía visual en una página",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué se ve primero",
+   "headers": [
+    "Elemento",
+    "Tamaño / peso",
+    "Nivel"
+   ],
+   "rows": [
+    [
+     "Título principal",
+     "Grande y en negrita",
+     "1"
+    ],
+    [
+     "Botón de acción",
+     "Color destacado",
+     "2"
+    ],
+    [
+     "Subtítulos",
+     "Mediano",
+     "3"
+    ],
+    [
+     "Texto secundario",
+     "Pequeño y gris",
+     "4"
+    ]
+   ]
+  }
+ ]
+}

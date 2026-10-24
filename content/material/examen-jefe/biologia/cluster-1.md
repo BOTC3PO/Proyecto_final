@@ -691,7 +691,7 @@ metadata:
   nivel: "intermedio"
   tags: ["probabilidad_compuesta", "aplicacion"]
 
-enunciado: "¿Qué relación tiene el cuadro de Punnett con `../../matematica/probabilidad-compuesta/`?"
+enunciado: "¿Qué relación tiene el cuadro de Punnett con la probabilidad compuesta?"
 tipo: mc
 opciones_explicitas:
   - "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
@@ -700,8 +700,7 @@ opciones_explicitas:
 respuesta: "Es exactamente probabilidad compuesta (eventos independientes que se multiplican), con una notación visual de cuadraditos en vez de una fórmula"
 
 explicacion: |
-  Es el cruce que más rinde de todo el bloque de probabilidad y
-  estadística, según `troncos.md`.
+  Es probabilidad compuesta (eventos independientes que se multiplican) con una notación visual de cuadraditos en vez de una fórmula.
 ```
 
 ```
@@ -1288,9 +1287,7 @@ opciones_explicitas:
 respuesta: "Para entender la compatibilidad en transfusiones, calcular probabilidades de herencia, y como aplicación real de alelos múltiples y codominancia"
 
 explicacion: |
-  Junto con `../herencia-ligada-al-sexo/`, completa las dos mitades
-  del nodo `B3` del MAPA — dos mecanismos genéticos distintos, ambos
-  resueltos con probabilidad condicional.
+  Los grupos sanguíneos son una aplicación real de alelos múltiples y codominancia, y sirven para entender las transfusiones y calcular probabilidades de herencia.
 ```
 
 ## Sección: cruce-dihibrido (31 preguntas)

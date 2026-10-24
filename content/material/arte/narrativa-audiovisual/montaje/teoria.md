@@ -34,19 +34,18 @@ historias completamente distintas según cómo se monten.
   el siguiente, mezclándose por un momento. Sugiere una conexión entre
   ambas imágenes, o un paso de tiempo más suave que el corte directo.
 - **Corte por movimiento (match cut)**: el corte conecta dos planos que
-  comparten una forma, un movimiento o una acción similar — genera una
-  transición fluida, y a veces un significado simbólico (por ejemplo,
-  pasar de un hueso lanzado al aire a una nave espacial, sugiriendo
-  siglos de evolución tecnológica en un solo corte).
+  comparten una forma, un movimiento o una acción similar. Genera una
+  transición fluida y, a veces, un significado simbólico. Por ejemplo, pasar
+  de un hueso lanzado al aire a una nave espacial sugiere siglos de
+  evolución tecnológica en un solo corte.
 
 ## Continuidad
 
 La **continuidad** es mantener la coherencia espacial y temporal entre
 planos consecutivos, para que el espectador no se confunda sobre dónde
-están los personajes o qué acaba de pasar. Una regla clásica de
-continuidad es la **regla de los 180°**: se traza una línea imaginaria
-entre los sujetos de la escena, y la cámara no la cruza de un plano al
-siguiente — si la cruzara, los personajes "cambiarían de lado" en
+están los personajes o qué acaba de pasar. Una regla clásica de continuidad es la **regla de los 180°**. Se traza una
+línea imaginaria entre los sujetos de la escena, y la cámara no la cruza de
+un plano al siguiente. Si la cruzara, los personajes "cambiarían de lado" en
 pantalla de forma confusa, sin haberse movido realmente.
 
 ## Ritmo de montaje
@@ -63,11 +62,11 @@ La duración de cada plano y la frecuencia de los cortes definen el
 ## El efecto Kuleshov
 
 Un experimento clásico del cine mudo ruso demostró algo central para
-entender el montaje: el mismo plano de la cara de un actor, con la misma
-expresión neutra, se interpreta de forma distinta según el plano que se
-le muestra justo antes o después (un plato de sopa, un ataúd, una niña
-jugando) — el espectador le atribuye hambre, tristeza o ternura al
-rostro, aunque el plano del actor sea idéntico en los tres casos. La
+entender el montaje. El mismo plano de la cara de un actor, con la misma
+expresión neutra, se interpreta de forma distinta según el plano que se le
+muestra justo antes o después (un plato de sopa, un ataúd, una niña
+jugando). El espectador le atribuye hambre, tristeza o ternura al rostro,
+aunque el plano del actor sea idéntico en los tres casos. La
 conclusión: **el significado de un plano depende del contexto que le dan
 los planos que lo rodean**, no sólo de su contenido aislado. Es la base
 teórica de por qué el montaje no sólo organiza lo filmado, sino que
@@ -75,15 +74,15 @@ teórica de por qué el montaje no sólo organiza lo filmado, sino que
 
 ## El sonido en el montaje
 
-El montaje no es sólo imagen: incluye también el sonido (diálogo,
-música, efectos) que acompaña cada corte, y que puede reforzar o
-contradecir deliberadamente lo que se ve en pantalla — un tema que se
-conecta con las propiedades físicas del sonido (timbre, altura,
-intensidad), todavía pendiente en el tronco de Física.
+El montaje no es solo imagen. Incluye también el sonido (diálogo, música,
+efectos) que acompaña cada corte, y que puede reforzar o contradecir
+deliberadamente lo que se ve en pantalla. Es un tema que se conecta con las
+propiedades físicas del sonido (timbre, altura, intensidad), todavía
+pendiente en el tronco de Física.
 
 ## Para qué sirve
 
-Entender el montaje es entender que una historia audiovisual no es la
-suma simple de sus planos: es cómo esos planos se combinan, en qué
-orden, con qué transición y con qué ritmo, lo que realmente construye la
-narración y el significado que percibe el espectador.
+Entender el montaje es entender que una historia audiovisual no es la suma
+simple de sus planos. Lo que realmente construye la narración y el
+significado que percibe el espectador es cómo se combinan esos planos: en
+qué orden, con qué transición y con qué ritmo.

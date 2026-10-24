@@ -1,0 +1,32 @@
+{
+ "titulo": "Referencias relativas y absolutas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué pasa al copiar la fórmula hacia abajo",
+   "headers": [
+    "Fórmula en C1",
+    "Copiada a C2",
+    "Tipo"
+   ],
+   "rows": [
+    [
+     "=A1*B1",
+     "=A2*B2",
+     "Relativa: cambia"
+    ],
+    [
+     "=A1*$B$1",
+     "=A2*$B$1",
+     "Mixta: A cambia, $B$1 queda fija"
+    ],
+    [
+     "=$A$1*$B$1",
+     "=$A$1*$B$1",
+     "Absoluta: no cambia"
+    ]
+   ]
+  }
+ ]
+}

@@ -33,15 +33,14 @@ un sistema previsional.
   invierte esa plata en el mercado financiero. El haber jubilatorio de
   cada persona depende de cuánto se acumuló específicamente en SU
   cuenta, no de un fondo común.
-- **Híbrido / mixto**: combina los dos — una parte del aporte va a un
-  sistema de reparto público (que suele garantizar un piso mínimo) y
-  otra parte va a una cuenta de capitalización individual (que varía
-  según lo que rindió esa inversión).
+- **Híbrido / mixto**: combina los dos. Una parte del aporte va a un sistema de reparto público,
+  que suele garantizar un piso mínimo. Otra parte va a una cuenta de
+  capitalización individual, que varía según lo que rindió esa inversión.
 
-Ningún modelo es intrínsecamente "el correcto": cada uno reparte el
-riesgo de forma distinta (el de reparto depende de que haya suficientes
-trabajadores activos financiando a los pasivos; el de capitalización
-depende de cómo rinda la inversión de cada cuenta individual).
+Ningún modelo es intrínsecamente "el correcto": cada uno reparte el riesgo
+de forma distinta. El de reparto depende de que haya suficientes
+trabajadores activos financiando a los pasivos. El de capitalización depende
+de cómo rinda la inversión de cada cuenta individual.
 
 ## La historia real en Argentina: de las AFJP al SIPA
 
@@ -50,11 +49,10 @@ Argentina pasó por los tres modelos, en momentos distintos:
 - **1994**: se creó un sistema mixto, con una parte de capitalización
   individual administrada por empresas privadas llamadas **AFJP**
   (Administradoras de Fondos de Jubilaciones y Pensiones).
-- **2008**: mediante la **Ley 26.425**, el Estado nacionalizó (estatizó)
-  los fondos que administraban las AFJP y eliminó el régimen de
-  capitalización individual, creando el **SIPA** (Sistema Integrado
-  Previsional Argentino) — un sistema de reparto administrado por
-  **ANSES**, el que rige hoy. El argumento oficial para el cambio fue que
+- **2008**: mediante la **Ley 26.425**, el Estado nacionalizó (estatizó) los fondos que
+  administraban las AFJP y eliminó el régimen de capitalización individual.
+  Creó el **SIPA** (Sistema Integrado Previsional Argentino), un sistema de
+  reparto administrado por **ANSES**, que es el que rige hoy. El argumento oficial para el cambio fue que
   las AFJP retenían comisiones (alrededor del 2,5% de los aportes) que
   reducían lo que efectivamente se acumulaba para cada trabajador.
 
@@ -64,19 +62,19 @@ por qué se dejó de usar.
 
 ## Otros países, otros modelos
 
-La variedad de modelos no es exclusiva de Argentina: distintos países
-usan sistemas de reparto, de capitalización individual, o híbridos, con
-sus propias reglas y montos (que cambian con el tiempo y no se detallan
-acá, para no citar cifras que quedan desactualizadas).
+La variedad de modelos no es exclusiva de Argentina. Distintos países usan
+sistemas de reparto, de capitalización individual o híbridos, con sus
+propias reglas y montos. Esos montos cambian con el tiempo y no se detallan
+acá, para no citar cifras que quedan desactualizadas.
 
 ---
 
 ## El "aporte": qué genera ahorrar con el tiempo
 
 Más allá de qué modelo use un país, vale la pena entender qué hace el
-interés compuesto con una serie de aportes periódicos (no un solo
-capital de una vez, sino un monto fijo aportado, por ejemplo, cada mes o
-cada año, durante mucho tiempo).
+interés compuesto con una serie de aportes periódicos. No se trata de un
+solo capital de una vez, sino de un monto fijo aportado, por ejemplo, cada
+mes o cada año, durante mucho tiempo.
 
 ```
 VF = aporte × ((1 + r)^n - 1) / r
@@ -96,41 +94,36 @@ acumula aportando un monto fijo período a período.
 ## Por qué importa empezar antes, no sólo aportar más
 
 Por el efecto del interés compuesto, el TIEMPO que un aporte estuvo
-invertido pesa muchísimo: empezar a ahorrar antes (aunque sea con montos
-chicos) suele generar un valor futuro mayor que empezar tarde con montos
-más altos, porque los aportes más viejos tuvieron muchos más períodos
-para capitalizar.
+invertido pesa muchísimo. Empezar a ahorrar antes, aunque sea con montos
+chicos, suele generar un valor futuro mayor que empezar tarde con montos más
+altos. Los aportes más viejos tuvieron muchos más períodos para capitalizar.
 
 ## Esta cuenta aplica sobre todo a la capitalización individual
 
 Calcular el "valor futuro" de los aportes tiene sentido claro en un
 sistema de capitalización individual (donde cada aporte va a una cuenta
-propia que efectivamente se invierte y crece). En un sistema de reparto
-puro, el aporte de hoy no se acumula en una cuenta personal — se usa de
-inmediato para pagar la jubilación de alguien más — así que ese cálculo
-de valor futuro no describe cómo funciona el sistema de reparto en sí,
-aunque sirve igual para entender la lógica de cualquier ahorro personal
-adicional.
+propia que efectivamente se invierte y crece). En un sistema de reparto puro, el aporte de hoy no se acumula en una cuenta
+personal: se usa de inmediato para pagar la jubilación de alguien más. Por
+eso ese cálculo de valor futuro no describe cómo funciona el sistema de
+reparto en sí. Igual sirve para entender la lógica de cualquier ahorro
+personal adicional.
 
 ## Por qué se habla de ahorro previsional propio, además del aporte obligatorio
 
 Un sistema de reparto depende de que haya suficientes trabajadores
-activos aportando por cada persona jubilada. Con una población que, en
-general, vive más años y tiene menos hijos que antes (una tendencia
-demográfica, no una opinión política), esa relación activos/pasivos
-tiende a ajustarse con el tiempo en cualquier país con este modelo — por
-eso muchos especialistas en finanzas personales recomiendan armar,
-además del aporte obligatorio, un ahorro previsional propio (por
-ejemplo, con los conceptos ya vistos de interés compuesto y
-diversificación).
+activos aportando por cada persona jubilada. En general, la población vive más años y tiene menos hijos que antes (una
+tendencia demográfica, no una opinión política). Por eso la relación entre
+activos y pasivos tiende a ajustarse con el tiempo en cualquier país con
+este modelo. Muchos especialistas en finanzas personales recomiendan armar,
+además del aporte obligatorio, un ahorro previsional propio (por ejemplo,
+con los conceptos ya vistos de interés compuesto y diversificación).
 
 ## Dónde aparece en la vida real
 
 - **Elegir cuánto ahorrar aparte del sistema obligatorio**: aplicar la
   fórmula del valor futuro de aportes periódicos para estimar cuánto se
   puede acumular empezando a distintas edades.
-- **Entender un debate público real**: las reformas previsionales
-  (como la de 1994 o la de 2008 en Argentina) son un tema recurrente de
-  discusión económica y política — entender los tres modelos posibles
-  ayuda a entender de qué se está discutiendo, más allá de estar a favor
-  o en contra de una reforma puntual.
+- **Entender un debate público real**: las reformas previsionales (como la de 1994 o la de 2008 en Argentina) son
+  un tema recurrente de discusión económica y política. Entender los tres
+  modelos posibles ayuda a entender de qué se está discutiendo, más allá de
+  estar a favor o en contra de una reforma puntual.

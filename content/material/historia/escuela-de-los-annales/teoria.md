@@ -15,21 +15,19 @@ evalúa si es correcta.
 
 ## El criterio central: estructuras de larga duración
 
-La **Escuela de los Annales** (Francia, siglo XX, llamada así por la
-revista académica *Annales* donde publicaban sus fundadores) propone
-mirar la historia a través de **estructuras de larga duración**:
-factores que cambian muy lentamente a lo largo de siglos —
-**clima, geografía, demografía, economía** — en vez de centrarse en
-los sucesos puntuales de reyes y batallas que priorizaba el
-positivismo (`../positivismo/`).
+La **Escuela de los Annales** (Francia, siglo XX) se llama así por la
+revista académica *Annales*, donde publicaban sus fundadores. Propone mirar
+la historia a través de **estructuras de larga duración**: factores que
+cambian muy lentamente a lo largo de siglos, como el **clima, la geografía,
+la demografía y la economía**. El positivismo (`../positivismo/`), en
+cambio, se centraba en los sucesos puntuales de reyes y batallas.
 
 ## Referente clave: Marc Bloch
 
-**Marc Bloch**, uno de los fundadores de la escuela, escribió
-*Apología para la historia* (publicada póstumamente en 1949, después
-de que Bloch fuera fusilado por la resistencia francesa contra la
-ocupación nazi) — un texto clásico sobre el oficio del historiador y
-su método.
+**Marc Bloch**, uno de los fundadores de la escuela, escribió *Apología para
+la historia*. Se publicó póstumamente en 1949, después de que Bloch fuera
+fusilado por la ocupación nazi por su participación en la resistencia
+francesa. Es un texto clásico sobre el oficio del historiador y su método.
 
 ## Los tres niveles de tiempo histórico (aporte de Fernand Braudel)
 
@@ -46,25 +44,23 @@ distinguir tres ritmos distintos de cambio histórico:
 
 ## Por qué priorizar lo estructural, no los sucesos
 
-La idea central: un rey o una batalla pueden cambiar la política de
-un momento, pero el **clima**, la **geografía** y la **demografía** de
-una región condicionan durante siglos qué es posible o probable en
-esa sociedad — entender esas estructuras de fondo explica más sobre
-el largo plazo que enumerar sucesos puntuales.
+La idea central: un rey o una batalla pueden cambiar la política de un
+momento. Pero el **clima**, la **geografía** y la **demografía** de una
+región condicionan durante siglos qué es posible o probable en esa sociedad.
+Entender esas estructuras de fondo explica más sobre el largo plazo que
+enumerar sucesos puntuales.
 
 ## Diferencia con el materialismo histórico
 
-Ambas corrientes miran "estructuras" en vez de grandes figuras, pero
-con foco distinto: el materialismo histórico
-(`../materialismo-historico/`) prioriza específicamente las
-**relaciones de clase y producción**; los Annales incluyen también
-factores **geográficos y climáticos**, que no están directamente
-ligados al conflicto de clases.
+Ambas corrientes miran "estructuras" en vez de grandes figuras, pero con
+foco distinto. El materialismo histórico (`../materialismo-historico/`)
+prioriza específicamente las **relaciones de clase y producción**. Los
+Annales incluyen también factores **geográficos y climáticos**, que no están
+directamente ligados al conflicto de clases.
 
 ## Para qué sirve
 
-La Escuela de los Annales es la tercera corriente de esta subrama —
-completa el desplazamiento iniciado por el materialismo histórico
-(de las grandes figuras a las estructuras) sumando factores
-geográficos y de larga duración que ninguna de las dos corrientes
-anteriores incluía de forma central.
+La Escuela de los Annales es la tercera corriente de esta subrama. Completa
+el desplazamiento iniciado por el materialismo histórico, de las grandes
+figuras a las estructuras. Suma factores geográficos y de larga duración que
+ninguna de las dos corrientes anteriores incluía de forma central.

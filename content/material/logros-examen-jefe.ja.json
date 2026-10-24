@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "古代世界の帝国マスター",
-    "descripcion": "メソポタミア、アレクサンドロス大王とヘレニズム、ローマ帝国の拡大、現在のアルゼンチン領土の先住民族についての中間試験を完了しました。",
+    "descripcion": "メソポタミア、古代文明、アレクサンドロス大王とヘレニズム、ローマ帝国の拡大についての中間試験を完了しました。",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "絶対主義と啓蒙の達人",
-    "descripcion": "ヨーロッパの絶対主義、啓蒙思想、産業革命、アルゼンチンの征服と植民地時代、副王領とその交易を習得しました、ボス。",
+    "descripcion": "ヨーロッパの絶対王政、啓蒙思想、産業革命を習得しました、ボス。",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "アルゼンチン独立の専門家",
-    "descripcion": "五月革命、独立戦争、ウニタリオとフェデラルの内戦、さらに電化と気候への人類の痕跡の始まりについての中間試験に合格しました。",
+    "nombre": "電化と気候の専門家",
+    "descripcion": "工場と家庭の電化、そして気候への人類の痕跡の始まりについての中間試験に合格しました。",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "自由主義と国民秩序マスター",
-    "descripcion": "ブルジョア革命と自由主義、国民国家、帝国主義、1853年憲法、移民を伴う農牧輸出モデルを習得して、中間試験を完了しました。",
+    "descripcion": "ブルジョワ革命と自由主義、国民国家、帝国主義を習得して中間試験を完了しました。",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "20世紀初頭の達人",
-    "descripcion": "大衆社会と自由民主主義、第一次世界大戦とロシア革命、戦間期と1929年の恐慌、サエンス・ペーニャ法とクーデターを習得しました、ボス。",
+    "descripcion": "大衆社会と自由民主主義、第一次世界大戦とロシア革命、戦間期と1929年の恐慌を習得しました、ボス。",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "戦争と冷戦の専門家",
-    "descripcion": "世界大戦、第二次世界大戦、冷戦、アフリカとアジアの脱植民地化、社会的権利を伴うペロン主義についての中間試験に合格しました。",
+    "descripcion": "世界大戦、第二次世界大戦、冷戦、アフリカとアジアの脱植民地化についての中間試験に合格しました。",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "現代史マスター",
-    "descripcion": "国家テロリズム、フォークランド紛争とアルゼンチンの民主主義の回復、アフリカ・アジア・中東の現代史、デジタル時代のグローバル化を習得して、中間試験を完了しました。",
+    "descripcion": "アフリカ、アジア、中東の現代史とデジタル時代のグローバル化を習得して中間試験を完了しました。",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "史料と年代学の専門家",
-    "descripcion": "歴史史料の解釈、年表、十年・世紀・千年紀、そして1918年の大学改革や2001年の危機といったアルゼンチンの事例を習得しました、ボス。",
+    "descripcion": "歴史史料の解釈、年表、そして十年・世紀・千年紀を習得しました、ボス。",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "時代区分と因果関係マスター",
-    "descripcion": "時代区分、紀元前と紀元後、原因と結果、1919年の悲劇の週間、輸入代替工業化を習得して、中間試験を完了しました。",
+    "descripcion": "時代区分、紀元前と紀元後、原因と結果を習得して中間試験を完了しました。",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "アメリカ大陸の戦争と過程マスター",
-    "descripcion": "独立、メキシコ革命、スペイン内戦、パラグアイ戦争、ロサスと連邦、砂漠の征服、初期の地域経済についての中間試験を完了しました。",
+    "descripcion": "独立運動、メキシコ革命、戦争、スペイン内戦についての中間試験を完了しました。",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "スポーツの戦略家",
     "descripcion": "試験に合格し、体力の要素（筋力・持久力・柔軟性・スピード）、運動時の栄養と水分補給、そしてバスケットボール、サッカー、フットサル、ハンドボール、ホッケー、ラグビー、バレーボールのルールと基本を習得しました。",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "植民地時代と独立のアルゼンチン史マスター",
+    "descripcion": "先住民族、征服と植民地時代、副王領とその交易、五月革命、アルゼンチン独立戦争についての中間試験を完了しました。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "国家組織化のマスター",
+    "descripcion": "ウニタリオとフェデラルの内戦、1853年憲法、ロサスと連邦、パラグアイ戦争、初期の地域経済を習得しました、ボス。",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "自由主義国家と民主主義拡大の専門家",
+    "descripcion": "砂漠の征服とチャコ遠征、農牧輸出モデルと移民、サエンス・ペーニャ法、クーデター、1918年の大学改革についての中間試験を完了しました。",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "20世紀アルゼンチンと民主主義のマスター",
+    "descripcion": "ペロン主義と社会権、悲劇の週、国家テロ、輸入代替工業化、マルビナス（フォークランド）、民主主義の回復、近年の歴史、2001年の危機を習得しました、ボス。",
+    "icono": "🕊️"
   }
 ]

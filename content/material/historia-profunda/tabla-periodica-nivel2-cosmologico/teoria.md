@@ -33,4 +33,4 @@ La distribución de los elementos en la tabla periódica refleja su historia có
 
 ## 5. Conexión con lo que sigue  
 
-Los procesos descritos aquí son clave para comprender cómo los elementos llegaron a la Tierra: en el siguiente tema (distribucion elementales terrestre), veremos cómo esos mismos elementos se combinaron en nuestro planeta y qué papel jugaron en la evolución de la vida.
+Los procesos descritos aquí son clave para comprender cómo los elementos llegaron a la Tierra. En el siguiente tema (distribucion elementales terrestre), veremos cómo esos mismos elementos se combinaron en nuestro planeta. También veremos qué papel jugaron en la evolución de la vida.

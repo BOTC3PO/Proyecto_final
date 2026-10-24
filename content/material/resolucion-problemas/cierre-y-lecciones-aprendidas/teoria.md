@@ -10,7 +10,7 @@
 
 ## 1. ¿Para qué sirve el cierre?
 
-El cierre formal de un proyecto o problema no se limita a entregar resultados o archivar documentos. Su propósito central es **capturar lo que funcionó, lo que falló y por qué**, para evitar repetir errores o perder éxitos en futuras situaciones. Por ejemplo, si un equipo no cumplió plazos porque subestimó la complejidad de una tarea, ese dato debe registrarse claramente: no solo como "no se cumplieron los tiempos", sino con el detalle de la causa real (como mala estimación de recursos o falta de planificación). Eso permite que otros equipos eviten la misma trampa.  
+El cierre formal de un proyecto o problema no se limita a entregar resultados o archivar documentos. Su propósito central es **capturar lo que funcionó, lo que falló y por qué**, para evitar repetir errores o perder éxitos en futuras situaciones. Por ejemplo, si un equipo no cumplió plazos porque subestimó la complejidad de una tarea, ese dato debe registrarse claramente. No basta con anotar "no se cumplieron los tiempos": hay que detallar la causa real (como mala estimación de recursos o falta de planificación). Eso permite que otros equipos eviten la misma trampa.  
 
 Un cierre bien hecho también incluye validar si se alcanzaron los objetivos originales y cómo se comparan con las expectativas iniciales. Esto no es un acto burocrático, sino una herramienta para mejorar la toma de decisiones.
 

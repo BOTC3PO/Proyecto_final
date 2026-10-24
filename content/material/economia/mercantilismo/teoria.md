@@ -27,10 +27,9 @@ del material.
 ## Qué sostiene el mercantilismo
 
 El mercantilismo fue la corriente económica dominante en Europa entre
-los siglos XVI y XVIII, durante la expansión colonial. Sostiene que la
-riqueza de una nación se mide por la cantidad de oro y plata que
-acumula — no por lo que produce o consume su población, sino por el
-metal precioso que logra retener o atraer del resto del mundo.
+los siglos XVI y XVIII, durante la expansión colonial. Sostiene que la riqueza de una nación se mide por la cantidad de oro y plata
+que acumula. No se mide por lo que produce o consume su población, sino por
+el metal precioso que logra retener o atraer del resto del mundo.
 
 De esa idea se desprende su receta de política económica: el Estado
 debe intervenir activamente en el comercio para conseguir una
@@ -52,10 +51,10 @@ regulado por el Estado — es la principal fuente de riqueza nacional.
 ## Por qué es el punto de partida de este bloque
 
 El mercantilismo es el primer eslabón de la cadena de corrientes de
-pensamiento económico que arranca en este bloque: es el sistema contra
-el que reaccionan tanto la fisiocracia (que traslada el origen de la
-riqueza de las manos del Estado a la tierra) como el liberalismo
-clásico de Adam Smith (que traslada esa fuente al trabajo y al
-intercambio libre, sin intervención estatal). Entender qué sostenía el
+pensamiento económico que arranca en este bloque. Es el sistema contra el
+que reaccionan tanto la fisiocracia como el liberalismo clásico de Adam
+Smith. La fisiocracia traslada el origen de la riqueza de las manos del
+Estado a la tierra. El liberalismo clásico lo traslada al trabajo y al
+intercambio libre, sin intervención estatal. Entender qué sostenía el
 mercantilismo es necesario para entender contra qué, exactamente,
 reaccionaron las corrientes que vinieron después.

@@ -17,13 +17,12 @@ hace un emulsionante, y por qué una mayonesa se puede "cortar".
 El agua es una molécula **polar**: sus cargas eléctricas no están
 distribuidas parejo, lo que hace que las moléculas de agua se atraigan
 fuertemente entre sí. El aceite, en cambio, está formado por moléculas
-**apolares** (grasas), que casi no interactúan con el agua. Si se agitan
-juntos, el aceite queda repartido en gotas dentro del agua por un
-instante, pero las gotitas de aceite tienden a juntarse entre sí (y las
-moléculas de agua entre sí) hasta separarse de nuevo en dos capas — es la
-misma **tensión superficial** que hace que una gota de agua sea redonda:
-el líquido "prefiere" tener la menor superficie de contacto posible con
-lo que no es igual a él.
+**apolares** (grasas), que casi no interactúan con el agua. Si se agitan juntos, el aceite queda repartido en gotas dentro del agua por
+un instante. Pero las gotitas de aceite tienden a juntarse entre sí (y las
+moléculas de agua entre sí) hasta separarse de nuevo en dos capas. Es la
+misma **tensión superficial** que hace que una gota de agua sea redonda: el
+líquido "prefiere" tener la menor superficie de contacto posible con lo que
+no es igual a él.
 
 ## El experimento: la mayonesa que no liga
 

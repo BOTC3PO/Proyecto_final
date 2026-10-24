@@ -62,11 +62,11 @@ hubieran intentado producir todo por su cuenta.
 
 ## Por qué esto no es sólo teoría abstracta
 
-Es el mismo tipo de razonamiento ("por qué esta decisión y no otra")
-que ya resolvía el **punto de equilibrio** en Administración, aplicado
-acá a la escala del comercio entre países: no importa quién es "mejor"
-en general, importa dónde cada uno pierde MENOS al elegir producir una
-cosa en vez de otra.
+Es el mismo tipo de razonamiento ("por qué esta decisión y no otra") que ya
+resolvía el **punto de equilibrio** en Administración. Acá se aplica a la
+escala del comercio entre países: no importa quién es "mejor" en general,
+importa dónde cada uno pierde MENOS al elegir producir una cosa en vez de
+otra.
 
 ## Dónde aparece en la vida real
 

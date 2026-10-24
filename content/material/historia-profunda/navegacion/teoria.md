@@ -12,7 +12,9 @@
 
 Antes de la expansión oceánica europea, el comercio de larga distancia dependía de rutas terrestres y marítimas fragmentadas. La Ruta de la Seda conectaba Asia con Europa, pero estaba sujeta a los caprichos de los imperios intermediarios. En el mar Mediterráneo, las potencias italianas como Venecia y Génova controlaban el tráfico de especias y bienes de lujo procedentes del Oriente. Sin embargo, el ascenso del Imperio otomano y la caída de Constantinopla en 1453 complicaron estas rutas, creando una urgidad económica y política en las monarquías ibéricas (Castilla y Portugal) por encontrar rutas alternativas hacia las fuentes de producción.
 
-<!-- IMAGEN: Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492 -->
+![Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Silk_route.jpg/960px-Silk_route.jpg)
+
+*Imagen: «Silk route», Whole_world_-_land_and_oceans_12000.jpg: NASA/Godd, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Silk_route.jpg).*
 
 ## 2. La escuela de navegación portuguesa
 
@@ -20,13 +22,15 @@ Portugal lideró los primeros avances sistemáticos. Bajo el patrocinio del Infa
 
 ## 3. Innovaciones técnicas y cartográficas
 
-La navegación oceánica requirió saltos tecnológicos decisivos. La combinación de la brújula, el astrolabio y el cuadrante permitió a los navegantes orientarse en alta mar donde no había referencias visuales. Además, se desarrollaron nuevos instrumentos como el balestrillo, más preciso para medir la altura del sol sobre el horizonte. En el ámbito cartográfico, la carta portolana dio paso a los mapas que incluían líneas de rumbo (rumbos de viento), aunque la proyección cartográfica perfecta no existía aún. La comprensión de los vientos alisios y los sistemas de corrientes fue crucial; se descubrió que para volver de América a Europa era necesario navegar hacia el norte para captar los vientos del oeste, una técnica conocida como *volta do mar*.
+La navegación oceánica requirió saltos tecnológicos decisivos. La combinación de la brújula, el astrolabio y el cuadrante permitió a los navegantes orientarse en alta mar donde no había referencias visuales. Además, se desarrollaron nuevos instrumentos como el balestrillo, más preciso para medir la altura del sol sobre el horizonte. En el ámbito cartográfico, la carta portolana dio paso a los mapas que incluían líneas de rumbo (rumbos de viento), aunque la proyección cartográfica perfecta no existía aún. La comprensión de los vientos alisios y los sistemas de corrientes fue crucial. Se descubrió que para volver de América a Europa era necesario navegar hacia el norte para captar los vientos del oeste, una técnica conocida como *volta do mar*.
 
-<!-- IMAGEN: Detalle de un astrolabio náutico y una brújula magnética del siglo XV -->
+![Detalle de un astrolabio náutico y una brújula magnética del siglo XV](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg/960px-Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg)
+
+*Imagen: «Nautical astrolabe-CnAM 3864-IMG 6430-gradient», Rama, CC BY-SA 3.0 fr. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg).*
 
 ## 4. El Tratado de Tordesillas y la división del mundo
 
-La rivalidad entre Castilla y Portugal por las nuevas tierras descubiertas llevó a la intervención del Papa Alejandro VI, quien medió la disputa mediante el Tratado de Tordesillas en 1494. Este acuerdo dividió el mundo conocido en dos hemisferios de influencia: al este de una línea a 370 leguas al oeste de las islas de Cabo Verde, los territorios pertenecían a Portugal (lo que incluyó lo que hoy es Brasil); al oeste, a Castilla. Este tratado no solo legitimó la expansión portuguesa hacia la ruta de la India (llegada de Vasco da Gama en 1498), sino que estableció el primer marco jurídico internacional para la colonización, ignorando por completo la soberanía de los pueblos indígenas.
+La rivalidad entre Castilla y Portugal por las nuevas tierras descubiertas llevó a la intervención del Papa Alejandro VI, quien medió la disputa mediante el Tratado de Tordesillas en 1494. Este acuerdo dividió el mundo conocido en dos hemisferios de influencia, separados por una línea a 370 leguas al oeste de las islas de Cabo Verde. Al este, los territorios pertenecían a Portugal (lo que incluyó lo que hoy es Brasil); al oeste, a Castilla. Este tratado no solo legitimó la expansión portuguesa hacia la ruta de la India (llegada de Vasco da Gama en 1498). También estableció el primer marco jurídico internacional para la colonización, ignorando por completo la soberanía de los pueblos indígenas.
 
 ## 5. Consecuencias geográficas y económicas
 

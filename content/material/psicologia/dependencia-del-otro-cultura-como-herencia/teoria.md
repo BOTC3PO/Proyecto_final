@@ -12,8 +12,6 @@
 
 La cultura no es solo un conjunto de reglas o costumbres, sino una forma de vida compartida que se va construyendo entre generaciones. Su transmisión ocurre principalmente a través de la **socialización**, el proceso por el cual las personas aprenden los valores, normas y comportamientos de su entorno. Este no es un acto pasivo: implica que el individuo internalice lo que observa, escucha y vive en su comunidad. Por ejemplo, una niña que crece en una familia donde se valora la puntualidad aprenderá a asociar esa cualidad con respeto y responsabilidad, incluso si nunca se le explica explícitamente.
 
-<!-- IMAGEN: diagrama de un círculo (la cultura) que se conecta con flechas a elementos como "valores", "normas" e "identidad individual" -->
-
 ## 2. El "yo" como construcción colectiva
 
 La formación de la identidad no es algo que el ser humano logre solo. Desde la infancia, interactuamos constantemente con otros: padres, maestros, compañeros y la sociedad en general. Estas interacciones no son simplemente influencias externas; son **diálogos** que moldean cómo nos vemos a nosotros mismos. Por eso, decir "yo soy así" siempre implica un "no soy como el otro", una definición que surge de la comparación y la relación con lo diferente.

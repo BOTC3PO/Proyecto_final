@@ -41,10 +41,10 @@ dos unidades:
 - De una unidad **más chica a una más grande** (ej. m a km): se **divide**
   por el factor (3000 m = 3000 ÷ 1000 = 3 km).
 
-Un atajo práctico: contar cuántos "escalones" hay entre las dos unidades
-en la tabla de prefijos, y correr la coma decimal esa cantidad de lugares
-(a la derecha si se va de más grande a más chica, a la izquierda al
-revés). De km a cm hay 5 escalones (km→hm→dam→m→dm→cm), así que
+Un atajo práctico: contar cuántos "escalones" hay entre las dos unidades en
+la tabla de prefijos y correr la coma decimal esa cantidad de lugares. Se
+corre a la derecha si se va de más grande a más chica, y a la izquierda al
+revés. De km a cm hay 5 escalones (km→hm→dam→m→dm→cm), así que
 1 km = 100 000 cm.
 
 ## Equivalencias más usadas
@@ -61,8 +61,8 @@ revés). De km a cm hay 5 escalones (km→hm→dam→m→dm→cm), así que
 
 Antes de que existiera el sistema métrico, cada región usaba sus propias
 unidades (pies, leguas, varas), lo que hacía casi imposible comparar
-medidas de un lugar a otro. El sistema métrico decimal es hoy el estándar
-en casi todo el mundo (con la notable excepción de Estados Unidos, que usa
-pulgadas, libras, millas) precisamente porque, al basarse siempre en
-potencias de 10, convertir es tan simple como correr la coma — no hace
-falta memorizar factores raros como "1 milla = 5280 pies".
+medidas de un lugar a otro. El sistema métrico decimal es hoy el estándar en casi todo el mundo. La
+notable excepción es Estados Unidos, que usa pulgadas, libras y millas. Se
+impuso precisamente porque, al basarse siempre en potencias de 10, convertir
+es tan simple como correr la coma. No hace falta memorizar factores raros
+como "1 milla = 5280 pies".

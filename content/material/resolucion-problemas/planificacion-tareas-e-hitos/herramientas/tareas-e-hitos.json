@@ -1,0 +1,32 @@
+{
+ "titulo": "Tareas e hitos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Diferencias",
+   "headers": [
+    "",
+    "Tarea",
+    "Hito"
+   ],
+   "rows": [
+    [
+     "Tiene duración",
+     "Sí (barra en el cronograma)",
+     "No (es un punto en el tiempo)"
+    ],
+    [
+     "Ejemplo",
+     "Armar el prototipo (10 días)",
+     "Aprobación del prototipo"
+    ],
+    [
+     "Sirve para",
+     "Planificar el trabajo",
+     "Controlar el avance"
+    ]
+   ]
+  }
+ ]
+}

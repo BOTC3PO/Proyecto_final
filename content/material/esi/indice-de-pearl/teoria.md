@@ -39,17 +39,16 @@ Pearl distintos:
   incluye los errores humanos normales (olvidos, uso incorrecto,
   interrupciones) — casi siempre **más alto** que el de uso perfecto.
 
-La diferencia entre ambos números es, en sí misma, información
-valiosa: un método con una brecha grande entre uso perfecto y típico
-depende mucho de que la persona lo use sin ningún error, mientras que
-uno con poca diferencia es más "a prueba de errores" (por ejemplo, los
-métodos que no dependen de recordar tomar o colocar algo todos los
-días suelen tener una brecha más chica).
+La diferencia entre ambos números es, en sí misma, información valiosa. Un
+método con una brecha grande entre uso perfecto y típico depende mucho de
+que la persona lo use sin ningún error. Uno con poca diferencia es más "a
+prueba de errores". Por ejemplo, los métodos que no dependen de recordar
+tomar o colocar algo todos los días suelen tener una brecha más chica.
 
 *Nota*: este módulo no documenta el índice de Pearl de ningún método
-anticonceptivo en particular — esos números cambian según el estudio,
-la población y el año, y consultarlos con una fuente médica
-actualizada es lo correcto antes de una decisión real. Lo que importa
+anticonceptivo en particular. Esos números cambian según el estudio, la
+población y el año. Lo correcto es consultarlos con una fuente médica
+actualizada antes de una decisión real. Lo que importa
 acá es entender **la estructura del cálculo** y **cómo comparar** dos
 índices entre sí.
 
@@ -67,8 +66,8 @@ P(NO embarazo en 1 año) ≈ 1 − (índice de Pearl / 100)
 ## Para qué sirve
 
 Permite comparar objetivamente la eficacia de distintos métodos
-anticonceptivos con un mismo número estandarizado, y entender que
-"eficacia" en la práctica real (uso típico) casi siempre es más baja
-que la eficacia teórica (uso perfecto) — la brecha entre ambas es,
+anticonceptivos con un mismo número estandarizado. También permite entender
+que la "eficacia" en la práctica real (uso típico) casi siempre es más baja
+que la eficacia teórica (uso perfecto). La brecha entre ambas es,
 justamente, el margen de error humano que cualquier decisión de salud
 reproductiva debería tener en cuenta.

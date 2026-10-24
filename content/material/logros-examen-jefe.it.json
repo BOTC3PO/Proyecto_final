@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "Domina gli Imperi del Mondo Antico",
-    "descripcion": "Hai completato il parziale su Mesopotamia, Alessandro Magno e l'ellenismo, l'espansione dell'Impero romano e i popoli originari dell'attuale territorio argentino.",
+    "descripcion": "Hai completato l'esame su Mesopotamia, le civiltà antiche, Alessandro Magno e l'ellenismo, e l'espansione dell'Impero romano.",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "Maestro di Assolutismo e Illuminismo",
-    "descripcion": "Hai dominato l'assolutismo europeo, l'Illuminismo, la Rivoluzione Industriale, la conquista e la colonia in Argentina e il vicereame con il suo commercio, capo.",
+    "descripcion": "Hai padroneggiato l'assolutismo europeo, l'Illuminismo e la Rivoluzione industriale, capo.",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "Esperto dell'Indipendenza Argentina",
-    "descripcion": "Hai superato il parziale sulla Rivoluzione di Maggio, le guerre d'indipendenza e le guerre civili tra unitari e federali, insieme all'elettrificazione e all'inizio dell'impronta umana sul clima.",
+    "nombre": "Esperto di Elettrificazione e Clima",
+    "descripcion": "Hai superato l'esame sull'elettrificazione della fabbrica e della casa e sull'inizio dell'impronta umana sul clima.",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "Domina l'Ordine Liberale e Nazionale",
-    "descripcion": "Hai completato il parziale dominando le rivoluzioni borghesi e il liberalismo, gli stati nazionali, l'imperialismo, la Costituzione del 1853 e il modello agroesportatore con l'immigrazione.",
+    "descripcion": "Hai completato l'esame padroneggiando le rivoluzioni borghesi e il liberalismo, gli stati nazionali e l'imperialismo.",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "Maestro del Primo Novecento",
-    "descripcion": "Hai dominato la società di massa e la democrazia liberale, la Prima guerra mondiale e la Rivoluzione russa, il periodo tra le due guerre e la crisi del 1929, la Legge Sáenz Peña e i colpi di stato, capo.",
+    "descripcion": "Hai padroneggiato la società di massa e la democrazia liberale, la Prima guerra mondiale e la Rivoluzione russa, e il periodo tra le due guerre e la crisi del 1929, capo.",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "Esperto di Guerre e Guerra Fredda",
-    "descripcion": "Hai superato il parziale sulle guerre mondiali, la Seconda guerra mondiale, la Guerra Fredda, la decolonizzazione di Africa e Asia e il peronismo con i suoi diritti sociali.",
+    "descripcion": "Hai superato l'esame sulle guerre mondiali, la Seconda guerra mondiale, la Guerra fredda e la decolonizzazione di Africa e Asia.",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "Domina la Storia Recente",
-    "descripcion": "Hai completato il parziale dominando il terrorismo di Stato, le Malvine e il ritorno alla democrazia in Argentina, la storia contemporanea di Africa, Asia e Medio Oriente e la globalizzazione dell'era digitale.",
+    "descripcion": "Hai completato l'esame padroneggiando la storia contemporanea di Africa, Asia e Medio Oriente e la globalizzazione dell'era digitale.",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "Esperto di Fonti e Cronologia",
-    "descripcion": "Hai dominato l'interpretazione delle fonti storiche, le linee del tempo, il decennio, il secolo e il millennio, e casi argentini come la Riforma Universitaria del 1918 e la crisi del 2001, capo.",
+    "descripcion": "Hai padroneggiato l'interpretazione delle fonti storiche, le linee del tempo, e il decennio, il secolo e il millennio, capo.",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "Domina Periodizzazione e Causalità",
-    "descripcion": "Hai completato il parziale dominando la periodizzazione, il prima e il dopo Cristo, causa e conseguenza, la Settimana Tragica del 1919 e l'industrializzazione per sostituzione delle importazioni.",
+    "descripcion": "Hai completato l'esame padroneggiando la periodizzazione, l'avanti e dopo Cristo, e causa e conseguenza.",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "Domina Guerre e Processi Americani",
-    "descripcion": "Hai completato il parziale sulle indipendenze, la rivoluzione messicana, la guerra civile spagnola, la guerra del Paraguay, Rosas e la Confederazione, la Conquista del Deserto e le prime economie regionali.",
+    "descripcion": "Hai completato l'esame sulle indipendenze, la Rivoluzione messicana, le guerre e la guerra civile spagnola.",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "Stratega dello sport",
     "descripcion": "Hai superato l'esame padroneggiando le capacità fisiche (forza, resistenza, flessibilità e velocità), l'alimentazione e l'idratazione nell'attività fisica, e il regolamento e i fondamentali di basket, calcio, futsal, pallamano, hockey, rugby e pallavolo.",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Padronanza dell'Argentina coloniale e dell'indipendenza",
+    "descripcion": "Hai completato l'esame sui popoli originari, la conquista e la colonia, il vicereame e il suo commercio, la Rivoluzione di Maggio e le guerre d'indipendenza argentine.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Maestro dell'organizzazione nazionale",
+    "descripcion": "Hai padroneggiato le guerre civili tra unitari e federali, la Costituzione del 1853, Rosas e la Confederazione, la guerra del Paraguay e le prime economie regionali, capo.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Esperto dello Stato liberale e dell'ampliamento democratico",
+    "descripcion": "Hai completato l'esame sulla Conquista del Deserto e la campagna del Chaco, il modello agroesportatore e l'immigrazione, la Legge Sáenz Peña, i colpi di Stato e la Riforma universitaria del 1918.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Maestro dell'Argentina del Novecento e della democrazia",
+    "descripcion": "Hai padroneggiato il peronismo e i diritti sociali, la Settimana tragica, il terrorismo di Stato, l'industrializzazione per sostituzione delle importazioni, le Malvine, il ritorno alla democrazia, la storia recente e la crisi del 2001, capo.",
+    "icono": "🕊️"
   }
 ]

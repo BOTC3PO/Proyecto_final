@@ -12,10 +12,10 @@ por tipo de función, cómo hallarla, errores comunes).
 
 ## Qué es la imagen
 
-Si el dominio (`../funcion-dominio/teoria.md`) es el conjunto de valores
-que se le pueden **dar** a una función, la **imagen** (o recorrido) es el
-conjunto de valores que la función **efectivamente devuelve** — todos los
-y = f(x) posibles, recorriendo todo el dominio.
+Si el dominio (`../funcion-dominio/teoria.md`) es el conjunto de valores que
+se le pueden **dar** a una función, la **imagen** (o recorrido) es el
+conjunto de valores que la función **efectivamente devuelve**: todos los y =
+f(x) posibles, recorriendo todo el dominio.
 
 No es lo mismo que el "conjunto de llegada" declarado (que puede incluir
 valores que la función nunca toca): la imagen es sólo lo que
@@ -39,9 +39,9 @@ valores que la función nunca toca): la imagen es sólo lo que
 
 ## Cómo hallar la imagen de una cuadrática general
 
-Para f(x) = ax² + bx + c (sin estar ya en forma de vértice), el vértice
-está en x = −b/(2a); reemplazando ese x en f se obtiene el valor k del
-vértice, y el signo de a dice si abre para arriba o para abajo.
+Para f(x) = ax² + bx + c (sin estar ya en forma de vértice), el vértice está
+en x = −b/(2a). Reemplazando ese x en f se obtiene el valor k del vértice.
+El signo de a dice si abre para arriba o para abajo.
 
 ## Ejemplos resueltos
 

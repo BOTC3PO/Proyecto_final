@@ -40,7 +40,7 @@ El semiólogo Roland Barthes distinguió dos niveles. La **denotación** es lo q
 
 ## 6. Imagen, verdad y manipulación
 
-Una imagen puede ser fiel o estar manipulada. Se puede engañar con el **recorte** (qué queda afuera del cuadro), el **epígrafe** (el texto que la acompaña), la **fecha y el contexto** (una foto real usada para otro hecho), la edición digital y hoy las imágenes generadas por inteligencia artificial. Por eso conviene preguntarse de dónde viene una imagen, quién la publicó y si se puede encontrar su origen (por ejemplo con una búsqueda inversa de imágenes). Esto se relaciona con la desinformación que se trabaja en `../../ciudadania-digital/`.
+Una imagen puede ser fiel o estar manipulada. Se puede engañar con el **recorte** (qué queda afuera del cuadro) y con el **epígrafe** (el texto que la acompaña). También con la **fecha y el contexto** (una foto real usada para otro hecho), con la edición digital y, hoy, con las imágenes generadas por inteligencia artificial. Por eso conviene preguntarse de dónde viene una imagen, quién la publicó y si se puede encontrar su origen (por ejemplo con una búsqueda inversa de imágenes). Esto se relaciona con la desinformación que se trabaja en `../../ciudadania-digital/`.
 
 ## 7. Accesibilidad
 

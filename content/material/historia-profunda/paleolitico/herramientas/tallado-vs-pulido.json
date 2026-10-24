@@ -1,0 +1,32 @@
+{
+ "titulo": "Herramientas talladas y pulidas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Paleolítico y neolítico",
+   "headers": [
+    "",
+    "Paleolítico (talladas)",
+    "Neolítico (pulidas)"
+   ],
+   "rows": [
+    [
+     "Técnica",
+     "Golpear la piedra para sacar lascas",
+     "Frotar y pulir con abrasivos"
+    ],
+    [
+     "Bordes",
+     "Irregulares, filosos",
+     "Lisos y regulares"
+    ],
+    [
+     "Usos",
+     "Caza, corte, raspado",
+     "Hachas para talar, azadas para cultivar"
+    ]
+   ]
+  }
+ ]
+}

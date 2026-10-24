@@ -1,0 +1,28 @@
+{
+ "titulo": "Costo y eficiencia al optimizar",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "math",
+   "title": "Ilustración",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "100/(1+x)",
+     "label": "Costo (disminuye)"
+    },
+    {
+     "id": "f2",
+     "expression": "100-100/(1+x)",
+     "label": "Eficiencia (aumenta)"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 10,
+   "showGrid": true,
+   "showLegend": true,
+   "yMin": 0,
+   "yMax": 100
+  }
+ ]
+}

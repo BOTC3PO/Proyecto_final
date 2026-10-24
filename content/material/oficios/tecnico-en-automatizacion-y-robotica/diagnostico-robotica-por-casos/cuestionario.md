@@ -226,26 +226,8 @@ explicacion: |
   tema.
 ```
 
-### 11 — Origen del enfoque multivariable
 
-```
-metadata:
-  materia: "oficios"
-  tema: "tecnico_en_automatizacion_y_robotica_diagnostico_robotica_por_casos"
-  nivel: "intermedio"
-  tags: ["contexto"]
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la teoría, el enfoque multivariable del diagnóstico de robótica retoma el mismo usado en `Técnico Electromecánico` (`OF11`)."
-
-explicacion: |
-  Es la conexión explícita que hace la teoría con el oficio del que
-  Robótica hereda gran parte del camino.
-```
-
-### 12 — Diferencia entre caso 1 y caso 2
+### 11 — Diferencia entre caso 1 y caso 2
 
 ```
 metadata:
@@ -268,7 +250,7 @@ explicacion: |
   es una falla en percibir algo externo al robot.
 ```
 
-### 13 — Encoder y calibración
+### 12 — Encoder y calibración
 
 ```
 metadata:
@@ -287,7 +269,7 @@ explicacion: |
   sensores, donde se define el encoder.
 ```
 
-### 14 — LIDAR y el caso 2
+### 13 — LIDAR y el caso 2
 
 ```
 metadata:
@@ -306,7 +288,7 @@ explicacion: |
   del diagnóstico.
 ```
 
-### 15 — Alimentación eléctrica inestable
+### 14 — Alimentación eléctrica inestable
 
 ```
 metadata:
@@ -325,7 +307,7 @@ explicacion: |
   alimentación eléctrica del caso 3.
 ```
 
-### 16 — No asumir la causa de entrada
+### 15 — No asumir la causa de entrada
 
 ```
 metadata:
@@ -343,7 +325,7 @@ explicacion: |
   Es parte del primer paso del método resumido de todo el tema.
 ```
 
-### 17 — Cinemática inversa y el caso 1
+### 16 — Cinemática inversa y el caso 1
 
 ```
 metadata:
@@ -362,7 +344,7 @@ explicacion: |
   dinámica.
 ```
 
-### 18 — Síntesis del enfoque de diagnóstico
+### 17 — Síntesis del enfoque de diagnóstico
 
 ```
 metadata:
@@ -380,7 +362,7 @@ explicacion: |
   Es la síntesis final del método de diagnóstico de todo el tema.
 ```
 
-### 19 — Entrar a la celda
+### 18 — Entrar a la celda
 
 ```
 metadata:
@@ -399,7 +381,7 @@ explicacion: |
 ```
 
 
-### 20 — Paso a paso que pierde pasos
+### 19 — Paso a paso que pierde pasos
 
 ```
 metadata:
@@ -421,7 +403,7 @@ explicacion: |
 ```
 
 
-### 21 — Deriva del giróscopo
+### 20 — Deriva del giróscopo
 
 ```
 metadata:
@@ -443,7 +425,7 @@ explicacion: |
 ```
 
 
-### 22 — Oscilación del eje
+### 21 — Oscilación del eje
 
 ```
 metadata:
@@ -465,7 +447,7 @@ explicacion: |
 ```
 
 
-### 23 — Bus sin terminación
+### 22 — Bus sin terminación
 
 ```
 metadata:

@@ -43,10 +43,9 @@ Cátodo (reducción):  4H₂O + 4e⁻ → 2H₂ + 4OH⁻
 Ánodo (oxidación):   2H₂O → O₂ + 4H⁺ + 4e⁻
 ```
 
-Con corriente eléctrica forzando el proceso, el agua se separa en
-hidrógeno gaseoso (cátodo) y oxígeno gaseoso (ánodo) — en una
-proporción 2:1 en volumen (2 volúmenes de H₂ por cada 1 de O₂), la
-misma proporción que en la fórmula H₂O.
+Con corriente eléctrica forzando el proceso, el agua se separa en hidrógeno
+gaseoso (cátodo) y oxígeno gaseoso (ánodo). La proporción es 2:1 en volumen
+(2 volúmenes de H₂ por cada 1 de O₂), la misma que en la fórmula H₂O.
 
 ## 4. Aplicaciones comunes
 

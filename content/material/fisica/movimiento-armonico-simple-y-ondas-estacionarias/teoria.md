@@ -31,7 +31,7 @@ La energía mecánica total de un oscilador con resorte es `E = ½·k·A²` y se
 
 ## 5. Ondas estacionarias
 
-Cuando dos ondas iguales viajan en sentidos opuestos (por ejemplo, una onda que se refleja en el extremo de una cuerda) se superponen y forman una **onda estacionaria**: un patrón que no avanza, con puntos que no se mueven (**nodos**) y puntos de máxima oscilación (**antinodos** o vientres).
+Cuando dos ondas iguales viajan en sentidos opuestos (por ejemplo, una onda que se refleja en el extremo de una cuerda), se superponen y forman una **onda estacionaria**. Es un patrón que no avanza, con puntos que no se mueven (**nodos**) y puntos de máxima oscilación (**antinodos** o vientres).
 
 **Cuerda fija en ambos extremos** (guitarra, violín). Solo entran ondas con nodos en los extremos, de modo que `L = n·λ/2` y las frecuencias permitidas son:
 
@@ -39,7 +39,7 @@ Cuando dos ondas iguales viajan en sentidos opuestos (por ejemplo, una onda que 
 
 `n = 1` es la frecuencia **fundamental**; `n = 2, 3, …` son los armónicos. Cada armónico tiene `n` antinodos.
 
-**Tubos sonoros.** Un tubo **abierto en ambos extremos** tiene antinodos de desplazamiento en las dos bocas y produce los mismos armónicos `f_n = n·v/(2L)`. Un tubo **cerrado en un extremo** (como una botella o un clarinete) tiene un nodo en el extremo cerrado y un antinodo en el abierto: `L = (2n − 1)·λ/4`, con `f_n = (2n − 1)·v/(4L)`; solo aparecen los armónicos impares. Con la velocidad del sonido en el aire, unos 340 m/s a temperatura ambiente, un tubo cerrado de 0,17 m suena en 500 Hz.
+**Tubos sonoros.** Un tubo **abierto en ambos extremos** tiene antinodos de desplazamiento en las dos bocas y produce los mismos armónicos `f_n = n·v/(2L)`. Un tubo **cerrado en un extremo** (como una botella o un clarinete) tiene un nodo en el extremo cerrado y un antinodo en el abierto. Se cumple `L = (2n − 1)·λ/4`, con `f_n = (2n − 1)·v/(4L)`. Solo aparecen los armónicos impares. Con la velocidad del sonido en el aire, unos 340 m/s a temperatura ambiente, un tubo cerrado de 0,17 m suena en 500 Hz.
 
 ## 6. Resonancia y música
 

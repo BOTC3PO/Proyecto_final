@@ -69,8 +69,8 @@ resultado. Esa distinción es, justamente, el punto de partida de
 
 ## Para qué sirve
 
-Es la formalización de "achicar el universo de posibilidades a partir
-de información nueva" — la base de diagnósticos médicos ("¿cuál es la
-probabilidad de tener una enfermedad, dado un test positivo?"), de
-filtros de spam, y de cualquier situación donde una observación
-cambia lo que se puede esperar del resto.
+Es la formalización de "achicar el universo de posibilidades a partir de
+información nueva". Es la base de diagnósticos médicos ("¿cuál es la
+probabilidad de tener una enfermedad, dado un test positivo?"), de filtros
+de spam y de cualquier situación donde una observación cambia lo que se
+puede esperar del resto.

@@ -1,0 +1,65 @@
+{
+ "titulo": "Esquema del modelo agroexportador",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Flujo del modelo agroexportador",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Pampa húmeda: cereales y carne",
+     "x": 0,
+     "y": 46,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "Puertos: Buenos Aires y Rosario",
+     "x": 250,
+     "y": 46,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n3",
+     "label": "Europa (Gran Bretaña)",
+     "x": 500,
+     "y": 46,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Divisas e importaciones manufacturadas",
+     "x": 250,
+     "y": 161,
+     "color": "#f3e8ff"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "exportación"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4",
+     "label": "pago"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n1",
+     "label": "ingreso de divisas"
+    }
+   ]
+  }
+ ]
+}

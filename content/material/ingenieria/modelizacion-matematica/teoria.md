@@ -34,8 +34,6 @@ El proceso de creación de un modelo matemático sigue pasos estructurados:
 4. **Validación**: Comparar resultados del modelo con datos reales para ajustar parámetros o corregir errores.  
 5. **Aplicación**: Usar el modelo para predecir comportamientos, optimizar procesos o guiar diseños técnicos.  
 
-<!-- IMAGEN: Diagrama de flujo mostrando las etapas del proceso de modelado -->
-
 ---
 
 ## N. Conexión con lo que sigue

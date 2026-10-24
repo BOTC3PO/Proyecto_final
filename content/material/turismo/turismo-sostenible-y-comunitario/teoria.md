@@ -14,7 +14,7 @@
 
 ## Qué es turismo sostenible
 
-La organización mundial del sector lo define como el turismo que **tiene plenamente en cuenta las repercusiones económicas, sociales y ambientales actuales y futuras**, para satisfacer las necesidades de los visitantes, de la industria, del entorno y de las comunidades anfitrionas. No es un tipo de turismo especial: es una manera de gestionar **cualquier** modalidad. La ONU declaró 2017 Año Internacional del Turismo Sostenible para el Desarrollo. Existe además un **Código Ético Mundial para el Turismo**, adoptado en 1999 por la entonces Organización Mundial del Turismo, que propone principios como el respeto a las comunidades y al patrimonio.
+La organización mundial del sector lo define como el turismo que **tiene plenamente en cuenta las repercusiones económicas, sociales y ambientales actuales y futuras**. Busca satisfacer las necesidades de los visitantes, de la industria, del entorno y de las comunidades anfitrionas. No es un tipo de turismo especial: es una manera de gestionar **cualquier** modalidad. La ONU declaró 2017 Año Internacional del Turismo Sostenible para el Desarrollo. Existe además un **Código Ético Mundial para el Turismo**, adoptado en 1999 por la entonces Organización Mundial del Turismo, que propone principios como el respeto a las comunidades y al patrimonio.
 
 ## Impactos que hay que gestionar
 

@@ -17,22 +17,19 @@ Integral, y los conceptos técnicos de ambiente y recursos que sostiene.
 ## El marco legal: qué dice realmente el art. 92 g y la Ley 27.621
 
 **Ley 27.621** (sancionada en 2021): es la "Ley para la Implementación de
-la Educación Ambiental Integral en la República Argentina". Establece
-el derecho a la educación ambiental integral como política pública
-nacional, con el objetivo de generar conocimientos, valores, actitudes
-y prácticas para la construcción de una relación sostenible con el
-ambiente — es una ley de **implementación**, es decir, no crea el
-derecho desde cero: instrumenta y hace obligatorio algo que la Ley
-General del Ambiente (25.675) ya establecía en principio, y lo cristaliza
-en la currícula educativa.
+la Educación Ambiental Integral en la República Argentina". Establece el derecho a la educación ambiental integral como política pública
+nacional, con el objetivo de generar conocimientos, valores, actitudes y
+prácticas para construir una relación sostenible con el ambiente. Es una ley
+de **implementación**: no crea el derecho desde cero, sino que instrumenta y
+hace obligatorio algo que la Ley General del Ambiente (25.675) ya establecía
+en principio, y lo cristaliza en la currícula educativa.
 
-El **artículo 25 de la Ley 27.621** incorporó y reescribió el
-**inciso g del artículo 92 de la Ley de Educación Nacional (26.206)**,
-que hoy establece como objetivo de la política educativa nacional
-"el desarrollo de conocimientos, valores y actitudes que fortalezcan la
+El **artículo 25 de la Ley 27.621** incorporó y reescribió el **inciso g del
+artículo 92 de la Ley de Educación Nacional (26.206)**. Hoy ese inciso establece como objetivo de la política educativa nacional "el
+desarrollo de conocimientos, valores y actitudes que fortalezcan la
 importancia del ambiente, la biodiversidad y los recursos naturales, su
-respeto, conservación, preservación y prevención del daño, conforme el
-artículo 41 de la Constitución Nacional, la Ley 25.675 y leyes
+respeto, conservación, preservación y prevención del daño". Lo hace
+"conforme el artículo 41 de la Constitución Nacional, la Ley 25.675 y leyes
 especiales sobre la materia y acuerdos internacionales en la materia".
 
 Es decir: `AM1` no es un tema "libre" de Geografía, es un **mandato
@@ -53,13 +50,12 @@ sociedad.
 
 Ya se explicó en `../recursos-actividades-economicas/` qué es un
 recurso natural (renovable/no renovable) y cómo el territorio condiciona
-qué actividades económicas se desarrollan. La **presión ambiental** es
-la carga que esas actividades, sumadas al tamaño y distribución de la
-población (ver `../poblacion-piramides-migraciones/`), ejercen sobre el
-ambiente: cuanta más población y más actividad extractiva concentrada
-en un territorio, mayor es en general esa presión — no de forma lineal
-ni automática (la tecnología y la regulación también inciden), pero sí
-como tendencia de base.
+qué actividades económicas se desarrollan. La **presión ambiental** es la carga que esas actividades, sumadas al tamaño
+y distribución de la población (ver `../poblacion-piramides-migraciones/`),
+ejercen sobre el ambiente. En general, cuanta más población y más actividad
+extractiva se concentran en un territorio, mayor es esa presión. No es una
+relación lineal ni automática, porque la tecnología y la regulación también
+inciden, pero sí es una tendencia de base.
 
 ## Conservación, preservación y prevención del daño: tres verbos distintos
 
@@ -80,11 +76,11 @@ la pena diferenciar:
 ## Por qué esto es la base de las corrientes de pensamiento ambiental
 
 Este tema es puramente descriptivo/técnico: qué es el ambiente, qué son
-los recursos, qué exige la ley. No entra todavía en el terreno donde el
-ambiente deja de ser sólo dato técnico y se convierte en discusión
-ideológica sobre qué hacer al respecto — eso es lo que corresponde a
-`../conservacionismo/`, `../ambientalismo-liberal/`, `../ecologismo-politico/`
-y `../decrecimiento/`, las 4 corrientes que cuelgan de este nodo.
+los recursos, qué exige la ley. Este tema no entra todavía en el terreno donde el ambiente deja de ser sólo
+un dato técnico y se convierte en una discusión ideológica sobre qué hacer
+al respecto. Eso corresponde a `../conservacionismo/`,
+`../ambientalismo-liberal/`, `../ecologismo-politico/` y
+`../decrecimiento/`, las 4 corrientes que cuelgan de este nodo.
 
 ## Fuentes consultadas
 

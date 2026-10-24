@@ -38,18 +38,18 @@ Perímetro = 2 × (28 + 15) = 2 × 43 = 86 m
 
 ## 3. Comparar superficies entre deportes
 
-Comparar el área de distintas canchas da una idea concreta de escala:
-una cancha de fútbol (7.140 m²) es más de 17 veces más grande que una
-cancha de básquet (420 m²) — mucho más que la diferencia "a ojo" que
-parece al mirar fotos de ambas, porque el área crece con el **producto**
-de ambas dimensiones, no con la suma.
+Comparar el área de distintas canchas da una idea concreta de escala. Una
+cancha de fútbol (7.140 m²) es más de 17 veces más grande que una cancha de
+básquet (420 m²). Es mucho más que la diferencia "a ojo" que parece al mirar
+fotos de ambas, porque el área crece con el **producto** de ambas
+dimensiones, no con la suma.
 
 ## 4. Por qué las medidas no son arbitrarias
 
-Las medidas reglamentarias de cada cancha están pensadas para el tipo
-de juego: un deporte con muchos jugadores corriendo simultáneamente
-(fútbol) necesita mucho espacio; un deporte de reacción rápida en
-espacios cortos (vóley) usa una cancha chica dividida por una red.
+Las medidas reglamentarias de cada cancha están pensadas para el tipo de
+juego. Un deporte con muchos jugadores corriendo simultáneamente (fútbol)
+necesita mucho espacio. Un deporte de reacción rápida en espacios cortos
+(vóley) usa una cancha chica dividida por una red.
 
 ## 5. Conexión con lo que sigue
 

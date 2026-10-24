@@ -12,8 +12,6 @@
 
 Cuando miramos al cielo por la noche, notamos que las constelaciones y las estrellas no permanecen fijas: se desplazan lentamente de un lado a otro del horizonte. Esta ilusión de movimiento es lo que llamamos **movimiento aparente**. Aunque parece que el cielo gira alrededor de la Tierra, en realidad, lo que ocurre es que nuestro planeta está girando sobre su propio eje. Este giro toma aproximadamente 24 horas para completarse y da lugar a los cambios en la posición aparente de las estrellas.
 
-<!-- IMAGEN: Esquema del movimiento de rotación terrestre, con flechas indicando el sentido de giro (de oeste a este) y el desplazamiento aparente de una constelación hacia el oeste -->
-
 ---
 
 ## 2. La causa: rotación terrestre
@@ -27,8 +25,6 @@ Este fenómeno es similar al que observamos con el Sol: aunque parece que se lev
 ## 3. ¿Por qué no vemos movimiento de las estrellas durante el día?
 
 Durante el día, el Sol domina el cielo, lo que hace prácticamente imposible observar otras estrellas. Sin embargo, si logramos ver alguna (como Sirio, visible en las noches de invierno del hemisferio norte), notaremos que también sigue un patrón similar al del resto de las constelaciones: desplazamiento aparente de este a oeste. Esto confirma que el movimiento no es exclusivo de ciertas estrellas, sino que ocurre con todas ellas.
-
-<!-- IMAGEN: Comparación entre la posición aparente de una estrella en dos momentos distintos de la noche, mostrando su desplazamiento hacia el oeste -->
 
 ---
 

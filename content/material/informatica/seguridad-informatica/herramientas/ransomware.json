@@ -1,0 +1,32 @@
+{
+ "titulo": "Archivos normales y archivos cifrados",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Antes y después del ataque",
+   "headers": [
+    "",
+    "Archivos normales",
+    "Cifrados por ransomware"
+   ],
+   "rows": [
+    [
+     "Nombre",
+     "informe.docx",
+     "informe.docx.locked"
+    ],
+    [
+     "Se pueden abrir",
+     "Sí",
+     "No, sin la clave"
+    ],
+    [
+     "Qué pide el atacante",
+     "—",
+     "Un rescate para dar la clave"
+    ]
+   ]
+  }
+ ]
+}

@@ -53,10 +53,10 @@ vez de a figuras completas.
 
 ## El método gráfico: unir "punta con cola"
 
-Gráficamente, para sumar dos vectores se dibuja el segundo empezando
-justo donde termina el primero (la "punta" del primero se une con la
-"cola" del segundo); el vector suma resultante va desde el origen del
-primero hasta el extremo del segundo. Da exactamente el mismo resultado
+Gráficamente, para sumar dos vectores se dibuja el segundo empezando justo
+donde termina el primero (la "punta" del primero se une con la "cola" del
+segundo). El vector suma resultante va desde el origen del primero hasta el
+extremo del segundo. Da exactamente el mismo resultado
 que sumar por componentes — el método gráfico es útil para visualizar,
 pero el método por componentes es más preciso para calcular.
 
@@ -85,7 +85,7 @@ puramente horizontal ni vertical), la forma práctica de sumarlos es:
 
 ## Para qué sirve
 
-Sumar y descomponer vectores es la base de la dinámica: cuando varias
+Sumar y descomponer vectores es la base de la dinámica. Cuando varias
 fuerzas actúan sobre un mismo objeto en direcciones distintas, hay que
-descomponer cada una y sumar las componentes para saber el efecto neto
-— el paso que conecta directamente con las leyes de Newton en Física.
+descomponer cada una y sumar las componentes para saber el efecto neto. Es
+el paso que conecta directamente con las leyes de Newton en Física.

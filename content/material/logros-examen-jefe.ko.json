@@ -894,13 +894,12 @@
     "cluster": 12,
     "temas": [
       "mesopotamia",
-      "pueblos-originarios-territorio-argentino",
       "civilizaciones-antiguas",
       "expansion-del-imperio-romano",
       "imperio-de-alejandro-magno-helenistico"
     ],
     "nombre": "고대 세계의 제국 장악",
-    "descripcion": "메소포타미아, 알렉산드로스 대왕과 헬레니즘, 로마 제국의 팽창, 오늘날 아르헨티나 영토의 원주민에 관한 중간고사를 마쳤습니다.",
+    "descripcion": "메소포타미아, 고대 문명, 알렉산드로스 대왕과 헬레니즘, 로마 제국의 팽창에 관한 중간시험을 완료했습니다.",
     "icono": "⚔️"
   },
   {
@@ -954,13 +953,11 @@
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
-      "conquista-y-colonia-argentina",
       "ilustracion",
-      "virreinato-y-comercio",
       "revolucion-industrial"
     ],
     "nombre": "절대주의와 계몽주의의 달인",
-    "descripcion": "유럽의 절대주의, 계몽주의, 산업 혁명, 아르헨티나의 정복과 식민지 시대, 부왕령과 그 교역을 마스터했습니다, 보스.",
+    "descripcion": "유럽의 절대주의, 계몽주의, 산업 혁명을 마스터했습니다, 보스.",
     "icono": "👑"
   },
   {
@@ -968,14 +965,11 @@
     "materia": "Historia profunda",
     "cluster": 17,
     "temas": [
-      "revolucion-de-mayo",
       "electrificacion-fabrica-hogar",
-      "guerras-de-independencia-argentina",
-      "huella-humana-en-el-clima-inicio",
-      "guerras-civiles-unitarios-federales"
+      "huella-humana-en-el-clima-inicio"
     ],
-    "nombre": "아르헨티나 독립 전문가",
-    "descripcion": "5월 혁명, 독립 전쟁, 통일파와 연방파의 내전, 그리고 전기화와 기후에 인류 흔적이 시작된 시기에 관한 중간고사를 통과했습니다.",
+    "nombre": "전기화와 기후 전문가",
+    "descripcion": "공장과 가정의 전기화, 그리고 기후에 대한 인간 흔적의 시작에 관한 중간시험에 합격했습니다.",
     "icono": "🇦🇷"
   },
   {
@@ -984,13 +978,11 @@
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
-      "organizacion-nacional-constitucion-1853",
       "estados-nacionales",
-      "modelo-agroexportador-inmigracion",
       "imperialismo"
     ],
     "nombre": "자유주의와 국민 질서 장악",
-    "descripcion": "부르주아 혁명과 자유주의, 민족 국가, 제국주의, 1853년 헌법, 이민을 동반한 농산물 수출 모델을 마스터하며 중간고사를 마쳤습니다.",
+    "descripcion": "부르주아 혁명과 자유주의, 민족 국가, 제국주의를 마스터하며 중간시험을 완료했습니다.",
     "icono": "📈"
   },
   {
@@ -998,14 +990,12 @@
     "materia": "Historia profunda",
     "cluster": 19,
     "temas": [
-      "ampliacion-democratica-ley-saenz-pena",
       "sociedad-de-masas-y-democracia-liberal",
       "primera-guerra-mundial-y-revolucion-rusa",
-      "entreguerras-y-crisis-de-1929",
-      "golpes-de-estado-interrupciones"
+      "entreguerras-y-crisis-de-1929"
     ],
     "nombre": "20세기 초반의 달인",
-    "descripcion": "대중 사회와 자유민주주의, 제1차 세계대전과 러시아 혁명, 전간기와 1929년 공황, 사엔스 페냐 법과 쿠데타를 마스터했습니다, 보스.",
+    "descripcion": "대중 사회와 자유민주주의, 제1차 세계대전과 러시아 혁명, 전간기와 1929년 대공황을 마스터했습니다, 보스.",
     "icono": "📰"
   },
   {
@@ -1014,13 +1004,12 @@
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
-      "peronismo-derechos-sociales",
       "descolonizacion-de-africa-y-asia",
       "guerras-mundiales",
       "guerra-fria-descolonizacion"
     ],
     "nombre": "전쟁과 냉전 전문가",
-    "descripcion": "세계 대전, 제2차 세계대전, 냉전, 아프리카와 아시아의 탈식민지화, 사회적 권리를 동반한 페론주의에 관한 중간고사를 통과했습니다.",
+    "descripcion": "세계대전, 제2차 세계대전, 냉전, 아프리카와 아시아의 탈식민지화에 관한 중간시험에 합격했습니다.",
     "icono": "🕊️"
   },
   {
@@ -1028,18 +1017,14 @@
     "materia": "Historia profunda",
     "cluster": 21,
     "temas": [
-      "terrorismo-de-estado-argentina",
       "historia-contemporanea-de-africa",
-      "guerra-de-malvinas",
       "historia-contemporanea-de-asia-y-pacifico",
       "historia-contemporanea-de-medio-oriente",
-      "recuperacion-democratica-memoria",
       "globalizacion-era-digital",
-      "historia-reciente-argentina",
       "internet-redes-globalizacion-digital"
     ],
     "nombre": "현대사 장악",
-    "descripcion": "국가 테러리즘, 포클랜드 전쟁과 아르헨티나의 민주주의 회복, 아프리카·아시아·중동의 현대사, 디지털 시대의 세계화를 마스터하며 중간고사를 마쳤습니다.",
+    "descripcion": "아프리카, 아시아, 중동의 현대사와 디지털 시대의 세계화를 마스터하며 중간시험을 완료했습니다.",
     "icono": "🌍"
   },
   {
@@ -1058,14 +1043,12 @@
     "materia": "Historia",
     "cluster": 1,
     "temas": [
-      "crisis-de-2001",
       "interpretar-una-fuente-historica",
       "linea-de-tiempo-y-antes-despues",
-      "reforma-universitaria-1918",
       "decada-siglo-milenio"
     ],
     "nombre": "사료와 연대기 전문가",
-    "descripcion": "역사 사료의 해석, 연표, 십 년·세기·천 년, 그리고 1918년 대학 개혁과 2001년 위기 같은 아르헨티나 사례를 마스터했습니다, 보스.",
+    "descripcion": "역사 사료의 해석, 연표, 그리고 십 년·세기·천 년 단위를 마스터했습니다, 보스.",
     "icono": "🗂️"
   },
   {
@@ -1073,14 +1056,12 @@
     "materia": "Historia",
     "cluster": 2,
     "temas": [
-      "semana-tragica-1919",
       "antes-y-despues-de-cristo",
-      "industrializacion-por-sustitucion-de-importaciones-isi",
       "periodizacion-historica",
       "causa-y-consecuencia"
     ],
     "nombre": "시대 구분과 인과관계 장악",
-    "descripcion": "시대 구분, 기원전과 기원후, 원인과 결과, 1919년 비극의 주간, 수입 대체 산업화를 마스터하며 중간고사를 마쳤습니다.",
+    "descripcion": "시대 구분, 기원전과 기원후, 원인과 결과를 마스터하며 중간시험을 완료했습니다.",
     "icono": "⏳"
   },
   {
@@ -1121,14 +1102,10 @@
       "independencias",
       "revolucion-mexicana-1910-1920",
       "guerras",
-      "guerra-civil-espanola-1936-1939",
-      "guerra-del-paraguay-y-triple-alianza",
-      "rosas-y-la-confederacion",
-      "conquista-del-desierto-y-campana-al-chaco",
-      "economias-regionales-tempranas"
+      "guerra-civil-espanola-1936-1939"
     ],
     "nombre": "아메리카의 전쟁과 과정 장악",
-    "descripcion": "독립, 멕시코 혁명, 스페인 내전, 파라과이 전쟁, 로사스와 연합, 사막 정복, 초기 지역 경제에 관한 중간고사를 마쳤습니다.",
+    "descripcion": "독립 운동, 멕시코 혁명, 전쟁, 스페인 내전에 관한 중간시험을 완료했습니다.",
     "icono": "🗺️"
   },
   {
@@ -3173,5 +3150,68 @@
     "nombre": "스포츠 전략가",
     "descripcion": "시험에 합격하며 신체 능력(근력, 지구력, 유연성, 속도), 신체 활동 중의 영양과 수분 섭취, 그리고 농구, 축구, 풋살, 핸드볼, 하키, 럭비, 배구의 규칙과 기본기을(를) 익혔습니다.",
     "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "식민지 시대와 독립의 아르헨티나 마스터",
+    "descripcion": "원주민, 정복과 식민지 시대, 부왕령과 그 무역, 5월 혁명, 아르헨티나 독립 전쟁에 관한 중간시험을 완료했습니다.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "국가 조직화의 달인",
+    "descripcion": "중앙집권파와 연방파의 내전, 1853년 헌법, 로사스와 연합, 파라과이 전쟁, 초기 지역 경제를 마스터했습니다, 보스.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "자유주의 국가와 민주주의 확대 전문가",
+    "descripcion": "사막 정복과 차코 원정, 농산물 수출 모델과 이민, 사엔스 페냐 법, 쿠데타, 1918년 대학 개혁에 관한 중간시험을 완료했습니다.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "20세기 아르헨티나와 민주주의의 달인",
+    "descripcion": "페론주의와 사회권, 비극의 주간, 국가 테러, 수입 대체 산업화, 말비나스, 민주주의 회복, 최근 역사, 2001년 위기를 마스터했습니다, 보스.",
+    "icono": "🕊️"
   }
 ]

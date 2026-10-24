@@ -10,11 +10,11 @@
 
 ## Un repaso rápido: ¿qué es una subordinada sustantiva?
 
-Como ya viste en otros temas, una subordinada sustantiva es una cláusula que ocupa, dentro de la oración principal, el lugar que ocuparía un sustantivo: puede ser sujeto ("*Que llueva* me preocupa"), complemento directo ("Quiero *que vengas*"), atributo ("El problema es *que no hay tiempo*") o complemento de régimen ("Me arrepiento *de haber mentido*"). Esta sección se enfoca en una quinta función, menos conocida pero igual de real: la de **Complemento Circunstancial (CC)**.
+Como ya viste en otros temas, una subordinada sustantiva es una cláusula que ocupa, dentro de la oración principal, el lugar que ocuparía un sustantivo. Puede ser sujeto ("*Que llueva* me preocupa"), complemento directo ("Quiero *que vengas*"), atributo ("El problema es *que no hay tiempo*") o complemento de régimen ("Me arrepiento *de haber mentido*"). Esta sección se enfoca en una quinta función, menos conocida pero igual de real: la de **Complemento Circunstancial (CC)**.
 
 ## ¿Qué es una subordinada sustantiva de CC?
 
-Algunas cláusulas que en la escuela solés escuchar llamar "subordinadas adverbiales" de causa, finalidad, condición o concesión (ver los temas `subordinada-causal`, `subordinada-concesiva-y-final` y `subordinada-condicional`) pueden analizarse también, según la gramática más moderna (la Nueva Gramática de la Lengua Española), como **subordinadas sustantivas que cumplen la función de Complemento Circunstancial**. La razón es esta prueba de sustitución:
+En la escuela solés escuchar llamar "subordinadas adverbiales" a algunas cláusulas de causa, finalidad, condición o concesión (ver los temas `subordinada-causal`, `subordinada-concesiva-y-final` y `subordinada-condicional`). Según la gramática más moderna (la Nueva Gramática de la Lengua Española), también pueden analizarse como **subordinadas sustantivas que cumplen la función de Complemento Circunstancial**. La razón es esta prueba de sustitución:
 
 Un adverbio o CC genuino (de tiempo, lugar o modo) se reemplaza por un adverbio simple: "Llegó *cuando anochecía*" → "Llegó *entonces*". En cambio, una subordinada de causa, finalidad o condición no se reemplaza por un adverbio, sino por **una preposición + un pronombre demostrativo** ("eso", "ello"): "Lo hizo *porque estaba enojado*" → "Lo hizo *por eso*". Esa sustitución por "preposición + eso" — típica de los sustantivos, no de los adverbios — es la prueba de que la cláusula es en realidad **sustantiva**, aunque cumpla el papel circunstancial de indicar la causa.
 
@@ -23,7 +23,7 @@ Un adverbio o CC genuino (de tiempo, lugar o modo) se reemplaza por un adverbio 
 La clave para distinguir una subordinada sustantiva de CC es doble:
 
 1.  **Se puede sustituir por una preposición + "eso"**, no por un adverbio simple. "Vino *para que la ayudáramos*" → "Vino *para eso*" (no "Vino *así*", que sonaría forzado o cambiaría el sentido).
-2.  **La preposición aporta un significado circunstancial real** (causa, finalidad, condición, concesión), a diferencia del **complemento de régimen (CR)**, donde la preposición es una exigencia arbitraria del verbo sin significado circunstancial propio: "insistir **en**", "confiar **en**", "arrepentirse **de**" no indican causa, lugar ni modo — son simplemente la preposición que ese verbo puntual exige.
+2.  **La preposición aporta un significado circunstancial real** (causa, finalidad, condición, concesión). En el **complemento de régimen (CR)**, en cambio, la preposición es una exigencia arbitraria del verbo, sin significado circunstancial propio. "Insistir **en**", "confiar **en**", "arrepentirse **de**" no indican causa, lugar ni modo: son simplemente la preposición que ese verbo puntual exige.
 
 Ejemplos de subordinada sustantiva de CC, organizados por el tipo de circunstancia que expresan:
 
@@ -45,4 +45,4 @@ En una nota periodística podés leer: "El Gobierno bajó los impuestos *para qu
 
 En una charla entre amigos: "No fuimos a la cancha *porque* se suspendió el partido". "Porque se suspendió el partido" equivale a "por eso": subordinada sustantiva de CC de causa.
 
-Reconocer esta función te ayuda a entender por qué muchas gramáticas actuales prefieren hablar de "sustantivas de CC de causa/finalidad/condición/concesión" en lugar de agrupar todo bajo el rótulo tradicional de "adverbiales impropias": aunque el efecto en el texto es similar (agregan una circunstancia), su comportamiento sintáctico interno es el de un sustantivo con preposición, no el de un adverbio.
+Reconocer esta función te ayuda a entender por qué muchas gramáticas actuales prefieren hablar de "sustantivas de CC de causa/finalidad/condición/concesión" en lugar de agrupar todo bajo el rótulo tradicional de "adverbiales impropias". El efecto en el texto es similar, porque agregan una circunstancia. Pero su comportamiento sintáctico interno es el de un sustantivo con preposición, no el de un adverbio.

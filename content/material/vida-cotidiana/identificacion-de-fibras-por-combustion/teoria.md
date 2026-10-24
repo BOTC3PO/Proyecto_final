@@ -15,11 +15,10 @@ etiqueta se perdió o es ilegible, acercando una llama a un hilo suelto.
 
 [Separar la ropa por color y tipo de tela](../separar-ropa-color-tela/teoria.md)
 da por sentado que se sabe de qué está hecha cada prenda — pero las
-etiquetas se borran, se cortan o directamente faltan. El **burn test**
-(prueba de combustión) es una técnica real y confiable para identificar
-el origen de una fibra: sacar un hilo suelto de una costura interna y
-acercarle una llama chica (de un encendedor, por ejemplo), observando
-cómo arde, a qué huele y qué queda como residuo.
+etiquetas se borran, se cortan o directamente faltan. El **burn test** (prueba de combustión) es una técnica real y confiable para
+identificar el origen de una fibra. Se saca un hilo suelto de una costura
+interna y se le acerca una llama chica (de un encendedor, por ejemplo). Se
+observa cómo arde, a qué huele y qué queda como residuo.
 
 ## Las tres familias de fibras se comportan muy distinto
 
@@ -28,11 +27,12 @@ cómo arde, a qué huele y qué queda como residuo.
 y deja una **ceniza gris suave** que se puede desmenuzar con los dedos.
 No se autoextingue: sigue ardiendo aunque se retire la llama.
 
-**Origen animal** (lana, seda): arde más lento, tiende a **autoextinguirse**
-sola al retirar la llama (por la humedad natural de la proteína), huele
-de forma característica a **pelo o cuerno quemado** (la queratina animal
-tiene azufre, el mismo olor que el pelo humano al quemarse), y deja un
-residuo quebradizo, como una cuenta o bolita negra fácil de aplastar.
+**Origen animal** (lana, seda): arde más lento y tiende a
+**autoextinguirse** sola al retirar la llama, por la humedad natural de la
+proteína. Huele de forma característica a **pelo o cuerno quemado**, porque
+la queratina animal tiene azufre, el mismo olor que el pelo humano al
+quemarse. Deja un residuo quebradizo, como una cuenta o bolita negra fácil
+de aplastar.
 
 **Origen sintético** (poliéster, acrílico, nailon): no arde tanto como se
 **derrite**, igual que un plástico — porque químicamente lo es (son
@@ -52,9 +52,9 @@ ligeramente químico, no a papel ni a pelo.
 ## Por qué importa saberlo, más allá de la curiosidad
 
 Conocer el origen de una fibra cambia directamente qué [técnica de
-lavado](../tecnicas-lavado/teoria.md) usar (una fibra sintética tolera
-mal el calor porque se puede derretir/deformar, mientras que el algodón
-lo tolera bien) y ayuda a entender por qué ciertas telas son más
-inflamables que otras en contextos de seguridad (por ejemplo, por qué se
-recomienda ropa de fibra natural cerca de una fuente de calor o llama
-abierta, ya que ciertos sintéticos pueden derretirse sobre la piel).
+lavado](../tecnicas-lavado/teoria.md) usar. Una fibra sintética tolera mal
+el calor porque se puede derretir o deformar, mientras que el algodón lo
+tolera bien. También ayuda a entender por qué ciertas telas son más
+inflamables que otras en contextos de seguridad. Por ejemplo, se recomienda
+ropa de fibra natural cerca de una fuente de calor o llama abierta, ya que
+ciertos sintéticos pueden derretirse sobre la piel.

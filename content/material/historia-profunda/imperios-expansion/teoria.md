@@ -18,7 +18,7 @@ La conquista militar fue la herramienta más común para ampliar un imperio, per
 
 ## 3. Componentes estructurales
 
-Para sostener su vastedad, los imperios necesitaban una infraestructura sólida. Esto incluía un centro político (como Roma o la Corte del Imperio Austriaco) que emitía leyes y coordinaba a las provincias; un sistema de administración con gobernadores o funcionarios locales; vías de comunicación (carreteras, ríos, redes postales) para mantener el control; y recursos económicos como impuestos, comercio o esclavitud. Además, los imperios debían gestionar la diversidad cultural: permitir cierta autonomía religiosa o lingüística en las provincias, pero siempre bajo el marco legal imperial. La clave era equilibrar el control central con la capacidad de adaptarse a realidades locales.
+Para sostener su vastedad, los imperios necesitaban una infraestructura sólida. Esto incluía un centro político (como Roma o la Corte del Imperio Austriaco) que emitía leyes y coordinaba a las provincias. Incluía un sistema de administración con gobernadores o funcionarios locales. Incluía vías de comunicación (carreteras, ríos, redes postales) para mantener el control. Y recursos económicos como impuestos, comercio o esclavitud. Además, los imperios debían gestionar la diversidad cultural: permitir cierta autonomía religiosa o lingüística en las provincias, pero siempre bajo el marco legal imperial. La clave era equilibrar el control central con la capacidad de adaptarse a realidades locales.
 
 ## 4. Conflictos y resistencias
 

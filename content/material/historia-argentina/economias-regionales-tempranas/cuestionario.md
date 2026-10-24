@@ -1,0 +1,437 @@
+# Historia — economias regionales tempranas (cuestionario, 24 preguntas VBLang)
+
+> Tema: `historia-argentina/economias-regionales-tempranas`. Ver `teoria.md` en esta misma carpeta.
+
+---
+
+### 1 — pregunta 1
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["ley_aduanas", "urquiza", "proteccionismo"]
+
+variables:
+  anio: 1854
+
+respuesta: "proteger la producción local"
+tipo: completar
+
+enunciado: "La Ley de Aduanas promulgada en {anio} por el gobierno de Justo José de Urquiza tenía como objetivo principal:"
+
+explicacion: |
+  La ley buscaba proteger la industria naciente y la producción local frente a la competencia extranjera, especialmente la británica.
+```
+
+### 2 — pregunta 2
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["comercio_exterior", "britanicos"]
+
+respuesta: "británica"
+tipo: completar
+
+enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria ___."
+
+explicacion: |
+  La industria británica era la principal competidora en el mercado argentino de la época.
+```
+
+### 3 — pregunta 3
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["litoral", "entre_rios", "corrientes"]
+
+variables:
+  regiones: "Entre Ríos y Corrientes"
+
+respuesta: "Entre Ríos y Corrientes"
+tipo: completar
+
+enunciado: "Las provincias que más resistieron la Ley de Aduanas por considerar que amenazaba su autonomía económica fueron:"
+
+explicacion: |
+  Las provincias del Litoral, especialmente Entre Ríos y Corrientes, dependían más del comercio internacional y menos de la protección arancelaria.
+```
+
+### 4 — pregunta 4
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["economia_litoral", "comercio"]
+
+respuesta: "abierta"
+tipo: completar
+
+enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más ___ al comercio internacional."
+
+explicacion: |
+  A diferencia del centro del país, el Litoral tenía una economía más integrada y dependiente del comercio exterior.
+```
+
+### 5 — pregunta 5
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["conflicto_armado", "causas"]
+
+respuesta: "Ley de Aduanas"
+tipo: completar
+
+enunciado: "La resistencia a la ___ se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
+
+explicacion: |
+  La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
+```
+
+### 6 — pregunta 7
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["ideologia", "descentralizacion"]
+
+respuesta: "descentralizada"
+tipo: completar
+
+enunciado: "Los rebeldes del Litoral defendían una visión política más ___, donde las provincias tendrían mayor control sobre sus recursos."
+
+explicacion: |
+  Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
+```
+
+### 7 — pregunta 8
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["exportaciones", "carne"]
+
+respuesta: "carne salada y cueros"
+tipo: completar
+
+enunciado: "En la década de 1850, las exportaciones de ___ seguían siendo vitales para la economía argentina."
+
+explicacion: |
+  Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
+```
+
+### 8 — pregunta 9
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["fiscalidad", "estado"]
+
+respuesta: "asegurar ingresos"
+tipo: completar
+
+enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba ___ para el Estado nacional."
+
+explicacion: |
+  El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
+```
+
+### 9 — pregunta 10
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["soberania", "comercio"]
+
+respuesta: "soberanía sobre el comercio exterior"
+tipo: completar
+
+enunciado: "Mientras la Confederación buscaba consolidar la ___, los rebeldes defendían la autonomía provincial."
+
+explicacion: |
+  El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
+```
+
+### 10 — pregunta 11
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["confederacion", "estructuracion"]
+
+respuesta: "recién comenzaba a estructurarse"
+tipo: completar
+
+enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional ___ tras la caída de Rosas."
+
+explicacion: |
+  El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
+```
+
+### 11 — pregunta 12
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["percepcion", "amenaza"]
+
+respuesta: "amenaza directa"
+tipo: completar
+
+enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una ___ a su autonomía y prosperidad."
+
+explicacion: |
+  La ley fue vista no como una medida técnica, sino como un ataque político y económico.
+```
+
+### 12 — pregunta 13
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["consecuencias", "guerra"]
+
+respuesta: "no se resolvió con una victoria clara inmediata"
+tipo: completar
+
+enunciado: "La guerra entre la Confederación y el Litoral ___, dejando un legado de desconfianza."
+
+explicacion: |
+  El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
+```
+
+### 13 — pregunta 14
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["acuerdos", "federalismo"]
+
+respuesta: "violaba los acuerdos federales"
+tipo: completar
+
+enunciado: "Los rebeldes argumentaban que la ley ___ y perjudicaba sus economías locales."
+
+explicacion: |
+  La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
+```
+
+### 14 — pregunta 15
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["diplomacia", "conflicto"]
+
+respuesta: "rompimiento de relaciones"
+tipo: completar
+
+enunciado: "La situación escaló rápidamente, llevando al ___ diplomáticas entre el gobierno nacional y el Litoral."
+
+explicacion: |
+  La tensión económica derivó en una crisis política y diplomática abierta.
+```
+
+### 15 — pregunta 16
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["rosas", "urquiza", "control"]
+
+respuesta: "control absoluto"
+tipo: completar
+
+enunciado: "La tensión se generó aunque la capital ya no tuviera el ___ que había tenido bajo Rosas."
+
+explicacion: |
+  Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
+```
+
+### 16 — pregunta 17
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["constitucion", "fragilidad"]
+
+respuesta: "fragilidad del nuevo orden constitucional"
+tipo: completar
+
+enunciado: "El conflicto puso de manifiesto la ___ y la dificultad de integrar intereses dispares."
+
+explicacion: |
+  La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
+```
+
+### 17 — pregunta 18
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["integracion", "economia"]
+
+respuesta: "integrar intereses económicos tan dispares"
+tipo: completar
+
+enunciado: "El gran desafío del momento era ___ bajo un mismo marco legal."
+
+explicacion: |
+  Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
+```
+
+### 18 — pregunta 19
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["tarifas", "proteccionismo"]
+
+respuesta: "tarifas altas"
+tipo: completar
+
+enunciado: "La Ley de Aduanas imponía ___ a las importaciones para proteger la industria local."
+
+explicacion: |
+  El proteccionismo se lograba mediante barreras arancelarias elevadas.
+```
+
+### 19 — pregunta 20
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["regulacion", "comercio_exterior"]
+
+respuesta: "regular el comercio exterior"
+tipo: completar
+
+enunciado: "Además de las tarifas, la ley buscaba ___ bajo el control del Estado nacional."
+
+explicacion: |
+  La centralización del comercio exterior era clave para la soberanía nacional.
+```
+
+### 20 — pregunta 21
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["litoral", "economia"]
+
+variables:
+  valor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Las provincias del Litoral dependían más de la protección arancelaria que el centro del país."
+
+explicacion: |
+  Falso. El Litoral tenía una economía más abierta y dependía menos de la protección que el centro.
+```
+
+### 21 — pregunta 22
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["guerra", "resultado"]
+
+variables:
+  valor: "falso"
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La guerra entre la Confederación y el Litoral se resolvió con una victoria clara inmediata."
+
+explicacion: |
+  Falso. El conflicto dejó un legado de desconfianza y no tuvo un ganador claro de inmediato.
+```
+
+### 22 — pregunta 23
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["urquiza", "aplicacion"]
+
+variables:
+  valor: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Justo José de Urquiza intentó aplicar la Ley de Aduanas de manera estricta."
+
+explicacion: |
+  Verdadero. Su estricta aplicación fue el detonante de la rebelión litoraleña.
+```
+
+### 23 — pregunta 24
+
+```
+metadata:
+  materia: "historia"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["industria", "proteccion"]
+
+variables:
+  valor: "verdadero"
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La Ley de Aduanas buscaba fomentar la industria naciente argentina."
+
+explicacion: |
+  Verdadero. El proteccionismo arancelario tenía como fin desarrollar la manufactura local.
+```

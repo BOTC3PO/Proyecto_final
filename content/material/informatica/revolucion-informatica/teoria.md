@@ -12,7 +12,9 @@
 
 La revolución informática comenzó con máquinas diseñadas para resolver problemas matemáticos complejos, pero su evolución fue acelerada por necesidades prácticas. La ENIAC, creada en 1945, fue un hito clave: era la primera computadora electrónica de propósito general, capaz de realizar cálculos balísticos durante la Segunda Guerra Mundial. Pesaba casi 30 toneladas, consumía energía equivalente a una locomotora y requería cientos de componentes eléctricos. Aunque su tamaño y costo eran prohibitivos, estableció el camino para máquinas más pequeñas y eficientes.
 
-<!-- IMAGEN: Vista de la ENIAC con sus cables y tubos de vacío -->
+![Vista de la ENIAC con sus cables y tubos de vacío](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/ENIAC_Penn1.jpg/960px-ENIAC_Penn1.jpg)
+
+*Imagen: «ENIAC Penn1», The original uploader was TexasDex at English Wiki, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg).*
 
 ---
 
@@ -26,7 +28,9 @@ La primera generación de computadoras (1940-1950) usaba **tubos de vacío**, di
 
 A mediados del siglo XX, la informática dejó de ser un privilegio de laboratorios militares o universitarios. El **Apple II**, lanzado en 1977, fue uno de los primeros ordenadores que combinaron potencia, accesibilidad y funcionalidad para el usuario promedio. Con capacidad para procesar texto, imágenes y sonidos, marcó el inicio de la computación personal. Competidores como el **Altair 8800** o el **IBM PC** (1981) siguieron esta tendencia, democratizando la tecnología y permitiendo que las personas usaran ordenadores en casa, escuela o trabajo.
 
-<!-- IMAGEN: Comparación entre ENIAC y un Apple II -->
+![Comparación entre ENIAC y un Apple II](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Apple_II%2C_1977%2C_Computer_History_Museum.jpg/960px-Apple_II%2C_1977%2C_Computer_History_Museum.jpg)
+
+*Imagen: «Apple II, 1977, Computer History Museum», The wub, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Apple_II,_1977,_Computer_History_Museum.jpg).*
 
 ---
 

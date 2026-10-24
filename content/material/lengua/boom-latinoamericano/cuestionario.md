@@ -47,7 +47,7 @@ tipo: vf
 enunciado: "Entre la Generación del 98 y el Boom latinoamericano pasó más de medio siglo, con otros movimientos intermedios que no se cubren en esta cadena."
 
 pasos:
-  - "El MAPA los encadena como los dos últimos movimientos importantes en español, pero no son consecutivos en el tiempo."
+  - "Entre ambos movimientos hay más de medio siglo y otros movimientos intermedios: no son consecutivos en el tiempo."
 
 explicacion: |
   Verdadero: la distancia temporal es real y se explicita a

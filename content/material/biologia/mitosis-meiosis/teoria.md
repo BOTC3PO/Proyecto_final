@@ -26,11 +26,10 @@ organismos unicelulares.
 
 ## 2. Meiosis: formación de gametos
 
-La **meiosis** es la división que produce **células sexuales**
-(gametos: óvulos, espermatozoides) con **la mitad** de cromosomas que
-la célula original — para que, al unirse dos gametos en la
-fecundación, el número de cromosomas de la especie se restablezca (no
-se duplique cada generación).
+La **meiosis** es la división que produce **células sexuales** (gametos:
+óvulos, espermatozoides) con **la mitad** de cromosomas que la célula
+original. Así, cuando dos gametos se unen en la fecundación, el número de
+cromosomas de la especie se restablece y no se duplica en cada generación.
 
 ```
 1 célula (2n cromosomas) → meiosis → 4 células hijas (n cromosomas cada una)
@@ -48,17 +47,17 @@ se duplique cada generación).
 
 ## 4. Por qué la meiosis reduce a la mitad (y por qué importa)
 
-Si los gametos tuvieran el número **completo** de cromosomas (2n) igual
-que cualquier otra célula, al unirse óvulo + espermatozoide en la
-fecundación el hijo tendría **el doble** (4n) — y la siguiente
-generación 8n, y así — un problema que se acumularía sin parar. La
+Si los gametos tuvieran el número **completo** de cromosomas (2n), igual que
+cualquier otra célula, al unirse óvulo y espermatozoide en la fecundación el
+hijo tendría **el doble** (4n). La siguiente generación tendría 8n, y así
+sucesivamente: un problema que se acumularía sin parar. La
 meiosis existe justamente para **evitar** esa acumulación: cada gameto
 aporta la mitad, y la fecundación restaura el número normal (2n) en el
 nuevo organismo.
 
 ## 5. Conexión con lo que sigue
 
-La variación genética que introduce la meiosis (cada gameto es
-distinto de los demás, por la recombinación) es la materia prima de
-`../genetica-mendeliana-punnett/` y de `../seleccion-natural/` — sin
+La meiosis introduce variación genética: cada gameto es distinto de los
+demás, por la recombinación. Esa variación es la materia prima de
+`../genetica-mendeliana-punnett/` y de `../seleccion-natural/`. Sin
 variación, no hay "de dónde elegir" en la selección natural.

@@ -47,9 +47,9 @@ punto donde el ángulo corta al círculo tiene coordenadas exactas:
 ```
 
 Esta es la definición que permite hablar de seno y coseno de **cualquier**
-ángulo, no sólo de los agudos de un triángulo: para ángulos entre 90° y
-360°, el punto cae en otro cuadrante, y las coordenadas (por lo tanto
-seno y coseno) pueden dar valores negativos.
+ángulo, no solo de los agudos de un triángulo. Para ángulos entre 90° y
+360°, el punto cae en otro cuadrante, y las coordenadas (por lo tanto seno y
+coseno) pueden dar valores negativos.
 
 ## Periodicidad
 
@@ -82,13 +82,13 @@ la función (en este caso, amplitud 1).
 
 Si se grafica `y = sen(θ)` (con θ en el eje horizontal, en radianes), la
 curva resultante es una **onda** suave que sube y baja entre −1 y 1,
-repitiéndose cada `2π` — la misma forma de onda (sinusoide) que aparece
-en sonido, luz y cualquier fenómeno oscilatorio (tema que se retoma más
-adelante, en Física).
+repitiéndose cada `2π`. Es la misma forma de onda (sinusoide) que aparece en
+sonido, luz y cualquier fenómeno oscilatorio, tema que se retoma más
+adelante en Física.
 
 ## Para qué sirve
 
-Medir en radianes y pensar en seno/coseno como funciones (no sólo como
+Medir en radianes y pensar en seno y coseno como funciones (no solo como
 razones de un triángulo puntual) es lo que permite describir cualquier
-movimiento circular o periódico — desde la posición de un punto en una
-rueda que gira, hasta una onda de sonido — con una sola fórmula.
+movimiento circular o periódico con una sola fórmula. Sirve desde la
+posición de un punto en una rueda que gira hasta una onda de sonido.
