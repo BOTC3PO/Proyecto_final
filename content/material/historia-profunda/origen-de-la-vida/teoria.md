@@ -20,7 +20,9 @@ Hace unos 4 mil millones de años, la Tierra era un planeta joven con una atmós
 
 En 1953, Stanley Miller y Harold Urey recrearon en el laboratorio las condiciones de la Tierra temprana para probar si era posible formar compuestos orgánicos sin intervención biológica. En su dispositivo, colocaron gases como metano, amoníaco, hidrógeno y vapor de agua dentro de un recipiente sellado, y aplicaron descargas eléctricas simulando rayos. Al final del experimento, detectaron la formación de aminoácidos —los bloques básicos de las proteínas— a partir de sustancias inorgánicas. Este resultado fue clave: demostró que moléculas esenciales para la vida podían surgir espontáneamente en condiciones adecuadas, sin necesidad de organismos vivos.
 
-<!-- IMAGEN: diagrama del dispositivo de Miller-Urey con gases y descargas eléctricas -->
+![diagrama del dispositivo de Miller-Urey con gases y descargas eléctricas](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Miller-Urey_experiment-en.svg/960px-Miller-Urey_experiment-en.svg.png)
+
+*Imagen: «Miller-Urey experiment-en», GYassineMrabetTalk✉, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Miller-Urey_experiment-en.svg).*
 
 ---
 

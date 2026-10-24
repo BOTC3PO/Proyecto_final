@@ -20,7 +20,9 @@ Hace unos 2.400 millones de años, la Tierra sufrió un cambio radical en su atm
 
 El oxígeno generado no se acumuló directamente en la atmósfera. Al principio, reaccionó con elementos presentes en los océanos. El hierro disuelto en el agua marina, que hasta entonces existía en forma de iones ferrosos (Fe²⁺), combinó con el oxígeno para formar **óxido férrico** (Fe³⁺). Este proceso dio lugar a la formación de depósitos masivos llamados **formaciones de hierro bandeado (BIF)**, capas alternadas de óxido de hierro y sílice que hoy se encuentran en rocas antiguas. Estos sedimentos son una evidencia clave del inicio de la Gran Oxidación.
 
-<!-- IMAGEN: imagen de una sección de formación de hierro bandeado (BIF), con bandas claras y oscuras -->
+![imagen de una sección de formación de hierro bandeado (BIF), con bandas claras y oscuras](https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/BIF_Banded_Iron_Formation.jpg/960px-BIF_Banded_Iron_Formation.jpg)
+
+*Imagen: «BIF Banded Iron Formation», Bramfab, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:BIF_Banded_Iron_Formation.jpg).*
 
 ---
 

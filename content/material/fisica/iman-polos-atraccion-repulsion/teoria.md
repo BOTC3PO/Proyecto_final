@@ -12,7 +12,9 @@
 
 Todo imán tiene dos zonas donde el campo magnético es más intenso: los **polos**. Estos se denominan convencionalmente **Norte (N)** y **Sur (S)**, aunque no tienen nada que ver con la geografía terrestre. La designación surge de cómo interactúan entre sí y con otros imanes. Por ejemplo, si sostienes un imán por el medio, notarás que una punta se orienta hacia el norte geográfico; esa es la **punta norte** del imán.
 
-<!-- IMAGEN: Dibujo de un imán con etiquetas "N" y "S" en sus extremos -->
+![Dibujo de un imán con etiquetas "N" y "S" en sus extremos](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Bar_magnet_crop.jpg/960px-Bar_magnet_crop.jpg)
+
+*Imagen: «Bar magnet crop», File:Bar magnet.jpg: Photo taken by Aney / derivat, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bar_magnet_crop.jpg).*
 
 ---
 

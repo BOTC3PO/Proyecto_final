@@ -10,7 +10,11 @@
 
 ## 1. Orígenes del conflicto
 
-El pleito por las islas Malvinas tiene raíces en el siglo XIX, cuando Gran Bretaña las ocupó tras una serie de conflictos con Francia y España. Argentina, desde su independencia en 1816, reclamaba su soberanía basándose en el derecho internacional y en la historia colonial. La tensión se agudizó durante la dictadura militar argentina (1976-1983), cuando el gobierno buscó un conflicto externo para legitimar su poder y ocultar la crisis interna. El 2 de abril de 1982, las fuerzas argentinas invadieron las islas, lo que desencadenó una respuesta militar británica. <!-- IMAGEN: mapa con rutas de los buques involucrados en el conflicto -->
+El pleito por las islas Malvinas tiene raíces en el siglo XIX, cuando Gran Bretaña las ocupó tras una serie de conflictos con Francia y España. Argentina, desde su independencia en 1816, reclamaba su soberanía basándose en el derecho internacional y en la historia colonial. La tensión se agudizó durante la dictadura militar argentina (1976-1983), cuando el gobierno buscó un conflicto externo para legitimar su poder y ocultar la crisis interna. El 2 de abril de 1982, las fuerzas argentinas invadieron las islas, lo que desencadenó una respuesta militar británica.
+
+![mapa con rutas de los buques involucrados en el conflicto](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Falklands%2C_Campaign%2C_%28Movements%29_1982.jpg/960px-Falklands%2C_Campaign%2C_%28Movements%29_1982.jpg)
+
+*Imagen: «Falklands, Campaign, (Movements) 1982», Department of History, United States Military Acad, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Falklands,_Campaign,_(Movements)_1982.jpg).*
 
 ## 2. Cronología del conflicto
 
@@ -18,7 +22,11 @@ El conflicto se desarrolló en tres etapas clave. La primera fue la **invasión 
 
 ## 3. El hundimiento del ARA General Belgrano
 
-Uno de los episodios más polémicos fue el hundimiento del crucero **ARA General Belgrano** por el submarino nuclear británico HMS Conqueror el 2 de mayo. La embarcación navegaba fuera de la zona de exclusión total declarada por el Reino Unido. El ataque provocó la muerte de 323 tripulantes. Generó una fuerte controversia internacional sobre la legalidad del hundimiento, precisamente por encontrarse el crucero fuera de esa zona. <!-- IMAGEN: esquema con la zona de exclusión y la posición del hundimiento -->
+Uno de los episodios más polémicos fue el hundimiento del crucero **ARA General Belgrano** por el submarino nuclear británico HMS Conqueror el 2 de mayo. La embarcación navegaba fuera de la zona de exclusión total declarada por el Reino Unido. El ataque provocó la muerte de 323 tripulantes. Generó una fuerte controversia internacional sobre la legalidad del hundimiento, precisamente por encontrarse el crucero fuera de esa zona.
+
+![esquema con la zona de exclusión y la posición del hundimiento](https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/ARA.Belgrano.sunk-es.svg/960px-ARA.Belgrano.sunk-es.svg.png)
+
+*Imagen: «ARA.Belgrano.sunk-es», Keysanger, GFDL. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ARA.Belgrano.sunk-es.svg).*
 
 ## 4. Contexto internacional
 

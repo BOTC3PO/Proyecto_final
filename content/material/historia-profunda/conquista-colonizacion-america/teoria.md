@@ -23,7 +23,9 @@ La expansión española se fundamentó en la toma de poder sobre grandes imperio
 
 Por su parte, Francisco Pizarro conquistó el imperio inca en 1532, aprovechando la debilidad interna tras una guerra civil y la propagación de enfermedades. La captura del inca Atahualpa fue clave para desestabilizar el gobierno central. Estos casos muestran cómo los conquistadores no actuaron solos: siempre contaron con apoyos locales, recursos logísticos y una visión imperialista de España.  
 
-<!-- IMAGEN: Representación artística del asedio a Tenochtitlán o la captura del inca Atahualpa -->  
+![Representación artística del asedio a Tenochtitlán o la captura del inca Atahualpa](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg/960px-Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg)
+
+*Imagen: «Museo de América Conquest of Mexico 04», unknown, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg).*
 
 ---
 
@@ -33,7 +35,9 @@ Tras las primeras conquistas, se necesitó un marco para distribuir los territor
 
 El tratado reflejaba el interés de ambas naciones por evitar guerras y asegurar sus expansiones. Sin embargo, su aplicación fue flexible: Portugal se enfocó en Brasil, mientras que España dominó gran parte del continente. Esta división marcó el inicio de un sistema colonial basado en la explotación de recursos naturales y la imposición cultural.  
 
-<!-- IMAGEN: Mapa con la línea de demarcación del Tratado de Tordesillas -->  
+![Mapa con la línea de demarcación del Tratado de Tordesillas](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Map_of_Meridian_Line_set_under_the_Treaty_of_Tordesillas.jpg/960px-Map_of_Meridian_Line_set_under_the_Treaty_of_Tordesillas.jpg)
+
+*Imagen: «Map of Meridian Line set under the Treaty of Tordesillas», Map by Antonio de Herrera y Tordesillas, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Map_of_Meridian_Line_set_under_the_Treaty_of_Tordesillas.jpg).*
 
 ---
 

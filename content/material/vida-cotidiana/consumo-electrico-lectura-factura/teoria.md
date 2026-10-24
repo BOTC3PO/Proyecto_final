@@ -34,7 +34,9 @@ La **lectura actual** del medidor de luz se obtiene restando el valor anterior (
 
 Es importante revisar esta diferencia con atención, porque errores en la lectura pueden generar facturas incorrectas. Si sospechás que hay un problema, contactá a tu proveedor de energía para verificar o realizar una lectura manual.
 
-<!-- IMAGEN: Medidor eléctrico mostrando lectura anterior y actual -->
+![Medidor eléctrico mostrando lectura anterior y actual](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Electricity_reading_meter.jpeg/960px-Electricity_reading_meter.jpeg)
+
+*Imagen: «Electricity reading meter», User:arundpt, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electricity_reading_meter.jpeg).*
 
 ---
 

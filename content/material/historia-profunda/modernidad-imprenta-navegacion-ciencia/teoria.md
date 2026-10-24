@@ -32,7 +32,9 @@ La proliferación de libros no fue solo cuantitativa: también generó un cambio
 
 La expansión marítima del siglo XVI se vio impulsada por la imprenta. Los cartógrafos podían imprimir mapas actualizados con nuevas rutas o coordenadas, lo que ayudaba a marineros a navegar con mayor seguridad. Además, las expediciones generaban conocimientos geográficos y científicos (como los de América) que se publicaban en libros, integrando la ciencia con el comercio y el poder imperial. La imprenta convirtió a la navegación no solo en una actividad económica, sino también en un motor de descubrimientos científicos.
 
-<!-- IMAGEN: Mapa del mundo impreso por Mercator en 1569, mostrando rutas marítimas y notaciones sobre tierras nuevas -->
+![Mapa del mundo impreso por Mercator en 1569, mostrando rutas marítimas y notaciones sobre tierras nuevas](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mercator_1569_world_map_composite.jpg/960px-Mercator_1569_world_map_composite.jpg)
+
+*Imagen: «Mercator 1569 world map composite», Gerardus Mercator, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mercator_1569_world_map_composite.jpg).*
 
 ---
 

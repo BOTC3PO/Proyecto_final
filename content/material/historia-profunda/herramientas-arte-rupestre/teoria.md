@@ -10,7 +10,11 @@
 
 ## 1. La evolución tecnológica del Paleolítico
 
-La fabricación de herramientas líticas fue un pilar fundamental en la adaptación humana durante el Paleolítico. El proceso comenzó con técnicas simples, como romper piedras para obtener fragmentos afilados (lascas), que se usaban directamente como cuchillos o puntas de lanzas. Con el tiempo, los humanos desarrollaron métodos más complejos: golpear una piedra núcleo con otra para desprenderte lascas controladas, que luego se tallaban para formar herramientas específicas. <!-- IMAGEN: secuencia de un núcleo de sílex siendo tallado para producir lascas -->.
+La fabricación de herramientas líticas fue un pilar fundamental en la adaptación humana durante el Paleolítico. El proceso comenzó con técnicas simples, como romper piedras para obtener fragmentos afilados (lascas), que se usaban directamente como cuchillos o puntas de lanzas. Con el tiempo, los humanos desarrollaron métodos más complejos: golpear una piedra núcleo con otra para desprenderte lascas controladas, que luego se tallaban para formar herramientas específicas.
+
+![secuencia de un núcleo de sílex siendo tallado para producir lascas](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Six_flint_flakes%3B_debitage_material_from_flint_knapping._%28FindID_481392%29.jpg/960px-Six_flint_flakes%3B_debitage_material_from_flint_knapping._%28FindID_481392%29.jpg)
+
+*Imagen: «Six flint flakes; debitage material from flint knapping. (FindID 481392)», West Yorkshire Archaeology Advisory Service, Jack, CC BY-SA 2.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Six_flint_flakes;_debitage_material_from_flint_knapping._(FindID_481392).jpg).*
 
 Este avance no fue lineal ni inmediato. Las primeras industrias, como la olduvayense (herramientas simples y funcionales), evolucionaron hacia el achelense, donde las herramientas bifaces mostraban un control más refinado de la forma y simetría. Finalmente, en el musteriense, se perfeccionó la técnica de lasca para producir puntas de flecha o cuchillos con bordes precisos.
 
@@ -26,7 +30,11 @@ Estas industrias no existieron en todas las regiones al mismo tiempo ni con la m
 
 ## 3. El bifaz: un hito tecnológico
 
-El **bifaz** es una herramienta emblemática del Paleolítico Inferior, definida por su forma simétrica obtenida al tallar ambas caras de una piedra. A diferencia de las lascas simples, que se usaban directamente, el bifaz requiere un proceso más elaborado: primero se moldea la pieza para darle un contorno regular, luego se afila los bordes con golpes precisos. <!-- IMAGEN: comparación entre una lanza simple y un bifaz tallado -->.
+El **bifaz** es una herramienta emblemática del Paleolítico Inferior, definida por su forma simétrica obtenida al tallar ambas caras de una piedra. A diferencia de las lascas simples, que se usaban directamente, el bifaz requiere un proceso más elaborado: primero se moldea la pieza para darle un contorno regular, luego se afila los bordes con golpes precisos.
+
+![comparación entre una lanza simple y un bifaz tallado](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Paleolithic_handaxe_%28FindID_214819%29.jpg/960px-Paleolithic_handaxe_%28FindID_214819%29.jpg)
+
+*Imagen: «Paleolithic handaxe (FindID 214819)», Sussex Archaeological Society, Laura Burnett, 200, CC BY-SA 2.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Paleolithic_handaxe_(FindID_214819).jpg).*
 
 Su utilidad era versátil: servía como cuchillo, herramienta de caza o incluso como objeto ceremonial. Su producción implicaba un conocimiento avanzado del material (piedra) y la habilidad para controlar el impacto al tallar, lo que sugiere un desarrollo cognitivo significativo en las comunidades humanas.
 

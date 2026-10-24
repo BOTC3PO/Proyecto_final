@@ -16,7 +16,9 @@ Una extinción masiva es un evento donde más del **75%** de las especies vivien
 
 Hace unos **444 millones de años**, el planeta vivió su primer gran colapso biológico. La causa principal fue una glaciación intensa que redujo los niveles del mar y la oxigenación de los océanos. Las zonas costeras, donde proliferaban ecosistemas marinos complejos, se vieron afectadas por el retroceso de los mares. Como resultado, **más del 85% de las especies marinas desaparecieron**, especialmente organismos que dependían de ambientes con altas concentraciones de oxígeno.
 
-<!-- IMAGEN: Mapa geológico del Ordovícico mostrando la extensión de los océanos y zonas glaciales -->
+![Mapa geológico del Ordovícico mostrando la extensión de los océanos y zonas glaciales](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ordovician_470.svg/960px-Ordovician_470.svg.png)
+
+*Imagen: «Ordovician 470», Kent G. Budge, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ordovician_470.svg).*
 
 ## 3. La extinción del Devónico: El "Gran Mortandad" silenciosa
 
@@ -36,7 +38,9 @@ Hace unos **201 millones de años**, una nueva crisis biológica eliminó alrede
 
 La más famosa de todas fue la extinción del **Cretácico-Paleógeno** (hace **66 millones de años**), causada por el impacto de un asteroide en la península de Yucatán, creando el cráter de Chicxulub. Esta colisión liberó una cantidad inmensa de polvo y gases que oscurecieron el planeta, interrumpiendo la fotosíntesis y provocando una caída masiva en las cadenas alimentarias. La extinción eliminó a los dinosaurios no aviares (excepto las aves), así como a muchas plantas y mamíferos primitivos.
 
-<!-- IMAGEN: Mapa del cráter de Chicxulub y su ubicación actual -->
+![Mapa del cráter de Chicxulub y su ubicación actual](https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chicxulub_seismic_%26_borehole_map.png/960px-Chicxulub_seismic_%26_borehole_map.png)
+
+*Imagen: «Chicxulub seismic & borehole map», Mikenorton, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chicxulub_seismic_%26_borehole_map.png).*
 
 ## N. Conexión con lo que sigue
 

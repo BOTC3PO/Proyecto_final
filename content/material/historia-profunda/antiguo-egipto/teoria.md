@@ -14,7 +14,9 @@ La historia de Egipto es inseparable de su geografía. El historiador griego Her
 
 Hacia el 3100 a.C., según la tradición histórica, el rey Menes (o Narmer) unificó el Alto Egipto (el sur, valle estrecho) y el Bajo Egipto (el norte, delta fértil). Esta unificación no fue solo política, sino simbólica, representada por la doble corona que llevaba el faraón. El Estado centralizado resultante necesitaba una burocracia eficiente para gestionar el riego, el almacenamiento de granos y la recolección de impuestos, lo que impulsó el desarrollo de la escritura jeroglífica y la administración estatal temprana.
 
-<!-- IMAGEN: Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas -->
+![Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Narmer_palette_%28obverse%29.jpg/960px-Narmer_palette_%28obverse%29.jpg)
+
+*Imagen: «Narmer palette (obverse)», anonymous, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Narmer_palette_(obverse).jpg).*
 
 ## 2. Los grandes periodos dinásticos
 

@@ -32,7 +32,9 @@ Las sociedades paleolíticas eran **pequeñas comunidades** de apenas decenas de
 
 Aunque no se trata de un tema central en la economía, el Paleolítico dejó huellas significativas en la **expresión artística** humana. Las pinturas rupestres encontradas en cuevas (como las de Altamira o Lascaux) representan animales y escenas de caza, posiblemente con fines rituales o educativos. También se han encontrado figuras talladas en huesos o piedra (*venus figurines*), que podrían reflejar creencias sobre la fertilidad o el rol de la mujer.
 
-<!-- IMAGEN: ilustración de una pintura rupestre paleolítica con animales y símbolos -->
+![ilustración de una pintura rupestre paleolítica con animales y símbolos](https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg)
+
+*Imagen: «Lascaux painting», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg).*
 
 ## 6. Transición al Neolítico
 

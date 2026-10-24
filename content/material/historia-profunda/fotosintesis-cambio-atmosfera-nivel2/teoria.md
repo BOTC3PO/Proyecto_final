@@ -12,7 +12,12 @@
 
 La fotosíntesis oxigénica, desarrollada por organismos como las cianobacterias, es un proceso metabólico clave que transformó el planeta. Durante este proceso, la luz solar se utiliza para separar moléculas de agua (H₂O) en oxígeno (O₂) y protones, un fenómeno conocido como **fotólisis**. El oxígeno generado no era necesario para el metabolismo de estos seres —que usaban la fermentación o la respiración anaeróbica—, pero se liberaba al ambiente como subproducto. Este gas, inicialmente tóxico para muchas formas de vida primitiva, comenzó a acumularse en la atmósfera a partir de aproximadamente 2.4 mil millones de años atrás.
 
-<!-- IMAGEN: Diagrama de la fotosíntesis oxigénica con el agua como sustrato y el oxígeno como producto -->
+![Diagrama de la fotosíntesis oxigénica con el agua como sustrato y el oxígeno como producto](https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Photosynthesis_en.svg/960px-Photosynthesis_en.svg.png)
+
+*Imagen: «Photosynthesis en», At09kg, Wattcle, Nefronus
+
+At09kg: original
+Wattcl, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Photosynthesis_en.svg).*
 
 ---
 

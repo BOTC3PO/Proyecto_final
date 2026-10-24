@@ -12,7 +12,9 @@
 
 La Revolución Francesa (1789-1799) marcó un punto de inflexión al desafiar los fundamentos del sistema feudal y monárquico absoluto. La **burguesía**, clase social formada por comerciantes, banqueros y profesionales urbanos, emergió como la principal fuerza impulsora de este cambio. A diferencia de la nobleza y el clero, que gozaban de privilegios hereditarios, la burguesía acumulaba riqueza pero carecía de poder político formal. Esta contradicción generó una tensión social que culminó en la demanda de participación política, igualdad ante la ley y la abolición de los derechos feudales.
 
-<!-- IMAGEN: Escena del Tercer Estado en las Cortes de Versalles (1789), representando a la burguesía y el pueblo frente a la nobleza -->
+![Escena del Tercer Estado en las Cortes de Versalles (1789), representando a la burguesía y el pueblo frente a la nobleza](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Jacques-Louis_David_-_Serment_du_Jeu_de_paume%2C_le_20_juin_1789_-_P67_-_mus%C3%A9e_Carnavalet_-_0.jpg/960px-Jacques-Louis_David_-_Serment_du_Jeu_de_paume%2C_le_20_juin_1789_-_P67_-_mus%C3%A9e_Carnavalet_-_0.jpg)
+
+*Imagen: «Jacques-Louis David - Serment du Jeu de paume, le 20 juin 1789 - P67 - musée Carnavalet - 0», Jacques-Louis David, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Serment_du_Jeu_de_paume,_le_20_juin_1789_-_P67_-_mus%C3%A9e_Carnavalet_-_0.jpg).*
 
 ---
 
@@ -26,7 +28,9 @@ El liberalismo no fue una ideología nacida con la Revolución Francesa, sino qu
 
 La caída del sistema feudal y monárquico no fue el resultado de un solo factor, sino de una combinación de problemas económicos, sociales y políticos. El **absolutismo** —especialmente en Francia— exacerbó la desigualdad al centralizar el poder en manos del rey, quien imponía impuestos sin consulta popular. La economía se tambaleaba por gastos militares excesivos, una población creciente y una agricultura estancada. A esto se sumó el descontento de los campesinos, que sufrían la servidumbre y las altas contribuciones feudales, mientras la burguesía reclamaba reformas.
 
-<!-- IMAGEN: Representación del sistema de clases en el Antiguo Régimen (Tercer Estado, Segundo Estado, Primer Estado) -->
+![Representación del sistema de clases en el Antiguo Régimen (Tercer Estado, Segundo Estado, Primer Estado)](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Allegorie_d%C3%A8di%C3%A8_au_tiers_etat_LCCN2004676887-restored.jpg/960px-Allegorie_d%C3%A8di%C3%A8_au_tiers_etat_LCCN2004676887-restored.jpg)
+
+*Imagen: «Allegorie dèdiè au tiers etat LCCN2004676887-restored», Miscellaneous Items in High Demand, PPOC, Library, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Allegorie_d%C3%A8di%C3%A8_au_tiers_etat_LCCN2004676887-restored.jpg).*
 
 ---
 

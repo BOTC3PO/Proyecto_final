@@ -20,7 +20,9 @@ La altura es la propiedad del sonido que nos permite diferenciar entre un tono a
 
 La intensidad del sonido se refiere a su **volumen** o potencia, es decir, cuán fuerte o débil lo escuchamos. Esta propiedad está ligada a la **amplitud** de las ondas sonoras: cuanto mayor sea la amplitud (la distancia entre el pico y el valle de la onda), más energía transporta el sonido y, por tanto, más intenso será. Por ejemplo, al aumentar el volumen de un altavoz, se incrementa la amplitud de las vibraciones del aire.
 
-<!-- IMAGEN: Representación de ondas con distintas amplitudes (alta vs. baja), destacando la energía asociada -->
+![Representación de ondas con distintas amplitudes (alta vs. baja), destacando la energía asociada](https://upload.wikimedia.org/wikipedia/commons/8/8a/SoundWaveDiagFreqAmp.png)
+
+*Imagen: «SoundWaveDiagFreqAmp», justin evans, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SoundWaveDiagFreqAmp.png).*
 
 ---
 

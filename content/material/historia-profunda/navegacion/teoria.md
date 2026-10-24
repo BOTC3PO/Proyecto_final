@@ -12,7 +12,9 @@
 
 Antes de la expansión oceánica europea, el comercio de larga distancia dependía de rutas terrestres y marítimas fragmentadas. La Ruta de la Seda conectaba Asia con Europa, pero estaba sujeta a los caprichos de los imperios intermediarios. En el mar Mediterráneo, las potencias italianas como Venecia y Génova controlaban el tráfico de especias y bienes de lujo procedentes del Oriente. Sin embargo, el ascenso del Imperio otomano y la caída de Constantinopla en 1453 complicaron estas rutas, creando una urgidad económica y política en las monarquías ibéricas (Castilla y Portugal) por encontrar rutas alternativas hacia las fuentes de producción.
 
-<!-- IMAGEN: Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492 -->
+![Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Silk_route.jpg/960px-Silk_route.jpg)
+
+*Imagen: «Silk route», Whole_world_-_land_and_oceans_12000.jpg: NASA/Godd, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Silk_route.jpg).*
 
 ## 2. La escuela de navegación portuguesa
 

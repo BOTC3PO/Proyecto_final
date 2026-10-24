@@ -12,7 +12,9 @@
 
 El átomo está formado por tres tipos principales de partículas subatómicas: **protones**, **neutrones** y **electrones**. Los primeros dos se encuentran en el núcleo del átomo, mientras que los electrones orbitan alrededor de este en capas o niveles energéticos. Los protones tienen carga eléctrica positiva, los neutrones no tienen carga (son neutros), y los electrones poseen carga negativa. Estas partículas determinan las propiedades químicas y físicas de cada elemento.
 
-<!-- IMAGEN: Esquema del átomo con núcleo (protones + neutrones) y electrones en órbita -->
+![Esquema del átomo con núcleo (protones + neutrones) y electrones en órbita](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Bohr_atom_model_Spanish.svg/960px-Bohr_atom_model_Spanish.svg.png)
+
+*Imagen: «Bohr atom model Spanish», Brighterorange, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bohr_atom_model_Spanish.svg).*
 
 ## 2. Número atómico y su relación con los protones
 

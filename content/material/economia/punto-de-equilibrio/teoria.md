@@ -12,7 +12,9 @@
 
 El punto de equilibrio es el nivel de producción o ventas donde los ingresos totales de una empresa igualan a sus costos totales. En ese momento, la organización no obtiene ganancias ni pérdidas: todo lo que recibe por vender su producto se destina exactamente a cubrir gastos fijos y variables.
 
-<!-- IMAGEN: Gráfico con tres líneas: Costos fijos (horizontal), Costos totales (ascendente) e Ingresos totales (ascendente). El punto donde se cruzan ingresos y costos totales marca el equilibrio. -->
+![Gráfico con tres líneas: Costos fijos (horizontal), Costos totales (ascendente) e Ingresos totales (ascendente). El punto donde se cruzan ingresos y costos totales marca el equilibrio.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Break-even-point_vector.svg/960px-Break-even-point_vector.svg.png)
+
+*Imagen: «Break-even-point vector», Empro2, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Break-even-point_vector.svg).*
 
 Este concepto es clave para entender cuántas unidades debe vender una empresa para "sobrevivir", sin caer en déficit. Por ejemplo, si un fabricante de zapatos alcanza este umbral, ya no está perdiendo dinero, pero tampoco generando excedentes.
 

@@ -12,7 +12,9 @@
 
 El paleoclima es la rama de la ciencia que reconstruye las condiciones climáticas de la Tierra en épocas anteriores al registro histórico, usando evidencias naturales como rocas, sedimentos o restos biológicos. No se trata solo de conocer temperaturas o precipitaciones del pasado, sino de entender cómo esos cambios afectaron ecosistemas, niveles del mar y la evolución de las especies. Por ejemplo, los científicos analizan capas de hielo antiguas para determinar qué gases de efecto invernadero estaban presentes en la atmósfera hace miles de años.
 
-<!-- IMAGEN: Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas -->
+![Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas](https://upload.wikimedia.org/wikipedia/commons/3/31/GISP2_1855m_ice_core_layers.png)
+
+*Imagen: «GISP2 1855m ice core layers», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GISP2_1855m_ice_core_layers.png).*
 
 ---
 
@@ -36,7 +38,9 @@ Cuando no hay sedimentos ni hielo, los investigadores usan **fósiles** como pis
 
 Las glaciaciones son períodos en los que grandes extensiones de la Tierra se cubren de hielo, alterando el relieve, los cursos fluviales y el nivel del mar. Durante las últimas glaciaciones (hace unos 100.000 años), partes de Europa, América del Norte y Asia estaban bajo capas de hielo kilométricas. Estos eventos no solo modificaron la geografía física, sino que también influyeron en la migración humana y el desarrollo de culturas primitivas.
 
-<!-- IMAGEN: Mapa con zonas cubiertas por glaciares durante la última era glacial -->
+![Mapa con zonas cubiertas por glaciares durante la última era glacial](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Laurentide_ice_sheet_map.jpg/960px-Laurentide_ice_sheet_map.jpg)
+
+*Imagen: «Laurentide ice sheet map», April S. Dalton, Chris R. Stokes, Christine L. Bat, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Laurentide_ice_sheet_map.jpg).*
 
 ---
 

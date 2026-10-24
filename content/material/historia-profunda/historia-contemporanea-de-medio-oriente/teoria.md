@@ -12,7 +12,9 @@
 
 El fin de la Primera Guerra Mundial no solo marcó el colapso del Imperio Otomano, sino que reconfiguró radicalmente el mapa político de Asia Occidental. La conferencia de paz de Sèvres (1920) y, posteriormente, los acuerdos de Lausana (1923), consolidaron la disolución del *statu quo* otomano. Sin embargo, la verdadera transformación estructural ocurrió bajo el paraguas del sistema de mandatos de la Sociedad de Naciones. Gran Bretaña y Francia, actuando bajo los lineamientos de los acuerdos secretos Sykes-Picot (1916) y la Declaración Balfour (1917), trazaron fronteras artificiales que ignoraban la compleja topografía étnica, sectaria y tribal de la región.
 
-<!-- IMAGEN: Mapa comparativo de las fronteras otomanas previas a 1918 y las nuevas fronteras de los mandatos británico y francés -->
+![Mapa comparativo de las fronteras otomanas previas a 1918 y las nuevas fronteras de los mandatos británico y francés](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg/960px-Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg)
+
+*Imagen: «Sykes Picot Agreement Map signed 8 May 1916», Yonside.com, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg).*
 
 Esta intervención colonial no fue un simple redibujado cartográfico, sino un proyecto de ingeniería social. Las élites locales, muchas veces cooptadas por las potencias coloniales, se vieron obligadas a gobernar sobre poblaciones heterogéneas con mínimos lazos históricos de cohesión nacional. En Irak, por ejemplo, se unificaron forzosamente tres provincias otomanas (Bagdad, Basora y Mosul) bajo un monarca hashemita impuesto. En Siria y el Líbano, en cambio, los franceses aplicaron la estrategia de "dividir para gobernar": separaron a la mayoría suní y alawita del resto del territorio para facilitar el control administrativo. Este periodo sentó las bases de lo que el historiador Charles Issawi denominó la "tragedia de las fronteras", donde la legitimidad del Estado moderno chocó frontalmente con las identidades preexistentes.
 

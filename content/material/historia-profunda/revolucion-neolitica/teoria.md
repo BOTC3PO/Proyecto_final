@@ -20,7 +20,11 @@ La agricultura obligó a grupos humanos a permanecer en un lugar por largos per�
 
 Estos primeros pueblos construyeron viviendas de barro, piedra o madera en zonas fértiles cercanas a ríos. Se formaron comunidades más estables con divisiones de tareas: algunos se dedicaban exclusivamente a cultivar, otros a criar ganado, y otros a artesanías o defensa del grupo. La acumulación de recursos permitió la especialización laboral, un factor clave para el desarrollo de sociedades complejas.
 
-<!-- IMAGEN: Mapa con zonas de asentamientos neolíticos en el Cercano Oriente y China -->
+![Mapa con zonas de asentamientos neolíticos en el Cercano Oriente y China](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Fertile_crescent_Neolithic_B_circa_7500_BC.svg/960px-Fertile_crescent_Neolithic_B_circa_7500_BC.svg.png)
+
+*Imagen: «Fertile crescent Neolithic B circa 7500 BC», Bjoertvedt, Lars A
+
+translator: Manlleus (ca), CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fertile_crescent_Neolithic_B_circa_7500_BC.svg).*
 
 ## 3. El excedente y las nuevas jerarquías
 

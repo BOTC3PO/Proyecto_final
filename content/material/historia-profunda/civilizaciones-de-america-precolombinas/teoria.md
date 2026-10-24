@@ -37,7 +37,9 @@ El punto culminante fue el surgimiento del **Tawantinsuyu** (Imperio Inca) en el
 2.  La redistribución de recursos a través del sistema de *mit'a* (trabajo por turnos).
 3.  La imposición de la lengua **quechua** como lingua franca, junto con el respeto relativo a las deidades locales de los pueblos conquistados.
 
-<!-- IMAGEN: Detalle de la ingeniería de Machu Picchu o del sistema de andenes incaicos -->
+![Detalle de la ingeniería de Machu Picchu o del sistema de andenes incaicos](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Terraces_at_Machu_Picchu_1.jpg/960px-Terraces_at_Machu_Picchu_1.jpg)
+
+*Imagen: «Terraces at Machu Picchu 1», Gedankenstuecke, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Terraces_at_Machu_Picchu_1.jpg).*
 
 ## 4. El norte y el sur: complejidades diversas
 

@@ -12,7 +12,9 @@
 
 La **longitud de onda** (λ) es la distancia que hay entre dos puntos idénticos de una onda, como dos crestas o dos valles consecutivos. Se mide en metros y representa el espacio físico que recorre la perturbación durante un ciclo completo. En una onda transversal, por ejemplo, se puede visualizar claramente al medir desde el pico más alto de una cresta hasta el pico siguiente. Es un parámetro clave para describir cómo se extiende una onda en el medio donde se propaga.
 
-<!-- IMAGEN: Onda transversal con marcado de dos crestas consecutivas y su distancia λ -->
+![Onda transversal con marcado de dos crestas consecutivas y su distancia λ](https://upload.wikimedia.org/wikipedia/commons/5/5a/Crest_trough_wavelength_amplitude.png)
+
+*Imagen: «Crest trough wavelength amplitude», Geoff Ruth, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Crest_trough_wavelength_amplitude.png).*
 
 ---
 

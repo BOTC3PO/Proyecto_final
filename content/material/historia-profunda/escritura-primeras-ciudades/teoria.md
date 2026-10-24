@@ -18,13 +18,17 @@ La escritura se originó en Mesopotamia, una región ubicada entre los ríos Tig
 
 La escritura no nació para contar historias ni expresar sentimientos, sino para cumplir una función utilitaria: la contabilidad. En las primeras ciudades, los sacerdotes y administradores usaban tablillas de arcilla para anotar ingresos y egresos de granos, lana o herramientas. Estos registros eran esenciales para el funcionamiento de talleres, almacenes y templos. A medida que las ciudades crecían, la escritura se volvió una herramienta indispensable para mantener el control sobre recursos limitados.
 
-<!-- IMAGEN: Tablilla cuneiforme con marcas en forma de cuña representando transacciones comerciales -->
+![Tablilla cuneiforme con marcas en forma de cuña representando transacciones comerciales](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg/960px-Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg)
+
+*Imagen: «Cuneiform tablet- administrative account concerning the distribution of barley and emmer MET DP297601», CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg).*
 
 ## 3. El sistema cuneiforme: de dibujos a símbolos abstractos
 
 El primer sistema de escritura, conocido como cuneiforme, se basaba en figuras geométricas talladas en arcilla con un punzón triangular. Originalmente, los símbolos representaban objetos concretos (como una cabeza de trigo o un animal), pero con el tiempo se simplificaron y adquirieron significados abstractos. Esta evolución permitió expresar ideas complejas: desde órdenes gubernamentales hasta textos religiosos.
 
-<!-- IMAGEN: Ejemplo de símbolos cuneiformes, mostrando la transición de pictogramas a signos simplificados -->
+![Ejemplo de símbolos cuneiformes, mostrando la transición de pictogramas a signos simplificados](https://upload.wikimedia.org/wikipedia/commons/5/5b/Cuneiform_gesh_formation.jpg)
+
+*Imagen: «Cuneiform gesh formation», ShlomoKatzav, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cuneiform_gesh_formation.jpg).*
 
 ## 4. La escritura como base para el poder y el conocimiento
 

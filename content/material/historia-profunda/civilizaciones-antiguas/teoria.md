@@ -12,7 +12,9 @@
 
 La región que hoy corresponde a Irak fue el primer centro de desarrollo urbano del planeta. Entre los ríos Tigris y Éufrates, las comunidades agrícolas se organizaron en ciudades-estado independientes como Ur o Babilonia. La fertilidad de las tierras aluviales permitió excedentes productivos, lo que generó clases sociales especializadas: sacerdotes, escribas y gobernantes. El sistema de escritura cuneiforme, inventado en Sumer, fue un hito clave para registrar leyes, comercio y mitos.
 
-<!-- IMAGEN: mapa de Mesopotamia con los ríos Tigris y Éufrates -->
+![mapa de Mesopotamia con los ríos Tigris y Éufrates](https://upload.wikimedia.org/wikipedia/commons/5/50/Fertile_Crescent_Mesopotamian_map.png)
+
+*Imagen: «Fertile Crescent Mesopotamian map», Akbarali, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fertile_Crescent_Mesopotamian_map.png).*
 
 ---
 

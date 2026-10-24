@@ -34,7 +34,9 @@ En 661, Muawiyah I estableció la dinastía omeya, trasladando la capital a Dama
 
 Los omeyas implementaron políticas administrativas cruciales para la supervivencia del imperio. Tradujeron la burocracia persa y bizantina a sus necesidades, estableciendo un sistema fiscal y postal eficiente. Sin embargo, su mayor revolución fue lingüística: en el siglo VIII, el califa ʿAbd al-Malik decretó que el árabe reemplazara al griego y al pahlavi como lenguas oficiales de la administración. Esto no solo facilitó la gestión, sino que aceleró la arabización de las élites locales. Aunque muchos pueblos conquistados (coptos, sirios, beréberes, persas) mantuvieron su identidad cultural, adoptaron gradualmente el árabe como lengua de cultura y comercio, un proceso conocido como islamización lingüística.
 
-<!-- IMAGEN: Representación artística de la conquista de Al-Ándalus o mapa del Califato Omeya mostrando su extensión desde la India hasta España. -->
+![Representación artística de la conquista de Al-Ándalus o mapa del Califato Omeya mostrando su extensión desde la India hasta España.](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Umayyad-caliphate.svg/960px-Umayyad-caliphate.svg.png)
+
+*Imagen: «Umayyad-caliphate», Cattette, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Umayyad-caliphate.svg).*
 
 ## 5. El legado cultural y la transición abasí
 

@@ -14,7 +14,9 @@ Tras la división administrativa del Imperio Romano en el siglo IV, Constantinop
 
 A diferencia de Roma, que dependía de una extensa red de carreteras terrestres vulnerables a las invasiones bárbaras, Constantinopla estaba protegida por el Mar de Mármara y sus famosas murallas teodosianas. Esto permitió que la estructura estatal romana, con su burocracia compleja y su sistema fiscal, sobreviviera en Oriente mientras Occidente colapsaba. El latín mantuvo su estatus oficial durante los primeros siglos, pero el griego, lengua de la cultura helenística, se impuso progresivamente en la administración y la vida cotidiana, marcando el inicio de una identidad distinta a la del occidente latino.
 
-<!-- IMAGEN: Mapa que muestra la posición estratégica de Constantinopla entre los estrechos de Bósforo y Dardanelos, destacando las rutas comerciales terrestres y marítimas -->
+![Mapa que muestra la posición estratégica de Constantinopla entre los estrechos de Bósforo y Dardanelos, destacando las rutas comerciales terrestres y marítimas](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/1901_maps_of_The_Dardanelles_and_the_Troad_and_The_Bosphorus_and_Constantinople.jpg/960px-1901_maps_of_The_Dardanelles_and_the_Troad_and_The_Bosphorus_and_Constantinople.jpg)
+
+*Imagen: «1901 maps of The Dardanelles and the Troad and The Bosphorus and Constantinople», Edward Stanford, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:1901_maps_of_The_Dardanelles_and_the_Troad_and_The_Bosphorus_and_Constantinople.jpg).*
 
 ## 2. La figura de Justiniano y la codificación del derecho
 

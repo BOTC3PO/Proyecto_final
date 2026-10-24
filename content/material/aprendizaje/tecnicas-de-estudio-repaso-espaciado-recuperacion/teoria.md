@@ -12,7 +12,9 @@
 
 El **repaso espaciado** es una estrategia que distribuye las sesiones de estudio en intervalos crecientes, aprovechando el efecto de espaciamiento para reforzar la memoria a largo plazo. En lugar de acumular información en una sola sesión (un proceso conocido como *atiborramiento*), esta técnica se basa en la idea de que repetir lo aprendido con tiempo entre sesiones mejora su retención. Por ejemplo, si estudias un tema el lunes y luego lo repasas el miércoles, después del viernes y finalmente una semana más tarde, el cerebro tiene más oportunidades de consolidar la información. Esto combate la **curva del olvido**, que describe cómo la memoria se pierde rápidamente si no se refuerza con tiempo.
 
-<!-- IMAGEN: Gráfico de curva del olvido vs. repaso espaciado, mostrando mayor retención con intervalos crecientes -->.
+![Gráfico de curva del olvido vs. repaso espaciado, mostrando mayor retención con intervalos crecientes](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Forgetting_curve_and_work_of_Ebbinghaus.png/960px-Forgetting_curve_and_work_of_Ebbinghaus.png)
+
+*Imagen: «Forgetting curve and work of Ebbinghaus», Productive.Fish, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Forgetting_curve_and_work_of_Ebbinghaus.png).*
 
 ---
 

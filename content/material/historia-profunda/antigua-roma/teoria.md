@@ -34,4 +34,6 @@ El asesinato de Julio César en el 44 a.C., en un intento desesperado de restaur
 
 El Segundo Triunvirato, formado por Octaviano, Marco Antonio y Lépido, se convirtió en un gobierno dictatorial de facto. La batalla de Actium en el 31 a.C., donde Octaviano derrotó a la alianza de Antonio y la reina Cleopatra, dejó a Octaviano como el único hombre fuerte de Roma. En el 27 a.C., tras una cuidadosa teatralización política, el Senado otorgó a Octaviano el título de *Augusto*. Aunque mantuvo las formas republicanas (magistraturas, senado, asambleas), concentró en su persona los poderes militares, religiosos y políticos esenciales. Este acto marcó el paso definitivo de la República al Principado, inaugurando el Alto Imperio Romano.
 
-<!-- IMAGEN: Estatua de Augusto de Prima Porta, simbolizando la nueva imagen del poder imperial bajo la fachada de la pax romana -->
+![Estatua de Augusto de Prima Porta, simbolizando la nueva imagen del poder imperial bajo la fachada de la pax romana](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Augustus_of_Prima_Porta.jpg/960px-Augustus_of_Prima_Porta.jpg)
+
+*Imagen: «Augustus of Prima Porta», Justin Benttinen, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Augustus_of_Prima_Porta.jpg).*

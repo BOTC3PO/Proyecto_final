@@ -12,7 +12,9 @@
 
 Hacia el tercer milenio a.C., en las llanuras aluviales del noroeste del subcontinente, floreció la llamada Civilización del Valle del Indo (también conocida como Civilización Harappa). Lo que la distingue de sus contemporáneas en Mesopotamia o Egipto es su notable planificación urbana y su aparente falta de centralización monárquica agresiva. Ciudades como **Harappa** y **Mohenjo-Daro** tenían calles en cuadrícula, edificios públicos de ladrillo cocido y, quizás lo más importante, un avanzado sistema de drenaje con baños públicos. Eso sugiere una fuerte preocupación por la higiene ritual y por la gestión colectiva del agua.
 
-<!-- IMAGEN: Mapa esquemático de la extensión de la Civilización del Valle del Indo, destacando Harappa y Mohenjo-Daro -->
+![Mapa esquemático de la extensión de la Civilización del Valle del Indo, destacando Harappa y Mohenjo-Daro](https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Simple_map_of_Indus_valley_civilization.png/960px-Simple_map_of_Indus_valley_civilization.png)
+
+*Imagen: «Simple map of Indus valley civilization», Merikanto, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_map_of_Indus_valley_civilization.png).*
 
 Todavía no logramos descifrar del todo su escritura, que aparece en sellos de esteatita. Aun así, los hallazgos arqueológicos revelan una sociedad muy comercial, con conexiones lejanas hasta Mesopotamia. Sin embargo, hacia el 1900 a.C., esta civilización entró en declive. Las teorías actuales evitan un único causante. Hablan de una combinación de cambios climáticos, la desecación del río Ghaggar-Hakra (posiblemente el antiguo río Sarasvati) y la migración gradual de poblaciones hacia el este y el sur, más que de una invasión violenta y repentina.
 

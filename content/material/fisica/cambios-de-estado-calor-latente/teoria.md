@@ -12,7 +12,9 @@
 
 El **calor latente** es la energía necesaria para que una sustancia cambie su estado físico (sólido → líquido, líquido → gas, etc.) sin alterar su temperatura. A diferencia del calor sensible, que se usa para elevar o reducir la temperatura de un material, el calor latente actúa en los momentos donde ocurren **cambios de fase**. Por ejemplo, cuando hierves agua a 100°C y esta comienza a hervir, la energía absorbida no eleva más la temperatura: se va directamente al proceso de evaporación.
 
-<!-- IMAGEN: gráfico que muestra una curva de calentamiento con segmentos horizontales en los puntos de fusión y ebullición -->
+![gráfico que muestra una curva de calentamiento con segmentos horizontales en los puntos de fusión y ebullición](https://upload.wikimedia.org/wikipedia/commons/0/0c/Heating-Curve.png)
+
+*Imagen: «Heating-Curve», C3bc-taaccct, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Heating-Curve.png).*
 
 ---
 

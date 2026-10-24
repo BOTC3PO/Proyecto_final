@@ -12,7 +12,9 @@
 
 El psicoanálisis surge a finales del siglo XIX como una forma de entender la mente humana desde los procesos inconscientes. Su creador, Sigmund Freud, propuso que gran parte de nuestras acciones, pensamientos y emociones están determinadas por deseos, recuerdos y conflictos que no somos conscientes. Para Freud, el ser humano está dividido en tres partes: el **yo** (consciente), el **superyo** (moral) y el **ello** (inconsciente). Los traumas infantiles o deseos reprimidos pueden manifestarse a través de síntomas físicos, sueños o errores cotidianos como "lapsus". Aunque hoy se critica su falta de rigor científico, el psicoanálisis abrió camino para estudiar lo no observable en la mente.
 
-<!-- IMAGEN: Esquema del tripartido psíquico según Freud: yo, superyo y ello con flechas que muestran sus interacciones -->
+![Esquema del tripartido psíquico según Freud: yo, superyo y ello con flechas que muestran sus interacciones](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Id_ego_superego.png/960px-Id_ego_superego.png)
+
+*Imagen: «Id ego superego», Aszokalski, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Id_ego_superego.png).*
 
 ---
 
@@ -28,7 +30,9 @@ A principios del siglo XX, el **conductismo** se convirtió en la corriente domi
 
 A mediados del siglo XX, el **humanismo** desafió a las corrientes anteriores al insistir en la importancia de la experiencia subjetiva y el crecimiento personal. Figuras como Carl Rogers y Abraham Maslow destacaron que cada persona tiene un potencial único para autorrealizarse. Para ellos, el ser humano no es solo un producto de estímulos o conflictos internos, sino un agente activo en su propio desarrollo. La teoría de Maslow sobre la "pirámide de necesidades" mostró cómo los individuos buscan satisfacer primero necesidades básicas (alimentación, seguridad) para luego aspirar a logros creativos y espirituales.
 
-<!-- IMAGEN: Pirámide de necesidades humanas según Maslow, con ejemplos en cada nivel -->
+![Pirámide de necesidades humanas según Maslow, con ejemplos en cada nivel](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Gu-MaslowsHierarchyOfNeeds.svg/960px-Gu-MaslowsHierarchyOfNeeds.svg.png)
+
+*Imagen: «Gu-MaslowsHierarchyOfNeeds», FireflySixtySeven, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gu-MaslowsHierarchyOfNeeds.svg).*
 
 ---
 

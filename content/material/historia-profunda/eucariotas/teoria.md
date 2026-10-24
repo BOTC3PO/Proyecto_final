@@ -12,7 +12,9 @@
 
 El núcleo definido es la característica que define a las células eucariotas. A diferencia de los procariotas, cuyo material genético está disperso en el citoplasma, las eucariotas tienen su ADN organizado dentro de un núcleo rodeado por una membrana nuclear. Esta estructura permite un control más preciso de la expresión génica y facilita procesos como la replicación del ADN y la síntesis de proteínas en compartimentos especializados.
 
-<!-- IMAGEN: Diagrama comparativo de células eucariotas y procariotas, destacando el núcleo y su membrana -->
+![Diagrama comparativo de células eucariotas y procariotas, destacando el núcleo y su membrana](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Celltypes.svg/960px-Celltypes.svg.png)
+
+*Imagen: «Celltypes», Science Primer (National Center for Biotechnology, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Celltypes.svg).*
 
 ---
 
@@ -20,7 +22,9 @@ El núcleo definido es la característica que define a las células eucariotas. 
 
 Las células eucariotas poseen un sistema complejo de organelas delimitadas por membranas. Estos compartimentos permiten la división funcional del citoplasma, optimizando procesos metabólicos y la producción de moléculas esenciales. Por ejemplo, las mitocondrias generan energía a través de la respiración celular, el retículo endoplasmático sintetiza proteínas y lípidos, y el aparato de Golgi modifica y envía sustancias al exterior de la célula.
 
-<!-- IMAGEN: Esquema detallado de una célula eucariota con etiquetas de organelas clave -->
+![Esquema detallado de una célula eucariota con etiquetas de organelas clave](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Eukaryotic_cell_diagram.jpg/960px-Eukaryotic_cell_diagram.jpg)
+
+*Imagen: «Eukaryotic cell diagram», Steven Mackenzie, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eukaryotic_cell_diagram.jpg).*
 
 ---
 

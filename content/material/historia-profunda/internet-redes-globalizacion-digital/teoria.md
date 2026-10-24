@@ -12,7 +12,9 @@
 
 ARPANET nació en los años 60 como un proyecto del Departamento de Defensa de Estados Unidos, liderado por la Advanced Research Projects Agency (ARPA). Su objetivo no era conectar usuarios domésticos ni entregar servicios a la población, sino permitir que instituciones académicas y centros de investigación compartieran datos en forma segura. La idea clave era crear una red descentralizada: si un nodo fallaba, el resto seguía operativo. Esto fue crucial durante la Guerra Fría para evitar que interrupciones tecnológicas paralizaran la actividad científica o militar estadounidense. Aunque comenzó como herramienta de inteligencia y defensa, pronto se abrió a universidades y laboratorios, sentando las bases para una red global.
 
-<!-- IMAGEN: Esquema de ARPANET con nodos conectados en forma de estrella, destacando su estructura descentralizada -->
+![Esquema de ARPANET con nodos conectados en forma de estrella, destacando su estructura descentralizada](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/A_sketch_of_the_ARPANET_in_December_1969.png/960px-A_sketch_of_the_ARPANET_in_December_1969.png)
+
+*Imagen: «A sketch of the ARPANET in December 1969», DARPA, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_sketch_of_the_ARPANET_in_December_1969.png).*
 
 ---
 

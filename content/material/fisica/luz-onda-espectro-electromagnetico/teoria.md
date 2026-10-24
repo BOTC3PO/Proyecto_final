@@ -14,7 +14,9 @@ La luz es una forma de energía que se propaga mediante ondas electromagnéticas
 
 Estas ondas poseen características definidas: frecuencia (número de oscilaciones por segundo), longitud de onda (distancia entre dos crestas consecutivas) y energía. La relación entre estas tres magnitudes es clave para entender su comportamiento: a mayor frecuencia, mayor energía; a menor longitud de onda, mayor frecuencia.
 
-<!-- IMAGEN: Esquema de una onda electromagnética con campos eléctrico y magnético perpendiculares, indicando dirección de propagación -->
+![Esquema de una onda electromagnética con campos eléctrico y magnético perpendiculares, indicando dirección de propagación](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Electromagnetic_wave_EN.svg/960px-Electromagnetic_wave_EN.svg.png)
+
+*Imagen: «Electromagnetic wave EN», Piotr Fita, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electromagnetic_wave_EN.svg).*
 
 ---
 
@@ -24,7 +26,9 @@ El espectro electromagnético es el conjunto ordenado de todas las posibles frec
 
 Desde la menor energía hasta la mayor, el orden es: **ondas de radio**, **microondas**, **infrarrojo**, **luz visible**, **radiación ultravioleta (UV)**, **rayos X** y **rayos gamma**. Cada región tiene aplicaciones específicas: las ondas de radio son usadas en comunicación; el infrarrojo, en sensores térmicos; los rayos X, en imágenes médicas.
 
-<!-- IMAGEN: Escalera del espectro electromagnético con nombres y ejemplos de cada banda -->
+![Escalera del espectro electromagnético con nombres y ejemplos de cada banda](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/EM_Spectrum_Properties_es.svg/960px-EM_Spectrum_Properties_es.svg.png)
+
+*Imagen: «EM Spectrum Properties es», Crates. Original version in English by Inductivelo, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:EM_Spectrum_Properties_es.svg).*
 
 ---
 
@@ -34,7 +38,9 @@ Dentro del espectro electromagnético, la **luz visible** es solo una pequeña p
 
 La percepción de color depende de la frecuencia específica de cada onda. Por ejemplo, los objetos rojos reflejan luz con mayor longitud de onda que los azules. Este fenómeno se basa en cómo interactúa la luz con la materia, un tema clave para entender óptica y espectroscopía.
 
-<!-- IMAGEN: Diagrama del espectro visible con colores ordenados y longitudes de onda aproximadas -->
+![Diagrama del espectro visible con colores ordenados y longitudes de onda aproximadas](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Light_spectrum_%28precise_colors%29.svg/960px-Light_spectrum_%28precise_colors%29.svg.png)
+
+*Imagen: «Light spectrum (precise colors)», Fulvio314, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Light_spectrum_(precise_colors).svg).*
 
 ---
 

@@ -16,7 +16,9 @@ La Edad Media Plena, aproximadamente entre los siglos XI y XIII, se caracteriza 
 
 El motor de esta transformación fue la innovación técnica en el campo. La introducción del arado de vertedera, pesado y con ruedas, permitió cultivar las tierras pesadas y húmedas del norte de Europa, antes difíciles de trabajar. Junto con la adopción del arnés de hombro para los caballos y la generalización del herrado, la fuerza animal se volvió mucho más eficiente.
 
-<!-- IMAGEN: Representación de un campo con el sistema de rotación trienal, mostrando los surcos profundos del arado de vertedera -->
+![Representación de un campo con el sistema de rotación trienal, mostrando los surcos profundos del arado de vertedera](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Three_Field_System_be.svg/960px-Three_Field_System_be.svg.png)
+
+*Imagen: «Three Field System be», Original uploader was MScharwies, derivative work, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Three_Field_System_be.svg).*
 
 Estas tecnologías facilitaron el paso de la rotación bienal (un año de descanso) al trienal (dos años de cultivo, uno de barbecho), lo que aumentó la productividad en un tercio. Como resultado, se produjeron excedentes de grano que no solo alimentaron a la creciente población urbana, sino que también se convirtieron en mercancía para el intercambio comercial. El paisaje rural se transformó con la tala de bosques para crear nuevas tierras cultivables, un proceso conocido como la "gran clareación".
 

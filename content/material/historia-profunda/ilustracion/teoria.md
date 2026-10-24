@@ -20,7 +20,9 @@ Aunque el movimiento fue pan-europeo, tuvo epicentros diferenciados en su enfoqu
 
 Por otro lado, **Londres** y **Edimburgo** ofrecieron modelos distintos. En la Inglaterra del siglo XVIII, la Ilustración tuvo un carácter más empírico, moderado y vinculado al progreso científico y comercial. Pensadores como Isaac Newton demostraron que el universo operaba bajo leyes naturales descubribles, lo que inspiró la esperanza de que la sociedad también pudiera organizarse bajo principios racionales. En Escocia, la Ilustración se enfocó en la sociabilidad, la moralidad y la historia. Figuras como David Hume cuestionaron la causalidad desde el escepticismo, mientras que Adam Smith analizó cómo el interés personal, regulado por el mercado, podía generar orden social sin necesidad de una planificación centralizada.
 
-<!-- IMAGEN: Portada de la primera edición de la Encyclopédie de Diderot y d'Alembert, mostrando la complejidad de los grabados técnicos que simbolizan la difusión del saber práctico -->
+![Portada de la primera edición de la Encyclopédie de Diderot y d'Alembert, mostrando la complejidad de los grabados técnicos que simbolizan la difusión del saber práctico](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Encyclopedie_frontispice_full.jpg/960px-Encyclopedie_frontispice_full.jpg)
+
+*Imagen: «Encyclopedie frontispice full», Benoît-Louis Prévost / Charles-Nicolas Cochin, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Encyclopedie_frontispice_full.jpg).*
 
 ## 3. El giro secular y la crítica a la religión
 

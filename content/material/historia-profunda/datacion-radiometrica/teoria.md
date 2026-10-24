@@ -10,7 +10,11 @@
 
 ## 1. Concepto de vida media
 
-La **vida media** es el tiempo que tarda la mitad de los átomos de un isótopo radiactivo en descomponerse naturalmente. Por ejemplo, si se tiene una muestra de carbono-14 con 100 gramos al inicio, después de su vida media (5730 años), quedarán 50 gramos. Este valor no cambia: es constante para cada isótopo y lo hace útil para datar materiales en la Tierra. <!-- IMAGEN: gráfico que muestra la reducción del 100% a 50%, luego a 25%, etc., con marcas de vida media -->.
+La **vida media** es el tiempo que tarda la mitad de los átomos de un isótopo radiactivo en descomponerse naturalmente. Por ejemplo, si se tiene una muestra de carbono-14 con 100 gramos al inicio, después de su vida media (5730 años), quedarán 50 gramos. Este valor no cambia: es constante para cada isótopo y lo hace útil para datar materiales en la Tierra.
+
+![gráfico que muestra la reducción del 100% a 50%, luego a 25%, etc., con marcas de vida media](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Half-life_example_graph.jpg/960px-Half-life_example_graph.jpg)
+
+*Imagen: «Half-life example graph», Pradana Aumars (talk · contribs), CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Half-life_example_graph.jpg).*
 
 ## 2. Cómo se calcula el isótopo remanente
 
