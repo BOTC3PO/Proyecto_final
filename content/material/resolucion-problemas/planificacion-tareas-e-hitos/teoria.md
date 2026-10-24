@@ -14,8 +14,6 @@ Las **tareas** son actividades concretas que requieren tiempo, esfuerzo y recurs
 
 Los **hitos**, por otro lado, no son actividades que se hagan. Son puntos de control que marcan la finalización de una fase importante del proyecto. Por ejemplo: "Finalizar investigación para el informe" o "Entrega de la primera versión del trabajo". Un hito no dura, es solo un momento en el tiempo donde se verifica si algo está listo.
 
-<!-- IMAGEN: Comparación entre tareas (con barras de duración) y hitos (marcadores en una línea de tiempo) -->
-
 ---
 
 ## 2. ¿Por qué los hitos son clave en la planificación?

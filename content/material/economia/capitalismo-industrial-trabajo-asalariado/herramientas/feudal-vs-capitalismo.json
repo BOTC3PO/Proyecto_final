@@ -1,0 +1,32 @@
+{
+ "titulo": "Sistema feudal y capitalismo industrial",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Quién posee los medios de producción",
+   "headers": [
+    "",
+    "Sistema feudal",
+    "Capitalismo industrial"
+   ],
+   "rows": [
+    [
+     "Propietario de la tierra / fábrica",
+     "Señor feudal",
+     "Capitalista"
+    ],
+    [
+     "Quien trabaja",
+     "Siervo, ligado a la tierra",
+     "Obrero asalariado, libre"
+    ],
+    [
+     "Cómo se obtiene el sustento",
+     "Parte de la cosecha y servicios al señor",
+     "Venta de la fuerza de trabajo a cambio de un salario"
+    ]
+   ]
+  }
+ ]
+}

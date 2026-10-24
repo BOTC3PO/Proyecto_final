@@ -1,0 +1,64 @@
+{
+ "titulo": "Flujo de una entrevista periodística",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Entrevista",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Investigar el tema y a la persona",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Preparar las preguntas",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Realizar la entrevista",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Editar y verificar citas",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Publicar",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

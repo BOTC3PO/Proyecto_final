@@ -1,0 +1,37 @@
+{
+ "titulo": "Galaxia espiral y galaxia elíptica",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Espiral",
+    "Elíptica"
+   ],
+   "rows": [
+    [
+     "Forma",
+     "Disco con brazos en espiral",
+     "Esférica u ovalada"
+    ],
+    [
+     "Estrellas",
+     "Jóvenes y viejas",
+     "En su mayoría viejas"
+    ],
+    [
+     "Gas y polvo",
+     "Abundantes (nacen estrellas)",
+     "Escasos"
+    ],
+    [
+     "Ejemplo",
+     "Vía Láctea",
+     "M87"
+    ]
+   ]
+  }
+ ]
+}

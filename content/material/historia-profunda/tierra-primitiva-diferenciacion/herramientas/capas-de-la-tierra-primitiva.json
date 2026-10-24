@@ -1,0 +1,47 @@
+{
+ "titulo": "Capas de la Tierra primitiva",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Diferenciación por densidad",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Corteza (liviana)",
+     "x": 188,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n2",
+     "label": "Manto (intermedio)",
+     "x": 188,
+     "y": 92,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n3",
+     "label": "Núcleo (hierro y níquel, pesado)",
+     "x": 188,
+     "y": 184,
+     "color": "#e5e7eb"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n3",
+     "toId": "n2",
+     "label": "los materiales densos se hunden"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n1",
+     "label": "los livianos ascienden"
+    }
+   ]
+  }
+ ]
+}

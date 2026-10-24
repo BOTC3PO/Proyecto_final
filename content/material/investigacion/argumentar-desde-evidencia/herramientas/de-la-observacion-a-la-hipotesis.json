@@ -1,0 +1,42 @@
+{
+ "titulo": "De la observación a la hipótesis",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Argumentar desde la evidencia",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Observación",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Dato verificable",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Hipótesis validada o refutada",
+     "x": 475,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

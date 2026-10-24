@@ -14,8 +14,6 @@ El sesgo algorítmico ocurre cuando un sistema de inteligencia artificial reprod
 
 Por ejemplo: un algoritmo de contratación podría favorecer candidatos de ciertos grupos si los datos históricos muestran que se les otorgaron más empleos. El problema no está en la tecnología, sino en las decisiones humanas que moldean los datos y el diseño del modelo.
 
-<!-- IMAGEN: Diagrama de un algoritmo entrenado con datos sesgados, mostrando cómo se genera una salida injusta -->
-
 ---
 
 ## 2. Privacidad en los datos de entrenamiento
@@ -23,8 +21,6 @@ Por ejemplo: un algoritmo de contratación podría favorecer candidatos de ciert
 Cuando se entrena una inteligencia artificial, se usan grandes volúmenes de información. Si esos datos incluyen información personal sensible —como números de documentos, historiales médicos o ubicaciones— y no se manejan con cuidado, se viola la privacidad de las personas.
 
 La legislación actual (como el GDPR en Europa o la Ley 25.326 de Protección de Datos en Argentina) exige que los datos personales sean anonimizados o pseudonimizados antes de usarse. Sin embargo, muchos modelos aún operan con datos no procesados, lo que puede permitir identificar a individuos incluso si se ocultan sus nombres.
-
-<!-- IMAGEN: Flujo de información desde la recolección de datos hasta el entrenamiento del modelo, destacando puntos críticos para la privacidad -->
 
 ---
 
@@ -35,8 +31,6 @@ Los sesgos no nacen solos. Pueden surgir en tres etapas clave:
 1. **En los datos**: Si los datos de entrenamiento están incompletos o reflejan discriminaciones pasadas (por ejemplo, imágenes de mujeres en roles domésticos y hombres en puestos técnicos), la IA aprenderá esas asociaciones.
 2. **En el diseño del algoritmo**: Algunos modelos priorizan ciertas características sobre otras. Por ejemplo, un sistema que valora "experiencia laboral" puede penalizar a quienes tomaron tiempos de baja por cuidado familiar.
 3. **En la implementación**: Incluso si un modelo es imparcial en teoría, su uso en contextos específicos (como préstamos hipotecarios) puede generar efectos sesgados si no se revisan sus decisiones.
-
-<!-- IMAGEN: Tres columnas con ejemplos de sesgos en datos, diseño y uso real -->
 
 ---
 

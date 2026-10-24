@@ -22,8 +22,6 @@ La **prensa hidráulica** es un dispositivo que aprovecha el principio de Pascal
 
 Cuando se aplica una fuerza $ F_1 $ sobre el émbolo pequeño, esta genera una presión $ P = \frac{F_1}{A_1} $, donde $ A_1 $ es el área del primer émbolo. Esta presión se transmite al fluido y actúa sobre el segundo émbolo de área $ A_2 $. Al ser la presión igual en ambos ($ \frac{F_1}{A_1} = \frac{F_2}{A_2} $), si $ A_2 > A_1 $, entonces $ F_2 > F_1 $. Se obtiene una **fuerza mayor** con una **fuerza menor aplicada**, siempre que el sistema esté en equilibrio.
 
-<!-- IMAGEN: Esquema de prensa hidráulica con dos émbolos, flechas indicando fuerzas y áreas. -->
-
 ---
 
 ## 3. Relación entre fuerzas y áreas

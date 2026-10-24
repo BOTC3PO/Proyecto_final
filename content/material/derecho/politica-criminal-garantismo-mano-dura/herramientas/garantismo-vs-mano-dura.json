@@ -1,0 +1,28 @@
+{
+ "titulo": "Garantismo y mano dura",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Dos enfoques de política criminal",
+   "headers": [
+    "Garantismo",
+    "Mano dura"
+   ],
+   "rows": [
+    [
+     "Prioriza los derechos individuales",
+     "Prioriza la eficacia represiva"
+    ],
+    [
+     "Límites estrictos al poder de castigar",
+     "Penas más severas y más control"
+    ],
+    [
+     "Presunción de inocencia como regla",
+     "Menos garantías para agilizar"
+    ]
+   ]
+  }
+ ]
+}

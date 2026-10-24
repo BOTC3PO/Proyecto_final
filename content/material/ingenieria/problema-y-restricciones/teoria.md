@@ -20,8 +20,6 @@ Una **solución técnica** es el resultado del proceso de diseño: un producto, 
 
 Los **requisitos** definen qué debe hacer la solución. Son las expectativas mínimas o ideales del cliente, usuario o contexto. Por ejemplo, un requisito podría ser "el puente debe soportar 50 toneladas de peso". Estos son objetivos claros que orientan el diseño: si no se cumplen, la solución no es válida.
 
-<!-- IMAGEN: Diagrama comparando requisitos (ej.: "soportar 50 t") con restricciones (ej.: "costo máximo $1M") --> 
-
 ## 4. Restricciones: lo que limita las opciones
 
 Las **restricciones** son condiciones externas o internas que no pueden ignorarse. Pueden ser técnicas, económicas, legales o de tiempo. Por ejemplo, si el presupuesto para un puente es de $1 millón, esa es una restricción: la solución no puede costar más. A diferencia de los requisitos (lo que se quiere), las restricciones (lo que no se permite) definen los límites del espacio de soluciones posibles.

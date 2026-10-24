@@ -1,0 +1,32 @@
+{
+ "titulo": "Vida nómada y vida sedentaria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Nómada",
+    "Sedentaria"
+   ],
+   "rows": [
+    [
+     "Vivienda",
+     "Temporal",
+     "Aldea fija"
+    ],
+    [
+     "Herramientas",
+     "Livianas, para transportar",
+     "Agrícolas, y almacenes"
+    ],
+    [
+     "Alimento",
+     "Caza y recolección",
+     "Cultivos y animales domésticos"
+    ]
+   ]
+  }
+ ]
+}

@@ -15,8 +15,6 @@ La presión es una magnitud física que mide cuánta fuerza actúa perpendicular
 
 Este cociente indica cómo se distribuye la fuerza en un espacio dado. Por ejemplo, si una persona camina con zapatos planos o con tacón alto, la presión que ejerce en el suelo cambia porque la fuerza (peso) se reparte en áreas distintas.
 
-<!-- IMAGEN: Fórmula P = F/A con ejemplos de fuerzas y áreas -->
-
 ---
 
 ## 2. Unidades para medir la presión

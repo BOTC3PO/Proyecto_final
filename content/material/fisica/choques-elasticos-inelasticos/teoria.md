@@ -14,7 +14,7 @@ En cualquier choque, ya sea elástico o inelástico, la **cantidad de movimiento
 $$
 m_1v_{1i} + m_2v_{2i} = m_1v_{1f} + m_2v_{2f}
 $$  
-Esta ley se aplica siempre que el sistema esté aislado, como en colisiones entre bolas de billar o asteroides en el espacio. <!-- IMAGEN: dos esferas en movimiento antes y después de un choque, con flechas indicando momentos -->  
+Esta ley se aplica siempre que el sistema esté aislado, como en colisiones entre bolas de billar o asteroides en el espacio.
 
 ## 2. Diferencias entre choques elásticos e inelásticos
 
@@ -29,7 +29,7 @@ Para determinar si un choque fue elástico o inelástico, hay que observar:
 - **Adherencia**: Si se unen y siguen juntos, es un choque perfectamente inelástico.  
 - **Velocidades finales**: En elásticos, las velocidades cambian de manera que la energía cinética total no varía; en inelásticos, hay una disminución clara.  
 
-Un ejemplo común es el de dos coches que chocan: si se deforman y quedan pegados, la energía se pierde en el proceso. <!-- IMAGEN: comparación de choques elástico e inelástico con indicadores de energía -->  
+Un ejemplo común es el de dos coches que chocan: si se deforman y quedan pegados, la energía se pierde en el proceso.
 
 ## 4. Aplicaciones reales
 

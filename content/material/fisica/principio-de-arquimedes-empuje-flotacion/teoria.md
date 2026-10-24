@@ -14,8 +14,6 @@ El principio de Arquímedes establece que **cualquier cuerpo total o parcialment
 
 Por ejemplo, si un cubo de madera se coloca en agua, desplazará una cantidad de agua igual al volumen de su parte submersa. El empuje será igual al peso de esa masa de agua. Si el empuje supera el peso del objeto, este flotará; si no, se hundirá.
 
-<!-- IMAGEN: Dibujo de un cuerpo parcialmente sumergido en un fluido con flechas indicando la fuerza de gravedad (hacia abajo) y el empuje (hacia arriba). -->
-
 ---
 
 ## 2. Empuje y equilibrio en la flotación
@@ -44,8 +42,6 @@ $$
 $$  
 Este valor es igual al empuje que experimenta el objeto.
 
-<!-- IMAGEN: Representación de un recipiente con agua y una flecha señalando el volumen desplazado por un cuerpo sumergido. -->
-
 ---
 
 ## 4. Aplicaciones prácticas del principio
@@ -53,8 +49,6 @@ Este valor es igual al empuje que experimenta el objeto.
 El principio de Arquímedes tiene múltiples aplicaciones, desde la construcción de barcos hasta la flotación de globos aerostáticos. En los submarinos, se controla el volumen de agua que entra o sale de los tanques de lastre para variar su densidad y así subir o bajar en el agua.
 
 También explica por qué es más fácil nadar en aguas saladas (como el Mar Muerto) que en aguas dulces: la **densidad del fluido** es mayor, lo que aumenta el empuje para un mismo volumen desplazado. Esto permite flotar con menos esfuerzo.
-
-<!-- IMAGEN: Comparación entre un cuerpo sumergido en agua dulce y salada, mostrando diferencias en la altura de flotación. -->
 
 ---
 

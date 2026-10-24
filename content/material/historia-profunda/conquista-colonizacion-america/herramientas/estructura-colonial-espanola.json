@@ -1,0 +1,80 @@
+{
+ "titulo": "Estructura colonial española",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Gobierno",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Corona española",
+     "x": 250,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Consejo de Indias",
+     "x": 250,
+     "y": 92,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Virreinatos",
+     "x": 250,
+     "y": 184,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n4",
+     "label": "Audiencias y gobernaciones",
+     "x": 250,
+     "y": 276,
+     "color": "#e5e7eb"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Sistemas económicos",
+   "headers": [
+    "Sistema",
+    "En qué consistía"
+   ],
+   "rows": [
+    [
+     "Minería de plata y oro",
+     "Principal fuente de riqueza (Potosí)"
+    ],
+    [
+     "Encomienda y mita",
+     "Trabajo indígena obligatorio"
+    ],
+    [
+     "Monopolio comercial",
+     "Comercio solo con España, por puertos autorizados"
+    ]
+   ]
+  }
+ ]
+}

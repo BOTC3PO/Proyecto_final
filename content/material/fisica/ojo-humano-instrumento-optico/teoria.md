@@ -20,8 +20,6 @@ El cristalino es una estructura transparente y flexible ubicada detrás del iris
 
 La retina es una capa sensible a la luz ubicada en la parte posterior del globo ocular. Aquí se forma la **imagen real e invertida** del objeto observado, gracias a la refracción combinada del córnea y el cristalino. Esta imagen no es directamente visible: los fotoreceptores (células conos y bastones) captan la luz y envían señales al cerebro mediante el nervio óptico. El cerebro interpreta estas señales como imágenes derechas, corrigiendo la inversión natural del proceso.
 
-<!-- IMAGEN: Diagrama de la trayectoria de los rayos luminosos desde un objeto hasta la retina -->
-
 ## 3. Acomodación visual
 
 El cristalino cambia su forma para ajustar su **distancia focal** según el enfoque necesario. Cuando miramos objetos cercanos, los músculos ciliares se contraen, aflojando la tensión sobre el cristalino y permitiéndole curvarse más (aumentando su potencia convergente). Al observar objetos lejanos, estos músculos se relajan, reduciendo la curvatura del cristalino. Este mecanismo es crucial para mantener imágenes nítidas a distintas distancias.
@@ -35,8 +33,6 @@ El camino de la luz desde el exterior hasta la percepción visual incluye varios
 3. **Proyección en la retina**: Los rayos convergidos forman una imagen invertida sobre la retina, donde se activan los fotoreceptores.
 
 Este proceso es similar al funcionamiento de una cámara: la córnea y el cristalino actúan como lentes, mientras que la retina equivale al sensor digital.
-
-<!-- IMAGEN: Comparación entre ojo humano y cámara con sus componentes ópticos -->
 
 ## 5. Función del iris
 

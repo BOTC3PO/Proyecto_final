@@ -12,15 +12,11 @@
 
 Karl Popper propuso que una teoría solo es científica si puede ser **refutada** por evidencia empírica. Su enfoque, llamado *falsacionismo*, rechazaba la idea de que la ciencia se basa en confirmaciones repetidas (como defendían los positivistas). Para Popper, lo importante no es probar que una teoría es verdadera, sino diseñar experimentos que puedan **desmentirla**. Si una hipótesis no admite ser sometida a pruebas que la contradigan, cae en el terreno de la metafísica o la pseudociencia. Este criterio marcó un giro en la filosofía de la ciencia al enfatizar la **crítica activa** sobre la mera acumulación de datos.
 
-<!-- IMAGEN: Diagrama con una teoría científica expuesta a pruebas que podrían refutarla, versus una teoría no falsable como "todo lo que ocurre tiene un propósito" -->  
-
 ---
 
 ## 2. Los paradigmas y el cambio científico según Kuhn
 
 Thomas Kuhn rechazó la idea de que la ciencia avanza de forma lineal e incremental. Para él, existen **periodos de estabilidad** donde los científicos trabajan bajo un *paradigma* dominante—una visión general del mundo y sus leyes que guía la investigación. Durante este tiempo, se resuelven problemas dentro del marco establecido (*ciencia normal*). Pero cuando aparecen **anomalías** que el paradigma no puede explicar, surge una *crisis*. Si las contradicciones son demasiado profundas, la comunidad científica entra en un proceso de *revolución* y adopta un nuevo paradigma. Este cambio no es racional ni neutral: depende de factores sociales, políticos e incluso ideológicos.
-
-<!-- IMAGEN: Ciclo de Kuhn con tres etapas: "ciencia normal", "crisis" y "revolución" -->  
 
 ---
 

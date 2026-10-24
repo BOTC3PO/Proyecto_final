@@ -11,6 +11,7 @@ import { VideoBlockRenderer } from "./renderers/VideoBlockRenderer"
 import { PdfBlockRenderer } from "./renderers/PdfBlockRenderer"
 import { LinkBlockRenderer } from "./renderers/LinkBlockRenderer"
 import { FormulaBlockRenderer } from "./renderers/FormulaBlockRenderer"
+import { ImageBlockRenderer } from "./renderers/ImageBlockRenderer"
 
 interface Props {
   doc: BlockDocument
@@ -36,7 +37,7 @@ export function BlockRenderer({ doc }: Props) {
           case "shape":
             return <ShapeBlockRenderer key={block.id} block={block} />
           case "image":
-            return <div key={block.id} />
+            return <ImageBlockRenderer key={block.id} block={block} />
           case "audio":
             return <AudioBlockRenderer key={block.id} block={block} />
           case "video":

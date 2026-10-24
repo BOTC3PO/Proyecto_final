@@ -16,8 +16,6 @@ El **ensayo** es el proceso mediante el cual un objeto, material o sistema se so
 
 Todo ensayo requiere definir qué factores se manipulan y cuáles se miden. Las **variables independientes** son aquellas que el investigador cambia intencionalmente, como la temperatura en un experimento o la carga aplicada a una viga. Su variación permite observar cómo afectan al resultado principal: las **variables dependientes**, que se registran y analizan. Por ejemplo, si se prueba un material sometiéndolo a distintas fuerzas (variable independiente), se mide su deformación (variable dependiente).  
 
-<!-- IMAGEN: Diagrama con ejemplos de variables independientes y dependientes en un ensayo -->
-
 ## 3. Veracidad y precisión
 
 Es común confundir estos dos términos, pero son conceptos distintos. La **veracidad** se refiere a cuán cerca está una medición del valor real. Por ejemplo, si un termómetro marca 25°C cuando la temperatura exacta es 24,8°C, su veracidad es alta. En cambio, la **precisión** indica la repetibilidad de las mediciones: si el mismo termómetro registra siempre 25,1°C en condiciones idénticas, aunque no sea exacto, es preciso. Un instrumento puede ser preciso pero no veraz, o viceversa.
@@ -29,8 +27,6 @@ Un ensayo estructurado sigue etapas claras:
 - **Ejecución**: Se aplican las variables independientes en condiciones controladas, registrando datos en tiempo real.  
 - **Análisis**: Los resultados se comparan con hipótesis previas o estándares, identificándose patrones o desviaciones.  
 - **Conclusión**: Se determina si el prototipo cumple con los requisitos y qué ajustes son necesarios.  
-
-<!-- IMAGEN: Flujo de trabajo en las fases del ensayo -->
 
 ## 5. Importancia de la medición
 

@@ -12,8 +12,6 @@
 
 La invención de la imprenta con tipos móviles por Johannes Gutenberg hacia 1450 marcó un antes y un después en la historia del saber. Antes, los textos religiosos, filosóficos o científicos eran copiados a mano por monjes en scriptoriums, un proceso lento que limitaba su difusión a elites educadas. La imprenta permitió producir cientos de ejemplares idénticos en pocos días, reduciendo costos y tiempos. Esto no solo multiplicó el acceso a la Biblia (como en la traducción de Lutero), sino que también facilitó la circulación de tratados científicos, mapas náuticos y obras literarias, acelerando el intercambio intelectual entre ciudades y países.
 
-<!-- IMAGEN: Comparación entre un manuscrito medieval y un libro impreso con tipos móviles -->
-
 ---
 
 ## 2. La estandarización del conocimiento y la ciencia

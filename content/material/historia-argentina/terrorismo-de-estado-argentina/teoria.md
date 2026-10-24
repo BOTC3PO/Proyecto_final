@@ -16,8 +16,6 @@ El terrorismo de Estado ocurre cuando las instituciones gubernamentales, especia
 
 Durante los años de gobierno militar, el terrorismo de Estado se consolidó como herramienta central para mantener el control. La desaparición forzada fue su método más emblemático: personas eran secuestradas por agentes del Estado, mantenidas en detención clandestina y luego eliminadas sin que sus familias tuvieran acceso a información oficial sobre su paradero. Este proceso no solo violaba derechos humanos básicos, sino que también buscaba desarticular redes de oposición política, sindical o cultural. La represión no se limitó a la violencia física: el Estado utilizó técnicas psicológicas como el aislamiento y la tortura para obtener información o silenciar críticas.
 
-<!-- IMAGEN: Mapa conceptual con nodos "Desaparición forzada", "Tortura", "Detención clandestina" conectados al nodo central "Terrorismo de Estado" -->
-
 ## 3. La metodología represiva: secuencia y objetivos
 
 El proceso de represión siguió una lógica estructurada. En primer lugar, los grupos considerados peligrosos eran identificados a través de inteligencia y espionaje (fase de recolección de datos). Luego, se planificaban operativos de captura para secuestrar a las víctimas en forma sorpresiva, evitando que alertaran a otros. Una vez detenidas, las personas eran trasladadas a centros clandestinos donde sufrían torturas y interrogatorios forzados con el fin de obtener confesiones o información sobre redes de resistencia. Finalmente, muchas eran eliminadas físicamente (a través de asesinatos, fusilamientos o enterramientos en fosas comunes), y su desaparición se ocultaba mediante la negación oficial de su detención.

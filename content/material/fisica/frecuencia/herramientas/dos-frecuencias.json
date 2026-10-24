@@ -1,0 +1,28 @@
+{
+ "titulo": "Baja y alta frecuencia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "math",
+   "title": "Ondas en 1 segundo",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "sin(6.283*2*x)",
+     "label": "Baja frecuencia: 2 ciclos por segundo (2 Hz)"
+    },
+    {
+     "id": "f2",
+     "expression": "sin(6.283*6*x)",
+     "label": "Alta frecuencia: 6 ciclos por segundo (6 Hz)"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 1,
+   "showGrid": true,
+   "showLegend": true,
+   "yMin": -1.2,
+   "yMax": 1.2
+  }
+ ]
+}

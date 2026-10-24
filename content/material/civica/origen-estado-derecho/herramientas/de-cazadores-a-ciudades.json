@@ -1,0 +1,53 @@
+{
+ "titulo": "De las sociedades cazadoras a las ciudades con gobernantes",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Línea de tiempo",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Sociedades cazadoras-recolectoras",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Agricultura y excedente",
+     "x": 200,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Aldeas sedentarias",
+     "x": 400,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Ciudades con gobernantes y leyes",
+     "x": 600,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

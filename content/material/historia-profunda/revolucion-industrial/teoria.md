@@ -22,8 +22,6 @@ La Revolución Industrial fue posible gracias a una innovación clave: el uso de
 
 Antes de la industrialización, la producción se realizaba en casa por encargo (sistema *putting-out*), donde los artesanos fabricaban piezas usando herramientas manuales. Con el surgimiento de las **fábricas**, este modelo cambió radicalmente: los trabajadores se concentraron en grandes edificios equipados con máquinas, bajo supervisión directa. Este **factory system** aumentó la eficiencia pero también generó condiciones laborales duras, con jornadas largas y salarios bajos. La separación entre trabajo y hogar marcó el inicio de una nueva estructura social.
 
-<!-- IMAGEN: Comparación entre un taller doméstico y una fábrica industrial -->
-
 ---
 
 ## 3. Transformación del paisaje

@@ -25,8 +25,6 @@ Wattcl, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/Fil
 
 La acumulación progresiva del oxígeno en la atmósfera marcó un antes y un después en la historia de la Tierra. Este fenómeno, llamado **Gran Oxidación**, transformó el aire primitivo —rico en gases como metano (CH₄) y amoníaco (NH₃)— en un entorno oxidante. La atmósfera dejó de ser reductora para convertirse en una donde el oxígeno dominaba, lo que alteró radicalmente las condiciones químicas del planeta. Este cambio no fue inmediato: tomó cientos de millones de años y se debió a la persistente actividad de microorganismos fotosintéticos.
 
-<!-- IMAGEN: Comparación entre atmósfera primitiva (reductora) y actual (oxidante) -->
-
 ---
 
 ## 3. Consecuencias para la vida primitiva
@@ -38,8 +36,6 @@ La aparición del oxígeno tuvo efectos profundos en los seres vivos. Muchas for
 ## 4. La formación de la capa de ozono
 
 El oxígeno no solo modificó la química atmosférica, sino que también dio lugar a una nueva protección para los seres vivos. Parte del O₂ se combinó bajo la acción de la radiación ultravioleta (UV) para formar **ozono (O₃)**, un gas que absorbe gran parte de esta radiación dañina. La **capa de ozono** emergió como una barrera esencial que permitió el desarrollo de formas de vida complejas en superficie, al reducir los efectos mutagénicos del UV solar.
-
-<!-- IMAGEN: Esquema de la formación de la capa de ozono a partir del oxígeno -->
 
 ---
 

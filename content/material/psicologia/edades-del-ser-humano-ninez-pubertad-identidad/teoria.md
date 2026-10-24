@@ -12,8 +12,6 @@
 
 El ser humano atraviesa distintas fases a lo largo de su vida, cada una marcada por cambios biológicos, cognitivos y sociales. La **niñez** se caracteriza por el aprendizaje básico, la dependencia de los adultos y la formación de hábitos. Luego llega la **pubertad**, etapa en la que el cuerpo sufre transformaciones profundas: crecimiento acelerado, desarrollo de órganos reproductores y cambios hormonales que activan funciones nuevas. Finalmente, la adolescencia es un puente hacia la **edad adulta**, donde se consolidan identidades personales y responsabilidades sociales.
 
-<!-- IMAGEN: Cronograma con las etapas del desarrollo humano desde la infancia hasta la vejez -->
-
 ---
 
 ## 2. Cambios biológicos en la pubertad

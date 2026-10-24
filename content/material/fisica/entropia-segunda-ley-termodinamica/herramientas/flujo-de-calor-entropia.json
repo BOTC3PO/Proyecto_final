@@ -1,0 +1,34 @@
+{
+ "titulo": "Flujo espontáneo de calor",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "El calor pasa solo del caliente al frío",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Bloque caliente",
+     "x": 0,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Bloque frío",
+     "x": 375,
+     "y": 0,
+     "color": "#dbeafe"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "calor"
+    }
+   ]
+  }
+ ]
+}

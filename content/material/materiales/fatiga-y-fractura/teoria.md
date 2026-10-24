@@ -12,8 +12,6 @@
 
 La fatiga es un proceso de deterioro interno en un material que ocurre cuando se somete a cargas cíclicas o fluctuantes, aunque el valor máximo de estas cargas sea menor al límite de rotura del material. A diferencia de una fractura causada por un impacto único, la fatiga se desarrolla lentamente. Aparecen microgrietas en la superficie o cerca de zonas con concentradores de tensión (como bordes, soldaduras o inclusiones). Con el tiempo, estas grietas crecen hasta que el material no puede soportar más carga. Este fenómeno es común en estructuras metálicas, piezas mecánicas y componentes eléctricos sometidos a uso continuo.
 
-<!-- IMAGEN: Diagrama de un material bajo fatiga con etapas de grieta inicial, propagación y fractura -->
-
 ---
 
 ## 2. Etapas del proceso de falla por fatiga

@@ -12,8 +12,6 @@
 
 La evidencia en investigación no es un dato aislado, sino una **información empírica** obtenida mediante observaciones sistemáticas o experimentos repetibles. Sirve para apoyar o desafiar una hipótesis: si se miden temperaturas durante décadas y se registran patrones de aumento, esos datos son evidencia del cambio climático. La clave está en que la evidencia debe ser **verificable** por otros investigadores, usando métodos claros y transparentes.
 
-<!-- IMAGEN: Esquema con una flecha que va desde "Observación" hasta "Dato verificable" y luego a "Hipótesis validada o refutada" -->
-
 ---
 
 ## 2. La objeción como herramienta de crítica

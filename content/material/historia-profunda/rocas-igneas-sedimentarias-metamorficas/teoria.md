@@ -12,13 +12,9 @@
 
 Las rocas ígneas se originan a partir del enfriamiento y solidificación del material fundido, llamado **magma** cuando está bajo la superficie terrestre o **lava** cuando emerge en la superficie. Este proceso puede ocurrir de dos formas: si el magma se enfría lentamente dentro de la corteza (por ejemplo, en intrusiones), forma rocas con cristales grandes y estructura granular, como el **granito**. Si la lava se solidifica rápidamente en la superficie, los cristales no tienen tiempo para crecer, resultando en rocas más finas, como el **basalto**.
 
-<!-- IMAGEN: Comparación de texturas entre granito (ígneo intrusivo) y basalto (ígneo extrusivo) -->
-
 ## 2. Rocas sedimentarias
 
 Las rocas sedimentarias se forman a partir de la acumulación de sedimentos, que pueden ser partículas minerales, fragmentos orgánicos o restos de organismos. Estos sedimentos se depositan en capas en ambientes como ríos, océanos o lagos, y luego son compactados y cementados con el tiempo. Ejemplos comunes incluyen la **arenisca** (formada por granos de arena) y la **caliza** (proveniente de restos de organismos marinos).
-
-<!-- IMAGEN: Proceso de formación de una capa sedimentaria en un ambiente marino -->
 
 ## 3. Rocas metamórficas
 

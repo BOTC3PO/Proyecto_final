@@ -14,8 +14,6 @@ La **presión hidrostática** es el valor de la fuerza por unidad de área que u
 
 Un ejemplo claro es bucear en una piscina: cuanto más profundo estás, mayor es la sensación de oído "tapado", lo que indica un aumento de presión. Esto ocurre porque hay más agua encima tuyo a medida que te hundes.
 
-<!-- IMAGEN: Diagrama de un recipiente con fluido, mostrando flechas que indican la dirección de la presión hidrostática en diferentes puntos del líquido. -->
-
 ---
 
 ## 2. ¿Cómo varía con la profundidad?

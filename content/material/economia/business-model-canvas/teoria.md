@@ -41,7 +41,7 @@ El bloque "Segmentos de clientes" no se limita a listar nombres de compradores, 
 
 ## 4. La conexión entre propuesta de valor y clientes
 
-La propuesta de valor debe estar directamente alineada con los segmentos definidos. Si un cliente busca ahorrar tiempo, la propuesta de valor no puede ser "un producto bonito", sino algo como "software que reduce el tiempo de cierre contable en un 30%". Esta relación es clave: sin una oferta clara que responda a las necesidades del segmento, el negocio pierde relevancia. <!-- IMAGEN: ejemplo de dos escenarios: software para contadores vs. cafetería con coworking -->.
+La propuesta de valor debe estar directamente alineada con los segmentos definidos. Si un cliente busca ahorrar tiempo, la propuesta de valor no puede ser "un producto bonito", sino algo como "software que reduce el tiempo de cierre contable en un 30%". Esta relación es clave: sin una oferta clara que responda a las necesidades del segmento, el negocio pierde relevancia.
 
 ---
 

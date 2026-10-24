@@ -46,8 +46,6 @@ Estos primeros tetrápodos eran anfibios primitivos, como **Ichthyostega** o **A
 
 La transición del medio acuático al terrestre no fue un evento aislado, sino una serie de adaptaciones acumuladas a lo largo de millones de años. Cada grupo que colonizó la tierra firme dejó una huella en el entorno y en los siguientes habitantes. Las plantas modificaron el clima al liberar oxígeno; los artrópodos dieron lugar a redes tróficas complejas; y los tetrápodos abrieron camino para la evolución de mamíferos, aves y reptiles.
 
-<!-- IMAGEN: Cronología visual con marcas en 470 Ma (plantas), 428 Ma (artrópodos) y 365 Ma (tetrápodos) -->
-
 ---
 
 ## N. Conexión con lo que sigue

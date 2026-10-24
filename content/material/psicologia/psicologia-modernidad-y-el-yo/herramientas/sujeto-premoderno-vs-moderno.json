@@ -1,0 +1,32 @@
+{
+ "titulo": "Sujeto premoderno y sujeto moderno",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Premoderno",
+    "Moderno"
+   ],
+   "rows": [
+    [
+     "Identidad",
+     "Dada por el rol y la tradición",
+     "Construida por cada persona"
+    ],
+    [
+     "Fuente de autoridad",
+     "La tradición",
+     "La razón y la autonomía"
+    ],
+    [
+     "Ejemplo",
+     "\"Soy hijo de herrero, seré herrero\"",
+     "\"Elijo mi profesión\""
+    ]
+   ]
+  }
+ ]
+}

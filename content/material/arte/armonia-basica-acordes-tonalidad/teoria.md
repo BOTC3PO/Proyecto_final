@@ -10,7 +10,7 @@
 
 ## 1. Qué es un acorde
 
-Un acorde es la superposición de dos o más notas musicales que suenan al mismo tiempo. Esta combinación genera una sonoridad específica, que puede producir sensaciones de estabilidad (como el acorde mayor) o tensión (como el acorde disminuido). Los acordes son la base de la armonía en la música occidental y se construyen siguiendo patrones definidos por intervalos. Por ejemplo, un acorde mayor está formado por una raíz, una tercera mayor y una quinta justa. <!-- IMAGEN: Diagrama de un acorde mayor con notas y sus intervalos -->.
+Un acorde es la superposición de dos o más notas musicales que suenan al mismo tiempo. Esta combinación genera una sonoridad específica, que puede producir sensaciones de estabilidad (como el acorde mayor) o tensión (como el acorde disminuido). Los acordes son la base de la armonía en la música occidental y se construyen siguiendo patrones definidos por intervalos. Por ejemplo, un acorde mayor está formado por una raíz, una tercera mayor y una quinta justa.
 
 ---
 

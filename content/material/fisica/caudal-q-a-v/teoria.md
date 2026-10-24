@@ -35,8 +35,6 @@ El concepto de caudal es fundamental en ingeniería civil, mecánica y ambiental
 - En **turbinas hidroeléctricas**, el caudal disponible determina la energía generada.  
 - En **medición de fluidos industriales**, sensores miden el caudal en tiempo real para controlar procesos químicos o petroquímicos.
 
-<!-- IMAGEN: Esquema de una tubería con flechas indicando el flujo del fluido, marcado el área transversal *A* y la velocidad *v*, con una etiqueta que muestra la fórmula Q = A · v. -->
-
 ## N. Conexión con lo que sigue
 
 Este tema es base para entender principios como **la ecuación de Bernoulli** o la **ley de Torricelli**, que relacionan caudal, presión y energía en fluidos. Ver también: bernoulli principio.

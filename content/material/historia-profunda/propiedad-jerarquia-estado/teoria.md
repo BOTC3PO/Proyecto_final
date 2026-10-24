@@ -12,8 +12,6 @@
 
 El paso de una vida nómada a sedentaria permitió que las comunidades agrícolas produjeran más alimento del necesario, creando un **excedente**. Este surplus no solo alimentaba a más personas, sino que también se podía almacenar o intercambiar. La posibilidad de acumular recursos generó diferencias entre quienes controlaban la producción y quienes dependían de ella. Así, surgió la idea de **propiedad privada**, donde una parte de la tierra o los productos se consideraban "de alguien" en particular, en lugar de pertenecer a toda la comunidad.
 
-<!-- IMAGEN: Mapa comparativo entre asentamientos nómadas y sedentarios con indicadores de producción y acumulación -->
-
 ---
 
 ## 2. Transición económica

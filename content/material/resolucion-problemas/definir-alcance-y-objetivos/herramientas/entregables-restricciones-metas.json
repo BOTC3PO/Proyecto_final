@@ -1,0 +1,32 @@
+{
+ "titulo": "Entregables, restricciones y metas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Elementos de un objetivo bien definido",
+   "headers": [
+    "Elemento",
+    "Qué es",
+    "Ejemplo"
+   ],
+   "rows": [
+    [
+     "Entregable",
+     "Producto que se debe producir",
+     "Sitio web publicado"
+    ],
+    [
+     "Restricción",
+     "Límite del proyecto",
+     "Presupuesto de $200.000"
+    ],
+    [
+     "Meta",
+     "Resultado final buscado",
+     "100 socios inscriptos online al fin de año"
+    ]
+   ]
+  }
+ ]
+}

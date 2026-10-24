@@ -1,0 +1,47 @@
+{
+ "titulo": "Percepción, atención y memoria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Un circuito cerrado",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Percepción",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Atención",
+     "x": 396,
+     "y": 155
+    },
+    {
+     "id": "n3",
+     "label": "Memoria",
+     "x": 29,
+     "y": 155
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

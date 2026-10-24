@@ -1,0 +1,47 @@
+{
+ "titulo": "El planificador (scheduler)",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Del estado \"Listo\" a la CPU",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Procesos en estado Listo",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Planificador (scheduler)",
+     "x": 275,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "CPU",
+     "x": 550,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "cola"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "asigna"
+    }
+   ]
+  }
+ ]
+}

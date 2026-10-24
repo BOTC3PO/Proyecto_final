@@ -1,0 +1,45 @@
+{
+ "titulo": "Cómo se construye un artículo de prensa",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "De los hechos al artículo",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Testimonios y documentos originales (fuentes primarias)",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "El periodista contrasta y verifica",
+     "x": 238,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Artículo de prensa (fuente secundaria)",
+     "x": 475,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

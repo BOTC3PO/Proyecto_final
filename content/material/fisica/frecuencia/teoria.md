@@ -14,8 +14,6 @@ La **frecuencia** mide cuántas veces se repite un fenómeno periódico en un ti
 
 La definición más precisa: **es la cantidad de oscilaciones completas que ocurren en un segundo**. Esto incluye movimientos como el balanceo de un péndulo, las vibraciones de una cuerda de guitarra o las ondas electromagnéticas.
 
-<!-- IMAGEN: Diagrama con dos ondas, una más comprimida (alta frecuencia) y otra más alargada (baja frecuencia), mostrando ciclos por segundo -->
-
 ---
 
 ## 2. La relación entre frecuencia y período
@@ -43,8 +41,6 @@ La unidad estándar para medir frecuencia en el **Sistema Internacional** es el 
 Ejemplos:
 - Una onda de radio con 100 MHz (megahercios) completa 100 millones de ciclos cada segundo.
 - El corazón humano late aproximadamente entre 60 y 100 veces por minuto en reposo, lo que equivale a una frecuencia de entre 1 y 1,7 Hz aproximadamente.
-
-<!-- IMAGEN: Escalas de frecuencia, desde ondas de baja frecuencia (Hz) hasta microondas o luz visible (THz) -->
 
 ---
 

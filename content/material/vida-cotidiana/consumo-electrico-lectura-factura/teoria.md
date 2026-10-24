@@ -12,8 +12,6 @@
 
 El **kWh**, o **kilovatio-hora**, es la unidad que se usa para medir la energía eléctrica consumida en las facturas. Representa la cantidad de energía que consume un aparato con una potencia de 1000 vatios durante una hora. Por ejemplo, si tenés una bombilla de 60 vatios encendida durante 10 horas, su consumo sería de **0,6 kWh** (60 vatios = 0,06 kW x 10 h). Esta medida es clave para entender cuánto cuesta el uso de los electrodomésticos en tu casa.
 
-<!-- IMAGEN: Comparación entre vatios y kilovatios-hora. Ejemplo: 1 kWh = 1000 W × 1 hora -->
-
 ---
 
 ## 2. Cómo calcular el consumo de un aparato

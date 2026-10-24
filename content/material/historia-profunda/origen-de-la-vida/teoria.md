@@ -12,8 +12,6 @@
 
 Hace unos 4 mil millones de años, la Tierra era un planeta joven con una atmósfera muy diferente a la actual. Según la hipótesis de Oparin y Haldane, esta atmósfera primitiva era reductora: carecía de oxígeno libre (O₂) y estaba compuesta principalmente por gases como el metano (CH₄), amoníaco (NH₃), hidrógeno (H₂) y vapor de agua. Estos gases, al combinarse con la energía proveniente de rayos ultravioleta del Sol y descargas eléctricas (simuladas en experimentos como el de Miller-Urey), permitieron la formación de moléculas orgánicas simples. Este entorno se conoce como "caldo primordial" o "sopa primitiva", donde los compuestos inorgánicos se organizaban gradualmente en estructuras más complejas, como aminoácidos y ácidos nucleicos.
 
-<!-- IMAGEN: esquema de la atmósfera primitiva con gases reductores y energía externa -->
-
 ---
 
 ## 2. El experimento de Miller-Urey

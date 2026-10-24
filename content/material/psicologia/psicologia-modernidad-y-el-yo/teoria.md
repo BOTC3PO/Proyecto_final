@@ -14,8 +14,6 @@ La modernidad marcó un giro fundamental en la forma de entender al ser humano c
 
 El concepto clave aquí es el **individualismo**, una idea central en la modernidad: la identidad no se deriva de pertenecer a un colectivo, sino de la autonomía personal y la construcción interna del yo. Esta visión contrasta con modelos anteriores donde la identidad era más estática y dependiente de contextos externos como la religión o el estatus social.  
 
-<!-- IMAGEN: diagrama comparativo entre sujeto premoderno (rol, tradición) vs. sujeto moderno (autonomía, razón) -->.  
-
 ---
 
 ## 2. ¿El yo es una noción histórica?  

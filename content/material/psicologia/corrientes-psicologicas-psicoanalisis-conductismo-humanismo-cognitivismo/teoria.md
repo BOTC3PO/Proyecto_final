@@ -42,8 +42,6 @@ A mediados del siglo XX, el **humanismo** desafió a las corrientes anteriores a
 
 A partir de los años 60, el **cognitivismo** tomó el relevo al recuperar el estudio de procesos internos, pero desde un enfoque más científico. Esta corriente comparaba la mente con una computadora: procesa información, almacena datos y resuelve problemas. Jean Piaget estudió cómo los niños construyen su conocimiento a través de etapas, mientras que modelos modernos analizan cómo la memoria o el lenguaje funcionan como sistemas internos. El cognitivismo integró ideas del psicoanálisis (los procesos no conscientes) y el conductismo (la importancia de lo observable), pero con herramientas más precisas, como la neurociencia.
 
-<!-- IMAGEN: Comparación entre el cerebro humano y un ordenador, destacando entradas, procesamiento y salidas -->
-
 ---
 
 ## N. Conexión con lo que sigue

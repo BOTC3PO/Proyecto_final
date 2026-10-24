@@ -32,8 +32,6 @@ El segundo principio es aún más sorprendente: **la velocidad de la luz en el v
 
 Esto no parece lógico a primera vista. Si, por ejemplo, un coche se acelera hacia adelante y enciende sus luces, ¿no deberían las luces moverse más rápido que si el auto estuviera quieto? La relatividad especial responde que **no**: la luz siempre va a $ c $, lo cual implica que el tiempo y el espacio no son absolutos.  
 
-<!-- IMAGEN: Representación de un rayo de luz viajando a velocidad constante en distintos marcos inerciales -->
-
 ---
 
 ## 4. Consecuencias: el tiempo es relativo

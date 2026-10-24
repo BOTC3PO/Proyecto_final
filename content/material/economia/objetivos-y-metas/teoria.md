@@ -12,7 +12,7 @@
 
 En economía, un **objetivo** es una aspiración general que define hacia dónde se quiere llegar. Por ejemplo, "aumentar la producción nacional" o "reducir el desempleo". Es un resultado amplio, cualitativo y a menudo no cuantificable directamente. En cambio, una **meta** es un paso concreto para alcanzar ese objetivo. Tiene que ser específica, medible y con un plazo definido: "aumentar la producción en un 12% dentro de los próximos seis meses" o "reducir el desempleo en un 5% antes del cierre del año".
 
-La clave está en la **especificidad**. Los objetivos son guías estratégicas, mientras que las metas son herramientas operativas para lograrlos. <!-- IMAGEN: Comparación visual entre objetivo (flecha general) y meta (segmento con datos numéricos y fechas) -->.
+La clave está en la **especificidad**. Los objetivos son guías estratégicas, mientras que las metas son herramientas operativas para lograrlos.
 
 ---
 

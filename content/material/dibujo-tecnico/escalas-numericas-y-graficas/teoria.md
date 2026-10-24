@@ -30,8 +30,6 @@ Estas escalas son clave para interpretar planos arquitectónicos, maquetas o pie
 
 Las **escalas gráficas** son líneas graduadas directamente en los planos, que funcionan como una "regla" visual. Están compuestas por segmentos divididos en partes iguales, indicando las medidas reales correspondientes a cada sección. Por ejemplo, si una escala gráfica está dividida en 5 cm que representan 1 metro, puedes medir directamente con un comps o regla sobre el dibujo y obtener la medida real sin cálculos.
 
-<!-- IMAGEN: Escala gráfica con divisiones marcadas para medir distancias -->
-
 Esta herramienta es útil cuando se necesita rapidez en las mediciones, como en planos de construcción o mapas. Sin embargo, su precisión depende de la calidad del dibujo y de que se respete la proporción durante el trazado.
 
 ## 4. Escalas naturales: ¿cuándo usar 1:1?

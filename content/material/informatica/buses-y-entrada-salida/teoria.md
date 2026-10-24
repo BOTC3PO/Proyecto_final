@@ -29,8 +29,6 @@ Indica a dónde va o desde dónde proviene la información. Por ejemplo, cuando 
 ### c) Bus de control  
 Envía señales que coordinan las operaciones: indica si se está leyendo o escribiendo datos, cuándo un dispositivo está listo para recibir información, etc. Son como las "instrucciones" que mantienen sincronizado el sistema.
 
-<!-- IMAGEN: Diagrama comparando los tres tipos de buses con ejemplos de flujo de datos -->
-
 ---
 
 ## 3. El ciclo de entrada/salida

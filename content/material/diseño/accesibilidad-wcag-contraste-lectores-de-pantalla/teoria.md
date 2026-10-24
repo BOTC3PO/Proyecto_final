@@ -16,7 +16,7 @@ WCAG son las *Web Content Accessibility Guidelines*, o Pautas de Accesibilidad p
 
 ## 2. Contraste de color: más que una cuestión estética
 
-El contraste entre texto y fondo no es un detalle decorativo: es una condición técnica fundamental. Para garantizar la legibilidad, el ratio de contraste debe ser al menos de **4.5:1** para textos normales (como párrafos) y **3:1** para elementos grandes como títulos o botones. Un texto gris claro sobre fondo blanco <!-- IMAGEN: herramienta de medición de contraste con ejemplo de texto en gris y fondo blanco --> falla este requisito, mientras que el negro sobre blanco cumple. Este contraste no solo beneficia a usuarios con baja visión, sino también a quienes usan dispositivos en entornos brillantes o con pantallas pequeñas.
+El contraste entre texto y fondo no es un detalle decorativo: es una condición técnica fundamental. Para garantizar la legibilidad, el ratio de contraste debe ser al menos de **4.5:1** para textos normales (como párrafos) y **3:1** para elementos grandes como títulos o botones. Un texto gris claro sobre fondo blanco falla este requisito, mientras que el negro sobre blanco cumple. Este contraste no solo beneficia a usuarios con baja visión, sino también a quienes usan dispositivos en entornos brillantes o con pantallas pequeñas.
 
 ---
 

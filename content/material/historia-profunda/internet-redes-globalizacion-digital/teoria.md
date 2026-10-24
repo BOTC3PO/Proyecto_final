@@ -28,8 +28,6 @@ La expansión de internet no fue posible hasta que se adoptó el protocolo TCP/I
 
 Aunque internet existía desde los años 70, su adopción masiva comenzó con la creación de la *World Wide Web* (WWW) en 1989 por Tim Berners-Lee. Su innovación fue simple pero revolucionaria: un sistema de hipervínculos que permitía navegar entre documentos y páginas sin necesidad de conocer su ubicación física. Los navegadores como Mosaic, lanzados a principios de los 90, convirtieron la web en una herramienta accesible para usuarios no técnicos. Esto marcó el inicio de la *globalización digital*: información, servicios y comercio se volvieron globales en cuestión de años, rompiendo barreras geográficas y culturales.
 
-<!-- IMAGEN: Comparación entre la estructura de datos en redes anteriores a TCP/IP y cómo los paquetes viajan por internet -->
-
 ---
 
 ## 4. La globalización digital: efectos sociales y económicos

@@ -43,3 +43,8 @@ no quedan en el texto importado: `exportar_manifiesto.py` las saca y las convier
 (un `BlockDocument` con un bloque `image`, con su atribución en el pie). Los diagramas interactivos se agregan con archivos
 `<tema>/herramientas/*.json` (`{"titulo": "...", "blocks": [ ...bloques de la web: flow, shape, chart, math, table... ]}`).
 El importador los agrega como `theoryItems` `Herramienta` después del texto (`<id>.h1`, `<id>.h2`…).
+
+Los diagramas del temario (flow, table, chart, math, shape) están en `content/material/<materia>/<tema>/herramientas/*.json`; la prueba
+`apps/web/src/blocks/__tests__/contenidoHerramientas.spec.tsx` valida que cada uno sea un `BlockDocument` correcto y que se dibuje.
+El exportador también quita los comentarios HTML de la teoría (la app la muestra como texto plano). La app móvil todavía no
+muestra los ítems `Herramienta` (la web sí).

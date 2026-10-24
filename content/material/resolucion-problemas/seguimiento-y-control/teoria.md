@@ -12,8 +12,6 @@
 
 El seguimiento es el proceso constante de recopilar, analizar y comparar datos sobre el estado actual de un proyecto con lo planificado. No se trata solo de revisar listas de tareas cumplidas, sino de entender si los recursos (tiempo, presupuesto, personal) se están utilizando según la estrategia definida. Por ejemplo: si un equipo debe entregar un informe en 10 días y lleva tres días con retraso, el seguimiento detectará esa diferencia antes de que afecte al cronograma general.
 
-<!-- IMAGEN: Diagrama comparando "lo planificado" vs "lo real" con flechas señalando desviaciones -->
-
 ---
 
 ## 2. Seguimiento vs control: ¿en qué se diferencian?
@@ -30,8 +28,6 @@ El control no es un solo paso, sino una secuencia:
 3. **Toma de decisión**: Elegir entre ajustar el plan, buscar alternativas o aceptar la variación.  
 4. **Implementación**: Ejecutar acciones correctivas (ej.: reprogramar tareas).  
 5. **Evaluación**: Verificar si las medidas funcionaron y actualizar los registros.
-
-<!-- IMAGEN: Ciclo de control con flechas que conectan cada etapa -->
 
 ---
 

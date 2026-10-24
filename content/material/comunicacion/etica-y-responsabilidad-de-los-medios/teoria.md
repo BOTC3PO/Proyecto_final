@@ -10,7 +10,7 @@
 
 ## 1. Veracidad como principio fundamental
 
-La veracidad no es un concepto abstracto, sino una práctica concreta que implica contrastar información proveniente de distintas fuentes antes de su publicación. Los medios deben garantizar que los hechos presentados reflejen lo ocurrido con la mayor precisión posible, incluso cuando eso requiere revisar datos o corregir errores previos. Este compromiso no se limita a evitar mentiras explícitas: también incluye evitar el sesgo en la selección de información, en la interpretación de eventos y en la contextualización de los hechos. <!-- IMAGEN: Diagrama del proceso de verificación de noticias -->  
+La veracidad no es un concepto abstracto, sino una práctica concreta que implica contrastar información proveniente de distintas fuentes antes de su publicación. Los medios deben garantizar que los hechos presentados reflejen lo ocurrido con la mayor precisión posible, incluso cuando eso requiere revisar datos o corregir errores previos. Este compromiso no se limita a evitar mentiras explícitas: también incluye evitar el sesgo en la selección de información, en la interpretación de eventos y en la contextualización de los hechos.
 
 ## 2. Responsabilidad social como deber ético
 

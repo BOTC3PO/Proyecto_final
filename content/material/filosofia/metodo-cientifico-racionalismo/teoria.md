@@ -12,8 +12,6 @@
 
 El racionalismo sostiene que el ser humano puede acceder a la verdad no a través de los sentidos ni de la tradición, sino mediante la razón. Para los filósofos racionalistas, la mente humana posee facultades innatas capaces de descubrir principios universales y absolutos. Esta postura se opone al empirismo, que defiende que todo conocimiento proviene de la experiencia sensorial. En el contexto del método científico, el racionalismo establece que las leyes naturales no son meras generalizaciones de hechos observados, sino verdades necesarias que la razón puede aprehender independientemente de la experiencia.
 
-<!-- IMAGEN: Esquema comparativo entre racionalismo y empirismo en la obtención del conocimiento -->
-
 ## 2. El método deductivo: desde lo general a lo particular
 
 El núcleo del método racionalista es el razonamiento deductivo, que parte de principios generales considerados evidentes para derivar conclusiones particulares. Este enfoque busca garantizar la certeza lógica: si las premisas son verdaderas y el razonamiento es válido, las conclusiones no pueden ser falsas. Por ejemplo, si se acepta como principio que "todo cuerpo cae hacia la Tierra" (general), se deduce que "una manzana soltada en un árbol caerá al suelo" (particular). Este método contrasta con el inductivo, más propio del empirismo, donde se parte de observaciones específicas para formular leyes generales.

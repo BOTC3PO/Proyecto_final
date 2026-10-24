@@ -34,8 +34,6 @@ El aprendizaje efectivo sigue tres etapas clave: **codificación**, **recuperaci
 
 Para implementar estas herramientas, es útil planificar sesiones de estudio con horarios definidos y usar métodos como tarjetas flash (*flashcards*) para el repaso espaciado. Estas pueden programarse según intervalos sugeridos por algoritmos (como los de apps de memorización). En cuanto a la recuperación activa, se puede practicar con ejercicios autogenerados: después de leer un tema, cerrar el libro y escribir lo que se acuerda. Además, combinar ambas técnicas —es decir, repasar información con intervalos crecientes mientras se intenta recordarla sin mirar— potencia su efectividad.
 
-<!-- IMAGEN: Ejemplo de tarjetas flash con fechas de repaso programadas -->.
-
 ---
 
 ## N. Conexión con lo que sigue

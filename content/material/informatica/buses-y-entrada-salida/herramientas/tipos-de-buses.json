@@ -1,0 +1,32 @@
+{
+ "titulo": "Los tres tipos de buses",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué viaja por cada uno",
+   "headers": [
+    "Bus",
+    "Qué transporta",
+    "Ejemplo"
+   ],
+   "rows": [
+    [
+     "De datos",
+     "Los datos mismos",
+     "La CPU lee un número de la RAM"
+    ],
+    [
+     "De direcciones",
+     "La dirección de memoria o del dispositivo",
+     "La CPU indica qué posición de la RAM quiere"
+    ],
+    [
+     "De control",
+     "Señales: leer, escribir, reloj",
+     "La CPU avisa \"voy a escribir\""
+    ]
+   ]
+  }
+ ]
+}

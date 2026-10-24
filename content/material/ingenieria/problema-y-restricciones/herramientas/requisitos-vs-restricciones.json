@@ -1,0 +1,27 @@
+{
+ "titulo": "Requisitos y restricciones",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Requisito",
+    "Restricción"
+   ],
+   "rows": [
+    [
+     "Qué es",
+     "Lo que el diseño debe lograr",
+     "Un límite que el diseño debe respetar"
+    ],
+    [
+     "Ejemplo",
+     "Soportar 50 t",
+     "Costo máximo de $1 M"
+    ]
+   ]
+  }
+ ]
+}

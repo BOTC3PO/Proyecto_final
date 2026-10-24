@@ -32,8 +32,6 @@ Las células eucariotas poseen un sistema complejo de organelas delimitadas por 
 
 Dentro del sistema de organelas, ciertas estructuras tienen roles específicos que no existen en las procariotas. Los cloroplastos, presentes solo en células vegetales, son responsables de la fotosíntesis al captar luz solar y convertirla en energía química. Por otro lado, los lisosomas contienen enzimas digestivas que descomponen sustancias dentro de la célula, contribuyendo a su mantenimiento y defensa.
 
-<!-- IMAGEN: Comparación entre mitocondrias, cloroplastos y lisosomas con sus funciones -->
-
 ---
 
 ## 4. Evolución y complejidad

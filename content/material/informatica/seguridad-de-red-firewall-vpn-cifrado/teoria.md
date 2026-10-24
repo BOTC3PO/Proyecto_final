@@ -22,8 +22,6 @@ Un **firewall** es una herramienta que actúa como una barrera entre una red con
 
 Una **Red Privada Virtual (VPN)** crea un **túnel cifrado** sobre una infraestructura pública como Internet, lo que permite enviar datos de manera segura sin que terceros puedan interceptarlos o leerlos. Este túnel actúa como un "conducto seguro" que encripta toda la información que pasa por él. La VPN es comúnmente usada para acceder a recursos de una red remota (como el trabajo) desde cualquier lugar, protegiendo la identidad del usuario y los datos transmitidos.
 
-<!-- IMAGEN: Esquema de un túnel de conexión segura mediante una VPN -->
-
 ---
 
 ## 3. ¿Por qué es importante el cifrado?

@@ -1,0 +1,28 @@
+{
+ "titulo": "Beneficio y costo de una decisión",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Ejemplos",
+   "headers": [
+    "Beneficio",
+    "Costo"
+   ],
+   "rows": [
+    [
+     "Velocidad de producción",
+     "Mantenimiento costoso"
+    ],
+    [
+     "Menor precio",
+     "Menor durabilidad"
+    ],
+    [
+     "Más funciones",
+     "Mayor complejidad"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "titulo": "Causas y restricciones",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Ejemplos",
+   "headers": [
+    "Causa",
+    "Restricción"
+   ],
+   "rows": [
+    [
+     "Falta de herramientas",
+     "Presupuesto limitado"
+    ],
+    [
+     "Demoras en la entrega",
+     "Plazo fijo del cliente"
+    ],
+    [
+     "Errores de montaje",
+     "Personal con poca capacitación"
+    ]
+   ]
+  }
+ ]
+}

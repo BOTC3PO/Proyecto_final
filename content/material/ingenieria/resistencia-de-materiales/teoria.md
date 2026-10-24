@@ -15,8 +15,6 @@ $$\sigma = \frac{F}{A}$$
 
 Esta magnitud permite evaluar si un material puede resistir cargas sin romperse. Por ejemplo, en un cable de acero que sostiene un peso, la tensión ayuda a determinar si el diámetro del cable es suficiente para evitar su rotura.
 
-<!-- IMAGEN: Diagrama mostrando una fuerza aplicada sobre una sección transversal con flechas indicando dirección y área -->
-
 ---
 
 ## 2. Tipos de carga que actúan en materiales

@@ -14,8 +14,6 @@ Cuando una sociedad agrícola comienza a producir más alimentos de los que nece
 
 El excedente marcó un punto de inflexión en la historia económica: permitió que las personas dejaran de dedicarse exclusivamente a la producción para dedicar tiempo a actividades como el comercio, la especialización o el intercambio. Sin embargo, este sistema tenía limitaciones prácticas que lo hicieron insostenible a largo plazo.
 
-<!-- IMAGEN: Diagrama simplificado del trueque entre dos productores con distintos bienes -->
-
 ## 2. Las dificultades del intercambio directo
 
 El trueque se volvió ineficiente cuando los participantes necesitaban **doble coincidencia de necesidades**: alguien debía tener lo que otro deseaba, y al mismo tiempo desear lo que el primero tenía. Si un agricultor tiene trigo pero necesita cerámica, debe encontrar a alguien que tenga cerámica y quiera trigo. En sociedades complejas, donde existen múltiples bienes y necesidades distintas, esta coincidencia se volvió cada vez más improbable.
@@ -27,8 +25,6 @@ Además, el trueque dificultaba la división del trabajo: si un artesano fabrica
 Para resolver el problema del trueque, las sociedades adoptaron **medios de cambio intermediarios**: bienes con valor general aceptado que funcionaban como puente entre productos distintos. Por ejemplo, en ciertas regiones se usó la sal, el cuero o incluso el metal como medio para facilitar intercambios. Estos bienes tenían ventajas: eran durables, fáciles de transportar y de valor universal.
 
 Este paso fue crucial, ya que permitió que las personas no dependieran de encontrar a alguien con necesidades exactamente opuestas. En lugar de intercambiar trigo directamente por cerámica, el agricultor podía vender su excedente de trigo por sal, y luego usar esa sal para obtener cerámica. Esto redujo la complejidad del comercio y aceleró la especialización productiva.
-
-<!-- IMAGEN: Comparación entre trueque directo e intercambio a través de un medio intermediario -->
 
 ## 4. El nacimiento de la moneda
 

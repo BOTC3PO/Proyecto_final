@@ -1,0 +1,32 @@
+{
+ "titulo": "Variables independientes y dependientes",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "En un ensayo de tracción",
+   "headers": [
+    "Tipo",
+    "Qué es",
+    "Ejemplo"
+   ],
+   "rows": [
+    [
+     "Independiente",
+     "La que se controla o modifica",
+     "Fuerza aplicada"
+    ],
+    [
+     "Dependiente",
+     "La que se mide como respuesta",
+     "Alargamiento de la probeta"
+    ],
+    [
+     "Controlada",
+     "Se mantiene constante",
+     "Temperatura, velocidad de carga"
+    ]
+   ]
+  }
+ ]
+}

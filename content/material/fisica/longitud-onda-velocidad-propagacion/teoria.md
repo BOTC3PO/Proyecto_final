@@ -40,8 +40,6 @@ Este cálculo se usa en contextos como el análisis de ondas sonoras (donde λ y
 
 La velocidad de propagación **no depende** directamente de la longitud de onda ni de la frecuencia. En cambio, está determinada por las características del medio donde se mueve la onda. Por ejemplo, un sonido viaja más rápido en el agua que en el aire, pero su λ y f no cambian si se mantiene la misma fuente emisora. Esto significa que, al variar el medio, λ o f pueden ajustarse para conservar la velocidad.
 
-<!-- IMAGEN: Comparación de ondas en dos medios distintos con diferente velocidad, manteniendo v = λ·f -->
-
 ---
 
 ## N. Conexión con lo que sigue

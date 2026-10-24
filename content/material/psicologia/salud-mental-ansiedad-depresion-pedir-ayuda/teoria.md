@@ -22,8 +22,6 @@ La ansiedad es una respuesta natural del cuerpo al estrés o a situaciones que p
 
 La depresión no es solo "tristeza" temporal: es un malestar profundo que altera el funcionamiento diario. Entre sus señales clave está la anhedonia, que es la pérdida del placer por actividades que antes gustaban (como deportes, música o salir con amigos). También pueden aparecer fatiga extrema, insomnio o sueño excesivo, cambios en el apetito y dificultad para concentrarse. Importante: estos síntomas no deben confundirse con trastornos pasajeros, como el estrés laboral o la adaptación a un cambio de vida.
 
-<!-- IMAGEN: Diagrama comparativo entre estados emocionales normales y patológicos -->
-
 ---
 
 ## 3. ¿Cuándo pedir ayuda profesional?

@@ -1,0 +1,46 @@
+{
+ "titulo": "Población urbana y rural en Argentina",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "chart",
+   "title": "Porcentaje de la población (valores aproximados de los censos)",
+   "chartType": "line",
+   "data": {
+    "labels": [
+     "1869",
+     "1914",
+     "1947",
+     "1970",
+     "1991",
+     "2010"
+    ],
+    "datasets": [
+     {
+      "label": "Urbana",
+      "values": [
+       28.6,
+       52.7,
+       62.5,
+       78.9,
+       88.4,
+       91
+      ]
+     },
+     {
+      "label": "Rural",
+      "values": [
+       71.4,
+       47.3,
+       37.5,
+       21.1,
+       11.6,
+       9
+      ]
+     }
+    ]
+   },
+   "yAxisLabel": "%"
+  }
+ ]
+}

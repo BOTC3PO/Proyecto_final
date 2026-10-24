@@ -1,0 +1,42 @@
+{
+ "titulo": "Business Model Canvas: dos escenarios",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Mismo canvas, distintos negocios",
+   "headers": [
+    "Bloque",
+    "Software para contadores",
+    "Cafetería con coworking"
+   ],
+   "rows": [
+    [
+     "Segmento de clientes",
+     "Estudios contables",
+     "Freelancers y estudiantes"
+    ],
+    [
+     "Propuesta de valor",
+     "Automatiza liquidaciones",
+     "Café y lugar de trabajo"
+    ],
+    [
+     "Canal",
+     "Web y ventas directas",
+     "Local a la calle"
+    ],
+    [
+     "Ingresos",
+     "Suscripción mensual",
+     "Consumo + alquiler de puestos"
+    ],
+    [
+     "Costos clave",
+     "Desarrollo y soporte",
+     "Alquiler, insumos, personal"
+    ]
+   ]
+  }
+ ]
+}

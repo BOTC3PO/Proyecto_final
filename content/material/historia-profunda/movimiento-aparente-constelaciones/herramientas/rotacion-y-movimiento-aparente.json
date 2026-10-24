@@ -1,0 +1,42 @@
+{
+ "titulo": "Rotación terrestre y movimiento aparente del cielo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Causa y efecto",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "La Tierra gira de oeste a este",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "El cielo parece girar de este a oeste",
+     "x": 250,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Una constelación se desplaza hacia el oeste",
+     "x": 500,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

@@ -10,7 +10,7 @@
 
 ## 1. ¿Qué es la mejora continua?
 
-La mejora continua <!-- IMAGEN: gráfico de flechas que van desde un proceso inicial hasta una versión mejorada, con pasos intermedios --> se basa en la idea de que los sistemas económicos, organizaciones o procesos productivos no son estáticos. En lugar de esperar a que algo falle para actuar, se enfoca en realizar ajustes **incrementales** y **constantes**, pequeños cambios que, con el tiempo, generan transformaciones significativas. Esto contrasta con enfoques que buscan resolver problemas mediante modificaciones drásticas o únicas.
+La mejora continua se basa en la idea de que los sistemas económicos, organizaciones o procesos productivos no son estáticos. En lugar de esperar a que algo falle para actuar, se enfoca en realizar ajustes **incrementales** y **constantes**, pequeños cambios que, con el tiempo, generan transformaciones significativas. Esto contrasta con enfoques que buscan resolver problemas mediante modificaciones drásticas o únicas.
 
 Este concepto es especialmente útil en contextos industriales, donde la eficiencia, la calidad del producto y la reducción de costos son prioridades. La mejora continua no se limita a buscar grandes innovaciones, sino a perfeccionar lo que ya existe, evitando desperdicios y mejorando la sostenibilidad.
 

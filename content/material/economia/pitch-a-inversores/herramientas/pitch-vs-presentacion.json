@@ -1,0 +1,32 @@
+{
+ "titulo": "Pitch y presentación formal",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Brevedad frente a detalle",
+   "headers": [
+    "",
+    "Pitch",
+    "Presentación formal"
+   ],
+   "rows": [
+    [
+     "Duración",
+     "2 a 5 minutos",
+     "30 minutos o más"
+    ],
+    [
+     "Objetivo",
+     "Despertar interés y lograr una reunión",
+     "Explicar todo con detalle"
+    ],
+    [
+     "Contenido",
+     "Lo esencial",
+     "Datos, anexos, proyecciones"
+    ]
+   ]
+  }
+ ]
+}

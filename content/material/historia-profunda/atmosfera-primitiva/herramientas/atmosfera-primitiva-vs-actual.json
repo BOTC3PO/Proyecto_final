@@ -1,0 +1,32 @@
+{
+ "titulo": "Atmósfera primitiva y atmósfera actual",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Composición",
+   "headers": [
+    "",
+    "Atmósfera primitiva",
+    "Atmósfera actual"
+   ],
+   "rows": [
+    [
+     "Gases principales",
+     "CO₂, H₂O y CH₄",
+     "N₂ (≈ 78 %), O₂ (≈ 21 %) y argón (≈ 0,9 %)"
+    ],
+    [
+     "Oxígeno libre",
+     "Prácticamente ausente",
+     "Abundante"
+    ],
+    [
+     "Carácter químico",
+     "Reductora",
+     "Oxidante"
+    ]
+   ]
+  }
+ ]
+}

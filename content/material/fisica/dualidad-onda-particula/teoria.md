@@ -12,8 +12,6 @@
 
 La dualidad onda-partícula surge de un conflicto entre dos visiones clásicas: las teorías de Newton (corpuscular) y Huygens (ondulatoria). En el siglo XIX, experimentos como la interferencia de Young demostraron que la luz se comporta como onda. Pero en 1905, Einstein explicó el efecto fotoeléctrico suponiendo que la luz está formada por partículas (fotones), lo que revolucionó la física.
 
-<!-- IMAGEN: Esquema histórico de los modelos ondulatorio y corpuscular de la luz -->
-
 ## 2. Naturaleza ondulatoria de la luz
 
 Cuando fenómenos como **difracción** o **interferencia** se observan, la luz actúa como onda. Por ejemplo, en el experimento de Young con dos rendijas, los patrones de interferencia solo se explican si la luz tiene propiedades ondulatorias. Esto validó la teoría de Huygens y marcó un hito en entender la naturaleza de la radiación electromagnética.

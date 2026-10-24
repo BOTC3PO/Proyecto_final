@@ -18,7 +18,7 @@ El **campo eléctrico** es una propiedad del espacio que surge en torno a una ca
 
 ## 2. Cómo se representan las líneas de campo
 
-Las **líneas de campo eléctrico** son herramientas visuales para describir su intensidad y dirección. Si la carga es positiva, las líneas **salen** de ella; si es negativa, **entran** en ella. La densidad de estas líneas indica la magnitud del campo: cuanto más juntas estén, mayor es el valor del campo en ese punto. <!-- IMAGEN: comparación entre carga positiva y negativa con su respectiva representación de líneas -->.
+Las **líneas de campo eléctrico** son herramientas visuales para describir su intensidad y dirección. Si la carga es positiva, las líneas **salen** de ella; si es negativa, **entran** en ella. La densidad de estas líneas indica la magnitud del campo: cuanto más juntas estén, mayor es el valor del campo en ese punto.
 
 ## 3. Relación entre fuerza y campo
 

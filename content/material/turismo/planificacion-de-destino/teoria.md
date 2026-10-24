@@ -28,8 +28,6 @@ La gestión de un destino no es tarea de un solo actor, sino de **tres grupos cl
 2. **Sector privado** (empresas hoteleras, agencias, guías): Ofrece servicios al turista y genera empleo, pero debe operar bajo los parámetros establecidos por la planificación.  
 3. **Comunidad local**: Decide qué aspectos culturales o históricos son importantes para preservar, y cómo el turismo puede integrarse sin desplazar su vida cotidiana.
 
-<!-- IMAGEN: Diagrama con tres círculos interconectados etiquetados como "Sector Público", "Sector Privado" y "Comunidad Local", mostrando flujos de comunicación entre ellos -->
-
 ## 4. El rol del diagnóstico territorial
 
 Antes de definir estrategias, se realiza un **análisis del destino** que incluye:  

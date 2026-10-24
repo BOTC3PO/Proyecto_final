@@ -10,11 +10,11 @@
 
 ## 1. Generadores eléctricos
 
-Un generador transforma energía mecánica en energía eléctrica por inducción electromagnética, según la Ley de Faraday. Esto ocurre cuando un conductor se mueve dentro de un campo magnético o viceversa: el movimiento induce una fuerza electromotriz (FEM) que genera corriente. Los generadores industriales suelen tener un rotor con bobinas y un estator con imanes, donde la rotación del rotor corta las líneas de campo, produciendo voltaje. <!-- IMAGEN: esquema de un generador con rotor, estator e indicación del flujo magnético -->.
+Un generador transforma energía mecánica en energía eléctrica por inducción electromagnética, según la Ley de Faraday. Esto ocurre cuando un conductor se mueve dentro de un campo magnético o viceversa: el movimiento induce una fuerza electromotriz (FEM) que genera corriente. Los generadores industriales suelen tener un rotor con bobinas y un estator con imanes, donde la rotación del rotor corta las líneas de campo, produciendo voltaje.
 
 ## 2. Motores eléctricos
 
-Los motores operan inversamente a los generadores: convierten energía eléctrica en movimiento mecánico mediante la fuerza de Lorentz. Cuando una corriente pasa por un conductor dentro de un campo magnético, experimenta una fuerza perpendicular al campo y a la dirección de la corriente, provocando rotación. Los motores típicos tienen una armadura (parte móvil con bobinas), un colector que invierte la corriente en cada ciclo y escobillas para mantener el contacto eléctrico. <!-- IMAGEN: desglose de las partes internas de un motor -->.
+Los motores operan inversamente a los generadores: convierten energía eléctrica en movimiento mecánico mediante la fuerza de Lorentz. Cuando una corriente pasa por un conductor dentro de un campo magnético, experimenta una fuerza perpendicular al campo y a la dirección de la corriente, provocando rotación. Los motores típicos tienen una armadura (parte móvil con bobinas), un colector que invierte la corriente en cada ciclo y escobillas para mantener el contacto eléctrico.
 
 ## 3. Transformadores
 

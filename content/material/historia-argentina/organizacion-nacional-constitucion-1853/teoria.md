@@ -34,8 +34,6 @@ La Constitución estableció tres poderes del Estado para garantizar el control 
 
 Esta separación no era absoluta: cada poder tenía herramientas para limitar o revisar las decisiones de los otros. Por ejemplo, el Congreso podía reformar la Constitución con mayoría absoluta, y el Presidente nombraba jueces bajo condiciones establecidas por ley.
 
-<!-- IMAGEN: Esquema comparativo de los tres poderes según la Constitución de 1853 -->
-
 ---
 
 ## 4. Limitaciones y desafíos institucionales

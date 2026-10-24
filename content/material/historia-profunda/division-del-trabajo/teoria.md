@@ -20,8 +20,6 @@ La especialización incrementa la **eficiencia productiva** al permitir que cada
 
 La forma de organizar el trabajo cambió radicalmente a lo largo de la historia. En la Edad Media, los **artesanos medievales** realizaban todas las etapas de un producto: desde la extracción de materias primas hasta su terminación final. Este sistema era lento y limitado por la escala de cada taller individual. En contraste, con la llegada del **sistema fabril moderno**, se implementó una división extrema en tareas repetitivas, como las cadenas de montaje descritas por Henry Ford. Cada trabajador se enfocaba en un paso único, lo que multiplicó la producción y redujo los costos, marcando el inicio de la economía de masa.
 
-<!-- IMAGEN: Comparación entre artesano medieval y fábrica moderna -->
-
 ## 4. Impacto social y económico
 
 La división del trabajo no solo transformó la producción, sino también las relaciones sociales. Al desvincular cada actividad de su contexto integral, se generó una **dependencia mutua** entre los trabajadores: nadie puede producir un bien completo sin el aporte de otros. Esto facilitó la creación de mercados y el intercambio comercial en gran escala. Sin embargo, también planteó desafíos como la monotonía laboral y la necesidad de sistemas educativos para preparar a los trabajadores en tareas específicas.

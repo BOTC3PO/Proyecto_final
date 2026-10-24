@@ -38,6 +38,8 @@ def herramientas_de(d):
     return out
 
 def limpiar_teoria(t):
+    # La app muestra la teoría como texto plano: los comentarios HTML (placeholders de imagen, notas) se verían crudos.
+    t = re.sub(r"[ \t]*<!--.*?-->\.?", "", t, flags=re.S)
     L = t.split("\n"); i = 0
     while i < len(L) and not L[i].startswith("# "): i += 1
     head = L[i][2:].strip() if i < len(L) else ""

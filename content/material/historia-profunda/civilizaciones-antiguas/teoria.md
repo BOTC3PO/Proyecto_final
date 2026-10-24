@@ -44,8 +44,6 @@ A pesar de no haber dejado registros escritos, la civilización del Valle del In
 
 Aunque todas surgieron alrededor del 3500 a.C., cada civilización tuvo un ritmo distinto: Mesopotamia y Egipto se consolidaron primero, seguidas por el Indus Valley (2600 a.C.) y China (1900 a.C.). Sus logros reflejan su entorno: las escrituras surgieron en Mesopotamia y Egipto; la arquitectura monumental en Egipto; y la filosofía política en China. Estas diferencias no son accidentales, sino el resultado de su relación con los ríos y su capacidad para gestionar recursos.
 
-<!-- IMAGEN: cronología comparativa de civilizaciones antiguas -->
-
 ---
 
 ## N. Conexión con lo que sigue

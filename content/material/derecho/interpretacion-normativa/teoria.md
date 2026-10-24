@@ -12,8 +12,6 @@
 
 La interpretación normativa no es solo leer una norma, sino desentrañar su sentido y alcance para poder aplicarla a situaciones concretas. Imaginá que tenés una regla escrita: si un ciudadano no paga impuestos, se le multa. Pero ¿qué pasa si el caso es ambiguo? Por ejemplo, ¿un emprendedor que deja de pagar por un mes por problemas económicos es considerado "no pagador"? La interpretación normativa surge para resolver dudas como estas, asegurando que la ley no sea aplicada de forma arbitraria.
 
-<!-- IMAGEN: Esquema con una balanza donde un lado muestra el texto de una norma y el otro su aplicación en un caso real -->
-
 ---
 
 ## 2. Los tres tipos de interpretación

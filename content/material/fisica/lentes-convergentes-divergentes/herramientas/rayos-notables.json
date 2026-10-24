@@ -1,0 +1,32 @@
+{
+ "titulo": "Rayos notables en una lente",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Trazado de rayos",
+   "headers": [
+    "Rayo",
+    "Lente convergente",
+    "Lente divergente"
+   ],
+   "rows": [
+    [
+     "Paralelo al eje",
+     "Pasa por el foco",
+     "Se abre como si viniera del foco"
+    ],
+    [
+     "Por el centro óptico",
+     "No se desvía",
+     "No se desvía"
+    ],
+    [
+     "Por el foco",
+     "Sale paralelo al eje",
+     "—"
+    ]
+   ]
+  }
+ ]
+}

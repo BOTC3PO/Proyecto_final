@@ -56,8 +56,6 @@ Las **listas** son estructuras más versátiles que pilas o colas. Permiten:
 
 A diferencia de las otras dos, no tienen un orden fijo para procesar sus elementos. Se usan cuando se necesita dinamismo: por ejemplo, gestionar una lista de tareas pendientes donde pueden agregarse o eliminarse elementos en cualquier momento.
 
-<!-- IMAGEN: Comparación entre pila, cola y lista con ejemplos de operaciones. -->
-
 ---
 
 ## N. Conexión con lo que sigue

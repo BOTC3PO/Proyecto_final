@@ -12,8 +12,6 @@
 
 Una norma jurídica es un mandato general, abstracto y obligatorio emitido por un poder público que establece cómo deben actuar las personas en la sociedad. Puede ser positiva (exige hacer algo), negativa (prohíbe algo) o determinante (establece una regla concreta). Su validez depende de su lugar dentro del ordenamiento legal y de su relación con otras normas.
 
-<!-- IMAGEN: Diagrama sencillo mostrando el proceso de creación de una norma, desde la iniciativa hasta su publicación en el Boletín Oficial -->
-
 ---
 
 ## 2. La pirámide de jerarquía normativa argentina
@@ -59,8 +57,6 @@ Si dos normas del mismo nivel entran en conflicto, prevalece la última promulga
 
 ### c) **Especialidad**  
 Una norma más específica sobre un tema anula a otra general. Ejemplo: una ley provincial sobre transporte urbano prevalece sobre una ley nacional de tránsito en temas locales.
-
-<!-- IMAGEN: Flujo gráfico mostrando los tres principios mencionados, con ejemplos de aplicación -->
 
 ---
 

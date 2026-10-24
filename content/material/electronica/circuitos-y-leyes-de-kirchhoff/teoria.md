@@ -44,8 +44,6 @@ $$
 
 En términos prácticos, si recorres un circuito cerrado (como una malla con resistencias y una batería), el voltaje suministrado por la fuente debe equilibrarse con las caídas de tensión en los componentes. Por ejemplo, si una batería proporciona 12 V y hay dos resistencias en serie que generan cada una 4 V y 8 V, al sumarlas (4 + 8 = 12), se cumple la KVL.
 
-<!-- IMAGEN: Circuito cerrado con tensiones etiquetadas -->
-
 ---
 
 ## 4. Aplicación práctica de las leyes en circuitos reales

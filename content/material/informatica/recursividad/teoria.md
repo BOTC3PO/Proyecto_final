@@ -36,8 +36,6 @@ Por ejemplo, para calcular `potencia(base, exponente)`, si el exponente es mayor
 
 Cuando una función recursiva se llama, cada invocación genera un nuevo "marco" en la pila de ejecución. Estos marcos guardan los valores actuales de las variables y el estado del programa. Al llegar al caso base, los resultados comienzan a devolverse hacia arriba, acumulando los cálculos.
 
-<!-- IMAGEN: Diagrama de una pila de llamadas recursivas con flechas que muestran la descomposición del problema hasta alcanzar el caso base -->
-
 Este flujo puede volverse ineficiente si hay muchos marcos en la pila, lo cual suele suceder en problemas como el cálculo de Fibonacci sin optimización. Para evitar esto, se usan técnicas como el **memoization** (guardar resultados previos).
 
 ---

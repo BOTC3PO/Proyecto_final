@@ -14,8 +14,6 @@ En el modelo relacional, la **tabla** es la unidad fundamental para organizar y 
 
 Las tablas no solo almacenan información, sino que también establecen reglas para garantizar la integridad de los datos. Estas reglas incluyen cómo se relacionan entre sí distintas tablas (a través de claves foráneas) y qué restricciones aplican a los valores que pueden contener las columnas.
 
-<!-- IMAGEN: Tabla con encabezados "DNI", "Apellido" y "Fecha de nacimiento", y tres filas con datos ejemplos -->
-
 ---
 
 ## 2. El registro y sus características

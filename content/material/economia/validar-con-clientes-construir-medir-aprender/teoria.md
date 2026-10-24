@@ -12,8 +12,6 @@
 
 El núcleo de la metodología Lean Startup es el ciclo **Construir-Medir-Aprender**, que se repite constantemente para validar hipótesis empresariales con la menor inversión de tiempo y recursos posible. Este proceso comienza al construir un producto o servicio básico que represente la idea central del emprendimiento. Luego se mide su impacto en el mercado mediante datos reales (como comportamiento de usuarios o retroalimentación directa). Finalmente se aprende de esos resultados para ajustar la propuesta. La velocidad con la que se completa este ciclo es clave: cuanto más rápido se obtengan lecciones, más oportunidades hay de corregir errores antes de invertir en soluciones erróneas.
 
-<!-- IMAGEN: Diagrama del ciclo Construir-Medir-Aprender con flechas que conectan cada paso -->
-
 ## 2. El Producto Mínimo Viable (MVP) como herramienta
 
 Un **Producto Mínimo Viable** (MVP) no es un producto incompleto, sino una versión funcional y reducida de la idea original diseñada para probar hipótesis específicas con el menor esfuerzo. Por ejemplo, si se quiere validar que los usuarios pagarían por un servicio digital, el MVP podría ser una prueba en línea con precios limitados o características simplificadas. El objetivo no es perfeccionar el producto desde el inicio, sino obtener respuestas claras sobre lo que los clientes valoran. Esta estrategia evita construir algo que nadie quiere y permite ajustar la propuesta basándose en datos reales.

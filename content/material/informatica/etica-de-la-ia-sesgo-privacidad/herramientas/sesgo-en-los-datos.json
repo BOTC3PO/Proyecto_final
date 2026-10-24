@@ -1,0 +1,44 @@
+{
+ "titulo": "Cómo un sesgo llega al resultado",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Del dato a la decisión",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Datos de entrenamiento sesgados",
+     "x": 0,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n2",
+     "label": "El algoritmo aprende el sesgo",
+     "x": 250,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Decisión injusta para algunas personas",
+     "x": 500,
+     "y": 0,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "titulo": "Cerebro humano y ordenador",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "La analogía del procesamiento de información",
+   "headers": [
+    "",
+    "Cerebro",
+    "Ordenador"
+   ],
+   "rows": [
+    [
+     "Entradas",
+     "Sentidos",
+     "Teclado, sensores"
+    ],
+    [
+     "Procesamiento",
+     "Atención, memoria, razonamiento",
+     "CPU y memoria"
+    ],
+    [
+     "Salidas",
+     "Conducta y lenguaje",
+     "Pantalla, sonido"
+    ]
+   ]
+  }
+ ]
+}

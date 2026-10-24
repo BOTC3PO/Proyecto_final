@@ -12,8 +12,6 @@
 
 El riesgo se define como una situación en la que un decisor enfrenta múltiples resultados posibles, pero conoce las probabilidades asociadas a cada uno. Esto no significa que el resultado final sea predecible, sino que existe información suficiente para asignar un valor numérico (entre 0 y 1) a cada posibilidad. Por ejemplo: al invertir en una acción con rendimiento histórico conocido, se sabe cuál es la probabilidad de ganancia o pérdida, aunque no se pueda anticipar el resultado exacto. Esta característica permite aplicar herramientas matemáticas como el cálculo de expectativas para evaluar opciones.
 
-<!-- IMAGEN: gráfico de barras con probabilidades asignadas a tres resultados posibles -->
-
 ## 2. Incertidumbre vs. riesgo
 
 La incertidumbre se diferencia del riesgo en que no permite asignar probabilidades a los eventos futuros. Cuando la información es insuficiente, incompleta o no confiable, el decisor no puede cuantificar las posibilidades de cada resultado. Por ejemplo: al lanzar un producto innovador en un mercado sin antecedentes históricos, se desconoce si tendrá éxito, fracaso o algún escenario intermedio. En estos casos, las decisiones dependen más de juicios subjetivos que de cálculos objetivos.

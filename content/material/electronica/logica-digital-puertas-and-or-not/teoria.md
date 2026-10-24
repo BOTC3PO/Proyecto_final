@@ -22,8 +22,6 @@ La puerta NOT, también llamada "inversor", tiene una sola entrada y una salida.
 
 Esta operación se representa con un círculo en el símbolo de la puerta, o con una línea curva al lado del terminal de salida. Es útil para negar condiciones, como en circuitos que requieren activar un dispositivo solo cuando una señal no está presente.
 
-<!-- IMAGEN: Símbolo de la puerta NOT con entrada 1 y salida 0 -->
-
 ---
 
 ## 3. La puerta AND: lógica de multiplicación

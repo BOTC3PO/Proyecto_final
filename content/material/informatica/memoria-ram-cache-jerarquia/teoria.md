@@ -14,8 +14,6 @@ La jerarquía de memoria está diseñada para equilibrar dos variables clave: **
 
 En el extremo superior de esta jerarquía se encuentra la **memoria caché**, una capa muy rápida que almacena copias de los datos más frecuentemente usados. A continuación está la **RAM (memoria principal)**, que es más lenta que la caché pero tiene mayor capacidad y permite el acceso aleatorio a sus datos. Por último, en el extremo opuesto, se encuentra el **almacenamiento secundario** (disco duro o SSD), que aunque ofrece una gran cantidad de espacio, su velocidad es significativamente menor.
 
-<!-- IMAGEN: Jerarquía de memoria con niveles desde CPU a disco -->
-
 ---
 
 ## 2. ¿Por qué la RAM es volátil?

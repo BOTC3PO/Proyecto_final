@@ -42,8 +42,6 @@ Estos procesos no solo calentaron la superficie, sino que también facilitaron l
 
 La diferenciación fue un proceso crucial donde la Tierra primitiva se organizó en capas según la densidad de sus componentes. El **núcleo** (compuesto de hierro y níquel) se formó primero, seguido del **manto** (rico en silicatos), mientras que los materiales más ligeros, como el oxígeno y el sílice, constituyeron la **corteza**. Este orden no fue estático: la convección en el manto y las erupciones volcánicas continuaron modificando la estructura durante eones.
 
-<!-- IMAGEN: Capas de la Tierra primitiva (núcleo, manto, corteza) en proceso de formación -->
-
 ---
 
 ## 5. Conexión con lo que sigue

@@ -50,8 +50,6 @@ Además del contenido mismo, cada archivo tiene **metadatos**, que son "datos so
 
 Los metadatos no son visibles cuando abrís un archivo, pero son esenciales para que el sistema operativo funcione. Por ejemplo, si un archivo tiene permisos de lectura solamente, nadie podrá editarlo aunque lo vea.
 
-<!-- IMAGEN: Tabla comparando atributos de dos archivos distintos -->
-
 ---
 
 ## 4. Tipos de sistemas de archivos

@@ -1,0 +1,32 @@
+{
+ "titulo": "El orden de los pasos importa",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cocinar fideos",
+   "headers": [
+    "Orden correcto",
+    "Orden desordenado"
+   ],
+   "rows": [
+    [
+     "1. Hervir el agua",
+     "1. Escurrir"
+    ],
+    [
+     "2. Agregar los fideos",
+     "2. Agregar los fideos"
+    ],
+    [
+     "3. Escurrir",
+     "3. Hervir el agua"
+    ],
+    [
+     "Resultado: fideos cocidos",
+     "Resultado: no se obtiene lo esperado"
+    ]
+   ]
+  }
+ ]
+}

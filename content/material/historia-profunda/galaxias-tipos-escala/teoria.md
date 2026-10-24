@@ -12,8 +12,6 @@
 
 Una galaxia es un sistema masivo formado por estrellas, gas, polvo interstellar y materia oscura, todos unidos por la gravedad. No es solo un grupo de planetas o estrellas aisladas: su estructura está definida por la interacción gravitacional entre millones o miles de millones de objetos. Las galaxias pueden albergar desde cientos de millones hasta cientos de miles de millones de estrellas, y su tamaño varía enormemente. Por ejemplo, una galaxia espiral como la Vía Láctea tiene un diámetro de unos 100.000 años luz, mientras que las más pequeñas, como las galaxias enanas, pueden tener solo un millón de estrellas.
 
-<!-- IMAGEN: Diagrama comparativo entre una galaxia espiral y una elíptica -->
-
 ---
 
 ## 2. Nuestra galaxia

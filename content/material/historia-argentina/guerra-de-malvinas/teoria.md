@@ -18,7 +18,7 @@ El pleito por las islas Malvinas tiene raíces en el siglo XIX, cuando Gran Bret
 
 ## 2. Cronología del conflicto
 
-El conflicto se desarrolló en tres etapas clave. La primera fue la **invasión argentina** el 2 de abril, cuando las tropas ocuparon Puerto Argentino (llamado Stanley por los británicos, la misma ciudad) sin resistencia significativa. La segunda etapa comenzó con el **desembarco británico** en San Carlos el 21 de mayo, marcando el inicio de una ofensiva para recuperar las islas. Finalmente, el 14 de junio se produjo la **rendición argentina**, tras un bombardeo masivo y la caída del aeropuerto de Stanley. <!-- IMAGEN: cronograma con fechas clave del conflicto -->
+El conflicto se desarrolló en tres etapas clave. La primera fue la **invasión argentina** el 2 de abril, cuando las tropas ocuparon Puerto Argentino (llamado Stanley por los británicos, la misma ciudad) sin resistencia significativa. La segunda etapa comenzó con el **desembarco británico** en San Carlos el 21 de mayo, marcando el inicio de una ofensiva para recuperar las islas. Finalmente, el 14 de junio se produjo la **rendición argentina**, tras un bombardeo masivo y la caída del aeropuerto de Stanley.
 
 ## 3. El hundimiento del ARA General Belgrano
 

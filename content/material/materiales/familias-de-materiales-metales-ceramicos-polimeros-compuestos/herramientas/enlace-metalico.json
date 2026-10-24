@@ -1,0 +1,28 @@
+{
+ "titulo": "Enlace metálico",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Modelo del mar de electrones",
+   "headers": [
+    "Componente",
+    "Descripción"
+   ],
+   "rows": [
+    [
+     "Cationes metálicos",
+     "Iones positivos ordenados en una red"
+    ],
+    [
+     "Electrones libres",
+     "Se mueven entre los cationes"
+    ],
+    [
+     "Consecuencia",
+     "Conducen electricidad y calor; son maleables"
+    ]
+   ]
+  }
+ ]
+}

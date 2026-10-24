@@ -18,13 +18,13 @@ Por ejemplo: si estás diseñando una app de compras online, el wireframe mostra
 
 Una vez que la estructura está clara, se pasa al **mockup**, que es un paso más cercano al producto final. Aquí se añaden colores, tipografías, imágenes y otros elementos visuales para darle forma estética a la interfaz. El mockup no simula interacciones, pero deja claro cómo será el aspecto final del diseño.
 
-La diferencia clave con el wireframe es que el mockup **no permite hacer clic ni probar flujos**, solo muestra cómo se verá una pantalla terminada. Por eso se usa para validar decisiones de estilo antes de programar. <!-- IMAGEN: Comparación entre un wireframe y un mockup de la misma interfaz -->
+La diferencia clave con el wireframe es que el mockup **no permite hacer clic ni probar flujos**, solo muestra cómo se verá una pantalla terminada. Por eso se usa para validar decisiones de estilo antes de programar.
 
 ## 3. El prototipo interactivo: cuando el diseño "se pone en movimiento"
 
 El **prototipo interactivo** es una versión avanzada que simula cómo funciona la app o sitio web. Permite hacer clic en botones, navegar entre pantallas y ver transiciones. No está hecho con código real, pero reproduce las acciones del usuario para probar si el flujo de navegación es intuitivo.
 
-Este paso es crucial para detectar problemas de **experiencia de usuario (UX)**: ¿el usuario se pierde en la navegación? ¿los botones son difíciles de encontrar? El prototipo interactivo responde a estas preguntas sin necesidad de construir el producto completo. <!-- IMAGEN: Flujo de un prototipo interactivo con animaciones -->
+Este paso es crucial para detectar problemas de **experiencia de usuario (UX)**: ¿el usuario se pierde en la navegación? ¿los botones son difíciles de encontrar? El prototipo interactivo responde a estas preguntas sin necesidad de construir el producto completo.
 
 ## 4. Ventajas y límites de cada etapa
 

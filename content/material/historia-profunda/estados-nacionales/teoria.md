@@ -32,8 +32,6 @@ Estos tres elementos no funcionan por separado: sin gobierno, el territorio qued
 
 La identidad nacional no es algo dado desde el inicio. Se construye a través del tiempo con **leyes comunes**, **educación compartida**, **historias oficiales** y símbolos (como banderas o himnos). Por ejemplo, en muchos países, la historia oficial se enfoca en eventos que unen a los ciudadanos, incluso si esos relatos ignoran conflictos internos. Esta identidad puede ser inclusiva o excluyente: si no todos sienten pertenencia, el Estado corre riesgo de fragilidad.
 
-<!-- IMAGEN: Diagrama con elementos como "leyes", "educación", "símbolos" conectados a un nodo central etiquetado "identidad nacional" -->.
-
 ---
 
 ## 4. Cómo se forman los estados nacionales

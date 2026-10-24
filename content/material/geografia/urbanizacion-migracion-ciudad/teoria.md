@@ -12,8 +12,6 @@
 
 El proceso de urbanización, es decir, la expansión acelerada de ciudades y sus poblaciones, se intensificó a partir de los cambios impulsados por la Revolución Industrial. En Argentina, este fenómeno no fue ajeno al resto del mundo. El desarrollo de industrias en el siglo XIX y principios del XX generó una demanda creciente de mano de obra. Eso atrajo a miles de personas desde zonas rurales hacia centros urbanos. La mecanización agrícola redujo la necesidad de trabajadores en el campo, mientras las fábricas surgieron como nuevos polos económicos. Este desplazamiento no fue solo una cuestión económica, sino también social: la ciudad se convirtió en símbolo de modernidad y acceso a servicios que el campo no ofrecía.
 
-<!-- IMAGEN: Gráfica comparativa entre población rural y urbana en Argentina desde 1850 hasta hoy -->
-
 ---
 
 ## 2. Causas estructurales de la migración rural-urbana

@@ -1,0 +1,32 @@
+{
+ "titulo": "Contraste de texto",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Relación de contraste (WCAG)",
+   "headers": [
+    "Combinación",
+    "Relación aproximada",
+    "AA texto normal (4,5:1)"
+   ],
+   "rows": [
+    [
+     "Gris claro (#999) sobre blanco",
+     "2,8:1",
+     "No cumple"
+    ],
+    [
+     "Gris medio (#767676) sobre blanco",
+     "4,5:1",
+     "Cumple justo"
+    ],
+    [
+     "Negro sobre blanco",
+     "21:1",
+     "Cumple"
+    ]
+   ]
+  }
+ ]
+}

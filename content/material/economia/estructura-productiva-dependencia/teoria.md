@@ -13,8 +13,6 @@ La Argentina consolidó su economía durante el siglo XIX y principios del XX ba
 
 La estructura productiva se organizó alrededor de grandes extensiones agrícolas y ganaderas, con una infraestructura orientada a facilitar el transporte de esas mercancías hacia puertos como Buenos Aires o Rosario. Sin embargo, esta dependencia generó un desequilibrio: la economía no desarrolló industrias que transformaran esos productos ni sectores que procesaran su valor agregado, limitándose a ser proveedora de materias primas.  
 
-<!-- IMAGEN: Esquema simplificado del modelo agroexportador, con flechas señalando la exportación de cereales y carne hacia Europa y el flujo de divisas entrantes -->  
-
 ---
 
 ## 2. La dependencia estructural de los precios internacionales  

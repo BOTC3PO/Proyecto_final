@@ -1,0 +1,47 @@
+{
+ "titulo": "Figuras musicales y su duración",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Figuras musicales (duración en pulsos de negra)",
+   "headers": [
+    "Figura",
+    "Duración en pulsos",
+    "Relación"
+   ],
+   "rows": [
+    [
+     "Redonda",
+     4,
+     "4 negras"
+    ],
+    [
+     "Blanca",
+     2,
+     "2 negras"
+    ],
+    [
+     "Negra",
+     1,
+     "1 pulso"
+    ],
+    [
+     "Corchea",
+     "1/2",
+     "2 por pulso"
+    ],
+    [
+     "Semicorchea",
+     "1/4",
+     "4 por pulso"
+    ],
+    [
+     "Fusa",
+     "1/8",
+     "8 por pulso"
+    ]
+   ]
+  }
+ ]
+}

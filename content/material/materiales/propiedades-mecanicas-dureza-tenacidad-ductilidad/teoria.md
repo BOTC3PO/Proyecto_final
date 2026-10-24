@@ -12,8 +12,6 @@
 
 La dureza es una propiedad que mide la capacidad de un material para resistir ser rayado, penetrado o deformado en su superficie por otro cuerpo más duro. No se confunde con la resistencia total del material, sino que se enfoca en su comportamiento ante fuerzas locales, como el roce o el impacto puntual. Se evalúa mediante pruebas estandarizadas, como la de Vickers o Rockwell, donde se mide cuánta presión es necesaria para marcar una huella en la superficie del material. Un ejemplo cotidiano: el acero inoxidable es más duro que el aluminio, lo cual explica por qué se usa en herramientas cortantes.
 
-<!-- IMAGEN: Comparación de escalas de dureza (Vickers, Rockwell) con ejemplos de materiales como hierro, vidrio y plástico -->
-
 ---
 
 ## 2. Tenacidad: resistencia al impacto

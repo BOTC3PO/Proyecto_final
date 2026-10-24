@@ -39,8 +39,6 @@ Los espejos se clasifican en **planos** (superficie recta) y **curvos**, que a s
 
 La diferencia radica en cómo actúan sobre la luz: los espejos cóncavos convergen los rayos (los juntan), mientras que los convexos divergen los rayos (los alejan). Esta propiedad define las imágenes que producen y sus aplicaciones prácticas.
 
-<!-- IMAGEN: Comparación entre un espejo cóncavo y uno convexo, con ejemplos de su uso en lentes y vehículos -->
-
 ---
 
 ## 4. Características de la imagen en un espejo plano

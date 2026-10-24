@@ -12,8 +12,6 @@
 
 Los algoritmos de búsqueda son métodos que permiten localizar un elemento específico dentro de una estructura de datos, como una lista o array. Su objetivo es minimizar el tiempo necesario para encontrar lo que se busca, aunque la eficiencia depende del método utilizado. Por ejemplo, en una lista desordenada, la **búsqueda lineal** revisa cada elemento uno por uno desde el primero hasta el último, hasta dar con el valor buscado o confirmar que no está presente. Este enfoque es intuitivo pero puede ser lento si los datos son muchos.
 
-<!-- IMAGEN: Diagrama de flujo de búsqueda lineal, mostrando un ciclo que recorre elementos hasta encontrar el objetivo -->
-
 ---
 
 ## 2. Búsqueda binaria: rapidez con condiciones

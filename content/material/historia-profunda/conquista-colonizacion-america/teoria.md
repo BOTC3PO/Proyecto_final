@@ -49,8 +49,6 @@ La conquista no fue el fin, sino el comienzo de un proceso más prolongado: la c
 
 Este sistema implicó la explotación laboral de los indígenas mediante sistemas como el *encomienda* y, posteriormente, el *mita*, junto con la introducción de esclavos africanos tras la prohibición del trabajo indígena en ciertas áreas. Además, se impusieron religión, lengua y costumbres europeas a través de misiones y leyes coloniales.  
 
-<!-- IMAGEN: Diagrama de la estructura colonial española con virreinatos y sistemas económicos -->  
-
 ---
 
 ## N. Conexión con lo que sigue  

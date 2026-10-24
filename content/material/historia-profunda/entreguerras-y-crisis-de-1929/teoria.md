@@ -26,8 +26,6 @@ El punto de inflexión económico llegó con el crack de la Bolsa de Nueva York 
 
 La respuesta ortodoxa inicial, basada en el equilibrio presupuestario y la defensa del patrón oro, profundizó la crisis. Países como Alemania, dependientes del crédito exterior, colapsaron primero. La desocupación masiva, que superó el 30% en algunas naciones industrializadas, erosionó la legitimidad de las democracias liberales. En Estados Unidos, Franklin D. Roosevelt implementó el *New Deal*, un modelo de intervención estatal en la economía que sentó las bases del Estado de Bienestar moderno y marcó el fin del *laissez-faire* clásico.
 
-<!-- IMAGEN: Gráfico comparativo de la caída del PIB mundial y la tasa de desempleo en EE.UU. y Alemania entre 1929 y 1933 -->
-
 ## 4. La crisis de la democracia y el ascenso del totalitarismo
 
 La combinación de humillación nacional (Alemania), miedo al comunismo (Italia y Europa del Este) y desesperación económica (toda Europa) facilitó el ascenso de regímenes totalitarios. En Alemania, el Partido Nacionalsocialista (Nazi) aprovechó la hiperinflación de 1923 y la posterior crisis para ganar popularidad, prometiendo la abolición del Tratado de Versalles y la restauración del orgullo alemán. La designación de Adolf Hitler como canciller en 1933 marcó el fin de la República de Weimar y el inicio de la Tercera Reich.

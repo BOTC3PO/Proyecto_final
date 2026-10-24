@@ -1,0 +1,47 @@
+{
+ "titulo": "Ciclo Construir – Medir – Aprender",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Ciclo de validación",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Construir",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Medir",
+     "x": 420,
+     "y": 155
+    },
+    {
+     "id": "n3",
+     "label": "Aprender",
+     "x": 30,
+     "y": 155
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

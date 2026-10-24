@@ -1,0 +1,32 @@
+{
+ "titulo": "Mitocondrias, cloroplastos y lisosomas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Funciones",
+   "headers": [
+    "Orgánulo",
+    "En qué células",
+    "Función"
+   ],
+   "rows": [
+    [
+     "Mitocondria",
+     "Animales y vegetales",
+     "Produce energía (ATP) por respiración celular"
+    ],
+    [
+     "Cloroplasto",
+     "Vegetales y algas",
+     "Realiza la fotosíntesis"
+    ],
+    [
+     "Lisosoma",
+     "Principalmente animales",
+     "Digiere sustancias y desechos"
+    ]
+   ]
+  }
+ ]
+}

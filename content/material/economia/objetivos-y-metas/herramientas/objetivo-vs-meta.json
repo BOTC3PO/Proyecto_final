@@ -1,0 +1,32 @@
+{
+ "titulo": "Objetivo y meta",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "No son lo mismo",
+   "headers": [
+    "",
+    "Objetivo",
+    "Meta"
+   ],
+   "rows": [
+    [
+     "Qué es",
+     "Dirección general",
+     "Resultado concreto"
+    ],
+    [
+     "Ejemplo",
+     "Mejorar las ventas",
+     "Vender 1.200 unidades antes del 30 de junio"
+    ],
+    [
+     "Datos",
+     "Sin cifras ni fechas",
+     "Con cifras y fecha"
+    ]
+   ]
+  }
+ ]
+}

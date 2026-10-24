@@ -1,0 +1,32 @@
+{
+ "titulo": "Redes anteriores y redes con TCP/IP",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cómo viajan los datos",
+   "headers": [
+    "",
+    "Antes de TCP/IP",
+    "Con TCP/IP"
+   ],
+   "rows": [
+    [
+     "Unidad",
+     "Mensaje completo por un circuito dedicado",
+     "Paquetes pequeños e independientes"
+    ],
+    [
+     "Camino",
+     "Fijo",
+     "Cada paquete puede tomar uno distinto"
+    ],
+    [
+     "Si falla un tramo",
+     "Se corta la comunicación",
+     "Los paquetes se reencaminan"
+    ]
+   ]
+  }
+ ]
+}

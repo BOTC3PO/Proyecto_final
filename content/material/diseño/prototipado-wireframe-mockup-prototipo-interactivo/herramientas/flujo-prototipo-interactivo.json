@@ -1,0 +1,68 @@
+{
+ "titulo": "Flujo de un prototipo interactivo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Pantallas y transiciones",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Inicio",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Lista de productos",
+     "x": 188,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Detalle",
+     "x": 375,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Carrito",
+     "x": 562,
+     "y": 0
+    },
+    {
+     "id": "n5",
+     "label": "Confirmación",
+     "x": 750,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "toca \"Ver\""
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "elige"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4",
+     "label": "agrega"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5",
+     "label": "paga"
+    }
+   ]
+  }
+ ]
+}
