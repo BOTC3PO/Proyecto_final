@@ -1,4 +1,4 @@
-# Historia — rosas y la confederacion (cuestionario, 24 preguntas VBLang)
+# Pensamiento histórico — rosas y la confederacion (cuestionario, 24 preguntas VBLang)
 
 > Tema: `historia-argentina/rosas-y-la-confederacion`. Ver `teoria.md` en esta misma carpeta.
 

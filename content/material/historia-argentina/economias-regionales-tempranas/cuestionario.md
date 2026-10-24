@@ -1,4 +1,4 @@
-# Historia — economias regionales tempranas (cuestionario, 24 preguntas VBLang)
+# Pensamiento histórico — economias regionales tempranas (cuestionario, 24 preguntas VBLang)
 
 > Tema: `historia-argentina/economias-regionales-tempranas`. Ver `teoria.md` en esta misma carpeta.
 
@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["ley_aduanas", "urquiza", "proteccionismo"]
@@ -29,7 +29,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["comercio_exterior", "britanicos"]
@@ -47,7 +47,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["litoral", "entre_rios", "corrientes"]
@@ -68,7 +68,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["economia_litoral", "comercio"]
@@ -86,7 +86,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["conflicto_armado", "causas"]
@@ -104,7 +104,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["ideologia", "descentralizacion"]
@@ -122,7 +122,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["exportaciones", "carne"]
@@ -140,7 +140,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["fiscalidad", "estado"]
@@ -158,7 +158,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["soberania", "comercio"]
@@ -176,7 +176,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["confederacion", "estructuracion"]
@@ -194,7 +194,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["percepcion", "amenaza"]
@@ -212,7 +212,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["consecuencias", "guerra"]
@@ -230,7 +230,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["acuerdos", "federalismo"]
@@ -248,7 +248,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["diplomacia", "conflicto"]
@@ -266,7 +266,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["rosas", "urquiza", "control"]
@@ -284,7 +284,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["constitucion", "fragilidad"]
@@ -302,7 +302,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["integracion", "economia"]
@@ -320,7 +320,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["tarifas", "proteccionismo"]
@@ -338,7 +338,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["regulacion", "comercio_exterior"]
@@ -356,7 +356,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["litoral", "economia"]
@@ -377,7 +377,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["guerra", "resultado"]
@@ -398,7 +398,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["urquiza", "aplicacion"]
@@ -419,7 +419,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["industria", "proteccion"]

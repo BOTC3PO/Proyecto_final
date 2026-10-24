@@ -22,7 +22,7 @@ Para unir distancias tan grandes se construyó el Ferrocarril Transiberiano, ini
 
 ## De la Unión Soviética a la actualidad
 
-Rusia fue el núcleo de la Unión Soviética, que reunía quince repúblicas y se disolvió en diciembre de 1991. De ella nacieron quince Estados independientes, entre ellos Rusia, Ucrania, Bielorrusia, los países bálticos, los del Cáucaso y los de Asia Central. Varios mantuvieron lazos económicos y de seguridad con Rusia, como la Comunidad de Estados Independientes (`../../historia-profunda/guerra-fria-descolonizacion/`).
+Rusia fue el núcleo de la Unión Soviética, que reunía quince repúblicas y se disolvió en diciembre de 1991. De ella nacieron quince Estados independientes, entre ellos Rusia, Ucrania, Bielorrusia, los países bálticos, los del Cáucaso y los de Asia Central. Varios mantuvieron lazos económicos y de seguridad con Rusia, como la Comunidad de Estados Independientes (`../../historia/guerra-fria-descolonizacion/`).
 
 Desde 2014, y con una escalada a partir de febrero de 2022, existe un conflicto armado entre Rusia y Ucrania. Las posiciones de las partes son distintas. El gobierno ruso presentó su acción como una operación para proteger a poblaciones rusoparlantes y por motivos de seguridad, y objetó la ampliación de la OTAN. El gobierno de Ucrania y la mayoría de los Estados que se pronunciaron en la ONU la consideraron una agresión. El 2 de marzo de 2022 la Asamblea General aprobó, con 141 votos a favor, 5 en contra y 35 abstenciones, una resolución que lamentaba la agresión rusa contra Ucrania. Esa resolución no es vinculante. Este texto se detiene en esa fecha: para conocer el desarrollo posterior hay que consultar fuentes actuales y contrastar las versiones de ambas partes.
 

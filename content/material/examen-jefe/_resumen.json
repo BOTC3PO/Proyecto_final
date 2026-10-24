@@ -385,7 +385,7 @@
   },
   {
     "id": 681,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 1,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -393,7 +393,7 @@
   },
   {
     "id": 682,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 2,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -401,7 +401,7 @@
   },
   {
     "id": 683,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 3,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -409,7 +409,7 @@
   },
   {
     "id": 684,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 4,
     "preguntas": 124,
     "secciones_completas": 5,
@@ -417,7 +417,7 @@
   },
   {
     "id": 685,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 5,
     "preguntas": 123,
     "secciones_completas": 5,
@@ -425,7 +425,7 @@
   },
   {
     "id": 686,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 6,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -433,7 +433,7 @@
   },
   {
     "id": 687,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 7,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -441,7 +441,7 @@
   },
   {
     "id": 688,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 8,
     "preguntas": 126,
     "secciones_completas": 5,
@@ -449,7 +449,7 @@
   },
   {
     "id": 689,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 9,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -457,7 +457,7 @@
   },
   {
     "id": 690,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 10,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -465,7 +465,7 @@
   },
   {
     "id": 691,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 11,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -473,7 +473,7 @@
   },
   {
     "id": 692,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 12,
     "preguntas": 100,
     "secciones_completas": 4,
@@ -481,7 +481,7 @@
   },
   {
     "id": 693,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 13,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -489,7 +489,7 @@
   },
   {
     "id": 694,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 14,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -497,7 +497,7 @@
   },
   {
     "id": 695,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 15,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -505,7 +505,7 @@
   },
   {
     "id": 696,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 16,
     "preguntas": 75,
     "secciones_completas": 3,
@@ -513,7 +513,7 @@
   },
   {
     "id": 697,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 17,
     "preguntas": 48,
     "secciones_completas": 2,
@@ -521,7 +521,7 @@
   },
   {
     "id": 698,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 18,
     "preguntas": 75,
     "secciones_completas": 3,
@@ -529,7 +529,7 @@
   },
   {
     "id": 699,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 19,
     "preguntas": 75,
     "secciones_completas": 3,
@@ -537,7 +537,7 @@
   },
   {
     "id": 700,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 20,
     "preguntas": 101,
     "secciones_completas": 4,
@@ -545,7 +545,7 @@
   },
   {
     "id": 701,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 21,
     "preguntas": 125,
     "secciones_completas": 5,
@@ -553,7 +553,7 @@
   },
   {
     "id": 702,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 22,
     "preguntas": 25,
     "secciones_completas": 1,
@@ -561,7 +561,7 @@
   },
   {
     "id": 721,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 1,
     "preguntas": 60,
     "secciones_completas": 3,
@@ -569,7 +569,7 @@
   },
   {
     "id": 722,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 2,
     "preguntas": 60,
     "secciones_completas": 3,
@@ -577,7 +577,7 @@
   },
   {
     "id": 723,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 3,
     "preguntas": 98,
     "secciones_completas": 5,
@@ -585,7 +585,7 @@
   },
   {
     "id": 724,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 4,
     "preguntas": 95,
     "secciones_completas": 5,
@@ -593,7 +593,7 @@
   },
   {
     "id": 725,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 5,
     "preguntas": 90,
     "secciones_completas": 4,

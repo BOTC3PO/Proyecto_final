@@ -1,4 +1,4 @@
-# Historia Profunda — Revolucion de mayo (cuestionario, 25 preguntas VBLang)
+# Historia — Revolucion de mayo (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["mayo_1810", "virrey", "independencia"]
@@ -35,7 +35,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["primera_junta", "gobierno"]
@@ -58,7 +58,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["causas", "contexto"]
@@ -78,7 +78,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["cronologia", "eventos"]
@@ -97,7 +97,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["caracter", "gobierno"]
@@ -116,7 +116,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["contexto", "napoleon", "monarquia"]
@@ -137,7 +137,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["causas", "autoridad", "colonia"]
@@ -175,7 +175,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["soberania", "derecho"]
@@ -195,7 +195,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["causas", "impacto"]
@@ -214,7 +214,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["primera_junta", "saavedra", "mayo"]
@@ -234,7 +234,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["moreno", "secretario"]
@@ -253,7 +253,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["mascara_de_fecundidad", "fernando_vii"]
@@ -273,7 +273,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["integrantes", "primera_junta"]
@@ -299,7 +299,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["orden_gobiernos", "etapas"]
@@ -318,7 +318,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["revolucion_de_mayo", "independencia", "procesos_historicos"]
@@ -337,7 +337,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["cabildo_abierto", "soberania"]
@@ -360,7 +360,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["cronologia", "procesos"]
@@ -379,7 +379,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["causas", "consecuencias"]
@@ -401,7 +401,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["soberania", "debate"]
@@ -425,7 +425,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["cabildo", "mayo_1810"]
@@ -444,7 +444,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["primera_junta", "gobierno"]
@@ -467,7 +467,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "basico"
   tags: ["virrey", "cisneros"]
@@ -488,7 +488,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "intermedio"
   tags: ["cronologia", "mayo"]
@@ -507,7 +507,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "revolucion_de_mayo"
   nivel: "avanzado"
   tags: ["prensa", "ideologia"]

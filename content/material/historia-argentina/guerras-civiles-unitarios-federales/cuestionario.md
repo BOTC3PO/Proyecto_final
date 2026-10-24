@@ -1,4 +1,4 @@
-# Historia Profunda — Guerras civiles unitarios federales (cuestionario, 25 preguntas VBLang)
+# Historia — Guerras civiles unitarios federales (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["politica", "argentina"]
@@ -34,7 +34,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["federalismo", "provincias"]
@@ -53,7 +53,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["economia", "aduana"]
@@ -78,7 +78,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["orden", "conceptos"]
@@ -102,7 +102,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["economia", "causas"]
@@ -128,7 +128,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["politica", "siglo_XIX"]
@@ -144,7 +144,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["modelo_estatal", "centralismo"]
@@ -168,7 +168,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["economia", "aduana"]
@@ -187,7 +187,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["proceso_historico"]
@@ -206,7 +206,7 @@ respuesta_orden: ["Caos de las guerras civiles", "Lucha por la organización con
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["soberania", "provincias"]
@@ -224,7 +224,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["rosas", "federales", "confederacion"]
@@ -243,7 +243,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["relaciones", "federales", "unitarios"]
@@ -263,7 +263,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["economia", "aduana", "rosas"]
@@ -282,7 +282,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["orden", "etapas", "rosas"]
@@ -309,7 +309,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["simbolos", "color", "rosas"]
@@ -328,7 +328,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["caseros", "urquiza", "rosas"]
@@ -347,7 +347,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["organización_nacional", "constitucion"]
@@ -368,7 +368,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["urquiza", "ejercito_grande"]
@@ -387,7 +387,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["rosas", "caída"]
@@ -407,7 +407,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["cronologia", "procesos"]
@@ -431,7 +431,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["politica", "argentina"]
@@ -453,7 +453,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["economia", "aduana"]
@@ -475,7 +475,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["constitucion", "poder"]
@@ -498,7 +498,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["causas"]
@@ -520,7 +520,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["orden"]

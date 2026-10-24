@@ -1,0 +1,53 @@
+# Historia — Conquista Tierra Firme (teoria)
+
+> Tema del MAPA: `historia/conquista-tierra-firme`. Depende de evolucion primera celula (ver `../dependencias.md`).
+
+## Tipo de teoría (si esto se carga al sistema)
+
+**Presentación** — La historia de cómo los seres vivos pasaron del agua a la tierra, desde las primeras plantas hasta los primeros vertebrados.
+
+---
+
+## 1. Las plantas pioneras
+
+Hace unos 470 millones de años, el planeta era un lugar dominado por océanos y mares, con pocos lugares donde la vida pudiera establecerse fuera del agua. Fue entonces cuando las primeras formas de vida en colonizar la tierra firme fueron las **plantas**. Estos organismos, aún primitivos, desarrollaron estructuras que les permitieron fijarse al suelo y absorber nutrientes sin depender exclusivamente del agua. Su aparición marcó un hito crucial: el comienzo de la transformación del planeta.
+
+![Ilustración de plantas primitivas en una costa rocosa, con raíces sencillas y tallos blandos](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Amgueddfa_Cymru_-_Cooksonia_pertoni_-_211800.jpeg/960px-Amgueddfa_Cymru_-_Cooksonia_pertoni_-_211800.jpeg)
+
+*Imagen: «Amgueddfa Cymru - Cooksonia pertoni - 211800», CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Amgueddfa_Cymru_-_Cooksonia_pertoni_-_211800.jpeg).*
+
+---
+
+## 2. El orden de la conquista
+
+La colonización terrestre no fue un proceso instantáneo ni único. Fue un suceso gradual que involucró a distintos grupos biológicos en secuencia. Las **plantas** fueron las primeras, seguidas por los **artrópodos**, y finalmente los **tetrápodos** —los primeros vertebrados con extremidades— quienes consolidaron la presencia de vida compleja fuera del agua.
+
+Este orden no es aleatorio: cada grupo adaptó características clave para sobrevivir en un entorno hostil, como la deshidratación o la falta de soporte estructural. Las plantas prepararon el terreno al crear suelos fértils y alterar el clima; los artrópodos, con sus exoesqueletos, exploraron nuevas nichos ecológicos; y los tetrápodos, gracias a sus extremidades, extendieron la vida hacia ambientes más diversos.
+
+---
+
+## 3. Los artrópodos: pioneros de la tierra
+
+Una vez que las plantas establecieron condiciones viables, los **artrópodos** —insectos, arácnidos y crustáceos— fueron los siguientes en colonizar la tierra firme. Su éxito se debe a su capacidad para adaptarse rápidamente: sus exoesqueletos les protegían del desecamiento, y su tamaño reducido les permitía aprovechar microhábitats.
+
+Los artrópodos colonizaron la tierra firme mucho antes que los tetrápodos: los fósiles más antiguos de animales terrestres respirando aire (como el miriápodo *Pneumodesmus newmani*) datan de hace unos 428 millones de años, durante el período Silúrico. Para cuando aparecieron los primeros tetrápodos en el Devónico, los artrópodos ya eran una parte consolidada de los ecosistemas terrestres.
+
+---
+
+## 4. Los tetrápodos y el auge de la vida compleja
+
+El gran salto en la historia de la conquista terrestre llegó con los **tetrápodos**, vertebrados con cuatro extremidades que les permitieron moverse con mayor independencia. Su aparición, registrada en fósiles del período Devoniano, marcó el inicio de una era donde la vida compleja se extendió fuera del agua.
+
+Estos primeros tetrápodos eran anfibios primitivos, como **Ichthyostega** o **Acanthostega**, que aún dependían parcialmente del agua para su reproducción. Sin embargo, su capacidad para desplazarse en la tierra fue un paso decisivo: permitió el desarrollo de ecosistemas terrestres más ricos y variados.
+
+---
+
+## 5. La huella de la conquista
+
+La transición del medio acuático al terrestre no fue un evento aislado, sino una serie de adaptaciones acumuladas a lo largo de millones de años. Cada grupo que colonizó la tierra firme dejó una huella en el entorno y en los siguientes habitantes. Las plantas modificaron el clima al liberar oxígeno; los artrópodos dieron lugar a redes tróficas complejas; y los tetrápodos abrieron camino para la evolución de mamíferos, aves y reptiles.
+
+---
+
+## N. Conexión con lo que sigue
+
+Este proceso de conquista terrestre sentó las bases para el tema siguiente, donde se explorará cómo los primeros vertebrados adaptaron sus cuerpos a ambientes cada vez más diversos: evolucion vertebrados.

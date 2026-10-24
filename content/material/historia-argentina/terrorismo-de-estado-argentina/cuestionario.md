@@ -1,4 +1,4 @@
-# Historia Profunda — Terrorismo de estado argentina (cuestionario, 23 preguntas VBLang)
+# Historia — Terrorismo de estado argentina (cuestionario, 23 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["conceptos", "derechos_humanos"]
@@ -35,7 +35,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "metodos"]
@@ -54,7 +54,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["proceso", "metodologia"]
@@ -76,7 +76,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["robo_identidad", "economía"]
@@ -93,7 +93,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["derecho", "ilegalidad"]
@@ -117,7 +117,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["dictadura", "derechos_humanos"]
@@ -136,7 +136,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["madres_de_plaza_de_mayo", "resistencia"]
@@ -155,7 +155,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["vuelos_de_la_muerte", "exterminio"]
@@ -179,7 +179,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["procedimiento", "represion"]
@@ -198,7 +198,7 @@ respuesta_orden: ["Secuestro/Detención", "Traslado a un CCD", "Interrogatorio y
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "derechos_humanos", "argentina"]
@@ -218,7 +218,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["dictadura", "derechos_humanos"]
@@ -238,7 +238,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "terrorismo_oficial_estado"
   nivel: "avanzado"
   tags: ["derechos_humanos", "memoria"]
@@ -266,7 +266,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "instituciones"]
@@ -286,7 +286,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["derechos_humanos", "memoria"]
@@ -306,7 +306,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["derechos_humanos", "madres", "abuelas"]
@@ -326,7 +326,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["abuelas", "identidad", "derechos_humanos"]
@@ -348,7 +348,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["historia", "cronologia", "derechos_humanos"]
@@ -368,7 +368,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["terminologia", "derechos_humanos"]
@@ -388,7 +388,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["dictadura", "derechos_humanos"]
@@ -411,7 +411,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "avanzado"
   tags: ["derechos_humanos", "identidad"]
@@ -440,7 +440,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["instituciones", "dictadura"]
@@ -463,7 +463,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "intermedio"
   tags: ["secuencia", "represion"]
@@ -485,7 +485,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "terrorismo_de_estado_argentina"
   nivel: "basico"
   tags: ["terminologia", "memoria"]

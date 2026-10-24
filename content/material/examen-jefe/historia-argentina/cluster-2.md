@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["politica", "argentina"]
@@ -25,7 +25,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["federalismo", "provincias"]
@@ -42,7 +42,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["economia", "aduana"]
@@ -65,7 +65,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["orden", "conceptos"]
@@ -87,7 +87,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["economia", "causas"]
@@ -111,7 +111,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["politica", "siglo_XIX"]
@@ -125,7 +125,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["modelo_estatal", "centralismo"]
@@ -147,7 +147,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["economia", "aduana"]
@@ -164,7 +164,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["proceso_historico"]
@@ -181,7 +181,7 @@ respuesta_orden: ["Caos de las guerras civiles", "Lucha por la organización con
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["soberania", "provincias"]
@@ -197,7 +197,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["rosas", "federales", "confederacion"]
@@ -214,7 +214,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["relaciones", "federales", "unitarios"]
@@ -232,7 +232,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["economia", "aduana", "rosas"]
@@ -249,7 +249,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["orden", "etapas", "rosas"]
@@ -274,7 +274,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["simbolos", "color", "rosas"]
@@ -291,7 +291,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["caseros", "urquiza", "rosas"]
@@ -308,7 +308,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["organización_nacional", "constitucion"]
@@ -327,7 +327,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["urquiza", "ejercito_grande"]
@@ -344,7 +344,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["rosas", "caída"]
@@ -362,7 +362,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["cronologia", "procesos"]
@@ -384,7 +384,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "basico"
   tags: ["politica", "argentina"]
@@ -404,7 +404,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["economia", "aduana"]
@@ -424,7 +424,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "avanzado"
   tags: ["constitucion", "poder"]
@@ -445,7 +445,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["causas"]
@@ -465,7 +465,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "guerras_civiles_unitarios_federales"
   nivel: "intermedio"
   tags: ["orden"]
@@ -489,7 +489,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["constitucion", "argentina", "federalismo"]
@@ -505,7 +505,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["forma_de_gobierno", "republica", "federal"]
@@ -523,7 +523,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["poderes", "legislativo", "ejecutivo", "judicial"]
@@ -544,7 +544,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["provincias", "autonomia"]
@@ -566,7 +566,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["sanacion", "congreso", "constituyente"]
@@ -588,7 +588,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["buenos_aires", "confederacion", "constitucion"]
@@ -604,7 +604,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["batalla_de_pavon", "reincorporacion", "unificacion"]
@@ -626,7 +626,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
@@ -643,7 +643,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["pavon", "unificacion"]
@@ -662,7 +662,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["buenos_aires", "constitucion"]
@@ -679,7 +679,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["constitucion", "forma_de_gobierno"]
@@ -696,7 +696,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["poderes", "division_de_poderes"]
@@ -739,7 +739,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["representacion", "sufragio"]
@@ -757,7 +757,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["jerarquia", "poderes"]
@@ -774,7 +774,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["constitucion", "norma_suprema"]
@@ -792,7 +792,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["reforma", "1994"]
@@ -809,7 +809,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["sistema_de_gobierno"]
@@ -826,7 +826,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["poder_judicial", "corte_suprema"]
@@ -844,7 +844,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["jerarquia_normativa", "piramide_kelsen"]
@@ -870,7 +870,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["constitucion", "gobierno"]
@@ -893,7 +893,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["relaciones_exteriores", "soberania"]
@@ -914,7 +914,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["derechos", "libertad"]
@@ -936,7 +936,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["federalismo", "provincias"]
@@ -957,7 +957,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["jerarquia", "leyes"]
@@ -1419,7 +1419,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["lideres", "solano_lopez"]
@@ -1439,7 +1439,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["lideres", "mitre"]
@@ -1458,7 +1458,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["tratados", "navegacion"]
@@ -1478,7 +1478,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["causas", "economia"]
@@ -1497,7 +1497,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["fin", "solano_lopez"]
@@ -1517,7 +1517,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["navegacion", "tratados"]
@@ -1537,7 +1537,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["tratados", "fronteras"]
@@ -1555,7 +1555,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["brasil", "contraataque"]
@@ -1574,7 +1574,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["estrategia", "superioridad"]
@@ -1593,7 +1593,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "intermedio"
   tags: ["causas", "clima_politico"]
@@ -1612,7 +1612,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "guerra_del_paraguay_y_triple_alianza"
   nivel: "basico"
   tags: ["cronologia", "duracion"]
@@ -2037,7 +2037,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["ley_aduanas", "urquiza", "proteccionismo"]
@@ -2056,7 +2056,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["comercio_exterior", "britanicos"]
@@ -2072,7 +2072,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["litoral", "entre_rios", "corrientes"]
@@ -2091,7 +2091,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["economia_litoral", "comercio"]
@@ -2107,7 +2107,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["conflicto_armado", "causas"]
@@ -2123,7 +2123,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["ideologia", "descentralizacion"]
@@ -2139,7 +2139,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["exportaciones", "carne"]
@@ -2155,7 +2155,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["fiscalidad", "estado"]
@@ -2171,7 +2171,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["soberania", "comercio"]
@@ -2187,7 +2187,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["confederacion", "estructuracion"]
@@ -2203,7 +2203,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["percepcion", "amenaza"]
@@ -2219,7 +2219,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["consecuencias", "guerra"]
@@ -2235,7 +2235,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["acuerdos", "federalismo"]
@@ -2251,7 +2251,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["diplomacia", "conflicto"]
@@ -2267,7 +2267,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["rosas", "urquiza", "control"]
@@ -2283,7 +2283,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["constitucion", "fragilidad"]
@@ -2299,7 +2299,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "avanzado"
   tags: ["integracion", "economia"]
@@ -2315,7 +2315,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["tarifas", "proteccionismo"]
@@ -2331,7 +2331,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["regulacion", "comercio_exterior"]
@@ -2347,7 +2347,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["litoral", "economia"]
@@ -2366,7 +2366,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
   tags: ["guerra", "resultado"]
@@ -2385,7 +2385,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["urquiza", "aplicacion"]
@@ -2404,7 +2404,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "pensamiento_historico"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
   tags: ["industria", "proteccion"]

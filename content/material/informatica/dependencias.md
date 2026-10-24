@@ -29,7 +29,7 @@ fila antes de escribir teoría/cuestionario.
 | `que-es-la-tecnica-y-la-tecnologia/` | *(ninguna — nodo raíz de 10.0)* | Nodo `TEC0a`. Fundamento de Educación Tecnológica, materia que no existía en absoluto (0 resultados en grep). Fuente: `TECNOLOGIA 1 DE SANTILLANA`. |
 | `medios-tecnicos-extension-capacidades-humanas/` | `que-es-la-tecnica-y-la-tecnologia/` | Nodo `TEC0b` (`TEC0a --> TEC0b`). |
 | `procesos-tecnicos-artesanales-e-industriales/` | `medios-tecnicos-extension-capacidades-humanas/` | Nodo `TEC0c` (`TEC0b --> TEC0c`), alimenta a `IN1`/`ING1`. |
-| `historia-y-evolucion-de-los-sistemas-operativos/` | `revolucion-informatica/` | Nodo `SO0` (`I3P --> SO0`). *Corregido 2026-10-03*: la fila citaba `../historia-profunda/revolucion-informatica/`, que no existe; el tema `I3` vive en esta misma carpeta (`informatica/revolucion-informatica/`). Fuente: guía de Luis Castellanos basada en Tanenbaum. |
+| `historia-y-evolucion-de-los-sistemas-operativos/` | `revolucion-informatica/` | Nodo `SO0` (`I3P --> SO0`). *Corregido 2026-10-03*: la fila citaba `../historia/revolucion-informatica/`, que no existe; el tema `I3` vive en esta misma carpeta (`informatica/revolucion-informatica/`). Fuente: guía de Luis Castellanos basada en Tanenbaum. |
 | `arranque-de-la-computadora-boot/` | `historia-y-evolucion-de-los-sistemas-operativos/` | Nodo `SO1B` (`SO0 --> SO1B --> SO1`). |
 | `comunicacion-entre-procesos/` | `proceso-programa-en-ejecucion/` | Nodo `SO1C` (`SO1 --> SO1C`). |
 | `subsistema-de-entrada-y-salida/` | `proceso-programa-en-ejecucion/` | Nodo `SOES1` (`SO1 --> SOES1`), hermano de `SO1C`. |

@@ -5,7 +5,7 @@ trabajo. Está en `material/` (no dentro de una materia puntual) porque
 aplica por igual a las materias que ya tienen carpeta acá: `matematica/`,
 `economia/`, `vida-cotidiana/`, `geografia/`, `informatica/`, `quimica/`,
 `fisica/`, `arte/`, `biologia/`, `civica/`, `esi/`, `ed-fisica/`,
-`lengua/`, `filosofia/`, `ciudadania-digital/`, `historia/`, `derecho/`,
+`lengua/`, `filosofia/`, `ciudadania-digital/`, `pensamiento-historico/`, `derecho/`,
 `antropologia/`, `investigacion/`, `oficios/` — cada una tiene su propio
 `dependencias.md`, que referencia este archivo. Esta lista crece cuando
 aparece un tag de materia real sin carpeta todavía (ver Paso 1) —
