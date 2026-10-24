@@ -19,9 +19,10 @@ import { API_BASE_URL, getAuthToken, getRefreshToken } from "../api/client";
 import { colors } from "../theme/tokens";
 import { useAuth } from "../auth/AuthContext";
 
-// La web corre en :5173 en dev; comparte host con la API (mismo LAN IP
-// resuelto en client.ts), sólo cambia el puerto.
-const WEB_BASE_URL = API_BASE_URL.replace(/:5050$/, ":5173");
+// `EXPO_PUBLIC_WEB_BASE_URL` fija la URL de la web (build de producción). Si no está: la web corre en :5173 en dev y
+// comparte host con la API (mismo LAN IP resuelto en client.ts), sólo cambia el puerto; en producción, con la API
+// publicada en el mismo origen que la web (nginx), `API_BASE_URL` ya es la URL de la web.
+const WEB_BASE_URL = (process.env.EXPO_PUBLIC_WEB_BASE_URL ?? API_BASE_URL.replace(/:5050$/, ":5173")).replace(/\/$/, "");
 
 type Props = {
   /** Ruta de la web app, ej. "/modulos/abc123". */
