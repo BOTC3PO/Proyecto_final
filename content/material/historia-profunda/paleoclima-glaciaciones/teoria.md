@@ -22,7 +22,9 @@ El paleoclima es la rama de la ciencia que reconstruye las condiciones climátic
 
 Los métodos para estudiar el paleoclima varían según los materiales disponibles. Uno de los más precisos es la extracción de **núcleos de hielo** en regiones polares o montañosas, donde las capas de nieve se preservan durante siglos. Estos núcleos contienen burbujas de aire atrapadas que guardan información sobre la composición atmosférica del pasado, como el nivel de dióxido de carbono o metano. También se analizan sedimentos marinos y anillos de árboles para registrar patrones de lluvia, temperaturas o sequías prolongadas.
 
-<!-- IMAGEN: Comparación entre núcleos de hielo de Groenlandia y Antártida con gráficos de CO₂ histórico -->
+![Comparación entre núcleos de hielo de Groenlandia y Antártida con gráficos de CO₂ histórico](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Co2-temperature-records.svg/960px-Co2-temperature-records.svg.png)
+
+*Imagen: «Co2-temperature-records», Leland McInnes (talk) (Uploads), CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Co2-temperature-records.svg).*
 
 ---
 

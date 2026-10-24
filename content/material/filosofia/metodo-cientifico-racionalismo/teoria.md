@@ -22,7 +22,9 @@ El núcleo del método racionalista es el razonamiento deductivo, que parte de p
 
 El filósofo francés René Descartes (1596-1650) es considerado el padre del racionalismo moderno. Su método se basa en una "duda metódica": cuestionar todas las creencias para encontrar un punto de partida indudable. Al someter a prueba su conocimiento, Descartes descubrió que todo lo que percibe podría ser engañoso, excepto la evidencia de su propia existencia: *cogito, ergo sum* ("pienso, luego existo"). Esta certeza absoluta se convirtió en el fundamento para reconstruir el conocimiento mediante razonamientos lógicos y matemáticos.
 
-<!-- IMAGEN: Fragmento del texto de Descartes donde aparece "cogito, ergo sum" -->
+![Fragmento del texto de Descartes donde aparece "cogito, ergo sum"](https://upload.wikimedia.org/wikipedia/commons/3/3f/Descartes_Discours_de_la_Methode.jpg)
+
+*Imagen: «Descartes Discours de la Methode», Ian Maire, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Descartes_Discours_de_la_Methode.jpg).*
 
 ## 4. La certeza como objetivo último
 

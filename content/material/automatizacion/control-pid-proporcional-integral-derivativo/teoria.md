@@ -42,7 +42,9 @@ $$
 
 Cada término tiene un rol distinto: proporcional para reacciones rápidas, integral para precisiones a largo plazo y derivativa para evitar sobrecorreciones. Juntas, permiten ajustar sistemas complejos con alta precisión, aunque su diseño requiere equilibrar los parámetros ($K_p$, $K_i$, $K_d$) según las características del proceso.
 
-<!-- IMAGEN: Gráfico de la ecuación PID con bloques para cada componente (proporcional, integral, derivativo) conectados a una suma final. -->
+![Gráfico de la ecuación PID con bloques para cada componente (proporcional, integral, derivativo) conectados a una suma final.](https://upload.wikimedia.org/wikipedia/commons/b/bf/Dibuix_PID_Gen%C3%A8ric.JPG)
+
+*Imagen: «Dibuix PID Genèric», Triado, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dibuix_PID_Gen%C3%A8ric.JPG).*
 
 ---
 

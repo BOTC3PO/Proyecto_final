@@ -14,7 +14,9 @@ La República Romana, tradicionalmente fechada desde 509 a.C. con la expulsión 
 
 El poder residía principalmente en tres pilares: el Senado, las Asambleas populares y las Magistraturas. El Senado, compuesto por exmagistrados vitalicios, controlaba las finanzas, la política exterior y la religión, ejerciendo una autoridad moral (*auctoritas*) inmensa, aunque carecía de poder legislativo directo formal. Las Asambleas, como la *Comitia Centuriata* y la *Concilium Plebis*, elegían a los magistrados y votaban las leyes, pero su composición favorecía a la élite patricia y, posteriormente, a la nobleza senatorial. Las magistraturas, como el consulado, la pretura o el tribunado de la plebe, otorgaban el *imperium* (poder de mando) y la *potestas* (autoridad legal) a sus titulares por un tiempo limitado.
 
-<!-- IMAGEN: Diagrama esquemático de la pirámide de poder republicano mostrando la interacción entre Senado, Magistrados y Asambleas -->
+![Diagrama esquemático de la pirámide de poder republicano mostrando la interacción entre Senado, Magistrados y Asambleas](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Cursus_Honorum.png/960px-Cursus_Honorum.png)
+
+*Imagen: «Cursus Honorum», C.K. Ruppelt (Cruppelt), CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cursus_Honorum.png).*
 
 ## 2. La lucha de las órdenes y la expansión territorial
 

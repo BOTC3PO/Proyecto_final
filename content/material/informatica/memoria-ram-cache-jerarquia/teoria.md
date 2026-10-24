@@ -34,7 +34,9 @@ El **caché** es una capa de memoria ubicada físicamente muy cerca de los núcl
 - **Caché L2**: Más grande que el L1, pero un poco más lento. Puede estar en el mismo chip que la CPU o en una capa adyacente.
 - **Caché L3**: El más grande de todos y compartido entre varios núcleos. Es más lento que el L1 y L2, pero aún mucho más rápido que la RAM.
 
-<!-- IMAGEN: Comparación visual de los niveles L1, L2 y L3 en una CPU -->
+![Comparación visual de los niveles L1, L2 y L3 en una CPU](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Typical_Cpu_cache_organization.svg/960px-Typical_Cpu_cache_organization.svg.png)
+
+*Imagen: «Typical Cpu cache organization», Chomwitt, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Typical_Cpu_cache_organization.svg).*
 
 ---
 

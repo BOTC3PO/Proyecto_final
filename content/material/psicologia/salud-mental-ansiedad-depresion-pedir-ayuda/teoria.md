@@ -12,7 +12,9 @@
 
 La ansiedad es una respuesta natural del cuerpo al estrés o a situaciones que percibe como amenazantes. Se manifiesta como un estado de alerta constante, con tensión física (palpitaciones, sudoración) y emocional (preocupación, miedo). Aunque es útil para prepararse ante peligros reales, cuando se prolonga sin motivo o interfiere en la vida cotidiana, deja de ser una reacción normal y se convierte en un trastorno. Por ejemplo, sentirse agobiado por un examen es común; pero si esa sensación persiste meses y afecta el estudio, el sueño o las relaciones sociales, podría indicar ansiedad patológica.
 
-<!-- IMAGEN: Representación del sistema nervioso activándose ante una situación estresante -->
+![Representación del sistema nervioso activándose ante una situación estresante](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_Fight_or_Flight_Response.png/960px-The_Fight_or_Flight_Response.png)
+
+*Imagen: «The Fight or Flight Response», Jvnkfood (original), converted to PNG and reduced, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Fight_or_Flight_Response.png).*
 
 ---
 

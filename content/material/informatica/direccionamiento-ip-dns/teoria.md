@@ -24,7 +24,9 @@ El **DNS (Domain Name System)** es un servicio que actúa como traductor entre n
 
 Cuando escribes un nombre de dominio en el navegador, se envía una consulta al servidor DNS más cercano. Este revisa su base de datos o pregunta a otros servidores hasta encontrar la dirección IP asociada al dominio. Luego, esa IP se usa para establecer la conexión con el servidor que aloja el sitio web.  
 
-<!-- IMAGEN: Diagrama del proceso de resolución de DNS -->
+![Diagrama del proceso de resolución de DNS](https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/DNS_Architecture.svg/960px-DNS_Architecture.svg.png)
+
+*Imagen: «DNS Architecture», Aaron Filbert, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DNS_Architecture.svg).*
 
 ---
 

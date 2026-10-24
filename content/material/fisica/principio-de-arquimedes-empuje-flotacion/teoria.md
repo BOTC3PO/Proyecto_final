@@ -24,7 +24,9 @@ Para que un objeto flote en equilibrio sobre la superficie de un líquido, **el 
 
 Este equilibrio no depende de la forma del objeto, sino de la **relación entre su densidad y la del fluido**. Un cuerpo menos denso que el líquido siempre flotará; uno más denso, se hundirá. Por ejemplo, un barco de hierro puede flotar porque su diseño distribuye el peso en un volumen suficiente para desplazar agua cuyo peso sea mayor al del barco.
 
-<!-- IMAGEN: Comparación entre un objeto que flota (empuje = peso) y uno que se hunde (peso > empuje). -->
+![Comparación entre un objeto que flota (empuje = peso) y uno que se hunde (peso > empuje).](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Floating-and-sinking-2.svg/960px-Floating-and-sinking-2.svg.png)
+
+*Imagen: «Floating-and-sinking-2», MikeRun, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Floating-and-sinking-2.svg).*
 
 ---
 

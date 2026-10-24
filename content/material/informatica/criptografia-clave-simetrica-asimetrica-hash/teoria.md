@@ -14,7 +14,9 @@ La criptografía simétrica funciona con un único parámetro secreto: una **cla
 
 El principal desafío es **distribuir la clave sin que sea interceptada**. Si un atacante logra acceder a esa clave, puede leer o modificar el mensaje sin dejar rastro. Por eso, se suele combinar con otros métodos (como criptografía asimétrica) para proteger su transmisión.  
 
-<!-- IMAGEN: Diagrama mostrando un proceso de cifrado y descifrado con una misma clave -->  
+![Diagrama mostrando un proceso de cifrado y descifrado con una misma clave](https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Simple_symmetric_encryption-en.svg/960px-Simple_symmetric_encryption-en.svg.png)
+
+*Imagen: «Simple symmetric encryption-en», Michel Bakni, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_symmetric_encryption-en.svg).*
 
 ---
 
@@ -28,7 +30,9 @@ El proceso funciona así:
 
 Este método elimina la necesidad de compartir una clave secreta por canales inseguros, lo que la hace ideal para comunicaciones en internet. Algoritmos como RSA o ECC (Elliptic Curve Cryptography) son ejemplos clave.  
 
-<!-- IMAGEN: Esquema de intercambio de claves pública y privada -->  
+![Esquema de intercambio de claves pública y privada](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Orange_blue_public_key_cryptography_uk.svg/960px-Orange_blue_public_key_cryptography_uk.svg.png)
+
+*Imagen: «Orange blue public key cryptography uk», Orange_blue_public_key_cryptography_en.svg: Banane, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Orange_blue_public_key_cryptography_uk.svg).*
 
 ---
 
@@ -43,7 +47,9 @@ Estas funciones son esenciales para:
 
 Un ejemplo común es SHA-256, usado en blockchain y protocolos seguros. Una característica clave es que **no se puede revertir** el proceso: de un hash no se obtiene el mensaje original.  
 
-<!-- IMAGEN: Representación gráfica del proceso de generación de un hash -->  
+![Representación gráfica del proceso de generación de un hash](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Cryptographic_Hash_Function.svg/960px-Cryptographic_Hash_Function.svg.png)
+
+*Imagen: «Cryptographic Hash Function», User:Jorge Stolfi based on Image:Hash_function.svg, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cryptographic_Hash_Function.svg).*
 
 ---
 

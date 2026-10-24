@@ -30,7 +30,9 @@ Los materiales pueden soportar diferentes **tipos de esfuerzo** según la direcc
 
 Cada tipo de carga requiere análisis específico para diseñar estructuras seguras y eficientes.
 
-<!-- IMAGEN: Ilustración comparando los cuatro tipos de esfuerzo con ejemplos cotidianos -->
+![Ilustración comparando los cuatro tipos de esfuerzo con ejemplos cotidianos](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Different-types-of-mechanical-stress.svg/960px-Different-types-of-mechanical-stress.svg.png)
+
+*Imagen: «Different-types-of-mechanical-stress», MikeRun, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Different-types-of-mechanical-stress.svg).*
 
 ---
 

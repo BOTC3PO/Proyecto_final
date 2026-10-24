@@ -20,7 +20,9 @@ Los algoritmos de búsqueda son métodos que permiten localizar un elemento espe
 
 La **búsqueda binaria** es una alternativa mucho más rápida, pero solo funciona si los datos están **ordenados previamente**. El proceso divide la lista en mitades sucesivas, comparando el valor buscado con el del elemento central. Si no coincide, descarta la mitad donde no puede estar y repite el procedimiento hasta encontrarlo o agotar las opciones. Esta estrategia reduce exponencialmente el número de elementos a revisar, lo que la hace ideal para grandes conjuntos.
 
-<!-- IMAGEN: Representación gráfica de la búsqueda binaria en una lista ordenada, mostrando divisiones sucesivas -->
+![Representación gráfica de la búsqueda binaria en una lista ordenada, mostrando divisiones sucesivas](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Binary_Search_Depiction.svg/960px-Binary_Search_Depiction.svg.png)
+
+*Imagen: «Binary Search Depiction», AlwaysAngry, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Binary_Search_Depiction.svg).*
 
 ---
 
@@ -34,7 +36,9 @@ La **complejidad algorítmica** mide cuán eficiente es un método a medida que 
 
 Los algoritmos de ordenamiento organizan elementos en un criterio específico, como ascendente o descendente. Uno de los más sencillos es el **ordenamiento burbuja**, que compara pares adyacentes de la lista y los intercambia si están en el orden incorrecto. Este proceso se repite hasta que no haya más inversiones, lo que garantiza que los elementos "más grandes" se "suelten" hacia el final.
 
-<!-- IMAGEN: Ejemplo visual del ordenamiento burbuja con una lista de números que se van reordenando paso a paso -->
+![Ejemplo visual del ordenamiento burbuja con una lista de números que se van reordenando paso a paso](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bubble_Sort_Example.png/960px-Bubble_Sort_Example.png)
+
+*Imagen: «Bubble Sort Example», Nadine Koch, Niklas Meißner, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bubble_Sort_Example.png).*
 
 ---
 

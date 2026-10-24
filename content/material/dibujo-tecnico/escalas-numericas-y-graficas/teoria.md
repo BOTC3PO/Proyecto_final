@@ -12,7 +12,9 @@
 
 La **escala** es la relación matemática que establece cuánto se reduce o amplía un objeto al representarlo en un plano. Por ejemplo, si dibujás una puerta de 2 metros de alto con una escala de 1:50, significa que en el papel medirá 4 centímetros (2 m ÷ 50 = 0,04 m = 4 cm). Esta proporción permite trabajar con objetos grandes, como edificios, o muy pequeños, como piezas mecánicas, sin perder precisión.
 
-<!-- IMAGEN: Ejemplo de escala numérica aplicada a un dibujo técnico -->
+![Ejemplo de escala numérica aplicada a un dibujo técnico](https://upload.wikimedia.org/wikipedia/commons/c/cb/Graphical_scale.gif)
+
+*Imagen: «Graphical scale», Milhaus, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Graphical_scale.gif).*
 
 ## 2. Escalas numéricas: cómo se leen
 

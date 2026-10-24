@@ -12,7 +12,9 @@
 
 Hace unos 66 millones de años, un evento de gran magnitud marcó el fin de una era dominada por reptiles gigantes: la extinción del Cretácico-Paleógeno. Este fenómeno no solo eliminó a los dinosaurios, sino que también afectó a otros grupos de organismos, creando un vacío ecológico inédito en la historia de la Tierra. Los mamíferos, hasta ese momento pequeños y nocturnos, se encontraron con una realidad radicalmente diferente: grandes depredadores desaparecieron, y los nichos ecológicos que antes ocupaban otros animales quedaron libres.
 
-<!-- IMAGEN: Mapa de la Tierra en el periodo Cretácico-Paleógeno mostrando zonas afectadas por el impacto del asteroide -->
+![Mapa de la Tierra en el periodo Cretácico-Paleógeno mostrando zonas afectadas por el impacto del asteroide](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Chicxulub_impact_-_artist_impression.jpg/960px-Chicxulub_impact_-_artist_impression.jpg)
+
+*Imagen: «Chicxulub impact - artist impression», Donald E. Davis, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chicxulub_impact_-_artist_impression.jpg).*
 
 ## 2. Radiación adaptativa: un salto evolutivo
 

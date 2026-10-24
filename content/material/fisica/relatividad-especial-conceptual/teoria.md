@@ -12,7 +12,9 @@
 
 La relatividad especial, propuesta por Albert Einstein en 1905, es una teoría física que describe cómo las leyes de la naturaleza se comportan cuando se mueven a velocidades cercanas a la luz. A diferencia de lo que postulaban Newton o Galileo, esta teoría establece que no hay un marco de referencia absoluto: todo depende del observador y su estado de movimiento.
 
-<!-- IMAGEN: Comparación entre sistemas inerciales (marcos en reposo o con velocidad constante) y cómo se perciben los fenómenos físicos en cada uno -->
+![Comparación entre sistemas inerciales (marcos en reposo o con velocidad constante) y cómo se perciben los fenómenos físicos en cada uno](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Inertial_frames.svg/960px-Inertial_frames.svg.png)
+
+*Imagen: «Inertial frames», Vectorised by User:Sushant savla from the work by, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Inertial_frames.svg).*
 
 ---
 

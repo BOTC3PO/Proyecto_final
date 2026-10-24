@@ -13,7 +13,9 @@ En 1492, Cristóbal Colón emprendió un viaje desde España con el objetivo de 
 
 La llegada de los españoles no fue un acto único ni pacífico: implicó contactos iniciales, intercambios culturales y comerciales, pero también conflictos violentos. La introducción de enfermedades como la viruela o el sarampión, a las que los pueblos indígenas no tenían inmunidad, fue un factor decisivo en la caída de civilizaciones poderosas, aunque no siempre directo ni inmediato. (El cólera, en cambio, no llegó a América hasta el siglo XIX.)  
 
-<!-- IMAGEN: Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos -->  
+![Mapa del mundo europeo en el siglo XV con rutas marítimas y continentes desconocidos](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg/960px-Fra_Mauro_World_Map%2C_c.1450_%281806_copy%29.jpg)
+
+*Imagen: «Fra Mauro World Map, c.1450 (1806 copy)», Fra Mauro (W. Fraser), Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fra_Mauro_World_Map,_c.1450_(1806_copy).jpg).*
 
 ---
 

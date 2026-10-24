@@ -16,7 +16,11 @@ Un acorde es la superposición de dos o más notas musicales que suenan al mismo
 
 ## 2. La tonalidad y el centro tonal
 
-La tonalidad es el sistema que organiza las relaciones entre las notas en una pieza musical, estableciendo una jerarquía donde ciertas notas tienen más peso que otras. El eje de este sistema es la **tonica**, la nota central que actúa como un punto de equilibrio o "casa" dentro de la progresión armónica. Por ejemplo, en una pieza en do mayor, el do es la tónica: las demás notas se relacionan con él mediante intervalos y acordes que crean expectativas y resoluciones. <!-- IMAGEN: Escala de do mayor con la tónica destacada -->.
+La tonalidad es el sistema que organiza las relaciones entre las notas en una pieza musical, estableciendo una jerarquía donde ciertas notas tienen más peso que otras. El eje de este sistema es la **tonica**, la nota central que actúa como un punto de equilibrio o "casa" dentro de la progresión armónica. Por ejemplo, en una pieza en do mayor, el do es la tónica: las demás notas se relacionan con él mediante intervalos y acordes que crean expectativas y resoluciones.
+
+![Escala de do mayor con la tónica destacada](https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/C_major_scale_with_degrees_and_tones.svg/960px-C_major_scale_with_degrees_and_tones.svg.png)
+
+*Imagen: «C major scale with degrees and tones», Romainbehar, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:C_major_scale_with_degrees_and_tones.svg).*
 
 ---
 

@@ -28,7 +28,9 @@ Durante el **Devónico** (hace unos **372 millones de años**), una serie de eve
 
 La extinción del **Pérmico-Triásico** (hace unos **252 millones de años**) fue la más devastadora en la historia de la Tierra. Se estima que **el 96% de las especies marinas y el 70% de las terrestres se extinguieron**, incluyendo a muchos invertebrados, peces y plantas. Las causas principales son la actividad volcánica masiva en Siberia, que liberó gases tóxicos y alteró el clima global, junto con cambios en los niveles del mar.
 
-<!-- IMAGEN: Reconstitución artística de los ecosistemas antes y después de la extinción del Pérmico -->
+![Reconstitución artística de los ecosistemas antes y después de la extinción del Pérmico](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Reconstructions_of_late_Permian_to_Early_Triassic_continental_ecological_phases_with_representative_organic_microfossil_assemblages.png/960px-Reconstructions_of_late_Permian_to_Early_Triassic_continental_ecological_phases_with_representative_organic_microfossil_assemblages.png)
+
+*Imagen: «Reconstructions of late Permian to Early Triassic continental ecological phases with representative organic microfossil assemblages», Authors of the study: Chris Mays, Stephen McLoughl, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Reconstructions_of_late_Permian_to_Early_Triassic_continental_ecological_phases_with_representative_organic_microfossil_assemblages.png).*
 
 ## 5. La cuarta extinción: Triásico-Jurásico
 

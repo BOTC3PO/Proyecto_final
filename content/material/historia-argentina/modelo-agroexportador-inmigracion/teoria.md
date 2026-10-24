@@ -24,7 +24,9 @@ Para sostener el modelo agroexportador, fue fundamental la llegada de inversione
 
 Estas inversiones no solo impulsaron el comercio, sino que también generaron dependencia económica del capital extranjero. Los beneficios obtenidos por los inversores eran mayores que los de los argentinos, lo cual alimentó desigualdades sociales y económicas. Además, la prioridad a la exportación limitaba el desarrollo industrial local.
 
-<!-- IMAGEN: Mapa de ferrocarriles construidos en Argentina durante el modelo agroexportador -->
+![Mapa de ferrocarriles construidos en Argentina durante el modelo agroexportador](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Map_of_the_Argentine_Railways_WDL11313.png/960px-Map_of_the_Argentine_Railways_WDL11313.png)
+
+*Imagen: «Map of the Argentine Railways WDL11313», Unknown authorUnknown author, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Map_of_the_Argentine_Railways_WDL11313.png).*
 
 ---
 
@@ -34,7 +36,9 @@ La expansión del modelo agroexportador requirió una gran mano de obra, lo que 
 
 La inmigración no fue un fenómeno espontáneo: el Estado argentino fomentó su llegada mediante políticas migratorias activas (ayudas económicas, tierras gratuitas) para aumentar la población y la fuerza laboral. Esta afluencia transformó radicalmente la demografía del país, diversificando su cultura y generando una sociedad multilingüe y multicultural.
 
-<!-- IMAGEN: Foto de inmigrantes en el puerto de Buenos Aires durante el siglo XIX -->
+![Foto de inmigrantes en el puerto de Buenos Aires durante el siglo XIX](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Immigrant_Hotel%2C_Buenos_Aires%2C_Argentina_LCCN_91739070.tif/lossy-page1-960px-Immigrant_Hotel%2C_Buenos_Aires%2C_Argentina_LCCN_91739070.tif.jpg)
+
+*Imagen: «Immigrant Hotel, Buenos Aires, Argentina LCCN 91739070», Frank G. Carpenter, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Immigrant_Hotel,_Buenos_Aires,_Argentina_LCCN_91739070.tif).*
 
 ---
 

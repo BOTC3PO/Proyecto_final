@@ -22,7 +22,9 @@ El psicoanálisis surge a finales del siglo XIX como una forma de entender la me
 
 A principios del siglo XX, el **conductismo** se convirtió en la corriente dominante al rechazar cualquier estudio de procesos internos como "subjetivos" o "no comprobables". Su base está en la idea de que la psicología debe centrarse en lo observable: cómo los estímulos del entorno (E) generan respuestas (R) en el sujeto. John B. Watson y luego B.F. Skinner desarrollaron modelos donde se analizaba, por ejemplo, cómo un sonido (estímulo) provoca una reacción específica (respuesta), como el reflejo de un perro al escuchar un timbre. Este enfoque fue clave para aplicaciones prácticas en educación y terapia, aunque también fue criticado por ignorar la complejidad del pensamiento.
 
-<!-- IMAGEN: Diagrama de E (estímulo) → R (respuesta), con ejemplos como el condicionamiento clásico de Pavlov -->
+![Diagrama de E (estímulo) → R (respuesta), con ejemplos como el condicionamiento clásico de Pavlov](https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Pavlov%27s_dog_conditioning.svg/960px-Pavlov%27s_dog_conditioning.svg.png)
+
+*Imagen: «Pavlov's dog conditioning», Maxxl², CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pavlov%27s_dog_conditioning.svg).*
 
 ---
 
