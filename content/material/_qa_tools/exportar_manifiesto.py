@@ -15,6 +15,28 @@ def modulo_id(materia, rel):
     """Id seguro para URL (sin `:`, `/` ni `#`): cont-<materia>--<ruta con -- en vez de />."""
     return f"cont-{materia}--{rel.replace('/', '--')}"
 
+IMG = re.compile(r"!\[([^\]]*)\]\((https://[^)\s]+)\)\s*\n\s*\n\*Imagen: (.*?)\. \[Wikimedia Commons\]\(([^)]+)\)\.\*\n?", re.S)
+
+def extraer_imagenes(texto):
+    """La app muestra la teoría como texto plano: las imágenes `![](url)` salen del texto y pasan a ser ítems
+    "Herramienta" con un bloque de imagen (URL de Wikimedia Commons, sin descargar nada) y su atribución."""
+    items = []
+    def sacar(m):
+        alt, url, cred, pagina = m.group(1), m.group(2), m.group(3).strip(), m.group(4)
+        doc = {"version": 1, "blocks": [{"id": f"img{len(items) + 1}", "type": "image", "url": url, "alt": alt,
+                                         "caption": f"{cred}. Fuente: {pagina}", "width": "full"}]}
+        items.append({"title": (alt[:80] + "…") if len(alt) > 80 else alt, "doc": doc})
+        return ""
+    return re.sub(r"\n{3,}", "\n\n", IMG.sub(sacar, texto)), items
+
+def herramientas_de(d):
+    """Diagramas interactivos: `herramientas/*.json` con un BlockDocument ({version:1, blocks:[...]}) y `titulo`."""
+    out = []
+    for f in sorted((d / "herramientas").glob("*.json")) if (d / "herramientas").is_dir() else []:
+        j = json.loads(f.read_text(encoding="utf-8"))
+        out.append({"title": j.get("titulo", f.stem), "doc": {"version": 1, "blocks": j["blocks"]}})
+    return out
+
 def limpiar_teoria(t):
     L = t.split("\n"); i = 0
     while i < len(L) and not L[i].startswith("# "): i += 1
@@ -121,6 +143,7 @@ def main():
             d = MAT / m / rel
             teo = d / "teoria.md"; cu = d / "cuestionario.md"
             titulo, texto = (limpiar_teoria(teo.read_text(encoding="utf-8")) if teo.exists() else (rel.split("/")[-1], ""))
+            texto, herr = extraer_imagenes(texto); herr += herramientas_de(d)
             titulo = re.sub(r"^.*? — ", "", titulo) if " — " in titulo else titulo
             preguntas = []; nivel = None
             if cu.exists():
@@ -133,7 +156,7 @@ def main():
                     preguntas.append({"titulo": humanizar_rutas(t, d), "dsl": humanizar_rutas(b, d)})
             deps = [modulo_id(*x) for x in dd.get(rel, []) if x in existentes]
             temas.append({"id": modulo_id(m, rel), "materia": m, "ruta": rel, "titulo": titulo or rel, "teoria": texto, "nivel": nivel,
-                          "dependencias": deps, "preguntas": preguntas})
+                          "dependencias": deps, "preguntas": preguntas, "herramientas": herr})
     por_ruta = {(t["materia"], t["ruta"]): t for t in temas}
     def tema_de(materia, slug):
         c = [t for (m, r), t in por_ruta.items() if m == materia and (r == slug or r.endswith("/" + slug)) and t["preguntas"]]

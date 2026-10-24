@@ -14,7 +14,7 @@ El pleito por las islas Malvinas tiene raíces en el siglo XIX, cuando Gran Bret
 
 ![mapa con rutas de los buques involucrados en el conflicto](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Falklands%2C_Campaign%2C_%28Movements%29_1982.jpg/960px-Falklands%2C_Campaign%2C_%28Movements%29_1982.jpg)
 
-*Imagen: «Falklands, Campaign, (Movements) 1982», Department of History, United States Military Acad, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Falklands,_Campaign,_(Movements)_1982.jpg).*
+*Imagen: «Falklands, Campaign, (Movements) 1982», Department of History, United States Military Acad, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Falklands,_Campaign,_%28Movements%29_1982.jpg).*
 
 ## 2. Cronología del conflicto
 

@@ -16,7 +16,7 @@ Hacia el 3100 a.C., según la tradición histórica, el rey Menes (o Narmer) uni
 
 ![Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Narmer_palette_%28obverse%29.jpg/960px-Narmer_palette_%28obverse%29.jpg)
 
-*Imagen: «Narmer palette (obverse)», anonymous, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Narmer_palette_(obverse).jpg).*
+*Imagen: «Narmer palette (obverse)», anonymous, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Narmer_palette_%28obverse%29.jpg).*
 
 ## 2. Los grandes periodos dinásticos
 

@@ -40,7 +40,7 @@ La percepción de color depende de la frecuencia específica de cada onda. Por e
 
 ![Diagrama del espectro visible con colores ordenados y longitudes de onda aproximadas](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Light_spectrum_%28precise_colors%29.svg/960px-Light_spectrum_%28precise_colors%29.svg.png)
 
-*Imagen: «Light spectrum (precise colors)», Fulvio314, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Light_spectrum_(precise_colors).svg).*
+*Imagen: «Light spectrum (precise colors)», Fulvio314, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Light_spectrum_%28precise_colors%29.svg).*
 
 ---
 

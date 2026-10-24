@@ -14,7 +14,7 @@ A finales del siglo IV a.C., la *polis* griega, modelo político y social que ha
 
 ![Mapa que muestra la expansión del imperio de Alejandro, desde Grecia hasta la India, destacando las principales batallas y ciudades fundadas](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Macedonian_Empire%2C_Alexander_the_Great_period%28BC326%29.png/960px-Macedonian_Empire%2C_Alexander_the_Great_period%28BC326%29.png)
 
-*Imagen: «Macedonian Empire, Alexander the Great period(BC326)», Kaiser&amp;Augstus&amp;Imperator, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Macedonian_Empire,_Alexander_the_Great_period(BC326).png).*
+*Imagen: «Macedonian Empire, Alexander the Great period(BC326)», Kaiser&Augstus&Imperator, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Macedonian_Empire,_Alexander_the_Great_period%28BC326%29.png).*
 
 ## 2. Las campañas de Alejandro Magno (334-323 a.C.)
 

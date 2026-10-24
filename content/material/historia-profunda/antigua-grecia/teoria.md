@@ -22,7 +22,7 @@ La ciudadanía no era un derecho universal, sino un estatus exclusivo reservado 
 
 *Imagen: «Greek and Phoenician colonies. Drawn by Dr. Charles Muller. Engraved by by S. Jacobs and I. Dalmont. John Murray, London (IA dr greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029)», Smith, William, 1813-1893
 Muller, Charles
-Jacobs,, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Greek_and_Phoenician_colonies._Drawn_by_Dr._Charles_Muller._Engraved_by_by_S._Jacobs_and_I._Dalmont._John_Murray,_London_(IA_dr_greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029).jpg).*
+Jacobs,, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Greek_and_Phoenician_colonies._Drawn_by_Dr._Charles_Muller._Engraved_by_by_S._Jacobs_and_I._Dalmont._John_Murray,_London_%28IA_dr_greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029%29.jpg).*
 
 ## 3. Las Grandes Reformas: De la Aristocracia al Ordenamiento Legal
 

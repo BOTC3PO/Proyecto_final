@@ -16,7 +16,7 @@ Tradicionalmente, la historiografía china menciona a los Tres Augustos y los Ci
 
 ![Mapa del valle del río Amarillo mostrando las principales ciudades-estado de la dinastía Shang y las rutas de comercio de jade y bronce](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kingdom_of_the_Shang_Dynasty.jpg/960px-Kingdom_of_the_Shang_Dynasty.jpg)
 
-*Imagen: «Kingdom of the Shang Dynasty», Albert Herrmann &amp; Georg Westermann, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kingdom_of_the_Shang_Dynasty.jpg).*
+*Imagen: «Kingdom of the Shang Dynasty», Albert Herrmann & Georg Westermann, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kingdom_of_the_Shang_Dynasty.jpg).*
 
 ## 2. La Mandato del Cielo y la legitimidad Zhou
 

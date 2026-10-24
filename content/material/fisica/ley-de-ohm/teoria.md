@@ -18,7 +18,7 @@ La **Ley de Ohm** establece que, en un conductor ohmico, la diferencia de potenc
 
 ![Gráfico de voltaje (V) en el eje X y corriente (I) en el eje Y, mostrando una línea recta con pendiente R](https://upload.wikimedia.org/wikipedia/commons/0/04/A_graph_showing_the_relationship_between_current_and_voltage_%28Ohm%27s_law%29.png)
 
-*Imagen: «A graph showing the relationship between current and voltage (Ohm's law)», Youtetsu, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_graph_showing_the_relationship_between_current_and_voltage_(Ohm%27s_law).png).*
+*Imagen: «A graph showing the relationship between current and voltage (Ohm's law)», Youtetsu, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_graph_showing_the_relationship_between_current_and_voltage_%28Ohm%27s_law%29.png).*
 
 ## 3. Unidades básicas del circuito eléctrico
 

@@ -24,7 +24,7 @@ Mientras tanto, en el este, la Unión Soviética, tras firmar el Pacto Ribbentro
 
 ![Mapa estratégico mostrando el avance alemán hacia el este en 1941 y la resistencia soviética en Moscú](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg/960px-Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg)
 
-*Imagen: «Operation Barbarossa (26 August - 5 December 1941)», The History Department of the United States Milita, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Operation_Barbarossa_(26_August_-_5_December_1941).jpg).*
+*Imagen: «Operation Barbarossa (26 August - 5 December 1941)», The History Department of the United States Milita, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Operation_Barbarossa_%2826_August_-_5_December_1941%29.jpg).*
 
 ## 3. La globalización del conflicto y la alianza antihitleriana (1941-1943)
 
@@ -52,4 +52,4 @@ El conflicto también dejó una huella moral irreparable con el descubrimiento d
 
 ![Fotografía histórica de la firma de la rendición japonesa a bordo del USS Missouri](https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Surrender_of_Japan_-_USS_Missouri_%28restored%29.jpg/960px-Surrender_of_Japan_-_USS_Missouri_%28restored%29.jpg)
 
-*Imagen: «Surrender of Japan - USS Missouri (restored)», Army Signal Corps, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Surrender_of_Japan_-_USS_Missouri_(restored).jpg).*
+*Imagen: «Surrender of Japan - USS Missouri (restored)», Army Signal Corps, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Surrender_of_Japan_-_USS_Missouri_%28restored%29.jpg).*

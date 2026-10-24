@@ -27,7 +27,7 @@ Las pilas son útiles cuando necesitamos revertir el orden de datos o mantener u
 
 ![Diagrama de una pila con elementos A, B, C. El último elemento (C) es el primero en salir.](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Stack_%28data_structure%29_LIFO.svg/960px-Stack_%28data_structure%29_LIFO.svg.png)
 
-*Imagen: «Stack (data structure) LIFO», Lifo.png: The original uploader was Fibi at German, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stack_(data_structure)_LIFO.svg).*
+*Imagen: «Stack (data structure) LIFO», Lifo.png: The original uploader was Fibi at German, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stack_%28data_structure%29_LIFO.svg).*
 
 ---
 

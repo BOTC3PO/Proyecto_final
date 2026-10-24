@@ -34,3 +34,12 @@ Los módulos con prerrequisitos se abren al completarlos; un directivo o docente
 - Probado contra `virtualbook_test` (no producción): 2378 módulos (2133 temas, 221 exámenes jefe, 24 libros), 52285 plantillas y 2126 cuestionarios en 8 s.
   Un alumno ve el módulo, abre un intento de 10 preguntas y lo envía con nota; un examen jefe de 157 preguntas sortea 40, el de alemán (500) sortea 50; los módulos con
   prerrequisitos devuelven `module_locked`; el libro se lee desde su módulo.
+
+## Imágenes y diagramas (ítems "Herramienta")
+
+La app muestra la teoría (`Texto`) como texto plano, sin Markdown. Por eso las imágenes de `teoria.md`
+(`![alt](url)` + línea `*Imagen: … [Wikimedia Commons](…).*`, enlazadas desde el CDN de Wikimedia, sin descargar nada)
+no quedan en el texto importado: `exportar_manifiesto.py` las saca y las convierte en ítems de tipo `Herramienta`
+(un `BlockDocument` con un bloque `image`, con su atribución en el pie). Los diagramas interactivos se agregan con archivos
+`<tema>/herramientas/*.json` (`{"titulo": "...", "blocks": [ ...bloques de la web: flow, shape, chart, math, table... ]}`).
+El importador los agrega como `theoryItems` `Herramienta` después del texto (`<id>.h1`, `<id>.h2`…).

@@ -18,7 +18,7 @@ El Humanismo no fue un movimiento político, sino una corriente intelectual y ed
 
 ![Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg/960px-Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg)
 
-*Imagen: «Hans Holbein d. J. (Werkstatt) - Bildnis des Erasmus von Rotterdam (ca. 1530)», Workshop of Hans Holbein the Younger, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hans_Holbein_d._J._(Werkstatt)_-_Bildnis_des_Erasmus_von_Rotterdam_(ca._1530).jpg).*
+*Imagen: «Hans Holbein d. J. (Werkstatt) - Bildnis des Erasmus von Rotterdam (ca. 1530)», Workshop of Hans Holbein the Younger, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg).*
 
 Este enfoque crítico afectó directamente a la religión. Los humanistas aplicaron sus métodos filológicos a la Biblia y a los escritos de los Padres de la Iglesia, descubriendo discrepancias en las traducciones latinas utilizadas por la Iglesia católica. Esta "desmitificación" textual preparó el terreno intelectual para cuestionar la autoridad institucional de Roma, demostrando que la verdad podía estar en los textos originales, no necesariamente en la tradición eclesiástica consolidada.
 

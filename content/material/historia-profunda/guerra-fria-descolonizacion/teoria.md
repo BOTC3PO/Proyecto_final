@@ -35,7 +35,7 @@ Este episodio evidenció cómo las decisiones de ambas potencias podían tener c
 
 ![fotografía del bloqueo naval durante la crisis de los misiles](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/P-3A_VP-44_over_USS_Barry_%28DD-933%29_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg/960px-P-3A_VP-44_over_USS_Barry_%28DD-933%29_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg)
 
-*Imagen: «P-3A VP-44 over USS Barry (DD-933) and Metallurg Anosov during Cuban Missile Crisis 1962», U.S. Navy, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:P-3A_VP-44_over_USS_Barry_(DD-933)_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg).*
+*Imagen: «P-3A VP-44 over USS Barry (DD-933) and Metallurg Anosov during Cuban Missile Crisis 1962», U.S. Navy, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:P-3A_VP-44_over_USS_Barry_%28DD-933%29_and_Metallurg_Anosov_during_Cuban_Missile_Crisis_1962.jpg).*
 
 ---
 
