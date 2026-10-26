@@ -1,455 +1,271 @@
-# Idiomas — Inglés — modales-de-deduccion (cuestionario)
+# Inglés — modales de deducción (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/modales-de-deduccion/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/modales-de-deduccion`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas ambiguas (varias respuestas válidas) o con la respuesta equivocada.
 
 ---
 
-### 1 — Deduction from a broken window  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have broken"]  
-pasos:  
-  - "Identificar la acción pasada deducida por el sujeto."  
-  - "Seleccionar el modal adecuado para expresar certeza."  
-explicacion: "Se usa 'must have + participio' cuando hay una deducción segura sobre un evento pasado. En este caso, al ver el cristal roto se concluye que fue rompido."  
-tipo: completar  
-enunciado: "The window was shattered. I ______ it broken."  
-respuestas_validas:  
-  - "must have"  
-  - "Must have"  
+### 1 — Presente: must
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "must be"
+tipo: "mc"
+opciones_explicitas: ["must be", "can't be", "must have been"]
+
+enunciado: "She's worked twelve hours. She ___ exhausted."
+
+explicacion: |
+  Casi seguro, presente: *must be*.
 ```
 
-### 2 — Deduction from a missing item  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["can't", "have stolen"]  
-pasos:  
-  - "Determinar la imposibilidad de un evento."  
-  - "Usar el modal que expresa certeza negativa."  
-explicacion: "'Can't have + participio' se usa para descartar una acción pasada con absoluta seguridad. Aquí, al no haber pruebas del robo, se niega la posibilidad."  
-tipo: completar  
-enunciado: "The wallet is gone. He ______ it."  
-respuestas_validas:  
-  - "can't have stolen"  
-  - "Can't have stolen"  
+### 2 — Presente: can't
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "can't be"
+tipo: "mc"
+opciones_explicitas: ["can't be", "mustn't be", "might be"]
+
+enunciado: "That ___ Ana. She's in Spain this month."
+
+explicacion: |
+  Casi seguro que no: *can't be* (no *mustn't*).
 ```
 
-### 3 — Possibility of a past event  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["might", "have left"]  
-pasos:  
-  - "Reconocer la incertidumbre del sujeto."  
-  - "Elegir el modal que expresa posibilidad."  
-explicacion: "'Might have + participio' se emplea para sugerir una acción posible en el pasado, sin certeza. Aquí, la ausencia de evidencia permite solo una suposición."  
-tipo: completar  
-enunciado: "She didn’t answer the phone. She ______ already left."  
-respuestas_validas:  
-  - "might have"  
-  - "Might have"  
+### 3 — Presente: might
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "might be"
+tipo: "mc"
+opciones_explicitas: ["might be", "must be", "can't be"]
+
+enunciado: "I'm not sure where Tom is. He ___ in the library."
+
+explicacion: |
+  Posibilidad: *might be*.
 ```
 
-### 4 — Deduction from a missing book  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have taken"]  
-pasos:  
-  - "Identificar la acción lógica deducida."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "Cuando hay evidencia clara de un evento, se usa 'must have + participio'. Aquí, el libro desaparecido y el cajón abierto implican que fue llevado."  
-tipo: completar  
-enunciado: "The book is missing. Someone ______ it from the shelf."  
-respuestas_validas:  
-  - "must have taken"  
-  - "Must have taken"  
+### 4 — Pasado: must have
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "must have rained"
+tipo: "mc"
+opciones_explicitas: ["must rain", "must have rained", "can't have rained"]
+
+enunciado: "The streets are wet. It ___ during the night."
+
+explicacion: |
+  Deducción sobre el pasado: *must have + participio*.
 ```
 
-### 5 — Possibility of a delayed flight  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["could", "have been"]  
-pasos:  
-  - "Reconocer la posibilidad de un evento."  
-  - "Usar el modal que expresa probabilidad."  
-explicacion: "'Could have + participio' se usa para sugerir una acción posible en el pasado. Aquí, el retraso del avión permite suponer que llegó tarde al aeropuerto."  
-tipo: completar  
-enunciado: "The flight was delayed. She ______ late to the airport."  
-respuestas_validas:  
-  - "could have been"  
-  - "Could have been"  
+### 5 — Pasado: might have
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "might have missed"
+tipo: "mc"
+opciones_explicitas: ["might have missed", "must miss", "can't miss"]
+
+enunciado: "She's late. She ___ the bus."
+
+explicacion: |
+  Posibilidad en el pasado: *might have + participio*.
 ```
 
-### 6 — Deduction from a broken car  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have broken"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los neumáticos desinflados indican con seguridad que el coche se pinchó."  
-tipo: completar  
-enunciado: "The tires are flat. The car ______ a puncture."  
-respuestas_validas:  
-  - "must have had"  
-  - "Must have had"  
+### 6 — Pasado: can't have
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "can't have seen"
+tipo: "mc"
+opciones_explicitas: ["can't have seen", "must have seen", "mustn't see"]
+
+enunciado: "He ___ me. I was hiding behind the door."
+
+explicacion: |
+  Casi seguro que no pasó: *can't have + participio*.
 ```
 
-### 7 — Possibility of a lost key  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["might", "have dropped"]  
-pasos:  
-  - "Reconocer la incertidumbre sobre un evento."  
-  - "Elegir el modal que expresa posibilidad."  
-explicacion: "'Might have + participio' se usa para sugerir una acción posible, pero no confirmada. Aquí, al no encontrar las llaves, se propone como posibilidad que se perdieron."  
-tipo: completar  
-enunciado: "The key is missing. She ______ it somewhere."  
-respuestas_validas:  
-  - "might have dropped"  
-  - "Might have dropped"  
+### 7 — Participio
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "gone"
+tipo: "mc"
+opciones_explicitas: ["went", "gone", "go"]
+
+enunciado: "She must have ___ home early."
+
+explicacion: |
+  Después de *have* va el participio: *gone*.
 ```
 
-### 8 — Deduction from a broken lamp  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have fallen"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, el frasco roto y los trozos en el suelo implican con seguridad que se rompió al caer."  
-tipo: completar  
-enunciado: "The jar is shattered. It ______ from the table."  
-respuestas_validas:  
-  - "must have fallen"  
-  - "Must have fallen"  
+### 8 — Progresivo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "must have been"
+tipo: "mc"
+opciones_explicitas: ["must have been", "must be have", "must had been"]
+
+enunciado: "Your eyes are red. You ___ crying."
+
+explicacion: |
+  *Must have been + -ing*.
 ```
 
-### 9 — Possibility of a forgotten meeting  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["could", "have forgotten"]  
-pasos:  
-  - "Reconocer la posibilidad de un evento."  
-  - "Usar el modal que expresa probabilidad."  
-explicacion: "'Could have + participio' se usa para sugerir una acción posible en el pasado. Aquí, al no asistir a la reunión, se propone como posibilidad que fue olvidada."  
-tipo: completar  
-enunciado: "He didn’t attend the meeting. He ______ it."  
-respuestas_validas:  
-  - "could have forgotten"  
-  - "Could have forgotten"  
+### 9 — Could have (reproche)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "could have told"
+tipo: "mc"
+opciones_explicitas: ["could have told", "must have told", "can't have told"]
+
+enunciado: "You ___ me you were coming! I would have cooked more."
+
+explicacion: |
+  *Could have + participio* = algo posible que no se hizo.
 ```
 
-### 10 — Deduction from a missing phone  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have stolen"]  
-pasos:  
-  - "Identificar la acción lógica deducida."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, al no encontrar el teléfono y haber un ladrón sospechoso, se concluye con seguridad que fue robado."  
-tipo: completar  
-enunciado: "The phone is missing. Someone ______ it."  
-respuestas_validas:  
-  - "must have stolen"  
-  - "Must have stolen"  
+### 10 — Deducción vs. crítica
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "arrepentimiento"
+tipo: "mc"
+opciones_explicitas: ["arrepentimiento", "una deducción segura", "una posibilidad"]
+
+enunciado: "«I should have studied more» expresa…"
+
+explicacion: |
+  *Should have* = crítica o arrepentimiento, no deducción.
 ```
 
-### 11 — Possibility of a delayed train  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["might", "have been"]  
-pasos:  
-  - "Reconocer la incertidumbre sobre un evento."  
-  - "Elegir el modal que expresa posibilidad."  
-explicacion: "'Might have + participio' se usa para sugerir una acción posible, pero no confirmada. Aquí, al llegar tarde a la estación, se propone como posibilidad que el tren llegó tarde."  
-tipo: completar  
-enunciado: "The train was late. He ______ delayed at the station."  
-respuestas_validas:  
-  - "might have been"  
-  - "Might have been"  
+### 11 — Equivalente
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "He must have lost his keys."
+tipo: "mc"
+opciones_explicitas: ["He must have lost his keys.", "He must lose his keys.", "He has to have lost his keys."]
+
+enunciado: "«Debe de haber perdido las llaves» se dice:"
+
+explicacion: |
+  «Debe de haber + participio» = *must have + participio*.
 ```
 
-### 12 — Deduction from a broken chair  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have broken"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los trozos en el suelo indican con seguridad que la silla se rompió al caer."  
-tipo: completar  
-enunciado: "The chair is in pieces. It ______ from the balcony."  
-respuestas_validas:  
-  - "must have fallen"  
-  - "Must have fallen"  
+### 12 — Equivalente (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: "She can't have said it."
+tipo: "mc"
+opciones_explicitas: ["She can't have said it.", "She mustn't have said it.", "She can't say it."]
+
+enunciado: "«No puede haberlo dicho ella» se dice:"
+
+explicacion: |
+  Imposibilidad en el pasado: *can't have said*.
 ```
 
-### 13 — Possibility of a lost bag  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["could", "have left"]  
-pasos:  
-  - "Reconocer la posibilidad de un evento."  
-  - "Usar el modal que expresa probabilidad."  
-explicacion: "'Could have + participio' se usa para sugerir una acción posible en el pasado. Aquí, al no encontrar la bolsa, se propone como posibilidad que fue olvidada en el aeropuerto."  
-tipo: completar  
-enunciado: "The bag is missing. She ______ it at the airport."  
-respuestas_validas:  
-  - "could have left"  
-  - "Could have left"  
+### 13 — Error típico
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«He mustn't be at home; the lights are off» expresa correctamente una deducción."
+
+explicacion: |
+  Falso: para deducir que algo no es así se usa *can't*: *He can't be at home*.
 ```
 
-### 14 — Deduction from a broken vase  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have dropped"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los trozos en el suelo y el brazo roto indican con seguridad que el jarrón fue caído."  
-tipo: completar  
-enunciado: "The vase is shattered. Someone ______ it."  
-respuestas_validas:  
-  - "must have dropped"  
-  - "Must have dropped"  
-```
+### 14 — Escritura
 
-### 15 — Possibility of a forgotten password  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["might", "have forgotten"]  
-pasos:  
-  - "Reconocer la incertidumbre sobre un evento."  
-  - "Elegir el modal que expresa posibilidad."  
-explicacion: "'Might have + participio' se usa para sugerir una acción posible, pero no confirmada. Aquí, al no recordar la contraseña, se propone como posibilidad que fue olvidada."  
-tipo: completar  
-enunciado: "He can’t log in. He ______ the password."  
-respuestas_validas:  
-  - "might have forgotten"  
-  - "Might have forgotten"  
 ```
+metadata:
+  materia: "ingles"
+  tema: "modales-de-deduccion"
+  nivel: "B2"
+  tags: ["modales-deduccion"]
 
-### 16 — Deduction from a broken laptop  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have crashed"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los mensajes de error indican con seguridad que la computadora se derrumbó al usar un software no compatible."  
-tipo: completar  
-enunciado: "The laptop won’t start. It ______ due to incompatible software."  
-respuestas_validas:  
-  - "must have crashed"  
-  - "Must have crashed"  
-```
+respuesta: falso
+tipo: vf
 
-### 17 — Possibility of a delayed delivery  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["could", "have been"]  
-pasos:  
-  - "Reconocer la posibilidad de un evento."  
-  - "Usar el modal que expresa probabilidad."  
-explicacion: "'Could have + participio' se usa para sugerir una acción posible en el pasado. Aquí, al no recibir el paquete, se propone como posibilidad que fue retrasado por la lluvia."  
-tipo: completar  
-enunciado: "The package is late. It ______ delayed by the rain."  
-respuestas_validas:  
-  - "could have been"  
-  - "Could have been"  
-```
+enunciado: "Es correcto escribir «must of gone» porque así suena."
 
-### 18 — Deduction from a broken door  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have been"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, las marcas en el marco indican con seguridad que la puerta fue forzada por alguien."  
-tipo: completar  
-enunciado: "The door is jammed. It ______ forced open."  
-respuestas_validas:  
-  - "must have been"  
-  - "Must have been"  
-```
-
-### 19 — Possibility of a lost key again  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["might", "have left"]  
-pasos:  
-  - "Reconocer la incertidumbre sobre un evento."  
-  - "Elegir el modal que expresa posibilidad."  
-explicacion: "'Might have + participio' se usa para sugerir una acción posible, pero no confirmada. Aquí, al no encontrar las llaves, se propone como posibilidad que fueron olvidadas en la oficina."  
-tipo: completar  
-enunciado: "The key is missing. He ______ it at the office."  
-respuestas_validas:  
-  - "might have left"  
-  - "Might have left"  
-```
-
-### 20 — Deduction from a broken window again  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have been"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los trozos en el suelo y el sonido de cristal rompido indican con seguridad que la ventana fue golpeada por una piedra."  
-tipo: completar  
-enunciado: "The window is shattered. It ______ hit by a stone."  
-respuestas_validas:  
-  - "must have been"  
-  - "Must have been"  
-```
-
-### 21 — Possibility of a forgotten appointment  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["could", "have missed"]  
-pasos:  
-  - "Reconocer la posibilidad de un evento."  
-  - "Usar el modal que expresa probabilidad."  
-explicacion: "'Could have + participio' se usa para sugerir una acción posible en el pasado. Aquí, al no asistir a la cita, se propone como posibilidad que fue olvidada."  
-tipo: completar  
-enunciado: "He didn’t show up for the meeting. He ______ it."  
-respuestas_validas:  
-  - "could have missed"  
-  - "Could have missed"  
-```
-
-### 22 — Deduction from a broken computer  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have overheated"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los mensajes de error y el calor excesivo indican con seguridad que la computadora se sobrecalentó."  
-tipo: completar  
-enunciado: "The computer is smoking. It ______ due to overheating."  
-respuestas_validas:  
-  - "must have overheated"  
-  - "Must have overheated"  
-```
-
-### 23 — Possibility of a lost document  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["might", "have been"]  
-pasos:  
-  - "Reconocer la incertidumbre sobre un evento."  
-  - "Elegir el modal que expresa posibilidad."  
-explicacion: "'Might have + participio' se usa para sugerir una acción posible, pero no confirmada. Aquí, al no encontrar el documento, se propone como posibilidad que fue perdido en la oficina."  
-tipo: completar  
-enunciado: "The document is missing. It ______ misplaced at the office."  
-respuestas_validas:  
-  - "might have been"  
-  - "Might have been"  
-```
-
-### 24 — Deduction from a broken phone again  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["must", "have dropped"]  
-pasos:  
-  - "Identificar la causa segura de un evento."  
-  - "Seleccionar el modal que expresa certeza."  
-explicacion: "'Must have + participio' se usa cuando hay evidencia clara. Aquí, los trozos en el suelo y el sonido de un impacto indican con seguridad que el teléfono fue caído."  
-tipo: completar  
-enunciado: "The phone is shattered. It ______ from the table."  
-respuestas_validas:  
-  - "must have fallen"  
-  - "Must have fallen"  
-```
-
-### 25 — Possibility of a delayed flight again  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "modales-de-deduccion"  
-  nivel: "B2"  
-  tags: ["could", "have been"]  
-pasos:  
-  - "Reconocer la posibilidad de un evento."  
-  - "Usar el modal que expresa probabilidad."  
-explicacion: "'Could have + participio' se usa para sugerir una acción posible en el pasado. Aquí, al no embarcar a tiempo, se propone como posibilidad que el vuelo fue retrasado por un problema mecánico."  
-tipo: completar  
-enunciado: "The flight was delayed. He ______ late to the gate."  
-respuestas_validas:  
-  - "could have been"  
-  - "Could have been"  
+explicacion: |
+  Falso: se escribe *must have gone* (o *must've gone*).
 ```

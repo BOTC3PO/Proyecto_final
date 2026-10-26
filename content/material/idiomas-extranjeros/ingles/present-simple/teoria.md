@@ -5,51 +5,44 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-El **presente simple** es una de las formas verbales más básicas del inglés y se usa para hablar de acciones habituales, hechos generales o rutinas. En el nivel A1 (CEFR), su dominio es clave para expresar ideas simples como "yo como", "él trabaja" o "el sol brilla". La regla central en este nivel radica en la conjugación del verbo para la **tercera persona singular** (*he, she, it*), que requiere añadir un **-s** al infinitivo. Además, es fundamental conocer cómo formar oraciones afirmativas, negativas e interrogativas usando los auxiliares *do* y *does*.
+El **present simple** expresa **hábitos, rutinas, hechos permanentes y verdades generales**: *I work in a bank. Water boils at 100 °C.* Su punto difícil es la **-s de la tercera persona**.
 
 ## Explicación central
-### 1. Afirmativa: -s en tercera persona
-Para sujetos como **he**, **she** o **it**, el verbo principal lleva un **-s**. Por ejemplo:
-- He **plays** football. (Él juega fútbol.)
-- She **eats** an apple every day. (Ella come una manzana cada día.)
+### Afirmativa
+- *I/you/we/they **work***; *he/she/it **works***.
+- Ortografía de la tercera persona:
+  - *-es* después de *s, sh, ch, x, o*: *watches, goes, does, fixes*.
+  - consonante + *y* → *-ies*: *study → studies* (pero *play → plays*).
+  - irregular: *have → has*.
 
-### 2. Negativa: *do/does + not*
-Para negar oraciones en presente simple, se usa el auxiliar **do** o **does** seguido de **not** (*don’t / doesn’t*). La forma del verbo principal es la base (sin -s):
-- He **does not play** football. → **He doesn’t play** football.
-- She **does not eat** apples. → **She doesn’t eat** apples.
+### Negativa: *don't / doesn't* + forma base
+- *I **don't** like coffee.* — *She **doesn't** like coffee.* (❌ *She doesn't likes*)
 
-### 3. Interrogativa: *do/does + sujeto + verbo*
-Las preguntas se forman con **do** o **does**, seguido del sujeto y el verbo en forma base:
-- **Does he play** football? (¿Él juega fútbol?)
-- **Does she eat** apples? (¿Ella come manzanas?)
+### Pregunta: *Do / Does* + sujeto + forma base
+- ***Do** you **live** here? — Yes, I do. / No, I don't.*
+- ***Does** he **play** football? — Yes, he does.*
+- *Where **does** she **work**?*
+
+### Adverbios de frecuencia
+*always, usually, often, sometimes, rarely, never*: van **antes del verbo** (*I **often** read*) pero **después de *be*** (*She is **always** late*).
+
+### Usos
+- Rutinas: *I get up at 7.* — Hechos: *The sun rises in the east.* — Horarios: *The train leaves at 9.* — Gustos y estados: *I like music. She knows the answer.*
 
 ## Errores comunes de hispanohablantes
-1. **Omitir el -s en tercera persona**:
-   - ❌ *He play football* → ✅ *He plays football*.
-2. **Usar do/does incorrectamente**:
-   - ❌ *Does she go to school?* (correcto) vs. ❌ *Do she go...* (incorrecto, ya que "she" es tercera persona singular).
-3. **Confundir el uso de *do* y *does* en negativas e interrogativas**:
-   - ❌ *He don’t like coffee* → ✅ *He doesn’t like coffee*.
+1. Olvidar la *-s*: ❌ *She work here.* ✅ *She works here.*
+2. Poner la *-s* en dos lugares: ❌ *Does she works?* ✅ *Does she work?*
+3. Negar sin auxiliar: ❌ *I no like it.* ✅ *I don't like it.*
+4. Adverbio mal ubicado: ❌ *I go always to the gym.* ✅ *I always go to the gym.*
 
 ## Comparación con el español
-En español, no se añade un sufijo como **-s** para la tercera persona singular. Por ejemplo:
-- "Él **come**" vs. inglés "he **eats**".
-Sin embargo, en ambos idiomas, las negativas e interrogativas requieren estructuras especiales. En español se usa *no* y el verbo en infinitivo (*¿Come él?*), mientras que en inglés se necesita *do/does + not* o *does + sujeto + verbo*.
+El español conjuga cada persona («trabajo, trabajás, trabaja»); el inglés casi no cambia, salvo la *-s* de *he/she/it*. Las preguntas y negativas necesitan *do/does*, que no tiene equivalente en español.
 
 ## Ejemplo extendido en contexto
-**Contexto**: Dos amigos hablan sobre sus rutinas.
-
-**A**: "Hi, Maria! What do you **do** in the morning?"
-**B**: "I **get up** at 7 a.m. and **have breakfast**."
-**A**: "**Does she exercise** every day?" (refiriéndose a María)
-**B**: "No, she **doesn’t exercise**, but she **reads** a book instead."
-**A**: "Oh, I **do not read** books. I **prefer** watching TV."
-
-Este diálogo muestra cómo se usan:
-- Afirmativas con -s (*she reads*).
-- Negativas con *does not* (*doesn’t exercise*).
-- Interrogativas con *do/does* (*What do you do? / Does she exercise?*).
+*My brother **works** in a hospital. He **gets up** at 5 and **doesn't have** breakfast at home. He **usually takes** the train. **Does** he **like** his job? Yes, he **does** — he **says** it's hard but interesting.*

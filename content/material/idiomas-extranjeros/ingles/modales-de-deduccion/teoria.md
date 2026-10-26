@@ -5,56 +5,41 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-Los modales de deducción (*must*, *might*, *could*, *can’t*) se usan para expresar suposiciones, certezas o imposibilidades sobre eventos pasados. En el nivel B2 del marco CEFR, es fundamental dominar esta estructura porque permite comunicar razonamientos lógicos basados en evidencia o contexto. Estos modales combinados con *have + participio* son clave para hablar de acciones completadas en el pasado de manera clara y precisa.
-
----
+Los **modales de deducción** expresan cuán seguros estamos de algo a partir de la evidencia. Para el presente se usa **modal + infinitivo**; para el pasado, **modal + have + participio**.
 
 ## Explicación central
-La estructura **modal + have + participio** se emplea para deducir algo que ocurrió (o no ocurrió) en el pasado. Cada modal expresa un grado distinto de certeza:
+### Presente
+- **must** (casi seguro que sí): *She **must be** tired — she's worked 12 hours.*
+- **might / may / could** (posible): *He **might be** at home. It **could be** true.*
+- **can't** (casi seguro que no): *That **can't be** Ana — she's in Spain.*
+- ❌ No se usa *mustn't* para deducción: ❌ *He mustn't be at home.* ✅ *He can't be at home.*
 
-- **Must have + participio**: *Certidumbre* o alta probabilidad.
-  - Ejemplo: *"The window is broken, so he **must have fallen** from the roof."* (La ventana está rota, así que **debió haber caído** de la azotea).
+### Pasado: modal + have + participio
+- **must have + participio** (casi seguro que pasó): *The streets are wet. It **must have rained**.*
+- **might / may / could have + participio** (quizás pasó): *She's late. She **might have missed** the bus.*
+- **can't / couldn't have + participio** (casi seguro que no pasó): *He **can't have seen** me — I was hiding.*
+- **Progresivo**: *must have been + -ing*: *Your eyes are red. You **must have been crying**.*
 
-- **Might/could have + participio**: *Posibilidad* o incertidumbre.
-  - Ejemplo: *"She **might have missed** the train because of the delay."* (Ella **pudo haber perdido** el tren por la demora).
-
-- **Can’t have + participio**: *Imposibilidad* lógica o evidente.
-  - Ejemplo: *"You **can’t have finished** the project in one day—it took weeks!"* (No **podrías haber terminado** el proyecto en un día; tomó semanas).
-
-Los participios deben coincidir con el verbo principal en tiempo y aspecto, como *broken*, *missed*, *finished*.
-
----
+### Ojo con *could have*
+- *could have + participio* también es **posibilidad no realizada**: *You **could have told** me!* («me lo podrías haber dicho»).
+- *should have + participio* no es deducción sino **crítica o arrepentimiento**: *I **should have studied** more.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre modales**: Usar *could* para certeza o *must* para posibilidad. Por ejemplo: *"He **could have broken** the glass" (error) vs. "He **must have broken** the glass"* (correcto).
-2. **Falta del participio**: Omitir el participio después de *have*. Ejemplo incorrecto: *"She might have left."* → Correcto: *"She might **have left**."*
-3. **Uso indebido de *can’t***: Creer que *can’t have* expresa duda en lugar de imposibilidad. Ejemplo: *"He can’t have done it"* (no pudo haberlo hecho, no "tal vez no lo hizo").
-
----
+1. ❌ *It must rained.* ✅ *It must have rained.*
+2. ❌ *He mustn't be at home* (con sentido de deducción). ✅ *He can't be at home.*
+3. ❌ *She must have went.* ✅ *She must have gone* (participio).
+4. Pronunciación: *must have* suena «*mustuv*»; al escribir no se pone *must of*.
 
 ## Comparación con el español
-En español, las deducciones sobre el pasado suelen usarse verbos como *deber*, *poder* o *haber* sin estructura específica. Por ejemplo:
-- *"Debe haber roto la ventana"* (must have broken) → Estructura clara en inglés con *must have + participio*.
-- *"Pudo haber perdido el tren"* (might/could have missed) → En inglés, se usan modales distintos según el grado de certeza.
-
-Una diferencia clave es que en español no existe una forma gramatical equivalente a *can’t have + participio* para expresar imposibilidad lógica. Se suele usar *no pudo haber...*, pero la estructura inglesa es más directa y común.
-
----
+«**Debe de** estar cansada» = *She must be tired*; «**Debe de haber** llovido» = *It must have rained*; «**No puede ser** Ana» = *It can't be Ana*; «**Puede que** haya perdido el colectivo» = *She might have missed the bus*.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*A: "¿Viste a María esta mañana?"*
-*B: "No, pero su laptop está encendida. **Must have left** hace poco."*
-*A: "¿Y el informe? ¿Lo terminó?"*
-*B: "**Could have finished** ayer, pero no estoy seguro. El jefe dice que **can’t have submitted** el proyecto sin revisión."*
-
-**Explicación:**
-- *Must have left*: Certidumbre de que María se fue recientemente (por la laptop encendida).
-- *Could have finished*: Posibilidad, pero no certeza.
-- *Can’t have submitted*: Imposibilidad lógica por falta de revisión.
-
-Esta estructura permite comunicar deducciones con precisión, esencial para conversaciones cotidianas o análisis de situaciones pasadas.
+*A: The lights are off at Juan's. He **must have gone** to bed early.*
+*B: Or he **might have gone** out. He **can't be** asleep at 9 — he never sleeps before midnight!*
+*A: True. He **must be** at the football match.*

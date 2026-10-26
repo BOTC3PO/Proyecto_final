@@ -1,467 +1,197 @@
-# Idiomas — Inglés — reading-b1 (cuestionario)
+# Inglés — reading B1 (cuestionario, 10 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/reading-b1/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/reading-b1`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o con respuestas ambiguas; ahora cada pregunta trae el fragmento a leer.
 
 ---
 
-### 1 — Daily routine  
+### 1 — Idea principal
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "rutina"]
-pasos:
-  - "Leer el párrafo sobre la rutina diaria de Laura."
-  - "Identificar la actividad que ocurre después de desayunar."
-tipo: completar
-respuestas_validas:
-  - "goes to work"
-  - "Go to work"
-enunciado: "Laura ________ after breakfast. She usually has a coffee and then leaves the house."
+  tags: ["reading", "B1"]
+
+respuesta: "Cada vez más jóvenes van al trabajo en bicicleta"
+tipo: "mc"
+opciones_explicitas: ["Cada vez más jóvenes van al trabajo en bicicleta", "Las bicicletas son caras", "Martina perdió su trabajo"]
+
+enunciado: "Texto: «More and more young people in Argentina are choosing to cycle to work. In Buenos Aires, the number of bike lanes has doubled in ten years. Martina, 26, says she saves money and arrives in a better mood. However, not everyone is convinced: some drivers complain that the lanes make traffic worse.» ¿Cuál es la idea principal?"
+
+explicacion: |
+  Primera oración: *More and more young people… cycle to work*.
 ```
 
-### 2 — Travel plans  
+### 2 — Dato
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "viaje"]
-pasos:
-  - "Leer el párrafo sobre los planes de viaje de Carlos."
-  - "Determinar el destino final del viaje según la descripción."
-opciones_explicitas:
-  - "Paris"
-  - "Tokyo"
-  - "Madrid"
-  - "Rome"
-respuesta: "Rome"
-tipo: mc
-enunciado: "Carlos is planning to visit several cities. He will start in Madrid, then go to Barcelona, and finally ________."
+  tags: ["reading", "B1"]
+
+respuesta: "Se duplicaron en diez años"
+tipo: "mc"
+opciones_explicitas: ["Se duplicaron en diez años", "Se redujeron a la mitad", "Se construyeron este año"]
+
+enunciado: "Texto: «More and more young people in Argentina are choosing to cycle to work. In Buenos Aires, the number of bike lanes has doubled in ten years. Martina, 26, says she saves money and arrives in a better mood. However, not everyone is convinced: some drivers complain that the lanes make traffic worse.» ¿Qué pasó con los carriles para bicis?"
+
+explicacion: |
+  *Has doubled in ten years*.
 ```
 
-### 3 — Environmental habits  
+### 3 — Inferencia
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "ecología"]
-pasos:
-  - "Leer el párrafo sobre las prácticas ecológicas de Elena."
-  - "Identificar la acción que no hace parte de su rutina."
-tipo: completar
-respuestas_validas:
-  - "uses plastic bags"
-  - "Uses plastic bags"
-enunciado: "Elena avoids waste by recycling, using public transport, and ________."
+  tags: ["reading", "B1"]
+
+respuesta: "Está contenta con ir en bici"
+tipo: "mc"
+opciones_explicitas: ["Está contenta con ir en bici", "Quiere volver a manejar", "No tiene trabajo"]
+
+enunciado: "Texto: «More and more young people in Argentina are choosing to cycle to work. In Buenos Aires, the number of bike lanes has doubled in ten years. Martina, 26, says she saves money and arrives in a better mood. However, not everyone is convinced: some drivers complain that the lanes make traffic worse.» ¿Qué se puede inferir sobre Martina?"
+
+explicacion: |
+  *Saves money and arrives in a better mood*.
 ```
 
-### 4 — Technology use  
+### 4 — Otra postura
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "tecnología"]
-pasos:
-  - "Leer el párrafo sobre cómo Daniel usa la tecnología."
-  - "Determinar el dispositivo que no menciona en su uso diario."
-opciones_explicitas:
-  - "Smartphone"
-  - "Tablet"
-  - "Washing machine"
-  - "Laptop"
-respuesta: "Washing machine"
-tipo: mc
-enunciado: "Daniel uses his smartphone, tablet, and laptop daily. He also ________ for work."
+  tags: ["reading", "B1"]
+
+respuesta: "Algunos conductores"
+tipo: "mc"
+opciones_explicitas: ["Algunos conductores", "Los ciclistas", "Martina"]
+
+enunciado: "Texto: «More and more young people in Argentina are choosing to cycle to work. In Buenos Aires, the number of bike lanes has doubled in ten years. Martina, 26, says she saves money and arrives in a better mood. However, not everyone is convinced: some drivers complain that the lanes make traffic worse.» ¿Quiénes no están convencidos?"
+
+explicacion: |
+  *Some drivers complain…*
 ```
 
-### 5 — Family activities  
+### 5 — Conector
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "familia"]
-pasos:
-  - "Leer el párrafo sobre las actividades familiares de Clara."
-  - "Identificar la actividad que ocurre en la mañana."
-tipo: completar
-respuestas_validas:
-  - "reads the newspaper"
-  - "Reads the newspaper"
-enunciado: "Clara ________ in the morning, then cooks breakfast for her family."
+  tags: ["reading", "B1"]
+
+respuesta: "Introducir una postura contraria"
+tipo: "mc"
+opciones_explicitas: ["Introducir una postura contraria", "Dar un ejemplo", "Concluir"]
+
+enunciado: "Texto: «More and more young people in Argentina are choosing to cycle to work. In Buenos Aires, the number of bike lanes has doubled in ten years. Martina, 26, says she saves money and arrives in a better mood. However, not everyone is convinced: some drivers complain that the lanes make traffic worse.» ¿Qué función tiene *However*?"
+
+explicacion: |
+  *However* = sin embargo.
 ```
 
-### 6 — Health habits  
+### 6 — Opinión vs. hecho
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "salud"]
-pasos:
-  - "Leer el párrafo sobre los hábitos de salud de Manuel."
-  - "Determinar la actividad que no menciona en su rutina."
-opciones_explicitas:
-  - "Exercises daily"
-  - "Eats fruits and vegetables"
-  - "Watches TV for hours"
-  - "Drinks water regularly"
-respuesta: "Watches TV for hours"
-tipo: mc
-enunciado: "Manuel follows a healthy lifestyle by exercising, eating well, and ________."
+  tags: ["reading", "B1"]
+
+respuesta: "Que es el mejor lugar para estudiar"
+tipo: "mc"
+opciones_explicitas: ["Que es el mejor lugar para estudiar", "Que abrió en mayo", "Que tiene 50.000 libros"]
+
+enunciado: "Texto: «The new library opened in May. It has 50,000 books. In my opinion, it's the best place in town to study.» ¿Qué es una opinión?"
+
+explicacion: |
+  *In my opinion…*
 ```
 
-### 7 — Education goals  
+### 7 — Referencia
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "educación"]
-pasos:
-  - "Leer el párrafo sobre los objetivos académicos de Ana."
-  - "Identificar la carrera que no menciona como opción futura."
-tipo: completar
-respuestas_validas:
-  - "engineer"
-  - "Engineer"
-enunciado: "Ana is considering becoming a teacher, doctor, or ________ after finishing university."
+  tags: ["reading", "B1"]
+
+respuesta: "Al teléfono"
+tipo: "mc"
+opciones_explicitas: ["Al teléfono", "A la semana", "A Tom"]
+
+enunciado: "Texto: «Tom bought a new phone last week. It was expensive, but he loves it.» ¿A qué se refiere *it*?"
+
+explicacion: |
+  *It* remite a *a new phone*.
 ```
 
-### 8 — Food preferences  
+### 8 — Vocabulario por contexto
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "comida"]
-pasos:
-  - "Leer el párrafo sobre las preferencias culinarias de Javier."
-  - "Determinar el alimento que no menciona como favorito."
-opciones_explicitas:
-  - "Pizza"
-  - "Sushi"
-  - "Salad"
-  - "Chocolate cake"
-respuesta: "Salad"
-tipo: mc
-enunciado: "Javier loves pizza, sushi, and ________ for dessert."
+  tags: ["reading", "B1"]
+
+respuesta: "muy cansada"
+tipo: "mc"
+opciones_explicitas: ["muy cansada", "muy contenta", "enferma"]
+
+enunciado: "Texto: «After running the marathon, she was exhausted and slept for twelve hours.» *Exhausted* significa…"
+
+explicacion: |
+  El contexto (maratón, durmió 12 horas) lo indica.
 ```
 
-### 9 — Hobbies  
+### 9 — Falso amigo
+
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "deportes"]
-pasos:
-  - "Leer el párrafo sobre los hobbies de Laura."
-  - "Identificar la actividad que no menciona en su lista."
-tipo: completar
-respuestas_validas:
-  - "painting"
-  - "Painting"
-enunciado: "Laura enjoys hiking, photography, and ________ in her free time."
+  tags: ["reading", "B1"]
+
+respuesta: "sensata"
+tipo: "mc"
+opciones_explicitas: ["sensata", "sensible (emotiva)", "rápida"]
+
+enunciado: "Texto: «It was a sensible decision to save some money.» *Sensible* significa…"
+
+explicacion: |
+  *Sensible* = sensato; «sensible» = *sensitive*.
 ```
 
-### 10 — Weather  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "clima"]
-pasos:
-  - "Leer el párrafo sobre la descripción del clima en Londres."
-  - "Determinar el fenómeno climático que no menciona."
-opciones_explicitas:
-  - "Rainy days"
-  - "Sunny weather"
-  - "Snow in winter"
-  - "Foggy mornings"
-respuesta: "Snow in winter"
-tipo: mc
-enunciado: "Londres experiences rainy days, sunny weather, and ________ throughout the year."
-```
+### 10 — Propósito
 
-### 11 — Work schedule  
 ```
 metadata:
   materia: "ingles"
   tema: "reading-b1"
   nivel: "B1"
-  tags: ["inferencia", "trabajo"]
-pasos:
-  - "Leer el párrafo sobre la programación laboral de Carlos."
-  - "Identificar la tarea que no menciona como parte de su rutina."
-tipo: completar
-respuestas_validas:
-  - "organize meetings"
-  - "Organize meetings"
-enunciado: "Carlos spends his day answering emails, writing reports, and ________."
-```
+  tags: ["reading", "B1"]
 
-### 12 — Friends  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "amistad"]
-pasos:
-  - "Leer el párrafo sobre las amistades de Elena."
-  - "Determinar la actividad que no menciona como pasatiempo compartido."
-opciones_explicitas:
-  - "Playing sports"
-  - "Watching movies"
-  - "Cooking together"
-  - "Reading books alone"
-respuesta: "Reading books alone"
-tipo: mc
-enunciado: "Elena and her friends enjoy playing sports, watching movies, and ________."
-```
+respuesta: "Vender / hacer publicidad"
+tipo: "mc"
+opciones_explicitas: ["Vender / hacer publicidad", "Informar una noticia", "Pedir disculpas"]
 
-### 13 — Shopping  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "compras"]
-pasos:
-  - "Leer el párrafo sobre las compras de Ana."
-  - "Identificar el artículo que no menciona como comprar."
-tipo: completar
-respuestas_validas:
-  - "perfume"
-  - "Perfume"
-enunciado: "Ana usually buys clothes, groceries, and ________ during her weekly shopping trip."
-```
+enunciado: "Texto: «Don't miss our summer sale! Everything 50% off until Sunday.» ¿Cuál es el propósito?"
 
-### 14 — Movies  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "cine"]
-pasos:
-  - "Leer el párrafo sobre las preferencias cinematográficas de Daniel."
-  - "Determinar el género que no menciona como favorito."
-opciones_explicitas:
-  - "Action movies"
-  - "Comedies"
-  - "Horror films"
-  - "Documentaries"
-respuesta: "Documentaries"
-tipo: mc
-enunciado: "Daniel prefers action movies, comedies, and ________ for his weekend entertainment."
-```
-
-### 15 — Music  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "música"]
-pasos:
-  - "Leer el párrafo sobre las preferencias musicales de Clara."
-  - "Identificar el estilo que no menciona como favorito."
-tipo: completar
-respuestas_validas:
-  - "jazz"
-  - "Jazz"
-enunciado: "Clara listens to pop, rock, and ________ when she has free time."
-```
-
-### 16 — Books  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "libros"]
-pasos:
-  - "Leer el párrafo sobre los hábitos lectorios de Manuel."
-  - "Determinar el tipo de libro que no menciona como preferido."
-opciones_explicitas:
-  - "Fiction novels"
-  - "Science books"
-  - "History texts"
-  - "Comic strips"
-respuesta: "Comic strips"
-tipo: mc
-enunciado: "Manuel enjoys fiction novels, science books, and ________ for relaxation."
-```
-
-### 17 — Sports  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "deportes"]
-pasos:
-  - "Leer el párrafo sobre los deportes de Laura."
-  - "Identificar el deporte que no menciona como practicar."
-tipo: completar
-respuestas_validas:
-  - "tennis"
-  - "Tennis"
-enunciado: "Laura plays soccer, swims, and ________ with her friends every weekend."
-```
-
-### 18 — Holidays  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "vacaciones"]
-pasos:
-  - "Leer el párrafo sobre los planes de vacaciones de Carlos."
-  - "Determinar la actividad que no menciona como hacer en su destino."
-opciones_explicitas:
-  - "Go hiking"
-  - "Visit historical sites"
-  - "Take photos of the beach"
-  - "Attend a local festival"
-respuesta: "Attend a local festival"
-tipo: mc
-enunciado: "Carlos plans to go hiking, visit historical sites, and ________ during his vacation."
-```
-
-### 19 — Technology  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "tecnología"]
-pasos:
-  - "Leer el párrafo sobre cómo Elena usa la tecnología."
-  - "Identificar el dispositivo que no menciona en su rutina."
-tipo: completar
-respuestas_validas:
-  - "smartwatch"
-  - "Smartwatch"
-enunciado: "Elena uses her smartphone, laptop, and ________ to stay connected with friends."
-```
-
-### 20 — Environment  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "ecología"]
-pasos:
-  - "Leer el párrafo sobre las prácticas ecológicas de Daniel."
-  - "Determinar la acción que no menciona como parte de su rutina."
-opciones_explicitas:
-  - "Recycle paper"
-  - "Use public transport"
-  - "Buy single-use plastics"
-  - "Plant trees"
-respuesta: "Buy single-use plastics"
-tipo: mc
-enunciado: "Daniel follows eco-friendly habits by recycling, using public transport, and ________."
-```
-
-### 21 — Education  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "educación"]
-pasos:
-  - "Leer el párrafo sobre los estudios de Ana."
-  - "Identificar la materia que no menciona como estudiar."
-tipo: completar
-respuestas_validas:
-  - "art history"
-  - "Art history"
-enunciado: "Ana studies math, biology, and ________ in her final year of high school."
-```
-
-### 22 — Food  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "comida"]
-pasos:
-  - "Leer el párrafo sobre las comidas de Javier."
-  - "Determinar el alimento que no menciona como parte de su menú."
-opciones_explicitas:
-  - "Fruits"
-  - "Vegetables"
-  - "Fast food"
-  - "Whole grains"
-respuesta: "Fast food"
-tipo: mc
-enunciado: "Javier eats fruits, vegetables, and ________ for a balanced diet."
-```
-
-### 23 — Health  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "salud"]
-pasos:
-  - "Leer el párrafo sobre los hábitos de salud de Clara."
-  - "Identificar la actividad que no menciona como parte de su rutina."
-tipo: completar
-respuestas_validas:
-  - "smoking cigarettes"
-  - "Smoking cigarettes"
-enunciado: "Clara avoids smoking, drinks water daily, and ________ to stay healthy."
-```
-
-### 24 — Work  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "trabajo"]
-pasos:
-  - "Leer el párrafo sobre la programación laboral de Manuel."
-  - "Determinar la tarea que no menciona como parte de su rutina."
-opciones_explicitas:
-  - "Write emails"
-  - "Attend meetings"
-  - "Design websites"
-  - "Cook meals for the team"
-respuesta: "Cook meals for the team"
-tipo: mc
-enunciado: "Manuel spends his day writing emails, attending meetings, and ________."
-```
-
-### 25 — Friends  
-```
-metadata:
-  materia: "ingles"
-  tema: "reading-b1"
-  nivel: "B1"
-  tags: ["inferencia", "amistad"]
-pasos:
-  - "Leer el párrafo sobre las amistades de Elena."
-  - "Identificar la actividad que no menciona como pasatiempo compartido."
-respuesta: "watching sports on TV"
-tipo: completar
-respuestas_validas:
-  - "watching sports on TV"
-  - "Watching sports on TV"
-enunciado: "Elena and her friends enjoy cooking, hiking, and ________ together."
+explicacion: |
+  Es un anuncio publicitario.
 ```

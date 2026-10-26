@@ -5,42 +5,42 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
 ## Introducción
-En el nivel C1 del Marco Común Europeo de Referencia para las Lenguas (CEFR), la producción escrita exige una capacidad avanzada para estructurar textos formales y académicos con coherencia, precisión y estilo propio. Un ensayo formal en este nivel no solo requiere dominio léxico y gramatical, sino también el uso de conectores complejos, argumentación lógica y un registro que refleje la objetividad y la profundidad característica del discurso académico. Esta habilidad es clave para comunicar ideas sustentadas en evidencia, criticar puntos de vista o proponer soluciones a problemas complejos, tanto en contextos universitarios como profesionales.
+En C1 se escribe un **ensayo formal o académico**: argumentación sólida, registro adecuado, cohesión entre párrafos y un vocabulario preciso. Se valora la **atenuación** (*hedging*), la **nominalización** y la variedad de estructuras.
 
-## Explicación central con ejemplos reales
-Un ensayo formal en inglés (C1) debe cumplir con tres criterios principales: **estructura clara**, **registro académico** y **conexión lógica entre ideas**. Por ejemplo, al abordar un tema como *the impact of social media on mental health*, el texto podría estructurarse así:
+## Explicación central
+### Registro académico
+- **Impersonalidad**: *It is widely acknowledged that… / It could be argued that… / Evidence suggests that…* (en lugar de *I think*).
+- **Nominalización**: *The government decided…* → *The government's decision to…*; *Prices increased rapidly* → *The rapid increase in prices…*
+- **Hedging**: *tend to, appear to, may, arguably, to a certain extent, it is likely that*.
+- **Vocabulario preciso**: *significant, substantial, considerable, a decline, a surge, to undermine, to foster*.
 
-- **Introducción**: Presentación del tema con un enunciado claro (thesis statement) que indica la postura del autor:
-  *"While social media platforms have revolutionized communication, their influence on mental health remains a contentious issue, particularly among adolescents."*
+### Cohesión
+- **Referencias**: *This trend…, Such measures…, The former / the latter*.
+- **Transiciones entre párrafos**: *Turning to…, A further consideration is…, Equally important is…*
+- **Concesión y refutación**: *While it is true that…, it does not follow that…*
 
-- **Cuerpo**: Desarrollo de argumentos respaldados por ejemplos o estudios:
-  *"Studies conducted by the American Psychological Association (APA) suggest that excessive use of social media correlates with increased rates of anxiety and depression in teenagers. However, critics argue that these findings may be confounded by socioeconomic factors."*
+### Estructuras avanzadas
+- Inversión: *Not only does…, but…*; *Rarely has…*
+- Cleft: *What is often overlooked is…*
+- Participiales: *Having considered both sides, …*
 
-- **Conclusión**: Síntesis de las ideas clave y propuesta de reflexión:
-  *"Thus, while the relationship between social media and mental health requires further research, it is imperative to promote digital literacy among young users."*
-
-El registro académico implica evitar contracciones (ej. *don’t* → *do not*), usar léxico preciso (*correlate*, *confounded*) y mantener una tonalidad impersonal (*it is imperative*, no *"I think"*). Los conectores como *however*, *thus* o *moreover* facilitan la cohesión.
+### Conclusión
+Sintetizar (no repetir), responder la pregunta y, si corresponde, proponer: *On balance, … It would therefore seem advisable to…*
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen cometer errores relacionados con:
-1. **Uso inadecuado de conectores**: Por ejemplo, emplear *"y"* en lugar de *however* o *moreover* para conectar ideas contrastantes.
-2. **Registro incorrecto**: Usar frases coloquiales (*"I think that"* → *"It is widely believed that"*) o contracciones en textos formales.
-3. **Falta de cohesión**: No vincular las ideas con transiciones claras, lo que genera textos fragmentados.
+1. Oraciones larguísimas encadenadas con comas (*run-on sentences*).
+2. Exceso de *very* y *thing*: buscar el término exacto.
+3. ❌ *Nowadays in the actuality…* ✅ *At present / Currently*.
+4. Mezclar registro: *kids, stuff, a lot of* en un texto académico.
 
 ## Comparación con el español
-El español y el inglés tienen diferencias notables en el registro académico:
-- En español, es común usar *el autor sostiene que* para evitar el sujeto personal; en inglés se prefiere *it is argued that*.
-- El español permite un tono más directo con frases como *"me parece que"*, mientras que en inglés se evita la subjetividad (ej. *"The data indicates that"* en lugar de *"I believe the data shows"*).
-- La estructura de párrafos suele ser más densa en español, mientras que en inglés se prioriza una división clara por idea principal y secundarias.
+El español académico tolera oraciones más largas y subordinadas; el inglés académico prefiere **oraciones claras, párrafos con una idea central y conectores explícitos**. *Actual* ≠ «actual» (*current*).
 
 ## Ejemplo extendido en contexto
-**Tema**: *The role of renewable energy in combating climate change*
-
-**Texto modelo**:
-*"Renewable energy sources such as solar and wind power are increasingly viewed as essential tools in mitigating the effects of climate change. Unlike fossil fuels, which release greenhouse gases when burned, renewables generate electricity with minimal environmental impact. For instance, a 2023 report by the International Energy Agency (IEA) highlights that countries investing heavily in solar energy have reduced their carbon emissions by up to 40% over the past decade. However, challenges such as intermittency and infrastructure costs remain significant barriers to widespread adoption. Critics argue that current technologies are insufficient to meet global energy demands without substantial investment in storage solutions. Nevertheless, governments and private sectors must prioritize innovation and policy reforms to accelerate the transition toward a sustainable future."*
-
-Este texto utiliza un registro formal, conectores lógicos (*unlike*, *however*, *nevertheless*) y una estructura clara para defender su tesis, cumpliendo con los estándares del nivel C1.
+*It is widely acknowledged that urban populations are growing at an unprecedented rate. While this trend may stimulate economic activity, it does not follow that it improves quality of life. **What is often overlooked is** the strain placed on housing and infrastructure. **On balance**, it would therefore seem advisable to invest in medium-sized cities rather than further expanding the largest ones.*

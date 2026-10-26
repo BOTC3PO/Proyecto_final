@@ -5,56 +5,43 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-En inglés, el futuro se expresa de distintas maneras según el contexto. Las estructuras **“be going to”** y **“will”** son las más comunes en niveles intermedios (CEFR B1), pero su uso varía según si se trata de una **intención**, una **predicción** o una **decisión espontánea**. Dominar esta distinción permite comunicarse con mayor precisión y naturalidad, evitando errores frecuentes entre hablantes de español.
-
----
+El inglés tiene varias formas de hablar del futuro. Las dos más usadas son **will** y **be going to**, y no son intercambiables en todos los casos.
 
 ## Explicación central
-### 1. *Be going to* (intención)
-Se usa cuando hay **planificación previa o evidencia visible** para una acción futura. Por ejemplo:
-- *"I’m going to visit my grandparents this weekend."* (Tengo planeado ir a visitar a mis abuelos este fin de semana.)
-- *"Look at those dark clouds! It’s going to rain soon."* (Mira esas nubes oscuras; va a llover pronto.)
+### *be going to* + infinitivo
+- **Planes e intenciones ya decididos**: *I'**m going to** study medicine next year.* (ya lo decidí)
+- **Predicciones con evidencia presente**: *Look at those clouds! It'**s going to** rain.*
 
-### 2. *Will* (predicción o decisión espontánea)
-- **Predicción**: Se emplea para afirmar algo que se cree probable en el futuro, sin evidencia inmediata. Ejemplo:
-  - *"I think it will rain tomorrow."* (Creo que lloverá mañana.)
-  - *"She will pass the exam."* (Ella pasará el examen.)
+### *will* + infinitivo
+- **Decisiones espontáneas** (en el momento de hablar): *The phone is ringing. — I'**ll** get it!*
+- **Predicciones u opiniones sin evidencia concreta**: *I think it **will** be a great year.* (con *I think, probably, I'm sure*)
+- **Promesas, ofrecimientos y pedidos**: *I'**ll** help you. — **Will** you open the window?*
+- **Hechos futuros**: *I **will** be 30 next month.*
 
-- **Decisión espontánea**: Se usa cuando se toma una decisión en el momento. Ejemplo:
-  - *"I’ll help you with your homework."* (Te ayudaré con tu tarea.)
-  - *"We will go to the cinema tonight."* (Vamos al cine esta noche.)
+### Presente continuo para planes con fecha
+- **Arreglos ya organizados** (con hora, lugar, otra persona): *I'**m meeting** Ana at 6.* (muy cerca de *going to*)
 
----
+### Formas
+- *will*: igual para todas las personas; negativa **won't**: *She won't come.* Pregunta: *Will you come?*
+- *going to*: *am/is/are going to*: *They aren't going to buy it. Are you going to travel?*
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión entre intención y predicción**: Usar *will* para planes previamente decididos, como en *"I will visit my grandparents this weekend"* (mejor: *"I’m going to visit..."*).
-2. **Uso incorrecto de “be going to” sin evidencia o planificación**: Por ejemplo, *"It’s going to be a good day"* cuando no hay indicadores claros del clima o contexto.
-3. **Sobredeterminación con “will” en decisiones espontáneas**: A veces se elige *will* por costumbre, aunque *be going to* sea más preciso si hay una intención previa (ej.: *"I’m going to call him tomorrow"* vs. *"I will call him tomorrow"*).
-
----
+## Errores comunes de hispanohablantes
+1. **Decisión espontánea con *going to***: ❌ *The bag is heavy. — I'm going to help you.* ✅ *I'll help you.*
+2. **Plan ya hecho con *will***: ❌ *I will visit my aunt tomorrow, I bought the tickets.* ✅ *I'm going to visit / I'm visiting…*
+3. ❌ *I will to go.* / ❌ *She wills go.* ✅ *I will go. She will go.*
+4. **Usar el presente simple para un plan**: ❌ *I go to the party tonight.* ✅ *I'm going to the party tonight* (presente continuo de plan) o *I'm going to go to the party tonight*.
 
 ## Comparación con el español
-En español, el futuro simple (**“iré”, “lloverá”**) no distingue entre intención, predicción o decisión espontánea. Por ejemplo:
-- En inglés: *"I’m going to study Spanish next month."* (intención).
-- En español: *"Voy a estudiar español el próximo mes."* (también expresa intención, pero no requiere diferenciar entre *going to* y *will*).
-
-La diferencia clave en inglés es **el contexto**: si hay un plan previo (*be going to*) o una decisión repentina (*will*), mientras que en español ambos casos se traducen con la misma estructura. Esto puede llevar a errores cuando los estudiantes intentan literalmente imitar la gramática del idioma materno.
-
----
+«Voy a + infinitivo» coincide con *going to*. El futuro simple español («iré», «lloverá») se parece a *will*, pero en español también se usa para suposiciones («serán las cinco»), algo que en inglés se dice con *must*: *It must be five o'clock.*
 
 ## Ejemplo extendido en contexto
-**Situación**: Dos amigos hablan sobre sus planes para el fin de semana.
-
-**A**: *"Hey, are you going to the concert tomorrow?"*
-**B**: *"No, I’m not going to go. I was planning to study for my test, but now I think it will rain all day. Maybe I’ll stay home and watch a movie instead."*
-
-- **"Are you going to the concert..."**: Pregunta sobre un plan previo (intención).
-- **"I’m not going to go"**: Rechazo de una intención ya decidida.
-- **"It will rain all day"**: Predicción basada en la observación del clima.
-- **"Maybe I’ll stay home..."**: Decisión espontánea tomada en el momento.
-
-Este intercambio muestra cómo cada uso de *be going to* y *will* refleja una intención, predicción o elección diferente.
+*A: What are your plans for the summer?*
+*B: I'**m going to** travel to Bariloche. I've already booked the hotel.*
+*A: Great! I think you'**ll** love it. Oh, it'**s going to** rain — look at the sky!*
+*B: Don't worry, I'**ll** lend you my umbrella.*

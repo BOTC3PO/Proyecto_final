@@ -5,44 +5,45 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-Los imperativos son formas verbales que se utilizan para dar órdenes, instrucciones o sugerencias. En el nivel A1 del Marco Común Europeo de Referencia para las Lenguas (CEFR), su estudio es fundamental porque permiten a los estudiantes comunicarse en situaciones cotidianas como seguir indicaciones, participar en actividades grupales o pedir ayuda.
+El **imperativo** sirve para dar órdenes, instrucciones, consejos e invitaciones: *Open the door. Turn left. Have a seat.*
 
 ## Explicación central
-**Imperativo afirmativo**: Se forma con la base del verbo sin "to" y se usa para dar una instrucción directa. Por ejemplo:
-- *Open the window.* (Abre la ventana.)
-- *Sit down.* (Siéntate.)
-- *Be quiet!* (¡Cállate!)
+### Afirmativo
+- Es el **verbo en su forma base**, sin sujeto: ***Sit** down. **Listen** carefully. **Be** quiet.*
+- Es igual para una o varias personas (equivale a «sentate» y a «siéntense»).
 
-**Imperativo negativo**: Se construye con "don’t" + base del verbo y se usa para prohibir o evitar una acción. Por ejemplo:
-- *Don’t touch the fire.* (No toques el fuego.)
-- *Don’t run in the corridor.* (No corras en el pasillo.)
-- *Don’t be late!* (¡No llegues tarde!)
+### Negativo
+- **Don't + verbo**: ***Don't** touch that. **Don't be** late.* (más formal: *Do not*)
+- ❌ *No touch*, ❌ *Not be late*.
 
-Para los verbos "to be" y "to have", la forma cambia:
-- *Be happy!* (¡Sé feliz!)
-- *Have a seat.* (Toma asiento.)
-- *Don’t be afraid.* (No tengas miedo.)
+### Con *let's* (incluyéndose uno mismo)
+- ***Let's** go!* («¡Vamos!») — negativa: ***Let's not** argue.*
+
+### Más amable
+- Con *please* al principio o al final: *Please **sit** down. **Close** the window, please.*
+- Para pedir con más cortesía se usan preguntas: *Could you close the window?*
+- ***Do*** + imperativo da énfasis o calidez: ***Do** come in!*
+
+### Usos típicos
+- Instrucciones y recetas: ***Mix** the flour and the eggs.*
+- Direcciones: ***Go** straight on and **turn** right.*
+- Advertencias: ***Be** careful! **Watch** out!*
+- Invitaciones: ***Have** a seat. **Help** yourself.*
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del "no"**: Algunos estudiantes añaden "no" al imperativo negativo como si fuera parte del verbo, por ejemplo: *"No abra la puerta"* (en vez de *Don’t open the door*).
-2. **Incluir "to" en el imperativo afirmativo**: Es común ver frases como *"To close the door"* en lugar de *Close the door*.
-3. **Confusión con las formas del español**: En español, los imperativos varían según la persona (tú, usted, vosotros), pero en inglés se usa siempre la misma forma para "you" (singular o plural).
+1. Agregar sujeto: ❌ *You sit down.* (salvo para énfasis) ✅ *Sit down.*
+2. Negar con *no*: ❌ *No run!* ✅ *Don't run!*
+3. Usar *to*: ❌ *To open the window.* ✅ *Open the window.*
+4. Sonar brusco: en inglés, un imperativo solo puede sonar mandón; con desconocidos conviene *please* o *Could you…?*
 
 ## Comparación con el español
-En español, el imperativo afirmativo para "tú" se forma con la raíz del verbo (ej. *abre*), mientras que en inglés se usa directamente la base: *"Open the door."* En negativo, el español utiliza "no + infinitivo" (*no abra*), pero en inglés es "don’t + base": *"Don’t open the door."* Esta diferencia ayuda a recordar que en inglés no se añade un prefijo ni sufijo al verbo.
+El español conjuga el imperativo según la persona («abrí», «abra», «abran»); el inglés usa siempre la misma forma: *open*. Para la negativa, el español cambia de forma («no abras»); el inglés solo agrega *don't*.
 
-## Ejemplo extendido
-**Contexto**: Un profesor está dando instrucciones para una actividad en clase.
-
-**Profesor**: *Please, sit down and open your books.* (Por favor, siéntense y abran sus libros.)
-*Don’t talk during the test.* (No hablen durante el examen.)
-*Be quiet now.* (¡Cállense ahora!)
-*If you don’t understand a question, raise your hand.* (Si no entienden una pregunta, levanten la mano.)
-
-En este ejemplo, se combinan imperativos afirmativos (*sit down*, *open*) y negativos (*don’t talk*, *don’t understand*), mostrando cómo se usan en instrucciones claras y directas. Notar que "raise your hand" es el imperativo de "to raise", omitiendo "to".
-
-Este tipo de estructuras son clave para interactuar eficazmente en contextos prácticos, como en la escuela, el trabajo o viajes.
+## Ejemplo extendido en contexto
+*Receta: **Heat** the oven to 180 °C. **Mix** the flour, sugar and eggs. **Don't open** the oven during the first 20 minutes. **Let's** eat it with dulce de leche!*

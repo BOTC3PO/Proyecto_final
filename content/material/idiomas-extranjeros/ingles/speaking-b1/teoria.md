@@ -5,43 +5,45 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
 ## Introducción
-En el nivel CEFR B1 de inglés, los aprendices ya pueden expresar opiniones personales sobre temas cotidianos o generales, siempre que las respalden con razones claras. Este logro es clave para participar en conversaciones significativas, defender ideas propias y entender perspectivas ajenas. La habilidad de justificar una opinión no solo demuestra dominio del idioma, sino también capacidad crítica y comunicación efectiva.
+En B1 se espera poder **dar una opinión y justificarla**, contar experiencias y planes, y participar en conversaciones sobre temas conocidos, aunque con algunas pausas.
 
-## Explicación central con ejemplos
-Para dar una opinión y explicarla en inglés, es útil recurrir a frases modelo que estructuren la idea. Algunas opciones comunes son:
-- **"In my opinion..."** (En mi opinión...) → *In my opinion, reading books is more beneficial than watching videos because it improves concentration.*
-- **"I think that..."** (Creo que...) → *I think that traveling alone can be a great experience as it helps you become independent.*
-- **"One reason is..."** (Una razón es...) → *One reason is that people who learn languages often feel more confident in social situations.*
-- **"This is because..."** (Esto se debe a que...) → *This is because learning another language opens doors to new cultures and opportunities.*
+## Explicación central
+### Dar una opinión
+*I think / I believe / In my opinion / Personally, I feel that… / As far as I'm concerned…*
 
-Estas frases permiten conectar la opinión con una explicación lógica, usando conectores como *because*, *since* o *due to*. Es importante variar el vocabulario para evitar repeticiones y mantener el discurso fluido. Por ejemplo:
-- **"I believe that..."** (Creo que...) → *I believe that regular exercise is essential for a healthy lifestyle.*
-- **"From my point of view..."** (Desde mi punto de vista...) → *From my point of view, technology has both advantages and disadvantages in education.*
+### Justificar
+*because, since, the main reason is (that)…, for example / for instance…, that's why…*
+
+### Estar de acuerdo o no
+- Acuerdo: *I agree (with you). / That's true. / Exactly. / You're right.*
+- Acuerdo parcial: *I partly agree, but… / That's a good point, but…*
+- Desacuerdo cortés: *I'm not sure about that. / I see what you mean, but… / I don't really agree.*
+
+### Pedir la opinión del otro
+*What do you think? / How do you feel about…? / Do you agree?*
+
+### Estructura de una respuesta
+**Opinión → razón → ejemplo → conclusión**: *I think school uniforms are a good idea **because** everyone looks the same. **For example**, nobody feels bad about their clothes. **That's why** I'd keep them.*
+
+### Contar experiencias
+*Last summer I went to…, It was amazing / disappointing…, The best part was…*
 
 ## Errores comunes de hispanohablantes
-Algunos errores frecuentes incluyen:
-1. **Uso excesivo de "you know" o "um":** Estas expresiones pueden restar claridad si se usan en exceso. Por ejemplo, *I think, um, that...* es menos eficaz que *I think that...*.
-2. **Frases sin justificación:** Decir *"I like sports"* sin explicar por qué (ej: *because they keep me active*) limita la profundidad del discurso.
-3. **Confusión entre "I think" y "I believe":** Aunque ambas son válidas, *think* se usa para ideas más simples (*I think it’s raining*), mientras que *believe* sugiere un convencimiento más firme (*I believe in equality*).
+1. ❌ *I am agree.* ✅ *I agree.*
+2. ❌ *In my opinion, I think…* (redundante) ✅ *In my opinion,…* o *I think…*
+3. ❌ *For example: …* repetido sin variedad: alternar con *for instance, such as*.
+4. Desacuerdo demasiado directo: ❌ *You're wrong.* ✅ *I see your point, but…*
 
 ## Comparación con el español
-En español, la estructura de opiniones suele ser directa: *"Creo que..."*, *"En mi opinión..."*. Sin embargo, en inglés, es común usar frases como *From my perspective* o *As far as I’m concerned* para evitar repeticiones. Además, los conectores causales (*because*, *since*) son más explícitos que en español, donde a veces se omite el "porque" al final de la oración:
-- Español: *"Creo que estudiar es importante. Porque ayuda a aprender."*
-- Inglés: *"I think studying is important because it helps you learn."*
+«Estoy de acuerdo» = *I agree* (sin *be*). «Desde mi punto de vista» = *from my point of view*. En inglés, el desacuerdo directo suena más brusco que en español; conviene suavizarlo.
 
 ## Ejemplo extendido en contexto
-**Contexto:** Dos estudiantes discuten sobre el uso de redes sociales en la educación.
-
-**Diálogo:**
-**A:** *In my opinion, social media can be very useful in education.*
-**B:** *I agree! For example, teachers can use platforms like YouTube to explain complex topics visually.*
-**A:** *Exactly. One reason is that students often learn better when they see examples rather than just reading texts.*
-**B:** *This is because visual content makes information more engaging and easier to remember.*
-**A:** *However, I think it’s important to use these tools wisely. Otherwise, students might get distracted by games or messages.*
-**B:** *You’re right. So, the key is to balance technology with traditional methods.*
-
-Este intercambio muestra cómo se usan frases modelo para defender una postura y justificarla con ejemplos específicos, manteniendo una estructura coherente.
+*A: What do you think about online classes?*
+*B: **Personally, I think** they're useful **because** you can study from home. **For instance**, I saved two hours a day. **That's why** I prefer them.*
+*A: **I see what you mean, but** I miss my classmates.*

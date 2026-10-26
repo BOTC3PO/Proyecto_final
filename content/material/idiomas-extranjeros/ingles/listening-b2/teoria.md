@@ -5,46 +5,43 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en la comparación con el español y daba poca estrategia concreta.
 
 ---
 
-## 1. Introducción
-La comprensión auditiva al nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER) implica entender textos orales claros y bien estructurados sobre temas familiares, como noticias, entrevistas o conversaciones cotidianas. Este nivel requiere no solo captar ideas principales, sino también detalles específicos, opiniones y relaciones lógicas entre ideas. Es clave para interactuar en contextos sociales, académicos o profesionales donde el inglés sea la lengua vehicular.
+## Introducción
+En B2 se espera entender **entrevistas, noticias, charlas y discusiones** con argumentos complejos, siempre que el tema sea razonablemente conocido y se hable en un registro estándar. Además de los datos, importan la **postura del hablante**, el **propósito** y las **implicaciones**.
 
-## 2. Explicación central: estructura de entrevistas y noticias
-Las entrevistas suelen tener un formato estructurado: una persona hace preguntas (interviewer) y otra responde (interviewee). Las noticias, en cambio, siguen una narrativa con introducción, desarrollo y conclusión, a menudo incluyendo datos numéricos o citas.
+## Explicación central
+### Estructura de una entrevista o noticia
+- **Noticia**: titular → qué pasó → detalles (quién, dónde, cuándo) → reacciones.
+- **Entrevista**: pregunta → respuesta con matices → ejemplos.
 
-### Ejemplos reales (inglés):
-- **Entrevista**:
-  *Interviewer:* "How did you feel when you won the competition?"
-  *Interviewee:* "I was shocked and extremely happy. It’s been a dream come true."
+### Marcadores del discurso
+- **Añadir**: *What's more, Besides, On top of that*.
+- **Contrastar**: *Having said that, Even so, On the other hand*.
+- **Concluir o resumir**: *All in all, The bottom line is…*
+- **Matizar**: *To some extent, It depends, More or less*.
 
-- **Noticia**:
-  *"A new study published in 'Nature' reveals that over 70% of urban areas are experiencing increased air pollution due to traffic congestion. Experts advise using public transport or carpooling to reduce emissions."*
+### Postura y actitud
+- **Certeza**: *There's no doubt that… / Clearly…*
+- **Duda**: *I'm not entirely convinced… / It remains to be seen…*
+- **Ironía o crítica suave**: *Well, that went well…* (con tono irónico = salió mal)
 
-**Nota:** En ambos casos, el hablante utiliza conectores (como *but*, *however*, *therefore*) para mostrar relaciones lógicas entre ideas.
+### Estrategias
+1. Distinguir **hechos** de **opiniones**.
+2. Prestar atención a **cifras y comparaciones**: *a 20% increase, twice as many, slightly lower*.
+3. Inferir: *I wouldn't hold my breath* = no esperes que pase pronto.
 
-## 3. Errores comunes de hispanohablantes
-- **Falta de atención a intonación**: En inglés, el énfasis en ciertas palabras puede cambiar el significado (ej: "I didn’t say she was late" vs. "I didn’t say she was late").
-- **Confusión con preposiciones**: Errores como *go to the hospital* (correcto) vs. *go in the hospital* (incorrecto en este contexto).
-- **Ignorar contextos culturales**: No reconocer que en noticias, frases como "the White House announced" se refieren a un gobierno, no a una residencia.
+## Errores comunes de hispanohablantes
+1. Tomar literalmente expresiones idiomáticas.
+2. Confundir *rise/raise*, *increase/decrease* al oírlas rápido.
+3. Ignorar *having said that*, que introduce una reserva.
 
-## 4. Comparación con el español: diferencias clave
-- **Artículos definidos/indefinidos**: En inglés, los artículos (*a*, *an*, *the*) son esenciales para la claridad, mientras que en español se omiten con frecuencia (ej: "I need a pen" vs. "Necesito un bolígrafo").
-- **Preguntas indirectas**: En entrevistas, los hablantes usan estructuras como *Could you explain...?* o *What do you think about...?*, que en español suelen reemplazarse con oraciones más directas.
+## Comparación con el español
+Las noticias en inglés usan mucho la **voz pasiva** y verbos de reporte (*It is reported that…, according to…*), igual que el español periodístico («según…», «se informó que…»).
 
-## 5. Ejemplo extendido en contexto
-**Contexto**: Una noticia sobre el cambio climático y una entrevista a un científico.
-
-**Noticia (audio)**:
-*"Scientists have warned that global temperatures could rise by 1.5°C within the next decade if carbon emissions are not reduced. The report, released by the IPCC, highlights the need for immediate action to prevent irreversible damage to ecosystems."*
-
-**Entrevista (audio)**:
-*Interviewer:* "Dr. Alvarez, how urgent is this situation?"
-*Dr. Alvarez:* "Extremely urgent. If we don’t act now, coastal cities will face severe flooding and food shortages by 2030."
-*Interviewer:* "What solutions do you propose?"
-*Dr. Alvarez:* "A global shift to renewable energy and stricter regulations on industries are essential steps."
-
-**Análisis**: El oyente debe identificar la causa (emisiones de carbono) y el efecto (aumento de temperatura), así como extraer datos específicos (1.5°C, 2030). En la entrevista, se requiere captar opiniones ("extremely urgent") y propuestas concretas ("renewable energy").
-
-Este tipo de ejercicios fomentan habilidades de escucha activa, contextualización y análisis lingüístico, esenciales para el nivel B2.
+## Ejemplo extendido en contexto
+*Audio: «Unemployment fell by two per cent last year, according to official figures. The government says this proves its policies are working. Having said that, critics point out that most new jobs are temporary and poorly paid.»*
+**Claves:** dato (*fell by 2%*), postura oficial (*proves its policies are working*), reserva (*having said that*), crítica (*temporary and poorly paid*).

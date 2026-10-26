@@ -5,55 +5,45 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-Los condicionales segundo y tercero son estructuras gramaticales que se usan para expresar situaciones hipotéticas o contrarias a la realidad, tanto en el presente/futuro como en el pasado. En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (CEFR), es fundamental dominar estos condicionales para comunicarse con precisión al hablar de posibilidades no realizadas o situaciones imaginarias.
+El **segundo condicional** habla de situaciones **hipotéticas o poco probables** en el presente o futuro; el **tercero**, de situaciones **imaginarias en el pasado** que ya no se pueden cambiar.
 
 ## Explicación central
-### **Condicional segundo: Situaciones hipotéticas en el presente/futuro**
-Se forma con: *If + verbo en pasado simple, would + verbo base*. Se usa para expresar deseos, suposiciones o eventos futuros que son poco probables.
+### Segundo condicional: **If + past simple, would + infinitivo**
+- *If I **had** more money, I **would travel** more.* (no tengo más dinero)
+- *If I **won** the lottery, I **would buy** a house.* (poco probable)
+- Con *be* se usa ***were*** para todas las personas en el inglés cuidado: *If I **were** you, I'd accept.* (*If I was* es frecuente en el habla).
+- *Could / might* en vez de *would*: *If I had a car, I **could** drive you.*
 
-Ejemplo 1 (presente):
-*If I had more time, I would travel to Japan.*
-(Si tuviera más tiempo, viajaría a Japón.)
+### Tercer condicional: **If + past perfect, would have + participio**
+- *If I **had studied**, I **would have passed**.* (no estudié y no aprobé)
+- *If you **had told** me, I **wouldn't have gone**.*
+- *Could have / might have*: *If we had left earlier, we **might have caught** the train.*
 
-Ejemplo 2 (futuro):
-*If it rains tomorrow, we will stay home.*
-(Si llueve mañana, nos quedaremos en casa.)
+### Diferencias clave
+| | Condición | Resultado | Tiempo |
+|---|---|---|---|
+| 2.º | *If I had* | *I would buy* | presente/futuro hipotético |
+| 3.º | *If I had had* | *I would have bought* | pasado irreal |
 
-### **Condicional tercero: Situaciones hipotéticas en el pasado**
-Se forma con: *If + verbo en pasado perfecto (had + participio), would have + participio*. Se usa para hablar de acciones pasadas que no ocurrieron y sus consecuencias imaginarias.
-
-Ejemplo 1:
-*If I had studied harder, I would have passed the exam.*
-(Si hubiera estudiado más, habría aprobado el examen.)
-
-Ejemplo 2 (con resultado negativo):
-*If she hadn’t missed the bus, she wouldn’t have been late.*
-(Si no hubiera perdido el autobús, no habría llegado tarde.)
+### Contracciones que confunden
+*'d* puede ser *had* o *would*: *If I**'d** known* (= *had*), *I**'d** have helped* (= *would*).
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre pasado simple y pasado perfecto**: A menudo se usa *had* en lugar de *has/have* o viceversa. Por ejemplo: ❌ *If I had gone to the party, I would meet my friends.* (Correcto: *If I had gone... I would have met...*)
-2. **Uso incorrecto de "would"**: Algunos omiten "would" en el resultado o usan formas como *will* en lugar de *would*. Ejemplo: ❌ *If I win the lottery, I buy a house.* (Correcto: *I would buy...*)
-3. **Tensión entre condicional y tiempo real**: No distinguir entre situaciones reales (*first conditional*) e hipotéticas (*second/third*).
+1. *Would* después de *if*: ❌ *If I would have money…* ✅ *If I had money…*
+2. ❌ *If I would have known…* ✅ *If I had known…*
+3. ❌ *I would have went* ✅ *I would have gone* (participio).
+4. Mezclar el segundo y el tercero: ❌ *If I had studied, I would pass* (salvo que sea un condicional mixto con consecuencia presente).
 
 ## Comparación con el español
-En español, los condicionales se expresan principalmente mediante el subjuntivo presente o imperfecto. Por ejemplo:
-- **Condición segunda en español**: *Si tuviera más tiempo, viajaría a Japón.* (similar al inglés)
-- **Condición tercera en español**: *Si hubiera estudiado más, habría aprobado el examen.* (estructura similar al inglés, pero con subjuntivo imperfecto en la condición).
-
-La diferencia clave es que en inglés se usan formas de *would* para el resultado, mientras que en español se usa el subjuntivo en ambos elementos.
+- 2.º: «Si **tuviera** dinero, **viajaría**» = *If I had money, I would travel.*
+- 3.º: «Si **hubiera estudiado**, **habría aprobado**» = *If I had studied, I would have passed.*
+En el español rioplatense se dice a menudo «Si hubiera estudiado, hubiera aprobado»; en inglés la consecuencia siempre lleva *would have*.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-*A: ¿Qué habrías hecho si te hubieran ofrecido un trabajo en otro país?*
-*B: If I had been offered a job abroad, I would have accepted it immediately.*
-(Si me hubieran ofrecido un trabajo en otro país, lo habría aceptado de inmediato.)
-
-**Párrafo**:
-*Many people dream of living in a different country. If they had the opportunity to move, they would embrace it without hesitation. However, if they hadn’t saved enough money for the trip, their plans might have changed completely.*
-(Muchos sueñan con vivir en otro país. Si tuvieran la oportunidad de mudarse, lo aceptarían sin dudarlo. Sin embargo, si no hubieran ahorrado suficiente dinero para el viaje, sus planes podrían haber cambiado por completo.)
-
-Dominar estos condicionales permite expresar ideas complejas sobre posibilidades, arrepentimientos o suposiciones con precisión y naturalidad en inglés.
+*If I **lived** near the sea, I **would surf** every day. Last year I had the chance to move to Mar del Plata, but I said no. If I **had accepted**, I **would have learned** to surf by now… Well, if I **were** you, I **wouldn't make** the same mistake!*

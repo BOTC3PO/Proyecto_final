@@ -5,63 +5,55 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía ejemplos con errores y equivalencias imprecisas.
 
 ---
 
 ## Introducción
-El **registro** de un idioma se refiere al nivel de formalidad o cercanía que adopta una persona al comunicarse. En inglés, distinguir entre registro **formal** (usado en contextos profesionales, académicos o oficiales) y **informal** (usado en situaciones cotidianas o con personas cercanas) es clave para expresarse de manera adecuada según el contexto. En el nivel CEFR C1, los estudiantes deben manejar estas diferencias con precisión para interactuar eficazmente en entornos multiculturales y profesionales.
+El **registro** es el grado de formalidad. Un correo a un amigo y una carta a una empresa pueden decir lo mismo con palabras y estructuras muy distintas. En nivel C1 se espera elegir el registro adecuado y mantenerlo.
 
----
+## Explicación central
+### Vocabulario
+| Informal | Formal |
+|---|---|
+| get | obtain, receive |
+| ask for | request |
+| find out | discover, ascertain |
+| need | require |
+| help | assist |
+| buy | purchase |
+| start / begin | commence |
+| end | terminate, conclude |
+| tell | inform |
+| enough | sufficient |
+| about | approximately, regarding |
+| but | however |
+| so | therefore, consequently |
+| also | furthermore, in addition |
 
-## Explicación central: léxico y gramática en ambos registros
-El **registro formal** se caracteriza por un vocabulario preciso, estructuras gramaticales complejas y una postura respetuosa. Por ejemplo:
-- *Formal*: "I would like to express my gratitude for your assistance." (Expresión de agradecimiento en un correo profesional)
-- *Informal*: "Thanks for helping me out!" (Frase coloquial para agradecer entre amigos).
+En general, el registro formal prefiere **verbos de origen latino** y evita los *phrasal verbs* y las palabras coloquiales (*kids, stuff, guy, awesome*).
 
-En gramática, el registro formal evita contracciones y prefiere formas verbales más elaboradas. Por ejemplo:
-- *Formal*: "It is essential that we adhere to the guidelines." (Uso de *it is* + verbo en infinitivo)
-- *Informal*: "We need to follow the rules." (Estructura directa y sencilla).
+### Gramática
+- **Sin contracciones**: *I am*, *we will not* (informal: *I'm*, *we won't*).
+- **Voz pasiva e impersonal**: *It has been decided that…*, *Applications must be submitted by…*
+- **Pedidos indirectos**: *I would be grateful if you could…* (informal: *Can you…?*).
+- **Nominalización**: *the implementation of the plan* en lugar de *when we put the plan into practice*.
+- **Conectores formales**: *Nevertheless, Moreover, With regard to, In light of*.
 
-El **registro informal**, por su parte, utiliza vocabulario coloquial, contracciones frecuentes y una estructura más fluida. Ejemplos:
-- *Formal*: "The meeting will be held at 3 p.m. tomorrow."
-- *Informal*: "We’re meeting at 3 tomorrow."
-
----
+### Fórmulas de cartas y correos
+- Formal: *Dear Sir or Madam / Dear Ms Gómez* … *Yours faithfully* (si no sabés el nombre) / *Yours sincerely* (si lo sabés).
+- Informal: *Hi Pablo!* … *Cheers / Take care / Love*.
 
 ## Errores comunes de hispanohablantes
-1. **Uso indebido de contracciones**: Los hablantes nativos de español tienden a usar contracciones (como *don’t*, *can’t*) en registros formales, lo que suena incorrecto. Por ejemplo:
-   - ❌ "I can’t attend the meeting." (Formal)
-   - ✅ "I am unable to attend the meeting."
-
-2. **Falta de diferenciación entre "you" y formas más específicas**: En inglés formal, se evita el uso generalizado de *you* sin contexto. Por ejemplo:
-   - ❌ "You must submit your report by Friday." (Formal)
-   - ✅ "Please submit your report by Friday."
-
-3. **Uso incorrecto de modales en registros formales**: Frases como *"can you"* son informales; en contextos formales, se prefiere *would you* o *could you*. Ejemplo:
-   - ❌ "Can you send me the file?" (Formal)
-   - ✅ "Would you be able to send me the file?"
-
----
+1. **Mezclar registros**: *Dear Sir, I wanna know…* ✗.
+2. **Exceso de formalidad** con amigos: suena frío o irónico.
+3. **Calcar fórmulas del español**: «Sin otro particular» no se traduce; se usa *I look forward to hearing from you*.
+4. *Yours faithfully* con un nombre propio (debe ser *Yours sincerely*).
 
 ## Comparación con el español
-El español distingue entre **formales** (*usted*, *ustedes*) e **informales** (*tú*, *vosotros*), algo que en inglés se logra mediante el léxico y la estructura. Por ejemplo:
-- En español: "¿Puedes ayudarme?" (informal) vs. "¿Podría ayudarle?" (formal).
-- En inglés: "Can you help me?" (informal) vs. "Could I ask for your assistance?" (formal).
-
-Además, el español usa verbos como *hablar* en cualquier registro, pero en inglés, la elección de palabras (ej.: *discuss*, *address*, *converse*) refleja formalidad.
-
----
+El español marca el registro sobre todo con «usted» frente a «vos/tú». El inglés no tiene esa distinción: la formalidad se marca con el **vocabulario**, las **estructuras indirectas** y la ausencia de contracciones.
 
 ## Ejemplo extendido en contexto
-**Escenario**: Un estudiante se comunica con su profesor para solicitar una extensión en un trabajo.
-
-**Formal**:
-*"Dear Professor Smith, I hope this message finds you well. Due to unforeseen circumstances, I kindly request an extension for the upcoming essay submission. I would appreciate it if you could consider my request. Thank you in advance for your understanding."*
-
-**Informal**:
-*"Hey Prof. Smith, I was wondering if you could give me a bit more time to finish the essay. Something came up, and I’m still working on it. Thanks for considering!"*
-
-En este caso, el registro formal mantiene una estructura respetuosa y vocabulario neutral, mientras que el informal usa contracciones (*could*, *was wondering*) y un tono más cercano.
-
----
-Esta distinción es vital para adaptarse a situaciones profesionales, académicas o sociales en contextos donde la precisión lingüística es clave.
+*Informal: Hi Tom! Can you send me the stuff about the course? I need it by Friday. Thanks!*
+*Formal: Dear Mr Brown, **I would be grateful if you could** send me **the information regarding** the course. I **require** it by Friday. **I look forward to hearing from you.** Yours sincerely, …*
