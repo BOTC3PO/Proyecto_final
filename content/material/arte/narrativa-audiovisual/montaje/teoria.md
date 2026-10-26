@@ -77,8 +77,8 @@ teórica de por qué el montaje no sólo organiza lo filmado, sino que
 El montaje no es solo imagen. Incluye también el sonido (diálogo, música,
 efectos) que acompaña cada corte, y que puede reforzar o contradecir
 deliberadamente lo que se ve en pantalla. Es un tema que se conecta con las
-propiedades físicas del sonido (timbre, altura, intensidad), todavía
-pendiente en el tronco de Física.
+propiedades físicas del sonido (timbre, altura, intensidad), que se
+estudian en Física.
 
 ## Para qué sirve
 

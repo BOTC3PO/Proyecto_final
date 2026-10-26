@@ -22,7 +22,7 @@ Conjugación:
 - lui/lei **parla**
 - noi **parliamo**
 - voi **parlate**
-- loro ** parlano**
+- loro **parlano**
 
 ### 2. Verbos terminados en **-ere**
 Ejemplo: *mangiare* (comer)

@@ -14,7 +14,7 @@ El modelo funcionalista, también llamado de transmisión o lineal, es una forma
 
 Este modelo se basa en la idea de que la comunicación es un acto de transmisión clara y sin interferencias. Sin embargo, no deja espacio para las interpretaciones del receptor ni para la retroalimentación. Por eso se critica por ser demasiado simplista: en la vida real, los mensajes rara vez se reciben igual que se envían.
 
-![diagrama del modelo de transmisión con emisor, mensaje y receptor](https://upload.wikimedia.org/wikipedia/commons/8/84/Shannon-Weaver_model.png)
+![diagrama del modelo de transmisión con emisor, mensaje y receptor](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Shannon-Weaver_model.png/960px-Shannon-Weaver_model.png)
 
 *Imagen: «Shannon-Weaver model», OTA, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shannon-Weaver_model.png).*
 
@@ -25,8 +25,6 @@ Este modelo se basa en la idea de que la comunicación es un acto de transmisió
 La Teoría Crítica desafía la idea de que los medios son neutrales o simplemente canales de información. Desde esta perspectiva, se sostiene que los medios no solo transmiten noticias, sino que también refuerzan estructuras de poder e ideología dominante. Por ejemplo, una noticia puede ser seleccionada, editada o incluso omitida según intereses políticos, económicos o culturales.
 
 Este enfoque analiza cómo los medios moldean la forma en que las personas piensan sobre el mundo: qué es importante, quiénes son los héroes y villanos, y cuáles son las normas sociales. La hegemonía (dominio cultural) se mantiene a través de lo que se muestra o oculta en la comunicación.
-
-<!-- IMAGEN: relación entre poder y medios -->
 
 ---
 

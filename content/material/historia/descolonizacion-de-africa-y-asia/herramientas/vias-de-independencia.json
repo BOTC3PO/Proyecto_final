@@ -1,0 +1,83 @@
+{
+ "titulo": "Dos caminos hacia la independencia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Independencias negociadas y por guerra (ejemplos)",
+   "headers": [
+    "País",
+    "Año",
+    "Camino",
+    "Potencia colonial"
+   ],
+   "rows": [
+    [
+     "India y Pakistán",
+     "1947",
+     "Negociado, con una partición muy violenta",
+     "Reino Unido"
+    ],
+    [
+     "Indonesia",
+     "1945–1949",
+     "Guerra de independencia",
+     "Países Bajos"
+    ],
+    [
+     "Vietnam",
+     "1946–1954",
+     "Guerra (Dien Bien Phu, 1954)",
+     "Francia"
+    ],
+    [
+     "Ghana",
+     "1957",
+     "Negociado",
+     "Reino Unido"
+    ],
+    [
+     "Senegal, Costa de Marfil y otras colonias francesas",
+     "1960",
+     "Negociado",
+     "Francia"
+    ],
+    [
+     "Nigeria",
+     "1960",
+     "Negociado",
+     "Reino Unido"
+    ],
+    [
+     "Congo",
+     "1960",
+     "Negociado con apuro; crisis inmediata",
+     "Bélgica"
+    ],
+    [
+     "Argelia",
+     "1954–1962",
+     "Guerra de independencia",
+     "Francia"
+    ],
+    [
+     "Kenia",
+     "1952–1963",
+     "Rebelión Mau Mau y luego negociación",
+     "Reino Unido"
+    ],
+    [
+     "Angola y Mozambique",
+     "1961/1964–1975",
+     "Guerras de independencia",
+     "Portugal"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "1960 se conoce como el «Año de África»: 17 países africanos se independizaron ese año."
+  }
+ ]
+}

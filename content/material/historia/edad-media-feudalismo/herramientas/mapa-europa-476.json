@@ -1,0 +1,168 @@
+{
+ "titulo": "Europa hacia el 476: el fin del Imperio romano de Occidente",
+ "standalone": {
+  "tool": "mapa",
+  "titulo": "Europa hacia el 476: el fin del Imperio romano de Occidente",
+  "modo": "physical",
+  "escala": "110m",
+  "anotaciones": [
+   {
+    "id": "a1",
+    "tipo": "texto",
+    "lat": 40.4,
+    "lon": 16.4,
+    "contenido": "Reino de Odoacro",
+    "tamano": 12,
+    "color": "#dc2626"
+   },
+   {
+    "id": "a2",
+    "tipo": "texto",
+    "lat": 40.2,
+    "lon": -3.5,
+    "contenido": "Reino visigodo",
+    "tamano": 13,
+    "color": "#2563eb"
+   },
+   {
+    "id": "a3",
+    "tipo": "texto",
+    "lat": 44.6,
+    "lon": 0.2,
+    "contenido": "(visigodos)",
+    "tamano": 11,
+    "color": "#2563eb"
+   },
+   {
+    "id": "a4",
+    "tipo": "texto",
+    "lat": 42.6,
+    "lon": -8,
+    "contenido": "Suevos",
+    "tamano": 12,
+    "color": "#16a34a"
+   },
+   {
+    "id": "a5",
+    "tipo": "texto",
+    "lat": 51,
+    "lon": 4.3,
+    "contenido": "Francos",
+    "tamano": 12,
+    "color": "#b45309"
+   },
+   {
+    "id": "a6",
+    "tipo": "texto",
+    "lat": 47.6,
+    "lon": 0.6,
+    "contenido": "Dominio de Siagrio",
+    "tamano": 11,
+    "color": "#475569"
+   },
+   {
+    "id": "a7",
+    "tipo": "texto",
+    "lat": 46.2,
+    "lon": 5.3,
+    "contenido": "Burgundios",
+    "tamano": 12,
+    "color": "#7c3aed"
+   },
+   {
+    "id": "a8",
+    "tipo": "texto",
+    "lat": 48.4,
+    "lon": 9.6,
+    "contenido": "Alamanes",
+    "tamano": 12,
+    "color": "#475569"
+   },
+   {
+    "id": "a9",
+    "tipo": "texto",
+    "lat": 34.6,
+    "lon": 5.5,
+    "contenido": "Reino vándalo",
+    "tamano": 13,
+    "color": "#b45309"
+   },
+   {
+    "id": "a10",
+    "tipo": "texto",
+    "lat": 46,
+    "lon": 19.5,
+    "contenido": "Ostrogodos",
+    "tamano": 12,
+    "color": "#7c3aed"
+   },
+   {
+    "id": "a11",
+    "tipo": "texto",
+    "lat": 52.6,
+    "lon": -0.8,
+    "contenido": "Anglos y sajones",
+    "tamano": 11,
+    "color": "#475569"
+   },
+   {
+    "id": "a12",
+    "tipo": "texto",
+    "lat": 38.9,
+    "lon": 30,
+    "contenido": "IMPERIO DE ORIENTE",
+    "tamano": 13,
+    "color": "#dc2626"
+   },
+   {
+    "id": "a13",
+    "tipo": "marcador",
+    "lat": 41.9,
+    "lon": 12.5,
+    "etiqueta": "Roma"
+   },
+   {
+    "id": "a14",
+    "tipo": "marcador",
+    "lat": 44.42,
+    "lon": 12.2,
+    "etiqueta": "Rávena"
+   },
+   {
+    "id": "a15",
+    "tipo": "marcador",
+    "lat": 41.01,
+    "lon": 28.98,
+    "etiqueta": "Constantinopla",
+    "tamano": 1.2
+   },
+   {
+    "id": "a16",
+    "tipo": "marcador",
+    "lat": 36.85,
+    "lon": 10.32,
+    "etiqueta": "Cartago"
+   },
+   {
+    "id": "a17",
+    "tipo": "marcador",
+    "lat": 43.6,
+    "lon": 1.44,
+    "etiqueta": "Tolosa"
+   },
+   {
+    "id": "a18",
+    "tipo": "marcador",
+    "lat": 49.38,
+    "lon": 3.32,
+    "etiqueta": "Soissons"
+   }
+  ],
+  "bounds": {
+   "x": 0.46944,
+   "y": 0.26478,
+   "w": 0.13056,
+   "h": 0.13056
+  }
+ }
+}

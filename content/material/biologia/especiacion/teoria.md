@@ -57,7 +57,7 @@ distintas.
 
 ## 5. Conexión con lo que ya se vio
 
-La especiación es la **consecuencia acumulada** de todo lo visto en este
-tramo del tronco: variación heredable, selección natural y/o deriva
+La especiación es la **consecuencia acumulada** de todo lo visto en los
+temas de evolución: variación heredable, selección natural y/o deriva
 genética. Actúan sin flujo génico que las contrarreste, y durante
 suficientes generaciones.

@@ -30,7 +30,7 @@ Sin embargo, si la misma computadora se compra a crédito, el activo "Equipamien
 
 ## Ejemplos prácticos en el contexto argentino
 
-Para visualizar mejor cómo funciona esto en la vida real, pensemos en un emprendimiento local, como una panadería en Buenos Aires. Supongamos que la panadería tiene $10.000.000$ en activos (horno, muebles, dinero en caja y harina). Si debe $4.000.000$ al banco por un préstamo y $1.000.000$ al proveedor de harina, su pasivo total es de $5.000.000$.
+Para visualizar mejor cómo funciona esto en la vida real, pensemos en un emprendimiento local, como una panadería en Buenos Aires. Supongamos que la panadería tiene $10.000.000 en activos (horno, muebles, dinero en caja y harina). Si debe $4.000.000 al banco por un préstamo y $1.000.000 al proveedor de harina, su pasivo total es de $5.000.000.
 
 Aplicando la ecuación:
 $$10.000.000 \text{ (Activo)} = 5.000.000 \text{ (Pasivo)} + 5.000.000 \text{ (Patrimonio Neto)}$$

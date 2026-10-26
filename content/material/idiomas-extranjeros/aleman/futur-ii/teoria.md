@@ -41,7 +41,7 @@ El **Partizip Perfekt** (participio perfecto) se crea mediante la ayuda del verb
    - Corrección: Siempre debe incluirse *haben* o *sein* antes del participio.
 
 3. **Confusión con el Präteritum**:
-   - Error: *Ich werde gearbeitet** (sin *haben*) para describir una acción futura, confundiendo con el Präteritum (*gearbeitet*).
+   - Error: *Ich werde gearbeitet* (sin *haben*) para describir una acción futura, confundiendo con el Präteritum (*gearbeitet*).
 
 ---
 

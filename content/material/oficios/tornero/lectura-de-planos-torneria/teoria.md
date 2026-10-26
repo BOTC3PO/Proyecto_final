@@ -22,14 +22,14 @@ Las líneas tienen significados específicos: las líneas continuas gruesas repr
 
 ## Entendiendo las tolerancias dimensionales
 
-Las tolerancias son el rango de variación permitido en las medidas de la pieza. En la práctica, es imposible fabricar una pieza con una medida exacta, infinitamente precisa. Por ejemplo, si el plano indica una medida de $50$ mm, la pieza real puede medir $49,98$ mm o $50,02$ mm y seguir siendo válida. Este margen se define mediante tolerancias dimensionales.
+Las tolerancias son el rango de variación permitido en las medidas de la pieza. En la práctica, es imposible fabricar una pieza con una medida exacta, infinitamente precisa. Por ejemplo, si el plano indica una medida de 50 mm, la pieza real puede medir 49,98 mm o 50,02 mm y seguir siendo válida. Este margen se define mediante tolerancias dimensionales.
 
-Estas tolerancias se expresan generalmente de dos formas. La primera es mediante un valor nominal con una desviación superior e inferior, como $50^{+0,02}_{-0,01}$ mm. Esto significa que la medida máxima permitida es $50,02$ mm y la mínima es $49,99$ mm. La segunda forma utiliza clases de tolerancia (como IT6 o IT7 en el sistema ISO), que indican la precisión requerida según el grado de acabado.
+Estas tolerancias se expresan generalmente de dos formas. La primera es mediante un valor nominal con una desviación superior e inferior, como $50^{+0,02}_{-0,01}$ mm. Esto significa que la medida máxima permitida es 50,02 mm y la mínima es 49,99 mm. La segunda forma utiliza clases de tolerancia (como IT6 o IT7 en el sistema ISO), que indican la precisión requerida según el grado de acabado.
 
 Comprender la tolerancia te dice qué herramienta de medición usar (un calibre, un pie de rey o un micrómetro) y qué nivel de acabado superficial debes lograr. Una tolerancia estrecha requiere mayor experiencia y herramientas más precisas, mientras que una tolerancia amplia permite un trabajo más rápido. Ignorar las tolerancias puede resultar en piezas que no ensamblan correctamente con otras componentes, invalidando todo el esfuerzo de fabricación.
 
 ## Aplicación práctica en el taller
 
-Imagina que debes tornerar un eje con una cota indicada como $\varnothing 30 \pm 0,05$ mm. Esto significa que cualquier medida entre $29,95$ mm y $30,05$ mm es aceptable. Antes de comenzar, verifica en la leyenda del plano si se requiere un acabado superficial específico, como $Ra 3,2$, lo que implica que la superficie no debe ser demasiado rugosa.
+Imagina que debes tornerar un eje con una cota indicada como $\varnothing 30 \pm 0,05$ mm. Esto significa que cualquier medida entre 29,95 mm y 30,05 mm es aceptable. Antes de comenzar, verifica en la leyenda del plano si se requiere un acabado superficial específico, como Ra 3,2, lo que implica que la superficie no debe ser demasiado rugosa.
 
 Al momento de medir, utiliza un micrómetro externo, ya que ofrece la precisión necesaria para este tipo de tolerancias. No confíes solo en la vista general; revisa siempre las notas técnicas al pie del plano, donde suelen indicarse rebajes para herramientas, roscas o tratamientos superficiales. En el contexto argentino, es común encontrar planos que siguen normas ISO o estándares de empresas locales de ingeniería, por lo que familiarizarte con la simbología estándar te permitirá trabajar con mayor autonomía y seguridad en cualquier taller mecánico.

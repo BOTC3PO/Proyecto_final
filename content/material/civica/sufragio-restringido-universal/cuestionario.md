@@ -11,7 +11,7 @@
 
 ---
 
-### 1 — El sufragio censitario
+### 1 — Quiénes votaban
 
 ```
 metadata:
@@ -27,7 +27,7 @@ opciones_explicitas: ["varones", "mujeres", "todos los ciudadanos", "propietario
 enunciado: "En la etapa del sufragio restringido en Argentina, el derecho al voto estaba limitado únicamente a los ___."
 
 explicacion: |
-  Durante gran parte del siglo XIX y principios del XX, el sufragio era censitario, lo que significa que solo podían votar varones que cumplieran con ciertos requisitos de propiedad o renta.
+  En la Argentina del siglo XIX votaban solo los varones. No había requisitos de propiedad o renta (el voto no era censitario), pero el voto público y el fraude limitaban mucho la libertad de elegir.
 ```
 
 ### 2 — El sistema de elusión de la voluntad
@@ -39,17 +39,14 @@ metadata:
   nivel: "intermedio"
   tags: ["fraude", "historia"]
 
-variables:
-  escenario: uno_de([["el fraude mediante la falsificación de actas", "el control de la población por parte de los caudillos"], ["la manipulación de los padrones", "el uso de la fuerza física en los centros de votación"], ["la compra de votos", "la coacción de los votantes analfabetos"]])
-
-respuesta: escenario[0]
+respuesta: "público, dicho en voz alta ante la mesa"
 tipo: "mc"
-opciones_explicitas: ["el fraude mediante la falsificación de actas", "la manipulación de los padrones", "la compra de votos"]
+opciones_explicitas: ["público, dicho en voz alta ante la mesa", "secreto, en un cuarto oscuro", "obligatorio para todos los varones", "electrónico"]
 
-enunciado: "Antes de la Ley Sáenz Peña, el sistema electoral argentino se caracterizaba por la existencia de ___."
+enunciado: "Antes de la Ley Sáenz Peña, el voto en la Argentina era ___, lo que facilitaba la presión y el fraude."
 
 explicacion: |
-  El sistema de fraude electoral era una práctica común donde el poder de turno manipulaba los resultados para asegurar la continuidad, impidiendo que la voluntad popular se expresara.
+  Era el "voto cantado": cada elector decía su voto en público. Así se podía controlar a quién votaba cada uno, y se sumaban la manipulación de padrones, la compra de votos y la falsificación de actas.
 ```
 
 ### 3 — La Ley Sáenz Peña
@@ -101,13 +98,13 @@ metadata:
   tags: ["secuencia", "historia"]
 
 tipo: "ordenar"
-opciones_explicitas: ["voto censitario", "Ley Sáenz Peña", "voto femenino"]
-respuesta_orden: ["voto censitario", "Ley Sáenz Peña", "voto femenino"]
+opciones_explicitas: ["Ley electoral de Buenos Aires (voto masculino sin requisito de propiedad)", "Ley Sáenz Peña", "Ley de voto femenino"]
+respuesta_orden: ["Ley electoral de Buenos Aires (voto masculino sin requisito de propiedad)", "Ley Sáenz Peña", "Ley de voto femenino"]
 
 enunciado: "Ordene cronológicamente los hitos del sistema electoral argentino:"
 
 explicacion: |
-  Primero existía el voto restringido (censitario), luego se instauró el voto universal masculino con la Ley Sáenz Peña (1912) y finalmente se consolidó la universalidad con la sanción de la Ley de Voto Femenino (1947/1951).
+  La ley electoral de Buenos Aires de 1821 dio el voto a los varones libres sin exigir propiedad; la Ley Sáenz Peña (1912) lo hizo secreto y obligatorio; y la Ley 13.010 (1947) incorporó a las mujeres, que votaron por primera vez en 1951.
 ```
 
 ### 6 — La Ley Sáenz Peña

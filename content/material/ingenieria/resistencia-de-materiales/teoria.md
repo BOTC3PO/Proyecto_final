@@ -41,8 +41,6 @@ El **triángulo** es la figura más rígida porque sus ángulos no pueden variar
 
 En contraste, formas como cuadriláteros o polígonos con más lados tienden a deformarse fácilmente si no se refuerzan con diagonales (que convierten las figuras en triángulos).
 
-<!-- IMAGEN: Comparación entre un cuadrado y un triángulo bajo carga, mostrando la deformación del primero -->
-
 ---
 
 ## 4. Materiales y sus propiedades mecánicas

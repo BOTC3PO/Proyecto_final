@@ -14,7 +14,11 @@ La descolonización africana no fue un proceso uniforme, sino un conjunto de rup
 
 Este desajuste entre el Estado político y la sociedad civil fue la primera gran contradicción de la era postcolonial. Al independizarse, los nuevos líderes heredaron administraciones diseñadas para la extracción de recursos y el control militar, no para la representación democrática ni la integración nacional. La pregunta fundamental, formulada por el historiador Mahmood Mamdani, era si el Estado africano sería una herramienta de desarrollo o simplemente un aparato de poder vacío.
 
-<!-- IMAGEN: Mapa comparativo de las fronteras coloniales de África vs. la distribución de grupos étnicos y lingüísticos principales -->
+![Mapa de África coloreado según las grandes familias de lenguas](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/African_language_families_es.svg/960px-African_language_families_es.svg.png)
+
+*Imagen: «African language families es», Rowanwindwhistler, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:African_language_families_es.svg).*
+
+Las grandes familias de lenguas de África. Si se compara con un mapa político, se ve que las fronteras trazadas por las potencias coloniales cortan zonas lingüísticas y reúnen en un mismo Estado a pueblos muy distintos.
 
 ## 2. El mito del "milagro" y la crisis de la independencia
 
@@ -33,8 +37,6 @@ En muchos casos, el apoyo externo a regímenes autoritarios o dictatoriales se c
 A partir de la década de 1980, la crisis de la deuda externa llevó al Fondo Monetario Internacional (FMI) y al Banco Mundial a imponer programas de Ajuste Estructural (PAE). Estas políticas exigían la reducción del gasto público, la privatización de empresas estatales y la liberalización comercial. Si bien buscaban estabilizar las economías, los PAE tuvieron efectos sociales devastadores: recortes en salud y educación, desempleo masivo y aumento de la pobreza extrema.
 
 Esta crisis económica socavó la legitimidad de los gobiernos, tanto militares como civiles, y generó una "crisis de gobernabilidad". La población, cansada de décadas de promesas incumplidas y represión, comenzó a exigir democracias multipartidistas. A principios de los años 90, una ola de protestas populares, apoyada por el fin de la Guerra Fría (que redujo el interés de las potencias en mantener a los dictadores), forzó la transición política en gran parte del continente.
-
-<!-- IMAGEN: Gráfico de barras mostrando la caída de los precios de las materias primas clave en África durante los años 80 -->
 
 ## 5. Conflictos étnicos, genocidios y la búsqueda de paz
 

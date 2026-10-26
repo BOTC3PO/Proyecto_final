@@ -32,8 +32,6 @@ Cada método tiene su utilidad, pero a menudo se combinan para evitar malentendi
 
 La interpretación normativa no se limita a descifrar qué dice una ley, sino también a definir **hasta dónde llega** su aplicación. Por ejemplo, si la ley prohíbe "vender alcohol a menores de edad", ¿incluye esto a los estudiantes universitarios? ¿Y a quienes aparentan ser mayores pero no lo son? Determinar el alcance evita que la norma se convierta en una herramienta imprecisa o injusta.
 
-<!-- IMAGEN: Comparación entre un texto legal y un círculo que representa su ámbito de aplicación -->
-
 ---
 
 ## 4. El rol del intérprete

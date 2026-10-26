@@ -1,0 +1,94 @@
+{
+ "titulo": "Cómo funcionaba el fraude antes de 1912",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Mecanismos del fraude electoral",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Voto público, dicho en voz alta («voto cantado»)",
+     "x": 0,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n2",
+     "label": "Padrones adulterados: muertos, ausentes, inscriptos repetidos",
+     "x": 212,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Compra de votos y de libretas de enrolamiento",
+     "x": 424,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Presión de caudillos, patrones y policía",
+     "x": 0,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n5",
+     "label": "Violencia en los lugares de votación",
+     "x": 212,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n6",
+     "label": "Actas de escrutinio falsificadas",
+     "x": 424,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n7",
+     "label": "El gobierno de turno decide quién gana",
+     "x": 212,
+     "y": 277,
+     "color": "#fee2e2",
+     "shape": "diamond"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n7"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n7"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n7"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n7"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n7"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n7"
+    }
+   ]
+  }
+ ]
+}

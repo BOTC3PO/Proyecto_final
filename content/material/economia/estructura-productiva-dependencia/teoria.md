@@ -21,8 +21,6 @@ El éxito del modelo agroexportador dependía directamente de los precios que lo
 
 Esta volatilidad generó un ciclo de dependencia: las fluctuaciones en los precios internacionales no solo afectaban el ingreso de dólares, sino también la estabilidad fiscal del Estado. Para mitigar riesgos, se implementaron políticas como el control cambiario o subsidios a exportadores, pero estas medidas a menudo reforzaron la dependencia del sector primario.  
 
-<!-- IMAGEN: Gráfico comparativo de precios internacionales de commodities argentinos en distintos períodos históricos -->  
-
 ---
 
 ## 3. La falta de diversificación y su impacto en el desarrollo industrial  

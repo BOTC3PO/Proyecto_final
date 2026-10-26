@@ -1,437 +1,410 @@
-# Pensamiento histórico — economias regionales tempranas (cuestionario, 24 preguntas VBLang)
+# Historia argentina — Economías regionales tempranas (cuestionario, 21 preguntas VBLang)
 
-> Tema: `historia-argentina/economias-regionales-tempranas`. Ver `teoria.md` en esta misma carpeta.
+> Tema: `historia-argentina/economias-regionales-tempranas`. Ver `teoria.md` en esta misma carpeta. Reescrito el 2026-10-26 junto con la teoría.
 
 ---
 
-### 1 — pregunta 1
+### 1 — El producto del saladero
 
 ```
 metadata:
   materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
-  tags: ["ley_aduanas", "urquiza", "proteccionismo"]
+  tags: ["litoral", "ganaderia"]
 
-variables:
-  anio: 1854
+respuesta: "tasajo (carne salada y secada)"
+tipo: "mc"
+opciones_explicitas: ["tasajo (carne salada y secada)", "vino y aguardiente", "tejidos de algodón", "mulas"]
 
-respuesta: "proteger la producción local"
-tipo: completar
-
-enunciado: "La Ley de Aduanas promulgada en {anio} por el gobierno de Justo José de Urquiza tenía como objetivo principal:"
+enunciado: "En la primera mitad del siglo XIX, los saladeros del Litoral producían sobre todo:"
 
 explicacion: |
-  La ley buscaba proteger la industria naciente y la producción local frente a la competencia extranjera, especialmente la británica.
+  Los saladeros salaban y secaban la carne vacuna (tasajo), que se vendía a Brasil y a Cuba; los cueros y el sebo se exportaban a Europa.
 ```
 
-### 2 — pregunta 2
+### 2 — Productos de Cuyo
 
 ```
 metadata:
   materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
-  tags: ["comercio_exterior", "britanicos"]
+  tags: ["interior", "cuyo"]
 
-respuesta: "británica"
-tipo: completar
+respuesta: "vinos y aguardientes"
+tipo: "mc"
+opciones_explicitas: ["vinos y aguardientes", "tasajo", "yerba mate", "plata"]
 
-enunciado: "La Ley de Aduanas de 1854 buscaba proteger la producción local frente a la competencia de la industria ___."
+enunciado: "Mendoza y San Juan (Cuyo) se destacaban por producir:"
 
 explicacion: |
-  La industria británica era la principal competidora en el mercado argentino de la época.
+  Cuyo producía vinos y aguardientes y vendía ganado a Chile, cruzando la cordillera.
 ```
 
-### 3 — pregunta 3
+### 3 — El mercado perdido
 
 ```
 metadata:
   materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
-  tags: ["litoral", "entre_rios", "corrientes"]
+  tags: ["interior", "alto_peru"]
 
-variables:
-  regiones: "Entre Ríos y Corrientes"
-
-respuesta: "Entre Ríos y Corrientes"
+respuesta: "Potosí"
 tipo: completar
+respuestas_validas:
+  - "Potosí"
+  - "potosi"
+  - "Potosi"
 
-enunciado: "Las provincias que más resistieron la Ley de Aduanas por considerar que amenazaba su autonomía económica fueron:"
+enunciado: "Durante la colonia, buena parte del Interior vendía al Alto Perú, cuyo centro era la gran mina de plata de ___."
 
 explicacion: |
-  Las provincias del Litoral, especialmente Entre Ríos y Corrientes, dependían más del comercio internacional y menos de la protección arancelaria.
+  Las guerras de independencia cortaron el comercio con el Alto Perú y su centro minero, Potosí; en 1825 el Alto Perú se convirtió en Bolivia.
 ```
 
-### 4 — pregunta 4
+### 4 — La competencia del puerto
 
 ```
 metadata:
   materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "intermedio"
-  tags: ["economia_litoral", "comercio"]
+  tags: ["interior", "comercio"]
 
-respuesta: "abierta"
-tipo: completar
+respuesta: "las telas británicas fabricadas a máquina"
+tipo: "mc"
+opciones_explicitas: ["las telas británicas fabricadas a máquina", "el vino chileno", "la plata de Potosí", "el tasajo brasileño"]
 
-enunciado: "La economía de las provincias del Litoral se caracterizaba por ser más ___ al comercio internacional."
-
-explicacion: |
-  A diferencia del centro del país, el Litoral tenía una economía más integrada y dependiente del comercio exterior.
-```
-
-### 5 — pregunta 5
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["conflicto_armado", "causas"]
-
-respuesta: "Ley de Aduanas"
-tipo: completar
-
-enunciado: "La resistencia a la ___ se convirtió en el detonante de una nueva guerra civil entre la Confederación y el Litoral."
+enunciado: "¿Qué importaciones que entraban por Buenos Aires perjudicaron a los tejedores artesanales del Interior?"
 
 explicacion: |
-  La aplicación estricta de la ley por Urquiza provocó la reacción armada de los caudillos litorales.
+  Las manufacturas británicas, sobre todo las telas hechas a máquina, eran más baratas que los tejidos artesanales del Interior.
 ```
 
-### 6 — pregunta 7
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["ideologia", "descentralizacion"]
-
-respuesta: "descentralizada"
-tipo: completar
-
-enunciado: "Los rebeldes del Litoral defendían una visión política más ___, donde las provincias tendrían mayor control sobre sus recursos."
-
-explicacion: |
-  Los caudillos litorales argumentaban a favor de una mayor autonomía provincial frente al centralismo confederado.
-```
-
-### 7 — pregunta 8
+### 5 — La aduana
 
 ```
 metadata:
   materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
-  tags: ["exportaciones", "carne"]
-
-respuesta: "carne salada y cueros"
-tipo: completar
-
-enunciado: "En la década de 1850, las exportaciones de ___ seguían siendo vitales para la economía argentina."
-
-explicacion: |
-  Aunque la industria nacía, la ganadería y sus derivados seguían siendo la base de las exportaciones.
-```
-
-### 8 — pregunta 9
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["fiscalidad", "estado"]
-
-respuesta: "asegurar ingresos"
-tipo: completar
-
-enunciado: "Además de proteger la industria, la Ley de Aduanas buscaba ___ para el Estado nacional."
-
-explicacion: |
-  El Estado nacional necesitaba recursos fiscales para estructurarse tras la caída de Rosas.
-```
-
-### 9 — pregunta 10
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["soberania", "comercio"]
-
-respuesta: "soberanía sobre el comercio exterior"
-tipo: completar
-
-enunciado: "Mientras la Confederación buscaba consolidar la ___, los rebeldes defendían la autonomía provincial."
-
-explicacion: |
-  El conflicto fue también una disputa sobre quién controlaba las tarifas y el comercio exterior.
-```
-
-### 10 — pregunta 11
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["confederacion", "estructuracion"]
-
-respuesta: "recién comenzaba a estructurarse"
-tipo: completar
-
-enunciado: "La Ley de Aduanas se promulgó cuando el Estado nacional ___ tras la caída de Rosas."
-
-explicacion: |
-  El nuevo orden constitucional estaba frágil y necesitaba consolidar su autoridad fiscal.
-```
-
-### 11 — pregunta 12
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["percepcion", "amenaza"]
-
-respuesta: "amenaza directa"
-tipo: completar
-
-enunciado: "Los caudillos litorales percibieron la Ley de Aduanas como una ___ a su autonomía y prosperidad."
-
-explicacion: |
-  La ley fue vista no como una medida técnica, sino como un ataque político y económico.
-```
-
-### 12 — pregunta 13
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["consecuencias", "guerra"]
-
-respuesta: "no se resolvió con una victoria clara inmediata"
-tipo: completar
-
-enunciado: "La guerra entre la Confederación y el Litoral ___, dejando un legado de desconfianza."
-
-explicacion: |
-  El conflicto prolongado debilitó la legitimidad del gobierno de Urquiza sin definir una supremacía clara de inmediato.
-```
-
-### 13 — pregunta 14
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["acuerdos", "federalismo"]
-
-respuesta: "violaba los acuerdos federales"
-tipo: completar
-
-enunciado: "Los rebeldes argumentaban que la ley ___ y perjudicaba sus economías locales."
-
-explicacion: |
-  La imposición unilateral de tarifas fue vista como una violación de los pactos federativos.
-```
-
-### 14 — pregunta 15
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["diplomacia", "conflicto"]
-
-respuesta: "rompimiento de relaciones"
-tipo: completar
-
-enunciado: "La situación escaló rápidamente, llevando al ___ diplomáticas entre el gobierno nacional y el Litoral."
-
-explicacion: |
-  La tensión económica derivó en una crisis política y diplomática abierta.
-```
-
-### 15 — pregunta 16
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["rosas", "urquiza", "control"]
-
-respuesta: "control absoluto"
-tipo: completar
-
-enunciado: "La tensión se generó aunque la capital ya no tuviera el ___ que había tenido bajo Rosas."
-
-explicacion: |
-  Urquiza intentaba centralizar el poder que Rosas había ejercido desde Buenos Aires, pero con menos fuerza coercitiva inicial.
-```
-
-### 16 — pregunta 17
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["constitucion", "fragilidad"]
-
-respuesta: "fragilidad del nuevo orden constitucional"
-tipo: completar
-
-enunciado: "El conflicto puso de manifiesto la ___ y la dificultad de integrar intereses dispares."
-
-explicacion: |
-  La incapacidad de resolver el conflicto fiscal mostró los límites del nuevo marco legal.
-```
-
-### 17 — pregunta 18
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "avanzado"
-  tags: ["integracion", "economia"]
-
-respuesta: "integrar intereses económicos tan dispares"
-tipo: completar
-
-enunciado: "El gran desafío del momento era ___ bajo un mismo marco legal."
-
-explicacion: |
-  Los intereses de Buenos Aires/Confederación y los del Litoral eran económicamente antagónicos en términos arancelarios.
-```
-
-### 18 — pregunta 19
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["tarifas", "proteccionismo"]
-
-respuesta: "tarifas altas"
-tipo: completar
-
-enunciado: "La Ley de Aduanas imponía ___ a las importaciones para proteger la industria local."
-
-explicacion: |
-  El proteccionismo se lograba mediante barreras arancelarias elevadas.
-```
-
-### 19 — pregunta 20
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["regulacion", "comercio_exterior"]
-
-respuesta: "regular el comercio exterior"
-tipo: completar
-
-enunciado: "Además de las tarifas, la ley buscaba ___ bajo el control del Estado nacional."
-
-explicacion: |
-  La centralización del comercio exterior era clave para la soberanía nacional.
-```
-
-### 20 — pregunta 21
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["litoral", "economia"]
-
-variables:
-  valor: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Las provincias del Litoral dependían más de la protección arancelaria que el centro del país."
-
-explicacion: |
-  Falso. El Litoral tenía una economía más abierta y dependía menos de la protección que el centro.
-```
-
-### 21 — pregunta 22
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "intermedio"
-  tags: ["guerra", "resultado"]
-
-variables:
-  valor: "falso"
-
-respuesta: falso
-tipo: vf
-
-enunciado: "La guerra entre la Confederación y el Litoral se resolvió con una victoria clara inmediata."
-
-explicacion: |
-  Falso. El conflicto dejó un legado de desconfianza y no tuvo un ganador claro de inmediato.
-```
-
-### 22 — pregunta 23
-
-```
-metadata:
-  materia: "historia_argentina"
-  tema: "economias_regionales_tempranas"
-  nivel: "basico"
-  tags: ["urquiza", "aplicacion"]
-
-variables:
-  valor: "verdadero"
+  tags: ["aduana", "buenos_aires"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Justo José de Urquiza intentó aplicar la Ley de Aduanas de manera estricta."
+enunciado: "En la primera mitad del siglo XIX, la aduana de Buenos Aires era la mayor fuente de ingresos públicos y Buenos Aires no compartía lo recaudado con las demás provincias."
 
 explicacion: |
-  Verdadero. Su estricta aplicación fue el detonante de la rebelión litoraleña.
+  Verdadero. Buenos Aires tenía el único puerto habilitado para el comercio de ultramar y se quedaba con las rentas de su aduana.
 ```
 
-### 23 — pregunta 24
+### 6 — Los ríos
 
 ```
 metadata:
   materia: "historia_argentina"
   tema: "economias_regionales_tempranas"
   nivel: "basico"
-  tags: ["industria", "proteccion"]
+  tags: ["litoral", "rios"]
 
-variables:
-  valor: "verdadero"
+respuesta: "navegación"
+tipo: completar
+respuestas_validas:
+  - "navegación"
+  - "navegacion"
+  - "libre navegación"
+  - "libre navegacion"
+
+enunciado: "Corrientes, Entre Ríos y Santa Fe reclamaban la libre ___ de los ríos Paraná y Uruguay para poder comerciar directamente con el exterior."
+
+explicacion: |
+  Buenos Aires no permitía que los barcos extranjeros subieran libremente por los ríos; las provincias del Litoral dependían así de los intermediarios porteños.
+```
+
+### 7 — El debate de 1830
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["pacto_federal", "proteccionismo"]
+
+respuesta: "Pedro Ferré"
+tipo: "mc"
+opciones_explicitas: ["Pedro Ferré", "Bernardino Rivadavia", "Domingo F. Sarmiento", "Justo José de Urquiza"]
+
+enunciado: "¿Qué representante de Corrientes defendió, durante la negociación del Pacto Federal, los aranceles protectores y la nacionalización de las rentas de la aduana?"
+
+explicacion: |
+  El correntino Pedro Ferré discutió en 1830–1831 con José María Roxas y Patrón, representante de Buenos Aires, que defendía el libre comercio.
+```
+
+### 8 — El Pacto Federal
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["pacto_federal"]
+
+respuesta: "1831"
+tipo: completar
+respuestas_validas:
+  - "1831"
+
+enunciado: "El Pacto Federal entre Buenos Aires, Santa Fe y Entre Ríos se firmó el 4 de enero de ___."
+
+explicacion: |
+  El Pacto Federal se firmó el 4 de enero de 1831; Corrientes se sumó después.
+```
+
+### 9 — Ley de Aduanas: autor
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["rosas", "ley_aduanas"]
+
+respuesta: "Juan Manuel de Rosas"
+tipo: "mc"
+opciones_explicitas: ["Juan Manuel de Rosas", "Justo José de Urquiza", "Bartolomé Mitre", "Pedro Ferré"]
+
+enunciado: "¿Quién sancionó la Ley de Aduanas proteccionista de 1835?"
+
+explicacion: |
+  Rosas, como gobernador de Buenos Aires, sancionó la Ley de Aduanas en diciembre de 1835.
+```
+
+### 10 — Ley de Aduanas: contenido
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["rosas", "ley_aduanas"]
+
+respuesta: "subió los derechos a los productos importados que competían con los locales"
+tipo: "mc"
+opciones_explicitas: ["subió los derechos a los productos importados que competían con los locales", "eliminó todos los impuestos a las importaciones", "repartió la renta de la aduana entre todas las provincias", "abrió los ríos a la navegación extranjera"]
+
+enunciado: "La Ley de Aduanas de 1835:"
+
+explicacion: |
+  Era proteccionista: subía los derechos de importación a los productos que competían con los del país y prohibía algunos; la aduana y los ríos siguieron bajo control porteño.
+```
+
+### 11 — Límites de la ley de 1835
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["rosas", "ley_aduanas"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La Ley de Aduanas de 1835 nacionalizó las rentas de la aduana y abrió los ríos a la navegación extranjera."
+
+explicacion: |
+  Falso. La aduana y el puerto siguieron en manos de Buenos Aires y la navegación de los ríos siguió cerrada.
+```
+
+### 12 — Bloqueos
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["rosas", "bloqueos"]
+
+respuesta: "Francia (y luego Francia y Gran Bretaña juntas)"
+tipo: "mc"
+opciones_explicitas: ["Francia (y luego Francia y Gran Bretaña juntas)", "Brasil y Chile", "España", "Estados Unidos"]
+
+enunciado: "Durante el gobierno de Rosas, el puerto de Buenos Aires sufrió bloqueos de:"
+
+explicacion: |
+  Hubo un bloqueo francés (1838–1840) y otro anglofrancés (1845–1848), que alteraron el comercio.
+```
+
+### 13 — Caseros
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["caseros", "urquiza"]
+
+respuesta: "1852"
+tipo: completar
+respuestas_validas:
+  - "1852"
+
+enunciado: "Rosas fue derrotado en la batalla de Caseros en el año ___."
+
+explicacion: |
+  Urquiza, gobernador de Entre Ríos, se pronunció contra Rosas en 1851 y lo derrotó en Caseros en 1852. La libre navegación y la aduana estaban entre los reclamos del Litoral.
+```
+
+### 14 — La Constitución y la aduana
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["constitucion_1853", "aduana"]
+
+respuesta: "declaró nacionales los derechos de importación y exportación"
+tipo: "mc"
+opciones_explicitas: ["declaró nacionales los derechos de importación y exportación", "dejó la aduana en manos de Buenos Aires", "prohibió el comercio exterior", "repartió la aduana entre Cuyo y el Litoral"]
+
+enunciado: "Sobre la aduana, la Constitución de 1853:"
+
+explicacion: |
+  La Constitución de 1853 declaró nacionales los derechos de importación y exportación y estableció la libre navegación de los ríos.
+```
+
+### 15 — Buenos Aires separada
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["confederacion", "buenos_aires"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "La Ley de Aduanas buscaba fomentar la industria naciente argentina."
+enunciado: "Entre 1852 y 1861, Buenos Aires estuvo separada de la Confederación Argentina y conservó su puerto y su aduana."
 
 explicacion: |
-  Verdadero. El proteccionismo arancelario tenía como fin desarrollar la manufactura local.
+  Verdadero. Buenos Aires no aceptó la Constitución de 1853; la Confederación, con capital en Paraná, quedó sin las rentas de la aduana porteña.
+```
+
+### 16 — Capital de la Confederación
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["confederacion"]
+
+respuesta: "Paraná"
+tipo: "mc"
+opciones_explicitas: ["Paraná", "Rosario", "Córdoba", "Buenos Aires"]
+
+enunciado: "Durante la separación de Buenos Aires, la capital de la Confederación Argentina estuvo en:"
+
+explicacion: |
+  La Confederación tuvo su capital en Paraná (Entre Ríos).
+```
+
+### 17 — Derechos diferenciales
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["confederacion", "derechos_diferenciales"]
+
+respuesta: "cobrar menos impuestos a las mercaderías que llegaban directamente a puertos de la Confederación"
+tipo: "mc"
+opciones_explicitas: ["cobrar menos impuestos a las mercaderías que llegaban directamente a puertos de la Confederación", "prohibir el comercio con Gran Bretaña", "entregar la aduana de Rosario a Buenos Aires", "eliminar la ganadería del Litoral"]
+
+enunciado: "La Ley de Derechos Diferenciales (1856) buscaba atraer el comercio a puertos como Rosario mediante:"
+
+explicacion: |
+  Las mercaderías que llegaban sin pasar por Buenos Aires pagaban menos impuestos. Los resultados fueron limitados y la ley quedó sin efecto con la reincorporación de Buenos Aires.
+```
+
+### 18 — Puerto de la Confederación
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["confederacion", "rosario"]
+
+respuesta: "Rosario"
+tipo: completar
+respuestas_validas:
+  - "Rosario"
+
+enunciado: "El principal puerto que la Confederación quiso potenciar con la Ley de Derechos Diferenciales fue ___."
+
+explicacion: |
+  Rosario, sobre el Paraná, era el puerto de la Confederación que debía competir con Buenos Aires.
+```
+
+### 19 — Orden de los hechos
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "intermedio"
+  tags: ["cronologia"]
+
+tipo: "ordenar"
+opciones_explicitas: ["Pacto Federal", "Ley de Aduanas de Rosas", "Batalla de Caseros", "Ley de Derechos Diferenciales"]
+respuesta_orden: ["Pacto Federal", "Ley de Aduanas de Rosas", "Batalla de Caseros", "Ley de Derechos Diferenciales"]
+
+enunciado: "Ordená cronológicamente:"
+
+explicacion: |
+  Pacto Federal (1831), Ley de Aduanas de Rosas (1835), Caseros (1852) y Ley de Derechos Diferenciales (1856).
+```
+
+### 20 — Mulas
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "basico"
+  tags: ["interior"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Córdoba y Salta criaban mulas que se vendían en el Alto Perú."
+
+explicacion: |
+  Verdadero. Las mulas eran el medio de transporte de las zonas mineras del Alto Perú.
+```
+
+### 21 — La idea central
+
+```
+metadata:
+  materia: "historia_argentina"
+  tema: "economias_regionales_tempranas"
+  nivel: "avanzado"
+  tags: ["sintesis"]
+
+respuesta: "quién controlaba el puerto y la aduana, y qué producciones se protegían"
+tipo: "mc"
+opciones_explicitas: ["quién controlaba el puerto y la aduana, y qué producciones se protegían", "qué religión debía tener el país", "si debía haber o no elecciones", "qué idioma se hablaría en cada provincia"]
+
+enunciado: "Una de las grandes disputas económicas entre Buenos Aires y las provincias durante la organización nacional fue:"
+
+explicacion: |
+  La organización nacional fue también una disputa económica: el puerto, la aduana, la navegación de los ríos y la protección de las producciones locales.
 ```

@@ -10,7 +10,13 @@
 
 ## 1. La bipedestación: el primer rasgo distintivo
 
-El paso de caminar sobre cuatro extremidades al uso exclusivo de dos (bipedestación) fue el evento clave que marcó la transición hacia los homínidos. Este cambio no fue solo funcional, sino evolutivo: permitió liberar las manos para manipular objetos, transportar alimentos y, eventualmente, fabricar herramientas. La postura erguida también modificó la estructura ósea del cráneo, el tórax y la pelvis, adaptándose a una vida en ambientes abiertos como los sotobosques o las estepas. <!-- IMAGEN: esqueleto comparativo entre primate cuadrúpedo y homínido bípedo -->.
+El paso de caminar sobre cuatro extremidades al uso exclusivo de dos (bipedestación) fue el evento clave que marcó la transición hacia los homínidos. Este cambio no fue solo funcional, sino evolutivo: permitió liberar las manos para manipular objetos, transportar alimentos y, eventualmente, fabricar herramientas. La postura erguida también modificó la estructura ósea del cráneo, el tórax y la pelvis, adaptándose a una vida en ambientes abiertos como los sotobosques o las estepas.
+
+![Cinco esqueletos de perfil: gibón, orangután, chimpancé, gorila y ser humano](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Frontispiece_to_Huxley_%27Evidence_as_to_man%27s_place...%27_Wellcome_L0063032.jpg/960px-Frontispiece_to_Huxley_%27Evidence_as_to_man%27s_place...%27_Wellcome_L0063032.jpg)
+
+*Imagen: «Frontispiece to Huxley 'Evidence as to man's place...' Wellcome L0063032», Wellcome Collection, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Frontispiece_to_Huxley_%27Evidence_as_to_man%27s_place...%27_Wellcome_L0063032.jpg).*
+
+Grabado del libro de Thomas Huxley *La posición del hombre en la naturaleza* (1863): esqueletos de gibón, orangután, chimpancé, gorila y ser humano. Se ve cómo la postura erguida cambia la columna, la pelvis y las piernas. Ojo: no es una secuencia de antepasados; los simios actuales son parientes nuestros, no nuestros abuelos.
 
 ## 2. Cronología de las especies hominidas
 

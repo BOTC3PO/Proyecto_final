@@ -42,4 +42,9 @@ La vida en la *polis* estaba impregnada de lo religioso y lo político. Los fest
 
 Paralelamente, el siglo V y IV a.C. vio el surgimiento de la filosofía política. Figuras como **Sócrates**, **Platón** y **Aristóteles** reflexionaron sobre la naturaleza de la justicia, la mejor forma de gobierno y el papel del ciudadano. Aristóteles definió al hombre como un "animal político" (*zoon politikon*), sugiriendo que solo en la *polis* el ser humano puede alcanzar su plenitud ética e intelectual. Esta intelectualización de la política marcó un punto de inflexión: la política dejó de ser solo una práctica de poder para convertirse en un objeto de estudio racional y moral.
 
-<!-- IMAGEN: Detalle de un ánfora ática de figuras negras mostrando una escena de la asamblea o un debate público, ilustrando la interacción directa entre ciudadanos en el espacio cívico -->
+![Tres fragmentos de cerámica con nombres griegos grabados](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Scherbengericht.png/960px-Scherbengericht.png)
+
+*Imagen: «Scherbengericht», Qwqchris, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scherbengericht.png).*
+
+Óstraka (fragmentos de cerámica) con los nombres de Pericles, Cimón y Arístides. En el ostracismo, cada ciudadano escribía en un fragmento el nombre del político que quería desterrar por diez años: una participación directa en las decisiones de la *polis*.
+

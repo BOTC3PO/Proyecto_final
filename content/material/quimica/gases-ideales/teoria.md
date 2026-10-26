@@ -30,7 +30,7 @@ P × V = n × R × T
 - `P`: presión (atm)
 - `V`: volumen (L)
 - `n`: moles (ver `../mol-masa-molar/`)
-- `R`: constante de los gases — **ya precargada en VBLang** como `R`
+- `R`: constante de los gases
   (0,0821 L·atm/(mol·K) en estas unidades)
 - `T`: temperatura, **siempre en Kelvin** (no en Celsius — ver más abajo)
 

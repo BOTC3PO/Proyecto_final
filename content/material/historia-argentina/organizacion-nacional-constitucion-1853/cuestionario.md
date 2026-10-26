@@ -171,14 +171,14 @@ metadata:
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
 
-opciones_explicitas: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
-respuesta_orden: ["Sanción de la Constitución Nacional", "Separación de Buenos Aires", "Batalla de Pavón", "Reincorporación de Buenos Aires"]
+opciones_explicitas: ["Separación de Buenos Aires", "Sanción de la Constitución Nacional", "Batalla de Cepeda", "Batalla de Pavón"]
+respuesta_orden: ["Separación de Buenos Aires", "Sanción de la Constitución Nacional", "Batalla de Cepeda", "Batalla de Pavón"]
 tipo: "ordenar"
 
 enunciado: "Ordena cronológicamente los siguientes hechos históricos de la organización nacional:"
 
 explicacion: |
-  La secuencia correcta comienza con la sanción de la Constitución (1853), la consecuente separación de Buenos Aires, la batalla que definió el rumbo político (Pavón, 1861) y la posterior integración.
+  Buenos Aires se separó de la Confederación con la revolución del 11 de septiembre de 1852; la Constitución se sancionó el 1.º de mayo de 1853 sin Buenos Aires; tras la batalla de Cepeda (1859) Buenos Aires aceptó reincorporarse, y la batalla de Pavón (1861) definió la unificación bajo su liderazgo.
 ```
 
 ### 9 — El rol de la Batalla de Pavón

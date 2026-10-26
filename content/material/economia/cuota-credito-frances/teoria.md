@@ -66,8 +66,8 @@ sobre el saldo que todavía no se amortizó.
 
 El sistema francés es el más famoso en Argentina, pero no es el único
 sistema de amortización que usan los bancos. Este módulo se centra en el
-francés porque es el que corresponde al MAPA, pero vale la pena conocer
-que existen otros, con una lógica distinta:
+francés porque es el más común en los créditos personales e hipotecarios,
+pero vale la pena conocer que existen otros, con una lógica distinta:
 
 - **Sistema alemán**: la **amortización de capital** es la que se
   mantiene constante en cada cuota (no la cuota total). Como el interés se calcula sobre un saldo que baja siempre en la misma

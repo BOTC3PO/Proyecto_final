@@ -39,7 +39,7 @@ type Tema = {
   id: string; materia: string; ruta: string; titulo: string; teoria: string; nivel: string | null;
   dependencias: string[]; preguntas: Pregunta[];
   /** Ítems "Herramienta" (imágenes enlazadas y diagramas): `doc` es un BlockDocument de la web. */
-  herramientas?: { title: string; doc: unknown }[];
+  herramientas?: { title: string; doc?: unknown; standalone?: unknown }[];
 };
 type Examen = { id: string; logro: number | null; materia: string; titulo: string; descripcion: string; temas: string[]; preguntas: Pregunta[] };
 type Libro = { id: string; materia: string; titulo: string; libro: string };
@@ -103,7 +103,9 @@ function filas(owner: string) {
       id: t.id, slug: slugDe(t.id), titulo: t.titulo, subject: t.materia, level: t.nivel,
       theoryItems: JSON.stringify([
         ...(t.teoria ? [{ id: `${t.id}.teoria`, title: t.titulo, type: "Texto", detail: t.teoria }] : []),
-        ...(t.herramientas ?? []).map((h, i) => ({ id: `${t.id}.h${i + 1}`, title: h.title, type: "Herramienta", detail: JSON.stringify(h.doc) })),
+        ...(t.herramientas ?? []).map((h, i) => (h.standalone
+          ? { id: `${t.id}.h${i + 1}`, title: h.title, type: "HerramientaStandalone", detail: JSON.stringify(h.standalone) }
+          : { id: `${t.id}.h${i + 1}`, title: h.title, type: "Herramienta", detail: JSON.stringify(h.doc) })),
       ]),
       dependencies: JSON.stringify(t.dependencias.filter((d) => ids.has(d)).map((id) => ({ id, type: "required" }))),
     });

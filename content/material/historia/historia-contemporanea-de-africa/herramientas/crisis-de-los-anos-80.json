@@ -1,0 +1,93 @@
+{
+ "titulo": "África en los años 80: de la crisis a la democratización",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cadena de la crisis económica y política",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Caen los precios de las materias primas que exporta África",
+     "x": 0,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n2",
+     "label": "Menos ingresos por exportaciones",
+     "x": 212,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "La deuda externa se vuelve impagable",
+     "x": 424,
+     "y": 0,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n4",
+     "label": "Planes de ajuste estructural (FMI y Banco Mundial)",
+     "x": 424,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n5",
+     "label": "Recortes en salud, educación y empleo público",
+     "x": 212,
+     "y": 126,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n6",
+     "label": "Crisis de legitimidad de los gobiernos",
+     "x": 0,
+     "y": 126,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n7",
+     "label": "Años 90: protestas y elecciones multipartidarias",
+     "x": 0,
+     "y": 252,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n7"
+    }
+   ]
+  }
+ ]
+}

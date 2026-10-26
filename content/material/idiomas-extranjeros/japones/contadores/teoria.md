@@ -25,9 +25,9 @@ Los contadores más comunes en N5 incluyen:
 
 ## Errores comunes de hispanohablantes
 Los hablantes nativos de español a menudo:
-1. **Usan "tsu" (つ) en lugar de contadores específicos**: Por ejemplo, decir *三つ（さんつ）の本* en vez de *三本（さんほん）の本*.
-2. **Olvidar el uso del contador al contar personas o animales**: Decir *"dos gatos"* como *二匹（にひき）の猫*, pero omitir el contador en frases como *"tres personas"* (correcto: *三人（さんにん）*).
-3. **Confundir partículas con contadores**: Usar *が* o *を* incorrectamente, por ejemplo, decir *"veo cinco libros"* como *五本（ごほん）の本を見ます*, pero omitir el uso de la partícula *が* en oraciones como *"hay tres personas"* (correcto: *三人（さんにん）がいます*).
+1. **Usar つ para todo**: la serie genérica (ひとつ, ふたつ, みっつ…) sirve para muchas cosas, pero los libros se cuentan con 冊: *三冊（さんさつ）の本* («tres libros»), no *三つの本*. Ojo: 三つ se lee *みっつ*, no «さんつ».
+2. **Olvidar el contador de personas o animales**: las personas se cuentan con 人, con formas irregulares para uno y dos (*一人 ひとり*, *二人 ふたり*, *三人 さんにん*); los animales chicos, con 匹 (*一匹 いっぴき*, *二匹 にひき*, *三匹 さんびき*).
+3. **No hacer los cambios de sonido**: con algunos contadores la pronunciación cambia: *一本 いっぽん*, *二本 にほん*, *三本 さんぼん*, *六本 ろっぽん*. 本 se usa para objetos largos y finos (lápices, botellas), no para libros. Y el orden habitual es *猫が三匹います* («hay tres gatos»).
 
 ## Comparación con el español
 En español, no se usan contadores. Por ejemplo:

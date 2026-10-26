@@ -1,0 +1,105 @@
+{
+ "titulo": "El circuito del modelo agroexportador",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cómo funcionaba el modelo agroexportador (1880–1930)",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Tierras fértiles de la región pampeana",
+     "x": 0,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "Inmigrantes europeos: mano de obra",
+     "x": 212,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Capitales británicos: ferrocarriles, puertos, frigoríficos",
+     "x": 424,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n4",
+     "label": "Producción de carne, cereales y lana",
+     "x": 212,
+     "y": 126,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n5",
+     "label": "Exportación a Europa",
+     "x": 212,
+     "y": 252,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n6",
+     "label": "Ingreso de divisas",
+     "x": 424,
+     "y": 252,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n7",
+     "label": "Importación de manufacturas y pago de la deuda",
+     "x": 424,
+     "y": 378,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n8",
+     "label": "Riesgo: depende de precios y créditos externos",
+     "x": 0,
+     "y": 378,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n4"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n7"
+    },
+    {
+     "id": "e7",
+     "fromId": "n5",
+     "toId": "n8"
+    }
+   ]
+  }
+ ]
+}

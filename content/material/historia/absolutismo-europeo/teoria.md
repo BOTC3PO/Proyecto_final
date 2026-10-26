@@ -20,7 +20,11 @@ Para justificar la concentración del poder, la monarquía absoluta desarrolló 
 
 Paralelamente, en Inglaterra, aunque el absolutismo no triunfó políticamente, teóricos como Robert Filmer defendieron el patriarcalismo real en obras como *Patriarcha*. Sin embargo, la respuesta liberal al absolutismo fue plasmada por John Locke en sus *Dos tratados sobre el gobierno civil* (1689). Introdujo la noción de que la autoridad proviene del consentimiento de los gobernados y que el poder debe estar limitado para proteger la vida, la libertad y la propiedad. Esta tensión entre el origen divino del poder y la legitimidad contractual definiría el debate político europeo durante el siglo XVIII.
 
-<!-- IMAGEN: Detalle del cuadro "El rey Sol recibe a los embajadores" de Antoine Coypel, simbolizando la centralización de la diplomacia y el poder en la persona del monarca. -->
+![Retrato de cuerpo entero de Luis XIV con armadura, banda azul y bastón de mando, con una batalla al fondo](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Rigaud_Hyacinthe_-_Louis_XIV%2C_roi_de_France.jpg/960px-Rigaud_Hyacinthe_-_Louis_XIV%2C_roi_de_France.jpg)
+
+*Imagen: «Rigaud Hyacinthe - Louis XIV, roi de France», Hyacinthe Rigaud, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rigaud_Hyacinthe_-_Louis_XIV%2C_roi_de_France.jpg).*
+
+Luis XIV, por Hyacinthe Rigaud (1701, Museo del Prado). Armadura, bastón de mando, la flor de lis y una batalla al fondo: el retrato presenta al rey como jefe militar y centro de todo el poder.
 
 ## 3. Francia: el modelo paradigmático de Luis XIV
 

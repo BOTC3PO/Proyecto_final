@@ -36,7 +36,7 @@ Este caso es relevante para la selección natural porque muestra cómo las presi
 
 La migración del agua a la tierra es uno de los eventos evolutivos más significativos. Fósiles como *Tiktaalik* o *Acanthostega* muestran cómo los primeros tetrápodos desarrollaron estructuras que les permitieron moverse en suelos húmedos: extremidades con articulaciones, pulmones y un sistema nervioso adaptado. Estas innovaciones no surgieron de la nada; se basaron en características previas de peces lobo (como el arco branquial), reutilizadas para funciones nuevas.
 
-![Esqueleto comparativo entre pez lobiforme, Tiktaalik y tetrápodo primitivo](https://upload.wikimedia.org/wikipedia/commons/9/92/Tiktaalik_fossil.JPG)
+![Esqueleto comparativo entre pez lobiforme, Tiktaalik y tetrápodo primitivo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Tiktaalik_fossil.JPG/960px-Tiktaalik_fossil.JPG)
 
 *Imagen: «Tiktaalik fossil», Conty, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tiktaalik_fossil.JPG).*
 

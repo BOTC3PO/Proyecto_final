@@ -14,8 +14,6 @@ Durante los siglos XII y XIII, Europa experimentó un notable dinamismo demográ
 
 Sin embargo, hacia finales del siglo XIII, este crecimiento comenzó a chocar contra sus propios límites ecológicos y económicos. La expansión agrícola había llegado ya a las tierras menos fértiles, lo que significaba que cada nuevo hectárea cultivada producía menos rendimiento que las anteriores. La población, al superar la capacidad de carga del suelo, comenzó a depender de tierras de menor calidad, lo que redujo la dieta nutricional de las clases populares y aumentó la vulnerabilidad ante enfermedades y hambrunas.
 
-<!-- IMAGEN: Mapa de la expansión de las tierras cultivadas en Europa entre los siglos X y XIII, mostrando cómo se alcanzaron los límites geográficos y ecológicos -->
-
 ## 2. La Gran Hambruna de 1315-1317
 
 El punto de inflexión de la crisis se manifestó claramente con la Gran Hambruna, que afectó a gran parte del noroeste de Europa entre 1315 y 1317. Esta catástrofe no fue causada únicamente por malas cosechas, sino por una combinación de factores climáticos y estructurales. Un periodo de enfriamiento climático, conocido como el inicio de la Pequeña Edad de Hielo, trajo consigo lluvias torrenciales y temperaturas anormalmente bajas durante varios años consecutivos.

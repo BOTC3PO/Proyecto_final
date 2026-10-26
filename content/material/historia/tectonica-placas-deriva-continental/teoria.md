@@ -16,7 +16,11 @@ Alfred Wegener, un meteorólogo alemán nacido en 1880, fue quien propuso en 191
 
 Una de las pruebas más visibles que Wegener usó fue la coincidencia entre los bordes de los continentes. Por ejemplo, el perfil de la costa oeste de África se ajusta casi perfectamente con el este de Sudamérica, como si fueran piezas de un rompecabezas gigante. Lo mismo ocurre con India y Antártida: sus costas, aunque erosionadas por el tiempo, muestran similitudes que sugieren una conexión histórica. Este fenómeno no fue un descubrimiento reciente, pero Wegener lo interpretó como evidencia de que los continentes habían estado juntos en el pasado y luego se separaron.
 
-<!-- IMAGEN: Mapa mostrando el encaje entre África y Sudamérica, con líneas destacadas en los bordes -->
+![Continentes del sur unidos como un rompecabezas, con franjas de colores que cruzan de uno a otro](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Snider-Pellegrini_Wegener_fossil_map-i18n.png/960px-Snider-Pellegrini_Wegener_fossil_map-i18n.png)
+
+*Imagen: «Snider-Pellegrini Wegener fossil map-i18n», USGS/USA-Gov, modified by Eurico Zimbres, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Snider-Pellegrini_Wegener_fossil_map-i18n.png).*
+
+Los continentes del sur unidos en Gondwana: **1** Sudamérica, **2** África, **3** India, **4** Australia, **5** Antártida. Las franjas muestran dónde se encontraron los mismos fósiles a ambos lados de océanos que hoy los separan: **6** *Cynognathus*, **7** *Mesosaurus*, **8** la planta *Glossopteris* y **9** *Lystrosaurus*.
 
 ## 3. Fósiles y formaciones geológicas como pruebas
 

@@ -4,27 +4,29 @@
 
 ## Tipo de teoría (si esto se carga al sistema)
 
-**Presentación** — El sufragio restringido universal describe cómo, en Argentina durante el siglo XIX y principios del XX, el derecho al voto estaba limitado por restricciones económicas y de género.
+**Presentación** — Cómo el voto pasó de restringido a universal, y por qué en la Argentina el problema del siglo XIX no fue la ley sino el fraude. (Corregido el 2026-10-26: la versión anterior decía que el voto argentino era censitario, lo que es falso.)
 
 ---
 
-## 1. El sufragio censitario: una exclusión formal
+## 1. Sufragio restringido y sufragio censitario
 
-Durante gran parte del siglo XIX y la primera mitad del XX, solo los varones con ciertos requisitos económicos podían votar en Argentina. Este sistema, llamado **censitario**, exigía que los electores tuvieran propiedad o un ingreso mínimo, lo que excluía a gran parte de la población masculina pobre y a todas las mujeres. La idea era que solo quienes tenían "interés económico" eran capaces de decidir sobre el gobierno. Esta práctica reflejaba una visión social de la época donde la participación política se consideraba un privilegio, no un derecho universal.
+El sufragio es **restringido** cuando la ley deja afuera a una parte de la población adulta. Una forma muy común en el siglo XIX fue el sufragio **censitario**: solo votaban quienes tenían propiedades o un ingreso mínimo. Así funcionó, por ejemplo, en Francia hasta 1848 y en Gran Bretaña antes de sus reformas electorales. La idea era que solo quienes tenían "interés económico" estaban capacitados para decidir sobre el gobierno.
 
-<!-- IMAGEN: Mapa de Argentina con zonas donde los requisitos censitarios variaban por región -->
+La Argentina siguió otro camino. En 1821, una ley de la provincia de Buenos Aires dio el voto a todos los varones libres desde los 20 años, sin exigir propiedad. La Constitución de 1853 y la ley electoral nacional de 1857 mantuvieron el voto masculino **sin requisitos económicos**. Aun así, el sufragio seguía restringido en otros sentidos:
+
+- **Las mujeres** no votaban.
+- **Los extranjeros** tampoco, salvo que se naturalizaran, y muy pocos lo hacían. Durante la gran inmigración eran una parte enorme de los varones adultos, sobre todo en las ciudades.
+- El voto era **voluntario** y **público**: cada elector decía su voto en voz alta ante la mesa (el "voto cantado"). Eso dejaba la puerta abierta a la presión y al fraude, y muy poca gente votaba.
 
 ## 2. El sistema de fraude electoral
 
-Antes de la Ley Sáenz Peña (1912), el sufragio restringido funcionaba en un contexto de **fraude sistemático** que anulaba cualquier intento de expresar la voluntad popular. Los métodos incluían manipular los padrones electorales, coaccionar a votantes analfabetos o comprar su voto con promesas de trabajo o ayuda económica. Estas prácticas eran facilitadas por caudillos locales que controlaban el acceso al voto y garantizaban resultados favorables a sus intereses.
-
-<!-- IMAGEN: Esquema de los mecanismos de fraude electoral en la Argentina del siglo XIX -->
+Antes de la Ley Sáenz Peña (1912), el sufragio restringido funcionaba en un contexto de **fraude sistemático** que anulaba cualquier intento de expresar la voluntad popular. Los métodos incluían manipular los padrones electorales, coaccionar a votantes analfabetos o comprar su voto con promesas de trabajo o ayuda económica. Estas prácticas eran facilitadas por caudillos locales que controlaban el acceso al voto y garantizaban resultados favorables a sus intereses. El resultado era que, aunque la ley permitía votar a todos los varones nativos, el gobierno de turno decidía en la práctica quién ganaba.
 
 ## 3. La Ley Sáenz Peña (1912): un paso hacia lo universal
 
-La promulgación de la **Ley Sáenz Peña** en 1912 marcó un cambio fundamental: estableció el sufragio universal masculino, sin requisitos económicos, y introdujo el voto secreto. Esto significó que cualquier varón argentino, independientemente de su nivel socioeconómico, podía participar en las elecciones. Aunque las mujeres seguían excluidas, la ley sentó las bases para una participación electoral más amplia y equitativa.
+La **Ley Sáenz Peña** (Ley 8.871, de 1912) cambió la forma de votar. Estableció el voto **universal** para los ciudadanos varones desde los 18 años, **secreto** y **obligatorio**. Se apoyó en un padrón armado con los registros del enrolamiento militar, mucho más difícil de falsear que los anteriores. Además creó la **lista incompleta**: en cada distrito, dos tercios de las bancas para el partido más votado y un tercio para el segundo.
 
-<!-- IMAGEN: Fragmento de la Ley Sáenz Peña con sus artículos clave -->
+El voto secreto y obligatorio quitó la herramienta principal del fraude: ya no se podía saber, ni controlar, a quién votaba cada uno. En 1916, en la primera elección presidencial con esta ley, ganó Hipólito Yrigoyen, de la Unión Cívica Radical, el partido opositor. Las mujeres siguieron excluidas hasta la Ley 13.010 de 1947, y votaron por primera vez en una elección nacional en 1951.
 
 ## 4. La persistencia del control político
 
@@ -32,6 +34,6 @@ A pesar de los avances formales, el sufragio restringido universal no garantizab
 
 ---
 
-## N. Conexión con lo que sigue
+## 5. Conexión con lo que sigue
 
-Este tema prepara la base para entender cómo evolucionó el sufragio hacia un sistema más inclusivo, como se desarrolla en sufragio universal.
+Este tema prepara la base para entender cómo evolucionó el sufragio hacia un sistema más inclusivo, con el voto femenino y la ampliación de los derechos políticos.
