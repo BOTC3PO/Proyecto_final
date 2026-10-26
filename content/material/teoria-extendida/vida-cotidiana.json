@@ -1,0 +1,473 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-vida-cotidiana",
+    "title": "Vida cotidiana — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "La plata de todos los días: comparar, presupuestar y no dejarse engañar por los porcentajes",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Contratos, garantías y derechos: lo que firmás y lo que la ley protege",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      },
+      {
+        "id": "cap-3",
+        "title": "En casa: medidores, facturas y energía que se gasta sin darnos cuenta",
+        "pageStart": 3,
+        "anchor": "cap-3:inicio"
+      },
+      {
+        "id": "cap-4",
+        "title": "Comer con información: etiquetas, seguridad en la cocina y la química del plato",
+        "pageStart": 4,
+        "anchor": "cap-4:inicio"
+      },
+      {
+        "id": "cap-5",
+        "title": "Ropa, limpieza y materiales: cuidar lo que usamos",
+        "pageStart": 5,
+        "anchor": "cap-5:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "La plata de todos los días: comparar, presupuestar y no dejarse engañar por los porcentajes",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "La plata de todos los días: comparar, presupuestar y no dejarse engañar por los porcentajes"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Casi todas las decisiones económicas de una persona son pequeñas y repetidas: qué paquete elegir en la góndola, si conviene pagar con tarjeta o en efectivo, cuánto gastar este mes en salidas. Precisamente porque son pequeñas pasan sin análisis, y sin embargo acumuladas pesan mucho en el bolsillo. Este capítulo reúne herramientas simples para decidir mejor: cómo comparar precios, cómo combinar descuentos y recargos sin caer en trampas aritméticas y cómo ordenar un presupuesto del hogar."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "El precio de góndola puede engañar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "El precio de góndola es el que figura en el estante: mil quinientos pesos el paquete. Pero dos paquetes del mismo producto pueden tener tamaños distintos, y comparar solo el precio del paquete, sin mirar cuánto contiene, lleva a veces a elegir la opción que sale más cara por la cantidad realmente comprada. La herramienta para evitarlo es el precio por unidad de medida, que es lo que costaría una cantidad estándar, un kilo, un litro, un metro, sin importar el tamaño del envase. Se calcula dividiendo el precio entre el contenido neto y multiplicando por la unidad de referencia. Un paquete de doscientos cincuenta gramos que cuesta mil pesos sale cuatro mil pesos el kilo; otro de cuatrocientos gramos que cuesta mil quinientos sale tres mil setecientos cincuenta el kilo. El segundo es más caro en pesos pero más barato por kilo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "En la Argentina, los comercios de cierta envergadura deben informar el precio por unidad de medida junto al precio del producto, y conviene buscarlo en el cartel del estante. Aun así, comparar bien incluye otras preguntas: si el producto se va a usar antes de que venza, si hay lugar para guardarlo, y si el ahorro de comprar más justifica gastar de una vez una suma mayor."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h6",
+          "level": 3,
+          "text": "Los porcentajes no se suman"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p7",
+          "text": "Los descuentos y los recargos son terreno fértil para los errores. Supongamos que un comercio ofrece veinte por ciento de descuento y que además se paga con un medio que da quince por ciento de reintegro. Ambos descuentos no suman treinta y cinco por ciento. Cada uno se aplica sobre el resultado del anterior: después del primero queda el ochenta por ciento del precio, y el segundo se aplica sobre ese ochenta, lo que da cero coma ochenta por cero coma ochenta y cinco, igual a cero coma sesenta y ocho. El precio final es el sesenta y ocho por ciento del original y el descuento total, treinta y dos por ciento. Es menos de lo que parece, y la diferencia crece con porcentajes más altos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Los recargos funcionan al revés y se acumulan hacia arriba: dos recargos sucesivos del diez por ciento no suman veinte sino veintiuno, porque el segundo se aplica sobre un precio que ya incluye el primero. Esto es relevante para entender el costo de pagar en cuotas con interés, el de los impuestos que se aplican uno sobre otro y el de los intereses que se acumulan cuando una deuda se paga con atraso. Además, muchos descuentos tienen un tope de reintegro, un monto máximo por día o por persona, de modo que el porcentaje anunciado solo vale hasta ese límite. Y los esquemas de descuento cambian con frecuencia, así que lo que sirve para una compra puede no estar vigente la semana siguiente. La regla práctica es convertir siempre las ofertas en el precio final que se va a pagar y comparar números, no porcentajes."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h9",
+          "level": 3,
+          "text": "Ordenar el presupuesto del hogar"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "Un presupuesto es un plan de cómo se van a usar los ingresos de un período, normalmente un mes: cuánto entra y en qué se va a gastar cada parte, antes de que el mes haya pasado y sea tarde para decidirlo. Ayuda a distinguir dos tipos de gastos. Los gastos fijos se repiten todos los meses con un monto igual o muy parecido y están comprometidos de antemano: alquiler, expensas, cuotas de un crédito, seguros, suscripciones. Son predecibles, pero también los más difíciles de reducir rápido, porque cambiarlos suele implicar una decisión grande, como mudarse o renegociar un contrato. Los gastos variables cambian de un mes a otro según el consumo y las decisiones del momento: comida, salidas, ropa, transporte ocasional. Son menos predecibles, pero más fáciles de ajustar cuando hace falta recortar, y constituyen el margen de maniobra más inmediato."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "Como guía práctica existe la regla cincuenta, treinta, veinte: destinar alrededor de la mitad de los ingresos a las necesidades básicas, un treinta por ciento a gustos y deseos, y un veinte por ciento al ahorro o a cancelar deudas. No es una ley matemática exacta, y en contextos de ingresos ajustados las proporciones cambian, pero sirve como punto de partida para ver dónde se va la plata. Lo más valioso de armar un presupuesto no es el cálculo sino la conversación que genera sobre prioridades, y la posibilidad de formar un fondo para emergencias antes de que aparezcan."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Contratos, garantías y derechos: lo que firmás y lo que la ley protege",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Contratos, garantías y derechos: lo que firmás y lo que la ley protege"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Comprar un electrodoméstico, contratar un servicio de internet o inscribirse en un gimnasio supone aceptar condiciones escritas por la otra parte. Casi nadie lee los contratos completos, y los proveedores lo saben. Por eso el derecho del consumidor existe: para equilibrar una relación en la que una de las partes tiene mucha más información y poder de decisión. Este capítulo reúne tres herramientas legales muy útiles en la vida diaria: la protección frente a las cláusulas abusivas, la garantía legal de los productos y el derecho de arrepentimiento en las compras a distancia."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Cláusulas abusivas"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "Una cláusula abusiva es una condición dentro de un contrato que desequilibra la relación en contra del consumidor: limita sus derechos, amplía de manera desproporcionada los del proveedor, o reduce la responsabilidad del proveedor por los daños que cause. La Ley 24.240 de Defensa del Consumidor dispone que ciertas cláusulas se tienen por no convenidas: las que desnaturalizan las obligaciones o limitan la responsabilidad por daños, las que importan renuncia o restricción de los derechos del consumidor o amplían los de la otra parte, y las que invierten la carga de la prueba en perjuicio del consumidor. Además, ordena interpretar el contrato en el sentido más favorable al consumidor. El Código Civil y Comercial agrega que es abusiva la cláusula que, haya sido o no negociada, provoca un desequilibrio significativo entre los derechos y las obligaciones de las partes en perjuicio del consumidor, y en los contratos de adhesión considera no escritas las que desnaturalizan las obligaciones o no son razonablemente previsibles."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Esto tiene una consecuencia práctica fundamental: una cláusula abusiva no vale aunque esté firmada. Firmar no la vuelve válida. Aun así, conviene leer el contrato completo y no solo lo que el vendedor resalta; desconfiar de las cláusulas que hacen renunciar a un derecho, como la que dice que el comprador renuncia a reclamar por cualquier motivo; prestar atención a la letra chica, es decir, a condiciones, plazos o costos que no se mencionan en la publicidad ni se explican verbalmente; y desconfiar de las cláusulas que limitan la responsabilidad del vendedor. Recordemos, además, que lo que se prometió en la publicidad se incluye en el contrato y obliga al oferente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h6",
+          "level": 3,
+          "text": "La garantía legal"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p7",
+          "text": "Cuando se compra una cosa mueble de consumo durable, la ley otorga una garantía legal que no depende de la voluntad del vendedor ni de que el consumidor la pida: existe por ley y es gratuita. Cubre los defectos o vicios que afecten la identidad entre lo ofrecido y lo entregado o su correcto funcionamiento, incluso cuando hayan sido evidentes en el momento de la compra. La Ley 24.240 fija un plazo mínimo de seis meses desde la entrega para las cosas nuevas, y tres meses para las usadas, según la redacción vigente de la ley, que conviene verificar en la fuente oficial. Los plazos son mínimos: el vendedor o el fabricante puede ofrecer más, pero nunca menos. Si la cosa debe trasladarse a un taller o a la fábrica, el transporte y sus gastos corren por cuenta del responsable de la garantía. Responden de manera solidaria los productores, importadores, distribuidores y vendedores, de modo que el consumidor puede reclamar a cualquiera de ellos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "La garantía cubre fallas de fabricación o de funcionamiento, no daños causados por el mal uso, como un golpe accidental o usar el producto para algo distinto de lo previsto. El tiempo en que el consumidor estuvo privado del uso de la cosa por causa de su reparación se suma al plazo de garantía, de modo que el reloj no corre mientras el producto está en el service. Si la reparación no resulta satisfactoria, el consumidor puede pedir que se la sustituya por otra de idénticas características, devolverla y recibir el dinero, u obtener una quita proporcional del precio. Y los fabricantes e importadores deben asegurar servicio técnico y repuestos. Para ejercer estos derechos conviene conservar la factura, el certificado de garantía y toda comunicación con el vendedor."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h9",
+          "level": 3,
+          "text": "El derecho de arrepentimiento"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "En las compras realizadas fuera del local comercial, por internet, por teléfono o por venta a domicilio, el consumidor tiene derecho a arrepentirse. El Código Civil y Comercial establece que puede revocar la aceptación dentro de los diez días computados desde la celebración del contrato o, si es posterior, desde la entrega del bien. Es un derecho irrenunciable: cualquier cláusula que haga imposible ejercerlo se tiene por no escrita. El proveedor debe informar sobre esta facultad en caracteres destacados, inmediatamente antes de la firma, y si no lo hace el derecho no se extingue. La revocación se notifica por escrito o por medios electrónicos, y los gastos de devolución, por regla, no corren por cuenta del consumidor. En el comercio electrónico existe además el llamado botón de arrepentimiento, una herramienta que los sitios deben ofrecer para que se pueda ejercer este derecho de manera sencilla."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "Saber que estos derechos existen cambia la actitud frente a una compra: se negocia con más seguridad, se reclama con fundamento y se aprende a conservar las pruebas. Y si el reclamo directo no funciona, existen organismos de defensa del consumidor, nacionales, provinciales y municipales, a los cuales se puede acudir de manera gratuita."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    },
+    {
+      "id": "cap-3",
+      "number": 3,
+      "title": "En casa: medidores, facturas y energía que se gasta sin darnos cuenta",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-3-h1",
+          "level": 2,
+          "text": "En casa: medidores, facturas y energía que se gasta sin darnos cuenta"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p2",
+          "text": "Los servicios del hogar llegan por cables y cañerías, y se pagan con facturas que pocas veces se leen con atención. Sin embargo, entender cómo se mide el consumo de agua, gas y electricidad permite controlar el gasto, detectar errores y descubrir pérdidas que pasan inadvertidas. Este capítulo recorre cómo funcionan los medidores, cómo se calcula el consumo de un aparato y por qué un electrodoméstico que parece apagado puede seguir costando dinero."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h3",
+          "level": 3,
+          "text": "Qué mide un medidor"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p4",
+          "text": "Los medidores de agua y de gas miden un volumen acumulado: un número que solo crece con el tiempo, a medida que se consume. Se expresan, por lo general, en metros cúbicos. Un metro cúbico equivale a mil litros, de modo que una lectura de agua que aumenta en quince metros cúbicos entre dos fechas indica quince mil litros consumidos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p5",
+          "text": "El medidor no muestra cuánto se gastó este mes: muestra el total desde que se instaló. Para conocer el consumo de un período hay que restar dos lecturas: la actual menos la anterior. Es el mismo principio de un odómetro de auto, que no dice cuántos kilómetros se manejaron hoy sino el total acumulado, y para saber lo de hoy hay que restar la lectura de ayer. Esta resta es una buena herramienta de control. Si todas las canillas están cerradas y el medidor de agua sigue avanzando, hay una pérdida. Y comparar la lectura propia con la que aparece en la factura permite detectar errores de estimación, que ocurren cuando la empresa no pudo leer el medidor y facturó un consumo aproximado."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h6",
+          "level": 3,
+          "text": "El kilovatio hora"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p7",
+          "text": "La electricidad se factura en kilovatios hora, la cantidad de energía que consume un aparato de mil vatios de potencia funcionando durante una hora. Para estimar lo que gasta un aparato se multiplica su potencia en vatios por las horas de uso y se divide por mil. Una plancha de dos mil vatios usada tres horas por día consume seis kilovatios hora diarios. Con ese cálculo se pueden comparar aparatos y decidir cuáles conviene usar menos. Si el costo del kilovatio hora fuera de ciento veinte pesos, usar la plancha durante un día sumaría setecientos veinte pesos, una cifra que sorprende a quien no lo había pensado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p8",
+          "text": "La factura de electricidad se compone de varios elementos: el consumo, que es la cantidad de kilovatios hora multiplicada por el precio de cada uno; cargos fijos por el servicio, que se pagan aunque no se consuma; y impuestos y tasas. Los precios, las tarifas y los subsidios cambian con frecuencia, por lo que conviene leer la factura vigente y no darla por sabida. Detectar cuánto representa cada rubro ayuda a decidir dónde actuar: si el cargo fijo es grande, reducir el consumo ahorra menos de lo que se supone."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h9",
+          "level": 3,
+          "text": "El consumo fantasma"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p10",
+          "text": "Muchos aparatos nunca están realmente apagados mientras siguen enchufados. Los televisores, las consolas, los cargadores, los routers y los microondas con reloj quedan en un estado de espera, o standby, para encenderse al instante con el control remoto, mantener la hora o seguir conectados a la red. Ese estado consume una pequeña cantidad de energía de forma continua. Un aparato en espera suele gastar pocos vatios, pero los gasta las veinticuatro horas del día. Cinco vatios constantes, por ejemplo, suman unos tres kilovatios hora al mes, y si hay diez aparatos así, la suma deja de ser despreciable. Se puede medir con un vatímetro, un enchufe intermedio que indica cuánto consume lo que se conecta a él. La solución es sencilla: desenchufar lo que no se usa o conectarlo a una zapatilla con interruptor. Detrás de este fenómeno está la ley de Joule: toda corriente que atraviesa un componente con resistencia disipa energía en forma de calor, y por eso los transformadores de los cargadores se calientan aunque no estén cargando nada."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h11",
+          "level": 3,
+          "text": "Una heladera llena es una heladera eficiente"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p12",
+          "text": "Una heladera no enfría de forma continua. El compresor se enciende cuando la temperatura interior sube por encima de un límite, enfría hasta bajar de otro y se apaga, en un ciclo que se repite todo el día. Cada arranque consume más energía que mantenerla apagada, así que cuántas veces por hora se enciende pesa mucho en su gasto total. Una heladera casi vacía contiene sobre todo aire, que cambia de temperatura con muy poca energía, de modo que cada vez que se abre la puerta la temperatura interior sube rápido y el compresor tiene que arrancar seguido. Una heladera bien cargada, en cambio, tiene más masa térmica, sobre todo si hay recipientes con agua, que tiene una capacidad calorífica muy alta: esa masa absorbe y libera calor más lentamente, y la temperatura fluctúa menos. Por eso una recomendación real de eficiencia es llenar los espacios vacíos con botellas de agua. También ayudan no introducir alimentos calientes, abrir la puerta lo menos posible, mantener limpias las juntas para que cierren bien y no ubicarla junto a fuentes de calor."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p13",
+          "text": "La eficiencia energética no consiste en privarse de las comodidades sino en conocer dónde se gasta. Un hogar que mide, compara y ajusta pequeños hábitos puede reducir su consumo sin perder confort, y ese ahorro se repite todos los meses."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-3"
+      }
+    },
+    {
+      "id": "cap-4",
+      "number": 4,
+      "title": "Comer con información: etiquetas, seguridad en la cocina y la química del plato",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-4-h1",
+          "level": 2,
+          "text": "Comer con información: etiquetas, seguridad en la cocina y la química del plato"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p2",
+          "text": "Lo que comemos importa para la salud, pero comer también es una práctica cotidiana llena de decisiones técnicas: qué dice la etiqueta, cuánto tiempo puede estar un alimento fuera de la heladera, por qué la carne se pone dura o tierna, por qué una banana verde no es dulce. Este capítulo reúne esas decisiones y las explica con química y física elementales, de modo que cocinar y comprar alimentos sea una práctica más segura y más consciente."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h3",
+          "level": 3,
+          "text": "Leer la etiqueta"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p4",
+          "text": "La tabla de información nutricional de un alimento empaquetado dice cuánta energía y cuántos nutrientes aporta. La caloría que figura es, en realidad, la kilocaloría, y a veces se declara también en kilojoules, con una equivalencia de unos cuatro coma dieciocho kilojoules por kilocaloría. El dato siempre está expresado por porción, un tamaño definido que figura en la misma etiqueta, y no necesariamente por todo el envase. Un error muy común es leer las calorías de la etiqueta sin fijarse en cuántas porciones tiene el paquete: si el envase contiene tres porciones, hay que multiplicar por tres. Para comparar productos distintos con porciones diferentes, conviene mirar los valores por cien gramos o por cien mililitros, que permiten una comparación pareja."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p5",
+          "text": "El porcentaje del valor diario indica qué parte de la cantidad de referencia para un día completo aporta una porción de cada nutriente. En la Argentina, esa referencia se basa en una dieta de dos mil kilocalorías, ocho mil cuatrocientos kilojoules. Es un valor estándar de comparación, no la cantidad exacta que necesita cada persona, que varía según la edad, el sexo y la actividad física. Se calcula dividiendo la cantidad del nutriente en la porción por el valor de referencia y multiplicando por cien."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p6",
+          "text": "También hay que distinguir entre azúcares totales y azúcares agregados. Los totales incluyen todo el azúcar del producto, el que el alimento ya tenía de forma natural, como la fructosa de una fruta o la lactosa de la leche, y el que se agregó durante su elaboración. Los agregados son solo los que se sumaron en el procesamiento, como el azúcar de mesa, los jarabes o la miel agregada. No son lo mismo desde el punto de vista nutricional: una fruta entera puede tener azúcares totales relativamente altos, todos naturales, y venir acompañada de fibra, algo muy distinto de un producto procesado con azúcar agregada. La Organización Mundial de la Salud recomienda que los azúcares libres representen menos del diez por ciento de la energía diaria, y que idealmente sean menos del cinco por ciento. En la Argentina, además, la Ley 27.642 de promoción de la alimentación saludable estableció un etiquetado frontal con octógonos negros que advierten sobre exceso de azúcares, grasas, sodio y calorías, un modo de dar información de un vistazo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h7",
+          "level": 3,
+          "text": "Seguridad alimentaria: la zona de peligro"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p8",
+          "text": "Las bacterias que causan intoxicaciones, como Salmonella, E. coli o Listeria, se multiplican más rápido entre los cinco y los sesenta grados centígrados. Esa franja se llama zona de peligro. En condiciones favorables pueden duplicarse en unos veinte minutos. Por debajo de cinco grados, en la heladera y el freezer, el frío frena el crecimiento pero no lo elimina, y por eso refrigerar retrasa que un alimento se eche a perder sin hacerlo seguro para siempre. Por encima de sesenta grados, y sobre todo desde los sesenta y cinco, el calor empieza a matar bacterias, y por eso cocinar bien o mantener caliente un alimento lo hace más seguro. La regla práctica es no dejar un alimento perecedero más de dos horas acumuladas dentro de esa franja, ya sea recién cocinado y enfriándose o crudo fuera de la heladera. Pasado ese tiempo conviene refrigerarlo, recalentarlo a una temperatura segura o descartarlo. Las organizaciones sanitarias, como el ANMAT en nuestro país, agregan otras prácticas: lavarse las manos, separar los alimentos crudos de los cocidos para evitar la contaminación cruzada, cocinar completamente las carnes y enfriar rápido las sobras."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h9",
+          "level": 3,
+          "text": "Escalar una receta"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p10",
+          "text": "Escalar una receta es ajustar las cantidades para hacer más o menos porciones sin cambiar el resultado. Es una aplicación directa de la regla de tres: se calcula un factor dividiendo las porciones deseadas por las porciones de la receta original y se multiplica cada ingrediente por ese factor. Una receta para cuatro porciones con doscientos gramos de harina, para hacerla para diez, usa un factor de dos con cinco y quinientos gramos de harina. La proporción entre los ingredientes se mantiene. Hay cosas que no escalan de manera lineal, como los tiempos de cocción y de horno, las especias y la sal, que conviene ajustar probando, y el tamaño de las ollas y fuentes, que cambia la forma en que se transmite el calor."
+        },
+        {
+          "type": "heading",
+          "id": "cap-4-h11",
+          "level": 3,
+          "text": "La química de la cocina"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p12",
+          "text": "Cuando se cocina carne pasan dos cosas a la vez. Las fibras musculares, hechas de proteínas como la miosina y la actina, se endurecen con el calor, igual que la clara de huevo pasa de líquida y transparente a blanca y sólida. Se dice que las proteínas se desnaturalizan: su forma plegada se despliega y sus cadenas se vuelven a entrelazar de una manera más rígida. Cuanto más tiempo y temperatura, más se endurecen y más agua expulsan, y por eso una carne muy cocida queda más seca y dura. El tejido conectivo, formado principalmente por colágeno, reacciona de otro modo: con calor húmedo, prolongado y suave se transforma en gelatina, que da jugosidad. Esa diferencia explica por qué los cortes tiernos se cocinan rápido y los duros, con mucho colágeno, necesitan cocciones largas y suaves, como en un guiso o un estofado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p13",
+          "text": "La reacción de Maillard es el conjunto de reacciones entre azúcares reductores y aminoácidos o proteínas, activadas por el calor, que producen compuestos de color marrón y cientos de sustancias aromáticas. Es lo que da el sabor y el color tostado a la carne sellada, al pan, a las papas fritas y al café tostado. Fue descripta en 1912 por el químico francés Louis-Camille Maillard. Ocurre a cualquier temperatura, pero se acelera mucho a partir de unos ciento cuarenta grados, y por eso necesita superficies secas: el agua mantiene la temperatura alrededor de los cien grados y frena el dorado. Por eso se seca la carne antes de sellarla y por eso no se amontonan las porciones en la sartén."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-4-p14",
+          "text": "Una fruta verde tiene gran parte de sus carbohidratos guardados como almidón, una molécula grande que casi no tiene sabor dulce. Al madurar, enzimas de la propia planta, entre ellas las amilasas, rompen esas cadenas en azúcares simples como glucosa, fructosa y sacarosa, que la lengua percibe como dulces. La cantidad total de carbohidratos cambia poco, pero su forma sí, y con ella el sabor y la textura. Se puede observar con un experimento casero: el almidón se tiñe de oscuro con yodo, de modo que una banana verde se oscurece mucho más que una madura."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-4"
+      }
+    },
+    {
+      "id": "cap-5",
+      "number": 5,
+      "title": "Ropa, limpieza y materiales: cuidar lo que usamos",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-5-h1",
+          "level": 2,
+          "text": "Ropa, limpieza y materiales: cuidar lo que usamos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p2",
+          "text": "Una parte importante de la vida cotidiana consiste en mantener las cosas: lavar la ropa sin arruinarla, quitar una mancha, pintar una pared, elegir el cerámico de un piso. Detrás de esas tareas hay química y geometría que, cuando se entienden, ahorran dinero y evitan errores. Este capítulo reúne esos conocimientos, y cierra con dos ejemplos de física cotidiana, la distancia de frenado y las temperaturas bajo cero, y con una herramienta para organizar el tiempo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h3",
+          "level": 3,
+          "text": "Entender la etiqueta de la ropa"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p4",
+          "text": "Casi toda prenda trae cosida una etiqueta con símbolos que indican cómo lavarla, secarla y plancharla. Ese sistema está estandarizado internacionalmente, con variaciones regionales menores, y por eso significa lo mismo en cualquier prenda de cualquier marca. Cada proceso tiene una forma propia: una tina con agua para el lavado, un triángulo para el blanqueador, un cuadrado para el secado, una plancha para el planchado y un círculo para la limpieza profesional. Una regla general detrás de cada etiqueta es que indica el tratamiento más exigente que la prenda soporta sin dañarse de forma irreversible: no el único posible, sino el límite seguro."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p5",
+          "text": "Para lavar se distingue entre las prendas delicadas, como lana, seda, encaje o prendas con adornos, que conviene lavar a mano o con el ciclo suave, y las resistentes, como algodón, toallas o sábanas, que toleran la máquina. La temperatura del agua también importa. El agua fría preserva mejor los colores y evita que ciertas fibras se encojan, y es la opción más segura por defecto. El agua caliente remueve mejor las manchas grasosas y elimina más gérmenes, y se reserva para prendas blancas o muy resistentes. Separar la ropa por color es otra regla de oro, porque algunas prendas sueltan tinte, sobre todo las nuevas y las de colores saturados como los rojos. Se agrupan blancos, colores claros y colores oscuros, y se puede hacer una prueba de solidez mojando una esquina escondida y frotándola con un paño blanco: si el paño se tiñe, la prenda hay que lavarla sola."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p6",
+          "text": "Cuando la etiqueta desaparece, se puede identificar la fibra con la prueba de combustión: se saca un hilo suelto de una costura interna y se le acerca una llama chica, con cuidado y sobre una superficie segura. Las fibras de origen vegetal, como el algodón y el lino, arden con facilidad, huelen a papel quemado y dejan una ceniza gris que se desmenuza. Las de origen animal, como la lana y la seda, arden más lento, tienden a apagarse solas al retirar la llama y huelen a pelo quemado, porque la queratina contiene azufre. Las sintéticas, como el poliéster o el nailon, se derriten, forman gotas y dejan un residuo duro, con un olor químico. Es una técnica útil, pero hay que tener mucha precaución, usarla solo con muestras pequeñas y nunca cerca de materiales inflamables."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h7",
+          "level": 3,
+          "text": "Química de las manchas y del jabón"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p8",
+          "text": "No todas las manchas se quitan igual, porque son de distinta naturaleza. Las manchas de grasa, como aceite o maquillaje, son apolares. Las de proteína, como sangre, huevo o leche, se comportan de manera sensible al calor. Las de pigmento o tanino, como vino tinto, café o té, son moléculas coloreadas que se adhieren a la fibra."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p9",
+          "text": "El agua sola no saca la grasa porque el agua es polar y la grasa apolar, y los dos no se mezclan, de la misma manera que el aceite flota en el agua. Hace falta un tensioactivo, la base de cualquier jabón o detergente: una molécula con una punta que se une al agua y otra que se une a la grasa, de modo que rodea las gotitas de grasa y permite que se enjuaguen. Ese mismo principio explica la mayonesa: si se mezclan agua y aceite, por más que se agiten, se separan en capas, pero con una yema de huevo, que contiene lecitina, un emulsionante natural, y agregando el aceite de a poco mientras se bate, se forma una emulsión cremosa y estable. Las manchas de proteína, en cambio, conviene tratarlas con agua fría, porque el calor coagula las proteínas y las fija a la tela, igual que cocina un huevo. Y cualquier producto potente debe probarse primero en un lugar oculto de la prenda, y nunca mezclar productos de limpieza distintos, porque algunas combinaciones, como la lavandina con amoníaco, liberan gases tóxicos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h10",
+          "level": 3,
+          "text": "Pintar y revestir: geometría aplicada"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p11",
+          "text": "Calcular cuánta pintura o cuántos cerámicos hacen falta no requiere fórmulas nuevas: se aplica el área. Para las paredes, se multiplica el perímetro del ambiente por la altura y se resta el área de las puertas y ventanas, que no se pintan. Con ese número se divide por el rendimiento del producto. Una pintura látex para interiores rinde, como referencia, entre diez y doce metros cuadrados por litro y por mano sobre una pared lisa, pero ese dato varía con la marca, con la textura de la pared y con el color, de modo que conviene leer el rendimiento declarado en el envase que se va a usar y calcular cada mano necesaria. Para los pisos, el área del ambiente se divide por la del cerámico, y se suma un porcentaje de margen, habitualmente alrededor del diez por ciento, por los cortes y las piezas que se rompen."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h12",
+          "level": 3,
+          "text": "Física de todos los días: frenar y el frío"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p13",
+          "text": "La distancia que un auto necesita para detenerse se compone de dos tramos. La distancia de reacción es lo que avanza a velocidad constante mientras el conductor percibe el peligro y pisa el freno, típicamente alrededor de un segundo. La distancia de frenado es lo que recorre desde que empieza a frenar hasta detenerse, y se calcula como la velocidad al cuadrado dividida por dos veces la desaceleración. Que la velocidad esté al cuadrado tiene una consecuencia poco intuitiva: duplicar la velocidad no duplica la distancia de frenado, la multiplica por cuatro. Con una desaceleración de siete metros por segundo cuadrado, un valor razonable en pavimento seco, un auto que va a cincuenta kilómetros por hora recorre unos catorce metros de reacción y otros catorce de frenado, casi veintiocho en total. A cien kilómetros por hora, la reacción es de unos veintiocho metros y el frenado de unos cincuenta y cinco, más de ochenta en total. Si el piso está mojado, la desaceleración baja y las distancias crecen. Por eso la velocidad es el factor más importante de la seguridad vial."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p14",
+          "text": "Las temperaturas bajo cero son, simplemente, números negativos en la escala Celsius, donde cero es el punto de congelación del agua. Con ellas la comparación se invierte respecto de la intuición: menos diez grados es más frío que menos cinco, aunque diez sea un número mayor que cinco, porque cuanto más negativo, menor la temperatura. La diferencia entre dos temperaturas se calcula restando la final menos la inicial: si la temperatura pasa de menos cuatro a seis grados, subió diez; si pasa de dos a menos tres, bajó cinco."
+        },
+        {
+          "type": "heading",
+          "id": "cap-5-h15",
+          "level": 3,
+          "text": "Administrar el tiempo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-5-p16",
+          "text": "Por último, el tiempo también se administra. Conviene distinguir lo urgente de lo importante. Urgente es lo que requiere atención inmediata porque su plazo se acerca o ya venció; importante es lo que contribuye a una meta o un valor a largo plazo, sin importar cuándo haya que atenderlo. Algo puede ser urgente sin ser importante, como una notificación del celular, e importante sin ser urgente, como hacer ejercicio, planificar o aprender algo nuevo. Cruzando los dos ejes se arman cuatro cuadrantes. Lo importante y urgente se hace ahora. Lo importante pero no urgente se planifica. Lo urgente pero no importante se delega o se minimiza. Y lo ni urgente ni importante se elimina. El cuadrante que más se descuida es el de lo importante y no urgente, precisamente porque nada obliga a atenderlo hoy, y es el más valioso a largo plazo: estudiar con anticipación, hacer mantenimiento preventivo, cuidar la salud. Una buena organización consiste en proteger un espacio para él."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-5"
+      }
+    }
+  ]
+}

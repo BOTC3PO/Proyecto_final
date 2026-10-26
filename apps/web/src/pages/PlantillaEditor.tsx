@@ -18,8 +18,14 @@ import CodeEditor, {
 } from "../components/vblang/CodeEditor";
 import DatasetExplorer from "../components/vblang/DatasetExplorer";
 import EjemplosMenu from "../components/vblang/EjemplosMenu";
+import PromptIAPanel from "../components/vblang/PromptIAPanel";
 import ReferenciaRapida from "../components/vblang/ReferenciaRapida";
+import SnippetBar from "../components/vblang/SnippetBar";
+import NuevaPlantillaWizard from "../components/vblang/NuevaPlantillaWizard";
 import PlantillaEditorSchema from "../components/vblang/PlantillaEditorSchema";
+import EditorPlantilla from "../editor/EditorPlantilla";
+import { useEditorClasico } from "../editor/useEditorClasico";
+import { extractDeclaredVariables } from "../components/vblang/plantillaAst";
 import EditorShell from "../components/layout/EditorShell";
 import Toast, { type ToastAction } from "../components/Toast";
 import ErrorPanel from "../components/vblang/ErrorPanel";
@@ -32,6 +38,7 @@ import { Button, Pill } from "../components/ui";
 import { usePlantillaCompilation } from "../hooks/usePlantillaCompilation";
 import { usePlantillaPreview } from "../hooks/usePlantillaPreview";
 import { usePlantillaValidation } from "../hooks/usePlantillaValidation";
+import { useI18n } from "../i18n/I18nContext";
 import {
   createPlantilla,
   getPlantilla,
@@ -57,6 +64,13 @@ const EMPTY_META: PlantillaMetadata = {
 };
 
 type SaveStatus = "idle" | "saving" | "saved" | "error";
+
+/* Array vacío compartido para que `lintIssues ?? []` no cree una referencia
+   nueva en cada render cuando no hay lintReport. Permite que React.memo
+   sobre el form visual no se invalide por culpa de la lista vacía. */
+const EMPTY_ISSUES: NonNullable<
+  NonNullable<ReturnType<typeof usePlantillaCompilation>["lintReport"]>["issues"]
+> = [];
 
 /* ---------- Historial de código (undo/redo) ---------- */
 interface CodigoHist {
@@ -101,11 +115,14 @@ function codigoHistReducer(s: CodigoHist, a: CodigoAction): CodigoHist {
 }
 
 export default function PlantillaEditor() {
+  const { t } = useI18n();
   const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const returnTo = searchParams.get("returnTo");
   const isNew = !id;
+  // D5: editor nuevo por defecto; el viejo queda por flag inverso.
+  const editorClasico = useEditorClasico();
 
   const [hist, dispatchCodigo] = useReducer(codigoHistReducer, {
     past: [],
@@ -130,6 +147,15 @@ export default function PlantillaEditor() {
   const [metadata, setMetadata] = useState<PlantillaMetadata>(EMPTY_META);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
+  // FIX-PLANTILLA-DUP — ref sincrónico para bloquear clicks múltiples
+  // en "Guardar". El `disabled={saveStatus === "saving"}` del botón
+  // (línea 554) no es suficiente: React re-renderiza DESPUÉS del click
+  // y entre el primer click y el re-render pueden disparse 1-2 clicks
+  // más. Si el front entra al camino `isNew` (línea 300) con clicks
+  // repetidos, cada click llama `createPlantilla` → N copias de la
+  // plantilla. La ref es síncrona y se chequea antes de cualquier
+  // estado de React.
+  const isSavingRef = useRef(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [dslApiError, setDslApiError] = useState<
     { message: string; line?: number; col?: number } | undefined
@@ -143,7 +169,24 @@ export default function PlantillaEditor() {
   } | null>(null);
   const [modo, setModo] = useState<"codigo" | "visual">("codigo");
   const [referenciaOpen, setReferenciaOpen] = useState(false);
+  const [promptIAOpen, setPromptIAOpen] = useState(false);
+  // VB-B2 — panel colapsable "Código generado" en modo visual.
+  // Muestra el DSL que produce el formulario en vivo. Read-only: el
+  // editor de código vive en `modo === "codigo"`; acá sólo reflejamos
+  // lo que el form va serializando (la fuente de verdad sigue siendo
+  // `codigoDsl`, que el form actualiza vía `setCodigo(serialize(next))`).
+  const [showGeneratedCode, setShowGeneratedCode] = useState(false);
+  // Wizard de nueva plantilla: se muestra una vez al crear (isNew=true) y se
+  // cierra cuando el usuario elige algo (o lo descarta). No persistimos el
+  // estado en storage: si recarga la página, vuelve a aparecer (es creación).
+  const [wizardDismissed, setWizardDismissed] = useState(!isNew);
   const editorRef = useRef<CodeEditorHandle | null>(null);
+  // Última lista de variables declaradas que pudimos parsear — si el código
+  // rompe, conservamos la última válida para no vaciar el autocompletado.
+  const lastDeclaredRef = useRef<string[]>([]);
+  // Última plantilla (AST) válida parseada. La conservamos al romper el código
+  // para que el modo formulario siga siendo editable y rescate el código.
+  const lastValidPlantillaRef = useRef<NonNullable<typeof compilation.plantilla> | null>(null);
 
   useEffect(() => {
     if (isNew || !id) return;
@@ -176,15 +219,54 @@ export default function PlantillaEditor() {
   const preview = usePlantillaPreview(compilation.compiled);
   const validation = usePlantillaValidation(compilation.compiled);
 
-  // Estado del footer: cantidad de errores + líneas del código.
-  const numLineas = codigoDsl.split("\n").length;
-  const numErrores =
-    (compilation.parseError ? 1 : 0) +
-    (compilation.lintReport?.errors.length ?? 0);
+  // Mantenemos la última lista válida de variables declaradas para que el
+  // autocompletado del editor no se vacíe entre cambios de tipeo que rompen
+  // el parseo momentáneamente.
+  const declaredVariables = useMemo(() => {
+    if (compilation.plantilla) {
+      const list = extractDeclaredVariables(compilation.plantilla);
+      lastDeclaredRef.current = list;
+      return list;
+    }
+    return lastDeclaredRef.current;
+  }, [compilation.plantilla]);
 
-  const handleGoToLocation = (line: number, col: number) => {
+  // Misma idea para el AST: retenemos la última versión parseable para que
+  // el modo formulario no desaparezca cuando el código se rompe. La
+  // actualización del ref es un side-effect del render, no un cálculo, así
+  // que va en un effect aparte.
+  useEffect(() => {
+    if (compilation.plantilla) {
+      lastValidPlantillaRef.current = compilation.plantilla;
+    }
+  }, [compilation.plantilla]);
+
+  // Estado del footer: cantidad de errores + líneas del código. Memoizado
+  // para que no se recalcule en renders que no cambiaron el código ni el
+  // reporte de lint (ej. toggleo de modo, saveStatus, modales).
+  const numLineas = useMemo(() => codigoDsl.split("\n").length, [codigoDsl]);
+  const numErrores = useMemo(
+    () =>
+      (compilation.parseError ? 1 : 0) +
+      (compilation.lintReport?.errors.length ?? 0),
+    [compilation.parseError, compilation.lintReport],
+  );
+
+  // Estabilizamos la referencia del callback: ahora ErrorPanel está envuelto
+  // en React.memo, así que si esta función cambia de identidad en cada render
+  // se invalida la memo y se re-renderiza igual.
+  const handleGoToLocation = useCallback((line: number, col: number) => {
     editorRef.current?.focusAt(line, col);
-  };
+  }, []);
+
+  // Quick-fix del ErrorPanel: reemplaza el codigo actual y deja que el
+  // debounce de usePlantillaCompilation revalide solo.
+  const handleApplyFix = useCallback(
+    (newCode: string) => {
+      dispatchCodigo({ type: "set", value: newCode });
+    },
+    [],
+  );
 
   // Resumen textual de errores para asociar al textarea (aria-describedby) y
   // que el lector de pantalla lo anuncie al editar.
@@ -202,6 +284,32 @@ export default function PlantillaEditor() {
         : `${parts.length} errores de validación.`;
     return `${head} ${parts.join(". ")}`;
   }, [compilation.parseError, compilation.lintReport, dslApiError]);
+
+  // onChange estable para el form visual (PlantillaEditorSchema / EditorPlantilla).
+  // Sin esto, los `onChange={(next) => setCodigo(serialize(next))}` inline
+  // cambiaban de identidad en cada render e invalidaban cualquier React.memo
+  // que se coloque aguas abajo.
+  const handleVisualChange = useCallback(
+    (next: Parameters<NonNullable<Parameters<typeof PlantillaEditorSchema>[0]["onChange"]>>[0]) => {
+      setCodigo(serialize(next));
+    },
+    [setCodigo],
+  );
+
+  // `tieneErrores` y `lintIssues` estabilizados para el form visual.
+  // `compilation.lintReport?.issues ?? []` producía un array fresco en cada
+  // render, forzando la re-memoización del form aún cuando los issues no
+  // habían cambiado.
+  const tieneErroresForm = useMemo(
+    () =>
+      !!compilation.parseError ||
+      (compilation.lintReport?.errors.length ?? 0) > 0,
+    [compilation.parseError, compilation.lintReport],
+  );
+  const lintIssuesForForm = useMemo(
+    () => compilation.lintReport?.issues ?? EMPTY_ISSUES,
+    [compilation.lintReport],
+  );
 
   const handleImportFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -234,6 +342,11 @@ export default function PlantillaEditor() {
   };
 
   const handleSave = async () => {
+    // FIX-PLANTILLA-DUP — guard sincrónico. Si ya hay un save en
+    // vuelo, descartar el click extra (sea por doble-click del usuario
+    // o por el botón que todavía no se re-renderizó como `disabled`).
+    if (isSavingRef.current) return;
+    isSavingRef.current = true;
     setSaveStatus("saving");
     setSaveMessage(null);
     setDslApiError(undefined);
@@ -263,12 +376,12 @@ export default function PlantillaEditor() {
             message: "Plantilla guardada.",
             actions: [
               {
-                label: "Volver al módulo",
+                label: t("plantillaEditor.volverAlModulo"),
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
               {
-                label: "Seguir editando",
+                label: t("plantillaEditor.seguirEditando"),
                 onClick: () => navigate(editUrl),
               },
             ],
@@ -289,11 +402,11 @@ export default function PlantillaEditor() {
             message: "Cambios guardados.",
             actions: [
               {
-                label: "Volver al módulo",
+                label: t("plantillaEditor.volverAlModulo"),
                 primary: true,
                 onClick: () => navigate(returnTo),
               },
-              { label: "Seguir editando", onClick: () => setToastState(null) },
+              { label: t("plantillaEditor.seguirEditando"), onClick: () => setToastState(null) },
             ],
           });
         }
@@ -306,31 +419,49 @@ export default function PlantillaEditor() {
       } else {
         setSaveStatus("error");
         setSaveMessage(
-          err instanceof Error ? err.message : "No se pudo guardar.",
+          err instanceof Error ? err.message : t("plantillaEditor.noSePudoGuardar"),
         );
       }
+    } finally {
+      // FIX-PLANTILLA-DUP — siempre liberar el guard, incluso si la
+      // promesa rejected. Sin esto, un save fallido dejaría el botón
+      // bloqueado para siempre (estado en `error` pero `isSavingRef`
+      // en true).
+      isSavingRef.current = false;
     }
   };
 
   if (loadStatus === "loading") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">
-          Cargando plantilla…
-        </p>
+        <p className="text-sm text-[var(--c-muted,#64748b)] animate-pulse">{t("plantillaEditor.cargandoPlantilla")}</p>
       </main>
     );
   }
   if (loadStatus === "error") {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p role="alert" className="text-sm text-[var(--c-danger)]">No se pudo cargar la plantilla.</p>
+        <p role="alert" className="text-sm text-[var(--c-danger)]">{t("plantillaEditor.noSePudoCargarLa")}</p>
       </main>
     );
   }
 
   return (
     <>
+    {isNew && !wizardDismissed && (
+      <NuevaPlantillaWizard
+        onPick={(dsl) => {
+          dispatchCodigo({ type: "reset", value: dsl });
+          setWizardDismissed(true);
+        }}
+        onBlank={() => {
+          setWizardDismissed(true);
+        }}
+        onClose={() => {
+          setWizardDismissed(true);
+        }}
+      />
+    )}
     <EditorShell
       dataTestid="plantilla-editor"
       meta={
@@ -346,8 +477,23 @@ export default function PlantillaEditor() {
       }
     >
         <header className="vb-page-bar" role="banner">
-          <nav className="crumb" aria-label="Migas de pan">
-            <Link to="/plantillas" className="hover:text-[var(--c-text)]">Plantillas</Link>
+          {/* QA-FIX-04: botón "Volver" en el header. Replica el patrón
+              de MapaEditorFull (línea 831) y ModuloDetail (línea 513):
+              ghost button con flecha izquierda, mismo shape y tokens
+              --c-*. Destino: `returnTo` si el editor se abrió desde
+              un módulo (flujo módulo→plantilla), si no, /plantillas. */}
+          <button
+            type="button"
+            data-testid="plantilla-volver"
+            onClick={() => navigate(returnTo || "/plantillas")}
+            aria-label={t("comun.volver")}
+            className="inline-flex items-center gap-1.5 rounded-md border border-[var(--c-border)] px-2.5 py-1 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12l6-6M5 12l6 6"/>
+            </svg>{t("comun.volver")}</button>
+          <nav className="crumb" aria-label={t("plantillaEditor.migasDePan")}>
+            <Link to="/plantillas" className="hover:text-[var(--c-text)]">{t("nav.plantillas")}</Link>
             <svg className="w-3 h-3" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6"/>
             </svg>
@@ -356,18 +502,18 @@ export default function PlantillaEditor() {
             </span>
           </nav>
           <div className="vb-name">
-            <span className="vb-name-eyebrow">VBLang · Plantilla</span>
+            <span className="vb-name-eyebrow">{t("plantillaEditor.vblangPlantilla")}</span>
             <input
-              aria-label="Nombre de la plantilla"
+              aria-label={t("plantillaEditor.nombreDeLaPlantilla")}
               value={metadata.nombre}
               onChange={(e) => setMetadata((m) => ({ ...m, nombre: e.target.value }))}
-              placeholder="Nombre de la plantilla…"
+              placeholder={t("plantillaEditor.nombreDeLaPlantilla2")}
               className="vb-name-title"
             />
           </div>
           <div
             role="tablist"
-            aria-label="Modo del editor"
+            aria-label={t("plantillaEditor.modoDelEditor")}
             className="flex rounded-md border border-[var(--c-border)] text-xs"
           >
             <button
@@ -384,9 +530,7 @@ export default function PlantillaEditor() {
                   ? "bg-[var(--c-primary)] text-white"
                   : "text-[var(--c-text)]"
               }`}
-            >
-              Código
-            </button>
+            >{t("plantillaEditor.codigo")}</button>
             <button
               type="button"
               role="tab"
@@ -401,9 +545,7 @@ export default function PlantillaEditor() {
                   ? "bg-[var(--c-primary)] text-white"
                   : "text-[var(--c-text)]"
               }`}
-            >
-              Formulario
-            </button>
+            >{t("plantillaEditor.formulario")}</button>
           </div>
           <div
             className={`save-state${saveStatus === "saving" ? " is-saving" : ""}${saveStatus === "error" ? " is-error" : ""}`}
@@ -429,8 +571,8 @@ export default function PlantillaEditor() {
               size="sm"
               onClick={undo}
               disabled={!canUndo}
-              aria-label="Deshacer"
-              title="Deshacer"
+              aria-label={t("plantillaEditor.deshacer")}
+              title={t("plantillaEditor.deshacer")}
             >
               ↶
             </Button>
@@ -439,8 +581,8 @@ export default function PlantillaEditor() {
               size="sm"
               onClick={redo}
               disabled={!canRedo}
-              aria-label="Rehacer"
-              title="Rehacer"
+              aria-label={t("plantillaEditor.rehacer")}
+              title={t("plantillaEditor.rehacer")}
             >
               ↷
             </Button>
@@ -449,9 +591,7 @@ export default function PlantillaEditor() {
             variant="ghost"
             size="sm"
             onClick={() => fileInputRef.current?.click()}
-          >
-            Importar JSON
-          </Button>
+          >{t("plantillaEditor.importarJson")}</Button>
           <input
             ref={fileInputRef}
             type="file"
@@ -463,9 +603,8 @@ export default function PlantillaEditor() {
             onLoad={setCodigo}
             hasUnsavedChanges={codigoDsl !== savedCodigo}
           />
-          <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>
-            Referencia
-          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setReferenciaOpen(true)}>{t("plantillaEditor.referencia")}</Button>
+          <Button variant="ghost" size="sm" onClick={() => setPromptIAOpen(true)}>{t("plantillaEditor.copiarPromptParaIa")}</Button>
           <DatasetExplorer />
           <Button
             variant="primary"
@@ -477,7 +616,7 @@ export default function PlantillaEditor() {
           </Button>
         </header>
 
-        <a href="#vblang-panel" className="skip-link">Saltar al editor</a>
+        <a href="#vblang-panel" className="skip-link">{t("plantillaEditor.saltarAlEditor")}</a>
         <div
           id="vblang-panel"
           tabIndex={-1}
@@ -486,42 +625,141 @@ export default function PlantillaEditor() {
           className="editor-shell__scroll outline-none"
         >
           {modo === "codigo" ? (
-            <CodeEditor
-              ref={editorRef}
-              value={codigoDsl}
-              onChange={setCodigo}
-              errorLine={compilation.parseError?.line ?? dslApiError?.line}
-              errorCol={compilation.parseError?.col ?? dslApiError?.col}
-              errorSummary={errorSummary}
-            />
-          ) : compilation.plantilla ? (
-            <PlantillaEditorSchema
-              plantilla={compilation.plantilla}
-              onChange={(next) => setCodigo(serialize(next))}
-              valoresActuales={preview.variables0}
-              tieneErrores={
-                !!compilation.parseError ||
-                (compilation.lintReport?.errors.length ?? 0) > 0
-              }
-            />
-          ) : (
-            <div
-              className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
-              data-testid="vblang-form-no-disponible"
-            >
-              <p>
-                El código tiene errores. Arreglalos en modo Código para usar el
-                formulario.
-              </p>
-              <button
-                type="button"
-                onClick={() => setModo("codigo")}
-                className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
-              >
-                Volver a Código
-              </button>
-            </div>
-          )}
+            <>
+              <SnippetBar
+                onInsert={(text) => editorRef.current?.insertAtCursor(text)}
+              />
+              <div className="flex-1 min-h-0">
+                <CodeEditor
+                  ref={editorRef}
+                  value={codigoDsl}
+                  onChange={setCodigo}
+                  declaredVariables={declaredVariables}
+                  errorLine={compilation.parseError?.line ?? dslApiError?.line}
+                  errorCol={compilation.parseError?.col ?? dslApiError?.col}
+                  errorSummary={errorSummary}
+                />
+              </div>
+            </>
+          ) : (() => {
+            // Si el código compila, usamos el AST fresco. Si está roto pero
+            // hubo una versión válida antes, retenemos esa para que el form
+            // siga siendo editable. Sólo si nunca compiló nada válido caemos
+            // al fallback de "no disponible".
+            const astParaRenderizar =
+              compilation.plantilla ?? lastValidPlantillaRef.current;
+            if (!astParaRenderizar) {
+              return (
+                <div
+                  className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center text-sm text-[var(--c-muted,#64748b)]"
+                  data-testid="vblang-form-no-disponible"
+                >
+                  <p>{t("plantillaEditor.elCodigoTieneErroresArreglalos")}</p>
+                  <button
+                    type="button"
+                    onClick={() => setModo("codigo")}
+                    className="rounded-md border border-[var(--c-border,#e2e8f0)] px-3 py-1 text-xs"
+                  >{t("plantillaEditor.volverACodigo")}</button>
+                </div>
+              );
+            }
+            const mostrandoRetenida = !compilation.plantilla;
+            return (
+              <div className="flex flex-col h-full min-h-0">
+                {mostrandoRetenida && (
+                  <div
+                    role="status"
+                    data-testid="vblang-form-retenido-banner"
+                    className="flex items-start gap-3 border-b border-[var(--c-border)] bg-[var(--c-warning-soft,#fef3c7)] text-[var(--c-text)] px-3 py-2 text-xs"
+                  >
+                    <span className="flex-1">{t("plantillaEditor.elCodigoTieneErroresEstas")}</span>
+                    <button
+                      type="button"
+                      data-testid="vblang-form-ver-errores"
+                      onClick={() => {
+                        setModo("codigo");
+                        // Damos un tick para que el panel de errores monte y
+                        // reciba el foco.
+                        requestAnimationFrame(() => {
+                          const el = document.querySelector(
+                            "[data-testid='vblang-error-panel']",
+                          );
+                          if (el instanceof HTMLElement) el.focus();
+                        });
+                      }}
+                      className="shrink-0 rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-xs font-medium"
+                    >{t("plantillaEditor.verErrores")}</button>
+                  </div>
+                )}
+                <div className="flex-1 min-h-0">
+                  {editorClasico ? (
+                    <PlantillaEditorSchema
+                      plantilla={astParaRenderizar}
+                      onChange={handleVisualChange}
+                      valoresActuales={preview.variables0}
+                      tieneErrores={tieneErroresForm}
+                      // VB-B5 — pasamos los issues del lint al form para
+                      // que cada campo culpable muestre su propio badge.
+                      // El panel general (ErrorPanel) sigue mostrándolos
+                      // todos; este es un complemento visual por campo.
+                      // Memoizado: si el lintReport no cambia, la referencia
+                      // del array no cambia, así React.memo del form no se
+                      // invalida.
+                      lintIssues={lintIssuesForForm}
+                    />
+                  ) : (
+                    // D5: el editor nuevo corre su propio lint interno y lo
+                    // surfacea por campo; el ErrorPanel del modo código sigue
+                    // alimentado por `compilation`.
+                    <EditorPlantilla
+                      plantilla={astParaRenderizar}
+                      onChange={handleVisualChange}
+                    />
+                  )}
+                </div>
+                {/* VB-B2 — panel "Código generado" (read-only) que refleja
+                    en vivo lo que va produciendo el formulario. Aparece
+                    sólo en modo visual; en modo código el CodeEditor
+                    ocupa ese lugar y el form no participa. La fuente
+                    es `codigoDsl`, ya actualizada por la línea de arriba
+                    (`setCodigo(serialize(next))`) — no recalculamos nada
+                    acá para no duplicar lógica. */}
+                <section
+                  className="border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]"
+                  data-testid="vblang-generated-code-section"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setShowGeneratedCode((v) => !v)}
+                    aria-expanded={showGeneratedCode}
+                    aria-controls="vblang-generated-code-panel"
+                    data-testid="vblang-generated-code-toggle"
+                    className="flex w-full items-center justify-between px-3 py-2 text-xs font-medium text-[var(--c-muted,#64748b)] hover:text-[var(--c-text)]"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span aria-hidden="true">{showGeneratedCode ? "▾" : "▸"}</span>
+                      <span>{t("plantillaEditor.codigoGenerado")}</span>
+                    </span>
+                    <span className="text-[10px] text-[var(--c-muted,#94a3b8)]">{t("plantillaEditor.readOnlySincronizadoConEl")}</span>
+                  </button>
+                  {showGeneratedCode && (
+                    <pre
+                      id="vblang-generated-code-panel"
+                      data-testid="vblang-generated-code"
+                      // NO es un <textarea>: nunca se edita desde acá.
+                      // Cualquier edición pasa por el CodeEditor (modo
+                      // código) o por el formulario. Evita el conflicto
+                      // "dos editores de texto que pisan el mismo state".
+                      className="max-h-48 overflow-auto px-3 pb-3 pt-1 text-[11px] font-mono leading-snug text-[var(--c-text)] whitespace-pre-wrap break-words"
+                      aria-label={t("plantillaEditor.dslGeneradoPorElFormulario")}
+                    >
+                      {codigoDsl || "(vacío)"}
+                    </pre>
+                  )}
+                </section>
+              </div>
+            );
+          })()}
         </div>
         <div
           role="status"
@@ -530,7 +768,7 @@ export default function PlantillaEditor() {
           className="vb-console"
         >
           {numErrores === 0 ? (
-            <Pill tone="ok">Sin errores ✓</Pill>
+            <Pill tone="ok">{t("plantillaEditor.sinErrores")}</Pill>
           ) : (
             <Pill tone="danger">
               {numErrores} {numErrores === 1 ? "error" : "errores"}
@@ -543,7 +781,7 @@ export default function PlantillaEditor() {
           {numErrores === 0 && (
             <>
               <span aria-hidden="true">·</span>
-              <span>listo para validar</span>
+              <span>{t("plantillaEditor.listoParaValidar")}</span>
             </>
           )}
           <span className="vb-console__spacer" aria-hidden="true" />
@@ -551,15 +789,15 @@ export default function PlantillaEditor() {
             type="button"
             className="vb-console__link"
             onClick={() => setReferenciaOpen(true)}
-          >
-            Ver referencia VBLang →
-          </button>
+          >{t("plantillaEditor.verReferenciaVblang")}</button>
         </div>
         <footer className="h-48 border-t border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)]">
           <ErrorPanel
             parseError={compilation.parseError ?? dslApiError}
             lintReport={compilation.lintReport}
             onGoToLocation={handleGoToLocation}
+            currentCode={codigoDsl}
+            onApplyFix={handleApplyFix}
           />
         </footer>
     </EditorShell>
@@ -567,6 +805,15 @@ export default function PlantillaEditor() {
       <ReferenciaRapida
         open={referenciaOpen}
         onClose={() => setReferenciaOpen(false)}
+      />
+
+      <PromptIAPanel
+        open={promptIAOpen}
+        onClose={() => setPromptIAOpen(false)}
+        onInsert={(codigo) => {
+          dispatchCodigo({ type: "set", value: codigo });
+          setPromptIAOpen(false);
+        }}
       />
 
       {toastState && (

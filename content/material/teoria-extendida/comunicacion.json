@@ -1,0 +1,211 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-comunicacion",
+    "title": "Comunicación — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "Cómo funciona la comunicación y cómo se la ha pensado",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Informar, opinar, persuadir: géneros, ética y publicidad",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "Cómo funciona la comunicación y cómo se la ha pensado",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "Cómo funciona la comunicación y cómo se la ha pensado"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "Comunicar parece lo más natural del mundo, y sin embargo explicar qué ocurre cuando dos personas se entienden, o no se entienden, ocupó a generaciones de investigadores. La comunicación es el proceso mediante el cual alguien transmite significados a otros, y su estudio sirve para analizar desde una conversación cotidiana hasta una campaña electoral. Este capítulo tiene dos partes. En la primera se presentan los elementos básicos del proceso comunicativo y el problema del ruido. En la segunda se recorren las grandes corrientes teóricas que, a lo largo del siglo veinte, interpretaron de maneras muy distintas el papel de los medios y de las audiencias."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "Los elementos del proceso"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "El esquema más difundido describe el proceso con cinco piezas. El emisor es quien inicia la interacción y codifica una idea en un formato que el otro pueda comprender: palabras, imágenes, gestos, sonidos. No tiene que ser una persona: puede ser una institución, un medio de comunicación o un dispositivo. El mensaje no es solo el contenido que se transmite: incluye la intención de quien lo emite, el contexto cultural y las normas de comunicación que condicionan qué código se elige. Un anuncio publicitario, por ejemplo, no se limita a dar datos de un producto, también transmite un estilo de vida, una promesa y una identidad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "El canal es el medio por el cual el mensaje viaja: el aire en una charla cara a cara, la fibra óptica en internet, las ondas de radio, el papel. La elección del canal condiciona la claridad. Una ecuación se transmite con más precisión por escrito que de palabra sin apoyo visual, y un pésame es más cálido en persona que por mensaje. En la actualidad, los canales digitales permiten alcance masivo y velocidad, pero también pueden alterar el tono o fragmentar el contexto."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "El receptor es quien recibe el mensaje y lo decodifica, es decir, lo interpreta según sus conocimientos previos, su experiencia, su estado emocional y sus expectativas. Por eso no es un mero destinatario pasivo: completa la comunicación. Dos personas pueden recibir el mismo mensaje y entenderlo de manera diferente. Y en las situaciones bidireccionales, como una conversación, el receptor también actúa como emisor cuando responde, lo que se llama retroalimentación, y ese circuito de ida y vuelta es lo que permite corregir malentendidos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h7",
+          "level": 3,
+          "text": "El ruido: todo lo que se interpone"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p8",
+          "text": "Ninguna comunicación es perfecta, porque siempre existe algún tipo de ruido. Se llama así a cualquier interferencia que altere la transmisión o la comprensión del mensaje. El ruido físico es el más evidente: la estática de una llamada, el eco de un salón, el murmullo de un bar. Pero hay otros tipos. El ruido semántico aparece cuando el receptor desconoce parte del código, como cuando se usa un término técnico sin explicarlo. El ruido psicológico proviene de prejuicios, emociones intensas o sesgos que distorsionan la interpretación: alguien enojado interpreta como agresión lo que quizá era una broma. El ruido contextual surge de diferencias culturales o situacionales que cambian el significado esperado, como un gesto amistoso en un país que es ofensivo en otro."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Reconocer el ruido cambia el modo de ver la comunicación. Deja de ser un simple pasaje de información y pasa a ser una negociación entre lo que se envía y lo que se recibe. Muchos conflictos cotidianos no se deben a que alguien tenga mala intención, sino a que el emisor y el receptor no compartían el código, el contexto o el estado de ánimo."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h10",
+          "level": 3,
+          "text": "Tres maneras de pensar a los medios"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p11",
+          "text": "Cuando el interés se desplaza de las conversaciones a los medios masivos, aparecen interpretaciones muy distintas. La primera, la corriente funcionalista, también llamada de transmisión, concibe la comunicación como un proceso técnico y eficiente. Un mensaje viaja de un emisor a un receptor a través de un canal, y el objetivo es que llegue con la menor distorsión posible. Un autor representativo es Harold Lasswell, que resumió el análisis de la comunicación de masas en una pregunta: quién dice qué, por qué canal, a quién y con qué efecto. Este enfoque es útil para planificar mensajes claros, pero se le critica que sea simplista: deja poco lugar a la interpretación del receptor y a la retroalimentación, y trata a las audiencias como destinatarios pasivos."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "La segunda corriente es la teoría crítica, ligada a la Escuela de Frankfurt, con autores como Theodor Adorno y Max Horkheimer. Desafía la idea de que los medios sean canales neutrales. Sostiene que no solo transmiten noticias, sino que refuerzan estructuras de poder y la ideología dominante, y que la producción cultural en serie, que ellos llamaron industria cultural, tiende a uniformar gustos y a adormecer el pensamiento crítico. A esto se suma la noción de hegemonía, desarrollada por Antonio Gramsci, según la cual el dominio de un grupo no se sostiene solo por la fuerza sino también por el consentimiento cultural, y los medios son uno de los espacios donde ese consentimiento se fabrica: definen qué es importante, quiénes son héroes y villanos y cuáles son las normas aceptables."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "La tercera, los estudios culturales, nacida en el Reino Unido hacia la segunda mitad del siglo veinte, corrige el pesimismo anterior al ver a la audiencia como un sujeto activo que interpreta, transforma y a veces resiste los mensajes. Stuart Hall propuso que existen diferentes formas de decodificar un mismo mensaje: aceptarlo tal como se lo propone, negociarlo parcialmente o rechazarlo. Una campaña publicitaria puede leerse como una invitación al consumo, como una sátira o como una crítica al materialismo, según quién la vea y desde dónde. Esta corriente se interesa por cómo los distintos grupos sociales usan los medios para construir su identidad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p14",
+          "text": "Las tres miradas no se excluyen. La funcionalista ayuda a entender el proceso técnico y a diseñar mensajes eficaces, la crítica advierte quién controla los canales y con qué intereses, y la cultural recuerda que las audiencias piensan. Una persona que analiza un caso concreto, por ejemplo una noticia o un anuncio, gana mucho si lo mira desde las tres."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Informar, opinar, persuadir: géneros, ética y publicidad",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Informar, opinar, persuadir: géneros, ética y publicidad"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Las personas no se enteran de lo que ocurre en el mundo por contacto directo, sino a través de relatos que otros construyen. Esos relatos adoptan formas reconocibles, que se llaman géneros, cumplen funciones distintas y se rigen por reglas diferentes. Comprender esas diferencias, junto con los deberes éticos de quienes comunican y las técnicas de persuasión de la publicidad, es clave para convertirse en un lector, un oyente y un espectador críticos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "Los géneros periodísticos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "La noticia es el género más básico y directo. Su finalidad es informar sobre hechos recientes que interesan al público, y se esfuerza por transmitir los datos de modo verificable y sin inclinaciones personales. Responde, en general, a las preguntas qué pasó, quién, cuándo, dónde, cómo y por qué, y suele ordenar la información de lo más importante a lo menos importante, con una estructura que se conoce como pirámide invertida, para que el lector que solo lee el comienzo se quede con lo esencial."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "El artículo de opinión es muy diferente. No pretende informar en sentido estricto, sino expresar un punto de vista sobre un tema. Su lenguaje admite la subjetividad del autor, que argumenta a favor de una postura, y se espera que el lector lo reconozca como tal. El editorial, por ejemplo, expresa la posición del medio. La confusión entre información y opinión, ya sea porque una noticia se escribe con adjetivos que valoran o porque una opinión se presenta como si fuera un hecho, es una de las fuentes más comunes de desinformación."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "La entrevista combina información y profundidad. Puede servir para obtener datos concretos de una persona que los conoce, o para explorar un tema desde varios ángulos, y su forma más habitual es el diálogo entre quien pregunta y quien responde. A estos géneros se suman otros. El reportaje combina elementos narrativos con una investigación más profunda, y dedica más espacio y más fuentes a un tema que la noticia. La crónica relata hechos en su desarrollo, con un enfoque más literario y a menudo con presencia del cronista. El análisis desglosa un asunto y explica sus causas y consecuencias. Reconocer a qué género pertenece un texto indica qué se le puede pedir: a una noticia, verificabilidad; a una opinión, buenos argumentos."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h7",
+          "level": 3,
+          "text": "La ética y la responsabilidad de los medios"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "Los medios no son empresas como cualquier otra, porque lo que producen influye en cómo la sociedad entiende la realidad. De allí que la veracidad sea considerada su principio fundamental. No se trata de un concepto abstracto sino de una práctica: contrastar la información con múltiples fuentes antes de publicarla, reflejar los hechos con la mayor exactitud posible y corregir los errores cuando se los detecta."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "A la veracidad se suma la responsabilidad social. Implica un compromiso con el bien común que va más allá de cumplir con las normas legales: informar con equilibrio aun cuando eso resulte incómodo para intereses políticos o económicos, distinguir claramente hechos de opiniones, dar lugar a las distintas versiones de un conflicto y respetar la dignidad y la privacidad de las personas, en especial de los niños, las víctimas y quienes atraviesan situaciones de vulnerabilidad. En la Argentina, organizaciones del periodismo como FOPEA, el Foro de Periodismo Argentino, han elaborado códigos de ética que recogen estos principios, y la Ley de Servicios de Comunicación Audiovisual de 2009 regula aspectos de la actividad de los medios audiovisuales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "Un trabajo periodístico riguroso sigue una cadena: recoger información de fuentes confiables y de perspectivas diversas, contrastar esos datos entre sí y contra documentos, y recién entonces publicar, con el contexto necesario. Cuando se ignoran estos pasos, el daño excede la nota puntual. La desinformación repetida produce percepciones erróneas sobre la realidad social, alimenta estereotipos y, en contextos de tensión, puede contribuir a justificar la violencia. Por eso la alfabetización mediática, la capacidad de leer críticamente, es la contracara necesaria de la ética de quienes producen información."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h11",
+          "level": 3,
+          "text": "Persuadir: publicidad y propaganda"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p12",
+          "text": "La persuasión es un proceso comunicativo cuyo fin es modificar las actitudes, las creencias o las conductas de una persona o de un grupo mediante mensajes cuidadosamente estructurados. No se limita al comercio: se aplica en la política, en la educación, en las relaciones personales. En la publicidad es una herramienta central, porque su objetivo es que el público adopte hábitos, compre productos o acepte ideas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "Un marco clásico para planificar mensajes publicitarios, atribuido a la década de 1890, es el modelo AIDA, que describe cuatro etapas del recorrido de quien recibe el anuncio. Primero hay que captar la atención, con imágenes, sonidos o frases impactantes. Luego despertar el interés, generando curiosidad o conexión emocional. Después estimular el deseo, vinculando el producto o la idea con beneficios concretos. Finalmente, provocar la acción: comprar, suscribirse, votar o compartir. El esquema guía tanto un aviso en la calle como una campaña en redes sociales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p14",
+          "text": "Es útil distinguir publicidad y propaganda. La publicidad busca vender bienes o servicios y generar consumo. La propaganda difunde ideas, doctrinas o valores con fines políticos, ideológicos o sociales, como una campaña electoral o una iniciativa de concientización sobre el cambio climático. En la práctica, las técnicas se parecen, y por eso la lectura crítica sirve para ambas."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p15",
+          "text": "Un mensaje persuasivo suele combinar algunos elementos. La credibilidad del emisor, que puede venir de una marca conocida, de una figura pública o de un testimonio que parece real. Las emociones, ya que las campañas apelan a la alegría, al miedo o a la nostalgia para generar conexión. La claridad y la simplicidad, porque un mensaje demasiado complejo pierde impacto. Y la repetición de ideas clave, como los eslóganes, que consolida el reconocimiento. Conocer estos recursos no vuelve inmune a nadie, pero permite preguntarse en qué momento estamos siendo persuadidos y para qué, que es el primer paso para decidir con libertad."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    }
+  ]
+}

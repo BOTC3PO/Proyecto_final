@@ -1,0 +1,29 @@
+{
+ "titulo": "Probabilidades de tres resultados",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "chart",
+   "title": "Un caso de riesgo: se conoce la probabilidad de cada resultado",
+   "chartType": "bar",
+   "data": {
+    "labels": [
+     "Resultado A",
+     "Resultado B",
+     "Resultado C"
+    ],
+    "datasets": [
+     {
+      "label": "Probabilidad",
+      "values": [
+       0.5,
+       0.3,
+       0.2
+      ]
+     }
+    ]
+   },
+   "yAxisLabel": "Probabilidad"
+  }
+ ]
+}

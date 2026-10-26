@@ -1,0 +1,32 @@
+{
+ "titulo": "Artesano medieval y fábrica moderna",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "División del trabajo",
+   "headers": [
+    "",
+    "Artesano medieval",
+    "Fábrica moderna"
+   ],
+   "rows": [
+    [
+     "Quién hace el producto",
+     "Una persona, de principio a fin",
+     "Muchos trabajadores, cada uno en una tarea"
+    ],
+    [
+     "Herramientas",
+     "Manuales",
+     "Máquinas"
+    ],
+    [
+     "Ritmo",
+     "Lento",
+     "Rápido, en serie"
+    ]
+   ]
+  }
+ ]
+}

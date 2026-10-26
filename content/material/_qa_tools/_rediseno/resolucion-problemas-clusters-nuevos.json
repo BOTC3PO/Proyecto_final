@@ -1,0 +1,38 @@
+[
+ {
+  "id": 958,
+  "cluster": 1,
+  "temas": [
+   "detectar-el-problema",
+   "analizar-causas-y-restricciones",
+   "disenar-posibles-soluciones",
+   "identificar-alternativas",
+   "implementar-la-solucion"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 959,
+  "cluster": 2,
+  "temas": [
+   "costo-beneficio",
+   "definir-alcance-y-objetivos",
+   "evaluar-el-resultado",
+   "planificacion-tareas-e-hitos",
+   "mejorar-o-iterar"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 960,
+  "cluster": 3,
+  "temas": [
+   "asignacion-de-recursos",
+   "riesgo-e-incertidumbre",
+   "seguimiento-y-control",
+   "trade-offs-y-priorizacion",
+   "cierre-y-lecciones-aprendidas"
+  ],
+  "preguntas": 126
+ }
+]

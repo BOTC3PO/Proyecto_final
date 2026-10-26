@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import type { Request } from "express";
 import { ENV } from "./env";
 import { toObjectId } from "./ids";
+import { resolvePrimaryRole, resolveRoles } from "./roles";
 
 type TokenType = "access" | "refresh";
 
@@ -9,7 +10,25 @@ export type TokenClaims = {
   sub: string;
   email?: string;
   username?: string;
+  // F8 — refresh-token rotation. Cada refresh JWT lleva un `jti`
+  // único persistido en la tabla `refresh_tokens`; permite al
+  // servidor detectar reuso y revocar familias enteras.
+  jti?: string;
+  // Agrupa todos los refresh tokens emitidos desde un mismo login.
+  // Un evento de reuse revoca TODA la familia.
+  familyId?: string;
+  // MULTIROL-01 (Fase 1): el JWT lleva `roles[]` (fuente de verdad nueva)
+  // y `role` singular (compat con código viejo que aún no consume
+  // `roles[]`). `role` = el rol de mayor jerarquía del array para que
+  // `req.user.role === "TEACHER"` siga significando lo mismo. Cuando
+  // Fase 3 retire `role`, el código viejo que lo lee ya estará
+  // migrado a `roles`.
   role?: string;
+  roles?: string[];
+  // FASE 2 — trazabilidad del switch de cuenta. Contiene el `id` del
+  // usuario ORIGEN (el que inició el switch). Nunca se usa para
+  // conceder permisos; es solo auditoría.
+  switchedFrom?: string;
   guestOnboardingStatus?: string | null;
   schoolId?: string | null;
   fullName?: string | null;
@@ -24,7 +43,16 @@ export type TokenUser = {
   id: string;
   email?: string;
   username?: string;
+  // F8 — refresh-token rotation. Ver TokenClaims.jti / .familyId.
+  familyId?: string;
   role?: string;
+  // MULTIROL-01 (Fase 1): array de roles del usuario. Se prefiere
+  // sobre `role` cuando está presente. Si solo llega `role` (código
+  // viejo), `createAccessToken` lo promueve a `roles = [role]` para
+  // mantener compat.
+  roles?: string[];
+  // FASE 2 — ver TokenClaims.switchedFrom.
+  switchedFrom?: string;
   guestOnboardingStatus?: string | null;
   schoolId?: string | null;
   fullName?: string | null;
@@ -122,11 +150,19 @@ export const verifyToken = (token: string, expectedType?: TokenType) => {
 export const createAccessToken = (user: TokenUser) => {
   const now = Math.floor(Date.now() / 1000);
   const exp = now + ACCESS_TTL_SECONDS;
+  // MULTIROL-01: el JWT lleva `roles[]` (preferido) y `role` (compat).
+  // `role` = el de mayor jerarquía del array, así que el código viejo
+  // que lee `req.user.role` sigue viendo el rol principal del usuario
+  // (ej. un TEACHER+USER se serializa como role=TEACHER).
+  const roles = resolveRoles(user);
+  const primaryRole = resolvePrimaryRole(user) ?? user.role ?? null;
   const payload: TokenClaims = {
     sub: user.id,
     email: user.email,
     username: user.username,
-    role: user.role,
+    role: primaryRole ?? undefined,
+    roles: roles.length > 0 ? roles : undefined,
+    ...(user.switchedFrom ? { switchedFrom: user.switchedFrom } : {}),
     guestOnboardingStatus: user.guestOnboardingStatus ?? null,
     schoolId: user.schoolId ?? null,
     fullName: user.fullName ?? null,
@@ -148,8 +184,15 @@ export const createRefreshToken = (user: TokenUser) => {
   if (REFRESH_TTL_SECONDS <= 0) return null;
   const now = Math.floor(Date.now() / 1000);
   const exp = now + REFRESH_TTL_SECONDS;
+  // F8 — jti y familyId. El caller (route handler) persiste la fila
+  // en `refresh_tokens`; si viene `familyId` es una rotación (mismo
+  // login), si NO viene es un login nuevo y se genera una familia.
+  const familyId = user.familyId ?? crypto.randomUUID();
+  const jti = crypto.randomUUID();
   const payload: TokenClaims = {
     sub: user.id,
+    jti,
+    familyId,
     iat: now,
     exp,
     typ: "refresh",
@@ -159,6 +202,8 @@ export const createRefreshToken = (user: TokenUser) => {
   const token = buildToken(payload, ENV.JWT_REFRESH_SECRET || ENV.JWT_SECRET);
   return {
     token,
+    jti,
+    familyId,
     expiresAt: new Date(exp * 1000).toISOString(),
     expiresIn: REFRESH_TTL_SECONDS
   };
@@ -166,10 +211,15 @@ export const createRefreshToken = (user: TokenUser) => {
 
 export const buildUserContextFromClaims = (claims: TokenClaims) => {
   const objectId = toObjectId(claims.sub);
+  // MULTIROL-01: derivar `roles` desde el JWT. Si el token viene sin
+  // `roles` (token viejo emitido antes de Fase 1), promovemos el
+  // `role` singular a array de un elemento para mantener compat.
+  const roles = resolveRoles({ role: claims.role, roles: claims.roles });
   return {
     _id: objectId ?? undefined,
     id: claims.sub,
     role: claims.role,
+    roles: roles.length > 0 ? roles : undefined,
     guestOnboardingStatus: claims.guestOnboardingStatus ?? null,
     schoolId: claims.schoolId ?? null,
     email: claims.email,

@@ -1,3 +1,5 @@
+import { perteneceAEscuela } from "../lib/pertenece-escuela";
+import { hasRole } from "../lib/roles";
 import express, { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
@@ -6,6 +8,9 @@ import { recordAuditLog } from "../lib/audit-log";
 import { assertClassroomWritable } from "../lib/classroom";
 import { getQueryString } from "../lib/query";
 import { requireUser } from "../lib/user-auth";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
+import { parseModuleDependencies, computeModuleLock, type DependenciesById } from "../lib/module-dependencies";
+import { hasActiveModuleOverride, modulosConOverrideActivo } from "../lib/module-unlock-overrides";
 import { ProgressSchema } from "../schema/progreso";
 
 export const progreso = Router();
@@ -97,6 +102,18 @@ const resolveAuthenticatedUserId = (req: any) => {
   return null;
 };
 
+/**
+ * C3 — ¿quién pide puede ver/escribir el progreso de `usuarioId`? Uno mismo, el ADMIN, o personal de una
+ * escuela a la que pertenece el alumno. Antes bastaba ser personal de CUALQUIER escuela.
+ */
+const puedeTocarProgresoDe = async (req: express.Request, usuarioId: string, propioId: string): Promise<boolean> => {
+  if (usuarioId === propioId) return true;
+  if (hasRole(req.user as never, "ADMIN")) return true;
+  if (!isStaffRole(req.user?.role ?? null)) return false;
+  const escuela = typeof req.user?.schoolId === "string" ? req.user.schoolId : null;
+  return !!escuela && (await perteneceAEscuela(escuela, usuarioId));
+};
+
 progreso.post(
   "/api/progreso",
   requireUser,
@@ -113,7 +130,7 @@ progreso.post(
         updatedAt: req.body?.updatedAt ?? new Date().toISOString()
       };
       const parsed = ProgressSchema.parse(payload);
-      if (parsed.usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
+      if (!(await puedeTocarProgresoDe(req, parsed.usuarioId, authenticatedUserId))) {
         return res.status(403).json({ error: "forbidden" });
       }
       if (parsed.aulaId) {
@@ -158,52 +175,66 @@ progreso.get("/api/progreso", requireUser, requirePolicy("progreso/read"), async
   if (!authenticatedUserId) {
     return res.status(401).json({ error: "user not authenticated" });
   }
-  if (usuarioId !== authenticatedUserId && !isStaffRole(req.user?.role ?? null)) {
+  if (!(await puedeTocarProgresoDe(req, usuarioId, authenticatedUserId))) {
     return res.status(403).json({ error: "forbidden" });
   }
   const aulaId = getQueryString(req.query.aulaId);
   const progressFilter = { usuarioId, ...(aulaId ? { aulaId } : {}) };
-  const items = await prisma.progresoModulo.findMany({ where: progressFilter });
-  let moduloIdFilter: string[] | undefined;
+  const items = await prisma.progresoModulo.findMany({ where: progressFilter, take: 2000 });
+  let moduloIdFilter: string[];
   if (aulaId) {
     const claseModulos = await prisma.claseModulo.findMany({
       where: { claseId: aulaId },
       select: { moduloId: true }
     });
     moduloIdFilter = claseModulos.map(cm => cm.moduloId);
+  } else {
+    // Sin aula: los módulos de las aulas de la persona y los que ya tiene en su progreso (antes, TODOS los de la
+    // plataforma, con una consulta de desbloqueo por cada uno).
+    const aulasDe = await prisma.claseMiembro.findMany({ where: { usuarioId }, select: { claseId: true }, take: 200 });
+    const deAulas = aulasDe.length
+      ? await prisma.claseModulo.findMany({ where: { claseId: { in: aulasDe.map((a) => a.claseId) } }, select: { moduloId: true }, take: 2000 })
+      : [];
+    moduloIdFilter = [...new Set([...items.map((i) => i.moduloId), ...deAulas.map((d) => d.moduloId)])];
   }
   const modules = await prisma.modulo.findMany({
-    where: moduloIdFilter ? { id: { in: moduloIdFilter } } : {},
+    where: { id: { in: moduloIdFilter } },
     select: { id: true, dependencies: true, titulo: true }
   });
   const completedIds = new Set(
     items.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
-  const parseDependencies = (raw: string | null | undefined): unknown[] => {
-    if (!raw) return [];
-    try { const parsed = JSON.parse(raw); return Array.isArray(parsed) ? parsed : []; } catch { return []; }
-  };
-  const getRequiredDependencyIds = (dependencies: unknown) => {
-    if (!Array.isArray(dependencies)) return [];
-    return dependencies
-      .map((dep) => {
-        if (typeof dep === "string") return dep;
-        if (!dep || typeof dep !== "object") return null;
-        const record = dep as { id?: unknown; type?: unknown };
-        if (record.type !== "required" || typeof record.id !== "string") return null;
-        return record.id;
+  // FIX-DEPENDENCIAS-UNLOCKS — un "unlocks" declarado por un módulo FUERA
+  // de este aula (`modules`, filtrado por `aulaId`) también puede
+  // bloquear uno de acá; hace falta el universo completo de
+  // dependencias, no sólo las del aula, para calcularlo bien.
+  const allDependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
       })
-      .filter((dep): dep is string => Boolean(dep));
-  };
-  const unlocks = modules.map((module) => {
-    const deps = getRequiredDependencyIds(parseDependencies(module.dependencies));
-    const missingDependencies = deps.filter((dep) => !completedIds.has(dep));
-    return {
-      moduloId: module.id,
-      isLocked: missingDependencies.length > 0,
-      missingDependencies
-    };
-  });
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
+  const conOverride = await modulosConOverrideActivo(modules.map((m) => m.id), usuarioId);
+  const unlocks = await Promise.all(
+    modules.map(async (module) => {
+      const { isLocked: locked, missingDependencyIds } = computeModuleLock(
+        module.id,
+        parseModuleDependencies(module.dependencies),
+        allDependenciesById,
+        completedIds
+      );
+      // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+      // sobre el candado por dependencias.
+      const isLocked = locked && !conOverride.has(module.id);
+      return {
+        moduloId: module.id,
+        isLocked,
+        missingDependencies: missingDependencyIds
+      };
+    })
+  );
   res.json({ items, unlocks });
 });
 
@@ -230,9 +261,17 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
     const avances = progresoItems.map((item, index) => {
       const modulo = modulosMap.get(item.moduloId ?? "");
       const titulo = modulo?.title ?? item.moduloId ?? `Módulo ${index + 1}`;
-      const statusRaw = item.status ?? "en-curso";
+      // FIX-PROGRESO-ESTADO — comparaba contra "en-curso" (guion), pero
+      // el valor real que escribe quiz-attempts.ts (y que ya usan
+      // correctamente las otras dos funciones de este mismo archivo,
+      // líneas ~458/530) es "en_progreso" (guion bajo). Nunca matcheaba:
+      // todo módulo no completado cae acá al fallback "0%", aunque el
+      // alumno tuviera avance real — visible como contradicción directa
+      // contra aula.tsx (ContinuarCard), que sí usa el valor correcto y
+      // mostraba 50% para el mismo módulo/alumno.
+      const statusRaw = item.status ?? "en_progreso";
       const porcentaje =
-        statusRaw === "completado" ? "100%" : statusRaw === "en-curso" ? "En progreso" : "0%";
+        statusRaw === "completado" ? "100%" : statusRaw === "en_progreso" ? "En progreso" : "0%";
       return {
         id: item.id ?? `avance-${index}`,
         modulo: titulo,
@@ -241,18 +280,146 @@ progreso.get("/api/progreso/estudiante", requireUser, async (req, res) => {
     });
     const completados = progresoItems.filter((p) => p.status === "completado").length;
     const total = progresoItems.length;
+    // FIX-I18N — `kind` (+ `restantes` para el caso "progreso") es lo que
+    // consume el front para traducir; `titulo`/`mensaje` quedan como
+    // fallback en español para consumidores que no localizan.
     const sugerencia =
       total === 0
-        ? { titulo: "Empieza tu camino", mensaje: "Explora los módulos disponibles y comienza tu primer desafío." }
+        ? { kind: "vacio" as const, titulo: "Empieza tu camino", mensaje: "Explora los módulos disponibles y comienza tu primer desafío." }
         : completados === total
-          ? { titulo: "¡Módulos completados!", mensaje: "Excelente trabajo. Sigue explorando nuevos contenidos." }
+          ? { kind: "completo" as const, titulo: "¡Módulos completados!", mensaje: "Excelente trabajo. Sigue explorando nuevos contenidos." }
           : {
+              kind: "progreso" as const,
+              restantes: total - completados,
               titulo: "Continúa aprendiendo",
               mensaje: `Tienes ${total - completados} módulo${total - completados !== 1 ? "s" : ""} en progreso. ¡Sigue adelante!`
             };
     res.json({ avances, sugerencia });
   } catch {
     res.status(500).json({ error: "internal server error" });
+  }
+});
+
+/**
+ * GET /api/progreso/aula-matriz?aulaId=...
+ *
+ * Devuelve la matriz alumno × módulo para el aula. Pensado para que el
+ * docente del aula vea de un vistazo quién avanzó en cada módulo asignado.
+ *
+ * Auth: el solicitante debe ser staff (`isStaffRole`) O miembro del aula con
+ * rol TEACHER. Mismo patrón que usan las rutas vecinas de aulas.ts.
+ *
+ * Implementación en una sola pasada: cuatro `findMany` (alumnos del aula,
+ * módulos asignados, progresos del aula, lookup de módulos) y un Map
+ * indexado por `usuarioId:moduloId` para resolver el status sin N+1.
+ */
+progreso.get("/api/progreso/aula-matriz", requireUser, async (req, res) => {
+  try {
+    const authenticatedUserId = resolveAuthenticatedUserId(req);
+    if (!authenticatedUserId) {
+      return res.status(401).json({ error: "user not authenticated" });
+    }
+    const userRole = req.user?.role ?? null;
+
+    const aulaId = getQueryString(req.query.aulaId);
+    if (!aulaId || !aulaId.trim()) {
+      return res.status(400).json({ error: "aulaId is required" });
+    }
+
+    // El aula tiene que existir.
+    const clase = await prisma.clase.findFirst({ where: { id: aulaId } });
+    if (!clase) {
+      return res.status(404).json({ error: "classroom not found" });
+    }
+
+    // Authz: staff pasa siempre; si no, tiene que ser TEACHER del aula.
+    if (!isStaffRole(userRole)) {
+      const membership = await prisma.claseMiembro.findFirst({
+        where: { claseId: aulaId, usuarioId: authenticatedUserId, rolEnClase: "TEACHER" },
+        select: { claseId: true }
+      });
+      if (!membership) {
+        return res.status(403).json({ error: "forbidden" });
+      }
+    }
+
+    // Alumnos del aula (rolEnClase = STUDENT).
+    // FASE 4 — el espejo-alumno no aparece en la matriz de progreso.
+    const miembros = await prisma.claseMiembro.findMany({
+      where: { claseId: aulaId, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
+      select: { usuarioId: true }
+    });
+    const alumnoIds = miembros.map((m) => m.usuarioId).filter((id): id is string => Boolean(id));
+
+    // Módulos asignados al aula.
+    const claseModulos = await prisma.claseModulo.findMany({
+      where: { claseId: aulaId },
+      select: { moduloId: true }
+    });
+    const moduloIds = claseModulos
+      .map((cm) => cm.moduloId)
+      .filter((id): id is string => Boolean(id));
+
+    // Una sola query: progresos de la combinación (alumnos × aula).
+    // (El índice @@index([usuarioId, aulaId]) cubre este patrón.)
+    const progresos = alumnoIds.length
+      ? await prisma.progresoModulo.findMany({
+          where: { aulaId, usuarioId: { in: alumnoIds } },
+          select: { usuarioId: true, moduloId: true, status: true }
+        })
+      : [];
+
+    // Map<"usuarioId:moduloId", status> para lookup O(1).
+    const statusByKey = new Map<string, string>();
+    for (const p of progresos) {
+      if (!p.usuarioId || !p.moduloId || !p.status) continue;
+      statusByKey.set(`${p.usuarioId}:${p.moduloId}`, p.status);
+    }
+
+    // Títulos de los módulos asignados (pueden ser 0).
+    const modulosAsignados = moduloIds.length
+      ? await prisma.modulo.findMany({
+          where: { id: { in: moduloIds } },
+          select: { id: true, titulo: true }
+        })
+      : [];
+
+    // Nombres de los alumnos (pueden no existir todos en `usuario`).
+    const alumnos = alumnoIds.length
+      ? await prisma.usuario.findMany({
+          where: { id: { in: alumnoIds }, isDeleted: { not: true } },
+          select: { id: true, fullName: true, username: true }
+        })
+      : [];
+
+    // Orden estable: por nombre del módulo y nombre del alumno.
+    const modulosOrdenados = [...modulosAsignados].sort((a, b) => {
+      const at = a.titulo ?? a.id ?? "";
+      const bt = b.titulo ?? b.id ?? "";
+      return at.localeCompare(bt, "es");
+    });
+    const alumnosOrdenados = [...alumnos].sort((a, b) => {
+      const an = a.fullName ?? a.username ?? a.id ?? "";
+      const bn = b.fullName ?? b.username ?? b.id ?? "";
+      return an.localeCompare(bn, "es");
+    });
+
+    res.json({
+      modulos: modulosOrdenados.map((m) => ({ id: m.id, title: m.titulo })),
+      alumnos: alumnosOrdenados.map((a) => {
+        const progresos: Record<string, string | null> = {};
+        for (const moduloId of moduloIds) {
+          progresos[moduloId] = statusByKey.get(`${a.id}:${moduloId}`) ?? null;
+        }
+        return {
+          id: a.id,
+          name: a.fullName ?? a.username ?? a.id ?? "",
+          progresos
+        };
+      })
+    });
+  } catch (e) {
+    res.status(500).json({ error: e instanceof Error ? e.message : "internal server error" });
   }
 });
 
@@ -289,6 +456,14 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
       })
     : [];
   const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
+  const allDependenciesById: DependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
+      })
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
   const progressByChild = new Map<string, typeof progressItems>();
   for (const item of progressItems) {
     const list = progressByChild.get(item.usuarioId as string) ?? [];
@@ -303,7 +478,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     completedByChild.set(item.usuarioId as string, set);
   }
 
-  const responses = allowed.map((v) => {
+  const responses = await Promise.all(allowed.map(async (v) => {
     const childId = String(v.childId ?? "");
     const child = childMap.get(childId);
     const progress = progressByChild.get(childId) ?? [];
@@ -311,21 +486,29 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
     const total = progress.length;
     const completados = progress.filter((item) => item.status === "completado").length;
     const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
-    const modulos = progress.map((item) => {
+    const modulos = await Promise.all(progress.map(async (item) => {
       const module = moduleMap.get(item.moduloId ?? "");
-      const rawDeps = module?.dependencies; const depsArray = rawDeps ? (() => { try { const p = JSON.parse(rawDeps); return Array.isArray(p) ? p : []; } catch { return []; } })() : []; const dependencies = depsArray as Array<{ type?: string; id?: string }>;
-      const requiredDeps = dependencies
-        .map((dep) => (dep?.type === "required" ? dep.id : null))
-        .filter((dep): dep is string => Boolean(dep));
-      const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
-      const isLocked = missingDeps.length > 0;
+      const { isLocked: locked } = computeModuleLock(
+        item.moduloId ?? "",
+        parseModuleDependencies(module?.dependencies),
+        allDependenciesById,
+        completedSet
+      );
+      // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+      // sobre el candado por dependencias.
+      const isLocked = locked && !(await hasActiveModuleOverride(item.moduloId ?? "", childId));
       const estado =
         item.status === "completado"
           ? "Completado"
           : isLocked
             ? "Bloqueado"
             : "En curso";
-      const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 60 : 25;
+      // `progreso_modulos` no guarda un porcentaje real, sólo `status`
+      // (enum). El 50% para "en_progreso" es un placeholder — pero
+      // DEBE coincidir con el mismo placeholder que usa la vista del
+      // propio alumno (apps/web/src/pages/aula.tsx:300), si no el
+      // padre ve un % distinto al que ve su hijo para el mismo módulo.
+      const progreso = item.status === "completado" ? 100 : item.status === "en_progreso" ? 50 : 25;
       return {
         id: item.moduloId,
         titulo: (module?.titulo ?? "Módulo") as string,
@@ -334,7 +517,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
         estado,
         ultimaActividad: formatActivityDate(item.updatedAt ?? undefined)
       };
-    });
+    }));
     return {
       id: childId,
       nombre: String(child?.fullName ?? v.nombre ?? "Sin nombre"),
@@ -343,7 +526,7 @@ progreso.get("/api/progreso/hijos", requireUser, async (req, res) => {
       progresoGeneral,
       modulos
     };
-  });
+  }));
   res.json(responses);
 });
 
@@ -377,20 +560,38 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
       })
     : [];
   const moduleMap = new Map(modules.map((module) => [module.id ?? "", module]));
+  const allDependenciesById: DependenciesById = new Map(
+    (
+      await prisma.modulo.findMany({
+        where: { dependencies: { not: null } },
+        select: { id: true, dependencies: true }
+      })
+    ).map((m) => [m.id, parseModuleDependencies(m.dependencies)])
+  );
   const completedSet = new Set(
     progress.filter((item) => item.status === "completado").map((item) => item.moduloId)
   );
   const total = progress.length;
   const completados = progress.filter((item) => item.status === "completado").length;
   const progresoGeneral = total ? Math.round((completados / total) * 100) : 0;
-  const modulos = progress.map((item) => {
+  const modulos = await Promise.all(progress.map(async (item) => {
     const module = moduleMap.get(item.moduloId ?? "");
-    const dependencies = Array.isArray(module?.dependencies) ? module?.dependencies : [];
-    const requiredDeps = (dependencies as Array<{ type?: string; id?: string }>)
-      .map((dep) => (dep?.type === "required" ? dep.id : null))
-      .filter((dep): dep is string => Boolean(dep));
-    const missingDeps = requiredDeps.filter((dep) => !completedSet.has(dep));
-    const isLocked = missingDeps.length > 0;
+    // FIX-DEPENDENCIAS — esta copia comparaba `Array.isArray` sobre el
+    // string crudo de `module.dependencies` (columna JSON serializada)
+    // SIN pasarlo por `JSON.parse` primero: un string nunca es array,
+    // así que `isLocked` acá jamás daba `true`, aunque las otras dos
+    // copias del mismo cálculo (arregladas junto con ésta) sí
+    // detectaban el bloqueo. `parseModuleDependencies` deserializa
+    // antes de mirar el array.
+    const { isLocked: locked } = computeModuleLock(
+      item.moduloId ?? "",
+      parseModuleDependencies(module?.dependencies),
+      allDependenciesById,
+      completedSet
+    );
+    // "Niveles por aula con mapa de flujo" — desbloqueo manual: gana
+    // sobre el candado por dependencias.
+    const isLocked = locked && !(await hasActiveModuleOverride(item.moduloId ?? "", childId));
     const estado =
       item.status === "completado"
         ? "Completado"
@@ -406,7 +607,7 @@ progreso.get("/api/progreso/hijos/:id", requireUser, async (req, res) => {
       estado,
       ultimaActividad: formatActivityDate(item.updatedAt ?? undefined)
     };
-  });
+  }));
   res.json({
     id: childId,
     nombre: (child.fullName ?? vinculo.nombre ?? "Sin nombre") as string,

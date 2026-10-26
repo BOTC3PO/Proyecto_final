@@ -47,7 +47,20 @@ export function createPrng(seed: string | number): PRNG {
     next,
     int(min, max) {
       if (max < min) throw new Error(`int: max (${max}) < min (${min})`);
-      return min + Math.floor(next() * (max - min + 1));
+      // PLAN casos-limite §8 — con bordes NO enteros esto devolvía valores
+      // fuera del rango declarado: `random(1.2, 4.8)` daba 1.2, 2.2, 3.2, 4.2
+      // y también 5.2 (porque `max - min + 1` = 4.6 y el `+ min` arrastraba la
+      // parte decimal). Se redondea el rango HACIA ADENTRO, que es la única
+      // lectura sensata de "un entero entre 1.2 y 4.8" → entre 2 y 4.
+      const lo = Math.ceil(min);
+      const hi = Math.floor(max);
+      if (hi < lo) {
+        throw new Error(
+          `random: no hay ningún entero entre ${min} y ${max}` +
+            ` (para valores decimales existe random_float)`,
+        );
+      }
+      return lo + Math.floor(next() * (hi - lo + 1));
     },
     float(min, max, decimals) {
       const v = min + next() * (max - min);

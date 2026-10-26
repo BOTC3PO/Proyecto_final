@@ -1,0 +1,5 @@
+Tourist: Hello, I’m looking for a postcard. Do you have any with the Eiffel Tower?
+Shop assistant: Of course! Here are some. Would you like one?
+Tourist: Yes, please. How much is it?
+Shop assistant: It’s two euros.
+Tourist: Thank you. I’ll take it.

@@ -1,0 +1,58 @@
+{
+ "titulo": "Los pilares del Estado de Derecho",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Estado de Derecho",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Ley superior a toda autoridad",
+     "x": 0,
+     "y": 115,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Igualdad ante la ley",
+     "x": 212,
+     "y": 115,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Independencia judicial",
+     "x": 425,
+     "y": 115,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Estado de Derecho",
+     "x": 212,
+     "y": 0,
+     "shape": "circle",
+     "color": "#f3e8ff"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n4"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "titulo": "Ciclo de Kuhn",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cómo cambia la ciencia",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Ciencia normal",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Crisis",
+     "x": 396,
+     "y": 155
+    },
+    {
+     "id": "n3",
+     "label": "Revolución científica",
+     "x": 29,
+     "y": 155
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

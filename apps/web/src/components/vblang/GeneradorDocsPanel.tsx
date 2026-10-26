@@ -21,6 +21,7 @@ import {
   type GeneratorDocs,
 } from "./generadorDocsCache";
 
+import { useI18n } from "../../i18n/I18nContext";
 export type GeneradorDocsVariant = "formulario" | "referencia";
 
 interface Props {
@@ -54,6 +55,7 @@ export default function GeneradorDocsPanel({
   variant = "referencia",
   onInsertVariable,
 }: Props) {
+  const { t } = useI18n();
   const { cat, name, subtipo } = parseGeneradorId(generadorId);
   const [state, setState] = useState<FetchState>({ status: "idle" });
 
@@ -100,11 +102,11 @@ export default function GeneradorDocsPanel({
 
   return (
     <section
-      aria-label="Documentación del generador"
+      aria-label={t("generadorDocsPanel.documentacionDelGenerador")}
       className="mt-2 rounded-lg border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-3 text-xs"
     >
       {state.status === "loading" && (
-        <p className="text-[var(--c-hint)]">Cargando documentación…</p>
+        <p className="text-[var(--c-hint)]">{t("generadorDocsPanel.cargandoDocumentacion")}</p>
       )}
 
       {state.status === "missing" && (
@@ -132,11 +134,10 @@ function DegradedHelp({
   generadorId: string;
   variant: GeneradorDocsVariant;
 }) {
+  const { t } = useI18n();
   return (
     <div className="space-y-2">
-      <p className="text-[var(--c-text)]">
-        Este generador no tiene documentación de variables. Igual podés usarlo:
-      </p>
+      <p className="text-[var(--c-text)]">{t("generadorDocsPanel.esteGeneradorNoTieneDocumentacion")}</p>
       {variant === "formulario" ? (
         <FormularioGuia variables={[]} onInsertVariable={undefined} />
       ) : (
@@ -302,15 +303,14 @@ function WiringRecipe({
   generadorId: string;
   variables: string[];
 }) {
+  const { t } = useI18n();
   const { cat, name } = parseGeneradorId(generadorId);
   const baseId = cat && name ? `${cat}/${name}` : generadorId;
   const ejemploVar = variables[0];
 
   return (
     <details className="rounded border border-dashed border-[var(--c-border,#cbd5e1)] bg-[var(--c-bg,#f8fafc)] p-2">
-      <summary className="cursor-pointer font-semibold text-[var(--c-text)]">
-        Cómo cablearlo en VBLang
-      </summary>
+      <summary className="cursor-pointer font-semibold text-[var(--c-text)]">{t("generadorDocsPanel.comoCablearloEnVblang")}</summary>
       <ol className="mt-2 list-decimal space-y-1.5 pl-4 text-[var(--c-text)]">
         <li>
           Declará el generador:{" "}
@@ -330,8 +330,7 @@ function WiringRecipe({
             </>
           )}
         </li>
-        <li>
-          Con el generador activo, <strong>no</strong> declares{" "}
+        <li>{t("generadorDocsPanel.conElGeneradorActivo")}<strong>no</strong> declares{" "}
           <code className="font-mono">variables</code> ni{" "}
           <code className="font-mono">respuesta</code>: los provee el generador.
         </li>
@@ -339,13 +338,11 @@ function WiringRecipe({
           Para fijar un subtipo concreto, usá{" "}
           <code className="font-mono text-[var(--c-primary,#3b82f6)]">{`generador: ${baseId}/<subtipo>`}</code>
           ; si dejás{" "}
-          <code className="font-mono">{`generador: ${baseId}`}</code> sale un
-          subtipo al azar.
-        </li>
+          <code className="font-mono">{`generador: ${baseId}`}</code>{t("generadorDocsPanel.saleUnSubtipoAlAzar")}</li>
         <li>
           La dificultad se ajusta con{" "}
           <code className="font-mono">metadata</code>:{" "}
-          <code className="font-mono text-[var(--c-hint)]">dificultad: "intermedio"</code>.
+          <code className="font-mono text-[var(--c-hint)]">{t("generadorDocsPanel.dificultadIntermedio")}</code>.
         </li>
       </ol>
     </details>

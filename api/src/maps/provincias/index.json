@@ -1,0 +1,1759 @@
+[
+  {
+    "pais": "AD",
+    "nombre": "Andorra",
+    "divisiones": 7,
+    "archivo": "AD.topo.json",
+    "bytes": 2027
+  },
+  {
+    "pais": "AE",
+    "nombre": "United Arab Emirates",
+    "divisiones": 9,
+    "archivo": "AE.topo.json",
+    "bytes": 7741
+  },
+  {
+    "pais": "AF",
+    "nombre": "Afghanistan",
+    "divisiones": 34,
+    "archivo": "AF.topo.json",
+    "bytes": 28969
+  },
+  {
+    "pais": "AG",
+    "nombre": "Antigua and Barbuda",
+    "divisiones": 8,
+    "archivo": "AG.topo.json",
+    "bytes": 2646
+  },
+  {
+    "pais": "AI",
+    "nombre": "Anguilla",
+    "divisiones": 15,
+    "archivo": "AI.topo.json",
+    "bytes": 4217
+  },
+  {
+    "pais": "akrotiri_sovereign_base_area",
+    "nombre": "Akrotiri Sovereign Base Area",
+    "divisiones": 1,
+    "archivo": "akrotiri_sovereign_base_area.topo.json",
+    "bytes": 653
+  },
+  {
+    "pais": "AL",
+    "nombre": "Albania",
+    "divisiones": 12,
+    "archivo": "AL.topo.json",
+    "bytes": 7738
+  },
+  {
+    "pais": "AM",
+    "nombre": "Armenia",
+    "divisiones": 11,
+    "archivo": "AM.topo.json",
+    "bytes": 6910
+  },
+  {
+    "pais": "AO",
+    "nombre": "Angola",
+    "divisiones": 18,
+    "archivo": "AO.topo.json",
+    "bytes": 21593
+  },
+  {
+    "pais": "AQ",
+    "nombre": "Antarctica",
+    "divisiones": 2,
+    "archivo": "AQ.topo.json",
+    "bytes": 119927
+  },
+  {
+    "pais": "AR",
+    "nombre": "Argentina",
+    "divisiones": 24,
+    "archivo": "AR.topo.json",
+    "bytes": 37714
+  },
+  {
+    "pais": "AS",
+    "nombre": "American Samoa",
+    "divisiones": 5,
+    "archivo": "AS.topo.json",
+    "bytes": 1254
+  },
+  {
+    "pais": "AT",
+    "nombre": "Austria",
+    "divisiones": 9,
+    "archivo": "AT.topo.json",
+    "bytes": 9392
+  },
+  {
+    "pais": "AU",
+    "nombre": "Australia",
+    "divisiones": 12,
+    "archivo": "AU.topo.json",
+    "bytes": 56524
+  },
+  {
+    "pais": "AW",
+    "nombre": "Aruba",
+    "divisiones": 1,
+    "archivo": "AW.topo.json",
+    "bytes": 539
+  },
+  {
+    "pais": "AX",
+    "nombre": "Aland",
+    "divisiones": 11,
+    "archivo": "AX.topo.json",
+    "bytes": 3361
+  },
+  {
+    "pais": "AZ",
+    "nombre": "Azerbaijan",
+    "divisiones": 78,
+    "archivo": "AZ.topo.json",
+    "bytes": 32918
+  },
+  {
+    "pais": "BA",
+    "nombre": "Bosnia and Herzegovina",
+    "divisiones": 18,
+    "archivo": "BA.topo.json",
+    "bytes": 10710
+  },
+  {
+    "pais": "baykonur_cosmodrome",
+    "nombre": "Baykonur Cosmodrome",
+    "divisiones": 1,
+    "archivo": "baykonur_cosmodrome.topo.json",
+    "bytes": 874
+  },
+  {
+    "pais": "BB",
+    "nombre": "Barbados",
+    "divisiones": 11,
+    "archivo": "BB.topo.json",
+    "bytes": 3443
+  },
+  {
+    "pais": "BD",
+    "nombre": "Bangladesh",
+    "divisiones": 7,
+    "archivo": "BD.topo.json",
+    "bytes": 13623
+  },
+  {
+    "pais": "BE",
+    "nombre": "Belgium",
+    "divisiones": 11,
+    "archivo": "BE.topo.json",
+    "bytes": 9032
+  },
+  {
+    "pais": "BF",
+    "nombre": "Burkina Faso",
+    "divisiones": 45,
+    "archivo": "BF.topo.json",
+    "bytes": 26354
+  },
+  {
+    "pais": "BG",
+    "nombre": "Bulgaria",
+    "divisiones": 28,
+    "archivo": "BG.topo.json",
+    "bytes": 18054
+  },
+  {
+    "pais": "BH",
+    "nombre": "Bahrain",
+    "divisiones": 5,
+    "archivo": "BH.topo.json",
+    "bytes": 2075
+  },
+  {
+    "pais": "BI",
+    "nombre": "Burundi",
+    "divisiones": 17,
+    "archivo": "BI.topo.json",
+    "bytes": 8009
+  },
+  {
+    "pais": "BJ",
+    "nombre": "Benin",
+    "divisiones": 12,
+    "archivo": "BJ.topo.json",
+    "bytes": 7195
+  },
+  {
+    "pais": "BL",
+    "nombre": "Saint Barthelemy",
+    "divisiones": 1,
+    "archivo": "BL.topo.json",
+    "bytes": 453
+  },
+  {
+    "pais": "BM",
+    "nombre": "Bermuda",
+    "divisiones": 11,
+    "archivo": "BM.topo.json",
+    "bytes": 3133
+  },
+  {
+    "pais": "BN",
+    "nombre": "Brunei",
+    "divisiones": 4,
+    "archivo": "BN.topo.json",
+    "bytes": 2102
+  },
+  {
+    "pais": "BO",
+    "nombre": "Bolivia",
+    "divisiones": 9,
+    "archivo": "BO.topo.json",
+    "bytes": 13994
+  },
+  {
+    "pais": "BR",
+    "nombre": "Brazil",
+    "divisiones": 27,
+    "archivo": "BR.topo.json",
+    "bytes": 79971
+  },
+  {
+    "pais": "BS",
+    "nombre": "The Bahamas",
+    "divisiones": 30,
+    "archivo": "BS.topo.json",
+    "bytes": 13903
+  },
+  {
+    "pais": "BT",
+    "nombre": "Bhutan",
+    "divisiones": 20,
+    "archivo": "BT.topo.json",
+    "bytes": 10229
+  },
+  {
+    "pais": "BW",
+    "nombre": "Botswana",
+    "divisiones": 15,
+    "archivo": "BW.topo.json",
+    "bytes": 9079
+  },
+  {
+    "pais": "BY",
+    "nombre": "Belarus",
+    "divisiones": 7,
+    "archivo": "BY.topo.json",
+    "bytes": 12357
+  },
+  {
+    "pais": "BZ",
+    "nombre": "Belize",
+    "divisiones": 6,
+    "archivo": "BZ.topo.json",
+    "bytes": 4402
+  },
+  {
+    "pais": "CA",
+    "nombre": "Canada",
+    "divisiones": 13,
+    "archivo": "CA.topo.json",
+    "bytes": 306342
+  },
+  {
+    "pais": "CD",
+    "nombre": "Democratic Republic of the Congo",
+    "divisiones": 11,
+    "archivo": "CD.topo.json",
+    "bytes": 24366
+  },
+  {
+    "pais": "CF",
+    "nombre": "Central African Republic",
+    "divisiones": 17,
+    "archivo": "CF.topo.json",
+    "bytes": 19557
+  },
+  {
+    "pais": "CG",
+    "nombre": "Republic of the Congo",
+    "divisiones": 12,
+    "archivo": "CG.topo.json",
+    "bytes": 13452
+  },
+  {
+    "pais": "CH",
+    "nombre": "Switzerland",
+    "divisiones": 26,
+    "archivo": "CH.topo.json",
+    "bytes": 15793
+  },
+  {
+    "pais": "CI",
+    "nombre": "Ivory Coast",
+    "divisiones": 19,
+    "archivo": "CI.topo.json",
+    "bytes": 18497
+  },
+  {
+    "pais": "CK",
+    "nombre": "Cook Islands",
+    "divisiones": 11,
+    "archivo": "CK.topo.json",
+    "bytes": 2243
+  },
+  {
+    "pais": "CL",
+    "nombre": "Chile",
+    "divisiones": 16,
+    "archivo": "CL.topo.json",
+    "bytes": 77245
+  },
+  {
+    "pais": "clipperton_island",
+    "nombre": "Clipperton Island",
+    "divisiones": 1,
+    "archivo": "clipperton_island.topo.json",
+    "bytes": 423
+  },
+  {
+    "pais": "CM",
+    "nombre": "Cameroon",
+    "divisiones": 10,
+    "archivo": "CM.topo.json",
+    "bytes": 13350
+  },
+  {
+    "pais": "CN",
+    "nombre": "China",
+    "divisiones": 32,
+    "archivo": "CN.topo.json",
+    "bytes": 115020
+  },
+  {
+    "pais": "CO",
+    "nombre": "Colombia",
+    "divisiones": 34,
+    "archivo": "CO.topo.json",
+    "bytes": 38714
+  },
+  {
+    "pais": "coral_sea_islands",
+    "nombre": "Coral Sea Islands",
+    "divisiones": 1,
+    "archivo": "coral_sea_islands.topo.json",
+    "bytes": 995
+  },
+  {
+    "pais": "CR",
+    "nombre": "Costa Rica",
+    "divisiones": 7,
+    "archivo": "CR.topo.json",
+    "bytes": 6910
+  },
+  {
+    "pais": "CU",
+    "nombre": "Cuba",
+    "divisiones": 16,
+    "archivo": "CU.topo.json",
+    "bytes": 18224
+  },
+  {
+    "pais": "CV",
+    "nombre": "Cape Verde",
+    "divisiones": 22,
+    "archivo": "CV.topo.json",
+    "bytes": 6395
+  },
+  {
+    "pais": "CW",
+    "nombre": "Curaçao",
+    "divisiones": 1,
+    "archivo": "CW.topo.json",
+    "bytes": 644
+  },
+  {
+    "pais": "CY",
+    "nombre": "Cyprus",
+    "divisiones": 5,
+    "archivo": "CY.topo.json",
+    "bytes": 2945
+  },
+  {
+    "pais": "CZ",
+    "nombre": "Czech Republic",
+    "divisiones": 14,
+    "archivo": "CZ.topo.json",
+    "bytes": 11523
+  },
+  {
+    "pais": "DE",
+    "nombre": "Germany",
+    "divisiones": 16,
+    "archivo": "DE.topo.json",
+    "bytes": 26596
+  },
+  {
+    "pais": "dhekelia_sovereign_base_area",
+    "nombre": "Dhekelia Sovereign Base Area",
+    "divisiones": 1,
+    "archivo": "dhekelia_sovereign_base_area.topo.json",
+    "bytes": 785
+  },
+  {
+    "pais": "DJ",
+    "nombre": "Djibouti",
+    "divisiones": 6,
+    "archivo": "DJ.topo.json",
+    "bytes": 3036
+  },
+  {
+    "pais": "DK",
+    "nombre": "Denmark",
+    "divisiones": 5,
+    "archivo": "DK.topo.json",
+    "bytes": 11881
+  },
+  {
+    "pais": "DM",
+    "nombre": "Dominica",
+    "divisiones": 10,
+    "archivo": "DM.topo.json",
+    "bytes": 3309
+  },
+  {
+    "pais": "DO",
+    "nombre": "Dominican Republic",
+    "divisiones": 32,
+    "archivo": "DO.topo.json",
+    "bytes": 14997
+  },
+  {
+    "pais": "DZ",
+    "nombre": "Algeria",
+    "divisiones": 48,
+    "archivo": "DZ.topo.json",
+    "bytes": 29498
+  },
+  {
+    "pais": "EC",
+    "nombre": "Ecuador",
+    "divisiones": 24,
+    "archivo": "EC.topo.json",
+    "bytes": 19541
+  },
+  {
+    "pais": "EE",
+    "nombre": "Estonia",
+    "divisiones": 15,
+    "archivo": "EE.topo.json",
+    "bytes": 11649
+  },
+  {
+    "pais": "EG",
+    "nombre": "Egypt",
+    "divisiones": 27,
+    "archivo": "EG.topo.json",
+    "bytes": 18740
+  },
+  {
+    "pais": "EH",
+    "nombre": "Western Sahara",
+    "divisiones": 1,
+    "archivo": "EH.topo.json",
+    "bytes": 1851
+  },
+  {
+    "pais": "ER",
+    "nombre": "Eritrea",
+    "divisiones": 6,
+    "archivo": "ER.topo.json",
+    "bytes": 6764
+  },
+  {
+    "pais": "ES",
+    "nombre": "Spain",
+    "divisiones": 52,
+    "archivo": "ES.topo.json",
+    "bytes": 45904
+  },
+  {
+    "pais": "ET",
+    "nombre": "Ethiopia",
+    "divisiones": 11,
+    "archivo": "ET.topo.json",
+    "bytes": 16940
+  },
+  {
+    "pais": "FI",
+    "nombre": "Finland",
+    "divisiones": 18,
+    "archivo": "FI.topo.json",
+    "bytes": 28518
+  },
+  {
+    "pais": "FJ",
+    "nombre": "Fiji",
+    "divisiones": 5,
+    "archivo": "FJ.topo.json",
+    "bytes": 6597
+  },
+  {
+    "pais": "FK",
+    "nombre": "Falkland Islands",
+    "divisiones": 1,
+    "archivo": "FK.topo.json",
+    "bytes": 6830
+  },
+  {
+    "pais": "FM",
+    "nombre": "Federated States of Micronesia",
+    "divisiones": 4,
+    "archivo": "FM.topo.json",
+    "bytes": 1838
+  },
+  {
+    "pais": "FO",
+    "nombre": "Faroe Islands",
+    "divisiones": 1,
+    "archivo": "FO.topo.json",
+    "bytes": 2923
+  },
+  {
+    "pais": "FR",
+    "nombre": "France",
+    "divisiones": 101,
+    "archivo": "FR.topo.json",
+    "bytes": 67873
+  },
+  {
+    "pais": "GA",
+    "nombre": "Gabon",
+    "divisiones": 9,
+    "archivo": "GA.topo.json",
+    "bytes": 10837
+  },
+  {
+    "pais": "GB",
+    "nombre": "United Kingdom",
+    "divisiones": 232,
+    "archivo": "GB.topo.json",
+    "bytes": 115090
+  },
+  {
+    "pais": "GD",
+    "nombre": "Grenada",
+    "divisiones": 7,
+    "archivo": "GD.topo.json",
+    "bytes": 2236
+  },
+  {
+    "pais": "GE",
+    "nombre": "Georgia",
+    "divisiones": 12,
+    "archivo": "GE.topo.json",
+    "bytes": 8773
+  },
+  {
+    "pais": "GG",
+    "nombre": "Guernsey",
+    "divisiones": 1,
+    "archivo": "GG.topo.json",
+    "bytes": 580
+  },
+  {
+    "pais": "GH",
+    "nombre": "Ghana",
+    "divisiones": 10,
+    "archivo": "GH.topo.json",
+    "bytes": 11105
+  },
+  {
+    "pais": "GI",
+    "nombre": "Gibraltar",
+    "divisiones": 1,
+    "archivo": "GI.topo.json",
+    "bytes": 430
+  },
+  {
+    "pais": "GL",
+    "nombre": "Greenland",
+    "divisiones": 6,
+    "archivo": "GL.topo.json",
+    "bytes": 102388
+  },
+  {
+    "pais": "GM",
+    "nombre": "Gambia",
+    "divisiones": 6,
+    "archivo": "GM.topo.json",
+    "bytes": 3753
+  },
+  {
+    "pais": "GN",
+    "nombre": "Guinea",
+    "divisiones": 34,
+    "archivo": "GN.topo.json",
+    "bytes": 21489
+  },
+  {
+    "pais": "GQ",
+    "nombre": "Equatorial Guinea",
+    "divisiones": 7,
+    "archivo": "GQ.topo.json",
+    "bytes": 3479
+  },
+  {
+    "pais": "GR",
+    "nombre": "Greece",
+    "divisiones": 14,
+    "archivo": "GR.topo.json",
+    "bytes": 27324
+  },
+  {
+    "pais": "GS",
+    "nombre": "South Georgia and the Islands",
+    "divisiones": 1,
+    "archivo": "GS.topo.json",
+    "bytes": 3219
+  },
+  {
+    "pais": "GT",
+    "nombre": "Guatemala",
+    "divisiones": 22,
+    "archivo": "GT.topo.json",
+    "bytes": 11891
+  },
+  {
+    "pais": "GU",
+    "nombre": "Guam",
+    "divisiones": 1,
+    "archivo": "GU.topo.json",
+    "bytes": 692
+  },
+  {
+    "pais": "GW",
+    "nombre": "Guinea Bissau",
+    "divisiones": 9,
+    "archivo": "GW.topo.json",
+    "bytes": 8222
+  },
+  {
+    "pais": "GY",
+    "nombre": "Guyana",
+    "divisiones": 10,
+    "archivo": "GY.topo.json",
+    "bytes": 10157
+  },
+  {
+    "pais": "HK",
+    "nombre": "Hong Kong S.A.R.",
+    "divisiones": 18,
+    "archivo": "HK.topo.json",
+    "bytes": 5311
+  },
+  {
+    "pais": "HM",
+    "nombre": "Heard Island and McDonald Islands",
+    "divisiones": 1,
+    "archivo": "HM.topo.json",
+    "bytes": 696
+  },
+  {
+    "pais": "HN",
+    "nombre": "Honduras",
+    "divisiones": 18,
+    "archivo": "HN.topo.json",
+    "bytes": 13393
+  },
+  {
+    "pais": "HR",
+    "nombre": "Croatia",
+    "divisiones": 21,
+    "archivo": "HR.topo.json",
+    "bytes": 18197
+  },
+  {
+    "pais": "HT",
+    "nombre": "Haiti",
+    "divisiones": 10,
+    "archivo": "HT.topo.json",
+    "bytes": 7174
+  },
+  {
+    "pais": "HU",
+    "nombre": "Hungary",
+    "divisiones": 43,
+    "archivo": "HU.topo.json",
+    "bytes": 22254
+  },
+  {
+    "pais": "ID",
+    "nombre": "Indonesia",
+    "divisiones": 33,
+    "archivo": "ID.topo.json",
+    "bytes": 97803
+  },
+  {
+    "pais": "IE",
+    "nombre": "Ireland",
+    "divisiones": 34,
+    "archivo": "IE.topo.json",
+    "bytes": 23795
+  },
+  {
+    "pais": "IL",
+    "nombre": "Israel",
+    "divisiones": 6,
+    "archivo": "IL.topo.json",
+    "bytes": 3940
+  },
+  {
+    "pais": "IM",
+    "nombre": "Isle of Man",
+    "divisiones": 1,
+    "archivo": "IM.topo.json",
+    "bytes": 753
+  },
+  {
+    "pais": "IN",
+    "nombre": "India",
+    "divisiones": 36,
+    "archivo": "IN.topo.json",
+    "bytes": 76377
+  },
+  {
+    "pais": "indian_ocean_territories",
+    "nombre": "Indian Ocean Territories",
+    "divisiones": 2,
+    "archivo": "indian_ocean_territories.topo.json",
+    "bytes": 760
+  },
+  {
+    "pais": "IO",
+    "nombre": "British Indian Ocean Territory",
+    "divisiones": 1,
+    "archivo": "IO.topo.json",
+    "bytes": 819
+  },
+  {
+    "pais": "IQ",
+    "nombre": "Iraq",
+    "divisiones": 18,
+    "archivo": "IQ.topo.json",
+    "bytes": 14292
+  },
+  {
+    "pais": "IR",
+    "nombre": "Iran",
+    "divisiones": 31,
+    "archivo": "IR.topo.json",
+    "bytes": 33527
+  },
+  {
+    "pais": "IS",
+    "nombre": "Iceland",
+    "divisiones": 9,
+    "archivo": "IS.topo.json",
+    "bytes": 17088
+  },
+  {
+    "pais": "IT",
+    "nombre": "Italy",
+    "divisiones": 110,
+    "archivo": "IT.topo.json",
+    "bytes": 64591
+  },
+  {
+    "pais": "JE",
+    "nombre": "Jersey",
+    "divisiones": 1,
+    "archivo": "JE.topo.json",
+    "bytes": 609
+  },
+  {
+    "pais": "JM",
+    "nombre": "Jamaica",
+    "divisiones": 14,
+    "archivo": "JM.topo.json",
+    "bytes": 5753
+  },
+  {
+    "pais": "JO",
+    "nombre": "Jordan",
+    "divisiones": 12,
+    "archivo": "JO.topo.json",
+    "bytes": 5748
+  },
+  {
+    "pais": "JP",
+    "nombre": "Japan",
+    "divisiones": 47,
+    "archivo": "JP.topo.json",
+    "bytes": 49126
+  },
+  {
+    "pais": "KE",
+    "nombre": "Kenya",
+    "divisiones": 8,
+    "archivo": "KE.topo.json",
+    "bytes": 10427
+  },
+  {
+    "pais": "KG",
+    "nombre": "Kyrgyzstan",
+    "divisiones": 8,
+    "archivo": "KG.topo.json",
+    "bytes": 11876
+  },
+  {
+    "pais": "KH",
+    "nombre": "Cambodia",
+    "divisiones": 24,
+    "archivo": "KH.topo.json",
+    "bytes": 15925
+  },
+  {
+    "pais": "KI",
+    "nombre": "Kiribati",
+    "divisiones": 2,
+    "archivo": "KI.topo.json",
+    "bytes": 2513
+  },
+  {
+    "pais": "KM",
+    "nombre": "Comoros",
+    "divisiones": 3,
+    "archivo": "KM.topo.json",
+    "bytes": 1316
+  },
+  {
+    "pais": "KN",
+    "nombre": "Saint Kitts and Nevis",
+    "divisiones": 14,
+    "archivo": "KN.topo.json",
+    "bytes": 4326
+  },
+  {
+    "pais": "KP",
+    "nombre": "North Korea",
+    "divisiones": 11,
+    "archivo": "KP.topo.json",
+    "bytes": 13601
+  },
+  {
+    "pais": "KR",
+    "nombre": "South Korea",
+    "divisiones": 17,
+    "archivo": "KR.topo.json",
+    "bytes": 19143
+  },
+  {
+    "pais": "KW",
+    "nombre": "Kuwait",
+    "divisiones": 6,
+    "archivo": "KW.topo.json",
+    "bytes": 3211
+  },
+  {
+    "pais": "KY",
+    "nombre": "Cayman Islands",
+    "divisiones": 1,
+    "archivo": "KY.topo.json",
+    "bytes": 821
+  },
+  {
+    "pais": "KZ",
+    "nombre": "Kazakhstan",
+    "divisiones": 16,
+    "archivo": "KZ.topo.json",
+    "bytes": 33214
+  },
+  {
+    "pais": "LA",
+    "nombre": "Laos",
+    "divisiones": 17,
+    "archivo": "LA.topo.json",
+    "bytes": 16607
+  },
+  {
+    "pais": "LB",
+    "nombre": "Lebanon",
+    "divisiones": 6,
+    "archivo": "LB.topo.json",
+    "bytes": 3461
+  },
+  {
+    "pais": "LC",
+    "nombre": "Saint Lucia",
+    "divisiones": 11,
+    "archivo": "LC.topo.json",
+    "bytes": 3263
+  },
+  {
+    "pais": "LI",
+    "nombre": "Liechtenstein",
+    "divisiones": 11,
+    "archivo": "LI.topo.json",
+    "bytes": 3343
+  },
+  {
+    "pais": "LK",
+    "nombre": "Sri Lanka",
+    "divisiones": 25,
+    "archivo": "LK.topo.json",
+    "bytes": 14735
+  },
+  {
+    "pais": "LR",
+    "nombre": "Liberia",
+    "divisiones": 15,
+    "archivo": "LR.topo.json",
+    "bytes": 9644
+  },
+  {
+    "pais": "LS",
+    "nombre": "Lesotho",
+    "divisiones": 10,
+    "archivo": "LS.topo.json",
+    "bytes": 6623
+  },
+  {
+    "pais": "LT",
+    "nombre": "Lithuania",
+    "divisiones": 10,
+    "archivo": "LT.topo.json",
+    "bytes": 9440
+  },
+  {
+    "pais": "LU",
+    "nombre": "Luxembourg",
+    "divisiones": 3,
+    "archivo": "LU.topo.json",
+    "bytes": 1755
+  },
+  {
+    "pais": "LV",
+    "nombre": "Latvia",
+    "divisiones": 119,
+    "archivo": "LV.topo.json",
+    "bytes": 49176
+  },
+  {
+    "pais": "LY",
+    "nombre": "Libya",
+    "divisiones": 22,
+    "archivo": "LY.topo.json",
+    "bytes": 14453
+  },
+  {
+    "pais": "MA",
+    "nombre": "Morocco",
+    "divisiones": 16,
+    "archivo": "MA.topo.json",
+    "bytes": 15627
+  },
+  {
+    "pais": "MC",
+    "nombre": "Monaco",
+    "divisiones": 1,
+    "archivo": "MC.topo.json",
+    "bytes": 464
+  },
+  {
+    "pais": "MD",
+    "nombre": "Moldova",
+    "divisiones": 40,
+    "archivo": "MD.topo.json",
+    "bytes": 18328
+  },
+  {
+    "pais": "ME",
+    "nombre": "Montenegro",
+    "divisiones": 21,
+    "archivo": "ME.topo.json",
+    "bytes": 8878
+  },
+  {
+    "pais": "MF",
+    "nombre": "Saint Martin",
+    "divisiones": 1,
+    "archivo": "MF.topo.json",
+    "bytes": 484
+  },
+  {
+    "pais": "MG",
+    "nombre": "Madagascar",
+    "divisiones": 22,
+    "archivo": "MG.topo.json",
+    "bytes": 21743
+  },
+  {
+    "pais": "MH",
+    "nombre": "Marshall Islands",
+    "divisiones": 2,
+    "archivo": "MH.topo.json",
+    "bytes": 1507
+  },
+  {
+    "pais": "MK",
+    "nombre": "Macedonia",
+    "divisiones": 84,
+    "archivo": "MK.topo.json",
+    "bytes": 32251
+  },
+  {
+    "pais": "ML",
+    "nombre": "Mali",
+    "divisiones": 9,
+    "archivo": "ML.topo.json",
+    "bytes": 12183
+  },
+  {
+    "pais": "MM",
+    "nombre": "Myanmar",
+    "divisiones": 14,
+    "archivo": "MM.topo.json",
+    "bytes": 30555
+  },
+  {
+    "pais": "MN",
+    "nombre": "Mongolia",
+    "divisiones": 22,
+    "archivo": "MN.topo.json",
+    "bytes": 25836
+  },
+  {
+    "pais": "MO",
+    "nombre": "Macau S.A.R",
+    "divisiones": 1,
+    "archivo": "MO.topo.json",
+    "bytes": 525
+  },
+  {
+    "pais": "MP",
+    "nombre": "Northern Mariana Islands",
+    "divisiones": 4,
+    "archivo": "MP.topo.json",
+    "bytes": 1754
+  },
+  {
+    "pais": "MR",
+    "nombre": "Mauritania",
+    "divisiones": 13,
+    "archivo": "MR.topo.json",
+    "bytes": 9365
+  },
+  {
+    "pais": "MS",
+    "nombre": "Montserrat",
+    "divisiones": 3,
+    "archivo": "MS.topo.json",
+    "bytes": 1063
+  },
+  {
+    "pais": "MT",
+    "nombre": "Malta",
+    "divisiones": 68,
+    "archivo": "MT.topo.json",
+    "bytes": 15691
+  },
+  {
+    "pais": "MU",
+    "nombre": "Mauritius",
+    "divisiones": 16,
+    "archivo": "MU.topo.json",
+    "bytes": 4872
+  },
+  {
+    "pais": "MV",
+    "nombre": "Maldives",
+    "divisiones": 21,
+    "archivo": "MV.topo.json",
+    "bytes": 8993
+  },
+  {
+    "pais": "MW",
+    "nombre": "Malawi",
+    "divisiones": 28,
+    "archivo": "MW.topo.json",
+    "bytes": 14480
+  },
+  {
+    "pais": "MX",
+    "nombre": "Mexico",
+    "divisiones": 33,
+    "archivo": "MX.topo.json",
+    "bytes": 54154
+  },
+  {
+    "pais": "MY",
+    "nombre": "Malaysia",
+    "divisiones": 16,
+    "archivo": "MY.topo.json",
+    "bytes": 18324
+  },
+  {
+    "pais": "MZ",
+    "nombre": "Mozambique",
+    "divisiones": 11,
+    "archivo": "MZ.topo.json",
+    "bytes": 18322
+  },
+  {
+    "pais": "NA",
+    "nombre": "Namibia",
+    "divisiones": 13,
+    "archivo": "NA.topo.json",
+    "bytes": 13178
+  },
+  {
+    "pais": "NC",
+    "nombre": "New Caledonia",
+    "divisiones": 3,
+    "archivo": "NC.topo.json",
+    "bytes": 4821
+  },
+  {
+    "pais": "NE",
+    "nombre": "Niger",
+    "divisiones": 8,
+    "archivo": "NE.topo.json",
+    "bytes": 7501
+  },
+  {
+    "pais": "NF",
+    "nombre": "Norfolk Island",
+    "divisiones": 1,
+    "archivo": "NF.topo.json",
+    "bytes": 480
+  },
+  {
+    "pais": "NG",
+    "nombre": "Nigeria",
+    "divisiones": 37,
+    "archivo": "NG.topo.json",
+    "bytes": 32610
+  },
+  {
+    "pais": "NI",
+    "nombre": "Nicaragua",
+    "divisiones": 17,
+    "archivo": "NI.topo.json",
+    "bytes": 11460
+  },
+  {
+    "pais": "NL",
+    "nombre": "Netherlands",
+    "divisiones": 15,
+    "archivo": "NL.topo.json",
+    "bytes": 9390
+  },
+  {
+    "pais": "NO",
+    "nombre": "Norway",
+    "divisiones": 21,
+    "archivo": "NO.topo.json",
+    "bytes": 78586
+  },
+  {
+    "pais": "northern_cyprus",
+    "nombre": "Northern Cyprus",
+    "divisiones": 1,
+    "archivo": "northern_cyprus.topo.json",
+    "bytes": 1412
+  },
+  {
+    "pais": "NP",
+    "nombre": "Nepal",
+    "divisiones": 14,
+    "archivo": "NP.topo.json",
+    "bytes": 12699
+  },
+  {
+    "pais": "NR",
+    "nombre": "Nauru",
+    "divisiones": 14,
+    "archivo": "NR.topo.json",
+    "bytes": 3259
+  },
+  {
+    "pais": "NU",
+    "nombre": "Niue",
+    "divisiones": 1,
+    "archivo": "NU.topo.json",
+    "bytes": 543
+  },
+  {
+    "pais": "NZ",
+    "nombre": "New Zealand",
+    "divisiones": 23,
+    "archivo": "NZ.topo.json",
+    "bytes": 25346
+  },
+  {
+    "pais": "OM",
+    "nombre": "Oman",
+    "divisiones": 11,
+    "archivo": "OM.topo.json",
+    "bytes": 7923
+  },
+  {
+    "pais": "PA",
+    "nombre": "Panama",
+    "divisiones": 12,
+    "archivo": "PA.topo.json",
+    "bytes": 13467
+  },
+  {
+    "pais": "PE",
+    "nombre": "Peru",
+    "divisiones": 26,
+    "archivo": "PE.topo.json",
+    "bytes": 29932
+  },
+  {
+    "pais": "PF",
+    "nombre": "French Polynesia",
+    "divisiones": 5,
+    "archivo": "PF.topo.json",
+    "bytes": 6025
+  },
+  {
+    "pais": "PG",
+    "nombre": "Papua New Guinea",
+    "divisiones": 20,
+    "archivo": "PG.topo.json",
+    "bytes": 27062
+  },
+  {
+    "pais": "PH",
+    "nombre": "Philippines",
+    "divisiones": 118,
+    "archivo": "PH.topo.json",
+    "bytes": 69118
+  },
+  {
+    "pais": "PK",
+    "nombre": "Pakistan",
+    "divisiones": 8,
+    "archivo": "PK.topo.json",
+    "bytes": 17859
+  },
+  {
+    "pais": "PL",
+    "nombre": "Poland",
+    "divisiones": 16,
+    "archivo": "PL.topo.json",
+    "bytes": 17119
+  },
+  {
+    "pais": "PM",
+    "nombre": "Saint Pierre and Miquelon",
+    "divisiones": 2,
+    "archivo": "PM.topo.json",
+    "bytes": 1024
+  },
+  {
+    "pais": "PN",
+    "nombre": "Pitcairn Islands",
+    "divisiones": 1,
+    "archivo": "PN.topo.json",
+    "bytes": 580
+  },
+  {
+    "pais": "PR",
+    "nombre": "Puerto Rico",
+    "divisiones": 1,
+    "archivo": "PR.topo.json",
+    "bytes": 1766
+  },
+  {
+    "pais": "PS",
+    "nombre": "Gaza Strip",
+    "divisiones": 2,
+    "archivo": "PS.topo.json",
+    "bytes": 1548
+  },
+  {
+    "pais": "PT",
+    "nombre": "Portugal",
+    "divisiones": 20,
+    "archivo": "PT.topo.json",
+    "bytes": 14967
+  },
+  {
+    "pais": "PW",
+    "nombre": "Palau",
+    "divisiones": 16,
+    "archivo": "PW.topo.json",
+    "bytes": 3773
+  },
+  {
+    "pais": "PY",
+    "nombre": "Paraguay",
+    "divisiones": 18,
+    "archivo": "PY.topo.json",
+    "bytes": 14479
+  },
+  {
+    "pais": "QA",
+    "nombre": "Qatar",
+    "divisiones": 7,
+    "archivo": "QA.topo.json",
+    "bytes": 3568
+  },
+  {
+    "pais": "RO",
+    "nombre": "Romania",
+    "divisiones": 42,
+    "archivo": "RO.topo.json",
+    "bytes": 27285
+  },
+  {
+    "pais": "RS",
+    "nombre": "Republic of Serbia",
+    "divisiones": 25,
+    "archivo": "RS.topo.json",
+    "bytes": 16576
+  },
+  {
+    "pais": "RU",
+    "nombre": "Russia",
+    "divisiones": 86,
+    "archivo": "RU.topo.json",
+    "bytes": 309657
+  },
+  {
+    "pais": "RW",
+    "nombre": "Rwanda",
+    "divisiones": 5,
+    "archivo": "RW.topo.json",
+    "bytes": 3600
+  },
+  {
+    "pais": "SA",
+    "nombre": "Saudi Arabia",
+    "divisiones": 13,
+    "archivo": "SA.topo.json",
+    "bytes": 19204
+  },
+  {
+    "pais": "SB",
+    "nombre": "Solomon Islands",
+    "divisiones": 10,
+    "archivo": "SB.topo.json",
+    "bytes": 10720
+  },
+  {
+    "pais": "SC",
+    "nombre": "Seychelles",
+    "divisiones": 26,
+    "archivo": "SC.topo.json",
+    "bytes": 6804
+  },
+  {
+    "pais": "SD",
+    "nombre": "Sudan",
+    "divisiones": 17,
+    "archivo": "SD.topo.json",
+    "bytes": 14510
+  },
+  {
+    "pais": "SE",
+    "nombre": "Sweden",
+    "divisiones": 21,
+    "archivo": "SE.topo.json",
+    "bytes": 31606
+  },
+  {
+    "pais": "SG",
+    "nombre": "Singapore",
+    "divisiones": 5,
+    "archivo": "SG.topo.json",
+    "bytes": 1582
+  },
+  {
+    "pais": "SH",
+    "nombre": "Saint Helena",
+    "divisiones": 3,
+    "archivo": "SH.topo.json",
+    "bytes": 1054
+  },
+  {
+    "pais": "SI",
+    "nombre": "Slovenia",
+    "divisiones": 193,
+    "archivo": "SI.topo.json",
+    "bytes": 62408
+  },
+  {
+    "pais": "siachen_glacier",
+    "nombre": "Siachen Glacier",
+    "divisiones": 1,
+    "archivo": "siachen_glacier.topo.json",
+    "bytes": 617
+  },
+  {
+    "pais": "SK",
+    "nombre": "Slovakia",
+    "divisiones": 8,
+    "archivo": "SK.topo.json",
+    "bytes": 7101
+  },
+  {
+    "pais": "SL",
+    "nombre": "Sierra Leone",
+    "divisiones": 4,
+    "archivo": "SL.topo.json",
+    "bytes": 5022
+  },
+  {
+    "pais": "SM",
+    "nombre": "San Marino",
+    "divisiones": 9,
+    "archivo": "SM.topo.json",
+    "bytes": 2286
+  },
+  {
+    "pais": "SN",
+    "nombre": "Senegal",
+    "divisiones": 14,
+    "archivo": "SN.topo.json",
+    "bytes": 12399
+  },
+  {
+    "pais": "SO",
+    "nombre": "Somalia",
+    "divisiones": 13,
+    "archivo": "SO.topo.json",
+    "bytes": 7137
+  },
+  {
+    "pais": "somaliland",
+    "nombre": "Somaliland",
+    "divisiones": 1,
+    "archivo": "somaliland.topo.json",
+    "bytes": 1811
+  },
+  {
+    "pais": "spratly_is",
+    "nombre": "Spratly Is.",
+    "divisiones": 1,
+    "archivo": "spratly_is.topo.json",
+    "bytes": 702
+  },
+  {
+    "pais": "SR",
+    "nombre": "Suriname",
+    "divisiones": 10,
+    "archivo": "SR.topo.json",
+    "bytes": 7329
+  },
+  {
+    "pais": "SS",
+    "nombre": "S. Sudan",
+    "divisiones": 10,
+    "archivo": "SS.topo.json",
+    "bytes": 10918
+  },
+  {
+    "pais": "ST",
+    "nombre": "Sao Tome and Principe",
+    "divisiones": 2,
+    "archivo": "ST.topo.json",
+    "bytes": 910
+  },
+  {
+    "pais": "SV",
+    "nombre": "El Salvador",
+    "divisiones": 14,
+    "archivo": "SV.topo.json",
+    "bytes": 7228
+  },
+  {
+    "pais": "SX",
+    "nombre": "Sint Maarten",
+    "divisiones": 1,
+    "archivo": "SX.topo.json",
+    "bytes": 465
+  },
+  {
+    "pais": "SY",
+    "nombre": "Syria",
+    "divisiones": 15,
+    "archivo": "SY.topo.json",
+    "bytes": 9600
+  },
+  {
+    "pais": "SZ",
+    "nombre": "Swaziland",
+    "divisiones": 4,
+    "archivo": "SZ.topo.json",
+    "bytes": 2320
+  },
+  {
+    "pais": "TC",
+    "nombre": "Turks and Caicos Islands",
+    "divisiones": 6,
+    "archivo": "TC.topo.json",
+    "bytes": 2170
+  },
+  {
+    "pais": "TD",
+    "nombre": "Chad",
+    "divisiones": 22,
+    "archivo": "TD.topo.json",
+    "bytes": 16665
+  },
+  {
+    "pais": "TF",
+    "nombre": "French Southern and Antarctic Lands",
+    "divisiones": 4,
+    "archivo": "TF.topo.json",
+    "bytes": 4187
+  },
+  {
+    "pais": "TG",
+    "nombre": "Togo",
+    "divisiones": 5,
+    "archivo": "TG.topo.json",
+    "bytes": 4289
+  },
+  {
+    "pais": "TH",
+    "nombre": "Thailand",
+    "divisiones": 77,
+    "archivo": "TH.topo.json",
+    "bytes": 53096
+  },
+  {
+    "pais": "TJ",
+    "nombre": "Tajikistan",
+    "divisiones": 5,
+    "archivo": "TJ.topo.json",
+    "bytes": 9229
+  },
+  {
+    "pais": "TK",
+    "nombre": "New Zealand",
+    "divisiones": 1,
+    "archivo": "TK.topo.json",
+    "bytes": 443
+  },
+  {
+    "pais": "TL",
+    "nombre": "East Timor",
+    "divisiones": 13,
+    "archivo": "TL.topo.json",
+    "bytes": 6124
+  },
+  {
+    "pais": "TM",
+    "nombre": "Turkmenistan",
+    "divisiones": 5,
+    "archivo": "TM.topo.json",
+    "bytes": 10871
+  },
+  {
+    "pais": "TN",
+    "nombre": "Tunisia",
+    "divisiones": 23,
+    "archivo": "TN.topo.json",
+    "bytes": 14145
+  },
+  {
+    "pais": "TO",
+    "nombre": "Tonga",
+    "divisiones": 5,
+    "archivo": "TO.topo.json",
+    "bytes": 1895
+  },
+  {
+    "pais": "TR",
+    "nombre": "Turkey",
+    "divisiones": 81,
+    "archivo": "TR.topo.json",
+    "bytes": 55547
+  },
+  {
+    "pais": "TT",
+    "nombre": "Trinidad and Tobago",
+    "divisiones": 16,
+    "archivo": "TT.topo.json",
+    "bytes": 5422
+  },
+  {
+    "pais": "TV",
+    "nombre": "Tuvalu",
+    "divisiones": 1,
+    "archivo": "TV.topo.json",
+    "bytes": 668
+  },
+  {
+    "pais": "TW",
+    "nombre": "Taiwan",
+    "divisiones": 21,
+    "archivo": "TW.topo.json",
+    "bytes": 10334
+  },
+  {
+    "pais": "TZ",
+    "nombre": "United Republic of Tanzania",
+    "divisiones": 30,
+    "archivo": "TZ.topo.json",
+    "bytes": 26107
+  },
+  {
+    "pais": "UA",
+    "nombre": "Ukraine",
+    "divisiones": 25,
+    "archivo": "UA.topo.json",
+    "bytes": 35340
+  },
+  {
+    "pais": "UG",
+    "nombre": "Uganda",
+    "divisiones": 112,
+    "archivo": "UG.topo.json",
+    "bytes": 44282
+  },
+  {
+    "pais": "UM",
+    "nombre": "United States Minor Outlying Islands",
+    "divisiones": 8,
+    "archivo": "UM.topo.json",
+    "bytes": 1656
+  },
+  {
+    "pais": "US",
+    "nombre": "United States of America",
+    "divisiones": 51,
+    "archivo": "US.topo.json",
+    "bytes": 154490
+  },
+  {
+    "pais": "us_naval_base_guantanamo_bay",
+    "nombre": "US Naval Base Guantanamo Bay",
+    "divisiones": 1,
+    "archivo": "us_naval_base_guantanamo_bay.topo.json",
+    "bytes": 616
+  },
+  {
+    "pais": "UY",
+    "nombre": "Uruguay",
+    "divisiones": 19,
+    "archivo": "UY.topo.json",
+    "bytes": 13505
+  },
+  {
+    "pais": "UZ",
+    "nombre": "Uzbekistan",
+    "divisiones": 14,
+    "archivo": "UZ.topo.json",
+    "bytes": 14583
+  },
+  {
+    "pais": "VA",
+    "nombre": "Vatican",
+    "divisiones": 1,
+    "archivo": "VA.topo.json",
+    "bytes": 401
+  },
+  {
+    "pais": "VC",
+    "nombre": "Saint Vincent and the Grenadines",
+    "divisiones": 6,
+    "archivo": "VC.topo.json",
+    "bytes": 1980
+  },
+  {
+    "pais": "VE",
+    "nombre": "Venezuela",
+    "divisiones": 26,
+    "archivo": "VE.topo.json",
+    "bytes": 30257
+  },
+  {
+    "pais": "VG",
+    "nombre": "British Virgin Islands",
+    "divisiones": 1,
+    "archivo": "VG.topo.json",
+    "bytes": 882
+  },
+  {
+    "pais": "VI",
+    "nombre": "United States Virgin Islands",
+    "divisiones": 3,
+    "archivo": "VI.topo.json",
+    "bytes": 1123
+  },
+  {
+    "pais": "VN",
+    "nombre": "Vietnam",
+    "divisiones": 63,
+    "archivo": "VN.topo.json",
+    "bytes": 41436
+  },
+  {
+    "pais": "VU",
+    "nombre": "Vanuatu",
+    "divisiones": 6,
+    "archivo": "VU.topo.json",
+    "bytes": 5936
+  },
+  {
+    "pais": "WF",
+    "nombre": "Wallis and Futuna",
+    "divisiones": 3,
+    "archivo": "WF.topo.json",
+    "bytes": 952
+  },
+  {
+    "pais": "WS",
+    "nombre": "Samoa",
+    "divisiones": 11,
+    "archivo": "WS.topo.json",
+    "bytes": 3847
+  },
+  {
+    "pais": "XK",
+    "nombre": "Kosovo",
+    "divisiones": 30,
+    "archivo": "XK.topo.json",
+    "bytes": 11121
+  },
+  {
+    "pais": "YE",
+    "nombre": "Yemen",
+    "divisiones": 21,
+    "archivo": "YE.topo.json",
+    "bytes": 14988
+  },
+  {
+    "pais": "ZA",
+    "nombre": "South Africa",
+    "divisiones": 9,
+    "archivo": "ZA.topo.json",
+    "bytes": 20892
+  },
+  {
+    "pais": "ZM",
+    "nombre": "Zambia",
+    "divisiones": 10,
+    "archivo": "ZM.topo.json",
+    "bytes": 15338
+  },
+  {
+    "pais": "ZW",
+    "nombre": "Zimbabwe",
+    "divisiones": 10,
+    "archivo": "ZW.topo.json",
+    "bytes": 12396
+  }
+]

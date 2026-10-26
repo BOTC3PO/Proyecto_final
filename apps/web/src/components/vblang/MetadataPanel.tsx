@@ -1,22 +1,17 @@
 /**
  * Panel lateral con metadata editable de la plantilla.
+ *
+ * Envuelto en React.memo: el padre (PlantillaEditor) re-renderiza por cada
+ * pulsación del editor de código, pero los metadatos no cambian. Mientras las
+ * props (`value`, `onChange`, `disabled`) sean estables, este panel se saltea
+ * el re-render.
  */
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import type { Visibility } from "../../domain/vblang/plantilla.types";
+import { useMaterias } from "../../domain/materia/useMaterias";
 
-const MATERIAS = [
-  "Matemática",
-  "Física",
-  "Química",
-  "Biología",
-  "Economía",
-  "Informática",
-  "Historia",
-  "Geografía",
-  "Lengua",
-] as const;
-
+import { useI18n } from "../../i18n/I18nContext";
 const OTRA = "__otra__";
 
 export interface PlantillaMetadata {
@@ -31,6 +26,11 @@ interface MetadataPanelProps {
   value: PlantillaMetadata;
   onChange: (next: PlantillaMetadata) => void;
   disabled?: boolean;
+  /** PLAN-Z fase 3 — en modo cuestionario, materia/tags/descripción/
+   *  visibilidad se editan UNA vez en la plantilla-config del cuestionario
+   *  (`QuizConfigPanel`) y se heredan silenciosamente a cada pregunta al
+   *  guardar (decisión §3.1). Acá sólo queda el nombre (etiqueta del rail). */
+  compact?: boolean;
 }
 
 const VISIBILITY_LABELS: Record<Visibility, string> = {
@@ -39,17 +39,22 @@ const VISIBILITY_LABELS: Record<Visibility, string> = {
   publica: "Pública (requiere moderación)",
 };
 
-export default function MetadataPanel({
+function MetadataPanel({
   value,
   onChange,
   disabled,
+  compact,
 }: MetadataPanelProps) {
+  const { t } = useI18n();
   const update = <K extends keyof PlantillaMetadata>(key: K, v: PlantillaMetadata[K]) => {
     onChange({ ...value, [key]: v });
   };
 
   // Materia: select predefinido + opción "Otra…" que revela un input libre.
-  const materiaEnLista = (MATERIAS as readonly string[]).includes(value.materia);
+  // ITEM-30 — fuente única de materias (ver useMaterias.ts); antes esta
+  // lista estaba hardcodeada acá y no reflejaba las materias del admin.
+  const { materias: MATERIAS } = useMaterias();
+  const materiaEnLista = MATERIAS.includes(value.materia);
   const [materiaLibre, setMateriaLibre] = useState(
     value.materia !== "" && !materiaEnLista,
   );
@@ -71,17 +76,15 @@ export default function MetadataPanel({
   return (
     <div
       role="region"
-      aria-label="Metadatos de la plantilla"
+      aria-label={t("metadataPanel.metadatosDeLaPlantilla")}
       data-testid="vblang-metadata-panel"
       className="panel-section panel-section--last flex h-full text-sm"
     >
-      <h2 className="panel-section__title">Metadatos</h2>
+      <h2 className="panel-section__title">{t("metadataPanel.metadatos")}</h2>
 
       <div className="panel-section__body space-y-4">
       <label className="block">
-        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
-          Nombre *
-        </span>
+        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">{t("adminMaterias.nombre")}</span>
         <input
           type="text"
           className="w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
@@ -89,14 +92,14 @@ export default function MetadataPanel({
           onChange={(e) => update("nombre", e.target.value)}
           maxLength={200}
           disabled={disabled}
-          placeholder="Ej: MRU con datos al azar"
+          placeholder={t("metadataPanel.ejMruConDatosAl")}
         />
       </label>
 
+      {!compact && (
+      <>
       <label className="block">
-        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
-          Descripción
-        </span>
+        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">{t("comun.descripcion")}</span>
         <textarea
           className="w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
           rows={3}
@@ -108,9 +111,7 @@ export default function MetadataPanel({
       </label>
 
       <div className="block">
-        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
-          Materia
-        </span>
+        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">{t("comun.materia")}</span>
         <select
           className="w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
           value={materiaLibre ? OTRA : value.materia}
@@ -131,7 +132,7 @@ export default function MetadataPanel({
               {m}
             </option>
           ))}
-          <option value={OTRA}>Otra…</option>
+          <option value={OTRA}>{t("metadataPanel.otra")}</option>
         </select>
         {materiaLibre && (
           <input
@@ -141,15 +142,13 @@ export default function MetadataPanel({
             onChange={(e) => update("materia", e.target.value)}
             maxLength={100}
             disabled={disabled}
-            placeholder="Escribí la materia"
+            placeholder={t("metadataPanel.escribiLaMateria")}
           />
         )}
       </div>
 
       <div className="block">
-        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
-          Tags
-        </span>
+        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">{t("metadataPanel.tags")}</span>
         {value.tags.length > 0 && (
           <div className="mb-1.5 flex flex-wrap gap-1">
             {value.tags.map((t) => (
@@ -186,14 +185,12 @@ export default function MetadataPanel({
           }}
           onBlur={() => addTag(tagDraft)}
           disabled={disabled}
-          placeholder="Escribí y Enter (ej. cinemática)"
+          placeholder={t("metadataPanel.escribiYEnterEjCinematica")}
         />
       </div>
 
       <label className="block">
-        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">
-          Visibilidad
-        </span>
+        <span className="block text-xs font-medium text-[var(--c-muted,#64748b)] mb-1">{t("comun.visibilidad")}</span>
         <select
           className="w-full rounded-md border border-[var(--c-border,#e2e8f0)] bg-[var(--c-bg,white)] px-3 py-1.5 text-sm"
           value={value.visibility}
@@ -207,7 +204,11 @@ export default function MetadataPanel({
           ))}
         </select>
       </label>
+      </>
+      )}
       </div>
     </div>
   );
 }
+
+export default memo(MetadataPanel);

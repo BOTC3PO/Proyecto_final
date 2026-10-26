@@ -1,0 +1,32 @@
+{
+ "titulo": "Trueque directo e intercambio con moneda",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué cambia con un medio de intercambio",
+   "headers": [
+    "",
+    "Trueque directo",
+    "Con moneda"
+   ],
+   "rows": [
+    [
+     "Requisito",
+     "Doble coincidencia de necesidades",
+     "Se vende por moneda y se compra por moneda"
+    ],
+    [
+     "Valor",
+     "Hay que comparar bienes distintos",
+     "Todo se expresa en precios"
+    ],
+    [
+     "Costo de buscar pareja",
+     "Alto",
+     "Bajo"
+    ]
+   ]
+  }
+ ]
+}

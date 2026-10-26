@@ -499,10 +499,15 @@ def main():
         help='Output SQLite database path'
     )
     parser.add_argument(
-        '--sources', 
-        type=str, 
-        default='es,it,eo',
-        help='Comma-separated list of wiki sources (e.g., es,it,eo)'
+        '--sources',
+        type=str,
+        # Default alineado con SUPPORTED_LANGS de build_dictionary_final.py.
+        # Antes era 'es,it,eo': 'eo' se descargaba pero build_dictionary_final.py
+        # no lo soporta (se pierde), y 'en'/'pt'/'fr'/'la' -- que sí soporta --
+        # nunca se descargaban, así que corriendo ambos scripts con sus
+        # defaults el diccionario final quedaba casi vacío para esos 4 idiomas.
+        default='es,en,pt,fr,it,la',
+        help='Comma-separated list of wiki sources (e.g., es,en,pt,fr,it,la)'
     )
     parser.add_argument(
         '--mode', 

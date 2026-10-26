@@ -1,10 +1,33 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction, type TouchEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { apiGet, apiPost } from "../../lib/api";
-import type { ModuleQuizQuestion } from "../../domain/module/module.types";
-import VisualizerRenderer from "../../stubs/VisualizerRenderer";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { apiGet, apiPost, apiPatch, ApiError } from "../../lib/api";
+import {
+  recordAnswer,
+  flush as flushOutbox,
+  clearAttempt as clearOutbox,
+  type OutboxItem,
+} from "../../lib/attemptOutbox";
+import { useCountdown } from "../../hooks/useCountdown";
+import { useFlushOnHidden } from "../../hooks/useFlushOnHidden";
+import { useFullscreen } from "../../hooks/useFullscreen";
+import { useFlushCounter } from "../../hooks/useFlushCounter";
+import { useIsNarrowViewport } from "../../hooks/useIsNarrowViewport";
+import Cronometro from "../../components/quizzes/Cronometro";
+import type {
+  ModoPresentacion,
+  ModuleQuizQuestion,
+} from "../../domain/module/module.types";
+import {
+  MODO_PRESENTACION_DEFAULT,
+  PREGUNTAS_POR_PAGINA_DEFAULT as PREG_PAG_DEFAULT,
+} from "../../domain/module/module.types";
+import VisualizerRenderer from "../../components/modulos/VisualizerRenderer";
 import type { VisualSpec } from "../../generadoresV2/core/types";
 import type { GeneratorDescriptor, Ejercicio } from "../../generadoresV2/core/types";
+import PostSubmitResult from "../../components/quizzes/PostSubmitResult";
+import CanjearTickets from "../../components/quizzes/CanjearTickets";
+import RepasoIntento from "../../components/quizzes/RepasoIntento";
 import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import { ejercicioToQuestion } from "../../domain/quiz/ejercicioToQuestion";
 import {
@@ -23,7 +46,23 @@ import OrdenarRenderer from "../../components/quiz-renderers/OrdenarRenderer";
 import MarcarMapaRenderer from "../../components/quiz-renderers/MarcarMapaRenderer";
 import AnalisisSintacticoRenderer from "../../components/quiz-renderers/AnalisisSintacticoRenderer";
 import IdentificarPalabrasRenderer from "../../components/quiz-renderers/IdentificarPalabrasRenderer";
+import AnalisisSpansRenderer from "../../components/quiz-renderers/AnalisisSpansRenderer";
 import { buildCorrectasFromEtiquetas } from "../../domain/quiz/checkAnswerSpecial";
+import {
+  Card,
+  Button,
+  Alert,
+  Badge,
+  Spinner,
+  Radio,
+  RadioGroup,
+  Checkbox,
+  Input,
+  Textarea,
+  Divider,
+} from "../../ui";
+import Progress from "../../ui/Progress";
+import { useI18n } from "../../i18n/I18nContext";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -49,6 +88,9 @@ type QuizAttemptResponse = {
   quizId?: string;
   quizTitle?: string;
   status?: string;
+  /** WO-T2a — score/maxScore persistidos, para el resumen en modo revisión. */
+  score?: number;
+  maxScore?: number;
   questions?: ModuleQuizQuestion[];
   answers?: Record<string, AttemptAnswerValue> | Array<Record<string, unknown>>;
   quiz?: {
@@ -63,6 +105,44 @@ type QuizAttemptResponse = {
   displayCount?: number;
   quizType?: string;
   composition?: QuizComposition;
+  /**
+   * F4-03 — Si es `true`, el render post-submit del alumno NO muestra
+   * el `Puntaje: X / Y` ni el porcentaje en el `message` del backend;
+   * sólo la nota. Default `false` (mostrar).
+   */
+  ocultarPuntos?: boolean;
+  /**
+   * F4-04 — Timer per-cuestionario (segundos). Si está presente y > 0,
+   * el runner inicia un cronómetro que auto-envía al llegar a 0.
+   * `null`/`undefined` = sin timer. Antes de F4-04 era hardcodeado a
+   * 10 min exclusivo del modo competencia.
+   */
+  timerSegundos?: number | null;
+  /**
+   * WO-3b — deadline absoluto (ISO), calculado server-side desde
+   * `startedAt + timerSegundos`. PLAN-Q §2.3: ancla la cuenta regresiva al
+   * reloj real en vez de sólo contar ticks de `setInterval` — un
+   * `setInterval` se pausa/atrasa con la pantalla apagada o la app en
+   * segundo plano en el teléfono, y `timerSegundos` solo no distingue un
+   * intento recién arrancado de uno reanudado con tiempo ya consumido.
+   */
+  deadline?: string | null;
+  /**
+   * F4-04 — Si es `true`, el botón "Iniciar evaluación" llama a
+   * `document.documentElement.requestFullscreen()` antes de cargar el
+   * quiz. Default `false`.
+   */
+  fullscreenOnStart?: boolean;
+  /**
+   * WO-9 — Modo de presentación del cuestionario. Default `lista` (preserva
+   * el comportamiento previo). Sólo el reproductor del alumno lo lee.
+   */
+  modoPresentacion?: ModoPresentacion;
+  /**
+   * WO-9 — Tamaño de página cuando `modoPresentacion === "paginado"`.
+   * Default 5.
+   */
+  preguntasPorPagina?: number;
 };
 
 type SubmitResponse = {
@@ -118,6 +198,7 @@ const normalizeAnswers = (
 };
 
 export default function QuizAttempt() {
+  const { t } = useI18n();
   const { attemptId } = useParams();
   const navigate = useNavigate();
   const [attempt, setAttempt] = useState<QuizAttemptResponse | null>(null);
@@ -127,17 +208,20 @@ export default function QuizAttempt() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "submitted" | "error">(
     "idle"
   );
+  // PLAN-D §2 — estado visible del autosave (F5-01 ya guarda cada respuesta
+  // en el server; esto sólo refleja ese guardado en la UI, no cambia la
+  // lógica de persistencia).
+  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "queued">("idle");
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResponse | null>(null);
   const [openPasos, setOpenPasos] = useState<Record<string, boolean>>({});
   const [generatedQuestions, setGeneratedQuestions] =
     useState<ModuleQuizQuestion[]>([]);
-  const [tiempoRestante, setTiempoRestante] =
-    useState<number | null>(null);
   const [tiempoInicio, setTiempoInicio] = useState<number | null>(null);
   const [ranking, setRanking] = useState<RankingEntry[]>([]);
   const [rankingLoading, setRankingLoading] = useState(false);
-  const [modoCompetencia, setModoCompetencia] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [fullscreenWarning, setFullscreenWarning] = useState(false);
 
   useEffect(() => {
     if (!attemptId) return;
@@ -150,19 +234,39 @@ export default function QuizAttempt() {
         setAttempt(data);
         setAnswers(normalizeAnswers(data.answers));
         setStatus("ready");
-        if (data.quizType === "competencia") {
-          setModoCompetencia(true);
-          // Timer de 10 minutos por defecto
-          const duracionSeg = 10 * 60;
-          setTiempoRestante(duracionSeg);
-          setTiempoInicio(Date.now());
+        // WO-T2a — modo revisión: un intento que ya no está `in_progress`
+        // (submitted/pending_review/graded/aborted/expired) se abre en
+        // read-only, sin timer ni gate de fullscreen, mostrando el
+        // resultado persistido en vez de esperar un submit nuevo.
+        const finished = data.status !== undefined && data.status !== "in_progress";
+        if (finished) {
+          setSubmitStatus("submitted");
+          setResult({ score: data.score, maxScore: data.maxScore });
+          setTiempoInicio(null);
+          setHasStarted(true);
+          setFullscreenWarning(false);
+          return;
         }
+        const timerSeg = typeof data.timerSegundos === "number" && data.timerSegundos > 0
+          ? data.timerSegundos
+          : null;
+        if (timerSeg !== null) {
+          setTiempoInicio(Date.now());
+        } else {
+          setTiempoInicio(null);
+        }
+        if (data.fullscreenOnStart === true) {
+          setHasStarted(false);
+        } else {
+          setHasStarted(true);
+        }
+        setFullscreenWarning(false);
       })
       .catch((error) => {
         if (!active) return;
         setStatus("error");
         setErrorMessage(
-          error instanceof Error ? error.message : "No se pudo cargar el intento."
+          error instanceof Error ? error.message : t("quizAttempt.noSePudoCargarEl")
         );
       });
     return () => {
@@ -178,25 +282,18 @@ export default function QuizAttempt() {
     const serverQuestions = attempt.questions ?? attempt.quiz?.questions ?? [];
     if (!genId || serverQuestions.length > 0) return;
 
-    // ── Plantilla VBLang ───────────────────────────────────────────────────
-    // Convención: generatorId === "plantilla:<plantillaId>". Levantamos el
-    // codigoDsl desde la API y materializamos las N preguntas con seeds
-    // derivados de `seed-<i>` para mantener determinismo por intento.
     if (genId.startsWith("plantilla:")) {
       const plantillaId = genId.slice("plantilla:".length);
       let cancelled = false;
       void getPlantilla(plantillaId)
         .then(async (p) => {
           if (cancelled) return;
-          // Sprint 10A: precargar dataset si la plantilla lo necesita.
-          // Si el parse falla acá, seguimos sin precargar: runPlantilla
-          // va a tirar el error real en el catch de abajo.
           try {
             const ast = parsePlantilla(p.codigoDsl);
             const ds = extractDatasetName(ast);
             if (ds) await precargarDataset(ds);
           } catch {
-            // ignorar — runPlantilla reportará el error real por pregunta.
+            // ignorar
           }
           if (cancelled) return;
           const baseSeed = seed !== undefined && seed !== null ? String(seed) : "0";
@@ -204,10 +301,6 @@ export default function QuizAttempt() {
           const errores: string[] = [];
           const maxIntentos = count * 3;
           let intentos = 0;
-          // Reintentamos hasta 3×count seeds derivados. Esto cubre plantillas
-          // con restricciones difíciles que fallan en algunas seeds: el resto
-          // del quiz sigue siendo jugable mientras logremos generar `count`
-          // preguntas distintas.
           while (out.length < count && intentos < maxIntentos) {
             try {
               const q = runPlantilla(p.codigoDsl, {
@@ -227,17 +320,12 @@ export default function QuizAttempt() {
           }
           setGeneratedQuestions(out);
         })
-        .catch(() => {
-          // Plantilla no accesible o no existe — sin questions, el quiz
-          // mostrará el mensaje "Sin preguntas asignadas".
-        });
+        .catch(() => {});
       return () => {
         cancelled = true;
       };
     }
 
-    // Importar dinámicamente el generador según el id
-    // Formato del id: "materia/subtipo" ej "biologia/biologia"
     const [materia] = genId.split("/");
 
     const loadGeneratorModule = (mat: string) => {
@@ -261,51 +349,47 @@ export default function QuizAttempt() {
 
     loadGeneratorModule(materia).then((mod) => {
         const prng = new DeterministicPrng(seed ?? 0);
-
-        // Obtener el generador que coincide con el id
         const descriptores: GeneratorDescriptor[] =
           typeof (mod as Record<string, unknown>).getDescriptores === "function"
             ? ((mod as Record<string, unknown>).getDescriptores as (p: typeof prng) => GeneratorDescriptor[])(prng)
             : typeof (mod as Record<string, unknown>)[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] === "function"
             ? ((mod as Record<string, unknown>)[`getDescriptores${materia.charAt(0).toUpperCase() + materia.slice(1)}`] as (p: typeof prng) => GeneratorDescriptor[])(prng)
             : [];
-
         const descriptor = descriptores.find((d) => d.id === genId);
         if (!descriptor) return;
-
         const params = attempt.params ?? {};
         const enunciadosPersonalizados = params.enunciadosPersonalizados as Record<string, string> | undefined;
-        // Pool de subtipos (task 4): se sortea entre los elegidos por el profe;
-        // vacío = todos al azar. Determinístico por seed.
         const pool = resolveSubtipoPool(descriptor.subtipos, params);
         const ejercicios: Ejercicio[] = Array.from({ length: count }, () => {
           const st = pool[prng.int(0, pool.length - 1)];
           const template = enunciadosPersonalizados?.[st];
           return descriptor.generate(undefined, prng, st, template);
         });
-
         setGeneratedQuestions(ejercicios.map(ejercicioToQuestion));
       })
-      .catch(() => {
-        // El generador no está disponible en el cliente
-      });
+      .catch(() => {});
   }, [attempt]);
 
   useEffect(() => {
-    if (!modoCompetencia || tiempoRestante === null) return;
-    if (tiempoRestante <= 0) {
-      // Auto-submit al llegar a 0
-      void handleSubmit();
-      return;
-    }
-    const interval = setInterval(() => {
-      setTiempoRestante((prev) =>
-        prev !== null ? Math.max(0, prev - 1) : null
-      );
-    }, 1000);
-    return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modoCompetencia, tiempoRestante]);
+    const id = resolveAttemptId(attempt);
+    if (!id || submitStatus === "submitted") return;
+    const onOnline = () => {
+      void flushOutbox(async (item: OutboxItem) => {
+        try {
+          await apiPost(`/api/quiz-attempts/${id}/answer`, {
+            questionId: item.questionId,
+            response: item.response,
+          });
+          return { ok: true };
+        } catch (err) {
+          if (err instanceof ApiError && err.status === 409) return { ok: false, terminal: true };
+          return { ok: false };
+        }
+      }, id);
+    };
+    window.addEventListener("online", onOnline);
+    return () => window.removeEventListener("online", onOnline);
+  }, [attempt, submitStatus]);
 
   const formatTiempo = (seg: number) => {
     const m = Math.floor(seg / 60);
@@ -318,19 +402,29 @@ export default function QuizAttempt() {
     [attempt?.composition],
   );
 
-  // Preguntas que el reproductor PRESENTA (aplica pool, selección y variantes).
   const presentedQuestions = useMemo(() => {
     if (!attempt) return [] as ModuleQuizQuestion[];
-    const server = attempt.questions ?? attempt.quiz?.questions ?? [];
+    const raw = attempt.questions ?? attempt.quiz?.questions ?? [];
+    let server: ModuleQuizQuestion[];
+    if (Array.isArray(raw)) {
+      server = raw as ModuleQuizQuestion[];
+    } else if (typeof raw === "string") {
+      try {
+        const parsed = JSON.parse(raw);
+        server = Array.isArray(parsed) ? (parsed as ModuleQuizQuestion[]) : [];
+      } catch {
+        server = [];
+      }
+    } else {
+      server = [];
+    }
     const pool = server.length > 0 ? server : generatedQuestions;
     const seed = attempt.seed ?? "0";
 
     let presented: ModuleQuizQuestion[];
     if (composition) {
-      // Política de pool configurable (Decisión 1): fijo/azar/elige_alumno.
       const indices = selectPoolIndices(pool.length, composition, seed);
       presented = indices.map((i) => pool[i]);
-      // Variantes de consigna: la serie elige una por seed/posición.
       if (composition.variantes && composition.variantes.length > 0) {
         presented = presented.map((q, i) => {
           const variante = pickVariante(composition.variantes, seed, i);
@@ -340,7 +434,6 @@ export default function QuizAttempt() {
       return presented;
     }
 
-    // Fallback histórico: displayCount + barajado determinístico por seed.
     const display = attempt.displayCount;
     if (!display || display >= pool.length) return pool;
     const seedVal = typeof attempt.seed === "number"
@@ -361,11 +454,33 @@ export default function QuizAttempt() {
     return indices.slice(0, display).map((i) => pool[i]);
   }, [attempt, generatedQuestions, composition]);
 
-  // Para `elige_alumno`: el alumno elige cuál responder; solo esa puntúa.
   const eligeAlumno = composition?.seleccion === "elige_alumno";
   const [chosenQuestionId, setChosenQuestionId] = useState<string | null>(null);
 
-  // Preguntas efectivamente respondibles. En elige_alumno, solo la elegida.
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
+  const modoPresentacionServidor: ModoPresentacion =
+    attempt?.modoPresentacion ?? MODO_PRESENTACION_DEFAULT;
+  const isNarrowViewport = useIsNarrowViewport();
+  // PLAN-Q §2.1 — en el teléfono, sugerir "una por pantalla" cuando el
+  // docente no configuró nada explícito (quedó en "lista", el default de
+  // WO-9). No pisa "paginado" (elegido a propósito) y el alumno puede
+  // volver a la lista con el toggle — preferencia de sesión, no se
+  // persiste ni cambia la config del profesor.
+  const [modoOverride, setModoOverride] = useState<ModoPresentacion | null>(null);
+  const sugerenciaMobileDisponible =
+    modoPresentacionServidor === "lista" &&
+    isNarrowViewport &&
+    !eligeAlumno &&
+    presentedQuestions.length > 1;
+  const modoPresentacion: ModoPresentacion =
+    modoOverride ??
+    (sugerenciaMobileDisponible ? "una_por_pantalla" : modoPresentacionServidor);
+  const preguntasPorPagina =
+    typeof attempt?.preguntasPorPagina === "number" && attempt.preguntasPorPagina >= 1
+      ? Math.floor(attempt.preguntasPorPagina)
+      : PREG_PAG_DEFAULT;
+
   const questions = useMemo(() => {
     if (!eligeAlumno) return presentedQuestions;
     if (!chosenQuestionId) return [] as ModuleQuizQuestion[];
@@ -374,19 +489,142 @@ export default function QuizAttempt() {
 
   const title = attempt?.quizTitle ?? attempt?.quiz?.title ?? "Quiz";
 
+  useEffect(() => {
+    if (questions.length === 0) return;
+    if (slideIndex >= questions.length) setSlideIndex(questions.length - 1);
+    if (pageIndex * preguntasPorPagina >= questions.length && pageIndex > 0) {
+      setPageIndex(Math.floor((questions.length - 1) / preguntasPorPagina));
+    }
+  }, [questions.length, slideIndex, pageIndex, preguntasPorPagina]);
+
+  const visibleQuestions = useMemo(() => {
+    if (modoPresentacion === "una_por_pantalla") {
+      return questions.slice(slideIndex, slideIndex + 1);
+    }
+    if (modoPresentacion === "paginado") {
+      const start = pageIndex * preguntasPorPagina;
+      return questions.slice(start, start + preguntasPorPagina);
+    }
+    return questions;
+  }, [questions, modoPresentacion, slideIndex, pageIndex, preguntasPorPagina]);
+
+  const totalPaginas = Math.max(
+    1,
+    Math.ceil(questions.length / preguntasPorPagina),
+  );
+  const preguntaGlobal = (index: number) => {
+    if (modoPresentacion === "una_por_pantalla") return slideIndex + 1;
+    if (modoPresentacion === "paginado") return pageIndex * preguntasPorPagina + index + 1;
+    return index + 1;
+  };
+  const goPrev = () => {
+    if (modoPresentacion === "una_por_pantalla") {
+      setSlideIndex((i) => Math.max(0, i - 1));
+    } else if (modoPresentacion === "paginado") {
+      setPageIndex((i) => Math.max(0, i - 1));
+    }
+  };
+  const goNext = () => {
+    if (modoPresentacion === "una_por_pantalla") {
+      setSlideIndex((i) => Math.min(questions.length - 1, i + 1));
+    } else if (modoPresentacion === "paginado") {
+      setPageIndex((i) => Math.min(totalPaginas - 1, i + 1));
+    }
+  };
+  const goTo = (i: number) => {
+    if (modoPresentacion === "una_por_pantalla") {
+      setSlideIndex(Math.max(0, Math.min(questions.length - 1, i)));
+    } else if (modoPresentacion === "paginado") {
+      setPageIndex(Math.max(0, Math.min(totalPaginas - 1, i)));
+    }
+  };
+
+  // PLAN-Q §2.2 — swipe horizontal en modo "una por pantalla" (gesto
+  // esperado en teléfono, antes sólo flechas/botones). Umbral 50px y
+  // exige que el desplazamiento sea más horizontal que vertical, para no
+  // interceptar un scroll vertical de la pregunta.
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const handleSlideTouchStart = (e: TouchEvent) => {
+    const t = e.touches[0];
+    touchStartRef.current = t ? { x: t.clientX, y: t.clientY } : null;
+  };
+  const handleSlideTouchEnd = (e: TouchEvent) => {
+    const start = touchStartRef.current;
+    touchStartRef.current = null;
+    const t = e.changedTouches[0];
+    if (!start || !t) return;
+    const deltaX = t.clientX - start.x;
+    const deltaY = t.clientY - start.y;
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+    if (deltaX < 0) goNext();
+    else goPrev();
+  };
+
+  // PLAN-D §2 — accesibilidad: navegar entre preguntas/páginas con las
+  // flechas del teclado, sin interferir con la edición de texto (se
+  // ignora si el foco está en un input/textarea/select).
+  const goPrevRef = useRef(goPrev);
+  goPrevRef.current = goPrev;
+  const goNextRef = useRef(goNext);
+  goNextRef.current = goNext;
+  useEffect(() => {
+    if (modoPresentacion === "lista") return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goPrevRef.current();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goNextRef.current();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [modoPresentacion]);
+
   const handleAnswerChange = (questionId: string, value: AttemptAnswerValue) => {
+    // WO-T2a — defensa en profundidad: en modo revisión los inputs ya están
+    // disabled, pero no se debe persistir ninguna respuesta nueva.
+    if (submitStatus === "submitted") return;
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
+    const id = resolveAttemptId(attempt);
+    if (id && (typeof value === "string" || Array.isArray(value))) {
+      recordAnswer(id, questionId, value);
+      setSaveStatus("saving");
+      apiPost(`/api/quiz-attempts/${id}/answer`, {
+        questionId,
+        response: value,
+      })
+        .then(() => setSaveStatus("saved"))
+        .catch(() => setSaveStatus("queued"));
+    }
   };
 
   const handleToggleCheckbox = (questionId: string, option: string, checked: boolean) => {
+    // WO-T2a — ver nota en `handleAnswerChange`.
+    if (submitStatus === "submitted") return;
+    let next: string[] = [];
     setAnswers((prev) => {
       const current = prev[questionId];
       const currentList = Array.isArray(current) ? current : [];
-      const next = checked
+      next = checked
         ? Array.from(new Set([...currentList, option]))
         : currentList.filter((item) => item !== option);
       return { ...prev, [questionId]: next };
     });
+    const id = resolveAttemptId(attempt);
+    if (id) {
+      recordAnswer(id, questionId, next);
+      setSaveStatus("saving");
+      apiPost(`/api/quiz-attempts/${id}/answer`, {
+        questionId,
+        response: next,
+      })
+        .then(() => setSaveStatus("saved"))
+        .catch(() => setSaveStatus("queued"));
+    }
   };
 
   const handleSubmit = async () => {
@@ -394,8 +632,21 @@ export default function QuizAttempt() {
     setSubmitStatus("submitting");
     setSubmitMessage(null);
     try {
-      // Ids efectivamente presentados/respondibles (tras pool/selección o, en
-      // elige_alumno, solo la elegida). El servidor corrige exactamente estos.
+      const id = resolveAttemptId(attempt);
+      if (id) {
+        await flushOutbox(async (item: OutboxItem) => {
+          try {
+            await apiPost(`/api/quiz-attempts/${id}/answer`, {
+              questionId: item.questionId,
+              response: item.response,
+            });
+            return { ok: true };
+          } catch (err) {
+            if (err instanceof ApiError && err.status === 409) return { ok: false, terminal: true };
+            return { ok: false };
+          }
+        }, id);
+      }
       const presentedIds = questions.map((q) => q.id);
       const presentedSet = new Set(presentedIds);
       const submitGenerated =
@@ -407,12 +658,16 @@ export default function QuizAttempt() {
                 answerKey: q.answerKey,
                 points: q.points,
                 toleranciaRelativa: q.toleranciaRelativa,
-                // WO07 — abierta: el server necesita el modo para no auto-corregir
-                // (manual queda pendiente; ninguna no puntúa) y el enunciado para
-                // mostrarlo en la pantalla de corrección.
+                toleranciaAbsoluta: q.toleranciaAbsoluta,
+                // WO-11 — el server necesita el tipo para activar equivalencia
+                // simbólica ("expresion") en el path no-autoritativo.
+                questionType: q.questionType,
                 ...(q.correccion ? { correccion: q.correccion } : {}),
                 ...(q.manualGrading ? { manualGrading: q.manualGrading } : {}),
                 ...(q.questionType === "abierta" ? { prompt: q.prompt } : {}),
+                // PLAN-E §21 — sin esto, el path no-autoritativo corrige
+                // proporcional como todo-o-nada.
+                ...(q.puntajeParcial ? { puntajeParcial: q.puntajeParcial } : {}),
               }))
           : undefined;
       const response = await apiPost<SubmitResponse>(
@@ -426,12 +681,16 @@ export default function QuizAttempt() {
       setResult(response);
       setSubmitStatus("submitted");
       setSubmitMessage(response.message ?? "Respuestas enviadas para corrección.");
-      if (modoCompetencia && tiempoInicio) {
+      // El submit puede haber acreditado monedas (primer cuestionario
+      // completado) — mismo evento que usa TiendaTemas.tsx para que el
+      // CoinBadge de la navbar se refresque sin recargar la página.
+      window.dispatchEvent(new CustomEvent("vb:coins-updated"));
+      if (id) clearOutbox(id);
+      const esCompetenciaParaRanking = attempt?.quizType === "competencia";
+      if (esCompetenciaParaRanking && tiempoInicio) {
         const tiempoSeg = Math.floor((Date.now() - tiempoInicio) / 1000);
         const quizId = attempt?.quizId ?? "";
         const moduloId = attempt?.moduleId ?? "";
-
-        // Registrar en competencia
         void apiPost(`/api/quiz-attempts/${attemptId}/competencia`, {
           score: response?.score ?? 0,
           maxScore: response?.maxScore ?? 0,
@@ -439,8 +698,6 @@ export default function QuizAttempt() {
           quizId,
           moduloId,
         });
-
-        // Cargar ranking
         setRankingLoading(true);
         apiGet<{ ranking: RankingEntry[] }>(
           `/api/quiz-attempts/competencia/${quizId}/ranking`
@@ -452,377 +709,1048 @@ export default function QuizAttempt() {
     } catch (error) {
       setSubmitStatus("error");
       setSubmitMessage(
-        error instanceof Error ? error.message : "No se pudo enviar el intento."
+        error instanceof Error ? error.message : t("quizAttempt.noSePudoEnviarEl")
       );
     }
   };
 
+  // WO-T2a — en modo revisión (intento ya finalizado) el cronómetro no debe
+  // correr: no hay nada que enviar, y `onExpire` dispararía un submit sobre
+  // un intento ya cerrado.
+  const isFinishedAttempt = attempt?.status !== undefined && attempt.status !== "in_progress";
+  const timerSegundosValue =
+    !isFinishedAttempt && typeof attempt?.timerSegundos === "number" && attempt.timerSegundos > 0
+      ? attempt.timerSegundos
+      : null;
+  const fullscreenEnabled = attempt?.fullscreenOnStart === true;
+
+  // PLAN-Q §2.3 — segundos restantes ANCLADOS a `attempt.deadline` (reloj
+  // real), no sólo a `timerSegundos` (duración total, ciega a cuánto ya
+  // pasó si el intento se reanuda) ni a los ticks acumulados de
+  // `setInterval` (que se atrasan con la pantalla apagada / la app en
+  // segundo plano). `resyncTick` fuerza un recálculo cuando la pestaña
+  // vuelve a estar visible; useCountdown ya resetea su estado interno
+  // cada vez que `initialSeconds` cambia, así que reusarlo alcanza — no
+  // hace falta tocar ese hook.
+  const [resyncTick, setResyncTick] = useState(0);
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.visibilityState === "visible") setResyncTick((n) => n + 1);
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, []);
+  const remainingFromDeadline = useMemo(() => {
+    if (timerSegundosValue === null || !attempt?.deadline) return null;
+    const ms = new Date(attempt.deadline).getTime() - Date.now();
+    if (Number.isNaN(ms)) return null;
+    return Math.max(0, Math.round(ms / 1000));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timerSegundosValue, attempt?.deadline, resyncTick]);
+  const countdownInitialSeconds = remainingFromDeadline ?? timerSegundosValue;
+
+  const countdown = useCountdown({
+    initialSeconds: countdownInitialSeconds,
+    onExpire: () => {
+      if (submitStatus !== "submitted" && submitStatus !== "submitting") {
+        void handleSubmit();
+      }
+    },
+  });
+
+  useFlushOnHidden(() => {
+    const id = resolveAttemptId(attempt);
+    if (!id || submitStatus === "submitted") return;
+    void flushOutbox(async (item: OutboxItem) => {
+      try {
+        await apiPost(`/api/quiz-attempts/${id}/answer`, {
+          questionId: item.questionId,
+          response: item.response,
+        });
+        return { ok: true };
+      } catch (err) {
+        if (err instanceof ApiError && err.status === 409) return { ok: false, terminal: true };
+        return { ok: false };
+      }
+    }, id);
+  });
+
+  const fullscreen = useFullscreen({
+    enabled: fullscreenEnabled,
+    onFallback: () => setFullscreenWarning(true),
+  });
+
+  const tabSwitchCounter = useFlushCounter({
+    enabled: hasStarted && submitStatus !== "submitted",
+  });
+
+  useEffect(() => {
+    if (!hasStarted || submitStatus === "submitted") return;
+    const id = resolveAttemptId(attempt);
+    if (!id || tabSwitchCounter.count === 0) return;
+    void apiPatch(`/api/quiz-attempts/${id}`, {
+      tabSwitchCount: tabSwitchCounter.count
+    }).catch(() => {});
+  }, [tabSwitchCounter.count, hasStarted, submitStatus, attempt]);
+
+  // ── Answered-count for progress indicator ────────────────────────────────
+  const answeredCount = useMemo(
+    () => questions.filter((q) => {
+      const a = answers[q.id];
+      if (a === undefined || a === null) return false;
+      if (typeof a === "string") return a.trim().length > 0;
+      if (Array.isArray(a)) return a.length > 0;
+      return Object.keys(a).length > 0;
+    }).length,
+    [questions, answers],
+  );
+
+  // ── Loading state ────────────────────────────────────────────────────────
   if (status === "loading") {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-100">
-        <p className="text-gray-500">Cargando intento...</p>
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--c-bg)",
+      }}>
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "var(--space-3)",
+        }}>
+          <Spinner size="lg" label="Cargando intento" />
+          <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("intentoDetalle.cargandoIntento")}</p>
+        </div>
       </main>
     );
   }
 
+  // PLAN-Q §2.2 — teclado numérico en el teléfono para preguntas "input"
+  // cuya respuesta correcta es un número (ej. cinemática: "v * t"). No hay
+  // un campo explícito de tipo de dato en ModuleQuizQuestion; se infiere
+  // de answerKey, que no afecta la corrección (sigue comparando strings).
+  function esRespuestaNumerica(answerKey: string | string[] | undefined): boolean {
+    const val = Array.isArray(answerKey) ? answerKey[0] : answerKey;
+    return typeof val === "string" && val.trim() !== "" && !Number.isNaN(Number(val));
+  }
+
+  // ── Render question ──────────────────────────────────────────────────────
+  function renderPregunta(
+    question: ModuleQuizQuestion,
+    indexGlobal: number,
+    inputsDisabledLocal: boolean,
+    submitStatusLocal: "idle" | "submitting" | "submitted" | "error",
+    openPasosLocal: Record<string, boolean>,
+    setOpenPasosLocal: Dispatch<SetStateAction<Record<string, boolean>>>,
+    handleAnswerChangeLocal: (questionId: string, value: AttemptAnswerValue) => void,
+    handleToggleCheckboxLocal: (questionId: string, option: string, checked: boolean) =>void, answersLocal: Record<string, AttemptAnswerValue>,
+  ) {
+    const selected = answersLocal[question.id] ?? "";
+    const hasOptions = Array.isArray(question.options) && question.options.length > 0;
+    const questionType = question.questionType ?? (hasOptions ? "mc" : "input");
+    // PLAN-E §21 Parte A: el flag `multiple` sobrevive la sanitización (el
+    // answerKey del alumno es un canario string, no un array).
+    const isMulti =
+      hasOptions && (question.multiple === true || Array.isArray(question.answerKey));
+    return (
+      <>
+        {parseVisualContext(question.visualContext) ? (
+          <Card variant="flat" padding="none" style={{ overflow: "hidden" }}>
+            <div style={{
+              padding: "var(--space-2) var(--space-3)",
+              borderBottom: "1px solid var(--c-border)",
+              background: "var(--c-info-soft)",
+            }}>
+              <Badge variant="info" size="sm">{t("quizAttempt.herramientaInteractiva")}</Badge>
+            </div>
+            {/* PLAN-Q §2.2 — visuales con ancho fijo (ej. circuit 360px, vector-diagram
+                300px) scrollean DENTRO de la tarjeta en viewport angosto, nunca empujan
+                la página entera. El overflow:hidden de la Card recorta las esquinas, no
+                el contenido: el scroll vive en este div interno. */}
+            <div style={{ padding: "var(--space-3)", background: "var(--c-surface)", overflowX: "auto" }}>
+              <VisualizerRenderer spec={parseVisualContext(question.visualContext)!} />
+            </div>
+          </Card>
+        ) : null}
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+          <p style={{
+            margin: 0,
+            fontSize: "var(--text-xs)",
+            fontWeight: "var(--fw-medium)",
+            color: "var(--c-muted)",
+          }}>
+            Pregunta {indexGlobal}
+          </p>
+          <p style={{
+            margin: 0,
+            fontSize: "var(--text-base)",
+            lineHeight: "var(--lh-relaxed)",
+            color: "var(--c-text)",
+          }}>
+            {question.prompt}
+          </p>
+        </div>
+        {questionType === "ordenar" ? (
+          <OrdenarRenderer
+            items={question.items ?? []}
+            value={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(orden) => handleAnswerChangeLocal(question.id, orden)}
+            disabled={inputsDisabledLocal}
+            correctOrder={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "marcar_mapa" ? (
+          <MarcarMapaRenderer
+            mapaId={question.mapaId ?? ""}
+            selectedKey={typeof selected === "string" ? selected : undefined}
+            correctKey={
+              submitStatusLocal === "submitted"
+                ? (question.modoRespuestaMapa === "nombre"
+                  ? question.respuestaNombreCorrecta
+                  : question.respuestaIsoCorrecta)
+                : undefined
+            }
+            onSelect={(key) => handleAnswerChangeLocal(question.id, key)}
+            disabled={inputsDisabledLocal}
+            paisIso={question.paisIso}
+            modoRespuesta={question.modoRespuestaMapa ?? "iso"}
+            encuadre={question.encuadre}
+          />
+        ) : questionType === "analisis_sintactico" ? (
+          <AnalisisSintacticoRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            etiquetasPedidas={question.etiquetasPedidas ?? []}
+            asignaciones={
+              selected && typeof selected === "object" && !Array.isArray(selected)
+                ? (selected as Record<string, string>)
+                : undefined
+            }
+            onChange={(asign) => handleAnswerChangeLocal(question.id, asign)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted"
+                ? buildCorrectasFromEtiquetas(question.etiquetasPedidas)
+                : undefined
+            }
+          />
+        ) : questionType === "identificar_palabras" ? (
+          <IdentificarPalabrasRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(marcadas) => handleAnswerChangeLocal(question.id, marcadas)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "analisis_spans" ? (
+          <AnalisisSpansRenderer
+            textoAnalizar={question.textoAnalizar ?? ""}
+            etiquetasDisponibles={question.etiquetasDisponibles ?? []}
+            value={Array.isArray(selected) ? (selected as string[]) : undefined}
+            onChange={(spans) => handleAnswerChangeLocal(question.id, spans)}
+            disabled={inputsDisabledLocal}
+            correctas={
+              submitStatusLocal === "submitted" && Array.isArray(question.answerKey)
+                ? (question.answerKey as string[])
+                : undefined
+            }
+          />
+        ) : questionType === "abierta" ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+            <Textarea
+              rows={4}
+              value={typeof selected === "string" ? selected : ""}
+              onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
+              placeholder={t("quizAttempt.escribiTuRespuesta")}
+              disabled={inputsDisabledLocal}
+              aria-label={`Respuesta para pregunta ${indexGlobal}`}
+            />
+            {question.correccion === "manual" ? (
+              <Alert variant="warning" role="status">
+                {submitStatusLocal === "submitted"
+                  ? "Pendiente de corrección por el profesor."
+                  : "Esta pregunta la corrige tu profesor (puntaje parcial)."}
+              </Alert>
+            ) : (
+              <p style={{
+                margin: 0,
+                fontSize: "var(--text-xs)",
+                color: "var(--c-muted)",
+              }}>{t("quizAttempt.preguntaInformativaNoAfectaTu")}</p>
+            )}
+          </div>
+        ) : questionType === "input" ? (
+          <Textarea
+            rows={3}
+            value={typeof selected === "string" ? selected : ""}
+            onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
+            placeholder={t("quizAttempt.escribiTuRespuesta")}
+            disabled={inputsDisabledLocal}
+            aria-label={`Respuesta para pregunta ${indexGlobal}`}
+          />
+        ) : questionType === "vf" ? (
+          <RadioGroup
+            aria-label={`Opciones para pregunta ${indexGlobal}`}
+            value={typeof selected === "string" ? selected : null}
+            onValueChange={(val) => handleAnswerChangeLocal(question.id, val)}
+          >
+            {["Verdadero", "Falso"].map((option) => (
+              <Radio
+                key={option}
+                value={option}
+                label={option}
+                disabled={inputsDisabledLocal}
+                style={{ minHeight: "44px" }}
+              />
+            ))}
+          </RadioGroup>
+        ) : hasOptions ? (
+          isMulti ? (
+            <div
+              role="group"
+              aria-label={`Opciones para pregunta ${indexGlobal}`}
+              style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
+            >
+              {question.options?.map((option) => (
+                <Checkbox
+                  key={option}
+                  label={option}
+                  checked={Array.isArray(selected) && selected.includes(option)}
+                  onChange={(event) => {
+                    handleToggleCheckboxLocal(question.id, option, event.target.checked);
+                  }}
+                  disabled={inputsDisabledLocal}
+                  style={{ minHeight: "44px" }}
+                />
+              ))}
+            </div>
+          ) : (
+            <RadioGroup
+              aria-label={`Opciones para pregunta ${indexGlobal}`}
+              value={typeof selected === "string" ? selected : null}
+              onValueChange={(val) => handleAnswerChangeLocal(question.id, val)}
+            >
+              {question.options?.map((option) => (
+                <Radio
+                  key={option}
+                  value={option}
+                  label={option}
+                  disabled={inputsDisabledLocal}
+                  style={{ minHeight: "44px" }}
+                />
+              ))}
+            </RadioGroup>
+          )
+        ) : (
+          <Input
+            type="text"
+            inputMode={esRespuestaNumerica(question.answerKey) ? "decimal" : "text"}
+            autoComplete="off"
+            autoCapitalize={esRespuestaNumerica(question.answerKey) ? "off" : "sentences"}
+            value={typeof selected === "string" ? selected : ""}
+            onChange={(event) => handleAnswerChangeLocal(question.id, event.target.value)}
+            placeholder={t("quizAttempt.escribiTuRespuesta")}
+            disabled={inputsDisabledLocal}
+            aria-label={`Respuesta para pregunta ${indexGlobal}`}
+          />
+        )}
+        {submitStatusLocal === "submitted" && question.pasos && question.pasos.length > 0 && (
+          <div style={{ marginTop: "var(--space-2)" }}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() =>
+                setOpenPasosLocal((prev) => ({ ...prev, [question.id]: !prev[question.id] }))
+              }
+              aria-expanded={!!openPasosLocal[question.id]}
+            >
+              {openPasosLocal[question.id] ? "Ocultar resolución" : "Ver resolución"}
+            </Button>
+            {openPasosLocal[question.id] && (
+              <ol style={{
+                margin: 0,
+                marginTop: "var(--space-2)",
+                paddingLeft: "var(--space-5)",
+                fontSize: "var(--text-xs)",
+                lineHeight: "var(--lh-relaxed)",
+                color: "var(--c-muted)",
+                background: "var(--c-info-soft)",
+                borderRadius: "var(--r-md)",
+                padding: "var(--space-3)",
+                border: "1px solid var(--c-border)",
+                listStyle: "decimal",
+                display: "flex",
+                flexDirection: "column",
+                gap: "var(--space-1)",
+              }}>
+                {question.pasos.map((paso, pi) => (
+                  <li key={pi}>{paso}</li>
+                ))}
+              </ol>
+            )}
+          </div>
+        )}
+      </>
+    );
+  }
+
+  // ── Error state ──────────────────────────────────────────────────────────
   if (status === "error") {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white p-6 rounded-xl shadow space-y-3">
-          <p className="text-gray-700">No se pudo cargar el intento.</p>
-          <p className="text-sm text-gray-500">{errorMessage}</p>
-          <button
-            type="button"
-            className="text-blue-600 text-sm hover:underline"
-            onClick={() => navigate(-1)}
-          >
-            Volver
-          </button>
-        </div>
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--c-bg)",
+      }}>
+        <Card variant="elevated" padding="lg" style={{ maxWidth: "28rem" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+            <Alert variant="danger" title={t("intentoDetalle.error")}>{t("intentoDetalle.noSePudoCargarEl")}</Alert>
+            {errorMessage && (
+              <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>
+                {errorMessage}
+              </p>
+            )}
+            <Button variant="ghost" size="sm" onClick={() => navigate(-1)}>{t("comun.volver")}</Button>
+          </div>
+        </Card>
       </main>
     );
   }
 
   if (!attempt) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-100">
-        <p className="text-gray-500">No se encontró el intento solicitado.</p>
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--c-bg)",
+      }}>
+        <p style={{ fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("quizAttempt.noSeEncontroElIntento")}</p>
       </main>
     );
   }
 
   const resolvedAttemptId = resolveAttemptId(attempt);
+  const esCompetencia = attempt?.quizType === "competencia";
+  const inputsDisabled =
+    countdown.isExpired || submitStatus === "submitting" || submitStatus === "submitted";
 
-  return (
-    <main className="min-h-screen bg-gray-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        <header className="space-y-2">
-          <Link className="text-sm text-blue-600 hover:underline" to="/modulos">
-            ← Volver a módulos
-          </Link>
-          <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
-          <p className="text-sm text-gray-500">Intento: {resolvedAttemptId}</p>
-          {modoCompetencia && tiempoRestante !== null && (
-            <div className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold ${
-              tiempoRestante <= 60
-                ? "bg-red-100 text-red-700 animate-pulse"
-                : tiempoRestante <= 180
-                ? "bg-amber-100 text-amber-700"
-                : "bg-emerald-100 text-emerald-700"
-            }`}>
-              ⏱ {formatTiempo(tiempoRestante)}
-            </div>
-          )}
-        </header>
-
-        <section className="bg-white rounded-xl shadow p-6 space-y-6">
-          {attempt?.quizType === "formal" && (
-            <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-xs font-medium text-amber-700">
-              Evaluación formal — cuenta para tu nota
-            </div>
-          )}
-          {attempt?.quizType === "practica" && (
-            <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-medium text-slate-500">
-              Práctica — no afecta tu nota
-            </div>
-          )}
-          {(attempt?.instructions) ? (
-            <div className="rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-800 leading-relaxed">
-              {attempt.instructions}
-            </div>
-          ) : null}
-
-          {/* elige_alumno: el alumno elige cuál ejercicio responder. */}
-          {eligeAlumno && presentedQuestions.length > 0 && (
-            <fieldset className="rounded-xl border border-gray-200 bg-white p-4">
-              <legend className="px-1 text-sm font-semibold text-gray-800">
-                Elegí qué ejercicio querés responder
-              </legend>
-              <p className="mb-2 text-xs text-gray-500">
-                Solo el ejercicio que elijas cuenta para tu nota.
-              </p>
-              <div className="space-y-2">
-                {presentedQuestions.map((q) => (
-                  <label key={q.id} className="flex items-start gap-2 text-sm text-gray-700">
-                    <input
-                      type="radio"
-                      name="elige-alumno-choice"
-                      checked={chosenQuestionId === q.id}
-                      onChange={() => setChosenQuestionId(q.id)}
-                      className="mt-1"
-                    />
-                    <span>{q.prompt}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          )}
-
-          {questions.length === 0 ? (
-            <p className="text-sm text-gray-500">
-              {eligeAlumno && presentedQuestions.length > 0
-                ? "Elegí un ejercicio de la lista para empezar a responder."
-                : "Este intento no tiene preguntas asignadas todavía."}
-            </p>
-          ) : (
-            <ol className="space-y-6">
-              {questions.map((question, index) => {
-                const selected = answers[question.id] ?? "";
-                const hasOptions = Array.isArray(question.options) && question.options.length > 0;
-                const questionType = question.questionType ?? (hasOptions ? "mc" : "input");
-                const isMulti = Array.isArray(question.answerKey) && hasOptions;
-                return (
-                  <li key={question.id} className="space-y-3">
-                    {parseVisualContext(question.visualContext) ? (
-                      <div className="rounded-lg border border-blue-200 bg-blue-50 overflow-hidden">
-                        <div className="px-3 py-2 border-b border-blue-200">
-                          <span className="text-xs font-semibold text-blue-700">Herramienta interactiva</span>
-                        </div>
-                        <div className="p-3 bg-white">
-                          <VisualizerRenderer spec={parseVisualContext(question.visualContext)!} />
-                        </div>
-                      </div>
-                    ) : null}
-                    <div className="space-y-1">
-                      <p className="text-sm text-gray-500">Pregunta {index + 1}</p>
-                      <p className="text-base text-gray-800">{question.prompt}</p>
-                    </div>
-                    {questionType === "ordenar" ? (
-                      <OrdenarRenderer
-                        items={question.items ?? []}
-                        value={Array.isArray(selected) ? (selected as string[]) : undefined}
-                        onChange={(orden) => handleAnswerChange(question.id, orden)}
-                        disabled={submitStatus === "submitted"}
-                        correctOrder={
-                          submitStatus === "submitted" && Array.isArray(question.answerKey)
-                            ? (question.answerKey as string[])
-                            : undefined
-                        }
-                      />
-                    ) : questionType === "marcar_mapa" ? (
-                      <MarcarMapaRenderer
-                        mapaId={question.mapaId ?? ""}
-                        selectedIso={typeof selected === "string" ? selected : undefined}
-                        correctIso={
-                          submitStatus === "submitted"
-                            ? question.respuestaIsoCorrecta
-                            : undefined
-                        }
-                        onSelect={(iso) => handleAnswerChange(question.id, iso)}
-                        disabled={submitStatus === "submitted"}
-                      />
-                    ) : questionType === "analisis_sintactico" ? (
-                      <AnalisisSintacticoRenderer
-                        textoAnalizar={question.textoAnalizar ?? ""}
-                        etiquetasPedidas={question.etiquetasPedidas ?? []}
-                        asignaciones={
-                          selected && typeof selected === "object" && !Array.isArray(selected)
-                            ? (selected as Record<string, string>)
-                            : undefined
-                        }
-                        onChange={(asign) => handleAnswerChange(question.id, asign)}
-                        disabled={submitStatus === "submitted"}
-                        correctas={
-                          submitStatus === "submitted"
-                            ? buildCorrectasFromEtiquetas(question.etiquetasPedidas)
-                            : undefined
-                        }
-                      />
-                    ) : questionType === "identificar_palabras" ? (
-                      <IdentificarPalabrasRenderer
-                        textoAnalizar={question.textoAnalizar ?? ""}
-                        marcadas={Array.isArray(selected) ? (selected as string[]) : undefined}
-                        onChange={(marcadas) => handleAnswerChange(question.id, marcadas)}
-                        disabled={submitStatus === "submitted"}
-                        correctas={
-                          submitStatus === "submitted" && Array.isArray(question.answerKey)
-                            ? (question.answerKey as string[])
-                            : undefined
-                        }
-                      />
-                    ) : questionType === "abierta" ? (
-                      <div className="space-y-1.5">
-                        <textarea
-                          className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
-                          rows={4}
-                          value={typeof selected === "string" ? selected : ""}
-                          onChange={(event) => handleAnswerChange(question.id, event.target.value)}
-                          placeholder="Escribí tu respuesta"
-                          disabled={submitStatus === "submitted"}
-                        />
-                        {question.correccion === "manual" ? (
-                          <p className="text-xs font-medium text-amber-600">
-                            {submitStatus === "submitted"
-                              ? "⏳ Pendiente de corrección por el profesor."
-                              : "Esta pregunta la corrige tu profesor (puntaje parcial)."}
-                          </p>
-                        ) : (
-                          <p className="text-xs text-slate-500">
-                            Pregunta informativa: no afecta tu nota.
-                          </p>
-                        )}
-                      </div>
-                    ) : questionType === "input" ? (
-                      <textarea
-                        className="w-full rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        rows={3}
-                        value={typeof selected === "string" ? selected : ""}
-                        onChange={(event) => handleAnswerChange(question.id, event.target.value)}
-                        placeholder="Escribí tu respuesta"
-                      />
-                    ) : questionType === "vf" ? (
-                      <div className="flex flex-col gap-2">
-                        {["Verdadero", "Falso"].map((option) => (
-                          <label key={option} className="flex items-center gap-2 text-sm text-gray-700">
-                            <input
-                              type="radio"
-                              name={question.id}
-                              value={option}
-                              checked={selected === option}
-                              onChange={() => handleAnswerChange(question.id, option)}
-                            />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    ) : hasOptions ? (
-                      <div className="flex flex-col gap-2">
-                        {question.options?.map((option) => (
-                          <label key={option} className="flex items-center gap-2 text-sm text-gray-700">
-                            <input
-                              type={isMulti ? "checkbox" : "radio"}
-                              name={question.id}
-                              value={option}
-                              checked={
-                                isMulti
-                                  ? Array.isArray(selected) && selected.includes(option)
-                                  : selected === option
-                              }
-                              onChange={(event) => {
-                                if (isMulti) {
-                                  handleToggleCheckbox(question.id, option, event.target.checked);
-                                } else {
-                                  handleAnswerChange(question.id, option);
-                                }
-                              }}
-                            />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    ) : (
-                      <input
-                        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        type="text"
-                        value={typeof selected === "string" ? selected : ""}
-                        onChange={(event) => handleAnswerChange(question.id, event.target.value)}
-                        placeholder="Escribí tu respuesta"
-                      />
-                    )}
-                    {submitStatus === "submitted" && question.pasos && question.pasos.length > 0 && (
-                      <div className="mt-2">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setOpenPasos((prev) => ({ ...prev, [question.id]: !prev[question.id] }))
-                          }
-                          className="text-xs font-medium text-blue-600 hover:underline"
-                        >
-                          {openPasos[question.id] ? "Ocultar resolución" : "Ver resolución"}
-                        </button>
-                        {openPasos[question.id] && (
-                          <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs text-gray-600 bg-blue-50 rounded-lg p-3 border border-blue-100">
-                            {question.pasos.map((paso, pi) => (
-                              <li key={pi}>{paso}</li>
-                            ))}
-                          </ol>
-                        )}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ol>
-          )}
-
-          <div className="flex flex-col gap-3 border-t border-gray-100 pt-4">
-            <button
-              type="button"
-              className="self-start rounded-md bg-green-600 px-4 py-2 text-sm text-white disabled:bg-gray-300"
-              onClick={handleSubmit}
-              disabled={submitStatus === "submitting" || questions.length === 0}
-            >
-              {submitStatus === "submitting" ? "Enviando..." : "Enviar respuestas"}
-            </button>
-            {submitMessage ? (
-              <p
-                className={`text-sm ${submitStatus === "error" ? "text-red-600" : "text-green-600"}`}
-              >
-                {submitMessage}
-              </p>
-            ) : null}
-            {result && (result.score !== undefined || result.maxScore !== undefined) ? (
-              <p className="text-sm text-gray-600">
-                Puntaje: {result.score ?? "-"} / {result.maxScore ?? "-"}
-              </p>
-            ) : null}
-            {result?.notaDisplay && result.notaDisplay !== "—" ? (
-              <p className="text-sm font-semibold text-gray-800">
-                Nota: {result.notaDisplay}
-                {typeof result.notaCanonical10 === "number"
-                  ? ` (${result.notaCanonical10}/10)`
-                  : ""}
-              </p>
-            ) : null}
-            {result?.feedback ? (
-              <p className="text-sm text-gray-600">{result.feedback}</p>
-            ) : null}
-          </div>
-        </section>
-
-        {modoCompetencia && ranking.length > 0 && (
-          <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-900 mb-4">
-              🏆 Tabla de posiciones
-            </h2>
-            {rankingLoading ? (
-              <p className="text-sm text-slate-400 animate-pulse">
-                Cargando ranking...
-              </p>
-            ) : (
-              <div className="space-y-2">
-                {ranking.map((entry) => (
-                  <div key={entry.usuarioId}
-                    className={`flex items-center gap-3 rounded-xl px-4 py-3 ${
-                      entry.posicion === 1
-                        ? "bg-amber-50 border border-amber-200"
-                        : entry.posicion === 2
-                        ? "bg-slate-50 border border-slate-200"
-                        : entry.posicion === 3
-                        ? "bg-orange-50 border border-orange-200"
-                        : "border border-slate-100"
-                    }`}>
-                    <span className="text-lg font-bold w-8 text-center">
-                      {entry.posicion === 1 ? "🥇"
-                        : entry.posicion === 2 ? "🥈"
-                        : entry.posicion === 3 ? "🥉"
-                        : `${entry.posicion}°`}
-                    </span>
-                    <span className="flex-1 text-sm font-medium text-slate-800">
-                      {entry.nombre}
-                    </span>
-                    <span className="text-sm font-semibold text-slate-700">
-                      {entry.score}/{entry.maxScore}
-                    </span>
-                    <span className="text-xs text-slate-400">
-                      {formatTiempo(entry.tiempoSeg)}
-                    </span>
-                  </div>
-                ))}
-              </div>
+  // ── Fullscreen gate ──────────────────────────────────────────────────────
+  if (!hasStarted) {
+    return (
+      <main style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--c-bg)",
+      }}>
+        <Card variant="elevated" padding="lg" style={{ maxWidth: "28rem", width: "100%" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+            <h1 style={{
+              margin: 0,
+              fontSize: "var(--text-xl)",
+              fontWeight: "var(--fw-semibold)",
+              lineHeight: "var(--lh-tight)",
+              color: "var(--c-text)",
+            }}>
+              {title}
+            </h1>
+            <p style={{
+              margin: 0,
+              fontSize: "var(--text-sm)",
+              lineHeight: "var(--lh-relaxed)",
+              color: "var(--c-muted)",
+            }}>{t("quizAttempt.estaEvaluacionRequierePantallaCompleta")}</p>
+            <ul style={{
+              margin: 0,
+              paddingLeft: "var(--space-4)",
+              fontSize: "var(--text-xs)",
+              color: "var(--c-muted)",
+              lineHeight: "var(--lh-relaxed)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--space-1)",
+            }}>
+              <li>{t("quizAttempt.elTiempoCorreDesdeEl")}</li>
+              <li>{t("quizAttempt.siCambiasDePestanaTus")}</li>
+              <li>{t("quizAttempt.alAgotarseElTiempoEl")}</li>
+            </ul>
+            {fullscreenWarning && (
+              <Alert
+                variant="warning"
+                role="status"
+                data-testid="fullscreen-fallback"
+              >{t("quizAttempt.noSePudoEntrarA")}</Alert>
             )}
-          </section>
-        )}
+            <div style={{ display: "flex", gap: "var(--space-3)" }}>
+              <Button
+                variant="primary"
+                data-testid="empezar-evaluacion"
+                onClick={async () => {
+                  if (fullscreenEnabled) {
+                    await fullscreen.request();
+                  }
+                  setHasStarted(true);
+                }}
+                style={{ flex: 1 }}
+              >{t("quizAttempt.empezarEvaluacion")}</Button>
+              <Link
+                to="/modulos"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "var(--space-2) var(--space-4)",
+                  fontSize: "var(--text-base)",
+                  fontFamily: "var(--font-sans)",
+                  fontWeight: "var(--fw-medium)",
+                  color: "var(--c-text)",
+                  borderRadius: "var(--r-md)",
+                  border: "1px solid var(--c-border)",
+                  textDecoration: "none",
+                  background: "transparent",
+                }}
+              >{t("comun.cancelar")}</Link>
+            </div>
+          </div>
+        </Card>
+      </main>
+    );
+  }
+
+  // ── Main quiz view ───────────────────────────────────────────────────────
+  return (
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "var(--c-bg)",
+        fontFamily: "var(--font-sans)",
+      }}
+    >
+      <div style={{
+        maxWidth: "56rem",
+        margin: "0 auto",
+        padding: "var(--space-6) var(--space-4)",
+      }}
+        className="sm:px-6 lg:px-8"
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+          {/* Header */}
+          <header
+            role="banner"
+            style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
+          >
+            <Link
+              to="/modulos"
+              style={{
+                fontSize: "var(--text-sm)",
+                color: "var(--c-primary)",
+                textDecoration: "none",
+                fontWeight: "var(--fw-medium)",
+              }}
+              aria-label={t("quizAttempt.volverAModulos")}
+            >
+              &larr; Volver a módulos
+            </Link>
+            <h1 style={{
+              margin: 0,
+              fontSize: "var(--text-2xl)",
+              fontWeight: "var(--fw-bold)",
+              lineHeight: "var(--lh-tight)",
+              color: "var(--c-text)",
+            }}>
+              {title}
+            </h1>
+            <p style={{
+              margin: 0,
+              fontSize: "var(--text-xs)",
+              color: "var(--c-muted)",
+            }}>
+              Intento: {resolvedAttemptId}
+            </p>
+            {isFinishedAttempt && (
+              <Alert variant="info" role="status" data-testid="review-mode-banner">{t("quizAttempt.estasRevisandoUnIntentoYa")}</Alert>
+            )}
+            {fullscreenWarning && (
+              <Alert
+                variant="warning"
+                role="status"
+                data-testid="fullscreen-fallback-banner"
+              >{t("quizAttempt.pantallaCompletaNoDisponibleTus")}</Alert>
+            )}
+            <Cronometro
+              remaining={countdown.remaining}
+              expired={countdown.isExpired}
+            />
+          </header>
+
+          {/* Quiz body */}
+          <Card variant="raised" padding="lg">
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+              {/* Quiz type banners */}
+              {attempt?.quizType === "formal" && (
+                <Alert variant="warning" role="status">{t("quizAttempt.evaluacionFormalCuentaParaTu")}</Alert>
+              )}
+              {attempt?.quizType === "practica" && (
+                <Alert variant="info" role="status">{t("quizAttempt.practicaNoAfectaTuNota")}</Alert>
+              )}
+              {attempt?.instructions && (
+                <Alert variant="info" role="none">
+                  {attempt.instructions}
+                </Alert>
+              )}
+
+              {/* Progress bar */}
+              {questions.length > 0 && submitStatus !== "submitted" && (
+                <Progress
+                  value={answeredCount}
+                  max={questions.length}
+                  variant={answeredCount === questions.length ? "success" : "primary"}
+                  size="sm"
+                  label={`${answeredCount} de ${questions.length} respondidas`}
+                  aria-label={t("quizAttempt.progresoDelCuestionario")}
+                />
+              )}
+
+              {/* PLAN-D §2 — estado del autosave. Sólo se muestra una vez que
+                  hubo al menos un intento de guardado (idle = todavía no
+                  respondió nada). */}
+              {submitStatus !== "submitted" && saveStatus !== "idle" && (
+                <p
+                  role="status"
+                  aria-live="polite"
+                  data-testid="quiz-save-status"
+                  style={{
+                    margin: 0,
+                    fontSize: "var(--text-xs)",
+                    color:
+                      saveStatus === "queued" ? "var(--c-warning)" : "var(--c-muted)",
+                  }}
+                >
+                  {saveStatus === "saving" && "Guardando…"}
+                  {saveStatus === "saved" && "Guardado"}
+                  {saveStatus === "queued" &&
+                    "Guardado localmente — se sincronizará cuando vuelva la conexión."}
+                </p>
+              )}
+
+              {/* elige_alumno selector */}
+              {eligeAlumno && presentedQuestions.length > 0 && (
+                <fieldset style={{
+                  border: "1px solid var(--c-border)",
+                  borderRadius: "var(--r-lg)",
+                  padding: "var(--space-4)",
+                  margin: 0,
+                  background: "var(--c-surface)",
+                }}>
+                  <legend style={{
+                    padding: "0 var(--space-1)",
+                    fontSize: "var(--text-sm)",
+                    fontWeight: "var(--fw-semibold)",
+                    color: "var(--c-text)",
+                  }}>{t("quizAttempt.elegiQueEjercicioQueresResponder")}</legend>
+                  <p style={{
+                    margin: 0,
+                    marginBottom: "var(--space-2)",
+                    fontSize: "var(--text-xs)",
+                    color: "var(--c-muted)",
+                  }}>{t("quizAttempt.soloElEjercicioQueElijas")}</p>
+                  <RadioGroup
+                    aria-label={t("quizAttempt.eleccionDeEjercicio")}
+                    value={chosenQuestionId}
+                    onValueChange={setChosenQuestionId}
+                    name="elige-alumno-choice"
+                  >
+                    {presentedQuestions.map((q) => (
+                      <Radio key={q.id} value={q.id} label={q.prompt} />
+                    ))}
+                  </RadioGroup>
+                </fieldset>
+              )}
+
+              {/* PLAN-Q §2.1 — toggle de la sugerencia mobile (una por
+                  pantalla vs lista completa). Sólo aparece cuando la
+                  sugerencia aplica; es preferencia de sesión, no persiste. */}
+              {(sugerenciaMobileDisponible || modoOverride) && (
+                <button
+                  type="button"
+                  data-testid="quiz-modo-mobile-toggle"
+                  onClick={() =>
+                    setModoOverride((cur) =>
+                      (cur ?? (sugerenciaMobileDisponible ? "una_por_pantalla" : modoPresentacionServidor)) ===
+                      "una_por_pantalla"
+                        ? "lista"
+                        : "una_por_pantalla",
+                    )
+                  }
+                  style={{
+                    alignSelf: "flex-start",
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    fontSize: "var(--text-xs)",
+                    color: "var(--c-primary)",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
+                >
+                  {modoPresentacion === "una_por_pantalla"
+                    ? "Ver todas las preguntas en una lista"
+                    : "Ver de a una pregunta por pantalla"}
+                </button>
+              )}
+
+              {/* Questions */}
+              {questions.length === 0 ? (
+                <p style={{
+                  margin: 0,
+                  fontSize: "var(--text-sm)",
+                  color: "var(--c-muted)",
+                }}>
+                  {eligeAlumno && presentedQuestions.length > 0
+                    ? "Elegí un ejercicio de la lista para empezar a responder."
+                    : "Este intento no tiene preguntas asignadas todavía."}
+                </p>
+              ) : (
+                <div
+                  data-testid="quiz-presentation"
+                  data-modo-presentacion={modoPresentacion}
+                  style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}
+                >
+                  {modoPresentacion !== "una_por_pantalla" ? (
+                    <ol
+                      data-testid="quiz-questions-list"
+                      style={{
+                        margin: 0,
+                        padding: 0,
+                        listStyle: "none",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "var(--space-5)",
+                      }}
+                    >
+                      {visibleQuestions.map((question, index) => (
+                        <li
+                          key={question.id}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "var(--space-3)",
+                            paddingBottom: "var(--space-5)",
+                            borderBottom: index < visibleQuestions.length - 1
+                              ? "1px solid var(--c-border)"
+                              : undefined,
+                          }}
+                        >
+                          {renderPregunta(question, preguntaGlobal(index), inputsDisabled, submitStatus, openPasos, setOpenPasos, handleAnswerChange, handleToggleCheckbox, answers)}
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <div
+                      data-testid="quiz-slide"
+                      data-slide-index={slideIndex}
+                      onTouchStart={handleSlideTouchStart}
+                      onTouchEnd={handleSlideTouchEnd}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "var(--space-3)",
+                        padding: "var(--space-4)",
+                        border: "1px solid var(--c-border)",
+                        borderRadius: "var(--r-lg)",
+                        background: "var(--c-surface)",
+                        touchAction: "pan-y",
+                      }}
+                    >
+                      {visibleQuestions[0] ? (
+                        renderPregunta(
+                          visibleQuestions[0],
+                          preguntaGlobal(0),
+                          inputsDisabled,
+                          submitStatus,
+                          openPasos,
+                          setOpenPasos,
+                          handleAnswerChange,
+                          handleToggleCheckbox,
+                          answers,
+                        )
+                      ) : null}
+                    </div>
+                  )}
+
+                  {/* Navigation */}
+                  {modoPresentacion !== "lista" && (
+                    <nav
+                      aria-label={t("quizAttempt.navegacionEntrePreguntas")}
+                      data-testid="quiz-nav"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: "var(--space-2)",
+                        borderTop: "1px solid var(--c-border)",
+                        paddingTop: "var(--space-4)",
+                      }}
+                    >
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={goPrev}
+                        disabled={
+                          modoPresentacion === "una_por_pantalla"
+                            ? slideIndex === 0
+                            : pageIndex === 0
+                        }
+                        data-testid="quiz-nav-prev"
+                        aria-label={t("quizAttempt.preguntaAnterior")}
+                        style={{ flexShrink: 0 }}
+                      >
+                        <ChevronLeft size={16} aria-hidden="true" />
+                        {!isNarrowViewport && t("quizAttempt.anterior")}
+                      </Button>
+                      {modoPresentacion === "una_por_pantalla" ? (
+                        <div
+                          data-testid="quiz-nav-dots"
+                          role="tablist"
+                          aria-label={t("quizAttempt.indicadorDePregunta")}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "var(--space-2)",
+                          }}
+                        >
+                          {questions.map((_, i) => (
+                            <button
+                              key={i}
+                              type="button"
+                              role="tab"
+                              aria-label={`Ir a la pregunta ${i + 1}`}
+                              aria-selected={i === slideIndex}
+                              aria-current={i === slideIndex ? "step" : undefined}
+                              onClick={() => goTo(i)}
+                              style={{
+                                border: "none",
+                                cursor: "pointer",
+                                borderRadius: "var(--r-xl)",
+                                transition: "all 200ms ease",
+                                height: "0.5rem",
+                                width: i === slideIndex ? "1.5rem" : "0.5rem",
+                                background: i === slideIndex ? "var(--c-primary)" : "var(--c-border)",
+                                padding: 0,
+                              }}
+                              data-testid={`quiz-nav-dot-${i}`}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <div
+                          data-testid="quiz-nav-pages"
+                          role="tablist"
+                          aria-label={t("quizAttempt.indicadorDePagina")}
+                          style={{ display: "flex", alignItems: "center", gap: "var(--space-1)" }}
+                        >
+                          {Array.from({ length: totalPaginas }, (_, i) => (
+                            <button
+                              key={i}
+                              type="button"
+                              role="tab"
+                              aria-label={`Ir a la página ${i + 1}`}
+                              aria-selected={i === pageIndex}
+                              aria-current={i === pageIndex ? "page" : undefined}
+                              onClick={() => goTo(i)}
+                              style={{
+                                minWidth: "28px",
+                                borderRadius: "var(--r-md)",
+                                padding: "var(--space-1) var(--space-2)",
+                                fontSize: "var(--text-xs)",
+                                fontFamily: "var(--font-sans)",
+                                fontVariantNumeric: "tabular-nums",
+                                fontWeight: "var(--fw-medium)",
+                                cursor: "pointer",
+                                border: i === pageIndex ? "none" : "1px solid var(--c-border)",
+                                background: i === pageIndex ? "var(--c-primary)" : "transparent",
+                                color: i === pageIndex ? "var(--c-text-on-dark)" : "var(--c-text)",
+                              }}
+                              data-testid={`quiz-nav-page-${i}`}
+                            >
+                              {i + 1}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={goNext}
+                        disabled={
+                          modoPresentacion === "una_por_pantalla"
+                            ? slideIndex === questions.length - 1
+                            : pageIndex === totalPaginas - 1
+                        }
+                        data-testid="quiz-nav-next"
+                        aria-label={t("quizAttempt.siguientePregunta")}
+                        style={{ flexShrink: 0 }}
+                      >
+                        {!isNarrowViewport && t("quizAttempt.siguiente")}
+                        <ChevronRight size={16} aria-hidden="true" />
+                      </Button>
+                    </nav>
+                  )}
+                </div>
+              )}
+
+              {/* Submit area */}
+              <Divider spacing="none" />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "var(--space-3)",
+                }}
+                aria-live="polite"
+              >
+                <Button
+                  variant="primary"
+                  data-testid="enviar-respuestas"
+                  onClick={handleSubmit}
+                  disabled={inputsDisabled || questions.length === 0}
+                  style={{
+                    alignSelf: "flex-start",
+                    background: submitStatus === "submitted" ? "var(--c-success)" : undefined,
+                    borderColor: submitStatus === "submitted" ? "var(--c-success)" : undefined,
+                  }}
+                >
+                  {submitStatus === "submitting" ? (
+                    <>
+                      <Spinner size="sm" label={null} />{t("quizAttempt.enviando")}</>
+                  ) : countdown.isExpired
+                    ? "Tiempo agotado — enviar"
+                    : submitStatus === "submitted"
+                      ? "Respuestas enviadas"
+                      : "Enviar respuestas"}
+                </Button>
+                {submitMessage && (
+                  <Alert
+                    variant={submitStatus === "error" ? "danger" : "success"}
+                    role={submitStatus === "error" ? "alert" : "status"}
+                  >
+                    {submitMessage}
+                  </Alert>
+                )}
+                <PostSubmitResult
+                  // El Alert de arriba ya muestra `submitMessage` (== result.message
+                  // recién enviado el intento) en un banner con color; evita repetirlo
+                  // acá abajo en texto plano. En modo revisión (reabrir un intento ya
+                  // cerrado) `submitMessage` es null y `result.message` no existe, así
+                  // que este spread no afecta ese camino.
+                  result={submitMessage && result ? { ...result, message: undefined } : result}
+                  {...(attempt?.ocultarPuntos ? { ocultarPuntos: true } : {})}
+                />
+                {result && attemptId && <CanjearTickets attemptId={attemptId} />}
+              </div>
+            </div>
+          </Card>
+
+          {/* Qué temas repasar: solo con el intento entregado */}
+          {result && attemptId && <RepasoIntento attemptId={attemptId} ocultarPuntos={attempt?.ocultarPuntos === true} />}
+
+          {/* Competition ranking */}
+          {esCompetencia && ranking.length > 0 && (
+            <Card variant="raised" padding="lg">
+              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+                <h2 style={{
+                  margin: 0,
+                  fontSize: "var(--text-lg)",
+                  fontWeight: "var(--fw-semibold)",
+                  color: "var(--c-text)",
+                }}>{t("quizAttempt.tablaDePosiciones")}</h2>
+                {rankingLoading ? (
+                  <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+                    <Spinner size="sm" label={null} />
+                    <p style={{ margin: 0, fontSize: "var(--text-sm)", color: "var(--c-muted)" }}>{t("quizAttempt.cargandoRanking")}</p>
+                  </div>
+                ) : (
+                  <div
+                    role="list"
+                    aria-label={t("quizAttempt.rankingDeCompetencia")}
+                    style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
+                  >
+                    {ranking.map((entry) => {
+                      const variant: "warning" | "neutral" | "danger" =
+                        entry.posicion === 1 ? "warning"
+                          : entry.posicion <= 3 ? "neutral"
+                          : "neutral";
+                      return (
+                        <Card
+                          key={entry.usuarioId}
+                          role="listitem"
+                          variant="flat"
+                          padding="sm"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "var(--space-3)",
+                            ...(entry.posicion <= 3
+                              ? {
+                                  background: entry.posicion === 1
+                                    ? "var(--c-warning-soft)"
+                                    : "var(--c-surface-3)",
+                                }
+                              : {}),
+                          }}
+                        >
+                          <Badge
+                            variant={variant}
+                            size="sm"
+                            style={{
+                              width: "var(--space-6)",
+                              justifyContent: "center",
+                              fontWeight: "var(--fw-bold)",
+                            }}
+                          >
+                            {entry.posicion}°
+                          </Badge>
+                          <span style={{
+                            flex: 1,
+                            fontSize: "var(--text-sm)",
+                            fontWeight: "var(--fw-medium)",
+                            color: "var(--c-text)",
+                          }}>
+                            {entry.nombre}
+                          </span>
+                          <Badge variant="primary" size="sm">
+                            {entry.score}/{entry.maxScore}
+                          </Badge>
+                          <span style={{
+                            fontSize: "var(--text-xs)",
+                            color: "var(--c-muted)",
+                            fontVariantNumeric: "tabular-nums",
+                          }}>
+                            {formatTiempo(entry.tiempoSeg)}
+                          </span>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </Card>
+          )}
+        </div>
       </div>
     </main>
   );

@@ -1,0 +1,32 @@
+{
+ "titulo": "IPv4 e IPv6",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Dos formatos de dirección",
+   "headers": [
+    "",
+    "IPv4",
+    "IPv6"
+   ],
+   "rows": [
+    [
+     "Ejemplo",
+     "192.168.0.1",
+     "2001:db8::1"
+    ],
+    [
+     "Tamaño",
+     "32 bits",
+     "128 bits"
+    ],
+    [
+     "Cantidad de direcciones",
+     "≈ 4.300 millones",
+     "Prácticamente ilimitadas"
+    ]
+   ]
+  }
+ ]
+}

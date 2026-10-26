@@ -1,7 +1,8 @@
 /**
  * Cliente de subida de imágenes PNG para el add-on visual del editor VBLang
- * (WO06). Sube los bytes crudos a `POST /api/media/upload` y devuelve la URL
- * que llena `StaticImageSpec.src`.
+ * (WO06). Sube los bytes crudos a `POST /api/media/upload` con la cabecera
+ * `X-Media-Kind: image` (requerida por el router desde WO-12) y devuelve la
+ * URL que llena `StaticImageSpec.src`.
  */
 import { API_BASE_URL, getAuthToken } from "../../lib/api";
 
@@ -11,6 +12,7 @@ export async function uploadPng(file: Blob): Promise<string> {
     method: "POST",
     headers: {
       "Content-Type": "image/png",
+      "X-Media-Kind": "image",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     body: file,

@@ -1,12 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { apiGet } from "../lib/api";
+import ContinuarCard from "../components/aula/ContinuarCard";
+import { apiGet, apiPost } from "../lib/api";
 import type { Module } from "../domain/module/module.types";
 import { useAuth } from "../auth/use-auth";
+import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getClassroomStatusLabel, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
-import { createPublication, fetchPublications, type Publication } from "../services/publicaciones";
+import { createPublication, updatePublication, deletePublication, fetchPublications, fetchComments, createComment, type Publication, type Comment } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
@@ -14,6 +16,11 @@ import {
   fetchSubastasActivas, fetchMisPujas, crearPuja,
   type ExamenSubasta, type PujaItem
 } from "../services/subastas";
+import { fetchSurveys, type Survey } from "../services/encuestas";
+import AulaActionsBar from "../components/aula/AulaActionsBar";
+import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
+import MatrizProgreso from "../components/profesor/MatrizProgreso";
+import { useI18n } from "../i18n/I18nContext";
 
 type ProgressItem = {
   moduloId: string;
@@ -31,17 +38,18 @@ type ProgressResponse = {
   unlocks: ProgressUnlock[];
 };
 
-type ClassModuleProgress = {
+export type ClassModuleProgress = {
   id: string;
   title: string;
   progressPercent: number;
   isLocked: boolean;
 };
 
-type ClassroomDetail = Classroom & {
-  teacherName?: string;
-  classCode?: string;
-};
+// FIX-TEST4-X05B-NOMBRES — antes había un alias local que sumaba
+// teacherName/teacherOfRecordName/createdByName. Ahora esos
+// campos viven en `Classroom` directamente (el back los devuelve
+// desde FIX-TEST4-X05B-NOMBRES). El alias quedó redundante.
+type ClassroomDetail = Classroom;
 
 const AVATAR_COLORS = [
   "bg-blue-600", "bg-violet-600", "bg-emerald-600",
@@ -58,11 +66,31 @@ function getAvatarColor(initials: string): string {
 }
 
 export default function Aula() {
+  const { t, lang } = useI18n();
   const { user } = useAuth();
+  // MULTIROL-02: leer cada rol por helper centralizado (mirando
+  // `roles[]` con fallback al singular). El `user.role` se mantiene
+  // solo para `useMemo` que mira además otras cosas del aula.
+  const isAdmin = useHasRole("ADMIN");
+  const isTeacher = useHasRole("TEACHER");
+  // FIX-VISTA-PREVIA-STAFF — DIRECTIVO llega acá vía "Ver" en
+  // EnterpriseAulas.tsx (ruta /aulas/:aulaId, StaffLayout). Antes no
+  // se chequeaba en ningún lado de esta página (ni isTeacherOfClass
+  // ni roleLabel ni el gate del composer), así que un directivo veía
+  // "Invitado" y ninguna de las acciones de gestión pese a tener
+  // autoridad sobre toda la escuela.
+  const isDirectivo = useHasRole("DIRECTIVO");
+  const canActAsLearner = useCanActAsLearner();
+  const isParent = useHasRole("PARENT");
   const userInitials = user?.name
     ? user.name.split(" ").filter(Boolean).map((p) => p[0]).join("").slice(0, 2).toUpperCase()
     : "?";
-  const { id: routeId } = useParams();
+  // FIX-AULA-PARAM — la ruta registrada es `clases/:aulaId` (router.tsx:211).
+  // Antes se leía `useParams().id`, que era siempre `undefined`, así que
+  // `classroomId` quedaba `null` y los fetch de leaderboard / actividades /
+  // publicaciones hacían request sin `classroomId` → el back respondía 404.
+  // (Ver `docs/qa/diagnostico_aula_feed.md`.)
+  const { aulaId: routeId } = useParams();
   const location = useLocation();
   const [classroom, setClassroom] = useState<ClassroomDetail | null>(null);
   const [publications, setPublications] = useState<Publication[]>([]);
@@ -74,18 +102,47 @@ export default function Aula() {
   const [publicationFiles, setPublicationFiles] = useState<File[]>([]);
   const [publicationStatus, setPublicationStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [publicationMessage, setPublicationMessage] = useState<string | null>(null);
+  const [editingPublicationId, setEditingPublicationId] = useState<string | null>(null);
+  const [editingPublicationBody, setEditingPublicationBody] = useState("");
+  const [publicationActionError, setPublicationActionError] = useState<string | null>(null);
+  // Tarea 14 — comentarios de alumnos en publicaciones. Carga perezosa
+  // (recién al abrir el hilo de una publicación), mismo patrón que otros
+  // paneles colapsables de la app: menos requests de arranque en aulas
+  // con feeds largos.
+  const [commentsOpen, setCommentsOpen] = useState<Record<string, boolean>>({});
+  const [comments, setComments] = useState<Record<string, Comment[]>>({});
+  const [commentsLoading, setCommentsLoading] = useState<Record<string, boolean>>({});
+  const [newComment, setNewComment] = useState<Record<string, string>>({});
+  const [commentSubmitting, setCommentSubmitting] = useState<Record<string, boolean>>({});
+  const [commentError, setCommentError] = useState<Record<string, string>>({});
   const [classProgress, setClassProgress] = useState<ClassModuleProgress[]>([]);
   const [progressLoading, setProgressLoading] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
   const [resourceLinks, setResourceLinks] = useState<ResourceLink[]>([]);
   const [resourceLinksLoading, setResourceLinksLoading] = useState(true);
   const [resourceLinksError, setResourceLinksError] = useState<string | null>(null);
+  // PLAN-H §3: encuestas activas del aula, resumen para el alumno (vota
+  // entrando a /encuestas?aulaId=... — el detalle completo vive ahí).
+  const [surveys, setSurveys] = useState<Survey[]>([]);
+  const [surveysLoading, setSurveysLoading] = useState(true);
   const [subastas, setSubastas] = useState<ExamenSubasta[]>([]);
   const [misPujas, setMisPujas] = useState<Record<string, PujaItem[]>>({});
   const [pujaForm, setPujaForm] =
     useState<Record<string, { puntos: number; montoPorPunto: number }>>({});
   const [pujaStatus, setPujaStatus] =
     useState<Record<string, "idle" | "loading" | "error">>({});
+  const publicationFormRef = useRef<HTMLDivElement | null>(null);
+  const [asignarModulosOpen, setAsignarModulosOpen] = useState(false);
+  // FIX-MODO-AULA-INLINE — bug 2.7 de `docs/qa/test-parte-3-profesor.md`:
+  // el "Modo Aula" se activaba SOLO desde el menú del profesor
+  // (toggle global), no desde el aula misma. El docente tenía
+  // que abrir otra pestaña para restringir a sus alumnos durante
+  // la clase. Ahora el aula expone su propio toggle, que actúa
+  // SOLO sobre esta clase (scope = `aulaId`), no sobre toda la
+  // escuela. Esto acerca el control al momento pedagógico y
+  // permite que la escuela sea laxa por default.
+  const [modoAulaActivo, setModoAulaActivo] = useState(false);
+  const [modoAulaLoading, setModoAulaLoading] = useState(false);
 
   const normalizedStatus = useMemo(
     () => normalizeClassroomStatus(classroom?.status ?? null),
@@ -113,7 +170,7 @@ export default function Aula() {
     setFeedError(null);
     try {
       const [publicationsResponse, leaderboardResponse, activitiesResponse] = await Promise.all([
-        fetchPublications(classroomId ?? undefined),
+        fetchPublications(classroomId ?? undefined, lang),
         fetchLeaderboard(classroomId ?? undefined),
         fetchUpcomingActivities(classroomId ?? undefined),
       ]);
@@ -123,7 +180,7 @@ export default function Aula() {
       setUpcomingActivities(activitiesResponse);
     } catch (error) {
       if (!active.current) return;
-      setFeedError(error instanceof Error ? error.message : "No pudimos cargar la información del aula.");
+      setFeedError(error instanceof Error ? error.message : t("aula.noPudimosCargarLaInformacion"));
     } finally {
       if (!active.current) return;
       setFeedLoading(false);
@@ -140,6 +197,39 @@ export default function Aula() {
     setPublicationFiles(files ? Array.from(files) : []);
   };
 
+  const handlePublicarClick = () => {
+    const target = publicationFormRef.current;
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    // Foco el input de texto (primer input dentro del form) tras el scroll.
+    const input = target.querySelector<HTMLInputElement>('input[type="text"], input:not([type])');
+    window.setTimeout(() => {
+      input?.focus();
+    }, 300);
+  };
+
+  const handleAsignarModulosClick = () => {
+    setAsignarModulosOpen(true);
+  };
+
+  const handleToggleModoAula = async () => {
+    if (!classroomId) return;
+    setModoAulaLoading(true);
+    try {
+      const activar = !modoAulaActivo;
+      await apiPost("/api/pedagogico/modo-aula", {
+        aulaId: classroomId,
+        activo: activar,
+        restricciones: ["tienda", "economia"],
+      });
+      setModoAulaActivo(activar);
+    } catch {
+      /* mantener el estado anterior si el back falla */
+    } finally {
+      setModoAulaLoading(false);
+    }
+  };
+
   const handleSubmitPublication = async () => {
     if (!classroomId) { setPublicationStatus("error"); setPublicationMessage("No pudimos identificar el aula."); return; }
     if (!newPublication.trim()) { setPublicationStatus("error"); setPublicationMessage("Escribe una novedad antes de publicar."); return; }
@@ -147,13 +237,9 @@ export default function Aula() {
     setPublicationStatus("submitting");
     setPublicationMessage(null);
     try {
-      const initials = user?.name
-        ? user.name.split(" ").filter(Boolean).map((part) => part[0]).join("").slice(0, 2).toUpperCase()
-        : "AA";
       await createPublication(classroomId, {
         contenido: newPublication.trim(),
-        authorInitials: initials,
-        title: "Nueva publicación",
+        title: t("aula.nuevaPublicacion"),
         archivos: publicationFiles.map((file) => ({ name: file.name, size: file.size, type: file.type })),
       });
       setNewPublication("");
@@ -164,7 +250,75 @@ export default function Aula() {
       await loadFeed(activeRef);
     } catch (error) {
       setPublicationStatus("error");
-      setPublicationMessage(error instanceof Error ? error.message : "No pudimos publicar la novedad.");
+      setPublicationMessage(error instanceof Error ? error.message : t("aula.noPudimosPublicarLaNovedad"));
+    }
+  };
+
+  const handleStartEditPublication = (publication: Publication) => {
+    setEditingPublicationId(publication.id);
+    setEditingPublicationBody(publication.body);
+    setPublicationActionError(null);
+  };
+
+  const handleCancelEditPublication = () => {
+    setEditingPublicationId(null);
+    setEditingPublicationBody("");
+  };
+
+  const handleSaveEditPublication = async () => {
+    if (!classroomId || !editingPublicationId || !editingPublicationBody.trim()) return;
+    try {
+      await updatePublication(classroomId, editingPublicationId, editingPublicationBody.trim());
+      setEditingPublicationId(null);
+      setEditingPublicationBody("");
+      const activeRef = { current: true };
+      await loadFeed(activeRef);
+    } catch (error) {
+      setPublicationActionError(error instanceof Error ? error.message : "No pudimos editar la publicación.");
+    }
+  };
+
+  const handleDeletePublication = async (publicationId: string) => {
+    if (!classroomId) return;
+    if (!window.confirm(t("aula.confirmarBorrarPublicacion"))) return;
+    try {
+      await deletePublication(classroomId, publicationId);
+      const activeRef = { current: true };
+      await loadFeed(activeRef);
+    } catch (error) {
+      setPublicationActionError(error instanceof Error ? error.message : "No pudimos borrar la publicación.");
+    }
+  };
+
+  // Tarea 14 — comentarios de alumnos en publicaciones (según el ajuste
+  // "Permitir comentarios" del aula, ver ProfesorAulaConfiguracion).
+  const handleToggleComments = (publicationId: string) => {
+    setCommentsOpen((prev) => ({ ...prev, [publicationId]: !prev[publicationId] }));
+    if (comments[publicationId] || !classroomId) return;
+    setCommentsLoading((prev) => ({ ...prev, [publicationId]: true }));
+    fetchComments(classroomId, publicationId)
+      .then((items) => setComments((prev) => ({ ...prev, [publicationId]: items })))
+      .catch(() => setCommentError((prev) => ({ ...prev, [publicationId]: t("aula.noPudimosCargarLosComentarios") })))
+      .finally(() => setCommentsLoading((prev) => ({ ...prev, [publicationId]: false })));
+  };
+
+  const handleSubmitComment = async (publicationId: string) => {
+    if (!classroomId) return;
+    const body = (newComment[publicationId] ?? "").trim();
+    if (!body) return;
+    setCommentSubmitting((prev) => ({ ...prev, [publicationId]: true }));
+    setCommentError((prev) => ({ ...prev, [publicationId]: "" }));
+    try {
+      const created = await createComment(classroomId, publicationId, body);
+      setComments((prev) => ({ ...prev, [publicationId]: [...(prev[publicationId] ?? []), created] }));
+      setNewComment((prev) => ({ ...prev, [publicationId]: "" }));
+    } catch (error) {
+      setCommentError((prev) => ({
+        ...prev,
+        [publicationId]: error instanceof Error ? error.message : t("aula.noPudimosPublicarElComentario"),
+      }));
+    } finally {
+      setCommentSubmitting((prev) => ({ ...prev, [publicationId]: false }));
     }
   };
 
@@ -190,7 +344,7 @@ export default function Aula() {
       })
       .catch((error) => {
         if (!active) return;
-        setProgressError(error instanceof Error ? error.message : "No pudimos cargar el progreso del aula.");
+        setProgressError(error instanceof Error ? error.message : t("aula.noPudimosCargarElProgreso"));
         setClassProgress([]);
       })
       .finally(() => { if (!active) return; setProgressLoading(false); });
@@ -223,57 +377,137 @@ export default function Aula() {
       .catch((error) => {
         if (!active) return;
         setResourceLinks([]);
-        setResourceLinksError(error instanceof Error ? error.message : "No pudimos cargar los enlaces.");
+        setResourceLinksError(error instanceof Error ? error.message : t("aula.noPudimosCargarLosEnlaces"));
       })
       .finally(() => { if (!active) return; setResourceLinksLoading(false); });
     return () => { active = false; };
   }, [classroomId]);
 
+  useEffect(() => {
+    if (!classroomId || !canActAsLearner) return;
+    let active = true;
+    setSurveysLoading(true);
+    fetchSurveys(classroomId)
+      .then((response) => { if (!active) return; setSurveys(response.items); })
+      .catch(() => { if (!active) return; setSurveys([]); })
+      .finally(() => { if (!active) return; setSurveysLoading(false); });
+    return () => { active = false; };
+  }, [classroomId, canActAsLearner]);
+
+  // FIX-ACCIONES-AULA — el chequeo original (`user.role === "TEACHER"`)
+  // mostraba la barra de acciones del aula para CUALQUIER docente
+  // logueado, incluso si no era miembro del aula. Eso era privilegio
+  // inflado: el doc podía ver (y disparar) "Tomar asistencia",
+  // "Asignar módulo" y "Estadísticas" en clases donde no tenía
+  // autoridad (criterio canónico `isClassroomTeacher` del back,
+  // `api/src/lib/classroom-scope.ts:57`).
+  //
+  // Criterio canónico (alineado con el back):
+  //   - ADMIN global: sí.
+  //   - Miembro con `roleInClass === "TEACHER"` en `classroom.members`:
+  //     sí.
+  //   - Owner del aula (`classroom.createdBy` o `classroom.teacherId`
+  //     o `classroom.teacherOfRecord`): sí.
+  //   - Resto: no.
+  //
+  // Si el back no alcanzó a popular `members` (ej. mock antiguo o
+  // fallo parcial del GET), caemos al `viewerIsTeacher` que la API
+  // ya calcula para aulas listadas y/o al owner heurístico para no
+  // romper la UX del docente dueño. Bug 2.8 de
+  // `docs/qa/test-parte-3-profesor.md`.
   const isTeacherOfClass = useMemo(() => {
-    if (!user || !classroom || user.role !== "TEACHER") return false;
-    return true;
-  }, [classroom, user]);
+    if (!user || !classroom) return false;
+    if (isAdmin || isDirectivo) return true;
+    if (!isTeacher) return false;
+    if (classroom.viewerIsTeacher === true) return true;
+    if (classroom.viewerIsTeacher === false) return false;
+    const members = Array.isArray(classroom.members) ? classroom.members : [];
+    const memberMatch = members.some(
+      (m) => m.userId === user.id && (m.roleInClass === "TEACHER" || m.roleInClass === "ADMIN"),
+    );
+    if (memberMatch) return true;
+    if (
+      classroom.createdBy === user.id ||
+      classroom.teacherId === user.id ||
+      classroom.teacherOfRecord === user.id
+    ) {
+      return true;
+    }
+    return false;
+  }, [classroom, user, isAdmin, isDirectivo, isTeacher]);
 
+  // FIX-BUG-ALU-03 — antes un TEACHER global que era
+  // STUDENT-miembro en el aula de un colega veía "Docente
+  // invitado" en el header. La membresía contextual vale
+  // más que el rol global. El back ya devuelve
+  // `viewerRoleInClass` desde la ronda 2 (BUG-X-05b). Si
+  // esa membresía es STUDENT, mostramos "Estudiante" aunque
+  // el rol global del user sea TEACHER.
   const roleLabel = useMemo(() => {
-    if (!user) return "Invitado";
-    if (user.role === "TEACHER") return isTeacherOfClass ? "Docente" : "Docente invitado";
-    if (user.role === "USER") return "Estudiante";
-    if (user.role === "PARENT") return "Familia";
-    return "Invitado";
-  }, [isTeacherOfClass, user]);
+    if (!user) return t("comun.invitado");
+    const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
+    if (ctxRole === "STUDENT") return t("profesorAulas.estudiante");
+    if (isTeacher) return isTeacherOfClass ? t("perfil.docente") : t("aula.docenteInvitado");
+    if (isAdmin) return t("perfil.administrador");
+    if (isDirectivo) return t("comun.directivo");
+    if (canActAsLearner) return t("profesorAulas.estudiante");
+    if (isParent) return t("aula.familia");
+    return t("comun.invitado");
+  }, [isTeacherOfClass, user, isTeacher, isAdmin, isDirectivo, canActAsLearner, isParent, classroom, t]);
 
+  // FIX-BUG-ALU-03 — idem: si la membresía contextual es
+  // STUDENT, mostrar "estudiante · pública" aunque el rol
+  // global sea staff. Antes decía "visitante · pública" para
+  // un TEACHER+USER que era STUDENT-miembro.
   const accessLabel = useMemo(() => {
-    const accessTypeLabel = classroom?.accessType === "privada" ? "privada" : "pública";
-    if (user?.role === "USER") return `estudiante · ${accessTypeLabel}`;
-    if (user?.role === "PARENT") return `familiar · ${accessTypeLabel}`;
-    return `visitante · ${accessTypeLabel}`;
-  }, [classroom?.accessType, user]);
+    const accessTypeLabel = classroom?.accessType === "privada" ? t("aula.privada") : t("aula.publica");
+    const ctxRole = (classroom as { viewerRoleInClass?: string | null } | null)?.viewerRoleInClass;
+    if (ctxRole === "STUDENT") return `${t("aula.estudiante")} · ${accessTypeLabel}`;
+    if (isAdmin) return `${t("perfil.administrador")} · ${accessTypeLabel}`;
+    if (isDirectivo) return `${t("comun.directivo")} · ${accessTypeLabel}`;
+    if (canActAsLearner) return `${t("aula.estudiante")} · ${accessTypeLabel}`;
+    if (isParent) return `${t("aula.familiar")} · ${accessTypeLabel}`;
+    return `${t("aula.visitante")} · ${accessTypeLabel}`;
+  }, [classroom?.accessType, user, isAdmin, isDirectivo, canActAsLearner, isParent, classroom, t]);
 
   const teacherName = useMemo(() => {
     if (classroom?.teacherName) return classroom.teacherName;
-    if (isTeacherOfClass) return user?.name ?? "Docente asignado";
-    return "Docente asignado";
-  }, [classroom?.teacherName, isTeacherOfClass, user?.name]);
+    if (isTeacherOfClass) return user?.name ?? t("aula.docenteAsignado");
+    return t("aula.docenteAsignado");
+  }, [classroom?.teacherName, isTeacherOfClass, user?.name, t]);
 
+  // FIX-CLASSCODE-ENTERPRISE — nunca mostrar el id (aula-<uuid>) como
+  // código: no entra en el input de unirse y no matchea en el back. Las
+  // aulas sin código lo reciben por backfill al leer el detail.
   const classCode = useMemo(() => {
-    if (!isClassroomActive) return "No disponible";
-    if (classroom?.classCode) return classroom.classCode;
-    if (classroom?.id) return classroom.id;
-    return "Sin código";
-  }, [classroom?.classCode, classroom?.id, isClassroomActive]);
+    if (!isClassroomActive) return t("aula.noDisponible");
+    return classroom?.classCode || classroom?.code || t("aula.sinCodigo");
+  }, [classroom?.classCode, isClassroomActive, t]);
+
+  const activeSurveysCount = useMemo(() => {
+    const now = new Date();
+    return surveys.filter((survey) => survey.status !== "cerrada" && now < new Date(survey.endAt)).length;
+  }, [surveys]);
 
   const getResourceTypeMeta = (type: ResourceLinkType) => {
     switch (type) {
-      case "drive": return { label: "Drive", badge: "bg-emerald-100 text-emerald-700" };
-      case "youtube": return { label: "YouTube", badge: "bg-red-100 text-red-700" };
-      default: return { label: "Externo", badge: "bg-[var(--c-bg)] text-[var(--c-muted)]" };
+      case "drive": return { label: t("aula.drive"), badge: "bg-emerald-100 text-emerald-700" };
+      case "youtube": return { label: t("aula.youtube"), badge: "bg-red-100 text-red-700" };
+      default: return { label: t("aula.externo"), badge: "bg-[var(--c-bg)] text-[var(--c-muted)]" };
     }
   };
 
+  // Valores de partida del formulario de puja: el precio inicial (mínimo) de la subasta y, si es por
+  // ticket, siempre 1 ticket.
+  const formularioInicial = (examen: ExamenSubasta) => ({
+    puntos: 1,
+    montoPorPunto: Math.max(examen.precioInicial ?? 0, examen.precioPromedioAjustado ?? 100),
+  });
+
   const handlePujar = async (examen: ExamenSubasta) => {
     if (!user?.id || !classroomId) return;
-    const form = pujaForm[examen.id];
-    if (!form?.puntos || !form?.montoPorPunto) return;
+    const form = pujaForm[examen.id] ?? formularioInicial(examen);
+    if (!form.puntos || !form.montoPorPunto) return;
     setPujaStatus((prev) => ({ ...prev, [examen.id]: "loading" }));
     try {
       await crearPuja(examen.id, {
@@ -301,98 +535,169 @@ export default function Aula() {
         {/* Banner */}
         <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
           <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
-          <div className="absolute left-5 bottom-3 text-sm">
-            {roleLabel} • {teacherName} | Código de clase: {classCode}
-          </div>
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
-            {getClassroomStatusLabel(classroom?.status)}
+            {t(getClassroomStatusLabelKey(classroom?.status))}
           </span>
-          {user?.role === "TEACHER" ? (
-            classroomId ? (
-              <Link
-                className="absolute right-5 bottom-3 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
-                to={`/profesor/aulas/${classroomId}/configuracion`}
-              >
-                Gestionar aula
-              </Link>
-            ) : (
-              <span className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
-                Acceso {accessLabel}
-              </span>
-            )
-          ) : (
-            <div className="absolute right-5 bottom-3 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
-              Acceso {accessLabel}
+          <div className="absolute left-5 right-5 bottom-3 flex items-center justify-between gap-3">
+            <div className="text-sm truncate min-w-0">
+              {roleLabel} • {teacherName} | {t("aula.codigoDeClase")} {classCode}
             </div>
-          )}
+            {isTeacher ? (
+              classroomId ? (
+                <Link
+                  className="flex-shrink-0 bg-[var(--c-surface)] text-[var(--c-primary)] px-4 py-1.5 rounded-lg border border-[var(--c-border)] text-sm font-medium"
+                  to={`/profesor/aulas/${classroomId}`}
+                >{t("aula.gestionarAula")}</Link>
+              ) : (
+                <span className="flex-shrink-0 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
+                  {t("aula.acceso")} {accessLabel}
+                </span>
+              )
+            ) : (
+              <div className="flex-shrink-0 rounded-lg bg-white/20 px-3 py-1.5 text-xs">
+                {t("aula.acceso")} {accessLabel}
+              </div>
+            )}
+          </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
           {/* Main column */}
           <div className="lg:col-span-2 space-y-5">
-            {/* Publication input */}
-            <div className={cardCls}>
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
-                  {userInitials}
+            {isTeacherOfClass && classroomId && (
+              <AulaActionsBar
+                classroomId={classroomId}
+                onPublicarClick={handlePublicarClick}
+                onAsignarModulosClick={handleAsignarModulosClick}
+              />
+            )}
+            {/* FIX-MODO-AULA-INLINE — toggle inline para activar
+                "Modo Aula" SOLO sobre esta clase. El toggle global del
+                menú del profesor sigue existiendo como atajo
+                institucional, pero el docente ahora puede entrar al
+                aula y activar el modo en el momento sin abrir otra
+                pestaña. Bug 2.7 de `docs/qa/test-parte-3-profesor.md`. */}
+            {isTeacherOfClass && classroomId && (
+              <div
+                className={`rounded-xl border p-3 flex items-center justify-between gap-3 ${
+                  modoAulaActivo
+                    ? "border-[var(--c-primary)] bg-[var(--c-primary-soft,#dbeafe)]/40"
+                    : "border-[var(--c-border)] bg-[var(--c-surface)]"
+                }`}
+                data-testid="modo-aula-inline"
+              >
+                <div>
+                  <p className="text-sm font-medium text-[var(--c-text)]">
+                    {modoAulaActivo ? "Modo Aula activo" : "Modo Aula"}
+                  </p>
+                  <p className="text-xs text-[var(--c-muted)]">{t("aula.restringeTiendaYEconomiaPara")}</p>
                 </div>
-                <input
-                  className={`flex-1 ${inputCls}`}
-                  aria-label="Escribí una novedad"
-                  placeholder="Escribe una novedad..."
-                  value={newPublication}
-                  onChange={(event) => {
-                    setNewPublication(event.target.value);
-                    // UX-03: limpiar el error de publicación apenas el usuario
-                    // corrige (vuelve a escribir).
-                    if (publicationStatus === "error") {
-                      setPublicationStatus("idle");
-                      setPublicationMessage("");
-                    }
-                  }}
-                  disabled={isClassroomReadOnly}
-                />
                 <button
-                  className="ml-3 bg-[var(--c-primary)] text-white px-4 py-2 rounded-lg text-sm disabled:opacity-60"
-                  onClick={handleSubmitPublication}
-                  disabled={publicationStatus === "submitting" || isClassroomReadOnly}
+                  type="button"
+                  onClick={handleToggleModoAula}
+                  disabled={modoAulaLoading}
+                  data-testid="modo-aula-inline-toggle"
+                  className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                 >
-                  {publicationStatus === "submitting" ? "Publicando..." : "Publicar"}
+                  {modoAulaLoading ? "..." : modoAulaActivo ? "Desactivar" : "Activar"}
                 </button>
               </div>
-              <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
-                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
-                  <span aria-hidden="true">📎</span>
-                  <span className="sr-only">Adjuntar archivo</span>
-                </label>
-                <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
-                  <span aria-hidden="true">🖼️</span>
-                  <span className="sr-only">Adjuntar imagen</span>
-                </label>
-                <input
-                  id="aula-archivos" type="file" multiple className="hidden"
-                  onChange={(event) => handleFilesChange(event.target.files)}
-                  disabled={isClassroomReadOnly}
-                />
-                {publicationFiles.length > 0 && (
-                  <span className="text-xs text-[var(--c-muted)]">{publicationFiles.length} archivo(s) adjunto(s)</span>
+            )}
+            {isTeacherOfClass && classroomId && (
+              <details
+                className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4"
+                data-testid="progreso-curso-details"
+              >
+                <summary className="cursor-pointer text-sm font-semibold text-[var(--c-text)] select-none list-none flex items-center gap-2">
+                  <span aria-hidden="true">📈</span>
+                  <span>{t("aula.progresoDelCurso")}</span>
+                  <span className="ml-auto text-xs text-[var(--c-muted)]">
+                    (matriz de avance)
+                  </span>
+                </summary>
+                <div className="mt-3">
+                  <MatrizProgreso classroomId={classroomId} />
+                </div>
+              </details>
+            )}
+            {/* Tarea 21: tarjeta 'Continuar donde dejaste' solo para el alumno. */}
+            {canActAsLearner && classProgress.length > 0 && (
+              <ContinuarCard modules={classProgress} />
+            )}
+            {/* Publication input — FIX-PUBLICACIONES-COMPOSER-ROL: el
+                composer quedaba visible para cualquier rol, pero el back
+                sólo acepta POST de staff (ADMIN/DIRECTIVO/TEACHER, ver
+                canPostInClass/STAFF_ROLES en authorization.ts +
+                requireClassroomScope allowSchoolMatch en publicaciones.ts:
+                cualquier staff de la escuela puede publicar, no sólo el
+                titular del aula — ver test "TEACHER que NO es miembro").
+                Antes un alumno veía el mismo composer y sólo al confirmar
+                le aparecía el 403 crudo "forbidden". Gateado a isTeacher
+                (no isTeacherOfClass: sería más estricto que el back). */}
+            {(isTeacher || isAdmin || isDirectivo) && (
+              <div ref={publicationFormRef} className={cardCls} data-testid="aula-publication-form">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(userInitials)}`}>
+                    {userInitials}
+                  </div>
+                  <input
+                    className={`flex-1 ${inputCls}`}
+                    aria-label={t("aula.escribiUnaNovedad")}
+                    placeholder={t("aula.escribeUnaNovedad")}
+                    value={newPublication}
+                    onChange={(event) => {
+                      setNewPublication(event.target.value);
+                      // UX-03: limpiar el error de publicación apenas el usuario
+                      // corrige (vuelve a escribir).
+                      if (publicationStatus === "error") {
+                        setPublicationStatus("idle");
+                        setPublicationMessage("");
+                      }
+                    }}
+                    disabled={isClassroomReadOnly}
+                  />
+                  <button
+                    className="ml-3 bg-[var(--c-primary)] text-white px-4 py-2 rounded-lg text-sm disabled:opacity-60"
+                    onClick={handleSubmitPublication}
+                    disabled={publicationStatus === "submitting" || isClassroomReadOnly}
+                  >
+                    {publicationStatus === "submitting" ? t("aula.publicando") : t("aula.publicar")}
+                  </button>
+                </div>
+                <div className="flex flex-wrap items-center gap-3 mt-3 text-[var(--c-muted)]">
+                  <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
+                    <span aria-hidden="true">📎</span>
+                    <span className="sr-only">{t("aula.adjuntarArchivo")}</span>
+                  </label>
+                  <label className="p-2 hover:bg-[var(--c-bg)] rounded cursor-pointer" htmlFor="aula-archivos">
+                    <span aria-hidden="true">🖼️</span>
+                    <span className="sr-only">{t("aula.adjuntarImagen")}</span>
+                  </label>
+                  <input
+                    id="aula-archivos" type="file" multiple className="hidden"
+                    onChange={(event) => handleFilesChange(event.target.files)}
+                    disabled={isClassroomReadOnly}
+                  />
+                  {publicationFiles.length > 0 && (
+                    <span className="text-xs text-[var(--c-muted)]">{publicationFiles.length} archivo(s) adjunto(s)</span>
+                  )}
+                </div>
+                {isClassroomReadOnly && (
+                  <p className="mt-3 text-xs text-[var(--c-warning)]">
+                    Esta aula está {normalizedStatus === "ARCHIVED" ? "archivada" : "bloqueada"} y no admite publicaciones.
+                  </p>
+                )}
+                {publicationMessage && (
+                  <p
+                    role={publicationStatus === "error" ? "alert" : "status"}
+                    aria-live={publicationStatus === "error" ? "assertive" : "polite"}
+                    className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}
+                  >
+                    {publicationMessage}
+                  </p>
                 )}
               </div>
-              {isClassroomReadOnly && (
-                <p className="mt-3 text-xs text-amber-600">
-                  Esta aula está {normalizedStatus === "ARCHIVED" ? "archivada" : "bloqueada"} y no admite publicaciones.
-                </p>
-              )}
-              {publicationMessage && (
-                <p
-                  role={publicationStatus === "error" ? "alert" : "status"}
-                  aria-live={publicationStatus === "error" ? "assertive" : "polite"}
-                  className={`mt-3 text-xs ${publicationStatus === "error" ? "text-[var(--c-danger)]" : "text-green-600"}`}
-                >
-                  {publicationMessage}
-                </p>
-              )}
-            </div>
+            )}
 
             {/* Feed */}
             <div className="space-y-4">
@@ -404,7 +709,19 @@ export default function Aula() {
               )}
               {feedError && !feedLoading && <div className="text-sm text-[var(--c-danger)]">{feedError}</div>}
               {!feedLoading && !feedError && publications.length === 0 && (
-                <div className="text-sm text-[var(--c-muted)]">Aún no hay publicaciones.</div>
+                <div
+                  className="rounded-xl border border-dashed border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-center"
+                  data-testid="feed-empty"
+                >
+                  <p className="text-sm text-[var(--c-muted)]">{t("aula.todaviaNoHayPublicacionesEn")}</p>
+                  {isTeacherOfClass && (
+                    <button
+                      type="button"
+                      onClick={handlePublicarClick}
+                      className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1.5 text-sm font-medium text-[var(--c-primary)] hover:bg-[var(--c-primary-soft,#dbeafe)]"
+                    >{t("aula.escribirLaPrimeraPublicacion")}</button>
+                  )}
+                </div>
               )}
               {!feedLoading && !feedError && publications.map((publication) => (
                 <article key={publication.id} className={cardCls} aria-label={publication.title}>
@@ -412,9 +729,52 @@ export default function Aula() {
                     <div className={`w-10 h-10 rounded-full text-white grid place-content-center font-semibold text-sm select-none ${getAvatarColor(publication.authorInitials ?? "?")}`}>
                       {publication.authorInitials ?? "?"}
                     </div>
-                    <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                      {publication.authorName && (
+                        <div className="text-xs text-[var(--c-muted)]">{publication.authorName}</div>
+                      )}
+                    </div>
+                    {publication.isOwn && editingPublicationId !== publication.id && (
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          className="text-xs text-[var(--c-muted)] hover:text-[var(--c-primary)] px-2 py-1"
+                          onClick={() => handleStartEditPublication(publication)}
+                        >{t("comun.editar")}</button>
+                        <button
+                          type="button"
+                          className="text-xs text-[var(--c-muted)] hover:text-[var(--c-danger)] px-2 py-1"
+                          onClick={() => handleDeletePublication(publication.id)}
+                        >{t("comun.eliminar")}</button>
+                      </div>
+                    )}
                   </div>
-                  <p className="mt-3 text-sm text-[var(--c-text)]">{publication.body}</p>
+                  {editingPublicationId === publication.id ? (
+                    <div className="mt-3 space-y-2">
+                      <textarea
+                        className={`w-full ${inputCls}`}
+                        value={editingPublicationBody}
+                        onChange={(event) => setEditingPublicationBody(event.target.value)}
+                        rows={3}
+                      />
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          className="bg-[var(--c-primary)] text-white px-3 py-1.5 rounded-lg text-xs disabled:opacity-60"
+                          onClick={handleSaveEditPublication}
+                          disabled={!editingPublicationBody.trim()}
+                        >{t("comun.guardar")}</button>
+                        <button
+                          type="button"
+                          className="px-3 py-1.5 rounded-lg text-xs border border-[var(--c-border)]"
+                          onClick={handleCancelEditPublication}
+                        >{t("comun.cancelar")}</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="mt-3 text-sm text-[var(--c-text)]">{publication.body}</p>
+                  )}
                   {publication.links && (
                     <div className="flex gap-6 mt-3">
                       {publication.links.map((link) => (
@@ -424,7 +784,76 @@ export default function Aula() {
                       ))}
                     </div>
                   )}
+                  {publicationActionError && editingPublicationId === publication.id && (
+                    <p className="text-xs text-[var(--c-danger)] mt-2">{publicationActionError}</p>
+                  )}
                   <p className="text-xs text-[var(--c-muted)] mt-2">{publication.publishedAtLabel}</p>
+
+                  {/* Tarea 14 — comentarios de alumnos, gateados por el
+                      ajuste "Permitir comentarios" del aula. El botón para
+                      abrir/cerrar el hilo siempre está (staff también lee),
+                      el composer sólo para alumnos y si el aula lo permite. */}
+                  <button
+                    type="button"
+                    className="mt-3 text-xs font-medium text-[var(--c-muted)] hover:text-[var(--c-primary)]"
+                    onClick={() => handleToggleComments(publication.id)}
+                    data-testid={`toggle-comentarios-${publication.id}`}
+                  >
+                    💬 {commentsOpen[publication.id]
+                      ? t("aula.ocultarComentarios")
+                      : comments[publication.id]
+                        ? `${t("aula.comentarios")} (${comments[publication.id].length})`
+                        : t("aula.verComentarios")}
+                  </button>
+
+                  {commentsOpen[publication.id] && (
+                    <div className="mt-2 space-y-2 border-t border-[var(--c-border)] pt-3">
+                      {commentsLoading[publication.id] ? (
+                        <div className="h-8 rounded animate-pulse bg-[var(--c-border)]" />
+                      ) : (
+                        <ul className="space-y-2">
+                          {(comments[publication.id] ?? []).map((comment) => (
+                            <li key={comment.id} className="rounded-lg bg-[var(--c-bg)] px-3 py-2 text-sm">
+                              <span className="font-semibold text-[var(--c-text)]">{comment.authorName ?? "?"}</span>
+                              <span className="ml-2 text-[var(--c-text)]">{comment.body}</span>
+                            </li>
+                          ))}
+                          {(comments[publication.id] ?? []).length === 0 && (
+                            <li className="text-xs text-[var(--c-muted)]">{t("aula.todaviaNoHayComentarios")}</li>
+                          )}
+                        </ul>
+                      )}
+
+                      {canActAsLearner && classroom?.allowComments !== false && (
+                        <div className="flex items-center gap-2">
+                          <input
+                            className={`flex-1 ${inputCls}`}
+                            aria-label={t("aula.escribiUnComentario")}
+                            placeholder={t("aula.escribiUnComentario")}
+                            value={newComment[publication.id] ?? ""}
+                            onChange={(event) =>
+                              setNewComment((prev) => ({ ...prev, [publication.id]: event.target.value }))
+                            }
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") void handleSubmitComment(publication.id);
+                            }}
+                            disabled={commentSubmitting[publication.id]}
+                          />
+                          <button
+                            type="button"
+                            className="rounded-lg bg-[var(--c-primary)] text-white px-3 py-1.5 text-xs disabled:opacity-60"
+                            onClick={() => void handleSubmitComment(publication.id)}
+                            disabled={commentSubmitting[publication.id] || !(newComment[publication.id] ?? "").trim()}
+                          >
+                            {t("aula.comentar")}
+                          </button>
+                        </div>
+                      )}
+                      {commentError[publication.id] && (
+                        <p className="text-xs text-[var(--c-danger)]">{commentError[publication.id]}</p>
+                      )}
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
@@ -434,12 +863,15 @@ export default function Aula() {
           <aside className="space-y-5">
             {/* Leaderboard */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">🏆 Top Estudiantes</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.topEstudiantes")}</h3>
               <ul className="mt-3 space-y-2 text-sm">
                 {feedLoading && <li className="h-4 rounded animate-pulse bg-[var(--c-border)]" />}
                 {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
                 {!feedLoading && !feedError && leaderboard.length === 0 && (
-                  <li className="text-[var(--c-muted)]">Sin ranking disponible.</li>
+                  <li
+                    className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-3 text-center text-xs text-[var(--c-muted)]"
+                    data-testid="leaderboard-empty"
+                  >{t("aula.elRankingApareceCuandoHay")}</li>
                 )}
                 {!feedLoading && !feedError && leaderboard.map((entry, index) => (
                   <li key={entry.id} className="flex justify-between text-[var(--c-text)]">
@@ -452,12 +884,25 @@ export default function Aula() {
 
             {/* Progreso */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Progreso de la clase</h3>
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.progresoDeLaClase")}</h3>
+                {/* "Niveles por aula con mapa de flujo" — mismo isLocked que
+                    ya aplica POST /api/quiz-attempts, sólo que acá se ve
+                    de un vistazo qué desbloquea qué. */}
+                {classroomId && classProgress.length > 0 && (
+                  <Link
+                    to={`/clases/${classroomId}/mapa`}
+                    className="text-xs font-medium text-[var(--c-primary)] hover:underline"
+                  >
+                    {t("aulaMapaModulos.titulo")} →
+                  </Link>
+                )}
+              </div>
               <div className="mt-3 space-y-3 text-sm">
                 {progressLoading && <div className="h-12 rounded-xl animate-pulse bg-[var(--c-border)]" />}
                 {progressError && !progressLoading && <p className="text-[var(--c-danger)]">{progressError}</p>}
                 {!progressLoading && !progressError && classProgress.length === 0 && (
-                  <p className="text-[var(--c-muted)]">No hay módulos disponibles para esta aula.</p>
+                  <p className="text-[var(--c-muted)]">{t("aula.noHayModulosDisponiblesPara")}</p>
                 )}
                 {!progressLoading && !progressError && classProgress.map((module) => (
                   <div key={module.id}>
@@ -472,10 +917,10 @@ export default function Aula() {
                           ? "bg-blue-100 text-blue-700"
                           : "bg-[var(--c-bg)] text-[var(--c-muted)]"
                       }`}>
-                        {module.isLocked ? "Bloqueado"
-                          : module.progressPercent >= 100 ? "Completado"
-                          : module.progressPercent > 0 ? "En progreso"
-                          : "Sin iniciar"}
+                        {module.isLocked ? t("aula.bloqueado")
+                          : module.progressPercent >= 100 ? t("moduloDetail.completado")
+                          : module.progressPercent > 0 ? t("moduloDetail.enProgreso")
+                          : t("aula.sinIniciar")}
                       </span>
                     </div>
                     <div
@@ -503,14 +948,14 @@ export default function Aula() {
 
             {/* Enlaces útiles */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Enlaces útiles</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.enlacesUtiles")}</h3>
               <div className="mt-3 space-y-2 text-sm">
                 {resourceLinksLoading && <div className="h-8 rounded-lg animate-pulse bg-[var(--c-border)]" />}
                 {resourceLinksError && !resourceLinksLoading && (
                   <p className="text-[var(--c-danger)]">{resourceLinksError}</p>
                 )}
                 {!resourceLinksLoading && !resourceLinksError && resourceLinks.length === 0 && (
-                  <p className="text-[var(--c-muted)]">No hay enlaces disponibles.</p>
+                  <p className="text-[var(--c-muted)]">{t("aula.noHayEnlacesDisponibles")}</p>
                 )}
                 {!resourceLinksLoading && !resourceLinksError && resourceLinks.map((link) => {
                   const meta = getResourceTypeMeta(link.type);
@@ -533,14 +978,39 @@ export default function Aula() {
               </div>
             </div>
 
+            {/* Encuestas — PLAN-H §3: acceso desde el aula, sin selector manual. */}
+            {canActAsLearner && classroomId && (
+              <div className={cardCls} data-testid="aula-encuestas-card">
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.encuestas")}</h3>
+                <div className="mt-3 text-sm">
+                  {surveysLoading ? (
+                    <div className="h-8 rounded-lg animate-pulse bg-[var(--c-border)]" />
+                  ) : activeSurveysCount === 0 ? (
+                    <p className="text-[var(--c-muted)]">{t("alumnoEncuestas.noHayEncuestasActivasPara")}</p>
+                  ) : (
+                    <p className="text-[var(--c-muted)]">
+                      {activeSurveysCount} {activeSurveysCount === 1 ? t("aula.encuestaActiva") : t("aula.encuestasActivas")}
+                    </p>
+                  )}
+                  <Link
+                    to={`/encuestas?aulaId=${encodeURIComponent(classroomId)}`}
+                    className="mt-2 inline-flex items-center gap-1.5 text-[var(--c-primary)] hover:underline"
+                  >{t("aula.verYVotar")}</Link>
+                </div>
+              </div>
+            )}
+
             {/* Próximas actividades */}
             <div className={cardCls}>
-              <h3 className="text-sm font-semibold text-[var(--c-text)]">Próximas actividades</h3>
+              <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("hijosProgreso.proximasActividades")}</h3>
               <ul className="mt-3 text-sm space-y-2">
                 {feedLoading && <li className="h-10 rounded-lg animate-pulse bg-[var(--c-border)]" />}
                 {feedError && !feedLoading && <li className="text-[var(--c-danger)]">{feedError}</li>}
                 {!feedLoading && !feedError && upcomingActivities.length === 0 && (
-                  <li className="text-[var(--c-muted)]">No hay actividades próximas.</li>
+                  <li
+                    className="rounded-lg border border-dashed border-[var(--c-border)] bg-[var(--c-bg)] p-3 text-center text-xs text-[var(--c-muted)]"
+                    data-testid="upcoming-empty"
+                  >{t("aula.noHayActividadesProgramadas")}</li>
                 )}
                 {!feedLoading && !feedError && upcomingActivities.map((activity) => (
                   <li key={activity.id}
@@ -567,38 +1037,49 @@ export default function Aula() {
             {/* Subastas */}
             {subastas.length > 0 && (
               <div className={`${cardCls} space-y-3`}>
-                <h3 className="text-sm font-semibold text-[var(--c-text)]">🏷️ Subastas activas</h3>
+                <h3 className="text-sm font-semibold text-[var(--c-text)]">{t("aula.subastasActivas")}</h3>
                 {subastas.map((examen) => {
                   const misPujasExamen = misPujas[examen.id] ?? [];
                   const totalPujado = misPujasExamen.filter((p) => p.estado !== "rechazada").reduce((acc, p) => acc + p.puntos, 0);
-                  const restante = examen.maxCompra - totalPujado;
-                  const form = pujaForm[examen.id] ?? { puntos: 1, montoPorPunto: examen.precioPromedioAjustado ?? 100 };
+                  const porTicket = examen.modo === "ticket";
+                  const yaPujo = misPujasExamen.some((p) => p.estado !== "rechazada");
+                  const restante = porTicket ? (yaPujo ? 0 : 1) : examen.maxCompra - totalPujado;
+                  const precioMinimo = examen.precioInicial ?? 0;
+                  const form = pujaForm[examen.id] ?? formularioInicial(examen);
+                  const bajoElMinimo = form.montoPorPunto < precioMinimo;
                   const status = pujaStatus[examen.id] ?? "idle";
 
                   return (
                     <div key={examen.id} className="rounded-xl border border-[var(--c-border)] p-3 space-y-2">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-semibold text-[var(--c-text)]">Parcial</span>
+                        <span className="text-xs font-semibold text-[var(--c-text)]">{porTicket ? (examen.nombre ?? "Ticket de examen") : t("aula.parcial")}</span>
                         {examen.fechaExamen && (
                           <span className="text-xs text-[var(--c-muted)]">
-                            {new Date(examen.fechaExamen).toLocaleDateString("es-AR", { day: "numeric", month: "short" })}
+                            {new Date(examen.fechaExamen).toLocaleDateString(lang, { day: "numeric", month: "short" })}
                           </span>
                         )}
                       </div>
                       <div className="text-xs text-[var(--c-muted)] space-y-1">
+                        {precioMinimo > 0 && (
+                          <p>Precio inicial (mínimo):{" "}
+                            <span className="font-medium text-[var(--c-text)]">{precioMinimo} 🪙/ticket</span>
+                          </p>
+                        )}
                         <p>Precio promedio:{" "}
                           <span className="font-medium text-[var(--c-text)]">{examen.precioPromedioAjustado ?? "—"} 🪙/punto</span>
                         </p>
                         <p>Podés pujar:{" "}
-                          <span className={`font-medium ${restante <= 0 ? "text-[var(--c-danger)]" : "text-emerald-600"}`}>
-                            {restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`}
+                          <span className={`font-medium ${restante <= 0 ? "text-[var(--c-danger)]" : "text-[var(--c-success)]"}`}>
+                            {porTicket
+                              ? (yaPujo ? "Ya pujaste por este ticket" : "1 ticket")
+                              : (restante <= 0 ? "Límite alcanzado" : `${restante} punto(s) más`)}
                           </span>
                         </p>
                       </div>
                       {restante > 0 && (
                         <div className="space-y-2">
                           <div className="grid grid-cols-2 gap-2">
-                            <label className="text-xs text-[var(--c-muted)]">
+                            {!porTicket && (<label className="text-xs text-[var(--c-muted)]">
                               Puntos (máx {restante})
                               <input
                                 type="number" min={1} max={restante} value={form.puntos}
@@ -607,11 +1088,9 @@ export default function Aula() {
                                 }))}
                                 className={`mt-1 w-full ${inputCls}`}
                               />
-                            </label>
-                            <label className="text-xs text-[var(--c-muted)]">
-                              Monedas/punto
-                              <input
-                                type="number" min={1} value={form.montoPorPunto}
+                            </label>)}
+                            <label className="text-xs text-[var(--c-muted)]">{porTicket ? "Tu oferta por el ticket" : t("aula.monedasPunto")}<input
+                                type="number" min={Math.max(1, precioMinimo)} value={form.montoPorPunto}
                                 onChange={(e) => setPujaForm((prev) => ({
                                   ...prev, [examen.id]: { ...form, montoPorPunto: Number(e.target.value) }
                                 }))}
@@ -623,29 +1102,34 @@ export default function Aula() {
                             Total a gastar:{" "}
                             <span className="font-medium text-[var(--c-text)]">{form.puntos * form.montoPorPunto} 🪙</span>
                           </p>
+                          {bajoElMinimo && (
+                            <p className="text-xs text-[var(--c-danger)]">
+                              El precio mínimo por ticket es {precioMinimo} 🪙.
+                            </p>
+                          )}
                           <button
                             type="button"
-                            disabled={status === "loading"}
+                            disabled={status === "loading" || bajoElMinimo}
                             onClick={() => handlePujar(examen)}
                             className="w-full rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
                           >
                             {status === "loading" ? "Pujando..." : "Pujar"}
                           </button>
                           {status === "error" && (
-                            <p className="text-xs text-[var(--c-danger)]">No se pudo registrar la puja.</p>
+                            <p className="text-xs text-[var(--c-danger)]">{t("aula.noSePudoRegistrarLa")}</p>
                           )}
                         </div>
                       )}
                       {misPujasExamen.length > 0 && (
                         <div className="pt-1 border-t border-[var(--c-border)]">
-                          <p className="text-xs text-[var(--c-muted)] mb-1">Tus pujas:</p>
+                          <p className="text-xs text-[var(--c-muted)] mb-1">{t("aula.tusPujas")}</p>
                           {misPujasExamen.map((p) => (
                             <div key={p.id} className="flex justify-between text-xs text-[var(--c-text)]">
                               <span>{p.puntos} punto(s) × {p.montoPorPunto} 🪙</span>
                               <span className={
-                                p.estado === "aceptada" ? "text-emerald-600"
+                                p.estado === "aceptada" ? "text-[var(--c-success)]"
                                 : p.estado === "rechazada" ? "text-[var(--c-danger)]"
-                                : "text-amber-600"
+                                : "text-[var(--c-warning)]"
                               }>{p.estado}</span>
                             </div>
                           ))}
@@ -659,6 +1143,13 @@ export default function Aula() {
           </aside>
         </div>
       </div>
+      {asignarModulosOpen && classroomId && classroom && (
+        <AsignarModulosModal
+          classroomId={classroomId}
+          classroomName={classroom.name}
+          onClose={() => setAsignarModulosOpen(false)}
+        />
+      )}
     </main>
   );
 }

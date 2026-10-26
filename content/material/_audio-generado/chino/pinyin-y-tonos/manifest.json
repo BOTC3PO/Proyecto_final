@@ -1,0 +1,227 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "mā 妈",
+  "hablado": "妈",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.41
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "má 麻",
+  "hablado": "麻",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.37
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "mǎ 马",
+  "hablado": "马",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.45
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "mà 骂",
+  "hablado": "骂",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.41
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "palabra",
+  "etiqueta": "妈妈骂马 (Māma mà mǎ)",
+  "hablado": "妈妈骂马。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 3.6
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "palabra",
+  "etiqueta": "你好 (nǐ hǎo)",
+  "hablado": "你好。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 3.01
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "palabra",
+  "etiqueta": "谢谢 (xièxie)",
+  "hablado": "谢谢。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 3.09
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "palabra",
+  "etiqueta": "朋友 (péngyou)",
+  "hablado": "朋友。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 3.09
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "palabra",
+  "etiqueta": "不是 (bú shì)",
+  "hablado": "不是。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.75
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "palabra",
+  "etiqueta": "一个 (yí gè)",
+  "hablado": "一个。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.92
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "palabra",
+  "etiqueta": "一天 (yì tiān)",
+  "hablado": "一天。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.58
+ },
+ {
+  "id": 12,
+  "file": "012.mp3",
+  "tipo": "letra",
+  "etiqueta": "zhī 知",
+  "hablado": "知",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.95
+ },
+ {
+  "id": 13,
+  "file": "013.mp3",
+  "tipo": "letra",
+  "etiqueta": "chī 吃",
+  "hablado": "吃",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.11
+ },
+ {
+  "id": 14,
+  "file": "014.mp3",
+  "tipo": "letra",
+  "etiqueta": "shī 诗",
+  "hablado": "诗",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.85
+ },
+ {
+  "id": 15,
+  "file": "015.mp3",
+  "tipo": "letra",
+  "etiqueta": "rì 日",
+  "hablado": "日",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.95
+ },
+ {
+  "id": 16,
+  "file": "016.mp3",
+  "tipo": "letra",
+  "etiqueta": "jī 鸡",
+  "hablado": "鸡",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.15
+ },
+ {
+  "id": 17,
+  "file": "017.mp3",
+  "tipo": "letra",
+  "etiqueta": "qī 七",
+  "hablado": "七",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.49
+ },
+ {
+  "id": 18,
+  "file": "018.mp3",
+  "tipo": "letra",
+  "etiqueta": "xī 西",
+  "hablado": "西",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.15
+ },
+ {
+  "id": 19,
+  "file": "019.mp3",
+  "tipo": "letra",
+  "etiqueta": "zī 资",
+  "hablado": "资",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.37
+ },
+ {
+  "id": 20,
+  "file": "020.mp3",
+  "tipo": "letra",
+  "etiqueta": "cí 词",
+  "hablado": "词",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 1.94
+ },
+ {
+  "id": 21,
+  "file": "021.mp3",
+  "tipo": "letra",
+  "etiqueta": "sī 思",
+  "hablado": "思",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 22,
+  "file": "022.mp3",
+  "tipo": "letra",
+  "etiqueta": "nǚ 女",
+  "hablado": "女",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.37
+ },
+ {
+  "id": 23,
+  "file": "023.mp3",
+  "tipo": "letra",
+  "etiqueta": "lǜ 绿",
+  "hablado": "绿",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.28
+ },
+ {
+  "id": 24,
+  "file": "024.mp3",
+  "tipo": "letra",
+  "etiqueta": "qù 去",
+  "hablado": "去",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.58
+ },
+ {
+  "id": 25,
+  "file": "025.mp3",
+  "tipo": "letra",
+  "etiqueta": "yú 鱼",
+  "hablado": "鱼",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 1.98
+ }
+]

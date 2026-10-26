@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { apiGet } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 
+import { useI18n } from "../../i18n/I18nContext";
 type BancoItem = {
   quizId: string;
   title: string;
@@ -29,6 +30,7 @@ function mulberry32(seed: number) {
 }
 
 export default function BancoCuestionarios({ onImport }: BancoCuestionariosProps) {
+  const { t } = useI18n();
   const [tab, setTab] = useState<TabOrigen>("todos");
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
@@ -121,9 +123,9 @@ export default function BancoCuestionarios({ onImport }: BancoCuestionariosProps
   };
 
   const TABS: Array<{ value: TabOrigen; label: string }> = [
-    { value: "todos", label: "Todos" },
-    { value: "admin", label: "Global (admin)" },
-    { value: "escuela", label: "Mi escuela" },
+    { value: "todos", label: t("profesorEvaluaciones.todos") },
+    { value: "admin", label: t("bancoCuestionarios.globalAdmin") },
+    { value: "escuela", label: t("bancoCuestionarios.miEscuela") },
   ];
 
   const ORIGEN_BADGE: Record<string, string> = {
@@ -154,22 +156,20 @@ export default function BancoCuestionarios({ onImport }: BancoCuestionariosProps
       {/* Search */}
       <input
         className="w-full rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-        placeholder="Buscar cuestionarios..."
+        placeholder={t("bancoCuestionarios.buscarCuestionarios")}
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
 
       {/* Status */}
       {status === "loading" && (
-        <p className="text-sm text-[var(--c-muted)]">Cargando...</p>
+        <p className="text-sm text-[var(--c-muted)]">{t("comun.cargando2")}</p>
       )}
       {status === "error" && (
-        <p className="text-sm text-red-500">No se pudo cargar el banco.</p>
+        <p className="text-sm text-red-500">{t("bancoCuestionarios.noSePudoCargarEl")}</p>
       )}
       {status === "idle" && items.length === 0 && (
-        <p className="text-sm text-[var(--c-muted)]">
-          No hay cuestionarios disponibles para esta búsqueda.
-        </p>
+        <p className="text-sm text-[var(--c-muted)]">{t("bancoCuestionarios.noHayCuestionariosDisponiblesPara")}</p>
       )}
 
       {status === "idle" && total > 0 && (
@@ -246,9 +246,7 @@ export default function BancoCuestionarios({ onImport }: BancoCuestionariosProps
                   type="button"
                   onClick={() => handleImportRandom(item)}
                   className="rounded-md border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-1 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] transition-colors"
-                >
-                  + Importar al azar
-                </button>
+                >{t("bancoCuestionarios.importarAlAzar")}</button>
               </div>
             </div>
           </div>

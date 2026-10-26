@@ -1,0 +1,200 @@
+[
+ {
+  "id": 1,
+  "file": "001.mp3",
+  "tipo": "letra",
+  "etiqueta": "日",
+  "hablado": "日",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.95
+ },
+ {
+  "id": 2,
+  "file": "002.mp3",
+  "tipo": "letra",
+  "etiqueta": "月",
+  "hablado": "月",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.41
+ },
+ {
+  "id": 3,
+  "file": "003.mp3",
+  "tipo": "letra",
+  "etiqueta": "山",
+  "hablado": "山",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.02
+ },
+ {
+  "id": 4,
+  "file": "004.mp3",
+  "tipo": "letra",
+  "etiqueta": "大",
+  "hablado": "大",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.37
+ },
+ {
+  "id": 5,
+  "file": "005.mp3",
+  "tipo": "letra",
+  "etiqueta": "水",
+  "hablado": "水",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.24
+ },
+ {
+  "id": 6,
+  "file": "006.mp3",
+  "tipo": "letra",
+  "etiqueta": "火",
+  "hablado": "火",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 7,
+  "file": "007.mp3",
+  "tipo": "letra",
+  "etiqueta": "木",
+  "hablado": "木",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.41
+ },
+ {
+  "id": 8,
+  "file": "008.mp3",
+  "tipo": "letra",
+  "etiqueta": "心",
+  "hablado": "心",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.45
+ },
+ {
+  "id": 9,
+  "file": "009.mp3",
+  "tipo": "letra",
+  "etiqueta": "好",
+  "hablado": "好",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.62
+ },
+ {
+  "id": 10,
+  "file": "010.mp3",
+  "tipo": "letra",
+  "etiqueta": "休",
+  "hablado": "休",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.02
+ },
+ {
+  "id": 11,
+  "file": "011.mp3",
+  "tipo": "letra",
+  "etiqueta": "林",
+  "hablado": "林",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.71
+ },
+ {
+  "id": 12,
+  "file": "012.mp3",
+  "tipo": "letra",
+  "etiqueta": "你",
+  "hablado": "你",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.45
+ },
+ {
+  "id": 13,
+  "file": "013.mp3",
+  "tipo": "letra",
+  "etiqueta": "河",
+  "hablado": "河",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 1.85
+ },
+ {
+  "id": 14,
+  "file": "014.mp3",
+  "tipo": "letra",
+  "etiqueta": "热",
+  "hablado": "热",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.37
+ },
+ {
+  "id": 15,
+  "file": "015.mp3",
+  "tipo": "letra",
+  "etiqueta": "想",
+  "hablado": "想",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.07
+ },
+ {
+  "id": 16,
+  "file": "016.mp3",
+  "tipo": "letra",
+  "etiqueta": "妈",
+  "hablado": "妈",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.41
+ },
+ {
+  "id": 17,
+  "file": "017.mp3",
+  "tipo": "letra",
+  "etiqueta": "吃",
+  "hablado": "吃",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.11
+ },
+ {
+  "id": 18,
+  "file": "018.mp3",
+  "tipo": "letra",
+  "etiqueta": "请",
+  "hablado": "请",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.11
+ },
+ {
+  "id": 19,
+  "file": "019.mp3",
+  "tipo": "letra",
+  "etiqueta": "说",
+  "hablado": "说",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.28
+ },
+ {
+  "id": 20,
+  "file": "020.mp3",
+  "tipo": "letra",
+  "etiqueta": "打",
+  "hablado": "打",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 2.28
+ },
+ {
+  "id": 21,
+  "file": "021.mp3",
+  "tipo": "letra",
+  "etiqueta": "花",
+  "hablado": "花",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 1.98
+ },
+ {
+  "id": 22,
+  "file": "022.mp3",
+  "tipo": "palabra",
+  "etiqueta": "林 (bosque)",
+  "hablado": "森林。",
+  "voz": "kokoro:zf_xiaoxiao+misaki",
+  "segundos": 3.3
+ }
+]

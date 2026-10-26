@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { apiGet } from '../lib/api';
+import { useI18n } from "../i18n/I18nContext";
 
 type Miembro = { id: string; name: string; role: string; };
 
@@ -17,6 +18,7 @@ const ROLE_COLORS: Record<string, string> = {
 };
 
 export default function EnterpriseMiembros() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const [staff, setStaff] = useState<Miembro[]>([]);
   const [loading, setLoading] = useState(true);
@@ -43,8 +45,8 @@ export default function EnterpriseMiembros() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Miembros del equipo</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">Personal de tu institución.</p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("enterpriseMiembros.miembrosDelEquipo")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseMiembros.personalDeTuInstitucion")}</p>
       </div>
 
       {error && (
@@ -61,7 +63,7 @@ export default function EnterpriseMiembros() {
 
       {!loading && !error && staff.length === 0 && (
         <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-10 text-center">
-          <p className="text-sm text-[var(--c-muted)]">No hay miembros registrados.</p>
+          <p className="text-sm text-[var(--c-muted)]">{t("enterpriseMiembros.noHayMiembrosRegistrados")}</p>
         </div>
       )}
 

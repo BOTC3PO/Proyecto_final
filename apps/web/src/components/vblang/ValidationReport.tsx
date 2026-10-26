@@ -1,18 +1,26 @@
 /**
  * Componente que muestra el reporte de validación + botón "Validar".
+ *
+ * Envuelto en React.memo: el `state` que viene del hook es estable entre
+ * renders (mismo objeto hasta que el user pulsa Validar); el `disabled` es un
+ * primitivo. Re-renders del padre por otras causas ya no recalculan los
+ * promedios ni re-pintan la lista de errores.
  */
 
+import { memo } from "react";
 import type { ValidationState } from "../../hooks/usePlantillaValidation";
 
+import { useI18n } from "../../i18n/I18nContext";
 interface ValidationReportProps {
   state: ValidationState;
   disabled?: boolean;
 }
 
-export default function ValidationReport({
+function ValidationReport({
   state,
   disabled,
 }: ValidationReportProps) {
+  const { t } = useI18n();
   const { status, report, run } = state;
   const avgMs =
     report && report.totalSimulations > 0
@@ -22,27 +30,25 @@ export default function ValidationReport({
   return (
     <div
       role="region"
-      aria-label="Reporte de validación"
+      aria-label={t("validationReport.reporteDeValidacion")}
       className="panel-section panel-section--last"
       data-testid="vblang-validation-report"
     >
       <div className="panel-section__head">
-        <h3 className="panel-section__title">Validación</h3>
+        <h3 className="panel-section__title">{t("validationReport.validacion")}</h3>
         <button
           type="button"
           onClick={() => void run()}
           disabled={disabled || status === "running"}
           className="rounded-md bg-[var(--c-primary,#3b82f6)] px-3 py-1 text-xs font-medium text-white disabled:opacity-50"
         >
-          {status === "running" ? "Validando…" : "Validar (100 simulaciones)"}
+          {status === "running" ? t("validationReport.validando") : t("validationReport.validar100Simulaciones")}
         </button>
       </div>
 
       <div className="panel-section__body">
       {status === "running" && (
-        <p className="text-xs text-[var(--c-muted,#64748b)] animate-pulse">
-          Generando 100 ejercicios…
-        </p>
+        <p className="text-xs text-[var(--c-muted,#64748b)] animate-pulse">{t("validationReport.generando100Ejercicios")}</p>
       )}
 
       {status === "done" && report && (
@@ -117,6 +123,8 @@ export default function ValidationReport({
   );
 }
 
+export default memo(ValidationReport);
+
 /** Barra de progreso de validación: % de simulaciones OK + stats. */
 function ValidationProgress({
   passed,
@@ -129,6 +137,7 @@ function ValidationProgress({
   pass: boolean;
   avgMs: number;
 }) {
+  const { t } = useI18n();
   const pct = total > 0 ? Math.round((passed / total) * 100) : 0;
   const tone = pass ? "var(--c-success)" : "var(--c-danger)";
   return (
@@ -141,7 +150,7 @@ function ValidationProgress({
       </div>
       <div
         role="progressbar"
-        aria-label="Progreso de validación"
+        aria-label={t("validationReport.progresoDeValidacion")}
         aria-valuenow={pct}
         aria-valuemin={0}
         aria-valuemax={100}

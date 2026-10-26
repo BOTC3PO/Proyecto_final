@@ -1,0 +1,47 @@
+{
+ "titulo": "Fuerzas sobre un cuerpo sumergido",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Peso y empuje",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Empuje E = ρ·g·V (hacia arriba)",
+     "x": 188,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "Cuerpo parcialmente sumergido",
+     "x": 188,
+     "y": 103,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n3",
+     "label": "Peso P = m·g (hacia abajo)",
+     "x": 188,
+     "y": 207,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n2",
+     "toId": "n1",
+     "label": "empuje"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "gravedad"
+    }
+   ]
+  }
+ ]
+}

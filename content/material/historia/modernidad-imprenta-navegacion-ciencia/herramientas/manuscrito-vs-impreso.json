@@ -1,0 +1,32 @@
+{
+ "titulo": "Manuscrito medieval y libro impreso",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Manuscrito",
+    "Libro impreso con tipos móviles"
+   ],
+   "rows": [
+    [
+     "Cómo se hace",
+     "Copiado a mano por un escriba",
+     "Con tipos móviles y prensa"
+    ],
+    [
+     "Tiempo por ejemplar",
+     "Meses",
+     "Muy corto una vez compuesta la página"
+    ],
+    [
+     "Cantidad y precio",
+     "Pocos y caros",
+     "Muchos y más baratos"
+    ]
+   ]
+  }
+ ]
+}

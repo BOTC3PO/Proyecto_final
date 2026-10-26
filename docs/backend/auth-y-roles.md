@@ -2,10 +2,10 @@
 
 | | |
 |---|---|
-| **Versión** | 1.0 |
+| **Versión** | 1.1 |
 | **Estado** | Vigente |
 | **Audiencia** | Backend, full-stack, seguridad |
-| **Última actualización** | 2026-05-30 |
+| **Última actualización** | 2026-07-18 — fusión con `documentacion V2/docs/`: multirol (§2.1), cuenta espejo (§3.1), co-titulares de aula (§3.2), refresh token ahora emitido por default (§1), gobernanza retirada (§4). El resto de la versión 2026-05-30 sigue vigente. |
 
 > Este documento reconcilia y reemplaza a [`docs/roles.md`](../roles.md) (que queda como
 > referencia conceptual de roles). Se deriva del código real de autenticación y autorización.
@@ -47,7 +47,10 @@ Definidos en `api/src/lib/auth-token.ts`:
   Claims: `sub` (userId), `email`, `username`, `role`, `guestOnboardingStatus`, `schoolId`,
   `fullName`, `iat`, `exp`, `typ: "access"` (+ `iss`/`aud` si están configurados).
 - **Refresh token:** firmado con `JWT_REFRESH_SECRET` (cae a `JWT_SECRET` si está vacío), TTL
-  `JWT_REFRESH_TTL_SECONDS`. **Si el TTL es `<= 0` (default), no se emite refresh token.**
+  `JWT_REFRESH_TTL_SECONDS`. Si el TTL es `<= 0` no se emite refresh token — pero 🆕 **el default ya
+  no es `0`**: `env.ts` fija `JWT_REFRESH_TTL_SECONDS` en `7 * 24 * 60 * 60` (**7 días**) por
+  defecto, así que hoy el refresh token se emite siempre salvo que se lo desactive explícitamente
+  por variable de entorno. Cubierto por `tests/integracion/auth-refresh-token.test.ts`.
 - **Validaciones en `verifyToken`:** algoritmo HS256, firma, tipo de token, `exp`, y opcionalmente
   `iss` (`JWT_ISSUER`) y `aud` (`JWT_AUDIENCE`) si están seteados.
 
@@ -118,6 +121,29 @@ El estado vive en `Usuario.guestOnboardingStatus`:
 
 > El gate se aplica en `requireUser` (`user-auth.ts:70-78`).
 
+### 2.1 Multirol 🆕 (`api/src/lib/roles.ts`, MULTIROL-01)
+
+Desde julio 2026, `Usuario.roles: String[]` es la **fuente de verdad** de los roles — un usuario
+puede ser, por ejemplo, `["TEACHER", "PARENT"]` a la vez. `Usuario.role` (singular) se mantiene
+como columna espejo **deprecada pero viva** durante la transición: código legacy que lee
+`user.role` sigue funcionando (Fase 1). Backfill: cada fila existente recibió `roles = [role]` en
+la migración `20260617050000_multirol_usuario_roles`.
+
+| Helper | Qué hace |
+|---|---|
+| `resolveRoles(user)` | Array efectivo: `roles` si no está vacío; si no, `[role]` (compat); si no, `[]`. |
+| `resolvePrimaryRole(user)` | Rol de mayor jerarquía (`ADMIN > DIRECTIVO > TEACHER > PARENT > USER > GUEST`) para código que espera un rol singular. Nunca inventa un rol: `null` si el array está vacío. |
+| `hasRole(user, target)` | ¿`target` ∈ roles del usuario? Acepta `user` como string suelto (compat). |
+| `STAFF_ROLES` / `isStaffInRoles(roles)` | `{ADMIN, DIRECTIVO, TEACHER}` — ¿algún rol del array es staff? |
+| `isParentInRoles(roles)` | ¿Incluye `PARENT`? Usado por la provisión opt-in de la cuenta espejo del padre (PARENT no es staff, pero puede pedir su propia cuenta de alumno). |
+
+**Reglas de oro de la Fase 1** (documentadas en el propio archivo): no degradar permisos
+(`isStaffRole({role:"TEACHER"})` sigue dando `true` igual que antes de multirol) ni elevar por
+error (`roles` nunca incluye algo que el usuario no tenía). El JWT lleva **ambos** — `role` y
+`roles` — en sus claims. Fase 2 (completada): el front centraliza sus ~47 checks de rol usando
+`hasRole`/`isStaffRole` re-exportados desde `authorization`. Fase 3 (pendiente): retirar `role`
+cuando nada lo use.
+
 ---
 
 ## 3. Roles por escuela y por aula; helpers de autorización
@@ -143,6 +169,27 @@ Conjunto `STAFF_ROLES = {ADMIN, DIRECTIVO, TEACHER}`. Funciones clave:
 | `canVoteContent` | Votar contenido | ADMIN, DIRECTIVO, TEACHER, STUDENT |
 | `canProposeGovernanceChange` / `canVoteGovernance` | Gobernanza | STAFF |
 | `canManageClassroom` | Gestionar un aula concreta | DIRECTIVO de la misma escuela, o miembro con `rolEnClase` ADMIN/TEACHER/DIRECTIVO |
+
+### 3.1 Cuenta espejo 🆕 (`api/src/lib/cuenta-vinculada.ts`)
+
+Staff (ADMIN/DIRECTIVO/TEACHER) recibe en el registro una **cuenta espejo de alumno**
+(`Usuario.tipoCuenta = "ESPEJO_ALUMNO"` + fila `CuentaVinculada`, ver
+[`modelo-de-datos.md#11-cuentas-vinculadas-cuenta-espejo`](./modelo-de-datos.md#11-cuentas-vinculadas-cuenta-espejo));
+un padre puede pedirla opt-in. El **cambio de cuenta** (`roles.ts` route) emite tokens de la otra
+cuenta sin re-login. `resolveEspejoId(userId)` discrimina el espejo genuino (misma persona) de
+vínculos padre-hijo (personas distintas) — usarlo siempre en vez de asumir que "la otra punta" de
+un vínculo es un espejo. El espejo queda **excluido de rosters y analíticas** de alumnos
+(filtrado por `tipoCuenta`). Excepción documentada: el espejo de staff **sí** recibe saldo de
+bienvenida y sus compras de tienda se mergean en `GET /api/tienda/mis-items` — a propósito, para
+que un docente pueda probar la economía sin una cuenta de alumno real.
+
+### 3.2 Co-titulares de aula 🆕
+
+`isClassroomTeacher` (`classroom-scope.ts`) acepta **más de un** docente por aula vía
+`ClaseMiembro` — sin migración nueva, reusa el modelo existente. `DIRECTIVO` se sumó a
+`isTeacherOfClass` (antes un directivo entrando a un aula ajena veía "Invitado"). El `PATCH` de
+aulas ya daba acceso escuela-ancha a staff; el co-titular importa específicamente en
+`viewerRoleInClass` y en las rutas pedagógicas (`pedagogico.ts`).
 
 ### Políticas (`requirePolicy`)
 
@@ -184,9 +231,11 @@ Respuestas: `201 { id }` en éxito; `401 "Invalid bootstrap key"` si la clave es
 `409 "Admin already exists"` si ya hay un ADMIN; `503 "Bootstrap admin disabled"` si la feature
 está deshabilitada. Guía operativa en [`../bootstrap-admin.md`](../bootstrap-admin.md).
 
-> Promoción de roles posterior: `PATCH /api/admin/usuarios/:id/rol` (solo el admin principal —
-> el creado por bootstrap, sin `createdBy`— puede promover; en otro caso responde `403` con
-> `requiresGovernance: true`).
+> Promoción de roles posterior: `PATCH /api/admin/usuarios/:id/rol` (solo el admin principal — el
+> creado por bootstrap, sin `createdBy`— puede promover). ⚠️ **Gobernanza retirada por completo**
+> (2026-07-14): ya no existe la alternativa de votación entre administradores que el flag
+> `requiresGovernance: true` ofrecía en versiones previas de este documento — la restricción hoy es
+> incondicional al admin principal, sin ruta de escape por votación.
 
 ---
 

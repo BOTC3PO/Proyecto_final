@@ -1,0 +1,43 @@
+{
+ "titulo": "Etapas de la fatiga",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Bajo cargas repetidas",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Grieta inicial",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Propagación de la grieta",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Fractura final",
+     "x": 475,
+     "y": 0,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

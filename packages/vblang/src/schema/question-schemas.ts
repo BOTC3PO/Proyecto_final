@@ -50,6 +50,36 @@ function enunciadoField(): TextField {
   };
 }
 
+// WO-11 — schema de tipo `expresion` (respuesta simbólica). El alumno
+// escribe una expresión algebraica; la corrección es por equivalencia
+// simbólica (numérica + algebraica vía math.simplify), no por
+// tolerancia numérica ni por igualdad de string. El input esperado
+// es notación math.js: `2*x+4` (no `2x+4`), `x^2+1`, paréntesis
+// para agrupar. Ver `docs/vblang/wo-11-eje-simbolico.md` §4.
+const expresionSchema: QuestionTypeSchema = {
+  tipo: "expresion",
+  label: "Respuesta simbólica (expresión algebraica)",
+  descripcion:
+    "El alumno escribe una expresión algebraica. Se acepta cualquier forma equivalente (ej. '2x+4' y '2(x+2)' cuentan igual); se rechaza si la forma es distinta como función (ej. '2x+4' vs '2x+5').",
+  declaraTipo: false,
+  fields: [
+    enunciadoField(),
+    {
+      kind: "text",
+      key: "respuesta_expr",
+      label: "Expresión esperada",
+      help:
+        "Expresión VBLang que evalúa a un string con notación math.js (ej. '2*x+4', 'x^2+1'). Se compara por equivalencia simbólica.",
+      required: true,
+      block: "respuesta_expr",
+      expression: true,
+    },
+  ],
+  sampleDsl: `enunciado: "Factoriza: 6x + 12"
+respuesta_expr: "6*(x+2)"
+`,
+};
+
 const inputSchema: QuestionTypeSchema = {
   tipo: "input",
   label: "Respuesta numérica / abierta corta",
@@ -115,6 +145,37 @@ const mcSchema: QuestionTypeSchema = {
       help: "Texto exacto de la opción correcta.",
       required: true,
       block: "respuesta",
+    },
+    // PLAN-E §21 Parte A — selección múltiple (opcionales).
+    {
+      kind: "bool",
+      key: "multiple",
+      label: "Selección múltiple (varias correctas)",
+      help: "El alumno marca con checkboxes. Las correctas adicionales van en la lista de abajo.",
+      required: false,
+      block: "multiple",
+    },
+    {
+      kind: "list",
+      key: "respuestas_validas",
+      label: "Correctas adicionales (selección múltiple)",
+      help: "Cada ítem debe coincidir con el texto exacto de una opción.",
+      required: false,
+      block: "respuestas_validas",
+      emits: "respuestas_validas",
+      itemShape: "string",
+    },
+    {
+      kind: "enum",
+      key: "puntaje_parcial",
+      label: "Puntaje",
+      help: "Proporcional: (aciertos − marcadas de más) / total correctas, piso 0.",
+      required: false,
+      block: "puntaje_parcial",
+      options: [
+        { value: "todo_o_nada", label: "Todo o nada" },
+        { value: "proporcional", label: "Proporcional" },
+      ],
     },
   ],
   sampleDsl: `enunciado: "¿Cuál es un número primo?"
@@ -217,7 +278,7 @@ respuesta_orden: ["1", "2", "3"]
 const marcarMapaSchema: QuestionTypeSchema = {
   tipo: "marcar_mapa",
   label: "Marcar en el mapa",
-  descripcion: "El alumno selecciona un país/región en un mapa.",
+  descripcion: "El alumno selecciona un país o provincia en un mapa.",
   declaraTipo: true,
   fields: [
     enunciadoField(),
@@ -230,23 +291,37 @@ const marcarMapaSchema: QuestionTypeSchema = {
       block: "mapa",
       options: [
         { value: "world_countries", label: "Países del mundo" },
-        { value: "world_states_provinces", label: "Estados / provincias" },
-        { value: "world_cities", label: "Ciudades" },
+        { value: "world_states_provinces", label: "Provincias / estados (por país)" },
       ],
     },
     {
       kind: "text",
       key: "respuesta_iso",
       label: "Código ISO correcto",
-      help: "Código ISO de la región correcta (ej.: AR).",
+      help: "Para países: ISO A3 (ej. ARG). Para provincias: ISO 3166-2 (ej. AR-C para CABA).",
       required: true,
       block: "respuesta_iso",
+    },
+    /**
+     * PLAN tiza-autoria-avanzada §6.b — el modo "nombre" existía en el runtime
+     * (`generate-special.ts`: `modoRespuesta = respuestaIso ? "iso" : "nombre"`)
+     * y en el adapter, y la plantilla de ejemplo oficial del wizard lo usa, pero
+     * ningún campo del schema lo declaraba: sólo se llegaba por modo Código.
+     * Opcional — si hay `respuesta_iso`, ese gana y este queda como extra.
+     */
+    {
+      kind: "text",
+      key: "respuesta_nombre",
+      label: "Nombre correcto",
+      help: "Alternativa al ISO: compara por el nombre (name_es). Si declarás ISO, manda el ISO.",
+      required: false,
+      block: "respuesta_nombre",
     },
   ],
   sampleDsl: `enunciado: "Marcá Argentina en el mapa."
 tipo: marcar_mapa
 mapa: world_countries
-respuesta_iso: "AR"
+respuesta_iso: "ARG"
 `,
 };
 
@@ -283,6 +358,72 @@ texto_analizar: "el gato duerme"
 etiquetas_pedidas:
   - { palabra: "gato", etiqueta: "sustantivo" }
   - { palabra: "duerme", etiqueta: "verbo" }
+`,
+};
+
+// PLAN-E §21 Parte B — análisis por RANGOS de palabras (spans solapables).
+const analisisSpansSchema: QuestionTypeSchema = {
+  tipo: "analisis_spans",
+  label: "Análisis sintáctico por rangos",
+  descripcion:
+    "El alumno etiqueta rangos de palabras contiguas (ej. 'El perro grande' → sujeto). " +
+    "Los rangos pueden solaparse (núcleo dentro del sujeto). Corrección exacta por conjunto.",
+  declaraTipo: true,
+  fields: [
+    enunciadoField(),
+    {
+      kind: "text",
+      key: "texto_analizar",
+      label: "Texto a analizar",
+      help: "La oración que el alumno debe analizar. La unidad es la PALABRA (separada por espacios).",
+      required: true,
+      block: "texto_analizar",
+    },
+    {
+      kind: "list",
+      key: "spans_pedidos",
+      label: "Spans correctos",
+      help:
+        "Cada span: desde/hasta son índices de palabra (0 = primera, inclusive) y su etiqueta. " +
+        "Pueden solaparse.",
+      required: true,
+      block: "spans_pedidos",
+      emits: "spans_pedidos",
+      itemShape: "span",
+      minItems: 1,
+    },
+    {
+      kind: "list",
+      key: "etiquetas_disponibles",
+      label: "Etiquetas visibles (distractores)",
+      help:
+        "Etiquetas extra que ve el alumno además de las correctas (que se agregan solas).",
+      required: false,
+      block: "etiquetas_disponibles",
+      emits: "etiquetas_disponibles",
+      itemShape: "string",
+    },
+    {
+      kind: "enum",
+      key: "puntaje_parcial",
+      label: "Puntaje",
+      help: "Proporcional: (spans correctos − spans de más) / total correctos, piso 0.",
+      required: false,
+      block: "puntaje_parcial",
+      options: [
+        { value: "todo_o_nada", label: "Todo o nada" },
+        { value: "proporcional", label: "Proporcional" },
+      ],
+    },
+  ],
+  sampleDsl: `enunciado: "Analizá la oración."
+tipo: analisis_spans
+texto_analizar: "El perro grande corre por el parque"
+spans_pedidos:
+  - { desde: 0, hasta: 2, etiqueta: "sujeto" }
+  - { desde: 3, hasta: 6, etiqueta: "predicado" }
+etiquetas_disponibles:
+  - "objeto directo"
 `,
 };
 
@@ -361,8 +502,11 @@ export const QUESTION_TYPE_SCHEMAS: Record<TipoPregunta, QuestionTypeSchema> = {
   ordenar: ordenarSchema,
   marcar_mapa: marcarMapaSchema,
   analisis_sintactico: analisisSintacticoSchema,
+  analisis_spans: analisisSpansSchema,
   identificar_palabras: identificarPalabrasSchema,
   abierta: abiertaSchema,
+  // WO-11 — respuesta simbólica. Schema aditivo.
+  expresion: expresionSchema,
 };
 
 /** Lista ordenada de tipos soportados por la base "tipo genérico". */
@@ -374,8 +518,11 @@ export const ALL_QUESTION_TYPES: TipoPregunta[] = [
   "ordenar",
   "marcar_mapa",
   "analisis_sintactico",
+  "analisis_spans",
   "identificar_palabras",
   "abierta",
+  // WO-11 — simbólico al final (tipo más nuevo, aún en adopción).
+  "expresion",
 ];
 
 /** Lookup por tipo (helper para el renderer). */

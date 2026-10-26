@@ -1,0 +1,33 @@
+## Diseñar para todos y comprobar que funciona: accesibilidad, prototipos y pruebas
+
+Una interfaz clara para quien la diseñó puede resultar inutilizable para otras personas. Algunas no ven bien, otras no ven en absoluto, otras no pueden usar un ratón o necesitan más tiempo para leer. Y aun cuando el diseño sea impecable en teoría, solo se sabe si funciona cuando alguien lo usa. Este capítulo recorre tres ideas encadenadas: la accesibilidad, que amplía quiénes pueden usar un producto; el prototipado, que permite probar ideas antes de construirlas; y las pruebas de usuario, que ponen esas ideas frente a personas reales.
+
+### Accesibilidad: las pautas WCAG
+
+Las pautas WCAG, siglas en inglés de Web Content Accessibility Guidelines, son el estándar internacional que define cómo lograr que el contenido digital sea utilizable por personas con discapacidades visuales, auditivas, motoras o cognitivas. Las elabora el consorcio que fija los estándares de la web y se organizan en tres niveles de cumplimiento, llamados A, AA y AAA, de menor a mayor exigencia. En muchos países, entre ellos la Argentina, existe además normativa que obliga a los organismos públicos a que sus sitios sean accesibles, de modo que la accesibilidad no es solo una buena práctica sino también una obligación legal en esos casos.
+
+Un primer requisito es el contraste entre el texto y su fondo. Se mide con una razón numérica: para el texto normal, las pautas piden al menos 4,5 a 1, y para el texto grande, como títulos o botones, al menos 3 a 1. Un gris claro sobre blanco, tan frecuente en diseños que buscan verse elegantes, suele quedar por debajo de ese umbral. El contraste adecuado no beneficia solo a quienes tienen baja visión: también ayuda a una persona que mira el teléfono bajo el sol o a quien tiene la pantalla con poco brillo.
+
+Un segundo requisito se refiere a quienes no ven la pantalla y usan lectores de pantalla, programas que convierten el contenido en voz o en braille. Estos programas dependen de la estructura del código. Si los títulos están marcados como títulos, los párrafos como párrafos y los menús como zonas de navegación, la persona puede saltar de una sección a otra, pedir la lista de encabezados y orientarse. Si en cambio un texto se ve grande porque se le aplicó un estilo, pero el código no lo declara como título, el lector lo lee como un párrafo más y la estructura se pierde. Lo mismo ocurre con la información que se transmite solo con imágenes: una flecha roja que indica avanzar no dice nada a quien no la ve, mientras que un botón con el texto Siguiente se entiende por cualquier vía.
+
+Esto conduce a una enseñanza que aparece a menudo en el trabajo real: la información nunca debería depender de un único canal sensorial. El color solo, la imagen sola o el sonido solo excluyen a alguien. Un campo con error no debería marcarse únicamente en rojo, porque una persona con daltonismo podría no distinguirlo; conviene agregar un texto o un icono. A veces se plantea la accesibilidad como un freno a la creatividad, pero en la práctica obliga a pensar mejor, y sus soluciones suelen mejorar la experiencia de todos.
+
+### Prototipar: del boceto a la simulación
+
+Construir un producto digital completo para descubrir después que no se entiende es carísimo. Por eso el diseño avanza por etapas de fidelidad creciente, y cada una responde a una pregunta distinta.
+
+El wireframe es el esqueleto: un dibujo en blanco y negro, a veces hecho a mano en papel, que muestra dónde va cada pieza, como el buscador, el menú o el carrito, y cómo se pasa de una pantalla a otra. No tiene colores ni imágenes a propósito, para que la conversación se concentre en la estructura y la jerarquía de la información, y no en si el azul es bonito. Su gran virtud es la rapidez: se puede rehacer en minutos.
+
+El mockup agrega la capa visual: colores, tipografías, imágenes, íconos. Es una imagen fiel de cómo se verá una pantalla terminada, pero estática, sin interacción. Sirve para validar decisiones de estilo con el cliente o con el equipo antes de escribir una línea de código.
+
+El prototipo interactivo, por último, simula el funcionamiento. Permite tocar los botones, pasar de pantalla en pantalla y ver transiciones, aunque detrás no haya un programa real. Con él se puede comprobar si alguien se pierde en la navegación o no encuentra la acción principal. Las tres etapas no compiten sino que se encadenan, y herramientas de diseño muy difundidas permiten pasar de una a otra sobre el mismo archivo.
+
+### Pruebas de usuario: mirar sin intervenir
+
+El prototipo recién cobra valor cuando alguien lo usa. En una prueba de usuario, personas del público al que apunta el producto realizan tareas concretas mientras un equipo observa. Lo que se busca no es saber si el diseño gusta, sino si permite cumplir objetivos. Las tareas deben parecerse a la vida real: encontrar un producto que cueste menos de determinado monto, o enviar un mensaje a un compañero. Una consigna demasiado abstracta produce resultados que no sirven para decidir nada.
+
+La persona que modera la sesión tiene un papel delicado. Debe explicar la actividad, pedir que el participante piense en voz alta y registrar lo que ocurre, pero sin corregirlo ni darle pistas. Si ayuda, deja de medirse la facilidad del diseño y empieza a medirse la habilidad del moderador. Un error frecuente es el sesgo de observación, que consiste en interpretar lo que se ve según las propias expectativas. Si un participante tarda en hallar una opción, es tentador concluir que el menú está mal ubicado, cuando quizá la dificultad fue una palabra técnica que no conocía. Para evitarlo se graban las sesiones, se las revisa entre varias personas y se anotan conductas observables, por ejemplo cuántas veces intentó hacer clic en el mismo lugar.
+
+Sobre la cantidad de participantes existe una regla muy citada: con cinco a ocho personas suele aparecer la gran mayoría de los problemas importantes. Lo decisivo no es el número sino que representen al público real. Probar con jóvenes habituados a las aplicaciones un servicio pensado para jubilados que usan poco internet daría una falsa tranquilidad. Es mejor hacer varias rondas pequeñas, corrigiendo entre una y otra, que una sola ronda enorme.
+
+El conjunto forma un ciclo. Las heurísticas permiten limpiar los defectos evidentes, la accesibilidad abre el producto a más personas, los prototipos permiten probar sin construir y las pruebas devuelven datos reales que alimentan el siguiente diseño. Los resultados de las pruebas se ordenan por gravedad y por frecuencia, y las correcciones más importantes vuelven a probarse. Así, el diseño deja de ser cuestión de gustos y pasa a apoyarse en evidencia.

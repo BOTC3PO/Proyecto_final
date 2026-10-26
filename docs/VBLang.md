@@ -134,6 +134,7 @@ Una plantilla VBLang es un archivo de texto con **bloques con nombre**. Cada blo
 | `opciones:` | No | Cantidad de opciones múltiple-choice. |
 | `tipo:` | No | Tipo de pregunta (`mc`, `input`, `vf`, `ordenar`, etc.). Default: `input`. |
 | `enunciado:` | Sí | Texto del ejercicio mostrado al alumno. |
+| `enunciados:` | Sí (en lugar de `enunciado:`) | Lista de variantes de enunciado; se elige una al azar por ejercicio, de forma estable por seed. Mutuamente excluyente con `enunciado:`. Cada variante puede declarar tipo propio (`- mc "..."`, sólo tipos básicos; ver sección 7). |
 | `pasos:` | No | Resolución paso a paso (visible al alumno post-respuesta). |
 | `visual:` | No | Visual adjunto (chart, mapa, timeline, imagen). |
 | `generador:` | No | Generador hardcoded de Virtual Book a usar. |
@@ -511,6 +512,26 @@ VBLang expone funciones de math.js con nombres en inglés (estándar matemático
 | `max(a, b, ...)` | Máximo. |
 | `signo(x)` | -1, 0 o 1 según el signo. |
 
+### 6.2.1 Teoría de números (WO-8)
+
+| Función | Descripción |
+|---|---|
+| `mcd(a, b)` | Máximo común divisor (siempre no-negativo; el signo se ignora). `mcd(0, n)` = `n`; `mcd(0, 0)` = `0`. |
+| `mcm(a, b)` | Mínimo común múltiplo (siempre no-negativo; `mcm(0, n)` = `0`). |
+| `es_primo(n)` | `verdadero` si `n` es primo (`n ≥ 2` y solo divisible por 1 y por sí mismo). `es_primo(1)` = `falso`. |
+| `divisores(n)` | Lista de divisores positivos de `n` (ordenada). `divisores(12)` → `[1, 2, 3, 4, 6, 12]`. `divisores(0)` lanza error. |
+| `factorizar(n)` | Lista de factores primos con multiplicidad. `factorizar(12)` → `[2, 2, 3]`. Requiere `n ≥ 2`. |
+
+### 6.2.2 Salida de fracción simplificada (WO-8)
+
+`fraccion(p, q)` devuelve un **string** con la fracción irreducible:
+
+- `fraccion(3, 6)` → `"1/2"`.
+- `fraccion(4, 1)` → `"4"` (sin `/1` cuando la simplificación colapsa al entero).
+- El signo se normaliza en el numerador: `fraccion(3, -4)` → `"-3/4"`, `fraccion(-3, -4)` → `"3/4"`.
+- `fraccion(1, 0)` lanza error (denominador no puede ser 0).
+- Pensado para usarse directamente como `respuesta:` de un `input` (la validación es por igualdad de string) y para interpolarse en `enunciado` / `pasos`.
+
 ### 6.3 Trigonometría
 
 Las funciones trigonométricas trabajan con **radianes** por defecto. Para grados, usar las versiones con sufijo `_deg`.
@@ -542,6 +563,8 @@ Las funciones trigonométricas trabajan con **radianes** por defecto. Para grado
 | `ultimo(array)` | Último elemento. |
 | `sumar(array)` | Suma de elementos numéricos. |
 | `promedio(array)` | Promedio aritmético. |
+| `mediana(array)` | Mediana (elemento central en lista impar; promedio de los dos centrales en lista par). Lanza error sobre array vacío. |
+| `moda(array)` | Valor más frecuente. Devuelve `null` si todos los elementos aparecen 1 vez o si hay empate entre varias modas. |
 | `ordenar(array)` | Devuelve el array ordenado. |
 | `ordenar_por(array, campo)` | Ordena array de objetos por campo. |
 | `filtrar(array, condicion)` | Array filtrado. Ver datasets para sintaxis. |
@@ -709,6 +732,74 @@ enunciado: |
 ```
 
 Esto renderiza como: *"La expresión matemática {a + b} significa 'a más b'."*
+
+### 7.8 Enunciados con variantes
+
+A veces el docente quiere que el mismo ejercicio aparezca con redacciones distintas: por contexto narrativo, por edad del curso, o simplemente para reducir la copia entre alumnos. El bloque `enunciados:` declara una **lista de variantes** del enunciado; en cada generación el sistema elige una sola.
+
+#### Sintaxis
+
+```vblang
+variables:
+  a: random(1, 100)
+  b: random(1, 100)
+
+enunciados:
+  - "Cuanto es {a} + {b}?"
+  - "Calcula la suma de {a} y {b}."
+  - "Resolvé el ejercicio: cuanto suman {a} y {b}?"
+
+tipo: input
+respuesta: a + b
+```
+
+Cada ítem es un string entre comillas precedido por `- `, igual que el bloque `pasos:`. Las interpolaciones `{variable}` y los modificadores (`{v|2}`, `{v|mayusculas}`) funcionan igual que en `enunciado:`.
+
+#### Semántica
+
+- **Mutuamente excluyente con `enunciado:`**. Una plantilla debe declarar exactamente uno de los dos. Si aparecen ambos, el parser rechaza con *"Usá `enunciado:` o `enunciados:`, no ambos"*. Si falta el bloque obligatorio, el mensaje menciona las dos opciones.
+- **Mínimo 1 variante**. Una lista vacía se rechaza con un error que indica cómo agregar al menos un ítem.
+- **Selección por PRNG**. La variante a usar se elige con el PRNG de la simulación, consumiendo un valor antes de interpolar. Esto preserva el determinismo: con la misma semilla, la misma variante.
+- **Determinismo por seed**. Mismo seed + misma plantilla → misma variante. Mismos valores de variables. Mismo enunciado final.
+- **Cobertura en validación**. La validación de 100 simulaciones (sección 13.1) fuerza cada variante al menos una vez en la ventana inicial, para que un error de interpolación en cualquier variante (ej. una variable mal escrita) haga fallar la validación, no que pase desapercibido con probabilidad 1/N.
+- **Linter contextual**. El linter emite un warning por cada variable no declarada con el formato `enunciados[i]: variable "x" no declarada` para que el docente ubique el error en la variante correcta. También avisa si hay variantes duplicadas exactas.
+
+#### Variantes con tipo propio (PLAN-E §15)
+
+Una variante puede declarar su **propio tipo de pregunta** anteponiendo el
+tipo al string:
+
+```vblang
+variables:
+  a: random(1, 100)
+  b: random(1, 100)
+
+opciones: 4
+
+enunciados:
+  - "Escribí el resultado de {a} + {b}."
+  - mc "Marcá el resultado de {a} + {b}."
+
+tipo: input
+respuesta: a + b
+```
+
+- **Default heredar**: una variante sin tipo usa el `tipo:` de la plantilla.
+- **Sólo tipos básicos**: `mc`, `vf`, `input`, `completar` (comparten la
+  semántica de `respuesta:`). Sobre plantillas de tipos especiales
+  (`ordenar`, `marcar_mapa`, etc.) las variantes con tipo se rechazan al
+  compilar.
+- **El corrector corrige por la variante servida**: el tipo del ejercicio
+  generado (`GenerationResult.tipo`) es el de la variante sorteada; como la
+  corrección regenera por seed, alumno y corrector ven siempre el mismo tipo.
+- **Una variante `mc` exige `opciones:` o `opciones_explicitas:`**, igual que
+  el tipo base `mc`. Una variante `vf` exige que `respuesta:` evalúe a
+  booleano (error en runtime/validación si no).
+
+#### Cuándo usar `enunciados:` y cuándo no
+
+- **Sí**: cuando el mismo ejercicio admite varias redacciones equivalentes (tono formal vs. informal, con o sin contexto, distintos verbos de consigna). Sirve también para diversidad entre alumnos.
+- **No**: si las variantes cambian la dificultad o los datos, son ejercicios distintos y deberían ser plantillas separadas.
 
 ---
 
@@ -1182,7 +1273,11 @@ enunciado: |
 |---|---|---|
 | `world_countries` | Países del mundo | `respuesta_iso`: código ISO 3166-1 alfa-3 (ej. `"ARG"`). |
 | `world_states_provinces` | Estados/provincias del mundo | `respuesta_nombre`: nombre exacto según Natural Earth (ej. `"Buenos Aires"`). |
-| `world_cities` | Ciudades pobladas marcadas en Natural Earth | `respuesta_nombre`: nombre de la ciudad. |
+
+> `world_cities` se retiró (2026-07-26). El schema y el editor la ofrecían, pero
+> el renderer no la reconocía y no hay datos de ciudades: elegirla producía
+> "mapa no reconocido" en la pantalla del alumno. No había ninguna plantilla que
+> la usara, ni en el repo ni en la base.
 
 **Validación**:
 
@@ -1272,7 +1367,48 @@ enunciado: |
   Marcá las palabras del texto que forman parte de una metáfora.
 ```
 
-### 12.5 Resumen de tipos
+### 12.5 Tipo `analisis_spans` (PLAN-E §21 Parte B)
+
+Análisis sintáctico por **rangos de palabras contiguas**: el alumno marca un
+rango (clic en la primera y la última palabra), le asigna una etiqueta de la
+lista visible y agrega el span. Los spans **pueden solaparse** (el núcleo vive
+dentro del sujeto) — es el caso real del análisis sintáctico escolar.
+
+```vblang
+enunciado: "Analizá la oración."
+tipo: analisis_spans
+texto_analizar: "El perro grande corre por el parque"
+
+spans_pedidos:
+  - { desde: 0, hasta: 2, etiqueta: "sujeto" }
+  - { desde: 3, hasta: 6, etiqueta: "predicado" }
+  - { desde: 1, hasta: 1, etiqueta: "nucleo_sujeto" }
+
+etiquetas_disponibles:
+  - "objeto directo"        # distractor; las correctas se agregan solas
+
+puntaje_parcial: proporcional # opcional; default todo_o_nada
+```
+
+- **Unidad = PALABRA** (token separado por espacios; sin morfemas). `desde`/
+  `hasta` son índices 0-based **inclusive** sobre `texto_analizar`; el
+  generador valida rango (`0 ≤ desde ≤ hasta < cantidad de palabras`).
+- **Etiquetas visibles**: `etiquetas_disponibles:` es opcional; las etiquetas
+  usadas en `spans_pedidos:` se agregan solas si faltan. Sirve para sumar
+  distractores.
+- **Selección múltiple por token** (nivel 1b): dos spans con el mismo rango y
+  distinta etiqueta ("perro" = núcleo Y sustantivo) — el formato ya lo cubre.
+- **Corrección**: exacta por conjunto, NO NLP. Cada span viaja como string
+  canónico `"desde-hasta:etiqueta"` en `answerKey` (la sanitización lo cubre
+  con el canario: la clave no llega al alumno). Con
+  `puntaje_parcial: proporcional`, el puntaje es
+  `max(0, spans correctos − spans de más) / total correctos` (mismo esquema
+  que el `mc` múltiple de `multiple: true`).
+- **Diferencia con `analisis_sintactico`**: aquel etiqueta palabras SUELTAS
+  (pares palabra → etiqueta, todo-o-nada); `analisis_spans` etiqueta rangos,
+  admite solapamiento y puntaje parcial.
+
+### 12.6 Resumen de tipos
 
 | Tipo | UI | Respuesta del alumno | Cuándo usar |
 |---|---|---|---|
@@ -1282,7 +1418,8 @@ enunciado: |
 | `completar` | Campo texto inline | Palabra(s) | Completar huecos. |
 | `ordenar` | Drag-and-drop | Lista ordenada | Cronología, jerarquía. |
 | `marcar_mapa` | Mapa interactivo | Click en región | Geografía. |
-| `analisis_sintactico` | Texto + etiquetas | Rangos etiquetados | Lengua. |
+| `analisis_sintactico` | Texto + etiquetas | Palabras etiquetadas | Lengua (palabras sueltas). |
+| `analisis_spans` | Texto + rangos | Spans etiquetados (solapables) | Lengua (sujeto/predicado/núcleos). |
 | `identificar_palabras` | Texto tokenizado | Set de índices | Lengua, literatura. |
 
 ---

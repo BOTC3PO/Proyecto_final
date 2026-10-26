@@ -1,0 +1,32 @@
+{
+ "titulo": "Atmósfera reductora y atmósfera oxidante",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Antes y después de la fotosíntesis oxigénica",
+   "headers": [
+    "",
+    "Reductora (primitiva)",
+    "Oxidante (actual)"
+   ],
+   "rows": [
+    [
+     "Oxígeno",
+     "Casi nada",
+     "≈ 21 %"
+    ],
+    [
+     "Gases característicos",
+     "CH₄, NH₃, H₂, CO₂",
+     "N₂, O₂"
+    ],
+    [
+     "Compatible con",
+     "Vida anaeróbica",
+     "Vida aeróbica"
+    ]
+   ]
+  }
+ ]
+}

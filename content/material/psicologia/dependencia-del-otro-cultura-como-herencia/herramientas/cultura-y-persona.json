@@ -1,0 +1,58 @@
+{
+ "titulo": "La cultura y el individuo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Un círculo que se conecta",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Cultura",
+     "x": 250,
+     "y": 80,
+     "shape": "circle",
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n2",
+     "label": "Valores",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n3",
+     "label": "Normas",
+     "x": 500,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n4",
+     "label": "Identidad individual",
+     "x": 250,
+     "y": 195,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n1",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n1",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

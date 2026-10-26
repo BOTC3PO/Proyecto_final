@@ -92,12 +92,12 @@ tipo: input
     });
     // Por default arranca en modo "codigo": el CodeEditor está montado.
     expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
-    expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).toBeNull();
 
     // Click en el toggle a "Formulario": se desmonta el CodeEditor y aparece el form.
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
     expect(result.queryByTestId("vblang-code-editor")).toBeNull();
-    expect(result.queryByTestId("vblang-form-tipo")).not.toBeNull();
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
 
     // Vuelta a "Código": el CodeEditor reaparece.
     fireEvent.click(result.getByTestId("vblang-modo-codigo"));
@@ -111,9 +111,7 @@ tipo: input
     });
     // Cambiamos a modo visual.
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
-    const tipoSelect = result.getByTestId(
-      "vblang-form-tipo",
-    ) as HTMLSelectElement;
+    const tipoSelect = result.getByRole("combobox", { name: "Tipo de pregunta" }) as HTMLSelectElement;
     expect(tipoSelect.value).toBe("input");
     // Cambiamos el tipo a "mc".
     await act(async () => {
@@ -129,11 +127,13 @@ tipo: input
     expect(ta.value).toMatch(/tipo:\s*mc/);
   });
 
-  it("con código inválido, modo visual muestra mensaje y botón para volver", async () => {
+  it("con código inválido tras una versión válida, modo visual retiene el form y muestra banner", async () => {
     const result = await renderEditor();
     await act(async () => {
       vi.advanceTimersByTime(700);
     });
+    // La plantilla inicial es válida, así que el ref lastValidPlantillaRef
+    // ya está poblado tras el primer debounce.
     // Rompemos el código vía el textarea del CodeEditor (no el de MetadataPanel).
     const codeEditor = result.getByTestId("vblang-code-editor");
     const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
@@ -142,15 +142,176 @@ tipo: input
       vi.advanceTimersByTime(700);
     });
     fireEvent.click(result.getByTestId("vblang-modo-visual"));
-    // El formulario no debe rendizarse; en su lugar, mensaje de error.
-    expect(result.queryByTestId("vblang-form-tipo")).toBeNull();
+    // El formulario DEBE seguir rendizándose (retenido) con un banner visible.
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
+    expect(
+      result.getByTestId("vblang-form-retenido-banner"),
+    ).toBeInTheDocument();
+    // Y el fallback "no disponible" NO debe estar presente.
+    expect(result.queryByTestId("vblang-form-no-disponible")).toBeNull();
+  });
+
+  it("editar el form retenido rescata el código y elimina el banner", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    // Rompemos el código para entrar al estado "retenido".
+    const codeEditor = result.getByTestId("vblang-code-editor");
+    const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
+    await act(async () => {
+      fireEvent.change(ta, { target: { value: "variables:\n  a: random(" } });
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    expect(
+      result.getByTestId("vblang-form-retenido-banner"),
+    ).toBeInTheDocument();
+
+    // Cambiamos el `tipo` desde el form retenido. Esto serializa y pisa el
+    // código, reemplazando la versión rota por una válida.
+    const tipoSelect = result.getByRole("combobox", { name: "Tipo de pregunta" }) as HTMLSelectElement;
+    await act(async () => {
+      fireEvent.change(tipoSelect, { target: { value: "mc" } });
+      vi.advanceTimersByTime(700);
+    });
+    // El banner debe haber desaparecido.
+    expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
+    // El form sigue presente.
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
+
+    // Volvemos al modo código y verificamos que el código quedó válido
+    // (contiene `tipo: mc` y ya no tiene la apertura de paréntesis rota).
+    fireEvent.click(result.getByTestId("vblang-modo-codigo"));
+    const codeEditor2 = result.getByTestId("vblang-code-editor");
+    const ta2 = codeEditor2.querySelector("textarea") as HTMLTextAreaElement;
+    expect(ta2.value).toMatch(/tipo:\s*mc/);
+    expect(ta2.value).not.toMatch(/random\(\s*$/m);
+  });
+
+  it("plantilla nueva con código inválido desde el primer render muestra el fallback", async () => {
+    // Sin avanzar timers, escribimos código inválido en el textarea ANTES
+    // de que el debounce inicial se dispare. Así, la primera compilación
+    // ve código roto y `lastValidPlantillaRef` nunca se puebla.
+    const result = await renderEditor();
+    const codeEditor = result.getByTestId("vblang-code-editor");
+    const ta = codeEditor.querySelector("textarea") as HTMLTextAreaElement;
+    await act(async () => {
+      fireEvent.change(ta, { target: { value: "variables:\n  a: random(" } });
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    // Como nunca hubo una versión válida, debe verse el fallback.
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).toBeNull();
     expect(
       result.getByTestId("vblang-form-no-disponible"),
     ).toBeInTheDocument();
-    // Click en "Volver a Código" lleva al modo código sin tocar el código.
-    fireEvent.click(
-      screen.getByRole("button", { name: /Volver a Código/i }),
+    // Y NO debe haber banner de retención.
+    expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
+  });
+
+  it("con código válido, el form se rendiza sin banner", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    fireEvent.click(result.getByTestId("vblang-modo-visual"));
+    // Form presente, banner ausente.
+    expect(result.queryByRole("combobox", { name: "Tipo de pregunta" })).not.toBeNull();
+    expect(result.queryByTestId("vblang-form-retenido-banner")).toBeNull();
+  });
+
+  it('botón "Copiar prompt para IA" abre el drawer correspondiente', async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    expect(result.queryByRole("dialog", { name: "Copiar prompt para IA" })).toBeNull();
+    fireEvent.click(result.getByRole("button", { name: "Copiar prompt para IA" }));
+    expect(result.getByRole("dialog", { name: "Copiar prompt para IA" })).toBeInTheDocument();
+  });
+});
+
+/**
+ * QA-FIX-04 — botón "Volver" en el header del editor.
+ *
+ * Síntoma: el editor guardaba y editaba bien pero no tenía un botón
+ * "atrás" visible. El header tenía sólo la breadcrumb `Plantillas › {nombre}`,
+ * que es un link pero ambiguo (no comunica "salir del editor"). El
+ * usuario esperaba un botón explícito como en MapaEditorFull.
+ *
+ * Implementación: botón "Volver" como primer hijo del `<header className="vb-page-bar">`,
+ * mismo patrón que MapaEditorFull (ghost button con SVG arrow + texto).
+ * Destino: `returnTo` del query si existe (flujo módulo→plantilla), si
+ * no `/plantillas`.
+ */
+describe("PlantillaEditor — botón Volver (QA-FIX-04)", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("se renderiza en el header con aria-label 'Volver'", async () => {
+    const result = await renderEditor();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    const btn = result.getByRole("button", { name: "Volver" });
+    expect(btn).toBeInTheDocument();
+    // El data-testid es un candado para tests de integración futuros.
+    expect(result.getByTestId("plantilla-volver")).toBe(btn);
+    // Candado: bug original era header sin botón "Volver". Si vuelve a
+    // faltar, el test rompe antes de cualquier otra aserción.
+    expect(btn).toHaveTextContent(/volver/i);
+  });
+
+  it("click sin returnTo navega a /plantillas", async () => {
+    const { default: PlantillaEditor } = await import("../PlantillaEditor");
+    // Render con una entrada explícita sin returnTo.
+    const result = render(
+      <MemoryRouter initialEntries={["/plantillas/nueva"]}>
+        <Routes>
+          <Route path="/plantillas/nueva" element={<PlantillaEditor />} />
+          <Route path="/plantillas" element={<div data-testid="plantillas-list">lista</div>} />
+        </Routes>
+      </MemoryRouter>,
     );
-    expect(result.queryByTestId("vblang-code-editor")).not.toBeNull();
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    const btn = result.getByTestId("plantilla-volver");
+    fireEvent.click(btn);
+    expect(result.getByTestId("plantillas-list")).toBeInTheDocument();
+  });
+
+  it("click con returnTo navega al destino del returnTo (flujo módulo→plantilla)", async () => {
+    const { default: PlantillaEditor } = await import("../PlantillaEditor");
+    // Render con returnTo apuntando a /modulos/abc/editar.
+    const result = render(
+      <MemoryRouter initialEntries={["/plantillas/nueva?returnTo=%2Fmodulos%2Fabc%2Feditar"]}>
+        <Routes>
+          <Route
+            path="/plantillas/nueva"
+            element={<PlantillaEditor />}
+          />
+          <Route
+            path="/modulos/abc/editar"
+            element={<div data-testid="modulo-editor">modulo</div>}
+          />
+          <Route path="/plantillas" element={<div data-testid="plantillas-list">lista</div>} />
+        </Routes>
+      </MemoryRouter>,
+    );
+    await act(async () => {
+      vi.advanceTimersByTime(700);
+    });
+    const btn = result.getByTestId("plantilla-volver");
+    fireEvent.click(btn);
+    // Si el botón respeta returnTo, vamos a /modulos/abc/editar.
+    // Si NO lo respeta, vamos a /plantillas (default).
+    expect(result.getByTestId("modulo-editor")).toBeInTheDocument();
+    expect(result.queryByTestId("plantillas-list")).toBeNull();
   });
 });

@@ -1,0 +1,37 @@
+{
+ "titulo": "Capas electrónicas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Máximo de electrones por nivel",
+   "headers": [
+    "Nivel",
+    "Nombre",
+    "Electrones máximos"
+   ],
+   "rows": [
+    [
+     1,
+     "K",
+     2
+    ],
+    [
+     2,
+     "L",
+     8
+    ],
+    [
+     3,
+     "M",
+     18
+    ],
+    [
+     4,
+     "N",
+     32
+    ]
+   ]
+  }
+ ]
+}

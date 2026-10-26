@@ -1,0 +1,18 @@
+[
+ {
+  "id": 975,
+  "cluster": 4,
+  "temas": [
+   "empirismo-hume",
+   "fenomenologia-y-existencialismo",
+   "filosofia-del-lenguaje-y-ciencia",
+   "filosofia-politica",
+   "kant-y-el-idealismo",
+   "presocraticos-y-socrates",
+   "marx-y-el-materialismo-historico",
+   "platon-y-aristoteles",
+   "filosofia-medieval-santo-tomas"
+  ],
+  "preguntas": 209
+ }
+]

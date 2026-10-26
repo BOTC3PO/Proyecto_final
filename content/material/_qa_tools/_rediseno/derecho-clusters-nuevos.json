@@ -1,0 +1,51 @@
+[
+ {
+  "id": 894,
+  "cluster": 1,
+  "temas": [
+   "ramas-del-derecho",
+   "derecho-administrativo",
+   "derecho-civil",
+   "derecho-comercial",
+   "derecho-constitucional"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 895,
+  "cluster": 2,
+  "temas": [
+   "derecho-internacional",
+   "derecho-laboral",
+   "derecho-penal",
+   "denuncia-y-etapa-de-instruccion",
+   "hecho-juridicamente-relevante"
+  ],
+  "preguntas": 125
+ },
+ {
+  "id": 896,
+  "cluster": 3,
+  "temas": [
+   "investigacion-prueba-y-fiscalia",
+   "fuentes-del-derecho",
+   "norma-jerarquia-y-vigencia",
+   "corrientes-interpretacion-juridica",
+   "interpretacion-normativa"
+  ],
+  "preguntas": 127
+ },
+ {
+  "id": 897,
+  "cluster": 4,
+  "temas": [
+   "politica-criminal-garantismo-mano-dura",
+   "argumentacion-juridica",
+   "resolucion-de-conflictos-y-sentencia",
+   "juicio-oral",
+   "apelacion-e-instancias",
+   "ejecucion-de-la-sentencia"
+  ],
+  "preguntas": 150
+ }
+]

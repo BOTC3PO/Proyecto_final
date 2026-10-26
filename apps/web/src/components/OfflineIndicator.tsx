@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useI18n } from "../i18n/I18nContext";
 
 export function OfflineIndicator() {
+  const { t } = useI18n();
   const [offline, setOffline] = useState(!navigator.onLine);
   const [showReconnected, setShowReconnected] = useState(false);
 
@@ -28,7 +30,7 @@ export function OfflineIndicator() {
         offline ? "bg-red-600 text-white" : "bg-emerald-600 text-white"
       }`}
     >
-      {offline ? "📡 Sin conexión" : "✓ Conexión restaurada"}
+      {offline ? t("common.sinConexion") : t("common.conexionRestaurada")}
     </div>
   );
 }

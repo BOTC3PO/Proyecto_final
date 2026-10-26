@@ -19,16 +19,86 @@ import { createPrng, type PRNG } from "./prng.js";
 import type { GeneradorAsistidoEjercicio } from "./provider.js";
 import {
   generateAnalisisSintactico,
+  generateAnalisisSpans,
   generateIdentificarPalabras,
   generateMarcarMapa,
   generateOrdenar,
 } from "./generate-special.js";
+import type { PasoItem, TipoPregunta } from "../parser/ast.js";
+import { camposToVisualSpec } from "./visual.js";
 import type {
   CompiledPlantilla,
   GenerationOptions,
   GenerationResult,
   OpcionGenerada,
 } from "./types.js";
+
+/**
+ * Tarea 06: si la plantilla declara `enunciados:`, selecciona UNA variante
+ * con el PRNG de la simulación y devuelve sus `partes` para interpolar.
+ *
+ * Comportamiento:
+ * - Si `compiled.enunciados` está ausente, retorna `undefined` y NO consume
+ *   el PRNG. Esto preserva la secuencia del PRNG para plantillas
+ *   existentes que usan `enunciado:` simple.
+ * - Si está presente, consume `prng.next()` SIEMPRE (una vez) y luego elige
+ *   el índice: `Math.floor(next() * length)` por defecto, o
+ *   `options.forceVariant` si está definido (modo validator).
+ * - Devuelve las `partes` a interpolar.
+ */
+function resolverVarianteEnunciado(
+  compiled: CompiledPlantilla,
+  prng: PRNG,
+  options: GenerationOptions,
+): PasoItem | undefined {
+  const variantes = compiled.enunciados;
+  if (!variantes || variantes.length === 0) return undefined;
+  // Consumir el PRNG SIEMPRE (una sola vez) para que la secuencia sea
+  // estable aunque haya una sola variante. Luego, segun el modo:
+  // - forceVariant: usar el indice forzado (modo validator).
+  // - por defecto: Math.floor(next() * length) (que es lo que produjo el
+  //   valor que acabamos de consumir).
+  // PLAN-E §15: devuelve el ítem completo — el caller usa `partes` para
+  // interpolar y `tipo` (si la variante lo declara) como tipo servido.
+  const r = prng.next();
+  const idx =
+    typeof options.forceVariant === "number"
+      ? options.forceVariant % variantes.length
+      : Math.floor(r * variantes.length);
+  return variantes[Math.max(0, Math.min(variantes.length - 1, idx))];
+}
+
+/**
+ * F2-02: materializa las pistas escalonadas interpolándolas con los valores de
+ * la simulación, en orden. Devuelve `undefined` si la plantilla no declara
+ * `pistas:` — clave para la no-regresión: si no hay pistas, no se interpola ni
+ * se toca el PRNG, así las plantillas existentes producen exactamente lo mismo.
+ */
+function materializarPistas(
+  compiled: CompiledPlantilla,
+  scope: Scope,
+  ctx: EvalContext,
+): string[] | undefined {
+  if (!compiled.pistas || compiled.pistas.length === 0) return undefined;
+  return compiled.pistas.map((p) => interpolar(p.partes, scope, ctx));
+}
+
+/**
+ * F2-03: materializa la `explicacion:` interpolándola con los valores de la
+ * simulación. Devuelve `undefined` si la plantilla no declara `explicacion:` —
+ * clave para la no-regresión: si no hay explicación, no se interpola ni se
+ * toca el PRNG, así las plantillas existentes producen exactamente lo mismo.
+ */
+function materializarExplicacion(
+  compiled: CompiledPlantilla,
+  scope: Scope,
+  ctx: EvalContext,
+): string | undefined {
+  if (!compiled.explicacion || compiled.explicacion.length === 0) {
+    return undefined;
+  }
+  return interpolar(compiled.explicacion, scope, ctx);
+}
 
 function normalizarDificultad(raw: unknown): string {
   if (raw === 1 || raw === "1") return "basico";
@@ -62,9 +132,18 @@ function generateAssisted(
   const datos = ejercicio.datos ?? {};
   const scope = new Scope({ ...CONSTANTES_GLOBALES, ...datos });
 
+  // Tarea 06: si la plantilla declara `enunciados:`, elegir una variante con
+  // el PRNG y usar esas partes para interpolar. Gana sobre el del generador
+  // y sobre `enunciado:` propio (mutuamente excluyente ya validado en parser).
+  // PLAN-E §15: en el path asistido el `tipo` de la variante se ignora — la
+  // forma del ejercicio del generador decide el tipo servido.
+  const variante = resolverVarianteEnunciado(compiled, prng, options);
+
   // Si la plantilla declara enunciado: propio, gana sobre el del generador.
   const enunciado =
-    compiled.enunciado.length > 0
+    variante
+      ? interpolar(variante.partes, scope, ctx)
+      : compiled.enunciado.length > 0
       ? interpolar(compiled.enunciado, scope, ctx)
       : ejercicio.enunciado;
 
@@ -76,12 +155,23 @@ function generateAssisted(
     pasos = ejercicio.pasos;
   }
 
+  // F2-02: las pistas de la plantilla se interpolan contra las variables que
+  // expone el generador (igual que enunciado/pasos override).
+  const pistas = materializarPistas(compiled, scope, ctx);
+
+  // F2-03: idem para la `explicacion:` de la plantilla. Si la plantilla la
+  // declara, gana sobre la `explicacion` que el generador asistido pudiera
+  // aportar (futuro).
+  const explicacion = materializarExplicacion(compiled, scope, ctx);
+
   return buildAssistedResult(
     compiled,
     ejercicio,
     options.seed,
     enunciado,
     pasos,
+    pistas,
+    explicacion,
     datos,
   );
 }
@@ -92,6 +182,8 @@ function buildAssistedResult(
   seed: string,
   enunciado: string,
   pasos: string[] | undefined,
+  pistas: string[] | undefined,
+  explicacion: string | undefined,
   datos: Record<string, unknown>,
 ): GenerationResult {
   // El generador puede aportar un visual (gráfico, circuito, etc.); lo
@@ -113,6 +205,8 @@ function buildAssistedResult(
       tipo: "mc",
       enunciado,
       pasos,
+      pistas,
+      explicacion,
       opciones,
       variables: datos,
       seed,
@@ -139,9 +233,14 @@ function buildAssistedResult(
       tipo: "input",
       enunciado,
       pasos,
+      pistas,
+      explicacion,
       respuesta: ejercicio.resultado,
       unidad,
       tolerancia,
+      // F2-04: el template puede sumar `tolerancia_abs:` al provider de
+      // generador asistido. Default ausente = 0 (comportamiento previo).
+      toleranciaAbs: compiled.toleranciaAbs,
       variables: datos,
       seed,
       intentos: 1,
@@ -155,6 +254,8 @@ function buildAssistedResult(
       tipo: "completar",
       enunciado,
       pasos,
+      pistas,
+      explicacion,
       respuesta: ejercicio.respuestaCorrecta,
       variables: datos,
       seed,
@@ -256,6 +357,22 @@ export function generate(
       }
     }
 
+    // WO-11 — evaluar `respuesta_expr:` (debe producir un string con la
+    // expresión algebraica esperada). Se exige `tipo: expresion` y se
+    // rechaza `respuesta:` + `respuesta_expr:` en la misma plantilla
+    // (el parser ya avisa). Aquí validamos el TIPO del valor.
+    let respuestaExprVal: string | undefined;
+    if (compiled.respuestaExpr) {
+      const raw = evaluateExpr(compiled.respuestaExpr, scope, ctx);
+      if (typeof raw !== "string") {
+        throw new EvalError(
+          `respuesta_expr debe evaluar a string, recibió ${typeof raw}`,
+          compiled.respuestaExpr.loc,
+        );
+      }
+      respuestaExprVal = raw;
+    }
+
     let respuestasValidasVals: unknown[] | undefined;
     if (compiled.respuestasValidas) {
       respuestasValidasVals = compiled.respuestasValidas.map((e) => {
@@ -274,10 +391,27 @@ export function generate(
     }
 
     // Interpolación.
-    const enunciadoTexto = interpolar(compiled.enunciado, scope, ctx);
+    // Tarea 06: si la plantilla declara `enunciados:`, elegir una variante
+    // con el PRNG y usar esas partes. resolverVarianteEnunciado consume el
+    // PRNG una sola vez (o no lo toca si la plantilla no usa `enunciados:`).
+    const variante = resolverVarianteEnunciado(compiled, prng, options);
+    const enunciadoTexto = interpolar(
+      variante?.partes ?? compiled.enunciado,
+      scope,
+      ctx,
+    );
     const pasosTexto = compiled.pasos
       ? compiled.pasos.map((p) => interpolar(p.partes, scope, ctx))
       : undefined;
+    // F2-02: pistas escalonadas materializadas (undefined si no hay `pistas:`).
+    const pistasTexto = materializarPistas(compiled, scope, ctx);
+    // F2-03: explicación materializada (undefined si no hay `explicacion:`).
+    const explicacionTexto = materializarExplicacion(compiled, scope, ctx);
+
+    // WO-4: visual hand-authored del bloque `visual:`. `undefined` si la
+    // plantilla no lo declara (no-regresión: no se evalúa nada). Espeja el
+    // path generador, que propaga `ejercicio.visual`.
+    const visual = camposToVisualSpec(compiled.visual, scope, ctx);
 
     // Dispatch a generadores especiales (Sprint 9A). Respetan el mismo loop de
     // retry por restricciones que los tipos básicos.
@@ -290,6 +424,8 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
+        explicacionTexto,
       );
     }
     if (compiled.tipoInferido === "marcar_mapa") {
@@ -301,6 +437,8 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
+        explicacionTexto,
       );
     }
     if (compiled.tipoInferido === "analisis_sintactico") {
@@ -312,6 +450,22 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
+        explicacionTexto,
+      );
+    }
+    // PLAN-E §21 Parte B — análisis por rangos de palabras.
+    if (compiled.tipoInferido === "analisis_spans") {
+      return generateAnalisisSpans(
+        compiled,
+        scope,
+        ctx,
+        options.seed,
+        intento,
+        enunciadoTexto,
+        pasosTexto,
+        pistasTexto,
+        explicacionTexto,
       );
     }
     if (compiled.tipoInferido === "identificar_palabras") {
@@ -323,6 +477,8 @@ export function generate(
         intento,
         enunciadoTexto,
         pasosTexto,
+        pistasTexto,
+        explicacionTexto,
       );
     }
 
@@ -333,29 +489,58 @@ export function generate(
         tipo: "abierta",
         enunciado: enunciadoTexto,
         pasos: pasosTexto,
+        pistas: pistasTexto,
+        explicacion: explicacionTexto,
         variables: scope.toRecord(),
         seed: options.seed,
         intentos: intento,
         correccion: compiled.correccion ?? "ninguna",
+        visual,
       };
     }
 
     // Tipos básicos: mc, vf, input, completar.
+    // PLAN-E §15: si la variante sorteada declara tipo propio, ese es el
+    // tipo servido — el corrector regenera por seed y corrige por este tipo.
+    const tipoServido = variante?.tipo ?? compiled.tipoInferido;
     // Opciones para mc/vf.
-    const opciones = construirOpciones(compiled, respuestaVal, scope, ctx);
+    const opciones = construirOpciones(
+      tipoServido,
+      compiled,
+      respuestaVal,
+      respuestasValidasVals,
+      scope,
+      ctx,
+    );
+    // PLAN-E §21 Parte A: flags de selección múltiple sólo cuando el tipo
+    // servido es mc (una variante input sobre base multiple no los lleva).
+    const esMultiple = tipoServido === "mc" && compiled.multiple === true;
 
     return {
-      tipo: compiled.tipoInferido,
+      tipo: tipoServido,
+      ...(esMultiple
+        ? {
+            multiple: true,
+            puntajeParcial: compiled.puntajeParcial ?? "todo_o_nada",
+          }
+        : {}),
       enunciado: enunciadoTexto,
       pasos: pasosTexto,
+      pistas: pistasTexto,
+      explicacion: explicacionTexto,
       respuesta: respuestaVal,
+      // WO-11 — propagar respuesta simbólica cuando aplica. El adapter
+      // la usa para poblar `answerKey` cuando el tipo es `expresion`.
+      ...(respuestaExprVal !== undefined ? { respuestaExpr: respuestaExprVal } : {}),
       respuestasValidas: respuestasValidasVals,
       unidad: compiled.unidad,
       tolerancia: compiled.tolerancia,
+      toleranciaAbs: compiled.toleranciaAbs,
       opciones,
       variables: scope.toRecord(),
       seed: options.seed,
       intentos: intento,
+      visual,
     };
   }
 
@@ -363,12 +548,14 @@ export function generate(
 }
 
 function construirOpciones(
+  tipo: TipoPregunta,
   compiled: CompiledPlantilla,
   respuestaVal: unknown,
+  respuestasValidasVals: unknown[] | undefined,
   scope: Scope,
   ctx: EvalContext,
 ): OpcionGenerada[] | undefined {
-  if (compiled.tipoInferido === "vf") {
+  if (tipo === "vf") {
     if (typeof respuestaVal !== "boolean") {
       throw new EvalError(
         `tipo vf requiere que la respuesta evalúe a verdadero/falso, recibió ${typeof respuestaVal}`,
@@ -380,7 +567,7 @@ function construirOpciones(
     ];
   }
 
-  if (compiled.tipoInferido === "mc") {
+  if (tipo === "mc") {
     if (compiled.opcionesExplicitas) {
       let textos: unknown[];
       if (compiled.opcionesExplicitas.length === 1) {
@@ -400,9 +587,18 @@ function construirOpciones(
         );
       }
 
+      // PLAN-E §21 Parte A: con `multiple: true` son correctas TODAS las
+      // opciones que matcheen `respuesta:` o alguna de `respuestas_validas:`.
+      const esCorrecta = (t: unknown): boolean => {
+        if (compiled.respuesta !== undefined && deepEqual(t, respuestaVal)) return true;
+        if (compiled.multiple === true) {
+          return (respuestasValidasVals ?? []).some((v) => deepEqual(t, v));
+        }
+        return deepEqual(t, respuestaVal);
+      };
       const opciones: OpcionGenerada[] = textos.map((t) => ({
         texto: formatoDefault(t),
-        correcta: deepEqual(t, respuestaVal),
+        correcta: esCorrecta(t),
       }));
       if (!opciones.some((o) => o.correcta)) {
         throw new EvalError(

@@ -1,0 +1,56 @@
+{
+ "titulo": "Del sensor al actuador",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Flujo de información",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Sensor",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Controlador",
+     "x": 200,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Actuador",
+     "x": 400,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Proceso",
+     "x": 600,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "medición"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "orden"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4",
+     "label": "acción"
+    }
+   ]
+  }
+ ]
+}

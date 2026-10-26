@@ -22,9 +22,11 @@ import {
   addRows,
   deleteRow,
   getDataset,
+  refreshDataset,
   updateDataset,
   updateRow,
 } from "../domain/vblang/datasetApi";
+import { useI18n } from "../i18n/I18nContext";
 import type {
   ColumnaTipo,
   DatasetDetail,
@@ -101,6 +103,7 @@ function buildRowDraft(fila: DatasetFila, columnas: string[]): RowDraft {
 // ─── Componente principal ────────────────────────────────────────────────────
 
 export default function DatasetEditor() {
+  const { t } = useI18n();
   const { id } = useParams();
   const navigate = useNavigate();
   const [dataset, setDataset] = useState<DatasetDetail | null>(null);
@@ -117,13 +120,18 @@ export default function DatasetEditor() {
   const [metaSaving, setMetaSaving] = useState(false);
   const [metaMessage, setMetaMessage] = useState<string | null>(null);
 
+  // PLAN-E §20: fuente externa
+  const [sourceUrl, setSourceUrl] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
+  const [refreshMessage, setRefreshMessage] = useState<string | null>(null);
+
   const columnasOrden = useMemo(
     () => (dataset ? Object.keys(dataset.columnas) : []),
     [dataset],
   );
 
-  // Sin id → no podemos editar (este caso lo cubre la ruta /datasets/nuevo
-  // que en v1 lleva al modal de creación desde el índice). Mostramos hint.
+  // Sin id → no podemos editar; la creación se hace desde el modal del
+  // índice de datasets, que navega acá con el id ya creado. Mostramos hint.
   useEffect(() => {
     if (!id) {
       setStatus("error");
@@ -141,6 +149,7 @@ export default function DatasetEditor() {
         setNombre(d.nombre);
         setDescripcion(d.descripcion ?? "");
         setVisibility(d.visibility);
+        setSourceUrl(d.sourceUrl ?? "");
         setRows(d.filas.map((f) => buildRowDraft(f, Object.keys(d.columnas))));
         setStatus("ready");
       })
@@ -148,7 +157,7 @@ export default function DatasetEditor() {
         if (cancelled) return;
         setStatus("error");
         setErrorMessage(
-          err instanceof Error ? err.message : "No se pudo cargar el dataset.",
+          err instanceof Error ? err.message : t("datasetEditor.noSePudoCargarEl"),
         );
       });
     return () => {
@@ -167,6 +176,7 @@ export default function DatasetEditor() {
         nombre: nombre.trim() || dataset.nombre,
         descripcion: descripcion.trim() || undefined,
         visibility,
+        sourceUrl: sourceUrl.trim() || null,
       });
       // El PUT del backend no devuelve `filas`; preservamos las locales.
       setDataset((prev) => (prev ? { ...prev, ...updated, filas: prev.filas } : prev));
@@ -180,10 +190,43 @@ export default function DatasetEditor() {
       setTimeout(() => setMetaMessage(null), 2000);
     } catch (err) {
       setMetaMessage(
-        err instanceof Error ? err.message : "No se pudo guardar metadata.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoGuardarMetadata"),
       );
     } finally {
       setMetaSaving(false);
+    }
+  };
+
+  // PLAN-E §20: guarda la URL si cambió, baja la fuente y reemplaza las filas.
+  const handleRefresh = async () => {
+    if (!id || !dataset) return;
+    const url = sourceUrl.trim();
+    if (!url) return;
+    if (
+      !window.confirm(
+        "Refrescar desde la URL REEMPLAZA todas las filas actuales. ¿Continuar?",
+      )
+    ) {
+      return;
+    }
+    setRefreshing(true);
+    setRefreshMessage(null);
+    try {
+      if (url !== (dataset.sourceUrl ?? "")) {
+        await updateDataset(id, { sourceUrl: url });
+      }
+      const r = await refreshDataset(id);
+      const fresh = await getDataset(id);
+      setDataset(fresh);
+      setRows(fresh.filas.map((f) => buildRowDraft(f, Object.keys(fresh.columnas))));
+      invalidarDataset(fresh.nombre);
+      setRefreshMessage(`${r.filas} filas importadas.`);
+    } catch (err) {
+      setRefreshMessage(
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoRefrescarLa"),
+      );
+    } finally {
+      setRefreshing(false);
     }
   };
 
@@ -275,21 +318,21 @@ export default function DatasetEditor() {
       invalidarDataset(dataset.nombre);
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo agregar la fila.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoAgregarLa"),
       );
     }
   };
 
   const handleDeleteRow = async (rowId: string) => {
     if (!id) return;
-    if (!window.confirm("¿Eliminar esta fila?")) return;
+    if (!window.confirm(t("datasetEditor.eliminarEstaFila"))) return;
     try {
       await deleteRow(id, rowId);
       setRows((prev) => prev.filter((r) => r.id !== rowId));
       if (dataset) invalidarDataset(dataset.nombre);
     } catch (err) {
       window.alert(
-        err instanceof Error ? err.message : "No se pudo eliminar la fila.",
+        err instanceof Error ? err.message : t("datasetEditor.noSePudoEliminarLa"),
       );
     }
   };
@@ -299,7 +342,7 @@ export default function DatasetEditor() {
   if (status === "loading") {
     return (
       <main className="min-h-screen flex items-center justify-center bg-slate-50">
-        <p className="text-sm text-slate-500 animate-pulse">Cargando dataset…</p>
+        <p className="text-sm text-slate-500 animate-pulse">{t("datasetEditor.cargandoDataset")}</p>
       </main>
     );
   }
@@ -313,9 +356,7 @@ export default function DatasetEditor() {
             type="button"
             onClick={() => navigate("/datasets")}
             className="text-blue-600 text-sm hover:underline"
-          >
-            ← Volver a datasets
-          </button>
+          >{t("datasetEditor.volverADatasets")}</button>
         </div>
       </main>
     );
@@ -329,15 +370,13 @@ export default function DatasetEditor() {
       data-testid="dataset-editor"
     >
       <div className="mx-auto max-w-6xl space-y-5">
-        <Link to="/datasets" className="text-sm text-blue-600 hover:underline">
-          ← Volver a datasets
-        </Link>
+        <Link to="/datasets" className="text-sm text-blue-600 hover:underline">{t("datasetEditor.volverADatasets")}</Link>
 
         {/* Metadata */}
         <section className="rounded-xl border border-[var(--c-border,#e2e8f0)] bg-[var(--c-surface,white)] p-4 space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="block space-y-1">
-              <span className="text-xs font-medium text-slate-600">Nombre</span>
+              <span className="text-xs font-medium text-slate-600">{t("comun.nombre")}</span>
               <input
                 type="text"
                 value={nombre}
@@ -347,9 +386,7 @@ export default function DatasetEditor() {
               />
             </label>
             <label className="block space-y-1">
-              <span className="text-xs font-medium text-slate-600">
-                Visibilidad
-              </span>
+              <span className="text-xs font-medium text-slate-600">{t("comun.visibilidad")}</span>
               <select
                 value={visibility}
                 onChange={(e) =>
@@ -357,22 +394,45 @@ export default function DatasetEditor() {
                 }
                 className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm"
               >
-                <option value="privada">Privada</option>
-                <option value="escuela">Escuela</option>
-                <option value="publica">Pública</option>
+                <option value="privada">{t("comun.privada")}</option>
+                <option value="escuela">{t("sidebar.escuela")}</option>
+                <option value="publica">{t("comun.publica")}</option>
               </select>
             </label>
           </div>
           <label className="block space-y-1">
-            <span className="text-xs font-medium text-slate-600">
-              Descripción
-            </span>
+            <span className="text-xs font-medium text-slate-600">{t("comun.descripcion")}</span>
             <textarea
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               rows={2}
               className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm"
             />
+          </label>
+          <label className="block space-y-1">
+            <span className="text-xs font-medium text-slate-600">{t("datasetEditor.urlDeOrigenHttpsCsv")}</span>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={sourceUrl}
+                onChange={(e) => setSourceUrl(e.target.value)}
+                placeholder="https://ejemplo.com/datos.csv"
+                className="w-full rounded-md border border-slate-300 px-3 py-1.5 text-sm font-mono"
+                data-testid="dataset-source-url-input"
+              />
+              <button
+                type="button"
+                onClick={handleRefresh}
+                disabled={refreshing || !sourceUrl.trim()}
+                className="shrink-0 rounded-md border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-emerald-100 disabled:opacity-50"
+                data-testid="dataset-refresh-button"
+              >
+                {refreshing ? t("datasetEditor.refrescando") : t("datasetEditor.refrescarDesdeUrl")}
+              </button>
+            </div>
+            {refreshMessage && (
+              <p className="text-xs text-slate-500">{refreshMessage}</p>
+            )}
           </label>
           <div className="flex items-center gap-3">
             <button
@@ -382,7 +442,7 @@ export default function DatasetEditor() {
               className="rounded-md bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:bg-slate-300"
               data-testid="dataset-save-meta"
             >
-              {metaSaving ? "Guardando…" : "Guardar metadata"}
+              {metaSaving ? t("comun.guardando") : t("datasetEditor.guardarMetadata")}
             </button>
             {metaMessage && (
               <span className="text-xs text-slate-500">{metaMessage}</span>
@@ -421,9 +481,7 @@ export default function DatasetEditor() {
                     <td
                       colSpan={columnasOrden.length + 1}
                       className="p-6 text-center text-slate-400 text-sm"
-                    >
-                      Sin filas todavía.
-                    </td>
+                    >{t("datasetEditor.sinFilasTodavia")}</td>
                   </tr>
                 )}
                 {rows.map((row) => (
@@ -469,7 +527,7 @@ export default function DatasetEditor() {
                       <button
                         type="button"
                         onClick={() => handleDeleteRow(row.id)}
-                        title="Eliminar fila"
+                        title={t("datasetEditor.eliminarFila")}
                         className="text-slate-400 hover:text-red-600 text-lg leading-none px-2"
                         data-testid={`dataset-delete-row-${row.id}`}
                       >
@@ -497,9 +555,7 @@ export default function DatasetEditor() {
               onClick={handleAddRow}
               className="rounded-md border border-blue-300 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 hover:bg-blue-100"
               data-testid="dataset-add-row"
-            >
-              + Agregar fila
-            </button>
+            >{t("datasetEditor.agregarFila")}</button>
           </div>
         </section>
       </div>

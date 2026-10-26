@@ -1,7 +1,18 @@
+import { existsSync, readFileSync } from "node:fs";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from "rollup-plugin-visualizer";
+
+// HTTPS local (mkcert) — sólo si los certs existen (`.certs/`, gitignored).
+// Necesario para probar checkouts reales de MercadoPago: exige backUrl
+// https, si no rompe con un CSP violation en su propia página.
+const CERT_KEY = "./.certs/localhost-key.pem";
+const CERT_FILE = "./.certs/localhost.pem";
+const httpsConfig =
+  existsSync(CERT_KEY) && existsSync(CERT_FILE)
+    ? { key: readFileSync(CERT_KEY), cert: readFileSync(CERT_FILE) }
+    : undefined;
 
 export default defineConfig({
   // Pass ANALYZE=true to emit stats.html with chunk sizes: ANALYZE=true pnpm build
@@ -43,10 +54,15 @@ export default defineConfig({
   },
 
   server: {
+    host: true, // expone en la red local (0.0.0.0), no sólo localhost
+    https: httpsConfig,
     proxy: {
       "/api": {
-        target: "http://localhost:5050",
+        // La API sirve https localmente cuando hay certs (mismo par mkcert
+        // que arriba); secure:false porque es self-signed.
+        target: httpsConfig ? "https://localhost:5050" : "http://localhost:5050",
         changeOrigin: true,
+        secure: false,
       },
     },
   },

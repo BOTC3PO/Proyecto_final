@@ -1,0 +1,38 @@
+[
+ {
+  "id": 943,
+  "cluster": 2,
+  "temas": [
+   "capacitor-rc-carga-y-descarga",
+   "compuertas-nand-nor-xor-y-universalidad",
+   "diodo-polarizacion-rectificacion-y-fuentes",
+   "divisor-de-tension-y-codigo-de-colores",
+   "inductores-y-bobinas"
+  ],
+  "preguntas": 118
+ },
+ {
+  "id": 944,
+  "cluster": 3,
+  "temas": [
+   "instrumentos-de-medicion-multimetro-y-osciloscopio",
+   "logica-combinacional-sumadores-multiplexores",
+   "microcontrolador-entradas-y-salidas-digitales",
+   "logica-secuencial-flip-flops-y-contadores",
+   "comunicacion-serie-uart-i2c-spi"
+  ],
+  "preguntas": 116
+ },
+ {
+  "id": 945,
+  "cluster": 4,
+  "temas": [
+   "prototipado-protoboard-soldadura-y-seguridad",
+   "senales-analogicas-y-digitales-adc-dac",
+   "temporizador-555-y-osciladores",
+   "transistor-como-interruptor-y-amplificador",
+   "amplificador-operacional"
+  ],
+  "preguntas": 114
+ }
+]

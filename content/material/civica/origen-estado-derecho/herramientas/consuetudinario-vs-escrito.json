@@ -1,0 +1,32 @@
+{
+ "titulo": "Derecho consuetudinario y derecho escrito",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Dos formas de fijar las reglas",
+   "headers": [
+    "",
+    "Derecho consuetudinario",
+    "Derecho escrito"
+   ],
+   "rows": [
+    [
+     "Cómo se transmite",
+     "De palabra, por costumbre",
+     "En leyes: libros o tablillas"
+    ],
+    [
+     "Quién lo conoce",
+     "Quien vive en la comunidad",
+     "Quien sabe leer el texto"
+    ],
+    [
+     "Certeza",
+     "Depende de la memoria colectiva",
+     "El texto es la referencia común"
+    ]
+   ]
+  }
+ ]
+}

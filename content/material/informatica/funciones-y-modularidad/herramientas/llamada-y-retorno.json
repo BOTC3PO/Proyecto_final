@@ -1,0 +1,53 @@
+{
+ "titulo": "Llamada a una función y retorno",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Flujo de ejecución",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "El programa llama a la función",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "La función se ejecuta",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Devuelve un valor",
+     "x": 425,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "El programa continúa",
+     "x": 638,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

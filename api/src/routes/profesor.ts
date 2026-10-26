@@ -2,6 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { whereSoloAlumnosReales } from "../lib/inscripcion-prueba";
 
 type AuthUser = {
   id?: string;
@@ -43,17 +44,6 @@ type CursoDocente = {
   enrollments?: { userId?: string }[];
   isDeleted?: boolean;
   status?: string;
-};
-
-type AsistenciaDocente = {
-  _id?: string;
-  id?: string;
-  curso?: string;
-  nombreCurso?: string;
-  presente?: number;
-  presentes?: number;
-  total?: number;
-  totalEstudiantes?: number;
 };
 
 type CalificacionDocente = {
@@ -184,9 +174,92 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     createdBy: m.ownerUserId ?? undefined,
   }));
 
-  // Count active students via clase_miembros
+  // FIX-PANEL-EVALUACIONES — la sección "Evaluaciones recientes" del
+  // panel del profesor mostraba módulos (no evaluaciones) y no tenía
+  // materia asociada. El docente veía títulos sin contexto y la UX
+  // quedaba inconsistente. Ahora consultamos los QuizAttempt reales
+  // del modelo nuevo (no la colección legacy "ejercicios" que ya no
+  // existe) y devolvemos el `title` del quiz + el `subject` (materia)
+  // del módulo dueño. Esto cubre simultáneamente:
+  //   - bug 1.1: el título es ahora siempre visible (viene del Quiz).
+  //   - bug 1.2: la materia/categoría se incluye como campo
+  //     `category` derivado del módulo (módulo.subject ?? módulo.titulo).
+  // Los intentos se ordenan por `startedAt desc` (campo canónico del
+  // modelo) y se limitan a 4 para mantener paridad visual con la
+  // sección anterior.
+  type RecentEvaluation = {
+    id: string;
+    title: string;
+    category: string;
+    moduleId: string;
+    quizId: string;
+    status: string;
+    startedAt: string;
+  };
+  const recentEvaluations: RecentEvaluation[] = [];
+  // Para la card "Resumen" del panel — simetría con "Módulos creados":
+  // cuántos intentos de cuestionario ya rindieron los alumnos del
+  // docente. "Hecho" = enviado o corregido (mismos dos estados reales
+  // que genera el submit, ver quiz-attempts.ts); "completed" NO es un
+  // status que el submit llegue a generar, no se usa acá a propósito.
+  let quizzesCompletedByStudents = 0;
+  if (aulaIds.length > 0 || moduloFilters.length > 0) {
+    // 1) Traemos los módulos del docente (dueño o asignado a un aula
+    //    suya) — los mismos que ya usamos arriba.
+    const teacherModuloIds = modulosRaw.map((m) => m.id);
+    if (teacherModuloIds.length > 0) {
+      // 2) Buscamos los quizzes de esos módulos.
+      const quizzes = await prisma.quiz.findMany({
+        where: { moduleId: { in: teacherModuloIds } },
+        select: { id: true, moduleId: true, title: true },
+      });
+      const quizById = new Map(quizzes.map((q) => [q.id, q]));
+      const moduleSubject = new Map(
+        (await prisma.modulo.findMany({
+          where: { id: { in: teacherModuloIds } },
+          select: { id: true, subject: true, titulo: true },
+        })).map((m) => [m.id, m]),
+      );
+      const quizIds = quizzes.map((q) => q.id);
+      if (quizIds.length > 0) {
+        const attempts = await prisma.quizAttempt.findMany({
+          where: { quizId: { in: quizIds } },
+          select: { id: true, quizId: true, status: true, startedAt: true },
+        });
+        quizzesCompletedByStudents = attempts.filter(
+          (a) => a.status === "submitted" || a.status === "graded",
+        ).length;
+        const sorted = [...attempts].sort((a, b) =>
+          String(b.startedAt ?? "").localeCompare(String(a.startedAt ?? ""))
+        );
+        for (const attempt of sorted.slice(0, 4)) {
+          const quiz = quizById.get(attempt.quizId);
+          if (!quiz) continue;
+          // Filtrado arriba por `moduleId: { in: teacherModuloIds } }` —
+          // estos quizzes siempre tienen módulo; el `?? ""` es sólo para
+          // el tipo (Quiz.moduleId es nullable desde PLAN-CORRECCIONES C2,
+          // por los quizzes "sueltos").
+          const quizModuleId = quiz.moduleId ?? "";
+          const mod = moduleSubject.get(quizModuleId);
+          recentEvaluations.push({
+            id: attempt.id,
+            title: quiz.title ?? "(sin título)",
+            category: mod?.subject ?? mod?.titulo ?? "Sin materia",
+            moduleId: quizModuleId,
+            quizId: quiz.id,
+            status: attempt.status,
+            startedAt: attempt.startedAt,
+          });
+        }
+      }
+    }
+  }
+
+  // Count active students via clase_miembros.
+  // FASE 4 — excluimos los espejos-alumno para no inflar el KPI de
+  // "estudiantes activos" del panel docente.
   const allStudentMemberships = await prisma.claseMiembro.findMany({
-    where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT" },
+    where: { claseId: { in: aulaIds }, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
     select: { usuarioId: true },
   });
   const activeStudents = new Set(allStudentMemberships.map((m) => m.usuarioId));
@@ -220,6 +293,8 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     },
     activeStudents: activeStudents.size,
     progressNextClass,
+    quizzesCompletedByStudents,
+    recentEvaluations,
     kpiCards: [
       {
         id: "aulas",
@@ -249,10 +324,11 @@ profesor.get("/api/profesor/menu", async (req, res) => {
     weeklyPlan: await (async () => {
       const top3 = sortedAulas.slice(0, 3);
       const top3Ids = top3.map((a) => a.id ?? "").filter(Boolean);
+      // FASE 4 — excluimos espejos del conteo por aula del plan semanal.
       const memberCounts = top3Ids.length
         ? await prisma.claseMiembro.groupBy({
             by: ["claseId"],
-            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT" },
+            where: { claseId: { in: top3Ids }, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() },
             _count: { usuarioId: true },
           })
         : [];
@@ -283,6 +359,9 @@ profesor.get("/api/profesor/menu", async (req, res) => {
   });
 });
 
+// PLAN-A §3 — antes esto devolvía `[]` hardcodeado porque el modelo
+// `Asistencia` no existía. Resumen del día de hoy por aula del
+// profesor (presentes marcados / total de alumnos del aula).
 profesor.get("/api/profesor/asistencia", async (req, res) => {
   const user = (req as { user?: AuthUser }).user;
   const teacherId = getTeacherId(user);
@@ -291,14 +370,44 @@ profesor.get("/api/profesor/asistencia", async (req, res) => {
     return;
   }
 
-  // Nota: la colección "asistencias" no existe aún en Prisma — devolvemos [] para evitar errores en UI.
-  const asistencias: AsistenciaDocente[] = [];
-  const resumen = asistencias.map((item, index) => ({
-    id: getDocumentId(item) || `asistencia-${index}`,
-    curso: item.curso ?? item.nombreCurso ?? "Curso sin nombre",
-    presente: item.presente ?? item.presentes ?? 0,
-    total: item.total ?? item.totalEstudiantes ?? 0
-  }));
+  const teacherMemberships = await prisma.claseMiembro.findMany({
+    where: { usuarioId: teacherId, rolEnClase: "TEACHER" },
+    select: { claseId: true }
+  });
+  const memberClaseIds = teacherMemberships.map((m) => m.claseId);
+
+  const aulas = await prisma.clase.findMany({
+    where: {
+      isDeleted: { not: true },
+      OR: [
+        { createdBy: teacherId },
+        { teacherId },
+        { teacherOfRecord: teacherId },
+        ...(memberClaseIds.length > 0 ? [{ id: { in: memberClaseIds } }] : [])
+      ]
+    },
+    select: { id: true, name: true }
+  });
+
+  const hoy = new Date().toISOString().slice(0, 10);
+  const resumen = await Promise.all(
+    aulas.map(async (aula) => {
+      const [totalAlumnos, presentesHoy] = await Promise.all([
+        prisma.claseMiembro.count({
+          where: { claseId: aula.id, rolEnClase: "STUDENT", ...whereSoloAlumnosReales() }
+        }),
+        prisma.asistencia.count({
+          where: { claseId: aula.id, fecha: hoy, estado: "presente" }
+        })
+      ]);
+      return {
+        id: aula.id,
+        curso: aula.name ?? "Curso sin nombre",
+        presente: presentesHoy,
+        total: totalAlumnos
+      };
+    })
+  );
 
   res.status(200).json(resumen);
 });

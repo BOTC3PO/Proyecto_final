@@ -1,0 +1,23 @@
+{
+ "titulo": "Velocidad frente a distancia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "math",
+   "title": "v = H₀ · d, con H₀ ≈ 70 km/s por megapársec",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "70*x",
+     "label": "Velocidad de alejamiento (km/s)"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 100,
+   "showGrid": true,
+   "showLegend": true,
+   "yMin": 0,
+   "yMax": 7000
+  }
+ ]
+}

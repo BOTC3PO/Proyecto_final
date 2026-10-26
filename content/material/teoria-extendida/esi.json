@@ -1,0 +1,297 @@
+{
+  "schema": "book.pages@1.1",
+  "metadata": {
+    "id": "teoria-extendida-esi",
+    "title": "Educación sexual integral — Teoría extendida",
+    "language": "es"
+  },
+  "structure": {
+    "index": [
+      {
+        "id": "cap-1",
+        "title": "Cuerpos, pubertad e identidad: entender los cambios y la diversidad",
+        "pageStart": 1,
+        "anchor": "cap-1:inicio"
+      },
+      {
+        "id": "cap-2",
+        "title": "Vínculos que cuidan: consentimiento, violencia de género y grooming",
+        "pageStart": 2,
+        "anchor": "cap-2:inicio"
+      },
+      {
+        "id": "cap-3",
+        "title": "Cuidar la salud sexual: infecciones, anticoncepción y derechos",
+        "pageStart": 3,
+        "anchor": "cap-3:inicio"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "cap-1",
+      "number": 1,
+      "title": "Cuerpos, pubertad e identidad: entender los cambios y la diversidad",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-1-h1",
+          "level": 2,
+          "text": "Cuerpos, pubertad e identidad: entender los cambios y la diversidad"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p2",
+          "text": "La Educación Sexual Integral, la ESI, parte de una idea simple: todas las personas tienen derecho a conocer su cuerpo, a entender lo que les pasa y a vivir su sexualidad con cuidado y respeto, propio y ajeno. En la Argentina ese derecho está garantizado por la Ley 26.150, sancionada en 2006, que establece que todos los estudiantes de todos los niveles, de escuelas públicas y privadas, deben recibir educación sexual integral. No es una materia optativa que cada escuela decida dar o no, y tampoco se reduce a la anatomía o a la prevención de embarazos: integra aspectos biológicos, psicológicos, sociales, éticos y legales. Este capítulo trata la base de esa mirada: cómo cambia el cuerpo en la pubertad y cómo se distinguen conceptos que suelen confundirse cuando se habla de identidad y de diversidad."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h3",
+          "level": 3,
+          "text": "La pubertad: un proceso hormonal real"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p4",
+          "text": "La pubertad no es algo que simplemente pasa. Es un proceso coordinado por el sistema endocrino. En determinado momento, la hipófisis, una glándula ubicada en la base del cerebro, comienza a liberar hormonas que activan a las gónadas, que son los ovarios y los testículos. Estos empiezan entonces a producir en cantidades mayores las hormonas sexuales: estrógenos y progesterona en un caso, testosterona en el otro. Esas hormonas son las responsables de los cambios que se suceden durante varios años."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p5",
+          "text": "Algunos cambios son comunes a todos los cuerpos, cualquiera sea su sexo. Hay una aceleración del crecimiento, el llamado estirón. Aparece vello en las axilas y en la zona púbica. La piel cambia, porque las glándulas sebáceas se vuelven más activas, y de ahí que el acné sea frecuente en esta etapa. También se modifican el estado de ánimo y los ritmos del sueño, asociados a esos mismos cambios hormonales, de modo que ciertas oscilaciones emocionales de la adolescencia tienen una base biológica y no son simple capricho."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p6",
+          "text": "Otros cambios dependen de qué hormonas predominan en cada cuerpo. En los cuerpos con predominio de testosterona cambia la voz, porque crece la laringe; aumenta la masa muscular relativa; aparece vello facial; y se producen las primeras eyaculaciones. En los cuerpos con predominio de estrógenos y progesterona se desarrollan las mamas, se ensanchan las caderas y llega la primera menstruación, la menarca. Conviene saber que la menstruación es un proceso normal del ciclo reproductivo y no algo vergonzoso, y que durante los primeros años los ciclos pueden ser irregulares."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p7",
+          "text": "Lo que más tranquiliza a quien atraviesa la pubertad es saber que no ocurre al mismo ritmo para todos. Hay quienes empiezan antes y quienes empiezan después, y la edad de inicio varía normalmente en un rango amplio. Compararse con los demás genera inquietud innecesaria. Si hay dudas o molestias, hablar con un adulto de confianza o consultar a un profesional de la salud es siempre una buena idea."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h8",
+          "level": 3,
+          "text": "Tres conceptos que no son lo mismo"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p9",
+          "text": "Cuando se habla de diversidad sexual y de género suele haber confusión entre tres ideas distintas, y separarlas es el primer paso para entender el tema. El sexo biológico se refiere a las características físicas con las que se nace, como los genitales y los cromosomas. La identidad de género es cómo cada persona se siente y se reconoce a sí misma: varón, mujer, ninguno de los dos, ambos u otras identidades. Puede coincidir o no con el sexo que se le asignó al nacer. La orientación sexual es hacia quién siente una persona atracción afectiva o sexual: personas de otro género, del mismo género, de más de un género. Es un concepto distinto del anterior, aunque a menudo se los mezcla."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p10",
+          "text": "Lo esencial es que son independientes entre sí. Conocer uno no permite deducir los otros dos. Una mujer trans puede ser heterosexual, lesbiana o bisexual, como cualquier otra mujer. Un varón gay puede identificarse plenamente con el género que se le asignó al nacer. Estas distinciones evitan suposiciones y estereotipos y permiten hablar con precisión."
+        },
+        {
+          "type": "heading",
+          "id": "cap-1-h11",
+          "level": 3,
+          "text": "Lo que dice la ley"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p12",
+          "text": "La Argentina fue pionera con la Ley 26.743 de Identidad de Género, de 2012. Reconoce que toda persona tiene derecho a ser tratada de acuerdo con su identidad de género autopercibida y a pedir que su nombre y su sexo se rectifiquen en el documento de identidad para que coincidan con ella. Para lograrlo no se exige cirugía, tratamiento hormonal ni informe médico o psicológico previo: alcanza con la solicitud de la propia persona. Para las personas menores de dieciocho años existe un procedimiento específico, con intervención de sus representantes legales. La ley también reconoce el derecho de acceder, si la persona lo desea, a tratamientos médicos que adecúen su cuerpo a su identidad, incluidos en el sistema de salud. Ya en 2010, la Ley 26.618 había permitido el matrimonio entre personas del mismo sexo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-1-p13",
+          "text": "Para la ESI, la diversidad no es un tema especial reservado a unos pocos sino una parte de la realidad humana. Reconocerla significa garantizar el trato digno y la no discriminación, y entender que cada persona tiene derecho a ser quien es en un entorno donde se la respete. Una convivencia basada en el respeto beneficia a todos, también a quienes no forman parte de ninguna minoría, porque amplía el margen de libertad con que cada uno puede ser."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-1"
+      }
+    },
+    {
+      "id": "cap-2",
+      "number": 2,
+      "title": "Vínculos que cuidan: consentimiento, violencia de género y grooming",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-2-h1",
+          "level": 2,
+          "text": "Vínculos que cuidan: consentimiento, violencia de género y grooming"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p2",
+          "text": "Las relaciones con otras personas, sean amistades, parejas o vínculos en línea, pueden ser fuente de alegría y de cuidado, pero también de daño. Aprender a distinguir unos de otros es una de las tareas centrales de la ESI. Este capítulo reúne tres temas que se apoyan entre sí: el consentimiento, que es la base de cualquier vínculo respetuoso; la violencia de género, con sus formas y señales; y el grooming, una forma de acoso a menores a través de internet."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h3",
+          "level": 3,
+          "text": "El consentimiento"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p4",
+          "text": "El consentimiento es el acuerdo libre, informado y expreso de una persona para participar en una actividad que involucre su cuerpo o su espacio personal, y en particular en una situación sexual. Para que sea real tiene que cumplir varias condiciones a la vez. Debe ser libre: sin presión, manipulación, chantaje ni miedo. Debe ser informado: la persona entiende con claridad a qué está accediendo. Debe ser específico: aceptar una cosa no implica aceptar otra, y aceptar una cita no equivale a aceptar una relación sexual. Debe ser revocable: se puede retirar en cualquier momento, incluso en medio de la actividad, y quien dijo que sí puede decir ya no quiero, y eso vale igual. Y debe ser consciente: la persona tiene que estar en condiciones de decidir, sin estar dormida, inconsciente ni bajo los efectos de sustancias que le impidan hacerlo con claridad."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p5",
+          "text": "Hay cosas que se confunden con el consentimiento y no lo son. El silencio no es un sí: no decir no no equivale a decir sí. Haber dicho que sí antes no es un sí para siempre, porque el consentimiento se da para cada situación y no es un permiso permanente. La ropa, el coqueteo o una relación previa no prueban que alguien quiera algo en un momento determinado. Y un sí dicho por miedo, bajo presión o por manipulación tampoco es consentimiento. En la práctica, la forma más segura de asegurarse es preguntar y escuchar la respuesta, sea cual sea, y estar atento a las señales de duda, de incomodidad o de rechazo, que deben respetarse. Respetar un no, además, es una manifestación de respeto y no de rechazo personal."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p6",
+          "text": "Conviene saber también que, ante la ley, hay edades y circunstancias en que el consentimiento no es válido para ciertas conductas, en particular cuando una persona adulta mantiene relaciones sexuales con una persona menor en situación de asimetría. Por eso, ante cualquier duda, es importante pedir orientación."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h7",
+          "level": 3,
+          "text": "La violencia de género no es solo física"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p8",
+          "text": "Muchas veces se piensa que violencia significa golpes, y esa idea impide reconocer formas más sutiles. La violencia de género tiene varios tipos, y los menos visibles suelen ser los primeros en aparecer. La violencia psicológica incluye humillar, descalificar, hacer sentir mal de manera constante y manipular emocionalmente. La simbólica reproduce mensajes y patrones culturales que naturalizan la desigualdad, como ciertos chistes o estereotipos que fijan roles. La económica consiste en controlar o limitar el acceso al dinero, o impedir que la otra persona trabaje o estudie. La física abarca golpes, empujones y cualquier daño corporal. La sexual incluye cualquier acto de ese tipo sin consentimiento válido. En la Argentina, la Ley 26.485 de protección integral contra la violencia hacia las mujeres define y reconoce estos tipos y modalidades."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p9",
+          "text": "Una señal de alerta frecuente es el control presentado como cuidado o como amor intenso. Revisar el celular de la pareja sin permiso, decidir con quién puede hablar o juntarse, exigir saber dónde está a toda hora, o mostrar celos extremos justificados con es porque te quiero tanto, no son pruebas de amor sino formas de control que, si escalan, pueden desembocar en violencia más grave. Un vínculo sano deja espacio para la autonomía, las amistades y la intimidad de cada uno."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p10",
+          "text": "La violencia en una relación suele seguir un patrón cíclico, no una escalada continua. Hay una fase de acumulación de tensión, con pequeños roces; luego un episodio de violencia; después, una etapa de arrepentimiento en la que la persona agresora pide perdón, promete cambiar y muestra afecto; y más tarde la tensión vuelve a crecer. Ese vaivén, con sus momentos de calma y ternura, hace que a la víctima le resulte difícil reconocer lo que ocurre y alejarse. Saberlo ayuda tanto a quien lo vive como a sus amigos y familiares, que a veces se preguntan por qué no se va, sin advertir cuántos factores lo hacen difícil."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p11",
+          "text": "Quien atraviesa una situación así no es culpable y puede pedir ayuda. La Línea 144 brinda atención, contención y asesoramiento sobre violencia de género en todo el país, las veinticuatro horas, de manera gratuita; no es una línea de emergencia, y si hay riesgo inmediato se debe llamar al 911. Para chicas, chicos y adolescentes también existe la Línea 102. Hablar con un adulto de confianza, con docentes o con un equipo de salud es el primer paso, y quien presencia una situación de violencia puede acompañar, escuchar sin juzgar y ayudar a buscar ayuda."
+        },
+        {
+          "type": "heading",
+          "id": "cap-2-h12",
+          "level": 3,
+          "text": "Grooming: cuando el acoso viene por la pantalla"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p13",
+          "text": "El grooming es el proceso por el cual una persona adulta se contacta con una persona menor de edad por internet, en redes sociales, juegos en línea o chats, con la intención de ganar su confianza para, de a poco, buscar abuso sexual, a distancia o presencial, o conseguir material con contenido sexual. No suele ser un hecho aislado sino un proceso gradual con etapas reconocibles. Primero hay un contacto amigable y la construcción de confianza; el adulto muestra interés genuino y a veces finge tener una edad cercana a la del menor. Después viene el aislamiento: sugiere mantener la conversación en secreto, solo entre nosotros, para generar un vínculo exclusivo y separado de su entorno. Luego la escalada: introduce temas sexuales, al principio de forma sutil, y pide fotos o información cada vez más íntimas. Y finalmente el control por chantaje: con alguna imagen o dato comprometedor en su poder, amenaza con difundirlo para obligar a seguir."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-2-p14",
+          "text": "Las señales de alerta son claras si se las conoce. Un adulto desconocido que pide mantener la conversación en secreto. Que solicita fotos personales, cada vez un poco más. Que ofrece regalos, dinero o ventajas a cambio de algo. Que presiona o amenaza cuando la otra persona dice que no. Ante cualquiera de ellas, lo recomendable es cortar la comunicación, guardar capturas como prueba, bloquear a la persona y, sobre todo, contárselo a un adulto de confianza. Quien sufre grooming no tiene la culpa, aunque haya enviado una imagen: la responsabilidad es de quien engaña y manipula. En la Argentina el grooming es un delito, tipificado por la Ley 26.904 de 2013, y puede denunciarse. La prevención incluye cuidar la privacidad en las redes, no aceptar a desconocidos, desconfiar de quien pide secreto y mantener una comunicación abierta en la familia y en la escuela, para que pedir ayuda sea siempre posible."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-2"
+      }
+    },
+    {
+      "id": "cap-3",
+      "number": 3,
+      "title": "Cuidar la salud sexual: infecciones, anticoncepción y derechos",
+      "anchors": [
+        {
+          "id": "inicio",
+          "label": "Inicio"
+        }
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "id": "cap-3-h1",
+          "level": 2,
+          "text": "Cuidar la salud sexual: infecciones, anticoncepción y derechos"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p2",
+          "text": "Cuidar la salud sexual es parte de cuidar la salud en general, y se apoya en información confiable y en el acceso a los servicios. Este capítulo aborda tres aspectos: las infecciones de transmisión sexual, los métodos anticonceptivos y cómo se mide su eficacia, y el marco de derechos que, en la Argentina, garantiza la atención de la salud de las y los adolescentes."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h3",
+          "level": 3,
+          "text": "Infecciones de transmisión sexual"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p4",
+          "text": "Las infecciones de transmisión sexual, o ITS, son infecciones causadas por virus, bacterias y otros microorganismos que se transmiten principalmente en relaciones sexuales sin protección, ya sea por contacto genital, oral o anal. Algunas pueden transmitirse también por la sangre o de madre a hijo durante el embarazo o el parto. Lo más importante de recordar es que muchas ITS pueden transmitirse aunque la persona infectada no tenga síntomas visibles. No es posible saber si alguien tiene una ITS solo mirándolo o preguntándole cómo se siente, y por eso la prevención y la detección no pueden basarse en las apariencias."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p5",
+          "text": "La forma más efectiva de reducir el riesgo es el uso correcto y constante del preservativo en cada relación sexual, que disminuye de manera significativa, aunque no elimina por completo, el riesgo de la mayoría de las ITS. Otras medidas complementan: las vacunas disponibles contra algunas infecciones, como el virus del papiloma humano y la hepatitis B, que forman parte del calendario nacional de vacunación; los controles periódicos de salud si hay actividad sexual, incluso sin síntomas; y el diálogo con las parejas sobre el cuidado mutuo. La abstinencia es la única forma de riesgo cero, pero no es la única estrategia de prevención válida: la ESI brinda información para que cada persona pueda decidir de manera informada y cuidar su salud, sin imponer una opción determinada."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p6",
+          "text": "La detección temprana mejora mucho los resultados. Muchas ITS se tratan con eficacia si se diagnostican a tiempo, y algunas, como el VIH, pueden controlarse con tratamientos que permiten una vida plena. Acceder a una prueba no implica nada más que cuidar la salud, y en el sistema de salud público existe atención gratuita y confidencial."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h7",
+          "level": 3,
+          "text": "Los métodos anticonceptivos y el índice de Pearl"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p8",
+          "text": "Existen muchos métodos para evitar un embarazo no planificado, de naturaleza distinta: de barrera, como el preservativo; hormonales, como las píldoras, los parches, los anillos, los inyectables y los implantes; dispositivos intrauterinos; métodos quirúrgicos; y otros basados en el seguimiento del ciclo, que suelen ser menos fiables. Elegir uno depende de factores de salud, de las preferencias y de las circunstancias de cada persona, y lo ideal es hacerlo con asesoramiento profesional. El preservativo, además, es el único que protege a la vez del embarazo y de la mayoría de las ITS. En el sistema de salud público se entregan métodos anticonceptivos de manera gratuita, y existe la anticoncepción de emergencia, que puede usarse después de una relación sin protección dentro de un plazo limitado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p9",
+          "text": "Para comparar métodos se usa una medida llamada índice de Pearl, que cuenta cuántos embarazos no planificados ocurren por cada cien mujeres que usan un método durante un año. Se calcula dividiendo los embarazos observados por el total de meses de uso y multiplicando por mil doscientos, para pasar a la unidad estándar de cien mujeres por año. Cuanto más bajo es el índice, más eficaz es el método. Un índice de uno significa, aproximadamente, que una de cada cien mujeres que lo usan durante un año queda embarazada sin haberlo planeado."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p10",
+          "text": "Casi todos los métodos informan dos valores. El uso perfecto es el del método usado exactamente como indican las instrucciones, sin errores; el uso típico es el que se observa en la vida real, e incluye olvidos, usos incorrectos e interrupciones, de modo que casi siempre es más alto. La diferencia entre ambos es información valiosa: un método con una gran brecha depende mucho de que se use sin errores, mientras que otro con poca brecha tolera mejor los descuidos. Como referencia, las estimaciones que publican organismos como los Centros para el Control y la Prevención de Enfermedades de los Estados Unidos muestran que el preservativo masculino tiene un índice de unos dos con uso perfecto y de unos trece con uso típico, la píldora de unos tres décimos y unos siete, y los implantes y los dispositivos intrauterinos tienen valores muy bajos en ambos casos, porque una vez colocados no dependen de recordar nada. Las cifras exactas cambian según el estudio, pero la conclusión es estable: los métodos que requieren menos acción diaria suelen ser los más eficaces en la práctica."
+        },
+        {
+          "type": "heading",
+          "id": "cap-3-h11",
+          "level": 3,
+          "text": "Derechos y acceso a la salud"
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p12",
+          "text": "La atención de la salud sexual y reproductiva es un derecho, y el marco legal argentino lo respalda. Además de la Ley 26.150, que garantiza la educación sexual integral, la Ley 26.061 de protección integral de niñas, niños y adolescentes y el Código Civil y Comercial establecen que, a partir de los trece años, las y los adolescentes pueden acceder por sí mismos a consultas y tratamientos de salud que no sean invasivos ni comprometan su vida o su integridad, sin necesidad de la autorización de un adulto. Esto incluye, por ejemplo, consultas de salud sexual y reproductiva. El objetivo es que tener que pedir permiso no se convierta en un obstáculo para recibir atención y asesoramiento a tiempo."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p13",
+          "text": "En diciembre de 2020 se sancionó la Ley 27.610, que regula el acceso a la interrupción voluntaria del embarazo hasta la semana catorce inclusive, sin necesidad de explicar los motivos, y mantiene la interrupción legal del embarazo, sin límite de semanas, en los casos que ya estaban previstos desde 1921: cuando está en riesgo la vida o la salud de la persona gestante, o cuando el embarazo es producto de una violación. El sistema de salud, público y privado, debe garantizar el acceso. Hablar de este tema en una clase de ESI significa informar sobre el marco legal vigente y sobre los derechos y las responsabilidades que de él se derivan, de modo que cada estudiante sepa a dónde acudir y cuáles son las opciones, sin imponer posiciones personales."
+        },
+        {
+          "type": "paragraph",
+          "id": "cap-3-p14",
+          "text": "Todo este capítulo apunta a lo mismo: que la información llegue antes que el problema. Cuidarse, cuidar a los demás y saber dónde pedir ayuda son decisiones que se toman mejor cuando se tiene información clara y confiable, y cuando existe, en la familia, en la escuela y en el sistema de salud, alguien dispuesto a escuchar sin juzgar."
+        }
+      ],
+      "meta": {
+        "chapterId": "cap-3"
+      }
+    }
+  ]
+}

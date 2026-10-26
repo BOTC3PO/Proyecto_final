@@ -1,0 +1,4 @@
+A: Buongiorno, posso ordinare un caffè?
+B: Certo! Vorrebbe un caffè normale o doppio?
+A: Normale, grazie.
+B: Bene, arrivo subito.

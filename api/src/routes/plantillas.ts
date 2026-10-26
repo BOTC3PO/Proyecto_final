@@ -1,19 +1,31 @@
 import { randomUUID } from "crypto";
-import { Router } from "express";
+import { Router, type Request, type Response } from "express";
+import { ZodError } from "zod";
 import { isStaffRole } from "../lib/authorization";
 import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
+import { hasRole } from "../lib/roles";
 import {
   PlantillaCreateSchema,
   PlantillaForkSchema,
   PlantillaUpdateSchema,
+  SYSTEM_OWNER_ID,
   type Visibility,
 } from "../lib/vblang-types";
 import { validateDslSyntax } from "../lib/vblang-validation";
 
 export const plantillas = Router();
 
-type AuthUser = { _id?: string; role?: string; schoolId?: string | null };
+// MULTIROL-01 (Fase 1): el shape del user ahora puede traer `roles`
+// además de `role` (legacy). `hasRole` mira primero el array y cae
+// al singular. El chequeo `user.role === "ADMIN"` se reemplaza por
+// `hasRole(user, "ADMIN")` en este archivo.
+type AuthUser = {
+  _id?: string;
+  role?: string;
+  roles?: string[];
+  schoolId?: string | null;
+};
 
 type PlantillaRow = {
   id: string;
@@ -32,6 +44,11 @@ type PlantillaRow = {
   createdAt: string;
   updatedAt: string;
 };
+
+/** F6-01 — una plantilla es "oficial" si su dueño es la cuenta de sistema. */
+function esPlantillaOficial(row: PlantillaRow): boolean {
+  return row.ownerUserId === SYSTEM_OWNER_ID;
+}
 
 function parseTags(raw: string | null | undefined): string[] | undefined {
   if (!raw) return undefined;
@@ -52,6 +69,7 @@ function toListItem(row: PlantillaRow, ownerName?: string) {
     tags: parseTags(row.tags),
     visibility: row.visibility as Visibility,
     publicAprobado: row.publicAprobado,
+    esOficial: esPlantillaOficial(row),
     ownerUserId: row.ownerUserId,
     ownerName,
     schoolId: row.schoolId ?? undefined,
@@ -71,7 +89,7 @@ function toDetail(row: PlantillaRow, ownerName?: string) {
 
 function canRead(row: PlantillaRow, user: AuthUser): boolean {
   if (row.isDeleted) return false;
-  if (user.role === "ADMIN") return true;
+  if (hasRole(user, "ADMIN")) return true;
   if (row.ownerUserId === user._id) return true;
   if (
     row.visibility === "escuela" &&
@@ -128,7 +146,7 @@ plantillas.post("/api/plantillas/batch", requireUser, async (req, res) => {
 plantillas.get("/api/plantillas", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.json({ items: [], total: 0 });
       return;
     }
@@ -207,10 +225,21 @@ plantillas.get("/api/plantillas", requireUser, async (req, res) => {
       ];
     }
 
+    // "Lo último que toqué" ordena bien MIS plantillas, pero no la biblioteca:
+    // las 132 oficiales se siembran de una y comparten `updatedAt`, así que el
+    // desempate queda en orden de inserción y las 76 de matemáticas se comen las
+    // primeras 50 — el resto de las materias no aparecía sin filtrar a mano.
+    // Para la biblioteca se ordena por materia y nombre, que además es como se
+    // busca contenido ajeno.
+    const orderBy =
+      owner === "otros"
+        ? [{ materia: "asc" as const }, { nombre: "asc" as const }]
+        : [{ updatedAt: "desc" as const }];
+
     const [rows, total] = await Promise.all([
       prisma.plantillaEjercicio.findMany({
         where,
-        orderBy: { updatedAt: "desc" },
+        orderBy,
         take: limitNum,
         skip: offsetNum,
       }),
@@ -267,7 +296,7 @@ plantillas.get("/api/plantillas/:id", requireUser, async (req, res) => {
 plantillas.post("/api/plantillas", requireUser, async (req, res) => {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
+    if (!isStaffRole(user)) {
       res.status(403).json({ error: "Solo creadores de contenido pueden crear plantillas" });
       return;
     }
@@ -288,7 +317,7 @@ plantillas.post("/api/plantillas", requireUser, async (req, res) => {
     const id = randomUUID();
     const now = new Date().toISOString();
     const publicAprobado =
-      data.visibility === "publica" && user.role === "ADMIN" ? true : false;
+      data.visibility === "publica" && hasRole(user, "ADMIN") ? true : false;
     const userId = user._id ?? "";
 
     const created = await prisma.$transaction(async (tx) => {
@@ -344,7 +373,7 @@ plantillas.put("/api/plantillas/:id", requireUser, async (req, res) => {
       return;
     }
     const isOwner = row.ownerUserId === user._id;
-    if (!isOwner && user.role !== "ADMIN") {
+    if (!isOwner && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede modificar" });
       return;
     }
@@ -379,7 +408,7 @@ plantillas.put("/api/plantillas/:id", requireUser, async (req, res) => {
     }
     if (data.visibility !== undefined) {
       update.visibility = data.visibility;
-      if (data.visibility === "publica" && user.role !== "ADMIN") {
+      if (data.visibility === "publica" && !hasRole(user, "ADMIN")) {
         update.publicAprobado = false;
       }
     }
@@ -424,7 +453,7 @@ plantillas.delete("/api/plantillas/:id", requireUser, async (req, res) => {
       return;
     }
     const isOwner = row.ownerUserId === user._id;
-    if (!isOwner && user.role !== "ADMIN") {
+    if (!isOwner && !hasRole(user, "ADMIN")) {
       res.status(403).json({ error: "Solo el owner o ADMIN puede eliminar" });
       return;
     }
@@ -440,12 +469,78 @@ plantillas.delete("/api/plantillas/:id", requireUser, async (req, res) => {
   }
 });
 
-// POST /api/plantillas/:id/fork
-plantillas.post("/api/plantillas/:id/fork", requireUser, async (req, res) => {
+/**
+ * Núcleo compartido de "clonar para editar" (F6-01) y "fork": crea una copia
+ * EDITABLE de `original` cuyo dueño es el solicitante, `basadoEn` apunta al
+ * original (procedencia) y arranca en version 1 con visibility privada por
+ * defecto. El original queda INTACTO. Sirve para clonar plantillas oficiales
+ * (públicas, dueño = sistema) sin tocar la fuente. Sigue el patrón de
+ * `POST /api/modulos/:id/duplicar`: id nuevo, owner = solicitante, copia la
+ * config, no hereda aprobación pública.
+ */
+async function clonarParaEditar(
+  original: PlantillaRow,
+  user: AuthUser,
+  body: unknown,
+  changelogLabel: string,
+): Promise<PlantillaRow> {
+  const parsed = PlantillaForkSchema.parse(body ?? {});
+  const nombre = parsed.nombre ?? `Copia de ${original.nombre}`;
+  const visibility = parsed.visibility ?? "privada";
+  const newId = randomUUID();
+  const now = new Date().toISOString();
+  const userId = user._id ?? "";
+
+  return prisma.$transaction(async (tx) => {
+    const row = await tx.plantillaEjercicio.create({
+      data: {
+        id: newId,
+        ownerUserId: userId,
+        schoolId: user.schoolId ?? null,
+        visibility,
+        nombre,
+        descripcion: original.descripcion,
+        materia: original.materia,
+        tags: original.tags,
+        codigoDsl: original.codigoDsl,
+        version: 1,
+        basadoEn: original.id,
+        publicAprobado: false,
+        isDeleted: false,
+        createdAt: now,
+        updatedAt: now,
+      },
+    });
+    await tx.plantillaEjercicioVersion.create({
+      data: {
+        id: randomUUID(),
+        plantillaId: newId,
+        version: 1,
+        codigoDsl: original.codigoDsl,
+        changelog: `${changelogLabel} ${original.id}`,
+        createdAt: now,
+        createdBy: userId,
+      },
+    });
+    return row as PlantillaRow;
+  });
+}
+
+/**
+ * Handler común para `/fork` y `/clonar`. Requiere rol staff y permiso de
+ * lectura sobre el original (las oficiales son públicas → cualquier staff las
+ * puede clonar; jamás permite editar la original). `changelogLabel` distingue la
+ * procedencia en el historial de versiones del clon.
+ */
+async function handleClonado(
+  req: Request,
+  res: Response,
+  changelogLabel: string,
+): Promise<void> {
   try {
     const user = (req as { user?: AuthUser }).user ?? {};
-    if (!isStaffRole(user.role)) {
-      res.status(403).json({ error: "Solo creadores de contenido pueden hacer fork" });
+    if (!isStaffRole(user)) {
+      res.status(403).json({ error: "Solo creadores de contenido pueden clonar" });
       return;
     }
     const id = String(req.params.id);
@@ -458,57 +553,28 @@ plantillas.post("/api/plantillas/:id/fork", requireUser, async (req, res) => {
       res.status(403).json({ error: "Sin permisos para ver esta plantilla" });
       return;
     }
-    const parsed = PlantillaForkSchema.safeParse(req.body ?? {});
-    if (!parsed.success) {
-      res.status(400).json({ error: "Datos inválidos", issues: parsed.error.issues });
+    const clon = await clonarParaEditar(original as PlantillaRow, user, req.body, changelogLabel);
+    res.status(201).json(toDetail(clon));
+  } catch (err) {
+    if (err instanceof ZodError) {
+      res.status(400).json({ error: "Datos inválidos", issues: err.issues });
       return;
     }
-    const nombre = parsed.data.nombre ?? `Copia de ${original.nombre}`;
-    const visibility = parsed.data.visibility ?? "privada";
-    const newId = randomUUID();
-    const now = new Date().toISOString();
-    const userId = user._id ?? "";
-
-    const fork = await prisma.$transaction(async (tx) => {
-      const row = await tx.plantillaEjercicio.create({
-        data: {
-          id: newId,
-          ownerUserId: userId,
-          schoolId: user.schoolId ?? null,
-          visibility,
-          nombre,
-          descripcion: original.descripcion,
-          materia: original.materia,
-          tags: original.tags,
-          codigoDsl: original.codigoDsl,
-          version: 1,
-          basadoEn: original.id,
-          publicAprobado: false,
-          isDeleted: false,
-          createdAt: now,
-          updatedAt: now,
-        },
-      });
-      await tx.plantillaEjercicioVersion.create({
-        data: {
-          id: randomUUID(),
-          plantillaId: newId,
-          version: 1,
-          codigoDsl: original.codigoDsl,
-          changelog: `Fork de ${original.id}`,
-          createdAt: now,
-          createdBy: userId,
-        },
-      });
-      return row;
-    });
-    res.status(201).json(toDetail(fork as PlantillaRow));
-  } catch (err) {
     res
       .status(500)
       .json({ error: err instanceof Error ? err.message : "internal server error" });
   }
-});
+}
+
+// POST /api/plantillas/:id/clonar — F6-01 "Usar como base / Clonar para editar".
+plantillas.post("/api/plantillas/:id/clonar", requireUser, (req, res) =>
+  handleClonado(req, res, "Clonado de"),
+);
+
+// POST /api/plantillas/:id/fork — alias histórico de clonar-para-editar.
+plantillas.post("/api/plantillas/:id/fork", requireUser, (req, res) =>
+  handleClonado(req, res, "Fork de"),
+);
 
 // ─── Sprint 10A — Aprobación admin de plantillas públicas ─────────────────
 
@@ -519,7 +585,7 @@ plantillas.get(
   async (req, res) => {
     try {
       const user = (req as { user?: AuthUser }).user ?? {};
-      if (user.role !== "ADMIN") {
+      if (!hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo ADMIN" });
         return;
       }
@@ -572,7 +638,7 @@ plantillas.post(
   async (req, res) => {
     try {
       const user = (req as { user?: AuthUser }).user ?? {};
-      if (user.role !== "ADMIN") {
+      if (!hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo ADMIN" });
         return;
       }
@@ -617,7 +683,7 @@ plantillas.post(
   async (req, res) => {
     try {
       const user = (req as { user?: AuthUser }).user ?? {};
-      if (user.role !== "ADMIN") {
+      if (!hasRole(user, "ADMIN")) {
         res.status(403).json({ error: "Solo ADMIN" });
         return;
       }
@@ -667,6 +733,7 @@ plantillas.get("/api/plantillas/:id/versions", requireUser, async (req, res) => 
     const versions = await prisma.plantillaEjercicioVersion.findMany({
       where: { plantillaId: id },
       orderBy: { version: "desc" },
+      take: 200,
     });
     res.json(
       versions.map((v) => ({

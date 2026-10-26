@@ -1,0 +1,27 @@
+{
+ "titulo": "Requisitos funcionales y no funcionales",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Funcional",
+    "No funcional"
+   ],
+   "rows": [
+    [
+     "Qué describe",
+     "Lo que el sistema hace",
+     "Cómo lo hace (calidad)"
+    ],
+    [
+     "Ejemplo",
+     "Crear usuario",
+     "Tiempo máximo de respuesta: 2 segundos"
+    ]
+   ]
+  }
+ ]
+}

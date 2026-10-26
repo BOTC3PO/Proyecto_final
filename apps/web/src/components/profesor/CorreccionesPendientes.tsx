@@ -9,6 +9,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { apiGet, apiPost } from "../../lib/api";
 
+import { useI18n } from "../../i18n/I18nContext";
 type PendingItem = {
   questionId: string;
   prompt: string;
@@ -48,6 +49,7 @@ function ItemCorreccion({
   item: PendingItem;
   onGraded: (questionId: string) => void;
 }) {
+  const { t } = useI18n();
   const [score, setScore] = useState<string>("");
   const [feedback, setFeedback] = useState("");
   const [saving, setSaving] = useState(false);
@@ -68,7 +70,7 @@ function ItemCorreccion({
       });
       onGraded(item.questionId);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "No se pudo guardar la corrección.");
+      setError(e instanceof Error ? e.message : t("correccionesPendientes.noSePudoGuardarLa"));
     } finally {
       setSaving(false);
     }
@@ -76,9 +78,9 @@ function ItemCorreccion({
 
   return (
     <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-2">
-      <p className="text-sm font-medium text-[var(--c-text)]">{item.prompt || "(sin enunciado)"}</p>
+      <p className="text-sm font-medium text-[var(--c-text)]">{item.prompt || t("comun.sinEnunciado")}</p>
       <div className="rounded-md bg-[var(--c-surface)] border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] whitespace-pre-wrap">
-        {respuestaTexto(item.response) || <span className="text-[var(--c-muted)] italic">Sin respuesta</span>}
+        {respuestaTexto(item.response) || <span className="text-[var(--c-muted)] italic">{t("correccionesPendientes.sinRespuesta")}</span>}
       </div>
       <div className="flex flex-wrap items-end gap-3">
         <label className="flex flex-col gap-0.5 text-xs text-[var(--c-muted)]">
@@ -101,7 +103,7 @@ function ItemCorreccion({
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             aria-label={`Feedback para "${item.prompt}"`}
-            placeholder="Comentario para el alumno"
+            placeholder={t("correccionesPendientes.comentarioParaElAlumno")}
             className="w-full rounded border border-[var(--c-border)] bg-[var(--c-surface)] px-2 py-1 text-sm text-[var(--c-text)]"
           />
         </label>
@@ -120,6 +122,7 @@ function ItemCorreccion({
 }
 
 export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) {
+  const { t, lang } = useI18n();
   const [attempts, setAttempts] = useState<PendingAttempt[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -166,9 +169,7 @@ export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) 
   return (
     <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
       <div className="px-4 py-3 border-b border-[var(--c-border)] flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">
-          Pendientes de corrección
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("correccionesPendientes.pendientesDeCorreccion")}</p>
         {totalPendientes > 0 && (
           <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
             {totalPendientes} pregunta(s)
@@ -185,9 +186,7 @@ export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) 
         )}
         {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
         {!loading && !error && attempts.length === 0 && (
-          <p className="text-sm text-[var(--c-muted)]">
-            No hay preguntas abiertas pendientes de corrección.
-          </p>
+          <p className="text-sm text-[var(--c-muted)]">{t("correccionesPendientes.noHayPreguntasAbiertasPendientes")}</p>
         )}
         {!loading &&
           !error &&
@@ -199,7 +198,7 @@ export default function CorreccionesPendientes({ aulaId }: { aulaId?: string }) 
                   <p className="text-xs text-[var(--c-muted)]">{a.quizTitle}</p>
                 </div>
                 <span className="text-xs text-[var(--c-muted)]">
-                  {a.submittedAt ? new Date(a.submittedAt).toLocaleDateString("es-AR") : ""}
+                  {a.submittedAt ? new Date(a.submittedAt).toLocaleDateString(lang) : ""}
                 </span>
               </div>
               <div className="space-y-2">

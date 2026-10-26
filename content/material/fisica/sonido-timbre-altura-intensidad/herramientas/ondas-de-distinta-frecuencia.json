@@ -1,0 +1,28 @@
+{
+ "titulo": "Ondas de distinta frecuencia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "math",
+   "title": "Ciclos por segundo",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "sin(6.283*3*x)",
+     "label": "Grave: 3 ciclos"
+    },
+    {
+     "id": "f2",
+     "expression": "sin(6.283*9*x)",
+     "label": "Agudo: 9 ciclos"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 1,
+   "showGrid": true,
+   "showLegend": true,
+   "yMin": -1.2,
+   "yMax": 1.2
+  }
+ ]
+}

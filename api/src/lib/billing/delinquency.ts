@@ -1,6 +1,7 @@
 
 import { prisma } from "../prisma";
 import { ENV } from "../env";
+import { withAdvisoryLock } from "../pg-lock";
 
 type DelinquencyStatus = "ACTIVE" | "PAST_DUE" | "SUSPENDED";
 
@@ -84,7 +85,9 @@ export const scheduleDelinquencyJob = () => {
   const intervalMs = Math.max(ENV.BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES, 5) * 60 * 1000;
   const runJob = async () => {
     try {
-      await runDelinquencySweep();
+      // Advisory lock — con 2+ instancias del API, sólo una corre el
+      // sweep por tick (ver tareas_pendientes/PLAN-escalabilidad-api.md).
+      await withAdvisoryLock("billing-delinquency-sweep", runDelinquencySweep);
     } catch (error) {
       console.error("Delinquency sweep failed", error);
     }

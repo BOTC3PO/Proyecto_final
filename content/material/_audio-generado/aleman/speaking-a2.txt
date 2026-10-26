@@ -1,0 +1,6 @@
+A: Hallo, wie geht es dir?
+B: Danke, gut. Und du?
+A: Mir geht es auch gut. Ich habe gerade einen Kaffee getrunken.
+B: Hast du Hunger?
+A: Ja, aber ich esse nicht viel heute. Ich muss abnehmen.
+B: Das verstehe ich. Willst du etwas essen?

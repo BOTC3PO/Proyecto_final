@@ -1,0 +1,32 @@
+{
+ "titulo": "Wireframe y mockup",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Misma interfaz, dos niveles de detalle",
+   "headers": [
+    "",
+    "Wireframe",
+    "Mockup"
+   ],
+   "rows": [
+    [
+     "Aspecto",
+     "Blanco y negro, cajas y líneas",
+     "Colores, tipografía e imágenes reales"
+    ],
+    [
+     "Para qué sirve",
+     "Definir estructura y contenido",
+     "Evaluar el aspecto visual final"
+    ],
+    [
+     "Cuándo",
+     "Primero",
+     "Después"
+    ]
+   ]
+  }
+ ]
+}

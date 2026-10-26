@@ -1,0 +1,65 @@
+> Corregido a partir de `content/material/_borradores-gemma/idiomas-extranjeros/chino/particula-guo/teoria_crudo.md`. Reescrita con la diferencia entre 过 y 了 y las restricciones con 没 y 在.
+
+# La partícula 过 (HSK 2)
+
+## Introducción
+过 tras un verbo indica una **experiencia** vivida alguna vez: *我去过北京* ('he estado en Pekín').
+
+## Explicación central
+- **Afirmativo**: V + 过 (+ cantidad de veces). *我吃过火锅. 他去过三次北京.*
+- **Negativo**: 没(有) + V + 过. *我没吃过. 我从来没去过中国.*
+- **Pregunta**: V过 … 吗 / V过 … 没有? *你看过这部电影吗?*
+- **Marcador temporal**: 曾经 (una vez), 以前 (antes).
+- **Diferencia con 了**: 我去了北京 (hecho concreto); 我去过北京 (experiencia, no necesariamente reciente).
+- **No se combina con 在/正在.**
+
+## Ampliación
+### Forma de la oración con 过
+- **Afirmación**: S + V + 过 + (O). *我吃过北京烤鸭.* (He comido pato laqueado de Pekín.)
+- **Frecuencia**: la cantidad de veces va después de 过: *我去过两次.* Con objeto: *我去过北京两次* o *我去过两次北京.*
+- **Negación**: 没(有) + V + 过: *我没(有)吃过.* Con *从来*: *我从来没去过中国.* (Nunca he ido a China.)
+- **Pregunta**: *你吃过吗？ / 你有没有吃过？ / 你吃过没有？*
+- **Respuesta corta**: *吃过.* / *没吃过.*
+
+### Valores de 过
+1. **Experiencia**: algo que ocurrió alguna vez y se considera como parte del bagaje: *我学过汉语.*
+2. **Cambio ya no vigente**: la acción terminó y no continúa: *他病过，现在好了.* (Estuvo enfermo; ya está bien.)
+3. **Repetición**: *这部电影我看过三遍.* (Vi tres veces esta película.)
+
+### 过 frente a 了
+| 了 | 过 |
+|---|---|
+| Hecho concreto en un momento dado | Experiencia sin importar cuándo |
+| *我昨天去了北京* | *我去过北京* |
+| Admite complementos de tiempo precisos | Suele ir con 曾经, 以前, 从来 |
+
+Si se da un momento preciso, suele usarse 了: *去年我去了北京* (aunque *去年我去过北京* también es posible si importa la experiencia).
+
+### Pronunciación
+Como partícula, 过 se dice *guo* con tono neutro; como verbo («pasar») es *guò* en cuarto tono: *过马路* (cruzar la calle).
+
+### Con 吗 o tiempo vago
+*你去过中国吗？* — *去过，一次.* — *没去过，但是我很想去.*
+
+### Práctica breve
+- *你吃过饺子吗？ — 吃过，但是没做过.* (¿Probaste dumplings? — Sí, pero nunca los preparé.)
+- *你学过几年汉语？ — 我学过两年.* (¿Cuántos años estudiaste? — Estudié dos años.)
+- *他从来没迟到过.* (Nunca llegó tarde.)
+- *这个地方我来过一次.* (Estuve una vez en este lugar.)
+Pensá siempre: ¿cuenta como **experiencia** (过) o como **hecho puntual** (了)?
+
+## Errores comunes de hispanohablantes
+1. **Confundir 过 con 了**.
+2. **Usar 不 en vez de 没**: ❌ *我不去过北京* ✅ *我没去过北京*.
+3. **Colocar 过 lejos del verbo.**
+4. **Combinar 在 y 过**: ❌ *我在吃过*.
+
+## Comparación con el español
+El español usa el pretérito perfecto ("he estado en Pekín"); el chino lo expresa con 过 tras el verbo, sin marcar el tiempo.
+
+## Ejemplo extendido en contexto
+A: 你去过中国吗？
+B: 我去过两次，上海和北京。你呢？
+A: 我没去过，但是我学过汉语。
+
+**Explicación:** 去过, 没去过 y 学过 expresan experiencia.

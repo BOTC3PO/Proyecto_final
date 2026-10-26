@@ -7,3 +7,12 @@ allowBuilds:
   better-sqlite3: true
   esbuild: true
   prisma: true
+
+# B6 — proxy-addr < 2.0.8 permite suplantar la IP con subredes IPv4 mapeadas a IPv6 (importa con TRUST_PROXY).
+overrides:
+  proxy-addr: '>=2.0.8'
+  # qs (DoS) y body-parser (límite inválido desactiva el tope) llegan por Express.
+  qs: '>=6.16.0'
+  body-parser: '>=2.4.0'
+  # PostCSS (path traversal por sourceMappingURL, XSS en stringify): llega por vite, tailwind y metro (Expo).
+  postcss: 8.5.31

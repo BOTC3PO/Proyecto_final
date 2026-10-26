@@ -1,0 +1,42 @@
+{
+ "titulo": "Estructura del pitch",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Orden del pitch",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Problema",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Solución",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Valor para el inversor",
+     "x": 450,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

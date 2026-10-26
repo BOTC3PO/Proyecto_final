@@ -1,0 +1,64 @@
+{
+ "titulo": "Formación de una capa sedimentaria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "En el mar",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Erosión de rocas",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Transporte por ríos",
+     "x": 225,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Depósito en el fondo marino",
+     "x": 450,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Compactación y cementación",
+     "x": 450,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Roca sedimentaria",
+     "x": 225,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  }
+ ]
+}

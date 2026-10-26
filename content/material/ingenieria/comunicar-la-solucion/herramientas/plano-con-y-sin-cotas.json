@@ -1,0 +1,32 @@
+{
+ "titulo": "Plano con cotas y plano sin cotas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Utilidad para fabricar una pieza",
+   "headers": [
+    "",
+    "Con cotas claras",
+    "Sin cotas"
+   ],
+   "rows": [
+    [
+     "Medidas",
+     "Se leen en el plano",
+     "Hay que adivinar o medir en el dibujo"
+    ],
+    [
+     "Riesgo",
+     "Bajo",
+     "Piezas con medidas equivocadas"
+    ],
+    [
+     "Se puede fabricar",
+     "Sí",
+     "No con seguridad"
+    ]
+   ]
+  }
+ ]
+}

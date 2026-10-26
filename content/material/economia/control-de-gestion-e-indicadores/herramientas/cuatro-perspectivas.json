@@ -1,0 +1,37 @@
+{
+ "titulo": "Las cuatro perspectivas del cuadro de mando",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Indicadores de ejemplo",
+   "headers": [
+    "Perspectiva",
+    "Pregunta",
+    "Indicador de ejemplo"
+   ],
+   "rows": [
+    [
+     "Financiera",
+     "¿Cómo nos ven los accionistas?",
+     "Margen neto"
+    ],
+    [
+     "Clientes",
+     "¿Cómo nos ven los clientes?",
+     "Satisfacción (NPS)"
+    ],
+    [
+     "Procesos internos",
+     "¿En qué debemos ser excelentes?",
+     "Tiempo de entrega"
+    ],
+    [
+     "Aprendizaje y crecimiento",
+     "¿Podemos seguir mejorando?",
+     "Horas de capacitación"
+    ]
+   ]
+  }
+ ]
+}

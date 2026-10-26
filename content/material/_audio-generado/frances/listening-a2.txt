@@ -1,0 +1,3 @@
+Barista: «Bonjour! Qu’est-ce que vous désirez?»
+Cliente: «Un café noir, s’il vous plaît. Et une petite tartine?»
+Barista: «Bien sûr! C’est prêt dans deux minutes.»

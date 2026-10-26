@@ -1,0 +1,58 @@
+{
+ "titulo": "Elementos de la identidad nacional",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Qué la construye",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Identidad nacional",
+     "x": 250,
+     "y": 80,
+     "shape": "circle",
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n2",
+     "label": "Leyes",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n3",
+     "label": "Educación",
+     "x": 500,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n4",
+     "label": "Símbolos",
+     "x": 250,
+     "y": 195,
+     "color": "#fef9c3"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n2",
+     "toId": "n1"
+    },
+    {
+     "id": "e2",
+     "fromId": "n3",
+     "toId": "n1"
+    },
+    {
+     "id": "e3",
+     "fromId": "n4",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

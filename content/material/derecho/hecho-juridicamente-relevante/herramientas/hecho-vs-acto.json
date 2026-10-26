@@ -1,0 +1,32 @@
+{
+ "titulo": "Hecho puro y acto jurídico",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Qué los distingue",
+   "headers": [
+    "",
+    "Hecho puro",
+    "Acto jurídico"
+   ],
+   "rows": [
+    [
+     "Ejemplo",
+     "Un incendio natural",
+     "Firmar un contrato"
+    ],
+    [
+     "Intervención de la voluntad",
+     "No",
+     "Sí, voluntaria"
+    ],
+    [
+     "Efecto legal",
+     "Lo produce la ley igual",
+     "Lo buscan quienes actúan"
+    ]
+   ]
+  }
+ ]
+}

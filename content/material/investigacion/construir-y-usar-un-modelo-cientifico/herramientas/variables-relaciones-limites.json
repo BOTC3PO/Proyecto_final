@@ -1,0 +1,47 @@
+{
+ "titulo": "Partes de un modelo científico",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Un modelo se compone de…",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Variables",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Relaciones",
+     "x": 250,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Límites de validez",
+     "x": 500,
+     "y": 0,
+     "color": "#fef9c3"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "se vinculan"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3",
+     "label": "solo valen dentro de"
+    }
+   ]
+  }
+ ]
+}

@@ -42,6 +42,29 @@ El servicio detecta automáticamente tabla y columnas leyendo `sqlite_master` + 
 
 `/api/dictionary/health` expone `{ table, cols }` detectadas.
 
+## Cómo cargar datos reales
+
+El sqlite se genera en dos pasos con los scripts de `install/`
+(`pip install -r install/requirements.txt` — requiere `wikitextparser` +
+`lxml`; en entornos con Python "externally managed" usar un venv):
+
+```bash
+# 1. Dump crudo de Wikimedia → tabla RAW (source/title/text/...)
+python install/build_wiktionary_sqlite.py --out data/dictionaries.sqlite --sources es,en,pt
+
+# 2. RAW → tabla final "words" (lang, word, definitions, synonyms, translations)
+#    que sqliteDictionary.ts autodetecta. --limit opcional para pruebas rápidas.
+python install/build_dictionary_final.py \
+  --in  data/dictionaries.sqlite \
+  --out api/src/diccionarios/Diccionario.sqlite \
+  --langs es,en,pt
+```
+
+`api/src/diccionarios/Diccionario.sqlite` está en `.gitignore` — se
+regenera con este comando, no se versiona. El paso 1 necesita red
+(descarga dumps de `dumps.wikimedia.org`); si ya existe un dump crudo
+local, correr sólo el paso 2 contra él.
+
 ## Índices
 
 No se ejecuta `CREATE INDEX` en runtime de la API.

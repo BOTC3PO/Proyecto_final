@@ -1,0 +1,161 @@
+/* Tarjeta de logro: 2 variantes (tier por nota / binario) — ver LogroCard.tsx.
+   Animaciones de un solo disparo (no infinite): tocan una vez al montar,
+   y quedan neutralizadas gratis por la regla global
+   @media (prefers-reduced-motion: reduce) de index.css. */
+
+.card {
+  border-radius: var(--r-lg);
+  padding: var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+}
+
+.cardBloqueado {
+  background: var(--c-surface-3);
+  border-color: var(--c-border);
+}
+
+.cardComun {
+  border-color: color-mix(in srgb, var(--c-tier-comun) 45%, var(--c-border));
+}
+
+.cardDorado {
+  border-color: color-mix(in srgb, var(--c-tier-dorado) 55%, var(--c-border));
+  box-shadow: 0 8px 18px -6px color-mix(in srgb, var(--c-tier-dorado) 35%, transparent),
+              var(--shadow-1);
+}
+
+.cardPlatino {
+  border-color: color-mix(in srgb, var(--c-tier-platino) 55%, var(--c-border));
+  box-shadow: 0 10px 24px -6px color-mix(in srgb, var(--c-tier-platino) 40%, transparent),
+              var(--shadow-1);
+}
+
+.cardPerfecto {
+  box-shadow: 0 12px 28px -6px color-mix(in srgb, var(--c-tier-platino) 55%, transparent),
+              0 0 0 1.5px var(--c-tier-platino);
+}
+
+/* Logros binarios (oficios/profesiones/umbrales de cantidad): sin tiers,
+   sólo obtenido/no — usa --c-success (semántica de "completado"), nunca
+   los tokens de tier (ésos son sólo para logros con nota). */
+.cardCompletado {
+  border-color: color-mix(in srgb, var(--c-success) 45%, var(--c-border));
+}
+.iconCompletado { background: var(--c-success-soft); animation: achPop 0.5s ease-out; }
+.metaCompletado { background: var(--c-success-soft); color: var(--c-success); }
+
+.icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  overflow: hidden;
+  animation: achPop 0.5s ease-out;
+}
+
+.iconBloqueado { background: var(--c-surface-3); opacity: 0.55; }
+.iconComun { background: var(--c-tier-comun-soft); }
+.iconDorado {
+  background: radial-gradient(circle at 30% 28%, color-mix(in srgb, var(--c-tier-dorado) 10%, var(--c-surface)), var(--c-tier-dorado-soft));
+  animation: achPop 0.5s ease-out, achRingDorado 1.1s ease-out;
+}
+.iconPlatino {
+  background: radial-gradient(circle at 30% 28%, var(--c-surface), var(--c-tier-platino-soft));
+  animation: achPop 0.5s ease-out, achRingPlatino 1.1s ease-out;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--c-surface);
+  box-shadow: var(--shadow-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  animation: achBadgePop 0.6s ease-out 0.1s backwards;
+}
+
+.shine {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 26px;
+  height: 90px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--c-surface) 90%, white), transparent);
+  animation: achShine calc(0.8s + var(--shine-extra, 0s)) ease-out;
+}
+
+.spark {
+  position: absolute;
+  font-size: 11px;
+  color: var(--c-tier-platino);
+}
+.spark1 { animation: achSpark1 0.9s ease-out; }
+.spark2 { animation: achSpark2 0.9s ease-out 0.05s; }
+.spark3 { animation: achSpark3 0.9s ease-out 0.1s; }
+.spark4 { animation: achSpark4 0.9s ease-out 0.15s; }
+
+.body { animation: achFadeUp 0.5s ease-out; min-width: 0; }
+.label { font-size: var(--text-sm); font-weight: var(--fw-semibold); color: var(--c-text); }
+.labelBloqueado { color: var(--c-muted); }
+.descripcion { font-size: var(--text-xs); color: var(--c-muted); margin-top: 2px; }
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--space-2);
+  border-radius: var(--r-sm);
+  padding: 2px 9px;
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+}
+.metaComun { background: var(--c-tier-comun-soft); color: var(--c-tier-comun); }
+.metaDorado { background: var(--c-tier-dorado-soft); color: var(--c-tier-dorado); }
+.metaPlatino { background: var(--c-tier-platino-soft); color: var(--c-tier-platino); }
+.metaBloqueado { color: var(--c-muted); }
+
+@keyframes achPop {
+  0% { transform: scale(0.78); opacity: 0; }
+  55% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes achRingDorado {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c-tier-dorado) 55%, transparent); }
+  70% { box-shadow: 0 0 0 var(--ring-radius, 16px) color-mix(in srgb, var(--c-tier-dorado) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@keyframes achRingPlatino {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c-tier-platino) 55%, transparent); }
+  70% { box-shadow: 0 0 0 var(--ring-radius, 20px) color-mix(in srgb, var(--c-tier-platino) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@keyframes achBadgePop {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.25) rotate(8deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+@keyframes achFadeUp {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes achSpark1 { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(-26px, -22px) scale(1); } }
+@keyframes achSpark2 { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(26px, -24px) scale(1); } }
+@keyframes achSpark3 { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(-24px, 24px) scale(1); } }
+@keyframes achSpark4 { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(26px, 22px) scale(1); } }
+@keyframes achShine {
+  0% { transform: translateX(-130%) rotate(15deg); }
+  100% { transform: translateX(230%) rotate(15deg); }
+}

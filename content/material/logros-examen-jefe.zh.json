@@ -1,0 +1,3217 @@
+[
+  {
+    "id": 601,
+    "materia": "Matemática",
+    "cluster": 1,
+    "temas": [
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
+      "conjuntos-pertenencia-e-inclusion",
+      "conteo",
+      "valor-posicional"
+    ],
+    "nombre": "三角函数与集合大师",
+    "descripcion": "你应用了三角比以及正弦、余弦定理，并在同一场考试中处理了集合的从属关系、计数和位值。",
+    "icono": "📐"
+  },
+  {
+    "id": 602,
+    "materia": "Matemática",
+    "cluster": 2,
+    "temas": [
+      "grafos-vertices-y-aristas",
+      "union-interseccion-y-diferencia",
+      "arboles-grafo-sin-ciclos",
+      "grafos-dirigidos-no-dirigidos-y-ponderados",
+      "leer-una-tabla"
+    ],
+    "nombre": "图与树大师",
+    "descripcion": "你掌握了顶点、边、树和带权图，以及集合的并集、交集、差集和表格阅读。",
+    "icono": "🌳"
+  },
+  {
+    "id": 603,
+    "materia": "Matemática",
+    "cluster": 3,
+    "temas": [
+      "caminos-y-ciclos",
+      "leer-grafico/barras",
+      "algoritmos-de-recorrido-bfs-dfs",
+      "leer-grafico/lineas",
+      "leer-grafico/torta"
+    ],
+    "nombre": "路径、BFS与DFS掌握者",
+    "descripcion": "你用BFS和DFS遍历了路径和环，还准确解读了条形图、折线图和饼图。",
+    "icono": "🔍"
+  },
+  {
+    "id": 604,
+    "materia": "Matemática",
+    "cluster": 4,
+    "temas": [
+      "magnitud-unidad-instrumento",
+      "construir-un-grafico",
+      "grafico-eje-truncado",
+      "media-mediana-y-moda",
+      "vectores-modulo-y-direccion"
+    ],
+    "nombre": "图表与度量大师",
+    "descripcion": "你制作了图表，识别了被截断的坐标轴，计算了平均数、中位数和众数，并处理了向量的模和方向。",
+    "icono": "📊"
+  },
+  {
+    "id": 605,
+    "materia": "Matemática",
+    "cluster": 5,
+    "temas": [
+      "cual-miente-y-cuando",
+      "funciones-trigonometricas-seno-coseno",
+      "suma-de-vectores-y-descomposicion",
+      "identidades-y-ecuaciones-trigonometricas",
+      "regresion-lineal"
+    ],
+    "nombre": "三角函数与回归掌握者",
+    "descripcion": "你处理了三角函数、恒等式、向量的加法与分解以及线性回归，并识破了谁在何时撒谎。",
+    "icono": "📐"
+  },
+  {
+    "id": 606,
+    "materia": "Matemática",
+    "cluster": 6,
+    "temas": [
+      "sistema-metrico-y-conversiones",
+      "correlacion-no-es-causalidad",
+      "analisis-dimensional",
+      "angulos",
+      "cifras-significativas-y-error"
+    ],
+    "nombre": "单位与分析大师",
+    "descripcion": "你完成了单位换算，分析了量纲和有效数字，测量了角度，还能区分相关性与因果关系。",
+    "icono": "📏"
+  },
+  {
+    "id": 607,
+    "materia": "Matemática",
+    "cluster": 7,
+    "temas": [
+      "circunferencia-y-circulo",
+      "error-sistematico-vs-aleatorio",
+      "perimetro-y-area",
+      "poligonos",
+      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+    ],
+    "nombre": "周长、面积与统计掌握者",
+    "descripcion": "你计算了多边形和圆的周长与面积，还在频数表中处理了四分位数、百分位数和方差。",
+    "icono": "⭕"
+  },
+  {
+    "id": 608,
+    "materia": "Matemática",
+    "cluster": 8,
+    "temas": [
+      "area-poligonos-regulares-y-compuestas",
+      "dispersion-rango-y-desvio",
+      "volumen-y-capacidad",
+      "distribucion-normal",
+      "variable-aleatoria-discreta-continua"
+    ],
+    "nombre": "面积与正态分布大师",
+    "descripcion": "你计算了复合多边形的面积、体积和容量，并掌握了正态分布、离散程度和随机变量。",
+    "icono": "📐"
+  },
+  {
+    "id": 609,
+    "materia": "Matemática",
+    "cluster": 9,
+    "temas": [
+      "muestreo-y-sesgo",
+      "triangulos",
+      "teorema-central-del-limite",
+      "congruencia-de-triangulos",
+      "intervalo-de-confianza"
+    ],
+    "nombre": "抽样与三角形精通者",
+    "descripcion": "你掌握了抽样、偏差、中心极限定理、置信区间和三角形全等。",
+    "icono": "🎯"
+  },
+  {
+    "id": 610,
+    "materia": "Matemática",
+    "cluster": 10,
+    "temas": [
+      "semejanza-y-teorema-de-thales",
+      "teorema-de-pitagoras",
+      "test-de-hipotesis",
+      "transformaciones-geometricas/homotecia",
+      "transformaciones-geometricas/reflexion"
+    ],
+    "nombre": "相似与勾股定理大师",
+    "descripcion": "你应用了泰勒斯定理和勾股定理、位似变换和反射，还完成了一次假设检验。",
+    "icono": "📐"
+  },
+  {
+    "id": 611,
+    "materia": "Matemática",
+    "cluster": 11,
+    "temas": [
+      "transformaciones-geometricas/rotacion",
+      "transformaciones-geometricas/traslacion",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
+      "diagramas-de-venn"
+    ],
+    "nombre": "变换与集合掌握者",
+    "descripcion": "你旋转和平移了图形，并处理了泊松分布、指数分布和维恩图。",
+    "icono": "🔄"
+  },
+  {
+    "id": 612,
+    "materia": "Matemática",
+    "cluster": 12,
+    "temas": [
+      "suma",
+      "principio-multiplicativo-de-conteo",
+      "multiplicacion",
+      "combinaciones",
+      "permutaciones"
+    ],
+    "nombre": "计数与运算大师",
+    "descripcion": "你掌握了加法和基础乘法，还有计数原理、组合和排列。",
+    "icono": "🔢"
+  },
+  {
+    "id": 613,
+    "materia": "Matemática",
+    "cluster": 13,
+    "temas": [
+      "independencia-de-eventos-y-diagrama-de-arbol",
+      "potencias",
+      "probabilidad-simple",
+      "logaritmos",
+      "probabilidad-compuesta"
+    ],
+    "nombre": "概率与幂运算掌握者",
+    "descripcion": "你用树状图计算了简单概率和复合概率，还练习了幂和对数。",
+    "icono": "🎲"
+  },
+  {
+    "id": 614,
+    "materia": "Matemática",
+    "cluster": 14,
+    "temas": [
+      "raices",
+      "distribucion-binomial",
+      "esperanza-matematica-valor-esperado",
+      "irracionales-y-reales",
+      "probabilidad-condicional"
+    ],
+    "nombre": "概率与根式精通者",
+    "descripcion": "你计算了无理数和实数的根，还掌握了二项分布、期望值和条件概率。",
+    "icono": "🎲"
+  },
+  {
+    "id": 615,
+    "materia": "Matemática",
+    "cluster": 15,
+    "temas": [
+      "resta",
+      "sucesiones-aritmeticas",
+      "dinero",
+      "division",
+      "hora-y-reloj"
+    ],
+    "nombre": "基础运算大师",
+    "descripcion": "你掌握了减法、除法、金钱管理、时间和时钟的使用，还有等差数列。",
+    "icono": "🕐"
+  },
+  {
+    "id": 616,
+    "materia": "Matemática",
+    "cluster": 16,
+    "temas": [
+      "jerarquia-operaciones",
+      "numeros-enteros",
+      "divisibilidad/multiplos",
+      "lenguaje-algebraico",
+      "divisibilidad/divisores"
+    ],
+    "nombre": "运算顺序与整除掌握者",
+    "descripcion": "你运用了整数的运算顺序，计算了倍数和因数，还完成了代数语言的转换。",
+    "icono": "➗"
+  },
+  {
+    "id": 617,
+    "materia": "Matemática",
+    "cluster": 17,
+    "temas": [
+      "expresiones-equivalentes",
+      "divisibilidad/regla-del-2",
+      "divisibilidad/regla-del-3",
+      "divisibilidad/regla-del-4",
+      "divisibilidad/regla-del-5"
+    ],
+    "nombre": "整除规则大师",
+    "descripcion": "你掌握了2到5的整除规则，还构建出了等价表达式。",
+    "icono": "➗"
+  },
+  {
+    "id": 618,
+    "materia": "Matemática",
+    "cluster": 18,
+    "temas": [
+      "divisibilidad/regla-del-6",
+      "divisibilidad/regla-del-10",
+      "divisibilidad/regla-del-8",
+      "divisibilidad/regla-del-9",
+      "ecuacion-primer-grado"
+    ],
+    "nombre": "整除与方程掌握者",
+    "descripcion": "你补全了6、8、9和10的整除规则，还解出了一元一次方程。",
+    "icono": "✖️"
+  },
+  {
+    "id": 619,
+    "materia": "Matemática",
+    "cluster": 19,
+    "temas": [
+      "numeros-primos",
+      "demostracion-contraejemplo",
+      "demostracion-deduccion",
+      "demostracion-induccion",
+      "demostracion-reduccion-al-absurdo"
+    ],
+    "nombre": "证明方法大师",
+    "descripcion": "你掌握了质数，还有反例、演绎、归纳和归谬法这些证明技巧。",
+    "icono": "🧠"
+  },
+  {
+    "id": 620,
+    "materia": "Matemática",
+    "cluster": 20,
+    "temas": [
+      "despejar-formula",
+      "funcion-dominio",
+      "funcion-imagen",
+      "inecuaciones",
+      "funcion-inversa-composicion"
+    ],
+    "nombre": "函数与不等式掌握者",
+    "descripcion": "你完成了公式变形，解出了不等式，还处理了函数的定义域、值域、复合与反函数。",
+    "icono": "📉"
+  },
+  {
+    "id": 621,
+    "materia": "Matemática",
+    "cluster": 21,
+    "temas": [
+      "funcion-lineal-pendiente",
+      "mcd",
+      "operaciones-enteros",
+      "fracciones",
+      "mcm"
+    ],
+    "nombre": "分数与一次函数大师",
+    "descripcion": "你计算了最大公约数和最小公倍数，运算了分数和整数，还分析了一次函数的斜率。",
+    "icono": "📈"
+  },
+  {
+    "id": 622,
+    "materia": "Matemática",
+    "cluster": 22,
+    "temas": [
+      "plano-cartesiano",
+      "operaciones-fracciones",
+      "coordenadas-de-un-punto",
+      "decimales",
+      "distancia-entre-dos-puntos"
+    ],
+    "nombre": "笛卡尔坐标系掌握者",
+    "descripcion": "你在笛卡尔坐标系中标出坐标、计算了两点间的距离，还运算了分数和小数。",
+    "icono": "🧭"
+  },
+  {
+    "id": 623,
+    "materia": "Matemática",
+    "cluster": 23,
+    "temas": [
+      "notacion-cientifica",
+      "ecuacion-de-la-recta",
+      "polinomios-factoreo",
+      "proporcionalidad-funcion",
+      "division-polinomios-ruffini"
+    ],
+    "nombre": "多项式与直线方程大师",
+    "descripcion": "你完成了多项式因式分解，用鲁菲尼法则做了除法，求出了直线方程，还用上了科学记数法。",
+    "icono": "📐"
+  },
+  {
+    "id": 624,
+    "materia": "Matemática",
+    "cluster": 24,
+    "temas": [
+      "ecuacion-cuadratica",
+      "punto-medio-de-un-segmento",
+      "funcion-cuadratica-parabola",
+      "numeros-complejos",
+      "familias-exponencial-logaritmica"
+    ],
+    "nombre": "二次函数掌握者",
+    "descripcion": "你解出了二次方程，画出了抛物线，计算了线段中点，还处理了复数。",
+    "icono": "🔵"
+  },
+  {
+    "id": 625,
+    "materia": "Matemática",
+    "cluster": 25,
+    "temas": [
+      "forma-polar-complejos",
+      "ecuaciones-exponenciales-logaritmicas",
+      "limite",
+      "razon",
+      "continuidad"
+    ],
+    "nombre": "极限与复数大师",
+    "descripcion": "你计算了函数的极限和连续性，解出了指数方程和对数方程，还把复数表示成了极坐标形式。",
+    "icono": "∞"
+  },
+  {
+    "id": 626,
+    "materia": "Matemática",
+    "cluster": 26,
+    "temas": [
+      "proporcion",
+      "derivada",
+      "rectas-paralelas-y-perpendiculares",
+      "integral",
+      "optimizacion"
+    ],
+    "nombre": "导数与积分掌握者",
+    "descripcion": "你计算了导数和积分，解决了最优化问题，还处理了平行线和垂直线。",
+    "icono": "∫"
+  },
+  {
+    "id": 627,
+    "materia": "Matemática",
+    "cluster": 27,
+    "temas": [
+      "ecuaciones-diferenciales",
+      "redondeo",
+      "regla-de-tres-directa",
+      "secciones-conicas-circunferencia",
+      "porcentaje"
+    ],
+    "nombre": "微分方程大师",
+    "descripcion": "你解出了微分方程和圆锥曲线，还运用了三率法、百分比和四舍五入。",
+    "icono": "🌀"
+  },
+  {
+    "id": 628,
+    "materia": "Matemática",
+    "cluster": 28,
+    "temas": [
+      "regla-de-tres-inversa",
+      "sistemas-dos-ecuaciones",
+      "sucesiones-y-series",
+      "matrices/operaciones",
+      "series-geometricas"
+    ],
+    "nombre": "方程组与数列掌握者",
+    "descripcion": "你解出了二元方程组，运算了矩阵，还处理了数列、几何级数和反比例三率法。",
+    "icono": "🔢"
+  },
+  {
+    "id": 629,
+    "materia": "Matemática",
+    "cluster": 29,
+    "temas": [
+      "matrices/sistemas-nxn",
+      "tecnicas-de-integracion",
+      "determinante",
+      "teorema-de-bayes",
+      "matriz-inversa"
+    ],
+    "nombre": "矩阵与贝叶斯大师",
+    "descripcion": "你计算了行列式和逆矩阵，解出了n×n方程组，还应用了积分技巧和贝叶斯定理。",
+    "icono": "🧮"
+  },
+  {
+    "id": 630,
+    "materia": "Matemática",
+    "cluster": 30,
+    "temas": [
+      "riesgo-relativo-vs-absoluto",
+      "teorema-del-binomio",
+      "concavidad-y-puntos-de-inflexion",
+      "variaciones",
+      "integral-definida-y-area-bajo-la-curva"
+    ],
+    "nombre": "二项式与微积分大师",
+    "descripcion": "你应用了二项式定理和排列，计算了相对风险和绝对风险，并分析了凹凸性和定积分。",
+    "icono": "📈"
+  },
+  {
+    "id": 631,
+    "materia": "Matemática",
+    "cluster": 31,
+    "temas": [
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
+      "cuerpos-redondos-y-poliedros/cilindros"
+    ],
+    "nombre": "渐近线与洛必达大师",
+    "descripcion": "你处理了渐近线、波尔查诺定理和洛必达法则，计算了圆柱体积，并应用了7的整除规则。",
+    "icono": "📉"
+  },
+  {
+    "id": 632,
+    "materia": "Matemática",
+    "cluster": 32,
+    "temas": [
+      "cuerpos-redondos-y-poliedros/conos",
+      "cuerpos-redondos-y-poliedros/esferas",
+      "cuerpos-redondos-y-poliedros/piramides",
+      "cuerpos-redondos-y-poliedros/prismas",
+      "producto-escalar",
+      "cuerpos-redondos-y-poliedros/desarrollo-plano"
+    ],
+    "nombre": "立体几何掌握者",
+    "descripcion": "你计算了圆锥、球体、棱锥和棱柱，画出了它们的展开图，还应用了向量的点积。",
+    "icono": "🔺"
+  },
+  {
+    "id": 651,
+    "materia": "Lengua",
+    "cluster": 1,
+    "temas": [
+      "conciencia-fonologica",
+      "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
+      "circuito-de-la-comunicacion"
+    ],
+    "nombre": "拼写与初级阅读掌握者",
+    "descripcion": "你在这场阶段考核中掌握了语音意识、解码与流利度、拼写与重音标注、标点符号，还有交际循环。",
+    "icono": "✍️"
+  },
+  {
+    "id": 652,
+    "materia": "Lengua",
+    "cluster": 2,
+    "temas": [
+      "comprension-idea-principal",
+      "escritura-como-tecnologia",
+      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+      "tipos-textuales",
+      "variedades-de-la-lengua"
+    ],
+    "nombre": "理解与文本类型精通者",
+    "descripcion": "你掌握了主旨大意、文本类型、语言变体、作为技术的书写，以及摘要和图形组织者等学习技巧。",
+    "icono": "📖"
+  },
+  {
+    "id": 653,
+    "materia": "Lengua",
+    "cluster": 3,
+    "temas": [
+      "genero-dramatico",
+      "genero-lirico",
+      "genero-narrativo",
+      "generos-discursivos",
+      "narrador"
+    ],
+    "nombre": "文学体裁大师",
+    "descripcion": "你掌握了戏剧、抒情、叙事和话语体裁，关于叙述者的问题一道也没错。",
+    "icono": "🎭📖"
+  },
+  {
+    "id": 654,
+    "materia": "Lengua",
+    "cluster": 4,
+    "temas": [
+      "generos-periodisticos",
+      "paratextos",
+      "punto-de-vista",
+      "recursos-literarios",
+      "estructura-narrativa"
+    ],
+    "nombre": "叙事与新闻技巧掌握者",
+    "descripcion": "你在这场考核中掌握了新闻体裁、副文本、叙述视角和文学修辞手法。",
+    "icono": "📰🖋️"
+  },
+  {
+    "id": 655,
+    "materia": "Lengua",
+    "cluster": 5,
+    "temas": [
+      "romanticismo",
+      "tesis",
+      "realismo",
+      "argumentos",
+      "modernismo"
+    ],
+    "nombre": "文学思潮与论文写作大师",
+    "descripcion": "你掌握了浪漫主义、现实主义和现代主义，还学会了用扎实的论据构建论文。",
+    "icono": "🖋️📜"
+  },
+  {
+    "id": 656,
+    "materia": "Lengua",
+    "cluster": 6,
+    "temas": [
+      "contraargumentos",
+      "generacion-del-98",
+      "detectar-falacias",
+      "boom-latinoamericano",
+      "debate-refutar-en-vivo"
+    ],
+    "nombre": "反驳论证与拉美文学爆炸大师",
+    "descripcion": "你在这场阶段考核中掌握了反驳论证、谬误识别、现场辩论和98一代文学。",
+    "icono": "🗣️⚖️"
+  },
+  {
+    "id": 657,
+    "materia": "Lengua",
+    "cluster": 7,
+    "temas": [
+      "exposicion-oral",
+      "negociacion",
+      "persuasion-etica-vs-manipulacion",
+      "presentacion-con-apoyo-visual",
+      "subjetivemas-y-modalizadores"
+    ],
+    "nombre": "说服与口语表达掌握者",
+    "descripcion": "你掌握了口头报告、谈判技巧和配合视觉材料的演讲，还能区分道德说服和操纵。",
+    "icono": "🎤🤝"
+  },
+  {
+    "id": 658,
+    "materia": "Lengua",
+    "cluster": 8,
+    "temas": [
+      "texto-teatral",
+      "vocabulario-y-familia-de-palabras",
+      "clases-de-palabras",
+      "concordancia-nominal-y-verbal",
+      "conjugacion-verbal-indicativo"
+    ],
+    "nombre": "戏剧文本与语法大师",
+    "descripcion": "你在这场考核中掌握了戏剧文本、词类、名词和动词的一致性，还有陈述式动词变位。",
+    "icono": "🎭📝"
+  },
+  {
+    "id": 659,
+    "materia": "Lengua",
+    "cluster": 9,
+    "temas": [
+      "sujeto-y-predicado",
+      "conjugacion-verbal-subjuntivo",
+      "nucleos-y-modificadores",
+      "tipos-de-sujeto",
+      "objetos-y-circunstanciales"
+    ],
+    "nombre": "主语与谓语掌握者",
+    "descripcion": "你掌握了主语类型、中心词和修饰语、宾语和状语，还有虚拟式动词变位。",
+    "icono": "🔍📐"
+  },
+  {
+    "id": 660,
+    "materia": "Lengua",
+    "cluster": 10,
+    "temas": [
+      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+      "oracion-compuesta-coordinacion-y-subordinacion",
+      "oraciones-negativas-e-interrogativas",
+      "coordinadas-adversativas",
+      "coordinadas-copulativas"
+    ],
+    "nombre": "短语与复合句大师",
+    "descripcion": "你在这场阶段考核中掌握了名词、形容词、介词和动词短语，并列句和从属句，还有疑问句。",
+    "icono": "🧩📝"
+  },
+  {
+    "id": 661,
+    "materia": "Lengua",
+    "cluster": 11,
+    "temas": [
+      "coordinadas-distributivas",
+      "coordinadas-disyuntivas",
+      "discurso-referido",
+      "produccion-escrita-compleja",
+      "subordinada-adjetiva-o-de-relativo"
+    ],
+    "nombre": "并列句与转述句掌握者",
+    "descripcion": "你掌握了分配和选择并列句、转述引语、复杂写作和形容词性从句。",
+    "icono": "🔗🗨️"
+  },
+  {
+    "id": 662,
+    "materia": "Lengua",
+    "cluster": 12,
+    "temas": [
+      "conectores-textuales",
+      "correo-formal",
+      "cv",
+      "informe-tecnico",
+      "progresion-tematica"
+    ],
+    "nombre": "专业写作精通者",
+    "descripcion": "你在这场考核中掌握了正式邮件、简历、技术报告、语篇衔接词和主位推进。",
+    "icono": "💼📧"
+  },
+  {
+    "id": 663,
+    "materia": "Lengua",
+    "cluster": 13,
+    "temas": [
+      "referencia-anafora-y-catafora",
+      "subordinada-adverbial-de-lugar",
+      "subordinada-adverbial-de-modo",
+      "subordinada-adverbial-de-tiempo",
+      "subordinada-causal"
+    ],
+    "nombre": "状语从句大师",
+    "descripcion": "你掌握了回指和预指，还有地点、方式、时间和原因状语从句。",
+    "icono": "🔗🕰️"
+  },
+  {
+    "id": 664,
+    "materia": "Lengua",
+    "cluster": 14,
+    "temas": [
+      "subordinada-concesiva-y-final",
+      "subordinada-condicional",
+      "subordinada-consecutiva",
+      "subordinada-sustantiva-de-complemento-circunstancial",
+      "subordinada-sustantiva-de-complemento-de-regimen"
+    ],
+    "nombre": "条件句与结果从句掌握者",
+    "descripcion": "你在这场阶段考核中掌握了让步、目的、条件和结果从句，还有状语补语和支配关系的名词性从句。",
+    "icono": "🔀📋"
+  },
+  {
+    "id": 665,
+    "materia": "Lengua",
+    "cluster": 15,
+    "temas": [
+      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+      "subordinada-sustantiva-de-complemento-del-nombre",
+      "subordinada-sustantiva-de-complemento-directo",
+      "subordinada-sustantiva-de-sujeto",
+      "voz-activa-y-pasiva"
+    ],
+    "nombre": "名词性从句与语态大师",
+    "descripcion": "你掌握了主语、直接宾语和名词补语的名词性从句，最后还能区分主动语态和被动语态。",
+    "icono": "🔄🗣️"
+  },
+  {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "阿根廷与拉丁美洲文学大师",
+    "descripcion": "你在考试中掌握了高乔文学与《马丁·菲耶罗》、佛罗里达与博埃多先锋派、博尔赫斯与拉普拉塔幻想文学、科塔萨尔、魔幻现实主义、独裁之后的叙事、20世纪阿根廷诗歌，以及原住民的神话与传说。",
+    "icono": "📚"
+  },
+  {
+    "id": 681,
+    "materia": "Historia",
+    "cluster": 1,
+    "temas": [
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
+    ],
+    "nombre": "宇宙起源大师",
+    "descripcion": "你在这场阶段考核中掌握了深时尺度、宇宙起源、核合成、恒星形成和星系类型。",
+    "icono": "🌌"
+  },
+  {
+    "id": 682,
+    "materia": "Historia",
+    "cluster": 2,
+    "temas": [
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
+    ],
+    "nombre": "宇宙膨胀掌握者",
+    "descripcion": "你通过了关于哈勃定律、红移、黑洞、太阳系形成以及自转与公转运动的阶段考核。",
+    "icono": "🔭"
+  },
+  {
+    "id": 683,
+    "materia": "Historia",
+    "cluster": 3,
+    "temas": [
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
+    ],
+    "nombre": "天空与暗宇宙精通者",
+    "descripcion": "你掌握了暗物质和暗能量，以及可观测的天空：季节、月相、日月食和星座的视运动。",
+    "icono": "🌙"
+  },
+  {
+    "id": 684,
+    "materia": "Historia",
+    "cluster": 4,
+    "temas": [
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
+    ],
+    "nombre": "原始地球大师",
+    "descripcion": "你在这场阶段考核中掌握了原始地球及其分异、原始大气、矿物、宇宙学元素周期表和生命起源。",
+    "icono": "🌋"
+  },
+  {
+    "id": 685,
+    "materia": "Historia",
+    "cluster": 5,
+    "temas": [
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
+    ],
+    "nombre": "地质时间精通者",
+    "descripcion": "你掌握了宙、代、纪，放射性测年，岩石类型，原核生物和大氧化事件。",
+    "icono": "🪨"
+  },
+  {
+    "id": 686,
+    "materia": "Historia",
+    "cluster": 6,
+    "temas": [
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
+    ],
+    "nombre": "复杂生命掌握者",
+    "descripcion": "你通过了关于真核生物、光合作用与大气变化、多细胞性、寒武纪大爆发和板块构造的阶段考核。",
+    "icono": "🦠"
+  },
+  {
+    "id": 687,
+    "materia": "Historia",
+    "cluster": 7,
+    "temas": [
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
+    ],
+    "nombre": "灭绝与古气候大师",
+    "descripcion": "你在这场阶段考核中掌握了登陆陆地、五次大灭绝、古气候与冰期、岩石循环和生物群系分布。",
+    "icono": "🦖"
+  },
+  {
+    "id": 688,
+    "materia": "Historia",
+    "cluster": 8,
+    "temas": [
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
+    ],
+    "nombre": "哺乳动物与人类起源精通者",
+    "descripcion": "你掌握了哺乳动物的辐射演化、人科演化与旧石器时代，以及地形、地震与火山，还有气候变化的基线。",
+    "icono": "🦴"
+  },
+  {
+    "id": 689,
+    "materia": "Historia",
+    "cluster": 9,
+    "temas": [
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
+    ],
+    "nombre": "新石器革命掌握者",
+    "descripcion": "你在这场阶段考核中掌握了自然选择、工具与岩画艺术、美洲的人类定居、新石器革命，以及伴随盈余的定居化。",
+    "icono": "🌾"
+  },
+  {
+    "id": 690,
+    "materia": "Historia",
+    "cluster": 10,
+    "temas": [
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
+    ],
+    "nombre": "早期国家大师",
+    "descripcion": "你通过了关于劳动分工、冶金、财产、直至国家的等级制度、文字与最早城市以及古希腊的阶段考核。",
+    "icono": "🏺"
+  },
+  {
+    "id": 691,
+    "materia": "Historia",
+    "cluster": 11,
+    "temas": [
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
+    ],
+    "nombre": "古代大文明精通者",
+    "descripcion": "你掌握了罗马、埃及、中国、印度和美洲的前哥伦布文明。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 692,
+    "materia": "Historia",
+    "cluster": 12,
+    "temas": [
+      "mesopotamia",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
+      "imperio-de-alejandro-magno-helenistico"
+    ],
+    "nombre": "古代世界帝国掌握者",
+    "descripcion": "你完成了关于美索不达米亚、古代文明、亚历山大大帝与希腊化时代以及罗马帝国扩张的期中考试。",
+    "icono": "⚔️"
+  },
+  {
+    "id": 693,
+    "materia": "Historia",
+    "cluster": 13,
+    "temas": [
+      "imperio-han-china",
+      "imperio-persa",
+      "imperios-expansion",
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
+    ],
+    "nombre": "帝国与封建制大师",
+    "descripcion": "你掌握了汉帝国和波斯帝国、帝国扩张、罗马的衰亡与中世纪早期，以及封建制度。",
+    "icono": "🏰"
+  },
+  {
+    "id": 694,
+    "materia": "Historia",
+    "cluster": 14,
+    "temas": [
+      "imperio-bizantino",
+      "islam-y-expansion-arabe",
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
+    ],
+    "nombre": "中世纪与文艺复兴精通者",
+    "descripcion": "你通过了关于拜占庭帝国、伊斯兰教及其阿拉伯扩张、盛期中世纪、晚期中世纪的危机，以及文艺复兴与宗教改革的阶段考核。",
+    "icono": "📜"
+  },
+  {
+    "id": 695,
+    "materia": "Historia",
+    "cluster": 15,
+    "temas": [
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
+    ],
+    "nombre": "近代与征服掌握者",
+    "descripcion": "你在这场阶段考核中掌握了科学革命、印刷术、航海，以及对美洲的征服与殖民。",
+    "icono": "⛵"
+  },
+  {
+    "id": 696,
+    "materia": "Historia",
+    "cluster": 16,
+    "temas": [
+      "absolutismo-europeo",
+      "ilustracion",
+      "revolucion-industrial"
+    ],
+    "nombre": "专制主义与启蒙运动大师",
+    "descripcion": "你掌握了欧洲的绝对君主制、启蒙运动和工业革命，老大。",
+    "icono": "👑"
+  },
+  {
+    "id": 697,
+    "materia": "Historia",
+    "cluster": 17,
+    "temas": [
+      "electrificacion-fabrica-hogar",
+      "huella-humana-en-el-clima-inicio"
+    ],
+    "nombre": "电气化与气候专家",
+    "descripcion": "你通过了关于工厂与家庭电气化以及人类对气候影响之始的期中考试。",
+    "icono": "🇦🇷"
+  },
+  {
+    "id": 698,
+    "materia": "Historia",
+    "cluster": 18,
+    "temas": [
+      "revoluciones-burguesas-liberalismo",
+      "estados-nacionales",
+      "imperialismo"
+    ],
+    "nombre": "自由主义与民族秩序掌握者",
+    "descripcion": "你掌握了资产阶级革命与自由主义、民族国家和帝国主义，完成了期中考试。",
+    "icono": "📈"
+  },
+  {
+    "id": 699,
+    "materia": "Historia",
+    "cluster": 19,
+    "temas": [
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929"
+    ],
+    "nombre": "20世纪初大师",
+    "descripcion": "你掌握了大众社会与自由民主、第一次世界大战与俄国革命，以及两次大战之间的时期与1929年危机，老大。",
+    "icono": "📰"
+  },
+  {
+    "id": 700,
+    "materia": "Historia",
+    "cluster": 20,
+    "temas": [
+      "segunda-guerra-mundial",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
+    ],
+    "nombre": "战争与冷战精通者",
+    "descripcion": "你通过了关于世界大战、第二次世界大战、冷战以及非洲和亚洲去殖民化的期中考试。",
+    "icono": "🕊️"
+  },
+  {
+    "id": 701,
+    "materia": "Historia",
+    "cluster": 21,
+    "temas": [
+      "historia-contemporanea-de-africa",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "globalizacion-era-digital",
+      "internet-redes-globalizacion-digital"
+    ],
+    "nombre": "近代史掌握者",
+    "descripcion": "你掌握了非洲、亚洲和中东的当代史以及数字时代的全球化，完成了期中考试。",
+    "icono": "🌍"
+  },
+  {
+    "id": 702,
+    "materia": "Historia",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "太空竞赛探索者",
+    "descripcion": "你在考试中掌握了冷战时期的太空竞赛：斯普特尼克号、加加林的飞行、阿波罗11号登月，以及阿波罗-联盟联合任务。",
+    "icono": "🚀"
+  },
+  {
+    "id": 721,
+    "materia": "Pensamiento histórico",
+    "cluster": 1,
+    "temas": [
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "decada-siglo-milenio"
+    ],
+    "nombre": "史料与年代学精通者",
+    "descripcion": "你掌握了历史资料的解读、时间线以及十年、世纪和千年的概念，老大。",
+    "icono": "🗂️"
+  },
+  {
+    "id": 722,
+    "materia": "Pensamiento histórico",
+    "cluster": 2,
+    "temas": [
+      "antes-y-despues-de-cristo",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
+    ],
+    "nombre": "历史分期与因果掌握者",
+    "descripcion": "你掌握了历史分期、公元前与公元后以及因果关系，完成了期中考试。",
+    "icono": "⏳"
+  },
+  {
+    "id": 723,
+    "materia": "Pensamiento histórico",
+    "cluster": 3,
+    "temas": [
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
+    ],
+    "nombre": "历史思维大师",
+    "descripcion": "你掌握了历史意义、变化与延续、证据、多重因果和伦理维度。",
+    "icono": "🧠"
+  },
+  {
+    "id": 724,
+    "materia": "Pensamiento histórico",
+    "cluster": 4,
+    "temas": [
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
+    ],
+    "nombre": "史学流派精通者",
+    "descripcion": "你通过了关于年鉴学派、文化史、历史唯物主义、实证主义和革命研究的阶段考核。",
+    "icono": "📚"
+  },
+  {
+    "id": 725,
+    "materia": "Pensamiento histórico",
+    "cluster": 5,
+    "temas": [
+      "independencias",
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939"
+    ],
+    "nombre": "美洲战争与进程掌握者",
+    "descripcion": "你完成了关于独立运动、墨西哥革命、战争和西班牙内战的期中考试。",
+    "icono": "🗺️"
+  },
+  {
+    "id": 736,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
+      "campo-electrico",
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
+    ],
+    "nombre": "电荷、电场与静力学",
+    "descripcion": "你在这场阶段考核中掌握了电荷、电场和电流，还有静力学中的力矩和重心。",
+    "icono": "⚡"
+  },
+  {
+    "id": 737,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
+    ],
+    "nombre": "原子核与刚体平衡",
+    "descripcion": "你掌握了α、β、γ衰变，核裂变与核聚变，原子核的结构，以及刚体平衡和含字母的公式。",
+    "icono": "☢️"
+  },
+  {
+    "id": 738,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
+    ],
+    "nombre": "库仑与牛顿大师",
+    "descripcion": "你通过了涵盖库仑定律、磁铁的磁性、牛顿第一和第二定律以及简单机械的阶段考核。",
+    "icono": "🧲"
+  },
+  {
+    "id": 739,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
+      "dinamica-fuerzas-concurrentes",
+      "oscilacion-periodo"
+    ],
+    "nombre": "运动学与动力学掌握者",
+    "descripcion": "你完成了涵盖匀速直线运动、匀变速直线运动、牛顿第三定律、共点力和振动周期的阶段考核。",
+    "icono": "🚀"
+  },
+  {
+    "id": 740,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
+    ],
+    "nombre": "动量与波精通者",
+    "descripcion": "你掌握了线动量、冲量和万有引力，以及频率，还有波长与传播速度之间的关系。",
+    "icono": "🌊"
+  },
+  {
+    "id": 741,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
+    ],
+    "nombre": "量子光与圆周运动",
+    "descripcion": "你在这场阶段考核中掌握了电磁波谱、波粒二象性和医学物理，还有圆周运动和带摩擦的斜面。",
+    "icono": "💡"
+  },
+  {
+    "id": 742,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
+    ],
+    "nombre": "压强与流体精通者",
+    "descripcion": "你掌握了压强、静水压强和大气压强以及流量，还学习了平面镜和曲面镜的反射。",
+    "icono": "💧"
+  },
+  {
+    "id": 743,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
+    ],
+    "nombre": "流体与气象学",
+    "descripcion": "你通过了涵盖阿基米德原理和帕斯卡原理，以及气团与锋面、云的形成和降水的阶段考核。",
+    "icono": "☁️"
+  },
+  {
+    "id": 744,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
+    ],
+    "nombre": "几何光学大师",
+    "descripcion": "你在这场阶段考核中掌握了折射与斯涅尔定律、凸透镜与凹透镜及成像，还有共振和狭义相对论。",
+    "icono": "🔭"
+  },
+  {
+    "id": 745,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "semivida-desintegracion-exponencial",
+      "ojo-humano-instrumento-optico",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
+    ],
+    "nombre": "声音、视觉与半衰期",
+    "descripcion": "你掌握了声音（音色、音高和响度）、分贝与里氏震级、作为光学仪器的人眼、半衰期和热平衡。",
+    "icono": "🔊"
+  },
+  {
+    "id": 746,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
+    ],
+    "nombre": "热与测温掌握者",
+    "descripcion": "你完成了涵盖热量Q=m·c·ΔT、热膨胀、潜热、温标和热机的阶段考核。",
+    "icono": "🌡️"
+  },
+  {
+    "id": 747,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
+    ],
+    "nombre": "欧姆定律与斜抛运动",
+    "descripcion": "你通过了涵盖电压、电阻和欧姆定律，以及斜抛运动和热力学第二定律中熵的阶段考核。",
+    "icono": "🔌"
+  },
+  {
+    "id": 748,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
+    ],
+    "nombre": "电路精通者",
+    "descripcion": "你掌握了串联、并联和混联电路以及电功率，还学习了竖直上抛运动。",
+    "icono": "🔋"
+  },
+  {
+    "id": 749,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
+    ],
+    "nombre": "电磁学、功与能",
+    "descripcion": "你在这场阶段考核中掌握了磁场、法拉第-楞次感应、力的功和动能，还有风暴与强烈天气现象。",
+    "icono": "🧭"
+  },
+  {
+    "id": 750,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
+    ],
+    "nombre": "能量与机械大师",
+    "descripcion": "你掌握了机械能守恒、重力势能、功率、弹性碰撞与非弹性碰撞、热传递，以及发电机、电动机和变压器。",
+    "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "流体、热力学与波动大师",
+    "descripcion": "你在考试中掌握了伯努利方程与流体动力学、热力学第一定律、简谐运动与驻波，以及可再生能源及其转化。",
+    "icono": "🌊"
+  },
+  {
+    "id": 766,
+    "materia": "Economía",
+    "cluster": 1,
+    "temas": [
+      "blockchain-claves-wallet",
+      "capitalismo-industrial-trabajo-asalariado",
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
+    ],
+    "nombre": "区块链、边际成本与资产负债表",
+    "descripcion": "你完成了涵盖区块链密钥与钱包、智能合约、边际成本以及资产负债表借贷记账的阶段考核。",
+    "icono": "⛓️"
+  },
+  {
+    "id": 767,
+    "materia": "Economía",
+    "cluster": 2,
+    "temas": [
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
+    ],
+    "nombre": "资产与弹性掌握者",
+    "descripcion": "你掌握了基本会计等式和权益结构，还有弹性、生产依赖，以及如何发现商业机会。",
+    "icono": "📊"
+  },
+  {
+    "id": 768,
+    "materia": "Economía",
+    "cluster": 3,
+    "temas": [
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
+    ],
+    "nombre": "利息与利率大师",
+    "descripcion": "你在这场阶段考核中计算了单利和复利、增值税，以及总融资成本（CFT）与名义利率的区别，同时不忘盈余的来源和货币。",
+    "icono": "💹"
+  },
+  {
+    "id": 769,
+    "materia": "Economía",
+    "cluster": 4,
+    "temas": [
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
+    ],
+    "nombre": "信贷与数字金融精通者",
+    "descripcion": "你掌握了法式贷款的月供、定期存款与通货膨胀的关系、复式记账，以及去中心化交易所中的兑换。",
+    "icono": "🏦"
+  },
+  {
+    "id": 770,
+    "materia": "Economía",
+    "cluster": 5,
+    "temas": [
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
+    ],
+    "nombre": "会计记录与资金池掌握者",
+    "descripcion": "你完成了涵盖日记账与总账、财务报表、环境会计、最终价格以及AMM流动性池的阶段考核。",
+    "icono": "📒"
+  },
+  {
+    "id": 771,
+    "materia": "Economía",
+    "cluster": 6,
+    "temas": [
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
+    ],
+    "nombre": "微观经济与会计大师",
+    "descripcion": "你掌握了微观经济学与宏观经济学的划分、供给与需求、机会成本、财务指标，以及作为信息系统的会计。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 772,
+    "materia": "Economía",
+    "cluster": 7,
+    "temas": [
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
+    ],
+    "nombre": "古典经济学派精通者",
+    "descripcion": "你在这场阶段考核中梳理了重农主义、重商主义、古典自由主义和奥地利学派，还有国内生产总值与通货膨胀，以及实证经济学与规范经济学。",
+    "icono": "📜"
+  },
+  {
+    "id": 773,
+    "materia": "Economía",
+    "cluster": 8,
+    "temas": [
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
+    ],
+    "nombre": "贸易与工资掌握者",
+    "descripcion": "你掌握了贸易差额、比较优势和经济部门，还学会了阅读一般的和阿根廷的工资单。",
+    "icono": "🌍"
+  },
+  {
+    "id": 774,
+    "materia": "Economía",
+    "cluster": 9,
+    "temas": [
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
+    ],
+    "nombre": "养老保障与劳动精通者",
+    "descripcion": "你完成了涵盖退休金、社会保险（obra social）、养老体系和简易税制（monotributo）的阶段考核，并以对空想社会主义的审视收尾。",
+    "icono": "🧾"
+  },
+  {
+    "id": 775,
+    "materia": "Economía",
+    "cluster": 10,
+    "temas": [
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
+    ],
+    "nombre": "马克思、凯恩斯与汇率",
+    "descripcion": "你掌握了马克思主义、凯恩斯主义以及女性主义与照护经济学，还有固定汇率和全国平均工资。",
+    "icono": "🧠"
+  },
+  {
+    "id": 776,
+    "materia": "Economía",
+    "cluster": 11,
+    "temas": [
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
+    ],
+    "nombre": "汇率与新自由主义大师",
+    "descripcion": "你在这场阶段考核中掌握了浮动汇率、贬值和中央银行储备，还有新自由主义和秩序自由主义。",
+    "icono": "💱"
+  },
+  {
+    "id": 777,
+    "materia": "Economía",
+    "cluster": 12,
+    "temas": [
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
+    ],
+    "nombre": "组织与公共债务",
+    "descripcion": "你掌握了组织的类型与要素，还有内债和外债以及违约。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 778,
+    "materia": "Economía",
+    "cluster": 13,
+    "temas": [
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
+    ],
+    "nombre": "组织管理精通者",
+    "descripcion": "你完成了涵盖组织文化与结构、内外部环境、目标与指标以及项目类型的阶段考核。",
+    "icono": "🏢"
+  },
+  {
+    "id": 779,
+    "materia": "Economía",
+    "cluster": 14,
+    "temas": [
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
+    ],
+    "nombre": "管理学大师",
+    "descripcion": "你掌握了行政规划与预算、公司类型、合作社主义与互助主义，以及如何协调人员和资源。",
+    "icono": "🤝"
+  },
+  {
+    "id": 780,
+    "materia": "Economía",
+    "cluster": 15,
+    "temas": [
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
+    ],
+    "nombre": "管理与业绩掌握者",
+    "descripcion": "你完成了涵盖利润表、毛利率与净利率、管理控制与指标、持续改进以及“验证-构建-衡量-学习”循环的阶段考核。",
+    "icono": "📈"
+  },
+  {
+    "id": 781,
+    "materia": "Economía",
+    "cluster": 16,
+    "temas": [
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
+    ],
+    "nombre": "创业与盈亏平衡精通者",
+    "descripcion": "你掌握了最小可行产品（MVP）、商业模式画布、面向投资者的路演、盈亏平衡点和生产率。",
+    "icono": "🚀"
+  },
+  {
+    "id": 782,
+    "materia": "Economía",
+    "cluster": 17,
+    "temas": [
+      "valor-esperado-riesgo",
+      "vision-y-mision-organizacional",
+      "fondo-emergencia-diversificacion",
+      "estudio-de-contexto-para-un-proyecto",
+      "seguros"
+    ],
+    "nombre": "风险与财务规划大师",
+    "descripcion": "你计算了期望值和风险，建立了一个多元化的应急基金，还评估了保险和组织使命。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 796,
+    "materia": "Geografía",
+    "cluster": 1,
+    "temas": [
+      "coordenadas-y-husos-horarios",
+      "densidad-poblacion",
+      "escala-de-mapa",
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
+    ],
+    "nombre": "地图与坐标大师",
+    "descripcion": "你完成了涵盖地图比例尺、方位、坐标和时区的阶段考核，还学习了人口密度、碳足迹和虚拟水。",
+    "icono": "🧭"
+  },
+  {
+    "id": 797,
+    "materia": "Geografía",
+    "cluster": 2,
+    "temas": [
+      "mapa-plano-escala",
+      "coordenadas-geograficas",
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
+    ],
+    "nombre": "制图与地理信息系统精通者",
+    "descripcion": "你掌握了比例尺地图、地理坐标和地理信息系统，还有政治区划、国家和全球化。",
+    "icono": "🗺️"
+  },
+  {
+    "id": 798,
+    "materia": "Geografía",
+    "cluster": 3,
+    "temas": [
+      "region",
+      "sig-gps",
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
+    ],
+    "nombre": "领土与遥感掌握者",
+    "descripcion": "你完成了涵盖区域、地形、气候与生物群系、资源与经济活动，以及GPS和卫星图像等地理信息系统工具的阶段考核。",
+    "icono": "🛰️"
+  },
+  {
+    "id": 799,
+    "materia": "Geografía",
+    "cluster": 4,
+    "temas": [
+      "regiones-naturales-de-argentina",
+      "geografia-economica-agricola-argentina",
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
+    ],
+    "nombre": "生产地理精通者",
+    "descripcion": "你掌握了阿根廷的自然区域、采矿与碳氢化合物、农业与工业地理，以及拉丁美洲的工业与能源。",
+    "icono": "⛏️"
+  },
+  {
+    "id": 800,
+    "materia": "Geografía",
+    "cluster": 5,
+    "temas": [
+      "poblacion-piramides-migraciones",
+      "produccion-agraria-mundial-y-biotecnologia",
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
+    ],
+    "nombre": "人口、环境与世界农业",
+    "descripcion": "你完成了涵盖人口金字塔与移民、农业生产与生物技术、环境与资源、盎格鲁美洲以及自由派环保主义的阶段考核。",
+    "icono": "🌾"
+  },
+  {
+    "id": 801,
+    "materia": "Geografía",
+    "cluster": 6,
+    "temas": [
+      "america-latina-formacion-poblacion",
+      "conservacionismo",
+      "decrecimiento",
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
+    ],
+    "nombre": "环保主义与社会大师",
+    "descripcion": "你掌握了保护主义、去增长和政治生态主义，以及拉丁美洲人口的形成和阿根廷的社会指标。",
+    "icono": "🌱"
+  },
+  {
+    "id": 802,
+    "materia": "Geografía",
+    "cluster": 7,
+    "temas": [
+      "migraciones-internacionales",
+      "indice-de-desarrollo-humano",
+      "migraciones-internas-en-argentina",
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
+    ],
+    "nombre": "移民与发展精通者",
+    "descripcion": "你完成了涵盖国际移民与国内移民、人类发展指数、拉丁美洲国家和水资源管理的阶段考核。",
+    "icono": "👥"
+  },
+  {
+    "id": 803,
+    "materia": "Geografía",
+    "cluster": 8,
+    "temas": [
+      "riesgos-naturales-argentinos",
+      "trabajo-y-desempleo-mundial",
+      "riesgos-ambientales-mundiales",
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
+    ],
+    "nombre": "风险与城市化掌握者",
+    "descripcion": "你掌握了阿根廷的自然风险和全球环境风险，还有旅游、劳动与失业，以及城市化。",
+    "icono": "🌋"
+  },
+  {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "大洲与气候探索者",
+    "descripcion": "你在考试中学习了非洲、亚洲、巴西和中国，并掌握了气候变化的成因、影响与国际协定。",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "世界公民",
+    "descripcion": "你在考试中学习了欧洲与欧盟、中东、大洋洲与南极洲、俄罗斯与中亚以及南非，并掌握了全球交通与通信网络。",
+    "icono": "🌏"
+  },
+  {
+    "id": 816,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
+    ],
+    "nombre": "逻辑、复杂度与数字革命",
+    "descripcion": "你完成了涵盖布尔代数、渐近复杂度和电子表格，以及技术与科技的概念和信息革命的阶段考核。",
+    "icono": "💻"
+  },
+  {
+    "id": 817,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
+    ],
+    "nombre": "技术、计数与启动",
+    "descripcion": "你掌握了技术手段、手工与工业流程、操作系统的历史、计算机的启动，以及数制系统。",
+    "icono": "🛠️"
+  },
+  {
+    "id": 818,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
+    ],
+    "nombre": "计算机体系结构精通者",
+    "descripcion": "你通过了涵盖CPU、取指-译码-执行周期、RAM与缓存的存储层次、存储单位以及按设备划分的操作系统类型的阶段考核。",
+    "icono": "🖥️"
+  },
+  {
+    "id": 819,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
+    ],
+    "nombre": "算法与硬件基础",
+    "descripcion": "你在这场阶段考核中掌握了算法、变量和条件语句，还有输入/输出总线以及易失性与非易失性存储。",
+    "icono": "🧮"
+  },
+  {
+    "id": 820,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
+    ],
+    "nombre": "编程大师",
+    "descripcion": "你掌握了算术、关系和逻辑运算符、循环、函数、数据结构（列表、栈和队列）、面向对象编程以及查找与排序算法。",
+    "icono": "👨‍💻"
+  },
+  {
+    "id": 821,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
+    ],
+    "nombre": "数据、人工智能与密码学",
+    "descripcion": "你完成了涵盖文件与持久化、关系模型、人工智能及其伦理，以及对称加密、非对称加密和哈希的阶段考核。",
+    "icono": "🔐"
+  },
+  {
+    "id": 822,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "direccionamiento-ip-dns",
+      "proceso-programa-en-ejecucion",
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
+    ],
+    "nombre": "网络、进程与虚拟内存",
+    "descripcion": "你通过了涵盖IP寻址、DNS和HTTP，以及进程、进程间通信和虚拟内存的阶段考核。",
+    "icono": "🌐"
+  },
+  {
+    "id": 823,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
+      "recursividad",
+      "relaciones-y-claves-foraneas"
+    ],
+    "nombre": "操作系统内核掌握者",
+    "descripcion": "你掌握了进程调度、分页和中断，还有递归和外键。",
+    "icono": "⚡"
+  },
+  {
+    "id": 824,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "requisitos-funcionales-no-funcionales",
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
+    ],
+    "nombre": "软件工程与数据库",
+    "descripcion": "你完成了涵盖功能与非功能需求、设计与架构、版本控制、数据库规范化和分段的阶段考核。",
+    "icono": "📐"
+  },
+  {
+    "id": 825,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
+      "sistema-de-archivos",
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
+    ],
+    "nombre": "软件质量与文件",
+    "descripcion": "你掌握了设计模式与最佳实践、单元测试与集成测试、维护与技术债务，还有文件系统和用户权限。",
+    "icono": "🧪"
+  },
+  {
+    "id": 826,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sistema-de-archivos-por-bitacora",
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "transacciones-acid",
+      "seguridad-informatica",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "系统、网络与安全精通者",
+    "descripcion": "你完成了涵盖SQL与ACID事务、TCP/IP、网络安全与信息安全、虚拟化、输入/输出、日志文件系统和软件许可证的阶段考核。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "网络与网页构建者",
+    "descripcion": "你在考试中掌握了局域网与Wi-Fi、非关系型数据库，以及如何用HTML、CSS和JavaScript构建网页。",
+    "icono": "🌐"
+  },
+  {
+    "id": 841,
+    "materia": "Química",
+    "cluster": 1,
+    "temas": [
+      "balanceo-ecuaciones",
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
+    ],
+    "nombre": "溶液与平衡大师",
+    "descripcion": "你完成了涵盖溶液的浓度与稀释、方程式配平、密度和化学平衡常数Kc的阶段考核。",
+    "icono": "⚗️"
+  },
+  {
+    "id": 842,
+    "materia": "Química",
+    "cluster": 2,
+    "temas": [
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
+    ],
+    "nombre": "反应与化学计量精通者",
+    "descripcion": "你掌握了化学计量、反应动力学、溶度积平衡Ksp、物质状态与状态变化，以及实验室测量。",
+    "icono": "🧪"
+  },
+  {
+    "id": 843,
+    "materia": "Química",
+    "cluster": 3,
+    "temas": [
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
+    ],
+    "nombre": "原子、混合物与pH掌握者",
+    "descripcion": "你完成了涵盖原子模型与亚原子粒子、混合物分离方法、pH与pOH以及依数性质的阶段考核。",
+    "icono": "⚛️"
+  },
+  {
+    "id": 844,
+    "materia": "Química",
+    "cluster": 4,
+    "temas": [
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
+    ],
+    "nombre": "原子结构与分析化学精通者",
+    "descripcion": "你掌握了原子序数和质量数、电子排布、限量试剂与产率、分析化学和大气化学。",
+    "icono": "🔬"
+  },
+  {
+    "id": 845,
+    "materia": "Química",
+    "cluster": 5,
+    "temas": [
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
+    ],
+    "nombre": "化学键与元素周期表大师",
+    "descripcion": "你完成了涵盖周期性趋势、化学键与极性、反应类型和碳的四价性的阶段考核，同时没有忽略实验室安全。",
+    "icono": "🔗"
+  },
+  {
+    "id": 846,
+    "materia": "Química",
+    "cluster": 6,
+    "temas": [
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
+    ],
+    "nombre": "有机化学掌握者",
+    "descripcion": "你掌握了VSEPR分子几何、烃、官能团和化合物命名，还接触了纳米技术。",
+    "icono": "🧬"
+  },
+  {
+    "id": 847,
+    "materia": "Química",
+    "cluster": 7,
+    "temas": [
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
+    ],
+    "nombre": "摩尔、气体与氧化还原精通者",
+    "descripcion": "你完成了涵盖摩尔与摩尔质量、理想气体、氧化还原与电解的阶段考核，还加入了糖类、脂质和蛋白质等生物分子。",
+    "icono": "🔋"
+  },
+  {
+    "id": 848,
+    "materia": "Química",
+    "cluster": 8,
+    "temas": [
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
+      "superconductividad",
+      "termoquimica",
+      "energia-libre-gibbs"
+    ],
+    "nombre": "能量与材料大师",
+    "descripcion": "你掌握了热化学与吉布斯自由能、原电池、作为能源资源的石油，还有聚合物、分压和超导性。",
+    "icono": "⚡"
+  },
+  {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "酸、碱与反应大师",
+    "descripcion": "你在考试中掌握了拉瓦锡与普鲁斯特的质量定律、酸碱理论、中和与滴定、基础有机反应以及水的化学。",
+    "icono": "⚗️"
+  },
+  {
+    "id": 861,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
+    ],
+    "nombre": "遗传大师",
+    "descripcion": "你在这场阶段考核中掌握了庞尼特方格、双因子杂交、伴性遗传和血型，还有种群增长。",
+    "icono": "🧬"
+  },
+  {
+    "id": 862,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion"
+    ],
+    "nombre": "生物基础",
+    "descripcion": "你掌握了什么定义了生物、生物的基本需求、细胞及其细胞器、含变态的生命周期，以及进化分类。",
+    "icono": "🔬"
+  },
+  {
+    "id": 863,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
+      "enzimas-proteina-sustrato-ph",
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
+    ],
+    "nombre": "新陈代谢与能量精通者",
+    "descripcion": "你通过了关于光合作用与细胞呼吸、酶、物质与能量流动、对栖息地的适应，以及微生物学与免疫系统的阶段考核。",
+    "icono": "⚡"
+  },
+  {
+    "id": 864,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
+    ],
+    "nombre": "生态系统与细胞分裂掌握者",
+    "descripcion": "你完成了将食物网、生物地球化学循环和承载力与有丝分裂和减数分裂相结合的阶段考核，甚至还研究了恰加斯病这一案例。",
+    "icono": "🌿"
+  },
+  {
+    "id": 865,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
+    ],
+    "nombre": "生物多样性与生物技术精通者",
+    "descripcion": "你掌握了生物多样性指数、生态位和保护区，还有从DNA到基因再到蛋白质的路径，以及PCR和CRISPR等工具。",
+    "icono": "🧪"
+  },
+  {
+    "id": 866,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
+    ],
+    "nombre": "进化与人体大师",
+    "descripcion": "你通过了关于自然选择、化能合成和生物量金字塔，以及植物各部分、萌发和人体系统的阶段考核。",
+    "icono": "🌱"
+  },
+  {
+    "id": 867,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "进化与生理学精通者",
+    "descripcion": "你在这场阶段考核中掌握了物种形成、遗传漂变、系统发育、神经系统与内分泌系统、血压，以及转基因生物的生命伦理。",
+    "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "稳态与感觉大师",
+    "descripcion": "你在考试中掌握了稳态、感觉、种间关系、有性与无性生殖以及循环系统。",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "人体大师",
+    "descripcion": "你在考试中掌握了消化、排泄、免疫、肌肉、骨骼和呼吸系统，以及皮肤及其体温调节。",
+    "icono": "🦴"
+  },
+  {
+    "id": 879,
+    "materia": "Cívica",
+    "cluster": 1,
+    "temas": [
+      "derechos-nino",
+      "encuesta-electoral",
+      "derechos-indigenas",
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
+    ],
+    "nombre": "权利与反歧视精通者",
+    "descripcion": "你掌握了儿童权利、性别权利和原住民权利、反歧视保护机构，以及如何解读选举民调。",
+    "icono": "✊"
+  },
+  {
+    "id": 880,
+    "materia": "Cívica",
+    "cluster": 2,
+    "temas": [
+      "estado-de-derecho-por-que-importa",
+      "marchas-patrioticas",
+      "organizacion-del-estado",
+      "origen-estado-derecho",
+      "constitucion-preambulo"
+    ],
+    "nombre": "法治国家大师",
+    "descripcion": "你在这场阶段考核中掌握了法治国家的起源与重要性、国家组织、宪法序言和爱国进行曲。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 881,
+    "materia": "Cívica",
+    "cluster": 3,
+    "temas": [
+      "division-de-poderes",
+      "constitucion-nacional-jerarquia-normativa",
+      "como-se-hace-una-ley",
+      "derechos-y-garantias",
+      "documentos-y-tramites"
+    ],
+    "nombre": "宪法与法律掌握者",
+    "descripcion": "你掌握了三权分立、国家宪法的规范层级、法律是如何制定的、权利与保障，以及办事手续和证件。",
+    "icono": "📕"
+  },
+  {
+    "id": 882,
+    "materia": "Cívica",
+    "cluster": 4,
+    "temas": [
+      "impuestos",
+      "alcoholemia-y-conduccion",
+      "prioridades-de-paso",
+      "proyecto-ciudadano-participativo",
+      "senalizacion-vial"
+    ],
+    "nombre": "道路上的负责任公民",
+    "descripcion": "你完成了关于税收、酒后驾驶、道路标志和公民参与的主考试。",
+    "icono": "🚦"
+  },
+  {
+    "id": 883,
+    "materia": "Cívica",
+    "cluster": 5,
+    "temas": [
+      "simbolos-patrios",
+      "sistema-de-salud",
+      "sistema-electoral-dhondt",
+      "sistemas-politicos-comparados",
+      "sueldo-promedio-pais"
+    ],
+    "nombre": "国家体系大师",
+    "descripcion": "你在这场阶段考核中掌握了国家象征、医疗体系、Hondt计票法，还有各国政治体系的比较。",
+    "icono": "🗳️"
+  },
+  {
+    "id": 884,
+    "materia": "Cívica",
+    "cluster": 6,
+    "temas": [
+      "partidos-politicos",
+      "sufragio-restringido-universal",
+      "organismos-internacionales",
+      "teoria-del-poder",
+      "tratados-internacionales",
+      "tipos-de-estado"
+    ],
+    "nombre": "权力与国际政治大师",
+    "descripcion": "你完成了关于政党、选举权的演变、国际条约和国家类型的主考试。",
+    "icono": "🌐"
+  },
+  {
+    "id": 894,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
+    ],
+    "nombre": "法律分支大师",
+    "descripcion": "你掌握了法律分支的版图及其支柱：宪法、民法、商法和行政法。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 895,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-internacional",
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
+    ],
+    "nombre": "刑法与劳动法精通者",
+    "descripcion": "你完成了关于刑法、劳动法和国际法，以及具有法律意义的事实如何发展到报案和侦查的阶段考核。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 896,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "fuentes-del-derecho",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
+      "interpretacion-normativa"
+    ],
+    "nombre": "法源与解释掌握者",
+    "descripcion": "你掌握了法的渊源、规范的层级与效力、解释流派，以及检察机关与证据的调查工作。",
+    "icono": "📜"
+  },
+  {
+    "id": 897,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "politica-criminal-garantismo-mano-dura",
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
+    ],
+    "nombre": "刑事诉讼与判决大师",
+    "descripcion": "你通过了梳理法律论证、口头审判、裁决与判决、上诉与审级、刑罚执行，以及保障主义对强硬路线之辩论的阶段考核。",
+    "icono": "🔨"
+  },
+  {
+    "id": 904,
+    "materia": "Arte",
+    "cluster": 1,
+    "temas": [
+      "acustica-instrumento-musical",
+      "composicion-y-proporcion",
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
+    ],
+    "nombre": "艺术基础大师",
+    "descripcion": "你在这场阶段考核中掌握了艺术的起源、设计的要素与原则、构图与比例，以及乐器的声学。",
+    "icono": "🎨"
+  },
+  {
+    "id": 905,
+    "materia": "Arte",
+    "cluster": 2,
+    "temas": [
+      "ritmo-compas-pulso-figuras-musicales",
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
+    ],
+    "nombre": "节奏、音乐与景别精通者",
+    "descripcion": "你掌握了节拍、拍号和音符，含音阶与音程的五线谱，舞蹈与身体表达，以及视听中的镜头景别与取景。",
+    "icono": "🎼"
+  },
+  {
+    "id": 906,
+    "materia": "Arte",
+    "cluster": 3,
+    "temas": [
+      "armonia-basica-acordes-tonalidad",
+      "narrativa-audiovisual/montaje",
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
+    ],
+    "nombre": "和声、剪辑与舞台掌握者",
+    "descripcion": "你通过了关于和声与和弦、视听剪辑、多媒体制作、戏剧与编剧法，以及玫瑰花窗对称性的阶段考核。",
+    "icono": "🎭"
+  },
+  {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "艺术史旅行者",
+    "descripcion": "你在考试中学习了埃及与美索不达米亚艺术、古典、罗马式与哥特式艺术、文艺复兴与巴洛克、印象派、20世纪先锋派、阿根廷艺术，以及作为艺术的摄影与电影。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 912,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "construir-y-usar-un-modelo-cientifico",
+      "trabajo-de-campo-enfoque-socioantropologico"
+    ],
+    "nombre": "科学方法入门者",
+    "descripcion": "你在这场阶段考核中掌握了观察与可研究的问题、好的假设、定性与定量方法、科学模型和田野调查。",
+    "icono": "🔎"
+  },
+  {
+    "id": 913,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "corrientes-filosofia-de-la-ciencia",
+      "diseno-experimental-variables-y-control",
+      "tecnicas-de-investigacion-social",
+      "recoleccion-de-datos",
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
+    ],
+    "nombre": "研究设计与分析精通者",
+    "descripcion": "你掌握了实验设计、数据收集、统计分析、基于证据的论证和结论的传达，还有科学哲学和社会研究技术。",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "工程设计起步大师",
+    "descripcion": "你在这场阶段考核中掌握了问题及其约束条件、解决方案的调研、概念设计、数学建模和工程学科。",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "构建与验证方案精通者",
+    "descripcion": "你通过了关于建模与计算、材料强度、原型、试验与测量、迭代优化以及如何传达解决方案的阶段考核。",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "自我、记忆与文化精通者",
+    "descripcion": "你在这场阶段考核中掌握了现代性与自我的心理学、自我认知、作为遗产的文化，以及记忆、遗忘和压抑。",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "心理流派与人类心智大师",
+    "descripcion": "你掌握了心理学流派、认知偏差、语言、思维与创造力、人生各阶段以及心理健康。",
+    "icono": "💭"
+  },
+  {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "发展、情绪与行为专家",
+    "descripcion": "你掌握了皮亚杰和维果茨基的认知发展、条件反射与心理学习、情绪及其调节、动机、人格和群体心理，通过了考试。",
+    "icono": "🧠"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "材料行为精通者",
+    "descripcion": "你通过了关于弹性与胡克定律、塑性与屈服点、硬度与韧性、疲劳与断裂、腐蚀以及材料类别的阶段考核。",
+    "icono": "🔩"
+  },
+  {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "材料结构大师",
+    "descripcion": "你掌握了材料的键合与原子结构、晶体结构与晶胞、拉伸、硬度和冲击试验、陶瓷、玻璃和复合材料，通过了考试。",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "合金、钢与聚合物专家",
+    "descripcion": "你掌握了晶体缺陷与位错、相图与合金、金属的强化与成形，以及铁碳相图与钢、热塑性、热固性聚合物和弹性体，通过了考试。",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "材料性能与处理大师",
+    "descripcion": "你掌握了淬火、回火和退火等热处理、材料的电学、磁学和热学性能、腐蚀防护与表面保护、材料选择与可持续性，通过了考试。",
+    "icono": "🛠️"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "技术制图大师",
+    "descripcion": "你在这场阶段考核中掌握了投影体系、视图、等轴测与斜二测透视、比例尺和标准化尺寸标注。",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "制图、草图与CAD大师",
+    "descripcion": "你掌握了绘图工具与基本线条、草图与尺寸测绘、点、线、面的画法几何、剖视图与计算机辅助设计，通过了考试。",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "标准与读图专家",
+    "descripcion": "你掌握了线型、图幅与标题栏、作图几何：相切与连接、螺纹、螺钉和连接的画法以及焊接符号、零件图与装配图的识读，通过了考试。",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "公差与专业图纸大师",
+    "descripcion": "你掌握了公差与配合、表面粗糙度与表面处理、辅助视图与局部详图、建筑制图与电气制图，通过了考试。",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "传播与媒体精通者",
+    "descripcion": "你掌握了传播理论及其流派、新闻体裁、媒体伦理，以及广告与说服。",
+    "icono": "📰"
+  },
+  {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "话语、媒体与形象专家",
+    "descripcion": "你掌握了大众媒体与数字媒体、话语分析与媒体框架、言语与非言语、口头与视觉传播、机构传播与危机传播，通过了考试。",
+    "icono": "🎙️"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "电路与数字控制大师",
+    "descripcion": "你完成了关于电阻、电容、二极管和晶体管、基尔霍夫定律、数字逻辑、微控制器、传感器和执行器的阶段考核。",
+    "icono": "🔌"
+  },
+  {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "元件、二极管与逻辑门专家",
+    "descripcion": "你掌握了分压器与色环编码、RC电容的充放电与电感、二极管、整流与电源、NAND、NOR、XOR门及其通用性，通过了考试。",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "数字逻辑与微控制器大师",
+    "descripcion": "你掌握了测量仪器：万用表与示波器、由加法器和多路复用器构成的组合逻辑、由触发器和计数器构成的时序逻辑、微控制器的数字输入输出与串行通信（UART、I2C、SPI），通过了考试。",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "晶体管、运放与信号专家",
+    "descripcion": "你掌握了晶体管作为开关和放大器、运算放大器、使用ADC和DAC的模拟与数字信号、555定时器与面包板原型制作（含焊接与安全），通过了考试。",
+    "icono": "⚡"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "控制系统精通者",
+    "descripcion": "你掌握了开环与闭环、反馈、PID控制、伺服机构，以及基于PLC的控制逻辑。",
+    "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "仪表与驱动大师",
+    "descripcion": "你掌握了带滞环的开关控制、工业仪表与4-20 mA回路、一阶动态系统建模、电动机与变频器，以及自动化系统的维护与诊断，通过了考试。",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "PLC、网络与高级控制专家",
+    "descripcion": "你掌握了PLC编程：梯形图、定时器、计数器与GRAFCET、气动与液压基础、工业网络与SCADA、瞬态响应、稳定性、PID整定以及含紧急停机的功能安全，通过了考试。",
+    "icono": "🏭"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "用户体验大师",
+    "descripcion": "你通过了涵盖可用性与尼尔森启发式、WCAG无障碍、视觉层级、原型设计和用户测试的阶段考核。",
+    "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "逻辑与认识论思想家",
+    "descripcion": "你通过了考试，掌握了命题逻辑、科学方法与理性主义、审美趣味、认识论、作为独立分支的伦理学。",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "伦理与存在探索者",
+    "descripcion": "你通过了考试，掌握了存在、契约论、义务论、美德伦理、哲学史及其流派。",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "存在与美的哲学家",
+    "descripcion": "你通过了考试，掌握了美、艺术是什么、现实、本体论、功利主义、推理的有效性、生命伦理与谓词逻辑。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "文化人类学家",
+    "descripcion": "你通过了考试，掌握了文化、文化多样性、民族中心主义、亲属关系、人类学的分支领域。",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "社会分析师",
+    "descripcion": "你通过了考试，掌握了社会事实、社会分层、制度。",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "学习策略师",
+    "descripcion": "你通过了考试，掌握了元认知、学习技巧、间隔重复与提取练习。",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "具备批判力的数字公民",
+    "descripcion": "你通过了考试，掌握了隐私与数字足迹、一手与二手来源、信息来源的可靠性、网络虚假信息、偏见与深度伪造、误导性广告、新闻核实。",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "问题侦探",
+    "descripcion": "你通过了考试，掌握了发现问题、分析原因与限制、设计可能的解决方案、识别备选方案、实施解决方案。",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "方案评估者",
+    "descripcion": "你通过了考试，掌握了成本效益分析、界定范围与目标、评估结果、规划任务与里程碑、改进与迭代。",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "项目与决策管理者",
+    "descripcion": "你通过了考试，掌握了资源分配、风险与不确定性、跟踪与控制、权衡取舍与优先级排序、收尾与经验教训。",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "体育理论达人",
+    "descripcion": "你通过了考试，掌握了运动场地尺寸与场地类型、运动生理学、运动员、位置与计分、身体素养、体育运动的历史起源。",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "运动人体通",
+    "descripcion": "你通过了考试，掌握了静息心率、作为阿根廷文化现象的体育、帕托球、最大心率及其区间、体重指数。",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "健康与体育守护者",
+    "descripcion": "你通过了考试，掌握了奥林匹克运动会、训练量的规划与递进、预防与护理（RICE、热身、人体工学）、成瘾预防与阿根廷第26.586号法、急救、心肺复苏与AED、毒品政策。",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "数字体验设计师",
+    "descripcion": "你通过了考试，掌握了使用数据分析与用户体验指标、信息架构与导航、界面中的色彩、语音与对话界面设计，以及响应式和移动优先设计。",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "用户体验与无障碍策略师",
+    "descripcion": "你通过了考试，掌握了设计伦理与暗黑模式、表单与微交互、尼尔森十大可用性原则、用户研究与启发式评估、以用户为中心的设计、WCAG等级与键盘导航、字体排印以及设计系统。",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "思想史学者",
+    "descripcion": "你通过了考试，掌握了前苏格拉底哲学家与苏格拉底、柏拉图与亚里士多德、中世纪哲学与托马斯·阿奎那、休谟的经验论、康德与观念论、马克思与历史唯物主义、现象学与存在主义、政治哲学以及语言与科学哲学。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "田野民族志学者",
+    "descripcion": "你通过了考试，掌握了社会中的经济与权力、民族志与参与观察、身份认同与族群性、神话、仪式与宗教，以及阿根廷的原住民族。",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "社会分析师",
+    "descripcion": "你通过了考试，掌握了社会变迁与社会运动、经典理论家（涂尔干、韦伯与马克思）、当今的不平等与阶级、社会研究方法、社会化与角色、规范、价值与社会控制，以及作为社会范畴的性别。",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "学习策略师",
+    "descripcion": "你通过了考试，掌握了注意力、专注与干扰，错误与反馈，主动阅读与笔记，学习动机，学习计划与时间管理，以及与他人一起学习。",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "安全的数字公民",
+    "descripcion": "你通过了考试，掌握了算法、信息茧房与注意力经济，网络欺凌与社交网络中的共处，密码与身份验证，数字权利与数据保护，线上公民参与，网络钓鱼与网络诈骗，以及知识产权与数字许可。",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "体育战略家",
+    "descripcion": "你通过了考试，掌握了身体素质（力量、耐力、柔韧性和速度）、体育活动中的营养与补水，以及篮球、足球、五人制足球、手球、曲棍球、橄榄球和排球的规则与基础。",
+    "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "阿根廷殖民时期与独立精通者",
+    "descripcion": "你完成了关于原住民、征服与殖民时期、总督辖区及其贸易、五月革命和阿根廷独立战争的期中考试。",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "国家组建大师",
+    "descripcion": "你掌握了统一派与联邦派的内战、1853年宪法、罗萨斯与联邦、巴拉圭战争以及早期的地区经济，老大。",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "自由主义国家与民主扩展专家",
+    "descripcion": "你完成了关于沙漠征服与查科战役、农业出口模式与移民、萨恩斯·培尼亚法、政变以及1918年大学改革的期中考试。",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "20世纪阿根廷与民主大师",
+    "descripcion": "你掌握了庇隆主义与社会权利、悲剧周、国家恐怖主义、进口替代工业化、马尔维纳斯群岛、民主恢复、近期历史以及2001年危机，老大。",
+    "icono": "🕊️"
+  }
+]

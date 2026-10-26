@@ -1,11 +1,12 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useI18n } from "../i18n/I18nContext";
 
 const TEMAS_USER = [
   {
     id: 'vb2',
     name: 'VB2 — Oficial',
-    description: 'El tema ganador. Oscuro, moderno y elegante.',
+    descriptionKey: 'onboardingTema.elTemaGanadorOscuroModerno',
     bg: '#0d0e1a',
     surface: '#13152a',
     border: '#1e2140',
@@ -17,7 +18,7 @@ const TEMAS_USER = [
   {
     id: 'nocturno-vb',
     name: 'Nocturno VB',
-    description: 'Oscuro con acentos violeta. Ideal para estudiar de noche.',
+    descriptionKey: 'onboardingTema.oscuroConAcentosVioletaIdeal',
     bg: '#0d0d18',
     surface: '#16162a',
     border: '#2a2a4a',
@@ -29,7 +30,7 @@ const TEMAS_USER = [
   {
     id: 'nocturno',
     name: 'Nocturno',
-    description: 'Oscuro clásico con acentos azules.',
+    descriptionKey: 'onboardingTema.oscuroClasicoConAcentosAzules',
     bg: '#0f172a',
     surface: '#1e293b',
     border: '#334155',
@@ -41,7 +42,7 @@ const TEMAS_USER = [
   {
     id: 'clasico-vb',
     name: 'Clásico VB',
-    description: 'Claro y limpio con azul como acento.',
+    descriptionKey: 'onboardingTema.claroYLimpioConAzul',
     bg: '#f8fafc',
     surface: '#ffffff',
     border: '#e2e8f0',
@@ -53,7 +54,7 @@ const TEMAS_USER = [
   {
     id: 'aurora',
     name: 'Aurora',
-    description: 'Fondo violeta suave y elegante.',
+    descriptionKey: 'onboardingTema.fondoVioletaSuaveYElegante',
     bg: '#fdf4ff',
     surface: '#ffffff',
     border: '#f3e8ff',
@@ -65,7 +66,7 @@ const TEMAS_USER = [
   {
     id: 'bosque',
     name: 'Bosque',
-    description: 'Verde natural y relajante.',
+    descriptionKey: 'onboardingTema.verdeNaturalYRelajante',
     bg: '#f0fdf4',
     surface: '#ffffff',
     border: '#bbf7d0',
@@ -77,7 +78,7 @@ const TEMAS_USER = [
   {
     id: 'minimal',
     name: 'Minimal',
-    description: 'Tonos arena cálidos sin distracciones.',
+    descriptionKey: 'onboardingTema.tonosArenaCalidosSinDistracciones',
     bg: '#f2f0eb',
     surface: '#faf9f6',
     border: '#dbd9d2',
@@ -89,7 +90,7 @@ const TEMAS_USER = [
   {
     id: 'dorado',
     name: 'Dorado',
-    description: 'Metálico y exclusivo. El tema más premium.',
+    descriptionKey: 'onboardingTema.metalicoYExclusivoElTema',
     bg: '#0a0800',
     surface: '#120f00',
     border: '#2a2000',
@@ -103,8 +104,13 @@ const TEMAS_USER = [
 const STORAGE_KEY = 'vb-theme';
 
 export default function OnboardingTema() {
+  const { t } = useI18n();
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  // PLAN-M — reenvía returnTo a /login (ver Register.tsx y Login.tsx).
+  const returnTo = searchParams.get('returnTo');
+  const returnToQS = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : '';
   const nombre = (location.state as { nombre?: string } | null)?.nombre ?? 'estudiante';
 
   const [selected, setSelected] = useState('nocturno-vb');
@@ -113,7 +119,7 @@ export default function OnboardingTema() {
     try {
       localStorage.setItem(STORAGE_KEY, selected);
     } catch { /* ignore */ }
-    navigate('/login', { state: { fromOnboarding: true } });
+    navigate(`/login${returnToQS}`, { state: { fromOnboarding: true } });
   };
 
   const tema = TEMAS_USER.find(t => t.id === selected) ?? TEMAS_USER[0];
@@ -139,60 +145,56 @@ export default function OnboardingTema() {
             VB
           </div>
           <h1 className="text-2xl font-semibold" style={{ color: tema.text }}>
-            ¡Bienvenido, {nombre}!
+            {t("onboardingTema.bienvenido")} {nombre}!
           </h1>
-          <p className="text-sm" style={{ color: tema.muted }}>
-            Elegí cómo querés que se vea Virtual Book. Podés cambiarlo después desde tu perfil.
-          </p>
+          <p className="text-sm" style={{ color: tema.muted }}>{t("onboardingTema.elegiComoQueresQueSe")}</p>
         </div>
 
         {/* Grid de temas */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {TEMAS_USER.map((t) => (
+          {TEMAS_USER.map((tema) => (
             <button
-              key={t.id}
-              onClick={() => setSelected(t.id)}
+              key={tema.id}
+              onClick={() => setSelected(tema.id)}
               className="rounded-xl p-3 text-left transition-all"
               style={{
-                background: t.surface,
-                border: `2px solid ${selected === t.id ? t.primary : t.border}`,
-                outline: selected === t.id ? `3px solid ${t.primary}33` : 'none',
+                background: tema.surface,
+                border: `2px solid ${selected === tema.id ? tema.primary : tema.border}`,
+                outline: selected === tema.id ? `3px solid ${tema.primary}33` : 'none',
                 outlineOffset: '1px',
               }}
             >
               {/* Preview de colores */}
               <div className="flex gap-1 mb-2.5">
-                {t.preview.map((color, i) => (
+                {tema.preview.map((color, i) => (
                   <div
                     key={i}
                     className="h-5 rounded"
                     style={{
                       background: color,
                       flex: i === 0 ? 2 : i === 1 ? 1 : 1,
-                      border: `1px solid ${t.border}`,
+                      border: `1px solid ${tema.border}`,
                     }}
                   />
                 ))}
               </div>
               <p
                 className="text-xs font-semibold truncate"
-                style={{ color: t.text }}
+                style={{ color: tema.text }}
               >
-                {t.name}
+                {tema.name}
               </p>
               <p
                 className="text-[10px] mt-0.5 leading-tight"
-                style={{ color: t.muted }}
+                style={{ color: tema.muted }}
               >
-                {t.description}
+                {t(tema.descriptionKey)}
               </p>
-              {selected === t.id && (
+              {selected === tema.id && (
                 <div
                   className="mt-2 text-[10px] font-bold"
-                  style={{ color: t.primary }}
-                >
-                  ✓ Seleccionado
-                </div>
+                  style={{ color: tema.primary }}
+                >{t("onboardingTema.seleccionado")}</div>
               )}
             </button>
           ))}
@@ -204,17 +206,15 @@ export default function OnboardingTema() {
           className="w-full py-3 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
           style={{ background: tema.primary }}
         >
-          Continuar con {tema.name}
+          {t("onboardingTema.continuarCon")} {tema.name}
         </button>
 
         {/* Skip */}
         <button
-          onClick={() => navigate('/login')}
+          onClick={() => navigate(`/login${returnToQS}`)}
           className="w-full text-center text-xs transition-opacity hover:opacity-70"
           style={{ color: tema.muted }}
-        >
-          Saltar por ahora
-        </button>
+        >{t("onboardingTema.saltarPorAhora")}</button>
       </div>
     </div>
   );

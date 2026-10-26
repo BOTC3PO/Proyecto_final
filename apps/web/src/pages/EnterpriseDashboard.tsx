@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { createClassroom } from "../services/aulas";
+import { useI18n } from "../i18n/I18nContext";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchEnterpriseDashboard,
   fetchEnterpriseStaff,
@@ -9,7 +11,16 @@ import {
   type EnterpriseStaffMember,
 } from "../services/enterprise";
 
+const INDICADOR_LABEL_KEY: Record<string, string> = {
+  aulas: "menuProfesor.aulasActivas",
+  alumnos: "mensajeria.alumnos",
+  docentes: "comun.docentes",
+  directivos: "comun.directivos",
+};
+
 export default function EnterpriseDashboard() {
+  const { t } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [dashboard, setDashboard] = useState<EnterpriseDashboardData | null>(null);
@@ -26,7 +37,7 @@ export default function EnterpriseDashboard() {
 
   useEffect(() => {
     if (!schoolId) {
-      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setError(t('comun.tuCuentaNoTieneUna'));
       setLoading(false);
       return;
     }
@@ -78,9 +89,9 @@ export default function EnterpriseDashboard() {
         updatedAt: now,
       });
       setForm({ name: "", description: "", accessType: "privada", teacherId: "" });
-      setMessage("✓ Aula creada correctamente.");
+      setMessage(t("enterpriseDashboard.aulaCreadaCorrectamente"));
     } catch (err) {
-      setMessage(err instanceof Error ? err.message : "No se pudo crear el aula.");
+      setMessage(err instanceof Error ? err.message : t("enterpriseDashboard.noSePudoCrearEl"));
     } finally {
       setSubmitting(false);
     }
@@ -91,18 +102,14 @@ export default function EnterpriseDashboard() {
 
       <div className="flex items-center justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Panel de la escuela</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">
-            Supervisá el estado académico de tu institución.
-          </p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("enterpriseDashboard.panelDeLaEscuela")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseDashboard.supervisaElEstadoAcademicoDe")}</p>
         </div>
         <div className="flex gap-2">
           <Link
             to="/enterprise/aulas"
             className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-          >
-            + Crear aula
-          </Link>
+          >{t("enterpriseDashboard.crearAula")}</Link>
         </div>
       </div>
 
@@ -118,7 +125,7 @@ export default function EnterpriseDashboard() {
           ? [1,2,3,4].map(i => <div key={i} className="h-20 animate-pulse rounded-xl bg-[var(--c-border)]" />)
           : dashboard?.indicadores.map((item) => (
             <div key={item.id} className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
-              <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{item.label}</p>
+              <p className="text-[10px] uppercase tracking-widest text-[var(--c-muted)] mb-1">{INDICADOR_LABEL_KEY[item.id] ? t(INDICADOR_LABEL_KEY[item.id]) : item.label}</p>
               <p className="text-2xl font-semibold text-[var(--c-text)]">{item.value}</p>
             </div>
           ))
@@ -129,17 +136,14 @@ export default function EnterpriseDashboard() {
 
         {/* Accesos rápidos */}
         <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
-          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
-            Accesos rápidos
-          </p>
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">{t("enterpriseDashboard.accesosRapidos")}</p>
           {[
-            { label: 'Aulas',      to: '/enterprise/aulas',     icon: '🏫' },
-            { label: 'Miembros',   to: '/enterprise/miembros',  icon: '👥' },
-            { label: 'Módulos',    to: '/enterprise/modulos',   icon: '🎓' },
-            { label: 'Reportes',   to: '/enterprise/reportes',  icon: '📊' },
-            { label: 'Calendario', to: '/enterprise/calendario',icon: '📅' },
-            { label: 'Gobernanza', to: '/gobernanza',           icon: '⚖️' },
-            { label: 'Mensajes',   to: '/mensajes',             icon: '💬' },
+            { label: t("nav.aulas"),      to: '/enterprise/aulas',     icon: '🏫' },
+            { label: t("nav.miembros"),   to: '/enterprise/miembros',  icon: '👥' },
+            { label: t("nav.modulos"),    to: '/enterprise/modulos',   icon: '🎓' },
+            { label: t("nav.reportes"),   to: '/enterprise/reportes',  icon: '📊' },
+            { label: t("nav.calendario"), to: '/enterprise/calendario',icon: '📅' },
+            { label: t("nav.mensajes"),   to: '/mensajes',             icon: '💬' },
           ].map(({ label, to, icon }) => (
             <Link
               key={to}
@@ -154,47 +158,47 @@ export default function EnterpriseDashboard() {
 
         {/* Crear aula */}
         <div className="lg:col-span-2 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
-          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">
-            Crear aula
-          </p>
+          <p className="px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)] border-b border-[var(--c-border)]">{t("enterpriseDashboard.crearAula2")}</p>
           <form className="p-4 grid gap-3 sm:grid-cols-2" onSubmit={handleSubmit}>
             <label className="flex flex-col gap-1 sm:col-span-2">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Nombre *</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("adminMaterias.nombre")}</span>
               <input
                 required value={form.name}
                 onChange={(e) => setForm(p => ({ ...p, name: e.target.value }))}
+                onInvalid={onInvalid}
+                onInput={onInput}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
-                placeholder="Ej: 3° B — Primaria"
+                placeholder={t("enterpriseDashboard.ej3BPrimaria")}
               />
             </label>
             <label className="flex flex-col gap-1 sm:col-span-2">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Descripción</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("comun.descripcion")}</span>
               <textarea
                 rows={2} value={form.description}
                 onChange={(e) => setForm(p => ({ ...p, description: e.target.value }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] resize-none"
-                placeholder="Objetivos del aula"
+                placeholder={t("enterpriseDashboard.objetivosDelAula")}
               />
             </label>
             <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Tipo de acceso</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("enterpriseDashboard.tipoDeAcceso")}</span>
               <select
                 value={form.accessType}
                 onChange={(e) => setForm(p => ({ ...p, accessType: e.target.value as 'publica' | 'privada' }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               >
-                <option value="privada">Privada</option>
-                <option value="publica">Pública</option>
+                <option value="privada">{t("comun.privada")}</option>
+                <option value="publica">{t("comun.publica")}</option>
               </select>
             </label>
             <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-muted)]">Docente responsable</span>
+              <span className="text-xs font-medium text-[var(--c-muted)]">{t("enterpriseDashboard.docenteResponsable")}</span>
               <select
                 value={form.teacherId}
                 onChange={(e) => setForm(p => ({ ...p, teacherId: e.target.value }))}
                 className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
               >
-                <option value="">Sin asignar</option>
+                <option value="">{t("enterpriseDashboard.sinAsignar")}</option>
                 {teachers.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
               </select>
             </label>
@@ -213,22 +217,6 @@ export default function EnterpriseDashboard() {
             </div>
           </form>
         </div>
-      </div>
-
-      {/* Gobernanza CTA */}
-      <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-5 py-4 flex items-center justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold text-[var(--c-text)]">Gobernanza colaborativa</p>
-          <p className="text-xs text-[var(--c-muted)] mt-0.5">
-            Participá en propuestas de cambio para módulos y generadores de ejercicios.
-          </p>
-        </div>
-        <Link
-          to="/gobernanza"
-          className="flex-shrink-0 rounded-xl border border-[var(--c-border)] px-4 py-2 text-sm font-semibold text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
-        >
-          Ir a gobernanza →
-        </Link>
       </div>
 
     </div>

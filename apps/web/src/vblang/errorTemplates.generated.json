@@ -1,0 +1,2812 @@
+[
+  {
+    "regexSource": "^tipo de pregunta desconocido \"([\\s\\S]*?)\"$",
+    "translations": {
+      "en": "Unknown question type \"{0}\".",
+      "de": "Unbekannter Fragetyp \"{0}\"",
+      "eo": "tipo de demando nekonata \"{0}\"",
+      "fr": "type de question inconnu \"{0}\"",
+      "it": "tipo di domanda sconosciuto \"{0}\"",
+      "ja": "質問の種類が不明です: \"{0}\"",
+      "ko": "질문 유형을 알 수 없습니다: \"{0}\"",
+      "pt-BR": "tipo de pergunta desconhecido \"{0}\"",
+      "pt-PT": "tipo de pergunta desconhecido \"{0}\"",
+      "zh": "未知问题类型 \"{0}\""
+    }
+  },
+  {
+    "regexSource": "^ninguna opción está marcada como correcta$",
+    "translations": {
+      "en": "No option is marked as correct.",
+      "de": "Keine Option ist als korrekt markiert.",
+      "eo": "neniu opcio estas markita kiel korekta",
+      "fr": "aucune option n'est marquée comme correcte",
+      "it": "nessuna opzione è contrassegnata come corretta",
+      "ja": "正解としてマークされたオプションがありません。",
+      "ko": "올바른 옵션으로 지정된 항목이 없습니다.",
+      "pt-BR": "nenhuma opção está marcada como correta",
+      "pt-PT": "nenhuma opção está marcada como correta",
+      "zh": "没有选项被标记为正确"
+    }
+  },
+  {
+    "regexSource": "^ordenar requiere `items` y `ordenCorrecto` en GenerationResult$",
+    "translations": {
+      "en": "Sorting requires `items` and `ordenCorrecto` in GenerationResult.",
+      "de": "Die Sortierung erfordert `items` und `ordenCorrecto` in GenerationResult.",
+      "eo": "ordonado postulas `items` kaj `ordenCorrecto` en GenerationResult",
+      "fr": "l'opération \"ordonner\" requiert `items` et `ordenCorrecto` dans GenerationResult",
+      "it": "ordinare richiede `items` e `ordenCorrecto` in GenerationResult",
+      "ja": "並べ替えには、GenerationResult に `items` と `ordenCorrecto` が必要です。",
+      "ko": "정렬은 GenerationResult 내에서 `items`과 `ordenCorrecto`을 필요로 합니다.",
+      "pt-BR": "ordenar requer `items` e `ordenCorrecto` em GenerationResult",
+      "pt-PT": "ordenar requer `items` e `ordenCorrecto` em GenerationResult",
+      "zh": "排序需要 `items` 和 `ordenCorrecto` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^marcar_mapa requiere `mapaId` en GenerationResult$",
+    "translations": {
+      "en": "marcar_mapa requires `mapaId` in GenerationResult.",
+      "de": "marcar_mapa erfordert `mapaId` in GenerationResult.",
+      "eo": "marcar_mapa postulas `mapaId` en GenerationResult",
+      "fr": "marcar_mapa requiert `mapaId` dans GenerationResult",
+      "it": "marcar_mapa richiede `mapaId` in GenerationResult",
+      "ja": "marcar_mapa には、GenerationResult に `mapaId` が必要です。",
+      "ko": "marcar_mapa은 GenerationResult 내에서 `mapaId`을 필요로 합니다.",
+      "pt-BR": "marcar_mapa requer `mapaId` em GenerationResult",
+      "pt-PT": "marcar_mapa requer `mapaId` em GenerationResult",
+      "zh": "marcar_mapa 需要 `mapaId` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^marcar_mapa modo iso requiere `respuestaIso` en GenerationResult$",
+    "translations": {
+      "en": "marcar_mapa iso mode requires `respuestaIso` in GenerationResult.",
+      "de": "marcar_mapa im ISO-Modus erfordert `respuestaIso` in GenerationResult.",
+      "eo": "marcar_mapa modo iso postulas `respuestaIso` en GenerationResult",
+      "fr": "marcar_mapa mode \"iso\" requiert `respuestaIso` dans GenerationResult",
+      "it": "marcar_mapa modalità iso richiede `respuestaIso` in GenerationResult",
+      "ja": "marcar_mapa (ISO モード) には、GenerationResult に `respuestaIso` が必要です。",
+      "ko": "marcar_mapa ISO 모드는 GenerationResult 내에서 `respuestaIso`을 필요로 합니다.",
+      "pt-BR": "marcar_mapa modo iso requer `respuestaIso` em GenerationResult",
+      "pt-PT": "marcar_mapa modo iso requer `respuestaIso` em GenerationResult",
+      "zh": "marcar_mapa 的 iso 模式需要 `respuestaIso` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^marcar_mapa modo nombre requiere `respuestaNombre` en GenerationResult$",
+    "translations": {
+      "en": "marcar_mapa name mode requires `respuestaNombre` in GenerationResult.",
+      "de": "marcar_mapa im Namensmodus erfordert `respuestaNombre` in GenerationResult.",
+      "eo": "marcar_mapa modo nomo postulas `respuestaNombre` en GenerationResult",
+      "fr": "marcar_mapa mode \"nom\" requiert `respuestaNombre` dans GenerationResult",
+      "it": "marcar_mapa modalità nome richiede `respuestaNombre` in GenerationResult",
+      "ja": "marcar_mapa (名前 モード) には、GenerationResult に `respuestaNombre` が必要です。",
+      "ko": "marcar_mapa 이름 모드는 GenerationResult 내에서 `respuestaNombre`을 필요로 합니다.",
+      "pt-BR": "marcar_mapa modo nome requer `respuestaNombre` em GenerationResult",
+      "pt-PT": "marcar_mapa modo nome requer `respuestaNombre` em GenerationResult",
+      "zh": "marcar_mapa 的名称模式需要 `respuestaNombre` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^analisis_sintactico requiere `textoAnalizar` y `etiquetasPedidas` en GenerationResult$",
+    "translations": {
+      "en": "analisis_sintactico requires `textoAnalizar` and `etiquetasPedidas` in GenerationResult.",
+      "de": "analisis_sintactico erfordert `textoAnalizar` und `etiquetasPedidas` in GenerationResult.",
+      "eo": "analisis_sintactico postulas `textoAnalizar` kaj `etiquetasPedidas` en GenerationResult",
+      "fr": "analisis_sintactico requiert `textoAnalizar` et `etiquetasPedidas` dans GenerationResult",
+      "it": "analisis_sintactico richiede `textoAnalizar` e `etiquetasPedidas` in GenerationResult",
+      "ja": "analisis_sintactico には、GenerationResult に `textoAnalizar` と `etiquetasPedidas` が必要です。",
+      "ko": "analisis_sintactico은 GenerationResult 내에서 `textoAnalizar`과 `etiquetasPedidas`을 필요로 합니다.",
+      "pt-BR": "analisis_sintactico requer `textoAnalizar` e `etiquetasPedidas` em GenerationResult",
+      "pt-PT": "analisis_sintactico requer `textoAnalizar` e `etiquetasPedidas` em GenerationResult",
+      "zh": "analisis_sintactico 需要 `textoAnalizar` 和 `etiquetasPedidas` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^analisis_spans requiere `textoAnalizar`, `spansPedidos` y `etiquetasDisponibles` en GenerationResult$",
+    "translations": {
+      "en": "analisis_spans requires `textoAnalizar`, `spansPedidos` and `etiquetasDisponibles` in GenerationResult.",
+      "de": "analisis_spans erfordert `textoAnalizar`, `spansPedidos` und `etiquetasDisponibles` in GenerationResult.",
+      "eo": "analisis_spans postulas `textoAnalizar`, `spansPedidos` kaj `etiquetasDisponibles` en GenerationResult",
+      "fr": "analisis_spans requiert `textoAnalizar`, `spansPedidos` et `etiquetasDisponibles` dans GenerationResult",
+      "it": "analisis_spans richiede `textoAnalizar`, `spansPedidos` e `etiquetasDisponibles` in GenerationResult",
+      "ja": "analisis_spans には、GenerationResult に `textoAnalizar`, `spansPedidos` と `etiquetasDisponibles` が必要です。",
+      "ko": "analisis_spans은 GenerationResult 내에서 `textoAnalizar`, `spansPedidos` 및 `etiquetasDisponibles`을 필요로 합니다.",
+      "pt-BR": "analisis_spans requer `textoAnalizar`, `spansPedidos` e `etiquetasDisponibles` em GenerationResult",
+      "pt-PT": "analisis_spans requer `textoAnalizar`, `spansPedidos` e `etiquetasDisponibles` em GenerationResult",
+      "zh": "analisis_spans 需要 `textoAnalizar`、`spansPedidos` 和 `etiquetasDisponibles` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^identificar_palabras requiere `textoAnalizar` y `respuestasValidas` en GenerationResult$",
+    "translations": {
+      "en": "identificar_palabras requires `textoAnalizar` and `respuestasValidas` in GenerationResult.",
+      "de": "identificar_palabras erfordert `textoAnalizar` und `respuestasValidas` in GenerationResult.",
+      "eo": "identificar_palabras postulas `textoAnalizar` kaj `respuestasValidas` en GenerationResult",
+      "fr": "identificar_palabras requiert `textoAnalizar` et `respuestasValidas` dans GenerationResult",
+      "it": "identificar_palabras richiede `textoAnalizar` e `respuestasValidas` in GenerationResult",
+      "ja": "identificar_palabras には、GenerationResult に `textoAnalizar` と `respuestasValidas` が必要です。",
+      "ko": "identificar_palabras은 GenerationResult 내에서 `textoAnalizar`과 `respuestasValidas`을 필요로 합니다.",
+      "pt-BR": "identificar_palabras requer `textoAnalizar` e `respuestasValidas` em GenerationResult",
+      "pt-PT": "identificar_palabras requer `textoAnalizar` e `respuestasValidas` em GenerationResult",
+      "zh": "identificar_palabras 需要 `textoAnalizar` 和 `respuestasValidas` 在 GenerationResult 中"
+    }
+  },
+  {
+    "regexSource": "^([\\s\\S]*?): ([\\s\\S]*?) debe ser entero, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0}: {1} must be an integer, received {2}.",
+      "de": "{0}: {1} muss eine Ganzzahl sein, erhielt {2}.",
+      "eo": "{0}: {1} devas esti entjero, ricevis {2}",
+      "fr": "{0}: {1} doit être un entier, a reçu {2}",
+      "it": "{0}: {1} deve essere un intero, ha ricevuto {2}",
+      "ja": "{0}: {1} は整数である必要がありますが、{2} が受けられました。",
+      "ko": "{0}: {1}은 정수여야 하지만, {2}를 받았습니다.",
+      "pt-BR": "{0}: {1} deve ser inteiro, recebeu {2}",
+      "pt-PT": "{0}: {1} deve ser inteiro, recebeu {2}",
+      "zh": "{0}: {1} 必须是整数，但接收到了 {2}"
+    }
+  },
+  {
+    "regexSource": "^([\\s\\S]*?): ([\\s\\S]*?) debe ser número, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0}: {1} must be a number, received {2}.",
+      "de": "{0}: {1} muss eine Zahl sein, erhielt {2}.",
+      "eo": "{0}: {1} devas esti numero, ricevis {2}",
+      "fr": "{0}: {1} doit être un nombre, a reçu {2}",
+      "it": "{0}: {1} deve essere un numero, ha ricevuto {2}",
+      "ja": "{0}: {1} は数値である必要がありますが、{2} が受けられました。",
+      "ko": "{0}: {1}은 숫자여야 하지만, {2}를 받았습니다.",
+      "pt-BR": "{0}: {1} deve ser número, recebeu {2}",
+      "pt-PT": "{0}: {1} deve ser número, recebeu {2}",
+      "zh": "{0}: {1} 必须是数字，但接收到了 {2}"
+    }
+  },
+  {
+    "regexSource": "^([\\s\\S]*?): ([\\s\\S]*?) debe ser array, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0}: {1} must be an array, received {2}.",
+      "de": "{0}: {1} muss ein Array sein, erhielt {2}.",
+      "eo": "{0}: {1} devas esti aro, ricevis {2}",
+      "fr": "{0}: {1} doit être un tableau, a reçu {2}",
+      "it": "{0}: {1} deve essere un array, ha ricevuto {2}",
+      "ja": "{0}: {1} は配列である必要がありますが、{2} が受けられました。",
+      "ko": "{0}: {1}은 배열이어야 하지만, {2}를 받았습니다.",
+      "pt-BR": "{0}: {1} deve ser array, recebeu {2}",
+      "pt-PT": "{0}: {1} deve ser array, recebeu {2}",
+      "zh": "{0}: {1} 必须是数组，但接收到了 {2}"
+    }
+  },
+  {
+    "regexSource": "^uno_de espera un array$",
+    "translations": {
+      "en": "uno_de expects an array.",
+      "de": "uno_de erwartet ein Array.",
+      "eo": "uno_de atendas aron.",
+      "fr": "uno_de attend un tableau",
+      "it": "uno_de si aspetta un array",
+      "ja": "uno_de は配列を期待しています。",
+      "ko": "uno_de은 배열을 기대합니다.",
+      "pt-BR": "uno_de espera um array",
+      "pt-PT": "uno_de espera um array.",
+      "zh": "uno_de 期望一个数组"
+    }
+  },
+  {
+    "regexSource": "^uno_de: array vacío$",
+    "translations": {
+      "en": "uno_de: empty array",
+      "de": "uno_de: leeres Array",
+      "eo": "uno_de: aro malplena",
+      "fr": "uno_de: array vide",
+      "it": "uno_de: array vuoto",
+      "ja": "uno_de: 空の配列",
+      "ko": "uno_de: 빈 배열",
+      "pt-BR": "uno_de: array vazio",
+      "pt-PT": "uno_de: array vazio",
+      "zh": "uno_de: 数组为空"
+    }
+  },
+  {
+    "regexSource": "^n_de espera un array$",
+    "translations": {
+      "en": "n_de expects an array.",
+      "de": "n_de erwartet ein Array.",
+      "eo": "n_de atendas aron.",
+      "fr": "n_de attend un tableau",
+      "it": "n_de si aspetta un array",
+      "ja": "n_de は配列を期待しています。",
+      "ko": "n_de은 배열을 기대합니다.",
+      "pt-BR": "n_de espera um array",
+      "pt-PT": "n_de espera um array.",
+      "zh": "n_de 期望一个数组"
+    }
+  },
+  {
+    "regexSource": "^mezclar espera un array$",
+    "translations": {
+      "en": "mezclar expects an array",
+      "de": "mezclar erwartet ein Array",
+      "eo": "mezclar atendas aron",
+      "fr": "mezclar attend un tableau",
+      "it": "mezclar richiede un array",
+      "ja": "mezclar には配列が必要です",
+      "ko": "mezclar는 배열이 필요합니다",
+      "pt-BR": "mezclar espera um array",
+      "pt-PT": "mezclar espera um array",
+      "zh": "mezclar 需要一个数组"
+    }
+  },
+  {
+    "regexSource": "^longitud\\(\\) requiere string o array, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "length() requires a string or an array, received {0}",
+      "de": "\"longitud()\" benötigt einen String oder ein Array, erhielt {0}.",
+      "eo": "longeco() postulas ĉenon aŭ aron, ricevis {0}",
+      "fr": "longueur() requiert une chaîne de caractères ou un tableau, a reçu {0}",
+      "it": "\"longitud()\" richiede una stringa o un array, ha ricevuto {0}.",
+      "ja": "length() は文字列または配列を必要としますが、{0} を受け取りました。",
+      "ko": "`longitud()`은 문자열 또는 배열을 필요로 하지만, {0}을 받았습니다.",
+      "pt-BR": "comprimento() requer string ou array, recebeu {0}",
+      "pt-PT": "comprimento() requer string ou array, recebeu {0}",
+      "zh": "longitud() 需要字符串或数组，但接收到 {0}"
+    }
+  },
+  {
+    "regexSource": "^sqrt\\(([\\s\\S]*?)\\) no es real$",
+    "translations": {
+      "en": "sqrt({0}) is not a real number",
+      "de": "\"sqrt({0})\" ist keine reelle Zahl.",
+      "eo": "kvadrata-radiko({0}) ne estas reala",
+      "fr": "sqrt({0}) n'est pas un nombre réel",
+      "it": "\"sqrt({0})\" non è un numero reale.",
+      "ja": "sqrt({0}) は実数ではありません。",
+      "ko": "`sqrt({0})`은 실수가 아닙니다.",
+      "pt-BR": "raiz_quadrada({0}) não é real",
+      "pt-PT": "raiz_quadrada({0}) não é real",
+      "zh": "sqrt({0}) 不是实数"
+    }
+  },
+  {
+    "regexSource": "^raiz: índice 0 no es válido$",
+    "translations": {
+      "en": "root: index 0 is not valid",
+      "de": "\"raiz\": Index 0 ist ungültig.",
+      "eo": "radiko: indico 0 ne estas valida",
+      "fr": "racine: l'indice 0 n'est pas valide",
+      "it": "\"raiz\": l'indice 0 non è valido.",
+      "ja": "raiz: インデックス 0 は無効です。",
+      "ko": "`raiz`: 인덱스 0은 유효하지 않습니다.",
+      "pt-BR": "raiz: índice 0 não é válido",
+      "pt-PT": "raiz: índice 0 não é válido",
+      "zh": "根：索引 0 无效"
+    }
+  },
+  {
+    "regexSource": "^raiz\\(([\\s\\S]*?), ([\\s\\S]*?)\\) no es real$",
+    "translations": {
+      "en": "root({0}, {1}) is not a real number",
+      "de": "\"raiz({0}, {1})\" ist keine reelle Zahl.",
+      "eo": "radiko({0}, {1}) ne estas reala",
+      "fr": "racine({0}, {1}) n'est pas un nombre réel",
+      "it": "\"raiz({0}, {1})\" non è un numero reale.",
+      "ja": "raiz({0}, {1}) は実数ではありません。",
+      "ko": "`raiz({0}, {1})`은 실수가 아닙니다.",
+      "pt-BR": "raiz({0}, {1}) não é real",
+      "pt-PT": "raiz({0}, {1}) não é real",
+      "zh": "根({0}, {1}) 不是实数"
+    }
+  },
+  {
+    "regexSource": "^abs: argumento debe ser número, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "abs: argument must be a number, received {0}",
+      "de": "\"abs\": Argument muss eine Zahl sein, erhielt {0}.",
+      "eo": "absoluta-valoro: argumento devas esti numero, ricevis {0}",
+      "fr": "abs: l'argument doit être un nombre, a reçu {0}",
+      "it": "\"abs\": l'argomento deve essere un numero, ha ricevuto {0}.",
+      "ja": "abs: 引数は数値でなければなりません。{0} を受け取りました。",
+      "ko": "`abs`: 인수는 숫자여야 하지만, {0}을 받았습니다.",
+      "pt-BR": "absoluto: argumento deve ser número, recebeu {0}",
+      "pt-PT": "absoluto: argumento deve ser número, recebeu {0}",
+      "zh": "abs：参数必须是数字，但接收到 {0}"
+    }
+  },
+  {
+    "regexSource": "^abs\\(NaN\\) no es real$",
+    "translations": {
+      "en": "abs(NaN) is not a real number",
+      "de": "\"abs(NaN)\" ist keine reelle Zahl.",
+      "eo": "absoluta-valoro(NaN) ne estas reala",
+      "fr": "abs(NaN) n'est pas un nombre réel",
+      "it": "\"abs(NaN)\" non è un numero reale.",
+      "ja": "abs(NaN) は実数ではありません。",
+      "ko": "`abs(NaN)`은 실수가 아닙니다.",
+      "pt-BR": "absoluto(NaN) não é real",
+      "pt-PT": "absoluto(NaN) não é real",
+      "zh": "abs(NaN) 不是实数"
+    }
+  },
+  {
+    "regexSource": "^divisores\\(0\\) no está definido \\(infinitos divisores\\)$",
+    "translations": {
+      "en": "divisors(0) is not defined (infinite divisors)",
+      "de": "\"divisores(0)\" ist nicht definiert (unendlich viele Teiler).",
+      "eo": "dividantoj(0) ne estas difinita (infinitaj dividantoj)",
+      "fr": "diviseurs(0) n'est pas défini (un nombre infini de diviseurs)",
+      "it": "\"divisores(0)\" non è definito (infiniti divisori).",
+      "ja": "divisors(0) は定義されていません (無限の約数があります)。",
+      "ko": "`divisores(0)`은 정의되지 않았습니다 (무한한 약수).",
+      "pt-BR": "divisores(0) não está definido (infinitos divisores)",
+      "pt-PT": "divisores(0) não está definido (infinitos divisores)",
+      "zh": "divisores(0) 未定义（有无限个除数）"
+    }
+  },
+  {
+    "regexSource": "^factorizar\\(([\\s\\S]*?)\\) no está definido \\(requiere n ≥ 2\\)$",
+    "translations": {
+      "en": "factorize({0}) is not defined (requires n ≥ 2)",
+      "de": "\"factorizar({0})\" ist nicht definiert (benötigt n ≥ 2).",
+      "eo": "faktorizi({0}) ne estas difinita (postulas n ≥ 2)",
+      "fr": "factoriser({0}) n'est pas défini (nécessite n ≥ 2)",
+      "it": "\"fattorizzare({0})\" non è definito (richiede n ≥ 2).",
+      "ja": "factorize({0}) は定義されていません (n ≥ 2 が必要です)。",
+      "ko": "`factorizar({0})`은 정의되지 않았습니다 (n ≥ 2가 필요).",
+      "pt-BR": "fatorar({0}) não está definido (requer n ≥ 2)",
+      "pt-PT": "fatorar({0}) não está definido (requer n ≥ 2)",
+      "zh": "factorizar({0}) 未定义（需要 n ≥ 2）"
+    }
+  },
+  {
+    "regexSource": "^fraccion: denominador no puede ser 0$",
+    "translations": {
+      "en": "fraction: denominator cannot be 0",
+      "de": "\"fraccion\": Nenner darf nicht 0 sein.",
+      "eo": "frakcio: nomigilo ne povas esti 0",
+      "fr": "fraction: le dénominateur ne peut pas être 0",
+      "it": "\"frazione\": il denominatore non può essere 0.",
+      "ja": "fraction: 分母は 0 にできません。",
+      "ko": "`fraccion`: 분모는 0이 될 수 없습니다.",
+      "pt-BR": "fração: denominador não pode ser 0",
+      "pt-PT": "fração: denominador não pode ser 0",
+      "zh": "分数：分母不能为 0"
+    }
+  },
+  {
+    "regexSource": "^promedio: array vacío$",
+    "translations": {
+      "en": "promedio: empty array",
+      "de": "promedio: leeres Array",
+      "eo": "promedio: malplena tabelo",
+      "fr": "promedio : tableau vide",
+      "it": "promedio: array vuoto",
+      "ja": "promedio: 空の配列",
+      "ko": "promedio: 빈 배열",
+      "pt-BR": "promedio: array vazio",
+      "pt-PT": "promedio: array vazio",
+      "zh": "promedio：数组为空"
+    }
+  },
+  {
+    "regexSource": "^mediana: array vacío$",
+    "translations": {
+      "en": "median: empty array",
+      "de": "mediana: leeres Array",
+      "eo": "mediana: aro malplena.",
+      "fr": "mediana: tableau vide",
+      "it": "mediana: array vuoto",
+      "ja": "mediana: 空の配列",
+      "ko": "중앙값: 배열이 비어 있습니다.",
+      "pt-BR": "mediana: array vazio",
+      "pt-PT": "mediana: array vazio",
+      "zh": "中位数：数组为空。"
+    }
+  },
+  {
+    "regexSource": "^moda: array vacío$",
+    "translations": {
+      "en": "mode: empty array",
+      "de": "moda: leeres Array",
+      "eo": "moda: aro malplena.",
+      "fr": "mode: tableau vide",
+      "it": "moda: array vuoto",
+      "ja": "moda: 空の配列",
+      "ko": "최빈값: 배열이 비어 있습니다.",
+      "pt-BR": "moda: array vazio",
+      "pt-PT": "moda: array vazio",
+      "zh": "众数：数组为空。"
+    }
+  },
+  {
+    "regexSource": "^derivar: primer argumento debe ser string$",
+    "translations": {
+      "en": "derivative: the first argument must be a string",
+      "de": "ableiten: das erste Argument muss ein String sein",
+      "eo": "derivar: la unua argumento devas esti ĉeno.",
+      "fr": "dériver: le premier argument doit être une chaîne de caractères",
+      "it": "derivar: il primo argomento deve essere una stringa",
+      "ja": "derivar: 最初の引数は文字列でなければなりません。",
+      "ko": "도함수: 첫 번째 인자는 문자열이어야 합니다.",
+      "pt-BR": "derivar: o primeiro argumento deve ser string",
+      "pt-PT": "derivar: o primeiro argumento deve ser uma string",
+      "zh": "导数：第一个参数必须是字符串。"
+    }
+  },
+  {
+    "regexSource": "^derivar: segundo argumento debe ser string no vacío$",
+    "translations": {
+      "en": "derivative: the second argument must be a non-empty string",
+      "de": "ableiten: das zweite Argument muss ein nicht leerer String sein",
+      "eo": "derivar: la dua argumento devas esti ne-plena ĉeno.",
+      "fr": "dériver: le deuxième argument doit être une chaîne de caractères non vide",
+      "it": "derivar: il secondo argomento deve essere una stringa non vuota",
+      "ja": "derivar: 2番目の引数は空でない文字列でなければなりません。",
+      "ko": "도함수: 두 번째 인자는 비어 있지 않은 문자열이어야 합니다.",
+      "pt-BR": "derivar: o segundo argumento deve ser string não vazia",
+      "pt-PT": "derivar: o segundo argumento deve ser uma string não vazia",
+      "zh": "导数：第二个参数必须是非空字符串。"
+    }
+  },
+  {
+    "regexSource": "^derivar: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "derivative: {0}",
+      "de": "ableiten: {0}",
+      "eo": "derivar: {0}",
+      "fr": "dériver: {0}",
+      "it": "derivar: {0}",
+      "ja": "derivar: {0}",
+      "ko": "도함수: {0}",
+      "pt-BR": "derivar: {0}",
+      "pt-PT": "derivar: {0}",
+      "zh": "导数：{0}"
+    }
+  },
+  {
+    "regexSource": "^simplificar_expr: argumento debe ser string$",
+    "translations": {
+      "en": "simplificar_expr: argument must be a string",
+      "de": "simplificar_expr: das Argument muss ein String sein",
+      "eo": "simplificar_expr: argumento devas esti ĉeno.",
+      "fr": "simplificar_expr: l'argument doit être une chaîne de caractères",
+      "it": "simplificar_expr: l'argomento deve essere una stringa",
+      "ja": "simplificar_expr: 引数は文字列でなければなりません。",
+      "ko": "simplificar_expr: 인자는 문자열이어야 합니다.",
+      "pt-BR": "simplificar_expr: o argumento deve ser string",
+      "pt-PT": "simplificar_expr: o argumento deve ser uma string",
+      "zh": "simplificar_expr：参数必须是字符串。"
+    }
+  },
+  {
+    "regexSource": "^simplificar_expr: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "simplificar_expr: {0}",
+      "de": "simplificar_expr: {0}",
+      "eo": "simplificar_expr: {0}",
+      "fr": "simplificar_expr: {0}",
+      "it": "simplificar_expr: {0}",
+      "ja": "simplificar_expr: {0}",
+      "ko": "simplificar_expr: {0}",
+      "pt-BR": "simplificar_expr: {0}",
+      "pt-PT": "simplificar_expr: {0}",
+      "zh": "simplificar_expr：{0}"
+    }
+  },
+  {
+    "regexSource": "^evaluar_en: primer argumento debe ser string$",
+    "translations": {
+      "en": "evaluar_en: the first argument must be a string",
+      "de": "evaluar_en: das erste Argument muss ein String sein",
+      "eo": "evaluar_en: la unua argumento devas esti ĉeno.",
+      "fr": "evaluar_en: le premier argument doit être une chaîne de caractères",
+      "it": "evaluar_en: il primo argomento deve essere una stringa",
+      "ja": "evaluar_en: 最初の引数は文字列でなければなりません。",
+      "ko": "evaluar_en: 첫 번째 인자는 문자열이어야 합니다.",
+      "pt-BR": "evaluar_en: o primeiro argumento deve ser string",
+      "pt-PT": "evaluar_en: o primeiro argumento deve ser uma string",
+      "zh": "evaluar_en：第一个参数必须是字符串。"
+    }
+  },
+  {
+    "regexSource": "^evaluar_en: segundo argumento debe ser string no vacío$",
+    "translations": {
+      "en": "evaluar_en: the second argument must be a non-empty string",
+      "de": "evaluar_en: das zweite Argument muss ein nicht leerer String sein",
+      "eo": "evaluar_en: la dua argumento devas esti ne-plena ĉeno.",
+      "fr": "evaluar_en: le deuxième argument doit être une chaîne de caractères non vide",
+      "it": "evaluar_en: il secondo argomento deve essere una stringa non vuota",
+      "ja": "evaluar_en: 2番目の引数は空でない文字列でなければなりません。",
+      "ko": "evaluar_en: 두 번째 인자는 비어 있지 않은 문자열이어야 합니다.",
+      "pt-BR": "evaluar_en: o segundo argumento deve ser string não vazia",
+      "pt-PT": "evaluar_en: o segundo argumento deve ser uma string não vazia",
+      "zh": "evaluar_en：第二个参数必须是非空字符串。"
+    }
+  },
+  {
+    "regexSource": "^evaluar_en: tercer argumento debe ser número finito$",
+    "translations": {
+      "en": "evaluar_en: the third argument must be a finite number",
+      "de": "evaluar_en: das dritte Argument muss eine endliche Zahl sein",
+      "eo": "evaluar_en: la tria argumento devas esti finita numero.",
+      "fr": "evaluar_en: le troisième argument doit être un nombre fini",
+      "it": "evaluar_en: il terzo argomento deve essere un numero finito",
+      "ja": "evaluar_en: 3番目の引数は有限の数値でなければなりません。",
+      "ko": "evaluar_en: 세 번째 인자는 유한한 숫자여야 합니다.",
+      "pt-BR": "evaluar_en: o terceiro argumento deve ser um número finito",
+      "pt-PT": "evaluar_en: o terceiro argumento deve ser um número finito",
+      "zh": "evaluar_en：第三个参数必须是有限数值。"
+    }
+  },
+  {
+    "regexSource": "^evaluar_en: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "evaluar_en: {0}",
+      "de": "evaluar_en: {0}",
+      "eo": "evaluar_en: {0}",
+      "fr": "evaluar_en: {0}",
+      "it": "evaluar_en: {0}",
+      "ja": "evaluar_en: {0}",
+      "ko": "evaluar_en: {0}",
+      "pt-BR": "evaluar_en: {0}",
+      "pt-PT": "evaluar_en: {0}",
+      "zh": "evaluar_en：{0}"
+    }
+  },
+  {
+    "regexSource": "^No se satisficieron las restricciones tras ([\\s\\S]*?) intentos$",
+    "translations": {
+      "en": "The constraints were not satisfied after {0} attempts",
+      "de": "Die Einschränkungen wurden nach {0} Versuchen nicht erfüllt",
+      "eo": "La restriktoj ne estis plenumitaj post {0} provoj.",
+      "fr": "Les contraintes n'ont pas été satisfaites après {0} tentatives",
+      "it": "Le restrizioni non sono state soddisfatte dopo {0} tentativi",
+      "ja": "{0} 回の試行の後、制約が満たされませんでした。",
+      "ko": "{0}번의 시도 후에도 제약 조건을 만족하지 못했습니다.",
+      "pt-BR": "As restrições não foram satisfeitas após {0} tentativas",
+      "pt-PT": "As restrições não foram satisfeitas após {0} tentativas",
+      "zh": "在 {0} 次尝试后，未满足约束条件。"
+    }
+  },
+  {
+    "regexSource": "^variable indefinida: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "undefined variable: {0}",
+      "de": "undefinierte Variable: {0}",
+      "eo": "nedifinita variablo: {0}",
+      "fr": "variable indéfinie: {0}",
+      "it": "variabile indefinita: {0}",
+      "ja": "未定義の変数: {0}",
+      "ko": "정의되지 않은 변수: {0}",
+      "pt-BR": "variável indefinida: {0}",
+      "pt-PT": "variável indefinida: {0}",
+      "zh": "未定义变量：{0}"
+    }
+  },
+  {
+    "regexSource": "^acceso a `\\.([\\s\\S]*?)` sobre null/undefined$",
+    "translations": {
+      "en": "access to `.{0}` on null/undefined",
+      "de": "Zugriff auf `.{0}` auf null/undefiniert.",
+      "eo": "aliro al `.{0}` super null/nedefinita",
+      "fr": "accès à `.{0}` sur null/undefined.",
+      "it": "accesso a `.{0}` su null/undefined",
+      "ja": "`.{0}` へのアクセスが null/undefined に対して行われました。",
+      "ko": "`.{0}`에 대한 접근이 null/undefined입니다.",
+      "pt-BR": "acesso a `.{0}` sobre null/undefined",
+      "pt-PT": "acesso a `.{0}` sobre null/undefined",
+      "zh": "无法访问 `.{0}`，值为 null/undefined。"
+    }
+  },
+  {
+    "regexSource": "^no se puede acceder a `\\.([\\s\\S]*?)` sobre ([\\s\\S]*?)$",
+    "translations": {
+      "en": "cannot access `.{0}` on {1}",
+      "de": "Zugriff auf `.{0}` auf {1} nicht möglich.",
+      "eo": "ne eblas aliiri al `.{0}` super {1}",
+      "fr": "impossible d'accéder à `.{0}` sur {1}.",
+      "it": "impossibile accedere a `.{0}` su {1}",
+      "ja": "`.{0}` へのアクセスが {1} に対して行われました。",
+      "ko": "`.{0}`에 대한 접근이 불가능합니다 (값: {1}).",
+      "pt-BR": "não é possível acessar `.{0}` sobre {1}",
+      "pt-PT": "não é possível aceder a `.{0}` em {1}",
+      "zh": "无法访问 `.{0}`，类型为 {1}。"
+    }
+  },
+  {
+    "regexSource": "^índice de array debe ser entero, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "array index must be an integer, received {0}",
+      "de": "Array-Index muss eine Ganzzahl sein, erhielt {0}.",
+      "eo": "la indekso de la aro devas esti entjero, ricevis {0}",
+      "fr": "l'index du tableau doit être un entier, reçu {0}.",
+      "it": "l'indice dell'array deve essere un intero, ha ricevuto {0}",
+      "ja": "配列のインデックスは整数でなければなりません。{0} が渡されました。",
+      "ko": "배열의 인덱스는 정수여야 하지만, {0}을 받았습니다.",
+      "pt-BR": "índice de array deve ser inteiro, recebeu {0}",
+      "pt-PT": "o índice do array deve ser inteiro, recebeu {0}",
+      "zh": "数组索引必须是整数，但接收到了 {0}。"
+    }
+  },
+  {
+    "regexSource": "^índice ([\\s\\S]*?) fuera de rango \\(tamaño ([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "index {0} out of range (size {1})",
+      "de": "Index {0} außerhalb des gültigen Bereichs (Größe {1}).",
+      "eo": "la indekso {0} estas fora de la rango (grando {1})",
+      "fr": "index {0} hors de portée (taille {1}).",
+      "it": "indice {0} fuori dai limiti (dimensione {1})",
+      "ja": "インデックス {0} は範囲外です (サイズ: {1})。",
+      "ko": "인덱스 {0}이 범위를 벗어났습니다 (크기: {1}).",
+      "pt-BR": "índice {0} fora do intervalo (tamanho {1})",
+      "pt-PT": "índice {0} fora do intervalo (tamanho {1})",
+      "zh": "索引 {0} 超出范围 (大小为 {1})。"
+    }
+  },
+  {
+    "regexSource": "^no se puede indexar ([\\s\\S]*?)$",
+    "translations": {
+      "en": "cannot index {0}",
+      "de": "{0} kann nicht indiziert werden.",
+      "eo": "ne eblas indeksigi {0}",
+      "fr": "impossible d'indexer {0}.",
+      "it": "impossibile indicizzare {0}",
+      "ja": "{0} のインデックス化はできません。",
+      "ko": "{0}에 대한 인덱싱이 불가능합니다.",
+      "pt-BR": "não é possível indexar {0}",
+      "pt-PT": "não é possível indexar {0}",
+      "zh": "无法对 {0} 进行索引操作。"
+    }
+  },
+  {
+    "regexSource": "^'no' espera boolean, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "'not' expects a boolean, received {0}",
+      "de": "'no' erwartet einen booleschen Wert, erhielt {0}.",
+      "eo": "'ne' atendas booleon, ricevis {0}",
+      "fr": "'non' attend un booléen, reçu {0}.",
+      "it": "'no' si aspetta un booleano, ha ricevuto {0}",
+      "ja": "'no' はブール値を期待していますが、{0} が渡されました。",
+      "ko": "'no' 뒤에는 boolean 값이 와야 하지만, {0}을 받았습니다.",
+      "pt-BR": "'no' espera um valor booleano, recebeu {0}",
+      "pt-PT": "'no' espera um valor booleano, recebeu {0}",
+      "zh": "期望 \"no\" 后面是布尔值，但接收到了 {0}。"
+    }
+  },
+  {
+    "regexSource": "^operador '([\\s\\S]*?)' espera número, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "operator '{0}' expects a number, received {1}",
+      "de": "Operator '{0}' erwartet eine Zahl, erhielt {1}.",
+      "eo": "la operanto '{0}' atendas numeron, ricevis {1}",
+      "fr": "l'opérateur '{0}' attend un nombre, reçu {1}.",
+      "it": "l'operatore '{0}' si aspetta un numero, ha ricevuto {1}",
+      "ja": "演算子 '{0}' は数値を期待していますが、{1} が渡されました。",
+      "ko": "연산자 '{0}'은 숫자 값을 필요로 하지만, {1}을 받았습니다.",
+      "pt-BR": "operador '{0}' espera um número, recebeu {1}",
+      "pt-PT": "o operador '{0}' espera um número, recebeu {1}",
+      "zh": "操作符 '{0}' 期望是数字，但接收到了 {1}。"
+    }
+  },
+  {
+    "regexSource": "^operador \\+ no soportado entre ([\\s\\S]*?) y ([\\s\\S]*?)$",
+    "translations": {
+      "en": "operator + not supported between {0} and {1}",
+      "de": "Der Operator '+' wird nicht zwischen {0} und {1} unterstützt.",
+      "eo": "la operanto + ne estas subtenata inter {0} kaj {1}",
+      "fr": "l'opérateur + n'est pas supporté entre {0} et {1}.",
+      "it": "l'operatore + non è supportato tra {0} e {1}",
+      "ja": "演算子 + は、{0} と {1} の間ではサポートされていません。",
+      "ko": "'+' 연산자는 {0}과 {1} 사이에서 지원되지 않습니다.",
+      "pt-BR": "operador + não suportado entre {0} e {1}",
+      "pt-PT": "o operador '+' não é suportado entre {0} e {1}",
+      "zh": "加号运算符 \"+\" 不支持在 {0} 和 {1} 之间使用。"
+    }
+  },
+  {
+    "regexSource": "^operador ([\\s\\S]*?) requiere números$",
+    "translations": {
+      "en": "operator {0} requires numbers",
+      "de": "Der Operator {0} benötigt Zahlen.",
+      "eo": "la operanto {0} postulas numerojn",
+      "fr": "l'opérateur {0} requiert des nombres.",
+      "it": "l'operatore {0} richiede numeri",
+      "ja": "演算子 {0} は数値を必要とします。",
+      "ko": "연산자 {0}은 숫자 값을 필요로 합니다.",
+      "pt-BR": "operador {0} requer números",
+      "pt-PT": "o operador {0} requer números",
+      "zh": "操作符 {0} 需要数字作为参数。"
+    }
+  },
+  {
+    "regexSource": "^división por cero$",
+    "translations": {
+      "en": "division by zero",
+      "de": "Division durch Null.",
+      "eo": "divido per nulo",
+      "fr": "division par zéro.",
+      "it": "divisione per zero",
+      "ja": "ゼロによる除算。",
+      "ko": "0으로 나누는 연산입니다.",
+      "pt-BR": "divisão por zero",
+      "pt-PT": "divisão por zero",
+      "zh": "除以零。"
+    }
+  },
+  {
+    "regexSource": "^módulo por cero$",
+    "translations": {
+      "en": "modulo by zero",
+      "de": "Modulo durch Null.",
+      "eo": "modulo per nulo",
+      "fr": "modulo par zéro.",
+      "it": "modulo per zero",
+      "ja": "ゼロによる剰余。",
+      "ko": "0으로 모듈로 연산하는 경우입니다.",
+      "pt-BR": "módulo por zero",
+      "pt-PT": "módulo por zero",
+      "zh": "取模运算除数为零。"
+    }
+  },
+  {
+    "regexSource": "^comparación ([\\s\\S]*?) no soportada entre ([\\s\\S]*?) y ([\\s\\S]*?)$",
+    "translations": {
+      "en": "comparison {0} not supported between {1} and {2}",
+      "de": "Vergleich {0} wird nicht zwischen {1} und {2} unterstützt.",
+      "eo": "komparado {0} ne estas subtenata inter {1} kaj {2}",
+      "fr": "comparaison {0} non supportée entre {1} et {2}.",
+      "it": "la comparazione {0} non è supportata tra {1} e {2}",
+      "ja": "比較 {0} は、{1} と {2} の間ではサポートされていません。",
+      "ko": "{0} 비교 연산은 {1}과 {2} 사이에서 지원되지 않습니다.",
+      "pt-BR": "comparação {0} não suportada entre {1} e {2}",
+      "pt-PT": "comparação {0} não suportada entre {1} e {2}",
+      "zh": "比较操作 {0} 不支持在 {1} 和 {2} 之间使用。"
+    }
+  },
+  {
+    "regexSource": "^'y' requiere operandos boolean, recibió ([\\s\\S]*?) y ([\\s\\S]*?)$",
+    "translations": {
+      "en": "'y' requires boolean operands, received {0} and {1}.",
+      "de": "'y' benötigt boolesche Operanden, erhielt aber {0} und {1}.",
+      "eo": "'y' postulas booleanajn operandojn, ricevis {0} kaj {1}.",
+      "fr": "'y' nécessite des opérandes booléens, a reçu {0} et {1}.",
+      "it": "'y' richiede operandi booleani, ha ricevuto {0} e {1}.",
+      "ja": "'y' はブール型のオペランドを必要としますが、{0} と {1} が渡されました。",
+      "ko": "'y'는 부울 연산자를 필요로 하지만, {0}과 {1}을 받았습니다.",
+      "pt-BR": "'y' requer parâmetros booleanos, recebeu {0} e {1}.",
+      "pt-PT": "'y' requerem operandos booleanos, recebeu {0} e {1}",
+      "zh": "'y' 需要布尔类型的操作数，但接收到了 {0} 和 {1}."
+    }
+  },
+  {
+    "regexSource": "^'o' requiere operandos boolean, recibió ([\\s\\S]*?) y ([\\s\\S]*?)$",
+    "translations": {
+      "en": "'o' requires boolean operands, received {0} and {1}.",
+      "de": "'o' benötigt boolesche Operanden, erhielt aber {0} und {1}.",
+      "eo": "'o' postulas booleanajn operandojn, ricevis {0} kaj {1}.",
+      "fr": "'ou' nécessite des opérandes booléens, a reçu {0} et {1}.",
+      "it": "'o' richiede operandi booleani, ha ricevuto {0} e {1}.",
+      "ja": "'o' はブール型のオペランドを必要としますが、{0} と {1} が渡されました。",
+      "ko": "'또는'은 부울 연산자를 필요로 하지만, {0}과 {1}을 받았습니다.",
+      "pt-BR": "'ou' requer parâmetros booleanos, recebeu {0} e {1}.",
+      "pt-PT": "'ou' requerem operandos booleanos, recebeu {0} e {1}",
+      "zh": "'o' 需要布尔类型的操作数，但接收到了 {0} 和 {1}."
+    }
+  },
+  {
+    "regexSource": "^filtrar requiere 2 argumentos \\(array, predicado\\)$",
+    "translations": {
+      "en": "filtrar requires 2 arguments (array, predicate)",
+      "de": "filtrar erfordert 2 Argumente (Array, Prädikat)",
+      "eo": "filtrar postulas 2 argumentojn (tabelo, predikato)",
+      "fr": "filtrar requiert 2 arguments (tableau, prédicat)",
+      "it": "filtrar richiede 2 argomenti (array, predicato)",
+      "ja": "filtrar には2つの引数（配列、述語）が必要です",
+      "ko": "filtrar는 2개의 인자(배열, 조건)가 필요합니다",
+      "pt-BR": "filtrar requer 2 argumentos (array, predicado)",
+      "pt-PT": "filtrar requer 2 argumentos (array, predicado)",
+      "zh": "filtrar 需要2个参数（数组、谓词）"
+    }
+  },
+  {
+    "regexSource": "^filtrar: primer argumento debe ser array$",
+    "translations": {
+      "en": "filtrar: the first argument must be an array",
+      "de": "filtrar: das erste Argument muss ein Array sein",
+      "eo": "filtrar: la unua argumento devas esti tabelo",
+      "fr": "filtrar : le premier argument doit être un tableau",
+      "it": "filtrar: il primo argomento deve essere un array",
+      "ja": "filtrar: 最初の引数は配列でなければなりません",
+      "ko": "filtrar: 첫 번째 인자는 배열이어야 합니다",
+      "pt-BR": "filtrar: o primeiro argumento deve ser um array",
+      "pt-PT": "filtrar: o primeiro argumento deve ser um array",
+      "zh": "filtrar：第一个参数必须是数组"
+    }
+  },
+  {
+    "regexSource": "^([\\s\\S]*?): ([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0}: {1}",
+      "de": "{0}: {1}",
+      "eo": "{0}: {1}.",
+      "fr": "{0}: {1}",
+      "it": "{0}: {1}",
+      "ja": "{0}: {1}",
+      "ko": "{0}: {1}",
+      "pt-BR": "{0}: {1}",
+      "pt-PT": "{0}: {1}",
+      "zh": "{0}: {1}"
+    }
+  },
+  {
+    "regexSource": "^función desconocida: ([\\s\\S]*?)\\. ¿Quisiste decir ([\\s\\S]*?)\\?$",
+    "translations": {
+      "en": "Unknown function: {0}. Did you mean {1}?",
+      "de": "Unbekannte Funktion: {0}. Meintest du {1}?",
+      "eo": "nekonata funkcio: {0}. Ĉu vi volis diri {1}?",
+      "fr": "fonction inconnue : {0}. Voulez-vous dire {1} ?",
+      "it": "funzione sconosciuta: {0}. Volevi dire {1}?",
+      "ja": "不明な関数: {0}。{1} を意図していましたか？",
+      "ko": "알 수 없는 함수: {0}. {1}을 원하셨나요?",
+      "pt-BR": "função desconhecida: {0}. Você quis dizer {1}?",
+      "pt-PT": "função desconhecida: {0}. Quiseste dizer {1}?",
+      "zh": "未知函数: {0}.  你是不是想说 {1}?"
+    }
+  },
+  {
+    "regexSource": "^función desconocida: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "Unknown function: {0}",
+      "de": "Unbekannte Funktion: {0}",
+      "eo": "nekonata funkcio: {0}.",
+      "fr": "fonction inconnue : {0}.",
+      "it": "funzione sconosciuta: {0}",
+      "ja": "不明な関数: {0}",
+      "ko": "알 수 없는 함수: {0}",
+      "pt-BR": "função desconhecida: {0}.",
+      "pt-PT": "função desconhecida: {0}",
+      "zh": "未知函数: {0}"
+    }
+  },
+  {
+    "regexSource": "^rango requiere números$",
+    "translations": {
+      "en": "range requires numbers.",
+      "de": "'bereich' benötigt Zahlen.",
+      "eo": "rango postulas nombrojn.",
+      "fr": "rangée nécessite des nombres.",
+      "it": "intervallo richiede numeri.",
+      "ja": "`range` は数値を必要とします。",
+      "ko": "'range'는 숫자(들)를 필요로 합니다.",
+      "pt-BR": "intervalo requer números.",
+      "pt-PT": "intervalo requer números",
+      "zh": "范围 (rango) 需要数字."
+    }
+  },
+  {
+    "regexSource": "^rango requiere enteros$",
+    "translations": {
+      "en": "range requires integers.",
+      "de": "'bereich' benötigt ganze Zahlen.",
+      "eo": "rango postulas entjerojn.",
+      "fr": "rangée nécessite des entiers.",
+      "it": "intervallo richiede interi.",
+      "ja": "`range` は整数を必要とします。",
+      "ko": "'range'는 정수(들)를 필요로 합니다.",
+      "pt-BR": "intervalo requer inteiros.",
+      "pt-PT": "intervalo requer inteiros",
+      "zh": "范围 (rango) 需要整数."
+    }
+  },
+  {
+    "regexSource": "^iterable debe ser array$",
+    "translations": {
+      "en": "iterable must be an array.",
+      "de": "'iterierbar' muss ein Array sein.",
+      "eo": "iterable devas esti aro.",
+      "fr": "iterable doit être un tableau.",
+      "it": "iterable deve essere un array.",
+      "ja": "`iterable` は配列でなければなりません。",
+      "ko": "'iterable'은 배열이어야 합니다.",
+      "pt-BR": "iterável deve ser um array.",
+      "pt-PT": "iterável deve ser um array",
+      "zh": "可迭代对象 (iterable) 必须是数组."
+    }
+  },
+  {
+    "regexSource": "^Indentación de ([\\s\\S]*?) espacios; debe ser múltiplo de 2\\.$",
+    "translations": {
+      "en": "Indentation of {0} spaces; must be a multiple of 2.",
+      "de": "Einrückung um {0} Leerzeichen; muss ein Vielfaches von 2 sein.",
+      "eo": "Enspaco de {0} spaco(j); ĝi devas esti multiplo de 2.",
+      "fr": "Indentation de {0} espaces ; doit être un multiple de 2.",
+      "it": "Indentazione di {0} spazi; deve essere un multiplo di 2.",
+      "ja": "インデントは {0} スペース; 2 の倍数である必要があります。",
+      "ko": "{0}개의 공백으로 들여쓰기되었습니다. 들여쓰기는 2의 배수여야 합니다.",
+      "pt-BR": "Indentação de {0} espaços; deve ser um múltiplo de 2.",
+      "pt-PT": "Indentação de {0} espaços; deve ser múltiplo de 2.",
+      "zh": "缩进 {0} 个空格; 必须是 2 的倍数."
+    }
+  },
+  {
+    "regexSource": "^Indentación inconsistente\\.$",
+    "translations": {
+      "en": "Inconsistent indentation.",
+      "de": "Inkonsistente Einrückung.",
+      "eo": "Nesmeta enspaciĝo.",
+      "fr": "Indentation incohérente.",
+      "it": "Indentazione inconsistente.",
+      "ja": "インデントに一貫性がない。",
+      "ko": "일관되지 않은 들여쓰기입니다.",
+      "pt-BR": "Indentação inconsistente.",
+      "pt-PT": "Indentação inconsistente.",
+      "zh": "缩进不一致."
+    }
+  },
+  {
+    "regexSource": "^Indentación con tab no permitida; usar 2 espacios\\.$",
+    "translations": {
+      "en": "Indentation with tabs is not allowed; use 2 spaces.",
+      "de": "Einrückung mit Tabulatorzeichen nicht erlaubt; bitte 2 Leerzeichen verwenden.",
+      "eo": "Indentado kun tabulo ne permesita; uzu 2 spacoojn.",
+      "fr": "Indentation avec tabulation non autorisée ; utiliser 2 espaces.",
+      "it": "Indentazione con tab non consentita; utilizzare 2 spazi.",
+      "ja": "タブによるインデントは許可されていません。2つのスペースを使用してください。",
+      "ko": "탭 들여쓰기는 허용되지 않습니다. 2칸 공백을 사용하십시오.",
+      "pt-BR": "Indentação com tabulação não é permitida; use 2 espaços.",
+      "pt-PT": "Indentação com tabulação não é permitida; use 2 espaços.",
+      "zh": "不允许使用制表符缩进；请使用2个空格。"
+    }
+  },
+  {
+    "regexSource": "^Tab no permitido fuera de indentación\\.$",
+    "translations": {
+      "en": "Tabs are not allowed outside of indentation.",
+      "de": "Tabulatorzeichen außerhalb der Einrückung nicht erlaubt.",
+      "eo": "Tabulo ne permesita ekstere de indentado.",
+      "fr": "Tabulation non autorisée en dehors de l'indentation.",
+      "it": "Tab non consentito al di fuori dell'indentazione.",
+      "ja": "インデントの外でのタブの使用は許可されていません。",
+      "ko": "들여쓰기 영역 외부에서의 탭 사용은 허용되지 않습니다.",
+      "pt-BR": "Tabulação não é permitida fora da indentação.",
+      "pt-PT": "Tabulação não é permitida fora da indentação.",
+      "zh": "不允许在非缩进区域使用制表符。"
+    }
+  },
+  {
+    "regexSource": "^No se reconocen comentarios estilo /\\* \\*/, usá # para comentarios\\.$",
+    "translations": {
+      "en": "Comments in the style /* */ are not recognized; use # for comments.",
+      "de": "Kommentare im Stil /* */ werden nicht erkannt, verwenden Sie # für Kommentare.",
+      "eo": "Komentooj de la stilo /* */ ne estas agnoskataj; uzu # por komentooj.",
+      "fr": "Les commentaires de style /* */ ne sont pas reconnus, utilisez # pour les commentaires.",
+      "it": "I commenti di tipo /* */ non sono riconosciuti, utilizzare # per i commenti.",
+      "ja": "/* */ 形式のコメントは認識されません。コメントには # を使用してください。",
+      "ko": "/* */ 스타일의 주석은 인식되지 않습니다. 주석은 # 기호를 사용하십시오.",
+      "pt-BR": "Comentários no estilo /* */ não são reconhecidos, use # para comentários.",
+      "pt-PT": "Comentários no estilo /* */ não são reconhecidos, use # para comentários.",
+      "zh": "不支持 /* */ 风格的注释，请使用 # 进行注释。"
+    }
+  },
+  {
+    "regexSource": "^el string no tiene comilla de cierre$",
+    "translations": {
+      "en": "The string is missing a closing quote.",
+      "de": "Der String hat keine schließende Anführungszeichen.",
+      "eo": "La ĉeno ne havas fermantan komencilon.",
+      "fr": "La chaîne de caractères n'a pas de guillemet de fermeture.",
+      "it": "la stringa non ha la virgoletta di chiusura.",
+      "ja": "文字列が閉じられていません。",
+      "ko": "문자열에 닫는 따옴표가 없습니다.",
+      "pt-BR": "A string não possui aspas de fechamento.",
+      "pt-PT": "a string não tem aspas de fecho",
+      "zh": "字符串缺少结束引号。"
+    }
+  },
+  {
+    "regexSource": "^Escape inválido \\\\([\\s\\S]*?)$",
+    "translations": {
+      "en": "Invalid escape sequence \\{0}",
+      "de": "Ungültige Escape-Sequenz: {0}",
+      "eo": "Nevalida escapeo: \\{0}",
+      "fr": "Séquence d'échappement invalide \\{0}",
+      "it": "Sequenza di escape non valida: \\{0}",
+      "ja": "無効なエスケープシーケンス: {0}",
+      "ko": "유효하지 않은 이스케이프 문자 \\{0}",
+      "pt-BR": "Escape inválido {0}",
+      "pt-PT": "Escape inválido \\{0}",
+      "zh": "无效的转义字符 \\{0}"
+    }
+  },
+  {
+    "regexSource": "^Carácter inesperado '='\\. ¿Quisiste usar ':' para declarar\\?$",
+    "translations": {
+      "en": "Unexpected character '='. Did you mean to use ':' to declare?",
+      "de": "Unerwartetes Zeichen '='. Wollten Sie ':' verwenden, um eine Variable zu deklarieren?",
+      "eo": "Neprevida karaktero '='. Ĉu vi volis uzi ':' por deklarado?",
+      "fr": "Caractère inattendu '='. Avez-vous voulu utiliser ':' pour déclarer ?",
+      "it": "Carattere inatteso '='. Volevi usare ':' per dichiarare?",
+      "ja": "予期しない文字 '=' が見つかりました。宣言には ':' を使用しましたか？",
+      "ko": "예상치 못한 문자 '='가 나타났습니다. ':'를 사용하여 선언하려고 했습니까?",
+      "pt-BR": "Caractere inesperado '='. Você quis usar ':' para declarar?",
+      "pt-PT": "Carater inesperado '='. Quiseste usar ':' para declarar?",
+      "zh": "出现了意外的字符 '='。 您是想使用 ':' 来声明吗？"
+    }
+  },
+  {
+    "regexSource": "^Los textos van entre comillas dobles, no simples\\.$",
+    "translations": {
+      "en": "Texts must be enclosed in double quotes, not single quotes.",
+      "de": "Texte müssen in doppelten, nicht in einfachen Anführungszeichen stehen.",
+      "eo": "Tekstoj devas esti inter duoblaj komenciloj, ne simplaj.",
+      "fr": "Les textes doivent être entre guillemets doubles, et non simples.",
+      "it": "I testi devono essere racchiusi tra virgolette doppie, non singole.",
+      "ja": "テキストはシングルクォートではなく、ダブルクォートで囲んでください。",
+      "ko": "텍스트는 작은따옴표가 아닌 큰따옴표 안에 있어야 합니다.",
+      "pt-BR": "Os textos devem estar entre aspas duplas, não simples.",
+      "pt-PT": "Os textos devem estar entre aspas duplas, não simples.",
+      "zh": "文本应该放在双引号中，而不是单引号中。"
+    }
+  },
+  {
+    "regexSource": "^Carácter inesperado '([\\s\\S]*?)'$",
+    "translations": {
+      "en": "Unexpected character {0}",
+      "de": "Unerwartetes Zeichen: {0}",
+      "eo": "Neprevida karaktero '{0}'",
+      "fr": "Caractère inattendu '{0}'",
+      "it": "Carattere inatteso '{0}'",
+      "ja": "予期しない文字: {0}",
+      "ko": "예상치 못한 문자 '{0}'",
+      "pt-BR": "Caractere inesperado {0}",
+      "pt-PT": "Carater inesperado '{0}'",
+      "zh": "出现了意外的字符 {0}"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba un nombre de campo en `([\\s\\S]*?):`, se encontró ([\\s\\S]*?)([\\s\\S]*?)$",
+    "translations": {
+      "en": "A field name was expected in `{0}:`, but {1}{2} was found.",
+      "de": "Es wurde ein Feldname in `{0}:` erwartet, stattdessen wurde {1}{2} gefunden.",
+      "eo": "En `{0}:` estis atendita nomo de kampo, sed troviĝis {1}{2}.",
+      "fr": "Un nom de champ était attendu à `{0}:`, on a trouvé {1}{2}",
+      "it": "Ci si aspettava un nome di campo in `{0}:`, è stato trovato {1}{2}.",
+      "ja": "`{0}:` の先頭にはフィールド名が期待されていますが、{1}{2} が見つかりました。",
+      "ko": "`{0}:`에서 필드 이름을 예상했지만 {1}{2}가 발견되었습니다.",
+      "pt-BR": "Esperava-se um nome de campo em `{0}:`, encontrou-se {1}{2}",
+      "pt-PT": "Esperava-se um nome de campo em `{0}:`, encontrou-se {1}{2}",
+      "zh": "在 `{0}:` 中期望找到字段名，但找到了 {1}{2}"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba '-' al inicio de cada ítem de `([\\s\\S]*?):`$",
+    "translations": {
+      "en": "A '-' was expected at the beginning of each item in `{0}:`.",
+      "de": "Vor jedem Eintrag in `{0}:` wird ein '-' erwartet.",
+      "eo": "En `{0}:` estis atendita '-' komence de ĉiu elemento.",
+      "fr": "Un tiret '-' était attendu au début de chaque élément de `{0}:`",
+      "it": "Ci si aspettava un '-' all'inizio di ogni elemento di `{0}:`.",
+      "ja": "`{0}:` の各項目の先頭には '-' が期待されています。",
+      "ko": "`{0}:`의 각 항목 시작 부분에는 '-'가 있어야 합니다.",
+      "pt-BR": "Esperava-se um '-' no início de cada item de `{0}:`",
+      "pt-PT": "Esperava-se um '-' no início de cada item de `{0}:`",
+      "zh": "在 `{0}:` 的每个条目开头都应该有 '-'"
+    }
+  },
+  {
+    "regexSource": "^Tipo de variante desconocido `([\\s\\S]*?)`\\. Tipos válidos: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "Unknown variant type `{0}`. Valid types: {1}",
+      "de": "Unbekannter Variantentyp: `{0}`. Gültige Typen: {1}",
+      "eo": "Neconata tipo de varianto `{0}`. Validaj tipoj: {1}",
+      "fr": "Type de variante inconnu `{0}`. Types valides : {1}",
+      "it": "Tipo di variante sconosciuto `{0}`. Tipi validi: {1}.",
+      "ja": "バリアントの型が不明です: `{0}`。有効な型: {1}",
+      "ko": "변수 유형 `{0}`을 알 수 없습니다. 유효한 유형: {1}",
+      "pt-BR": "Tipo de variante desconhecido `{0}`. Tipos válidos: {1}",
+      "pt-PT": "Tipo de variante desconhecido `{0}`. Tipos válidos: {1}",
+      "zh": "变体类型未知 `{0}`。 有效类型：{1}"
+    }
+  },
+  {
+    "regexSource": "^Cada ítem de `([\\s\\S]*?):` debe ser un string \\(entre comillas\\)$",
+    "translations": {
+      "en": "Each item in `{0}:` must be a string (in quotes).",
+      "de": "Jeder Eintrag in `{0}:` muss ein String (in Anführungszeichen) sein.",
+      "eo": "Ĉiu elemento de `{0}:` devas esti ĉeno (inter komenciloj).",
+      "fr": "Chaque élément de `{0}:` doit être une chaîne de caractères (entre guillemets)",
+      "it": "Ogni elemento di `{0}:` deve essere una stringa (tra virgolette).",
+      "ja": "`{0}:` の各項目は文字列 (ダブルクォートで囲まれた) でなければなりません。",
+      "ko": "`{0}:`의 각 항목은 문자열(따옴표 안에 있어야 함)이어야 합니다.",
+      "pt-BR": "Cada item de `{0}:` deve ser uma string (entre aspas)",
+      "pt-PT": "Cada item de `{0}:` deve ser uma string (entre aspas)",
+      "zh": "`{0}:` 中的每个条目都必须是字符串（用引号括起来）。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba un nombre de variable, se encontró ([\\s\\S]*?)$",
+    "translations": {
+      "en": "A variable name was expected, but {0} was found.",
+      "de": "Es wurde ein Variablenname erwartet, es wurde {0} gefunden.",
+      "eo": "Oni atendis nomon de variablo, oni trovis {0}",
+      "fr": "Un nom de variable était attendu, mais {0} a été trouvé.",
+      "it": "Ci si aspettava un nome di variabile, è stato trovato {0}.",
+      "ja": "変数名が期待されますが、{0} が見つかりました。",
+      "ko": "변수 이름이 예상되었지만 {0}이 발견되었습니다.",
+      "pt-BR": "Esperava-se um nome de variável, encontrou-se {0}.",
+      "pt-PT": "Esperava-se um nome de variável, encontrou-se {0}",
+      "zh": "期望是变量名，但找到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^`unidad:` debe ser un string entre comillas$",
+    "translations": {
+      "en": "`unidad:` must be a string enclosed in quotes.",
+      "de": "`unidad:` muss ein String in Anführungszeichen sein.",
+      "eo": "`unidad:` devas esti ĉeno inter komputiloj",
+      "fr": "`unidad:` doit être une chaîne de caractères entre guillemets.",
+      "it": "`unidad:` deve essere una stringa tra virgolette.",
+      "ja": "`unidad:` は、引用符で囲まれた文字列でなければなりません。",
+      "ko": "`unidad:`은 따옴표로 묶인 문자열이어야 합니다.",
+      "pt-BR": "`unidad:` deve ser uma string entre aspas.",
+      "pt-PT": "`unidad:` deve ser uma string entre aspas",
+      "zh": "`unidad:` 必须是一个用引号括起来的字符串"
+    }
+  },
+  {
+    "regexSource": "^`tolerancia:` debe ser un número \\(opcionalmente con %\\)$",
+    "translations": {
+      "en": "`tolerancia:` must be a number (optionally with %).",
+      "de": "`tolerancia:` muss eine Zahl sein (optional mit %).",
+      "eo": "`tolerancia:` devas esti numero (eble kun %)",
+      "fr": "`tolerancia:` doit être un nombre (éventuellement avec %).",
+      "it": "`tolerancia:` deve essere un numero (opzionalmente con %).",
+      "ja": "`tolerancia:` は、数値（オプションで%を伴う）でなければなりません。",
+      "ko": "`tolerancia:`은 숫자 (선택적으로 %)여야 합니다.",
+      "pt-BR": "`tolerancia:` deve ser um número (opcionalmente com %).",
+      "pt-PT": "`tolerancia:` deve ser um número (opcionalmente com %)",
+      "zh": "`tolerancia:` 必须是一个数字（可选地带有百分号）"
+    }
+  },
+  {
+    "regexSource": "^`tolerancia:` debe ser un número válido, se encontró '([\\s\\S]*?)'$",
+    "translations": {
+      "en": "`tolerancia:` must be a valid number, but '{0}' was found.",
+      "de": "`tolerancia:` muss eine gültige Zahl sein, es wurde '{0}' gefunden.",
+      "eo": "`tolerancia:` devas esti valida numero, oni trovis '{0}'",
+      "fr": "`tolerancia:` doit être un nombre valide, mais '{0}' a été trouvé.",
+      "it": "`tolerancia:` deve essere un numero valido, è stato trovato '{0}'.",
+      "ja": "`tolerancia:` は、有効な数値でなければなりません。{0} が見つかりました。",
+      "ko": "`tolerancia:`은 유효한 숫자여야 하지만 '{0}'이 발견되었습니다.",
+      "pt-BR": "`tolerancia:` deve ser um número válido, encontrou-se '{0}'.",
+      "pt-PT": "`tolerancia:` deve ser um número válido, encontrou-se '{0}'",
+      "zh": "`tolerancia:` 必须是一个有效的数字，但找到了 '{0}'"
+    }
+  },
+  {
+    "regexSource": "^`tolerancia_abs:` debe ser un número \\(sin %\\)$",
+    "translations": {
+      "en": "`tolerancia_abs:` must be a number (without %).",
+      "de": "`tolerancia_abs:` muss eine Zahl sein (ohne %).",
+      "eo": "`tolerancia_abs:` devas esti numero (sen %)",
+      "fr": "`tolerancia_abs:` doit être un nombre (sans %).",
+      "it": "`tolerancia_abs:` deve essere un numero (senza %).",
+      "ja": "`tolerancia_abs:` は、数値（%なし）でなければなりません。",
+      "ko": "`tolerancia_abs:`은 숫자 (%, 제외)여야 합니다.",
+      "pt-BR": "`tolerancia_abs:` deve ser um número (sem %).",
+      "pt-PT": "`tolerancia_abs:` deve ser um número (sem %)",
+      "zh": "`tolerancia_abs:` 必须是一个数字（不带百分号）"
+    }
+  },
+  {
+    "regexSource": "^`tolerancia_abs:` debe ser un número válido, se encontró '([\\s\\S]*?)'$",
+    "translations": {
+      "en": "`tolerancia_abs:` must be a valid number, but '{0}' was found.",
+      "de": "`tolerancia_abs:` muss eine gültige Zahl sein, es wurde '{0}' gefunden.",
+      "eo": "`tolerancia_abs:` devas esti valida numero, oni trovis '{0}'",
+      "fr": "`tolerancia_abs:` doit être un nombre valide, mais '{0}' a été trouvé.",
+      "it": "`tolerancia_abs:` deve essere un numero valido, è stato trovato '{0}'.",
+      "ja": "`tolerancia_abs:` は、有効な数値でなければなりません。{0} が見つかりました。",
+      "ko": "`tolerancia_abs:`은 유효한 숫자여야 하지만 '{0}'이 발견되었습니다.",
+      "pt-BR": "`tolerancia_abs:` deve ser um número válido, encontrou-se '{0}'.",
+      "pt-PT": "`tolerancia_abs:` deve ser um número válido, encontrou-se '{0}'",
+      "zh": "`tolerancia_abs:` 必须是一个有效的数字，但找到了 '{0}'"
+    }
+  },
+  {
+    "regexSource": "^`opciones:` espera un número entero: la cantidad de alternativas a generar \\(ej\\. `opciones: 4`\\)\\. Si lo que tenés es una lista de valores propios \\(por ejemplo una variable de array\\), usá `opciones_explicitas:`\\.$",
+    "translations": {
+      "en": "`opciones:` expects an integer: the number of alternatives to generate (e.g., `opciones: 4`). If you have a list of your own values (e.g., an array variable), use `opciones_explicitas:`.",
+      "de": "`opciones:` erwartet eine ganze Zahl: die Anzahl der zu generierenden Alternativen (z.B. `opciones: 4`). Wenn Sie eine Liste eigener Werte haben (z.B. eine Array-Variable), verwenden Sie `opciones_explicitas:`.",
+      "eo": "`opciones:` atendas tutan numeron: la kvanto da alternativoj por generi (ekz. `opciones: 4`). Se vi havas liston da valoroj (ekzemple, variablo de tabelo), uzu `opciones_explicitas:`.",
+      "fr": "`opciones:` attend un nombre entier : le nombre d'alternatives à générer (par exemple, `opciones: 4`). Si vous avez une liste de valeurs propres (par exemple, une variable de tableau), utilisez `opciones_explicitas:`.",
+      "it": "`opciones:` si aspetta un numero intero: la quantità di alternative da generare (es. `opciones: 4`). Se quello che hai è una lista di valori propri (ad esempio una variabile di array), usa `opciones_explicitas:`.",
+      "ja": "`opciones:` は、生成する代替手段の数を表す整数が必要です（例：`opciones: 4`）。独自の値をリストで指定する場合（例：配列変数）、`opciones_explicitas:` を使用してください。",
+      "ko": "`opciones:`은 정수를 기다립니다. 생성할 대체 항목의 수입니다 (예: `opciones: 4`). 자체 값 목록 (예: 배열 변수)이 있는 경우 `opciones_explicitas:`을 사용하십시오.",
+      "pt-BR": "`opciones:` espera um número inteiro: a quantidade de alternativas a gerar (ex. `opciones: 4`). Se o que você tem é uma lista de valores próprios (por exemplo, uma variável de array), use `opciones_explicitas:`.",
+      "pt-PT": "`opciones:` espera um número inteiro: a quantidade de alternativas a gerar (ex. `opciones: 4`). Se o que tem é uma lista de valores próprios (por exemplo uma variável de array), use `opciones_explicitas:`.",
+      "zh": "`opciones:` 期望是一个整数：用于生成备选方案的数量（例如 `opciones: 4`）。 如果你有一个值的列表（例如数组变量），请使用 `opciones_explicitas:`。"
+    }
+  },
+  {
+    "regexSource": "^`opciones:` debe ser un entero positivo, se encontró ([\\s\\S]*?)$",
+    "translations": {
+      "en": "`opciones:` must be a positive integer, but {0} was found.",
+      "de": "`opciones:` muss eine positive ganze Zahl sein, es wurde {0} gefunden.",
+      "eo": "`opciones:` devas esti pozitiva tuto, oni trovis {0}",
+      "fr": "`opciones:` doit être un entier positif, mais {0} a été trouvé.",
+      "it": "`opciones:` deve essere un intero positivo, è stato trovato {0}.",
+      "ja": "`opciones:` は、正の整数でなければなりません。{0} が見つかりました。",
+      "ko": "`opciones:`은 양의 정수여야 하지만 {0}이 발견되었습니다.",
+      "pt-BR": "`opciones:` deve ser um inteiro positivo, encontrou-se {0}.",
+      "pt-PT": "`opciones:` deve ser um inteiro positivo, encontrou-se {0}",
+      "zh": "`opciones:` 必须是一个正整数，但找到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^`tipo:` debe ser uno de ([\\s\\S]*?)$",
+    "translations": {
+      "en": "`tipo:` must be one of {0}.",
+      "de": "`tipo:` muss eines von {0} sein.",
+      "eo": "`tipo:` devas esti unu el {0}",
+      "fr": "`tipo:` doit être l'un des suivants : {0}.",
+      "it": "`tipo:` deve essere uno tra {0}.",
+      "ja": "`tipo:` は、{0} のいずれかでなければなりません。",
+      "ko": "`tipo:`은 {0} 중 하나여야 합니다.",
+      "pt-BR": "`tipo:` deve ser um de {0}.",
+      "pt-PT": "`tipo:` deve ser um de {0}",
+      "zh": "`tipo:` 必须是 {0} 中的一个"
+    }
+  },
+  {
+    "regexSource": "^Tipo desconocido `([\\s\\S]*?)`\\. Tipos válidos: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "Unknown type `{0}`. Valid types: {1}.",
+      "de": "Unbekannter Typ `{0}`. Gültige Typen: {1}.",
+      "eo": "Neconata tipo `{0}`. Valdaj tipoj: {1}",
+      "fr": "Type inconnu `{0}`. Types valides : {1}.",
+      "it": "Tipo sconosciuto `{0}`. Tipi validi: {1}.",
+      "ja": "不明な型 `{0}`。有効な型：{1}",
+      "ko": "알 수 없는 유형 `{0}`. 유효한 유형: {1}",
+      "pt-BR": "Tipo desconhecido `{0}`. Tipos válidos: {1}.",
+      "pt-PT": "Tipo desconhecido `{0}`. Tipos válidos: {1}",
+      "zh": "未知类型 `{0}`。 有效类型：{1}"
+    }
+  },
+  {
+    "regexSource": "^`correccion:` debe ser `ninguna` o `manual`$",
+    "translations": {
+      "en": "`correccion:` must be `ninguna` or `manual`.",
+      "de": "`correccion:` muss `ninguna` oder `manual` sein.",
+      "eo": "`correccion:` devas esti `ninguna` aŭ `manual`",
+      "fr": "`correccion:` doit être `ninguna` ou `manual`.",
+      "it": "`correccion:` deve essere `ninguna` o `manual`.",
+      "ja": "`correccion:` は、`ninguna` または `manual` でなければなりません。",
+      "ko": "`correccion:`은 `ninguna` 또는 `manual`이어야 합니다.",
+      "pt-BR": "`correccion:` deve ser `ninguna` ou `manual`.",
+      "pt-PT": "`correccion:` deve ser `ninguna` ou `manual`",
+      "zh": "`correccion:` 必须是 `ninguna` 或 `manual`"
+    }
+  },
+  {
+    "regexSource": "^Modo de corrección desconocido `([\\s\\S]*?)`\\. Modos válidos: ninguna, manual\\.$",
+    "translations": {
+      "en": "Unknown correction mode `{0}`. Valid modes: none, manual.",
+      "de": "Unbekannter Korrekturmodus `{0}`. Gültige Modi: keiner, manuell.",
+      "eo": "Neconata rektig-modo `{0}`. Valdaj modoj: neniu, manajlo.",
+      "fr": "Mode de correction inconnu `{0}`. Modes valides : aucun, manuel.",
+      "it": "Modalità di correzione sconosciuta `{0}`. Modalità valide: nessuna, manuale.",
+      "ja": "不明な修正モード `{0}`。有効なモード：なし、手動。",
+      "ko": "알 수 없는 수정 모드 `{0}`. 유효한 모드: 없음, 수동.",
+      "pt-BR": "Modo de correção desconhecido `{0}`. Modos válidos: nenhum, manual.",
+      "pt-PT": "Modo de correção desconhecido `{0}`. Modos válidos: nenhum, manual.",
+      "zh": "未知的纠正模式 `{0}`。 有效模式：无，手动。"
+    }
+  },
+  {
+    "regexSource": "^`multiple:` debe ser `true` o `false`$",
+    "translations": {
+      "en": "`multiple:` must be `true` or `false`.",
+      "de": "`multiple:` muss `true` oder `false` sein.",
+      "eo": "`multiple:` devas esti `true` aŭ `false`",
+      "fr": "`multiple:` doit être `true` ou `false`.",
+      "it": "`multiple:` deve essere `true` o `false`.",
+      "ja": "`multiple:` は、`true` または `false` でなければなりません。",
+      "ko": "`multiple:`은 `true` 또는 `false`이어야 합니다.",
+      "pt-BR": "`multiple:` deve ser `true` ou `false`.",
+      "pt-PT": "`multiple:` deve ser `true` ou `false`",
+      "zh": "`multiple:` 必须是 `true` 或 `false`"
+    }
+  },
+  {
+    "regexSource": "^`puntaje_parcial:` debe ser `todo_o_nada` o `proporcional`$",
+    "translations": {
+      "en": "`puntaje_parcial:` must be `todo_o_nada` or `proporcional`.",
+      "de": "`puntaje_parcial:` muss `todo_o_nada` oder `proporcional` sein.",
+      "eo": "`puntaje_parcial:` devas esti `todo_o_nada` aŭ `proporcional`",
+      "fr": "`puntaje_parcial:` doit être `todo_o_nada` ou `proporcional`.",
+      "it": "`puntaje_parcial:` deve essere `todo_o_nada` o `proporcional`.",
+      "ja": "`puntaje_parcial:` は、`todo_o_nada` または `proporcional` でなければなりません。",
+      "ko": "`puntaje_parcial:`은 `todo_o_nada` 또는 `proporcional`이어야 합니다.",
+      "pt-BR": "`puntaje_parcial:` deve ser `todo_o_nada` ou `proporcional`.",
+      "pt-PT": "`puntaje_parcial:` deve ser `todo_o_nada` ou `proporcional`",
+      "zh": "`puntaje_parcial:` 必须是 `todo_o_nada` 或 `proporcional`"
+    }
+  },
+  {
+    "regexSource": "^Modo de puntaje desconocido `([\\s\\S]*?)`\\. Modos válidos: todo_o_nada, proporcional\\.$",
+    "translations": {
+      "en": "Unknown scoring mode `{0}`. Valid modes: todo_o_nada, proportional.",
+      "de": "Unbekannter Bewertungsmodus `{0}`. Gültige Modi: todo_o_nada, proportional.",
+      "eo": "Neconata punkt-modo `{0}`. Valdaj modoj: todo_o_nada, proporcia.",
+      "fr": "Mode de notation inconnu `{0}`. Modes valides : todo_o_nada, proportionnel.",
+      "it": "Modalità di punteggio sconosciuta `{0}`. Modalità valide: todo_o_nada, proporzionale.",
+      "ja": "不明なスコアリングモード `{0}`。有効なモード：todo_o_nada、比例。",
+      "ko": "알 수 없는 점수 모드 `{0}`. 유효한 모드: todo_o_nada, 비례.",
+      "pt-BR": "Modo de pontuação desconhecido `{0}`. Modos válidos: todo_o_nada, proporcional.",
+      "pt-PT": "Modo de pontuação desconhecido `{0}`. Modos válidos: todo_o_nada, proporcional.",
+      "zh": "未知的评分模式 `{0}`。 有效模式：todo_o_nada，比例。"
+    }
+  },
+  {
+    "regexSource": "^`generador:` espera un identificador o ruta tipo `fisica/cinematica/MRU`$",
+    "translations": {
+      "en": "`generador:` expects an identifier or a path of type `fisica/cinematica/MRU`",
+      "de": "`generador:` erwartet einen Bezeichner oder einen Pfad vom Typ `fisica/cinematica/MRU`.",
+      "eo": "`generador:` atendas identifilon aŭ vojon de tipo `fisica/cinematica/MRU`.",
+      "fr": "`generador:` attend un identificateur ou un chemin de type `fisica/cinematica/MRU`.",
+      "it": "`generador:` si aspetta un identificatore o un percorso di tipo `fisica/cinematica/MRU`.",
+      "ja": "`generador:` は、識別子または `fisica/cinematica/MRU` 型のパスを期待しています。",
+      "ko": "`generador:`은(는) 식별자 또는 `fisica/cinematica/MRU` 유형의 경로를 예상합니다.",
+      "pt-BR": "`generador:` espera um identificador ou um caminho do tipo `fisica/cinematica/MRU`",
+      "pt-PT": "`generador:` espera um identificador ou caminho do tipo `fisica/cinematica/MRU`.",
+      "zh": "`generador:` 期望一个标识符或类型为 `fisica/cinematica/MRU` 的路径。"
+    }
+  },
+  {
+    "regexSource": "^Segmento inválido en ruta de generador$",
+    "translations": {
+      "en": "Invalid segment in the generator path.",
+      "de": "Ungültiges Segment im Generatorpfad.",
+      "eo": "Nevalida segmento en vojo de generilo.",
+      "fr": "Segment invalide dans le chemin du générateur.",
+      "it": "Segmento non valido nel percorso del generatore.",
+      "ja": "ジェネレータパス内の無効なセグメント。",
+      "ko": "생성기 경로에 유효하지 않은 세그먼트가 있습니다.",
+      "pt-BR": "Segmento inválido no caminho do gerador.",
+      "pt-PT": "Segmento inválido no caminho do gerador.",
+      "zh": "生成器路径中的无效段。"
+    }
+  },
+  {
+    "regexSource": "^`dataset:` espera el nombre del dataset$",
+    "translations": {
+      "en": "`dataset:` expects the dataset name.",
+      "de": "`dataset:` erwartet den Namen des Datensatzes.",
+      "eo": "`dataset:` atendas la nomon de la dataro.",
+      "fr": "`dataset:` attend le nom du jeu de données.",
+      "it": "`dataset:` si aspetta il nome del dataset.",
+      "ja": "`dataset:` は、データセットの名前を期待しています。",
+      "ko": "`dataset:`은(는) 데이터 세트 이름을 예상합니다.",
+      "pt-BR": "`dataset:` espera o nome do dataset.",
+      "pt-PT": "`dataset:` espera o nome do dataset.",
+      "zh": "`dataset:` 期望数据集的名称。"
+    }
+  },
+  {
+    "regexSource": "^Falta poner el nombre del mapa entre comillas dobles, ej\\. `mapa: \"world_countries\"`\\.$",
+    "translations": {
+      "en": "You must enclose the map name in double quotes, e.g., `mapa: \"world_countries\"`.",
+      "de": "Der Name der Karte muss in doppelten Anführungszeichen stehen, z.B. `mapa: \"world_countries\"`.",
+      "eo": "Ne estas permesate omiti la nomon de la mapo inter duoblaj komencaj kaj finaj signoj, ekz. `mapa: \"world_countries\"`.",
+      "fr": "Il faut mettre le nom de la carte entre guillemets doubles, par exemple : `mapa: \"world_countries\"`.",
+      "it": "È necessario racchiudere il nome della mappa tra doppi apici, ad esempio `mapa: \"world_countries\"`.",
+      "ja": "マップの名前を二重引用符で囲む必要があります。例: `mapa: \"world_countries\"`。",
+      "ko": "맵 이름을 큰따옴표 안에 넣어야 합니다. 예: `mapa: \"world_countries\"`.",
+      "pt-BR": "Falta colocar o nome do mapa entre aspas duplas, por exemplo, `mapa: \"world_countries\"`.",
+      "pt-PT": "Falta colocar o nome do mapa entre aspas duplas, por exemplo, `mapa: \"world_countries\"`.",
+      "zh": "请在双引号内指定地图的名称，例如：`mapa: \"world_countries\"`。"
+    }
+  },
+  {
+    "regexSource": "^Mapa desconocido `([\\s\\S]*?)`\\. Mapas válidos: ([\\s\\S]*?)\\.$",
+    "translations": {
+      "en": "Unknown map `{0}`. Valid maps: {1}.",
+      "de": "Unbekannte Karte `{0}`. Gültige Karten: {1}.",
+      "eo": "Ne konata mapo `{0}`. Validaj mapoj: {1}.",
+      "fr": "Carte inconnue `{0}`. Cartes valides : {1}.",
+      "it": "Mappa sconosciuta `{0}`. Mappe valide: {1}.",
+      "ja": "不明なマップ `{0}`。有効なマップ: {1}。",
+      "ko": "알 수 없는 맵 `{0}`. 유효한 맵: {1}.",
+      "pt-BR": "Mapa desconhecido `{0}`. Mapas válidos: {1}.",
+      "pt-PT": "Mapa desconhecido `{0}`. Mapas válidos: {1}.",
+      "zh": "未知的地图：`{0}`。 允许的地图：{1}。"
+    }
+  },
+  {
+    "regexSource": "^encuadre requiere una lista de 4 números: \\[oeste, sur, este, norte\\]$",
+    "translations": {
+      "en": "frame requires a list of 4 numbers: [west, south, east, north]",
+      "de": "\"umrandung\" erfordert eine Liste aus 4 Zahlen: [West, Süd, Ost, Nord].",
+      "eo": "`encuadre` postulas liston de 4 numeroj: [okcidento, sudo, oriento, nordo].",
+      "fr": "encadre nécessite une liste de 4 nombres : [ouest, sud, est, nord].",
+      "it": "\"incorniciatura\" richiede una lista di 4 numeri: [ovest, sud, est, nord].",
+      "ja": "bounding box は、4つの数値のリストが必要です: [西, 南, 東, 北]。",
+      "ko": "경계(encuadre)는 4개의 숫자로 이루어진 목록이어야 합니다: [서, 남, 동, 북].",
+      "pt-BR": "\"encuadre\" requer uma lista de 4 números: [oeste, sul, leste, norte].",
+      "pt-PT": "`encuadre` requer uma lista de 4 números: [oeste, sul, este, norte].",
+      "zh": "“encuadre” 需要一个包含 4 个数字的列表：[西, 南, 东, 北]。"
+    }
+  },
+  {
+    "regexSource": "^encuadre: se esperaba número en posición ([\\s\\S]*?)$",
+    "translations": {
+      "en": "frame: a number was expected in position {0}.",
+      "de": "\"umrandung\": Eine Zahl wurde an Position {0} erwartet.",
+      "eo": "`encuadre`: atendis numeron en pozicio {0}.",
+      "fr": "encadre : un nombre était attendu à la position {0}.",
+      "it": "\"incorniciatura\": si aspettava un numero nella posizione {0}.",
+      "ja": "bounding box: 位置 {0} で数値が期待されています。",
+      "ko": "경계(encuadre): {0} 위치에 숫자가 예상됩니다.",
+      "pt-BR": "\"encuadre\": esperava um número na posição {0}.",
+      "pt-PT": "`encuadre`: esperava-se um número na posição {0}.",
+      "zh": "“encuadre”: 在位置 {0} 期望一个数字。"
+    }
+  },
+  {
+    "regexSource": "^encuadre: se esperaba coma después de posición ([\\s\\S]*?)$",
+    "translations": {
+      "en": "frame: a comma was expected after position {0}.",
+      "de": "\"umrandung\": Ein Komma wurde nach Position {0} erwartet.",
+      "eo": "`encuadre`: atendis komon post pozicio {0}.",
+      "fr": "encadre : une virgule était attendue après la position {0}.",
+      "it": "\"incorniciatura\": si aspettava una virgola dopo la posizione {0}.",
+      "ja": "bounding box: 位置 {0} の後にカンマが期待されています。",
+      "ko": "경계(encuadre): {0} 위치 다음에 쉼표가 예상됩니다.",
+      "pt-BR": "\"encuadre\": esperava uma vírgula após a posição {0}.",
+      "pt-PT": "`encuadre`: esperava-se uma vírgula após a posição {0}.",
+      "zh": "“encuadre”: 在位置 {0} 之后期望一个逗号。"
+    }
+  },
+  {
+    "regexSource": "^encuadre: falta cierre '\\]'$",
+    "translations": {
+      "en": "frame: closing bracket ']' is missing.",
+      "de": "\"umrandung\": Es fehlt die schließende Klammer ']'.",
+      "eo": "`encuadre`: mankas fermilo ']'.",
+      "fr": "encadre : il manque la fermeture ']'.",
+      "it": "\"incorniciatura\": manca la chiusura ']'.",
+      "ja": "bounding box: 閉じ括弧 ']' が不足しています。",
+      "ko": "경계(encuadre): ']' 문자가 빠졌습니다.",
+      "pt-BR": "\"encuadre\": falta o fechamento ']'.",
+      "pt-PT": "`encuadre`: falta o fecho ']'.",
+      "zh": "“encuadre”: 缺少闭合的 ']'。"
+    }
+  },
+  {
+    "regexSource": "^`enunciado:` debe ir seguido de un string \\(\"\\.\\.\\.\"\\) o de un bloque multilínea con \\|$",
+    "translations": {
+      "en": "`enunciado:` must be followed by a string (\"...\") or a multiline block with |.",
+      "de": "`enunciado:` muss gefolgt von einem String (\"...\") oder einem mehrzeiligen Block mit '|' sein.",
+      "eo": "`enunciado:` devas esti sekvita de ĉeno (\"...\") aŭ de multlinia bloko kun '|'.",
+      "fr": "`enunciado:` doit être suivi d'une chaîne de caractères (\"...\") ou d'un bloc multiligne avec |.",
+      "it": "`enunciado:` deve essere seguito da una stringa (\"...\") o da un blocco multilinea con |.",
+      "ja": "`enunciado:` の後には、文字列 (\"...\") または、| で始まる複数行のブロックが続いている必要があります。",
+      "ko": "`enunciado:` 뒤에는 문자열 (\"...\") 또는 '|'로 시작하는 여러 줄 블록이 와야 합니다.",
+      "pt-BR": "`enunciado:` deve ser seguido por uma string (\"...\") ou por um bloco multilinha com |.",
+      "pt-PT": "`enunciado:` deve ser seguido por uma string (\"...\") ou por um bloco multilinha com |.",
+      "zh": "`enunciado:` 必须后跟一个字符串 (\"...\") 或一个多行块，用 | 符号分隔。"
+    }
+  },
+  {
+    "regexSource": "^`enunciados:` requiere al menos una variante \\(mínimo 1 ítem con '- \"\\.\\.\\.\"'\\)$",
+    "translations": {
+      "en": "`enunciados:` requires at least one variant (a minimum of 1 item with '- \"...\"').",
+      "de": "`enunciados:` benötigt mindestens eine Variante (mindestens 1 Eintrag mit '- \"...\"').",
+      "eo": "`enunciados:` postulas almenaŭ unu varianton (minimume 1 ero kun '- \"...\"').",
+      "fr": "`enunciados:` nécessite au moins une variante (un minimum de 1 élément avec '- \"...\"').",
+      "it": "`enunciados:` richiede almeno una variante (almeno 1 elemento con '- \"...\"').",
+      "ja": "`enunciados:` は、少なくとも1つのバリエーションが必要です (最小1つの項目: '- \"...\"')。",
+      "ko": "`enunciados:`은(는) 최소한 하나의 변형(최소 1개의 항목, 예: '- \"...\"')을 필요로 합니다.",
+      "pt-BR": "`enunciados:` requer pelo menos uma variante (mínimo 1 item com '- \"...\"').",
+      "pt-PT": "`enunciados:` requer pelo menos uma variante (mínimo 1 item com '- \"...\"').",
+      "zh": "`enunciados:` 需要至少一个变体（至少一个项目，格式为 '- \"...\"'）。"
+    }
+  },
+  {
+    "regexSource": "^`explicacion:` debe ir seguido de un string \\(\"\\.\\.\\.\"\\) o de un bloque multilínea con \\|$",
+    "translations": {
+      "en": "`explicacion:` must be followed by a string (\"...\") or a multiline block with |.",
+      "de": "`explicacion:` muss gefolgt von einem String (\"...\") oder einem mehrzeiligen Block mit '|' sein.",
+      "eo": "`explicacion:` devas esti sekvita de ĉeno (\"...\") aŭ de multlinia bloko kun '|'.",
+      "fr": "`explicacion:` doit être suivi d'une chaîne de caractères (\"...\") ou d'un bloc multiligne avec |.",
+      "it": "`explicacion:` deve essere seguito da una stringa (\"...\") o da un blocco multilinea con |.",
+      "ja": "`explicacion:` の後には、文字列 (\"...\") または、| で始まる複数行のブロックが続いている必要があります。",
+      "ko": "`explicacion:` 뒤에는 문자열 (\"...\") 또는 '|'로 시작하는 여러 줄 블록이 와야 합니다.",
+      "pt-BR": "`explicacion:` deve ser seguido por uma string (\"...\") ou por um bloco multilinha com |.",
+      "pt-PT": "`explicacion:` deve ser seguido por uma string (\"...\") ou por um bloco multilinha com |.",
+      "zh": "`explicacion:` 必须后跟一个字符串 (\"...\") 或一个多行块，用 | 符号分隔。"
+    }
+  },
+  {
+    "regexSource": "^`pistas:` requiere al menos una pista \\(un string inline o '- \"\\.\\.\\.\"'\\)$",
+    "translations": {
+      "en": "`pistas:` requires at least one clue (an inline string or '- \"...\"').",
+      "de": "`pistas:` benötigt mindestens einen Hinweis (ein Inline-String oder '- \"...\"').",
+      "eo": "`pistas:` postulas almenaŭ unu indicon (ĉeno enlinia aŭ '- \"...\"').",
+      "fr": "`pistas:` nécessite au moins une piste (une chaîne de caractères en ligne ou '- \"...\"').",
+      "it": "`pistas:` richiede almeno una traccia (una stringa inline o '- \"...\"').",
+      "ja": "`pistas:` は、少なくとも1つのヒントが必要です (インライン文字列または '- \"...\"')。",
+      "ko": "`pistas:`은(는) 최소한 하나의 힌트(인라인 문자열 또는 '- \"...\"')를 필요로 합니다.",
+      "pt-BR": "`pistas:` requer pelo menos uma pista (uma string inline ou '- \"...\"').",
+      "pt-PT": "`pistas:` requer pelo menos uma pista (uma string inline ou '- \"...\"').",
+      "zh": "`pistas:` 需要至少一个线索（一个内联字符串或 '- \"...\"'）。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba '-' al inicio de cada etiqueta en `etiquetas_pedidas:`$",
+    "translations": {
+      "en": "A '-' was expected at the beginning of each label in `etiquetas_pedidas:`",
+      "de": "Es wurde ein '-' Zeichen am Anfang jedes Labels in `etiquetas_pedidas:` erwartet.",
+      "eo": "Oni atendis '-' komence de ĉiu etikedeto en `etiquetas_pedidas:`",
+      "fr": "Un '-' était attendu au début de chaque étiquette dans `etiquetas_pedidas:`.",
+      "it": "Ci si aspettava un segno '-' all'inizio di ogni etichetta in `etiquetas_pedidas:`",
+      "ja": "`etiquetas_pedidas:` の各ラベルの先頭には '-' が期待されています。",
+      "ko": "`etiquetas_pedidas:`에서 각 레이블의 시작 부분에는 '-'가 와야 합니다.",
+      "pt-BR": "Esperava-se \"-\" no início de cada etiqueta em `etiquetas_pedidas:`.",
+      "pt-PT": "Esperava-se '-' no início de cada etiqueta em `etiquetas_pedidas:`",
+      "zh": "在 `etiquetas_pedidas:` 的每个标签的开头，预期是 \"-\"。"
+    }
+  },
+  {
+    "regexSource": "^Cada etiqueta debe ser un objeto literal \\{ id: \"\\.\\.\\.\", \\.\\.\\. \\}$",
+    "translations": {
+      "en": "Each label must be a literal object { id: \"...\", ... }",
+      "de": "Jedes Label muss ein Literalobjekt sein { id: \"...\", ... }.",
+      "eo": "Ĉiu etikedeto devas esti literala objekto { id: \"...\", ... }",
+      "fr": "Chaque étiquette doit être un objet littéral { id: \"...\", ... }.",
+      "it": "Ogni etichetta deve essere un oggetto letterale { id: \"...\", ... }",
+      "ja": "各ラベルは、{ id: \"...\", ... } のようなリテラルオブジェクトである必要があります。",
+      "ko": "각 레이블은 리터럴 객체 { id: \"...\", ... }여야 합니다.",
+      "pt-BR": "Cada etiqueta deve ser um objeto literal { id: \"...\", ... }.",
+      "pt-PT": "Cada etiqueta deve ser um objeto literal { id: \"...\", ... }",
+      "zh": "每个标签必须是一个字面对象 { id: \"...\", ... }。"
+    }
+  },
+  {
+    "regexSource": "^El campo `id` de una etiqueta debe ser un string$",
+    "translations": {
+      "en": "The field `id` of a label must be a string",
+      "de": "Das Feld `id` eines Labels muss ein String sein.",
+      "eo": "La kampo `id` de etikedeto devas esti stringo",
+      "fr": "Le champ `id` d'une étiquette doit être une chaîne de caractères.",
+      "it": "Il campo `id` di un'etichetta deve essere una stringa",
+      "ja": "ラベルの `id` フィールドは文字列である必要があります。",
+      "ko": "레이블의 `id` 필드는 문자열이어야 합니다.",
+      "pt-BR": "O campo `id` de uma etiqueta deve ser uma string.",
+      "pt-PT": "O campo `id` de uma etiqueta deve ser uma string",
+      "zh": "标签中的 `id` 字段必须是一个字符串。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba '-' al inicio de cada span en `spans_pedidos:`$",
+    "translations": {
+      "en": "A '-' was expected at the beginning of each span in `spans_pedidos:`",
+      "de": "Es wurde ein '-' Zeichen am Anfang jedes Spans in `spans_pedidos:` erwartet.",
+      "eo": "Oni atendis '-' komence de ĉiu span en `spans_pedidos:`",
+      "fr": "Un '-' était attendu au début de chaque span dans `spans_pedidos:`.",
+      "it": "Ci si aspettava un segno '-' all'inizio di ogni span in `spans_pedidos:`",
+      "ja": "`spans_pedidos:` の各 span の先頭には '-' が期待されています。",
+      "ko": "`spans_pedidos:`에서 각 span의 시작 부분에는 '-'가 와야 합니다.",
+      "pt-BR": "Esperava-se \"-\" no início de cada span em `spans_pedidos:`.",
+      "pt-PT": "Esperava-se '-' no início de cada span em `spans_pedidos:`",
+      "zh": "在 `spans_pedidos:` 的每个 span 的开头，预期是 \"-\"。"
+    }
+  },
+  {
+    "regexSource": "^Cada span debe ser un objeto literal \\{ desde: 0, hasta: 2, etiqueta: \"sujeto\" \\}$",
+    "translations": {
+      "en": "Each span must be a literal object { desde: 0, hasta: 2, etiqueta: \"sujeto\" }",
+      "de": "Jeder Span muss ein Literalobjekt sein { von: 0, bis: 2, label: \"subjekt\" }.",
+      "eo": "Ĉiu span devas esti literala objekto { desde: 0, hasta: 2, etiqueta: \"sujeto\" }",
+      "fr": "Chaque span doit être un objet littéral { depuis: 0, jusqu'à: 2, étiquette: \"sujet\" }.",
+      "it": "Ogni span deve essere un oggetto letterale { da: 0, fino: 2, etichetta: \"sujeto\" }",
+      "ja": "各 span は、{ desde: 0, hasta: 2, etiqueta: \"sujeto\" } のようなリテラルオブジェクトである必要があります。",
+      "ko": "각 span은 리터럴 객체 { desde: 0, hasta: 2, etiqueta: \"sujeto\" }여야 합니다.",
+      "pt-BR": "Cada span deve ser um objeto literal { desde: 0, hasta: 2, etiqueta: \"sujeto\" }.",
+      "pt-PT": "Cada span deve ser um objeto literal { desde: 0, até: 2, etiqueta: \"sujeito\" }",
+      "zh": "每个 span 必须是一个字面对象 { desde: 0, hasta: 2, etiqueta: \"sujeto\" }。"
+    }
+  },
+  {
+    "regexSource": "^`spans_pedidos:` requiere al menos un span$",
+    "translations": {
+      "en": "`spans_pedidos:` requires at least one span",
+      "de": "`spans_pedidos:` benötigt mindestens einen Span.",
+      "eo": "`spans_pedidos:` postulas almenaŭ unu span",
+      "fr": "`spans_pedidos:` nécessite au moins un span.",
+      "it": "`spans_pedidos:` richiede almeno uno span",
+      "ja": "`spans_pedidos:` は少なくとも 1 つの span を必要とします。",
+      "ko": "`spans_pedidos:`은 최소 하나의 span을 요구합니다.",
+      "pt-BR": "`spans_pedidos:` requer pelo menos um span.",
+      "pt-PT": "`spans_pedidos:` requer pelo menos um span",
+      "zh": "`spans_pedidos:` 至少需要一个 span。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba un bloque a nivel raíz, se encontró ([\\s\\S]*?)([\\s\\S]*?)$",
+    "translations": {
+      "en": "A block was expected at the root level, but {0}{1} was found.",
+      "de": "Es wurde ein Block auf oberster Ebene erwartet, stattdessen wurde {0}{1} gefunden.",
+      "eo": "Oni atendis blokon je la radika nivelo, oni trovis {0}{1}",
+      "fr": "Un bloc était attendu au niveau racine, mais on a trouvé {0}{1}.",
+      "it": "Ci si aspettava un blocco a livello radice, è stato trovato {0}{1}",
+      "ja": "ルートレベルのブロックが期待されましたが、{0}{1} が見つかりました。",
+      "ko": "루트 레벨에서 블록을 기대했지만, {0}{1}을 찾았습니다.",
+      "pt-BR": "Esperava-se um bloco no nível raiz, encontrou-se {0}{1}.",
+      "pt-PT": "Esperava-se um bloco no nível raiz, encontrou-se {0}{1}",
+      "zh": "预期在根级别找到一个块，但找到了 {0}{1}。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba ([\\s\\S]*?) pero se encontró ([\\s\\S]*?)([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0} was expected, but {1}{2} was found.",
+      "de": "Es wurde {0} erwartet, aber {1}{2} wurde gefunden.",
+      "eo": "Oni atendis {0} sed oni trovis {1}{2}",
+      "fr": "On attendait {0} mais on a trouvé {1}{2}.",
+      "it": "Ci si aspettava {0} ma è stato trovato {1}{2}",
+      "ja": "{0} が期待されましたが、{1}{2} が見つかりました。",
+      "ko": "{0}을 기대했지만, {1}{2}를 찾았습니다.",
+      "pt-BR": "Esperava-se {0}, mas encontrou-se {1}{2}.",
+      "pt-PT": "Esperava-se {0} mas encontrou-se {1}{2}",
+      "zh": "预期是 {0}，但找到了 {1}{2}。"
+    }
+  },
+  {
+    "regexSource": "^El operador '\\.\\.' solo se permite dentro de un 'for \\.\\.\\. in'$",
+    "translations": {
+      "en": "The operator '..' is only allowed within a 'for ... in'",
+      "de": "Der Operator '..' ist nur innerhalb einer 'for ... in'-Schleife erlaubt.",
+      "eo": "La operacio '..' nur permesas ene de 'for ... in'",
+      "fr": "L'opérateur '..' n'est autorisé que dans un 'for ... in'.",
+      "it": "L'operatore '..' è consentito solo all'interno di un 'for ... in'",
+      "ja": "'..' 演算子は 'for ... in' の内でのみ許可されます。",
+      "ko": "'..' 연산자는 'for ... in' 내에서만 허용됩니다.",
+      "pt-BR": "O operador \"..\" só é permitido dentro de um 'for ... in'.",
+      "pt-PT": "O operador '..' só é permitido dentro de um 'for ... in'",
+      "zh": "操作符 \"..\" 只能在 \"for ... in\" 语句中使用。"
+    }
+  },
+  {
+    "regexSource": "^Los operadores de comparación no son asociativos \\(usá paréntesis o el operador 'y'\\)\\.$",
+    "translations": {
+      "en": "Comparison operators are not associative (use parentheses or the 'and' operator).",
+      "de": "Vergleichsoperatoren sind nicht assoziativ (verwenden Sie Klammern oder den Operator 'und').",
+      "eo": "La komparaj operacioj ne estas asociaj (uzigu parantezon aŭ la operacion 'kaj').",
+      "fr": "Les opérateurs de comparaison ne sont pas associatifs (utilisez des parenthèses ou l'opérateur 'et').",
+      "it": "Gli operatori di confronto non sono associativi (usare parentesi o l'operatore 'e').",
+      "ja": "比較演算子は結合的ではありません (括弧を使用するか、'y' 演算子を使用してください)。",
+      "ko": "비교 연산자는 결합적이지 않습니다 (괄호 또는 'y' 연산자를 사용하세요).",
+      "pt-BR": "Os operadores de comparação não são associativos (use parênteses ou o operador 'e').",
+      "pt-PT": "Os operadores de comparação não são associativos (use parênteses ou o operador 'e').",
+      "zh": "比较运算符不是可结合的 (请使用括号或 \"和\" 运算符)。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba un nombre de campo después de '\\.', se encontró ([\\s\\S]*?)$",
+    "translations": {
+      "en": "A field name was expected after '.', but {0} was found.",
+      "de": "Ein Feldname wurde nach '.' erwartet, stattdessen wurde {0} gefunden.",
+      "eo": "Oni atendis nomon de kampo post '.', oni trovis {0}",
+      "fr": "Un nom de champ était attendu après '.', on a trouvé {0}.",
+      "it": "Ci si aspettava un nome di campo dopo '.', è stato trovato {0}",
+      "ja": "'.' の後にフィールド名が期待されましたが、{0} が見つかりました。",
+      "ko": "'.', 뒤에는 필드 이름이 와야 하지만, {0}이 발견되었습니다.",
+      "pt-BR": "Esperava-se um nome de campo após \".\", encontrou-se {0}.",
+      "pt-PT": "Esperava-se um nome de campo depois de '.', encontrou-se {0}",
+      "zh": "在 \".\", 预期后面跟着一个字段名，但找到了 {0}。"
+    }
+  },
+  {
+    "regexSource": "^Falta cierre '\\]' \\(línea ([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "Closing ']' is missing (line {0})",
+      "de": "Es fehlt ein schließendes ']' (Zeile {0}).",
+      "eo": "Manka fermilo ']' (linio {0})",
+      "fr": "Fermeture ']' manquante (ligne {0}).",
+      "it": "Manca la parentesi chiusa ']' (riga {0})",
+      "ja": "']' が閉じられていません (行番号 {0})。",
+      "ko": "']'가 닫히지 않았습니다 (라인 {0}).",
+      "pt-BR": "Falta o fechamento ']' (linha {0}).",
+      "pt-PT": "Falta fechar ']' (linha {0})",
+      "zh": "缺少 \"]\" (第 {0} 行)。"
+    }
+  },
+  {
+    "regexSource": "^Solo se admiten llamadas a funciones por nombre \\(no sobre expresiones\\)\\.$",
+    "translations": {
+      "en": "Only function calls by name are allowed (not on expressions).",
+      "de": "Nur Funktionsaufrufe nach Namen sind erlaubt (nicht über Ausdrücke).",
+      "eo": "Nur funkciaj vokoj per nomo estas permesitaj (ne super esprimoj).",
+      "fr": "Seules les appels de fonctions par nom sont autorisés (pas sur des expressions).",
+      "it": "Sono ammesse solo chiamate a funzioni per nome (non su espressioni).",
+      "ja": "関数呼び出しは名前で指定する必要があります (式では使用できません)。",
+      "ko": "함수 호출은 이름으로만 허용됩니다 (식으로 사용할 수 없습니다).",
+      "pt-BR": "Apenas são permitadas chamadas de função por nome (não sobre expressões).",
+      "pt-PT": "Apenas são permitadas chamadas de função por nome (não sobre expressões).",
+      "zh": "仅允许通过名称调用函数 (不允许在表达式中使用)。"
+    }
+  },
+  {
+    "regexSource": "^Falta cierre '\\)' \\(línea ([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "Missing closing parenthesis ')' (line {0})",
+      "de": "Es fehlt eine schließende Klammer ')' (Zeile {0}).",
+      "eo": "Manĝas fermilon ')' (linio {0})",
+      "fr": "Fermeture ')' manquante (ligne {0})",
+      "it": "Manca una parentesi chiusa ')' (riga {0}).",
+      "ja": "')' が不足しています (行 {0})",
+      "ko": "')'가 누락되었습니다 (라인 {0}).",
+      "pt-BR": "Falta o fechamento ')' (linha {0})",
+      "pt-PT": "Falta o parêntese de fecho ')' (linha {0}).",
+      "zh": "缺少右括号 ')' (第 {0} 行)"
+    }
+  },
+  {
+    "regexSource": "^Falta cierre '\\}' \\(línea ([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "Missing closing curly brace '}' (line {0})",
+      "de": "Es fehlt eine schließende geschweifte Klammer '}' (Zeile {0}).",
+      "eo": "Manĝas fermilon '}}' (linio {0})",
+      "fr": "Fermeture '}}' manquante (ligne {0})",
+      "it": "Manca una parentesi graffa chiusa '}' (riga {0}).",
+      "ja": "'}}' が不足しています (行 {0})",
+      "ko": "'}}'가 누락되었습니다 (라인 {0}).",
+      "pt-BR": "Falta o fechamento '}}' (linha {0})",
+      "pt-PT": "Falta o par de chaves de fecho '}}' (linha {0}).",
+      "zh": "缺少右花括号 '}}' (第 {0} 行)"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba una expresión, se encontró fin de línea$",
+    "translations": {
+      "en": "Expected an expression, found end of line.",
+      "de": "Ein Ausdruck wurde erwartet, aber das Ende der Zeile wurde gefunden.",
+      "eo": "Atendis esprimon, trovis finon de la linio.",
+      "fr": "Une expression était attendue, fin de ligne rencontrée.",
+      "it": "Ci si aspettava un'espressione, è stato trovato la fine della riga.",
+      "ja": "式が期待されましたが、行末が見つかりました。",
+      "ko": "표현식을 예상했지만, 줄 끝을 찾았습니다.",
+      "pt-BR": "Esperava-se uma expressão, encontrou-se o fim da linha.",
+      "pt-PT": "Esperava-se uma expressão, encontrou-se o fim da linha.",
+      "zh": "预期出现表达式，但遇到了行尾。"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba una expresión, se encontró ([\\s\\S]*?)([\\s\\S]*?)$",
+    "translations": {
+      "en": "Expected an expression, found {0}{1}",
+      "de": "Ein Ausdruck wurde erwartet, aber {0}{1} wurde gefunden.",
+      "eo": "Atendis esprimon, trovis {0}{1}.",
+      "fr": "Une expression était attendue, {0}{1} rencontré.",
+      "it": "Ci si aspettava un'espressione, è stato trovato {0}{1}.",
+      "ja": "式が期待されましたが、{0}{1} が見つかりました。",
+      "ko": "표현식을 예상했지만, {0}{1}을 찾았습니다.",
+      "pt-BR": "Esperava-se uma expressão, encontrou-se {0}{1}.",
+      "pt-PT": "Esperava-se uma expressão, encontrou-se {0}{1}.",
+      "zh": "预期出现表达式，但遇到了 {0}{1}"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba una clave en el objeto, se encontró ([\\s\\S]*?)$",
+    "translations": {
+      "en": "Expected a key in the object, found {0}",
+      "de": "Ein Schlüssel im Objekt wurde erwartet, aber {0} wurde gefunden.",
+      "eo": "Atendis ŝlosilon en la objekto, trovis {0}.",
+      "fr": "Une clé était attendue dans l'objet, {0} rencontré.",
+      "it": "Ci si aspettava una chiave nell'oggetto, è stato trovato {0}.",
+      "ja": "オブジェクト内でキーが期待されましたが、{0} が見つかりました。",
+      "ko": "객체 내에서 키를 예상했지만, {0}을 찾았습니다.",
+      "pt-BR": "Esperava-se uma chave no objeto, encontrou-se {0}.",
+      "pt-PT": "Esperava-se uma chave no objeto, encontrou-se {0}.",
+      "zh": "预期在对象中找到一个键，但找到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba ':' después de la clave$",
+    "translations": {
+      "en": "Expected ':' after the key",
+      "de": "Ein Doppelpunkt ':' wurde nach dem Schlüssel erwartet.",
+      "eo": "Atendis ':' post la ŝlosilo.",
+      "fr": "Un ':' était attendu après la clé.",
+      "it": "Ci si aspettava ':' dopo la chiave.",
+      "ja": "キーの後に ':' が期待されました。",
+      "ko": "키 뒤에 ':'가 필요합니다.",
+      "pt-BR": "Esperava-se ':' após a chave.",
+      "pt-PT": "Esperava-se ':' após a chave.",
+      "zh": "预期在键之后出现 ':'"
+    }
+  },
+  {
+    "regexSource": "^Se esperaba un nombre de variable después de 'for'$",
+    "translations": {
+      "en": "Expected a variable name after 'for'",
+      "de": "Ein Variablenname wurde nach 'for' erwartet.",
+      "eo": "Atendis nomon de variablo post 'for'.",
+      "fr": "Un nom de variable était attendu après 'for'.",
+      "it": "Ci si aspettava un nome di variabile dopo 'for'.",
+      "ja": "'for' の後に変数名が期待されました。",
+      "ko": "'for' 뒤에 변수 이름을 예상합니다.",
+      "pt-BR": "Esperava-se um nome de variável após 'for'.",
+      "pt-PT": "Esperava-se um nome de variável após 'for'.",
+      "zh": "预期在 'for' 之后出现一个变量名。"
+    }
+  },
+  {
+    "regexSource": "^Falta cierre '\\]' en la comprensión 'for' \\(línea ([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "Missing closing bracket ']' in the 'for' comprehension (line {0})",
+      "de": "Es fehlt eine schließende eckige Klammer ']' im 'for'-Ausdruck (Zeile {0}).",
+      "eo": "Manĝas fermilon ']' en la 'for' kompreno (linio {0}).",
+      "fr": "Fermeture ']' manquante dans la compréhension 'for' (ligne {0}).",
+      "it": "Manca una parentesi quadra chiusa ']' nella comprensione 'for' (riga {0}).",
+      "ja": "'for' のリスト内包表記で ']' が不足しています (行 {0})",
+      "ko": "'for' comprehension에서 ']'가 누락되었습니다 (라인 {0}).",
+      "pt-BR": "Falta o fechamento ']' na compreensão 'for' (linha {0}).",
+      "pt-PT": "Falta o colchete de fecho ']' na compreensão 'for' (linha {0}).",
+      "zh": "缺少 ']'， 'for' 表达式不完整 (第 {0} 行)"
+    }
+  },
+  {
+    "regexSource": "^Llave abierta en `\\{([\\s\\S]*?)` no se cierra$",
+    "translations": {
+      "en": "Open brace in `{{{0}` is not closed.",
+      "de": "Die öffnende geschweifte Klammer in `{{{0}` wird nicht geschlossen.",
+      "eo": "Malfermita krampo en `{{{0}` ne fermiĝas.",
+      "fr": "La clé ouverte en `{{{0}` n'est pas fermée.",
+      "it": "Parentesi graffa aperta in `{{{0}` non è chiusa.",
+      "ja": "`{{{0}` で開かれた中括弧が閉じられていません。",
+      "ko": "`{{{0}`에서 열린 중괄호가 닫히지 않았습니다.",
+      "pt-BR": "Chave aberta em `{{{0}` não está sendo fechada.",
+      "pt-PT": "Chave aberta em `{{{0}` não está fechada.",
+      "zh": "`{{{0}` 中的左花括号未闭合。"
+    }
+  },
+  {
+    "regexSource": "^Interpolación vacía: `\\{([\\s\\S]*?)\\}`$",
+    "translations": {
+      "en": "Empty interpolation: `{{{0}}}`",
+      "de": "Leere Interpolation: `{{{0}}}`",
+      "eo": "Voids interpolado: `{{{0}}}`",
+      "fr": "Interpolation vide : `{{{0}}}`",
+      "it": "Interpolazione vuota: `{{{0}}}`.",
+      "ja": "空の補間: `{{{0}}}`",
+      "ko": "빈 인터폴레이션: `{{{0}}}`",
+      "pt-BR": "Interpolação vazia: `{{{0}}}`",
+      "pt-PT": "Interpolação vazia: `{{{0}}}`.",
+      "zh": "空插值：`{{{0}}}`"
+    }
+  },
+  {
+    "regexSource": "^No reconozco el bloque `([\\s\\S]*?):`\\. ¿Quisiste decir `([\\s\\S]*?):`\\?$",
+    "translations": {
+      "en": "I do not recognize the block `{0}:`. Did you mean `{1}:`?",
+      "de": "Ich erkenne den Block `{0}:` nicht. Meinten Sie `{1}:`?",
+      "eo": "Mi ne rekonas la blokon `{0}:`. Ĉu vi volis diri `{1}:`?",
+      "fr": "Je ne reconnais pas le bloc `{0}:`. Vouliez-vous dire `{1}:`?",
+      "it": "Non riconosco il blocco `{0}:`. Volevi dire `{1}:`?",
+      "ja": "ブロック `{0}:` を認識できません。`{1}:` を意味していましたか？",
+      "ko": "블록 `{0}:`을 인식하지 못했습니다. `{1}:`을 원하셨나요?",
+      "pt-BR": "Não reconheço o bloco `{0}:`. Você quis dizer `{1}:`?",
+      "pt-PT": "Não reconheço o bloco `{0}:`. Quiseste dizer `{1}:`?",
+      "zh": "我不识别块 `{0}:`。 您是想说 `{1}:` 吗？"
+    }
+  },
+  {
+    "regexSource": "^No reconozco el bloque `([\\s\\S]*?):`$",
+    "translations": {
+      "en": "I do not recognize block `{0}:`",
+      "de": "Ich erkenne den Block `{0}:` nicht.",
+      "eo": "Mi ne rekonas la blokon `{0}:`.",
+      "fr": "Je ne reconnais pas le bloc `{0}:`",
+      "it": "Non riconosco il blocco `{0}:`",
+      "ja": "`{0}:`というブロックを認識できません。",
+      "ko": "`{0}:` 블록을 인식하지 못했습니다.",
+      "pt-BR": "Não reconheço o bloco `{0}:`",
+      "pt-PT": "Não reconheço o bloco `{0}:`",
+      "zh": "我无法识别块 `{0}:`"
+    }
+  },
+  {
+    "regexSource": "^Token inesperado a nivel raíz: ([\\s\\S]*?)$",
+    "translations": {
+      "en": "Unexpected token at the root level: {0}",
+      "de": "Unerwartetes Token auf oberster Ebene: {0}",
+      "eo": "Nesperita simbolo en la radikala nivelo: {0}.",
+      "fr": "Token inattendu au niveau racine : {0}",
+      "it": "Token inatteso a livello radice: {0}",
+      "ja": "ルートレベルで予期しないトークン：{0}",
+      "ko": "루트 레벨에서 예상치 못한 토큰: {0}",
+      "pt-BR": "Token inesperado no nível raiz: {0}",
+      "pt-PT": "Token inesperado no nível raiz: {0}",
+      "zh": "根级别出现意外的标记: {0}"
+    }
+  },
+  {
+    "regexSource": "^bloque `([\\s\\S]*?):` declarado dos veces$",
+    "translations": {
+      "en": "Block `{0}:` is declared twice.",
+      "de": "Block `{0}:` wurde zweimal deklariert.",
+      "eo": "La bloko `{0}:` estas deklarita dufoje.",
+      "fr": "Le bloc `{0}:` est déclaré deux fois.",
+      "it": "Il blocco `{0}:` è stato dichiarato due volte",
+      "ja": "`{0}:`というブロックが2回宣言されています。",
+      "ko": "`{0}:` 블록이 두 번 선언되었습니다.",
+      "pt-BR": "Bloco `{0}:` declarado duas vezes",
+      "pt-PT": "bloco `{0}:` declarado duas vezes",
+      "zh": "块 `{0}:` 被声明了两次"
+    }
+  },
+  {
+    "regexSource": "^Usá `enunciado:` o `enunciados:`, no ambos$",
+    "translations": {
+      "en": "Use `enunciado:` or `enunciados:`, not both.",
+      "de": "Verwenden Sie `enunciado:` oder `enunciados:`, aber nicht beide.",
+      "eo": "Uzu `enunciado:` aŭ `enunciados:`, sed ne ambaŭ.",
+      "fr": "Utilisez `enunciado:` ou `enunciados:`, mais pas les deux.",
+      "it": "Usare `enunciado:` o `enunciados:`, ma non entrambi",
+      "ja": "`enunciado:`または`enunciados:`を使用してください。両方は使用できません。",
+      "ko": "`enunciado:` 또는 `enunciados:` 중 하나를 사용하세요. 둘 다 사용하면 안 됩니다.",
+      "pt-BR": "Use `enunciado:` ou `enunciados:`, não ambos",
+      "pt-PT": "Use `enunciado:` ou `enunciados:`, não ambos",
+      "zh": "请使用 `enunciado:` 或 `enunciados:`，不要同时使用两者"
+    }
+  },
+  {
+    "regexSource": "^Falta el bloque obligatorio `enunciado:` \\(o `enunciados:` con una lista de variantes\\)$",
+    "translations": {
+      "en": "The mandatory block `enunciado:` is missing (or `enunciados:` with a list of variants).",
+      "de": "Der obligatorische Block `enunciado:` (oder `enunciados:` mit einer Liste von Varianten) fehlt.",
+      "eo": "Manĝas la obligata bloko `enunciado:` (aŭ `enunciados:` kun listo de variantoj).",
+      "fr": "Le bloc obligatoire `enunciado:` (ou `enunciados:` avec une liste de variantes) est manquant.",
+      "it": "Manca il blocco obbligatorio `enunciado:` (o `enunciados:` con una lista di varianti)",
+      "ja": "必須のブロック`enunciado:`がありません（または、`enunciados:`とバリエーションのリスト）。",
+      "ko": "필수 블록 `enunciado:` (또는 `enunciados:`과 함께 변형 목록)이 없습니다.",
+      "pt-BR": "Falta o bloco obrigatório `enunciado:` (ou `enunciados:` com uma lista de variantes)",
+      "pt-PT": "Falta o bloco obrigatório `enunciado:` (ou `enunciados:` com uma lista de variantes)",
+      "zh": "缺少必需的块 `enunciado:` (或 `enunciados:` 及其变体列表)"
+    }
+  },
+  {
+    "regexSource": "^Si no hay `generador:`, debe haber al menos un campo de respuesta \\(`respuesta:`, `respuestas_validas:`, etc\\.\\)$",
+    "translations": {
+      "en": "If there is no `generador:`, there must be at least one response field (`respuesta:`, `respuestas_validas:`, etc.).",
+      "de": "Wenn kein `generador:` vorhanden ist, muss mindestens ein Antwortfeld vorhanden sein (`respuesta:`, `respuestas_validas:` usw.).",
+      "eo": "Se ne estas `generador:`, devas esti almenaŭ unu kampo de respondo (`respuesta:`, `respuestas_validas:`, ktp.).",
+      "fr": "S'il n'y a pas de `generador:`, il doit y avoir au moins un champ de réponse (`respuesta:`, `respuestas_validas:`, etc.).",
+      "it": "Se non è presente `generador:`, deve essere presente almeno un campo di risposta (`respuesta:`, `respuestas_validas:`, ecc.)",
+      "ja": "`generador:`がない場合、少なくとも1つの応答フィールド（`respuesta:`、`respuestas_validas:`など）が必要です。",
+      "ko": "`generador:`이 없으면 응답 필드(`respuesta:`, `respuestas_validas:` 등)가 최소 하나 이상 있어야 합니다.",
+      "pt-BR": "Se não houver `generador:`, deve haver pelo menos um campo de resposta (`respuesta:`, `respuestas_validas:`, etc.)",
+      "pt-PT": "Se não existir `generador:`, deve haver pelo menos um campo de resposta (`respuesta:`, `respuestas_validas:`, etc.)",
+      "zh": "如果没有 `generador:`，则必须至少有一个响应字段 (`respuesta:`, `respuestas_validas:` 等)"
+    }
+  },
+  {
+    "regexSource": "^no declares `respuesta:` y `respuesta_expr:` en la misma plantilla: uno es numérico/exacto, el otro es simbólico$",
+    "translations": {
+      "en": "Do not declare `respuesta:` and `respuesta_expr:` in the same template: one is numeric/exact, the other is symbolic.",
+      "de": "Deklarieren Sie `respuesta:` und `respuesta_expr:` nicht in derselben Vorlage: eines ist numerisch/exakt, das andere ist symbolisch.",
+      "eo": "ne deklaru `respuesta:` kaj `respuesta_expr:` en la sama ŝablono: unu estas numerika/ekzakta, la alia estas simbolika.",
+      "fr": "Ne déclarez pas `respuesta:` et `respuesta_expr:` dans le même modèle : l'un est numérique/exact, l'autre est symbolique.",
+      "it": "Non dichiarare `respuesta:` e `respuesta_expr:` nella stessa template: uno è numerico/esatto, l'altro è simbolico",
+      "ja": "`respuesta:`と`respuesta_expr:`を同じテンプレートで宣言しないでください。どちらかは数値/正確、もう片方はシンボリックです。",
+      "ko": "`respuesta:`과 `respuesta_expr:`을 같은 템플릿에서 선언하지 마세요. 하나는 숫자/정확하고, 다른 하나는 심볼릭입니다.",
+      "pt-BR": "Não declare `respuesta:` e `respuesta_expr:` na mesma template: um é numérico/exato, o outro é simbólico",
+      "pt-PT": "não declare `respuesta:` e `respuesta_expr:` na mesma template: um é numérico/exato, o outro é simbólico",
+      "zh": "请不要在同一模板中声明 `respuesta:` 和 `respuesta_expr:`：一个为数值/精确类型，另一个为符号类型"
+    }
+  },
+  {
+    "regexSource": "^`tipo: abierta` no lleva clave de respuesta \\(`respuesta:`, `respuestas_validas:`, etc\\.\\): es informativa o de corrección manual\\.$",
+    "translations": {
+      "en": "`tipo: abierta` does not have a response key (`respuesta:`, `respuestas_validas:`, etc.): it is informational or for manual correction.",
+      "de": "`tipo: abierta` hat keinen Antwortschlüssel (`respuesta:`, `respuestas_validas:` usw.): er ist informativ oder für manuelle Korrektur.",
+      "eo": "`tipo: abierta` ne havas klavon de respondo (`respuesta:`, `respuestas_validas:`, ktp.): ĝi estas informativa aŭ por mankoriga agado.",
+      "fr": "`tipo: abierta` ne possède pas de clé de réponse (`respuesta:`, `respuestas_validas:`, etc.) : il est informatif ou nécessite une correction manuelle.",
+      "it": "`tipo: abierta` non ha una chiave di risposta (`respuesta:`, `respuestas_validas:`, ecc.): è informativo o richiede una correzione manuale.",
+      "ja": "`tipo: abierta`には応答キー（`respuesta:`、`respuestas_validas:`など）がありません。これは情報提供用または手動修正用です。",
+      "ko": "`tipo: abierta`은 응답 키(`respuesta:`, `respuestas_validas:` 등)를 가지고 있지 않습니다. 정보 제공용이거나 수동 수정용입니다.",
+      "pt-BR": "`tipo: abierta` não possui chave de resposta (`respuesta:`, `respuestas_validas:`, etc.): é informativo ou de correção manual.",
+      "pt-PT": "`tipo: abierta` não tem chave de resposta (`respuesta:`, `respuestas_validas:`, etc.): é informativa ou de correção manual.",
+      "zh": "`tipo: abierta` 没有响应键 (`respuesta:`, `respuestas_validas:` 等)：它是一个信息字段或需要手动更正。"
+    }
+  },
+  {
+    "regexSource": "^`tipo: marcar_mapa` requiere `respuesta_iso:`, o bien `respuesta_nombre:` con `mapa:`$",
+    "translations": {
+      "en": "`tipo: marcar_mapa` requires `respuesta_iso:`, or `respuesta_nombre:` with `mapa:`.",
+      "de": "`tipo: marcar_mapa` benötigt `respuesta_iso:` oder `respuesta_nombre:` mit `mapa:`.",
+      "eo": "`tipo: marcar_mapa` postulas `respuesta_iso:`, aŭ `respuesta_nombre:` kun `mapa:`.",
+      "fr": "`tipo: marcar_mapa` requiert `respuesta_iso:`, ou bien `respuesta_nombre:` avec `mapa:`.",
+      "it": "`tipo: marcar_mapa` richiede `respuesta_iso:`, oppure `respuesta_nombre:` con `mapa:`",
+      "ja": "`tipo: marcar_mapa`には、`respuesta_iso:`が必要です。または、`respuesta_nombre:`と`mapa:`が必要です。",
+      "ko": "`tipo: marcar_mapa`은 `respuesta_iso:`이 필요하거나, `respuesta_nombre:`와 함께 `mapa:`이 필요합니다.",
+      "pt-BR": "`tipo: marcar_mapa` requer `respuesta_iso:`, ou `respuesta_nombre:` com `mapa:`",
+      "pt-PT": "`tipo: marcar_mapa` requer `respuesta_iso:`, ou então `respuesta_nombre:` com `mapa:`",
+      "zh": "`tipo: marcar_mapa` 需要 `respuesta_iso:`，或者需要 `respuesta_nombre:` 及其 `mapa:`"
+    }
+  },
+  {
+    "regexSource": "^`tipo: ordenar` requiere `respuesta_orden:`$",
+    "translations": {
+      "en": "`tipo: ordenar` requires `respuesta_orden:`.",
+      "de": "`tipo: ordenar` benötigt `respuesta_orden:`.",
+      "eo": "`tipo: ordenar` postulas `respuesta_orden:`.",
+      "fr": "`tipo: ordenar` requiert `respuesta_orden:`.",
+      "it": "`tipo: ordenar` richiede `respuesta_orden:`",
+      "ja": "`tipo: ordenar`には`respuesta_orden:`が必要です。",
+      "pt-BR": "`tipo: ordenar` requer `respuesta_orden:`",
+      "pt-PT": "`tipo: ordenar` requer `respuesta_orden:`",
+      "zh": "`tipo: ordenar` 需要 `respuesta_orden:`"
+    }
+  },
+  {
+    "regexSource": "^`tipo: analisis_sintactico` requiere `etiquetas_pedidas:`$",
+    "translations": {
+      "en": "`tipo: analisis_sintactico` requires `etiquetas_pedidas:`.",
+      "de": "`tipo: analisis_sintactico` benötigt `etiquetas_pedidas:`.",
+      "eo": "`tipo: analisis_sintactico` postulas `etiquetas_pedidas:`.",
+      "fr": "`tipo: analisis_sintactico` requiert `etiquetas_pedidas:`.",
+      "it": "`tipo: analisis_sintactico` richiede `etiquetas_pedidas:`",
+      "ja": "`tipo: analisis_sintactico`には`etiquetas_pedidas:`が必要です。",
+      "pt-BR": "`tipo: analisis_sintactico` requer `etiquetas_pedidas:`",
+      "pt-PT": "`tipo: analisis_sintactico` requer `etiquetas_pedidas:`",
+      "zh": "`tipo: analisis_sintactico` 需要 `etiquetas_pedidas:`"
+    }
+  },
+  {
+    "regexSource": "^`tipo: analisis_spans` requiere `spans_pedidos:` y `texto_analizar:`$",
+    "translations": {
+      "en": "`tipo: analisis_spans` requires `spans_pedidos:` and `texto_analizar:`.",
+      "de": "`tipo: analisis_spans` benötigt `spans_pedidos:` und `texto_analizar:`.",
+      "eo": "`tipo: analisis_spans` postulas `spans_pedidos:` kaj `texto_analizar:`.",
+      "fr": "`tipo: analisis_spans` requiert `spans_pedidos:` et `texto_analizar:`.",
+      "it": "`tipo: analisis_spans` richiede `spans_pedidos:` e `texto_analizar:`",
+      "ja": "`tipo: analisis_spans`には`spans_pedidos:`と`texto_analizar:`が必要です。",
+      "ko": "`tipo: analisis_spans`은 `spans_pedidos:`과 `texto_analizar:`이 필요합니다.",
+      "pt-BR": "`tipo: analisis_spans` requer `spans_pedidos:` e `texto_analizar:`",
+      "pt-PT": "`tipo: analisis_spans` requer `spans_pedidos:` e `texto_analizar:`",
+      "zh": "`tipo: analisis_spans` 需要 `spans_pedidos:` 和 `texto_analizar:`"
+    }
+  },
+  {
+    "regexSource": "^`tipo: expresion` requiere `respuesta_expr:` con la expresión simbólica esperada$",
+    "translations": {
+      "en": "`tipo: expresion` requires `respuesta_expr:` with the expected symbolic expression.",
+      "de": "`tipo: expresion` benötigt `respuesta_expr:` mit dem erwarteten symbolischen Ausdruck.",
+      "eo": "`tipo: expresion` postulas `respuesta_expr:` kun la atendita simbolika esprimo.",
+      "fr": "`tipo: expresion` requiert `respuesta_expr:` avec l'expression symbolique attendue.",
+      "it": "`tipo: expresion` richiede `respuesta_expr:` con l'espressione simbolica prevista.",
+      "ja": "`tipo: expresion`には、期待されるシンボリックな式を持つ`respuesta_expr:`が必要です。",
+      "ko": "`tipo: expresion`은 예상되는 심볼릭 표현식을 가진 `respuesta_expr:`이 필요합니다.",
+      "pt-BR": "`tipo: expresion` requer `respuesta_expr:` com a expressão simbólica esperada",
+      "pt-PT": "`tipo: expresion` requer `respuesta_expr:` com a expressão simbólica esperada",
+      "zh": "`tipo: expresion` 需要 `respuesta_expr:` 及其预期的符号表达式"
+    }
+  },
+  {
+    "regexSource": "^`tipo: mc` requiere `opciones:` o `opciones_explicitas:`$",
+    "translations": {
+      "en": "`tipo: mc` requires `opciones:` or `opciones_explicitas:`",
+      "de": "`tipo: mc` benötigt `opciones:` oder `opciones_explicitas:`",
+      "eo": "`tipo: mc` postulas `opciones:` aŭ `opciones_explicitas:`",
+      "fr": "`tipo: mc` requiert `opciones:` ou `opciones_explicitas:`",
+      "it": "`tipo: mc` richiede `opciones:` o `opciones_explicitas:`",
+      "ja": "`tipo: mc` は、`opciones:` または `opciones_explicitas:` を必要とします。",
+      "ko": "`tipo: mc`은(는) `opciones:` 또는 `opciones_explicitas:`이(가) 필요합니다.",
+      "pt-BR": "`tipo: mc` requerimento `opciones:` ou `opciones_explicitas:`",
+      "pt-PT": "`tipo: mc` requerem `opciones:` ou `opciones_explicitas:`",
+      "zh": "`tipo: mc` 需要 `opciones:` 或 `opciones_explicitas:`"
+    }
+  },
+  {
+    "regexSource": "^`multiple: true` requiere `tipo: mc`$",
+    "translations": {
+      "en": "`multiple: true` requires `tipo: mc`.",
+      "de": "`multiple: true` benötigt `tipo: mc`.",
+      "eo": "`multiple: true` postulas `tipo: mc`.",
+      "fr": "`multiple: true` requiert `tipo: mc`.",
+      "it": "`multiple: true` richiede `tipo: mc`",
+      "ja": "`multiple: true`には`tipo: mc`が必要です。",
+      "pt-BR": "`multiple: true` requer `tipo: mc`",
+      "pt-PT": "`multiple: true` requer `tipo: mc`",
+      "zh": "`multiple: true` 需要 `tipo: mc`"
+    }
+  },
+  {
+    "regexSource": "^`multiple: true` requiere `opciones_explicitas:`$",
+    "translations": {
+      "en": "`multiple: true` requires `opciones_explicitas:`.",
+      "de": "`multiple: true` benötigt `opciones_explicitas:`.",
+      "eo": "`multiple: true` postulas `opciones_explicitas:`.",
+      "fr": "`multiple: true` requiert `opciones_explicitas:`.",
+      "it": "`multiple: true` richiede `opciones_explicitas:`",
+      "ja": "`multiple: true`には`opciones_explicitas:`が必要です。",
+      "pt-BR": "`multiple: true` requer `opciones_explicitas:`",
+      "pt-PT": "`multiple: true` requer `opciones_explicitas:`",
+      "zh": "`multiple: true` 需要 `opciones_explicitas:`"
+    }
+  },
+  {
+    "regexSource": "^`multiple: true` requiere `respuestas_validas:` \\(las opciones correctas\\) o `respuesta:`$",
+    "translations": {
+      "en": "`multiple: true` requires `respuestas_validas:` (the correct options) or `respuesta:`",
+      "de": "`multiple: true` benötigt `respuestas_validas:` (die korrekten Optionen) oder `respuesta:`",
+      "eo": "`multiple: true` postulas `respuestas_validas:` (la ĝustaj opcioj) aŭ `respuesta:`",
+      "fr": "`multiple: true` requiert `respuestas_validas:` (les options correctes) ou `respuesta:`",
+      "it": "`multiple: true` richiede `respuestas_validas:` (le opzioni corrette) o `respuesta:`",
+      "ja": "`multiple: true` は、`respuestas_validas:` (正しいオプション) または `respuesta:` を必要とします。",
+      "ko": "`multiple: true`은(는) `respuestas_validas:` (올바른 옵션) 또는 `respuesta:`이(가) 필요합니다.",
+      "pt-BR": "`multiple: true` requerimento `respuestas_validas:` (as opções corretas) ou `respuesta:`",
+      "pt-PT": "`multiple: true` requerem `respuestas_validas:` (as opções corretas) ou `respuesta:`",
+      "zh": "`multiple: true` 需要 `respuestas_validas:` (正确选项) 或 `respuesta:`"
+    }
+  },
+  {
+    "regexSource": "^tipo `mc` requiere `opciones:` o `opciones_explicitas:`$",
+    "translations": {
+      "en": "type `mc` requires `opciones:` or `opciones_explicitas:`",
+      "de": "Typ `mc` benötigt `opciones:` oder `opciones_explicitas:`",
+      "eo": "tipo `mc` postulas `opciones:` aŭ `opciones_explicitas:`",
+      "fr": "type `mc` requiert `opciones:` ou `opciones_explicitas:`",
+      "it": "il tipo `mc` richiede `opciones:` o `opciones_explicitas:`",
+      "ja": "タイプ `mc` は、`opciones:` または `opciones_explicitas:` を必要とします。",
+      "ko": "타입 `mc`은(는) `opciones:` 또는 `opciones_explicitas:`이(가) 필요합니다.",
+      "pt-BR": "tipo `mc` requerimento `opciones:` ou `opciones_explicitas:`",
+      "pt-PT": "o tipo `mc` requerem `opciones:` ou `opciones_explicitas:`",
+      "zh": "类型 `mc` 需要 `opciones:` 或 `opciones_explicitas:`"
+    }
+  },
+  {
+    "regexSource": "^las variantes con tipo propio requieren una plantilla de tipo básico \\(([\\s\\S]*?)\\), no `([\\s\\S]*?)`$",
+    "translations": {
+      "en": "variants with their own type require a basic type template ({0}), not `{1}`",
+      "de": "Varianten mit eigenem Typ benötigen eine Basistyp-Vorlage ({0}), nicht `{1}`",
+      "eo": "variantoj kun propra tipo postulas fundamentan tipan ŝablon ({0}), ne `{1}`",
+      "fr": "les variantes avec un type propre nécessitent un modèle de type de base ({0}), et non `{1}`",
+      "it": "le varianti con un tipo proprio richiedono un template di tipo base ({0}), non `{1}`",
+      "ja": "独自のタイプを持つバリアントは、基本タイプのテンプレート ({0}) を必要としますが、`{1}` は必要ありません。",
+      "ko": "자체 타입을 가진 변형은 기본 타입 템플릿 ({0})이 필요하며, `{1}`은(는) 안 됩니다.",
+      "pt-BR": "as variantes com tipo próprio requerem um modelo de tipo básico ({0}), não `{1}`",
+      "pt-PT": "as variantes com tipo próprio requerem um modelo de tipo básico ({0}), não `{1}`",
+      "zh": "具有自身类型的变体需要一个基本类型模板 ({0})，而不是 `{1}`"
+    }
+  },
+  {
+    "regexSource": "^una variante de tipo `mc` requiere `opciones:` o `opciones_explicitas:`$",
+    "translations": {
+      "en": "a variant of type `mc` requires `opciones:` or `opciones_explicitas:`",
+      "de": "Eine Variante vom Typ `mc` benötigt `opciones:` oder `opciones_explicitas:`",
+      "eo": "varianto de tipo `mc` postulas `opciones:` aŭ `opciones_explicitas:`",
+      "fr": "une variante de type `mc` requiert `opciones:` ou `opciones_explicitas:`",
+      "it": "una variante di tipo `mc` richiede `opciones:` o `opciones_explicitas:`",
+      "ja": "タイプ `mc` のバリアントは、`opciones:` または `opciones_explicitas:` を必要とします。",
+      "ko": "타입 `mc`의 변형은 `opciones:` 또는 `opciones_explicitas:`이(가) 필요합니다.",
+      "pt-BR": "uma variante de tipo `mc` requer `opciones:` ou `opciones_explicitas:`",
+      "pt-PT": "uma variante do tipo `mc` requerem `opciones:` ou `opciones_explicitas:`",
+      "zh": "类型为 `mc` 的变体需要 `opciones:` 或 `opciones_explicitas:`"
+    }
+  },
+  {
+    "regexSource": "^([\\s\\S]*?) debe evaluar a un array, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0} must evaluate to an array, received {1}",
+      "de": "{0} muss ein Array sein, erhielt {1}",
+      "eo": "{0} devas esti aro, ricevitis {1}",
+      "fr": "{0} doit évaluer à un tableau, a reçu {1}",
+      "it": "{0} deve valutare a un array, ha ricevuto {1}",
+      "ja": "{0} は配列に評価される必要がありますが、{1} が受けられました。",
+      "ko": "{0}은(는) 배열로 평가되어야 하지만, {1}을(를) 받았습니다.",
+      "pt-BR": "{0} deve avaliar para um array, recebeu {1}",
+      "pt-PT": "{0} deve avaliar para um array, recebeu {1}",
+      "zh": "{0} 应该是一个数组，但收到了 {1}"
+    }
+  },
+  {
+    "regexSource": "^([\\s\\S]*?): cada elemento debe ser string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "{0}: each element must be a string, received {1}",
+      "de": "{0}: Jedes Element muss ein String sein, erhielt {1}",
+      "eo": "{0}: ĉiu elemento devas esti ĉeno, ricevitis {1}",
+      "fr": "{0}: chaque élément doit être une chaîne de caractères, a reçu {1}",
+      "it": "{0}: ogni elemento deve essere una stringa, ha ricevuto {1}",
+      "ja": "{0}: 各要素は文字列である必要がありますが、{1} が受けられました。",
+      "ko": "{0}: 각 요소는 문자열이어야 하지만, {1}을(를) 받았습니다.",
+      "pt-BR": "{0}: cada elemento deve ser string, recebeu {1}",
+      "pt-PT": "{0}: cada elemento deve ser string, recebeu {1}",
+      "zh": "{0}: 每个元素都应该是字符串，但收到了 {1}"
+    }
+  },
+  {
+    "regexSource": "^tipo `ordenar` requiere `opciones_explicitas:` con los items a presentar$",
+    "translations": {
+      "en": "type `ordenar` requires `opciones_explicitas:` with the items to be presented",
+      "de": "Typ `ordenar` benötigt `opciones_explicitas:` mit den anzuzeigenden Elementen",
+      "eo": "tipo `ordenar` postulas `opciones_explicitas:` kun la elementoj por prezenti",
+      "fr": "type `ordenar` requiert `opciones_explicitas:` avec les éléments à présenter",
+      "it": "il tipo `ordenar` richiede `opciones_explicitas:` con gli elementi da presentare",
+      "ja": "タイプ `ordenar` は、表示する項目を含む `opciones_explicitas:` を必要とします。",
+      "ko": "타입 `ordenar`은(는) 표시할 항목과 함께 `opciones_explicitas:`이(가) 필요합니다.",
+      "pt-BR": "tipo `ordenar` requerimento `opciones_explicitas:` com os itens a serem apresentados",
+      "pt-PT": "o tipo `ordenar` requerem `opciones_explicitas:` com os itens a apresentar",
+      "zh": "类型 `ordenar` 需要 `opciones_explicitas:`，包含要呈现的项"
+    }
+  },
+  {
+    "regexSource": "^tipo `ordenar` requiere `respuesta_orden:` con el orden correcto$",
+    "translations": {
+      "en": "type `ordenar` requires `respuesta_orden:` with the correct order",
+      "de": "Typ `ordenar` benötigt `respuesta_orden:` mit der richtigen Reihenfolge",
+      "eo": "tipo `ordenar` postulas `respuesta_orden:` kun la ĝusta ordo",
+      "fr": "type `ordenar` requiert `respuesta_orden:` avec l'ordre correct",
+      "it": "il tipo `ordenar` richiede `respuesta_orden:` con l'ordine corretto",
+      "ja": "タイプ `ordenar` は、正しい順序を持つ `respuesta_orden:` を必要とします。",
+      "ko": "타입 `ordenar`은(는) 올바른 순서와 함께 `respuesta_orden:`이(가) 필요합니다.",
+      "pt-BR": "tipo `ordenar` requerimento `respuesta_orden:` com a ordem correta",
+      "pt-PT": "o tipo `ordenar` requerem `respuesta_orden:` com a ordem correta",
+      "zh": "类型 `ordenar` 需要 `respuesta_orden:`，包含正确的顺序"
+    }
+  },
+  {
+    "regexSource": "^ordenar: los conjuntos de `opciones_explicitas` y `respuesta_orden` deben tener exactamente los mismos elementos$",
+    "translations": {
+      "en": "sorting: the sets of `opciones_explicitas` and `respuesta_orden` must have exactly the same elements",
+      "de": "Sortieren: Die Mengen `opciones_explicitas` und `respuesta_orden` müssen genau die gleichen Elemente enthalten",
+      "eo": "ordigi: la aroj de `opciones_explicitas` kaj `respuesta_orden` devas havi tute la samaj elementojn",
+      "fr": "trier: les ensembles `opciones_explicitas` et `respuesta_orden` doivent avoir exactement les mêmes éléments",
+      "it": "ordinamento: gli insiemi di `opciones_explicitas` e `respuesta_orden` devono avere esattamente gli stessi elementi",
+      "ja": "ソート: `opciones_explicitas` と `respuesta_orden` のセットは、正確に同じ要素を持つ必要があります。",
+      "ko": "정렬: `opciones_explicitas`과 `respuesta_orden`의 집합은 정확히 동일한 요소를 가져야 합니다.",
+      "pt-BR": "ordenar: os conjuntos de `opciones_explicitas` e `respuesta_orden` devem ter exatamente os mesmos elementos",
+      "pt-PT": "ordenar: os conjuntos de `opciones_explicitas` e `respuesta_orden` devem ter exatamente os mesmos elementos",
+      "zh": "排序：`opciones_explicitas` 和 `respuesta_orden` 的集合必须包含完全相同的元素"
+    }
+  },
+  {
+    "regexSource": "^tipo `marcar_mapa` requiere `mapa:` con el identificador del mapa$",
+    "translations": {
+      "en": "type `marcar_mapa` requires `mapa:` with the identifier of the map",
+      "de": "Typ `marcar_mapa` benötigt `mapa:` mit der Kennung der Map",
+      "eo": "tipo `marcar_mapa` postulas `mapa:` kun la identifikilo de la mapo",
+      "fr": "type `marcar_mapa` requiert `mapa:` avec l'identifiant de la carte",
+      "it": "il tipo `marcar_mapa` richiede `mapa:` con l'identificatore della mappa",
+      "ja": "タイプ `marcar_mapa` は、マップの識別子を含む `mapa:` を必要とします。",
+      "ko": "타입 `marcar_mapa`은(는) 맵의 식별자와 함께 `mapa:`이(가) 필요합니다.",
+      "pt-BR": "tipo `marcar_mapa` requerimento `mapa:` com o identificador do mapa",
+      "pt-PT": "o tipo `marcar_mapa` requerem `mapa:` com o identificador do mapa",
+      "zh": "类型 `marcar_mapa` 需要 `mapa:`，包含地图的标识符"
+    }
+  },
+  {
+    "regexSource": "^tipo `marcar_mapa` requiere `respuesta_iso:` o `respuesta_nombre:` con la clave de respuesta$",
+    "translations": {
+      "en": "type `marcar_mapa` requires `respuesta_iso:` or `respuesta_nombre:` with the response key",
+      "de": "Typ `marcar_mapa` benötigt `respuesta_iso:` oder `respuesta_nombre:` mit dem Antwortschlüssel",
+      "eo": "tipo `marcar_mapa` postulas `respuesta_iso:` aŭ `respuesta_nombre:` kun la responda ŝlosilo",
+      "fr": "type `marcar_mapa` requiert `respuesta_iso:` ou `respuesta_nombre:` avec la clé de réponse",
+      "it": "il tipo `marcar_mapa` richiede `respuesta_iso:` o `respuesta_nombre:` con la chiave di risposta",
+      "ja": "タイプ `marcar_mapa` は、`respuesta_iso:` または `respuesta_nombre:` と、応答のキーを必要とします。",
+      "ko": "타입 `marcar_mapa`은(는) `respuesta_iso:` 또는 `respuesta_nombre:`과(와) 함께 응답 키가 필요합니다.",
+      "pt-BR": "tipo `marcar_mapa` requerimento `respuesta_iso:` ou `respuesta_nombre:` com a chave de resposta",
+      "pt-PT": "o tipo `marcar_mapa` requerem `respuesta_iso:` ou `respuesta_nombre:` com a chave de resposta",
+      "zh": "类型 `marcar_mapa` 需要 `respuesta_iso:` 或 `respuesta_nombre:`，包含响应的键"
+    }
+  },
+  {
+    "regexSource": "^respuesta_iso debe evaluar a string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "respuesta_iso must evaluate to a string, received {0}",
+      "de": "respuesta_iso muss einen String ergeben, erhielt {0}.",
+      "eo": "respuesta_iso devas evalui al ĉenon, ricevita {0}",
+      "fr": "respuesta_iso doit évaluer à une chaîne de caractères, a reçu {0}.",
+      "it": "respuesta_iso deve valutare a stringa, ha ricevuto {0}",
+      "ja": "respuesta_iso は文字列に評価される必要がありますが、{0} が受けられました。",
+      "ko": "respuesta_iso은(는) 문자열로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "respuesta_iso deve avaliar para string, recebeu {0}",
+      "pt-PT": "respuesta_iso deve avaliar para string, recebeu {0}",
+      "zh": "respuesta_iso 应该解析为字符串，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^respuesta_iso evaluó a string vacío$",
+    "translations": {
+      "en": "respuesta_iso evaluated to an empty string",
+      "de": "respuesta_iso ergab einen leeren String.",
+      "eo": "respuesta_iso evaluis al malplena ĉeno",
+      "fr": "respuesta_iso a évalué à une chaîne de caractères vide.",
+      "it": "respuesta_iso ha valutato a stringa vuota",
+      "ja": "respuesta_iso は空の文字列に評価されました。",
+      "ko": "respuesta_iso은(는) 빈 문자열로 평가되었습니다.",
+      "pt-BR": "respuesta_iso avaliou para string vazio",
+      "pt-PT": "respuesta_iso avaliou para string vazio",
+      "zh": "respuesta_iso 解析为空字符串"
+    }
+  },
+  {
+    "regexSource": "^respuesta_nombre debe evaluar a string \\(o null\\), recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "respuesta_nombre must evaluate to a string (or null), received {0}",
+      "de": "respuesta_nombre muss einen String (oder null) ergeben, erhielt {0}.",
+      "eo": "respuesta_nombre devas evalui al ĉeno (aŭ nulo), ricevita {0}",
+      "fr": "respuesta_nombre doit évaluer à une chaîne de caractères (ou null), a reçu {0}.",
+      "it": "respuesta_nombre deve valutare a stringa (o null), ha ricevuto {0}",
+      "ja": "respuesta_nombre は文字列（または null）に評価される必要がありますが、{0} が受けられました。",
+      "ko": "respuesta_nombre은(는) 문자열(또는 null)로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "respuesta_nombre deve avaliar para string (ou null), recebeu {0}",
+      "pt-PT": "respuesta_nombre deve avaliar para string (ou null), recebeu {0}",
+      "zh": "respuesta_nombre 应该解析为字符串（或 null），但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^respuesta_nombre evaluó a null/vacío pero es la única clave de respuesta$",
+    "translations": {
+      "en": "respuesta_nombre evaluated to null/empty, but is the only key in the response",
+      "de": "respuesta_nombre ergab null/leer, ist aber der einzige Antwortschlüssel.",
+      "eo": "respuesta_nombre evaluis al nulo/malplena sed estas la sola ŝlosilo de respondo",
+      "fr": "respuesta_nombre a évalué à null/vide mais est la seule clé de réponse.",
+      "it": "respuesta_nombre ha valutato a null/vuoto ma è la chiave di risposta unica",
+      "ja": "respuesta_nombre は null/空に評価されましたが、これは唯一の応答キーです。",
+      "ko": "respuesta_nombre은(는) null/빈 값으로 평가되었지만, 이것이 유일한 응답 키입니다.",
+      "pt-BR": "respuesta_nombre avaliou para null/vazio, mas é a única chave de resposta",
+      "pt-PT": "respuesta_nombre avaliou para null/vazio, mas é a única chave de resposta",
+      "zh": "respuesta_nombre 解析为 null/空值，但它是唯一的响应键"
+    }
+  },
+  {
+    "regexSource": "^tipo `analisis_sintactico` requiere `texto_analizar:`$",
+    "translations": {
+      "en": "Type `analisis_sintactico` requires `texto_analizar:`",
+      "de": "Typ `analisis_sintactico` erfordert `texto_analizar:`.",
+      "eo": "tipo `analisis_sintactico` postulas `texto_analizar:`",
+      "fr": "Le type `analisis_sintactico` requiert `texto_analizar:`.",
+      "it": "il tipo `analisis_sintactico` richiede `texto_analizar:`",
+      "ja": "型 `analisis_sintactico` は `texto_analizar:` を必要とします。",
+      "ko": "`analisis_sintactico` 타입은(는) `texto_analizar:`을(를) 요구합니다.",
+      "pt-BR": "o tipo `analisis_sintactico` requer `texto_analizar:`",
+      "pt-PT": "tipo `analisis_sintactico` requer `texto_analizar:`",
+      "zh": "类型 `analisis_sintactico` 需要 `texto_analizar:`"
+    }
+  },
+  {
+    "regexSource": "^tipo `analisis_sintactico` requiere `etiquetas_pedidas:`$",
+    "translations": {
+      "en": "Type `analisis_sintactico` requires `etiquetas_pedidas:`",
+      "de": "Typ `analisis_sintactico` erfordert `etiquetas_pedidas:`.",
+      "eo": "tipo `analisis_sintactico` postulas `etiquetas_pedidas:`",
+      "fr": "Le type `analisis_sintactico` requiert `etiquetas_pedidas:`.",
+      "it": "il tipo `analisis_sintactico` richiede `etiquetas_pedidas:`",
+      "ja": "型 `analisis_sintactico` は `etiquetas_pedidas:` を必要とします。",
+      "ko": "`analisis_sintactico` 타입은(는) `etiquetas_pedidas:`을(를) 요구합니다.",
+      "pt-BR": "o tipo `analisis_sintactico` requer `etiquetas_pedidas:`",
+      "pt-PT": "tipo `analisis_sintactico` requer `etiquetas_pedidas:`",
+      "zh": "类型 `analisis_sintactico` 需要 `etiquetas_pedidas:`"
+    }
+  },
+  {
+    "regexSource": "^texto_analizar debe evaluar a string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "texto_analizar must evaluate to a string, received {0}",
+      "de": "texto_analizar muss einen String ergeben, erhielt {0}.",
+      "eo": "texto_analizar devas evalui al ĉenon, ricevita {0}",
+      "fr": "texto_analizar doit évaluer à une chaîne de caractères, a reçu {0}.",
+      "it": "texto_analizar deve valutare a stringa, ha ricevuto {0}",
+      "ja": "texto_analizar は文字列に評価される必要がありますが、{0} が受けられました。",
+      "ko": "texto_analizar은(는) 문자열로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "texto_analizar deve avaliar para string, recebeu {0}",
+      "pt-PT": "texto_analizar deve avaliar para string, recebeu {0}",
+      "zh": "texto_analizar 应该解析为字符串，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^cada item de `etiquetas_pedidas` para analisis_sintactico debe tener los campos `palabra` y `etiqueta`$",
+    "translations": {
+      "en": "Each item in `etiquetas_pedidas` for analisis_sintactico must have the fields `palabra` and `etiqueta`",
+      "de": "Jedes Element von `etiquetas_pedidas` für analisis_sintactico muss die Felder `palabra` und `etiqueta` haben.",
+      "eo": "ĉiu elemento de `etiquetas_pedidas` por analisis_sintactico devas havi la kampojn `palabra` kaj `etiqueta`",
+      "fr": "Chaque élément de `etiquetas_pedidas` pour analisis_sintactico doit avoir les champs `palabra` et `etiqueta`.",
+      "it": "ogni elemento di `etiquetas_pedidas` per analisis_sintactico deve avere i campi `palabra` e `etiqueta`",
+      "ja": "`etiquetas_pedidas` の各項目は、analisis_sintactico に対して、フィールド `palabra` と `etiqueta` を持つ必要があります。",
+      "ko": "`etiquetas_pedidas`의 각 항목은(는) analisis_sintactico에 대해 `palabra`과 `etiqueta` 필드를 가져야 합니다.",
+      "pt-BR": "cada item de `etiquetas_pedidas` para analisis_sintactico deve ter os campos `palabra` e `etiqueta`",
+      "pt-PT": "cada item de `etiquetas_pedidas` para analisis_sintactico deve ter os campos `palabra` e `etiqueta`",
+      "zh": "`etiquetas_pedidas` 中每个条目，针对 analisis_sintactico，必须包含字段 `palabra` 和 `etiqueta`"
+    }
+  },
+  {
+    "regexSource": "^el campo `palabra` debe evaluar a string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "The field `palabra` must evaluate to a string, received {0}",
+      "de": "Das Feld `palabra` muss einen String ergeben, erhielt {0}.",
+      "eo": "la kampo `palabra` devas evalui al ĉeno, ricevita {0}",
+      "fr": "Le champ `palabra` doit évaluer à une chaîne de caractères, a reçu {0}.",
+      "it": "il campo `palabra` deve valutare a stringa, ha ricevuto {0}",
+      "ja": "フィールド `palabra` は文字列に評価される必要がありますが、{0} が受けられました。",
+      "ko": "필드 `palabra`은(는) 문자열로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "o campo `palabra` deve avaliar para string, recebeu {0}",
+      "pt-PT": "o campo `palabra` deve avaliar para string, recebeu {0}",
+      "zh": "字段 `palabra` 应该解析为字符串，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^el campo `etiqueta` debe evaluar a string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "The field `etiqueta` must evaluate to a string, received {0}",
+      "de": "Das Feld `etiqueta` muss einen String ergeben, erhielt {0}.",
+      "eo": "la kampo `etiqueta` devas evalui al ĉeno, ricevita {0}",
+      "fr": "Le champ `etiqueta` doit évaluer à une chaîne de caractères, a reçu {0}.",
+      "it": "il campo `etiqueta` deve valutare a stringa, ha ricevuto {0}",
+      "ja": "フィールド `etiqueta` は文字列に評価される必要がありますが、{0} が受けられました。",
+      "ko": "필드 `etiqueta`은(는) 문자열로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "o campo `etiqueta` deve avaliar para string, recebeu {0}",
+      "pt-PT": "o campo `etiqueta` deve avaliar para string, recebeu {0}",
+      "zh": "字段 `etiqueta` 应该解析为字符串，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^la palabra \"([\\s\\S]*?)\" no aparece en `texto_analizar`$",
+    "translations": {
+      "en": "The word \"{0}\" does not appear in `texto_analizar`",
+      "de": "Das Wort \"{0}\" kommt nicht in `texto_analizar` vor.",
+      "eo": "la vorto \"{0}\" ne aperas en `texto_analizar`",
+      "fr": "Le mot \"{0}\" n'apparaît pas dans `texto_analizar`.",
+      "it": "la parola \"{0}\" non compare in `texto_analizar`",
+      "ja": "単語 \"{0}\" は `texto_analizar` に存在しません。",
+      "ko": "단어 \"{0}\"이(가) `texto_analizar`에서 발견되지 않습니다.",
+      "pt-BR": "a palavra \"{0}\" não aparece em `texto_analizar`",
+      "pt-PT": "a palavra \"{0}\" não aparece em `texto_analizar`",
+      "zh": "单词 \"{0}\" 不在 `texto_analizar` 中"
+    }
+  },
+  {
+    "regexSource": "^tipo `analisis_spans` requiere `texto_analizar:`$",
+    "translations": {
+      "en": "Type `analisis_spans` requires `texto_analizar:`",
+      "de": "Typ `analisis_spans` erfordert `texto_analizar:`.",
+      "eo": "tipo `analisis_spans` postulas `texto_analizar:`",
+      "fr": "Le type `analisis_spans` requiert `texto_analizar:`.",
+      "it": "il tipo `analisis_spans` richiede `texto_analizar:`",
+      "ja": "型 `analisis_spans` は `texto_analizar:` を必要とします。",
+      "ko": "`analisis_spans` 타입은(는) `texto_analizar:`을(를) 요구합니다.",
+      "pt-BR": "o tipo `analisis_spans` requer `texto_analizar:`",
+      "pt-PT": "tipo `analisis_spans` requer `texto_analizar:`",
+      "zh": "类型 `analisis_spans` 需要 `texto_analizar:`"
+    }
+  },
+  {
+    "regexSource": "^tipo `analisis_spans` requiere `spans_pedidos:`$",
+    "translations": {
+      "en": "Type `analisis_spans` requires `spans_pedidos:`",
+      "de": "Typ `analisis_spans` erfordert `spans_pedidos:`.",
+      "eo": "tipo `analisis_spans` postulas `spans_pedidos:`",
+      "fr": "Le type `analisis_spans` requiert `spans_pedidos:`.",
+      "it": "il tipo `analisis_spans` richiede `spans_pedidos:`",
+      "ja": "型 `analisis_spans` は `spans_pedidos:` を必要とします。",
+      "ko": "`analisis_spans` 타입은(는) `spans_pedidos:`을(를) 요구합니다.",
+      "pt-BR": "o tipo `analisis_spans` requer `spans_pedidos:`",
+      "pt-PT": "tipo `analisis_spans` requer `spans_pedidos:`",
+      "zh": "类型 `analisis_spans` 需要 `spans_pedidos:`"
+    }
+  },
+  {
+    "regexSource": "^cada item de `spans_pedidos` debe tener los campos `desde`, `hasta` y `etiqueta`$",
+    "translations": {
+      "en": "Each item in `spans_pedidos` must have the fields `desde`, `hasta` and `etiqueta`",
+      "de": "Jedes Element von `spans_pedidos` muss die Felder `desde`, `hasta` und `etiqueta` haben.",
+      "eo": "ĉiu elemento de `spans_pedidos` devas havi la kampojn `desde`, `hasta` kaj `etiqueta`",
+      "fr": "Chaque élément de `spans_pedidos` doit avoir les champs `desde`, `hasta` et `etiqueta`.",
+      "it": "ogni elemento di `spans_pedidos` deve avere i campi `desde`, `hasta` e `etiqueta`",
+      "ja": "`spans_pedidos` の各項目は、フィールド `desde`、`hasta` および `etiqueta` を持つ必要があります。",
+      "ko": "`spans_pedidos`의 각 항목은(는) `desde`, `hasta` 및 `etiqueta` 필드를 가져야 합니다.",
+      "pt-BR": "cada item de `spans_pedidos` deve ter os campos `desde`, `hasta` e `etiqueta`",
+      "pt-PT": "cada item de `spans_pedidos` deve ter os campos `desde`, `hasta` e `etiqueta`",
+      "zh": "`spans_pedidos` 中每个条目必须包含字段 `desde`、`hasta` 和 `etiqueta`"
+    }
+  },
+  {
+    "regexSource": "^el campo `desde` debe evaluar a un entero, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "The field `desde` must evaluate to an integer, received {0}",
+      "de": "Das Feld `desde` muss eine Ganzzahl ergeben, erhielt {0}.",
+      "eo": "la kampo `desde` devas evalui al entjero, ricevita {0}",
+      "fr": "Le champ `desde` doit évaluer à un entier, a reçu {0}.",
+      "it": "il campo `desde` deve valutare a un intero, ha ricevuto {0}",
+      "ja": "フィールド `desde` は整数に評価される必要がありますが、{0} が受けられました。",
+      "ko": "필드 `desde`은(는) 정수로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "o campo `desde` deve avaliar para um inteiro, recebeu {0}",
+      "pt-PT": "o campo `desde` deve avaliar para um inteiro, recebeu {0}",
+      "zh": "字段 `desde` 应该解析为整数，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^el campo `hasta` debe evaluar a un entero, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "The field `hasta` must evaluate to an integer, received {0}",
+      "de": "Das Feld `hasta` muss eine Ganzzahl ergeben, erhielt {0}.",
+      "eo": "la kampo `hasta` devas evalui al entjero, ricevita {0}",
+      "fr": "Le champ `hasta` doit évaluer à un entier, a reçu {0}.",
+      "it": "il campo `hasta` deve valutare a un intero, ha ricevuto {0}",
+      "ja": "フィールド `hasta` は整数に評価される必要がありますが、{0} が受けられました。",
+      "ko": "필드 `hasta`은(는) 정수로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "o campo `hasta` deve avaliar para um inteiro, recebeu {0}",
+      "pt-PT": "o campo `hasta` deve avaliar para um inteiro, recebeu {0}",
+      "zh": "字段 `hasta` 应该解析为整数，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^el campo `etiqueta` debe evaluar a un string no vacío$",
+    "translations": {
+      "en": "The field `etiqueta` must evaluate to a non-empty string",
+      "de": "Das Feld `etiqueta` muss einen nicht-leeren String ergeben.",
+      "eo": "la kampo `etiqueta` devas evalui al ne-malplena ĉeno",
+      "fr": "Le champ `etiqueta` doit évaluer à une chaîne de caractères non vide.",
+      "it": "il campo `etiqueta` deve valutare a una stringa non vuota",
+      "ja": "フィールド `etiqueta` は空でない文字列に評価される必要があります。",
+      "ko": "필드 `etiqueta`은(는) 빈 문자열이 아닌 문자열로 평가되어야 합니다.",
+      "pt-BR": "o campo `etiqueta` deve avaliar para uma string não vazia",
+      "pt-PT": "o campo `etiqueta` deve avaliar para uma string não vazia",
+      "zh": "字段 `etiqueta` 应该解析为非空字符串"
+    }
+  },
+  {
+    "regexSource": "^span \\[([\\s\\S]*?), ([\\s\\S]*?)\\] fuera de rango: `texto_analizar` tiene ([\\s\\S]*?) palabras \\(índices 0\\.\\.([\\s\\S]*?), desde ≤ hasta\\)$",
+    "translations": {
+      "en": "Span [{0}, {1}] out of range: `texto_analizar` has {2} words (indices 0..{3}, from ≤ to)",
+      "de": "Bereich [{0}, {1}] außerhalb des gültigen Bereichs: `texto_analizar` hat {2} Wörter (Indizes 0..{3}, von ≤ bis).",
+      "eo": "intervalo [{0}, {1}] ekstere de rango: `texto_analizar` havas {2} vortojn (indicoj 0..{3}, de ≤ ĝis)",
+      "fr": "Span [{0}, {1}] hors de portée : `texto_analizar` contient {2} mots (indices 0..{3}, de ≤ à).",
+      "it": "span [{0}, {1}] fuori intervallo: `texto_analizar` ha {2} parole (indici 0..{3}, da ≤ a)",
+      "ja": "スパン [{0}, {1}] は範囲外です: `texto_analizar` は {2} 個の単語を持っています (インデックス 0..{3}、≤ から)。",
+      "ko": "범위 초과: [{0}, {1}] - `texto_analizar`은(는) {2}개의 단어를 가지고 있습니다 (인덱스 0..{3}, ≤ 부터).",
+      "pt-BR": "span [{0}, {1}] fora do alcance: `texto_analizar` tem {2} palavras (índices 0..{3}, desde ≤ até)",
+      "pt-PT": "span [{0}, {1}] fora de intervalo: `texto_analizar` tem {2} palavras (índices 0..{3}, desde ≤ até)",
+      "zh": "范围 [{0}, {1}] 超出范围：`texto_analizar` 包含 {2} 个单词（索引 0..{3}，从 ≤ 到）"
+    }
+  },
+  {
+    "regexSource": "^etiquetas_disponibles: cada item debe evaluar a string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "etiquetas_disponibles: each item must evaluate to a string, received {0}",
+      "de": "etiquetas_disponibles: Jeder Eintrag muss ein String sein, erhielt {0}",
+      "eo": "etiquetas_disponibles: ĉiu elemento devas doni stringon, ricevita {0}",
+      "fr": "etiquetas_disponibles: chaque élément doit évaluer à une chaîne de caractères, a reçu {0}.",
+      "it": "etiquetas_disponibles: ogni elemento deve essere una stringa, ha ricevuto {0}",
+      "ja": "etiquetas_disponibles: 各項目は文字列に評価される必要がありますが、{0} が受け渡されました。",
+      "ko": "etiquetas_disponibles: 각 항목은 문자열로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "etiquetas_disponibles: cada item deve avaliar para string, recebeu {0}",
+      "pt-PT": "etiquetas_disponibles: cada elemento deve avaliar para string, recebeu {0}",
+      "zh": "etiquetas_disponibles: 每一个条目都应该解析为字符串，但接收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^tipo `identificar_palabras` requiere `texto_analizar:`$",
+    "translations": {
+      "en": "Type `identificar_palabras` requires `texto_analizar:`",
+      "de": "Typ `identificar_palabras` erfordert `texto_analizar:`.",
+      "eo": "tipo `identificar_palabras` postulas `texto_analizar:`",
+      "fr": "Le type `identificar_palabras` requiert `texto_analizar:`.",
+      "it": "il tipo `identificar_palabras` richiede `texto_analizar:`",
+      "ja": "型 `identificar_palabras` は `texto_analizar:` を必要とします。",
+      "ko": "`identificar_palabras` 타입은(는) `texto_analizar:`을(를) 요구합니다.",
+      "pt-BR": "o tipo `identificar_palabras` requer `texto_analizar:`",
+      "pt-PT": "tipo `identificar_palabras` requer `texto_analizar:`",
+      "zh": "类型 `identificar_palabras` 需要 `texto_analizar:`"
+    }
+  },
+  {
+    "regexSource": "^tipo `identificar_palabras` requiere `respuestas_validas:` con las palabras correctas$",
+    "translations": {
+      "en": "type `identificar_palabras` requires `respuestas_validas:` with the correct words",
+      "de": "Der Typ `identificar_palabras` benötigt `respuestas_validas:` mit den richtigen Wörtern",
+      "eo": "tipo `identificar_palabras` postulas `respuestas_validas:` kun la ĝustaj vortoj",
+      "fr": "le type `identificar_palabras` requiert `respuestas_validas:` avec les mots corrects.",
+      "it": "il tipo `identificar_palabras` richiede `respuestas_validas:` con le parole corrette",
+      "ja": "型 `identificar_palabras` は、正しいキーワードを持つ `respuestas_validas:` を必要とします。",
+      "ko": "`identificar_palabras` 유형은 올바른 단어를 포함하는 `respuestas_validas:`이(가) 필요합니다.",
+      "pt-BR": "tipo `identificar_palabras` requer `respuestas_validas:` com as palavras corretas",
+      "pt-PT": "o tipo `identificar_palabras` requer `respuestas_validas:` com as palavras corretas",
+      "zh": "类型 `identificar_palabras` 需要 `respuestas_validas:`，并且需要正确的关键词。"
+    }
+  },
+  {
+    "regexSource": "^generador \"([\\s\\S]*?)\" no existe en el provider$",
+    "translations": {
+      "en": "generator \"{0}\" does not exist in the provider",
+      "de": "Der Generator \"{0}\" existiert nicht im Provider",
+      "eo": "generilo \"{0}\" ne ekzistas en la provizanto",
+      "fr": "le générateur \"{0}\" n'existe pas dans le fournisseur.",
+      "it": "il generatore \"{0}\" non esiste nel provider",
+      "ja": "ジェネレーター \"{0}\" は、プロバイダー内に存在しません。",
+      "ko": "\"{0}\" 생성기가 제공자(provider)에 존재하지 않습니다.",
+      "pt-BR": "gerador \"{0}\" não existe no provider",
+      "pt-PT": "o gerador \"{0}\" não existe no fornecedor",
+      "zh": "找不到名为 \"{0}\" 的生成器，该生成器应存在于提供者中。"
+    }
+  },
+  {
+    "regexSource": "^generador \"([\\s\\S]*?)\" devolvió opciones sin indiceCorrecto$",
+    "translations": {
+      "en": "generator \"{0}\" returned options without a correct index",
+      "de": "Der Generator \"{0}\" hat Optionen ohne korrekten Index zurückgegeben",
+      "eo": "generilo \"{0}\" donis opciojn sen indiceCorrecto",
+      "fr": "le générateur \"{0}\" a renvoyé des options sans indiceCorrecto.",
+      "it": "il generatore \"{0}\" ha restituito opzioni senza indiceCorretto",
+      "ja": "ジェネレーター \"{0}\" は、正しいインデックスを持つオプションを返しませんでした。",
+      "ko": "\"{0}\" 생성기가 올바른 인덱스(index)가 없는 옵션을 반환했습니다.",
+      "pt-BR": "gerador \"{0}\" retornou opções sem indiceCorreto",
+      "pt-PT": "o gerador \"{0}\" devolveu opções sem índice correto",
+      "zh": "生成器 \"{0}\" 返回了没有正确索引的选项。"
+    }
+  },
+  {
+    "regexSource": "^generador \"([\\s\\S]*?)\" devolvió ejercicio sin opciones, resultado ni respuestaCorrecta$",
+    "translations": {
+      "en": "generator \"{0}\" returned an exercise without options, result, or correct answer",
+      "de": "Der Generator \"{0}\" hat eine Aufgabe ohne Optionen, Ergebnis oder richtige Antwort zurückgegeben",
+      "eo": "generilo \"{0}\" donis ekzercon sen opcioj, rezulto nek respondoCorrecta",
+      "fr": "le générateur \"{0}\" a renvoyé un exercice sans options, résultat ni réponseCorrecta.",
+      "it": "il generatore \"{0}\" ha restituito un esercizio senza opzioni, risultato né rispostaCorretta",
+      "ja": "ジェネレーター \"{0}\" は、オプション、結果、または正しい回答を持たない問題（exercise）を返しました。",
+      "ko": "\"{0}\" 생성기가 옵션, 결과 또는 정답이 없는 문제를 반환했습니다.",
+      "pt-BR": "gerador \"{0}\" retornou exercício sem opções, resultado nem respostaCorreta",
+      "pt-PT": "o gerador \"{0}\" devolveu exercício sem opções, resultado nem resposta correta",
+      "zh": "生成器 \"{0}\" 返回了没有选项、结果或正确答案的练习。"
+    }
+  },
+  {
+    "regexSource": "^plantilla usa generador asistido \"([\\s\\S]*?)\" pero no se proveyó provider$",
+    "translations": {
+      "en": "template uses assisted generator \"{0}\" but no provider was provided",
+      "de": "Die Vorlage verwendet einen unterstützten Generator \"{0}\", aber es wurde kein Provider bereitgestellt",
+      "eo": "ŝablono uzas asistitan generilon \"{0}\" sed la provizanto ne estis provizita",
+      "fr": "le modèle utilise le générateur assisté \"{0}\" mais aucun fournisseur n'a été fourni.",
+      "it": "il template utilizza un generatore assistito \"{0}\" ma non è stato fornito il provider",
+      "ja": "テンプレートは、アシストされたジェネレーター \"{0}\" を使用していますが、プロバイダーが提供されていません。",
+      "ko": "템플릿은 보조 생성기 \"{0}\"을(를) 사용하지만, 제공자(provider)가 제공되지 않았습니다.",
+      "pt-BR": "template usa gerador assistido \"{0}\" mas não foi fornecido o provider",
+      "pt-PT": "a template usa gerador assistido \"{0}\" mas não foi fornecido o fornecedor",
+      "zh": "模板使用了辅助生成器 \"{0}\"，但没有提供提供者。"
+    }
+  },
+  {
+    "regexSource": "^dataset \"([\\s\\S]*?)\" no encontrado \\(¿está creado\\? ¿el provider lo expone\\?\\)$",
+    "translations": {
+      "en": "dataset \"{0}\" not found (is it created? does the provider expose it?)",
+      "de": "Das Dataset \"{0}\" wurde nicht gefunden (ist es erstellt? Wird es vom Provider bereitgestellt?)",
+      "eo": "dataro \"{0}\" ne trovita (ĉu ĝi estas kreita? ĉu la provizanto ĝin ekspozicias?)",
+      "fr": "le jeu de données \"{0}\" n'a pas été trouvé (a-t-il été créé ? le fournisseur l'expose-t-il ?)",
+      "it": "dataset \"{0}\" non trovato (è stato creato? il provider lo espone?)",
+      "ja": "データセット \"{0}\" が見つかりません (作成されていますか？プロバイダーによって公開されていますか？)。",
+      "ko": "\"{0}\" 데이터 세트(dataset)를 찾을 수 없습니다. (생성되었습니까? 제공자가 노출하고 있습니까?)",
+      "pt-BR": "dataset \"{0}\" não encontrado (está criado? o provider o expõe?)",
+      "pt-PT": "o conjunto de dados \"{0}\" não foi encontrado (está criado? o fornecedor o expõe?)",
+      "zh": "找不到名为 \"{0}\" 的数据集（是否已创建？提供者是否已将其公开？）。"
+    }
+  },
+  {
+    "regexSource": "^cada restricción debe evaluar a boolean, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "each restriction must evaluate to a boolean, received {0}",
+      "de": "Jede Einschränkung muss ein Boolescher Wert sein, erhielt {0}",
+      "eo": "ĉiu restrikto devas doni booleon, ricevita {0}",
+      "fr": "chaque contrainte doit évaluer à une valeur booléenne, a reçu {0}.",
+      "it": "ogni restrizione deve essere un valore booleano, ha ricevuto {0}",
+      "ja": "各制約は、真偽値に評価される必要がありますが、{0} が受け渡されました。",
+      "ko": "각 제약 조건은 불리언(boolean)으로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "cada restrição deve avaliar para booleano, recebeu {0}",
+      "pt-PT": "cada restrição deve avaliar para booleano, recebeu {0}",
+      "zh": "每个约束都应该解析为布尔值，但接收到了 {0}。"
+    }
+  },
+  {
+    "regexSource": "^respuesta evaluó a un número no finito \\(([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "the answer evaluated to a non-finite number ({0})",
+      "de": "Die Antwort hat einen nicht-endlichen Zahlenwert ergeben ({0})",
+      "eo": "respondo donis nefinitan numeron ({0})",
+      "fr": "la réponse a évalué à un nombre infini ({0}).",
+      "it": "la risposta ha valutato a un numero non finito ({0})",
+      "ja": "回答は、有限の数値に評価されました ({0})。",
+      "ko": "정답이 유한한 숫자가 아닌 값으로 평가되었습니다. ({0})",
+      "pt-BR": "resposta avaliou para um número não finito ({0})",
+      "pt-PT": "a resposta avaliou para um número não finito ({0})",
+      "zh": "答案解析为一个非有限的数值 ({0})。"
+    }
+  },
+  {
+    "regexSource": "^respuesta_expr debe evaluar a string, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "respuesta_expr must evaluate to a string, received {0}",
+      "de": "respuesta_expr muss einen String ergeben, erhielt {0}.",
+      "eo": "respuesta_expr devas evalui al ĉenon, ricevita {0}",
+      "fr": "respuesta_expr doit évaluer à une chaîne de caractères, a reçu {0}.",
+      "it": "respuesta_expr deve valutare a stringa, ha ricevuto {0}",
+      "ja": "respuesta_expr は文字列に評価される必要がありますが、{0} が受けられました。",
+      "ko": "respuesta_expr은(는) 문자열로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "respuesta_expr deve avaliar para string, recebeu {0}",
+      "pt-PT": "respuesta_expr deve avaliar para string, recebeu {0}",
+      "zh": "respuesta_expr 应该解析为字符串，但收到了 {0}"
+    }
+  },
+  {
+    "regexSource": "^respuesta_valida evaluó a un número no finito \\(([\\s\\S]*?)\\)$",
+    "translations": {
+      "en": "respuesta_valida evaluated to a non-finite number ({0})",
+      "de": "respuesta_valida hat einen nicht-endlichen Zahlenwert ergeben ({0})",
+      "eo": "respuesta_valida donis nefinitan numeron ({0})",
+      "fr": "respuesta_valida a évalué à un nombre infini ({0}).",
+      "it": "respuesta_valida ha valutato a un numero non finito ({0})",
+      "ja": "respuesta_valida は、有限の数値に評価されました ({0})。",
+      "ko": "respuesta_valida이(가) 유한한 숫자가 아닌 값으로 평가되었습니다. ({0})",
+      "pt-BR": "respuesta_valida avaliou para um número não finito ({0})",
+      "pt-PT": "respuesta_valida avaliou para um número não finito ({0})",
+      "zh": "respuesta_valida 解析为一个非有限的数值 ({0})。"
+    }
+  },
+  {
+    "regexSource": "^tipo vf requiere que la respuesta evalúe a verdadero/falso, recibió ([\\s\\S]*?)$",
+    "translations": {
+      "en": "vf type requires that the answer evaluates to true/false, received {0}",
+      "de": "Der Typ vf erfordert, dass die Antwort einen Wahrheits-/Falschwert ergibt, erhielt {0}",
+      "eo": "tipo vf postulas ke la respondo donu veron/falson, ricevita {0}",
+      "fr": "le type vf requiert que la réponse évalue à vrai/faux, a reçu {0}.",
+      "it": "il tipo vf richiede che la risposta sia un valore booleano (vero/falso), ha ricevuto {0}",
+      "ja": "vf 型は、回答が真または偽に評価されることを必要としますが、{0} が受け渡されました。",
+      "ko": "vf 유형은 정답이 참(true) 또는 거짓(false)으로 평가되어야 하지만, {0}을(를) 받았습니다.",
+      "pt-BR": "tipo vf requer que a resposta avalie para verdadeiro/falso, recebeu {0}",
+      "pt-PT": "o tipo vf requer que a resposta avalie para verdadeiro/falso, recebeu {0}",
+      "zh": "vf 类型要求答案解析为真/假，但接收到了 {0}。"
+    }
+  },
+  {
+    "regexSource": "^la respuesta no aparece en opciones_explicitas$",
+    "translations": {
+      "en": "the answer does not appear in opciones_explicitas",
+      "de": "Die Antwort ist nicht in opciones_explicitas enthalten.",
+      "eo": "la respondo ne aperas en opciones_explicitas",
+      "fr": "la réponse n'apparaît pas dans opciones_explicitas.",
+      "it": "la risposta non è presente in opciones_explicitas",
+      "ja": "回答が opciones_explicitas には表示されていません。",
+      "ko": "정답이 opciones_explicitas에 나타나지 않습니다.",
+      "pt-BR": "a resposta não aparece em opciones_explicitas",
+      "pt-PT": "a resposta não aparece em opciones_explicitas",
+      "zh": "答案未出现在 opciones_explicitas 中。"
+    }
+  },
+  {
+    "regexSource": "^para tipo mc con respuesta no numérica use opciones_explicitas$",
+    "translations": {
+      "en": "for mc question type with a non-numeric answer, use opciones_explicitas",
+      "ko": "숫자형이 아닌 응답을 가진 mc 유형의 경우, opciones_explicitas을 사용하세요.",
+      "pt-PT": "para tipo mc com resposta não numérica use opciones_explicitas",
+      "zh": "对于类型为 mc 的题目，如果答案不是数值，请使用 opciones_explicitas。"
+    }
+  },
+  {
+    "regexSource": "^No se pudo generar este ejercicio\\. Probá de nuevo; si el problema persiste, avisá a tu profesor\\.$",
+    "translations": {
+      "en": "This exercise could not be generated. Try again; if the problem persists, notify your teacher.",
+      "de": "Diese Aufgabe konnte nicht generiert werden. Versuchen Sie es erneut; wenn das Problem weiterhin besteht, benachrichtigen Sie Ihren Lehrer.",
+      "eo": "Ne eblis generi ĉi tiun ekzercon. Provu denove; se la problemo daŭras, informu vian instruiston.",
+      "fr": "Il n'a pas été possible de générer cet exercice. Réessayez ; si le problème persiste, contactez votre professeur.",
+      "it": "Non è stato possibile generare questo esercizio. Riprova; se il problema persiste, contatta il tuo professore.",
+      "ja": "この問題を生成できませんでした。もう一度お試しください。問題が解決しない場合は、先生に連絡してください。",
+      "ko": "이 문제를 생성할 수 없습니다. 다시 시도해 보세요. 문제가 계속 발생하면 선생님께 알려주세요.",
+      "pt-BR": "Não foi possível gerar este exercício. Tente novamente; se o problema persistir, avise ao seu professor.",
+      "pt-PT": "Não foi possível gerar este exercício. Tente novamente; se o problema persistir, avise ao seu professor.",
+      "zh": "无法生成此题目。请重试；如果问题仍然存在，请告知您的老师。"
+    }
+  }
+]

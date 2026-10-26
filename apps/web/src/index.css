@@ -59,9 +59,9 @@
   /* Color del anillo de foco visible — usa el texto principal para máximo contraste */
   --c-focus-ring: var(--c-text);
 
-  /* Radii (alineados con el rediseño) */
-  --r-sm: 6px;
-  --r-md: 10px;
+  /* Radii (alineados con el rediseño + Tiza · WO-V1: 9–14px) */
+  --r-sm: 9px;
+  --r-md: 12px;
   --r-lg: 14px;
   --r-xl: 20px;
 
@@ -93,9 +93,80 @@
   --c-danger-soft:  color-mix(in srgb, var(--c-danger) 16%, var(--c-surface));
   --c-info-soft:    color-mix(in srgb, var(--c-info) 16%, var(--c-surface));
 
+  /* Tiers de logro por nota (Perfil > Logros): derivados de los tokens de
+     estado existentes, no colores nuevos hardcodeados — se adaptan solos
+     si un tema cambia --c-warning/--c-info. */
+  --c-tier-comun:      color-mix(in srgb, var(--c-warning) 45%, var(--c-muted));
+  --c-tier-comun-soft: color-mix(in srgb, var(--c-tier-comun) 16%, var(--c-surface));
+  --c-tier-dorado:      var(--c-warning);
+  --c-tier-dorado-soft: var(--c-warning-soft);
+  --c-tier-platino:      color-mix(in srgb, var(--c-info) 35%, var(--c-text));
+  --c-tier-platino-soft: color-mix(in srgb, var(--c-tier-platino) 14%, var(--c-surface));
+
   /* Acento suave + texto sobre acento */
   --c-accent-soft: color-mix(in srgb, var(--c-accent) 12%, var(--c-surface));
   --c-accent-fg:   var(--c-surface);
+
+  /* ── Tipos de módulo (aprendizaje/competencia/evaluación) ──
+   * Mezclados hacia --c-text (no fijos por tema): --c-text ya está
+   * garantizado a contrastar bien contra --c-surface en cada tema,
+   * así que mezclar el color semántico hacia el texto empuja el tono
+   * en la dirección de luminosidad correcta según el tema sea claro
+   * u oscuro (evita que un verde quede "verde oscuro" ilegible sobre
+   * fondos negros, p.ej. tema Nocturno). El -soft es el fondo opaco
+   * del badge/tarjeta, mezclado hacia --c-surface en vez de blanco.
+   *
+   * "aprendizaje" usa --c-info (no --c-primary): verificado con un
+   * script sobre los 39 temas (2026-07-25) que --c-primary coincide
+   * literalmente con --c-success o --c-warning en varios temas —
+   * Bosque (primary === success, distancia RGB 0) y Dorado (primary
+   * === warning, distancia 0) mostraban el mismo color para dos tipos
+   * de módulo distintos; Vibrante/Emerald/Carbon/Papel Digital
+   * quedaban igual de cerca (colores casi indistinguibles). --c-info
+   * no es el color de marca de ningún tema, así que no choca con los
+   * semánticos por diseño. Costo: --c-info no está tan afinado para
+   * fondos oscuros como --c-primary (que cada tema sí ajusta a mano),
+   * así que el contraste de "aprendizaje" baja un poco en temas muy
+   * oscuros (p.ej. Pizarra ~3.1:1) — sigue en el rango que ya acepta
+   * el resto de los badges "-soft" de la app en varios temas, y es
+   * preferible a un choque de color exacto. */
+  --c-tipo-evaluacion:       color-mix(in srgb, var(--c-warning) 65%, var(--c-text));
+  --c-tipo-evaluacion-soft:  color-mix(in srgb, var(--c-warning) 20%, var(--c-surface));
+  --c-tipo-competencia:      color-mix(in srgb, var(--c-success) 65%, var(--c-text));
+  --c-tipo-competencia-soft: color-mix(in srgb, var(--c-success) 20%, var(--c-surface));
+  --c-tipo-aprendizaje:      color-mix(in srgb, var(--c-info) 65%, var(--c-text));
+  --c-tipo-aprendizaje-soft: color-mix(in srgb, var(--c-info) 20%, var(--c-surface));
+
+  /* ── Código y syntax (Tiza · WO-V1) ───────────────────────
+   * Tokens para la vista de código (V3) y contextos monospace.
+   * Por defecto apuntan a valores sensatos sobre cualquier
+   * superficie; los temas individuales pueden ajustarlos. */
+  --c-code-bg:    var(--c-surface-2);
+  --c-code-fg:    var(--c-text);
+  --c-syntax-key: var(--c-accent);
+  --c-syntax-str: #1f8a5b;
+  --c-syntax-num: #b5562b;
+}
+
+/* ── Sombra y radio alineados al prototipo Tiza (WO-V1) ── *
+ * El prototipo define --shadow y --shadow-lg con valores
+ * propios; la escala previa (--shadow-1/2/pop, --shadow-sm/
+ * md/lg en tokens.css) se conserva para no romper componentes
+ * existentes. Estos son la referencia canónica para código
+ * nuevo y para el tema Tiza. */
+:root {
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06),
+             0 4px 14px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 12px 40px rgba(16, 24, 40, 0.14);
+}
+
+/* ── Familia monospace pública (WO-V1) ──────────────────── *
+ * Ya existe --font-mono como variable de Tailwind v4 en el
+ * bloque @theme; acá exponemos un alias CSS para los lugares
+ * que no consumen utilities (variables inline, SVG, etc.). */
+:root {
+  --font-mono-css: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
 }
 
 /* ── Temas normales ─────────────────────────────────────── */
@@ -222,6 +293,204 @@
   --c-nav-text: #0f172a;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   TIZA — Tema "Tiza · Editor de consignas" (prototipo de Claude)
+   WO-V1: paleta exacta del prototipo mapeada a --c-*.
+   Como el sistema de acentos (data-accent) sobreescribe
+   --c-primary/--c-accent/--c-accent-soft, el --c-accent de
+   acá es el default "azul" (#2f6df6) que data-accent="azul"
+   también fija. Coherente por construcción.
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="tiza"] {
+  /* base 12 */
+  --c-bg:       #e9edf2;   /* canvas del prototipo          */
+  --c-surface:  #ffffff;   /* surface                       */
+  --c-border:   #e4e8ef;   /* border                        */
+  --c-text:     #191d24;   /* fg                            */
+  --c-muted:    #5a6473;   /* fg-2                          */
+  --c-primary:  #2f6df6;   /* accent (azul, default)        */
+  --c-accent:   #2f6df6;   /* accent (azul, default)        */
+  --c-success:  #16a34a;
+  --c-warning:  #d97706;
+  --c-danger:   #dc2626;
+  --c-nav-bg:   #ffffff;
+  --c-nav-text: #191d24;
+
+  /* superficies extra */
+  --c-surface-2: #f4f6f9;   /* surface-2 del prototipo       */
+  --c-surface-3: #eef1f6;   /* un escalón más abajo que -2    */
+
+  /* sidebar (look prototipo: sidebar claro) */
+  --c-sidebar-bg:  #ffffff;
+  --c-sidebar-fg:  #191d24;
+  --c-sidebar-dim: #98a2b2;
+
+  /* texto / bordes / foco */
+  --c-text-3:       #98a2b2;   /* fg-3 del prototipo           */
+  --c-text-on-dark: #faf9f6;
+  --c-border-strong:#c9d0db;
+  --c-focus-ring:   #2f6df6;
+
+  /* acento (azul default) */
+  --c-accent-soft:  #2f6df61f;  /* accent @ 12% — accent-weak   */
+  --c-accent-fg:    #ffffff;    /* accent-fg                    */
+
+  /* estados + soft + info */
+  --c-info:         #2c4c8a;
+  --c-success-soft: color-mix(in srgb, var(--c-success) 14%, var(--c-surface));
+  --c-warning-soft: color-mix(in srgb, var(--c-warning) 14%, var(--c-surface));
+  --c-danger-soft:  color-mix(in srgb, var(--c-danger)  14%, var(--c-surface));
+  --c-info-soft:    color-mix(in srgb, var(--c-info)    14%, var(--c-surface));
+
+  /* código / syntax (vista de código V3 + monospace) */
+  --c-code-bg:    #f7f9fc;     /* code-bg del prototipo         */
+  --c-code-fg:    #3b4252;     /* code-fg del prototipo         */
+  --c-syntax-key: var(--c-accent);
+  --c-syntax-str: #1f8a5b;     /* str del prototipo             */
+  --c-syntax-num: #b5562b;     /* num del prototipo             */
+}
+
+[data-theme="tiza-dark"] {
+  /* base 12 */
+  --c-bg:       #0a0d12;     /* canvas dark del prototipo     */
+  --c-surface:  #161b22;     /* surface dark                  */
+  --c-border:   #293040;     /* border dark                   */
+  --c-text:     #e7eaef;     /* fg dark                       */
+  --c-muted:    #98a2b3;     /* fg-2 dark                     */
+  --c-primary:  #5b8dee;     /* accent dark (azul)            */
+  --c-accent:   #5b8dee;     /* accent dark (azul)            */
+  --c-success:  #34d399;
+  --c-warning:  #fbbf24;
+  --c-danger:   #f87171;
+  --c-nav-bg:   #0a0d12;
+  --c-nav-text: #e7eaef;
+
+  /* superficies extra */
+  --c-surface-2: #1c2230;     /* surface-2 dark                */
+  --c-surface-3: #232a3a;     /* un escalón más abajo que -2   */
+
+  /* sidebar */
+  --c-sidebar-bg:  #0a0d12;
+  --c-sidebar-fg:  #e7eaef;
+  --c-sidebar-dim: #6a7382;
+
+  /* texto / bordes / foco */
+  --c-text-3:       #6a7382;   /* fg-3 dark                     */
+  --c-text-on-dark: #e7eaef;
+  --c-border-strong:#3a4255;
+  --c-focus-ring:   #5b8dee;
+
+  /* acento (azul dark) */
+  --c-accent-soft:  #5b8dee26;  /* accent dark @ ~15%           */
+  --c-accent-fg:    #0a0d12;    /* texto sobre accent dark       */
+
+  /* estados + soft + info */
+  --c-info:         #6c8bd6;
+  --c-success-soft: color-mix(in srgb, var(--c-success) 18%, var(--c-surface));
+  --c-warning-soft: color-mix(in srgb, var(--c-warning) 18%, var(--c-surface));
+  --c-danger-soft:  color-mix(in srgb, var(--c-danger)  18%, var(--c-surface));
+  --c-info-soft:    color-mix(in srgb, var(--c-info)    18%, var(--c-surface));
+
+  /* código / syntax */
+  --c-code-bg:    #0f141c;     /* code-bg dark                  */
+  --c-code-fg:    #c4ccd8;     /* code-fg dark                  */
+  --c-syntax-key: var(--c-accent);
+  --c-syntax-str: #52c596;     /* str dark                      */
+  --c-syntax-num: #e0945f;     /* num dark                      */
+
+  /* sombras específicas para dark (más visibles) */
+  --shadow:   0 1px 2px rgba(0, 0, 0, 0.4),
+              0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DATA-ACCENT — sistema de acentos conmutables (WO-V1)
+   Sobre-escribe --c-primary/--c-accent/--c-accent-soft/--c-accent-fg.
+   Sólo aplica si data-accent está seteado explícitamente (lo hace
+   PlantillaEditorShell para el editor Tiza). Cada tema puede o no
+   usar el acento; el acento vive afuera del tema, así que se puede
+   combinar: <html data-theme="tiza" data-accent="teal">.
+   NO usar ":root" acá — pisaría el --c-primary/--c-accent propio
+   de todos los temas "normales" (bug encontrado 2026-07-25: Aurora,
+   Bosque, Vibrante, etc. mostraban azul en vez de su color de tema).
+   ═══════════════════════════════════════════════════════════ */
+
+[data-accent="azul"] {
+  --c-primary:     #2f6df6;
+  --c-accent:      #2f6df6;
+  --c-accent-soft: #2f6df61f;   /* 12% sobre el accent            */
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="teal"] {
+  --c-primary:     #0f766e;
+  --c-accent:      #0f766e;
+  --c-accent-soft: #0f766e1f;
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="violeta"] {
+  --c-primary:     #7c3aed;
+  --c-accent:      #7c3aed;
+  --c-accent-soft: #7c3aed1f;
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="naranja"] {
+  --c-primary:     #e0532f;
+  --c-accent:      #e0532f;
+  --c-accent-soft: #e0532f1f;
+  --c-accent-fg:   #ffffff;
+}
+
+[data-accent="verde"] {
+  --c-primary:     #0e9f6e;
+  --c-accent:      #0e9f6e;
+  --c-accent-soft: #0e9f6e1f;
+  --c-accent-fg:   #ffffff;
+}
+
+/* Variantes dark — los acentos suben ~10% de luminosidad para
+   mantener contraste sobre superficies oscuras. La regla
+   combina data-theme (dark) con data-accent. */
+[data-theme$="-dark"][data-accent="azul"],
+[data-theme="tiza-dark"][data-accent="azul"] {
+  --c-primary:     #5b8dee;
+  --c-accent:      #5b8dee;
+  --c-accent-soft: #5b8dee26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="teal"],
+[data-theme="tiza-dark"][data-accent="teal"] {
+  --c-primary:     #2dd4bf;
+  --c-accent:      #2dd4bf;
+  --c-accent-soft: #2dd4bf26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="violeta"],
+[data-theme="tiza-dark"][data-accent="violeta"] {
+  --c-primary:     #a78bfa;
+  --c-accent:      #a78bfa;
+  --c-accent-soft: #a78bfa26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="naranja"],
+[data-theme="tiza-dark"][data-accent="naranja"] {
+  --c-primary:     #fb7c5a;
+  --c-accent:      #fb7c5a;
+  --c-accent-soft: #fb7c5a26;
+  --c-accent-fg:   #0a0d12;
+}
+[data-theme$="-dark"][data-accent="verde"],
+[data-theme="tiza-dark"][data-accent="verde"] {
+  --c-primary:     #34d399;
+  --c-accent:      #34d399;
+  --c-accent-soft: #34d39926;
+  --c-accent-fg:   #0a0d12;
+}
+
 /* ── Temas animados ─────────────────────────────────────── */
 
 /* ── Temas estáticos nuevos ─────────────────────────────────────── */
@@ -329,6 +598,304 @@
   --c-danger:  #f87171;
   --c-nav-bg:  #1a1025;
   --c-nav-text:#e8d5f5;
+}
+
+/* ── PIZARRA — pizarrón verde con textura de tiza ──────────
+   primary=amarillo tiza, accent=blanco tiza (mismo par que se ve en el
+   degradé del selector de tema, StaffSidebar.tsx). El "efecto pizarra"
+   son 2 capas cosméticas encima de los 12 tokens base: un grano sutil
+   de polvo de tiza en el fondo (radial-gradient repetido, sin imagen ni
+   JS) y un trazo suave tipo tiza en los títulos (text-shadow, no
+   gradiente animado — es un tema gratuito/estático, no "legendario"). */
+[data-theme="pizarra"] {
+  --c-bg:      #17281f;
+  --c-surface: #1f3a2e;
+  --c-border:  #3c584a;
+  --c-text:    #eef1e6;
+  --c-muted:   #a9baa9;
+  --c-primary: #f2d675;
+  --c-accent:  #d7e4dd;
+  --c-success: #8bd17c;
+  --c-warning: #f2b705;
+  --c-danger:  #e2726b;
+  --c-nav-bg:  #14231c;
+  --c-nav-text:#eef1e6;
+}
+[data-theme="pizarra"] body,
+[data-theme="pizarra"] #root {
+  background-color: #17281f;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 3px 4px;
+}
+[data-theme="pizarra"] h1,
+[data-theme="pizarra"] h2 {
+  color: var(--c-primary);
+  text-shadow: 0 0 1px rgba(238, 241, 230, 0.55), 0 0 10px rgba(242, 214, 117, 0.3);
+  letter-spacing: 0.01em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   "PAPEL A TRAVÉS DE LA HISTORIA" — colección gratuita de 6 temas,
+   uno por cada soporte de escritura que la humanidad usó antes del
+   papel moderno (y uno que lo sucede). Mismo criterio que el resto
+   del archivo: 12 tokens --c-* + 1-2 capas cosméticas encima. Las
+   tipografías de época son self-hosted (@fontsource, ver main.tsx) y
+   se aplican SOLO a h1/h2 — el chrome de la UI (botones, inputs,
+   tablas densas como AdminUsuarios) se queda en Manrope para no
+   perder legibilidad en pantallas con mucha data.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── PAPIRO (1/6) — Antiguo Egipto. Tinta sepia sobre fibra tejida,
+   azul egipcio (el primer pigmento sintético de la historia) y pan de
+   oro. La trama es literal: el papiro se arma tejiendo tiras de caña
+   en dos capas perpendiculares. */
+[data-theme="papiro"] {
+  --c-bg:      #dcc48a;
+  --c-surface: #e8d5a3;
+  --c-border:  #b8945a;
+  --c-text:    #3d2b1a;
+  --c-muted:   #7a5c3a;
+  --c-primary: #1c4e8a;
+  --c-accent:  #c9a227;
+  --c-success: #6b8e4e;
+  --c-warning: #b5822e;
+  --c-danger:  #9c3b2e;
+  --c-nav-bg:  #7a5228;
+  --c-nav-text:#f5e8c8;
+}
+[data-theme="papiro"] body,
+[data-theme="papiro"] #root {
+  background-color: #dcc48a;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(61, 43, 26, 0.05) 0px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, rgba(61, 43, 26, 0.05) 0px, transparent 1px 5px);
+}
+[data-theme="papiro"] h1,
+[data-theme="papiro"] h2 {
+  font-family: "Cinzel", var(--font-serif);
+  letter-spacing: 0.04em;
+  color: var(--c-primary);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 12px rgba(201, 162, 39, 0.35);
+}
+
+/* ── PERGAMINO (2/6) — Antigüedad/Edad Media. Vitela con tinta
+   ferrogálica y rúbrica roja (los títulos de los manuscritos se
+   escribían literalmente en rojo — de ahí "rúbrica"). Encabezados en
+   Uncial Antiqua, la letra que usaban los propios manuscritos
+   iluminados, con un brillo dorado que respira como luz de vela. */
+[data-theme="pergamino"] {
+  --c-bg:      #ece0c0;
+  --c-surface: #f5ecd6;
+  --c-border:  #c2a86e;
+  --c-text:    #2b2013;
+  --c-muted:   #6b5a3a;
+  --c-primary: #7a1f2b;
+  --c-accent:  #af8b1f;
+  --c-success: #3f6b2e;
+  --c-warning: #af8b1f;
+  --c-danger:  #7a1f2b;
+  --c-nav-bg:  #3a2a14;
+  --c-nav-text:#ecd9a8;
+}
+[data-theme="pergamino"] body,
+[data-theme="pergamino"] #root {
+  background-color: #ece0c0;
+  background-image:
+    radial-gradient(rgba(107, 90, 58, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(107, 90, 58, 0.04) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 3px 4px;
+}
+[data-theme="pergamino"] h1,
+[data-theme="pergamino"] h2 {
+  font-family: "Uncial Antiqua", var(--font-serif);
+  font-weight: 400;
+  color: var(--c-primary);
+  animation: pergamino-candela 3s ease-in-out infinite;
+}
+@keyframes pergamino-candela {
+  0%, 100% { text-shadow: 0 0 6px rgba(175, 139, 31, 0.35), 0 0 1px rgba(43, 32, 19, 0.4); }
+  50%      { text-shadow: 0 0 12px rgba(175, 139, 31, 0.6), 0 0 1px rgba(43, 32, 19, 0.4); }
+}
+
+/* ── PAPEL DE ARROZ (3/6) — China/Japón imperial. Washi con tinta
+   sumi y sello bermellón (el color de los sellos "hanko"/chop, que
+   todavía se usan). Encabezados en Nanum Brush Script — pincel, no
+   tipografía de molde — y una mancha de tinta que se difumina en una
+   esquina, como un brochazo suelto sobre la hoja. */
+[data-theme="papel-arroz"] {
+  --c-bg:      #f4f1e8;
+  --c-surface: #faf8f0;
+  --c-border:  #d8d2bd;
+  --c-text:    #2a2a28;
+  --c-muted:   #7a766a;
+  --c-primary: #b3261e;
+  --c-accent:  #4a6b5a;
+  --c-success: #4a6b5a;
+  --c-warning: #c98a2e;
+  --c-danger:  #b3261e;
+  --c-nav-bg:  #2a2a28;
+  --c-nav-text:#f4f1e8;
+}
+[data-theme="papel-arroz"] body,
+[data-theme="papel-arroz"] #root {
+  background-color: #f4f1e8;
+  background-image:
+    radial-gradient(ellipse 32% 22% at 96% 2%, rgba(42, 42, 40, 0.05) 0%, transparent 70%),
+    radial-gradient(rgba(42, 42, 40, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 4px 4px;
+}
+[data-theme="papel-arroz"] h1,
+[data-theme="papel-arroz"] h2 {
+  font-family: "Nanum Brush Script", cursive, var(--font-serif);
+  font-weight: 400;
+  color: var(--c-primary);
+  letter-spacing: 0.01em;
+}
+
+/* ── INCUNABLE (4/6) — primeros libros impresos, ~1450. Los
+   "incunables" son los libros de la infancia de la imprenta (de
+   "incunabula", cuna, en latín). Encabezados en UnifrakturMaguntia —
+   la misma familia gótica ("Textura") que Gutenberg fundió en plomo
+   para su Biblia de 42 líneas — y una trama de puntos que imita el
+   sobre-entintado de la prensa manual. */
+[data-theme="incunable"] {
+  --c-bg:      #ede6d3;
+  --c-surface: #f6f0e0;
+  --c-border:  #a89873;
+  --c-text:    #241c10;
+  --c-muted:   #6e6248;
+  --c-primary: #6b1414;
+  --c-accent:  #8a6d1f;
+  --c-success: #4a5c2e;
+  --c-warning: #8a6d1f;
+  --c-danger:  #6b1414;
+  --c-nav-bg:  #241c10;
+  --c-nav-text:#ede6d3;
+}
+[data-theme="incunable"] body,
+[data-theme="incunable"] #root {
+  background-color: #ede6d3;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(36, 28, 16, 0.035) 0, transparent 2px);
+  background-size: 6px 6px;
+}
+[data-theme="incunable"] h1,
+[data-theme="incunable"] h2 {
+  font-family: "UnifrakturMaguntia", var(--font-serif);
+  font-weight: 400;
+  color: var(--c-primary);
+  letter-spacing: 0.01em;
+}
+[data-theme="incunable"] h3 {
+  font-family: "EB Garamond", var(--font-serif);
+  font-weight: 700;
+}
+
+/* ── PAPEL PERIÓDICO (5/6) — Revolución Industrial, s. XIX. Trama de
+   semitono (los puntos con que se imprimían fotos en offset antes del
+   CMYK moderno), encabezados en Old Standard TT — la familia de los
+   diarios de tapa dura de comienzos de siglo — y un barrido de luz
+   muy tenue que cruza la pantalla cada tanto, como el rodillo de una
+   rotativa pasando. */
+[data-theme="papel-periodico"] {
+  --c-bg:      #e5e1d6;
+  --c-surface: #eeeae0;
+  --c-border:  #b7b2a3;
+  --c-text:    #1f1d19;
+  --c-muted:   #6b6658;
+  --c-primary: #7a1414;
+  --c-accent:  #2c2c2c;
+  --c-success: #3d5c2e;
+  --c-warning: #8a6a1f;
+  --c-danger:  #7a1414;
+  --c-nav-bg:  #1f1d19;
+  --c-nav-text:#e5e1d6;
+}
+[data-theme="papel-periodico"] body {
+  position: relative;
+}
+[data-theme="papel-periodico"] body,
+[data-theme="papel-periodico"] #root {
+  background-color: #e5e1d6;
+  background-image: radial-gradient(rgba(31, 29, 25, 0.09) 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+}
+[data-theme="papel-periodico"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 40%, rgba(255, 255, 255, 0.5) 50%, transparent 60%);
+  background-size: 300% 100%;
+  animation: rotativa-barrido 9s ease-in-out infinite;
+}
+@keyframes rotativa-barrido {
+  0%, 85%, 100% { background-position: 200% 0; }
+  92%           { background-position: -20% 0; }
+}
+[data-theme="papel-periodico"] h1,
+[data-theme="papel-periodico"] h2 {
+  font-family: "Old Standard TT", var(--font-serif);
+  font-weight: 700;
+  color: var(--c-text);
+  letter-spacing: 0.01em;
+}
+
+/* ── PAPEL DIGITAL (6/6) — cierra el recorrido: la última "hoja" ya
+   no es un objeto físico, es una pantalla. Fondo que respira con un
+   degradé lento (mismo mecanismo que VB2/Galaxy) y encabezados en
+   JetBrains Mono con un cursor de terminal parpadeando al final —
+   guiño a que el texto acá se escribe tecleando, no a mano. */
+[data-theme="papel-digital"] {
+  --c-bg:      #050b12;
+  --c-surface: #0b141d;
+  --c-border:  #1c3a4a;
+  --c-text:    #d6f5ff;
+  --c-muted:   #7fa8b8;
+  --c-primary: #00e5c7;
+  --c-accent:  #7c5cff;
+  --c-success: #00e5a0;
+  --c-warning: #ffcc33;
+  --c-danger:  #ff5f6d;
+  --c-nav-bg:  #030608;
+  --c-nav-text:#d6f5ff;
+}
+[data-theme="papel-digital"] body,
+[data-theme="papel-digital"] #root {
+  background: linear-gradient(135deg, #050b12 0%, #0a1620 30%, #071018 60%, #050b12 100%);
+  background-size: 400% 400%;
+  animation: papel-digital-bg 16s ease infinite;
+}
+@keyframes papel-digital-bg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+[data-theme="papel-digital"] h1,
+[data-theme="papel-digital"] h2 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--c-primary);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--c-primary) 55%, transparent);
+}
+[data-theme="papel-digital"] h1::after {
+  content: "▌";
+  margin-left: 0.15em;
+  color: var(--c-primary);
+  animation: papel-digital-cursor 1s steps(1) infinite;
+}
+@keyframes papel-digital-cursor {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+[data-theme="papel-digital"] .layout-root,
+[data-theme="papel-digital"] .layout-root main,
+[data-theme="papel-digital"] .page-root {
+  background: transparent !important;
 }
 
 /* ── VB2 — Tema oficial Virtual Book (Opción 2 ganadora) ───── */
@@ -475,180 +1042,12 @@
   background: transparent !important;
 }
 
-/* ── Temas LEGENDARIOS ──────────────────────────────────────────── */
-
-/* LEGENDARIO 1: Aurora Boreal */
-[data-theme="aurora-boreal"] {
-  --c-bg:      #030a1a;
-  --c-surface: #071428;
-  --c-border:  #0f2548;
-  --c-text:    #e0f2fe;
-  --c-muted:   #7dd3fc;
-  --c-primary: #00e5ff;
-  --c-accent:  #00ff9d;
-  --c-success: #00ff9d;
-  --c-warning: #fbbf24;
-  --c-danger:  #f87171;
-  --c-nav-bg:  #030a1a;
-  --c-nav-text:#e0f2fe;
-}
-
-[data-theme="aurora-boreal"] body,
-[data-theme="aurora-boreal"] #root {
-  position: relative;
-  background: #030a1a;
-}
-
-[data-theme="aurora-boreal"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 40% at 20% 30%, rgba(0,229,255,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 35% at 70% 20%, rgba(0,255,157,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 30% at 50% 60%, rgba(100,0,200,0.08) 0%, transparent 60%),
-    #030a1a;
-  animation: aurora-boreal-move 12s ease-in-out infinite;
-}
-
-@keyframes aurora-boreal-move {
-  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; opacity: 0.8; }
-  25%  { background-position: 30% 20%, 70% 30%, 20% 80%; opacity: 1; }
-  50%  { background-position: 60% 10%, 40% 50%, 80% 30%; opacity: 0.9; }
-  75%  { background-position: 20% 40%, 80% 10%, 50% 70%; opacity: 1; }
-  100% { background-position: 0% 0%, 100% 0%, 50% 100%; opacity: 0.8; }
-}
-
-/* LEGENDARIO 2: Cosmos */
-[data-theme="cosmos"] {
-  --c-bg:      #02000a;
-  --c-surface: #06001a;
-  --c-border:  #150040;
-  --c-text:    #f0e8ff;
-  --c-muted:   #9d7fd4;
-  --c-primary: #bf5fff;
-  --c-accent:  #ff61e6;
-  --c-success: #39e07b;
-  --c-warning: #ffcc44;
-  --c-danger:  #ff4d6d;
-  --c-nav-bg:  #02000a;
-  --c-nav-text:#f0e8ff;
-}
-
-[data-theme="cosmos"] body,
-[data-theme="cosmos"] #root {
-  position: relative;
-  background: #02000a;
-}
-
-[data-theme="cosmos"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 85%, rgba(191,95,255,0.2) 0%, transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(255,97,230,0.15) 0%, transparent 35%),
-    radial-gradient(circle at 50% 50%, rgba(57,224,123,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 30% 20%, rgba(100,0,255,0.12) 0%, transparent 30%),
-    #02000a;
-  background-size: 100% 100%;
-  animation: cosmos-pulse 15s ease-in-out infinite;
-}
-
-[data-theme="cosmos"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 40% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 80% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 60% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(2px 2px at 20% 25%, rgba(191,95,255,0.9) 0%, transparent 100%),
-    radial-gradient(2px 2px at 75% 65%, rgba(255,97,230,0.8) 0%, transparent 100%),
-    radial-gradient(2px 2px at 45% 90%, rgba(57,224,123,0.7) 0%, transparent 100%);
-  animation: cosmos-twinkle 4s ease-in-out infinite alternate;
-}
-
-@keyframes cosmos-pulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.02); }
-}
-
-@keyframes cosmos-twinkle {
-  0%   { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-/* LEGENDARIO 3: Magma */
-[data-theme="magma"] {
-  --c-bg:      #0a0200;
-  --c-surface: #150400;
-  --c-border:  #2d0a00;
-  --c-text:    #fff3e0;
-  --c-muted:   #ff8a50;
-  --c-primary: #ff6d00;
-  --c-accent:  #ffab00;
-  --c-success: #76ff03;
-  --c-warning: #ffcc00;
-  --c-danger:  #ff1744;
-  --c-nav-bg:  #0a0200;
-  --c-nav-text:#fff3e0;
-}
-
-[data-theme="magma"] body,
-[data-theme="magma"] #root {
-  position: relative;
-  background: #0a0200;
-}
-
-[data-theme="magma"] body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 50% at 20% 90%, rgba(255,60,0,0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 80% 95%, rgba(255,140,0,0.2) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(200,20,0,0.2) 0%, transparent 50%),
-    radial-gradient(ellipse 30% 20% at 30% 70%, rgba(255,80,0,0.15) 0%, transparent 40%),
-    #0a0200;
-  animation: magma-flow 8s ease-in-out infinite;
-}
-
-[data-theme="magma"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 20% at 10% 100%, rgba(255,100,0,0.25) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 15% at 90% 100%, rgba(255,60,0,0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 10% at 50% 100%, rgba(180,30,0,0.15) 0%, transparent 80%);
-  animation: magma-flow 8s ease-in-out infinite reverse;
-}
-
-@keyframes magma-flow {
-  0%   { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
-  25%  { transform: translateY(-8px) scaleX(1.02);  opacity: 1;   }
-  50%  { transform: translateY(-3px) scaleX(0.98);  opacity: 0.85; }
-  75%  { transform: translateY(-12px) scaleX(1.01); opacity: 1;   }
-  100% { transform: translateY(0px) scaleX(1);    opacity: 0.7; }
-}
+/* Aurora Boreal / Cosmos / Magma — la definición completa (vars + fondo
+   animado + shimmer de h1 + scrollbar) vive más abajo, en "TEMAS
+   LEGENDARIOS — gradientes complejos misma técnica". Este bloque era
+   un borrador anterior con la misma idea vía body::before/::after que
+   quedó duplicado y siempre perdía la cascada contra la versión de
+   abajo — nunca se llegó a ver. Eliminado (era CSS muerto). */
 /* ═══════════════════════════════════════════════════════════
    TEMAS ANIMADOS — patrón único que funciona en React
    ═══════════════════════════════════════════════════════════ */
@@ -1346,13 +1745,428 @@
   --c-bg:      rgba(10, 8, 0, 0.65);
 }
 
+/* LEGENDARIO 5: Supernova — shockwave + starfield estático (mismo
+   patrón que aurora-boreal/cosmos) más una capa de embers animada por
+   JS (SupernovaParticles.tsx, anime.js) que se monta por encima. */
+[data-theme="supernova"] {
+  --c-bg:      #05010a;
+  --c-surface: #0d0518;
+  --c-border:  #2a0f3d;
+  --c-text:    #fff5e6;
+  --c-muted:   #c9a0ff;
+  --c-primary: #ff5f6d;
+  --c-accent:  #7dd3ff;
+  --c-success: #4ade80;
+  --c-warning: #fbbf24;
+  --c-danger:  #f87171;
+  --c-nav-bg:  #05010a;
+  --c-nav-text:#fff5e6;
+}
+
+/* Sólo `body` lleva el fondo — si #root también lo tuviera, su propio
+   fondo (contenido en flujo normal, nivel de stacking por encima de
+   z-index negativo) taparía por completo el body::before/::after de
+   abajo. Gotcha real: encontrado al ver que el brillo nunca se notaba. */
+[data-theme="supernova"] body {
+  position: relative;
+  background: #05010a;
+}
+
+[data-theme="supernova"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,95,109,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(125,211,255,0.1) 0%, transparent 65%),
+    #05010a;
+  animation: supernova-shockwave 10s ease-in-out infinite;
+}
+
+[data-theme="supernova"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 12% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 28% 55%, rgba(255,245,230,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 62% 75%, rgba(255,159,109,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 35%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 85%, rgba(125,211,255,0.6) 0%, transparent 100%),
+    radial-gradient(2px 2px at 20% 80%, rgba(255,95,109,0.9) 0%, transparent 100%),
+    radial-gradient(2px 2px at 70% 10%, rgba(255,245,230,0.8) 0%, transparent 100%);
+  animation: supernova-twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes supernova-shockwave {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.06); }
+}
+
+@keyframes supernova-twinkle {
+  0%   { opacity: 0.55; }
+  100% { opacity: 1; }
+}
+
+[data-theme="supernova"] h1,
+[data-theme="supernova"] .text-\[var\(--c-primary\)\] {
+  background: linear-gradient(90deg, #ff5f6d, #fff5e6, #7dd3ff, #fff5e6, #ff5f6d);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: supernova-shimmer 6s linear infinite;
+}
+
+@keyframes supernova-shimmer {
+  0%   { background-position: 200% 0%; }
+  100% { background-position: -100% 0%; }
+}
+
+[data-theme="supernova"] .bg-\[var\(--c-primary\)\] {
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffab7d 50%, #ff5f6d 100%) !important;
+  color: #1a0208 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(255, 95, 109, 0.4), 0 0 30px rgba(255, 95, 109, 0.15);
+}
+
+[data-theme="supernova"] .layout-root,
+[data-theme="supernova"] .layout-root main,
+[data-theme="supernova"] .page-root {
+  background: transparent !important;
+}
+
+[data-theme="supernova"] {
+  --c-surface: rgba(13, 5, 24, 0.9);
+  --c-bg:      rgba(5, 1, 10, 0.65);
+}
+
+/* Capa de embers de SupernovaParticles.tsx — mismo z-index/pointer-events
+   que los pseudo-elementos de arriba, para quedar detrás del contenido. */
+.vb-supernova-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.vb-supernova-particle {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0;
+  background: radial-gradient(circle, #fff5e6 0%, #ff9d6c 45%, transparent 75%);
+  box-shadow: 0 0 6px 1px rgba(255, 140, 90, 0.7);
+  will-change: transform, opacity;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEGENDARIO 6: Retro Arcade — synthwave ochentoso.
+   Técnica deliberadamente distinta a los temas de arriba: nada de
+   drift/pulse suave. Scanlines CRT + grilla de "ruta" con easing en
+   steps() (movimiento a los saltos, no interpolado — la sensación
+   8-bit) y texto chrome con text-shadow apilado en vez de
+   background-clip. Reusa la curva de easing de Tailwind (`animate-pulse`:
+   cubic-bezier(0.4,0,0.6,1)) para el flicker de neón, y `color-mix()`
+   (el mismo idioma de color que ya usa el resto del CSS con tokens de
+   Tailwind) para las líneas semitransparentes en vez de rgba() a mano.
+   ═══════════════════════════════════════════════════════════ */
+[data-theme="retro"] {
+  --c-bg:      #1a0b2e;
+  --c-surface: #241238;
+  --c-border:  #4a2a6a;
+  --c-text:    #f0e6ff;
+  --c-muted:   #b48ee0;
+  --c-primary: #ff2e88;
+  --c-accent:  #00e5ff;
+  --c-success: #39ff14;
+  --c-warning: #ffe600;
+  --c-danger:  #ff2e2e;
+  --c-nav-bg:  #12081f;
+  --c-nav-text:#f0e6ff;
+}
+
+[data-theme="retro"] body {
+  position: relative;
+  background: #1a0b2e;
+}
+
+/* Grilla de "ruta" synthwave — se desplaza a los saltos (steps), no
+   suave, para que se note el carácter retro/8-bit del movimiento. */
+[data-theme="retro"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--c-accent) 12%, transparent) 0px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--c-primary) 10%, transparent) 0px, transparent 1px 48px),
+    radial-gradient(ellipse 70% 50% at 50% 100%, color-mix(in srgb, var(--c-primary) 18%, transparent) 0%, transparent 70%);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+  animation: retro-grid-scroll 1.2s steps(6) infinite;
+}
+
+@keyframes retro-grid-scroll {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to   { background-position: 0 48px, 48px 0, 0 0; }
+}
+
+/* Scanlines CRT — franjas horizontales fijas con un roll a los saltos,
+   como el vertical hold de un televisor viejo. */
+[data-theme="retro"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.25) 0px,
+    rgba(0, 0, 0, 0.25) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: retro-scanline-roll 4s steps(20) infinite;
+}
+
+@keyframes retro-scanline-roll {
+  from { background-position-y: 0; }
+  to   { background-position-y: 100px; }
+}
+
+/* Chrome 80s: doble contorno por text-shadow en vez de gradiente en
+   el texto (técnica distinta al shimmer de Dorado/Supernova). */
+[data-theme="retro"] h1,
+[data-theme="retro"] h2 {
+  color: #ffffff;
+  text-shadow:
+    2px 2px 0 var(--c-accent),
+    -2px -2px 0 var(--c-primary),
+    0 0 20px color-mix(in srgb, var(--c-primary) 60%, transparent);
+}
+
+/* Flicker de neón en botones primarios — misma curva que
+   Tailwind `animate-pulse` (cubic-bezier(0.4,0,0.6,1)), pero sin
+   llegar a opacity 0 para que el botón siga leyéndose como clickeable. */
+[data-theme="retro"] .bg-\[var\(--c-primary\)\] {
+  box-shadow: 0 0 12px color-mix(in srgb, var(--c-primary) 70%, transparent);
+  animation: retro-neon-flicker 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes retro-neon-flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.85; }
+}
+
+[data-theme="retro"] .layout-root,
+[data-theme="retro"] .layout-root main,
+[data-theme="retro"] .page-root {
+  background: transparent !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEGENDARIO 7: Argentina — celeste y blanco con el Sol de Mayo.
+   Técnica distinta otra vez: tema CLARO (todos los demás legendarios
+   son oscuros) con un conic-gradient rotando de a poco — ningún otro
+   tema de la app usa conic-gradient ni transform:rotate. Sin drift de
+   background-position, sin partículas: sólo el sol girando despacio
+   en el horizonte, sutil y legible.
+   ═══════════════════════════════════════════════════════════ */
+[data-theme="argentina"] {
+  --c-bg:      #eaf3fb;
+  --c-surface: #ffffff;
+  --c-border:  #bcdcf5;
+  --c-text:    #0b2942;
+  --c-muted:   #4b7ba6;
+  /* Deliberadamente MÁS OSCURO que la banda celeste del fondo/nav
+     (#75aadb) — un primary del mismo celeste que el fondo se volvía
+     invisible en cualquier texto que cayera sobre la banda superior
+     (ej. el link con el nombre de usuario en el saludo). */
+  --c-primary: #1f6fb2;
+  --c-accent:  #f6b40e;
+  --c-success: #2e9e5b;
+  --c-warning: #f6b40e;
+  --c-danger:  #d64545;
+  --c-nav-bg:  #75aadb;
+  --c-nav-text:#ffffff;
+}
+
+/* Bandera real: tres franjas IGUALES (33/33/33), no una franja fina
+   arriba/abajo con blanco gigante en el medio — la proporción incorrecta
+   era justamente lo que hacía que el tema se sintiera "raro" y no se
+   leyera como la bandera. */
+[data-theme="argentina"] body {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #75aadb 0%, #75aadb 33.33%,
+    #eaf3fb 33.33%, #eaf3fb 66.66%,
+    #75aadb 66.66%, #75aadb 100%
+  );
+  background-attachment: fixed;
+}
+
+/* Sol de Mayo: disco sólido + rayos, completo y centrado en el
+   viewport (no recortado fuera de pantalla como un glow difuso) para
+   que se lea de una sin dudar qué es. Baja opacidad para no competir
+   con el contenido real. */
+[data-theme="argentina"] body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 32vmax;
+  height: 32vmax;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--c-accent) 0% 24%, transparent 25%),
+    conic-gradient(
+      from 0deg,
+      var(--c-accent) 0deg 4deg, transparent 4deg 15deg,
+      var(--c-accent) 15deg 19deg, transparent 19deg 30deg,
+      var(--c-accent) 30deg 34deg, transparent 34deg 45deg,
+      var(--c-accent) 45deg 49deg, transparent 49deg 60deg,
+      var(--c-accent) 60deg 64deg, transparent 64deg 75deg,
+      var(--c-accent) 75deg 79deg, transparent 79deg 90deg,
+      var(--c-accent) 90deg 94deg, transparent 94deg 105deg,
+      var(--c-accent) 105deg 109deg, transparent 109deg 120deg,
+      var(--c-accent) 120deg 124deg, transparent 124deg 135deg,
+      var(--c-accent) 135deg 139deg, transparent 139deg 150deg,
+      var(--c-accent) 150deg 154deg, transparent 154deg 165deg,
+      var(--c-accent) 165deg 169deg, transparent 169deg 180deg,
+      var(--c-accent) 180deg 184deg, transparent 184deg 195deg,
+      var(--c-accent) 195deg 199deg, transparent 199deg 210deg,
+      var(--c-accent) 210deg 214deg, transparent 214deg 225deg,
+      var(--c-accent) 225deg 229deg, transparent 229deg 240deg,
+      var(--c-accent) 240deg 244deg, transparent 244deg 255deg,
+      var(--c-accent) 255deg 259deg, transparent 259deg 270deg,
+      var(--c-accent) 270deg 274deg, transparent 274deg 285deg,
+      var(--c-accent) 285deg 289deg, transparent 289deg 300deg,
+      var(--c-accent) 300deg 304deg, transparent 304deg 315deg,
+      var(--c-accent) 315deg 319deg, transparent 319deg 330deg,
+      var(--c-accent) 330deg 334deg, transparent 334deg 345deg,
+      var(--c-accent) 345deg 349deg, transparent 349deg 360deg
+    );
+  opacity: 0.16;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: argentina-sol-rotate 90s linear infinite;
+}
+
+@keyframes argentina-sol-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+[data-theme="argentina"] nav {
+  background: var(--c-nav-bg) !important;
+  border-bottom-color: color-mix(in srgb, var(--c-accent) 40%, transparent) !important;
+}
+
+[data-theme="argentina"] .layout-root,
+[data-theme="argentina"] .layout-root main,
+[data-theme="argentina"] .page-root {
+  background: transparent !important;
+}
+
 /* GPU compositing for heavy animated themes — prevents sidebar freeze */
 [data-theme="aurora-boreal"] aside,
 [data-theme="cosmos"] aside,
-[data-theme="magma"] aside {
+[data-theme="magma"] aside,
+[data-theme="supernova"] aside,
+[data-theme="retro"] aside,
+[data-theme="argentina"] aside {
   will-change: transform;
   transform: translateZ(0);
   isolation: isolate;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PLANTILLA-EDITOR-SHELL — WO-V2 (Tiza 3-panel)
+   Responsive: en <lg el rail y el property grid colapsan a
+   barras apilables; el center mantiene foco. Tokens-only.
+
+   WO-V2c — top bar: flex-wrap, items no se enciman ni se cortan.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Top bar items: no shrink, no wrap (texto siempre entero). */
+.plantilla-shell__topbar-item {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Separadores: visibles a partir de md, colapsados en angosto. */
+.plantilla-shell__topbar-sep {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 22px;
+  background: var(--c-border);
+}
+
+@media (max-width: 1023px) {
+  .plantilla-shell__topbar-sep {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .plantilla-shell > div:nth-child(2) {
+    flex-direction: column !important;
+  }
+  .plantilla-shell [data-testid="plantilla-editor-rail"],
+  .plantilla-shell [data-testid="plantilla-editor-grid"],
+  .plantilla-shell [data-testid="plantilla-editor-preview"] {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    max-height: 220px;
+    border: 0 !important;
+    border-bottom: 1px solid var(--c-border) !important;
+  }
+}
+
+/* Muy angosto: la barra se ajusta y los labels de los toggles
+   se acortan para que no se corten. */
+@media (max-width: 767px) {
+  .plantilla-shell__topbar {
+    padding: 8px 12px !important;
+    column-gap: 8px !important;
+  }
+}
+
+/* Indicador compacto del estado de guardado en el top bar.
+   Estados: idle, saving, saved, error. */
+.plantilla-shell__save-state-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--c-success, #1f8a5b);
+  flex: 0 0 auto;
+}
+.plantilla-shell__save-state[data-state="saving"] .plantilla-shell__save-state-dot {
+  background: var(--c-warning, #b45309);
+  animation: code-blip 1.6s infinite;
+}
+.plantilla-shell__save-state[data-state="saved"] .plantilla-shell__save-state-dot {
+  background: var(--c-success, #1f8a5b);
+}
+.plantilla-shell__save-state[data-state="error"] .plantilla-shell__save-state-dot {
+  background: var(--c-danger, #d64545);
+}
+.plantilla-shell__save-state[data-state="idle"] .plantilla-shell__save-state-dot {
+  background: var(--c-text-3, #98a2b2);
+}
+
+/* WO-V3 — pulso del indicador "en vivo" del code drawer */
+@keyframes code-blip {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1;    }
 }
 
 /* ============================================================

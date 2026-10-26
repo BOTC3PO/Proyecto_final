@@ -1,0 +1,29 @@
+{
+ "titulo": "Ventas, costo de ventas y margen bruto",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "chart",
+   "title": "Ejemplo en pesos",
+   "chartType": "bar",
+   "data": {
+    "labels": [
+     "Ventas netas",
+     "Costo de ventas",
+     "Margen bruto"
+    ],
+    "datasets": [
+     {
+      "label": "Importe",
+      "values": [
+       1000000,
+       600000,
+       400000
+      ]
+     }
+    ]
+   },
+   "yAxisLabel": "Pesos"
+  }
+ ]
+}

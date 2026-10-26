@@ -6,18 +6,14 @@ export type AdminUsuario = {
   username: string;
   email: string;
   rol: string;
+  escuelaId: string | null;
   estado: string;
   isBanned: boolean;
   warningCount: number;
   createdAt: string;
 };
 
-export type AdminCurso = {
-  id: string;
-  titulo: string;
-  estado: string;
-  estudiantes: number;
-};
+export type EscuelaResumen = { id: string; name: string };
 
 export type AdminMateria = {
   id: string;
@@ -25,63 +21,6 @@ export type AdminMateria = {
   descripcion: string;
   nivel: string;
   activa: boolean;
-};
-
-export type AdminPanelRole = "schoolAdmin" | "teacher";
-
-export type AdminPanelUser = {
-  id: string;
-  name: string;
-  role: AdminPanelRole;
-  schoolId: string;
-  managedClassIds: string[];
-};
-
-export type AdminPanelClass = {
-  id: string;
-  name: string;
-  grade: string;
-  schoolId: string;
-  studentsCount: number;
-  teachers: string[];
-};
-
-export type AdminPanelThread = {
-  id: string;
-  studentName: string;
-  parentName: string;
-  parentRegistered: boolean;
-  lastMessageFrom: "parent" | "admin";
-  lastMessagePreview: string;
-  unreadForAdmin: boolean;
-};
-
-export type AdminPanelTransfer = {
-  id: string;
-  studentName: string;
-  fromSchool: string;
-  toSchool: string;
-  status: "pending" | "approved" | "rejected";
-};
-
-export type AdminPanelMission = {
-  id: string;
-  title: string;
-  description: string;
-  targetAmount: number;
-  durationDays: number;
-  rewardCoins: number;
-  badgeLabel: string;
-  scope: "school" | "class";
-  active: boolean;
-};
-
-export type AdminPanelData = {
-  currentUser: AdminPanelUser;
-  classes: AdminPanelClass[];
-  threads: AdminPanelThread[];
-  transfers: AdminPanelTransfer[];
-  missions: AdminPanelMission[];
 };
 
 export type AdminStats = {
@@ -112,6 +51,8 @@ export type EconomiaConfig = {
   inflacion: { tasa: number; activa: boolean };
   hiperinflacion: { tasa: number; activa: boolean; aceleracion: number };
   deflacion: { tasa: number; activa: boolean };
+  /** K9 — monedas por completar un cuestionario por primera vez, según su dificultad (fijo; solo el admin). */
+  recompensasPorDificultad?: { basico: number; intermedio: number; avanzado: number };
   updatedAt: string;
 };
 
@@ -124,16 +65,21 @@ export type ClasePublica = {
 };
 
 export type MensajeReportado = {
-  _id: string;
-  cuerpo?: string;
-  body?: string;
-  tipo?: string;
-  createdAt?: string;
+  id: string;
+  mensajeId: string;
+  escuelaId: string;
+  reportadoPor: string;
+  autorId: string;
+  motivo: string | null;
+  cuerpo: string;
+  estado: "pendiente" | "revisado" | "descartado";
+  resolucion: string | null;
+  createdAt: string;
 };
 
 export type PromoteResult =
   | { ok: true; role: string }
-  | { ok: false; requiresGovernance: true; error: string };
+  | { ok: false; error: string };
 
 export async function fetchAdminUsuarios(params?: { q?: string; role?: string; limit?: number }): Promise<AdminUsuario[]> {
   const qs = new URLSearchParams();
@@ -142,14 +88,6 @@ export async function fetchAdminUsuarios(params?: { q?: string; role?: string; l
   if (params?.limit) qs.set("limit", String(params.limit));
   const query = qs.toString();
   return apiGet<AdminUsuario[]>(`/api/admin/usuarios${query ? `?${query}` : ""}`);
-}
-
-export async function fetchAdminCursos(): Promise<AdminCurso[]> {
-  return apiGet<AdminCurso[]>("/api/admin/cursos");
-}
-
-export async function fetchAdminPanelData(): Promise<AdminPanelData> {
-  return apiGet<AdminPanelData>("/api/admin/panel");
 }
 
 export async function fetchAdminStats(): Promise<AdminStats> {
@@ -164,6 +102,15 @@ export async function fetchAdminReportesGlobal(dias = 30): Promise<AdminReportes
   return apiGet<AdminReportesGlobal>(`/api/admin/reportes-global?dias=${dias}`);
 }
 
+export async function fetchEscuelas(limit = 100): Promise<EscuelaResumen[]> {
+  const data = await apiGet<{ items: EscuelaResumen[] }>(`/api/escuelas?limit=${limit}`);
+  return data.items;
+}
+
+export async function reasignarEscuela(userId: string, escuelaId: string | null): Promise<{ ok: boolean; escuelaId: string | null }> {
+  return apiPatch<{ ok: boolean; escuelaId: string | null }>(`/api/admin/usuarios/${userId}/escuela`, { escuelaId });
+}
+
 export async function promoteUsuario(userId: string, role: string): Promise<PromoteResult> {
   try {
     const result = await apiPatch<{ ok: boolean; role: string }>(`/api/admin/usuarios/${userId}/rol`, { role });
@@ -171,7 +118,7 @@ export async function promoteUsuario(userId: string, role: string): Promise<Prom
   } catch (err: unknown) {
     const e = err as { status?: number; message?: string };
     if (e?.status === 403) {
-      return { ok: false, requiresGovernance: true, error: e?.message ?? "Requiere gobernanza" };
+      return { ok: false, error: e?.message ?? "Solo el administrador principal puede promover directamente." };
     }
     throw err;
   }
@@ -194,9 +141,13 @@ export async function fetchClasesPublicas(limit = 20): Promise<ClasePublica[]> {
   return data.items;
 }
 
-export async function fetchMensajesReportados(limit = 20): Promise<MensajeReportado[]> {
-  const data = await apiGet<{ items: MensajeReportado[] }>(`/api/moderacion/mensajes-reportados?limit=${limit}`);
+export async function fetchMensajesReportados(limit = 20, estado = "pendiente"): Promise<MensajeReportado[]> {
+  const data = await apiGet<{ items: MensajeReportado[] }>(`/api/moderacion/mensajes-reportados?limit=${limit}&estado=${estado}`);
   return data.items;
+}
+
+export async function resolverMensajeReportado(id: string, estado: "revisado" | "descartado", resolucion?: string): Promise<{ ok: boolean }> {
+  return apiPost<{ ok: boolean }>(`/api/moderacion/mensajes-reportados/${encodeURIComponent(id)}/resolver`, { estado, resolucion });
 }
 
 export async function banUsuario(userId: string, motivo: string, duracionDias: number): Promise<{ ok: boolean }> {

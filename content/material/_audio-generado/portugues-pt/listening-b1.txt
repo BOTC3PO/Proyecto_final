@@ -1,0 +1,4 @@
+Turista: Desculpe, onde fica o centro da cidade?
+Recepcionista: O centro está a cerca de 15 minutos a pé. Você pode pegar um táxi ou usar o metro.
+Turista: Metro é mais barato, certo?
+Recepcionista: Sim, mas precisa comprar um bilhete.

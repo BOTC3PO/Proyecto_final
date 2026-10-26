@@ -17,15 +17,151 @@ model Escuela {
   createdAt          String   @map("created_at")
   updatedAt          String?  @map("updated_at")
   // Fase 5.1 — modelo de comisión (demostrable; el split real con OAuth de MP
-  // queda como roadmap v2). modoGestion: "centralizado" | "autogestionado".
-  modoGestion        String?  @default("centralizado") @map("modo_gestion")
+  // queda como roadmap v2). Sistema autogestionado: la escuela cobra con su
+  // propia cuenta conectada (EscuelaPasarela), VB nunca maneja los fondos —
+  // sólo retiene esta comisión y liquida el resto. comisionPct = tarifa
+  // doméstica (MercadoPago/Argentina, 5-7%); comisionPctIntl = tarifa
+  // internacional (Cryptomus, 1-2%).
   comisionPct        Float?   @map("comision_pct")
+  comisionPctIntl    Float?   @map("comision_pct_intl")
+  // PLAN-B Fase 6 (ítem 34) — saldo de bienvenida (economía interna del
+  // juego, no dinero real) que recibe cada alumno nuevo. Configurable por
+  // escuela; default 50 backfileado en la migración para las existentes.
+  saldoInicialAlumno Float    @default(50) @map("saldo_inicial_alumno")
+  // PLAN-C §4 (ítem 29) — personalización por escuela. JSON serializado:
+  // { logoUrl?, iconoUrl?, colorPrimario?, colorSecundario? }. Null =
+  // sin personalizar, usa el branding default de la plataforma.
+  branding           String?
+  /// PLAN-multirol / verificación — "pendiente" | "verificada" | "rechazada".
+  /// Gatea TODO lo que mueve plata: conectar pasarela, publicar cobros y
+  /// confirmar pagos. Una escuela sin verificar puede usar el resto de la
+  /// plataforma (aulas, módulos, evaluaciones, boletines) — lo que no puede
+  /// es cobrarle a las familias con la plataforma de por medio.
+  estadoVerificacion String   @default("pendiente") @map("estado_verificacion")
+  /// Quien registró la escuela. Es el DIRECTIVO PRINCIPAL: el único que
+  /// puede conectar la pasarela de cobro. Otros directivos gestionan el
+  /// resto. Null en las escuelas creadas por un admin antes de este flujo.
+  directivoPrincipalId String? @map("directivo_principal_id")
+  /// JSON con los datos declarados en el alta (razón social, CUIT,
+  /// domicilio, contacto, CUE si aplica). Es lo que el admin mira para
+  /// verificar; no se expone fuera del panel de admin ni del propio directivo.
+  datosVerificacion  String?  @map("datos_verificacion")
+  motivoRechazo      String?  @map("motivo_rechazo")
+  /// Cryptomus habilitado para ESTA escuela. Apagado por default y sólo lo
+  /// enciende el ADMIN de plataforma, escuela por escuela.
+  ///
+  /// Por qué no es como MercadoPago: Cryptomus liquida con comisión pero
+  /// TODO adentro de la cuenta de VB, y el pago a la escuela es manual. O
+  /// sea que en ese camino VB custodia fondos de terceros, que es
+  /// justamente lo que el modelo evita. No se puede quitar porque hoy no
+  /// hay otra opción para pagos del exterior, así que se acota: se elige
+  /// con qué escuelas se asume ese riesgo en vez de asumirlo con todas.
+  cryptomusHabilitado Boolean @default(false) @map("cryptomus_habilitado")
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]
   transacciones      TransaccionEscuela[]
   liquidaciones      LiquidacionEscuela[]
+  cobros             CobroEscuela[]
+  pasarelas          EscuelaPasarela[]
   @@map("escuelas")
+}
+
+// PLAN-B §Fase 2 — núcleo de cobros escuela→familias, independiente de la
+// pasarela (la conexión con Mercado Pago/Stripe/Cryptomus es Fase 3).
+//
+// `CobroEscuela` es la "orden de cobro" que crea el directivo/admin (ej.
+// "Cuota julio 2026"). Al publicarla se generan las `CuotaAlumno` — una
+// instancia por alumno destinatario, con su propio estado y `montoFinal`
+// (permite becas/descuentos sin tocar el cobro original).
+model CobroEscuela {
+  id            String        @id
+  escuelaId     String        @map("escuela_id")
+  concepto      String
+  descripcion   String?
+  montoUnitario Float         @map("monto_unitario")
+  moneda        String        @default("ARS")
+  vencimiento   String?
+  // borrador | publicado | cerrado
+  estado        String        @default("borrador")
+  createdBy     String        @map("created_by")
+  createdAt     String        @map("created_at")
+  updatedAt     String        @map("updated_at")
+  escuela       Escuela       @relation(fields: [escuelaId], references: [id])
+  cuotas        CuotaAlumno[]
+  @@index([escuelaId])
+  @@map("cobros_escuela")
+}
+
+// Instancia de un `CobroEscuela` para UN alumno. `pagadorId` es quién
+// efectivamente paga (típicamente el padre/madre vinculado; puede ser el
+// propio alumno si es adulto). `montoFinal` puede diferir de
+// `cobro.montoUnitario` (becas/descuentos) sin tocar el cobro original.
+model CuotaAlumno {
+  id         String       @id
+  cobroId    String       @map("cobro_id")
+  alumnoId   String       @map("alumno_id")
+  pagadorId  String?      @map("pagador_id")
+  // pendiente | en_proceso | pagada | vencida | anulada
+  estado     String       @default("pendiente")
+  montoFinal Float        @map("monto_final")
+  pagoId     String?      @map("pago_id")
+  createdAt  String       @map("created_at")
+  updatedAt  String       @map("updated_at")
+  cobro      CobroEscuela @relation(fields: [cobroId], references: [id])
+  pago       Pago?        @relation(fields: [pagoId], references: [id])
+  @@unique([cobroId, alumnoId])
+  @@index([alumnoId])
+  @@index([pagadorId])
+  @@map("cuotas_alumno")
+}
+
+// La persistencia que `payments.ts` reclama (ver comentario histórico en
+// `api/src/lib/payments/index.ts`) — acá para el dominio cobros
+// escuela→familias. `provider` es "manual" mientras la escuela no tenga
+// una pasarela conectada (Fase 3); ahí queda todo el flujo operable sin
+// depender de credenciales externas. `raw` guarda el payload del webhook
+// del provider tal cual, para auditoría/debug.
+model Pago {
+  id               String        @id
+  provider         String
+  providerRef      String?       @map("provider_ref")
+  // pendiente | en_proceso | pagada | fallida | anulada
+  estado           String        @default("pendiente")
+  montoBruto       Float         @map("monto_bruto")
+  comisionVB       Float?        @map("comision_vb")
+  montoNetoEscuela Float?        @map("monto_neto_escuela")
+  raw              String?
+  createdAt        String        @map("created_at")
+  updatedAt        String        @map("updated_at")
+  cuotas           CuotaAlumno[]
+  // Idempotencia de webhooks: nunca crear dos Pago para el mismo
+  // (provider, providerRef) aunque el provider reintente la notificación.
+  @@unique([provider, providerRef])
+  @@map("pagos")
+}
+
+// PLAN-B Fase 3 — conexión de una escuela con un provider de pago.
+// `cuentaConectadaId` es la cuenta DE LA ESCUELA en el provider (ej. el
+// `collector_id`/access_token de vendedor de Mercado Pago) — NUNCA la
+// cuenta de VB. `credencialesCifradas` guarda el token OAuth/API key
+// que haga falta, cifrado (nunca en texto plano ni en logs de webhook).
+// Cryptomus no tiene split nativo — para ese provider esta fila sólo
+// guarda la API key de la escuela para poder facturar/verificar en su
+// nombre; el dinero pasa por VB igual (modo v1, liquidación manual).
+model EscuelaPasarela {
+  id                   String  @id
+  escuelaId            String  @map("escuela_id")
+  // "mercadopago" | "cryptomus"
+  provider             String
+  cuentaConectadaId    String? @map("cuenta_conectada_id")
+  credencialesCifradas String? @map("credenciales_cifradas")
+  activa               Boolean @default(true)
+  createdAt            String  @map("created_at")
+  updatedAt            String  @map("updated_at")
+  escuela              Escuela @relation(fields: [escuelaId], references: [id])
+  @@unique([escuelaId, provider])
+  @@map("escuelas_pasarelas")
 }
 
 /// Fase 5.1 — registro contable de cada cobro de una escuela autogestionada.
@@ -36,6 +172,10 @@ model TransaccionEscuela {
   comisionVB  Float    @map("comision_vb")
   montoNeto   Float    @map("monto_neto")
   estado      String   @default("registrada")
+  // PLAN-B Fase 4 — de qué pasarela vino este cobro (mercadopago|cryptomus|
+  // manual). Default "mercadopago" para las filas históricas (todo lo
+  // pre-Fase-3 era del SaaS de suscripción, siempre MP).
+  provider    String   @default("mercadopago")
   mpPaymentId String?  @map("mp_payment_id")
   createdAt   String   @map("created_at")
   escuela     Escuela  @relation(fields: [escuelaId], references: [id])
@@ -51,6 +191,11 @@ model LiquidacionEscuela {
   montoLiquidado Float    @map("monto_liquidado")
   cantTransacc   Int      @map("cant_transacc")
   metodo         String
+  // PLAN-B Fase 4 — "manual" (VB retuvo el dinero — Cryptomus siempre,
+  // o modo centralizado — y liquida por fuera) vs "split_nativo"
+  // (Stripe/MP ya depositaron el neto directo a la escuela; esta fila
+  // es sólo INFORMATIVA/auto-conciliada, no dispara una transferencia).
+  tipo           String   @default("manual")
   createdAt      String   @map("created_at")
   escuela        Escuela  @relation(fields: [escuelaId], references: [id])
   @@index([escuelaId])
@@ -62,7 +207,22 @@ model Usuario {
   username              String   @unique
   email                 String   @unique
   fullName              String   @map("full_name")
-  role                  String
+  /// Admin principal de la plataforma: el único que puede cambiar roles
+  /// (y por lo tanto crear otros ADMIN). Antes esto se intentaba deducir de
+  /// un campo `createdBy` que NUNCA existió en la tabla, con lo cual el
+  /// chequeo daba true para todos: cualquier ADMIN podía promover a ADMIN.
+  esAdminPrincipal      Boolean  @default(false) @map("es_admin_principal")
+  /// PLAN-roles-v3 B2 — verificación del PERFIL PÚBLICO.
+  ///
+  /// Distinta de la verificación de escuela: acá no se valida una
+  /// institución sino a una persona que dice ser profesora o directiva
+  /// "fuera del registro" — sin una escuela que responda por ella. Sin
+  /// verificar, ese rol no se muestra en su perfil público.
+  /// "no_solicitada" | "pendiente" | "verificada" | "rechazada"
+  verificacionPublica   String   @default("no_solicitada") @map("verificacion_publica")
+  datosVerificacion     String?  @map("datos_verificacion")
+  motivoRechazoPublico  String?  @map("motivo_rechazo_publico")
+  roles                 String[] @default([])
   escuelaId             String?  @map("escuela_id")
   passwordHash          String?  @map("password_hash")
   birthdate             String?
@@ -73,6 +233,8 @@ model Usuario {
   isDeleted             Boolean  @default(false) @map("is_deleted")
   passwordResetRequired Boolean  @default(false) @map("password_reset_required")
   isBanned              Boolean  @default(false) @map("is_banned")
+  bannedAt              String?  @map("banned_at")
+  bannedUntil           String?  @map("banned_until")
   warningCount          Int      @default(0) @map("warning_count")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
@@ -81,19 +243,55 @@ model Usuario {
   @@map("usuarios")
 }
 
+/// PLAN-multirol — fuente de verdad de "a qué escuelas pertenece esta
+/// persona y con qué rol". El rol está DENTRO de la PK: la misma persona
+/// puede ser profesor y padre en la misma escuela sin duplicar cuenta (era
+/// justamente lo que forzaba las cuentas espejo). `fechaAlta` + `estado`
+/// resuelven el rol principal: el más antiguo que siga `activa`.
 model Membresia {
   usuarioId  String   @map("usuario_id")
   escuelaId  String   @map("escuela_id")
   rol        String
   estado     String
+  /// Delegación de cobros. Sólo el directivo principal (el que registró la
+  /// escuela) la otorga. Conectar la pasarela sigue siendo exclusivo del
+  /// principal: esto habilita EMITIR y CONFIRMAR, no decidir a qué cuenta
+  /// va la plata.
+  puedeCobrar Boolean @default(false) @map("puede_cobrar")
   fechaAlta  String   @map("fecha_alta")
   fechaBaja  String?  @map("fecha_baja")
   createdAt  String?  @map("created_at")
   updatedAt  String?  @map("updated_at")
   usuario    Usuario  @relation(fields: [usuarioId], references: [id])
   escuela    Escuela  @relation(fields: [escuelaId], references: [id])
-  @@id([usuarioId, escuelaId])
+  @@id([usuarioId, escuelaId, rol])
+  @@index([usuarioId])
   @@map("membresias")
+}
+
+
+/// PLAN-roles-v3 A3 — pedir e invitar son la MISMA fila mirada desde los
+/// dos lados: cambia quién la inicia y, por lo tanto, quién la aprueba.
+/// Un alumno que pide ser profesor la inicia él y la aprueba el directivo;
+/// un directivo que invita a alguien la inicia él y la acepta el invitado.
+model InvitacionRol {
+  id           String  @id
+  escuelaId    String  @map("escuela_id")
+  /// A quién le toca el rol.
+  destinatario String
+  /// Rol de escuela pedido/ofrecido (MEMBERSHIP_ROLES).
+  rol          String
+  /// Quién inició. Si coincide con `destinatario` es un PEDIDO; si no, una INVITACIÓN.
+  iniciadoPor  String  @map("iniciado_por")
+  /// pendiente | aceptada | rechazada
+  estado       String  @default("pendiente")
+  resueltoPor  String? @map("resuelto_por")
+  motivo       String?
+  createdAt    String  @map("created_at")
+  updatedAt    String  @map("updated_at")
+  @@index([destinatario, estado])
+  @@index([escuelaId, estado])
+  @@map("invitaciones_rol")
 }
 
 model Clase {
@@ -103,6 +301,11 @@ model Clase {
   grade           String
   code            String?
   classCode       String?  @map("class_code")
+  // Tarea 14 — ajuste del aula: permite que los alumnos comenten las
+  // publicaciones del feed (POST /api/aulas/:id/publicaciones/:pubId/comentarios
+  // ya existía en el back pero sin ningún gate de aula ni UI). Default true
+  // preserva el comportamiento previo (el endpoint siempre aceptaba).
+  allowComments   Boolean  @default(true) @map("allow_comments")
   isDeleted       Boolean  @default(false) @map("is_deleted")
   status          String   @default("ACTIVE")
   createdBy       String?  @map("created_by")
@@ -116,6 +319,8 @@ model Clase {
   miembros        ClaseMiembro[]
   modulos         ClaseModulo[]
   publicaciones   ClasePublicacion[]
+  asistencias     Asistencia[]
+  periodos        ClasePeriodo[]
   @@map("clases")
 }
 
@@ -123,9 +328,55 @@ model ClaseMiembro {
   claseId    String @map("clase_id")
   usuarioId  String @map("usuario_id")
   rolEnClase String @map("rol_en_clase")
+  /// PLAN-multirol Fase 3 — inscripción de alguien que NO es alumno real
+  /// del aula: staff (o un padre) entrando a vivir el contenido como
+  /// alumno. Reemplaza a la cuenta espejo: antes esto se distinguía por
+  /// `Usuario.tipoCuenta = "ESPEJO_ALUMNO"`, o sea por CUENTA; ahora se
+  /// distingue por INSCRIPCIÓN, que es donde realmente importa (rosters,
+  /// asistencia, estadísticas y conteo de cobros).
+  esPrueba   Boolean @default(false) @map("es_prueba")
   clase      Clase  @relation(fields: [claseId], references: [id])
   @@id([claseId, usuarioId, rolEnClase])
   @@map("clase_miembros")
+}
+
+// PLAN-A §3 — persistencia real de asistencia (antes `GET
+// /api/profesor/asistencia` devolvía [] hardcodeado: "la colección
+// 'asistencias' no existe aún en Prisma"). `estado` es
+// presente|ausente|tarde|justificado (validado en la capa de schema
+// zod, no en la DB, mismo patrón que `Clase.status`).
+model Asistencia {
+  id            String  @id
+  claseId       String  @map("clase_id")
+  alumnoId      String  @map("alumno_id")
+  fecha         String
+  estado        String
+  registradoPor String  @map("registrado_por")
+  notas         String?
+  createdAt     String  @map("created_at")
+  updatedAt     String  @map("updated_at")
+  clase         Clase   @relation(fields: [claseId], references: [id])
+  @@unique([claseId, alumnoId, fecha])
+  @@map("asistencias")
+}
+
+// PLAN-V §1 — períodos académicos declarados EN el aula (nunca un motor
+// de calendario global): lista libre y ordenada de `{ nombre, desde,
+// hasta }` por docente. "2 semestres + verano" son 3 filas; anual es 1.
+// `desde`/`hasta` son fechas ISO (yyyy-mm-dd) como string, mismo patrón
+// que `Asistencia.fecha` — la comparación lexicográfica alcanza.
+model ClasePeriodo {
+  id        String @id
+  claseId   String @map("clase_id")
+  nombre    String
+  desde     String
+  hasta     String
+  orden     Int
+  createdAt String @map("created_at")
+  updatedAt String @map("updated_at")
+  clase     Clase  @relation(fields: [claseId], references: [id])
+  @@index([claseId])
+  @@map("clase_periodos")
 }
 
 model ClaseModulo {
@@ -136,6 +387,21 @@ model ClaseModulo {
   clase      Clase   @relation(fields: [claseId], references: [id])
   @@id([claseId, moduloId])
   @@map("clase_modulos")
+}
+
+// PLAN-X §7 — invitación individual a un módulo descatalogado. Espejo
+// deliberado de `ClaseModulo` (misma forma de join-table liviana, sin
+// relación Prisma a `Modulo`/`Usuario` — mismo criterio que esa tabla).
+// Un alumno invitado ve el módulo en los listados aunque esté
+// descatalogado; el docente dueño (o quien lo invitó) lo da de baja
+// borrando la fila.
+model ModuloInvitacion {
+  moduloId   String  @map("modulo_id")
+  usuarioId  String  @map("usuario_id")
+  invitedBy  String? @map("invited_by")
+  createdAt  String  @default("") @map("created_at")
+  @@id([moduloId, usuarioId])
+  @@map("modulo_invitaciones")
 }
 
 model ClasePublicacion {
@@ -273,6 +539,11 @@ model TeoriaJson {
   @@map("teoria_json")
 }
 
+/// @deprecated PLAN-J §4 (2026-07-07): "Páginas TuesdayJS" se retiró del
+/// producto (sin valor hoy, decisión del usuario). Tabla conservada por
+/// datos históricos — no borrar. Si las novelas visuales vuelven, el
+/// camino es un `tipo: "novela"` nuevo en Material/MaterialVersion
+/// (patrón PLAN-G §1), no revivir este modelo.
 model TuesdayDoc {
   id            String  @id
   schemaVersion Int     @default(1) @map("schema_version")
@@ -308,6 +579,42 @@ model Modulo {
   slug                 String?  @unique
   titulo               String
   descripcion          String?
+  // FIX-MODULO-CRASH — materia. Nullable aditiva. La PERSISTENCIA
+  // (POST/PUT que escriben este campo) la agrega FIX-GUARDADO; este
+  // fix solo agrega la columna y la expone en el GET para que el
+  // editor pueda leerla. Eventos viejos quedan con subject = null.
+  subject              String?  @map("subject")
+  // FIX-GUARDADO — teoría como contenido embebido (JSON serializado).
+  // El front envía `theoryItems: [{ id, title, type, detail }]` y el
+  // back lo persiste acá. Nullable aditiva: módulos viejos quedan con
+  // theoryItems = null. No confundir con `teoriaId` (referencia a
+  // TeoriaJson) que es el modelo viejo de referencias.
+  theoryItems          String?  @map("theory_items")
+  // FIX-MODULO-CRASH-LEVEL — nivel educativo. Nullable aditivo: módulos
+  // viejos quedan con `level = null` (sin nivel persistido). El editor
+  // trata `null` como string vacío. Mismo patrón que `subject` (migración
+  // separada `20260617040000_modulo_level`).
+  level                String?  @map("level")
+  // FIX-TEST4-MOD-01 — categoría y duración en minutos. Nullable
+  // aditiva: módulos viejos (beta 0.0.4 y anteriores) quedan con
+  // ambos campos en `null`. El editor los muestra como "Sin
+  // categoría" / "Sin duración" si están vacíos. Ver
+  // `20260618000000_modulo_category_duration` para la migración.
+  category             String?  @map("category")
+  durationMinutes      Int?     @map("duration_minutes")
+  // WO-3 — escala de notas a nivel módulo (JSON: { systemId, minPassingScore? }).
+  // Nullable aditiva: módulos viejos quedan con `scoring_config = null` y el
+  // cálculo de nota cae al fallback histórico (scale-0-100 + umbral). Ver
+  // migración `20260620000000_modulo_scoring_config`.
+  scoringConfig        String?  @map("scoring_config")
+  // WO-13 — procedencia de copia. Se llena cuando este módulo es el resultado
+  // de `POST /api/modulos/:id/duplicar` o del copy-on-write transparente al
+  // editar uno compartido. Las 3 columnas son NULL en módulos que NO son
+  // copias. `cloned_from_owner_user_id` puede ser NULL si el original era
+  // huérfano. Ver migración `20260623022846_wo13_provenance`.
+  clonedFromId         String?  @map("cloned_from_id")
+  clonedFromTitle      String?  @map("cloned_from_title")
+  clonedFromOwnerUserId String? @map("cloned_from_owner_user_id")
   visibility           String   @default("private")
   schoolId             String?  @map("school_id")
   ownerUserId          String?  @map("owner_user_id")
@@ -316,12 +623,37 @@ model Modulo {
   libroId              String?  @map("libro_id")
   defaultQuestionCount Int?     @map("default_question_count")
   dependencies         String?
+  // PLAN-X §7 — "descatalogado": el profesor dueño oculta el módulo de
+  // los listados generales (`GET /api/modulos`, `/buscar`) sin borrarlo.
+  // Sigue visible para el dueño, para alumnos invitados
+  // (`ModuloInvitacion`) y para cualquier aula donde ya esté asignado
+  // (`ClaseModulo` — asignar a un aula es en sí el acto de habilitarlo).
+  descatalogado        Boolean  @default(false)
   isDeleted            Boolean  @default(false) @map("is_deleted")
   createdAt            String   @default("") @map("created_at")
   updatedAt            String   @default("") @map("updated_at")
   teoria               TeoriaJson? @relation(fields: [teoriaId], references: [id])
   quizzes              Quiz[]
   @@map("modulos")
+}
+
+// "Niveles por aula con mapa de flujo" — desbloqueo manual: un docente
+// puede saltear el candado por dependencias para UN alumno puntual
+// (usuarioId) o para TODA un aula (aulaId) — exactamente uno de los dos
+// debe estar poblado (se valida en la ruta, no acá: sqlite/postgres sin
+// CHECK constraint portable en este proyecto). Gana sobre el candado por
+// dependencias, no lo reemplaza — sigue existiendo aunque ya no bloquee.
+model ModuloDesbloqueo {
+  id          String  @id @default(uuid())
+  moduloId    String  @map("modulo_id")
+  usuarioId   String? @map("usuario_id")
+  aulaId      String? @map("aula_id")
+  otorgadoPor String  @map("otorgado_por")
+  createdAt   String  @map("created_at")
+  @@index([moduloId])
+  @@index([usuarioId])
+  @@index([aulaId])
+  @@map("modulo_desbloqueos")
 }
 
 model QuizQuestionSet {
@@ -338,13 +670,20 @@ model QuizQuestionSet {
 
 model Quiz {
   id               String  @id
-  moduleId         String  @map("module_id")
+  // PLAN-CORRECCIONES C2 — nullable: un quiz "suelto" (standalone) vive
+  // sin módulo hasta que el docente lo usa (clona) dentro de uno. Ver
+  // migración 20260703180000_quiz_standalone.
+  moduleId         String? @map("module_id")
+  // Dueño del quiz mientras es standalone (moduleId null). Con módulo
+  // asignado, la autorización pasa a depender del módulo (como antes)
+  // y este campo queda sin usar.
+  ownerUserId      String? @map("owner_user_id")
   title            String?
   isActive         Boolean @default(true) @map("is_active")
   currentVersionId String? @map("current_version_id")
   createdAt        String  @default("") @map("created_at")
   updatedAt        String  @default("") @map("updated_at")
-  modulo           Modulo  @relation(fields: [moduleId], references: [id])
+  modulo           Modulo? @relation(fields: [moduleId], references: [id])
   versions         QuizVersion[]
   attempts         QuizAttempt[]
   @@map("quizzes")
@@ -398,6 +737,48 @@ model QuizAttempt {
   @@map("quiz_attempts")
 }
 
+// PLAN-G §1 (ítem 25) — "Material" escolar: contrato único para lo que
+// producen los editores standalone (mapas, línea de tiempo, herramienta
+// interactiva/bloques, presentaciones) cuando el docente los guarda como
+// pieza reusable e independiente de un módulo puntual. Sigue el patrón
+// padre+versión de Quiz/QuizVersion (no sobrescribe a ciegas: cada
+// "Guardar como material" crea una MaterialVersion nueva) cruzado con el
+// scoping de Libro (ownerUserId/schoolId/visibility). Deliberadamente NO
+// reemplaza cómo Modulo.theoryItems[].detail persiste hoy — es un destino
+// de guardado adicional y opcional.
+model Material {
+  id               String   @id
+  tipo             String   // 'mapa' | 'timeline' | 'interactivo' | 'presentacion'
+  titulo           String
+  ownerUserId      String   @map("owner_user_id")
+  schoolId         String?  @map("school_id")
+  visibility       String   @default("privado")
+  currentVersionId String?  @map("current_version_id")
+  isDeleted        Boolean  @default(false) @map("is_deleted")
+  createdAt        String   @default("") @map("created_at")
+  updatedAt        String   @default("") @map("updated_at")
+  versions         MaterialVersion[]
+
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
+  @@map("materiales_guardados")
+}
+
+model MaterialVersion {
+  id            String   @id
+  materialId    String   @map("material_id")
+  versionNumber Int      @map("version_number")
+  schemaVersion Int      @default(1) @map("schema_version")
+  contenido     String   // JSON serializado, shape según Material.tipo
+  contentHash   String?  @map("content_hash")
+  createdAt     String   @default("") @map("created_at")
+  createdBy     String?  @map("created_by")
+  material      Material @relation(fields: [materialId], references: [id])
+
+  @@unique([materialId, versionNumber])
+  @@map("material_versions")
+}
+
 model ActividadAula {
   id          String  @id
   aulaId      String  @map("aula_id")
@@ -415,6 +796,11 @@ model ActividadAula {
 model CalendarioEscuela {
   id           String  @id
   escuelaId    String  @map("escuela_id")
+  // FIX-CALENDARIO-B: nullable. null = evento global (comportamiento
+  // histórico intacto). Con valor = evento acotado a UN aula
+  // específica (decisión B del diagnóstico: global-o-un-aula, no
+  // M:N). Migración: 20260617000000_calendario_escuela_aula_id.
+  aulaId       String? @map("aula_id")
   tipo         String
   titulo       String
   descripcion  String?
@@ -643,32 +1029,8 @@ model ProgresoModuloVinculo {
   solicitadoAt String? @map("solicitado_at")
   createdAt    String  @map("created_at")
   updatedAt    String  @map("updated_at")
+  @@unique([parentId, childId])
   @@map("vinculos_padre_hijo")
-}
-
-model Proposal {
-  id           String @id
-  targetType   String @map("target_type")
-  targetId     String @map("target_id")
-  proposalType String @map("proposal_type")
-  payload      String
-  level        String
-  createdBy    String @map("created_by")
-  createdAt    String @map("created_at")
-  status       String
-  rationale    String?
-  votes        Vote[]
-  @@map("proposals")
-}
-
-model Vote {
-  id         String   @id
-  proposalId String   @map("proposal_id")
-  voterId    String   @map("voter_id")
-  value      String
-  createdAt  String   @map("created_at")
-  proposal   Proposal @relation(fields: [proposalId], references: [id])
-  @@map("votes")
 }
 
 model Prompt {
@@ -888,6 +1250,25 @@ model Libro {
   id        String  @id
   json      String
   updatedAt String? @map("updated_at")
+  // SEC-LIBRO — dueño y ámbito de visibilidad para `libros`.
+  // Nullable aditiva: libros viejos quedan con
+  // ownerUserId/schoolId = null y visibility = 'privado'
+  // (default). Sin dueño solo ADMIN edita; el resto recibe 403.
+  // Replica el modelo de `vblangDataset` (ver `canReadDataset`
+  // en api/src/routes/vblang-datasets.ts:54-68) aplicado a la
+  // EDICIÓN de libros. Migración:
+  // 20260617030000_sec_libro_ownership.
+  ownerUserId String? @map("owner_user_id")
+  visibility  String  @default("privado")
+  schoolId    String? @map("school_id")
+  // WO-13 — procedencia de copia (análogo a `Modulo`). Ver
+  // migración `20260623022846_wo13_provenance`.
+  clonedFromId          String? @map("cloned_from_id")
+  clonedFromTitle       String? @map("cloned_from_title")
+  clonedFromOwnerUserId String? @map("cloned_from_owner_user_id")
+
+  @@index([ownerUserId])
+  @@index([schoolId, visibility])
   @@map("libros")
 }
 
@@ -957,6 +1338,7 @@ model UsuarioItem {
   compradoAt String     @map("comprado_at")
   origen     String     @default("compra")
   item       TiendaItem @relation(fields: [itemId], references: [id])
+  @@unique([usuarioId, itemId])
   @@map("usuario_items")
 }
 
@@ -1011,6 +1393,46 @@ model Hilo {
   @@map("hilos")
 }
 
+/// H3 — un mensaje directo reportado por quien lo recibió. Guarda una copia del texto como evidencia
+/// (el original puede borrarse) y se resuelve desde moderación.
+model MensajeReportado {
+  id           String  @id
+  mensajeId    String  @map("mensaje_id")
+  hiloId       String  @map("hilo_id")
+  escuelaId    String  @map("escuela_id")
+  reportadoPor String  @map("reportado_por")
+  autorId      String  @map("autor_id")
+  motivo       String?
+  cuerpo       String
+  estado       String  @default("pendiente")
+  resueltoPor  String? @map("resuelto_por")
+  resolucion   String?
+  resueltoAt   String? @map("resuelto_at")
+  createdAt    String  @map("created_at")
+  @@unique([mensajeId, reportadoPor])
+  @@index([escuelaId, estado])
+  @@map("mensajes_reportados")
+}
+
+/// K8 — código de invitación que la escuela entrega a la familia de UN alumno. Se guarda solo el hash: el
+/// código en claro se muestra una vez, al crearlo. De un solo uso y con vencimiento. Canjearlo vincula
+/// (aprobado) a la persona que lo usa con ese alumno.
+model CodigoInvitacionPadre {
+  id         String  @id
+  escuelaId  String  @map("escuela_id")
+  hijoId     String  @map("hijo_id")
+  codigoHash String  @unique @map("codigo_hash")
+  creadoPor  String  @map("creado_por")
+  createdAt  String  @map("created_at")
+  expiresAt  String  @map("expires_at")
+  /// activo | usado | revocado
+  estado     String  @default("activo")
+  usadoPor   String? @map("usado_por")
+  usadoAt    String? @map("usado_at")
+  @@index([escuelaId, hijoId])
+  @@map("codigos_invitacion_padre")
+}
+
 model MensajeDirecto {
   id        String @id
   hiloId    String @map("hilo_id")
@@ -1022,6 +1444,12 @@ model MensajeDirecto {
   @@map("mensajes_directos")
 }
 
+// PLAN-B Fase 1 — LEGACY (2026-07-03). El SaaS por suscripción se retiró
+// del producto (decisión del usuario 2026-07-02: el negocio cobra
+// comisión sobre cobros escuela→familias, ver `CobroEscuela`/`Pago`).
+// Este modelo queda de SÓLO LECTURA para contabilidad histórica — no se
+// crean filas nuevas (`POST /api/suscripciones/iniciar` y
+// `POST /api/admin/suscripciones/activar` responden 410 Gone).
 model Suscripcion {
   id                  String          @id
   entidadTipo         String          @map("entidad_tipo")
@@ -1045,6 +1473,7 @@ model Suscripcion {
   @@map("suscripciones")
 }
 
+// PLAN-B Fase 1 — LEGACY (2026-07-03), mismo motivo que `Suscripcion`.
 model HistorialPago {
   id            String      @id
   suscripcionId String      @map("suscripcion_id")
@@ -1120,6 +1549,27 @@ model PlantillaEjercicioVersion {
   @@index([plantillaId])
 }
 
+// PLAN-E §19 — banco de fórmulas (nombre + LaTeX + materia). Scoping
+// global/escuela: las globales son visibility "publica" con owner "system".
+model Formula {
+  id          String  @id
+  ownerUserId String  @map("owner_user_id")
+  schoolId    String? @map("school_id")
+  visibility  String  // "privada" | "escuela" | "publica"
+  nombre      String
+  materia     String?
+  latex       String
+  descripcion String?
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  createdAt   String  @map("created_at")
+  updatedAt   String  @map("updated_at")
+
+  @@map("formulas")
+  @@index([schoolId, visibility])
+  @@index([materia])
+  @@index([ownerUserId])
+}
+
 model VblangDataset {
   id            String   @id
   ownerUserId   String   @map("owner_user_id")
@@ -1128,6 +1578,7 @@ model VblangDataset {
   nombre        String   // identificador único por owner
   descripcion   String?
   columnas      String   // JSON: { nombre: "string", capital: "string", ... }
+  sourceUrl     String?  @map("source_url") // PLAN-E §20: URL externa (HTTPS, CSV/JSON) para refresco manual
   isDeleted     Boolean  @default(false) @map("is_deleted")
   createdAt     String   @map("created_at")
   updatedAt     String   @map("updated_at")
@@ -1151,4 +1602,83 @@ model VblangDatasetFila {
 
   @@map("vblang_dataset_filas")
   @@index([datasetId, orden])
+}
+
+// PLAN-R Parte 5 — token de push (Expo) de la app móvil. Un usuario
+// puede tener el token registrado en más de un dispositivo (@@unique
+// es sobre el token en sí, no sobre userId — reinstalar/reloguearse
+// en otro teléfono agrega una fila nueva, no pisa la anterior). El
+// envío real (expo-server-sdk, disparado desde mensajería/tareas/
+// cobros) queda para otra sesión — este modelo sólo guarda dónde
+// mandar el push cuando exista ese código.
+model PushToken {
+  id        String  @id
+  userId    String  @map("user_id")
+  token     String  @unique
+  platform  String? // "ios" | "android"
+  createdAt String  @map("created_at")
+  updatedAt String  @map("updated_at")
+
+  @@map("push_tokens")
+  @@index([userId])
+}
+
+// F8 — refresh token rotation. Cada refresh JWT firmado lleva un
+// `jti` único; el servidor persiste una fila por `jti` vivo. En
+// /api/auth/refresh se busca por `jti`, se marca `revoked=true` y
+// se emite un refresh NUEVO con `jti` nuevo y `replacedBy` apuntando
+// al viejo. Si el mismo `jti` se presenta DOS veces → reuse detection:
+// se asume compromiso y se revocan TODAS las filas de la misma
+// `familyId` (signals theft, fuerza logout del usuario real). El
+// `familyId` agrupa todos los refresh tokens emitidos desde una misma
+// sesión de login para que un solo evento de reuse los invalide a
+// todos en lugar de sólo al presentado.
+model RefreshToken {
+  id          String   @id @default(cuid())
+  jti         String   @unique
+  userId      String   @map("user_id")
+  familyId    String   @map("family_id")
+  revoked     Boolean  @default(false)
+  replacedBy  String?  @map("replaced_by")
+  expiresAt   DateTime @map("expires_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("refresh_tokens")
+  @@index([userId])
+  @@index([familyId])
+  @@index([expiresAt])
+}
+
+/// K10b — chat de soporte grupal. Un hilo por persona que pide ayuda. Participan: todos los ADMIN, el
+/// directivo principal de su escuela, quien lo abrió y los padres con vínculo aprobado con esa persona (así un
+/// menor nunca queda a solas con alguien ajeno a la escuela). Los participantes se calculan al leer.
+model HiloSoporte {
+  id            String           @id
+  solicitanteId String           @unique @map("solicitante_id")
+  escuelaId     String?          @map("escuela_id")
+  ultimoMsg     String?          @map("ultimo_msg")
+  ultimoAt      String?          @map("ultimo_at")
+  createdAt     String           @map("created_at")
+  mensajes      MensajeSoporte[]
+  @@index([escuelaId])
+  @@map("hilos_soporte")
+}
+
+model MensajeSoporte {
+  id        String      @id
+  hiloId    String      @map("hilo_id")
+  senderId  String      @map("sender_id")
+  body      String
+  createdAt String      @map("created_at")
+  hilo      HiloSoporte @relation(fields: [hiloId], references: [id])
+  @@index([hiloId, createdAt])
+  @@map("mensajes_soporte")
+}
+
+model SoporteLectura {
+  hiloId   String @map("hilo_id")
+  usuarioId String @map("usuario_id")
+  leidoAt  String @map("leido_at")
+  @@id([hiloId, usuarioId])
+  @@map("soporte_lecturas")
 }

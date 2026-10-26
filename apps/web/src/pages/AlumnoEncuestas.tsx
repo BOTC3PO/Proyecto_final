@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import type { Survey, SurveyResults } from "../services/encuestas";
-import { fetchSurveyResults, fetchSurveys, fetchSurveyScoreValues, voteSurvey } from "../services/encuestas";
+import { fetchSurveyResults, fetchSurveys, voteSurvey } from "../services/encuestas";
 import { fetchClassrooms } from "../services/aulas";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 type SelectionMap = Record<string, string>;
 type ScoreSelectionMap = Record<string, Record<string, number>>;
@@ -11,9 +13,20 @@ type RankingSelectionMap = Record<string, Record<string, number>>;
 type ResultsMap = Record<string, SurveyResults>;
 
 const usuarioId = "demo-alumno";
+// Issue #661 — /api/encuestas/puntuaciones nunca existió en el backend;
+// escala fija de 1 a 5 en vez de un fetch que siempre fallaba en silencio.
+const SCORE_VALUES = [1, 2, 3, 4, 5];
 export default function AlumnoEncuestas() {
+  const { t, lang } = useI18n();
+  // PLAN-H §3: llegar con ?aulaId=... (desde la tarjeta de encuestas del
+  // aula) fija el aula y esconde el selector.
+  const location = useLocation();
+  const lockedAulaId = useMemo(
+    () => new URLSearchParams(location.search).get("aulaId"),
+    [location.search]
+  );
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
-  const [classroomId, setClassroomId] = useState("");
+  const [classroomId, setClassroomId] = useState(lockedAulaId ?? "");
   const [surveys, setSurveys] = useState<Survey[]>([]);
   const [selections, setSelections] = useState<SelectionMap>({});
   const [scoreSelections, setScoreSelections] = useState<ScoreSelectionMap>({});
@@ -22,7 +35,6 @@ export default function AlumnoEncuestas() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
-  const [scoreValues, setScoreValues] = useState<number[]>([]);
 
   const refresh = async (targetClassroomId: string) => {
     try {
@@ -31,7 +43,7 @@ export default function AlumnoEncuestas() {
       const response = await fetchSurveys(targetClassroomId);
       setSurveys(response.items);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudieron cargar las encuestas.");
+      setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudieronCargarLas"));
     } finally {
       setIsLoading(false);
     }
@@ -41,15 +53,13 @@ export default function AlumnoEncuestas() {
     const load = async () => {
       try {
         setIsLoading(true);
-        const scores = await fetchSurveyScoreValues();
-        if (scores) setScoreValues(scores.values);
         const response = await fetchClassrooms();
         setClassrooms(response.items);
         if (response.items.length > 0) {
           setClassroomId((prev) => prev || getAulaId(response.items[0]));
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "No se pudieron cargar las aulas.");
+        setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudieronCargarLas2"));
       } finally {
         setIsLoading(false);
       }
@@ -127,11 +137,22 @@ export default function AlumnoEncuestas() {
         return;
       }
       await voteSurvey(survey.id, payload, usuarioId);
-      const surveyResults = await fetchSurveyResults(survey.id, classroomId);
-      setResults((prev) => ({ ...prev, [survey.id]: surveyResults }));
-      setInfo("¡Voto registrado!");
+      setInfo(t("alumnoEncuestas.votoRegistrado"));
+      const canShowResults =
+        now >= new Date(survey.endAt) || survey.status === "cerrada" || survey.showResultsBeforeClose || survey.showResultsRealtime;
+      if (canShowResults) {
+        // Best-effort: si el docente no habilitó ver resultados antes del
+        // cierre, el backend devuelve 403 acá — no debe pisar el mensaje
+        // de "voto registrado" de arriba, que sí refleja lo que pasó.
+        try {
+          const surveyResults = await fetchSurveyResults(survey.id, classroomId);
+          setResults((prev) => ({ ...prev, [survey.id]: surveyResults }));
+        } catch {
+          // resultados no disponibles todavía; el voto ya quedó registrado.
+        }
+      }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo registrar el voto.");
+      setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudoRegistrarEl"));
     }
   };
 
@@ -140,7 +161,7 @@ export default function AlumnoEncuestas() {
       const surveyResults = await fetchSurveyResults(surveyId, classroomId);
       setResults((prev) => ({ ...prev, [surveyId]: surveyResults }));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudieron cargar los resultados.");
+      setError(err instanceof Error ? err.message : t("alumnoEncuestas.noSePudieronCargarLos"));
     }
   };
 
@@ -152,34 +173,36 @@ export default function AlumnoEncuestas() {
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Encuestas</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Votá en las encuestas activas de tu aula.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("dropdown.encuestas")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("alumnoEncuestas.votaEnLasEncuestasActivas")}</p>
         </div>
 
         {/* Selector de aula */}
         <div className="flex items-center gap-3 flex-wrap">
+          {lockedAulaId ? (
+            <p className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)]">
+              {classrooms.find((classroom) => getAulaId(classroom) === lockedAulaId)?.name ?? lockedAulaId}
+            </p>
+          ) : (
           <select
             id="student-classroom"
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
             value={classroomId}
             onChange={(event) => setClassroomId(event.target.value)}
           >
-            <option value="" disabled>Seleccioná un aula</option>
+            <option value="" disabled>{t("alumnoEncuestas.seleccionaUnAula")}</option>
             {classrooms.map((classroom) => (
               <option key={getAulaId(classroom)} value={getAulaId(classroom)}>
                 {classroom.name}
               </option>
             ))}
           </select>
+          )}
           <button
             type="button"
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-3 py-2 text-sm text-[var(--c-text)] hover:border-[var(--c-primary)] transition-colors"
             onClick={() => refresh(classroomId)}
-          >
-            Actualizar
-          </button>
+          >{t("alumnoEncuestas.actualizar")}</button>
         </div>
 
         {/* Mensajes globales */}
@@ -200,7 +223,7 @@ export default function AlumnoEncuestas() {
         {/* Sin encuestas */}
         {!isLoading && surveys.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-            <p className="text-sm text-[var(--c-muted)]">No hay encuestas activas para esta aula.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("alumnoEncuestas.noHayEncuestasActivasPara")}</p>
           </div>
         )}
 
@@ -228,11 +251,11 @@ export default function AlumnoEncuestas() {
                         ? "bg-[color-mix(in_srgb,var(--c-muted)_15%,transparent)] text-[var(--c-muted)]"
                         : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]"
                     }`}>
-                      {isClosed ? "Cerrada" : "Activa"}
+                      {isClosed ? t("alumnoEncuestas.cerrada") : t("alumnoEncuestas.activa")}
                     </span>
                   </div>
                   <p className="text-xs text-[var(--c-muted)]">
-                    Disponible hasta {new Date(survey.endAt).toLocaleString("es-AR")}
+                    Disponible hasta {new Date(survey.endAt).toLocaleString(lang)}
                   </p>
 
                   {/* Opciones de votación */}
@@ -258,9 +281,7 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "puntuacion" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-[var(--c-muted)]">
-                            Puntúa cada opción. Podés dejar en blanco las que no querés calificar.
-                          </p>
+                          <p className="text-xs text-[var(--c-muted)]">{t("alumnoEncuestas.puntuaCadaOpcionPodesDejar")}</p>
                           {survey.options.map((option) => (
                             <div key={option.id} className="flex items-center justify-between gap-3 text-sm text-[var(--c-text)]">
                               <span>{option.label}</span>
@@ -275,8 +296,8 @@ export default function AlumnoEncuestas() {
                                   }));
                                 }}
                               >
-                                <option value={0}>Sin puntuar</option>
-                                {scoreValues.map((value) => (
+                                <option value={0}>{t("alumnoEncuestas.sinPuntuar")}</option>
+                                {SCORE_VALUES.map((value) => (
                                   <option key={`${survey.id}-${option.id}-${value}`} value={value}>{value}</option>
                                 ))}
                               </select>
@@ -286,7 +307,7 @@ export default function AlumnoEncuestas() {
                       )}
                       {survey.type === "segunda_vuelta" && (
                         <div className="space-y-2">
-                          <p className="text-xs text-[var(--c-muted)]">Ordená tus preferencias con un orden único para cada opción.</p>
+                          <p className="text-xs text-[var(--c-muted)]">{t("alumnoEncuestas.ordenaTusPreferenciasConUn")}</p>
                           {survey.options.map((option) => {
                             const maxRank = survey.options.length;
                             const currentRank = rankingSelections[survey.id]?.[option.id] ?? 0;
@@ -304,7 +325,7 @@ export default function AlumnoEncuestas() {
                                     }));
                                   }}
                                 >
-                                  <option value={0}>Sin preferencia</option>
+                                  <option value={0}>{t("alumnoEncuestas.sinPreferencia")}</option>
                                   {Array.from({ length: maxRank }, (_, idx) => idx + 1).map((rankValue) => (
                                     <option key={`${survey.id}-${option.id}-${rankValue}`} value={rankValue}>{rankValue}</option>
                                   ))}
@@ -321,9 +342,7 @@ export default function AlumnoEncuestas() {
                         type="button"
                         className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                         onClick={() => handleVote(survey)}
-                      >
-                        Votar
-                      </button>
+                      >{t("alumnoEncuestas.votar")}</button>
                     </div>
                   )}
 
@@ -334,9 +353,7 @@ export default function AlumnoEncuestas() {
                         type="button"
                         className="rounded-xl border border-[var(--c-border)] px-3 py-1.5 text-sm text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
                         onClick={() => handleFetchResults(survey.id)}
-                      >
-                        Ver resultados
-                      </button>
+                      >{t("alumnoEncuestas.verResultados")}</button>
                       {surveyResults && (
                         <div className="space-y-1">
                           <p className="text-xs text-[var(--c-muted)]">Total votos: {surveyResults.totalVotes}</p>
@@ -357,7 +374,7 @@ export default function AlumnoEncuestas() {
                           ))}
                           {survey.type === "segunda_vuelta" && surveyResults.rounds && surveyResults.rounds.length > 0 && (
                             <div className="mt-2 space-y-2 text-xs text-[var(--c-muted)]">
-                              <p className="font-semibold text-[var(--c-text)]">Rondas</p>
+                              <p className="font-semibold text-[var(--c-text)]">{t("alumnoEncuestas.rondas")}</p>
                               {surveyResults.rounds.map((round) => (
                                 <div key={`round-${survey.id}-${round.round}`} className="rounded-lg bg-[var(--c-bg)] p-3">
                                   <p className="font-semibold text-[var(--c-text)]">Ronda {round.round}</p>

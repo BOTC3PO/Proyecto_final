@@ -1,0 +1,58 @@
+{
+ "titulo": "Elementos del Estado",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Un Estado necesita estos elementos",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Soberanía",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Territorio",
+     "x": 212,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Población",
+     "x": 425,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Gobierno",
+     "x": 212,
+     "y": 126,
+     "shape": "circle",
+     "color": "#f3e8ff"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n4"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import type { Classroom } from "../domain/classroom/classroom.types";
-import { getClassroomStatusLabel } from "../domain/classroom/classroom.types";
+import { getClassroomStatusLabelKey } from "../domain/classroom/classroom.types";
 import { fetchEnterpriseAulas } from "../services/enterprise";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 const ACCESS_LABELS: Record<Classroom["accessType"], string> = {
   publica: "Pública", privada: "Privada",
 };
 
 export default function EnterpriseAulas() {
+  const { t } = useI18n();
   const { user } = useAuth();
   const schoolId = user?.schoolId ?? "";
   const [aulas, setAulas] = useState<Classroom[]>([]);
@@ -19,7 +21,7 @@ export default function EnterpriseAulas() {
 
   useEffect(() => {
     if (!schoolId) {
-      setError('Tu cuenta no tiene una escuela asignada. Contactá al administrador.');
+      setError(t('comun.tuCuentaNoTieneUna'));
       setLoading(false);
       return;
     }
@@ -40,8 +42,8 @@ export default function EnterpriseAulas() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
       <div>
-        <h1 className="text-xl font-semibold text-[var(--c-text)]">Aulas</h1>
-        <p className="text-sm text-[var(--c-muted)] mt-0.5">Aulas activas de tu institución.</p>
+        <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.aulas")}</h1>
+        <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("enterpriseAulas.aulasActivasDeTuInstitucion")}</p>
       </div>
 
       {error && (
@@ -53,7 +55,7 @@ export default function EnterpriseAulas() {
       <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
           <p className="text-sm font-semibold text-[var(--c-text)]">
-            {loading ? 'Cargando...' : `${aulas.length} aulas`}
+            {loading ? t("comun.cargando") : `${aulas.length} ${t("nav.aulas")}`}
           </p>
         </div>
 
@@ -65,7 +67,7 @@ export default function EnterpriseAulas() {
 
         {!loading && !error && aulas.length === 0 && (
           <div className="px-4 py-10 text-center">
-            <p className="text-sm text-[var(--c-muted)]">No hay aulas registradas.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("enterpriseAulas.noHayAulasRegistradas")}</p>
           </div>
         )}
 
@@ -80,7 +82,19 @@ export default function EnterpriseAulas() {
                 <p className="text-xs text-[var(--c-muted)] truncate mt-0.5">{aula.description}</p>
               )}
               <p className="text-[10px] text-[var(--c-muted)] mt-0.5">
-                {ACCESS_LABELS[aula.accessType]} · {aula.teacherIds?.length ?? 0} docente{(aula.teacherIds?.length ?? 0) !== 1 ? 's' : ''}
+                {/* `teacherIds` nunca lo puebla el back (ver Classroom.teacherIds
+                    en classroom.types.ts) — mostraba "0 docentes" siempre.
+                    El back resuelve el nombre del docente asignado por
+                    columna (teacherOfRecord/teacher/createdBy) o, si el
+                    aula sólo tiene un co-titular vía `clase_miembros`
+                    (ver aulas.ts), por `members`. */}
+                {ACCESS_LABELS[aula.accessType]} · {
+                  aula.teacherOfRecordName
+                    ?? aula.teacherName
+                    ?? aula.createdByName
+                    ?? aula.members?.find((m) => m.roleInClass === "TEACHER" && m.name)?.name
+                    ?? t("enterpriseAulas.sinDocenteAsignado")
+                }
               </p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
@@ -89,14 +103,19 @@ export default function EnterpriseAulas() {
                   ? 'bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]'
                   : 'bg-[color-mix(in_srgb,var(--c-muted)_12%,transparent)] text-[var(--c-muted)]'
               }`}>
-                {getClassroomStatusLabel(aula.status)}
+                {t(getClassroomStatusLabelKey(aula.status))}
               </span>
+              {/* FIX-VISTA-PREVIA-STAFF — antes iba a `/clases?id=...`, que
+                  matchea la ruta LISTA (`clases`, MisClases) no
+                  `clases/:aulaId`: el query param nunca se leía y el botón
+                  mostraba el listado genérico del propio staff en vez del
+                  aula clickeada. `/aulas/:aulaId` (StaffLayout) usa el
+                  path param, igual que ya hacía "Entrar" en
+                  ProfesorAulas.tsx. */}
               <Link
-                to={`/clases?id=${getAulaId(aula)}`}
+                to={`/aulas/${encodeURIComponent(getAulaId(aula))}`}
                 className="rounded-lg border border-[var(--c-border)] px-3 py-1 text-xs font-medium text-[var(--c-primary)] hover:bg-[var(--c-bg)] transition-colors"
-              >
-                Ver →
-              </Link>
+              >{t("enterpriseAulas.ver")}</Link>
             </div>
           </div>
         ))}

@@ -316,4 +316,28 @@ tipo: input
 `);
     expect(stripLoc(reparsed)).toEqual(stripLoc(original));
   });
+
+  it("mapa con encuadre round-trip", () => {
+    expectRoundTrip(`mapa: world_countries encuadre [-80, -55, -30, 15]
+enunciado: "Marcá un país."
+respuesta_iso: "ARG"
+tipo: marcar_mapa
+`);
+  });
+
+  it("mapa sin encuadre round-trip", () => {
+    expectRoundTrip(`mapa: world_countries
+enunciado: "Marcá un país."
+respuesta_iso: "ARG"
+tipo: marcar_mapa
+`);
+  });
+
+  it("marcar_mapa con respuesta_nombre sola round-trip", () => {
+    expectRoundTrip(`mapa: world_states_provinces
+enunciado: "Marcá la provincia."
+respuesta_nombre: "Córdoba"
+tipo: marcar_mapa
+`);
+  });
 });

@@ -4,7 +4,10 @@ import { buildUserContextFromClaims, extractTokenFromRequest, verifyToken } from
 import { enforceSubscriptionAccess } from "./entitlements";
 import { toObjectId } from "./ids";
 import { prisma } from "./prisma";
+import { resolveRoles } from "./roles";
 import { normalizeSchoolId } from "./school-ids";
+import { estaBaneado, respuestaBaneado } from "./ban";
+import { rolesVigentes } from "./roles-vigentes";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: string;
@@ -59,17 +62,26 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(403).json({ error: "User not found" });
       return;
     }
+    if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
+      res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
+      return;
+    }
     // Cache the full user document so route handlers can use it without a second DB query
     res.locals.userDoc = user;
+    // B3 — los roles se recalculan desde la base en cada pedido; el token solo aporta la escuela de la
+    // sesión y el rol principal elegido (mientras sigan vigentes).
+    const vigentes = await rolesVigentes(claims, user as never, userId);
     const userContext: AuthenticatedUser = {
       ...buildUserContextFromClaims(claims),
       _id: objectId,
+      role: vigentes.role,
+      roles: vigentes.roles.length > 0 ? vigentes.roles : undefined,
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: claims.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null
+      schoolId: vigentes.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (
-      userContext.role === "GUEST" &&
+      resolveRoles(userContext).includes("GUEST") &&
       userContext.guestOnboardingStatus !== "aceptado" &&
       !allowGuestPaths.has(req.path)
     ) {

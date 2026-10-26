@@ -1,0 +1,41 @@
+[
+ {
+  "id": 951,
+  "cluster": 1,
+  "temas": [
+   "logica-proposicional",
+   "metodo-cientifico-racionalismo",
+   "el-gusto-estetico",
+   "epistemologia",
+   "etica-como-rama-propia"
+  ],
+  "preguntas": 105
+ },
+ {
+  "id": 952,
+  "cluster": 2,
+  "temas": [
+   "existencia",
+   "contractualismo",
+   "deontologia",
+   "etica-de-la-virtud",
+   "historia-de-la-filosofia-y-corrientes"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 953,
+  "cluster": 3,
+  "temas": [
+   "lo-bello",
+   "que-es-el-arte",
+   "realidad",
+   "ser-ontologia",
+   "utilitarismo",
+   "validez-de-un-razonamiento",
+   "bioetica-general",
+   "logica-de-predicados"
+  ],
+  "preguntas": 160
+ }
+]

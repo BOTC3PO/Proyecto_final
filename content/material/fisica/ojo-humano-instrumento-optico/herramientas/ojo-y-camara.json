@@ -1,0 +1,36 @@
+{
+ "titulo": "Ojo humano y cámara",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Componentes equivalentes",
+   "headers": [
+    "Ojo",
+    "Cámara"
+   ],
+   "rows": [
+    [
+     "Córnea y cristalino",
+     "Objetivo (lentes)"
+    ],
+    [
+     "Pupila / iris",
+     "Diafragma"
+    ],
+    [
+     "Retina",
+     "Sensor o película"
+    ],
+    [
+     "Músculos ciliares (acomodación)",
+     "Enfoque"
+    ],
+    [
+     "Párpado",
+     "Tapa del objetivo"
+    ]
+   ]
+  }
+ ]
+}

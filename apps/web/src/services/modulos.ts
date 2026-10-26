@@ -1,22 +1,5 @@
 import { apiGet } from "../lib/api";
 
-export type ModuloCreatorOptions = {
-  materias: string[];
-  categorias: string[];
-  nivelesDificultad: string[];
-  sistemasEvaluacion: string[];
-  quizBlocks: Array<{
-    id: string;
-    title: string;
-    type: "practica" | "evaluacion" | "competencia";
-    visibility: "publico" | "escuela";
-  }>;
-};
-
-export async function fetchModuleCreatorOptions(): Promise<ModuloCreatorOptions> {
-  return apiGet<ModuloCreatorOptions>("/api/modulos/opciones");
-}
-
 export type ModuleConfigListResponse = {
   items: string[];
   updatedAt: string;

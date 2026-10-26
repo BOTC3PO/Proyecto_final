@@ -133,6 +133,72 @@ respuesta: sqrt(x)
       true,
     );
   });
+
+  // F5-05 — la advertencia de división por cero es SUPRIMIBLE con un flag de
+  // metadata, para ejercicios donde el denominador→0 es la consigna (límites).
+  it("random(0,10) como divisor → advertencia presente (suprimible)", () => {
+    const report = lintSrc(`
+variables:
+  a: random(1, 10)
+  b: random(0, 10)
+
+enunciado: "{a / b}"
+respuesta: a / b
+`);
+    expect(report.warnings.some((i) => i.code === "division-zero-risk")).toBe(
+      true,
+    );
+  });
+
+  it("metadata division_intencional: true → sin advertencia", () => {
+    const report = lintSrc(`
+metadata:
+  division_intencional: true
+
+variables:
+  a: random(1, 10)
+  b: random(0, 10)
+
+enunciado: "{a / b}"
+respuesta: a / b
+`);
+    expect(report.warnings.some((i) => i.code === "division-zero-risk")).toBe(
+      false,
+    );
+  });
+
+  it("metadata division_intencional: verdadero (booleano idiomático) → sin advertencia", () => {
+    const report = lintSrc(`
+metadata:
+  division_intencional: verdadero
+
+variables:
+  a: random(1, 10)
+  b: random(0, 10)
+
+enunciado: "{a / b}"
+respuesta: a / b
+`);
+    expect(report.warnings.some((i) => i.code === "division-zero-risk")).toBe(
+      false,
+    );
+  });
+
+  it("flag intencional no silencia sqrt-negative-risk (es independiente)", () => {
+    const report = lintSrc(`
+metadata:
+  division_intencional: true
+
+variables:
+  x: random(-10, 10)
+
+enunciado: "{sqrt(x)}"
+respuesta: sqrt(x)
+`);
+    expect(report.warnings.some((i) => i.code === "sqrt-negative-risk")).toBe(
+      true,
+    );
+  });
 });
 
 describe("lint / range-contradictorio", () => {

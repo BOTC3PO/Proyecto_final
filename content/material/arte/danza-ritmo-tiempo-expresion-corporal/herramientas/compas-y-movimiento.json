@@ -1,0 +1,33 @@
+{
+ "titulo": "Compás y movimiento corporal",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Un compás de 4/4 y un movimiento posible",
+   "headers": [
+    "Tiempo",
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "rows": [
+    [
+     "Acento musical",
+     "fuerte",
+     "débil",
+     "semifuerte",
+     "débil"
+    ],
+    [
+     "Movimiento del cuerpo",
+     "paso firme",
+     "paso suave",
+     "giro",
+     "paso suave"
+    ]
+   ]
+  }
+ ]
+}

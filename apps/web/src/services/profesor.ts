@@ -1,12 +1,5 @@
 import { apiGet } from "../lib/api";
 
-export type ProfesorCursoResumen = {
-  id: string;
-  nombre: string;
-  alumnos: number;
-  estado: string;
-};
-
 export type ProfesorKpiCard = {
   id: string;
   label: string;
@@ -29,6 +22,16 @@ export type ProfesorQuickLink = {
   href: string;
 };
 
+export type ProfesorRecentEvaluation = {
+  id: string;
+  title: string;
+  category: string;
+  moduleId: string;
+  quizId: string;
+  status: string;
+  startedAt: string;
+};
+
 export type ProfesorMenuDashboard = {
   profile: {
     name: string;
@@ -41,6 +44,11 @@ export type ProfesorMenuDashboard = {
   };
   activeStudents: number;
   progressNextClass: number;
+  /** Simetría con "Módulos creados" en la card Resumen: cuántos intentos
+   *  de cuestionario ya rindieron los alumnos del docente (enviados o
+   *  corregidos). */
+  quizzesCompletedByStudents: number;
+  recentEvaluations: ProfesorRecentEvaluation[];
   kpiCards: ProfesorKpiCard[];
   weeklyPlan: ProfesorWeeklyPlanItem[];
   quickLinks: {
@@ -49,13 +57,14 @@ export type ProfesorMenuDashboard = {
   };
 };
 
+// FIX-TEST4-PROF-01 — eliminados los quick-links `cursos` y
+// `crear_curso` (redirigen a `/profesor/aulas`). Las páginas
+// ProfesorCursos/ProfesorCursoNuevo fueron borradas.
 const PROFESOR_QUICK_LINK_ROUTES = new Set([
   "/profesor",
   "/profesor/aulas",
   "/profesor/calendario",
   "/profesor/calendario/detalle",
-  "/profesor/cursos",
-  "/profesor/cursos/nuevo",
   "/profesor/calificaciones",
   "/profesor/asistencia",
   "/profesor/materiales",
@@ -65,7 +74,6 @@ const PROFESOR_QUICK_LINK_ROUTES = new Set([
   "/profesor/reportes",
   "/profesor/mensajes",
   "/profesor/configuracion",
-  "/profesor/editor-cuestionarios",
   "/profesor/crear-modulo",
   "/modulos",
   "/modulos/crear"
@@ -74,8 +82,6 @@ const PROFESOR_QUICK_LINK_ROUTES = new Set([
 const PROFESOR_QUICK_LINK_BY_ID: Record<string, string> = {
   aulas: "/profesor/aulas",
   calendario: "/profesor/calendario",
-  cursos: "/profesor/cursos",
-  crear_curso: "/profesor/cursos/nuevo",
   calificaciones: "/profesor/calificaciones",
   asistencia: "/profesor/asistencia",
   materiales: "/profesor/materiales",
@@ -85,7 +91,6 @@ const PROFESOR_QUICK_LINK_BY_ID: Record<string, string> = {
   reportes: "/profesor/reportes",
   mensajes: "/profesor/mensajes",
   configuracion: "/profesor/configuracion",
-  editor_cuestionarios: "/profesor/editor-cuestionarios",
   crear_modulo: "/modulos/crear",
   modulos: "/modulos"
 };
@@ -114,14 +119,18 @@ export const filterProfesorQuickLinks = (quickLinks: ProfesorMenuDashboard["quic
   };
 };
 
-export async function fetchProfesorCursos(): Promise<ProfesorCursoResumen[]> {
-  return apiGet<ProfesorCursoResumen[]>("/api/profesor/cursos");
-}
+// FIX-TEST4-PROF-01 — `fetchProfesorCursos` eliminado. Las aulas
+// se listan con `fetchClassrooms()` (servicio `aulas.ts`).
 
 export async function fetchProfesorMenuDashboard(): Promise<ProfesorMenuDashboard> {
   const data = await apiGet<ProfesorMenuDashboard>("/api/profesor/menu");
   return {
     ...data,
+    // FIX-PANEL-EVALUACIONES — compat con deployments donde el back
+    // todavía no incluye `recentEvaluations` (sprint anterior al fix).
+    // El panel lo trata como lista vacía en lugar de fallar.
+    recentEvaluations: data.recentEvaluations ?? [],
+    quizzesCompletedByStudents: data.quizzesCompletedByStudents ?? 0,
     quickLinks: filterProfesorQuickLinks(data.quickLinks)
   };
 }

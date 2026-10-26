@@ -4,13 +4,21 @@ import { apiGet, apiPost } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import {
   normalizeClassroomStatus,
-  getClassroomStatusLabel,
+  getClassroomStatusLabelKey,
 } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
+import { useI18n } from "../i18n/I18nContext";
 
 type AulasResponse = { items: Classroom[] };
 
+const TAB_LABEL_KEY: Record<string, string> = {
+  todas: "comun.todas",
+  activas: "misClases.activas",
+  archivadas: "misClases.archivadas",
+};
+
 function StatusBadge({ status }: { status: Classroom["status"] }) {
+  const { t } = useI18n();
   const normalized = normalizeClassroomStatus(status);
   const styles = {
     ACTIVE:   "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]",
@@ -20,12 +28,13 @@ function StatusBadge({ status }: { status: Classroom["status"] }) {
   const cls = normalized ? styles[normalized] : styles.ARCHIVED;
   return (
     <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${cls}`}>
-      {getClassroomStatusLabel(status)}
+      {t(getClassroomStatusLabelKey(status))}
     </span>
   );
 }
 
 export default function MisClases() {
+  const { t } = useI18n();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,9 +48,9 @@ export default function MisClases() {
     setLoading(true);
     apiGet<AulasResponse>("/api/aulas")
       .then((data) => { setAulas(data.items ?? []); })
-      .catch(() => { setError("No se pudieron cargar tus aulas."); })
+      .catch(() => { setError(t("misClases.noSePudieronCargarTus")); })
       .finally(() => { setLoading(false); });
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     fetchAulas();
@@ -53,11 +62,11 @@ export default function MisClases() {
     setJoinMsg(null);
     try {
       await apiPost("/api/aulas/unirse", { codigo: codigo.trim() });
-      setJoinMsg("✓ Te uniste al aula correctamente.");
+      setJoinMsg(t("misClases.teUnisteAlAulaCorrectamente"));
       setCodigo("");
       fetchAulas();
     } catch (err) {
-      setJoinMsg(err instanceof Error ? err.message : "Código inválido o aula no encontrada.");
+      setJoinMsg(err instanceof Error ? err.message : t("misClases.codigoInvalidoOAulaNo"));
     } finally {
       setJoining(false);
     }
@@ -76,32 +85,45 @@ export default function MisClases() {
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mis clases</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Seleccioná un aula para ver su contenido.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("misClases.misClases")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("misClases.seleccionaUnAulaParaVer")}</p>
         </div>
 
-        {/* Unirse con código */}
-        <div className="flex items-center gap-2 flex-wrap">
+        {/* Unirse con código — FIX-TEST4-ALU-01 — antes el input
+            estaba arriba pero no se resaltaba cuando el usuario
+            no tenía aulas. Ahora: si aulas.length === 0, el
+            bloque se vuelve un callout prominente con borde
+            primario y foco automático. */}
+        <div className={`rounded-xl border-2 p-4 flex flex-wrap items-center gap-2 ${
+          aulas.length === 0
+            ? "border-[var(--c-primary)] bg-[color-mix(in_srgb,var(--c-primary)_5%,transparent)]"
+            : "border-[var(--c-border)] bg-[var(--c-surface)]"
+        }`}>
+          <label className="text-xs font-medium text-[var(--c-text)] flex-1 min-w-[180px]">
+            {aulas.length === 0
+              ? t("misClases.tenesUnCodigoDeClase")
+              : t("misClases.unirseAOtraAulaCon")}
+          </label>
           <input
             type="text"
-            placeholder="Código de aula"
+            placeholder={t("misClases.codigoDeAula")}
             value={codigo}
             onChange={(e) => setCodigo(e.target.value.toUpperCase())}
             onKeyDown={(e) => { if (e.key === "Enter") void handleJoin(); }}
             className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)] uppercase tracking-widest w-36"
             maxLength={8}
+            autoFocus={aulas.length === 0}
+            aria-label={t("misClases.codigoDeAula")}
           />
           <button
             onClick={() => void handleJoin()}
             disabled={joining || !codigo.trim()}
             className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
-            {joining ? "Uniéndose..." : "Unirse"}
+            {joining ? t("misClases.uniendose") : t("misClases.unirse")}
           </button>
           {joinMsg && (
-            <p className={`text-xs ${
+            <p className={`text-xs w-full ${
               joinMsg.startsWith("✓") ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"
             }`}>
               {joinMsg}
@@ -121,7 +143,7 @@ export default function MisClases() {
                   : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
               }`}
             >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              {t(TAB_LABEL_KEY[tab])}
             </button>
           ))}
         </div>
@@ -145,12 +167,8 @@ export default function MisClases() {
         {/* Estado vacío */}
         {!loading && !error && aulas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-            <p className="text-sm font-medium text-[var(--c-muted)]">
-              Todavía no estás en ninguna aula.
-            </p>
-            <p className="text-xs text-[var(--c-muted)] mt-1">
-              Pedile a tu profesor el código de acceso.
-            </p>
+            <p className="text-sm font-medium text-[var(--c-muted)]">{t("misClases.todaviaNoEstasEnNinguna")}</p>
+            <p className="text-xs text-[var(--c-muted)] mt-1">{t("misClases.pedileATuProfesorEl")}</p>
           </div>
         )}
 
@@ -158,7 +176,7 @@ export default function MisClases() {
         {!loading && !error && aulas.length > 0 && aulasFiltradas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
             <p className="text-sm text-[var(--c-muted)]">
-              No hay aulas {filtro === "activas" ? "activas" : "archivadas"}.
+              {t("misClases.noHayAulas")} {filtro === "activas" ? t("misClases.activas").toLowerCase() : t("misClases.archivadas").toLowerCase()}.
             </p>
           </div>
         )}
@@ -206,7 +224,7 @@ export default function MisClases() {
                     )}
                     {aula.members && (
                       <span className="text-[10px] text-[var(--c-muted)] ml-auto">
-                        {aula.members.filter((m) => m.roleInClass === "STUDENT").length} alumnos
+                        {aula.members.filter((m) => m.roleInClass === "STUDENT").length} {t("misClases.alumnos")}
                       </span>
                     )}
                   </div>

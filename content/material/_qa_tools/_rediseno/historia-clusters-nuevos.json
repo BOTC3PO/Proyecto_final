@@ -1,0 +1,65 @@
+[
+ {
+  "id": 721,
+  "cluster": 1,
+  "temas": [
+   "crisis-de-2001",
+   "interpretar-una-fuente-historica",
+   "linea-de-tiempo-y-antes-despues",
+   "reforma-universitaria-1918",
+   "decada-siglo-milenio"
+  ],
+  "preguntas": 103
+ },
+ {
+  "id": 722,
+  "cluster": 2,
+  "temas": [
+   "semana-tragica-1919",
+   "antes-y-despues-de-cristo",
+   "industrializacion-por-sustitucion-de-importaciones-isi",
+   "periodizacion-historica",
+   "causa-y-consecuencia"
+  ],
+  "preguntas": 109
+ },
+ {
+  "id": 723,
+  "cluster": 3,
+  "temas": [
+   "significancia-historica",
+   "cambio-y-continuidad",
+   "evidencia",
+   "dimension-etica",
+   "multicausalidad"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 724,
+  "cluster": 4,
+  "temas": [
+   "escuela-de-los-annales",
+   "historia-cultural",
+   "materialismo-historico",
+   "positivismo",
+   "revoluciones"
+  ],
+  "preguntas": 100
+ },
+ {
+  "id": 725,
+  "cluster": 5,
+  "temas": [
+   "independencias",
+   "revolucion-mexicana-1910-1920",
+   "guerras",
+   "guerra-civil-espanola-1936-1939",
+   "guerra-del-paraguay-y-triple-alianza",
+   "rosas-y-la-confederacion",
+   "conquista-del-desierto-y-campana-al-chaco",
+   "economias-regionales-tempranas"
+  ],
+  "preguntas": 197
+ }
+]

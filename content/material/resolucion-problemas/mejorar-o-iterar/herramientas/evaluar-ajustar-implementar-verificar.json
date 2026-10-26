@@ -1,0 +1,58 @@
+{
+ "titulo": "Ciclo de mejora",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Evaluar → Ajustar → Implementar → Verificar",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Evaluar",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Ajustar",
+     "x": 475,
+     "y": 115
+    },
+    {
+     "id": "n3",
+     "label": "Implementar",
+     "x": 238,
+     "y": 230
+    },
+    {
+     "id": "n4",
+     "label": "Verificar",
+     "x": 0,
+     "y": 115
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

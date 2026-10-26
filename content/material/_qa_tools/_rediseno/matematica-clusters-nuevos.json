@@ -1,0 +1,387 @@
+[
+ {
+  "id": 601,
+  "cluster": 1,
+  "temas": [
+   "asintotas",
+   "concavidad-y-puntos-de-inflexion",
+   "conjuntos-pertenencia-e-inclusion",
+   "conteo",
+   "divisibilidad/regla-del-7-opcional"
+  ],
+  "preguntas": 141
+ },
+ {
+  "id": 602,
+  "cluster": 2,
+  "temas": [
+   "grafos-vertices-y-aristas",
+   "integral-definida-y-area-bajo-la-curva",
+   "arboles-grafo-sin-ciclos",
+   "grafos-dirigidos-no-dirigidos-y-ponderados",
+   "leer-una-tabla"
+  ],
+  "preguntas": 107
+ },
+ {
+  "id": 603,
+  "cluster": 3,
+  "temas": [
+   "caminos-y-ciclos",
+   "leer-grafico/barras",
+   "algoritmos-de-recorrido-bfs-dfs",
+   "leer-grafico/lineas",
+   "leer-grafico/torta"
+  ],
+  "preguntas": 107
+ },
+ {
+  "id": 604,
+  "cluster": 4,
+  "temas": [
+   "magnitud-unidad-instrumento",
+   "construir-un-grafico",
+   "grafico-eje-truncado",
+   "media-mediana-y-moda",
+   "razones-trigonometricas"
+  ],
+  "preguntas": 121
+ },
+ {
+  "id": 605,
+  "cluster": 5,
+  "temas": [
+   "cual-miente-y-cuando",
+   "funciones-trigonometricas-seno-coseno",
+   "regla-de-lhopital",
+   "identidades-y-ecuaciones-trigonometricas",
+   "regresion-lineal"
+  ],
+  "preguntas": 127
+ },
+ {
+  "id": 606,
+  "cluster": 6,
+  "temas": [
+   "sistema-metrico-y-conversiones",
+   "correlacion-no-es-causalidad",
+   "analisis-dimensional",
+   "angulos",
+   "cifras-significativas-y-error"
+  ],
+  "preguntas": 136
+ },
+ {
+  "id": 607,
+  "cluster": 7,
+  "temas": [
+   "circunferencia-y-circulo",
+   "error-sistematico-vs-aleatorio",
+   "perimetro-y-area",
+   "poligonos",
+   "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+  ],
+  "preguntas": 147
+ },
+ {
+  "id": 608,
+  "cluster": 8,
+  "temas": [
+   "area-poligonos-regulares-y-compuestas",
+   "dispersion-rango-y-desvio",
+   "teorema-de-bolzano",
+   "distribucion-normal",
+   "teorema-del-seno-y-del-coseno"
+  ],
+  "preguntas": 112
+ },
+ {
+  "id": 609,
+  "cluster": 9,
+  "temas": [
+   "muestreo-y-sesgo",
+   "triangulos",
+   "teorema-central-del-limite",
+   "congruencia-de-triangulos",
+   "intervalo-de-confianza"
+  ],
+  "preguntas": 122
+ },
+ {
+  "id": 610,
+  "cluster": 10,
+  "temas": [
+   "semejanza-y-teorema-de-thales",
+   "teorema-de-pitagoras",
+   "test-de-hipotesis",
+   "transformaciones-geometricas/homotecia",
+   "transformaciones-geometricas/reflexion"
+  ],
+  "preguntas": 120
+ },
+ {
+  "id": 611,
+  "cluster": 11,
+  "temas": [
+   "transformaciones-geometricas/rotacion",
+   "transformaciones-geometricas/traslacion",
+   "union-interseccion-y-diferencia",
+   "valor-posicional",
+   "diagramas-de-venn"
+  ],
+  "preguntas": 136
+ },
+ {
+  "id": 612,
+  "cluster": 12,
+  "temas": [
+   "suma",
+   "principio-multiplicativo-de-conteo",
+   "multiplicacion",
+   "combinaciones",
+   "permutaciones"
+  ],
+  "preguntas": 154
+ },
+ {
+  "id": 613,
+  "cluster": 13,
+  "temas": [
+   "independencia-de-eventos-y-diagrama-de-arbol",
+   "potencias",
+   "probabilidad-simple",
+   "logaritmos",
+   "probabilidad-compuesta"
+  ],
+  "preguntas": 129
+ },
+ {
+  "id": 614,
+  "cluster": 14,
+  "temas": [
+   "raices",
+   "distribucion-binomial",
+   "esperanza-matematica-valor-esperado",
+   "irracionales-y-reales",
+   "probabilidad-condicional"
+  ],
+  "preguntas": 110
+ },
+ {
+  "id": 615,
+  "cluster": 15,
+  "temas": [
+   "resta",
+   "sucesiones-aritmeticas",
+   "dinero",
+   "division",
+   "hora-y-reloj"
+  ],
+  "preguntas": 158
+ },
+ {
+  "id": 616,
+  "cluster": 16,
+  "temas": [
+   "jerarquia-operaciones",
+   "numeros-enteros",
+   "divisibilidad/multiplos",
+   "lenguaje-algebraico",
+   "divisibilidad/divisores"
+  ],
+  "preguntas": 150
+ },
+ {
+  "id": 617,
+  "cluster": 17,
+  "temas": [
+   "expresiones-equivalentes",
+   "divisibilidad/regla-del-2",
+   "divisibilidad/regla-del-3",
+   "divisibilidad/regla-del-4",
+   "divisibilidad/regla-del-5"
+  ],
+  "preguntas": 118
+ },
+ {
+  "id": 618,
+  "cluster": 18,
+  "temas": [
+   "divisibilidad/regla-del-6",
+   "divisibilidad/regla-del-10",
+   "divisibilidad/regla-del-8",
+   "divisibilidad/regla-del-9",
+   "ecuacion-primer-grado"
+  ],
+  "preguntas": 112
+ },
+ {
+  "id": 619,
+  "cluster": 19,
+  "temas": [
+   "numeros-primos",
+   "demostracion-contraejemplo",
+   "demostracion-deduccion",
+   "demostracion-induccion",
+   "demostracion-reduccion-al-absurdo"
+  ],
+  "preguntas": 114
+ },
+ {
+  "id": 620,
+  "cluster": 20,
+  "temas": [
+   "despejar-formula",
+   "funcion-dominio",
+   "funcion-imagen",
+   "inecuaciones",
+   "funcion-inversa-composicion"
+  ],
+  "preguntas": 128
+ },
+ {
+  "id": 621,
+  "cluster": 21,
+  "temas": [
+   "funcion-lineal-pendiente",
+   "mcd",
+   "operaciones-enteros",
+   "fracciones",
+   "mcm"
+  ],
+  "preguntas": 134
+ },
+ {
+  "id": 622,
+  "cluster": 22,
+  "temas": [
+   "plano-cartesiano",
+   "operaciones-fracciones",
+   "coordenadas-de-un-punto",
+   "decimales",
+   "distancia-entre-dos-puntos"
+  ],
+  "preguntas": 127
+ },
+ {
+  "id": 623,
+  "cluster": 23,
+  "temas": [
+   "notacion-cientifica",
+   "ecuacion-de-la-recta",
+   "polinomios-factoreo",
+   "proporcionalidad-funcion",
+   "division-polinomios-ruffini"
+  ],
+  "preguntas": 136
+ },
+ {
+  "id": 624,
+  "cluster": 24,
+  "temas": [
+   "ecuacion-cuadratica",
+   "punto-medio-de-un-segmento",
+   "funcion-cuadratica-parabola",
+   "numeros-complejos",
+   "familias-exponencial-logaritmica"
+  ],
+  "preguntas": 142
+ },
+ {
+  "id": 625,
+  "cluster": 25,
+  "temas": [
+   "forma-polar-complejos",
+   "ecuaciones-exponenciales-logaritmicas",
+   "limite",
+   "razon",
+   "continuidad"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 626,
+  "cluster": 26,
+  "temas": [
+   "proporcion",
+   "derivada",
+   "rectas-paralelas-y-perpendiculares",
+   "integral",
+   "optimizacion"
+  ],
+  "preguntas": 135
+ },
+ {
+  "id": 627,
+  "cluster": 27,
+  "temas": [
+   "ecuaciones-diferenciales",
+   "redondeo",
+   "regla-de-tres-directa",
+   "secciones-conicas-circunferencia",
+   "porcentaje"
+  ],
+  "preguntas": 126
+ },
+ {
+  "id": 628,
+  "cluster": 28,
+  "temas": [
+   "regla-de-tres-inversa",
+   "sistemas-dos-ecuaciones",
+   "sucesiones-y-series",
+   "matrices/operaciones",
+   "series-geometricas"
+  ],
+  "preguntas": 130
+ },
+ {
+  "id": 629,
+  "cluster": 29,
+  "temas": [
+   "matrices/sistemas-nxn",
+   "tecnicas-de-integracion",
+   "determinante",
+   "teorema-de-bayes",
+   "matriz-inversa"
+  ],
+  "preguntas": 119
+ },
+ {
+  "id": 630,
+  "cluster": 30,
+  "temas": [
+   "riesgo-relativo-vs-absoluto",
+   "teorema-del-binomio",
+   "variable-aleatoria-discreta-continua",
+   "variaciones",
+   "distribucion-de-poisson"
+  ],
+  "preguntas": 104
+ },
+ {
+  "id": 631,
+  "cluster": 31,
+  "temas": [
+   "distribucion-exponencial",
+   "vectores-modulo-y-direccion",
+   "volumen-y-capacidad",
+   "suma-de-vectores-y-descomposicion",
+   "cuerpos-redondos-y-poliedros/cilindros"
+  ],
+  "preguntas": 129
+ },
+ {
+  "id": 632,
+  "cluster": 32,
+  "temas": [
+   "cuerpos-redondos-y-poliedros/conos",
+   "cuerpos-redondos-y-poliedros/esferas",
+   "cuerpos-redondos-y-poliedros/piramides",
+   "cuerpos-redondos-y-poliedros/prismas",
+   "producto-escalar",
+   "cuerpos-redondos-y-poliedros/desarrollo-plano"
+  ],
+  "preguntas": 154
+ }
+]

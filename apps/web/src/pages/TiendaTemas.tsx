@@ -10,6 +10,7 @@ import {
   type UsuarioItem,
 } from '../services/tienda';
 import type { ThemeOption } from '../theme/ThemeContext';
+import { useI18n } from "../i18n/I18nContext";
 
 type SaldoResponse = {
   saldo: number;
@@ -31,7 +32,10 @@ const defaultEconomyState: EconomyState = {
   activeTheme: 'clasico',
 };
 
-const FREE_THEMES = ['clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal'];
+const FREE_THEMES = [
+  'clasico', 'nocturno', 'clasico-vb', 'nocturno-vb', 'minimal', 'pizarra',
+  'papiro', 'pergamino', 'papel-arroz', 'incunable', 'papel-periodico', 'papel-digital',
+];
 
 const THEME_META: Record<string, {
   bg: string; surface: string; primary: string;
@@ -41,10 +45,20 @@ const THEME_META: Record<string, {
   'vb2':          { bg: '#0d0e1a', surface: '#13152a', primary: '#6c63ff', animated: true,
     preview: 'linear-gradient(135deg,#0d0e1a,#1e1f3a,#0d0e2a)' },
   'clasico':       { bg: '#f1f5f9', surface: '#ffffff', primary: '#2563eb' },
+  'pizarra':       { bg: '#17281f', surface: '#1f3a2e', primary: '#f2d675' },
   'clasico-vb':    { bg: '#f8fafc', surface: '#ffffff', primary: '#2563eb' },
   'nocturno':      { bg: '#0f172a', surface: '#1e293b', primary: '#60a5fa' },
   'nocturno-vb':   { bg: '#0d0d18', surface: '#16162a', primary: '#7c6fcd' },
   'minimal':       { bg: '#f2f0eb', surface: '#faf9f6', primary: '#1a1a18' },
+  'minimal-v2':    { bg: '#f6f5f1', surface: '#ffffff', primary: '#1a1a1a' },
+  // "Papel a través de la historia"
+  'papiro':          { bg: '#dcc48a', surface: '#e8d5a3', primary: '#1c4e8a' },
+  'pergamino':       { bg: '#ece0c0', surface: '#f5ecd6', primary: '#7a1f2b' },
+  'papel-arroz':     { bg: '#f4f1e8', surface: '#faf8f0', primary: '#b3261e' },
+  'incunable':       { bg: '#ede6d3', surface: '#f6f0e0', primary: '#6b1414' },
+  'papel-periodico': { bg: '#e5e1d6', surface: '#eeeae0', primary: '#7a1414' },
+  'papel-digital':   { bg: '#050b12', surface: '#0b141d', primary: '#00e5c7',
+    preview: 'linear-gradient(135deg,#050b12,#0b1a24,#050b12)' },
   'aurora':        { bg: '#fdf4ff', surface: '#ffffff', primary: '#7c3aed' },
   'bosque':        { bg: '#f0fdf4', surface: '#ffffff', primary: '#15803d' },
   'vibrante':      { bg: '#fff7ed', surface: '#ffffff', primary: '#ea580c' },
@@ -73,6 +87,12 @@ const THEME_META: Record<string, {
     preview: 'linear-gradient(135deg,#0a0200,#2d0a00,#1a0300)' },
   'dorado':        { bg: '#0a0800', surface: '#120f00', primary: '#f5c842', animated: true, legendary: true,
     preview: 'linear-gradient(135deg,#0a0800,#241c00,#1a1400)' },
+  'supernova':     { bg: '#05010a', surface: '#0d0518', primary: '#ff5f6d', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#05010a,#3d0f2a,#05010a)' },
+  'retro':         { bg: '#1a0b2e', surface: '#241238', primary: '#ff2e88', animated: true, legendary: true,
+    preview: 'linear-gradient(135deg,#1a0b2e,#4a2a6a,#1a0b2e)' },
+  'argentina':     { bg: '#eaf3fb', surface: '#ffffff', primary: '#75aadb', animated: true, legendary: true,
+    preview: 'linear-gradient(180deg,#75aadb,#ffffff,#75aadb)' },
 };
 
 function ThemeCard({
@@ -83,6 +103,7 @@ function ThemeCard({
   owned: boolean; isActive: boolean; comprando: string | null; coins: number;
   onActivate: () => void; onBuy: () => void;
 }) {
+  const { t: tr } = useI18n();
   const isFree = t.price === 0;
   return (
     <div
@@ -105,10 +126,10 @@ function ThemeCard({
       >
         <div className="min-w-0">
           <p className="text-xs font-semibold truncate" style={{ color: meta.primary }}>
-            {t.name}
+            {tr(`tema.${t.id}`)}
           </p>
           <p className="text-[10px]" style={{ color: 'var(--c-muted)' }}>
-            {isFree ? 'Gratis' : owned ? '✓ Tuyo' : `🪙 ${t.price}`}
+            {isFree ? tr("tiendaTemas.gratisSimple") : owned ? `✓ ${tr("tiendaTemas.tuyo")}` : `🪙 ${t.price}`}
           </p>
         </div>
         {owned || isFree ? (
@@ -118,7 +139,7 @@ function ThemeCard({
             className="rounded-lg px-2 py-1 text-[10px] font-semibold text-white disabled:opacity-50"
             style={{ background: meta.primary }}
           >
-            {isActive ? 'Activo' : 'Usar'}
+            {isActive ? tr("perfil.activo") : tr("tiendaTemas.usar")}
           </button>
         ) : (
           <button
@@ -127,7 +148,7 @@ function ThemeCard({
             className="rounded-lg px-2 py-1 text-[10px] font-semibold text-white disabled:opacity-40"
             style={{ background: meta.primary }}
           >
-            {comprando === t.id ? '...' : 'Comprar'}
+            {comprando === t.id ? '...' : tr("tiendaTemas.comprar")}
           </button>
         )}
       </div>
@@ -136,13 +157,19 @@ function ThemeCard({
 }
 
 export default function TiendaTemas() {
+  const { t } = useI18n();
   const { user } = useAuth();
-  const { theme, setTheme, availableThemes } = useTheme();
+  const { theme, setTheme, availableThemes, markThemeOwned } = useTheme();
 
   const [economy, setEconomy] = useState<EconomyState>(defaultEconomyState);
   const [catalogoTienda, setCatalogoTienda] = useState<TiendaItemAPI[]>([]);
   const [, setMisItems] = useState<UsuarioItem[]>([]);
   const [tiendaLoading, setTiendaLoading] = useState(true);
+  // FIX-TEST4-X-01 — antes si la tabla `tienda_items` estaba
+  // vacía (seed no corrido), la página no mostraba nada y el
+  // usuario no sabía por qué. Ahora distinguimos "catálogo vacío"
+  // de "cargando".
+  const [catalogoVacio, setCatalogoVacio] = useState(false);
   const [comprando, setComprando] = useState<string | null>(null);
   const [tiendaMsg, setTiendaMsg] = useState<string | null>(null);
 
@@ -185,11 +212,17 @@ export default function TiendaTemas() {
     if (!user?.id) return;
     let active = true;
     setTiendaLoading(true);
+    setCatalogoVacio(false);
     Promise.all([fetchCatalogo(), fetchMisItems()])
       .then(([catalogo, items]) => {
         if (!active) return;
         setCatalogoTienda(catalogo);
         setMisItems(items);
+        // FIX-TEST4-X-01 — si el catálogo viene vacío, marcamos
+        // el flag para mostrar el mensaje "seed no corrido" en
+        // la UI. Antes el usuario pensaba que la tienda estaba
+        // rota sin saber por qué.
+        setCatalogoVacio(catalogo.length === 0);
         const temasComprados = items
           .filter((i) => i.tipo === 'tema')
           .map((i) => {
@@ -252,8 +285,8 @@ export default function TiendaTemas() {
           nombre: catalogItem.nombre,
           asset_id: catalogItem.asset_id,
         }]);
-        setTheme(themeId as import('../theme/ThemeContext').ThemeId);
-        setTiendaMsg(`✓ ¡${themeOpt.name} desbloqueado!`);
+        markThemeOwned(themeId as import('../theme/ThemeContext').ThemeId, true);
+        setTiendaMsg(`✓ ¡${t(`tema.${themeOpt.id}`)} ${t("tiendaTemas.desbloqueado").toLowerCase()}!`);
         window.dispatchEvent(new CustomEvent('vb:coins-updated'));
       } else {
         setTiendaMsg(result.mensaje ?? 'No se pudo completar la compra.');
@@ -272,15 +305,13 @@ export default function TiendaTemas() {
         {/* Encabezado */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="text-2xl font-semibold text-[var(--c-text)]">Tienda de temas</h1>
-            <p className="text-sm text-[var(--c-muted)] mt-0.5">
-              Personalizá tu experiencia con tus monedas.
-            </p>
+            <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("dropdown.tiendaTemas")}</h1>
+            <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("tiendaTemas.personalizaTuExperienciaConTus")}</p>
           </div>
           <div className="flex items-center gap-2 rounded-full border border-[color-mix(in_srgb,var(--c-warning)_35%,transparent)] bg-[color-mix(in_srgb,var(--c-warning)_10%,transparent)] px-3 py-1.5">
             <span>🪙</span>
             <span className="text-sm font-semibold text-[var(--c-warning)]">
-              {economy.coins.toLocaleString('es-AR')} disponibles
+              {economy.coins.toLocaleString('es-AR')} {t("tiendaTemas.disponibles")}
             </span>
           </div>
         </div>
@@ -302,6 +333,21 @@ export default function TiendaTemas() {
               <div key={i} className="h-40 rounded-2xl animate-pulse bg-[var(--c-border)]" />
             ))}
           </div>
+        ) : catalogoVacio ? (
+          // FIX-TEST4-X-01 — antes no había empty state y el
+          // usuario pensaba que la tienda estaba rota. Ahora
+          // mostramos un mensaje claro (H12: sin instrucciones de
+          // desarrollador, que el alumno no puede ni debe seguir).
+          // Los temas gratuitos siguen
+          // funcionando desde `availableThemes` (vb2, clasico,
+          // nocturno, etc.) — los mostramos abajo.
+          <div
+            data-testid="tienda-vacia"
+            className="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-6 text-sm text-amber-800"
+          >
+            <p className="font-semibold">{t("tiendaTemas.laTiendaTodaviaNoTiene")}</p>
+            <p className="mt-1 text-amber-700">{t("tiendaTemas.mientrasTantoPodesUsarLos")}</p>
+          </div>
         ) : (
           <>
             {/* ── Tema oficial VB2 — gratuito y destacado ── */}
@@ -312,8 +358,8 @@ export default function TiendaTemas() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-base">🏆</span>
-                    <h2 className="text-sm font-semibold text-[var(--c-text)]">Tema oficial</h2>
-                    <span className="text-xs text-[var(--c-muted)]">— Ganador de la encuesta · Gratis</span>
+                    <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.temaOficial")}</h2>
+                    <span className="text-xs text-[var(--c-muted)]">{t("tiendaTemas.ganadorDeLaEncuestaGratis")}</span>
                   </div>
                   <div
                     className="relative rounded-2xl overflow-hidden border-2 transition-all max-w-sm"
@@ -327,34 +373,26 @@ export default function TiendaTemas() {
                       style={{ background: meta.preview ?? meta.bg }}
                     >
                       <div className="text-center z-10 px-4">
-                        <p className="text-sm font-bold" style={{ color: meta.primary }}>
-                          VB2 — Oficial
-                        </p>
-                        <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                          ✨ Animado · Gratis para siempre
-                        </p>
+                        <p className="text-sm font-bold" style={{ color: meta.primary }}>{t("tiendaTemas.vb2Oficial")}</p>
+                        <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>{t("tiendaTemas.animadoGratisParaSiempre")}</p>
                       </div>
                       {isActive && (
                         <div className="absolute top-2 right-2">
                           <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white"
-                            style={{ background: meta.primary }}>
-                            Activo
-                          </span>
+                            style={{ background: meta.primary }}>{t("perfil.activo")}</span>
                         </div>
                       )}
                     </div>
                     <div className="px-4 py-3 flex items-center justify-between"
                       style={{ background: meta.surface }}>
-                      <span className="text-xs font-semibold" style={{ color: meta.primary }}>
-                        🏆 Gratis
-                      </span>
+                      <span className="text-xs font-semibold" style={{ color: meta.primary }}>{t("tiendaTemas.gratis")}</span>
                       <button
                         onClick={() => setTheme('vb2')}
                         disabled={isActive}
                         className="rounded-lg px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50"
                         style={{ background: meta.primary }}
                       >
-                        {isActive ? 'Activo' : 'Activar'}
+                        {isActive ? t("perfil.activo") : t("tiendaTemas.activar")}
                       </button>
                     </div>
                   </div>
@@ -366,19 +404,19 @@ export default function TiendaTemas() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">⚡</span>
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Legendarios</h2>
-                <span className="text-xs text-[var(--c-muted)]">— Animación de fondo exclusiva</span>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.legendarios")}</h2>
+                <span className="text-xs text-[var(--c-muted)]">{t("tiendaTemas.animacionDeFondoExclusiva")}</span>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 {availableThemes
-                  .filter((t) => THEME_META[t.id]?.legendary)
-                  .map((t) => {
-                    const meta = THEME_META[t.id]!;
-                    const owned = economy.ownedThemes.includes(t.id) || FREE_THEMES.includes(t.id);
-                    const isActive = theme === t.id;
+                  .filter((th) => THEME_META[th.id]?.legendary)
+                  .map((th) => {
+                    const meta = THEME_META[th.id]!;
+                    const owned = economy.ownedThemes.includes(th.id) || FREE_THEMES.includes(th.id);
+                    const isActive = theme === th.id;
                     return (
                       <div
-                        key={t.id}
+                        key={th.id}
                         className="relative rounded-2xl overflow-hidden border-2 transition-all"
                         style={{
                           borderColor: isActive ? meta.primary : owned ? meta.primary + '66' : '#333',
@@ -395,18 +433,14 @@ export default function TiendaTemas() {
                           }} />
                           <div className="relative z-10 text-center px-3">
                             <p className="text-sm font-bold" style={{ color: meta.primary, textShadow: `0 0 10px ${meta.primary}` }}>
-                              {t.name}
+                              {t(`tema.${th.id}`)}
                             </p>
-                            <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                              ⚡ Legendario · Animado
-                            </p>
+                            <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.7)' }}>{t("tiendaTemas.legendarioAnimado")}</p>
                           </div>
                           {isActive && (
                             <div className="absolute top-2 right-2">
                               <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white"
-                                style={{ background: meta.primary }}>
-                                Activo
-                              </span>
+                                style={{ background: meta.primary }}>{t("perfil.activo")}</span>
                             </div>
                           )}
                         </div>
@@ -417,25 +451,25 @@ export default function TiendaTemas() {
                           style={{ background: meta.surface }}
                         >
                           <span className="text-xs font-semibold" style={{ color: meta.primary }}>
-                            {owned ? '✓ Desbloqueado' : `🪙 ${t.price}`}
+                            {owned ? `✓ ${t("tiendaTemas.desbloqueado")}` : `🪙 ${th.price}`}
                           </span>
                           {owned ? (
                             <button
-                              onClick={() => setTheme(t.id)}
+                              onClick={() => setTheme(th.id)}
                               disabled={isActive}
                               className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-50 transition-opacity hover:opacity-80"
                               style={{ background: meta.primary }}
                             >
-                              {isActive ? 'Activo' : 'Activar'}
+                              {isActive ? t("perfil.activo") : t("tiendaTemas.activar")}
                             </button>
                           ) : (
                             <button
-                              onClick={() => handlePurchaseTheme(t.id)}
-                              disabled={comprando === t.id || economy.coins < t.price}
+                              onClick={() => handlePurchaseTheme(th.id)}
+                              disabled={comprando === th.id || economy.coins < th.price}
                               className="rounded-lg px-2.5 py-1 text-xs font-semibold text-white disabled:opacity-40 transition-opacity hover:opacity-80"
                               style={{ background: meta.primary }}
                             >
-                              {comprando === t.id ? '...' : 'Comprar'}
+                              {comprando === th.id ? '...' : t("tiendaTemas.comprar")}
                             </button>
                           )}
                         </div>
@@ -449,7 +483,7 @@ export default function TiendaTemas() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">✨</span>
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Animados</h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.animados")}</h2>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {availableThemes
@@ -478,11 +512,11 @@ export default function TiendaTemas() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">🎨</span>
-                <h2 className="text-sm font-semibold text-[var(--c-text)]">Estáticos</h2>
+                <h2 className="text-sm font-semibold text-[var(--c-text)]">{t("tiendaTemas.estaticos")}</h2>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {availableThemes
-                  .filter((t) => !THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
+                  .filter((t) => THEME_META[t.id] && !THEME_META[t.id]?.animated && !THEME_META[t.id]?.legendary)
                   .map((t) => (
                     <ThemeCard
                       key={t.id}

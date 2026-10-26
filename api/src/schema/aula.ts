@@ -44,6 +44,10 @@ export const ClassroomBaseSchema = z.object({
   accessType: ClassroomAccessSchema,
   status: ClassroomStatusSchema,
   classCode: z.string().min(1).optional(),
+  // Tarea 14 — ajuste del aula: habilita/deshabilita que los alumnos
+  // comenten publicaciones. Sólo relevante en PATCH/PUT (partial); en
+  // create no se manda, la columna Prisma ya default-ea a true.
+  allowComments: z.boolean().optional(),
   createdBy: z.string().min(1),
   members: z.array(ClassroomMemberSchema).min(1),
   teacherOfRecord: z.string().min(1).optional(),
@@ -120,3 +124,21 @@ export const ClassroomPatchSchema = ClassroomBaseSchema.partial().superRefine(ap
 export const ClassroomSchema = ClassroomCreateSchema;
 
 export type Classroom = z.infer<typeof ClassroomSchema>;
+
+// PLAN-V §1 — período académico EN el aula (nombre libre, fechas ISO
+// yyyy-mm-dd). Sin taxonomía rígida a propósito: el docente nombra
+// "1er bimestre", "Verano", lo que corresponda a su escuela.
+const isoDate = z.string().trim().regex(/^\d{4}-\d{2}-\d{2}$/, "fecha inválida (yyyy-mm-dd)");
+
+export const ClasePeriodoSchema = z
+  .object({
+    nombre: z.string().trim().min(1, "nombre requerido"),
+    desde: isoDate,
+    hasta: isoDate
+  })
+  .refine((data) => data.desde <= data.hasta, {
+    message: "desde debe ser anterior o igual a hasta",
+    path: ["hasta"]
+  });
+
+export type ClasePeriodoInput = z.infer<typeof ClasePeriodoSchema>;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { CatalogItem } from "../../generadoresV2/catalog";
 import { apiGet } from "../../lib/api";
+import { useI18n } from "../../i18n/I18nContext";
 
 export type GeneradorConfig = {
   generatorId: string;
@@ -27,10 +28,10 @@ type GeneradorSelectorProps = {
   isGenerating?: boolean;
 };
 
-const DIFICULTAD_OPTS: Array<{ value: GeneradorConfig["dificultad"]; label: string }> = [
-  { value: "basico", label: "Básico" },
-  { value: "intermedio", label: "Intermedio" },
-  { value: "avanzado", label: "Avanzado" },
+const DIFICULTAD_OPTS: Array<{ value: GeneradorConfig["dificultad"]; labelKey: string }> = [
+  { value: "basico", labelKey: "comun.basico" },
+  { value: "intermedio", labelKey: "comun.intermedio" },
+  { value: "avanzado", labelKey: "comun.avanzado" },
 ];
 
 function renderPreview(
@@ -58,6 +59,7 @@ export default function GeneradorSelector({
   onPreview,
   isGenerating = false,
 }: GeneradorSelectorProps) {
+  const { t } = useI18n();
   const [selectedMateria, setSelectedMateria] = useState<string | null>(null);
   const [selectedGeneratorId, setSelectedGeneratorId] = useState<string | null>(null);
   const [selectedSubtipos, setSelectedSubtipos] = useState<string[]>([]);
@@ -134,7 +136,7 @@ export default function GeneradorSelector({
       {/* Step 1 — Materia */}
       <div>
         <p className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide mb-2">
-          Paso 1 — Materia
+          {t("generadorSelector.paso1Materia")}
         </p>
         <div className="flex flex-wrap gap-2">
           {materias.map((m) => (
@@ -163,7 +165,7 @@ export default function GeneradorSelector({
       {selectedMateria && generatorsForMateria.length > 0 && (
         <div>
           <p className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide mb-2">
-            Paso 2 — Tema
+            {t("generadorSelector.paso2Tema")}
           </p>
           <div className="flex flex-wrap gap-2">
             {generatorsForMateria.map((g) => (
@@ -192,8 +194,8 @@ export default function GeneradorSelector({
       {selectedGenerator && (
         <div>
           <p className="text-xs font-semibold text-[var(--c-muted)] uppercase tracking-wide mb-2">
-            Paso 3 — Subtipos{" "}
-            <span className="normal-case font-normal">(vacío = todos al azar)</span>
+            {t("generadorSelector.paso3Subtipos")}{" "}
+            <span className="normal-case font-normal">{t("generadorSelector.vacioTodosAlAzar")}</span>
           </p>
           <div className="flex flex-wrap gap-2">
             {selectedSubtipos.length > 0 && (
@@ -202,7 +204,7 @@ export default function GeneradorSelector({
                 onClick={() => { setSelectedSubtipos([]); setLocalTemplates({}); }}
                 className="rounded-full border border-dashed border-[var(--c-border)] px-3 py-1 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)] transition-colors"
               >
-                ✕ Limpiar selección
+                {t("generadorSelector.limpiarSeleccion")}
               </button>
             )}
             {selectedGenerator.subtipos.map((sub) => {
@@ -221,7 +223,7 @@ export default function GeneradorSelector({
                   {sub.label}
                   {sub.tieneGrafico && (
                     <span
-                      title="Incluye gráfico"
+                      title={t("generadorSelector.incluyeGrafico")}
                       className="text-[10px] bg-blue-100 text-blue-700 rounded px-1"
                     >
                       G
@@ -315,7 +317,7 @@ export default function GeneradorSelector({
         <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-3 space-y-3">
           <div className="flex flex-wrap gap-4 items-end">
             <label className="text-xs font-medium text-[var(--c-text)]">
-              Dificultad
+              {t("comun.dificultad")}
               <div className="flex gap-1 mt-1">
                 {DIFICULTAD_OPTS.map((opt) => (
                   <button
@@ -328,7 +330,7 @@ export default function GeneradorSelector({
                         : "bg-[var(--c-surface)] border-[var(--c-border)] text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
                     }`}
                   >
-                    {opt.label}
+                    {t(opt.labelKey)}
                   </button>
                 ))}
               </div>

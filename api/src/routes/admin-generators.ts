@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
@@ -103,7 +104,7 @@ adminGenerators.post("/api/admin/generators/:id/changelog", requireAdmin, async 
   try {
     const entry = await prisma.generatorChangelog.create({
       data: {
-        id: `chg-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        id: `chg-${randomUUID()}`,
         generatorId: id,
         adminId: typeof admin_id === "string" ? admin_id : "unknown",
         note: note.trim(),

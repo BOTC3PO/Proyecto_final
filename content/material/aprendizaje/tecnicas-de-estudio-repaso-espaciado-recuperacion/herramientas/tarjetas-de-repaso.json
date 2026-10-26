@@ -1,0 +1,42 @@
+{
+ "titulo": "Tarjetas con repaso espaciado",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Ejemplo de tarjetas con fechas de repaso",
+   "headers": [
+    "Tarjeta",
+    "Pregunta",
+    "Respuesta",
+    "Próximo repaso"
+   ],
+   "rows": [
+    [
+     "1",
+     "¿Qué es la metacognición?",
+     "Pensar sobre cómo pienso y aprendo",
+     "mañana"
+    ],
+    [
+     "2",
+     "¿Qué dice la curva del olvido?",
+     "Se olvida más rápido al principio",
+     "en 3 días"
+    ],
+    [
+     "3",
+     "¿Qué es el repaso espaciado?",
+     "Repasar con intervalos cada vez más largos",
+     "en 7 días"
+    ],
+    [
+     "4",
+     "Ya la sé bien",
+     "—",
+     "en 30 días"
+    ]
+   ]
+  }
+ ]
+}

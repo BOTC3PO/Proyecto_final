@@ -1,0 +1,42 @@
+{
+ "titulo": "Un actuador convierte una señal en acción",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Ejemplo: motor",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Señal eléctrica",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Actuador (motor)",
+     "x": 238,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Movimiento",
+     "x": 475,
+     "y": 0
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

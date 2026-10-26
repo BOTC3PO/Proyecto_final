@@ -1,0 +1,22 @@
+{
+ "titulo": "Una variable en la memoria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Variable edad = 18",
+   "headers": [
+    "Dirección de memoria",
+    "Nombre de la variable",
+    "Valor"
+   ],
+   "rows": [
+    [
+     "0x1A2B",
+     "edad",
+     18
+    ]
+   ]
+  }
+ ]
+}

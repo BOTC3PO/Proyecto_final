@@ -1,0 +1,37 @@
+{
+ "titulo": "Lentes convergentes y divergentes",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "",
+    "Convergente (biconvexa)",
+    "Divergente (bicóncava)"
+   ],
+   "rows": [
+    [
+     "Forma",
+     "Más gruesa en el centro",
+     "Más delgada en el centro"
+    ],
+    [
+     "Rayos paralelos",
+     "Se juntan en el foco",
+     "Se separan"
+    ],
+    [
+     "Foco",
+     "Real",
+     "Virtual"
+    ],
+    [
+     "Imagen típica",
+     "Real o virtual, según dónde esté el objeto",
+     "Siempre virtual, derecha y menor"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
+import { fetchAulaMatriz } from "../services/progreso-aula";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
-
-type ProgressItem = {
-  moduloId: string;
-  status: "iniciado" | "en_progreso" | "completado";
-  usuarioId?: string;
-};
+import { resolveMateria } from "../domain/module/materia";
+import { useI18n } from "../i18n/I18nContext";
 
 type ModuloItem = {
   id: string;
@@ -28,7 +26,10 @@ type EstadisticaModulo = {
 };
 
 export default function ProfesorEstadisticas() {
+  const { t } = useI18n();
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const presetAulaId = searchParams.get("aulaId") ?? "";
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
   const [estadisticas, setEstadisticas] = useState<EstadisticaModulo[]>([]);
@@ -41,10 +42,17 @@ export default function ProfesorEstadisticas() {
       .then((data) => {
         const misAulas = data.items ?? [];
         setAulas(misAulas);
+        if (presetAulaId) {
+          const match = misAulas.find((a) => getAulaId(a) === presetAulaId);
+          if (match) {
+            setAulaId(presetAulaId);
+            return;
+          }
+        }
         if (misAulas[0]) setAulaId(getAulaId(misAulas[0]));
       })
       .catch(() => {});
-  }, [user?.id]);
+  }, [user?.id, presetAulaId]);
 
   useEffect(() => {
     if (!aulaId) return;
@@ -55,29 +63,25 @@ export default function ProfesorEstadisticas() {
       apiGet<{ items: ModuloItem[] }>(
         `/api/modulos?aulaId=${encodeURIComponent(aulaId)}`
       ),
-      apiGet<{ items: ProgressItem[] }>(
-        `/api/progreso?aulaId=${encodeURIComponent(aulaId)}`
-      ),
+      fetchAulaMatriz(aulaId),
     ])
-      .then(([modulosData, progresoData]) => {
+      .then(([modulosData, matriz]) => {
         if (!active) return;
-        const progreso = progresoData.items ?? [];
+        const alumnos = matriz.alumnos ?? [];
         const stats = (modulosData.items ?? []).map((m) => {
-          const moduloProgreso = progreso.filter(
-            (p) => p.moduloId === m.id
-          );
+          const statuses = alumnos
+            .map((a) => a.progresos[m.id])
+            .filter((s): s is NonNullable<typeof s> => Boolean(s));
           return {
             id: m.id,
             titulo: m.title,
-            materia: m.subject ?? m.category ?? "General",
-            completados: moduloProgreso.filter(
-              (p) => p.status === "completado"
-            ).length,
-            enProgreso: moduloProgreso.filter(
-              (p) => p.status === "en_progreso" || p.status === "iniciado"
+            materia: resolveMateria(m),
+            completados: statuses.filter((s) => s === "completado").length,
+            enProgreso: statuses.filter(
+              (s) => s === "en_progreso" || s === "iniciado"
             ).length,
             sinIniciar: 0,
-            total: moduloProgreso.length,
+            total: statuses.length,
           };
         });
         setEstadisticas(stats);
@@ -93,13 +97,13 @@ export default function ProfesorEstadisticas() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Estadísticas</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Progreso de alumnos por módulo en tu aula.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorEstadisticas.estadisticas")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorEstadisticas.progresoDeAlumnosPorModulo")}</p>
         </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Aula</label>
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("comun.aula")}</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -114,7 +118,7 @@ export default function ProfesorEstadisticas() {
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Progreso por módulo</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("enterpriseReportes.progresoPorModulo")}</p>
           </div>
           <div className="p-4 space-y-3">
           {loading && (
@@ -126,7 +130,7 @@ export default function ProfesorEstadisticas() {
           )}
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && estadisticas.length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">No hay módulos asignados a este aula.</p>
+            <p className="text-sm text-[var(--c-muted)]">{t("profesorEstadisticas.noHayModulosAsignadosA")}</p>
           )}
           {!loading && !error && estadisticas.map((e) => (
             <article key={e.id}

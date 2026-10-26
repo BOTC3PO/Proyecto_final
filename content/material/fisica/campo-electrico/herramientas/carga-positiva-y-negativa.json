@@ -1,0 +1,27 @@
+{
+ "titulo": "Líneas de campo de cargas positivas y negativas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cómo se dibujan",
+   "headers": [
+    "",
+    "Carga positiva (+)",
+    "Carga negativa (−)"
+   ],
+   "rows": [
+    [
+     "Líneas de campo",
+     "Salen de la carga",
+     "Entran en la carga"
+    ],
+    [
+     "Fuerza sobre una carga de prueba positiva",
+     "Repulsión (se aleja)",
+     "Atracción (se acerca)"
+    ]
+   ]
+  }
+ ]
+}

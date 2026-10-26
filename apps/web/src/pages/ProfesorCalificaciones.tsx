@@ -1,28 +1,42 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/use-auth";
 import { apiGet } from "../lib/api";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import CorreccionesPendientes from "../components/profesor/CorreccionesPendientes";
+import { useI18n } from "../i18n/I18nContext";
 
 type QuizAttemptResult = {
   id: string;
   quizId: string;
   quizTitle?: string;
   moduleId?: string;
+  moduleTitle?: string;
   status: string;
   score?: number;
   maxScore?: number;
   quizType?: string;
-  completedAt?: string;
-  createdAt?: string;
+  // FIX-CALIFICACIONES-ALUMNO — el back nunca mandó `completedAt`/
+  // `createdAt` (el modelo real usa `submittedAt`/`startedAt`, ver
+  // quiz-attempts.ts); estos dos campos siempre eran `undefined` y la
+  // fecha de cada fila mostraba "—" sin importar el intento.
+  submittedAt?: string;
+  startedAt?: string;
   userId?: string;
+  userName?: string;
 };
 
 export default function ProfesorCalificaciones() {
+  const { t, lang } = useI18n();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
+  // FIX-TEST4-PROF-02 — filtro por módulo. "" = "todos los módulos
+  // del aula". El back ya aceptaba `moduleId=` en el query, pero el
+  // front no lo exponía. Ahora el docente puede ver "solo las
+  // calificaciones del módulo X dentro del aula Y".
+  const [moduleId, setModuleId] = useState("");
   const [attempts, setAttempts] = useState<QuizAttemptResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -43,9 +57,14 @@ export default function ProfesorCalificaciones() {
     let active = true;
     setLoading(true);
     setError(null);
-    apiGet<{ items: QuizAttemptResult[] }>(
-      `/api/quiz-attempts?moduleId=&aulaId=${encodeURIComponent(aulaId)}&quizType=formal&limit=50`
-    )
+    // FIX-TEST4-PROF-02 — si hay `moduleId`, se manda al back para
+    // filtrar por módulo específico. Si no, todas las del aula
+    // (comportamiento histórico de FIX-CALIFICACIONES).
+    const params = new URLSearchParams();
+    params.set("aulaId", aulaId);
+    params.set("limit", "50");
+    if (moduleId) params.set("moduleId", moduleId);
+    apiGet<{ items: QuizAttemptResult[] }>(`/api/quiz-attempts?${params.toString()}`)
       .then((data) => {
         if (!active) return;
         setAttempts(data.items ?? []);
@@ -56,7 +75,22 @@ export default function ProfesorCalificaciones() {
       })
       .finally(() => { if (!active) return; setLoading(false); });
     return () => { active = false; };
-  }, [aulaId]);
+  }, [aulaId, moduleId]);
+
+  // FIX-TEST4-PROF-02 — el dropdown de módulos se llena con los
+  // módulos únicos que aparecen en los attempts cargados. Si el
+  // docente todavía no terminó ningún attempt de un módulo, ese
+  // módulo no aparece. Para mejorar: fetchear los módulos del aula
+  // por separado y combinarlos.
+  const moduleOptions = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const a of attempts) {
+      if (a.moduleId && !seen.has(a.moduleId)) {
+        seen.set(a.moduleId, a.moduleTitle ?? a.moduleId);
+      }
+    }
+    return Array.from(seen.entries()).map(([id, title]) => ({ id, title }));
+  }, [attempts]);
 
   // Agrupar por quizId
   const byQuiz = attempts.reduce<Record<string, QuizAttemptResult[]>>(
@@ -71,13 +105,13 @@ export default function ProfesorCalificaciones() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
-          <h1 className="text-xl font-semibold text-[var(--c-text)]">Calificaciones</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-0.5">Resultados de evaluaciones formales por aula.</p>
+          <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorCalificaciones.calificaciones")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-0.5">{t("profesorCalificaciones.resultadosDeEvaluacionesFormalesPor")}</p>
         </div>
 
         {aulas.length > 1 && (
           <div className="flex items-center gap-3">
-            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Aula</label>
+            <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("comun.aula")}</label>
             <select
               value={aulaId}
               onChange={(e) => setAulaId(e.target.value)}
@@ -90,11 +124,31 @@ export default function ProfesorCalificaciones() {
           </div>
         )}
 
+        {/* FIX-TEST4-PROF-02 — filtro por módulo. Vacío = "todos
+            los módulos del aula". El listado se llena con los
+            módulos que aparecieron en los attempts cargados
+            (mejorable: fetchear los módulos del aula por
+            separado). */}
+        <div className="flex items-center gap-3">
+          <label className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("adminReportesGlobal.modulo")}</label>
+          <select
+            value={moduleId}
+            onChange={(e) => setModuleId(e.target.value)}
+            data-testid="calificaciones-filtro-modulo"
+            className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+          >
+            <option value="">{t("profesorCalificaciones.todosLosModulos")}</option>
+            {moduleOptions.map((m) => (
+              <option key={m.id} value={m.id}>{m.title}</option>
+            ))}
+          </select>
+        </div>
+
         <CorreccionesPendientes aulaId={aulaId || undefined} />
 
         <section className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
           <div className="px-4 py-3 border-b border-[var(--c-border)]">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">Evaluaciones formales</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--c-muted)]">{t("profesorCalificaciones.evaluacionesFormales")}</p>
           </div>
           <div className="p-4 space-y-3">
           {loading && (
@@ -104,13 +158,19 @@ export default function ProfesorCalificaciones() {
           )}
           {error && <p className="text-sm text-[var(--c-danger)]">Error: {error}</p>}
           {!loading && !error && Object.keys(byQuiz).length === 0 && (
-            <p className="text-sm text-[var(--c-muted)]">
-              No hay evaluaciones formales completadas en este aula.
-            </p>
+            <p className="text-sm text-[var(--c-muted)]">{t("profesorCalificaciones.noHayEvaluacionesFormalesCompletadas")}</p>
           )}
           {!loading && !error && Object.entries(byQuiz).map(([quizId, lista]) => {
             const titulo = lista[0]?.quizTitle ?? quizId;
-            const completados = lista.filter((a) => a.status === "completed" || a.status === "submitted");
+            // FIX-TEST4-ALU-04 — solo contar attempts finalizados
+            // (`completed` / `submitted`). `aborted` y `in_progress`
+            // NO cuentan como "entrega" para no inflar el promedio
+            // ni el contador. El back ya hace un sweep periódico
+            // (6h) que pasa los `in_progress` viejos a `aborted`,
+            // pero por las dudas filtramos ambos acá también.
+            const completados = lista.filter(
+              (a) => a.status === "completed" || a.status === "submitted"
+            );
             const promedio = completados.length > 0
               ? Math.round(completados.reduce((acc, a) => acc + (a.score ?? 0), 0) / completados.length)
               : null;
@@ -122,10 +182,10 @@ export default function ProfesorCalificaciones() {
                     {titulo}
                   </h3>
                   <div className="flex items-center gap-2 text-xs text-[var(--c-muted)]">
-                    <span>{completados.length} entrega(s)</span>
+                    <span>{completados.length} {t('profesorCalificaciones.entregaS')}</span>
                     {promedio !== null && (
                       <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-700">
-                        Promedio: {promedio}
+                        {t('profesorReportes.promedio')} {promedio}
                       </span>
                     )}
                   </div>
@@ -134,17 +194,32 @@ export default function ProfesorCalificaciones() {
                   {lista.slice(0, 10).map((a) => (
                     <div key={a.id}
                       className="flex items-center justify-between rounded-lg bg-[var(--c-bg)] px-3 py-2 text-xs">
-                      <span className="text-[var(--c-muted)]">
-                        {a.completedAt ?? a.createdAt
-                          ? new Date(a.completedAt ?? a.createdAt ?? "").toLocaleDateString("es-AR")
-                          : "—"}
+                      <span className="flex items-center gap-2 min-w-0">
+                        {/* FIX-CALIFICACIONES-ALUMNO — antes esta lista no
+                            decía de qué alumno era cada entrega (sólo se
+                            veía al abrir "Ver detalle" uno por uno). */}
+                        <span className="font-medium text-[var(--c-text)] truncate">
+                          {a.userName ?? t("profesorCalificaciones.alumnoDesconocido")}
+                        </span>
+                        <span className="text-[var(--c-muted)] shrink-0">
+                          {a.submittedAt ?? a.startedAt
+                            ? new Date(a.submittedAt ?? a.startedAt ?? "").toLocaleDateString(lang)
+                            : "—"}
+                        </span>
                       </span>
-                      <span className={`font-semibold ${
-                        a.score != null ? "text-[var(--c-text)]" : "text-[var(--c-muted)]"
-                      }`}>
-                        {a.score != null
-                          ? `${a.score}${a.maxScore ? `/${a.maxScore}` : ""}`
-                          : "Sin puntaje"}
+                      <span className="flex items-center gap-2">
+                        <span className={`font-semibold ${
+                          a.score != null ? "text-[var(--c-text)]" : "text-[var(--c-muted)]"
+                        }`}>
+                          {a.score != null
+                            ? `${a.score}${a.maxScore ? `/${a.maxScore}` : ""}`
+                            : "Sin puntaje"}
+                        </span>
+                        <Link
+                          to={`/profesor/intentos/${a.id}`}
+                          className="text-blue-600 hover:underline"
+                          data-testid="ver-detalle-intento"
+                        >{t("profesorCalificaciones.verDetalle")}</Link>
                       </span>
                     </div>
                   ))}

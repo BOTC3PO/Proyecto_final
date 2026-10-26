@@ -37,6 +37,13 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "respuesta":
         compiled.respuesta = b.expr;
         break;
+      case "respuesta_expr":
+        // WO-11 — bloque simbólico. Se almacena en su propio campo para
+        // que el runtime pueda decidir si exigir string y propagar a
+        // `result.respuestaExpr`. No choca con `respuesta:`: el parser
+        // ya valida que no haya ambos en la misma plantilla.
+        compiled.respuestaExpr = b.expr;
+        break;
       case "respuestas_validas":
         compiled.respuestasValidas = b.items;
         break;
@@ -49,6 +56,9 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
           esPorcentaje: b.esPorcentaje,
         };
         break;
+      case "tolerancia_abs":
+        compiled.toleranciaAbs = b.valor;
+        break;
       case "opciones":
         compiled.opciones = b.cantidad;
         break;
@@ -58,8 +68,17 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "enunciado":
         compiled.enunciado = b.partes;
         break;
+      case "enunciados":
+        compiled.enunciados = b.items;
+        break;
       case "pasos":
         compiled.pasos = b.pasos;
+        break;
+      case "pistas":
+        compiled.pistas = b.items;
+        break;
+      case "explicacion":
+        compiled.explicacion = b.partes;
         break;
       case "visual":
         compiled.visual = b.campos;
@@ -72,6 +91,7 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
         break;
       case "mapa":
         compiled.mapa = b.nombre;
+        if (b.encuadre) compiled.encuadre = b.encuadre;
         break;
       case "respuesta_iso":
         compiled.respuestaIso = b.expr;
@@ -94,6 +114,35 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
       case "correccion":
         compiled.correccion = b.modo;
         break;
+      case "multiple":
+        compiled.multiple = b.valor;
+        break;
+      case "puntaje_parcial":
+        compiled.puntajeParcial = b.modo;
+        break;
+      case "spans_pedidos":
+        compiled.spansPedidos = b.spans;
+        break;
+      case "etiquetas_disponibles":
+        compiled.etiquetasDisponibles = b.items;
+        break;
+    }
+  }
+
+  // PLAN-E §21 Parte A — `multiple: true` sólo tiene sentido en mc con
+  // opciones explícitas y un conjunto de correctas (`respuestas_validas:`
+  // y/o `respuesta:`).
+  if (compiled.multiple) {
+    if (compiled.tipoInferido !== "mc") {
+      throw new EvalError("`multiple: true` requiere `tipo: mc`");
+    }
+    if (!compiled.opcionesExplicitas) {
+      throw new EvalError("`multiple: true` requiere `opciones_explicitas:`");
+    }
+    if (!compiled.respuestasValidas && !compiled.respuesta) {
+      throw new EvalError(
+        "`multiple: true` requiere `respuestas_validas:` (las opciones correctas) o `respuesta:`",
+      );
     }
   }
 
@@ -105,6 +154,30 @@ export function compile(plantilla: Plantilla): CompiledPlantilla {
     throw new EvalError(
       "tipo `mc` requiere `opciones:` o `opciones_explicitas:`",
     );
+  }
+
+  // PLAN-E §15 — variantes de `enunciados:` con tipo propio: sólo tienen
+  // sentido sobre una plantilla de tipo básico (comparten `respuesta:`),
+  // y una variante `mc` necesita opciones igual que el tipo base `mc`.
+  const variantesConTipo = (compiled.enunciados ?? []).filter(
+    (it) => it.tipo !== undefined,
+  );
+  if (variantesConTipo.length > 0) {
+    const BASICOS = ["mc", "vf", "input", "completar"];
+    if (!BASICOS.includes(compiled.tipoInferido)) {
+      throw new EvalError(
+        `las variantes con tipo propio requieren una plantilla de tipo básico (${BASICOS.join(", ")}), no \`${compiled.tipoInferido}\``,
+      );
+    }
+    if (
+      variantesConTipo.some((it) => it.tipo === "mc") &&
+      compiled.opciones === undefined &&
+      !compiled.opcionesExplicitas
+    ) {
+      throw new EvalError(
+        "una variante de tipo `mc` requiere `opciones:` o `opciones_explicitas:`",
+      );
+    }
   }
 
   return compiled;

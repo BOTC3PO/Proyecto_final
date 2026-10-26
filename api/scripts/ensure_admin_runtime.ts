@@ -27,7 +27,7 @@ async function main() {
         email: TARGET_EMAIL,
         fullName: "Administrador",
         role: "ADMIN",
-        passwordHash: hashPassword("Password123!"),
+        passwordHash: await hashPassword("Password123!"),
         isDeleted: false,
         createdAt: now,
         updatedAt: now

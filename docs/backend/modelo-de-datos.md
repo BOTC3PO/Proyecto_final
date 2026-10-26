@@ -2,11 +2,11 @@
 
 | | |
 |---|---|
-| **Versión** | 1.0 |
+| **Versión** | 1.1 |
 | **Estado** | Vigente |
 | **Audiencia** | Backend, full-stack, data |
-| **Última actualización** | 2026-05-30 |
-| **Fuente de verdad** | `api/prisma/schema.prisma` (91 modelos) |
+| **Última actualización** | 2026-07-18 — fusión con `documentacion V2/docs/`: conteo actualizado, gobernanza retirada (§6 reescrita), cobros/pasarelas expandidos (§7), y nuevos §11 (asistencia/períodos), §12 (cuenta espejo), §13 (formulas/push tokens). El detalle de 2026-07-08 (`Material`/`MaterialVersion`, `Quiz` standalone) sigue vigente sin cambios. |
+| **Fuente de verdad** | `api/prisma/schema.prisma` (**101 modelos**) |
 
 > Este documento se deriva directamente de `api/prisma/schema.prisma`. Reemplaza al
 > inventario de la era MongoDB/SQLite, archivado en
@@ -15,8 +15,9 @@
 
 > **Diagramas de comportamiento.** Este doc cubre la estructura (ER). La máquina de estados del
 > intento de quiz (con la corrección manual de WO07), el pipeline de generación de ejercicios
-> VBLang/generadoresV2, el desbloqueo de módulos y la votación de governance están en
-> [`diagramas-comportamiento.md`](./diagramas-comportamiento.md).
+> VBLang/generadoresV2 y el desbloqueo de módulos están en
+> [`diagramas-comportamiento.md`](./diagramas-comportamiento.md) — su §4 (votación de governance)
+> describe un flujo **retirado** (ver §6 de este documento), pendiente de limpieza en ese archivo.
 
 ## Conceptos generales
 
@@ -38,16 +39,17 @@
 
 | Dominio | Modelos | ¿Relaciones FK en Prisma? |
 |---|---|---|
-| Auth / usuarios / membresías | `Usuario`, `Membresia` | Sí |
-| Escuela / aula | `Escuela`, `Clase`, `ClaseMiembro`, `ClaseModulo`, `ClasePublicacion`, `ModoAula`, `ActividadAula`, `CalendarioEscuela`, `AuditoriaAula`, `LimiteEscuela`, `Transferencia` | Parcial |
-| Libros / módulos / pages / progreso | `Modulo`, `TeoriaJson`, `TuesdayDoc`, `LibroJson`, `BloqueJson`, `Libro`, `Page`, `Materia`, `ConfigModulo`, `ProgresoModulo`, `ProgresoModuloVinculo`, `ResourceLink`, `Tarea`, `Entrega`, `Publicacion`, `Comentario` | Parcial |
+| Auth / usuarios / membresías | `Usuario` (🆕 `roles String[]`, `tipoCuenta`), `Membresia`, **`CuentaVinculada`** 🆕 | Sí |
+| Escuela / aula | `Escuela` (🆕 `comisionPct`, `comisionPctIntl`, `saldoInicialAlumno`, `branding`), `Clase`, `ClaseMiembro`, `ClaseModulo`, **`ModuloInvitacion`** 🆕, `ClasePublicacion`, `ModoAula`, `ActividadAula`, `CalendarioEscuela` (🆕 `aulaId` nullable), **`Asistencia`** 🆕, **`ClasePeriodo`** 🆕, `AuditoriaAula`, `LimiteEscuela`, `Transferencia` | Parcial |
+| Libros / módulos / pages / progreso | `Modulo` (🆕 `subject`, `theoryItems`, `level`, `category`, `durationMinutes`, `scoringConfig`, `clonedFrom*`, `descatalogado`), `TeoriaJson`, `TuesdayDoc`, `LibroJson`, `BloqueJson`, `Libro`, `Page`, `Materia`, `ConfigModulo`, `ProgresoModulo`, `ProgresoModuloVinculo`, `ResourceLink`, `Tarea`, `Entrega`, `Publicacion`, `Comentario` | Parcial |
 | Quiz / banco / generadores | `Quiz`, `QuizVersion`, `QuizQuestionSet`, `QuizAttempt`, `QuizUmbral`, `QuizCompetencia`, `DesbloqueoManual`, `GeneratorConfig`, `GeneratorChangelog`, `GeneradorAdmin` | Sí |
 | Economía / ledger / tienda | `EconomiaConfig`, `SaldoUsuario`, `LedgerMovimiento`, `EconomiaRecompensa`, `EconomiaModulo`, `EconomiaEvento`, `EconomiaRiesgoCurso`, `EconomiaSaldo`, `EconomiaTransaccion`, `EconomiaExamen`, `EconomiaExamenPuja`, `EconomiaExamenPunto`, `EconomiaIntercambio`, `EconomiaCompra`, `EconomiaAuditoria`, `Billetera`, `PlazoFijo`, `FciPosicion`, `TiendaItem`, `UsuarioItem` | Parcial |
-| Governance / moderación / auditoría | `Proposal`, `Vote`, `Prompt`, `Suggestion`, `ModeracionEvento`, `AuditLog` | Parcial |
-| Pagos / suscripciones / enterprise | `Suscripcion`, `HistorialPago`, `TransaccionEscuela`, `LiquidacionEscuela`, `EventoSuscripcion`, `EnterpriseContrato`, `EnterpriseBillingCycle`, `EnterpriseReporte` | Parcial |
+| Moderación / auditoría | `Prompt`, `Suggestion`, `ModeracionEvento`, `AuditLog` — ⚠️ `Proposal`/`Vote` **eliminadas** (gobernanza retirada, ver §6) | Parcial |
+| **Cobros / pasarelas (dinero real)** 🆕 | **`CobroEscuela`**, **`CuotaAlumno`**, **`Pago`**, **`EscuelaPasarela`** | Sí |
+| Pagos legacy / suscripciones / enterprise | `Suscripcion` *(legacy, sólo lectura)*, `HistorialPago` *(legacy)*, `TransaccionEscuela`, `LiquidacionEscuela`, `EventoSuscripcion`, `EnterpriseContrato`, `EnterpriseBillingCycle`, `EnterpriseReporte` | Parcial |
 | Comunicación / encuestas / familias | `Encuesta`, `EncuestaRespuesta`, `Aviso`, `AvisoLeido`, `Hilo`, `MensajeDirecto`, `Conversacion`, `MensajeItem`, `ForoRespuesta`, `EventoReportePadre`, `Acceso` | Parcial |
-| Sincronización offline | `SyncQueue`, `SyncSnapshot`, `SyncConflicto` | No |
-| VBLang — plantillas y datasets | `PlantillaEjercicio`, `PlantillaEjercicioVersion`, `VblangDataset`, `VblangDatasetFila` | Sí |
+| Sincronización offline / mobile | `SyncQueue`, `SyncSnapshot`, `SyncConflicto`, **`PushToken`** 🆕 | No |
+| VBLang — plantillas, fórmulas y datasets | `PlantillaEjercicio`, `PlantillaEjercicioVersion`, `VblangDataset` (🆕 `sourceUrl`), `VblangDatasetFila`, **`Formula`** 🆕 | Sí |
 
 > **Maps y diccionarios** no tienen modelos Prisma: se sirven desde SQLite de solo lectura y
 > archivos del filesystem (`SQLITE_PATH`, `CONTENT_SQLITE_PATH`, `api/src/maps/`,
@@ -94,8 +96,30 @@ erDiagram
     }
 ```
 
-> El detalle de roles (ADMIN/DIRECTIVO/TEACHER/USER/PARENT/GUEST), rol global vs membresía y el
-> onboarding de GUEST está en [`auth-y-roles.md`](./auth-y-roles.md).
+> El detalle de roles (ADMIN/DIRECTIVO/TEACHER/USER/PARENT/GUEST), **multirol** (`roles: String[]`,
+> MULTIROL-01) y el onboarding de GUEST está en [`auth-y-roles.md`](./auth-y-roles.md).
+
+### 1.1 Cuentas vinculadas (cuenta espejo) 🆕
+
+| Modelo | Tabla | Propósito |
+|---|---|---|
+| `CuentaVinculada` | `cuentas_vinculadas` | Puente **simétrico** entre dos cuentas de la **misma persona**. Usado para que un staff (ADMIN/DIRECTIVO/TEACHER) tenga su cuenta espejo de alumno y entre a la app como estudiante sin perder su identidad de staff; la misma tabla se reutiliza para que un alumno se genere una cuenta de padre. |
+
+**Diseño:** `usuarioAId`/`usuarioBId` son equivalentes (no hay principal ni espejo codificados en
+columnas) — la app inserta siempre con `min(a,b), max(a,b)` para que `@@unique([usuarioAId,
+usuarioBId])` funcione sin importar el orden. El espejo se identifica por `Usuario.tipoCuenta =
+"ESPEJO_ALUMNO"` (no por una columna acá). `onDelete: Cascade` en ambas FKs. **No usar para
+padre↔hijo** (eso es `ProgresoModuloVinculo` — personas distintas, sin switch).
+
+```mermaid
+erDiagram
+    Usuario ||--o{ CuentaVinculada : "vincula (A o B)"
+    CuentaVinculada {
+        string id PK
+        string usuarioAId FK
+        string usuarioBId FK
+    }
+```
 
 ---
 
@@ -116,7 +140,8 @@ erDiagram
 | `Transferencia` | `transferencias` | Traslado de un estudiante entre escuelas. |
 
 **Campos clave `Escuela`:** `id`, `name`, `code? @unique`, `address?`, `subscriptionStatus?`,
-`plan?`, `isDeleted`, `modoGestion?` (`centralizado`|`autogestionado`), `comisionPct?`.
+`plan?`, `isDeleted`, `comisionPct?` (doméstico/MercadoPago, 5-7%), `comisionPctIntl?`
+(internacional/Cryptomus, 1-2%). Sistema siempre autogestionado — no existe modo "centralizado".
 Relaciones: `usuarios[]`, `membresias[]`, `clases[]`, `transacciones[]`, `liquidaciones[]`.
 
 **Campos clave `Clase`:** `id`, `escuelaId` (FK), `name`, `grade`, `code?`, `classCode?`,
@@ -157,6 +182,35 @@ erDiagram
 > `ActividadAula`, `CalendarioEscuela`, `AuditoriaAula` y `Transferencia` referencian aulas/
 > escuelas por id pero **sin** FK declarada en Prisma.
 
+### 2.1 Asistencia y períodos académicos 🆕 (julio 2026)
+
+| Modelo | Tabla | Propósito |
+|---|---|---|
+| `Asistencia` | `asistencias` | Registro por `[claseId, alumnoId, fecha]` (`@@unique`). `estado` ∈ presente\|ausente\|tarde\|justificado (validado en zod, no en DB). Antes de esta migración `GET /api/profesor/asistencia` devolvía `[]` hardcodeado — "la colección no existe aún en Prisma". |
+| `ClasePeriodo` | `clase_periodos` | Períodos académicos **declarados en el aula** (nunca un motor de calendario global): lista libre y ordenada de `{nombre, desde, hasta}` por docente. "2 semestres + verano" son 3 filas; anual es 1. `desde`/`hasta` son `String` ISO (`yyyy-mm-dd`), comparación lexicográfica. Insumo directo del boletín (§7.1). |
+| `ModuloInvitacion` | `modulo_invitaciones` | Invitación individual a un módulo **descatalogado** (`Modulo.descatalogado`). Espejo deliberado de `ClaseModulo` (join-table liviana, sin relación Prisma a `Modulo`/`Usuario`). Un alumno invitado ve el módulo aunque esté fuera de los listados generales. |
+
+```mermaid
+erDiagram
+    Clase ||--o{ Asistencia : "registra"
+    Clase ||--o{ ClasePeriodo : "define"
+    Asistencia {
+        string id PK
+        string claseId
+        string alumnoId
+        string fecha
+        string estado
+    }
+    ClasePeriodo {
+        string id PK
+        string claseId
+        string nombre
+        string desde
+        string hasta
+        int orden
+    }
+```
+
 ---
 
 ## 3. Libros, módulos, pages y progreso
@@ -166,23 +220,48 @@ erDiagram
 | `Modulo` | `modulos` | Unidad de contenido; visibilidad, dueño, vínculos a teoría/libro/quiz. |
 | `TeoriaJson` | `teoria_json` | Documento de teoría versionado (relación con `Modulo`). |
 | `TuesdayDoc` | `tuesdayjs_docs` | Documento "TuesdayJS" versionado. |
-| `LibroJson` | `libros_json` | Libro serializado (con `schemaVersion` y `contentHash`). |
-| `BloqueJson` | `bloques_json` | Bloque de contenido reutilizable versionado. |
-| `Libro` | `libros` | Libro como blob `json` (variante legacy). |
+| `LibroJson` | `libros_json` | **Muerto** — esquema de un diseño de persistencia anterior; ningún código de `api/src` ni `apps/web/src` lo lee/escribe hoy (confirmado por grep). No usar como referencia. |
+| `BloqueJson` | `bloques_json` | Mismo estado que `LibroJson` — sin consumidores confirmados. |
+| `Libro` | `libros` | **El libro real y vivo** (`json` = `Book` serializado) + scoping (`ownerUserId`, `schoolId`, `visibility`) y provenance de clonado. Ver [`../book-editor.md`](../book-editor.md#guardado-y-scoping-backend). |
 | `Page` | `pages` | Página simple con `title`/`content`. |
 | `Materia` | `materias` | Materia como blob `json`. |
-| `ConfigModulo` | `config_modulos` | Listas de configuración de módulos (`items`). |
+| `Material` | `materiales_guardados` | "Guardar como material" genérico (mapa/timeline/interactivo/presentación) usado por varios editores — no confundir con `Modulo` ni `Libro`. Ver detalle abajo. |
+| `MaterialVersion` | `material_versions` | Historial de versiones de un `Material` (append-only, mismo patrón que `Quiz`/`QuizVersion`). |
+| `ConfigModulo` | `config_modulos` | **No es config de un módulo individual**: catálogo global editable por ADMIN (`items: String[]` como JSON), p. ej. la lista de materias/categorías disponibles en los editores (`GET/PUT /api/config/materias`, `/api/config/categorias`). |
 | `ProgresoModulo` | `progreso_modulos` | Progreso de un usuario en un módulo dentro de un aula. |
-| `ProgresoModuloVinculo` | `vinculos_padre_hijo` | Vínculo padre↔hijo y permisos asociados. |
+| `ProgresoModuloVinculo` | `vinculos_padre_hijo` | **A pesar del nombre**, es el vínculo padre↔hijo (cuentas PARENT↔alumno) y sus permisos — no progreso de módulo. |
 | `ResourceLink` | `resource_links` | Enlace de recurso asociado a aula/escuela con visibilidad. |
 | `Tarea` | `tareas` | Tarea como blob `json` (aula/escuela opcional). |
 | `Entrega` | `entregas` | Entrega como blob `json`. |
 | `Publicacion` | `publicaciones` | Publicación del feed de aula (variante sin FK). |
 | `Comentario` | `comentarios` | Comentario sobre una publicación (blob `json`). |
 
-**Campos clave `Modulo`:** `id`, `slug? @unique`, `titulo`, `descripcion?`, `visibility @default("private")`,
-`schoolId?`, `ownerUserId?`, `teoriaId?` (FK a `TeoriaJson`), `tuesdayDocId?`, `libroId?`,
-`defaultQuestionCount?`, `dependencies?`, `isDeleted`. Relaciones: `teoria?`, `quizzes[]`.
+**Campos clave `Modulo`:** `id`, `slug? @unique`, `titulo`, `descripcion?`, `subject?`, `level?`,
+`category?`, `durationMinutes?`, `theoryItems?: String` (JSON de teoría embebida — ver
+[`../modulos.md`](../modulos.md#theoryitems), no confundir con `teoriaId`, modelo viejo por
+referencia), `scoringConfig?: String` (escala de notas), `visibility @default("private")` (valores
+reales usados por el código: `"privado"|"escuela"|"publico"`, el default de columna en inglés es
+residual), `schoolId?`, `ownerUserId?`, `teoriaId?` (FK a `TeoriaJson`), `tuesdayDocId?`, `libroId?`
+(ambos ids libres, no `@relation` de Prisma), `defaultQuestionCount?`, `dependencies?: String` (JSON
+`{id, type:"required"|"unlocks"}[]` — sólo `"required"` se consume hoy, ver
+[`../modulos.md`](../modulos.md#dependencias)), `isDeleted`. Relaciones: `teoria?`, `quizzes[]`.
+**No tiene** columna `status` (el schema Zod de la API sí declara un `status` `ACTIVE`/`ARCHIVED`,
+pero no se persiste — no hay ciclo de vida publicado/borrador implementado) ni columna `aulaId` (la
+relación módulo↔aula es la tabla `ClaseModulo`, no una FK directa acá).
+
+### Material / MaterialVersion — "guardar como material"
+
+Sistema de persistencia genérico usado por varios editores (mapas, bloques, libros vía el listado
+combinado) para guardar contenido reusable fuera de un módulo. `Material`: `id, tipo` (String libre
+∈ `"mapa"|"timeline"|"interactivo"|"presentacion"`, mismo patrón sin-enum-Prisma que
+`Modulo.visibility`), `titulo, ownerUserId, schoolId?, visibility @default("privado")`,
+`currentVersionId?`, `isDeleted`. `MaterialVersion`: `id, materialId, versionNumber, schemaVersion
+@default(1), contenido: String` (el JSON según `tipo`), `contentHash?, createdBy?`.
+`@@unique([materialId, versionNumber])`. Cada guardado posterior **crea una versión nueva, nunca
+sobrescribe la anterior** (histórico real) — pero hoy no hay ninguna ruta que liste/lea versiones
+viejas, sólo la actual (`GET /api/materiales/guardados/:id`). **Sin relación con `Modulo`**: no existe
+`moduleId` en `Material` ni ningún flujo "usar en módulo" para materiales (a diferencia de `Quiz`, que
+sí tiene `usar-en-modulo`).
 
 **Campos clave `ProgresoModulo`:** `id @default(uuid())`, `usuarioId`, `moduloId`, `aulaId?`,
 `status`, `score?`, `attempts @default(0)`, `completedAt?`, `updatedAt`.
@@ -262,7 +341,7 @@ erDiagram
 
 | Modelo | Tabla | Propósito |
 |---|---|---|
-| `Quiz` | `quizzes` | Evaluación de un módulo; apunta a la versión activa. |
+| `Quiz` | `quizzes` | Evaluación; apunta a la versión activa. `moduleId?` es **nullable** desde PLAN-CORRECCIONES C2 (migración `20260703180000_quiz_standalone`): un quiz puede vivir "suelto" sin módulo, con `ownerUserId?` como dueño mientras tanto (ver [`../modulos.md`](../modulos.md#quiz--quizversion-post-c2)). |
 | `QuizVersion` | `quiz_versions` | Versión inmutable de un quiz (preguntas o generador + params). |
 | `QuizQuestionSet` | `quiz_question_sets` | Conjunto de preguntas reutilizable (deduplicado por `contentHash`). |
 | `QuizAttempt` | `quiz_attempts` | Intento de un usuario sobre una versión de quiz. |
@@ -379,47 +458,38 @@ erDiagram
 
 ---
 
-## 6. Governance, moderación y auditoría
+## 6. Moderación y auditoría
+
+> ⚠️ **Gobernanza retirada por completo** (commit `be9873ae`, 2026-07-14, decisión del usuario). Los
+> modelos `Proposal`/`Vote` de este documento (versión 1.0) **ya no existen** — se dropearon las
+> tablas `proposals`/`votes`, se borró `api/src/lib/governance.ts`, el router `governance.ts` y las
+> páginas `/gobernanza/*` del frontend. La promoción a `ADMIN` (`PATCH
+> /api/admin/usuarios/:id/rol`) mantiene la restricción "sólo el admin principal" **sin** el flag
+> `requiresGovernance` que antes ofrecía la alternativa de votación. `Prompt` quedó **write-only**
+> (nada lo lee hoy — candidata a limpieza futura, no se borró en el mismo commit por prudencia).
 
 | Modelo | Tabla | Propósito |
 |---|---|---|
-| `Proposal` | `proposals` | Propuesta de cambio gobernada por votación (target, nivel, estado). |
-| `Vote` | `votes` | Voto sobre una propuesta (FK a `Proposal`). |
-| `Prompt` | `prompts` | Prompt/plantilla de contenido asociada a un target. |
+| `Prompt` | `prompts` | Prompt/plantilla de contenido asociada a un target. **Write-only** desde el retiro de gobernanza. |
 | `Suggestion` | `suggestions` | Sugerencia de usuario con flujo de revisión (`status @default("PENDING")`). |
 | `ModeracionEvento` | `moderacion_eventos` | Evento de moderación (ban, advertencia, reporte). |
 | `AuditLog` | `audit_logs` | Bitácora general de acciones (`actorId`, `action`, `targetType`). |
 
-**Campos clave `Proposal`:** `id`, `targetType`, `targetId`, `proposalType`, `payload`, `level`,
-`createdBy`, `status`, `rationale?`. Relación `votes[]`.
-
 ```mermaid
 erDiagram
-    Proposal ||--o{ Vote : "votos"
-    Proposal {
-        string id PK
-        string targetType
-        string targetId
-        string proposalType
-        string level
-        string status
-    }
-    Vote {
-        string id PK
-        string proposalId FK
-        string voterId
-        string value
-    }
     AuditLog {
         string id PK
         string actorId
         string action
         string targetType
     }
+    Suggestion {
+        string id PK
+        string suggestionType
+        string status
+        string createdBy
+    }
 ```
-
-> El detalle de quién puede proponer/votar (reglas `SUPERMAJORITY_2_3`, etc.) está en
-> [`auth-y-roles.md`](./auth-y-roles.md) y en `api/src/lib/governance.ts`.
 
 ---
 
@@ -476,6 +546,56 @@ erDiagram
 > mora están en [`auth-y-roles.md`](./auth-y-roles.md) y [`../politica-mora.md`](../politica-mora.md).
 > El detalle del modelo de comisión (Fase 5.1) está en [`../pagos/`](../pagos/).
 
+### 7.1 Cobros escuela→familias y pasarelas 🆕 (PLAN-B, julio 2026)
+
+| Modelo | Tabla | Propósito |
+|---|---|---|
+| `CobroEscuela` | `cobros_escuela` | Orden de cobro que crea el directivo/admin (ej. "Cuota julio 2026"). `concepto`, `montoUnitario`, `moneda @default("ARS")`, `estado`: `"borrador"\|"publicado"\|"cerrado"`. Al publicarla se generan las `CuotaAlumno`. |
+| `CuotaAlumno` | `cuotas_alumno` | Instancia de un `CobroEscuela` para **un** alumno. `pagadorId` es quién efectivamente paga (típicamente el padre vinculado; puede ser el propio alumno si es adulto). `montoFinal` puede diferir de `cobro.montoUnitario` (becas/descuentos) sin tocar el cobro original. `estado`: `pendiente\|en_proceso\|pagada\|vencida\|anulada`. `@@unique([cobroId, alumnoId])`. |
+| `Pago` | `pagos` | Registro de pago genérico por proveedor. `provider`, `providerRef?`, `estado`: `pendiente\|en_proceso\|pagada\|fallida\|anulada`, `montoBruto`, `comisionVB?`, `montoNetoEscuela?`, `raw?` (payload del webhook tal cual, para auditoría). **`@@unique([provider, providerRef])`** — idempotencia: nunca se crea un segundo `Pago` para el mismo pago aunque el proveedor reintente el webhook. |
+| `EscuelaPasarela` | `escuelas_pasarelas` | Conexión de una escuela con un provider (`"mercadopago"\|"cryptomus"`). `cuentaConectadaId` es la cuenta **de la escuela** en el provider (nunca la de VB). `credencialesCifradas` guarda el token OAuth/API key cifrado. Cryptomus no tiene split nativo — modo v1, liquidación manual. `@@unique([escuelaId, provider])`. |
+
+**Campos clave `CuotaAlumno`:** `id`, `cobroId` (FK), `alumnoId`, `pagadorId?`, `estado`,
+`montoFinal`, `pagoId?` (FK a `Pago`), `createdAt`, `updatedAt`.
+
+```mermaid
+erDiagram
+    Escuela ||--o{ CobroEscuela : "emite"
+    Escuela ||--o{ EscuelaPasarela : "conecta"
+    CobroEscuela ||--o{ CuotaAlumno : "genera"
+    CuotaAlumno }o--o| Pago : "se paga con"
+    CobroEscuela {
+        string id PK
+        string escuelaId FK
+        string concepto
+        float montoUnitario
+        string estado
+    }
+    CuotaAlumno {
+        string id PK
+        string cobroId FK
+        string alumnoId
+        string pagadorId
+        string estado
+        float montoFinal
+    }
+    Pago {
+        string id PK
+        string provider
+        string providerRef
+        string estado
+        float montoBruto
+        float comisionVB
+    }
+```
+
+> Endpoints en [`api-reference.md`](./api-reference.md#71-cobros-y-pasarelas-🆕). Modelo de negocio:
+> **autogestionado** (decisión 2026-07-05) — VB no maneja el dinero, cada escuela cobra con su
+> propia cuenta de pasarela; VB sólo registra/concilia (`TransaccionEscuela`/`LiquidacionEscuela`,
+> §7). Comisión VB: 5-7% en pagos domésticos (MercadoPago/Argentina), 1-2% en pagos
+> internacionales (Cryptomus) — Stripe se sacó como pasarela. Detalle en
+> [`../pagos/comision-roadmap-v2.md`](../pagos/comision-roadmap-v2.md).
+
 ---
 
 ## 8. Comunicación, encuestas y familias
@@ -526,13 +646,14 @@ erDiagram
 
 ---
 
-## 9. Sincronización offline
+## 9. Sincronización offline y mobile
 
 | Modelo | Tabla | Propósito |
 |---|---|---|
 | `SyncQueue` | `sync_queue` | Cola de operaciones a sincronizar por usuario (reintentos, estado). |
 | `SyncSnapshot` | `sync_snapshots` | Último snapshot descargado por usuario/tipo/aula (`@@unique`). |
 | `SyncConflicto` | `sync_conflictos` | Conflicto detectado y su resolución (`server_wins` por defecto). |
+| **`PushToken`** 🆕 | `push_tokens` | Token de push (Expo) de la app móvil (PLAN-R Parte 5). Un usuario puede tener el token en más de un dispositivo — `@@unique` es sobre el **token**, no sobre `userId` (reinstalar/reloguearse en otro teléfono agrega una fila, no pisa la anterior). El envío real de push (expo-server-sdk) queda para otra sesión; este modelo sólo guarda dónde mandar el push cuando exista ese código. |
 
 ```mermaid
 erDiagram
@@ -563,14 +684,15 @@ erDiagram
 
 ---
 
-## 10. VBLang — plantillas y datasets
+## 10. VBLang — plantillas, fórmulas y datasets
 
 | Modelo | Tabla | Propósito |
 |---|---|---|
 | `PlantillaEjercicio` | `plantillas_ejercicio` | Plantilla de ejercicio paramétrico (código DSL VBLang) con visibilidad y forks. |
 | `PlantillaEjercicioVersion` | `plantillas_ejercicio_versiones` | Versión histórica del código DSL de una plantilla. |
-| `VblangDataset` | `vblang_datasets` | Dataset reutilizable por owner (columnas declaradas como JSON). |
+| `VblangDataset` | `vblang_datasets` | Dataset reutilizable por owner (columnas declaradas como JSON). 🆕 `sourceUrl?` (PLAN-E §20): URL externa HTTPS CSV/JSON para refresco manual. |
 | `VblangDatasetFila` | `vblang_dataset_filas` | Fila ordenada de un dataset (FK a `VblangDataset`). |
+| **`Formula`** 🆕 | `formulas` | Banco compartido de fórmulas (nombre + LaTeX + materia). Mismo scoping que `PlantillaEjercicio`/`VblangDataset` (`"privada"\|"escuela"\|"publica"`); las globales son `publica` con `ownerUserId = "system"`. |
 
 **Campos clave `PlantillaEjercicio`:** `id`, `ownerUserId`, `schoolId?`, `visibility`
 (`privada`|`escuela`|`publica`), `nombre`, `descripcion?`, `materia?`, `tags?`, `codigoDsl`,
@@ -617,5 +739,7 @@ erDiagram
 
 ## Archivos fuente documentados
 
-- `api/prisma/schema.prisma` — definición de los 91 modelos (única fuente de verdad de este doc).
-- `api/prisma/migrations/` — evolución del esquema (ver [`migraciones.md`](./migraciones.md)).
+- `api/prisma/schema.prisma` — definición de los 101 modelos (única fuente de verdad de este doc).
+- `api/prisma/migrations/` — evolución del esquema, **30 migraciones** (ver [`migraciones.md`](./migraciones.md)).
+- `api/src/lib/roles.ts`, `cuenta-vinculada.ts` — helpers de multirol y cuenta espejo (§1.1).
+- `api/src/lib/boletin.ts` — cálculo puro del boletín sobre `Asistencia`/`ClasePeriodo`/`QuizAttempt` (§2.1).

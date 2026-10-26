@@ -1,0 +1,57 @@
+{
+ "titulo": "Estructura de una noticia",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Pirámide invertida",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Titular",
+     "x": 188,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Bajada / copete",
+     "x": 188,
+     "y": 92,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Lead: qué, quién, cuándo, dónde, por qué",
+     "x": 188,
+     "y": 184,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n4",
+     "label": "Cuerpo: detalles y contexto",
+     "x": 188,
+     "y": 276,
+     "color": "#dbeafe"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  }
+ ]
+}

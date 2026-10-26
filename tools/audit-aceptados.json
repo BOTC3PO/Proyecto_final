@@ -1,0 +1,181 @@
+{
+  "descripcion": "Avisos de pnpm audit revisados y aceptados (B6/G4). Si un paquete se actualiza, quitá su aviso de acá. Un aviso nuevo, o uno que aparezca en una ruta de ejecución real, hace fallar tools/audit-gate.mjs.",
+  "avisos": {
+    "GHSA-28wg-ghj8-5hjv": {
+      "paquete": "nanoid",
+      "severidad": "high",
+      "titulo": "nanoid: non-secure generators can loop indefinitely with negative size",
+      "ruta": "apps__web>@tailwindcss/vite>vite>postcss>nanoid",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-2v37-7h3g-55p8": {
+      "paquete": "nanoid",
+      "severidad": "high",
+      "titulo": "nanoid: custom generators can loop indefinitely when size is zero",
+      "ruta": "apps__web>@tailwindcss/vite>vite>postcss>nanoid",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-3f6p-5ww8-9rcr": {
+      "paquete": "mysql2",
+      "severidad": "high",
+      "titulo": "MySQL2: Auth Plugin Downgrade to mysql_clear_password Leaks Plaintext Credentials",
+      "ruta": "api>prisma>mysql2",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-3jxr-9vmj-r5cp": {
+      "paquete": "brace-expansion",
+      "severidad": "high",
+      "titulo": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+      "ruta": "apps__web>glob>minimatch>brace-expansion",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-4c8g-83qw-93j6": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to host confusion via failed IDN canonicalization",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-68fv-2mgg-jv7q": {
+      "paquete": "source-map-js",
+      "severidad": "high",
+      "titulo": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+      "ruta": "apps__web>@tailwindcss/vite>@tailwindcss/node>source-map-js",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-6j4f-fj2g-mc7p": {
+      "paquete": "brace-expansion",
+      "severidad": "high",
+      "titulo": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "ruta": "apps__web>glob>minimatch>brace-expansion",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-7p8r-x3mc-p8w7": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to host confusion via backslash authority introducer",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-88fw-hqm2-52qc": {
+      "paquete": "hono",
+      "severidad": "high",
+      "titulo": "hono: CORS Middleware reflects any Origin with credentials when `origin` defaults to the wildcard",
+      "ruta": "api>prisma>@prisma/dev>@hono/node-server>hono",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-f65p-4m7j-42xc": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-fph4-wmhf-6fwf": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-fx2h-pf6j-xcff": {
+      "paquete": "vite",
+      "severidad": "high",
+      "titulo": "vite: `server.fs.deny` bypass on Windows alternate paths",
+      "ruta": "apps__web>@tailwindcss/vite>vite",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-ggr8-5vv4-36mx": {
+      "paquete": "deepmerge-ts",
+      "severidad": "high",
+      "titulo": "DeepmergeTS has stack exhaustion when merging recursive object graphs",
+      "ruta": "api>prisma>@prisma/config>deepmerge-ts",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-jqff-g426-hqxp": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-mh99-v99m-4gvg": {
+      "paquete": "brace-expansion",
+      "severidad": "high",
+      "titulo": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+      "ruta": "apps__web>glob>minimatch>brace-expansion",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-p9ff-h696-f583": {
+      "paquete": "vite",
+      "severidad": "high",
+      "titulo": "Vite Vulnerable to Arbitrary File Read via Vite Dev Server WebSocket",
+      "ruta": "apps__web>@tailwindcss/vite>vite",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-qhr7-859c-m2p7": {
+      "paquete": "brace-expansion",
+      "severidad": "high",
+      "titulo": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "ruta": "apps__web>glob>minimatch>brace-expansion",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-qw65-cvwx-89v3": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-r28c-9q8g-f849": {
+      "paquete": "postcss",
+      "severidad": "high",
+      "titulo": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+      "ruta": "apps__web>@tailwindcss/vite>vite>postcss",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-rgw5-rvv9-x895": {
+      "paquete": "brace-expansion",
+      "severidad": "high",
+      "titulo": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+      "ruta": "apps__web>glob>minimatch>brace-expansion",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-v2hh-gcrm-f6hx": {
+      "paquete": "fast-uri",
+      "severidad": "high",
+      "titulo": "fast-uri vulnerable to host confusion via literal backslash authority delimiter",
+      "ruta": "api>prisma>@prisma/dev>@prisma/streams-local>ajv>fast-uri",
+      "motivo": "Herramienta de línea de comandos de Prisma (migraciones/generación), no corre en el servidor ni procesa pedidos.",
+      "revisado": "2026-10-12"
+    },
+    "GHSA-v2wj-q39q-566r": {
+      "paquete": "vite",
+      "severidad": "high",
+      "titulo": "Vite: `server.fs.deny` bypassed with queries",
+      "ruta": "apps__web>@tailwindcss/vite>vite",
+      "motivo": "Herramienta de compilación de la web (vite/postcss/tailwind/glob): corre al construir, no en el navegador ni en el servidor.",
+      "revisado": "2026-10-12"
+    }
+  }
+}

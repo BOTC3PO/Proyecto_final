@@ -1,0 +1,75 @@
+{
+ "titulo": "De la sensación a la percepción",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Procesamiento",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Estímulo",
+     "x": 0,
+     "y": 0
+    },
+    {
+     "id": "n2",
+     "label": "Sensación",
+     "x": 212,
+     "y": 0
+    },
+    {
+     "id": "n3",
+     "label": "Atención",
+     "x": 425,
+     "y": 0
+    },
+    {
+     "id": "n4",
+     "label": "Organización",
+     "x": 425,
+     "y": 103
+    },
+    {
+     "id": "n5",
+     "label": "Interpretación",
+     "x": 212,
+     "y": 103
+    },
+    {
+     "id": "n6",
+     "label": "Percepción",
+     "x": 0,
+     "y": 103
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    }
+   ]
+  }
+ ]
+}

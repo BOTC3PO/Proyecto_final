@@ -1,0 +1,71 @@
+{
+ "titulo": "Organización de la justicia argentina",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Instancias y competencias",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Corte Suprema de Justicia de la Nación",
+     "x": 250,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Cámaras de apelación",
+     "x": 250,
+     "y": 92,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Juzgados de primera instancia",
+     "x": 250,
+     "y": 184,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n4",
+     "label": "Justicia federal: delitos nacionales",
+     "x": 0,
+     "y": 288,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n5",
+     "label": "Justicia provincial: causas comunes",
+     "x": 500,
+     "y": 288,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n3",
+     "toId": "n2",
+     "label": "apelación"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n1",
+     "label": "recurso extraordinario"
+    },
+    {
+     "id": "e3",
+     "fromId": "n4",
+     "toId": "n3"
+    },
+    {
+     "id": "e4",
+     "fromId": "n5",
+     "toId": "n3"
+    }
+   ]
+  }
+ ]
+}

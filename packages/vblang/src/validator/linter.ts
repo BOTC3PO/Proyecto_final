@@ -2,6 +2,7 @@ import { CONSTANTES_GLOBALES } from "../evaluator/constants.js";
 import type {
   Expr,
   Plantilla,
+  TextoOInterpolacion,
   VariableDecl,
 } from "../parser/ast.js";
 import { inferExprType, type InferContext } from "./infer.js";
@@ -123,6 +124,19 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
     variableTypes[decl.nombre] = t;
   }
 
+  // 1.5) Avisar si falta el bloque `tipo:` explícito. El parser lo infiere
+  // (default: "input"), pero es buena práctica declararlo — y el editor
+  // ofrece un quick-fix para hacerlo. Tarea 13.
+  if (!plantilla.bloques.some((b) => b.kind === "tipo")) {
+    issues.push({
+      severity: "warning",
+      code: "tipo-missing",
+      message: "Falta el bloque `tipo:` (el parser lo infiere; conviene declararlo)",
+      line: 1,
+      col: 1,
+    });
+  }
+
   // 2) Restricciones
   for (const b of plantilla.bloques) {
     if (b.kind !== "restricciones") continue;
@@ -216,6 +230,24 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
     for (const item of b.items) inferExprType(item, env, ctx);
   }
 
+  // WO-11 — `respuesta_expr:` debe evaluar a string. Si el linter puede
+  // inferir el tipo estáticamente y NO es string, error. Si es
+  // `unknown` (ej. concat de variables), no bloquea (el runtime
+  // validará en `generate()` y fallará con mensaje claro).
+  for (const b of plantilla.bloques) {
+    if (b.kind !== "respuesta_expr") continue;
+    const t = inferExprType(b.expr, env, ctx);
+    if (t.kind === "number" || t.kind === "boolean" || t.kind === "array" || t.kind === "object") {
+      issues.push({
+        severity: "error",
+        code: "respuesta-expr-requires-string",
+        message: `respuesta_expr debe evaluar a string, infiere ${typeToString(t)}`,
+        line: b.loc.line,
+        col: b.loc.col,
+      });
+    }
+  }
+
   // 5) Bloques de respuesta especial — inferir aunque no usemos el tipo todavía
   for (const b of plantilla.bloques) {
     if (
@@ -241,6 +273,91 @@ export function lint(plantilla: Plantilla, opts?: LintOptions): LintReport {
       for (const paso of b.pasos) {
         for (const p of paso.partes) {
           if (p.kind === "interp") inferExprType(p.expr, env, ctx);
+        }
+      }
+    } else if (b.kind === "pistas") {
+      // F2-02: por cada pista, inferir tipos (emite var-undef base) y emitir
+      // un warning contextual con el índice de la pista para ubicar el error.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "pistas-var-undef",
+                message: `pistas[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+    } else if (b.kind === "explicacion") {
+      // F2-03: un solo string, sin índice. Inferir tipos de las
+      // interpolaciones y emitir warning explícito si referencia variable
+      // no declarada (la base `inferExprType` ya emite `var-undef`).
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        inferExprType(p.expr, env, ctx);
+        walkExpr(p.expr, (e) => {
+          if (e.kind === "var" && env.get(e.name) === undefined) {
+            issues.push({
+              severity: "warning",
+              code: "explicacion-var-undef",
+              message: `explicacion: variable "${e.name}" no declarada`,
+              line: e.loc.line,
+              col: e.loc.col,
+            });
+          }
+        });
+      }
+    } else if (b.kind === "enunciados") {
+      // Tarea 07: por cada variante, inferir tipos de las interpolaciones
+      // (que ya emite var-undef) y emitir un warning contextual con el
+      // indice de la variante para que el docente ubique el error rapido.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          // Walk profundo para encontrar cualquier `var` no declarada en la
+          // expresion (cubre binop, fun_call, field, etc.).
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "enunciados-var-undef",
+                message: `enunciados[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+
+      // Tarea 07: warning por variantes duplicadas exactas. Comparamos una
+      // firma canonica del item (concatenacion de partes + expr canonica
+      // para interp) para que dos variantes identicas reporten una sola
+      // vez, sobre el primer indice duplicado.
+      const canon = new Map<string, number>();
+      for (let i = 0; i < b.items.length; i += 1) {
+        const sig = canonFirmaItem(b.items[i].partes);
+        const first = canon.get(sig);
+        if (first !== undefined) {
+          issues.push({
+            severity: "warning",
+            code: "enunciados-duplicado",
+            message: `enunciados[${i}] es duplicado exacto de enunciados[${first}]`,
+            line: b.items[i].loc.line,
+            col: b.items[i].loc.col,
+          });
+        } else {
+          canon.set(sig, i);
         }
       }
     }
@@ -285,6 +402,71 @@ function lintInterpolaciones(
           checkRandomInline(p.expr, issues);
         }
       }
+    } else if (b.kind === "enunciados") {
+      // Tarea 07: en modo generador asistido, las variables validas vienen
+      // del provider (opts.generadorVars). Mismo tratamiento que el path
+      // normal: inferir, check random, y emitir warning con indice por
+      // variable no declarada.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          checkRandomInline(p.expr, issues);
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "enunciados-var-undef",
+                message: `enunciados[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+    } else if (b.kind === "pistas") {
+      // F2-02: mismo tratamiento que enunciados en el path asistido.
+      for (let i = 0; i < b.items.length; i += 1) {
+        const item = b.items[i];
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          inferExprType(p.expr, env, ctx);
+          checkRandomInline(p.expr, issues);
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "var" && env.get(e.name) === undefined) {
+              issues.push({
+                severity: "warning",
+                code: "pistas-var-undef",
+                message: `pistas[${i}]: variable "${e.name}" no declarada`,
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+    } else if (b.kind === "explicacion") {
+      // F2-03: mismo tratamiento que enunciado/path-asistido. La
+      // interpolación referencia variables que el generador debe proveer
+      // (opts.generadorVars); si no están, warning contextual.
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        inferExprType(p.expr, env, ctx);
+        checkRandomInline(p.expr, issues);
+        walkExpr(p.expr, (e) => {
+          if (e.kind === "var" && env.get(e.name) === undefined) {
+            issues.push({
+              severity: "warning",
+              code: "explicacion-var-undef",
+              message: `explicacion: variable "${e.name}" no declarada`,
+              line: e.loc.line,
+              col: e.loc.col,
+            });
+          }
+        });
+      }
     }
   }
 }
@@ -306,6 +488,35 @@ function checkRandomInline(expr: Expr, issues: LintIssue[]): void {
 }
 
 /**
+ * F5-05 — Lee un flag booleano del bloque `metadata:`. Acepta el literal
+ * booleano `true` o strings afirmativos ("true"/"si"/"sí"/"intencional"). Se usa
+ * para suprimir advertencias que en cierto contenido son intencionales (p. ej.
+ * en un ejercicio de límites el denominador que tiende a 0 ES la consigna, no un
+ * bug): el docente declara `metadata: { division_intencional: true }` y el lint
+ * deja de marcar `division-zero-risk`. La advertencia es por diseño SUPRIMIBLE
+ * (warning, nunca error duro): el análisis estático no puede probar que la
+ * división a 0 sea un error, así que jamás bloquea el guardado.
+ */
+function metadataFlag(plantilla: Plantilla, key: string): boolean {
+  const meta = plantilla.bloques.find((b) => b.kind === "metadata");
+  if (!meta || meta.kind !== "metadata") return false;
+  const campo = meta.campos.find((c) => c.key === key);
+  if (!campo) return false;
+  // Forma idiomática del DSL: el booleano `verdadero` (parsea a kind "bool").
+  if (campo.value.kind === "bool") return campo.value.value === true;
+  // Tolerante a otras formas que un docente puede escribir: el string
+  // "intencional"/"si"/"true", o el identificador suelto `true`/`si`/`intencional`
+  // (el DSL no conoce `true`, así que lo lexea como `var` con ese nombre).
+  const afirmativo = (s: string) => {
+    const v = s.trim().toLowerCase();
+    return v === "true" || v === "si" || v === "sí" || v === "intencional";
+  };
+  if (campo.value.kind === "str") return afirmativo(campo.value.value);
+  if (campo.value.kind === "var") return afirmativo(campo.value.name);
+  return false;
+}
+
+/**
  * Resuelve un Expr a un número literal si es `NumLit` o `UnaryOp(±, NumLit)`.
  * Devuelve null si no se puede determinar estáticamente.
  */
@@ -316,6 +527,62 @@ function asLiteralNumber(e: Expr): number | null {
     if (e.op === "+") return e.arg.value;
   }
   return null;
+}
+
+/**
+ * Tarea 07: firma canonica para detectar variantes de `enunciados:`
+ * duplicadas exactas. Dos items son "duplicados" si tienen el mismo
+ * contenido textual y las mismas interpolaciones (mismas exprs en el mismo
+ * orden con los mismos modificadores).
+ */
+function canonFirmaItem(partes: TextoOInterpolacion[]): string {
+  const out: string[] = [];
+  for (const p of partes) {
+    if (p.kind === "texto") {
+      out.push(`T:${p.value}`);
+    } else {
+      out.push(`I:${canonExpr(p.expr)}|${p.modificador ?? ""}`);
+    }
+  }
+  return out.join("|");
+}
+
+/** Firma canonica de una Expr: kind + campos relevantes. Recursivo. */
+function canonExpr(e: Expr): string {
+  switch (e.kind) {
+    case "num":
+      return `num:${e.value}`;
+    case "str":
+      return `str:${e.value}`;
+    case "bool":
+      return `bool:${e.value}`;
+    case "null":
+      return `null`;
+    case "var":
+      return `var:${e.name}`;
+    case "field":
+      return `field:${canonExpr(e.target)}.${e.field}`;
+    case "index":
+      return `index:${canonExpr(e.target)}[${canonExpr(e.key)}]`;
+    case "fun_call":
+      return `call:${e.name}(${e.args.map(canonExpr).join(",")})`;
+    case "binop":
+      return `binop:${e.op}(${canonExpr(e.left)},${canonExpr(e.right)})`;
+    case "unary":
+      return `unary:${e.op}(${canonExpr(e.arg)})`;
+    case "array":
+      return `array:[${e.items.map(canonExpr).join(",")}]`;
+    case "object":
+      return `object:{${e.entries
+        .map((en) => `${en.key}:${canonExpr(en.value)}`)
+        .join(",")}}`;
+    case "for_comp":
+      return `for:${e.variable}<-${canonExpr(e.iterable as Expr)}:${canonExpr(e.body)}`;
+    default: {
+      const _exhaustive: never = e;
+      return `unknown:${JSON.stringify(_exhaustive)}`;
+    }
+  }
 }
 
 /* ---------- Walkers ---------- */
@@ -381,6 +648,19 @@ function* allBlockExpressions(plantilla: Plantilla): Iterable<Expr> {
         for (const paso of b.pasos) {
           for (const p of paso.partes) if (p.kind === "interp") yield p.expr;
         }
+        break;
+      case "enunciados":
+        for (const it of b.items) {
+          for (const p of it.partes) if (p.kind === "interp") yield p.expr;
+        }
+        break;
+      case "pistas":
+        for (const it of b.items) {
+          for (const p of it.partes) if (p.kind === "interp") yield p.expr;
+        }
+        break;
+      case "explicacion":
+        for (const p of b.partes) if (p.kind === "interp") yield p.expr;
         break;
       case "respuesta_iso":
       case "respuesta_nombre":
@@ -467,11 +747,11 @@ function lintTiposEspeciales(
         col: ploc.col,
       });
     }
-    if (!has("respuesta_iso")) {
+    if (!has("respuesta_iso") && !has("respuesta_nombre")) {
       issues.push({
         severity: "error",
-        code: "marcar-mapa-requires-respuesta-iso",
-        message: "tipo `marcar_mapa` requiere `respuesta_iso:` con el código ISO correcto",
+        code: "marcar-mapa-requires-respuesta",
+        message: "tipo `marcar_mapa` requiere `respuesta_iso:` o `respuesta_nombre:` con la clave de respuesta",
         line: ploc.line,
         col: ploc.col,
       });
@@ -544,6 +824,30 @@ function lintTiposEspeciales(
         message: "tipo `abierta` requiere `correccion:` en `ninguna` o `manual`",
         line: corr.loc.line,
         col: corr.loc.col,
+      });
+    }
+  } else if (tipo === "expresion") {
+    // WO-11 — `tipo: expresion` requiere `respuesta_expr:` (el parser
+    // ya lo chequea) y NO debe coexistir con `respuesta:` (semánticas
+    // distintas: numérica vs simbólica). Doble check defensivo acá.
+    if (!has("respuesta_expr")) {
+      issues.push({
+        severity: "error",
+        code: "expresion-requires-respuesta-expr",
+        message: "tipo `expresion` requiere `respuesta_expr:`",
+        line: ploc.line,
+        col: ploc.col,
+      });
+    }
+    if (has("respuesta")) {
+      const rb = find("respuesta");
+      issues.push({
+        severity: "error",
+        code: "expresion-cannot-mix-respuesta",
+        message:
+          "`respuesta:` y `respuesta_expr:` no pueden coexistir: el primero es numérico/exacto, el segundo es simbólico",
+        line: rb?.loc.line ?? ploc.line,
+        col: rb?.loc.col ?? ploc.col,
       });
     }
   } else {
@@ -705,9 +1009,14 @@ function detectPatterns(
     }
   }
 
-  // ----- random-inline en enunciado / pasos
+  // ----- random-inline en enunciado / pasos / enunciados
   const inlineCheckBlocks = plantilla.bloques.filter(
-    (b) => b.kind === "enunciado" || b.kind === "pasos",
+    (b) =>
+      b.kind === "enunciado" ||
+      b.kind === "pasos" ||
+      b.kind === "enunciados" ||
+      b.kind === "pistas" ||
+      b.kind === "explicacion",
   );
   for (const b of inlineCheckBlocks) {
     if (b.kind === "enunciado") {
@@ -744,10 +1053,47 @@ function detectPatterns(
           });
         }
       }
+    } else if (b.kind === "enunciados" || b.kind === "pistas") {
+      for (const item of b.items) {
+        for (const p of item.partes) {
+          if (p.kind !== "interp") continue;
+          walkExpr(p.expr, (e) => {
+            if (e.kind === "fun_call" && e.name === "random") {
+              issues.push({
+                severity: "warning",
+                code: "random-inline",
+                message:
+                  "random() en interpolación genera valores distintos en cada uso. Declaralo como variable.",
+                line: e.loc.line,
+                col: e.loc.col,
+              });
+            }
+          });
+        }
+      }
+    } else if (b.kind === "explicacion") {
+      for (const p of b.partes) {
+        if (p.kind !== "interp") continue;
+        walkExpr(p.expr, (e) => {
+          if (e.kind === "fun_call" && e.name === "random") {
+            issues.push({
+              severity: "warning",
+              code: "random-inline",
+              message:
+                "random() en interpolación genera valores distintos en cada uso. Declaralo como variable.",
+              line: e.loc.line,
+              col: e.loc.col,
+            });
+          }
+        });
+      }
     }
   }
 
   // ----- division-zero-risk y sqrt-negative-risk
+  // F5-05 — flag por plantilla para silenciar el aviso de división por cero
+  // cuando es intencional (límites). No afecta sqrt-negative-risk.
+  const divisionIntencional = metadataFlag(plantilla, "division_intencional");
   const declByName = new Map(declaraciones.map((d) => [d.nombre, d]));
   const isRandomDecl = (name: string) => {
     const d = declByName.get(name);
@@ -770,7 +1116,7 @@ function detectPatterns(
         node.right.kind === "var"
       ) {
         const range = isRandomDecl(node.right.name);
-        if (range && range.min <= 0 && range.max >= 0) {
+        if (range && range.min <= 0 && range.max >= 0 && !divisionIntencional) {
           issues.push({
             severity: "warning",
             code: "division-zero-risk",

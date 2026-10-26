@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, type CSSProperties } from "react"
 import type { TableBlock } from "../types"
 import { evaluate } from "../stats/tableFormulas"
 import { runDSL } from "../stats/tableDSL"
+import { Table, TableCaption, TableHead, TableBody, TableRow, TableTh, TableTd } from "../../ui"
 
 interface Props {
   block: TableBlock
@@ -14,20 +15,57 @@ function getCellKey(rowIdx: number, colIdx: number): string {
 function ScriptProcessPanel({ steps }: { steps: string[] }) {
   const [open, setOpen] = useState(false)
   if (steps.length === 0) return null
+
+  const panelStyle: CSSProperties = {
+    marginTop: "var(--space-2)",
+    borderRadius: "var(--r-sm)",
+    border: "1px solid var(--c-border)",
+  }
+
+  const toggleStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "var(--space-2) var(--space-3)",
+    fontSize: "var(--text-xs)",
+    fontWeight: "var(--fw-semibold)",
+    color: "var(--c-muted)",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    fontFamily: "var(--font-sans)",
+  }
+
+  const contentStyle: CSSProperties = {
+    borderTop: "1px solid var(--c-border)",
+    padding: "var(--space-2) var(--space-3)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "2px",
+  }
+
+  const stepStyle: CSSProperties = {
+    margin: 0,
+    fontFamily: "var(--font-mono)",
+    fontSize: "var(--text-xs)",
+    color: "var(--c-muted)",
+  }
+
   return (
-    <div className="mt-2 rounded border border-[var(--c-border)]">
+    <div style={panelStyle}>
       <button
         type="button"
-        className="flex w-full items-center justify-between px-3 py-2 text-xs font-semibold text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
+        style={toggleStyle}
         onClick={() => setOpen((v) => !v)}
       >
         <span>Proceso del script</span>
         <span>{open ? "▲" : "▼"}</span>
       </button>
       {open && (
-        <div className="border-t border-[var(--c-border)] px-3 py-2 space-y-0.5">
+        <div style={contentStyle}>
           {steps.map((step, i) => (
-            <p key={i} className="font-mono text-xs text-[var(--c-muted)]">
+            <p key={i} style={stepStyle}>
               {step}
             </p>
           ))}
@@ -41,46 +79,46 @@ export function TableBlockRenderer({ block }: Props) {
   const dslResult = block.script ? runDSL(block.script, block) : null
   const updatedCells = dslResult?.updatedCells ?? {}
 
+  const dslValueStyle: CSSProperties = {
+    fontWeight: "var(--fw-medium)",
+    color: "var(--c-accent)",
+  }
+
+  const formulaValueStyle: CSSProperties = {
+    fontWeight: "var(--fw-medium)",
+    color: "var(--c-primary)",
+  }
+
+  const errorValueStyle: CSSProperties = {
+    color: "var(--c-danger)",
+  }
+
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full border border-[var(--c-border)] text-sm">
+    <div style={{ overflowX: "auto" }}>
+      <Table>
         {block.title && (
-          <caption className="mb-1 text-left font-semibold text-[var(--c-text)]">
-            {block.title}
-          </caption>
+          <TableCaption>{block.title}</TableCaption>
         )}
-        <thead className="bg-[var(--c-bg)]">
-          <tr>
+        <TableHead>
+          <TableRow>
             {block.headers.map((header, i) => (
-              <th
-                key={i}
-                className="border border-[var(--c-border)] px-3 py-2 text-left font-semibold text-[var(--c-text)]"
-              >
-                {header}
-              </th>
+              <TableTh key={i}>{header}</TableTh>
             ))}
-          </tr>
-        </thead>
-        <tbody>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {block.rows.map((row, rowIdx) => (
-            <tr
-              key={rowIdx}
-              className={rowIdx % 2 === 0 ? "bg-[var(--c-surface)]" : "bg-[var(--c-bg)]"}
-            >
+            <TableRow key={rowIdx} even={rowIdx % 2 === 1}>
               {row.map((cell, colIdx) => {
                 const key = getCellKey(rowIdx, colIdx)
 
-                // DSL result takes priority
                 if (key in updatedCells) {
                   return (
-                    <td
-                      key={colIdx}
-                      className="border border-[var(--c-border)] px-3 py-2 text-[var(--c-text)]"
-                    >
-                      <span className="font-medium text-violet-700">
+                    <TableTd key={colIdx}>
+                      <span style={dslValueStyle}>
                         {updatedCells[key]}
                       </span>
-                    </td>
+                    </TableTd>
                   )
                 }
 
@@ -89,30 +127,24 @@ export function TableBlockRenderer({ block }: Props) {
                   const result = evaluate(formula, block)
                   const isError = result === "#ERROR" || result === "#CICLO"
                   return (
-                    <td
-                      key={colIdx}
-                      className="border border-[var(--c-border)] px-3 py-2 text-[var(--c-text)]"
-                    >
-                      <span className={isError ? "text-red-500" : "font-medium text-indigo-700"}>
+                    <TableTd key={colIdx}>
+                      <span style={isError ? errorValueStyle : formulaValueStyle}>
                         {result}
                       </span>
-                    </td>
+                    </TableTd>
                   )
                 }
 
                 return (
-                  <td
-                    key={colIdx}
-                    className="border border-[var(--c-border)] px-3 py-2 text-[var(--c-text)]"
-                  >
+                  <TableTd key={colIdx}>
                     {cell}
-                  </td>
+                  </TableTd>
                 )
               })}
-            </tr>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
       {block.showScriptProcess && dslResult && dslResult.executionSteps.length > 0 && (
         <ScriptProcessPanel steps={dslResult.executionSteps} />
       )}

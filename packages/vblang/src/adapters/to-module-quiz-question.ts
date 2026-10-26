@@ -25,6 +25,24 @@ function generateId(seed: string): string {
   return `vb-${hash}-${c}`;
 }
 
+/**
+ * PLAN-E §21 Parte B — codec canónico de un span: `"desde-hasta:etiqueta"`
+ * (índices de PALABRA 0-based inclusive). Es el formato de `answerKey` y de
+ * la respuesta del alumno; comparten codec para que la corrección sea la
+ * comparación de conjuntos de strings genérica del server.
+ */
+export function spanToKey(sp: { desde: number; hasta: number; etiqueta: string }): string {
+  return `${sp.desde}-${sp.hasta}:${sp.etiqueta}`;
+}
+
+export function spanFromKey(
+  key: string,
+): { desde: number; hasta: number; etiqueta: string } | null {
+  const m = /^(\d+)-(\d+):(.+)$/.exec(key);
+  if (!m) return null;
+  return { desde: Number(m[1]), hasta: Number(m[2]), etiqueta: m[3] };
+}
+
 function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
   switch (tipo) {
     case "input":
@@ -34,8 +52,10 @@ function mapTipo(tipo: GenerationResult["tipo"]): ModuleQuizQuestionType {
     case "ordenar":
     case "marcar_mapa":
     case "analisis_sintactico":
+    case "analisis_spans":
     case "identificar_palabras":
     case "abierta":
+    case "expresion":
       return tipo;
     default:
       throw new AdapterError(
@@ -52,17 +72,25 @@ function mapOpciones(opciones?: OpcionGenerada[]): string[] | undefined {
 
 function mapAnswerKey(gen: GenerationResult): string | string[] | undefined {
   if (gen.opciones && gen.opciones.length > 0) {
-    const correcta = gen.opciones.find((o) => o.correcta);
-    if (!correcta) {
+    const correctas = gen.opciones.filter((o) => o.correcta);
+    if (correctas.length === 0) {
       throw new AdapterError(
         `ninguna opción está marcada como correcta`,
         "sin-respuesta-correcta",
       );
     }
-    return correcta.texto;
+    // PLAN-E §21 Parte A: mc múltiple → answerKey con TODAS las correctas.
+    if (gen.multiple) return correctas.map((o) => o.texto);
+    return correctas[0].texto;
   }
   if (gen.respuestasValidas && gen.respuestasValidas.length > 0) {
     return gen.respuestasValidas.map((v) => formatoDefault(v));
+  }
+  // WO-11 — para `tipo: expresion` propagamos el string de la expresión
+  // simbólica esperada. El server usará equivalencia simbólica (no
+  // tolerancia numérica ni igualdad de string) para corregir.
+  if (gen.tipo === "expresion" && gen.respuestaExpr !== undefined) {
+    return gen.respuestaExpr;
   }
   if (gen.respuesta !== undefined) {
     return formatoDefault(gen.respuesta);
@@ -137,15 +165,44 @@ export function toModuleQuizQuestion(
     result.items = gen.items;
     result.answerKey = gen.ordenCorrecto;
   } else if (gen.tipo === "marcar_mapa") {
-    if (!gen.mapaId || !gen.respuestaIso) {
+    const modo = gen.modoRespuesta ?? "iso";
+    if (!gen.mapaId) {
       throw new AdapterError(
-        "marcar_mapa requiere `mapaId` y `respuestaIso` en GenerationResult",
+        "marcar_mapa requiere `mapaId` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    if (modo === "iso" && !gen.respuestaIso) {
+      throw new AdapterError(
+        "marcar_mapa modo iso requiere `respuestaIso` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    if (modo === "nombre" && !gen.respuestaNombre) {
+      throw new AdapterError(
+        "marcar_mapa modo nombre requiere `respuestaNombre` en GenerationResult",
         "respuesta-inconsistente",
       );
     }
     result.mapaId = gen.mapaId;
-    result.respuestaIsoCorrecta = gen.respuestaIso;
-    result.answerKey = gen.respuestaIso;
+    result.modoRespuestaMapa = modo;
+    if (modo === "iso") {
+      result.respuestaIsoCorrecta = gen.respuestaIso;
+      result.answerKey = gen.respuestaIso;
+      if (gen.mapaId === "world_states_provinces" && gen.respuestaIso!.includes("-")) {
+        result.paisIso = gen.respuestaIso!.substring(0, 2);
+      }
+    } else {
+      result.respuestaNombreCorrecta = gen.respuestaNombre;
+      result.answerKey = gen.respuestaNombre;
+      if (gen.respuestaIso) {
+        result.respuestaIsoCorrecta = gen.respuestaIso;
+        if (gen.mapaId === "world_states_provinces" && gen.respuestaIso.includes("-")) {
+          result.paisIso = gen.respuestaIso.substring(0, 2);
+        }
+      }
+    }
+    if (gen.encuadre) result.encuadre = gen.encuadre;
   } else if (gen.tipo === "analisis_sintactico") {
     if (!gen.textoAnalizar || !gen.etiquetasPedidas) {
       throw new AdapterError(
@@ -156,6 +213,19 @@ export function toModuleQuizQuestion(
     result.textoAnalizar = gen.textoAnalizar;
     result.etiquetasPedidas = gen.etiquetasPedidas;
     // No answerKey: las respuestas correctas están embebidas en etiquetasPedidas.
+  } else if (gen.tipo === "analisis_spans") {
+    if (!gen.textoAnalizar || !gen.spansPedidos || !gen.etiquetasDisponibles) {
+      throw new AdapterError(
+        "analisis_spans requiere `textoAnalizar`, `spansPedidos` y `etiquetasDisponibles` en GenerationResult",
+        "respuesta-inconsistente",
+      );
+    }
+    result.textoAnalizar = gen.textoAnalizar;
+    result.etiquetasDisponibles = gen.etiquetasDisponibles;
+    // La clave va SÓLO en answerKey (codec canónico): la sanitización la
+    // reemplaza por el canario y el alumno no puede leerla del payload.
+    result.answerKey = gen.spansPedidos.map(spanToKey);
+    result.puntajeParcial = gen.puntajeParcial ?? "todo_o_nada";
   } else if (gen.tipo === "identificar_palabras") {
     if (!gen.textoAnalizar || !gen.respuestasValidas) {
       throw new AdapterError(
@@ -172,16 +242,42 @@ export function toModuleQuizQuestion(
     if (modo === "manual") result.manualGrading = true;
   }
 
+  // PLAN-E §21 Parte A — mc de selección múltiple: el flag debe llegar al
+  // player (sobrevive la sanitización, a diferencia del answerKey).
+  if (gen.tipo === "mc" && gen.multiple) {
+    result.multiple = true;
+    result.puntajeParcial = gen.puntajeParcial ?? "todo_o_nada";
+  }
+
   const explanation =
     options.explanation ??
+    // F2-03: `explicacion:` de la plantilla gana sobre el fallback
+    // `buildExplanation(pasos)`. El orden de precedencia queda:
+    //   1. `options.explanation` (caller override).
+    //   2. `gen.explicacion` (F2-03, explícita en el DSL).
+    //   3. `buildExplanation(gen.pasos)` (fallback legacy).
+    //   4. `País correcto: <nombre>` para `marcar_mapa` (fallback final).
+    gen.explicacion ??
     buildExplanation(gen.pasos) ??
     (gen.tipo === "marcar_mapa" && gen.respuestaNombre
-      ? `País correcto: ${gen.respuestaNombre}`
+      ? `Respuesta correcta: ${gen.respuestaNombre}`
       : undefined);
   if (explanation !== undefined) result.explanation = explanation;
 
   const tolRel = mapTolerancia(gen);
-  if (tolRel !== undefined) result.toleranciaRelativa = tolRel;
+  // WO-11 — `expresion` no usa tolerancia numérica. La corrección es
+  // por equivalencia simbólica (numérica + algebraica) implementada en
+  // el server. Si por bug se cuela una tolerancia, la descartamos.
+  if (tolRel !== undefined && gen.tipo !== "expresion") {
+    result.toleranciaRelativa = tolRel;
+  }
+
+  // F2-04: tolerancia absoluta. Si la plantilla la declara, se propaga tal
+  // cual (siempre es absoluta, sin esPorcentaje). Default ausente = 0,
+  // que colapsa el criterio al `|r-e| ≤ |e|·tol_rel` previo.
+  if (gen.toleranciaAbs !== undefined && gen.toleranciaAbs > 0) {
+    result.toleranciaAbsoluta = gen.toleranciaAbs;
+  }
 
   const unidades = mapUnidades(gen);
   if (unidades !== undefined) result.unidades = unidades;
@@ -191,6 +287,10 @@ export function toModuleQuizQuestion(
   }
 
   if (gen.pasos && gen.pasos.length > 0) result.pasos = gen.pasos;
+
+  // F2-02: pistas escalonadas (texto interpolado). Se propagan tal cual; el
+  // costo en puntos lo decide la composición del quiz, no el adaptador.
+  if (gen.pistas && gen.pistas.length > 0) result.pistas = gen.pistas;
 
   // El visual explícito del caller gana; si no hay, usamos el que aportó el
   // generador asistido (propagado en GenerationResult.visual).

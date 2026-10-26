@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 
+import { useI18n } from "../../../i18n/I18nContext";
 type Element = {
   name: string;
   symbol: string;
@@ -121,6 +122,7 @@ type DetailPanelProps = {
 };
 
 function DetailPanel({ el, onClose }: DetailPanelProps) {
+  const { t } = useI18n();
   const titleId = useId();
 
   useEffect(() => {
@@ -158,7 +160,7 @@ function DetailPanel({ el, onClose }: DetailPanelProps) {
           </div>
           <button
             type="button"
-            aria-label="Cerrar detalle del elemento"
+            aria-label={t("tablaPeriodica.cerrarDetalleDelElemento")}
             className="text-[var(--c-text-3)] hover:text-[var(--c-text)] text-lg leading-none px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm"
             onClick={onClose}
           >
@@ -167,23 +169,23 @@ function DetailPanel({ el, onClose }: DetailPanelProps) {
         </div>
         <dl className="space-y-1.5 text-sm">
           <div className="flex justify-between">
-            <dt className="text-[var(--c-muted)]">Masa atómica</dt>
+            <dt className="text-[var(--c-muted)]">{t("tablaPeriodica.masaAtomica")}</dt>
             <dd className="font-medium text-[var(--c-text)]">{el.atomic_mass}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-[var(--c-muted)]">Categoría</dt>
+            <dt className="text-[var(--c-muted)]">{t("modulosList.categoria")}</dt>
             <dd className="font-medium text-[var(--c-text)]">{CATEGORY_ES[el.category] ?? el.category}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-[var(--c-muted)]">Fase</dt>
+            <dt className="text-[var(--c-muted)]">{t("tablaPeriodica.fase")}</dt>
             <dd className="font-medium text-[var(--c-text)]">{PHASE_ES[el.phase] ?? el.phase}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-[var(--c-muted)]">Electronegatividad</dt>
+            <dt className="text-[var(--c-muted)]">{t("theorySlideEditor.electronegatividad")}</dt>
             <dd className="font-medium text-[var(--c-text)]">{el.electronegativity_pauling ?? "—"}</dd>
           </div>
           <div>
-            <dt className="text-[var(--c-muted)] mb-0.5">Configuración electrónica</dt>
+            <dt className="text-[var(--c-muted)] mb-0.5">{t("tablaPeriodica.configuracionElectronica")}</dt>
             <dd className="font-mono text-xs bg-[var(--c-surface-3)] text-[var(--c-text)] px-2 py-1 rounded break-all">
               {el.electron_configuration}
             </dd>
@@ -195,6 +197,7 @@ function DetailPanel({ el, onClose }: DetailPanelProps) {
 }
 
 export default function TablaPeriodica() {
+  const { t } = useI18n();
   const [elements, setElements] = useState<Element[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -217,10 +220,10 @@ export default function TablaPeriodica() {
   }, []);
 
   if (loading) {
-    return <div className="py-8 text-center text-sm text-[var(--c-muted)]" role="status">Cargando tabla periódica…</div>;
+    return <div className="py-8 text-center text-sm text-[var(--c-muted)]" role="status">{t("tablaPeriodica.cargandoTablaPeriodica")}</div>;
   }
   if (error) {
-    return <div className="py-8 text-center text-sm text-[var(--c-danger)]" role="alert">Error al cargar la tabla periódica.</div>;
+    return <div className="py-8 text-center text-sm text-[var(--c-danger)]" role="alert">{t("tablaPeriodica.errorAlCargarLaTabla")}</div>;
   }
 
   // Main table: ypos 1–7, lanthanides at ypos 8, actinides at ypos 9
@@ -248,7 +251,7 @@ export default function TablaPeriodica() {
       {selected && <DetailPanel el={selected} onClose={() => setSelected(null)} />}
 
       {/* Legend */}
-      <ul className="flex flex-wrap gap-x-3 gap-y-1.5 mb-3 list-none p-0 m-0" aria-label="Leyenda de categorías">
+      <ul className="flex flex-wrap gap-x-3 gap-y-1.5 mb-3 list-none p-0 m-0" aria-label={t("tablaPeriodica.leyendaDeCategorias")}>
         {legendCats.map(([label, color]) => (
           <li key={label} className="flex items-center gap-1 text-[10px] text-[var(--c-muted)]">
             <span className="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0 border border-[var(--c-border)]" style={{ backgroundColor: color }} aria-hidden="true" />
@@ -261,7 +264,7 @@ export default function TablaPeriodica() {
       <div
         className="inline-grid"
         role="grid"
-        aria-label="Tabla periódica de los elementos"
+        aria-label={t("tablaPeriodica.tablaPeriodicaDeLosElementos")}
         style={{
           gridTemplateColumns: `repeat(18, ${CELL_SIZE}px)`,
           gridTemplateRows: `repeat(7, ${CELL_SIZE}px)`,
@@ -290,7 +293,7 @@ export default function TablaPeriodica() {
 
       {/* Lanthanides row */}
       <div className="flex gap-0.5 mb-1 ml-2">
-        <span className="text-[10px] text-[var(--c-muted)] w-14 self-center">Lantánidos</span>
+        <span className="text-[10px] text-[var(--c-muted)] w-14 self-center">{t("tablaPeriodica.lantanidos")}</span>
         {lanthanides.map((el) => (
           <button
             key={el.number}
@@ -308,7 +311,7 @@ export default function TablaPeriodica() {
 
       {/* Actinides row */}
       <div className="flex gap-0.5 ml-2">
-        <span className="text-[10px] text-[var(--c-muted)] w-14 self-center">Actínidos</span>
+        <span className="text-[10px] text-[var(--c-muted)] w-14 self-center">{t("tablaPeriodica.actinidos")}</span>
         {actinides.map((el) => (
           <button
             key={el.number}

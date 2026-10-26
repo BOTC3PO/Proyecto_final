@@ -1,0 +1,32 @@
+{
+ "titulo": "Fuente primaria y fuente secundaria",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Un discurso y lo que se escribe sobre él",
+   "headers": [
+    "",
+    "Fuente primaria",
+    "Fuente secundaria"
+   ],
+   "rows": [
+    [
+     "Ejemplo",
+     "Video grabado durante el discurso presidencial",
+     "Artículo de opinión escrito semanas después"
+    ],
+    [
+     "Cuándo se creó",
+     "En el momento del hecho",
+     "Después, con distancia"
+    ],
+    [
+     "Qué aporta",
+     "Lo que realmente se dijo",
+     "Interpretación y análisis de lo dicho"
+    ]
+   ]
+  }
+ ]
+}

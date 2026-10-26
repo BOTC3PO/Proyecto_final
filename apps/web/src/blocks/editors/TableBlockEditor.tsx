@@ -1,14 +1,29 @@
-import { useId, useState } from "react"
+import { useId, useState, type CSSProperties } from "react"
 import type { TableBlock } from "../types"
+import { Table, TableHead, TableBody, TableRow, TableTh, TableTd } from "../../ui"
 
-function cx(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ")
+const inputStyle: CSSProperties = {
+  width: "100%",
+  fontSize: "var(--text-xs)",
+  border: "1px solid var(--c-border)",
+  background: "var(--c-surface)",
+  color: "var(--c-text)",
+  borderRadius: "var(--r-sm)",
+  padding: "var(--space-1) 0.375rem",
+  outline: "none",
+  fontFamily: "var(--font-sans)",
 }
 
-const inputCls =
-  "w-full text-xs border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] rounded px-1.5 py-1 outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] focus:border-[var(--c-primary)]"
-const addBtnCls =
-  "text-xs px-2 py-1 border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] hover:bg-[var(--c-hover)] rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)]"
+const addBtnStyle: CSSProperties = {
+  fontSize: "var(--text-xs)",
+  padding: "var(--space-1) var(--space-2)",
+  border: "1px solid var(--c-border)",
+  background: "var(--c-surface)",
+  color: "var(--c-text)",
+  borderRadius: "var(--r-sm)",
+  cursor: "pointer",
+  fontFamily: "var(--font-sans)",
+}
 
 export function TableBlockEditor({
   block,
@@ -31,24 +46,40 @@ export function TableBlockEditor({
   }
 
   return (
-    <div className="space-y-2">
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
       <div>
-        <label htmlFor={titleId} className="text-xs font-medium text-[var(--c-muted)] block mb-1">Título</label>
+        <label
+          htmlFor={titleId}
+          style={{
+            display: "block",
+            marginBottom: "var(--space-1)",
+            fontSize: "var(--text-xs)",
+            fontWeight: "var(--fw-medium)",
+            color: "var(--c-muted)",
+          }}
+        >
+          Título
+        </label>
         <input
           id={titleId}
-          className={inputCls}
+          style={inputStyle}
           value={block.title ?? ""}
           onChange={(e) => onUpdate({ title: e.target.value })}
         />
       </div>
-      <p className="text-xs text-[var(--c-text-3)] italic">
+      <p style={{
+        margin: 0,
+        fontSize: "var(--text-xs)",
+        color: "var(--c-muted)",
+        fontStyle: "italic",
+      }}>
         Editá las celdas directamente en el bloque del canvas. La barra de fórmulas (fx) aparece al seleccionar una celda.
       </p>
-      <div className="flex gap-2">
-        <button type="button" onClick={addRow} className={addBtnCls}>
+      <div style={{ display: "flex", gap: "var(--space-2)" }}>
+        <button type="button" onClick={addRow} style={addBtnStyle}>
           + Fila
         </button>
-        <button type="button" onClick={addCol} className={addBtnCls}>
+        <button type="button" onClick={addCol} style={addBtnStyle}>
           + Columna
         </button>
       </div>
@@ -91,19 +122,39 @@ export function InlineTableEditor({
     }
   }
 
+  const headerInputStyle: CSSProperties = {
+    width: "100%",
+    background: "transparent",
+    color: "var(--c-text)",
+    fontWeight: "var(--fw-semibold)",
+    fontSize: "var(--text-sm)",
+    outline: "none",
+    textAlign: "center",
+    border: "none",
+    fontFamily: "var(--font-sans)",
+  }
+
   return (
-    <div className="space-y-0" onClick={(e) => e.stopPropagation()}>
+    <div onClick={(e) => e.stopPropagation()}>
       {block.title && (
-        <p className="text-sm font-semibold text-[var(--c-text)] px-4 pt-3 pb-1">{block.title}</p>
+        <p style={{
+          margin: 0,
+          fontSize: "var(--text-sm)",
+          fontWeight: "var(--fw-semibold)",
+          color: "var(--c-text)",
+          padding: "var(--space-3) var(--space-4) var(--space-1)",
+        }}>
+          {block.title}
+        </p>
       )}
-      <div className="overflow-x-auto px-4 pt-3">
-        <table className="w-full border-collapse text-sm">
-          <thead>
-            <tr>
+      <div style={{ overflowX: "auto", padding: "var(--space-3) var(--space-4) 0" }}>
+        <Table variant="compact">
+          <TableHead>
+            <TableRow>
               {block.headers.map((h, ci) => (
-                <th key={ci} className="border border-[var(--c-border)] bg-[var(--c-surface-3)] p-1.5">
+                <TableTh key={ci} variant="compact" style={{ padding: "0.375rem" }}>
                   <input
-                    className="w-full bg-transparent text-[var(--c-text)] font-semibold text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-focus-ring)] rounded-sm text-center"
+                    style={headerInputStyle}
                     value={h}
                     aria-label={`Encabezado de la columna ${ci + 1}`}
                     onChange={(e) => {
@@ -113,32 +164,49 @@ export function InlineTableEditor({
                     }}
                     onClick={(e) => e.stopPropagation()}
                   />
-                </th>
+                </TableTh>
               ))}
-            </tr>
-          </thead>
-          <tbody>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {block.rows.map((row, ri) => (
-              <tr key={ri} className={ri % 2 === 0 ? "bg-[var(--c-surface)]" : "bg-[var(--c-surface-3)]"}>
+              <TableRow key={ri} even={ri % 2 === 1}>
                 {row.map((cell, ci) => {
                   const key = getCellKey(ri, ci)
                   const hasFormula = !!block.formulas?.[key]
                   const isSelected = selectedCell?.ri === ri && selectedCell?.ci === ci
+
+                  const cellStyle: CSSProperties = {
+                    padding: "var(--space-1)",
+                    ...(hasFormula
+                      ? { background: "color-mix(in srgb, var(--c-primary) 10%, transparent)" }
+                      : {}),
+                    ...(isSelected
+                      ? { boxShadow: "inset 0 0 0 2px var(--c-primary)" }
+                      : {}),
+                  }
+
+                  const cellInputStyle: CSSProperties = {
+                    width: "100%",
+                    background: "transparent",
+                    color: hasFormula ? "var(--c-primary)" : "var(--c-text)",
+                    fontSize: "var(--text-sm)",
+                    outline: "none",
+                    padding: "0 var(--space-1)",
+                    border: "none",
+                    cursor: hasFormula ? "pointer" : "text",
+                    fontFamily: "var(--font-sans)",
+                  }
+
                   return (
-                    <td
+                    <TableTd
                       key={ci}
-                      className={cx(
-                        "border border-[var(--c-border)] p-1",
-                        hasFormula ? "bg-[color-mix(in_srgb,var(--c-primary)_10%,transparent)]" : "",
-                        isSelected ? "ring-2 ring-inset ring-[var(--c-primary)]" : ""
-                      )}
+                      variant="compact"
+                      style={cellStyle}
                       onClick={(e) => handleCellClick(e, ri, ci)}
                     >
                       <input
-                        className={cx(
-                          "w-full bg-transparent text-[var(--c-text)] text-sm outline-none px-1",
-                          hasFormula ? "text-[var(--c-primary)] cursor-pointer" : ""
-                        )}
+                        style={cellInputStyle}
                         value={hasFormula ? String(block.formulas![key]) : String(cell)}
                         readOnly={hasFormula}
                         aria-label={`Celda ${key}`}
@@ -155,24 +223,57 @@ export function InlineTableEditor({
                           handleCellClick(e, ri, ci)
                         }}
                       />
-                    </td>
+                    </TableTd>
                   )
                 })}
-              </tr>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
-      {/* Formula bar at bottom of block */}
+      {/* Formula bar */}
       {selectedCell && (
-        <div className="flex items-center gap-2 border-t border-[var(--c-border)] bg-[var(--c-surface-3)] px-4 py-1.5 mt-2">
-          <span className="shrink-0 text-xs font-semibold italic text-[var(--c-muted)] select-none" aria-hidden="true">fx</span>
-          <span className="shrink-0 text-xs text-[var(--c-text-3)] font-mono">
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "var(--space-2)",
+          borderTop: "1px solid var(--c-border)",
+          background: "var(--c-surface-3)",
+          padding: "0.375rem var(--space-4)",
+          marginTop: "var(--space-2)",
+        }}>
+          <span
+            style={{
+              flexShrink: 0,
+              fontSize: "var(--text-xs)",
+              fontWeight: "var(--fw-semibold)",
+              fontStyle: "italic",
+              color: "var(--c-muted)",
+              userSelect: "none",
+            }}
+            aria-hidden="true"
+          >
+            fx
+          </span>
+          <span style={{
+            flexShrink: 0,
+            fontSize: "var(--text-xs)",
+            color: "var(--c-muted)",
+            fontFamily: "var(--font-mono)",
+          }}>
             {getCellKey(selectedCell.ri, selectedCell.ci)}
           </span>
           <input
             autoFocus
-            className="flex-1 bg-transparent text-[var(--c-text)] font-mono text-xs outline-none"
+            style={{
+              flex: 1,
+              background: "transparent",
+              color: "var(--c-text)",
+              fontFamily: "var(--font-mono)",
+              fontSize: "var(--text-xs)",
+              outline: "none",
+              border: "none",
+            }}
             aria-label={`Fórmula de la celda ${getCellKey(selectedCell.ri, selectedCell.ci)}`}
             value={formulaBarValue}
             onChange={(e) => setFormulaBarValue(e.target.value)}
@@ -190,7 +291,14 @@ export function InlineTableEditor({
           />
         </div>
       )}
-      <div className="flex gap-2 px-4 pb-3 pt-2" onClick={(e) => e.stopPropagation()}>
+      <div
+        style={{
+          display: "flex",
+          gap: "var(--space-2)",
+          padding: "var(--space-2) var(--space-4) var(--space-3)",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           type="button"
           onClick={(e) => {
@@ -198,7 +306,7 @@ export function InlineTableEditor({
             const newRow = new Array(block.headers.length).fill("")
             onUpdate({ rows: [...block.rows, newRow] })
           }}
-          className={addBtnCls}
+          style={addBtnStyle}
         >
           + Fila
         </button>
@@ -210,7 +318,7 @@ export function InlineTableEditor({
             const newRows = block.rows.map((r) => [...r, ""])
             onUpdate({ headers: newHeaders, rows: newRows })
           }}
-          className={addBtnCls}
+          style={addBtnStyle}
         >
           + Columna
         </button>

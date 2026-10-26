@@ -1,0 +1,3217 @@
+[
+  {
+    "id": 601,
+    "materia": "Matemática",
+    "cluster": 1,
+    "temas": [
+      "razones-trigonometricas",
+      "teorema-del-seno-y-del-coseno",
+      "conjuntos-pertenencia-e-inclusion",
+      "conteo",
+      "valor-posicional"
+    ],
+    "nombre": "Meister der Trigonometrie und Mengen",
+    "descripcion": "Du hast trigonometrische Verhältnisse sowie den Sinus- und Kosinussatz angewendet und in derselben Prüfung Mengenzugehörigkeit, Abzählen und den Stellenwert bearbeitet.",
+    "icono": "📐"
+  },
+  {
+    "id": 602,
+    "materia": "Matemática",
+    "cluster": 2,
+    "temas": [
+      "grafos-vertices-y-aristas",
+      "union-interseccion-y-diferencia",
+      "arboles-grafo-sin-ciclos",
+      "grafos-dirigidos-no-dirigidos-y-ponderados",
+      "leer-una-tabla"
+    ],
+    "nombre": "Meister der Graphen und Bäume",
+    "descripcion": "Du hast Knoten, Kanten, Bäume und gewichtete Graphen gemeistert, dazu Vereinigung, Schnitt und Differenz von Mengen sowie das Lesen von Tabellen.",
+    "icono": "🌳"
+  },
+  {
+    "id": 603,
+    "materia": "Matemática",
+    "cluster": 3,
+    "temas": [
+      "caminos-y-ciclos",
+      "leer-grafico/barras",
+      "algoritmos-de-recorrido-bfs-dfs",
+      "leer-grafico/lineas",
+      "leer-grafico/torta"
+    ],
+    "nombre": "Beherrsche Wege, BFS und DFS",
+    "descripcion": "Du hast Wege und Kreise mit BFS und DFS durchlaufen und Balken-, Linien- und Kreisdiagramme fehlerfrei gelesen.",
+    "icono": "🔍"
+  },
+  {
+    "id": 604,
+    "materia": "Matemática",
+    "cluster": 4,
+    "temas": [
+      "magnitud-unidad-instrumento",
+      "construir-un-grafico",
+      "grafico-eje-truncado",
+      "media-mediana-y-moda",
+      "vectores-modulo-y-direccion"
+    ],
+    "nombre": "Meister der Diagramme und Maße",
+    "descripcion": "Du hast Diagramme erstellt, gekürzte Achsen erkannt, Mittelwert, Median und Modus berechnet und mit Betrag und Richtung von Vektoren gearbeitet.",
+    "icono": "📊"
+  },
+  {
+    "id": 605,
+    "materia": "Matemática",
+    "cluster": 5,
+    "temas": [
+      "cual-miente-y-cuando",
+      "funciones-trigonometricas-seno-coseno",
+      "suma-de-vectores-y-descomposicion",
+      "identidades-y-ecuaciones-trigonometricas",
+      "regresion-lineal"
+    ],
+    "nombre": "Beherrsche Trigonometrie und Regression",
+    "descripcion": "Du hast trigonometrische Funktionen, Identitäten, Vektoraddition und -zerlegung sowie lineare Regression bearbeitet und erkannt, wer wann lügt.",
+    "icono": "📐"
+  },
+  {
+    "id": 606,
+    "materia": "Matemática",
+    "cluster": 6,
+    "temas": [
+      "sistema-metrico-y-conversiones",
+      "correlacion-no-es-causalidad",
+      "analisis-dimensional",
+      "angulos",
+      "cifras-significativas-y-error"
+    ],
+    "nombre": "Meister der Einheiten und Analyse",
+    "descripcion": "Du hast Einheiten umgerechnet, Dimensionen und signifikante Stellen analysiert, Winkel gemessen und Korrelation von Kausalität unterschieden, Chef.",
+    "icono": "📏"
+  },
+  {
+    "id": 607,
+    "materia": "Matemática",
+    "cluster": 7,
+    "temas": [
+      "circunferencia-y-circulo",
+      "error-sistematico-vs-aleatorio",
+      "perimetro-y-area",
+      "poligonos",
+      "tablas-de-frecuencia-cuartiles-percentiles-y-varianza"
+    ],
+    "nombre": "Beherrsche Umfang, Fläche und Statistik",
+    "descripcion": "Du hast Umfang und Fläche von Vielecken und Kreisen berechnet und mit Quartilen, Perzentilen und Varianz in Häufigkeitstabellen gearbeitet.",
+    "icono": "⭕"
+  },
+  {
+    "id": 608,
+    "materia": "Matemática",
+    "cluster": 8,
+    "temas": [
+      "area-poligonos-regulares-y-compuestas",
+      "dispersion-rango-y-desvio",
+      "volumen-y-capacidad",
+      "distribucion-normal",
+      "variable-aleatoria-discreta-continua"
+    ],
+    "nombre": "Meister der Flächen und Normalverteilung",
+    "descripcion": "Du hast Flächen zusammengesetzter Polygone, Volumen und Fassungsvermögen berechnet und die Normalverteilung, die Streuung und Zufallsvariablen gemeistert.",
+    "icono": "📐"
+  },
+  {
+    "id": 609,
+    "materia": "Matemática",
+    "cluster": 9,
+    "temas": [
+      "muestreo-y-sesgo",
+      "triangulos",
+      "teorema-central-del-limite",
+      "congruencia-de-triangulos",
+      "intervalo-de-confianza"
+    ],
+    "nombre": "Experte für Stichproben und Dreiecke",
+    "descripcion": "Du hast Stichproben, Verzerrung, den zentralen Grenzwertsatz, Konfidenzintervalle und die Kongruenz von Dreiecken beherrscht.",
+    "icono": "🎯"
+  },
+  {
+    "id": 610,
+    "materia": "Matemática",
+    "cluster": 10,
+    "temas": [
+      "semejanza-y-teorema-de-thales",
+      "teorema-de-pitagoras",
+      "test-de-hipotesis",
+      "transformaciones-geometricas/homotecia",
+      "transformaciones-geometricas/reflexion"
+    ],
+    "nombre": "Meister der Ähnlichkeit und des Pythagoras",
+    "descripcion": "Du hast den Satz des Thales und Pythagoras, zentrische Streckungen und Spiegelungen angewendet und einen Hypothesentest abgeschlossen, Chef.",
+    "icono": "📐"
+  },
+  {
+    "id": 611,
+    "materia": "Matemática",
+    "cluster": 11,
+    "temas": [
+      "transformaciones-geometricas/rotacion",
+      "transformaciones-geometricas/traslacion",
+      "distribucion-de-poisson",
+      "distribucion-exponencial",
+      "diagramas-de-venn"
+    ],
+    "nombre": "Beherrsche Transformationen und Mengen",
+    "descripcion": "Du hast Figuren gedreht und verschoben und mit der Poisson- und der Exponentialverteilung sowie Venn-Diagrammen gearbeitet.",
+    "icono": "🔄"
+  },
+  {
+    "id": 612,
+    "materia": "Matemática",
+    "cluster": 12,
+    "temas": [
+      "suma",
+      "principio-multiplicativo-de-conteo",
+      "multiplicacion",
+      "combinaciones",
+      "permutaciones"
+    ],
+    "nombre": "Meister des Zählens und der Grundoperationen",
+    "descripcion": "Du hast Addition und Multiplikation zusammen mit dem Zählprinzip, Kombinationen und Permutationen beherrscht.",
+    "icono": "🔢"
+  },
+  {
+    "id": 613,
+    "materia": "Matemática",
+    "cluster": 13,
+    "temas": [
+      "independencia-de-eventos-y-diagrama-de-arbol",
+      "potencias",
+      "probabilidad-simple",
+      "logaritmos",
+      "probabilidad-compuesta"
+    ],
+    "nombre": "Beherrsche Wahrscheinlichkeit und Potenzen",
+    "descripcion": "Du hast einfache und zusammengesetzte Wahrscheinlichkeit mit Baumdiagrammen berechnet und mit Potenzen und Logarithmen gearbeitet, Chef.",
+    "icono": "🎲"
+  },
+  {
+    "id": 614,
+    "materia": "Matemática",
+    "cluster": 14,
+    "temas": [
+      "raices",
+      "distribucion-binomial",
+      "esperanza-matematica-valor-esperado",
+      "irracionales-y-reales",
+      "probabilidad-condicional"
+    ],
+    "nombre": "Experte für Wahrscheinlichkeit und Wurzeln",
+    "descripcion": "Du hast Wurzeln irrationaler und reeller Zahlen berechnet und die Binomialverteilung, den Erwartungswert und die bedingte Wahrscheinlichkeit beherrscht.",
+    "icono": "🎲"
+  },
+  {
+    "id": 615,
+    "materia": "Matemática",
+    "cluster": 15,
+    "temas": [
+      "resta",
+      "sucesiones-aritmeticas",
+      "dinero",
+      "division",
+      "hora-y-reloj"
+    ],
+    "nombre": "Meister der Grundrechenarten",
+    "descripcion": "Du hast Subtraktion, Division, den Umgang mit Geld, Uhrzeit und arithmetische Folgen beherrscht.",
+    "icono": "🕐"
+  },
+  {
+    "id": 616,
+    "materia": "Matemática",
+    "cluster": 16,
+    "temas": [
+      "jerarquia-operaciones",
+      "numeros-enteros",
+      "divisibilidad/multiplos",
+      "lenguaje-algebraico",
+      "divisibilidad/divisores"
+    ],
+    "nombre": "Beherrsche Rangfolge und Teilbarkeit",
+    "descripcion": "Du hast die Rangfolge der Operationen mit ganzen Zahlen angewendet, Vielfache und Teiler berechnet und algebraische Sprache übersetzt.",
+    "icono": "➗"
+  },
+  {
+    "id": 617,
+    "materia": "Matemática",
+    "cluster": 17,
+    "temas": [
+      "expresiones-equivalentes",
+      "divisibilidad/regla-del-2",
+      "divisibilidad/regla-del-3",
+      "divisibilidad/regla-del-4",
+      "divisibilidad/regla-del-5"
+    ],
+    "nombre": "Meister der Teilbarkeitsregeln",
+    "descripcion": "Du hast die Teilbarkeitsregeln von 2 bis 5 beherrscht und äquivalente Ausdrücke gebildet, Chef.",
+    "icono": "➗"
+  },
+  {
+    "id": 618,
+    "materia": "Matemática",
+    "cluster": 18,
+    "temas": [
+      "divisibilidad/regla-del-6",
+      "divisibilidad/regla-del-10",
+      "divisibilidad/regla-del-8",
+      "divisibilidad/regla-del-9",
+      "ecuacion-primer-grado"
+    ],
+    "nombre": "Beherrsche Teilbarkeit und Gleichungen",
+    "descripcion": "Du hast die Teilbarkeitsregeln von 6, 8, 9 und 10 abgeschlossen und Gleichungen ersten Grades gelöst.",
+    "icono": "✖️"
+  },
+  {
+    "id": 619,
+    "materia": "Matemática",
+    "cluster": 19,
+    "temas": [
+      "numeros-primos",
+      "demostracion-contraejemplo",
+      "demostracion-deduccion",
+      "demostracion-induccion",
+      "demostracion-reduccion-al-absurdo"
+    ],
+    "nombre": "Meister der Beweise",
+    "descripcion": "Du hast Primzahlen und Beweistechniken beherrscht: Gegenbeispiel, Deduktion, Induktion und Widerspruchsbeweis.",
+    "icono": "🧠"
+  },
+  {
+    "id": 620,
+    "materia": "Matemática",
+    "cluster": 20,
+    "temas": [
+      "despejar-formula",
+      "funcion-dominio",
+      "funcion-imagen",
+      "inecuaciones",
+      "funcion-inversa-composicion"
+    ],
+    "nombre": "Beherrsche Funktionen und Ungleichungen",
+    "descripcion": "Du hast Formeln umgestellt, Ungleichungen gelöst und mit Definitionsbereich, Bildbereich, Verkettung und Umkehrfunktion gearbeitet.",
+    "icono": "📉"
+  },
+  {
+    "id": 621,
+    "materia": "Matemática",
+    "cluster": 21,
+    "temas": [
+      "funcion-lineal-pendiente",
+      "mcd",
+      "operaciones-enteros",
+      "fracciones",
+      "mcm"
+    ],
+    "nombre": "Meister der Brüche und der linearen Funktion",
+    "descripcion": "Du hast ggT und kgV berechnet, mit Brüchen und ganzen Zahlen gerechnet und die Steigung der linearen Funktion analysiert.",
+    "icono": "📈"
+  },
+  {
+    "id": 622,
+    "materia": "Matemática",
+    "cluster": 22,
+    "temas": [
+      "plano-cartesiano",
+      "operaciones-fracciones",
+      "coordenadas-de-un-punto",
+      "decimales",
+      "distancia-entre-dos-puntos"
+    ],
+    "nombre": "Beherrsche die kartesische Ebene",
+    "descripcion": "Du hast Koordinaten verortet und den Abstand zwischen Punkten in der kartesischen Ebene berechnet und mit Brüchen und Dezimalzahlen gerechnet.",
+    "icono": "🧭"
+  },
+  {
+    "id": 623,
+    "materia": "Matemática",
+    "cluster": 23,
+    "temas": [
+      "notacion-cientifica",
+      "ecuacion-de-la-recta",
+      "polinomios-factoreo",
+      "proporcionalidad-funcion",
+      "division-polinomios-ruffini"
+    ],
+    "nombre": "Meister der Polynome und der Geraden",
+    "descripcion": "Du hast Polynome faktorisiert, mit Ruffini dividiert, die Geradengleichung gefunden und wissenschaftliche Notation verwendet, Chef.",
+    "icono": "📐"
+  },
+  {
+    "id": 624,
+    "materia": "Matemática",
+    "cluster": 24,
+    "temas": [
+      "ecuacion-cuadratica",
+      "punto-medio-de-un-segmento",
+      "funcion-cuadratica-parabola",
+      "numeros-complejos",
+      "familias-exponencial-logaritmica"
+    ],
+    "nombre": "Beherrsche die quadratische Funktion",
+    "descripcion": "Du hast quadratische Gleichungen gelöst, Parabeln gezeichnet, den Mittelpunkt einer Strecke berechnet und mit komplexen Zahlen gearbeitet.",
+    "icono": "🔵"
+  },
+  {
+    "id": 625,
+    "materia": "Matemática",
+    "cluster": 25,
+    "temas": [
+      "forma-polar-complejos",
+      "ecuaciones-exponenciales-logaritmicas",
+      "limite",
+      "razon",
+      "continuidad"
+    ],
+    "nombre": "Meister der Grenzwerte und Komplexen",
+    "descripcion": "Du hast Grenzwerte und Stetigkeit von Funktionen berechnet, Exponential- und Logarithmusgleichungen gelöst und komplexe Zahlen in Polarform ausgedrückt.",
+    "icono": "∞"
+  },
+  {
+    "id": 626,
+    "materia": "Matemática",
+    "cluster": 26,
+    "temas": [
+      "proporcion",
+      "derivada",
+      "rectas-paralelas-y-perpendiculares",
+      "integral",
+      "optimizacion"
+    ],
+    "nombre": "Beherrsche Ableitungen und Integrale",
+    "descripcion": "Du hast Ableitungen und Integrale berechnet, Optimierungsprobleme gelöst und mit parallelen und senkrechten Geraden gearbeitet.",
+    "icono": "∫"
+  },
+  {
+    "id": 627,
+    "materia": "Matemática",
+    "cluster": 27,
+    "temas": [
+      "ecuaciones-diferenciales",
+      "redondeo",
+      "regla-de-tres-directa",
+      "secciones-conicas-circunferencia",
+      "porcentaje"
+    ],
+    "nombre": "Meister der Differentialgleichungen",
+    "descripcion": "Du hast Differentialgleichungen und Kegelschnitte gelöst und Dreisatz, Prozentrechnung und Runden angewendet, Chef.",
+    "icono": "🌀"
+  },
+  {
+    "id": 628,
+    "materia": "Matemática",
+    "cluster": 28,
+    "temas": [
+      "regla-de-tres-inversa",
+      "sistemas-dos-ecuaciones",
+      "sucesiones-y-series",
+      "matrices/operaciones",
+      "series-geometricas"
+    ],
+    "nombre": "Beherrsche Systeme und Reihen",
+    "descripcion": "Du hast Gleichungssysteme mit zwei Gleichungen gelöst, mit Matrizen gerechnet und mit Folgen, geometrischen Reihen und umgekehrtem Dreisatz gearbeitet.",
+    "icono": "🔢"
+  },
+  {
+    "id": 629,
+    "materia": "Matemática",
+    "cluster": 29,
+    "temas": [
+      "matrices/sistemas-nxn",
+      "tecnicas-de-integracion",
+      "determinante",
+      "teorema-de-bayes",
+      "matriz-inversa"
+    ],
+    "nombre": "Meister der Matrizen und von Bayes",
+    "descripcion": "Du hast Determinanten und inverse Matrizen berechnet, nxn-Systeme gelöst, Integrationstechniken angewendet und den Satz von Bayes beherrscht.",
+    "icono": "🧮"
+  },
+  {
+    "id": 630,
+    "materia": "Matemática",
+    "cluster": 30,
+    "temas": [
+      "riesgo-relativo-vs-absoluto",
+      "teorema-del-binomio",
+      "concavidad-y-puntos-de-inflexion",
+      "variaciones",
+      "integral-definida-y-area-bajo-la-curva"
+    ],
+    "nombre": "Meister des Binoms und der Analysis",
+    "descripcion": "Du hast den binomischen Lehrsatz und Variationen angewendet, relatives und absolutes Risiko berechnet und Krümmung sowie bestimmte Integrale analysiert.",
+    "icono": "📈"
+  },
+  {
+    "id": 631,
+    "materia": "Matemática",
+    "cluster": 31,
+    "temas": [
+      "divisibilidad/regla-del-7-opcional",
+      "asintotas",
+      "teorema-de-bolzano",
+      "regla-de-lhopital",
+      "cuerpos-redondos-y-poliedros/cilindros"
+    ],
+    "nombre": "Meister der Asymptoten und L'Hôpital",
+    "descripcion": "Du hast Asymptoten, den Satz von Bolzano und die Regel von L'Hôpital bearbeitet, Zylindervolumen berechnet und die Teilbarkeitsregel für 7 angewendet.",
+    "icono": "📉"
+  },
+  {
+    "id": 632,
+    "materia": "Matemática",
+    "cluster": 32,
+    "temas": [
+      "cuerpos-redondos-y-poliedros/conos",
+      "cuerpos-redondos-y-poliedros/esferas",
+      "cuerpos-redondos-y-poliedros/piramides",
+      "cuerpos-redondos-y-poliedros/prismas",
+      "producto-escalar",
+      "cuerpos-redondos-y-poliedros/desarrollo-plano"
+    ],
+    "nombre": "Beherrsche die geometrischen Körper",
+    "descripcion": "Du hast Kegel, Kugeln, Pyramiden und Prismen berechnet, ihre Netze entwickelt und das Skalarprodukt zwischen Vektoren angewendet.",
+    "icono": "🔺"
+  },
+  {
+    "id": 651,
+    "materia": "Lengua",
+    "cluster": 1,
+    "temas": [
+      "conciencia-fonologica",
+      "ortografia-y-tildacion",
+      "decodificacion-y-fluidez",
+      "signos-de-puntuacion",
+      "circuito-de-la-comunicacion"
+    ],
+    "nombre": "Beherrschung von Rechtschreibung und Erstlesen",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei phonologische Bewusstheit, Dekodieren und Leseflüssigkeit, Rechtschreibung und Akzentsetzung, Satzzeichen und den Kommunikationskreislauf gemeistert.",
+    "icono": "✍️"
+  },
+  {
+    "id": 652,
+    "materia": "Lengua",
+    "cluster": 2,
+    "temas": [
+      "comprension-idea-principal",
+      "escritura-como-tecnologia",
+      "tecnicas-de-estudio-resumen-y-organizadores-graficos",
+      "tipos-textuales",
+      "variedades-de-la-lengua"
+    ],
+    "nombre": "Experte für Textverständnis und Texttypen",
+    "descripcion": "Du hast die Hauptidee, Texttypen, Sprachvarietäten, die Schrift als Technologie und Lerntechniken wie Zusammenfassung und grafische Organizer gemeistert, Chef.",
+    "icono": "📖"
+  },
+  {
+    "id": 653,
+    "materia": "Lengua",
+    "cluster": 3,
+    "temas": [
+      "genero-dramatico",
+      "genero-lirico",
+      "genero-narrativo",
+      "generos-discursivos",
+      "narrador"
+    ],
+    "nombre": "Meister der literarischen Gattungen",
+    "descripcion": "Du hast die dramatische, lyrische und narrative Gattung sowie die Diskursgattungen beherrscht, ohne eine Frage zum Erzähler falsch zu beantworten.",
+    "icono": "🎭📖"
+  },
+  {
+    "id": 654,
+    "materia": "Lengua",
+    "cluster": 4,
+    "temas": [
+      "generos-periodisticos",
+      "paratextos",
+      "punto-de-vista",
+      "recursos-literarios",
+      "estructura-narrativa"
+    ],
+    "nombre": "Beherrsche narrative und journalistische Mittel",
+    "descripcion": "Du hast die Prüfung gemeistert, indem du journalistische Gattungen, Paratexte, Standpunkt und literarische Mittel beherrscht hast, Chef.",
+    "icono": "📰🖋️"
+  },
+  {
+    "id": 655,
+    "materia": "Lengua",
+    "cluster": 5,
+    "temas": [
+      "romanticismo",
+      "tesis",
+      "realismo",
+      "argumentos",
+      "modernismo"
+    ],
+    "nombre": "Meister der literarischen Strömungen und der These",
+    "descripcion": "Du hast Romantik, Realismus und Modernismus beherrscht und gelernt, eine These mit soliden Argumenten aufzubauen.",
+    "icono": "🖋️📜"
+  },
+  {
+    "id": 656,
+    "materia": "Lengua",
+    "cluster": 6,
+    "temas": [
+      "contraargumentos",
+      "generacion-del-98",
+      "detectar-falacias",
+      "boom-latinoamericano",
+      "debate-refutar-en-vivo"
+    ],
+    "nombre": "Meister der Widerlegung und des lateinamerikanischen Booms",
+    "descripcion": "Du hast die Prüfung gemeistert, indem du Gegenargumente, das Erkennen von Fehlschlüssen, die Live-Debatte und die Generation von '98 beherrscht hast, Chef.",
+    "icono": "🗣️⚖️"
+  },
+  {
+    "id": 657,
+    "materia": "Lengua",
+    "cluster": 7,
+    "temas": [
+      "exposicion-oral",
+      "negociacion",
+      "persuasion-etica-vs-manipulacion",
+      "presentacion-con-apoyo-visual",
+      "subjetivemas-y-modalizadores"
+    ],
+    "nombre": "Beherrsche Überzeugung und mündlichen Vortrag",
+    "descripcion": "Du hast den mündlichen Vortrag, die Verhandlung und die Präsentation mit visueller Unterstützung beherrscht und dabei ethische Überzeugung von Manipulation unterschieden.",
+    "icono": "🎤🤝"
+  },
+  {
+    "id": 658,
+    "materia": "Lengua",
+    "cluster": 8,
+    "temas": [
+      "texto-teatral",
+      "vocabulario-y-familia-de-palabras",
+      "clases-de-palabras",
+      "concordancia-nominal-y-verbal",
+      "conjugacion-verbal-indicativo"
+    ],
+    "nombre": "Meister des Theatertexts und der Grammatik",
+    "descripcion": "Du hast die Prüfung gemeistert, indem du den Theatertext, die Wortarten, die Nominal- und Verbkongruenz und die Konjugation im Indikativ beherrscht hast, Chef.",
+    "icono": "🎭📝"
+  },
+  {
+    "id": 659,
+    "materia": "Lengua",
+    "cluster": 9,
+    "temas": [
+      "sujeto-y-predicado",
+      "conjugacion-verbal-subjuntivo",
+      "nucleos-y-modificadores",
+      "tipos-de-sujeto",
+      "objetos-y-circunstanciales"
+    ],
+    "nombre": "Beherrschung von Subjekt und Prädikat",
+    "descripcion": "Du hast die Subjektarten, Kerne und Modifikatoren, Objekte und Umstandsbestimmungen sowie die Konjugation im Konjunktiv beherrscht.",
+    "icono": "🔍📐"
+  },
+  {
+    "id": 660,
+    "materia": "Lengua",
+    "cluster": 10,
+    "temas": [
+      "sintagmas-nominal-adjetivo-preposicional-adverbial-verbal",
+      "oracion-compuesta-coordinacion-y-subordinacion",
+      "oraciones-negativas-e-interrogativas",
+      "coordinadas-adversativas",
+      "coordinadas-copulativas"
+    ],
+    "nombre": "Meister der Satzglieder und der zusammengesetzten Sätze",
+    "descripcion": "Du hast die Prüfung gemeistert, indem du Nominal-, Adjektiv-, Präpositional- und Verbalsyntagmen, Koordination und Subordination sowie Fragesätze beherrscht hast, Chef.",
+    "icono": "🧩📝"
+  },
+  {
+    "id": 661,
+    "materia": "Lengua",
+    "cluster": 11,
+    "temas": [
+      "coordinadas-distributivas",
+      "coordinadas-disyuntivas",
+      "discurso-referido",
+      "produccion-escrita-compleja",
+      "subordinada-adjetiva-o-de-relativo"
+    ],
+    "nombre": "Beherrsche Koordination und wiedergegebene Rede",
+    "descripcion": "Du hast die distributive und disjunktive Koordination, die wiedergegebene Rede, die komplexe schriftliche Produktion und den Relativsatz beherrscht.",
+    "icono": "🔗🗨️"
+  },
+  {
+    "id": 662,
+    "materia": "Lengua",
+    "cluster": 12,
+    "temas": [
+      "conectores-textuales",
+      "correo-formal",
+      "cv",
+      "informe-tecnico",
+      "progresion-tematica"
+    ],
+    "nombre": "Experte für professionelles Schreiben",
+    "descripcion": "Du hast die Prüfung gemeistert, indem du die formelle E-Mail, den Lebenslauf, den technischen Bericht, die Textkonnektoren und die thematische Progression beherrscht hast, Chef.",
+    "icono": "💼📧"
+  },
+  {
+    "id": 663,
+    "materia": "Lengua",
+    "cluster": 13,
+    "temas": [
+      "referencia-anafora-y-catafora",
+      "subordinada-adverbial-de-lugar",
+      "subordinada-adverbial-de-modo",
+      "subordinada-adverbial-de-tiempo",
+      "subordinada-causal"
+    ],
+    "nombre": "Meister der adverbialen Nebensätze",
+    "descripcion": "Du hast die Anapher und Kataphora sowie die Adverbialsätze des Ortes, der Art, der Zeit und des Grundes beherrscht.",
+    "icono": "🔗🕰️"
+  },
+  {
+    "id": 664,
+    "materia": "Lengua",
+    "cluster": 14,
+    "temas": [
+      "subordinada-concesiva-y-final",
+      "subordinada-condicional",
+      "subordinada-consecutiva",
+      "subordinada-sustantiva-de-complemento-circunstancial",
+      "subordinada-sustantiva-de-complemento-de-regimen"
+    ],
+    "nombre": "Beherrschung der konditionalen und konsekutiven Nebensätze",
+    "descripcion": "Du hast die Prüfung gemeistert, indem du den Konzessiv-, Final-, Konditional- und Konsekutivsatz sowie die Substantivsätze als Umstandsergänzung und Präpositionalobjekt beherrscht hast, Chef.",
+    "icono": "🔀📋"
+  },
+  {
+    "id": 665,
+    "materia": "Lengua",
+    "cluster": 15,
+    "temas": [
+      "subordinada-sustantiva-de-complemento-de-un-adjetivo",
+      "subordinada-sustantiva-de-complemento-del-nombre",
+      "subordinada-sustantiva-de-complemento-directo",
+      "subordinada-sustantiva-de-sujeto",
+      "voz-activa-y-pasiva"
+    ],
+    "nombre": "Meister der Substantivsätze und des Passivs",
+    "descripcion": "Du hast die Substantivsätze als Subjekt, direktes Objekt und Attribut beherrscht und mit der Unterscheidung von Aktiv und Passiv abgeschlossen.",
+    "icono": "🔄🗣️"
+  },
+  {
+    "id": 666,
+    "materia": "Lengua",
+    "cluster": 16,
+    "temas": [
+      "borges-y-la-literatura-fantastica-rioplatense",
+      "literatura-gauchesca-y-martin-fierro",
+      "cortazar-y-el-cuento-contemporaneo",
+      "literatura-latinoamericana-realismo-magico",
+      "mitos-y-leyendas-de-pueblos-originarios-argentinos",
+      "poesia-argentina-del-siglo-xx",
+      "vanguardias-argentinas-florida-y-boedo",
+      "narrativa-argentina-posdictadura"
+    ],
+    "nombre": "Meister der argentinischen und lateinamerikanischen Literatur",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Gaucholiteratur und den Martín Fierro, die Avantgarden von Florida und Boedo, Borges und das Fantastische am Río de la Plata, Cortázar, den magischen Realismus, die Erzählkunst nach der Diktatur, die argentinische Lyrik des 20. Jahrhunderts sowie die Mythen und Legenden der indigenen Völker gemeistert.",
+    "icono": "📚"
+  },
+  {
+    "id": 681,
+    "materia": "Historia",
+    "cluster": 1,
+    "temas": [
+      "escalas-de-tiempo-profundo",
+      "origen-del-universo",
+      "formacion-de-estrellas",
+      "galaxias-tipos-escala",
+      "nucleosintesis"
+    ],
+    "nombre": "Meister des Ursprungs des Universums",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die Skalen der Tiefenzeit, den Ursprung des Universums, die Nukleosynthese, die Sternentstehung und die Galaxientypen gemeistert.",
+    "icono": "🌌"
+  },
+  {
+    "id": 682,
+    "materia": "Historia",
+    "cluster": 2,
+    "temas": [
+      "corrimiento-al-rojo-expansion-universo",
+      "agujeros-negros",
+      "formacion-del-sistema-solar",
+      "ley-de-hubble",
+      "movimiento-rotacion-traslacion"
+    ],
+    "nombre": "Beherrschung der kosmischen Expansion",
+    "descripcion": "Du hast die Prüfung zum Hubble-Gesetz, zur Rotverschiebung, zu Schwarzen Löchern, zur Entstehung des Sonnensystems und zu Rotations- und Umlaufbewegungen bestanden, Chef.",
+    "icono": "🔭"
+  },
+  {
+    "id": 683,
+    "materia": "Historia",
+    "cluster": 3,
+    "temas": [
+      "materia-energia-oscura",
+      "estaciones-del-ano",
+      "fases-lunares",
+      "movimiento-aparente-constelaciones",
+      "eclipses-sol-luna"
+    ],
+    "nombre": "Experte für Himmel und dunkles Universum",
+    "descripcion": "Du hast dunkle Materie und dunkle Energie sowie den sichtbaren Himmel gemeistert: Jahreszeiten, Mondphasen, Finsternisse und die scheinbare Bewegung der Sternbilder.",
+    "icono": "🌙"
+  },
+  {
+    "id": 684,
+    "materia": "Historia",
+    "cluster": 4,
+    "temas": [
+      "tabla-periodica-nivel2-cosmologico",
+      "tierra-primitiva-diferenciacion",
+      "atmosfera-primitiva",
+      "minerales-estructura-cristalina",
+      "origen-de-la-vida"
+    ],
+    "nombre": "Meister der Urerde",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die Urerde und ihre Differenzierung, die Uratmosphäre, die Minerale, das kosmologische Periodensystem und den Ursprung des Lebens gemeistert.",
+    "icono": "🌋"
+  },
+  {
+    "id": 685,
+    "materia": "Historia",
+    "cluster": 5,
+    "temas": [
+      "rocas-igneas-sedimentarias-metamorficas",
+      "procariotas",
+      "tiempo-geologico-eones-eras-periodos",
+      "gran-oxidacion",
+      "datacion-radiometrica"
+    ],
+    "nombre": "Experte für geologische Zeit",
+    "descripcion": "Du hast Äonen, Ären und Perioden, die radiometrische Datierung, Gesteinsarten, Prokaryoten und die Große Sauerstoffkatastrophe gemeistert, Chef.",
+    "icono": "🪨"
+  },
+  {
+    "id": 686,
+    "materia": "Historia",
+    "cluster": 6,
+    "temas": [
+      "eucariotas",
+      "fotosintesis-cambio-atmosfera-nivel2",
+      "multicelularidad",
+      "tectonica-placas-deriva-continental",
+      "explosion-cambrica"
+    ],
+    "nombre": "Beherrschung des komplexen Lebens",
+    "descripcion": "Du hast die Prüfung zu Eukaryoten, Photosynthese und Atmosphärenwandel, Mehrzelligkeit, kambrischer Explosion und Plattentektonik bestanden.",
+    "icono": "🦠"
+  },
+  {
+    "id": 687,
+    "materia": "Historia",
+    "cluster": 7,
+    "temas": [
+      "ciclo-de-las-rocas",
+      "conquista-tierra-firme",
+      "distribucion-biomas",
+      "cinco-extinciones-masivas",
+      "paleoclima-glaciaciones"
+    ],
+    "nombre": "Meister der Aussterben und alten Klimate",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die Eroberung des Festlands, die fünf Massenaussterben, das Paläoklima und die Eiszeiten, den Gesteinskreislauf und die Verteilung der Biome gemeistert.",
+    "icono": "🦖"
+  },
+  {
+    "id": 688,
+    "materia": "Historia",
+    "cluster": 8,
+    "temas": [
+      "radiacion-mamiferos",
+      "cambio-climatico-linea-base-historica",
+      "hominizacion",
+      "relieve-sismos-volcanes",
+      "paleolitico"
+    ],
+    "nombre": "Experte für Säugetiere und menschlichen Ursprung",
+    "descripcion": "Du hast die Radiation der Säugetiere, die Hominisation und das Paläolithikum gemeistert, dazu das Relief mit seinen Erdbeben und Vulkanen und die Ausgangslage des Klimawandels, Chef.",
+    "icono": "🦴"
+  },
+  {
+    "id": 689,
+    "materia": "Historia",
+    "cluster": 9,
+    "temas": [
+      "seleccion-natural-evidencias-nivel2",
+      "herramientas-arte-rupestre",
+      "poblamiento-planeta-america",
+      "revolucion-neolitica",
+      "sedentarizacion-excedente"
+    ],
+    "nombre": "Beherrschung der neolithischen Revolution",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die natürliche Selektion, Werkzeuge und Höhlenkunst, die Besiedlung Amerikas, die neolithische Revolution und die Sesshaftwerdung mit Überschuss gemeistert.",
+    "icono": "🌾"
+  },
+  {
+    "id": 690,
+    "materia": "Historia",
+    "cluster": 10,
+    "temas": [
+      "division-del-trabajo",
+      "metalurgia-cobre-hierro",
+      "propiedad-jerarquia-estado",
+      "escritura-primeras-ciudades",
+      "antigua-grecia"
+    ],
+    "nombre": "Meister der ersten Staaten",
+    "descripcion": "Du hast die Prüfung zur Arbeitsteilung, Metallurgie, zu Eigentum und Hierarchie bis zum Staat, zur Schrift mit den ersten Städten und zum antiken Griechenland bestanden.",
+    "icono": "🏺"
+  },
+  {
+    "id": 691,
+    "materia": "Historia",
+    "cluster": 11,
+    "temas": [
+      "antigua-roma",
+      "antiguo-egipto",
+      "china-antigua",
+      "civilizaciones-de-america-precolombinas",
+      "india-antigua"
+    ],
+    "nombre": "Experte für große antike Zivilisationen",
+    "descripcion": "Du hast Rom, Ägypten, China, Indien und die präkolumbischen Zivilisationen Amerikas gemeistert, Chef.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 692,
+    "materia": "Historia",
+    "cluster": 12,
+    "temas": [
+      "mesopotamia",
+      "civilizaciones-antiguas",
+      "expansion-del-imperio-romano",
+      "imperio-de-alejandro-magno-helenistico"
+    ],
+    "nombre": "Beherrschung der Imperien der Antike",
+    "descripcion": "Du hast die Prüfung zu Mesopotamien, den antiken Zivilisationen, Alexander dem Großen und dem Hellenismus sowie zur Ausdehnung des Römischen Reiches abgeschlossen.",
+    "icono": "⚔️"
+  },
+  {
+    "id": 693,
+    "materia": "Historia",
+    "cluster": 13,
+    "temas": [
+      "imperio-han-china",
+      "imperio-persa",
+      "imperios-expansion",
+      "caida-de-roma-y-alta-edad-media",
+      "edad-media-feudalismo"
+    ],
+    "nombre": "Meister der Imperien und des Feudalismus",
+    "descripcion": "Du hast das Han- und das Perserreich, die imperiale Expansion, den Fall Roms mit dem Frühmittelalter und den Feudalismus gemeistert, Chef.",
+    "icono": "🏰"
+  },
+  {
+    "id": 694,
+    "materia": "Historia",
+    "cluster": 14,
+    "temas": [
+      "imperio-bizantino",
+      "islam-y-expansion-arabe",
+      "edad-media-plena",
+      "baja-edad-media-y-crisis",
+      "renacimiento-y-reforma"
+    ],
+    "nombre": "Experte für Mittelalter und Renaissance",
+    "descripcion": "Du hast die Prüfung zum Byzantinischen Reich, zum Islam und seiner arabischen Expansion, zum Hochmittelalter, zur Krise des Spätmittelalters und zur Renaissance mit der Reformation bestanden.",
+    "icono": "📜"
+  },
+  {
+    "id": 695,
+    "materia": "Historia",
+    "cluster": 15,
+    "temas": [
+      "ciencia-revolucion-cientifica",
+      "imprenta",
+      "navegacion",
+      "conquista-colonizacion-america",
+      "modernidad-imprenta-navegacion-ciencia"
+    ],
+    "nombre": "Beherrschung von Neuzeit und Eroberung",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die wissenschaftliche Revolution, den Buchdruck, die Seefahrt sowie die Eroberung und Kolonisierung Amerikas gemeistert.",
+    "icono": "⛵"
+  },
+  {
+    "id": 696,
+    "materia": "Historia",
+    "cluster": 16,
+    "temas": [
+      "absolutismo-europeo",
+      "ilustracion",
+      "revolucion-industrial"
+    ],
+    "nombre": "Meister von Absolutismus und Aufklärung",
+    "descripcion": "Du hast den europäischen Absolutismus, die Aufklärung und die Industrielle Revolution gemeistert, Boss.",
+    "icono": "👑"
+  },
+  {
+    "id": 697,
+    "materia": "Historia",
+    "cluster": 17,
+    "temas": [
+      "electrificacion-fabrica-hogar",
+      "huella-humana-en-el-clima-inicio"
+    ],
+    "nombre": "Experte für Elektrifizierung und Klima",
+    "descripcion": "Du hast die Prüfung zur Elektrifizierung von Fabrik und Haushalt und zum Beginn des menschlichen Fußabdrucks im Klima bestanden.",
+    "icono": "🇦🇷"
+  },
+  {
+    "id": 698,
+    "materia": "Historia",
+    "cluster": 18,
+    "temas": [
+      "revoluciones-burguesas-liberalismo",
+      "estados-nacionales",
+      "imperialismo"
+    ],
+    "nombre": "Beherrschung der liberalen und nationalen Ordnung",
+    "descripcion": "Du hast die Prüfung abgeschlossen und die bürgerlichen Revolutionen und den Liberalismus, die Nationalstaaten und den Imperialismus gemeistert.",
+    "icono": "📈"
+  },
+  {
+    "id": 699,
+    "materia": "Historia",
+    "cluster": 19,
+    "temas": [
+      "sociedad-de-masas-y-democracia-liberal",
+      "primera-guerra-mundial-y-revolucion-rusa",
+      "entreguerras-y-crisis-de-1929"
+    ],
+    "nombre": "Meister des frühen 20. Jahrhunderts",
+    "descripcion": "Du hast die Massengesellschaft und die liberale Demokratie, den Ersten Weltkrieg und die Russische Revolution sowie die Zwischenkriegszeit und die Krise von 1929 gemeistert, Boss.",
+    "icono": "📰"
+  },
+  {
+    "id": 700,
+    "materia": "Historia",
+    "cluster": 20,
+    "temas": [
+      "segunda-guerra-mundial",
+      "descolonizacion-de-africa-y-asia",
+      "guerras-mundiales",
+      "guerra-fria-descolonizacion"
+    ],
+    "nombre": "Experte für Kriege und Kalten Krieg",
+    "descripcion": "Du hast die Prüfung zu den Weltkriegen, dem Zweiten Weltkrieg, dem Kalten Krieg und der Entkolonialisierung Afrikas und Asiens bestanden.",
+    "icono": "🕊️"
+  },
+  {
+    "id": 701,
+    "materia": "Historia",
+    "cluster": 21,
+    "temas": [
+      "historia-contemporanea-de-africa",
+      "historia-contemporanea-de-asia-y-pacifico",
+      "historia-contemporanea-de-medio-oriente",
+      "globalizacion-era-digital",
+      "internet-redes-globalizacion-digital"
+    ],
+    "nombre": "Beherrschung der jüngeren Geschichte",
+    "descripcion": "Du hast die Prüfung abgeschlossen und die Zeitgeschichte Afrikas, Asiens und des Nahen Ostens sowie die Globalisierung im digitalen Zeitalter gemeistert.",
+    "icono": "🌍"
+  },
+  {
+    "id": 702,
+    "materia": "Historia",
+    "cluster": 22,
+    "temas": [
+      "carrera-espacial-sputnik-y-apolo"
+    ],
+    "nombre": "Entdecker des Wettlaufs ins All",
+    "descripcion": "Du hast die Prüfung bestanden und dabei den Wettlauf ins All im Kalten Krieg gemeistert: Sputnik, Gagarins Flug, die Mondlandung von Apollo 11 und die gemeinsame Mission Apollo-Sojus.",
+    "icono": "🚀"
+  },
+  {
+    "id": 721,
+    "materia": "Pensamiento histórico",
+    "cluster": 1,
+    "temas": [
+      "interpretar-una-fuente-historica",
+      "linea-de-tiempo-y-antes-despues",
+      "decada-siglo-milenio"
+    ],
+    "nombre": "Experte für Quellen und Chronologie",
+    "descripcion": "Du hast die Interpretation historischer Quellen, Zeitleisten sowie Jahrzehnt, Jahrhundert und Jahrtausend gemeistert, Boss.",
+    "icono": "🗂️"
+  },
+  {
+    "id": 722,
+    "materia": "Pensamiento histórico",
+    "cluster": 2,
+    "temas": [
+      "antes-y-despues-de-cristo",
+      "periodizacion-historica",
+      "causa-y-consecuencia"
+    ],
+    "nombre": "Beherrschung von Periodisierung und Kausalität",
+    "descripcion": "Du hast die Prüfung abgeschlossen und die Periodisierung, vor und nach Christus sowie Ursache und Folge gemeistert.",
+    "icono": "⏳"
+  },
+  {
+    "id": 723,
+    "materia": "Pensamiento histórico",
+    "cluster": 3,
+    "temas": [
+      "significancia-historica",
+      "cambio-y-continuidad",
+      "evidencia",
+      "dimension-etica",
+      "multicausalidad"
+    ],
+    "nombre": "Meister des historischen Denkens",
+    "descripcion": "Du hast die historische Bedeutsamkeit, Wandel und Kontinuität, Evidenz, Multikausalität und die ethische Dimension gemeistert, Chef.",
+    "icono": "🧠"
+  },
+  {
+    "id": 724,
+    "materia": "Pensamiento histórico",
+    "cluster": 4,
+    "temas": [
+      "escuela-de-los-annales",
+      "historia-cultural",
+      "materialismo-historico",
+      "positivismo",
+      "revoluciones"
+    ],
+    "nombre": "Experte für historiographische Strömungen",
+    "descripcion": "Du hast die Prüfung zur Annales-Schule, zur Kulturgeschichte, zum historischen Materialismus, zum Positivismus und zur Erforschung von Revolutionen bestanden.",
+    "icono": "📚"
+  },
+  {
+    "id": 725,
+    "materia": "Pensamiento histórico",
+    "cluster": 5,
+    "temas": [
+      "independencias",
+      "revolucion-mexicana-1910-1920",
+      "guerras",
+      "guerra-civil-espanola-1936-1939"
+    ],
+    "nombre": "Beherrschung amerikanischer Kriege und Prozesse",
+    "descripcion": "Du hast die Prüfung zu den Unabhängigkeitsbewegungen, der Mexikanischen Revolution, den Kriegen und dem Spanischen Bürgerkrieg abgeschlossen.",
+    "icono": "🗺️"
+  },
+  {
+    "id": 736,
+    "materia": "Física",
+    "cluster": 1,
+    "temas": [
+      "cargas-electricas",
+      "estatica/centro-de-gravedad",
+      "campo-electrico",
+      "corriente-electrica",
+      "estatica/momento-de-una-fuerza"
+    ],
+    "nombre": "Ladungen, elektrisches Feld und Statik",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei elektrische Ladungen, elektrisches Feld und Strom sowie das Moment einer Kraft und den Schwerpunkt in der Statik gemeistert.",
+    "icono": "⚡"
+  },
+  {
+    "id": 737,
+    "materia": "Física",
+    "cluster": 2,
+    "temas": [
+      "estructura-del-nucleo-atomico",
+      "estatica/equilibrio-de-cuerpo-rigido",
+      "decaimiento-radiactivo-alfa-beta-gamma",
+      "formulas-con-literales",
+      "fision-y-fusion-nuclear"
+    ],
+    "nombre": "Atomkern und Gleichgewicht starrer Körper",
+    "descripcion": "Du hast Alpha-, Beta- und Gammazerfall, Kernspaltung und Kernfusion sowie den Aufbau des Atomkerns gemeistert, dazu das Gleichgewicht des starren Körpers und Formeln mit Buchstabengrößen.",
+    "icono": "☢️"
+  },
+  {
+    "id": 738,
+    "materia": "Física",
+    "cluster": 3,
+    "temas": [
+      "iman-polos-atraccion-repulsion",
+      "ley-de-coulomb",
+      "leyes-de-newton/primera-inercia",
+      "maquinas-simples",
+      "leyes-de-newton/segunda-fma"
+    ],
+    "nombre": "Meister von Coulomb und Newton",
+    "descripcion": "Du hast die Prüfung mit dem Coulombschen Gesetz und dem Magnetismus von Magneten bestanden, dazu mit dem ersten und zweiten Newtonschen Gesetz und den einfachen Maschinen, Chef.",
+    "icono": "🧲"
+  },
+  {
+    "id": 739,
+    "materia": "Física",
+    "cluster": 4,
+    "temas": [
+      "mru",
+      "leyes-de-newton/tercera-accion-reaccion",
+      "mruv",
+      "dinamica-fuerzas-concurrentes",
+      "oscilacion-periodo"
+    ],
+    "nombre": "Beherrschung von Kinematik und Dynamik",
+    "descripcion": "Du hast die Prüfung mit gleichförmiger und gleichmäßig beschleunigter Bewegung, dem dritten Newtonschen Gesetz, zentralen Kräften und der Schwingungsdauer abgeschlossen.",
+    "icono": "🚀"
+  },
+  {
+    "id": 740,
+    "materia": "Física",
+    "cluster": 5,
+    "temas": [
+      "gravitacion-universal",
+      "frecuencia",
+      "momento-lineal",
+      "longitud-onda-velocidad-propagacion",
+      "impulso-cambio-momento"
+    ],
+    "nombre": "Experte für Impuls und Wellen",
+    "descripcion": "Du hast den linearen Impuls, den Kraftstoß und die universelle Gravitation gemeistert, dazu die Frequenz und den Zusammenhang zwischen Wellenlänge und Ausbreitungsgeschwindigkeit.",
+    "icono": "🌊"
+  },
+  {
+    "id": 741,
+    "materia": "Física",
+    "cluster": 6,
+    "temas": [
+      "luz-onda-espectro-electromagnetico",
+      "movimiento-circular-y-fuerza-centripeta",
+      "dualidad-onda-particula",
+      "plano-inclinado-y-rozamiento",
+      "fisica-medica"
+    ],
+    "nombre": "Quantenlicht und Kreisbewegung",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei das elektromagnetische Spektrum, den Welle-Teilchen-Dualismus und die medizinische Physik gemeistert, dazu die Kreisbewegung und die schiefe Ebene mit Reibung, Chef.",
+    "icono": "💡"
+  },
+  {
+    "id": 742,
+    "materia": "Física",
+    "cluster": 7,
+    "temas": [
+      "presion-f-sobre-a",
+      "reflexion-espejos-planos-curvos",
+      "caudal-q-a-v",
+      "presion-atmosferica",
+      "presion-hidrostatica"
+    ],
+    "nombre": "Experte für Druck und Fluide",
+    "descripcion": "Du hast den Druck, den hydrostatischen und atmosphärischen Druck und den Volumenstrom gemeistert und die Reflexion an ebenen und gekrümmten Spiegeln dazugenommen.",
+    "icono": "💧"
+  },
+  {
+    "id": 743,
+    "materia": "Física",
+    "cluster": 8,
+    "temas": [
+      "masas-de-aire-y-frentes",
+      "principio-de-arquimedes-empuje-flotacion",
+      "formacion-de-nubes",
+      "principio-de-pascal-prensa-hidraulica",
+      "precipitacion"
+    ],
+    "nombre": "Fluide und Meteorologie",
+    "descripcion": "Du hast die Prüfung mit dem Archimedischen und dem Pascalschen Prinzip sowie mit Luftmassen und Fronten, Wolkenbildung und Niederschlag bestanden.",
+    "icono": "☁️"
+  },
+  {
+    "id": 744,
+    "materia": "Física",
+    "cluster": 9,
+    "temas": [
+      "refraccion-indice-ley-snell",
+      "relatividad-especial-conceptual",
+      "lentes-convergentes-divergentes",
+      "resonancia-frecuencia-natural",
+      "formacion-de-imagenes-optica"
+    ],
+    "nombre": "Meister der geometrischen Optik",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Brechung und das Snelliussche Gesetz, Sammel- und Zerstreuungslinsen sowie die Bildentstehung gemeistert, dazu Resonanz und die spezielle Relativitätstheorie.",
+    "icono": "🔭"
+  },
+  {
+    "id": 745,
+    "materia": "Física",
+    "cluster": 10,
+    "temas": [
+      "semivida-desintegracion-exponencial",
+      "ojo-humano-instrumento-optico",
+      "sonido-timbre-altura-intensidad",
+      "temperatura-equilibrio-termico",
+      "decibeles-richter"
+    ],
+    "nombre": "Schall, Sehen und Halbwertszeit",
+    "descripcion": "Du hast den Schall (Klangfarbe, Tonhöhe und Intensität), Dezibel und die Richterskala, das menschliche Auge als optisches Instrument, die Halbwertszeit und das thermische Gleichgewicht gemeistert, Chef.",
+    "icono": "🔊"
+  },
+  {
+    "id": 746,
+    "materia": "Física",
+    "cluster": 11,
+    "temas": [
+      "calor-q-m-c-deltat",
+      "dilatacion-termica-lineal",
+      "cambios-de-estado-calor-latente",
+      "escalas-de-temperatura-c-f-k",
+      "maquina-termica-termodinamica-nivel2"
+    ],
+    "nombre": "Beherrschung von Wärme und Thermometrie",
+    "descripcion": "Du hast die Prüfung mit der Wärme Q=m·c·ΔT, der Wärmeausdehnung, der latenten Wärme, den Temperaturskalen und den Wärmekraftmaschinen abgeschlossen.",
+    "icono": "🌡️"
+  },
+  {
+    "id": 747,
+    "materia": "Física",
+    "cluster": 12,
+    "temas": [
+      "tension-diferencia-potencial",
+      "entropia-segunda-ley-termodinamica",
+      "resistencia-electrica",
+      "tiro-oblicuo",
+      "ley-de-ohm"
+    ],
+    "nombre": "Ohmsches Gesetz und schiefer Wurf",
+    "descripcion": "Du hast die Prüfung mit Spannung, Widerstand und dem Ohmschen Gesetz bestanden, außerdem mit dem schrägen Wurf und der Entropie im zweiten Hauptsatz der Thermodynamik.",
+    "icono": "🔌"
+  },
+  {
+    "id": 748,
+    "materia": "Física",
+    "cluster": 13,
+    "temas": [
+      "tiro-vertical",
+      "circuitos-en-paralelo",
+      "circuitos-en-serie",
+      "potencia-electrica",
+      "circuitos-mixtos"
+    ],
+    "nombre": "Experte für elektrische Schaltungen",
+    "descripcion": "Du hast Reihen-, Parallel- und gemischte Schaltungen sowie die elektrische Leistung gemeistert und den senkrechten Wurf dazugenommen, Chef.",
+    "icono": "🔋"
+  },
+  {
+    "id": 749,
+    "materia": "Física",
+    "cluster": 14,
+    "temas": [
+      "tormentas-y-fenomenos-severos",
+      "campo-magnetico-imanes-corrientes",
+      "trabajo-de-una-fuerza",
+      "induccion-electromagnetica-faraday-lenz",
+      "energia-cinetica"
+    ],
+    "nombre": "Elektromagnetismus, Arbeit und Energie",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Magnetfeld, die Faraday-Lenzsche Induktion, die Arbeit einer Kraft und die kinetische Energie gemeistert, dazu Gewitter und extreme Wetterphänomene.",
+    "icono": "🧭"
+  },
+  {
+    "id": 750,
+    "materia": "Física",
+    "cluster": 15,
+    "temas": [
+      "generador-motor-transformador",
+      "choques-elasticos-inelasticos",
+      "energia-potencial-gravitatoria",
+      "transmision-calor-conduccion-conveccion-radiacion",
+      "conservacion-energia-mecanica",
+      "velocidad-aceleracion-instantaneas",
+      "potencia-mecanica"
+    ],
+    "nombre": "Meister der Energie und ihrer Maschinen",
+    "descripcion": "Du hast die Erhaltung der mechanischen Energie, die Gravitationsenergie, die Leistung, elastische und unelastische Stöße, die Wärmeübertragung sowie Generatoren, Motoren und Transformatoren gemeistert.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 751,
+    "materia": "Física",
+    "cluster": 16,
+    "temas": [
+      "ecuacion-de-bernoulli-dinamica-de-fluidos",
+      "energias-renovables-y-transformacion-de-energia",
+      "movimiento-armonico-simple-y-ondas-estacionarias",
+      "primera-ley-de-la-termodinamica"
+    ],
+    "nombre": "Meister der Fluide, Thermodynamik und Wellen",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Bernoulli-Gleichung und die Strömungslehre, den ersten Hauptsatz der Thermodynamik, die harmonische Schwingung und stehende Wellen sowie erneuerbare Energien und ihre Umwandlung gemeistert.",
+    "icono": "🌊"
+  },
+  {
+    "id": 766,
+    "materia": "Economía",
+    "cluster": 1,
+    "temas": [
+      "blockchain-claves-wallet",
+      "capitalismo-industrial-trabajo-asalariado",
+      "contratos-inteligentes",
+      "costo-marginal",
+      "debe-haber-balance"
+    ],
+    "nombre": "Blockchain, Grenzkosten und Bilanz",
+    "descripcion": "Du hast die Prüfung zu Blockchain-Schlüsseln und Wallets, Smart Contracts, Grenzkosten und dem Soll und Haben der Bilanz abgeschlossen, Chef.",
+    "icono": "⛓️"
+  },
+  {
+    "id": 767,
+    "materia": "Economía",
+    "cluster": 2,
+    "temas": [
+      "detectar-una-oportunidad-de-negocio",
+      "elasticidad",
+      "estructura-del-patrimonio",
+      "estructura-productiva-dependencia",
+      "ecuacion-contable-fundamental"
+    ],
+    "nombre": "Beherrschung von Vermögen und Elastizität",
+    "descripcion": "Du hast die grundlegende Bilanzgleichung und die Struktur des Vermögens gemeistert, dazu Elastizität, Produktionsabhängigkeit und wie man eine Geschäftsmöglichkeit erkennt.",
+    "icono": "📊"
+  },
+  {
+    "id": 768,
+    "materia": "Economía",
+    "cluster": 3,
+    "temas": [
+      "interes-simple",
+      "iva",
+      "interes-compuesto",
+      "origen-excedente-moneda-mercado",
+      "cft-vs-tasa-nominal"
+    ],
+    "nombre": "Meister von Zins und Zinssatz",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei einfache und zusammengesetzte Zinsen, die Mehrwertsteuer und den Unterschied zwischen CFT und Nominalzins berechnet, ohne den Ursprung des Überschusses und des Geldes aus den Augen zu verlieren.",
+    "icono": "💹"
+  },
+  {
+    "id": 769,
+    "materia": "Economía",
+    "cluster": 4,
+    "temas": [
+      "cuota-credito-frances",
+      "dex-swap",
+      "interes-compuesto-funcion",
+      "partida-doble",
+      "plazo-fijo-vs-inflacion"
+    ],
+    "nombre": "Experte für Kredite und digitale Finanzen",
+    "descripcion": "Du hast die Rate beim Annuitätenkredit (französisches System), das Termingeld gegenüber der Inflation, die doppelte Buchführung und Swaps auf dezentralen Börsen gemeistert, Chef.",
+    "icono": "🏦"
+  },
+  {
+    "id": 770,
+    "materia": "Economía",
+    "cluster": 5,
+    "temas": [
+      "libro-diario-mayor",
+      "pools-liquidez-amm",
+      "estados-contables",
+      "precio-final",
+      "contabilidad-ambiental"
+    ],
+    "nombre": "Beherrsche Buchungsbelege und Pools",
+    "descripcion": "Du hast die Prüfung mit Journal und Hauptbuch, Jahresabschlüssen, Umweltbuchhaltung, Endpreis und AMM-Liquiditätspools abgeschlossen.",
+    "icono": "📒"
+  },
+  {
+    "id": 771,
+    "materia": "Economía",
+    "cluster": 6,
+    "temas": [
+      "contabilidad-como-sistema-de-informacion",
+      "costo-de-oportunidad",
+      "indices-financieros",
+      "division-formal-microeconomia-macroeconomia",
+      "oferta-y-demanda"
+    ],
+    "nombre": "Meister von Mikro und Buchhaltung",
+    "descripcion": "Du hast die Trennung von Mikro- und Makroökonomie, Angebot und Nachfrage, Opportunitätskosten, Finanzkennzahlen und das Rechnungswesen als Informationssystem gemeistert.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 772,
+    "materia": "Economía",
+    "cluster": 7,
+    "temas": [
+      "economia-positiva-y-normativa",
+      "fisiocracia",
+      "mercantilismo",
+      "pbi-e-inflacion",
+      "liberalismo-clasico-y-escuela-austriaca",
+      "como-se-calcula-el-ipc-argentina"
+    ],
+    "nombre": "Experte für klassische Wirtschaftsschulen",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Physiokratie, Merkantilismus, klassischen Liberalismus und die Österreichische Schule durchgenommen, dazu BIP und Inflation sowie positive und normative Ökonomie, Chef.",
+    "icono": "📜"
+  },
+  {
+    "id": 773,
+    "materia": "Economía",
+    "cluster": 8,
+    "temas": [
+      "balanza-comercial",
+      "recibo-de-sueldo/general",
+      "comercio-internacional-ventaja-comparativa",
+      "recibo-de-sueldo/argentina",
+      "sectores-economicos"
+    ],
+    "nombre": "Beherrschung von Handel und Gehalt",
+    "descripcion": "Du hast die Handelsbilanz, den komparativen Vorteil und die Wirtschaftssektoren gemeistert und außerdem gelernt, eine allgemeine und eine argentinische Gehaltsabrechnung zu lesen.",
+    "icono": "🌍"
+  },
+  {
+    "id": 774,
+    "materia": "Economía",
+    "cluster": 9,
+    "temas": [
+      "descuentos-obligatorios/jubilacion",
+      "descuentos-obligatorios/obra-social",
+      "jubilacion-sistema-previsional",
+      "monotributo",
+      "socialismo-utopico"
+    ],
+    "nombre": "Experte für Vorsorge und Arbeit",
+    "descripcion": "Du hast die Prüfung mit Rente, Krankenversicherung, Rentensystem und Monotributo abgeschlossen und mit einem Blick auf den utopischen Sozialismus beendet, Chef.",
+    "icono": "🧾"
+  },
+  {
+    "id": 775,
+    "materia": "Economía",
+    "cluster": 10,
+    "temas": [
+      "sueldo-promedio-pais",
+      "marxismo",
+      "tipo-cambio-fijo",
+      "economia-feminista-y-del-cuidado",
+      "keynesianismo"
+    ],
+    "nombre": "Marx, Keynes und Wechselkurs",
+    "descripcion": "Du hast Marxismus, Keynesianismus und feministische Ökonomie und Care-Ökonomie gemeistert, dazu den festen Wechselkurs und das Durchschnittsgehalt des Landes.",
+    "icono": "🧠"
+  },
+  {
+    "id": 776,
+    "materia": "Economía",
+    "cluster": 11,
+    "temas": [
+      "tipo-cambio-flotante",
+      "neoliberalismo",
+      "devaluacion",
+      "ordoliberalismo",
+      "reservas-banco-central"
+    ],
+    "nombre": "Meister von Wechselkurs und Neoliberalismus",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei den flexiblen Wechselkurs, die Abwertung und die Währungsreserven der Zentralbank gemeistert, dazu Neoliberalismus und Ordoliberalismus, Chef.",
+    "icono": "💱"
+  },
+  {
+    "id": 777,
+    "materia": "Economía",
+    "cluster": 12,
+    "temas": [
+      "tipos-de-organizaciones",
+      "deuda-publica-externa",
+      "deuda-publica-interna",
+      "elementos-de-las-organizaciones",
+      "default-deuda"
+    ],
+    "nombre": "Organisationen und Staatsverschuldung",
+    "descripcion": "Du hast die Arten und Elemente von Organisationen gemeistert und außerdem die innere und äußere Staatsverschuldung sowie den Zahlungsausfall.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 778,
+    "materia": "Economía",
+    "cluster": 13,
+    "temas": [
+      "ambiente-interno-y-externo-organizacion",
+      "cultura-organizacional",
+      "estructura-organizacional",
+      "objetivos-y-metas",
+      "tipos-de-proyecto"
+    ],
+    "nombre": "Experte für Organisationsführung",
+    "descripcion": "Du hast die Prüfung mit Organisationskultur und -struktur, internem und externem Umfeld, Zielen und Teilzielen sowie Projekttypen abgeschlossen.",
+    "icono": "🏢"
+  },
+  {
+    "id": 779,
+    "materia": "Economía",
+    "cluster": 14,
+    "temas": [
+      "cooperativismo-y-mutualismo",
+      "planificacion-administrativa",
+      "tipos-de-sociedades",
+      "coordinar-personas-y-recursos",
+      "presupuesto-administrativo"
+    ],
+    "nombre": "Meister der Verwaltung",
+    "descripcion": "Du hast Verwaltungsplanung und Budget, Gesellschaftsformen, Genossenschaftswesen und Gegenseitigkeitsvereine gemeistert und gelernt, wie man Menschen und Ressourcen koordiniert, Chef.",
+    "icono": "🤝"
+  },
+  {
+    "id": 780,
+    "materia": "Economía",
+    "cluster": 15,
+    "temas": [
+      "validar-con-clientes-construir-medir-aprender",
+      "control-de-gestion-e-indicadores",
+      "estado-de-resultados",
+      "mejora-continua",
+      "margenes-bruto-y-neto"
+    ],
+    "nombre": "Beherrschung von Management und Ergebnissen",
+    "descripcion": "Du hast die Prüfung mit der Gewinn- und Verlustrechnung, Brutto- und Nettomarge, Controlling und Kennzahlen, kontinuierlicher Verbesserung und dem Zyklus Validieren-Bauen-Messen-Lernen abgeschlossen.",
+    "icono": "📈"
+  },
+  {
+    "id": 781,
+    "materia": "Economía",
+    "cluster": 16,
+    "temas": [
+      "mvp-producto-minimo-viable",
+      "productividad-produccion-insumos",
+      "business-model-canvas",
+      "punto-de-equilibrio",
+      "pitch-a-inversores"
+    ],
+    "nombre": "Experte für Unternehmertum und Gleichgewicht",
+    "descripcion": "Du hast das MVP, das Business Model Canvas, den Pitch vor Investoren, den Break-even-Punkt und die Produktivität gemeistert, Chef.",
+    "icono": "🚀"
+  },
+  {
+    "id": 782,
+    "materia": "Economía",
+    "cluster": 17,
+    "temas": [
+      "valor-esperado-riesgo",
+      "vision-y-mision-organizacional",
+      "fondo-emergencia-diversificacion",
+      "estudio-de-contexto-para-un-proyecto",
+      "seguros"
+    ],
+    "nombre": "Meister des Risikos und der Finanzplanung",
+    "descripcion": "Du hast den Erwartungswert und das Risiko berechnet, einen diversifizierten Notfallfonds aufgebaut und Versicherungen und die Unternehmensmission bewertet.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 796,
+    "materia": "Geografía",
+    "cluster": 1,
+    "temas": [
+      "coordenadas-y-husos-horarios",
+      "densidad-poblacion",
+      "escala-de-mapa",
+      "huella-de-carbono-agua-virtual",
+      "orientacion-puntos-cardinales"
+    ],
+    "nombre": "Meister der Karten und Koordinaten",
+    "descripcion": "Du hast die Prüfung mit Kartenmaßstab, Orientierung, Koordinaten und Zeitzonen abgeschlossen und Bevölkerungsdichte sowie CO₂-Fußabdruck und virtuelles Wasser dazugenommen.",
+    "icono": "🧭"
+  },
+  {
+    "id": 797,
+    "materia": "Geografía",
+    "cluster": 2,
+    "temas": [
+      "mapa-plano-escala",
+      "coordenadas-geograficas",
+      "division-politica",
+      "sig-mapas-digitales",
+      "estados-y-globalizacion"
+    ],
+    "nombre": "Experte für Kartografie und GIS",
+    "descripcion": "Du hast maßstabsgetreue Karten, geografische Koordinaten und Geoinformationssysteme gemeistert, dazu die politische Gliederung, Staaten und die Globalisierung, Chef.",
+    "icono": "🗺️"
+  },
+  {
+    "id": 798,
+    "materia": "Geografía",
+    "cluster": 3,
+    "temas": [
+      "region",
+      "sig-gps",
+      "relieve-clima-biomas",
+      "sig-imagenes-satelitales",
+      "recursos-actividades-economicas"
+    ],
+    "nombre": "Beherrsche Territorium und Fernerkundung",
+    "descripcion": "Du hast die Prüfung mit Region, Relief, Klima und Biomen, Ressourcen und Wirtschaftstätigkeiten sowie den GIS-Werkzeugen GPS und Satellitenbildern abgeschlossen.",
+    "icono": "🛰️"
+  },
+  {
+    "id": 799,
+    "materia": "Geografía",
+    "cluster": 4,
+    "temas": [
+      "regiones-naturales-de-argentina",
+      "geografia-economica-agricola-argentina",
+      "geografia-industrial-mundial",
+      "mineria-e-hidrocarburos-en-argentina",
+      "america-latina-industria-y-energia"
+    ],
+    "nombre": "Experte für Wirtschaftsgeografie",
+    "descripcion": "Du hast die Naturräume Argentiniens, Bergbau und Kohlenwasserstoffe, die Agrar- und Industriegeografie sowie Industrie und Energie in Lateinamerika gemeistert, Chef.",
+    "icono": "⛏️"
+  },
+  {
+    "id": 800,
+    "materia": "Geografía",
+    "cluster": 5,
+    "temas": [
+      "poblacion-piramides-migraciones",
+      "produccion-agraria-mundial-y-biotecnologia",
+      "ambiente-y-recursos",
+      "america-anglosajona",
+      "ambientalismo-liberal"
+    ],
+    "nombre": "Bevölkerung, Umwelt und Weltlandwirtschaft",
+    "descripcion": "Du hast die Prüfung mit Bevölkerungspyramiden und Migrationen, Agrarproduktion und Biotechnologie, Umwelt und Ressourcen, Angloamerika und liberalem Umweltschutz abgeschlossen.",
+    "icono": "🌾"
+  },
+  {
+    "id": 801,
+    "materia": "Geografía",
+    "cluster": 6,
+    "temas": [
+      "america-latina-formacion-poblacion",
+      "conservacionismo",
+      "decrecimiento",
+      "ecologismo-politico",
+      "indicadores-sociales-de-argentina"
+    ],
+    "nombre": "Meister von Umweltbewegung und Gesellschaft",
+    "descripcion": "Du hast Konservationismus, Postwachstum und politische Ökologie gemeistert, dazu die Herausbildung der lateinamerikanischen Bevölkerung und die Sozialindikatoren Argentiniens, Chef.",
+    "icono": "🌱"
+  },
+  {
+    "id": 802,
+    "materia": "Geografía",
+    "cluster": 7,
+    "temas": [
+      "migraciones-internacionales",
+      "indice-de-desarrollo-humano",
+      "migraciones-internas-en-argentina",
+      "paises-de-america-latina",
+      "recursos-hidricos-y-gestion"
+    ],
+    "nombre": "Experte für Migration und Entwicklung",
+    "descripcion": "Du hast die Prüfung mit internationaler und interner Migration, dem Index der menschlichen Entwicklung, den Ländern Lateinamerikas und dem Wasserressourcenmanagement abgeschlossen.",
+    "icono": "👥"
+  },
+  {
+    "id": 803,
+    "materia": "Geografía",
+    "cluster": 8,
+    "temas": [
+      "riesgos-naturales-argentinos",
+      "trabajo-y-desempleo-mundial",
+      "riesgos-ambientales-mundiales",
+      "turismo-mundial",
+      "urbanizacion-migracion-ciudad"
+    ],
+    "nombre": "Beherrschung von Risiken und Verstädterung",
+    "descripcion": "Du hast die Naturgefahren Argentiniens und die weltweiten Umweltrisiken gemeistert, dazu Tourismus, Arbeit und Arbeitslosigkeit sowie die Verstädterung, Chef.",
+    "icono": "🌋"
+  },
+  {
+    "id": 804,
+    "materia": "Geografía",
+    "cluster": 9,
+    "temas": [
+      "africa-regiones-recursos-y-desafios",
+      "asia-china-india-y-sudeste-asiatico",
+      "brasil-geografia-economia-y-relacion-con-argentina",
+      "cambio-climatico-causas-efectos-y-acuerdos",
+      "china-geografia-y-modelo-economico"
+    ],
+    "nombre": "Entdecker der Kontinente und des Klimas",
+    "descripcion": "Du hast die Prüfung bestanden, indem du Afrika, Asien, Brasilien und China erkundet und dazu die Ursachen, die Folgen und die Abkommen zum Klimawandel gelernt hast.",
+    "icono": "🌍"
+  },
+  {
+    "id": 805,
+    "materia": "Geografía",
+    "cluster": 10,
+    "temas": [
+      "europa-y-union-europea",
+      "medio-oriente-petroleo-agua-y-conflictos",
+      "oceania-y-antartida",
+      "redes-de-transporte-y-comunicacion-globales",
+      "rusia-y-asia-central",
+      "sudafrica-geografia-y-sociedad"
+    ],
+    "nombre": "Weltbürger",
+    "descripcion": "Du hast die Prüfung bestanden, indem du Europa und die Europäische Union, den Nahen Osten, Ozeanien und die Antarktis, Russland und Zentralasien sowie Südafrika erkundet und dazu die globalen Verkehrs- und Kommunikationsnetze gelernt hast.",
+    "icono": "🌏"
+  },
+  {
+    "id": 816,
+    "materia": "Informática",
+    "cluster": 1,
+    "temas": [
+      "algebra-booleana",
+      "complejidad-asintotica",
+      "ofimatica-planilla-de-calculo",
+      "que-es-la-tecnica-y-la-tecnologia",
+      "revolucion-informatica"
+    ],
+    "nombre": "Logik, Komplexität und digitale Revolution",
+    "descripcion": "Du hast die Prüfung mit Boolescher Algebra, asymptotischer Komplexität und Tabellenkalkulation abgeschlossen, dazu den Begriff von Technik und Technologie und die Informatikrevolution.",
+    "icono": "💻"
+  },
+  {
+    "id": 817,
+    "materia": "Informática",
+    "cluster": 2,
+    "temas": [
+      "medios-tecnicos-extension-capacidades-humanas",
+      "historia-y-evolucion-de-los-sistemas-operativos",
+      "procesos-tecnicos-artesanales-e-industriales",
+      "arranque-de-la-computadora-boot",
+      "sistemas-numeracion"
+    ],
+    "nombre": "Technik, Zahlensysteme und Systemstart",
+    "descripcion": "Du hast technische Mittel, handwerkliche und industrielle Prozesse, die Geschichte der Betriebssysteme, den Computerstart und die Zahlensysteme gemeistert, Chef.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 818,
+    "materia": "Informática",
+    "cluster": 3,
+    "temas": [
+      "tipos-de-so-por-dispositivo",
+      "cpu-unidad-de-control-y-alu",
+      "unidades-almacenamiento",
+      "ciclo-de-instruccion-fetch-decode-execute",
+      "memoria-ram-cache-jerarquia"
+    ],
+    "nombre": "Experte für Computerarchitektur",
+    "descripcion": "Du hast die Prüfung mit der CPU, dem Fetch-Decode-Execute-Zyklus, der Speicherhierarchie aus RAM und Cache, den Speichereinheiten und den Betriebssystemtypen nach Gerät bestanden.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 819,
+    "materia": "Informática",
+    "cluster": 4,
+    "temas": [
+      "algoritmo-secuencia-de-pasos",
+      "almacenamiento-volatil-vs-no-volatil",
+      "buses-y-entrada-salida",
+      "variables-y-tipos-de-dato",
+      "estructuras-de-control-condicionales"
+    ],
+    "nombre": "Grundlagen von Algorithmen und Hardware",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Algorithmen, Variablen und Bedingungen gemeistert, dazu Ein-/Ausgabe-Busse und flüchtigen gegenüber nichtflüchtigem Speicher.",
+    "icono": "🧮"
+  },
+  {
+    "id": 820,
+    "materia": "Informática",
+    "cluster": 5,
+    "temas": [
+      "operadores-aritmeticos",
+      "operadores-relacionales",
+      "operadores-logicos",
+      "estructuras-de-control-bucles",
+      "funciones-y-modularidad",
+      "estructuras-de-datos-listas-pilas-colas",
+      "poo-clases-y-objetos",
+      "algoritmos-busqueda-ordenamiento"
+    ],
+    "nombre": "Meister der Programmierung",
+    "descripcion": "Du hast arithmetische, relationale und logische Operatoren, Schleifen, Funktionen, Datenstrukturen (Listen, Stapel und Warteschlangen), objektorientierte Programmierung sowie Such- und Sortieralgorithmen gemeistert.",
+    "icono": "👨‍💻"
+  },
+  {
+    "id": 821,
+    "materia": "Informática",
+    "cluster": 6,
+    "temas": [
+      "archivos-y-persistencia",
+      "inteligencia-artificial-reglas-a-aprendizaje",
+      "modelo-relacional-tabla-registro-clave-primaria",
+      "etica-de-la-ia-sesgo-privacidad",
+      "criptografia-clave-simetrica-asimetrica-hash"
+    ],
+    "nombre": "Daten, KI und Kryptografie",
+    "descripcion": "Du hast die Prüfung mit Dateien und Persistenz, dem relationalen Modell, künstlicher Intelligenz und ihrer Ethik sowie symmetrischer, asymmetrischer und Hash-Kryptografie abgeschlossen, Chef.",
+    "icono": "🔐"
+  },
+  {
+    "id": 822,
+    "materia": "Informática",
+    "cluster": 7,
+    "temas": [
+      "direccionamiento-ip-dns",
+      "proceso-programa-en-ejecucion",
+      "protocolo-http-peticion-respuesta",
+      "comunicacion-entre-procesos",
+      "memoria-asignacion-memoria-virtual"
+    ],
+    "nombre": "Netzwerke, Prozesse und virtueller Speicher",
+    "descripcion": "Du hast die Prüfung mit IP-Adressierung, DNS und HTTP sowie mit Prozessen, Interprozesskommunikation und virtuellem Speicher bestanden.",
+    "icono": "🌐"
+  },
+  {
+    "id": 823,
+    "materia": "Informática",
+    "cluster": 8,
+    "temas": [
+      "planificacion-de-procesos",
+      "paginacion",
+      "interrupciones",
+      "recursividad",
+      "relaciones-y-claves-foraneas"
+    ],
+    "nombre": "Beherrschung des Betriebssystemkerns",
+    "descripcion": "Du hast die Prozessplanung, die Seitenverwaltung und Interrupts gemeistert, dazu Rekursion und Fremdschlüssel.",
+    "icono": "⚡"
+  },
+  {
+    "id": 824,
+    "materia": "Informática",
+    "cluster": 9,
+    "temas": [
+      "requisitos-funcionales-no-funcionales",
+      "normalizacion-bases-datos",
+      "diseno-y-arquitectura-de-software",
+      "segmentacion",
+      "control-de-versiones"
+    ],
+    "nombre": "Softwareentwicklung und Datenbanken",
+    "descripcion": "Du hast die Prüfung mit funktionalen und nichtfunktionalen Anforderungen, Entwurf und Architektur, Versionskontrolle, Datenbanknormalisierung und Segmentierung abgeschlossen, Chef.",
+    "icono": "📐"
+  },
+  {
+    "id": 825,
+    "materia": "Informática",
+    "cluster": 10,
+    "temas": [
+      "patrones-y-buenas-practicas",
+      "pruebas-unitarias-integracion",
+      "sistema-de-archivos",
+      "mantenimiento-y-deuda-tecnica",
+      "permisos-y-usuarios"
+    ],
+    "nombre": "Softwarequalität und Dateien",
+    "descripcion": "Du hast Muster und bewährte Verfahren, Unit- und Integrationstests, Wartung und technische Schulden gemeistert, dazu das Dateisystem und die Benutzerberechtigungen.",
+    "icono": "🧪"
+  },
+  {
+    "id": 826,
+    "materia": "Informática",
+    "cluster": 11,
+    "temas": [
+      "sistema-de-archivos-por-bitacora",
+      "sql-consultas-joins-agregaciones",
+      "subsistema-de-entrada-y-salida",
+      "tcp-ip-capas-enrutamiento",
+      "tipos-de-licencias-de-software",
+      "seguridad-de-red-firewall-vpn-cifrado",
+      "transacciones-acid",
+      "seguridad-informatica",
+      "virtualizacion-maquina-virtual-contenedor"
+    ],
+    "nombre": "Experte für Systeme, Netzwerke und Sicherheit",
+    "descripcion": "Du hast die Prüfung mit SQL und ACID-Transaktionen, TCP/IP, Netzwerksicherheit und IT-Sicherheit, Virtualisierung, Ein-/Ausgabe, Journaling-Dateisystemen und Softwarelizenzen abgeschlossen, Chef.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 827,
+    "materia": "Informática",
+    "cluster": 12,
+    "temas": [
+      "bases-de-datos-no-relacionales-nosql",
+      "como-se-construye-una-pagina-web-html-css-javascript",
+      "redes-locales-lan-wifi-y-topologias"
+    ],
+    "nombre": "Baumeister von Netzwerken und Webseiten",
+    "descripcion": "Du hast die Prüfung bestanden und dabei lokale Netzwerke und WLAN, nichtrelationale Datenbanken und den Aufbau einer Webseite mit HTML, CSS und JavaScript gemeistert.",
+    "icono": "🌐"
+  },
+  {
+    "id": 841,
+    "materia": "Química",
+    "cluster": 1,
+    "temas": [
+      "balanceo-ecuaciones",
+      "concentracion-de-una-solucion",
+      "densidad",
+      "dilucion-soluciones",
+      "equilibrio-quimico-kc"
+    ],
+    "nombre": "Meister der Lösungen und des Gleichgewichts",
+    "descripcion": "Du hast die Prüfung mit Konzentration und Verdünnung von Lösungen, dem Ausgleichen von Gleichungen, Dichte und dem chemischen Gleichgewicht Kc abgeschlossen, Chef.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 842,
+    "materia": "Química",
+    "cluster": 2,
+    "temas": [
+      "estados-y-cambios",
+      "cinetica-reaccion",
+      "equilibrio-solubilidad-ksp",
+      "estequiometria",
+      "medicion-de-laboratorio"
+    ],
+    "nombre": "Experte für Reaktionen und Stöchiometrie",
+    "descripcion": "Du hast die Stöchiometrie, die Reaktionskinetik, das Löslichkeitsgleichgewicht Ksp, Aggregatzustände und Zustandsänderungen sowie Labormessungen gemeistert.",
+    "icono": "🧪"
+  },
+  {
+    "id": 843,
+    "materia": "Química",
+    "cluster": 3,
+    "temas": [
+      "mezclas-metodos-separacion",
+      "ph-poh",
+      "modelos-atomicos",
+      "propiedades-coligativas",
+      "atomo-particulas-subatomicas"
+    ],
+    "nombre": "Beherrsche Atome, Gemische und pH",
+    "descripcion": "Du hast die Prüfung mit Atommodellen und subatomaren Teilchen, Trennverfahren für Gemische, pH und pOH sowie kolligativen Eigenschaften abgeschlossen, Chef.",
+    "icono": "⚛️"
+  },
+  {
+    "id": 844,
+    "materia": "Química",
+    "cluster": 4,
+    "temas": [
+      "quimica-analitica",
+      "numero-atomico-masico",
+      "quimica-de-la-atmosfera",
+      "configuracion-electronica",
+      "reactivo-limitante-rendimiento"
+    ],
+    "nombre": "Experte für Atomstruktur und Analytik",
+    "descripcion": "Du hast Ordnungs- und Massenzahl, Elektronenkonfiguration, limitierendes Reagenz und Ausbeute, analytische Chemie und Atmosphärenchemie gemeistert.",
+    "icono": "🔬"
+  },
+  {
+    "id": 845,
+    "materia": "Química",
+    "cluster": 5,
+    "temas": [
+      "seguridad-laboratorio",
+      "tabla-periodica-tendencias",
+      "tipos-reacciones-quimicas",
+      "enlace-quimico-polaridad",
+      "carbono-tetravalencia-cadenas"
+    ],
+    "nombre": "Meister der Bindungen und des Periodensystems",
+    "descripcion": "Du hast die Prüfung mit Periodentrends, chemischer Bindung und Polarität, Reaktionstypen und der Vierwertigkeit des Kohlenstoffs abgeschlossen, ohne die Laborsicherheit zu vergessen, Chef.",
+    "icono": "🔗"
+  },
+  {
+    "id": 846,
+    "materia": "Química",
+    "cluster": 6,
+    "temas": [
+      "geometria-molecular-vsepr",
+      "hidrocarburos-alcanos-alquenos-alquinos",
+      "nanotecnologia",
+      "grupos-funcionales",
+      "nomenclatura-compuestos"
+    ],
+    "nombre": "Beherrschung der organischen Chemie",
+    "descripcion": "Du hast die VSEPR-Molekülgeometrie, Kohlenwasserstoffe, funktionelle Gruppen und die Nomenklatur von Verbindungen gemeistert und außerdem die Nanotechnologie kennengelernt.",
+    "icono": "🧬"
+  },
+  {
+    "id": 847,
+    "materia": "Química",
+    "cluster": 7,
+    "temas": [
+      "biomoleculas-glucidos-lipidos-proteinas",
+      "mol-masa-molar",
+      "oxidacion-reduccion",
+      "gases-ideales",
+      "electrolisis"
+    ],
+    "nombre": "Experte für Mol, Gase und Redox",
+    "descripcion": "Du hast die Prüfung mit Mol und molarer Masse, idealen Gasen, Oxidation-Reduktion und Elektrolyse abgeschlossen und Biomoleküle wie Kohlenhydrate, Lipide und Proteine dazugenommen, Chef.",
+    "icono": "🔋"
+  },
+  {
+    "id": 848,
+    "materia": "Química",
+    "cluster": 8,
+    "temas": [
+      "petroleo-como-recurso-energetico",
+      "pilas-celdas-galvanicas",
+      "polimeros-naturales-sinteticos",
+      "presiones-parciales",
+      "superconductividad",
+      "termoquimica",
+      "energia-libre-gibbs"
+    ],
+    "nombre": "Meister von Energie und Materialien",
+    "descripcion": "Du hast die Thermochemie und die freie Gibbs-Energie, galvanische Zellen und Erdöl als Energiequelle gemeistert, dazu Polymere, Partialdrücke und Supraleitung.",
+    "icono": "⚡"
+  },
+  {
+    "id": 849,
+    "materia": "Química",
+    "cluster": 9,
+    "temas": [
+      "acidos-y-bases-teorias-arrhenius-bronsted-lowry",
+      "leyes-ponderales-lavoisier-proust",
+      "neutralizacion-y-titulacion",
+      "quimica-del-agua",
+      "reacciones-organicas-basicas"
+    ],
+    "nombre": "Meister der Säuren, Basen und Reaktionen",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Gesetze der Massenverhältnisse von Lavoisier und Proust, die Säure-Base-Theorien, Neutralisation und Titration, die grundlegenden organischen Reaktionen und die Chemie des Wassers gemeistert.",
+    "icono": "⚗️"
+  },
+  {
+    "id": 861,
+    "materia": "Biología",
+    "cluster": 1,
+    "temas": [
+      "crecimiento-poblacional",
+      "genetica-mendeliana-punnett",
+      "grupos-sanguineos",
+      "cruce-dihibrido",
+      "herencia-ligada-al-sexo"
+    ],
+    "nombre": "Meister der genetischen Vererbung",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Punnett-Quadrate, die dihybride Kreuzung, die geschlechtsgebundene Vererbung und die Blutgruppen gemeistert, dazu das Bevölkerungswachstum.",
+    "icono": "🧬"
+  },
+  {
+    "id": 862,
+    "materia": "Biología",
+    "cluster": 2,
+    "temas": [
+      "necesidades-basicas-seres-vivos",
+      "ser-vivo-caracteristicas",
+      "celula-organelas",
+      "ciclos-vida-metamorfosis",
+      "clasificacion-evolucion"
+    ],
+    "nombre": "Grundlagen der Lebewesen",
+    "descripcion": "Du hast gemeistert, was ein Lebewesen ausmacht, seine Grundbedürfnisse, die Zelle und ihre Organellen, Lebenszyklen mit Metamorphose und die evolutionäre Klassifikation, Chef.",
+    "icono": "🔬"
+  },
+  {
+    "id": 863,
+    "materia": "Biología",
+    "cluster": 3,
+    "temas": [
+      "fotosintesis-respiracion-celular",
+      "habitats-adaptacion",
+      "enzimas-proteina-sustrato-ph",
+      "flujo-materia-energia",
+      "microbiologia-virus-inmunitario"
+    ],
+    "nombre": "Experte für Stoffwechsel und Energie",
+    "descripcion": "Du hast die Prüfung zu Photosynthese und Zellatmung, Enzymen, Stoff- und Energiefluss, Anpassung an den Lebensraum und Mikrobiologie mit dem Immunsystem bestanden.",
+    "icono": "⚡"
+  },
+  {
+    "id": 864,
+    "materia": "Biología",
+    "cluster": 4,
+    "temas": [
+      "cadenas-redes-troficas",
+      "mal-de-chagas",
+      "ciclos-biogeoquimicos",
+      "dinamica-poblacional-capacidad-carga",
+      "mitosis-meiosis"
+    ],
+    "nombre": "Beherrschung von Ökosystemen und Zellteilung",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Nahrungsnetze, biogeochemische Kreisläufe und Tragfähigkeit mit Mitose und Meiose kombiniert, und sogar die Chagas-Krankheit als Fallstudie.",
+    "icono": "🌿"
+  },
+  {
+    "id": 865,
+    "materia": "Biología",
+    "cluster": 5,
+    "temas": [
+      "biodiversidad-indices",
+      "adn-gen-proteina",
+      "conservacion-areas-protegidas",
+      "biotecnologia-pcr-crispr",
+      "nicho-ecologico"
+    ],
+    "nombre": "Experte für Biodiversität und Biotechnologie",
+    "descripcion": "Du hast Biodiversitätsindizes, die ökologische Nische und Schutzgebiete gemeistert, dazu den Weg von DNA über Gen zu Protein und Werkzeuge wie PCR und CRISPR.",
+    "icono": "🧪"
+  },
+  {
+    "id": 866,
+    "materia": "Biología",
+    "cluster": 6,
+    "temas": [
+      "partes-planta-germinacion",
+      "piramide-biomasas",
+      "quimiosintesis",
+      "seleccion-natural",
+      "sistemas-cuerpo-humano"
+    ],
+    "nombre": "Meister von Evolution und menschlichem Körper",
+    "descripcion": "Du hast die Prüfung zu natürlicher Selektion, Chemosynthese und Biomassepyramiden bestanden, dazu die Teile der Pflanze, die Keimung und die Systeme des menschlichen Körpers.",
+    "icono": "🌱"
+  },
+  {
+    "id": 867,
+    "materia": "Biología",
+    "cluster": 7,
+    "temas": [
+      "deriva-genetica-flujo-genico",
+      "especiacion",
+      "presion-arterial",
+      "filogenia-arboles-evolutivos",
+      "sistema-endocrino-hormonas-glandulas",
+      "sistema-nervioso-neurona-sinapsis",
+      "transgenicos-bioetica"
+    ],
+    "nombre": "Experte für Evolution und Physiologie",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Artbildung, genetische Drift, Phylogenie, Nerven- und Hormonsystem, Blutdruck und die Bioethik der Transgene gemeistert, Chef.",
+    "icono": "🧠"
+  },
+  {
+    "id": 868,
+    "materia": "Biología",
+    "cluster": 8,
+    "temas": [
+      "homeostasis-y-regulacion",
+      "los-sentidos-vista-oido-olfato-gusto-y-tacto",
+      "relaciones-interespecificas-simbiosis-parasitismo-competencia",
+      "reproduccion-sexual-y-asexual",
+      "sistema-circulatorio-corazon-y-sangre"
+    ],
+    "nombre": "Meister der Homöostase und der Sinne",
+    "descripcion": "Du hast die Prüfung bestanden und dabei die Homöostase, die Sinne, die Beziehungen zwischen Arten, die geschlechtliche und ungeschlechtliche Fortpflanzung sowie das Kreislaufsystem gemeistert.",
+    "icono": "🫀"
+  },
+  {
+    "id": 869,
+    "materia": "Biología",
+    "cluster": 9,
+    "temas": [
+      "sistema-digestivo-y-nutricion",
+      "sistema-excretor-rinon-y-homeostasis-del-agua",
+      "sistema-inmunitario-defensas-y-memoria-inmune",
+      "sistema-muscular-y-contraccion",
+      "sistema-oseo-y-articulaciones",
+      "sistema-respiratorio-e-intercambio-gaseoso",
+      "sistema-tegumentario-piel-y-termorregulacion"
+    ],
+    "nombre": "Meister des menschlichen Körpers",
+    "descripcion": "Du hast die Prüfung bestanden und dabei Verdauungs-, Ausscheidungs-, Immun-, Muskel-, Knochen- und Atmungssystem sowie die Haut mit ihrer Temperaturregulation gemeistert.",
+    "icono": "🦴"
+  },
+  {
+    "id": 879,
+    "materia": "Cívica",
+    "cluster": 1,
+    "temas": [
+      "derechos-nino",
+      "encuesta-electoral",
+      "derechos-indigenas",
+      "discriminacion-y-organismos-de-proteccion",
+      "derechos-genero"
+    ],
+    "nombre": "Experte für Rechte und Nichtdiskriminierung",
+    "descripcion": "Du hast Kinderrechte, Geschlechterrechte und Rechte indigener Völker, die Stellen zum Schutz vor Diskriminierung und das Lesen einer Wahlumfrage gemeistert, Chef.",
+    "icono": "✊"
+  },
+  {
+    "id": 880,
+    "materia": "Cívica",
+    "cluster": 2,
+    "temas": [
+      "estado-de-derecho-por-que-importa",
+      "marchas-patrioticas",
+      "organizacion-del-estado",
+      "origen-estado-derecho",
+      "constitucion-preambulo"
+    ],
+    "nombre": "Meister des Rechtsstaats",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Ursprung und Bedeutung des Rechtsstaats, die Staatsorganisation, die Präambel der Verfassung und die patriotischen Märsche gemeistert.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 881,
+    "materia": "Cívica",
+    "cluster": 3,
+    "temas": [
+      "division-de-poderes",
+      "constitucion-nacional-jerarquia-normativa",
+      "como-se-hace-una-ley",
+      "derechos-y-garantias",
+      "documentos-y-tramites"
+    ],
+    "nombre": "Beherrschung von Verfassung und Gesetzen",
+    "descripcion": "Du hast die Gewaltenteilung, die Normenhierarchie der Nationalverfassung, wie ein Gesetz entsteht, Rechte und Garantien sowie Behördengänge und Dokumente gemeistert, Chef.",
+    "icono": "📕"
+  },
+  {
+    "id": 882,
+    "materia": "Cívica",
+    "cluster": 4,
+    "temas": [
+      "impuestos",
+      "alcoholemia-y-conduccion",
+      "prioridades-de-paso",
+      "proyecto-ciudadano-participativo",
+      "senalizacion-vial"
+    ],
+    "nombre": "Verantwortungsvoller Bürger im Straßenverkehr",
+    "descripcion": "Du hast die Boss-Prüfung über Steuern, Alkohol am Steuer, Verkehrszeichen und Bürgerbeteiligung bestanden.",
+    "icono": "🚦"
+  },
+  {
+    "id": 883,
+    "materia": "Cívica",
+    "cluster": 5,
+    "temas": [
+      "simbolos-patrios",
+      "sistema-de-salud",
+      "sistema-electoral-dhondt",
+      "sistemas-politicos-comparados",
+      "sueldo-promedio-pais"
+    ],
+    "nombre": "Meister der Systeme des Landes",
+    "descripcion": "Du hast die Prüfung über die Nationalsymbole, das Gesundheitssystem, das D'Hondt-Verfahren und vergleichende politische Systeme bestanden, Chef.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 884,
+    "materia": "Cívica",
+    "cluster": 6,
+    "temas": [
+      "partidos-politicos",
+      "sufragio-restringido-universal",
+      "organismos-internacionales",
+      "teoria-del-poder",
+      "tratados-internacionales",
+      "tipos-de-estado"
+    ],
+    "nombre": "Meister der Macht und der internationalen Politik",
+    "descripcion": "Du hast die Boss-Prüfung über die politischen Parteien, die Entwicklung des Wahlrechts, internationale Verträge und die Staatsformen bestanden.",
+    "icono": "🌐"
+  },
+  {
+    "id": 894,
+    "materia": "Derecho",
+    "cluster": 1,
+    "temas": [
+      "ramas-del-derecho",
+      "derecho-administrativo",
+      "derecho-civil",
+      "derecho-comercial",
+      "derecho-constitucional"
+    ],
+    "nombre": "Meister der Rechtsgebiete",
+    "descripcion": "Du hast die Landkarte der Rechtsgebiete und ihrer Säulen gemeistert: Verfassungsrecht, Zivilrecht, Handelsrecht und Verwaltungsrecht.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 895,
+    "materia": "Derecho",
+    "cluster": 2,
+    "temas": [
+      "derecho-internacional",
+      "derecho-laboral",
+      "derecho-penal",
+      "denuncia-y-etapa-de-instruccion",
+      "hecho-juridicamente-relevante"
+    ],
+    "nombre": "Experte für Straf- und Arbeitsrecht",
+    "descripcion": "Du hast die Prüfung zu Straf-, Arbeits- und Völkerrecht abgeschlossen und dazu, wie ein rechtlich relevanter Sachverhalt zu einer Anzeige und zu Ermittlungen führt, Chef.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 896,
+    "materia": "Derecho",
+    "cluster": 3,
+    "temas": [
+      "investigacion-prueba-y-fiscalia",
+      "fuentes-del-derecho",
+      "norma-jerarquia-y-vigencia",
+      "corrientes-interpretacion-juridica",
+      "interpretacion-normativa"
+    ],
+    "nombre": "Beherrschung von Rechtsquellen und Auslegung",
+    "descripcion": "Du hast die Rechtsquellen, die Hierarchie und Geltung von Normen, die Auslegungslehren und die Ermittlung mit Staatsanwaltschaft und Beweisen gemeistert.",
+    "icono": "📜"
+  },
+  {
+    "id": 897,
+    "materia": "Derecho",
+    "cluster": 4,
+    "temas": [
+      "politica-criminal-garantismo-mano-dura",
+      "argumentacion-juridica",
+      "resolucion-de-conflictos-y-sentencia",
+      "juicio-oral",
+      "apelacion-e-instancias",
+      "ejecucion-de-la-sentencia"
+    ],
+    "nombre": "Meister des Strafverfahrens und des Urteils",
+    "descripcion": "Du hast die Prüfung zu juristischer Argumentation, mündlicher Verhandlung, Entscheidung und Urteil, Berufung und Instanzen, Strafvollstreckung und der Debatte Garantismus gegen harte Hand bestanden.",
+    "icono": "🔨"
+  },
+  {
+    "id": 904,
+    "materia": "Arte",
+    "cluster": 1,
+    "temas": [
+      "acustica-instrumento-musical",
+      "composicion-y-proporcion",
+      "origen-del-arte",
+      "elementos-del-arte",
+      "principios-de-diseno"
+    ],
+    "nombre": "Meister der Grundlagen der Kunst",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei den Ursprung der Kunst, ihre Gestaltungselemente und -prinzipien, Komposition und Proportion sowie die Akustik des Musikinstruments gemeistert.",
+    "icono": "🎨"
+  },
+  {
+    "id": 905,
+    "materia": "Arte",
+    "cluster": 2,
+    "temas": [
+      "ritmo-compas-pulso-figuras-musicales",
+      "narrativa-audiovisual/plano",
+      "danza-ritmo-tiempo-expresion-corporal",
+      "lenguaje-musical-pentagrama-escalas-intervalos",
+      "narrativa-audiovisual/encuadre"
+    ],
+    "nombre": "Experte für Rhythmus, Musik und Einstellung",
+    "descripcion": "Du hast Puls, Takt und Notenwerte, das Notensystem mit Tonleitern und Intervallen, Tanz und Körperausdruck sowie die Einstellungsgröße und den Bildausschnitt im Audiovisuellen gemeistert, Chef.",
+    "icono": "🎼"
+  },
+  {
+    "id": 906,
+    "materia": "Arte",
+    "cluster": 3,
+    "temas": [
+      "armonia-basica-acordes-tonalidad",
+      "narrativa-audiovisual/montaje",
+      "rosetones-y-simetria",
+      "produccion-multimedial",
+      "teatro-dramaturgia-y-actuacion"
+    ],
+    "nombre": "Beherrschung von Harmonie, Schnitt und Bühne",
+    "descripcion": "Du hast die Prüfung zu Harmonie und Akkorden, audiovisueller Montage, Multimediaproduktion, Theater und Dramaturgie sowie der Symmetrie von Rosettenfenstern bestanden.",
+    "icono": "🎭"
+  },
+  {
+    "id": 907,
+    "materia": "Arte",
+    "cluster": 4,
+    "temas": [
+      "arte-antiguo-egipto-y-mesopotamia",
+      "arte-clasico-grecia-y-roma",
+      "arte-medieval-romanico-y-gotico",
+      "renacimiento-y-manierismo",
+      "barroco",
+      "impresionismo-y-postimpresionismo",
+      "vanguardias-del-siglo-xx",
+      "arte-argentino-colonial-al-siglo-xx",
+      "fotografia-y-cine-como-arte"
+    ],
+    "nombre": "Reisender durch die Kunstgeschichte",
+    "descripcion": "Du hast die Prüfung bestanden, indem du die Kunst Ägyptens und Mesopotamiens, die Klassik, Romanik und Gotik, Renaissance und Barock, den Impressionismus, die Avantgarden des 20. Jahrhunderts, die argentinische Kunst sowie Fotografie und Film als Kunst durchlaufen hast.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 912,
+    "materia": "Investigación",
+    "cluster": 1,
+    "temas": [
+      "observacion-y-pregunta-investigable",
+      "hipotesis-buena-o-mala",
+      "metodologia-cualitativa-vs-cuantitativa",
+      "construir-y-usar-un-modelo-cientifico",
+      "trabajo-de-campo-enfoque-socioantropologico"
+    ],
+    "nombre": "Eingeweihter in die wissenschaftliche Methode",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die Beobachtung und die erforschbare Frage, die gute Hypothese, qualitative und quantitative Methodik, wissenschaftliche Modelle und die Feldarbeit gemeistert.",
+    "icono": "🔎"
+  },
+  {
+    "id": 913,
+    "materia": "Investigación",
+    "cluster": 2,
+    "temas": [
+      "corrientes-filosofia-de-la-ciencia",
+      "diseno-experimental-variables-y-control",
+      "tecnicas-de-investigacion-social",
+      "recoleccion-de-datos",
+      "analisis-estadistico-de-resultados",
+      "conclusion-y-comunicacion-de-resultados",
+      "argumentar-desde-evidencia"
+    ],
+    "nombre": "Experte für Forschungsdesign und -analyse",
+    "descripcion": "Du hast das Versuchsdesign, die Datenerhebung, die statistische Analyse, die evidenzbasierte Argumentation und die Kommunikation von Schlussfolgerungen gemeistert, dazu Wissenschaftsphilosophie und sozialwissenschaftliche Techniken.",
+    "icono": "📊"
+  },
+  {
+    "id": 918,
+    "materia": "Ingeniería",
+    "cluster": 1,
+    "temas": [
+      "modelizacion-matematica",
+      "problema-y-restricciones",
+      "disciplinas-de-la-ingenieria",
+      "investigar-soluciones-existentes",
+      "diseno-conceptual"
+    ],
+    "nombre": "Meister des Einstiegs ins Ingenieurdesign",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei das Problem und seine Randbedingungen, die Recherche von Lösungen, den konzeptionellen Entwurf, die mathematische Modellierung und die Ingenieurdisziplinen gemeistert.",
+    "icono": "📐"
+  },
+  {
+    "id": 919,
+    "materia": "Ingeniería",
+    "cluster": 2,
+    "temas": [
+      "modelado-y-calculo",
+      "prototipo",
+      "resistencia-de-materiales",
+      "ensayo-y-medicion",
+      "optimizacion-e-iteracion",
+      "comunicar-la-solucion"
+    ],
+    "nombre": "Experte für den Bau und die Validierung von Lösungen",
+    "descripcion": "Du hast die Prüfung zu Modellierung und Berechnung, Festigkeitslehre, Prototyp, Prüfung und Messung, iterativer Optimierung und der Kommunikation der Lösung bestanden, Chef.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 924,
+    "materia": "Psicología",
+    "cluster": 1,
+    "temas": [
+      "psicologia-modernidad-y-el-yo",
+      "autoconocimiento-como-busqueda-humana",
+      "dependencia-del-otro-cultura-como-herencia",
+      "memoria-y-olvido-represion-inconsciente",
+      "psicologia-cognitiva-percepcion-memoria-atencion"
+    ],
+    "nombre": "Experte für Selbst, Gedächtnis und Kultur",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei die Psychologie der Moderne und des Selbst, die Selbsterkenntnis, die Kultur als Erbe sowie Gedächtnis, Vergessen und Verdrängung gemeistert.",
+    "icono": "🧠"
+  },
+  {
+    "id": 925,
+    "materia": "Psicología",
+    "cluster": 2,
+    "temas": [
+      "lenguaje-pensamiento-y-creatividad",
+      "corrientes-psicologicas-psicoanalisis-conductismo-humanismo-cognitivismo",
+      "edades-del-ser-humano-ninez-pubertad-identidad",
+      "salud-mental-ansiedad-depresion-pedir-ayuda",
+      "sesgos-cognitivos-heuristicas-error-sistematico"
+    ],
+    "nombre": "Meister der Strömungen und des menschlichen Geistes",
+    "descripcion": "Du hast die psychologischen Strömungen, kognitive Verzerrungen, Sprache, Denken und Kreativität, die Lebensalter des Menschen und die psychische Gesundheit gemeistert, Chef.",
+    "icono": "💭"
+  },
+  {
+    "id": 926,
+    "materia": "Psicología",
+    "cluster": 3,
+    "temas": [
+      "condicionamiento-y-aprendizaje-psicologico",
+      "desarrollo-cognitivo-piaget-vygotsky",
+      "emociones-y-regulacion-emocional",
+      "motivacion-y-necesidades",
+      "personalidad",
+      "psicologia-social-grupos-y-conformidad"
+    ],
+    "nombre": "Experte für Entwicklung, Emotion und Verhalten",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: die kognitive Entwicklung nach Piaget und Wygotski, Konditionierung und psychologisches Lernen, Emotionen und ihre Regulation und Motivation, Persönlichkeit und Gruppenpsychologie.",
+    "icono": "🧠"
+  },
+  {
+    "id": 930,
+    "materia": "Ciencia de Materiales",
+    "cluster": 1,
+    "temas": [
+      "corrosion",
+      "elasticidad-ley-de-hooke-modulo-de-young",
+      "propiedades-mecanicas-dureza-tenacidad-ductilidad",
+      "plasticidad-y-punto-de-fluencia",
+      "familias-de-materiales-metales-ceramicos-polimeros-compuestos",
+      "fatiga-y-fractura"
+    ],
+    "nombre": "Experte für Materialverhalten",
+    "descripcion": "Du hast die Prüfung zu Elastizität und Hookeschem Gesetz, Plastizität und Streckgrenze, Härte und Zähigkeit, Ermüdung und Bruch, Korrosion und den Werkstofffamilien bestanden.",
+    "icono": "🔩"
+  },
+  {
+    "id": 931,
+    "materia": "Ciencia de Materiales",
+    "cluster": 2,
+    "temas": [
+      "enlaces-y-estructura-atomica-de-los-materiales",
+      "ensayos-de-materiales-traccion-dureza-impacto",
+      "ceramicos-y-vidrios",
+      "estructuras-cristalinas-y-celdas-unitarias",
+      "materiales-compuestos-fibras-y-matrices"
+    ],
+    "nombre": "Meister der Werkstoffstruktur",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Bindungen und atomare Struktur der Werkstoffe, Kristallstrukturen und Elementarzellen, Zug-, Härte- und Schlagversuche und Keramiken, Gläser und Verbundwerkstoffe.",
+    "icono": "🔬"
+  },
+  {
+    "id": 932,
+    "materia": "Ciencia de Materiales",
+    "cluster": 3,
+    "temas": [
+      "defectos-cristalinos-y-dislocaciones",
+      "diagramas-de-fase-y-aleaciones",
+      "endurecimiento-y-conformado-de-metales",
+      "diagrama-hierro-carbono-y-aceros",
+      "polimeros-termoplasticos-termoestables-elastomeros"
+    ],
+    "nombre": "Experte für Legierungen, Stähle und Polymere",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Kristallfehler und Versetzungen, Phasendiagramme und Legierungen, Verfestigung und Umformung von Metallen sowie das Eisen-Kohlenstoff-Diagramm mit den Stählen und thermoplastische, duroplastische und elastomere Polymere.",
+    "icono": "⚙️"
+  },
+  {
+    "id": 933,
+    "materia": "Ciencia de Materiales",
+    "cluster": 4,
+    "temas": [
+      "prevencion-de-la-corrosion-y-proteccion-superficial",
+      "propiedades-electricas-y-magneticas-de-los-materiales",
+      "propiedades-termicas-dilatacion-y-conductividad",
+      "seleccion-de-materiales-y-sostenibilidad",
+      "tratamientos-termicos-temple-revenido-recocido"
+    ],
+    "nombre": "Meister der Werkstoffeigenschaften und Wärmebehandlung",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Wärmebehandlungen: Härten, Anlassen und Glühen, die elektrischen, magnetischen und thermischen Eigenschaften der Werkstoffe, Korrosionsschutz und Oberflächenschutz und Werkstoffauswahl und Nachhaltigkeit.",
+    "icono": "🛠️"
+  },
+  {
+    "id": 934,
+    "materia": "Dibujo Técnico",
+    "cluster": 1,
+    "temas": [
+      "sistemas-de-proyeccion",
+      "vistas-frontal-superior-lateral",
+      "perspectivas-isometrica-y-caballera",
+      "escalas-numericas-y-graficas",
+      "acotacion-normalizada"
+    ],
+    "nombre": "Meister des technischen Zeichnens",
+    "descripcion": "Du hast die Prüfung abgeschlossen und dabei Projektionssysteme, Ansichten, isometrische und Kavalierperspektive, Maßstäbe und die normgerechte Bemaßung gemeistert, Chef.",
+    "icono": "📏"
+  },
+  {
+    "id": 935,
+    "materia": "Dibujo Técnico",
+    "cluster": 2,
+    "temas": [
+      "cortes-y-secciones",
+      "croquis-y-relevamiento-de-medidas",
+      "dibujo-asistido-por-computadora-cad",
+      "geometria-descriptiva-punto-recta-plano",
+      "instrumentos-de-dibujo-y-trazos-basicos"
+    ],
+    "nombre": "Meister von Zeichnen, Skizzieren und CAD",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Zeichengeräte und grundlegende Linienführung, Skizzen und Aufmaß, die darstellende Geometrie von Punkt, Gerade und Ebene und Schnitte und computergestütztes Zeichnen (CAD).",
+    "icono": "✏️"
+  },
+  {
+    "id": 936,
+    "materia": "Dibujo Técnico",
+    "cluster": 3,
+    "temas": [
+      "interpretar-planos-de-piezas-y-conjuntos",
+      "geometria-constructiva-tangencias-y-enlaces",
+      "representacion-de-roscas-tornillos-y-uniones",
+      "simbolos-de-soldadura-y-uniones",
+      "tipos-de-linea-formatos-y-rotulo"
+    ],
+    "nombre": "Experte für Normen und das Lesen von Plänen",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Linienarten, Formate und Schriftfeld, die Konstruktionsgeometrie mit Tangenten und Übergängen, die Darstellung von Gewinden, Schrauben und Verbindungen sowie Schweißsymbole und das Lesen von Zeichnungen von Einzelteilen und Baugruppen.",
+    "icono": "📋"
+  },
+  {
+    "id": 937,
+    "materia": "Dibujo Técnico",
+    "cluster": 4,
+    "temas": [
+      "tolerancias-y-ajustes",
+      "dibujo-arquitectonico-plantas-cortes-y-fachadas",
+      "dibujo-electrico-y-esquemas-de-instalaciones",
+      "rugosidad-y-acabado-superficial",
+      "vistas-auxiliares-y-detalles"
+    ],
+    "nombre": "Meister der Toleranzen und Fachzeichnungen",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Toleranzen und Passungen, Rauheit und Oberflächengüte, Hilfsansichten und Einzelheiten und Architekturzeichnen und Elektrozeichnen.",
+    "icono": "📏"
+  },
+  {
+    "id": 938,
+    "materia": "Comunicación",
+    "cluster": 1,
+    "temas": [
+      "generos-periodisticos",
+      "teoria-de-la-comunicacion-emisor-receptor-canal-ruido",
+      "etica-y-responsabilidad-de-los-medios",
+      "corrientes-de-la-comunicacion",
+      "publicidad-y-persuasion"
+    ],
+    "nombre": "Experte für Kommunikation und Medien",
+    "descripcion": "Du hast die Kommunikationstheorie und ihre Strömungen, journalistische Genres, Medienethik sowie Werbung und Überzeugung gemeistert.",
+    "icono": "📰"
+  },
+  {
+    "id": 939,
+    "materia": "Comunicación",
+    "cluster": 2,
+    "temas": [
+      "analisis-del-discurso-y-encuadre-mediatico",
+      "comunicacion-institucional-y-de-crisis",
+      "comunicacion-oral-y-hablar-en-publico",
+      "comunicacion-verbal-y-no-verbal",
+      "comunicacion-visual-e-imagen",
+      "medios-masivos-y-medios-digitales"
+    ],
+    "nombre": "Experte für Diskurs, Medien und Bild",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Massenmedien und digitale Medien, Diskursanalyse und mediales Framing, verbale und nonverbale, mündliche und visuelle Kommunikation und institutionelle und Krisenkommunikation.",
+    "icono": "🎙️"
+  },
+  {
+    "id": 942,
+    "materia": "Electrónica",
+    "cluster": 1,
+    "temas": [
+      "componentes-resistencia-capacitor-diodo-transistor",
+      "circuitos-y-leyes-de-kirchhoff",
+      "logica-digital-puertas-and-or-not",
+      "microcontroladores-y-microprocesadores",
+      "sensores-y-actuadores"
+    ],
+    "nombre": "Meister der Schaltungen und der digitalen Steuerung",
+    "descripcion": "Du hast die Prüfung zu Widerständen, Kondensatoren, Dioden und Transistoren, den Kirchhoffschen Gesetzen, digitaler Logik, Mikrocontrollern, Sensoren und Aktoren abgeschlossen.",
+    "icono": "🔌"
+  },
+  {
+    "id": 943,
+    "materia": "Electrónica",
+    "cluster": 2,
+    "temas": [
+      "capacitor-rc-carga-y-descarga",
+      "compuertas-nand-nor-xor-y-universalidad",
+      "diodo-polarizacion-rectificacion-y-fuentes",
+      "divisor-de-tension-y-codigo-de-colores",
+      "inductores-y-bobinas"
+    ],
+    "nombre": "Experte für Bauelemente, Dioden und Logikgatter",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: den Spannungsteiler und den Farbcode, das Laden und Entladen des RC-Kondensators sowie Induktivitäten, die Diode, die Gleichrichtung und Netzteile und NAND-, NOR- und XOR-Gatter und ihre Universalität.",
+    "icono": "🔌"
+  },
+  {
+    "id": 944,
+    "materia": "Electrónica",
+    "cluster": 3,
+    "temas": [
+      "instrumentos-de-medicion-multimetro-y-osciloscopio",
+      "logica-combinacional-sumadores-multiplexores",
+      "microcontrolador-entradas-y-salidas-digitales",
+      "logica-secuencial-flip-flops-y-contadores",
+      "comunicacion-serie-uart-i2c-spi"
+    ],
+    "nombre": "Meister der Digitaltechnik und Mikrocontroller",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: Messgeräte: Multimeter und Oszilloskop, kombinatorische Logik mit Addierern und Multiplexern, sequentielle Logik mit Flipflops und Zählern und digitale Ein- und Ausgänge des Mikrocontrollers und die serielle Kommunikation UART, I2C und SPI.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 945,
+    "materia": "Electrónica",
+    "cluster": 4,
+    "temas": [
+      "prototipado-protoboard-soldadura-y-seguridad",
+      "senales-analogicas-y-digitales-adc-dac",
+      "temporizador-555-y-osciladores",
+      "transistor-como-interruptor-y-amplificador",
+      "amplificador-operacional"
+    ],
+    "nombre": "Experte für Transistoren, Operationsverstärker und Signale",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: den Transistor als Schalter und Verstärker, den Operationsverstärker, analoge und digitale Signale mit ADC und DAC und den Timer 555 sowie Prototyping auf dem Steckbrett mit Löten und Sicherheit.",
+    "icono": "⚡"
+  },
+  {
+    "id": 946,
+    "materia": "Automatización",
+    "cluster": 1,
+    "temas": [
+      "lazo-abierto-vs-lazo-cerrado",
+      "plc-logica-de-control-industrial",
+      "realimentacion-feedback",
+      "control-pid-proporcional-integral-derivativo",
+      "servomecanismos"
+    ],
+    "nombre": "Experte für Regelungssysteme",
+    "descripcion": "Du hast offenen und geschlossenen Regelkreis, Rückkopplung, PID-Regelung, Servomechanismen und die Steuerungslogik mit SPS gemeistert, Chef.",
+    "icono": "🤖"
+  },
+  {
+    "id": 947,
+    "materia": "Automatización",
+    "cluster": 2,
+    "temas": [
+      "control-on-off-con-histeresis",
+      "instrumentacion-industrial-y-lazos-4-20-ma",
+      "modelado-de-sistemas-dinamicos-primer-orden",
+      "mantenimiento-y-diagnostico-de-sistemas-automatizados",
+      "motores-electricos-y-variadores-de-frecuencia"
+    ],
+    "nombre": "Meister der Messtechnik und Antriebe",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: die Zweipunktregelung mit Hysterese, industrielle Messtechnik und 4-20-mA-Schleifen, die Modellierung dynamischer Systeme erster Ordnung und Elektromotoren und Frequenzumrichter sowie Wartung und Diagnose automatisierter Anlagen.",
+    "icono": "🤖"
+  },
+  {
+    "id": 948,
+    "materia": "Automatización",
+    "cluster": 3,
+    "temas": [
+      "neumatica-e-hidraulica-basica",
+      "plc-lenguaje-ladder-contactos-y-bobinas",
+      "redes-industriales-y-scada",
+      "grafcet-y-automatismos-secuenciales",
+      "plc-temporizadores-contadores-y-secuencias",
+      "respuesta-transitoria-y-regimen-permanente",
+      "seguridad-funcional-y-paradas-de-emergencia",
+      "estabilidad-de-sistemas-de-control",
+      "sintonia-de-pid-metodos-practicos"
+    ],
+    "nombre": "Experte für SPS, Netzwerke und fortgeschrittene Regelung",
+    "descripcion": "Du hast in der Teilprüfung folgende Themen gemeistert: die SPS-Programmierung: Kontaktplan, Zeitgeber, Zähler und GRAFCET, grundlegende Pneumatik und Hydraulik, Industrienetzwerke und SCADA und das Übergangsverhalten, die Stabilität, die PID-Einstellung und die funktionale Sicherheit mit Not-Halt.",
+    "icono": "🏭"
+  },
+  {
+    "id": 950,
+    "materia": "UX/Diseño",
+    "cluster": 1,
+    "temas": [
+      "usabilidad-heuristicas-de-nielsen",
+      "accesibilidad-wcag-contraste-lectores-de-pantalla",
+      "jerarquia-visual-e-informacion",
+      "prototipado-wireframe-mockup-prototipo-interactivo",
+      "pruebas-de-usuario"
+    ],
+    "nombre": "Meister der User Experience",
+    "descripcion": "Du hast die Prüfung bestanden und dabei Usability und die Heuristiken von Nielsen, WCAG-Barrierefreiheit, visuelle Hierarchie, Prototyping und Nutzertests gemeistert.",
+    "icono": "🖥️"
+  },
+  {
+    "id": 951,
+    "materia": "Filosofía",
+    "cluster": 1,
+    "temas": [
+      "logica-proposicional",
+      "metodo-cientifico-racionalismo",
+      "el-gusto-estetico",
+      "epistemologia",
+      "etica-como-rama-propia"
+    ],
+    "nombre": "Logischer Denker und Erkenntnistheoretiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Aussagenlogik, wissenschaftliche Methode und Rationalismus, ästhetischen Geschmack, Erkenntnistheorie und Ethik als eigenständigen Zweig.",
+    "icono": "🧠"
+  },
+  {
+    "id": 952,
+    "materia": "Filosofía",
+    "cluster": 2,
+    "temas": [
+      "existencia",
+      "contractualismo",
+      "deontologia",
+      "etica-de-la-virtud",
+      "historia-de-la-filosofia-y-corrientes"
+    ],
+    "nombre": "Entdecker von Ethik und Existenz",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Existenz, Kontraktualismus, Deontologie, Tugendethik und Geschichte der Philosophie und ihre Strömungen.",
+    "icono": "⚖️"
+  },
+  {
+    "id": 953,
+    "materia": "Filosofía",
+    "cluster": 3,
+    "temas": [
+      "lo-bello",
+      "que-es-el-arte",
+      "realidad",
+      "ser-ontologia",
+      "utilitarismo",
+      "validez-de-un-razonamiento",
+      "bioetica-general",
+      "logica-de-predicados"
+    ],
+    "nombre": "Philosoph des Seins und der Schönheit",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst das Schöne, die Frage, was Kunst ist, die Wirklichkeit, Ontologie, Utilitarismus, die Gültigkeit eines Arguments und Bioethik und Prädikatenlogik.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 954,
+    "materia": "Antropología",
+    "cluster": 1,
+    "temas": [
+      "cultura",
+      "diversidad-cultural",
+      "subcampos-de-la-antropologia",
+      "etnocentrismo",
+      "relaciones-de-parentesco"
+    ],
+    "nombre": "Kulturanthropologe",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Kultur, kulturelle Vielfalt, Ethnozentrismus, Verwandtschaftsbeziehungen und die Teilgebiete der Anthropologie.",
+    "icono": "🌍"
+  },
+  {
+    "id": 955,
+    "materia": "Sociología",
+    "cluster": 1,
+    "temas": [
+      "hechos-sociales",
+      "instituciones",
+      "estratificacion"
+    ],
+    "nombre": "Sozialanalytiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst soziale Tatsachen, soziale Schichtung und Institutionen.",
+    "icono": "🏙️"
+  },
+  {
+    "id": 956,
+    "materia": "Aprendizaje",
+    "cluster": 1,
+    "temas": [
+      "metacognicion-saber-que-se-y-que-no-se",
+      "tecnicas-de-estudio-repaso-espaciado-recuperacion"
+    ],
+    "nombre": "Lernstratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Metakognition und Lerntechniken, verteiltes Wiederholen und Abrufübungen.",
+    "icono": "📚"
+  },
+  {
+    "id": 957,
+    "materia": "Ciudadanía Digital",
+    "cluster": 1,
+    "temas": [
+      "ciudadania-digital-privacidad-huella-digital",
+      "confiabilidad-y-verificacion-de-una-fuente",
+      "desinformacion-en-red",
+      "detectar-desinformacion-sesgo-deepfakes",
+      "fuente-primaria-vs-secundaria",
+      "publicidad-enganosa",
+      "verificacion-de-una-noticia"
+    ],
+    "nombre": "Kritischer digitaler Bürger",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Privatsphäre und digitalen Fußabdruck, Primär- und Sekundärquellen, die Verlässlichkeit von Quellen, Desinformation im Netz, Verzerrung und Deepfakes, irreführende Werbung und die Überprüfung von Nachrichten.",
+    "icono": "🛡️"
+  },
+  {
+    "id": 958,
+    "materia": "Resolución de Problemas",
+    "cluster": 1,
+    "temas": [
+      "detectar-el-problema",
+      "analizar-causas-y-restricciones",
+      "disenar-posibles-soluciones",
+      "identificar-alternativas",
+      "implementar-la-solucion"
+    ],
+    "nombre": "Problemdetektiv",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst das Erkennen von Problemen, die Analyse von Ursachen und Einschränkungen, den Entwurf möglicher Lösungen, das Finden von Alternativen und die Umsetzung der Lösung.",
+    "icono": "🔎"
+  },
+  {
+    "id": 959,
+    "materia": "Resolución de Problemas",
+    "cluster": 2,
+    "temas": [
+      "costo-beneficio",
+      "definir-alcance-y-objetivos",
+      "evaluar-el-resultado",
+      "planificacion-tareas-e-hitos",
+      "mejorar-o-iterar"
+    ],
+    "nombre": "Lösungsbewerter",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Kosten-Nutzen-Analyse, die Festlegung von Umfang und Zielen, die Bewertung des Ergebnisses, die Planung von Aufgaben und Meilensteinen und Verbessern und Iterieren.",
+    "icono": "📊"
+  },
+  {
+    "id": 960,
+    "materia": "Resolución de Problemas",
+    "cluster": 3,
+    "temas": [
+      "asignacion-de-recursos",
+      "riesgo-e-incertidumbre",
+      "seguimiento-y-control",
+      "trade-offs-y-priorizacion",
+      "cierre-y-lecciones-aprendidas"
+    ],
+    "nombre": "Projekt- und Entscheidungsmanager",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Ressourcenzuteilung, Risiko und Unsicherheit, Überwachung und Steuerung, Zielkonflikte und Priorisierung und Abschluss und gewonnene Erkenntnisse.",
+    "icono": "🧭"
+  },
+  {
+    "id": 961,
+    "materia": "Ed. Física",
+    "cluster": 1,
+    "temas": [
+      "deportes-medidas-cancha-superficies",
+      "fisiologia-del-ejercicio",
+      "deportes-jugadores-posiciones-puntaje",
+      "alfabetizacion-corporal",
+      "deportes-origen-historico"
+    ],
+    "nombre": "Sporttheoretiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Spielfeldmaße und Spielflächen, Trainingsphysiologie, Spieler, Positionen und Wertung, Körperbewusstsein und den historischen Ursprung des Sports.",
+    "icono": "🏃"
+  },
+  {
+    "id": 962,
+    "materia": "Ed. Física",
+    "cluster": 2,
+    "temas": [
+      "frecuencia-cardiaca-reposo",
+      "deporte-como-fenomeno-cultural-argentino",
+      "el-pato",
+      "frecuencia-cardiaca-maxima-zonas",
+      "imc-indice-masa-corporal"
+    ],
+    "nombre": "Kenner des Körpers in Bewegung",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Ruheherzfrequenz, Sport als argentinisches Kulturphänomen, das Pato-Spiel, die maximale Herzfrequenz und ihre Zonen und den Body-Mass-Index.",
+    "icono": "❤️‍🔥"
+  },
+  {
+    "id": 963,
+    "materia": "Ed. Física",
+    "cluster": 3,
+    "temas": [
+      "juegos-olimpicos",
+      "planificacion-progresion-volumen",
+      "prevencion-cuidado-rice-calentamiento-ergonomia",
+      "prevencion-adicciones-ley-26586",
+      "primeros-auxilios-rcp-dea",
+      "politicas-de-drogas"
+    ],
+    "nombre": "Hüter von Gesundheit und Sport",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Olympischen Spiele, Planung und Steigerung des Trainingsumfangs, Vorbeugung und Pflege (RICE, Aufwärmen, Ergonomie), Suchtprävention und das argentinische Gesetz 26.586, Erste Hilfe, Herz-Lungen-Wiederbelebung und AED und Drogenpolitik.",
+    "icono": "🏅"
+  },
+  {
+    "id": 970,
+    "materia": "UX/Diseño",
+    "cluster": 2,
+    "temas": [
+      "analisis-de-datos-de-uso-y-metricas-ux",
+      "arquitectura-de-informacion-y-navegacion",
+      "color-en-interfaces",
+      "diseno-de-interfaces-para-voz-y-conversacion",
+      "diseno-responsive-y-mobile-first"
+    ],
+    "nombre": "Designer digitaler Erlebnisse",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Analyse von Nutzungsdaten und UX-Metriken, Informationsarchitektur und Navigation, Farbe in Benutzeroberflächen, Sprach- und Dialogschnittstellen sowie responsives Mobile-First-Design.",
+    "icono": "📱"
+  },
+  {
+    "id": 971,
+    "materia": "UX/Diseño",
+    "cluster": 3,
+    "temas": [
+      "etica-del-diseno-patrones-oscuros",
+      "formularios-y-microinteracciones",
+      "heuristicas-de-nielsen-las-diez-completas",
+      "investigacion-de-usuarios-entrevistas-y-personas",
+      "evaluacion-heuristica-y-metodos-sin-usuarios",
+      "diseno-centrado-en-el-usuario-flujo-de-trabajo",
+      "niveles-wcag-a-aa-aaa-y-navegacion-por-teclado",
+      "tipografia-en-interfaces",
+      "sistemas-de-diseno-y-componentes"
+    ],
+    "nombre": "UX- und Barrierefreiheits-Stratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Designethik und Dark Patterns, Formulare und Mikrointeraktionen, Nielsens zehn Heuristiken, Nutzerforschung und heuristische Evaluation, nutzerzentriertes Design, WCAG-Stufen und Tastaturnavigation, Typografie und Designsysteme.",
+    "icono": "♿"
+  },
+  {
+    "id": 975,
+    "materia": "Filosofía",
+    "cluster": 4,
+    "temas": [
+      "empirismo-hume",
+      "fenomenologia-y-existencialismo",
+      "filosofia-del-lenguaje-y-ciencia",
+      "filosofia-politica",
+      "kant-y-el-idealismo",
+      "presocraticos-y-socrates",
+      "marx-y-el-materialismo-historico",
+      "platon-y-aristoteles",
+      "filosofia-medieval-santo-tomas"
+    ],
+    "nombre": "Historiker des Denkens",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die Vorsokratiker und Sokrates, Platon und Aristoteles, die mittelalterliche Philosophie und Thomas von Aquin, Humes Empirismus, Kant und den Idealismus, Marx und den historischen Materialismus, Phänomenologie und Existenzialismus, politische Philosophie sowie Sprach- und Wissenschaftsphilosophie.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 980,
+    "materia": "Antropología",
+    "cluster": 2,
+    "temas": [
+      "economia-y-poder-en-las-sociedades",
+      "etnografia-y-observacion-participante",
+      "identidad-y-etnicidad",
+      "mito-ritual-y-religion",
+      "pueblos-originarios-de-argentina"
+    ],
+    "nombre": "Feldethnograf",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Wirtschaft und Macht in Gesellschaften, Ethnografie und teilnehmende Beobachtung, Identität und Ethnizität, Mythos, Ritual und Religion sowie die indigenen Völker Argentiniens.",
+    "icono": "🧭"
+  },
+  {
+    "id": 985,
+    "materia": "Sociología",
+    "cluster": 2,
+    "temas": [
+      "cambio-social-y-movimientos",
+      "clasicos-durkheim-weber-marx",
+      "desigualdad-y-clases-hoy",
+      "metodos-de-investigacion-social",
+      "socializacion-y-roles",
+      "normas-valores-y-control-social",
+      "genero-como-categoria-social"
+    ],
+    "nombre": "Gesellschaftsanalytiker",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst sozialen Wandel und Bewegungen, die Klassiker (Durkheim, Weber und Marx), Ungleichheit und Klassen heute, Methoden der Sozialforschung, Sozialisation und Rollen, Normen, Werte und soziale Kontrolle sowie Geschlecht als soziale Kategorie.",
+    "icono": "📊"
+  },
+  {
+    "id": 990,
+    "materia": "Aprendizaje",
+    "cluster": 2,
+    "temas": [
+      "atencion-concentracion-y-distracciones",
+      "el-error-y-la-retroalimentacion",
+      "lectura-activa-y-toma-de-apuntes",
+      "motivacion-para-aprender",
+      "planificar-el-estudio-y-gestionar-el-tiempo",
+      "estudiar-con-otros"
+    ],
+    "nombre": "Lernstratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Aufmerksamkeit, Konzentration und Ablenkungen, Fehler und Feedback, aktives Lesen und Mitschreiben, Lernmotivation, Lernplanung und Zeitmanagement sowie gemeinsames Lernen.",
+    "icono": "📚"
+  },
+  {
+    "id": 995,
+    "materia": "Ciudadanía Digital",
+    "cluster": 2,
+    "temas": [
+      "algoritmos-burbujas-y-economia-de-la-atencion",
+      "ciberacoso-y-convivencia-en-redes",
+      "contrasenas-y-autenticacion",
+      "derechos-digitales-y-proteccion-de-datos",
+      "participacion-ciudadana-en-linea",
+      "phishing-y-estafas-en-linea",
+      "propiedad-intelectual-y-licencias-digitales"
+    ],
+    "nombre": "Sicherer digitaler Bürger",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst Algorithmen, Filterblasen und die Aufmerksamkeitsökonomie, Cybermobbing und das Miteinander in sozialen Netzwerken, Passwörter und Authentifizierung, digitale Rechte und Datenschutz, bürgerschaftliche Beteiligung im Netz, Phishing und Online-Betrug sowie geistiges Eigentum und digitale Lizenzen.",
+    "icono": "🔐"
+  },
+  {
+    "id": 1000,
+    "materia": "Ed. Física",
+    "cluster": 4,
+    "temas": [
+      "capacidades-fisicas-fuerza-resistencia-flexibilidad-velocidad",
+      "nutricion-e-hidratacion-en-la-actividad-fisica",
+      "reglamento-y-fundamentos-del-basquet",
+      "reglamento-y-fundamentos-del-futbol",
+      "reglamento-y-fundamentos-del-futsal",
+      "reglamento-y-fundamentos-del-handball",
+      "reglamento-y-fundamentos-del-hockey",
+      "reglamento-y-fundamentos-del-rugby",
+      "reglamento-y-fundamentos-del-voley"
+    ],
+    "nombre": "Sportstratege",
+    "descripcion": "Du hast die Prüfung bestanden und beherrschst die körperlichen Fähigkeiten (Kraft, Ausdauer, Beweglichkeit und Schnelligkeit), Ernährung und Flüssigkeitszufuhr bei körperlicher Aktivität sowie Regeln und Grundlagen von Basketball, Fußball, Futsal, Handball, Hockey, Rugby und Volleyball.",
+    "icono": "🏅"
+  },
+  {
+    "id": 1001,
+    "materia": "Historia argentina",
+    "cluster": 1,
+    "temas": [
+      "pueblos-originarios-territorio-argentino",
+      "conquista-y-colonia-argentina",
+      "virreinato-y-comercio",
+      "revolucion-de-mayo",
+      "guerras-de-independencia-argentina"
+    ],
+    "nombre": "Meister des kolonialen Argentiniens und der Unabhängigkeit",
+    "descripcion": "Du hast die Prüfung zu den indigenen Völkern, Eroberung und Kolonie, dem Vizekönigreich und seinem Handel, der Mairevolution und den argentinischen Unabhängigkeitskriegen abgeschlossen.",
+    "icono": "🏛️"
+  },
+  {
+    "id": 1002,
+    "materia": "Historia argentina",
+    "cluster": 2,
+    "temas": [
+      "guerras-civiles-unitarios-federales",
+      "organizacion-nacional-constitucion-1853",
+      "rosas-y-la-confederacion",
+      "guerra-del-paraguay-y-triple-alianza",
+      "economias-regionales-tempranas"
+    ],
+    "nombre": "Meister der nationalen Organisation",
+    "descripcion": "Du hast die Bürgerkriege zwischen Unitariern und Föderalisten, die Verfassung von 1853, Rosas und die Konföderation, den Paraguaykrieg und die frühen regionalen Wirtschaften gemeistert, Boss.",
+    "icono": "📜"
+  },
+  {
+    "id": 1003,
+    "materia": "Historia argentina",
+    "cluster": 3,
+    "temas": [
+      "conquista-del-desierto-y-campana-al-chaco",
+      "modelo-agroexportador-inmigracion",
+      "ampliacion-democratica-ley-saenz-pena",
+      "golpes-de-estado-interrupciones",
+      "reforma-universitaria-1918"
+    ],
+    "nombre": "Experte für den liberalen Staat und die demokratische Erweiterung",
+    "descripcion": "Du hast die Prüfung zur Wüstenkampagne und zum Chaco-Feldzug, zum Agrarexportmodell und zur Einwanderung, zum Sáenz-Peña-Gesetz, zu den Staatsstreichen und zur Universitätsreform von 1918 abgeschlossen.",
+    "icono": "🗳️"
+  },
+  {
+    "id": 1004,
+    "materia": "Historia argentina",
+    "cluster": 4,
+    "temas": [
+      "peronismo-derechos-sociales",
+      "semana-tragica-1919",
+      "terrorismo-de-estado-argentina",
+      "industrializacion-por-sustitucion-de-importaciones-isi",
+      "guerra-de-malvinas",
+      "recuperacion-democratica-memoria",
+      "historia-reciente-argentina",
+      "crisis-de-2001"
+    ],
+    "nombre": "Meister des Argentiniens des 20. Jahrhunderts und der Demokratie",
+    "descripcion": "Du hast den Peronismus und die Sozialrechte, die Tragische Woche, den Staatsterrorismus, die importsubstituierende Industrialisierung, Malvinas, die demokratische Wiederherstellung, die jüngste Geschichte und die Krise von 2001 gemeistert, Boss.",
+    "icono": "🕊️"
+  }
+]

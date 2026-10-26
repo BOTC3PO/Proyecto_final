@@ -1,0 +1,37 @@
+{
+ "titulo": "Tipos de dato",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Ejemplos",
+   "headers": [
+    "Tipo",
+    "Ejemplo",
+    "Qué guarda"
+   ],
+   "rows": [
+    [
+     "Entero",
+     "18",
+     "Números sin decimales"
+    ],
+    [
+     "Decimal",
+     "3,14",
+     "Números con decimales"
+    ],
+    [
+     "Texto",
+     "\"Hola\"",
+     "Cadenas de caracteres"
+    ],
+    [
+     "Booleano",
+     "verdadero",
+     "Verdadero o falso"
+    ]
+   ]
+  }
+ ]
+}

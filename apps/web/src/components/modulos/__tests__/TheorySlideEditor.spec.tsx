@@ -67,3 +67,58 @@ describe("TheorySlideEditor (WYSIWYG)", () => {
     expect(screen.getByLabelText("Lienzo de la diapositiva")).toBeInTheDocument();
   });
 });
+
+// G3 Fase 2: cambiar el tipo de contenido con contenido configurado pedía
+// (bug: no pedía) confirmación antes de destruir blockSpec/body sin undo.
+describe("TheorySlideEditor — confirmación antes de descartar contenido", () => {
+  const SLIDE_CON_BLOQUE: Slide = {
+    id: "s1",
+    layout: "top",
+    heading: "Hola",
+    blockSpec: { id: "b1", type: "table", headers: ["A"], rows: [["x"]] },
+  };
+
+  function irAContenido() {
+    const tablist = screen.getByRole("tablist", { name: "Inspector de diapositiva" });
+    fireEvent.click(within(tablist).getByRole("tab", { name: "Contenido" }));
+  }
+
+  it("cancelar el confirm al pasar a Texto conserva el bloque", () => {
+    const confirmSpy = vi.fn(() => false);
+    vi.stubGlobal("confirm", confirmSpy);
+    renderEditor([SLIDE_CON_BLOQUE]);
+    irAContenido();
+    fireEvent.click(screen.getByRole("button", { name: "Texto" }));
+    expect(confirmSpy).toHaveBeenCalled();
+    expect(screen.getByText(/Bloque gráfico — Tabla/)).toBeInTheDocument();
+    vi.unstubAllGlobals();
+  });
+
+  it("aceptar el confirm al pasar a Texto descarta el bloque", () => {
+    vi.stubGlobal("confirm", vi.fn(() => true));
+    renderEditor([SLIDE_CON_BLOQUE]);
+    irAContenido();
+    fireEvent.click(screen.getByRole("button", { name: "Texto" }));
+    expect(screen.queryByText(/Bloque gráfico — Tabla/)).not.toBeInTheDocument();
+    vi.unstubAllGlobals();
+  });
+
+  it("elegir un bloque con texto en el cuerpo pide confirmación y cancelar lo conserva", () => {
+    const confirmSpy = vi.fn(() => false);
+    vi.stubGlobal("confirm", confirmSpy);
+    renderEditor(); // slide con body "cuerpo"
+    irAContenido();
+    fireEvent.click(screen.getByRole("button", { name: "Bloque" }));
+    fireEvent.click(screen.getByRole("button", { name: "Tabla" }));
+    expect(confirmSpy).toHaveBeenCalled();
+    // El cuerpo sigue editable (el bloque NO reemplazó al texto).
+    expect(screen.getByRole("textbox", { name: "Cuerpo de texto" })).toBeInTheDocument();
+    vi.unstubAllGlobals();
+  });
+
+  it("los botones de reordenar/duplicar existen en el DOM sin hover (accesibles)", () => {
+    renderEditor();
+    expect(screen.getByRole("button", { name: "Mover diapositiva 1 arriba" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Duplicar diapositiva 1" })).toBeInTheDocument();
+  });
+});

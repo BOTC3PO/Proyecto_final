@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../auth/use-auth";
+import { useIsStaff } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
+import { useI18n } from "../i18n/I18nContext";
+import type { LanguageId } from "../i18n";
+import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import {
   fetchHilos, fetchHilo, enviarMensaje,
   fetchAvisos, crearAviso, marcarAvisoLeido,
-  buscarUsuarios,
+  editarAviso, eliminarAviso,
+  buscarUsuarios, reportarMensaje,
   type Hilo, type MensajeDirecto, type Aviso,
   type UsuarioBusqueda,
 } from "../services/mensajeria";
@@ -24,26 +29,72 @@ const parseDate = (raw: unknown): Date | null => {
   return null;
 };
 
-const ROLE_LABELS: Record<string, string> = {
-  USER: "Alumno", TEACHER: "Profesor",
-  DIRECTIVO: "Directivo", PARENT: "Padre/Madre",
-  ADMIN: "Admin",
+// FIX-TEST4-MSG-FECHA — antes los mensajes del chat solo mostraban
+// hora ("14:32"). Para mensajes de hace 3 días no se sabía qué día
+// era. Ahora: si es hoy, solo hora; si fue ayer, "ayer"; si es de
+// esta semana, día corto; si es más viejo, fecha completa.
+const formatMensajeTime = (raw: unknown, lang: LanguageId): string => {
+  const d = parseDate(raw);
+  if (!d) return "";
+  const ahora = new Date();
+  const mismoDia =
+    d.getFullYear() === ahora.getFullYear() &&
+    d.getMonth() === ahora.getMonth() &&
+    d.getDate() === ahora.getDate();
+  if (mismoDia) {
+    return d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
+  }
+  const ayer = new Date(ahora);
+  ayer.setDate(ayer.getDate() - 1);
+  const fueAyer =
+    d.getFullYear() === ayer.getFullYear() &&
+    d.getMonth() === ayer.getMonth() &&
+    d.getDate() === ayer.getDate();
+  if (fueAyer) {
+    const hora = d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
+    return `ayer · ${hora}`;
+  }
+  const diffMs = ahora.getTime() - d.getTime();
+  const diffDias = diffMs / (1000 * 60 * 60 * 24);
+  if (diffDias < 7) {
+    const dia = d.toLocaleDateString(lang, { weekday: "short" });
+    const hora = d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
+    return `${dia} · ${hora}`;
+  }
+  return d.toLocaleDateString(lang, { day: "2-digit", month: "2-digit", year: "2-digit" });
 };
 
-const DESTINO_LABELS: Record<string, string> = {
-  todos: "Toda la escuela",
-  padres: "Padres",
-  alumnos: "Alumnos",
-  profesores: "Profesores",
+// FIX-TEST4-MSG-FECHA — los avisos antes solo mostraban fecha
+// (`toLocaleDateString`). Ahora incluyen la hora para que se sepa el
+// orden cronológico entre avisos del mismo día.
+const formatAvisoTime = (raw: unknown, lang: LanguageId): string => {
+  const d = parseDate(raw);
+  if (!d) return "";
+  return d.toLocaleString(lang, { dateStyle: "short", timeStyle: "short" });
+};
+
+const ROLE_LABEL_KEY: Record<string, string> = {
+  USER: "matrizProgreso.alumno", TEACHER: "register.rolProfesor",
+  DIRECTIVO: "comun.directivo", PARENT: "register.rolPadre",
+  ADMIN: "mensajeria.admin",
+};
+
+const DESTINO_LABEL_KEY: Record<string, string> = {
+  todos: "mensajeria.todaLaEscuela",
+  padres: "mensajeria.padres",
+  alumnos: "mensajeria.alumnos",
+  profesores: "mensajeria.profesores",
 };
 
 type Tab = "mensajes" | "avisos";
 
 export default function Mensajeria() {
+  const { t, lang } = useI18n();
+  const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
-  const canPublish = ["DIRECTIVO", "TEACHER", "ADMIN"].includes(
-    user?.role ?? ""
-  );
+  // MULTIROL-02: canPublish = staff (DIRECTIVO/TEACHER/ADMIN en
+  // cualquier slot de roles[]).
+  const canPublish = useIsStaff();
 
   // Tabs
   const [tab, setTab] = useState<Tab>("mensajes");
@@ -56,6 +107,8 @@ export default function Mensajeria() {
   const [mensajesLoading, setMensajesLoading] = useState(false);
   const [body, setBody] = useState("");
   const [enviando, setEnviando] = useState(false);
+  // H3 — mensajes que esta persona ya reportó en la sesión (el servidor rechaza el duplicado igual).
+  const [reportados, setReportados] = useState<Set<string>>(new Set());
 
   // Nuevo mensaje
   const [busqueda, setBusqueda] = useState("");
@@ -74,6 +127,7 @@ export default function Mensajeria() {
   const [avisoDestino, setAvisoDestino] = useState("todos");
   const [publicando, setPublicando] = useState(false);
   const [avisoMsg, setAvisoMsg] = useState<string | null>(null);
+  const [avisoMsgOk, setAvisoMsgOk] = useState(true);
   const [escuelas, setEscuelas] = useState<Array<{ id: string; nombre: string }>>([]);
   const [escuelaSeleccionada, setEscuelaSeleccionada] = useState("");
 
@@ -174,6 +228,20 @@ export default function Mensajeria() {
     finally { setEnviando(false); }
   };
 
+  const handleReportar = async (mensajeId: string) => {
+    const motivo = window.prompt("¿Por qué reportás este mensaje? (opcional)");
+    if (motivo === null) return; // canceló
+    try {
+      await reportarMensaje(mensajeId, motivo.trim().slice(0, 500) || undefined);
+      setReportados((prev) => new Set(prev).add(mensajeId));
+      window.alert("Gracias. El reporte llegó a moderación de tu escuela.");
+    } catch (e: unknown) {
+      const msg = (e as Error)?.message ?? "";
+      if (msg.includes("ya reportaste")) setReportados((prev) => new Set(prev).add(mensajeId));
+      else window.alert("No se pudo enviar el reporte. Probá de nuevo.");
+    }
+  };
+
   const handleNuevoMensaje = async () => {
     if (!destinatario || !nuevoMsg.trim()) return;
     setEnviando(true);
@@ -203,12 +271,14 @@ export default function Mensajeria() {
       });
       setAvisoTitulo("");
       setAvisoCuerpo("");
-      setAvisoMsg("✓ Aviso publicado correctamente.");
+      setAvisoMsgOk(true);
+      setAvisoMsg(t("mensajeria.avisoPublicadoCorrectamente"));
       const updated = await fetchAvisos();
       setAvisos(updated);
     } catch (err) {
+      setAvisoMsgOk(false);
       setAvisoMsg(
-        err instanceof Error ? err.message : "No se pudo publicar."
+        err instanceof Error ? err.message : t("mensajeria.noSePudoPublicar")
       );
     } finally {
       setPublicando(false);
@@ -222,31 +292,81 @@ export default function Mensajeria() {
     );
   };
 
+  // FIX-TEST4-AVISOS-EDIT — handlers de edición y borrado. El modal
+  // se abre con el aviso seleccionado; el form de edición se
+  // prellena con los datos del aviso.
+  const [avisoEdit, setAvisoEdit] = useState<Aviso | null>(null);
+  const [avisoEditTitulo, setAvisoEditTitulo] = useState("");
+  const [avisoEditCuerpo, setAvisoEditCuerpo] = useState("");
+  const [avisoEditDestino, setAvisoEditDestino] = useState("todos");
+  const [avisoEditSaving, setAvisoEditSaving] = useState(false);
+
+  const abrirEditarAviso = (aviso: Aviso) => {
+    setAvisoEdit(aviso);
+    setAvisoEditTitulo(aviso.titulo);
+    setAvisoEditCuerpo(aviso.cuerpo);
+    setAvisoEditDestino(aviso.destino);
+  };
+
+  const cerrarEditarAviso = () => {
+    setAvisoEdit(null);
+    setAvisoEditSaving(false);
+  };
+
+  const handleEditarAviso = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!avisoEdit) return;
+    if (!avisoEditTitulo.trim() || !avisoEditCuerpo.trim()) return;
+    setAvisoEditSaving(true);
+    try {
+      await editarAviso(avisoEdit.id, {
+        titulo: avisoEditTitulo.trim(),
+        cuerpo: avisoEditCuerpo.trim(),
+        destino: avisoEditDestino,
+      });
+      const updated = await fetchAvisos();
+      setAvisos(updated);
+      cerrarEditarAviso();
+    } catch (err) {
+      setAvisoMsg(err instanceof Error ? err.message : t("mensajeria.noSePudoEditar"));
+    } finally {
+      setAvisoEditSaving(false);
+    }
+  };
+
+  const handleEliminarAviso = async (avisoId: string) => {
+    if (!window.confirm(t("mensajeria.eliminarEsteAvisoEstaAccion"))) return;
+    try {
+      await eliminarAviso(avisoId);
+      setAvisos((prev) => prev.filter((a) => a.id !== avisoId));
+    } catch (err) {
+      setAvisoMsg(err instanceof Error ? err.message : t("mensajeria.noSePudoEliminar"));
+    }
+  };
+
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
         {/* Encabezado */}
         <div>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">Mensajes</h1>
-          <p className="text-sm text-[var(--c-muted)] mt-1">
-            Mensajes directos y avisos de tu escuela.
-          </p>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("nav.mensajes")}</h1>
+          <p className="text-sm text-[var(--c-muted)] mt-1">{t("mensajeria.mensajesDirectosYAvisosDe")}</p>
         </div>
 
         {/* Tabs */}
         <div className="flex gap-1 border-b border-[var(--c-border)]">
-          {(["mensajes", "avisos"] as const).map((t) => (
+          {(["mensajes", "avisos"] as const).map((tabId) => (
             <button
-              key={t}
-              onClick={() => setTab(t)}
+              key={tabId}
+              onClick={() => setTab(tabId)}
               className={`px-4 py-2 text-sm font-medium capitalize border-b-2 transition-colors ${
-                tab === t
+                tab === tabId
                   ? "border-[var(--c-primary)] text-[var(--c-primary)]"
                   : "border-transparent text-[var(--c-muted)] hover:text-[var(--c-text)]"
               }`}
             >
-              {t === "mensajes" ? "Mensajes" : "Avisos"}
+              {tabId === "mensajes" ? t("nav.mensajes") : t("mensajeria.avisos")}
             </button>
           ))}
         </div>
@@ -258,13 +378,11 @@ export default function Mensajeria() {
             {/* Lista de hilos */}
             <div className="lg:col-span-1 flex flex-col gap-2">
               <div className="flex items-center justify-between mb-1">
-                <p className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">Conversaciones</p>
+                <p className="text-xs font-medium text-[var(--c-muted)] uppercase tracking-wide">{t("mensajeria.conversaciones")}</p>
                 <button
                   onClick={() => setMostrarNuevo((v) => !v)}
                   className="text-xs text-[var(--c-primary)] hover:underline"
-                >
-                  + Nuevo
-                </button>
+                >{t("mensajeria.nuevo")}</button>
               </div>
 
               {/* Formulario nuevo mensaje */}
@@ -272,12 +390,12 @@ export default function Mensajeria() {
                 <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-3 space-y-2 mb-2">
                   <input
                     type="text"
-                    placeholder="Buscar usuario..."
+                    placeholder={t("mensajeria.buscarUsuario")}
                     className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                     value={busqueda}
                     onChange={(e) => setBusqueda(e.target.value)}
                   />
-                  {buscando && <p className="text-xs text-[var(--c-muted)]">Buscando...</p>}
+                  {buscando && <p className="text-xs text-[var(--c-muted)]">{t("mensajeria.buscando")}</p>}
                   {resultados.length > 0 && !destinatario && (
                     <div className="rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] overflow-hidden">
                       {resultados.map((r) => (
@@ -288,7 +406,7 @@ export default function Mensajeria() {
                         >
                           {r.nombre}
                           <span className="ml-1 text-xs text-[var(--c-muted)]">
-                            · {ROLE_LABELS[r.role] ?? r.role}
+                            · {ROLE_LABEL_KEY[r.role] ? t(ROLE_LABEL_KEY[r.role]) : r.role}
                           </span>
                         </button>
                       ))}
@@ -296,9 +414,10 @@ export default function Mensajeria() {
                   )}
                   {destinatario && (
                     <>
-                      <p className="text-xs text-[var(--c-success)] font-medium">Para: {destinatario.nombre}</p>
+                      <p className="text-xs text-[var(--c-success)] font-medium">{t("mensajeria.para")} {destinatario.nombre}</p>
                       <textarea
-                        placeholder="Escribí tu mensaje..."
+                        maxLength={2000}
+                        placeholder={t("mensajeria.escribiTuMensaje")}
                         rows={2}
                         className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-1.5 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
                         value={nuevoMsg}
@@ -310,14 +429,12 @@ export default function Mensajeria() {
                           onClick={handleNuevoMensaje}
                           className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-40 transition-opacity"
                         >
-                          {enviando ? "Enviando..." : "Enviar"}
+                          {enviando ? t("quizAttempt.enviando") : t("mensajeria.enviar")}
                         </button>
                         <button
                           onClick={() => { setDestinatario(null); setBusqueda(""); }}
                           className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs text-[var(--c-muted)] hover:bg-[var(--c-bg)]"
-                        >
-                          Cancelar
-                        </button>
+                        >{t("comun.cancelar")}</button>
                       </div>
                     </>
                   )}
@@ -334,7 +451,7 @@ export default function Mensajeria() {
 
               {!hilosLoading && hilos.length === 0 && (
                 <div className="rounded-xl border border-dashed border-[var(--c-border)] p-8 text-center">
-                  <p className="text-xs text-[var(--c-muted)]">Sin conversaciones todavía.</p>
+                  <p className="text-xs text-[var(--c-muted)]">{t("mensajeria.sinConversacionesTodavia")}</p>
                 </div>
               )}
 
@@ -356,7 +473,7 @@ export default function Mensajeria() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">{h.ultimoMsg ?? "Sin mensajes"}</p>
+                  <p className="text-xs text-[var(--c-muted)] mt-0.5 truncate">{h.ultimoMsg ?? t("mensajeria.sinMensajes")}</p>
                 </button>
               ))}
             </div>
@@ -365,13 +482,13 @@ export default function Mensajeria() {
             <div className="lg:col-span-2 flex flex-col rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
               {!hiloActivo ? (
                 <div className="flex-1 flex items-center justify-center p-8">
-                  <p className="text-sm text-[var(--c-muted)]">Seleccioná una conversación</p>
+                  <p className="text-sm text-[var(--c-muted)]">{t("mensajeria.seleccionaUnaConversacion")}</p>
                 </div>
               ) : (
                 <>
                   {/* Mensajes */}
                   <div className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[360px] max-h-[420px]">
-                    {mensajesLoading && <p className="text-xs text-[var(--c-muted)]">Cargando...</p>}
+                    {mensajesLoading && <p className="text-xs text-[var(--c-muted)]">{t("comun.cargando2")}</p>}
                     {mensajes.map((m) => {
                       const esMio = m.sender_id === user?.id;
                       return (
@@ -381,9 +498,23 @@ export default function Mensajeria() {
                               ? "bg-[var(--c-primary)] text-white rounded-br-sm"
                               : "bg-[var(--c-bg)] text-[var(--c-text)] border border-[var(--c-border)] rounded-bl-sm"
                           }`}>
+                            {!esMio && m.sender_nombre && (
+                              <p className="text-[10px] font-semibold mb-0.5 text-[var(--c-muted)]">{m.sender_nombre}</p>
+                            )}
                             <p>{m.body}</p>
                             <p className={`text-[10px] mt-1 ${esMio ? "text-white/60" : "text-[var(--c-muted)]"}`}>
-                              {(parseDate(m.created_at) ?? new Date()).toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" })}
+                              {formatMensajeTime(m.created_at, lang)}
+                              {!esMio && !m.id.startsWith("tmp-") && hilos.find((h) => h.id === hiloActivo)?.tipo !== "soporte" && (
+                                reportados.has(m.id) ? (
+                                  <span className="ml-2">· Reportado</span>
+                                ) : (
+                                  <button
+                                    type="button"
+                                    onClick={() => void handleReportar(m.id)}
+                                    className="ml-2 underline hover:text-[var(--c-danger)]"
+                                  >Reportar</button>
+                                )
+                              )}
                             </p>
                           </div>
                         </div>
@@ -395,8 +526,9 @@ export default function Mensajeria() {
                   {/* Input de respuesta */}
                   <div className="border-t border-[var(--c-border)] p-3 flex gap-2">
                     <input
+                      maxLength={2000}
                       type="text"
-                      placeholder="Escribí un mensaje..."
+                      placeholder={t("mensajeria.escribiUnMensaje")}
                       className="flex-1 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                       value={body}
                       onChange={(e) => setBody(e.target.value)}
@@ -413,7 +545,7 @@ export default function Mensajeria() {
                       onClick={handleEnviar}
                       className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 hover:opacity-90 transition-opacity"
                     >
-                      {enviando ? "..." : "Enviar"}
+                      {enviando ? "..." : t("mensajeria.enviar")}
                     </button>
                   </div>
                 </>
@@ -429,16 +561,18 @@ export default function Mensajeria() {
             {/* Formulario de nuevo aviso — solo para TEACHER/DIRECTIVO/ADMIN */}
             {canPublish && (
               <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4 space-y-3">
-                <p className="text-sm font-medium text-[var(--c-text)]">Publicar aviso</p>
+                <p className="text-sm font-medium text-[var(--c-text)]">{t("mensajeria.publicarAviso")}</p>
                 <input
+                  maxLength={200}
                   type="text"
-                  placeholder="Título"
+                  placeholder={t("comun.titulo")}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)]"
                   value={avisoTitulo}
                   onChange={(e) => setAvisoTitulo(e.target.value)}
                 />
                 <textarea
-                  placeholder="Mensaje..."
+                  maxLength={5000}
+                  placeholder={t("mensajeria.mensaje")}
                   rows={3}
                   className="w-full rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] px-3 py-2 text-sm placeholder:text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-primary)] resize-none"
                   value={avisoCuerpo}
@@ -451,7 +585,7 @@ export default function Mensajeria() {
                       onChange={(e) => setEscuelaSeleccionada(e.target.value)}
                       className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
                     >
-                      <option value="">Todas mis escuelas</option>
+                      <option value="">{t("mensajeria.todasMisEscuelas")}</option>
                       {escuelas.map((e) => (
                         <option key={e.id} value={e.id}>{e.nombre}</option>
                       ))}
@@ -462,8 +596,8 @@ export default function Mensajeria() {
                     value={avisoDestino}
                     onChange={(e) => setAvisoDestino(e.target.value)}
                   >
-                    {Object.entries(DESTINO_LABELS).map(([k, v]) => (
-                      <option key={k} value={k}>{v}</option>
+                    {Object.entries(DESTINO_LABEL_KEY).map(([k, key]) => (
+                      <option key={k} value={k}>{t(key)}</option>
                     ))}
                   </select>
                   <button
@@ -471,11 +605,11 @@ export default function Mensajeria() {
                     onClick={handlePublicarAviso}
                     className="rounded-xl bg-[var(--c-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40 hover:opacity-90 transition-opacity"
                   >
-                    {publicando ? "Publicando..." : "Publicar"}
+                    {publicando ? t("mensajeria.publicando") : t("mensajeria.publicar")}
                   </button>
                 </div>
                 {avisoMsg && (
-                  <p className={`text-xs ${avisoMsg.startsWith("✓") ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
+                  <p className={`text-xs ${avisoMsgOk ? "text-[var(--c-success)]" : "text-[var(--c-danger)]"}`}>
                     {avisoMsg}
                   </p>
                 )}
@@ -493,7 +627,7 @@ export default function Mensajeria() {
 
             {!avisosLoading && avisos.length === 0 && (
               <div className="rounded-xl border border-dashed border-[var(--c-border)] p-12 text-center">
-                <p className="text-sm text-[var(--c-muted)]">No hay avisos publicados.</p>
+                <p className="text-sm text-[var(--c-muted)]">{t("mensajeria.noHayAvisosPublicados")}</p>
               </div>
             )}
 
@@ -507,25 +641,109 @@ export default function Mensajeria() {
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-sm font-semibold text-[var(--c-text)]">{aviso.titulo}</p>
                   <span className="text-[10px] text-[var(--c-muted)] flex-shrink-0">
-                    {DESTINO_LABELS[aviso.destino] ?? aviso.destino}
+                    {DESTINO_LABEL_KEY[aviso.destino] ? t(DESTINO_LABEL_KEY[aviso.destino]) : aviso.destino}
                   </span>
                 </div>
                 <p className="text-xs text-[var(--c-muted)]">{aviso.cuerpo}</p>
                 <div className="flex items-center justify-between pt-1">
                   <span className="text-[10px] text-[var(--c-muted)]">
-                    {(parseDate(aviso.created_at) ?? new Date()).toLocaleDateString("es-AR")}
+                    {formatAvisoTime(aviso.created_at, lang)}
                   </span>
-                  {!aviso.leido && (
+                  <div className="flex items-center gap-2">
+                    {!aviso.leido && (
+                      <button
+                        onClick={() => handleLeerAviso(aviso.id)}
+                        className="text-[10px] text-[var(--c-primary)] hover:underline"
+                      >{t("mensajeria.marcarComoLeido")}</button>
+                    )}
+                    {/* FIX-TEST4-AVISOS-EDIT — botones Editar/Eliminar
+                        visibles para todos los avisos visibles. El
+                        back valida que solo el autor o ADMIN
+                        efectivamente pueda mutar. */}
                     <button
-                      onClick={() => handleLeerAviso(aviso.id)}
+                      onClick={() => abrirEditarAviso(aviso)}
                       className="text-[10px] text-[var(--c-primary)] hover:underline"
-                    >
-                      Marcar como leído
-                    </button>
-                  )}
+                    >{t("comun.editar")}</button>
+                    <button
+                      onClick={() => handleEliminarAviso(aviso.id)}
+                      className="text-[10px] text-red-500 hover:underline"
+                    >{t("comun.eliminar")}</button>
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* FIX-TEST4-AVISOS-EDIT — modal de edición. Se monta solo
+            cuando `avisoEdit` no es null. */}
+        {avisoEdit && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="aviso-editar-titulo"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+            onClick={cerrarEditarAviso}
+          >
+            <div
+              className="w-full max-w-md rounded-xl bg-[var(--c-surface)] border border-[var(--c-border)] p-5 shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3
+                id="aviso-editar-titulo"
+                className="text-base font-semibold text-[var(--c-text)]"
+              >{t("mensajeria.editarAviso")}</h3>
+              <form onSubmit={handleEditarAviso} className="mt-3 space-y-3">
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.titulo")}<input
+                    type="text"
+                    maxLength={200}
+                    required
+                    onInvalid={onInvalid}
+                    onInput={onInput}
+                    value={avisoEditTitulo}
+                    onChange={(e) => setAvisoEditTitulo(e.target.value)}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.cuerpo")}<textarea
+                    maxLength={5000}
+                    required
+                    onInvalid={onInvalid}
+                    onInput={onInput}
+                    rows={3}
+                    value={avisoEditCuerpo}
+                    onChange={(e) => setAvisoEditCuerpo(e.target.value)}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("mensajeria.destino")}<select
+                    value={avisoEditDestino}
+                    onChange={(e) => setAvisoEditDestino(e.target.value)}
+                    className="rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]"
+                  >
+                    <option value="todos">{t("mensajeria.todaLaEscuela")}</option>
+                    <option value="alumnos">{t("mensajeria.alumnos")}</option>
+                    <option value="profesores">{t("mensajeria.profesores")}</option>
+                    <option value="padres">{t("mensajeria.padres")}</option>
+                  </select>
+                </label>
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={cerrarEditarAviso}
+                    disabled={avisoEditSaving}
+                    className="rounded-lg border border-[var(--c-border)] px-3 py-1.5 text-xs font-medium text-[var(--c-text)] hover:bg-[var(--c-bg)] disabled:opacity-50 transition-colors"
+                  >{t("comun.cancelar")}</button>
+                  <button
+                    type="submit"
+                    disabled={avisoEditSaving || !avisoEditTitulo.trim() || !avisoEditCuerpo.trim()}
+                    className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+                  >
+                    {avisoEditSaving ? t("comun.guardando2") : t("comun.guardarCambios")}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         )}
 
