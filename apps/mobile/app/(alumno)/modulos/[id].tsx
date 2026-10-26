@@ -31,6 +31,7 @@ import { Feather } from "@expo/vector-icons";
 import { apiGet, apiPost } from "../../../src/api/client";
 import { colors } from "../../../src/theme/tokens";
 import { HerramientaNativa, docNativo } from "../../../src/components/HerramientaNativa";
+import { TextoTeoria } from "../../../src/components/TextoTeoria";
 import type { ModuloDetalle, ModuloQuizResumen, TheoryItem } from "../../../src/types/modulo";
 import type { QuizAttemptCreateResponse } from "../../../src/types/quiz";
 
@@ -49,19 +50,17 @@ function TheoryRow({ item, onOpenWeb }: { item: TheoryItem; onOpenWeb: () => voi
 
   if (TEXT_TYPES.has(item.type)) {
     return (
-      <TouchableOpacity
-        onPress={() => setExpanded((v) => !v)}
-        className="bg-vb-surface border border-vb-border rounded-xl p-3.5"
-      >
-        <View className="flex-row items-center gap-2">
+      // La teoría queda FUERA del botón: así se puede desplazar una tabla o un bloque de código sin plegarla.
+      <View className="bg-vb-surface border border-vb-border rounded-xl p-3.5">
+        <TouchableOpacity onPress={() => setExpanded((v) => !v)} className="flex-row items-center gap-2">
           <Feather name="file-text" size={16} color={colors.muted} />
           <Text className="text-sm font-medium text-vb-text flex-1">{item.title}</Text>
           <Feather name={expanded ? "chevron-up" : "chevron-down"} size={16} color={colors.muted} />
-        </View>
+        </TouchableOpacity>
         {expanded && item.detail ? (
-          <Text className="text-sm text-vb-muted mt-2">{item.detail}</Text>
+          <View className="mt-2"><TextoTeoria texto={item.detail} /></View>
         ) : null}
-      </TouchableOpacity>
+      </View>
     );
   }
 
