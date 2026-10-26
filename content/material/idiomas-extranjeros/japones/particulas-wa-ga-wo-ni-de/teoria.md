@@ -37,7 +37,7 @@ Las partículas no tienen traducción literal al español, pero su función se p
 ## Errores comunes de hispanohablantes
 Los hablantes de español suelen confundir las partículas por analogía con preposiciones o artículos:
 1. **Confusión entre わ y が**: En español, el sujeto no se marca explícitamente como en "El perro corre", pero en japonés, usar **わ** en lugar de **が** cambia la intención. Por ejemplo, *犬は走っている* (Inu wa hashitte iru) implica que se está hablando del perro, no que esté realizando una acción.
-2. **Uso incorrecto de を y に**: En contextos como "llevar algo a un lugar", se debe usar **に** para el destino (*学校に持っていく*) en lugar de **を* (como *学校を持っていく*, que sería erróneo).
+2. **Uso incorrecto de を y に**: En contextos como "llevar algo a un lugar", se debe usar **に** para el destino (*学校に持っていく*) en lugar de **を** (como *学校を持っていく*, que sería erróneo).
 
 ## Comparación con el español
 En español, las preposiciones y artículos cumplen funciones similares:

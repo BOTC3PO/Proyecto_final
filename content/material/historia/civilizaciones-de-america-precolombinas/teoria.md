@@ -20,9 +20,7 @@ Mesoamérica se caracteriza por la domesticación del maíz, la frijola y la cal
 
 Durante el Periodo Clásico (250-900 d.C.), ciudades-estado como **Teotihuacán** (en el Valle de México) y **Palenque** o **Tikal** (en la zona maya) alcanzaron su máxima esplendor. Teotihuacán, con su Pirámide del Sol, fue un centro comercial y religioso de influencia masiva, aunque su colapso alrededor del año 750 d.C. dejó un vacío de poder.
 
-En la región maya, tras el colapso de los centros del sur, la vida política se desplazó hacia el norte, dando lugar a ciudades como **Chichén Itzá** y **Mayapán**. La escritura maya es el único sistema de escritura完全 desarrollado de las Américas precolombinas, registrado en estelas y códices.
-
-<!-- IMAGEN: Mapa comparativo de la expansión de Teotihuacán y los centros mayas clásicos -->
+En la región maya, tras el colapso de los centros del sur, la vida política se desplazó hacia el norte, dando lugar a ciudades como **Chichén Itzá** y **Mayapán**. La escritura maya es el sistema de escritura más completo conocido de las Américas precolombinas: podía registrar todo lo que se decía en su lengua, registrado en estelas y códices.
 
 Hacia el Periodo Postclásico (900-1521 d.C.), la sociedad se volvió más guerrera. Surgieron los **Aztecas** (mexicas), quienes, tras fundar **Tenochtitlán** en un islote del lago de Texcoco en 1325, construyeron un imperio tributario basado en la conquista militar y alianzas matrimoniales. Su capital, vista por los españoles en 1519, era una maravilla de ingeniería hidráulica y arquitectura monumental, pero su dominio se sostenía sobre el resentimiento de los pueblos sometidos, como los tlaxcaltecas, quienes finalmente ayudaron a la caída del imperio.
 

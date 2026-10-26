@@ -20,8 +20,6 @@ Asia fue el epicentro inicial de la descolonización, caracterizada por procesos
 
 En el sudeste asiático, el vacío de poder dejado por la ocupación japonesa durante la guerra aceleró los movimientos independentistas. En Indonesia, la República proclamó su independencia en 1945, pero debió luchar una guerra revolucionaria contra los Países Bajos hasta su reconocimiento formal en 1949. Vietnam, por su parte, experimentó una lucha dual. Primero luchó contra la ocupación japonesa. Luego, contra el intento francés de restaurar el control colonial, que culminó en la derrota en Dien Bien Phu en 1954. Finalmente enfrentó la intervención directa de Estados Unidos, que transformó la descolonización en un frente de la Guerra Fría.
 
-<!-- IMAGEN: Mapa comparativo de las rutas de independencia en Asia y África entre 1945 y 1965, destacando las zonas de conflicto armado versus las transiciones negociadas. -->
-
 ## 3. África: la "Año de África" y el legado colonial
 
 Mientras Asia avanzaba, el continente africano permaneció mayoritariamente bajo control europeo hasta la década de 1950. El proceso fue más abrupto y, en muchos casos, menos preparado institucionalmente. Gran Bretaña adoptó una estrategia de "descolonización gradual" en sus colonias del este y sur, mientras que Francia intentó integrar sus territorios en la Comunidad Francesa tras la derrota en Indochina.

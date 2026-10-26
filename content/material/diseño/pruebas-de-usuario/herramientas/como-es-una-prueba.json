@@ -1,0 +1,104 @@
+{
+ "titulo": "Cómo se organiza una prueba de usuario",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Roles y pasos de una prueba de usabilidad",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Definir tareas reales: «comprá una entrada»",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Participante: usa el producto y piensa en voz alta",
+     "x": 212,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Moderador: da la consigna, no ayuda ni explica",
+     "x": 424,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Observadores: toman notas sin intervenir",
+     "x": 424,
+     "y": 126,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n5",
+     "label": "Registro: errores, tiempos, dudas, frustraciones",
+     "x": 212,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n6",
+     "label": "Análisis: problemas repetidos y prioridades",
+     "x": 0,
+     "y": 126,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n7",
+     "label": "Rediseñar y volver a probar",
+     "x": 0,
+     "y": 252,
+     "color": "#fee2e2"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n7"
+    },
+    {
+     "id": "e7",
+     "fromId": "n7",
+     "toId": "n1",
+     "label": "ciclo"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Con cinco participantes ya suelen aparecer la mayoría de los problemas graves; por eso conviene hacer varias rondas chicas en lugar de una sola grande."
+  }
+ ]
+}

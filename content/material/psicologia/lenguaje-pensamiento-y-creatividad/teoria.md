@@ -12,7 +12,7 @@
 
 El lenguaje no es solo una herramienta para comunicarse, sino un sistema de signos que permite representar realidades abstractas o lejanas. Por ejemplo, la palabra *árbol* no representa el objeto físico en sí, sino su forma, función y significado dentro de un contexto cultural. Esta capacidad simbólica permite que el pensamiento opere con ideas separadas del mundo inmediato, facilitando la abstracción, el razonamiento y la imaginación.
 
-![esquema de signo (significante) ↔ significado](https://upload.wikimedia.org/wikipedia/commons/d/d6/Saussure_Signifie-Signifiant.png)
+![esquema de signo (significante) ↔ significado](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Saussure_Signifie-Signifiant.png/960px-Saussure_Signifie-Signifiant.png)
 
 *Imagen: «Saussure Signifie-Signifiant», Ferdinand de Saussure (26 November 1857 – 22 Febru, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Saussure_Signifie-Signifiant.png).*
 

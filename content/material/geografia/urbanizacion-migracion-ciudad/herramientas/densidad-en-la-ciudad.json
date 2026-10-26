@@ -1,0 +1,95 @@
+{
+ "titulo": "Densidad de población",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cómo cambia la densidad dentro de una ciudad grande",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Centro: edificios en altura, comercios y oficinas",
+     "x": 0,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Barrios residenciales: casas y edificios bajos",
+     "x": 212,
+     "y": 0,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n3",
+     "label": "Periferia: loteos, barrios cerrados y asentamientos",
+     "x": 424,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Zona rural: chacras y campos",
+     "x": 636,
+     "y": 0,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2",
+     "label": "menos densidad"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Densidad de población en la Argentina (Censo 2022, valores redondeados)",
+   "headers": [
+    "Lugar",
+    "Habitantes",
+    "Superficie",
+    "Densidad aproximada"
+   ],
+   "rows": [
+    [
+     "Ciudad Autónoma de Buenos Aires",
+     "3,1 millones",
+     "203 km²",
+     "15.400 hab/km²"
+    ],
+    [
+     "Ejemplo del texto",
+     "2 millones",
+     "300 km²",
+     "6.700 hab/km²"
+    ],
+    [
+     "Argentina (territorio continental)",
+     "46 millones",
+     "2,8 millones de km²",
+     "16,5 hab/km²"
+    ],
+    [
+     "Provincia de Santa Cruz",
+     "337.000",
+     "244.000 km²",
+     "1,4 hab/km²"
+    ]
+   ]
+  }
+ ]
+}

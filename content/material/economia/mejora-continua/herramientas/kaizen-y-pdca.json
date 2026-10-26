@@ -1,0 +1,90 @@
+{
+ "titulo": "Kaizen: la palabra y el ciclo",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "De dónde viene la palabra «kaizen»",
+   "headers": [
+    "Carácter",
+    "Lectura",
+    "Significado"
+   ],
+   "rows": [
+    [
+     "改",
+     "kai",
+     "cambio"
+    ],
+    [
+     "善",
+     "zen",
+     "bueno, para bien"
+    ],
+    [
+     "改善",
+     "kaizen",
+     "cambio para mejorar"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "flow",
+   "title": "El ciclo PDCA (Planificar, Hacer, Verificar, Actuar), muy usado en la mejora continua",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Planificar: detectar un problema y proponer un cambio",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Hacer: probar el cambio en pequeño",
+     "x": 318,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Verificar: medir si mejoró",
+     "x": 318,
+     "y": 151,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Actuar: adoptarlo como estándar o corregirlo",
+     "x": 0,
+     "y": 151,
+     "color": "#f3e8ff"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n1",
+     "label": "y otra vez"
+    }
+   ]
+  }
+ ]
+}

@@ -40,7 +40,13 @@ Su utilidad era versátil: servía como cuchillo, herramienta de caza o incluso 
 
 ## 4. Conexión entre herramientas y expresión artística
 
-La creación de herramientas líticas no solo respondía a necesidades prácticas, sino que también reflejaba una capacidad simbólica. El mismo esfuerzo por perfeccionar la forma de una herramienta (como el bifaz) puede vincularse con la producción artística rupestre: en ambos casos, se aplica un control estético sobre materiales naturales. <!-- IMAGEN: secuencia comparativa entre tallado de herramientas y pintura rupestre -->.
+La creación de herramientas líticas no solo respondía a necesidades prácticas, sino que también reflejaba una capacidad simbólica. El mismo esfuerzo por perfeccionar la forma de una herramienta (como el bifaz) puede vincularse con la producción artística rupestre: en ambos casos, se aplica un control estético sobre materiales naturales.
+
+![Bifaz de piedra tallada sostenido en una mano](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Bifaz_en_mano.jpg/960px-Bifaz_en_mano.jpg)
+
+*Imagen: «Bifaz en mano», José-Manuel Benito Álvarez (España) —> Locutus Borg, CC BY-SA 2.5. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bifaz_en_mano.jpg).*
+
+Un bifaz achelense. Su forma simétrica, tallada por las dos caras, muestra que quien lo hizo tenía en mente un modelo antes de empezar.
 
 Además, los espacios donde se hallan grabados o pinturas rupestres suelen coincidir con zonas de talla lítica, lo que sugiere que el arte no era un acto aislado, sino parte de una cultura material más amplia. Esta conexión permite analizar cómo la tecnología y la expresión artística se desarrollaron en paralelo.
 

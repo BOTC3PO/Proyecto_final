@@ -1,0 +1,86 @@
+{
+ "titulo": "El ciclo de la dependencia de las materias primas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Por qué los precios internacionales pesan tanto",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Se exportan sobre todo materias primas",
+     "x": 0,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "Sus precios internacionales suben y bajan",
+     "x": 212,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Entran más o menos dólares",
+     "x": 424,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Cuando bajan: faltan dólares e ingresos fiscales",
+     "x": 424,
+     "y": 126,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n5",
+     "label": "Respuestas: control cambiario, subsidios, deuda",
+     "x": 212,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n6",
+     "label": "La estructura productiva sigue igual",
+     "x": 0,
+     "y": 126,
+     "color": "#f1f5f9"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n1"
+    }
+   ]
+  }
+ ]
+}

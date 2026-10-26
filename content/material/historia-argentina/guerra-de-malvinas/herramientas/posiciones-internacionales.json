@@ -1,0 +1,41 @@
+{
+ "titulo": "Posiciones internacionales en la guerra de Malvinas",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Quién apoyó a quién (1982)",
+   "headers": [
+    "Actor",
+    "Posición"
+   ],
+   "rows": [
+    [
+     "ONU (Consejo de Seguridad)",
+     "Resolución 502 (3 de abril): exige el retiro de las tropas argentinas y una solución diplomática"
+    ],
+    [
+     "Estados Unidos",
+     "Intentó mediar (misión Haig); desde el 30 de abril apoyó abiertamente al Reino Unido"
+    ],
+    [
+     "Comunidad Económica Europea",
+     "Aplicó sanciones económicas a la Argentina"
+    ],
+    [
+     "Mayoría de América Latina",
+     "Respaldó el reclamo argentino en la OEA; Perú envió ayuda militar"
+    ],
+    [
+     "Chile",
+     "En conflicto limítrofe con la Argentina, colaboró en secreto con el Reino Unido"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "La Argentina quedó aislada frente a las potencias occidentales, aunque contó con el apoyo de la mayor parte de América Latina."
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "titulo": "La ampliación del voto en Europa",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cuándo se aprobó el voto para todos los varones y para las mujeres (elecciones nacionales)",
+   "headers": [
+    "País",
+    "Voto masculino sin requisito de propiedad",
+    "Voto femenino"
+   ],
+   "rows": [
+    [
+     "Francia",
+     "1848",
+     "1944"
+    ],
+    [
+     "Alemania",
+     "1871",
+     "1918"
+    ],
+    [
+     "España",
+     "1890",
+     "1931"
+    ],
+    [
+     "Noruega",
+     "1898",
+     "1913"
+    ],
+    [
+     "Finlandia",
+     "1906",
+     "1906"
+    ],
+    [
+     "Suecia",
+     "1909 (aún con requisitos de impuestos) y 1921",
+     "1919 (votaron por primera vez en 1921)"
+    ],
+    [
+     "Italia",
+     "1912 (casi universal) y 1919",
+     "1945"
+    ],
+    [
+     "Reino Unido",
+     "1918",
+     "1918 (mayores de 30) y 1928 (igual que los varones)"
+    ],
+    [
+     "Argentina (para comparar)",
+     "1912: voto secreto y obligatorio (la propiedad no se exigía desde el siglo XIX)",
+     "1947"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "En 1910 la situación era muy dispar: en Francia o Alemania votaban todos los varones adultos, mientras que en el Reino Unido, Italia o Suecia todavía había requisitos de propiedad o de instrucción. En elecciones nacionales, solo Finlandia dejaba votar a todas las mujeres; Noruega lo haría en 1913."
+  }
+ ]
+}

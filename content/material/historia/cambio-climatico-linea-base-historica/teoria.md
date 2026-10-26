@@ -12,8 +12,6 @@
 
 El análisis climático moderno necesita un punto de referencia para distinguir entre variaciones naturales y las provocadas por la actividad humana. Sin una "línea base" histórica, no se puede determinar si el calentamiento actual es parte de ciclos naturales o representa una alteración anómala. Esta línea base se construye a partir de datos paleoclimáticos, obtenidos en registros como núcleos de hielo, sedimentos marinos y fósiles vegetales que datan desde hace miles de años.
 
-<!-- IMAGEN: Gráfica comparando temperaturas actuales con registros del Pleistoceno -->
-
 ---
 
 ## 2. Los ciclos naturales del clima

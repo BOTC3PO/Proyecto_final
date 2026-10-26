@@ -50,7 +50,11 @@ La ventaja de la oblicua es su simplicidad: se dibuja primero la vista frontal e
 
 Un detalle importante: aunque la cara frontal no se deforma, los demás elementos sí lo hacen. Por ejemplo, un cubo dibujado en proyección oblicua tendrá su cara lateral inclinada y sus lados laterales con medidas reducidas comparadas con el sistema ortogonal.
 
-<!-- IMAGEN: Ejemplo de un prisma hexagonal en proyección oblicua -->
+![Cubo dibujado en perspectiva caballera con escuadra y cartabón](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Caballera_a04.svg/960px-Caballera_a04.svg.png)
+
+*Imagen: «Caballera a04», Dnu72, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caballera_a04.svg).*
+
+Un cubo en perspectiva caballera, un tipo de proyección oblicua: la cara frontal se dibuja en verdadera magnitud y la profundidad se traza con líneas a 45°, apoyando la escuadra sobre el cartabón.
 
 ---
 

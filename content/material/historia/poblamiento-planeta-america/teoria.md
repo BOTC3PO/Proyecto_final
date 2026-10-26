@@ -12,7 +12,7 @@
 
 La teoría más aceptada por la ciencia sostiene que los primeros *Homo sapiens* surgieron en África hace aproximadamente 300.000 años. Allí, condiciones climáticas y ecológicas favorables permitieron el desarrollo de características distintivas como la capacidad de crear herramientas complejas, el lenguaje simbólico y una mayor adaptación social. Estudios genéticos y fósiles respaldan que este continente fue el crisol donde se consolidó nuestra especie.
 
-![mapa con centros de origen en África y rutas migratorias hacia otros continentes](https://upload.wikimedia.org/wikipedia/commons/9/9e/Human_migration_out_of_Africa.png)
+![mapa con centros de origen en África y rutas migratorias hacia otros continentes](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Human_migration_out_of_Africa.png/960px-Human_migration_out_of_Africa.png)
 
 *Imagen: «Human migration out of Africa», Ephert, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Human_migration_out_of_Africa.png).*
 
@@ -40,7 +40,7 @@ Este orden no es estricto en todos los casos, pero refleja el consenso científi
 
 La llegada al continente americano fue un hito crucial. Según la hipótesis más aceptada, los primeros humanos cruzaron desde Asia a través de **Beringia**, una tierra que conectaba Siberia con Alaska durante el Pleistoceno, cuando los niveles del mar eran más bajos. Este puente terrestre permitió el paso de grupos humanos que eventualmente se extendieron por todo el continente.
 
-![mapa mostrando la conexión entre Asia y América a través de Beringia en la última glaciación](https://upload.wikimedia.org/wikipedia/commons/5/52/Beringia_land_bridge-noaagov.gif)
+![mapa mostrando la conexión entre Asia y América a través de Beringia en la última glaciación](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Beringia_land_bridge-noaagov.gif/960px-Beringia_land_bridge-noaagov.gif)
 
 *Imagen: «Beringia land bridge-noaagov», NOAA, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beringia_land_bridge-noaagov.gif).*
 

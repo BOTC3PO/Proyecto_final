@@ -15,10 +15,9 @@ son secciones separables.
 
 El **Boom latinoamericano** ocurre en la **década de 1960 y 70** —
 más de medio siglo después de la Generación del 98
-(`../generacion-del-98/`), el eslabón anterior de esta cadena. La distancia temporal es real y se marca a propósito. El MAPA los encadena
-como los dos últimos movimientos literarios importantes en español, pero no
-son consecutivos en el tiempo. Entre ambos pasaron, sin cubrirse acá, la
-Generación del 27 española, las vanguardias y otros movimientos intermedios.
+(`../generacion-del-98/`), el tema anterior de este recorrido. Aunque se estudien uno detrás del otro,
+no son consecutivos en el tiempo: entre ambos pasaron, entre otros, las
+vanguardias y la Generación del 27 española.
 
 El Boom coincide con un momento de efervescencia política y cultural
 en América Latina (Revolución Cubana, auge de las industrias

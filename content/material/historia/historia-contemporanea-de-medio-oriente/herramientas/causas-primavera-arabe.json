@@ -1,0 +1,130 @@
+{
+ "titulo": "Por qué estalló la Primavera Árabe",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Causas y resultados de la Primavera Árabe (2011)",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Población joven y ciudades en rápido crecimiento",
+     "x": 0,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n2",
+     "label": "Alto desempleo juvenil",
+     "x": 212,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Suba del precio de los alimentos",
+     "x": 424,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Pacto autoritario: estabilidad a cambio de no participar",
+     "x": 0,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n5",
+     "label": "Corrupción y represión",
+     "x": 424,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n6",
+     "label": "Protestas de 2011: Túnez, Egipto, Yemen, Bahréin, Siria",
+     "x": 212,
+     "y": 252,
+     "color": "#fee2e2",
+     "shape": "diamond"
+    },
+    {
+     "id": "n7",
+     "label": "Túnez: transición democrática",
+     "x": 0,
+     "y": 378,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n8",
+     "label": "Egipto: vuelta de los militares (2013)",
+     "x": 212,
+     "y": 378,
+     "color": "#f1f5f9"
+    },
+    {
+     "id": "n9",
+     "label": "Siria: guerra civil",
+     "x": 424,
+     "y": 378,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n10",
+     "label": "Bahréin: represión con tropas sauditas",
+     "x": 636,
+     "y": 378,
+     "color": "#f1f5f9"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n6"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n6"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n6"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n6"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n7"
+    },
+    {
+     "id": "e7",
+     "fromId": "n6",
+     "toId": "n8"
+    },
+    {
+     "id": "e8",
+     "fromId": "n6",
+     "toId": "n9"
+    },
+    {
+     "id": "e9",
+     "fromId": "n6",
+     "toId": "n10"
+    }
+   ]
+  }
+ ]
+}

@@ -12,8 +12,6 @@
 
 Un *deepfake* es un tipo de contenido audiovisual (video o audio) generado mediante algoritmos de inteligencia artificial que imitan la apariencia o voz de una persona para hacerla decir o hacer algo que no ocurrió. Estos se crean usando técnicas como el aprendizaje profundo, donde la IA analiza miles de imágenes o grabaciones de una persona para replicar sus gestos, expresiones y tono con alta precisión. Aunque pueden ser usados en contextos creativos (como efectos especiales en películas), son especialmente peligrosos cuando se emplean para difundir desinformación o manipular opiniones públicas.
 
-<!-- IMAGEN: Comparación entre un video original y su versión deepfake, destacando diferencias sutiles en expresiones faciales -->
-
 ---
 
 ## 2. Sesgos en la información

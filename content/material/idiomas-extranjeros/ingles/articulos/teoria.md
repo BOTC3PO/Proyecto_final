@@ -30,7 +30,7 @@ Se emplea en sustantivos **singulares o plurales** que representan conceptos gen
 ## Errores comunes de hispanohablantes
 1. **Sobrante uso de artículos**: Los hablantes de español suelen añadir artículos incluso cuando no son necesarios, especialmente con sustantivos abstractos o generales. Ejemplo incorrecto: *He loves **the music**.* (Correcto: *He loves **music**.*).
 2. **Confusión entre *a/an* y *the***: A veces se usan *a/an* cuando debería haber *the*. Ejemplo incorrecto: *I saw **a the movie** yesterday.* (Correcto: *I saw **the movie** yesterday* si ya se mencionó; o *a movie* si es cualquiera).
-3. **Omisión de *the*** en contextos específicos**: Por ejemplo, decir *She lives in Spain* cuando se refiere a un país específico (correcto: *she lives in **Spain***) sin artículo.
+3. **Omisión de *the* en contextos específicos**: Por ejemplo, decir *I saw movie you recommended* en lugar de *I saw **the** movie you recommended*. En cambio, la mayoría de los países van sin artículo: *She lives in Spain* (no *in the Spain*); las excepciones son nombres como *the United States* o *the Netherlands*.
 
 ## Comparación con el español
 En español, **siempre** se usa un artículo antes de un sustantivo común, excepto en nombres propios (*Madrid*, *Juan*). En inglés, esto no sucede:
@@ -51,6 +51,6 @@ Además, en español se usa el artículo con sustantivos abstractos (*el amor*),
 **Explicación:**
 - *A great film*: Se usa *a* porque se refiere a un filme en general (no específico).
 - *The director*: El artículo *the* indica que hablan del director específico de la película mencionada.
-- *Another movie*: *Another* siempre va con artículo (*another** + sustantivo*), pero si fuera "una película cualquiera", se diría *a movie*.
+- *Another movie*: *another* ya incluye el artículo (*an* + *other*), por eso nunca se dice *an another movie*. Significa «otra película»; para «una película cualquiera» se dice *a movie*.
 
 Dominar los artículos permite construir oraciones claras y evitar ambigüedades, una habilidad clave para comunicarse efectivamente en inglés.

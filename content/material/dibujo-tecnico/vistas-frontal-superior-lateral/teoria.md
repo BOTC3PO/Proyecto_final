@@ -24,7 +24,11 @@ La vista lateral corresponde a la proyección del objeto sobre un plano vertical
 
 Las tres vistas (frontal, superior y lateral) se complementan para construir una representación completa del objeto en dos dimensiones. Cada una muestra una proyección ortogonal sobre un plano diferente: vertical, horizontal o lateral. Juntas permiten interpretar el volumen, las proporciones y los detalles que no se ven desde una sola dirección. Por ejemplo, si solo se dibuja la vista frontal, podría haber ambigüedades sobre cómo se conectan los lados del objeto; es ahí donde la vista lateral aporta claridad.
 
-<!-- IMAGEN: Tres vistas ortogonales de un cubo (frontal, superior y lateral), alineadas según el sistema de proyección -->
+![Pieza en volumen con sus tres vistas proyectadas sobre tres planos: frontal, superior y lateral](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/First_angle_projection.svg/960px-First_angle_projection.svg.png)
+
+*Imagen: «First angle projection», Emok, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:First_angle_projection.svg).*
+
+Cada flecha roja indica una dirección de observación; las líneas de puntos muestran cómo cada borde de la pieza se proyecta sobre su plano. Es la disposición del sistema europeo (primer diedro).
 
 ## 5. Normas de representación
 

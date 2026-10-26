@@ -18,7 +18,7 @@ La altura es la propiedad del sonido que nos permite diferenciar entre un tono a
 
 La intensidad del sonido se refiere a su **volumen** o potencia, es decir, cuán fuerte o débil lo escuchamos. Esta propiedad está ligada a la **amplitud** de las ondas sonoras: cuanto mayor sea la amplitud (la distancia entre el pico y el valle de la onda), más energía transporta el sonido y, por tanto, más intenso será. Por ejemplo, al aumentar el volumen de un altavoz, se incrementa la amplitud de las vibraciones del aire.
 
-![Representación de ondas con distintas amplitudes (alta vs. baja), destacando la energía asociada](https://upload.wikimedia.org/wikipedia/commons/8/8a/SoundWaveDiagFreqAmp.png)
+![Representación de ondas con distintas amplitudes (alta vs. baja), destacando la energía asociada](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/SoundWaveDiagFreqAmp.png/960px-SoundWaveDiagFreqAmp.png)
 
 *Imagen: «SoundWaveDiagFreqAmp», justin evans, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SoundWaveDiagFreqAmp.png).*
 
@@ -27,8 +27,6 @@ La intensidad del sonido se refiere a su **volumen** o potencia, es decir, cuán
 ## 3. Timbre: la huella única de cada sonido
 
 El timbre es lo que permite identificar el origen de un sonido, incluso si dos fuentes producen la misma nota a la misma intensidad. Por ejemplo, podemos distinguir entre una guitarra y un piano tocando el mismo "do" porque sus ondas tienen formas distintas. Esto se debe a las **armónicas** o frecuencias múltiples que acompañan al tono principal. Cada instrumento tiene su propia combinación de armónicas, lo que genera su timbre característico.
-
-<!-- IMAGEN: Formas de onda comparativas entre un piano y una flauta tocando la misma nota -->
 
 ---
 

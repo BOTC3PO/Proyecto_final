@@ -1,0 +1,55 @@
+{
+ "titulo": "El año agrícola en el antiguo Egipto",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Las tres estaciones del Nilo",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Ajet: la crecida inunda los campos (jul.–oct.)",
+     "x": 0,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Peret: siembra sobre el limo fértil (nov.–feb.)",
+     "x": 318,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Shemu: cosecha y pago de impuestos (mar.–jun.)",
+     "x": 159,
+     "y": 151,
+     "color": "#fef9c3"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n1"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Los meses son aproximados. Los escribas medían la altura de la crecida para calcular cuánto se iba a cosechar y cuánto impuesto cobrar."
+  }
+ ]
+}

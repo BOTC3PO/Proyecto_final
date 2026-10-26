@@ -16,9 +16,7 @@ El ser humano atraviesa distintas fases a lo largo de su vida, cada una marcada 
 
 ## 2. Cambios biológicos en la pubertad
 
-La pubertad no es solo un proceso físico, sino un evento complejo que involucra el **sistema endocrino** (glándulas y hormonas). A partir de los doce a catorce años, el cerebro envía señales al hipotálamo para iniciar la producción de testosterona o estrógeno, según el género. Estas hormonas activan cambios como la aparición del vello corporal, desarrollo de senos o músculos, y modificación del tono de voz. También afectan funciones internas: crecimiento óseo, maduración de órganos sexuales y regulación del ciclo menstrual.
-
-<!-- IMAGEN: Sistema endocrino y cambios hormonales durante la pubertad -->
+La pubertad no es solo un proceso físico, sino un evento complejo que involucra el **sistema endocrino** (glándulas y hormonas). En general empieza entre los 8 y los 13 años en las chicas y entre los 9 y los 14 en los chicos: el hipotálamo, una zona del cerebro, envía señales a la hipófisis, y esta estimula a los ovarios o a los testículos para que produzcan estrógenos o testosterona, según el sexo. Estas hormonas activan cambios como la aparición del vello corporal, desarrollo de senos o músculos, y modificación del tono de voz. También afectan funciones internas: crecimiento óseo, maduración de órganos sexuales y regulación del ciclo menstrual.
 
 ---
 

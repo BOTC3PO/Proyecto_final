@@ -1,0 +1,52 @@
+{
+ "titulo": "Del voto restringido al universal en la Argentina",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Hitos del derecho al voto",
+   "headers": [
+    "Año",
+    "Norma o hecho",
+    "Qué cambió"
+   ],
+   "rows": [
+    [
+     "1821",
+     "Ley electoral de Buenos Aires",
+     "Votan todos los varones libres desde los 20 años, sin requisito de propiedad"
+    ],
+    [
+     "1857",
+     "Ley electoral nacional",
+     "Voto masculino, voluntario y público (dicho en voz alta)"
+    ],
+    [
+     "1912",
+     "Ley 8.871 (Ley Sáenz Peña)",
+     "Voto universal masculino desde los 18 años, secreto y obligatorio; padrón del enrolamiento militar; lista incompleta"
+    ],
+    [
+     "1916",
+     "Primera elección presidencial con la nueva ley",
+     "Gana Hipólito Yrigoyen (Unión Cívica Radical), el partido opositor"
+    ],
+    [
+     "1947",
+     "Ley 13.010",
+     "Voto femenino"
+    ],
+    [
+     "1951",
+     "Elección nacional",
+     "Las mujeres votan por primera vez en una elección nacional"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Antes de 1912 el voto masculino no exigía propiedad, pero era público y voluntario: eso facilitaba la presión y el fraude."
+  }
+ ]
+}

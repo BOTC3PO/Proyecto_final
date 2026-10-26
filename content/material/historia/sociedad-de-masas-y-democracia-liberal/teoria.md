@@ -14,8 +14,6 @@ A lo largo del siglo XIX, las democracias liberales occidentales, particularment
 
 Este fenómeno no fue lineal ni uniforme. Mientras en el Reino Unido las Reformas Electorales de 1867 y 1884 ampliaron gradualmente el cuerpo electoral, en Francia la Tercera República consolidó un republicanismo laico y centralizado. En Estados Unidos, la Reconstrucción y los movimientos progresistas del *Gilded Age* marcaron un intento, aún contradictorio, de incluir a la clase trabajadora y minorías étnicas en el pacto democrático. La "sociedad de masas" no era un destino inevitable, sino el resultado de tensiones entre la demanda de representación y la resistencia de las élites tradicionales.
 
-<!-- IMAGEN: Mapa comparativo de la edad de voto en Europa en 1910, mostrando la disparidad entre países nórdicos, el sur de Europa y el este continental -->
-
 ## 2. Industrialización, urbanización y la fractura social
 
 La revolución industrial transformó la estructura demográfica y social. La migración masiva del campo a la ciudad creó aglomeraciones humanas sin precedentes, donde las solidaridades tradicionales (familia, gremio, iglesia) se debilitaron frente al anonimato urbano. Esta fragmentación generó una sensación de alienación y búsqueda de nuevas identidades colectivas.

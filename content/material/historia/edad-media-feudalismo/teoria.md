@@ -10,9 +10,7 @@
 
 ## 1. La caída del Imperio Romano: inicio de un nuevo orden
 
-La desaparición del Imperio Romano de Occidente en el año 476 d.C. marcó el fin de una era y el comienzo de la Edad Media en Europa occidental. Aunque no fue un colapso abrupto, sino un proceso prolongado, la pérdida de control centralizado por parte del Estado romano dejó vacíos de poder que los pueblos germánicos (como los visigodos, francos o godos) llenaron con sus propios reinos. Esta transición no fue un retroceso, sino una transformación: las instituciones políticas, económicas y religiosas se reorganizaron alrededor de nuevas bases.
-
-<!-- IMAGEN: Mapa de Europa en el siglo V, destacando los territorios del Imperio Romano de Occidente y los reinos germánicos emergentes -->
+La desaparición del Imperio Romano de Occidente en el año 476 d.C. marcó el fin de una era y el comienzo de la Edad Media en Europa occidental. Aunque no fue un colapso abrupto, sino un proceso prolongado, la pérdida de control centralizado por parte del Estado romano dejó vacíos de poder que los pueblos germánicos (como los visigodos, los ostrogodos, los francos o los vándalos) llenaron con sus propios reinos. Esta transición no fue un retroceso, sino una transformación: las instituciones políticas, económicas y religiosas se reorganizaron alrededor de nuevas bases.
 
 ## 2. La sociedad feudal: tres pilares interdependientes
 

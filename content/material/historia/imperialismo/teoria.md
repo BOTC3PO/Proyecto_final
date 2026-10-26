@@ -12,7 +12,11 @@
 
 El imperialismo surge en la segunda mitad del siglo XIX, impulsado por la industrialización y la necesidad de recursos naturales. Las potencias europeas buscaban expandir sus economías mediante el control de territorios extranjeros, lo que generó una carrera por colonizar regiones no desarrolladas. Este proceso no fue solo económico: también incluyó aspectos culturales y políticos, como la imposición de sistemas educativos o religiosos.
 
-<!-- IMAGEN: Mapa del reparto colonial en África al final del siglo XIX -->
+![Mapa de África en 1914 coloreado según la potencia europea que controlaba cada territorio](https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Mapa_del_%C3%81frica_colonial_%281914%29.svg/960px-Mapa_del_%C3%81frica_colonial_%281914%29.svg.png)
+
+*Imagen: «Mapa del África colonial (1914)», Milenioscuro, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mapa_del_%C3%81frica_colonial_%281914%29.svg).*
+
+En 1914, solo Etiopía (Abisinia) y Liberia seguían siendo independientes.
 
 ## 2. El reparto de África
 
