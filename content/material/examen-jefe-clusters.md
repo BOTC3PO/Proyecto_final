@@ -106,7 +106,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 3** (5): conquista-del-desierto-y-campana-al-chaco, modelo-agroexportador-inmigracion, ampliacion-democratica-ley-saenz-pena, golpes-de-estado-interrupciones, reforma-universitaria-1918
 - **Cluster 4** (8): peronismo-derechos-sociales, semana-tragica-1919, terrorismo-de-estado-argentina, industrializacion-por-sustitucion-de-importaciones-isi, guerra-de-malvinas, recuperacion-democratica-memoria, historia-reciente-argentina, crisis-de-2001
 
-## Historia profunda (95 temas, 22 clusters)
+## Historia (95 temas, 22 clusters)
 
 - **Cluster 1** (5): escalas-de-tiempo-profundo, origen-del-universo, formacion-de-estrellas, galaxias-tipos-escala, nucleosintesis
 - **Cluster 2** (5): corrimiento-al-rojo-expansion-universo, agujeros-negros, formacion-del-sistema-solar, ley-de-hubble, movimiento-rotacion-traslacion
@@ -131,7 +131,7 @@ dedujeron del `teoria.md` de cada tema y están marcados como "deducido" en la c
 - **Cluster 21** (5): historia-contemporanea-de-africa, historia-contemporanea-de-asia-y-pacifico, historia-contemporanea-de-medio-oriente, globalizacion-era-digital, internet-redes-globalizacion-digital
 - **Cluster 22** (1): carrera-espacial-sputnik-y-apolo
 
-## Historia (20 temas, 5 clusters)
+## Pensamiento histórico (20 temas, 5 clusters)
 
 - **Cluster 1** (3): interpretar-una-fuente-historica, linea-de-tiempo-y-antes-despues, decada-siglo-milenio
 - **Cluster 2** (3): antes-y-despues-de-cristo, periodizacion-historica, causa-y-consecuencia

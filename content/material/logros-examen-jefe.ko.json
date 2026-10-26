@@ -725,7 +725,7 @@
   },
   {
     "id": 681,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 1,
     "temas": [
       "escalas-de-tiempo-profundo",
@@ -740,7 +740,7 @@
   },
   {
     "id": 682,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 2,
     "temas": [
       "corrimiento-al-rojo-expansion-universo",
@@ -755,7 +755,7 @@
   },
   {
     "id": 683,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 3,
     "temas": [
       "materia-energia-oscura",
@@ -770,7 +770,7 @@
   },
   {
     "id": 684,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 4,
     "temas": [
       "tabla-periodica-nivel2-cosmologico",
@@ -785,7 +785,7 @@
   },
   {
     "id": 685,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 5,
     "temas": [
       "rocas-igneas-sedimentarias-metamorficas",
@@ -800,7 +800,7 @@
   },
   {
     "id": 686,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 6,
     "temas": [
       "eucariotas",
@@ -815,7 +815,7 @@
   },
   {
     "id": 687,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 7,
     "temas": [
       "ciclo-de-las-rocas",
@@ -830,7 +830,7 @@
   },
   {
     "id": 688,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 8,
     "temas": [
       "radiacion-mamiferos",
@@ -845,7 +845,7 @@
   },
   {
     "id": 689,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 9,
     "temas": [
       "seleccion-natural-evidencias-nivel2",
@@ -860,7 +860,7 @@
   },
   {
     "id": 690,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 10,
     "temas": [
       "division-del-trabajo",
@@ -875,7 +875,7 @@
   },
   {
     "id": 691,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 11,
     "temas": [
       "antigua-roma",
@@ -890,7 +890,7 @@
   },
   {
     "id": 692,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 12,
     "temas": [
       "mesopotamia",
@@ -904,7 +904,7 @@
   },
   {
     "id": 693,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 13,
     "temas": [
       "imperio-han-china",
@@ -919,7 +919,7 @@
   },
   {
     "id": 694,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 14,
     "temas": [
       "imperio-bizantino",
@@ -934,7 +934,7 @@
   },
   {
     "id": 695,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 15,
     "temas": [
       "ciencia-revolucion-cientifica",
@@ -949,7 +949,7 @@
   },
   {
     "id": 696,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 16,
     "temas": [
       "absolutismo-europeo",
@@ -962,7 +962,7 @@
   },
   {
     "id": 697,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 17,
     "temas": [
       "electrificacion-fabrica-hogar",
@@ -974,7 +974,7 @@
   },
   {
     "id": 698,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 18,
     "temas": [
       "revoluciones-burguesas-liberalismo",
@@ -987,7 +987,7 @@
   },
   {
     "id": 699,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 19,
     "temas": [
       "sociedad-de-masas-y-democracia-liberal",
@@ -1000,7 +1000,7 @@
   },
   {
     "id": 700,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 20,
     "temas": [
       "segunda-guerra-mundial",
@@ -1014,7 +1014,7 @@
   },
   {
     "id": 701,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 21,
     "temas": [
       "historia-contemporanea-de-africa",
@@ -1029,7 +1029,7 @@
   },
   {
     "id": 702,
-    "materia": "Historia profunda",
+    "materia": "Historia",
     "cluster": 22,
     "temas": [
       "carrera-espacial-sputnik-y-apolo"
@@ -1040,7 +1040,7 @@
   },
   {
     "id": 721,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 1,
     "temas": [
       "interpretar-una-fuente-historica",
@@ -1053,7 +1053,7 @@
   },
   {
     "id": 722,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 2,
     "temas": [
       "antes-y-despues-de-cristo",
@@ -1066,7 +1066,7 @@
   },
   {
     "id": 723,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 3,
     "temas": [
       "significancia-historica",
@@ -1081,7 +1081,7 @@
   },
   {
     "id": 724,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 4,
     "temas": [
       "escuela-de-los-annales",
@@ -1096,7 +1096,7 @@
   },
   {
     "id": 725,
-    "materia": "Historia",
+    "materia": "Pensamiento histórico",
     "cluster": 5,
     "temas": [
       "independencias",

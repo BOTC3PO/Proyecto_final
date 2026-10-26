@@ -1,4 +1,4 @@
-# Historia Profunda — Organizacion nacional constitucion 1853 (cuestionario, 25 preguntas VBLang)
+# Historia — Organizacion nacional constitucion 1853 (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["constitucion", "argentina", "federalismo"]
@@ -33,7 +33,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["forma_de_gobierno", "republica", "federal"]
@@ -53,7 +53,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["poderes", "legislativo", "ejecutivo", "judicial"]
@@ -76,7 +76,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["provincias", "autonomia"]
@@ -100,7 +100,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["sanacion", "congreso", "constituyente"]
@@ -124,7 +124,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["buenos_aires", "confederacion", "constitucion"]
@@ -142,7 +142,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["batalla_de_pavon", "reincorporacion", "unificacion"]
@@ -166,7 +166,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["ordenar", "cronologia"]
@@ -185,7 +185,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["pavon", "unificacion"]
@@ -206,7 +206,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["buenos_aires", "constitucion"]
@@ -225,7 +225,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["constitucion", "forma_de_gobierno"]
@@ -244,7 +244,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["poderes", "division_de_poderes"]
@@ -291,7 +291,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["representacion", "sufragio"]
@@ -311,7 +311,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["jerarquia", "poderes"]
@@ -330,7 +330,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["constitucion", "norma_suprema"]
@@ -350,7 +350,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["reforma", "1994"]
@@ -369,7 +369,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["sistema_de_gobierno"]
@@ -388,7 +388,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["poder_judicial", "corte_suprema"]
@@ -408,7 +408,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["jerarquia_normativa", "piramide_kelsen"]
@@ -436,7 +436,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["constitucion", "gobierno"]
@@ -461,7 +461,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "basico"
   tags: ["relaciones_exteriores", "soberania"]
@@ -484,7 +484,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["derechos", "libertad"]
@@ -508,7 +508,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "avanzado"
   tags: ["federalismo", "provincias"]
@@ -531,7 +531,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "organizacion_nacional_constitucion_1853"
   nivel: "intermedio"
   tags: ["jerarquia", "leyes"]

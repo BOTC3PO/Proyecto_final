@@ -1,4 +1,4 @@
-# Historia — reforma universitaria 1918 (cuestionario, 22 preguntas VBLang)
+# Pensamiento histórico — reforma universitaria 1918 (cuestionario, 22 preguntas VBLang)
 
 > Tema: `historia-argentina/reforma-universitaria-1918`. Ver `teoria.md` en esta misma carpeta.
 
@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "contexto_social"]
@@ -29,7 +29,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "manifiesto"]
@@ -50,7 +50,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "derechos"]
@@ -71,7 +71,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "cogobierno"]
@@ -92,7 +92,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "geografia"]
@@ -113,7 +113,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "pedagogia"]
@@ -134,7 +134,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "sociedad"]
@@ -155,7 +155,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "avanzado"
   tags: ["reforma_universitaria_1918", "impacto"]
@@ -176,7 +176,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "evaluacion"]
@@ -197,7 +197,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "alcance"]
@@ -218,7 +218,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "definiciones"]
@@ -239,7 +239,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "cronologia"]
@@ -260,7 +260,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "filosofia"]
@@ -281,7 +281,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "metodos"]
@@ -302,7 +302,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "avanzado"
   tags: ["reforma_universitaria_1918", "estructura_academica"]
@@ -323,7 +323,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "simbolismo"]
@@ -344,7 +344,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "academico"]
@@ -365,7 +365,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "sociedad"]
@@ -386,7 +386,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "basico"
   tags: ["reforma_universitaria_1918", "economia"]
@@ -407,7 +407,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "historia_institucional"]
@@ -428,7 +428,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "intermedio"
   tags: ["reforma_universitaria_1918", "democracia"]
@@ -449,7 +449,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "reforma_universitaria_1918"
   nivel: "avanzado"
   tags: ["reforma_universitaria_1918", "impacto_historico"]

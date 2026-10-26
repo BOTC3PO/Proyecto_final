@@ -1,1381 +1,2329 @@
-# Examen jefe — Experto en Fuentes y Cronología
+# Examen jefe — Maestro del Origen del Universo
 
-> Logro #721. Dominaste la interpretación de fuentes históricas, las líneas de tiempo, y la década, el siglo y el milenio, jefe. Pool agregado de los `cuestionario.md` ya validados de sus 3 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **60 preguntas totales** en 3/3 secciones.
+> Logro #681. Completaste el parcial dominando las escalas de tiempo profundo, el origen del universo, la nucleosíntesis, la formación de estrellas y los tipos de galaxias. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **125 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: interpretar-una-fuente-historica (20 preguntas)
+## Sección: escalas-de-tiempo-profundo (25 preguntas)
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "basico"
-  tags: ["fuente_historica", "definicion"]
+  tags: ["universo", "edad_del_universo"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "13800"
+tipo: completar
+respuestas_validas:
+  - "13800"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una fuente histórica es cualquier resto del pasado que permite reconstruir o conocer lo que ocurrió: un documento, una carta, una fotografía, un objeto, un testimonio."
-
-pasos:
-  - "La historia accede al pasado a través de las fuentes que sobrevivieron."
+enunciado: "Según los modelos cosmológicos actuales basados en la radiación de fondo de microondas, la edad estimada del universo es de aproximadamente ___ millones de años."
 
 explicacion: |
-  Verdadero: es la definición central de fuente histórica.
+  La edad del universo es de aproximadamente 13.800 millones de años. Esta escala es tan vasta que resulta imposible de imaginar para el cerebro humano, que evolucionó para entender ciclos diarios o estacionales.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "basico"
-  tags: ["fuente_primaria"]
+  tags: ["tierra", "formacion_planetaria"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "4600 millones de años"
+tipo: completar
+respuestas_validas:
+  - "4600 millones de años"
 
-respuesta: "fuente primaria"
-tipo: mc
-opciones_explicitas: ["fuente primaria", "fuente secundaria"]
-
-enunciado: "Una carta escrita por un soldado durante una guerra, mientras la vivía, es un ejemplo de..."
-
-pasos:
-  - "Producida en el momento de los hechos, por quien los vivió."
+enunciado: "La formación de la Tierra ocurrió hace aproximadamente ___."
 
 explicacion: |
-  La fuente primaria se produce en el momento de los hechos por
-  quienes los vivieron o presenciaron.
+  La Tierra se formó hace unos 4.600 millones de años, mucho después del Big Bang, pero mucho antes de la aparición de la vida compleja.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["fuente_secundaria"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "fuente secundaria"
-tipo: mc
-opciones_explicitas: ["fuente primaria", "fuente secundaria"]
-
-enunciado: "Un libro de historia escrito décadas después, que analiza cartas de soldados de esa guerra, es un ejemplo de..."
-
-pasos:
-  - "Producida después, analizando o interpretando fuentes primarias."
-
-explicacion: |
-  La fuente secundaria interpreta o analiza fuentes primarias, no fue
-  producida en el momento de los hechos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "intermedio"
-  tags: ["fuente_primaria", "fuente_secundaria", "matiz"]
+  tags: ["psicologia", "intuicion"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "evolucionado"
+tipo: completar
+respuestas_validas:
+  - "evolucionado"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un mismo texto puede ser fuente primaria para un tema y fuente secundaria para otro, según qué se esté investigando."
-
-pasos:
-  - "Un libro de historia de 1950 es secundario sobre los hechos que narra, pero es primario si se investiga cómo se pensaba la historia en 1950."
+enunciado: "Nuestra intuición no está calibrada para las escalas de tiempo profundo porque nuestro cerebro ha ___ para sobrevivir en entornos de corto plazo."
 
 explicacion: |
-  Verdadero: la clasificación primaria/secundaria depende del objeto
-  de investigación, no es una propiedad fija del documento.
+  La evolución humana priorizó la percepción de eventos inmediatos (depredadores, estaciones, ciclos de comida) sobre la comprensión de procesos geológicos o cósmicos que tardan eones en ocurrir.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "intermedio"
-  tags: ["punto_de_vista"]
+  tags: ["comparacion", "tiempo"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "4600"
+tipo: completar
+respuestas_validas:
+  - "4600"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ninguna fuente histórica es completamente neutral u objetiva: quien la produjo tenía una posición, un interés, un contexto que influye en qué cuenta y cómo lo cuenta."
-
-pasos:
-  - "Esto no significa que la fuente sea inútil o mentirosa, sólo que hay que leerla sabiendo desde dónde habla."
+enunciado: "Si el universo tiene 13.800 millones de años, la Tierra tiene aproximadamente ___ millones de años."
 
 explicacion: |
-  Verdadero: es el punto de partida central del análisis crítico de
-  fuentes.
+  La Tierra es significativamente más joven que el universo; se formó cuando el universo ya tenía casi 9.000 millones de años de existencia.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["sesgo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un documento puede ser sincero y fiel a lo que su autor percibió, y aun así estar sesgado por su posición social, época o creencias."
-
-pasos:
-  - "El trabajo del historiador no es descartar fuentes sesgadas (todas lo están en algún grado), sino entender el sesgo."
-
-explicacion: |
-  Verdadero: es una distinción central para no confundir parcialidad
-  con deshonestidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["analisis_critico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una de las primeras preguntas del análisis crítico de una fuente es: ¿quién la produjo (autor, institución, y su posición respecto de los hechos)?"
-
-pasos:
-  - "Conocer al autor ayuda a entender desde qué perspectiva se cuenta lo narrado."
-
-explicacion: |
-  Verdadero: es una de las preguntas centrales del método de análisis
-  crítico de fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "basico"
-  tags: ["analisis_critico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra pregunta central del análisis crítico es: ¿cuándo y dónde se produjo la fuente (contemporánea a los hechos, o posterior; en qué lugar)?"
-
-pasos:
-  - "Determina si la fuente es primaria o secundaria, y qué distancia temporal/geográfica tiene con los hechos."
-
-explicacion: |
-  Verdadero: es otra pregunta central del método de análisis crítico
-  de fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["analisis_critico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra pregunta central es: ¿para quién y con qué propósito se produjo la fuente? Una carta privada, un discurso público y un documento oficial tienen propósitos y audiencias distintas."
-
-pasos:
-  - "El propósito y la audiencia influyen directamente en qué se dice y cómo."
-
-explicacion: |
-  Verdadero: es otra pregunta central del método de análisis crítico
-  de fuentes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "avanzado"
-  tags: ["analisis_critico", "omisiones"]
+  tags: ["antropoceno", "escala_humana"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "insignificante"
+tipo: completar
+respuestas_validas:
+  - "insignificante"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Lo que una fuente omite también es información: por ejemplo, un censo que no cuenta a cierto grupo social revela algo sobre cómo se los consideraba en esa época."
-
-pasos:
-  - "Analizar las omisiones es parte del análisis crítico, no sólo lo que la fuente dice explícitamente."
+enunciado: "En comparación con la escala de tiempo de la formación de la corteza terrestre, la duración de la civilización humana es prácticamente ___."
 
 explicacion: |
-  Verdadero: las omisiones pueden ser tan reveladoras como lo
-  explícitamente dicho.
+  La historia de la humanidad es un parpadeo en la escala del tiempo profundo. Mientras la Tierra tarda millones de años en cambiar sus continentes, la humanidad apenas lleva unos pocos milenios de historia escrita.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["analisis_critico", "contraste"]
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "escala_longitud"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "10^12"
+tipo: mc
+opciones_explicitas: ["10^6", "10^9", "10^12", "10^15"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra pregunta central es si la fuente se puede contrastar con otras fuentes independientes — la misma lógica ya vista al verificar noticias actuales, aplicada acá a documentos del pasado."
-
-pasos:
-  - "Ver `../../ciudadania-digital/verificacion-de-una-noticia/`: es el mismo principio de contraste de fuentes."
+enunciado: "En español (escala larga), cuando hablamos de un 'billón', nos referimos a una cantidad equivalente a un ___."
 
 explicacion: |
-  Verdadero: es la conexión directa entre este tema y el método de
-  verificación ya estudiado en otro contexto.
+  En español, el sistema de escala larga define el billón como un millón de millones, es decir, 10^12.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["notacion_cientifica", "traduccion"]
+
+respuesta: "10^9"
+tipo: mc
+opciones_explicitas: ["10^6", "10^9", "10^12", "10^15"]
+
+enunciado: "Si leés un texto de geología en inglés que menciona un 'billion' de años, ¿a qué potencia de 10 te referís en nuestra escala numérica?"
+
+explicacion: |
+  En inglés (escala corta), un 'billion' equivale a mil millones, es decir, 10^9.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
   nivel: "intermedio"
-  tags: ["fuente_primaria", "fuente_secundaria", "practica"]
+  tags: ["notacion_cientifica", "comparacion"]
+
+respuesta: "mil millones"
+tipo: completar
+respuestas_validas:
+  - "mil millones"
+
+enunciado: "El valor de un 'billion' en inglés es equivalente, en español, a ___."
+
+explicacion: |
+  El término 'billion' en inglés representa 10^9, lo cual en español llamamos 'mil millones'.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "geologia"]
+
+respuesta: "4.5 x 10^9"
+tipo: completar
+respuestas_validas:
+  - "4.5 x 10^9"
+  - "4.5x10^9"
+
+enunciado: "La edad estimada de la Tierra es de aproximadamente 4,5 mil millones de años. Expresá este número en notación científica (formato N x 10^x)."
+
+explicacion: |
+  4,5 mil millones se escribe como 4.500.000.000, lo que equivale a 4,5 x 10^9.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["notacion_cientifica", "logica"]
+
+respuesta: "10^3"
+tipo: mc
+opciones_explicitas: ["10^2", "10^3", "10^6", "10^9"]
+
+enunciado: "Si dividimos un billón (español, 10^12) por un billion (inglés, 10^9), el resultado es una magnitud de ___."
+
+explicacion: |
+  10^12 / 10^9 = 10^(12-9) = 10^3. El resultado es mil.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["calendario_cosmico", "big_bang"]
+
+enunciado: "Si comprimiéramos los 13.800 millones de años de la historia del universo en un solo año calendario, el evento del Big Bang ocurriría el día ___ de enero."
+
+respuestas_validas:
+  - "1"
+respuesta: "1"
+tipo: completar
+
+explicacion: |
+  En el calendario cósmico, el 1 de enero marca el inicio del tiempo y el espacio con el Big Bang.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["tierra", "vida"]
+
+respuesta: "septiembre"
+tipo: completar
+respuestas_validas:
+  - "septiembre"
+
+enunciado: "Si el Big Bang es el 1 de enero, la formación de la Tierra ocurriría aproximadamente el 1° de ___."
+
+explicacion: |
+  La Tierra se formó hace unos 4.500 millones de años, lo que en nuestra escala corresponde a principios de septiembre.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["dinosaurios", "extincion"]
+
+respuesta: "24 de diciembre"
+tipo: completar
+respuestas_validas:
+  - "24 de diciembre"
+
+enunciado: "La era de los dinosaurios (que terminó hace unos 66 millones de años) se ubicaría en el calendario cósmico alrededor del ___."
+
+explicacion: |
+  Los dinosaurios dominaron la Tierra durante gran parte del último mes del año cósmico, desapareciendo hacia la Navidad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["historia_humana", "tiempo_corto"]
+
+enunciado: "La historia de la humanidad escrita (desde la invención de la escritura) ocupa apenas unos segundos del día ___ de diciembre."
+
+respuestas_validas:
+  - "31"
+respuesta: "31"
+tipo: completar
+
+explicacion: |
+  A pesar de nuestra importancia cultural, la historia humana es un parpadeo insignificante comparado con la escala cósmica, ocurriendo en los últimos instantes del 31 de diciembre.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["percepcion_temporal", "escala"]
+
+opciones_explicitas: ["Septiembre", "Diciembre", "Enero", "Julio"]
+respuesta: "Septiembre"
+tipo: mc
+
+enunciado: "Si el universo tiene 13.800 millones de años y la Tierra tiene aproximadamente 4.500 millones de años, ¿en qué mes del calendario cósmico se ubica la aparición de la Tierra?"
+
+explicacion: |
+  La Tierra se formó hace 4.500 millones de años, lo que sitúa su aparición en el mes de septiembre dentro de la escala de un año.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["escala_temporal", "historia", "geologia"]
+
+enunciado: "Si comparamos la edad de la Tierra (aprox. 4500 millones de años) con la duración de la historia escrita (aprox. 5000 años), la historia escrita representa una fracción de tiempo que es:"
+
+opciones_explicitas: ["Una parte significativa", "Una fracción minúscula", "La mitad del tiempo terrestre", "Un tiempo equivalente"]
+
+respuesta: "Una fracción minúscula"
+tipo: mc
+
+explicacion: |
+  5.000 años frente a 4.500 millones de años es una proporción prácticamente nula — la historia escrita es apenas un instante en la escala geológica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["homo_sapiens", "evolucion"]
+
+enunciado: "Considerando que el Homo sapiens moderno tiene aproximadamente 300.000 años de existencia, ¿cuál de las siguientes afirmaciones es correcta respecto a la escala geológica?"
+
+opciones_explicitas: ["Es casi tanto tiempo como la edad de la Tierra", "Es un parpadeo insignificante frente a la edad de la Tierra", "Es el tiempo que tardó la Tierra en formarse", "Es un tiempo extremadamente largo en términos geológicos"]
+
+respuesta: "Es un parpadeo insignificante frente a la edad de la Tierra"
+tipo: mc
+
+explicacion: |
+  300.000 años representan apenas una fracción de un 0,01% de los 4.600 millones de años de historia de la Tierra.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["comparacion", "escala"]
+
+opciones_explicitas: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
+respuesta_orden: ["Historia escrita", "Homo sapiens", "Edad de la Tierra"]
+tipo: ordenar
+
+enunciado: "Ordená de MENOR a MAYOR duración estos 3 lapsos de tiempo:"
+
+explicacion: |
+  La historia escrita (~5.000 años) es la más corta, seguida por la existencia del Homo sapiens (~300.000 años), y por último la edad de la Tierra (~4.600 millones de años), la más larga por lejos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+enunciado: "Para entender la 'Historia Profunda', debemos entender que la actividad humana es una escala de tiempo ___ en comparación con los procesos geológicos."
+
+respuestas_validas:
+  - "minúscula"
+  - "insignificante"
+  - "pequeña"
+
+respuesta: "minúscula"
+tipo: completar
+
+explicacion: |
+  Los procesos geológicos se miden en millones de años; la actividad humana, en siglos — una diferencia de varios órdenes de magnitud.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["proporciones", "geologia"]
+
+enunciado: "Si la historia de la humanidad (desde la escritura) fuera un día de 24 horas, la edad de la Tierra equivaldría aproximadamente a:"
+
+opciones_explicitas: ["Unos pocos minutos", "Casi 24 horas", "Unos 10 años", "Un siglo"]
+
+respuesta: "Casi 24 horas"
+tipo: mc
+
+explicacion: |
+  Al invertir la comparación (poniendo lo corto como referencia de 24 horas), la escala geológica completa se estira a una duración enorme comparada con esa unidad — el punto es que la relación de magnitudes es abismal en cualquier dirección que se la mire.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["geologia", "notacion_cientifica"]
+
+enunciado: "La edad estimada de la Tierra es de aproximadamente 4.540.000.000 años. ¿Cuál es la forma correcta de expresar este número en notación científica?"
+
+opciones_explicitas: ["4.54e9", "4.54e7", "45.4e8", "0.454e10"]
+respuesta: "4.54e9"
+tipo: mc
+
+explicacion: |
+  4.540.000.000 equivale a 4,54 × 10⁹ en notación científica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["calendario_cosmico", "eventos"]
 
 variables:
-  ejemplos: ["un decreto oficial firmado en el momento de los hechos", "un documental producido 50 años después analizando ese decreto"]
-  tipos: ["fuente primaria", "fuente secundaria"]
+  idx: uno_de([0, 1, 2])
+  escenario: [["1° de septiembre", "La formación del Sistema Solar"], ["finales de septiembre", "La aparición de la vida"], ["30 de diciembre", "La extinción de los dinosaurios"]]
+
+enunciado: "En el calendario cósmico, {escenario[idx][0]} corresponde aproximadamente a ___."
+
+opciones_explicitas: ["La formación del Sistema Solar", "La aparición de la vida", "La extinción de los dinosaurios"]
+respuesta: escenario[idx][1]
+tipo: mc
+
+explicacion: |
+  El calendario cósmico es una escala que comprime el tiempo universal en un año para facilitar su comprensión.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "intermedio"
+  tags: ["notacion_cientifica", "cosmologia"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  valor: [[13800000000, "1.38e10"], [138000000000, "1.38e11"], [1380000000, "1.38e9"]]
+
+enunciado: "Un valor de {valor[idx][0]} años, ¿cómo se expresa correctamente en notación científica?"
+
+opciones_explicitas: ["1.38e10", "1.38e11", "1.38e9", "13.8e9"]
+respuesta: valor[idx][1]
+tipo: mc
+
+explicacion: |
+  Para pasar a notación científica se cuenta cuántos lugares hay que mover la coma decimal hacia la izquierda hasta dejar un solo dígito antes del punto.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "avanzado"
+  tags: ["geologia", "completar"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  eon_datos: [[1500000000, "1.5e9"], [2000000000, "2.0e9"], [2500000000, "2.5e9"]]
+
+enunciado: "Un eón es una unidad de tiempo geológico muy larga. Si un período geológico duró {eon_datos[idx][0]} años, su valor en notación científica es ___ años."
+
+respuestas_validas:
+  - "1.5e9"
+  - "2.0e9"
+  - "2.5e9"
+respuesta: eon_datos[idx][1]
+tipo: completar
+
+explicacion: |
+  Cada valor se expresa como N x 10⁹, manteniendo un solo dígito significativo antes del punto decimal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "escalas_de_tiempo_profundo"
+  nivel: "basico"
+  tags: ["comparacion", "notacion"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  comparacion: [[1000000000, "1e9"], [100000000, "1e8"], [1000000, "1e6"]]
+
+enunciado: "Si un evento ocurrió hace {comparacion[idx][0]} años, la forma abreviada en notación científica es ___."
+
+respuestas_validas:
+  - "1e9"
+  - "1e8"
+  - "1e6"
+respuesta: comparacion[idx][1]
+tipo: completar
+
+explicacion: |
+  La notación científica permite manejar grandes escalas de tiempo de forma eficiente, expresando el número como una potencia de 10.
+```
+
+## Sección: origen-del-universo (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["conceptos_clave", "espacio_tiempo"]
+
+tipo: completar
+
+enunciado: "Una idea errónea común es que el Big Bang fue una explosión de materia en un espacio vacío preexistente. Sin embargo, la teoría científica actual establece que el Big Bang fue la expansión del propio ___."
+
+respuestas_validas:
+  - "espacio-tiempo"
+  - "espacio y tiempo"
+
+respuesta: "espacio-tiempo"
+
+explicacion: |
+  El Big Bang no fue una explosión de materia en un lugar, sino el estiramiento del tejido mismo del espacio y el tiempo. No hubo un "punto" en el espacio que explotara, sino que el espacio mismo comenzó a expandirse.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["geometria_universo", "expansion"]
+
+tipo: completar
+
+enunciado: "Dado que el Big Bang fue una expansión del espacio-tiempo en todos los puntos simultáneamente, el universo ___ tiene un centro único o un punto de origen espacial."
+
+respuestas_validas:
+  - "no"
+  - "no posee"
+
+respuesta: "no"
+
+explicacion: |
+  Como el espacio se expande en todas direcciones al mismo tiempo, no hay un punto central desde donde todo se aleja. Cualquier punto en el universo puede considerarse un centro de expansión, pero no existe un "centro absoluto".
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["cosmologia", "dimensiones"]
+
+tipo: completar
+
+enunciado: "Si el Big Bang creó el espacio-tiempo, esto implica que el universo no se está expandiendo hacia un espacio vacío que ya existía, por lo tanto, no existe un ___ que el universo esté ocupando."
+
+respuestas_validas:
+  - "afuera"
+  - "exterior"
+
+respuesta: "afuera"
+
+explicacion: |
+  Al ser el espacio-tiempo algo que surge y se expande, no hay un "contenedor" externo. El concepto de "afuera" requiere una dimensión espacial preexistente que la teoría del Big Bang no contempla.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["analogias", "expansion"]
+
+tipo: completar
+
+enunciado: "Para entender que el espacio se estira, se suele usar la analogía de la superficie de un globo que se infla. En este modelo, las galaxias se alejan entre sí porque el ___ entre ellas aumenta, no porque se desplacen por un espacio vacío."
+
+respuestas_validas:
+  - "espacio"
+  - "distancia"
+
+respuesta: "espacio"
+
+explicacion: |
+  En la analogía del globo, la superficie representa el espacio-tiempo. Al inflar el globo, la superficie se estira, aumentando la distancia entre puntos, tal como sucede con el universo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["tiempo", "causalidad"]
+
+tipo: completar
+
+enunciado: "Si el Big Bang marca el inicio del espacio-tiempo, esto significa que el ___ no existía antes de este evento, invalidando la idea de un 'antes' en términos temporales clásicos."
+
+respuestas_validas:
+  - "tiempo"
+
+respuesta: "tiempo"
+
+explicacion: |
+  Si el tiempo es una dimensión que surgió con el Big Bang, preguntar qué hubo "antes" es como preguntar qué hay al norte del Polo Norte; la pregunta carece de sentido físico porque la dimensión temporal no existía.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["big_bang", "expansion"]
+
+tipo: mc
+opciones_explicitas: ["Una contracción inmediata", "Una expansión extremadamente rápida", "Un estado estático sin cambios", "Un enfriamiento instantáneo sin movimiento"]
+respuesta: "Una expansión extremadamente rápida"
+
+enunciado: "Inmediatamente después del Big Bang, el universo experimentó un proceso conocido como inflación, que consistió en una ___."
+
+explicacion: |
+  La inflación es el período de expansión exponencial que ocurrió en las fracciones de segundo iniciales, permitiendo que el universo se volviera homogéneo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["particulas", "temperatura"]
+
+tipo: completar
+respuestas_validas:
+  - "enfriamiento"
+respuesta: "enfriamiento"
+
+enunciado: "A medida que el universo se expandía tras el Big Bang, la temperatura descendía, permitiendo el ___ del cosmos y la formación de estructuras."
+
+explicacion: |
+  La expansión del espacio provoca que la densidad de energía disminuya, lo que se traduce en un descenso de la temperatura cósmica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["particulas", "subatomicas"]
+
+tipo: mc
+opciones_explicitas: ["Átomos de carbono", "Partículas subatómicas como protones y neutrones", "Moléculas de agua", "Planetas rocosos"]
+respuesta: "Partículas subatómicas como protones y neutrones"
+
+enunciado: "Antes de que existieran los átomos, el universo estaba compuesto por un plasma de partículas elementales. ¿Cuál de estas apareció tras el enfriamiento inicial?"
+
+explicacion: |
+  Antes de la formación de átomos neutros, el universo era una "sopa" de partículas subatómicas como protones, neutrones y electrones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["elementos", "hidrogeno"]
+
+tipo: mc
+opciones_explicitas: ["Sólo Helio", "Sólo Oxígeno", "Hidrógeno y Helio", "Hierro y Carbono"]
+respuesta: "Hidrógeno y Helio"
+
+enunciado: "Durante los primeros minutos del universo, la nucleosíntesis primordial permitió la formación de los primeros elementos químicos. ¿Cuáles fueron los principales?"
+
+explicacion: |
+  La abundancia de elementos en el universo temprano estaba compuesta mayoritariamente por hidrógeno (aprox. 75%) y helio (aprox. 25%).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["estrellas", "galaxias"]
+
+tipo: completar
+respuestas_validas:
+  - "estrellas"
+respuesta: "estrellas"
+
+enunciado: "Mucho tiempo después de la formación de los primeros átomos, la gravedad agrupó las nubes de gas para dar origen a las primeras ___."
+
+explicacion: |
+  La gravedad actuó sobre las densidades de gas (hidrógeno y helio) para colapsar las nubes y encender la fusión nuclear, creando las primeras estrellas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["big_bang", "expansión", "redshift"]
+
+respuesta: "corrimiento al rojo"
+tipo: completar
+respuestas_validas:
+  - "corrimiento al rojo"
+
+enunciado: "El fenómeno observado en la luz de galaxias lejanas que indica que el universo se está expandiendo se conoce como ___."
+
+explicacion: |
+  El corrimiento al rojo (redshift) ocurre cuando la luz de un objeto se desplaza hacia longitudes de onda más largas (el rojo) debido a que el espacio entre nosotros y la fuente se está expandiendo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["cmb", "radiación_fondo", "evidencia"]
+
+respuesta: "380000"
+tipo: completar
+respuestas_validas:
+  - "380000"
+  - "380.000"
+
+enunciado: "La Radiación Cósmica de Fondo de Microondas (CMB) se originó aproximadamente ___ años después del Big Bang, cuando el universo se volvió transparente."
+
+explicacion: |
+  Antes de este momento, el universo era un plasma opaco. Al enfriarse hasta los 380.000 años, los electrones y protones formaron átomos neutros, permitiendo que los fotones viajaran libremente.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["elementos", "hidrógeno", "helio"]
+
+respuesta: "hidrógeno"
+tipo: completar
+respuestas_validas:
+  - "hidrógeno"
+  - "hidrogeno"
+
+enunciado: "Según el modelo del Big Bang, el elemento más abundante creado en las primeras etapas del universo (junto con el helio) fue el ___."
+
+explicacion: |
+  La nucleosíntesis primordial predice una abundancia de aproximadamente 75% de hidrógeno y 25% de helio, lo cual coincide con las observaciones astronómicas actuales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["redshift", "luz"]
+
+respuesta: "rojo"
+tipo: completar
+respuestas_validas:
+  - "rojo"
+
+enunciado: "Cuando una galaxia se aleja de un observador, la luz que emite se desplaza hacia el extremo ___ del espectro electromagnético."
+
+explicacion: |
+  Este desplazamiento hacia longitudes de onda mayores es la base para medir la velocidad de recesión de las galaxias y confirmar la expansión cósmica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["cmb", "evidencia", "microondas"]
+
+respuesta: "radiación cósmica de fondo de microondas"
+tipo: completar
+respuestas_validas:
+  - "radiación cósmica de fondo de microondas"
+  - "radiación de fondo"
+
+enunciado: "La evidencia que consiste en un resplandor térmico que llena todo el universo y es un 'eco' del Big Bang se denomina ___."
+
+explicacion: |
+  La radiación cósmica de fondo de microondas es la prueba más sólida del estado caliente y denso que tuvo el universo en sus inicios.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["fred_hoyle", "terminologia"]
+
+opciones_explicitas: ["Un término descriptivo científico", "Un término despectivo usado para burlarse", "Un nombre propuesto por Einstein", "Un nombre acuñado por la NASA"]
+
+respuesta: "Un término despectivo usado para burlarse"
+tipo: mc
+
+enunciado: "El término 'Big Bang' no fue acuñado para describir el evento de forma neutral, sino que fue propuesto por el astrónomo Fred Hoyle con una intención de burlarse de la teoría de la expansión. ¿Cuál era la intención de la expresión?"
+
+explicacion: |
+  Fred Hoyle, defensor de la teoría del Estado Estacionario, utilizó el término 'Big Bang' durante una transmisión de radio en 1949 para ridiculizar la idea de una singularidad inicial, considerándola poco científica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["acustica", "vacio"]
+
+opciones_explicitas: ["Sí, fue una explosión sonora masiva", "No, porque en el vacío no se propaga el sonido", "Sí, debido a la liberación de energía", "No, porque el universo era demasiado grande"]
+
+respuesta: "No, porque en el vacío no se propaga el sonido"
+tipo: mc
+
+enunciado: "Desde un punto de vista físico, el nombre 'Big Bang' es engañoso respecto a la acústica del evento. ¿Por qué no hubo un sonido como el de una explosión convencional?"
+
+explicacion: |
+  El sonido requiere un medio material (como aire o agua) para propagarse a través de ondas de presión. La idea de una "explosión" implica una onda expansiva en un medio preexistente, algo que no aplica al origen del espacio-tiempo mismo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "avanzado"
+  tags: ["expansion", "explosion"]
+
+opciones_explicitas: ["Una explosión de materia en un espacio vacío", "Una expansión acelerada del propio espacio-tiempo", "Una detonación química de gases", "Un choque de galaxias"]
+
+respuesta: "Una expansión acelerada del propio espacio-tiempo"
+tipo: mc
+
+enunciado: "El concepto de 'explosión' sugiere que algo explota 'dentro' de un espacio ya existente. Sin embargo, la cosmología moderna describe el Big Bang como una ___ del espacio mismo."
+
+explicacion: |
+  A diferencia de una bomba que expande materia en un lugar vacío, el Big Bang fue la expansión del tejido mismo del espacio-tiempo, creando el espacio y el tiempo a medida que se expandía.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["luz", "radiacion"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Es correcto afirmar que el Big Bang fue un evento visible como una explosión de luz brillante que iluminó el universo instantáneamente."
+
+explicacion: |
+  Falso. Durante los primeros instantes, el universo era un plasma opaco para la luz. La luz no pudo viajar libremente hasta que ocurrió la "recombinación" (unos 380.000 años después), liberando la radiación de fondo de microondas que detectamos hoy.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "intermedio"
+  tags: ["terminologia", "historia_ciencia"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "Se considera que el nombre 'Big Bang' es semánticamente engañoso para describir el proceso de expansión del universo."
+
+explicacion: |
+  Verdadero. El término sugiere un evento puntual y violento de materia en un espacio vacío, mientras que la realidad física es una expansión métrica del espacio-tiempo que no requiere un centro ni un medio de propagación para el sonido.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_del_universo"
+  nivel: "basico"
+  tags: ["astronomia", "evidencia"]
+
+variables:
   idx: uno_de([0, 1])
+  escenarios: [["Observamos que la luz de las galaxias lejanas se desplaza hacia longitudes de onda más largas (rojas).", "corrimiento al rojo"], ["Observamos que las galaxias se alejan de nosotros a velocidades proporcionales a su distancia.", "corrimiento al rojo"]]
 
-respuesta: tipos[idx]
+opciones_explicitas: ["corrimiento al rojo", "corrimiento al azul", "estacionarismo galáctico"]
+
+respuesta: escenarios[idx][1]
 tipo: mc
-opciones_explicitas: ["fuente primaria", "fuente secundaria"]
 
-enunciado: "\"{ejemplos[idx]}\" es un ejemplo de..."
-
-pasos:
-  - "Contemporáneo a los hechos = primaria. Posterior, analizando fuentes primarias = secundaria."
+enunciado: "Si un astrónomo detecta que {escenarios[idx][0]}, ¿a qué fenómeno se refiere este hallazgo?"
 
 explicacion: |
-  La clasificación depende de cuándo se produjo la fuente respecto de
-  los hechos que documenta.
+  El corrimiento al rojo (redshift) es la evidencia fundamental de que el universo se está expandiendo, tal como predijo la Relatividad General y observó Hubble.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["sesgo", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si el autor de una fuente tenía un interés personal en los hechos que narra, esa fuente debe descartarse por completo como fuente histórica válida."
-
-pasos:
-  - "El trabajo del historiador es entender ese interés/sesgo para leer la fuente con precisión, no descartarla automáticamente."
-
-explicacion: |
-  Falso: casi toda fuente tiene algún interés o posición detrás; el
-  método consiste en contextualizarla, no en descartarla.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["contraargumentos", "prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Interpretar una fuente histórica reusa directamente las herramientas de análisis crítico ya vistas en `../../lengua/contraargumentos/`: sopesar una postura sabiendo su origen e interés."
-
-pasos:
-  - "Es el mismo tipo de análisis crítico, aplicado ahora a documentos del pasado en vez de a un texto argumentativo actual."
-
-explicacion: |
-  Verdadero: es la conexión directa entre este tema y su
-  prerrequisito de Lengua.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
+  tema: "origen_del_universo"
   nivel: "intermedio"
-  tags: ["fuente_historica", "tipos"]
+  tags: ["cosmologia", "radiacion"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1])
+  evidencias: [["un resplandor de microondas que llena todo el cielo de forma casi uniforme", "radiación de fondo de microondas"], ["una temperatura residual de aproximadamente 2.7 Kelvin presente en todo el espacio", "radiación de fondo de microondas"]]
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["radiación de fondo de microondas", "luz visible de estrellas", "nebulosas de gas"]
 
-enunciado: "Una fuente histórica no tiene que ser necesariamente un texto escrito: un edificio, un objeto arqueológico o una fotografía también son fuentes válidas."
-
-pasos:
-  - "Cualquier resto del pasado que permita conocer lo ocurrido cuenta como fuente."
-
-explicacion: |
-  Verdadero: las fuentes históricas abarcan una gran variedad de
-  tipos de material, no sólo documentos escritos.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["analisis_critico", "testimonio_oral"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un testimonio oral recogido décadas después de un hecho se analiza con las mismas preguntas críticas (quién, cuándo, para quién, qué omite) que cualquier otra fuente, considerando además el efecto del paso del tiempo sobre la memoria."
-
-pasos:
-  - "El método de análisis crítico se aplica de forma consistente a distintos tipos de fuente, con matices propios de cada una."
-
-explicacion: |
-  Verdadero: el marco general de preguntas se adapta, pero se aplica
-  a cualquier tipo de fuente, incluidos los testimonios orales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["contraste", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Contrastar una fuente con otras independientes aumenta la confianza en la interpretación, pero no garantiza una certeza absoluta sobre lo que realmente ocurrió."
-
-pasos:
-  - "El trabajo histórico maneja grados de confianza y evidencia, no certezas matemáticas."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre los límites del método
-  histórico, coherente con el manejo de incertidumbre en cualquier
-  investigación seria.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "intermedio"
-  tags: ["analisis_critico", "metodo"]
-
-enunciado: "Ordená los pasos del análisis crítico de una fuente histórica."
-tipo: ordenar
-opciones_explicitas:
-  - "Identificar quién produjo la fuente y su posición respecto de los hechos"
-  - "Determinar cuándo y dónde se produjo (primaria o secundaria)"
-  - "Analizar para quién y con qué propósito se produjo"
-  - "Contrastar su contenido con otras fuentes independientes"
-respuesta_orden: ["Identificar quién produjo la fuente y su posición respecto de los hechos", "Determinar cuándo y dónde se produjo (primaria o secundaria)", "Analizar para quién y con qué propósito se produjo", "Contrastar su contenido con otras fuentes independientes"]
-explicacion: |
-  El orden sigue la secuencia lógica de las preguntas del análisis
-  crítico descritas en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["interpretar_una_fuente_historica", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Aplicar este método crítico es la base de cualquier trabajo serio de investigación histórica, no sólo memorizar fechas y hechos ya interpretados por otros."
-
-pasos:
-  - "Es la conclusión central de por qué este tema es importante más allá de la mera acumulación de datos."
-
-explicacion: |
-  Verdadero: es la síntesis del propósito educativo central de este
-  tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "interpretar_una_fuente_historica"
-  nivel: "avanzado"
-  tags: ["interpretar_una_fuente_historica", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un documento histórico, conviene preguntarse quién lo escribió, para quién, con qué propósito, y contrastarlo con otras fuentes, en vez de aceptarlo como un relato neutral y completo de lo ocurrido."
-
-pasos:
-  - "Es la aplicación práctica directa del método de análisis crítico estudiado en este tema."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema al leer cualquier
-  fuente histórica real.
-```
-
-## Sección: linea-de-tiempo-y-antes-despues (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "definicion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una línea de tiempo es una representación gráfica donde los hechos se ordenan según el momento en que ocurrieron."
-
-pasos:
-  - "El eje representa el paso del tiempo, y cada hecho se ubica en el punto que le corresponde."
-
-explicacion: |
-  Verdadero: es la definición central de línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["antes_despues"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Se puede afirmar que \"la Revolución de Mayo fue antes que la Declaración de la Independencia\" sin necesitar saber el año exacto de ninguno de los dos hechos."
-
-pasos:
-  - "El orden temporal (antes/después) es una habilidad más básica que fechar con precisión."
-
-explicacion: |
-  Verdadero: es la habilidad más elemental del pensamiento histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["antes_despues", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "la Revolución de Mayo"
+respuesta: evidencias[idx][1]
 tipo: mc
-opciones_explicitas: ["la Revolución de Mayo", "la Declaración de la Independencia"]
 
-enunciado: "Entre \"la Revolución de Mayo\" (1810) y \"la Declaración de la Independencia\" (1816), ¿cuál ocurrió antes?"
-
-pasos:
-  - "Comparar los años para determinar el orden temporal."
+enunciado: "La detección de {evidencias[idx][0]} es considerada la 'prueba reina' de que el universo tuvo un inicio caliente y denso. ¿Cómo se llama este fenómeno?"
 
 explicacion: |
-  1810 es anterior a 1816, por lo tanto la Revolución de Mayo ocurrió
-  antes.
+  La Radiación Cósmica de Fondo de Microondas (CMB) es la luz remanente del Big Bang, liberada cuando el universo se volvió transparente.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos hechos pueden ser simultáneos (ocurrir en el mismo período), incluso en lugares muy distintos del mundo."
-
-pasos:
-  - "Reconocer la simultaneidad ayuda a entender que la historia no es una sola línea de sucesos."
-
-explicacion: |
-  Verdadero: es la definición central de simultaneidad en historia.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "multiples_procesos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Reconocer la simultaneidad ayuda a entender que la historia es muchos procesos ocurriendo en paralelo en distintas regiones, no una sola línea de sucesos."
-
-pasos:
-  - "Es la conclusión central de por qué la simultaneidad es un concepto importante."
-
-explicacion: |
-  Verdadero: es la razón por la que la simultaneidad enriquece la
-  comprensión histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Además de indicar qué pasó antes y después, una línea de tiempo permite ver cuánto tiempo (la duración) separa a dos hechos."
-
-pasos:
-  - "Un intervalo corto se ve distinto en la línea que uno largo, aunque ambos sean técnicamente \"antes y después\"."
-
-explicacion: |
-  Verdadero: la duración es otra dimensión que aporta una línea de
-  tiempo, además del orden.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dos hechos separados por 5 años se representan más cerca entre sí en una línea de tiempo que dos hechos separados por 300 años."
-
-pasos:
-  - "La distancia visual en la línea refleja la duración real del intervalo temporal."
-
-explicacion: |
-  Verdadero: es la aplicación práctica de cómo se representa la
-  duración en una línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
+  tema: "origen_del_universo"
   nivel: "avanzado"
-  tags: ["linea_de_tiempo", "utilidad"]
+  tags: ["nucleosintesis", "elementos"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1])
+  datos: [["la proporción observada de helio y deuterio en el universo temprano", "nucleosíntesis primordial"], ["la cantidad de helio-4 presente en las nubes de gas más antiguas", "nucleosíntesis primordial"]]
 
-respuesta: verdadero
-tipo: vf
+opciones_explicitas: ["nucleosíntesis estelar", "nucleosíntesis primordial", "fusión de agujeros negros"]
 
-enunciado: "Ordenar hechos visualmente en una línea de tiempo hace evidentes relaciones que un listado de fechas sueltas no muestra, como qué hechos son cercanos entre sí."
-
-pasos:
-  - "Es la razón central de por qué la línea de tiempo es una herramienta útil, más allá de memorizar fechas."
-
-explicacion: |
-  Verdadero: es la conclusión central sobre la utilidad de este
-  recurso visual.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "vacios"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Una línea de tiempo puede mostrar dónde hay \"vacíos\" en el registro histórico disponible, es decir, períodos sin hechos documentados."
-
-pasos:
-  - "Es otra utilidad de la representación visual sobre un simple listado de fechas."
-
-explicacion: |
-  Verdadero: los vacíos temporales son otra información que revela
-  la línea de tiempo, más allá del orden y la duración.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "basico"
-  tags: ["linea_de_tiempo", "estructura"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una línea de tiempo, el eje horizontal (o vertical) representa el paso del tiempo, no otra magnitud."
-
-pasos:
-  - "Cada hecho se ubica en el punto del eje que corresponde a su momento de ocurrencia."
-
-explicacion: |
-  Verdadero: es la estructura básica de cualquier línea de tiempo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["antes_despues", "practica"]
-
-enunciado: "Ordená estos tres hechos de más antiguo a más reciente: Independencia Argentina (1816), llegada de Colón a América (1492), Segunda Guerra Mundial (1939-1945)."
-tipo: ordenar
-opciones_explicitas:
-  - "Llegada de Colón a América (1492)"
-  - "Independencia Argentina (1816)"
-  - "Segunda Guerra Mundial (1939-1945)"
-respuesta_orden: ["Llegada de Colón a América (1492)", "Independencia Argentina (1816)", "Segunda Guerra Mundial (1939-1945)"]
-explicacion: |
-  El orden sigue estrictamente la cronología de los años en que
-  ocurrió cada hecho.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["simultaneidad", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Mientras en América ocurrían las guerras de independencia a principios del siglo XIX, en Europa se desarrollaban procesos históricos propios de esa misma época: son hechos simultáneos en regiones distintas."
-
-pasos:
-  - "Es un ejemplo concreto de simultaneidad entre procesos históricos en distintas regiones del mundo."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del concepto de simultaneidad
-  a un caso histórico real.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["antes_despues"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Para poder decir que un hecho ocurrió \"antes\" que otro, es imprescindible conocer el año exacto de ambos hechos."
-
-pasos:
-  - "Se puede establecer el orden relativo (antes/después) con información parcial, sin necesitar fechas exactas."
-
-explicacion: |
-  Falso: el orden relativo antes/después es una habilidad más básica
-  que no siempre requiere fechas precisas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "intermedio"
-  tags: ["duracion", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "el intervalo entre 1810 y 1816"
+respuesta: datos[idx][1]
 tipo: mc
-opciones_explicitas: ["el intervalo entre 1810 y 1816", "el intervalo entre 1500 y 1800"]
 
-enunciado: "¿Cuál de estos dos intervalos de tiempo es más corto?"
-
-pasos:
-  - "1810 a 1816 son 6 años; 1500 a 1800 son 300 años."
+enunciado: "El hecho de que los niveles de {datos[idx][0]} coincidan con los modelos teóricos apoya la teoría del Big Bang. ¿Qué proceso explica esto?"
 
 explicacion: |
-  Comparar la duración de distintos intervalos es una aplicación
-  directa de este concepto.
+  La nucleosíntesis primordial ocurrió en los primeros minutos del universo, creando los núcleos de los elementos más ligeros antes de que existieran las estrellas.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Sin poder ordenar hechos en el tiempo, no se puede avanzar hacia unidades más precisas como década, siglo o milenio."
-
-pasos:
-  - "Ver `../decada-siglo-milenio/`: es el tema siguiente de la cadena de pensamiento histórico."
-
-explicacion: |
-  Verdadero: por eso este tema es el prerrequisito directo del
-  siguiente en la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["causa_y_consecuencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Saber qué pasó antes y qué pasó después es una condición necesaria (aunque no suficiente) para poder analizar relaciones de causa y consecuencia entre hechos históricos."
-
-pasos:
-  - "Una causa siempre tiene que ocurrir antes que su consecuencia en el tiempo."
-
-explicacion: |
-  Verdadero: el orden temporal es la base sobre la que se construyen
-  herramientas de análisis histórico más complejas, más adelante en
-  la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["antes_despues", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "Si un hecho A ocurrió antes que un hecho B, eso significa automáticamente que A causó B."
-
-pasos:
-  - "El orden temporal (antes/después) es necesario pero no suficiente para afirmar una relación de causa: dos hechos pueden ser antes/después sin que uno cause al otro."
-
-explicacion: |
-  Falso: el orden temporal es la base, pero establecer causalidad
-  requiere un análisis adicional, que es el tema de más adelante en
-  la cadena.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
+  tema: "origen_del_universo"
   nivel: "basico"
-  tags: ["linea_de_tiempo", "practica"]
+  tags: ["expansion", "espacio"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "expansión"
+tipo: completar
+respuestas_validas:
+  - "expansión"
+  - "expansion"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "En una línea de tiempo horizontal, un hecho ubicado más a la derecha ocurrió después que un hecho ubicado más a la izquierda (siguiendo la convención habitual de izquierda=pasado, derecha=presente)."
-
-pasos:
-  - "Es la convención estándar de lectura de una línea de tiempo horizontal."
+enunciado: "Según la evidencia del corrimiento al rojo, el universo no es estático, sino que se encuentra en un proceso de ___ constante."
 
 explicacion: |
-  Verdadero: es la convención de lectura habitual de una línea de
-  tiempo horizontal.
+  La expansión del espacio-tiempo implica que las galaxias se separan entre sí, aumentando el volumen del universo observable.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
+  tema: "origen_del_universo"
   nivel: "intermedio"
-  tags: ["linea_de_tiempo", "metodo"]
+  tags: ["big_bang", "singularidad"]
 
-enunciado: "Ordená los pasos para construir una línea de tiempo con varios hechos históricos."
-tipo: ordenar
-opciones_explicitas:
-  - "Reunir los hechos que se quieren representar"
-  - "Determinar el orden relativo (antes/después) entre todos ellos"
-  - "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos"
-  - "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"
-respuesta_orden: ["Reunir los hechos que se quieren representar", "Determinar el orden relativo (antes/después) entre todos ellos", "Ubicar cada hecho en el eje según su momento, respetando la duración de los intervalos", "Revisar si hay hechos simultáneos que deban marcarse en el mismo punto del eje"]
+respuesta: "singularidad"
+tipo: completar
+respuestas_validas:
+  - "singularidad"
+
+enunciado: "La teoría del Big Bang postula que el universo comenzó a partir de un estado de densidad y temperatura infinitas llamado ___."
+
 explicacion: |
-  El proceso va de reunir los hechos a ordenarlos y ubicarlos
-  correctamente en el eje temporal.
+  La singularidad es el punto teórico donde las leyes de la física actual no pueden describir el estado del universo en el tiempo t=0.
 ```
+
+## Sección: formacion-de-estrellas (25 preguntas)
 
 ```
 metadata:
   materia: "historia"
-  tema: "linea_de_tiempo_y_antes_despues"
-  nivel: "avanzado"
-  tags: ["linea_de_tiempo", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Antes de estudiar un período histórico complejo, puede ayudar armar primero una línea de tiempo simple con los hechos principales, para tener claro el orden y la duración antes de profundizar en las causas."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema como estrategia de estudio."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema como herramienta
-  de estudio de cualquier período histórico.
-```
-
-## Sección: decada-siglo-milenio (20 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "basico"
-  tags: ["decada"]
+  tags: ["nebulosa", "gas"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "Las estrellas nacen a partir de gigantescas nubes de gas y polvo interestelar conocidas como ___."
 
-respuesta: "10"
+respuestas_validas:
+  - "nebulosas"
+
+respuesta: "nebulosas"
 tipo: completar
 
-enunciado: "Una década tiene cuántos años?"
-
-pasos:
-  - "Es la unidad de agrupación temporal más chica de las tres estudiadas."
-
 explicacion: |
-  Una década equivale a 10 años.
+  Una nebulosa es una nube de gas y polvo en el espacio interestelar, la materia prima a partir de la cual se forman las estrellas.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["siglo"]
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["gravedad", "colapso"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "La fuerza principal que provoca que una nebulosa comience a contraerse y colapsar sobre sí misma es la ___."
 
-respuesta: "100"
+respuestas_validas:
+  - "gravedad"
+
+respuesta: "gravedad"
 tipo: completar
 
-enunciado: "Un siglo tiene cuántos años?"
-
-pasos:
-  - "Equivale a 10 décadas."
-
 explicacion: |
-  Un siglo equivale a 100 años.
+  La gravedad atrae el gas hacia las zonas más densas de la nube, iniciando el colapso que eventualmente formará una estrella.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["milenio"]
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["momento_angular", "giro"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "A medida que la nube colapsa, su velocidad de rotación aumenta para conservar el ___."
 
-respuesta: "1000"
+respuestas_validas:
+  - "momento angular"
+
+respuesta: "momento angular"
 tipo: completar
 
-enunciado: "Un milenio tiene cuántos años?"
-
-pasos:
-  - "Equivale a 10 siglos."
-
 explicacion: |
-  Un milenio equivale a 1000 años.
+  Es el mismo principio que un patinador que gira más rápido al cerrar los brazos: al reducirse el radio de la nube, la velocidad de giro aumenta para conservar el momento angular.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "intermedio"
-  tags: ["calculo_de_siglo"]
+  tags: ["temperatura", "energia"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "Durante el colapso, la energía potencial gravitatoria se transforma en ___ en el núcleo de la protoestrella."
 
-respuesta: "XIX"
-tipo: mc
-opciones_explicitas: ["XVIII", "XIX", "XX"]
+respuestas_validas:
+  - "energía térmica"
+  - "energia termica"
 
-enunciado: "El año 1850 pertenece al siglo..."
-
-pasos:
-  - "1850/100 = 18,5 → se redondea hacia arriba → siglo 19."
+respuesta: "energía térmica"
+tipo: completar
 
 explicacion: |
-  El año 1850, al dividir por 100 y redondear hacia arriba, cae en el
-  siglo XIX, no en el XVIII como intuitivamente podría pensarse.
+  A medida que el gas cae hacia el centro por gravedad, esa energía de movimiento se convierte en calor, elevando la temperatura del núcleo.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "avanzado"
-  tags: ["calculo_de_siglo", "caso_limite"]
+  tags: ["disco", "acrecion"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "disco de acreción"
+tipo: completar
+respuestas_validas:
+  - "disco de acreción"
+  - "disco protoplanetario"
+  - "disco de acrecion"
 
-respuesta: "XIX"
-tipo: mc
-opciones_explicitas: ["XIX", "XX"]
-
-enunciado: "El año 1900 (exactamente 19×100) pertenece al siglo..."
-
-pasos:
-  - "Un año que termina exactamente en 00 pertenece al siglo anterior, no al siguiente."
+enunciado: "Cuando la materia gira rápidamente alrededor del centro, se aplana formando un ___."
 
 explicacion: |
-  1900 pertenece al siglo XIX; el siglo XX recién empieza en 1901.
+  El aumento de la velocidad de rotación por la conservación del momento angular aplana la nube en un disco.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["fusion", "hidrogeno"]
+
+tipo: mc
+opciones_explicitas: ["Fusión de helio en hidrógeno", "Fusión de hidrógeno en helio", "Fisión de núcleos de hierro", "Combustión de oxígeno"]
+respuesta: "Fusión de hidrógeno en helio"
+
+enunciado: "Durante la formación de una estrella, el 'encendido' ocurre cuando la temperatura y presión son tan altas que se inicia un proceso de ___."
+
+explicacion: |
+  El proceso fundamental que define la vida de una estrella es la fusión nuclear, donde núcleos de hidrógeno se unen para formar helio, liberando una enorme cantidad de energía.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["equilibrio", "gravedad", "presion"]
+
+tipo: completar
+respuestas_validas:
+  - "equilibrio hidrostático"
+  - "equilibrio hidrostatico"
+respuesta: "equilibrio hidrostático"
+
+enunciado: "Para que una estrella sea estable y no colapse ni se expanda descontroladamente, debe existir un ___ entre la gravedad (que empuja hacia adentro) y la presión de la fusión (que empuja hacia afuera)."
+
+explicacion: |
+  Este estado se conoce como equilibrio hidrostático. La gravedad intenta comprimir la estrella, mientras que la energía de la fusión nuclear genera una presión hacia afuera que compensa esa fuerza.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["gravedad", "presion"]
+
+tipo: mc
+opciones_explicitas: ["La gravedad gana y la estrella colapsa", "La presión de fusión gana y la estrella se expande", "Ambas fuerzas se anulan y la estrella es estable", "La gravedad desaparece"]
+respuesta: "Ambas fuerzas se anulan y la estrella es estable"
+
+enunciado: "Si una estrella ha alcanzado un estado de estabilidad donde la fuerza de gravedad hacia el centro es compensada exactamente por la presión de la fusión hacia el exterior, podemos decir que:"
+
+explicacion: |
+  La estabilidad estelar depende de que la fuerza de gravedad (atracción) y la presión de radiación/térmica (repulsión) estén en un equilibrio dinámico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["temperatura", "presion", "nucleos"]
+
+tipo: completar
+respuestas_validas:
+  - "Fusión de hidrógeno"
+  - "fusión de hidrógeno"
+respuesta: "Fusión de hidrógeno"
+
+enunciado: "El primer paso crucial en el ciclo de vida de una estrella es la ___."
+
+explicacion: |
+  Antes de que una estrella pueda quemar elementos más pesados, debe superar la barrera de repulsión eléctrica entre protones para iniciar la fusión de hidrógeno.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
   nivel: "avanzado"
-  tags: ["calculo_de_siglo", "caso_limite"]
+  tags: ["gravedad", "fusión"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "XX"
 tipo: mc
-opciones_explicitas: ["XX", "XXI"]
+opciones_explicitas: ["La gravedad es mayor que la presión", "La presión es mayor que la gravedad", "La gravedad y la presión son iguales", "No hay fuerzas actuando"]
+respuesta: "La gravedad es mayor que la presión"
 
-enunciado: "El año 2000 (exactamente 20×100) pertenece al siglo..."
-
-pasos:
-  - "Mismo caso que 1900: un año que termina exactamente en 00 pertenece al siglo anterior."
+enunciado: "Si una estrella agota su combustible de hidrógeno en el núcleo y la producción de energía disminuye, ¿qué sucede con el equilibrio de fuerzas?"
 
 explicacion: |
-  2000 pertenece al siglo XX; el siglo XXI recién empieza en 2001.
+  Al disminuir la presión hacia afuera causada por la fusión, la gravedad toma ventaja, provocando que el núcleo se contraiga nuevamente hasta alcanzar nuevas temperaturas.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["estrellas", "sol", "enana_blanca"]
+
+respuesta: "enana blanca"
+tipo: completar
+respuestas_validas:
+  - "enana blanca"
+
+enunciado: "Una estrella de masa media, similar a nuestro Sol, tras agotar su combustible de hidrógeno y helio, termina su ciclo de vida convirtiéndose en una ___."
+
+explicacion: |
+  Las estrellas de masa media como el Sol no tienen suficiente masa para colapsar en objetos ultra densos; en su lugar, expulsan sus capas externas y dejan un núcleo remanente llamado enana blanca.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["estrellas_masivas", "supernova"]
+
+respuesta: "supernova"
+tipo: completar
+respuestas_validas:
+  - "supernova"
+
+enunciado: "Las estrellas con una masa muy superior a la del Sol tienen un destino violento: terminan su vida en una explosión masiva conocida como ___."
+
+explicacion: |
+  Debido a su enorme gravedad, las estrellas masivas procesan su combustible muy rápido y colapsan sobre sí mismas, provocando una explosión de supernova que puede iluminar galaxias enteras.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
   nivel: "intermedio"
-  tags: ["calculo_de_siglo"]
+  tags: ["masa", "tiempo_vida"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1])
+  escenario: [["baja/media", "miles de millones"], ["muy masiva", "millones"]]
 
-respuesta: "XXI"
-tipo: mc
-opciones_explicitas: ["XX", "XXI"]
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - "miles de millones"
+  - "millones"
 
-enunciado: "El año 2001 pertenece al siglo..."
-
-pasos:
-  - "El nuevo siglo/milenio empieza en el año que termina en 1, no en 00."
+enunciado: "El tiempo de vida de una estrella depende de su masa. Una estrella de masa {escenario[idx][0]} vivirá durante aproximadamente ___ de años."
 
 explicacion: |
-  2001 es el primer año del siglo XXI.
+  Existe una relación inversa: a mayor masa, mayor presión y temperatura en el núcleo, lo que hace que el combustible se queme mucho más rápido, resultando en una vida más corta.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "avanzado"
-  tags: ["calculo_de_siglo", "regla"]
+  tags: ["agujero_negro", "colapso"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "agujero negro"
+tipo: completar
+respuestas_validas:
+  - "agujero negro"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para saber a qué siglo pertenece un año, hay que dividirlo por 100 y sumar 1, salvo que el año termine exactamente en 00 (que pertenece al siglo indicado por esa división, sin sumar)."
-
-pasos:
-  - "Es la regla general descrita en la teoría, con su excepción para años terminados en 00."
+enunciado: "Cuando una estrella extremadamente masiva colapsa tras una supernova y su remanente es lo suficientemente denso como para que ni la luz pueda escapar de su gravedad, se forma un ___."
 
 explicacion: |
-  Verdadero: es la regla completa para calcular el siglo a partir de
-  cualquier año.
+  El agujero negro es el destino final de las estrellas más masivas del universo, donde la densidad es tal que la curvatura del espacio-tiempo es extrema.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["notacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Por convención, los siglos se escriben en números romanos: siglo XV, siglo XX, siglo XXI."
-
-pasos:
-  - "Es la notación estándar en libros de historia."
-
-explicacion: |
-  Verdadero: es la convención de notación descrita en la teoría.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "intermedio"
-  tags: ["decada", "nomenclatura"]
+  tags: ["remanentes", "masa"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1])
+  caso: [["enana blanca", "baja/media"], ["agujero negro", "muy masiva"]]
 
-respuesta: verdadero
-tipo: vf
+respuesta: caso[idx][0]
+tipo: completar
+respuestas_validas:
+  - "enana blanca"
+  - "agujero negro"
 
-enunciado: "Una década suele nombrarse por su primer año: \"los años 80\" se refiere a la década de 1980 a 1989."
-
-pasos:
-  - "Es la convención de nomenclatura de décadas descrita en la teoría."
+enunciado: "Si analizamos el remanente final de una estrella de masa {caso[idx][1]}, el objeto resultante será una/un ___."
 
 explicacion: |
-  Verdadero: es la convención habitual para nombrar décadas.
+  El destino final está determinado principalmente por la masa remanente del núcleo tras la muerte de la estrella.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["escalas_de_tiempo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para analizar hechos puntuales conviene usar el año; para procesos, la década o el siglo; para grandes etapas de la humanidad, el milenio."
-
-pasos:
-  - "Es el principio de \"escala apropiada\" descrito en la teoría."
-
-explicacion: |
-  Verdadero: elegir la unidad de tiempo adecuada según lo que se
-  analiza es una habilidad central de este tema.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "basico"
-  tags: ["siglo", "decada"]
+  tags: ["nucleosintesis", "elementos"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: mc
+opciones_explicitas: ["Carbono, Oxígeno y Hierro", "Sólo Hidrógeno y Helio", "Sólo Fotones y Neutrinos", "Plutonio y Uranio solamente"]
+respuesta: "Sólo Hidrógeno y Helio"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un siglo equivale exactamente a 10 décadas."
-
-pasos:
-  - "100 años / 10 años por década = 10 décadas."
+enunciado: "Si las estrellas no hubieran existido, el universo estaría compuesto casi exclusivamente por ___."
 
 explicacion: |
-  Verdadero: es la relación numérica entre estas dos unidades.
+  Sin la fusión nuclear que ocurre dentro de las estrellas, el universo se habría quedado con los elementos livianos formados en el Big Bang: hidrógeno y helio, casi sin nada más.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "basico"
-  tags: ["milenio", "siglo"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un milenio equivale exactamente a 10 siglos."
-
-pasos:
-  - "1000 años / 100 años por siglo = 10 siglos."
-
-explicacion: |
-  Verdadero: es la relación numérica entre estas dos unidades.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "formacion_de_estrellas"
   nivel: "intermedio"
-  tags: ["calculo_de_siglo", "practica"]
+  tags: ["fusion", "nucleosintesis"]
+
+tipo: completar
+respuestas_validas:
+  - "fusión nuclear"
+  - "fusion nuclear"
+respuesta: "fusión nuclear"
+
+enunciado: "El proceso físico que ocurre en el núcleo de una estrella y permite la creación de elementos más pesados que el helio se denomina ___."
+
+explicacion: |
+  La fusión nuclear en el interior estelar es el único proceso natural capaz de fabricar elementos más pesados que el hidrógeno y el helio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["quimica_cosmica", "elementos_pesados"]
+
+tipo: mc
+opciones_explicitas: ["Las estrellas son fábricas de elementos pesados", "Las estrellas sólo sirven para iluminar planetas", "Las estrellas destruyen la materia existente", "Las estrellas son sólo bolas de gas sin importancia química"]
+respuesta: "Las estrellas son fábricas de elementos pesados"
+
+enunciado: "¿Cuál es la función química fundamental de las estrellas en la evolución del universo?"
+
+explicacion: |
+  Las estrellas fabrican, mediante fusión nuclear, todos los elementos más pesados que el hidrógeno y el helio que existen en el universo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["nucleosintesis", "evolucion"]
+
+tipo: completar
+respuestas_validas:
+  - "helio"
+respuesta: "helio"
+
+enunciado: "Antes de que las estrellas comenzaran a fusionar elementos más pesados, el universo era una mezcla primordial de hidrógeno y ___."
+
+explicacion: |
+  El Big Bang dejó al universo con principalmente hidrógeno y algo de helio — todo lo demás lo fabricaron las estrellas después.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["nucleosintesis", "evolucion_estelar"]
+
+tipo: mc
+opciones_explicitas: ["Sin estrellas, no habría átomos complejos para formar planetas o vida", "Sin estrellas, el universo sería más oscuro pero igual de complejo", "Sin estrellas, el hidrógeno se habría agotado más rápido", "Sin estrellas, la gravedad no existiría"]
+respuesta: "Sin estrellas, no habría átomos complejos para formar planetas o vida"
+
+enunciado: "¿Qué consecuencia directa tiene la ausencia de procesos estelares para la formación de la materia compleja?"
+
+explicacion: |
+  Los elementos que forman planetas rocosos y organismos vivos (carbono, oxígeno, hierro, etc.) se fabricaron dentro de estrellas — sin ellas, no existirían.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["evolucion_estelar", "masa"]
+
+respuesta: "enana blanca"
+tipo: completar
+respuestas_validas:
+  - "enana blanca"
+
+enunciado: "Una estrella con una masa similar a la del Sol llegará al final de su vida convirtiéndose en una ___."
+
+explicacion: |
+  Las estrellas de masa baja o media, como nuestro Sol, no tienen suficiente masa para colapsar en un agujero negro. Tras agotar su combustible, expulsan sus capas externas y dejan un núcleo denso llamado enana blanca.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["supernova", "masa_alta"]
+
+respuesta: "supernova"
+tipo: mc
+opciones_explicitas: ["enana blanca", "supernova", "nebulosa planetaria", "protoestrella"]
+
+enunciado: "Cuando una estrella masiva (más de 8 masas solares) agota su combustible de fusión, experimenta un colapso catastrófico conocido como ___."
+
+explicacion: |
+  Las estrellas masivas terminan su vida en una explosión violenta llamada supernova, que puede dejar atrás una estrella de neutrones o un agujero negro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "avanzado"
+  tags: ["agujero_negro", "densidad"]
+
+respuesta: "agujero negro"
+tipo: mc
+opciones_explicitas: ["agujero negro", "estrella de neutrones", "enana blanca", "pulsar"]
+
+enunciado: "Si el remanente de una supernova es lo suficientemente masivo, la gravedad es tan fuerte que nada puede escapar de él, formando un ___."
+
+explicacion: |
+  Un agujero negro es una región del espacio-tiempo donde la gravedad es tan intensa que ni siquiera la luz puede escapar de su horizonte de sucesos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "intermedio"
+  tags: ["estrellas_de_neutrones", "masa"]
+
+respuesta: "estrella de neutrones"
+tipo: completar
+respuestas_validas:
+  - "estrella de neutrones"
+
+enunciado: "Tras una supernova, si el objeto restante tiene una masa intermedia (entre 1,4 y 3 masas solares), se convierte en una ___."
+
+explicacion: |
+  Las estrellas de neutrones son objetos extremadamente densos que resultan del colapso de núcleos estelares masivos que no alcanzan a formar un agujero negro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "formacion_de_estrellas"
+  nivel: "basico"
+  tags: ["enana_blanca", "sol"]
+
+respuesta: "enana blanca"
+tipo: mc
+opciones_explicitas: ["agujero negro", "enana blanca", "estrella de neutrones", "nebulosa"]
+
+enunciado: "El destino final de una estrella como el Sol es convertirse en una:"
+
+explicacion: |
+  Las estrellas de baja masa como el Sol no tienen la masa necesaria para producir explosiones de supernova; su destino es enfriarse lentamente como enanas blancas.
+```
+
+## Sección: galaxias-tipos-escala (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["definicion", "astronomia"]
+
+tipo: mc
+opciones_explicitas: ["Un conjunto de planetas que orbitan una estrella", "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad", "Un cúmulo de agujeros negros en el centro del universo", "Una nube de gas que colapsa para formar una estrella"]
+respuesta: "Un sistema masivo de estrellas, gas, polvo y materia oscura unidos por la gravedad"
+enunciado: "En términos astronómicos, ¿qué constituye fundamentalmente una galaxia?"
+explicacion: |
+  Una galaxia es un sistema masivo que contiene estrellas, gas, polvo y una gran cantidad de materia oscura, todo mantenido unido por la fuerza de la gravedad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["via_lactea", "ubicacion"]
+
+tipo: completar
+respuestas_validas:
+  - "Vía Láctea"
+  - "Andrómeda"
+  - "Sagitario"
+
+enunciado: "El nombre de nuestra galaxia, el sistema donde se encuentra el Sistema Solar, es la ___."
+
+explicacion: |
+  Nosotros habitamos la Vía Láctea, una galaxia de tipo espiral.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["componentes", "gravedad"]
 
 variables:
-  anios: [1750, 1215, 1969]
-  siglos: ["XVIII", "XIII", "XX"]
+  componentes: ["estrellas", "gas", "polvo", "materia oscura"]
+
+tipo: mc
+opciones_explicitas: ["Solo estrellas y planetas", "Estrellas, gas, polvo y materia oscura", "Solo materia oscura y agujeros negros", "Solo gas y polvo estelar"]
+respuesta: "Estrellas, gas, polvo y materia oscura"
+
+enunciado: "Considerando los componentes de una galaxia: {componentes[0]}, {componentes[1]}, {componentes[2]}, ¿cuál es el cuarto elemento esencial que aporta la mayor parte de la masa?"
+
+explicacion: |
+  La materia oscura es un componente fundamental que no emite luz pero ejerce la gravedad necesaria para mantener la estructura galáctica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "avanzado"
+  tags: ["orden", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
+
+enunciado: "Ordena los siguientes objetos astronómicos de menor a mayor escala jerárquica:"
+
+explicacion: |
+  La jerarquía correcta va desde el cuerpo celeste individual (planeta), pasando por su sistema de órbitas, el conjunto de sistemas (galaxia), hasta la totalidad del cosmos (universo).
+respuesta_orden: ["Planeta", "Sistema Solar", "Galaxia", "Universo"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["gravedad", "fuerzas"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "La fuerza fundamental que mantiene unidos a los componentes de una galaxia (estrellas, gas, polvo) es la ___."
+
+pasos:
+  - "Identificar la fuerza que actúa a escala macroscópica en el espacio."
+
+explicacion: |
+  La gravedad es la fuerza de atracción que permite que la materia se agrupe en estructuras masivas como las galaxias.
+
+respuesta: "gravedad"
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "espiral"
+tipo: mc
+opciones_explicitas: ["elíptica", "espiral", "irregular"]
+
+enunciado: "Las galaxias que presentan una estructura de disco con brazos que se curvan desde un núcleo central se denominan galaxias ___."
+
+explicacion: |
+  Las galaxias espirales, como la Vía Láctea, se caracterizan por tener un núcleo brillante y brazos espirales donde se forman nuevas estrellas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "elíptica"
+tipo: mc
+opciones_explicitas: ["espiral", "elíptica", "irregular"]
+
+enunciado: "Las galaxias que tienen una forma ovalada o esférica y carecen de una estructura de brazos definida se conocen como galaxias ___."
+
+explicacion: |
+  Las galaxias elípticas suelen contener poblaciones de estrellas viejas y tienen poco gas o polvo para formar nuevas estrellas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "irregular"
+tipo: mc
+opciones_explicitas: ["espiral", "elíptica", "irregular"]
+
+enunciado: "Aquellas galaxias que no poseen una forma geométrica definida ni un núcleo central claro se clasifican como galaxias ___."
+
+explicacion: |
+  Las galaxias irregulares suelen ser el resultado de interacciones gravitatorias entre otras galaxias o son galaxias pequeñas en formación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["astronomia", "galaxias"]
+
+variables:
+  idx: uno_de([0, 1, 2])
+  escenario: [["espiral", "brazos"], ["elíptica", "forma ovalada"], ["irregular", "sin forma definida"]]
+
+respuesta: escenario[idx][0]
+tipo: mc
+opciones_explicitas: ["espiral", "elíptica", "irregular"]
+
+enunciado: "Se observa una galaxia con una estructura de {escenario[idx][1]}, ¿qué tipo de galaxia es?"
+
+explicacion: |
+  Una galaxia con esa característica es de tipo {escenario[idx][0]}. La propia Vía Láctea, en particular, es de tipo espiral.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "espiral, elíptica, irregular"
+tipo: completar
+respuestas_validas:
+  - "espiral, elíptica, irregular"
+  - "espiral, irregular, elíptica"
+
+enunciado: "El orden de los tres principales tipos de galaxias según su morfología es: 1) ___, 2) ___ y 3) ___."
+
+explicacion: |
+  La clasificación morfológica clásica divide a las galaxias principalmente en espirales, elípticas e irregulares.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "unidades"]
+
+tipo: mc
+opciones_explicitas: ["Año luz", "Kilómetro", "Milla náutica", "Unidad Astronómica"]
+respuesta: "Año luz"
+
+enunciado: "Debido a que las distancias entre las galaxias son inmensas, los kilómetros resultan inmanejables. ¿Cuál es la unidad de medida que representa la distancia que recorre la luz en un año?"
+
+explicacion: |
+  El año luz es la unidad estándar para medir distancias interestelares e intergalácticas, ya que un kilómetro es una medida demasiado pequeña para escalas cósmicas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["calculo", "luz"]
+
+variables:
+  velocidad_luz_km_s: 299792
+  segundos_en_un_dia: 86400
+  dias_en_un_anio: 365.25
+  distancia_anio_luz_km: 9460730472580.8
+
+tipo: completar
+tolerancia_abs: 1000000000000
+
+enunciado: "Si la luz viaja a aproximadamente {velocidad_luz_km_s} km/s, ¿cuántos kilómetros recorre aproximadamente en un año (considerando {dias_en_un_anio} días)? (Calcula el valor aproximado en km)"
+
+pasos:
+  - "Multiplica la velocidad de la luz por los segundos en un día."
+  - "Multiplica el resultado por la cantidad de días en un año."
+
+respuesta: distancia_anio_luz_km
+
+explicacion: |
+  La distancia es: 299792 * 86400 * 365.25 ≈ 9.46 * 10^12 km.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["conceptos"]
+
+tipo: completar
+respuestas_validas:
+  - "inmanejables"
+  - "imposibles"
+  - "infinitas"
+
+enunciado: "El uso de unidades como el año luz es necesario porque las distancias en kilómetros son ________ para el estudio de la escala galáctica."
+
+explicacion: |
+  En astronomía, las escalas humanas (como el km) pierden utilidad práctica cuando se trata de distancias entre sistemas estelares.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["comparacion"]
+
+tipo: mc
+opciones_explicitas: ["distancia corta", "distancia larga"]
+
+enunciado: "Dependiendo de la escala, la distancia a la Luna se mide en kilómetros, mientras que la distancia a Andrómeda se mide en ________."
+
+respuesta: "distancia larga"
+
+explicacion: |
+  La Luna está a unos 384,400 km (escala local), mientras que la Galaxia de Andrómeda está a millones de años luz (escala galáctica).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "avanzado"
+  tags: ["orden", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Sistema Solar", "Galaxia", "Universo Observable"]
+
+enunciado: "Ordena las siguientes estructuras de la escala más pequeña a la más grande:"
+
+explicacion: |
+  El orden correcto es: primero el Sistema Solar, luego la Galaxia (que contiene miles de millones de estrellas) y finalmente el Universo Observable.
+respuesta_orden: ["Sistema Solar", "Galaxia", "Universo Observable"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["vía_láctea", "estrellas"]
+
+respuesta: "cientos de miles de millones"
+tipo: completar
+respuestas_validas:
+  - "cientos de miles de millones"
+
+enunciado: "Se estima que nuestra galaxia, la Vía Láctea, contiene ___ de estrellas."
+
+explicacion: |
+  La Vía Láctea es una galaxia espiral que alberga una cantidad masiva de astros, estimándose en cientos de miles de millones de estrellas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["universo", "galaxias"]
+
+respuesta: "cientos de miles de millones"
+tipo: mc
+opciones_explicitas: ["cientos de miles de millones", "pocos miles", "un millón"]
+
+enunciado: "En el universo observable se estima que existen ___ de galaxias."
+
+explicacion: |
+  La escala del universo es inmensa; la cantidad de galaxias es comparable en orden de magnitud a la cantidad de estrellas en nuestra propia galaxia.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["comparacion", "magnitud"]
+
+respuesta: "mayor"
+tipo: mc
+opciones_explicitas: ["mayor", "menor", "igual"]
+
+enunciado: "Si comparamos la cantidad de estrellas en la Vía Láctea con la cantidad de galaxias en el universo observable, la cantidad de estrellas es ___ que la de galaxias."
+
+explicacion: |
+  Aunque ambas cifras son de "cientos de miles de millones", la escala de estrellas en una sola galaxia es comparable a la escala de galaxias en el universo, pero matemáticamente la cantidad de estrellas es órdenes de magnitud superior a la de galaxias.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "avanzado"
+  tags: ["jerarquia", "escala"]
+
+respuesta_orden: ["Estrellas", "Galaxias", "Universo"]
+tipo: ordenar
+
+opciones_explicitas: ["Estrellas", "Galaxias", "Universo"]
+
+enunciado: "Ordena estos conceptos de menor a mayor escala de agrupación de materia:"
+
+pasos:
+  - "Identifica la unidad básica en este contexto"
+  - "Identifica el conjunto que contiene a las estrellas"
+  - "Identifica el todo que contiene a las galaxias"
+
+explicacion: |
+  La jerarquía estructural comienza con las estrellas, las cuales se agrupan en galaxias, y estas forman parte de la estructura del universo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["verdadero_falso"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Es correcto afirmar que el universo observable contiene cientos de miles de millones de galaxias."
+
+explicacion: |
+  Las estimaciones astronómicas actuales sitúan la cantidad de galaxias en el universo observable en el orden de cientos de miles de millones.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+variables:
+  escenario: [[ "Una galaxia con un núcleo brillante y brazos curvos llenos de gas y polvo.", "Espiral" ], [ "Una galaxia con forma de disco pero sin brazos definidos.", "Lenticular" ], [ "Una galaxia con forma de esfera sin estructura de brazos.", "Elíptica" ]]
   idx: uno_de([0, 1, 2])
 
-respuesta: siglos[idx]
+respuesta: escenario[idx][1]
 tipo: mc
-opciones_explicitas: ["XII", "XIII", "XVII", "XVIII", "XIX", "XX"]
+opciones_explicitas: ["Espiral", "Lenticular", "Elíptica"]
 
-enunciado: "El año {anios[idx]} pertenece al siglo..."
-
-pasos:
-  - "Dividir el año por 100 y redondear hacia arriba (salvo terminación exacta en 00)."
+enunciado: "Se observa una estructura galáctica con las siguientes características: {escenario[idx][0]}"
 
 explicacion: |
-  Aplicar la regla de cálculo de siglo a distintos años concretos es
-  la práctica central de este tema.
+  La morfología de una galaxia se determina por su estructura visual. En este caso, la presencia de brazos y gas es característica de la tipo {escenario[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "galaxias_tipos_escala"
+  nivel: "basico"
+  tags: ["astronomia", "galaxias"]
+
+respuesta: "Elíptica"
+tipo: mc
+opciones_explicitas: ["Espiral", "Elíptica"]
+
+enunciado: "Si una galaxia presenta una forma ovoide, carece de brazos espirales y tiene una cantidad mínima de gas interestelar, ¿qué tipo de galaxia es?"
+
+explicacion: |
+  Las galaxias elípticas se caracterizan por su falta de estructura de brazos y su forma redondeada u ovoide.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
   nivel: "intermedio"
-  tags: ["milenio", "siglo", "diferenciacion"]
+  tags: ["astronomia", "galaxias"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: uno_de([["Presenta un disco prominente pero carece de brazos espirales.", "Lenticular"], ["Presenta brazos espirales muy marcados.", "Espiral"]])
 
-respuesta: falso
-tipo: vf
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["Lenticular", "Espiral"]
 
-enunciado: "Un milenio y un siglo son la misma unidad de tiempo, sólo con nombres distintos."
-
-pasos:
-  - "Un milenio (1000 años) es diez veces más largo que un siglo (100 años)."
+enunciado: "Al analizar la morfología de la galaxia {escenario[0]}, ¿qué tipo de galaxia estamos observando?"
 
 explicacion: |
-  Falso: son unidades de magnitud muy distinta, un milenio equivale a
-  10 siglos.
+  Las galaxias lenticulares son un caso intermedio: tienen la forma de un disco como las espirales, pero no poseen los brazos característicos.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
+  tema: "galaxias_tipos_escala"
+  nivel: "intermedio"
+  tags: ["astronomia", "galaxias"]
+
+variables:
+  escenario: [[ "Espiral", "brazos curvos" ], [ "Elíptica", "forma esférica" ], [ "Lenticular", "disco sin brazos" ]]
+  idx: uno_de([0, 1, 2])
+
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - escenario[idx][1]
+
+enunciado: "Una galaxia de tipo {escenario[idx][0]} se caracteriza principalmente por tener ___."
+
+explicacion: |
+  La descripción de la galaxia {escenario[idx][0]} corresponde a la característica de {escenario[idx][1]}.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "galaxias_tipos_escala"
   nivel: "avanzado"
-  tags: ["decada", "ambiguedad"]
+  tags: ["astronomia", "galaxias"]
 
 variables:
-  n: uno_de([1, 1])
+  orden_correcto: ["Elíptica", "Lenticular", "Espiral"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Existe cierta ambigüedad técnica sobre si \"los años 80\" empiezan en 1980 o en 1981 (mismo problema que el cálculo de siglos), pero en el uso cotidiano se acepta la convención más simple de 1980-1989."
-
-pasos:
-  - "Es el mismo tipo de discusión técnica que la del inicio exacto de un siglo, mencionada como matiz en la teoría."
-
-explicacion: |
-  Verdadero: es un matiz técnico mencionado, aunque el uso cotidiano
-  simplifica esta ambigüedad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["utilidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Hablar de \"la Revolución Industrial, siglo XVIII-XIX\" es mucho más manejable mentalmente que enumerar cada año del proceso."
-
-pasos:
-  - "Es la razón central de por qué existen estas unidades de agrupación temporal."
-
-explicacion: |
-  Verdadero: es la utilidad práctica central de década/siglo/milenio
-  como unidades de agrupación.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "intermedio"
-  tags: ["calculo_de_siglo", "metodo"]
-
-enunciado: "Ordená los pasos para calcular a qué siglo pertenece un año dado."
+respuesta_orden: orden_correcto
 tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el año termina exactamente en 00"
-  - "Si termina en 00, dividir por 100 sin sumar nada más"
-  - "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)"
-  - "Expresar el resultado en números romanos, según la convención estándar"
-respuesta_orden: ["Revisar si el año termina exactamente en 00", "Si termina en 00, dividir por 100 sin sumar nada más", "Si no termina en 00, dividir por 100 y redondear hacia arriba (sumar 1 al resultado entero)", "Expresar el resultado en números romanos, según la convención estándar"]
+opciones_explicitas: ["Elíptica", "Lenticular", "Espiral"]
+
+enunciado: "Ordene los siguientes tipos de galaxias de menor a mayor complejidad estructural (desde la más simple/esférica a la más compleja/con brazos):"
+
 explicacion: |
-  El proceso distingue el caso especial de años terminados en 00 del
-  caso general, y cierra con la notación romana estándar.
+  La secuencia correcta es {orden_correcto}, partiendo de la forma más simple (elíptica) hasta la más estructurada (espiral).
+```
+
+## Sección: nucleosintesis (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["big_bang", "hidrogeno"]
+
+enunciado: "Durante la nucleosíntesis primordial, el elemento más abundante tras el Big Bang fue el ___."
+
+respuestas_validas:
+  - "hidrógeno"
+  - "hidrogeno"
+respuesta: "hidrógeno"
+tipo: completar
+
+explicacion: |
+  El hidrógeno es el elemento más simple y abundante, representando aproximadamente el 75% de la masa de la materia bariónica inicial.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["prerrequisito"]
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["helio", "big_bang"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "La abundancia de helio-4 resultante de los primeros minutos del universo es de aproximadamente un ___ %."
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Dominar década, siglo y milenio es el prerrequisito directo de calcular intervalos que cruzan el año 0 (antes y después de Cristo)."
-
-pasos:
-  - "Ver `../antes-y-despues-de-cristo/`: antes de agregar la dificultad extra de la numeración que decrece hacia atrás, hace falta manejar bien estas unidades."
+respuestas_validas:
+  - "25"
+respuesta: "25"
+tipo: completar
 
 explicacion: |
-  Verdadero: por eso este tema es prerrequisito directo del
-  siguiente en la cadena.
+  La nucleosíntesis primordial produjo aproximadamente un 25% de helio en masa, junto con trazas de otros elementos livianos.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "decada_siglo_milenio"
-  nivel: "avanzado"
-  tags: ["calculo_de_siglo", "aplicacion"]
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["litio", "elementos_livianos"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "Además de hidrógeno y helio, la nucleosíntesis primordial dejó trazas de un tercer elemento liviano llamado ___."
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer que un evento ocurrió \"a mediados del siglo XIX\", conviene poder traducir eso mentalmente a un rango aproximado de años (alrededor de 1850), en vez de sólo memorizar el número del siglo sin poder ubicarlo en años concretos."
-
-pasos:
-  - "Es la aplicación práctica de poder ir y venir entre años y siglos con soltura."
+respuestas_validas:
+  - "litio"
+respuesta: "litio"
+tipo: completar
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema para leer e
-  interpretar textos históricos con fluidez.
+  El litio es el tercer elemento más ligero producido en este proceso, aunque en cantidades mucho menores que el hidrógeno y el helio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["proceso", "tiempo"]
+
+enunciado: "La nucleosíntesis primordial ocurrió durante los primeros ___ minutos después del Big Bang."
+
+respuestas_validas:
+  - "20"
+respuesta: "20"
+tipo: completar
+
+explicacion: |
+  El proceso de nucleosíntesis fue muy breve, ocurriendo aproximadamente entre los 3 y los 20 minutos tras la expansión inicial.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["abundancia", "proporciones"]
+
+enunciado: "Si el hidrógeno representa el 75% de la masa, el helio representa el ___%."
+
+respuestas_validas:
+  - "25"
+respuesta: "25"
+tipo: completar
+
+explicacion: |
+  En el modelo estándar de la nucleosíntesis primordial, la masa se distribuye aproximadamente en un 75% de hidrógeno y un 25% de helio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["fusion", "hidrogeno", "estrellas"]
+
+tipo: mc
+opciones_explicitas: ["Fusión de helio", "Fusión de hidrógeno", "Fisión de uranio", "Fusión de carbono"]
+respuesta: "Fusión de hidrógeno"
+
+enunciado: "¿Cuál es el proceso de nucleosíntesis que sostiene a una estrella en la secuencia principal durante la mayor parte de su vida?"
+
+explicacion: |
+  La fusión de hidrógeno en helio es el proceso fundamental que libera la energía que permite a una estrella brillar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["hierro", "energia", "limite"]
+
+tipo: vf
+respuesta: falso
+
+enunciado: "La fusión de elementos más pesados que el hierro (Fe) es un proceso que libera energía neta para la estrella, permitiéndole seguir brillando por más tiempo."
+
+explicacion: |
+  Falso. El hierro es el límite de la nucleosíntesis estelar porque la fusión de elementos más pesados que el hierro consume energía en lugar de liberarla, lo que lleva al colapso del núcleo.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["secuencia", "elementos", "estelar"]
+
+tipo: ordenar
+opciones_explicitas: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
+respuesta_orden: ["Hidrógeno", "Helio", "Carbono", "Hierro"]
+
+enunciado: "Ordená cronológicamente los elementos que se forman mediante la fusión en el interior de una estrella masiva, desde su fase de secuencia principal hasta el final de su vida estelar:"
+
+explicacion: |
+  Las estrellas masivas queman sucesivamente elementos más pesados a medida que su núcleo se contrae y calienta: hidrógeno → helio → carbono → ... hasta llegar al hierro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["helio", "carbono", "procesos"]
+
+tipo: mc
+opciones_explicitas: ["Oxígeno", "Carbono", "Neón", "Magnesio"]
+respuesta: "Carbono"
+
+enunciado: "Cuando una estrella agota su hidrógeno, comienza la fusión de helio en su núcleo, produciendo principalmente el elemento ___."
+
+explicacion: |
+  El proceso triple alfa permite la fusión de tres núcleos de helio para formar un núcleo de carbono.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["hierro", "energia", "colapso"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "El hierro es considerado el 'límite de la nucleosíntesis' porque su núcleo es extremadamente estable y la fusión de elementos más pesados que él requiere un aporte de energía en lugar de liberarla."
+
+explicacion: |
+  Verdadero. Debido a la alta estabilidad del núcleo de hierro, la fusión subsiguiente no puede sostener la presión térmica necesaria para contrarrestar la gravedad, provocando el colapso estelar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["estrellas", "hierro"]
+
+enunciado: "En el ciclo de vida de una estrella masiva, la fusión nuclear es un proceso que libera energía hasta que se llega a un elemento que no puede fusionarse para liberar más energía. Este elemento es el ___."
+
+respuestas_validas:
+  - "hierro"
+respuesta: "hierro"
+tipo: completar
+
+explicacion: |
+  El hierro-56 es el elemento más estable; fusionar elementos más pesados que el hierro requiere energía en lugar de liberarla, lo que marca el fin de la fusión estelar normal.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["supernova", "oro"]
+
+enunciado: "Los elementos más pesados que el hierro, como el oro, no se forman en la fusión estelar cotidiana, sino en eventos catastróficos. Uno de estos eventos es la explosión de una ___."
+
+respuestas_validas:
+  - "supernova"
+respuesta: "supernova"
+tipo: completar
+
+explicacion: |
+  Las supernovas proporcionan el flujo masivo de neutrones necesario para que los núcleos capturen partículas y crezcan más allá del hierro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["estrellas_de_neutrones", "uranio"]
+
+enunciado: "La síntesis de elementos extremadamente pesados como el uranio ocurre principalmente durante la ___."
+
+respuestas_validas:
+  - "colisión de estrellas de neutrones"
+  - "colision de estrellas de neutrones"
+respuesta: "colisión de estrellas de neutrones"
+tipo: completar
+
+explicacion: |
+  Las colisiones de estrellas de neutrones (kilonovas) son sitios ideales para el proceso r (captura rápida de neutrones), creando elementos como el uranio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["proceso_r", "neutrones"]
+
+enunciado: "Para que un núcleo atómico crezca y se convierta en un elemento pesado como el uranio, debe capturar rápidamente una gran cantidad de ___."
+
+respuestas_validas:
+  - "neutrones"
+respuesta: "neutrones"
+tipo: completar
+
+explicacion: |
+  El proceso r (rápido) implica que los núcleos capturan neutrones más rápido de lo que pueden decaer, permitiendo la creación de elementos muy pesados.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["elementos", "pesados"]
+
+enunciado: "Si un elemento tiene un número atómico mayor al del hierro, su origen probable es un evento de nucleosíntesis ___."
+
+respuestas_validas:
+  - "explosiva"
+respuesta: "explosiva"
+tipo: completar
+
+explicacion: |
+  La nucleosíntesis explosiva ocurre durante eventos de alta energía como supernovas o colisiones de objetos compactos, permitiendo superar la barrera de estabilidad del hierro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["estrellas", "hierro", "origen"]
+
+tipo: mc
+opciones_explicitas: ["Fusión de hidrógeno", "Fusión de helio", "Fusión de elementos pesados en núcleos estelares", "Espacio vacío"]
+
+respuesta: "Fusión de elementos pesados en núcleos estelares"
+
+enunciado: "El hierro presente en nuestra sangre (hemoglobina) no se creó en el Sistema Solar, sino en estrellas masivas mucho antes de que existiera el Sol. ¿Cuál es el proceso principal responsable de su formación?"
+
+explicacion: |
+  Los elementos más pesados que el hierro se forman en explosiones de supernovas, mientras que el hierro se produce en las etapas finales de la vida de estrellas masivas mediante la fusión nuclear.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["tabla_periodica", "elementos", "historia"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Si la tabla periódica es un inventario de los elementos que componen la materia, la mayoría de los elementos más pesados que el litio se formaron en el interior de las estrellas."
+
+explicacion: |
+  Verdadero. El Big Bang sólo produjo hidrógeno, helio y trazas de litio. Todos los demás elementos (carbono, oxígeno, calcio, etc.) requieren procesos estelares para su formación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["supernova", "elementos", "polvo"]
+
+tipo: mc
+opciones_explicitas: ["La formación de un planeta", "La explosión de una supernova", "La formación de una nebulosa", "El enfriamiento del Sol"]
+
+respuesta: "La explosión de una supernova"
+
+enunciado: "Para que los elementos pesados fabricados en el núcleo de una estrella puedan dispersarse por el universo y formar nuevos sistemas solares como el nuestro, ¿qué evento astronómico es necesario?"
+
+explicacion: |
+  Las supernovas actúan como mecanismos de dispersión, lanzando los elementos sintetizados al medio interestelar, donde eventualmente se condensan en planetas y vida.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["calcio", "biologia_estelar", "origen"]
+
+tipo: vf
+respuesta: verdadero
+
+enunciado: "Considerando que el calcio es un elemento esencial para la estructura ósea humana, cada átomo de calcio en nuestro cuerpo fue creado en una estrella que existió antes que el Sol."
+
+explicacion: |
+  Es cierto. El calcio es un elemento pesado que requiere procesos de nucleosíntesis estelar (como la captura de partículas alfa) para existir.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["tiempo_cosmico", "elementos", "genealogia"]
+
+tipo: mc
+opciones_explicitas: ["Los elementos se crean simultáneamente al Sol", "Los elementos pesados se crean después de la Tierra", "Los elementos pesados se crearon en generaciones estelares previas", "Los elementos no cambian con el tiempo"]
+
+respuesta: "Los elementos pesados se crearon en generaciones estelares previas"
+
+enunciado: "Desde una perspectiva de 'historia profunda', la composición química de la Tierra es un registro de eventos astronómicos pasados. ¿Cuál es la relación correcta entre la creación de elementos pesados y nuestro sistema solar?"
+
+explicacion: |
+  La materia que nos compone es el resultado de ciclos de vida y muerte estelar previos. El sistema solar se formó a partir de nubes de gas y polvo que ya contenían los elementos fabricados por estrellas anteriores.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["big_bang", "hidrogeno"]
+
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+respuesta: "Big Bang"
+tipo: mc
+
+enunciado: "El hidrógeno es el elemento más abundante del universo. ¿Cuál fue el proceso responsable de su formación?"
+
+explicacion: |
+  El hidrógeno es el elemento más simple y abundante, formado durante la nucleosíntesis primordial en los primeros minutos tras el Big Bang.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["estrellas", "carbono"]
+
+opciones_explicitas: ["Fusión estelar (proceso triple alfa)", "Big Bang", "Supernova"]
+respuesta: "Fusión estelar (proceso triple alfa)"
+tipo: mc
+
+enunciado: "Para la formación del carbono, ¿cuál es el mecanismo principal?"
+
+explicacion: |
+  El carbono se forma en el núcleo de estrellas de la secuencia principal mediante el proceso de triple alfa (fusión de tres núcleos de helio).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "avanzado"
+  tags: ["oro", "supernova"]
+
+opciones_explicitas: ["Fusión estelar", "Big Bang", "Colisión de estrellas de neutrones o supernova"]
+respuesta: "Colisión de estrellas de neutrones o supernova"
+tipo: mc
+
+enunciado: "Si buscamos identificar el origen del oro, ¿hacia qué tipo de evento debemos mirar?"
+
+explicacion: |
+  Elementos más pesados que el hierro, como el oro, requieren eventos cataclísmicos como supernovas o la fusión de estrellas de neutrones para su formación.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "intermedio"
+  tags: ["helio", "fusión"]
+
+enunciado: "En una estrella de la secuencia principal, el paso del hidrógeno al helio ocurre mediante el proceso de ___."
+
+respuestas_validas:
+  - "fusión nuclear"
+  - "fusion nuclear"
+respuesta: "fusión nuclear"
+tipo: completar
+
+explicacion: |
+  Las estrellas fusionan núcleos de hidrógeno para crear helio, liberando la energía que las hace brillar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "nucleosintesis"
+  nivel: "basico"
+  tags: ["hierro", "nucleosintesis"]
+
+enunciado: "En el ciclo de vida de una estrella masiva, la formación de hierro marca el límite de la ___ antes de la explosión."
+
+respuestas_validas:
+  - "fusión estelar"
+  - "fusion estelar"
+respuesta: "fusión estelar"
+tipo: completar
+
+explicacion: |
+  El hierro es el elemento más estable; una vez que el núcleo estelar se convierte en hierro, la fusión que libera energía cesa y la estrella colapsa.
 ```
 

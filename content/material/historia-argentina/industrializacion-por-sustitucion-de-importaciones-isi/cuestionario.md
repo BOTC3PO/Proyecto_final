@@ -1,4 +1,4 @@
-# Historia — Industrialización por sustitución de importaciones (ISI) (cuestionario, 22 preguntas VBLang)
+# Pensamiento histórico — Industrialización por sustitución de importaciones (ISI) (cuestionario, 22 preguntas VBLang)
 
 > Tema: `historia-argentina/industrializacion-por-sustitucion-de-importaciones-isi`. Ver `teoria.md` en esta misma carpeta.
 
@@ -8,7 +8,7 @@
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["definicion"]
@@ -32,7 +32,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["cronologia"]
@@ -54,7 +54,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["contexto"]
@@ -76,7 +76,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["politica economica"]
@@ -99,7 +99,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["organismos"]
@@ -124,7 +124,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["nacionalizaciones"]
@@ -146,7 +146,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["estructura productiva"]
@@ -169,7 +169,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["efectos sociales"]
@@ -191,7 +191,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["debilidades estructurales"]
@@ -214,7 +214,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["restriccion externa"]
@@ -237,7 +237,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["restriccion externa"]
@@ -260,7 +260,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["declive"]
@@ -282,7 +282,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["alcance regional"]
@@ -305,7 +305,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["industria automotriz"]
@@ -328,7 +328,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["industria siderurgica"]
@@ -355,7 +355,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["propaganda"]
@@ -377,7 +377,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["legado"]
@@ -401,7 +401,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["sectores industriales"]
@@ -423,7 +423,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["debates actuales"]
@@ -447,7 +447,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "intermedio"
   tags: ["consumo"]
@@ -470,7 +470,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "basico"
   tags: ["sigla"]
@@ -495,7 +495,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "industrializacion_por_sustitucion_de_importaciones_isi"
   nivel: "avanzado"
   tags: ["ciclo economico"]

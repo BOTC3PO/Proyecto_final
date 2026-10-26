@@ -32,6 +32,6 @@ En 1990 se levantó la prohibición de los movimientos antiapartheid y se liber�
 
 ## Una potencia regional
 
-Sudáfrica es una de las economías más grandes de África y tiene un papel de peso en la Unión Africana y en la región austral. Se incorporó en 2010 al grupo BRICS,, que reúne a economías emergentes. Para el contexto de la descolonización del continente, ver `../../historia-profunda/descolonizacion-de-africa-y-asia/`. Entre sus desafíos están la desigualdad, el desempleo, la provisión de energía y de agua y la seguridad.
+Sudáfrica es una de las economías más grandes de África y tiene un papel de peso en la Unión Africana y en la región austral. Se incorporó en 2010 al grupo BRICS,, que reúne a economías emergentes. Para el contexto de la descolonización del continente, ver `../../historia/descolonizacion-de-africa-y-asia/`. Entre sus desafíos están la desigualdad, el desempleo, la provisión de energía y de agua y la seguridad.
 
 Las cifras de población, producción o desempleo cambian con frecuencia; para datos actuales hay que consultar fuentes como Statistics South Africa.

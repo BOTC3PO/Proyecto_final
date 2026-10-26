@@ -71,5 +71,5 @@ La combinación relieve, clima y bioma de la Pampa húmeda (llanura, clima
 templado, pastizal con suelo fértil) explica directamente por qué Argentina
 desarrolló históricamente su perfil agroexportador (cereales, oleaginosas,
 carne). El mismo territorio que la Geografía describe es la base material
-que la Historia (ver `../../historia/`) y la Economía explican desde otro
+que la Historia (ver `../../pensamiento-historico/`) y la Economía explican desde otro
 ángulo.

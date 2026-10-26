@@ -102,8 +102,8 @@ con `../` apuntan a otra materia (documentación; el script las ignora).
 
 | Tema (carpeta) | Depende de | Por qué |
 |---|---|---|
-| `origen-excedente-moneda-mercado/` | `../historia-profunda/sedentarizacion-excedente/` | Nodo `E17` (`H15 --> E17`). Con `H15` = Sedentarización y excedente. Raíz dentro de Economía. |
-| `capitalismo-industrial-trabajo-asalariado/` | `../historia-profunda/revolucion-industrial/` | Nodo `E18` (`H24 --> E18`). Con `H24` = Revolución industrial. Raíz dentro de Economía. |
+| `origen-excedente-moneda-mercado/` | `../historia/sedentarizacion-excedente/` | Nodo `E17` (`H15 --> E17`). Con `H15` = Sedentarización y excedente. Raíz dentro de Economía. |
+| `capitalismo-industrial-trabajo-asalariado/` | `../historia/revolucion-industrial/` | Nodo `E18` (`H24 --> E18`). Con `H24` = Revolución industrial. Raíz dentro de Economía. |
 | `estructura-productiva-dependencia/` | `../historia-argentina/modelo-agroexportador-inmigracion/` | Nodo `E19` (`AH8 --> E19`). Con `AH8` = Modelo agroexportador e inmigración. Raíz dentro de Economía. |
 | `objetivos-y-metas/` | `tipos-de-organizaciones/` | Nodo `ADM1` (`ORG1 --> ADM1`, agregado con la rama de Teoría de las Organizaciones). |
 | `planificacion-administrativa/` | `objetivos-y-metas/` | Nodo `ADM2` (`ADM1 --> ADM2`). |

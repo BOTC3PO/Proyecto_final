@@ -1,4 +1,4 @@
-# Historia Profunda — Pueblos originarios territorio argentino (cuestionario, 25 preguntas VBLang)
+# Historia — Pueblos originarios territorio argentino (cuestionario, 25 preguntas VBLang)
 
 > Ver `teoria.md` en esta misma carpeta.
 >
@@ -15,7 +15,7 @@
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["diaguitas", "norte", "geografia"]
@@ -34,7 +34,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["tehuelches", "patagonia", "nómadas"]
@@ -53,7 +53,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["guaraníes", "litoral", "agricultura"]
@@ -77,7 +77,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["ordenar", "geografia"]
@@ -96,7 +96,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["mapuches", "sur", "territorio"]
@@ -119,7 +119,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["diaguitas", "agricultura", "sedentarismo"]
@@ -139,7 +139,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["tehuelches", "nómadas", "caza"]
@@ -162,7 +162,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["diaguitas", "inca", "influencia"]
@@ -181,7 +181,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["organización", "social", "secuencia"]
@@ -200,7 +200,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["nómadas", "sedentarios", "comparación"]
@@ -222,7 +222,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["incas", "collasuyo", "noroeste_argentino"]
@@ -242,7 +242,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["incas", "administracion", "territorio"]
@@ -264,7 +264,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["caminos", "qhapaq_ñan", "incas"]
@@ -284,7 +284,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["agricultura", "terrazas", "tecnologia"]
@@ -303,7 +303,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["expansion", "etapas", "incas"]
@@ -327,7 +327,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["mapuches", "geografia"]
@@ -347,7 +347,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["guaraníes", "litoral"]
@@ -368,7 +368,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["diaguitas", "noroeste"]
@@ -388,7 +388,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["tehuelches", "patagonia"]
@@ -408,7 +408,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["repaso", "geografia"]
@@ -432,7 +432,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["geografia", "etnias"]
@@ -455,7 +455,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["estilos_de_vida", "antropologia"]
@@ -478,7 +478,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "basico"
   tags: ["cultura"]
@@ -497,7 +497,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "avanzado"
   tags: ["cronologia", "territorio"]
@@ -516,7 +516,7 @@ explicacion: |
 
 ```
 metadata:
-  materia: "historia_profunda"
+  materia: "historia_argentina"
   tema: "pueblos_originarios_territorio_argentino"
   nivel: "intermedio"
   tags: ["geografia"]

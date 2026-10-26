@@ -1,2118 +1,2385 @@
-# Examen jefe — Experto en Corrientes Historiográficas
+# Examen jefe — Maestro de la Tierra Primitiva
 
-> Logro #724. Aprobaste el parcial sobre la Escuela de los Annales, la historia cultural, el materialismo histórico, el positivismo y el estudio de las revoluciones. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **95 preguntas totales** en 5/5 secciones.
+> Logro #684. Completaste el parcial dominando la tierra primitiva y su diferenciación, la atmósfera primitiva, los minerales, la tabla periódica cosmológica y el origen de la vida. Pool agregado de los `cuestionario.md` ya validados de sus 5 temas (orden por conocimientos previos, no alfabético — ver `../../examen-jefe-REDISEÑO-PLANIFICACION.md`). **124 preguntas totales** en 5/5 secciones.
 
 ---
 
-## Sección: escuela-de-los-annales (19 preguntas)
+## Sección: tabla-periodica-nivel2-cosmologico (25 preguntas)
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "basico"
-  tags: ["escuela_de_los_annales", "criterio_central"]
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["big_bang", "hidrogeno", "helio"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "Big Bang"
+tipo: mc
 
-respuesta: verdadero
-tipo: vf
+enunciado: "Los elementos más abundantes del universo, como el Hidrógeno y el Helio, se formaron principalmente durante el ___."
 
-enunciado: "La Escuela de los Annales propone mirar la historia a través de estructuras de larga duración: clima, geografía, demografía, economía."
-
-pasos:
-  - "En vez de centrarse en sucesos puntuales de reyes y batallas."
+opciones_explicitas: ["Big Bang", "Fusión Estelar"]
 
 explicacion: |
-  Verdadero: es el criterio central de esta corriente.
+  El Big Bang ocurrió hace aproximadamente 13.800 millones de años, liberando protones y neutrones que formaron los núcleos de los elementos más ligeros.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "intermedio"
-  tags: ["contexto_historico"]
+  tags: ["estrellas", "fusion"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales se llama así por la revista académica Annales donde publicaban sus fundadores, en Francia, durante el siglo XX."
-
-pasos:
-  - "Es el origen del nombre de esta corriente historiográfica."
-
-explicacion: |
-  Verdadero: es el origen del nombre de esta escuela.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["marc_bloch"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Bloch"
+respuesta: "fusión"
 tipo: completar
+respuestas_validas:
+  - "fusión"
+  - "fision"
 
-enunciado: "Uno de los fundadores de la Escuela de los Annales, autor de \"Apología para la historia\", se apellida..."
-
-pasos:
-  - "Marc Bloch es uno de los referentes centrales de esta corriente."
+enunciado: "En el núcleo de una estrella, la combinación de núcleos ligeros para formar elementos más pesados se denomina proceso de ________."
 
 explicacion: |
-  Bloch es autor central de esta corriente historiográfica.
+  La fusión nuclear es el proceso donde núcleos atómicos se unen para formar un núcleo más pesado, liberando una enorme cantidad de energía.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
+  materia: "quimica"
+  tema: "nucleosintesis_supernova"
   nivel: "avanzado"
-  tags: ["marc_bloch", "contexto_historico"]
+  tags: ["supernova", "elementos_pesados"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "\"Apología para la historia\" de Marc Bloch se publicó póstumamente en 1949, después de que Bloch fuera fusilado por la resistencia francesa contra la ocupación nazi."
-
-pasos:
-  - "Es un dato histórico sobre las circunstancias de publicación de esta obra clásica."
-
-explicacion: |
-  Verdadero: es el contexto histórico de la publicación de esta obra
-  fundamental de la corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["fernand_braudel"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Braudel"
-tipo: completar
-
-enunciado: "El historiador de la Escuela de los Annales que propuso distinguir tres ritmos distintos de cambio histórico se apellida..."
-
-pasos:
-  - "Fernand Braudel es otro referente central de esta corriente."
-
-explicacion: |
-  Braudel es autor central de esta corriente, referente de los tres
-  niveles de tiempo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["larga_duracion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "larga duración"
+respuesta: "Supernovas"
 tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
 
-enunciado: "El nivel de tiempo histórico que abarca estructuras casi inmóviles (geografía, clima) que cambian en siglos o milenios se llama..."
+enunciado: "Los elementos más pesados que el hierro, como el oro o el uranio, se originan principalmente en eventos de ________."
 
-pasos:
-  - "Es el nivel más lento de los tres propuestos por Braudel."
+opciones_explicitas: ["Supernovas", "Enanas Blancas"]
 
 explicacion: |
-  La larga duración es el nivel de cambio más lento de los tres
-  ritmos propuestos por Braudel.
+  Las explosiones de supernovas y la colisión de estrellas de neutrones proporcionan la energía necesaria para la nucleosíntesis de elementos muy pesados.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["coyunturas"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "coyunturas"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca ciclos económicos y sociales de mediano plazo (décadas) se llama..."
-
-pasos:
-  - "Es el nivel intermedio de los tres propuestos por Braudel."
-
-explicacion: |
-  Las coyunturas son el nivel intermedio de cambio, de duración
-  media (décadas).
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["acontecimientos"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "acontecimientos"
-tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
-
-enunciado: "El nivel de tiempo histórico que abarca los hechos puntuales (batallas, tratados), llamado por Braudel la \"espuma\" de la historia, se llama..."
-
-pasos:
-  - "Es el nivel más rápido y visible, pero según Braudel menos determinante."
-
-explicacion: |
-  Los acontecimientos son el nivel más rápido y visible, pero para
-  Braudel el menos determinante de los tres.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "avanzado"
-  tags: ["acontecimientos", "metafora"]
+  tags: ["orden", "procesos"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Braudel describió a los acontecimientos como la \"espuma\" superficial de la historia: la parte más visible pero menos determinante."
-
-pasos:
-  - "Es la metáfora central usada por Braudel para describir la relación entre los tres niveles de tiempo."
-
-explicacion: |
-  Verdadero: es la metáfora central que usa Braudel para jerarquizar
-  los tres niveles de tiempo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["niveles_de_tiempo", "orden"]
-
-enunciado: "Ordená los tres niveles de tiempo histórico de Braudel, del más lento al más rápido."
+respuesta_orden: ["Big Bang", "Fusión Estelar", "Supernovas"]
 tipo: ordenar
-opciones_explicitas:
-  - "Larga duración"
-  - "Coyunturas"
-  - "Acontecimientos"
-respuesta_orden: ["Larga duración", "Coyunturas", "Acontecimientos"]
+opciones_explicitas: ["Big Bang", "Fusión Estelar", "Supernovas"]
+
+enunciado: "Ordena los procesos de nucleosíntesis según su orden cronológico en la historia del universo (del más antiguo al más reciente):"
+
 explicacion: |
-  El orden va de las estructuras casi inmóviles (siglos/milenios) a
-  los ciclos de mediano plazo (décadas) y finalmente a los hechos
-  puntuales (días/años).
+  Primero ocurrió el Big Bang (H, He), luego la fusión en el interior de las estrellas (C, O, Ne, etc.) y finalmente las explosiones estelares para elementos pesados.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
   nivel: "avanzado"
-  tags: ["estructuras"]
+  tags: ["hierro", "energia"]
+
+respuesta: 26
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "En una estrella masiva, la fusión de elementos se detiene cuando se llega al núcleo de hierro (Fe). ¿Cuál es el número atómico (Z) del hierro?"
+
+explicacion: |
+  El hierro tiene un número atómico de 26. La fusión de elementos más pesados que el hierro requiere un aporte neto de energía en lugar de liberarla, lo que lleva al colapso de la estrella.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["big_bang", "hidrogeno", "helio"]
+
+respuesta: "Big Bang"
+tipo: completar
+respuestas_validas:
+  - "Big Bang"
+
+enunciado: "El hidrógeno y el helio son los elementos más abundantes del universo y su origen se remonta al ___."
+
+explicacion: |
+  En los primeros minutos del universo, la nucleosíntesis primordial produjo principalmente núcleos de hidrógeno y helio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "intermedio"
+  tags: ["estrellas", "nucleosintesis", "elementos_pesados"]
 
 variables:
-  n: uno_de([1, 1])
+  datos: [["estrellas", "elementos pesados"], ["big bang", "hidrógeno"], ["supernovas", "metales"]]
+  idx: uno_de([0,1,2])
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["elementos pesados", "hidrógeno", "metales"]
+
+enunciado: "Si el hidrógeno y el helio provienen del Big Bang, ¿de dónde proviene la mayoría de los elementos más complejos de la tabla periódica?"
+
+explicacion: |
+  Las estrellas actúan como reactores nucleares que fusionan elementos ligeros para crear elementos más pesados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["abundancia", "hidrogeno", "helio"]
+
+variables:
+  datos: [["Hidrógeno", 1], ["Helio", 2]]
+  idx: uno_de([0,1])
+
+respuesta: datos[idx][0]
+tipo: mc
+opciones_explicitas: ["Hidrógeno", "Helio", "Carbono", "Oxígeno"]
+
+enunciado: "Considerando la abundancia en el universo, si el elemento seleccionado es el {datos[idx][0]}, este es el más abundante."
+
+explicacion: |
+  El hidrógeno es el elemento número uno en abundancia cósmica, seguido por el helio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "avanzado"
+  tags: ["orden", "evolucion_estelar"]
+
+respuesta_orden: ["Big Bang", "Formación de estrellas", "Fusión estelar", "Supernovas"]
+tipo: ordenar
+opciones_explicitas: ["Big Bang", "Formación de estrellas", "Fusión estelar", "Supernovas"]
+
+enunciado: "Ordena cronológicamente los eventos que explican la presencia de elementos pesados en el universo:"
+
+explicacion: |
+  Primero surge la materia básica en el Big Bang, luego se forman las estrellas donde ocurre la fusión, y finalmente las explosiones estelares dispersan los elementos pesados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["atomo", "proton"]
+
+variables:
+  datos: [["Hidrógeno", 1], ["Helio", 2]]
+  idx: uno_de([0,1])
+
+respuestas_validas:
+  - datos[idx][1]
+respuesta: datos[idx][1]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Un átomo de {datos[idx][0]} en su estado fundamental tiene exactamente {datos[idx][1]} protones en su núcleo."
+
+explicacion: |
+  El número atómico define la cantidad de protones. El hidrógeno tiene 1 y el helio tiene 2.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["astrofisica", "elementos_pesados"]
+
+variables:
+  escenario_idx: uno_de([0,1])
+  escenarios: [["supernova", "colisión de estrellas de neutrones"], ["estrellas de neutrones", "supernovas"]]
+
+enunciado: "Los elementos más pesados que el hierro, como el oro o el uranio, no se forman en estrellas comunes, sino que requieren eventos cataclísmicos como una {escenarios[escenario_idx][0]}."
+
+respuesta: escenarios[escenario_idx][0]
+tipo: mc
+opciones_explicitas: ["supernova", "estrellas de neutrones", "fusiones de helio", "fusión estelar ordinaria"]
+
+explicacion: |
+  La nucleosíntesis de elementos más pesados que el hierro requiere un flujo masivo de neutrones (proceso r), algo que solo ocurre en eventos de altísima energía como supernovas o la fusión de estrellas de neutrones.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_cosmologica"
+  nivel: "basico"
+  tags: ["elementos", "pesados"]
+
+enunciado: "Completa la siguiente afirmación: El elemento con símbolo 'Au' es el ___."
+
+respuestas_validas:
+  - "oro"
+tipo: completar
+
+explicacion: |
+  El oro (Au) es un elemento pesado cuya formación requiere eventos de nucleosíntesis explosiva.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["nucleosintesis", "proceso_r"]
+
+enunciado: "Ordena cronológicamente los procesos de formación de elementos pesados en el universo, desde la formación de estrellas masivas hasta la formación de elementos extremadamente pesados en eventos cataclísmicos:"
+
+opciones_explicitas: ["Fusión de hidrógeno", "Fusión de elementos en núcleo estelar", "Explosión de supernova", "Fusión de estrellas de neutrones"]
+respuesta_orden: ["Fusión de hidrógeno", "Fusión de elementos en núcleo estelar", "Explosión de supernova", "Fusión de estrellas de neutrones"]
+tipo: ordenar
+
+explicacion: |
+  La evolución estelar comienza con la fusión de hidrógeno, sigue con elementos más pesados en el núcleo, culmina en la supernova y, finalmente, los eventos más extremos como la fusión de estrellas de neutrones crean los elementos más pesados.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["uranio", "astrofisica"]
+
+enunciado: "El uranio es un elemento que puede formarse mediante la fusión de helio en el núcleo de una estrella de la secuencia principal."
+
+respuesta: falso
+tipo: vf
+
+explicacion: |
+  Falso. El uranio es un elemento muy pesado que requiere procesos de captura rápida de neutrones (proceso r) en eventos energéticos, no la fusión de helio.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["masa", "isotopos"]
+
+variables:
+  elemento_idx: uno_de([0,1])
+  datos: [[197, "oro"], [238, "uranio"]]
+
+enunciado: "Si un evento de estrella de neutrones produce un isótopo de {datos[elemento_idx][1]}, su masa atómica aproximada es de {datos[elemento_idx][0]} u."
+
+respuesta: datos[elemento_idx][0]
+tipo: completar
+tolerancia_abs: 0
+
+explicacion: |
+  El valor corresponde a la masa atómica aproximada del elemento seleccionado en el escenario.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["astroquimica", "elementos"]
+
+variables:
+  elemento_idx: uno_de([0, 1, 2])
+  elementos: ["carbono", "oxígeno", "hierro"]
+
+respuesta: elementos[elemento_idx]
+tipo: mc
+opciones_explicitas: ["carbono", "oxígeno", "hierro", "helio"]
+
+enunciado: "El {elementos[elemento_idx]} que forma parte de las moléculas orgánicas de tu cuerpo se originó mediante la fusión en el núcleo de una estrella masiva."
+
+explicacion: |
+  La nucleosíntesis estelar es el proceso mediante el cual los elementos más pesados que el hidrógeno y el helio se crean por fusión en el interior de las estrellas.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["supernova", "nucleosintesis"]
+
+respuesta: "el hierro"
+tipo: completar
+respuestas_validas:
+  - "el hierro"
+
+enunciado: "Cuando una estrella masiva colapsa en una supernova, libera en el espacio elementos pesados como ___."
+
+explicacion: |
+  Las estrellas masivas sintetizan elementos hasta el hierro antes de explotar en una supernova, dispersando estos elementos por el cosmos.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "basico"
+  tags: ["elementos", "polvo_de_estrellas"]
+
+tipo: completar
+respuesta: "fusión"
+enunciado: "Los átomos de los elementos pesados en nuestro cuerpo fueron creados mediante el proceso de ___ nuclear en el interior de estrellas antiguas."
+
+explicacion: |
+  La fusión nuclear es el proceso donde núcleos ligeros se unen para formar núcleos más pesados, liberando energía.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "avanzado"
+  tags: ["secuencia", "fusión"]
+
+opciones_explicitas: ["Hidrógeno -> Helio -> Carbono -> Oxígeno -> Hierro", "Helio -> Hidrógeno -> Carbono -> Hierro", "Hidrógeno -> Helio -> Oxígeno -> Carbono -> Hierro"]
+
+respuesta: "Hidrógeno -> Helio -> Carbono -> Oxígeno -> Hierro"
+tipo: mc
+
+enunciado: "Ordena la secuencia lógica de la nucleosíntesis estelar que permite la formación de elementos pesados en una estrella masiva:"
+
+explicacion: |
+  Las estrellas comienzan fusionando hidrógeno a helio, luego helio a carbono, y continúan con elementos cada vez más pesados hasta llegar al hierro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "nucleosintesis_estelar"
+  nivel: "intermedio"
+  tags: ["hierro", "estrellas"]
+
+respuesta: verdadero
+
+tipo: vf
+
+enunciado: "Considerando que el hierro es un elemento producido por la fusión estelar, ¿es cierto que su origen es estelar?"
+
+explicacion: |
+  El hierro se forma exclusivamente mediante fusión en el interior de estrellas masivas, a diferencia del hidrógeno o el helio, que son mayoritariamente de origen primordial (Big Bang).
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "basico"
+  tags: ["nucleosintesis", "big_bang"]
+
+variables:
+  escenario: [[ "Hidrógeno", "Big Bang" ]]
+  idx: uno_de([0])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+
+enunciado: "El elemento {escenario[idx][0]} es el más abundante del universo y su origen principal se remonta al ___."
+
+explicacion: |
+  El Hidrógeno se formó durante la nucleosíntesis primordial, pocos minutos después del Big Bang.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "intermedio"
+  tags: ["fusion_estelar", "elementos"]
+
+variables:
+  escenario: [["Helio", "Big Bang"], ["Carbono", "Fusión estelar"], ["Hierro", "Fusión estelar"]]
+  idx: uno_de([0,1,2])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+
+enunciado: "El elemento {escenario[idx][0]} se sintetiza principalmente mediante procesos de ___ en el núcleo de las estrellas."
+
+explicacion: |
+  La fusión estelar es el proceso donde elementos más ligeros se combinan para formar otros más pesados en el núcleo estelar.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "avanzado"
+  tags: ["supernova", "elementos_pesados"]
+
+variables:
+  escenario: [["Oro", "Supernova"], ["Plata", "Supernova"], ["Uranio", "Supernova"]]
+  idx: uno_de([0,1,2])
+
+respuesta: escenario[idx][1]
+tipo: completar
+respuestas_validas:
+  - "Supernova"
+
+enunciado: "Los elementos muy pesados como el {escenario[idx][0]} se originan mayoritariamente durante una ___."
+
+explicacion: |
+  Las explosiones de supernova proporcionan la energía y el flujo de neutrones necesarios para la nucleosíntesis de elementos más allá del hierro.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "intermedio"
+  tags: ["procesos", "nucleosintesis"]
+
+respuesta_orden: ["Big Bang", "Fusión estelar", "Supernova"]
+tipo: ordenar
+opciones_explicitas: ["Big Bang", "Fusión estelar", "Supernova"]
+
+enunciado: "Ordena cronológicamente los procesos de nucleosíntesis según el orden de aparición de los elementos en el universo:"
+
+explicacion: |
+  Primero ocurrió la nucleosíntesis del Big Bang, luego la fusión en estrellas de la secuencia principal y finalmente las explosiones de supernova.
+```
+
+```
+metadata:
+  materia: "quimica"
+  tema: "tabla_periodica_nivel2_cosmologico"
+  nivel: "avanzado"
+  tags: ["nucleosintesis", "identificacion"]
+
+variables:
+  escenario: uno_de([["Litio-7", "Big Bang"], ["Oxígeno", "Fusión estelar"], ["Plomo", "Supernova"]])
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "Según la Escuela de los Annales, el clima, la geografía y la demografía de una región condicionan durante siglos qué es posible o probable en esa sociedad, más allá de qué rey gobierne en un momento dado."
-
-pasos:
-  - "Es la justificación central de por qué esta corriente prioriza las estructuras de larga duración."
+enunciado: "El origen del {escenario[0]} es la {escenario[1]}."
 
 explicacion: |
-  Verdadero: es la razón central por la que esta corriente considera
-  más determinantes las estructuras que los sucesos puntuales.
+  La afirmación es verdadera según el escenario seleccionado.
+```
+
+## Sección: tierra-primitiva-diferenciacion (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["acreción", "planetesimales"]
+
+tipo: mc
+opciones_explicitas: ["Acreción de planetesimales", "Colisión con un planeta gigante", "Condensación de gases estelares", "Fusión de un cometa"]
+
+enunciado: "La Tierra primitiva se formó hace aproximadamente 4600 millones de años mediante un proceso llamado ___."
+
+respuesta: "Acreción de planetesimales"
+
+explicacion: |
+  La Tierra se formó por la acumulación gravitatoria de cuerpos menores (planetesimales) en el disco protoplanetario.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "escuela_de_los_annales"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["calor", "estado_fisico"]
+
+tipo: completar
+respuestas_validas:
+  - "fundido"
+
+enunciado: "Debido a los impactos constantes y el calor radiactivo, la Tierra primitiva se encontraba en un estado casi ___."
+
+respuesta: "fundido"
+
+explicacion: |
+  El calor generado por el bombardeo de planetesimales y la desintegración de isótopos radiactivos mantuvo el manto y el núcleo en un estado fundido o casi fundido.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["calor_radiactivo", "impactos"]
+
+tipo: mc
+opciones_explicitas: ["Calor por impactos y calor radiactivo", "Calor por mareas lunares", "Calor por actividad volcánica superficial", "Calor por radiación solar directa"]
+
+enunciado: "¿Cuáles fueron las dos fuentes principales de calor que mantuvieron la Tierra primitiva en un estado fundido?"
+
+respuesta: "Calor por impactos y calor radiactivo"
+
+explicacion: |
+  La energía cinética de los impactos de planetesimales se transformó en calor, sumado al calor liberado por la desintegración de elementos radiactivos como el Al-26 y el U-235.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "avanzado"
-  tags: ["materialismo_historico", "diferenciacion"]
+  tags: ["diferenciación", "núcleo", "manto"]
+
+tipo: ordenar
+opciones_explicitas: ["Fusión de la roca", "Separación de elementos densos (hierro)", "Formación del núcleo y manto", "Estabilización de la corteza"]
+
+enunciado: "Ordena cronológicamente los procesos que llevaron a la diferenciación planetaria:"
+
+respuesta_orden: ["Fusión de la roca", "Separación de elementos densos (hierro)", "Formación del núcleo y manto", "Estabilización de la corteza"]
+
+explicacion: |
+  Primero la roca debe fundirse; luego los elementos pesados como el hierro descienden al centro, formando el núcleo, mientras los ligeros forman el manto, culminando con la solidificación de la corteza.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["elementos", "densidad"]
 
 variables:
-  n: uno_de([1, 1])
+  idx: uno_de([0, 1])
+  datos: [["hierro", "núcleo"], ["silicatos", "manto"]]
+
+tipo: completar
+respuestas_validas:
+  - "hierro"
+  - "silicatos"
+respuesta: datos[idx][1]
+
+enunciado: "Durante la diferenciación, los elementos más densos como el ___ migraron hacia el centro, mientras que los elementos más ligeros como los ___ formaron las capas superiores."
+
+pasos:
+  - "Identificar el elemento que baja por densidad"
+  - "Identificar el material que queda en la superficie"
+
+explicacion: |
+  La gravedad separa los materiales por densidad: el hierro (denso) va al núcleo y los silicatos (menos densos) al manto y corteza.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["diferenciacion", "nucleo", "densidad"]
+
+respuesta: "hierro y níquel"
+tipo: completar
+respuestas_validas:
+  - "hierro y níquel"
+  - "hierro, níquel"
+
+enunciado: "Durante la etapa de océano de magma, los elementos más densos como el ___ se hundieron hacia el centro para formar el núcleo."
+
+explicacion: |
+  Debido a la gravedad, los materiales con mayor densidad (metales pesados) migraron hacia el centro del planeta, proceso conocido como diferenciación por gravedad.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["capas", "silicatos", "manto"]
+
+respuesta: "silicatos"
+tipo: mc
+opciones_explicitas: ["silicatos", "hierro", "níquel", "magnesio"]
+
+enunciado: "¿Qué tipo de materiales predominan en las capas externas (manto y corteza) debido a su baja densidad en comparación con los metales?"
+
+explicacion: |
+  Los silicatos son minerales menos densos que los metales, por lo que flotaron hacia la superficie durante la diferenciación planetaria.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["proceso", "magma", "gravedad"]
+
+respuesta_orden: ["Estado fundido", "Diferenciación por densidad", "Formación de capas"]
+tipo: ordenar
+opciones_explicitas: ["Estado fundido", "Diferenciación por densidad", "Formación de capas"]
+
+enunciado: "Ordena cronológicamente los eventos que permitieron la estructura actual de la Tierra:"
+
+explicacion: |
+  Primero la Tierra debe estar fundida (oceano de magma), luego la gravedad actúa separando materiales por peso, resultando en la estructura de capas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["densidad", "correlacion"]
+
+variables:
+  escenario_idx: uno_de([0, 1])
+  datos: [["núcleo", "alta densidad", "hierro"], ["corteza", "baja densidad", "silicatos"]]
+
+respuesta: datos[escenario_idx][2]
+tipo: mc
+opciones_explicitas: ["hierro", "silicatos", "magnesio", "aluminio"]
+
+enunciado: "Si analizamos la {datos[escenario_idx][0]}, que se caracteriza por tener una {datos[escenario_idx][1]}, el elemento principal que la compone es el ___."
+
+explicacion: |
+  La posición de un material en la Tierra primitiva dependía directamente de su densidad: lo más denso abajo, lo menos denso arriba.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["estado_fisico", "condicion"]
 
 respuesta: verdadero
 tipo: vf
 
-enunciado: "El materialismo histórico prioriza específicamente relaciones de clase y producción; la Escuela de los Annales incluye también factores geográficos y climáticos, no ligados directamente al conflicto de clases."
-
-pasos:
-  - "Ver `../materialismo-historico/`: es la diferencia de foco entre estas dos corrientes que ambas miran \"estructuras\"."
+enunciado: "¿Es verdadero o falso que la diferenciación planetaria requiere que la Tierra se encuentre en un estado fundido o parcialmente fundido para que los materiales se muevan por gravedad?"
 
 explicacion: |
-  Verdadero: aunque ambas corrientes miran estructuras en vez de
-  grandes figuras, difieren en qué tipo de estructuras priorizan.
+  Sin un estado líquido o viscoso (magma), los materiales sólidos no podrían migrar a través de la masa planetaria para separarse por densidad.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "positivismo"]
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["geologia", "densidad"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: mc
+opciones_explicitas: ["Núcleo", "Manto", "Corteza"]
 
-respuesta: verdadero
-tipo: vf
+enunciado: "Durante la diferenciación planetaria, los materiales más densos se hundieron hacia el centro de la Tierra, formando la capa más interna conocida como la ___."
 
-enunciado: "Tanto el materialismo histórico como la Escuela de los Annales se apartan del foco en grandes figuras y hechos puntuales, propio del positivismo."
-
-pasos:
-  - "Ver `../positivismo/`: es el contraste común de ambas corrientes con la primera de la subrama."
+respuesta: "Núcleo"
 
 explicacion: |
-  Verdadero: ambas corrientes comparten esa distancia respecto del
-  enfoque positivista, aunque prioricen estructuras distintas.
+  La gravedad hizo que los elementos más pesados (como el hierro y el níquel) migraran hacia el centro, formando el núcleo.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["niveles_de_tiempo", "practica"]
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["densidad", "orden"]
+
+tipo: ordenar
+opciones_explicitas: ["Corteza", "Manto", "Núcleo"]
+
+enunciado: "Ordena las capas de la Tierra desde la menos densa (superficie) hasta la más densa (centro):"
+
+respuesta_orden: ["Corteza", "Manto", "Núcleo"]
+
+explicacion: |
+  La diferenciación por densidad organiza la Tierra en capas: la corteza es la más ligera, seguida por el manto y finalmente el núcleo en el centro.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "intermedio"
+  tags: ["densidad", "manto"]
 
 variables:
-  ejemplos: ["la firma de un tratado de paz en un año específico", "el clima de una región que condicionó su agricultura durante siglos"]
-  niveles: ["acontecimientos", "larga duración"]
+  datos: [["manto", "mayor"], ["núcleo", "mayor"]]
   idx: uno_de([0, 1])
 
-respuesta: niveles[idx]
+enunciado: "Considerando la estructura terrestre, la densidad del {datos[idx][0]} es {datos[idx][1]} que la densidad de la corteza."
+
 tipo: mc
-opciones_explicitas: ["larga duración", "coyunturas", "acontecimientos"]
+opciones_explicitas: ["mayor", "menor", "igual"]
 
-enunciado: "\"{ejemplos[idx]}\" corresponde al nivel de tiempo histórico de..."
-
-pasos:
-  - "Un hecho puntual es acontecimiento; un factor que cambia en siglos es larga duración."
+respuesta: datos[idx][1]
 
 explicacion: |
-  Clasificar un ejemplo según su ritmo de cambio (siglos, décadas o
-  puntual) es la aplicación central de este tema.
+  El {datos[idx][0]} se encuentra debajo de la corteza y posee una densidad {datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["acontecimientos", "matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales no ignora por completo los acontecimientos puntuales, sino que los considera menos determinantes que las estructuras de fondo, sin eliminarlos del análisis."
-
-pasos:
-  - "Es un matiz importante: la jerarquía entre los tres niveles no significa descartar por completo el nivel de los acontecimientos."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre la relación entre los tres
-  niveles de tiempo propuestos por Braudel.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["larga_duracion", "practica"]
+  tags: ["geologia", "capas"]
 
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Que un pueblo se haya desarrollado alrededor de un río navegable durante siglos, condicionando su comercio y su forma de organización social, es un ejemplo de análisis desde la larga duración de los Annales."
-
-pasos:
-  - "Es la aplicación práctica del foco en geografía como estructura de larga duración."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de análisis desde la perspectiva
-  de la larga duración de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "intermedio"
-  tags: ["escuela_de_los_annales", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la Escuela de los Annales."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)"
-  - "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)"
-  - "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo"
-  - "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"
-respuesta_orden: ["Revisar si el foco está en estructuras de larga duración (clima, geografía, demografía)", "Identificar si se distinguen distintos ritmos de cambio (larga duración, coyunturas, acontecimientos)", "Revisar si los sucesos puntuales se tratan como menos determinantes que las estructuras de fondo", "Concluir si el texto corresponde al enfoque de la Escuela de los Annales"]
-explicacion: |
-  El análisis va del foco temático a la jerarquía de niveles de
-  tiempo, para concluir si corresponde a esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales es la tercera de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, materialismo histórico e historia cultural."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "escuela_de_los_annales"
-  nivel: "avanzado"
-  tags: ["escuela_de_los_annales", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en cómo el clima y la geografía de una región condicionaron su desarrollo económico y social a lo largo de siglos, conviene reconocer que está aplicando un enfoque cercano a la Escuela de los Annales."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: historia-cultural (19 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "basico"
-  tags: ["historia_cultural", "criterio_central"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural propone analizar un caso chico y aparentemente insignificante en profundidad, mostrando que puede revelar toda una estructura social, mental o cultural de su época."
-
-pasos:
-  - "Invierte la lógica de escala de las corrientes que priorizan lo macro (Annales, positivismo)."
-
-explicacion: |
-  Verdadero: es el criterio central de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["microhistoria"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural también se asocia con el nombre \"microhistoria\", por su foco en casos individuales y localizados."
-
-pasos:
-  - "Ambos nombres se usan para referirse a esta misma corriente historiográfica."
-
-explicacion: |
-  Verdadero: es la relación entre los dos nombres usados para esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["carlo_ginzburg"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "Ginzburg"
 tipo: completar
+respuestas_validas:
+  - "manto"
 
-enunciado: "El historiador italiano referente central de la historia cultural/microhistoria se apellida..."
+respuesta: "manto"
 
-pasos:
-  - "Carlo Ginzburg es el autor central asociado a esta corriente."
+enunciado: "La capa intermedia de la Tierra, situada entre la corteza y el núcleo, se denomina ___."
 
 explicacion: |
-  Ginzburg es autor central de esta corriente historiográfica.
+  El manto es la capa intermedia que separa la corteza externa del núcleo central.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "avanzado"
-  tags: ["carlo_ginzburg", "obra_clave"]
+  tags: ["calculo", "densidad"]
 
 variables:
-  n: uno_de([1, 1])
+  datos: [[5.5, 13.0], [3.3, 5.5], [2.7, 3.3]]
+  idx: uno_de([0, 1, 2])
 
-respuesta: verdadero
-tipo: vf
+enunciado: "Si la densidad de la capa A es {datos[idx][0]} g/cm³ y la densidad de la capa B es {datos[idx][1]} g/cm³, la diferencia de densidad entre la capa más densa y la menos densa de este par es de ___ g/cm³."
 
-enunciado: "La obra más famosa de Ginzburg, \"El queso y los gusanos\" (1976), reconstruye el caso de un molinero friulano del siglo XVI, juzgado por la Inquisición por sus ideas heterodoxas sobre el origen del mundo."
-
-pasos:
-  - "Es la obra clave que ejemplifica el método de la microhistoria."
+tipo: completar
+respuesta: abs(datos[idx][1] - datos[idx][0])
+tolerancia_abs: 0.01
 
 explicacion: |
-  Verdadero: es la obra fundamental de referencia de esta corriente.
+  La diferencia se calcula restando la densidad menor de la mayor. En este caso, el resultado es {abs(datos[idx][1] - datos[idx][0])}.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["carlo_ginzburg", "obra_clave"]
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["astronomia", "teoria", "luna"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "Theia"
+tipo: mc
+opciones_explicitas: ["Theia", "Gaia", "Venus", "Mars"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Ginzburg usa el caso individual del molinero para iluminar la mentalidad popular de toda una época, algo que las fuentes oficiales rara vez documentan."
-
-pasos:
-  - "Es el propósito central del uso de un caso micro para revelar algo macro."
+enunciado: "Según la hipótesis del Gran Impacto, la Luna se formó tras la colisión de la Tierra primitiva con un protoplaneta llamado _______."
 
 explicacion: |
-  Verdadero: es la conclusión central de por qué un caso individual
-  puede tener valor histórico más allá de sí mismo.
+  La hipótesis del Gran Impacto sugiere que un objeto del tamaño de Marte, denominado Theia, colisionó con la Tierra, dejando un anillo de escombros que eventualmente se consolidó para formar la Luna.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["fuentes_no_convencionales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las fuentes oficiales (el foco del positivismo) rara vez documentan la vida cotidiana y la mentalidad de la gente común."
-
-pasos:
-  - "Es la razón por la que la historia cultural recurre a otro tipo de fuentes."
-
-explicacion: |
-  Verdadero: es la razón central de por qué esta corriente amplía
-  qué cuenta como fuente legítima.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["fuentes_no_convencionales"]
+  tags: ["fisica", "colision", "teoria"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: completar
+respuestas_validas:
+  - "aumentó la rotación"
+respuesta: "aumentó la rotación"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural suele recurrir a actas de juicios de personas comunes, diarios personales y objetos cotidianos, en vez de sólo tratados y decretos oficiales."
-
-pasos:
-  - "Son las fuentes no convencionales mencionadas en la teoría, distintas del archivo oficial priorizado por el positivismo."
+enunciado: "En el escenario de una colisión con un objeto de gran masa, la energía cinética transferida _______."
 
 explicacion: |
-  Verdadero: son las fuentes típicas de esta corriente.
+  Una colisión de tal magnitud no solo habría aportado masa, sino que habría transferido una cantidad enorme de energía angular, afectando la velocidad de rotación de la Tierra primitiva.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["quimica", "isótopos", "luna"]
+
+respuesta: "muy similar"
+tipo: mc
+opciones_explicitas: ["muy similar", "completamente distinta", "mucho más densa", "sin hierro"]
+
+enunciado: "Una de las pruebas de la hipótesis del Gran Impacto es que la composición isotópica de los silicatos lunares es _______ a la de la Tierra."
+
+explicacion: |
+  La similitud isotópica entre la Tierra y la Luna es un desafío para algunas versiones de la teoría, pero sugiere que la Luna se formó a partir de material que ya estaba mezclado con el manto terrestre.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["objeto_de_estudio", "mentalidades"]
+  tags: ["procesos", "secuencia", "formacion"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta_orden: ["Colisión de Theia", "Formación de disco de escombros", "Acreción de la Luna"]
+tipo: ordenar
+opciones_explicitas: ["Colisión de Theia", "Formación de disco de escombros", "Acreción de la Luna"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las mentalidades (cómo la gente entendía el mundo) son uno de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es uno de los tres objetos de estudio mencionados en la teoría."
+enunciado: "Ordena cronológicamente los eventos que llevaron a la formación del sistema Tierra-Luna según la hipótesis del Gran Impacto:"
 
 explicacion: |
-  Verdadero: las mentalidades son un objeto central de estudio de
-  esta corriente.
+  Primero ocurre el impacto, luego el material expulsado forma un anillo o disco alrededor de la Tierra, y finalmente la gravedad hace que ese material se agrupe para formar la Luna.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["termica", "magma", "oceano"]
+
+respuesta: 1200.0
+tipo: completar
+tolerancia_abs: 100.0
+
+enunciado: "Si la energía del impacto fue suficiente para fundir gran parte del manto, la Tierra habría estado cubierta por un océano de magma. Si estimamos que la temperatura de fusión media fue de 1200 °C, ¿cuántos Kelvin (K) representa esto aproximadamente? (Usa la fórmula K = C + 273.15)"
+
+pasos:
+  - "Identificar la temperatura en Celsius: 1200"
+  - "Sumar la constante de conversión: 1200 + 273.15"
+
+explicacion: |
+  La colisión habría generado temperaturas extremas, transformando la superficie terrestre en un océano de roca fundida (magma) durante un periodo prolongado.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["diferenciacion", "densidad"]
+
+tipo: mc
+opciones_explicitas: ["núcleo", "manto", "corteza"]
+
+enunciado: "Durante la diferenciación planetaria, los elementos más densos como el hierro se hundieron hacia el centro, formando la capa conocida como ___."
+
+respuesta: "núcleo"
+
+explicacion: |
+  Los elementos más pesados (densos) como el hierro y el níquel migraron al centro debido a la gravedad, formando el núcleo.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["objeto_de_estudio", "practicas_cotidianas"]
+  tags: ["composicion", "corteza"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: completar
+respuestas_validas:
+  - "corteza"
 
-respuesta: verdadero
-tipo: vf
+enunciado: "La capa más externa de la Tierra está compuesta principalmente por silicatos ligeros. ¿Cómo se llama esta capa?"
 
-enunciado: "Las prácticas cotidianas (rituales, costumbres) son otro de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es otro de los tres objetos de estudio mencionados en la teoría."
+respuesta: "corteza"
 
 explicacion: |
-  Verdadero: las prácticas cotidianas son otro objeto central de
-  estudio de esta corriente.
+  La corteza es la capa más superficial y está formada por materiales menos densos (silicatos) que flotaron sobre el manto.
 ```
 
 ```
 metadata:
-  materia: "historia"
-  tema: "historia_cultural"
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
   nivel: "intermedio"
-  tags: ["objeto_de_estudio", "cultura_popular"]
+  tags: ["estructura", "orden"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: ordenar
+opciones_explicitas: ["Corteza", "Manto", "Núcleo"]
+respuesta_orden: ["Corteza", "Manto", "Núcleo"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La cultura popular (no sólo la cultura de elite) es otro de los objetos de estudio centrales de la historia cultural."
-
-pasos:
-  - "Es el tercero de los objetos de estudio mencionados en la teoría."
+enunciado: "Ordena las capas de la Tierra desde la superficie hacia el centro del planeta:"
 
 explicacion: |
-  Verdadero: la cultura popular es otro objeto central de estudio de
-  esta corriente, ampliando el foco tradicional en la elite.
+  La estructura terrestre se organiza por densidad: la corteza es la más externa, seguida por el manto y finalmente el núcleo en el centro.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "basico"
+  tags: ["manto", "densidad"]
+
+tipo: mc
+opciones_explicitas: ["manto", "núcleo", "corteza"]
+
+enunciado: "La capa situada entre la corteza y el núcleo, compuesta por materiales de densidad intermedia, se denomina ___."
+
+respuesta: "manto"
+
+explicacion: |
+  El manto está compuesto por materiales con una densidad intermedia, situándose debajo de la corteza.
+```
+
+```
+metadata:
+  materia: "geologia"
+  tema: "tierra_primitiva_diferenciacion"
+  nivel: "avanzado"
+  tags: ["nucleo", "densidad"]
+
+tipo: completar
+tolerancia_abs: 0
+
+enunciado: "Si la densidad de la corteza es baja y la del manto es media, la densidad del núcleo es ___."
+
+respuesta: "muy alta"
+
+explicacion: |
+  Debido a la gravedad, los materiales con densidad muy alta (como el hierro) se acumularon en el centro del planeta.
+```
+
+## Sección: atmosfera-primitiva (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["geologia", "atmosfera"]
+
+tipo: mc
+opciones_explicitas: ["Oxígeno, Nitrógeno y Metano", "Vapor de agua, Dióxido de carbono y Metano", "Dióxido de azufre, Helio y Oxígeno", "Nitrógeno, Argón y Oxígeno"]
+respuesta: "Vapor de agua, Dióxido de carbono y Metano"
+
+enunciado: "Durante los inicios de la Tierra, la atmósfera primitiva estaba compuesta principalmente por una mezcla de gases de origen volcánico. ¿Cuál de las siguientes opciones describe mejor su composición?"
+
+explicacion: |
+  La atmósfera primitiva carecía de oxígeno libre (O2) y estaba dominada por gases de efecto invernadero y compuestos volcánicos como el CO2, el vapor de agua y el metano.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["objeto_de_estudio"]
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["ciclo_del_agua", "geologia"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: [["El vapor de agua se condensó para formar océanos", "La atmósfera era extremadamente seca"], ["El vapor de agua permitió la formación de los mares", "El vapor de agua era inexistente"]]
 
-respuesta: verdadero
-tipo: vf
+tipo: mc
+opciones_explicitas: ["Escenario A", "Escenario B"]
+respuesta: "Escenario A"
 
-enunciado: "A diferencia de las corrientes anteriores, la historia cultural amplía qué cuenta como objeto legítimo de estudio histórico, incluyendo mentalidades, prácticas cotidianas y cultura popular."
-
-pasos:
-  - "Es la conclusión central sobre la amplitud de foco de esta corriente."
+enunciado: "Considerando la presencia masiva de vapor de agua en la atmósfera primitiva, {escenario[0][0]}."
 
 explicacion: |
-  Verdadero: es una de las contribuciones centrales de esta corriente
-  a la disciplina.
+  La condensación del vapor de agua a medida que la Tierra se enfriaba fue el proceso fundamental que dio origen a los océanos primordiales.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["escuela_de_los_annales", "diferenciacion"]
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["quimica_antigua"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: completar
+respuestas_validas:
+  - "anóxica"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La Escuela de los Annales mira grandes estructuras de larga duración; la historia cultural invierte la escala, mirando casos individuales chicos para revelar algo general."
-
-pasos:
-  - "Ver `../escuela-de-los-annales/`: es el contraste de escala entre estas dos corrientes."
+enunciado: "Debido a la ausencia de vida fotosintética en sus inicios, la atmósfera primitiva era una atmósfera ___________."
 
 explicacion: |
-  Verdadero: es la diferencia central de escala entre estas dos
-  corrientes de la subrama.
+  Se denomina atmósfera 'anóxica' a aquella que no posee oxígeno libre (O2), característica principal de la Tierra primitiva.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["positivismo", "diferenciacion"]
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["volcanismo"]
 
-variables:
-  n: uno_de([1, 1])
+tipo: ordenar
+opciones_explicitas: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo se centra en grandes figuras y documentos oficiales; la historia cultural se centra en personas comunes y fuentes no convencionales."
-
-pasos:
-  - "Ver `../positivismo/`: es el contraste de foco entre estas dos corrientes."
+enunciado: "Ordena cronológicamente los eventos que llevaron a la configuración de la atmósfera primitiva:"
 
 explicacion: |
-  Verdadero: es la diferencia central de foco entre estas dos
-  corrientes de la subrama.
+  La formación de la Tierra permitió la diferenciación de capas, seguida de un vulcanismo intenso que liberó los gases necesarios para crear la atmósfera original.
+respuesta_orden: ["Formación de la Tierra", "Actividad volcánica intensa", "Emisión de gases volcánicos", "Formación de la atmósfera primitiva"]
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
+  tema: "atmosfera_primitiva"
   nivel: "avanzado"
-  tags: ["historia_cultural", "practica"]
+  tags: ["quimica", "calculo"]
 
 variables:
-  analisis: ["estudiar el diario personal de una campesina para entender cómo pensaba la gente común de su época", "estudiar un tratado firmado entre dos reyes"]
-  corrientes: ["historia cultural", "positivismo"]
+  datos: [[100, 50, 50], [80, 10, 10]]
   idx: uno_de([0, 1])
+  cantidad_co2: datos[idx][0]
+  respuesta_correcta: cantidad_co2 * 0.4
 
-respuesta: corrientes[idx]
-tipo: mc
-opciones_explicitas: ["historia cultural", "positivismo", "materialismo histórico", "Escuela de los Annales"]
+tipo: completar
+tolerancia_abs: 0.1
+respuesta: respuesta_correcta
 
-enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Fuente no convencional (diario personal) + caso individual = historia cultural. Documento oficial + grandes figuras = positivismo."
-
-explicacion: |
-  Reconocer el tipo de fuente y de sujeto estudiado permite
-  identificar la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "valor_del_caso_micro"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según la historia cultural, la magnitud aparente de un caso (una sola persona, un solo juicio) no determina su valor histórico: un caso bien documentado puede revelar mucho sobre una época entera."
+enunciado: "Si en un modelo de atmósfera primitiva de {cantidad_co2} unidades de gas, el 40% es Dióxido de carbono (CO2), ¿cuántas unidades de CO2 hay?"
 
 pasos:
-  - "Es coherente con el ejemplo de Ginzburg sobre el molinero friulano."
+  - "Identificar el total de unidades de gas: {cantidad_co2}"
+  - "Calcular el 40% de ese valor: {cantidad_co2} * 0.4"
 
 explicacion: |
-  Verdadero: es la conclusión central sobre el valor de los casos
-  micro en esta corriente.
+  El cálculo se realiza multiplicando el total de unidades por el porcentaje expresado en decimal (0.4).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["neutralidad", "sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Positivismo, materialismo histórico, Escuela de los Annales e historia cultural son cuatro lentes distintas y legítimas para hacer historia, ninguna reemplaza del todo a las demás."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: mismo criterio de neutralidad aplicado a las cuatro."
-
-explicacion: |
-  Verdadero: es la síntesis del principio de neutralidad aplicado a
-  toda la subrama de corrientes historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "intermedio"
-  tags: ["historia_cultural", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque de la historia cultural."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras"
-  - "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)"
-  - "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular"
-  - "Concluir si el texto corresponde al enfoque de la historia cultural"
-respuesta_orden: ["Revisar si el foco está en un caso individual chico, no en grandes estructuras o figuras", "Identificar si usa fuentes no convencionales (diarios, juicios de personas comunes)", "Revisar si el objeto de estudio incluye mentalidades, prácticas cotidianas o cultura popular", "Concluir si el texto corresponde al enfoque de la historia cultural"]
-explicacion: |
-  El análisis va de la escala del caso estudiado al tipo de fuentes y
-  objeto de estudio, para concluir si corresponde a esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La historia cultural cierra la subrama de corrientes historiográficas: hechos y figuras (positivismo) → clases y producción (materialismo histórico) → estructuras de larga duración (Annales) → lo micro que revela lo macro (historia cultural)."
-
-pasos:
-  - "Ver `../positivismo/`, `../materialismo-historico/` y `../escuela-de-los-annales/`: es el recorrido completo de las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: es la síntesis del recorrido completo de la subrama de
-  corrientes historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "historia_cultural"
-  nivel: "avanzado"
-  tags: ["historia_cultural", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en el diario de una sola persona común, usado para entender cómo se vivía y pensaba en su época, conviene reconocer que está aplicando un enfoque cercano a la historia cultural."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: materialismo-historico (19 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
+  tema: "atmosfera_primitiva"
   nivel: "basico"
-  tags: ["materialismo_historico", "criterio_central"]
+  tags: ["biologia", "evolucion", "anaerobico"]
 
-variables:
-  n: uno_de([1, 1])
+respuesta: "anaeróbica"
+tipo: completar
+respuestas_validas:
+  - "anaeróbica"
+  - "anaerobia"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico sostiene que lo que mueve la historia son las condiciones materiales de producción, no las ideas o decisiones de grandes individuos."
-
-pasos:
-  - "Ver `../positivismo/`: es un criterio opuesto al de esa corriente, que sí prioriza grandes figuras."
+enunciado: "Debido a la ausencia de oxígeno libre en la atmósfera primitiva, la vida temprana era de tipo ___."
 
 explicacion: |
-  Verdadero: es el criterio central del materialismo histórico.
+  La atmósfera primitiva era un ambiente reductor. Al no haber O2, los primeros organismos no podían realizar la respiración aeróbica y debían obtener energía mediante procesos anaeróbicos.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "materialismo_historico"
+  tema: "atmosfera_primitiva"
   nivel: "intermedio"
-  tags: ["marx"]
+  tags: ["oxigeno", "metabolismo"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: uno_de([["presencia de O2", "aeróbica"], ["ausencia de O2", "anaeróbica"]])
 
-respuesta: "Marx"
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["aeróbica", "anaeróbica"]
+
+enunciado: "Si la atmósfera primitiva carecía de oxígeno libre, ¿qué tipo de metabolismo predominaba en los organismos de esa época?"
+
+pasos:
+  - "Identificar la condición atmosférica: ausencia de O2."
+  - "Relacionar la condición con el tipo de respiración celular."
+
+explicacion: |
+  La falta de oxígeno obligaba a los organismos a utilizar otras moléculas como aceptores de electrones, caracterizando un metabolismo anaeróbico.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["evolucion", "oxigeno"]
+
+respuesta_orden: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
+tipo: ordenar
+opciones_explicitas: ["Anaerobiosis", "Fotosíntesis oxigénica", "Acumulación de O2", "Respiración aeróbica"]
+
+enunciado: "Ordena cronológicamente los eventos relacionados con la transición de una atmósfera sin oxígeno a una con oxígeno:"
+
+explicacion: |
+  Primero existía la vida anaerobia. Luego, la aparición de organismos fotosintéticos (cianobacterias) comenzó a liberar O2, el cual se acumuló hasta permitir la evolución de la respiración aeróbica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["oxigeno", "logica"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "La presencia de oxígeno libre en la atmósfera primitiva era un requisito indispensable para los primeros organismos vivos."
+
+explicacion: |
+  Falso. Los primeros organismos eran anaeróbicos, lo que significa que podían vivir y prosperar en un ambiente sin oxígeno.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["metabolismo", "oxigeno"]
+
+variables:
+  datos: [["presencia", "aeróbica"], ["ausencia", "anaeróbica"]]
+  idx: uno_de([0,1])
+  estado: datos[idx][0]
+
+respuesta: datos[idx][1]
+tipo: mc
+opciones_explicitas: ["aeróbica", "anaeróbica"]
+
+enunciado: "Si la atmósfera primitiva se caracterizaba por la {estado} de oxígeno, el metabolismo de la vida temprana era ___."
+
+explicacion: |
+  La ausencia de oxígeno (estado falso) define un ambiente donde solo la vida anaeróbica puede prosperar.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["atmosfera", "oxigeno", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Reductora (sin O2)", "Oxidante (rica en O2)", "Nitrogenada pura", "Ácida y gaseosa"]
+respuesta: "Reductora (sin O2)"
+
+enunciado: "La atmósfera de la Tierra en sus inicios era de naturaleza ___________, debido a la ausencia de oxígeno libre."
+
+explicacion: |
+  La atmósfera primitiva era un ambiente reductor porque no existía el oxígeno molecular (O2) para oxidar los gases presentes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["fotosintesis", "oxigeno", "biologia"]
+
+enunciado: "El factor principal que transformó la atmósfera primitiva hacia una atmósfera con oxígeno fue ___."
+
+tipo: completar
+respuestas_validas:
+  - "la aparición de la fotosíntesis"
+
+explicacion: |
+  La fotosíntesis realizada por organismos antiguos (cianobacterias) liberó oxígeno como subproducto, cambiando la química global del planeta.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["oxigeno", "porcentaje"]
+
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Mientras que la atmósfera primitiva carecía de oxígeno, la atmósfera actual contiene aproximadamente un ___% de este gas."
+
+pasos:
+  - "Identificar el porcentaje de O2 en la atmósfera actual."
+  - "Ingresar el valor numérico."
+
+respuesta: 21
+
+explicacion: |
+  La composición actual de la atmósfera se mantiene estable cerca del 21% de oxígeno.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["secuencia", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
+
+enunciado: "Ordena cronológicamente los procesos que definieron la evolución de la atmósfera terrestre:"
+
+respuesta_orden: ["Atmósfera primitiva reductora", "Aparición de fotosíntesis", "Acumulación de O2", "Atmósfera oxidante actual"]
+
+explicacion: |
+  Primero existió una atmósfera sin O2, luego la vida fotosintética comenzó a producirlo, el O2 se acumuló y finalmente estableció la atmósfera oxidante que conocemos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["quimica", "oxigeno"]
+
+enunciado: "Si la atmósfera es la actual, su estado es ___. Si es la primitiva, su estado es reductora."
+
+tipo: mc
+opciones_explicitas: ["oxidante", "reductora"]
+
+respuesta: "oxidante"
+
+explicacion: |
+  La atmósfera actual es oxidante debido a la presencia masiva de O2, mientras que la primitiva era reductora por la falta de este gas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["condensacion", "oceanos", "agua"]
+
+respuesta: "condensación"
+tipo: completar
+respuestas_validas:
+  - "condensación"
+  - "condensacion"
+
+enunciado: "A medida que la Tierra se enfriaba, el vapor de agua presente en la atmósfera primitiva sufrió un proceso de ___ que dio lugar a las primeras lluvias y la formación de los océanos."
+
+explicacion: |
+  Cuando la superficie terrestre bajó de la temperatura crítica, el vapor de agua se transformó en líquido, llenando las cuencas oceánicas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["estado_materia", "vapor"]
+
+respuesta: "líquido"
+tipo: mc
+opciones_explicitas: ["sólido", "líquido", "gaseoso", "plasma"]
+
+enunciado: "Antes de la formación de los océanos, el agua se encontraba mayoritariamente en estado {estado_inicial}. Tras el enfriamiento, pasó a estado {estado_final}."
+
+variables:
+  estado_inicial: "gaseoso"
+  estado_final: "líquido"
+
+explicacion: |
+  El paso de gas a líquido es la transición clave que permitió la existencia de agua líquida en la superficie.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["secuencia", "enfriamiento"]
+
+enunciado: "Ordená cronológicamente los eventos que llevaron a la formación de los océanos primitivos:"
+respuesta_orden: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
+tipo: ordenar
+opciones_explicitas: ["Enfriamiento de la corteza", "Condensación del vapor", "Lluvias torrenciales", "Formación de océanos"]
+
+explicacion: |
+  El orden lógico es: primero la Tierra debe enfriarse lo suficiente para que el vapor no vuelva a evaporarse, luego ocurre la condensación, las lluvias y finalmente se estabilizan los océanos.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["componente", "atmosfera"]
+
+respuesta: "verdadero"
+tipo: completar
+enunciado: "El vapor de agua fue uno de los componentes principales de la atmósfera primitiva que, al condensarse, permitió la aparición de los primeros mares."
+
+explicacion: |
+  La atmósfera primitiva era rica en gases de la actividad volcánica, incluyendo grandes cantidades de vapor de agua.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["fisica", "condensacion"]
+
+variables:
+  temp_inicial: 1500
+  temp_final: 100
+  delta_t: temp_inicial - temp_final
+
+respuesta: 1400
+tipo: completar
+tolerancia_abs: 0.1
+
+enunciado: "Si la temperatura de la atmósfera primitiva era de {temp_inicial}°C y se enfrió hasta los {temp_final}°C para permitir la condensación, ¿cuál fue el descenso térmico (ΔT) en grados Celsius?"
+
+pasos:
+  - "Identificar la temperatura inicial: 1500"
+  - "Identificar la temperatura final: 100"
+  - "Restar la temperatura final de la inicial: 1500 - 100"
+
+explicacion: |
+  El enfriamiento fue un proceso masivo que redujo la temperatura de la atmósfera en miles de grados.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["geologia", "atmosfera"]
+
+enunciado: "En la atmósfera primitiva, un componente dominante era el dióxido de carbono (CO2), mientras que en la atmósfera actual el componente predominante es el ___."
+
+respuesta: "Nitrógeno (N2)"
+tipo: mc
+opciones_explicitas: ["Dióxido de carbono (CO2)", "Metano (CH4)", "Oxígeno (O2)", "Nitrógeno (N2)"]
+
+explicacion: |
+  La atmósfera primitiva era una atmósfera reductora, rica en gases como CO2, CH4 y N2, pero carecía de oxígeno libre (O2) hasta la aparición de la fotosíntesis oxigénica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["evolucion", "oxigeno"]
+
+variables:
+  evento: [["Oxígeno (O2)", "Dióxido de carbono (CO2)"], ["Oxígeno (O2)", "Metano (CH4)"]]
+  idx: uno_de([0,1])
+  gas_liberado: evento[idx][0]
+  gas_abundante: evento[idx][1]
+
+enunciado: "La aparición de organismos fotosintéticos transformó la atmósfera al liberar {gas_liberado} en grandes cantidades, reemplazando la abundancia de {gas_abundante}."
+
+respuesta: gas_liberado
+tipo: completar
+respuestas_validas:
+  - "Oxígeno (O2)"
+  - "Dióxido de carbono (CO2)"
+  - "Metano (CH4)"
+  - "Nitrógeno (N2)"
+
+pasos:
+  - "Identificar el gas producido por la fotosíntesis."
+  - "Identificar el gas que era abundante antes de la fotosíntesis."
+
+explicacion: |
+  La Gran Oxidación fue un evento biológico que cambió la química planetaria, pasando de una atmósfera reductora a una oxidante.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "avanzado"
+  tags: ["quimica_atmosferica", "evolucion"]
+
+variables:
+  comparativa: [["Metano (CH4)", "Oxígeno (O2)"], ["Dióxido de carbono (CO2)", "Nitrógeno (N2)"], ["Vapor de agua (H2O)", "Argón (Ar)"]]
+  idx: uno_de([0,1,2])
+
+enunciado: "Si comparamos la concentración de gases, un gas que era muy abundante en la atmósfera primitiva pero es hoy un gas traza es el {comparativa[idx][0]}, mientras que el {comparativa[idx][1]} es mayormente estable en la actualidad."
+
+respuesta: comparativa[idx][0]
+tipo: mc
+opciones_explicitas: ["Metano (CH4)", "Dióxido de carbono (CO2)", "Vapor de agua (H2O)", "Oxígeno (O2)"]
+
+explicacion: |
+  Muchos gases que hoy son trazas (como el metano) eran componentes mayoritarios en la Tierra primitiva debido a la intensa actividad volcánica y la falta de sumideros oxidantes.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "intermedio"
+  tags: ["cronologia", "procesos"]
+
+enunciado: "Ordena la evolución de la composición atmosférica desde la Tierra primitiva hasta la actualidad:"
+
+opciones_explicitas: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
+respuesta_orden: ["Atmósfera reductora (CH4, NH3, H2O)", "Atmósfera con presencia de O2 (Gran Oxidación)", "Atmósfera moderna (N2, O2, Ar)"]
+tipo: ordenar
+
+explicacion: |
+  La secuencia lógica comienza con gases volcánicos y de origen primordial, sigue con la revolución biológica del oxígeno y culmina con la composición actual.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "atmosfera_primitiva"
+  nivel: "basico"
+  tags: ["biologia", "oxigeno"]
+
+enunciado: "En la atmósfera actual, el porcentaje de oxígeno es aproximadamente del 0.21 (valor decimal), lo que equivale al ___ de la mezcla total."
+
+respuesta: "21%"
+tipo: completar
+tolerancia_abs: 0.01
+
+explicacion: |
+  El oxígeno es el segundo gas más abundante hoy en día, con una concentración cercana al 21%.
+```
+
+## Sección: minerales-estructura-cristalina (25 preguntas)
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["definicion", "geologia"]
+
+tipo: mc
+opciones_explicitas: ["Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada.", "Una sustancia sólida, orgánica, de origen volcánico, con composición variable y estructura amorfa.", "Un compuesto químico formado exclusivamente por elementos metálicos en estado sólido.", "Cualquier material sólido encontrado en la corteza terrestre."]
+respuesta: "Una sustancia sólida, inorgánica, de origen natural, con composición química definida y estructura cristalina ordenada."
+enunciado: "Según la mineralogía clásica, ¿cuál es la definición científica de un mineral?"
+explicacion: |
+  Un mineral debe cumplir cinco condiciones: ser sólido, inorgánico, de origen natural, tener una fórmula química definida y una estructura atómica interna ordenada (cristalina).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["propiedades", "inorganico"]
+
+variables:
+  escenario: uno_de([["El carbón (formado por restos vegetales)", "falso"], ["El cuarzo (formado por silicatos de silicio y oxígeno)", "verdadero"]])
+
+tipo: mc
+opciones_explicitas: ["verdadero", "falso"]
+
+enunciado: "Considerando que un mineral debe ser inorgánico, ¿es la afirmación '{escenario[0]}' verdadera o falsa para la definición de mineral?"
+
+respuesta: escenario[1]
+
+explicacion: |
+  Los materiales de origen orgánico (como el carbón derivado de plantas) no se consideran minerales, aunque sean sólidos y naturales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["estructura", "cristalografia"]
+
+tipo: completar
+respuestas_validas:
+  - "cristalina"
+
+enunciado: "Para que una sustancia sea considerada mineral, sus átomos deben estar dispuestos en una estructura ___."
+
+respuesta: "cristalina"
+
+explicacion: |
+  La estructura cristalina es el ordenamiento tridimensional repetitivo de los átomos, lo que diferencia a un mineral de un vidrio (sólido amorfo).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["quimica", "composicion"]
+
+variables:
+  caso: uno_de([["El diamante (C)", "C"], ["La sal común (NaCl)", "NaCl"], ["La calcita (CaCO3)", "CaCO3"]])
+
+tipo: completar
+respuestas_validas:
+  - "C"
+  - "NaCl"
+  - "CaCO3"
+
+enunciado: "Un mineral debe tener una composición química definida. Si tomamos el caso de {caso[0]}, su fórmula química es ___."
+
+respuesta: caso[1]
+
+explicacion: |
+  Cada mineral tiene una proporción fija de elementos que determina su identidad química.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["conceptos", "ordenamiento"]
+
+tipo: ordenar
+opciones_explicitas: ["Origen natural", "Sólido", "Estructura cristalina", "Composición química definida", "Inorgánico"]
+
+enunciado: "Ordena los criterios fundamentales que definen a un mineral, desde el origen hasta su organización interna:"
+
+respuesta_orden: ["Origen natural", "Sólido", "Inorgánico", "Composición química definida", "Estructura cristalina"]
+
+explicacion: |
+  La definición integral requiere la suma de estas cinco características esenciales para distinguir un mineral de otros materiales terrestres.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["cristalografía", "átomos"]
+
+respuesta: "arreglo geométrico repetitivo y ordenado de átomos/iones"
+tipo: completar
+respuestas_validas:
+  - "arreglo geométrico repetitivo y ordenado de átomos/iones"
+  - "un desorden total de partículas"
+  - "una estructura sin simetría"
+
+enunciado: "Una estructura cristalina se define como un ___."
+
+explicacion: |
+  Los cristales se caracterizan por tener un ordenamiento espacial de sus componentes (átomos, iones o moléculas) que se repite de forma periódica en las tres dimensiones del espacio.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["amorfo", "cristalino"]
+
+variables:
+  escenario: uno_de([["vidrio", "amorfo"], ["cuarzo", "cristalino"]])
+
+respuesta: escenario[1]
+tipo: mc
+opciones_explicitas: ["cristalino", "amorfo"]
+
+enunciado: "Si un material como el {escenario[0]} carece de un ordenamiento de largo alcance en su estructura, se clasifica como un sólido ___."
+
+explicacion: |
+  Los sólidos amorfos, como el vidrio, carecen de la periodicidad característica de los cristales, presentando un desorden estructural a escala atómica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["átomos", "red_cristalina"]
+
+respuesta: "átomos, iones o moléculas"
+tipo: completar
+respuestas_validas:
+  - "átomos, iones o moléculas"
+
+enunciado: "La unidad básica que se repite para formar la red de un cristal está compuesta por ___."
+
+explicacion: |
+  Dependiendo de la naturaleza del mineral, los puntos de la red pueden ser átomos elementales, iones en compuestos iónicos o moléculas en sólidos moleculares.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["orden", "desorden"]
+
+respuesta: "orden"
+tipo: mc
+opciones_explicitas: ["orden", "desorden", "densidad", "color"]
+
+enunciado: "La diferencia fundamental entre un cristal y un sólido amorfo radica en la presencia de:"
+
+explicacion: |
+  El orden es la clave: los cristales tienen un patrón repetitivo (orden), mientras que los amorfos tienen un desorden estructural.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["clasificación", "estructura"]
+
+variables:
+  ejemplo: uno_de([["diamante", "cristalino"], ["plástico", "amorfo"]])
+
+respuesta: ejemplo[1]
+tipo: mc
+opciones_explicitas: ["cristalino", "amorfo"]
+
+enunciado: "Considerando el caso del {ejemplo[0]}, su estructura interna es de tipo ___."
+
+explicacion: |
+  El diamante es el ejemplo clásico de un sólido con una estructura cristalina altamente ordenada de átomos de carbono.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["definiciones", "geologia"]
+
+tipo: mc
+opciones_explicitas: ["Un agregado de varios minerales", "Una sustancia pura con estructura cristalina definida", "Una mezcla de materia orgánica e inorgánica", "Un fragmento de corteza terrestre sin estructura"]
+respuesta: "Una sustancia pura con estructura cristalina definida"
+enunciado: "Desde una perspectiva geológica, ¿cuál es la definición fundamental de un mineral?"
+
+explicacion: |
+  Un mineral es una sustancia sólida, inorgánica, con una composición química definida y una estructura atómica ordenada (cristalina).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["clasificacion", "rocas"]
+
+variables:
+  escenario: uno_de([["Granito", "cuarzo", "feldespato", "mica"], ["Basalto", "olivino", "piroxeno", "plagioclasa"], ["Caliza", "calcita", "dolomita", "aragonito"]])
+
+tipo: completar
+respuesta: escenario[3]
+
+enunciado: "Si observamos una muestra de {escenario[0]}, estamos ante una roca compuesta por varios minerales, entre ellos {escenario[1]} y {escenario[2]}. Otro mineral típico de esta roca es ___."
+
+pasos:
+  - "Identifica si el material es una sustancia única o un agregado."
+  - "Observa los componentes individuales que forman el conjunto."
+
+explicacion: |
+  El {escenario[0]} es una roca porque es un agregado de los minerales listados.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["relaciones", "estructuras"]
+
+tipo: completar
+respuestas_validas:
+  - "mineral"
+  - "roca"
+
+enunciado: "Un ejemplar de cuarzo puro se clasifica como un ________, mientras que una masa de granito se clasifica como una ________."
+
+explicacion: |
+  El cuarzo es una sustancia individual (mineral), mientras que el granito es un agregado de varios minerales (roca).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["ordenar", "jerarquia"]
+
+tipo: ordenar
+opciones_explicitas: ["Átomos", "Cristales (Minerales)", "Rocas"]
+
+enunciado: "Ordena los siguientes elementos de menor a mayor complejidad estructural en la formación de la corteza terrestre:"
+
+explicacion: |
+  Los átomos se organizan en redes cristalinas para formar minerales, y los minerales se agrupan para formar rocas.
+respuesta_orden: ["Átomos", "Cristales (Minerales)", "Rocas"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "avanzado"
+  tags: ["analisis", "composicion"]
+
+variables:
+  caso: uno_de([["feldespato", "mineral"], ["granito", "roca"]])
+
+tipo: mc
+opciones_explicitas: ["mineral", "roca"]
+respuesta: caso[1]
+
+enunciado: "Considerando el elemento {caso[0]}, su clasificación técnica es: ________."
+
+explicacion: |
+  Según el caso seleccionado, {caso[0]} es un/a {caso[1]}.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["dureza", "mohs"]
+
+variables:
+  mineral_datos: [["talco", "1"], ["yeso", "2"], ["calcita", "3"], ["fluorita", "4"], ["apatita", "5"]]
+  idx: uno_de([0,1,2,3,4])
+
+enunciado: "Si tenemos un mineral cuya dureza es la que corresponde al elemento {mineral_datos[idx][0]}, su valor en la escala de Mohs es ___."
+
+respuestas_validas:
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+respuesta: mineral_datos[idx][1]
 tipo: completar
 
-enunciado: "El pensador que desarrolló el materialismo histórico como método para explicar la historia se apellida..."
-
-pasos:
-  - "Karl Marx es el autor central asociado a esta corriente."
-
 explicacion: |
-  Marx es el autor central del materialismo histórico.
+  La escala de Mohs es una escala de dureza relativa. El {mineral_datos[idx][0]} tiene un valor de {mineral_datos[idx][1]}.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["condiciones_materiales"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las condiciones materiales de producción son cómo una sociedad produce lo que necesita para vivir, y cómo se organiza el trabajo y la propiedad alrededor de esa producción."
-
-pasos:
-  - "Es la definición central de este concepto en el materialismo histórico."
-
-explicacion: |
-  Verdadero: es la definición central de condiciones materiales de
-  producción.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, la historia avanza a través del conflicto entre clases sociales con intereses económicos opuestos."
-
-pasos:
-  - "Es el mecanismo central del cambio histórico según esta corriente."
-
-explicacion: |
-  Verdadero: la lucha de clases es el motor central del cambio
-  histórico según esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Señores feudales vs. siervos, y burguesía vs. proletariado, son ejemplos de conflictos entre clases sociales mencionados en la teoría."
-
-pasos:
-  - "Son los ejemplos concretos de conflictos de clase mencionados en la teoría."
-
-explicacion: |
-  Verdadero: son ejemplos de conflictos de clase citados en la
-  teoría de esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["lucha_de_clases", "politica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, los cambios políticos e ideológicos son, en gran medida, reflejo de los conflictos materiales de fondo, no su causa."
-
-pasos:
-  - "Es una diferencia central con corrientes que priorizan la política o las ideas como causa principal."
-
-explicacion: |
-  Verdadero: es la relación causal central que propone esta
-  corriente entre lo material y lo político/ideológico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "positivismo", "diferenciacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Donde el positivismo mira grandes figuras y hechos políticos puntuales, el materialismo histórico mira estructuras económicas y grupos sociales."
-
-pasos:
-  - "Ver `../positivismo/`: es la diferencia de foco central entre ambas corrientes."
-
-explicacion: |
-  Verdadero: es la diferencia de foco entre estas dos corrientes
-  historiográficas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "positivismo", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Analizar un tratado firmado por un rey preguntando \"qué relaciones de producción sostenían el poder de ese rey y de la clase que representaba\" es un ejemplo del enfoque del materialismo histórico, en vez de simplemente narrar las cláusulas del tratado (enfoque positivista)."
-
-pasos:
-  - "Es la aplicación práctica del contraste de foco descrito en la teoría."
-
-explicacion: |
-  Verdadero: es un ejemplo concreto de cómo cambia el análisis según
-  la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["metodo_vs_programa_politico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico como método historiográfico (una forma de explicar el pasado) es distinto del marxismo como corriente político-económica (una postura sobre cómo debería organizarse la sociedad hoy)."
-
-pasos:
-  - "Ver `../../filosofia/historia-de-la-filosofia-y-corrientes/`: el marxismo aparece ahí como corriente político-económica, con un foco distinto."
-
-explicacion: |
-  Verdadero: es la aclaración central de este tema para no confundir
-  dos usos distintos del mismo pensamiento.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["metodo_vs_programa_politico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un historiador puede usar el método del materialismo histórico (analizar condiciones económicas de fondo) sin necesariamente compartir el programa político marxista, y viceversa."
-
-pasos:
-  - "Es la aclaración central de que método historiográfico y postura política son cosas distintas."
-
-explicacion: |
-  Verdadero: es un matiz importante para separar el uso metodológico
-  del compromiso ideológico personal.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["aporte_metodologico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Independientemente de su origen en el pensamiento de Marx, el materialismo histórico introdujo un aporte que muchos historiadores de corrientes distintas siguen usando: prestar atención a las condiciones económicas y sociales de fondo."
-
-pasos:
-  - "Es la conclusión sobre la influencia metodológica de esta corriente más allá de su origen ideológico."
-
-explicacion: |
-  Verdadero: es la síntesis del aporte metodológico duradero de esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["influencia"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "La atención del materialismo histórico a las condiciones económicas y sociales de fondo se nota, por ejemplo, en la Escuela de los Annales, otra corriente de esta subrama."
-
-pasos:
-  - "Ver `../escuela-de-los-annales/`: es la conexión mencionada en la teoría entre estas dos corrientes."
-
-explicacion: |
-  Verdadero: es la influencia metodológica del materialismo histórico
-  sobre otra corriente posterior de esta subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico es una de varias corrientes historiográficas legítimas, no la única forma correcta de hacer historia."
-
-pasos:
-  - "Es coherente con el principio de neutralidad aplicado a las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: cada corriente es una lente distinta, ninguna se
-  presenta como la única correcta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "practica"]
-
-variables:
-  analisis: ["estudiar cómo se organizaba la producción agrícola y quién controlaba la tierra en una sociedad feudal", "estudiar la biografía y las decisiones diplomáticas de un rey medieval"]
-  corrientes: ["materialismo histórico", "positivismo"]
-  idx: uno_de([0, 1])
-
-respuesta: corrientes[idx]
-tipo: mc
-opciones_explicitas: ["materialismo histórico", "positivismo"]
-
-enunciado: "\"{analisis[idx]}\" corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Foco en producción/propiedad = materialismo histórico. Foco en biografía/decisiones de una figura = positivismo."
-
-explicacion: |
-  Reconocer el foco temático (estructuras materiales vs. grandes
-  figuras) permite identificar la corriente historiográfica aplicada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["lucha_de_clases"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Según el materialismo histórico, distintas clases sociales tienen intereses económicos opuestos entre sí, lo que genera tensión y conflicto."
-
-pasos:
-  - "Es la base del concepto de lucha de clases como motor del cambio histórico."
-
-explicacion: |
-  Verdadero: la oposición de intereses económicos entre clases es la
-  base del conflicto que esta corriente identifica como motor
-  histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["matiz"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico no ignora por completo la política, sino que la analiza como reflejo de conflictos materiales de fondo, no como causa autónoma independiente de esas condiciones."
-
-pasos:
-  - "Es un matiz importante: no se trata de ignorar la política, sino de explicarla a partir de otra causa de fondo."
-
-explicacion: |
-  Verdadero: es un matiz importante sobre cómo esta corriente
-  incorpora (no ignora) el análisis político.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "intermedio"
-  tags: ["materialismo_historico", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque del materialismo histórico."
-tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales"
-  - "Identificar si se analizan clases sociales con intereses opuestos"
-  - "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales"
-  - "Concluir si el texto corresponde al enfoque del materialismo histórico"
-respuesta_orden: ["Revisar si el foco está en condiciones económicas y de producción, no en biografías individuales", "Identificar si se analizan clases sociales con intereses opuestos", "Revisar si los cambios políticos se explican como reflejo de esos conflictos materiales", "Concluir si el texto corresponde al enfoque del materialismo histórico"]
-explicacion: |
-  El análisis va del foco temático a la relación causal propuesta
-  entre lo material y lo político, para concluir si corresponde a
-  esta corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El materialismo histórico es la segunda de las cuatro corrientes historiográficas de esta subrama, hermana de positivismo, Escuela de los Annales e historia cultural."
-
-pasos:
-  - "Ver `../positivismo/`, `../escuela-de-los-annales/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
-
-explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "materialismo_historico"
-  nivel: "avanzado"
-  tags: ["materialismo_historico", "aplicacion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Al leer un libro de historia centrado en las condiciones de trabajo, la propiedad de la tierra y los conflictos entre grupos sociales de una época, conviene reconocer que está aplicando un enfoque cercano al materialismo histórico."
-
-pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
-
-explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
-```
-
-## Sección: positivismo (19 preguntas)
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
+  tema: "minerales_estructura_cristalina"
   nivel: "basico"
-  tags: ["positivismo", "criterio_central"]
+  tags: ["brillo"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "¿Cómo se denomina a la propiedad que describe la forma en que la luz se refleja en la superficie de un mineral?"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo histórico sostiene que el trabajo del historiador es contar \"lo que realmente pasó\", reconstruyendo los hechos con la mayor objetividad posible a partir de documentos de archivo."
-
-pasos:
-  - "Es la frase clásica atribuida al historiador Leopold von Ranke."
+opciones_explicitas: ["Transparencia", "Brillo", "Clivaje", "Dureza"]
+respuesta: "Brillo"
+tipo: mc
 
 explicacion: |
-  Verdadero: es el criterio central del positivismo histórico.
+  El brillo es la propiedad que indica la calidad de la reflexión de la luz en la superficie del mineral.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "positivismo"
+  tema: "minerales_estructura_cristalina"
   nivel: "intermedio"
-  tags: ["ranke"]
+  tags: ["raya", "color"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: [["Hematita", "Rojo"], ["Pirita", "Negro"], ["Calcopirita", "Negro verdoso"], ["Malaquita", "Verde"]]
+  idx: uno_de([0, 1, 2, 3])
 
-respuesta: "Ranke"
+enunciado: "Al realizar la prueba de la raya sobre una placa de porcelana sin esmaltar con el mineral {escenario[idx][0]}, el color resultante es ___."
+
+respuestas_validas:
+  - "Rojo"
+  - "Negro"
+  - "Negro verdoso"
+  - "Verde"
+respuesta: escenario[idx][1]
 tipo: completar
 
-enunciado: "El historiador alemán del siglo XIX asociado a la frase \"contar lo que realmente pasó\" (wie es eigentlich gewesen) se apellida..."
-
-pasos:
-  - "Leopold von Ranke es el referente clásico del positivismo histórico."
-
 explicacion: |
-  Ranke es el autor central asociado a esta corriente.
+  La raya es el color del polvo del mineral y es una propiedad más constante que el color externo del espécimen.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["hechos_y_figuras"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo se centra en hechos verificables (fechas, tratados, batallas) como objeto central de estudio."
-
-pasos:
-  - "Es uno de los dos focos centrales de esta corriente, junto a las grandes figuras."
-
-explicacion: |
-  Verdadero: los hechos verificables son un foco central del
-  positivismo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["hechos_y_figuras"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo considera a las grandes figuras (reyes, generales, estadistas) como protagonistas centrales del cambio histórico."
-
-pasos:
-  - "Es el otro foco central de esta corriente, junto a los hechos verificables."
-
-explicacion: |
-  Verdadero: las grandes figuras son un foco central del positivismo
-  histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["archivo_como_verdad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Para el positivismo, el documento de archivo (una carta oficial, un tratado, un registro estatal) es la fuente privilegiada, casi la única fuente confiable."
-
-pasos:
-  - "Se considera que refleja los hechos de forma directa, sin la mediación de interpretaciones posteriores."
-
-explicacion: |
-  Verdadero: el archivo como fuente privilegiada es central en el
-  método positivista.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["neutralidad_del_historiador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo aspira a que el historiador sea un observador neutral, que se limita a reportar lo que los documentos dicen, sin imponer una interpretación propia."
-
-pasos:
-  - "Es un ideal de objetividad científica aplicado a la historia."
-
-explicacion: |
-  Verdadero: la neutralidad del historiador es un ideal metodológico
-  central del positivismo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
+  tema: "minerales_estructura_cristalina"
   nivel: "avanzado"
-  tags: ["criticas", "neutralidad"]
+  tags: ["fractura", "clivaje"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "Un mineral que se rompe siguiendo planos de debilidad cristalográfica bien definidos presenta ___."
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Corrientes posteriores cuestionan que sea posible una neutralidad total del historiador, presentado como parte del debate historiográfico, no como veredicto final."
-
-pasos:
-  - "Es una crítica mencionada con neutralidad, sin declarar cuál corriente tiene razón."
-
-explicacion: |
-  Verdadero: es una crítica frecuente al positivismo, presentada de
-  forma neutral como parte del debate entre corrientes.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["criticas", "exclusion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Otra crítica al positivismo es que centrarse sólo en política y grandes figuras deja afuera a la mayoría de la población, sin registro en archivos oficiales."
-
-pasos:
-  - "Es otra crítica mencionada con neutralidad, sin declarar veredicto final."
-
-explicacion: |
-  Verdadero: es otra crítica frecuente al positivismo, presentada
-  con el mismo criterio de neutralidad.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo es una lente real con la que se sigue escribiendo historia hoy, no una etapa superada por las corrientes que surgieron después."
-
-pasos:
-  - "Es el criterio de neutralidad central de todo este bloque de corrientes historiográficas."
-
-explicacion: |
-  Verdadero: es el principio de neutralidad explícito aplicado a
-  esta corriente, coherente con el resto del mapa.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["sintesis"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Las corrientes que siguen a esta subrama (materialismo histórico, Escuela de los Annales, historia cultural) se definen en buena medida en relación a lo que el positivismo prioriza y a lo que deja afuera."
-
-pasos:
-  - "Ver `../materialismo-historico/`, `../escuela-de-los-annales/`, `../historia-cultural/`: las tres corrientes siguientes de la subrama."
-
-explicacion: |
-  Verdadero: es la relación central entre el positivismo y las otras
-  corrientes historiográficas hermanas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["contexto_historico"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo histórico surge en el siglo XIX."
-
-pasos:
-  - "Es la corriente historiográfica más antigua de las cuatro estudiadas en esta subrama."
-
-explicacion: |
-  Verdadero: es el contexto histórico del surgimiento de esta
-  corriente.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["hechos_y_figuras", "practica"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: "positivismo"
+opciones_explicitas: ["Fractura concoidea", "Clivaje", "Dureza", "Brillo metálico"]
+respuesta: "Clivaje"
 tipo: mc
-opciones_explicitas: ["positivismo", "materialismo histórico", "historia cultural"]
-
-enunciado: "Un análisis histórico centrado en un tratado de paz firmado por dos reyes, con foco en las fechas y las cláusulas exactas del documento, corresponde principalmente al enfoque de..."
-
-pasos:
-  - "Foco en documento de archivo + grandes figuras (reyes) + hechos verificables (fechas) = positivismo."
 
 explicacion: |
-  El foco en documentos oficiales, fechas y figuras de poder es
-  característico del enfoque positivista.
+  El clivaje ocurre cuando el mineral se rompe a lo largo de planos de debilidad en su estructura atómica.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["hechos_y_figuras", "distincion"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: falso
-tipo: vf
-
-enunciado: "El positivismo prioriza estructuras de larga duración (clima, demografía, economía) por sobre reyes y batallas."
-
-pasos:
-  - "Esa prioridad corresponde a la Escuela de los Annales, no al positivismo (que prioriza hechos puntuales y grandes figuras)."
-
-explicacion: |
-  Falso: es exactamente la prioridad opuesta a la del positivismo,
-  corresponde a otra corriente historiográfica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
+  tema: "minerales_estructura_cristalina"
   nivel: "intermedio"
-  tags: ["archivo_como_verdad"]
+  tags: ["mohs", "ordenar"]
 
-variables:
-  n: uno_de([1, 1])
+enunciado: "Ordene los siguientes minerales de menor a mayor dureza según la escala de Mohs:"
 
-respuesta: verdadero
-tipo: vf
-
-enunciado: "Un historiador positivista, al estudiar una guerra, priorizaría revisar tratados, correspondencia diplomática oficial y registros militares antes que testimonios orales de soldados comunes."
-
-pasos:
-  - "Coherente con el foco en el archivo oficial como fuente privilegiada del método positivista."
-
-explicacion: |
-  Verdadero: es la aplicación práctica del método positivista a un
-  caso concreto de investigación histórica.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["neutralidad_del_historiador"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El nombre \"positivismo\" refleja la aspiración de aplicar a la historia un ideal de objetividad y método propio de las ciencias naturales."
-
-pasos:
-  - "Es coherente con el ideal de neutralidad del historiador descrito en la teoría."
-
-explicacion: |
-  Verdadero: el positivismo busca aplicar rigor científico al
-  trabajo histórico.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["neutralidad"]
-
-variables:
-  n: uno_de([1, 1])
-
-respuesta: verdadero
-tipo: vf
-
-enunciado: "El positivismo es una de varias corrientes historiográficas legítimas, no la única forma correcta de hacer historia."
-
-pasos:
-  - "Es coherente con el principio de neutralidad aplicado a las cuatro corrientes de esta subrama."
-
-explicacion: |
-  Verdadero: cada corriente es una lente distinta, ninguna se
-  presenta como la única correcta.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "positivismo"
-  nivel: "intermedio"
-  tags: ["positivismo", "metodo"]
-
-enunciado: "Ordená los pasos para reconocer si un texto histórico sigue el enfoque positivista."
+opciones_explicitas: ["Talco", "Calcita", "Cuarzo", "Diamante"]
+respuesta_orden: ["Talco", "Calcita", "Cuarzo", "Diamante"]
 tipo: ordenar
-opciones_explicitas:
-  - "Revisar si el foco está en hechos verificables y grandes figuras, no en estructuras de larga duración"
-  - "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)"
-  - "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita"
-  - "Concluir si el texto corresponde al enfoque positivista"
-respuesta_orden: ["Revisar si el foco está en hechos verificables y grandes figuras, no en estructuras de larga duración", "Revisar qué tipo de fuentes usa principalmente (documentos de archivo oficiales)", "Revisar si el autor busca reportar \"lo que pasó\" sin imponer una interpretación teórica explícita", "Concluir si el texto corresponde al enfoque positivista"]
+
 explicacion: |
-  El análisis va del foco temático a las fuentes usadas y al estilo
-  interpretativo, para concluir si corresponde al enfoque
-  positivista.
+  La secuencia correcta es: Talco (1), Calcita (3), Cuarzo (7) y Diamante (10).
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["sintesis"]
+  tema: "minerales_estructura_cristalina"
+  nivel: "basico"
+  tags: ["dureza", "mohs"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: [[4, "Fluorita"], [7, "Cuarzo"], [10, "Diamante"]]
+  idx: uno_de([0, 1, 2])
+  dureza_dada: escenario[idx][0]
+  nombre_mineral: escenario[idx][1]
 
-respuesta: verdadero
-tipo: vf
+tipo: mc
+opciones_explicitas: ["Fluorita", "Cuarzo", "Diamante", "Talco"]
 
-enunciado: "El positivismo es la primera de las cuatro corrientes historiográficas de esta subrama, hermana de materialismo histórico, Escuela de los Annales e historia cultural."
+enunciado: "Un geólogo encuentra un mineral cuya dureza en la escala de Mohs es de {dureza_dada}. ¿Qué mineral es?"
 
-pasos:
-  - "Ver `../materialismo-historico/`, `../escuela-de-los-annales/` y `../historia-cultural/`: los cuatro nodos hermanos dependen de `../multicausalidad/`."
+respuesta: nombre_mineral
 
 explicacion: |
-  Verdadero: es la relación entre este tema y los otros tres de la
-  subrama.
+  El mineral identificado es el {nombre_mineral}, que tiene una dureza de {dureza_dada} en la escala de Mohs.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "positivismo"
-  nivel: "avanzado"
-  tags: ["positivismo", "aplicacion"]
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["color", "espectro"]
 
 variables:
-  n: uno_de([1, 1])
+  escenario: [["rojo", "Rubí"], ["azul", "Lapislázuli"], ["amarillo", "Azufre"]]
+  idx: uno_de([0, 1, 2])
+  color_descrito: escenario[idx][0]
+  mineral_nombre: escenario[idx][1]
 
-respuesta: verdadero
-tipo: vf
+tipo: completar
+respuestas_validas:
+  - "Rubí"
+  - "Lapislázuli"
+  - "Azufre"
 
-enunciado: "Al leer un libro de historia centrado en biografías de líderes políticos y en la cronología exacta de tratados y batallas, conviene reconocer que está aplicando un enfoque cercano al positivismo, con sus fortalezas (rigor documental) y sus límites (qué deja afuera)."
+enunciado: "Se observa un cristal de color ___ que presenta una estructura hexagonal característica."
 
 pasos:
-  - "Es la aplicación práctica directa de este tema al leer críticamente un texto histórico real."
+  - "Identificar el color mencionado en el registro."
+  - "Asociar el color con el mineral correspondiente."
+
+respuesta: mineral_nombre
 
 explicacion: |
-  Verdadero: es la aplicación concreta de este tema para reconocer el
-  enfoque historiográfico de un texto real.
+  El color {color_descrito} corresponde al mineral {mineral_nombre}.
 ```
-
-## Sección: revoluciones (19 preguntas)
 
 ```
 metadata:
   materia: "historia"
-  tema: "revoluciones"
+  tema: "minerales_estructura_cristalina"
   nivel: "basico"
-  tags: ["revoluciones", "vocabulario"]
+  tags: ["brillo", "propiedades"]
 
-enunciado: "¿Qué es una revolución, en el sentido histórico?"
+variables:
+  escenario: uno_de([["metálico", "Pirita"], ["vítreo", "Cuarzo"], ["nacarado", "Mica"]])
+  tipo_brillo: escenario[0]
+  mineral_id: escenario[1]
+
 tipo: mc
-opciones_explicitas:
-  - "Un cambio rápido y profundo en la estructura política, social o económica de una sociedad"
-  - "Cualquier cambio de gobierno, sin importar su alcance"
-  - "Un tratado internacional entre dos países"
-respuesta: "Un cambio rápido y profundo en la estructura política, social o económica de una sociedad"
+opciones_explicitas: ["Pirita", "Cuarzo", "Mica", "Feldespato"]
+
+enunciado: "Un espécimen presenta un brillo de tipo {tipo_brillo}. ¿Cuál de estos minerales es el más probable?"
+
+respuesta: mineral_id
 
 explicacion: |
-  Rompe con el orden anterior en vez de reformarlo gradualmente.
+  El brillo {tipo_brillo} es característico de la {mineral_id}.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revoluciones", "vocabulario"]
-
-enunciado: "¿En qué se diferencia una revolución de una reforma?"
-tipo: mc
-opciones_explicitas:
-  - "La reforma es un cambio gradual dentro del sistema existente; la revolución rompe con la estructura de fondo"
-  - "Son exactamente lo mismo"
-  - "La reforma siempre es más violenta que la revolución"
-respuesta: "La reforma es un cambio gradual dentro del sistema existente; la revolución rompe con la estructura de fondo"
-
-explicacion: |
-  La velocidad y la profundidad del cambio son lo que distingue a una
-  de otra.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
+  tema: "minerales_estructura_cristalina"
   nivel: "avanzado"
-  tags: ["revoluciones", "vocabulario"]
+  tags: ["cristalización", "geología"]
 
-enunciado: "¿Qué distingue a una revolución de un golpe de Estado?"
-tipo: mc
-opciones_explicitas:
-  - "El golpe puede cambiar quién manda sin transformar la estructura social o económica de fondo; la revolución sí la cambia"
-  - "El golpe siempre dura más tiempo que una revolución"
-  - "No hay ninguna diferencia entre los dos conceptos"
-respuesta: "El golpe puede cambiar quién manda sin transformar la estructura social o económica de fondo; la revolución sí la cambia"
-
-explicacion: |
-  Un golpe puede reemplazar a un gobernante sin cambiar cómo funciona
-  el sistema; una revolución cambia las reglas de fondo.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revoluciones", "multicausalidad"]
-
-enunciado: "¿Una revolución suele tener una única causa clara y aislada?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Es el ejemplo de manual de multicausalidad: factores económicos,
-  políticos, sociales y un detonante puntual suelen combinarse.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Cuál es la diferencia entre el \"detonante puntual\" de una revolución y sus causas de fondo?"
-tipo: mc
-opciones_explicitas:
-  - "El detonante es el evento concreto que precipita lo que ya venía acumulándose, no la causa profunda en sí"
-  - "El detonante siempre es más importante que las causas de fondo"
-  - "No hay diferencia, son sinónimos"
-respuesta: "El detonante es el evento concreto que precipita lo que ya venía acumulándose, no la causa profunda en sí"
-
-explicacion: |
-  Sin las causas de fondo ya acumuladas, un mismo detonante no
-  hubiera generado una revolución.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "¿Cuál fue el detonante puntual de la Revolución de Mayo de 1810?"
-tipo: mc
-opciones_explicitas:
-  - "La noticia de la caída de la Junta Central española ante la invasión napoleónica"
-  - "La independencia de Estados Unidos"
-  - "Un terremoto en Buenos Aires"
-respuesta: "La noticia de la caída de la Junta Central española ante la invasión napoleónica"
-
-explicacion: |
-  Esa noticia dejó sin autoridad reconocida al Virreinato del Río de
-  la Plata.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "Además del detonante puntual, ¿qué causas más profundas venían acumulándose antes de 1810?"
-tipo: mc
-opciones_explicitas:
-  - "Ideas ilustradas circulando entre la élite criolla y tensiones comerciales por el monopolio español"
-  - "Una alianza militar con Francia"
-  - "La abolición previa de la esclavitud en el Virreinato"
-respuesta: "Ideas ilustradas circulando entre la élite criolla y tensiones comerciales por el monopolio español"
-
-explicacion: |
-  Son las causas de fondo típicas de una revolución: ideas nuevas
-  circulando y desigualdad económica/comercial acumulada.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "¿Qué precedente importante mostraron las Invasiones Inglesas de 1806-1807 antes de la Revolución de Mayo?"
-tipo: mc
-opciones_explicitas:
-  - "Que Buenos Aires podía organizarse militarmente sin depender de la corona española"
-  - "Que España tenía un ejército invencible"
-  - "Que Gran Bretaña había conquistado el Virreinato"
-respuesta: "Que Buenos Aires podía organizarse militarmente sin depender de la corona española"
-
-explicacion: |
-  Esa autonomía militar demostrada fue un antecedente clave de la
-  autonomía política que vendría después.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "basico"
-  tags: ["revolucion_de_mayo", "argentina"]
-
-enunciado: "¿En qué año ocurrió la Revolución de Mayo?"
-tipo: input
-respuesta: 1810
-
-explicacion: |
-  El proceso que llevó a la independencia argentina comenzó con la Revolución de Mayo de 1810.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
-
-enunciado: "¿Una revolución es siempre sinónimo de una guerra prolongada?"
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  El proceso revolucionario (cambio de régimen) y la guerra que puede
-  seguirle (si el poder derrocado resiste con las armas) son procesos
-  distintos, aunque a menudo encadenados.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["cruce"]
-
-enunciado: "¿Por qué se dice que las causas económicas de una revolución cruzan con la estructura económica de un territorio (Geografía)?"
-tipo: mc
-opciones_explicitas:
-  - "Porque las tensiones comerciales o de desigualdad muchas veces nacen de qué actividades económicas domina ese territorio"
-  - "Porque la Geografía determina el resultado militar de la revolución"
-  - "Porque no hay ninguna relación real entre economía y revolución"
-respuesta: "Porque las tensiones comerciales o de desigualdad muchas veces nacen de qué actividades económicas domina ese territorio"
-
-explicacion: |
-  Muchas tensiones comerciales y de desigualdad nacen de qué actividades económicas domina un territorio, y eso influye en las causas de una revolución.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Qué tipo de tensión social suele combinarse con las causas de una revolución?"
-tipo: mc
-opciones_explicitas:
-  - "Un grupo social que gana peso económico pero no tiene representación política proporcional"
-  - "Un exceso de representación política sin ningún peso económico"
-  - "La ausencia total de cualquier grupo social organizado"
-respuesta: "Un grupo social que gana peso económico pero no tiene representación política proporcional"
-
-explicacion: |
-  Ejemplo real: la burguesía criolla americana frente a la corona
-  española, con peso económico creciente pero sin poder político
-  proporcional.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revoluciones"]
-
-enunciado: "Una revolución sólo cambia quién gobierna, sin tocar la estructura de propiedad ni el sistema social."
-tipo: vf
-respuesta: falso
-
-explicacion: |
-  Una revolución cambia las reglas de fondo — puede afectar quién
-  tiene el poder, cómo se organiza la propiedad, o ambas cosas.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Qué tipo de causa representa \"ideas ilustradas circulando entre la élite\" en el análisis de una revolución?"
-tipo: mc
-opciones_explicitas:
-  - "Una causa política/ideológica"
-  - "Un detonante puntual"
-  - "Una causa exclusivamente económica"
-respuesta: "Una causa política/ideológica"
-
-explicacion: |
-  Las ideas nuevas circulando (ilustración, liberalismo) son un factor
-  político/ideológico que se suma a los económicos y sociales.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["multicausalidad"]
-
-enunciado: "Para analizar correctamente una revolución según la herramienta de \"multicausalidad\", ¿qué hay que evitar?"
-tipo: mc
-opciones_explicitas:
-  - "Reducirla a una sola causa, ignorando que varios factores se combinaron"
-  - "Mencionar el detonante puntual"
-  - "Considerar factores económicos"
-respuesta: "Reducirla a una sola causa, ignorando que varios factores se combinaron"
-
-explicacion: |
-  Es exactamente el error que la herramienta de `../multicausalidad/`
-  busca evitar.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["multicausalidad"]
-
-enunciado: "¿Qué tipo de causa política suele preceder a una revolución exitosa?"
-tipo: mc
-opciones_explicitas:
-  - "Pérdida de legitimidad del poder existente o un vacío de poder"
-  - "Un aumento repentino de la legitimidad del gobierno"
-  - "La ausencia total de cualquier idea política nueva"
-respuesta: "Pérdida de legitimidad del poder existente o un vacío de poder"
-
-explicacion: |
-  Sin ese debilitamiento previo del poder, un detonante puntual
-  difícilmente escala a una revolución.
-```
-
-```
-metadata:
-  materia: "historia"
-  tema: "revoluciones"
-  nivel: "intermedio"
-  tags: ["revolucion_de_mayo"]
-
-enunciado: "Ordená estos hechos en la secuencia real que llevó a la Revolución de Mayo: Invasión napoleónica a España, Invasiones Inglesas, Revolución de Mayo."
 tipo: ordenar
-opciones_explicitas:
-  - "Invasiones Inglesas"
-  - "Invasión napoleónica a España"
-  - "Revolución de Mayo"
-respuesta_orden: ["Invasiones Inglesas", "Invasión napoleónica a España", "Revolución de Mayo"]
+opciones_explicitas: ["Nucleación", "Crecimiento", "Terminación"]
+
+enunciado: "Ordene las etapas típicas de la formación de un cristal perfecto en una solución saturada:"
+
+respuesta_orden: ["Nucleación", "Crecimiento", "Terminación"]
 
 explicacion: |
-  Las Invasiones Inglesas (1806-1807) fueron el precedente militar; la
-  invasión napoleónica a España (1808) generó el vacío de poder; la
-  Revolución de Mayo (1810) fue la consecuencia final.
+  El proceso de cristalización requiere primero la nucleación, luego el crecimiento de la red y finalmente la terminación de los bordes.
 ```
 
 ```
 metadata:
   materia: "historia"
-  tema: "revoluciones"
-  nivel: "avanzado"
-  tags: ["cruce"]
+  tema: "minerales_estructura_cristalina"
+  nivel: "intermedio"
+  tags: ["densidad", "propiedades_fisicas"]
 
-enunciado: "¿Por qué `revoluciones/` depende de `../multicausalidad/` como prerrequisito?"
-tipo: mc
-opciones_explicitas:
-  - "Porque analizar correctamente una revolución exige ya poder combinar varias causas sin reducirla a una sola"
-  - "Porque multicausalidad enseña fechas de revoluciones específicas"
-  - "Porque no hay ninguna relación real entre ambos temas"
-respuesta: "Porque analizar correctamente una revolución exige ya poder combinar varias causas sin reducirla a una sola"
+variables:
+  escenario: [[5.0, "Hematita"], [2.6, "Cuarzo"], [7.5, "Galena"]]
+  idx: uno_de([0, 1, 2])
+  valor_densidad: escenario[idx][0]
+  mineral_ref: escenario[idx][1]
+
+tipo: completar
+tolerancia_abs: 0.01
+
+enunciado: "Un mineral tiene una densidad relativa de {valor_densidad}. ¿Cuál es su valor numérico exacto?"
+
+respuesta: valor_densidad
 
 explicacion: |
-  Es la herramienta de pensamiento histórico que este tema aplica de
-  lleno a un proceso concreto.
+  La densidad es una propiedad intrínseca; en este caso, el valor es {valor_densidad} g/cm³.
 ```
+
+## Sección: origen-de-la-vida (24 preguntas)
 
 ```
 metadata:
   materia: "historia"
-  tema: "revoluciones"
+  tema: "origen_de_la_vida"
   nivel: "basico"
-  tags: ["revoluciones"]
+  tags: ["abiogenesis", "hipotesis_oparin"]
 
-enunciado: "¿Qué distingue mejor a una revolución de un simple cambio de gobierno?"
-tipo: mc
-opciones_explicitas:
-  - "Que cambia las reglas de fondo (poder, propiedad, o ambas), no sólo la persona que gobierna"
-  - "Que siempre involucra un ejército extranjero"
-  - "Que dura exactamente un año"
-respuesta: "Que cambia las reglas de fondo (poder, propiedad, o ambas), no sólo la persona que gobierna"
+enunciado: "Según la hipótesis de Oparin y Haldane, la atmósfera primitiva de la Tierra carecía de ciertos gases que hoy son comunes. ¿Cuál de los siguientes gases NO formaba parte de esa atmósfera reductora?"
+
+opciones_explicitas: ["Metano", "Amoníaco", "Oxígeno", "Hidrógeno"]
+respuesta: "Oxígeno"
+tipo: "mc"
 
 explicacion: |
-  Es el criterio central que separa "revolución" de "reforma" o "golpe
-  de Estado".
+  La atmósfera primitiva era reductora y carecía de oxígeno libre (O2), ya que este solo apareció masivamente después de la fotosíntesis oxigénica.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["miller_urey", "aminoacidos"]
+
+enunciado: "En el famoso experimento de Miller y Urey, se simularon las condiciones de la Tierra primitiva mediante descargas eléctricas. ¿Cuál fue el resultado principal a partir de sustancias inorgánicas?"
+
+respuesta: "aminoácidos"
+tipo: "mc"
+opciones_explicitas: ["aminoácidos", "nucleótidos"]
+
+explicacion: |
+  El experimento demostró que la síntesis de moléculas orgánicas simples como los aminoácidos es posible a partir de gases inorgánicos y energía.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["rna_world", "genetica"]
+
+enunciado: "La hipótesis del 'Mundo del ARN' sugiere que antes de la aparición del ADN y las proteínas, el ___ cumplía la función de almacenar información genética y catalizar reacciones químicas."
+
+respuestas_validas:
+  - "ARN"
+respuesta: "ARN"
+tipo: "completar"
+
+explicacion: |
+  Se cree que el ARN fue la primera molécula autorreplicante debido a su capacidad de actuar tanto como material genético como enzima (ribozimas).
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["evolucion_quimica", "orden"]
+
+enunciado: "Ordena correctamente los procesos de la evolución química, desde la materia más simple hasta la vida:"
+
+opciones_explicitas: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
+respuesta_orden: ["Moléculas inorgánicas", "Monómeros orgánicos", "Polímeros complejos", "Protobiontes"]
+tipo: "ordenar"
+
+explicacion: |
+  La evolución química implica un aumento gradual de la complejidad: de átomos y gases a moléculas pequeñas, luego cadenas largas y finalmente estructuras con membrana.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["quimiosintesis", "metabolismo"]
+
+enunciado: "En las fuentes hidrotermales del fondo oceánico, la vida pudo haber comenzado mediante un proceso de ___ que utilizaba la energía química de los minerales."
+
+tipo: completar
+respuesta: "quimiosíntesis"
+
+explicacion: |
+  Antes de la fotosíntesis, los primeros organismos probablemente obtenían energía de las reacciones redox de compuestos inorgánicos en las chimeneas hidrotermales.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["miller_urey", "sopa_primordial"]
+
+respuesta: "Miller-Urey"
+tipo: completar
+respuestas_validas:
+  - "Miller-Urey"
+  - "Miller-Urey"
+
+enunciado: "El experimento diseñado para probar la hipótesis de la 'sopa primordial' en charcos superficiales fue el de ___."
+
+explicacion: |
+  El experimento de Miller-Urey (1953) demostró que se podían formar moléculas orgánicas simples (aminoácidos) a partir de gases inorgánicos mediante descargas eléctricas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["fuentes_hidrotermales", "quimiosintesis"]
+
+respuesta: "protección de la radiación UV"
+tipo: mc
+opciones_explicitas: ["exposición a radiación UV", "protección de la radiación UV", "alta radiación solar", "ausencia de calor"]
+
+enunciado: "A diferencia de la hipótesis de la sopa primordial, la teoría de las fuentes hidrotermales sugiere que la vida pudo originarse en el fondo oceánico debido a la ___."
+
+explicacion: |
+  Las fuentes hidrotermales ofrecen un ambiente protegido de la radiación UV superficial y proporcionan gradientes térmicos y químicos esenciales para la síntesis de moléculas complejas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["hipotesis", "comparacion"]
+
+respuesta: "quimiosintesis"
+tipo: completar
+respuestas_validas:
+  - "quimiosintesis"
+  - "quimiosintesis"
+
+enunciado: "Mientras que la sopa primordial se basa en la energía solar y descargas, las fuentes hidrotermales proponen un metabolismo basado en la ___."
+
+explicacion: |
+  En las fuentes hidrotermales, la energía proviene de las reacciones químicas entre los fluidos alcalinos y el agua de mar, un proceso conocido como quimiosíntesis.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["miller_urey", "moléculas"]
+
+respuesta_orden: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
+tipo: ordenar
+opciones_explicitas: ["Metano", "Amoníaco", "Hidrógeno", "Agua"]
+
+enunciado: "Ordene los componentes gaseosos y líquidos que se utilizaron en el aparato de Miller-Urey para simular la atmósfera y el océano primitivo:"
+
+explicacion: |
+  El experimento utilizó una mezcla de metano (CH4), amoníaco (NH3), hidrógeno (H2) y vapor de agua (H2O) para simular las condiciones de la Tierra primitiva.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["energia", "hipotesis"]
+
+respuesta: "descargas eléctricas"
+tipo: mc
+opciones_explicitas: ["descargas eléctricas", "gradientes térmicos", "radiación gamma", "energía cinética"]
+
+enunciado: "En el modelo de la sopa primordial, ¿cuál es el motor energético propuesto para la síntesis de moléculas orgánicas?"
+
+explicacion: |
+  En el modelo de Miller-Urey, las descargas eléctricas (simulando rayos) proporcionan la energía necesaria para romper los enlaces de los gases y formar nuevas moléculas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["biologia", "evolucion", "luca"]
+
+tipo: mc
+opciones_explicitas: ["Un organismo pluricelular complejo", "El último ancestro común de todos los organismos actuales", "Un organismo que vivió solo en la atmósfera", "La primera célula que apareció en la Tierra"]
+respuesta: "El último ancestro común de todos los organismos actuales"
+
+enunciado: "El término LUCA hace referencia a un concepto fundamental en la biología evolutiva. ¿Qué significa exactamente?"
+
+explicacion: |
+  LUCA (Last Universal Common Ancestor) no fue el primer ser vivo, sino el ancestro común más reciente del cual descendieron todas las formas de vida actuales (Arqueas, Bacterias y Eucariotas).
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["biologia", "bioquimica"]
+
+tipo: completar
+respuestas_validas:
+  - "quimiosíntesis"
+respuesta: "quimiosíntesis"
+
+enunciado: "Se postula que LUCA habitaba en entornos extremos, como fuentes hidrotermales, y que su principal fuente de energía era la ___."
+
+explicacion: |
+  Debido a la ausencia de oxígeno en la Tierra primitiva, se cree que LUCA dependía de procesos químicos inorgánicos (quimiosíntesis) para obtener energía, antes de la aparición de la fotosíntesis.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["filogenia", "evolucion"]
+
+tipo: ordenar
+opciones_explicitas: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
+
+enunciado: "Ordena cronológicamente estos hitos evolutivos, desde el ancestro común hasta la complejidad actual:"
+
+explicacion: |
+  La evolución biológica siguió una progresión desde un ancestro común unicelular, pasando por la especialización procariota y eucariota, hasta la complejidad de la pluricelularidad.
+respuesta_orden: ["LUCA", "Primeras células procariotas", "Células eucariotas", "Organismos pluricelulares"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["genetica", "adn"]
+
+variables:
+  mol_idx: uno_de([0, 1])
+  mol_datos: [["ATP", "energía celular"], ["ADN", "información genética"]]
+  mol_nombre: mol_datos[mol_idx][0]
+  mol_funcion: mol_datos[mol_idx][1]
+  respuesta_correcta: mol_datos[mol_idx][0]
+
+tipo: mc
+respuesta: respuesta_correcta
+opciones_explicitas: ["ATP", "ADN", "ARN", "Proteínas"]
+
+enunciado: "La existencia de {mol_nombre} en todos los dominios de la vida es una evidencia clave de que todos los seres vivos comparten un ancestro común, ya que cumple la función de {mol_funcion}."
+
+explicacion: |
+  El hecho de que todos los seres vivos utilicen la misma molécula para almacenar información genética (ADN/ARN) y la misma para transferir energía (ATP) es la prueba más fuerte de un origen común.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["bioquimica", "evolucion"]
+
+tipo: mc
+opciones_explicitas: ["Almacenar información genética y actuar como catalizador", "Solo almacenar información genética", "Solo actuar como catalizador enzimático", "Transportar aminoácidos a los ribosomas"]
+respuesta: "Almacenar información genética y actuar como catalizador"
+
+enunciado: "La hipótesis del 'mundo de ARN' sugiere que esta molécula fue clave en el origen de la vida debido a que puede ___."
+
+explicacion: |
+  El ARN es una molécula versátil que puede realizar dos funciones críticas: almacenar la información genética (como el ADN) y actuar como una enzima (ribozima) para catalizar reacciones químicas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["adn", "arn", "proteinas"]
+
+tipo: completar
+respuestas_validas:
+  - "ADN"
+  - "proteínas"
+
+enunciado: "En la hipótesis del mundo de ARN, se postula que el ARN precedió tanto al ___ como a las ___ en la evolución biológica."
+
+explicacion: |
+  Se cree que el ARN fue la molécula central antes de que el ADN se especializara en el almacenamiento de información a largo plazo y las proteínas en la catálisis estructural y funcional.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["ribozima", "catalisis"]
+
+tipo: mc
+opciones_explicitas: ["Capacidad de catalizar reacciones químicas", "Capacidad de replicarse sin proteínas", "Capacidad de formar dobles hélices estables", "Capacidad de almacenar aminoácidos"]
+respuesta: "Capacidad de catalizar reacciones químicas"
+
+enunciado: "Una de las propiedades fundamentales que permite al ARN ser el protagonista del 'mundo de ARN' es su capacidad de actuar como una ___."
+
+explicacion: |
+  Las ribozimas son moléculas de ARN con actividad catalítica, lo que permite que el ARN pueda acelerar reacciones químicas sin necesidad de proteínas.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["evolucion", "secuencia"]
+
+tipo: ordenar
+opciones_explicitas: ["ARN", "ADN", "Proteínas"]
+
+enunciado: "Según la hipótesis del mundo de ARN, ¿cuál sería el orden evolutivo más probable de las macromoléculas funcionales?"
+
+explicacion: |
+  El ARN habría servido como la molécula 'todo en uno' que permitió la aparición de la autorreplicación, antes de la especialización funcional del ADN y las proteínas.
+respuesta_orden: ["ARN", "ADN", "Proteínas"]
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["paradoja", "evolucion"]
+
+variables:
+  escenario: uno_de(["plantilla", "catalizador"])
+
+tipo: mc
+opciones_explicitas: ["La estabilidad del ADN", "La velocidad de la proteína", "La dualidad funcional del ARN", "La complejidad del núcleo"]
+respuesta: "La dualidad funcional del ARN"
+
+enunciado: "El 'dilema de la replicación' se resuelve con el ARN porque este puede resolver la necesidad de un {escenario} mediante su estructura química."
+
+explicacion: |
+  Si el escenario es la necesidad de una plantilla, el ARN sirve como molde. Si es la necesidad de un catalizador, el ARN actúa como enzima. Esto permite que la vida comience sin depender de un sistema complejo de tres moléculas distintas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["quimica_prebiotica", "experimento", "miller_urey"]
+
+variables:
+  escenario: [[["metano", "amoniaco", "hidrogeno", "vapor de agua"], "aminoácidos"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "azúcares"], [["metano", "amoniaco", "hidrogeno", "vapor de agua"], "lípidos"]]
+  idx: uno_de([0,1,2])
+
+respuesta: escenario[idx][1]
+tipo: mc
+opciones_explicitas: ["aminoácidos", "azúcares", "lípidos"]
+
+enunciado: "En el experimento de Miller-Urey, al aplicar descargas eléctricas a una mezcla de gases que simulaba la atmósfera primitiva, se obtuvo como producto principal la formación de ___."
+
+explicacion: |
+  El experimento demostró que la síntesis abiótica de moléculas orgánicas (como los aminoácidos) era posible bajo las condiciones atmosféricas propuestas.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["atmosfera", "gases"]
+
+respuesta: "metano"
+tipo: mc
+opciones_explicitas: ["metano", "oxígeno", "nitrógeno"]
+
+enunciado: "Según el modelo de Miller-Urey, la atmósfera primitiva era rica en gases reductores. ¿Cuál de estos gases era uno de los componentes fundamentales en su montaje experimental?"
+
+explicacion: |
+  Miller utilizó metano (CH4), amoníaco (NH3), hidrógeno (H2) y vapor de agua (H2O) para simular la atmósfera reductora.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "basico"
+  tags: ["energia", "descarga"]
+
+respuesta: "descargas eléctricas"
+tipo: completar
+respuestas_validas:
+  - "descargas eléctricas"
+
+enunciado: "Para simular la energía disponible en la atmósfera primitiva, el aparato de Miller utilizó ___ entre los gases."
+
+explicacion: |
+  Las descargas eléctricas simulaban la actividad de los rayos durante las tormentas en la Tierra primitiva.
+```
+
+```
+metadata:
+  materia: "historia_profucha"
+  tema: "origen_de_la_vida"
+  nivel: "intermedio"
+  tags: ["ciclo_del_agua", "condensación"]
+
+variables:
+  proceso: [["condensación", "evaporación"], ["condensación", "sublimación"], ["condensación", "fusión"]]
+  idx: uno_de([0,1,2])
+
+respuesta: proceso[idx][0]
+tipo: mc
+opciones_explicitas: ["condensación", "evaporación", "sublimación", "fusión"]
+
+enunciado: "En el montaje, el vapor de agua se enfriaba para que los compuestos orgánicos formados se disolvieran en el líquido. Este proceso físico es la ___."
+
+explicacion: |
+  El enfriamiento del vapor permite la condensación, permitiendo que las moléculas orgánicas se concentren en la fase líquida.
+```
+
+```
+metadata:
+  materia: "historia"
+  tema: "origen_de_la_vida"
+  nivel: "avanzado"
+  tags: ["montaje", "componentes"]
+
+respuesta_orden: ["gases", "descargas", "condensación"]
+tipo: ordenar
+opciones_explicitas: ["gases", "descargas", "condensación"]
+
+enunciado: "Ordena los elementos o procesos según el flujo lógico de la síntesis química en el experimento de Miller:"
+
+explicacion: |
+  El experimento requiere primero la mezcla de gases, luego la aplicación de energía (descargas) y finalmente la recuperación de productos mediante condensación.
 ```
 
