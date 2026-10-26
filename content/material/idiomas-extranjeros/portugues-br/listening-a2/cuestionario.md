@@ -1,457 +1,197 @@
-# Idiomas — Portugués (Brasil) — listening-a2 (cuestionario)
+# Portugués (Brasil) — listening A2 (cuestionario, 10 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/listening-a2/cuestionario_crudo.md`)
-> con únicamente correcciones mecánicas (comillas mal cerradas, `pasos:` sin comillas, líneas
-> `---` sueltas dentro de un fence) vía `content/material/_qa_tools/mechanical_fix_idiomas.py`,
-> sin cambios de contenido.
+> Tema: `idiomas-extranjeros/portugues-br/listening-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior pedía completar sin audio ni texto; ahora cada pregunta trae la transcripción.
 
 ---
 
-### 1 — Horário de transporte  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["horários", "transporte"]  
-pasos:  
-  - "Identificar el horario mencionado en la conversación."  
-  - "Completar el espacio con el nombre del medio de transporte."  
-respuestas_validas:  
-  - "ônibus"  
-  - "Onibus"  
-tipo: completar  
-enunciado: "O vendedor disse que o próximo ______ sai às 19h. O cliente perguntou se podia pegar um."  
+### 1 — Precio
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 2 — Comida favorita  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["alimentación", "preferencias"]  
-pasos:  
-  - "Reconocer el plato mencionado en la conversación."  
-  - "Escribir el nombre del alimento en el hueco."  
-respuestas_validas:  
-  - "sopa de legumes"  
-  - "Sopa de legumes"  
-tipo: completar  
-enunciado: "A garota disse que seu prato favorito é a ______. O garçom perguntou se queria mais sal."  
+respuesta: "12 reales"
+tipo: "mc"
+opciones_explicitas: ["12 reales", "2 reales", "20 reales"]
 
+enunciado: "Áudio: «Um pão de queijo e um café com leite. — São doze reais.» ¿Cuánto paga?"
+
+explicacion: |
+  *Doze* = 12.
 ```
 
-### 3 — Direções  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["direções", "verbos de movimiento"]  
-pasos:  
-  - "Identificar la dirección solicitada en el diálogo."  
-  - "Escribir la palabra que completa la frase correctamente."  
-respuestas_validas:  
-  - "esquerda"  
-  - "Esquerda"  
-tipo: completar  
-enunciado: "O turista perguntou como chegar ao mercado. O morador respondeu: 'Vire à ______ na próxima esquina.'"  
+### 2 — Hora
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 4 — Tempo de espera  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["tiempo", "expresiones"]  
-pasos:  
-  - "Determinar el tiempo mencionado en la conversación."  
-  - "Escribir la unidad de medida correcta en el hueco."  
-respuestas_validas:  
-  - "hora"  
-  - "Hora"  
-tipo: completar  
-enunciado: "O cliente disse que esperou por duas ______ para ser atendido. A funcionária pediu desculpas."  
+respuesta: "3:15"
+tipo: "mc"
+opciones_explicitas: ["3:15", "3:50", "2:45"]
 
+enunciado: "Áudio: «O ônibus sai às três e quinze.» ¿A qué hora sale?"
+
+explicacion: |
+  *Três e quinze* = 3:15.
 ```
 
-### 5 — Números y precios  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["números", "moneda"]  
-pasos:  
-  - "Identificar el número mencionado en la conversación."  
-  - "Escribir el valor numérico en el hueco."  
-respuestas_validas:  
-  - "trinta e cinco"  
-  - "Trinta e cinco"  
-tipo: completar  
-enunciado: "O vendedor disse que o preço do livro é ______ reais. O cliente perguntou se havia desconto."  
+### 3 — Hora (2)
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 6 — Verbo de movimiento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["verbos", "preposiciones"]  
-pasos:  
-  - "Reconocer el verbo de movimiento en la conversación."  
-  - "Escribir la preposición correcta en el hueco."  
-respuestas_validas:  
-  - "para"  
-  - "Para"  
-tipo: completar  
-enunciado: "O passageiro perguntou se o trem ia ______ São Paulo. O funcionário respondeu que sim."  
+respuesta: "12:30"
+tipo: "mc"
+opciones_explicitas: ["12:30", "12:06", "6:30"]
 
+enunciado: "Áudio: «A reunião é ao meio-dia e meia.» ¿A qué hora es?"
+
+explicacion: |
+  *Meio-dia e meia* = 12:30.
 ```
 
-### 7 — Día de la semana  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["días", "planificación"]  
-pasos:  
-  - "Identificar el día mencionado en la conversación."  
-  - "Escribir el nombre del día correcto en el hueco."  
-respuestas_validas:  
-  - "quinta-feira"  
-  - "Quinta-feira"  
-tipo: completar  
-enunciado: "A aluna disse que a aula de inglês será na ______. O professor confirmou o horário."  
+### 4 — Teléfono
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 8 — Adjetivos de color  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["colores", "descripciones"]  
-pasos:  
-  - "Reconocer el adjetivo de color mencionado en la conversación."  
-  - "Escribir el nombre del color correcto en el hueco."  
-respuestas_validas:  
-  - "azul"  
-  - "Azul"  
-tipo: completar  
-enunciado: "O cliente disse que queria uma camisa ______. O vendedor perguntou se era para o verão."  
+respuesta: "6"
+tipo: "mc"
+opciones_explicitas: ["6", "0,5", "1"]
 
+enunciado: "Áudio: «Meu telefone é nove, meia, dois…» ¿Qué número es *meia*?"
+
+explicacion: |
+  En los números de teléfono, *meia* = seis.
 ```
 
-### 9 — Preposiciones de lugar  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "ubicación"]  
-pasos:  
-  - "Identificar la preposición de lugar en la conversación."  
-  - "Escribir la preposición correcta en el hueco."  
-respuestas_validas:  
-  - "em"  
-  - "Em"  
-tipo: completar  
-enunciado: "O turista perguntou onde fica o mercado. O morador respondeu que está ______ frente da padaria."  
+### 5 — Dirección
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 10 — Adverbios de frecuencia  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adverbios", "habitualidad"]  
-pasos:  
-  - "Reconocer el adverbio de frecuencia mencionado en la conversación."  
-  - "Escribir el adverbio correcto en el hueco."  
-respuestas_validas:  
-  - "sempre"  
-  - "Sempre"  
-tipo: completar  
-enunciado: "A professora disse que os alunos ______ chegam atrasados. O diretor pediu para corrigir isso."  
+respuesta: "Al lado del banco, en la esquina"
+tipo: "mc"
+opciones_explicitas: ["Al lado del banco, en la esquina", "Enfrente del banco", "Lejos del banco"]
 
+enunciado: "Áudio: «A farmácia fica do lado do banco, na esquina.» ¿Dónde está la farmacia?"
+
+explicacion: |
+  *Do lado do banco, na esquina*.
 ```
 
-### 11 — Verbo de estado  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["verbos", "condición"]  
-pasos:  
-  - "Identificar el verbo de estado en la conversación."  
-  - "Escribir el verbo correcto en el hueco."  
-respuestas_validas:  
-  - "estar"  
-  - "Estar"  
-tipo: completar  
-enunciado: "O cliente disse que ______ cansado de esperar. O atendente pediu desculpas."  
+### 6 — Corrección
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 12 — Pronombres personales  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["pronombres", "referencia"]  
-pasos:  
-  - "Reconocer el pronombre personal mencionado en la conversación."  
-  - "Escribir el pronombre correcto en el hueco."  
-respuestas_validas:  
-  - "você"  
-  - "Você"  
-tipo: completar  
-enunciado: "A vendedora perguntou se ______ queria mais informações. O cliente respondeu que sim."  
+respuesta: "El martes"
+tipo: "mc"
+opciones_explicitas: ["El martes", "El lunes", "El miércoles"]
 
+enunciado: "Áudio: «A consulta é na segunda… não, desculpa, é na terça.» ¿Qué día es?"
+
+explicacion: |
+  *Terça(-feira)* = martes.
 ```
 
-### 13 — Conexión de oraciones  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["conectores", "relación"]  
-pasos:  
-  - "Identificar el conector de oraciones mencionado en la conversación."  
-  - "Escribir el conector correcto en el hueco."  
-respuestas_validas:  
-  - "mas"  
-  - "Mas"  
-tipo: completar  
-enunciado: "O estudante disse que o projeto está pronto, ______ ainda precisa de revisão."  
+### 7 — Familia
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 14 — Verbo de acción  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["verbos", "acción"]  
-pasos:  
-  - "Reconocer el verbo de acción mencionado en la conversación."  
-  - "Escribir el verbo correcto en el hueco."  
-respuestas_validas:  
-  - "fazer"  
-  - "Fazer"  
-tipo: completar  
-enunciado: "O professor disse que os alunos precisam ______ o dever de casa. A aluna perguntou se podia ajudar."  
+respuesta: "De su abuela"
+tipo: "mc"
+opciones_explicitas: ["De su abuela", "De su abuelo", "De su tía"]
 
+enunciado: "Áudio: «Minha avó tem oitenta anos.» ¿De quién habla?"
+
+explicacion: |
+  *Avó* (vocal abierta) = abuela.
 ```
 
-### 15 — Preposiciones de tiempo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "tiempo"]  
-pasos:  
-  - "Identificar la preposición de tiempo mencionada en la conversación."  
-  - "Escribir la preposición correcta en el hueco."  
-respuestas_validas:  
-  - "depois"  
-  - "Depois"  
-tipo: completar  
-enunciado: "O funcionário disse que a entrega será ______ da próxima semana. O cliente perguntou se podia ser mais cedo."  
+### 8 — Tiempo
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 16 — Adjetivos de tamaño  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "tamaño"]  
-pasos:  
-  - "Reconocer el adjetivo de tamaño mencionado en la conversación."  
-  - "Escribir el adjetivo correcto en el hueco."  
-respuestas_validas:  
-  - "grande"  
-  - "Grande"  
-tipo: completar  
-enunciado: "O cliente disse que queria uma camisa ______. O vendedor mostrou o modelo tamanho G."  
+respuesta: "Hace mucho calor"
+tipo: "mc"
+opciones_explicitas: ["Hace mucho calor", "Llueve", "Hace frío"]
 
+enunciado: "Áudio: «Hoje tá muito calor, mas amanhã vai chover.» ¿Cómo está hoy?"
+
+explicacion: |
+  *Tá muito calor* (hoy); lluvia mañana.
 ```
 
-### 17 — Adverbios de modo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adverbios", "manera"]  
-pasos:  
-  - "Identificar el adverbio de modo mencionado en la conversación."  
-  - "Escribir el adverbio correcto en el hueco."  
-respuestas_validas:  
-  - "bem"  
-  - "Bem"  
-tipo: completar  
-enunciado: "O professor disse que os alunos fizeram o teste ______. A aluna perguntou se podia revisar."  
+### 9 — Reducción
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 18 — Verbo de percepción  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["verbos", "percepción"]  
-pasos:  
-  - "Reconocer el verbo de percepción mencionado en la conversación."  
-  - "Escribir el verbo correcto en el hueco."  
-respuestas_validas:  
-  - "ouvir"  
-  - "Ouvir"  
-tipo: completar  
-enunciado: "O cliente disse que ______ o som do rádio. O técnico pediu para checar as conexões."  
+respuesta: "você"
+tipo: "mc"
+opciones_explicitas: ["você", "se", "você é"]
 
+enunciado: "Áudio: «Cê vai pra praia amanhã?» ¿Qué significa *cê*?"
+
+explicacion: |
+  *Cê* = você.
 ```
 
-### 19 — Pronombres posesivos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["pronombres", "posesión"]  
-pasos:  
-  - "Identificar el pronombre posesivo mencionado en la conversación."  
-  - "Escribir el pronombre correcto en el hueco."  
-respuestas_validas:  
-  - "meu"  
-  - "Meu"  
-tipo: completar  
-enunciado: "O estudante disse que ______ livro está emprestado. A professora pediu para devolver antes do final de semana."  
+### 10 — Pedido
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 20 — Conectores lógicos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["conectores", "lógica"]  
-pasos:  
-  - "Reconocer el conector lógico mencionado en la conversación."  
-  - "Escribir el conector correcto en el hueco."  
-respuestas_validas:  
-  - "porque"  
-  - "Porque"  
-tipo: completar  
-enunciado: "A aluna perguntou por que não houve aula. O professor respondeu ______ estava chovendo muito."  
+respuesta: "Agua sin gas"
+tipo: "mc"
+opciones_explicitas: ["Agua sin gas", "Agua con gas", "Un jugo"]
 
-```
+enunciado: "Áudio: «Eu queria uma água sem gás, por favor.» ¿Qué pide?"
 
-### 21 — Adjetivos de forma  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "forma"]  
-pasos:  
-  - "Identificar el adjetivo de forma mencionado en la conversación."  
-  - "Escribir el adjetivo correcto en el hueco."  
-respuestas_validas:  
-  - "redondo"  
-  - "Redondo"  
-tipo: completar  
-enunciado: "O cliente disse que queria um prato ______. O garçom perguntou se era para o jantar."  
-
-```
-
-### 22 — Preposiciones de pertenencia  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "pertenencia"]  
-pasos:  
-  - "Reconocer la preposición de pertenencia mencionada en la conversación."  
-  - "Escribir la preposición correcta en el hueco."  
-respuestas_validas:  
-  - "de"  
-  - "De"  
-tipo: completar  
-enunciado: "O turista perguntou sobre o museu ______ São Paulo. O guia respondeu que estava no centro da cidade."  
-
-```
-
-### 23 — Verbo de cambio  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["verbos", "cambio"]  
-pasos:  
-  - "Identificar el verbo de cambio mencionado en la conversación."  
-  - "Escribir el verbo correcto en el hueco."  
-respuestas_validas:  
-  - "mudar"  
-  - "Mudar"  
-tipo: completar  
-enunciado: "O morador disse que ______ de cidade. O vizinho perguntou se ia levá-lo até o transporte."  
-
-```
-
-### 24 — Adverbios de lugar  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adverbios", "lugar"]  
-pasos:  
-  - "Reconocer el adverbio de lugar mencionado en la conversación."  
-  - "Escribir el adverbio correcto en el hueco."  
-respuestas_validas:  
-  - "aqui"  
-  - "Aqui"  
-tipo: completar  
-enunciado: "O cliente disse que ______ está tudo bem. O atendente perguntou se precisava de ajuda."  
-
-```
-
-### 25 — Conectores de causa  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["conectores", "causa"]  
-pasos:  
-  - "Identificar el conector de causa mencionado en la conversación."  
-  - "Escribir el conector correcto en el hueco."  
-respuestas_validas:  
-  - "por isso"  
-  - "Por isso"  
-tipo: completar  
-enunciado: "O professor disse que a prova foi difícil. ______, muitos alunos não conseguiram terminar."  
+explicacion: |
+  *Água sem gás*.
 ```

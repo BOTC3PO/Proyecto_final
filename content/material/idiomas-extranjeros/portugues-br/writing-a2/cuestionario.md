@@ -1,479 +1,197 @@
-# Idiomas — Portugués (Brasil) — writing-a2 (cuestionario)
+# Portugués (Brasil) — writing A2 (cuestionario, 10 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/writing-a2/cuestionario_crudo.md`)
-> con una corrección mecánica: varios bloques tenían `respuesta:` sin comillas (interpretado
-> como variable indefinida por el parser); se entrecomillaron. Un bloque carecía de
-> `enunciado:`, se redactó una oración con hueco tomando el ejemplo ya presente en la
-> explicación.
+> Tema: `idiomas-extranjeros/portugues-br/writing-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas abiertas con muchas respuestas posibles; ahora se elige la estructura o fórmula adecuada.
 
 ---
 
-### 1 — Conjugação do verbo "ler"  
+### 1 — Saludo
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["conjugación", "verbo irregular"]  
-pasos:  
-  - "Identificar el verbo en la oración y su forma correcta."  
-respuestas_validas:  
-  - "li"  
-tipo: completar  
-enunciado: "Ontem eu ___ um livro muito interessante."  
-```
-
-
-
-### 2 — Artigo definido antes de substantivo masculino  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["artigos", "substantivos"]  
-pasos:  
-  - "Determinar el género del sustantivo y elegir el artículo correcto."  
-opciones_explicitas:  
-  - "O"  
-  - "A"  
-  - "Um"  
-  - "Uma"  
-respuesta: "O"
-tipo: mc  
-enunciado: "___ carro da minha irmã é vermelho."
-```
-
-
-
-### 3 — Pronombre posesivo para sustantivos masculinos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["pronombres", "posesivos"]  
-pasos:  
-  - "Identificar el posesivo que concuerda con el sustantivo."  
-respuestas_validas:  
-  - "meu"  
-tipo: completar  
-enunciado: "___ computador é muito rápido, mas o dele é mais moderno."
-```
-
-
-
-### 4 — Preposición después de "gostar"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "verbos"]  
-pasos:  
-  - "Verificar la preposición obligatoria tras el verbo 'gostar'."  
-opciones_explicitas:  
-  - "de"  
-  - "em"  
-  - "para"  
-  - "com"  
-respuesta: "de"
-tipo: mc  
-enunciado: "Eu ___ viajar para o Brasil."
-```
-
-
-
-### 5 — Uso del tiempo "ontem" en oraciones simples  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["tiempo", "oraciones"]  
-pasos:  
-  - "Ubicar el tiempo en la oración y verificar su uso."  
-respuestas_validas:  
-  - "ontem"  
-tipo: completar  
-enunciado: "___, fui ao mercado comprar frutas."
-```
-
-
-
-### 6 — Diferencia entre "ser" y "estar" para estados  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["verbo ser", "verbo estar"]  
-pasos:  
-  - "Identificar si el estado es permanente o temporal."  
-opciones_explicitas:  
-  - "Sou"  
-  - "Estou"  
-  - "Fui"  
-  - "Vou"  
-respuesta: "Sou"
-tipo: mc  
-enunciado: "___ brasileiro, mas trabalho no Japão."
-```
-
-
-
-### 7 — Tiempo presente perfecto con verbo regular  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["tiempo", "verbo irregular"]  
-pasos:  
-  - "Formar el tiempo presente perfecto con 'ter' y particípio."  
-respuestas_validas:  
-  - "tenho comido"  
-tipo: completar  
-enunciado: "Eu ___ almoçado às 13h."
-```
-
-
-
-### 8 — Adjetivo después del sustantivo en portugués  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "posición"]  
-pasos:  
-  - "Verificar la posición del adjetivo respecto al sustantivo."  
-opciones_explicitas:  
-  - "casa nova"  
-  - "nova casa"  
-  - "casa velha"  
-  - "velha casa"  
-respuesta: "casa nova"
-tipo: mc  
-enunciado: "Comprei ___ para meu amigo."
-```
-
-
-
-### 9 — Uso de "para" vs "por" en contextos temporales  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "tiempo"]  
-pasos:  
-  - "Identificar el uso correcto de 'para' o 'por' según el contexto."  
-respuestas_validas:  
-  - "por"  
-tipo: completar  
-enunciado: "Vou estudar ___ duas horas seguidas."
-```
-
-
-
-### 10 — Preguntas interrogativas con "quem"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["interrogaciones", "pronombres"]  
-pasos:  
-  - "Formular la pregunta usando el pronombre interrogativo adecuado."  
-opciones_explicitas:  
-  - "Quem é você?"  
-  - "Onde está ele?"  
-  - "Por que você não veio?"  
-  - "Que livro leste?"  
-respuesta: "Quem é você?"
-tipo: mc  
-enunciado: "___ está aqui no momento?"
-```
-
-
-
-### 11 — Uso de "haver" para expresar existencia  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["verbo haver", "existencia"]  
-pasos:  
-  - "Identificar si el verbo 'haver' se usa en tercera persona singular."  
-respuestas_validas:  
-  - "Há"  
-tipo: completar  
-enunciado: "___ muita gente no centro da cidade hoje."
-```
-
-
-
-### 12 — Pluralización de sustantivos y adjetivos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["plural", "sustantivos"]  
-pasos:  
-  - "Concordar el sustantivo y el adjetivo en plural."  
-opciones_explicitas:  
-  - "casa velhas"  
-  - "casas velha"  
-  - "casas velhas"  
-  - "casa velha"  
-respuesta: "casas velhas"
-tipo: mc  
-enunciado: "As ___ precisam de manutenção."
-```
-
-
-
-### 13 — Pronombre objeto directo (os, as)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["pronombres", "objeto directo"]  
-pasos:  
-  - "Identificar el pronombre que reemplaza al objeto directo."  
-respuestas_validas:  
-  - "os"  
-tipo: completar  
-enunciado: "Eu vi ___ no parque ontem."
-```
-
-
-
-### 14 — Pronombre objeto indirecto (lhe)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["pronombres", "objeto indirecto"]  
-pasos:  
-  - "Seleccionar el pronombre que indica la dirección del objeto."  
-opciones_explicitas:  
-  - "lhe"  
-  - "me"  
-  - "nos"  
-  - "vos"  
-respuesta: "lhe"
-tipo: mc  
-enunciado: "Ela deu um livro ___ na escola."
-```
-
-
-
-### 15 — Futuro del verbo "ir" en oraciones simples  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["futuro", "verbo irregular"]  
-pasos:  
-  - "Conjugar el verbo 'ir' en futuro simple."  
-respuestas_validas:  
-  - "vou"  
-tipo: completar  
-enunciado: "Amanhã eu ___ ao cinema com meus amigos."
-```
-
-
-
-### 16 — Uso de "poder" para expresar habilidad  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["verbo poder", "capacidad"]  
-pasos:  
-  - "Identificar la forma correcta del verbo 'poder' según el sujeto."  
-opciones_explicitas:  
-  - "posso"  
-  - "pode"  
-  - "podemos"  
-  - "podem"  
-respuesta: "posso"
-tipo: mc  
-enunciado: "Eu ___ falar português, mas ainda não sou fluente."
-```
-
-
-
-### 17 — Condicional con "se" + subjuntivo pretérito imperfecto  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["condicional", "subjuntivo"]  
-pasos:  
-  - "Formar la oración condicional usando 'se' y el subjuntivo."  
-respuestas_validas:  
-  - "iria"  
-tipo: completar  
-enunciado: "Se eu ___ rico, compraria uma casa grande."
-```
-
-
-
-### 18 — Uso de "dever" para expresar obligación  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["verbo deber", "obligación"]  
-pasos:  
-  - "Identificar la forma correcta del verbo 'dever' según el sujeto."  
-opciones_explicitas:  
-  - "devo"  
-  - "deve"  
-  - "devemos"  
-  - "devem"  
-respuesta: "devo"
-tipo: mc  
-enunciado: "Eu ___ estudar mais para o exame."
-```
-
-
-
-### 19 — Verbos reflexivos con "se"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["verbos reflexivos", "pronomes"]  
-pasos:  
-  - "Identificar el uso del pronombre reflexivo 'se' en la oración."  
-respuestas_validas:  
-  - "me lavei"  
-tipo: completar  
-enunciado: "Ontem eu ___ no banheiro antes de sair."
-```
-
-
-
-### 20 — Preposición después de sustantivos como "fim"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "sustantivos"]  
-pasos:  
-  - "Verificar la preposición obligatoria tras el sustantivo 'fim'."  
-opciones_explicitas:  
-  - "do"  
-  - "de"  
-  - "em"  
-  - "para"  
-respuesta: "do"
-tipo: mc  
-enunciado: "O ___ semana foi muito agradável."
-```
-
-
-
-### 21 — Adverbios de frecuencia (sempre, nunca)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["adverbios", "frecuencia"]  
-pasos:  
-  - "Ubicar el adverbio en la oración y verificar su uso."  
-respuestas_validas:  
-  - "sempre"  
-tipo: completar  
-enunciado: "Ela ___ chega atrasada ao trabalho."
-```
-
-
-
-### 22 — Uso de "ter que" para expresar necesidad  
-```yaml
 metadata:
-  materia: "portugues-br"
-  tema: "preposições"
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
   nivel: "A2"
-  tags: ["comprar", "preposição"]
-pasos:
-  - "Identificar o verbo que exige uma preposição específica."
-  - "Selecionar a preposição correta para completar a oração."
-respuesta: "para"
-enunciado: "Comprei um presente ___ ela."
-tipo: mc
-opciones_explicitas:
-  - "para"
-  - "pela"
-  - "por"
-explicacion: "O verbo 'comprar' é seguido pela preposição 'para' quando indica destinatário. Exemplo: 'Comprei um presente para ela.'"
+  tags: ["writing", "A2"]
+
+respuesta: "Oi, Ana!"
+tipo: "mc"
+opciones_explicitas: ["Oi, Ana!", "Prezada Senhora,", "Hola, Ana!"]
+
+enunciado: "Cómo empezás un mensaje a una amiga:"
+
+explicacion: |
+  Informal: *Oi*.
 ```
 
-### 23 — Comparaciones con "mais...que"  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["comparación", "adjetivos"]  
-pasos:  
-  - "Formar la oración comparativa usando 'mais...que'."  
-respuestas_validas:  
-  - "mais rápido que"  
-tipo: completar  
-enunciado: "O carro dele é ___ o meu."
-```
+### 2 — Invitar
 
-
-
-### 24 — Uso de "perdoar" vs "perdoar-se"  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["verbos reflexivos", "acciones"]  
-pasos:  
-  - "Identificar si el verbo requiere un complemento o es reflexivo."  
-opciones_explicitas:  
-  - "perdoar"  
-  - "perdoar-se"  
-  - "perdôo"  
-  - "perdão"  
-respuesta: "perdoar"
-tipo: mc  
-enunciado: "Ela ___ a seu irmão por ter mentido."
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Você quer vir à minha festa?"
+tipo: "mc"
+opciones_explicitas: ["Você quer vir à minha festa?", "Você quer vir a minha fiesta?", "Tu quiere vir na festa?"]
+
+enunciado: "Querés invitar a un amigo:"
+
+explicacion: |
+  *Você quer vir…?* (*à* = a + a).
 ```
 
+### 3 — Aceptar
 
-
-### 25 — Uso de "cada" con sustantivos plurales  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "writing-a2"  
-  nivel: "A2"  
-  tags: ["artículos", "sustantivos"]  
-pasos:  
-  - "Verificar la concordancia de 'cada' con el sustantivo."  
-respuestas_validas:  
-  - "cada casa"  
-tipo: completar  
-enunciado: "___ precisa ter uma chave reserva."
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Claro, vou sim!"
+tipo: "mc"
+opciones_explicitas: ["Claro, vou sim!", "Claro, voy sí!", "Claro, irei-me!"]
+
+enunciado: "Aceptás una invitación:"
+
+explicacion: |
+  *Vou sim*.
+```
+
+### 4 — Rechazar
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Que pena, não posso porque tenho prova."
+tipo: "mc"
+opciones_explicitas: ["Que pena, não posso porque tenho prova.", "No puedo.", "Não posso porque de prova."]
+
+enunciado: "Rechazás con una razón:"
+
+explicacion: |
+  *Que pena, não posso porque…*
+```
+
+### 5 — Agradecer
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Obrigada pelo presente!"
+tipo: "mc"
+opciones_explicitas: ["Obrigada pelo presente!", "Gracias por el regalo!", "Obrigada para o presente!"]
+
+enunciado: "Agradecés un regalo:"
+
+explicacion: |
+  *Obrigado/a por + o = pelo*.
+```
+
+### 6 — Ortografía
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Você também vem?"
+tipo: "mc"
+opciones_explicitas: ["Você também vem?", "Voce tambem vem?", "Vocé tambén vem?"]
+
+enunciado: "¿Cuál está bien escrita?"
+
+explicacion: |
+  Acentos: *você, também*.
+```
+
+### 7 — Días
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "A festa é no sábado."
+tipo: "mc"
+opciones_explicitas: ["A festa é no sábado.", "A festa é no Sábado.", "A festa é na sabado."]
+
+enunciado: "¿Cuál está bien escrita?"
+
+explicacion: |
+  Días en minúscula; *no sábado*.
+```
+
+### 8 — Signos
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Tudo bem?"
+tipo: "mc"
+opciones_explicitas: ["¿Tudo bem?", "Tudo bem?", "¿Tudo bem"]
+
+enunciado: "¿Cuál está bien escrita?"
+
+explicacion: |
+  Sin signos de apertura.
+```
+
+### 9 — Despedida
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Abraços, Pedro"
+tipo: "mc"
+opciones_explicitas: ["Abraços, Pedro", "Atenciosamente, Pedro", "Cordiales saludos, Pedro"]
+
+enunciado: "Despedida a un amigo:"
+
+explicacion: |
+  Informal: *Abraços / Beijos*.
+```
+
+### 10 — Pedir
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "writing-a2"
+  nivel: "A2"
+  tags: ["writing", "A2"]
+
+respuesta: "Você pode trazer refrigerante?"
+tipo: "mc"
+opciones_explicitas: ["Você pode trazer refrigerante?", "Você puede traer gaseosa?", "Pode trazes refresco?"]
+
+enunciado: "Pedís que traiga gaseosa:"
+
+explicacion: |
+  *Refrigerante* = gaseosa.
 ```

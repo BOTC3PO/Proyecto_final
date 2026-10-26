@@ -1,45 +1,47 @@
-# Fala em nível A2: Comunicação básica e estruturas essenciais
+# Expresión oral en portugués de Brasil (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/speaking-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
-## Introdução
-O nível A2 de fala no currículo CEFR (Common European Framework of Reference for Languages) se concentra na capacidade de comunicar-se em situações cotidianas simples, como pedir um produto, descrever pessoas ou lugares conhecidos, ou expressar necessidades básicas. É essencial para interações que envolvem vocabulário limitado e estruturas gramaticais fundamentais, como verbos no presente do indicativo e frases interrogativas curtas. Para aprendizes de português (pt-BR), dominar essa etapa permite construir conversas básicas sem complexidade excessiva, facilitando a integração em contextos sociais ou acadêmicos.
+## Introducción
+En A2 se espera poder **presentarse, describir la rutina, personas y lugares**, pedir cosas y mantener una conversación sencilla.
 
-## Explicação central com exemplos reais
-Em nível A2, a fala envolve:
-1. **Vocabulário funcional**: palavras para descrever pessoas (ex.: *homem*, *mulher*), objetos cotidianos (*cadeira*, *livro*) e ações simples (*comer*, *ler*).
-   - Exemplo: *"Eu como um sanduíche."*
-2. **Verbos no presente do indicativo**: estrutura básica para expressar hábitos ou ações atuais.
-   - Exemplo: *"Ela estuda português toda manhã."*
-3. **Frases interrogativas curtas**: uso de palavras como *onde*, *quem*, *qual* e *como*.
-   - Exemplo: *"Onde está o banheiro?"*
+## Explicación central
+### Presentarse
+*Oi, eu sou a Lucía. Sou argentina, de Córdoba. Tenho vinte anos. Moro em… Trabalho / estudo…*
+- La edad con **ter**: *Tenho 20 anos.*
 
-É comum usar estruturas simples, como a oração nominal (*Eu sou estudante*) ou frases com sujeito e verbo apenas (*Ela vai ao mercado*).
+### Rutina
+*Eu acordo às sete, tomo café, vou para o trabalho de ônibus…* — Secuencia: *primeiro, depois, em seguida, no fim*.
 
-## Erros comuns de hispanohablantes
-1. **Confusão entre preposições**: errar *em* (em português) por *a* ou *de*, que são mais usadas no espanhol.
-   - Exemplo incorreto: *"Vou na escola."* → Correto: *"Vou à escola."*
-2. **Uso excessivo do infinitivo**: em vez de flexionar o verbo, usar a forma base (*Eu querer ir*).
-   - Exemplo incorreto: *"Quero comer um bolo."* → Correto: *"Quero comer um bolo."* (neste caso, está correto, mas pode ser confuso em contextos mais complexos).
-3. **Agrupamento de artigos**: omitir o artigo definido (*o/a*) ou usá-lo incorretamente.
-   - Exemplo incorreto: *"Quero um café."* → Correto: *"Quero um café."* (neste caso, está correto; mas errar em frases como *O livro é interessante* pode causar confusão).
+### Describir personas y lugares
+- *Ela é alta, tem cabelo comprido e olhos verdes. É muito simpática.*
+- *Meu bairro é tranquilo. Tem uma praça e muitas lojas.*
+- **Ter** existencial en el habla: *Tem um mercado perto de casa* (= hay).
 
-## Comparação com o espanhol
-A diferença mais notável entre português e espanhol no nível A2 está na **flexão verbal**. No português, a conjugação do presente do indicativo varia conforme o sujeito (ex.: *Eu como*, *você come*), enquanto no espanhol há uma flexão mais rígida (*Yo como*, *tú comes*). Além disso, o uso de preposições é mais variado em português: por exemplo, *"ir para a escola"* (português) vs. *"ir a la escuela"* (espanhol). Essas diferenças exigem atenção à flexão e à seleção correta das preposições.
+### Pedir y ofrecer
+*Eu queria um café, por favor. / Você pode me ajudar? / Quer um pedaço de bolo?*
 
-## Exemplo extendido em contexto
-**Contexto**: Uma pessoa pergunta ao funcionário de um café onde comprar pão.
+### Mantener la conversación
+- *Desculpa, não entendi. Pode repetir? / Pode falar mais devagar?*
+- *E você?*
+- *Legal! / Que bom! / Nossa!*
 
-**Diálogo**:
-- **Cliente**: *Onde posso comprar pão?*
-- **Funcionário**: *Você pode ir ao supermercado do lado da esquina.*
-- **Cliente**: *O supermercado está aberto agora?*
-- **Funcionário**: *Sim, está. Eles vendem pão fresco todas as manhãs.*
+## Errores comunes de hispanohablantes
+1. ❌ *Eu sou 20 anos.* ✅ *Eu tenho 20 anos.*
+2. ❌ *Eu estoy bien.* ✅ *Eu estou bem.*
+3. ❌ *Muy bien* ✅ *Muito bem*.
+4. Saludar con *Buenas*: en Brasil *Oi! / Olá! / Bom dia! / Boa tarde! / Boa noite!*
 
-Neste exemplo, são usadas estruturas simples (verbos no presente), preposições corretas (*ao*, *do*) e perguntas diretas para transmitir informações essenciais. A comunicação é clara, mesmo sem vocabulário avançado.
+## Comparación con el español
+La estructura es muy parecida. Lo que más cambia es el vocabulario básico (*muito, bem, também, obrigado/obrigada*) y la pronunciación. *Obrigado* lo dice un hombre y *obrigada*, una mujer.
+
+## Ejemplo extendido en contexto
+*Oi! Eu sou o Martín, **tenho** 17 anos e **sou** de Rosário. **Moro** com meus pais e minha irmã. Todo dia **acordo** às seis e meia e **vou** para a escola de ônibus. No fim de semana **jogo** futebol com meus amigos. E você?*

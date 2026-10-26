@@ -1,44 +1,55 @@
-# Subjuntivo básico en portugués (nível B1)
+# Subjuntivo básico en portugués de Brasil (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/subjuntivo-basico`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores graves (por ejemplo, decía que el subjuntivo no tiene formas personales).
 
 ---
 
 ## Introducción
-El subjuntivo es un tiempo verbal que expresa deseos, dudas, hipótesis o situaciones no reales. En el nivel B1 de portugués brasileño (pt-BR), su estudio es clave para comunicarse con matices sutiles y evitar errores comunes al expresar ideas condicionales o subjetivas. A diferencia del español, en portugués el subjuntivo se usa con menos frecuencia, pero sigue siendo indispensable en contextos formales o cuando se requiere precisión semántica.
+El **subjuntivo** (*modo subjuntivo*) expresa deseo, duda, emoción, necesidad o hipótesis, como en español. El portugués tiene además un tiempo que el español casi perdió: el **futuro del subjuntivo**, muy usado después de *se* y *quando*.
 
 ## Explicación central
-El subjuntivo en portugués se emplea tras expresiones que indican deseos, obligaciones, dudas o hipótesis. Ejemplos reales:
-- **Quero que você venha comigo.** (Deseo que vengas conmigo.) → *Venha* es subjuntivo presente.
-- **É importante que ele estude mais.** (Es importante que estudie más.) → *Estude* es subjuntivo presente.
-- **Se eu tivesse dinheiro, compraria uma casa.** (Si tuviera dinero, compraría una casa.) → *Tivesse* y *compraria* son subjuntivo pretérito imperfeito y futuro, respectivamente.
+### Presente del subjuntivo
+Se forma desde la 1.ª persona del presente, cambiando la vocal: **-ar → -e**, **-er/-ir → -a**.
+| | falar (eu falo) | comer (eu como) | fazer (eu faço) |
+|---|---|---|---|
+| eu / você / ele | fal**e** | com**a** | faç**a** |
+| nós | fal**emos** | com**amos** | faç**amos** |
+| vocês / eles | fal**em** | com**am** | faç**am** |
 
-Los verbos en subjuntivo suelen seguir a conjunciones como *que*, *como se*, *para que* o expresiones de duda (*não sei se...*, *dúvida se...*). En portugués, el subjuntivo se forma cambiando la terminación del infinitivo (ej.: *vir → venha*) y en algunos casos, usando formas específicas como *tivesse* para el pretérito.
+Irregulares: **ser → seja**, **estar → esteja**, **ir → vá**, **dar → dê**, **saber → saiba**, **querer → queira**, **haver → haja**.
+
+Se usa después de:
+- **Deseo, pedido**: *Quero que você **venha**.*
+- **Emoción**: *Fico feliz que vocês **estejam** aqui.*
+- **Duda**: *Duvido que ele **saiba**.*
+- **Necesidad o juicio**: *É importante que nós **cheguemos** cedo.*
+- **Talvez** (antes del verbo): *Talvez ela **ligue** hoje.*
+- **Para que, embora, caso**: *Embora **esteja** cansado, vou sair.*
+
+### Imperfecto del subjuntivo
+Desde la 3.ª persona plural del pretérito perfeito: *falaram → falasse*, *fizeram → fizesse*, *foram → fosse*, *tiveram → tivesse*.
+- *Se eu **tivesse** tempo, viajaria.* — *Ela pediu que eu **fechasse** a porta.*
+
+### Futuro del subjuntivo (¡clave!)
+Desde la 3.ª plural del perfeito sin *-am*: *falaram → falar*, *fizeram → fizer*, *puderam → puder*, *foram → for*, *vieram → vier*, *tiveram → tiver*.
+- Después de **se** y **quando** (y *assim que, enquanto, sempre que*) para hechos futuros:
+  - *Se eu **puder**, vou à festa.* (español: «si puedo»)
+  - *Quando você **chegar**, me liga.* (español: «cuando llegues»)
 
 ## Errores comunes de hispanohablantes
-1. **Uso excesivo del indicativo:** Algunos hablantes de español usan el indicativo donde se requiere subjuntivo. Ejemplo incorrecto: *Quero que você vem comigo* (debería ser *venha*).
-2. **Confusión con el gerundio o infinitivo:** Frases como *Espero que você vai* (en vez de *você vá*) son frecuentes.
-3. **Omisión del subjuntivo tras "se":** En portugués, *se* puede desencadenar subjuntivo: *É bom que se estude mais*. Un hispanohablante podría decir *es bueno que estudie más*, pero en portugués se usa el subjuntivo.
+1. ❌ *Se eu posso, vou.* ✅ *Se eu puder, vou.*
+2. ❌ *Quando você chegue…* ✅ *Quando você chegar…*
+3. ❌ *Talvez ele vem.* ✅ *Talvez ele venha.*
+4. ❌ *seja que* para «sea que»: en portugués «o sea» es *ou seja*.
 
 ## Comparación con el español
-Aunque ambos idiomas usan el subjuntivo, hay diferencias clave:
-- **Triggers:** En portugués, el subjuntivo aparece tras *que* (sin negación), mientras que en español se usa tras *que* después de negaciones o dudas (*no creo que venga* vs. *creo que viene*).
-- **Formas verbales:** El subjuntivo presente en portugués es más simple: *você vá* (vs. *vaya* en español). En el pretérito, *tivesse* (portugués) vs. *tuviera* (español), pero con matices de uso.
-- **Uso del "se":** En portugués, *se* + subjuntivo expresa una acción hipotética (*Se você se esforçar...*) que no siempre ocurre en español.
+Presente e imperfecto se usan casi como en español («quiero que vengas» = *quero que você venha*). La gran diferencia es el **futuro del subjuntivo**: donde el español usa «si + presente» o «cuando + presente de subjuntivo», el portugués usa *se/quando + futuro do subjuntivo* (*se puder*, *quando chegar*).
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-Ana: *"O que você acha? É importante que ele **estude** mais antes do exame."*
-João: *"Sim, concordo. Se eu **tivesse** tempo, ajudaria ele também."*
-Ana: *"E se ele não **quiser** ir à festa? Talvez devamos ligar para confirmar."*
-
-En este diálogo:
-- *Estude* (subjuntivo presente) expresa una obligación.
-- *Tivesse* (pretérito imperfeito del subjuntivo) es parte de una hipótesis irreal.
-- *Quiser* (subjuntivo presente) sigue a *"e se"*, que desencadena el uso del subjuntivo en portugués.
-
-Dominar estas estructuras permite expresar ideas con mayor riqueza y precisión, esencial para alcanzar el nivel B1.
+*Minha mãe quer que eu **estude** medicina, mas talvez eu **faça** design. Quando eu **terminar** o ensino médio, vou decidir. Se eu **passar** no vestibular, vou morar em Porto Alegre. Seria ótimo se meus amigos **fossem** também!*

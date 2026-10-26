@@ -1,540 +1,273 @@
-# Idiomas — Portugués (Brasil) — falsos-amigos-con-espanol (cuestionario)
+# Portugués (Brasil) — falsos amigos (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/falsos-amigos-con-espanol/cuestionario_crudo.md`)
-> con una reconstrucción extensa de contenido. Los bloques 8 a 26 (19 de 26) carecían por
-> completo de `enunciado:` y, a diferencia de los bloques 1-7 (que sí mencionaban la palabra
-> portuguesa a traducir), no mencionaban en ningún campo cuál era el término portugués evaluado
-> — sólo dabas cuatro opciones en español y una respuesta, sin pregunta. Se reconstruyó cada
-> enunciado a partir de las `tags:` y de la palabra portuguesa mencionada en `pasos:` cuando
-> existía, o inferida del contexto cuando no. Se corrigieron también las comillas dobles
-> anidadas dentro de los ítems de `pasos:` en varios de estos bloques. El contenido lingüístico
-> en sí (traducciones y pares de falsos amigos) no se modificó, salvo para hacerlo evaluable.
+> Tema: `idiomas-extranjeros/portugues-br/falsos-amigos-con-espanol`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — falsos-amigos-con-espanol
+### 1 — esquisito
 
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1"
-  tags: ["importar", "confusão"]
-pasos:
-  - "Identificar el significado de 'importar' en portugués."
-  - "Comparar con su uso en español."
-respuestas_validas:
-  - "Esta cuestión no importa"
-  - "esta cuestión no importa"
-tipo: completar
-enunciado: "A frase 'Essa questão não importa' em português significa o mesmo que ________ em espanhol."
+  tags: ["falsos-amigos"]
+
+respuesta: "Esta comida está rara"
+tipo: "mc"
+opciones_explicitas: ["Esta comida está rara", "Esta comida está exquisita", "Esta comida está caliente"]
+
+enunciado: "«Essa comida está esquisita» significa:"
+
+explicacion: |
+  *Esquisito* = raro.
 ```
 
+### 2 — apelido
 
-
-### 2 — falsos-amigos-con-espanol
-
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1"
-  tags: ["chão", "suelo"]
-pasos:
-  - "Reconocer el significado de 'chão' en portugués."
-  - "Traducir al español con precisión."
-opciones_explicitas:
-  - "El suelo está muy limpio"
-  - "El cielo está muy limpio"
-  - "La silla está muy limpia"
-respuesta: "El suelo está muy limpio"
-tipo: mc
-enunciado: "A oração 'O chão está muito limpo' em português corresponde a ________ en español."
+  tags: ["falsos-amigos"]
+
+respuesta: "apodo"
+tipo: "mc"
+opciones_explicitas: ["apodo", "apellido", "dirección"]
+
+enunciado: "«Qual é o seu apelido?» pregunta por tu…"
+
+explicacion: |
+  *Apelido* = apodo; apellido = *sobrenome*.
 ```
 
+### 3 — sobrenome
 
-
-### 3 — falsos-amigos-con-espanol
-
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1"
-  tags: ["verdadeiro", "verdadero"]
-pasos:
-  - "Comparar el uso de 'verdadeiro' en portugués con 'verdadero' en español."
-  - "Identificar el contexto correcto."
-respuestas_validas:
-  - "É verdadeiro que você está cansado"
-  - "é verdadeiro que você está cansado"
-tipo: completar
-enunciado: "A oração '________ que você está cansado' em português usa o termo 'verdadeiro' corretamente."
+  tags: ["falsos-amigos"]
+
+respuesta: "Qual é o seu sobrenome?"
+tipo: "mc"
+opciones_explicitas: ["Qual é o seu sobrenome?", "Qual é o seu apelido?", "Qual é o seu nome de família?"]
+
+enunciado: "¿Cómo pedís el apellido de alguien?"
+
+explicacion: |
+  *Sobrenome* = apellido.
 ```
 
+### 4 — jantar
 
-
-### 4 — falsos-amigos-con-espanol
-
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A2"
-  tags: ["perder", "perder"]
-pasos:
-  - "Analisar o significado de 'perder' em portugués."
-  - "Traduzir ao contexto correto no espanhol."
-opciones_explicitas:
-  - "Perdí mi llave"
-  - "Perdemos el tren"
-  - "Perdió la oportunidad"
-respuesta: "Perdí mi llave"
-tipo: mc
-enunciado: "A frase 'Perdi minha chave' em português corresponde a ________ en español."
 ```
-
-
-
-### 5 — falsos-amigos-con-espanol
-
-```yaml
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1"
-  tags: ["bom", "bueno"]
-pasos:
-  - "Identificar el uso de 'bom' en portugués."
-  - "Traducir al español sin confusión."
-respuestas_validas:
-  - "Bueno, vamos começar"
-  - "bueno, vamos comenzar"
-tipo: completar
-enunciado: "A frase '________, vamos começar' em português usa o termo 'bom' corretamente."
+  tags: ["falsos-amigos"]
+
+respuesta: "jantar"
+tipo: "mc"
+opciones_explicitas: ["jantar", "cenar", "fazer a cena"]
+
+enunciado: "En el restaurante, a la noche: «Vamos ___?» (cenar)"
+
+explicacion: |
+  Cenar = *jantar*; *cena* = escena.
 ```
 
+### 5 — polvo
 
-
-### 6 — falsos-amigos-con-espanol
-
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1"
-  tags: ["papel", "papel"]
-pasos:
-  - "Reconocer el significado de 'papel' en portugués."
-  - "Traducir al español con precisión."
-opciones_explicitas:
-  - "El papel está encima de la mesa"
-  - "La persona tiene un papel importante"
-  - "El papel es muy útil"
-respuesta: "El papel está encima de la mesa"
-tipo: mc
-enunciado: "A oração 'O papel está em cima da mesa' em português corresponde a ________ en español."
+  tags: ["falsos-amigos"]
+
+respuesta: "Pedí pulpo a la parrilla"
+tipo: "mc"
+opciones_explicitas: ["Pedí pulpo a la parrilla", "Pedí polvo a la parrilla", "Pedí pollo a la parrilla"]
+
+enunciado: "«Pedi polvo grelhado» significa:"
+
+explicacion: |
+  *Polvo* = pulpo.
 ```
 
+### 6 — escritório
 
-
-### 7 — falsos-amigos-con-espanol
-
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "falsos-amigos-con-espanol"
-  nivel: "A2"
-  tags: ["importar", "importar"]
-pasos:
-  - "Compreender el uso de 'importar' en portugués."
-  - "Traducir al español con el significado correcto."
-respuestas_validas:
-  - "Importa muito para mim"
-  - "importa mucho para mí"
-tipo: completar
-enunciado: "A frase '________ muito para mim' em português usa o termo 'importar' corretamente."
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "Trabajo en una oficina"
+tipo: "mc"
+opciones_explicitas: ["Trabajo en una oficina", "Trabajo en un escritorio", "Trabajo en un taller"]
+
+enunciado: "«Trabalho num escritório» significa:"
+
+explicacion: |
+  *Escritório* = oficina.
 ```
 
+### 7 — oficina
 
-
-### 8 — falsos-amigos-con-espanol
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["terminologia", "sentimientos"]  
-pasos:  
-  - "Identificar el término portugués que se confunde con su equivalente en español."
-  - "Seleccionar la opción correcta de las opciones dadas."
-enunciado: "¿Cuál es la palabra portuguesa que expresa un sentimiento de nostalgia y añoranza sin equivalente exacto en español?"
-tipo: mc
-opciones_explicitas:  
-  - "saudade"  
-  - "melancolía"  
-  - "tristeza"  
-  - "nostalgia"  
-respuesta: "saudade"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "Llevé el auto al taller"
+tipo: "mc"
+opciones_explicitas: ["Llevé el auto al taller", "Llevé el auto a la oficina", "Llevé el auto al garaje de casa"]
+
+enunciado: "«Levei o carro para a oficina» significa:"
+
+explicacion: |
+  *Oficina* = taller mecánico.
 ```
 
-### 9 — falsos-amigos-con-espanol
+### 8 — grávida
+
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["alimentos", "confusión"]  
-pasos:  
-  - "Analizar el significado de 'churrasco' en portugués."
-  - "Relacionar con su equivalente en español."
-enunciado: "¿Cuál es el significado correcto de 'churrasco' en portugués?"
-tipo: mc
-opciones_explicitas:  
-  - "barbacoa"  
-  - "carne asada"  
-  - "parrilla"  
-  - "carnicería"  
-respuesta: "barbacoa"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "Estou grávida."
+tipo: "mc"
+opciones_explicitas: ["Estou grávida.", "Estou embaraçada.", "Estou embarazada."]
+
+enunciado: "¿Cómo se dice «Estoy embarazada»?"
+
+explicacion: |
+  *Embaraçada* = avergonzada.
 ```
 
-### 10 — falsos-amigos-con-espanol
+### 9 — largo
+
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "comunicación"]  
-pasos:  
-  - "Identificar el término en portugués que se parece a su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'falar'?"
-tipo: mc
-opciones_explicitas:  
-  - "hablar"  
-  - "decir"  
-  - "conversar"  
-  - "discutir"  
-respuesta: "hablar"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "La calle es muy ancha"
+tipo: "mc"
+opciones_explicitas: ["La calle es muy ancha", "La calle es muy larga", "La calle es muy corta"]
+
+enunciado: "«A rua é muito larga» significa:"
+
+explicacion: |
+  *Largo* = ancho; largo = *comprido*.
 ```
 
-### 11 — falsos-amigos-con-espanol
+### 10 — gorjeta
+
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["preposiciones", "sentimientos"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'gosto.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la traducción correcta de la expresión portuguesa 'gosto de'?"
-tipo: mc
-opciones_explicitas:  
-  - "me gusta"  
-  - "gosto de"  
-  - "gustarme"  
-  - "guste"  
-respuesta: "me gusta"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "deixar gorjeta"
+tipo: "mc"
+opciones_explicitas: ["deixar gorjeta", "deixar propina", "deixar troco"]
+
+enunciado: "¿Cómo se dice «dejar propina»?"
+
+explicacion: |
+  *Propina* = soborno; propina = *gorjeta*.
 ```
 
-### 12 — falsos-amigos-con-espanol
+### 11 — borracha
+
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "cerebro"]  
-pasos:  
-  - "Identificar la forma correcta de usar 'pensar' en una oración."
-  - "Seleccionar la opción que no refleja un falso amigo."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'pensar'?"
-tipo: mc
-opciones_explicitas:  
-  - "pensamiento"  
-  - "pensar"  
-  - "reflexionar"  
-  - "imaginar"  
-respuesta: "pensar"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "la goma de borrar"
+tipo: "mc"
+opciones_explicitas: ["la goma de borrar", "una botella", "la birome"]
+
+enunciado: "«Você me empresta a borracha?» pide…"
+
+explicacion: |
+  *Borracha* = goma de borrar.
 ```
 
-### 13 — falsos-amigos-con-espanol
+### 12 — acordar
+
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["lugares", "transporte"]  
-pasos:  
-  - "Relacionar el término portugués con su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es la traducción correcta de la palabra portuguesa 'aeroporto'?"
-tipo: mc
-opciones_explicitas:  
-  - "aeropuerto"  
-  - "terminal aérea"  
-  - "puerto aéreo"  
-  - "aeroestación"  
-respuesta: "aeropuerto"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "Me despierto a las seis"
+tipo: "mc"
+opciones_explicitas: ["Me despierto a las seis", "Me acuerdo a las seis", "Acuerdo a las seis"]
+
+enunciado: "«Acordo às seis todos os dias» significa:"
+
+explicacion: |
+  *Acordar* = despertarse.
 ```
 
-### 14 — falsos-amigos-con-espanol
+### 13 — brincar
+
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "acciones"]  
-pasos:  
-  - "Identificar el término en portugués que se confunde con su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'receber'?"
-tipo: mc
-opciones_explicitas:  
-  - "recibir"  
-  - "tomar"  
-  - "aceptar"  
-  - "llevar"  
-respuesta: "recibir"
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
+
+respuesta: "Los chicos están jugando"
+tipo: "mc"
+opciones_explicitas: ["Los chicos están jugando", "Los chicos están saltando", "Los chicos están brindando"]
+
+enunciado: "«As crianças estão brincando no parque» significa:"
+
+explicacion: |
+  *Brincar* = jugar.
 ```
 
-### 15 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["verbos", "comercio"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'vender.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'vender'?"
-tipo: mc
-opciones_explicitas:  
-  - "venta"  
-  - "vender"  
-  - "comprar"  
-  - "negociar"  
-respuesta: "vender"
-```
+### 14 — presunto
 
-### 16 — falsos-amigos-con-espanol
 ```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "lectura"]  
-pasos:  
-  - "Identificar el término en portugués que se parece a su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'ler'?"
-tipo: mc
-opciones_explicitas:  
-  - "leer"  
-  - "escribir"  
-  - "mirar"  
-  - "ver"  
-respuesta: "leer"
-```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "falsos-amigos-con-espanol"
+  nivel: "A1"
+  tags: ["falsos-amigos"]
 
-### 17 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["verbos", "comercio"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'comprar.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'comprar'?"
-tipo: mc
-opciones_explicitas:  
-  - "comprar"  
-  - "vender"  
-  - "tomar"  
-  - "llevar"  
-respuesta: "comprar"
-```
+respuesta: "jamón y queso"
+tipo: "mc"
+opciones_explicitas: ["jamón y queso", "supuesto queso", "pavo y queso"]
 
-### 18 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["adjetivos", "clima"]  
-pasos:  
-  - "Identificar el término en portugués que se confunde con su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cómo se escribe correctamente en español la palabra que en portugués es 'frio' (sin tilde)?"
-tipo: mc
-opciones_explicitas:  
-  - "frío"  
-  - "frio"  
-  - "frié"  
-  - "helado"  
-respuesta: "frío"
-```
+enunciado: "«Um sanduíche de presunto e queijo» es de…"
 
-### 19 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["adjetivos", "clima"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'calor.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la traducción correcta de la palabra portuguesa 'calor'?"
-tipo: mc
-opciones_explicitas:  
-  - "calor"  
-  - "caliente"  
-  - "fuego"  
-  - "sudor"  
-respuesta: "calor"
-```
-
-### 20 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "acciones"]  
-pasos:  
-  - "Identificar el término en portugués que se parece a su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es el significado correcto del verbo portugués 'pegar' (atención: no significa lo mismo que en español)?"
-tipo: mc
-opciones_explicitas:  
-  - "agarrar"  
-  - "pegar"  
-  - "tomar"  
-  - "coger"  
-respuesta: "agarrar"
-```
-
-### 21 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["verbos", "acciones"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'achado.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la traducción correcta de 'achado' en portugués?"
-tipo: mc
-opciones_explicitas:  
-  - "encontrado"  
-  - "achado"  
-  - "descubierto"  
-  - "hallado"  
-respuesta: "encontrado"
-```
-
-### 22 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "emociones"]  
-pasos:  
-  - "Identificar el término en portugués que se confunde con su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'envergonhar'?"
-tipo: mc
-opciones_explicitas:  
-  - "avergonzar"  
-  - "envergonhar"  
-  - "ruborizar"  
-  - "hacer sentir vergüenza"  
-respuesta: "avergonzar"
-```
-
-### 23 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["verbos", "acciones"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'fazer compras.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la traducción correcta de la expresión portuguesa 'fazer compras'?"
-tipo: mc
-opciones_explicitas:  
-  - "hacer compras"  
-  - "comprar cosas"  
-  - "ir de compras"  
-  - "llevar a comprar"  
-respuesta: "hacer compras"
-```
-
-### 24 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "acciones"]  
-pasos:  
-  - "Identificar el término en portugués que se parece a su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es otro significado correcto del verbo portugués 'pegar' (además de 'agarrar')?"
-tipo: mc
-opciones_explicitas:  
-  - "coger"  
-  - "pegar"  
-  - "tomar"  
-  - "agarrar"  
-respuesta: "coger"
-```
-
-### 25 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A1"  
-  tags: ["verbos", "sentimientos"]  
-pasos:  
-  - "Reconocer el error en la construcción de la frase con 'gustar.'"
-  - "Seleccionar la opción correcta."
-enunciado: "¿Cuál es la forma correcta de decir en español lo que en portugués es 'eu gosto de música'?"
-tipo: mc
-opciones_explicitas:  
-  - "me gusta"  
-  - "gusta a mí"  
-  - "gosto de"  
-  - "guste"  
-respuesta: "me gusta"
-```
-
-### 26 — falsos-amigos-con-espanol
-```
-metadata:  
-  materia: "portugues-br"  
-  tema: "falsos-amigos-con-espanol"  
-  nivel: "A2"  
-  tags: ["verbos", "mente"]  
-pasos:  
-  - "Identificar el término en portugués que se confunde con su equivalente en español."
-  - "Seleccionar la opción correcta de las dadas."
-enunciado: "¿Cuál es la traducción correcta del verbo portugués 'imaginar'?"
-tipo: mc
-opciones_explicitas:  
-  - "imaginar"  
-  - "pensar"  
-  - "soñar"  
-  - "visualizar"  
-respuesta: "imaginar"
+explicacion: |
+  *Presunto* = jamón.
 ```

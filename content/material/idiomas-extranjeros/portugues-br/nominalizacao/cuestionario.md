@@ -1,404 +1,234 @@
-# Idiomas — Portugués (Brasil) — nominalizacao (cuestionario)
+# Portugués (Brasil) — nominalización (cuestionario, 12 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/nominalizacao/cuestionario_crudo.md`)
-> con correcciones de contenido: doce bloques mc carecían de `enunciado:`; se añadió una
-> pregunta genérica. Se corrigieron además cuatro bloques cuyas etiquetas de sufijo no
-> coincidían con la respuesta real (tags "-za"/"-eza" para "coragem"/"maturidade", cuyos
-> sufijos reales son "-agem"/"-idade"); y dos bloques con "conscoiente" (error tipográfico de
-> "consciente") entre las opciones.
+> Tema: `idiomas-extranjeros/portugues-br/nominalizacao`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Nominalização de verbos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ção"]  
-pasos:  
-  - "Identificar o verbo na oração e aplicar a forma nominal."
-  - "Verificar se há uma alternativa com sufixo correto."
-respuestas_validas:  
-  - "produção"  
-  - "Produção"  
-tipo: completar  
-enunciado: "O aumento da _______ industrial no país tem gerado debates políticos."  
+### 1 — -ção
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 2 — Nominalização de adjetivos  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-dade"]  
-pasos:  
-  - "Localizar o adjetivo e transformá-lo em substantivo."
-  - "Confirmar a concordância do sufixo com o gênero do adjetivo."
-respuestas_validas:  
-  - "precocidade"  
-  - "Precocidade"  
-tipo: completar  
-enunciado: "A _______ dos jovens em assumir responsabilidades é preocupante."  
+respuesta: "a investigação"
+tipo: "mc"
+opciones_explicitas: ["a investigação", "a investigación", "o investigamento"]
 
+enunciado: "Nominalización de *investigar*:"
+
+explicacion: |
+  *-ar → -ação*.
 ```
 
-### 3 — Nominalização com sufixo –mento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-mento"]  
-pasos:  
-  - "Encontrar o verbo e aplicar a nominalização com –mento."
-  - "Excluir opções que usem sufixos incorretos."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'desenvolver'?"  
-respuesta: "desenvolvimento"  
-opciones_explicitas:  
-  - "desenvolvimento"  
-  - "desenvolvendo"  
-  - "desenvolvido"  
-tipo: mc  
+### 2 — -são
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 4 — Nominalização de verbos com –ção  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ção"]  
-pasos:  
-  - "Identificar o verbo e formar a nominalização com –ção."
-  - "Verificar se há outras opções com sufixos válidos."
-respuestas_validas:  
-  - "simplificação"  
-  - "Simplificação"  
-tipo: completar  
-enunciado: "A _______ dos processos burocráticos foi um dos objetivos principais."  
+respuesta: "a decisão"
+tipo: "mc"
+opciones_explicitas: ["a decisão", "a decidição", "o decidimento"]
 
+enunciado: "Nominalización de *decidir*:"
+
+explicacion: |
+  *Decidir → decisão*.
 ```
 
-### 5 — Nominalização de adjetivos com –za  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-agem"]  
-pasos:  
-  - "Converter o adjetivo em substantivo usando –za."
-  - "Excluir alternativas com sufixos incorretos."
-enunciado: "¿Cuál es la nominalización correcta del adjetivo 'corajoso'?"  
-respuesta: "coragem"  
-opciones_explicitas:  
-  - "coragem"  
-  - "courage"  
-  - "corajoso"  
-tipo: mc  
+### 3 — -mento
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 6 — Nominalização de verbos com –ura  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ura"]  
-pasos:  
-  - "Aplicar o sufixo –ura ao verbo adequado."
-  - "Confirmar se há outras formas válidas de nominalização."
-respuestas_validas:  
-  - "cuidado"  
-  - "Cuidado"  
-tipo: completar  
-enunciado: "O _______ com os pacientes é uma prática essencial na medicina."  
+respuesta: "o crescimento"
+tipo: "mc"
+opciones_explicitas: ["o crescimento", "a crescença", "o crecimento"]
 
+enunciado: "Nominalización de *crescer*:"
+
+explicacion: |
+  *Crescer → crescimento*.
 ```
 
-### 7 — Nominalização de adjetivos com –eza  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-idade"]  
-pasos:  
-  - "Transformar o adjetivo em substantivo com –eza."
-  - "Excluir opções que não seguem a regra do sufixo."
-enunciado: "¿Cuál es la nominalización correcta del adjetivo 'maduro'?"  
-respuesta: "maturidade"  
-opciones_explicitas:  
-  - "maturidade"  
-  - "madurez"  
-  - "maturar"  
-tipo: mc  
+### 4 — -agem
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 8 — Nominalização com –agem  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-agem"]  
-pasos:  
-  - "Identificar o verbo e aplicar a forma nominal com –agem."
-  - "Verificar se há outras opções com sufixos válidos."
-respuestas_validas:  
-  - "produção"  
-  - "Produção"  
-tipo: completar  
-enunciado: "A _______ de energia renovável cresceu significativamente."  
+respuesta: "a aprendizagem"
+tipo: "mc"
+opciones_explicitas: ["a aprendizagem", "o aprendizaje", "o aprendimento"]
 
+enunciado: "Nominalización de *aprender* (proceso):"
+
+explicacion: |
+  *A aprendizagem* (femenino).
 ```
 
-### 9 — Nominalização com –ência  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ência"]  
-pasos:  
-  - "Aplicar o sufixo –ência ao verbo adequado."
-  - "Excluir alternativas com sufixos incorretos."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'conscientizar'?"  
-respuesta: "consciência"  
-opciones_explicitas:  
-  - "consciência"  
-  - "consciente"  
-  - "conscientizar"  
-tipo: mc  
+### 5 — Regresivo
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 10 — Nominalização de verbos com –ção e –mento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ção", "-mento"]  
-pasos:  
-  - "Escolher entre os dois sufixos com base no contexto."
-  - "Confirmar a forma correta de nominalização."
-respuestas_validas:  
-  - "movimento"  
-  - "Movimento"  
-tipo: completar  
-enunciado: "O _______ da sociedade para direitos iguais é uma luta contínua."  
+respuesta: "o aumento"
+tipo: "mc"
+opciones_explicitas: ["o aumento", "a aumentação", "o aumentamento"]
 
+enunciado: "Nominalización de *aumentar*:"
+
+explicacion: |
+  Regresivo: *o aumento*.
 ```
 
-### 11 — Nominalização com –ura e –ência  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ura", "-ência"]  
-pasos:  
-  - "Escolher o sufixo que melhor se encaixa no contexto."
-  - "Verificar a forma correta de nominalização."
-respuestas_validas:  
-  - "cuidado"  
-  - "Cuidado"  
-tipo: completar  
-enunciado: "A _______ com os recursos naturais é essencial para o meio ambiente."  
+### 6 — Regresivo (2)
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 12 — Nominalização de verbos com –agem e –ção  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-agem", "-ção"]  
-pasos:  
-  - "Aplicar o sufixo correto ao verbo."
-  - "Confirmar a forma nominal adequada."
-respuestas_validas:  
-  - "produção"  
-  - "Produção"  
-tipo: completar  
-enunciado: "A _______ de novos produtos está sob análise."  
+respuesta: "a perda"
+tipo: "mc"
+opciones_explicitas: ["a perda", "a pérdida", "o perdimento"]
 
+enunciado: "Nominalización de *perder*:"
+
+explicacion: |
+  *Perder → a perda*.
 ```
 
-### 13 — Nominalização de adjetivos com –za e –eza  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-za", "-eza"]  
-pasos:  
-  - "Aplicar o sufixo adequado ao adjetivo."
-  - "Excluir opções com formas incorretas."
-respuestas_validas:  
-  - "coragem"  
-  - "Coragem"  
-tipo: completar  
-enunciado: "A _______ em ações é uma qualidade admirável."  
+### 7 — De adjetivo
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 14 — Nominalização com –ura e –ção  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ura", "-ção"]  
-pasos:  
-  - "Escolher o sufixo que melhor se encaixa no contexto."
-  - "Verificar a forma nominal correta."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'cuidar'?"  
-respuesta: "cuidado"  
-opciones_explicitas:  
-  - "cuidado"  
-  - "cuidar"  
-  - "cuidador"  
-tipo: mc  
+respuesta: "a possibilidade"
+tipo: "mc"
+opciones_explicitas: ["a possibilidade", "a possibilidad", "a possivelza"]
 
+enunciado: "Nominalización de *possível*:"
+
+explicacion: |
+  *-dade*.
 ```
 
-### 15 — Nominalização de adjetivos com –dade e –eza  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-dade", "-eza"]  
-pasos:  
-  - "Aplicar o sufixo adequado ao adjetivo."
-  - "Excluir alternativas com formas incorretas."
-respuestas_validas:  
-  - "maturidade"  
-  - "Maturidade"  
-tipo: completar  
-enunciado: "A _______ dos líderes influencia diretamente os resultados."  
+### 8 — Transformar oración
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 16 — Nominalização com –agem e –mento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-agem", "-mento"]  
-pasos:  
-  - "Escolher o sufixo que melhor se adapta ao contexto."
-  - "Verificar a forma nominal correta."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'produzir'?"  
-respuesta: "produção"  
-opciones_explicitas:  
-  - "produção"  
-  - "produtivo"  
-  - "produtividade"  
-tipo: mc  
+respuesta: "O rápido aumento dos preços"
+tipo: "mc"
+opciones_explicitas: ["O rápido aumento dos preços", "O aumentar rápido os preços", "Os preços do aumento rápido"]
 
+enunciado: "«Os preços aumentaram rapidamente» →"
+
+explicacion: |
+  El adverbio pasa a adjetivo: *o rápido aumento*.
 ```
 
-### 17 — Nominalização de verbos com –ência e –ura  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ência", "-ura"]  
-pasos:  
-  - "Aplicar o sufixo adequado ao verbo."
-  - "Excluir opções com formas incorretas."
-respuestas_validas:  
-  - "consciência"  
-  - "Consciência"  
-tipo: completar  
-enunciado: "A _______ de mudanças climáticas é urgente."  
+### 9 — Transformar oración (2)
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 18 — Nominalização com –ção e –dade  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ção", "-dade"]  
-pasos:  
-  - "Escolher o sufixo que melhor se encaixa no contexto."
-  - "Verificar a forma nominal correta."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'produzir'?"  
-respuesta: "produção"  
-opciones_explicitas:  
-  - "produção"  
-  - "produtivo"  
-  - "producir"  
-tipo: mc  
+respuesta: "A decisão do governo de reduzir impostos"
+tipo: "mc"
+opciones_explicitas: ["A decisão do governo de reduzir impostos", "O decidir do governo reduzindo", "A governo decisão"]
 
+enunciado: "«O governo decidiu reduzir impostos» →"
+
+explicacion: |
+  *A decisão de + infinitivo*.
 ```
 
-### 19 — Nominalização de adjetivos com –za e –dade  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["adjetivo", "-agem", "-dade"]  
-pasos:  
-  - "Aplicar o sufixo adequado ao adjetivo."
-  - "Excluir alternativas com formas incorretas."
-respuestas_validas:  
-  - "coragem"  
-  - "Coragem"  
-tipo: completar  
-enunciado: "A _______ de agir sem hesitação é valorizada na liderança."  
+### 10 — Género
 
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
-### 20 — Nominalização com –mento e –eza  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-mento", "-eza"]  
-pasos:  
-  - "Escolher o sufixo que melhor se adapta ao contexto."
-  - "Verificar a forma nominal correta."
-enunciado: "¿Cuál es la nominalización correcta del verbo 'desenvolver'?"  
-respuesta: "desenvolvimento"  
-opciones_explicitas:  
-  - "desenvolvimento"  
-  - "desenvolver"  
-  - "desenvolvido"  
-tipo: mc  
+respuesta: "a lavagem do carro"
+tipo: "mc"
+opciones_explicitas: ["a lavagem do carro", "o lavagem do carro", "a lavaje do carro"]
 
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  *-agem* = femenino.
 ```
 
-### 21 — Nominalização de verbos com –ura e –ência  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["verbo", "-ura", "-ência"]  
-pasos:  
-  - "Aplicar o sufixo adequado ao verbo."
-  - "Excluir opções com formas incorretas."
-respuestas_validas:  
-  - "cuidado"  
-  - "Cuidado"  
-tipo: completar  
-enunciado: "O _______ no uso de recursos é uma prática sustentável."  
+### 11 — Efecto
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "Da un tono impersonal y condensado"
+tipo: "mc"
+opciones_explicitas: ["Da un tono impersonal y condensado", "Vuelve el texto coloquial", "Agrega emoción"]
+
+enunciado: "¿Qué efecto típico tiene la nominalización?"
+
+explicacion: |
+  Impersonalidad y condensación.
+```
+
+### 12 — Exceso
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Encadenar muchas nominalizaciones seguidas siempre mejora la claridad del texto."
+
+explicacion: |
+  Falso: el exceso vuelve el texto pesado; conviene equilibrar con verbos.
 ```

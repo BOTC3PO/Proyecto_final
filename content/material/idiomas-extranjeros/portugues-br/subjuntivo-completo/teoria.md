@@ -1,51 +1,57 @@
-# Subjuntivo Completo en Portugués (Nivel B2)
+# Subjuntivo completo en portugués de Brasil (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/subjuntivo-completo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores graves (por ejemplo, decía que el subjuntivo no tiene formas personales).
 
 ---
 
-El **subjuntivo completo** es un tiempo verbal clave en el portugués que se utiliza para expresar deseos, dudas, obligaciones o situaciones hipotéticas. En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), su dominio permite construir frases más complejas y precisas al hablar o escribir sobre temas abstractos, opiniones o condiciones futuras. Su correcta aplicación es fundamental para evitar ambigüedades y transmitir intenciones con claridad.
+## Introducción
+En B2 se completa el sistema del subjuntivo: los **tiempos compuestos**, las **oraciones condicionales** y las conjunciones que lo exigen. Se repasa también la diferencia entre los tres tiempos simples: presente, imperfecto y futuro.
 
-## Uso del Subjuntivo Completo
-El subjuntivo completo se forma conjugando los verbos en **formas no personales** (infinitivo, gerundio o participio) y se usa tras expresiones que implican **deseo**, **necesidad**, **sugerencia**, **duda** o **condición hipotética**. Ejemplos reales en portugués:
+## Explicación central
+### Tiempos simples (repaso)
+| | presente | imperfeito | futuro |
+|---|---|---|---|
+| falar | fale | falasse | falar |
+| fazer | faça | fizesse | fizer |
+| ser | seja | fosse | for |
+| ter | tenha | tivesse | tiver |
+| ir | vá | fosse | for |
+| poder | possa | pudesse | puder |
 
-1. **Deseo**: *Espero que você consiga um emprego rápido.* (Espero que logres un trabajo pronto.)
-2. **Necesidad**: *É preciso que você estude mais para a prova.* (Es necesario que estudies más para el examen.)
-3. **Duda**: *Duvido que ele tenha terminado o projeto.* (Dudo que haya terminado el proyecto.)
-4. **Condicional hipotético**: *Se eu tivesse dinheiro, compraria uma casa.* (Si tuviera dinero, compraría una casa.)
+### Tiempos compuestos (ter + particípio)
+- **Pretérito perfeito**: *tenha falado*: *Espero que você **tenha gostado**.*
+- **Mais-que-perfeito**: *tivesse falado*: *Se eu **tivesse estudado**, teria passado.*
+- **Futuro composto**: *tiver falado*: *Quando você **tiver terminado**, me avise.*
 
-**Nota:** En portugués, el subjuntivo completo no tiene formas personales como en español; siempre se usa la forma del infinitivo o gerundio. Por ejemplo:
-- *Quero que você vá ao mercado.* (Quiero que vayas al mercado) → **"vá"** es el subjuntivo.
+### Oraciones condicionales
+| Tipo | Condición | Resultado |
+|---|---|---|
+| Real (futuro) | *Se + futuro do subjuntivo*: *Se chover,* | *presente/futuro*: *ficamos em casa.* |
+| Hipotética | *Se + imperfeito do subjuntivo*: *Se eu fosse você,* | *futuro do pretérito*: *aceitaria.* |
+| Irreal pasada | *Se + mais-que-perfeito*: *Se eu tivesse sabido,* | *teria + particípio*: *teria ajudado.* |
 
-## Errores Comunes de Hispanohablantes
-Los hablantes de español suelen cometer errores al aplicar el subjuntivo en portugués, especialmente porque ambos idiomas lo usan, pero con diferencias significativas:
+### Conjunciones con subjuntivo
+- **Siempre**: *para que, a fim de que, embora, mesmo que, ainda que, caso, contanto que, a não ser que, sem que, antes que*.
+- **Con futuro del subjuntivo**: *se, quando, assim que, logo que, enquanto, sempre que, conforme* (para el futuro).
+- *Talvez*: antes del verbo, subjuntivo; después, indicativo: *Talvez ele **venha** / Ele vem, talvez.*
 
-1. **Confusión entre subjuntivo y infinitivo**: En portugués, después de *espero que*, se usa el subjuntivo (*você vá*), no el infinitivo (*você ir*).
-2. **Uso incorrecto de "que"**: En expresiones como *é importante que você estude*, es obligatorio usar el subjuntivo (*estude*) tras *que*.
-3. **Falta de concordancia con el sujeto**: Si el sujeto después de *que* es singular, el verbo debe ser singular: *Espero que ele vá ao cinema.*
+### Relativas con antecedente indefinido
+*Procuro alguém que **fale** alemão.* (no sé si existe) / *Conheço alguém que **fala** alemão.* (existe)
 
-## Comparación con el Español
-Aunque ambos idiomas usan el subjuntivo para expresar dudas o deseos, existen diferencias clave:
+## Errores comunes de hispanohablantes
+1. ❌ *Caso você precisar…* ✅ *Caso você **precise**…* (*caso* va con presente o imperfeito del subjuntivo, no con futuro).
+2. ❌ *Se eu teria tempo…* ✅ *Se eu tivesse tempo…*
+3. ❌ *Quando eu terei dinheiro…* ✅ *Quando eu tiver dinheiro…*
+4. ❌ *Mesmo que ele vem…* ✅ *Mesmo que ele venha…*
 
-- **En portugués**, el subjuntivo completo se usa tras *que* en todas las construcciones que implican **deseo**, **necesidad** o **hipótesis**, mientras que en español esto depende de la estructura.
-  - Ejemplo (portugués): *Acho que ele devia estar aqui.* (Creo que debería estar aquí.)
-  - Ejemplo (español): *Creo que debe estar aquí.*
+## Comparación con el español
+El portugués conserva el **futuro del subjuntivo** (*quando tiver*, *se puder*) y lo usa en el habla cotidiana; el español lo reemplaza por el presente del subjuntivo («cuando tenga») o el presente del indicativo («si puedo»). Además, *caso* («en caso de que») pide subjuntivo pero nunca futuro.
 
-- **En portugués**, el subjuntivo completo no se usa tras verbos como *saber* o *dizer* (a menos que haya una duda). En cambio, en español, es común:
-  - Portugués: *Ela diz que *ele está bem*.* (Ella dice que *él está bien*.) → Usar el indicativo.
-  - Español: *Ella dice que *está bien*.*
-
-## Ejemplo Extendido en Contexto
-**Diálogo:**
-— *Eu acho que é importante que você converse com o chefe antes de tomar uma decisão.* (Creo que es importante que hables con el jefe antes de tomar una decisión.)
-— *Sim, concordo. Se eu *tivesse* mais tempo, consultaria todos os colegas.* (Sí, estoy de acuerdo. Si tuviera más tiempo, consultaría a todos los compañeros.)
-
-**Explicación:**
-- *Converse* y *tivesse* son formas del subjuntivo completo.
-- En la segunda oración, se usa el subjuntivo hipotético (*tivesse*) para expresar una situación no real (no tiene más tiempo).
-
-Dominar este tiempo permite estructurar ideas con mayor precisión y adaptarse a situaciones formales o informales en portugués brasileño.
+## Ejemplo extendido en contexto
+*Caso você **precise** de ajuda, me liga. Quando você **tiver terminado** o relatório, manda para o chefe. Se eu **tivesse sabido** do problema antes, **teria resolvido** tudo. Embora **seja** difícil, vamos conseguir — contanto que **trabalhemos** juntos.*

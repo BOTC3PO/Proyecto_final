@@ -1,39 +1,50 @@
-# Falsos amigos entre o português e o espanhol (nível A1-A2)
+# Falsos amigos entre el portugués y el español (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/falsos-amigos-con-espanol`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: se amplió la tabla de falsos amigos y se corrigieron ejemplos.
 
 ---
 
-**Introducción breve**
-Los falsos amigos son palabras que parecen similares en dos idiomas pero tienen significados diferentes. En el nivel A1-A2, es común que los hispanohablantes confundan términos como *embarcar* o *verdadeiro*, creyendo que significan lo mismo que en español, cuando en realidad su uso y acepción pueden variar. Reconocer estos errores ayuda a evitar malentendidos básicos en la comunicación cotidiana.
+## Introducción
+Los **falsos amigos** son palabras que se parecen en portugués y en español pero significan otra cosa. Como los dos idiomas se parecen tanto, son una de las mayores fuentes de malentendidos (y de situaciones graciosas).
 
-**Explicación central con ejemplos reales en português (pt-BR)**
-Algunos falsos amigos frecuentes entre el español y el portugués incluyen:
-- **Embarcar**: En español significa *embarcar* (subir a un barco o iniciar algo), pero en portugués, *embarcar* significa *subir a un avión, tren o barco* (por ejemplo: "Vou embarcar no voo 123").
-- **Verdadeiro**: En portugués, *verdadeiro* significa *cierto* o *auténtico*, mientras que en español, *verdadero* puede significar *real* (ej.: "Es un producto verdadero") o *cierto*. Por ejemplo: "A notícia é verdadeira" (en portugués) = "La noticia es cierta", pero "É um homem verdadeiro" (português) = "Es un hombre real" (español).
-- **Importar**: En español, *importar* significa *importar* (traer mercancía), pero en portugués también puede significar *ser importante* (ej.: "Isso importa muito" = "Esto es muy importante").
+## Explicación central
+| Portugués | Significa | No significa | «X» en español se dice |
+|---|---|---|---|
+| **esquisito** | raro, extraño | exquisito | exquisito = *delicioso, gostoso* |
+| **apelido** | apodo | apellido | apellido = *sobrenome* |
+| **borracha** | goma de borrar, caucho | borracha | borracha = *bêbada* |
+| **polvo** | pulpo | polvo | polvo = *pó* |
+| **cena** | escena | cena | cena = *jantar* |
+| **oficina** | taller (mecánico) | oficina | oficina = *escritório* |
+| **escritório** | oficina | escritorio (mueble) | escritorio = *escrivaninha* |
+| **firma** | empresa | firma | firma = *assinatura* |
+| **embaraçada** | avergonzada | embarazada | embarazada = *grávida* |
+| **largo** | ancho | largo | largo = *comprido* |
+| **propina** | soborno | propina | propina = *gorjeta* |
+| **copo** | vaso (para beber) | copo | — |
+| **vaso** | maceta / inodoro | vaso | vaso = *copo* |
+| **rato** | ratón | rato (momento) | rato = *momento, instante* |
+| **acordar** | despertarse | acordar | acordar = *combinar, lembrar* |
+| **brincar** | jugar (niños), bromear | brincar (saltar) | brincar = *pular* |
+| **presunto** | jamón | presunto | presunto = *suposto* |
+| **talher** | cubierto | taller | taller = *oficina* |
+| **ninho** | nido | niño | niño = *menino, criança* |
+| **pegar** | agarrar, tomar | pegar (golpear) | pegar = *bater* |
 
-**Errores comunes de hispanohablantes aprendiendo este punto**
-1. **Confusión entre "embarcar" y "embarcar"**: Un hablante de español podría decir *embarcamos al barco* (portugués), cuando la forma correcta es *subimos ao barco*.
-2. **Uso incorrecto de "verdadeiro"**: Creer que *verdadeiro* siempre significa *verdadero* (como en español) y usarlo para describir algo real, sin considerar su uso como *cierto*.
-3. **Malinterpretación de "importar"**: Pensar que *importar* solo se usa en contextos comerciales, ignorando su sentido de *importancia*.
+## Errores comunes de hispanohablantes
+1. Decir *A comida está esquisita* creyendo que es un elogio (significa «está rara»).
+2. Preguntar *Qual é o seu apelido?* para pedir el apellido (se pide *sobrenome*).
+3. Pedir *a cena* en un restaurante (es *o jantar*).
+4. Decir *Estou embaraçada* para anunciar un embarazo (es *Estou grávida*).
 
-**Comparación con el español cuando ayuda a fijar la diferencia**
-- En español, *embarcar* es más amplio (puede significar "empezar algo" o "subir a un barco"), mientras que en portugués se usa exclusivamente para *subir a un medio de transporte*.
-- El verbo *importar* en español no tiene la acepción de *"ser importante"*; esta función corresponde a *importar* (verbo) y *importante* (adjetivo).
+## Comparación con el español
+La mayoría de las palabras parecidas sí significan lo mismo (*casa, mesa, livro*), y eso da confianza; pero conviene aprender estas excepciones de memoria, con un ejemplo cada una.
 
-**Ejemplo extendido en contexto**
-*Diálogo:*
-— O que você achou do filme?
-— Foi muito verdadeiro. As cenas me deixaram emocionado.
-— Ah, entendo! Acho que importa muito como as histórias são contadas.
-
-*Explicación:*
-- *Verdadeiro* aquí se usa para describir algo *cierto o auténtico* (como el español *verdadero*), pero en otros contextos podría significar "real".
-- *Importa muito* significa *"es muy importante"*, un uso que no existe en español como verbo solo.
-
-Dominar estos falsos amigos permite evitar confusiones básicas y mejorar la comprensión de textos cotidianos, como anuncios o conversaciones informales.
+## Ejemplo extendido en contexto
+*Hoje acordei cedo e fui ao **escritório**. Ao meio-dia, comi **polvo** num restaurante — estava **delicioso**, não **esquisito**! À noite, no **jantar**, contei uma **cena** engraçada do trabalho: meu chefe deixou a **borracha** cair no **copo** de suco.*

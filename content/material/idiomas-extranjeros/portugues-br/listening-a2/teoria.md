@@ -1,56 +1,47 @@
-# Escuchar en el nivel A2: Fundamentos para comprensión oral
+# Comprensión auditiva en portugués de Brasil (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/listening-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
-**1. Introducción breve**
-El nivel A2 del Marco Común Europeo de Referencia para las Lenguas (MCER) se enfoca en la capacidad de entender frases y expresiones simples relacionadas con necesidades cotidianas, como compras, horarios o presentaciones personales. La comprensión auditiva es fundamental en este nivel para interactuar con entornos reales, ya sea mediante conversaciones cortas, instrucciones básicas o mensajes de voz.
+## Introducción
+En A2 se espera entender **diálogos cortos y claros** sobre la vida diaria: compras, comida, horarios, direcciones, el tiempo, la familia. Lo importante es captar los **datos clave** (números, lugares, horas).
 
-**2. Explicación central: Estrategias y ejemplos en portugués-br (pt-BR)**
-En el A2, los estudiantes deben aprender a captar palabras clave, reconocer sonidos repetitivos (como preposiciones o artículos) y seguir la estructura de oraciones sencillas. Por ejemplo:
+## Explicación central
+### Sonidos del portugués de Brasil que confunden
+- **-e** final suena *i*: *leite* ≈ «leiti», *noite* ≈ «noiti».
+- **-o** final suena *u*: *obrigado* ≈ «obrigadu».
+- **t** y **d** antes de *i* (o *e* final) suenan **ch** y **y/dj** en gran parte de Brasil: *tia* ≈ «chia», *dia* ≈ «djia», *noite* ≈ «noichi».
+- **r** inicial y **rr** suenan como una *j* suave: *Rio* ≈ «Jio», *carro* ≈ «cajo».
+- **l** final suena *u*: *Brasil* ≈ «Brasiu».
+- Vocales **nasales**: *pão, mãe, bom, sim*.
 
-- **Ejemplo 1:**
-  *A: "Você quer um café?"* (¿Quieres un café?)
-  *B: "Sim, por favor."* (Sí, por favor.)
-  Aquí, la palabra clave es *"café"*, y se debe enfocar en la estructura de preguntas cortas.
+### Reducciones del habla
+*tô* (estou), *tá* (está), *pra* (para), *cê* (você), *né* (não é).
 
-- **Ejemplo 2:**
-  *A: "O ônibus para o centro sai às dez?"* (¿El autobús al centro sale a las diez?)
-  *B: "Não, sai às onze."* (No, sale a las once.)
-  En este caso, el oyente debe distinguir entre *"dez"* (diez) y *"onze"* (once), incluso si la pronunciación se parece.
+### Números y horas
+- *duas* (2 femenino: *duas horas*), *meia* = seis en los números de teléfono y «media» en las horas: *meio-dia e meia* (12:30).
+- *São três e quinze* (3:15). *Quinze para as oito* (7:45).
 
-Además, es útil prestar atención a marcadores de tiempo (*ontem*, *amanhã*) o lugares (*na farmácia*, *no banco*), que ayudan a contextualizar el mensaje.
+### Estrategias
+1. Leer la pregunta y buscar la palabra clave.
+2. No traducir todo: quedarse con números, lugares y horas.
+3. Atención a las correcciones: *Não, desculpa, é na terça*.
 
-**3. Errores comunes de hispanohablantes**
-Los hablantes nativos de español suelen confundir:
-- **Palabras similares con significados diferentes:** Por ejemplo, *"ver"* (ver) en portugués y *"vem"* (viene) pueden sonar igual si se pronuncian rápido.
-- **Pronunciación nasal:** El portugués tiene vocales nasales (*ã*, *õ*) que no existen en español. Por ejemplo, *"caminhão"* (camión) tiene una vocal nasal prolongada.
-- **Uso de preposiciones:** En español se dice *"llevar al médico"*, pero en portugués es *"levar ao médico"*.
+## Errores comunes de hispanohablantes
+1. No reconocer *tia/dia* pronunciados «chia/djia».
+2. Confundir *meia* (seis) en un número de teléfono.
+3. Confundir *avó* (abuela) y *avô* (abuelo): la vocal abierta o cerrada cambia el sentido.
 
-**4. Comparación con el español**
-Algunas palabras son idénticas, como *agradecer* o *falso amigo*, pero su uso puede variar:
-- **Ejemplo 1:**
-  - Español: *"Hoy tengo que ir al médico."*
-  - Portugués: *"Hoje tenho que ir ao médico."* (Se usa *"ao"* en lugar de *"al"*.).
-- **Ejemplo 2:**
-  - Español: *"¿Qué hora es?"*
-  - Portugués: *"Que horas são?"* (La forma "horas" se pluraliza, mientras que en español se mantiene singular en preguntas simples).
+## Comparación con el español
+Muchas palabras se entienden por escrito, pero la pronunciación brasileña (vocales reducidas, nasales, *t/d* como «ch/dj», *r* como «j») hace que al principio cueste reconocerlas al oírlas.
 
-**5. Ejemplo extendido en contexto**
-*Diálogo entre dos amigos en un café:*
-
-**A:** *Oi, João! Você chegou cedo hoje.* (¡Hola, João! Llegaste temprano hoy.)
-**B:** *Sim, eu estava com tempo livre. O que você vai tomar?* (Sí, tenía tiempo libre. ¿Qué vas a tomar?)
-**A:** *Um suco de laranja, por favor.* (Un zumo de naranja, por favor.)
-**B:** *Claro! E o café? Vai querer um também?* (¡Claro! Y el café, ¿quieres uno también?)
-**A:** *Não, obrigado. Estou com pressa agora.* (No, gracias. Ahora tengo prisa.)
-
-En este diálogo, se usan frases cotidianas y estructuras simples como *"vai querer"*, que en español sería *"¿quiere"*. Prestar atención a las preposiciones (*ao*, *com*) y al uso de verbos modales (*vai*) es clave para comprender el mensaje.
-
----
-Este enfoque ayuda a los estudiantes a desarrollar la confianza necesaria para escuchar y participar en situaciones reales, fortaleciendo su capacidad comunicativa en portugués-br.
+## Ejemplo extendido en contexto
+*Áudio: «— Bom dia! Um pão de queijo e um café com leite, por favor. — São doze reais. — Aqui está. — Obrigado!»*
+**Claves:** *pão de queijo*, *café com leite*, *doze reais* (12 reales).

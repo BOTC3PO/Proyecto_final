@@ -1,61 +1,51 @@
-# Presente do Indicativo no Português (Níveis A1-A2)
+# Presente del indicativo en portugués de Brasil (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/presente-indicativo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-## Introdução
-O presente do indicativo é o tempo verbal mais básico e essencial para descrever ações que ocorrem **agora**, hábitos ou verdades gerais. No nível A1-A2, sua compreensão permite expressar ideias simples como "Eu como frutas" (ação habitual), "Ele trabalha no banco" (fato atual) ou "O sol brilha" (verdade universal). É a base para comunicação cotidiana e interações básicas em português.
+## Introducción
+El **presente do indicativo** expresa hábitos, hechos y estados actuales: *Eu **moro** em São Paulo. Ela **trabalha** num banco.* En Brasil se usa **você** (con verbo en 3.ª persona) en lugar de *tu* en la mayor parte del país, y **a gente** («nosotros», también con 3.ª persona del singular) es muy frecuente en el habla.
 
-## Explicação Central
-No português, o presente do indicativo é formado com **radicais verbais** + **terminações específicas**, que variam conforme o grupo de conjugação. Veja exemplos:
+## Explicación central
+### Verbos regulares
+| | falar (-ar) | comer (-er) | partir (-ir) |
+|---|---|---|---|
+| eu | fal**o** | com**o** | part**o** |
+| você / ele / ela / a gente | fal**a** | com**e** | part**e** |
+| nós | fal**amos** | com**emos** | part**imos** |
+| vocês / eles / elas | fal**am** | com**em** | part**em** |
 
-### 1. Verbos regulares
-- **Terminação -ar**:
-  *falar* (eu falo, tu falas, ele fala, nós falamos, vós falais, eles falam)
-  Exemplo: *"Ela fala português com amigos."*
+(*Tu falas / comes / partes* se usa en algunas regiones, como el sur y el norte de Brasil.)
 
-- **Terminação -er**:
-  *comer* (eu como, tu comes, ele come, nós comemos, vós comeis, eles comem)
-  Exemplo: *"Nós comemos pão no café da manhã."*
+### Irregulares frecuentes
+- **ser**: sou, é, somos, são — **estar**: estou, está, estamos, estão
+- **ter**: tenho, tem, temos, têm — **ir**: vou, vai, vamos, vão
+- **fazer**: faço, faz, fazemos, fazem — **poder**: posso, pode, podemos, podem
+- **querer**: quero, quer, queremos, querem — **dizer**: digo, diz, dizemos, dizem
+- **ver**: vejo, vê, vemos, veem — **vir**: venho, vem, vimos, vêm
+- **dar**: dou, dá, damos, dão — **saber**: sei, sabe, sabemos, sabem
 
-- **Terminação -ir**:
-  *viver* (eu vivo, tu vivas, ele vive, nós vivemos, vós vivais, eles vivem)
-  Exemplo: *"Eles vivem em São Paulo."*
+### Usos
+- Hábitos: *Eu **acordo** às sete.*
+- Verdades generales: *A água **ferve** a 100 graus.*
+- Futuro próximo con expresión de tiempo: *Amanhã eu **viajo** para o Rio.*
+- Acción en curso (en Brasil se prefiere *estar + gerúndio*): *Agora eu **estou estudando**.*
 
-### 2. Verbos irregulares comuns
-- **ser** (eu sou, tu és, ele é, nós somos, vós sois, eles são):
-  Exemplo: *"Eu sou estudante."*
+## Errores comunes de hispanohablantes
+1. ❌ *eu tengo* ✅ *eu tenho*; ❌ *eu puedo* ✅ *eu posso*.
+2. ❌ *você tienes* / *você tens* ✅ *você tem* (3.ª persona).
+3. ❌ *a gente vamos* (coloquial, pero no estándar) ✅ *a gente vai* / *nós vamos*.
+4. Confundir *vem* (él viene) con *vêm* (ellos vienen) y *tem* con *têm*.
 
-- **estar** (eu estou, tu estás, ele está, nós estamos, vós estáis, eles estão):
-  Exemplo: *"Ela está feliz hoje."*
+## Comparación con el español
+Las terminaciones son parecidas, pero en Brasil la 2.ª persona de confianza es **você** con verbo en 3.ª persona («você fala» = «vos hablás / tú hablas»). La 1.ª del singular de varios irregulares cambia: *faço* (hago), *digo*, *posso* (puedo), *sei* (sé).
 
-- **ter** (eu tenho, tu tens, ele tem, nós temos, vós tendes, eles têm):
-  Exemplo: *"Nós temos um cachorro."*
-
-## Erros Comuns de Hispanohablantes
-1. **Confusão com o passado**: Alguns hispanohablantes usam formas do pretérito perfeito (ex.: *comi*) em vez do presente para ações atuais, como *"Eu comei frutas"*, quando o correto é *"Eu como frutas."*
-2. **Terminações incorretas**: Verbos terminados em "-er" podem ser confundidos com seus equivalentes no espanhol (ex.: *comer* no português vs. *comer* no espanhol, mas a conjugação difere).
-3. **Uso de "haber"**: No português, o verbo "ter" substitui "haber" em construções como *"Eu tenho um livro"* (não *"Eu haber un libro"*).
-
-## Comparação com o Espanhol
-- **Semelhanças**: Ambos têm estruturas similares para verbos regulares e usam o presente do indicativo para ações atuais. Ex.: *falar* (português) vs. *hablar* (español).
-- **Diferenças**:
-  - Terminações: No português, verbos terminados em "-er" têm formas como *comemos* (nós comemos), enquanto no espanhol é *comemos*.
-  - Verbo "estar": No português, *"Ela está aqui"* usa a forma de infinitivo (*estar*) + partícula (*aqui*), diferentemente do inglês.
-  - Ausência de preterito perfeito em alguns contextos: No português, preferem-se formas como *"Eu trabalho"* (ação atual) ao invés de *"Trabalhei"* (ação concluída).
-
-## Exemplo Extendido em Contexto
-**Diálogo no café da manhã**:
-- *Maria*: "Bom dia! Você já comeu?"
-- *João*: "Não, ainda não. Eu como pão e queijo."
-- *Maria*: "E você trabalha aqui todos os dias?"
-- *João*: "Sim, eu trabalho no escritório do centro."
-- *Maria*: "O café está bom hoje, não é?"
-- *João*: "Sim, ele está muito saboroso!"
-
-Neste exemplo, o presente do indicativo é usado para descrever ações atuais (*como*, *trabalha*) e hábitos (*come*), além de expressões gerais como *"O café está bom"*.
+## Ejemplo extendido en contexto
+*Eu **sou** argentina, mas **moro** em Florianópolis. Todo dia eu **acordo** cedo e **vou** à praia. Meu namorado **trabalha** num restaurante e **faz** uma moqueca deliciosa. A gente **tem** dois cachorros. E você, onde **mora**?*
