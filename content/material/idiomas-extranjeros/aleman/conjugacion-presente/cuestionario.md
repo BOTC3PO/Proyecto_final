@@ -1,435 +1,253 @@
-# Idiomas — Alemán — conjugacion-presente (cuestionario)
+# Alemán — presente (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/conjugacion-presente/cuestionario_crudo.md`)
-> con correcciones de contenido: (1) los 25 bloques carecían por completo de `enunciado:`, se
-> redactó una oración alemana distinta para cada uno usando el pronombre y verbo indicados en
-> `tags:`; (2) los bloques 6 ("kommen"/er) y 11 ("trinken"/ihr) incluían en `respuestas_validas:`
-> una forma verbal de otra persona gramatical marcada como "Error intencional para distractor" —
-> se eliminó, dejando sólo la forma correcta; (3) el bloque 25 ("wissen"/ihr) pedía la respuesta
-> "weißt", que es la conjugación de segunda persona singular (du), no plural (ihr) — se corrigió
-> a "wisst".
+> Tema: `idiomas-extranjeros/aleman/conjugacion-presente`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Konjugation von "haben"  
-```yaml
+### 1 — ich
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["haben", "ich"]
-pasos:
-  - "Completa el verbo en la tercera persona del singular."
-explicacion: "El verbo 'haben' se conjuga como 'hat' en la tercera persona del singular (er/sie/es)."
-tipo: completar
-respuestas_validas:
-  - "hat"
-  - "Hat"
-enunciado: "Er ___ ein neues Auto."
+  tags: ["presente"]
+
+respuesta: "wohne"
+tipo: "mc"
+opciones_explicitas: ["wohne", "wohnst", "wohnt"]
+
+enunciado: "Ich ___ in Berlin. (wohnen)"
+
+explicacion: |
+  *Ich -e*.
 ```
 
-### 2 — Konjugation von "geben"  
-```yaml
+### 2 — du
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["geben", "du"]
-pasos:
-  - "Completa el verbo en la segunda persona del singular."
-explicacion: "El verbo 'geben' se conjuga como 'gibst' en la segunda persona del singular (du)."
-tipo: completar
-respuestas_validas:
-  - "gibst"
-  - "Gibst"
-enunciado: "Du ___ mir das Buch."
+  tags: ["presente"]
+
+respuesta: "machst"
+tipo: "mc"
+opciones_explicitas: ["machst", "macht", "machen"]
+
+enunciado: "Was ___ du heute? (machen)"
+
+explicacion: |
+  *Du -st*.
 ```
 
-### 3 — Konjugation von "machen"  
-```yaml
+### 3 — -t raíz
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["machen", "wir"]
-pasos:
-  - "Completa el verbo en la primera persona del plural."
-explicacion: "El verbo 'machen' se conjuga como 'machen' en la primera persona del plural (wir)."
-tipo: completar
-respuestas_validas:
-  - "machen"
-  - "Machen"
-enunciado: "Wir ___ unsere Hausaufgaben."
+  tags: ["presente"]
+
+respuesta: "arbeitet"
+tipo: "mc"
+opciones_explicitas: ["arbeitet", "arbeitt", "arbeit"]
+
+enunciado: "Er ___ viel. (arbeiten)"
+
+explicacion: |
+  Raíz en *-t*: *-et*.
 ```
 
-### 4 — Konjugation von "sein"  
-```yaml
+### 4 — e→i
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["sein", "ihr"]
-pasos:
-  - "Completa el verbo en la segunda persona del plural."
-explicacion: "El verbo 'sein' se conjuga como 'seid' en la segunda persona del plural (ihr)."
-tipo: completar
-respuestas_validas:
-  - "seid"
-  - "Seid"
-enunciado: "Ihr ___ meine besten Freunde."
+  tags: ["presente"]
+
+respuesta: "spricht"
+tipo: "mc"
+opciones_explicitas: ["spricht", "sprecht", "sprichst"]
+
+enunciado: "Sie ___ gut Deutsch. (sprechen)"
+
+explicacion: |
+  *e → i*.
 ```
 
-### 5 — Konjugation von "gehen"  
-```yaml
+### 5 — a→ä
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["gehen", "sie"]
-pasos:
-  - "Completa el verbo en la tercera persona del plural."
-explicacion: "El verbo 'gehen' se conjuga como 'gehen' en la tercera persona del plural (sie/Sie)."
-tipo: completar
-respuestas_validas:
-  - "gehen"
-  - "Gehen"
-enunciado: "Sie ___ jeden Tag zur Schule."
+  tags: ["presente"]
+
+respuesta: "fährst"
+tipo: "mc"
+opciones_explicitas: ["fährst", "fahrst", "fährt"]
+
+enunciado: "Du ___ zu schnell! (fahren)"
+
+explicacion: |
+  *a → ä*.
 ```
 
-### 6 — Konjugation von "kommen"  
-```yaml
+### 6 — e→ie
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["kommen", "er"]
-pasos:
-  - "Completa el verbo en la tercera persona del singular."
-explicacion: "El verbo 'kommen' se conjuga como 'kommt' en la tercera persona del singular (er/sie/es)."
-tipo: completar
-respuestas_validas:
-  - "kommt"
-enunciado: "Er ___ um sieben Uhr nach Hause."
+  tags: ["presente"]
+
+respuesta: "liest"
+tipo: "mc"
+opciones_explicitas: ["liest", "lest", "lieset"]
+
+enunciado: "Er ___ ein Buch. (lesen)"
+
+explicacion: |
+  *e → ie*.
 ```
 
-### 7 — Konjugation von "lernen"  
-```yaml
+### 7 — sein
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["lernen", "du"]
-pasos:
-  - "Completa el verbo en la segunda persona del singular."
-explicacion: "El verbo 'lernen' se conjuga como 'lernst' en la segunda persona del singular (du)."
-tipo: completar
-respuestas_validas:
-  - "lernst"
-  - "Lernst"
-enunciado: "Du ___ jeden Abend Deutsch."
+  tags: ["presente"]
+
+respuesta: "seid"
+tipo: "mc"
+opciones_explicitas: ["seid", "seit", "sind"]
+
+enunciado: "Ihr ___ sehr nett."
+
+explicacion: |
+  *Ihr seid*.
 ```
 
-### 8 — Konjugation von "warten"  
-```yaml
+### 8 — haben
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["warten", "ich"]
-pasos:
-  - "Completa el verbo en la primera persona del singular."
-explicacion: "El verbo 'warten' se conjuga como 'warte' en la primera persona del singular (ich)."
-tipo: completar
-respuestas_validas:
-  - "warte"
-  - "Warte"
-enunciado: "Ich ___ hier auf den Bus."
+  tags: ["presente"]
+
+respuesta: "hast"
+tipo: "mc"
+opciones_explicitas: ["hast", "habst", "hat"]
+
+enunciado: "Du ___ ein schönes Auto."
+
+explicacion: |
+  *Du hast*.
 ```
 
-### 9 — Konjugation von "sprechen"  
-```yaml
+### 9 — wissen
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["sprechen", "sie"]
-pasos:
-  - "Completa el verbo en la tercera persona del plural."
-explicacion: "El verbo 'sprechen' se conjuga como 'sprechen' en la tercera persona del plural (sie/Sie)."
-tipo: completar
-respuestas_validas:
-  - "sprechen"
-  - "Sprechen"
-enunciado: "Sie ___ drei Sprachen."
+  tags: ["presente"]
+
+respuesta: "weiß"
+tipo: "mc"
+opciones_explicitas: ["weiß", "wisse", "weißt"]
+
+enunciado: "Ich ___ es nicht."
+
+explicacion: |
+  *Ich weiß*.
 ```
 
-### 10 — Konjugation von "essen"  
-```yaml
+### 10 — Sie formal
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["essen", "wir"]
-pasos:
-  - "Completa el verbo en la primera persona del plural."
-explicacion: "El verbo 'essen' se conjuga como 'essen' en la primera persona del plural (wir)."
-tipo: completar
-respuestas_validas:
-  - "essen"
-  - "Essen"
-enunciado: "Wir ___ zusammen zu Mittag."
+  tags: ["presente"]
+
+respuesta: "kommen"
+tipo: "mc"
+opciones_explicitas: ["kommen", "kommt", "kommst"]
+
+enunciado: "Woher ___ Sie?"
+
+explicacion: |
+  *Sie* formal: 3.ª plural.
 ```
 
-### 11 — Konjugation von "trinken"  
-```yaml
+### 11 — essen
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["trinken", "ihr"]
-pasos:
-  - "Completa el verbo en la segunda persona del plural."
-explicacion: "El verbo 'trinken' se conjuga como 'trinkt' en la segunda persona del plural (ihr)."
-tipo: completar
-respuestas_validas:
-  - "trinkt"
-enunciado: "Ihr ___ zu viel Kaffee."
+  tags: ["presente"]
+
+respuesta: "isst"
+tipo: "mc"
+opciones_explicitas: ["isst", "esst", "essst"]
+
+enunciado: "Was ___ du zum Frühstück?"
+
+explicacion: |
+  *Essen → du isst*.
 ```
 
-### 12 — Konjugation von "wissen"  
-```yaml
+### 12 — Futuro
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["wissen", "du"]
-pasos:
-  - "Completa el verbo en la segunda persona del singular."
-explicacion: "El verbo 'wissen' se conjuga como 'weißt' en la segunda persona del singular (du)."
-tipo: completar
-respuestas_validas:
-  - "weißt"
-  - "Weißt"
-enunciado: "Du ___ die Antwort nicht."
+  tags: ["presente"]
+
+respuesta: "Morgen fahre ich nach München."
+tipo: "mc"
+opciones_explicitas: ["Morgen fahre ich nach München.", "Morgen ich fahre nach München.", "Morgen fahren ich nach München."]
+
+enunciado: "«Mañana viajo a Múnich»:"
+
+explicacion: |
+  Presente con valor futuro; verbo en 2.º lugar.
 ```
 
-### 13 — Konjugation von "schreiben"  
-```yaml
+### 13 — Pronombre
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "conjugacion-presente"
   nivel: "A1"
-  tags: ["schreiben", "er"]
-pasos:
-  - "Completa el verbo en la tercera persona del singular."
-explicacion: "El verbo 'schreiben' se conjuga como 'schreibt' en la tercera persona del singular (er/sie/es)."
-tipo: completar
-respuestas_validas:
-  - "schreibt"
-  - "Schreibt"
-enunciado: "Er ___ einen langen Brief."
-```
+  tags: ["presente"]
 
-### 14 — Konjugation von "fahren"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A1"
-  tags: ["fahren", "sie"]
-pasos:
-  - "Completa el verbo en la tercera persona del plural."
-explicacion: "El verbo 'fahren' se conjuga como 'fahren' en la tercera persona del plural (sie/Sie)."
-tipo: completar
-respuestas_validas:
-  - "fahren"
-  - "Fahren"
-enunciado: "Sie ___ mit dem Zug nach Berlin."
-```
+respuesta: falso
+tipo: vf
 
-### 15 — Konjugation von "machen"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["machen", "du"]
-pasos:
-  - "Completa el verbo en la segunda persona del singular."
-explicacion: "El verbo 'machen' se conjuga como 'machst' en la segunda persona del singular (du)."
-tipo: completar
-respuestas_validas:
-  - "machst"
-  - "Machst"
-enunciado: "Du ___ das sehr gut."
-```
+enunciado: "En alemán el pronombre sujeto suele omitirse, como en español."
 
-### 16 — Konjugation von "haben"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["haben", "er"]
-pasos:
-  - "Completa el verbo en la tercera persona del singular."
-explicacion: "El verbo 'haben' se conjuga como 'hat' en la tercera persona del singular (er/sie/es)."
-tipo: completar
-respuestas_validas:
-  - "hat"
-  - "Hat"
-enunciado: "Er ___ keine Zeit heute."
-```
-
-### 17 — Konjugation von "geben"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["geben", "wir"]
-pasos:
-  - "Completa el verbo en la primera persona del plural."
-explicacion: "El verbo 'geben' se conjuga como 'geben' en la primera persona del plural (wir)."
-tipo: completar
-respuestas_validas:
-  - "geben"
-  - "Geben"
-enunciado: "Wir ___ ihm unsere Adresse."
-```
-
-### 18 — Konjugation von "sein"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["sein", "du"]
-pasos:
-  - "Completa el verbo en la segunda persona del singular."
-explicacion: "El verbo 'sein' se conjuga como 'bist' en la segunda persona del singular (du)."
-tipo: completar
-respuestas_validas:
-  - "bist"
-  - "Bist"
-enunciado: "Du ___ sehr freundlich."
-```
-
-### 19 — Konjugation von "gehen"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["gehen", "ihr"]
-pasos:
-  - "Completa el verbo en la segunda persona del plural."
-explicacion: "El verbo 'gehen' se conjuga como 'geht' en la segunda persona del plural (ihr)."
-tipo: completar
-respuestas_validas:
-  - "geht"
-  - "Geht"
-enunciado: "Ihr ___ zu spät los."
-```
-
-### 20 — Konjugation von "kommen"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["kommen", "sie"]
-pasos:
-  - "Completa el verbo en la tercera persona del plural."
-explicacion: "El verbo 'kommen' se conjuga como 'kommen' en la tercera persona del plural (sie/Sie)."
-tipo: completar
-respuestas_validas:
-  - "kommen"
-  - "Kommen"
-enunciado: "Sie ___ morgen zu Besuch."
-```
-
-### 21 — Konjugation von "warten"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["warten", "er"]
-pasos:
-  - "Completa el verbo en la tercera persona del singular."
-explicacion: "El verbo 'warten' se conjuga como 'wartet' en la tercera persona del singular (er/sie/es)."
-tipo: completar
-respuestas_validas:
-  - "wartet"
-  - "Wartet"
-enunciado: "Er ___ schon seit einer Stunde."
-```
-
-### 22 — Konjugation von "sprechen"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["sprechen", "ich"]
-pasos:
-  - "Completa el verbo en la primera persona del singular."
-explicacion: "El verbo 'sprechen' se conjuga como 'spreche' en la primera persona del singular (ich)."
-tipo: completar
-respuestas_validas:
-  - "spreche"
-  - "Spreche"
-enunciado: "Ich ___ nicht sehr gut Französisch."
-```
-
-### 23 — Konjugation von "essen"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["essen", "du"]
-pasos:
-  - "Completa el verbo en la segunda persona del singular."
-explicacion: "El verbo 'essen' se conjuga como 'isst' en la segunda persona del singular (du)."
-tipo: completar
-respuestas_validas:
-  - "isst"
-  - "Isst"
-enunciado: "Du ___ zu schnell."
-```
-
-### 24 — Konjugation von "trinken"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["trinken", "wir"]
-pasos:
-  - "Completa el verbo en la primera persona del plural."
-explicacion: "El verbo 'trinken' se conjuga como 'trinken' en la primera persona del plural (wir)."
-tipo: completar
-respuestas_validas:
-  - "trinken"
-  - "Trinken"
-enunciado: "Wir ___ jeden Morgen Kaffee."
-```
-
-### 25 — Konjugation von "wissen"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "conjugacion-presente"
-  nivel: "A2"
-  tags: ["wissen", "ihr"]
-pasos:
-  - "Completa el verbo en la segunda persona del plural."
-explicacion: "El verbo 'wissen' se conjuga como 'wisst' en la segunda persona del plural (ihr); 'weißt' es la forma de 'du' (segunda persona singular)."
-tipo: completar
-respuestas_validas:
-  - "wisst"
-  - "Wisst"
-enunciado: "Ihr ___ die Wahrheit."
+explicacion: |
+  Falso: es obligatorio.
 ```

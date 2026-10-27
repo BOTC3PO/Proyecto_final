@@ -1,67 +1,53 @@
-# Oraciones subordinadas con *weil*, *dass* y *wenn* en alemán (nivel B1)
+# Subordinadas con weil, dass, wenn, als y ob (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/oraciones-subordinadas-weil-dass-wenn`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Las oraciones subordinadas introducidas por **weil** (*porque*), **dass** (*que*) y **wenn** (*si/ cuando*) son fundamentales para estructurar ideas complejas en alemán. En el nivel B1, su dominio permite conectar cláusulas de causa, información reportada o condiciones, ampliando la capacidad de expresión. Estas conjunciones requieren un uso específico de preposiciones y puntuación que difiere del español, lo cual es clave para evitar errores frecuentes.
+En las **subordinadas** el verbo conjugado va **al final**: *Ich bleibe zu Hause, **weil** ich krank **bin**.* Es una de las reglas que más hay que practicar.
 
----
+## Explicación central
+### Conjunciones frecuentes
+- ***weil***: porque: *Ich lerne Deutsch, weil ich in Berlin arbeiten **will**.*
+- ***dass***: que: *Ich glaube, dass er recht **hat**.*
+- ***wenn***: si (condición) / cuando (repetido o futuro): *Wenn es **regnet**, bleibe ich zu Hause.*
+- ***als***: cuando (una vez en el pasado): *Als ich klein **war**, wohnten wir in Köln.*
+- ***ob***: si (pregunta indirecta): *Ich weiß nicht, ob er **kommt**.*
+- ***obwohl*** (aunque), ***damit*** (para que), ***bevor, nachdem, während, bis, seit***.
 
-## Explicación central con ejemplos reales
-### 1. **Weil** (*porque*): causa o razón
-Se usa cuando la oración subordinada explica el motivo de algo. La cláusula introduce una **causa**, y no lleva coma si está al final:
-- *Ich habe den Film nicht gesehen, weil ich krank war.* (No vi la película porque estaba enfermo.)
-Si la cláusula va primero, se añade una **coma**:
-- *Weil ich krank war, habe ich den Film nicht gesehen.*
+### Verbo al final
+- *…, weil ich müde **bin**.*
+- Con modal: *…, weil ich arbeiten **muss**.*
+- Con Perfekt: *…, weil ich lange gearbeitet **habe**.*
+- Separables: se juntan: *…, weil der Zug um 8 Uhr **ankommt**.*
 
-### 2. **Dass** (*que*): información reportada o opinión
-Se usa tras verbos como *sagen*, *erzählen*, *denken* para transmitir un pensamiento o declaración:
-- *Er hat gesagt, dass er morgen kommt.* (Él dijo que vendrá mañana.)
-- *Ich glaube, dass sie nicht kommen werden.* (Creo que no vendrán.)
+### Subordinada primero
+Si la subordinada va adelante, cuenta como **posición 1** y la principal empieza con el **verbo**: ***Wenn** es regnet, **bleibe** ich zu Hause.*
 
-### 3. **Wenn** (*si/ cuando*): condición o tiempo
-Introduce una **condición** (si...) o un momento en el tiempo (cuando...). Si la cláusula va primero, se usa coma:
-- *Wenn es regnet, bleibe ich zu Hause.* (Si llueve, me quedo en casa.)
-- *Ich rufe dich an, wenn ich Zeit habe.* (Te llamo cuando tenga tiempo.)
+### weil vs. denn
+- ***weil***: verbo al final.
+- ***denn***: coordinante, orden normal: *Ich bleibe zu Hause, **denn** ich **bin** krank.*
 
----
+### wenn vs. als
+- *als*: una sola vez en el pasado.
+- *wenn*: repetición (pasado, presente) o futuro, y condición.
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión entre *weil* y *dass***: A menudo se usa *weil* donde debería ir *dass*, especialmente tras verbos como *sagen* o *denken*. Ejemplo incorrecto:
-   - ❌ *Sie sagte, weil sie müde war.* (Debería ser *sie sagte, dass sie müde war*.)
-
-2. **Uso inadecuado de comas**: En alemán, las oraciones subordinadas no llevan coma si van al final, a diferencia del español. Ejemplo incorrecto:
-   - ❌ *Ich esse nicht, weil ich keinen Hunger habe.* (Correcto: *Ich esse nicht, weil ich keinen Hunger habe* – sin coma antes de *weil*, pero sí si la cláusula va primero.)
-
-3. **Falta de flexibilidad con *wenn***: En español, *si* suele usarse para condiciones, pero en alemán, *wenn* también puede indicar tiempo (cuando). Ejemplo confuso:
-   - ❌ *Wenn ich morgen komme, sagst du mir Bescheid.* (Correcto: *Wenn ich morgen komme, sagst du mir Bescheid* – aquí *wenn* indica un momento futuro.)
-
----
+## Errores comunes de hispanohablantes
+1. ❌ *weil ich bin müde* ✅ *weil ich müde bin*.
+2. ❌ *Wenn es regnet, ich bleibe zu Hause* ✅ *Wenn es regnet, bleibe ich zu Hause*.
+3. ❌ *Wenn ich klein war* (una época) ✅ *Als ich klein war*.
+4. ❌ *Ich weiß nicht, wenn er kommt* ✅ *ob er kommt*.
+5. Olvidar la coma antes de la subordinada.
 
 ## Comparación con el español
-- **Weil vs. porque**: En español, *porque* introduce una causa y **siempre va seguido de coma** si está al inicio:
-  - Español: *Porque estoy enfermo, no iré.*
-  - Alemán: *Weil ich krank bin, gehe ich nicht.* (No hay coma antes de *weil* si va al final.)
-
-- **Dass vs. que**: En español, *que* se usa tras verbos como *decir* sin necesidad de comas, pero en alemán, siempre se requiere *dass* y la coma si la cláusula está al inicio:
-  - Español: *Él dijo que vendrá.*
-  - Alemán: *Er sagte, dass er kommt.* (Sin coma si va al final; con coma si empieza: *Dass er kommt, sagte er.*)
-
-- **Wenn vs. si**: En español, *si* se usa para condiciones y a veces para tiempo (*cuando*). En alemán, *wenn* cubre ambos casos, pero la puntuación varía según su posición.
-
----
+En español el orden no cambia en la subordinada («porque **estoy** cansado»). En alemán el verbo se va al final. «Si» se divide en *wenn* (condición) y *ob* (pregunta indirecta), y «cuando» en *wenn* y *als*.
 
 ## Ejemplo extendido en contexto
-**Situación:** Una conversación entre dos amigos sobre un evento.
-
-**Marie:** *Ich bin nicht zum Konzert gegangen, weil ich zu viel Arbeit hatte.* (No fui al concierto porque tenía mucho trabajo.)
-**Lena:** *Ach, das ist schade! Hast du es ihnen gesagt, dass du nicht kommen würdest?* (¡Qué lástima! ¿Les dijiste que no vendrías?)
-**Marie:** *Ja, ich habe angerufen und gesagt, dass ich krank bin. Wenn ich Zeit finde, komme ich später noch.* (Sí, llamé y les dije que estoy enferma. Si encuentro tiempo, iré más tarde.)
-
-Este ejemplo muestra cómo las tres conjunciones se usan en oraciones subordinadas para explicar causas (*weil*), transmitir información (*dass*) y expresar condiciones o momentos (*wenn*).
+*Ich lerne Deutsch, **weil** ich nächstes Jahr in Wien studieren **möchte**. Meine Lehrerin sagt, **dass** ich schnell Fortschritte **mache**. **Als** ich anfing, **verstand** ich fast nichts. **Wenn** ich jeden Tag **übe**, **kann** ich bald fließend sprechen. Ich weiß aber nicht, **ob** ich ein Stipendium **bekomme**.*

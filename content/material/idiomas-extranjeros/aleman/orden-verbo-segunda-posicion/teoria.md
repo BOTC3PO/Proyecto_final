@@ -1,75 +1,57 @@
-# Orden del verbo en segunda posición (Deutsche Grammatik)
+# El verbo en segunda posición en alemán (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/orden-verbo-segunda-posicion`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-En alemán, la posición del verbo es una regla fundamental para construir oraciones correctamente. A diferencia del español, donde el verbo suelen seguir directamente al sujeto (*yo como*), en alemán el **verbo principal ocupa siempre la segunda posición** en las oraciones principales. Esta norma es clave para los niveles A1-A2, ya que permite estructurar frases básicas y evitar errores comunes de sintaxis.
-
----
+La regla más importante del orden alemán: en la oración principal, el **verbo conjugado va en la segunda posición** (*Verbzweitstellung*). Lo que va primero puede variar: el sujeto, un adverbio, un complemento.
 
 ## Explicación central
-En una oración principal (Satz mit Hauptsatz), el verbo ocupa la **segunda posición**, independientemente del sujeto o los elementos que lo acompañen. Por ejemplo:
+### Verbo en posición 2
+| Posición 1 | 2 (verbo) | Resto |
+|---|---|---|
+| Ich | **fahre** | morgen nach Berlin. |
+| Morgen | **fahre** | ich nach Berlin. |
+| Nach Berlin | **fahre** | ich morgen. |
 
-- *Ich gehe zur Schule.* (*Voy a la escuela.*)
-  → *Ich* es el sujeto, seguido por el verbo *gehe*.
+Si algo que no es el sujeto ocupa la posición 1, el **sujeto pasa detrás del verbo** (inversión).
 
-- *Er spielt Fußball.* (*Él juega fútbol.*)
-  → *Er* (sujeto) + *spielt* (verbo).
+### Verbos en dos partes: el «paréntesis» (*Satzklammer*)
+La parte conjugada va en posición 2 y la otra **al final**:
+- Modales: *Ich **kann** heute nicht **kommen**.*
+- Perfekt: *Ich **habe** gestern Pizza **gegessen**.*
+- Verbos separables: *Der Zug **kommt** um 8 Uhr **an**.* (*ankommen*)
+- Futur: *Ich **werde** morgen **arbeiten**.*
 
-Si hay un adverbio o complemento antes del sujeto, el verbo sigue en segunda posición:
-- *Gestern bin ich ins Kino gegangen.* (*Ayer fui al cine.*)
-  → *Gestern* (adverbio) + *bin* (verbo auxiliar).
+### Posición 0 (no cuentan)
+***und, aber, oder, denn, sondern*** no ocupan posición: *Ich bin müde, **aber** ich **gehe** aus.*
 
-En oraciones subordinadas (*Nebensätze*), el verbo principal **va al final**, como en:
-- *Weil er müde ist, bleibt er zu Hause.* (*Porque está cansado, se queda en casa.*)
-  → *ist* (verbo) al final del subordinado.
+### Preguntas
+- Con palabra W: verbo en 2: ***Wann kommst** du?*
+- Sí/no: verbo en **1**: ***Kommst** du morgen?*
+- Imperativo: verbo en 1: ***Komm** her!*
 
----
+### Subordinadas
+Con *weil, dass, wenn, ob* el verbo va **al final**: *…, weil ich müde **bin**.* (ver el tema de subordinadas)
+
+### Orden del resto: «TeKaMoLo»
+Tiempo – causa – modo – lugar: *Ich fahre **morgen** **wegen der Arbeit** **mit dem Zug** **nach Köln**.*
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen confundir la posición del verbo porque en su lengua no hay una regla fija como esta. Los errores típicos incluyen:
-
-1. **Colocar el verbo al final** en oraciones principales, como *Ich zur Schule gehe* (incorrecto).
-2. **Olvidar mover el verbo cuando hay elementos antepuestos**, por ejemplo: *Heute fahre ich mit dem Auto.* (correcto) vs. *Heute ich fahre mit dem Auto.* (incorrecto).
-3. **Confundir oraciones subordinadas con principales**: *Weil er müde ist, bleibt er zu Hause* es correcto, pero si se dice *Weil er bleibt zu Hause, ist er müde*, el verbo no está en la posición adecuada.
-
----
+1. ❌ *Morgen ich fahre nach Berlin* ✅ *Morgen fahre ich nach Berlin*.
+2. ❌ *Ich kann kommen heute nicht* ✅ *Ich kann heute nicht kommen*.
+3. ❌ *Ich habe gegessen Pizza* ✅ *Ich habe Pizza gegessen*.
+4. ❌ *Der Zug ankommt um 8* ✅ *Der Zug kommt um 8 an*.
 
 ## Comparación con el español
-En español, el orden sujeto-verbo (*yo como*) es natural y se mantiene incluso con elementos adicionales:
-- *Ayer fui al cine.* (correcto) vs. *Ayer fue yo al cine* (incorrecto).
-
-El alemán requiere que **el verbo principal siempre esté en segunda posición**, lo cual puede resultar extraño para los hispanohablantes. Por ejemplo:
-- Español: *Voy a la escuela.*
-- Alemán: *Ich gehe zur Schule.* (no *Ich zur Schule gehe*).
-
-Esta diferencia ayuda a fijar la regla al contrastar ambos idiomas.
-
----
+El español tiene un orden libre («mañana yo viajo», «mañana viajo yo»). En alemán el verbo **no se mueve** de la posición 2, y las partes no conjugadas van al **final**, como un paréntesis.
 
 ## Ejemplo extendido en contexto
-**Situación:** Un estudiante de español habla con un amigo sobre sus planes para el fin de semana.
-
-**Diálogo:**
-- *Hallo, Lena!*
-  → *Hallo* (saludo) + *Lena* (sujeto).
-
-- *Ich gehe am Samstag ins Kino.*
-  → *Ich* (sujeto) + *gehe* (verbo).
-
-- *Weil ich einen neuen Film sehe, bleibe ich zu Hause.*
-  → *Weil* es el comienzo de un subordinado; el verbo *sehe* va al final.
-
-- *Möchtest du mitkommen?*
-  → *Möchtest* (verbo) + *du* (sujeto).
-
-Este ejemplo muestra cómo el verbo siempre ocupa la segunda posición en oraciones principales (*gehe*, *möchtest*) y se coloca al final en subordinadas (*sehe*).
-
----
-Esta regla es básica pero crucial para construir oraciones coherentes en alemán. Practicar con ejercicios de reordenamiento y análisis sintáctico ayudará a internalizarla.
+*Am Samstag **stehe** ich früh **auf**. Dann **frühstücke** ich mit meiner Familie. Danach **wollen** wir in den Park **gehen**. Letzte Woche **haben** wir dort ein Picknick **gemacht**. **Kommst** du dieses Mal mit?*

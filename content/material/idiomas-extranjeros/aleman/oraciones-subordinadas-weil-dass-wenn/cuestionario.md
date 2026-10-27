@@ -1,512 +1,253 @@
-# Idiomas — Alemán — oraciones-subordinadas-weil-dass-wenn (cuestionario)
+# Alemán — subordinadas (cuestionario, 13 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/oraciones-subordinadas-weil-dass-wenn/cuestionario_crudo.md`): arreglo mecánico + 2 bloques con `explicacion:` sin comillas. Bug de contenido en el bloque 24: pedía 'weil' (causal) para una oración de discurso indirecto ('Sie sagte, ___...'), que en realidad requiere 'dass' — corregido.
+> Tema: `idiomas-extranjeros/aleman/oraciones-subordinadas-weil-dass-wenn`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Konjunktion für Ursache  
-```yaml
+### 1 — weil
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Er ist müde, ___ er die ganze Nacht gearbeitet hat."
-explicacion: "La conjunción 'weil' se usa para expresar una causa o razón. En este caso, la fatiga es el resultado de trabajar toda la noche."
+  tags: ["subordinadas"]
+
+respuesta: "Ich bleibe zu Hause, weil ich krank bin."
+tipo: "mc"
+opciones_explicitas: ["Ich bleibe zu Hause, weil ich krank bin.", "Ich bleibe zu Hause, weil ich bin krank.", "Ich bleibe zu Hause, weil bin ich krank."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Verbo al final.
 ```
 
+### 2 — dass
 
-
-### 2 — Konjunktion für Tatsache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Er erzählte, ___ er am Wochenende nach Paris fahren werde."
-explicacion: "La conjunción 'dass' se utiliza para introducir una afirmación o información nueva. Aquí, el sujeto relata un hecho futuro."
+  tags: ["subordinadas"]
+
+respuesta: "hat"
+tipo: "mc"
+opciones_explicitas: ["hat", "hat er", "haben"]
+
+enunciado: "Ich glaube, dass er recht ___."
+
+explicacion: |
+  Verbo al final.
 ```
 
+### 3 — Modal
 
-
-### 3 — Konjunktion für Bedingung  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ es regnet, bleiben wir zu Hause."
-explicacion: "La conjunción 'wenn' se usa para expresar una condición. En este caso, la lluvia determina el lugar donde se quedan."
+  tags: ["subordinadas"]
+
+respuesta: "muss"
+tipo: "mc"
+opciones_explicitas: ["muss", "muss ich", "müssen"]
+
+enunciado: "Ich komme nicht, weil ich arbeiten ___."
+
+explicacion: |
+  Modal al final.
 ```
 
+### 4 — Perfekt
 
-
-### 4 — Konjunktion für Ursache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Sie hat den Film nicht gesehen, ___ sie krank war."
-explicacion: "'Weil' introduce una razón. Aquí, la enfermedad explica por qué no vio la película."
+  tags: ["subordinadas"]
+
+respuesta: "habe"
+tipo: "mc"
+opciones_explicitas: ["habe", "bin", "hat"]
+
+enunciado: "Ich bin müde, weil ich lange gearbeitet ___."
+
+explicacion: |
+  Auxiliar al final.
 ```
 
+### 5 — Separable
 
-
-### 5 — Konjunktion für Tatsache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Er sagte, ___ er die Prüfung bestanden habe."
-explicacion: "'Dass' se usa para introducir una afirmación. Aquí, el sujeto menciona un hecho pasado."
+  tags: ["subordinadas"]
+
+respuesta: "ankommt"
+tipo: "mc"
+opciones_explicitas: ["ankommt", "kommt an", "an kommt"]
+
+enunciado: "Ich weiß, dass der Zug um 8 Uhr ___."
+
+explicacion: |
+  Separable unido al final.
 ```
 
+### 6 — Subordinada primero
 
-
-### 6 — Konjunktion für Bedingung  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ du die Aufgabe löst, bekommst du eine Belohnung."
-explicacion: "'Wenn' introduce una condición. Aquí, la resolución de la tarea es el requisito para recibir la recompensa."
+  tags: ["subordinadas"]
+
+respuesta: "bleibe"
+tipo: "mc"
+opciones_explicitas: ["bleibe", "ich bleibe", "bleiben"]
+
+enunciado: "Wenn es regnet, ___ ich zu Hause."
+
+explicacion: |
+  Principal empieza con el verbo.
 ```
 
+### 7 — als
 
-
-### 7 — Konjunktion für Ursache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Sie ist verzögert, ___ der Zug verspätet war."
-explicacion: "'Weil' introduce una razón. La demora del tren explica la tardanza de la persona."
+  tags: ["subordinadas"]
+
+respuesta: "Als"
+tipo: "mc"
+opciones_explicitas: ["Als", "Wenn", "Ob"]
+
+enunciado: "___ ich klein war, wohnten wir in Köln."
+
+explicacion: |
+  Una época del pasado: *als*.
 ```
 
+### 8 — wenn repetido
 
-
-### 8 — Konjunktion für Tatsache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Er erklärte, ___ er keine Zeit habe."
-explicacion: "'Dass' introduce una afirmación. Aquí, el sujeto explica que no tiene tiempo."
+  tags: ["subordinadas"]
+
+respuesta: "wenn"
+tipo: "mc"
+opciones_explicitas: ["wenn", "als", "ob"]
+
+enunciado: "Immer ___ ich nach Berlin fahre, besuche ich meine Tante."
+
+explicacion: |
+  Repetición: *wenn*.
 ```
 
+### 9 — ob
 
-
-### 9 — Konjunktion für Bedingung  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ es warm ist, gehen wir ins Schwimmbad."
-explicacion: "'Wenn' introduce una condición. La temperatura determina la actividad."
+  tags: ["subordinadas"]
+
+respuesta: "ob"
+tipo: "mc"
+opciones_explicitas: ["ob", "wenn", "dass"]
+
+enunciado: "Ich weiß nicht, ___ er morgen kommt."
+
+explicacion: |
+  Pregunta indirecta: *ob*.
 ```
 
+### 10 — denn
 
-
-### 10 — Konjunktion für Ursache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Er hat den Job nicht angenommen, ___ er nicht passte."
-explicacion: "'Weil' introduce una razón. La inadecuación del trabajo explica su rechazo."
+  tags: ["subordinadas"]
+
+respuesta: "bin"
+tipo: "mc"
+opciones_explicitas: ["bin", "krank bin", "sei"]
+
+enunciado: "Ich bleibe zu Hause, denn ich ___ krank."
+
+explicacion: |
+  *Denn*: orden normal.
 ```
 
+### 11 — obwohl
 
-
-### 11 — Konjunktion für Tatsache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Sie sagte, ___ sie morgen abreise."
-explicacion: "'Dass' introduce una afirmación. Aquí, el sujeto menciona un hecho futuro."
+  tags: ["subordinadas"]
+
+respuesta: "obwohl"
+tipo: "mc"
+opciones_explicitas: ["obwohl", "weil", "damit"]
+
+enunciado: "Ich gehe spazieren, ___ es kalt ist."
+
+explicacion: |
+  *Obwohl* = aunque.
 ```
 
+### 12 — damit
 
-
-### 12 — Konjunktion für Bedingung  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ du nicht aufpasst, wirst du verletzt."
-explicacion: "'Wenn' introduce una condición. La falta de atención lleva a un resultado negativo."
+  tags: ["subordinadas"]
+
+respuesta: "damit"
+tipo: "mc"
+opciones_explicitas: ["damit", "obwohl", "ob"]
+
+enunciado: "Ich spreche langsam, ___ du mich verstehst."
+
+explicacion: |
+  *Damit* = para que.
 ```
 
+### 13 — weil/denn
 
-
-### 13 — Konjunktion für Ursache  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-subordinadas-weil-dass-wenn"
   nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Sie hat sich verletzt, ___ sie nicht aufgepasst hat."
-explicacion: "'Weil' introduce una razón. La falta de atención explica la lesión."
-```
+  tags: ["subordinadas"]
 
+respuesta: falso
+tipo: vf
 
+enunciado: "Después de *denn* el verbo va al final, igual que con *weil*."
 
-### 14 — Konjunktion für Tatsache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Er erzählte, ___ er sich in Spanien aufhalte."
-explicacion: "'Dass' introduce una afirmación. Aquí, el sujeto relata un estado presente."
-```
-
-
-
-### 15 — Konjunktion für Bedingung  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ es kalt ist, tragen wir warme Kleidung."
-explicacion: "'Wenn' introduce una condición. El clima determina el tipo de ropa que se lleva."
-```
-
-
-
-### 16 — Konjunktion für Ursache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Er hat den Flug verpasst, ___ er zu spät gekommen ist."
-explicacion: "'Weil' introduce una razón. La llegada tardía explica la pérdida del vuelo."
-```
-
-
-
-### 17 — Konjunktion für Tatsache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Sie erklärte, ___ sie nicht mehr mitmache."
-explicacion: "'Dass' introduce una afirmación. Aquí, el sujeto anuncia una decisión final."
-```
-
-
-
-### 18 — Konjunktion für Bedingung  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ du die Hausaufgaben machst, darfst du fernsehen."
-explicacion: "'Wenn' introduce una condición. La realización de tareas permite un privilegio."
-```
-
-
-
-### 19 — Konjunktion für Ursache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Er ist wütend, ___ sie ihn nicht beachtet hat."
-explicacion: "'Weil' introduce una razón. La falta de atención provoca su enojo."
-```
-
-
-
-### 20 — Konjunktion für Tatsache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Er sagte, ___ er am Montag zurückkehre."
-explicacion: "'Dass' introduce una afirmación. Aquí, el sujeto menciona un hecho futuro."
-```
-
-
-
-### 21 — Konjunktion für Bedingung  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["wenn", "bedingung"]
-pasos:
-  - "Identifica la conjunción que introduce una condición."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "wenn"
-  - "Wenn"
-enunciado: "___ es Wind ist, können wir nicht segeln."
-explicacion: "'Wenn' introduce una condición. El viento afecta la actividad de vela."
-```
-
-
-
-### 22 — Konjunktion für Ursache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["weil", "ursache"]
-pasos:
-  - "Identifica la conjunción que expresa causa."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "weil"
-  - "Weil"
-enunciado: "Sie hat den Job nicht angenommen, ___ sie nicht passte."
-explicacion: "'Weil' introduce una razón. La inadecuación del trabajo explica su rechazo."
-```
-
-
-
-### 23 — Konjunktion für Tatsache  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-subordinadas-weil-dass-wenn"
-  nivel: "B1"
-  tags: ["dass", "tatsache"]
-pasos:
-  - "Identifica la conjunción que introduce una afirmación."
-  - "Completa el hueco con la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-enunciado: "Er erzählte, ___ er keine Zeit habe."
-explicacion: "'Dass' introduce una afirmación. Aquí, el sujeto explica que no tiene tiempo."
-```
-
-
-
-### 24 — Konjunktion für Bedingung  
-```  
-metadata:  
-  materia: "aleman"  
-  tema: "oraciones-subordinadas-weil-dass-wenn"  
-  nivel: "B1"  
-  tags: ["causa", "weil", "reporte"]  
-
-pasos:  
-  - "Identificar el tipo de oración subordinada necesaria."
-  - "Revisar la relación lógica entre las cláusulas."
-
-enunciado: "Sie sagte, ___ sie sich nicht gut fühle."
-
-tipo: completar
-respuestas_validas:
-  - "dass"
-  - "Dass"
-
-explicacion: "El discurso indirecto con 'sagen' (decir) se introduce con 'dass', no con 'weil' (que expresa causa). 'Sagte, dass...' equivale a 'dijo que...'."
-```  
-
-
-### 25 — Konjunktion für Ursache  
-```  
-metadata:  
-  materia: "aleman"  
-  tema: "oraciones-subordinadas-weil-dass-wenn"  
-  nivel: "B1"  
-  tags: ["condición", "wenn", "futuro"]  
-
-pasos:  
-  - "Analizar la estructura de la oración principal y subordinada."
-  - "Asegurar concordancia temporal entre cláusulas."
-
-enunciado: "Wenn ___ , werden wir die Arbeit nicht schaffen."  
-
-opciones_explicitas:  
-  - "die Zeit knapp ist"  
-  - "es regnet"  
-  - "sie kommen"  
-  - "wir helfen"  
-respuesta: "die Zeit knapp ist"  
-tipo: mc  
-explicacion: "La oración subordinada introduce una condición hipotética que afecta al futuro. Wenn requiere concordancia temporal, y aquí la construcción die Zeit knapp ist describe una situación realista que impide el cumplimiento de la acción principal."  
+explicacion: |
+  Falso: con *denn* el orden es normal.
 ```

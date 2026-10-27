@@ -1,40 +1,49 @@
-# Voz pasiva con modales en alemán (B2)
+# La voz pasiva con modales en alemán (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/voz-pasiva-con-modales`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-La voz pasiva con modales es una construcción gramatical clave en alemán que combina la estructura de la voz pasiva con verbos modales (*Modalverben*), como *müssen*, *können*, *sollen*, etc. Esta combinación permite expresar obligaciones, posibilidades o responsabilidades sin mencionar al sujeto activo. En el nivel B2, es fundamental dominarla para comunicarse con precisión en contextos cotidianos, profesionales o académicos.
+La **pasiva con modales** combina un modal con la pasiva: *Das Problem **muss gelöst werden**.* (el problema tiene que ser resuelto / hay que resolverlo). Es muy común en instrucciones, normas y textos técnicos.
 
 ## Explicación central
-La voz pasiva con modales sigue la estructura: **Modalverben + werden + Partizip Präteritum**. Ejemplos reales incluyen:
-- *Das Projekt muss bearbeitet werden.* (El proyecto debe ser tratado/realizado.)
-- *Die Türen können geöffnet werden.* (Las puertas pueden abrirse.)
-- *Der Fehler sollte korrigiert werden.* (El error debería corregirse.)
+### Presente y Präteritum
+**modal** (posición 2) + **participio** + ***werden*** (al final)
+- *Die Hausaufgaben **müssen** bis Freitag **gemacht werden**.*
+- *Das Fenster **kann** nicht **geöffnet werden**.*
+- *Der Brief **sollte** gestern **geschickt werden**.*
 
-Los modales indican la **intención**, **obligación** o **posibilidad** de una acción, mientras que *werden* + participio pasivo (*Partizip Präteritum*) mantiene el enfoque en el objeto afectado. Por ejemplo, *Das Fenster kann geöffnet werden* (La ventana puede abrirse) no menciona quién la abre, solo lo que **es posible** hacer con ella.
+### Perfekt (poco usado; en su lugar, Präteritum)
+***haben*** + participio + ***werden*** + **modal (infinitivo)**: *Das Problem **hat gelöst werden müssen**.* — Más natural: *Das Problem **musste gelöst werden**.*
+
+### En subordinada
+El modal va al **final**: *Ich weiß, dass das Problem **gelöst werden muss**.*
+
+### Con Konjunktiv II
+*Das **hätte** früher **gemacht werden müssen**.* (eso tendría que haberse hecho antes)
+*Das Problem **könnte** schnell **gelöst werden**.*
+
+### Alternativas frecuentes
+- ***sein* + *zu* + infinitivo**: *Das Problem **ist** schnell **zu lösen**.* (= *kann gelöst werden*); *Die Regeln **sind zu beachten**.* (= *müssen beachtet werden*)
+- ***sich lassen* + infinitivo**: *Das Problem **lässt sich** lösen.* (= *kann gelöst werden*)
+- Adjetivos en ***-bar***: *Das ist **machbar**.* (= *kann gemacht werden*)
+- ***man***: *Man **muss** das Problem lösen.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre el orden de los elementos**: Algunos estudiantes colocan *werden* antes del modal, como en *Das Projekt wird muss bearbeitet werden*, omitiendo la posición correcta (*muss + werden*).
-2. **Uso incorrecto del participio**: Se suele usar el participio presente (*bearbeitend*) en lugar del participio präterito (*bearbeitet*), lo cual es gramaticalmente erróneo.
-3. **Omisión de *werden***: En contextos formales, se olvida incluir *werden*, resultando en frases como *Das Projekt muss bearbeiten*.
+1. ❌ *Das muss werden gemacht* ✅ *Das muss gemacht werden*.
+2. Confundir acción y estado: *Das muss gemacht **werden*** (hay que hacerlo) / *Das muss bis morgen gemacht **sein*** (tiene que estar hecho).
+3. ❌ *…, dass das Problem muss gelöst werden* ✅ *gelöst werden muss*.
+4. ❌ *Das ist zu lösen werden* ✅ *Das ist zu lösen*.
 
 ## Comparación con el español
-En español, la voz pasiva con modales sigue una estructura similar: **Modal + ser + participio**. Por ejemplo:
-- *El proyecto debe hacerse.* (El proyecto debe realizarse.)
-La diferencia clave en alemán es que siempre se usa *werden* como auxiliar, y el orden de los elementos (**modal → werden**) es fijo. En español, no hay necesidad de un verbo auxiliar adicional (*ser* ya actúa como auxiliar).
+El español usa «hay que + infinitivo» o «se debe + infinitivo» («hay que resolver el problema»). El alemán, en lo escrito, prefiere la pasiva con modal: *Das Problem muss gelöst werden*. *Das ist machbar* = «es factible».
 
 ## Ejemplo extendido en contexto
-**Situación:** Un colega habla sobre una tarea pendiente en la oficina.
-**Diálogo:**
-- *Anna: „Das Meeting muss vorbereitet werden, bevor wir morgen anfangen.“* (La reunión debe prepararse antes de que comencemos mañana.)
-- *Lars: „Ach, das kann ich nicht übernehmen. Der Chef sollte es selbst erledigen.“* (Ah, no puedo asumir eso. El jefe debería hacerlo él mismo.)
-
-En este contexto, la voz pasiva con modales permite expresar responsabilidades (*muss vorbereitet werden*) o sugerencias (*sollte erledigen*) sin enfocarse en quién realiza la acción. Esta estructura es especialmente útil cuando el sujeto activo es irrelevante o desconocido.
-
-Dominar esta regla mejora la capacidad de expresar obligaciones, posibilidades y responsabilidades con claridad, una habilidad esencial para interacciones profesionales en alemán.
+*Die Formulare **müssen** bis zum 30. Juni **ausgefüllt werden**. Sie **können** online **eingereicht werden**. Fehlende Unterlagen **sind** nachzureichen. Verspätete Anträge **können** leider nicht **berücksichtigt werden**. Ob das Verfahren schneller **gestaltet werden kann**, **lässt sich** noch nicht **sagen**.*

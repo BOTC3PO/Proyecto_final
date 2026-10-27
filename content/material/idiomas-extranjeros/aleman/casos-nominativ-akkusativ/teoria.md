@@ -1,69 +1,53 @@
-# Casos: Nominativo y Acusativo en alemán (nivel A1-A2)
+# Nominativo y acusativo en alemán (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/casos-nominativ-akkusativ`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-En el alemán, los casos son una herramienta gramatical fundamental para determinar la función de las palabras en una oración. A nivel básico (A1-A2), es clave entender dos casos principales: **el nominativo** y **el acusativo**, que afectan los artículos definidos (*der/die/das* → *den/die/das*) y pronombres, según la función del sustantivo en la oración. Dominar estos casos permite construir frases simples como "Ich sehe den Mann" (Veo al hombre) o "Das Buch ist auf dem Tisch" (El libro está sobre la mesa), esenciales para comunicarse de forma básica.
-
----
+En alemán, el artículo cambia según la **función** del sustantivo en la oración: es el sistema de **casos**. Los dos primeros son el **nominativo** (sujeto) y el **acusativo** (objeto directo).
 
 ## Explicación central
-### **Nominativo**
-El nominativo indica el sujeto de la oración y no cambia. Sus artículos son:
-- *der* (masculino) → *der Mann* (el hombre)
-- *die* (femenino) → *die Frau* (la mujer)
-- *das* (neutro) → *das Kind* (el niño)
+### Nominativo: el sujeto
+Responde a ***Wer?*** / ***Was?***: ***Der Mann** trinkt Kaffee.*
 
-Ejemplo:
-> **Der Mann** ist groß. *(El hombre es alto.)*
+### Acusativo: el objeto directo
+Responde a ***Wen?*** / ***Was?***: *Ich sehe **den Mann**.*
 
-### **Acusativo**
-El acusativo se usa para el objeto directo de la oración o después de ciertos preposiciones y verbos. Sus artículos son:
-- *den* (masculino) → *den Mann* (al hombre)
-- *die* (femenino) → *die Frau* (a la mujer, **excepto** en preposiciones como *in*, donde se usa el dativo)
-- *das* (neutro) → *das Kind* (al niño)
+### Solo cambia el masculino
+| | Masc. | Fem. | Neutro | Plural |
+|---|---|---|---|---|
+| Nominativo | **der** / ein / kein | die / eine | das / ein | die / — / keine |
+| Acusativo | **den** / **einen** / **keinen** | die / eine | das / ein | die / — / keine |
 
-Ejemplos:
-1. Ich sehe **den Mann**. *(Veo al hombre.)*
-2. Ich gehe **in die Stadt**. *(Voy a la ciudad.)* *(Preposición "in" + acusativo)*
-3. Sie schreibt **die Briefe**. *(Ella escribe las cartas.)*
+### Pronombres personales
+| Nom. | ich | du | er | sie | es | wir | ihr | sie/Sie |
+|---|---|---|---|---|---|---|---|---|
+| Acus. | **mich** | **dich** | **ihn** | sie | es | **uns** | **euch** | sie/Sie |
 
----
+### Verbos con acusativo
+*haben, sehen, kaufen, brauchen, essen, trinken, lieben, besuchen, suchen, finden* y ***es gibt*** (*Es gibt **einen** Park.*).
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión con preposiciones**: Algunos verbos y preposiciones requieren acusativo (*in, zu, durch*), mientras que otras (como *auf, an, mit*) usan el dativo. Por ejemplo:
-   - ✅ *Ich gehe **in die Schule**.* *(Voy a la escuela.)*
-   - ❌ *Ich gehe **in die Schule**.* (Correcto) vs. *Ich sitze **auf dem Tisch**.* (Sigo el dativo).
+### Preposiciones que siempre rigen acusativo
+***durch, für, gegen, ohne, um***: *für **den** Freund, ohne **meinen** Hund*.
 
-2. **Uso incorrecto de artículos**: Olvidar cambiar *der* → *den* en acusativo. Por ejemplo:
-   - ❌ *Ich sehe **der Frau**.* (Error)
-   - ✅ *Ich sehe **die Frau**.* *(Veo a la mujer.)*
+### El orden puede cambiar
+Gracias al caso: ***Den Mann** sieht die Frau.* = La mujer ve al hombre.
 
-3. **Omisión del caso en pronombres**: En oraciones como "Er sieht sie" (*Él la ve*), el pronombre *sie* debe coincidir con el acusativo, no con el nominativo (*sie* → *sie*, pero en otros contextos puede variar).
-
----
+## Errores comunes de hispanohablantes
+1. ❌ *Ich habe ein Bruder* ✅ *Ich habe **einen** Bruder*.
+2. ❌ *Ich sehe er* ✅ *Ich sehe **ihn***.
+3. ❌ *Es gibt ein Park* ✅ *Es gibt **einen** Park*.
+4. ❌ *für der Freund* ✅ *für **den** Freund*.
 
 ## Comparación con el español
-El español **no tiene casos** como el alemán. Por ejemplo:
-- En español: *"Veo al hombre"* (sin cambio de artículo).
-- En alemán: *"Ich sehe **den Mann**"*.
-
-Esta diferencia exige que los hablantes hispanohablantes presten atención **especialmente a los artículos y pronombres**, ya que en el español no existen estas variaciones. Por ejemplo, en una oración como "Ella escribe las cartas", en alemán se usa *die Briefe* (acusativo) porque "cartas" es objeto directo: *"Sie schreibt **die Briefe**."*
-
----
+El español marca el objeto con el orden y, para personas, con «a» («veo **a** Juan»). El alemán lo marca en el artículo: *der → den*. Los pronombres funcionan como «lo/la/me/te»: *ihn* = lo, *mich* = me.
 
 ## Ejemplo extendido en contexto
-**Situation**: Una persona pregunta por un libro y recibe una dirección.
-
-**A**: Wo ist das Buch? *(¿Dónde está el libro?)*
-**B**: Es ist auf dem Tisch. *(Está sobre la mesa.)* (Preposición *auf* + dativo: *dem Tisch*)
-**A**: Ich gehe in die Bibliothek. *(Voy a la biblioteca.)* (Preposición *in* + acusativo: *die Bibliothek*)
-**B**: Du musst die Treppe hinaufgehen. *(Debes subir por las escaleras.)* (Verbo "hinaufgehen" requiere acusativo: *die Treppe*)
-
-Este intercambio muestra cómo el acusativo y el dativo se usan según la preposición o verbo, algo que no existe en el español.
+*Ich habe **einen** Bruder und **eine** Schwester. Mein Bruder hat **einen** Hund. Am Wochenende besuchen wir **den** Opa. Er kauft **einen** Kuchen für **uns**. **Den** Kuchen essen wir zusammen.*

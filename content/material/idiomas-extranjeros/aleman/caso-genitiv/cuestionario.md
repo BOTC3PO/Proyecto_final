@@ -1,443 +1,272 @@
-# Idiomas — Alemán — caso-genitiv (cuestionario)
+# Alemán — genitivo (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/caso-genitiv/cuestionario_crudo.md`): los 25 bloques no tenían `tipo:` ni `enunciado:` en absoluto — sólo la forma genitiva aislada, sin ninguna oración ni pregunta. Agregado un enunciado por bloque (oración con hueco para los 'completar', pregunta de opción para los 'mc'), sin cambiar ninguna respuesta original.
+> Tema: `idiomas-extranjeros/aleman/caso-genitiv`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Genitiv mit Besitz  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["besitz", "der von"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva correcta de 'die Bücher'."  
-respuesta: "der Bücher"  
-respuestas_validas:  
-  - "der Bücher"  
-  - "Der Bücher"
+### 1 — Masc.
 
-tipo: completar
-enunciado: "Der Titel ___ steht auf dem Einband."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 2 — Genitiv nach Präpositionen  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["präposition", "wegen"]  
-opciones_explicitas:  
-  - "wegen dem Studenten"  
-  - "wegen des Studenten"  
-  - "wegen von dem Studenten"  
-respuesta: "wegen des Studenten"
+respuesta: "des"
+tipo: "mc"
+opciones_explicitas: ["des", "der", "dem"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente la preposición 'wegen' + genitivo?"
+enunciado: "Das ist das Auto ___ Vaters."
+
+explicacion: |
+  Masc. genitivo: *des* + *-s*.
 ```
 
-### 3 — Genitiv bei Eigenschaften  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigenschaft", "des"]  
-pasos:  
-  - "Escribe la forma genitiva de 'der Mann' en el hueco."  
-respuesta: "des Mannes"  
-respuestas_validas:  
-  - "des Mannes"  
-  - "Des Mannes"
+### 2 — -s
 
-tipo: completar
-enunciado: "Das Auto ___ ist neu."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 4 — Genitiv mit Anfangswörtern  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["anfang", "angesichts"]  
-opciones_explicitas:  
-  - "angesichts des Kurses"  
-  - "angesichts von dem Kurs"  
-  - "angesichts der Kurse"  
-respuesta: "angesichts des Kurses"
+respuesta: "Autos"
+tipo: "mc"
+opciones_explicitas: ["Autos", "Auto", "Autoes"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente 'angesichts' + genitivo?"
+enunciado: "die Farbe des ___"
+
+explicacion: |
+  Neutro: *-s*.
 ```
 
-### 5 — Genitiv bei Zeiten  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["zeit", "am"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva de 'der Tag'."  
-respuesta: "des Tages"  
-respuestas_validas:  
-  - "des Tages"  
-  - "Des Tages"
+### 3 — Fem.
 
-tipo: completar
-enunciado: "Am Ende ___ war er müde."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 6 — Genitiv nach Präpositionen (trotz)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["präposition", "trotz"]  
-opciones_explicitas:  
-  - "trotz des Wetters"  
-  - "trotz von dem Wetter"  
-  - "trotz der Wetter"  
-respuesta: "trotz des Wetters"
+respuesta: "der"
+tipo: "mc"
+opciones_explicitas: ["der", "des", "die"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente 'trotz' + genitivo?"
+enunciado: "Die Tasche ___ Frau ist rot."
+
+explicacion: |
+  Fem. genitivo: *der*, sin *-s*.
 ```
 
-### 7 — Genitiv mit Eigennamen  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigennamen", "des"]  
-pasos:  
-  - "Escribe la forma genitiva de 'Hans' en el hueco."  
-respuesta: "des Hans"  
-respuestas_validas:  
-  - "des Hans"  
-  - "Des Hans"
+### 4 — Plural
 
-tipo: completar
-enunciado: "Das Buch ___ liegt auf dem Tisch."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 8 — Genitiv bei Mengenangaben  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["menge", "der von"]  
-opciones_explicitas:  
-  - "die Hälfte der Aufgaben"  
-  - "die Hälfte von die Aufgaben"  
-  - "die Hälfte des Aufgaben"  
-respuesta: "die Hälfte der Aufgaben"
+respuesta: "der"
+tipo: "mc"
+opciones_explicitas: ["der", "den", "des"]
 
-tipo: mc
-enunciado: "¿Cuál oración expresa correctamente 'la mitad de las tareas'?"
+enunciado: "Die Spielsachen ___ Kinder liegen überall."
+
+explicacion: |
+  Plural genitivo: *der*.
 ```
 
-### 9 — Genitiv bei Eigenschaften (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigenschaft", "der von"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva de 'die Bücher'."  
-respuesta: "der Bücher"  
-respuestas_validas:  
-  - "der Bücher"  
-  - "Der Bücher"
+### 5 — Nombre propio
 
-tipo: completar
-enunciado: "Die Seiten ___ sind zerrissen."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 10 — Genitiv nach Präpositionen (angesichts)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["präposition", "angesichts"]  
-opciones_explicitas:  
-  - "angesichts der Situationen"  
-  - "angesichts von der Situation"  
-  - "angesichts des Situation"  
-respuesta: "angesichts der Situationen"
+respuesta: "Annas Buch"
+tipo: "mc"
+opciones_explicitas: ["Annas Buch", "Anna's Buch", "Buch Annas'"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente 'angesichts' + genitivo plural?"
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Sin apóstrofo.
 ```
 
-### 11 — Genitiv bei Zeitangaben  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["zeit", "am"]  
-pasos:  
-  - "Escribe la forma genitiva de 'der Tag' en el hueco."  
-respuesta: "des Tages"  
-respuestas_validas:  
-  - "des Tages"  
-  - "Des Tages"
+### 6 — wegen
 
-tipo: completar
-enunciado: "Die Ereignisse ___ waren überraschend."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 12 — Genitiv bei Eigenschaften (singular)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigenschaft", "des"]  
-opciones_explicitas:  
-  - "die Ursache des Problems"  
-  - "die Ursache von dem Problem"  
-  - "die Ursache der Probleme"  
-respuesta: "die Ursache des Problems"
+respuesta: "Wegen"
+tipo: "mc"
+opciones_explicitas: ["Wegen", "Mit", "Für"]
 
-tipo: mc
-enunciado: "¿Cuál oración expresa correctamente 'la causa del problema'?"
+enunciado: "___ des Regens bleiben wir zu Hause."
+
+explicacion: |
+  *Wegen* + genitivo.
 ```
 
-### 13 — Genitiv bei Mengenangaben (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["menge", "der von"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva de 'die Aufgaben'."  
-respuesta: "der Aufgaben"  
-respuestas_validas:  
-  - "der Aufgaben"  
-  - "Der Aufgaben"
+### 7 — trotz
 
-tipo: completar
-enunciado: "Die Schwierigkeit ___ war hoch."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 14 — Genitiv nach Präpositionen (wegen)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["präposition", "wegen"]  
-opciones_explicitas:  
-  - "wegen des Verkehrs"  
-  - "wegen von dem Verkehr"  
-  - "wegen der Verkehr"  
-respuesta: "wegen des Verkehrs"
+respuesta: "Trotz"
+tipo: "mc"
+opciones_explicitas: ["Trotz", "Ohne", "Seit"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente 'wegen' + genitivo?"
+enunciado: "___ der Kälte sind wir spazieren gegangen."
+
+explicacion: |
+  *Trotz* = a pesar de.
 ```
 
-### 15 — Genitiv bei Eigennamen (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigennamen", "der von"]  
-pasos:  
-  - "Escribe la forma genitiva de 'die Brüder' en el hueco."  
-respuesta: "der Brüder"  
-respuestas_validas:  
-  - "der Brüder"  
-  - "Der Brüder"
+### 8 — während
 
-tipo: completar
-enunciado: "Das Zimmer ___ ist groß."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 16 — Genitiv bei Zeitangaben (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["zeit", "am"]  
-opciones_explicitas:  
-  - "die Woche des Monats"  
-  - "die Woche von dem Monat"  
-  - "die Woche der Monate"  
-respuesta: "die Woche des Monats"
+respuesta: "des"
+tipo: "mc"
+opciones_explicitas: ["des", "dem", "den"]
 
-tipo: mc
-enunciado: "¿Cuál oración expresa correctamente 'la semana del mes'?"
+enunciado: "Während ___ Films hat er geschlafen."
+
+explicacion: |
+  *Während* + genitivo.
 ```
 
-### 17 — Genitiv bei Eigenschaften (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigenschaft", "der von"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva de 'die Bücher'."  
-respuesta: "der Bücher"  
-respuestas_validas:  
-  - "der Bücher"  
-  - "Der Bücher"
+### 9 — wessen
 
-tipo: completar
-enunciado: "Der Preis ___ ist hoch."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 18 — Genitiv nach Präpositionen (trotz)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["präposition", "trotz"]  
-opciones_explicitas:  
-  - "trotz der Schwierigkeiten"  
-  - "trotz von den Schwierigkeiten"  
-  - "trotz des Schwierigkeiten"  
-respuesta: "trotz der Schwierigkeiten"
+respuesta: "Wessen"
+tipo: "mc"
+opciones_explicitas: ["Wessen", "Wem", "Wen"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente 'trotz' + genitivo plural?"
+enunciado: "___ Jacke ist das?"
+
+explicacion: |
+  *Wessen* = de quién.
 ```
 
-### 19 — Genitiv bei Mengenangaben (singular)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["menge", "der von"]  
-pasos:  
-  - "Escribe la forma genitiva de 'die Aufgabe' en el hueco."  
-respuesta: "der Aufgabe"  
-respuestas_validas:  
-  - "der Aufgabe"  
-  - "Der Aufgabe"
+### 10 — -es
 
-tipo: completar
-enunciado: "Das Ziel ___ ist klar."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 20 — Genitiv bei Eigenschaften (singular)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigenschaft", "des"]  
-opciones_explicitas:  
-  - "die Ursache des Problems"  
-  - "die Ursache von dem Problem"  
-  - "die Ursache der Probleme"  
-respuesta: "die Ursache des Problems"
+respuesta: "Tages"
+tipo: "mc"
+opciones_explicitas: ["Tages", "Tag", "Tagen"]
 
-tipo: mc
-enunciado: "¿Cuál oración expresa correctamente la causa de un problema?"
+enunciado: "das Ende des ___"
+
+explicacion: |
+  Monosílabo: *-es* (o *-s*).
 ```
 
-### 21 — Genitiv bei Zeitangaben (singular)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["zeit", "am"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva de 'der Tag'."  
-respuesta: "des Tages"  
-respuestas_validas:  
-  - "des Tages"  
-  - "Des Tages"
+### 11 — Débil
 
-tipo: completar
-enunciado: "Die Sonne ___ war stark."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 22 — Genitiv bei Eigennamen (singular)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigennamen", "des"]  
-opciones_explicitas:  
-  - "der Brief des Hans"  
-  - "der Brief von dem Hans"  
-  - "der Brief der Hans"  
-respuesta: "der Brief des Hans"
+respuesta: "Studenten"
+tipo: "mc"
+opciones_explicitas: ["Studenten", "Students", "Student"]
 
-tipo: mc
-enunciado: "¿Cuál oración expresa correctamente 'la carta de Hans'?"
+enunciado: "das Zimmer des ___"
+
+explicacion: |
+  *n-Deklination*.
 ```
 
-### 23 — Genitiv bei Mengenangaben (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["menge", "der von"]  
-pasos:  
-  - "Escribe la forma genitiva de 'die Aufgaben' en el hueco."  
-respuesta: "der Aufgaben"  
-respuestas_validas:  
-  - "der Aufgaben"  
-  - "Der Aufgaben"
+### 12 — Oral
 
-tipo: completar
-enunciado: "Die Reihenfolge ___ ist wichtig."
 ```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
 
-### 24 — Genitiv nach Präpositionen (angesichts)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["präposition", "angesichts"]  
-opciones_explicitas:  
-  - "angesichts der Situation"  
-  - "angesichts von der Situation"  
-  - "angesichts des Situationen"  
-respuesta: "angesichts der Situation"
+respuesta: "das Auto von meinem Bruder"
+tipo: "mc"
+opciones_explicitas: ["das Auto von meinem Bruder", "das Auto von mein Bruder", "das Auto zu meinem Bruder"]
 
-tipo: mc
-enunciado: "¿Cuál oración usa correctamente 'angesichts' + genitivo singular?"
+enunciado: "Equivalente oral de «das Auto meines Bruders»:"
+
+explicacion: |
+  *Von* + dativo.
 ```
 
-### 25 — Genitiv bei Eigenschaften (plural)  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "caso-genitiv"  
-  nivel: "B1"  
-  tags: ["eigenschaft", "der von"]  
-pasos:  
-  - "Completa el hueco con la forma genitiva de 'die Bücher'."  
-respuesta: "der Bücher"  
-respuestas_validas:  
-  - "der Bücher"  
-  - "Der Bücher"
+### 13 — statt
 
-tipo: completar
-enunciado: "Die Bedeutung ___ ist groß."
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
+
+respuesta: "Statt"
+tipo: "mc"
+opciones_explicitas: ["Statt", "Mit", "Bei"]
+
+enunciado: "___ eines Autos kauft er ein Fahrrad."
+
+explicacion: |
+  *Statt* = en lugar de.
+```
+
+### 14 — Femenino
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "caso-genitiv"
+  nivel: "B1"
+  tags: ["genitivo"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Los sustantivos femeninos agregan -s en genitivo."
+
+explicacion: |
+  Falso: solo masculinos y neutros.
 ```

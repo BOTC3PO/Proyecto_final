@@ -1,57 +1,50 @@
-# Estructura básica de oraciones y uso correcto de artículos en alemán (nível A2)
+# Expresión escrita en alemán (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/writing-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel A2 del marco CEFR, los estudiantes comienzan a construir frases simples en alemán, combinando elementos gramaticales básicos como sujetos, verbos y objetos. La estructura de oración correcta y el uso adecuado de artículos (der, die, das) son fundamentales para comunicarse claramente. Estas habilidades permiten formular preguntas, describir situaciones cotidianas y expresar ideas básicas sin errores que dificulten la comprensión.
-
----
+En A2 se escriben **textos breves y simples**: mensajes, postales, correos personales, notas, formularios. Lo importante es **comunicar la información** con frases claras y bien conectadas.
 
 ## Explicación central
-La oración en alemán sigue una estructura **sujeto + verbo + objeto**, similar al español. Por ejemplo:
-- *Ich esse ein Brot.* (Yo como un pan).
-A diferencia del español, en el alemán los artículos definidos (*der, die, das*) siempre preceden al sustantivo y coinciden con su género y número. Esto es crucial para evitar ambigüedades:
-- *Der Tisch ist groß.* (La mesa es grande) → *die Tafel* sería "la pizarra", pero si se usa *der Tisch*, no hay confusión.
+### Correo personal
+1. **Saludo**: *Liebe Anna, / Lieber Tom, / Hallo Tom,*
+2. **Primera palabra en minúscula** tras la coma: *Liebe Anna, **vielen** Dank für…*
+3. **Motivo**: *ich schreibe dir, weil… / danke für deine Nachricht.*
+4. **Desarrollo**: 2 o 3 ideas.
+5. **Cierre**: *Viele Grüße / Liebe Grüße / Bis bald!* + firma.
 
-Además, los verbos en oraciones simples van al final en alemán:
-- *Ich gehe in die Schule.* (Voy a la escuela).
-Si el verbo es un verbo auxiliar (*haben, sein*), va delante del participio pasado:
-- *Er hat ein Buch gelesen.* (Él ha leído un libro).
+### Conectores básicos
+*und, aber, oder, denn* (sin cambio de orden); *dann, danach, zuerst* (inversión); *weil, dass* (verbo al final).
 
----
+### Tiempos
+Presente (rutina y futuro), Perfekt (pasado), *war / hatte*.
+
+### Ortografía
+- **Sustantivos con mayúscula**: *das Wetter, die Stadt, der Strand*.
+- *ß* tras vocal larga o diptongo: *Straße, heißen, groß*; *ss* tras vocal breve: *Wasser, muss, dass*.
+- *ä, ö, ü* (o *ae, oe, ue* si no hay teclado).
+- ***du / dich / dein*** en cartas pueden ir en minúscula (o mayúscula, ambas aceptadas); ***Sie / Ihnen / Ihr*** siempre con mayúscula.
 
 ## Errores comunes de hispanohablantes
-1. **Omisión de artículos**: Los hablantes nativos de español suelen omitir el artículo en ciertos contextos, lo que lleva a errores como *Ich esse Brot* (en lugar de *ein Brot*).
-2. **Confusión de género**: En el alemán, los sustantivos tienen género fijo (*der Mann*, *die Frau*, *das Kind*), pero en español esto no siempre es estricto (*el libro*, *la mesa*). Por ejemplo, *der Stuhl* (la silla) puede sorprender si se espera un artículo femenino.
-3. **Posición incorrecta del verbo**: Frases como *Ich esse in die Schule* (sin el verbo al final) son comunes entre principiantes.
-
----
+1. Sustantivos en minúscula: ❌ *das wetter* ✅ *das Wetter*.
+2. ❌ *Liebe Tom* ✅ *Lieber Tom*.
+3. ❌ *Liebe Anna, Vielen Dank* ✅ *vielen Dank*.
+4. ❌ *das* (conjunción) ✅ *dass*.
+5. Olvidar la inversión: ❌ *Dann wir gehen…* ✅ *Dann gehen wir…*
 
 ## Comparación con el español
-El alemán requiere artículos definidos en todos los contextos, mientras que en español suelen omitirse cuando se habla de algo general:
-- Alemán: *Ich mag Kaffee.* (Yo me gusta el café) → Incorrecto. Debe ser *Ich mag **den** Kaffee* si se refiere a una taza específica o *Kaffee* en sentido general, pero esto no es común.
-- Español: *Me gusta el café* → En alemán, si se habla de café en general, se usa sin artículo (*Ich trinke gern Kaffee*).
-
-Además, los verbos en oraciones simples siempre van al final en alemán, mientras que en español pueden estar en cualquier posición según el énfasis:
-- Alemán: *Er ist in Berlin.* (Él está en Berlín) → No se puede decir *Er ist Berlin*.
-- Español: *Él está en Berlín* o *En Berlín está él*.
-
----
+La estructura es igual. Las diferencias: mayúscula en todos los sustantivos, *Lieber / Liebe* según el género, minúscula tras la coma del saludo y el orden del verbo.
 
 ## Ejemplo extendido en contexto
-**Situación**: Un estudiante describe su rutina matutina.
-
-> *Guten Morgen! Ich stehe um sieben Uhr auf. Dann wasche ich mich und ziehe mich an. Ich esse ein Brot und trinke einen Kaffee. Danach gehe ich in die Schule. In der Klasse schreibe ich oft mit dem Stift, aber manchmal spreche ich mit den Freunden.*
-
-**Análisis**:
-- Se usan artículos definidos (*ein Brot*, *einen Kaffee*).
-- Los verbos van al final en oraciones simples (*stehe auf*, *wasche mich*, *ziehe an*).
-- El uso de preposiciones (*in die Schule*, *mit dem Stift*) muestra concordancia con el género del sustantivo.
-
-Este ejemplo refleja la estructura básica del alemán A2, combinando vocabulario funcional y reglas gramaticales sencillas para una comunicación clara.
+*Liebe Julia,*
+*vielen Dank für deine Karte! Ich bin gerade mit meiner Familie in München. Das Wetter ist super und wir gehen jeden Tag spazieren. Gestern haben wir das Deutsche Museum besucht, das war toll! Morgen fahren wir in die Berge.*
+*Liebe Grüße*
+*Ana*

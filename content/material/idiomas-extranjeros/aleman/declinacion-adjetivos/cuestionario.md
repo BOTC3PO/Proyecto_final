@@ -1,575 +1,272 @@
-# Idiomas — Alemán — declinacion-adjetivos (cuestionario)
+# Alemán — declinación del adjetivo (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/declinacion-adjetivos/cuestionario_crudo.md`): arreglo mecánico + bug sistemático en 15 bloques `tipo: mc` que usaban `respuestas_validas:` en vez de `respuesta:` (campo requerido para preguntas de opción múltiple) — corregido, sin cambiar ninguna respuesta original.
+> Tema: `idiomas-extranjeros/aleman/declinacion-adjetivos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Adjektivendung nach bestimmtem Artikel (Maskulinum)  
-```yaml
+### 1 — der + Nom.
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["bestimmter-artikel", "maskulinum", "nominativ"]
-pasos:
-  - "Identifica el caso y género del sustantivo."
-  - "Aplica la regla de declinación del adjetivo después de un artículo definido."
-respuesta: "großer"
-opciones_explicitas:
-  - "größer"
-  - "große"
-  - "groß"
-  - "großer"
-tipo: mc
-explicacion: "El adjetivo 'großer' se declina con -er después del artículo definido 'der' para sustantivos masculinos en nominativo singular."
-enunciado: "Der ___ Mann ist sehr groß."
+  tags: ["adjetivos"]
+
+respuesta: "alte"
+tipo: "mc"
+opciones_explicitas: ["alte", "alter", "alten"]
+
+enunciado: "Der ___ Mann wohnt hier. (alt)"
+
+explicacion: |
+  Tras *der*: *-e*.
 ```
 
+### 2 — ein + Nom. masc.
 
-
-
-### 2 — Adjektivendung nach unbestimmtem Artikel (Femininum)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["unbestimmter-artikel", "femininum", "akkusativ"]
-pasos:
-  - "Reconoce el artículo indefinido y la posición del adjetivo."
-  - "Aplica la regla de declinación sin artículo definido en acusativo femenino."
-respuestas_validas:
-  - "schöne"
-  - "Schöne"
-tipo: completar
-explicacion: "El adjetivo 'schöne' no lleva sufijo después del artículo indefinido 'eine' para sustantivos femeninos en acusativo."
-enunciado: "Ich habe eine ___ Frau gesehen."
+  tags: ["adjetivos"]
+
+respuesta: "alter"
+tipo: "mc"
+opciones_explicitas: ["alter", "alte", "alten"]
+
+enunciado: "Ein ___ Mann wohnt hier. (alt)"
+
+explicacion: |
+  *Ein* no muestra el género: *-er*.
 ```
 
+### 3 — ein neutro
 
-
-
-### 3 — Adjektivendung en plural (Neutrum)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["plural", "neutrum", "dativ"]
-pasos:
-  - "Determina el caso y número del sustantivo."
-  - "Aplica la regla de declinación para plural con artículo definido."
-opciones_explicitas:
-  - "große"
-  - "größere"
-  - "großen"
-  - "großer"
-respuesta: "großen"
-tipo: mc
-explicacion: "El adjetivo 'großen' se declina con -en en plural para sustantivos neutros en dativo."
-enunciado: "Die ___ Bücher sind sehr interessant."
+  tags: ["adjetivos"]
+
+respuesta: "neues"
+tipo: "mc"
+opciones_explicitas: ["neues", "neue", "neuen"]
+
+enunciado: "Das ist ein ___ Auto. (neu)"
+
+explicacion: |
+  Neutro tras *ein*: *-es*.
 ```
 
+### 4 — Acus. masc.
 
-
-
-### 4 — Adjektivendung sin artículo (Maskulinum, Nominativo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["ohne-artikel", "maskulinum", "nominativ"]
-pasos:
-  - "Reconoce la ausencia de artículo y el caso del sustantivo."
-  - "Aplica la regla para adjetivos sin artículo en nominativo masculino."
-respuesta: "großer"
-opciones_explicitas:
-  - "größer"
-  - "große"
-  - "groß"
-  - "großer"
-tipo: mc
-explicacion: "El adjetivo 'großer' se declina con -er en nominativo masculino sin artículo definido."
-enunciado: "___ Junge spielt Fußball."
+  tags: ["adjetivos"]
+
+respuesta: "kleinen"
+tipo: "mc"
+opciones_explicitas: ["kleinen", "kleiner", "kleine"]
+
+enunciado: "Ich habe einen ___ Hund. (klein)"
+
+explicacion: |
+  Acus. masc.: *-en*.
 ```
 
+### 5 — Dativo
 
-
-
-### 5 — Adjektivendung después de preposición (Femininum, Genitivo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["präposition", "femininum", "genitiv"]
-pasos:
-  - "Identifica la preposición y el caso requerido."
-  - "Aplica la regla de declinación para genitivo femenino sin artículo."
-respuesta: "junge"
-opciones_explicitas:
-  - "junges"
-  - "junge"
-  - "jungen"
-  - "jung"
-tipo: mc
-explicacion: "El adjetivo 'junge' no lleva sufijo en genitivo femenino sin artículo definido."
-enunciado: "Das Buch meiner ___ Frau ist verloren."
+  tags: ["adjetivos"]
+
+respuesta: "neuen"
+tipo: "mc"
+opciones_explicitas: ["neuen", "neue", "neuem"]
+
+enunciado: "Ich spreche mit dem ___ Lehrer. (neu)"
+
+explicacion: |
+  Dativo: *-en*.
 ```
 
+### 6 — Fem.
 
-
-
-### 6 — Adjektivendung con artículo definido (Femininum, Akkusativo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["bestimmter-artikel", "femininum", "akkusativ"]
-pasos:
-  - "Reconoce el artículo definido y el caso del sustantivo."
-  - "Aplica la regla de declinación para adjetivos en acusativo femenino."
-respuestas_validas:
-  - "schöne"
-  - "Schöne"
-tipo: completar
-explicacion: "El adjetivo 'schöne' se declina con -e después del artículo definido 'die' para sustantivos femeninos en acusativo."
-enunciado: "Die ___ Frau läuft schnell."
+  tags: ["adjetivos"]
+
+respuesta: "rote"
+tipo: "mc"
+opciones_explicitas: ["rote", "roten", "roter"]
+
+enunciado: "Sie trägt eine ___ Jacke. (rot)"
+
+explicacion: |
+  Fem. acusativo: *-e*.
 ```
 
+### 7 — Plural
 
-
-
-### 7 — Adjektivendung en plural (Maskulinum, Nominativo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["plural", "maskulinum", "nominativ"]
-pasos:
-  - "Determina el número y caso del sustantivo."
-  - "Aplica la regla de declinación para plural con artículo definido."
-opciones_explicitas:
-  - "große"
-  - "größere"
-  - "großen"
-  - "großer"
-respuesta: "großen"
-tipo: mc
-explicacion: "El adjetivo 'großen' se declina con -en en plural para sustantivos masculinos en nominativo."
-enunciado: "Die ___ Männer sind sehr groß."
+  tags: ["adjetivos"]
+
+respuesta: "kleinen"
+tipo: "mc"
+opciones_explicitas: ["kleinen", "kleine", "kleiner"]
+
+enunciado: "Die ___ Kinder spielen. (klein)"
+
+explicacion: |
+  Plural tras *die*: *-en*.
 ```
 
+### 8 — Sin artículo masc.
 
-
-
-### 8 — Adjektivendung sin artículo (Neutrum, Dativ)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["ohne-artikel", "neutrum", "dativ"]
-pasos:
-  - "Reconoce la ausencia de artículo y el caso del sustantivo."
-  - "Aplica la regla para adjetivos sin artículo en dativo neutro."
-respuesta: "kleines"
-opciones_explicitas:
-  - "kleiner"
-  - "kleines"
-  - "klein"
-  - "kleine"
-tipo: mc
-explicacion: "El adjetivo 'kleines' se declina con -es en dativo neutro sin artículo definido."
-enunciado: "Ich helfe dem ___ Kind."
+  tags: ["adjetivos"]
+
+respuesta: "Guter"
+tipo: "mc"
+opciones_explicitas: ["Guter", "Gute", "Guten"]
+
+enunciado: "___ Wein ist teuer. (gut)"
+
+explicacion: |
+  Fuerte: *-er*.
 ```
 
+### 9 — Sin artículo neutro
 
-
-
-### 9 — Adjektivendung después de preposición (Neutrum, Akkusativo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["präposition", "neutrum", "akkusativ"]
-pasos:
-  - "Identifica la preposición y el caso requerido."
-  - "Aplica la regla de declinación para acusativo neutro sin artículo."
-respuesta: "junges"
-opciones_explicitas:
-  - "junge"
-  - "jungen"
-  - "junges"
-  - "jung"
-tipo: mc
-explicacion: "El adjetivo 'junges' se declina con -es en acusativo neutro sin artículo definido."
-enunciado: "Das ist das ___ Tier."
+  tags: ["adjetivos"]
+
+respuesta: "kaltes"
+tipo: "mc"
+opciones_explicitas: ["kaltes", "kalte", "kalten"]
+
+enunciado: "Ich trinke ___ Wasser. (kalt)"
+
+explicacion: |
+  Fuerte neutro: *-es*.
 ```
 
+### 10 — Sin artículo dat.
 
-
-
-### 10 — Adjektivendung con artículo indefinido (Maskulinum, Dativ)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["unbestimmter-artikel", "maskulinum", "dativ"]
-pasos:
-  - "Reconoce el artículo indefinido y el caso del sustantivo."
-  - "Aplica la regla de declinación para adjetivos en dativo masculino."
-respuesta: "großer"
-opciones_explicitas:
-  - "größer"
-  - "groß"
-  - "große"
-  - "großer"
-tipo: mc
-explicacion: "El adjetivo 'großer' no lleva sufijo en dativo masculino con artículo indefinido."
-enunciado: "Ich spreche mit einem ___ Mann."
+  tags: ["adjetivos"]
+
+respuesta: "frischer"
+tipo: "mc"
+opciones_explicitas: ["frischer", "frischen", "frische"]
+
+enunciado: "Kaffee mit ___ Milch (frisch)"
+
+explicacion: |
+  Fuerte fem. dativo: *-er*.
 ```
 
+### 11 — Predicativo
 
-
-
-### 11 — Adjektivendung sin artículo (Femininum, Nominativo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["mit-bestimmtem-artikel", "femininum", "nominativ"]
-pasos:
-  - "Reconocé el artículo definido y el caso (nominativo, femenino singular)."
-  - "Aplicá la terminación -e del adjetivo tras artículo definido."
-enunciado: "Die ___ Frau ist sehr nett."
-opciones_explicitas:
-  - "schön"
-  - "schöne"
-  - "schönen"
-  - "schöner"
-respuesta: "schöne"
-tipo: mc
-explicacion: "Tras el artículo definido 'die', el adjetivo femenino en nominativo singular lleva -e: die schöne Frau."
+  tags: ["adjetivos"]
+
+respuesta: "groß"
+tipo: "mc"
+opciones_explicitas: ["groß", "große", "großes"]
+
+enunciado: "Das Haus ist ___. (groß)"
+
+explicacion: |
+  Tras *sein*: sin terminación.
 ```
 
+### 12 — Posesivo pl.
 
-
-
-### 12 — Adjektivendung con artículo definido (Neutrum, Akkusativ)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["bestimmter-artikel", "neutrum", "akkusativ"]
-pasos:
-  - "Identifica el artículo definido y el caso del sustantivo."
-  - "Aplica la regla de declinación para adjetivos en acusativo neutro."
-respuesta: "kleines"
-opciones_explicitas:
-  - "kleiner"
-  - "kleines"
-  - "klein"
-  - "kleine"
-tipo: mc
-explicacion: "El adjetivo 'kleines' se declina con -es en acusativo neutro con artículo definido."
-enunciado: "Das ___ Tier ist sehr klein."
+  tags: ["adjetivos"]
+
+respuesta: "alten"
+tipo: "mc"
+opciones_explicitas: ["alten", "alte", "alter"]
+
+enunciado: "Ich besuche meine ___ Freunde. (alt)"
+
+explicacion: |
+  Posesivo plural: *-en*.
 ```
 
+### 13 — Genitivo
 
-
-
-### 13 — Adjektivendung en plural (Femininum, Genitivo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["plural", "femininum", "genitiv"]
-pasos:
-  - "Determina el número y caso del sustantivo."
-  - "Aplica la regla de declinación para plural con artículo definido."
-opciones_explicitas:
-  - "große"
-  - "größere"
-  - "großen"
-  - "großer"
-respuesta: "großen"
-tipo: mc
-explicacion: "El adjetivo 'großen' se declina con -en en plural para sustantivos femeninos en genitivo."
-enunciado: "Die ___ Frauen sind sehr groß."
+  tags: ["adjetivos"]
+
+respuesta: "neuen"
+tipo: "mc"
+opciones_explicitas: ["neuen", "neues", "neue"]
+
+enunciado: "die Farbe des ___ Autos (neu)"
+
+explicacion: |
+  Genitivo: *-en*.
 ```
 
+### 14 — Predicativo
 
-
-
-### 14 — Adjektivendung sin artículo (Femininum, Akkusativo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "declinacion-adjetivos"
   nivel: "B1"
-  tags: ["mit-unbestimmtem-artikel", "femininum", "akkusativ"]
-pasos:
-  - "Reconocé el artículo indefinido y el caso (acusativo, femenino singular)."
-  - "Aplicá la terminación -e."
-enunciado: "Ich sehe eine ___ Frau."
-opciones_explicitas:
-  - "schön"
-  - "schöne"
-  - "schönen"
-  - "schöner"
-respuesta: "schöne"
-tipo: mc
-explicacion: "Con el artículo indefinido 'eine' (acusativo femenino singular) el adjetivo lleva -e: eine schöne Frau."
-```
+  tags: ["adjetivos"]
 
+respuesta: verdadero
+tipo: vf
 
+enunciado: "Después de *sein*, el adjetivo no lleva terminación."
 
-
-### 15 — Adjektivendung después de preposición (Maskulinum, Genitivo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["präposition", "maskulinum", "genitiv"]
-pasos:
-  - "Identifica la preposición y el caso requerido."
-  - "Aplica la regla de declinación para genitivo masculino sin artículo."
-respuesta: "großer"
-opciones_explicitas:
-  - "größer"
-  - "groß"
-  - "große"
-  - "großer"
-tipo: mc
-explicacion: "El adjetivo 'großer' se declina con -er en genitivo masculino sin artículo definido."
-enunciado: "Das Buch meines ___ Vaters ist verloren."
-```
-
-
-
-
-### 16 — Adjektivendung con artículo indefinido (Neutrum, Nominativo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["unbestimmter-artikel", "neutrum", "nominativ"]
-pasos:
-  - "Reconoce el artículo indefinido y el caso del sustantivo."
-  - "Aplica la regla de declinación para adjetivos en nominativo neutro."
-respuesta: "kleines"
-opciones_explicitas:
-  - "kleiner"
-  - "kleines"
-  - "klein"
-  - "kleine"
-tipo: mc
-explicacion: "El adjetivo 'kleines' no lleva sufijo en nominativo neutro con artículo indefinido."
-enunciado: "Ich habe ein ___ Tier."
-```
-
-
-
-
-### 17 — Adjektivendung sin artículo (Neutrum, Nominativo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["ohne-artikel", "neutrum", "nominativ"]
-pasos:
-  - "Reconoce la ausencia de artículo y el caso del sustantivo."
-  - "Aplica la regla para adjetivos sin artículo en nominativo neutro."
-respuesta: "kleines"
-opciones_explicitas:
-  - "kleiner"
-  - "kleines"
-  - "klein"
-  - "kleine"
-tipo: mc
-explicacion: "El adjetivo 'kleines' no lleva sufijo en nominativo neutro sin artículo definido."
-enunciado: "___ Tier ist sehr klein."
-```
-
-
-
-
-### 18 — Adjektivendung con artículo definido (Femininum, Dativ)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["mit-bestimmtem-artikel", "femininum", "dativ"]
-pasos:
-  - "Reconocé el artículo definido 'der' en dativo femenino singular."
-  - "Aplicá la terminación -en."
-enunciado: "Ich helfe der ___ Frau."
-opciones_explicitas:
-  - "schön"
-  - "schöne"
-  - "schönen"
-  - "schöner"
-respuesta: "schönen"
-tipo: mc
-explicacion: "Después de un artículo definido en dativo (der Frau), el adjetivo lleva siempre -en: der schönen Frau."
-```
-
-
-
-
-### 19 — Adjektivendung en plural (Maskulinum, Genitivo)  
-```
-metadata:  
-  materia: "aleman"  
-  tema: "declinacion-adjetivos"  
-  nivel: "B1"  
-  tags: ["possessivo", "neutro"]  
-pasos:  
-  - "Identificar el género y número del sustantivo 'Kind'."  
-  - "Aplicar la declinación correcta del adjetivo tras un possessivo."  
-explicacion: "El adjetivo 'meines' va seguido de un sustantivo neutro en nominativo singular, por lo que no lleva acento diacrítico ni cambio ortográfico. La forma correcta es 'meines kleinen Kindes' (nominativo). En casos como esto, los adjetivos tras posesivos siguen reglas específicas según el género y número del sustantivo."  
-enunciado: "Meines ___ Kindes ist krank."  
-tipo: completar  
-respuestas_validas:  
-  - "kleinen"  
-  - "Kleinen"  
-
-```
-
-### 20 — Adjektivendung sin artículo (Neutrum, Akkusativo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["ohne-artikel", "neutrum", "akkusativ"]
-pasos:
-  - "Reconoce la ausencia de artículo y el caso del sustantivo."
-  - "Aplica la regla para adjetivos sin artículo en acusativo neutro."
-respuesta: "junges"
-opciones_explicitas:
-  - "junge"
-  - "jungen"
-  - "junges"
-  - "jung"
-tipo: mc
-explicacion: "El adjetivo 'junges' se declina con -es en acusativo neutro sin artículo definido."
-enunciado: "Ich sehe ein ___ Tier."
-```
-
-
-
-
-### 21 — Adjektivendung después de preposición (Femininum, Nominativo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["mit-unbestimmtem-artikel", "neutrum", "akkusativ"]
-pasos:
-  - "Reconocé el género del sustantivo (das Auto, neutro) y el caso (acusativo)."
-  - "Aplicá la terminación -es tras el artículo indefinido 'ein'."
-enunciado: "Er kauft ein ___ Auto."
-opciones_explicitas:
-  - "schön"
-  - "schöne"
-  - "schönen"
-  - "schönes"
-respuesta: "schönes"
-tipo: mc
-explicacion: "Con 'ein' en acusativo neutro el adjetivo muestra el género con -es: ein schönes Auto."
-```
-
-
-
-
-### 22 — Adjektivendung con artículo indefinido (Femininum, Genitivo)  
-```
-metadata:  
-  materia: "aleman"  
-  tema: "declinacion-adjetivos"  
-  nivel: "B1"  
-  tags: ["articulo-definido", "femenino"]  
-pasos:  
-  - "Determinar el caso y género del sustantivo 'Studentin'."  
-  - "Aplicar la declinación correcta del adjetivo tras un artículo definido."  
-explicacion: "El artículo definido 'die' va seguido de un sustantivo femenino en nominativo singular. El adjetivo 'junge' se transforma en 'junge' (sin acento) porque el artículo ya indica el género y caso, no requiriendo cambio adicional. Ejemplo: 'die junge Studentin' (nominativo)."  
-enunciado: "Die ___ Studentin hat eine Prüfung."  
-tipo: completar  
-respuestas_validas:  
-  - "junge"  
-  - "Junge"  
-
-```
-
-### 23 — Adjektivendung sin artículo (Maskulinum, Dativ)  
-```
-metadata:  
-  materia: "aleman"  
-  tema: "declinacion-adjetivos"  
-  nivel: "B1"  
-  tags: ["articulo-indefinido", "neutro"]  
-pasos:  
-  - "Identificar el género y número del sustantivo 'Tier'."  
-  - "Aplicar la declinación correcta del adjetivo tras un artículo indefinido."  
-explicacion: "El artículo indefinido 'ein' va seguido de un sustantivo neutro en nominativo singular. El adjetivo 'schönes' se transforma en 'schönes' (sin acento) porque el artículo ya indica el género y caso, no requiriendo cambio adicional. Ejemplo: 'ein schönes Tier' (nominativo)."  
-enunciado: "Ich habe ein ___ Tier gesehen."  
-tipo: completar  
-respuestas_validas:  
-  - "schönes"  
-  - "Schönes"  
-
-```
-
-### 24 — Adjektivendung con artículo definido (Neutrum, Dativ)  
-```
-metadata:  
-  materia: "aleman"  
-  tema: "declinacion-adjetivos"  
-  nivel: "B1"  
-  tags: ["preposicion", "dativo"]  
-pasos:  
-  - "Determinar el caso del sustantivo 'Mädchen' tras la preposición 'mit'."  
-  - "Aplicar la declinación correcta del adjetivo en dativo."  
-explicacion: "La preposición 'mit' requiere el caso acusativo, pero cuando va seguida de un sustantivo femenino (como 'Mädchen'), se usa el dativo. El adjetivo 'jungen' se transforma en 'jungen' (sin acento) porque el caso ya está indicado por la preposición y el género del sustantivo. Ejemplo: 'mit einer jungen Mädchen' (dativo)."  
-enunciado: "Ich spiele mit einer ___ Mädchen."  
-tipo: completar  
-respuestas_validas:  
-  - "jungen"  
-  - "Jungen"
-```
-
-### 25 — Adjektivendung en plural (Neutrum, Akkusativo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "declinacion-adjetivos"
-  nivel: "B1"
-  tags: ["plural", "neutrum", "akkusativ"]
-pasos:
-  - "Determina el número y caso del sustantivo."
-  - "Aplica la regla de declinación para plural con artículo definido."
-opciones_explicitas:
-  - "große"
-  - "größere"
-  - "großen"
-  - "großer"
-respuesta: "großen"
-tipo: mc
-explicacion: "El adjetivo 'großen' se declina con -en en plural para sustantivos neutros en acusativo."
-enunciado: "Die ___ Bücher sind sehr groß."
+explicacion: |
+  Verdadero: *Der Mann ist alt*.
 ```
