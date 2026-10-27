@@ -1,4 +1,4 @@
-# Inglés — listening B2 (cuestionario, 9 preguntas VBLang)
+# Inglés — listening B2 (cuestionario, 10 preguntas VBLang)
 
 > Tema: `idiomas-extranjeros/ingles/listening-b2`. Ver `teoria.md` en esta misma carpeta.
 >

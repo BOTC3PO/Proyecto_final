@@ -1,4 +1,4 @@
-# Inglés — listening C1 (cuestionario, 9 preguntas VBLang)
+# Inglés — listening C1 (cuestionario, 10 preguntas VBLang)
 
 > Tema: `idiomas-extranjeros/ingles/listening-c1`. Ver `teoria.md` en esta misma carpeta.
 >
