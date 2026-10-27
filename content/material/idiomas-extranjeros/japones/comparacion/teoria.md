@@ -1,46 +1,50 @@
-# Comparaciones en japonés (N4)
+# La comparación en japonés (N4)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/comparacion`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-Las comparaciones se usan para indicar relaciones entre dos elementos, como superioridad, igualdad o inferioridad. En el nivel N4 del Japonés, es fundamental aprender estructuras básicas para expresar ideas como "más que", "tan...como" o "menos que", ya que permiten describir situaciones cotidianas, opiniones personales y contrastes entre objetos o personas.
+Para comparar, el japonés **no cambia el adjetivo** (no hay «-er» ni «más»): usa partículas y estructuras fijas como **AはBより〜**, **AのほうがBより〜** y **〜の中で〜がいちばん〜**.
 
 ## Explicación central
-En japonés, las comparaciones se forman con partículas específicas. Las más comunes son:
+### Comparar dos cosas
+- **AはBより + adjetivo**: 東京**は**大阪**より**大きいです。(Tokio es más grande que Osaka.)
+- **AのほうがBより + adjetivo** (destaca A): 東京**のほうが**大阪**より**大きいです。
 
-1. **～より (yori)**: Se usa para expresar "más que" en sentido absoluto.
-   - Ejemplo 1: この本はそれ**より**面白いです。(Kono hon wa sore **yori** omoshiroi desu.) → *Este libro es más interesante que aquel.*
-   - Ejemplo 2: 彼は私**より**背が高い。(Kare wa watashi **yori** se ga takai.) → *Él es más alto que yo.*
+### Preguntar entre dos
+**AとBと、どちらが〜ですか**: 犬**と**猫**と、どちらが**好きですか。(¿Qué te gusta más, los perros o los gatos?)
+- Respuesta: 猫**のほうが**好きです。/ **どちらも**好きです (ambos).
 
-2. **～ほど (hodo)**: Se emplea para enfatizar un grado extremo, equivalente a "tan...como" en español.
-   - Ejemplo 3: この映画はとても面白く、見終わった後も感動した**ほど**です。(Kono eiga wa totemo omoshiroi, miru atama no go mo kandou shita **hodo** desu.) → *Esta película es tan interesante que incluso después de verla me emocioné mucho.*
+### El más (superlativo)
+**〜の中で、〜がいちばん〜**: 果物**の中で**、りんご**がいちばん**好きです。
+- Pregunta: 日本料理の中で、**何がいちばん**おいしいですか。
+- Entre lugares/personas: 家族の中で、**だれが**いちばん背が高いですか。
 
-3. **～と (to)**: Se usa para comparar dos elementos en igualdad o similitud.
-   - Ejemplo 4: 彼の車は私の車**と**同じです。(Kare no kuruma wa watashi no kuruma **to** onaji desu.) → *Su coche es el mismo que el mío.*
+### Igualdad y negación
+- **AはBほど〜ない** (A no es tan … como B): 今日は昨日**ほど**寒く**ない**です。
+- **AとBは同じぐらい〜** (igual de): 兄と私は**同じぐらい**背が高いです。
+
+### Con verbos
+**〜ほうが〜**: 歩く**ほうが**体にいいです。(caminar es mejor para el cuerpo)
 
 ## Errores comunes de hispanohablantes
-- **Confusión entre ～より y ～と**: Al comparar, algunos estudiantes usan ～と para "más que", lo cual es incorrecto. Por ejemplo: *彼は私**と**背が高い* (falso) en lugar de *彼は私**より**背が高い*.
-- **Uso incorrecto de ～ほど**: A veces se agrega ～ほど sin necesidad, como en *彼は私より**ほど**背が高い* (incorrecto), cuando la estructura correcta es *彼は私より背が高い*.
+1. Buscar una palabra para «más»: ❌ もっと大きいです大阪より ✅ 大阪より大きいです.
+2. ❌ 大阪より東京は大きいです (posible pero raro) → natural: 東京は大阪より大きいです.
+3. ❌ 今日は昨日ほど寒いです ✅ 今日は昨日ほど寒くないです (ほど exige negativo).
+4. ❌ どれが好きですか (entre dos) ✅ どちらが好きですか.
 
 ## Comparación con el español
-En español, las comparaciones suelen usar "más...que", "tan...como" o "menos...que". En japonés:
-- **"Más que"** → ～より (ejemplo: *más alto que* → 背が高**い**).
-- **"Tan...como"** → ～ほど (ejemplo: *tan interesante como* → 面白**く**).
-- **"Igual que"** → ～と (ejemplo: *igual de rápido que* → 速**さが**).
+El español usa «más… que» y «el más… de»; el japonés usa より («que») y いちばん («número uno»). El adjetivo no cambia: 大きい sirve para «grande», «más grande» y «el más grande».
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-A: 昨日、新しいレストランに行きました。(Kinou, atarashii resutoran ni ikimashita.) → *Ayer fui a un nuevo restaurante.*
-B: どこですか？ (Doko desu ka?) → *¿Dónde está?*
-A: 駅の近くです。料理はそれ**より**美味しいです。(Eki no chikaku desu. Ryōri wa sore **yori** oishi i desu.) → *Está cerca de la estación. La comida es más deliciosa que aquella.*
-B: そのレストラン、私と行ったことがありますか？ (Sono resutoran, watashi to itta koto ga arimasu ka?) → *¿Fui allí con usted alguna vez?*
-A: いいえ。でも、料理は**ほど**美味しくなかったです。(Iie. Demo, ryōri wa **hodo** oishiku nakatta desu.) → *No. Pero la comida no fue tan deliciosa como.*
-
----
-Esta regla es clave para describir experiencias, evaluar opciones y expresar opiniones en situaciones reales.
+- A: 夏と冬と、どちらが好きですか。
+- B: 夏**のほうが**好きです。冬**より**暖かいですから。
+- A: 一年**の中で**、何月**がいちばん**好きですか。
+- B: 八月**がいちばん**好きです。でも、日本の八月はアルゼンチンの八月**ほど**寒く**ない**ですね。

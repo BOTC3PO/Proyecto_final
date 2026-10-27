@@ -1,52 +1,62 @@
-# El uso de keigo, sonkeigo y kenjougo en japonés (N2)
+# Sonkeigo y kenjōgo: el lenguaje honorífico japonés (N2)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/keigo-sonkeigo-kenjougo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-El **keigo** es el sistema de formas respetuosas y humildes que se utilizan en el japonés para expresar cortesía según la relación entre interlocutores. En el nivel N2, es fundamental comprender las diferencias entre **sonkeigo** (formas respetuosas hacia otra persona) y **kenjougo** (formas humildes que se usan para mostrar deferencia a una tercera parte). Estas categorías son clave en contextos formales, como negocios o conversaciones con superiores, y su uso incorrecto puede generar malentendidos sociales.
+El **keigo** (敬語) tiene tres niveles: **teineigo** (cortés: です・ます), **sonkeigo** (尊敬語, respetuoso: eleva las acciones **del otro**) y **kenjōgo** (謙譲語, humilde: rebaja las acciones **propias** o del propio grupo). Es imprescindible en el trabajo y con clientes.
 
 ## Explicación central
-El **sonkeigo** eleva la acción de otra persona. Por ejemplo:
-- **Hataru** (hacer) → **Hataru-masu** (usted hace).
-  Ejemplo: 「ご意見をお聞かせください」(Por favor, diga su opinión).
+### Regla de oro
+- **Sonkeigo** → para lo que hace la **otra persona** (cliente, superior, persona de otra empresa).
+- **Kenjōgo** → para lo que hago **yo** o mi grupo (mi empresa, mi familia) **hacia** esa persona.
 
-El **kenjougo**, en cambio, baja la acción del hablante o de alguien cercano. Por ejemplo:
-- **Hataru** → **Hataru-nai** (no hago / no haré).
-  Ejemplo: 「ご迷惑をおかけいたします」(Le causo molestias).
+### Verbos especiales
+| Verbo | Sonkeigo (el otro) | Kenjōgo (yo) |
+|---|---|---|
+| 行く / 来る | **いらっしゃる** / おいでになる | **参る** / **伺う** (visitar) |
+| いる | **いらっしゃる** | **おる** |
+| 言う | **おっしゃる** | **申す** / 申し上げる |
+| 見る | **ご覧になる** | **拝見する** |
+| 食べる / 飲む | **召し上がる** | **いただく** |
+| する | **なさる** | **いたす** |
+| 知っている | **ご存じだ** | **存じている** / 存じ上げる |
+| 会う | お会いになる | **お目にかかる** |
+| 聞く | お聞きになる | **伺う** / 拝聴する |
+| もらう | — | **いただく** |
+| あげる | — | **差し上げる** |
+| くれる | **くださる** | — |
 
-Ambos sistemas se combinan con partículas como **-te morau** o **-tara** para enfatizar la humildad o el respeto. Por ejemplo, en un contexto de disculpa:
-「大変ご迷惑をおかけして、申し訳ございません」(Lamento mucho haberle causado molestias).
+### Formas regulares
+- **Sonkeigo**: **お + raíz + になる**: お待ち**になる**, お帰り**になる**; **ご + sustantivo + になる**: ご利用**になる**; o la forma pasiva: 書か**れる**.
+- **Kenjōgo**: **お + raíz + する**: お持ち**します** (le llevo), お送り**します**; **ご + sustantivo + する**: ご案内**します**, ご説明**します**.
 
-## Errores comunes
-Los hablantes hispanohablantes suelen confundir **sonkeigo** con formas simples de respeto, como usar **-masu** sin considerar el contexto. Por ejemplo:
-❌ 「彼は来ます」(Él viene) → **correcto**, pero si se refiere a un superior, debe usarse **「ご来られます」** (él viene).
+### Pedidos
+- **お + raíz + ください**: 少々**お待ちください**。
+- **〜ていただけますか / 〜ていただけませんか**.
 
-Otro error es no distinguir entre **kenjougo** y formas cortas. Por ejemplo:
-❌ 「ご迷惑にしています」(le causo molestias) → **incorrecto**, ya que el kenjougo requiere **-nai** o **-kunai**: 「ご迷惑をおかけいたします」.
+### Uchi / soto
+Al hablar con alguien de afuera, **no** se usa sonkeigo para los propios (aunque sea el jefe): 部長の田中は今、外出して**おります**。(sin さん, con kenjōgo).
+
+## Errores comunes de hispanohablantes
+1. Usar kenjōgo para el otro: ❌ 先生が参りました ✅ 先生がいらっしゃいました.
+2. Usar sonkeigo para uno mismo: ❌ 私がおっしゃいます ✅ 私が申します.
+3. Doble keigo: ❌ おっしゃられる ✅ おっしゃる.
+4. Elevar al propio jefe ante un cliente: ❌ 田中部長はいらっしゃいません ✅ 田中はただいま席を外しております.
+5. ❌ ご覧してください ✅ ご覧ください.
 
 ## Comparación con el español
-El español no tiene un sistema tan estructurado como el japonés. Por ejemplo, en español se usan **usted** y verbos formales (como **hablar** → **habla**), pero no hay formas específicas para elevar o bajar la acción según la relación. En japonés, sin embargo, el uso de **sonkeigo** o **kenjougo** depende de quién se menciona:
-- Si se habla de un tercero respetuoso (como un cliente), se usa **sonkeigo**: 「お客様はご来店くださいました」(El cliente vino).
-- Si se habla del propio comportamiento, se usa **kenjougo**: 「ご不便をおかけいたします」(Le causo inconvenientes).
+El español marca respeto sobre todo con «usted» y fórmulas («¿Sería tan amable…?»). El japonés cambia **el verbo mismo** según quién hace la acción, y distingue el propio grupo (*uchi*) del ajeno (*soto*).
 
 ## Ejemplo extendido en contexto
-**Escena:** Un empleado de hotel disculpa un retraso en la llegada de una habitación.
-
-**Empleado (a su jefe):**
-「申し訳ございません、今ご案内が遅くなりました。お客様には大変ご迷惑をおかけしてしまい、誠に恐縮です」(Lo lamento, ha habido un retraso en la atención. Le causamos molestias al cliente, lo cual es muy lamentable).
-
-**Jefe:**
-「了解しました。今後はしっかり対応してください」(Entiendo. En el futuro, actúe con más cuidado).
-
-En este diálogo:
-- El empleado usa **kenjougo** para expresar su propio error (「ご迷惑をおかけしてしまい」).
-- Menciona al cliente con **sonkeigo** (「お客様は」), mostrando respeto hacia una tercera parte.
-- La respuesta del jefe utiliza formas neutras, ya que no requiere elevación ni humildad directa.
-
-Este uso de **sonkeigo** y **kenjougo** refleja la jerarquía social en el contexto laboral japonés, donde la cortesía es un valor fundamental.
+- 客: すみません、山田部長は**いらっしゃいます**か。
+- 受付: 申し訳ございません。山田はただいま会議中で**ございます**。終わりましたら、こちらからお電話**いたします**。
+- 客: では、資料だけお渡ししてもよろしいでしょうか。
+- 受付: はい、**お預かりします**。山田に必ず**お渡しします**。

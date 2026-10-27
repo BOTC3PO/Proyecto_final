@@ -1,60 +1,56 @@
-# Partículas: わ (wa), が (ga), を (wo), に (ni) y で (de) en japonés (N5)
+# Partículas は, が, を, に y で (N5)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/particulas-wa-ga-wo-ni-de`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-Las partículas son elementos gramaticales esenciales en el idioma japonés que indican relaciones entre los componentes de una oración. En el nivel N5, se introduce el uso básico de partículas como **わ (wa)**, **が (ga)**, **を (wo)**, **に (ni)** y **で (de)**, cuya función es determinar el rol de sustantivos o pronombres en la oración. Estas partículas ayudan a estructurar ideas claras y precisas, algo fundamental para comunicarse en contextos cotidianos como describir acciones, lugares o estados.
+Las **partículas** van **después** de la palabra y marcan su función. Las cinco básicas son **は** (tema), **が** (sujeto), **を** (objeto), **に** (destino, tiempo, ubicación de existencia) y **で** (lugar de la acción, medio).
 
 ## Explicación central
-Las partículas no tienen traducción literal al español, pero su función se puede entender mediante ejemplos:
+### は (*wa*): tema
+Se escribe **は** pero se pronuncia «wa». Marca **de qué se habla**: 私**は**学生です。(Yo soy estudiante.)
+También contrasta: 肉は食べますが、魚**は**食べません。
 
-- **わ (wa)**: Indica el tema de la oración. No siempre corresponde a "el" o "la", sino más bien a lo que se está discutiendo en ese momento.
-  Ejemplo:
-  > 私は学生です。(Watashi wa gakusei desu.) — *Yo soy estudiante.* (El tema es "yo").
+### が (*ga*): sujeto
+- Información nueva o sujeto enfocado: だれ**が**来ましたか。— 田中さん**が**来ました。
+- Con ある / いる (existencia): 机の上に本**が**あります。
+- Con 好き, 嫌い, 上手, 分かる, ほしい: 私はコーヒー**が**好きです。
 
-- **が (ga)**: Marca el sujeto de la oración, es decir, quién o qué realiza una acción.
-  Ejemplo:
-  > 犬が走っています。(Inu ga hashitte imasu.) — *El perro está corriendo.* (El sujeto es "el perro").
+### を (*o*): objeto directo
+Se escribe を y se pronuncia «o»: パン**を**食べます。También el lugar por donde se pasa: 公園**を**散歩します。
 
-- **を (wo)**: Indica el objeto directo de la oración, lo que recibe una acción.
-  Ejemplo:
-  > 私は本を読みます。(Watashi wa hon wo yomimasu.) — *Yo leo un libro.* (El objeto es "libro").
+### に (*ni*)
+- Destino: 学校**に**行きます。(también へ)
+- Tiempo puntual: 七時**に**起きます。(no con 今日, 明日, 毎日)
+- Lugar de existencia: 部屋**に**猫がいます。
+- Receptor: 友達**に**手紙を書きます。
 
-- **に (ni)**: Muestra dirección, lugar o destinatario.
-  Ejemplo:
-  > 彼は日本に住んでいます。(Kare wa Nihon ni sunde imasu.) — *Él vive en Japón.* (El lugar es "Japón").
+### で (*de*)
+- Lugar donde **ocurre una acción**: 図書館**で**勉強します。
+- Medio: バス**で**行きます。はし**で**食べます。
+- Idioma: 日本語**で**話します。
 
-- **で (de)**: Indica el lugar donde ocurre una acción.
-  Ejemplo:
-  > 私は学校で勉強します。(Watashi wa gakkō de benkyō shimasu.) — *Yo estudio en la escuela.* (El lugar es "escuela").
+### に vs. で para lugares
+- **に**: dónde **está** algo (ある・いる) o adónde va.
+- **で**: dónde **se hace** algo.
+東京**に**住んでいます (vivo en Tokio; 住む lleva に) / 東京**で**働いています (trabajo en Tokio).
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen confundir las partículas por analogía con preposiciones o artículos:
-1. **Confusión entre わ y が**: En español, el sujeto no se marca explícitamente como en "El perro corre", pero en japonés, usar **わ** en lugar de **が** cambia la intención. Por ejemplo, *犬は走っている* (Inu wa hashitte iru) implica que se está hablando del perro, no que esté realizando una acción.
-2. **Uso incorrecto de を y に**: En contextos como "llevar algo a un lugar", se debe usar **に** para el destino (*学校に持っていく*) en lugar de **を** (como *学校を持っていく*, que sería erróneo).
+1. Escribir わ en lugar de は: ❌ 私わ ✅ 私は.
+2. ❌ 図書館に勉強します ✅ 図書館で勉強します.
+3. ❌ 部屋で猫がいます ✅ 部屋に猫がいます.
+4. ❌ コーヒーを好きです ✅ コーヒーが好きです.
+5. ❌ 明日に行きます ✅ 明日行きます.
 
 ## Comparación con el español
-En español, las preposiciones y artículos cumplen funciones similares:
-- El sujeto no se marca como en "El perro corre" (*Inu ga hashimasu*), pero se usa **が** para enfatizar la acción.
-- El objeto directo se indica con **を**, mientras que en español se usa el verbo sin marcarlo explícitamente: *Yo leo un libro* vs. *Watashi wa hon wo yomimasu*.
-- La preposición "en" en español (*en Japón*) corresponde a **に** en japonés, pero **で** se usa para acciones realizadas en un lugar (*estudio en la escuela*: *gakkō de benkyō shimasu*).
+El español marca las funciones con el orden y las preposiciones **antes** del sustantivo («en la biblioteca»); el japonés usa partículas **después** (図書館**で**). La diferencia entre は y が no existe en español: は se parece a «en cuanto a…», が señala quién o qué.
 
-## Ejemplo extendido
-**Diálogo:**
-> A: きのう、どこにいきましたか？(Kin'ō, doko ni ikimashita ka?) — *¿Adónde fuiste ayer?*
-> B: パークにいきました。(Pāku ni ikimashita.) — *Fui al parque.*
-> A: なにをしましたか？(Nani wo shimasita ka?) — *¿Qué hiciste?*
-> B: 野球をしました。(Yakyū wo shimasita.) — *Jugué béisbol.*
-
-**Explicación:**
-- **どこに (doko ni)**: "A dónde" indica dirección.
-- **野球を (yakyū wo)**: "Béisbol" es el objeto directo de la acción "jugar".
-- **に** y **を** se usan para especificar lugar y objeto, respectivamente.
-
-Este uso sistemático de partículas permite construir oraciones claras en contextos cotidianos, lo que es clave para alcanzar el nivel N5.
+## Ejemplo extendido en contexto
+私**は**毎朝七時**に**起きます。電車**で**会社**に**行きます。会社**で**メール**を**書きます。昼休み**に**友達**と**レストラン**で**ご飯**を**食べます。会社の近く**に**公園**が**あります。

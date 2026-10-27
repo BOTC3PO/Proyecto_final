@@ -1,372 +1,272 @@
-# Idiomas — Japonés — forma-causativa (cuestionario)
+# Japonés — forma causativa (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/japones/forma-causativa/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/japones/forma-causativa`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Causativo de 寝る
+### 1 — Godan
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "母は赤ちゃんを早く___。(寝る, causativo)"
-tipo: completar
-respuestas_validas:
-  - "寝させる"
-explicacion: "Grupo 2: 寝る→寝させる (hacer dormir)."
+  tags: ["causativo"]
+
+respuesta: "書かせる"
+tipo: "mc"
+opciones_explicitas: ["書かせる", "書きさせる", "書かれる"]
+
+enunciado: "書く → causativo:"
+
+explicacion: |
+  Godan: -aseru.
 ```
 
-### 2 — Causativo de 寝る
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "forma-causativa"
-  nivel: "N3"
-  tags: ["causativo", "せる"]
-enunciado: "弟を早く___。(寝る, causativo)"
-tipo: mc
-opciones_explicitas:
-  - "寝させる"
-  - "寝せる"
-  - "寝られる"
-respuesta: "寝させる"
-explicacion: "Los verbos del grupo 2 forman el causativo cambiando る por させる: 寝る→寝させる."
-```
+### 2 — う
 
-### 3 — 文の補足  
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-pasos:
-  - "Identificar el verbo base."
-  - "Aplicar la forma causativa con 「させる」 para acciones impuestas por terceros."
-explicacion: "Cuando un tercero obliga a alguien a hacer algo, se usa 「させる」. Aquí, '先生' es quien impone la acción de '説明する'. La forma correcta es 「説明させる」."
-tipo: completar
-enunciado: "先生が問題を___。"
-respuestas_validas:
-  - "説明させる"
-  - "説明させる"
+  tags: ["causativo"]
+
+respuesta: "買わせる"
+tipo: "mc"
+opciones_explicitas: ["買わせる", "買あせる", "買いさせる"]
+
+enunciado: "買う → causativo:"
+
+explicacion: |
+  う → わせる.
 ```
 
-### 4 — 選択肢の選定  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Identificar el verbo en te-forma (〜て) que requiere la forma causativa."  
-  - "Completar el hueco con la forma correcta de la oración causativa."  
-explicacion: "La forma causativa se crea añadiendo 'させる' al te-forma del verbo. Por ejemplo, 電話をする (llamar) → 電話をかけさせる (hacer que alguien llame)."  
-respuestas_validas:
-  - "かけさせる"
-  - "かけさす"
-tipo: completar  
-enunciado: "彼が友達に___。"  
-```  
+### 3 — Ichidan
 
----
-
-### 5 — 文の補足  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Convertir el verbo en te-forma (〜て) para formar la oración causativa."  
-  - "Elegir la opción que completa correctamente la frase con 'させる'."  
-explicacion: "El uso de 'させる' tras el te-forma del verbo expresa que alguien induce a otra persona a realizar una acción. Ejemplo: 電話する → 電話をかけさせる."  
-respuesta: "かけさせる"  
-opciones_explicitas:
-  - "かけさせる"
-  - "かけさせた"
-  - "かける"
-  - "かけられた"
-tipo: mc  
-enunciado: "彼女に___。"  
-```  
-
----
-
-### 6 — 選択肢の選定  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Identificar el verbo en te-forma (〜て) que se transformará en causativo."  
-  - "Completar el hueco con la forma correcta de 'させる'."  
-explicacion: "La forma causativa requiere que el verbo base esté en te-forma, seguido de 'させる'. Ejemplo: 洗濯する → 洗濯をさせた (hacer que alguien lave)."  
-respuestas_validas:
-  - "洗う"
-  - "洗う"
-tipo: completar  
-enunciado: "彼が彼女に服を___。"  
-```  
-
----
-
-### 7 — 文の補足  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Convertir el verbo en te-forma (〜て) para aplicar la forma causativa."  
-  - "Seleccionar la opción que completa la frase de manera gramaticalmente correcta."  
-explicacion: "La forma 'させる' se usa tras verbos en te-forma para indicar que alguien induce a otra persona a realizar una acción. Ejemplo: 説明する → 説明させた (hacer que alguien explique)."  
-respuesta: "説明させる"  
-opciones_explicitas:
-  - "説明させる"
-  - "説明させた"
-  - "説明する"
-  - "説明された"
-tipo: mc  
-enunciado: "先生が生徒に___。"  
-```  
-
----
-
-### 8 — Causativo de 読む
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "先生は学生に本を___。(読む, causativo)"
-tipo: completar
-respuestas_validas:
-  - "読ませる"
-explicacion: "Los verbos del grupo 1 pasan la última sílaba a la fila あ y agregan せる: 読む→読ませる."
-```
+  tags: ["causativo"]
 
----
-
-### 9 — 文の補足  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Transformar el verbo en te-forma (〜て) para aplicar la forma causativa."  
-  - "Seleccionar la opción que completa correctamente la frase con 'させる'."  
-explicacion: "La forma 'させる' se usa tras verbos en te-forma para indicar que alguien induce a otra persona a realizar una acción. Ejemplo: 聞く → 聞かせる (hacer que alguien escuche)."  
-respuesta: "聞かせる"  
-opciones_explicitas:
-  - "聞かせる"
-  - "聞かせた"
-  - "聞く"
-  - "聞かれている"
-tipo: mc  
-enunciado: "彼が母に___。"  
-```  
-
----
-
-### 10 — 選択肢の選定  
-```  
-metadata:  
-  materia: "japones"  
-  tema: "forma-causativa"  
-  nivel: "N3"  
-  tags: ["causativo", "te-forma"]  
-pasos:  
-  - "Identificar el verbo en te-forma (〜て) que se necesita para formar la oración causativa."  
-  - "Completar el hueco con la forma correcta de 'させる'."  
-explicacion: "La forma causativa requiere que el verbo base esté en te-forma, seguido de 'させる'. Ejemplo: 入力する → 入力をさせた (hacer que alguien ingrese datos)."  
-respuestas_validas:
-  - "入力させる"
-  - "入力させる"
-tipo: completar  
-enunciado: "彼が同僚に___。"  
-```  
-
----
-
-### 11 — Causativo de 食べる
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "forma-causativa"
-  nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "母は子どもに野菜を___。(食べる)"
-tipo: mc
-opciones_explicitas:
-  - "食べさせる"
-  - "食べられる"
-  - "食べる"
-  - "食べた"
 respuesta: "食べさせる"
-explicacion: "Significa que la madre hace/obliga a comer: 食べる→食べさせる."
+tipo: "mc"
+opciones_explicitas: ["食べさせる", "食べらせる", "食べせる"]
+
+enunciado: "食べる → causativo:"
+
+explicacion: |
+  る → させる.
 ```
 
----
+### 4 — する
 
-### 12 — Causativo de 行く
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "部長は私に出張に___。(行く, causativo)"
-tipo: completar
-respuestas_validas:
-  - "行かせる"
-explicacion: "行く (grupo 1) → 行かせる: el jefe hace ir al hablante."
+  tags: ["causativo"]
+
+respuesta: "勉強させる"
+tipo: "mc"
+opciones_explicitas: ["勉強させる", "勉強しさせる", "勉強される"]
+
+enunciado: "勉強する → causativo:"
+
+explicacion: |
+  する → させる.
 ```
 
----
+### 5 — 来る
 
-### 13 — Causativo de 作る
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "社長は社員に会議の資料を___。(作る)"
-tipo: mc
-opciones_explicitas:
-  - "作らせる"
-  - "作られる"
-  - "作った"
-  - "作る"
-respuesta: "作らせる"
-explicacion: "作る→作らせる: el presidente hace que los empleados preparen los materiales."
+  tags: ["causativo"]
+
+respuesta: "来させる"
+tipo: "mc"
+opciones_explicitas: ["来させる", "来らせる", "来れる"]
+
+enunciado: "来る → causativo:"
+
+explicacion: |
+  来る → こさせる.
 ```
 
----
+### 6 — Partícula
 
-### 14 — Causativo de 掃除する
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "親は子どもに部屋を___。(掃除する, causativo)"
-tipo: completar
-respuestas_validas:
-  - "掃除させる"
-explicacion: "する→させる: 掃除する→掃除させる."
+  tags: ["causativo"]
+
+respuesta: "に"
+tipo: "mc"
+opciones_explicitas: ["に", "を", "が"]
+
+enunciado: "母は子ども＿＿野菜を食べさせました。"
+
+explicacion: |
+  Transitivo: persona con に.
 ```
 
----
+### 7 — Intransitivo
 
-### 15 — Causativo pasado de 笑う
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "私は友達を___。(笑う, hice reír)"
-tipo: mc
-opciones_explicitas:
-  - "笑わせた"
-  - "笑った"
-  - "笑われた"
-  - "笑う"
-respuesta: "笑わせた"
-explicacion: "笑う→笑わせる (hacer reír); en pasado 笑わせた."
+  tags: ["causativo"]
+
+respuesta: "を"
+tipo: "mc"
+opciones_explicitas: ["を", "で", "が"]
+
+enunciado: "先生は学生＿＿立たせました。"
+
+explicacion: |
+  Intransitivo: persona con を (o に).
 ```
 
----
+### 8 — Obligar
 
-### 16 — Causativo de 走る
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "コーチは選手に毎日___。(走る, causativo)"
-tipo: completar
-respuestas_validas:
-  - "走らせる"
-explicacion: "走る→走らせる: el entrenador hace correr a los jugadores."
+  tags: ["causativo"]
+
+respuesta: "El profesor hizo escribir una composición a los alumnos"
+tipo: "mc"
+opciones_explicitas: ["El profesor hizo escribir una composición a los alumnos", "Los alumnos escribieron al profesor", "El profesor escribió una composición"]
+
+enunciado: "«先生は学生に作文を書かせた» significa…"
+
+explicacion: |
+  Obligación.
 ```
 
----
+### 9 — Permitir
 
-### 17 — Causativo de 食べる
-```
-metadata:
-  materia: "japones"
-  tema: "forma-causativa"
-  nivel: "N3"
-  tags: ["causativo", "te-forma"]
-enunciado: "彼は妹に野菜を___。(食べる, causativo)"
-tipo: completar
-respuestas_validas:
-  - "食べさせる"
-explicacion: "食べる→食べさせる: hacer comer."
-```
-
----
-
-### 18 — Causativo de 飲む
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "母は子どもに薬を___。(飲む, causativo)"
-tipo: mc
-opciones_explicitas:
-  - "飲ませる"
-  - "飲まれる"
-  - "飲める"
-  - "飲んだ"
-respuesta: "飲ませる"
-explicacion: "Grupo 1: 飲む→飲ませる (hacer beber)."
+  tags: ["causativo"]
+
+respuesta: "させてくれた"
+tipo: "mc"
+opciones_explicitas: ["させてくれた", "させられた", "してくれた"]
+
+enunciado: "父は私に車を運転＿＿。(me dejó manejar)"
+
+explicacion: |
+  Causativo + くれる = permiso.
 ```
 
-### 19 — Causativo de する
+### 10 — Permiso
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "先生は学生に作文を書く練習を___。(する, causativo)"
-tipo: mc
-opciones_explicitas:
-  - "させる"
-  - "される"
-  - "できる"
-respuesta: "させる"
-explicacion: "する→させる."
+  tags: ["causativo"]
+
+respuesta: "少し考えさせてください。"
+tipo: "mc"
+opciones_explicitas: ["少し考えさせてください。", "少し考えられてください。", "少し考えてさせます。"]
+
+enunciado: "Para pedir «déjeme pensarlo un poco»:"
+
+explicacion: |
+  〜させてください.
 ```
 
-### 20 — Causativo de 待つ
+### 11 — Formal
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "forma-causativa"
   nivel: "N3"
-  tags: ["causativo", "させる"]
-enunciado: "お客さんを長く___ないでください。(待つ, causativo)"
-tipo: completar
-respuestas_validas:
-  - "待たせ"
-explicacion: "待つ→待たせる; en negativo cortés 待たせないでください."
+  tags: ["causativo"]
+
+respuesta: "早く帰らせていただけませんか。"
+tipo: "mc"
+opciones_explicitas: ["早く帰らせていただけませんか。", "早く帰ってもいいか。", "早く帰らせろ。"]
+
+enunciado: "Para pedirle a tu jefe irte temprano:"
+
+explicacion: |
+  Muy cortés.
+```
+
+### 12 — Emoción
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo"]
+
+respuesta: "泣かせる"
+tipo: "mc"
+opciones_explicitas: ["泣かせる", "泣かれる", "泣きさせる"]
+
+enunciado: "子どもを＿＿。(hacer llorar)"
+
+explicacion: |
+  Causar una emoción.
+```
+
+### 13 — Conjugación
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo"]
+
+respuesta: "待たせました"
+tipo: "mc"
+opciones_explicitas: ["待たせました", "待たせりました", "待たしました"]
+
+enunciado: "Pasado cortés de 待たせる:"
+
+explicacion: |
+  Se conjuga como ichidan.
+```
+
+### 14 — Sentido
+
+```
+metadata:
+  materia: "idiomas-extranjeros/japones"
+  tema: "forma-causativa"
+  nivel: "N3"
+  tags: ["causativo"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "La forma causativa puede significar «obligar» o «permitir», según el contexto."
+
+explicacion: |
+  Verdadero.
 ```

@@ -5,45 +5,53 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-Las expresiones idiomáticas son frases que no se entienden literalmente y que transmiten ideas figurativas, emociones o conceptos abstractos. En el nivel N1 del Japonés, su dominio es clave para comunicarse con naturalidad en contextos formales, culturales o profesionales. Estas expresiones son esenciales para comprender matices sociales, humor y referencias indirectas, lo que facilita una interacción más profunda y auténtica.
+El japonés tiene muchísimas **expresiones idiomáticas** (慣用句) y **proverbios** (ことわざ), y en N1 aparecen en artículos, novelas y conversaciones. Muchas usan partes del cuerpo: 顔, 手, 口, 目, 耳, 腹, 気.
 
 ## Explicación central
-Las expresiones idiomáticas en japonés suelen basarse en metáforas, analogías o referencias históricas. Por ejemplo:
+### Con partes del cuerpo
+| Expresión | Literal | Significado |
+|---|---|---|
+| **顔が広い** | cara ancha | conocer a mucha gente |
+| **手を抜く** | sacar la mano | hacer algo a medias, flojear |
+| **手が出ない** | no sale la mano | estar fuera de alcance (precio) |
+| **口が堅い** | boca dura | saber guardar secretos |
+| **口が軽い** | boca liviana | no saber guardar secretos |
+| **目がない** | no tener ojos | tener debilidad por algo: 甘いものに目がない |
+| **耳が痛い** | duelen los oídos | sentirse aludido por una crítica justa |
+| **腹が立つ** | se para la panza | enojarse |
+| **頭が切れる** | cabeza que corta | ser muy agudo |
+| **足を引っ張る** | tirar del pie | ser un lastre, perjudicar |
+| **首を長くする** | estirar el cuello | esperar con ansias |
+| **肩を持つ** | sostener el hombro | ponerse del lado de alguien |
 
-- **「一石二鳥（いっせきにちょう）」** (literalmente *un guijarro que mata dos pájaros*): significa lograr dos objetivos con una sola acción.
-  Ejemplo en contexto: *彼はこのプロジェクトで一石二鳥を達成した。* ("Él logró un doble objetivo con este proyecto.")
+### Con 気
+**気が利く** (ser atento), **気にする** (preocuparse), **気が済む** (quedarse tranquilo), **気が重い** (estar desanimado), **気が気でない** (estar muy inquieto).
 
-- **「水に流される（みずにながれる）」** (literalmente *ser arrastrado por el agua*): indica permitir que algo externo (como emociones o decisiones) influya en uno.
-  Ejemplo: *彼女の意見に水に流されてしまった。* ("Me dejé influenciar por su opinión.")
+### Proverbios frecuentes
+- **猿も木から落ちる**: hasta el mono se cae del árbol (cualquiera se equivoca).
+- **石の上にも三年**: tres años sobre la piedra (la perseverancia da frutos).
+- **花より団子**: dango antes que flores (lo práctico antes que lo bonito).
+- **七転び八起き**: caerse siete veces, levantarse ocho.
+- **急がば回れ**: si tenés prisa, da la vuelta (vísteme despacio que estoy apurado).
+- **一石二鳥**: dos pájaros de un tiro.
+- **猫に小判**: monedas de oro a un gato (perlas a los cerdos).
 
-- **「猫の額（ねこのにゃく）」** (literalmente *la frente de un gato*): se refiere a algo muy pequeño o insignificante.
-  Ejemplo: *その問題は猫の額のようなものだ。* ("Ese problema es insignificante.")
-
-Estas frases no siempre tienen equivalente directo en el español, por lo que su aprendizaje requiere memorización y práctica contextual.
+### 四字熟語 (expresiones de cuatro kanji)
+**一期一会** (cada encuentro es único), **自業自得** (cada uno cosecha lo que siembra), **十人十色** (cada persona es un mundo), **以心伝心** (entenderse sin palabras).
 
 ## Errores comunes de hispanohablantes
-1. **Traducción literal**: Al intentar usar expresiones idiomáticas, los estudiantes a menudo aplican la estructura o significado del español, lo que genera incomprensión. Por ejemplo: *「一石二鳥」* no se traduce como *"un guijarro y dos pájaros"* en español —es una metáfora—, sino como *"lograr dos objetivos con una acción"*.
-
-2. **Uso incorrecto del contexto**: Expresiones como *「水に流される」* pueden malinterpretarse si se usan fuera de situaciones donde hay influencia externa (ej.: en debates o decisiones).
-
-3. **Confusión entre expresiones similares**: *「一石二鳥」* y *「魚を獲る（さかなをとる）」* (literalmente *"pescar un pez"*, que significa "lograr algo sin esfuerzo") pueden confundirse al no comprender el significado cultural.
+1. Traducir literalmente: 顔が広い no habla de la cara.
+2. Confundir 口が堅い (discreto) y 口が軽い (indiscreto).
+3. Usar proverbios en contextos demasiado formales o fuera de lugar.
 
 ## Comparación con el español
-Algunas expresiones idiomáticas en japonés tienen equivalentes en el español, pero su uso y contexto difieren. Por ejemplo:
-- *「一石二鳥」* ≈ *"hacer dos cosas con una"* (en español). Sin embargo, en japonés se usa más comúnmente para logros estratégicos, mientras que en español puede aplicarse a situaciones cotidianas.
-- *「水に流される」* no tiene un equivalente directo en español, pero se acerca a *"dejar que algo me afecte emocionalmente"* o *"no resistirme a una tentación"*.
+Varios tienen equivalente directo: 一石二鳥 = «matar dos pájaros de un tiro»; 猫に小判 = «margaritas a los cerdos»; 急がば回れ = «vísteme despacio que estoy apurado». Otros no existen en español y hay que aprenderlos como bloque.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-A: 今、彼の提案を聞いて、どう思う？
-("¿Qué opinas de su propuesta ahora que la escuchaste?")
-B: うん…でも、それは本当に一石二鳥の計画だよね。
-("Hmm... pero eso es realmente un plan que logra dos objetivos, ¿no?")
-
-**Contexto**: En una reunión de trabajo, B elogia una propuesta del compañero A usando *「一石二鳥」* para resaltar su eficiencia. La expresión permite transmitir aprobación y reconocimiento sin necesidad de detalles técnicos.
-
-Este tipo de frases enriquecen la comunicación al permitir un lenguaje más conciso, coloquial y culturalmente pertinente.
+新しい上司は**頭が切れる**し、**顔が広い**。でも、部下が**手を抜く**とすぐに**腹を立てる**。私は**口が堅い**ので、同僚によく相談される。先週、ミスをして落ち込んでいたら、先輩に「**猿も木から落ちる**よ」と言われて、少し**気が楽に**なった。
