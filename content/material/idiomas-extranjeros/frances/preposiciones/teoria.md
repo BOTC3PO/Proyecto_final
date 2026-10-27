@@ -1,45 +1,49 @@
-# Preposiciones en francés: uso básico y errores comunes
+# Preposiciones en francés (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/preposiciones`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Las preposiciones son palabras que indican relaciones entre elementos de una oración, como lugar, tiempo o pertenencia. En el nivel A1-A2 del marco común europeo de referencia para las lenguas (MCER), su correcto uso es fundamental para construir frases básicas y comunicarse en situaciones cotidianas. Por ejemplo, preposiciones como *à*, *de* o *en* aparecen con frecuencia en expresiones simples como "Je vais à l'école" ("Voy a la escuela") o "Il vient de Paris" ("Viene de París").
+Las preposiciones francesas no coinciden una a una con las españolas. Las más difíciles son las de **lugar con ciudades y países** y las de **tiempo**.
 
 ## Explicación central
-Las preposiciones francesas se usan para conectar sustantivos, verbos y otros elementos. Algunas más comunes en niveles iniciales son:
+### Ciudades y países
+- Ciudades: ***à***: *à Paris, à Buenos Aires*.
+- Países **femeninos** (la mayoría terminados en *-e*): ***en***: *en France, en Argentine, en Espagne*.
+- Países **masculinos**: ***au***: *au Canada, au Brésil, au Japon, au Mexique*.
+- Países **plurales**: ***aux***: *aux États-Unis*.
+- Procedencia: *de Paris, de France, **du** Canada, **des** États-Unis*.
 
-- **à** (a): indica dirección o lugar. Ejemplo: *Je passe à la librairie* ("Paso por la librería").
-- **de** (de): expresa pertenencia, origen o materialidad. Ejemplo: *C’est un livre de français* ("Es un libro de francés").
-- **en** (en): denota lugar (países), tiempo o estado. Ejemplo: *Elle habite en Belgique* ("Vive en Bélgica").
+### Lugar
+*dans* (dentro de), *sur* (sobre), *sous* (debajo), *devant* (delante), *derrière* (detrás), *à côté de* (al lado de), *en face de* (enfrente de), *près de* (cerca de), *loin de* (lejos de), ***chez*** (en casa de / en lo de): *chez moi, chez le médecin*.
 
-Otras preposiciones como *sur* ("sobre"), *dans* ("dentro de") o *avec* ("con") también son esenciales. Por ejemplo, *Le chat est sur le canapé* ("El gato está sobre el sofá") o *Je mange avec mes amis* ("Como con mis amigos").
+### Tiempo
+- *à* + hora: *à huit heures*.
+- *en* + mes, año, estación (excepto primavera): *en mai, en 2024, en été* — pero ***au** printemps*.
+- Días: **sin preposición**: *Je viens **lundi**.* (habitual: *le lundi*)
+- ***depuis*** (desde hace / desde): *J'habite ici **depuis** deux ans.*
+- ***pendant*** (durante): *pendant les vacances*.
+- ***il y a*** (hace): *Je suis arrivé **il y a** trois jours.*
+- ***dans*** (dentro de, en el futuro): *Je pars **dans** une heure.*
+
+### Medios de transporte
+*en voiture, en train, en avion, en bus* — pero ***à** pied, **à** vélo*.
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen confundir preposiciones francesas por similitudes con su lengua materna, pero hay diferencias clave:
-
-1. **Confusión entre *à* y *en***: En francés, se usa *à* para ciudades (ex: *à Paris*) y *en* para países (ex: *en France*). En español, ambas se expresan con "a" (*a París*, *en Francia*), lo que puede llevar a errores.
-2. **Uso incorrecto de *de***: En francés, *de* se emplea para origenes (*Il est de Lyon*) o posesión (*Le livre de Marie*). En español, esto corresponde a "de", pero a veces se omiten preposiciones que en francés son obligatorias.
-3. **Preposiciones con verbos**: En francés, ciertos verbos requieren preposiciones (ex: *penser à quelque chose*), mientras que en español no siempre las necesitan (*pensar en algo*).
+1. ❌ *en Paris* ✅ *à Paris*; ❌ *en Canada* ✅ *au Canada*.
+2. ❌ *Je vais à le médecin* ✅ *Je vais **chez** le médecin*.
+3. ❌ *Depuis deux ans j'ai habité…* (tiempo) ✅ *J'habite ici depuis deux ans* (presente).
+4. ❌ *en pied* ✅ *à pied*.
 
 ## Comparación con el español
-Algunas preposiciones francesas tienen equivalentes directos en español, pero su uso varía. Por ejemplo:
-- **à** vs *a*: En francés, *à* se usa antes de nombres propios (*à Madrid*), mientras que en español es "a Madrid".
-- **en** vs *en/en*: En francés, *en* indica lugar (ex: *en Italie*) y tiempo (*en hiver*). En español, "en" también lo hace (*en Italia*, *en invierno*).
-- **de** vs *de*: Ambas lenguas usan *de* para posesión o origen, pero en francés se requiere más frecuentemente: *Le livre de Clara* ("El libro de Clara") vs. en español "El libro de Clara" (sin preposición si el posesivo está al final).
+«En» cubre en español lugar y tiempo; en francés se reparte entre *à, en, au, dans*. «Hace dos años» = *il y a deux ans*; «desde hace dos años» = *depuis deux ans* (con presente). «En lo de / en casa de» = *chez*.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*—Où est Sophie?* ("¿Dónde está Sophie?")
-*—Elle est à la bibliothèque.* ("Está en la biblioteca.")
-*—Et Thomas?* ("¿Y Thomas?")
-*—Il est en vacances. Il vient de Londres.* ("Está de vacaciones. Viene de Londres.")
-*—Tu as un livre de français?* ("¿Tienes un libro de francés?")
-*—Oui, mais je le laisse à la maison.* ("Sí, pero lo dejo en casa.")
-
-Este intercambio muestra el uso de *à*, *en* y *de* en contextos cotidianos. Notar que "de" se usa después del verbo *avoir* (*un livre de français*) y *à la maison* ("en casa") requiere *à* + artículo definido.
+*J'habite **à** Lyon **depuis** trois ans. **En** été, je vais **en** Espagne **en** voiture, et **au** printemps je vais **chez** mes grands-parents **au** Canada. Je suis arrivé **il y a** deux jours et je repars **dans** une semaine.*

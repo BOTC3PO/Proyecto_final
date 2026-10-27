@@ -1,491 +1,253 @@
-# Idiomas — Francés — gerondif (cuestionario)
+# Francés — gérondif (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/gerondif/cuestionario_crudo.md`)
-> con una reescritura extensa de contenido. Los 25 bloques compartían un error gramatical
-> sistemático: presentaban el gérondif ("en" + participio presente) como si fuera exigido por
-> conjunciones o preposiciones como "pendant que", "sans", "alors que", "à côté de", "depuis
-> que", "avant de", "il faut", "pendant", "sous", "au lieu de", "dès que" o "au moment où" —
-> ninguna de ellas admite gérondif en francés real (rigen indicativo o infinitivo; p. ej.
-> "sans ouvrir", no "sans en ouvrant"). El gérondif es en realidad una construcción
-> independiente que modifica directamente al verbo principal, sin preposición previa. Se
-> reescribieron los 25 enunciados con usos auténticos y estándar del gérondif, y se corrigió el
-> título, los pasos y la explicación de cada bloque. Se corrigió además un bloque que daba
-> "en rire" (pronombre "en" + infinitivo, una construcción distinta) como si fuera el gérondif
-> de "rire"; el gérondif real es "en riant". Los `respuestas_validas:` originales (formas de
-> participio presente correctas) se mantuvieron sin cambios en todos los demás bloques.
+> Tema: `idiomas-extranjeros/frances/gerondif`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Gérondif (en + participe présent)
-```yaml
+### 1 — Formación
+
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["pendant que", "en + participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il répond au téléphone ___."
-respuestas_validas:
-  - "en parlant"
-  - "En parlant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "en prenant"
+tipo: "mc"
+opciones_explicitas: ["en prenant", "en prendant", "prenant"]
+
+enunciado: "Il chante ___ la douche."
+
+explicacion: |
+  *Nous prenons → en prenant*.
 ```
 
+### 2 — Manera
 
-### 2 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["sans", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle est entrée dans la pièce ___ la porte."
-respuestas_validas:
-  - "en ouvrant"
-  - "En ouvrant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "en regardant"
+tipo: "mc"
+opciones_explicitas: ["en regardant", "regardant", "en regarder"]
+
+enunciado: "Elle a appris le français ___ des films."
+
+explicacion: |
+  Manera: gérondif.
 ```
 
+### 3 — Condición
 
-### 3 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["alors que", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle écoute de la musique ___ le dîner."
-respuestas_validas:
-  - "en cuisinant"
-  - "En cuisinant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "En partant"
+tipo: "mc"
+opciones_explicitas: ["En partant", "Partant", "En partir"]
+
+enunciado: "___ maintenant, tu arriveras à l'heure."
+
+explicacion: |
+  Condición: gérondif.
 ```
 
+### 4 — être
 
-### 4 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["il faut", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a haussé les épaules ___."
-respuestas_validas:
-  - "en riant"
-  - "En riant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "en étant"
+tipo: "mc"
+opciones_explicitas: ["en étant", "en être", "en estant"]
+
+enunciado: "On apprend mieux ___ attentif."
+
+explicacion: |
+  *Être → en étant*.
 ```
 
+### 5 — savoir
 
-### 5 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["à côté de", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il réfléchit à voix haute ___ dans le parc."
-respuestas_validas:
-  - "en marchant"
-  - "En marchant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "Tout en sachant"
+tipo: "mc"
+opciones_explicitas: ["Tout en sachant", "Tout en savant", "Tout en sachent"]
+
+enunciado: "___ la vérité, il n'a rien dit."
+
+explicacion: |
+  *Savoir → sachant*.
 ```
 
+### 6 — faire
 
-### 6 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["depuis que", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a beaucoup appris ___ sur ce projet."
-respuestas_validas:
-  - "en travaillant"
-  - "En travaillant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "en faisant"
+tipo: "mc"
+opciones_explicitas: ["en faisant", "en fesant", "en faire"]
+
+enunciado: "On progresse ___ des exercices."
+
+explicacion: |
+  *Faire → en faisant*.
 ```
 
+### 7 — Pronominal
 
-### 7 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["avant de", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle a croisé une amie ___ au marché."
-respuestas_validas:
-  - "en allant"
-  - "En allant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "en me levant"
+tipo: "mc"
+opciones_explicitas: ["en me levant", "en se levant", "en levant"]
+
+enunciado: "Je me suis fait mal ___."
+
+explicacion: |
+  Pronombre de la persona: *en me levant*.
 ```
 
+### 8 — Progresivo
 
-### 8 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["pendant", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle s'est endormie ___ son livre."
-respuestas_validas:
-  - "en lisant"
-  - "En lisant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "Je suis en train de manger."
+tipo: "mc"
+opciones_explicitas: ["Je suis en train de manger.", "Je suis en mangeant.", "Je suis mangeant."]
+
+enunciado: "«Estoy comiendo»:"
+
+explicacion: |
+  Progresivo: *être en train de*.
 ```
 
+### 9 — Mismo sujeto
 
-### 9 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["dès que", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il s'est blessé ___ dans la rue."
-respuestas_validas:
-  - "en courant"
-  - "En courant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "En arrivant à la gare, j'ai vu que le train était parti."
+tipo: "mc"
+opciones_explicitas: ["En arrivant à la gare, j'ai vu que le train était parti.", "En arrivant à la gare, le train était parti.", "Le train était parti en j'arrivant."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Mismo sujeto en el gérondif.
 ```
 
+### 10 — Causa
 
-### 10 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["sous", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Les enfants se sont fait remarquer ___ dans le couloir."
-respuestas_validas:
-  - "en criant"
-  - "En criant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "en tombant"
+tipo: "mc"
+opciones_explicitas: ["en tombant", "tombé", "en tomber"]
+
+enunciado: "Il s'est cassé la jambe ___ du vélo."
+
+explicacion: |
+  Causa: *en tombant*.
 ```
 
+### 11 — tout en
 
-### 11 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["sans", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il m'a salué ___."
-respuestas_validas:
-  - "en souriant"
-  - "En souriant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "Tout en"
+tipo: "mc"
+opciones_explicitas: ["Tout en", "En tout", "Tant en"]
+
+enunciado: "___ étant riche, il vit simplement."
+
+explicacion: |
+  *Tout en*: contraste.
 ```
 
+### 12 — Participio presente
 
-### 12 — Gérondif (en + participe présent)
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["au lieu de", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il passe des heures ___ la télévision."
-respuestas_validas:
-  - "en regardant"
-  - "En regardant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+  tags: ["gerondif"]
+
+respuesta: "Marie salía del cine"
+tipo: "mc"
+opciones_explicitas: ["Marie salía del cine", "Yo salía del cine", "Los dos salíamos"]
+
+enunciado: "«J'ai vu Marie sortant du cinéma» significa que…"
+
+explicacion: |
+  Sin *en*: se refiere a Marie.
 ```
 
+### 13 — Invariable
 
-### 13 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["alors que", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a raté son réveil ___ trop tard."
-respuestas_validas:
-  - "en dormant"
-  - "En dormant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
 ```
-
-
-### 14 — Gérondif (en + participe présent)
-```yaml
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "gerondif"
   nivel: "B2"
-  tags: ["pendant qu'", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle fait la vaisselle ___."
-respuestas_validas:
-  - "en chantant"
-  - "En chantant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
+  tags: ["gerondif"]
 
+respuesta: falso
+tipo: vf
 
-### 15 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["au moment où", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Nous avons trouvé la solution ___ dans le jardin."
-respuestas_validas:
-  - "en marchant"
-  - "En marchant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
+enunciado: "El gérondif concuerda en género y número con el sujeto."
 
-
-### 16 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["alors que", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle a appris la nouvelle ___ à sa collègue."
-respuestas_validas:
-  - "en parlant"
-  - "En parlant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 17 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["pendant", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il perd la notion du temps ___ le journal."
-respuestas_validas:
-  - "en lisant"
-  - "En lisant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 18 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["sans", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle m'a remercié ___."
-respuestas_validas:
-  - "en souriant"
-  - "En souriant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 19 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["au lieu de", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a préféré rester chez lui ___ un film."
-respuestas_validas:
-  - "en regardant"
-  - "En regardant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 20 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["pendant qu'", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle s'est détendue ___ sous la douche."
-respuestas_validas:
-  - "en chantant"
-  - "En chantant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 21 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["alors que", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a expliqué son idée ___ doucement."
-respuestas_validas:
-  - "en parlant"
-  - "En parlant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 22 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["pendant", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Elle a raté son arrêt de bus ___ son roman."
-respuestas_validas:
-  - "en lisant"
-  - "En lisant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 23 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["sans", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a caché sa nervosité ___."
-respuestas_validas:
-  - "en souriant"
-  - "En souriant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 24 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["au lieu de", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Ils ont raté le début du film ___ leurs messages."
-respuestas_validas:
-  - "en regardant"
-  - "En regardant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
-```
-
-
-### 25 — Gérondif (en + participe présent)
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "gerondif"
-  nivel: "B2"
-  tags: ["pendant qu'", "participe présent"]
-pasos:
-  - "Identificar el verbo que debe expresar una acción simultánea o de manera."
-  - "Completar el hueco con 'en' + participio presente del verbo."
-tipo: completar
-enunciado: "Il a réveillé tout le quartier ___ sous la douche."
-respuestas_validas:
-  - "en chantant"
-  - "En chantant"
-explicacion: "El gerundio (gérondif) francés, 'en' + participio presente, es una construcción independiente que modifica directamente al verbo principal para expresar simultaneidad o manera; no va precedido de conjunciones como 'pendant que' o preposiciones como 'sans'/'avant de', que en francés rigen otros modos (indicativo o infinitivo)."
+explicacion: |
+  Falso: es invariable.
 ```

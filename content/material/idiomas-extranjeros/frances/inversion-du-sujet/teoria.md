@@ -1,40 +1,50 @@
-# Inversión del sujeto en francés (C1)
+# La inversión del sujeto en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/inversion-du-sujet`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-La inversión del sujeto es una estructura gramatical frecuente en el francés que se utiliza principalmente en preguntas, después de ciertas conjunciones y en oraciones negativas. Su dominio es clave a nivel C1 para expresarse con precisión en contextos formales o escritos complejos.
+## Introducción
+La **inversión del sujeto** pone el verbo antes del sujeto. Además de las preguntas formales (*Viens-tu ?*), aparece en varias construcciones del francés escrito y cuidado que un nivel C1 debe reconocer y usar.
 
 ## Explicación central
-La inversión ocurre cuando el verbo precede al sujeto, generalmente en preguntas directas y en oraciones subordinadas introducidas por palabras como *que*, *quand*, *avant que* u otras. Por ejemplo:
-- **Preguntas:** *Est-ce que vous allez au cinéma ?* (¿Vais al cine?) / *Avez-vous vu le film ?* (¿Viste la película?).
-- **Oraciones subordinadas:** *Avant qu’il ne parte, il me téléphone.* (Antes de que se vaya, me llama).
-- **Negativas:** *Ne l’avez-vous pas reconnu ?* (¿No lo reconoció?).
+### 1. Pregunta formal
+- Pronombre: *Parlez-**vous** anglais ? Où **va-t-il** ?* (con *-t-* entre vocales)
+- **Inversión compleja** con sustantivo: el sustantivo se mantiene y se repite con un pronombre: ***Marie est-elle** arrivée ? **Pourquoi tes parents sont-ils** partis ?*
+- Con *que* y algunos interrogativos breves, inversión simple: ***Que veut** ton frère ? **Où travaille** Paul ?*
 
-En estos casos, el verbo se invierte con el sujeto para marcar una estructura específica. Nota: en frases afirmativas, la inversión no se usa salvo en contextos literarios o poéticos.
+### 2. Incisos de cita
+*« Je viendrai », **dit-il**. « Pourquoi ? » **demanda Marie**.*
+
+### 3. Tras ciertos adverbios al inicio
+***Aussi, ainsi, peut-être, sans doute, à peine, du moins, rarement, encore***:
+- ***Peut-être viendra-t-il.*** (= *Il viendra peut-être* / *Peut-être qu'il viendra*)
+- ***À peine était-il arrivé*** *que le téléphone sonna.*
+- ***Sans doute a-t-il raison.***
+- ***Aussi faut-il*** *réagir.* (= por lo tanto)
+
+### 4. Relativas y subordinadas (inversión estilística)
+Con un sujeto sustantivo, para equilibrar la frase: *La maison **où habitaient mes grands-parents**. Le livre **que lit Paul**. Quand **arrive le printemps**…*
+
+### 5. Expresiones fijas
+- Concesión: ***Quelles que soient*** *les difficultés…* (sean cuales sean)
+- Hipótesis: ***Dût-il*** *partir…* (literario)
+- Deseo: ***Vive** la République ! **Puisse-t-il** réussir !*
 
 ## Errores comunes de hispanohablantes
-1. **Omisión de la inversión:** Los hablantes nativos de español suelen omitir el verbo invertido al formar preguntas. Ejemplo incorrecto: *¿Vas a venir ?* (en vez de *Est-ce que tu vas à venir ?* o *Venez-vous ?*).
-2. **Uso incorrecto en oraciones subordinadas:** No aplicar la inversión después de *que*. Ejemplo incorrecto: *Après qu’il finit.* (debe ser *Avant qu’il ne finisse*).
-3. **Confusión con el español:** En español, las preguntas directas suelen omitir el verbo (*¿Vienes ?*), lo que lleva a errores en francés.
+1. ❌ *Est Marie arrivée ?* ✅ *Marie est-elle arrivée ?*
+2. ❌ *Va il* ✅ *Va-t-il*.
+3. ❌ *Peut-être il viendra* (escrito) ✅ *Peut-être viendra-t-il* / *Peut-être qu'il viendra*.
+4. Inversión con *je* en verbos comunes (*Cours-je ?*): se evita; se usa *est-ce que*.
 
 ## Comparación con el español
-En español, la inversión del sujeto es rara excepto en casos muy específicos (como *¡Qué bonito !* o *¿Dónde estás ?*). En cambio, el francés requiere esta inversión para estructuras gramaticales definidas. Por ejemplo:
-- Español: *¿Has comido ?* / Francés: *Avez-vous mangé ?* (inversión obligada en oraciones negativas o interrogativas).
-
-Esta diferencia resalta la importancia de practicar las inversiones para evitar errores de estructura.
+El español invierte libremente («¿Llegó María?», «dijo él»). El francés lo restringe: con sustantivo sujeto en preguntas exige repetirlo con un pronombre (*Marie est-elle…*), algo que en español no existe.
 
 ## Ejemplo extendido en contexto
-**Contexto:** Un diálogo entre dos amigos discutiendo un viaje.
-> **Marie:** *Est-ce que vous avez réservé les billets ?* (¿Reservaron los boletos?).
-> **Paul:** *Non, je n’ai pas encore eu le temps.* (No, aún no he tenido tiempo).
-> **Marie:** *Avant qu’il ne parte, il faut vérifier les horaires.* (Antes de que se vaya, hay que verificar los horarios).
-
-En este ejemplo, la inversión aparece en la pregunta (*Est-ce que vous avez...*) y en la oración subordinada (*Avant qu’il ne parte*). La omisión de la inversión en estas estructuras sería un error grave.
-
-Dominar esta regla permite una comunicación más natural y formal, esencial para alcanzar el nivel C1.
+*« Le projet sera-t-il prêt à temps ? » **demanda le directeur**. **Peut-être** **faudra-t-il** engager du personnel. **À peine** l'équipe **avait-elle** commencé que les problèmes apparurent. **Quelles que soient** les difficultés, **la direction est-elle** prête à investir ?*

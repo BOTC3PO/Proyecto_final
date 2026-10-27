@@ -1,404 +1,253 @@
-# Idiomas — Francés — etre-avoir (cuestionario)
+# Francés — être y avoir (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/etre-avoir/cuestionario_crudo.md`)
-> con una corrección de contenido: los 25 bloques carecían de `enunciado:`; se generó una
-> oración con hueco para cada uno a partir del sujeto y la categoría (posesión, edad, lugar,
-> emoción) ya indicados en su propia `explicacion:`.
+> Tema: `idiomas-extranjeros/frances/etre-avoir`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Être et avoir 1
+### 1 — être
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "suis"
-  - "Suis"
-enunciado: "Je ___ étudiant."
-explicacion: "Être, 1.ª persona: je suis."
+  tags: ["etre-avoir"]
+
+respuesta: "suis"
+tipo: "mc"
+opciones_explicitas: ["suis", "ai", "es"]
+
+enunciado: "Je ___ étudiante."
+
+explicacion: |
+  *Je suis*.
 ```
 
-### 2 — Être et avoir 2
+### 2 — être vous
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "as"
-  - "As"
-enunciado: "Tu ___ un chien."
-explicacion: "Avoir, 2.ª persona: tu as."
+  tags: ["etre-avoir"]
+
+respuesta: "êtes"
+tipo: "mc"
+opciones_explicitas: ["êtes", "avez", "sont"]
+
+enunciado: "Vous ___ français ?"
+
+explicacion: |
+  *Vous êtes*.
 ```
 
-### 3 — Être et avoir 3
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Elle ___ à Paris."
-explicacion: "Être, 3.ª persona: elle est."
-```
+### 3 — avoir
 
-### 4 — Être et avoir 4
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "avons"
-  - "Avons"
+  tags: ["etre-avoir"]
+
+respuesta: "avons"
+tipo: "mc"
+opciones_explicitas: ["avons", "sommes", "ont"]
+
 enunciado: "Nous ___ deux enfants."
-explicacion: "Avoir, 1.ª persona plural: nous avons."
+
+explicacion: |
+  *Nous avons*.
 ```
 
-### 5 — Être et avoir 5
+### 4 — avoir ils
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "êtes"
-  - "Êtes"
-enunciado: "Vous ___ très gentils."
-explicacion: "Être, 2.ª persona plural: vous êtes."
-```
+  tags: ["etre-avoir"]
 
-### 6 — Être et avoir 6
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "ont"
-  - "Ont"
+respuesta: "ont"
+tipo: "mc"
+opciones_explicitas: ["ont", "sont", "avent"]
+
 enunciado: "Ils ___ une grande maison."
-explicacion: "Avoir, 3.ª persona plural: ils ont."
+
+explicacion: |
+  *Ils ont*.
 ```
 
-### 7 — Être et avoir 7
+### 5 — Edad
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "J'ai vingt ans."
-  - "Je suis vingt ans."
-  - "Je vais vingt ans."
-  - "Je fais vingt ans."
-respuesta: "J'ai vingt ans."
-enunciado: "Quelle phrase est correcte ?"
-explicacion: "En francés la edad se expresa con \"avoir\": j'ai vingt ans."
+  tags: ["etre-avoir"]
+
+respuesta: "J'ai quinze ans."
+tipo: "mc"
+opciones_explicitas: ["J'ai quinze ans.", "Je suis quinze ans.", "J'ai quinze."]
+
+enunciado: "«Tengo 15 años»:"
+
+explicacion: |
+  Edad con *avoir*.
 ```
 
-### 8 — Être et avoir 8
+### 6 — Hambre
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Il ___ faim."
-explicacion: "Con \"faim\" se usa avoir: il a faim."
+  tags: ["etre-avoir"]
+
+respuesta: "J'ai faim."
+tipo: "mc"
+opciones_explicitas: ["J'ai faim.", "Je suis faim.", "Je suis affamé de faim."]
+
+enunciado: "«Tengo hambre»:"
+
+explicacion: |
+  *Avoir faim*.
 ```
 
-### 9 — Être et avoir 9
+### 7 — Razón
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "sommes"
-  - "Sommes"
-enunciado: "Nous ___ fatigués."
-explicacion: "Être + adjetivo: nous sommes fatigués."
+  tags: ["etre-avoir"]
+
+respuesta: "Tu as raison."
+tipo: "mc"
+opciones_explicitas: ["Tu as raison.", "Tu es raison.", "Tu as la raison."]
+
+enunciado: "«Tenés razón» (tu):"
+
+explicacion: |
+  *Avoir raison*.
 ```
 
-### 10 — Être et avoir 10
+### 8 — Dolor
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Ma sœur ___ professeure."
-explicacion: "Profesión con être: elle est professeure."
+  tags: ["etre-avoir"]
+
+respuesta: "J'ai mal à la tête."
+tipo: "mc"
+opciones_explicitas: ["J'ai mal à la tête.", "Je suis mal à la tête.", "Ma tête a mal."]
+
+enunciado: "«Me duele la cabeza»:"
+
+explicacion: |
+  *Avoir mal à*.
 ```
 
-### 11 — Être et avoir 11
+### 9 — Il y a
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "avoir"
-  - "être"
-  - "faire"
-  - "aller"
-respuesta: "avoir"
-enunciado: "Avec quel verbe dit-on « avoir soif » ?"
-explicacion: "Il a soif: con \"soif\" se usa avoir."
+  tags: ["etre-avoir"]
+
+respuesta: "Il y a un musée au centre."
+tipo: "mc"
+opciones_explicitas: ["Il y a un musée au centre.", "Il a un musée au centre.", "Est un musée au centre."]
+
+enunciado: "«Hay un museo en el centro»:"
+
+explicacion: |
+  *Il y a*.
 ```
 
-### 12 — Être et avoir 12
+### 10 — C'est / il est
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "es"
-  - "Es"
-enunciado: "Tu ___ en retard !"
-explicacion: "Être, 2.ª persona singular: tu es."
+  tags: ["etre-avoir"]
+
+respuesta: "C'est un médecin."
+tipo: "mc"
+opciones_explicitas: ["C'est un médecin.", "Il est un médecin.", "Il a un médecin."]
+
+enunciado: "«Es un médico»:"
+
+explicacion: |
+  *C'est* + artículo + nombre.
 ```
 
-### 13 — Être et avoir 13
+### 11 — Il est + profesión
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "ont"
-  - "Ont"
-enunciado: "Les enfants ___ sept ans."
-explicacion: "La edad lleva avoir: ils ont sept ans."
+  tags: ["etre-avoir"]
+
+respuesta: "Elle est médecin."
+tipo: "mc"
+opciones_explicitas: ["Elle est médecin.", "Elle est une médecin.", "Elle a médecin."]
+
+enunciado: "«Ella es médica» (sin artículo):"
+
+explicacion: |
+  Profesión sin artículo con *il/elle est*.
 ```
 
-### 14 — Être et avoir 14
+### 12 — Estado
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "sont"
-  - "ont"
-  - "est"
-  - "sommes"
-respuesta: "sont"
-enunciado: "Complétez : « Elles ___ contentes. »"
-explicacion: "Être, 3.ª persona plural femenino: elles sont."
+  tags: ["etre-avoir"]
+
+respuesta: "Nous sommes fatigués."
+tipo: "mc"
+opciones_explicitas: ["Nous sommes fatigués.", "Nous avons fatigués.", "Nous estons fatigués."]
+
+enunciado: "«Estamos cansados»:"
+
+explicacion: |
+  *Être* = estar.
 ```
 
-### 15 — Être et avoir 15
+### 13 — Elisión
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "etre-avoir"
   nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "ai"
-  - "Ai"
-enunciado: "J'___ un frère et une sœur."
-explicacion: "Avoir + elisión: j'ai."
-```
+  tags: ["etre-avoir"]
 
-### 16 — Être et avoir 16
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "nous sommes"
-  - "nous êtes"
-  - "nous sont"
-  - "nous avons"
-respuesta: "nous sommes"
-enunciado: "Quelle est la forme correcte de « être » avec « nous » ?"
-explicacion: "Nous sommes."
-```
+respuesta: falso
+tipo: vf
 
-### 17 — Être et avoir 17
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "avez"
-  - "Avez"
-enunciado: "Vous ___ un problème ?"
-explicacion: "Avoir, 2.ª persona plural: vous avez."
-```
+enunciado: "Se escribe «je ai» en francés."
 
-### 18 — Être et avoir 18
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Paul ___ grand et blond."
-explicacion: "Descripción física con être: Paul est grand."
-```
-
-### 19 — Être et avoir 19
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "Elle a chaud."
-  - "Elle est chaud."
-  - "Elle fait chaud."
-  - "Elle va chaud."
-respuesta: "Elle a chaud."
-enunciado: "Laquelle de ces phrases utilise correctement « avoir » ?"
-explicacion: "Sensaciones personales (chaud, froid, faim, soif, peur): avoir."
-```
-
-### 20 — Être et avoir 20
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "avons"
-  - "Avons"
-enunciado: "Nous ___ un rendez-vous demain."
-explicacion: "Avoir: nous avons un rendez-vous."
-```
-
-### 21 — Être et avoir 21
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "suis"
-  - "Suis"
-enunciado: "Je ___ de Buenos Aires."
-explicacion: "Origen con être: je suis de Buenos Aires."
-```
-
-### 22 — Être et avoir 22
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "sont"
-  - "ont"
-  - "es"
-  - "ai"
-respuesta: "sont"
-enunciado: "Dans « Ils ___ français », quel verbe convient ?"
-explicacion: "Nacionalidad con être: ils sont français."
-```
-
-### 23 — Être et avoir 23
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "as"
-  - "As"
-enunciado: "Tu ___ raison."
-explicacion: "Expresión con avoir: avoir raison."
-```
-
-### 24 — Être et avoir 24
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Elle ___ mal à la tête."
-explicacion: "Dolor con avoir: avoir mal à la tête."
-```
-
-### 25 — Être et avoir 25
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "etre-avoir"
-  nivel: "A1"
-  tags: ["être", "avoir"]
-tipo: mc
-opciones_explicitas:
-  - "Il a quarante ans."
-  - "Ils ont peur."
-  - "Elle est faim."
-  - "Nous sommes prêts."
-respuesta: "Elle est faim."
-enunciado: "Quelle phrase est incorrecte ?"
-explicacion: "\"Faim\" se combina con avoir: elle a faim."
+explicacion: |
+  Falso: *j'ai* (elisión).
 ```

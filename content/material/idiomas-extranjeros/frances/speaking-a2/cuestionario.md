@@ -1,480 +1,216 @@
-# Idiomas — Francés — speaking-a2 (cuestionario)
+# Francés — speaking A2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/speaking-a2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/frances/speaking-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Présent de l’être  
+### 1 — Edad
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["présent", "être"]
-pasos:
-  - "Identificar el sujeto y la forma del verbo 'être' en primera persona."
-explicacion: "El verbo 'être' (ser) en presente tiene la forma 'suis' para 'je'."
-tipo: completar
-enunciado: "Je ___ étudiant."
-respuestas_validas:
-  - "SUIS"
+  tags: ["speaking", "A2"]
+
+respuesta: "J'ai vingt ans."
+tipo: "mc"
+opciones_explicitas: ["J'ai vingt ans.", "Je suis vingt ans.", "Je fais vingt ans."]
+
+enunciado: "Para decir tu edad:"
+
+explicacion: |
+  *Avoir* + años.
 ```
 
----
+### 2 — Pedir
 
-### 2 — Présent de l’habiter  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "habiter"]
-pasos:
-  - "Seleccionar la conjugación correcta de 'habiter' para el sujeto 'tu'."
-explicacion: "'Habiter' se conjuga como 'habites' en segunda persona del singular."
-tipo: mc
-enunciado: "Où ___-tu ?"
-opciones_explicitas:
-  - "habite"
-  - "habites"
-  - "habite-tu"
-respuesta: "habites"
-```
-
----
-
-### 3 — Articles définis  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["articles", "définis"]
-pasos:
-  - "Identificar el artículo definido que precede a 'voiture'."
-explicacion: "El artículo definido 'la' se usa antes de sustantivos femeninos."
-tipo: completar
-enunciado: "Je conduis ___ voiture."
-respuestas_validas:
-  - "La"
+  tags: ["speaking", "A2"]
+
+respuesta: "Je voudrais une baguette, s'il vous plaît."
+tipo: "mc"
+opciones_explicitas: ["Je voudrais une baguette, s'il vous plaît.", "Je veux une baguette.", "Donne-moi une baguette."]
+
+enunciado: "En una panadería, lo más cortés es:"
+
+explicacion: |
+  *Je voudrais*.
 ```
 
----
+### 3 — Saludo
 
-### 4 — Présent de l’être  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "être"]
-pasos:
-  - "Elegir la forma correcta del verbo 'être' para el sujeto 'elle'."
-explicacion: "'Être' en tercera persona singular es 'est'."
-tipo: mc
-enunciado: "Elle ___ professeur."
-opciones_explicitas:
-  - "suis"
-  - "est"
-  - "es"
-respuesta: "est"
-```
-
----
-
-### 5 — Articles indéfinis  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["articles", "indéfinis"]
-pasos:
-  - "Seleccionar el artículo indefinido correcto para 'chien'."
-explicacion: "El artículo indefinido 'un' se usa antes de sustantivos masculinos."
-tipo: completar
-enunciado: "J’ai ___ chien."
-respuestas_validas:
-  - "Un"
+  tags: ["speaking", "A2"]
+
+respuesta: "Bonjour, Madame."
+tipo: "mc"
+opciones_explicitas: ["Bonjour, Madame.", "Salut !", "Bonsoir."]
+
+enunciado: "Al entrar a un negocio a las 10 de la mañana:"
+
+explicacion: |
+  *Bonjour* + *Madame/Monsieur*.
 ```
 
----
+### 4 — Precio
 
-### 6 — Temps de l’action  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "temps"]
-pasos:
-  - "Identificar el verbo en presente que describe una acción habitual."
-explicacion: "El presente se usa para acciones cotidianas, como 'je dors' (duermo)."
-tipo: completar
-enunciado: "Je ___ à la maison le week-end."
-respuestas_validas:
-  - "DORS"
-```
-
----
-
-### 7 — Présent de l’aller  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["présent", "aller"]
-pasos:
-  - "Escribir la forma del verbo 'aller' para el sujeto 'nous'."
-explicacion: "'Aller' en presente tiene la forma 'allons' para 'nous'."
-tipo: completar
-enunciado: "Nous ___ au cinéma ce soir."
-respuestas_validas:
-  - "ALLONS"
+  tags: ["speaking", "A2"]
+
+respuesta: "C'est combien ?"
+tipo: "mc"
+opciones_explicitas: ["C'est combien ?", "Combien tu es ?", "Quel prix es ?"]
+
+enunciado: "Para preguntar el precio:"
+
+explicacion: |
+  *C'est combien ?*
 ```
 
----
+### 5 — Repetir
 
-### 8 — Prépositions de lieu  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["prépositions", "lieu"]
-pasos:
-  - "Elegir la preposición correcta para 'à côté de'."
-explicacion: "'À côté de' se usa para indicar proximidad a algo."
-tipo: mc
-enunciado: "La bibliothèque est ___ l’école."
-opciones_explicitas:
-  - "dans"
-  - "près de"
-  - "à côté de"
-respuesta: "à côté de"
-```
-
----
-
-### 9 — Négation  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["négation", "ne...pas"]
-pasos:
-  - "Completar la oración con la negación correcta."
-explicacion: "La negación 'ne...pas' se coloca alrededor del verbo."
-tipo: completar
-enunciado: "Je ___ vais au parc aujourd’hui."
-respuestas_validas:
-  - "Ne"
+  tags: ["speaking", "A2"]
+
+respuesta: "Vous pouvez répéter, s'il vous plaît ?"
+tipo: "mc"
+opciones_explicitas: ["Vous pouvez répéter, s'il vous plaît ?", "Répète-moi !", "Quoi ?"]
+
+enunciado: "No entendiste. Decís:"
+
+explicacion: |
+  Forma cortés.
 ```
 
----
+### 6 — vous
 
-### 10 — Présent de l’aimer  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "aimer"]
-pasos:
-  - "Seleccionar la conjugación correcta del verbo 'aimer' para el sujeto 'tu'."
-explicacion: "'Aimer' se conjuga como 'aimes' en segunda persona del singular."
-tipo: mc
-enunciado: "Tu ___ le chocolat ?"
-opciones_explicitas:
-  - "aime"
-  - "aimes"
-  - "aimons"
-respuesta: "aimes"
-```
-
----
-
-### 11 — Adjectifs possessifs  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["adjectifs", "possessifs"]
-pasos:
-  - "Identificar el adjetivo posesivo correcto para 'ma sœur'."
-explicacion: "'Mon' se usa antes de sustantivos masculinos, pero 'ma' antes de femeninos."
-tipo: completar
-enunciado: "C’est ___ sœur."
-respuestas_validas:
-  - "Ma"
+  tags: ["speaking", "A2"]
+
+respuesta: "vous"
+tipo: "mc"
+opciones_explicitas: ["vous", "tu", "on"]
+
+enunciado: "Hablás con un empleado del banco que no conocés. Usás…"
+
+explicacion: |
+  Desconocido: *vous*.
 ```
 
----
+### 7 — Agradecer
 
-### 12 — Temps de l’action  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "temps"]
-pasos:
-  - "Escribir el verbo en presente que describe una acción habitual."
-explicacion: "'J’étudie' (estudio) se usa para acciones regulares."
-tipo: completar
-enunciado: "Je ___ beaucoup les maths."
-respuestas_validas:
-  - "ÉTUDIE"
-```
-
----
-
-### 13 — Verbes réfléchis  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbes", "réfléchis"]
-pasos:
-  - "Identificar el pronombre réflexif correcto para 'se lever'."
-explicacion: "'Se lever' se usa con el pronombre 'me' en primera persona."
-tipo: completar
-enunciado: "Je ___ levé(e) à 7h."
-respuestas_validas:
-  - "Me"
+  tags: ["speaking", "A2"]
+
+respuesta: "Je vous en prie."
+tipo: "mc"
+opciones_explicitas: ["Je vous en prie.", "Pas merci.", "Bien sûr."]
+
+enunciado: "— Merci beaucoup ! Respuesta formal:"
+
+explicacion: |
+  *Je vous en prie* = de nada.
 ```
 
----
+### 8 — Profesión
 
-### 14 — Prépositions de temps  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["prépositions", "temps"]
-pasos:
-  - "Seleccionar la preposición correcta para 'en été'."
-explicacion: "'En' se usa antes de estaciones del año."
-tipo: mc
-enunciado: "Je voyage ___ été."
-opciones_explicitas:
-  - "au"
-  - "en"
-  - "dans"
-respuesta: "en"
-```
-
----
-
-### 15 — Adjectifs démonstratifs  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["adjectifs", "démonstratifs"]
-pasos:
-  - "Completar la oración con el adjetivo demostrativo correcto."
-explicacion: "'Cette' se usa antes de sustantivos femeninos."
-tipo: completar
-enunciado: "___ robe est jolie."
-respuestas_validas:
-  - "CETTE"
+  tags: ["speaking", "A2"]
+
+respuesta: "Je suis infirmier."
+tipo: "mc"
+opciones_explicitas: ["Je suis infirmier.", "Je suis un infirmier.", "Je travaille infirmier."]
+
+enunciado: "Para decir que trabajás de enfermero:"
+
+explicacion: |
+  Profesión sin artículo tras *être*.
 ```
 
----
+### 9 — Gusto
 
-### 16 — Présent de l’être  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "être"]
-pasos:
-  - "Elegir la forma correcta del verbo 'être' para el sujeto 'ils'."
-explicacion: "'Être' en tercera persona plural es 'sont'."
-tipo: mc
-enunciado: "Ils ___ amis."
-opciones_explicitas:
-  - "sont"
-  - "est"
-  - "es"
-respuesta: "sont"
-```
-
----
-
-### 17 — Articles indéfinis  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["articles", "indéfinis"]
-pasos:
-  - "Identificar el artículo indefinido correcto para 'pomme'."
-explicacion: "'Une' se usa antes de sustantivos femeninos."
-tipo: completar
-enunciado: "J’ai ___ pomme."
-respuestas_validas:
-  - "UNE"
+  tags: ["speaking", "A2"]
+
+respuesta: "J'aime lire."
+tipo: "mc"
+opciones_explicitas: ["J'aime lire.", "Je me plais lire.", "Me gusta lire."]
+
+enunciado: "Para decir que te gusta leer:"
+
+explicacion: |
+  *Aimer* + infinitivo.
 ```
 
----
+### 10 — Pasado
 
-### 18 — Négation  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["négation", "ne...pas"]
-pasos:
-  - "Completar la oración con la negación correcta."
-explicacion: "La negación 'ne...pas' se coloca alrededor del verbo."
-tipo: completar
-enunciado: "Je ___ mange jamais de pain."
-respuestas_validas:
-  - "Ne"
-```
-
----
-
-### 19 — Verbes fréquents  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbes", "fréquents"]
-pasos:
-  - "Seleccionar la conjugación correcta del verbo 'manger' para el sujeto 'nous'."
-explicacion: "'Manger' se conjuga como 'mangeons' en primera persona plural."
-tipo: mc
-enunciado: "Nous ___ du pain."
-opciones_explicitas:
-  - "mangeons"
-  - "manges"
-  - "mange"
-respuesta: "mangeons"
+  tags: ["speaking", "A2"]
+
+respuesta: "Hier, je suis allé au cinéma."
+tipo: "mc"
+opciones_explicitas: ["Hier, je suis allé au cinéma.", "Hier, je vais au cinéma.", "Hier, j'ai allé au cinéma."]
+
+enunciado: "Para contar lo que hiciste ayer:"
+
+explicacion: |
+  *Aller* con *être*.
 ```
 
----
+### 11 — Despedida
 
-### 20 — Présent de l’aimer  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["présent", "aimer"]
-pasos:
-  - "Escribir la conjugación correcta del verbo 'aimer' para el sujeto 'ils'."
-explicacion: "'Aimer' se conjuga como 'aiment' en tercera persona plural."
-tipo: completar
-enunciado: "Ils ___ les chats."
-respuestas_validas:
-  - "AIMENT"
-```
+  tags: ["speaking", "A2"]
 
----
+respuesta: "Au revoir, bonne soirée !"
+tipo: "mc"
+opciones_explicitas: ["Au revoir, bonne soirée !", "Salut, bonne nuit !", "Bonsoir !"]
 
-### 21 — Prépositions de lieu  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["prépositions", "lieu"]
-pasos:
-  - "Seleccionar la preposición correcta para 'dans'."
-explicacion: "'Dans' se usa para indicar ubicación dentro de algo."
-tipo: mc
-enunciado: "Il est ___ la classe."
-opciones_explicitas:
-  - "dans"
-  - "près de"
-  - "à côté de"
-respuesta: "dans"
-```
+enunciado: "Al salir del negocio a la tarde:"
 
----
-
-### 22 — Adjectifs possessifs  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adjectifs", "possessifs"]
-pasos:
-  - "Identificar el adjetivo posesivo correcto para 'mon frère'."
-explicacion: "'Mon' se usa antes de sustantivos masculinos."
-tipo: completar
-enunciado: "C’est ___ frère."
-respuestas_validas:
-  - "MON"
-```
-
----
-
-### 23 — Présent de l’être  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "être"]
-pasos:
-  - "Elegir la forma correcta del verbo 'être' para el sujeto 'on'."
-explicacion: "'Être' en 'on' es 'est', aunque se usa como impersonal."
-tipo: mc
-enunciado: "On ___ content aujourd’hui."
-opciones_explicitas:
-  - "suis"
-  - "est"
-  - "es"
-respuesta: "est"
-```
-
----
-
-### 24 — Temps de l’action  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["présent", "temps"]
-pasos:
-  - "Completar la oración con el verbo en presente que describe una acción habitual."
-explicacion: "'Je travaille' (trabajo) se usa para acciones regulares."
-tipo: completar
-enunciado: "Je ___ à l’université."
-respuestas_validas:
-  - "TRAVAILLE"
-```
-
----
-
-### 25 — Verbes réfléchis  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbes", "réfléchis"]
-pasos:
-  - "Identificar el pronombre réflexif correcto para 'se coucher'."
-explicacion: "'Se coucher' se usa con el pronombre 'me' en primera persona."
-tipo: completar
-enunciado: "Je ___ couché à 23h."
-respuestas_validas:
-  - "ME"
+explicacion: |
+  *Bonne soirée*.
 ```

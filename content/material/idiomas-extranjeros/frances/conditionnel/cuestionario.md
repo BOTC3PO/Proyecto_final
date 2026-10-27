@@ -1,486 +1,253 @@
-# Idiomas — Francés — conditionnel (cuestionario)
+# Francés — conditionnel (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/conditionnel/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/frances/conditionnel`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Conditionnel avec "si"  
+### 1 — Cortesía
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["si", "imparfait"]
-pasos:
-  - "Identificar la regla del conditionnel con 'si' + imparfait."
-  - "Verificar el sujeto y el verbo en el hueco."
-respuestas_validas:
-  - "aimerais"
-  - "Aimerais"
-tipo: completar
-enunciado: "Si j'_ _ _ _ _ un voyage, je partirais tout de suite."
-explicacion: "El conditionnel se usa con 'si' + imparfait para situaciones hipotéticas. El verbo 'aimer' en conditionnel es 'aimerais'."
+  tags: ["conditionnel"]
+
+respuesta: "voudrais"
+tipo: "mc"
+opciones_explicitas: ["voudrais", "voulais", "veux bien"]
+
+enunciado: "Je ___ un café, s'il vous plaît."
+
+explicacion: |
+  Cortesía: *je voudrais*.
 ```
 
----
+### 2 — pouvoir
 
-### 2 — Conditionnel après "il faudrait"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["il faudrait", "formas"]
-pasos:
-  - "Reconocer que 'il faudrait' requiere el conditionnel."
-  - "Elegir la conjugación correcta del verbo en función del sujeto."
-opciones_explicitas:
-  - "manger"
-  - "mangerais"
-  - "mange"
-respuesta: "mangerais"
-tipo: mc
-enunciado: "Il faudrait que tu _ _ _ _ _ plus de légumes."
-explicacion: "'Il faudrait que' exige el conditionnel. 'Manger' en conditionnel para 'tu' es 'mangerais'."
+  tags: ["conditionnel"]
+
+respuesta: "Pourriez"
+tipo: "mc"
+opciones_explicitas: ["Pourriez", "Pouvriez", "Pouviez"]
+
+enunciado: "___-vous m'aider ?"
+
+explicacion: |
+  *Pouvoir → pourr-*.
 ```
 
----
+### 3 — Consejo
 
-### 3 — Conditionnel con sujeto "nous"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["nous", "formas"]
-pasos:
-  - "Identificar el verbo 'pouvoir' en conditionnel para 'nous'."
-  - "Verificar la conjugación."
-respuestas_validas:
-  - "pourrions"
-  - "Pourrions"
-tipo: completar
-enunciado: "Nous _ _ _ _ _ faire une promenade si le temps était meilleur."
-explicacion: "'Pouvoir' en conditionnel para 'nous' es 'pourrions'."
+  tags: ["conditionnel"]
+
+respuesta: "devrais"
+tipo: "mc"
+opciones_explicitas: ["devrais", "devras", "dois"]
+
+enunciado: "Tu ___ dormir plus."
+
+explicacion: |
+  Consejo: *tu devrais*.
 ```
 
----
+### 4 — si + imparfait
 
-### 4 — Conditionnel con "si + passé composé"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["passé composé", "counterfactual"]
-pasos:
-  - "Reconocer que 'si + passé composé' implica un counterfactual."
-  - "Elegir la forma correcta del conditionnel."
-opciones_explicitas:
-  - "aurais"
-  - "avais"
-  - "a"
-respuesta: "aurais"
-tipo: mc
-enunciado: "Si j'_ _ _ _ _ plus de temps, je l'aurais aidé."
-explicacion: "'Avoir' en conditionnel para 'je' es 'aurais' cuando se usa con 'si + passé composé'."
+  tags: ["conditionnel"]
+
+respuesta: "lirais"
+tipo: "mc"
+opciones_explicitas: ["lirais", "lisais", "lirai"]
+
+enunciado: "Si j'avais le temps, je ___ plus."
+
+explicacion: |
+  *Si* + imparfait → conditionnel.
 ```
 
----
+### 5 — Sin cond. tras si
 
-### 5 — Conditionnel con "je voudrais"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["je voudrais", "formas"]
-pasos:
-  - "Identificar que 'je voudrais' requiere el conditionnel."
-  - "Elegir la conjugación correcta del verbo."
-opciones_explicitas:
-  - "aller"
-  - "irais"
-  - "vas"
-respuesta: "irais"
-tipo: mc
-enunciado: "Je voudrais que tu _ _ _ _ _ à la plage avec moi."
-explicacion: "'Aller' en conditionnel para 'tu' es 'irais'."
+  tags: ["conditionnel"]
+
+respuesta: "Si j'étais riche, je voyagerais."
+tipo: "mc"
+opciones_explicitas: ["Si j'étais riche, je voyagerais.", "Si je serais riche, je voyagerais.", "Si j'étais riche, je voyagerai."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Nunca *si* + conditionnel.
 ```
 
----
+### 6 — être
 
-### 6 — Conditionnel con "si + imparfait"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["imparfait", "situaciones hipotéticas"]
-pasos:
-  - "Reconocer que 'si + imparfait' se usa para situaciones posibles."
-  - "Completar el hueco con la forma correcta del conditionnel."
-respuestas_validas:
-  - "ferais"
-  - "Ferais"
-tipo: completar
-enunciado: "Si tu _ _ _ _ _ un effort, tu réussirais ton examen."
-explicacion: "'Faire' en conditionnel para 'tu' es 'ferais'."
+  tags: ["conditionnel"]
+
+respuesta: "serais"
+tipo: "mc"
+opciones_explicitas: ["serais", "étais", "serai"]
+
+enunciado: "À ta place, je ___ prudent."
+
+explicacion: |
+  *Être → ser-*.
 ```
 
----
+### 7 — faire
 
-### 7 — Conditionnel con sujeto "ils"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["ils", "formas"]
-pasos:
-  - "Identificar el verbo 'savoir' en conditionnel para 'ils'."
-  - "Verificar la conjugación."
-respuestas_validas:
-  - "sauraient"
-  - "Sauraient"
-tipo: completar
-enunciado: "Ils _ _ _ _ _ probablement la réponse si on leur posait la question."
-explicacion: "'Savoir' en conditionnel para 'ils' es 'sauraient'."
+  tags: ["conditionnel"]
+
+respuesta: "ferais"
+tipo: "mc"
+opciones_explicitas: ["ferais", "faisais", "fairais"]
+
+enunciado: "Qu'est-ce que tu ___ à ma place ?"
+
+explicacion: |
+  *Faire → fer-*.
 ```
 
----
+### 8 — aller
 
-### 8 — Conditionnel con "si + imparfait" (pasado)  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["hypothèse", "si on"]
-pasos:
-  - "Identifica el verbo que completa correctamente la oración."
-respuestas_validas:
-  - "pourrais"
-  - "Pourrais"
-tipo: completar
-enunciado: "On _ _ _ _ _ visiter la France si on avait plus de temps."
-explicacion: "El condicional se usa para expresar una hipótesis general. 'pourrais' es la forma correcta del verbo 'pouvoir' en el condicional presente para 'on'."
-```
-
-### 9 — Conditionnel con "si + imparfait" (futuro)  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["imparfait", "situaciones hipotéticas"]
-pasos:
-  - "Identificar que 'si + imparfait' se usa para situaciones posibles."
-  - "Completar el hueco con la forma correcta del conditionnel."
-respuestas_validas:
-  - "pourrais"
-  - "Pourrais"
-tipo: completar
-enunciado: "Si tu _ _ _ _ _ trouver un emploi, je t'aiderais."
-explicacion: "'Pouvoir' en conditionnel para 'tu' es 'pourrais'."
+  tags: ["conditionnel"]
+
+respuesta: "irions"
+tipo: "mc"
+opciones_explicitas: ["irions", "allerions", "allions"]
+
+enunciado: "Nous ___ au Japon si c'était moins cher."
+
+explicacion: |
+  *Aller → ir-*.
 ```
 
----
+### 9 — venir
 
-### 10 — Conditionnel con sujeto "on"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["on", "formas"]
-pasos:
-  - "Identificar el verbo 'aller' en conditionnel para 'on'."
-  - "Verificar la conjugación."
-respuestas_validas:
-  - "irait"
-  - "Irait"
-tipo: completar
-enunciado: "On _ _ _ _ _ probablement à Paris si on avait plus d'argent."
-explicacion: "'Aller' en conditionnel para 'on' es 'irait'."
+  tags: ["conditionnel"]
+
+respuesta: "viendraient"
+tipo: "mc"
+opciones_explicitas: ["viendraient", "venraient", "venaient"]
+
+enunciado: "Ils ___ avec plaisir."
+
+explicacion: |
+  *Venir → viendr-*.
 ```
 
----
+### 10 — Futuro en el pasado
 
-### 11 — Conditionnel con "si + passé composé" (futuro)  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["passé composé", "counterfactual"]
-pasos:
-  - "Reconocer que 'si + passé composé' implica un counterfactual."
-  - "Elegir la forma correcta del conditionnel para 'tu'."
-opciones_explicitas:
-  - "saurais"
-  - "savais"
-  - "sais"
-respuesta: "saurais"
-tipo: mc
-enunciado: "Si tu _ _ _ _ _ plus de temps, tu saurais la réponse."
-explicacion: "'Savoir' en conditionnel para 'tu' es 'saurais'."
+  tags: ["conditionnel"]
+
+respuesta: "viendrait"
+tipo: "mc"
+opciones_explicitas: ["viendrait", "viendra", "venait"]
+
+enunciado: "Il a dit qu'il ___ demain."
+
+explicacion: |
+  Futuro en el pasado: conditionnel.
 ```
 
----
+### 11 — Prensa
 
-### 12 — Conditionnel con "si + imparfait" (presente)  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["imparfait", "situaciones hipotéticas"]
-pasos:
-  - "Identificar que 'si + imparfait' se usa para situaciones posibles."
-  - "Completar el hueco con la forma correcta del conditionnel."
-respuestas_validas:
-  - "deviendrais"
-  - "Deviendrais"
-tipo: completar
-enunciado: "Si tu _ _ _ _ _ plus riche, tu t'achèterais une maison."
-explicacion: "'Devenir' en conditionnel para 'tu' es 'deviendrais'."
+  tags: ["conditionnel"]
+
+respuesta: "Al parecer, el ministro está enfermo"
+tipo: "mc"
+opciones_explicitas: ["Al parecer, el ministro está enfermo", "El ministro estará enfermo", "El ministro estuvo enfermo"]
+
+enunciado: "«Le ministre serait malade» significa…"
+
+explicacion: |
+  Información no confirmada.
 ```
 
----
+### 12 — Deseo
 
-### 13 — Conditionnel con sujeto "elle"  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["elle", "formas"]
-pasos:
-  - "Identificar el verbo 'vouloir' en conditionnel para 'elle'."
-  - "Verificar la conjugación."
-respuestas_validas:
-  - "voudrait"
-  - "Voudrait"
-tipo: completar
-enunciado: "Elle _ _ _ _ _ que tu arrives à l'heure."
-explicacion: "'Vouloir' en conditionnel para 'elle' es 'voudrait'."
+  tags: ["conditionnel"]
+
+respuesta: "aimerais"
+tipo: "mc"
+opciones_explicitas: ["aimerais", "aimerai", "aimais"]
+
+enunciado: "J'___ visiter Rome un jour."
+
+explicacion: |
+  Deseo: *j'aimerais*.
 ```
 
----
+### 13 — Error típico
 
-### 14 — Conditionnel con "si + imparfait" (pasado)  
 ```
 metadata:
-  materia: "frances"
+  materia: "idiomas-extranjeros/frances"
   tema: "conditionnel"
   nivel: "B1"
-  tags: ["si j'avais", "consecuencia"]
-pasos:
-  - "Elige la opción que completa correctamente la oración."
-opciones_explicitas:
-  - "j'irais"
-  - "je suis allé"
-  - "j'ai irai"
-respuesta: "j'irais"
-tipo: mc
-enunciado: "Si j'_ _ _ _ _ plus de vacances, je partirais en voyage."
-explicacion: "El condicional presente se usa para expresar una hipótesis. 'j'irais' es la forma correcta del verbo 'aller' en el condicional para 'je'."
-```
+  tags: ["conditionnel"]
 
-### 15 — Conditionnel con "si + imparfait" (futuro)  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si on pouvait", "posibilidad"]
-pasos:
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "pourrions"
-  - "Pourrions"
-tipo: completar
-enunciado: "Si on _ _ _ _ _ faire un voyage, je proposerais de partir en Italie."
-explicacion: "El condicional presente se usa para expresar una posibilidad hipotética. 'pourrions' es la forma correcta del verbo 'pouvoir' en el condicional para 'on'."
-```
+respuesta: falso
+tipo: vf
 
-### 16 — Conditionnel con sujeto "ils"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si on était", "hypótesis pasada"]
-pasos:
-  - "Selecciona la opción que completa correctamente la oración."
-opciones_explicitas:
-  - "serions"
-  - "sommes"
-  - "étions"
-respuesta: "serions"
-tipo: mc
-enunciado: "Si on _ _ _ _ _ plus riche, on pourrait acheter une maison."
-explicacion: "El condicional presente se usa para expresar una hipótesis en el pasado. 'serions' es la forma correcta del verbo 'être' en el condicional para 'on'."
-```
+enunciado: "«Si j'aurais de l'argent» es correcta."
 
-### 17 — Conditionnel con "si + passé composé"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si je devais", "obligación"]
-pasos:
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "devrais"
-  - "Devrais"
-tipo: completar
-enunciado: "Si je _ _ _ _ _ faire un effort, je réussirais mon examen."
-explicacion: "El condicional presente se usa para expresar una obligación hipotética. 'devrais' es la forma correcta del verbo 'devoir' en el condicional para 'je'."
-```
-
-### 18 — Conditionnel con sujeto "on"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si tu pouvais", "permiso"]
-pasos:
-  - "Elige la opción que completa correctamente la oración."
-opciones_explicitas:
-  - "pourrais"
-  - "pouvais"
-  - "peux"
-respuesta: "pourrais"
-tipo: mc
-enunciado: "Si tu _ _ _ _ _ plus de temps, tu saurais la réponse."
-explicacion: "El condicional presente se usa para expresar un permiso hipotético. 'pourrais' es la forma correcta del verbo 'pouvoir' en el condicional para 'tu'."
-```
-
-### 19 — Conditionnel con "si + imparfait" (presente)  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si on avait", "regreso al pasado"]
-pasos:
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "aurions"
-  - "Aurions"
-tipo: completar
-enunciado: "Si on _ _ _ _ _ plus d'argent, on irait à Paris."
-explicacion: "El condicional presente se usa para expresar un regreso al pasado hipotético. 'aurions' es la forma correcta del verbo 'avoir' en el condicional para 'on'."
-```
-
-### 20 — Conditionnel con sujeto "elle"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si elles étaient", "estado"]
-pasos:
-  - "Selecciona la opción que completa correctamente la oración."
-opciones_explicitas:
-  - "seraient"
-  - "seront"
-  - "sont"
-respuesta: "seraient"
-tipo: mc
-enunciado: "Si elles _ _ _ _ _ plus intelligentes, elles comprendraient tout de suite."
-explicacion: "El condicional presente se usa para expresar un estado hipotético. 'seraient' es la forma correcta del verbo 'être' en el condicional para 'elles'."
-```
-
-### 21 — Conditionnel con "si + imparfait" (pasado)  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si je voulais", "deseo"]
-pasos:
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "voudrais"
-  - "Voudrais"
-tipo: completar
-enunciado: "Si je _ _ _ _ _ aider, je t'aiderais volontiers."
-explicacion: "El condicional presente se usa para expresar un deseo hipotético. 'voudrais' es la forma correcta del verbo 'vouloir' en el condicional para 'je'."
-```
-
-### 22 — Conditionnel con "si + imparfait" (futuro)  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si on pouvait", "posibilidad"]
-pasos:
-  - "Elige la opción que completa correctamente la oración."
-opciones_explicitas:
-  - "pourrions"
-  - "pouvons"
-  - "pourriez"
-respuesta: "pourrions"
-tipo: mc
-enunciado: "Si on _ _ _ _ _ voir la mer, je proposerais de partir en vacances."
-explicacion: "El condicional presente se usa para expresar una posibilidad hipotética. 'pourrions' es la forma correcta del verbo 'pouvoir' en el condicional para 'on'."
-```
-
-### 23 — Conditionnel con sujeto "ils"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si on était", "hipótesis pasada"]
-pasos:
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "serions"
-  - "Serions"
-tipo: completar
-enunciado: "Si on _ _ _ _ _ plus jeune, on ferait des études différentes."
-explicacion: "El condicional presente se usa para expresar una hipótesis en el pasado. 'serions' es la forma correcta del verbo 'être' en el condicional para 'on'."
-```
-
-### 24 — Conditionnel con "si + passé composé"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si tu avais su", "conocimiento"]
-pasos:
-  - "Selecciona la opción que completa correctamente la oración."
-opciones_explicitas:
-  - "saurais"
-  - "savais"
-  - "sais"
-respuesta: "saurais"
-tipo: mc
-enunciado: "Si tu _ _ _ _ _ suivi ce cours, tu comprendrais mieux."
-explicacion: "El condicional presente se usa para expresar un conocimiento hipotético. 'saurais' es la forma correcta del verbo 'savoir' en el condicional para 'tu'."
-```
-
-### 25 — Conditionnel con sujeto "on"  
-```
-metadata:
-  materia: "frances"
-  tema: "conditionnel"
-  nivel: "B1"
-  tags: ["si on avait", "regreso al pasado"]
-pasos:
-  - "Completa el hueco con la forma correcta del verbo."
-respuestas_validas:
-  - "aurions"
-  - "Aurions"
-tipo: completar
-enunciado: "Si on _ _ _ _ _ plus de temps, on irait à la montagne."
-explicacion: "El condicional presente se usa para expresar un regreso al pasado hipotético. 'aurions' es la forma correcta del verbo 'avoir' en el condicional para 'on'."
+explicacion: |
+  Falso: *si j'avais*.
 ```

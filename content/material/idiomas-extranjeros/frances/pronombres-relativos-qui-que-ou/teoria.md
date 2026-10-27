@@ -1,61 +1,47 @@
-# Pronombres relativos en francés: *qui*, *que* y *où* (nivel B1)
+# Pronombres relativos qui, que, où, dont (A2-B1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/pronombres-relativos-qui-que-ou`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Los pronombres relativos (*qui*, *que*, *où*) son elementos clave para conectar ideas en oraciones complejas en francés. En el nivel B1, su correcta uso permite evitar repeticiones innecesarias y expresar relaciones lógicas entre sustantivos y sus descripciones. Aprender a distinguirlos es fundamental para construir frases coherentes y precisas en contextos cotidianos o académicos.
-
----
+Los relativos unen dos oraciones: *Le livre **que** je lis est génial.* Los básicos son ***qui, que, où*** y ***dont***.
 
 ## Explicación central
-Los pronombres relativos introducen una oración subordinada que explica o complementa un sustantivo anterior. Su elección depende del tipo de sustantivo (persona, cosa, lugar) y de la función gramatical en la oración:
+- ***qui*** = **sujeto** del verbo que sigue (personas o cosas): *L'homme **qui** parle est mon père. Le bus **qui** arrive va à Lyon.*
+- ***que / qu'*** = **objeto directo** (después viene un sujeto): *Le film **que** je regarde. La fille **qu'**il aime.*
+- ***où*** = **lugar o tiempo**: *La ville **où** j'habite. Le jour **où** je t'ai rencontré.*
+- ***dont*** = reemplaza un complemento con ***de***: *le livre **dont** je parle* (*parler de*), *l'ami **dont** le père est médecin*.
 
-- **Qui** se usa cuando el antecedente es **una persona**, y **el verbo de la subordinada va antes del pronombre**:
-  - *La femme **qui parle** est mon professeur.* (La mujer que habla es mi profesora.)
-  - *Les amis **qui viennent** me rendent visite demain.* (Los amigos que vienen me visitarán mañana.)
+### Truco
+Mirá lo que sigue al relativo:
+- verbo → ***qui***: *qui **chante***;
+- sujeto + verbo → ***que***: *que **je** chante*.
 
-- **Que** se emplea cuando el antecedente es una **cosa**, o cuando el verbo de la subordinada está después del pronombre:
-  - *Le livre **que j’ai lu** est très intéressant.* (El libro que leí es muy interesante.)
-  - *C’est l’ordinateur **que je veux acheter**.* (Es la computadora que quiero comprar.)
+*Qui* nunca se apostrofa (*qui arrive*); *que* sí (*qu'elle*).
 
-- **Où** introduce una oración relativa que describe un **lugar o momento**, y siempre va seguido de un verbo:
-  - *La ville **où j’ai grandi** est très belle.* (La ciudad donde crecí es muy bonita.)
-  - *C’est le jour **où nous nous sommes rencontrés**.* (Es el día en que nos conocimos.)
+### Concordancia
+Con *qui*, el verbo concuerda con el antecedente: *C'est moi qui **suis** là. C'est toi qui **as** raison.*
+Con *que* + tiempo compuesto con *avoir*, el participio concuerda con el antecedente: *les photos **que** j'ai pris**es***.
 
----
+### Ce qui / ce que
+Sin antecedente («lo que»): ***ce qui*** (sujeto) / ***ce que*** (objeto): *Ce qui me plaît, c'est la mer. Dis-moi **ce que** tu veux.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre *qui* y *que***: Los hablantes de español suelen usar *que* para referirse a personas, pero en francés es incorrecto. Ejemplo erróneo: *L’homme **que m’a aidé** est gentil.* (Correcto: *L’homme **qui m’a aidé**...*)
-2. **Uso de *donde* en lugar de *où***: En español, *donde* se usa para lugares, pero en francés debe ser *où*. Ejemplo erróneo: *Le café **donde je travaille**.* (Correcto: *Le café **où je travaille**.*)
-3. **Omisión del verbo con *que***: En francés, si el verbo de la subordinada va después de *que*, no se puede omitir. Ejemplo erróneo: *C’est le livre **que j’aime**.* (Correcto: *C’est le livre **que je préfère**.*)
-
----
+1. ❌ *Le livre qui je lis* ✅ *que je lis*.
+2. ❌ *La ville que j'habite* ✅ *où j'habite*.
+3. ❌ *Qu'arrive* ✅ *qui arrive*.
+4. ❌ *Le jour que je suis né* ✅ *le jour où je suis né*.
+5. ❌ *Dis-moi que tu veux* («lo que») ✅ *ce que tu veux*.
 
 ## Comparación con el español
-En español, el pronombre relativo *que* sirve tanto para personas como para cosas, mientras que en francés se distingue entre *qui* (personas) y *que* (cosas). Por ejemplo:
-- Español: *La persona **que me ayudó**.*
-- Francés: *La personne **qui m’a aidé**.*
-
-Además, el español no usa *où*, sino *donde*, lo que puede llevar a errores al traducir directamente. Ejemplo:
-- Español: *El lugar **donde vivimos*** → Francés: *Le lieu **où nous vivons*** (no *donde*).
-
----
+El español usa «que» para sujeto y objeto; el francés distingue *qui* (sujeto) y *que* (objeto). «Donde» y «en que» temporal = *où*. «Cuyo» y «del que» = *dont*.
 
 ## Ejemplo extendido en contexto
-**Contexto:** Dos amigos planean un viaje a París y discuten detalles.
-
-**Dialogue:**
-- *Alice:* J’ai trouvé une agence de voyage **qui propose des visites guidées** à Paris.
-  (He encontrado una agence de viajes que ofrece visitas guiadas a París.)
-- *Léa:* C’est parfait ! Est-ce qu’ils proposent aussi des hôtels **que l’on peut réserver en ligne** ?
-  (Es perfecto. ¿Proponen también hoteles que se pueden reservar en línea?)
-- *Alice:* Oui, et on peut visiter le Louvre **où la Mona Lisa est exposée**.
-  (Sí, y se puede visitar el Louvre donde está expuesta la Mona Lisa.)
-
-Este ejemplo muestra cómo los pronombres relativos conectan información específica sobre personas (*qui*), cosas (*que*) y lugares (*où*), esenciales para comunicarse con claridad en situaciones reales.
+*Je te présente Sophie, la fille **qui** travaille avec moi et **que** j'ai rencontrée à Lyon, la ville **où** j'ai fait mes études. C'est l'amie **dont** je t'ai parlé. **Ce qu'**elle aime le plus, c'est la photo.*

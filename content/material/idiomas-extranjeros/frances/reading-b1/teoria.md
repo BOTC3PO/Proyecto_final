@@ -1,45 +1,41 @@
-# Comprensión lectora en francés (nivel B1)
+# Comprensión lectora en francés (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/reading-b1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-La comprensión lectora en el nivel B1 del Marco Común Europeo de Referencia para las Lenguas implica la capacidad de entender textos escritos sobre temas concretos y cotidianos, así como de identificar información explícita e implícita. En este nivel, los aprendices ya no se limitan a leer textos muy sencillos: pueden manejar artículos informativos, cartas formales, instrucciones o conversaciones escritas, siempre que tengan un vocabulario y una gramática suficientes. Este dominio es clave para interactuar en contextos sociales, académicos o laborales que requieran lectura de textos no demasiado complejos.
+En B1 se leen **textos más largos sobre temas conocidos**: artículos sencillos, correos, folletos, blogs, relatos breves. Hay que comprender la **idea general**, los **detalles importantes** y la **opinión** del autor.
 
 ## Explicación central
-En francés, la comprensión lectora a B1 se centra en reconocer estructuras gramaticales básicas, vocabulario contextual y patrones comunes de escritura. Por ejemplo:
-- **Vocabulario**: Palabras relacionadas con temas cotidianos (ej.: *restaurant* [restaurante], *horaires* [horarios], *problème* [problema]).
-- **Estructuras gramaticales**: Uso del pasado compuesto (*j’ai mangé*) y preposiciones (*à*, *de*, *dans*).
-- **Contexto y deducción**: Identificar el significado de palabras desconocidas a través de pistas en la oración.
+### Tipos de lectura
+- **Global** (*skimming*): título, primer y último párrafo → ¿de qué trata?
+- **Selectiva** (*scanning*): buscar datos concretos.
+- **Detallada**: entender razones, opiniones, relaciones.
 
-Ejemplo:
-> *"La météo annonce un orage ce soir, alors je dois annuler mon rendez-vous."*
-Aquí, *orage* (tormenta) y *annuler* (cancelar) se deducen del contexto de una prevención ante el clima adverso.
+### Organización del texto
+- Conectores: *d'abord, ensuite, enfin; mais, pourtant; parce que, car; donc, c'est pourquoi*.
+- Referencias: pronombres (*il, le, y, en, celui-ci*) que remiten a algo anterior.
+
+### Opinión
+*Je trouve que, à mon avis, malheureusement, heureusement, il est dommage que* → el punto de vista del autor.
+
+### Deducir vocabulario
+Por la familia de palabras (*chanter → chanteur*), por el contexto y por los cognados (*important, possible*). Atención a los falsos amigos.
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen tener dificultades con:
-1. **False friends**: Palabras que parecen similares al español pero tienen otro significado en francés (ej.: *embarrer* [hundir] vs. *embarazar* [embarazar]).
-2. **Artículos definidos y el uso de *le/la* para sustantivos masculinos/femeninos**: A veces se confunde la concordancia, especialmente con nombres abstractos (*le problème*, no *la problème*).
-3. **Preposiciones y conjunciones**: Uso incorrecto de *avec* (con) en lugar de *par* (por) o *pour* (para), o errores al conectar ideas con *mais* (pero) vs. *et* (y).
+1. Saltear los conectores y perder la relación entre ideas.
+2. No identificar a qué remite *y* o *en*.
+3. *Car* = porque (no «auto»).
 
 ## Comparación con el español
-El francés y el español comparten muchas palabras, pero su estructura sintáctica y ortográfica difiere:
-- **Posición de los adjetivos**: En francés, los adjetivos suelen ir después del sustantivo (*une maison grande*), mientras que en español pueden ir antes o después.
-- **Tiempo verbal**: El pasado compuesto en francés (*j’ai fait*) es más común que el pretérito indefinido, a diferencia del español, donde ambos se usan según el contexto.
-- **Puntuación**: El uso de guiones largos (*—*) y comas para separar ideas en frases complejas es más frecuente en francés.
+La estructura de los textos es muy parecida. Las dificultades son algunos conectores (*car, or, pourtant*) y los pronombres *y, en*, sin equivalente directo.
 
 ## Ejemplo extendido en contexto
-**Texto**:
-> *"Samedi, je devais rendre visite à mes cousins à Lyon. Cependant, il a plu toute la journée, donc j’ai décidé de rester chez moi. J’ai regardé un film et fait une tarte aux pommes. Mon frère m’a appelé pour me dire qu’il serait en retard, mais je n’ai pas attendu longtemps."*
-
-**Comprensión**:
-- **Información explícita**: El narrador no fue a visitar a sus primos porque llovió; preparó una tarta de manzana.
-- **Información implícita**: El hermano llegó tarde, pero el narrador no lo esperó demasiado tiempo (indica paciencia o impaciencia?).
-- **Vocabulario clave**: *rendre visite à* (visitar a), *il a plu* (llovió), *faire une tarte* (hacer una tarta).
-
-Este tipo de texto permite practicar la identificación de causas, consecuencias y relaciones temporales mediante conectores como *donc*, *mais* o *toute la journée*.
+*Texte : « Depuis deux ans, je vais au travail à vélo. D'abord, c'était difficile, mais maintenant je ne peux plus m'en passer : je fais du sport et je ne perds plus de temps dans les embouteillages. Malheureusement, il y a encore peu de pistes cyclables dans ma ville. »*
