@@ -1,45 +1,50 @@
-# Nominalización en francés: uso y ejemplos (nivel C1)
+# La nominalización en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/nominalisation`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-**Introducción**
-La nominalización es el proceso de transformar un verbo o adjetivo en un sustantivo, generalmente mediante la adición de sufijos. En francés, esta operación es clave para expresar ideas abstractas, formalizar textos y evitar repeticiones verbales. A nivel C1, su dominio permite una mayor precisión en escritura académica, profesional o discursos formales.
+## Introducción
+La **nominalización** convierte un verbo o un adjetivo en sustantivo: *Les prix **augmentent*** → ***L'augmentation** des prix*. Es típica del francés escrito, periodístico y académico: titulares, informes, notas de síntesis.
 
-**Explicación central con ejemplos reales en francés**
-La nominalización en francés se logra mediante sufijos como **-tion**, **-sion**, **-ment**, **-age**, **-ure**, entre otros. Por ejemplo:
-- *Construire* (verbo) → *la construction* (sustantivo).
-- *Étudier* (verbo) → *l’étude* (sustantivo).
-- *Rapidement* (adverbio) → *le rapidité* (sustantivo, aunque menos común en este caso).
+## Explicación central
+### Sufijos frecuentes desde verbos
+| Sufijo | Ejemplos |
+|---|---|
+| **-tion / -ation** | *augmenter → l'augmentation, réduire → la réduction, organiser → l'organisation* |
+| **-ment** | *changer → le changement, développer → le développement, licencier → le licenciement* |
+| **-age** | *nettoyer → le nettoyage, laver → le lavage, chômer → le chômage* |
+| **-ure** | *ouvrir → l'ouverture, fermer → la fermeture, signer → la signature* |
+| **-ance / -ence** | *naître → la naissance, préférer → la préférence* |
+| **-e / -ée** (forma corta) | *arriver → l'arrivée, entrer → l'entrée, visiter → la visite, choisir → le choix, vendre → la vente* |
 
-Esta transformación permite convertir acciones o estados en conceptos abstractos. Por ejemplo:
-> *"La **réduction** des émissions de CO₂ est essentielle pour lutter contre le changement climatique."*
-(“La reducción de las emisiones de CO₂ es esencial para combatir el cambio climático.”)
+### Desde adjetivos
+***-té, -eur, -ité, -esse, -ise, -ie***: *beau → la beauté, grand → la grandeur, rapide → la rapidité, jeune → la jeunesse, franc → la franchise, précis → la précision*.
 
-Otro caso común es con adjetivos: *gratuit* (adjetivo) → *la gratuité* (sustantivo). Ejemplo:
-> *"Elle défend la **gratuité** de l’éducation."*
-(“Ella defiende la gratuidad de la educación.”)
+### Cómo se transforma la oración
+- El sujeto pasa a complemento con ***de***: *Le gouvernement **réforme** les retraites* → ***La réforme** des retraites **par** le gouvernement*.
+- Los adverbios pasan a adjetivos: *Les prix ont **fortement** augmenté* → ***La forte** augmentation des prix*.
+- Género: la mayoría en *-tion, -ure, -ance, -ée, -té* son **femeninos**; en *-ment, -age* son **masculinos**.
 
-**Errores comunes de hispanohablantes al aprender este punto**
-1. **Uso incorrecto de sufijos**: Los hablantes de español suelen confundir *-tion* con *-sion* (ejemplo: *le *solution* en lugar de *la *solution*).
-2. **Falta de flexibilidad**: Algunos aplican la nominalización donde no es natural. Por ejemplo, decir *"une *réduction* de pollution"* (correcto) pero omitir el artículo (*une*) o usar un sufijo inadecuado.
-3. **Confusión entre sustantivos y adjetivos**: Transformar incorrectamente un adverbio en sustantivo, como *rapidement* → *la rapidité* (aunque es posible, no es común).
+### Uso en titulares
+*« Le président démissionne »* → *« **Démission** du président »*; *« Les trains sont en retard »* → *« **Retards** sur les lignes »*.
 
-**Comparación con el español**
-El español también usa sufijos para nominalizar (*-ción*, *-sión*), pero con diferencias clave:
-- En francés, la nominalización se aplica más frecuentemente en contextos formales o académicos. Por ejemplo, *"la *réalisation* d’un projet"* (en francés) versus *"la realización de un proyecto"* (español).
-- El español tiende a usar sustantivos directamente sin transformar verbos tan sistemáticamente como el francés. Por ejemplo, en español se dice *"realizar un proyecto"*, mientras que en francés se usa *"la *réalisation* d’un projet"*.
+### Precaución
+Abusar de la nominalización vuelve el texto pesado; en un texto argumentativo conviene combinarla con verbos.
 
-**Ejemplo extendido en contexto**
-*Contexto: una reunión de trabajo sobre un nuevo proyecto.*
-**Diálogo:**
-**Marie**: "Nous devons organiser une **conférence** pour présenter le nouveau produit. Qui va s’occuper de la **préparation** du contenu ?"
-**Lucas**: "Je m’en charge, mais je dois d’abord terminer les **recherches** sur le marché concurrentiel."
-**Marie**: "D’accord. Et pour la **distribution** des documents, Asma a proposé une **solution** innovante."
+## Errores comunes de hispanohablantes
+1. Género: ❌ *la changement* ✅ *le changement*; ❌ *le fermeture* ✅ *la fermeture*.
+2. ❌ *l'arrivement* ✅ *l'arrivée*; ❌ *la choisition* ✅ *le choix*.
+3. ❌ *La augmentation des prix forte* ✅ *La forte augmentation des prix*.
 
-Este diálogo muestra cómo la nominalización (*conférence*, *préparation*, *recherches*, *distribution*, *solution*) facilita una comunicación formal y concisa, típica de entornos profesionales.
+## Comparación con el español
+El español nominaliza de modo parecido («aumento, reducción, cierre»), pero los sufijos no siempre coinciden: «el cierre» = ***la fermeture***, «la llegada» = ***l'arrivée***, «el desempleo» = ***le chômage***. Ojo con el género, que suele diferir.
+
+## Ejemplo extendido en contexto
+*« Le gouvernement a annoncé qu'il **réduirait** les impôts et qu'il **construirait** des logements. »* → ***L'annonce** par le gouvernement d'**une réduction** des impôts et de **la construction** de logements a été bien accueillie.*

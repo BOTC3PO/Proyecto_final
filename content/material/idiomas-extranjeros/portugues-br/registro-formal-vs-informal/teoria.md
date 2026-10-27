@@ -1,51 +1,58 @@
-# Registro Formal vs. Informal en Portugués (Nivel C1)
+# Registro formal e informal en portugués de Brasil (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/registro-formal-vs-informal`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El manejo del registro formal e informal es clave para comunicarse de manera adecuada según el contexto y la audiencia. En el nivel C1, los hablantes deben dominar no solo la gramática avanzada, sino también las normas sociolingüísticas que determinan cuándo usar un lenguaje más respetuoso o cercano. Esta distinción es especialmente relevante en portugués brasileño (pt-BR), donde el uso del registro influye directamente en la percepción de profesionalismo, educación y relaciones interpersonales.
+El portugués de Brasil tiene una diferencia marcada entre la **norma culta** (escrita, formal) y el **portugués coloquial** del habla. Saber pasar de uno a otro es una habilidad clave en el nivel C1.
 
-## Explicación Central
-En portugués, los registros se diferencian principalmente por:
-1. **Formas de tratamiento**: El uso de *você* (informal) o *senhor/senhora* (formal), aunque en Brasil el *você* es común incluso en contextos no muy informales.
-2. **Vocabulario**: Palabras como *coisa* (informal) vs. *objeto* (formal), o *fazer* (genérico) vs. *realizar* (formal).
-3. **Frases de cortesía**: En formal, se usan expresiones como *com licença* (perdón) o *por gentileza* (por favor); en informal, pueden recurrirse a frases más coloquiales.
+## Explicación central
+### Tratamiento
+- Informal: **você** (y *tu* en algunas regiones), *a gente* (= nós).
+- Formal: **o senhor / a senhora** (con verbo en 3.ª persona): *O senhor **deseja** algo?* En textos oficiales: *Vossa Senhoria*, *Vossa Excelência*.
 
-Ejemplos:
-- **Formal**: *"Senhora Silva, por gentileza, pode confirmar a data da reunião?"* (Señora Silva, por favor, puede confirmar la fecha de la reunión?)
-- **Informal**: *"Você consegue me dizer quando será a reunião?"* (¿Puedes decirme cuándo será la reunión?).
+### Pronombres
+| Coloquial | Formal (norma culta) |
+|---|---|
+| *Eu vi **ele**.* | *Eu **o** vi.* |
+| ***Me** dá um café?* (pronombre al inicio) | *Dê-**me** um café, por favor.* |
+| *Vou **te** ligar* (con *você*) | *Vou **lhe** telefonar / ligar **para o senhor**.* |
 
-Además, el uso de *você* en contextos formales no es un error, pero debe combinarse con vocabulario y estructuras más respetuosas. Por ejemplo:
-- **Formal**: *"O senhor está certo ao dizer que o projeto precisa de revisão."* (Usted tiene razón al decir que el proyecto necesita revisión).
-- **Informal**: *"Você tá certo, o projeto precisa ser revisado."* (Tú tienes razón, el proyecto necesita ser revisado).
+### Gramática
+- *Ter* existencial (*Tem muita gente*) → *haver* (*Há muitas pessoas*).
+- *Ir* + infinitivo → futuro simple en textos formales (*será realizado*).
+- Imperfeito por condicional (*Eu comprava*) → futuro do pretérito (*Eu compraria*).
+- Reducciones orales: *tô, tá, pra, pro, cê, né* → *estou, está, para, para o, você, não é*.
 
-## Errores Comunes de Hablantes Hispanohablantes
-1. **Confusión en el uso del *você***: Muchos hispanohablantes aplican directamente las normas de "usted" y "tú" del español, ignorando que en portugués brasileño el *você* es ampliamente aceptado incluso con personas desconocidas.
-2. **Sobrecarga formal**: Usar títulos como *senhor/senhora* sin necesidad (ej.: *"Senhora Maria, pode me ajudar?"* cuando un simple "Maria, pode me ajudar?" sería suficiente).
-3. **Uso incorrecto de preposiciones**: En portugués, frases como *"falar com alguém"* (hablar con alguien) no requieren preposición, a diferencia del español (*hablar *con* alguien*), lo que puede llevar a errores como *"falar com você"* en lugar de *"falar contigo"* (informal).
+### Vocabulario
+| Informal | Formal |
+|---|---|
+| legal, bacana | interessante, positivo |
+| grana | dinheiro, recursos |
+| a gente | nós |
+| pegar | obter, receber |
+| falar com | comunicar, informar |
+| acho que | considero que, entendo que |
 
-## Comparación con el Español
-En español, la distinción entre formal e informal se basa principalmente en la conjugación verbal (*usted* vs. *tú*) y en el uso de títulos. En portugués brasileño:
-- No hay cambios de conjugación para el registro (el verbo permanece igual en *você*, *ele/ela* o *senhor/senhora*).
-- Los títulos (*senhor*, *doutor*) son más frecuentes en contextos formales, pero su uso excesivo puede sonar rígido.
+### Correo formal
+*Prezado Senhor / Prezada Senhora,* … *Atenciosamente,* / *Cordialmente,*
+Informal: *Oi, Ana!* … *Abraços / Beijos*.
 
-Ejemplo: En español, *"¿Puedes ayudarme?"* (informal) vs. *"¿Puede ayudarme?"* (formal). En portugués, ambas formas usan *pode*:
-- **Informal**: *"Você pode me ajudar?"*
-- **Formal**: *"O senhor pode me ajudar?"*
+## Errores comunes de hispanohablantes
+1. Usar *tu* en contextos formales o con desconocidos (en Brasil, *você* o *o senhor*).
+2. Escribir *pra, tá, né* en un correo formal.
+3. ❌ *Prezado Sr. Silva, tudo bem?* (mezcla de registros) ✅ *Prezado Sr. Silva, espero que esteja bem.*
 
-## Ejemplo Extendido en Contexto
-**Escenario 1: Entrevista de trabajo (formal)**
-*Recrutador*: *"Senhora Almeida, por gentileza, poderia nos contar um pouco sobre sua experiência profissional?"*
-*Candidata*: *"Com certeza. Trabalhei durante cinco anos como analista financeiro em uma empresa internacional, onde me especializei em gestão de riscos."*
+## Comparación con el español
+«Usted» = *o senhor / a senhora*; «vos/tú» = *você*. En español la formalidad se marca sobre todo con «usted»; en portugués de Brasil también cambian mucho los pronombres de objeto y el vocabulario.
 
-**Escenario 2: Conversación con amigos (informal)**
-*Amigo A*: *"Vocês conseguem acreditar que o João deixou o celular no metrô?"*
-*Amigo B*: *"É verdade? Que confusão! Ele tá sempre esquecendo coisas."*
-
-Este contraste muestra cómo el registro ajusta el lenguaje según la relación y el contexto, una habilidad clave para alcanzar el nivel C1.
+## Ejemplo extendido en contexto
+*Informal: Oi, Pedro! Tô te mandando o arquivo pra você dar uma olhada, tá? Abraço!*
+*Formal: Prezado Sr. Pedro, encaminho-lhe o arquivo em anexo para sua apreciação. Atenciosamente, …*

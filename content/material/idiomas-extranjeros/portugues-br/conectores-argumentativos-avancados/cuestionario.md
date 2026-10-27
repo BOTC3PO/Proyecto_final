@@ -1,471 +1,253 @@
-# Idiomas — Portugués (Brasil) — conectores-argumentativos-avancados (cuestionario)
+# Portugués (Brasil) — conectores argumentativos avanzados (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/conectores-argumentativos-avancados/cuestionario_crudo.md`)
-> con una corrección de contenido: los 24 bloques carecían de `enunciado:`; se generó una
-> pregunta según la categoría lógica evaluada (oposición, adición, causa, consecuencia, etc.),
-> ya indicada en `tags:`.
+> Tema: `idiomas-extranjeros/portugues-br/conectores-argumentativos-avancados`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Conector de oposição  
-```yaml
+### 1 — Contraste
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["oposição", "entretanto"]
-pasos:
-  - "Identificar o tipo de relação lógica entre as orações."
-  - "Escolher o conector que expressa contraste ou contraposição."
-respuesta: "Entretanto"
-enunciado: "¿Cuál es el conector correcto para expresar oposición o contraste?"
-opciones_explicitas:
-  - "Além disso"
-  - "Por conseguinte"
-  - "Entretanto"
-  - "Com efeito"
-tipo: mc
-explicacion: "O conector 'entretanto' estabelece uma relação de contraste entre as ideias, sendo o mais adequado para a oração apresentada."
+  tags: ["conectores", "C1"]
+
+respuesta: "no entanto"
+tipo: "mc"
+opciones_explicitas: ["no entanto", "portanto", "além disso"]
+
+enunciado: "O projeto é interessante; ___, é muito caro."
+
+explicacion: |
+  Contraste: *no entanto*.
 ```
 
-### 2 — Conector de adição  
-```yaml
+### 2 — Todavia
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["adição", "além disso"]
-pasos:
-  - "Determinar o propósito da oração adicional."
-  - "Selecionar o conector que amplia a ideia principal."
-respuesta: "Além disso"
-enunciado: "¿Cuál es el conector correcto para añadir información?"
-opciones_explicitas:
-  - "No entanto"
-  - "Assim"
-  - "Além disso"
-  - "Por outro lado"
-tipo: mc
-explicacion: "'Além disso' é usado para adicionar uma informação que complementa a anterior, mantendo o fluxo argumentativo."
+  tags: ["conectores", "C1"]
+
+respuesta: "sin embargo"
+tipo: "mc"
+opciones_explicitas: ["sin embargo", "todavía", "además"]
+
+enunciado: "«Todavia» significa…"
+
+explicacion: |
+  *Todavia* = sin embargo; «todavía» = *ainda*.
 ```
 
-### 3 — Conector de causa  
-```yaml
+### 3 — Ainda
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["causa", "porque"]
-pasos:
-  - "Identificar a relação de causalidade entre as orações."
-  - "Avaliar o conector mais adequado para expressar essa ligação."
-respuesta: "Por isso"
-enunciado: "¿Cuál es el conector correcto para expresar causa?"
-opciones_explicitas:
-  - "Apesar disso"
-  - "Embora"
-  - "Por isso"
-  - "Contudo"
-tipo: mc
-explicacion: "'Por isso' conecta uma causa a um efeito, sendo o conector mais preciso para esta relação."
+  tags: ["conectores", "C1"]
+
+respuesta: "ainda"
+tipo: "mc"
+opciones_explicitas: ["ainda", "todavia", "entretanto"]
+
+enunciado: "Ele ___ não chegou."
+
+explicacion: |
+  «Todavía no» = *ainda não*.
 ```
 
-### 4 — Conector de exemplificação  
-```yaml
+### 4 — Concesión
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["exemplo", "por exemplo"]
-pasos:
-  - "Reconhecer a necessidade de ilustrar uma afirmação."
-  - "Escolher o conector que introduz um exemplo."
-respuesta: "Por exemplo"
-enunciado: "¿Cuál es el conector correcto para introducir un ejemplo?"
-opciones_explicitas:
-  - "Dado isso"
-  - "Assim sendo"
-  - "Por exemplo"
-  - "Como tal"
-tipo: mc
-explicacion: "'Por exemplo' é utilizado para apresentar exemplos que suportam uma ideia anterior."
+  tags: ["conectores", "C1"]
+
+respuesta: "seja"
+tipo: "mc"
+opciones_explicitas: ["seja", "é", "for"]
+
+enunciado: "Embora o plano ___ caro, é viável."
+
+explicacion: |
+  *Embora* + subjuntivo.
 ```
 
-### 5 — Conector de consequência  
-```yaml
+### 5 — Apesar de
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["consequência", "portanto"]
-pasos:
-  - "Reconhecer a relação entre causa e efeito."
-  - "Selecionar o conector que expressa consequência direta."
-respuesta: "Portanto"
-enunciado: "¿Cuál es el conector correcto para expresar consecuencia?"
-opciones_explicitas:
-  - "No entanto"
-  - "Devido a isso"
-  - "Portanto"
-  - "Entretanto"
-tipo: mc
-explicacion: "'Portanto' indica uma conclusão lógica derivada de premissas anteriores, sendo o conector mais adequado."
+  tags: ["conectores", "C1"]
+
+respuesta: "Apesar de"
+tipo: "mc"
+opciones_explicitas: ["Apesar de", "Embora", "Apesar que"]
+
+enunciado: "___ ser caro, o curso vale a pena."
+
+explicacion: |
+  *Apesar de* + infinitivo.
 ```
 
-### 6 — Conector de condição  
-```yaml
+### 6 — Causa
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["condição", "se"]
-pasos:
-  - "Identificar a dependência lógica entre as orações."
-  - "Escolher o conector que expressa uma condição."
-respuesta: "Se"
-enunciado: "¿Cuál es el conector correcto para expresar condición?"
-opciones_explicitas:
-  - "Como"
-  - "Apesar de"
-  - "Se"
-  - "Assim que"
-tipo: mc
-explicacion: "'Se' é fundamental para introduzir condições hipotéticas ou reais, conectando cláusulas dependentes."
+  tags: ["conectores", "C1"]
+
+respuesta: "pois"
+tipo: "mc"
+opciones_explicitas: ["pois", "portanto", "contudo"]
+
+enunciado: "Não fui à aula, ___ estava doente."
+
+explicacion: |
+  Causa: *pois* (después del verbo).
 ```
 
-### 7 — Conector de conclusão  
-```yaml
+### 7 — Conclusión
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["conclusão", "em resumo"]
-pasos:
-  - "Reconhecer a necessidade de sintetizar ideias."
-  - "Selecionar o conector que resume o conteúdo anterior."
-respuesta: "Em resumo"
-enunciado: "¿Cuál es el conector correcto para expresar conclusión?"
-opciones_explicitas:
-  - "Dado isso"
-  - "Além disso"
-  - "Em resumo"
-  - "Por exemplo"
-tipo: mc
-explicacion: "'Em resumo' é utilizado para concluir ou sintetizar um argumento complexo."
+  tags: ["conectores", "C1"]
+
+respuesta: "portanto"
+tipo: "mc"
+opciones_explicitas: ["portanto", "embora", "porque"]
+
+enunciado: "Os dados confirmam a hipótese; ___, o estudo foi um sucesso."
+
+explicacion: |
+  Conclusión: *portanto*.
 ```
 
-### 8 — Conector de tempo  
-```yaml
+### 8 — Desde que
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["tempo", "enquanto"]
-pasos:
-  - "Identificar a relação de simultaneidade ou sequência."
-  - "Escolher o conector que expressa o momento da ação."
-respuesta: "Enquanto"
-enunciado: "¿Cuál es el conector correcto para expresar simultaneidad temporal?"
-opciones_explicitas:
-  - "Após"
-  - "Antes que"
-  - "Enquanto"
-  - "Depois de"
-tipo: mc
-explicacion: "'Enquanto' conecta ações simultâneas ou eventos em sequência, dependendo do contexto."
+  tags: ["conectores", "C1"]
+
+respuesta: "Podés salir siempre que vuelvas temprano"
+tipo: "mc"
+opciones_explicitas: ["Podés salir siempre que vuelvas temprano", "Podés salir desde que vuelvas", "Saliste porque volviste temprano"]
+
+enunciado: "«Pode sair, desde que volte cedo» significa:"
+
+explicacion: |
+  *Desde que* = siempre que (condición).
 ```
 
-### 9 — Conector de concessão  
-```yaml
+### 9 — Adición
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["cessão", "embora"]
-pasos:
-  - "Reconhecer a relação de contraste com aceitação."
-  - "Escolher o conector que expressa uma concessão."
-respuesta: "Embora"
-enunciado: "¿Cuál es el conector correcto para expresar concesión?"
-opciones_explicitas:
-  - "Apesar disso"
-  - "No entanto"
-  - "Embora"
-  - "Entretanto"
-tipo: mc
-explicacion: "'Embora' introduz uma ideia que contrasta com a anterior, mas é aceita como verdadeira."
+  tags: ["conectores", "C1"]
+
+respuesta: "além disso"
+tipo: "mc"
+opciones_explicitas: ["além disso", "no entanto", "embora"]
+
+enunciado: "A cidade é segura; ___, tem ótimas escolas."
+
+explicacion: |
+  Adición: *além disso*.
 ```
 
-### 10 — Conector de proporcionalidade  
-```yaml
+### 10 — Causa formal
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["proporção", "tanto...quanto"]
-pasos:
-  - "Identificar a relação de igualdade entre elementos."
-  - "Selecionar o conector que equilibra duas partes da frase."
-respuesta: "Tanto...quanto"
-enunciado: "¿Cuál es el conector correcto para expresar proporcionalidad?"
-opciones_explicitas:
-  - "Assim como"
-  - "Quão...tão"
-  - "Tanto...quanto"
-  - "Não só...mas também"
-tipo: mc
-explicacion: "'Tanto...quanto' é usado para comparar dois elementos de igual importância ou intensidade."
+  tags: ["conectores", "C1"]
+
+respuesta: "Uma vez que"
+tipo: "mc"
+opciones_explicitas: ["Uma vez que", "Embora", "Contudo"]
+
+enunciado: "___ o prazo terminou, não é possível alterar a inscrição."
+
+explicacion: |
+  *Uma vez que / já que* = causa.
 ```
 
-### 11 — Conector de hipótese  
-```yaml
+### 11 — Finalidad
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["hipótese", "se"]
-pasos:
-  - "Reconhecer a construção de uma possibilidade."
-  - "Escolher o conector que indica uma condição hipotética."
-respuesta: "Se"
-enunciado: "¿Cuál es el conector correcto para expresar una hipótesis?"
-opciones_explicitas:
-  - "A menos que"
-  - "Apesar disso"
-  - "Se"
-  - "Dado que"
-tipo: mc
-explicacion: "'Se' é fundamental para introduzir hipóteses, mesmo quando a condição não é certa."
+  tags: ["conectores", "C1"]
+
+respuesta: "passar"
+tipo: "mc"
+opciones_explicitas: ["passar", "que passe", "passasse"]
+
+enunciado: "Estudou muito a fim de ___ no concurso."
+
+explicacion: |
+  *A fim de* + infinitivo.
 ```
 
-### 12 — Conector de intensificação  
-```yaml
+### 12 — Aclaración
+
+```
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["intensidade", "não apenas"]
-pasos:
-  - "Identificar a necessidade de enfatizar uma ideia."
-  - "Selecionar o conector que reforça a afirmação."
-respuesta: "Não apenas...mas também"
-enunciado: "¿Cuál es el conector correcto para expresar adición enfática?"
-opciones_explicitas:
-  - "Tanto quanto"
-  - "Além disso"
-  - "Não apenas...mas também"
-  - "Por exemplo"
-tipo: mc
-explicacion: "'Não apenas...mas também' é usado para intensificar uma ideia e adicionar outro elemento relevante."
+  tags: ["conectores", "C1"]
+
+respuesta: "ou seja"
+tipo: "mc"
+opciones_explicitas: ["ou seja", "portanto", "todavia"]
+
+enunciado: "Ele é poliglota, ___, fala muitas línguas."
+
+explicacion: |
+  Aclaración: *ou seja / isto é*.
 ```
 
-### 13 — Conector de comparação  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["comparação", "assim como"]
-pasos:
-  - "Reconhecer a relação de semelhança entre elementos."
-  - "Escolher o conector que expressa uma comparação direta."
-respuesta: "Assim como"
-enunciado: "¿Cuál es el conector correcto para expresar comparación?"
-opciones_explicitas:
-  - "Tanto...quanto"
-  - "Apesar disso"
-  - "Assim como"
-  - "No entanto"
-tipo: mc
-explicacion: "'Assim como' conecta dois elementos que compartilham uma característica semelhante."
-```
+### 13 — Error típico
 
-### 14 — Conector de finalidade  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["finalidade", "para que"]
-pasos:
-  - "Identificar o propósito da ação mencionada."
-  - "Selecionar o conector que indica a intenção por trás da ação."
-respuesta: "Para que"
-enunciado: "¿Cuál es el conector correcto para expresar finalidad?"
-opciones_explicitas:
-  - "Como"
-  - "Assim que"
-  - "Para que"
-  - "A fim de que"
-tipo: mc
-explicacion: "'Para que' expressa claramente a finalidade ou intenção de uma ação."
 ```
-
-### 15 — Conector de dúvida  
-```yaml
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "conectores-argumentativos-avancados"
   nivel: "C1"
-  tags: ["dúvida", "se"]
-pasos:
-  - "Reconhecer a construção de uma pergunta indireta."
-  - "Escolher o conector que introduz uma incerteza."
-respuesta: "Se"
-enunciado: "¿Cuál es el conector correcto para expresar duda?"
-opciones_explicitas:
-  - "Apesar disso"
-  - "No entanto"
-  - "Se"
-  - "Por isso"
-tipo: mc
-explicacion: "'Se' pode ser usado para expressar dúvida ou hipótese em contextos interrogativos."
-```
+  tags: ["conectores", "C1"]
 
-### 16 — Conector de sequência  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["sequência", "depois que"]
-pasos:
-  - "Identificar a ordem lógica dos eventos."
-  - "Selecionar o conector que expressa uma sequência temporal."
-respuesta: "Depois que"
-enunciado: "¿Cuál es el conector correcto para expresar secuencia temporal?"
-opciones_explicitas:
-  - "Antes de"
-  - "Enquanto"
-  - "Depois que"
-  - "Após"
-tipo: mc
-explicacion: "'Depois que' conecta eventos em ordem cronológica, indicando o momento da ação."
-```
+respuesta: falso
+tipo: vf
 
-### 17 — Conector de causalidade inversa  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["causa", "porque"]
-pasos:
-  - "Reconhecer a relação entre causa e efeito inverso."
-  - "Selecionar o conector que expressa uma explicação clara."
-respuesta: "Por isso"
-enunciado: "¿Cuál es el conector correcto para expresar causa?"
-opciones_explicitas:
-  - "Apesar disso"
-  - "Embora"
-  - "Por isso"
-  - "No entanto"
-tipo: mc
-explicacion: "'Por isso' é usado para conectar uma causa a um efeito, mesmo quando o contexto é inverso."
-```
+enunciado: "«Embora é difícil, vamos tentar» es correcta."
 
-### 18 — Conector de exclusão  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["exclusão", "mas"]
-pasos:
-  - "Identificar a relação de contraste direto."
-  - "Escolher o conector que nega ou exclui uma ideia anterior."
-respuesta: "Mas"
-enunciado: "¿Cuál es el conector correcto para expresar exclusión o contraste?"
-opciones_explicitas:
-  - "No entanto"
-  - "Contudo"
-  - "Mas"
-  - "Porém"
-tipo: mc
-explicacion: "'Mas' é um dos conectores mais comuns para expressar contraste direto e exclusão."
-```
-
-### 19 — Conector de restrição  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["restrição", "embora"]
-pasos:
-  - "Reconhecer a limitação de uma afirmação."
-  - "Selecionar o conector que introduz uma exceção."
-respuesta: "Embora"
-enunciado: "¿Cuál es el conector correcto para expresar restricción o concesión?"
-opciones_explicitas:
-  - "Apesar disso"
-  - "No entanto"
-  - "Embora"
-  - "Contudo"
-tipo: mc
-explicacion: "'Embora' é usado para expressar uma restrição ou exceção à afirmação anterior."
-```
-
-### 20 — Conector de intensificação com negação  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["intensidade", "não só"]
-pasos:
-  - "Identificar a necessidade de enfatizar uma negação."
-  - "Selecionar o conector que reforça a ideia oposta."
-respuesta: "Não só...mas também"
-enunciado: "¿Cuál es el conector correcto para expresar adición enfática?"
-opciones_explicitas:
-  - "Tanto quanto"
-  - "Além disso"
-  - "Não só...mas também"
-  - "Por exemplo"
-tipo: mc
-explicacion: "'Não só...mas também' pode ser usado para intensificar uma negação ou contraposição."
-```
-
-### 21 — Conector de condição com tempo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["condição", "assim que"]
-pasos:
-  - "Reconhecer a relação de tempo e condição."
-  - "Escolher o conector que combina ambas as ideias."
-respuesta: "Assim que"
-enunciado: "¿Cuál es el conector correcto para expresar condición?"
-opciones_explicitas:
-  - "Depois de"
-  - "Antes que"
-  - "Assim que"
-  - "Enquanto"
-tipo: mc
-explicacion: "'Assim que' conecta ações condicionais com o momento em que ocorrem."
-```
-
-### 22 — Conector de comparação com intensificação  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/portugues-br"
-  tema: "conectores-argumentativos-avancados"
-  nivel: "C1"
-  tags: ["comparação", "tão...quanto"]
-pasos:
-  - "Identificar a relação de comparação com intensidade."
-  - "Selecionar o conector que equilibra duas partes da frase."
-respuesta: "Tão...quanto"
-enunciado: "¿Cuál es el conector correcto para expresar comparación?"
-opciones_explicitas:
-  - "Assim como"
-  - "Quão...tão"
-  - "Tão...quanto"
-  - "Não só...mas também"
-tipo: mc
-explicacion: "'Tão...quanto' é usado para comparar dois elementos com intensidade ou grau igual."
+explicacion: |
+  Falso: *Embora seja difícil…*
 ```

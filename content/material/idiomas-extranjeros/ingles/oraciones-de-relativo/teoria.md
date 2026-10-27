@@ -5,34 +5,42 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
-Las oraciones de relativo son frases que unen dos ideas mediante una cláusula explicativa, conectando sustantivos con información adicional. En el nivel B1 del Marco Común Europeo de Referencia para las Lenguas (MCER), su dominio es clave para construir frases complejas y expresar ideas con precisión. Estas oraciones permiten evitar repeticiones innecesarias y enriquecer la comunicación.
+## Introducción
+Las **oraciones de relativo** dan información sobre un sustantivo sin empezar una oración nueva: *The man **who lives next door** is a pilot.*
 
 ## Explicación central
-Las oraciones de relativo se forman usando pronombres relativos (*who*, *which*, *that*, *where*) o adverbios (*when*, *why*), seguidos de una cláusula que define o complementa al sustantivo anterior.
+### Pronombres relativos
+- **who**: personas — *The woman **who** called you is my aunt.*
+- **which**: cosas y animales — *The book **which** I read was great.*
+- **that**: personas o cosas (en las especificativas) — *The car **that** I bought is red.*
+- **where**: lugares — *This is the house **where** I grew up.*
+- **whose**: posesión («cuyo») — *That's the girl **whose** brother plays for Boca.*
+- **when**: momentos — *I remember the day **when** we met.*
 
-- **Who**: Se usa para personas.
-  Ejemplo: *"The man **who is speaking** is my teacher."*
-- **Which/that**: Ambos pueden referirse a cosas, animales o ideas (en oraciones específicas, es decir, restrictivas).
-  Ejemplo: *"This is the car **that I bought last year**."*
-- **Where**: Se usa para lugares.
-  Ejemplo: *"That’s the hotel **where we stayed in Paris**."*
+### Especificativas y explicativas
+- **Especificativas** (*defining*): identifican de quién o de qué hablamos; **sin comas**; se puede usar *that*. *The students **who/that passed** got a certificate.* (solo los que aprobaron)
+- **Explicativas** (*non-defining*): agregan información extra; **entre comas**; **no se usa *that***. *My mother, **who is a nurse**, works at night.* (tengo una sola madre)
 
-En inglés, *which* y *that* son intercambiables en oraciones específicas (restrictivas), aunque *that* es más común en el inglés norteamericano. Por ejemplo: *"The book **which/that I read** was fascinating."*
+### Omitir el pronombre
+- En las especificativas, si el relativo es **objeto**, se puede omitir: *The film (**that**) I saw was boring.*
+- Si es **sujeto**, no: *The man **who lives** here…* (❌ *The man lives here is…*).
+
+### Preposiciones
+- Informal, al final: *The person (who) I spoke **to**.* — Formal, delante: *The person **to whom** I spoke.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre *que* y los relativos ingleses**: En español, *que* puede referirse a personas o cosas, pero en inglés se debe usar *who* para personas (*"La persona que me ayudó"* → *"The person **who** helped me"*).
-2. **Uso incorrecto de *which***: A veces los hablantes usan *which* cuando *that* es más adecuado, especialmente en oraciones específicas. Por ejemplo: *"The phone **which is on the table** is mine."* (Correcto), pero *"The phone **which I bought yesterday** is broken."* (Más natural sería *that*).
-3. **Omisión del pronombre relativo**: En inglés, el pronombre no puede omitirse si la oración está en la estructura *noun + relative clause*. Por ejemplo: ❌ *"This is the house I live"* → ✅ *"This is the house **where** I live."*
+1. **Repetir el pronombre**: ❌ *The book that I read **it** was great.* ✅ *The book that I read was great.*
+2. **Usar *what* como relativo**: ❌ *The car what I bought.* ✅ *The car that/which I bought.*
+3. **Usar *that* en explicativas**: ❌ *My father, that is a doctor, …* ✅ *My father, who is a doctor, …*
+4. **Usar *which* para personas**: ❌ *the man which…* ✅ *the man who…*
 
 ## Comparación con el español
-En español, los relativos suelen ir después del verbo (*"El libro que leí"*), mientras que en inglés van al final de la cláusula (*"The book **that I read**"*). Además, el español no distingue entre *which* y *that*, lo que puede llevar a errores como: *"El coche que compré"* → *"The car **that/which** I bought."* También es común omitir el relativo en inglés cuando se usa un verbo como *be*: *"The man **who is tall**"* (no se omite *who*).
+El español usa casi siempre «que» y no permite omitirlo («la película que vi»). En inglés hay que elegir según el antecedente (*who/which*) y muchas veces se omite el pronombre (*the film I saw*). «Cuyo» = *whose*; «donde» = *where*.
 
-## Ejemplo extendido
-**Contexto**: Un estudiante describe una experiencia en un país extranjero.
-
-*"I visited a city **where** the streets are very narrow and full of historic buildings. There was a museum **that** I really enjoyed, but the guide **who** showed us around was quite strict. The gift shop **which** sells local crafts is located near the main square."*
-
-Este párrafo muestra cómo los relativos (*where*, *that*, *who*, *which*) conectan ideas de manera cohesiva, evitando repeticiones y aclarando referentes.
+## Ejemplo extendido en contexto
+*Córdoba, **where** I studied, is a city **that** never sleeps. My friend Laura, **who** lives there now, has a flat **whose** windows face the mountains. The café (**that**) we used to go to is still open.*

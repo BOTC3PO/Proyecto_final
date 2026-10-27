@@ -1,484 +1,253 @@
-# Idiomas — Italiano — costruzioni-passive-avanzate (cuestionario)
+# Italiano — pasiva avanzada (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/italiano/costruzioni-passive-avanzate/cuestionario_crudo.md`)
-> con una corrección de contenido: los 25 bloques carecían de `enunciado:`; el crudo repetía
-> sólo 9 plantillas de pregunta cíclicamente, así que se redactó una oración propia para cada
-> bloque (variando el sujeto/objeto en los grupos duplicados), coherente con el sujeto ya
-> indicado en su propia `explicacion:`.
+> Tema: `idiomas-extranjeros/italiano/costruzioni-passive-avanzate`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Costruzione passiva con participio
-```yaml
+### 1 — Agente
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "participio"]
-pasos:
-  - "Identificar el participio del verbo 'scrivere' en tercera persona singular femenino."
-  - "Verificar que concuerde con el sujeto 'la lettera'."
-respuesta: "è stata scritta"
-enunciado: "La lettera ___ ieri da Maria."
-respuestas_validas:
-  - "è stata scritta"
-  - "È stata scritta"
-explicacion: "La costrucción pasiva requiere el verbo 'essere' en tercera persona singular (è) + participio del verbo principal. El participio 'scritta' concuerda con 'lettera' (femenino singular)."
+  tags: ["pasiva"]
+
+respuesta: "da"
+tipo: "mc"
+opciones_explicitas: ["da", "per", "di"]
+
+enunciado: "Il romanzo è stato scritto ___ Calvino."
+
+explicacion: |
+  Agente: *da*.
 ```
 
-### 2 — Elección de forma correcta
-```yaml
+### 2 — venire
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Reconocer que el verbo 'dovere' requiere una construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il conto ___ pagare entro la scadenza."
-tipo: mc
-opciones_explicitas:
-  - "è stato dovuto"
-  - "è dovuto"
-  - "è stato dover"
-respuesta: "è stato dovuto"
-explicacion: "El verbo 'dovere' en la construcción pasiva requiere el participio 'dovuto' y concordancia con el sujeto (masculino singular)."
+  tags: ["pasiva"]
+
+respuesta: "viene"
+tipo: "mc"
+opciones_explicitas: ["viene", "va", "si"]
+
+enunciado: "La posta ___ consegnata ogni mattina."
+
+explicacion: |
+  Proceso habitual: *venire*.
 ```
 
-### 3 — Completar participación
-```yaml
+### 3 — venire compuesto
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Identificar el sujeto de la oración pasiva."
-  - "Verificar que el participio concuerde con 'il problema'."
-respuesta: "è stato risolto"
-enunciado: "Il problema ___ rapidamente."
-respuestas_validas:
-  - "è stato risolto"
-  - "È STATO risolto"
-explicacion: "El participio 'risolto' concuerda con 'problema' (masculino singular). La preposición 'da' introduce el agente, aunque no se menciona en la oración."
+  tags: ["pasiva"]
+
+respuesta: "Il ponte è stato costruito nel 2000."
+tipo: "mc"
+opciones_explicitas: ["Il ponte è stato costruito nel 2000.", "Il ponte è venuto costruito nel 2000.", "Il ponte ha stato costruito nel 2000."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  *Venire* no se usa en compuestos.
 ```
 
-### 4 — Elección de forma correcta
-```yaml
+### 4 — andare
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "trapassato"]
-pasos:
-  - "Reconocer que se requiere el trapassato prossimo en pasivo."
-  - "Verificar la concordancia del participio con 'la casa'."
-enunciado: "La casa ___ nel 1990, prima che nascessi."
-tipo: mc
-opciones_explicitas:
-  - "era stata costruita"
-  - "è stata costruita"
-  - "era costruita"
-respuesta: "era stata costruita"
-explicacion: "El trapassato prossimo en pasivo usa 'essere' + participio passato (costruita) con concordancia de género y número, y el verbo auxiliar 'era' en forma impersonal."
+  tags: ["pasiva"]
+
+respuesta: "va"
+tipo: "mc"
+opciones_explicitas: ["va", "viene stato", "si"]
+
+enunciado: "Il modulo ___ compilato in stampatello."
+
+explicacion: |
+  Obligación: *andare*.
 ```
 
-### 5 — Completar con participio
-```yaml
+### 5 — Significado
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Identificar el verbo modal que requiere una construcción pasiva."
-  - "Verificar la concordancia del participio con 'il documento'."
-respuesta: "è stato firmato"
-enunciado: "Il documento ___ dal direttore."
-respuestas_validas:
-  - "è stato firmato"
-  - "È STATO firmato"
-explicacion: "El participio 'firmato' concuerda con 'documento' (masculino singular). El verbo 'essere' se usa en la construcción pasiva."
+  tags: ["pasiva"]
+
+respuesta: "Estos documentos deben firmarse"
+tipo: "mc"
+opciones_explicitas: ["Estos documentos deben firmarse", "Estos documentos van a firmarse", "Estos documentos se fueron firmados"]
+
+enunciado: "«Questi documenti vanno firmati» significa…"
+
+explicacion: |
+  *Andare* + participio = obligación.
 ```
 
-### 6 — Elección de forma correcta
-```yaml
+### 6 — Pérdida
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il pacco ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato consegnato da lui"
-  - "è stato consegnato"
-  - "è consegnato"
-respuesta: "è stato consegnato"
-explicacion: "El participio 'consegnato' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
+  tags: ["pasiva"]
+
+respuesta: "andarono"
+tipo: "mc"
+opciones_explicitas: ["andarono", "vennero", "si"]
+
+enunciado: "Molti manoscritti ___ perduti nell'incendio."
+
+explicacion: |
+  *Andare perduto*.
 ```
 
-### 7 — Completar con verbo auxiliar
-```yaml
+### 7 — si plural
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "trapassato"]
-pasos:
-  - "Identificar el tiempo verbal en la oración pasiva."
-  - "Verificar que el verbo auxiliar concuerde con 'i lavoratori'."
-respuesta: "erano stati pagati"
-enunciado: "I lavoratori ___ prima dello sciopero."
-respuestas_validas:
-  - "erano stati pagati"
-  - "Erano STATI pagati"
-explicacion: "El trapassato prossimo en pasivo requiere el verbo auxiliar 'essere' (erano) y el participio passato (pagati), concordando con el sujeto plural."
+  tags: ["pasiva"]
+
+respuesta: "Si affittano"
+tipo: "mc"
+opciones_explicitas: ["Si affittano", "Si affitta", "Affitta si"]
+
+enunciado: "___ appartamenti in centro."
+
+explicacion: |
+  Concordancia con *appartamenti*.
 ```
 
-### 8 — Elección de forma correcta
-```yaml
+### 8 — si singular
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il pranzo ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato preparato da me"
-  - "è stato preparato"
-  - "è preparato"
-respuesta: "è stato preparato"
-explicacion: "El participio 'preparato' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
+  tags: ["pasiva"]
+
+respuesta: "si parla"
+tipo: "mc"
+opciones_explicitas: ["si parlano", "si parla", "parla si"]
+
+enunciado: "In questo negozio ___ l'inglese."
+
+explicacion: |
+  Singular: *si parla*.
 ```
 
-### 9 — Completar con participio
-```yaml
+### 9 — si compuesto
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Identificar el verbo modal que requiere una construcción pasiva."
-  - "Verificar la concordancia del participio con 'il piano'."
-respuesta: "è stato approvato"
-enunciado: "Il piano ___ dal consiglio."
-respuestas_validas:
-  - "è stato approvato"
-  - "È STATO approvato"
-explicacion: "El participio 'approvato' concuerde con 'piano' (masculino singular). El verbo 'essere' se usa en la construcción pasiva."
+  tags: ["pasiva"]
+
+respuesta: "sono costruite"
+tipo: "mc"
+opciones_explicitas: ["sono costruite", "è costruito", "hanno costruito"]
+
+enunciado: "Si ___ nuove scuole."
+
+explicacion: |
+  *Si* + *essere* + concordancia.
 ```
 
-### 10 — Elección de forma correcta
-```yaml
+### 10 — Impersonal
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il rapporto ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato scritto da loro"
-  - "è stato scritto"
-  - "è scritto"
-respuesta: "è stato scritto"
-explicacion: "El participio 'scritto' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
+  tags: ["pasiva"]
+
+respuesta: "stanchi"
+tipo: "mc"
+opciones_explicitas: ["stanchi", "stanco", "stanca"]
+
+enunciado: "Dopo il viaggio si è ___."
+
+explicacion: |
+  *Si impersonale* + adjetivo plural.
 ```
 
-### 11 — Completar con verbo auxiliar
-```yaml
+### 11 — Ambigüedad
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "trapassato"]
-pasos:
-  - "Identificar el tiempo verbal en la oración pasiva."
-  - "Verificar que el verbo auxiliar concuerde con 'le lettere'."
-respuesta: "erano state scritte"
-enunciado: "Le lettere ___ prima della sua partenza."
-respuestas_validas:
-  - "erano state scritte"
-  - "Erano STATE scritte"
-explicacion: "El trapassato prossimo en pasivo requiere el verbo auxiliar 'essere' (erano) y el participio passato (scritte), concordando con el sujeto plural femenino."
+  tags: ["pasiva"]
+
+respuesta: "la acción de cerrar"
+tipo: "mc"
+opciones_explicitas: ["la acción de cerrar", "el estado de la puerta", "una obligación"]
+
+enunciado: "«La porta viene chiusa alle otto» indica…"
+
+explicacion: |
+  *Venire*: acción.
 ```
 
-### 12 — Elección de forma correcta
-```yaml
+### 12 — Pasiva
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il regalo ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato consegnato da loro"
-  - "è stato consegnato"
-  - "è consegnato"
-respuesta: "è stato consegnato"
-explicacion: "El participio 'consegnato' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
+  tags: ["pasiva"]
+
+respuesta: "è stato comprato"
+tipo: "mc"
+opciones_explicitas: ["è stato comprato", "viene stato comprato", "si è comprato da"]
+
+enunciado: "Il quadro ___ da un collezionista l'anno scorso."
+
+explicacion: |
+  Pasiva con *essere* en compuesto.
 ```
 
-### 13 — Completar con participio
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Identificar el verbo modal que requiere una construcción pasiva."
-  - "Verificar la concordancia del participio con 'il contratto'."
-respuesta: "è stato firmato"
-enunciado: "Il contratto ___ ieri sera."
-respuestas_validas:
-  - "è stato firmato"
-  - "È STATO firmato"
-explicacion: "El participio 'firmato' concuerde con 'contratto' (masculino singular). El verbo 'essere' se usa en la construcción pasiva."
-```
+### 13 — Error típico
 
-### 14 — Elección de forma correcta
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il messaggio ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato scritto da lui"
-  - "è stato scritto"
-  - "è scritto"
-respuesta: "è stato scritto"
-explicacion: "El participio 'scritto' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
 ```
-
-### 15 — Completar con verbo auxiliar
-```yaml
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "costruzioni-passive-avanzate"
   nivel: "C1"
-  tags: ["passivo", "trapassato"]
-pasos:
-  - "Identificar el tiempo verbal en la oración pasiva."
-  - "Verificar que el verbo auxiliar concuerde con 'le lettere'."
-respuesta: "erano state scritte"
-enunciado: "Le lettere ___ molto tempo fa."
-respuestas_validas:
-  - "erano state scritte"
-  - "Erano STATE scritte"
-explicacion: "El trapassato prossimo en pasivo requiere el verbo auxiliar 'essere' (erano) y el participio passato (scritte), concordando con el sujeto plural femenino."
-```
+  tags: ["pasiva"]
 
-### 16 — Elección de forma correcta
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "L'ordine ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato consegnato da loro"
-  - "è stato consegnato"
-  - "è consegnato"
-respuesta: "è stato consegnato"
-explicacion: "El participio 'consegnato' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
-```
+respuesta: falso
+tipo: vf
 
-### 17 — Completar con participio
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Identificar el verbo modal que requiere una construcción pasiva."
-  - "Verificar la concordancia del participio con 'il contratto'."
-respuesta: "è stato firmato"
-enunciado: "Il contratto ___ dalle due parti."
-respuestas_validas:
-  - "è stato firmato"
-  - "È STATO firmato"
-explicacion: "El participio 'firmato' concuerde con 'contratto' (masculino singular). El verbo 'essere' se usa en la construcción pasiva."
-```
+enunciado: "«Si vende case» es correcta."
 
-### 18 — Elección de forma correcta
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "L'articolo ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato scritto da lui"
-  - "è stato scritto"
-  - "è scritto"
-respuesta: "è stato scritto"
-explicacion: "El participio 'scritto' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
-```
-
-### 19 — Completar con verbo auxiliar
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "trapassato"]
-pasos:
-  - "Identificar el tiempo verbal en la oración pasiva."
-  - "Verificar que el verbo auxiliar concuerde con 'le lettere'."
-respuesta: "erano state scritte"
-enunciado: "Le lettere ___ durante la guerra."
-respuestas_validas:
-  - "erano state scritte"
-  - "Erano STATE scritte"
-explicacion: "El trapassato prossimo en pasivo requiere el verbo auxiliar 'essere' (erano) y el participio passato (scritte), concordando con el sujeto plural femenino."
-```
-
-### 20 — Elección de forma correcta
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il plico ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato consegnato da loro"
-  - "è stato consegnato"
-  - "è consegnato"
-respuesta: "è stato consegnato"
-explicacion: "El participio 'consegnato' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
-```
-
-### 21 — Completar con participio
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Identificar el verbo modal que requiere una construcción pasiva."
-  - "Verificar la concordancia del participio con 'il contratto'."
-respuesta: "è stato firmato"
-enunciado: "Il contratto ___ alla fine della riunione."
-respuestas_validas:
-  - "è stato firmato"
-  - "È STATO firmato"
-explicacion: "El participio 'firmato' concuerde con 'contratto' (masculino singular). El verbo 'essere' se usa en la construcción pasiva."
-```
-
-### 22 — Elección de forma correcta
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il romanzo ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato scritto da lui"
-  - "è stato scritto"
-  - "è scritto"
-respuesta: "è stato scritto"
-explicacion: "El participio 'scritto' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
-```
-
-### 23 — Completar con verbo auxiliar
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "trapassato"]
-pasos:
-  - "Identificar el tiempo verbal en la oración pasiva."
-  - "Verificar que el verbo auxiliar concuerde con 'le lettere'."
-respuesta: "erano state scritte"
-enunciado: "Le lettere ___ dallo scrittore famoso."
-respuestas_validas:
-  - "erano state scritte"
-  - "Erano STATE scritte"
-explicacion: "El trapassato prossimo en pasivo requiere el verbo auxiliar 'essere' (erano) y el participio passato (scritte), concordando con el sujeto plural femenino."
-```
-
-### 24 — Elección de forma correcta
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "agente"]
-pasos:
-  - "Reconocer que el agente actúa con 'da' en la construcción pasiva."
-  - "Elegir la forma correcta del participio con concordancia."
-enunciado: "Il documento ___."
-tipo: mc
-opciones_explicitas:
-  - "è stato consegnato da loro"
-  - "è stato consegnato"
-  - "è consegnato"
-respuesta: "è stato consegnato"
-explicacion: "El participio 'consegnato' concuerde con el sujeto (masculino singular). La preposición 'da' introduce al agente, pero no es obligatoria."
-```
-
-### 25 — Completar con participio
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "costruzioni-passive-avanzate"
-  nivel: "C1"
-  tags: ["passivo", "modalità"]
-pasos:
-  - "Identificar el verbo modal que requiere una construcción pasiva."
-  - "Verificar la concordancia del participio con 'il contratto'."
-respuesta: "è stato firmato"
-enunciado: "Il contratto ___ dal nuovo socio."
-respuestas_validas:
-  - "è stato firmato"
-  - "È STATO firmato"
-explicacion: "El participio 'firmato' concuerde con 'contratto' (masculino singular). El verbo 'essere' se usa en la construcción pasiva."
+explicacion: |
+  Falso: *Si vendono case*.
 ```

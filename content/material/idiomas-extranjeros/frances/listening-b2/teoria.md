@@ -1,45 +1,47 @@
-# Comprensión auditiva en nivel B2: claves para escuchar con precisión
+# Comprensión auditiva en francés (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/listening-b2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
-La comprensión auditiva es una destreza fundamental en el aprendizaje de un idioma extranjero, especialmente en los niveles intermedios como el B2 del Marco Común Europeo de Referencia para las Lenguas (MCER). En este nivel, los estudiantes deben ser capaces de entender discursos orales complejos, identificar ideas principales y detalles específicos, e inferir información implícita. Esta habilidad es clave para interactuar en contextos reales como conversaciones informales, presentaciones, o transmisiones de noticias, donde la precisión auditiva permite una comunicación efectiva.
+## Introducción
+En B2 se entienden **intervenciones largas** (entrevistas, debates, reportajes de radio, conferencias) sobre temas concretos y abstractos, y se sigue una **argumentación** aunque el ritmo sea natural.
 
-## Elementos clave de la comprensión auditiva en B2
+## Explicación central
+### Estructura de un discurso
+- Anuncio del plan: *Je vais aborder trois points… D'abord… Ensuite… Enfin…*
+- Matiz y concesión: *certes… mais, il est vrai que… cependant, en revanche*.
+- Conclusión: *En somme, bref, pour conclure*.
 
-En el francés, la escucha requiere atención a:
-1. **Vocabulario contextual**: Reconocer palabras relacionadas con temas específicos (ej.: "réunion", "projet", "dépense").
-2. **Tiempo verbal y aspecto**: Distinguir entre acciones completas (passé composé) y duraderas (imparfait). Ejemplo: *"Je suis allé au cinéma hier" (passé composé, acción terminada) vs. "Hier, je regardais un film quand le téléphone a sonné" (imparfait + passé simple, secuencia de acciones)."*
-3. **Entonación y ritmo**: Identificar cambios de tono que indican preguntas (*"Tu veux venir?"*), emociones o énfasis en ciertas palabras (*"C’est **très** important"*).
+### Distinguir hechos, opiniones y fuentes
+- Hechos: cifras, fechas, *selon une étude…*
+- Opiniones: *je suis convaincu que, il me semble que*.
+- Información no confirmada: **conditionnel**: *Le ministre **serait** sur le départ.*
+- Posición del periodista vs. del entrevistado.
 
-## Errores comunes de hablantes hispanohablantes
+### Rasgos de la oralidad natural
+- Reformulación: *c'est-à-dire, autrement dit, enfin, je veux dire*.
+- Dudas: *euh, ben, comment dire*.
+- Elisiones: *j'suis, t'as, y a, i(l) faut*.
 
-1. **Confusión entre /s/ y /z/**: En francés, la *s* al final de una sílaba se pronuncia como un sonido nasal (*"café" = [kafe] vs. "cœur" = [kœʁ]*), mientras que en español no existe esta variación.
-2. **Uso incorrecto del passé composé**: Los hispanohablantes suelen usar el *passé simple* (similar al pretérito perfecto) en lugar de la forma correcta (*passé composé*) para acciones recientes. Ejemplo erróneo: *"Je suis allé au restaurant hier" → ¡Correcto! / "Hier, je suis allé au restaurant" → ¡Incorrecto!*
-3. **Ignorar el contexto**: En español, se prioriza la lectura, pero en francés, la escucha requiere prestar atención a conectores (*"alors", "donc"*) y palabras de enlace para seguir la lógica del discurso.
+### Estrategias
+1. Anticipar el tema a partir del título y las preguntas.
+2. Tomar notas con símbolos (↑ aumento, ↓ baja, → consecuencia).
+3. Prestar atención a los conectores, que anuncian el giro de la argumentación.
 
-## Comparación con el español: diferencias clave
+## Errores comunes de hispanohablantes
+1. Tomar como hecho lo que está en conditionnel.
+2. Perder el giro de *certes… mais*: lo importante viene después de *mais*.
+3. Confundir la opinión del periodista con la del entrevistado.
 
-- **Tiempo verbal**: El francés usa el *imparfait* para describir acciones continuas o hábitos, mientras que el español lo hace con el pretérito imperfecto. Ejemplo: *"Quand j’étais enfant, je jouais souvent au football" (francés) vs. "Cuando era niño, jugaba al fútbol a menudo" (español)."*
-- **Artículos definidos**: En francés, los artículos (*le, la, les*) se usan antes de sustantivos en frases que describen acciones o situaciones, algo menos común en español. Ejemplo: *"J’aime **la** musique classique" (francés) vs. "Me gusta **la** música clásica" (español)."*
+## Comparación con el español
+Las estructuras argumentativas son equivalentes. La principal dificultad es la velocidad y la reducción fonética del francés oral, más marcada que en el español rioplatense.
 
 ## Ejemplo extendido en contexto
-
-**Situación**: Dos amigos hablan sobre sus planes del fin de semana.
-
-**Diálogo**:
-*Clémence:* "Salut, Thomas! Tu as prévu quelque chose ce week-end?"
-*Thomas:* "Oui, je dois rendre visite à ma tante. Elle vit près de Lyon. **Je vais la voir samedi matin**, puis le soir, je dîne avec des amis."
-*Clémence:* "Ah, c’est génial! Et toi, tu as des projets?"
-*Thomas:* "Moi, je reste à Paris. Je dois finir un projet professionnel avant lundi. **Je travaille depuis ce matin**, et il me reste encore beaucoup de choses à faire."
-
-**Análisis**:
-- *Thomas* usa el *passé composé* (*je suis allé*) para acciones terminadas y el *imparfait* (*j’étais, je regardais*) para describir contextos.
-- La estructura "Je vais la voir samedi matin" (futur simple) indica una acción planificada, algo que en español se expresa con "voy a verla".
-
-Dominar estos elementos permite al estudiante comprender y participar en conversaciones cotidianas o profesionales sin dificultades.
+*Audio : « Certes, le télétravail réduit les déplacements. Mais selon une étude récente, 40 % des salariés se sentent plus isolés. Autrement dit, il faut trouver un équilibre. »*

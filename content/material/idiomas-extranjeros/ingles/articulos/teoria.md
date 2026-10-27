@@ -5,52 +5,46 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en la comparación con el español y el cuestionario tenía preguntas con respuesta vacía o sin sentido.
 
 ---
 
 ## Introducción
-Los artículos (*articles*) son palabras que se usan antes de un sustantivo para indicar si se habla de algo general, específico o no definido. En inglés, existen tres tipos básicos: *a/an* (para cosas no específicas), *the* (para cosas específicas) y el **artículo cero** (cuando no se usa ningún artículo). En el nivel A1 del Marco Común Europeo de Referencia para las Lenguas (CEFR), es fundamental dominar su uso, ya que su ausencia o error puede cambiar el significado de una oración.
+Los artículos acompañan al sustantivo y dicen si hablamos de algo **cualquiera** (*a/an*), de algo **conocido o específico** (*the*) o de algo **en general** (sin artículo, el llamado *artículo cero*).
 
 ## Explicación central
-### *A* y *an*: para cosas no específicas
-Se usan antes de sustantivos **singulares** que comienzan con un sonido consonante (*a*) o vocal (*an*). Ejemplos:
-- *I saw **a cat** in the park.* (No especifico qué gato, solo uno cualquiera).
-- *She is eating **an apple**.* (Se refiere a cualquier manzana en general).
+### *a* / *an*: uno cualquiera
+- Solo con sustantivos **contables en singular**: *a dog*, *an egg*.
+- La elección depende del **sonido**, no de la letra: *a university* (/juː/), *a European city*; *an hour* (la *h* no suena), *an honest man*, *an umbrella*.
+- Se usa para **mencionar algo por primera vez** y para decir **qué es o qué hace alguien**: *She is a doctor.* (en español: «Es médica», sin artículo).
 
-### *The*: para cosas específicas o ya mencionadas
-Indica que se habla de algo conocido por ambos interlocutores. Ejemplos:
-- ***The cat** is on the mat.* (Hablan de un gato específico, posiblemente ya mencionado).
-- *I bought **the book** you recommended.* (El libro que ya se sabía que querías).
+### *the*: algo que los dos conocen
+- Lo ya mencionado: *I bought a book. **The** book is great.*
+- Lo único: *the sun*, *the moon*, *the internet*.
+- Lo que se especifica después: *the man **who lives next door***.
+- Superlativos y ordinales: *the best*, *the first*.
+- Ríos, mares, cordilleras y nombres de país en plural o con *Republic/Kingdom*: *the Amazon*, *the Andes*, *the United States*, *the United Kingdom*.
 
-### Artículo cero: cuando no se usa ningún artículo
-Se emplea en sustantivos **singulares o plurales** que representan conceptos generales, categorías o cosas abstractas. Ejemplos:
-- *She drinks **coffee** every morning.* (No se menciona un café específico).
-- ***Love** is important in relationships.* (Se habla del amor en general).
+### Sin artículo (artículo cero)
+- Sustantivos **plurales o incontables en sentido general**: *Dogs are loyal.* *I like music.* *Water is important.*
+- La mayoría de los nombres propios, países, ciudades, idiomas y materias: *Argentina*, *Paris*, *English*, *math*.
+- Comidas, deportes y muchas expresiones fijas: *have breakfast*, *play football*, *go to school* (como alumno), *go to bed*, *at home*, *by bus*.
 
 ## Errores comunes de hispanohablantes
-1. **Sobrante uso de artículos**: Los hablantes de español suelen añadir artículos incluso cuando no son necesarios, especialmente con sustantivos abstractos o generales. Ejemplo incorrecto: *He loves **the music**.* (Correcto: *He loves **music**.*).
-2. **Confusión entre *a/an* y *the***: A veces se usan *a/an* cuando debería haber *the*. Ejemplo incorrecto: *I saw **a the movie** yesterday.* (Correcto: *I saw **the movie** yesterday* si ya se mencionó; o *a movie* si es cualquiera).
-3. **Omisión de *the* en contextos específicos**: Por ejemplo, decir *I saw movie you recommended* en lugar de *I saw **the** movie you recommended*. En cambio, la mayoría de los países van sin artículo: *She lives in Spain* (no *in the Spain*); las excepciones son nombres como *the United States* o *the Netherlands*.
+1. **Usar *the* para hablar en general**: ❌ *The life is beautiful.* ✅ *Life is beautiful.* ❌ *I love the music.* ✅ *I love music.*
+2. **Omitir *a/an* con profesiones**: ❌ *She is doctor.* ✅ *She is a doctor.*
+3. **Usar *a* con incontables**: ❌ *an information*, *an advice* ✅ *some information*, *a piece of advice*.
+4. **Elegir *a/an* por la letra**: ❌ *an university*, *a hour* ✅ *a university*, *an hour*.
 
 ## Comparación con el español
-En español, **siempre** se usa un artículo antes de un sustantivo común, excepto en nombres propios (*Madrid*, *Juan*). En inglés, esto no sucede:
-- Español: *Voy a **la escuela**.* (Siempre hay artículo).
-- Inglés: *I go to **school**.* (Artículo cero, sin *the* o *a*).
-
-Además, en español se usa el artículo con sustantivos abstractos (*el amor*), pero en inglés no:
-- Español: *El **amor** es importante.*
-- Inglés: ***Love** is important.* (Sin artículo).
+- El español usa el artículo para hablar en general (*El amor es importante*); el inglés no (*Love is important*).
+- Con profesiones pasa al revés: el español no lo usa (*Es profesora*) y el inglés sí (*She is a teacher*).
+- *Some* no es un artículo, pero muchas veces traduce «unos/unas» o se usa con incontables: *some apples*, *some water*.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*A: Did you see the movie last night?*
-*B: No, but I heard it was **a great film**.*
-*A: Oh, really? I think **the director** did an amazing job.*
-*B: Yeah, and I want to watch **another movie** from him.*
+*A: I saw **a** great movie yesterday.*
+*B: Was it **the** movie about **the** Andes?*
+*A: Yes! **The** director is **an** Argentine woman. I love documentaries.*
 
-**Explicación:**
-- *A great film*: Se usa *a* porque se refiere a un filme en general (no específico).
-- *The director*: El artículo *the* indica que hablan del director específico de la película mencionada.
-- *Another movie*: *another* ya incluye el artículo (*an* + *other*), por eso nunca se dice *an another movie*. Significa «otra película»; para «una película cualquiera» se dice *a movie*.
-
-Dominar los artículos permite construir oraciones claras y evitar ambigüedades, una habilidad clave para comunicarse efectivamente en inglés.
+**Explicación:** *a* presenta la película por primera vez; *the movie* ya es conocida para los dos; *the Andes* es una cordillera; *an Argentine woman* va con *an* por el sonido vocálico; *documentaries* va sin artículo porque habla de los documentales en general.

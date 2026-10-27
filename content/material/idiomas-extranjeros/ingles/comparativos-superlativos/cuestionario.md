@@ -1,502 +1,371 @@
-# Idiomas — Inglés — comparativos-superlativos (cuestionario)
+# Inglés — comparativos y superlativos (cuestionario, 19 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/comparativos-superlativos/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/comparativos-superlativos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior daba «the most» como respuesta en «This bottle has ___ water than the others» y tenía explicaciones contradictorias.
 
 ---
 
-### 1 — Comparative of quality  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "as...as"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Aplicar la estructura 'as + adjetivo + as' para igualdad."
-explicacion: "La estructura 'as + adjetivo + as' se usa para expresar igualdad. En este caso, 'good' requiere 'as good as'."
-enunciado: "This movie is ___ interesting as the one we saw last week."
-respuesta: "as"
-respuestas_validas:
-  - "as"
-```
+### 1 — Corto
 
-### 2 — Superlative of size  
 ```
 metadata:
   materia: "ingles"
   tema: "comparativos-superlativos"
   nivel: "A2"
-  tags: ["superlativo", "most"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the most' para superlativo de 'big'."
-explicacion: "El superlativo de 'big' es 'the biggest', pero aquí se usa 'the most big' como forma alternativa, aunque 'the biggest' es más común."
-enunciado: "Mount Everest is ___ mountain in the world."
-respuesta: "the most"
-tipo: mc
-opciones_explicitas:
-  - "the most"
-  - "the biggest"
-  - "most"
-```
+  tags: ["comparativos"]
 
-### 3 — Irregular comparative  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "irregular"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar la forma correcta del comparativo."
-explicacion: "'Good' es un adjetivo irregular cuyo comparativo es 'better', no '-er'."
-enunciado: "This cake is ___ than the one from yesterday."
-respuesta: "better"
-tipo: mc
-opciones_explicitas:
-  - "better"
-  - "gooder"
-  - "the best"
-```
+respuesta: "older"
+tipo: "mc"
+opciones_explicitas: ["older", "more old", "oldest"]
 
-### 4 — Superlative of quantity  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "most"]
-pasos:
-  - "Identificar el sustantivo en la oración."
-  - "Usar 'the most' para superlativo de 'water'."
-explicacion: "'The most water' es correcto porque 'water' es un sustantivo no contable, requiriendo 'most'."
-enunciado: "This bottle has ___ water than the others."
-respuesta: "the most"
-tipo: mc
-opciones_explicitas:
-  - "the most"
-  - "more"
-  - "most"
-```
-
-### 5 — Comparative of age  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "older"]
-pasos:
-  - "Identificar el sustantivo y adjetivo en la oración."
-  - "Usar 'older' para comparativo de 'old'."
-explicacion: "'Older' es el comparativo correcto de 'old', no '-er' o 'more old'."
 enunciado: "My sister is ___ than my brother."
-respuesta: "older"
-tipo: mc
-opciones_explicitas:
-  - "older"
-  - "oldest"
-  - "the oldest"
+
+explicacion: |
+  Adjetivo de una sílaba: *old → older*.
 ```
 
-### 6 — Superlative of ability  
+### 2 — Duplicar consonante
+
 ```
 metadata:
   materia: "ingles"
   tema: "comparativos-superlativos"
   nivel: "A2"
-  tags: ["superlativo", "best"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the best' para superlativo de 'good'."
-explicacion: "'The best' es el superlativo correcto de 'good', no 'more good'."
-enunciado: "She is ___ singer in the group."
-respuesta: "the best"
-tipo: mc
-opciones_explicitas:
-  - "the best"
-  - "better"
-  - "best"
-```
+  tags: ["comparativos"]
 
-### 7 — Comparative of price  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "more"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'more expensive' para comparativo de 'expensive'."
-explicacion: "'More expensive' es correcto porque 'expensive' es un adjetivo que requiere 'more' para comparativos."
-enunciado: "This car is ___ than that one."
-respuesta: "more expensive"
-tipo: mc
-opciones_explicitas:
-  - "more expensive"
-  - "expensiver"
-  - "the most expensive"
-```
-
-### 8 — Superlative of speed  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "fastest"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the fastest' para superlativo de 'fast'."
-explicacion: "'Fastest' es el superlativo correcto de 'fast', no 'more fast'."
-enunciado: "He runs ___ in the race."
-respuesta: "the fastest"
-tipo: mc
-opciones_explicitas:
-  - "the fastest"
-  - "faster"
-  - "most fast"
-```
-
-### 9 — Comparative of quantity (uncountable)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "more"]
-pasos:
-  - "Identificar el sustantivo no contable."
-  - "Usar 'more' para comparativo de 'information'."
-explicacion: "'More information' es correcto porque 'information' es un sustantivo no contable, requiriendo 'more'."
-enunciado: "This book has ___ information than the other one."
-respuesta: "more"
-tipo: mc
-opciones_explicitas:
-  - "more"
-  - "most"
-  - "the most"
-```
-
-### 10 — Superlative of time  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "longest"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the longest' para superlativo de 'long'."
-explicacion: "'Longest' es el superlativo correcto de 'long', no 'more long'."
-enunciado: "This meeting was ___ of the day."
-respuesta: "the longest"
-tipo: mc
-opciones_explicitas:
-  - "the longest"
-  - "longer"
-  - "most long"
-```
-
-### 11 — Comparative of size (irregular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "bigger"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar 'bigger' para comparativo de 'big'."
-explicacion: "'Bigger' es el comparativo correcto de 'big', no '-er' o 'more big'."
-enunciado: "This box is ___ than that one."
 respuesta: "bigger"
-tipo: mc
-opciones_explicitas:
-  - "bigger"
-  - "the biggest"
-  - "biggest"
+tipo: "mc"
+opciones_explicitas: ["biger", "bigger", "more big"]
+
+enunciado: "This box is ___ than that one."
+
+explicacion: |
+  *Big*: consonante-vocal-consonante, se duplica: *bigger*.
 ```
 
-### 12 — Superlative of opinion  
+### 3 — Terminado en -y
+
 ```
 metadata:
   materia: "ingles"
   tema: "comparativos-superlativos"
   nivel: "A2"
-  tags: ["superlativo", "best"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the best' para superlativo de 'good'."
-explicacion: "'The best' es el superlativo correcto de 'good', no 'more good'."
-enunciado: "This is ___ movie I've seen this year."
-respuesta: "the best"
-tipo: mc
-opciones_explicitas:
-  - "the best"
-  - "better"
-  - "best"
+  tags: ["comparativos"]
+
+respuesta: "happier"
+tipo: "mc"
+opciones_explicitas: ["happyer", "happier", "more happy"]
+
+enunciado: "Today is ___ than yesterday."
+
+explicacion: |
+  *Happy → happier*.
 ```
 
-### 13 — Comparative of ability (irregular)  
+### 4 — Largo
+
 ```
 metadata:
   materia: "ingles"
   tema: "comparativos-superlativos"
   nivel: "A2"
-  tags: ["comparativo", "better"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar 'better' para comparativo de 'good'."
-explicacion: "'Better' es el comparativo correcto de 'good', no '-er' o 'more good'."
-enunciado: "She is ___ at math than her brother."
-respuesta: "better"
-tipo: mc
-opciones_explicitas:
-  - "better"
-  - "the best"
-  - "best"
-```
+  tags: ["comparativos"]
 
-### 14 — Superlative of size (regular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "biggest"]
-pasos:
-  - "Identificar el adjetivo regular."
-  - "Usar 'the biggest' para superlativo de 'big'."
-explicacion: "'Biggest' es el superlativo correcto de 'big', no 'more big'."
-enunciado: "This is ___ building in the city."
-respuesta: "the biggest"
-tipo: mc
-opciones_explicitas:
-  - "the biggest"
-  - "bigger"
-  - "most big"
-```
-
-### 15 — Comparative of age (irregular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "older"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar 'older' para comparativo de 'old'."
-explicacion: "'Older' es el comparativo correcto de 'old', no '-er' o 'more old'."
-enunciado: "My grandmother is ___ than my grandfather."
-respuesta: "older"
-tipo: mc
-opciones_explicitas:
-  - "older"
-  - "oldest"
-  - "the oldest"
-```
-
-### 16 — Superlative of price  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "most expensive"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the most expensive' para superlativo de 'expensive'."
-explicacion: "'The most expensive' es correcto porque 'expensive' es un adjetivo que requiere 'most' para superlativos."
-enunciado: "This is ___ watch in the store."
-respuesta: "the most expensive"
-tipo: mc
-opciones_explicitas:
-  - "the most expensive"
-  - "more expensive"
-  - "expensiver"
-```
-
-### 17 — Comparative of quantity (countable)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "more"]
-pasos:
-  - "Identificar el sustantivo contable."
-  - "Usar 'more' para comparativo de 'books'."
-explicacion: "'More books' es correcto porque 'books' es un sustantivo plural, requiriendo 'more'."
-enunciado: "I have ___ books than you."
-respuesta: "more"
-tipo: mc
-opciones_explicitas:
-  - "more"
-  - "most"
-  - "the most"
-```
-
-### 18 — Superlative of speed (irregular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "fastest"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar 'the fastest' para superlativo de 'fast'."
-explicacion: "'Fastest' es el superlativo correcto de 'fast', no 'more fast'."
-enunciado: "He is ___ runner in the team."
-respuesta: "the fastest"
-tipo: mc
-opciones_explicitas:
-  - "the fastest"
-  - "faster"
-  - "most fast"
-```
-
-### 19 — Comparative of opinion  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "more interesting"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'more interesting' para comparativo de 'interesting'."
-explicacion: "'More interesting' es correcto porque 'interesting' es un adjetivo que requiere 'more' para comparativos."
-enunciado: "This book is ___ than that one."
-respuesta: "more interesting"
-tipo: mc
-opciones_explicitas:
-  - "more interesting"
-  - "the most interesting"
-  - "interestinger"
-```
-
-### 20 — Superlative of quality (irregular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "best"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar 'the best' para superlativo de 'good'."
-explicacion: "'The best' es el superlativo correcto de 'good', no 'more good'."
-enunciado: "This is ___ service I've ever received."
-respuesta: "the best"
-tipo: mc
-opciones_explicitas:
-  - "the best"
-  - "better"
-  - "best"
-```
-
-### 21 — Comparative of time (irregular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "longer"]
-pasos:
-  - "Identificar el adjetivo irregular."
-  - "Usar 'longer' para comparativo de 'long'."
-explicacion: "'Longer' es el comparativo correcto de 'long', no '-er' o 'more long'."
-enunciado: "The movie was ___ than the previous one."
-respuesta: "longer"
-tipo: mc
-opciones_explicitas:
-  - "longer"
-  - "the longest"
-  - "most long"
-```
-
-### 22 — Superlative of quantity (countable)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "most"]
-pasos:
-  - "Identificar el sustantivo contable."
-  - "Usar 'the most' para superlativo de 'books'."
-explicacion: "'The most books' es correcto porque 'books' es un sustantivo plural, requiriendo 'the most'."
-enunciado: "She has ___ books in her collection."
-respuesta: "the most"
-tipo: mc
-opciones_explicitas:
-  - "the most"
-  - "more"
-  - "most"
-```
-
-### 23 — Comparative of ability (regular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "better"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'better' para comparativo de 'good'."
-explicacion: "'Better' es el comparativo correcto de 'good', no '-er' o 'more good'."
-enunciado: "He is ___ at swimming than his friend."
-respuesta: "better"
-tipo: mc
-opciones_explicitas:
-  - "better"
-  - "the best"
-  - "best"
-```
-
-### 24 — Superlative of age  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["superlativo", "oldest"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'the oldest' para superlativo de 'old'."
-explicacion: "'The oldest' es el superlativo correcto de 'old', no 'more old'."
-enunciado: "This is ___ person in the family."
-respuesta: "the oldest"
-tipo: mc
-opciones_explicitas:
-  - "the oldest"
-  - "older"
-  - "most old"
-```
-
-### 25 — Comparative of price (irregular)  
-```
-metadata:
-  materia: "ingles"
-  tema: "comparativos-superlativos"
-  nivel: "A2"
-  tags: ["comparativo", "more expensive"]
-pasos:
-  - "Identificar el adjetivo en la oración."
-  - "Usar 'more expensive' para comparativo de 'expensive'."
-explicacion: "'More expensive' es correcto porque 'expensive' es un adjetivo que requiere 'more' para comparativos."
-enunciado: "This laptop is ___ than the one I bought last year."
 respuesta: "more expensive"
-tipo: mc
-opciones_explicitas:
-  - "more expensive"
-  - "the most expensive"
-  - "expensiver"
+tipo: "mc"
+opciones_explicitas: ["expensiver", "more expensive", "most expensive"]
+
+enunciado: "This car is ___ than that one."
+
+explicacion: |
+  Adjetivos largos: *more + adjetivo*.
+```
+
+### 5 — Than
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "than"
+tipo: "mc"
+opciones_explicitas: ["that", "than", "of"]
+
+enunciado: "My phone is newer ___ yours."
+
+explicacion: |
+  En la comparación «que» es *than*.
+```
+
+### 6 — Irregular good
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "better"
+tipo: "mc"
+opciones_explicitas: ["gooder", "better", "best"]
+
+enunciado: "This cake is ___ than the one from yesterday."
+
+explicacion: |
+  *Good → better → the best*.
+```
+
+### 7 — Irregular bad
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "worse"
+tipo: "mc"
+opciones_explicitas: ["badder", "worse", "worst"]
+
+enunciado: "The traffic is ___ today than yesterday."
+
+explicacion: |
+  *Bad → worse → the worst*.
+```
+
+### 8 — Superlativo corto
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "the highest"
+tipo: "mc"
+opciones_explicitas: ["the highest", "the most high", "higher"]
+
+enunciado: "Mount Everest is ___ mountain in the world."
+
+explicacion: |
+  Superlativo de *high*: *the highest*.
+```
+
+### 9 — Superlativo largo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "the most expensive"
+tipo: "mc"
+opciones_explicitas: ["the most expensive", "the expensivest", "more expensive"]
+
+enunciado: "This is ___ watch in the shop."
+
+explicacion: |
+  *The most + adjetivo largo*.
+```
+
+### 10 — Superlativo irregular
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "the best"
+tipo: "mc"
+opciones_explicitas: ["the best", "the better", "the goodest"]
+
+enunciado: "That was ___ film I've ever seen. I loved it!"
+
+explicacion: |
+  *The best… I've ever seen*.
+```
+
+### 11 — In / of
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "of", "than"]
+
+enunciado: "Buenos Aires is the biggest city ___ Argentina."
+
+explicacion: |
+  Con lugares el superlativo lleva *in*.
+```
+
+### 12 — Igualdad
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "as … as"
+tipo: "mc"
+opciones_explicitas: ["as … as", "so … than", "more … than"]
+
+enunciado: "He's ___ tall ___ his father: both are 1.80 m."
+
+explicacion: |
+  Igualdad: *as + adjetivo + as*.
+```
+
+### 13 — Negativa de igualdad
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "as"
+tipo: "mc"
+opciones_explicitas: ["as", "so than", "more"]
+
+enunciado: "It's cold today, but not ___ cold as yesterday."
+
+explicacion: |
+  *Not as … as*.
+```
+
+### 14 — Sustantivo incontable
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "more"
+tipo: "mc"
+opciones_explicitas: ["more", "the most", "most"]
+
+enunciado: "This bottle has ___ water than the others."
+
+explicacion: |
+  Comparando con *than*: *more water*.
+```
+
+### 15 — Sustantivo: menos
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "B1"
+  tags: ["comparativos"]
+
+respuesta: "fewer"
+tipo: "mc"
+opciones_explicitas: ["fewer", "less", "least"]
+
+enunciado: "There are ___ people here than at the last concert."
+
+explicacion: |
+  Con sustantivos contables en plural, *fewer* (en el habla también se oye *less*, pero *fewer* es la forma correcta).
+```
+
+### 16 — Doble comparativo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "She is taller than me."
+tipo: "mc"
+opciones_explicitas: ["She is more taller than me.", "She is taller than me.", "She is taller that me."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  No se combinan *more* y *-er*.
+```
+
+### 17 — Completar comparativo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "hotter"
+tipo: completar
+respuestas_validas:
+  - "hotter"
+  - "Hotter"
+
+enunciado: "Escribí el comparativo de *hot*: «Summer is ___ than spring.»"
+
+explicacion: |
+  *Hot → hotter* (se duplica la t).
+```
+
+### 18 — Completar superlativo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: "the easiest"
+tipo: completar
+respuestas_validas:
+  - "the easiest"
+  - "The easiest"
+
+enunciado: "Escribí el superlativo de *easy* (con *the*): «This is ___ exercise of all.»"
+
+explicacion: |
+  *Easy → the easiest*.
+```
+
+### 19 — Error típico
+
+```
+metadata:
+  materia: "ingles"
+  tema: "comparativos-superlativos"
+  nivel: "A2"
+  tags: ["comparativos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«She is best student in the class» es correcta."
+
+explicacion: |
+  Falso: el superlativo lleva *the*: *the best student*.
 ```

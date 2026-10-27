@@ -1,61 +1,56 @@
-# Subjuntivo em português (nível B2)
+# Subjuntivo (conjuntivo) completo en portugués de Portugal (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/subjuntivo-completo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores graves (por ejemplo, decía que el subjuntivo no tiene formas personales).
 
 ---
 
-## Introdução
-O **subjuntivo** é um tempo verbal essencial na língua portuguesa para expressar **desejos, possibilidades, hipóteses, incertezas e emoções subjetivas**, como alegria, tristeza ou frustração. No nível B2 do CEFR (Quadro Comum Europeu de Referência para as Línguas), o domínio do subjuntivo é fundamental para construir frases mais complexas, expressar opiniões e interagir com nuances no discurso. A sua correta aplicação permite evitar ambiguidades e transmitir intenções claras em contextos cotidianos ou formais.
+## Introducción
+En B2 se completa el sistema del **conjuntivo**: tiempos compuestos, oraciones condicionales y conjunciones que lo exigen.
 
-## Explicación central: o uso do subjuntivo
-O subjuntivo em português é **tradicionalmente utilizado após expressões que indicam desejo, necessidade, recomendação, incerteza ou hipótese**. Sua forma varia conforme a pessoa e o contexto, mas geralmente se baseia na conjugação do infinitivo com terminações específicas (-e, -a, -es, -as, etc.).
+## Explicación central
+### Tiempos simples
+| | presente | imperfeito | futuro |
+|---|---|---|---|
+| falar | fale | falasse | falar |
+| fazer | faça | fizesse | fizer |
+| ser | seja | fosse | for |
+| ter | tenha | tivesse | tiver |
+| poder | possa | pudesse | puder |
 
-### Exemplos reais em português:
-1. **Expressões de desejo ou emoção**:
-   - *Espero que você **venha** ao encontro amanhã.* (desejo)
-   - *Fico feliz que ele **tenha passado** no exame.* (emoção)
+### Tiempos compuestos (ter + particípio)
+- *tenha falado*: *Espero que **tenhas gostado**.*
+- *tivesse falado*: *Se **tivesse estudado**, tinha passado / teria passado.*
+- *tiver falado*: *Quando **tiveres terminado**, avisa.*
 
-2. **Condições hipotéticas ou incertas**:
-   - *Se eu **tivesse tempo**, iria ao cinema.* (hipótese irreal)
-   - *Acho que ela **está cansada**, mas não tenho certeza.* (incerteza)
+### Condicionales
+| Tipo | Condición | Resultado |
+|---|---|---|
+| Real futura | *Se chover,* | *ficamos em casa.* |
+| Hipotética | *Se eu fosse tu,* | *aceitava / aceitaria.* |
+| Irreal pasada | *Se eu tivesse sabido,* | *tinha ajudado / teria ajudado.* |
+En el habla de Portugal es muy común el **imperfeito** en la consecuencia (*aceitava*, *tinha ajudado*).
 
-3. **Recomendações ou ordens**:
-   - *É importante que você **estude** mais para a prova.* (recomendação)
-   - *Vou ao mercado antes de você **chegar**.* (ordem indireta)
+### Conjunciones
+- Con conjuntivo: *para que, embora, mesmo que, ainda que, caso, desde que* (condición), *a não ser que, sem que, antes que*.
+- Con futuro do conjuntivo: *se, quando, assim que, logo que, enquanto, sempre que*.
 
-## Erros comuns de hispanohablantes
-Aprendizes de português que já conhecem o subjuntivo em espanhol costumam cometer erros por causa das diferenças entre os dois idiomas:
+### Relativas
+*Procuro alguém que **fale** alemão* (indefinido) / *Conheço alguém que **fala** alemão* (existe).
 
-1. **Uso excessivo do infinitivo**:
-   - *Errado*: *Quero que você **ir** ao mercado.*
-   - *Correto*: *Quero que você **vá** ao mercado.* (subjuntivo)
+## Errores comunes de hispanohablantes
+1. ❌ *Caso precisares* ✅ *Caso precises*.
+2. ❌ *Se eu teria tempo…* ✅ *Se eu tivesse tempo…*
+3. ❌ *Quando terei dinheiro…* ✅ *Quando tiver dinheiro…*
+4. ❌ *Mesmo que ele vem* ✅ *Mesmo que ele venha*.
 
-2. **Confusão com expressões que exigem o indicativo**:
-   - *Errado*: *É verdade que ele **tenha feito** isso.*
-   - *Correto*: *É verdade que ele **fez** isso.* (indicativo, pois é uma afirmação factual)
+## Comparación con el español
+Igual que en Brasil, la gran diferencia es el futuro do conjuntivo. Además, en Portugal la consecuencia de una hipótesis va muchas veces en imperfeito: «yo aceptaría» = *eu aceitava*.
 
-3. **Formas verbais incorretas em frases hipotéticas**:
-   - *Errado*: *Se eu **tiver tempo**, vou ao cinema.*
-   - *Correto*: *Se eu **tivesse tempo**, iria ao cinema.* (passado do subjuntivo para hipótese irreal)
-
-## Comparação com o espanhol: pontos de diferença
-Embora o uso do subjuntivo em português e em espanhol tenha semelhanças, existem diferenças importantes:
-
-- **Triggers**: Em português, o subjuntivo é mais frequentemente exigido após expressões como *esperar que*, *desejar que* ou *achar que* (ex.: *Espero que você **vá***), enquanto no espanhol é comum usá-lo após *esperar que* (ex.: *Espero que vayas*).
-- **Formas verbais**: No português, o subjuntivo de verbos regulares segue uma estrutura mais simples: *que eu vá*, *que ele venha*, etc. Já no espanhol, há variações entre as formas do subjuntivo presente e passado (ex.: *vaya* vs. *hubiera*).
-- **Uso nas orações relativas**: No português, o subjuntivo é obrigatório em orações relativas que expressam incerteza: *Preciso de alguém que **saiba** programar.* (no espanhol, o uso do subjuntivo também é comum nesse contexto).
-
-## Exemplo extendido em contexto
-**Diálogo**:
-Ana: *Acho que ele não vai vir à festa. Você acha que eu **deveria** ligar para ele?*
-João: *Sim, seria bom que você **ligasse**. Se ele **soubesse** da festa, provavelmente viria.*
-
-**Explicação**:
-- *Deveria* (subjuntivo) e *ligasse* (subjuntivo) expressam recomendação e hipótese.
-- *Soubesse* (subjuntivo) indica uma condição irreal: se ele soubesse da festa, viria, mas como não sabe, não vem.
-
-Dominar o subjuntivo permite ao falante transmitir ideias com maior precisão e riqueza de expressão no português.
+## Ejemplo extendido en contexto
+*Caso **precises** de ajuda, liga-me. Quando **tiveres terminado** o relatório, envia-o ao chefe. Se eu **tivesse sabido** do problema, **tinha-o resolvido**. Embora **seja** difícil, vamos conseguir, desde que **trabalhemos** juntos.*

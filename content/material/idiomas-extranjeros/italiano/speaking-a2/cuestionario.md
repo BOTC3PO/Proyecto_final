@@ -1,425 +1,216 @@
-# Idiomas — Italiano — speaking-a2 (cuestionario)
+# Italiano — speaking A2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/italiano/speaking-a2/cuestionario_crudo.md`)
-> con una corrección de contenido: cinco bloques carecían de `enunciado:`; se redactó una
-> oración con hueco para cada uno.
+> Tema: `idiomas-extranjeros/italiano/speaking-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Forma del verbo essere  
-```yaml
+### 1 — Edad
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbo-essere", "presente"]
-pasos:
-  - "Identifica el sujeto de la oración."
-  - "Aplica la forma correcta del verbo 'essere' en presente."
-tipo: completar
-respuestas_validas:
-  - "è"
-  - "É"
-enunciado: "Lui ___ un uomo molto simpatico."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ho vent'anni."
+tipo: "mc"
+opciones_explicitas: ["Ho vent'anni.", "Sono vent'anni.", "Faccio vent'anni."]
+
+enunciado: "Para decir tu edad:"
+
+explicacion: |
+  *Avere* + años.
 ```
 
-### 2 — Artículo definido  
-```yaml
+### 2 — Pedir
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["artículo", "masculino"]
-pasos:
-  - "Determina el género del sustantivo 'libro'."
-  - "Elige el artículo definido correspondiente."
-tipo: completar
-respuestas_validas:
-  - "il"
-  - "IL"
-enunciado: "___ libro è interessante."
+  tags: ["speaking", "A2"]
+
+respuesta: "Vorrei un caffè, per favore."
+tipo: "mc"
+opciones_explicitas: ["Vorrei un caffè, per favore.", "Voglio un caffè.", "Dammi un caffè."]
+
+enunciado: "En un bar, lo más cortés es:"
+
+explicacion: |
+  *Vorrei*.
 ```
 
-### 3 — Preposición con verbo  
-```yaml
+### 3 — Saludo
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["preposizione", "parlare"]
-pasos:
-  - "Revisa la preposición que sigue al verbo 'parlare'."
-  - "Elige la opción correcta."
-respuesta: "di"
-tipo: mc
-enunciado: "Mi piace parlare ___ musica."
-opciones_explicitas:
-  - "a"
-  - "con"
-  - "di"
+  tags: ["speaking", "A2"]
+
+respuesta: "Buongiorno!"
+tipo: "mc"
+opciones_explicitas: ["Buongiorno!", "Buonanotte!", "Ciao, bello!"]
+
+enunciado: "Al entrar a un negocio a las 10 de la mañana:"
+
+explicacion: |
+  *Buongiorno*.
 ```
 
-### 4 — Adjetivo concordando  
-```yaml
+### 4 — Precio
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["adjetivo", "femenino"]
-pasos:
-  - "Identifica el género del sustantivo 'casa'."
-  - "Aplica la concordancia de género al adjetivo."
-tipo: completar
-respuestas_validas:
-  - "bella"
-  - "Bella"
-enunciado: "La ___ casa è vicino a scuola."
+  tags: ["speaking", "A2"]
+
+respuesta: "Quanto costa?"
+tipo: "mc"
+opciones_explicitas: ["Quanto costa?", "Quanto è costo?", "Cuánto costa?"]
+
+enunciado: "Para preguntar el precio:"
+
+explicacion: |
+  *Quanto costa?*
 ```
 
-### 5 — Negación con non  
-```yaml
+### 5 — Repetir
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["negación", "non"]
-pasos:
-  - "Inserta 'non' en la posición correcta."
-  - "Verifica que el verbo siga la regla de negación."
-tipo: completar
-respuestas_validas:
-  - "non"
-  - "Non"
-enunciado: "Io ___ vado al cinema domani."
+  tags: ["speaking", "A2"]
+
+respuesta: "Può ripetere, per favore?"
+tipo: "mc"
+opciones_explicitas: ["Può ripetere, per favore?", "Ripeti!", "Eh?"]
+
+enunciado: "No entendiste a un desconocido. Decís:"
+
+explicacion: |
+  Forma cortés con *Lei*.
 ```
 
-### 6 — Formulación de pregunta  
-```yaml
+### 6 — Lei
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["pregunta", "dove"]
-pasos:
-  - "Identifica el tipo de pregunta (lugar)."
-  - "Usa la estructura correcta con 'dove'."
-tipo: completar
-respuestas_validas:
-  - "Dove"
-  - "dove"
-enunciado: "___ è il negozio di alimentari?"
+  tags: ["speaking", "A2"]
+
+respuesta: "Scusi, sa dov'è la stazione?"
+tipo: "mc"
+opciones_explicitas: ["Scusi, sa dov'è la stazione?", "Scusa, sai dov'è la stazione?", "Ehi, dov'è la stazione?"]
+
+enunciado: "Le preguntás a un señor en la calle:"
+
+explicacion: |
+  *Scusi* + *sa* (Lei).
 ```
 
-### 7 — Verbo modal potere  
-```yaml
+### 7 — Gustos
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["modal", "potere"]
-pasos:
-  - "Reconoce el uso del verbo 'potere' en presente."
-  - "Aplica la conjugación correcta al sujeto."
-tipo: completar
-respuestas_validas:
-  - "posso"
-  - "Posso"
-enunciado: "Io ___ aiutare te domani."
+  tags: ["speaking", "A2"]
+
+respuesta: "Mi piacciono i gatti."
+tipo: "mc"
+opciones_explicitas: ["Mi piacciono i gatti.", "Mi piace i gatti.", "Io piaccio i gatti."]
+
+enunciado: "Para decir que te gustan los gatos:"
+
+explicacion: |
+  *Piacere* concuerda.
 ```
 
-### 8 — Plural de sustantivo  
-```yaml
+### 8 — Agradecer
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["plural", "casa"]
-pasos:
-  - "Transforma el sustantivo singular en plural."
-  - "Verifica la concordancia con el artículo definido."
-tipo: completar
-respuestas_validas:
-  - "le"
-  - "LE"
-enunciado: "___ case sono nuove."
+  tags: ["speaking", "A2"]
+
+respuesta: "Prego!"
+tipo: "mc"
+opciones_explicitas: ["Prego!", "Grazie a te no!", "Bene!"]
+
+enunciado: "— Grazie mille! Respuesta:"
+
+explicacion: |
+  *Prego* = de nada.
 ```
 
-### 9 — Uso de da + ciudad  
-```yaml
+### 9 — Profesión
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["preposizione", "da"]
-pasos:
-  - "Identifica la preposición que precede a una ciudad."
-  - "Elige la opción correcta."
-respuesta: "da"
-tipo: mc
-enunciado: "Vengo ___ Roma."
-opciones_explicitas:
-  - "in"
-  - "a"
-  - "da"
+  tags: ["speaking", "A2"]
+
+respuesta: "Faccio l'insegnante."
+tipo: "mc"
+opciones_explicitas: ["Faccio l'insegnante.", "Faccio insegnante.", "Sono un insegnanti."]
+
+enunciado: "Para decir que sos maestro:"
+
+explicacion: |
+  *Fare l'insegnante* / *Sono insegnante*.
 ```
 
-### 10 — Verbo reflexivo  
-```yaml
+### 10 — Pasado
+
+```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["reflexivo", "lavarsi"]
-pasos:
-  - "Reconoce el uso del pronombre reflexivo."
-  - "Aplica la forma correcta en presente."
-tipo: completar
-respuestas_validas:
-  - "mi lavo"
-  - "Mi lavo"
-enunciado: "Io ___ ogni mattina."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ieri sono andato al cinema."
+tipo: "mc"
+opciones_explicitas: ["Ieri sono andato al cinema.", "Ieri ho andato al cinema.", "Ieri vado al cinema."]
+
+enunciado: "Para contar lo que hiciste ayer:"
+
+explicacion: |
+  *Andare* con *essere*.
 ```
 
-### 11 — Expresión temporal  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["tempo", "ieri"]
-pasos:
-  - "Reconoce el uso de 'ieri' en oraciones pasadas."
-  - "Elige la opción correcta para completar la oración."
-tipo: completar
-respuestas_validas:
-  - "ieri"
-  - "Ieri"
-enunciado: "Lui ___ è andato al parco."
-```
+### 11 — Pasar
 
-### 12 — Pronombre posesivo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["posesivo", "mio"]
-pasos:
-  - "Identifica el posesivo que corresponde al sujeto 'io'."
-  - "Aplica la forma correcta en singular."
-tipo: completar
-respuestas_validas:
-  - "mio"
-  - "Mio"
-enunciado: "Questo libro è ___."
 ```
-
-### 13 — Verbo de movimiento + preposición  
-```yaml
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["movimiento", "andare"]
-pasos:
-  - "Revisa la preposición que sigue al verbo 'andare'."
-  - "Elige la opción correcta."
-respuesta: "a"
-tipo: mc
-enunciado: "Vado ___ scuola."
-opciones_explicitas:
-  - "da"
-  - "in"
-  - "a"
-```
+  tags: ["speaking", "A2"]
 
-### 14 — Uso de ci/ne  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["pronombre", "ci"]
-pasos:
-  - "Identifica el uso del pronombre 'ci' en oraciones de lugar."
-  - "Elige la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "ci"
-  - "CI"
-enunciado: "Voglio andare ___ stasera."
-```
+respuesta: "Permesso!"
+tipo: "mc"
+opciones_explicitas: ["Permesso!", "Prego!", "Ciao!"]
 
-### 15 — Adverbio  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adverbio", "bene"]
-pasos:
-  - "Reconoce el uso del adverbio para modificar un verbo."
-  - "Elige la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "bene"
-  - "Bene"
-enunciado: "Io canto ___."
-```
+enunciado: "En un colectivo lleno, para pasar:"
 
-### 16 — Imperativo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["imperativo", "parla"]
-pasos:
-  - "Transforma el verbo en imperativo para 'tu'."
-  - "Verifica la forma correcta."
-tipo: completar
-respuestas_validas:
-  - "Parla"
-  - "parla"
-enunciado: "___ con me!"
-```
-
-### 17 — Pronombre objeto indirecto  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["objeto", "mi"]
-pasos:
-  - "Identifica el pronombre que reemplaza a 'a me'."
-  - "Aplica la forma correcta en presente."
-tipo: completar
-respuestas_validas:
-  - "mi"
-  - "Mi"
-enunciado: "Io ___ do un libro."
-```
-
-### 18 — Demostrativo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["demostrativo", "questo"]
-pasos:
-  - "Reconoce el demostrativo que se usa para objetos cercanos."
-  - "Elige la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "questo"
-  - "Questo"
-enunciado: "___ libro è mio."
-```
-
-### 19 — Preguntas con pronombres  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["pregunta", "quale"]
-pasos:
-  - "Identifica el tipo de pregunta (objeto)."
-  - "Usa la estructura correcta con 'quale'."
-tipo: completar
-respuestas_validas:
-  - "Quale"
-  - "quale"
-enunciado: "___ libro hai letto?"
-```
-
-### 20 — Preposición con tiempo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preposizione", "per"]
-pasos:
-  - "Revisa la preposición que precede a un tiempo."
-  - "Elige la opción correcta."
-respuesta: "per"
-tipo: mc
-enunciado: "Ho studiato ___ due ore."
-opciones_explicitas:
-  - "da"
-  - "in"
-  - "per"
-```
-
-### 21 — Posición del adjetivo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["adjetivo", "posizione"]
-pasos:
-  - "Identifica si el adjetivo va antes o después del sustantivo."
-  - "Elige la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "vecchio"
-  - "Vecchio"
-enunciado: "___ amico è italiano."
-```
-
-### 22 — Relativo con che  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["relativo", "che"]
-pasos:
-  - "Reconoce el uso de 'che' para introducir una oración relativa."
-  - "Elige la opción correcta."
-tipo: completar
-respuestas_validas:
-  - "che"
-  - "Che"
-enunciado: "La ragazza ___ ho visto è simpatica."
-```
-
-### 23 — Passato prossimo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["passato", "avere"]
-pasos:
-  - "Reconoce la forma correcta del passato prossimo."
-  - "Aplica el auxiliar 'avere' al verbo."
-tipo: completar
-respuestas_validas:
-  - "ho mangiato"
-  - "Ho mangiato"
-enunciado: "Io ___ ieri."
-```
-
-### 24 — Ayudante de verbo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["auxiliar", "avere"]
-pasos:
-  - "Identifica el auxiliar correcto para el verbo 'mangiare'."
-  - "Elige la opción correcta."
-respuesta: "ho"
-tipo: mc
-enunciado: "Io ___ mangiato una pizza."
-opciones_explicitas:
-  - "ero"
-  - "hai"
-  - "ho"
+explicacion: |
+  *Permesso* = con permiso.
 ```

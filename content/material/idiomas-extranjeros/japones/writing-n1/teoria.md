@@ -1,45 +1,43 @@
-# Escritura en japonés (N1): estructuras formales y uso avanzado de kanji
+# Expresión escrita en japonés (N1)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/writing-n1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel N1 de Japonés, la escritura implica dominar estructuras gramaticales complejas, un vocabulario amplio y una correcta utilización de kanji. Este nivel se enfoca en la producción de textos formales (cartas oficiales, ensayos académicos, informes profesionales) que requieren precisión lingüística y una comprensión profunda del contexto cultural japonés. La escritura formal no solo refleja habilidad técnica, sino también respeto hacia el interlocutor, un principio clave en la comunicación japonesa.
+En N1 se escriben **textos complejos**: ensayos argumentativos, informes, resúmenes, correspondencia formal elaborada. Se valora la **precisión léxica**, el **estilo escrito culto**, la **cohesión** y el manejo del **keigo** en la correspondencia.
 
-## Explicación central con ejemplos reales
-En el nivel N1, se requiere manejar expresiones como:
-- **敬語 (keigo)**: Formas honoríficas y humildes para situaciones formales o de respeto. Por ejemplo:
-  > 彼は会議で**ご意見を述べました**。(Kare wa kaigi de goiken o motta.)
-  *(Él expresó su opinión en la reunión.)*
-  Aquí, **ご意見** (goiken) es una forma respetuosa de "opinión", y **述べました** (motta) indica el uso del verbo en forma formal.
+## Explicación central
+### Estilo escrito culto
+- **である** y formas escritas: 〜ではない → 〜ではなく, 〜て → 連用中止 (〜し、〜であり、).
+- Vocabulario de origen chino (漢語) en lugar de palabras coloquiales: 調べる → **調査する**, 増える → **増加する**, 考える → **検討する**, 始める → **開始する**.
+- Expresiones de N1: 〜に即して (conforme a), 〜を踏まえて (teniendo en cuenta), 〜をもって (con, a partir de), 〜にほかならない (no es otra cosa que), 〜と言わざるを得ない (no queda más que decir que), 〜に至っては (llegando a), 〜いかんによっては (según cómo).
 
-- **複雑な文構造 (bun kōzō)**: Frases con múltiples cláusulas, como:
-  > このプロジェクトは、**時間がかかるにもかかわらず**、**成功する可能性が高いです**。(Kono purojekuto wa, jikan ga kakaru ni mo kakawaranaku, seikō suru kanouseki ga takai desu.)
-  *(Aunque este proyecto tomará tiempo, tiene alta probabilidad de éxito.)*
+### Ensayo argumentativo
+1. **序論**: planteo del problema (〜が問題となっている), postura.
+2. **本論**: argumentos con datos, ejemplos y contraargumento (確かに〜。だが…).
+3. **結論**: síntesis y propuesta (〜べきであろう / 〜ことが求められる).
 
-- **Kanji avanzados**: Caracteres como **経済** (keizai, economía), **社会** (shakai, sociedad) o **技術** (gijutsu, tecnología), que requieren un dominio de sus significados y usos contextuales.
+### Resumen (要約)
+Sin opinión propia, con las ideas principales en el orden lógico; frases como 筆者は〜と述べている, 〜と主張している.
+
+### Correspondencia formal
+Saludo estacional en cartas (時候の挨拶: 春暖の候、貴社ますますご清栄のこととお慶び申し上げます), **拝啓 … 敬具**, keigo exacto, y fórmulas de cierre (今後ともよろしくお願い申し上げます).
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del keigo**: Confundir formas honoríficas con humildes o aplicarlas en contextos inapropiados (ej.: usar **おっしゃる** para referirse a uno mismo).
-2. **Simplificación de estructuras complejas**: Evitar frases con múltiples cláusulas, lo que reduce la formalidad del texto.
-3. **Kanji mal escritos o equivocados**: Por ejemplo, confundir **経済** (keizai) con **経過** (keka, "progreso") o omitir el uso de kanji obligatorios en textos formales.
+1. Usar vocabulario coloquial (すごく, いっぱい, やっぱり) en un ensayo.
+2. Frases demasiado largas con muchos 〜て: dividirlas o usar 連用中止.
+3. Opinar en un 要約.
+4. Errores de keigo en la correspondencia (doble keigo, sonkeigo para uno mismo).
 
 ## Comparación con el español
-El japonés no utiliza tiempos verbales como el pretérito imperfecto o el futuro compuesto del español. En su lugar, depende de contextuales (ej.: **～た** para acciones completas, **～そう** para predicciones) y partículas como **が** (sujeto), **を** (objeto directo). Por ejemplo:
-- Español: *Él **había terminado** el trabajo antes de la reunión.*
-- Japonés: 彼は会議の前に**仕事に取り組んでいた**。(Kare wa kaigi no mae ni shigoto ni torikomonde ita.)
-  *(Él estaba trabajando en el trabajo antes de la reunión.)*
+Como el español académico, el japonés culto prefiere palabras de origen erudito (漢語, como nuestros latinismos: «incrementar» por «aumentar»). La carta formal japonesa tiene fórmulas estacionales y de apertura/cierre más rígidas que la española.
 
 ## Ejemplo extendido en contexto
-**Situación**: Escritura de una carta formal para solicitar un puesto laboral.
-> ご担当者様へ：
-> はじめまして。私は山田太郎と申しますが、**貴社の企業文化に強い関心を持っています**。(Go-tantōsha-sama e: Hajimemashite. Watashi wa Yamada Tarō to moshimasu ga, anata no kigyo bunka ni tsuyoi kangen o motte imasu.)
-> これまで、**技術開発の分野における経験**が豊富であり、**課題に迅速に対応できる能力**を備えています。(Korekara, gijutsu kaihatsu no bunya ni okeru keiken ga hōfu de aru to shite, kadai ni jūsoku ni taiō dekiru nōryoku o mizukatte imasu.)
-> ご面接の機会をいただけますよう、**心よりお願い申し上げます**。(Go-menjaku no kiwa o itadakemasu yō, kokoro yori onegaishimashimasu.)
-
-Este ejemplo combina **keigo**, estructuras formales y kanji avanzados. La frase **ご担当者様へ** (a su encargado) muestra respeto, mientras que **迅速に対応できる能力** (capacidad para responder rápidamente) destaca una habilidad clave en el contexto profesional.
+*«近年、地方の人口減少が深刻な問題となっている。若者の都市部への流出が**その一因であり**、雇用の不足が背景にあると**考えられる**。**確かに**、行政による支援策も実施されている。**だが**、その効果は限定的であると**言わざるを得ない**。地域の実情**を踏まえた**長期的な政策が**求められる**。»*

@@ -1,61 +1,48 @@
-# Escuchar en japonés: nivel N4
+# Comprensión auditiva en japonés (N4)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/listening-n4`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-Escuchar es una de las habilidades clave para comunicarse en japonés, especialmente en el nivel N4 del JLPT (Japanese Language Proficiency Test). En este nivel, los aprendices deben comprender conversaciones sencillas sobre temas cotidianos, como saludar, presentarse o pedir algo en un restaurante. La capacidad de escuchar permite acceder a información oral, lo que es fundamental para interactuar en situaciones reales y avanzar en el idioma.
+En N4 se entienden **conversaciones cotidianas** habladas despacio: compras, horarios, indicaciones, planes, pedidos. En el examen (JLPT) hay preguntas de **tarea** (qué tiene que hacer alguien), de **puntos clave** (por qué, cuándo) y de **respuesta rápida**.
 
 ## Explicación central
-En japonés, las conversaciones suelen ser directas y respetuosas, con una estructura clara. Por ejemplo:
+### Qué escuchar
+- **Números, horas y precios**: 三時半 (3:30), 十五分 (15 minutos), 千五百円 (1500 yenes).
+- **Días y fechas**: 来週の火曜日, 二十日 (*hatsuka*, día 20), 八日 (*yōka*, día 8).
+- **Final de la oración**: decide el sentido: 〜ます / 〜ません / 〜ました / 〜ましょう / 〜てください / 〜なければなりません.
+- **Cambios de idea**: でも, やっぱり, あ、すみません, じゃあ…
 
-- **例1 (Ejemplo 1):**
-  A: 「こんにちは、田中さん。」 (Konnichiwa, Tanaka-san.)
-  B: 「こんにちは、よろしくお願いします。」 (Konnichiwa, yoroshiku onegaishimasu.)
+### Expresiones frecuentes
+- Pedir: 〜てください, 〜てもらえますか.
+- Permiso: 〜てもいいですか — はい、どうぞ / すみません、ちょっと…
+- Obligación: 〜なければなりません (hay que), 〜なくてもいいです (no hace falta).
+- Rechazo suave: ちょっと… (= no, sin decirlo).
 
-  Aquí, A saluda a B con un nombre de pila ("Tanaka-san") y B responde con una fórmula de cortesía. El uso de 「さん」 (-san) es común para mostrar respeto hacia desconocidos o superiores.
+### Estilo simple en el habla
+Entre amigos: 行く？ / うん / ううん (no) / 〜じゃない？
 
-- **例2:**
-  A: 「この本、借りていいですか？」 (Kono hon, kari-te ii desu ka?)
-  B: 「はい、もちろん。」 (Hai, mochiron.)
+### Estrategias
+1. Leer la pregunta y prever el dato.
+2. Esperar el final de cada frase.
+3. Prestar atención a でも y やっぱり: lo importante viene después.
 
-  En este caso, A pregunta si puede prestarse un libro y B acepta. La estructura de la pregunta usa 「～ていいですか」 (~te ii desu ka?), que se traduce como "¿Puedes...?".
-
-## Errores comunes
-Los hispanohablantes suelen cometer errores al interpretar el tono o las partículas:
-
-1. **Confusión entre 「は」 (wa) y 「が」 (ga):**
-   Por ejemplo, en la frase 「彼は学生です。」 (Kare wa gakusei desu.), 「は」 indica el tema de la oración ("Él es un estudiante"). Si se usara 「が」, cambiaría el énfasis: 「彼が学生です。」 (Kare ga gakusei desu.) resalta que "es él" quien es un estudiante.
-
-2. **Dificultad para seguir conversaciones rápidas:**
-   Los aprendices pueden perderse detalles al escuchar frases conectadas, como en:
-   「昨日、友達と映画を見ました。」 (Kemashita, tomodachi to eiga o mimashita.)
-   Aquí, 「と」 indica la compañía ("con un amigo"), y 「を」 marca el objeto directo ("una película").
+## Errores comunes de hispanohablantes
+1. Elegir la primera opción mencionada cuando después cambian de idea (やっぱり).
+2. No entender ちょっと… como rechazo.
+3. Confundir ううん (no) con うん (sí).
+4. Confundir 四日 (*yokka*, día 4) con 八日 (*yōka*, día 8).
 
 ## Comparación con el español
-En español, las frases suelen ser más flexibles en cuanto a estructura, mientras que en japonés se prioriza la claridad y la cortesía. Por ejemplo:
+En español la negación va al principio; en japonés al final, y muchas respuestas negativas son indirectas (ちょっと…, 考えておきます).
 
-- **Español:** "¿Puedes prestarme ese libro?"
-- **Japonés:** 「その本、借りていいですか？」 (Sono hon, kari-te ii desu ka?)
-
-El japonés utiliza una estructura más formal y directa para preguntar, mientras que el español puede ser más coloquial. Además, en japonés, los pronombres suelen omitirse si se deducen del contexto: 「彼は来ました。」 (Kare wa kimashita.) implica "Él vino", sin necesidad de repetir "él".
-
-## Ejemplo extendido
-**Escenario:** En un restaurante, una persona pide ayuda para pedir comida.
-
-**A:**「すみません、メニューを見てもいいですか？」 (Sumimasen, menyū o mitemo ii desu ka?)
-**B:**「はい、もちろん。」 (Hai, mochiron.)
-**A:**「このカレーライス、おすすめですか？」 (Kono kareē raisu, osusume desu ka?)
-**B:**「はい、とても美味しいですよ。」 (Hai, totemo oishii desu yo.)
-
-Este diálogo incluye:
-- 「すみません」 (Sumimasen): "Perdón" para llamar la atención.
-- 「おすすめ」 (Osusume): "Recomendado".
-- 「美味しい」 (Oishii): "Delicioso", con el sufijo 「です」 (-desu) para hacer la frase cortés.
-
-Al escuchar, es importante prestar atención a las partículas y al tono de voz para comprender el significado completo.
+## Ejemplo extendido en contexto
+*Audio: «A: 明日の映画、何時にする？ B: 三時はどう？ A: うーん、三時はちょっと…。五時なら大丈夫。 B: じゃあ、五時にしよう。»*
+**Clave:** se encuentran a las 5; ちょっと… rechaza las 3.

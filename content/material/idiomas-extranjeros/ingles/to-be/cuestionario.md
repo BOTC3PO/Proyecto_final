@@ -75,7 +75,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ hungry? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ hungry? (Subject: you. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'you', se usa 'Are you'."
 ```
@@ -146,7 +146,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ a good idea? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ a good idea? (Subject: it. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'it', se usa 'Is it'."
 ```
@@ -217,7 +217,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ your brother? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ your brother? (Subject: he. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'he', se usa 'Is he'."
 ```
@@ -284,13 +284,14 @@ pasos:
   - "Aplica al sujeto 'you' correctamente."
 
 respuestas_validas:
-  - "'re"
+  - "Are you"
+  - "are you"
 
 tipo: completar
 
-enunciado: "You ___ going to the party? (Complete with the contraction of 'are'.)"
+enunciado: "___ going to the party? (Subject: you. Complete the question with 'to be' + subject.)"
 
-explicacion: "La contracción de 'you are' es 'you're', que en este hueco se escribe simplemente 're (sin espacio antes)."
+explicacion: "Para preguntar con 'you' se invierte el orden: 'Are you going to the party?'"
 ```
 
 ### 13 — Interrogative with 'Are We'
@@ -312,7 +313,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ ready for the test? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ ready for the test? (Subject: we. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'we', se usa 'Are we'."
 ```
@@ -383,7 +384,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ your teacher? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ your teacher? (Subject: she. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'she', se usa 'Is she'."
 ```
@@ -454,7 +455,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ going to the store? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ going to the store? (Subject: they. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'they', se usa 'Are they'."
 ```
@@ -525,7 +526,7 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ your friend? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ your friend? (Subject: I. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'I', se usa 'Am I'."
 ```
@@ -596,7 +597,8 @@ respuestas_validas:
 
 tipo: completar
 
-enunciado: "___ in the same class? (Complete the question with the correct form of 'to be'.)"
+enunciado: "___ in the same class? (Subject: we. Complete the question with 'to be' + subject.)"
 
 explicacion: "Para preguntar sobre el estado de 'we', se usa 'Are we'."
 ```
+

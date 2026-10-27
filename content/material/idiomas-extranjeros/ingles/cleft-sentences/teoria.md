@@ -5,67 +5,42 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior decía que el español no tiene una estructura equivalente y daba ejemplos agramaticales como «Who you're talking to is my brother».
 
 ---
 
 ## Introducción
-Las *cleft sentences* (oraciones enclavadas) son una herramienta gramatical avanzada del inglés que permite enfatizar información específica dentro de una oración. En el nivel **C1** del Marco Común Europeo de Referencia para las Lenguas (CEFR), su dominio es clave para expresar ideas con precisión y matices, especialmente en contextos formales o comunicativos complejos. Estas estructuras ayudan a resaltar un elemento particular (como el sujeto, objeto o circunstancia) cuando se quiere llamar la atención sobre él.
+Las *cleft sentences* («oraciones escindidas») parten una oración en dos para **destacar** una parte: la información nueva o la que corrige algo. Son típicas del nivel C1, en el habla y en la escritura argumentativa.
 
----
+## Explicación central
+### *It*-cleft: **It + be + [lo destacado] + that/who + resto**
+- Base: *Tom broke the window.*
+- Destacando al que lo hizo: ***It was Tom who/that** broke the window* (no Mary).
+- Destacando el objeto: ***It was the window that** Tom broke* (no la puerta).
+- Destacando el tiempo o el lugar: ***It was yesterday that** I saw her. **It was in Rome that** they met.*
+- Con personas se puede usar *who* o *that*; con cosas, *that* (también *which*, menos frecuente).
+- *Be* va en el tiempo de la oración: *It **is** you that I love. It **was** in 2010 that…*
 
-## Explicación central: *it*-cleft y *wh*-cleft
-Las cleft sentences se dividen en dos tipos principales:
+### *Wh*-cleft (pseudo-cleft): **What + oración + be + [lo destacado]**
+- *I need a holiday.* → ***What I need is** a holiday.*
+- Para destacar una acción se usa *do*: *He left without a word.* → ***What he did was** (to) leave without a word.*
+- Con *what* se refiere a cosas; para personas, lugares o momentos se usan sustantivos generales: ***The person who** called was my brother. **The place where** we met was a café. **The reason why** she left was money.*
+- También al revés: *A holiday **is what** I need.*
 
-### 1. **It-cleft** (énfasis mediante "it is/was... that...")
-Se usan para enfatizar un elemento de la oración, generalmente el sujeto o objeto. La estructura básica es:
-**"It + verbo ser + [elemento a enfatizar] + que + resto de la oración."**
-
-Ejemplos:
-- *It was **the red book** that I lost.* (No fue un libro cualquiera; fue el rojo.)
-- *It is **her decision** that we should follow.* (La decisión a seguir es la suya, no otra.)
-
-### 2. **Wh-cleft** (énfasis mediante "What/Who/Where/Why... + verbo ser + [elemento a enfatizar] + que...")
-Se emplean para destacar una pregunta o elemento interrogativo. La estructura es:
-**"What/Who/Where/Why + verbo ser + [elemento a enfatizar] + que + resto de la oración."**
-
-Ejemplos:
-- *What **I need now** is a cup of coffee.* (Lo que necesito ahora es un café.)
-- *Who **you're talking to** is my brother.* (Con quién hablas es mi hermano.)
-- *Where **the problem lies** is in the details.* (Dónde está el problema es en los detalles.)
-
----
+### Otras variantes útiles
+- *All*: ***All I want is** some sleep.* («lo único que quiero…»).
+- *The thing is…*: ***The thing is**, I don't have time.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre "it was... that..." y "it is... which..."**:
-   - ❌ *It is the red book which I lost.* → Incorrecto (no se usa "which" después de "it is").
-   - ✅ *It is the red book that I lost.* → Correcto.
-
-2. **Uso incorrecto de "wh"-cleft**:
-   - ❌ *What you need now is a cup of coffee.* → Faltan los pronombres enclavados (*what* + verbo ser).
-   - ✅ *What **you need now** is a cup of coffee.* → Correcto (se destaca "you need now").
-
-3. **Omisión del elemento enfatizado**:
-   - ❌ *It was that I lost the red book.* → No se especifica qué se enfatiza.
-   - ✅ *It was **the red book** that I lost.* → Correcto (se destaca el objeto "the red book").
-
----
+1. **Usar *who* como *what* para personas**: ❌ *Who called me was my brother.* ✅ *The person who called me was my brother.* / ✅ *It was my brother who called me.*
+2. **Olvidar *do* al destacar una acción**: ❌ *What he did was he left.* ✅ *What he did was leave.*
+3. **Concordar mal *be***: con *what* suele ir en singular: ✅ *What we need **is** more time.* (incluso con plural: *What we need is new ideas* es lo más común).
+4. **Traducir «Es por eso que…» como *It's for that that…***: ✅ *That's why…*
 
 ## Comparación con el español
-El español no tiene una estructura equivalente directa para las cleft sentences, pero suena similar a ciertas construcciones que enfatizan un elemento. Por ejemplo:
-- *Fue **el libro rojo** lo que perdí.* (Español) ↔ *It was **the red book** that I lost.* (Inglés).
-- En español, el énfasis se logra mediante acento o repeticiones (*Lo que necesito ahora es un café*), pero en inglés, la estructura gramatical es obligatoria para resaltar información.
-
----
+El español tiene construcciones muy parecidas: «**Fue** Tom **el que** rompió la ventana» (*It was Tom who…*) y «**Lo que** necesito **es** un descanso» (*What I need is…*). La diferencia es que en español el énfasis también se logra cambiando el orden o con la entonación («La ventana la rompió Tom»), mientras que el inglés, de orden más rígido, recurre más a estas estructuras.
 
 ## Ejemplo extendido en contexto
-**Diálogo 1 (It-cleft):**
-A: *¿Perdiste algo importante?*
-B: *Sí, **it was my passport** that I lost.*
-*(No fue un objeto cualquiera; se enfatiza "my passport".)*
-
-**Diálogo 2 (Wh-cleft):**
-A: *¿Por qué estás tan frustrado?*
-B: *What **bothers me most** is the lack of communication.*
-*(Lo que más me molesta es la falta de comunicación.)*
-
-Estas estructuras permiten precisión en la expresión, algo fundamental para lograr un inglés fluido y natural a nivel C1.
+*A: Did you lose your keys again?*
+*B: No, **it was my passport that** I lost. And **what made me angry was** the queue at the police station. **All I wanted was** a copy of the report!*

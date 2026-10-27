@@ -1,493 +1,272 @@
-# Idiomas — Portugués (Brasil) — genero-articulos-diferencias-con-espanol (cuestionario)
+# Portugués (Brasil) — género y artículos (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/genero-articulos-diferencias-con-espanol/cuestionario_crudo.md`)
-> con correcciones extensas. Todos los bloques tenían `explicacion:` y `respuesta:` sin
-> comillas (algunos con la primera palabra citada, lo que aparentaba estar bien entrecomillado
-> pero dejaba el resto de la cadena suelta); se corrigieron. Los 25 bloques carecían de
-> `enunciado:`; se añadió una pregunta genérica de contexto. Se corrigieron además dos bloques
-> (20, 21) cuya explicación atribuía el género gramatical a "criança" (que en portugués es
-> siempre femenino, independientemente del sexo del niño) cuando la palabra realmente evaluada
-> era "menino"/"menina"; se corrigió la atribución.
+> Tema: `idiomas-extranjeros/portugues-br/genero-articulos-diferencias-con-espanol`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Artigo com substantivo feminino  
+### 1 — Género -agem
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Elegir el artículo definido correspondiente."
-explicacion: "En portugués, los artículos (o, a) deben concordar con el género del sustantivo. 'Cidade' es femenino, por lo que se usa 'a cidade'. En español, 'la ciudad' también es femenino."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el cidade"
-  - "a cidade"
-  - "la cidade"
-respuesta: "a cidade"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "A"
+tipo: "mc"
+opciones_explicitas: ["A", "O", "Um"]
+
+enunciado: "___ viagem foi ótima."
+
+explicacion: |
+  Las palabras en *-agem* son femeninas: *a viagem*.
 ```
 
-### 2 — Substantivo masculino con artículo indefinido  
+### 2 — Género leite
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um/uma)."
-explicacion: "'Livro' es masculino, por lo que se usa 'um livro'. En español, 'un libro' también es masculino. El error común es usar 'uma livro', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma livro"
-  - "um livro"
-  - "un livro"
-respuesta: "um livro"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "o"
+tipo: "mc"
+opciones_explicitas: ["o", "a", "uma"]
+
+enunciado: "Você quer ___ leite?"
+
+explicacion: |
+  *O leite* (masculino en portugués).
 ```
 
-### 3 — Substantivo femenino con artículo definido  
+### 3 — Género árvore
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Flor' es femenino, por lo que se usa 'a flor'. En español, 'la flor' también es femenino. El error común es usar 'el flor', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el flor"
-  - "a flor"
-  - "la flor"
-respuesta: "a flor"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "A"
+tipo: "mc"
+opciones_explicitas: ["A", "O", "Os"]
+
+enunciado: "___ árvore do quintal é muito alta."
+
+explicacion: |
+  *A árvore* (femenino).
 ```
 
-### 4 — Substantivo masculino con artículo indefinido  
+### 4 — Género dor
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Cachorro' es masculino, por lo que se usa 'um cachorro'. En español, 'un perro' también es masculino. El error común es usar 'uma cachorro', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma cachorro"
-  - "um cachorro"
-  - "un cachorro"
-respuesta: "um cachorro"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "uma"
+tipo: "mc"
+opciones_explicitas: ["uma", "um", "o"]
+
+enunciado: "Estou com ___ dor de cabeça terrível."
+
+explicacion: |
+  *A dor* (femenino): *uma dor*.
 ```
 
-### 5 — Substantivo femenino con artículo definido  
+### 5 — Género nariz
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Mesa' es femenino, por lo que se usa 'a mesa'. En español, 'la mesa' también es femenino. El error común es usar 'el mesa', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el mesa"
-  - "a mesa"
-  - "la mesa"
-respuesta: "a mesa"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "o"
+tipo: "mc"
+opciones_explicitas: ["o", "a", "as"]
+
+enunciado: "Ele quebrou ___ nariz jogando futebol."
+
+explicacion: |
+  *O nariz* (masculino).
 ```
 
-### 6 — Substantivo masculino con artículo indefinido  
+### 6 — Contracción em + a
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Jornal' es masculino, por lo que se usa 'um jornal'. En español, 'un periódico' también es masculino. El error común es usar 'uma jornal', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma jornal"
-  - "um jornal"
-  - "un jornal"
-respuesta: "um jornal"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "na"
+tipo: "mc"
+opciones_explicitas: ["na", "em a", "no"]
+
+enunciado: "Eu moro ___ rua Augusta."
+
+explicacion: |
+  *Em + a = na*.
 ```
 
-### 7 — Substantivo femenino con artículo definido  
+### 7 — Contracción em + o
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Luz' es femenino, por lo que se usa 'a luz'. En español, 'la luz' también es femenino. El error común es usar 'el luz', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el luz"
-  - "a luz"
-  - "la luz"
-respuesta: "a luz"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "no"
+tipo: "mc"
+opciones_explicitas: ["no", "em o", "na"]
+
+enunciado: "Ela trabalha ___ centro da cidade."
+
+explicacion: |
+  *Em + o = no*.
 ```
 
-### 8 — Substantivo masculino con artículo indefinido  
+### 8 — Contracción de + o
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Rapaz' es masculino, por lo que se usa 'um rapaz'. En español, 'un chico' también es masculino. El error común es usar 'uma rapaz', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma rapaz"
-  - "um rapaz"
-  - "un rapaz"
-respuesta: "um rapaz"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "do"
+tipo: "mc"
+opciones_explicitas: ["do", "de o", "da"]
+
+enunciado: "Este é o livro ___ professor."
+
+explicacion: |
+  *De + o = do*.
 ```
 
-### 9 — Substantivo femenino con artículo definido  
+### 9 — Contracción a + o
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Pessoa' es femenino, por lo que se usa 'a pessoa'. En español, 'la persona' también es femenino. El error común es usar 'el pessoa', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el pessoa"
-  - "a pessoa"
-  - "la persona"
-respuesta: "a pessoa"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "ao"
+tipo: "mc"
+opciones_explicitas: ["ao", "a o", "à"]
+
+enunciado: "Vou ___ mercado comprar pão."
+
+explicacion: |
+  *A + o = ao*.
 ```
 
-### 10 — Substantivo masculino con artículo indefinido  
+### 10 — Contracción a + a
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Cavalo' es masculino, por lo que se usa 'um cavalo'. En español, 'un caballo' también es masculino. El error común es usar 'uma cavalo', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma cavalo"
-  - "um cavalo"
-  - "un cavalo"
-respuesta: "um cavalo"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "à"
+tipo: "mc"
+opciones_explicitas: ["à", "a a", "ao"]
+
+enunciado: "Vamos ___ praia amanhã?"
+
+explicacion: |
+  *A + a = à* (con acento grave).
 ```
 
-### 11 — Substantivo femenino con artículo definido  
+### 11 — Contracción por + a
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Noite' es femenino, por lo que se usa 'a noite'. En español, 'la noche' también es femenino. El error común es usar 'el noite', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el noite"
-  - "a noite"
-  - "la noite"
-respuesta: "a noite"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "pela"
+tipo: "mc"
+opciones_explicitas: ["pela", "por a", "pelo"]
+
+enunciado: "Passamos ___ praça principal."
+
+explicacion: |
+  *Por + a = pela*.
 ```
 
-### 12 — Substantivo masculino con artículo indefinido  
+### 12 — Países
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Café' es masculino, por lo que se usa 'um café'. En español, 'un café' también es masculino. El error común es usar 'uma café', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma café"
-  - "um café"
-  - "un café"
-respuesta: "um café"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "no"
+tipo: "mc"
+opciones_explicitas: ["no", "em", "na"]
+
+enunciado: "Eu moro ___ Brasil há dois anos."
+
+explicacion: |
+  *O Brasil*: *no Brasil*.
 ```
 
-### 13 — Substantivo femenino con artículo definido  
+### 13 — Plural indefinido
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Música' es femenino, por lo que se usa 'a música'. En español, 'la música' también es femenino. El error común es usar 'el música', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el música"
-  - "a música"
-  - "la música"
-respuesta: "a música"
-tipo: mc
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "uns"
+tipo: "mc"
+opciones_explicitas: ["uns", "umas", "os um"]
+
+enunciado: "Comprei ___ livros na feira."
+
+explicacion: |
+  *Livros* (masc. pl.): *uns*.
 ```
 
-### 14 — Substantivo masculino con artículo indefinido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Carro' es masculino, por lo que se usa 'um carro'. En español, 'un coche' también es masculino. El error común es usar 'uma carro', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma carro"
-  - "um carro"
-  - "un carro"
-respuesta: "um carro"
-tipo: mc
-```
+### 14 — Error típico
 
-### 15 — Substantivo femenino con artículo definido  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Criança' es femenino, por lo que se usa 'a criança'. En español, 'la niña' también es femenino. El error común es usar 'el criança', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el criança"
-  - "a criança"
-  - "la niña"
-respuesta: "a criança"
-tipo: mc
-```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
 
-### 16 — Substantivo masculino con artículo indefinido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Vinho' es masculino, por lo que se usa 'um vinho'. En español, 'un vino' también es masculino. El error común es usar 'uma vinho', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma vinho"
-  - "um vinho"
-  - "un vino"
-respuesta: "um vinho"
-tipo: mc
-```
+respuesta: falso
+tipo: vf
 
-### 17 — Substantivo femenino con artículo definido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Cidade' es femenino, por lo que se usa 'a cidade'. En español, 'la ciudad' también es femenino. El error común es usar 'el cidade', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el cidade"
-  - "a cidade"
-  - "la ciudad"
-respuesta: "a cidade"
-tipo: mc
-```
+enunciado: "«O mensagem chegou» es correcta."
 
-### 18 — Substantivo masculino con artículo indefinido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Homem' es masculino, por lo que se usa 'um homem'. En español, 'un hombre' también es masculino. El error común es usar 'uma homem', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma homem"
-  - "um homem"
-  - "un hombre"
-respuesta: "um homem"
-tipo: mc
-```
-
-### 19 — Substantivo femenino con artículo definido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Mulher' es femenino, por lo que se usa 'a mulher'. En español, 'la mujer' también es femenino. El error común es usar 'el mujer', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el mujer"
-  - "a mulher"
-  - "la mujer"
-respuesta: "a mulher"
-tipo: mc
-```
-
-### 20 — Substantivo masculino con artículo indefinido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Menino' es masculino, por lo que se usa 'um menino'. En español, 'un niño' también es masculino. El error común es usar 'uma menino', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma menino"
-  - "um menino"
-  - "un niño"
-respuesta: "um menino"
-tipo: mc
-```
-
-### 21 — Substantivo femenino con artículo definido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Menina' es femenino, por lo que se usa 'a menina'. En español, 'la niña' también es femenino. El error común es usar 'el menina', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el menina"
-  - "a menina"
-  - "la niña"
-respuesta: "a menina"
-tipo: mc
-```
-
-### 22 — Substantivo masculino con artículo indefinido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Cachorro' es masculino, por lo que se usa 'um cachorro'. En español, 'un perro' también es masculino. El error común es usar 'uma cachorro', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma cachorro"
-  - "um cachorro"
-  - "un perro"
-respuesta: "um cachorro"
-tipo: mc
-```
-
-### 23 — Substantivo masculino con artículo indefinido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino"]  
-pasos:  
-  - "Determinar el género del sustantivo."
-  - "Usar el artículo indefinido correcto (um)."
-explicacion: "'Cavalo' es masculino, por lo que se usa 'um cavalo'. En español, 'un caballo' también es masculino. El error común es usar 'uma cavalo', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "uma cavalo"
-  - "um cavalo"
-  - "un caballo"
-respuesta: "um cavalo"
-tipo: mc
-```
-
-### 24 — Substantivo femenino con artículo definido  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "feminino"]  
-pasos:  
-  - "Identificar el género del sustantivo."
-  - "Usar el artículo definido correspondiente (a)."
-explicacion: "'Noite' es femenino, por lo que se usa 'a noite'. En español, 'la noche' también es femenino. El error común es usar 'el noite', que no existe en portugués."
-enunciado: "¿Cuál es la forma correcta en portugués?"
-opciones_explicitas:
-  - "el noite"
-  - "a noite"
-  - "la noche"
-respuesta: "a noite"
-tipo: mc
+explicacion: |
+  Falso: *a mensagem* (femenino).
 ```

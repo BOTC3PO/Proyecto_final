@@ -1,473 +1,253 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/portugues-pt/genero-articulos-diferencias-con-espanol/cuestionario_crudo.md`.
-> A los 25 bloques les faltaba por completo el campo `enunciado:`, reconstruido a
-> partir del sustantivo indicado en `pasos:` para cada uno (además, al bloque 25 le
-> faltaba la cerca de cierre ` ``` `, añadida). Se corrigieron además seis errores de
-> contenido:
-> - **5 bloques (4, 7, 11, 16, 21, 22)** inventaban un "género neutro" para
->   sustantivos como "tempo", "amor", "chuva", "felicidade" y el nombre propio
->   "Cristo" -- el portugués, igual que el español, no tiene género neutro para
->   sustantivos comunes: son simplemente masculinos o femeninos (dos de estos
->   bloques incluso se contradecían a sí mismos, llamando "neutro" en el título a un
->   sustantivo que su propia explicación identificaba correctamente como femenino o
->   masculino). Se corrigieron los títulos, etiquetas y explicaciones para eliminar
->   la categoría inventada.
-> - **Bloque 13:** dabas "meu" (masculino) como posesivo de "espera", pero "espera"
->   es un sustantivo femenino en portugués ("a espera"); corregido a "minha".
+# Portugués (Portugal) — género y artículos (cuestionario, 13 preguntas VBLang)
 
-### 1 — Artigo definido masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "masculino", "comparacion"]  
-pasos:  
-  - "Identificar el género del sustantivo 'livro'."  
-  - "Escribir el artículo definido masculino en portugués."  
-tipo: completar
-enunciado: "___ livro está em cima da mesa."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "El sustantivo 'livro' (libro) es masculino. En portugués, el artículo definido masculino es 'o', mientras que en español sería 'el'."  
+> Tema: `idiomas-extranjeros/portugues-pt/genero-articulos-diferencias-con-espanol`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
+
+---
+
+### 1 — Género -agem
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "A"
+tipo: "mc"
+opciones_explicitas: ["A", "O", "Um"]
+
+enunciado: "___ viagem foi ótima."
+
+explicacion: |
+  *A viagem*.
 ```
 
-### 2 — Posesivo femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["posesivos", "femenino", "comparacion"]  
-pasos:  
-  - "Identificar el género del sustantivo 'casa'."  
-  - "Escribir el posesivo femenino en portugués."  
-tipo: completar
-enunciado: "Esta é ___ casa, onde vivo há dez anos."  
-respuestas_validas:  
-  - "Minha"  
-  - "minha"  
-explicacion: "El sustantivo 'casa' es femenino. En portugués, el posesivo femenino es 'minha', mientras que en español sería 'mi'."  
+### 2 — Género leite
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "o"
+tipo: "mc"
+opciones_explicitas: ["o", "a", "uma"]
+
+enunciado: "Queres ___ leite?"
+
+explicacion: |
+  *O leite*.
 ```
 
-### 3 — Artigo definido femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "femenino", "comparacion"]  
-pasos:  
-  - "Identificar el género del sustantivo 'mesa'."  
-  - "Escribir el artículo definido femenino en portugués."  
-tipo: completar
-enunciado: "___ mesa da cozinha é muito antiga."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "El sustantivo 'mesa' es femenino. En portugués, el artículo definido femenino es 'a', mientras que en español sería 'la'."  
+### 3 — Género equipa
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "A"
+tipo: "mc"
+opciones_explicitas: ["A", "O", "Os"]
+
+enunciado: "___ equipa ganhou o campeonato."
+
+explicacion: |
+  *A equipa* (femenino; en Brasil *a equipe*).
 ```
 
-### 4 — Artículo definido con sustantivo abstracto masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "abstracto", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'tempo' (masculino, aunque no lo indique una terminación típica)."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ tempo está muito frio hoje."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "'Tempo' es un sustantivo masculino en portugués (no existe género neutro en portugués para sustantivos comunes), por lo que usa el artículo 'o', igual que en español ('el tiempo')."  
+### 4 — Género dor
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "uma"
+tipo: "mc"
+opciones_explicitas: ["uma", "um", "o"]
+
+enunciado: "Tenho ___ dor de cabeça."
+
+explicacion: |
+  *A dor*: *uma dor*.
 ```
 
-### 5 — Posesivo masculino con error común  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["posesivos", "masculino", "error"]  
-pasos:  
-  - "Identificar el género del sustantivo 'carro'."  
-  - "Elegir la opción correcta entre las siguientes:"  
-enunciado: "¿Cuál es el posesivo masculino correcto para 'carro'?"
-opciones_explicitas:  
-  - "meu"  
-  - "minha"  
-  - "mi"  
-respuesta: "meu"  
-tipo: mc  
-explicacion: "El sustantivo 'carro' es masculino. En portugués, el posesivo masculino es 'meu', mientras que en español sería 'mi'."  
+### 5 — Posesivo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "O meu carro é azul."
+tipo: "mc"
+opciones_explicitas: ["O meu carro é azul.", "Meu carro é azul.", "Mi carro é azul."]
+
+enunciado: "En Portugal, «mi auto es azul» se dice:"
+
+explicacion: |
+  Artículo + posesivo.
 ```
 
-### 6 — Artigo definido con nombre propio femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "propio", "femenino"]  
-pasos:  
-  - "Identificar el género del nombre propio 'Maria'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ Maria chegou atrasada à reunião."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "Los nombres propios femeninos como 'Maria' usan el artículo definido femenino 'a', mientras que en español sería 'la'."  
+### 6 — Nombre propio
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "A Maria chegou."
+tipo: "mc"
+opciones_explicitas: ["A Maria chegou.", "Maria chegou-se.", "La Maria chegou."]
+
+enunciado: "En el trato habitual en Portugal:"
+
+explicacion: |
+  Artículo con nombres propios.
 ```
 
-### 7 — Artículo definido con sustantivo abstracto masculino (2)  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "abstracto", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'amor' (masculino, aunque no lo indique una terminación típica)."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ amor que sinto por ela é enorme."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "'Amor' es un sustantivo masculino en portugués (no existe género neutro para sustantivos comunes), por lo que usa el artículo 'o', igual que en español ('el amor')."  
+### 7 — em + a
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "na"
+tipo: "mc"
+opciones_explicitas: ["na", "em a", "no"]
+
+enunciado: "Moro ___ Rua Augusta."
+
+explicacion: |
+  *Em + a = na*.
 ```
 
-### 8 — Posesivo femenino con error común  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["posesivos", "femenino", "error"]  
-pasos:  
-  - "Identificar el género del sustantivo 'flor'."  
-  - "Elegir la opción correcta entre las siguientes:"  
-enunciado: "¿Cuál es el posesivo femenino correcto para 'flor'?"
-opciones_explicitas:  
-  - "minha"  
-  - "meu"  
-  - "mi"  
-respuesta: "minha"  
-tipo: mc  
-explicacion: "El sustantivo 'flor' es femenino. En portugués, el posesivo femenino es 'minha', mientras que en español sería 'mi'."  
+### 8 — a + o
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "ao"
+tipo: "mc"
+opciones_explicitas: ["ao", "a o", "à"]
+
+enunciado: "Vou ___ supermercado."
+
+explicacion: |
+  *A + o = ao*.
 ```
 
-### 9 — Artículo definido con nombre propio masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "propio", "masculino"]  
-pasos:  
-  - "Identificar el género del nombre propio 'João'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ João trabalha no hospital."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "Los nombres propios masculinos como 'João' usan el artículo definido masculino 'o', mientras que en español sería 'el'."  
+### 9 — a + a
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "à"
+tipo: "mc"
+opciones_explicitas: ["à", "a a", "ao"]
+
+enunciado: "Vamos ___ praia amanhã?"
+
+explicacion: |
+  *A + a = à*.
 ```
 
-### 10 — Artículo definido con sustantivo colectivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "colectivo", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'pessoal'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ pessoal da empresa está em reunião."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "El sustantivo colectivo 'pessoal' (personal) es masculino. En portugués, el artículo definido es 'o', mientras que en español sería 'el'."  
+### 10 — por + a
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "pela"
+tipo: "mc"
+opciones_explicitas: ["pela", "por a", "pelo"]
+
+enunciado: "Passámos ___ praça."
+
+explicacion: |
+  *Por + a = pela*.
 ```
 
-### 11 — Posesivo con sustantivo abstracto masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "abstracto", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'tempo' (masculino)."  
-  - "Elegir la opción correcta entre las siguientes:"  
-enunciado: "¿Cuál es el posesivo correcto para 'tempo' (sustantivo masculino)?"
-opciones_explicitas:  
-  - "meu"  
-  - "minha"  
-  - "mi"  
-respuesta: "meu"  
-tipo: mc  
-explicacion: "'Tempo' es un sustantivo masculino en portugués (no existe género neutro), por lo que usa el posesivo masculino 'meu', igual que en español ('mi tiempo')."  
+### 11 — Portugal
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "em"
+tipo: "mc"
+opciones_explicitas: ["em", "no", "na"]
+
+enunciado: "Moro ___ Portugal há três anos."
+
+explicacion: |
+  *Portugal* sin artículo: *em Portugal*.
 ```
 
-### 12 — Artículo definido con sustantivo compuesto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "compuesto", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'caminhão'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ caminhão está estacionado na rua."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "El sustantivo compuesto 'caminhão' (camión) es masculino. En portugués, el artículo definido es 'o', mientras que en español sería 'el'."  
+### 12 — Brasil
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
+
+respuesta: "no"
+tipo: "mc"
+opciones_explicitas: ["no", "em", "na"]
+
+enunciado: "Ela vive ___ Brasil."
+
+explicacion: |
+  *O Brasil*: *no Brasil*.
 ```
 
-### 13 — Posesivo con sustantivo abstracto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "abstracto", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'espera' (femenino: 'a espera')."  
-  - "Escribir el posesivo en portugués."  
-tipo: completar
-enunciado: "___ espera valeu a pena."  
-respuestas_validas:  
-  - "Minha"  
-  - "minha"  
-explicacion: "El sustantivo abstracto 'espera' es femenino en portugués ('a espera'), a diferencia de lo que podría sugerir su terminación. Por eso el posesivo correcto es 'minha', igual que en español ('mi espera')."  
-```
+### 13 — Error típico
 
-### 14 — Artículo definido con sustantivo femenino propio  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "propio", "femenino"]  
-pasos:  
-  - "Identificar el género del nombre propio 'Cláudia'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ Cláudia estuda medicina."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "Los nombres propios femeninos como 'Cláudia' usan el artículo definido femenino 'a', mientras que en español sería 'la'."  
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "genero-articulos-diferencias-con-espanol"
+  nivel: "A1"
+  tags: ["genero-articulos"]
 
-### 15 — Artículo definido con sustantivo colectivo femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "colectivo", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'equipe'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ equipe venceu o campeonato."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "El sustantivo colectivo 'equipe' (equipo) es femenino. En portugués, el artículo definido es 'a', mientras que en español sería 'la'."  
-```
+respuesta: falso
+tipo: vf
 
-### 16 — Posesivo con sustantivo femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'chuva'."  
-  - "Escribir el posesivo en portugués."  
-tipo: completar
-enunciado: "___ chuva preferida é sempre a de verão."  
-respuestas_validas:  
-  - "Minha"  
-  - "minha"  
-explicacion: "El sustantivo 'chuva' (lluvia) es femenino en portugués (no existe género neutro). Por eso el posesivo es 'minha', igual que en español ('mi lluvia')."  
-```
+enunciado: "«O mensagem chegou» es correcta."
 
-### 17 — Artículo definido con sustantivo propio masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A1"  
-  tags: ["artigos", "propio", "masculino"]  
-pasos:  
-  - "Identificar el género del nombre propio 'Pedro'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ Pedro mora perto daqui."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "Los nombres propios masculinos como 'Pedro' usan el artículo definido masculino 'o', mientras que en español sería 'el'."  
-```
-
-### 18 — Posesivo con sustantivo abstracto femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "abstracto", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'liberdade'."  
-  - "Escribir el posesivo en portugués."  
-tipo: completar
-enunciado: "___ liberdade é muito importante para mim."  
-respuestas_validas:  
-  - "Minha"  
-  - "minha"  
-explicacion: "El sustantivo abstracto 'liberdade' (libertad) es femenino. En portugués, el posesivo es 'minha', mientras que en español sería 'mi'."  
-```
-
-### 19 — Artículo definido con sustantivo compuesto masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "compuesto", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'cachorro'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ cachorro late muito à noite."  
-respuestas_validas:  
-  - "O"  
-  - "o"  
-explicacion: "El sustantivo compuesto 'cachorro' (perrito) es masculino. En portugués, el artículo definido es 'o', mientras que en español sería 'el'."  
-```
-
-### 20 — Posesivo con sustantivo colectivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "colectivo", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'pessoal'."  
-  - "Escribir el posesivo en portugués."  
-tipo: completar
-enunciado: "___ pessoal de confiança já chegou."  
-respuestas_validas:  
-  - "Meu"  
-  - "meu"  
-explicacion: "El sustantivo colectivo 'pessoal' (personal) es masculino. En portugués, el posesivo es 'meu', mientras que en español sería 'mi'."  
-```
-
-### 21 — Artículo definido con sustantivo abstracto femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "abstracto", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'felicidade'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ felicidade não tem preço."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "El sustantivo abstracto 'felicidade' (felicidad) es femenino. En portugués, el artículo definido es 'a', mientras que en español sería 'la'."  
-```
-
-### 22 — Posesivo con sustantivo propio masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "propio", "masculino"]  
-pasos:  
-  - "Identificar el género del nombre propio 'Cristo'."  
-  - "Escribir el posesivo en portugués."  
-tipo: completar
-enunciado: "___ Cristo, ajuda-me nesta hora difícil!"  
-respuestas_validas:  
-  - "Meu"  
-  - "meu"  
-explicacion: "'Cristo' es un nombre propio masculino (no existe género neutro en portugués). Por eso el posesivo es 'meu', igual que en español ('mi Cristo', como invocación)."  
-```
-
-### 23 — Artículo definido con sustantivo colectivo femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "colectivo", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'equipe'."  
-  - "Escribir el artículo definido en portugués."  
-tipo: completar
-enunciado: "___ equipe apresentou um ótimo resultado."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "El sustantivo colectivo 'equipe' (equipo) es femenino. En portugués, el artículo definido es 'a', mientras que en español sería 'la'."  
-```
-
-### 24 — Posesivo con sustantivo abstracto masculino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["posesivos", "abstracto", "masculino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'amor'."  
-  - "Escribir el posesivo en portugués."  
-tipo: completar
-enunciado: "___ amor por esta cidade nunca vai acabar."  
-respuestas_validas:  
-  - "Meu"  
-  - "meu"  
-explicacion: "El sustantivo abstracto 'amor' (amor) es masculino. En portugués, el posesivo es 'meu', mientras que en español sería 'mi'."  
-```
-
-### 25 — Artículo definido con sustantivo compuesto femenino  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "genero-articulos-diferencias-con-espanol"  
-  nivel: "A2"  
-  tags: ["artigos", "compuesto", "femenino"]  
-pasos:  
-  - "Identificar el género del sustantivo 'cama de casal'."  
-  - "Escribir el artículo definido en portugués."  
-respuesta: "a"  
-tipo: completar
-enunciado: "___ cama de casal ocupa todo o quarto."  
-respuestas_validas:  
-  - "A"  
-  - "a"  
-explicacion: "El sustantivo compuesto 'cama de casal' (cama matrimonial) es femenino. En portugués, el artículo definido es 'a', mientras que en español sería 'la'."
+explicacion: |
+  Falso: *a mensagem*.
 ```

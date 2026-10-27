@@ -1,52 +1,52 @@
-# Registro Formal vs. Informal en Portugués (Nivel C1)
+# Registro formal e informal en portugués de Portugal (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/registro-formal-vs-informal`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El uso correcto del registro formal e informal es fundamental para comunicarse con naturalidad en situaciones sociales y profesionales en portugués. En el nivel C1, los estudiantes deben dominar estas diferencias no solo a nivel léxico, sino también gramatical y contextual. El registro define la distancia o cercanía entre hablantes, y su manejo adecuado evita malentendidos o impresiones inadecuadas.
+En Portugal la distancia entre el registro formal y el informal se marca con el **tratamiento** (muy codificado), los **pronombres**, el **vocabulario** y las fórmulas de cortesía.
 
-## Explicación Central
-En portugués (especialmente en Portugal), los registros se diferencian principalmente por:
-1. **Pronombres de tratamiento**:
-   - Formal: *você* (equivalente a "usted" en español, pero sin conjugaciones específicas).
-     Ejemplo: *"Vocês querem café?"* (Formal y plural).
-   - Informal: *tu* (similar a "tú" en español, aunque menos común que *você* en Portugal).
-     Ejemplo: *"Tu sabes onde está o livro?"* (Informal, con conjugación especial para *tu*: *sabes*, en lugar de *sabe* como en el formal).
+## Explicación central
+### Tratamiento
+- **Tu**: familia, amigos, gente joven, colegas de confianza.
+- **Você**: existe, pero puede sonar distante o hasta descortés en algunos contextos; se suele **evitar el pronombre** y usar solo el verbo en 3.ª persona: *Quer um café?*
+- **O senhor / a senhora**: trato formal y respetuoso.
+- **Títulos**: muy frecuentes en Portugal: *o senhor doutor, a senhora doutora* (para licenciados), *o senhor engenheiro, o professor*.
 
-2. **Verbos y tiempos**:
-   - En registro formal, los verbos no cambian su conjugación según el pronombre (*você*), ya que se usan las formas del infinitivo o del subjuntivo.
-     Ejemplo: *"Você precisa me dizer isso agora?"* (Formal).
-   - En informal, los verbos pueden tener conjugaciones específicas para *tu*.
-     Ejemplo: *"Tu precisas me dizer isso agora?"* (Informal; aunque en Portugal es más común usar *você* incluso en contextos informales).
+### Fórmulas escritas
+- Saludo formal: ***Exmo. Senhor** / **Exma. Senhora** (Excelentíssimo/a)*, *Caro Senhor*, *Prezado Senhor*.
+- Despedida: ***Com os melhores cumprimentos**, / Atentamente, / Cordialmente,*
+- Informal: *Olá, Rita! … Beijinhos / Um abraço / Até já!*
 
-3. **Vocabulario y expresiones**:
-   - Formal: Palabras como *senhor*, *senhora*, *por gentileza*, *com licença*.
-     Ejemplo: *"Senhor Silva, poderia me dizer onde está o documento?"*
-   - Informal: Expresiones coloquiales o términos más cercanos.
-     Ejemplo: *"Zé, onde é que tu deixou o documento?"*
+### Pedidos y cortesía
+- *Queria… / Gostava de…* (muy usados por cortesía).
+- *Se não se importa… / Fazia-me o favor de…?* / *Por favor, poderia…?*
 
-## Errores Comunes de Hispanohablantes
-1. **Uso incorrecto del pronombre *você***: Algunos hispanohablantes confunden *você* con "usted" en español y aplican conjugaciones de tercera persona, como *você fala* (en vez de *você fala*, que es correcto).
-2. **Confusión entre *tu* e *você***: En Portugal, *tu* se usa principalmente en contextos muy informales o regionales, pero muchos estudiantes aplican las conjugaciones de español (*tú comes*) sin considerar la estructura portuguesa (*tu comés*, aunque rara vez usado).
-3. **Formalidad excesiva**: Usar *senhor* y *senhora* en contextos donde no es necesario, como con amigos o colegas.
+### Vocabulario
+| Informal | Formal |
+|---|---|
+| fixe | interessante, positivo |
+| guita (dinheiro) | recursos, verba |
+| pá (muletilla) | — |
+| a malta | as pessoas, o grupo |
+| tipo | por exemplo |
 
-## Comparación con el Español
-- En español, los registros se diferencian claramente entre *usted* (formal) y *tú* (informal), con conjugaciones distintas para cada uno (*usted come*, *tú comes*).
-- En portugués, *você* es neutro: puede usarse tanto en formal como informal. La forma de los verbos no cambia según el contexto, a diferencia del español.
-- El uso de *senhor/senhora* en portugués es más común que en español, donde se prefiere *usted* o apellidos para mostrar respeto.
+## Errores comunes de hispanohablantes
+1. Tratar de *você* a un desconocido mayor: mejor *o senhor / a senhora* o el verbo solo.
+2. Olvidar el título: *Bom dia, senhor doutor* es normal en Portugal.
+3. Mezclar *Exmo. Senhor* con un cierre informal (*Beijinhos*).
+4. Usar el registro brasileño (*Me manda o arquivo*) en un correo formal en Portugal: ✅ *Agradecia que me enviasse o ficheiro.*
 
-## Ejemplo Extendido en Contexto
-**Escena**: Un cliente entra en una oficina y habla con un empleado.
+## Comparación con el español
+Parecido al español de España, con *tu* para la confianza; pero «usted» se traduce con *o senhor / a senhora* o con el verbo solo, y los títulos profesionales se usan mucho más.
 
-**Cliente (formal)**: *"Bom dia, senhor. Gostaria de agendar uma reunião com o gerente?"*
-**Empleado (informal)**: *"Claro, Zé! Tu já tem a data em mente?"*
-**Cliente (formal)**: *"Sim, senhora. Posso pedir que me enviem um e-mail para confirmar?"*
-**Empleado (informal)**: *"É claro! Eu te aviso assim que estiver tudo pronto."*
-
-En este ejemplo, el empleado cambia su registro según la relación con el cliente (formal al inicio, informal después), mientras que el cliente mantiene un tono formal. Esto muestra cómo los registros se adaptan a la dinámica de la interacción.
+## Ejemplo extendido en contexto
+*Informal: Olá, Pedro! Mando-te o ficheiro, vê lá se está fixe. Abraço!*
+*Formal: Exmo. Senhor Eng.º Pedro Costa, Envio em anexo o ficheiro para sua apreciação. Com os melhores cumprimentos, …*

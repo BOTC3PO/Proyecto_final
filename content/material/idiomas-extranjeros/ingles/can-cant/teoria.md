@@ -5,47 +5,42 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior presentaba «Could you help me yesterday?» como habilidad pasada y tenía un carácter chino suelto.
 
 ---
 
 ## Introducción
-Los verbos modales *can* (poder), *cannot/can't* (no poder) y *could* (podía/podría) son esenciales en inglés para expresar **habilidad** (*I can swim*), **permiso** (*Can I borrow your pen?*) o **acciones en el pasado** (*Could you help me yesterday?*). En el nivel A1 del marco CEFR, su dominio permite comunicarse sobre capacidades propias o ajenas y solicitar permisos de forma básica.
+**Can** (y su negativa **can't** / **cannot**) es un verbo modal que expresa **habilidad** (*I can swim*), **posibilidad** (*It can be cold in July*) y **permiso** (*Can I go out?*). **Could** es su forma de pasado para la habilidad general (*I could swim when I was five*) y también una forma más cortés de pedir algo (*Could you help me?*).
 
-## Explicación Central
-### *Can* para habilidad y permiso en presente
-- **Habilidad**: Se usa para indicar que alguien es capaz de hacer algo. Ejemplo:
-  > *I can speak Spanish, but I can't write it well.* (Puedo hablar español, pero no lo escribo bien).
-- **Permiso**: Pide permiso de forma informal. Ejemplo:
-  > *Can I use your phone?* (¿Puedo usar tu teléfono?).
+## Explicación central
+### Forma
+- **Sujeto + can + verbo en infinitivo sin *to***: *She can speak French.* (no *She cans*, no *can to speak*, no *can speaks*).
+- Es igual para todas las personas: *I can, he can, they can*.
+- **Negativa**: *can't* / *cannot* (se escribe junto): *He can't drive.*
+- **Pregunta**: se invierte el orden: ***Can** you swim?* — *Yes, I can. / No, I can't.*
 
-### *Cannot/Can't* para imposibilidad o prohibición
-- **Imposibilidad**: Expresa que alguien no puede hacer algo. Ejemplo:
-  > *She can't drive because she has no license.* (Ella no puede conducir porque no tiene licencia).
-- **Prohibición**: Indica que algo está vedado. Ejemplo:
-  > *You can't smoke here.* (No puedes fumar aquí).
+### Usos
+- **Habilidad**: *I can play the guitar.* — *She can't cook.*
+- **Permiso** (pedir o dar): *Can I use your phone?* — *You can sit here.*
+- **Prohibición**: *You can't park here.*
+- **Pedido**: *Can you open the window?* (informal) — *Could you open the window, please?* (más cortés).
+- **Habilidad en el pasado**: *could* / *couldn't*: *When I was a child, I couldn't swim.*
 
-### *Could* para habilidad en el pasado y solicitudes formales
-- **Habilidad pasada**: Refiere a capacidades anteriores. Ejemplo:
-  > *When I was ten, I could ride a bike without training wheels.* (Cuando tenía diez años, podía montar en bicicleta sin ruedas de entrenamiento).
-- **Solicitudes formales o hipotéticas**: Se usa para pedir algo con más cortesía. Ejemplo:
-  > *Could you pass the salt, please?* (¿Podrías pasarme la sal, por favor?).
+### *Could* no es solo «podía»
+Para un logro concreto en una ocasión del pasado se usa *was able to* o *managed to*: *The fire was very big, but everybody **was able to** escape.* (no *could escape*). En negativa, *couldn't* sí sirve: *I couldn't open the door.*
 
-## Errores Comunes de Hispanohablantes
-1. **Confusión entre *can* y *could***: Usar *can* para acciones en el pasado (*I can go to the park last weekend* → error; debe ser *I could go...*).
-2. **Sustitución incorrecta de permisos**: Usar *can* en lugar de *may* o *could* para solicitudes formales (*Can I leave early?* puede sonar informal; *May I leave early?* es más adecuado).
-3. **Uso excesivo de *can't* para prohibiciones**: En contextos donde se requiere *mustn't* (*You can't eat here* → correcto; *You mustn't touch the展品* → más formal y específico).
+## Errores comunes de hispanohablantes
+1. **Agregar *to* o la -s**: ❌ *She can to swim.* ❌ *She cans swim.* ✅ *She can swim.*
+2. **No invertir en la pregunta**: ❌ *You can help me?* ✅ *Can you help me?*
+3. **Usar *can* para el pasado**: ❌ *Last year I can't drive.* ✅ *Last year I couldn't drive.*
+4. **Usar *can* para el futuro lejano o con otro modal**: ❌ *I will can go.* ✅ *I will be able to go.*
 
 ## Comparación con el español
-En español, la conjugación de *poder* varía según el tiempo:
-- **Presente**: *Puedo hablar español.* ↔ *I can speak Spanish.*
-- **Pasado**: *Podía nadar cuando era niño.* ↔ *I could swim when I was a child.* (El español usa *podía* para habilidad pasada, mientras que en inglés se prefiere *could*).
-- **Permiso**: *¿Puedes ayudarme?* ↔ *Can you help me?* (En español, *poder* también expresa permiso; en inglés, *can* es más común, aunque *may* es más formal).
+*Can* equivale a «poder» y «saber» (de habilidad): *I can swim* = «sé nadar». A diferencia de «poder», *can* no se conjuga: no tiene futuro ni infinitivo; para esos casos se usa *be able to* (*I'll be able to help you tomorrow*).
 
-## Ejemplo Extendido en Contexto
-**Diálogo entre dos amigos planeando un viaje:**
-*A: Hi, I'm planning a trip to the mountains. Can I bring my dog?*
-*B: Well, the hotel doesn't allow pets. But could you check with them first? Maybe they have an exception.*
-*A: Okay, I'll call them. And... can we hike in the morning?*
-*B: Absolutely! You can start at 8 AM. Oh, but don't forget your boots—you couldn't walk on rocks without them last time!*
-
-En este ejemplo, *can* expresa habilidad (*you can start*) y permiso (*Can I bring my dog?*), mientras que *could* se usa para recordar una experiencia pasada (*you couldn't walk... last time*).
+## Ejemplo extendido en contexto
+*A: **Can** you come to the party on Saturday?*
+*B: Sorry, I **can't**. I have an exam. But I **can** help you with the music tonight.*
+*A: Great! **Could** you bring your speakers, please?*
+*B: Sure. When I was at school I **couldn't** play any instrument, but now I **can** play the guitar!*

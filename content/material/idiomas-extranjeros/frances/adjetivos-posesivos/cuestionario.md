@@ -1,431 +1,253 @@
-# Idiomas — Francés — adjetivos-posesivos (cuestionario)
+# Francés — adjetivos posesivos (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/adjetivos-posesivos/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/frances/adjetivos-posesivos`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Adjetivo posesivo en singular  
+### 1 — mon
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "adjetivos-posesivos"
   nivel: "A1"
-  tags: ["singular", "masculino"]
-pasos:
-  - "Identificar el sujeto y el objeto en la oración."
-  - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-tipo: completar
-respuestas_validas:
-  - "mon"
-  - "Mon"
-enunciado: "________ livre est rouge. (Mi libro es rojo.)"
+  tags: ["posesivos"]
+
+respuesta: "mon"
+tipo: "mc"
+opciones_explicitas: ["mon", "ma", "mes"]
+
+enunciado: "C'est ___ livre."
+
+explicacion: |
+  *Livre* masc.: *mon*.
 ```
 
-### 2 — Adjetivo posesivo en plural  
+### 2 — ma
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "adjetivos-posesivos"
   nivel: "A1"
-  tags: ["plural", "femenino"]
-pasos:
-  - "Determinar el número y género del objeto."
-  - "Aplicar la regla de los adjetivos posesivos en plural femenino."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ chats sont noirs. (Mis gatos son negros.)"
+  tags: ["posesivos"]
+
+respuesta: "ma"
+tipo: "mc"
+opciones_explicitas: ["ma", "mon", "mes"]
+
+enunciado: "C'est ___ voiture."
+
+explicacion: |
+  *Voiture* fem.: *ma*.
 ```
 
-### 3 — Adjetivo posesivo para un amigo  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["singular", "masculino"]
-pasos:
-  - "Identificar el sujeto (tu) y el objeto (amigo)."
-  - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-tipo: completar
-respuestas_validas:
-  - "ton"
-  - "Ton"
-enunciado: "________ ami est très gentil. (Tu amigo es muy amable.)"
-```
+### 3 — mes
 
-### 4 — Adjetivo posesivo para una hermana  
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "adjetivos-posesivos"
   nivel: "A1"
-  tags: ["singular", "femenino"]
-pasos:
-  - "Determinar el género del objeto (hermana)."
-  - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-tipo: completar
-respuestas_validas:
-  - "ta"
-  - "Ta"
-enunciado: "________ sœur est médecin. (Tu hermana es médica.)"
-```
+  tags: ["posesivos"]
 
-### 5 — Adjetivo posesivo para un coche  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "masculino"]
-pasos:
-  - "Identificar el sujeto (mi) y el objeto (coche)."
-  - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-tipo: completar
-respuestas_validas:
-  - "mon"
-  - "Mon"
-enunciado: "________ voiture est bleue. (Mi coche es azul.)"
-```
-
-### 6 — Adjetivo posesivo para una casa  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "femenino"]
-pasos:
-  - "Determinar el género del objeto (casa)."
-  - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-tipo: completar
-respuestas_validas:
-  - "ma"
-  - "Ma"
-enunciado: "________ maison est grande. (Mi casa es grande.)"
-```
-
-### 7 — Adjetivo posesivo para un perro  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "masculino"]
-pasos:
-  - "Identificar el sujeto (mi) y el objeto (perro)."
-  - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-tipo: completar
-respuestas_validas:
-  - "mon"
-  - "Mon"
-enunciado: "________ chien est noir. (Mi perro es negro.)"
-```
-
-### 8 — Adjetivo posesivo para un hermano  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "masculino"]
-pasos:
-  - "Determinar el género del objeto (hermano)."
-  - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-tipo: completar
-respuestas_validas:
-  - "mon"
-  - "Mon"
-enunciado: "________ frère est sportif. (Mi hermano es deportista.)"
-```
-
-### 9 — Adjetivo posesivo para una madre  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "femenino"]
-pasos:
-  - "Identificar el sujeto (mi) y el objeto (madre)."
-  - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-tipo: completar
-respuestas_validas:
-  - "ma"
-  - "Ma"
-enunciado: "________ mère est très douce. (Mi madre es muy dulce.)"
-```
-
-### 10 — Adjetivo posesivo en plural para animales  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "masculino"]
-pasos:
-  - "Determinar el número y género del objeto (gatos)."
-  - "Aplicar la regla de los adjetivos posesivos en plural masculino."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ chats sont très actifs. (Mis gatos son muy activos.)"
-```
-
-### 11 — Adjetivo posesivo para un hermano y una hermana  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y el objeto (hermano/hermana)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ frères et sœurs sont à la maison. (Mis hermanos y hermanas están en casa.)"
-```
-
-### 12 — Adjetivo posesivo para una amiga  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "femenino"]
-pasos:
-  - "Determinar el género del objeto (amiga)."
-  - "Aplicar la regla de los adjetivos posesivos en singular femenino."
-tipo: completar
-respuestas_validas:
-  - "ta"
-  - "Ta"
-enunciado: "________ amie est très drôle. (Tu amiga es muy divertida.)"
-```
-
-### 13 — Adjetivo posesivo para un profesor  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A1"
-  tags: ["singular", "masculino"]
-pasos:
-  - "Identificar el sujeto (su) y el objeto (profesor)."
-  - "Aplicar la regla de los adjetivos posesivos en singular masculino."
-tipo: completar
-respuestas_validas:
-  - "son"
-  - "Son"
-enunciado: "________ professeur est très sympa. (Su profesor es muy simpático.)"
-```
-
-### 14 — Adjetivo posesivo para una casa y un coche  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y los objetos (casa/coche)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ maison et voiture sont neuves. (Mis casa y coche son nuevos.)"
-```
-
-### 15 — Adjetivo posesivo para una amiga y un amigo  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Determinar el número y género de los objetos (amiga/amigo)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ amies et amis sont à l'école. (Mis amigas y amigos están en la escuela.)"
-```
-
-### 16 — Adjetivo posesivo para un coche y una casa  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y los objetos (coche/casa)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ voiture et maison sont très belles. (Mis coche y casa son muy bonitas.)"
-```
-
-### 17 — Adjetivo posesivo para un hermano y una hermana  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Determinar el número y género de los objetos (hermano/hermana)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ frères et sœurs sont très intelligents. (Mis hermanos y hermanas son muy inteligentes.)"
-```
-
-### 18 — Adjetivo posesivo para un perro y un gato  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y los objetos (perro/gato)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ chiens et chats sont très doux. (Mis perros y gatos son muy suaves.)"
-```
-
-### 19 — Adjetivo posesivo para un hermano y una amiga  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Determinar el número y género de los objetos (hermano/amiga)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ frères et amies sont à la fête. (Mis hermanos y amigas están en la fiesta.)"
-```
-
-### 20 — Adjetivo posesivo para un profesor y una profesora  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y los objetos (profesor/profesora)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ professeurs et professeures sont très compétents. (Mis profesores y profesoras son muy competentes.)"
-```
-
-### 21 — Adjetivo posesivo para una casa y un perro  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Determinar el número y género de los objetos (casa/perro)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ maison et chien sont très beaux. (Mis casa y perro son muy bonitos.)"
-```
-
-### 22 — Adjetivo posesivo para un coche y una amiga  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y los objetos (coche/amiga)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ voiture et amie sont à Paris. (Mis coche y amiga están en París.)"
-```
-
-### 23 — Adjetivo posesivo para un hermano y una profesora  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Determinar el número y género de los objetos (hermano/profesora)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ frères et professeures sont très sympathiques. (Mis hermanos y profesoras son muy simpáticos.)"
-```
-
-### 24 — Adjetivo posesivo para un perro y una casa  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Identificar el sujeto (mis) y los objetos (perro/casa)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ chiens et maisons sont très beaux. (Mis perros y casas son muy bonitos.)"
-```
-
-### 25 — Adjetivo posesivo para un coche, una casa y un gato  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "adjetivos-posesivos"
-  nivel: "A2"
-  tags: ["plural", "mixto"]
-pasos:
-  - "Determinar el número y género de los objetos (coche/casa/gato)."
-  - "Aplicar la regla de los adjetivos posesivos en plural con objetos mixtos."
 respuesta: "mes"
-tipo: completar
-respuestas_validas:
-  - "mes"
-  - "Mes"
-enunciado: "________ voitures, maisons et chats sont très beaux. (Mis coches, casas y gatos son muy bonitos.)"
+tipo: "mc"
+opciones_explicitas: ["mes", "mon", "ma"]
+
+enunciado: "Ce sont ___ parents."
+
+explicacion: |
+  Plural: *mes*.
+```
+
+### 4 — Ante vocal
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "mon"
+tipo: "mc"
+opciones_explicitas: ["mon", "ma", "m'"]
+
+enunciado: "C'est ___ amie Sophie."
+
+explicacion: |
+  Femenino ante vocal: *mon amie*.
+```
+
+### 5 — Ante vocal (2)
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "Mon"
+tipo: "mc"
+opciones_explicitas: ["Mon", "Ma", "M'"]
+
+enunciado: "___ école est près d'ici."
+
+explicacion: |
+  *Mon école*.
+```
+
+### 6 — son/sa
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "son"
+tipo: "mc"
+opciones_explicitas: ["son", "sa", "ses"]
+
+enunciado: "Marie aime ___ père."
+
+explicacion: |
+  Concuerda con *père* (masc.).
+```
+
+### 7 — son/sa (2)
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "sa"
+tipo: "mc"
+opciones_explicitas: ["sa", "son", "ses"]
+
+enunciado: "Pierre aime ___ mère."
+
+explicacion: |
+  Concuerda con *mère* (fem.).
+```
+
+### 8 — leur
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "leur"
+tipo: "mc"
+opciones_explicitas: ["leur", "leurs", "son"]
+
+enunciado: "Ils adorent ___ maison."
+
+explicacion: |
+  Un objeto, varios dueños: *leur*.
+```
+
+### 9 — leurs
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "leurs"
+tipo: "mc"
+opciones_explicitas: ["leurs", "leur", "ses"]
+
+enunciado: "Ils adorent ___ enfants."
+
+explicacion: |
+  Varios objetos: *leurs*.
+```
+
+### 10 — notre / nos
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "Nos"
+tipo: "mc"
+opciones_explicitas: ["Nos", "Notre", "Nôtres"]
+
+enunciado: "___ amis arrivent ce soir."
+
+explicacion: |
+  Plural: *nos*.
+```
+
+### 11 — Pronombre
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "le mien"
+tipo: "mc"
+opciones_explicitas: ["le mien", "mon", "le mon"]
+
+enunciado: "Ce stylo est à toi ? — Non, c'est ___."
+
+explicacion: |
+  Pronombre: *le mien*.
+```
+
+### 12 — Cuerpo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: "J'ai mal à la tête."
+tipo: "mc"
+opciones_explicitas: ["J'ai mal à la tête.", "J'ai mal à ma tête.", "Ma tête a mal."]
+
+enunciado: "«Me duele la cabeza»:"
+
+explicacion: |
+  Partes del cuerpo: artículo.
+```
+
+### 13 — Error típico
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "adjetivos-posesivos"
+  nivel: "A1"
+  tags: ["posesivos"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«Ma amie s'appelle Léa» es correcta."
+
+explicacion: |
+  Falso: *Mon amie s'appelle Léa*.
 ```

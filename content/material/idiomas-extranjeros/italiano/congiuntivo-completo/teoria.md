@@ -1,60 +1,55 @@
-# El congiuntivo en italiano (nivel B2)
+# El congiuntivo: tiempos y concordancia (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/congiuntivo-completo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-El **congiuntivo** es un modo verbal que expresa dudas, deseos, obligaciones o supuestos. En el nivel B2 de CEFR, su estudio se centra en situaciones cotidianas: pedir algo, expresar opiniones, o comentar planes futuros. A diferencia del español, donde el congiuntivo es más frecuente, en italiano se usa solo en contextos específicos y no siempre después de preposiciones como *che*.
+En B2 hay que manejar los **cuatro tiempos del congiuntivo** y la **concordancia** con el verbo principal.
 
 ## Explicación central
-El congiuntivo se emplea tras verbos o expresiones que transmiten **deseo, obligación, duda, necesidad** o **suposición**. Por ejemplo:
+### Los cuatro tiempos
+| Tiempo | Formación | Ejemplo |
+|---|---|---|
+| **presente** | (ver B1) | *che io parli, che sia* |
+| **passato** | *abbia/sia* + participio | *che io abbia parlato, che sia partito* |
+| **imperfetto** | raíz + *-assi/-essi/-issi* | *che io parlassi, leggessi, dormissi* |
+| **trapassato** | *avessi/fossi* + participio | *che io avessi parlato, fossi partito* |
 
-- *"Spero che tu venga a cena."* (Espero que vengas a cenar)
-  → *Venga* es el congiuntivo presente de *venire*.
+**Imperfetto**: *parlassi, parlassi, parlasse, parlassimo, parlaste, parlassero*. Irregulares: *essere → fossi*, *dare → dessi*, *stare → stessi*, *fare → facessi*, *dire → dicessi*, *bere → bevessi*.
 
-- *"È necessario che voi siate puntuali."* (Es necesario que ustedes sean puntuales)
-  → *Siate* es el congiuntivo presente de *essere*, usado tras *necessario*.
+### Concordancia de tiempos
+| Principal | Simultánea | Anterior |
+|---|---|---|
+| presente/futuro (*penso*) | *che sia* | *che sia stato* |
+| pasado/condicional (*pensavo, vorrei*) | *che fosse* | *che fosse stato* |
 
-También se usa en oraciones condicionales:
-- *"Se fossi in te, non lo farei."* (Si yo fuera tú, no lo haría)
-  → *Fossi* es el congiuntivo imperfecto de *essere*, usado después de *se*.
+- *Penso che **sia** a casa / che **sia stato** a casa.*
+- *Pensavo che **fosse** a casa / che **fosse stato** a casa.*
+- *Vorrei che tu **venissi**.* (condicional → imperfetto)
 
-**Notas clave**:
-1. El congiuntivo **no se usa después de preposiciones** como *per*, *contro*, *senza*, etc., a menos que haya un sujeto. Ejemplo: *"Sto pensando di andare senza che lui sappia."* (Estoy pensando ir sin que él lo sepa).
-2. **No hay congiuntivo en el futuro**; se usan formas del infinitivo o verbos en presente. Ejemplo: *"Non credo che tu vada."* (No creo que vayas) → *vada* es correcto, pero *andare* también podría funcionar: *"Non credo che tu andrai."*
+### Otros contextos
+- Conjunciones: *benché, sebbene, nonostante, affinché, perché* (finalidad), *prima che, senza che, a condizione che, purché, a meno che, qualora*.
+- Relativas con antecedente buscado: *Cerco qualcuno che **parli** russo.*
+- Superlativo: *È il libro più bello che io **abbia** mai letto.*
+- Indefinidos: *chiunque, qualunque, dovunque*: *Chiunque **venga**, è benvenuto.*
+- Interrogativa indirecta (registro cuidado): *Non so dove **sia**.*
+- Deseo con ***magari***: *Magari **fosse** vero!* (¡ojalá!)
 
-## Errores comunes de hablantes hispanohablantes
-1. **Uso excesivo del congiuntivo**: En español, el congiuntivo se usa tras preposiciones como *que*, pero en italiano no es así. Ejemplo incorrecto: *"Non so che lui venga."* (No sé que él venga) → correcto es *"non so se lui venga"* o simplemente *"non so che lui venga"*.
-2. **Confusión con el infinitivo**: Algunos usan directamente el infinitivo donde se requiere el congiuntivo. Ejemplo incorrecto: *"Non voglio che tu andare."* → debe ser *"venga"* o *"tu vai"* (según el contexto).
-3. **Falta de concordancia en el sujeto**: El verbo del congiuntivo debe concordar con el sujeto de la oración subordinada, no con el principal. Ejemplo incorrecto: *"Spero che voi vengano."* → correcto es *"spero che voi veniate"*.
+## Errores comunes de hispanohablantes
+1. ❌ *Pensavo che è* ✅ *Pensavo che fosse*.
+2. ❌ *Vorrei che tu vieni* ✅ *Vorrei che tu venissi*.
+3. ❌ *che io fosse* ✅ *che io fossi*.
+4. Usar *perché* final con indicativo: ✅ *Te lo dico perché tu lo **sappia***.
 
 ## Comparación con el español
-En español, el congiuntivo se usa tras verbos que expresan **deseo, obligación o duda**, incluso después de preposiciones. Por ejemplo:
-- *"Quiero que vengas."* (Español) → *venga* es congiuntivo.
-- En italiano, esto sería *"Vorrei che tu venissi."* (Usar el congiuntivo imperfecto en este contexto).
-
-Otro caso:
-- *"Es posible que no venga."* (Español) → *venga* es congiuntivo.
-- En italiano: *"È possibile che non venga."* (El congiuntivo presente se usa aquí, aunque el español usaría el subjuntivo).
+La concordancia es muy parecida: «quería que **vinieras**» = *volevo che **venissi***. Diferencias: italiano usa congiuntivo tras verbos de opinión (*credo che sia*) y en preguntas indirectas cuidadas (*non so dove sia*).
 
 ## Ejemplo extendido en contexto
-**Situación**: Un grupo de amigos discute un viaje.
-
-*Alessia*: "Credo che dobbiamo prenotare l’aereo prima possibile." (Creo que debemos reservar el avión cuanto antes)
-→ *dobbiamo* es el indicativo, ya que no hay duda o deseo.
-
-*Lorenzo*: "Spero che tu abbia tempo per aiutarmi con le prenotazioni." (Espero que tengas tiempo para ayudarme con las reservas)
-→ *abbia* es el congiuntivo presente de *avere*, usado tras *spero*.
-
-*Alessia*: "Se fossimo in vacanza, andremmo a Roma." (Si estuviéramos de vacaciones, iríamos a Roma)
-→ *fossimo* es el congiuntivo imperfecto de *essere*, usado en oraciones condicionales.
-
-*Lorenzo*: "Non credo che lui venga con noi." (No creo que él venga con nosotros)
-→ *venga* es el congiuntivo presente, ya que hay duda sobre su presencia.
-
-Este ejemplo muestra cómo el congiuntivo se adapta a contextos de **deseo, duda o suposición**, mientras que el indicativo se usa en afirmaciones directas.
+*Pensavo che il treno **fosse** già **partito**, invece era in ritardo. Vorrei che le ferrovie **funzionassero** meglio, ma è il servizio peggiore che io **abbia** mai **usato**. Magari **cambiasse** qualcosa!*

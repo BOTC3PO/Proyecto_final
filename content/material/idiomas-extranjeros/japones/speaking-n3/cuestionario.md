@@ -1,458 +1,216 @@
-# Idiomas — Japonés — speaking-n3 (cuestionario)
+# Japonés — speaking N3 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/japones/speaking-n3/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/japones/speaking-n3`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — 自己紹介
+### 1 — Opinión suave
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["自己紹介", "動詞"]
-pasos:
-  - "Completa la oración con el verbo adecuado."
-explicacion: "El verbo 'ser' (です・ます) se usa para describir características permanentes, mientras que 'hacer' (する) expresa acciones temporales."
-respuestas_validas:
-  - "です"
-  - "は"
-  - "に"
-tipo: completar
-enunciado: "私は______学生です。"
+  tags: ["speaking", "N3"]
+
+respuesta: "それはちょっと違うんじゃないかと思います。"
+tipo: "mc"
+opciones_explicitas: ["それはちょっと違うんじゃないかと思います。", "それは間違いだ。", "違う！"]
+
+enunciado: "Para objetar con suavidad:"
+
+explicacion: |
+  Opinión atenuada.
 ```
 
-### 2 — 飲食店での会話
+### 2 — し
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["飲食店", "敬語"]
-pasos:
-  - "Elige la opción que muestra cortesía en el contexto de un restaurante."
-opciones_explicitas:
-  - "すみません、カウンターでお願いできますか？"
-  - "カウンターでください。"
-  - "カウンターは嫌です。"
-respuesta: "すみません、カウンターでお願いできますか？"
-tipo: mc
-enunciado: "客がカウンター席を希望するとき、最も適切な表現は？"
+  tags: ["speaking", "N3"]
+
+respuesta: "し"
+tipo: "mc"
+opciones_explicitas: ["し", "から", "けど"]
+
+enunciado: "Para enumerar razones: このアパートは安い＿＿、駅に近い＿＿、いいですね。"
+
+explicacion: |
+  〜し、〜し.
 ```
 
-### 3 — 見聞の話題
+### 3 — んです
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["見聞", "過去"]
-pasos:
-  - "Completa la oración con el verbo en forma de past."
-explicacion: "El uso de 「ました」 indica acciones completadas en el pasado."
-respuestas_validas:
-  - "行きました"
-  - "行った"
-  - "行きましょう"
-tipo: completar
-enunciado: "先週、友達と______。"
+  tags: ["speaking", "N3"]
+
+respuesta: "道に迷ってしまったんです。"
+tipo: "mc"
+opciones_explicitas: ["道に迷ってしまったんです。", "道に迷うんです。", "道に迷いましょう。"]
+
+enunciado: "Para explicar que te perdiste:"
+
+explicacion: |
+  〜んです explica.
 ```
 
-### 4 — 旅行の計画
+### 4 — Consulta
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["旅行", "未来"]
-pasos:
-  - "Elige la opción que expresa un plan futuro."
-opciones_explicitas:
-  - "来週、東京へ遊びに行きます。"
-  - "来週、東京へ遊びに行きました。"
-  - "来週、東京へ遊びに行きましょうか？"
-respuesta: "来週、東京へ遊びに行きます。"
-tipo: mc
-enunciado: "友達と旅行に行く予定を述べるとき、最も自然な表現は？"
+  tags: ["speaking", "N3"]
+
+respuesta: "実は、ちょっと相談があるんですが…"
+tipo: "mc"
+opciones_explicitas: ["実は、ちょっと相談があるんですが…", "相談しろ。", "相談がある。以上。"]
+
+enunciado: "Para empezar a pedir un consejo:"
+
+explicacion: |
+  Fórmula habitual.
 ```
 
-### 5 — 学校生活
+### 5 — たら
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["学校", "現在"]
-pasos:
-  - "Completa la oración con el verbo en forma de presente."
-explicacion: "「います」 indica presencia o estado actual, mientras que 「いる」 es más informal."
-respuestas_validas:
-  - "います"
-  - "いる"
-  - "いた"
-tipo: completar
-enunciado: "教室には______。"
+  tags: ["speaking", "N3"]
+
+respuesta: "たら"
+tipo: "mc"
+opciones_explicitas: ["たら", "ても", "ながら"]
+
+enunciado: "駅に着い＿＿、電車がもう出ていました。"
+
+explicacion: |
+  〜たら: descubrimiento.
 ```
 
-### 6 — 感情の表現
+### 6 — Secuencia
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["感情", "感嘆"]
-pasos:
-  - "Elige la opción que expresa sorpresa."
-opciones_explicitas:
-  - "信じられない！"
-  - "これは好きです。"
-  - "とても寒いですね。"
-respuesta: "信じられない！"
-tipo: mc
-enunciado: "何か驚かされたときに使う最も適切な表現は？"
+  tags: ["speaking", "N3"]
+
+respuesta: "まず"
+tipo: "mc"
+opciones_explicitas: ["まず", "最後に", "結局"]
+
+enunciado: "Para empezar un relato ordenado:"
+
+explicacion: |
+  Secuencia.
 ```
 
-### 7 — 職業の話題
+### 7 — Trabajo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["職業", "現在"]
-pasos:
-  - "Completa la oración con el verbo adecuado."
-explicacion: "「しています」 indica una acción continua en el presente."
-respuestas_validas:
-  - "しています"
-  - "する"
-  - "しました"
-tipo: completar
-enunciado: "私は______。"
+  tags: ["speaking", "N3"]
+
+respuesta: "この資料を見ていただけませんか。"
+tipo: "mc"
+opciones_explicitas: ["この資料を見ていただけませんか。", "この資料見て。", "この資料を見ろ。"]
+
+enunciado: "Pedido cortés al jefe:"
+
+explicacion: |
+  〜ていただけませんか.
 ```
 
-### 8 — 時間の表現
+### 8 — Registro
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["時間", "未来"]
-pasos:
-  - "Elige la opción que indica un horario futuro."
-opciones_explicitas:
-  - "午後2時から会議があります。"
-  - "午後2時から会議がありました。"
-  - "午後2時から会議がしましょうか？"
-respuesta: "午後2時から会議があります。"
-tipo: mc
-enunciado: "予定を述べるとき、最も自然な表現は？"
+  tags: ["speaking", "N3"]
+
+respuesta: "明日、いらっしゃいますか。"
+tipo: "mc"
+opciones_explicitas: ["明日、いらっしゃいますか。", "明日、来る？", "明日、来いよ。"]
+
+enunciado: "Con tu jefe, «¿Viene mañana?»:"
+
+explicacion: |
+  Sonkeigo.
 ```
 
-### 9 — 疾病の話題
+### 9 — Aclaración
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["疾病", "過去"]
-pasos:
-  - "Completa la oración con el verbo en forma de past."
-explicacion: "「ました」 indica una acción completada, mientras que 「た」 es más informal."
-respuestas_validas:
-  - "熱がありました"
-  - "熱がした"
-  - "熱がある"
-tipo: completar
-enunciado: "昨日、______。"
+  tags: ["speaking", "N3"]
+
+respuesta: "「締め切り」って何ですか。"
+tipo: "mc"
+opciones_explicitas: ["「締め切り」って何ですか。", "「締め切り」はだれですか。", "「締め切り」をください。"]
+
+enunciado: "Para preguntar qué significa una palabra:"
+
+explicacion: |
+  〜って何ですか.
 ```
 
-### 10 — 祝福の表現
+### 10 — Confirmar
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["祝福", "現在"]
-pasos:
-  - "Elige la opción que expresa deseo en el presente."
-opciones_explicitas:
-  - "お幸せに！"
-  - "お幸せでしたね。"
-  - "お幸せしましょうか？"
-respuesta: "お幸せに！"
-tipo: mc
-enunciado: "結婚式の場面で最も適切な祝福は？"
+  tags: ["speaking", "N3"]
+
+respuesta: "つまり、明日は休みということですか。"
+tipo: "mc"
+opciones_explicitas: ["つまり、明日は休みということですか。", "明日休め。", "明日は休みですよ、ね、ね。"]
+
+enunciado: "Para confirmar lo entendido:"
+
+explicacion: |
+  〜ということですか.
 ```
 
-### 11 — 天気の話題
+### 11 — Sentimiento
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "speaking-n3"
   nivel: "N3"
-  tags: ["天気", "現在"]
-pasos:
-  - "Completa la oración con el verbo adecuado."
-explicacion: "「ています」 indica un estado continuo en el presente."
-respuestas_validas:
-  - "しています"
-  - "する"
-  - "しました"
-tipo: completar
-enunciado: "今日の天気は______。"
-```
+  tags: ["speaking", "N3"]
 
-### 12 — 運動の話題
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["運動", "未来"]
-pasos:
-  - "Elige la opción que expresa un plan futuro."
-opciones_explicitas:
-  - "来週、ジムにいきます。"
-  - "来週、ジムにいきました。"
-  - "来週、ジムに行きましょうか？"
-respuesta: "来週、ジムにいきます。"
-tipo: mc
-enunciado: "運動を始める予定を述べるとき、最も自然な表現は？"
-```
+respuesta: "友達が来てくれてうれしかったです。"
+tipo: "mc"
+opciones_explicitas: ["友達が来てくれてうれしかったです。", "友達が来てうれしいました。", "友達が来たのにうれしかった。"]
 
-### 13 — 買物の話題
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["買い物", "現在"]
-pasos:
-  - "Completa la oración con el verbo adecuado."
-explicacion: "「しています」 indica una acción continua en el presente."
-respuestas_validas:
-  - "しています"
-  - "する"
-  - "しました"
-tipo: completar
-enunciado: "私は今______。"
-```
+enunciado: "«Me alegró que viniera mi amigo»:"
 
-### 14 — 電話の会話
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["電話", "現在"]
-pasos:
-  - "Elige la opción que expresa una situación actual."
-opciones_explicitas:
-  - "今、友達と話しています。"
-  - "今、友達と話しました。"
-  - "今、友達と話しましょうか？"
-respuesta: "今、友達と話しています。"
-tipo: mc
-enunciado: "現在の状況を述べるとき、最も自然な表現は？"
-```
-
-### 15 — 誕生日の話題
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["誕生日", "過去"]
-pasos:
-  - "Completa la oración con el verbo en forma de past."
-explicacion: "「ました」 indica una acción completada, mientras que 「た」 es más informal."
-respuestas_validas:
-  - "やりました"
-  - "やった"
-  - "やります"
-tipo: completar
-enunciado: "昨日、誕生日を______。"
-```
-
-### 16 — 観光の話題
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["観光", "未来"]
-pasos:
-  - "Elige la opción que expresa un plan futuro."
-opciones_explicitas:
-  - "来月、京都へ旅行に行きます。"
-  - "来月、京都へ旅行に行きました。"
-  - "来月、京都へ旅行に行きましょうか？"
-respuesta: "来月、京都へ旅行に行きます。"
-tipo: mc
-enunciado: "観光を計画するとき、最も自然な表現は？"
-```
-
-### 17 — 結婚の話題
-```
-metadata:  
-  materia: "japones"  
-  tema: "speaking-n3"  
-  nivel: "N3"  
-  tags: ["予約", "て-form"]  
-pasos:  
-  - "Identificar la estructura de 'te-form' para hacer una reserva."  
-  - "Verificar el uso correcto del verbo en el contexto."  
-respuestas_validas:  
-  - "予約して"  
-  - "予約して"  
-tipo: completar  
-enunciado: "レストランで夕食を______。"  
-explicacion: "El te-form de '予約する' (reservar) es '予約して', que se usa para conectar acciones en secuencia. La oración indica una acción futura con propósito."
-```
-
-### 18 — 学校行事の話題
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["学校行事", "未来"]
-pasos:
-  - "Elige la opción que expresa un plan futuro."
-opciones_explicitas:
-  - "来週、文化祭があります。"
-  - "来週、文化祭がありました。"
-  - "来週、文化祭がしましょうか？"
-respuesta: "来週、文化祭があります。"
-tipo: mc
-enunciado: "学校行事の予定を述べるとき、最も自然な表現は？"
-```
-
-### 19 — 疾病の話題（2）
-```
-metadata:  
-  materia: "japones"  
-  tema: "speaking-n3"  
-  nivel: "N3"  
-  tags: ["未来", "行く"]  
-pasos:  
-  - "Reconocer el uso del verbo '行く' en contexto futuro."  
-  - "Seleccionar la forma correcta para expresar intención."  
-opciones_explicitas:  
-  - "音楽会に行きます"  
-  - "音楽会にいきます"  
-  - "音楽会に行くことになりました"  
-respuesta: "音楽会に行きます"  
-tipo: mc  
-enunciado: "来週、友達と______。"  
-explicacion: "La forma polite '行きます' es correcta para expresar una intención futura. La opción 2 tiene kana incorrecto y la tercera es un estilo más formal."
-```
-
-### 20 — 天気の話題（2）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["天気", "未来"]
-pasos:
-  - "Elige la opción que expresa un horario futuro."
-opciones_explicitas:
-  - "明日、雨が降ります。"
-  - "明日、雨が降りました。"
-  - "明日、雨が降りましょうか？"
-respuesta: "明日、雨が降ります。"
-tipo: mc
-enunciado: "天気予報を述べるとき、最も自然な表現は？"
-```
-
-### 21 — 運動の話題（2）
-```
-metadata:  
-  materia: "japones"  
-  tema: "speaking-n3"  
-  nivel: "N3"  
-  tags: ["現在", "ています"]  
-pasos:  
-  - "Identificar el uso del 'te-form' para describir acciones en progreso."  
-  - "Verificar la concordancia con el verbo principal."  
-respuestas_validas:  
-  - "話しています"  
-  - "話してます"  
-tipo: completar  
-enunciado: "今、友達と______。"  
-explicacion: "El 'te-form' de '話す' (hablar) es '話して', que se combina con 'います' para indicar una acción continua. Ambas formas son aceptables."
-```
-
-### 22 — Cortesía con clientes
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["自己紹介", "動詞"]
-enunciado: "Al presentar un producto a un cliente, ¿cuál es la frase más cortés?"
-tipo: mc
-opciones_explicitas:
-  - "こちらが新しい商品でございます。"
-  - "これ、新しいやつだよ。"
-  - "これは新しいぞ。"
-respuesta: "こちらが新しい商品でございます。"
-explicacion: "でございます es el registro más cortés (keigo) para atender clientes."
-```
-
-### 23 — 電話の会話（2）
-```
-metadata:  
-  materia: "japones"  
-  tema: "speaking-n3"  
-  nivel: "N3"  
-  tags: ["未来", "する"]  
-pasos:  
-  - "Identificar el uso del verbo en forma base para expresar planes futuros."  
-  - "Verificar la concordancia con el sujeto y el tiempo."  
-respuestas_validas:  
-  - "家族と旅行します"  
-  - "家族と旅行する"  
-tipo: completar  
-enunciado: "週末、______。"  
-explicacion: "La forma base 'する' se usa para expresar planes futuros. Ambas formas son válidas, pero la primera es más común en conversaciones."
-```
-
-### 24 — 誕生日の話題（2）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "speaking-n3"
-  nivel: "N3"
-  tags: ["誕生日", "未来"]
-pasos:
-  - "Elige la opción que expresa un plan futuro."
-opciones_explicitas:
-  - "来月、誕生日を祝います。"
-  - "来月、誕生日を祝いました。"
-  - "来月、誕生日を祝しましょうか？"
-respuesta: "来月、誕生日を祝います。"
-tipo: mc
-enunciado: "誕生日の予定を述べるとき、最も自然な表現は？"
-```
-
-### 25 — 観光の話題（2）
-```
-metadata:  
-  materia: "japones"  
-  tema: "speaking-n3"  
-  nivel: "N3"  
-  tags: ["挨拶", "素敵です"]  
-pasos:  
-  - "Reconocer el uso de '素敵です' para expresar admiración."  
-  - "Seleccionar la opción con la estructura correcta."  
-opciones_explicitas:  
-  - "この着物、素敵です"  
-  - "この着物、すみません"  
-  - "この着物、ごめんなさい"  
-respuesta: "この着物、素敵です"  
-tipo: mc  
-enunciado: "彼女の______。"  
-explicacion: "La opción 1 es la única que usa un adjetivo positivo ('素敵') correctamente. Las otras opciones no expresan admiración."
+explicacion: |
+  〜てくれてうれしい.
 ```

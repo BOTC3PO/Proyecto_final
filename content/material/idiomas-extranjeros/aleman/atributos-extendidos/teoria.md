@@ -1,48 +1,51 @@
-# Atributos extendidos en alemán (nivel B2)
+# Atributos extendidos con participio en alemán (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/atributos-extendidos`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Los **atributos extendidos** en alemán son formas de adjetivos que se modifican según su posición en la oración, el caso gramatical y el tipo de preposición o conjunción que los antecede. Este tema es clave en el nivel B2 porque permite expresar ideas con mayor precisión y adaptarse a estructuras gramaticales complejas, como oraciones subordinadas o descripciones detalladas.
+El **atributo extendido** (*erweitertes Partizipialattribut*) es una construcción típica del alemán escrito: entre el artículo y el sustantivo se coloca un **participio con sus complementos**, en lugar de una oración de relativo.
+*das **seit Jahren leer stehende** Haus* = *das Haus, **das seit Jahren leer steht*** (la casa que está vacía desde hace años).
 
 ## Explicación central
-En alemán, los adjetivos pueden tomar distintas formas dependiendo de su función:
+### Dos participios
+- **Partizip I** (infinitivo + *-d*): sentido **activo** y **simultáneo**: *der **schlafende** Hund* = el perro que duerme.
+- **Partizip II**: sentido **pasivo** (verbos transitivos) o de **acción terminada**: *das **gestohlene** Auto* = el auto que fue robado; *der **angekommene** Zug* = el tren que llegó.
 
-1. **Después de preposiciones que requieren el caso dativo o acusativo**:
-   - Ejemplo 1: *Er ist **als groß** bekannt.* ("Es conocido como alto").
-     Aquí, "groß" se transforma en **groß** (sin cambio) porque la preposición "als" requiere el caso nominativo.
-   - Ejemplo 2: *Sie interessiert sich **für eine moderne Lösung**.* ("Se interesa por una solución moderna").
-     El adjetivo "moderne" no cambia porque está en el caso acusativo y precede a un sustantivo singular.
+### Estructura
+**artículo + complementos + participio declinado + sustantivo**
+*die **von der Regierung geplante** Reform* (la reforma planeada por el gobierno)
+*der **im letzten Jahr eröffnete** Flughafen* (el aeropuerto inaugurado el año pasado)
+*die **ständig steigenden** Preise* (los precios que suben constantemente)
 
-2. **En oraciones subordinadas**:
-   - Ejemplo 3: *Der Mann, **den ich gesehen habe**, war sehr **freundlich**.* ("El hombre que vi era muy amable").
-     El adjetivo "freundlich" se usa en forma base (sin cambio) porque está en el caso acusativo y no precede directamente al sustantivo.
+El participio se declina como un adjetivo.
 
-3. **Con conjunciones como *als* o *wie***:
-   - Ejemplo 4: *Sie ist **wie jung** wie ich.* ("Es tan joven como yo").
-     Aquí, "jung" se mantiene en forma base porque la conjunción "wie" requiere el caso nominativo.
+### Cómo leerlos
+1. Encontrar el artículo y **saltar hasta el sustantivo** que concuerda con él.
+2. Leer el participio (justo antes del sustantivo).
+3. Leer los complementos de adelante hacia el participio.
+4. Reformular como relativa: *das Haus, das seit Jahren leer steht*.
+
+### *zu* + Partizip I: obligación o posibilidad
+*die **zu lösenden** Probleme* = los problemas que hay que resolver (*die gelöst werden müssen*).
+
+### Adjetivos extendidos
+También con adjetivos: *ein **für sein Alter sehr kluges** Kind*.
 
 ## Errores comunes de hispanohablantes
-- **Olvidar los cambios de -en**: Los hablantes de español a menudo omiten la terminación **-en** después de preposiciones que requieren el caso acusativo. Por ejemplo, *in einem kleinen Laden* ("en una tienda pequeña") es correcto, pero decir *"in ein kleine Laden"* sería un error.
-- **Uso incorrecto en oraciones subordinadas**: Algunos confunden la forma del adjetivo si no va directamente antes del sustantivo. Por ejemplo: *Der Film, den ich gesehen habe, war **interessant**.* ("El film que vi era interesante") es correcto, pero decir *"der Film, den ich gesehen habe, war **interessanten**"* sería incorrecto.
+1. Leer de izquierda a derecha sin buscar el sustantivo: se pierde el hilo.
+2. Confundir Partizip I y II: *die **lesende** Frau* (que lee) / *das **gelesene** Buch* (leído).
+3. Olvidar declinar: ❌ *die gestern angekommen Gäste* ✅ *angekommenen*.
 
 ## Comparación con el español
-En español, los adjetivos no cambian de forma según el caso gramatical o la posición en la oración, a diferencia del alemán. Por ejemplo:
-- Español: *El coche **rápido**.* ("El coche rápido") / *La casa **grande**.* ("La casa grande").
-- Alemán: *Der **schnelle** Wagen* (el coche rápido, caso nominativo) vs. *eine **große** Wohnung* (una habitación grande, caso nominativo).
+El español usa casi siempre una relativa («la reforma que planeó el gobierno») o un participio pospuesto («la reforma planeada por el gobierno»). El alemán coloca toda esa información **antes** del sustantivo, algo que en español sería imposible.
 
 ## Ejemplo extendido en contexto
-**Situación**: Un estudiante describe su viaje a Berlín.
-> "Ich habe **in einer alten Stadt** gewohnt, die sehr **interessant** war. Die Leute dort waren **freundlich**, und ich fand **die Atmosphäre in dem kleinen Café** **wunderbar**. Es war **wie ein Abenteuer**, das ich nie vergessen werde."
-
-- *in einer alten Stadt*: "en una antigua ciudad" (caso acusativo, adjetivo con -en).
-- *interessant*: "interesante" (forma base en oración subordinada).
-- *wunderbar*: "maravilloso" (adjetivo en caso nominativo, sin cambio).
-
-Este uso correcto de los atributos extendidos permite una descripción clara y natural del contexto.
+*Die **von der Stadt geplante** Umgehungsstraße soll den **ständig zunehmenden** Verkehr reduzieren. Die **seit Monaten protestierenden** Anwohner kritisieren jedoch die **dafür zu fällenden** Bäume.*

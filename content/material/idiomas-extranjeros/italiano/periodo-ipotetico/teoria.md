@@ -1,63 +1,51 @@
-# Periodo ipotetico: estructura y uso en italiano (nivel B2)
+# El periodo ipotetico en italiano (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/periodo-ipotetico`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-El *periodo ipotetico* es una construcción gramatical que expresa situaciones condicionales o hipotéticas, es decir, acciones que dependen de un supuesto. En italiano, se forma con la conjunción **"se"** (si) seguida de un verbo en modo subjuntivo y, en la oración principal, un verbo en modo condicional o indicativo según el contexto. Es fundamental para expresar deseos, posibilidades futuras o hipótesis contrarias a la realidad. En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), su dominio permite comunicarse con mayor flexibilidad al hablar de situaciones condicionales en contextos cotidianos o hipotéticos.
-
----
+El **periodo ipotetico** es la oración condicional: ***se*** + condición, consecuencia. Hay tres tipos según el grado de realidad.
 
 ## Explicación central
-El *periodo ipotetico* se divide en **dos partes**: la oración subordinada (con "se") y la oración principal. La estructura varía según el tipo de supuesto:
+### I. Realidad (probable)
+***se* + presente / futuro → presente / futuro / imperativo**
+*Se piove, resto a casa. Se avrai tempo, chiamami.*
 
-1. **Hipótesis posible o futura**:
-   - *Se avessi più tempo, andrei al cinema.* (Si tuviera más tiempo, iría al cine.)
-     → "Avessi" es el subjuntivo imperfecto del verbo *avere* en primera persona del singular.
+### II. Posibilidad (poco probable o imaginaria en el presente)
+***se* + congiuntivo imperfetto → condizionale presente**
+*Se **avessi** tempo, **leggerei** di più. Se **fossi** in te, **accetterei**.*
 
-2. **Hipótesis improbable o contraria a la realidad**:
-   - *Se fossi ricco, viaggeresti sempre.* (Si fueras rico, viajarías siempre.)
-     → "Fossi" es el subjuntivo imperfecto de *essere* en primera persona del singular.
+### III. Irrealidad (pasado que no ocurrió)
+***se* + congiuntivo trapassato → condizionale passato**
+*Se **avessi studiato**, **avrei passato** l'esame.*
 
-3. **Hipótesis irreal en pasado**:
-   - *Se avessi studiato ieri, non sarei in difficoltà oggi.* (Si hubiera estudiado ayer, no estaría en dificultades hoy.)
-     → "Avessi" (subjuntivo imperfecto) y "sarei" (condicional presente) indican una acción pasada hipotética.
+### Mixtos
+- Condición pasada, consecuencia presente: *Se **avessi studiato** medicina, ora **sarei** medico.*
+- Condición presente, consecuencia pasada: *Se **fossi** più attento, non **avresti fatto** quell'errore.*
 
-En todos los casos, la oración principal usa el **modo condicional** o el **indicativo**, dependiendo de la veracidad del supuesto.
+### En el habla
+En la conversación aparece el **imperfetto** en ambas partes para el tipo III: *Se lo **sapevo**, non **venivo**.* Es coloquial; en lo escrito se usa la forma estándar.
 
----
+### Otras formas de expresar condición
+***nel caso in cui, qualora*** (+ congiuntivo), ***a patto che, purché***, gerundio: ***Volendo**, potresti farlo.*
+
+### Nunca
+*se* + condizionale: ❌ *Se avrei tempo…*
 
 ## Errores comunes de hispanohablantes
-Los estudiantes de español suelen confundir el uso del subjuntivo y el indicativo en italiano. Por ejemplo:
-
-- ✔ *Se lui **avesse** tempo, lo chiamerei.* (Correcto: "avesse" es subjuntivo).
-- ❌ *Se lui **ha** tempo, lo chiamerei.* (Error: se usa el subjuntivo, no el indicativo).
-
-Otra dificultad es la selección de tiempos verbales. Por ejemplo, en hipótesis irreal del pasado, se requiere el **subjuntivo imperfecto** en la subordinada y el **condicional compuesto** en la principal:
-- *Se **avessi studiato** ieri, non **sarei in difficoltà** oggi.*
-
----
+1. ❌ *Se avrei* ✅ *Se avessi*.
+2. ❌ *Se ero ricco, viaggerei* ✅ *Se fossi ricco*.
+3. ❌ *Se avessi studiato, passerei l'esame ieri* ✅ *avrei passato*.
 
 ## Comparación con el español
-En español, las hipótesis irreales del pasado usan el subjuntivo imperfecto en la subordinada y el condicional compuesto en la principal:
-- *Si **hubiera estudiado** ieri, no **estaría en dificultades** hoy.*
-
-La estructura es similar al italiano, pero en español se añade el verbo "haber" en la subordinada (excepción: cuando el sujeto es el mismo que en la principal). En cambio, en italiano, el auxiliar no siempre aparece explícitamente, como en *Se **avessi** tempo* (sin "avere" antes de "tempo").
-
----
+Se corresponde exactamente con el español: «si **tuviera**, **leería**» = *se **avessi**, **leggerei***; «si **hubiera** estudiado, **habría** aprobado» = *se **avessi** studiato, **avrei** passato*. Igual que en español, tras *se/si* nunca va condicional.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Marco: Se tu **fossi** un pittore famoso, dove ti piacerebbe esporre le tue opere?*
-*Alessia: Se fossi un pittore famoso, mi piacerebbe esporle al Louvre a Parigi. Ma per fortuna non è necessario perché ho già una galleria privata.*
-
-**Traducción:**
-Marco: Si fueras un pintor famoso, ¿dónde te gustaría exponer tus obras?
-Alessia: Si fuera un pintor famoso, me gustaría exponerlas en el Louvre de París. Pero gracias a Dios no es necesario porque ya tengo una galería privada.
-
-Este ejemplo muestra cómo el *periodo ipotetico* permite expresar deseos hipotéticos (fossi) y acciones condicionales (mi piacerebbe). La combinación de subjuntivo e indicativo refuerza la estructura gramatical del italiano.
+*Se **vincessi** alla lotteria, **comprerei** una casa al mare. Se l'anno scorso **avessi risparmiato**, ora **potrei** fare un viaggio. Ma se domani **piove**, **resterò** a casa a leggere: anche questo va bene!*

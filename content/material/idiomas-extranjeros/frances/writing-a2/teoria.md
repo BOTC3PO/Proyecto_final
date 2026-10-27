@@ -1,49 +1,50 @@
-# Escritura en nivel A2: Estructuras básicas y coherencia
+# Expresión escrita en francés (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/writing-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel A2 de francés, la escritura implica producir textos simples y claros sobre temas cotidianos, utilizando estructuras gramaticales básicas y vocabulario aprendido. Es fundamental dominar la concordancia sujeto-verbo, el uso correcto de artículos definidos e indefinidos, y la organización lógica de ideas para comunicarse eficazmente. Este nivel se centra en construir frases cortas y coherentes, evitando errores que puedan dificultar la comprensión del interlocutor.
+En A2 se escriben **textos breves y simples**: mensajes, postales, correos personales, notas, formularios. Lo importante es **comunicar la información** con frases claras y bien conectadas.
 
-## Explicación central con ejemplos
-En francés A2, las oraciones suelen seguir el patrón **sujeto + verbo + complemento**, como en:
-- *Je mange une pomme.* (Yo como una manzana.)
-- *Elle habite à Paris.* (Ella vive en París.)
+## Explicación central
+### Estructura de un correo personal
+1. **Saludo**: *Salut Marie ! / Chère Marie, / Cher Paul,*
+2. **Motivo**: *Je t'écris pour te dire que… / Merci pour ton message.*
+3. **Desarrollo**: 2 o 3 ideas.
+4. **Cierre**: *À bientôt ! Bisous. / Grosses bises. / Amitiés.*
+5. **Firma**.
 
-Los artículos definidos (*le, la, les*) y los indefinidos (*un, une, des*) son esenciales para referirse a objetos o personas. Por ejemplo:
-- *Je veux un café.* (Quiero un café.) → Artículo indefinido antes de sustantivo masculino singular.
-- *Il a deux chiens.* (Él tiene dos perros.) → Artículo definido (*les*) se omite antes de plural, pero se usa con números: *deux chiens*.
+### Frases y conectores básicos
+*et, mais, ou, parce que, alors, aussi, d'abord, ensuite, après*.
 
-Los verbos en presente siguen reglas específicas, como la concordancia con el sujeto. Por ejemplo:
-- *Tu es fatigué.* (Tú estás cansado.) → Verbo *être* en segunda persona del singular.
-- *Nous allons au cinéma.* (Vamos al cine.) → Verbo *aller* en primera persona plural, con preposición *au* (*à + le*).
+### Tiempos
+- Presente para la rutina; *passé composé* para lo que pasó; *futur proche* para planes.
+
+### Puntuación francesa
+- Espacio **antes** de `? ! ; :` en el francés de Francia: *Ça va ? Super !*
+- Comillas: *« … »*.
+
+### Ortografía que suele fallar
+*beaucoup, toujours, aujourd'hui, très, à* (preposición) / *a* (verbo), *où* (dónde) / *ou* (o), *c'est* / *s'est*.
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto de artículos**: A menudo se omiten o se usan artículos definidos antes de sustantivos plurales, como en *Je veux des café* (error) en lugar de *Je veux du café* (*du* para sustantivos masculinos singulares no contables).
-2. **Preposiciones confundidas**: Se suele usar *en* cuando se requiere *à*, como en *Il habite en Paris* (error) → debe ser *à Paris*.
-3. **Concordancia sujeto-verbo**: Errores con los verbos de estar (*être*) o tener (*avoir*), por ejemplo: *Elle est fatigue* (error, falta el artículo: *fatiguée*).
+1. ❌ *Querida Marie* ✅ *Chère Marie* (con *e* para mujer: *Cher Paul / Chère Marie*).
+2. ❌ *Je suis allé a Paris* ✅ *à Paris*.
+3. ❌ *aujourdhui* ✅ *aujourd'hui*.
+4. Olvidar el acento: *très, à, où*.
 
 ## Comparación con el español
-Algunas diferencias clave que ayudan a fijar la regla:
-- **Artículos definidos**: En francés, se usan siempre antes de sustantivos masculinos o femeninos singulares, incluso si comienzan con vocal. Ejemplo: *le chat* (el gato) vs. *el gato* en español.
-- **Preposiciones**: En francés, *à* se usa para indicar lugar (*à Paris*) mientras que en español es *en París*. También hay casos donde *de* en francés equivale a *de* o *a* en español: *le livre de Marie* (el libro de María) vs. *el libro de María*.
-- **Concordancia**: En francés, los adjetivos concuerdan en género y número con el sustantivo, mientras que en español solo en género. Ejemplo: *une chaise rouge* (una silla roja) vs. *una silla roja* (sin concordancia numérica).
+La estructura del correo es igual. Diferencias: el saludo *Cher/Chère* concuerda con el destinatario y en francés de Francia hay un espacio antes de los signos dobles. No existen los signos de apertura (¿ ¡).
 
 ## Ejemplo extendido en contexto
-**Situación**: Un estudiante habla con un amigo sobre sus planes para el fin de semana.
-
-**Texto**:
-Je dois faire mes devoirs ce soir, mais je veux regarder un film après. Mon ami me dit: *«Veux-tu aller au cinéma samedi?»* Je réponds: *«Oui, j’aimerais bien!»* Puis, je pense à acheter des glaces pour le dessert.
-
-**Explicación**:
-- **Concordancia**: *Je dois*, *je veux*, *j’aimerais* → verbo en primera persona singular.
-- **Preposiciones**: *aller au cinéma* (ir al cine), *acheter des glaces* (comprar helados).
-- **Estructura lógica**: La oración se organiza de forma secuencial: tarea → plan personal → invitación → respuesta → nuevo plan.
-
-Este tipo de texto demuestra cómo combinar vocabulario básico, estructuras gramaticales y coherencia para expresar ideas claras en francés A2.
+*Chère Julie,*
+*Merci pour ta carte ! Je suis à Marseille avec ma famille. Il fait très chaud et on va à la plage tous les jours. Hier, nous avons visité le Vieux-Port, c'était super ! Demain, on va faire une excursion en bateau.*
+*Grosses bises,*
+*Ana*

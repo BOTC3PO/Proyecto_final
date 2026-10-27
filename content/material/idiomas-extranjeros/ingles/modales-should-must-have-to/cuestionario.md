@@ -1,635 +1,276 @@
-# Idiomas — Inglés — modales-should-must-have-to (cuestionario, 25 preguntas VBLang)
+# Inglés — should, must y have to (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/ingles/modales-should-must-have-to/cuestionario_crudo.md`):
-> a los 25 bloques les faltaban `tipo:` y `enunciado:` — sólo
-> describían el escenario en el título, sin ninguna oración real para
-> completar. Redactada una oración concreta por bloque, coherente con
-> el escenario y la `explicacion` original.
+> Tema: `idiomas-extranjeros/ingles/modales-should-must-have-to`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas ambiguas (varias respuestas válidas) o con la respuesta equivocada.
 
 ---
 
-### 1 — Obligation vs Recommendation
+### 1 — Consejo
 
 ```
 metadata:
   materia: "ingles"
   tema: "modales-should-must-have-to"
   nivel: "B1"
-  tags: ["obligación", "recomendación"]
-
-pasos:
-  - "Identificar si la oración expresa una obligación o una recomendación."
-  - "Elegir el modal adecuado según el contexto."
+  tags: ["modales"]
 
 respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["should", "must not", "have"]
 
-enunciado: "You look tired. You ___ get some rest."
+enunciado: "You look tired. You ___ go to bed early."
 
-explicacion: "Se recomienda usar 'should' cuando se aconseja algo, no una obligación estricta. 'Must' y 'have to' indican requisitos más fuertes."
+explicacion: |
+  Consejo: *should*.
 ```
 
-### 2 — External Necessity
+### 2 — Prohibición
 
 ```
 metadata:
   materia: "ingles"
   tema: "modales-should-must-have-to"
   nivel: "B1"
-  tags: ["necesidad externa", "have to"]
+  tags: ["modales"]
 
-pasos:
-  - "Determinar si la necesidad proviene de una regla externa."
-  - "Usar 'have to' para obligaciones impuestas por circunstancias."
+respuesta: "mustn't"
+tipo: "mc"
+opciones_explicitas: ["mustn't", "don't have to", "shouldn't to"]
+
+enunciado: "You ___ use your phone during the exam. It's forbidden."
+
+explicacion: |
+  Prohibido: *mustn't*.
+```
+
+### 3 — No hace falta
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
+
+respuesta: "don't have to"
+tipo: "mc"
+opciones_explicitas: ["don't have to", "mustn't", "shouldn't"]
+
+enunciado: "The museum is free. You ___ pay."
+
+explicacion: |
+  No es necesario: *don't have to*.
+```
+
+### 4 — Obligación externa
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
 
 respuesta: "have to"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["have to", "should", "has to"]
 
-enunciado: "The library closes at 6 PM, so we ___ leave before then."
+enunciado: "In my school we ___ wear a uniform."
 
-explicacion: "'Have to' se usa para obligaciones causadas por reglas, leyes o situaciones externas, no por decisión personal."
+explicacion: |
+  Norma de la escuela: *have to* (con *we*).
 ```
 
-### 3 — Strong Obligation
+### 5 — Tercera persona
 
 ```
 metadata:
   materia: "ingles"
   tema: "modales-should-must-have-to"
   nivel: "B1"
-  tags: ["obligación", "must"]
+  tags: ["modales"]
 
-pasos:
-  - "Reconocer un contexto que requiera una obligación fuerte."
-  - "Seleccionar el modal correspondiente a la necesidad absoluta."
+respuesta: "has to"
+tipo: "mc"
+opciones_explicitas: ["has to", "have to", "must to"]
+
+enunciado: "My brother ___ work on Saturdays."
+
+explicacion: |
+  *He/she/it has to*.
+```
+
+### 6 — Pasado
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
+
+respuesta: "had to"
+tipo: "mc"
+opciones_explicitas: ["had to", "musted", "must"]
+
+enunciado: "Yesterday I ___ stay at the office until 10 p.m."
+
+explicacion: |
+  *Must* no tiene pasado: *had to*.
+```
+
+### 7 — Futuro
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
+
+respuesta: "will have to"
+tipo: "mc"
+opciones_explicitas: ["will have to", "will must", "must to"]
+
+enunciado: "The train is cancelled. We ___ wait for the next one."
+
+explicacion: |
+  Futuro: *will have to*.
+```
+
+### 8 — Pregunta
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
+
+respuesta: "Do"
+tipo: "mc"
+opciones_explicitas: ["Do", "Must", "Have"]
+
+enunciado: "___ you have to work tomorrow?"
+
+explicacion: |
+  *Have to* forma preguntas con *do*.
+```
+
+### 9 — Should en pregunta
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
+
+respuesta: "Should"
+tipo: "mc"
+opciones_explicitas: ["Should", "Must", "Have"]
+
+enunciado: "I can't decide. ___ I buy the red one or the blue one?"
+
+explicacion: |
+  Pedir consejo: *Should I…?*
+```
+
+### 10 — Sin to
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
+
+respuesta: "You should eat more vegetables."
+tipo: "mc"
+opciones_explicitas: ["You should to eat more vegetables.", "You should eat more vegetables.", "You shoulds eat more vegetables."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  *Should* + infinitivo sin *to*.
+```
+
+### 11 — Norma escrita
+
+```
+metadata:
+  materia: "ingles"
+  tema: "modales-should-must-have-to"
+  nivel: "B1"
+  tags: ["modales"]
 
 respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["must", "should", "don't have to"]
 
-enunciado: "This is a construction site. You ___ wear a helmet at all times."
+enunciado: "All passengers ___ show their passports."
 
-explicacion: "'Must' expresa una obligación más estricta que 'have to', y es común en contextos de seguridad o emergencia."
+explicacion: |
+  Norma oficial: *must*.
 ```
 
-### 4 — Recommendation in Health Context
+### 12 — Diferencia clave
 
 ```
 metadata:
   materia: "ingles"
   tema: "modales-should-must-have-to"
   nivel: "B1"
-  tags: ["recomendación", "salud"]
+  tags: ["modales"]
 
-pasos:
-  - "Identificar si la oración contiene un consejo médico."
-  - "Elegir el modal adecuado para sugerencias no obligatorias."
+respuesta: "You don't have to bring anything."
+tipo: "mc"
+opciones_explicitas: ["You mustn't bring anything.", "You don't have to bring anything.", "You haven't to bring anything."]
 
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
+enunciado: "«No tenés que traer nada (no hace falta)» se dice:"
 
-enunciado: "You've had a cough for a week. You ___ see a doctor."
-
-explicacion: "'Should' se usa para recomendaciones generales, como consejos de un médico que no son mandatos estrictos."
+explicacion: |
+  No hace falta = *don't have to*. *Mustn't* sería «tenés prohibido».
 ```
 
-### 5 — Legal Obligation
+### 13 — Error típico
 
 ```
 metadata:
   materia: "ingles"
   tema: "modales-should-must-have-to"
   nivel: "B1"
-  tags: ["obligación legal", "must"]
+  tags: ["modales"]
 
-pasos:
-  - "Reconocer que una ley o regla impone la acción."
-  - "Usar 'must' para obligaciones legales o formales."
+respuesta: falso
+tipo: vf
 
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
+enunciado: "«She have to study tonight» es correcta."
 
-enunciado: "According to the law, drivers ___ stop at a red light."
-
-explicacion: "'Must' es el modal preferido en contextos legales o oficiales, como leyes que exigen acciones específicas."
+explicacion: |
+  Falso: *She has to study tonight*.
 ```
 
-### 6 — Recommendation for Travel
+### 14 — Completar
 
 ```
 metadata:
   materia: "ingles"
   tema: "modales-should-must-have-to"
   nivel: "B1"
-  tags: ["viaje", "recomendación"]
-
-pasos:
-  - "Analizar el contexto de viaje y sugerencia."
-  - "Elegir 'should' para consejos no obligatorios."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "If you visit Japan, you ___ try the local street food."
-
-explicacion: "'Should' se usa para recomendaciones en contextos como viajes, donde la decisión final es del sujeto."
-```
-
-### 7 — External Necessity in Work Context
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["trabajo", "necesidad externa"]
-
-pasos:
-  - "Identificar una obligación laboral impuesta por un jefe."
-  - "Usar 'have to' para necesidades causadas por terceros."
-
-respuesta: "have to"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "My boss wants the report today, so I ___ finish it by 5 PM."
-
-explicacion: "'Have to' describe obligaciones laborales impuestas por un jefe o reglas de la empresa, no por decisión personal."
-```
-
-### 8 — Mandatory Action for Safety
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["seguridad", "obligación"]
-
-pasos:
-  - "Reconocer una acción esencial para prevenir un peligro."
-  - "Seleccionar 'must' como modal más estricto para seguridad."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "In case of fire, you ___ use the stairs, not the elevator."
-
-explicacion: "'Must' se usa cuando la acción es vital para evitar un riesgo, como en instrucciones de emergencia."
-```
-
-### 9 — Recommendation for Study Habits
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["estudio", "recomendación"]
-
-pasos:
-  - "Identificar un consejo para mejorar el aprendizaje."
-  - "Usar 'should' para sugerencias personales o generales."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "If you want to remember more, you ___ review your notes every day."
-
-explicacion: "'Should' es adecuado en contextos educativos, donde el consejo no es un mandato, sino una guía."
-```
-
-### 10 — Obligation from a Rule
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["regla", "obligación"]
-
-pasos:
-  - "Reconocer que una regla impone la acción."
-  - "Usar 'must' para obligaciones basadas en normas o leyes."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "According to school rules, students ___ wear a uniform."
-
-explicacion: "'Must' es el modal correcto cuando una regla, ley o política exige una acción específica."
-```
-
-### 11 — Recommendation for Health Habits
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["salud", "recomendación"]
-
-pasos:
-  - "Identificar un consejo relacionado con hábitos saludables."
-  - "Usar 'should' para sugerencias no obligatorias."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "To feel more energetic, you ___ eat more vegetables."
-
-explicacion: "'Should' se usa en contextos de salud para consejos generales, como dietas o ejercicio, sin imponer la acción."
-```
-
-### 12 — External Obligation in Travel
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["viaje", "necesidad externa"]
-
-pasos:
-  - "Reconocer una obligación impuesta por un requisito de viaje."
-  - "Usar 'have to' para necesidades causadas por circunstancias externas."
-
-respuesta: "have to"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "To enter that country, tourists ___ get a visa in advance."
-
-explicacion: "'Have to' describe obligaciones como visas o requisitos de entrada a un país, que dependen de factores externos."
-```
-
-### 13 — Strong Obligation in Emergency
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["emergencia", "obligación"]
-
-pasos:
-  - "Identificar una situación de emergencia que requiera acción inmediata."
-  - "Usar 'must' para obligaciones críticas y urgentes."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "There's a gas leak! Everyone ___ leave the building immediately."
-
-explicacion: "'Must' es el modal más adecuado en emergencias, donde la acción es indispensable para evitar daño o peligro."
-```
-
-### 14 — Recommendation for Environmental Care
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["medio ambiente", "recomendación"]
-
-pasos:
-  - "Identificar un consejo relacionado con el cuidado del planeta."
-  - "Usar 'should' para sugerencias no obligatorias pero importantes."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "To help the planet, we ___ use less plastic."
-
-explicacion: "'Should' se usa en contextos ambientales para consejos como reducir el consumo de plástico, sin imponer la acción."
-```
-
-### 15 — Obligation from a Rule in Work
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["trabajo", "regla"]
-
-pasos:
-  - "Reconocer una obligación laboral impuesta por un reglamento."
-  - "Usar 'must' para acciones requeridas por normas oficiales."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "Company policy says employees ___ clock in before 9 AM."
-
-explicacion: "'Must' se usa cuando una norma laboral exige una acción específica, como cumplir con horarios o protocolos."
-```
-
-### 16 — Recommendation for Personal Development
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["desarrollo personal", "recomendación"]
-
-pasos:
-  - "Identificar un consejo para mejorar habilidades personales."
-  - "Usar 'should' para sugerencias que no son obligatorias."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "If you want to improve your English, you ___ practice speaking every day."
-
-explicacion: "'Should' es adecuado en contextos de desarrollo personal, donde el consejo orienta pero no impone la acción."
-```
-
-### 17 — External Obligation in Education
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["educación", "necesidad externa"]
-
-pasos:
-  - "Reconocer una obligación académica impuesta por un profesor."
-  - "Usar 'have to' para necesidades causadas por reglas escolares."
-
-respuesta: "have to"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "The teacher assigned homework, so students ___ finish it by Monday."
-
-explicacion: "'Have to' describe obligaciones académicas como tareas o exámenes requeridos por un profesor o institución."
-```
-
-### 18 — Strong Obligation in Law
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["ley", "obligación"]
-
-pasos:
-  - "Identificar una obligación legal que requiere cumplimiento absoluto."
-  - "Usar 'must' para acciones exigidas por leyes o regulaciones."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "By law, all passengers ___ wear a seatbelt."
-
-explicacion: "'Must' se usa en contextos legales, donde la acción es obligatoria y no admite excepciones."
-```
-
-### 19 — Recommendation for Healthy Living
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["vida saludable", "recomendación"]
-
-pasos:
-  - "Identificar un consejo para una vida más sana."
-  - "Usar 'should' para sugerencias que no son mandatos."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "To sleep better, you ___ avoid caffeine at night."
-
-explicacion: "'Should' es el modal correcto cuando se ofrece un consejo general sobre alimentación o ejercicio, sin forzar la acción."
-```
-
-### 20 — External Obligation in Health
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["salud", "necesidad externa"]
-
-pasos:
-  - "Reconocer una obligación impuesta por un profesional de la salud."
-  - "Usar 'have to' para necesidades causadas por diagnósticos médicos."
-
-respuesta: "have to"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "The doctor said I ___ take this medicine twice a day."
-
-explicacion: "'Have to' describe obligaciones como tratamientos o restricciones impuestas por un médico, no decisiones personales."
-```
-
-### 21 — Strong Obligation in Security
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["seguridad", "obligación"]
-
-pasos:
-  - "Identificar una acción esencial para garantizar la seguridad."
-  - "Usar 'must' para obligaciones críticas en situaciones de riesgo."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "At the airport, passengers ___ go through the security check."
-
-explicacion: "'Must' se usa cuando una acción es indispensable para prevenir un peligro, como usar cinturón de seguridad o evacuaciones."
-```
-
-### 22 — Recommendation for Social Interaction
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["interacción social", "recomendación"]
-
-pasos:
-  - "Identificar un consejo para mejorar la comunicación interpersonal."
-  - "Usar 'should' para sugerencias que no son obligatorias."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "If you want to make friends, you ___ listen more and talk less."
-
-explicacion: "'Should' se usa en contextos sociales, como consejos sobre escuchar activamente o respetar opiniones ajenas."
-```
-
-### 23 — External Obligation in Travel Restrictions
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["viaje", "necesidad externa"]
-
-pasos:
-  - "Reconocer una obligación impuesta por restricciones de viaje."
-  - "Usar 'have to' para necesidades causadas por leyes o políticas internacionales."
-
-respuesta: "have to"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "Because of the new regulation, travelers ___ show a negative test result."
-
-explicacion: "'Have to' describe obligaciones como cuarentenas, visas o restricciones de entrada a países, impuestas por autoridades externas."
-```
-
-### 24 — Strong Obligation in Emergencies
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["emergencia", "obligación"]
-
-pasos:
-  - "Identificar una situación de emergencia que requiera acción inmediata."
-  - "Usar 'must' para obligaciones críticas y urgentes."
-
-respuesta: "must"
-opciones_explicitas:
-  - "should"
-  - "must"
-  - "have to"
-tipo: mc
-
-enunciado: "If the alarm goes off, everyone ___ evacuate the building."
-
-explicacion: "'Must' es el modal correcto en emergencias, donde la acción es indispensable para salvar vidas o evitar daños mayores."
-```
-
-### 25 — Recommendation for Environmental Awareness
-
-```
-metadata:
-  materia: "ingles"
-  tema: "modales-should-must-have-to"
-  nivel: "B1"
-  tags: ["medio ambiente", "recomendación"]
-
-pasos:
-  - "Identificar un consejo para aumentar la conciencia ambiental."
-  - "Usar 'should' para sugerencias que no son obligatorias pero importantes."
-
-respuesta: "should"
-opciones_explicitas:
-  - "must"
-  - "should"
-  - "have to"
-tipo: mc
-
-enunciado: "To reduce waste, people ___ recycle more."
-
-explicacion: "'Should' se usa en contextos de conciencia ambiental, como reciclar o reducir el consumo, sin imponer la acción."
+  tags: ["modales"]
+
+respuesta: "shouldn't"
+tipo: completar
+respuestas_validas:
+  - "shouldn't"
+  - "Shouldn't"
+  - "should not"
+  - "Should not"
+
+enunciado: "Completá con la negativa de *should* (contraída): «You ___ eat so much sugar.»"
+
+explicacion: |
+  Consejo negativo: *shouldn't*.
 ```

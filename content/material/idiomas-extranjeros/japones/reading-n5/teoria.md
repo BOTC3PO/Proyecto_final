@@ -1,50 +1,43 @@
-# Teoría: Lectura en japonés (N5)
+# Comprensión lectora en japonés (N5)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/reading-n5`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-La lectura en japonés al nivel N5 se centra en comprender textos sencillos con vocabulario básico y caracteres hiragana, katakana y kanji simples. Es fundamental para desarrollar habilidades de comunicación diaria, como leer señales, menús o cartas postales. A este nivel, los aprendices deben reconocer palabras relacionadas con temas cotidianos (alimentos, números, días de la semana) y estructuras gramaticales básicas que facilitan la comprensión.
+En el nivel N5 se leen **textos muy cortos** escritos en hiragana, katakana y unos 100 kanji básicos: carteles, horarios, notas, mensajes y descripciones simples de la vida diaria. El objetivo es encontrar **datos concretos**: quién, qué, cuándo, dónde, cuánto.
 
 ## Explicación central
-En el japonés N5, la lectura implica identificar caracteres hiragana y katakana, así como kanji de uso frecuente (como にほんご o おはよう). Por ejemplo:
+### Qué hay que reconocer
+- **Kanji de números y fechas**: 一 二 三 … 十 百 千 万 円; 月 (mes / lunes), 日 (día / domingo), 年 (año), 時 (hora), 分 (minuto).
+- **Días**: 月曜日 (lunes), 火曜日, 水曜日, 木曜日, 金曜日, 土曜日, 日曜日.
+- **Lugares**: 駅 (estación), 学校, 会社, 店, 図書館, 病院.
+- **Katakana** de palabras extranjeras: コーヒー, レストラン, テレビ, パン, アメリカ.
+- **Carteles**: 入口 (entrada), 出口 (salida), 休み (cerrado/descanso), 禁煙 (no fumar), 営業中 (abierto), トイレ.
 
-- **Hiragana**: 「こんにちは」(kon'nichiwa, "hola")
-- **Katakana**: 「コーヒー」(kōhī, "café")
-- **Kanji sencillo**: 「水」(mizu, "agua")
+### Estructura de la oración
+Partículas (は, が, を, に, で) y verbo **al final**: lo importante (qué pasa, sí o no) está al final: 行きます / 行きません / 行きました.
 
-Los textos suelen incluir frases cortas con partículas como は (wa) o を (wo), y verbos en forma básica. Un ejemplo típico podría ser:
->「これはりんごです。」(Kore wa ringo desu.) → "Esto es una manzana."
-
-Este tipo de oraciones enseñan a asociar palabras con imágenes, lo que es clave para lectores principiantes.
+### Estrategias
+1. Leer primero la pregunta.
+2. Buscar números, días y kanji conocidos.
+3. Mirar el final de cada oración: afirmativo, negativo, pasado.
+4. No hace falta entender cada palabra.
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen confundir:
-1. **Partículas**: Usar が (ga) en lugar de は (wa) para marcar el tema de la oración. Por ejemplo, decir 「彼が学生です」(Kare ga gakusei desu) en vez de 「彼は学生です」(Kare wa gakusei desu).
-2. **Uso de kanji**: Intentar usar kanji complejos sin dominar su lectura básica. Por ejemplo, escribir 「本」(hon, "libro") como ほん (honn) en lugar de hon.
-3. **Omisión de partículas**: Omitir は o を al formular oraciones, lo que genera ambigüedad.
+1. No mirar el final: 行きません (no va) vs. 行きます (va).
+2. Confundir 月 (mes/lunes) y 日 (día/domingo) según el contexto.
+3. Confundir 入口 (entrada) y 出口 (salida).
 
 ## Comparación con el español
-A diferencia del español, donde las preposiciones y los artículos son flexibles, el japonés requiere partículas para estructurar frases. Por ejemplo:
-- En español: "El libro es mío" → "El libro es mío".
-- En japonés: 「この本は私のです。」(Kono hon wa watashi no desu.) → "Este libro es mío."
+En español la negación está al principio («no voy»); en japonés está al **final** (行き**ません**). Por eso conviene leer cada oración hasta el último carácter.
 
-Además, el japonés utiliza kanji para representar conceptos abstractos (como さくら para "cerezo"), mientras que el español depende más del vocabulario. Esto exige un enfoque distinto al memorizar palabras y su forma escrita.
-
-## Ejemplo extendido
-Un diálogo sencillo podría ser:
-
-**A**: 「これ、何ですか？」(Kore, nan desu ka?) → "¿Qué es esto?"
-**B**: 「これはりんごです。」(Kore wa ringo desu.) → "Esto es una manzana."
-**A**: 「このりんご、どこで買いましたか？」(Kono ringo, doko de kaimashita ka?) → "¿Dónde compraste esta manzana?"
-**B**: 「スーパーで買いました。」(Sūpā de kaimashita.) → "La compré en el supermercado."
-
-Este intercambio incluye vocabulario básico, partículas y un verbo (買う, kau: "comprar") en forma pasiva. La estructura es clara para lectores N5, enfocándose en la comprensión de objetos cotidianos y acciones simples.
-
----
-*Nota: Todos los ejemplos son gramaticalmente correctos según las normas del japonés estándar.*
+## Ejemplo extendido en contexto
+**Texto:** «わたしは　マリアです。アルゼンチンから　きました。まいにち　八時に　がっこうへ　いきます。月曜日と　水曜日に　日本語を　べんきょうします。日曜日は　やすみです。»
+(Soy María. Vine de Argentina. Todos los días voy a la escuela a las 8. Estudio japonés los lunes y miércoles. El domingo descanso.)

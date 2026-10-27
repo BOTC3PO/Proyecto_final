@@ -1,59 +1,47 @@
-# Hablar en francés (C1): Dominio de la expresión oral avanzada
+# Expresión oral en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/speaking-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel C1 del marco común europeo de referencia para las lenguas (MCER), los hablantes dominan con fluidez y precisión el idioma, permitiéndoles participar en conversaciones complejas sobre temas abstractos o especializados. La expresión oral en este nivel implica no solo una amplia gama léxica y gramatical, sino también la capacidad de adaptar el estilo comunicativo según el contexto (formal, informal, académico, etc.) y manejar con naturalidad las estructuras que requieren flexibilidad lingüística, como los tiempos compuestos o las construcciones hipotéticas.
+En C1 se espera hablar con **fluidez y espontaneidad**, adaptar el **registro** a la situación, sostener **argumentaciones complejas** y manejar **matices**, ironía y expresiones idiomáticas.
 
 ## Explicación central
-En francés C1, es crucial dominar frases que expresen ideas complejas, argumentos sutiles o reflexiones filosóficas. Por ejemplo:
-- **"Si on ne protège pas les océans, il sera trop tard pour réparer les dégâts."** (Si no protegimos los océanos, será demasiado tarde para reparar los daños.)
-  Aquí se usa el *conditionnel* en la oración principal ("será") y un subjuntivo en la subordinada ("protège"), una estructura común para expresar hipótesis.
+### Exposición estructurada (DALF C1)
+1. **Introducción**: contextualizar, plantear la problemática (*Dans quelle mesure… ?*), anunciar el plan.
+2. **Desarrollo** en dos o tres partes con argumentos y ejemplos.
+3. **Conclusión**: síntesis y apertura (*On peut alors se demander si…*).
 
-Otra estructura clave es el uso de **"il faut que"** para expresar obligaciones o necesidades:
-- **"Il faut que vous soyez plus attentif lors des réunions."** (Es necesario que seas más atento durante las reuniones.)
-  El subjuntivo (*soyez*) se emplea tras *il faut que* para indicar una exigencia no cumplida.
+### Matizar y modalizar
+*Il me paraît essentiel de… / Il convient de souligner que… / Dans une certaine mesure… / Sans vouloir généraliser… / À première vue… mais à y regarder de plus près…*
 
-También es fundamental manejar **expresiones idiomáticas o coloquiales** en contextos formales:
-- **"Je suis d'accord avec vous, mais je pense qu'on devrait aussi considérer une autre solution."** (Estoy de acuerdo contigo, pero creo que deberíamos considerar otra solución.)
-  El uso de *on* ("uno") en lugar de *nous* ("nosotros") suaviza el tono y es típico en contextos informales o neutrales.
+### Defender una posición ante objeciones
+- Reconocer: *Je comprends votre point de vue, néanmoins…*
+- Rebatir: *Cet argument ne tient pas, dans la mesure où…*
+- Ceder parcialmente: *Je vous l'accorde, mais…*
+
+### Registro
+- Formal: *Permettez-moi de… / Je me permets d'insister sur…*
+- Informal entre colegas: *Franchement, c'est pas gagné.*
+- Saber cambiar según el interlocutor.
+
+### Expresiones idiomáticas
+*mettre les points sur les i* (dejar las cosas claras), *tourner autour du pot* (andar con rodeos), *ce n'est pas la mer à boire* (no es tan difícil), *avoir le dernier mot*, *poser un lapin* (dejar plantado), *prendre du recul* (tomar distancia).
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del subjuntivo**: En francés, el subjuntivo se usa más que en español. Por ejemplo:
-   - ❌ *Je crois qu'il est important que tu viens.* (Error: "viens" es indicativo, no subjuntivo).
-   - ✅ *Je crois qu'il est important que tu viennes.*
-
-2. **Confusión entre "pouvoir" y "devoir"**:
-   - ❌ *Je dois aller au travail aujourd'hui.* (Correcto: "dois" = devoir, pero si se refiere a una obligación externa).
-   - ✅ *Je peux rentrer à la maison maintenant.* ("peux" = poder, para expresar permiso o capacidad).
-
-3. **Uso incorrecto del tiempo verbal en discursos indirectos**:
-   - ❌ *Elle a dit que elle va partir demain.* (Error: "va" es futuro simple, no condicional).
-   - ✅ *Elle a dit qu'elle partirait demain.* (Condicional pasado para el discurso indirecto).
+1. Usar siempre el mismo conector (*mais, mais, mais*): variar con *néanmoins, toutefois, pour autant*.
+2. Mezclar registros en una exposición formal.
+3. Traducir modismos del español: «no es para tanto» = *il n'y a pas de quoi en faire un plat*.
 
 ## Comparación con el español
-- **Tiempo compuesto**: En francés, los verbos de la tercera conjugación (*aller*, *tenir*) en el tiempo compuesto usan *avoir* como auxiliar:
-  - ✅ *J'ai eu un accident hier.* (Tengo un accidente ayer).
-  - En español, se usa *haber* + participio: *"Tuve un accidente ayer."*
-
-- **Expresión de hipótesis**: En francés, el condicional presente y pasado son esenciales para situaciones hipotéticas:
-  - ✅ *Si j'avais suivi mes études, je serais médecin aujourd'hui.* (Si hubiera seguido mis estudios, sería médico hoy).
-  - En español: *"Si hubiera seguido mis estudios, sería médico hoy."*
+El nivel C1 exige lo mismo en ambas lenguas: precisión, matiz y adecuación. La exposición francesa es muy **codificada** (problemática, plan anunciado, apertura final), más que en la tradición escolar argentina.
 
 ## Ejemplo extendido en contexto
-**Contexto**: Un debate sobre la educación superior.
-**Diálogo**:
-- *Marie*: "Je pense que l'enseignement supérieur doit être gratuit pour tous. Si on ne le rend pas accessible, beaucoup de jeunes ne pourront pas se former."
-- *Pierre*: "Tu as raison, mais il faut aussi que les universités améliorent la qualité des cours. Sinon, même avec un accès gratuit, les étudiants ne bénéficieront pas d'une bonne éducation."
-
-**Análisis**:
-- *Marie* usa el subjuntivo (*doit*, *ne pourront pas*) para expresar obligaciones y posibilidades futuras.
-- *Pierre* combina la conjunción *mais* con el subjuntivo (*améliorent*) para presentar una condición necesaria, mientras que "sinon" introduce una consecuencia negativa.
-
-Este tipo de intercambio requiere precisión gramatical y vocabulario especializado, típico del nivel C1.
+*« **Dans quelle mesure** les réseaux sociaux menacent-ils la démocratie ? **À première vue**, ils favorisent la participation. **Mais à y regarder de plus près**, ils enferment les utilisateurs dans des bulles. **Je vous l'accorde**, toute généralisation est risquée ; **néanmoins**, il convient de prendre du recul. **On peut alors se demander si** une régulation est souhaitable. »*

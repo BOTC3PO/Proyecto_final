@@ -1,58 +1,50 @@
-# Pronombres relativos compuestos en francés (nivel B2)
+# Pronombres relativos compuestos: lequel, auquel, duquel (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/pronombres-relativos-compuestos`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Los pronombres relativos compuestos son herramientas gramaticales que permiten conectar oraciones subordinadas con la oración principal en francés. Su uso es crucial para describir personas, cosas o situaciones de manera más precisa y fluida, especialmente al nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), donde se requiere manejar estructuras complejas y expresar ideas con mayor variedad.
+Los relativos compuestos se usan **después de una preposición**: *la raison **pour laquelle**, le stylo **avec lequel**, le parc **près duquel***.
 
 ## Explicación central
-Los pronombres relativos compuestos en francés se forman combinando un pronombre relativo (*que, qui, dont, où, etc.*) con un verbo o preposición, dependiendo del papel que cumple el antecedente en la oración subordinada. Por ejemplo:
+### Formas
+| | masc. | fem. |
+|---|---|---|
+| singular | **lequel** | **laquelle** |
+| plural | **lesquels** | **lesquelles** |
 
-- **"La femme *que* j’ai vue hier."** (La mujer que vi ayer.)
-  Aquí, *que* conecta la oración principal (*La femme*) con la subordinada (*j’ai vue hier*), indicando que "vue" es un verbo transitivo cuyo complemento directo es el antecedente.
+Concuerdan con el **antecedente**: *la table **sur laquelle**, les amis **avec lesquels***.
 
-- **"Le livre *dont* je t’ai parlé."** (El libro del cual te hablé.)
-  En este caso, *dont* reemplaza a *"duquel"* (*de + lequel*), ya que el verbo "parler de" requiere una preposición.
+### Contracción con *à* y *de*
+- *à + lequel → **auquel***, *à + lesquels → **auxquels***, *à + lesquelles → **auxquelles*** (*à laquelle* no contrae).
+  *Le projet **auquel** je pense.* (*penser à*)
+- *de + lequel → **duquel***, *desquels, desquelles* (*de laquelle* no contrae). Se usa con locuciones: *près de, à côté de, au milieu de, à cause de*: *le parc **près duquel** j'habite*.
+  Con *de* simple se prefiere ***dont***: *le livre **dont** je parle* (no *duquel*).
 
-- **"La ville *où* j’ai grandi."** (La ciudad donde crecí.)
-  *Où* sustituye a *"dans laquelle"*, indicando un lugar.
+### Personas
+Con personas se prefiere ***qui*** tras preposición: *l'amie **avec qui** je travaille* (también *avec laquelle*). Excepción: *parmi* y *entre* van con *lesquels/lesquelles*.
 
-Los pronombres relativos compuestos se usan cuando el antecedente es el complemento directo, indirecto o de una preposición en la oración subordinada.
+### Usos frecuentes
+*la raison pour laquelle* (la razón por la cual), *le moyen par lequel*, *la façon dont*, *les problèmes auxquels nous faisons face*.
+
+### Interrogativo
+*lequel* también es interrogativo: ***Lequel** préfères-tu ?* (¿cuál?)
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre *que* y *qui*:** En español, "que" se usa tanto como sujeto como objeto, pero en francés, *qui* solo actúa como sujeto (*La personne qui m’a aidé*) y *que* como complemento directo o indirecto (*Le livre que je veux acheter*).
-2. **Uso incorrecto de preposiciones:** Olvidar la preposición antes de *que* cuando es necesario:
-   - ❌ "Le film *que* j’ai vu." (Correcto)
-   - ✅ "Le film *duquel* je t’ai parlé." (No se usa *que* directamente si el verbo requiere una preposición).
-3. **Falta de concordancia:** No ajustar el pronombre relativo según el género o número del antecedente:
-   - ❌ "La maison *où* je suis allé." (Debería ser *allée* para concordar con *maison*, femenino).
+1. ❌ *la raison pour que* ✅ *la raison pour laquelle*.
+2. ❌ *à lequel* ✅ *auquel*.
+3. ❌ *le livre duquel je parle* ✅ *dont je parle*.
+4. Concordancia: ❌ *la chaise sur lequel* ✅ *sur laquelle*.
 
 ## Comparación con el español
-En español, los pronombres relativos simples (*que, quien, cuyo, donde*) no requieren combinaciones con preposiciones, a diferencia del francés. Por ejemplo:
-- Español: "El libro **del que** hablé." (preposición + pronombre relativo).
-- Francés: "Le livre **dont** je t’ai parlé." (*dont* = *de + lequel*).
-
-Además, en español se usan formas como *"cuya"*, que en francés se traduce con *dont* o *duquel/d’où*:
-- Español: "La chica **cuyo** hermano es médico."
-- Francés: "La fille **dont** le frère est médecin."
+Equivalen a «el cual, la cual, los cuales» y a «el que» tras preposición: «la razón **por la cual**», «el tema **en el que** pienso» (*auquel je pense*). El francés obliga a contraer con *à* y *de*, y la preposición la decide el verbo francés (*penser à*, *participer à*).
 
 ## Ejemplo extendido en contexto
-**Situación:** Dos amigos hablan sobre un viaje reciente.
-
-**Diálogo:**
-*Marc:* Je suis allé à Paris la semaine dernière, et j’ai visité un musée *que* je n’avais jamais vu avant.
-*Lucie:* Ah oui ? Et tu as aimé le guide *dont* tu m’as parlé ?
-*Marc:* Oui, il était très passionné ! Il nous a raconté l’histoire de la ville *où* il travaillait quand il était jeune.
-
-**Traducción:**
-Marc: Fui a París la semana pasada y visité un museo que nunca había visto antes.
-Lucie: ¿Ah, sí? ¿Te gustó el guía del cual me hablaste?
-Marc: Sí, era muy apasionado. Nos contó la historia de la ciudad donde trabajaba cuando era joven.
-
-Este ejemplo muestra cómo los pronombres relativos compuestos (*que, dont, où*) conectan ideas complejas de manera natural y coherente en contextos cotidianos.
+*Voici l'entreprise **pour laquelle** je travaille. Le projet **auquel** je participe est passionnant, et les collègues **avec qui** je travaille sont sympas. C'est la raison **pour laquelle** je reste, malgré les difficultés **auxquelles** nous faisons face.*

@@ -1,38 +1,46 @@
-# Comprensión lectora en el nivel B2 del francés: estrategias y desafíos
+# Comprensión lectora en francés (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/reading-b2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), los aprendices de francés deben desarrollar la habilidad de comprender textos escritos de temática variada, con estructura clara y vocabulario conocido. Esto incluye leer artículos de periódicos, correos electrónicos, instrucciones o textos académicos, identificando ideas principales, detalles específicos y posibles inferencias. Esta destreza es clave para integrarse en contextos profesionales, sociales o educativos donde la lectura activa permite acceder a información relevante y comunicarse eficazmente.
+En B2 se leen **artículos, informes y textos argumentativos** sobre temas actuales. Hay que identificar la **tesis**, los **argumentos**, los **ejemplos** y la **postura** del autor, aunque no se entienda cada palabra.
 
-## Explicación central: estrategias de comprensión lectora
-La comprensión lectora en B2 requiere aplicar estrategias como *skimming* (leer rápidamente para identificar ideas generales), *scanning* (buscar información específica) y el uso del contexto para deducir significados desconocidos. Por ejemplo, al leer un artículo sobre la economía:
+## Explicación central
+### Estructura argumentativa
+- **Tesis**: idea que defiende el autor.
+- **Argumentos** con conectores: *d'une part… d'autre part, de plus, en outre*.
+- **Contraargumentos** y concesión: *certes… mais, bien que, il est vrai que… toutefois*.
+- **Ejemplos**: *par exemple, ainsi, notamment, comme en témoigne*.
+- **Conclusión**: *en définitive, en somme, ainsi*.
 
-> «Le gouvernement a annoncé une hausse des impôts sur les revenus supérieurs à 100 000 euros, visant à financer des réformes éducatives.»
-> *(El gobierno anunció un aumento de los impuestos sobre ingresos superiores a 100 000 euros, con el objetivo de financiar reformas educativas.)*
+### Postura del autor
+- Verbos de opinión y adjetivos valorativos: *inquiétant, prometteur, regrettable*.
+- Modalizadores: *sans doute, peut-être, il semble que, force est de constater que* (hay que reconocer que).
+- Conditionnel para tomar distancia: *Selon le rapport, la mesure aurait échoué.*
 
-Un lector B2 debe identificar que la medida afecta a quienes ganan más de ese monto y comprender su propósito sin necesidad de conocer todos los términos técnicos (como *réformes éducatives*). Además, es importante reconocer conectores lógicos (*visant à*) para entender relaciones causales.
+### Vocabulario periodístico
+*un enjeu* (lo que está en juego), *un bilan* (balance), *une hausse / une baisse*, *un essor* (auge), *une mesure*, *les pouvoirs publics*, *faire face à*.
 
-## Errores comunes de hablantes hispanohablantes
-Los estudiantes suelen confundir palabras con significados similares en español, como *éclair* (en francés: "bocado", literalmente "claro") con *éclat* ("brillo" o "gloria"), o malinterpretar expresiones idiomáticas. Por ejemplo, *«C’est le pied»* (literalmente "es el pie") significa "me encanta" y no se refiere a una parte del cuerpo. Otro error es ignorar la importancia de los artículos definidos (*le*, *la*) para entender la relación entre sustantivos y adjetivos, como en *«une bonne idée»* (una buena idea) versus *«un bon livre»* (un buen libro).
+### Estrategias
+1. Leer título, copete (*chapeau*) y subtítulos.
+2. Resumir cada párrafo en una frase.
+3. Distinguir lo que el autor afirma de lo que cita.
 
-## Comparación con el español: diferencias clave
-El francés presenta estructuras sintácticas distintas. Por ejemplo, los adjetivos suelen ir después del sustantivo (*une maison grande*), a diferencia del español (*una casa grande*). También hay mayor uso de preposiciones (*à*, *de*) que en el español, como en *«aller à l’école»* (ir a la escuela) versus *«ir a la escuela»*. Además, el francés utiliza más conectores subordinantes (*que*, *si*) para unir oraciones, lo cual puede dificultar la lectura inicial.
+## Errores comunes de hispanohablantes
+1. Atribuir al autor una opinión que solo cita.
+2. Confundir *enjeu* con «juego».
+3. Perder la tesis porque aparece después de una concesión (*certes…*).
+
+## Comparación con el español
+Los textos argumentativos se organizan igual. Dificultad: el vocabulario abstracto y la nominalización (*la hausse des prix*), muy frecuentes en la prensa francesa.
 
 ## Ejemplo extendido en contexto
-**Texto:**
-> «L’été dernier, Clara a visité le Japon avec ses amis. Ils ont découvert des temples anciens et mangé du sushi dans un petit restaurant à Tokyo. Bien qu’il fasse très chaud, ils ont adoré l’expérience.»
-*(El verano pasado, Clara visitó Japón con sus amigos. Descubrieron templos antiguos y comieron sushi en un pequeño restaurante de Tokio. Aunque hacía mucho calor, amaron la experiencia.)*
-
-**Actividad:**
-1. ¿Dónde viajó Clara? (Tokyo)
-2. ¿Qué hicieron en el restaurante? (Comer sushi)
-3. ¿Cómo se sintieron a pesar del clima? (Adoraron la experiencia)
-
-Este ejemplo muestra cómo un lector B2 debe reconstruir la narrativa, identificar detalles contextuales (*malgré* = "aunque") y comprender el tono positivo de la historia.
+*Texte : « Certes, les voitures électriques n'émettent pas de CO₂ en roulant. Toutefois, leur fabrication, notamment celle des batteries, reste très polluante. Force est de constater que la transition écologique ne se résume pas à changer de moteur. »*

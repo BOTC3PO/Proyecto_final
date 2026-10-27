@@ -1,66 +1,48 @@
-# Estructura básica de oraciones en el nivel A2: uso de artículos y verbos simples
+# Expresión escrita en portugués de Brasil (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/writing-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
 ## Introducción
-En el nivel A2 de la escala CEFR, los estudiantes comienzan a construir frases sencillas para expresar ideas básicas. Una parte fundamental es el uso correcto de **artículos definidos e indefinidos** (como *o*, *a*, *um*, *uma*) y verbos en tiempo presente, que permiten formar oraciones claras y comprensibles. Este conocimiento es clave para comunicarse en situaciones cotidianas, como describir objetos, personas o acciones simples.
-
----
+En A2 se escriben **mensajes, notas y correos personales cortos**: invitar, agradecer, pedir algo, contar planes o lo que pasó.
 
 ## Explicación central
-En el portugués brasileño, los **artículos definidos** (*o*, *a*, *os*, *as*) se usan antes de sustantivos concretos cuando se habla de algo ya conocido:
-- *O livro é interessante.* (El libro es interesante.)
-- *A mesa está cheia.* (La mesa está llena.)
+### Estructura de un mensaje informal
+1. **Saludo**: *Oi, Ana! / Olá, Pedro! / Querida vovó,*
+2. **Apertura**: *Tudo bem? / Como você está? / Obrigado pela mensagem!*
+3. **Cuerpo**: el motivo, en 2-3 oraciones.
+4. **Cierre**: *Me responde! / Até sábado! / Me avisa!*
+5. **Despedida**: *Beijos, / Abraços, / Um abraço,* + nombre.
 
-Los **artículos indefinidos** (*um*, *uma*, *uns*, *umas*) se emplean para referirse a algo no específico o en general:
-- *Eu tenho um gato.* (Tengo un gato.)
-- *Ela é uma médica excelente.* (Ella es una médica excelente.)
+### Funciones frecuentes
+- Invitar: *Você quer vir à minha festa no sábado?*
+- Aceptar / rechazar: *Claro, vou sim! / Que pena, não posso porque…*
+- Agradecer: *Obrigada pelo presente! Adorei!*
+- Pedir: *Você pode trazer refrigerante?*
 
-Los **verbos en presente** siguen patrones simples. Por ejemplo, el verbo *ser* (ser) se conjugan así:
-- Eu sou (Yo soy)
-- Você é (Tú eres)
-- Ele/Ela é (Él/Ella es)
-- Nós somos (Nosotros somos)
-- Eles/Elas são (Ellos/ellas son)
-
-Ejemplo de oración completa:
-*Eu vejo o gato no jardim.* (Veo al gato en el jardín.)
-
----
+### Ortografía
+- Acentos: *você, está, também, obrigado, até, avó, avô, já*.
+- **ç** (cedilla) y **ão**: *praça, coração, não*.
+- Mayúscula al empezar y en nombres propios; los días y meses van **en minúscula**: *sábado, março*.
 
 ## Errores comunes de hispanohablantes
-1. **Omisión de artículos**: A menudo se olvida añadir *o*, *a*, *um*, *uma* antes del sustantivo, especialmente cuando es un nombre propio o abstracto:
-   - ❌ *Eu gosto música.* → ✅ *Eu gosto de música.* (Aunque "música" no lleva artículo, se usa *de* en este caso.)
-
-2. **Confusión entre artículos definidos e indefinidos**: Usar *um* donde debería usarse *o* o viceversa:
-   - ❌ *Ela é um professora.* → ✅ *Ela é uma professora.* (El artículo debe coincidir con el género del sustantivo.)
-
-3. **Uso incorrecto de verbos en presente**: Confundir formas como *ser* (*é*) con *estar* (*está*):
-   - ❌ *O livro está interessante.* → ✅ *O livro é interessante.* (El adjetivo debe ir después del verbo *ser*, no *estar*.)
-
----
+1. ❌ *Gracias* / *gracia* ✅ *Obrigado / Obrigada*.
+2. ❌ *Sábado* con mayúscula en medio de la oración ✅ *no sábado*.
+3. ❌ *Voce, tambem, nao* (sin acentos) ✅ *você, também, não*.
+4. ❌ *Muy* ✅ *Muito*.
 
 ## Comparación con el español
-- **Artículos definidos**: En portugués, los artículos masculinos y femeninos tienen formas distintas (*o* vs *a*), mientras que en español se usan *el/la*. Por ejemplo:
-  - Portugués: *O livro* (El libro) / *A mesa* (La mesa).
-  - Español: *El libro* / *La mesa*.
-
-- **Verbos en presente**: La conjugación del verbo *ser* es similar, pero con acentuaciones distintas. Por ejemplo:
-  - Portugués: *Ela é médica.* (Ella es médica.)
-  - Español: *Ella es médica.*
-
----
+Como en español, los días y meses van en minúscula. La puntuación también es similar, pero el portugués **no usa** los signos de apertura ¿ ¡.
 
 ## Ejemplo extendido en contexto
-**Situación**: Un estudiante describe su rutina diaria.
-
-*Eu acordei cedo hoje. Fiz o café da manhã e depois fui ao trabalho. No trabalho, eu sou um funcionário muito dedicado. Meu chefe é um homem amigável. À noite, eu vejo um filme com minha irmã.*
-*(Me desperté temprano hoy. Hice el desayuno y luego fui al trabajo. En el trabajo, soy un empleado muy dedicado. Mi jefe es un hombre amable. Por la noche, veo una película con mi hermana.)*
-
-Este párrafo usa artículos definidos (*o café da manhã*, *meu chefe*), indefinidos (*um funcionário*, *um filme*) y verbos en presente (*acordei*, *fui*, *sou*, *vejo*).
+*Oi, Sofia!*
+*Tudo bem? No sábado é meu aniversário e vou fazer uma festa em casa. Você quer vir? Começa às oito da noite. Você pode trazer umas músicas? Me avisa!*
+*Beijos,*
+*Martina*

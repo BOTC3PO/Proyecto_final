@@ -1,500 +1,253 @@
-# Idiomas — Italiano — imperfetto (cuestionario)
+# Italiano — imperfetto (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/italiano/imperfetto/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
-
----
-
-### 1 — Descrizione passata  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["descrizione", "stato fisico"]  
-pasos:  
-  - "Identificar el verbo en la oración y su forma."  
-  - "Verificar si el contexto requiere un estado continuo o habitual en el pasado."  
-explicacion: "El imperfetto se usa para describir estados físicos o emocionales en el pasado. 'Era' es la forma correcta de 'essere' en tercera persona singular del imperfetto."  
-tipo: completar  
-enunciado: "Quando ero bambino, ___ sempre felice."  
-respuestas_validas:  
-  - "ero"  
-  - "Ero"  
-```  
+> Tema: `idiomas-extranjeros/italiano/imperfetto`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 2 — Abitudine passata  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "tempo"]  
-pasos:  
-  - "Reconocer el uso de un tiempo expresivo como 'ogni estate'."  
-  - "Conjugar el verbo en imperfetto según la persona y número."  
-explicacion: "'Andavo' es la forma correcta de 'andare' en primera persona singular del imperfetto. Se usa para acciones habituales en el pasado."  
-tipo: completar  
-enunciado: "Quando ero piccolo, ___ sempre al parco ogni estate."  
-respuestas_validas:  
-  - "andavo"  
-  - "Andavo"  
-```  
+### 1 — Costumbre
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
 
-### 3 — Descrizione di un luogo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["luogo", "stato"]  
-pasos:  
-  - "Identificar el contexto descriptivo de un lugar en el pasado."  
-  - "Elegir la conjugación del verbo que describe una condición continua."  
-explicacion: "'C'era' es la forma correcta de 'essere' en tercera persona singular del imperfetto. Se usa para describir la presencia de algo en el pasado."  
-tipo: completar  
-enunciado: "La casa ___ vecchia e silenziosa."  
-respuestas_validas:  
-  - "era"  
-  - "Era"  
-```  
+respuesta: "andavo"
+tipo: "mc"
+opciones_explicitas: ["andavo", "sono andato", "vado"]
 
----
+enunciado: "Da bambino ___ al mare ogni estate."
 
-### 4 — Emozione passata  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["emozione", "stato"]  
-pasos:  
-  - "Determinar si el verbo describe un estado emocional en el pasado."  
-  - "Aplicar la conjugación adecuada del imperfetto para 'sentire'."  
-explicacion: "'Sentivo' es la forma correcta de 'sentire' en primera persona singular del imperfetto. Describe una emoción continua en el pasado."  
-tipo: completar  
-enunciado: "Quando lo vidi, ___ un po’ di paura."  
-respuestas_validas:  
-  - "sentivo"  
-  - "Sentivo"  
-```  
-
----
-
-### 5 — Azione continua nel passato  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["azione", "continua"]  
-pasos:  
-  - "Reconocer una acción que se desarrollaba en el pasado sin un final definido."  
-  - "Elegir la conjugación del verbo 'correre' en imperfetto."  
-explicacion: "'Correvo' es la forma correcta de 'correre' en primera persona singular del imperfetto. Describe una acción continua en el pasado."  
-tipo: completar  
-enunciado: "Mentre ascoltavo la musica, ___ lungo il fiume."  
-respuestas_validas:  
-  - "correvo"  
-  - "Correvo"  
-```  
-
----
-
-### 6 — Descrizione di un evento passato  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["evento", "stato"]  
-pasos:  
-  - "Identificar el uso del imperfetto para describir un evento en contexto."  
-  - "Verificar la conjugación de 'essere' en tercera persona singular."  
-explicacion: "'Era' es la forma correcta de 'essere' en tercera persona singular del imperfetto. Describe el estado de un lugar en el pasado."  
-tipo: completar  
-enunciado: "Il sole ___ alto nel cielo quando arrivammo."  
-respuestas_validas:  
-  - "era"  
-  - "Era"  
-```  
-
----
-
-### 7 — Abitudine passata con tempo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "tempo"]  
-pasos:  
-  - "Reconocer la expresión temporal 'ogni mattina' como indicador de abitudine."  
-  - "Conjugar el verbo en imperfetto según la persona y número."  
-explicacion: "'Facevo' es la forma correcta de 'fare' en primera persona singular del imperfetto. Describe una acción habitual en el pasado."  
-tipo: completar  
-enunciado: "Quando vivevo a Roma, ___ sempre colazione ogni mattina."  
-respuestas_validas:  
-  - "facevo"  
-  - "Facevo"  
-```  
-
----
-
-### 8 — Descrizione di una persona passata  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["persona", "stato"]  
-pasos:  
-  - "Identificar el uso del imperfetto para describir características de una persona en el pasado."  
-  - "Elegir la conjugación correcta de 'essere'."  
-explicacion: "'Era' es la forma correcta de 'essere' en tercera persona singular del imperfetto. Describe un estado físico o personal en el pasado."  
-tipo: completar  
-enunciado: "Mia nonna ___ molto gentile e saggia."  
-respuestas_validas:  
-  - "era"  
-  - "Era"  
-```  
-
----
-
-### 9 — Azione simultanea nel passato  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["azione", "simultanea"]  
-pasos:  
-  - "Reconocer la simultaneidad de acciones en el pasado mediante conectores."  
-  - "Conjugar el verbo 'parlare' en imperfetto."  
-explicacion: "'Parlavamo' es la forma correcta de 'parlare' en primera persona plural del imperfetto. Describe una acción simultánea con otra en el pasado."  
-tipo: completar  
-enunciado: "Mentre guardavamo la TV, ___ di politica."  
-respuestas_validas:  
-  - "parlavamo"  
-  - "Parlavamo"  
-```  
-
----
-
-### 10 — Descrizione di un paesaggio passato  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["paesaggio", "stato"]  
-pasos:  
-  - "Identificar el uso del imperfetto para describir un paisaje en el pasado."  
-  - "Elegir la conjugación correcta de 'essere'."  
-explicacion: "'C'era' es la forma correcta de 'essere' en tercera persona singular del imperfetto. Describe la presencia de algo en un lugar en el pasado."  
-tipo: completar  
-enunciado: "Il lago ___ circondato da montagne verdi."  
-respuestas_validas:  
-  - "era"  
-  - "Era"  
-```  
-
----
-
-### 11 — Abitudine passata con 'ogni'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "ogni"]  
-pasos:  
-  - "Reconocer la expresión 'ogni inverno' como indicador de abitudine."  
-  - "Conjugar el verbo 'viaggiare' en imperfetto."  
-explicacion: "'Viaggiavo' es la forma correcta de 'viaggiare' en primera persona singular del imperfetto. Describe una acción habitual repetida en el pasado."  
-tipo: completar  
-enunciado: "Quando ero giovane, ___ sempre in giro ogni inverno."  
-respuestas_validas:  
-  - "viaggiavo"  
-  - "Viaggiavo"  
-```  
-
----
-
-### 12 — Descrizione di un evento passato con 'mentre'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["evento", "simultanea"]  
-pasos:  
-  - "Reconocer la simultaneidad de acciones mediante 'mentre'."  
-  - "Elegir la conjugación correcta de 'ascoltare'."  
-explicacion: "'Ascoltavo' es la forma correcta de 'ascoltare' en primera persona singular del imperfetto. Describe una acción continua que ocurre mientras otra sucede."  
-tipo: completar  
-enunciado: "Mentre leggevo il libro, ___ musica in sottofondo."  
-respuestas_validas:  
-  - "ascoltavo"  
-  - "Ascoltavo"  
-```  
-
----
-
-### 13 — Emozione passata con 'sentire'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["emozione", "stato"]  
-pasos:  
-  - "Identificar el uso de 'sentire' para describir una emoción en el pasado."  
-  - "Elegir la conjugación correcta del verbo."  
-explicacion: "'Sentivo' es la forma correcta de 'sentire' en primera persona singular del imperfetto. Describe una emoción continua o habitual en el pasado."  
-tipo: completar  
-enunciado: "Quando l’ho visto, ___ un po’ di sorpresa."  
-respuestas_validas:  
-  - "sentivo"  
-  - "Sentivo"  
-```  
-
----
-
-### 14 — Descrizione di una condizione passata  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["condizione", "stato"]  
-pasos:  
-  - "Identificar el uso del imperfetto para describir una condición física en el pasado."  
-  - "Verificar la conjugación de 'essere'."  
-explicacion: "'Era' es la forma correcta de 'essere' en tercera persona singular del imperfetto. Describe un estado físico o emocional en el pasado."  
-tipo: completar  
-enunciado: "Il tempo ___ piovoso quando siamo andati in montagna."  
-respuestas_validas:  
-  - "era"  
-  - "Era"  
-```  
-
----
-
-### 15 — Abitudine passata con 'sempre'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "sempre"]  
-pasos:  
-  - "Reconocer el uso de 'sempre' como indicador de abitudine."  
-  - "Conjugar el verbo 'mangiare' en imperfetto."  
-explicacion: "'Mangiavo' es la forma correcta de 'mangiare' en primera persona singular del imperfetto. Describe una acción repetida y habitual en el pasado."  
-tipo: completar  
-enunciado: "Quando ero piccolo, ___ sempre frutta a colazione."  
-respuestas_validas:  
-  - "mangiavo"  
-  - "Mangiavo"  
-```  
-
----
-
-### 16 — Descrizione di un evento passato con 'mentre'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["evento", "simultanea"]  
-pasos:  
-  - "Reconocer la simultaneidad de acciones mediante 'mentre'."  
-  - "Elegir la conjugación correcta de 'bere'."  
-explicacion: "'Bevevo' es la forma correcta de 'bere' en primera persona singular del imperfetto. Describe una acción continua que ocurre mientras otra sucede."  
-tipo: completar  
-enunciado: "Mentre parlavamo, ___ un caffè."  
-respuestas_validas:  
-  - "bevevo"  
-  - "Bevevo"  
-```  
-
----
-
-### 17 — Abitudine passata con 'ogni volta'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "ogni volta"]  
-pasos:  
-  - "Reconocer la expresión 'ogni volta' como indicador de abitudine."  
-  - "Conjugar el verbo 'ridere' en imperfetto."  
-explicacion: "'Ridevo' es la forma correcta de 'ridere' en primera persona singular del imperfetto. Describe una acción habitual repetida en el pasado."  
-tipo: completar  
-enunciado: "Quando andavo al cinema, ___ sempre di ridere."  
-respuestas_validas:  
-  - "ridevo"  
-  - "Ridevo"  
-```  
-
----
-
-### 18 — Descrizione di un paesaggio passato con 'c'era'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["paesaggio", "stato"]  
-pasos:  
-  - "Identificar el uso de 'c'era' para describir la presencia de algo en el pasado."  
-  - "Verificar la conjugación correcta del verbo 'essere'."  
-explicacion: "'C'era' es la forma correcta de 'essere' en tercera persona singular del imperfetto. Describe la existencia de algo en un lugar o contexto en el pasado."  
-tipo: completar  
-enunciado: "Il parco ___ pieno di bambini che giocavano."  
-respuestas_validas:  
-  - "era"  
-  - "Era"  
-```  
-
----
-
-### 19 — Azione continua nel passato con 'mentre'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["azione", "simultanea"]  
-pasos:  
-  - "Reconocer la simultaneidad de acciones mediante 'mentre'."  
-  - "Elegir la conjugación correcta de 'camminare'."  
-explicacion: "'Camminavo' es la forma correcta de 'camminare' en primera persona singular del imperfetto. Describe una acción continua que ocurre mientras otra sucede."  
-tipo: completar  
-enunciado: "Mentre ascoltavamo le notizie, ___ per strada."  
-respuestas_validas:  
-  - "camminavo"  
-  - "Camminavo"  
-```  
-
----
-
-### 20 — Descrizione di un evento passato con 'mentre'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["evento", "simultanea"]  
-pasos:  
-  - "Reconocer la simultaneidad de acciones mediante 'mentre'."  
-  - "Elegir la conjugación correcta de 'guardare'."  
-explicacion: "'Guardavo' es la forma correcta de 'guardare' en primera persona singular del imperfetto. Describe una acción continua que ocurre mientras otra sucede."  
-tipo: completar  
-enunciado: "Mentre giocavamo a calcio, ___ il sole."  
-respuestas_validas:  
-  - "guardavo"  
-  - "Guardavo"  
-```  
-
----
-
-### 21 — Abitudine passata con 'ogni giorno'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "ogni giorno"]  
-pasos:  
-  - "Reconocer la expresión 'ogni giorno' como indicador de abitudine."  
-  - "Conjugar el verbo 'leggere' en imperfetto."  
-explicacion: "'Leggevo' es la forma correcta de 'leggere' en primera persona singular del imperfetto. Describe una acción habitual repetida en el pasado."  
-tipo: completar  
-enunciado: "Quando vivevo a Torino, ___ sempre un libro ogni giorno."  
-respuestas_validas:  
-  - "leggevo"  
-  - "Leggevo"  
-```  
-
----
-
-### 22 — Descrizione di un evento passato con 'mentre'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["evento", "simultanea"]  
-pasos:  
-  - "Reconocer la simultaneidad de acciones mediante 'mentre'."  
-  - "Elegir la conjugación correcta de 'aspettare'."  
-explicacion: "'Aspettavo' es la forma correcta de 'aspettare' en primera persona singular del imperfetto. Describe una acción continua que ocurre mientras otra sucede."  
-tipo: completar  
-enunciado: "Mentre ascoltavamo la musica, ___ l’arrivo di un amico."  
-respuestas_validas:  
-  - "aspettavo"  
-  - "Aspettavo"  
-```  
-
----
-
-### 23 — Emozione passata con 'sentire'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["emozione", "stato"]  
-pasos:  
-  - "Identificar el uso de 'sentire' para describir una emoción en el pasado."  
-  - "Elegir la conjugación correcta del verbo."  
-explicacion: "'Sentivo' es la forma correcta de 'sentire' en primera persona singular del imperfetto. Describe una emoción continua o habitual en el pasado."  
-tipo: completar  
-enunciado: "Quando l’ho visto, ___ un po’ di tristezza."  
-respuestas_validas:  
-  - "sentivo"  
-  - "Sentivo"  
-```  
-
----
-
-### 24 — Descrizione di un evento passato con 'mentre'  
-```  
-metadata:  
-  materia: "italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["azioni contemporanee", "guardare"]  
-pasos:  
-  - "Identificar el tiempo verbal necesario para describir una acción simultánea en el pasado."  
-  - "Elegir la conjugación correcta del verbo 'guardare' en primera persona del singular del imperfetto."  
-respuestas_validas:  
-  - "guardavo"  
-  - "Guardavo"  
-tipo: completar  
-enunciado: "Mentre facevo i compiti, ___ la televisione."  
+explicacion: |
+  Costumbre: imperfetto.
 ```
 
-### 25 — Abitudine passata con 'ogni volta'  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "imperfetto"  
-  nivel: "B1"  
-  tags: ["abitudine", "ogni volta"]  
-pasos:  
-  - "Reconocer la expresión 'ogni volta' como indicador de abitudine."  
-  - "Conjugar el verbo 'sorridere' en imperfetto."  
-explicacion: "'Sorriso' es la forma correcta de 'sorridere' en primera persona singular del imperfetto. Describe una acción habitual repetida en el pasado."  
-tipo: completar  
-enunciado: "Quando andavo al cinema, ___ sempre di sorridere."  
-respuestas_validas:  
-  - "sorriso"  
-  - "Sorriso"  
+### 2 — essere
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "era"
+tipo: "mc"
+opciones_explicitas: ["era", "erava", "è stata"]
+
+enunciado: "La casa ___ molto grande."
+
+explicacion: |
+  *Essere → era*.
+```
+
+### 3 — fare
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "Faceva"
+tipo: "mc"
+opciones_explicitas: ["Faceva", "Fava", "Ha fatto"]
+
+enunciado: "___ freddo quel giorno."
+
+explicacion: |
+  *Fare → faceva*.
+```
+
+### 4 — noi
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "abitavamo"
+tipo: "mc"
+opciones_explicitas: ["abitavamo", "abitavimo", "abitammo"]
+
+enunciado: "Noi ___ in campagna."
+
+explicacion: |
+  *-avamo*.
+```
+
+### 5 — loro
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "venivano"
+tipo: "mc"
+opciones_explicitas: ["venivano", "venevano", "vennero"]
+
+enunciado: "I nonni ___ ogni domenica."
+
+explicacion: |
+  *Venire → venivano*.
+```
+
+### 6 — Interrupción
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "Dormivo"
+tipo: "mc"
+opciones_explicitas: ["Dormivo", "Ho dormito", "Dormo"]
+
+enunciado: "___ quando è suonato il telefono."
+
+explicacion: |
+  Acción en curso.
+```
+
+### 7 — Hecho
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "sono rimasto"
+tipo: "mc"
+opciones_explicitas: ["sono rimasto", "rimanevo", "rimango"]
+
+enunciado: "Pioveva, così ___ a casa."
+
+explicacion: |
+  Hecho puntual: passato prossimo.
+```
+
+### 8 — Simultáneas
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "apparecchiava"
+tipo: "mc"
+opciones_explicitas: ["apparecchiava", "ha apparecchiato", "apparecchia"]
+
+enunciado: "Mentre io cucinavo, lui ___ la tavola."
+
+explicacion: |
+  Dos acciones simultáneas.
+```
+
+### 9 — Cortesía
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "volevo"
+tipo: "mc"
+opciones_explicitas: ["volevo", "ho voluto", "vorrò"]
+
+enunciado: "Buongiorno, ___ un caffè, per favore."
+
+explicacion: |
+  Cortesía: *volevo*.
+```
+
+### 10 — Edad
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "avevo"
+tipo: "mc"
+opciones_explicitas: ["avevo", "ho avuto", "ero"]
+
+enunciado: "Quando ___ dieci anni, ho imparato a nuotare."
+
+explicacion: |
+  Edad en el pasado: *avevo*.
+```
+
+### 11 — dire
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "diceva"
+tipo: "mc"
+opciones_explicitas: ["diceva", "direva", "ha detto sempre"]
+
+enunciado: "Mia madre mi ___ sempre di studiare."
+
+explicacion: |
+  *Dire → diceva*.
+```
+
+### 12 — bere
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: "bevevo"
+tipo: "mc"
+opciones_explicitas: ["bevevo", "berevo", "bevavo"]
+
+enunciado: "Da giovane ___ molto caffè."
+
+explicacion: |
+  *Bere → bevevo*.
+```
+
+### 13 — Equivalencia
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "imperfetto"
+  nivel: "B1"
+  tags: ["imperfetto"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "*Pioveva* equivale a «llovía» y *è piovuto* a «llovió»."
+
+explicacion: |
+  Verdadero.
 ```

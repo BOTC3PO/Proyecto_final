@@ -5,34 +5,42 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
 ## Introducción
-En el nivel C1 del Marco Europeo Común de Referencia para las Lenguas (CEFR), los hablantes deben demostrar la capacidad de comunicarse con fluidez, precisión y flexibilidad en contextos complejos. La **argumentación matizada** implica defender una idea o postura con matices, reconociendo posibles contradicciones o limitaciones, mientras que el **registro formal** requiere adaptar el lenguaje a situaciones académicas, profesionales o oficiales. Estas habilidades son clave para participar en debates, redactar discursos o presentar ideas de manera persuasiva y respetuosa.
+En C1 se espera **argumentar con matices**, adaptar el **registro** (entrevista, presentación, reunión), usar **lenguaje de precisión** y responder con fluidez a objeciones sin perder la estructura.
 
-## Explicación central con ejemplos reales
-La **argumentación matizada** se caracteriza por la utilización de conectores que expresan gradación, duda o equilibrio (por ejemplo: *“It is generally accepted that...”, “However, some studies suggest...”, “To a certain extent, this could be attributed to...”*). En un debate sobre la regulación de las redes sociales, un hablante podría decir:
-> *"While social media platforms have undoubtedly enhanced global communication, their role in spreading misinformation cannot be overlooked. It is essential that governments implement stricter policies to ensure accountability without infringing on freedom of expression."*
+## Explicación central
+### Argumentación matizada (hedging)
+*It could be argued that… / There is a case for… / Arguably… / To a large extent… / I'd be inclined to think that…*
 
-El **registro formal** implica evitar contracciones (*don’t → do not*), usar léxico especializado y estructuras complejas (*passive voice*, *nominalization*). Por ejemplo, en un informe académico:
-> *"The data presented in Table 3 indicates a correlation between urbanization rates and increased carbon emissions. This phenomenon underscores the necessity of adopting sustainable urban planning strategies."*
+### Precisión y énfasis
+- *What really matters is… / The crux of the matter is… / Far from being X, it is Y.*
+- Inversión para énfasis: *Not only does it save money, but it also…*
 
-## Errores comunes de hablantes hispanohablantes
-1. **Falta de matices**: A menudo, los estudiantes tienden a afirmar ideas sin reconocer posibles excepciones o puntos de vista contrarios (ejemplo: *"All renewable energy is better than fossil fuels"* en lugar de *"While renewable energy is generally more sustainable, its implementation can face logistical challenges"*).
-2. **Uso inadecuado del registro**: Confundir el lenguaje coloquial con el formal (ejemplo: usar *“you know”* o *“like”* en un discurso académico).
-3. **Sobredependencia de conectores simples**: Recurrir exclusivamente a *but*, *and*, *so* sin variar según el contexto (ejemplo: *"The policy is bad, but it’s not the worst"* en lugar de *"Although the policy has significant drawbacks, its implementation remains contentious"*).
+### Manejar objeciones
+- *That's a valid concern; however… / I'd question that assumption. / With all due respect, I see it differently.*
+
+### Registro formal en presentaciones y reuniones
+- Estructurar: *I'd like to begin by…, Moving on to…, To sum up…*
+- Referirse a datos: *As the figures show…, According to recent research…*
+- Cerrar: *I'd be happy to take any questions.*
+
+### Estrategias de fluidez
+- Reformular: *What I mean is… / In other words… / To put it another way…*
+- Ganar tiempo con naturalidad: *That's an interesting question. Let me think about it for a moment.*
+
+## Errores comunes de hispanohablantes
+1. Exceso de *very*: reemplazar por adverbios precisos (*extremely, highly, deeply*).
+2. Calcos: ❌ *I have the impression of* … ✅ *I get the impression that…*
+3. ❌ *Respect to* ✅ *With respect to / Regarding*.
+4. Hablar con un registro demasiado informal en una presentación (*stuff, kind of*).
 
 ## Comparación con el español
-El español permite una mayor flexibilidad en la argumentación informal, pero en contextos formales se requiere un lenguaje más estructurado. Por ejemplo:
-- En español: *"Aunque las redes sociales mejoran la comunicación, también generan problemas"*.
-- En inglés formal: *"While social media platforms have enhanced global communication, they also pose challenges such as the spread of misinformation."*
-
-Además, el inglés utiliza más **nominalizaciones** (ejemplo: *“the implementation of policies”* en lugar de *“hacer políticas”*) y conectores que expresan duda o equilibrio (*“It is worth noting that...”, “This is not to say that...”*), elementos menos frecuentes en el español.
+El español académico usa fórmulas parecidas («cabe señalar», «en gran medida»), pero el inglés valora más la **concisión** y la **atenuación** (*hedging*) para no sonar dogmático.
 
 ## Ejemplo extendido en contexto
-**Contexto**: Un debate académico sobre la inteligencia artificial en la educación.
-**Hablante C1**:
-> *"Artificial intelligence has the potential to revolutionize education by personalizing learning experiences and streamlining administrative tasks. However, it is crucial to address ethical concerns such as data privacy and algorithmic bias. While AI can enhance efficiency, over-reliance on technology might undermine critical thinking skills in students. Therefore, a balanced approach that integrates AI with human oversight is necessary to ensure equitable and effective educational outcomes."*
-
-Este ejemplo muestra cómo se combina **argumentación matizada** (reconociendo ventajas y limitaciones) con un **registro formal** (léxico preciso, estructuras complejas como *“it is crucial to address...”, “a balanced approach that integrates...”*).
+*«**I'd like to begin by** looking at the figures. **As they show**, enrolment has fallen by 12%. **It could be argued that** this is temporary; **however**, **far from being** a one-off, it reflects a ten-year trend. **What really matters is** how we respond. **To sum up**, … **I'd be happy to take any questions.**»*

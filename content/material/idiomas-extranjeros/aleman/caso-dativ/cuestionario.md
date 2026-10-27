@@ -1,516 +1,272 @@
-# Idiomas — Alemán — caso-dativ (cuestionario)
+# Alemán — dativo (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/caso-dativ/cuestionario_crudo.md`): arreglo mecánico (comillas mal cerradas, pasos sin comillas) + bloque 23 con enunciado/explicacion sin comillas y comillas anidadas sin escapar, corregido a mano.
+> Tema: `idiomas-extranjeros/aleman/caso-dativ`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Dativ mit „gegeben“  
-```yaml
+### 1 — Obj. indirecto
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["indirekter-objekt", "geben"]
-pasos:
-  - "Identifica el caso correcto para el complemento indirecto."
-tipo: completar
-respuestas_validas:
-  - "dem"
-  - "Dem"
-enunciado: "Der Lehrer gibt ___ ein Buch."  
-explicacion: "El verbo 'geben' requiere el dativo en su complemento indirecto cuando se indica a quién se le da algo."
+  tags: ["dativo"]
+
+respuesta: "dem"
+tipo: "mc"
+opciones_explicitas: ["dem", "den", "der"]
+
+enunciado: "Ich gebe ___ Lehrer das Buch."
+
+explicacion: |
+  Masc. dativo: *dem*.
 ```
 
+### 2 — Fem.
 
-
-### 2 — Dativ mit „an“  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "an"]
-pasos:
-  - "Selecciona el caso correcto para la preposición 'an'."
-respuesta: "ihrem"
-tipo: mc
-opciones_explicitas:
-  - "ihrer"
-  - "ihrem"
-  - "sie"
-  - "zum"
-enunciado: "Ich schreibe ___ eine Nachricht."  
-explicacion: "La preposición 'an' requiere el dativo cuando indica dirección o destinatario."
+  tags: ["dativo"]
+
+respuesta: "meiner"
+tipo: "mc"
+opciones_explicitas: ["meiner", "meine", "meinem"]
+
+enunciado: "Ich schenke ___ Mutter Blumen."
+
+explicacion: |
+  Fem. dativo: *meiner*.
 ```
 
+### 3 — helfen
 
-
-### 3 — Dativ mit „von“ (Origen)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "von"]
-pasos:
-  - "Elije el caso correcto para la preposición 'von'."
-respuesta: "der"
-tipo: mc
-opciones_explicitas:
-  - "dem"
-  - "der"
-  - "den"
-  - "des"
-enunciado: "Das Buch stammt ___ dem Laden."  
-explicacion: "La preposición 'von' toma el dativo cuando indica origen."
+  tags: ["dativo"]
+
+respuesta: "mir"
+tipo: "mc"
+opciones_explicitas: ["mir", "mich", "ich"]
+
+enunciado: "Kannst du ___ helfen?"
+
+explicacion: |
+  *Helfen* + dativo.
 ```
 
+### 4 — gefallen
 
-
-### 4 — Dativ mit „mit“  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "mit"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'mit'."
-tipo: completar
-respuestas_validas:
-  - "ihrem"
-  - "Ihrem"
-enunciado: "Er spielt ___ einem Ball."  
-explicacion: "La preposición 'mit' requiere el dativo cuando indica instrumento o compañía."
+  tags: ["dativo"]
+
+respuesta: "ihr"
+tipo: "mc"
+opciones_explicitas: ["ihr", "sie", "ihm"]
+
+enunciado: "Das Kleid gefällt ___ sehr. (a ella)"
+
+explicacion: |
+  *Gefallen* + dativo.
 ```
 
+### 5 — gehören
 
-
-### 5 — Dativ mit „für“  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "für"]
-pasos:
-  - "Elige el caso correcto para la preposición 'für'."
+  tags: ["dativo"]
+
 respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "ihn"
-  - "ihm"
-  - "seine"
-  - "zum"
-enunciado: "Das Geschenk ist ___."  
-explicacion: "La preposición 'für' siempre requiere el dativo cuando indica destinatario."
+tipo: "mc"
+opciones_explicitas: ["ihm", "ihn", "er"]
+
+enunciado: "Das Auto gehört ___. (a él)"
+
+explicacion: |
+  *Gehören* + dativo.
 ```
 
+### 6 — mit
 
-
-### 6 — Dativ mit „gehen“ (Dirección)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["verbo", "gehen"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'gehen'."
-tipo: completar
-respuestas_validas:
-  - "zum"
-  - "Zum"
-enunciado: "Wir gehen ___ Markt."  
-explicacion: "El verbo 'gehen' requiere el dativo cuando indica dirección a un lugar."
+  tags: ["dativo"]
+
+respuesta: "dem"
+tipo: "mc"
+opciones_explicitas: ["dem", "das", "den"]
+
+enunciado: "Ich fahre mit ___ Fahrrad."
+
+explicacion: |
+  *Mit* + dativo.
 ```
 
+### 7 — Plural
 
-
-### 7 — Dativ mit „helfen“ (Indirekter Objekt)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["verbo", "helfen"]
-pasos:
-  - "Selecciona el caso correcto para el complemento indirecto de 'helfen'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Er hilft ___."  
-explicacion: "El verbo 'helfen' requiere el dativo en su complemento indirecto."
+  tags: ["dativo"]
+
+respuesta: "Kindern"
+tipo: "mc"
+opciones_explicitas: ["Kindern", "Kinder", "Kinds"]
+
+enunciado: "Ich spiele mit den ___."
+
+explicacion: |
+  Dativo plural *-n*.
 ```
 
+### 8 — Orden pronombres
 
-
-### 8 — Dativ mit „wegen“ (Causa)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "wegen"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'wegen'."
-tipo: completar
-respuestas_validas:
-  - "des"
-  - "Des"
-enunciado: "Er ist ___ der Regen."  
-explicacion: "La preposición 'wegen' toma el genitivo, pero en contextos específicos puede requerir dativo (raro). Aquí se usa genitivo."
+  tags: ["dativo"]
+
+respuesta: "Ich gebe es ihm."
+tipo: "mc"
+opciones_explicitas: ["Ich gebe es ihm.", "Ich gebe ihm es.", "Ich es gebe ihm."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Pronombre acusativo primero.
 ```
 
+### 9 — Ihnen
 
-
-### 9 — Dativ mit „gegenüber“  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "gegenüber"]
-pasos:
-  - "Elige el caso correcto para la preposición 'gegenüber'."
-respuesta: "der"
-tipo: mc
-opciones_explicitas:
-  - "dem"
-  - "der"
-  - "den"
-  - "des"
-enunciado: "Das Museum liegt ___ dem Park."  
-explicacion: "La preposición 'gegenüber' siempre requiere el dativo."
+  tags: ["dativo"]
+
+respuesta: "Ihnen"
+tipo: "mc"
+opciones_explicitas: ["Ihnen", "Sie", "Ihr"]
+
+enunciado: "Wie geht es ___, Frau Müller?"
+
+explicacion: |
+  Formal dativo: *Ihnen*.
 ```
 
+### 10 — danken
 
-
-### 10 — Dativ mit „nach“ (Dirección)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "nach"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'nach'."
-tipo: completar
-respuestas_validas:
-  - "der"
-  - "Der"
-enunciado: "Wir fahren ___ der Schule."  
-explicacion: "La preposición 'nach' requiere el akkusativo cuando indica dirección a un lugar."
+  tags: ["dativo"]
+
+respuesta: "dir"
+tipo: "mc"
+opciones_explicitas: ["dir", "dich", "du"]
+
+enunciado: "Ich danke ___ für die Hilfe."
+
+explicacion: |
+  *Danken* + dativo.
 ```
 
+### 11 — zu + der
 
-
-### 11 — Dativ mit „sagen“ (Indirekter Objekt)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["verbo", "sagen"]
-pasos:
-  - "Selecciona el caso correcto para el complemento indirecto de 'sagen'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Ich sage ___ die Wahrheit."  
-explicacion: "El verbo 'sagen' requiere el dativo en su complemento indirecto."
+  tags: ["dativo"]
+
+respuesta: "zur"
+tipo: "mc"
+opciones_explicitas: ["zur", "zum", "zu die"]
+
+enunciado: "Ich gehe ___ Schule."
+
+explicacion: |
+  *Zu der → zur*.
 ```
 
+### 12 — Expresión
 
-
-### 12 — Dativ mit „von“ (Dauer)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "von"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'von'."
-tipo: completar
-respuestas_validas:
-  - "dem"
-  - "Dem"
-enunciado: "Das Projekt läuft ___ dem 15. Mai."  
-explicacion: "La preposición 'von' toma el dativo cuando indica un período de tiempo."
+  tags: ["dativo"]
+
+respuesta: "Es tut mir leid."
+tipo: "mc"
+opciones_explicitas: ["Es tut mir leid.", "Es tut mich leid.", "Ich tut leid."]
+
+enunciado: "«Lo siento»:"
+
+explicacion: |
+  *Mir* (dativo).
 ```
 
+### 13 — schmecken
 
-
-### 13 — Dativ mit „zahlen“ (Indirekter Objekt)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["verbo", "zahlen"]
-pasos:
-  - "Elige el caso correcto para el complemento indirecto de 'zahlen'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Er zahlt ___."  
-explicacion: "El verbo 'zahlen' requiere el dativo en su complemento indirecto."
+  tags: ["dativo"]
+
+respuesta: "euch"
+tipo: "mc"
+opciones_explicitas: ["euch", "ihr", "uns"]
+
+enunciado: "Schmeckt ___ die Suppe? (a ustedes, vosotros)"
+
+explicacion: |
+  Dativo de *ihr*: *euch*.
 ```
 
+### 14 — helfen
 
-
-### 14 — Dativ mit „zu“ (Propósito)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "caso-dativ"
   nivel: "B1"
-  tags: ["präposition", "zu"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'zu'."
-tipo: completar
-respuestas_validas:
-  - "der"
-  - "Der"
-enunciado: "Das Geld ist ___ der Bank."  
-explicacion: "La preposición 'zu' toma el dativo cuando indica propósito o lugar."
-```
+  tags: ["dativo"]
 
+respuesta: falso
+tipo: vf
 
+enunciado: "*Helfen* rige acusativo, como «ayudar» en español."
 
-### 15 — Dativ mit „antworten“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "antworten"]
-pasos:
-  - "Selecciona el caso correcto para el complemento indirecto de 'antworten'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Ich antworte ___."  
-explicacion: "El verbo 'antworten' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 16 — Dativ mit „geben“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "geben"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'geben'."
-tipo: completar
-respuestas_validas:
-  - "ihrem"
-  - "Ihrem"
-enunciado: "Er gibt ___ eine Nachricht."  
-explicacion: "El verbo 'geben' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 17 — Dativ mit „sprechen“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "sprechen"]
-pasos:
-  - "Elige el caso correcto para el complemento indirecto de 'sprechen'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Wir sprechen ___."  
-explicacion: "El verbo 'sprechen' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 18 — Dativ mit „danken“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "danken"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'danken'."
-tipo: completar
-respuestas_validas:
-  - "ihm"
-  - "Ihm"
-enunciado: "Ich danke ___."  
-explicacion: "El verbo 'danken' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 19 — Dativ mit „warten“ (Dirección)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "warten"]
-pasos:
-  - "Selecciona el caso correcto para 'warten'."
-respuesta: "auf"
-tipo: mc
-opciones_explicitas:
-  - "an"
-  - "auf"
-  - "zu"
-  - "mit"
-enunciado: "Wir warten ___ dem Bus."  
-explicacion: "El verbo 'warten' requiere el dativo cuando indica espera a algo o alguien."
-```
-
-
-
-### 20 — Dativ mit „geben“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "geben"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'geben'."
-tipo: completar
-respuestas_validas:
-  - "ihm"
-  - "Ihm"
-enunciado: "Er gibt ___ eine Prise Salz."  
-explicacion: "El verbo 'geben' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 21 — Dativ mit „schreiben“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "schreiben"]
-pasos:
-  - "Elige el caso correcto para el complemento indirecto de 'schreiben'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Ich schreibe ___."  
-explicacion: "El verbo 'schreiben' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 22 — Dativ mit „geben“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "geben"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'geben'."
-tipo: completar
-respuestas_validas:
-  - "ihrem"
-  - "Ihrem"
-enunciado: "Er gibt ___ einen Rat."  
-explicacion: "El verbo 'geben' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 23 — Dativ mit „antworten“ (Indirekter Objekt)  
-```  
-metadata:  
-  materia: "alemán"  
-  tema: "caso-dativ"  
-  nivel: "B1"  
-  tags: ["preposiciones", "wegen"]  
-
-enunciado: "Der Mann ist ___ seiner Schwester ärgerlich."
-tipo: completar
-respuestas_validas:
-  - "wegen"
-  - "Wegen"
-
-pasos:
-  - "Identificar la preposición que requiere el caso dativo."
-  - "Recordar que wegen se usa con el dativo para indicar causa."
-
-explicacion: "La preposición wegen (por, debido a) requiere el caso dativo. Por lo tanto, la forma correcta es wegen seiner Schwester."
-```
-
-### 24 — Dativ mit „geben“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "geben"]
-pasos:
-  - "Completa el espacio con el caso correcto para 'geben'."
-tipo: completar
-respuestas_validas:
-  - "ihrem"
-  - "Ihrem"
-enunciado: "Er gibt ___ eine Erklärung."  
-explicacion: "El verbo 'geben' requiere el dativo en su complemento indirecto."
-```
-
-
-
-### 25 — Dativ mit „antworten“ (Indirekter Objekt)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "caso-dativ"
-  nivel: "B1"
-  tags: ["verbo", "antworten"]
-pasos:
-  - "Elige el caso correcto para el complemento indirecto de 'antworten'."
-respuesta: "ihm"
-tipo: mc
-opciones_explicitas:
-  - "sein"
-  - "ihm"
-  - "seine"
-  - "den"
-enunciado: "Wir antworten ___."  
-explicacion: "El verbo 'antworten' requiere el dativo en su complemento indirecto."
+explicacion: |
+  Falso: rige dativo (*ich helfe dir*).
 ```

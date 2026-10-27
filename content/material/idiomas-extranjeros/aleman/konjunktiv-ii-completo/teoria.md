@@ -1,52 +1,54 @@
-# Konjunktiv II completo: Uso y estructura en alemán (nivel B2)
+# El Konjunktiv II completo en alemán (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/konjunktiv-ii-completo`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El **Konjunktiv II** es un modo verbal en alemán que se utiliza para expresar situaciones hipotéticas, deseos, suposiciones o pedidos corteses. En el nivel B2, su dominio es clave para comunicarse con precisión en contextos como discusiones teóricas, planes futuros no seguros o solicitudes de ayuda. A diferencia del español, donde el subjuntivo se usa frecuentemente, el Konjunktiv II en alemán tiene un uso más restringido pero esencial para evitar ambigüedades.
+En B2 se agrega el **Konjunktiv II del pasado** (irrealidad en el pasado), las **comparaciones irreales** con *als ob*, los **deseos irreales** y las formas propias de los verbos fuertes.
 
-## Explicación central con ejemplos
-El **Konjunktiv II completo** incluye dos formas principales:
-1. **Formas irregulares de verbos** (como *wollen* → *wolle*, *haben* → *habe*).
-2. **Formas regulares con el auxiliar *würde***, seguido del infinitivo (*gehen* → *würde gehen*).
+## Explicación central
+### Konjunktiv II del pasado
+***hätte / wäre*** + **participio**
+*Wenn ich Zeit **gehabt hätte**, **wäre** ich **gekommen**.* (si hubiera tenido tiempo, habría venido)
+*Ich **hätte** das nicht **gesagt**.* (yo no lo habría dicho)
 
-### Ejemplos en alemán:
-- **Wenn ich reich wäre**, würde ich ein Auto kaufen. *(Si fuera rico, compraría un auto.)*
-  Aquí se usa la forma irregular de *sein* (*wäre*) para indicar una hipótesis improbable.
-- **Ich wünschte, er käme später**. *(Ojalá venga más tarde.)*
-  La forma irregular de *kommen* (*käme*) expresa un deseo.
-- **Wenn ich Zeit hätte**, würde ich mitkommen. *(Si tuviera tiempo, iría con usted.)*
-  Aquí se combina el auxiliar *würde* (formación regular) con el infinitivo *haben*.
+### Con modales en el pasado: doble infinitivo
+*Du **hättest** mich **anrufen sollen**.* (deberías haberme llamado)
+*Wir **hätten** früher **kommen können**.*
+En subordinada, *hätte* va **antes** del doble infinitivo: *…, dass du mich **hättest anrufen sollen**.*
 
-El Konjunktiv II también aparece en frases condicionales o para suavizar afirmaciones:
-- **Man müsste hier mehr aufpassen**. *(Se debería tener más cuidado aquí.)*
-  La forma irregular de *müssen* (*müsse*) sugiere una crítica indirecta.
+### Formas propias (verbos fuertes)
+Raíz del *Präteritum* + Umlaut + *-e*: *kam → **käme**, ging → **ginge**, gab → **gäbe**, wusste → **wüsste**, ließ → **ließe**, blieb → **bliebe***. En el habla se prefiere *würde* + infinitivo, salvo con *sein, haben*, modales y algunos frecuentes (*wüsste, käme, ginge, gäbe*).
 
-## Errores comunes de hablantes hispanohablantes
-1. **Uso incorrecto del auxiliar *würde***: Algunos confunden el Konjunktiv II con el pretérito pluscuamperfecto, usando *würde* incluso cuando la forma irregular es más adecuada. Por ejemplo, decir *Ich würde reich sein* en lugar de *Wenn ich reich wäre*.
-2. **Confusión entre subjuntivo y indicativo**: En español, el subjuntivo se usa con frecuencia después de *si*, pero en alemán, si la situación es posible (no hipotética), se usa el indicativo: *Wenn ich genug Geld habe, kaufe ich ein Auto* (no *kaufen würde*).
-3. **Omisión del Konjunktiv II**: En pedidos corteses, como *Könntest du mir helfen?*, los hablantes hispanohablantes a veces usan el indicativo (*Kannst du mir helfen?*) y pierden el tono de cortesía.
+### Comparación irreal: *als ob / als wenn / als*
+*Er tut so, **als ob** er alles **wüsste**.* (como si supiera todo)
+*Sie sieht aus, **als hätte** sie nicht geschlafen.* (con *als* solo, el verbo va justo después)
+
+### Deseos irreales
+***Wenn** ich doch reich **wäre**! / **Wäre** ich doch reich!*
+*Wenn ich das nur **gewusst hätte**!*
+
+### Sin *wenn*
+El verbo va **primero**: ***Hätte** ich das gewusst, **wäre** ich nicht gekommen.*
+
+### Cortesía avanzada
+***Würden** Sie bitte…? **Wären** Sie so freundlich, …? Ich **würde** vorschlagen, dass…*
+
+## Errores comunes de hispanohablantes
+1. ❌ *Wenn ich hätte Zeit gehabt* ✅ *Wenn ich Zeit gehabt hätte*.
+2. ❌ *Ich würde gekommen sein* (se usa poco) ✅ *Ich wäre gekommen*.
+3. ❌ *Du hättest mich anrufen gesollt* ✅ *anrufen sollen*.
+4. ❌ *als ob er alles weiß* (registro cuidado) ✅ *als ob er alles wüsste*.
 
 ## Comparación con el español
-En español, el subjuntivo se usa en contextos más amplios (ej.: *Si tuviera dinero* vs. *Si tengo dinero*), mientras que en alemán, el Konjunktiv II solo aparece cuando la situación es hipotética o deseable. Por ejemplo:
-- **Espanhol**: *Ojalá tenga tiempo*. *(Deseo + subjuntivo)*
-- **Alemán**: *Ich wünschte, ich hätte Zeit* (Konjunktiv II).
-
-Además, el uso de *würde* en alemán es más común que las formas irregulares. Por ejemplo:
-- **Espanhol**: *Si fuera rico, compraría un coche*.
-- **Alemán**: *Wenn ich reich wäre, würde ich ein Auto kaufen* (mix de forma irregular y *würde*).
+«Si hubiera sabido, habría venido» = *Wenn ich es gewusst hätte, wäre ich gekommen*. «Deberías haber llamado» = *du hättest anrufen sollen*. «Como si» = *als ob* + Konjunktiv II, igual que «como si» + subjuntivo.
 
 ## Ejemplo extendido en contexto
-**Situation**: Un estudiante habla con su profesor sobre sus planes futuros.
-
-> **Student**: Wenn ich mehr Zeit hätte, würde ich gerne mehr Bücher lesen. *(Si tuviera más tiempo, leería más libros.)*
-> **Profesor**: Das ist eine gute Idee! Aber wenn du jetzt nicht mitmachst, wirst du später Probleme haben. *(Es una buena idea. Pero si no te unes ahora, tendrás problemas después.)*
-> **Student**: Ich wünschte, ich könnte mehr Zeit finden. *(Ojalá pudiera encontrar más tiempo.)*
-
-En este diálogo, el Konjunktiv II (*hätte*, *würde*, *könnte*) expresa deseos e hipótesis, mientras que el indicativo (*haben*, *mitmachst*) se usa para afirmaciones reales. Esta distinción es clave para evitar malentendidos en contextos formales o académicos.
+*Wenn ich gewusst **hätte**, dass du krank bist, **wäre** ich vorbeigekommen. Du **hättest** mir Bescheid **sagen sollen**! Jetzt tust du so, **als ob** nichts passiert **wäre**. **Hätte** ich doch früher angerufen!*

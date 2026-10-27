@@ -1,56 +1,44 @@
-# Comprensión lectora en japonés (nivel N3)
+# Comprensión lectora en japonés (N3)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/reading-n3`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-La comprensión lectora en el nivel N3 del Japones (JLPT) implica la capacidad de entender textos escritos sencillos, como artículos de periódico, carteles informativos o conversaciones breves. En este nivel, los aprendices deben manejar un vocabulario básico y estructuras gramaticales simples para extraer información clara y responder preguntas sobre el contenido. Es fundamental desarrollar esta habilidad, ya que permite acceder a materiales cotidianos y participar en situaciones prácticas como leer horarios, instrucciones o noticias.
+En N3 se leen **textos de la vida diaria** de extensión media: avisos, correos, artículos simples, explicaciones, relatos breves. Hay que entender la **idea principal**, la **opinión del autor** y **a qué se refieren** los demostrativos.
 
 ## Explicación central
-En japonés, la comprensión lectora se basa en la lectura de textos con vocabulario conocido y estructuras gramaticales básicas (como el uso de partículas como は、を、に, o verbos en formas simples como 「食べる」). Por ejemplo:
+### Qué buscar
+- **Idea principal**: suele estar al **principio** o al **final** del párrafo, a menudo con 〜と思う, 〜のではないだろうか, 〜べきだ, つまり.
+- **Conectores**: しかし / ところが (pero), そのため / だから (por eso), また (además), つまり (o sea), 例えば, 一方 (por otro lado).
+- **Demostrativos**: これ, それ, この〜, そのような〜 remiten a algo anterior; hay que encontrarlo.
 
-> **例文**（例文1）
-> 東京の天気は今日晴れです。
-> （Tōkyō no tenki wa kyou hare desu.）
-> *El clima en Tokio está soleado hoy.*
+### Estilo escrito
+- Estilo simple: 〜だ / 〜である en artículos y ensayos.
+- Conjunción con forma ます sin ます (連用中止): 駅に着き、電車に乗った (= 着いて).
+- Avisos: 〜てください, 〜ないでください, 〜こと (instrucción: 九時までに提出すること).
 
-Este texto usa el verbo 「です」 (ser) y la partícula は para indicar el tema de la oración. Otro ejemplo:
+### Kanji
+Unos 650 kanji. Si uno no se reconoce, deducir por el contexto y por los radicales.
 
-> **例文**（例文2）
-> 私は毎日朝ご飯を食べます。
-> （Watashi wa mai nichi asa gohan o tabemasu.）
-> *Como desayuno todos los días.*
+### Estrategias
+1. Leer la pregunta primero.
+2. Ubicar la idea principal (principio y final).
+3. Seguir los conectores y los demostrativos.
 
-Aquí, la partícula を marca el objeto directo del verbo 「食べる」 (comer).
+## Errores comunes de hispanohablantes
+1. Quedarse con lo que dice el texto antes de しかし: lo importante viene después.
+2. No identificar a qué remite それ.
+3. Confundir 〜こと (instrucción) con «cosa».
 
-**Errores comunes de hispanohablantes**:
-- **Confusión entre partículas**: Usar は en lugar de が cuando se introduce un sujeto nuevo. Por ejemplo, decir 「猫は家にいます」（El gato está en casa）en lugar de 「猫が家にいます」（Hay un gato en casa）。
-- **Uso incorrecto de verbos**: Confundir formas de presente y pasado (ejemplo: 「食べる」 vs. 「食べた」）。
-- **Dependencia excesiva de cognados**: Creer que palabras como 「電車」 (tren) se relacionan con «electro» en español, lo cual no es útil para comprender el significado real.
-
-**Comparación con el español**:
-En español, los sujetos suelen omitirse, mientras que en japonés, la partícula は siempre indica el tema de la oración. Por ejemplo:
-- Español: *Hoy hace buen tiempo.*
-- Japonés: 東京の天気は今日晴れです。
-
-Además, los verbos en japonés no cambian según la persona (como sucede en español), sino que se usan formas generales y marcan el tiempo con sufijos o partículas.
+## Comparación con el español
+La organización es parecida, pero en japonés la idea principal suele estar al **final** del párrafo y la negación al final de la oración.
 
 ## Ejemplo extendido en contexto
-**Escenario**: Un viajero lee un cartel de información turística.
-
-> **テキスト**（例文3）
-> 東京駅は中央線とJR山手線の乗り換え駅です。ここから新宿まで約20分かかります。
-> （Tōkyō eki wa chūō sen to JR Yamanoi sen no norikae eki desu. Koko kara Shinjuku made yaku nijū fun kakarimasu.）
-> *La estación de Tokio es una parada de transferencia para la línea Chūō y la línea JR Yamanote. Desde aquí, tomar un tren a Shinjuku lleva aproximadamente 20 minutos.*
-
-**Análisis**:
-- **Vocabulario clave**: 駅 (estación), 線 (línea), 乗り換え (transferencia).
-- **Estructura gramatical**: 使用する（usar）+ ます（forma polite de presente）。
-- **Comprensión**: El lector debe identificar el tema (東京駅) y relacionar la información sobre tiempos y líneas ferroviarias.
-
-Este tipo de texto requiere reconocer partículas, verbos en formas simples y vocabulario específico para situaciones cotidianas.
+*Texto: «最近、自転車で通勤する人が増えている。運動になるし、交通費も節約できるからだ。しかし、自転車専用の道はまだ少ない。そのため、事故も増えている。安全に走れる道を増やすべきではないだろうか。»*

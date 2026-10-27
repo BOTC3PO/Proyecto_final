@@ -1,435 +1,197 @@
-# Idiomas — Portugués (Portugal) — reading-a2 (cuestionario)
+# Portugués (Portugal) — reading A2 (cuestionario, 10 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-pt/reading-a2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/portugues-pt/reading-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o ambiguas; ahora cada pregunta trae el fragmento.
 
 ---
 
-### 1 — Artigo definido  
+### 1 — Quién
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["artigos", "definidos"]
-pasos:
-  - "Identificar el sustantivo que sigue al espacio en blanco."
-  - "Elegir el artigo definido correcto según el género y número del sustantivo."
-respuestas_validas:
-  - "a"
-  - "A"
-tipo: completar
-enunciado: "O ___ livro está sobre la mesa."
+  tags: ["reading", "A2"]
+
+respuesta: "Clara"
+tipo: "mc"
+opciones_explicitas: ["Clara", "Marta", "La familia de Marta"]
+
+enunciado: "Texto: «Olá, Marta! Estou no Porto com a minha família. Chegámos no sábado de comboio. O hotel fica ao pé do rio Douro e está muito frio. Ontem comemos uma francesinha. Amanhã vamos visitar as caves do vinho do Porto. Beijinhos, Clara» ¿Quién escribe?"
+
+explicacion: |
+  Firma.
 ```
 
-### 2 — Preposición de lugar  
+### 2 — Lugar
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["preposições", "lugar"]
-pasos:
-  - "Analizar el contexto para determinar la relación espacial."
-  - "Seleccionar la preposición que indica ubicación correcta."
-opciones_explicitas:
-  - "em cima de"
-  - "sobro"
-  - "entre"
-respuesta: "em cima de"
-tipo: mc
-enunciado: "O gato está ___ mesa."
+  tags: ["reading", "A2"]
+
+respuesta: "En Oporto"
+tipo: "mc"
+opciones_explicitas: ["En Oporto", "En Lisboa", "En casa de Marta"]
+
+enunciado: "Texto: «Olá, Marta! Estou no Porto com a minha família. Chegámos no sábado de comboio. O hotel fica ao pé do rio Douro e está muito frio. Ontem comemos uma francesinha. Amanhã vamos visitar as caves do vinho do Porto. Beijinhos, Clara» ¿Dónde está?"
+
+explicacion: |
+  *Estou no Porto*.
 ```
 
-### 3 — Tiempo presente con verbo regular  
+### 3 — Transporte
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["verbos", "presente"]
-pasos:
-  - "Identificar el sujeto y el verbo en la oración."
-  - "Aplicar la conjugación del verbo en tiempo presente según el sujeto."
-respuestas_validas:
-  - "vivo"
-  - "Vivo"
-tipo: completar
-enunciado: "Eu ___ na cidade de Lisboa."
+  tags: ["reading", "A2"]
+
+respuesta: "En tren"
+tipo: "mc"
+opciones_explicitas: ["En tren", "En avión", "En colectivo"]
+
+enunciado: "Texto: «Olá, Marta! Estou no Porto com a minha família. Chegámos no sábado de comboio. O hotel fica ao pé do rio Douro e está muito frio. Ontem comemos uma francesinha. Amanhã vamos visitar as caves do vinho do Porto. Beijinhos, Clara» ¿Cómo viajaron?"
+
+explicacion: |
+  *De comboio* = en tren.
 ```
 
-### 4 — Forma de pregunta en portugués  
+### 4 — Ayer
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["preguntas", "sintaxis"]
-pasos:
-  - "Reconocer la estructura de una pregunta en portugués."
-  - "Elegir la forma correcta según el verbo y el sujeto."
-opciones_explicitas:
-  - "O que você está fazendo?"
-  - "Que você está fazendo?"
-  - "Como você está fazendo?"
-respuesta: "O que você está fazendo?"
-tipo: mc
-enunciado: "¿___ ahora mismo?"
+  tags: ["reading", "A2"]
+
+respuesta: "Una francesinha"
+tipo: "mc"
+opciones_explicitas: ["Una francesinha", "Pescado", "Nada"]
+
+enunciado: "Texto: «Olá, Marta! Estou no Porto com a minha família. Chegámos no sábado de comboio. O hotel fica ao pé do rio Douro e está muito frio. Ontem comemos uma francesinha. Amanhã vamos visitar as caves do vinho do Porto. Beijinhos, Clara» ¿Qué comieron ayer?"
+
+explicacion: |
+  *Ontem comemos uma francesinha*.
 ```
 
-### 5 — Pronombre posesivo  
+### 5 — Mañana
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["pronombres", "posesivos"]
-pasos:
-  - "Identificar el sustantivo que se refiere al posesivo."
-  - "Elegir la forma correcta del pronombre posesivo según el género y número."
-respuestas_validas:
-  - "seu"
-  - "Seu"
-tipo: completar
-enunciado: "___ carro é azul."
+  tags: ["reading", "A2"]
+
+respuesta: "Visitar las bodegas de vino de Oporto"
+tipo: "mc"
+opciones_explicitas: ["Visitar las bodegas de vino de Oporto", "Volver a casa", "Ir a la playa"]
+
+enunciado: "Texto: «Olá, Marta! Estou no Porto com a minha família. Chegámos no sábado de comboio. O hotel fica ao pé do rio Douro e está muito frio. Ontem comemos uma francesinha. Amanhã vamos visitar as caves do vinho do Porto. Beijinhos, Clara» ¿Qué harán mañana?"
+
+explicacion: |
+  *Caves do vinho do Porto*.
 ```
 
-### 6 — Conector de causa  
+### 6 — Encerrado
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["conectores", "causa"]
-pasos:
-  - "Determinar la relación lógica entre las oraciones."
-  - "Seleccionar el conector que expresa causa o razón."
-opciones_explicitas:
-  - "porque"
-  - "embora"
-  - "então"
-respuesta: "porque"
-tipo: mc
-enunciado: "Ela não foi à escola, ___ estava doente."
+  tags: ["reading", "A2"]
+
+respuesta: "El lunes"
+tipo: "mc"
+opciones_explicitas: ["El lunes", "El domingo", "El martes"]
+
+enunciado: "Texto: «Encerrado à segunda-feira.» ¿Qué día está cerrado?"
+
+explicacion: |
+  *Encerrado* = cerrado; *segunda* = lunes.
 ```
 
-### 7 — Uso del artículo indefinido  
+### 7 — Ementa
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["artigos", "indefinidos"]
-pasos:
-  - "Identificar si el sustantivo es singular o plural."
-  - "Elegir el artículo indefinido correcto según el género y número."
-respuestas_validas:
-  - "um"
-  - "Um"
-tipo: completar
-enunciado: "Quero ___ café, por favor."
+  tags: ["reading", "A2"]
+
+respuesta: "El menú"
+tipo: "mc"
+opciones_explicitas: ["El menú", "La cuenta", "La propina"]
+
+enunciado: "Texto: «Ementa: sopa 2 €, prato do dia 9,50 €.» ¿Qué es la *ementa*?"
+
+explicacion: |
+  *Ementa* = menú.
 ```
 
-### 8 — Preposición de tiempo  
+### 8 — Sobremesa
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["preposições", "tempo"]
-pasos:
-  - "Analizar el contexto temporal en la oración."
-  - "Seleccionar la preposición que indica tiempo correcto."
-opciones_explicitas:
-  - "depois de"
-  - "sobre"
-  - "durante"
-respuesta: "depois de"
-tipo: mc
-enunciado: "Vamos ao cinema ___ o jantar."
+  tags: ["reading", "A2"]
+
+respuesta: "Es el postre"
+tipo: "mc"
+opciones_explicitas: ["Es el postre", "Es el mantel", "Es la entrada"]
+
+enunciado: "Texto: «Sobremesa: arroz-doce — 3 €.»"
+
+explicacion: |
+  *Sobremesa* = postre.
 ```
 
-### 9 — Verbo irregular en presente  
+### 9 — Proibido
+
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["verbos", "irregulares"]
-pasos:
-  - "Identificar el verbo y su conjugación en presente."
-  - "Elegir la forma correcta según el sujeto."
-respuestas_validas:
-  - "tenho"
-  - "Tenho"
-tipo: completar
-enunciado: "Eu ___ um irmão mais velho."
+  tags: ["reading", "A2"]
+
+respuesta: "No se puede usar el celular en la biblioteca"
+tipo: "mc"
+opciones_explicitas: ["No se puede usar el celular en la biblioteca", "Se venden celulares", "La biblioteca está cerrada"]
+
+enunciado: "Texto: «Proibido usar o telemóvel na biblioteca.»"
+
+explicacion: |
+  *Telemóvel* = celular.
 ```
 
-### 10 — Haver impessoal
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "haver"]
-enunciado: "___ dois anos que vivo em Lisboa."
-tipo: mc
-opciones_explicitas:
-  - "Há"
-  - "A"
-  - "Ha"
-respuesta: "Há"
-explicacion: "«Há» (de haver) indica tiempo transcurrido: Há dois anos que vivo em Lisboa."
-```
+### 10 — Entrada livre
 
-### 11 — Adjetivo concordante  
 ```
 metadata:
   materia: "idiomas-extranjeros/portugues-pt"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["adjetivos", "concordância"]
-pasos:
-  - "Identificar el sustantivo y su género/número."
-  - "Elegir el adjetivo que concuerde en género y número."
-respuestas_validas:
-  - "bonita"
-  - "Bonita"
-tipo: completar
-enunciado: "A menina é ___."
-```
+  tags: ["reading", "A2"]
 
-### 12 — Uso de "ser" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "ser"]
-pasos:
-  - "Identificar el sujeto y el complemento en la oración."
-  - "Elegir la forma correcta de 'ser' según el sujeto."
-opciones_explicitas:
-  - "É"
-  - "São"
-  - "Está"
-respuesta: "É"
-tipo: mc
-enunciado: "___ uma boa ideia."
-```
+respuesta: "Es gratis el domingo a la mañana"
+tipo: "mc"
+opciones_explicitas: ["Es gratis el domingo a la mañana", "Está cerrado el domingo", "Solo abre a la noche"]
 
-### 13 — Preposición con verbos de movimiento  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["preposições", "movimiento"]
-pasos:
-  - "Identificar el verbo y su relación con la preposición."
-  - "Seleccionar la preposición correcta según el verbo de movimiento."
-respuestas_validas:
-  - "para"
-  - "Para"
-tipo: completar
-enunciado: "Vou ___ minha casa agora."
-```
+enunciado: "Texto: «Museu — entrada livre aos domingos de manhã.»"
 
-### 14 — Uso del imperativo  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["imperativo", "ordenes"]
-pasos:
-  - "Identificar el sujeto implícito en la oración."
-  - "Elegir la forma del imperativo correcta según el sujeto."
-opciones_explicitas:
-  - "Vai"
-  - "Vamos"
-  - "Vais"
-respuesta: "Vai"
-tipo: mc
-enunciado: "___ rápido, por favor!"
-```
-
-### 15 — Adverbio de lugar  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["adverbios", "lugar"]
-pasos:
-  - "Identificar el verbo y su relación con el adverbio."
-  - "Elegir el adverbio que indica lugar correcto."
-respuestas_validas:
-  - "aqui"
-  - "Aqui"
-tipo: completar
-enunciado: "O livro está ___."
-```
-
-### 16 — Uso de "poder" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "poder"]
-pasos:
-  - "Identificar el sujeto y la acción en la oración."
-  - "Elegir la forma correcta de 'poder' según el sujeto."
-opciones_explicitas:
-  - "Pode"
-  - "Podemos"
-  - "Podeis"
-respuesta: "Pode"
-tipo: mc
-enunciado: "___ me ajudar, por favor?"
-```
-
-### 17 — Uso de "ter" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "ter"]
-pasos:
-  - "Identificar el sujeto y el complemento en la oración."
-  - "Elegir la forma correcta de 'ter' según el sujeto."
-respuestas_validas:
-  - "tem"
-  - "Tem"
-tipo: completar
-enunciado: "Ele ___ um carro novo."
-```
-
-### 18 — Uso de "fazer" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "fazer"]
-pasos:
-  - "Identificar el sujeto y la acción en la oración."
-  - "Elegir la forma correcta de 'fazer' según el sujeto."
-opciones_explicitas:
-  - "Fazemos"
-  - "Fazes"
-  - "Faço"
-respuesta: "Faço"
-tipo: mc
-enunciado: "Eu ___ minha tarefa agora."
-```
-
-### 19 — Uso de "ir" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "ir"]
-pasos:
-  - "Identificar el sujeto y la acción en la oración."
-  - "Elegir la forma correcta de 'ir' según el sujeto."
-respuestas_validas:
-  - "vou"
-  - "Vou"
-tipo: completar
-enunciado: "Eu ___ ao mercado amanhã."
-```
-
-### 20 — Uso de "vir" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "vir"]
-pasos:
-  - "Identificar el sujeto y la acción en la oración."
-  - "Elegir la forma correcta de 'vir' según el sujeto."
-opciones_explicitas:
-  - "Vem"
-  - "Vamos"
-  - "Vêm"
-respuesta: "Vem"
-tipo: mc
-enunciado: "___ comigo ao parque, por favor?"
-```
-
-### 21 — Uso de "estar" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "estar"]
-pasos:
-  - "Identificar el sujeto y la acción en la oración."
-  - "Elegir la forma correcta de 'estar' según el sujeto."
-respuestas_validas:
-  - "estou"
-  - "Estou"
-tipo: completar
-enunciado: "Eu ___ cansado hoje."
-```
-
-### 22 — Uso de "ser" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "ser"]
-pasos:
-  - "Identificar el sujeto y el complemento en la oración."
-  - "Elegir la forma correcta de 'ser' según el sujeto."
-opciones_explicitas:
-  - "É"
-  - "São"
-  - "Está"
-respuesta: "É"
-tipo: mc
-enunciado: "___ uma boa pessoa."
-```
-
-### 23 — Uso de "haver" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "haver"]
-pasos:
-  - "Identificar si la oración expresa existencia o cantidad."
-  - "Elegir la forma correcta de 'haver' según el contexto."
-respuestas_validas:
-  - "Há"
-  - "Ha"
-tipo: completar
-enunciado: "___ muitos alunos na sala de aula."
-```
-
-### 24 — Uso de "poder" en oraciones  
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "reading-a2"
-  nivel: "A2"
-  tags: ["verbo", "poder"]
-pasos:
-  - "Identificar el sujeto y la acción en la oración."
-  - "Elegir la forma correcta de 'poder' según el sujeto."
-opciones_explicitas:
-  - "Pode"
-  - "Podemos"
-  - "Podeis"
-respuesta: "Podemos"
-tipo: mc
-enunciado: "___ ajudar, por favor?"
+explicacion: |
+  *Entrada livre* = gratis.
 ```

@@ -5,52 +5,42 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en la comparación con el español.
 
 ---
 
 ## Introducción
-En el nivel **B2** del Marco Europeo Común de Referencia para las Lenguas (CEFR), los estudiantes deben desarrollar la capacidad de comprender textos escritos que expresen opiniones, argumentos o perspectivas. Esto incluye identificar el **punto de vista del autor**, distinguir entre **hechos y opiniones** y realizar **inferencias** basadas en pistas explícitas o implícitas del texto. Esta habilidad es crucial para analizar artículos de opinión, ensayos críticos o discursos públicos, donde el autor no siempre expresa directamente su actitud, sino que la sugiere a través del lenguaje usado.
+En B2 se leen **artículos de opinión, columnas, reseñas y ensayos**. Hay que entender no solo el contenido, sino la **actitud del autor**, su **propósito** y cómo **construye el argumento**.
 
----
+## Explicación central
+### Estructura de un artículo de opinión
+1. **Tesis** (postura del autor), a veces al final.
+2. **Argumentos** con ejemplos o datos.
+3. **Concesión**: reconoce la postura contraria (*Of course…, Admittedly…, It is true that…*).
+4. **Refutación**: *Yet…, However…, Nevertheless…*
+5. **Conclusión** o llamado a la acción.
 
-## Explicación central: análisis de un artículo de opinión
-Un **artículo de opinión** (opinion article) presenta una postura clara del autor sobre un tema, respaldada por argumentos y ejemplos. Para comprenderlo en B2, es clave identificar:
-1. El **tema principal** y la **postura del autor** (¿está a favor o en contra?).
-2. Las **palabras clave** que indican actitud (por ejemplo: *urgent*, *crucial*, *disastrous*).
-3. Las **inferencias** necesarias para interpretar el tono o la intención del autor.
+### Actitud del autor
+- **Adjetivos y adverbios valorativos**: *alarming, remarkable, sadly, surprisingly*.
+- **Preguntas retóricas**: *Is this really progress?*
+- **Modales**: *should, must, perhaps* indican recomendación o duda.
+- **Tono**: crítico, entusiasta, irónico, neutral, preocupado.
 
-Ejemplo de texto:
-*"The government's recent decision to reduce funding for renewable energy projects is a step backward. While the economic benefits of fossil fuels are undeniable, the long-term consequences of ignoring climate change are catastrophic. We cannot afford to prioritize short-term gains over our planet’s future."*
+### Inferencia
+- ¿Qué cree el autor aunque no lo diga? ¿A quién se dirige? ¿Qué quiere que haga el lector?
 
-**Análisis**:
-- El autor **opina negativamente** sobre la reducción de fondos para energías renovables (*step backward*, *catastrophic*).
-- Usa **contrastes** (*While... are undeniable, ... are catastrophic*) para enfatizar su postura.
-- La palabra *cannot afford* sugiere una **actitud urgente y crítica** hacia la política del gobierno.
-
----
+### Vocabulario de matiz
+- *arguably* (se podría decir), *to some extent* (en cierta medida), *hardly* (apenas, casi nada).
 
 ## Errores comunes de hispanohablantes
-1. **Confundir hechos con opiniones**: Algunos estudiantes asumen que todo lo escrito es objetivo, sin reconocer frases como *I believe* o *It is clear that...*.
-2. **Ignorar el contexto**: No consideran la intención del autor basada en su lenguaje (por ejemplo, *disastrous* vs. *beneficial*).
-3. **Sobreinterpretar** las pistas: Asumir actitudes negativas cuando el texto solo expresa dudas (*I’m not sure if this is the best solution*).
-
----
+1. Tomar la concesión (*Of course…*) como la postura del autor.
+2. Confundir *hardly* («apenas») con «duramente».
+3. Pasar por alto las preguntas retóricas.
 
 ## Comparación con el español
-En español, los artículos de opinión suelen usar frases como *me parece que*, *es evidente que* o *en mi opinión* para señalar claramente la postura del autor. En inglés, esto se expresa de manera más indirecta:
-- **Español**: *"Es urgente actuar contra el cambio climático."* (opinión explícita).
-- **Inglés**: *"The urgency of addressing climate change cannot be overstated."* (actitud implícita mediante *urgency* y *cannot be overstated*).
-
----
+La estructura argumentativa es la misma que en una columna en español («Es cierto que…; sin embargo…»). En inglés, la tesis aparece con frecuencia en el último párrafo.
 
 ## Ejemplo extendido en contexto
-**Texto original**:
-*"Many people argue that social media has connected us more than ever. However, the constant need to curate our online image often leads to anxiety and loneliness. While it’s true that platforms like Instagram allow us to share life moments globally, they also create unrealistic expectations about happiness and success."*
-
-**Diálogo de estudiantes**:
-**Ana**: "¿Qué piensa el autor sobre las redes sociales?"
-**Luis**: "El autor **no está del todo de acuerdo** con quienes dicen que conectan a la gente. Usa *however* para contradecir esa idea y menciona *anxiety and loneliness*, lo cual sugiere una actitud crítica."
-**Ana**: "¿Y qué opina sobre el uso positivo de las redes?"
-**Luis**: "Reconoce que permite compartir momentos, pero **usa ‘unrealistic expectations’ para criticar su impacto negativo**. No es un texto totalmente negativo, pero la actitud del autor es más cautelosa que optimista."
-
-Este tipo de análisis ayuda a los estudiantes a desarrollar una lectura crítica y a detectar sutilezas en el lenguaje escrito.
+*«Admittedly, electric cars are expensive. However, when fuel and maintenance savings are included, they are arguably cheaper in the long run.»*
+**Concesión:** *Admittedly, expensive*. **Postura:** a largo plazo son más baratos. **Matiz:** *arguably*.

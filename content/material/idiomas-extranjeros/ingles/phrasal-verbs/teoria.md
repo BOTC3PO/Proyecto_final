@@ -5,44 +5,41 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-Los *phrasal verbs* son combinaciones de un verbo y una partícula (preposición o adverbio), que juntas forman un significado único. En inglés, son esenciales para expresar acciones cotidianas con naturalidad, especialmente en contextos informales. A nivel B2 del Marco Común Europeo de Referencia para las Lenguas (CEFR), dominarlos mejora la comprensión auditiva y escrita, ya que aparecen frecuentemente en conversaciones, textos periodísticos y documentos cotidianos.
+Un **phrasal verb** es un verbo + una o dos partículas (*up, off, on, out, after…*) que juntos tienen un significado propio: *give up* = «rendirse, dejar», *look after* = «cuidar». Son muy frecuentes en el inglés hablado.
 
-## Explicación Central
-Los *phrasal verbs* se clasifican en **separables** e **inseparables**, según si la partícula puede separarse del verbo en una oración.
+## Explicación central
+### Separables (verbo + objeto + partícula, o verbo + partícula + objeto)
+- *turn on, turn off, put on, take off, pick up, give back, fill in, throw away, write down, look up (en el diccionario)*.
+- Con un sustantivo, las dos posiciones: *Turn off **the light**. / Turn **the light** off.*
+- Con un **pronombre**, **siempre en el medio**: *Turn **it** off.* (❌ *Turn off it*)
 
-### Phrasal Verbs Separables
-En los verbos separables, la partícula puede ubicarse al final de la oración o entre el sujeto y el verbo cuando hay un objeto directo (OD). Ejemplos:
-- **Look after** (cuidar): *She **looked after** her brother while her parents were away.* → *She **looked** her brother **after*** (solo si el OD es pronombre, como en *She looked **him after***).
-- **Give up** (abandonar): *He finally **gave up** smoking last year.* → *He gave **up** smoking* (partícula al final).
+### Inseparables (el objeto va siempre después)
+- *look after, look for, get on (the bus), get over, come across, run into, take after*.
+- *She looks after **her grandmother**. / She looks after **her**.* (❌ *She looks her after*)
 
-### Phrasal Verbs Inseparables
-En los inseparables, la partícula siempre permanece unida al verbo, incluso si hay un OD. Ejemplos:
-- **Take over** (tomar el control): *The new manager will **take over** the company next month.* → No se puede decir *take the company over*.
-- **Break down** (fallar/romperse): *The car **broke down** on the highway.* → No se separa: *break the car down* es incorrecto.
+### Intransitivos (sin objeto)
+- *get up, wake up, sit down, grow up, break down, show up, take off (un avión)*: *The car **broke down**. What time do you **get up**?*
 
-## Errores Comunes de Hispanohablantes
-1. **Confusión entre separables e inseparables**: Por ejemplo, decir *He looked his brother after* (en vez de *looked after his brother*) o *She broke the machine down* (en lugar de *broke down the machine*).
-2. **Uso incorrecto de partículas**: Confundir *give up* (abandonar) con *give in* (ceder), ambos separables, pero con significados distintos.
-3. **Inclusión innecesaria de preposiciones**: En español, se usan preposiciones frecuentemente (*llevar a alguien a...*), lo que lleva a agregarlas en inglés: *He looked after the child to the park* (incorrecto; debe ser *looked after the child at the park*).
+### De tres palabras (inseparables)
+- *look forward to, get on with, run out of, put up with, come up with*: *We **ran out of** milk. I can't **put up with** this noise.*
 
-## Comparación con el Español
-En español, los verbos suelen combinarse con preposiciones para formar significados específicos (*llevar a alguien*, *hacer caso de algo*), pero estas estructuras son más rígidas. En inglés, los *phrasal verbs* ofrecen mayor flexibilidad:
-- **Spanish**: *Ella se encargó del niño.* → *She took care of the child.* (usando el phrasal verb *take care of*, separable).
-- **Spanish**: *No pude resistirme a la tentación.* → *I couldn’t resist the temptation.* (sin equivalente directo en español, pero el verbo *resist* puede formar *give in* como phrasal verb: *He gave in to temptation*).
+### El mismo phrasal verb, varios significados
+- *take off*: sacarse (ropa) / despegar (avión). — *pick up*: levantar / pasar a buscar / aprender de oído.
 
-## Ejemplo Extendido en Contexto
-**Diálogo**:
-*A: "My laptop keeps **crashing** every time I open that program. What should I do?"*
-*B: "First, try to **look for** updates on the manufacturer’s website. If it still **breaks down**, you might need to **take it apart** and check the hardware."*
+## Errores comunes de hispanohablantes
+1. Pronombre al final con separables: ❌ *Pick up it.* ✅ *Pick it up.*
+2. Separar un inseparable: ❌ *I'm looking my keys for.* ✅ *I'm looking for my keys.*
+3. Traducir literalmente: *look after* no es «mirar después», es «cuidar».
+4. Evitarlos siempre: en el habla, *find out* es mucho más natural que *discover*.
 
-**Análisis**:
-- *Crash* es un verbo simple (no phrasal), pero se usa como sustantivo (*a crash*).
-- *Look for* (separable): El OD (*updates*) va después del verbo.
-- *Break down* (inseparable): No se separa, aunque el objeto (*it*) está antes del verbo.
-- *Take apart* (separable): Se puede reorganizar como *take it apart*, pero no *apart it take*.
+## Comparación con el español
+El español casi no tiene verbos con partícula (salvo casos como «echar de menos»): suele usar un verbo distinto para cada idea. Por eso conviene aprender los phrasal verbs como vocabulario nuevo, con un ejemplo.
 
-Dominar estos patrones permite construir oraciones fluidas y evitar errores que puedan sonar forzados o malinterpretados.
+## Ejemplo extendido en contexto
+*I **got up** late, **put on** my coat and **ran out**. At the station I **ran into** an old friend. We **looked up** the timetable, but the train had **broken down**, so his sister **picked us up**. I'm **looking forward to** seeing him again.*

@@ -1,76 +1,52 @@
-# Artículos en italiano: uso y diferencias (A1-A2)
+# Los artículos en italiano (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/articulos`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-Los artículos son palabras que acompañan a los sustantivos para indicar si se refiere a algo específico o general, y cumplen con funciones gramaticales clave. En italiano, al igual que en otros idiomas romances, los artículos **definidos** (il, la, i, le) y **indefinidos** (un, una, etc.) son esenciales para construir frases coherentes. En el nivel A1-A2 del Marco Común Europeo de Referencia para las Lenguas (CEFR), su correcto uso permite a los aprendices expresar ideas básicas sin ambigüedades y evitar errores frecuentes que afectan la comprensión.
-
----
+El italiano tiene **más formas de artículo** que el español, porque la forma depende no solo del género y el número, sino también del **sonido con que empieza** la palabra siguiente.
 
 ## Explicación central
-### Artículos definidos
-Los artículos definidos se usan para referirse a algo conocido o específico. Su forma depende del **género** (masculino/femenino) y el **número** (singular/plural) del sustantivo que acompañan:
+### Artículo determinado
+| | Singular | Plural | Cuándo |
+|---|---|---|---|
+| Masculino | **il** | **i** | ante consonante: *il libro → i libri* |
+| Masculino | **lo** | **gli** | ante **s + consonante**, **z**, **gn**, **ps**, **x**, **y**: *lo studente → gli studenti, lo zaino → gli zaini* |
+| Masculino | **l'** | **gli** | ante vocal: *l'amico → gli amici* |
+| Femenino | **la** | **le** | ante consonante: *la casa → le case* |
+| Femenino | **l'** | **le** | ante vocal: *l'amica → le amiche* |
 
-- Masculino singular: *il libro* (el libro)
-- Femenino singular: *la casa* (la casa)
-- Masculino plural: *i libri* (los libros)
-- Femenino plural: *le case* (las casas)
+### Artículo indeterminado
+| | Masculino | Femenino |
+|---|---|---|
+| ante consonante o vocal | **un**: *un libro, un amico* | **una**: *una casa* |
+| ante s + consonante, z, gn, ps | **uno**: *uno studente, uno zaino* | — |
+| ante vocal | **un** (sin apóstrofo): *un amico* | **un'**: *un'amica* |
 
-Ejemplo en contexto:
-> *Voglio **il** caffè.* (Quiero el café) → Se refiere a un café específico, como el que se sirve habitualmente.
-> *Ho visto **una** ragazza.* (Vi una chica) → Indefinido, ya que no se conoce la identidad de la persona.
+### Plural indeterminado (partitivo)
+*dei libri, degli studenti, delle case* (unos, unas, algunos).
 
-### Artículos indefinidos
-Los artículos indefinidos introducen sustantivos generales o desconocidos:
-
-- Masculino singular: *un uomo* (un hombre)
-- Femenino singular: *una donna* (una mujer)
-- Plural: *degli uomini*, *delle donne* (algunos hombres, algunas mujeres)
-
-Ejemplo:
-> *Vivo in **un** paese piccolo.* (Vivo en un país pequeño) → No se especifica cuál es el país.
-
----
+### Usos particulares
+- Con posesivos: ***il mio** libro* (pero sin artículo con familiares en singular: *mia madre*).
+- Con nombres de países: *l'Italia, la Francia*; pero *in Italia*.
+- Con la hora: ***Sono le** tre.*
+- Con títulos: ***il** dottor Rossi* (al hablar de él).
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre artículos definidos e indefinidos**: A veces, los hablantes de español usan *el* o *la* incluso cuando se refiere a algo general. Por ejemplo:
-   - ❌ *Vivo in **il** paese piccolo.* (Incorrecto)
-   - ✅ *Vivo in **un** paese piccolo.*
-
-2. **Uso incorrecto del género**: En español, los artículos no cambian según el género, pero en italiano sí:
-   - ❌ *Vedo **un** donna.* (Incorrecto; "donna" es femenino).
-   - ✅ *Vedo **una** donna.*
-
-3. **Omisión de artículos**: En español se omiten a menudo los artículos, pero en italiano son obligatorios:
-   - ❌ *Tengo **perro**.* (Incorrecto)
-   - ✅ *Tengo **un** perro.*
-
----
+1. ❌ *il studente* ✅ *lo studente*; ❌ *i studenti* ✅ *gli studenti*.
+2. ❌ *un'amico* ✅ *un amico* (apóstrofo solo en femenino).
+3. ❌ *il zio* ✅ *lo zio*.
+4. ❌ *la mia madre* ✅ *mia madre*.
 
 ## Comparación con el español
-En español, los artículos definidos (*el*, *la*) no cambian según el número como en italiano. Por ejemplo:
-- Español: *El libro* (singular) / *Los libros* (plural).
-- Italiano: *Il libro* (singular) / *I libri* (plural).
-
-Además, en español los artículos indefinidos (*un*, *una*) no cambian según el género del sustantivo, mientras que en italiano sí:
-- Español: *Un hombre* / *Una mujer*.
-- Italiano: *Un uomo* / *Una donna*.
-
----
+El español tiene «el, la, los, las, un, una» y solo cambia «la» por «el» ante *a* tónica («el agua»). El italiano elige entre *il/lo/l'* y *i/gli* según el sonido inicial, algo que el español no hace. En plural masculino, «los» puede ser *i* o *gli*.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Alessia: Ciao Luca! Dove vai?* (¡Hola, Luca! ¿A dónde vas?)
-*Luca: Vado in **un** caffè. Vuoi venire con me?* (Voy a un café. ¿Quieres venir conmigo?)
-*Alessia: Sì, ma prima dobbiamo prendere **la** metro.* (Sí, pero primero debemos tomar el metro.)
-*Luca: Ah, hai ragione! Dobbiamo prendere **la** metro per andare al bar.* (Ah, tienes razón. Debemos tomar el metro para ir al bar.)
-
-En este diálogo:
-- *Un caffè*: artículo indefinido (no se especifica qué café).
-- *La metro* y *il bar*: artículos definidos que refieren a un medio de transporte y un lugar concretos.
+*Ciao! Sono **lo** zio di Marco. Ho **un** cane e **una** gatta. **Gli** amici di Marco vengono a casa mia **il** sabato e portano **dei** dolci. **L'**amica di mia sorella fa **gli** gnocchi più buoni del mondo!*

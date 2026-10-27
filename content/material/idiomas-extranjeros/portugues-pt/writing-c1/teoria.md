@@ -1,45 +1,36 @@
-# Estructura y cohesión en textos escritos (C1)
+# Expresión escrita en portugués de Portugal (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/writing-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
-## Introducción breve
-En el nivel C1 de la escala CEFR, los usuarios deben ser capaces de producir textos complejos que demuestren un alto control del idioma. Esto incluye la capacidad de organizar ideas con coherencia, usar conectores adecuados para vincular oraciones y argumentos, y manejar estructuras gramaticales avanzadas sin errores frecuentes. La cohesión textual es clave: permite que el lector siga el desarrollo lógico del contenido, incluso en temas técnicos o abstractos.
+## Introducción
+En C1 se escribe un **ensayo formal o académico**: argumentación sólida, coherencia, cohesión, registro adecuado y vocabulario preciso.
 
-## Explicación central con ejemplos reales
-En portugués (pt-PT), la cohesión se logra mediante conectores como *além disso*, *por outro lado*, *embora* o *apesar de*, que relacionan ideas de manera clara. Por ejemplo:
-
-> *"O governo decidiu aumentar os impostos sobre combustíveis. Além disso, implementará novas medidas para reduzir a poluição."*
-> (El gobierno decidió aumentar los impuestos sobre combustibles. Además, implementará nuevas medidas para reducir la contaminación.)
-
-En textos formales o académicos, es común usar frases subordinadas con *que*, *se*, *quando* o *como*:
-> *"A pesquisa demonstra que a mudança climática afeta diretamente os ecossistemas. Quando isso ocorre, as espécies em risco podem desaparecer."*
-
-También se emplean estructuras como *embora + subjuntivo* para expresar contrastes:
-> *"Embora o projeto tenha enfrentado dificuldades, o resultado final foi satisfatório."*
-> (Aunque el proyecto haya enfrentado dificultades, el resultado final fue satisfactorio.)
+## Explicación central
+- **Impersonalidad**: *É consensual que… / Pode argumentar-se que… / Os dados sugerem que…*
+- **Nominalización**: *A decisão do Governo de…*
+- **Atenuación**: *tende a, parece, provavelmente, em certa medida*.
+- **Cohesión**: *Essa tendência…, Tais medidas…, No que diz respeito a…, Outro aspeto relevante é…, Importa salientar que…*
+- **Concesión y refutação**: *Ainda que seja verdade que…, tal não implica que…*
+- **Colocación pronominal formal**: *Observa-se, Trata-se, Pode concluir-se* (nunca *Se observa* al inicio).
+- **Ortografía (AO90 en Portugal)**: *aspeto, ação, ótimo*; se mantienen consonantes pronunciadas: *facto, contacto*.
+- **Conclusión**: *Face ao exposto, … Torna-se, assim, necessário que…*
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del subjuntivo**: En portugués, el subjuntivo se usa en oraciones subordinadas que expresan duda, deseos o posibilidad, pero los hablantes de español a menudo lo omiten o lo usan como en su lengua materna. Ejemplo erróneo: *“Acho que ele vai vir”* (correcto) vs. *“Acho que ele vem”* (incorrecto).
-2. **Confusión entre preposiciones**: La preposición *por* en portugués puede tener múltiples significados, mientras que el español suele usar *por* o *para*. Ejemplo: *“Ele é responsável por esse erro”* (él es responsable de este error) vs. *“Vou à escola para estudar”* (voy a la escuela para estudiar).
-3. **Falta de conectores lógicos**: Los textos pueden resultar fragmentados si no se usan conectores como *entretanto*, *conseqüentemente* o *por conseguinte*.
+1. ❌ *Se observa que* ✅ *Observa-se que*.
+2. Oraciones demasiado largas.
+3. Coloquialismos (*bué, malta, tipo*).
+4. Escribir *fato* (brasileño) por *facto*.
 
 ## Comparación con el español
-Algunas estructuras son similares, pero existen diferencias clave:
-- **Conectores**: En portugués, *além disso* corresponde a *además* en español, pero *por outro lado* es más cercano a *sin embargo*.
-- **Uso del subjuntivo**: En portugués, el subjuntivo se usa menos frecuentemente que en español. Por ejemplo: *“É importante que você estude”* (es importante que usted estudie) vs. *“Es importante que tú estudies”* (en español).
-- **Preposiciones**: En portugués, *sobre* puede significar *sobre* o *acerca de*, mientras que en español se usan distintas preposiciones según el contexto (*sobre*, *respecto a*, etc.).
+Fórmulas paralelas («cabe destacar» = *importa salientar*). La principal diferencia está en la colocación pronominal y en la ortografía portuguesa.
 
 ## Ejemplo extendido en contexto
-**Texto:**
-> *"A crise ambiental é um dos desafios mais urgentes do século XXI. Embora alguns países tenham investido em energias renováveis, ainda há muitas regiões que dependem de combustíveis fósseis. Além disso, a falta de políticas globais eficazes dificulta o avanço sustentável. Por outro lado, iniciativas como os acordos climáticos internacionais mostram que é possível encontrar soluções colaborativas. No entanto, é essencial que todos os setores da sociedade participem ativamente desse processo."*
-
-**Traducción:**
-> *"La crisis ambiental es uno de los desafíos más urgentes del siglo XXI. Aunque algunos países han invertido en energías renovables, aún hay muchas regiones que dependen de combustibles fósiles. Además, la falta de políticas globales efectivas dificulta el avance sostenible. Por otro lado, iniciativas como los acuerdos climáticos internacionales muestran que es posible encontrar soluciones colaborativas. No obstante, es esencial que todos los sectores de la sociedad participen activamente en este proceso."*
-
-Este ejemplo muestra cómo conectores y estructuras gramaticales avanzadas permiten unir ideas complejas con claridad y coherencia.
+*É consensual que a população urbana cresce a um ritmo acelerado. **Ainda que** esse fenómeno **estimule** a economia, **tal não implica que** melhore a qualidade de vida. **Importa salientar** a pressão sobre a habitação. **Face ao exposto**, **torna-se necessário** investir nas cidades médias.*

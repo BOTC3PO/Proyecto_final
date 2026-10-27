@@ -1,58 +1,53 @@
-# Contadores en japonés: nivel N5
+# Los contadores en japonés (N5)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/contadores`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
-Los **contadores** son elementos gramaticales esenciales en el japonés para expresar la cantidad de objetos, personas o conceptos abstractos. En el nivel N5, los aprendices se enfocan en contadores básicos que permiten contar cosas cotidianas como artículos, personas y animales. Su importancia radica en que facilitan la comunicación clara al especificar cuánto hay de algo, lo cual es fundamental para actividades como comprar, describir situaciones o expresar cantidad en contextos sociales.
+## Introducción
+En japonés, para contar cosas se agrega al número un **contador** (助数詞) que depende del **tipo de objeto**: personas, cosas planas, cosas largas, animales chicos, etc. Algunos números cambian su pronunciación al unirse al contador.
 
-## Explicación central: ejemplos reales con contadores básicos
-Los contadores se colocan **después** del número y **antes** del sustantivo que se cuenta. Por ejemplo:
-- 一つ（いっつ）の本（ほん） → "Un libro" (1 + つ + の + 本).
-- 二人（ににん）が来ました → "Dos personas llegaron" (2 + 人 + が + 来ました).
+## Explicación central
+### Contadores más usados
+| Contador | Para | 1 | 2 | 3 | 6 | 8 | 10 |
+|---|---|---|---|---|---|---|---|
+| **〜つ** (nativo) | cosas en general (hasta 9) | ひとつ | ふたつ | みっつ | むっつ | やっつ | とお |
+| **〜人** (*nin*) | personas | **ひとり** | **ふたり** | さんにん | ろくにん | はちにん | じゅうにん |
+| **〜枚** (*mai*) | cosas planas: papel, camisas, entradas | いちまい | にまい | さんまい | ろくまい | はちまい | じゅうまい |
+| **〜本** (*hon*) | cosas largas: lapiceras, botellas, árboles | **いっぽん** | にほん | **さんぼん** | **ろっぽん** | **はっぽん** | **じゅっぽん** |
+| **〜匹** (*hiki*) | animales chicos | **いっぴき** | にひき | **さんびき** | **ろっぴき** | **はっぴき** | **じゅっぴき** |
+| **〜冊** (*satsu*) | libros, cuadernos | **いっさつ** | にさつ | さんさつ | ろくさつ | **はっさつ** | **じゅっさつ** |
+| **〜台** (*dai*) | máquinas, autos | いちだい | にだい | さんだい | ろくだい | はちだい | じゅうだい |
+| **〜個** (*ko*) | objetos chicos | **いっこ** | にこ | さんこ | **ろっこ** | **はっこ** | **じゅっこ** |
+| **〜杯** (*hai*) | vasos, tazas | **いっぱい** | にはい | **さんばい** | **ろっぱい** | **はっぱい** | **じゅっぱい** |
 
-Los contadores más comunes en N5 incluyen:
-- **つ**: para objetos pequeños o indefinidos. Ejemplo: 三つ（さんつ）のリンゴ → "Tres manzanas".
-- **人（にん）**: para contar personas. Ejemplo: 五人（ごにん）のチーム → "Un equipo de cinco personas".
-- **本（ほん）**: para libros, revistas o cosas largas y delgadas. Ejemplo: 四本（よんほん）のペン → "Cuatro bolígrafos".
-- **枚（まい）**: para hojas, imágenes o objetos planos. Ejemplo: 二枚（にまい）の紙 → "Dos hojas de papel".
+4 = よん (よんまい, よんほん) y 4 personas = よにん; 7 = なな; 9 = きゅう.
 
-**Nota:** Algunos contadores son específicos para ciertos sustantivos (como 本 solo para libros), mientras que otros como つ pueden usarse en contextos más generales, aunque su uso incorrecto puede generar ambigüedad.
+### Posición
+Normalmente: **sustantivo + partícula + número-contador + verbo**:
+りんごを**みっつ**ください。(Tres manzanas, por favor.)
+学生が**さんにん**います。(Hay tres estudiantes.)
+
+### Preguntar cantidades
+**いくつ** (cuántos, con 〜つ), **何人** (*nannin*), **何枚** (*nanmai*), **何本** (*nanbon*), **何匹** (*nanbiki*), **何冊** (*nansatsu*).
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español a menudo:
-1. **Usar つ para todo**: la serie genérica (ひとつ, ふたつ, みっつ…) sirve para muchas cosas, pero los libros se cuentan con 冊: *三冊（さんさつ）の本* («tres libros»), no *三つの本*. Ojo: 三つ se lee *みっつ*, no «さんつ».
-2. **Olvidar el contador de personas o animales**: las personas se cuentan con 人, con formas irregulares para uno y dos (*一人 ひとり*, *二人 ふたり*, *三人 さんにん*); los animales chicos, con 匹 (*一匹 いっぴき*, *二匹 にひき*, *三匹 さんびき*).
-3. **No hacer los cambios de sonido**: con algunos contadores la pronunciación cambia: *一本 いっぽん*, *二本 にほん*, *三本 さんぼん*, *六本 ろっぽん*. 本 se usa para objetos largos y finos (lápices, botellas), no para libros. Y el orden habitual es *猫が三匹います* («hay tres gatos»).
+1. ❌ いちにん ✅ ひとり; ❌ ににん ✅ ふたり.
+2. ❌ さんほん ✅ さんぼん; ❌ いちほん ✅ いっぽん.
+3. Usar siempre 〜つ para personas: ❌ ふたつの学生 ✅ 学生がふたり.
+4. ❌ 三りんごをください ✅ りんごを三つください.
 
 ## Comparación con el español
-En español, no se usan contadores. Por ejemplo:
-- "Tres manzanas" → *三つ（さんつ）のりんご* en japonés vs. *"tres manzanas"* en español.
-- "Dos personas" → *二人（ににん）* en japonés vs. *"dos personas"* en español.
-
-La diferencia clave es que el japonés requiere un **contador obligatorio** para cada sustantivo, mientras que en español no hay esta necesidad. Esta regla ayuda a fijar la importancia de los contadores como una característica distintiva del idioma.
+El español cuenta directamente («tres manzanas»). El japonés necesita un clasificador, como el «tres **cabezas** de ganado» o «dos **hojas** de papel» del español, pero de manera obligatoria y para todo.
 
 ## Ejemplo extendido en contexto
-**Escenario:** En un supermercado, un cliente pregunta sobre el stock de productos.
-
-**Cliente:** これは何つありますか？
-（Kore wa nanatsu arimasu ka?）
-*"¿Cuántos hay aquí?"*
-
-**Vendedor:** これ、五つあります。
-（Kore, itsutsu arimasu.）
-*"Aquí hay cinco."*
-
-**Cliente:** じゃあ、その中に三つは売れますか？
-（Jā, sono naka ni sanatsu wa ureremasu ka?）
-*"Entonces, ¿tres de estos se pueden vender?"*
-
-**Vendedor:** はい、三つはあります。
-（Hai, sanatsu wa arimasu.）
-*"Sí, hay tres."*
-
-Este diálogo muestra el uso de *つ* para contar objetos genéricos (como productos en una caja) y cómo se combinan números, contadores y partículas (*が*, *は*) para formar oraciones completas.
+- 店員: いらっしゃいませ。
+- 客: すみません、ビールを**にほん**と、おにぎりを**みっつ**ください。それから、切手を**ごまい**。
+- 店員: はい、ビール**にほん**、おにぎり**みっつ**、切手**ごまい**ですね。
+(Dos cervezas, tres onigiri y cinco estampillas.)

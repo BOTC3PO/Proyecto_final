@@ -1,79 +1,59 @@
-# Conjugación del presente en alemán (A1-A2)
+# El presente en alemán (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/conjugacion-presente`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-La conjugación del presente es una de las primeras destrezas gramaticales que los aprendices de alemán deben dominar para comunicarse eficazmente. En el nivel A1-A2 del Marco Común Europeo de Referencia para las Lenguas (MCER), se enfoca en los verbos regulares y algunos irregulares básicos, junto con la aplicación de terminaciones específicas según el sujeto. Esta habilidad permite expresar acciones actuales, hábitos o situaciones cotidianas, esencial para construir frases funcionales en contextos como describir rutinas, pedir información o narrar acontecimientos sencillos.
+El presente alemán (*Präsens*) se forma con la **raíz** del verbo + terminaciones. Sirve para el presente y también para el **futuro cercano**: *Morgen **fahre** ich nach Berlin.*
 
 ## Explicación central
-En alemán, los verbos se conjugan según el sujeto (yo, tú, él/ella/usted, nosotros/nosotras, vosotros/vosotras, ellos/ellas/ustedes). Las terminaciones varían según la persona y el grupo al que pertenezca el verbo.
+### Verbos regulares: *machen*
+| | |
+|---|---|
+| ich | mach**e** |
+| du | mach**st** |
+| er/sie/es | mach**t** |
+| wir | mach**en** |
+| ihr | mach**t** |
+| sie/Sie | mach**en** |
 
-### Ejemplos con verbos regulares:
-1. **Arbeiten** (trabajar):
-   - Ich arbeite (Yo trabajo)
-   - Du arbeitest (Tú trabajas)
-   - Er/sie/es arbeitet (Él/ella/usted trabaja)
-   - Wir arbeiten (Nosotros/nosotras trabajamos)
-   - Ihr arbeitet (Vosotros/vosotras trabajáis)
-   - Sie/Sie arbeiten (Ellos/ellas/ustedes trabajan).
+- Raíz en *-t/-d*: se agrega *e*: *du arbeit**est**, er arbeit**et***.
+- Raíz en *-s, -ß, -z*: *du heiß**t***, *du tanz**t*** (solo *-t*).
 
-2. **Essen** (comer):
-   - Ich esse (Yo como)
-   - Du isst (Tú comes)
-   - Er/sie/es isst (Él/ella/usted come)
-   - Wir essen (Nosotros/nosotras comemos)
-   - Ihr esst (Vosotros/vosotras coméis)
-   - Sie/Sie essen (Ellos/ellas/ustedes comen).
+### Cambio de vocal (solo *du* y *er/sie/es*)
+- ***e → i***: *sprechen → du sprichst, er spricht*; *essen → isst*; *geben → gibt*; *helfen → hilft*.
+- ***e → ie***: *lesen → du liest, er liest*; *sehen → sieht*.
+- ***a → ä***: *fahren → du fährst, er fährt*; *schlafen → schläft*; *tragen → trägt*.
 
-### Verbos irregulares:
-Algunos verbos cambian su raíz en ciertas conjugaciones. Por ejemplo:
-- **Sein** (ser):
-  - Ich bin (Yo soy)
-  - Du bist (Tú eres)
-  - Er/sie/es ist (Él/ella/usted es)
-  - Wir sind (Nosotros/nosotras somos)
-  - Ihr seid (Vosotros/vosotras sois)
-  - Sie/Sie sind (Ellos/ellas/ustedes son).
+### Irregulares
+| | sein | haben | werden | wissen |
+|---|---|---|---|---|
+| ich | bin | habe | werde | weiß |
+| du | bist | hast | wirst | weißt |
+| er | ist | hat | wird | weiß |
+| wir | sind | haben | werden | wissen |
+| ihr | seid | habt | werdet | wisst |
+| sie/Sie | sind | haben | werden | wissen |
 
-- **Haben** (tener):
-  - Ich habe (Yo tengo)
-  - Du hast (Tú tienes)
-  - Er/sie/es hat (Él/ella/usted tiene)
-  - Wir haben (Nosotros/nosotras tenemos)
-  - Ihr habt (Vosotros/vosotras tenéis)
-  - Sie/Sie haben (Ellos/ellas/ustedes tienen).
+### *Sie* formal
+Va con la forma de 3.ª del plural y con mayúscula: *Woher **kommen Sie**?*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con las terminaciones españolas**: Los hablantes nativos suelen aplicar patrones como *-o, -as, -a, -amos, -áis, -an* (como en español), pero el alemán utiliza combinaciones distintas (*-e, -st, -et, -en, -t, -en*). Por ejemplo, decir "ich arbeit" (falta de *-e*) o "du arbeiten" (error en la terminación).
-2. **Omisión del sujeto**: En alemán, el sujeto es indispensable para determinar la conjugación. Decir solo "arbeitet" sin un sujeto ("Er/sie/es") genera ambigüedad.
-3. **Uso incorrecto de verbos irregulares**: Olvidar que *sein* y *haben* no siguen patrones regulares, como en "ich bin" o "du hast".
+1. ❌ *er sprecht* ✅ *er spricht*.
+2. ❌ *du fahrst* ✅ *du fährst*.
+3. ❌ *er arbeitt* ✅ *er arbeitet*.
+4. ❌ *ihr seit* ✅ *ihr seid*.
+5. Omitir el pronombre: en alemán el sujeto es **obligatorio** (*Ich komme*, no *Komme*).
 
 ## Comparación con el español
-Aunque ambos idiomas requieren conjugaciones según el sujeto, las terminaciones son distintas. Por ejemplo:
-- En español: "yo como", "tú comes", "él come".
-- En alemán: "ich esse", "du isst", "er/sie/es isst".
-
-Otro punto clave es que en el alemán, los verbos regulares suelen mantener la raíz, mientras que en español pueden cambiar (como *comer* → *como*, *comes*, etc.).
+Las terminaciones son más simples que en español, pero el **pronombre sujeto es obligatorio**, porque *macht* sirve para «él hace» y «ustedes hacen» (*ihr*). El cambio vocálico se parece al de «pedir → pide».
 
 ## Ejemplo extendido en contexto
-**Situación**: Un estudiante describe su rutina matutina al profesor.
-
-**Diálogo**:
-**Student**: Guten Morgen, Frau Müller! Ich stehe um sieben Uhr auf. Dann wasche ich mich und esse Frühstück. Meine Schwester isst oft Brot mit Käse. Wir gehen dann in die Schule.
-**Profesorin**: Sehr gut! Und du trinkst Milch bei deinem Frühstück?
-**Student**: Ja, ich trinke Milch und Tee.
-
-**Explicación gramatical**:
-- *stehe* (yo me levanto) → verbo *stehen* (irregular).
-- *wasche* (yo me lavo) → verbo *waschen* (regulare con terminación *-e* para "ich").
-- *esse* (yo como) → verbo *essen* (irregular, raíz *ess-*).
-- *gehen* (nosotros vamos) → verbo regular con terminación *-en*.
-- *trinke* (yo bebo) → verbo *trinken* (irregular, raíz *trink-* + *e* para "ich").
-
-Este ejemplo muestra cómo se combinan verbos regulares e irregulares en un contexto cotidiano, respetando las terminaciones según el sujeto.
+*Ich **heiße** Lena und **wohne** in Hamburg. Ich **arbeite** in einem Büro. Mein Bruder **spricht** drei Sprachen und **liest** viel. Am Wochenende **fahren** wir oft ans Meer. Und du? Was **machst** du gern?*

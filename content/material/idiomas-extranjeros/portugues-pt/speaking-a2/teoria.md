@@ -1,42 +1,34 @@
-# Habilidades de Habla en el Nivel A2 del CERF: Comunicación Básica y Expresión Elemental
+# Expresión oral en portugués de Portugal (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/speaking-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
-El nivel A2 de la Escala Europea Common Reference Framework (CERF) se enfoca en la capacidad para comunicarse en situaciones cotidianas sencillas, usando frases cortas y vocabulario básico. En el ámbito oral, esto implica poder presentar ideas claras sobre temas familiares, como actividades diarias, intereses personales o necesidades básicas, mediante estructuras gramaticales simples y correctas. Este nivel es fundamental para construir la confianza en conversaciones informales y facilita la interacción con hablantes nativos en contextos sencillos.
+## Introducción
+En A2 se espera poder presentarse, describir la rutina, personas y lugares, pedir cosas y mantener una conversación sencilla en el portugués de Portugal.
 
-## Estructura Básica de las Frases Orales
-En el A2, se prioriza el uso de verbos en presente, frases interrogativas simples y expresiones funcionales. Por ejemplo:
-- **Presentar ideas**: *Eu gosto de ler livros.* (Me gusta leer libros.)
-- **Preguntar por información**: *Você pode me dizer o horário do trem?* (¿Puede decirme la hora del tren?)
-- **Expresar necesidades**: *Preciso de uma caneta.* (Necesito una pluma.)
+## Explicación central
+- **Presentarse**: *Olá! Chamo-me Lucía, sou argentina, tenho vinte anos e vivo em Lisboa.*
+- **Rutina**: *Levanto-me às sete, tomo o pequeno-almoço e apanho o autocarro.* (*apanhar* = tomar un transporte)
+- **Describir**: *Ela é alta, tem o cabelo comprido e é muito simpática.* — *O meu bairro é sossegado (tranquilo).*
+- **Pedir**: *Queria um galão, se faz favor.* (*se faz favor* = por favor, muy usado)
+- **Mantener la conversación**: *Desculpe, não percebi. Pode repetir?* (*perceber* = entender) — *E tu?*
+- **Saludos**: *Bom dia, boa tarde, boa noite, olá, até logo, até já.*
 
-Estas frases se construyen con un sujeto + verbo + complemento, evitando estructuras complejas como subordinadas o tiempos verbales avanzados. Es clave practicar el uso correcto de los artículos definidos (*o*, *a*), preposiciones (*em*, *para*) y la concordancia entre sujeto y verbo.
+## Errores comunes de hispanohablantes
+1. ❌ *Me chamo* ✅ *Chamo-me*.
+2. ❌ *Sou 20 anos* ✅ *Tenho 20 anos*.
+3. ❌ *Não entendi* (se entiende, pero en Portugal es muy común) ✅ *Não percebi*.
+4. ❌ *Pegar o ônibus* (brasileño) ✅ *Apanhar o autocarro*.
 
-## Errores Comunes por Hablantes de Español
-Los hablantes de español pueden cometer errores relacionados con:
-1. **Uso incorrecto de artículos**: En portugués, los artículos definidos (*o*, *a*) se usan siempre antes de sustantivos masculinos y femeninos en singular (ej.: *um livro* vs. *uma mesa*), mientras que en español a veces se omiten (ej.: *un libro* vs. *una mesa*).
-2. **Confusión con preposiciones**: Por ejemplo, usar *em* donde se requiere *para* (*Estou em casa* [Estoy en casa] vs. *Vou para a escola* [Voy a la escuela]).
-3. **Verbo "ir" y tiempos verbales**: En portugués, el verbo *ir* (ir) no se usa como en español para construir frases futuras (*Vou comprar um pão* [Voy a comprar un pan], no *Voy a comprar un pan*).
+## Comparación con el español
+«Me llamo» = *Chamo-me*; «tomar el colectivo» = *apanhar o autocarro*; «no entendí» = *não percebi*; «por favor» = *se faz favor / por favor*.
 
-## Comparación con el Español
-El portugués y el español comparten raíces, pero existen diferencias clave. Por ejemplo:
-- **Verbos de movimiento**: En español se dice *voy al mercado*, mientras que en portugués es *vou ao mercado* (con acento agudo en *ao*).
-- **Uso del gerundio**: En portugués, el gerundio (*comendo*) no se usa para formar frases como *Estoy comiendo*; en su lugar se dice *Estou comendo*.
-- **Artículos con sustantivos femeninos**: El artículo *a* en portugués puede llevar acento cuando precede a un sustantivo masculino que empieza con vocal (ej.: *às 8h* [a las 8h]).
-
-## Ejemplo Extendido en Contexto
-**Situación:** Un turista pregunta por el camino a una pastelería.
-
-**Diálogo:**
-Turista: *Desculpe, como chego à pastelaria?* (Disculpe, ¿cómo llego a la pastelería?)
-Habitante: *Você vai em frente e vira à esquerda.* (Vaya derecho y gire a la izquierda.)
-Turista: *E depois?* (¿Y después?)
-Habitante: *Em seguida, siga por essa rua até ver uma placa com o nome da pastelaria.* (Después, siga por esta calle hasta ver una placa con el nombre de la pastelería.)
-
-Este intercambio demuestra el uso de verbos en presente (*vai*, *vira*), preposiciones (*em frente*, *até*), y estructuras interrogativas simples. La claridad en el vocabulario y la correcta aplicación de las reglas gramaticales permiten una comunicación efectiva, esencial para alcanzar el nivel A2.
+## Ejemplo extendido en contexto
+*Olá! **Chamo-me** Martín, **tenho** 17 anos e **sou** de Rosário. **Vivo** com os meus pais. Todos os dias **levanto-me** às seis e meia e **apanho** o autocarro para a escola. Ao fim de semana **jogo** à bola com os meus amigos. E tu?*

@@ -1,45 +1,45 @@
-# Escritura en el nivel C1: Coherencia, cohesión y precisión
+# Expresión escrita en portugués de Brasil (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/writing-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y en la comparación con el español.
 
 ---
 
 ## Introducción
-El nivel C1 de la escala CEFR (Comprensión Europea Común de Referencia para las Lenguas) se enfoca en la capacidad de comunicarse con fluidez y flexibilidad en situaciones académicas, profesionales o cotidianas complejas. En el ámbito de la escritura, esto implica producir textos coherentes, estructurados y adaptados al contexto, usando un vocabulario amplio y gramática precisa. Es crucial dominar esta habilidad para participar en debates, redactar informes técnicos o expresar ideas complejas con claridad.
+En C1 se escribe un **ensayo formal o académico**: argumentación sólida, **coherencia y cohesión**, registro adecuado y vocabulario preciso. Se valoran la **atenuación**, la **nominalización** y la variedad de estructuras.
 
-## Explicación central: Características del nivel C1 en escritura
-En el portugués brasileño (pt-BR), un texto de nivel C1 debe mostrar **coherencia lógica** entre las ideas, **cohesión gramatical y léxica**, y un uso avanzado de vocabulario. Por ejemplo:
+## Explicación central
+### Registro académico
+- Impersonalidad: *É consenso que… / Pode-se argumentar que… / Os dados sugerem que…*
+- Nominalización: *O governo decidiu…* → *A decisão do governo de…*
+- Atenuación: *tende a, parece, provavelmente, em certa medida*.
+- Vocabulario preciso: *significativo, expressivo, considerável, uma queda, um aumento, fomentar, comprometer*.
 
-- **Cohesión con conectores**:
-  *“A educação digital é essencial no século XXI, mas seu sucesso depende da infraestrutura e do acesso equitativo. Entretanto, muitos países ainda enfrentam desafios como a falta de dispositivos e o custo elevado da internet.”*
-  Aquí se usan conectores (*mas*, *entretanto*) para unir ideas contrastantes y mantener el flujo del texto.
+### Cohesión
+- Referencias: *Essa tendência…, Tais medidas…, O primeiro / o segundo, este / aquele*.
+- Transiciones: *No que diz respeito a…, Outro aspecto relevante é…, Cabe ressaltar que…*
+- Concesión y refutación: *Ainda que seja verdade que…, isso não implica que…*
 
-- **Variedad léxica**:
-  En lugar de repetir palabras, se emplea sinónimos y expresiones idiomáticas:
-  *“A pandemia revelou fragilidades do sistema público de saúde; no obstante, também gerou inovações em telemedicina e ensino a distância.”*
+### Estructuras avanzadas
+- Futuro del subjuntivo y concordancia formal: *Caso se confirme…, Quando houver…*
+- Colocación pronominal formal: *Observa-se, Trata-se, Pode-se* (pronombre después del verbo al inicio de oración).
 
-- **Estructura compleja**:
-  Frases con subordinación y múltiples cláusulas:
-  *“Embora o governo tenha investido em programas sociais, a desigualdade persiste porque as políticas públicas não atendem às necessidades das comunidades mais vulneráveis.”*
+### Conclusión
+Sintetizar y responder la pregunta: *Diante do exposto, … Torna-se, portanto, necessário que…*
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen cometer errores relacionados con:
-1. **Uso excesivo de conectores**: Por ejemplo, repetir *mas* sin variar (*pero*, *no obstante*) o usarlos en contextos donde no es necesario.
-2. **Confusión entre tiempos verbales**: En portugués, el uso del pretérito perfecto compuesto (ex: *tenho feito*) y el pluscuamperfecto (ex: *tinha feito*) puede ser confuso para quienes están acostumbrados al pasado indefinido en español.
-3. **Preposiciones incorrectas**: Frases como *“depende de”* (correcto) vs. *“depende por”* (incorrecto).
+1. Oraciones demasiado largas encadenadas con comas.
+2. ❌ *Se observa que…* (al inicio, en registro formal) ✅ *Observa-se que…*
+3. ❌ *Na atualidade* (posible) — preferir ✅ *Atualmente / Hoje em dia*.
+4. Mezclar coloquialismos (*a gente, pra*) en un texto académico.
 
-## Comparación con el español: Diferencias clave
-- **Conectores**: En portugués, se usan más conectores subordinados (*porque*, *como*, *embora*) que en español, donde son más comunes los adverbiales (*pero*, *sin embargo*).
-- **Estructura de oraciones**: El portugués permite frases más largas con múltiples cláusulas subordinadas sin necesidad de puntos y aparte. Por ejemplo:
-  *“A economia brasileira, que sempre foi dependente da exportação de commodities, enfrenta agora um desafio: diversificar a matriz produtiva para reduzir a vulnerabilidade frente às crises globais.”* (Español: *“La economía brasileña, que siempre fue dependiente de la exportación de materias primas, enfrenta ahora un desafío: diversificar la matriz productiva para reducir la vulnerabilidad ante las crisis globales.”*)
+## Comparación con el español
+El portugués formal **no empieza una oración con pronombre átono** (*Observa-se*, no *Se observa*), regla que el español no tiene. Por lo demás, las fórmulas académicas son paralelas («cabe destacar» = *cabe ressaltar*).
 
 ## Ejemplo extendido en contexto
-**Tema**: Impacto de la tecnología en la educación.
-
-*“A revolução digital trouxe transformações profundas ao ensino, permitindo que estudantes e professores acessem informações de forma rápida e globalizada. No entanto, essa mesma tecnologia também gerou desigualdades: enquanto alguns alunos têm acesso a dispositivos modernos e internet estável, outros enfrentam dificuldades para participar das aulas online. É fundamental que os governos invistam em políticas públicas que garantam o direito à educação de qualidade para todos, independentemente da região ou condição socioeconômica. Afinal, a tecnologia só será um aliado se for usada com equidade e planejamento.”*
-
-Este texto muestra coherencia temática, uso de conectores y una estructura compleja que reflejan el nivel C1.
+*É consenso que a população urbana cresce em ritmo acelerado. **Ainda que** esse fenômeno **estimule** a economia, **isso não implica que** melhore a qualidade de vida. **Cabe ressaltar** a pressão sobre a moradia e a infraestrutura. **Diante do exposto**, **torna-se necessário** investir em cidades médias.*

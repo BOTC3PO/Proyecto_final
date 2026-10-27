@@ -1,46 +1,52 @@
-# Congiuntivo: uso básico (B1)
+# El congiuntivo presente: usos básicos (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/congiuntivo-basico`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
-El **congiuntivo** es un modo verbal en italiano que expresa **deseos, opiniones, emociones o situaciones hipotéticas**, y su uso es fundamental para comunicar ideas con matices subjetivos. En el nivel B1, se introduce el congiuntivo presente como herramienta básica para construir oraciones de tipo **subjuntivo** (ej.: "Spero che tu venga"), donde la acción no está garantizada o depende de una condición. Su dominio permite expresar ideas más complejas y participar en conversaciones que requieren matices emocionales o hipotéticos.
+## Introducción
+El **congiuntivo** es el modo de lo **subjetivo**: opinión, deseo, duda, emoción. Aparece sobre todo después de ***che***. A diferencia del español, en italiano también se usa tras los verbos de **opinión** (*penso che, credo che*).
 
-## Uso del congiuntivo presente: estructuras clave
-El congiuntivo se usa tras **verbos o expresiones** que transmiten **deseo, duda, obligación, emoción**, entre otros. Algunas de las estructuras más comunes son:
+## Explicación central
+### Congiuntivo presente: formación
+| | parl**are** | legg**ere** | dorm**ire** | fin**ire** |
+|---|---|---|---|---|
+| io/tu/lui | parl**i** | legg**a** | dorm**a** | fin**isca** |
+| noi | parl**iamo** | legg**iamo** | dorm**iamo** | fin**iamo** |
+| voi | parl**iate** | legg**iate** | dorm**iate** | fin**iate** |
+| loro | parl**ino** | legg**ano** | dorm**ano** | fin**iscano** |
 
-1. **Deseo/expectativa**: *Spero che tu venga* (Espero que vengas).
-2. **Emoción**: *Ero felice che lui arrivasse in tempo* (Estaba feliz de que él llegara a tiempo).
-3. **Duda**: *Dubito che lei lo sappia* (Dudo que ella lo sepa).
-4. **Obligación/posibilidad**: *È necessario che tu studi di più* (Es necesario que estudies más).
+Las tres personas del singular son **iguales**, por eso suele expresarse el pronombre: *che **io** parli, che **tu** parli*.
 
-### Ejemplos reales en italiano:
-- *Desidero che voi siate puntuali* (Quiero que ustedes sean puntuales).
-- *Sarebbe meglio che lui non parlasse tanto* (Sería mejor que él no hablara tanto).
-- *Benché fosse stanco, continuò a lavorare* (Aunque estaba cansado, siguió trabajando).
+### Irregulares
+*essere: sia, siamo, siate, siano* — *avere: abbia, abbiamo, abbiate, abbiano* — *andare: vada* — *fare: faccia* — *venire: venga* — *volere: voglia* — *potere: possa* — *dovere: debba* — *dare: dia* — *stare: stia* — *sapere: sappia* — *dire: dica*.
+
+### Cuándo se usa
+- **Opinión**: ***penso che, credo che, mi sembra che***: *Penso che **sia** vero.*
+- **Voluntad**: ***voglio che, preferisco che***: *Voglio che tu **venga**.*
+- **Emoción**: ***sono contento che, ho paura che***.
+- **Duda**: ***non so se, dubito che***.
+- **Expresiones impersonales**: ***bisogna che, è importante che, è possibile che***.
+- **Conjunciones**: ***benché, sebbene, affinché, prima che, a meno che, purché***.
+
+### Cuándo no
+- Con certeza: ***so che, sono sicuro che, è vero che*** + indicativo: *So che **è** vero.*
+- Mismo sujeto → ***di* + infinitivo**: *Penso **di** partire.* (❌ *Penso che io parta*)
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen confundir el uso del congiuntivo en italiano por varias razones:
-- **Uso excesivo**: En español se usa más frecuentemente el subjuntivo, lo que lleva a aplicarlo donde no es necesario. Por ejemplo, decir *Spero che lui venga* (correcto) en lugar de *Spero che lui viene* (incorrecto).
-- **Confusión con el indicativo**: Usar la forma del indicativo donde se requiere el congiuntivo: *Credo che lui è in ritardo* (Creo que él está retrasado), cuando debería ser *Credo che lui sia in ritardo*.
-- **Omisión de "che"**: En italiano, el complemento subordinado suele comenzar con "che", cuya omisión es común en español: *Penso che tu non capisci* (Creo que tú no entiendes), en lugar de *Penso che tu non capisca*.
+1. ❌ *Penso che è vero* (muy frecuente en el habla, pero se considera incorrecto en registro cuidado) ✅ *Penso che sia vero*.
+2. ❌ *che lui parla* ✅ *che lui parli*.
+3. ❌ *che io sono* ✅ *che io sia*.
+4. ❌ *Voglio che vengo* ✅ *Voglio venire*.
 
 ## Comparación con el español
-El uso del congiuntivo en italiano es **menos frecuente** que en español. Por ejemplo:
-- En español: *Espero que vengas* (subjuntivo).
-- En italiano: *Spero che tu venga* (congiuntivo), pero también se usa el indicativo en contextos neutrales: *Spero che arrivi in tempo* (espero que llegue a tiempo, sin matices subjetivos).
+Coincide con el subjuntivo español en voluntad, emoción y duda. La gran diferencia: **«creo que es»** en español lleva indicativo, pero en italiano ***credo che sia*** lleva congiuntivo.
 
 ## Ejemplo extendido en contexto
-**Contexto**: Un grupo de amigos planea un viaje y discuten las posibilidades.
-
-**Diálogo**:
-- *Marco*: “Spero che tu e Luca possiate venire con noi sabato.” (Espero que tú y Luca puedan venir con nosotros el sábado).
-- *Anna*: “Benché abbia molto lavoro, cercherò di venire.” (Aunque tengo mucho trabajo, intentaré venir).
-- *Luca*: “Dubito che il meteo permetta una giornata bella.” (Dudo que el clima permita un día soleado).
-- *Marco*: “È necessario che tu porti le scarpe da ginnastica.” (Es necesario que lleves zapatos deportivos).
-
-Este ejemplo muestra cómo el congiuntivo se usa para expresar **deseos, dudas y obligaciones**, elementos clave en la comunicación cotidiana a nivel B1.
+*— **Credo che** Marco **abbia** ragione: **bisogna che** tutti **facciano** la loro parte. — Sì, ma **ho paura che** non **ci sia** abbastanza tempo. — **Benché sia** difficile, **penso che possiamo** farcela.*

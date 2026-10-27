@@ -1,431 +1,216 @@
-# Idiomas — Alemán — reading-b2 (cuestionario)
+# Alemán — reading B2 (cuestionario, 11 preguntas VBLang)
 
-> Reescrito: el cuestionario anterior era una copia de un ejercicio genérico de preposiciones y conjugación que no correspondía al tema. Preguntas de nivel B2 sobre comprensión lectora (textos periodísticos, instrucciones, anuncios y narrativa).
+> Tema: `idiomas-extranjeros/aleman/reading-b2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o ambiguas; ahora cada pregunta trae el fragmento.
 
 ---
 
-### 1 — Críticas al proyecto
+### 1 — Tesis
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["detalle", "transporte"]
-pasos:
-  - "Buscar quién critica y qué critica."
-enunciado: "Lee el texto: In vielen Städten wird der öffentliche Nahverkehr ausgebaut, weil immer mehr Menschen auf das Auto verzichten möchten. Allerdings kritisieren Anwohner die hohen Baukosten. ¿Qué critican los vecinos?"
-opciones_explicitas:
-  - "Los altos costos de la obra"
-  - "El ruido de los autos"
-  - "Las largas esperas en las paradas"
-respuesta: "Los altos costos de la obra"
-tipo: mc
-explicacion: "'Die hohen Baukosten' = los altos costos de construcción; es lo que critican los vecinos (Anwohner)."
-```
+  tags: ["reading", "B2"]
 
-### 2 — Motivo de la ampliación
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["causa", "transporte"]
-enunciado: "Lee el texto: In vielen Städten wird der öffentliche Nahverkehr ausgebaut, weil immer mehr Menschen auf das Auto verzichten möchten. Allerdings kritisieren Anwohner die hohen Baukosten. ¿Por qué se amplía el transporte público?"
-opciones_explicitas:
-  - "Porque cada vez más personas quieren dejar de usar el auto"
-  - "Porque los vecinos lo pidieron por los costos"
-  - "Porque los autos son más caros que antes"
-respuesta: "Porque cada vez más personas quieren dejar de usar el auto"
-tipo: mc
-explicacion: "'Weil' introduce la causa: immer mehr Menschen möchten auf das Auto verzichten."
-```
+respuesta: "El cambio en el transporte exige más que un motor nuevo"
+tipo: "mc"
+opciones_explicitas: ["El cambio en el transporte exige más que un motor nuevo", "Los autos eléctricos no contaminan", "Hay que prohibir los autos"]
 
-### 3 — Función de 'allerdings'
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["conectores", "contraste"]
-respuesta: verdadero
-tipo: vf
-enunciado: "En el texto 'In vielen Städten wird der öffentliche Nahverkehr ausgebaut, weil immer mehr Menschen auf das Auto verzichten möchten. Allerdings kritisieren Anwohner die hohen Baukosten.', la palabra 'Allerdings' introduce una idea que contrasta con la anterior."
-explicacion: "'Allerdings' equivale a 'sin embargo': añade una objeción a lo dicho antes."
-```
-
-### 4 — Relación que expresa 'obwohl'
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["conectores", "concesion"]
-enunciado: "Lee: Das Unternehmen hat im vergangenen Jahr seinen Umsatz um zehn Prozent gesteigert, obwohl die Rohstoffpreise stark gestiegen sind. ¿Qué relación expresa 'obwohl'?"
-opciones_explicitas:
-  - "Concesión: algo ocurre a pesar de un obstáculo"
-  - "Causa: algo ocurre por un motivo"
-  - "Finalidad: algo se hace con un objetivo"
-respuesta: "Concesión: algo ocurre a pesar de un obstáculo"
-tipo: mc
-explicacion: "'Obwohl' = aunque / a pesar de que: las ventas subieron pese a que las materias primas se encarecieron."
-```
-
-### 5 — Evolución de las ventas
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["comprension", "economia"]
-respuesta: falso
-tipo: vf
-enunciado: "Según el texto 'Das Unternehmen hat im vergangenen Jahr seinen Umsatz um zehn Prozent gesteigert, obwohl die Rohstoffpreise stark gestiegen sind.', las ventas de la empresa bajaron el año pasado."
-explicacion: "El texto dice 'gesteigert' (aumentó): las ventas subieron un diez por ciento."
-```
-
-### 6 — Advertencia de los críticos
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["detalle", "trabajo"]
-enunciado: "Lee: Laut einer aktuellen Umfrage arbeiten rund 40 Prozent der Beschäftigten zumindest teilweise von zu Hause. Befürworter betonen die gewonnene Flexibilität, Kritiker warnen vor sozialer Isolation. ¿Ante qué advierten los críticos?"
-opciones_explicitas:
-  - "El aislamiento social"
-  - "La falta de flexibilidad"
-  - "Los costos de la oficina"
-respuesta: "El aislamiento social"
-tipo: mc
-explicacion: "'Kritiker warnen vor sozialer Isolation': advierten sobre el aislamiento social."
-```
-
-### 7 — 'Zumindest teilweise'
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["vocabulario", "trabajo"]
-enunciado: "En el texto 'Laut einer aktuellen Umfrage arbeiten rund 40 Prozent der Beschäftigten zumindest teilweise von zu Hause. Befürworter betonen die gewonnene Flexibilität, Kritiker warnen vor sozialer Isolation.', ¿qué significa 'zumindest teilweise'?"
-opciones_explicitas:
-  - "Al menos en parte"
-  - "Solo los fines de semana"
-  - "Nunca por completo"
-respuesta: "Al menos en parte"
-tipo: mc
-explicacion: "'Zumindest' = al menos; 'teilweise' = parcialmente."
-```
-
-### 8 — Antes del primer uso
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["instrucciones", "detalle"]
-enunciado: "Instrucciones: Bevor Sie das Gerät zum ersten Mal benutzen, laden Sie den Akku mindestens vier Stunden auf. Verwenden Sie ausschließlich das mitgelieferte Netzteil. ¿Qué hay que hacer antes del primer uso?"
-opciones_explicitas:
-  - "Cargar la batería al menos cuatro horas"
-  - "Comprar un cargador nuevo"
-  - "Dejar el aparato apagado cuatro horas"
-respuesta: "Cargar la batería al menos cuatro horas"
-tipo: mc
-explicacion: "'Laden Sie den Akku mindestens vier Stunden auf': cargar la batería como mínimo cuatro horas."
-```
-
-### 9 — 'Ausschließlich'
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["vocabulario", "instrucciones"]
-enunciado: "En las instrucciones 'Bevor Sie das Gerät zum ersten Mal benutzen, laden Sie den Akku mindestens vier Stunden auf. Verwenden Sie ausschließlich das mitgelieferte Netzteil.', ¿qué indica 'ausschließlich'?"
-opciones_explicitas:
-  - "Que solo se debe usar el cargador incluido"
-  - "Que se puede usar cualquier cargador"
-  - "Que el cargador es opcional"
-respuesta: "Que solo se debe usar el cargador incluido"
-tipo: mc
-explicacion: "'Ausschließlich' = exclusivamente, solo."
-```
-
-### 10 — Lo que extrañó a Lena
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["narracion", "inferencia"]
-enunciado: "Lee: Als Lena die Tür öffnete, merkte sie sofort, dass etwas nicht stimmte. Das Licht brannte, obwohl sie am Morgen alles ausgeschaltet hatte. ¿Qué le pareció raro a Lena?"
-opciones_explicitas:
-  - "Que la luz estuviera encendida"
-  - "Que la puerta estuviera cerrada"
-  - "Que fuera de noche"
-respuesta: "Que la luz estuviera encendida"
-tipo: mc
-explicacion: "Había apagado todo por la mañana, pero 'das Licht brannte' (la luz estaba encendida)."
-```
-
-### 11 — Completar el conector concesivo
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["conectores", "narracion"]
-pasos:
-  - "Elegir el conector que expresa contraste inesperado."
-tipo: completar
-respuestas_validas:
-  - "obwohl"
-  - "Obwohl"
-enunciado: "Das Licht brannte, ______ sie am Morgen alles ausgeschaltet hatte."
-explicacion: "Se necesita un conector concesivo (a pesar de que) que envía el verbo al final."
-```
-
-### 12 — Referencia de un pronombre
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["pronombres", "referencia"]
-enunciado: "Lee: 'Das Museum zeigt eine neue Ausstellung. Sie beschäftigt sich mit der Geschichte der Eisenbahn.' ¿A qué se refiere 'Sie'?"
-opciones_explicitas:
-  - "A la exposición (die Ausstellung)"
-  - "Al museo (das Museum)"
-  - "A la historia (die Geschichte)"
-respuesta: "A la exposición (die Ausstellung)"
-tipo: mc
-explicacion: "'Sie' es femenino singular y retoma 'die Ausstellung'; 'das Museum' sería 'es'."
-```
-
-### 13 — Pronombre relativo posesivo
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["relativos", "gramatica"]
-pasos:
-  - "Buscar el relativo que indica posesión."
-tipo: completar
-respuestas_validas:
-  - "dessen"
-enunciado: "Der Architekt, ______ Entwurf den Wettbewerb gewann, stammt aus Hamburg."
-explicacion: "'Dessen' es el relativo en genitivo masculino: 'cuyo diseño'."
-```
-
-### 14 — Situación hipotética
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["konjunktiv", "modalidad"]
-enunciado: "Lee: 'Wenn mehr Menschen das Fahrrad nutzen würden, gäbe es weniger Staus.' ¿Qué expresa la oración?"
-opciones_explicitas:
-  - "Una situación hipotética, no real en este momento"
-  - "Un hecho que ocurre siempre"
-  - "Una orden dirigida al lector"
-respuesta: "Una situación hipotética, no real en este momento"
-tipo: mc
-explicacion: "El Konjunktiv II ('würden', 'gäbe') indica irrealidad o hipótesis."
-```
-
-### 15 — Causa y efecto en un texto nominal
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["nominalstil", "comprension"]
-enunciado: "Lee: 'Die Zunahme des Online-Handels führt zu einem steigenden Verpackungsaufkommen.' ¿Qué consecuencia tiene el aumento del comercio en línea?"
-opciones_explicitas:
-  - "Más residuos de embalajes"
-  - "Menos paquetes enviados"
-  - "Precios más bajos"
-respuesta: "Más residuos de embalajes"
-tipo: mc
-explicacion: "'Führt zu' = conduce a; 'Verpackungsaufkommen' = cantidad de embalajes."
-```
-
-### 16 — Inferencia
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["inferencia", "comprension"]
-enunciado: "Lee: 'Obwohl das Wetter schlecht war, kamen mehr als tausend Zuschauer zum Konzert.' ¿Qué se puede deducir?"
-opciones_explicitas:
-  - "Que el concierto tuvo mucho público pese al mal tiempo"
-  - "Que el concierto se canceló por el clima"
-  - "Que había poca gente por la lluvia"
-respuesta: "Que el concierto tuvo mucho público pese al mal tiempo"
-tipo: mc
-explicacion: "'Obwohl' marca contraste: mal clima, pero más de mil espectadores."
-```
-
-### 17 — Intención del texto
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["registro", "carta"]
-enunciado: "Lee: 'Wir bedauern, Ihnen mitteilen zu müssen, dass Ihre Bewerbung nicht berücksichtigt werden konnte.' ¿Qué comunica el texto?"
-opciones_explicitas:
-  - "Que la candidatura fue rechazada"
-  - "Que la persona fue contratada"
-  - "Que se la invita a una entrevista"
-respuesta: "Que la candidatura fue rechazada"
-tipo: mc
-explicacion: "'Nicht berücksichtigt werden konnte' = no pudo ser tenida en cuenta; es una respuesta negativa formal."
-```
-
-### 18 — Consecuencia o contraste
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["conectores", "contraste"]
-enunciado: "¿Cuál de estas oraciones expresa una consecuencia?"
-opciones_explicitas:
-  - "Die Preise steigen. Deshalb kaufen viele Kunden weniger."
-  - "Die Preise steigen. Trotzdem kaufen viele Kunden mehr."
-  - "Die Preise steigen, obwohl viele Kunden weniger kaufen."
-respuesta: "Die Preise steigen. Deshalb kaufen viele Kunden weniger."
-tipo: mc
-explicacion: "'Deshalb' = por eso (consecuencia). 'Trotzdem' y 'obwohl' marcan contraste."
-```
-
-### 19 — Vocabulario en contexto
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["vocabulario", "politica"]
-enunciado: "Lee: 'Die Regierung plant, die Steuern zu senken.' ¿Qué significa 'senken' en este contexto?"
-opciones_explicitas:
-  - "Bajar, reducir"
-  - "Aumentar"
-  - "Cobrar"
-respuesta: "Bajar, reducir"
-tipo: mc
-explicacion: "'Senken' = bajar, reducir (también 'hundir' en otros contextos)."
-```
-
-### 20 — Falso amigo: Gymnasium
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["falsos-amigos", "vocabulario"]
-enunciado: "Lee: 'Das Gymnasium ist eine weiterführende Schule.' ¿Qué es un 'Gymnasium' en Alemania?"
-opciones_explicitas:
-  - "Una escuela secundaria que prepara para la universidad"
-  - "Un gimnasio deportivo"
-  - "Una escuela de arte"
-respuesta: "Una escuela secundaria que prepara para la universidad"
-tipo: mc
-explicacion: "El Gymnasium es un tipo de escuela secundaria; para un gimnasio deportivo se dice 'Fitnessstudio'."
-```
-
-### 21 — Porcentaje en una encuesta
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "reading-b2"
-  nivel: "B2"
-  tags: ["numeros", "encuestas"]
-variables:
-  total: uno_de([80, 120, 200, 400])
-  pct: uno_de([25, 40, 50, 60, 75])
-  part: total * pct / 100
-
-respuesta: pct
-tipo: input
-tolerancia_abs: 0.1
-
-enunciado: "Lee: 'Von den {total} befragten Personen gaben {part} an, regelmäßig Sport zu treiben.' ¿Qué porcentaje de las personas encuestadas hace deporte con regularidad?"
-
-pasos:
-  - "Dividir {part} entre {total} y multiplicar por 100."
+enunciado: "Text: «Zwar stoßen Elektroautos beim Fahren kein CO₂ aus. Ihre Herstellung, insbesondere die der Batterien, ist jedoch äußerst umweltbelastend. Es lässt sich nicht leugnen, dass die Verkehrswende mehr erfordert als einen neuen Motor.» ¿Cuál es la tesis?"
 
 explicacion: |
-  {part} de {total} equivale al {pct} por ciento.
+  Tesis final.
 ```
 
-### 22 — Idea principal
+### 2 — Concesión
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["idea-principal", "medioambiente"]
-enunciado: "Lee: 'Immer mehr Haushalte trennen ihren Müll, doch nur ein Teil der Wertstoffe wird tatsächlich recycelt. Experten fordern deshalb bessere Sortieranlagen.' ¿Cuál es la idea principal?"
-opciones_explicitas:
-  - "Separar la basura no basta: faltan mejores plantas de clasificación"
-  - "Todos los hogares reciclan la totalidad de sus residuos"
-  - "Los expertos piden separar menos la basura"
-respuesta: "Separar la basura no basta: faltan mejores plantas de clasificación"
-tipo: mc
-explicacion: "'Doch' marca el problema y 'deshalb' la reclamación de los expertos: mejores instalaciones."
+  tags: ["reading", "B2"]
+
+respuesta: "Que no emiten CO₂ al circular"
+tipo: "mc"
+opciones_explicitas: ["Que no emiten CO₂ al circular", "Que las baterías son limpias", "Que son baratos"]
+
+enunciado: "Text: «Zwar stoßen Elektroautos beim Fahren kein CO₂ aus. Ihre Herstellung, insbesondere die der Batterien, ist jedoch äußerst umweltbelastend. Es lässt sich nicht leugnen, dass die Verkehrswende mehr erfordert als einen neuen Motor.» ¿Qué admite con *zwar*?"
+
+explicacion: |
+  Concesión.
 ```
 
-### 23 — Anuncio de alquiler
+### 3 — Contraargumento
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["vocabulario", "vivienda"]
-enunciado: "Lee: 'Zu vermieten: helle 2-Zimmer-Wohnung, 55 Quadratmeter, Balkon, Warmmiete 720 Euro, ab sofort.' ¿Qué incluye la 'Warmmiete'?"
-opciones_explicitas:
-  - "El alquiler más los gastos de calefacción y otros gastos adicionales"
-  - "Solo el alquiler sin gastos"
-  - "Solo la fianza"
-respuesta: "El alquiler más los gastos de calefacción y otros gastos adicionales"
-tipo: mc
-explicacion: "'Warmmiete' = alquiler 'caliente' (con calefacción y gastos adicionales); 'Kaltmiete' = alquiler base."
+  tags: ["reading", "B2"]
+
+respuesta: "La fabricación, sobre todo de baterías"
+tipo: "mc"
+opciones_explicitas: ["La fabricación, sobre todo de baterías", "El uso diario", "El reciclaje"]
+
+enunciado: "Text: «Zwar stoßen Elektroautos beim Fahren kein CO₂ aus. Ihre Herstellung, insbesondere die der Batterien, ist jedoch äußerst umweltbelastend. Es lässt sich nicht leugnen, dass die Verkehrswende mehr erfordert als einen neuen Motor.» ¿Qué es contaminante?"
+
+explicacion: |
+  *Insbesondere die der Batterien*.
 ```
 
-### 24 — Posición del verbo en la subordinada
+### 4 — leugnen
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["sintaxis", "subordinadas"]
-enunciado: "Lee: 'Ich weiß, dass er morgen kommt.' ¿Dónde va el verbo conjugado en la oración subordinada?"
-opciones_explicitas:
-  - "Al final de la subordinada"
-  - "Justo después de 'dass'"
-  - "En el medio, antes de 'morgen'"
-respuesta: "Al final de la subordinada"
-tipo: mc
-explicacion: "Tras 'dass' el verbo conjugado va al final: 'dass er morgen kommt'."
+  tags: ["reading", "B2"]
+
+respuesta: "No se puede negar"
+tipo: "mc"
+opciones_explicitas: ["No se puede negar", "Es dudoso", "Se debe negar"]
+
+enunciado: "Text: «Zwar stoßen Elektroautos beim Fahren kein CO₂ aus. Ihre Herstellung, insbesondere die der Batterien, ist jedoch äußerst umweltbelastend. Es lässt sich nicht leugnen, dass die Verkehrswende mehr erfordert als einen neuen Motor.» «Es lässt sich nicht leugnen» significa…"
+
+explicacion: |
+  Modalizador.
 ```
 
-### 25 — 'Während' con valor de contraste
+### 5 — Rückgang
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "reading-b2"
   nivel: "B2"
-  tags: ["conectores", "contraste"]
-enunciado: "Lee: 'Während die einen das Angebot loben, bemängeln andere die Qualität.' ¿Qué valor tiene 'während' aquí?"
-opciones_explicitas:
-  - "Contraste entre dos posturas"
-  - "Tiempo simultáneo de dos acciones"
-  - "Causa de la crítica"
-respuesta: "Contraste entre dos posturas"
-tipo: mc
-explicacion: "'Während' puede ser temporal (mientras) o adversativo (mientras que); aquí opone a quienes elogian y quienes critican."
+  tags: ["reading", "B2"]
+
+respuesta: "La natalidad baja y preocupa"
+tipo: "mc"
+opciones_explicitas: ["La natalidad baja y preocupa", "La natalidad sube", "Vuelve la natalidad"]
+
+enunciado: "Text: «Der Rückgang der Geburtenrate ist bedenklich.» ¿Qué pasa?"
+
+explicacion: |
+  *Rückgang* = descenso.
+```
+
+### 6 — Distancia
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "atribuye la información al informe"
+tipo: "mc"
+opciones_explicitas: ["atribuye la información al informe", "afirma que fracasó", "dice que funcionó"]
+
+enunciado: "Text: «Laut Bericht soll die Maßnahme gescheitert sein.» El autor…"
+
+explicacion: |
+  *Sollen* + *laut*.
+```
+
+### 7 — Herausforderung
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "desafío"
+tipo: "mc"
+opciones_explicitas: ["desafío", "solución", "salida"]
+
+enunciado: "Text: «Die größte Herausforderung ist der Fachkräftemangel.» *Herausforderung* significa…"
+
+explicacion: |
+  *Herausforderung*.
+```
+
+### 8 — Fachkräftemangel
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "la falta de trabajadores calificados"
+tipo: "mc"
+opciones_explicitas: ["la falta de trabajadores calificados", "el exceso de técnicos", "un sindicato"]
+
+enunciado: "En el texto anterior, *Fachkräftemangel* es…"
+
+explicacion: |
+  *Fachkräfte* + *Mangel*.
+```
+
+### 9 — Valoración
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "crítica"
+tipo: "mc"
+opciones_explicitas: ["crítica", "entusiasta", "neutral"]
+
+enunciado: "Text: «Diese Entwicklung ist fragwürdig.» La postura es…"
+
+explicacion: |
+  *Fragwürdig* = cuestionable.
+```
+
+### 10 — Ejemplo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "ejemplos"
+tipo: "mc"
+opciones_explicitas: ["ejemplos", "excepciones", "contraargumentos"]
+
+enunciado: "Text: «Mehrere Städte, etwa Freiburg und Münster, setzen auf das Fahrrad.» Friburgo y Münster son…"
+
+explicacion: |
+  *Etwa* = por ejemplo.
+```
+
+### 11 — Haushalt
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "reading-b2"
+  nivel: "B2"
+  tags: ["reading", "B2"]
+
+respuesta: "presupuesto"
+tipo: "mc"
+opciones_explicitas: ["presupuesto", "hogar", "limpieza"]
+
+enunciado: "Text: «Der Haushalt der Stadt ist knapp.» Aquí *Haushalt* significa…"
+
+explicacion: |
+  *Haushalt* = presupuesto (contexto público).
 ```

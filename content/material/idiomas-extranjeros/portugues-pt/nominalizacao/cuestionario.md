@@ -1,587 +1,234 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/portugues-pt/nominalizacao/cuestionario_crudo.md`.
-> 12 bloques tenían el campo `respuesta:` sin comillas; se corrigió en todos. 4 bloques
-> (6, 10, 14, 16) repetían la misma opción dos veces en `opciones_explicitas:`; se
-> reemplazó el duplicado por una forma verbal conjugada distinta como distractor
-> genuino. Se corrigió además un error de contenido: el bloque 11 daba **"libertamento"**
-> como nominalización de "libertar", una palabra que no existe en portugués; la forma
-> correcta es **"libertação"**. También se normalizó la indentación y el `materia:`
-> sin prefijo del bloque 23.
+# Portugués (Portugal) — nominalización (cuestionario, 12 preguntas VBLang)
 
-### 1 — Transformação de verbo em nome  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo nominal correcto (-ção, -mento, etc.)."  
-explicacion: "La nominalización de verbos se logra mediante sufijos como -ção (acción) o -mento (concepto abstracto). 'Decidir' → 'decisão'."  
-tipo: completar  
-enunciado: "Completa la oración con la forma nominal del verbo 'decidir': O ___ da reunião foi imprevisto."  
-respuestas_validas:  
-  - "decisão"  
-  - "Decisão"  
-```  
+> Tema: `idiomas-extranjeros/portugues-pt/nominalizacao`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-
-
-### 2 — Elección de forma nominal correcta  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "opciones"]  
-pasos:  
-  - "Reconocer el verbo en la opción."  
-  - "Verificar si el sufijo corresponde al contexto semántico."  
-explicacion: "El sufijo '-ção' se usa para acciones concretas. 'Construir' → 'construção'; 'construtor' es sustantivo derivado de adjetivo."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal correcta del verbo 'construir'? (Contexto: una obra)"  
-opciones_explicitas:
-  - "construção"
-  - "construir"
-  - "construtor"
-  - "construindo"
-respuesta: "construção"
-```  
-
----
-
-
-
-### 3 — Transformación de verbo en nombre abstracto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo -mento", "abstracción"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-mento' para conceptos abstractos."  
-explicacion: "'Aumentar' → 'aumento' (concreto) vs. 'incremento' (abstracto). El contexto de 'crescimento' requiere '-mento'."  
-tipo: completar  
-enunciado: "Completa la oración con la forma nominal abstracta del verbo 'aumentar': O ___ econômico foi esperado por todos."  
-respuestas_validas:  
-  - "incremento"  
-  - "Incremento"  
-```  
-
----
-
-
-
-### 4 — Elección de forma nominal en contexto científico  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["ciencia", "sufijo -ção"]  
-pasos:  
-  - "Determinar el verbo en la oración."  
-  - "Seleccionar el sufijo que exprese un fenómeno físico."  
-explicacion: "'Vaporizar' → 'vaporização' (proceso físico). Otras opciones no corresponden a acciones concretas."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'vaporizar'? (Contexto: proceso de evaporación)"  
-opciones_explicitas:
-  - "vaporização"
-  - "vaporizar"
-  - "vaporação"
-  - "vapor"
-respuesta: "vaporização"
-```  
-
----
-
-
-
-### 5 — Transformación de verbo en nombre con sufijo -ção  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-ção' para acciones concretas."  
-explicacion: "'Organizar' → 'organização'. El contexto de 'evento' requiere un nombre colectivo que exprese acción."  
-tipo: completar  
-enunciado: "Completa la oración: A ___ do evento foi uma tarefa difícil."  
-respuestas_validas:  
-  - "organização"  
-  - "Organização"  
-```  
-
----
-
-
-
-### 6 — Elección de forma nominal en contexto social  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sociedad", "sufijo -ção"]  
-pasos:  
-  - "Reconocer el verbo en la opción."  
-  - "Verificar si el sufijo expresa un fenómeno social."  
-explicacion: "'Integrar' → 'integração'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'integrar'? (Contexto: inclusión en un grupo)"  
-opciones_explicitas:
-  - "integração"
-  - "integrador"
-  - "integrar"
-  - "integra"
-respuesta: "integração"
-```  
-
----
-
-
-
-### 7 — Transformación de verbo en nombre con sufijo -mento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo -mento", "abstracción"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-mento' para conceptos abstractos."  
-explicacion: "'Aumentar' → 'incremento'. El contexto de 'crescimento' requiere un nombre abstracto, no concreto."  
-tipo: completar  
-enunciado: "Completa la oración: O ___ da população foi notável nos últimos anos."  
-respuestas_validas:  
-  - "incremento"  
-  - "Incremento"  
-```  
-
----
-
-
-
-### 8 — Elección de forma nominal en contexto tecnológico  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["tecnología", "sufijo -ção"]  
-pasos:  
-  - "Determinar el verbo en la oración."  
-  - "Seleccionar el sufijo que exprese un proceso tecnológico."  
-explicacion: "'Programar' → 'programação'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'programar'? (Contexto: desarrollo de software)"  
-opciones_explicitas:
-  - "programação"
-  - "programador"
-  - "programar"
-  - "programa"
-respuesta: "programação"
-```  
-
----
-
-
-
-### 9 — Transformación de verbo en nombre con sufijo -ção  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-ção' para acciones concretas."  
-explicacion: "'Reunir' → 'reunião'. El contexto de 'evento' requiere un nombre colectivo que exprese acción."  
-tipo: completar  
-enunciado: "Completa la oración: A ___ da equipe foi realizada com sucesso."  
-respuestas_validas:  
-  - "reunião"  
-  - "Reunião"  
-```  
-
----
-
-
-
-### 10 — Elección de forma nominal en contexto político  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["política", "sufijo -ção"]  
-pasos:  
-  - "Reconocer el verbo en la opción."  
-  - "Verificar si el sufijo expresa un fenómeno político."  
-explicacion: "'Negociar' → 'negociação'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'negociar'? (Contexto: acuerdos internacionales)"  
-opciones_explicitas:
-  - "negociação"
-  - "negociador"
-  - "negociar"
-  - "negocia"
-respuesta: "negociação"
-```  
-
----
-
-
-
-### 11 — Transformación de verbo en nombre con sufijo -mento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo -mento", "abstracción"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-mento' para conceptos abstractos."  
-explicacion: "'Libertar' → 'libertação' (la forma 'libertamento' no existe en portugués). El contexto de 'cidadania' requiere un nombre abstracto, no concreto."  
-tipo: completar  
-enunciado: "Completa la oración: O ___ dos presos foi uma conquista histórica."  
-respuestas_validas:  
-  - "libertação"  
-  - "Libertação"  
-```  
-
----
-
-
-
-### 12 — Elección de forma nominal en contexto educativo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["educación", "sufijo -ção"]  
-pasos:  
-  - "Determinar el verbo en la oração."  
-  - "Seleccionar el sufijo que exprese un proceso educativo."  
-explicacion: "'Ensinar' → 'ensino'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'ensinar'? (Contexto: sistema escolar)"  
-opciones_explicitas:
-  - "ensino"
-  - "ensinador"
-  - "ensinar"
-  - "ensina"
-respuesta: "ensino"
-```  
-
----
-
-
-
-### 13 — Transformación de verbo en nombre con sufijo -ção  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-ção' para acciones concretas."  
-explicacion: "'Comunicar' → 'comunicação'. El contexto de 'evento' requiere un nombre colectivo que exprese acción."  
-tipo: completar  
-enunciado: "Completa la oración: A ___ entre os dois países foi recente."  
-respuestas_validas:  
-  - "comunicação"  
-  - "Comunicação"  
-```  
-
----
-
-
-
-### 14 — Elección de forma nominal en contexto ambiental  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["ambiente", "sufijo -ção"]  
-pasos:  
-  - "Reconocer el verbo en la opción."  
-  - "Verificar si el sufijo expresa un fenómeno ambiental."  
-explicacion: "'Poluir' → 'poluição'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'poluir'? (Contexto: contaminación)"  
-opciones_explicitas:
-  - "poluição"
-  - "poluidor"
-  - "poluir"
-  - "polui"
-respuesta: "poluição"
-```  
-
----
-
-
-
-### 15 — Transformación de verbo en nombre con sufijo -mento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo -mento", "abstracción"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-mento' para conceptos abstractos."  
-explicacion: "'Desenvolver' → 'desenvolvimento'. El contexto de 'crescimento' requiere un nombre abstracto, no concreto."  
-tipo: completar  
-enunciado: "Completa la oración: O ___ da economia foi lento este ano."  
-respuestas_validas:  
-  - "desenvolvimento"  
-  - "Desenvolvimento"  
-```  
-
----
-
-
-
-### 16 — Elección de forma nominal en contexto médico  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["medicina", "sufijo -ção"]  
-pasos:  
-  - "Determinar el verbo en la oración."  
-  - "Seleccionar el sufijo que exprese un proceso médico."  
-explicacion: "'Tratar' → 'tratamento'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'tratar'? (Contexto: cuidado de pacientes)"  
-opciones_explicitas:
-  - "tratamento"
-  - "tratador"
-  - "tratar"
-  - "trata"
-respuesta: "tratamento"
-```  
-
----
-
-
-
-### 17 — Transformación de verbo en nombre con sufijo -ção  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-ção' para acciones concretas."  
-explicacion: "'Escrever' → 'escrita'. El contexto de 'comunicação' requiere un nombre colectivo que exprese acción."  
-tipo: completar  
-enunciado: "Completa la oración: A ___ do artigo foi feita com cuidado."  
-respuestas_validas:  
-  - "escrita"  
-  - "Escrita"  
-```  
-
----
-
-
-
-### 18 — Elección de forma nominal en contexto legal  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["derecho", "sufijo -ção"]  
-pasos:  
-  - "Reconocer el verbo en la opción."  
-  - "Verificar si el sufijo expresa un fenómeno legal."  
-explicacion: "'Assinar' → 'assinatura'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'assinar'? (Contexto: documentos oficiales)"  
-opciones_explicitas:
-  - "assinatura"
-  - "assina"
-  - "assinar"
-  - "assinador"
-respuesta: "assinatura"
-```  
-
----
-
-
-
-### 19 — Transformación de verbo en nombre con sufijo -mento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo -mento", "abstracción"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-mento' para conceptos abstractos."  
-explicacion: "'Inovar' → 'inovação'. El contexto de 'crescimento' requiere un nombre abstracto, no concreto."  
-tipo: completar  
-enunciado: "Completa la oración: O ___ tecnológico foi surpreendente."  
-respuestas_validas:  
-  - "inovação"  
-  - "Inovação"  
-```  
-
----
-
-
-
-### 20 — Elección de forma nominal en contexto artístico  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["arte", "sufijo -ção"]  
-pasos:  
-  - "Determinar el verbo en la oración."  
-  - "Seleccionar el sufijo que exprese un proceso artístico."  
-explicacion: "'Desenhar' → 'desenho'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'desenhar'? (Contexto: arte visual)"  
-opciones_explicitas:
-  - "desenho"
-  - "desenhador"
-  - "desenhar"
-  - "desenha"
-respuesta: "desenho"
-```  
-
----
-
-
-
-### 21 — Transformación de verbo en nombre con sufijo -ção  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-ção' para acciones concretas."  
-explicacion: "'Viajar' → 'viagem'. El contexto de 'evento' requiere un nombre colectivo que exprese acción."  
-tipo: completar  
-enunciado: "Completa la oración: A ___ ao estrangeiro foi cancelada por motivos de segurança."  
-respuestas_validas:  
-  - "viagem"  
-  - "Viagem"  
-```  
-
----
-
-
-
-### 22 — Elección de forma nominal en contexto turístico  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["turismo", "sufijo -ção"]  
-pasos:  
-  - "Reconocer el verbo en la opción."  
-  - "Verificar si el sufijo expresa un fenómeno turístico."  
-explicacion: "'Explorar' → 'exploração'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'explorar'? (Contexto: visitas a destinos)"  
-opciones_explicitas:
-  - "exploração"
-  - "explorador"
-  - "explorar"
-  - "explora"
-respuesta: "exploração"
-```  
-
----
-
-
-
-### 23 — Transformación de verbo en nombre con sufijo -mento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["nominalizacao", "verbo-avaliar"]  
-pasos:  
-  - "Identificar el verbo 'avaliar' en la oración y su contexto."  
-  - "Transformar el verbo en su forma nominal abstracta, adaptando al género y número del sustantivo."  
-respuestas_validas:  
-  - "avaliação"  
-  - "Avaliação"  
-tipo: completar  
-enunciado: "A ___ do projeto foi realizada com rigor e critério por uma equipe técnica especializada."  
-explicacion: "El verbo 'avaliar' se transforma en su forma nominal abstracta 'avaliação', que corresponde a la acción de evaluar. En este contexto, el sustantivo debe ser femenino singular, ya que se refiere a una acción específica ('do projeto'). Las variantes ortográficas aceptadas incluyen mayúscula inicial si el sustantivo es el comienzo de la oración o está en posición destacada."  
+### 1 — -ção
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "a investigação"
+tipo: "mc"
+opciones_explicitas: ["a investigação", "a investigación", "o investigamento"]
+
+enunciado: "Nominalización de *investigar*:"
+
+explicacion: |
+  *-ação*.
 ```
 
-### 24 — Elección de forma nominal en contexto esportivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["esporte", "sufijo -ção"]  
-pasos:  
-  - "Determinar el verbo en la oración."  
-  - "Seleccionar el sufijo que exprese un proceso esportivo."  
-explicacion: "'Correr' → 'corrida'. Otras opciones son formas verbales o sustantivos derivados de adjetivos."  
-tipo: mc  
-enunciado: "¿Cuál es la forma nominal del verbo 'correr'? (Contexto: maratona)"  
-opciones_explicitas:
-  - "corrida"
-  - "corredor"
-  - "correr"
-  - "corre"
-respuesta: "corrida"
-```  
+### 2 — -são
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
 
+respuesta: "a decisão"
+tipo: "mc"
+opciones_explicitas: ["a decisão", "a decidição", "o decidimento"]
 
+enunciado: "Nominalización de *decidir*:"
 
-### 25 — Transformación de verbo en nombre con sufijo -ção  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "nominalizacao"  
-  nivel: "C1"  
-  tags: ["sufijo", "verbo a nombre"]  
-pasos:  
-  - "Identificar el verbo en la oración."  
-  - "Aplicar el sufijo '-ção' para acciones concretas."  
-explicacion: "'Ler' → 'leitura'. El contexto de 'educação' requiere un nombre colectivo que exprese acción."  
-tipo: completar  
-enunciado: "Completa la oración: A ___ do livro foi feita por uma equipe especializada."  
-respuestas_validas:  
-  - "leitura"  
-  - "Leitura"  
+explicacion: |
+  *Decisão*.
+```
+
+### 3 — -mento
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "o crescimento"
+tipo: "mc"
+opciones_explicitas: ["o crescimento", "a crescença", "o crecimento"]
+
+enunciado: "Nominalización de *crescer*:"
+
+explicacion: |
+  *Crescimento*.
+```
+
+### 4 — -agem
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "a aprendizagem"
+tipo: "mc"
+opciones_explicitas: ["a aprendizagem", "o aprendizagem", "o aprendimento"]
+
+enunciado: "Nominalización de *aprender* (proceso):"
+
+explicacion: |
+  Femenino.
+```
+
+### 5 — Regresivo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "o aumento"
+tipo: "mc"
+opciones_explicitas: ["o aumento", "a aumentação", "o aumentamento"]
+
+enunciado: "Nominalización de *aumentar*:"
+
+explicacion: |
+  *O aumento*.
+```
+
+### 6 — Regresivo (2)
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "a perda"
+tipo: "mc"
+opciones_explicitas: ["a perda", "a pérdida", "o perdimento"]
+
+enunciado: "Nominalización de *perder*:"
+
+explicacion: |
+  *A perda*.
+```
+
+### 7 — De adjetivo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "a possibilidade"
+tipo: "mc"
+opciones_explicitas: ["a possibilidade", "a possibilidad", "a possivelza"]
+
+enunciado: "Nominalización de *possível*:"
+
+explicacion: |
+  *-dade*.
+```
+
+### 8 — Transformar
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "O rápido aumento dos preços"
+tipo: "mc"
+opciones_explicitas: ["O rápido aumento dos preços", "O aumentar rápido os preços", "Os preços do aumento rápido"]
+
+enunciado: "«Os preços aumentaram rapidamente» →"
+
+explicacion: |
+  Adverbio → adjetivo.
+```
+
+### 9 — Transformar (2)
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "A decisão do Governo de baixar impostos"
+tipo: "mc"
+opciones_explicitas: ["A decisão do Governo de baixar impostos", "O decidir do Governo baixando", "A Governo decisão"]
+
+enunciado: "«O Governo decidiu baixar impostos» →"
+
+explicacion: |
+  *A decisão de + infinitivo*.
+```
+
+### 10 — Ortografía PT
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "facto"
+tipo: "mc"
+opciones_explicitas: ["facto", "fato", "fáto"]
+
+enunciado: "Según el Acordo Ortográfico, en Portugal se escribe:"
+
+explicacion: |
+  En Portugal se mantiene la *c* pronunciada: *facto* (en Brasil, *fato*).
+```
+
+### 11 — Efecto
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: "tono impersonal y condensado"
+tipo: "mc"
+opciones_explicitas: ["tono impersonal y condensado", "tono coloquial", "más emoción"]
+
+enunciado: "Efecto típico de la nominalización:"
+
+explicacion: |
+  Impersonalidad.
+```
+
+### 12 — Exceso
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "nominalizacao"
+  nivel: "C1"
+  tags: ["nominalizacao", "C1"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "Acumular muchas nominalizaciones siempre mejora la claridad."
+
+explicacion: |
+  Falso.
 ```

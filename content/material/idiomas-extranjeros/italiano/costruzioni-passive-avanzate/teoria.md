@@ -1,40 +1,52 @@
-# Construcciones pasivas avanzadas en italiano (nivel C1)
+# Construcciones pasivas avanzadas en italiano (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/costruzioni-passive-avanzate`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-Las construcciones pasivas avanzadas en italiano son estructuras gramaticales que permiten expresar acciones realizadas sin mencionar explícitamente al agente. A diferencia de la voz pasiva básica, estas formas suelen emplearse para enfatizar el objeto, contextualizar situaciones impersonales o transmitir informaciones objetivas. En el nivel C1 del Marco Común Europeo de Referencia para las Lenguas (MCER), dominarlas es clave para comunicarse con precisión en contextos académicos, profesionales y periodísticos, donde la neutralidad y la claridad son prioritarias.
+Además de la pasiva con *essere* (*La casa è stata venduta*), el italiano tiene otras construcciones pasivas muy usadas en el registro escrito y formal: con ***venire***, con ***andare*** (obligación) y con ***si*** (*si passivante*).
 
 ## Explicación central
-En italiano, la voz pasiva se construye principalmente con el verbo *essere* + participio passato del verbo principal. Sin embargo, en contextos avanzados, aparecen variantes como:
-1. **Voz pasiva impersonal**: Se usa para hablar de hechos generales o situaciones abstractas sin referirse a un sujeto concreto. Ejemplo: *In Italia, le leggi ambientali vengono spesso ignorate* (En Italia, las leyes ambientales se ignoran a menudo).
-2. **Construcciones con *si***: Expresan acciones realizadas de manera general o indeterminada. Ejemplo: *Si è discusso il problema durante la riunione* (Se discutió el problema durante la reunión).
-3. **Uso del verbo *avere* como auxiliar**: En ciertos contextos, especialmente con verbos que denotan cambios de estado o movimientos, se usa *avere*. Ejemplo: *La lettera è stata consegnata al direttore* (La carta fue entregada al director).
+### 1. Pasiva con *essere*
+*essere* + participio (concordado), agente con ***da***: *Il romanzo **è stato scritto da** Calvino.*
 
-Estas estructuras requieren atención a la concordancia del participio passato con el sujeto y a las preposiciones que acompañan al verbo principal. Por ejemplo, en *è stato inviato un messaggio*, el participio *inviato* concuerda en género y número con *un messaggio* (masculino singular).
+### 2. Pasiva con *venire*
+*venire* + participio, **solo en tiempos simples**; subraya el proceso o la acción habitual:
+*La posta **viene consegnata** ogni mattina. Il ponte **venne costruito** nel 1500.*
+❌ *è venuto costruito* (en compuestos se usa *essere*).
+
+### 3. Pasiva con *andare*: obligación
+*andare* + participio = «debe ser…»: *Il modulo **va compilato** in stampatello.* (debe completarse). *Questi documenti **vanno firmati**.*
+Con verbos como *perdere, smarrire, distruggere* indica pérdida: *Molti documenti **andarono perduti**.*
+
+### 4. *Si passivante*
+***si*** + verbo en 3.ª persona que **concuerda** con el objeto: ***Si vende** casa. **Si vendono** case. **Si affittano** appartamenti.*
+En compuestos con *essere*: *Si **sono** costruit**e** nuove scuole.*
+
+### 5. *Si impersonale*
+Sin objeto: ***Si vive** bene qui.* Con adjetivo, plural: ***Si è** stanch**i**.*
+
+### Cuándo usar cada una
+- *essere*: neutro, resultado.
+- *venire*: proceso, habitualidad, evita ambigüedad (*La porta è chiusa* = estado / *La porta viene chiusa* = acción).
+- *andare*: instrucciones, normas.
+- *si*: avisos, generalizaciones.
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen cometer errores al:
-- **Confundir los auxiliares**: En italiano, el verbo auxiliar (*essere* o *avere*) depende del verbo principal. Por ejemplo, *Il libro è stato letto* (El libro fue leído) vs. *La lettera è stata consegnata* (La carta fue entregada).
-- **Omitir preposiciones**: En construcciones con *si*, es común olvidar la preposición que introduce el complemento. Ejemplo incorrecto: *Si parlato del problema* → Correcto: *Si è parlato del problema*.
-- **Usar participios mal formados**: La conjugación del participio passato en italiano no sigue patrones fijos como en español. Por ejemplo, *dare* → *dato*, pero *andare* → *andato* (con acento).
+1. ❌ *Si vende case* ✅ *Si vendono case*.
+2. ❌ *Il ponte è venuto costruito* ✅ *è stato costruito*.
+3. ❌ *Il libro è stato scritto per Calvino* ✅ *da Calvino*.
+4. Confundir *va fatto* (debe hacerse) con «va a hacerse».
 
 ## Comparación con el español
-Aunque ambos idiomas usan la voz pasiva con *ser* + participio, hay diferencias notables:
-- **Auxiliar**: En italiano, se usa *avere* en casos como *Il problema è stato risolto* (El problema fue resuelto), mientras que en español siempre se emplea *ser*.
-- **Construcciones impersonales**: El italiano utiliza más frecuentemente el *si* para situaciones generales (*Si dice che...*), algo menos común en español.
-- **Preposiciones**: En italiano, el participio passato a menudo va acompañado de preposiciones como *a*, *da*, *di* o *con*. Ejemplo: *Il lavoro è stato fatto da un esperto* (El trabajo fue hecho por un experto).
+La pasiva con *essere* y el *si passivante* equivalen a «fue escrito por» y a «se venden casas» (con concordancia, igual que en español). El español no tiene pasiva con «venir» ni con «ir» con valor de obligación: *va fatto* = «debe hacerse».
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Alessia:* "Hai visto l’annuncio sul giornale? *È stato pubblicato ieri.*"
-*Luca:* "Sì, ma non sono sicuro che *sia stato letto da tutti*. *Si è parlato molto del progetto in ufficio*, però."
-*Alessia:* "D’accordo. Dobbiamo farlo conoscere meglio. *Il messaggio è stato inviato a tutti i dipendenti*, ma forse non è arrivato a tutti."
-
-En este diálogo, se utilizan tres construcciones pasivas avanzadas: *è stato pubblicato* (voz pasiva con *essere*), *sia stato letto da tutti* (participio con preposición *da*) y *si è parlato* (construcción impersonal). Estas estructuras refuerzan la objetividad del discurso, típica de contextos profesionales.
+*Il modulo **va compilato** entro il 30 giugno e **va consegnato** in segreteria. Le domande **vengono esaminate** da una commissione. L'anno scorso **sono state accettate** duecento richieste. Qui **si parlano** tre lingue e **si lavora** bene.*

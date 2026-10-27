@@ -1,506 +1,253 @@
-# Idiomas — Francés — passe-compose (cuestionario)
+# Francés — passé composé (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/passe-compose/cuestionario_crudo.md`)
-> con una corrección mecánica sistemática: los 26 bloques tenían el fence de apertura pegado
-> directamente a `metadata:` (` ```metadata: ` sin salto de línea), por lo que el validador sólo
-> reconocía 13 "bloques"; se separó con salto de línea. Se corrigieron además dos errores reales:
-> el bloque 2 tenía sujeto "Elle" (tercera persona) pero daba "suis" (primera persona, "je suis")
-> como respuesta y participio sin concordancia femenina; se corrigió a "est" + "allée". El bloque
-> 25 etiquetaba "rester" con auxiliar "avoir", cuando ese verbo rige siempre "être" (como ya
-> reconocía correctamente el bloque 8 del mismo archivo); se corrigió a "être"/"est".
+> Tema: `idiomas-extranjeros/frances/passe-compose`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — passe-compose
+### 1 — avoir + -é
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Identificar el verbo principal y su auxiliar."
-  - "Verificar la concordancia del participio con el sujeto si se usa 'être'."
-respuesta: "ai"
-tipo: completar
-respuestas_validas:
-  - "ai"
-  - "Ai"
-enunciado: "Je ___ mangé une pomme hier. (mangé)"
+  tags: ["passe-compose"]
+
+respuesta: "ai parlé"
+tipo: "mc"
+opciones_explicitas: ["ai parlé", "suis parlé", "ai parler"]
+
+enunciado: "Hier, j'___ avec mon frère."
+
+explicacion: |
+  *Avoir* + participio.
 ```
 
-### 2 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Determinar si el verbo principal requiere 'être' como auxiliar."
-  - "Ajustar el participio según el género y número del sujeto."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Elle ___ allée au cinéma samedi. (aller)"
-```
-
-### 3 — passe-compose
+### 2 — être aller
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Elegir el auxiliar correcto según el verbo principal."
-  - "Verificar si hay necesidad de concordancia en el participio."
-respuesta: "as"
-tipo: completar
-respuestas_validas:
-  - "as"
-  - "As"
-enunciado: "Tu ___ téléphoné à ton ami hier. (téléphoner)"
+  tags: ["passe-compose"]
+
+respuesta: "est allée"
+tipo: "mc"
+opciones_explicitas: ["est allée", "a allé", "est allé"]
+
+enunciado: "Elle ___ au cinéma."
+
+explicacion: |
+  *Aller* con *être* + concordancia.
 ```
 
-### 4 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Identificar el sujeto y verificar si requiere concordancia."
-  - "Escribir el participio en la forma correcta según el sujeto."
-respuesta: "sommes"
-tipo: completar
-respuestas_validas:
-  - "sommes"
-  - "Sommes"
-enunciado: "Nous ___ partis en vacances l'été dernier. (partir)"
-```
-
-### 5 — passe-compose
+### 3 — Pronominal
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Determinar el auxiliar adecuado para 'manger'."
-  - "Escribir el participio sin concordancia."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Il ___ mangé un gâteau. (manger)"
+  tags: ["passe-compose"]
+
+respuesta: "me suis levé"
+tipo: "mc"
+opciones_explicitas: ["me suis levé", "m'ai levé", "me levé"]
+
+enunciado: "Je ___ à sept heures."
+
+explicacion: |
+  Pronominales con *être*.
 ```
 
-### 6 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Reconocer que 'aller' requiere 'être'."
-  - "Ajustar el participio al género del sujeto."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Mon frère ___ allé à l'école. (aller)"
-```
-
-### 7 — passe-compose
+### 4 — Plural fem.
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Seleccionar el auxiliar para 'regarder'."
-  - "Verificar si hay concordancia necesaria."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Elle ___ regardé un film. (regarder)"
+  tags: ["passe-compose"]
+
+respuesta: "arrivées"
+tipo: "mc"
+opciones_explicitas: ["arrivées", "arrivé", "arrivés"]
+
+enunciado: "Mes sœurs sont ___ hier."
+
+explicacion: |
+  Concordancia fem. pl.
 ```
 
-### 8 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Identificar el sujeto y sus características."
-  - "Escribir el participio con concordancia de género y número."
-respuesta: "êtes"
-tipo: completar
-respuestas_validas:
-  - "êtes"
-  - "Êtes"
-enunciado: "Vous ___ restés chez vos parents. (rester)"
-```
-
-### 9 — passe-compose
+### 5 — prendre
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Determinar el auxiliar para 'prendre'."
-  - "Escribir el participio sin concordancia."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Je ___ pris un café ce matin. (prendre)"
+  tags: ["passe-compose"]
+
+respuesta: "pris"
+tipo: "mc"
+opciones_explicitas: ["pris", "prendu", "pri"]
+
+enunciado: "Nous avons ___ le train."
+
+explicacion: |
+  *Prendre → pris*.
 ```
 
-### 10 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Verificar si el verbo requiere 'être'."
-  - "Ajustar el participio al sujeto (feminino, singular)."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Ma sœur ___ allée au marché. (aller)"
-```
-
-### 11 — passe-compose
+### 6 — faire
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Elegir el auxiliar correcto para 'parler'."
-  - "Verificar la forma del participio."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Nous ___ parlé à nos amis. (parler)"
+  tags: ["passe-compose"]
+
+respuesta: "fait"
+tipo: "mc"
+opciones_explicitas: ["fait", "faisé", "fais"]
+
+enunciado: "Qu'est-ce que tu as ___ ?"
+
+explicacion: |
+  *Faire → fait*.
 ```
 
-### 12 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Reconocer el uso de 'être' con verbo pronominal."
-  - "Ajustar el participio al sujeto (masculino, plural)."
-respuesta: "sont"
-tipo: completar
-respuestas_validas:
-  - "sont"
-  - "Sont"
-enunciado: "Ils ___ levés tôt ce matin. (se lever)"
-```
-
-### 13 — passe-compose
+### 7 — voir
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Seleccionar el auxiliar para 'finir'."
-  - "Verificar que no haya concordancia necesaria."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Elle ___ fini son travail. (finir)"
+  tags: ["passe-compose"]
+
+respuesta: "vu"
+tipo: "mc"
+opciones_explicitas: ["vu", "voi", "vé"]
+
+enunciado: "J'ai ___ ce film deux fois."
+
+explicacion: |
+  *Voir → vu*.
 ```
 
-### 14 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Identificar el verbo y su auxiliar."
-  - "Escribir el participio con concordancia de número (plural)."
-respuesta: "sont"
-tipo: completar
-respuestas_validas:
-  - "sont"
-  - "Sont"
-enunciado: "Mes amis ___ allés au restaurant. (aller)"
-```
-
-### 15 — passe-compose
+### 8 — finir
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Determinar el auxiliar para 'marcher'."
-  - "Verificar la forma del participio."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Il ___ marché dans le parc. (marcher)"
+  tags: ["passe-compose"]
+
+respuesta: "fini"
+tipo: "mc"
+opciones_explicitas: ["fini", "finé", "finu"]
+
+enunciado: "Ils ont ___ leurs devoirs."
+
+explicacion: |
+  *-ir → -i*.
 ```
 
-### 16 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Reconocer el uso de 'être' con verbo pronominal."
-  - "Ajustar el participio al sujeto (feminino, plural)."
-respuesta: "sont"
-tipo: completar
-respuestas_validas:
-  - "sont"
-  - "Sont"
-enunciado: "Elles ___ habillées pour la fête. (se habiller)"
-```
-
-### 17 — passe-compose
+### 9 — venir
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Seleccionar el auxiliar para 'écouter'."
-  - "Verificar que no haya concordancia necesaria."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Tu ___ écouté de la musique. (écouter)"
+  tags: ["passe-compose"]
+
+respuesta: "venus"
+tipo: "mc"
+opciones_explicitas: ["venus", "venu", "venis"]
+
+enunciado: "Ils sont ___ en voiture."
+
+explicacion: |
+  *Venir* con *être*, plural.
 ```
 
-### 18 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Identificar el sujeto y sus características."
-  - "Escribir el participio con concordancia de género (masculino)."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Mon père ___ allé au travail. (aller)"
-```
-
-### 19 — passe-compose
+### 10 — Negación
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Determinar el auxiliar para 'lire'."
-  - "Verificar la forma del participio."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Je ___ lu un livre. (lire)"
+  tags: ["passe-compose"]
+
+respuesta: "Je n'ai pas compris."
+tipo: "mc"
+opciones_explicitas: ["Je n'ai pas compris.", "Je n'ai compris pas.", "Je ne pas ai compris."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Alrededor del auxiliar.
 ```
 
-### 20 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Reconocer el uso de 'être' con verbo pronominal."
-  - "Ajustar el participio al sujeto (masculino, singular)."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Il ___ lavé ses mains. (se laver)"
-```
-
-### 21 — passe-compose
+### 11 — naître
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Seleccionar el auxiliar para 'acheter'."
-  - "Verificar que no haya concordancia necesaria."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Elle ___ acheté un cadeau. (acheter)"
+  tags: ["passe-compose"]
+
+respuesta: "est né"
+tipo: "mc"
+opciones_explicitas: ["est né", "a né", "a naît"]
+
+enunciado: "Victor Hugo ___ en 1802."
+
+explicacion: |
+  *Naître* con *être*: *est né*.
 ```
 
-### 22 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Identificar el sujeto y sus características."
-  - "Escribir el participio con concordancia de género (feminino)."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Ma mère ___ allée faire les courses. (aller)"
-```
-
-### 23 — passe-compose
+### 12 — Con avoir no concuerda
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-avoir", "participe-passe"]
-pasos:
-  - "Determinar el auxiliar para 'donner'."
-  - "Verificar la forma del participio."
-respuesta: "a"
-tipo: completar
-respuestas_validas:
-  - "a"
-  - "A"
-enunciado: "Nous ___ donné un cadeau à mon frère. (donner)"
+  tags: ["passe-compose"]
+
+respuesta: "mangé"
+tipo: "mc"
+opciones_explicitas: ["mangé", "mangée", "mangés"]
+
+enunciado: "Elle a ___ une pizza."
+
+explicacion: |
+  Con *avoir* no concuerda con el sujeto.
 ```
 
-### 24 — passe-compose
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Reconocer el uso de 'être' con verbo pronominal."
-  - "Ajustar el participio al sujeto (masculino, plural)."
-respuesta: "sont"
-tipo: completar
-respuestas_validas:
-  - "sont"
-  - "Sont"
-enunciado: "Ils ___ habillés pour le dîner. (se habiller)"
-```
-
-### 25 — passe-compose
+### 13 — Error típico
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "passe-compose"
   nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Reconocer que 'rester' requiere siempre el auxiliar 'être'."
-  - "Ajustar el participio al sujeto (masculino, singular)."
-respuesta: "est"
-tipo: completar
-respuestas_validas:
-  - "est"
-  - "Est"
-enunciado: "Il ___ resté chez ses parents. (rester)"
-```
+  tags: ["passe-compose"]
 
-### 26 — passe-compose
+respuesta: falso
+tipo: vf
 
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "passe-compose"
-  nivel: "A1-A2"
-  tags: ["auxiliaire-etre", "concordance"]
-pasos:
-  - "Identificar el sujeto y sus características."
-  - "Escribir el participio con concordancia de género (feminino, plural)."
-respuesta: "sont"
-tipo: completar
-respuestas_validas:
-  - "sont"
-  - "Sont"
-enunciado: "Mes sœurs ___ allées au zoo. (aller)"
+enunciado: "«J'ai allé à Paris» es correcta."
+
+explicacion: |
+  Falso: *Je suis allé(e) à Paris*.
 ```

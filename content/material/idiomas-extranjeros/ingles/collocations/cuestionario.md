@@ -1,458 +1,423 @@
-# Idiomas — Inglés — collocations (cuestionario)
+# Inglés — collocations (cuestionario, 22 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/collocations/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/collocations`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior daba «made» como respuesta en oraciones como «They ___ to leave the company» (debía ser *decided*) y tenía preguntas abiertas con varias respuestas posibles.
 
 ---
 
-### 1 — Common Noun Collocation  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["make/do", "mistake"]  
-pasos:  
-  - "Identificar el verbo que se usa con 'mistake'."  
-explicacion: "La colocación más común es 'make a mistake', ya que 'make' se usa con sustantivos abstractos como errores, decisiones o planes."  
-tipo: completar  
-enunciado: "She ___ a mistake while driving."  
-respuestas_validas:  
-  - "made"  
-  - "Made"  
-```
+### 1 — make/do
 
-### 2 — Verbo con Sustantivo Abstracto  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["give", "advice"]  
-pasos:  
-  - "Elegir el verbo que se usa con 'advice'."  
-explicacion: "'Give advice' es la colocación correcta, ya que 'advice' es un sustantivo incontable y requiere 'give', no 'do' ni 'make'."  
-tipo: mc  
-enunciado: "The teacher ___ his students some good advice."  
-opciones_explicitas:
-  - "gave"
-  - "made"
-  - "took"
-respuesta: "gave"  
-```
-
-### 3 — Sustantivo Contable con Verbo  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["take", "break"]  
-pasos:  
-  - "Escribir el verbo que se usa con 'break' en este contexto."  
-explicacion: "'Take a break' es una colocación fija, mientras que 'make a break' no existe en este uso."  
-tipo: completar  
-enunciado: "Let's ___ a break after this meeting."  
-respuestas_validas:  
-  - "take"  
-  - "Take"  
-```
-
-### 4 — Verbo con Sustantivo Incontable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["do", "homework"]  
-pasos:  
-  - "Seleccionar el verbo que se usa con 'homework'."  
-explicacion: "'Do homework' es la colocación correcta, ya que 'homework' es un sustantivo incontable y requiere 'do', no 'make' ni 'take'."  
-tipo: mc  
-enunciado: "I need to ___ my homework before the exam."  
-opciones_explicitas:
-  - "do"
-  - "make"
-  - "give"
-respuesta: "do"  
-```
-
-### 5 — Colocación con Sustantivo Contable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["make", "decision"]  
-pasos:  
-  - "Escribir el verbo que se usa con 'decision'."  
-explicacion: "'Make a decision' es la colocación estándar, mientras que 'do a decision' o 'take a decision' no son correctas en este contexto."  
-tipo: completar  
-enunciado: "They ___ to leave the company last week."  
-respuestas_validas:  
-  - "made"  
-  - "Made"  
-```
-
-### 6 — Uso con Sustantivo Abstracto  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["give", "example"]  
-pasos:  
-  - "Elegir el verbo que se usa con 'example'."  
-explicacion: "'Give an example' es la colocación correcta, ya que 'example' es un sustantivo contable y requiere 'give' para transmitir algo."  
-tipo: mc  
-enunciado: "The professor ___ a clear example of the concept."  
-opciones_explicitas:
-  - "gave"
-  - "made"
-  - "took"
-respuesta: "gave"  
-```
-
-### 7 — Colocación con Sustantivo Incontable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["do", "exercise"]  
-pasos:  
-  - "Completar el verbo que se usa con 'exercise'."  
-explicacion: "'Do exercise' es la colocación correcta, ya que 'exercise' en este contexto es un sustantivo incontable y requiere 'do'."  
-tipo: completar  
-enunciado: "I need to ___ more physical exercise this month."  
-respuestas_validas:  
-  - "do"  
-  - "Do"  
-```
-
-### 8 — Sustantivo Contable con Verbo  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["take", "note"]  
-pasos:  
-  - "Seleccionar el verbo que se usa con 'note'."  
-explicacion: "'Take a note' es la colocación correcta, mientras que 'make a note' no se usa en este sentido. El verbo 'take' implica capturar algo temporalmente."  
-tipo: mc  
-enunciado: "The teacher asked us to ___ a note about the lesson."  
-opciones_explicitas:
-  - "take"
-  - "make"
-  - "give"
-respuesta: "take"  
-```
-
-### 9 — Colocación con Sustantivo Abstracto  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["make", "plan"]  
-pasos:  
-  - "Escribir el verbo que se usa con 'plan'."  
-explicacion: "'Make a plan' es la colocación estándar, mientras que 'do a plan' o 'take a plan' no son correctas en este contexto."  
-tipo: completar  
-enunciado: "We ___ to visit Spain next summer."  
-respuestas_validas:  
-  - "made"  
-  - "Made"  
-```
-
-### 10 — Uso con Sustantivo Incontable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["do", "research"]  
-pasos:  
-  - "Elegir el verbo que se usa con 'research'."  
-explicacion: "'Do research' es la colocación correcta, ya que 'research' es un sustantivo incontable y requiere 'do', no 'make' ni 'take'."  
-tipo: mc  
-enunciado: "The students ___ a lot of research before writing the report."  
-opciones_explicitas:
-  - "did"
-  - "made"
-  - "gave"
-respuesta: "did"  
-```
-
-### 11 — Colocación con Sustantivo Contable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["make", "choice"]  
-pasos:  
-  - "Completar el verbo que se usa con 'choice'."  
-explicacion: "'Make a choice' es la colocación estándar, mientras que 'do a choice' o 'take a choice' no son correctas en este contexto."  
-tipo: completar  
-enunciado: "She ___ a difficult choice about her career."  
-respuestas_validas:  
-  - "made"  
-  - "Made"  
-```
-
-### 12 — Uso con Sustantivo Abstracto  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["give", "opinion"]  
-pasos:  
-  - "Elegir el verbo que se usa con 'opinion'."  
-explicacion: "'Give an opinion' es la colocación correcta, ya que 'opinion' es un sustantivo contable y requiere 'give' para transmitir algo."  
-tipo: mc  
-enunciado: "The expert ___ his opinion on the new policy."  
-opciones_explicitas:
-  - "gave"
-  - "made"
-  - "took"
-respuesta: "gave"  
-```
-
-### 13 — Colocación con Sustantivo Incontable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["do", "shopping"]  
-pasos:  
-  - "Completar el verbo que se usa con 'shopping'."  
-explicacion: "'Do shopping' es la colocación correcta, ya que 'shopping' en este contexto es un sustantivo incontable y requiere 'do'."  
-tipo: completar  
-enunciado: "I need to ___ some grocery shopping this afternoon."  
-respuestas_validas:  
-  - "do"  
-  - "Do"  
-```
-
-### 14 — Sustantivo Contable con Verbo  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["take", "photo"]  
-pasos:  
-  - "Seleccionar el verbo que se usa con 'photo'."  
-explicacion: "'Take a photo' es la colocación correcta, mientras que 'make a photo' no se usa en este sentido. El verbo 'take' implica capturar algo temporalmente."  
-tipo: mc  
-enunciado: "The tourist ___ a beautiful photo of the monument."  
-opciones_explicitas:
-  - "took"
-  - "made"
-  - "gave"
-respuesta: "took"  
-```
-
-### 15 — Colocación con Sustantivo Abstracto  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["make", "appointment"]  
-pasos:  
-  - "Escribir el verbo que se usa con 'appointment'."  
-explicacion: "'Make an appointment' es la colocación estándar, mientras que 'do an appointment' o 'take an appointment' no son correctas en este contexto."  
-tipo: completar  
-enunciado: "We ___ a meeting with the manager next week."  
-respuestas_validas:  
-  - "made"  
-  - "Made"  
-```
-
-### 16 — Uso con Sustantivo Incontable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["do", "volunteering"]  
-pasos:  
-  - "Elegir el verbo que se usa con 'volunteering'."  
-explicacion: "'Do volunteering' es la colocación correcta, ya que 'volunteering' es un sustantivo incontable y requiere 'do', no 'make' ni 'take'."  
-tipo: mc  
-enunciado: "She ___ a lot of community volunteering last year."  
-opciones_explicitas:
-  - "did"
-  - "made"
-  - "gave"
-respuesta: "did"  
-```
-
-### 17 — Colocación con Sustantivo Contable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["take", "test"]  
-pasos:  
-  - "Completar el verbo que se usa con 'test'."  
-explicacion: "'Take a test' es la colocación correcta, mientras que 'make a test' no se usa en este sentido. El verbo 'take' implica someterse a algo temporalmente."  
-tipo: completar  
-enunciado: "The students ___ an important language test today."  
-respuestas_validas:  
-  - "took"  
-  - "Took"  
-```
-
-### 18 — Uso con Sustantivo Abstracto  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["give", "feedback"]  
-pasos:  
-  - "Elegir el verbo que se usa con 'feedback'."  
-explicacion: "'Give feedback' es la colocación correcta, ya que 'feedback' es un sustantivo contable y requiere 'give' para transmitir algo."  
-tipo: mc  
-enunciado: "The teacher ___ constructive feedback on the essay."  
-opciones_explicitas:
-  - "gave"
-  - "made"
-  - "took"
-respuesta: "gave"  
-```
-
-### 19 — Colocación con Sustantivo Incontable  
-```  
-metadata:  
-  materia: "ingles"  
-  tema: "collocations"  
-  nivel: "B2"  
-  tags: ["do", "exercise"]  
-pasos:  
-  - "Completar el verbo que se usa con 'exercise'."  
-explicacion: "'Do exercise' es la colocación correcta, ya que 'exercise' en este contexto es un sustantivo incontable y requiere 'do'."  
-tipo: completar  
-enunciado: "He needs to ___ more physical exercise for his health."  
-respuestas_validas:  
-  - "do"  
-  - "Do"  
-```
-
-### 20 — Sustantivo Contable con Verbo  
 ```
 metadata:
   materia: "ingles"
   tema: "collocations"
   nivel: "B2"
-  tags: ["proposer", "solution"]
-pasos:
-  - "Identificar el verbo que combina con 'approach' en este contexto."
-explicacion: "El collocation correcto es 'propose a new approach', ya que 'propose' se usa para presentar una idea o solución específica."
-enunciado: "The researcher ___ a new approach to solve the problem."  
-tipo: completar  
-respuestas_validas:
-  - "proposed"
-  - "Proposed"
-```  
+  tags: ["collocations"]
 
----
+respuesta: "made"
+tipo: "mc"
+opciones_explicitas: ["made", "did", "took", "had"]
 
-### 21 — Colocación con Sustantivo Abstracto  
+enunciado: "She ___ a big mistake in the report."
+
+explicacion: |
+  *Make a mistake*.
+```
+
+### 2 — make/do (2)
+
 ```
 metadata:
   materia: "ingles"
   tema: "collocations"
   nivel: "B2"
-  tags: ["abandon", "habit"]
-pasos:
-  - "Seleccionar la opción que completa el sentido de 'abandonar un hábito'."
-explicacion: "'Give up' es un collocation común para expresar dejar de hacer algo, como un hábito o una práctica."
-enunciado: "She ___ smoking after her doctor's advice."  
-tipo: completar  
-respuestas_validas:
-  - "gave up"
-  - "gave Up"
-```  
+  tags: ["collocations"]
 
----
+respuesta: "do"
+tipo: "mc"
+opciones_explicitas: ["make", "do", "take", "have"]
 
-### 22 — Uso con Sustantivo Incontable  
+enunciado: "I always ___ my homework after dinner."
+
+explicacion: |
+  *Do homework*.
+```
+
+### 3 — make/do (3)
+
 ```
 metadata:
   materia: "ingles"
   tema: "collocations"
   nivel: "B2"
-  tags: ["encounter", "difficulties"]
-pasos:
-  - "Elegir la opción que completa el sentido de 'enfrentar problemas'."
-explicacion: "'Face challenges' es un collocation frecuente para referirse a superar dificultades o obstáculos."
-enunciado: "The students ___ many difficulties during their internship."  
-tipo: completar  
-respuestas_validas:
-  - "faced"
-  - "Faced"
-```  
+  tags: ["collocations"]
 
----
+respuesta: "make"
+tipo: "mc"
+opciones_explicitas: ["make", "do", "give", "have"]
 
-### 23 — Colocación con Sustantivo Contable  
+enunciado: "We need to ___ a decision before Friday."
+
+explicacion: |
+  *Make a decision* (la forma más común).
+```
+
+### 4 — take
+
 ```
 metadata:
   materia: "ingles"
   tema: "collocations"
   nivel: "B2"
-  tags: ["anticipate", "event"]
-pasos:
-  - "Seleccionar la opción que completa el sentido de 'esperar algo con entusiasmo'."
-explicacion: "'Look forward to' se usa para expresar anticipación positiva sobre un evento futuro."
-enunciado: "We ___ our trip to Spain next month."  
-tipo: completar  
-respuestas_validas:
-  - "look forward to"
-  - "look Forward to"
-```  
+  tags: ["collocations"]
 
----
+respuesta: "take"
+tipo: "mc"
+opciones_explicitas: ["make", "do", "take", "give"]
 
-### 24 — Uso con Sustantivo Abstracto  
+enunciado: "Let's ___ a short break."
+
+explicacion: |
+  *Take a break*.
+```
+
+### 5 — take (2)
+
 ```
 metadata:
   materia: "ingles"
   tema: "collocations"
   nivel: "B2"
-  tags: ["discover", "item"]
-pasos:
-  - "Identificar el verbo que combina con 'something' en este contexto."
-explicacion: "'Come across' es un collocation para describir encontrar algo accidentalmente durante una búsqueda."
-enunciado: "He ___ an old letter while cleaning the attic."  
-tipo: completar  
-respuestas_validas:
-  - "came across"
-  - "Came Across"
-```  
+  tags: ["collocations"]
 
----
+respuesta: "took"
+tipo: "mc"
+opciones_explicitas: ["made", "did", "took", "had"]
 
-### 25 — Colocación con Sustantivo Incontable  
+enunciado: "The tourists ___ hundreds of photos of the glacier."
+
+explicacion: |
+  *Take a photo*.
+```
+
+### 6 — take (3)
+
 ```
 metadata:
   materia: "ingles"
   tema: "collocations"
   nivel: "B2"
-  tags: ["consider", "decision"]
-pasos:
-  - "Elegir la opción que completa el sentido de 'reflexionar sobre una elección'."
-explicacion: "'Think about' se usa para expresar meditar o considerar una decisión importante."
-enunciado: "She ___ her career path before accepting the job."  
-tipo: completar  
-respuestas_validas:
-  - "thought about"
-  - "Thought About"
+  tags: ["collocations"]
+
+respuesta: "take"
+tipo: "mc"
+opciones_explicitas: ["make", "do", "take", "give"]
+
+enunciado: "The students will ___ the English test on Monday."
+
+explicacion: |
+  *Take a test/an exam* (rendirlo).
+```
+
+### 7 — have
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "have"
+tipo: "mc"
+opciones_explicitas: ["take", "make", "have", "do"]
+
+enunciado: "We ___ breakfast at seven every day."
+
+explicacion: |
+  *Have breakfast* (no *take breakfast*).
+```
+
+### 8 — have (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "have"
+tipo: "mc"
+opciones_explicitas: ["have", "make", "do", "take"]
+
+enunciado: "Did you ___ a good time at the party?"
+
+explicacion: |
+  *Have a good time*.
+```
+
+### 9 — give
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "give"
+tipo: "mc"
+opciones_explicitas: ["give", "make", "do", "say"]
+
+enunciado: "Can you ___ me an example?"
+
+explicacion: |
+  *Give an example*.
+```
+
+### 10 — give (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "gave"
+tipo: "mc"
+opciones_explicitas: ["gave", "made", "did", "said"]
+
+enunciado: "My teacher ___ me some good advice."
+
+explicacion: |
+  *Give advice*.
+```
+
+### 11 — do
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "did"
+tipo: "mc"
+opciones_explicitas: ["made", "did", "took", "gave"]
+
+enunciado: "Scientists ___ a lot of research on the new virus."
+
+explicacion: |
+  *Do research*.
+```
+
+### 12 — make (4)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "make"
+tipo: "mc"
+opciones_explicitas: ["make", "do", "take", "have"]
+
+enunciado: "I'd like to ___ an appointment with the dentist."
+
+explicacion: |
+  *Make an appointment*.
+```
+
+### 13 — pay
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "pay"
+tipo: "mc"
+opciones_explicitas: ["pay", "lend", "put", "give"]
+
+enunciado: "Please ___ attention to the instructions."
+
+explicacion: |
+  *Pay attention*.
+```
+
+### 14 — ask
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "ask"
+tipo: "mc"
+opciones_explicitas: ["ask", "make", "do", "say"]
+
+enunciado: "Can I ___ you a question?"
+
+explicacion: |
+  «Hacer una pregunta» = *ask a question*.
+```
+
+### 15 — Adjetivo + sustantivo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "heavy"
+tipo: "mc"
+opciones_explicitas: ["heavy", "strong", "big", "fat"]
+
+enunciado: "We were late because of the ___ traffic."
+
+explicacion: |
+  *Heavy traffic*.
+```
+
+### 16 — Adjetivo + sustantivo (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "heavy"
+tipo: "mc"
+opciones_explicitas: ["heavy", "strong", "hard", "fat"]
+
+enunciado: "It was raining so much! The ___ rain flooded the streets."
+
+explicacion: |
+  *Heavy rain* (no *strong rain*).
+```
+
+### 17 — Adjetivo + sustantivo (3)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "strong"
+tipo: "mc"
+opciones_explicitas: ["strong", "heavy", "hard", "big"]
+
+enunciado: "I like my coffee ___, without milk."
+
+explicacion: |
+  *Strong coffee*.
+```
+
+### 18 — Adjetivo + sustantivo (4)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "high"
+tipo: "mc"
+opciones_explicitas: ["high", "expensive", "tall", "big"]
+
+enunciado: "The ___ price of houses is a problem for young people."
+
+explicacion: |
+  *A high price* (no *expensive price*: lo caro es la casa, no el precio).
+```
+
+### 19 — Adverbio + adjetivo
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "highly"
+tipo: "mc"
+opciones_explicitas: ["highly", "strongly", "heavily", "deeply"]
+
+enunciado: "This restaurant is ___ recommended."
+
+explicacion: |
+  *Highly recommended*.
+```
+
+### 20 — Adverbio + adjetivo (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: "deeply"
+tipo: "mc"
+opciones_explicitas: ["deeply", "highly", "heavily", "strongly"]
+
+enunciado: "I'm ___ sorry for your loss."
+
+explicacion: |
+  *Deeply sorry*.
+```
+
+### 21 — Error típico
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«I made my homework» es correcto."
+
+explicacion: |
+  Falso: *do homework*.
+```
+
+### 22 — Error típico (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "collocations"
+  nivel: "B2"
+  tags: ["collocations"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "«Make friends» es una colocación correcta (hacerse amigos)."
+
+explicacion: |
+  Verdadero: *make friends*.
 ```
