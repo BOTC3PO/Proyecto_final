@@ -1,43 +1,54 @@
-# Discorso indiretto (B2)
+# El discurso indirecto en italiano (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/discorso-indiretto`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
-El **discorso indiretto** es una herramienta fundamental para transmitir lo que alguien dice sin citarlo literalmente. En italiano, se usa para resumir frases o ideas de manera indirecta, evitando las comillas y adaptando el verbo principal y los tiempos verbales según el contexto. Este nivel (B2) es clave para desarrollar habilidades comunicativas avanzadas, ya que permite integrar información en textos más complejos sin perder claridad.
+## Introducción
+El **discorso indiretto** cuenta lo que alguien dijo sin citarlo textualmente: *Marco dice: «Sono stanco».* → *Marco dice **che è** stanco.*
 
-## Estructura del discorso indiretto
-El discorso indiretto se construye con un **verbo di rapporto** (como *dire*, *dichiarare*, *pensare*) seguido de una subordinata introducida por la conjunción *che*. Los tiempos verbales suelen retroceder uno o dos niveles según el contexto. Por ejemplo:
+## Explicación central
+### Introductores
+- Afirmaciones: ***dire che, rispondere che, spiegare che***.
+- Preguntas sí/no: ***chiedere se***: *«Vieni?» → Mi chiede **se** vengo.*
+- Preguntas con interrogativo: se mantiene: *Mi chiede **dove** abito.*
+- Órdenes: ***dire di* + infinitivo**: *«Chiudi la porta!» → Mi dice **di chiudere** la porta.*
 
-- **Diretto**: *Maria dice: "Vado al cinema domani."*
-- **Indiretto**: *Maria dice che va al cinema domani.*
+### Personas y posesivos
+*«Io ti amo» → Dice che **lui mi** ama.*
 
-En este caso, *vado* (futuro) se convierte en *va* (presente). Si el verbo de rapporto está en un tiempo más antiguo:
+### Cambios de tiempo (introductor en pasado)
+| Directo | Indirecto |
+|---|---|
+| presente | imperfetto |
+| passato prossimo / remoto | trapassato prossimo |
+| futuro | **condizionale passato** |
+| imperativo | *di* + infinitivo |
+| congiuntivo presente | congiuntivo imperfetto |
+| imperfetto, trapassato | no cambian |
 
-- *Maria ha detto: "Vado al cinema."* → *Maria ha detto che va al cinema.*
-- *Maria disse: "Vado al cinema."* → *Maria disse che andava al cinema.* (pretérito imperfecto)
+*«Partirò domani» → Ha detto che **sarebbe partito il giorno dopo**.*
 
-### Errores comunes de hispanohablantes
-1. **Falta de retroceso en tiempos verbales**: En español, se suele mantener el tiempo original ("dije que voy"), pero en italiano es obligatorio ajustarlo: *disse che andava* (no "che va").
-2. **Uso incorrecto del subjuntivo**: El italiano no requiere el subjuntivo en el discorso indiretto, a diferencia del español (*dice que vaya* vs. *dice che vada*).
-3. **Omisión de la conjunción *che***: En italiano, *che* es indispensable para introducir la subordinada (aunque se puede omitir en frases interrogativas o exclamativas).
+### Marcadores
+*oggi → quel giorno; domani → **il giorno dopo / l'indomani**; ieri → **il giorno prima**; ora → allora; qui → lì; questo → quello; la settimana prossima → la settimana seguente*.
+
+### Venire / andare, portare / prendere
+Cambian según la perspectiva: *«Vengo da te» → Ha detto che **sarebbe andato** da lei.*
+
+## Errores comunes de hispanohablantes
+1. ❌ *Ha detto che verrebbe* ✅ *Ha detto che sarebbe venuto*.
+2. ❌ *Mi ha chiesto che vengo* ✅ *Mi ha chiesto se venivo*.
+3. ❌ *Mi ha detto che chiudo la porta* ✅ *di chiudere la porta*.
+4. Olvidar *domani → il giorno dopo*.
 
 ## Comparación con el español
-El discorso indiretto en italiano difiere del español principalmente en dos aspectos:
-1. **Tiempo verbal**: En español, si el verbo de rapporto está en pretérito (ej.: *dijo*), la subordinada suele usar subjuntivo (*que fuera*). En italiano, se usa un tiempo anterior al original (*andava* vs. *va*).
-2. **Uso del subjuntivo**: El italiano no requiere el subjuntivo en contextos neutros (ej.: *dice che va*), mientras que en español es común (*dice que vaya*).
+Casi igual que en español, salvo el **futuro en el pasado**: «dijo que **vendría**» = *ha detto che **sarebbe venuto*** (condicional compuesto).
 
-### Ejemplo extendido en contexto
-**Scena**: En una clase de arte, un profesor explica a sus alumnos sobre la exposición del museo.
-
-- **Diretto**: *Il professore dice: "L'esposizione è interessante e molti visitatori la apprezzano."*
-- **Indiretto**: *Il professore dice che l'esposizione è interessante e che molti visitatori l'apprezzano.*
-
-En otro contexto temporal:
-- *Il professor Rossi ha detto ieri: "Sto preparando un nuovo progetto."* → *Il professor Rossi ha detto ieri che stava preparando un nuovo progetto.* (El verbo *stare* cambia de presente a imperfetto).
-
-Este mecanismo permite contextualizar y adaptar lo que se dice, facilitando la comprensión en situaciones cotidianas o académicas. Practicarlo con ejercicios variados ayudará a internalizar las reglas del tiempo verbal y la estructura de las oraciones subordinadas.
+## Ejemplo extendido en contexto
+*Ieri mia madre mi ha telefonato. Mi ha chiesto **se stavo** bene e **che cosa facevo** nel fine settimana. Le ho risposto **che avevo lavorato** molto e **che sarei andata** al mare **il giorno dopo**. Mi ha detto **di stare** attenta.*

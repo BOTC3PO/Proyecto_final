@@ -1,36 +1,48 @@
-# Comprensión auditiva en italiano: nivel C1
+# Comprensión auditiva en italiano (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/listening-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
-La comprensión auditiva en el nivel C1 del Marco Común Europeo de Referencia para las Lenguas (MCER) implica la capacidad de entender discursos complejos, argumentos especializados y conversaciones informales con fluidez. En este nivel, los estudiantes deben manejar no solo el contenido explícito, sino también las implicaturas, tonos sutiles y estructuras gramaticales avanzadas en contextos reales, como conferencias académicas, debates políticos o entrevistas periodísticas.
+## Introducción
+En C1 se entienden **discursos largos, poco estructurados o implícitos**: debates rápidos, películas, programas de radio, conferencias. Hay que captar **lo que se sugiere**: ironía, matices, actitud del hablante, registro y variedad.
 
-## Explicación central con ejemplos en italiano
-En italiano, la comprensión auditiva a nivel C1 requiere reconocer matices de significado y estructuras complejas. Por ejemplo, un discurso político podría incluir frases como *«Non si può dire che non ci siano problemi, ma dobbiamo agire con responsabilità»* («No se puede decir que no haya problemas, pero debemos actuar con responsabilidad»), donde la negación doble (*non... non*) y el uso de *dobbiamo* (debemos) indican una postura crítica sin ser explícita. Un estudiante en C1 debe identificar que el hablante está sugiriendo que los problemas existen, pero cuestiona la solución propuesta.
+## Explicación central
+### Lo implícito
+- **Ironía**: *Ottima idea, davvero!* (= pésima).
+- **Litote**: *Non è male* (= está bien), *Non è proprio un genio* (= es tonto).
+- **Eufemismos**: *è venuto a mancare* (murió), *esuberi* (despidos).
+- **Distancia**: *a quanto pare, a sentir loro, stando a quanto dicono*.
 
-Otro ejemplo es la comprensión de anuncios publicitarios: *«La soluzione che cerchi? È qui, con un’offerta irripetibile!»* («¿La solución que buscas? Está aquí, con una oferta irrepetible!»). Aquí, el uso de *che* en la primera oración y la exageración en *irrepentibile* (irrepetible) implica un tono persuasivo, algo que un buen oyente debe captar incluso sin ver el anuncio.
+### Expresiones idiomáticas
+*In bocca al lupo!* (¡suerte!) — *Crepi!* (respuesta) — *Non vedo l'ora* (no veo la hora) — *Avere le mani bucate* (ser derrochador) — *Essere al verde* (sin plata) — *Prendere un granchio* (equivocarse) — *Fare il ponte* (tomarse un día entre feriados) — *Acqua in bocca!* (¡ni una palabra!).
+
+### Variedades y registro
+- Acentos regionales y dialectalismos en cine y TV: romano (*ammazza!*), napolitano (*uè*), toscano (aspiración: *la hasa* = la casa), milanés (*la sciura* = la señora).
+- Italiano neostandard: *che* polivalente, dislocaciones (*Il libro, l'hai letto?*).
+
+### Debates
+Turnos que se pisan: *Mi lasci finire! / Se posso permettermi… / Scusi se la interrompo…*
+
+### Estrategias
+1. Identificar la tesis de cada participante.
+2. Registrar indicios de actitud (entonación, ironía, modalizadores).
+3. Escuchar fuentes variadas: RAI Radio 3, podcasts, cine.
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen tener dificultades con:
-1. **La pronunciación y entonación**: Frases como *«Non lo so»* (no lo sé) pueden confundirse con *«Nun lo so»*, especialmente si el oyente no está acostumbrado a la cadencia italiana.
-2. **La interpretación de matices negativos**: La doble negación en italiano (*non... non*) puede ser malinterpretada como una afirmación, mientras que en español se usa menos frecuentemente. Por ejemplo, *«Non ho mai visto niente di così straordinario»* («Nunca he visto nada tan extraordinario») no es una negación fuerte, sino un énfasis.
-3. **La comprensión de expresiones idiomáticas**: Frases como *«Mettere il naso in qualcosa»* (meter la nariz en algo) o *«Avere le mani in pasta»* (tener las manos en la masa) no se traducen literalmente y requieren conocimiento cultural.
+1. Tomar literalmente una ironía o una litote.
+2. Responder *Grazie* a *In bocca al lupo* (se responde *Crepi!*).
+3. No reconocer el *che* polivalente: *Vieni, che è tardi* (= porque).
 
 ## Comparación con el español
-En italiano, los pronombres suelen omitirse si el contexto lo permite (*«Vengo subito»* vs. *«Voy ahora mismo»*), algo que puede confundir a hablantes de español acostumbrados a usarlos más frecuentemente. Además, la entonación en preguntas indirectas es distinta: *«Sai dove è Marco?»* (¿Sabes dónde está Marco?) se pronuncia con un tono ascendente al final, mientras que en español suele ser descendiente (*«¿Sabes donde está Marcos?»*).
+La ironía y la litote funcionan igual, pero los modismos casi nunca coinciden: *essere al verde* = «estar seco / sin un peso».
 
 ## Ejemplo extendido en contexto
-**Escenario**: Dos amigos discuten sobre una película recientemente vista.
-**Diálogo**:
-A: *«Ho visto quel film ieri e devo dire che era un po’ deludente, non trovi?»*
-B: *«Sì, è vero, non è stato il massimo. Ma c’è una scena finale che mi ha colpito molto.»*
-A: *«Ah, sì! Quella con l’attore straniero… era davvero toccante. Però, a volte i dialoghi erano un po’ troppo complicati.»*
-
-**Análisis**: En este intercambio, A comienza con una crítica suave (*un po’ deludente*, «un poco decepcionante»), seguida de una pregunta retórica (*non trovi?* «¿no crees?»). B acepta parcialmente la opinión (*sì, è vero*) pero añade un elemento positivo (la escena final). A confirma el punto y menciona una crítica específica sobre los diálogos. Un oyente en C1 debe captar que, aunque hay desacuerdo, ambos reconocen aspectos valiosos de la película.
-
-La comprensión auditiva a este nivel no se limita a escuchar palabras, sino a interpretar el contexto, las intenciones del hablante y los matices culturales implícitos en el lenguaje oral.
+*Audio: «A sentir il governo, la riforma non costerà niente. Mi permetta di dubitarne: ce l'hanno già raccontata nel 2010.»*
+**Inferencia:** el hablante desconfía; *ce l'hanno già raccontata* = «ya nos vendieron ese verso».

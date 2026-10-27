@@ -1,63 +1,49 @@
-# Preposiciones en italiano (nivel A1-A2)
+# Preposiciones en italiano (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/preposiciones`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-Las preposiciones son palabras que indican relaciones entre elementos de una oración: lugar, dirección, tiempo, causa o medio. En el nivel A1-A2 del CEFR, su correcto uso es clave para construir frases básicas y comunicarse en situaciones cotidianas como describir lugares, expresar movimientos o mencionar actividades. Por ejemplo, sin conocer la preposición adecuada, no sería posible decir "Vivo **in** Italia" (vivo en Italia) o "Vengo **da** España" (vengo de España).
+Las preposiciones italianas básicas son ***di, a, da, in, con, su, per, tra/fra***. Varias se **contraen con el artículo** (*preposizioni articolate*): *a + il = al, di + la = della*.
 
-## Explicación central con ejemplos
-En italiano, las preposiciones más comunes son: *a, da, in, su, per, con, tra, fra, senza, verso*. Cada una tiene funciones específicas. A continuación, algunos ejemplos reales:
+## Explicación central
+### Preposiciones simples
+- ***di***: posesión, materia, origen con *essere*: *il libro di Marco; Sono di Roma.*
+- ***a***: ciudades, *a casa*, hora, dirección: *Vivo a Milano. Alle otto.*
+- ***da***: procedencia (*Vengo da Napoli*), **en casa de** (*Vado da Luca*, *dal medico*), desde/hace (*Studio italiano **da** due anni*), finalidad (*occhiali da sole*).
+- ***in***: países, regiones, medios de transporte, ambientes: *in Italia, in Toscana, in treno, in banca, in cucina*.
+- ***con***: compañía/instrumento; ***su***: sobre; ***per***: para, por, durante; ***tra/fra***: entre, dentro de (futuro): *Arrivo **tra** dieci minuti.*
 
-- **In** (en): Se usa para indicar lugar dentro de un espacio cerrado o general.
-  - *Sono **in** classe* (Estoy en clase).
-  - *L’ufficio è **in** via Roma* (La oficina está en la calle Roma).
+### Preposiciones articuladas
+| | il | lo | l' | la | i | gli | le |
+|---|---|---|---|---|---|---|---|
+| di | del | dello | dell' | della | dei | degli | delle |
+| a | al | allo | all' | alla | ai | agli | alle |
+| da | dal | dallo | dall' | dalla | dai | dagli | dalle |
+| in | nel | nello | nell' | nella | nei | negli | nelle |
+| su | sul | sullo | sull' | sulla | sui | sugli | sulle |
 
-- **A** (a): Indica dirección, destino o punto de llegada.
-  - *Vado **a** scuola* (Voy a la escuela).
-  - *C’è un caffè **a** Pisa* (Hay un café en Pisa).
+*Con* y *per* no se contraen en el uso actual (*con il, per la*).
 
-- **Da** (de): Expresa origen, agente o duración.
-  - *Sono **da** Milano* (Estoy de Milán / Vengo de Milán).
-  - *La lettera è arrivata **da** Parigi* (La carta llegó de París).
-
-- **Con** (con): Indica compañía o instrumento.
-  - *Vengo **con** mio fratello* (Voy con mi hermano).
-  - *Scrivo **con** una penna* (Escribo con una pluma).
+### Lugar: a o in
+- ***a*** + ciudad: *a Roma*; ***in*** + país/región: *in Francia, in Sicilia*.
+- Expresiones: *a casa, a scuola, a teatro* / *in ufficio, in biblioteca, in centro, in montagna*.
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen confundir preposiciones italianas por su equivalencia parcial en el idioma materno. Algunos errores frecuentes incluyen:
-
-1. **Usar *a* donde se requiere *in***:
-   - ❌ *Sono **a** Roma* (incorrecto para indicar "en Roma").
-   - ✅ *Sono **in** Roma*.
-
-2. **Confundir *da* con *de***:
-   - ❌ *La ragazza è **de** Milano* (equivale a "de" en español).
-   - ✅ *La ragazza è **da** Milano* (ella es de Milán, literalmente "viene de").
-
-3. **Olvidar preposiciones en expresiones fijas**:
-   - ❌ *Vado **a** lavoro* (falta la preposición).
-   - ✅ *Vado **al** lavoro* (*al* es una contracción de *a + il*).
+1. ❌ *Vivo in Roma* ✅ *Vivo a Roma*.
+2. Decir siempre *a casa di Luca*: es correcto, pero lo más natural es *Vado da Luca* (y ❌ *Vado al medico* para «voy al médico» ✅ *Vado dal medico*).
+3. ❌ *Studio italiano per due anni* (sigue estudiando) ✅ *da due anni*.
+4. ❌ *in il treno* ✅ *nel treno* / *in treno*.
 
 ## Comparación con el español
-Aunque algunas preposiciones coinciden, su uso difiere. Por ejemplo:
-
-- En español, "vengo **de** España" (preposición *de*), mientras que en italiano se usa *da*: *Vengo **da** Spagna*.
-- El tiempo: en español se dice "a las 8", pero en italiano es *alle 8* (contracción de *a + le*).
-
-Otro caso es la preposición *per*, que en español puede significar "para" o "por", mientras que en italiano tiene usos específicos como indicar propósito (*Vengo **per** aiutarti* – Vengo para ayudarte) o movimiento hacia algo (*Andiamo **per** la strada* – Caminamos por la calle).
+«En» se reparte entre *a* (ciudades) e *in* (países). «Desde hace» = ***da*** + presente. «En lo de / en casa de» = ***da***. La contracción va mucho más lejos que «al» y «del» del español.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-- *Maria: Dove abiti?* (¿Dónde vives?)
-- *Luca: Abito **in** un appartamento **a** Milano.* (Vivo en un apartamento en Milán).
-- *Maria: Sei **da** Roma?* (¿Eres de Roma?)
-- *Luca: Sì, sono **da** Roma. Vengo **per** lavoro.* (Sí, soy de Roma. Vengo por trabajo).
-
-Este intercambio muestra cómo las preposiciones ayudan a definir lugar (*in*, *a*), origen (*da*) y propósito (*per*), esenciales para una comunicación clara en italiano básico.
+*Sono **di** Buenos Aires, ma vivo **a** Firenze **da** tre anni. Lavoro **in** una libreria **nel** centro. Ogni sabato vado **da** mia zia, che abita **in** campagna. Ci vado **in** treno e arrivo **alle** dieci.*
