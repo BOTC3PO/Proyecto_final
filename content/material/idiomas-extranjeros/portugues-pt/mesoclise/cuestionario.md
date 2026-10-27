@@ -1,454 +1,234 @@
-# Idiomas — Portugués (Portugal) — mesoclise (cuestionario)
+# Portugués (Portugal) — mesóclisis (cuestionario, 12 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-pt/mesoclise/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
-
----
-
-### 1 — Mesoclise em verbos com -m
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "viver"]
-pasos:
-  - "Identificar o verbo 'viver' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'nos' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "vivemos"
-  - "Vivemos"
-enunciado: "Eles ___ juntos no projeto. (pronome: nos)"
-```
-
-### 2 — Mesoclise em verbos com -r
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "dormir"]
-pasos:
-  - "Identificar o verbo 'dormir' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'nos' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "dormimos"
-  - "Dormimos"
-enunciado: "Nós ___ juntos na cama. (pronome: nos)"
-```
-
-### 3 — Mesoclise em verbos com -n
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "pensar"]
-pasos:
-  - "Identificar o verbo 'pensar' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "pensei"
-  - "Pensei"
-enunciado: "Ela ___ sobre o assunto. (pronome: me)"
-```
-
-### 4 — Mesoclise em verbos com -m e contexto passado
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "viver"]
-pasos:
-  - "Identificar o verbo 'viver' no passado e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'nos' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "vivemos"
-  - "Vivemos"
-enunciado: "Nós ___ juntos em Paris. (pronome: nos)"
-```
-
-### 5 — Mesoclise com verbo irregular
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "ir"]
-pasos:
-  - "Identificar o verbo 'ir' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'nos' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "fomos"
-  - "Fomos"
-enunciado: "Eles ___ comigo ao cinema. (pronome: nos)"
-```
-
-### 6 — Mesoclise em oração passiva
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "ser"]
-pasos:
-  - "Identificar o verbo 'ser' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "fui"
-  - "Fui"
-enunciado: "O projeto ___ feito por mim. (pronome: me)"
-```
-
-### 7 — Mesoclise com verbo de ligação
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "parecer"]
-pasos:
-  - "Identificar o verbo 'parecer' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "pareci"
-  - "Pareci"
-enunciado: "O relatório ___ interessante. (pronome: me)"
-```
-
-### 8 — Mesoclise em oração com objeto direto
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "encontrar"]
-pasos:
-  - "Identificar o verbo 'encontrar' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'o' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "encontrei"
-  - "Encontrei"
-enunciado: "Eu ___ meu amigo na praia. (pronome: o)"
-```
-
-### 9 — Mesoclise com verbo de ação
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "correr"]
-pasos:
-  - "Identificar o verbo 'correr' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "corri"
-  - "Corri"
-enunciado: "Ela ___ no parque. (pronome: me)"
-```
-
-### 10 — Mesoclise em oração com objeto indireto
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "ler"]
-pasos:
-  - "Identificar o verbo 'ler' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "li"
-  - "Li"
-enunciado: "O livro ___ pela professora. (pronome: me)"
-```
-
-### 11 — Mesoclise com verbo de estado
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "estar"]
-pasos:
-  - "Identificar o verbo 'estar' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "estive"
-  - "Estive"
-enunciado: "O documento ___ em cima da mesa. (pronome: me)"
-```
-
-### 12 — Mesoclise com verbo de movimento
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "andar"]
-pasos:
-  - "Identificar o verbo 'andar' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "andei"
-  - "Andei"
-enunciado: "Ela ___ pelo parque. (pronome: me)"
-```
-
-### 13 — Mesoclise em oração com objeto direto e indireto
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "trazer"]
-pasos:
-  - "Identificar o verbo 'trazer' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'o' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "trouxe"
-  - "Trouxe"
-enunciado: "Eu ___ o livro para você. (pronome: o)"
-```
-
-### 14 — Mesoclise em oração com complemento preposicional
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "saber"]
-pasos:
-  - "Identificar o verbo 'saber' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "soube"
-  - "Soube"
-enunciado: "Ela ___ da notícia. (pronome: me)"
-```
-
-### 15 — Mesoclise com verbo de sentir
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "sentir"]
-pasos:
-  - "Identificar o verbo 'sentir' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "senti"
-  - "Senti"
-enunciado: "Ele ___ mal. (pronome: me)"
-```
-
-### 16 — Mesoclise em oração com objeto direto e indireto
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "dar"]
-pasos:
-  - "Identificar o verbo 'dar' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'me' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "dei"
-  - "Dei"
-enunciado: "Ela ___ um presente. (pronome: me)"
-```
-
-### 17 — Mesoclise com verbo de ação coletiva
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "fazer"]
-pasos:
-  - "Identificar o verbo 'fazer' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'nos' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "fizemos"
-  - "Fizemos"
-enunciado: "Nós ___ um trabalho juntos. (pronome: nos)"
-```
-
-### 18 — Mesoclise em oração com objeto direto e indireto
-```
-metadata:
-  materia: "idiomas-extranjeros/portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "ver"]
-pasos:
-  - "Identificar o verbo 'ver' e sua forma com mesoclise."
-  - "Reconhecer a posição do pronome 'o' entre o radical e o desinente."
-tipo: completar
-respuestas_validas:
-  - "vi"
-  - "Vi"
-enunciado: "Ela ___ o filme. (pronome: o)"
-```
-
-### 19 — Mesoclise com verbo de ligação
-```
-metadata:
-  materia: "portugues-pt"
-  tema: "mesoclise"
-  nivel: "B2"
-  tags: ["pronome", "dizer"]
-pasos:
-  - "Identificar el verbo y la preposición en el enunciado."
-  - "Aplicar la regla de mesoclise con el pronombre correspondiente."
-respuestas_validas:
-  - "lhe diz"
-  - "Lhe diz"
-tipo: completar
-enunciado: "O professor ___ a todos os alunos."
-explicacion: "El verbo 'dizer' requiere que el pronombre se intercale con la preposición 'a', formando 'diz-lhe'. En esta oración, el sujeto es 'o profesor' y el complemento indirecto es 'a todos los alumnos', por lo tanto, la forma correcta es 'lhe diz'."
-```
+> Tema: `idiomas-extranjeros/portugues-pt/mesoclise`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 20 — Mesoclise em oração com objeto direto e indireto
+### 1 — Futuro + te
+
 ```
 metadata:
-  materia: "portugues-pt"
+  materia: "idiomas-extranjeros/portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
-  tags: ["pronome", "falar"]
-pasos:
-  - "Reconocer el verbo y la preposición en uso."
-  - "Ubicar el pronombre dentro del verbo según la regla de mesoclise."
-opciones_explicitas:
-  - "fala-me"
-  - "falei com ele"
-  - "falamos com vocês"
-  - "fala-com"
-respuesta: "fala-com"
-tipo: mc
-enunciado: "Ela ___ no parque todos los días."
-explicacion: "El verbo 'falar' combinado con la preposición 'com' requiere que el pronombre se intercale, formando 'fala-com'. Las otras opciones no siguen la regla de mesoclise o usan estructuras incorrectas (ej. 'falamos com vocês' es plural y no encaja aquí)."
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Dir-te-ei a verdade."
+tipo: "mc"
+opciones_explicitas: ["Dir-te-ei a verdade.", "Direi-te a verdade.", "Te direi a verdade."]
+
+enunciado: "«Te diré la verdad» (formal):"
+
+explicacion: |
+  *Dizer + te + ei → dir-te-ei*.
 ```
 
----
+### 2 — Futuro + se
 
-### 21 — Mesoclise com verbo de ação coletiva
 ```
 metadata:
-  materia: "portugues-pt"
+  materia: "idiomas-extranjeros/portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
-  tags: ["pronome", "lembrar"]
-pasos:
-  - "Identificar el verbo reflexivo y su preposición implícita."
-  - "Aplicar la regla de mesoclise con el pronombre 'se'."
-respuestas_validas:
-  - "lembra-se"
-  - "Lembra-se"
-tipo: completar
-enunciado: "Eu ___ do que ele disse."
-explicacion: "El verbo reflexivo 'lembrar-se' requiere que el pronombre se intercale con la preposición implícita 'de', formando 'lembra-se'. La oración completa es 'Eu lembro-me do que ele disse', pero aquí se usa el presente, por lo tanto: 'lembra-se'."
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Far-se-á uma reunião."
+tipo: "mc"
+opciones_explicitas: ["Far-se-á uma reunião.", "Fará-se uma reunião.", "Se fará-se uma reunião."]
+
+enunciado: "«Se hará una reunión» (formal):"
+
+explicacion: |
+  *Far-se-á*.
 ```
 
----
+### 3 — Condicional + lhe
 
-### 22 — Mesoclise em oração com complemento preposicional
 ```
 metadata:
-  materia: "portugues-pt"
+  materia: "idiomas-extranjeros/portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
-  tags: ["pronome", "trazer"]
-pasos:
-  - "Determinar el verbo y la preposición en el contexto."
-  - "Insertar el pronombre dentro del verbo según la regla de mesoclise."
-opciones_explicitas:
-  - "traz-lo"
-  - "traga-o"
-  - "traz-los"
-  - "trazes-lo"
-respuesta: "traz-lo"
-tipo: mc
-enunciado: "O técnico ___ o equipamento para o laboratório."
-explicacion: "El verbo 'trazer' con la preposición 'para' requiere que el pronombre se intercale, formando 'traz-lo'. Las otras opciones no siguen esta regla o usan tiempos verbales incorrectos (ej. 'traga-o' es imperativo)."
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Dar-lhe-ia o livro."
+tipo: "mc"
+opciones_explicitas: ["Dar-lhe-ia o livro.", "Daria-lhe o livro.", "Lhe daria-lhe o livro."]
+
+enunciado: "«Le daría el libro» (formal):"
+
+explicacion: |
+  *Dar-lhe-ia*.
 ```
 
----
+### 4 — Con o
 
-### 23 — Mesoclise com verbo de sentir
 ```
 metadata:
-  materia: "portugues-pt"
+  materia: "idiomas-extranjeros/portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
-  tags: ["pronome", "visitar"]
-pasos:
-  - "Reconocer el verbo y la preposición asociada."
-  - "Formar la estructura con el pronombre intercalado según la regla."
-respuestas_validas:
-  - "visa-com"
-  - "Visa-com"
-tipo: completar
-enunciado: "Eles ___ os amigos durante o fim de semana."
-explicacion: "El verbo 'visitar' con la preposición 'com' requiere que el pronombre se intercale, formando 'visa-com'. La oración correcta sería 'Eles visitam os amigos comigo', pero en este caso, el sujeto es plural y el pronome se adapta como 'visa-com'."
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Fá-lo-ia."
+tipo: "mc"
+opciones_explicitas: ["Fá-lo-ia.", "Faria-o.", "Fazer-o-ia."]
+
+enunciado: "«Lo haría» (formal):"
+
+explicacion: |
+  *Fazer + o + ia → fá-lo-ia*.
 ```
 
----
+### 5 — Con os
 
-### 24 — Mesóclise con futuro y pronombres
 ```
 metadata:
-  materia: "portugues-pt"
+  materia: "idiomas-extranjeros/portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
-  tags: ["pronome", "enviar"]
-enunciado: "¿Qué oración usa correctamente la mesóclise («se lo daré mañana»)?"
-tipo: mc
-opciones_explicitas:
-  - "Dar-lho-ei amanhã."
-  - "Darei-lho amanhã."
-  - "Lho darei amanhã."
-respuesta: "Dar-lho-ei amanhã."
-explicacion: "En el portugués europeo, el futuro sin partícula atractora lleva el clítico en mesóclise: dar-lho-ei."
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Encontrá-los-ão."
+tipo: "mc"
+opciones_explicitas: ["Encontrá-los-ão.", "Encontrarão-os.", "Encontrar-os-ão."]
+
+enunciado: "«Los encontrarán» (formal):"
+
+explicacion: |
+  *Encontrá-los-ão*.
 ```
 
----
+### 6 — Con negación
 
-### 25 — Mesoclise com verbo de ação coletiva
 ```
 metadata:
-  materia: "portugues-pt"
+  materia: "idiomas-extranjeros/portugues-pt"
   tema: "mesoclise"
   nivel: "B2"
-  tags: ["pronome", "chamar"]
-pasos:
-  - "Reconocer el verbo y la preposición en el contexto."
-  - "Insertar el pronombre dentro del verbo según la regla de mesoclise."
-respuestas_validas:
-  - "chama-lo"
-  - "Chama-lo"
-tipo: completar
-enunciado: "Ela ___ a reunião para todos os membros."
-explicacion: "El verbo 'chamar' con la preposición 'para' requiere que el pronombre se intercale, formando 'chama-lo'. La oración completa sería 'Ela chamou-os para a reunião', pero aquí se usa el presente, por lo tanto: 'chama-lo'."
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Não te direi nada."
+tipo: "mc"
+opciones_explicitas: ["Não te direi nada.", "Não dir-te-ei nada.", "Não direi-te nada."]
+
+enunciado: "«No te diré nada»:"
+
+explicacion: |
+  La negación exige próclise.
+```
+
+### 7 — Con que
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "mesoclise"
+  nivel: "B2"
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Acho que se fará justiça."
+tipo: "mc"
+opciones_explicitas: ["Acho que se fará justiça.", "Acho que far-se-á justiça.", "Acho que fará-se justiça."]
+
+enunciado: "«Creo que se hará justicia» (formal):"
+
+explicacion: |
+  *Que* exige próclise.
+```
+
+### 8 — Habla
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "mesoclise"
+  nivel: "B2"
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Vou dizer-te."
+tipo: "mc"
+opciones_explicitas: ["Vou dizer-te.", "Direi-te.", "Te dir-ei."]
+
+enunciado: "En una charla, en lugar de «Dir-te-ei» se dice:"
+
+explicacion: |
+  En el habla: *ir + infinitivo*.
+```
+
+### 9 — Registro
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "mesoclise"
+  nivel: "B2"
+  tags: ["mesoclise", "C1"]
+
+respuesta: "En un comunicado oficial"
+tipo: "mc"
+opciones_explicitas: ["En un comunicado oficial", "En un mensaje a un amigo", "En una canción pop"]
+
+enunciado: "¿Dónde es más probable encontrar mesóclise?"
+
+explicacion: |
+  Registro formal escrito.
+```
+
+### 10 — Origen
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "mesoclise"
+  nivel: "B2"
+  tags: ["mesoclise", "C1"]
+
+respuesta: "infinitivo + haver"
+tipo: "mc"
+opciones_explicitas: ["infinitivo + haver", "ir + infinitivo", "ser + participio"]
+
+enunciado: "La mesóclise se explica porque el futuro se formó con:"
+
+explicacion: |
+  *Dizer + hei → direi*.
+```
+
+### 11 — Pasiva
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "mesoclise"
+  nivel: "B2"
+  tags: ["mesoclise", "C1"]
+
+respuesta: "Ser-lhes-á pedida confirmação."
+tipo: "mc"
+opciones_explicitas: ["Ser-lhes-á pedida confirmação.", "Será-lhes pedida confirmação.", "Lhes será-lhes pedida."]
+
+enunciado: "«Les será pedida confirmación» (formal):"
+
+explicacion: |
+  *Ser-lhes-á*.
+```
+
+### 12 — Error típico
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "mesoclise"
+  nivel: "B2"
+  tags: ["mesoclise", "C1"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«Direi-te amanhã» es una forma correcta de mesóclise."
+
+explicacion: |
+  Falso: *Dir-te-ei amanhã*.
 ```

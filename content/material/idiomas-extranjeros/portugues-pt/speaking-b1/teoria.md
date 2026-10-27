@@ -1,45 +1,35 @@
-# Hablar en portugués (B1): Estrategias para conversar con confianza
+# Expresión oral en portugués de Portugal (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/speaking-b1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
 ## Introducción
-En el nivel B1 de la escala CEFR (Common European Framework of Reference for Languages), los estudiantes de portugués ya pueden comunicarse en situaciones cotidianas, expresar opiniones básicas y participar en conversaciones sobre temas familiares. Este nivel se enfoca en desarrollar fluidez oral mediante el uso de vocabulario ampliado, estructuras gramaticales funcionales y técnicas para interactuar con naturalidad. La habilidad de hablar es clave no solo para la comunicación directa, sino también para construir confianza al practicar con hablantes nativos o en contextos académicos/profesionales.
+En B1 se espera dar y justificar una opinión, contar experiencias y planes, y participar en conversaciones sobre temas conocidos.
 
-## Explicación central: estructuras y ejemplos reales
-En portugués, el nivel B1 implica dominar verbos regulares e irregulares en tiempos simples (presente, pretérito imperfecto, etc.) y comprender el uso de conectores lógicos (*porque*, *mas*, *então*) para organizar ideas. Por ejemplo:
-- **Presente del indicativo**: *Eu como frutas todos os dias.* (Como frutas todos los días).
-- **Pretérito imperfecto**: *Ela estudava português quando eu a vi.* (Estudiaba portugués cuando la vi).
-
-También es fundamental usar expresiones de cortesía (*por favor*, *obrigado/a*) y preguntas abiertas para mantener conversaciones. Por ejemplo:
-- *Tu gostas de viajar?* (¿Te gusta viajar?).
-- *O que achas disso?* (¿Qué opinas de esto?).
+## Explicación central
+- **Opinar**: *Acho que… / Na minha opinião… / Para mim…*
+- **Justificar**: *porque, visto que, por isso, por exemplo*.
+- **Acuerdo**: *Concordo. / Pois é. / Tens razão.* — **Desacuerdo**: *Não concordo muito. / Não sei se…*
+- **Pedir opinión**: *E tu, o que achas? / Concordas?*
+- **Experiencias**: *No ano passado fui a… / Foi espetacular. / O melhor foi…*
+- **Planes**: *Vou… / Estou a pensar em… / Hei de…*
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen cometer errores relacionados con:
-1. **Uso incorrecto del pretérito perfecto compuesto**: En portugués, se usa *ter + participio* (ejemplo: *Eu tenho viajado muito este ano*) en lugar de estructuras similares al español.
-2. **Confusión entre *você* y *tu***: En Portugal, *tu* es el pronombre informal habitual entre amigos y familia (con conjugación de 2ª persona: *tu viajaste*, *tu achas*), mientras que *você* suena distante o formal. En Brasil es al revés: *você* domina en el habla informal y *tu* queda relegado a algunas regiones.
-3. **Falta de concordancia en adjetivos**: En portugués, los adjetivos cambian de género y número según el sustantivo (*uma casa pequena* vs. *um carro pequeno*).
+1. ❌ *Estou de acuerdo* ✅ *Concordo / Estou de acordo*.
+2. ❌ *Estou pensando em* (brasileño) ✅ *Estou a pensar em*.
+3. Calcar *o que pensas?*: lo más natural ✅ *O que achas?*
+4. ❌ *Na minha opinião, eu acho que…* (redundante).
 
-## Comparación con el español: diferencias clave
-- **Tiempo verbal**: En portugués, el pretérito imperfecto se usa para acciones continuas en el pasado (*Ela estudava*), mientras que en español también se emplea para describir hábitos.
-- **Pronombres de objeto indirecto**: En portugués, *me*, *te*, *lhe* son más frecuentes que en español, donde las preposiciones suelen reemplazarlos (*para mim* vs. *para mí*).
-- **Conectores lógicos**: Aunque ambos idiomas usan palabras como *porque* o *pero*, el portugués prioriza conectores como *então* (entonces) para enlazar ideas causales.
+## Comparación con el español
+«Estoy de acuerdo» = *Concordo / Estou de acordo*; «tenés razón» = *tens razão*; «estoy pensando en» = *estou a pensar em*.
 
 ## Ejemplo extendido en contexto
-**Contexto**: Un estudiante de B1 se reúne con un amigo para hablar sobre sus vacaciones.
-
-**Diálogo**:
-**Amigo**: *Tu viajaste este verão?* (¿Viajaste este verano?).
-**Estudiante**: *Sim, fui a Lisboa com a minha família. Fizemos muitas atividades interessantes.* (Sí, fui a Lisboa con mi familia. Hicimos muchas actividades interesantes).
-**Amigo**: *O que gostaste mais?* (¿Qué te gustó más?).
-**Estudiante**: *Eu adorei o Mosteiro de Belém! Fiquei impressionado com os detalhes da arquitetura.* (Adoré el Monasterio de Belén. Me impresionaron los detalles de la arquitectura).
-**Amigo**: *Achas que vais voltar lá?* (¿Crees que volverás allí?).
-**Estudiante**: *Claro! Quero explorar mais a cidade e aprender sobre a história local.* (¡Claro! Quiero explorar más la ciudad y aprender sobre la historia local).
-
-Este intercambio muestra el uso de tiempos verbales, conectores lógicos y vocabulario específico para describir experiencias personales.
+*— O que achas das aulas online?*
+*— **Para mim** são práticas, **porque** se poupa tempo. **Por exemplo**, eu ganhava duas horas por dia. Mas **concordo** que falta o contacto com os colegas.*

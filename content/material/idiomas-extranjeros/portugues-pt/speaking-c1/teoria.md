@@ -1,41 +1,34 @@
-# Nivel C1 de Português: Habilidades de Comunicação em Contextos Complexos
+# Expresión oral en portugués de Portugal (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/speaking-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en los ejemplos y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
 ## Introducción
-El nivel C1 en el Marco Común Europeo de Referencia para las Lenguas (MCER) se enfoca en la capacidad de comunicarse con fluidez y precisión en contextos complejos, tanto orales como escritos. En el ámbito del portugués, esto implica manejar debates sobre temas abstractos, expresar opiniones con matices, y adaptar el lenguaje a audiencias diversas. Este nivel es crucial para situaciones profesionales, académicas o interculturales donde la claridad, la cohesión y la riqueza léxica son fundamentales.
+En C1 se espera argumentar con matices, adaptar el registro (entrevista, presentación, reunión), usar vocabulario preciso y responder a objeciones con fluidez.
 
-## Explicación Central
-En portugués (Brasil o Portugal), el nivel C1 requiere un dominio avanzado de estructuras gramaticales complejas, vocabulario especializado y habilidades para organizar ideas con coherencia. Por ejemplo:
-- **Uso de conectores lógicos**: "Além disso" (además), "Por outro lado" (por otro lado), "Dado que" (dado que) permiten articular argumentos o contrastar ideas.
-  *Exemplo*: "O governo deve investir em energia renovável, **além disso**, isso reduz a dependência de combustíveis fósseis."
-- **Frases subordinadas complejas**: Usar oraciones con subordinación para explicar causas, consecuencias o hipótesis.
-  *Exemplo*: "Se as políticas públicas fossem mais eficientes, a desigualdade social diminuiria drasticamente."
+## Explicación central
+- **Atenuar**: *Pode argumentar-se que… / Em larga medida… / Tudo indica que… / Tenderia a pensar que…*
+- **Énfasis**: *O que realmente importa é… / O cerne da questão é… / Longe de ser X, é Y.*
+- **Objeciones**: *É uma preocupação legítima; no entanto… / Permita-me discordar. / Com todo o respeito, vejo-o de outra forma.*
+- **Presentaciones**: *Gostaria de começar por apresentar… / Passando agora a… / Como mostram os números… / Para concluir… / Fico ao dispor para perguntas.*
+- **Reformular**: *Ou seja… / Por outras palavras… / Dito de outro modo…*
+- **Trato formal en Portugal**: *o senhor doutor, a senhora engenheira*, verbo en 3.ª persona.
 
-## Errores Comunes de Hispanohablantes
-Los hablantes nativos del español suelen cometer errores relacionados con:
-1. **Uso incorrecto de preposiciones**: Por ejemplo, confundir *em* (en) y *na* (en + a) en contextos específicos.
-   - Error: "Ela mora em Lisboa" (correcto), pero "Ela é da cidade do Rio" (incorrecto; debería ser "da cidade do Rio" o "do Rio", según el contexto).
-2. **Confusión entre verbos de aspecto**: Diferenciar *ter* (tener) vs. *estar* en frases como "Eu tenho fome" (tengo hambre) vs. "Estou com fome" (estoy con hambre).
-3. **Sintaxis pasiva inapropiada**: Usar *ser + participio* para eventos recientes, pero no siempre es natural en portugués.
+## Errores comunes de hispanohablantes
+1. ❌ *Se pode argumentar* ✅ *Pode argumentar-se / Pode-se argumentar*.
+2. Exceso de *muito*: usar *extremamente, profundamente*.
+3. Mezclar *tu* y *o senhor* en una presentación.
+4. Coloquialismos (*pá, tipo, bué*) en contextos formales.
 
-## Comparación con el Español
-Algunas diferencias clave que ayudan a fijar la distinción:
-- **Posición de los adjetivos**: En portugués, los adjetivos suelen ir después del sustantivo (*casa bonita* vs. *bonita casa* en español).
-- **Uso de la voz pasiva**: El portugués prefiere construcciones como "Foi feito um acordo" (se hizo un acuerdo) en lugar de "El acuerdo fue hecho".
-- **Pronombres reflexivos**: En portugués, se usan con mayor frecuencia que en español para acciones recíprocas (*Eles se entenderam* vs. *Se entendieron*).
+## Comparación con el español
+Fórmulas paralelas al español académico («cabe señalar» = *cabe salientar*). Diferencia: en Portugal la colocación pronominal formal (*pode argumentar-se*).
 
-## Ejemplo Extendido en Contexto
-**Diálogo sobre políticas ambientales:**
-A: "Você acha que os governos devem priorizar as energias renováveis, mesmo com o custo inicial elevado?"
-B: "**Além disso**, é preciso considerar o impacto ambiental a longo prazo. **Por outro lado**, investir em tecnologias limpas pode criar empregos e reduzir desigualdades regionais."
-A: "Concordo, mas como garantir que as políticas sejam implementadas de forma eficiente? **Dado que** os recursos são limitados, a prioridade deve ser clara."
-B: "Exatamente. Se o orçamento for direcionado corretamente, **teremos uma transição mais sustentável** e equitativa."
-
-Este tipo de intercambio requiere no solo vocabulario especializado, sino también una estructura lógica y la capacidad de adaptar el discurso según las necesidades del interlocutor.
+## Ejemplo extendido en contexto
+*«**Gostaria de começar por apresentar** os dados. **Como mostram os números**, as matrículas caíram 12%. **Pode argumentar-se que** é passageiro; **no entanto**, **longe de ser** um caso isolado, trata-se de uma tendência de dez anos. **Fico ao dispor para perguntas.**»*

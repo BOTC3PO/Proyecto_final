@@ -1,56 +1,44 @@
-# Ser vs. Estar: Uso e Diferenças Básicas
+# Ser y estar en portugués de Portugal (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/ser-estar`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
-## Introdução
-No português, os verbos **ser** e **estar** são fundamentais para expressar identidade, características permanentes e estados temporários. No nível A1-A2 do CEFR (Quadro Europeu Comum de Referência para as Línguas), dominar essa distinção é essencial para se comunicar com clareza em situações cotidianas. Enquanto **ser** indica algo permanente ou inerente à pessoa ou coisa, **estar** descreve condições temporárias, localização ou emoções.
+## Introducción
+**Ser** y **estar** funcionan en Portugal casi igual que en español. Hay diferencias en la ubicación de lugares fijos (*ficar*), en algunas expresiones y en la construcción progresiva *estar a + infinitivo*.
 
-## Explicação Central
-### Ser: Características Permanentes
-O verbo **ser** é usado para definir qualidades que não mudam com o tempo. Exemplos:
-- **Eu sou estudante.** (Minha profissão/profissão atual)
-- **Ela é de Lisboa.** (Origem/idade)
-- **Isso é importante.** (Definição/valor intrínseco)
+## Explicación central
+### ser
+- Identidad, origen, profesión: *Sou professora. Ela **é** de Coimbra.*
+- Características permanentes: *A casa **é** grande.*
+- Hora y fecha: ***São** três horas. Hoje **é** segunda-feira.*
+- Dónde ocurre un evento: *A festa **é** em casa da Ana.*
+- Estado civil, muy común con *ser*: *Ele **é** casado.*
 
-### Estar: Estados Temporários ou Localização
-O verbo **estar** indica algo passageiro, como emoções, localização ou condições momentâneas. Exemplos:
-- **Estou cansado.** (Estado temporário)
-- **Ela está em casa.** (Localização atual)
-- **Ele está feliz hoje.** (Sentimento atual)
+### estar
+- Estados temporarios: *Estou cansado. O café **está** frio.*
+- Ubicación de personas y cosas: *O livro **está** na mesa.*
+- *Estar com* (tener frío, hambre, etc.): ***Estou com** fome / frio / sono / pressa.* (en Portugal también *Tenho fome / frio*, muy frecuente)
+- **Estar a + infinitivo** (acción en curso): *Ela **está a falar** ao telefone.*
 
-### Casos Especiais
-Em alguns contextos, os dois verbos podem ser usados juntos para enfatizar o estado:
-- **Estou com sede.** (Estado temporário de necessidade física).
-- **Ela está com fome.** (Condição momentânea).
+### ficar
+- Ubicación de lugares fijos: *Onde **fica** a estação? — **Fica** ao pé do rio.* (*ao pé de* = cerca de, en Portugal)
+- Cambio de estado: ***Fiquei** contente.*
 
-## Erros Comuns de Hispanohablantes
-1. **Confundir "ser" e "estar" em características permanentes:**
-   - Errado: *Estou professor.* (O correto é *Sou professor*.)
-   - Errado: *Ela está brasileira.* (Deve ser *Ela é brasileira*.)
+## Errores comunes de hispanohablantes
+1. ❌ *Ela está falando* (brasileño) ✅ *Ela está a falar*.
+2. ❌ *Eu soy / estoy* ✅ *Eu sou / estou*.
+3. ❌ *Ela está portuguesa* ✅ *Ela é portuguesa*.
+4. ❌ *em a casa* ✅ *na casa* / *em casa de* (en Portugal: *em casa da Ana*).
 
-2. **Usar "estar" para descrever profissões ou origens:**
-   - Errado: *Ele está médico.* (Correto: *Ele é médico*.)
+## Comparación con el español
+Los usos básicos coinciden. «Tengo hambre» puede ser *tenho fome* o *estou com fome*; «está hablando» = *está a falar*; «¿dónde queda?» = *onde fica?*.
 
-3. **Mixar estados temporários com características inerentes:**
-   - Errado: *Estou cansada de estudar.* (O correto é *Estou cansada* ou *Estou farta de estudar*.)
-
-## Comparação com o Espanhol
-No espanhol, os verbos **ser** e **estar** também têm funções semelhantes. Porém, no português:
-- O uso de **ser** para profissões (ex.: *sou professor*) é idêntico ao espanhol (*soy profesor*).
-- A diferença principal está em frases como *estar com fome* vs. *tener hambre* — ambas usam o verbo "estar" no português, mas em outras línguas podem variar.
-- No português, **estar** é mais usado para localização que no espanhol: *Estou em Lisboa* (vs. *Estoy en Lisboa*).
-
-## Exemplo Estendido em Contexto
-**Diálogo:**
-Ana: *"Olá, João! Onde você está?"*
-João: *"Estou na escola. Sou professor de matemática."*
-Ana: *"Ah, entendo! Você está feliz hoje?"*
-João: *"Sim, estou muito bem!"*
-
-Nesse exemplo, **ser** define a profissão (permanente), enquanto **estar** indica localização (temporária) e estado emocional (momentâneo). Compreender essa distinção ajuda a evitar confusões em situações simples de comunicação.
+## Ejemplo extendido en contexto
+*Olá! **Sou** a Camila, **sou** de Buenos Aires e **sou** engenheira. Agora **estou** em Lisboa. O meu hotel **fica** ao pé do Tejo. Hoje **está** muito calor e **tenho** sede. **Estou a pensar** ir à praia à tarde!*

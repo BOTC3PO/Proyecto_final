@@ -1,54 +1,43 @@
-# Escuchar en portugués: nivel A2
+# Comprensión auditiva en portugués de Portugal (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/listening-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
 ## Introducción
-El **escucha** es una de las habilidades fundamentales del idioma, especialmente en el nivel A2 (Básico), donde los aprendices comienzan a interactuar en situaciones cotidianas sencillas. En este nivel, se enfatiza la comprensión de mensajes breves y claros, como instrucciones, preguntas simples o diálogos cortos sobre temas familiares (ej.: compras, horarios, presentaciones). Dominar esta habilidad permite a los estudiantes participar en conversaciones básicas y acceder a información útil en contextos reales.
+En A2 se entienden **diálogos cortos** sobre la vida diaria. El portugués de Portugal es difícil al oído por la **reducción de las vocales átonas**: conviene concentrarse en las sílabas tónicas y en los datos clave.
 
 ## Explicación central
-En portugués, el escucha se centra en captar **palabras clave**, **acentuación** y **contexto** para deducir el significado general de un mensaje. Por ejemplo:
+### Sonidos de Portugal
+- Vocales átonas casi mudas: *telefone* ≈ «tlfón», *pequeno* ≈ «pquénu», *de* ≈ «d».
+- **s** final o antes de consonante suena **«sh»**: *dois* ≈ «doish», *escola* ≈ «shcola».
+- **-ão, -em**: nasales: *pão, não, também*.
+- **lh, nh**: como «ll» (lleísta) y «ñ»: *filho, vinho*.
 
-- **Diálogo 1**:
-  *Vendedor*: "Quer um café ou um chá?"
-  *Cliente*: "Um café, por favor."
-  Aquí, la comprensión depende de reconocer términos básicos como *"café"*, *"chá"* (té) y el uso del verbo *"querer"* en tercera persona.
+### Datos clave
+- Precios: *Custa três euros e cinquenta* (3,50 €).
+- Horas: *às três e um quarto* (3:15), *às oito menos um quarto* (7:45), *meio-dia e meia* (12:30).
+- Días: *segunda-feira… sexta-feira*, *sábado, domingo*.
+- Lugares: *ao pé de* (cerca de), *em frente a, ao lado de, à esquerda / à direita*.
 
-- **Diálogo 2**:
-  *Amigo*: "Você vai ao cinema esta noite?"
-  *Outro*: "Sim, vou ver um filme de ação."
-  La palabra *"vou"* (voy) indica futuro, y *"filme de ação"* (película de acción) es un ejemplo de uso de categorías comunes.
-
-**Importante**: En portugués, la **acentuación** puede cambiar el significado. Por ejemplo:
-- *Café* (sustantivo, café) vs. *café* (adjetivo, elegante).
-- *Pássaro* (ave) vs. *pássaro* (sin acento, no existe en portugués).
+### Estrategias
+1. Leer la pregunta antes y buscar la palabra clave.
+2. No intentar oír todas las vocales: el ritmo es rápido.
+3. Atención a las correcciones: *Não, desculpe, é na terça*.
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con preposiciones**: En español se usa *"a"* para indicar movimiento hacia un lugar (*voy al cine*), pero en portugués se usa *"para"*: *Vou ao cinema*.
-2. **Dificultad con acentos tónicos**: Palabras como *muito* (mucho) y *muitas* (muchas) requieren acento para diferenciar plural o singular, algo menos común en español.
-3. **Interpretación literal de frases**: Ejemplo: *"Ele não vai ao mercado"* puede interpretarse erróneamente como "Él no va al mercado", pero el verbo *vai* (va) ya incluye la idea de movimiento.
+1. No reconocer palabras por la caída de vocales.
+2. Confundir *menos um quarto* (menos cuarto) con *e um quarto*.
+3. Confundir *avó* (abuela) y *avô* (abuelo).
 
 ## Comparación con el español
-Algunas estructuras son similares, pero otras requieren atención:
-- **Tiempo verbal**: En portugués, los verbos en presente suelen omitir el *-s* en tercera persona singular (*Ela fala* vs. *Ella habla*).
-- **Pronombres de objeto indirecto**: En español se usa *"me"* para "a mí", pero en portugués se dice *"para mim"* (*Para mim, obrigado*).
+Por escrito se entiende mucho; al oído, el portugués europeo «se come» las vocales y pronuncia *s* como «sh», como algunos acentos andaluces o caribeños aspiran o modifican consonantes.
 
 ## Ejemplo extendido en contexto
-**Escenario**: Un estudiante quiere pedir un bocadillo en una panadería.
-
-*Cliente*: "Bom dia! Posso pedir um pão de queijo?"
-*Vendedor*: "Claro! Quer com leite ou sem leite?"
-*Cliente*: "Com leite, por favor."
-*Vendedor*: "Certo. Vai custar dois reais."
-
-**Análisis**:
-- El cliente usa *"posso pedir"* (¿puedo pedir?), una estructura común para solicitar algo.
-- La pregunta del vendedor incluye *"quer com leite ou sem leite?"* (¿con leche o sin leche?).
-- El uso de *"vai custar"* (va a costar) indica futuro, algo que en español se expresa con *"va a costar"*.
-
-Este ejemplo muestra cómo el escucha A2 implica identificar palabras clave (*pão de queijo*, *leite*), entender el contexto y reconocer patrones verbales sencillos.
+*Áudio: «— Bom dia! Uma bica e um pastel de nata, se faz favor. — São dois euros e vinte. — Aqui tem. — Obrigado!»*
