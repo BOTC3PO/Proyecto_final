@@ -10,6 +10,7 @@ import { useAuth } from "../auth/use-auth";
 import { Card, CardHead, CardBody, Button, Pill, Input, Select, Textarea } from "../components/ui";
 import { fetchClassrooms } from "../services/aulas";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 import DelegacionCobros from "../components/DelegacionCobros";
 import {
   fetchCobros,
@@ -21,6 +22,10 @@ import {
   togglePasarela,
   confirmarPagoManual,
   iniciarAutorizacionMercadoPago,
+  fetchConfigCobros,
+  guardarConfigCobros,
+  type ConfigCobrosEscuela,
+  type TipoCobro,
   type CobroEscuela,
   type CuotaAlumno,
   type EscuelaPasarelaResumen,
@@ -214,6 +219,123 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
   );
 }
 
+/** Interés por mora (tasa mensual o anual con tope) y reglas de la cooperadora y los aportes solidarios. */
+function ConfigCobros({ escuelaId }: { escuelaId: string }) {
+  const { t } = useI18n();
+  const [cfg, setCfg] = useState<ConfigCobrosEscuela | null>(null);
+  const [tope, setTope] = useState("");
+  const [guardando, setGuardando] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchConfigCobros(escuelaId)
+      .then((c) => {
+        setCfg(c);
+        setTope(c.topeAporteLegal != null ? String(c.topeAporteLegal) : "");
+      })
+      .catch(() => setCfg(null));
+  }, [escuelaId]);
+
+  if (!cfg) return null;
+  const max = cfg.limites.moraTasaMax[cfg.moraPeriodo];
+  const cambiar = (parcial: Partial<ConfigCobrosEscuela>) => setCfg({ ...cfg, ...parcial });
+
+  const guardar = async () => {
+    setGuardando(true);
+    setMsg(null);
+    try {
+      const guardada = await guardarConfigCobros(escuelaId, {
+        moraActiva: cfg.moraActiva,
+        moraTasa: cfg.moraTasa,
+        moraPeriodo: cfg.moraPeriodo,
+        moraDiasGracia: cfg.moraDiasGracia,
+        comisionPctAportes: cfg.comisionPctAportes,
+        topeAporteLegal: tope ? Number(tope) : null
+      });
+      setCfg(guardada);
+      setMsg(t("enterpriseCobros.configGuardada"));
+    } catch {
+      setMsg(t("enterpriseCobros.configError"));
+    } finally {
+      setGuardando(false);
+    }
+  };
+
+  return (
+    <Card>
+      <CardHead>
+        <h2 className="text-sm font-bold">{t("enterpriseCobros.configTitulo")}</h2>
+      </CardHead>
+      <CardBody className="space-y-3">
+        <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseCobros.moraAyuda")}</p>
+        <label className="flex items-center gap-2 text-sm">
+          <input type="checkbox" checked={cfg.moraActiva} onChange={(e) => cambiar({ moraActiva: e.target.checked })} />
+          {t("enterpriseCobros.moraActiva")}
+        </label>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <Input
+            label={t("enterpriseCobros.moraTasa")}
+            type="number"
+            min={0}
+            max={max}
+            step={0.1}
+            value={cfg.moraTasa}
+            disabled={!cfg.moraActiva}
+            onChange={(e) => cambiar({ moraTasa: Number(e.target.value) })}
+          />
+          <Select
+            label={t("enterpriseCobros.moraPeriodo")}
+            value={cfg.moraPeriodo}
+            disabled={!cfg.moraActiva}
+            onChange={(e) => cambiar({ moraPeriodo: e.target.value as "mensual" | "anual" })}
+          >
+            <option value="mensual">{t("enterpriseCobros.moraMensual")}</option>
+            <option value="anual">{t("enterpriseCobros.moraAnual")}</option>
+          </Select>
+          <Input
+            label={t("enterpriseCobros.moraDiasGracia")}
+            type="number"
+            min={0}
+            max={cfg.limites.moraDiasGraciaMax}
+            value={cfg.moraDiasGracia}
+            disabled={!cfg.moraActiva}
+            onChange={(e) => cambiar({ moraDiasGracia: Math.max(0, Math.floor(Number(e.target.value))) })}
+          />
+        </div>
+        <p className="text-xs text-[var(--c-text-3)]">{interpolar(t("enterpriseCobros.moraTope"), { max })}</p>
+
+        <p className="border-t border-[var(--c-border)] pt-3 text-xs text-[var(--c-text-3)]">{t("enterpriseCobros.aportesAyuda")}</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Input
+            label={t("enterpriseCobros.aportesComision")}
+            type="number"
+            min={cfg.limites.comisionPctAportes.min}
+            max={cfg.limites.comisionPctAportes.max}
+            step={0.1}
+            value={cfg.comisionPctAportes}
+            onChange={(e) => cambiar({ comisionPctAportes: Number(e.target.value) })}
+          />
+          <Input
+            label={t("enterpriseCobros.topeAporteLegal")}
+            type="number"
+            min={0}
+            value={tope}
+            onChange={(e) => setTope(e.target.value)}
+          />
+        </div>
+        <Button size="sm" onClick={() => void guardar()} disabled={guardando}>
+          {guardando ? t("comun.guardando") : t("enterpriseCobros.guardarConfig")}
+        </Button>
+        {msg && (
+          <p role="status" aria-live="polite" className="text-sm text-[var(--c-info)]">
+            {msg}
+          </p>
+        )}
+      </CardBody>
+    </Card>
+  );
+}
+
 function CuotasDeCobro({ cobroId, moneda }: { cobroId: string; moneda: string }) {
   const { t } = useI18n();
   const [cuotas, setCuotas] = useState<CuotaAlumno[]>([]);
@@ -291,6 +413,7 @@ export default function EnterpriseCobros() {
   const [publicando, setPublicando] = useState<string | null>(null);
   const [aulaPorCobro, setAulaPorCobro] = useState<Record<string, string>>({});
 
+  const [tipo, setTipo] = useState<TipoCobro>("cuota");
   const [concepto, setConcepto] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [montoUnitario, setMontoUnitario] = useState(0);
@@ -322,6 +445,7 @@ export default function EnterpriseCobros() {
     setError(null);
     try {
       await crearCobro({
+        tipo,
         concepto,
         descripcion: descripcion || null,
         montoUnitario,
@@ -384,6 +508,11 @@ export default function EnterpriseCobros() {
         </CardHead>
         <CardBody className="space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
+            <Select label={t("enterpriseCobros.tipo")} value={tipo} onChange={(e) => setTipo(e.target.value as TipoCobro)}>
+              <option value="cuota">{t("enterpriseCobros.tipoCuota")}</option>
+              <option value="cooperadora">{t("enterpriseCobros.tipoCooperadora")}</option>
+              <option value="aporte_solidario">{t("enterpriseCobros.tipoAporte")}</option>
+            </Select>
             <Input label="Concepto" value={concepto} onChange={(e) => setConcepto(e.target.value)} placeholder={t("enterpriseCobros.cuotaJulio")} />
             <Input
               label="Monto unitario"
@@ -417,7 +546,14 @@ export default function EnterpriseCobros() {
                 <li key={c.id} className="rounded-[var(--r-md)] border border-[var(--c-border)] p-3">
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <p className="text-sm font-semibold text-[var(--c-text)]">{c.concepto}</p>
+                      <p className="text-sm font-semibold text-[var(--c-text)]">
+                        {c.concepto}
+                        {c.tipo && c.tipo !== "cuota" && (
+                          <span className="ml-2 text-xs font-normal text-[var(--c-text-3)]">
+                            {t(c.tipo === "cooperadora" ? "enterpriseCobros.tipoCooperadora" : "enterpriseCobros.tipoAporte")}
+                          </span>
+                        )}
+                      </p>
                       <p className="text-xs text-[var(--c-text-3)]">
                         {money(c.montoUnitario, c.moneda)} · vence {fecha(c.vencimiento)}
                       </p>
@@ -461,6 +597,8 @@ export default function EnterpriseCobros() {
           )}
         </CardBody>
       </Card>
+
+      <ConfigCobros escuelaId={escuelaId} />
 
       <PasarelasConectadas escuelaId={escuelaId} />
     </div>

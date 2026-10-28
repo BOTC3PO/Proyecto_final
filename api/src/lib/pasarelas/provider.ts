@@ -19,6 +19,8 @@ export type EscuelaParaCheckout = {
   nombre: string;
   /** % que retiene VB para este cobro (doméstico o internacional según el provider). */
   comisionPct: number;
+  /** Comisión ya calculada en pesos (escalonada y con tope). Si viene, se usa en lugar de `comisionPct`. */
+  comisionMonto?: number;
   /** Cuenta de la escuela en el provider (OAuth). Null si no conectó todavía. */
   cuentaConectadaId: string | null;
   /**

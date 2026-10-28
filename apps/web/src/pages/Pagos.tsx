@@ -11,6 +11,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Card, CardHead, CardBody, Button, Pill } from "../components/ui";
 import { fetchCuotasMias, iniciarCheckout, type CuotaAlumno } from "../services/cobros";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 
 const money = (n: number, moneda = "ARS") =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: moneda }).format(n ?? 0);
@@ -75,8 +76,9 @@ export default function Pagos() {
     }
   };
 
-  const pendientes = items.filter((c) => c.estado === "pendiente" || c.estado === "en_proceso");
-  const historial = items.filter((c) => c.estado === "pagada" || c.estado === "vencida" || c.estado === "anulada");
+  // Una cuota vencida se sigue pudiendo pagar (con el interés del día, si la escuela lo cobra).
+  const pendientes = items.filter((c) => c.estado === "pendiente" || c.estado === "en_proceso" || c.estado === "vencida");
+  const historial = items.filter((c) => c.estado === "pagada" || c.estado === "anulada");
 
   if (loading) {
     return <p className="p-6 text-sm text-[var(--c-muted)] animate-pulse">{t("pagos.cargandoPagos")}</p>;
@@ -121,8 +123,17 @@ export default function Pagos() {
                       {c.cobro?.concepto ?? t("pagos.cuota")}
                     </p>
                     <p className="text-xs text-[var(--c-text-3)]">
-                      {money(c.montoFinal, c.cobro?.moneda)} · {t("pagos.vence")} {fecha(c.cobro?.vencimiento)}
+                      {money(c.montoAPagar ?? c.montoFinal, c.cobro?.moneda)} · {t("pagos.vence")} {fecha(c.cobro?.vencimiento)}
                     </p>
+                    {(c.interesMora ?? 0) > 0 && (
+                      <p className="text-xs text-[var(--c-warning)]">
+                        {interpolar(t("pagos.cuotaSinInteres"), { monto: money(c.montoFinal, c.cobro?.moneda) })} ·{" "}
+                        {interpolar(t("pagos.incluyeInteres"), {
+                          interes: money(c.interesMora ?? 0, c.cobro?.moneda),
+                          dias: c.diasAtraso ?? 0
+                        })}
+                      </p>
+                    )}
                   </div>
                   <div className="flex items-center gap-2">
                     <Pill tone={PILL_ESTADO[c.estado] ?? "neutral"}>{t(ESTADO_LABEL_KEYS[c.estado] ?? c.estado)}</Pill>

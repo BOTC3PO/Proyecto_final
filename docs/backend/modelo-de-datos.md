@@ -594,7 +594,7 @@ erDiagram
 > propia cuenta de pasarela; VB sólo registra/concilia (`TransaccionEscuela`/`LiquidacionEscuela`,
 > §7). Comisión VB: 5-7% en pagos domésticos (MercadoPago/Argentina), 1-2% en pagos
 > internacionales (Cryptomus) — Stripe se sacó como pasarela. Detalle en
-> [`../pagos/comision-roadmap-v2.md`](../pagos/comision-roadmap-v2.md).
+> [`../pagos/comision.md`](../pagos/comision.md).
 
 ---
 

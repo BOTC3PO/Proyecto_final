@@ -26,7 +26,7 @@ PLAN-P (`tareas_pendientes/PLAN-P-documentacion.md`), origen: `ALCANCE_VBLang_2.
 | [`glosario.md`](./glosario.md) | Términos ambiguos (ENTERPRISE suscripción vs rol, etc.). | Todos. |
 | [`bootstrap-admin.md`](./bootstrap-admin.md) | Alta del primer ADMIN. | Devs/ops. |
 | [`sqlite-dictionary-api.md`](./sqlite-dictionary-api.md) | Integración de diccionario sobre SQLite (`/api/dictionary`). | Devs. |
-| [`pagos/comision-roadmap-v2.md`](./pagos/comision-roadmap-v2.md) | Modelo de comisión (roadmap del pivot a comisiones, PLAN-B). | Devs + negocio. |
+| [`pagos/comision.md`](./pagos/comision.md) | Comisión escalonada, interés por mora y aportes voluntarios. | Devs + negocio. |
 | [`pagos/reembolsos.md`](./pagos/reembolsos.md), [`pagos/enterprise.md`](./pagos/enterprise.md) | Flujos de pago actuales (pre-pivot; código ENTERPRISE confirmado vigente). | Devs + negocio. |
 | [`politica-mora.md`](./politica-mora.md) | Política de mora y acceso ENTERPRISE. | Devs + negocio. |
 

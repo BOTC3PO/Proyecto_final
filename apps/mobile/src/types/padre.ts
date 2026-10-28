@@ -38,5 +38,9 @@ export type CuotaAlumno = {
   alumnoNombre?: string;
   estado: EstadoCuota;
   montoFinal: number;
+  /** Interés por mora al día de hoy y total a pagar (cuota + interés). */
+  interesMora?: number;
+  diasAtraso?: number;
+  montoAPagar?: number;
   cobro?: CobroEscuela | null;
 };

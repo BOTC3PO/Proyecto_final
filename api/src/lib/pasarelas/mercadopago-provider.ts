@@ -1,6 +1,6 @@
 /**
  * PLAN-B Fase 3 — Mercado Pago con split nativo (roadmap v2 de
- * docs/pagos/comision-roadmap-v2.md, implementado 2026-07-22).
+ * docs/pagos/comision.md, implementado 2026-07-22).
  *
  * Distinto del `crearPreapproval` de `lib/mercadopago.ts` (eso es el SaaS
  * retirado — suscripción recurrente). Acá es un pago ÚNICO (Checkout Pro
@@ -66,7 +66,10 @@ export class MercadoPagoProvider implements PaymentProvider {
       );
     }
 
-    const marketplaceFee = round2(params.cuota.montoFinal * (params.escuela.comisionPct / 100));
+    const marketplaceFee =
+      typeof params.escuela.comisionMonto === "number"
+        ? round2(params.escuela.comisionMonto)
+        : round2(params.cuota.montoFinal * (params.escuela.comisionPct / 100));
     const externalReference = `cuota:${params.cuota.id}:${Date.now()}`;
 
     const response = await fetch(`${MP_BASE}/checkout/preferences`, {

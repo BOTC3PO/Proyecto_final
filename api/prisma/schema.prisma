@@ -57,6 +57,18 @@ model Escuela {
   /// hay otra opción para pagos del exterior, así que se acota: se elige
   /// con qué escuelas se asume ese riesgo en vez de asumirlo con todas.
   cryptomusHabilitado Boolean @default(false) @map("cryptomus_habilitado")
+  /// Interés por mora de las cuotas. Lo configura la dirección de la escuela; apagado por defecto.
+  /// La tasa es simple y se prorratea por día de atraso, después de los días de gracia.
+  moraActiva         Boolean  @default(false) @map("mora_activa")
+  /// Porcentaje por período (ver MORA_TASA_MAX en lib/mora.ts).
+  moraTasa           Float    @default(2) @map("mora_tasa")
+  /// "mensual" | "anual"
+  moraPeriodo        String   @default("mensual") @map("mora_periodo")
+  moraDiasGracia     Int      @default(0) @map("mora_dias_gracia")
+  /// Comisión de VB sobre cooperadoras y aportes solidarios: 0 a 1 %, la elige la institución.
+  comisionPctAportes Float    @default(0) @map("comision_pct_aportes")
+  /// Monto máximo que la ley de la jurisdicción permite pedir como aporte voluntario. Null = sin cargar.
+  topeAporteLegal    Float?   @map("tope_aporte_legal")
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]
@@ -82,6 +94,8 @@ model CobroEscuela {
   montoUnitario Float         @map("monto_unitario")
   moneda        String        @default("ARS")
   vencimiento   String?
+  // cuota | cooperadora | aporte_solidario. Las dos últimas son voluntarias: sin mora y con otra comisión.
+  tipo          String        @default("cuota")
   // borrador | publicado | cerrado
   estado        String        @default("borrador")
   createdBy     String        @map("created_by")
@@ -129,6 +143,9 @@ model Pago {
   // pendiente | en_proceso | pagada | fallida | anulada
   estado           String        @default("pendiente")
   montoBruto       Float         @map("monto_bruto")
+  // Desglose cuando hay mora: montoBruto = montoOriginal + interesMora. Null en pagos sin mora.
+  montoOriginal    Float?        @map("monto_original")
+  interesMora      Float?        @map("interes_mora")
   comisionVB       Float?        @map("comision_vb")
   montoNetoEscuela Float?        @map("monto_neto_escuela")
   raw              String?
@@ -450,6 +467,14 @@ model Transferencia {
   createdAt    String @map("created_at")
   updatedAt    String? @map("updated_at")
   @@map("transferencias")
+}
+
+// Parámetros de la comisión escalonada (lib/comisiones.ts). Una sola fila; la edita el administrador.
+model ComisionConfig {
+  id        String @id @default("default")
+  json      String
+  updatedAt String @map("updated_at")
+  @@map("comision_config")
 }
 
 model EconomiaConfig {

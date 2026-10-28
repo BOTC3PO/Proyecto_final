@@ -101,8 +101,9 @@ export default function PadrePagos() {
     );
   }
 
-  const pendientes = items.filter((c) => c.estado === "pendiente" || c.estado === "en_proceso");
-  const historial = items.filter((c) => c.estado === "pagada" || c.estado === "vencida" || c.estado === "anulada");
+  // Una cuota vencida se sigue pudiendo pagar (con el interés del día, si la escuela lo cobra).
+  const pendientes = items.filter((c) => c.estado === "pendiente" || c.estado === "en_proceso" || c.estado === "vencida");
+  const historial = items.filter((c) => c.estado === "pagada" || c.estado === "anulada");
 
   return (
     <ScrollView className="flex-1 bg-vb-bg" contentContainerStyle={{ padding: 16, gap: 20 }}>
@@ -123,8 +124,14 @@ export default function PadrePagos() {
                 </Text>
               </View>
               {c.alumnoNombre ? <Text className="text-xs text-vb-muted">{c.alumnoNombre}</Text> : null}
+              {(c.interesMora ?? 0) > 0 ? (
+                <Text className="text-xs" style={{ color: colors.warning }}>
+                  Cuota: {money(c.montoFinal, c.cobro?.moneda)} · incluye {money(c.interesMora ?? 0, c.cobro?.moneda)} de
+                  interés por {c.diasAtraso ?? 0} días de atraso.
+                </Text>
+              ) : null}
               <View className="flex-row items-center justify-between">
-                <Text className="text-sm text-vb-muted">{money(c.montoFinal, c.cobro?.moneda)}</Text>
+                <Text className="text-sm text-vb-muted">{money(c.montoAPagar ?? c.montoFinal, c.cobro?.moneda)}</Text>
                 <TouchableOpacity
                   onPress={() => pagar(c)}
                   disabled={pagando === c.id}
