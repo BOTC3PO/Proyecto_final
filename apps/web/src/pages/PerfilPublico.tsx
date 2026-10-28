@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { apiGetPublic } from "../lib/api";
 import type { ThemeId } from "../theme/ThemeContext";
 import { useI18n } from "../i18n/I18nContext";
+import { nombreMateria } from "../lib/nombreMateria";
 
 const ROLE_LABELS: Record<string, string> = {
   USER: "Alumno", TEACHER: "Docente",
@@ -192,7 +193,7 @@ export default function PerfilPublico() {
                   </p>
                   <p className="text-xs mt-0.5"
                     style={{ color: "var(--c-muted)" }}>
-                    {mod.materia}
+                    {nombreMateria(mod.materia)}
                   </p>
                   <span
                     className="mt-2 inline-block rounded-full px-2 py-0.5

@@ -316,6 +316,11 @@ model Clase {
   escuelaId       String   @map("escuela_id")
   name            String
   grade           String
+  /// L1 — descripción, categoría y tipo de acceso: el formulario los mandaba pero no había dónde guardarlos.
+  description     String?
+  category        String?
+  /// "publica" | "privada". Por defecto privada: un aula escolar no queda pública si nadie lo eligió.
+  accessType      String   @default("privada") @map("access_type")
   code            String?
   classCode       String?  @map("class_code")
   // Tarea 14 — ajuste del aula: permite que los alumnos comenten las

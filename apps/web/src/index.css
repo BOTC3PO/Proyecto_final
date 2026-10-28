@@ -20,6 +20,9 @@
 :root {
   font-family: var(--font-sans);
   font-synthesis: none;
+  /* Manrope trae una ligadura que convierte «(c)» en «©» (y «(r)» en «®»). En el temario
+     aparece «calor específico (c)» y listas «(a) (b) (c)»: sin ligaduras comunes se ven bien. */
+  font-variant-ligatures: no-common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -1446,6 +1449,12 @@
 [data-theme="cosmos"] ::-webkit-scrollbar-track       { background: var(--c-border); }
 [data-theme="aurora-boreal"] ::-webkit-scrollbar-track { background: var(--c-border); }
 [data-theme="magma"] ::-webkit-scrollbar-track        { background: var(--c-border); }
+
+/* Color de texto heredado dentro de la app: sin esto, todo texto sin color propio (títulos de tarjetas,
+   celdas, campos) quedaba negro y en los temas oscuros (por ejemplo, el de administrador) casi no se leía.
+   Las superficies blancas fijas mantienen el texto oscuro aunque el tema sea oscuro. */
+.layout-root { color: var(--c-text); }
+.layout-root .bg-white { color: #1e293b; }
 
 /* ── Tema Admin ─────────────────────────────────────────── */
 

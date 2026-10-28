@@ -65,6 +65,8 @@ moderacion.get("/api/moderacion/clases-publicas", async (req, res) => {
     where: {
       isDeleted: false,
       status: "ACTIVE",
+      // Antes listaba todas las aulas activas aunque fueran privadas.
+      accessType: "publica",
       ...whereEscuela(escuelaId),
     },
     skip: Number.isNaN(offset) || offset < 0 ? 0 : offset,

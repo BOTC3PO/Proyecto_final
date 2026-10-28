@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "लॉगिन करें",
   "alumnoNavbar.cuentaAlumno": "छात्र खाता",
   "alumnoNavbar.volverPanelPrincipal": "मुख्य पैनल पर वापस जाएं",
-  "footer.copyright": "© 2024 वर्चुअल बुक। सर्वाधिकार सुरक्षित।",
+  "footer.copyright": "© {anio} वर्चुअल बुक। सर्वाधिकार सुरक्षित।",
   "login.labelUsuario": "ईमेल या सार्वजनिक उपयोगकर्ता नाम",
   "login.recuerdame": "मुझे याद रखें",
   "login.olvidasteContrasena": "पासवर्ड भूल गए?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "शुल्क इससे अधिक ($)",
   "adminComisiones.pAlumnos": "छात्र (पहला स्तर)",
   "adminComisiones.pAlumnosGrande": "छात्र (दूसरा स्तर)",
-  "adminComisiones.pTope": "प्रति शुल्क सीमा ($)"
+  "adminComisiones.pTope": "प्रति शुल्क सीमा ($)",
+  "tema.admin": "प्रशासक",
+  "nav.asistencia": "उपस्थिति",
+  "nav.calificaciones": "अंक",
+  "nav.encuestas": "सर्वेक्षण",
+  "nav.estadisticas": "आँकड़े",
+  "nav.configuracion": "सेटिंग",
+  "nav.perfil": "प्रोफ़ाइल",
+  "misClases.alumno": "छात्र"
 }

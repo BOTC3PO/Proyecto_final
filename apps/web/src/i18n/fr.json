@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Se connecter",
   "alumnoNavbar.cuentaAlumno": "Compte étudiant",
   "alumnoNavbar.volverPanelPrincipal": "Retour au tableau de bord principal",
-  "footer.copyright": "© 2024 Virtual Book. Tous droits réservés.",
+  "footer.copyright": "© {anio} Virtual Book. Tous droits réservés.",
   "login.labelUsuario": "Courriel ou nom d'utilisateur public",
   "login.recuerdame": "Se souvenir de moi",
   "login.olvidasteContrasena": "Mot de passe oublié ?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Frais supérieurs à ($)",
   "adminComisiones.pAlumnos": "Élèves (1er palier)",
   "adminComisiones.pAlumnosGrande": "Élèves (2e palier)",
-  "adminComisiones.pTope": "Plafond par échéance ($)"
+  "adminComisiones.pTope": "Plafond par échéance ($)",
+  "tema.admin": "Administrateur",
+  "nav.asistencia": "Présences",
+  "nav.calificaciones": "Notes",
+  "nav.encuestas": "Sondages",
+  "nav.estadisticas": "Statistiques",
+  "nav.configuracion": "Paramètres",
+  "nav.perfil": "Profil",
+  "misClases.alumno": "élève"
 }

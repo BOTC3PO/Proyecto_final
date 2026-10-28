@@ -18,7 +18,8 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
     const roleFilter = typeof req.query.role === "string" ? req.query.role.trim() : "";
 
     const where: Record<string, unknown> = { isDeleted: false };
-    if (roleFilter) where.role = roleFilter;
+    // La columna es `roles` (lista): `role` no existe y el filtro daba error 500.
+    if (roleFilter) where.roles = { has: roleFilter };
     if (q) {
       where.OR = [
         { username: { contains: q, mode: "insensitive" } },
@@ -34,13 +35,25 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
       orderBy: { createdAt: "desc" },
       select: { id: true, fullName: true, username: true, email: true, roles: true, escuelaId: true, createdAt: true, isBanned: true, warningCount: true }
     });
+    // Sin escuela activa cargada, se muestra la de su primera membresía activa (antes figuraban «Sin escuela»
+    // usuarios que sí pertenecen a una).
+    const sinEscuela = items.filter((i) => !i.escuelaId).map((i) => i.id);
+    const membresias = sinEscuela.length
+      ? await prisma.membresia.findMany({
+          where: { usuarioId: { in: sinEscuela }, estado: "activa" },
+          select: { usuarioId: true, escuelaId: true },
+          orderBy: { fechaAlta: "asc" }
+        })
+      : [];
+    const escuelaPorMembresia = new Map<string, string>();
+    for (const m of membresias) if (!escuelaPorMembresia.has(m.usuarioId)) escuelaPorMembresia.set(m.usuarioId, m.escuelaId);
     const usuarios = items.map((item) => ({
       id: item.id,
       nombre: item.fullName ?? item.username ?? "Sin nombre",
       username: item.username ?? "",
       email: item.email ?? "",
       rol: resolvePrimaryRole(item) ?? "USER",
-      escuelaId: item.escuelaId ?? null,
+      escuelaId: item.escuelaId ?? escuelaPorMembresia.get(item.id) ?? null,
       estado: "Activo",
       isBanned: item.isBanned === true,
       warningCount: typeof item.warningCount === "number" ? item.warningCount : 0,

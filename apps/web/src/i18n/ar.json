@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "تسجيل الدخول",
   "alumnoNavbar.cuentaAlumno": "حساب الطالب",
   "alumnoNavbar.volverPanelPrincipal": "العودة إلى اللوحة الرئيسية",
-  "footer.copyright": "© 2024 Virtual Book. جميع الحقوق محفوظة.",
+  "footer.copyright": "© {anio} Virtual Book. جميع الحقوق محفوظة.",
   "login.labelUsuario": "البريد الإلكتروني أو اسم المستخدم العام",
   "login.recuerdame": "تذكرني",
   "login.olvidasteContrasena": "هل نسيت كلمة المرور؟",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "قسط أعلى من ($)",
   "adminComisiones.pAlumnos": "الطلاب (الدرجة الأولى)",
   "adminComisiones.pAlumnosGrande": "الطلاب (الدرجة الثانية)",
-  "adminComisiones.pTope": "الحد الأقصى لكل قسط ($)"
+  "adminComisiones.pTope": "الحد الأقصى لكل قسط ($)",
+  "tema.admin": "المسؤول",
+  "nav.asistencia": "الحضور",
+  "nav.calificaciones": "الدرجات",
+  "nav.encuestas": "الاستطلاعات",
+  "nav.estadisticas": "الإحصاءات",
+  "nav.configuracion": "الإعدادات",
+  "nav.perfil": "الملف الشخصي",
+  "misClases.alumno": "طالب"
 }

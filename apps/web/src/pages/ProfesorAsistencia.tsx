@@ -158,7 +158,7 @@ export default function ProfesorAsistencia() {
           <button
             type="button"
             onClick={marcarTodosPresentes}
-            className="rounded-lg border border-[var(--c-border)] px-3 py-2 text-sm text-[var(--c-text)] hover:bg-[var(--c-bg)]"
+            className="rounded-lg border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-2 text-sm font-medium text-[var(--c-text)] shadow-sm hover:bg-[var(--c-hover)]"
           >{t("profesorAsistencia.marcarTodosPresentes")}</button>
         )}
       </div>

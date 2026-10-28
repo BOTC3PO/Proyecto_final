@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Sign In",
   "alumnoNavbar.cuentaAlumno": "Student Account",
   "alumnoNavbar.volverPanelPrincipal": "Return to Main Dashboard",
-  "footer.copyright": "© 2024 Virtual Book. All rights reserved.",
+  "footer.copyright": "© {anio} Virtual Book. All rights reserved.",
   "login.labelUsuario": "Email or Public Username",
   "login.recuerdame": "Remember Me",
   "login.olvidasteContrasena": "Forgot Your Password?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Fee above ($)",
   "adminComisiones.pAlumnos": "Students (1st step)",
   "adminComisiones.pAlumnosGrande": "Students (2nd step)",
-  "adminComisiones.pTope": "Cap per fee ($)"
+  "adminComisiones.pTope": "Cap per fee ($)",
+  "tema.admin": "Administrator",
+  "nav.asistencia": "Attendance",
+  "nav.calificaciones": "Grades",
+  "nav.encuestas": "Surveys",
+  "nav.estadisticas": "Statistics",
+  "nav.configuracion": "Settings",
+  "nav.perfil": "Profile",
+  "misClases.alumno": "student"
 }

@@ -80,7 +80,7 @@ export default function RecuperarContrasena() {
                 type="email"
                 value={form.email}
                 onChange={handleChange}
-                className={`mt-1 w-full rounded-md border px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 ${
+                className={`mt-1 w-full rounded-md border px-3 py-2 shadow-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 ${
                   errors.email ? "border-red-500" : "border-gray-300"
                 }`}
                 placeholder={t("recuperarContrasena.tuemailEjemploCom")}

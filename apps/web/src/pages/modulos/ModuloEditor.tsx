@@ -871,7 +871,7 @@ export default function ModuloEditor() {
                 />
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128221; {t("comun.titulo")}</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">{t("comun.titulo")}</span>
                     <input
                       id="modulo-field-title"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -890,7 +890,7 @@ export default function ModuloEditor() {
                     )}
                   </label>
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128193; {t("modulosList.categoria")}</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">{t("modulosList.categoria")}</span>
                     <select
                       value={form.category}
                       onChange={(e) => updateForm("category", e.target.value)}
@@ -904,7 +904,7 @@ export default function ModuloEditor() {
                 </div>
 
                 <label className="block text-sm font-medium text-[var(--c-text)]">
-                  <span className="mb-1.5 flex items-center gap-1.5">&#128196; {t("comun.descripcion")}</span>
+                  <span className="mb-1.5 flex items-center gap-1.5">{t("comun.descripcion")}</span>
                   <textarea
                     id="modulo-field-description"
                     className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -926,7 +926,7 @@ export default function ModuloEditor() {
 
                 <div className="grid gap-5 md:grid-cols-4">
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128218; {t("comun.materia")}</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">{t("comun.materia")}</span>
                     <select
                       id="modulo-field-subject"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -953,7 +953,7 @@ export default function ModuloEditor() {
                   </label>
                   {!isEvaluacionMode && (
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#127942; Nivel</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">{t("moduloDetail.nivel")}</span>
                     <input
                       id="modulo-field-level"
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
@@ -971,7 +971,7 @@ export default function ModuloEditor() {
                   </label>
                   )}
                   <label className="block text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#9202; {t("moduloEditor.duracionMin")}</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">{t("moduloEditor.duracionMin")}</span>
                     <input
                       type="number"
                       min={1}
@@ -981,7 +981,7 @@ export default function ModuloEditor() {
                     />
                   </label>
                   <div className="text-sm font-medium text-[var(--c-text)]">
-                    <span className="mb-1.5 flex items-center gap-1.5">&#128065; {t("comun.visibilidad")}</span>
+                    <span className="mb-1.5 flex items-center gap-1.5">{t("comun.visibilidad")}</span>
                     <select
                       className="mt-1 w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm transition-colors focus:border-[var(--c-primary)] focus:outline-none"
                       value={form.visibility}
@@ -1011,7 +1011,7 @@ export default function ModuloEditor() {
                     data-testid="modulo-field-descatalogado"
                   />
                   <span>
-                    <span className="font-medium flex items-center gap-1.5">&#128065;&#8203;&#128683; {t("moduloEditor.descatalogado")}</span>
+                    <span className="font-medium flex items-center gap-1.5">{t("moduloEditor.descatalogado")}</span>
                     <span className="mt-0.5 block text-xs text-[var(--c-muted)]">{t("moduloEditor.noApareceEnLosListados")}</span>
                   </span>
                 </label>

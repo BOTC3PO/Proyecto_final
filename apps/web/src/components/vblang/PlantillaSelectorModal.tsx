@@ -17,6 +17,7 @@ import type {
 import { Modal, Button, Input, Spinner, Alert } from "../../ui";
 
 import { useI18n } from "../../i18n/I18nContext";
+import { nombreMateria } from "../../lib/nombreMateria";
 type Tab = "mias" | "biblioteca";
 
 interface Props {
@@ -209,7 +210,7 @@ export default function PlantillaSelectorModal({
                       </p>
                       {item.materia && (
                         <p style={{ margin: 0, fontSize: "var(--text-xs)", color: "var(--c-muted)" }}>
-                          {item.materia}
+                          {nombreMateria(item.materia)}
                         </p>
                       )}
                       {item.descripcion && (

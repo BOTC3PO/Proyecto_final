@@ -3,6 +3,7 @@ import { apiGet } from "../../lib/api";
 import type { ModuleQuizQuestion } from "../../domain/module/module.types";
 
 import { useI18n } from "../../i18n/I18nContext";
+import { nombreMateria } from "../../lib/nombreMateria";
 type BancoItem = {
   quizId: string;
   title: string;
@@ -191,7 +192,7 @@ export default function BancoCuestionarios({ onImport }: BancoCuestionariosProps
                 <div className="flex items-center gap-2 mt-0.5">
                   {item.materia && (
                     <span className="text-[10px] bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">
-                      {item.materia}
+                      {nombreMateria(item.materia)}
                     </span>
                   )}
                   <span

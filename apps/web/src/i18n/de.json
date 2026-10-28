@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Anmelden",
   "alumnoNavbar.cuentaAlumno": "Schülerkonto",
   "alumnoNavbar.volverPanelPrincipal": "Zurück zum Hauptmenü",
-  "footer.copyright": "© 2024 Virtual Book. Alle Rechte vorbehalten.",
+  "footer.copyright": "© {anio} Virtual Book. Alle Rechte vorbehalten.",
   "login.labelUsuario": "E-Mail oder öffentlicher Benutzername",
   "login.recuerdame": "Merken",
   "login.olvidasteContrasena": "Passwort vergessen?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Beitrag über ($)",
   "adminComisiones.pAlumnos": "Schüler (1. Stufe)",
   "adminComisiones.pAlumnosGrande": "Schüler (2. Stufe)",
-  "adminComisiones.pTope": "Obergrenze pro Beitrag ($)"
+  "adminComisiones.pTope": "Obergrenze pro Beitrag ($)",
+  "tema.admin": "Administrator",
+  "nav.asistencia": "Anwesenheit",
+  "nav.calificaciones": "Noten",
+  "nav.encuestas": "Umfragen",
+  "nav.estadisticas": "Statistiken",
+  "nav.configuracion": "Einstellungen",
+  "nav.perfil": "Profil",
+  "misClases.alumno": "Schüler"
 }

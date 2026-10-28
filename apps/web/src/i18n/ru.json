@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Войти",
   "alumnoNavbar.cuentaAlumno": "Аккаунт ученика",
   "alumnoNavbar.volverPanelPrincipal": "Вернуться на главную панель",
-  "footer.copyright": "© 2024 Virtual Book. Все права защищены.",
+  "footer.copyright": "© {anio} Virtual Book. Все права защищены.",
   "login.labelUsuario": "Электронная почта или публичный логин",
   "login.recuerdame": "Запомнить меня",
   "login.olvidasteContrasena": "Забыли пароль?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Взнос больше ($)",
   "adminComisiones.pAlumnos": "Ученики (1-я ступень)",
   "adminComisiones.pAlumnosGrande": "Ученики (2-я ступень)",
-  "adminComisiones.pTope": "Потолок за взнос ($)"
+  "adminComisiones.pTope": "Потолок за взнос ($)",
+  "tema.admin": "Администратор",
+  "nav.asistencia": "Посещаемость",
+  "nav.calificaciones": "Оценки",
+  "nav.encuestas": "Опросы",
+  "nav.estadisticas": "Статистика",
+  "nav.configuracion": "Настройки",
+  "nav.perfil": "Профиль",
+  "misClases.alumno": "ученик"
 }

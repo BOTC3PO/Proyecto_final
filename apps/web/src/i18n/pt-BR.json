@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Entrar",
   "alumnoNavbar.cuentaAlumno": "Conta do aluno",
   "alumnoNavbar.volverPanelPrincipal": "Voltar ao painel principal",
-  "footer.copyright": "© 2024 Virtual Book. Todos os direitos reservados.",
+  "footer.copyright": "© {anio} Virtual Book. Todos os direitos reservados.",
   "login.labelUsuario": "E-mail ou Usuário público",
   "login.recuerdame": "Manter-me conectado",
   "login.olvidasteContrasena": "Esqueceu sua senha?",
@@ -1838,7 +1838,7 @@
   "vistaAlumnoOverlay.cerrar": "Fechar ✕",
   "vistaAlumnoOverlay.teoria": "Teoria",
   "vistaAlumnoOverlay.esteModuloTodaviaNoTiene": "Este módulo ainda não tem elementos de teoria.",
-  "vistaAlumnoOverlay.quizzes": "Quizzes",
+  "vistaAlumnoOverlay.quizzes": "Questionários",
   "vistaAlumnoOverlay.esteModuloTodaviaNoTiene2": "Este módulo ainda não tem quizzes.",
   "vistaAlumnoOverlay.quiz": "Quiz",
   "vistaAlumnoOverlay.esteQuizTodaviaNoTiene": "Este quiz ainda não tem perguntas.",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Mensalidade acima de ($)",
   "adminComisiones.pAlumnos": "Alunos (1º degrau)",
   "adminComisiones.pAlumnosGrande": "Alunos (2º degrau)",
-  "adminComisiones.pTope": "Teto por mensalidade ($)"
+  "adminComisiones.pTope": "Teto por mensalidade ($)",
+  "tema.admin": "Administrador",
+  "nav.asistencia": "Frequência",
+  "nav.calificaciones": "Notas",
+  "nav.encuestas": "Enquetes",
+  "nav.estadisticas": "Estatísticas",
+  "nav.configuracion": "Configurações",
+  "nav.perfil": "Perfil",
+  "misClases.alumno": "aluno"
 }

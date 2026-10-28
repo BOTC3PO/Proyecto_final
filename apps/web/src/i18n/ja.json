@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "ログイン",
   "alumnoNavbar.cuentaAlumno": "学生アカウント",
   "alumnoNavbar.volverPanelPrincipal": "メインページに戻る",
-  "footer.copyright": "© 2024 Virtual Book。すべての権利が予約されています。",
+  "footer.copyright": "© {anio} Virtual Book。すべての権利が予約されています。",
   "login.labelUsuario": "メールアドレスまたは公開ユーザー名",
   "login.recuerdame": "ログイン状態を保持",
   "login.olvidasteContrasena": "パスワードをお忘れですか？",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "料金がこれを超える ($)",
   "adminComisiones.pAlumnos": "生徒数（第1段階）",
   "adminComisiones.pAlumnosGrande": "生徒数（第2段階）",
-  "adminComisiones.pTope": "1件あたり上限 ($)"
+  "adminComisiones.pTope": "1件あたり上限 ($)",
+  "tema.admin": "管理者",
+  "nav.asistencia": "出欠",
+  "nav.calificaciones": "成績",
+  "nav.encuestas": "アンケート",
+  "nav.estadisticas": "統計",
+  "nav.configuracion": "設定",
+  "nav.perfil": "プロフィール",
+  "misClases.alumno": "人の生徒"
 }

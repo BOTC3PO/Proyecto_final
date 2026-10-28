@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "登录",
   "alumnoNavbar.cuentaAlumno": "学生账户",
   "alumnoNavbar.volverPanelPrincipal": "返回主面板",
-  "footer.copyright": "© 2024 Virtual Book。版权所有。",
+  "footer.copyright": "© {anio} Virtual Book。版权所有。",
   "login.labelUsuario": "邮箱或公共用户名",
   "login.recuerdame": "记住我",
   "login.olvidasteContrasena": "忘记密码？",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "费用超过 ($)",
   "adminComisiones.pAlumnos": "学生数（第一级）",
   "adminComisiones.pAlumnosGrande": "学生数（第二级）",
-  "adminComisiones.pTope": "每笔上限 ($)"
+  "adminComisiones.pTope": "每笔上限 ($)",
+  "tema.admin": "管理员",
+  "nav.asistencia": "考勤",
+  "nav.calificaciones": "成绩",
+  "nav.encuestas": "问卷",
+  "nav.estadisticas": "统计",
+  "nav.configuracion": "设置",
+  "nav.perfil": "个人资料",
+  "misClases.alumno": "名学生"
 }

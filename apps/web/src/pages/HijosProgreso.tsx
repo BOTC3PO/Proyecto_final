@@ -7,6 +7,7 @@ import {
   fetchLimitesHijo, actualizarLimitesHijo, revocarVinculoHijo,
   type ActividadHijo, type MateriaBoletin, type AulaHijo, type LimitesHijo,
 } from "../services/padres";
+import { nombreMateria } from "../lib/nombreMateria";
 
 export default function HijosProgreso() {
   const { t, lang } = useI18n();
@@ -371,7 +372,7 @@ export default function HijosProgreso() {
                   <div key={materia.materia}
                     className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-4">
                     <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-sm font-semibold text-[var(--c-text)]">{materia.materia}</h3>
+                      <h3 className="text-sm font-semibold text-[var(--c-text)]">{nombreMateria(materia.materia)}</h3>
                       {materia.promedio !== null && (
                         <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
                           materia.promedio >= 7

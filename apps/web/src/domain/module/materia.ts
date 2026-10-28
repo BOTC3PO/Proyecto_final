@@ -20,6 +20,8 @@
  * ReproductorModulos, hoy en archive/web/pages/) y queda unificado acá.
  */
 
+import { nombreMateria } from "../../lib/nombreMateria";
+
 const FALLBACK_MATERIA = "Sin materia";
 const FALLBACK_CATEGORIA = "Sin categoría";
 
@@ -30,12 +32,13 @@ type MateriaInput = {
 
 export function resolveMateria(input: MateriaInput | null | undefined): string {
   if (!input) return FALLBACK_MATERIA;
-  return input.subject || input.category || FALLBACK_MATERIA;
+  // Nombre para mostrar: los módulos del temario guardan el identificador («fisica» → «Física»).
+  return nombreMateria(input.subject) || input.category || FALLBACK_MATERIA;
 }
 
 export function resolveCategoria(input: MateriaInput | null | undefined): string {
   if (!input) return FALLBACK_CATEGORIA;
-  return input.category || input.subject || FALLBACK_CATEGORIA;
+  return input.category || nombreMateria(input.subject) || FALLBACK_CATEGORIA;
 }
 
 export const MATERIA_FALLBACK = FALLBACK_MATERIA;

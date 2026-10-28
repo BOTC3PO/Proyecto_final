@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Iniciar Sessão",
   "alumnoNavbar.cuentaAlumno": "Conta de aluno",
   "alumnoNavbar.volverPanelPrincipal": "Voltar ao painel principal",
-  "footer.copyright": "© 2024 Virtual Book. Todos os direitos reservados.",
+  "footer.copyright": "© {anio} Virtual Book. Todos os direitos reservados.",
   "login.labelUsuario": "Correio eletrónico ou Utilizador público",
   "login.recuerdame": "Lembrar-me",
   "login.olvidasteContrasena": "Esqueceu a sua password?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Mensalidade acima de ($)",
   "adminComisiones.pAlumnos": "Alunos (1º degrau)",
   "adminComisiones.pAlumnosGrande": "Alunos (2º degrau)",
-  "adminComisiones.pTope": "Teto por mensalidade ($)"
+  "adminComisiones.pTope": "Teto por mensalidade ($)",
+  "tema.admin": "Administrador",
+  "nav.asistencia": "Assiduidade",
+  "nav.calificaciones": "Notas",
+  "nav.encuestas": "Enquetes",
+  "nav.estadisticas": "Estatísticas",
+  "nav.configuracion": "Configurações",
+  "nav.perfil": "Perfil",
+  "misClases.alumno": "aluno"
 }

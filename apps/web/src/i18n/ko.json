@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "로그인",
   "alumnoNavbar.cuentaAlumno": "학생 계정",
   "alumnoNavbar.volverPanelPrincipal": "메인 대시보드로 돌아가기",
-  "footer.copyright": "© 2024 Virtual Book. 모든 권리 보유.",
+  "footer.copyright": "© {anio} Virtual Book. 모든 권리 보유.",
   "login.labelUsuario": "이메일 또는 공개 사용자 이름",
   "login.recuerdame": "나를 기억하세요",
   "login.olvidasteContrasena": "비밀번호를 잊으셨나요?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "납부금 초과 ($)",
   "adminComisiones.pAlumnos": "학생 수 (1단계)",
   "adminComisiones.pAlumnosGrande": "학생 수 (2단계)",
-  "adminComisiones.pTope": "건당 상한 ($)"
+  "adminComisiones.pTope": "건당 상한 ($)",
+  "tema.admin": "관리자",
+  "nav.asistencia": "출석",
+  "nav.calificaciones": "성적",
+  "nav.encuestas": "설문",
+  "nav.estadisticas": "통계",
+  "nav.configuracion": "설정",
+  "nav.perfil": "프로필",
+  "misClases.alumno": "명의 학생"
 }

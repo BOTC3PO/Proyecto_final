@@ -158,6 +158,11 @@ async function main() {
       { usuarioId: "usr-stude-002", escuelaId: "esc-0001", rol: "STUDENT",   estado: "activa", fechaAlta: now },
     ],
   });
+  // Escuela activa de cada usuario (la que ven al entrar). Va después de crear la escuela por la clave foránea.
+  await prisma.usuario.updateMany({
+    where: { id: { in: ["usr-direc-001", "usr-teach-001", "usr-stude-001", "usr-stude-002"] }, escuelaId: null },
+    data: { escuelaId: "esc-0001" },
+  });
   console.log("  ✓ Escuela + membresías");
 
   // ── 3. Aulas ─────────────────────────────────────────────────────────────────
@@ -168,6 +173,8 @@ async function main() {
       {
         id: "cls-demo-mat-3a",
         escuelaId: "esc-0001",
+        teacherId: "usr-teach-001",
+        createdBy: "usr-teach-001",
         name: "3° A — Matemática",
         grade: "3° Año",
         code: "MAT-3A",
@@ -179,6 +186,8 @@ async function main() {
       {
         id: "cls-demo-eco-4b",
         escuelaId: "esc-0001",
+        teacherId: "usr-teach-001",
+        createdBy: "usr-teach-001",
         name: "4° B — Economía",
         grade: "4° Año",
         code: "ECO-4B",
@@ -283,7 +292,9 @@ async function main() {
         slug: "numeros-enteros",
         titulo: "Números enteros y operaciones básicas",
         descripcion: "Aprendé a sumar, restar, multiplicar y dividir números enteros con ejemplos reales.",
-        visibility: "public",
+        visibility: "publico",
+        subject: "matematica",
+        level: "1.º año secundario",
         schoolId: "esc-0001",
         ownerUserId: "usr-teach-001",
         teoriaId: "teoria-demo-enteros",
@@ -296,7 +307,9 @@ async function main() {
         slug: "fracciones-decimales",
         titulo: "Fracciones y números decimales",
         descripcion: "Entendé qué son las fracciones, cómo se operan y su relación con los decimales.",
-        visibility: "public",
+        visibility: "publico",
+        subject: "matematica",
+        level: "1.º año secundario",
         schoolId: "esc-0001",
         ownerUserId: "usr-teach-001",
         teoriaId: "teoria-demo-fracciones",
@@ -309,7 +322,9 @@ async function main() {
         slug: "presupuesto-familiar",
         titulo: "Presupuesto familiar y ahorro",
         descripcion: "Aprendé a planificar gastos e identificar necesidades para tomar decisiones financieras.",
-        visibility: "public",
+        visibility: "publico",
+        subject: "economia",
+        level: "1.º año secundario",
         schoolId: "esc-0001",
         ownerUserId: "usr-teach-001",
         teoriaId: "teoria-demo-presupuesto",

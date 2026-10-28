@@ -47,8 +47,10 @@ beforeEach(() => {
     prisma.membresia.rows.push({ usuarioId: u, escuelaId: e, rol: "STUDENT", estado: "activa", fechaAlta: nowIso() } as never);
   }
   for (const [id, esc] of [["clase-a", ESC_A], ["clase-b", ESC_B]] as const) {
-    prisma.clase.rows.push({ id, escuelaId: esc, name: id, isDeleted: false, status: "ACTIVE", updatedAt: nowIso(), createdAt: nowIso() } as never);
+    prisma.clase.rows.push({ id, escuelaId: esc, name: id, isDeleted: false, status: "ACTIVE", accessType: "publica", updatedAt: nowIso(), createdAt: nowIso() } as never);
   }
+  // Un aula privada no entra en la lista de aulas públicas.
+  prisma.clase.rows.push({ id: "clase-privada", escuelaId: ESC_A, name: "privada", isDeleted: false, status: "ACTIVE", accessType: "privada", updatedAt: nowIso(), createdAt: nowIso() } as never);
 });
 
 // El admin de plataforma no pertenece a ninguna escuela: su alcance es global.

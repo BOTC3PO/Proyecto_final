@@ -145,13 +145,12 @@ function PublicNavLink({
         paddingBlock: "var(--space-2)",
         paddingInline: "var(--space-3)",
         borderRadius: "var(--r-md)",
-        color:
-          isActive || hovered
-            ? "var(--c-nav-text)"
-            : "color-mix(in srgb, var(--c-nav-text) 75%, transparent)",
+        // La barra pública tiene fondo azul fijo: el texto va en blanco fijo (con la variable del tema, en
+        // «Tiza» quedaba gris oscuro sobre azul).
+        color: isActive || hovered ? "#ffffff" : "color-mix(in srgb, #ffffff 82%, transparent)",
         background:
           block && (isActive || hovered)
-            ? "color-mix(in srgb, var(--c-nav-text) 12%, transparent)"
+            ? "color-mix(in srgb, #ffffff 12%, transparent)"
             : "transparent",
         transition: "color 120ms ease, background-color 120ms ease",
       })}
@@ -454,9 +453,8 @@ export default function Navbar() {
             aria-label={isMobileMenuOpen ? t('aria.cerrarMenuNav') : t('aria.abrirMenuNav')}
             aria-expanded={isMobileMenuOpen}
             aria-controls="app-mobile-menu"
-            className="md:hidden"
+            className="md:hidden inline-flex"
             style={{
-              display: "inline-flex",
               padding: "var(--space-1)",
               color: "var(--c-text)",
               background: "transparent",

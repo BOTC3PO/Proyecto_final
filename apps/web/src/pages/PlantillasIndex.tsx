@@ -18,6 +18,7 @@ import type {
   PlantillaListItem,
   PlantillaListParams,
 } from "../domain/vblang/plantilla.types";
+import { nombreMateria } from "../lib/nombreMateria";
 
 export type PlantillasIndexMode = "mias" | "biblioteca";
 
@@ -69,7 +70,7 @@ function PlantillaCard({
             {item.nombre}
           </h3>
           {item.materia && (
-            <p className="text-xs text-[var(--c-muted,#64748b)]">{item.materia}</p>
+            <p className="text-xs text-[var(--c-muted,#64748b)]">{nombreMateria(item.materia)}</p>
           )}
         </Link>
         <div className="flex shrink-0 flex-col items-end gap-1">

@@ -22,6 +22,7 @@ import SubastasTicketDocente from "../components/aula/SubastasTicketDocente";
 import type { Module } from "../domain/module/module.types";
 import { useI18n } from "../i18n/I18nContext";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
+import { nombreMateria } from "../lib/nombreMateria";
 
 type FormState = {
   name: string;
@@ -284,12 +285,10 @@ export default function ProfesorAulaConfiguracion() {
     try {
       await updateClassroom(id, {
         name: form.name,
-        // FIX-AULA-DESCRIPCION-REQUIRED — `description` no se persiste (no
-        // tiene columna en `Clase`) pero el schema del back sigue exigiendo
-        // min(1) cuando la clave está presente (`.partial()` sólo afloja la
-        // AUSENCIA de la clave, no la validación si viene ""). Omitirla
-        // cuando está vacía evita el 400 al guardar cualquier aula existente.
-        description: form.description || undefined,
+        // L1 — descripción, categoría, grado y acceso ahora se guardan. Una descripción vacía se manda vacía
+        // para poder borrarla.
+        description: form.description,
+        grade: form.grade || undefined,
         accessType: form.accessType,
         status: form.status,
         institutionId: form.institutionId || undefined,
@@ -593,7 +592,7 @@ export default function ProfesorAulaConfiguracion() {
                         </span>
                         {modulo?.subject && (
                           <span className="ml-2 text-xs text-[var(--c-muted)]">
-                            {modulo.subject}
+                            {nombreMateria(modulo.subject)}
                           </span>
                         )}
                       </div>
@@ -627,7 +626,7 @@ export default function ProfesorAulaConfiguracion() {
                         <div>
                           <span className="font-medium text-[var(--c-text)]">{m.title}</span>
                           {m.subject && (
-                            <span className="ml-2 text-xs text-[var(--c-muted)]">{m.subject}</span>
+                            <span className="ml-2 text-xs text-[var(--c-muted)]">{nombreMateria(m.subject)}</span>
                           )}
                         </div>
                         <button

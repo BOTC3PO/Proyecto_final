@@ -170,18 +170,18 @@ describe("PLAN-G §2: modo foco", () => {
     const focoBtn = await screen.findByRole("button", { name: /modo foco/i }, { timeout: 3000 });
 
     // Antes: la sección de quizzes está visible.
-    expect(screen.getByText("Quizzes")).toBeVisible();
+    expect(screen.getByText("Cuestionarios")).toBeVisible();
 
     fireEvent.click(focoBtn);
     expect(screen.getByRole("button", { name: /salir del foco/i })).toBeInTheDocument();
     // La sección de quizzes queda oculta (hidden).
-    expect(screen.getByText("Quizzes").closest("section")?.className).toContain("hidden");
+    expect(screen.getByText("Cuestionarios").closest("section")?.className).toContain("hidden");
     // La teoría sigue visible.
     expect(screen.getByText("Primer párrafo de teoría.")).toBeVisible();
 
     fireEvent.keyDown(window, { key: "Escape" });
     await waitFor(() => {
-      expect(screen.getByText("Quizzes").closest("section")?.className).not.toContain("hidden");
+      expect(screen.getByText("Cuestionarios").closest("section")?.className).not.toContain("hidden");
     });
   });
 });

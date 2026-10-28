@@ -1,5 +1,6 @@
 // RegistrationForm.tsx
 import React, { useState, useRef, useEffect } from "react";
+import BrandMark from "../components/Brand";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
@@ -126,7 +127,7 @@ function DateInput({
   return (
     <div className="relative w-full" ref={containerRef}>
       {label && (
-        <label className="block text-gray-800 text-lg mb-2 font-normal">
+        <label className="block text-sm font-medium text-gray-700 mb-1.5">
           {label ?? t("register.labelCumpleanos")} {required && <span className="text-red-500">*</span>}
         </label>
       )}
@@ -137,8 +138,7 @@ function DateInput({
           onClick={() => setIsOpen(o => !o)}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
-          className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white 
-                     focus:outline-none focus:border-blue-500 transition-colors text-left pr-12"
+          className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-left pr-12"
         >
           {display || <span className="text-gray-400">{placeholder}</span>}
         </button>
@@ -419,42 +419,44 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-          <h2 className="text-3xl font-bold text-blue-600 text-center mb-8">{t("register.titulo")}</h2>
+    <div className="min-h-screen bg-[#f3f4f6] py-16 px-4">
+      <div className="max-w-xl mx-auto">
+        {/* Mismo formato que Iniciar sesión (marca arriba, título sobrio, etiquetas chicas). */}
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 sm:p-10">
+          <div className="mb-6 flex items-center justify-center gap-2">
+            <BrandMark size={28} />
+            <span className="text-lg font-bold text-gray-900">{t("comun.virtualBook")}</span>
+          </div>
+          <h1 className="text-center text-2xl font-semibold text-gray-900 mb-8">{t("register.titulo")}</h1>
 
           <div className="space-y-6">
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelNombreCompleto")}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t("register.labelNombreCompleto")}</label>
               <input
                 type="text"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelUsuarioPublico")}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t("register.labelUsuarioPublico")}</label>
               <input
                 type="text"
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelEmail")}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t("register.labelEmail")}</label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg 
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
@@ -479,13 +481,12 @@ export default function RegistrationForm() {
             <input type="hidden" name="birthday_iso" value={formData.birthdateISO} />
 
             <div>
-              <label htmlFor="register-role" className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelRol")}</label>
+              <label htmlFor="register-role" className="block text-sm font-medium text-gray-700 mb-1.5">{t("register.labelRol")}</label>
               <select
                 id="register-role"
                 value={formData.role}
                 onChange={(e) => handleRoleChange(e.target.value)}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               >
                 <option value="">{t("register.opcionSeleccionaRol")}</option>
                 <option value="USER">{t("register.rolUsuario")}</option>
@@ -496,12 +497,11 @@ export default function RegistrationForm() {
 
             {formData.role === "TEACHER" && (
               <div>
-                <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelTipoProfesor")}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">{t("register.labelTipoProfesor")}</label>
                 <select
                   value={formData.teacherType}
                   onChange={(e) => setFormData({ ...formData, teacherType: e.target.value })}
-                  className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg bg-white
-                             focus:outline-none focus:border-blue-500 transition-colors"
+                  className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 >
                   <option value="">{t("register.opcionSeleccionaTipo")}</option>
                   {teacherTypes.map((type) => (
@@ -515,7 +515,7 @@ export default function RegistrationForm() {
 
             {formData.role === "PARENT" ? (
               <div>
-                <label className="block text-gray-800 text-lg mb-2 font-normal">Código de invitación de la escuela</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">Código de invitación de la escuela</label>
                 <input
                   type="text"
                   value={formData.inviteCode}
@@ -526,8 +526,7 @@ export default function RegistrationForm() {
                   maxLength={16}
                   onInvalid={onInvalid}
                   onInput={onInput}
-                  className="w-full px-4 py-3 text-base font-mono tracking-widest border-2 border-gray-300 rounded-lg
-                             focus:outline-none focus:border-blue-500 transition-colors"
+                  className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm font-mono tracking-widest focus:border-blue-500 focus:ring-blue-500"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   La escuela te lo entrega para tu hijo o hija: sin él no se puede crear una cuenta de padre o madre.
@@ -535,7 +534,7 @@ export default function RegistrationForm() {
               </div>
             ) : (
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">
                 {t("register.labelCodigoEscuela")}{formData.role !== "TEACHER" ? t("register.opcional") : ""}
               </label>
               <input
@@ -545,8 +544,7 @@ export default function RegistrationForm() {
                 required={formData.role === "TEACHER"}
                 onInvalid={onInvalid}
                 onInput={onInput}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
               {formData.role === "TEACHER" && (
                 <p className="text-sm text-gray-500 mt-1">
@@ -557,15 +555,14 @@ export default function RegistrationForm() {
             )}
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("auth.contrasena")}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t("auth.contrasena")}</label>
               <input
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 minLength={PASSWORD_MIN_LENGTH}
                 autoComplete="new-password"
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
               <p className="mt-1 text-sm text-gray-500">
                 Al menos {PASSWORD_MIN_LENGTH} caracteres. Evitá claves comunes o que incluyan tu usuario.
@@ -573,13 +570,12 @@ export default function RegistrationForm() {
             </div>
 
             <div>
-              <label className="block text-gray-800 text-lg mb-2 font-normal">{t("register.labelRepetirContrasena")}</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t("register.labelRepetirContrasena")}</label>
               <input
                 type="password"
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-lg
-                           focus:outline-none focus:border-blue-500 transition-colors"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 

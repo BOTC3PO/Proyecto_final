@@ -534,7 +534,8 @@ export default function Aula() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Banner */}
         <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
-          <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
+          {/* El nombre del aula estaba solo para lectores de pantalla: la cabecera quedaba sin título. */}
+          <h1 className="absolute left-5 right-5 top-11 truncate text-xl font-bold">{classroom?.name ?? "Aula"}</h1>
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
             {t(getClassroomStatusLabelKey(classroom?.status))}
           </span>

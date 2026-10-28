@@ -107,7 +107,7 @@
   "common.iniciarSesionBtn": "Ensaluti",
   "alumnoNavbar.cuentaAlumno": "Konto de lernanto",
   "alumnoNavbar.volverPanelPrincipal": "Reiri al la ĉefa panelo",
-  "footer.copyright": "© 2024 Virtual Book. Ĉiuj rajtoj rezervitaj.",
+  "footer.copyright": "© {anio} Virtual Book. Ĉiuj rajtoj rezervitaj.",
   "login.labelUsuario": "Retpoŝto aŭ publika uzantnomo",
   "login.recuerdame": "Memorigu min",
   "login.olvidasteContrasena": "Forgesis vian pasvorton?",
@@ -4371,5 +4371,13 @@
   "adminComisiones.pUmbralCuota": "Kotizo super ($)",
   "adminComisiones.pAlumnos": "Lernantoj (1-a ŝtupo)",
   "adminComisiones.pAlumnosGrande": "Lernantoj (2-a ŝtupo)",
-  "adminComisiones.pTope": "Limo po kotizo ($)"
+  "adminComisiones.pTope": "Limo po kotizo ($)",
+  "tema.admin": "Administranto",
+  "nav.asistencia": "Ĉeesto",
+  "nav.calificaciones": "Notoj",
+  "nav.encuestas": "Enketoj",
+  "nav.estadisticas": "Statistikoj",
+  "nav.configuracion": "Agordoj",
+  "nav.perfil": "Profilo",
+  "misClases.alumno": "lernanto"
 }
