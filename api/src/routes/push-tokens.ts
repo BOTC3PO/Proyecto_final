@@ -1,8 +1,6 @@
 /**
  * PLAN-R Parte 5 — registro de tokens de push (Expo) de la app móvil.
- * Sólo guarda el token; el ENVÍO real (expo-server-sdk, disparado
- * desde mensajería/tareas/cobros cuando corresponda) queda para otra
- * sesión — items separados, más grandes que "guardar dónde mandar".
+ * Guarda el token; el envío está en lib/push.ts (mensajes y cuotas nuevas).
  */
 import { randomUUID } from "node:crypto";
 import { Router } from "express";

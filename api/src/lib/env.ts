@@ -156,6 +156,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   SMTP_PASS: process.env.SMTP_PASS ?? "",
   SMTP_FROM: process.env.SMTP_FROM ?? "Virtual Book <no-responder@virtualbook.com.ar>",
   PASSWORD_RESET_TTL_MINUTES: Number(process.env.PASSWORD_RESET_TTL_MINUTES ?? 60),
+  // L4 — notificaciones push por Expo. Apagadas salvo que se activen.
+  PUSH_ENABLED: parseBool(process.env.PUSH_ENABLED, false),
 };
 
 /**

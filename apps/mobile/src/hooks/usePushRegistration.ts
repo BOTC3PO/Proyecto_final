@@ -1,9 +1,9 @@
 /**
  * PLAN-R Parte 5 — pide permiso de notificaciones, obtiene el push
  * token de Expo y lo registra en `POST /api/push-tokens`. Sólo el
- * lado "recibir" (permiso + token); el envío real (mensaje nuevo,
- * tarea por vencer, cuota emitida) es trabajo de servidor aparte —
- * ver apps/mobile/README.md.
+ * lado "recibir" (permiso + token). El servidor envía los avisos de
+ * mensaje nuevo y cuota nueva (api/src/lib/push.ts); al tocar uno se abre
+ * la pantalla que indica `data.pantalla`.
  *
  * `getExpoPushTokenAsync` necesita un `projectId` de EAS
  * (`app.json` → `extra.eas.projectId`), que todavía no existe (Parte
@@ -11,6 +11,7 @@
  * silencioso — no falla, sólo no hay token que registrar todavía.
  */
 import { useEffect } from "react";
+import { router } from "expo-router";
 import { Platform } from "react-native";
 import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
@@ -47,4 +48,17 @@ export function usePushRegistration() {
       cancelled = true;
     };
   }, [status]);
+
+  // L4 — tocar la notificación abre la pantalla correspondiente.
+  useEffect(() => {
+    const sub = Notifications.addNotificationResponseReceivedListener((respuesta) => {
+      const data = respuesta.notification.request.content.data as { pantalla?: string; hiloId?: string } | undefined;
+      if (data?.pantalla === "mensajes") {
+        router.push(data.hiloId ? `/(alumno)/mensajes/${data.hiloId}` : "/(alumno)/mensajes");
+      } else if (data?.pantalla === "pagos") {
+        router.push("/(padre)/pagos");
+      }
+    });
+    return () => sub.remove();
+  }, []);
 }

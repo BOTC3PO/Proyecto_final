@@ -5,6 +5,7 @@
  */
 import { randomUUID } from "node:crypto";
 import { prisma } from "./prisma";
+import { enviarPush } from "./push";
 
 const genId = (prefijo: string) => `${prefijo}-${randomUUID()}`;
 
@@ -49,6 +50,12 @@ export async function enviarMensajeDirecto(params: {
   await prisma.hilo.update({
     where: { id: hilo.id },
     data: { ultimoMsg: body.slice(0, 80), ultimoAt: now, ...noLeidos }
+  });
+  // Sin el texto ni el remitente: la notificación pasa por servidores de terceros.
+  void enviarPush([destinatarioId], {
+    titulo: "Virtual Book",
+    cuerpo: "Tenés un mensaje nuevo.",
+    data: { pantalla: "mensajes", hiloId: hilo.id }
   });
   return { hiloId: hilo.id, msgId };
 }

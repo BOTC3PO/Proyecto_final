@@ -13,6 +13,7 @@ import { ENV } from "../lib/env";
 import { getProvider } from "../lib/pasarelas";
 import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
 import { confirmarPago } from "../lib/cobros-confirmacion";
+import { enviarPush } from "../lib/push";
 import { CobroCreateSchema, CobroPublicarSchema, ConfigCobrosEscuelaSchema } from "../schema/cobros";
 import { calcularMora, tasaEfectiva, MORA_TASA_MAX, MORA_DIAS_GRACIA_MAX, type ConfigMora } from "../lib/mora";
 import {
@@ -256,6 +257,11 @@ cobros.post("/api/cobros/:id/publicar", requireUser, async (req, res) => {
   if (cuotasCreadas === null) {
     return res.status(409).json({ error: "el cobro ya fue publicado" });
   }
+  // L4 — aviso a quien paga (familia vinculada o el propio alumno), sin montos ni nombres.
+  void enviarPush(
+    [...alumnoIds].map((id) => pagadorPorAlumno.get(id) ?? id),
+    { titulo: "Virtual Book", cuerpo: "Hay una cuota nueva para pagar.", data: { pantalla: "pagos" } }
+  );
 
   res.json({ ok: true, cobroId: cobro.id, cuotasCreadas });
 });
