@@ -85,6 +85,15 @@ export default function ModulosList() {
       .then((r) => setFavoritos(new Set(r.ids)))
       .catch(() => setFavoritos(new Set()));
   }, []);
+  // L5 — promedio de valoraciones de los módulos visibles.
+  const [valoraciones, setValoraciones] = useState<Record<string, { promedio: number; cantidad: number }>>({});
+  useEffect(() => {
+    const ids = modules.map((m) => m.id).slice(0, 200);
+    if (ids.length === 0) return;
+    apiGet<{ items: Record<string, { promedio: number; cantidad: number }> }>(`/api/modulos-valoraciones?ids=${ids.map(encodeURIComponent).join(",")}`)
+      .then((r) => setValoraciones(r.items))
+      .catch(() => setValoraciones({}));
+  }, [modules]);
   const alternarFavorito = async (moduloId: string) => {
     const es = favoritos.has(moduloId);
     const siguiente = new Set(favoritos);
@@ -573,6 +582,11 @@ export default function ModulosList() {
                               color: "var(--c-muted)",
                             }}>
                               {resolveMateria(module)}
+                              {valoraciones[module.id] && (
+                                <span style={{ marginLeft: "var(--space-2)", color: "var(--c-warning)" }}>
+                                  ★ {valoraciones[module.id].promedio.toLocaleString("es-AR")} ({valoraciones[module.id].cantidad})
+                                </span>
+                              )}
                             </p>
                             {module.description && (
                               <p style={{

@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Favoritos",
   "modulosList.marcarFavorito": "Marcar como favorito",
   "modulosList.quitarFavorito": "Remover dos favoritos",
-  "adminComisiones.pInflacion": "Inflação anual de referência (%) — define o teto de juros"
+  "adminComisiones.pInflacion": "Inflação anual de referência (%) — define o teto de juros",
+  "valoracion.tuValoracion": "Sua avaliação",
+  "valoracion.promedio": "★ {promedio} de 5 ({cantidad} avaliações)",
+  "valoracion.sinValoraciones": "Ainda sem avaliações"
 }

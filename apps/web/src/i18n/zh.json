@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "收藏",
   "modulosList.marcarFavorito": "加入收藏",
   "modulosList.quitarFavorito": "取消收藏",
-  "adminComisiones.pInflacion": "参考年通胀率（%）— 决定逾期利息上限"
+  "adminComisiones.pInflacion": "参考年通胀率（%）— 决定逾期利息上限",
+  "valoracion.tuValoracion": "你的评分",
+  "valoracion.promedio": "★ {promedio} / 5（{cantidad} 个评分）",
+  "valoracion.sinValoraciones": "暂无评分"
 }

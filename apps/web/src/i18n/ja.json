@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "お気に入り",
   "modulosList.marcarFavorito": "お気に入りに追加",
   "modulosList.quitarFavorito": "お気に入りから削除",
-  "adminComisiones.pInflacion": "参照年間インフレ率（%）— 延滞利息の上限を決める"
+  "adminComisiones.pInflacion": "参照年間インフレ率（%）— 延滞利息の上限を決める",
+  "valoracion.tuValoracion": "あなたの評価",
+  "valoracion.promedio": "★ {promedio} / 5（{cantidad} 件）",
+  "valoracion.sinValoraciones": "まだ評価はありません"
 }

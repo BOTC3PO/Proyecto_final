@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Favoris",
   "modulosList.marcarFavorito": "Ajouter aux favoris",
   "modulosList.quitarFavorito": "Retirer des favoris",
-  "adminComisiones.pInflacion": "Inflation annuelle de référence (%) — fixe le plafond des intérêts"
+  "adminComisiones.pInflacion": "Inflation annuelle de référence (%) — fixe le plafond des intérêts",
+  "valoracion.tuValoracion": "Votre note",
+  "valoracion.promedio": "★ {promedio} sur 5 ({cantidad} notes)",
+  "valoracion.sinValoraciones": "Pas encore de notes"
 }

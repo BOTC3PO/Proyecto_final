@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Favoritos",
   "modulosList.marcarFavorito": "Marcar como favorito",
   "modulosList.quitarFavorito": "Quitar de favoritos",
-  "adminComisiones.pInflacion": "Inflación anual de referencia (%) — fija el tope de la mora"
+  "adminComisiones.pInflacion": "Inflación anual de referencia (%) — fija el tope de la mora",
+  "valoracion.tuValoracion": "Tu valoración",
+  "valoracion.promedio": "★ {promedio} de 5 ({cantidad} valoraciones)",
+  "valoracion.sinValoraciones": "Todavía sin valoraciones"
 }

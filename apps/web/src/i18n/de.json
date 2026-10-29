@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Favoriten",
   "modulosList.marcarFavorito": "Zu Favoriten hinzufügen",
   "modulosList.quitarFavorito": "Aus Favoriten entfernen",
-  "adminComisiones.pInflacion": "Jährliche Referenzinflation (%) — bestimmt die Zinsobergrenze"
+  "adminComisiones.pInflacion": "Jährliche Referenzinflation (%) — bestimmt die Zinsobergrenze",
+  "valoracion.tuValoracion": "Ihre Bewertung",
+  "valoracion.promedio": "★ {promedio} von 5 ({cantidad} Bewertungen)",
+  "valoracion.sinValoraciones": "Noch keine Bewertungen"
 }

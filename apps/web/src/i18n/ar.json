@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "المفضلة",
   "modulosList.marcarFavorito": "إضافة إلى المفضلة",
   "modulosList.quitarFavorito": "إزالة من المفضلة",
-  "adminComisiones.pInflacion": "التضخم السنوي المرجعي (%) — يحدد سقف فوائد التأخير"
+  "adminComisiones.pInflacion": "التضخم السنوي المرجعي (%) — يحدد سقف فوائد التأخير",
+  "valoracion.tuValoracion": "تقييمك",
+  "valoracion.promedio": "★ {promedio} من 5 ({cantidad} تقييمات)",
+  "valoracion.sinValoraciones": "لا توجد تقييمات بعد"
 }

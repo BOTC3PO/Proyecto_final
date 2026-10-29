@@ -493,6 +493,18 @@ model PasswordResetToken {
   @@map("password_reset_tokens")
 }
 
+// L5 — valoración de módulos (1 a 5). Una por persona; solo quien empezó el módulo.
+model ModuloValoracion {
+  usuarioId String @map("usuario_id")
+  moduloId  String @map("modulo_id")
+  puntaje   Int
+  createdAt String @map("created_at")
+  updatedAt String @map("updated_at")
+  @@id([usuarioId, moduloId])
+  @@index([moduloId])
+  @@map("modulos_valoraciones")
+}
+
 // Documento 17 — módulos que cada persona marca como favoritos.
 model ModuloFavorito {
   usuarioId String @map("usuario_id")

@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "पसंदीदा",
   "modulosList.marcarFavorito": "पसंदीदा में जोड़ें",
   "modulosList.quitarFavorito": "पसंदीदा से हटाएँ",
-  "adminComisiones.pInflacion": "संदर्भ वार्षिक महंगाई (%) — विलंब ब्याज की सीमा तय करती है"
+  "adminComisiones.pInflacion": "संदर्भ वार्षिक महंगाई (%) — विलंब ब्याज की सीमा तय करती है",
+  "valoracion.tuValoracion": "आपकी रेटिंग",
+  "valoracion.promedio": "★ 5 में से {promedio} ({cantidad} रेटिंग)",
+  "valoracion.sinValoraciones": "अभी कोई रेटिंग नहीं"
 }

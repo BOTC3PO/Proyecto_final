@@ -391,6 +391,7 @@ class Table<TRow extends Row> {
     where?: WhereClause;
     _count?: { _all?: true } | Record<string, true>;
     _sum?: Record<string, true>;
+    _avg?: Record<string, true>;
   }): Promise<Array<Record<string, unknown>>> {
     const by = Array.isArray(args.by) ? args.by : [args.by];
     const subset = this.rows.filter((r) => rowMatches(r, args?.where));
@@ -427,6 +428,19 @@ class Table<TRow extends Row> {
           const v = (row as Record<string, unknown>)[field];
           acumulado[field] = (acumulado[field] ?? 0) + (typeof v === "number" ? v : 0);
         }
+      }
+    }
+    // `_avg`: promedio = suma / cantidad del grupo.
+    if (args._avg) {
+      for (const entry of groups.values()) {
+        const key = by.map((field) => String(entry[field] ?? "")).join("|");
+        const filas = subset.filter((row) => by.map((f) => String((row as Record<string, unknown>)[f] ?? "")).join("|") === key);
+        entry._avg = Object.fromEntries(
+          Object.keys(args._avg).map((field) => {
+            const nums = filas.map((r) => (r as Record<string, unknown>)[field]).filter((v): v is number => typeof v === "number");
+            return [field, nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : null];
+          })
+        );
       }
     }
     return Array.from(groups.values());
@@ -1019,6 +1033,7 @@ export class InMemoryPrisma {
   tareaAula = new Table<Row>("tareaAula");
   entregaTarea = new Table<Row>("entregaTarea");
   moduloFavorito = new Table<Row>("moduloFavorito");
+  moduloValoracion = new Table<Row>("moduloValoracion");
   economiaModulo = new Table<Row>("economiaModulo");
   economiaExamen = new Table<Row>("economiaExamen");
   economiaExamenPuja = new Table<Row>("economiaExamenPuja");

@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Favorites",
   "modulosList.marcarFavorito": "Add to favorites",
   "modulosList.quitarFavorito": "Remove from favorites",
-  "adminComisiones.pInflacion": "Reference annual inflation (%) — sets the late-interest cap"
+  "adminComisiones.pInflacion": "Reference annual inflation (%) — sets the late-interest cap",
+  "valoracion.tuValoracion": "Your rating",
+  "valoracion.promedio": "★ {promedio} of 5 ({cantidad} ratings)",
+  "valoracion.sinValoraciones": "No ratings yet"
 }

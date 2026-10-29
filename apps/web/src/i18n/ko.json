@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "즐겨찾기",
   "modulosList.marcarFavorito": "즐겨찾기에 추가",
   "modulosList.quitarFavorito": "즐겨찾기에서 제거",
-  "adminComisiones.pInflacion": "기준 연간 물가상승률(%) — 연체 이자 상한 결정"
+  "adminComisiones.pInflacion": "기준 연간 물가상승률(%) — 연체 이자 상한 결정",
+  "valoracion.tuValoracion": "내 평가",
+  "valoracion.promedio": "★ {promedio} / 5 ({cantidad}개 평가)",
+  "valoracion.sinValoraciones": "아직 평가가 없습니다"
 }

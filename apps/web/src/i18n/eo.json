@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Favoratoj",
   "modulosList.marcarFavorito": "Aldoni al favoratoj",
   "modulosList.quitarFavorito": "Forigi el favoratoj",
-  "adminComisiones.pInflacion": "Referenca jara inflacio (%) — fiksas la interezan limon"
+  "adminComisiones.pInflacion": "Referenca jara inflacio (%) — fiksas la interezan limon",
+  "valoracion.tuValoracion": "Via takso",
+  "valoracion.promedio": "★ {promedio} el 5 ({cantidad} taksoj)",
+  "valoracion.sinValoraciones": "Ankoraŭ neniuj taksoj"
 }

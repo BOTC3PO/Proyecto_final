@@ -40,3 +40,17 @@ test("marcar y desmarcar un favorito; cada persona ve los suyos", async () => {
 test("un módulo que no existe da 404", async () => {
   assert.equal((await jsonRequest(baseUrl, "PUT", "/api/modulos-favoritos/no-existe", { token: tk("ana") })).status, 404);
 });
+
+// L5 (2026-10-29) — valoración de módulos.
+test("solo valora quien empezó el módulo; el promedio y la propia se informan", async () => {
+  prisma.progresoModulo.rows.push({ id: "p1", usuarioId: "ana", moduloId: "mod-1", status: "en_progreso" } as never);
+  const sinProgreso = await jsonRequest(baseUrl, "PUT", "/api/modulos/mod-1/valoracion", { token: tk("beto"), body: { puntaje: 5 } });
+  assert.equal(sinProgreso.status, 403);
+  assert.equal((await jsonRequest(baseUrl, "PUT", "/api/modulos/mod-1/valoracion", { token: tk("ana"), body: { puntaje: 7 } })).status, 400);
+  assert.equal((await jsonRequest(baseUrl, "PUT", "/api/modulos/mod-1/valoracion", { token: tk("ana"), body: { puntaje: 4 } })).status, 200);
+  await jsonRequest(baseUrl, "PUT", "/api/modulos/mod-1/valoracion", { token: tk("ana"), body: { puntaje: 5 } });
+  const r = await jsonRequest(baseUrl, "GET", "/api/modulos/mod-1/valoracion", { token: tk("ana") });
+  assert.deepEqual(r.body, { promedio: 5, cantidad: 1, mia: 5, puedeValorar: true }, "cambiar la valoración no suma otra");
+  const lista = await jsonRequest(baseUrl, "GET", "/api/modulos-valoraciones?ids=mod-1,mod-2", { token: tk("beto") });
+  assert.deepEqual(lista.body, { items: { "mod-1": { promedio: 5, cantidad: 1 } } });
+});

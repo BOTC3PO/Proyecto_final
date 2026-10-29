@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Избранное",
   "modulosList.marcarFavorito": "В избранное",
   "modulosList.quitarFavorito": "Убрать из избранного",
-  "adminComisiones.pInflacion": "Годовая инфляция (%) — задаёт потолок пени"
+  "adminComisiones.pInflacion": "Годовая инфляция (%) — задаёт потолок пени",
+  "valoracion.tuValoracion": "Ваша оценка",
+  "valoracion.promedio": "★ {promedio} из 5 ({cantidad} оценок)",
+  "valoracion.sinValoraciones": "Пока нет оценок"
 }

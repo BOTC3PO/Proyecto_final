@@ -4462,5 +4462,8 @@
   "modulosList.favoritos": "Preferiti",
   "modulosList.marcarFavorito": "Aggiungi ai preferiti",
   "modulosList.quitarFavorito": "Rimuovi dai preferiti",
-  "adminComisiones.pInflacion": "Inflazione annua di riferimento (%) — fissa il tetto degli interessi"
+  "adminComisiones.pInflacion": "Inflazione annua di riferimento (%) — fissa il tetto degli interessi",
+  "valoracion.tuValoracion": "La tua valutazione",
+  "valoracion.promedio": "★ {promedio} su 5 ({cantidad} valutazioni)",
+  "valoracion.sinValoraciones": "Ancora nessuna valutazione"
 }

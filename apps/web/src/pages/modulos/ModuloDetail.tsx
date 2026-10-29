@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import ValoracionModulo from "../../components/modulos/ValoracionModulo";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { isPureParent } from "../../auth/roleHelpers";
@@ -720,6 +721,7 @@ export default function ModuloDetail() {
           {categoryLabel}
         </span>
         <h1 className="mt-2 text-2xl font-bold text-[var(--c-text)] md:text-3xl">{module.title}</h1>
+        <ValoracionModulo moduloId={module.id} />
         {module.description && (
           <p className="mt-1 max-w-2xl text-sm leading-relaxed text-[var(--c-muted)]">
             {module.description}
