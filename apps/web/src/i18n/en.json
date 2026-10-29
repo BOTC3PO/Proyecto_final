@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Present",
   "hijosProgreso.asistencia_tarde": "Late",
   "hijosProgreso.asistencia_ausente": "Absent",
-  "hijosProgreso.asistencia_justificado": "Excused"
+  "hijosProgreso.asistencia_justificado": "Excused",
+  "perfil.privacidadTitulo": "Privacy and data",
+  "perfil.privacidadAyuda": "You can download a copy of your data or delete your account.",
+  "perfil.privacidadDescargar": "Download my data",
+  "perfil.privacidadBaja": "Delete my account",
+  "perfil.privacidadBajaAviso": "Your account is deactivated and your name, username and email are erased. Grades and attendance stay with the school without identifying data. This cannot be undone. Enter your password and the word BAJA.",
+  "perfil.privacidadConfirmarBaja": "Confirm deletion",
+  "perfil.privacidadErrorDescarga": "Could not download the data.",
+  "perfil.privacidadErrorBaja": "Could not delete the account.",
+  "avisoPrivacidad.texto": "We updated the privacy policy: you can now download your data and delete your account from your profile.",
+  "avisoPrivacidad.ver": "Read the policy",
+  "avisoPrivacidad.entendido": "Got it"
 }

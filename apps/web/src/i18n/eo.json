@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Ĉeestis",
   "hijosProgreso.asistencia_tarde": "Malfrue",
   "hijosProgreso.asistencia_ausente": "Forestis",
-  "hijosProgreso.asistencia_justificado": "Pravigita foresto"
+  "hijosProgreso.asistencia_justificado": "Pravigita foresto",
+  "perfil.privacidadTitulo": "Privateco kaj datumoj",
+  "perfil.privacidadAyuda": "Vi povas elŝuti kopion de viaj datumoj aŭ forigi vian konton.",
+  "perfil.privacidadDescargar": "Elŝuti miajn datumojn",
+  "perfil.privacidadBaja": "Forigi mian konton",
+  "perfil.privacidadBajaAviso": "La konto malaktiviĝas kaj via nomo, uzantnomo kaj retpoŝto foriĝas. Notoj kaj ĉeesto restas ĉe la lernejo sen identigaj datumoj. Ne malfareblas. Tajpu vian pasvorton kaj la vorton BAJA.",
+  "perfil.privacidadConfirmarBaja": "Konfirmi forigon",
+  "perfil.privacidadErrorDescarga": "Ne eblis elŝuti la datumojn.",
+  "perfil.privacidadErrorBaja": "Ne eblis forigi la konton.",
+  "avisoPrivacidad.texto": "Ni ĝisdatigis la privatecan politikon: nun vi povas elŝuti viajn datumojn kaj forigi vian konton el via profilo.",
+  "avisoPrivacidad.ver": "Legi la politikon",
+  "avisoPrivacidad.entendido": "Komprenite"
 }

@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "حاضر",
   "hijosProgreso.asistencia_tarde": "متأخر",
   "hijosProgreso.asistencia_ausente": "غائب",
-  "hijosProgreso.asistencia_justificado": "غياب بعذر"
+  "hijosProgreso.asistencia_justificado": "غياب بعذر",
+  "perfil.privacidadTitulo": "الخصوصية والبيانات",
+  "perfil.privacidadAyuda": "يمكنك تنزيل نسخة من بياناتك أو حذف حسابك.",
+  "perfil.privacidadDescargar": "تنزيل بياناتي",
+  "perfil.privacidadBaja": "حذف حسابي",
+  "perfil.privacidadBajaAviso": "يُعطَّل الحساب وتُمحى اسمك واسم المستخدم والبريد. تبقى الدرجات والحضور لدى المدرسة دون بيانات تعريفية. لا يمكن التراجع. أدخل كلمة المرور وكلمة BAJA.",
+  "perfil.privacidadConfirmarBaja": "تأكيد الحذف",
+  "perfil.privacidadErrorDescarga": "تعذر تنزيل البيانات.",
+  "perfil.privacidadErrorBaja": "تعذر حذف الحساب.",
+  "avisoPrivacidad.texto": "حدّثنا سياسة الخصوصية: يمكنك الآن تنزيل بياناتك وحذف حسابك من ملفك الشخصي.",
+  "avisoPrivacidad.ver": "عرض السياسة",
+  "avisoPrivacidad.entendido": "فهمت"
 }

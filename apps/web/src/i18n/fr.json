@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Présent",
   "hijosProgreso.asistencia_tarde": "En retard",
   "hijosProgreso.asistencia_ausente": "Absent",
-  "hijosProgreso.asistencia_justificado": "Absence justifiée"
+  "hijosProgreso.asistencia_justificado": "Absence justifiée",
+  "perfil.privacidadTitulo": "Confidentialité et données",
+  "perfil.privacidadAyuda": "Vous pouvez télécharger une copie de vos données ou supprimer votre compte.",
+  "perfil.privacidadDescargar": "Télécharger mes données",
+  "perfil.privacidadBaja": "Supprimer mon compte",
+  "perfil.privacidadBajaAviso": "Le compte est désactivé et vos nom, identifiant et e-mail sont effacés. Notes et présences restent à l'école sans données identifiantes. Irréversible. Saisissez votre mot de passe et le mot BAJA.",
+  "perfil.privacidadConfirmarBaja": "Confirmer la suppression",
+  "perfil.privacidadErrorDescarga": "Impossible de télécharger les données.",
+  "perfil.privacidadErrorBaja": "Impossible de supprimer le compte.",
+  "avisoPrivacidad.texto": "Nous avons mis à jour la politique de confidentialité : vous pouvez désormais télécharger vos données et supprimer votre compte depuis votre profil.",
+  "avisoPrivacidad.ver": "Lire la politique",
+  "avisoPrivacidad.entendido": "Compris"
 }

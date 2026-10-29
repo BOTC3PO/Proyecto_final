@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Presente",
   "hijosProgreso.asistencia_tarde": "In ritardo",
   "hijosProgreso.asistencia_ausente": "Assente",
-  "hijosProgreso.asistencia_justificado": "Assenza giustificata"
+  "hijosProgreso.asistencia_justificado": "Assenza giustificata",
+  "perfil.privacidadTitulo": "Privacy e dati",
+  "perfil.privacidadAyuda": "Puoi scaricare una copia dei tuoi dati o eliminare l'account.",
+  "perfil.privacidadDescargar": "Scarica i miei dati",
+  "perfil.privacidadBaja": "Elimina il mio account",
+  "perfil.privacidadBajaAviso": "L'account viene disattivato e nome, utente ed email vengono cancellati. Voti e presenze restano alla scuola senza dati identificativi. Irreversibile. Inserisci la password e la parola BAJA.",
+  "perfil.privacidadConfirmarBaja": "Conferma eliminazione",
+  "perfil.privacidadErrorDescarga": "Impossibile scaricare i dati.",
+  "perfil.privacidadErrorBaja": "Impossibile eliminare l'account.",
+  "avisoPrivacidad.texto": "Abbiamo aggiornato l'informativa privacy: ora puoi scaricare i tuoi dati ed eliminare l'account dal profilo.",
+  "avisoPrivacidad.ver": "Leggi l'informativa",
+  "avisoPrivacidad.entendido": "Ho capito"
 }

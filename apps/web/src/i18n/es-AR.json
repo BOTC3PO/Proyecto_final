@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Presente",
   "hijosProgreso.asistencia_tarde": "Llegó tarde",
   "hijosProgreso.asistencia_ausente": "Ausente",
-  "hijosProgreso.asistencia_justificado": "Falta justificada"
+  "hijosProgreso.asistencia_justificado": "Falta justificada",
+  "perfil.privacidadTitulo": "Privacidad y datos",
+  "perfil.privacidadAyuda": "Podés descargar una copia de tus datos o dar de baja tu cuenta (Ley 25.326).",
+  "perfil.privacidadDescargar": "Descargar mis datos",
+  "perfil.privacidadBaja": "Dar de baja mi cuenta",
+  "perfil.privacidadBajaAviso": "La cuenta se desactiva y se borran tu nombre, usuario y correo. Tus notas y asistencia quedan para la escuela, sin datos que te identifiquen. No se puede deshacer. Escribí tu contraseña y la palabra BAJA.",
+  "perfil.privacidadConfirmarBaja": "Confirmar la baja",
+  "perfil.privacidadErrorDescarga": "No se pudieron descargar los datos.",
+  "perfil.privacidadErrorBaja": "No se pudo dar de baja la cuenta.",
+  "avisoPrivacidad.texto": "Actualizamos la política de privacidad: ahora podés descargar tus datos y dar de baja tu cuenta desde tu perfil.",
+  "avisoPrivacidad.ver": "Ver la política",
+  "avisoPrivacidad.entendido": "Entendido"
 }

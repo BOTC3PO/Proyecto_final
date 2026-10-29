@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "उपस्थित",
   "hijosProgreso.asistencia_tarde": "देर से",
   "hijosProgreso.asistencia_ausente": "अनुपस्थित",
-  "hijosProgreso.asistencia_justificado": "उचित कारण से अनुपस्थित"
+  "hijosProgreso.asistencia_justificado": "उचित कारण से अनुपस्थित",
+  "perfil.privacidadTitulo": "गोपनीयता और डेटा",
+  "perfil.privacidadAyuda": "आप अपने डेटा की प्रति डाउनलोड कर सकते हैं या खाता हटा सकते हैं।",
+  "perfil.privacidadDescargar": "मेरा डेटा डाउनलोड करें",
+  "perfil.privacidadBaja": "मेरा खाता हटाएँ",
+  "perfil.privacidadBajaAviso": "खाता बंद हो जाएगा और आपका नाम, यूज़रनेम और ईमेल मिटा दिए जाएँगे। अंक और उपस्थिति पहचान के बिना स्कूल के पास रहेंगे। इसे वापस नहीं किया जा सकता। पासवर्ड और BAJA शब्द लिखें।",
+  "perfil.privacidadConfirmarBaja": "हटाने की पुष्टि करें",
+  "perfil.privacidadErrorDescarga": "डेटा डाउनलोड नहीं हो सका।",
+  "perfil.privacidadErrorBaja": "खाता हटाया नहीं जा सका।",
+  "avisoPrivacidad.texto": "हमने गोपनीयता नीति अपडेट की है: अब आप अपनी प्रोफ़ाइल से डेटा डाउनलोड और खाता हटा सकते हैं।",
+  "avisoPrivacidad.ver": "नीति देखें",
+  "avisoPrivacidad.entendido": "समझ गया"
 }

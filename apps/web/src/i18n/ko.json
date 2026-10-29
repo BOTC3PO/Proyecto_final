@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "출석",
   "hijosProgreso.asistencia_tarde": "지각",
   "hijosProgreso.asistencia_ausente": "결석",
-  "hijosProgreso.asistencia_justificado": "인정 결석"
+  "hijosProgreso.asistencia_justificado": "인정 결석",
+  "perfil.privacidadTitulo": "개인정보와 데이터",
+  "perfil.privacidadAyuda": "데이터 사본을 내려받거나 계정을 삭제할 수 있습니다.",
+  "perfil.privacidadDescargar": "내 데이터 내려받기",
+  "perfil.privacidadBaja": "계정 삭제",
+  "perfil.privacidadBajaAviso": "계정이 비활성화되고 이름, 사용자명, 이메일이 삭제됩니다. 성적과 출석은 식별 정보 없이 학교에 남습니다. 되돌릴 수 없습니다. 비밀번호와 BAJA를 입력하세요.",
+  "perfil.privacidadConfirmarBaja": "삭제 확인",
+  "perfil.privacidadErrorDescarga": "데이터를 내려받지 못했습니다.",
+  "perfil.privacidadErrorBaja": "계정을 삭제하지 못했습니다.",
+  "avisoPrivacidad.texto": "개인정보 처리방침을 업데이트했습니다. 이제 프로필에서 데이터를 내려받고 계정을 삭제할 수 있습니다.",
+  "avisoPrivacidad.ver": "방침 보기",
+  "avisoPrivacidad.entendido": "확인"
 }

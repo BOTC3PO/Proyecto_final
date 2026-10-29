@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "出席",
   "hijosProgreso.asistencia_tarde": "遅刻",
   "hijosProgreso.asistencia_ausente": "欠席",
-  "hijosProgreso.asistencia_justificado": "公欠"
+  "hijosProgreso.asistencia_justificado": "公欠",
+  "perfil.privacidadTitulo": "プライバシーとデータ",
+  "perfil.privacidadAyuda": "データのコピーをダウンロードしたり、アカウントを削除したりできます。",
+  "perfil.privacidadDescargar": "データをダウンロード",
+  "perfil.privacidadBaja": "アカウントを削除",
+  "perfil.privacidadBajaAviso": "アカウントは無効になり、名前・ユーザー名・メールは消去されます。成績と出欠は個人を特定できない形で学校に残ります。元に戻せません。パスワードと BAJA と入力してください。",
+  "perfil.privacidadConfirmarBaja": "削除を確定",
+  "perfil.privacidadErrorDescarga": "データをダウンロードできませんでした。",
+  "perfil.privacidadErrorBaja": "アカウントを削除できませんでした。",
+  "avisoPrivacidad.texto": "プライバシーポリシーを更新しました。プロフィールからデータのダウンロードとアカウント削除ができます。",
+  "avisoPrivacidad.ver": "ポリシーを見る",
+  "avisoPrivacidad.entendido": "了解"
 }

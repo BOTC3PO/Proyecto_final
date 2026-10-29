@@ -1,10 +1,8 @@
 import { useState } from "react";
+import { POLITICA_PRIVACIDAD_FECHA } from "../legal/politicaPrivacidad";
 import { useI18n } from "../i18n/I18nContext";
 
-const ULTIMA_ACTUALIZACION: Record<"es" | "en", string> = {
-  es: "16 de julio de 2026",
-  en: "July 16, 2026",
-};
+const ULTIMA_ACTUALIZACION: Record<"es" | "en", string> = POLITICA_PRIVACIDAD_FECHA;
 
 const NOTA_IDIOMA: Record<"es" | "en", string> = {
   es: "Este documento rige en su versión en español; la versión en inglés se ofrece como cortesía. Ante cualquier discrepancia, prevalece el español.",
@@ -58,20 +56,21 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "7. Conservación de tus datos",
       parrafos: [
-        "Conservamos los datos de tu cuenta, tu progreso académico y tus mensajes mientras la cuenta permanezca activa y vinculada a una escuela. Si dejás de usar la Plataforma o tu escuela da de baja tu cuenta, los datos quedan resguardados como parte del registro académico hasta que se solicite su eliminación conforme a la Sección 8.",
+        "Conservamos los datos de tu cuenta y tu progreso académico mientras la cuenta permanezca activa y vinculada a una escuela. Los mensajes se borran automáticamente a los 8 años.",
+        "Si das de baja tu cuenta, se borran tu nombre, tu usuario y tu correo. Las notas, la asistencia y las cuotas quedan para la escuela como registro académico y contable, sin datos que te identifiquen.",
       ],
     },
     {
       titulo: "8. Tus derechos sobre tus datos",
       parrafos: [
-        "Tenés derecho a acceder, rectificar y solicitar la eliminación de tus datos personales (Ley 25.326). Podés ejercerlo escribiéndonos desde la sección de Contacto de la Plataforma o a través de tu escuela; lo procesamos manualmente en un plazo razonable, ya que hoy no existe un botón de autoservicio para dar de baja una cuenta.",
+        "Tenés derecho a acceder, rectificar y solicitar la eliminación de tus datos personales (Ley 25.326, arts. 14 a 16). Desde tu perfil, en «Privacidad y datos», podés descargar una copia de tus datos en un archivo JSON y dar de baja tu cuenta. Para rectificar un dato o para cualquier otro pedido, escribinos desde la sección de Contacto o a través de tu escuela: respondemos dentro de los plazos de la ley (10 días corridos para el acceso y 5 días hábiles para la rectificación o supresión).",
         "La Agencia de Acceso a la Información Pública (AAIP), como autoridad de control, tiene la atribución de recibir denuncias y reclamos vinculados al incumplimiento de la ley de protección de datos personales.",
       ],
     },
     {
       titulo: "9. Cambios a esta política",
       parrafos: [
-        "Podemos actualizar esta Política de Privacidad para reflejar cambios en la Plataforma o en la normativa aplicable. Publicaremos la versión vigente en esta misma página junto con su fecha de actualización.",
+        "Podemos actualizar esta Política de Privacidad para reflejar cambios en la Plataforma o en la normativa aplicable. Publicaremos la versión vigente en esta misma página junto con su fecha de actualización, y cuando cambie te lo avisaremos dentro de la Plataforma la próxima vez que ingreses.",
       ],
     },
   ],
@@ -119,20 +118,21 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "7. Data Retention",
       parrafos: [
-        "We keep your account data, your academic progress, and your messages for as long as the account remains active and linked to a school. If you stop using the Platform or your school deactivates your account, the data remains on record as part of the academic record until its deletion is requested under Section 8.",
+        "We keep your account data and academic progress for as long as the account remains active and linked to a school. Messages are deleted automatically after 8 years.",
+        "If you delete your account, your name, username and email are erased. Grades, attendance and fees stay with the school as academic and accounting records, without data that identifies you.",
       ],
     },
     {
       titulo: "8. Your Rights Over Your Data",
       parrafos: [
-        "You have the right to access, correct, and request the deletion of your personal data (Law 25,326). You can exercise this right by writing to us through the Platform's Contact section or through your school; we process it manually within a reasonable timeframe, since there is currently no self-service button to delete an account.",
+        "You have the right to access, correct, and request the deletion of your personal data (Law 25,326, sections 14 to 16). From your profile, under \"Privacy and data\", you can download a copy of your data as a JSON file and delete your account. To correct data or for any other request, write to us through the Contact section or through your school: we answer within the legal deadlines (10 calendar days for access and 5 business days for correction or deletion).",
         "Argentina's Agency for Access to Public Information (AAIP), as the enforcement authority, is empowered to receive complaints and claims related to breaches of the personal data protection law.",
       ],
     },
     {
       titulo: "9. Changes to This Policy",
       parrafos: [
-        "We may update this Privacy Policy to reflect changes to the Platform or to applicable regulations. We will publish the current version on this same page along with its update date.",
+        "We may update this Privacy Policy to reflect changes to the Platform or to applicable regulations. We will publish the current version on this same page along with its update date, and when it changes we will let you know inside the Platform the next time you sign in.",
       ],
     },
   ],

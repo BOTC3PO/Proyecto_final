@@ -6,6 +6,7 @@ import { NAV_BY_ROLE } from '../nav/navConfig';
 import { OfflineIndicator } from '../components/OfflineIndicator';
 import { useI18n } from '../i18n/I18nContext';
 import StaffSidebar from './StaffSidebar';
+import AvisoPoliticaPrivacidad from '../components/AvisoPoliticaPrivacidad';
 
 const ROLE_LABEL_KEY: Record<string, string> = {
   TEACHER: 'perfil.docente',
@@ -92,6 +93,7 @@ export default function StaffLayout() {
       <StaffSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         <Topbar sidebarOpen={sidebarOpen} onOpenSidebar={() => setSidebarOpen(true)} />
+        <AvisoPoliticaPrivacidad />
         <main className="flex-grow overflow-y-auto">
           <Outlet />
         </main>

@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Anwesend",
   "hijosProgreso.asistencia_tarde": "Verspätet",
   "hijosProgreso.asistencia_ausente": "Abwesend",
-  "hijosProgreso.asistencia_justificado": "Entschuldigt"
+  "hijosProgreso.asistencia_justificado": "Entschuldigt",
+  "perfil.privacidadTitulo": "Datenschutz und Daten",
+  "perfil.privacidadAyuda": "Sie können eine Kopie Ihrer Daten herunterladen oder Ihr Konto löschen.",
+  "perfil.privacidadDescargar": "Meine Daten herunterladen",
+  "perfil.privacidadBaja": "Mein Konto löschen",
+  "perfil.privacidadBajaAviso": "Das Konto wird deaktiviert, Name, Benutzername und E-Mail werden gelöscht. Noten und Anwesenheit bleiben ohne identifizierende Daten bei der Schule. Nicht umkehrbar. Passwort und das Wort BAJA eingeben.",
+  "perfil.privacidadConfirmarBaja": "Löschung bestätigen",
+  "perfil.privacidadErrorDescarga": "Daten konnten nicht heruntergeladen werden.",
+  "perfil.privacidadErrorBaja": "Konto konnte nicht gelöscht werden.",
+  "avisoPrivacidad.texto": "Wir haben die Datenschutzerklärung aktualisiert: Sie können Ihre Daten jetzt im Profil herunterladen und Ihr Konto löschen.",
+  "avisoPrivacidad.ver": "Erklärung lesen",
+  "avisoPrivacidad.entendido": "Verstanden"
 }

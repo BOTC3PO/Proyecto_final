@@ -4,7 +4,7 @@ import { solicitarCambioRol } from "../services/roles";
 import { crearCuentaAlumnoPadre } from "../services/padres";
 import { crearCuentaAlumnoStaff } from "../services/cuenta-alumno-staff";
 import { useAuth } from "../auth/use-auth";
-import { apiGet } from "../lib/api";
+import { apiGet, apiPost } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import { useI18n } from "../i18n/I18nContext";
 import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
@@ -348,6 +348,8 @@ export default function Perfil() {
                     )}
                   </div>
                 )}
+
+                <PrivacidadCard />
               </div>
             )}
 
@@ -521,6 +523,78 @@ export default function Perfil() {
 // alumno en el registro: la crea acá on-demand si quiere estudiar.
 // Una vez creada, "Entrar como alumno" dispara el switch (mismo
 // mecanismo que el staff) y aterriza en el panel de alumno.
+/** L14 — derechos del titular: descargar los propios datos y dar de baja la cuenta. */
+function PrivacidadCard() {
+  const { t } = useI18n();
+  const { logout } = useAuth();
+  const [abierta, setAbierta] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirmacion, setConfirmacion] = useState("");
+  const [msg, setMsg] = useState<string | null>(null);
+  const [trabajando, setTrabajando] = useState(false);
+
+  const descargar = async () => {
+    setMsg(null);
+    try {
+      const datos = await apiGet<unknown>("/api/mis-datos");
+      const url = URL.createObjectURL(new Blob([JSON.stringify(datos, null, 2)], { type: "application/json" }));
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `virtualbook-mis-datos-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      setMsg(t("perfil.privacidadErrorDescarga"));
+    }
+  };
+
+  const darDeBaja = async () => {
+    setTrabajando(true);
+    setMsg(null);
+    try {
+      await apiPost("/api/mis-datos/baja", { password, confirmacion });
+      logout();
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : t("perfil.privacidadErrorBaja"));
+    } finally {
+      setTrabajando(false);
+    }
+  };
+
+  return (
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
+      <p className="text-sm font-medium text-[var(--c-text)]">{t("perfil.privacidadTitulo")}</p>
+      <p className="text-xs text-[var(--c-muted)]">{t("perfil.privacidadAyuda")}</p>
+      <div className="flex flex-wrap gap-2">
+        <button type="button" onClick={() => void descargar()}
+          className="rounded-lg border border-[var(--c-border-strong)] px-3 py-1.5 text-xs font-semibold text-[var(--c-text)] hover:bg-[var(--c-hover)]">
+          {t("perfil.privacidadDescargar")}
+        </button>
+        <button type="button" onClick={() => setAbierta((v) => !v)}
+          className="rounded-lg border border-[var(--c-danger)] px-3 py-1.5 text-xs font-semibold text-[var(--c-danger)] hover:bg-[var(--c-danger-soft)]">
+          {t("perfil.privacidadBaja")}
+        </button>
+      </div>
+      {abierta && (
+        <div className="space-y-2 rounded-lg border border-[var(--c-danger)] p-3">
+          <p className="text-xs text-[var(--c-text)]">{t("perfil.privacidadBajaAviso")}</p>
+          <input type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)}
+            placeholder={t("auth.contrasena")}
+            className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-1.5 text-sm text-[var(--c-text)]" />
+          <input value={confirmacion} onChange={(e) => setConfirmacion(e.target.value)} placeholder="BAJA"
+            className="w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-1.5 text-sm text-[var(--c-text)]" />
+          <button type="button" disabled={trabajando || !password || confirmacion.trim().toUpperCase() !== "BAJA"}
+            onClick={() => void darDeBaja()}
+            className="rounded-lg bg-[var(--c-danger)] px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50">
+            {t("perfil.privacidadConfirmarBaja")}
+          </button>
+        </div>
+      )}
+      {msg && <p role="alert" className="text-xs text-[var(--c-danger)]">{msg}</p>}
+    </div>
+  );
+}
+
 function MiCuentaAlumnoCard({ tieneEspejo }: { tieneEspejo: boolean }) {
   const { t } = useI18n();
   const { user, cambiarEscuela } = useAuth();

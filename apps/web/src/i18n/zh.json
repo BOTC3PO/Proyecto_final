@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "出勤",
   "hijosProgreso.asistencia_tarde": "迟到",
   "hijosProgreso.asistencia_ausente": "缺勤",
-  "hijosProgreso.asistencia_justificado": "请假"
+  "hijosProgreso.asistencia_justificado": "请假",
+  "perfil.privacidadTitulo": "隐私与数据",
+  "perfil.privacidadAyuda": "你可以下载数据副本或注销账户。",
+  "perfil.privacidadDescargar": "下载我的数据",
+  "perfil.privacidadBaja": "注销我的账户",
+  "perfil.privacidadBajaAviso": "账户将被停用，姓名、用户名和邮箱将被删除。成绩和考勤以不可识别的方式保留在学校。此操作不可撤销。请输入密码和 BAJA。",
+  "perfil.privacidadConfirmarBaja": "确认注销",
+  "perfil.privacidadErrorDescarga": "无法下载数据。",
+  "perfil.privacidadErrorBaja": "无法注销账户。",
+  "avisoPrivacidad.texto": "我们更新了隐私政策：现在可以在个人资料中下载数据和注销账户。",
+  "avisoPrivacidad.ver": "查看政策",
+  "avisoPrivacidad.entendido": "知道了"
 }

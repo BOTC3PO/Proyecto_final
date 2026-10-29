@@ -4394,5 +4394,16 @@
   "hijosProgreso.asistencia_presente": "Presente",
   "hijosProgreso.asistencia_tarde": "Atrasado",
   "hijosProgreso.asistencia_ausente": "Ausente",
-  "hijosProgreso.asistencia_justificado": "Falta justificada"
+  "hijosProgreso.asistencia_justificado": "Falta justificada",
+  "perfil.privacidadTitulo": "Privacidade e dados",
+  "perfil.privacidadAyuda": "Você pode baixar uma cópia dos seus dados ou excluir sua conta.",
+  "perfil.privacidadDescargar": "Baixar meus dados",
+  "perfil.privacidadBaja": "Excluir minha conta",
+  "perfil.privacidadBajaAviso": "A conta é desativada e seu nome, usuário e e-mail são apagados. Notas e frequência ficam com a escola, sem dados que identifiquem você. Não pode ser desfeito. Digite sua senha e a palavra BAJA.",
+  "perfil.privacidadConfirmarBaja": "Confirmar exclusão",
+  "perfil.privacidadErrorDescarga": "Não foi possível baixar os dados.",
+  "perfil.privacidadErrorBaja": "Não foi possível excluir a conta.",
+  "avisoPrivacidad.texto": "Atualizamos a política de privacidade: agora você pode baixar seus dados e excluir sua conta pelo perfil.",
+  "avisoPrivacidad.ver": "Ver a política",
+  "avisoPrivacidad.entendido": "Entendi"
 }

@@ -998,6 +998,9 @@ export class InMemoryPrisma {
   economiaConfig = new Table<Row>("economiaConfig");
   comisionConfig = new Table<Row>("comisionConfig");
   passwordResetToken = new Table<Row>("passwordResetToken");
+  saldoUsuario = new Table<Row>("saldoUsuario");
+  ledgerMovimiento = new Table<Row>("ledgerMovimiento");
+  pushToken = new Table<Row>("pushToken");
   economiaModulo = new Table<Row>("economiaModulo");
   economiaExamen = new Table<Row>("economiaExamen");
   economiaExamenPuja = new Table<Row>("economiaExamenPuja");
