@@ -493,6 +493,15 @@ model PasswordResetToken {
   @@map("password_reset_tokens")
 }
 
+// Documento 17 — módulos que cada persona marca como favoritos.
+model ModuloFavorito {
+  usuarioId String @map("usuario_id")
+  moduloId  String @map("modulo_id")
+  createdAt String @map("created_at")
+  @@id([usuarioId, moduloId])
+  @@map("modulos_favoritos")
+}
+
 // Parámetros de la comisión escalonada (lib/comisiones.ts). Una sola fila; la edita el administrador.
 model ComisionConfig {
   id        String @id @default("default")

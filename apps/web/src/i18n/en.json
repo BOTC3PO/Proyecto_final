@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "The operation could not be completed.",
   "aula.fijada": "Pinned",
   "aula.fijar": "Pin",
-  "aula.desfijar": "Unpin"
+  "aula.desfijar": "Unpin",
+  "modulosList.favoritos": "Favorites",
+  "modulosList.marcarFavorito": "Add to favorites",
+  "modulosList.quitarFavorito": "Remove from favorites"
 }

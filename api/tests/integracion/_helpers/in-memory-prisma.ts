@@ -1018,6 +1018,7 @@ export class InMemoryPrisma {
   pushToken = new Table<Row>("pushToken");
   tareaAula = new Table<Row>("tareaAula");
   entregaTarea = new Table<Row>("entregaTarea");
+  moduloFavorito = new Table<Row>("moduloFavorito");
   economiaModulo = new Table<Row>("economiaModulo");
   economiaExamen = new Table<Row>("economiaExamen");
   economiaExamenPuja = new Table<Row>("economiaExamenPuja");

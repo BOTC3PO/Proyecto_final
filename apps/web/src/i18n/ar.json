@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "تعذر إكمال العملية.",
   "aula.fijada": "مثبّتة",
   "aula.fijar": "تثبيت",
-  "aula.desfijar": "إلغاء التثبيت"
+  "aula.desfijar": "إلغاء التثبيت",
+  "modulosList.favoritos": "المفضلة",
+  "modulosList.marcarFavorito": "إضافة إلى المفضلة",
+  "modulosList.quitarFavorito": "إزالة من المفضلة"
 }

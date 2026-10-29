@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "Ne eblis plenumi la operacion.",
   "aula.fijada": "Fiksita",
   "aula.fijar": "Fiksi",
-  "aula.desfijar": "Malfiksi"
+  "aula.desfijar": "Malfiksi",
+  "modulosList.favoritos": "Favoratoj",
+  "modulosList.marcarFavorito": "Aldoni al favoratoj",
+  "modulosList.quitarFavorito": "Forigi el favoratoj"
 }

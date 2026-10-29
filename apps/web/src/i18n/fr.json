@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "L'opération n'a pas pu aboutir.",
   "aula.fijada": "Épinglée",
   "aula.fijar": "Épingler",
-  "aula.desfijar": "Désépingler"
+  "aula.desfijar": "Désépingler",
+  "modulosList.favoritos": "Favoris",
+  "modulosList.marcarFavorito": "Ajouter aux favoris",
+  "modulosList.quitarFavorito": "Retirer des favoris"
 }

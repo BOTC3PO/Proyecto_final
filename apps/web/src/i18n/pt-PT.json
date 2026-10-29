@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "Não foi possível concluir a operação.",
   "aula.fijada": "Fixada",
   "aula.fijar": "Fixar",
-  "aula.desfijar": "Desafixar"
+  "aula.desfijar": "Desafixar",
+  "modulosList.favoritos": "Favoritos",
+  "modulosList.marcarFavorito": "Marcar como favorito",
+  "modulosList.quitarFavorito": "Remover dos favoritos"
 }

@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "Не удалось выполнить операцию.",
   "aula.fijada": "Закреплено",
   "aula.fijar": "Закрепить",
-  "aula.desfijar": "Открепить"
+  "aula.desfijar": "Открепить",
+  "modulosList.favoritos": "Избранное",
+  "modulosList.marcarFavorito": "В избранное",
+  "modulosList.quitarFavorito": "Убрать из избранного"
 }

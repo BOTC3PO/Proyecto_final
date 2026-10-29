@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "작업을 완료하지 못했습니다.",
   "aula.fijada": "고정됨",
   "aula.fijar": "고정",
-  "aula.desfijar": "고정 해제"
+  "aula.desfijar": "고정 해제",
+  "modulosList.favoritos": "즐겨찾기",
+  "modulosList.marcarFavorito": "즐겨찾기에 추가",
+  "modulosList.quitarFavorito": "즐겨찾기에서 제거"
 }

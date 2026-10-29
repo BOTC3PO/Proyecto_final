@@ -139,6 +139,7 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.pushToken.rows = [];
   prisma.tareaAula.rows = [];
   prisma.entregaTarea.rows = [];
+  prisma.moduloFavorito.rows = [];
   // FIX-MENSAJERIA-ESCUELA-EFECTIVA — hilos 1:1 y avisos.
   prisma.hilo.rows = [];
   prisma.mensajeDirecto.rows = [];

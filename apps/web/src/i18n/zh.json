@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "操作未能完成。",
   "aula.fijada": "已置顶",
   "aula.fijar": "置顶",
-  "aula.desfijar": "取消置顶"
+  "aula.desfijar": "取消置顶",
+  "modulosList.favoritos": "收藏",
+  "modulosList.marcarFavorito": "加入收藏",
+  "modulosList.quitarFavorito": "取消收藏"
 }

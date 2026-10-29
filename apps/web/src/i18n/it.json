@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "Impossibile completare l'operazione.",
   "aula.fijada": "Fissata",
   "aula.fijar": "Fissa",
-  "aula.desfijar": "Rimuovi"
+  "aula.desfijar": "Rimuovi",
+  "modulosList.favoritos": "Preferiti",
+  "modulosList.marcarFavorito": "Aggiungi ai preferiti",
+  "modulosList.quitarFavorito": "Rimuovi dai preferiti"
 }

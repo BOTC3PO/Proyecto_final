@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "操作を完了できませんでした。",
   "aula.fijada": "固定",
   "aula.fijar": "固定する",
-  "aula.desfijar": "固定解除"
+  "aula.desfijar": "固定解除",
+  "modulosList.favoritos": "お気に入り",
+  "modulosList.marcarFavorito": "お気に入りに追加",
+  "modulosList.quitarFavorito": "お気に入りから削除"
 }

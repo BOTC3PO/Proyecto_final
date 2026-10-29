@@ -4458,5 +4458,8 @@
   "perfil.dosPasosError": "Der Vorgang konnte nicht abgeschlossen werden.",
   "aula.fijada": "Angeheftet",
   "aula.fijar": "Anheften",
-  "aula.desfijar": "Lösen"
+  "aula.desfijar": "Lösen",
+  "modulosList.favoritos": "Favoriten",
+  "modulosList.marcarFavorito": "Zu Favoriten hinzufügen",
+  "modulosList.quitarFavorito": "Aus Favoriten entfernen"
 }
