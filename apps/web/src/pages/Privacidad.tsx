@@ -56,7 +56,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "7. Conservación de tus datos",
       parrafos: [
-        "Conservamos los datos de tu cuenta y tu progreso académico mientras la cuenta permanezca activa y vinculada a una escuela. Los mensajes se borran automáticamente a los 8 años. Los datos técnicos de las sesiones y los enlaces de recuperación de contraseña se borran a los 30 días, y si tu escuela da de baja tu cuenta, tus datos personales se anonimizan a los 30 días.",
+        "Conservamos los datos de tu cuenta y tu progreso académico mientras la cuenta permanezca activa y vinculada a una escuela. Los mensajes se borran automáticamente a los 8 años. Los datos técnicos de las sesiones y los enlaces de recuperación de contraseña se borran a los 30 días, y si tu escuela da de baja tu cuenta, tus datos personales se anonimizan a los 30 días. Una cuenta que deja de usarse no se borra: las notas y la asistencia son parte del registro educativo.",
         "Si das de baja tu cuenta, se borran tu nombre, tu usuario y tu correo. Las notas, la asistencia y las cuotas quedan para la escuela como registro académico y contable, sin datos que te identifiquen.",
       ],
     },
@@ -118,7 +118,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "7. Data Retention",
       parrafos: [
-        "We keep your account data and academic progress for as long as the account remains active and linked to a school. Messages are deleted automatically after 8 years. Technical session data and password-recovery links are deleted after 30 days, and if your school deletes your account, your personal data is anonymized after 30 days.",
+        "We keep your account data and academic progress for as long as the account remains active and linked to a school. Messages are deleted automatically after 8 years. Technical session data and password-recovery links are deleted after 30 days, and if your school deletes your account, your personal data is anonymized after 30 days. An account that is no longer used is not deleted: grades and attendance are part of the educational record.",
         "If you delete your account, your name, username and email are erased. Grades, attendance and fees stay with the school as academic and accounting records, without data that identifies you.",
       ],
     },

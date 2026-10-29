@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "मासिक",
   "enterpriseCobros.moraAnual": "वार्षिक",
   "enterpriseCobros.moraDiasGracia": "छूट के दिन",
-  "enterpriseCobros.moraTope": "अधिकतम {max} %. सुझाव: 2 % मासिक, महंगाई से थोड़ा ऊपर।",
+  "enterpriseCobros.moraTope": "अधिकतम {max} %: 60 % वार्षिक या वार्षिक महंगाई का दोगुना, जो अधिक हो (नियम व शर्तें)। सुझाव: 2 % मासिक।",
   "enterpriseCobros.aportesAyuda": "अभिभावक संघ और स्वैच्छिक योगदान वैकल्पिक हैं, इन पर ब्याज नहीं लगता और इन्हें नामांकन, रिपोर्ट कार्ड या छात्र की पहुँच की शर्त नहीं बनाया जा सकता।",
   "enterpriseCobros.aportesComision": "योगदान पर प्लेटफ़ॉर्म कमीशन (0 से 1 %)",
   "enterpriseCobros.topeAporteLegal": "क़ानून द्वारा अनुमत अधिकतम राशि (वैकल्पिक)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "पिन हटाएँ",
   "modulosList.favoritos": "पसंदीदा",
   "modulosList.marcarFavorito": "पसंदीदा में जोड़ें",
-  "modulosList.quitarFavorito": "पसंदीदा से हटाएँ"
+  "modulosList.quitarFavorito": "पसंदीदा से हटाएँ",
+  "adminComisiones.pInflacion": "संदर्भ वार्षिक महंगाई (%) — विलंब ब्याज की सीमा तय करती है"
 }

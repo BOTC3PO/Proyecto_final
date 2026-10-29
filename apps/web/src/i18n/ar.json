@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "شهري",
   "enterpriseCobros.moraAnual": "سنوي",
   "enterpriseCobros.moraDiasGracia": "أيام السماح",
-  "enterpriseCobros.moraTope": "الحد الأقصى {max} %. المقترح: 2 % شهريًا، أعلى قليلًا من التضخم.",
+  "enterpriseCobros.moraTope": "الحد الأقصى {max} %: ‏60 % سنويًا أو ضعف التضخم السنوي، أيهما أعلى (الشروط والأحكام). المقترح: 2 % شهريًا.",
   "enterpriseCobros.aportesAyuda": "جمعية أولياء الأمور والمساهمات الطوعية اختيارية، ولا تترتب عليها فوائد، ولا يجوز ربط التسجيل أو الشهادة أو وصول الطالب بها.",
   "enterpriseCobros.aportesComision": "عمولة المنصة على المساهمات (0 إلى 1 %)",
   "enterpriseCobros.topeAporteLegal": "الحد الأقصى المسموح به قانونًا (اختياري)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "إلغاء التثبيت",
   "modulosList.favoritos": "المفضلة",
   "modulosList.marcarFavorito": "إضافة إلى المفضلة",
-  "modulosList.quitarFavorito": "إزالة من المفضلة"
+  "modulosList.quitarFavorito": "إزالة من المفضلة",
+  "adminComisiones.pInflacion": "التضخم السنوي المرجعي (%) — يحدد سقف فوائد التأخير"
 }

@@ -10,7 +10,8 @@
  * - Registro de auditoría: se conserva 10 años (registros contables, Código Civil y Comercial, art. 328).
  *
  * Las notas, la asistencia y las cuotas no se borran: son registro académico y contable de la escuela.
- * Las cuentas inactivas tampoco se borran solas (pendiente de decidir un plazo).
+ * Las cuentas inactivas nunca se borran solas: son el registro educativo del alumno (decisión de Javier,
+ * 2026-10-29).
  */
 import { prisma } from "./prisma";
 import { ENV } from "./env";

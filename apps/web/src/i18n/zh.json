@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "月利率",
   "enterpriseCobros.moraAnual": "年利率",
   "enterpriseCobros.moraDiasGracia": "宽限天数",
-  "enterpriseCobros.moraTope": "最高 {max} %。建议：每月 2 %，略高于通胀。",
+  "enterpriseCobros.moraTope": "最高 {max} %：年 60 % 或年通胀率的 2 倍，取较高者（使用条款）。建议：每月 2 %。",
   "enterpriseCobros.aportesAyuda": "家长协会和自愿捐款均为自愿，不产生利息，也不能作为注册、成绩单或学生访问的条件。",
   "enterpriseCobros.aportesComision": "平台对捐款的佣金（0 至 1 %）",
   "enterpriseCobros.topeAporteLegal": "法律允许的最高金额（可选）",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "取消置顶",
   "modulosList.favoritos": "收藏",
   "modulosList.marcarFavorito": "加入收藏",
-  "modulosList.quitarFavorito": "取消收藏"
+  "modulosList.quitarFavorito": "取消收藏",
+  "adminComisiones.pInflacion": "参考年通胀率（%）— 决定逾期利息上限"
 }

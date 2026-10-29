@@ -15,7 +15,7 @@ import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
 import { confirmarPago } from "../lib/cobros-confirmacion";
 import { enviarPush } from "../lib/push";
 import { CobroCreateSchema, CobroPublicarSchema, ConfigCobrosEscuelaSchema } from "../schema/cobros";
-import { calcularMora, tasaEfectiva, MORA_TASA_MAX, MORA_DIAS_GRACIA_MAX, type ConfigMora } from "../lib/mora";
+import { calcularMora, tasaEfectiva, topesMora, MORA_DIAS_GRACIA_MAX, type ConfigMora } from "../lib/mora";
 import {
   calcularComision,
   cargarParamsComision,
@@ -297,13 +297,14 @@ cobros.get("/api/cuotas/mias", requireUser, async (req, res) => {
     : [];
   const cobroPorId = new Map(cobrosDocs.map((c) => [c.id, c]));
   const moraPorEscuela = await configMoraDe([...new Set(cobrosDocs.map((c) => c.escuelaId))]);
+  const topes = await topesVigentes();
 
   const items = cuotas.map((c) => {
     const cobro = cobroPorId.get(c.cobroId) ?? null;
     const abierta = c.estado === "pendiente" || c.estado === "vencida" || c.estado === "en_proceso";
     const mora =
       cobro && abierta
-        ? calcularMora(c.montoFinal, cobro.vencimiento, moraPorEscuela.get(cobro.escuelaId), { tipo: cobro.tipo })
+        ? calcularMora(c.montoFinal, cobro.vencimiento, moraPorEscuela.get(cobro.escuelaId), { tipo: cobro.tipo, topes })
         : null;
     return {
       ...c,
@@ -352,7 +353,7 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
   if (!cobro) return res.status(404).json({ error: "cobro no encontrado" });
   // El interés se congela acá: lo que se le pide a la familia es la cuota más la mora de hoy.
   const configMora = (await configMoraDe([cobro.escuelaId])).get(cobro.escuelaId);
-  const mora = calcularMora(cuota.montoFinal, cobro.vencimiento, configMora, { tipo: cobro.tipo });
+  const mora = calcularMora(cuota.montoFinal, cobro.vencimiento, configMora, { tipo: cobro.tipo, topes: await topesVigentes() });
   const montoAPagar = mora.montoAPagar;
   const desglose =
     mora.interesMora > 0
@@ -514,6 +515,9 @@ cobros.post("/api/cuotas/:id/confirmar-pago", requireUser, async (req, res) => {
   res.json({ ok: true, ...resultado });
 });
 
+// Topes de la mora según la inflación anual de referencia que carga el administrador.
+const topesVigentes = async () => topesMora((await cargarParamsComision()).inflacionAnualPct);
+
 // Configuración de mora de varias escuelas de una vez (para listar cuotas de distintas escuelas).
 const configMoraDe = async (escuelaIds: string[]): Promise<Map<string, ConfigMora>> => {
   if (escuelaIds.length === 0) return new Map();
@@ -535,8 +539,8 @@ const marcarVencidas = async (ids: string[]) => {
 
 type ConfigCobrosEscuela = ConfigMora & { comisionPctAportes: number; topeAporteLegal: number | null };
 
-const configCobrosRespuesta = (e: ConfigCobrosEscuela) => {
-  const { tasa, periodo } = tasaEfectiva(e);
+const configCobrosRespuesta = (e: ConfigCobrosEscuela, topes: ReturnType<typeof topesMora>) => {
+  const { tasa, periodo } = tasaEfectiva(e, topes);
   return {
     moraActiva: e.moraActiva,
     moraTasa: tasa,
@@ -545,7 +549,7 @@ const configCobrosRespuesta = (e: ConfigCobrosEscuela) => {
     comisionPctAportes: e.comisionPctAportes,
     topeAporteLegal: e.topeAporteLegal,
     limites: {
-      moraTasaMax: MORA_TASA_MAX,
+      moraTasaMax: topes,
       moraDiasGraciaMax: MORA_DIAS_GRACIA_MAX,
       comisionPctAportes: COMISION_PCT_RANGO_APORTES
     }
@@ -559,7 +563,7 @@ cobros.get("/api/escuelas/:escuelaId/config-cobros", requireUser, async (req, re
   if (!puedeGestionarEscuela(user, escuelaId)) return res.status(403).json({ error: "forbidden" });
   const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId } });
   if (!escuela) return res.status(404).json({ error: "escuela no encontrada" });
-  res.json(configCobrosRespuesta(escuela));
+  res.json(configCobrosRespuesta(escuela, await topesVigentes()));
 });
 
 // PUT /api/escuelas/:escuelaId/config-cobros — la dirección fija la mora (tasa mensual o anual, con tope) y
@@ -575,9 +579,10 @@ cobros.put("/api/escuelas/:escuelaId/config-cobros", requireUser, async (req, re
 
   const periodo = parsed.data.moraPeriodo ?? (previo.moraPeriodo === "anual" ? "anual" : "mensual");
   const tasa = parsed.data.moraTasa ?? previo.moraTasa;
-  if (tasa > MORA_TASA_MAX[periodo]) {
+  const topes = await topesVigentes();
+  if (tasa > topes[periodo]) {
     return res.status(422).json({
-      error: `la tasa ${periodo} no puede superar el ${MORA_TASA_MAX[periodo]} %`,
+      error: `la tasa ${periodo} no puede superar el ${topes[periodo]} % (60 % anual o 2 veces la inflación anual, lo que sea mayor)`,
       code: "MORA_TASA_EXCEDIDA"
     });
   }
@@ -602,9 +607,9 @@ cobros.put("/api/escuelas/:escuelaId/config-cobros", requireUser, async (req, re
     action: "escuela.config_cobros_actualizada",
     targetType: "Escuela",
     targetId: escuelaId,
-    metadata: { antes: configCobrosRespuesta(previo), despues: configCobrosRespuesta(actualizado) }
+    metadata: { antes: configCobrosRespuesta(previo, topes), despues: configCobrosRespuesta(actualizado, topes) }
   });
-  res.json(configCobrosRespuesta(actualizado));
+  res.json(configCobrosRespuesta(actualizado, topes));
 });
 
 // POST /api/pasarelas/webhook/:provider — webhook real de cada pasarela

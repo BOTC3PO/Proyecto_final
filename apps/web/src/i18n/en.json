@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Monthly",
   "enterpriseCobros.moraAnual": "Yearly",
   "enterpriseCobros.moraDiasGracia": "Grace days",
-  "enterpriseCobros.moraTope": "Maximum {max} %. Suggested: 2 % monthly, just above inflation.",
+  "enterpriseCobros.moraTope": "Maximum {max} %: 60 % per year or twice annual inflation, whichever is higher (Terms and Conditions). Suggested: 2 % monthly, just above inflation.",
   "enterpriseCobros.aportesAyuda": "Parents' association and voluntary contributions: they are optional, never accrue interest and cannot condition enrolment, report cards or student access.",
   "enterpriseCobros.aportesComision": "Platform commission on contributions (0 to 1 %)",
   "enterpriseCobros.topeAporteLegal": "Maximum amount allowed by law (optional)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Unpin",
   "modulosList.favoritos": "Favorites",
   "modulosList.marcarFavorito": "Add to favorites",
-  "modulosList.quitarFavorito": "Remove from favorites"
+  "modulosList.quitarFavorito": "Remove from favorites",
+  "adminComisiones.pInflacion": "Reference annual inflation (%) — sets the late-interest cap"
 }

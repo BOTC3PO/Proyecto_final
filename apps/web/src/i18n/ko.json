@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "월",
   "enterpriseCobros.moraAnual": "연",
   "enterpriseCobros.moraDiasGracia": "유예 일수",
-  "enterpriseCobros.moraTope": "최대 {max} %. 권장: 월 2 % (물가상승률보다 약간 높음).",
+  "enterpriseCobros.moraTope": "최대 {max} %: 연 60 % 또는 연간 물가상승률의 2배 중 높은 쪽(이용약관). 권장: 월 2 %.",
   "enterpriseCobros.aportesAyuda": "학부모회와 자발적 기부는 선택 사항이며 연체 이자가 없고, 등록·성적표·학생 접근의 조건이 될 수 없습니다.",
   "enterpriseCobros.aportesComision": "기부금 플랫폼 수수료 (0~1 %)",
   "enterpriseCobros.topeAporteLegal": "법정 최대 금액 (선택)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "고정 해제",
   "modulosList.favoritos": "즐겨찾기",
   "modulosList.marcarFavorito": "즐겨찾기에 추가",
-  "modulosList.quitarFavorito": "즐겨찾기에서 제거"
+  "modulosList.quitarFavorito": "즐겨찾기에서 제거",
+  "adminComisiones.pInflacion": "기준 연간 물가상승률(%) — 연체 이자 상한 결정"
 }

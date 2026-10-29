@@ -12,7 +12,7 @@
 import assert from "node:assert/strict";
 import { after, before, beforeEach, test } from "node:test";
 import { prisma, resetPrisma, seedUser, tokenFor, startServer, jsonRequest } from "./_helpers/setup";
-import { calcularMora, MORA_TASA_MAX } from "../../src/lib/mora";
+import { calcularMora, MORA_TASA_MAX, topesMora } from "../../src/lib/mora";
 import { calcularComision, pctEscalonado, normalizarParamsComision } from "../../src/lib/comisiones";
 
 const DIA = 24 * 60 * 60 * 1000;
@@ -54,6 +54,13 @@ test("mora: los días de gracia no se cobran", () => {
 test("mora: una tasa guardada por encima del tope se recorta al tope del período", () => {
   const r = calcularMora(100_000, VENCE, mora({ moraTasa: 20 }), { ahora: despuesDe(30) });
   assert.equal(r.interesMora, 100_000 * (MORA_TASA_MAX.mensual / 100));
+});
+
+test("mora: el tope es 60 % anual o 2 veces la inflación anual, lo que sea mayor", () => {
+  assert.deepEqual(topesMora(24), { anual: 60, mensual: 5 });
+  assert.deepEqual(topesMora(120), { anual: 240, mensual: 20 });
+  const r = calcularMora(100_000, VENCE, mora({ moraTasa: 20 }), { ahora: despuesDe(30), topes: topesMora(120) });
+  assert.equal(r.interesMora, 20_000, "con inflación alta se permite más");
 });
 
 test("mora: cooperadora y aporte solidario vencen pero no generan interés", () => {
@@ -240,4 +247,11 @@ test("cobros: un aporte voluntario no puede superar el tope legal cargado", asyn
   });
   assert.equal(res.status, 422);
   assert.equal((res.body as { code: string }).code, "SUPERA_TOPE_APORTE");
+});
+
+test("config-cobros: con inflación alta cargada por el administrador, el tope sube", async () => {
+  prisma.comisionConfig.rows.push({ id: "default", json: JSON.stringify({ inflacionAnualPct: 120 }), updatedAt: new Date().toISOString() } as never);
+  const r = await configurar({ moraActiva: true, moraTasa: 15, moraPeriodo: "mensual" });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.equal((r.body as { limites: { moraTasaMax: { mensual: number } } }).limites.moraTasaMax.mensual, 20);
 });

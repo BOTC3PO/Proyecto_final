@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Monatlich",
   "enterpriseCobros.moraAnual": "Jährlich",
   "enterpriseCobros.moraDiasGracia": "Karenztage",
-  "enterpriseCobros.moraTope": "Höchstens {max} %. Empfohlen: 2 % monatlich, knapp über der Inflation.",
+  "enterpriseCobros.moraTope": "Höchstens {max} %: 60 % pro Jahr oder das Doppelte der Jahresinflation, je nachdem, was höher ist (AGB). Empfohlen: 2 % monatlich, knapp über der Inflation.",
   "enterpriseCobros.aportesAyuda": "Förderverein und freiwillige Beiträge: freiwillig, ohne Verzugszinsen, und sie dürfen weder Anmeldung noch Zeugnis noch Zugang des Schülers beeinflussen.",
   "enterpriseCobros.aportesComision": "Plattformprovision auf Beiträge (0 bis 1 %)",
   "enterpriseCobros.topeAporteLegal": "Gesetzlich zulässiger Höchstbetrag (optional)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Lösen",
   "modulosList.favoritos": "Favoriten",
   "modulosList.marcarFavorito": "Zu Favoriten hinzufügen",
-  "modulosList.quitarFavorito": "Aus Favoriten entfernen"
+  "modulosList.quitarFavorito": "Aus Favoriten entfernen",
+  "adminComisiones.pInflacion": "Jährliche Referenzinflation (%) — bestimmt die Zinsobergrenze"
 }

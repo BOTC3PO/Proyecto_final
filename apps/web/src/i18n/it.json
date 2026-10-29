@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Mensile",
   "enterpriseCobros.moraAnual": "Annuale",
   "enterpriseCobros.moraDiasGracia": "Giorni di tolleranza",
-  "enterpriseCobros.moraTope": "Massimo {max} %. Consigliato: 2 % mensile, poco sopra l'inflazione.",
+  "enterpriseCobros.moraTope": "Massimo {max} %: 60 % annuo o 2 volte l'inflazione annua, il maggiore (Termini e condizioni). Consigliato: 2 % mensile, poco sopra l'inflazione.",
   "enterpriseCobros.aportesAyuda": "Associazione genitori e contributi volontari: sono facoltativi, non generano interessi e non possono condizionare iscrizione, pagella o accesso dello studente.",
   "enterpriseCobros.aportesComision": "Commissione della piattaforma sui contributi (0–1 %)",
   "enterpriseCobros.topeAporteLegal": "Importo massimo consentito dalla legge (facoltativo)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Rimuovi",
   "modulosList.favoritos": "Preferiti",
   "modulosList.marcarFavorito": "Aggiungi ai preferiti",
-  "modulosList.quitarFavorito": "Rimuovi dai preferiti"
+  "modulosList.quitarFavorito": "Rimuovi dai preferiti",
+  "adminComisiones.pInflacion": "Inflazione annua di riferimento (%) — fissa il tetto degli interessi"
 }

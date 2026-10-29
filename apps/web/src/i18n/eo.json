@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Monata",
   "enterpriseCobros.moraAnual": "Jara",
   "enterpriseCobros.moraDiasGracia": "Indulgaj tagoj",
-  "enterpriseCobros.moraTope": "Maksimume {max} %. Konsilata: 2 % monate, iom super la inflacio.",
+  "enterpriseCobros.moraTope": "Maksimume {max} %: 60 % jare aŭ duoble la jara inflacio, kio estas pli alta (Kondiĉoj). Konsilata: 2 % monate, iom super la inflacio.",
   "enterpriseCobros.aportesAyuda": "Gepatra asocio kaj libervolaj kontribuoj: ili estas nedevigaj, sen interezo, kaj ne povas kondiĉi la enskribon, la raporton aŭ la aliron de la lernanto.",
   "enterpriseCobros.aportesComision": "Komisiono de la platformo pri kontribuoj (0 ĝis 1 %)",
   "enterpriseCobros.topeAporteLegal": "Maksimuma sumo permesata de la leĝo (nedeviga)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Malfiksi",
   "modulosList.favoritos": "Favoratoj",
   "modulosList.marcarFavorito": "Aldoni al favoratoj",
-  "modulosList.quitarFavorito": "Forigi el favoratoj"
+  "modulosList.quitarFavorito": "Forigi el favoratoj",
+  "adminComisiones.pInflacion": "Referenca jara inflacio (%) — fiksas la interezan limon"
 }

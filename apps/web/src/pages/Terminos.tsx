@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useI18n } from "../i18n/I18nContext";
 
 const ULTIMA_ACTUALIZACION: Record<"es" | "en", string> = {
-  es: "16 de julio de 2026",
-  en: "July 16, 2026",
+  es: "29 de octubre de 2026",
+  en: "October 29, 2026",
 };
 
 const NOTA_IDIOMA: Record<"es" | "en", string> = {
@@ -54,6 +54,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
       titulo: "6. Pagos y economía interna",
       parrafos: [
         "Cuando una escuela cobra cuotas o aranceles a las familias a través de la Plataforma, el vínculo de pago es entre la escuela y la familia; el Operador actúa como proveedor tecnológico e intermediario de cobro, procesando los pagos mediante pasarelas de terceros (por ejemplo Mercado Pago o Cryptomus) y reteniendo una comisión de intermediación previamente informada a la escuela. El Operador no es responsable por las políticas de precios, becas o descuentos que cada escuela defina.",
+        "Interés por mora: la escuela puede cobrar un interés por las cuotas pagadas después de su vencimiento, con la tasa (mensual o anual) y los días de gracia que ella fije y que se informan a la familia antes de pagar. Ese interés no puede superar el 60 % anual o 2 veces la inflación anual, lo que sea mayor; la Plataforma no permite configurar una tasa más alta. Las contribuciones a cooperadoras y los aportes solidarios son voluntarios y nunca generan interés.",
         "La tienda de temas visuales de la Plataforma utiliza una moneda interna del propio sistema (no dinero real, no convertible a moneda de curso legal ni a criptomonedas). Los saldos y compras de esa moneda interna no tienen valor de reembolso y no pueden transferirse fuera de la Plataforma.",
       ],
     },
@@ -128,6 +129,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
       titulo: "6. Payments and Internal Economy",
       parrafos: [
         "When a school charges families fees or tuition through the Platform, the payment relationship is between the school and the family; the Operator acts as a technology provider and payment intermediary, processing payments through third-party gateways (for example Mercado Pago or Cryptomus) and retaining an intermediation fee previously disclosed to the school. The Operator is not responsible for the pricing, scholarship, or discount policies each school sets.",
+        "Late-payment interest: a school may charge interest on fees paid after their due date, at the rate (monthly or yearly) and with the grace days it sets, which are shown to the family before paying. That interest may not exceed 60 % per year or twice the annual inflation rate, whichever is higher; the Platform does not allow a higher rate. Contributions to parents' associations (cooperadoras) and voluntary contributions are optional and never accrue interest.",
         "The Platform's visual theme store uses an internal, system-only currency (not real money, not convertible into legal tender or cryptocurrency). Balances and purchases made with this internal currency have no refund value and cannot be transferred outside the Platform.",
       ],
     },

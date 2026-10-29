@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "月利",
   "enterpriseCobros.moraAnual": "年利",
   "enterpriseCobros.moraDiasGracia": "猶予日数",
-  "enterpriseCobros.moraTope": "上限 {max} %。推奨: 月2 %（インフレ率をわずかに上回る）。",
+  "enterpriseCobros.moraTope": "上限 {max} %：年60 %または年間インフレ率の2倍のいずれか高い方（利用規約）。推奨：月2 %。",
   "enterpriseCobros.aportesAyuda": "保護者会と任意寄付は任意で、延滞利息はなく、入学・成績表・生徒のアクセスの条件にはできません。",
   "enterpriseCobros.aportesComision": "寄付に対するプラットフォーム手数料 (0〜1 %)",
   "enterpriseCobros.topeAporteLegal": "法律上の上限額（任意）",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "固定解除",
   "modulosList.favoritos": "お気に入り",
   "modulosList.marcarFavorito": "お気に入りに追加",
-  "modulosList.quitarFavorito": "お気に入りから削除"
+  "modulosList.quitarFavorito": "お気に入りから削除",
+  "adminComisiones.pInflacion": "参照年間インフレ率（%）— 延滞利息の上限を決める"
 }

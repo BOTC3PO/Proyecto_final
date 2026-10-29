@@ -35,8 +35,12 @@ Estado al 2026-10-28. Reemplaza al viejo «comision-roadmap-v2.md»: el split co
 
 - Lo configura la dirección de cada escuela (`GET/PUT /api/escuelas/:id/config-cobros`). Viene apagado.
 - Tasa **mensual o anual**, a elección de la escuela. Por defecto 2 % mensual, apenas por encima de la inflación
-  (1,8 % mensual en octubre de 2026). Topes: 5 % mensual o 60 % anual, para no caer en un interés abusivo
-  (Ley 24.240). Revisar con un abogado o contador antes de usarlo con familias reales.
+  (1,8 % mensual en octubre de 2026).
+- Tope de la plataforma (Términos y Condiciones, sección 6): **60 % anual o 2 veces la inflación anual, lo que sea
+  mayor**; la tasa mensual equivalente es la anual dividida por 12. La inflación anual de referencia la carga el
+  administrador junto con los parámetros de la comisión (24 % por defecto: tope de 60 % anual = 5 % mensual).
+  La ley no fija un número para la mora de una cuota, pero un juez puede reducir intereses excesivos (Código
+  Civil y Comercial, art. 771) y las cláusulas abusivas no valen (Ley 24.240, art. 37).
 - Interés simple prorrateado por día de atraso, después de los días de gracia (0 a 60).
 - Se calcula al leer la cuota (`GET /api/cuotas/mias`, que además la marca «vencida») y se congela en el `Pago` al
   iniciar el checkout (`montoOriginal`, `interesMora`, `montoBruto`). Si la familia vuelve otro día, el pago pendiente

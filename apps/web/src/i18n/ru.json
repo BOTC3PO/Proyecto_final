@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "В месяц",
   "enterpriseCobros.moraAnual": "В год",
   "enterpriseCobros.moraDiasGracia": "Льготные дни",
-  "enterpriseCobros.moraTope": "Максимум {max} %. Рекомендуется 2 % в месяц, чуть выше инфляции.",
+  "enterpriseCobros.moraTope": "Максимум {max} %: 60 % годовых или 2 годовые инфляции — что больше (Условия). Рекомендуется 2 % в месяц.",
   "enterpriseCobros.aportesAyuda": "Родительский фонд и добровольные взносы необязательны, без пени и не могут влиять на зачисление, табель или доступ ученика.",
   "enterpriseCobros.aportesComision": "Комиссия платформы с взносов (0–1 %)",
   "enterpriseCobros.topeAporteLegal": "Максимальная сумма по закону (необязательно)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Открепить",
   "modulosList.favoritos": "Избранное",
   "modulosList.marcarFavorito": "В избранное",
-  "modulosList.quitarFavorito": "Убрать из избранного"
+  "modulosList.quitarFavorito": "Убрать из избранного",
+  "adminComisiones.pInflacion": "Годовая инфляция (%) — задаёт потолок пени"
 }

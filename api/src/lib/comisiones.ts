@@ -31,6 +31,8 @@ export type ComisionParams = {
   umbralAlumnos: number;
   umbralAlumnosGrande: number;
   topeMonto: number;
+  /** Inflación anual de referencia (%): fija el tope de la mora (lib/mora.ts). */
+  inflacionAnualPct: number;
 };
 export const COMISION_PARAMS_DEFAULT: ComisionParams = {
   basePct: 6,
@@ -39,6 +41,7 @@ export const COMISION_PARAMS_DEFAULT: ComisionParams = {
   umbralAlumnos: 30,
   umbralAlumnosGrande: 350,
   topeMonto: 40_000,
+  inflacionAnualPct: 24,
 };
 
 const round2 = (n: number) => Math.round(n * 100) / 100;
@@ -146,6 +149,7 @@ export function normalizarParamsComision(raw: unknown): ComisionParams {
     umbralAlumnos: Math.round(num("umbralAlumnos", 1, 1e6)),
     umbralAlumnosGrande: Math.round(num("umbralAlumnosGrande", 1, 1e6)),
     topeMonto: num("topeMonto", 0, 1e9),
+    inflacionAnualPct: num("inflacionAnualPct", 0, 10_000),
   };
 }
 

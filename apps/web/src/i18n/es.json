@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Mensual",
   "enterpriseCobros.moraAnual": "Anual",
   "enterpriseCobros.moraDiasGracia": "Días de gracia",
-  "enterpriseCobros.moraTope": "Máximo {max} %. Sugerido: 2 % mensual, apenas por encima de la inflación.",
+  "enterpriseCobros.moraTope": "Máximo {max} %: 60 % anual o 2 veces la inflación anual, lo que sea mayor (Términos y Condiciones). Sugerido: 2 % mensual, apenas por encima de la inflación.",
   "enterpriseCobros.aportesAyuda": "Cooperadora y aportes solidarios: son voluntarios, no generan mora y no pueden condicionar la inscripción, el boletín ni el acceso del alumno.",
   "enterpriseCobros.aportesComision": "Comisión de la plataforma sobre aportes (0 a 1 %)",
   "enterpriseCobros.topeAporteLegal": "Monto máximo que permite la ley (opcional)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Desfijar",
   "modulosList.favoritos": "Favoritos",
   "modulosList.marcarFavorito": "Marcar como favorito",
-  "modulosList.quitarFavorito": "Quitar de favoritos"
+  "modulosList.quitarFavorito": "Quitar de favoritos",
+  "adminComisiones.pInflacion": "Inflación anual de referencia (%) — fija el tope de la mora"
 }

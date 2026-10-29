@@ -18,6 +18,7 @@ interface ParamsComision {
   umbralAlumnos: number;
   umbralAlumnosGrande: number;
   topeMonto: number;
+  inflacionAnualPct: number;
 }
 
 const CAMPOS_PARAMS: Array<{ clave: keyof ParamsComision; label: string; step: number }> = [
@@ -27,6 +28,7 @@ const CAMPOS_PARAMS: Array<{ clave: keyof ParamsComision; label: string; step: n
   { clave: "umbralAlumnos", label: "adminComisiones.pAlumnos", step: 1 },
   { clave: "umbralAlumnosGrande", label: "adminComisiones.pAlumnosGrande", step: 1 },
   { clave: "topeMonto", label: "adminComisiones.pTope", step: 1000 },
+  { clave: "inflacionAnualPct", label: "adminComisiones.pInflacion", step: 1 },
 ];
 
 /** Parámetros de la comisión escalonada (los mismos para todas las escuelas sin acuerdo particular). */

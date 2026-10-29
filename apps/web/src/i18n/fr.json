@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Mensuel",
   "enterpriseCobros.moraAnual": "Annuel",
   "enterpriseCobros.moraDiasGracia": "Jours de grâce",
-  "enterpriseCobros.moraTope": "Maximum {max} %. Conseillé : 2 % par mois, juste au-dessus de l'inflation.",
+  "enterpriseCobros.moraTope": "Maximum {max} % : 60 % par an ou 2 fois l'inflation annuelle, le plus élevé (Conditions générales). Conseillé : 2 % par mois, juste au-dessus de l'inflation.",
   "enterpriseCobros.aportesAyuda": "Association de parents et contributions volontaires : facultatives, sans intérêts, elles ne peuvent conditionner ni l'inscription, ni le bulletin, ni l'accès de l'élève.",
   "enterpriseCobros.aportesComision": "Commission de la plateforme sur les contributions (0 à 1 %)",
   "enterpriseCobros.topeAporteLegal": "Montant maximal autorisé par la loi (facultatif)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Désépingler",
   "modulosList.favoritos": "Favoris",
   "modulosList.marcarFavorito": "Ajouter aux favoris",
-  "modulosList.quitarFavorito": "Retirer des favoris"
+  "modulosList.quitarFavorito": "Retirer des favoris",
+  "adminComisiones.pInflacion": "Inflation annuelle de référence (%) — fixe le plafond des intérêts"
 }

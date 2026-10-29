@@ -15,14 +15,22 @@ export type MoraPeriodo = (typeof MORA_PERIODOS)[number];
 export const MORA_TASA_DEFAULT = 2;
 
 /**
- * Tope de la tasa según el período. Un interés excesivo puede considerarse abusivo frente a la Ley 24.240
- * de Defensa del Consumidor: 5 % mensual y 60 % anual son equivalentes y quedan muy por encima de la
- * inflación. Revisar con un abogado o contador antes de abrir el cobro de mora al público.
+ * Tope de la plataforma (no lo fija una ley; lo dicen los Términos y Condiciones): la mora no puede superar
+ * el 60 % anual o 2 veces la inflación anual, lo que sea mayor. Así la mora nunca queda por debajo de la
+ * inflación y tampoco llega a montos que un juez podría reducir por excesivos (Código Civil y Comercial,
+ * art. 771). La tasa mensual equivalente es la anual dividida por 12 (interés simple).
+ * La inflación anual de referencia la carga el administrador (lib/comisiones.ts, parámetros de cobros).
  */
-export const MORA_TASA_MAX: Record<MoraPeriodo, number> = {
-  mensual: 5,
-  anual: 60,
+export const MORA_TOPE_ANUAL_BASE = 60;
+export const INFLACION_ANUAL_DEFAULT = 24;
+
+export const topesMora = (inflacionAnualPct = INFLACION_ANUAL_DEFAULT): Record<MoraPeriodo, number> => {
+  const anual = Math.max(MORA_TOPE_ANUAL_BASE, 2 * (Number(inflacionAnualPct) || 0));
+  return { anual: Math.round(anual * 100) / 100, mensual: Math.round((anual / 12) * 100) / 100 };
 };
+
+/** Topes con la inflación por defecto (para mostrar y para pruebas). */
+export const MORA_TASA_MAX: Record<MoraPeriodo, number> = topesMora();
 export const MORA_DIAS_GRACIA_MAX = 60;
 
 const DIA_MS = 24 * 60 * 60 * 1000;
@@ -45,9 +53,12 @@ export type CalculoMora = {
 };
 
 /** Normaliza lo guardado: período válido y tasa dentro del tope. */
-export const tasaEfectiva = (cfg: Pick<ConfigMora, "moraTasa" | "moraPeriodo">) => {
+export const tasaEfectiva = (
+  cfg: Pick<ConfigMora, "moraTasa" | "moraPeriodo">,
+  topes: Record<MoraPeriodo, number> = MORA_TASA_MAX,
+) => {
   const periodo: MoraPeriodo = cfg.moraPeriodo === "anual" ? "anual" : "mensual";
-  const tasa = Math.min(Math.max(Number(cfg.moraTasa) || 0, 0), MORA_TASA_MAX[periodo]);
+  const tasa = Math.min(Math.max(Number(cfg.moraTasa) || 0, 0), topes[periodo]);
   return { periodo, tasa };
 };
 
@@ -55,7 +66,7 @@ export function calcularMora(
   monto: number,
   vencimiento: string | null | undefined,
   cfg: ConfigMora | null | undefined,
-  opts: { tipo?: string | null; ahora?: Date } = {},
+  opts: { tipo?: string | null; ahora?: Date; topes?: Record<MoraPeriodo, number> } = {},
 ): CalculoMora {
   const sinMora = {
     vencida: false,
@@ -74,7 +85,7 @@ export function calcularMora(
 
   const gracia = Math.min(Math.max(Math.floor(cfg.moraDiasGracia || 0), 0), MORA_DIAS_GRACIA_MAX);
   const diasAtraso = Math.max(Math.floor((ahora - vence) / DIA_MS) - gracia, 0);
-  const { periodo, tasa } = tasaEfectiva(cfg);
+  const { periodo, tasa } = tasaEfectiva(cfg, opts.topes);
   const base = periodo === "mensual" ? 30 : 365;
   const interesMora = round2(monto * (tasa / 100) * (diasAtraso / base));
   return {

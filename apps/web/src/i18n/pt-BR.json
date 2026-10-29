@@ -4350,7 +4350,7 @@
   "enterpriseCobros.moraMensual": "Mensal",
   "enterpriseCobros.moraAnual": "Anual",
   "enterpriseCobros.moraDiasGracia": "Dias de carência",
-  "enterpriseCobros.moraTope": "Máximo {max} %. Sugerido: 2 % ao mês, pouco acima da inflação.",
+  "enterpriseCobros.moraTope": "Máximo {max} %: 60 % ao ano ou 2 vezes a inflação anual, o que for maior (Termos e Condições). Sugerido: 2 % ao mês, pouco acima da inflação.",
   "enterpriseCobros.aportesAyuda": "Associação de pais e contribuições voluntárias: são opcionais, não geram juros e não podem condicionar a matrícula, o boletim nem o acesso do aluno.",
   "enterpriseCobros.aportesComision": "Comissão da plataforma sobre contribuições (0 a 1 %)",
   "enterpriseCobros.topeAporteLegal": "Valor máximo permitido por lei (opcional)",
@@ -4461,5 +4461,6 @@
   "aula.desfijar": "Desafixar",
   "modulosList.favoritos": "Favoritos",
   "modulosList.marcarFavorito": "Marcar como favorito",
-  "modulosList.quitarFavorito": "Remover dos favoritos"
+  "modulosList.quitarFavorito": "Remover dos favoritos",
+  "adminComisiones.pInflacion": "Inflação anual de referência (%) — define o teto de juros"
 }
