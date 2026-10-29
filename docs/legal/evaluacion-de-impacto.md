@@ -5,7 +5,8 @@ datos» de la AAIP y en la Ley 25.326. Se revisa cada año o ante un cambio impo
 
 ## 1. Responsable y contacto
 
-- **Responsable de la base de datos:** [RAZÓN SOCIAL A COMPLETAR], CUIT [A COMPLETAR].
+- **Responsable de la base de datos:** Javier Ernesto Pérez (persona humana; todavía sin razón social), CUIT [A COMPLETAR].
+  El mismo dato está en `apps/web/src/legal/responsable.ts`, que usan la política de privacidad y los Términos.
 - **Responsable de protección de datos (contacto):** [NOMBRE Y CORREO A COMPLETAR]. Recibe los pedidos de
   acceso, rectificación y supresión, y coordina el procedimiento ante incidentes.
 - **Inscripción en el Registro Nacional de Bases de Datos (AAIP):** pendiente (L9).

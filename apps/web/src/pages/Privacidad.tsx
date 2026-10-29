@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { responsableTexto } from "../legal/responsable";
 import { POLITICA_PRIVACIDAD_FECHA } from "../legal/politicaPrivacidad";
 import { useI18n } from "../i18n/I18nContext";
 
@@ -16,7 +17,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "1. Responsable del tratamiento",
       parrafos: [
-        "Esta Política de Privacidad describe cómo Virtual Book (la \"Plataforma\"), operada por [RAZÓN SOCIAL A COMPLETAR], CUIT [A COMPLETAR], recolecta, usa y protege los datos personales de quienes la usan, en el marco de la Ley 25.326 de Protección de Datos Personales de la República Argentina.",
+        `Esta Política de Privacidad describe cómo Virtual Book (la "Plataforma"), operada por ${responsableTexto}, recolecta, usa y protege los datos personales de quienes la usan, en el marco de la Ley 25.326 de Protección de Datos Personales de la República Argentina.`,
       ],
     },
     {
@@ -78,7 +79,7 @@ const SECCIONES: Record<"es" | "en", Seccion[]> = {
     {
       titulo: "1. Data Controller",
       parrafos: [
-        "This Privacy Policy describes how Virtual Book (the \"Platform\"), operated by [LEGAL NAME TO BE COMPLETED], Tax ID [TO BE COMPLETED], collects, uses, and protects the personal data of the people who use it, under Argentina's Personal Data Protection Law (Law 25,326).",
+        `This Privacy Policy describes how Virtual Book (the "Platform"), operated by ${responsableTexto}, collects, uses, and protects the personal data of the people who use it, under Argentina's Personal Data Protection Law (Law 25,326).`,
       ],
     },
     {
