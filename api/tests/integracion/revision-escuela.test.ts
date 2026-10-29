@@ -92,3 +92,18 @@ test("un alumno no entra a la cola", async () => {
   });
   assert.equal(res.status, 403);
 });
+
+// MA-02 (2026-10-28) — el autor recibe un mensaje con el motivo cuando le bajan el material.
+test("bajar un cuestionario le avisa al autor por mensaje directo, con el motivo", async () => {
+  const res = await jsonRequest(baseUrl, "POST", "/api/escuela/revision/quiz/quiz-a/ocultar", {
+    token: tk(),
+    body: { motivo: "contenido duplicado" }
+  });
+  assert.equal(res.status, 200);
+  assert.equal((res.body as { autorAvisado: boolean }).autorAvisado, true);
+  const hilo = prisma.hilo.rows.find((h) => [h.usuarioA, h.usuarioB].includes(PROFE_A as never));
+  assert.ok(hilo, "se abre un hilo con el autor");
+  const msg = prisma.mensajeDirecto.rows.find((m) => m.hiloId === hilo?.id);
+  assert.match(String(msg?.body), /De la escuela A/);
+  assert.match(String(msg?.body), /contenido duplicado/);
+});
