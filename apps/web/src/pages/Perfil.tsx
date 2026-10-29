@@ -349,6 +349,8 @@ export default function Perfil() {
                   </div>
                 )}
 
+                <DosPasosCard recomendado={perfil.role === "ADMIN" || perfil.role === "DIRECTIVO"} />
+
                 <PrivacidadCard />
               </div>
             )}
@@ -523,6 +525,97 @@ export default function Perfil() {
 // alumno en el registro: la crea acá on-demand si quiere estudiar.
 // Una vez creada, "Entrar como alumno" dispara el switch (mismo
 // mecanismo que el staff) y aterriza en el panel de alumno.
+/** B13 — verificación en dos pasos (TOTP). Recomendada para administradores y directivos. */
+function DosPasosCard({ recomendado }: { recomendado: boolean }) {
+  const { t } = useI18n();
+  const [activo, setActivo] = useState<boolean | null>(null);
+  const [config, setConfig] = useState<{ secreto: string; qr: string } | null>(null);
+  const [codigo, setCodigo] = useState("");
+  const [password, setPassword] = useState("");
+  const [recuperacion, setRecuperacion] = useState<string[] | null>(null);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    apiGet<{ activo: boolean }>("/api/auth/2fa").then((r) => setActivo(r.activo)).catch(() => setActivo(null));
+  }, []);
+
+  const configurar = async () => {
+    setMsg(null);
+    try {
+      const r = await apiPost<{ secreto: string; url: string }>("/api/auth/2fa/configurar", {});
+      const QRCode = await import("qrcode");
+      setConfig({ secreto: r.secreto, qr: await QRCode.toDataURL(r.url, { margin: 1, width: 180 }) });
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : t("perfil.dosPasosError"));
+    }
+  };
+  const activar = async () => {
+    setMsg(null);
+    try {
+      const r = await apiPost<{ codigosRecuperacion: string[] }>("/api/auth/2fa/activar", { codigo });
+      setRecuperacion(r.codigosRecuperacion);
+      setActivo(true);
+      setConfig(null);
+      setCodigo("");
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : t("perfil.dosPasosError"));
+    }
+  };
+  const desactivar = async () => {
+    setMsg(null);
+    try {
+      await apiPost("/api/auth/2fa/desactivar", { password, codigo });
+      setActivo(false);
+      setPassword("");
+      setCodigo("");
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : t("perfil.dosPasosError"));
+    }
+  };
+
+  if (activo === null) return null;
+  const campo = "w-full rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] px-3 py-1.5 text-sm text-[var(--c-text)]";
+  return (
+    <div className="bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl p-4 space-y-3">
+      <p className="text-sm font-medium text-[var(--c-text)]">
+        {t("perfil.dosPasosTitulo")} · {activo ? t("perfil.dosPasosActiva") : t("perfil.dosPasosInactiva")}
+      </p>
+      <p className="text-xs text-[var(--c-muted)]">
+        {t("perfil.dosPasosAyuda")}{!activo && recomendado ? ` ${t("perfil.dosPasosRecomendada")}` : ""}
+      </p>
+      {recuperacion && (
+        <div className="rounded-lg border border-[var(--c-warning)] p-3 text-xs text-[var(--c-text)]">
+          <p className="mb-2 font-semibold">{t("perfil.dosPasosCodigosTitulo")}</p>
+          <p className="font-mono">{recuperacion.join("  ")}</p>
+        </div>
+      )}
+      {!activo && !config && (
+        <button type="button" onClick={() => void configurar()}
+          className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white">{t("perfil.dosPasosConfigurar")}</button>
+      )}
+      {!activo && config && (
+        <div className="space-y-2">
+          <p className="text-xs text-[var(--c-text)]">{t("perfil.dosPasosEscanear")}</p>
+          <img src={config.qr} alt={t("perfil.dosPasosQrAlt")} width={180} height={180} className="rounded bg-white p-1" />
+          <p className="text-xs text-[var(--c-muted)]">{t("perfil.dosPasosClaveManual")} <span className="font-mono text-[var(--c-text)]">{config.secreto}</span></p>
+          <input value={codigo} onChange={(e) => setCodigo(e.target.value)} inputMode="numeric" placeholder="123456" className={campo} />
+          <button type="button" onClick={() => void activar()} disabled={!codigo.trim()}
+            className="rounded-lg bg-[var(--c-primary)] px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50">{t("perfil.dosPasosActivar")}</button>
+        </div>
+      )}
+      {activo && (
+        <div className="space-y-2">
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder={t("auth.contrasena")} className={campo} />
+          <input value={codigo} onChange={(e) => setCodigo(e.target.value)} placeholder={t("perfil.dosPasosCodigoORecuperacion")} className={campo} />
+          <button type="button" onClick={() => void desactivar()} disabled={!password || !codigo.trim()}
+            className="rounded-lg border border-[var(--c-danger)] px-3 py-1.5 text-xs font-semibold text-[var(--c-danger)] disabled:opacity-50">{t("perfil.dosPasosDesactivar")}</button>
+        </div>
+      )}
+      {msg && <p role="alert" className="text-xs text-[var(--c-danger)]">{msg}</p>}
+    </div>
+  );
+}
+
 /** L14 — derechos del titular: descargar los propios datos y dar de baja la cuenta. */
 function PrivacidadCard() {
   const { t } = useI18n();

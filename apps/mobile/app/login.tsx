@@ -2,11 +2,13 @@ import { useState } from "react";
 import { ActivityIndicator, Text, TextInput, TouchableOpacity, View, KeyboardAvoidingView, Platform } from "react-native";
 import { router } from "expo-router";
 import { useAuth } from "../src/auth/AuthContext";
-import { ApiError } from "../src/api/client";
+import { ApiError, Requiere2faError } from "../src/api/client";
 import { colors } from "../src/theme/tokens";
 
 export default function Login() {
-  const { login } = useAuth();
+  const { login, login2fa } = useAuth();
+  const [desafio, setDesafio] = useState<string | null>(null);
+  const [codigo, setCodigo] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -20,9 +22,15 @@ export default function Login() {
     setError(null);
     setSubmitting(true);
     try {
-      await login(identifier.trim().toLowerCase(), password);
+      if (desafio) await login2fa(desafio, codigo);
+      else await login(identifier.trim().toLowerCase(), password);
       router.replace("/(alumno)");
     } catch (e) {
+      if (e instanceof Requiere2faError) {
+        setDesafio(e.desafio);
+        setCodigo("");
+        return;
+      }
       setError(e instanceof ApiError ? e.message : "No se pudo iniciar sesión.");
     } finally {
       setSubmitting(false);
@@ -67,6 +75,25 @@ export default function Login() {
               placeholderTextColor={colors.muted}
             />
           </View>
+
+          {desafio ? (
+            <View className="gap-1.5">
+              <Text className="text-sm font-medium text-vb-text">Código de verificación</Text>
+              <Text className="text-xs text-vb-muted">
+                Escribí el código de 6 dígitos de tu aplicación de autenticación o un código de recuperación.
+              </Text>
+              <TextInput
+                value={codigo}
+                onChangeText={setCodigo}
+                keyboardType="number-pad"
+                textContentType="oneTimeCode"
+                autoFocus
+                className="border border-vb-border rounded-lg px-3 py-2.5 text-base text-vb-text"
+                placeholder="123456"
+                placeholderTextColor={colors.muted}
+              />
+            </View>
+          ) : null}
 
           {error ? <Text className="text-sm text-vb-danger">{error}</Text> : null}
 

@@ -38,6 +38,15 @@ import {
   ResetPasswordSchema
 } from "../schema/auth";
 import { enviarCorreo } from "../lib/mailer";
+import {
+  cifrarSecreto,
+  descifrarSecreto,
+  generarCodigosRecuperacion,
+  generarSecreto,
+  hashRecuperacion,
+  urlOtpauth,
+  verificarCodigo
+} from "../lib/totp";
 import { motivoPasswordDebil } from "../lib/password-policy";
 
 export const auth = Router();
@@ -756,6 +765,180 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
   }
 });
 
+
+// Emite la sesión (token de acceso + refresh) para un usuario ya autenticado. La usan el login y el segundo
+// paso de la verificación en dos pasos.
+type UsuarioSesion = NonNullable<Awaited<ReturnType<typeof prisma.usuario.findFirst>>>;
+async function emitirSesion(res: Response, user: UsuarioSesion) {
+  // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con
+  // los roles DE ESA ESCUELA (no la unión de todas). Ver sesion-escuela.ts.
+  const sesion = await resolverSesionEscuela(user as never);
+  const accessToken = createAccessToken({
+    id: user.id.toString(),
+    email: user.email,
+    username: user.username,
+    role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
+    roles: sesion.roles.length > 0 ? sesion.roles : undefined,
+    guestOnboardingStatus: user.guestOnboardingStatus ?? null,
+    schoolId: normalizeSchoolId(sesion.escuelaId),
+    fullName: user.fullName ?? null
+  });
+  const refreshToken = createRefreshToken({ id: user.id.toString() });
+  if (refreshToken?.jti) {
+    await prisma.refreshToken.create({
+      data: {
+        jti: refreshToken.jti,
+        userId: user.id.toString(),
+        familyId: refreshToken.familyId,
+        revoked: false,
+        expiresAt: new Date(refreshToken.expiresAt)
+      }
+    });
+  }
+  res.status(200).json({
+    id: user.id,
+    username: user.username,
+    email: user.email,
+    fullName: user.fullName,
+    role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
+    roles: sesion.roles.length > 0 ? sesion.roles : undefined,
+    guestOnboardingStatus: user.guestOnboardingStatus ?? null,
+    schoolId: normalizeSchoolId(sesion.escuelaId),
+    escuelas: await escuelasDisponiblesPara(user.id.toString()),
+    accessToken: accessToken.token,
+    expiresAt: accessToken.expiresAt,
+    expiresIn: accessToken.expiresIn,
+    ...(refreshToken
+      ? {
+          refreshToken: refreshToken.token,
+          refreshExpiresAt: refreshToken.expiresAt,
+          refreshExpiresIn: refreshToken.expiresIn
+        }
+      : {})
+  });
+}
+
+// ── B13 — verificación en dos pasos ─────────────────────────────────────────
+const DESAFIO_2FA_MS = 5 * 60 * 1000;
+const firmaDesafio = (datos: string) => crypto.createHmac("sha256", ENV.JWT_SECRET).update(`2fa:${datos}`).digest("base64url");
+
+function crearDesafio2fa(userId: string) {
+  const datos = `${userId}.${Date.now() + DESAFIO_2FA_MS}`;
+  return `${Buffer.from(datos).toString("base64url")}.${firmaDesafio(datos)}`;
+}
+
+function leerDesafio2fa(desafio: string): string | null {
+  const [b64, firma] = String(desafio).split(".");
+  if (!b64 || !firma) return null;
+  const datos = Buffer.from(b64, "base64url").toString();
+  const esperada = Buffer.from(firmaDesafio(datos));
+  const recibida = Buffer.from(firma);
+  if (esperada.length !== recibida.length || !crypto.timingSafeEqual(esperada, recibida)) return null;
+  const punto = datos.lastIndexOf(".");
+  const userId = datos.slice(0, punto);
+  const vence = Number(datos.slice(punto + 1));
+  return Number.isFinite(vence) && vence > Date.now() ? userId : null;
+}
+
+/** Valida un código TOTP o uno de recuperación y deja registrado su uso. */
+async function validarSegundoFactor(user: UsuarioSesion, codigo: string): Promise<boolean> {
+  const u = user as UsuarioSesion & { totpSecreto: string | null; totpUltimoPaso: number | null; totpRecuperacion: string | null };
+  if (!u.totpSecreto) return false;
+  const paso = verificarCodigo(descifrarSecreto(u.totpSecreto), codigo, u.totpUltimoPaso ?? null);
+  if (paso !== null) {
+    const r = await prisma.usuario.updateMany({
+      where: { id: u.id, OR: [{ totpUltimoPaso: null }, { totpUltimoPaso: { lt: paso } }] },
+      data: { totpUltimoPaso: paso }
+    });
+    return r.count === 1;
+  }
+  const hashes: string[] = u.totpRecuperacion ? JSON.parse(u.totpRecuperacion) : [];
+  const h = hashRecuperacion(codigo);
+  if (!hashes.includes(h)) return false;
+  await prisma.usuario.update({ where: { id: u.id }, data: { totpRecuperacion: JSON.stringify(hashes.filter((x) => x !== h)) } });
+  await recordAuditLog({ actorId: u.id, action: "auth.2fa_codigo_recuperacion_usado", targetType: "Usuario", targetId: u.id, metadata: { quedan: hashes.length - 1 } });
+  return true;
+}
+
+const usuarioDeSesion = async (req: { user?: { id?: string; _id?: unknown } }) => {
+  const id = req.user?.id ?? (typeof req.user?._id === "string" ? req.user._id : null);
+  return id ? prisma.usuario.findFirst({ where: { id, isDeleted: { not: true } } }) : null;
+};
+
+auth.post("/api/auth/2fa/login", authLimiter, async (req, res) => {
+  const userId = leerDesafio2fa(String(req.body?.desafio ?? ""));
+  if (!userId) {
+    res.status(401).json({ error: "El ingreso venció. Volvé a escribir tu contraseña.", code: "DESAFIO_VENCIDO" });
+    return;
+  }
+  const user = await prisma.usuario.findFirst({ where: { id: userId, isDeleted: { not: true } } });
+  if (!user || estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
+    res.status(401).json({ error: "Invalid credentials" });
+    return;
+  }
+  if (!(await validarSegundoFactor(user, String(req.body?.codigo ?? "")))) {
+    res.status(401).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
+    return;
+  }
+  await emitirSesion(res, user);
+});
+
+auth.get("/api/auth/2fa", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  const u = user as UsuarioSesion & { totpActivo: boolean; totpRecuperacion: string | null };
+  res.json({
+    activo: u.totpActivo === true,
+    codigosRecuperacionRestantes: u.totpRecuperacion ? (JSON.parse(u.totpRecuperacion) as string[]).length : 0
+  });
+});
+
+auth.post("/api/auth/2fa/configurar", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  if ((user as { totpActivo?: boolean }).totpActivo) return res.status(409).json({ error: "La verificación ya está activa." });
+  const secreto = generarSecreto();
+  await prisma.usuario.update({ where: { id: user.id }, data: { totpSecreto: cifrarSecreto(secreto), totpUltimoPaso: null } });
+  res.json({ secreto, url: urlOtpauth(user.email || user.username, secreto) });
+});
+
+auth.post("/api/auth/2fa/activar", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  const u = user as UsuarioSesion & { totpSecreto: string | null; totpActivo: boolean };
+  if (u.totpActivo) return res.status(409).json({ error: "La verificación ya está activa." });
+  if (!u.totpSecreto) return res.status(400).json({ error: "Primero configurá la aplicación." });
+  const paso = verificarCodigo(descifrarSecreto(u.totpSecreto), String(req.body?.codigo ?? ""), null);
+  if (paso === null) return res.status(400).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
+  const codigos = generarCodigosRecuperacion();
+  await prisma.usuario.update({
+    where: { id: u.id },
+    data: { totpActivo: true, totpUltimoPaso: paso, totpRecuperacion: JSON.stringify(codigos.map(hashRecuperacion)) }
+  });
+  await recordAuditLog({ actorId: u.id, action: "auth.2fa_activada", targetType: "Usuario", targetId: u.id, metadata: {} });
+  // Los códigos de recuperación se muestran una sola vez.
+  res.json({ ok: true, codigosRecuperacion: codigos });
+});
+
+auth.post("/api/auth/2fa/desactivar", requireUser, async (req, res) => {
+  const user = await usuarioDeSesion(req as never);
+  if (!user) return res.status(401).json({ error: "no autenticado" });
+  if (!(user as { totpActivo?: boolean }).totpActivo) return res.status(409).json({ error: "La verificación no está activa." });
+  const password = String(req.body?.password ?? "");
+  if (!user.passwordHash || !(await verifyPassword(password, user.passwordHash))) {
+    return res.status(403).json({ error: "La contraseña no es correcta.", code: "PASSWORD_INCORRECTA" });
+  }
+  if (!(await validarSegundoFactor(user, String(req.body?.codigo ?? "")))) {
+    return res.status(403).json({ error: "El código no es correcto.", code: "CODIGO_2FA_INCORRECTO" });
+  }
+  await prisma.usuario.update({
+    where: { id: user.id },
+    data: { totpActivo: false, totpSecreto: null, totpUltimoPaso: null, totpRecuperacion: null }
+  });
+  await recordAuditLog({ actorId: user.id, action: "auth.2fa_desactivada", targetType: "Usuario", targetId: user.id, metadata: {} });
+  res.json({ ok: true });
+});
+
 auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
@@ -832,52 +1015,13 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
         console.error("[auth/login] no se pudo actualizar el hash de la contraseña", error);
       }
     }
-    // PLAN-multirol Fase 2 — la sesión arranca en la escuela activa y con
-    // los roles DE ESA ESCUELA (no la unión de todas). Ver sesion-escuela.ts.
-    const sesion = await resolverSesionEscuela(user as never);
-    const accessToken = createAccessToken({
-      id: user.id.toString(),
-      email: user.email,
-      username: user.username,
-      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
-      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
-      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(sesion.escuelaId),
-      fullName: user.fullName ?? null
-    });
-    const refreshToken = createRefreshToken({ id: user.id.toString() });
-    if (refreshToken?.jti) {
-      await prisma.refreshToken.create({
-        data: {
-          jti: refreshToken.jti,
-          userId: user.id.toString(),
-          familyId: refreshToken.familyId,
-          revoked: false,
-          expiresAt: new Date(refreshToken.expiresAt)
-        }
-      });
+    // B13 — con la verificación en dos pasos activa, la contraseña sola no alcanza: se devuelve un desafío
+    // de corta duración y la sesión se emite en POST /api/auth/2fa/login con el código.
+    if ((user as { totpActivo?: boolean }).totpActivo) {
+      res.status(200).json({ requiere2fa: true, desafio: crearDesafio2fa(user.id.toString()) });
+      return;
     }
-    res.status(200).json({
-      id: user.id,
-      username: user.username,
-      email: user.email,
-      fullName: user.fullName,
-      role: sesion.rolPrincipal ?? resolvePrimaryRole(user) ?? undefined,
-      roles: sesion.roles.length > 0 ? sesion.roles : undefined,
-      guestOnboardingStatus: user.guestOnboardingStatus ?? null,
-      schoolId: normalizeSchoolId(sesion.escuelaId),
-      escuelas: await escuelasDisponiblesPara(user.id.toString()),
-      accessToken: accessToken.token,
-      expiresAt: accessToken.expiresAt,
-      expiresIn: accessToken.expiresIn,
-      ...(refreshToken
-        ? {
-            refreshToken: refreshToken.token,
-            refreshExpiresAt: refreshToken.expiresAt,
-            refreshExpiresIn: refreshToken.expiresIn
-          }
-        : {})
-    });
+    await emitirSesion(res, user);
   } catch (e: any) {
     if (e instanceof ZodError) {
       res.status(400).json({ error: e.message || "invalid payload" });

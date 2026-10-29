@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
+import { recordAuditLog } from "../lib/audit-log";
 import { requireAdmin } from "../lib/admin-auth";
 import { requireUser } from "../lib/user-auth";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
@@ -418,4 +419,20 @@ adminRouter.patch("/api/admin/materias/:id", requireAdmin, async (req, res) => {
   } catch {
     res.status(500).json({ error: "internal server error" });
   }
+});
+
+// B13 — quien perdió el teléfono y los códigos de recuperación no puede entrar: el administrador le apaga la
+// verificación en dos pasos (queda auditado) y la persona la vuelve a configurar.
+adminRouter.post("/api/admin/usuarios/:id/2fa/reset", requireAdmin, async (req, res) => {
+  const id = req.params.id as string;
+  const u = await prisma.usuario.findFirst({ where: { id } });
+  if (!u) return res.status(404).json({ error: "usuario no encontrado" });
+  await prisma.usuario.update({
+    where: { id },
+    data: { totpActivo: false, totpSecreto: null, totpUltimoPaso: null, totpRecuperacion: null, updatedAt: new Date().toISOString() }
+  });
+  await prisma.refreshToken.updateMany({ where: { userId: id, revoked: false }, data: { revoked: true } });
+  const actor = (req.user as { id?: string } | undefined)?.id ?? "admin";
+  await recordAuditLog({ actorId: actor, action: "auth.2fa_reseteada_por_admin", targetType: "Usuario", targetId: id, metadata: {} });
+  res.json({ ok: true });
 });

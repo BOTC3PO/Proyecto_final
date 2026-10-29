@@ -253,6 +253,12 @@ model Usuario {
   bannedAt              String?  @map("banned_at")
   bannedUntil           String?  @map("banned_until")
   warningCount          Int      @default(0) @map("warning_count")
+  /// B13 — verificación en dos pasos (TOTP). El secreto va cifrado (lib/totp.ts); `totpActivo` recién cuando
+  /// la persona confirmó un código. `totpUltimoPaso` impide reusar un código. Los de recuperación, hasheados.
+  totpSecreto           String?  @map("totp_secreto")
+  totpActivo            Boolean  @default(false) @map("totp_activo")
+  totpUltimoPaso        Int?     @map("totp_ultimo_paso")
+  totpRecuperacion      String?  @map("totp_recuperacion")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
   escuela               Escuela? @relation(fields: [escuelaId], references: [id])

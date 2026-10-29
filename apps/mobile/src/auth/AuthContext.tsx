@@ -24,6 +24,8 @@ type AuthContextValue = {
   user: User | null;
   status: AuthStatus;
   login: (identifier: string, password: string) => Promise<User>;
+  /** B13 — segundo paso con el desafío que devolvió `login` (Requiere2faError) y el código. */
+  login2fa: (desafio: string, codigo: string) => Promise<User>;
   logout: () => Promise<void>;
   /** Escuelas a las que puede entrar esta cuenta (una sola mientras no haya membresías en otras). */
   fetchMisEscuelas: () => Promise<EscuelaDisponible[]>;
@@ -67,8 +69,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const login = async (identifier: string, password: string): Promise<User> => {
-    const data = await loginRequest(identifier, password);
+  const login = async (identifier: string, password: string, segundoPaso?: { desafio: string; codigo: string }): Promise<User> => {
+    const data = await loginRequest(identifier, password, segundoPaso);
     const nextUser: User = {
       id: data.id,
       name: data.fullName?.trim() || data.username || "Usuario",
@@ -82,6 +84,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setStatus("signedIn");
     return nextUser;
   };
+
+  const login2fa = (desafio: string, codigo: string) => login("", "", { desafio, codigo });
 
   const logout = async (): Promise<void> => {
     await setAuthTokens(null, null);
@@ -116,7 +120,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return nextUser;
   };
 
-  const value = useMemo(() => ({ user, status, login, logout, fetchMisEscuelas, cambiarEscuela }), [user, status]);
+  const value = useMemo(() => ({ user, status, login, login2fa, logout, fetchMisEscuelas, cambiarEscuela }), [user, status]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
