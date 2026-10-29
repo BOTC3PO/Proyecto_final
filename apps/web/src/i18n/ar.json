@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "لم يسلّم",
   "tareas.devolucion": "ملاحظات",
   "tareas.correccionGuardada": "تم حفظ التصحيح.",
-  "tareas.noSePudoCorregir": "تعذر حفظ التصحيح."
+  "tareas.noSePudoCorregir": "تعذر حفظ التصحيح.",
+  "profesorCalificaciones.aciertoPorPregunta": "الإجابات الصحيحة لكل سؤال",
+  "profesorCalificaciones.sinDatosPorPregunta": "لا توجد محاولات مكتملة بعد."
 }

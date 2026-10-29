@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "未提交",
   "tareas.devolucion": "评语",
   "tareas.correccionGuardada": "批改已保存。",
-  "tareas.noSePudoCorregir": "无法保存批改。"
+  "tareas.noSePudoCorregir": "无法保存批改。",
+  "profesorCalificaciones.aciertoPorPregunta": "按题目统计正确率",
+  "profesorCalificaciones.sinDatosPorPregunta": "暂无已完成的作答。"
 }

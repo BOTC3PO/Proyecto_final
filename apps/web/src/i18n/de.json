@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Nicht abgegeben",
   "tareas.devolucion": "Rückmeldung",
   "tareas.correccionGuardada": "Bewertung gespeichert.",
-  "tareas.noSePudoCorregir": "Bewertung konnte nicht gespeichert werden."
+  "tareas.noSePudoCorregir": "Bewertung konnte nicht gespeichert werden.",
+  "profesorCalificaciones.aciertoPorPregunta": "Richtige Antworten pro Frage",
+  "profesorCalificaciones.sinDatosPorPregunta": "Noch keine abgeschlossenen Versuche."
 }

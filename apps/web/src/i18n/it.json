@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Non consegnato",
   "tareas.devolucion": "Commento",
   "tareas.correccionGuardada": "Correzione salvata.",
-  "tareas.noSePudoCorregir": "Impossibile salvare la correzione."
+  "tareas.noSePudoCorregir": "Impossibile salvare la correzione.",
+  "profesorCalificaciones.aciertoPorPregunta": "Risposte corrette per domanda",
+  "profesorCalificaciones.sinDatosPorPregunta": "Nessun tentativo concluso."
 }

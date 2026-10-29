@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Ne transdonita",
   "tareas.devolucion": "Komento",
   "tareas.correccionGuardada": "Korekto konservita.",
-  "tareas.noSePudoCorregir": "Ne eblis konservi la korekton."
+  "tareas.noSePudoCorregir": "Ne eblis konservi la korekton.",
+  "profesorCalificaciones.aciertoPorPregunta": "Ĝustaj respondoj po demando",
+  "profesorCalificaciones.sinDatosPorPregunta": "Ankoraŭ neniuj finitaj provoj."
 }

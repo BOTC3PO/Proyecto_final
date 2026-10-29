@@ -457,3 +457,71 @@ estadisticas.get(
     res.json(data);
   }
 );
+
+// ── L6 — estadísticas por pregunta de un cuestionario ───────────────────────
+// Para cada pregunta: cuántos intentos la respondieron, cuántos acertaron y el porcentaje de acierto. Las
+// preguntas generadas con VBLang cambian de id en cada intento (`vb-<hash>-<posición>`), así que se agrupan
+// por posición. Solo cuentan intentos entregados o corregidos, dentro del alcance de quien consulta.
+const POSICION_GENERADA = /^vb-[0-9a-f]+-(\d+)$/i;
+
+estadisticas.get(
+  "/api/estadisticas/cuestionarios/:quizId/preguntas",
+  requireUser,
+  requirePolicy("estadisticas/read"),
+  async (req, res) => {
+    const alcance = alcanceDe(req.user as ReqUser | undefined);
+    if (!alcance) return sinAlcance(res);
+    const quizId = req.params.quizId as string;
+    const filters = filtrosDeQuery(req);
+    if ("error" in filters) return res.status(400).json(filters);
+
+    const quiz = await prisma.quiz.findFirst({ where: { id: quizId } });
+    if (!quiz) return res.status(404).json({ error: "cuestionario no encontrado" });
+
+    let alumnos: string[] | null = null;
+    if (!alcance.global) {
+      const miembros = await prisma.membresia.findMany({
+        where: { escuelaId: alcance.escuelaId, estado: "activa" },
+        select: { usuarioId: true }
+      });
+      alumnos = miembros.map((m) => m.usuarioId);
+    }
+    const intentos = await prisma.quizAttempt.findMany({
+      where: {
+        quizId,
+        status: { in: ["submitted", "graded"] },
+        ...buildDateWhere(filters, "submittedAt"),
+        ...(alumnos ? { userId: { in: alumnos } } : {})
+      },
+      select: { feedback: true },
+      take: 5000
+    });
+
+    const porPregunta = new Map<string, { clave: string; posicion: number | null; respondidas: number; correctas: number }>();
+    for (const intento of intentos) {
+      let feedback: Record<string, { correct?: boolean }> = {};
+      try {
+        feedback = intento.feedback ? (JSON.parse(intento.feedback as unknown as string) as typeof feedback) : {};
+      } catch {
+        continue;
+      }
+      for (const [id, item] of Object.entries(feedback)) {
+        const m = POSICION_GENERADA.exec(id);
+        const posicion = m ? Number(m[1]) : null;
+        const clave = m ? `posicion-${posicion}` : id;
+        const fila = porPregunta.get(clave) ?? { clave, posicion, respondidas: 0, correctas: 0 };
+        fila.respondidas += 1;
+        if (item?.correct === true) fila.correctas += 1;
+        porPregunta.set(clave, fila);
+      }
+    }
+    const preguntas = [...porPregunta.values()]
+      .map((p, i) => ({
+        ...p,
+        etiqueta: p.posicion !== null ? `Pregunta ${p.posicion + 1}` : `Pregunta ${i + 1}`,
+        porcentajeAcierto: p.respondidas ? Math.round((p.correctas / p.respondidas) * 100) : 0
+      }))
+      .sort((a, b) => (a.posicion ?? 999) - (b.posicion ?? 999) || a.clave.localeCompare(b.clave));
+    res.json({ quizId, titulo: quiz.title ?? "", intentos: intentos.length, preguntas });
+  }
+);

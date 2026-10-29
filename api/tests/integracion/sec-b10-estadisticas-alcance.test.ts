@@ -121,3 +121,26 @@ describe("/api/estadisticas/quizzes", () => {
     assert.equal((await get(`/api/estadisticas/quizzes/docente/${DOC_B}`, docA())).status, 404);
   });
 });
+
+// L6 (2026-10-28) — estadísticas por pregunta, agrupando las generadas por posición y dentro del alcance.
+test("L6: acierto por pregunta, con las generadas agrupadas por posición y solo de la propia escuela", async () => {
+  prisma.quiz.rows.push({ id: "quiz-l6", title: "Sumas", isActive: true, createdAt: nowIso(), updatedAt: nowIso() } as never);
+  const fb = (a: boolean, b: boolean) =>
+    JSON.stringify({ [`vb-${Math.random().toString(16).slice(2, 10)}-0`]: { correct: a }, [`vb-${Math.random().toString(16).slice(2, 10)}-1`]: { correct: b } });
+  prisma.quizAttempt.rows.push(
+    { id: "i1", quizId: "quiz-l6", userId: ALU_A, status: "submitted", feedback: fb(true, false), submittedAt: nowIso() } as never,
+    { id: "i2", quizId: "quiz-l6", userId: ALU_A, status: "graded", feedback: fb(true, true), submittedAt: nowIso() } as never,
+    { id: "i3", quizId: "quiz-l6", userId: ALU_B, status: "submitted", feedback: fb(false, false), submittedAt: nowIso() } as never,
+    { id: "i4", quizId: "quiz-l6", userId: ALU_A, status: "in_progress", feedback: fb(false, false) } as never
+  );
+  const r = await get("/api/estadisticas/cuestionarios/quiz-l6/preguntas", docA());
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  const body = r.body as { intentos: number; preguntas: Array<{ etiqueta: string; respondidas: number; correctas: number; porcentajeAcierto: number }> };
+  assert.equal(body.intentos, 2, "solo intentos terminados de la escuela A");
+  assert.deepEqual(
+    body.preguntas.map((p) => [p.etiqueta, p.respondidas, p.correctas, p.porcentajeAcierto]),
+    [["Pregunta 1", 2, 2, 100], ["Pregunta 2", 2, 1, 50]]
+  );
+  const global = await get("/api/estadisticas/cuestionarios/quiz-l6/preguntas", admin());
+  assert.equal((global.body as { intentos: number }).intentos, 3);
+});

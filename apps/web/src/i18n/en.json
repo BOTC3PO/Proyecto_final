@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Not submitted",
   "tareas.devolucion": "Feedback",
   "tareas.correccionGuardada": "Grade saved.",
-  "tareas.noSePudoCorregir": "Could not save the grade."
+  "tareas.noSePudoCorregir": "Could not save the grade.",
+  "profesorCalificaciones.aciertoPorPregunta": "Correct answers by question",
+  "profesorCalificaciones.sinDatosPorPregunta": "No finished attempts to analyze yet."
 }

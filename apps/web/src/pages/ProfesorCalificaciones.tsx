@@ -7,6 +7,46 @@ import { getAulaId } from "../lib/aula-id";
 import CorreccionesPendientes from "../components/profesor/CorreccionesPendientes";
 import { useI18n } from "../i18n/I18nContext";
 
+type EstadisticaPregunta = { clave: string; etiqueta: string; respondidas: number; correctas: number; porcentajeAcierto: number };
+
+/** L6 — acierto por pregunta del cuestionario (se carga al abrirlo). Las de menor acierto se marcan en rojo. */
+function AciertoPorPregunta({ quizId }: { quizId: string }) {
+  const { t } = useI18n();
+  const [abierto, setAbierto] = useState(false);
+  const [preguntas, setPreguntas] = useState<EstadisticaPregunta[] | null>(null);
+  useEffect(() => {
+    if (!abierto || preguntas) return;
+    apiGet<{ preguntas: EstadisticaPregunta[] }>(`/api/estadisticas/cuestionarios/${quizId}/preguntas`)
+      .then((r) => setPreguntas(r.preguntas))
+      .catch(() => setPreguntas([]));
+  }, [abierto, preguntas, quizId]);
+  return (
+    <div className="mt-2">
+      <button type="button" onClick={() => setAbierto((v) => !v)} className="text-xs font-medium text-[var(--c-primary)]">
+        {abierto ? t("comun.ocultar") : t("profesorCalificaciones.aciertoPorPregunta")}
+      </button>
+      {abierto && preguntas && (
+        preguntas.length === 0 ? (
+          <p className="mt-1 text-xs text-[var(--c-muted)]">{t("profesorCalificaciones.sinDatosPorPregunta")}</p>
+        ) : (
+          <ul className="mt-2 space-y-1">
+            {preguntas.map((p) => (
+              <li key={p.clave} className="flex items-center gap-2 text-xs">
+                <span className="w-24 shrink-0 text-[var(--c-text)]">{p.etiqueta}</span>
+                <span className="h-2 flex-1 rounded-full bg-[var(--c-border)]">
+                  <span className={`block h-2 rounded-full ${p.porcentajeAcierto < 50 ? "bg-[var(--c-danger)]" : "bg-[var(--c-success)]"}`}
+                    style={{ width: `${p.porcentajeAcierto}%` }} />
+                </span>
+                <span className="w-28 shrink-0 text-right text-[var(--c-muted)]">{p.porcentajeAcierto}% ({p.correctas}/{p.respondidas})</span>
+              </li>
+            ))}
+          </ul>
+        )
+      )}
+    </div>
+  );
+}
+
 type QuizAttemptResult = {
   id: string;
   quizId: string;
@@ -190,6 +230,7 @@ export default function ProfesorCalificaciones() {
                     )}
                   </div>
                 </div>
+                <AciertoPorPregunta quizId={quizId} />
                 <div className="mt-3 space-y-1.5">
                   {lista.slice(0, 10).map((a) => (
                     <div key={a.id}

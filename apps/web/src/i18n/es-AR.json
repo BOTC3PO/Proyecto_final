@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Sin entregar",
   "tareas.devolucion": "Devolución",
   "tareas.correccionGuardada": "Corrección guardada.",
-  "tareas.noSePudoCorregir": "No se pudo guardar la corrección."
+  "tareas.noSePudoCorregir": "No se pudo guardar la corrección.",
+  "profesorCalificaciones.aciertoPorPregunta": "Ver acierto por pregunta",
+  "profesorCalificaciones.sinDatosPorPregunta": "Todavía no hay intentos terminados para analizar."
 }

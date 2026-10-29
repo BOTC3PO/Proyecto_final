@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Не сдано",
   "tareas.devolucion": "Отзыв",
   "tareas.correccionGuardada": "Оценка сохранена.",
-  "tareas.noSePudoCorregir": "Не удалось сохранить оценку."
+  "tareas.noSePudoCorregir": "Не удалось сохранить оценку.",
+  "profesorCalificaciones.aciertoPorPregunta": "Верные ответы по вопросам",
+  "profesorCalificaciones.sinDatosPorPregunta": "Пока нет завершённых попыток."
 }

@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "未提出",
   "tareas.devolucion": "フィードバック",
   "tareas.correccionGuardada": "採点を保存しました。",
-  "tareas.noSePudoCorregir": "採点を保存できませんでした。"
+  "tareas.noSePudoCorregir": "採点を保存できませんでした。",
+  "profesorCalificaciones.aciertoPorPregunta": "設問ごとの正答率",
+  "profesorCalificaciones.sinDatosPorPregunta": "分析できる完了済みの受験はまだありません。"
 }

@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "Non rendu",
   "tareas.devolucion": "Commentaire",
   "tareas.correccionGuardada": "Correction enregistrée.",
-  "tareas.noSePudoCorregir": "Impossible d'enregistrer la correction."
+  "tareas.noSePudoCorregir": "Impossible d'enregistrer la correction.",
+  "profesorCalificaciones.aciertoPorPregunta": "Réussite par question",
+  "profesorCalificaciones.sinDatosPorPregunta": "Aucune tentative terminée pour l'instant."
 }

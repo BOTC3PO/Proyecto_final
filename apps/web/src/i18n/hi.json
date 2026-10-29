@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "जमा नहीं",
   "tareas.devolucion": "प्रतिक्रिया",
   "tareas.correccionGuardada": "जाँच सहेजी गई।",
-  "tareas.noSePudoCorregir": "जाँच सहेजी नहीं जा सकी।"
+  "tareas.noSePudoCorregir": "जाँच सहेजी नहीं जा सकी।",
+  "profesorCalificaciones.aciertoPorPregunta": "प्रश्नवार सही उत्तर",
+  "profesorCalificaciones.sinDatosPorPregunta": "अभी कोई पूरा प्रयास नहीं है।"
 }

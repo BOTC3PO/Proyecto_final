@@ -4435,5 +4435,7 @@
   "tareas.sinEntregar": "미제출",
   "tareas.devolucion": "피드백",
   "tareas.correccionGuardada": "채점을 저장했습니다.",
-  "tareas.noSePudoCorregir": "채점을 저장하지 못했습니다."
+  "tareas.noSePudoCorregir": "채점을 저장하지 못했습니다.",
+  "profesorCalificaciones.aciertoPorPregunta": "문항별 정답률",
+  "profesorCalificaciones.sinDatosPorPregunta": "분석할 완료된 응시가 없습니다."
 }
