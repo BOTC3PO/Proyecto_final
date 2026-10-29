@@ -2,7 +2,6 @@ import { existsSync, readFileSync } from "node:fs";
 import { createServer as createHttpsServer } from "node:https";
 import { app } from "./app";
 import { ENV, assertSecretosDePago } from "./lib/env";
-import { scheduleDelinquencyJob } from "./lib/billing/delinquency";
 import { scheduleReconciliacionJob } from "./lib/pasarelas/reconciliacion";
 import { scheduleRetencionMensajesJob } from "./lib/retencion-mensajes";
 import { markUsersWithoutUsablePasswordForReset } from "./lib/password-health";
@@ -52,7 +51,6 @@ const bootstrap = async () => {
       console.log(`API on http://localhost:${ENV.PORT}`);
     });
   }
-  scheduleDelinquencyJob();
   scheduleReconciliacionJob();
   scheduleRetencionMensajesJob();
   void runStartupDataChecks();

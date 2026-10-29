@@ -91,12 +91,6 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // (el refresh viejo sigue válido hasta su exp, pero el próximo uso
   // legítimo emite otro). No logueamos tokens ni emitimos tokens eternos.
   JWT_REFRESH_TTL_SECONDS: Number(process.env.JWT_REFRESH_TTL_SECONDS ?? 7 * 24 * 60 * 60),
-  BILLING_PAST_DUE_DAYS: Number(process.env.BILLING_PAST_DUE_DAYS ?? 7),
-  BILLING_SUSPEND_DAYS: Number(process.env.BILLING_SUSPEND_DAYS ?? 30),
-  BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES: Number(
-    process.env.BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES ?? 60
-  ),
-  BILLING_DELINQUENCY_JOB_ENABLED: parseBool(process.env.BILLING_DELINQUENCY_JOB_ENABLED, true),
   ENABLE_SEED_ENDPOINT: parseBool(process.env.ENABLE_SEED_ENDPOINT, false),
   AUTH_RATE_LIMIT_DISABLED: parseBool(process.env.AUTH_RATE_LIMIT_DISABLED, false),
   // MercadoPago
@@ -143,7 +137,7 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // PLAN-B Fase 4 — job de reconciliación: reintenta contra el provider
   // los `Pago` en `pendiente`/`en_proceso` más viejos que el umbral, por
   // si el webhook nunca llegó. Apagado por default en tests/dev (mismo
-  // patrón que BILLING_DELINQUENCY_JOB_ENABLED).
+  // patrón que los demás jobs).
   // Conservación de mensajes: se borran los de más de N años (principio de finalidad de la ley 25.326: no se
   // guardan datos personales más allá de lo necesario). 0 = no borrar nunca.
   MENSAJES_RETENCION_ANOS: Number(process.env.MENSAJES_RETENCION_ANOS ?? 8),

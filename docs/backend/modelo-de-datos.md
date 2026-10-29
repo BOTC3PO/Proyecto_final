@@ -543,7 +543,7 @@ erDiagram
 ```
 
 > El nivel de acceso por estado de suscripción (`active`/`read_only`/`disabled`) y la política de
-> mora están en [`auth-y-roles.md`](./auth-y-roles.md) y [`../politica-mora.md`](../politica-mora.md).
+> mora están en [`auth-y-roles.md`](./auth-y-roles.md) y [`../pagos/comision.md`](../pagos/comision.md).
 > El detalle del modelo de comisión (Fase 5.1) está en [`../pagos/`](../pagos/).
 
 ### 7.1 Cobros escuela→familias y pasarelas 🆕 (PLAN-B, julio 2026)

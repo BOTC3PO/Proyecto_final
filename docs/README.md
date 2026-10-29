@@ -28,7 +28,7 @@ PLAN-P (`tareas_pendientes/PLAN-P-documentacion.md`), origen: `ALCANCE_VBLang_2.
 | [`sqlite-dictionary-api.md`](./sqlite-dictionary-api.md) | Integración de diccionario sobre SQLite (`/api/dictionary`). | Devs. |
 | [`pagos/comision.md`](./pagos/comision.md) | Comisión escalonada, interés por mora y aportes voluntarios. | Devs + negocio. |
 | [`pagos/reembolsos.md`](./pagos/reembolsos.md), [`pagos/enterprise.md`](./pagos/enterprise.md) | Flujos de pago actuales (pre-pivot; código ENTERPRISE confirmado vigente). | Devs + negocio. |
-| [`politica-mora.md`](./politica-mora.md) | Política de mora y acceso ENTERPRISE. | Devs + negocio. |
+| [`pagos/comision.md`](./pagos/comision.md) | Interés por mora de las cuotas (la política de mora de la suscripción se retiró). | Devs + negocio. |
 
 **Regla de mantenimiento** (los 3 subsistemas de PLAN-P: módulos, documentos/libros,
 herramienta gráfica — y sus manuales de arriba): **cambio de comportamiento ⇒ el
