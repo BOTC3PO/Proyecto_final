@@ -132,7 +132,8 @@ export const confirmarPago = async (
     mpPaymentId: pago.providerRef,
     provider: pago.provider,
     interesMora,
-    tipo: cobro.tipo ?? "cuota"
+    tipo: cobro.tipo ?? "cuota",
+    titular: cobro.tipo === "cooperadora" ? "cooperadora" : "escuela"
   });
   // `registrarTransaccionEscuela` traga sus errores para no frenar la acreditación; si no hubo asiento
   // con un monto positivo, queda constancia para conciliarlo a mano en vez de perderse en silencio.

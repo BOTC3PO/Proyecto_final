@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Jährliche Referenzinflation (%) — bestimmt die Zinsobergrenze",
   "valoracion.tuValoracion": "Ihre Bewertung",
   "valoracion.promedio": "★ {promedio} von 5 ({cantidad} Bewertungen)",
-  "valoracion.sinValoraciones": "Noch keine Bewertungen"
+  "valoracion.sinValoraciones": "Noch keine Bewertungen",
+  "registrarEscuela.tieneCooperadora": "Die Schule hat einen Förderverein, der Beiträge über die Plattform einziehen möchte",
+  "registrarEscuela.cooperadoraAyuda": "Der Förderverein ist eigenständig, mit eigener Steuernummer und eigenem Konto: Was für ihn eingezogen wird, geht auf sein Konto, nicht auf das der Schule. Beiträge sind freiwillig und ohne Zinsen. Kann später ergänzt werden.",
+  "registrarEscuela.cooperadora_nombre": "Name des Vereins",
+  "registrarEscuela.cooperadora_cuit": "CUIT des Vereins",
+  "registrarEscuela.cooperadora_contactoEmail": "Kontakt-E-Mail (optional)",
+  "cooperadora.titulo": "Förderverein",
+  "cooperadora.ayuda": "Einzüge vom Typ „Förderverein“ gehen auf das Mercado-Pago-Konto des Vereins, nicht der Schule. Zuerst prüft der Administrator, dann verbinden Sie es.",
+  "cooperadora.estado_pendiente": "Prüfung ausstehend",
+  "cooperadora.estado_verificada": "Geprüft",
+  "cooperadora.estado_rechazada": "Abgelehnt",
+  "cooperadora.conectarMp": "Mercado Pago des Vereins verbinden",
+  "cooperadora.reconectarMp": "Mercado Pago neu verbinden",
+  "cooperadora.registrar": "Verein speichern",
+  "cooperadora.porVerificar": "Zu prüfende Vereine",
+  "cooperadora.ningunaPendiente": "Keine Vereine ausstehend."
 }

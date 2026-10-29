@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Reference annual inflation (%) — sets the late-interest cap",
   "valoracion.tuValoracion": "Your rating",
   "valoracion.promedio": "★ {promedio} of 5 ({cantidad} ratings)",
-  "valoracion.sinValoraciones": "No ratings yet"
+  "valoracion.sinValoraciones": "No ratings yet",
+  "registrarEscuela.tieneCooperadora": "The school has a parents' association (cooperadora) that wants to collect contributions through the platform",
+  "registrarEscuela.cooperadoraAyuda": "The cooperadora is a separate association with its own tax ID and account: what is collected for it goes to its account, not the school's. Contributions are voluntary and never accrue interest. You can add it later.",
+  "registrarEscuela.cooperadora_nombre": "Association name",
+  "registrarEscuela.cooperadora_cuit": "Association tax ID (CUIT)",
+  "registrarEscuela.cooperadora_contactoEmail": "Contact email (optional)",
+  "cooperadora.titulo": "Parents' association",
+  "cooperadora.ayuda": "\"Cooperadora\" charges go to the association's own Mercado Pago account, not the school's. The administrator verifies it first; then you connect it.",
+  "cooperadora.estado_pendiente": "Pending verification",
+  "cooperadora.estado_verificada": "Verified",
+  "cooperadora.estado_rechazada": "Rejected",
+  "cooperadora.conectarMp": "Connect the association's Mercado Pago",
+  "cooperadora.reconectarMp": "Reconnect Mercado Pago",
+  "cooperadora.registrar": "Save association",
+  "cooperadora.porVerificar": "Associations to verify",
+  "cooperadora.ningunaPendiente": "No associations pending."
 }

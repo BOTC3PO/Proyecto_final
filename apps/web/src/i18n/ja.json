@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "参照年間インフレ率（%）— 延滞利息の上限を決める",
   "valoracion.tuValoracion": "あなたの評価",
   "valoracion.promedio": "★ {promedio} / 5（{cantidad} 件）",
-  "valoracion.sinValoraciones": "まだ評価はありません"
+  "valoracion.sinValoraciones": "まだ評価はありません",
+  "registrarEscuela.tieneCooperadora": "学校に保護者会があり、会費をプラットフォームで集金したい",
+  "registrarEscuela.cooperadoraAyuda": "保護者会は学校とは別の団体で、独自の税番号と口座を持ちます。会費は保護者会の口座に入り、任意で延滞利息はありません。後から登録することもできます。",
+  "registrarEscuela.cooperadora_nombre": "団体名",
+  "registrarEscuela.cooperadora_cuit": "保護者会の CUIT",
+  "registrarEscuela.cooperadora_contactoEmail": "連絡先メール（任意）",
+  "cooperadora.titulo": "保護者会",
+  "cooperadora.ayuda": "「保護者会」の集金は学校ではなく保護者会の Mercado Pago 口座に入ります。管理者の確認後に接続します。",
+  "cooperadora.estado_pendiente": "確認待ち",
+  "cooperadora.estado_verificada": "確認済み",
+  "cooperadora.estado_rechazada": "却下",
+  "cooperadora.conectarMp": "保護者会の Mercado Pago を接続",
+  "cooperadora.reconectarMp": "Mercado Pago を再接続",
+  "cooperadora.registrar": "保護者会を保存",
+  "cooperadora.porVerificar": "確認待ちの保護者会",
+  "cooperadora.ningunaPendiente": "確認待ちの保護者会はありません。"
 }

@@ -7,6 +7,7 @@
  * credenciales en claro ni cifradas al cliente — sólo si "configurada".
  */
 import { randomUUID } from "node:crypto";
+import { filtroTitular, titularDe } from "../lib/pasarelas/titular";
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { bloquearSiNoVerificada, esDirectivoPrincipal } from "../lib/escuela-verificacion";
@@ -58,14 +59,17 @@ const auditarPasarela = (
     metadata: { escuelaId, provider, ...metadata }
   });
 
+
 const aPublico = (row: {
   provider: string;
+  titular?: string | null;
   cuentaConectadaId: string | null;
   activa: boolean;
   credencialesCifradas: string | null;
   updatedAt: string;
 }) => ({
   provider: row.provider,
+  titular: titularDe(row.titular),
   cuentaConectadaId: row.cuentaConectadaId,
   activa: row.activa,
   configurada: Boolean(row.credencialesCifradas),
@@ -108,7 +112,9 @@ escuelaPasarelas.post("/api/escuelas/:escuelaId/pasarelas", requireUser, async (
   }
   const { provider, cuentaConectadaId, credenciales, activa } = parsed.data;
 
-  const existente = await prisma.escuelaPasarela.findFirst({ where: { escuelaId, provider } });
+  // La conexión manual (Cryptomus, credenciales a mano) es solo de la escuela; la cooperadora conecta Mercado
+  // Pago por OAuth con su propia cuenta.
+  const existente = await prisma.escuelaPasarela.findFirst({ where: { escuelaId, provider, ...filtroTitular("escuela") } });
   const nowIso = now();
   const credencialesCifradas = credenciales ? cifrarCredencial(JSON.stringify(credenciales)) : undefined;
 
@@ -136,6 +142,7 @@ escuelaPasarelas.post("/api/escuelas/:escuelaId/pasarelas", requireUser, async (
       id: genId(),
       escuelaId,
       provider,
+      titular: "escuela",
       cuentaConectadaId: cuentaConectadaId ?? null,
       credencialesCifradas: credencialesCifradas ?? null,
       activa: activa ?? true,
@@ -171,7 +178,9 @@ escuelaPasarelas.patch("/api/escuelas/:escuelaId/pasarelas/:provider", requireUs
   if (!parsed.success) {
     return res.status(400).json({ error: "datos inválidos" });
   }
-  const existente = await prisma.escuelaPasarela.findFirst({ where: { escuelaId, provider } });
+  const existente = await prisma.escuelaPasarela.findFirst({
+    where: { escuelaId, provider, ...filtroTitular(titularDe(req.query.titular)) }
+  });
   if (!existente) return res.status(404).json({ error: "pasarela no conectada" });
 
   const actualizado = await prisma.escuelaPasarela.update({
@@ -205,7 +214,15 @@ escuelaPasarelas.get("/api/escuelas/:escuelaId/pasarelas/mercadopago/authorize",
   if (!ENV.MP_CLIENT_ID) {
     return res.status(503).json({ error: "MP_CLIENT_ID no configurado en la plataforma" });
   }
-  return res.json({ url: buildAuthorizationUrl(escuelaId) });
+  // ?titular=cooperadora: conecta la cuenta de la cooperadora, que tiene que estar registrada y verificada.
+  const titular = titularDe(req.query.titular);
+  if (titular === "cooperadora") {
+    const coop = await prisma.cooperadora.findFirst({ where: { escuelaId } });
+    if (!coop || coop.estadoVerificacion !== "verificada") {
+      return res.status(409).json({ error: "la cooperadora tiene que estar registrada y verificada", code: "COOPERADORA_NO_VERIFICADA" });
+    }
+  }
+  return res.json({ url: buildAuthorizationUrl(titular === "cooperadora" ? `${escuelaId}~cooperadora` : escuelaId) });
 });
 
 // GET /api/escuelas/pasarelas/mercadopago/callback — MP redirige el
@@ -218,6 +235,10 @@ escuelaPasarelas.get("/api/escuelas/pasarelas/mercadopago/callback", async (req,
   if (!code || !verified) {
     return res.redirect(`${ENV.APP_URL}/enterprise/cobros?mp=error`);
   }
+  // El `state` lleva «escuelaId» o «escuelaId~cooperadora» (firmado): de quién es la cuenta que se conecta.
+  const [escuelaDelState, marcaTitular] = verified.escuelaId.split("~");
+  const titular = titularDe(marcaTitular);
+  const destino = { escuelaId: escuelaDelState };
   const tokens = await intercambiarCode(code);
   if (!tokens) {
     return res.redirect(`${ENV.APP_URL}/enterprise/cobros?mp=error`);
@@ -228,7 +249,7 @@ escuelaPasarelas.get("/api/escuelas/pasarelas/mercadopago/callback", async (req,
     JSON.stringify({ accessToken: tokens.accessToken, refreshToken: tokens.refreshToken })
   );
   const existente = await prisma.escuelaPasarela.findFirst({
-    where: { escuelaId: verified.escuelaId, provider: "mercadopago" }
+    where: { escuelaId: destino.escuelaId, provider: "mercadopago", ...filtroTitular(titular) }
   });
   if (existente) {
     await prisma.escuelaPasarela.update({
@@ -239,8 +260,9 @@ escuelaPasarelas.get("/api/escuelas/pasarelas/mercadopago/callback", async (req,
     await prisma.escuelaPasarela.create({
       data: {
         id: genId(),
-        escuelaId: verified.escuelaId,
+        escuelaId: destino.escuelaId,
         provider: "mercadopago",
+        titular,
         cuentaConectadaId: tokens.userId,
         credencialesCifradas,
         activa: true,
@@ -252,7 +274,8 @@ escuelaPasarelas.get("/api/escuelas/pasarelas/mercadopago/callback", async (req,
   // El callback es público (lo abre MP, no lleva JWT): el actor es el
   // `state` firmado, no un usuario. Igual queda el rastro de cuándo esa
   // escuela pasó a apuntar a esta cuenta de MP.
-  await auditarPasarela("system:oauth:mercadopago", "pasarela.oauth_autorizada", verified.escuelaId, "mercadopago", {
+  await auditarPasarela("system:oauth:mercadopago", "pasarela.oauth_autorizada", destino.escuelaId, "mercadopago", {
+    titular,
     cuentaConectadaId: tokens.userId,
     reemplazoExistente: Boolean(existente)
   });

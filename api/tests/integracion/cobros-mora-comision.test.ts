@@ -243,7 +243,7 @@ test("cobros: un aporte voluntario no puede superar el tope legal cargado", asyn
   await configurar({ topeAporteLegal: 5000 });
   const res = await jsonRequest(baseUrl, "POST", "/api/cobros", {
     token: tokenDirectivo(),
-    body: { tipo: "cooperadora", concepto: "Cooperadora", montoUnitario: 8000 }
+    body: { tipo: "aporte_solidario", concepto: "Aporte solidario", montoUnitario: 8000 }
   });
   assert.equal(res.status, 422);
   assert.equal((res.body as { code: string }).code, "SUPERA_TOPE_APORTE");

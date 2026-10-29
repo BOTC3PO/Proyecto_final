@@ -14,6 +14,7 @@ import { getProvider } from "../lib/pasarelas";
 import { accessTokenDesdeCredenciales } from "../lib/mercadopago-oauth";
 import { confirmarPago } from "../lib/cobros-confirmacion";
 import { enviarPush } from "../lib/push";
+import { filtroTitular, titularDeCobro } from "../lib/pasarelas/titular";
 import { CobroCreateSchema, CobroPublicarSchema, ConfigCobrosEscuelaSchema } from "../schema/cobros";
 import { calcularMora, tasaEfectiva, topesMora, MORA_DIAS_GRACIA_MAX, type ConfigMora } from "../lib/mora";
 import {
@@ -81,6 +82,15 @@ cobros.post("/api/cobros", requireUser, async (req, res) => {
   }
 
   const tipo = parsed.data.tipo ?? "cuota";
+  if (tipo === "cooperadora") {
+    const coop = await prisma.cooperadora.findFirst({ where: { escuelaId } });
+    if (!coop || coop.estadoVerificacion !== "verificada") {
+      return res.status(422).json({
+        error: "Para cobrar la cooperadora, primero registrala y esperá que la verifiquen.",
+        code: "COOPERADORA_NO_VERIFICADA"
+      });
+    }
+  }
   if (esCobroVoluntario(tipo)) {
     // Los aportes voluntarios no pueden superar lo que permite la ley de la jurisdicción.
     const escuela = await prisma.escuela.findFirst({ where: { id: escuelaId }, select: { topeAporteLegal: true } });
@@ -363,8 +373,16 @@ cobros.post("/api/cuotas/:id/checkout", requireUser, async (req, res) => {
   const checkout = validarCuerpo(CuotaCheckoutSchema, req, res);
   if (!checkout) return;
   const preferido = checkout.provider || null;
+  // La plata de la cooperadora va a la cuenta de la cooperadora (asociación con CUIT propio), nunca a la de la
+  // escuela; si la cooperadora no conectó su cuenta, el pago queda manual.
+  const titular = titularDeCobro(cobro.tipo);
   const pasarelaCruda = await prisma.escuelaPasarela.findFirst({
-    where: { escuelaId: cobro.escuelaId, activa: true, ...(preferido ? { provider: preferido } : {}) }
+    where: {
+      escuelaId: cobro.escuelaId,
+      activa: true,
+      ...filtroTitular(titular),
+      ...(titular === "cooperadora" ? { provider: "mercadopago" } : preferido ? { provider: preferido } : {})
+    }
   });
   // Cryptomus sólo si el admin de plataforma lo habilitó para ESTA escuela:
   // es el único camino donde VB custodia fondos de terceros (liquida con

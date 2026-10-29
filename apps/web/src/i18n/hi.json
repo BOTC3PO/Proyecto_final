@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "संदर्भ वार्षिक महंगाई (%) — विलंब ब्याज की सीमा तय करती है",
   "valoracion.tuValoracion": "आपकी रेटिंग",
   "valoracion.promedio": "★ 5 में से {promedio} ({cantidad} रेटिंग)",
-  "valoracion.sinValoraciones": "अभी कोई रेटिंग नहीं"
+  "valoracion.sinValoraciones": "अभी कोई रेटिंग नहीं",
+  "registrarEscuela.tieneCooperadora": "स्कूल के अभिभावक संघ को प्लेटफ़ॉर्म से योगदान लेना है",
+  "registrarEscuela.cooperadoraAyuda": "अभिभावक संघ अलग संस्था है, जिसका अपना कर नंबर और खाता है: उसके लिए लिया गया पैसा उसी के खाते में जाता है। योगदान स्वैच्छिक है और ब्याज नहीं लगता। बाद में भी जोड़ सकते हैं।",
+  "registrarEscuela.cooperadora_nombre": "संघ का नाम",
+  "registrarEscuela.cooperadora_cuit": "संघ का CUIT",
+  "registrarEscuela.cooperadora_contactoEmail": "संपर्क ईमेल (वैकल्पिक)",
+  "cooperadora.titulo": "अभिभावक संघ",
+  "cooperadora.ayuda": "«अभिभावक संघ» प्रकार के शुल्क संघ के Mercado Pago खाते में जाते हैं, स्कूल के नहीं। पहले व्यवस्थापक सत्यापित करते हैं, फिर आप जोड़ते हैं।",
+  "cooperadora.estado_pendiente": "सत्यापन लंबित",
+  "cooperadora.estado_verificada": "सत्यापित",
+  "cooperadora.estado_rechazada": "अस्वीकृत",
+  "cooperadora.conectarMp": "संघ का Mercado Pago जोड़ें",
+  "cooperadora.reconectarMp": "Mercado Pago फिर से जोड़ें",
+  "cooperadora.registrar": "संघ सहेजें",
+  "cooperadora.porVerificar": "सत्यापन हेतु संघ",
+  "cooperadora.ningunaPendiente": "कोई संघ लंबित नहीं।"
 }

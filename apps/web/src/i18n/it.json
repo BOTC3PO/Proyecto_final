@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Inflazione annua di riferimento (%) — fissa il tetto degli interessi",
   "valoracion.tuValoracion": "La tua valutazione",
   "valoracion.promedio": "★ {promedio} su 5 ({cantidad} valutazioni)",
-  "valoracion.sinValoraciones": "Ancora nessuna valutazione"
+  "valoracion.sinValoraciones": "Ancora nessuna valutazione",
+  "registrarEscuela.tieneCooperadora": "La scuola ha un'associazione genitori che vuole riscuotere i contributi tramite la piattaforma",
+  "registrarEscuela.cooperadoraAyuda": "L'associazione è separata, con codice fiscale e conto propri: ciò che si incassa per lei va sul suo conto, non su quello della scuola. I contributi sono volontari e senza interessi. Si può aggiungere dopo.",
+  "registrarEscuela.cooperadora_nombre": "Nome dell'associazione",
+  "registrarEscuela.cooperadora_cuit": "CUIT dell'associazione",
+  "registrarEscuela.cooperadora_contactoEmail": "Email di contatto (facoltativo)",
+  "cooperadora.titulo": "Associazione genitori",
+  "cooperadora.ayuda": "Gli incassi «Associazione» vanno sul conto Mercado Pago dell'associazione, non della scuola. Prima la verifica l'amministratore, poi la colleghi.",
+  "cooperadora.estado_pendiente": "In attesa di verifica",
+  "cooperadora.estado_verificada": "Verificata",
+  "cooperadora.estado_rechazada": "Rifiutata",
+  "cooperadora.conectarMp": "Collega Mercado Pago dell'associazione",
+  "cooperadora.reconectarMp": "Ricollega Mercado Pago",
+  "cooperadora.registrar": "Salva associazione",
+  "cooperadora.porVerificar": "Associazioni da verificare",
+  "cooperadora.ningunaPendiente": "Nessuna associazione in attesa."
 }

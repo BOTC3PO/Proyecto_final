@@ -177,6 +177,8 @@ export async function registrarTransaccionEscuela(params: {
   interesMora?: number;
   /** Tipo del cobro (cuota, cooperadora, aporte_solidario). */
   tipo?: string | null;
+  /** A quién le corresponde el neto: la escuela o su cooperadora. */
+  titular?: "escuela" | "cooperadora";
 }): Promise<{ id: string; comisionVB: number; montoNeto: number } | null> {
   try {
     const escuela = await prisma.escuela.findFirst({
@@ -205,6 +207,7 @@ export async function registrarTransaccionEscuela(params: {
         montoNeto,
         estado: "registrada",
         provider: params.provider ?? "mercadopago",
+        titular: params.titular ?? "escuela",
         mpPaymentId: params.mpPaymentId ?? null,
         createdAt: new Date().toISOString(),
       },

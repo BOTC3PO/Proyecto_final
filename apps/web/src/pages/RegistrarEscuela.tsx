@@ -31,8 +31,11 @@ export default function RegistrarEscuela() {
   const [enviando, setEnviando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [listo, setListo] = useState(false);
+  // Cooperadora (opcional): asociación aparte, con CUIT propio, que cobra sus aportes con su cuenta.
+  const [conCooperadora, setConCooperadora] = useState(false);
+  const [coop, setCoop] = useState({ nombre: "", cuit: "", contactoEmail: "" });
 
-  const set = (campo: keyof SolicitudEscuela) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  const set = (campo: Exclude<keyof SolicitudEscuela, "cooperadora">) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setDatos((d) => ({ ...d, [campo]: e.target.value }));
 
   const enviar = async (e: React.FormEvent) => {
@@ -40,7 +43,14 @@ export default function RegistrarEscuela() {
     setEnviando(true);
     setError(null);
     try {
-      await solicitarEscuela({ ...datos, cue: datos.cue || undefined, notas: datos.notas || undefined });
+      await solicitarEscuela({
+        ...datos,
+        cue: datos.cue || undefined,
+        notas: datos.notas || undefined,
+        ...(conCooperadora
+          ? { cooperadora: { nombre: coop.nombre, cuit: coop.cuit, contactoEmail: coop.contactoEmail || null } }
+          : {})
+      });
       setListo(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : t("registrarEscuela.error"));
@@ -66,7 +76,7 @@ export default function RegistrarEscuela() {
   }
 
   const campo = (
-    id: keyof SolicitudEscuela,
+    id: Exclude<keyof SolicitudEscuela, "cooperadora">,
     label: string,
     opts: { required?: boolean; type?: string; ayuda?: string } = {}
   ) => (
@@ -148,6 +158,34 @@ export default function RegistrarEscuela() {
                 }}
               />
             </label>
+
+            <fieldset style={{ border: "1px solid var(--c-border)", borderRadius: "var(--r-md)", padding: "var(--space-3)", marginBottom: "var(--space-3)" }}>
+              <label style={{ display: "flex", gap: "var(--space-2)", alignItems: "center", color: "var(--c-text)", fontSize: "var(--fs-1)" }}>
+                <input type="checkbox" checked={conCooperadora} onChange={(e) => setConCooperadora(e.target.checked)} />
+                {t("registrarEscuela.tieneCooperadora")}
+              </label>
+              <p style={{ fontSize: "var(--fs-0)", color: "var(--c-text-muted)", margin: "var(--space-2) 0" }}>
+                {t("registrarEscuela.cooperadoraAyuda")}
+              </p>
+              {conCooperadora && (
+                <div style={{ display: "grid", gap: "var(--space-2)" }}>
+                  {(["nombre", "cuit", "contactoEmail"] as const).map((k) => (
+                    <label key={k} style={{ display: "block" }}>
+                      <span style={{ display: "block", fontSize: "var(--fs-0)", color: "var(--c-text-muted)" }}>
+                        {t(`registrarEscuela.cooperadora_${k}`)}
+                      </span>
+                      <input
+                        value={coop[k]}
+                        required={k !== "contactoEmail"}
+                        type={k === "contactoEmail" ? "email" : "text"}
+                        onChange={(e) => setCoop((c) => ({ ...c, [k]: e.target.value }))}
+                        style={{ width: "100%", padding: "var(--space-2)", borderRadius: "var(--r-md)", border: "1px solid var(--c-border)", background: "var(--c-surface)", color: "var(--c-text)" }}
+                      />
+                    </label>
+                  ))}
+                </div>
+              )}
+            </fieldset>
 
             {error && (
               <p role="alert" style={{ color: "var(--c-danger)", fontSize: "var(--fs-0)" }}>

@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "التضخم السنوي المرجعي (%) — يحدد سقف فوائد التأخير",
   "valoracion.tuValoracion": "تقييمك",
   "valoracion.promedio": "★ {promedio} من 5 ({cantidad} تقييمات)",
-  "valoracion.sinValoraciones": "لا توجد تقييمات بعد"
+  "valoracion.sinValoraciones": "لا توجد تقييمات بعد",
+  "registrarEscuela.tieneCooperadora": "للمدرسة جمعية أولياء أمور تريد تحصيل المساهمات عبر المنصة",
+  "registrarEscuela.cooperadoraAyuda": "الجمعية كيان مستقل له رقم ضريبي وحساب خاص: ما يُحصَّل لها يذهب إلى حسابها لا إلى حساب المدرسة. المساهمات طوعية ولا تترتب عليها فوائد. يمكن إضافتها لاحقًا.",
+  "registrarEscuela.cooperadora_nombre": "اسم الجمعية",
+  "registrarEscuela.cooperadora_cuit": "CUIT الجمعية",
+  "registrarEscuela.cooperadora_contactoEmail": "بريد التواصل (اختياري)",
+  "cooperadora.titulo": "جمعية أولياء الأمور",
+  "cooperadora.ayuda": "تذهب مدفوعات «الجمعية» إلى حساب Mercado Pago الخاص بالجمعية لا المدرسة. يتحقق المسؤول أولًا ثم تقوم بالربط.",
+  "cooperadora.estado_pendiente": "بانتظار التحقق",
+  "cooperadora.estado_verificada": "تم التحقق",
+  "cooperadora.estado_rechazada": "مرفوضة",
+  "cooperadora.conectarMp": "ربط Mercado Pago الخاص بالجمعية",
+  "cooperadora.reconectarMp": "إعادة ربط Mercado Pago",
+  "cooperadora.registrar": "حفظ الجمعية",
+  "cooperadora.porVerificar": "جمعيات بانتظار التحقق",
+  "cooperadora.ningunaPendiente": "لا توجد جمعيات معلقة."
 }

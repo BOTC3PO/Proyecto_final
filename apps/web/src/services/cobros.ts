@@ -44,6 +44,8 @@ export interface CuotaAlumno {
 
 export interface EscuelaPasarelaResumen {
   provider: ProviderPasarela;
+  /** De quién es la cuenta: la escuela o su cooperadora. */
+  titular?: "escuela" | "cooperadora";
   cuentaConectadaId: string | null;
   activa: boolean;
   configurada: boolean;
@@ -116,8 +118,10 @@ export const conectarPasarela = (
 export const togglePasarela = (escuelaId: string, provider: ProviderPasarela, activa: boolean) =>
   apiPatch<EscuelaPasarelaResumen>(`/api/escuelas/${escuelaId}/pasarelas/${provider}`, { activa });
 
-export const iniciarAutorizacionMercadoPago = (escuelaId: string) =>
-  apiGet<{ url: string }>(`/api/escuelas/${escuelaId}/pasarelas/mercadopago/authorize`);
+export const iniciarAutorizacionMercadoPago = (escuelaId: string, titular: "escuela" | "cooperadora" = "escuela") =>
+  apiGet<{ url: string }>(
+    `/api/escuelas/${escuelaId}/pasarelas/mercadopago/authorize${titular === "cooperadora" ? "?titular=cooperadora" : ""}`
+  );
 
 /**
  * PLAN-roles-v3 D2 — delegación de cobros.

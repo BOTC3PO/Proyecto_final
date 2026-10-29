@@ -52,5 +52,10 @@ Estado al 2026-10-28. Reemplaza al viejo «comision-roadmap-v2.md»: el split co
 - Son voluntarios: no generan mora y no pueden condicionar la inscripción, el boletín ni el acceso del alumno.
 - La escuela puede cargar el tope que fija la ley de su jurisdicción (`Escuela.topeAporteLegal`); un aporte mayor se
   rechaza.
-- Pendiente: la cooperadora es una asociación con CUIT propio y debería cobrar con su propia cuenta. Hoy el aporte se
-  cobra con la cuenta de la escuela.
+- La **cooperadora** es una asociación aparte, con CUIT propio. La dirección la registra (al dar de alta la
+  escuela o después, en Cobros) y el administrador la verifica (Escuelas → Cooperadoras por verificar). Verificada,
+  conecta **su propia** cuenta de Mercado Pago (`?titular=cooperadora` en la autorización). Los cobros de tipo
+  `cooperadora` van solo a esa cuenta (`escuelas_pasarelas.titular`); si no la conectó, el pago queda manual y
+  nunca cae en la cuenta de la escuela. Cambiar el nombre o el CUIT la vuelve a dejar pendiente y desactiva su
+  cuenta conectada.
+- El aporte solidario es de la escuela (va a su cuenta).

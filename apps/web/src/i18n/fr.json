@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Inflation annuelle de référence (%) — fixe le plafond des intérêts",
   "valoracion.tuValoracion": "Votre note",
   "valoracion.promedio": "★ {promedio} sur 5 ({cantidad} notes)",
-  "valoracion.sinValoraciones": "Pas encore de notes"
+  "valoracion.sinValoraciones": "Pas encore de notes",
+  "registrarEscuela.tieneCooperadora": "L'école a une association de parents qui veut encaisser ses contributions via la plateforme",
+  "registrarEscuela.cooperadoraAyuda": "L'association est distincte, avec son propre numéro fiscal et son propre compte : ce qui est perçu pour elle va sur son compte, pas celui de l'école. Les contributions sont volontaires et sans intérêts. Vous pouvez l'ajouter plus tard.",
+  "registrarEscuela.cooperadora_nombre": "Nom de l'association",
+  "registrarEscuela.cooperadora_cuit": "CUIT de l'association",
+  "registrarEscuela.cooperadora_contactoEmail": "E-mail de contact (facultatif)",
+  "cooperadora.titulo": "Association de parents",
+  "cooperadora.ayuda": "Les paiements « Association » vont sur le compte Mercado Pago de l'association, pas celui de l'école. L'administrateur la vérifie d'abord, puis vous la connectez.",
+  "cooperadora.estado_pendiente": "En attente de vérification",
+  "cooperadora.estado_verificada": "Vérifiée",
+  "cooperadora.estado_rechazada": "Refusée",
+  "cooperadora.conectarMp": "Connecter le Mercado Pago de l'association",
+  "cooperadora.reconectarMp": "Reconnecter Mercado Pago",
+  "cooperadora.registrar": "Enregistrer l'association",
+  "cooperadora.porVerificar": "Associations à vérifier",
+  "cooperadora.ningunaPendiente": "Aucune association en attente."
 }

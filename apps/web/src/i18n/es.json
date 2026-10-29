@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Inflación anual de referencia (%) — fija el tope de la mora",
   "valoracion.tuValoracion": "Tu valoración",
   "valoracion.promedio": "★ {promedio} de 5 ({cantidad} valoraciones)",
-  "valoracion.sinValoraciones": "Todavía sin valoraciones"
+  "valoracion.sinValoraciones": "Todavía sin valoraciones",
+  "registrarEscuela.tieneCooperadora": "La escuela tiene cooperadora y quiere cobrar sus aportes por la plataforma",
+  "registrarEscuela.cooperadoraAyuda": "La cooperadora es una asociación aparte, con su propio CUIT y su propia cuenta: lo que se cobra para la cooperadora va a su cuenta, no a la de la escuela. Sus aportes son voluntarios y no generan mora. Si no la tienen formada, se puede cargar después.",
+  "registrarEscuela.cooperadora_nombre": "Nombre de la cooperadora",
+  "registrarEscuela.cooperadora_cuit": "CUIT de la cooperadora",
+  "registrarEscuela.cooperadora_contactoEmail": "Correo de contacto (opcional)",
+  "cooperadora.titulo": "Cooperadora",
+  "cooperadora.ayuda": "Los cobros de tipo «Cooperadora» van a la cuenta de Mercado Pago de la cooperadora, no a la de la escuela. Primero la verifica el administrador; después la conectás.",
+  "cooperadora.estado_pendiente": "Pendiente de verificación",
+  "cooperadora.estado_verificada": "Verificada",
+  "cooperadora.estado_rechazada": "Rechazada",
+  "cooperadora.conectarMp": "Conectar Mercado Pago de la cooperadora",
+  "cooperadora.reconectarMp": "Volver a conectar Mercado Pago",
+  "cooperadora.registrar": "Guardar cooperadora",
+  "cooperadora.porVerificar": "Cooperadoras por verificar",
+  "cooperadora.ningunaPendiente": "No hay cooperadoras pendientes."
 }

@@ -6,6 +6,7 @@
  * provider real en vez de caer a `manual`.
  */
 import { useCallback, useEffect, useState } from "react";
+import { fetchCooperadora, guardarCooperadora, type Cooperadora } from "../services/escuela-alta";
 import { useAuth } from "../auth/use-auth";
 import { Card, CardHead, CardBody, Button, Pill, Input, Select, Textarea } from "../components/ui";
 import { fetchClassrooms } from "../services/aulas";
@@ -69,7 +70,8 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
     setLoading(true);
     try {
       const resp = await fetchPasarelas(escuelaId);
-      setItems(resp.items);
+      // La cuenta de la cooperadora se muestra en su propia tarjeta.
+      setItems(resp.items.filter((p) => p.titular !== "cooperadora"));
     } catch {
       setMsg("No pudimos cargar las pasarelas conectadas.");
     } finally {
@@ -214,6 +216,89 @@ function PasarelasConectadas({ escuelaId }: { escuelaId: string }) {
             {msg}
           </p>
         )}
+      </CardBody>
+    </Card>
+  );
+}
+
+/** Cooperadora: asociación aparte con CUIT propio. La registra la dirección, la verifica el administrador y,
+ * verificada, conecta su propia cuenta de Mercado Pago para cobrar los aportes de tipo «cooperadora». */
+function CooperadoraCard({ escuelaId }: { escuelaId: string }) {
+  const { t } = useI18n();
+  const [coop, setCoop] = useState<Cooperadora | null | undefined>(undefined);
+  const [form, setForm] = useState({ nombre: "", cuit: "", contactoEmail: "" });
+  const [editando, setEditando] = useState(false);
+  const [conectada, setConectada] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchCooperadora(escuelaId)
+      .then((r) => {
+        setCoop(r.cooperadora);
+        if (r.cooperadora) setForm({ nombre: r.cooperadora.nombre, cuit: r.cooperadora.cuit, contactoEmail: r.cooperadora.contactoEmail ?? "" });
+      })
+      .catch(() => setCoop(null));
+    fetchPasarelas(escuelaId)
+      .then((r) => setConectada(r.items.some((p) => p.titular === "cooperadora" && p.activa)))
+      .catch(() => setConectada(false));
+  }, [escuelaId]);
+
+  if (coop === undefined) return null;
+  const guardar = async () => {
+    setMsg(null);
+    try {
+      const r = await guardarCooperadora(escuelaId, { nombre: form.nombre, cuit: form.cuit, contactoEmail: form.contactoEmail || null });
+      setCoop(r.cooperadora);
+      setEditando(false);
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : t("enterpriseCobros.configError"));
+    }
+  };
+  const conectar = async () => {
+    try {
+      const { url } = await iniciarAutorizacionMercadoPago(escuelaId, "cooperadora");
+      window.location.href = url;
+    } catch (err) {
+      setMsg(err instanceof Error ? err.message : t("enterpriseCobros.configError"));
+    }
+  };
+
+  return (
+    <Card>
+      <CardHead>
+        <h2 className="text-sm font-bold">{t("cooperadora.titulo")}</h2>
+      </CardHead>
+      <CardBody className="space-y-3">
+        <p className="text-xs text-[var(--c-text-3)]">{t("cooperadora.ayuda")}</p>
+        {coop && !editando ? (
+          <div className="space-y-1 text-sm text-[var(--c-text)]">
+            <p>
+              <strong>{coop.nombre}</strong> · CUIT {coop.cuit}{" "}
+              <Pill tone={coop.estadoVerificacion === "verificada" ? "ok" : coop.estadoVerificacion === "rechazada" ? "warn" : "neutral"}>
+                {t(`cooperadora.estado_${coop.estadoVerificacion}`)}
+              </Pill>
+            </p>
+            {coop.motivoRechazo && <p className="text-xs text-[var(--c-danger)]">{coop.motivoRechazo}</p>}
+            <div className="flex flex-wrap gap-2 pt-1">
+              <Button size="sm" variant="ghost" onClick={() => setEditando(true)}>{t("comun.editar")}</Button>
+              {coop.estadoVerificacion === "verificada" && (
+                <Button size="sm" onClick={() => void conectar()}>
+                  {conectada ? t("cooperadora.reconectarMp") : t("cooperadora.conectarMp")}
+                </Button>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="grid gap-3 sm:grid-cols-3">
+            <Input label={t("registrarEscuela.cooperadora_nombre")} value={form.nombre} onChange={(e) => setForm({ ...form, nombre: e.target.value })} />
+            <Input label={t("registrarEscuela.cooperadora_cuit")} value={form.cuit} onChange={(e) => setForm({ ...form, cuit: e.target.value })} />
+            <Input label={t("registrarEscuela.cooperadora_contactoEmail")} value={form.contactoEmail} onChange={(e) => setForm({ ...form, contactoEmail: e.target.value })} />
+            <div>
+              <Button size="sm" onClick={() => void guardar()} disabled={!form.nombre || !form.cuit}>{t("cooperadora.registrar")}</Button>
+            </div>
+          </div>
+        )}
+        {msg && <p role="alert" className="text-sm text-[var(--c-danger)]">{msg}</p>}
       </CardBody>
     </Card>
   );
@@ -599,6 +684,8 @@ export default function EnterpriseCobros() {
       </Card>
 
       <ConfigCobros escuelaId={escuelaId} />
+
+      <CooperadoraCard escuelaId={escuelaId} />
 
       <PasarelasConectadas escuelaId={escuelaId} />
     </div>

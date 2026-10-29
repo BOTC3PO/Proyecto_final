@@ -174,10 +174,13 @@ model EscuelaPasarela {
   cuentaConectadaId    String? @map("cuenta_conectada_id")
   credencialesCifradas String? @map("credenciales_cifradas")
   activa               Boolean @default(true)
+  /// "escuela" | "cooperadora": de quién es la cuenta. Los cobros de cooperadora van a la cuenta de la
+  /// cooperadora (asociación con CUIT propio), nunca a la de la escuela.
+  titular              String  @default("escuela")
   createdAt            String  @map("created_at")
   updatedAt            String  @map("updated_at")
   escuela              Escuela @relation(fields: [escuelaId], references: [id])
-  @@unique([escuelaId, provider])
+  @@unique([escuelaId, provider, titular])
   @@map("escuelas_pasarelas")
 }
 
@@ -193,6 +196,8 @@ model TransaccionEscuela {
   // manual). Default "mercadopago" para las filas históricas (todo lo
   // pre-Fase-3 era del SaaS de suscripción, siempre MP).
   provider    String   @default("mercadopago")
+  /// "escuela" | "cooperadora": a quién le corresponde el neto.
+  titular     String   @default("escuela")
   mpPaymentId String?  @map("mp_payment_id")
   createdAt   String   @map("created_at")
   escuela     Escuela  @relation(fields: [escuelaId], references: [id])
@@ -491,6 +496,22 @@ model PasswordResetToken {
   createdAt String  @map("created_at")
   @@index([usuarioId])
   @@map("password_reset_tokens")
+}
+
+// Cooperadora escolar de una escuela: asociación aparte, con CUIT propio, que cobra con su propia cuenta.
+// La carga la dirección (al registrar la escuela o después) y la verifica el administrador.
+model Cooperadora {
+  id                 String  @id
+  escuelaId          String  @unique @map("escuela_id")
+  nombre             String
+  cuit               String
+  contactoEmail      String? @map("contacto_email")
+  /// "pendiente" | "verificada" | "rechazada"
+  estadoVerificacion String  @default("pendiente") @map("estado_verificacion")
+  motivoRechazo      String? @map("motivo_rechazo")
+  createdAt          String  @map("created_at")
+  updatedAt          String  @map("updated_at")
+  @@map("cooperadoras")
 }
 
 // L5 — valoración de módulos (1 a 5). Una por persona; solo quien empezó el módulo.

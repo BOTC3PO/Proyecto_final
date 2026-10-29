@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Inflação anual de referência (%) — define o teto de juros",
   "valoracion.tuValoracion": "Sua avaliação",
   "valoracion.promedio": "★ {promedio} de 5 ({cantidad} avaliações)",
-  "valoracion.sinValoraciones": "Ainda sem avaliações"
+  "valoracion.sinValoraciones": "Ainda sem avaliações",
+  "registrarEscuela.tieneCooperadora": "A escola tem associação de pais e quer receber as contribuições pela plataforma",
+  "registrarEscuela.cooperadoraAyuda": "A associação é separada, com CNPJ/CUIT e conta próprios: o que se arrecada para ela vai para a sua conta, não para a da escola. As contribuições são voluntárias e sem juros. Pode ser cadastrada depois.",
+  "registrarEscuela.cooperadora_nombre": "Nome da associação",
+  "registrarEscuela.cooperadora_cuit": "CUIT da associação",
+  "registrarEscuela.cooperadora_contactoEmail": "E-mail de contato (opcional)",
+  "cooperadora.titulo": "Associação de pais",
+  "cooperadora.ayuda": "As cobranças do tipo «Associação» vão para a conta Mercado Pago da associação, não da escola. Primeiro o administrador verifica; depois você conecta.",
+  "cooperadora.estado_pendiente": "Aguardando verificação",
+  "cooperadora.estado_verificada": "Verificada",
+  "cooperadora.estado_rechazada": "Rejeitada",
+  "cooperadora.conectarMp": "Conectar Mercado Pago da associação",
+  "cooperadora.reconectarMp": "Reconectar Mercado Pago",
+  "cooperadora.registrar": "Salvar associação",
+  "cooperadora.porVerificar": "Associações para verificar",
+  "cooperadora.ningunaPendiente": "Nenhuma associação pendente."
 }

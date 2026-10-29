@@ -45,5 +45,13 @@ export const EscuelaSolicitudSchema = z.object({
   contactoEmail: z.string().email(),
   contactoTelefono: z.string().min(6).max(40),
   cue: z.string().max(40).optional(),
-  notas: z.string().max(1000).optional()
+  notas: z.string().max(1000).optional(),
+  // Opcional: la cooperadora de la escuela (asociación con CUIT propio), para cobrar sus aportes con su cuenta.
+  cooperadora: z
+    .object({
+      nombre: z.string().trim().min(3).max(200),
+      cuit: z.string().trim().regex(/^\d{2}-?\d{8}-?\d$/, "CUIT inválido (11 dígitos)"),
+      contactoEmail: z.string().email().nullish()
+    })
+    .optional()
 });

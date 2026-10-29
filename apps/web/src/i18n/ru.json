@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Годовая инфляция (%) — задаёт потолок пени",
   "valoracion.tuValoracion": "Ваша оценка",
   "valoracion.promedio": "★ {promedio} из 5 ({cantidad} оценок)",
-  "valoracion.sinValoraciones": "Пока нет оценок"
+  "valoracion.sinValoraciones": "Пока нет оценок",
+  "registrarEscuela.tieneCooperadora": "У школы есть родительский фонд, который хочет собирать взносы через платформу",
+  "registrarEscuela.cooperadoraAyuda": "Фонд — отдельная организация со своим налоговым номером и счётом: собранное для него идёт на его счёт, а не школы. Взносы добровольные, без пени. Можно добавить позже.",
+  "registrarEscuela.cooperadora_nombre": "Название фонда",
+  "registrarEscuela.cooperadora_cuit": "CUIT фонда",
+  "registrarEscuela.cooperadora_contactoEmail": "Почта для связи (необязательно)",
+  "cooperadora.titulo": "Родительский фонд",
+  "cooperadora.ayuda": "Сборы типа «Фонд» идут на счёт Mercado Pago фонда, а не школы. Сначала проверка администратора, потом подключение.",
+  "cooperadora.estado_pendiente": "Ожидает проверки",
+  "cooperadora.estado_verificada": "Проверен",
+  "cooperadora.estado_rechazada": "Отклонён",
+  "cooperadora.conectarMp": "Подключить Mercado Pago фонда",
+  "cooperadora.reconectarMp": "Переподключить Mercado Pago",
+  "cooperadora.registrar": "Сохранить фонд",
+  "cooperadora.porVerificar": "Фонды на проверке",
+  "cooperadora.ningunaPendiente": "Нет фондов на проверке."
 }

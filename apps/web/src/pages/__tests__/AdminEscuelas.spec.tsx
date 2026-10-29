@@ -12,6 +12,8 @@ const verificarEscuelaMock = vi.fn();
 vi.mock("../../services/escuela-alta", () => ({
   fetchSolicitudes: (estado: string) => fetchSolicitudesMock(estado),
   verificarEscuela: (id: string, estado: string, motivo?: string) => verificarEscuelaMock(id, estado, motivo),
+  fetchCooperadorasPendientes: () => Promise.resolve({ items: [] }),
+  verificarCooperadora: () => Promise.resolve({}),
 }));
 vi.mock("../../i18n/I18nContext", () => ({ useI18n: () => ({ t: (k: string) => k }) }));
 

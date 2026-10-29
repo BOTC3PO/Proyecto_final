@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "参考年通胀率（%）— 决定逾期利息上限",
   "valoracion.tuValoracion": "你的评分",
   "valoracion.promedio": "★ {promedio} / 5（{cantidad} 个评分）",
-  "valoracion.sinValoraciones": "暂无评分"
+  "valoracion.sinValoraciones": "暂无评分",
+  "registrarEscuela.tieneCooperadora": "学校有家长协会，希望通过平台收取会费",
+  "registrarEscuela.cooperadoraAyuda": "家长协会是独立机构，有自己的税号和账户：为其收取的款项进入协会账户，而非学校账户。会费自愿，不产生利息。也可以稍后添加。",
+  "registrarEscuela.cooperadora_nombre": "协会名称",
+  "registrarEscuela.cooperadora_cuit": "协会 CUIT",
+  "registrarEscuela.cooperadora_contactoEmail": "联系邮箱（可选）",
+  "cooperadora.titulo": "家长协会",
+  "cooperadora.ayuda": "“家长协会”类收费进入协会的 Mercado Pago 账户，而非学校。先由管理员核实，再进行连接。",
+  "cooperadora.estado_pendiente": "待核实",
+  "cooperadora.estado_verificada": "已核实",
+  "cooperadora.estado_rechazada": "已拒绝",
+  "cooperadora.conectarMp": "连接协会的 Mercado Pago",
+  "cooperadora.reconectarMp": "重新连接 Mercado Pago",
+  "cooperadora.registrar": "保存协会",
+  "cooperadora.porVerificar": "待核实的协会",
+  "cooperadora.ningunaPendiente": "没有待核实的协会。"
 }

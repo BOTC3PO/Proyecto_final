@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "Referenca jara inflacio (%) — fiksas la interezan limon",
   "valoracion.tuValoracion": "Via takso",
   "valoracion.promedio": "★ {promedio} el 5 ({cantidad} taksoj)",
-  "valoracion.sinValoraciones": "Ankoraŭ neniuj taksoj"
+  "valoracion.sinValoraciones": "Ankoraŭ neniuj taksoj",
+  "registrarEscuela.tieneCooperadora": "La lernejo havas gepatran asocion, kiu volas kolekti kontribuojn per la platformo",
+  "registrarEscuela.cooperadoraAyuda": "La asocio estas aparta, kun propra imposta numero kaj konto: kion oni kolektas por ĝi iras al ĝia konto. Kontribuoj estas libervolaj kaj sen interezo. Eblas aldoni ĝin poste.",
+  "registrarEscuela.cooperadora_nombre": "Nomo de la asocio",
+  "registrarEscuela.cooperadora_cuit": "CUIT de la asocio",
+  "registrarEscuela.cooperadora_contactoEmail": "Kontakta retpoŝto (nedeviga)",
+  "cooperadora.titulo": "Gepatra asocio",
+  "cooperadora.ayuda": "Kolektoj de tipo «Asocio» iras al la Mercado Pago-konto de la asocio. Unue la administranto kontrolas, poste vi konektas.",
+  "cooperadora.estado_pendiente": "Atendas kontrolon",
+  "cooperadora.estado_verificada": "Kontrolita",
+  "cooperadora.estado_rechazada": "Rifuzita",
+  "cooperadora.conectarMp": "Konekti Mercado Pago de la asocio",
+  "cooperadora.reconectarMp": "Rekonekti Mercado Pago",
+  "cooperadora.registrar": "Konservi asocion",
+  "cooperadora.porVerificar": "Asocioj kontrolotaj",
+  "cooperadora.ningunaPendiente": "Neniuj asocioj atendantaj."
 }

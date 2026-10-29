@@ -4465,5 +4465,20 @@
   "adminComisiones.pInflacion": "기준 연간 물가상승률(%) — 연체 이자 상한 결정",
   "valoracion.tuValoracion": "내 평가",
   "valoracion.promedio": "★ {promedio} / 5 ({cantidad}개 평가)",
-  "valoracion.sinValoraciones": "아직 평가가 없습니다"
+  "valoracion.sinValoraciones": "아직 평가가 없습니다",
+  "registrarEscuela.tieneCooperadora": "학교에 학부모회가 있고 회비를 플랫폼으로 받고 싶음",
+  "registrarEscuela.cooperadoraAyuda": "학부모회는 별도 단체로 자체 세금 번호와 계좌가 있습니다. 회비는 학부모회 계좌로 가며 자율적이고 연체 이자가 없습니다. 나중에 등록할 수도 있습니다.",
+  "registrarEscuela.cooperadora_nombre": "단체 이름",
+  "registrarEscuela.cooperadora_cuit": "단체 CUIT",
+  "registrarEscuela.cooperadora_contactoEmail": "연락 이메일(선택)",
+  "cooperadora.titulo": "학부모회",
+  "cooperadora.ayuda": "‘학부모회’ 청구는 학교가 아닌 학부모회 Mercado Pago 계좌로 갑니다. 관리자 확인 후 연결하세요.",
+  "cooperadora.estado_pendiente": "확인 대기",
+  "cooperadora.estado_verificada": "확인됨",
+  "cooperadora.estado_rechazada": "거절됨",
+  "cooperadora.conectarMp": "학부모회 Mercado Pago 연결",
+  "cooperadora.reconectarMp": "Mercado Pago 다시 연결",
+  "cooperadora.registrar": "학부모회 저장",
+  "cooperadora.porVerificar": "확인할 학부모회",
+  "cooperadora.ningunaPendiente": "대기 중인 학부모회가 없습니다."
 }

@@ -5,7 +5,7 @@
  * pero no cobrarle a las familias hasta que el admin la verifique. Ese gate
  * vive en el back (lib/escuela-verificacion.ts); acá sólo se lo refleja.
  */
-import { apiGet, apiPatch, apiPost } from "../lib/api";
+import { apiGet, apiPatch, apiPost, apiPut } from "../lib/api";
 
 export type SolicitudEscuela = {
   name: string;
@@ -16,7 +16,32 @@ export type SolicitudEscuela = {
   contactoTelefono: string;
   cue?: string;
   notas?: string;
+  /** Opcional: la cooperadora de la escuela, para cobrar sus aportes con su propia cuenta. */
+  cooperadora?: { nombre: string; cuit: string; contactoEmail?: string | null };
 };
+
+export type Cooperadora = {
+  id: string;
+  escuelaId: string;
+  escuelaNombre?: string;
+  nombre: string;
+  cuit: string;
+  contactoEmail: string | null;
+  estadoVerificacion: "pendiente" | "verificada" | "rechazada";
+  motivoRechazo: string | null;
+};
+
+export const fetchCooperadora = (escuelaId: string) =>
+  apiGet<{ cooperadora: Cooperadora | null }>(`/api/escuelas/${escuelaId}/cooperadora`);
+
+export const guardarCooperadora = (escuelaId: string, datos: { nombre: string; cuit: string; contactoEmail?: string | null }) =>
+  apiPut<{ cooperadora: Cooperadora }>(`/api/escuelas/${escuelaId}/cooperadora`, datos);
+
+export const fetchCooperadorasPendientes = (estado = "pendiente") =>
+  apiGet<{ items: Cooperadora[] }>(`/api/admin/cooperadoras?estado=${encodeURIComponent(estado)}`);
+
+export const verificarCooperadora = (id: string, estado: "verificada" | "rechazada", motivo?: string) =>
+  apiPost<{ cooperadora: Cooperadora }>(`/api/admin/cooperadoras/${id}/verificacion`, { estado, ...(motivo ? { motivo } : {}) });
 
 export type EscuelaPendiente = {
   cryptomusHabilitado?: boolean;
