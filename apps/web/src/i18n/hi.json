@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "सत्यापन बंद करें",
   "perfil.dosPasosCodigoORecuperacion": "कोड या रिकवरी कोड",
   "perfil.dosPasosCodigosTitulo": "इन रिकवरी कोड को सुरक्षित जगह रखें। फ़ोन खोने पर हर कोड एक बार काम करेगा। ये दोबारा नहीं दिखेंगे।",
-  "perfil.dosPasosError": "कार्य पूरा नहीं हो सका।"
+  "perfil.dosPasosError": "कार्य पूरा नहीं हो सका।",
+  "aula.fijada": "पिन किया",
+  "aula.fijar": "पिन करें",
+  "aula.desfijar": "पिन हटाएँ"
 }

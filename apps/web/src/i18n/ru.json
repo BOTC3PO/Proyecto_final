@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Отключить проверку",
   "perfil.dosPasosCodigoORecuperacion": "Код или код восстановления",
   "perfil.dosPasosCodigosTitulo": "Сохраните эти коды восстановления в надёжном месте. Каждый действует один раз при потере телефона. Повторно они не показываются.",
-  "perfil.dosPasosError": "Не удалось выполнить операцию."
+  "perfil.dosPasosError": "Не удалось выполнить операцию.",
+  "aula.fijada": "Закреплено",
+  "aula.fijar": "Закрепить",
+  "aula.desfijar": "Открепить"
 }

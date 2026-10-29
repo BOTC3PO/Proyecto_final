@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Malaktivigi kontrolon",
   "perfil.dosPasosCodigoORecuperacion": "Kodo aŭ restariga kodo",
   "perfil.dosPasosCodigosTitulo": "Konservu ĉi tiujn restarigajn kodojn sekure. Ĉiu validas unufoje se vi perdas la telefonon. Ili ne denove montriĝos.",
-  "perfil.dosPasosError": "Ne eblis plenumi la operacion."
+  "perfil.dosPasosError": "Ne eblis plenumi la operacion.",
+  "aula.fijada": "Fiksita",
+  "aula.fijar": "Fiksi",
+  "aula.desfijar": "Malfiksi"
 }

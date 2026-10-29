@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "認証を無効にする",
   "perfil.dosPasosCodigoORecuperacion": "コードまたは回復コード",
   "perfil.dosPasosCodigosTitulo": "この回復コードを安全な場所に保管してください。電話をなくした場合、各コードは1回だけ使えます。再表示されません。",
-  "perfil.dosPasosError": "操作を完了できませんでした。"
+  "perfil.dosPasosError": "操作を完了できませんでした。",
+  "aula.fijada": "固定",
+  "aula.fijar": "固定する",
+  "aula.desfijar": "固定解除"
 }

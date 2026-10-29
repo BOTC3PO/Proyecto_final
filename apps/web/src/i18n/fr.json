@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Désactiver la vérification",
   "perfil.dosPasosCodigoORecuperacion": "Code ou code de récupération",
   "perfil.dosPasosCodigosTitulo": "Conservez ces codes de récupération en lieu sûr. Chacun sert une fois si vous perdez votre téléphone. Ils ne seront plus affichés.",
-  "perfil.dosPasosError": "L'opération n'a pas pu aboutir."
+  "perfil.dosPasosError": "L'opération n'a pas pu aboutir.",
+  "aula.fijada": "Épinglée",
+  "aula.fijar": "Épingler",
+  "aula.desfijar": "Désépingler"
 }

@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Turn off verification",
   "perfil.dosPasosCodigoORecuperacion": "Code or recovery code",
   "perfil.dosPasosCodigosTitulo": "Save these recovery codes somewhere safe. Each works once if you lose your phone. They won't be shown again.",
-  "perfil.dosPasosError": "The operation could not be completed."
+  "perfil.dosPasosError": "The operation could not be completed.",
+  "aula.fijada": "Pinned",
+  "aula.fijar": "Pin",
+  "aula.desfijar": "Unpin"
 }

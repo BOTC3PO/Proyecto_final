@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "인증 끄기",
   "perfil.dosPasosCodigoORecuperacion": "코드 또는 복구 코드",
   "perfil.dosPasosCodigosTitulo": "이 복구 코드를 안전한 곳에 보관하세요. 휴대폰을 잃어버렸을 때 각각 한 번씩 사용할 수 있으며 다시 표시되지 않습니다.",
-  "perfil.dosPasosError": "작업을 완료하지 못했습니다."
+  "perfil.dosPasosError": "작업을 완료하지 못했습니다.",
+  "aula.fijada": "고정됨",
+  "aula.fijar": "고정",
+  "aula.desfijar": "고정 해제"
 }

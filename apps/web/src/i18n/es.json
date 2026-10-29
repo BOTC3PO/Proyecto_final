@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Desactivar la verificación",
   "perfil.dosPasosCodigoORecuperacion": "Código o código de recuperación",
   "perfil.dosPasosCodigosTitulo": "Guardá estos códigos de recuperación en un lugar seguro. Cada uno sirve una vez si perdés el teléfono. No se vuelven a mostrar.",
-  "perfil.dosPasosError": "No se pudo completar la operación."
+  "perfil.dosPasosError": "No se pudo completar la operación.",
+  "aula.fijada": "Fijada",
+  "aula.fijar": "Fijar",
+  "aula.desfijar": "Desfijar"
 }

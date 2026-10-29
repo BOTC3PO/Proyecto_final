@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Disattiva la verifica",
   "perfil.dosPasosCodigoORecuperacion": "Codice o codice di recupero",
   "perfil.dosPasosCodigosTitulo": "Conserva questi codici di recupero in un posto sicuro. Ognuno vale una volta se perdi il telefono. Non verranno più mostrati.",
-  "perfil.dosPasosError": "Impossibile completare l'operazione."
+  "perfil.dosPasosError": "Impossibile completare l'operazione.",
+  "aula.fijada": "Fissata",
+  "aula.fijar": "Fissa",
+  "aula.desfijar": "Rimuovi"
 }

@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "إيقاف التحقق",
   "perfil.dosPasosCodigoORecuperacion": "رمز أو رمز استرداد",
   "perfil.dosPasosCodigosTitulo": "احفظ رموز الاسترداد هذه في مكان آمن. كل رمز يُستخدم مرة واحدة إذا فقدت هاتفك ولن تُعرض مجددًا.",
-  "perfil.dosPasosError": "تعذر إكمال العملية."
+  "perfil.dosPasosError": "تعذر إكمال العملية.",
+  "aula.fijada": "مثبّتة",
+  "aula.fijar": "تثبيت",
+  "aula.desfijar": "إلغاء التثبيت"
 }

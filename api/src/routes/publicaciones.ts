@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { puedeGestionarAula, type UsuarioAula } from "../lib/aula-permisos";
 import { Router } from "express";
 import { recordAuditLog } from "../lib/audit-log";
 import { prisma } from "../lib/prisma";
@@ -83,7 +84,8 @@ publicaciones.get(
     const { items: rows, ...paginacion } = recortar(
       await prisma.publicacion.findMany({
         where: { aulaId: req.params.id as string as string, isDeleted: { not: true } },
-        orderBy: { publishedAt: "desc" },
+        // Las fijadas por el docente van primero.
+        orderBy: [{ isPinned: "desc" }, { publishedAt: "desc" }],
         take: pagina.take,
         skip: pagina.skip
       }),
@@ -394,3 +396,17 @@ publicaciones.post(
     res.status(201).json(comment);
   }
 );
+
+// POST /api/aulas/:id/publicaciones/:pubId/fijar — el docente del aula fija o desfija una publicación (queda
+// arriba del tablón). Body: { fijada: boolean }.
+publicaciones.post("/api/aulas/:id/publicaciones/:pubId/fijar", requireUser, async (req, res) => {
+  const aulaId = req.params.id as string;
+  if (!(await puedeGestionarAula(req.user as UsuarioAula, aulaId))) return res.status(403).json({ error: "forbidden" });
+  if (typeof req.body?.fijada !== "boolean") return res.status(400).json({ error: "fijada (boolean) requerido" });
+  const r = await prisma.publicacion.updateMany({
+    where: { id: req.params.pubId as string, aulaId, isDeleted: { not: true } },
+    data: { isPinned: req.body.fijada, updatedAt: new Date().toISOString() }
+  });
+  if (r.count === 0) return res.status(404).json({ error: "publicación no encontrada" });
+  res.json({ ok: true, fijada: req.body.fijada });
+});

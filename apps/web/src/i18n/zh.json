@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "关闭验证",
   "perfil.dosPasosCodigoORecuperacion": "验证码或恢复码",
   "perfil.dosPasosCodigosTitulo": "请把这些恢复码保存在安全的地方。手机丢失时每个可用一次，之后不会再显示。",
-  "perfil.dosPasosError": "操作未能完成。"
+  "perfil.dosPasosError": "操作未能完成。",
+  "aula.fijada": "已置顶",
+  "aula.fijar": "置顶",
+  "aula.desfijar": "取消置顶"
 }

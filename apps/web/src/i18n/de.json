@@ -4455,5 +4455,8 @@
   "perfil.dosPasosDesactivar": "Verifizierung deaktivieren",
   "perfil.dosPasosCodigoORecuperacion": "Code oder Wiederherstellungscode",
   "perfil.dosPasosCodigosTitulo": "Bewahren Sie diese Wiederherstellungscodes sicher auf. Jeder gilt einmal, falls Sie Ihr Telefon verlieren. Sie werden nicht erneut angezeigt.",
-  "perfil.dosPasosError": "Der Vorgang konnte nicht abgeschlossen werden."
+  "perfil.dosPasosError": "Der Vorgang konnte nicht abgeschlossen werden.",
+  "aula.fijada": "Angeheftet",
+  "aula.fijar": "Anheften",
+  "aula.desfijar": "Lösen"
 }
