@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Salva password",
   "restablecer.listo": "Fatto. Ora puoi accedere con la nuova password.",
   "restablecer.sinToken": "Questo link non è valido. Richiedine uno nuovo da «Recupera password».",
-  "restablecer.irAlLogin": "Vai all'accesso"
+  "restablecer.irAlLogin": "Vai all'accesso",
+  "hijosProgreso.sinAsistencia": "Nessuna presenza registrata.",
+  "hijosProgreso.asistenciaDesde": "Ultimi 90 giorni, dal",
+  "hijosProgreso.asistencia_presente": "Presente",
+  "hijosProgreso.asistencia_tarde": "In ritardo",
+  "hijosProgreso.asistencia_ausente": "Assente",
+  "hijosProgreso.asistencia_justificado": "Assenza giustificata"
 }

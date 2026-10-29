@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Enregistrer",
   "restablecer.listo": "C'est fait. Vous pouvez vous connecter avec votre nouveau mot de passe.",
   "restablecer.sinToken": "Ce lien n'est pas valide. Demandez-en un nouveau depuis « Récupérer le mot de passe ».",
-  "restablecer.irAlLogin": "Aller à la connexion"
+  "restablecer.irAlLogin": "Aller à la connexion",
+  "hijosProgreso.sinAsistencia": "Aucune présence enregistrée pour l'instant.",
+  "hijosProgreso.asistenciaDesde": "90 derniers jours, depuis le",
+  "hijosProgreso.asistencia_presente": "Présent",
+  "hijosProgreso.asistencia_tarde": "En retard",
+  "hijosProgreso.asistencia_ausente": "Absent",
+  "hijosProgreso.asistencia_justificado": "Absence justifiée"
 }

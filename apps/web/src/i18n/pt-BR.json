@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Salvar senha",
   "restablecer.listo": "Pronto. Agora você pode entrar com sua nova senha.",
   "restablecer.sinToken": "Este link não é válido. Peça outro em “Recuperar senha”.",
-  "restablecer.irAlLogin": "Ir para o login"
+  "restablecer.irAlLogin": "Ir para o login",
+  "hijosProgreso.sinAsistencia": "Ainda não há frequência registrada.",
+  "hijosProgreso.asistenciaDesde": "Últimos 90 dias, desde",
+  "hijosProgreso.asistencia_presente": "Presente",
+  "hijosProgreso.asistencia_tarde": "Atrasado",
+  "hijosProgreso.asistencia_ausente": "Ausente",
+  "hijosProgreso.asistencia_justificado": "Falta justificada"
 }

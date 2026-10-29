@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "पासवर्ड सहेजें",
   "restablecer.listo": "हो गया। अब आप नए पासवर्ड से लॉग इन कर सकते हैं।",
   "restablecer.sinToken": "यह लिंक मान्य नहीं है। “पासवर्ड पुनः प्राप्त करें” से नया लिंक माँगें।",
-  "restablecer.irAlLogin": "लॉग इन पर जाएँ"
+  "restablecer.irAlLogin": "लॉग इन पर जाएँ",
+  "hijosProgreso.sinAsistencia": "अभी तक कोई उपस्थिति दर्ज नहीं है।",
+  "hijosProgreso.asistenciaDesde": "पिछले 90 दिन, से",
+  "hijosProgreso.asistencia_presente": "उपस्थित",
+  "hijosProgreso.asistencia_tarde": "देर से",
+  "hijosProgreso.asistencia_ausente": "अनुपस्थित",
+  "hijosProgreso.asistencia_justificado": "उचित कारण से अनुपस्थित"
 }

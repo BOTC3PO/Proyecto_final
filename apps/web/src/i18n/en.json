@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Save password",
   "restablecer.listo": "Done. You can now sign in with your new password.",
   "restablecer.sinToken": "This link is not valid. Request a new one from “Recover password”.",
-  "restablecer.irAlLogin": "Go to sign in"
+  "restablecer.irAlLogin": "Go to sign in",
+  "hijosProgreso.sinAsistencia": "No attendance recorded yet.",
+  "hijosProgreso.asistenciaDesde": "Last 90 days, since",
+  "hijosProgreso.asistencia_presente": "Present",
+  "hijosProgreso.asistencia_tarde": "Late",
+  "hijosProgreso.asistencia_ausente": "Absent",
+  "hijosProgreso.asistencia_justificado": "Excused"
 }

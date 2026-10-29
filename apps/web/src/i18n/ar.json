@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "حفظ كلمة المرور",
   "restablecer.listo": "تم. يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.",
   "restablecer.sinToken": "هذا الرابط غير صالح. اطلب رابطًا جديدًا من «استعادة كلمة المرور».",
-  "restablecer.irAlLogin": "الذهاب لتسجيل الدخول"
+  "restablecer.irAlLogin": "الذهاب لتسجيل الدخول",
+  "hijosProgreso.sinAsistencia": "لا يوجد حضور مسجل بعد.",
+  "hijosProgreso.asistenciaDesde": "آخر 90 يومًا، منذ",
+  "hijosProgreso.asistencia_presente": "حاضر",
+  "hijosProgreso.asistencia_tarde": "متأخر",
+  "hijosProgreso.asistencia_ausente": "غائب",
+  "hijosProgreso.asistencia_justificado": "غياب بعذر"
 }

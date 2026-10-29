@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Guardar contraseña",
   "restablecer.listo": "Listo. Ya podés iniciar sesión con tu contraseña nueva.",
   "restablecer.sinToken": "Este enlace no es válido. Pedí uno nuevo desde «Recuperar contraseña».",
-  "restablecer.irAlLogin": "Ir a iniciar sesión"
+  "restablecer.irAlLogin": "Ir a iniciar sesión",
+  "hijosProgreso.sinAsistencia": "Todavía no hay asistencia registrada.",
+  "hijosProgreso.asistenciaDesde": "Últimos 90 días, desde el",
+  "hijosProgreso.asistencia_presente": "Presente",
+  "hijosProgreso.asistencia_tarde": "Llegó tarde",
+  "hijosProgreso.asistencia_ausente": "Ausente",
+  "hijosProgreso.asistencia_justificado": "Falta justificada"
 }

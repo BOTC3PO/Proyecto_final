@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "保存密码",
   "restablecer.listo": "完成。现在可以用新密码登录。",
   "restablecer.sinToken": "此链接无效。请在“找回密码”中重新申请。",
-  "restablecer.irAlLogin": "前往登录"
+  "restablecer.irAlLogin": "前往登录",
+  "hijosProgreso.sinAsistencia": "尚无考勤记录。",
+  "hijosProgreso.asistenciaDesde": "最近 90 天，自",
+  "hijosProgreso.asistencia_presente": "出勤",
+  "hijosProgreso.asistencia_tarde": "迟到",
+  "hijosProgreso.asistencia_ausente": "缺勤",
+  "hijosProgreso.asistencia_justificado": "请假"
 }

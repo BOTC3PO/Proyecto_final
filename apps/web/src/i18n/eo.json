@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Konservi pasvorton",
   "restablecer.listo": "Farite. Nun vi povas ensaluti per la nova pasvorto.",
   "restablecer.sinToken": "Ĉi tiu ligilo ne validas. Petu novan per «Restarigi pasvorton».",
-  "restablecer.irAlLogin": "Iri al ensaluto"
+  "restablecer.irAlLogin": "Iri al ensaluto",
+  "hijosProgreso.sinAsistencia": "Ankoraŭ neniu ĉeesto registrita.",
+  "hijosProgreso.asistenciaDesde": "Lastaj 90 tagoj, ekde",
+  "hijosProgreso.asistencia_presente": "Ĉeestis",
+  "hijosProgreso.asistencia_tarde": "Malfrue",
+  "hijosProgreso.asistencia_ausente": "Forestis",
+  "hijosProgreso.asistencia_justificado": "Pravigita foresto"
 }

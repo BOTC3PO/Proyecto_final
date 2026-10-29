@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Сохранить пароль",
   "restablecer.listo": "Готово. Теперь можно войти с новым паролем.",
   "restablecer.sinToken": "Ссылка недействительна. Запросите новую в разделе «Восстановить пароль».",
-  "restablecer.irAlLogin": "Перейти ко входу"
+  "restablecer.irAlLogin": "Перейти ко входу",
+  "hijosProgreso.sinAsistencia": "Посещаемость ещё не отмечалась.",
+  "hijosProgreso.asistenciaDesde": "Последние 90 дней, с",
+  "hijosProgreso.asistencia_presente": "Присутствовал",
+  "hijosProgreso.asistencia_tarde": "Опоздал",
+  "hijosProgreso.asistencia_ausente": "Отсутствовал",
+  "hijosProgreso.asistencia_justificado": "Уважительная причина"
 }

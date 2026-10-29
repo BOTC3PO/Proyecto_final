@@ -497,3 +497,41 @@ padres.get("/api/padres/hijos/:id/aulas", requireUser, async (req, res) => {
     });
   }
 });
+
+// GET /api/padres/hijos/:id/asistencia?desde=AAAA-MM-DD
+// L3 — el padre ve la asistencia de su hijo en todas sus aulas: resumen por estado (presente, ausente, tarde,
+// justificado) y el detalle de los días que no fueron «presente». Por defecto, los últimos 90 días.
+padres.get("/api/padres/hijos/:id/asistencia", requireUser, async (req, res) => {
+  const parentId = resolveParentId(req);
+  if (!parentId) return res.status(401).json({ error: "not authenticated" });
+  const childId = getParamId(req.params.id);
+  if (!childId) return res.status(400).json({ error: "childId required" });
+
+  const access = await ensureParentAccess({ parentId, childId });
+  if (!access.ok) return res.status(access.status).json({ error: access.error });
+
+  const desdeParam = typeof req.query.desde === "string" && /^\d{4}-\d{2}-\d{2}$/.test(req.query.desde) ? req.query.desde : null;
+  const desde = desdeParam ?? new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  const registros = await prisma.asistencia.findMany({
+    where: { alumnoId: childId, fecha: { gte: desde } },
+    select: { claseId: true, fecha: true, estado: true, notas: true },
+    orderBy: { fecha: "desc" },
+    take: 1000
+  });
+  const claseIds = [...new Set(registros.map((r) => r.claseId))];
+  const clases = claseIds.length
+    ? await prisma.clase.findMany({ where: { id: { in: claseIds } }, select: { id: true, name: true } })
+    : [];
+  const nombreAula = new Map(clases.map((c) => [c.id, c.name]));
+
+  const resumen = { presente: 0, ausente: 0, tarde: 0, justificado: 0 };
+  for (const r of registros) {
+    if (r.estado in resumen) resumen[r.estado as keyof typeof resumen] += 1;
+  }
+  const novedades = registros
+    .filter((r) => r.estado !== "presente")
+    .map((r) => ({ fecha: r.fecha, estado: r.estado, aula: nombreAula.get(r.claseId) ?? "Aula", notas: r.notas ?? null }));
+
+  return res.json({ desde, total: registros.length, resumen, novedades });
+});

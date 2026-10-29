@@ -211,3 +211,30 @@ test("FASE 5: el área informativa es solo lectura — no hay endpoint de escrit
   assert.equal(prisma.progresoModulo.rows.filter((p) => p.usuarioId === hijoId).length, 0);
   assert.equal(prisma.quizAttempt.rows.filter((q) => (q as any).userId === hijoId).length, 0);
 });
+
+// L3 (2026-10-28) — el padre ve la asistencia del hijo; un padre sin vínculo no.
+test("L3: con vínculo aprobado, el padre ve el resumen de asistencia y los días con novedad", async () => {
+  const padreId = randomUUID();
+  const hijoId = randomUUID();
+  seedPadre(padreId);
+  seedHijo(hijoId);
+  seedVinculoAprobado(padreId, hijoId);
+  prisma.clase.rows.push({ id: "aula-asis", escuelaId: ESC, name: "3.º A", isDeleted: false, status: "ACTIVE" } as never);
+  const hoy = new Date().toISOString().slice(0, 10);
+  const dia = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString().slice(0, 10);
+  for (const [fecha, estado] of [[hoy, "presente"], [dia(1), "tarde"], [dia(2), "ausente"], [dia(200), "ausente"]] as const) {
+    prisma.asistencia.rows.push({ id: randomUUID(), claseId: "aula-asis", alumnoId: hijoId, fecha, estado, registradoPor: "doc", createdAt: hoy, updatedAt: hoy } as never);
+  }
+
+  const res = await jsonRequest(baseUrl, "GET", `/api/padres/hijos/${hijoId}/asistencia`, { token: padreToken(padreId) });
+  assert.equal(res.status, 200, JSON.stringify(res.body));
+  const body = res.body as { resumen: Record<string, number>; novedades: Array<{ estado: string; aula: string }> };
+  assert.deepEqual(body.resumen, { presente: 1, ausente: 1, tarde: 1, justificado: 0 }, "solo los últimos 90 días");
+  assert.deepEqual(body.novedades.map((n) => n.estado), ["tarde", "ausente"]);
+  assert.equal(body.novedades[0].aula, "3.º A");
+
+  const ajeno = randomUUID();
+  seedPadre(ajeno);
+  const r2 = await jsonRequest(baseUrl, "GET", `/api/padres/hijos/${hijoId}/asistencia`, { token: padreToken(ajeno) });
+  assert.notEqual(r2.status, 200);
+});

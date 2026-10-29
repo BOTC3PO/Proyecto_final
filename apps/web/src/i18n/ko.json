@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "비밀번호 저장",
   "restablecer.listo": "완료되었습니다. 새 비밀번호로 로그인하세요.",
   "restablecer.sinToken": "유효하지 않은 링크입니다. ‘비밀번호 찾기’에서 새 링크를 요청하세요.",
-  "restablecer.irAlLogin": "로그인으로 이동"
+  "restablecer.irAlLogin": "로그인으로 이동",
+  "hijosProgreso.sinAsistencia": "아직 출석 기록이 없습니다.",
+  "hijosProgreso.asistenciaDesde": "최근 90일, 시작일",
+  "hijosProgreso.asistencia_presente": "출석",
+  "hijosProgreso.asistencia_tarde": "지각",
+  "hijosProgreso.asistencia_ausente": "결석",
+  "hijosProgreso.asistencia_justificado": "인정 결석"
 }

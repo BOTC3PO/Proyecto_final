@@ -4388,5 +4388,11 @@
   "restablecer.guardar": "Passwort speichern",
   "restablecer.listo": "Fertig. Sie können sich jetzt mit dem neuen Passwort anmelden.",
   "restablecer.sinToken": "Dieser Link ist ungültig. Fordern Sie unter „Passwort wiederherstellen“ einen neuen an.",
-  "restablecer.irAlLogin": "Zur Anmeldung"
+  "restablecer.irAlLogin": "Zur Anmeldung",
+  "hijosProgreso.sinAsistencia": "Noch keine Anwesenheit erfasst.",
+  "hijosProgreso.asistenciaDesde": "Letzte 90 Tage, seit",
+  "hijosProgreso.asistencia_presente": "Anwesend",
+  "hijosProgreso.asistencia_tarde": "Verspätet",
+  "hijosProgreso.asistencia_ausente": "Abwesend",
+  "hijosProgreso.asistencia_justificado": "Entschuldigt"
 }
