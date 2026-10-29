@@ -367,3 +367,23 @@ test("FIX-QUIZATTEMPT: compat — questions ya como array (shape del in-memory p
   assert.ok(Array.isArray(body.questions));
   assert.equal(body.questions.length, 2);
 });
+
+// SM-04 (2026-10-28) — la revisión de un intento terminado trae la nota, no solo el puntaje.
+test("SM-04: el intento terminado devuelve la nota con la escala del módulo", async () => {
+  setQuestionsConResolucion();
+  const alumnoToken = tokenFor({ id: ALUMNO_ID, role: "USER", schoolId: ESCUELA_ID });
+  const createRes = await jsonRequest(baseUrl, "POST", "/api/quiz-attempts", {
+    token: alumnoToken,
+    body: { quizId: QUIZ_ID, moduleId: MOD_ID },
+  });
+  const { id: attemptId } = createRes.body as { id: string };
+  const attempt = prisma.quizAttempt.rows.find((a) => a.id === attemptId) as Record<string, unknown>;
+  Object.assign(attempt, { status: "submitted", score: 4, maxScore: 5 });
+
+  const getRes = await jsonRequest(baseUrl, "GET", `/api/quiz-attempts/${attemptId}`, { token: alumnoToken });
+  assert.equal(getRes.status, 200);
+  const body = getRes.body as { notaDisplay?: string; aprobado?: boolean; porcentaje?: number };
+  assert.ok(body.notaDisplay, "trae la nota");
+  assert.equal(body.porcentaje, 80);
+  assert.equal(body.aprobado, true);
+});

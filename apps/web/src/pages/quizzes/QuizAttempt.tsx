@@ -89,6 +89,10 @@ type QuizAttemptResponse = {
   quizTitle?: string;
   status?: string;
   /** WO-T2a — score/maxScore persistidos, para el resumen en modo revisión. */
+  notaDisplay?: string | null;
+  notaCanonical10?: number | null;
+  aprobado?: boolean;
+  porcentaje?: number;
   score?: number;
   maxScore?: number;
   questions?: ModuleQuizQuestion[];
@@ -241,7 +245,15 @@ export default function QuizAttempt() {
         const finished = data.status !== undefined && data.status !== "in_progress";
         if (finished) {
           setSubmitStatus("submitted");
-          setResult({ score: data.score, maxScore: data.maxScore });
+          // SM-04 — también la nota (antes la revisión mostraba solo el puntaje).
+          setResult({
+            score: data.score,
+            maxScore: data.maxScore,
+            notaDisplay: data.notaDisplay ?? null,
+            notaCanonical10: data.notaCanonical10 ?? null,
+            ...(typeof data.aprobado === "boolean" ? { aprobado: data.aprobado } : {}),
+            ...(typeof data.porcentaje === "number" ? { porcentaje: data.porcentaje } : {})
+          });
           setTiempoInicio(null);
           setHasStarted(true);
           setFullscreenWarning(false);
