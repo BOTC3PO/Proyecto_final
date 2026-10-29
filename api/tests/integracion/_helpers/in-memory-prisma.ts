@@ -62,6 +62,15 @@ function matchScalar(value: unknown, condition: unknown): boolean {
     if ("lte" in cond && !(value <= (cond.lte as number))) return false;
     if ("lt" in cond && !(value < (cond.lt as number))) return false;
   }
+  // Columnas DateTime (por ejemplo, refresh_tokens.expires_at): solo cuando ambos lados son Date.
+  if (value instanceof Date) {
+    const t = value.getTime();
+    const ms = (v: unknown) => (v instanceof Date ? v.getTime() : null);
+    if ("gte" in cond && ms(cond.gte) !== null && !(t >= ms(cond.gte)!)) return false;
+    if ("gt" in cond && ms(cond.gt) !== null && !(t > ms(cond.gt)!)) return false;
+    if ("lte" in cond && ms(cond.lte) !== null && !(t <= ms(cond.lte)!)) return false;
+    if ("lt" in cond && ms(cond.lt) !== null && !(t < ms(cond.lt)!)) return false;
+  }
   // Fechas ISO guardadas como texto (H17): solo cuando ambos lados son texto.
   if (typeof value === "string") {
     if ("gte" in cond && typeof cond.gte === "string" && !(value >= cond.gte)) return false;
@@ -76,6 +85,12 @@ function matchScalar(value: unknown, condition: unknown): boolean {
   if ("notIn" in cond) {
     const arr = cond.notIn as readonly unknown[];
     if (arr.includes(value)) return false;
+  }
+  if ("endsWith" in cond) {
+    if (typeof value !== "string" || !value.endsWith(String(cond.endsWith))) return false;
+  }
+  if ("startsWith" in cond) {
+    if (typeof value !== "string" || !value.startsWith(String(cond.startsWith))) return false;
   }
   if ("contains" in cond) {
     if (typeof value !== "string") return false;

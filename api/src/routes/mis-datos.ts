@@ -12,6 +12,7 @@ import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { verifyPassword } from "../lib/passwords";
 import { recordAuditLog } from "../lib/audit-log";
+import { anonimizarUsuario } from "../lib/anonimizar-usuario";
 
 export const misDatos = Router();
 
@@ -81,30 +82,7 @@ misDatos.post("/api/mis-datos/baja", requireUser, async (req, res) => {
     return res.status(403).json({ error: "La contraseña no es correcta.", code: "PASSWORD_INCORRECTA" });
   }
 
-  const ahora = new Date().toISOString();
-  const corto = id.replace(/[^a-zA-Z0-9]/g, "").slice(-12);
-  await prisma.$transaction([
-    prisma.usuario.update({
-      where: { id },
-      data: {
-        isDeleted: true,
-        username: `baja-${corto}`,
-        email: `baja-${corto}@baja.invalid`,
-        fullName: "Cuenta dada de baja",
-        birthdate: null,
-        passwordHash: null,
-        datosVerificacion: null,
-        updatedAt: ahora
-      }
-    }),
-    prisma.refreshToken.updateMany({ where: { userId: id, revoked: false }, data: { revoked: true } }),
-    prisma.pushToken.deleteMany({ where: { userId: id } }),
-    prisma.membresia.updateMany({ where: { usuarioId: id, estado: "activa" }, data: { estado: "revocada", fechaBaja: ahora, updatedAt: ahora } }),
-    prisma.progresoModuloVinculo.updateMany({
-      where: { OR: [{ parentId: id }, { childId: id }], estado: { not: "revocado" } },
-      data: { estado: "revocado", updatedAt: ahora }
-    })
-  ]);
+  await anonimizarUsuario(id);
   await recordAuditLog({ actorId: id, action: "usuario.baja_autoservicio", targetType: "Usuario", targetId: id, metadata: {} });
   res.json({ ok: true });
 });

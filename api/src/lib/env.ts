@@ -158,6 +158,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   PASSWORD_RESET_TTL_MINUTES: Number(process.env.PASSWORD_RESET_TTL_MINUTES ?? 60),
   // L4 — notificaciones push por Expo. Apagadas salvo que se activen.
   PUSH_ENABLED: parseBool(process.env.PUSH_ENABLED, false),
+  // L13 — días que pasan entre que un administrador borra una cuenta y su anonimización.
+  USUARIOS_BORRADOS_ANONIMIZAR_DIAS: Number(process.env.USUARIOS_BORRADOS_ANONIMIZAR_DIAS ?? 30),
 };
 
 /**
