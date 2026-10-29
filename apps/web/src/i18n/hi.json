@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "आँकड़े",
   "nav.configuracion": "सेटिंग",
   "nav.perfil": "प्रोफ़ाइल",
-  "misClases.alumno": "छात्र"
+  "misClases.alumno": "छात्र",
+  "restablecer.titulo": "नया पासवर्ड चुनें",
+  "restablecer.ayuda": "कम से कम 8 अक्षर, जिसमें अक्षर, अंक और चिह्न हों।",
+  "restablecer.nueva": "नया पासवर्ड",
+  "restablecer.repetir": "पासवर्ड दोबारा लिखें",
+  "restablecer.noCoinciden": "पासवर्ड मेल नहीं खाते।",
+  "restablecer.guardar": "पासवर्ड सहेजें",
+  "restablecer.listo": "हो गया। अब आप नए पासवर्ड से लॉग इन कर सकते हैं।",
+  "restablecer.sinToken": "यह लिंक मान्य नहीं है। “पासवर्ड पुनः प्राप्त करें” से नया लिंक माँगें।",
+  "restablecer.irAlLogin": "लॉग इन पर जाएँ"
 }

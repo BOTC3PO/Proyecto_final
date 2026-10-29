@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "統計",
   "nav.configuracion": "設定",
   "nav.perfil": "プロフィール",
-  "misClases.alumno": "人の生徒"
+  "misClases.alumno": "人の生徒",
+  "restablecer.titulo": "新しいパスワードを設定",
+  "restablecer.ayuda": "8文字以上で、文字・数字・記号を組み合わせてください。",
+  "restablecer.nueva": "新しいパスワード",
+  "restablecer.repetir": "パスワード（確認）",
+  "restablecer.noCoinciden": "パスワードが一致しません。",
+  "restablecer.guardar": "パスワードを保存",
+  "restablecer.listo": "完了しました。新しいパスワードでログインできます。",
+  "restablecer.sinToken": "このリンクは無効です。「パスワードの再設定」から新しいリンクを請求してください。",
+  "restablecer.irAlLogin": "ログインへ"
 }

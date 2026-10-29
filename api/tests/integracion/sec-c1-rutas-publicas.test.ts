@@ -51,6 +51,7 @@ const PUBLICAS = new Set<string>([
   "POST /api/auth/guest",
   "POST /api/auth/refresh",
   "POST /api/auth/forgot-password",
+  "POST /api/auth/reset-password",
   "POST /api/auth/login",
   "GET /api/registro/opciones",
   // Mapas y geografía (catálogos).

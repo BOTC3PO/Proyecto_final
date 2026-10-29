@@ -122,6 +122,11 @@ export const ForgotPasswordSchema = z.object({
   email: z.string().email()
 });
 
+export const ResetPasswordSchema = z.object({
+  token: z.string().min(20).max(200),
+  password: passwordNueva
+});
+
 export type RegisterInput = z.infer<typeof RegisterSchema>;
 export type LoginInput = z.infer<typeof LoginSchema>;
 export type BootstrapAdminInput = z.infer<typeof BootstrapAdminRequestSchema>;

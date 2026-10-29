@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "统计",
   "nav.configuracion": "设置",
   "nav.perfil": "个人资料",
-  "misClases.alumno": "名学生"
+  "misClases.alumno": "名学生",
+  "restablecer.titulo": "设置新密码",
+  "restablecer.ayuda": "至少 8 个字符，混合字母、数字和符号。",
+  "restablecer.nueva": "新密码",
+  "restablecer.repetir": "再次输入密码",
+  "restablecer.noCoinciden": "两次密码不一致。",
+  "restablecer.guardar": "保存密码",
+  "restablecer.listo": "完成。现在可以用新密码登录。",
+  "restablecer.sinToken": "此链接无效。请在“找回密码”中重新申请。",
+  "restablecer.irAlLogin": "前往登录"
 }

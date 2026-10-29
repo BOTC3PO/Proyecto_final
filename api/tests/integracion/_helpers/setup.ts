@@ -133,6 +133,7 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.economiaSaldo.rows = [];
   prisma.economiaConfig.rows = [];
   prisma.comisionConfig.rows = [];
+  prisma.passwordResetToken.rows = [];
   // FIX-MENSAJERIA-ESCUELA-EFECTIVA — hilos 1:1 y avisos.
   prisma.hilo.rows = [];
   prisma.mensajeDirecto.rows = [];

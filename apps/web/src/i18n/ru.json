@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Статистика",
   "nav.configuracion": "Настройки",
   "nav.perfil": "Профиль",
-  "misClases.alumno": "ученик"
+  "misClases.alumno": "ученик",
+  "restablecer.titulo": "Задайте новый пароль",
+  "restablecer.ayuda": "Не менее 8 символов: буквы, цифры и знаки.",
+  "restablecer.nueva": "Новый пароль",
+  "restablecer.repetir": "Повторите пароль",
+  "restablecer.noCoinciden": "Пароли не совпадают.",
+  "restablecer.guardar": "Сохранить пароль",
+  "restablecer.listo": "Готово. Теперь можно войти с новым паролем.",
+  "restablecer.sinToken": "Ссылка недействительна. Запросите новую в разделе «Восстановить пароль».",
+  "restablecer.irAlLogin": "Перейти ко входу"
 }

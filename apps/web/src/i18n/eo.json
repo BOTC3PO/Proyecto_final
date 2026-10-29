@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Statistikoj",
   "nav.configuracion": "Agordoj",
   "nav.perfil": "Profilo",
-  "misClases.alumno": "lernanto"
+  "misClases.alumno": "lernanto",
+  "restablecer.titulo": "Elektu novan pasvorton",
+  "restablecer.ayuda": "Almenaŭ 8 signojn, miksante literojn, ciferojn kaj simbolojn.",
+  "restablecer.nueva": "Nova pasvorto",
+  "restablecer.repetir": "Ripetu la pasvorton",
+  "restablecer.noCoinciden": "La pasvortoj ne kongruas.",
+  "restablecer.guardar": "Konservi pasvorton",
+  "restablecer.listo": "Farite. Nun vi povas ensaluti per la nova pasvorto.",
+  "restablecer.sinToken": "Ĉi tiu ligilo ne validas. Petu novan per «Restarigi pasvorton».",
+  "restablecer.irAlLogin": "Iri al ensaluto"
 }

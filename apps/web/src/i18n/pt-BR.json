@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Estatísticas",
   "nav.configuracion": "Configurações",
   "nav.perfil": "Perfil",
-  "misClases.alumno": "aluno"
+  "misClases.alumno": "aluno",
+  "restablecer.titulo": "Escolha uma nova senha",
+  "restablecer.ayuda": "Use pelo menos 8 caracteres, misturando letras, números e símbolos.",
+  "restablecer.nueva": "Nova senha",
+  "restablecer.repetir": "Repita a senha",
+  "restablecer.noCoinciden": "As senhas não coincidem.",
+  "restablecer.guardar": "Salvar senha",
+  "restablecer.listo": "Pronto. Agora você pode entrar com sua nova senha.",
+  "restablecer.sinToken": "Este link não é válido. Peça outro em “Recuperar senha”.",
+  "restablecer.irAlLogin": "Ir para o login"
 }

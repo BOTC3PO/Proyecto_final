@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Estadísticas",
   "nav.configuracion": "Configuración",
   "nav.perfil": "Perfil",
-  "misClases.alumno": "alumno"
+  "misClases.alumno": "alumno",
+  "restablecer.titulo": "Elegí una contraseña nueva",
+  "restablecer.ayuda": "Usá al menos 8 caracteres, mezclando letras, números y símbolos.",
+  "restablecer.nueva": "Contraseña nueva",
+  "restablecer.repetir": "Repetí la contraseña",
+  "restablecer.noCoinciden": "Las contraseñas no coinciden.",
+  "restablecer.guardar": "Guardar contraseña",
+  "restablecer.listo": "Listo. Ya podés iniciar sesión con tu contraseña nueva.",
+  "restablecer.sinToken": "Este enlace no es válido. Pedí uno nuevo desde «Recuperar contraseña».",
+  "restablecer.irAlLogin": "Ir a iniciar sesión"
 }

@@ -34,8 +34,11 @@ import {
   LoginSchema,
   RefreshTokenSchema,
   RegisterSchema,
-  ForgotPasswordSchema
+  ForgotPasswordSchema,
+  ResetPasswordSchema
 } from "../schema/auth";
+import { enviarCorreo } from "../lib/mailer";
+import { motivoPasswordDebil } from "../lib/password-policy";
 
 export const auth = Router();
 
@@ -617,6 +620,97 @@ auth.post("/api/auth/refresh", authLimiter, async (req, res) => {
   }
 });
 
+// ── E1 — recuperación de contraseña ─────────────────────────────────────────
+// El token viaja solo en el correo; en la base queda su hash. Vence en PASSWORD_RESET_TTL_MINUTES y sirve
+// una vez. La respuesta es siempre la misma, exista o no la cuenta, para no revelar qué correos están dados
+// de alta.
+const hashToken = (token: string) => crypto.createHash("sha256").update(token).digest("hex");
+
+async function enviarEnlaceDeRecuperacion(usuario: { id: string; email: string; nombre?: string | null }) {
+  const ahora = new Date();
+  // Pedir un enlace nuevo invalida los anteriores que no se usaron.
+  await prisma.passwordResetToken.updateMany({
+    where: { usuarioId: usuario.id, usedAt: null },
+    data: { usedAt: ahora.toISOString() }
+  });
+  const token = crypto.randomBytes(32).toString("base64url");
+  await prisma.passwordResetToken.create({
+    data: {
+      id: crypto.randomUUID(),
+      usuarioId: usuario.id,
+      tokenHash: hashToken(token),
+      expiresAt: new Date(ahora.getTime() + ENV.PASSWORD_RESET_TTL_MINUTES * 60_000).toISOString(),
+      createdAt: ahora.toISOString()
+    }
+  });
+  const enlace = `${ENV.APP_URL.replace(/\/$/, "")}/restablecer?token=${encodeURIComponent(token)}`;
+  const saludo = usuario.nombre ? `Hola, ${usuario.nombre}:` : "Hola:";
+  const minutos = ENV.PASSWORD_RESET_TTL_MINUTES;
+  await enviarCorreo({
+    para: usuario.email,
+    asunto: "Restablecer tu contraseña de Virtual Book",
+    texto: [
+      saludo,
+      "",
+      "Recibimos un pedido para restablecer tu contraseña. Para elegir una nueva, abrí este enlace:",
+      enlace,
+      "",
+      `El enlace vence en ${minutos} minutos y sirve una sola vez.`,
+      "Si no lo pediste, ignorá este correo: tu contraseña no cambia."
+    ].join("\n")
+  });
+}
+
+auth.post("/api/auth/reset-password", authLimiter, async (req, res) => {
+  const parsed = ResetPasswordSchema.safeParse(req.body ?? {});
+  if (!parsed.success) {
+    res.status(400).json({ error: "La contraseña no cumple los requisitos o el enlace no es válido." });
+    return;
+  }
+  const ahora = new Date().toISOString();
+  const fila = await prisma.passwordResetToken.findFirst({ where: { tokenHash: hashToken(parsed.data.token) } });
+  if (!fila || fila.usedAt || fila.expiresAt <= ahora) {
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo.", code: "TOKEN_INVALIDO" });
+    return;
+  }
+  const usuario = await prisma.usuario.findFirst({ where: { id: fila.usuarioId, isDeleted: { not: true } } });
+  if (!usuario) {
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo.", code: "TOKEN_INVALIDO" });
+    return;
+  }
+  const debil = motivoPasswordDebil(parsed.data.password, {
+    username: usuario.username ?? undefined,
+    email: usuario.email ?? undefined
+  });
+  if (debil) {
+    res.status(400).json({ error: debil, code: "PASSWORD_DEBIL" });
+    return;
+  }
+  // Se marca usado con una condición: dos pedidos simultáneos con el mismo enlace no cambian la clave dos veces.
+  const reclamo = await prisma.passwordResetToken.updateMany({
+    where: { id: fila.id, usedAt: null },
+    data: { usedAt: ahora }
+  });
+  if (reclamo.count !== 1) {
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo.", code: "TOKEN_INVALIDO" });
+    return;
+  }
+  await prisma.usuario.update({
+    where: { id: usuario.id },
+    data: { passwordHash: await hashPassword(parsed.data.password), updatedAt: ahora }
+  });
+  // Cambiar la contraseña cierra las sesiones abiertas (por si alguien más la tenía).
+  await prisma.refreshToken.updateMany({ where: { userId: usuario.id, revoked: false }, data: { revoked: true } });
+  await recordAuditLog({
+    actorId: usuario.id,
+    action: "auth.password_restablecida",
+    targetType: "Usuario",
+    targetId: usuario.id,
+    metadata: {}
+  });
+  res.json({ ok: true });
+});
+
 auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
@@ -645,12 +739,7 @@ auth.post("/api/auth/forgot-password", authLimiter, async (req, res) => {
       // para mutar roles (Fase 2), este chequeo se puede migrar a
       // `!hasRole(user, "GUEST")` para que un `roles: ["GUEST",
       // "TEACHER"]` también caiga en esta rama.
-      if (ENV.NODE_ENV !== "production") {
-        console.info("[auth/forgot-password] Password reset request received", {
-          userId: user.id.toString(),
-          email: user.email
-        });
-      }
+      await enviarEnlaceDeRecuperacion({ id: user.id.toString(), email: user.email ?? parsed.email, nombre: user.fullName });
     }
 
     res.status(200).json({

@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Statistics",
   "nav.configuracion": "Settings",
   "nav.perfil": "Profile",
-  "misClases.alumno": "student"
+  "misClases.alumno": "student",
+  "restablecer.titulo": "Choose a new password",
+  "restablecer.ayuda": "Use at least 8 characters, mixing letters, numbers and symbols.",
+  "restablecer.nueva": "New password",
+  "restablecer.repetir": "Repeat the password",
+  "restablecer.noCoinciden": "The passwords do not match.",
+  "restablecer.guardar": "Save password",
+  "restablecer.listo": "Done. You can now sign in with your new password.",
+  "restablecer.sinToken": "This link is not valid. Request a new one from “Recover password”.",
+  "restablecer.irAlLogin": "Go to sign in"
 }

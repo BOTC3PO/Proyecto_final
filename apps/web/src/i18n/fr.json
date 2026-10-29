@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Statistiques",
   "nav.configuracion": "Paramètres",
   "nav.perfil": "Profil",
-  "misClases.alumno": "élève"
+  "misClases.alumno": "élève",
+  "restablecer.titulo": "Choisissez un nouveau mot de passe",
+  "restablecer.ayuda": "Au moins 8 caractères, en mêlant lettres, chiffres et symboles.",
+  "restablecer.nueva": "Nouveau mot de passe",
+  "restablecer.repetir": "Répétez le mot de passe",
+  "restablecer.noCoinciden": "Les mots de passe ne correspondent pas.",
+  "restablecer.guardar": "Enregistrer",
+  "restablecer.listo": "C'est fait. Vous pouvez vous connecter avec votre nouveau mot de passe.",
+  "restablecer.sinToken": "Ce lien n'est pas valide. Demandez-en un nouveau depuis « Récupérer le mot de passe ».",
+  "restablecer.irAlLogin": "Aller à la connexion"
 }

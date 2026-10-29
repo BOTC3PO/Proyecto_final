@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "الإحصاءات",
   "nav.configuracion": "الإعدادات",
   "nav.perfil": "الملف الشخصي",
-  "misClases.alumno": "طالب"
+  "misClases.alumno": "طالب",
+  "restablecer.titulo": "اختر كلمة مرور جديدة",
+  "restablecer.ayuda": "استخدم 8 أحرف على الأقل تجمع بين الحروف والأرقام والرموز.",
+  "restablecer.nueva": "كلمة المرور الجديدة",
+  "restablecer.repetir": "أعد كتابة كلمة المرور",
+  "restablecer.noCoinciden": "كلمتا المرور غير متطابقتين.",
+  "restablecer.guardar": "حفظ كلمة المرور",
+  "restablecer.listo": "تم. يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.",
+  "restablecer.sinToken": "هذا الرابط غير صالح. اطلب رابطًا جديدًا من «استعادة كلمة المرور».",
+  "restablecer.irAlLogin": "الذهاب لتسجيل الدخول"
 }

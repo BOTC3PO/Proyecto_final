@@ -153,6 +153,15 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // Deja arrancar en local con pasarelas configuradas pero sin
   // MP_WEBHOOK_SECRET / PASARELAS_ENCRYPTION_KEY. Ver assertSecretosDePago.
   PAGOS_DEV_SIN_SECRETOS: parseBool(process.env.PAGOS_DEV_SIN_SECRETOS, false),
+  // E1 — correo saliente (recuperación de contraseña). Sin SMTP_HOST no se envía nada: en desarrollo el
+  // enlace se escribe en la consola; en producción solo queda un aviso.
+  SMTP_HOST: process.env.SMTP_HOST ?? "",
+  SMTP_PORT: Number(process.env.SMTP_PORT ?? 587),
+  SMTP_SECURE: parseBool(process.env.SMTP_SECURE, false),
+  SMTP_USER: process.env.SMTP_USER ?? "",
+  SMTP_PASS: process.env.SMTP_PASS ?? "",
+  SMTP_FROM: process.env.SMTP_FROM ?? "Virtual Book <no-responder@virtualbook.com.ar>",
+  PASSWORD_RESET_TTL_MINUTES: Number(process.env.PASSWORD_RESET_TTL_MINUTES ?? 60),
 };
 
 /**

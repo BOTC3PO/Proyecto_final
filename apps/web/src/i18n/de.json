@@ -4379,5 +4379,14 @@
   "nav.estadisticas": "Statistiken",
   "nav.configuracion": "Einstellungen",
   "nav.perfil": "Profil",
-  "misClases.alumno": "Schüler"
+  "misClases.alumno": "Schüler",
+  "restablecer.titulo": "Neues Passwort wählen",
+  "restablecer.ayuda": "Mindestens 8 Zeichen aus Buchstaben, Zahlen und Symbolen.",
+  "restablecer.nueva": "Neues Passwort",
+  "restablecer.repetir": "Passwort wiederholen",
+  "restablecer.noCoinciden": "Die Passwörter stimmen nicht überein.",
+  "restablecer.guardar": "Passwort speichern",
+  "restablecer.listo": "Fertig. Sie können sich jetzt mit dem neuen Passwort anmelden.",
+  "restablecer.sinToken": "Dieser Link ist ungültig. Fordern Sie unter „Passwort wiederherstellen“ einen neuen an.",
+  "restablecer.irAlLogin": "Zur Anmeldung"
 }

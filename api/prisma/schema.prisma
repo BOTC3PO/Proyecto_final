@@ -474,6 +474,19 @@ model Transferencia {
   @@map("transferencias")
 }
 
+// E1 — recuperación de contraseña. Se guarda solo el hash del token (el token viaja por correo). Vence en una
+// hora y sirve una sola vez; pedir otro invalida los anteriores.
+model PasswordResetToken {
+  id        String  @id
+  usuarioId String  @map("usuario_id")
+  tokenHash String  @unique @map("token_hash")
+  expiresAt String  @map("expires_at")
+  usedAt    String? @map("used_at")
+  createdAt String  @map("created_at")
+  @@index([usuarioId])
+  @@map("password_reset_tokens")
+}
+
 // Parámetros de la comisión escalonada (lib/comisiones.ts). Una sola fila; la edita el administrador.
 model ComisionConfig {
   id        String @id @default("default")
