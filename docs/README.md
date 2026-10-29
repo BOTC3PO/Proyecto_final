@@ -28,7 +28,9 @@ PLAN-P (`tareas_pendientes/PLAN-P-documentacion.md`), origen: `ALCANCE_VBLang_2.
 | [`sqlite-dictionary-api.md`](./sqlite-dictionary-api.md) | Integración de diccionario sobre SQLite (`/api/dictionary`). | Devs. |
 | [`pagos/comision.md`](./pagos/comision.md) | Comisión escalonada, interés por mora y aportes voluntarios. | Devs + negocio. |
 | [`pagos/reembolsos.md`](./pagos/reembolsos.md), [`pagos/enterprise.md`](./pagos/enterprise.md) | Flujos de pago actuales (pre-pivot; código ENTERPRISE confirmado vigente). | Devs + negocio. |
-| [`pagos/comision.md`](./pagos/comision.md) | Interés por mora de las cuotas (la política de mora de la suscripción se retiró). | Devs + negocio. |
+| [`legal/procedimiento-incidentes.md`](./legal/procedimiento-incidentes.md) | Qué hacer ante una filtración de datos (pasos, plazos, avisos). | Responsable de datos. |
+| [`legal/evaluacion-de-impacto.md`](./legal/evaluacion-de-impacto.md) | Evaluación de impacto en la protección de datos. | Responsable de datos. |
+| [`operacion/prueba-de-carga.md`](./operacion/prueba-de-carga.md) | Prueba de carga con 500 alumnos y cómo repetirla. | Devs + operación. |
 
 **Regla de mantenimiento** (los 3 subsistemas de PLAN-P: módulos, documentos/libros,
 herramienta gráfica — y sus manuales de arriba): **cambio de comportamiento ⇒ el
