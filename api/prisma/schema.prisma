@@ -1166,6 +1166,43 @@ model Tarea {
   @@map("tareas")
 }
 
+// L2 — tareas del aula y entregas de los alumnos (reemplazan a `tareas`/`entregas`, que guardaban un JSON
+// suelto y nunca tuvieron forma de crearse ni entregarse).
+model TareaAula {
+  id          String  @id
+  claseId     String  @map("clase_id")
+  titulo      String
+  consigna    String
+  /// Fecha y hora límite (ISO). Se puede entregar después, pero queda marcada «tarde».
+  vence       String?
+  puntajeMax  Float?  @map("puntaje_max")
+  /// "publicada" | "cerrada" (cerrada ya no recibe entregas)
+  estado      String  @default("publicada")
+  creadaPor   String  @map("creada_por")
+  createdAt   String  @map("created_at")
+  updatedAt   String  @map("updated_at")
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  @@index([claseId])
+  @@map("tareas_aula")
+}
+
+model EntregaTarea {
+  id           String  @id
+  tareaId      String  @map("tarea_id")
+  alumnoId     String  @map("alumno_id")
+  texto        String
+  enlace       String?
+  entregadaAt  String  @map("entregada_at")
+  tarde        Boolean @default(false)
+  nota         Float?
+  devolucion   String?
+  corregidaPor String? @map("corregida_por")
+  corregidaAt  String? @map("corregida_at")
+  @@unique([tareaId, alumnoId])
+  @@index([alumnoId])
+  @@map("entregas_tarea")
+}
+
 model EconomiaExamen {
   id        String  @id
   json      String

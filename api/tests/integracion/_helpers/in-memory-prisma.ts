@@ -1001,6 +1001,8 @@ export class InMemoryPrisma {
   saldoUsuario = new Table<Row>("saldoUsuario");
   ledgerMovimiento = new Table<Row>("ledgerMovimiento");
   pushToken = new Table<Row>("pushToken");
+  tareaAula = new Table<Row>("tareaAula");
+  entregaTarea = new Table<Row>("entregaTarea");
   economiaModulo = new Table<Row>("economiaModulo");
   economiaExamen = new Table<Row>("economiaExamen");
   economiaExamenPuja = new Table<Row>("economiaExamenPuja");

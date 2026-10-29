@@ -6,7 +6,7 @@ import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
 import { requireUser } from "../lib/user-auth";
 import { isStaffRole } from "../lib/authorization";
 import { requireClassroomScope } from "../lib/classroom-scope";
-import { hasRole } from "../lib/roles";
+import { puedeGestionarAula, type UsuarioAula } from "../lib/aula-permisos";
 
 export const encuestas = Router();
 
@@ -19,27 +19,10 @@ const alcanceLectura = requireClassroomScope({
   notFoundMessage: "not found"
 });
 
-type UsuarioReq = { id?: string; _id?: string; role?: string; roles?: string[]; schoolId?: string | null };
+type UsuarioReq = UsuarioAula;
 
-/** Crear, editar o borrar encuestas: el docente del aula (miembro, creador o titular), la dirección de su
- * escuela o el admin. Antes cualquier docente podía hacerlo en aulas ajenas. */
-const puedeGestionarEncuestasDe = async (user: UsuarioReq | undefined, claseId: string) => {
-  if (hasRole(user as never, "ADMIN")) return true;
-  const userId = user?.id ?? user?._id ?? null;
-  if (!userId) return false;
-  const clase = await prisma.clase.findFirst({
-    where: { id: claseId },
-    select: { escuelaId: true, createdBy: true, teacherId: true, teacherOfRecord: true }
-  });
-  if (!clase) return false;
-  if ([clase.createdBy, clase.teacherId, clase.teacherOfRecord].includes(userId)) return true;
-  const miembro = await prisma.claseMiembro.findFirst({
-    where: { claseId, usuarioId: userId, rolEnClase: { in: ["TEACHER", "ADMIN"] } }
-  });
-  if (miembro) return true;
-  const esDireccion = hasRole(user as never, "DIRECTIVO") || hasRole(user as never, "ADMIN_ESCUELA");
-  return esDireccion && !!user?.schoolId && user.schoolId === clase.escuelaId;
-};
+/** Crear, editar o borrar encuestas: ver lib/aula-permisos (antes cualquier docente, en cualquier aula). */
+const puedeGestionarEncuestasDe = puedeGestionarAula;
 
 const requireStaff = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const user = (req as { user?: { role?: string } }).user;

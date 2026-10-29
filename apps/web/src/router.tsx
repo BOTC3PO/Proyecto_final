@@ -82,6 +82,8 @@ const Progreso                  = lazyWithRetry(() => import("./pages/Progreso")
 const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
 const ProfesorIntentoDetalle    = lazyWithRetry(() => import("./pages/profesor/IntentoDetalle"));
 const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
+const ProfesorTareas            = lazyWithRetry(() => import("./pages/ProfesorTareas"));
+const TareaDetalle              = lazyWithRetry(() => import("./pages/TareaDetalle"));
 const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
@@ -210,6 +212,10 @@ export const router = createBrowserRouter([
             element: withSuspense(<Tareas />),
           },
           {
+            path: 'tareas/:id',
+            element: withSuspense(<TareaDetalle />),
+          },
+          {
             path: 'encuestas',
             element: withSuspense(<AlumnoEncuestas />),
           },
@@ -307,6 +313,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorEncuestas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/tareas',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorTareas />)}
               </ProtectedRoute>
             ),
           },

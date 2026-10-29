@@ -152,9 +152,22 @@ const buildProfesorStats = async (filters: StatsFilters, alcance: Alcance) => {
   const totalCompletadas = progresoResumen.reduce((acc, item) => acc + item.completadas, 0);
   const tiempoPromedioMin = 0; // timeSpentMinutes not in Prisma schema
 
-  // entregas, notas_temas, accesos, foros_respuestas, encuestas_respuestas, participacion
-  // are not in the Prisma schema — return zero values until those models are added
-  const entregas = 0;
+  // L2 — entregas de tareas dentro del alcance (escuela o global) y del rango de fechas.
+  const entregas = await prisma.entregaTarea.count({
+    where: {
+      ...buildDateWhere(filters, "entregadaAt"),
+      ...(alcance.global
+        ? {}
+        : {
+            alumnoId: {
+              in: (
+                await prisma.membresia.findMany({ where: { escuelaId: alcance.escuelaId, estado: "activa" }, select: { usuarioId: true } })
+              ).map((m) => m.usuarioId)
+            }
+          })
+    }
+  });
+  // notas_temas, accesos, foros_respuestas, encuestas_respuestas, participacion: sin modelo todavía.
   const notasPorTema: NotaTemaItem[] = [];
   const accesos = 0;
   const foros = 0;
