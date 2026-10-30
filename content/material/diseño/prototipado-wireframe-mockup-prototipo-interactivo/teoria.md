@@ -14,7 +14,7 @@ Un **wireframe** es la estructura básica de una interfaz, como un boceto sin de
 
 Por ejemplo: si estás diseñando una app de compras online, el wireframe mostrará dónde va el buscador, los filtros por categoría y la ubicación del carrito. No importa cómo se ve: lo clave es que funcione bien.
 
-![Boceto en blanco y negro de una página con una lista de talleres y un formulario de inscripción](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Wolfplex-Wiki-WorkshopsIdeaList-wireframe-20130929-v02.png/960px-Wolfplex-Wiki-WorkshopsIdeaList-wireframe-20130929-v02.png)
+![Boceto en blanco y negro de una página con una lista de talleres y un formulario de inscripción](/temario/imagenes/wolfplex-wiki-workshopsidealist-wireframe-20130929-v02.webp)
 
 *Imagen: «Wolfplex-Wiki-WorkshopsIdeaList-wireframe-20130929-v02», Dereckson, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wolfplex-Wiki-WorkshopsIdeaList-wireframe-20130929-v02.png).*
 

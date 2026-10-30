@@ -12,7 +12,7 @@
 
 Hace unos 66 millones de años, un evento de gran magnitud marcó el fin de una era dominada por reptiles gigantes: la extinción del Cretácico-Paleógeno. Este fenómeno no solo eliminó a los dinosaurios, sino que también afectó a otros grupos de organismos, creando un vacío ecológico inédito en la historia de la Tierra. Los mamíferos, hasta ese momento pequeños y nocturnos, se encontraron con una realidad radicalmente diferente: grandes depredadores desaparecieron, y los nichos ecológicos que antes ocupaban otros animales quedaron libres.
 
-![Mapa de la Tierra en el periodo Cretácico-Paleógeno mostrando zonas afectadas por el impacto del asteroide](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Chicxulub_impact_-_artist_impression.jpg/960px-Chicxulub_impact_-_artist_impression.jpg)
+![Mapa de la Tierra en el periodo Cretácico-Paleógeno mostrando zonas afectadas por el impacto del asteroide](/temario/imagenes/chicxulub-impact-artist-impression.webp)
 
 *Imagen: «Chicxulub impact - artist impression», Donald E. Davis, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chicxulub_impact_-_artist_impression.jpg).*
 
@@ -20,7 +20,7 @@ Hace unos 66 millones de años, un evento de gran magnitud marcó el fin de una 
 
 Este vacío no fue una desgracia, sino un catalizador para los mamíferos. Comenzaron a diversificarse rápidamente en tamaños, formas y hábitats que antes eran imposibles de ocupar. El proceso se conoce como *radiación adaptativa*: una explosión evolutiva donde especies relacionadas desarrollan características distintas para aprovechar nichos específicos. Ejemplos incluyen el surgimiento de grandes herbívoros, depredadores carnívoros y mamíferos acuáticos.
 
-![Reconstrucción de un pequeño mamífero parecido a una ardilla, con cola larga](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Purgatorius_BW.jpg/960px-Purgatorius_BW.jpg)
+![Reconstrucción de un pequeño mamífero parecido a una ardilla, con cola larga](/temario/imagenes/purgatorius-bw.webp)
 
 *Imagen: «Purgatorius BW», Nobu Tamura, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Purgatorius_BW.jpg).*
 

@@ -14,7 +14,7 @@ Un **nodo** es el punto físico donde se unen dos o más componentes eléctricos
 
 Los nodos son la base para aplicar las leyes de Kirchhoff, ya que permiten identificar los caminos por donde fluye la electricidad. Por ejemplo, en un circuito con una batería y tres resistencias conectadas en paralelo, cada punto de conexión entre la batería y las resistencias es un nodo.
 
-![Diagrama de circuito simple con nodos etiquetados](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kirchhoff%27s_Current_Law.svg/960px-Kirchhoff%27s_Current_Law.svg.png)
+![Diagrama de circuito simple con nodos etiquetados](/temario/imagenes/kirchhoff-s-current-law.webp)
 
 *Imagen: «Kirchhoff's Current Law», inductiveload, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kirchhoff%27s_Current_Law.svg).*
 

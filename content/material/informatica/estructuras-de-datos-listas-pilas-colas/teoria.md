@@ -25,7 +25,7 @@ Una **pila** es como una pila de platos: siempre se agrega un nuevo elemento enc
 
 Las pilas son útiles cuando necesitamos revertir el orden de datos o mantener un historial (como en navegadores web, donde se vuelve al estado anterior al presionar "atras").
 
-![Diagrama de una pila con elementos A, B, C. El último elemento (C) es el primero en salir.](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Stack_%28data_structure%29_LIFO.svg/960px-Stack_%28data_structure%29_LIFO.svg.png)
+![Diagrama de una pila con elementos A, B, C. El último elemento (C) es el primero en salir.](/temario/imagenes/stack-data-structure-lifo.webp)
 
 *Imagen: «Stack (data structure) LIFO», Lifo.png: The original uploader was Fibi at German, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stack_%28data_structure%29_LIFO.svg).*
 
@@ -40,7 +40,7 @@ Las **colas** funcionan como filas de espera: los elementos entran por un extrem
 
 Son ideales para tareas que requieren procesamiento secuencial, como impresoras que atienden solicitudes en el orden recibido o sistemas de mensajería donde los mensajes se entregan según su llegada.
 
-![Diagrama de una cola con elementos A, B, C. El primer elemento (A) es el primero en salir.](https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fifo_queue.svg/960px-Fifo_queue.svg.png)
+![Diagrama de una cola con elementos A, B, C. El primer elemento (A) es el primero en salir.](/temario/imagenes/fifo-queue.webp)
 
 *Imagen: «Fifo queue», Grain, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fifo_queue.svg).*
 

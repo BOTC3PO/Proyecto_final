@@ -12,7 +12,7 @@
 
 Antes de la expansión oceánica europea, el comercio de larga distancia dependía de rutas terrestres y marítimas fragmentadas. La Ruta de la Seda conectaba Asia con Europa, pero estaba sujeta a los caprichos de los imperios intermediarios. En el mar Mediterráneo, las potencias italianas como Venecia y Génova controlaban el tráfico de especias y bienes de lujo procedentes del Oriente. Sin embargo, el ascenso del Imperio otomano y la caída de Constantinopla en 1453 complicaron estas rutas, creando una urgidad económica y política en las monarquías ibéricas (Castilla y Portugal) por encontrar rutas alternativas hacia las fuentes de producción.
 
-![Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Silk_route.jpg/960px-Silk_route.jpg)
+![Mapa comparativo de las rutas terrestres y marítimas tradicionales hacia Asia antes de 1492](/temario/imagenes/silk-route.webp)
 
 *Imagen: «Silk route», Whole_world_-_land_and_oceans_12000.jpg: NASA/Godd, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Silk_route.jpg).*
 
@@ -24,7 +24,7 @@ Portugal lideró los primeros avances sistemáticos. Bajo el patrocinio del Infa
 
 La navegación oceánica requirió saltos tecnológicos decisivos. La combinación de la brújula, el astrolabio y el cuadrante permitió a los navegantes orientarse en alta mar donde no había referencias visuales. Además, se desarrollaron nuevos instrumentos como el balestrillo, más preciso para medir la altura del sol sobre el horizonte. En el ámbito cartográfico, la carta portolana dio paso a los mapas que incluían líneas de rumbo (rumbos de viento), aunque la proyección cartográfica perfecta no existía aún. La comprensión de los vientos alisios y los sistemas de corrientes fue crucial. Se descubrió que para volver de América a Europa era necesario navegar hacia el norte para captar los vientos del oeste, una técnica conocida como *volta do mar*.
 
-![Detalle de un astrolabio náutico y una brújula magnética del siglo XV](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg/960px-Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg)
+![Detalle de un astrolabio náutico y una brújula magnética del siglo XV](/temario/imagenes/nautical-astrolabe-cnam-3864-img-6430-gradient.webp)
 
 *Imagen: «Nautical astrolabe-CnAM 3864-IMG 6430-gradient», Rama, CC BY-SA 3.0 fr. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nautical_astrolabe-CnAM_3864-IMG_6430-gradient.jpg).*
 

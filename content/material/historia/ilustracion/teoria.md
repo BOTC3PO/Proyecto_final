@@ -20,7 +20,7 @@ Aunque el movimiento fue pan-europeo, tuvo epicentros diferenciados en su enfoqu
 
 Por otro lado, **Londres** y **Edimburgo** ofrecieron modelos distintos. En la Inglaterra del siglo XVIII, la Ilustración tuvo un carácter más empírico, moderado y vinculado al progreso científico y comercial. Pensadores como Isaac Newton demostraron que el universo operaba bajo leyes naturales descubribles, lo que inspiró la esperanza de que la sociedad también pudiera organizarse bajo principios racionales. En Escocia, la Ilustración se enfocó en la sociabilidad, la moralidad y la historia. Figuras como David Hume cuestionaron la causalidad desde el escepticismo, mientras que Adam Smith analizó cómo el interés personal, regulado por el mercado, podía generar orden social sin necesidad de una planificación centralizada.
 
-![Portada de la primera edición de la Encyclopédie de Diderot y d'Alembert, mostrando la complejidad de los grabados técnicos que simbolizan la difusión del saber práctico](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Encyclopedie_frontispice_full.jpg/960px-Encyclopedie_frontispice_full.jpg)
+![Portada de la primera edición de la Encyclopédie de Diderot y d'Alembert, mostrando la complejidad de los grabados técnicos que simbolizan la difusión del saber práctico](/temario/imagenes/encyclopedie-frontispice-full.webp)
 
 *Imagen: «Encyclopedie frontispice full», Benoît-Louis Prévost / Charles-Nicolas Cochin, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Encyclopedie_frontispice_full.jpg).*
 
@@ -36,7 +36,7 @@ La Ilustración no fue un bloque monolítico; existieron debates intensos sobre 
 
 Estas ideas se apoyaron en la teoría del **contrato social**, desarrollada por pensadores como Hobbes, Locke y Rousseau: el orden político no es divino, sino un acuerdo entre las personas. Locke agregó que, si el gobierno no protegía los derechos naturales (vida, libertad, propiedad), el pueblo tenía derecho a resistirlo. Otros ilustrados, como David Hume, criticaron la idea de un contrato original, pero coincidían en que el poder debía justificarse por su utilidad para la sociedad y no por la voluntad divina. Aunque los ilustrados rara vez propusieron la democracia directa (con excepciones notables como Rousseau), su énfasis en la soberanía popular, la separación de poderes (Montesquieu) y la legalidad sentó las bases ideológicas para la Revolución Americana y la Revolución Francesa.
 
-![Grabado con una figura femenina velada e iluminada en el centro, rodeada de figuras que la observan](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Encyclopedie_frontispice_full.jpg/960px-Encyclopedie_frontispice_full.jpg)
+![Grabado con una figura femenina velada e iluminada en el centro, rodeada de figuras que la observan](/temario/imagenes/encyclopedie-frontispice-full.webp)
 
 *Imagen: «Encyclopedie frontispice full», Benoît-Louis Prévost / Charles-Nicolas Cochin, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Encyclopedie_frontispice_full.jpg).*
 

@@ -12,7 +12,7 @@
 
 El **campo eléctrico** es una propiedad del espacio que surge en torno a una carga eléctrica. Permite que esta carga ejerza una fuerza sobre otra carga, incluso si no están en contacto directo. Se define como la fuerza que experimenta una carga de prueba positiva al ser colocada en ese espacio, dividida por el valor de la carga. Su unidad es newton por coulomb (N/C).
 
-![dibujo de una carga puntual con líneas que salen hacia afuera y una flecha indicando la dirección del campo](https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Electric_field_lines_of_point_charges.svg/960px-Electric_field_lines_of_point_charges.svg.png)
+![dibujo de una carga puntual con líneas que salen hacia afuera y una flecha indicando la dirección del campo](/temario/imagenes/electric-field-lines-of-point-charges.webp)
 
 *Imagen: «Electric field lines of point charges», FormulariosBachillerato, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electric_field_lines_of_point_charges.svg).*
 

@@ -14,7 +14,7 @@ La reflexión especular sucede cuando un haz de luz incide sobre una superficie 
 
 La clave de esta reflexión está en la **superficie lisa**: si tiene irregularidades, la luz se dispersa en múltiples direcciones (reflexión difusa), como ocurre con una pared o una tela. En cambio, en un espejo plano, cada rayo que llega sigue la regla de que el ángulo de incidencia es igual al de reflexión.
 
-![Dibujo de un rayo de luz incidente sobre un espejo plano con etiquetas de "ángulo de incidencia" y "ángulo de reflexión"](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Plane-mirror_opt.svg/960px-Plane-mirror_opt.svg.png)
+![Dibujo de un rayo de luz incidente sobre un espejo plano con etiquetas de "ángulo de incidencia" y "ángulo de reflexión"](/temario/imagenes/plane-mirror-opt.webp)
 
 *Imagen: «Plane-mirror opt», MikeRun, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plane-mirror_opt.svg).*
 

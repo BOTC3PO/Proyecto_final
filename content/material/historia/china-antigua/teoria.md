@@ -14,7 +14,7 @@ La historia de China antigua no comienza con un evento único, sino con un proce
 
 Tradicionalmente, la historiografía china menciona a los Tres Augustos y los Cinco Emperadores, figuras semi-míticas que representan la transición del clan al estado. Sin embargo, la evidencia arqueológica y textual apunta a la dinastía Xia (c. 2070–1600 a.C.) como el primer grupo dinástico, aunque su existencia histórica sigue siendo debatida por la falta de inscripciones contemporáneas directas. Lo que sí está documentado es la dinastía Shang (c. 1600–1046 a.C.). Su capital en Anyang ha revelado inscripciones oraculares sobre huesos y caparazones de tortuga. Eso confirma un sistema político teocrático, donde el rey actuaba como intermediario con los ancestros y la naturaleza.
 
-![Mapa del valle del río Amarillo mostrando las principales ciudades-estado de la dinastía Shang y las rutas de comercio de jade y bronce](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kingdom_of_the_Shang_Dynasty.jpg/960px-Kingdom_of_the_Shang_Dynasty.jpg)
+![Mapa del valle del río Amarillo mostrando las principales ciudades-estado de la dinastía Shang y las rutas de comercio de jade y bronce](/temario/imagenes/kingdom-of-the-shang-dynasty.webp)
 
 *Imagen: «Kingdom of the Shang Dynasty», Albert Herrmann & Georg Westermann, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kingdom_of_the_Shang_Dynasty.jpg).*
 
