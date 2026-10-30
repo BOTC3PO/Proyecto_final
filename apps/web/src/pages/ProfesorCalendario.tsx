@@ -360,7 +360,11 @@ export default function ProfesorCalendario() {
           ))}
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
+        {/* La columna derecha (día elegido y alta de eventos) solo existe si hay algo que mostrar: un alumno sin día
+            elegido veía el calendario apretado a la izquierda con la columna vacía al lado. */}
+        <div
+          className={`grid gap-6 ${diaSeleccionado || canEditEscuela || canEditAula ? "lg:grid-cols-[1fr_340px]" : ""}`}
+        >
           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] overflow-hidden">
             <div className="grid grid-cols-7 border-b border-[var(--c-border)] bg-[var(--c-bg)]">
               {DIAS_KEYS.map((dk) => (

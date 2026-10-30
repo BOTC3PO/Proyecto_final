@@ -6,7 +6,11 @@ export type EstadoCobro = (typeof ESTADOS_COBRO)[number];
 export const ESTADOS_CUOTA = ["pendiente", "en_proceso", "pagada", "vencida", "anulada"] as const;
 export type EstadoCuota = (typeof ESTADOS_CUOTA)[number];
 
+export const TIPOS_COBRO = ["cuota", "cooperadora", "aporte_solidario"] as const;
+export type TipoCobro = (typeof TIPOS_COBRO)[number];
+
 export const CobroCreateSchema = z.object({
+  tipo: z.enum(TIPOS_COBRO).optional(),
   concepto: z.string().min(1).max(200),
   descripcion: z.string().max(1000).nullish(),
   montoUnitario: z.number().positive(),
@@ -50,3 +54,14 @@ export const EscuelaPasarelaActualizarSchema = z.object({
 });
 
 export type EscuelaPasarelaConectarInput = z.infer<typeof EscuelaPasarelaConectarSchema>;
+
+// Configuración de cobros de la escuela que fija su dirección: interés por mora y aportes voluntarios.
+// Los topes se aplican en la ruta (dependen del período elegido).
+export const ConfigCobrosEscuelaSchema = z.object({
+  moraActiva: z.boolean().optional(),
+  moraTasa: z.number().min(0).optional(),
+  moraPeriodo: z.enum(["mensual", "anual"]).optional(),
+  moraDiasGracia: z.number().int().min(0).optional(),
+  comisionPctAportes: z.number().min(0).max(1).optional(),
+  topeAporteLegal: z.number().positive().nullable().optional()
+});

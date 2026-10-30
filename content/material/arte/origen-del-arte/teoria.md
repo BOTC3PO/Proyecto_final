@@ -12,7 +12,7 @@
 
 El arte rupestre, principalmente asociado al Paleolítico, es considerado una de las primeras manifestaciones del pensamiento simbólico en la historia humana. En este periodo, los seres humanos comenzaron a representar elementos de su entorno no solo como registros prácticos (por ejemplo, para indicar rutas o recursos), sino también como símbolos con significados abstractos. Estas imágenes, talladas o pintadas en las paredes de cuevas, reflejan una capacidad emergente para conceptualizar ideas, emociones y relaciones entre objetos o seres. Este salto del pensamiento concreto al simbólico marcó un hito fundamental en la evolución cultural.
 
-![cueva con pinturas rupestres de animales y manos](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Altamira%2C_bison.jpg/960px-Altamira%2C_bison.jpg)
+![cueva con pinturas rupestres de animales y manos](/temario/imagenes/altamira-bison.webp)
 
 *Imagen: «Altamira, bison», unknown prehistoric artist, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Altamira,_bison.jpg).*
 

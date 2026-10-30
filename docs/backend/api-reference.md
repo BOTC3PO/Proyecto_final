@@ -726,4 +726,4 @@ siempre se retornan como arreglos (posiblemente vacíos). Cada generador incluye
 - `api/src/lib/cobros-confirmacion.ts`, `pasarelas.ts`, `pasarelas-crypto.ts`, `boletin.ts` 🆕 —
   cobros escuela→familias y boletín.
 - Docs reconciliados: [`auth-y-roles.md`](./auth-y-roles.md), [`../api-readonly-catalogo.md`](../api-readonly-catalogo.md),
-  [`../pagos/`](../pagos/), [`../politica-mora.md`](../politica-mora.md), [`../bootstrap-admin.md`](../bootstrap-admin.md).
+  [`../pagos/`](../pagos/), [`../pagos/comision.md`](../pagos/comision.md), [`../bootstrap-admin.md`](../bootstrap-admin.md).

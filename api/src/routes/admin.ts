@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
+import { recordAuditLog } from "../lib/audit-log";
 import { requireAdmin } from "../lib/admin-auth";
 import { requireUser } from "../lib/user-auth";
 import { getCanonicalMembershipRole } from "../lib/membership-roles";
@@ -18,7 +19,8 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
     const roleFilter = typeof req.query.role === "string" ? req.query.role.trim() : "";
 
     const where: Record<string, unknown> = { isDeleted: false };
-    if (roleFilter) where.role = roleFilter;
+    // La columna es `roles` (lista): `role` no existe y el filtro daba error 500.
+    if (roleFilter) where.roles = { has: roleFilter };
     if (q) {
       where.OR = [
         { username: { contains: q, mode: "insensitive" } },
@@ -34,13 +36,25 @@ adminRouter.get("/api/admin/usuarios", requireAdmin, async (req, res) => {
       orderBy: { createdAt: "desc" },
       select: { id: true, fullName: true, username: true, email: true, roles: true, escuelaId: true, createdAt: true, isBanned: true, warningCount: true }
     });
+    // Sin escuela activa cargada, se muestra la de su primera membresía activa (antes figuraban «Sin escuela»
+    // usuarios que sí pertenecen a una).
+    const sinEscuela = items.filter((i) => !i.escuelaId).map((i) => i.id);
+    const membresias = sinEscuela.length
+      ? await prisma.membresia.findMany({
+          where: { usuarioId: { in: sinEscuela }, estado: "activa" },
+          select: { usuarioId: true, escuelaId: true },
+          orderBy: { fechaAlta: "asc" }
+        })
+      : [];
+    const escuelaPorMembresia = new Map<string, string>();
+    for (const m of membresias) if (!escuelaPorMembresia.has(m.usuarioId)) escuelaPorMembresia.set(m.usuarioId, m.escuelaId);
     const usuarios = items.map((item) => ({
       id: item.id,
       nombre: item.fullName ?? item.username ?? "Sin nombre",
       username: item.username ?? "",
       email: item.email ?? "",
       rol: resolvePrimaryRole(item) ?? "USER",
-      escuelaId: item.escuelaId ?? null,
+      escuelaId: item.escuelaId ?? escuelaPorMembresia.get(item.id) ?? null,
       estado: "Activo",
       isBanned: item.isBanned === true,
       warningCount: typeof item.warningCount === "number" ? item.warningCount : 0,
@@ -405,4 +419,20 @@ adminRouter.patch("/api/admin/materias/:id", requireAdmin, async (req, res) => {
   } catch {
     res.status(500).json({ error: "internal server error" });
   }
+});
+
+// B13 — quien perdió el teléfono y los códigos de recuperación no puede entrar: el administrador le apaga la
+// verificación en dos pasos (queda auditado) y la persona la vuelve a configurar.
+adminRouter.post("/api/admin/usuarios/:id/2fa/reset", requireAdmin, async (req, res) => {
+  const id = req.params.id as string;
+  const u = await prisma.usuario.findFirst({ where: { id } });
+  if (!u) return res.status(404).json({ error: "usuario no encontrado" });
+  await prisma.usuario.update({
+    where: { id },
+    data: { totpActivo: false, totpSecreto: null, totpUltimoPaso: null, totpRecuperacion: null, updatedAt: new Date().toISOString() }
+  });
+  await prisma.refreshToken.updateMany({ where: { userId: id, revoked: false }, data: { revoked: true } });
+  const actor = (req.user as { id?: string } | undefined)?.id ?? "admin";
+  await recordAuditLog({ actorId: actor, action: "auth.2fa_reseteada_por_admin", targetType: "Usuario", targetId: id, metadata: {} });
+  res.json({ ok: true });
 });

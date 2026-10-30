@@ -15,6 +15,7 @@ import { prisma } from "../lib/prisma";
 import { requireUser } from "../lib/user-auth";
 import { hasRole } from "../lib/roles";
 import { recordAuditLog } from "../lib/audit-log";
+import { enviarMensajeDirecto } from "../lib/mensaje-directo";
 
 export const revisionEscuela = Router();
 
@@ -78,7 +79,8 @@ const ocultar = async (
   const escuelaId = escuelaDelRevisor(user);
   if (!escuelaId) return res.status(403).json({ error: "sin permiso de revisión" });
   const id = req.params.id as string;
-  const motivo = typeof req.body?.motivo === "string" ? req.body.motivo : null;
+  const motivo = typeof req.body?.motivo === "string" ? req.body.motivo.trim().slice(0, 500) || null : null;
+  let autor: { id: string | null; titulo: string } = { id: null, titulo: "" };
 
   if (tipo === "plantilla") {
     const fila = await prisma.plantillaEjercicio.findFirst({ where: { id } });
@@ -86,6 +88,7 @@ const ocultar = async (
     if (fila.schoolId !== escuelaId) {
       return res.status(403).json({ error: "no es de tu escuela", code: "FUERA_DE_ALCANCE" });
     }
+    autor = { id: fila.ownerUserId ?? null, titulo: fila.nombre ?? "" };
     await prisma.plantillaEjercicio.update({
       where: { id },
       data: { visibility: "privada", updatedAt: new Date().toISOString() }
@@ -97,6 +100,7 @@ const ocultar = async (
     if (!fila.ownerUserId || !miembros.includes(fila.ownerUserId)) {
       return res.status(403).json({ error: "no es de tu escuela", code: "FUERA_DE_ALCANCE" });
     }
+    autor = { id: fila.ownerUserId, titulo: fila.title ?? "" };
     await prisma.quiz.update({
       where: { id },
       data: { isActive: false, updatedAt: new Date().toISOString() }
@@ -110,7 +114,18 @@ const ocultar = async (
     targetId: id,
     metadata: { escuelaId, motivo }
   });
-  return res.json({ ok: true });
+
+  // MA-02 — el autor se entera de que bajaron su material y por qué (antes no recibía nada).
+  if (autor.id && user?.id && autor.id !== user.id) {
+    const que = tipo === "quiz" ? "tu cuestionario" : "tu plantilla";
+    await enviarMensajeDirecto({
+      escuelaId,
+      remitenteId: user.id,
+      destinatarioId: autor.id,
+      body: `Bajé ${que} «${autor.titulo || "sin título"}» de la circulación de la escuela.${motivo ? ` Motivo: ${motivo}` : ""} Si tenés dudas, respondé este mensaje.`
+    }).catch(() => undefined);
+  }
+  return res.json({ ok: true, autorAvisado: Boolean(autor.id && autor.id !== user?.id) });
 };
 
 revisionEscuela.post("/api/escuela/revision/quiz/:id/ocultar", requireUser, (req, res) =>

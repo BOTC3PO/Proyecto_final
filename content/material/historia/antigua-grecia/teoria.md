@@ -18,11 +18,9 @@ Hacia el siglo VIII a.C., comenzó a formarse la *polis* (ciudad-estado), una en
 
 La ciudadanía no era un derecho universal, sino un estatus exclusivo reservado a los hombres libres nacidos de padres griegos. Este concepto implicaba una participación activa en la vida pública y la defensa de la ciudad. La *polis* no era solo el recinto urbano (la *acrópolis*), sino el cuerpo cívico que habitaba y gobernaba. Esta dualidad entre espacio físico y comunidad legal fue fundamental para entender la política griega: ser ciudadano significaba ser parte del soberano, no un súbdito bajo un rey.
 
-![Mapa simplificado de Grecia mostrando la dispersión de polis principales como Atenas, Esparta, Corinto y las colonias en el Mediterráneo, destacando la fragmentación geográfica](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Greek_and_Phoenician_colonies._Drawn_by_Dr._Charles_Muller._Engraved_by_by_S._Jacobs_and_I._Dalmont._John_Murray%2C_London_%28IA_dr_greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029%29.jpg/960px-thumbnail.jpg)
+![Mapa simplificado de Grecia mostrando la dispersión de polis principales como Atenas, Esparta, Corinto y las colonias en el Mediterráneo, destacando la fragmentación geográfica](/temario/imagenes/greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-s-jacobs.webp)
 
-*Imagen: «Greek and Phoenician colonies. Drawn by Dr. Charles Muller. Engraved by by S. Jacobs and I. Dalmont. John Murray, London (IA dr greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029)», Smith, William, 1813-1893
-Muller, Charles
-Jacobs,, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Greek_and_Phoenician_colonies._Drawn_by_Dr._Charles_Muller._Engraved_by_by_S._Jacobs_and_I._Dalmont._John_Murray,_London_%28IA_dr_greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029%29.jpg).*
+*Imagen: «Greek and Phoenician colonies. Drawn by Dr. Charles Muller. Engraved by by S. Jacobs and I. Dalmont. John Murray, London (IA dr greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029)», William Smith (1813-1893), Charles Muller y S. Jacobs, dominio público. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Greek_and_Phoenician_colonies._Drawn_by_Dr._Charles_Muller._Engraved_by_by_S._Jacobs_and_I._Dalmont._John_Murray,_London_%28IA_dr_greek-and-phoenician-colonies-drawn-by-dr-charles-muller-engraved-by-by-13007029%29.jpg).*
 
 ## 3. Las Grandes Reformas: De la Aristocracia al Ordenamiento Legal
 
@@ -42,7 +40,7 @@ La vida en la *polis* estaba impregnada de lo religioso y lo político. Los fest
 
 Paralelamente, el siglo V y IV a.C. vio el surgimiento de la filosofía política. Figuras como **Sócrates**, **Platón** y **Aristóteles** reflexionaron sobre la naturaleza de la justicia, la mejor forma de gobierno y el papel del ciudadano. Aristóteles definió al hombre como un "animal político" (*zoon politikon*), sugiriendo que solo en la *polis* el ser humano puede alcanzar su plenitud ética e intelectual. Esta intelectualización de la política marcó un punto de inflexión: la política dejó de ser solo una práctica de poder para convertirse en un objeto de estudio racional y moral.
 
-![Tres fragmentos de cerámica con nombres griegos grabados](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Scherbengericht.png/960px-Scherbengericht.png)
+![Tres fragmentos de cerámica con nombres griegos grabados](/temario/imagenes/scherbengericht.webp)
 
 *Imagen: «Scherbengericht», Qwqchris, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scherbengericht.png).*
 

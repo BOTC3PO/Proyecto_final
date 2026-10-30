@@ -39,9 +39,17 @@ export type ConfirmarPagoResult = {
 };
 
 export const confirmarPago = async (
-  pago: { id: string; estado: string; provider: string; providerRef: string | null },
+  pago: {
+    id: string;
+    estado: string;
+    provider: string;
+    providerRef: string | null;
+    /** Lo que se le pidió a la familia (cuota + mora). Si falta, se usa `cuota.montoFinal`. */
+    montoBruto?: number | null;
+    interesMora?: number | null;
+  },
   cuota: { id: string; montoFinal: number },
-  cobro: { escuelaId: string },
+  cobro: { escuelaId: string; tipo?: string | null },
   opts?: {
     /** Monto que la pasarela dice haber cobrado. `undefined` cuando no hay
      * dato (confirmación manual del staff, o `checkStatus` que sólo
@@ -55,6 +63,9 @@ export const confirmarPago = async (
 
   const actorId = opts?.actorId ?? "system:desconocido";
   const montoReportado = opts?.montoReportado;
+  // Con mora, lo debido es lo que se congeló en el pago al iniciarlo (cuota + interés).
+  const interesMora = Math.max(pago.interesMora ?? 0, 0);
+  const montoDebido = interesMora > 0 && typeof pago.montoBruto === "number" ? pago.montoBruto : cuota.montoFinal;
 
   // ── 1. El monto tiene que alcanzar ──────────────────────────────
   // Se cobró de MENOS: no se salda la cuota. El pago queda en
@@ -66,7 +77,7 @@ export const confirmarPago = async (
   if (
     typeof montoReportado === "number" &&
     Number.isFinite(montoReportado) &&
-    montoReportado + TOLERANCIA_MONTO < cuota.montoFinal
+    montoReportado + TOLERANCIA_MONTO < montoDebido
   ) {
     const { count } = await prisma.pago.updateMany({
       where: { id: pago.id, estado: { notIn: ["pagada", "en_revision"] } },
@@ -85,7 +96,7 @@ export const confirmarPago = async (
           escuelaId: cobro.escuelaId,
           provider: pago.provider,
           providerRef: pago.providerRef,
-          montoEsperado: cuota.montoFinal,
+          montoEsperado: montoDebido,
           montoReportado
         }
       });
@@ -117,19 +128,22 @@ export const confirmarPago = async (
 
   const asiento = await registrarTransaccionEscuela({
     escuelaId: cobro.escuelaId,
-    montoTotal: cuota.montoFinal,
+    montoTotal: montoDebido,
     mpPaymentId: pago.providerRef,
-    provider: pago.provider
+    provider: pago.provider,
+    interesMora,
+    tipo: cobro.tipo ?? "cuota",
+    titular: cobro.tipo === "cooperadora" ? "cooperadora" : "escuela"
   });
   // `registrarTransaccionEscuela` traga sus errores para no frenar la acreditación; si no hubo asiento
   // con un monto positivo, queda constancia para conciliarlo a mano en vez de perderse en silencio.
-  if (!asiento && cuota.montoFinal > 0) {
+  if (!asiento && montoDebido > 0) {
     await recordAuditLog({
       actorId,
       action: "pago.asiento_fallido",
       targetType: "Pago",
       targetId: pago.id,
-      metadata: { cuotaId: cuota.id, escuelaId: cobro.escuelaId, provider: pago.provider, monto: cuota.montoFinal }
+      metadata: { cuotaId: cuota.id, escuelaId: cobro.escuelaId, provider: pago.provider, monto: montoDebido }
     });
   }
   const pagoActualizado = await prisma.pago.update({
@@ -152,7 +166,8 @@ export const confirmarPago = async (
       escuelaId: cobro.escuelaId,
       provider: pago.provider,
       providerRef: pago.providerRef,
-      monto: cuota.montoFinal,
+      monto: montoDebido,
+      interesMora,
       montoReportado: montoReportado ?? null,
       comisionVB: asiento?.comisionVB ?? null
     }

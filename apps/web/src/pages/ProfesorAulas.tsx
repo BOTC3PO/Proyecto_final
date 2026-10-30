@@ -22,7 +22,7 @@ const formatPercent = (value: number) => `${Math.round(value)}%`;
 const emptyForm = {
   name: "",
   description: "",
-  accessType: "publica" as Classroom["accessType"],
+  accessType: "privada" as Classroom["accessType"],
   status: "ACTIVE" as Classroom["status"],
   institutionId: "",
   category: ""
@@ -504,11 +504,15 @@ export default function ProfesorAulas() {
                     {classroom.institutionId && <span>Institución: {classroom.institutionId}</span>}
                   </div>
                   <div className="mt-4 flex items-center justify-between text-xs text-[var(--c-muted)]">
-                    <span>
-                      {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del
-                          docente en lugar del ID crudo. */}
-                      {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
-                    </span>
+                    {/* FIX-TEST4-X05B-NOMBRES — mostrar nombre del docente en lugar del ID crudo. Sin creador
+                        conocido no se muestra la etiqueta sola. */}
+                    {(classroom.createdByName ?? classroom.createdBy) ? (
+                      <span>
+                        {t('profesorAulas.creadaPor')} {classroom.createdByName ?? classroom.createdBy}
+                      </span>
+                    ) : (
+                      <span />
+                    )}
                     <span>{new Date(classroom.updatedAt).toLocaleDateString(lang)}</span>
                   </div>
                   <div className="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] p-4 text-xs text-[var(--c-muted)]">

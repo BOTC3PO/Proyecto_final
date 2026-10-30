@@ -14,7 +14,7 @@ El final de la Primera Guerra Mundial (1914-1918) marcó un punto de inflexión 
 
 Simultáneamente, la victoria de Japón sobre Rusia en 1905 había establecido precedentemente que una nación asiática podía derrotar a una potencia europea mediante la modernización, inspirando movimientos panasiáticos y de resistencia anticolonial. Sin embargo, la Conferencia de Paz de París (1919) frustró estas expectativas al transferir las concesiones alemanas en Shandong a Japón en lugar de devolverlas a China, detonando el Movimiento del 4 de Mayo en China. Este evento no solo fue un golpe al orgullo nacional chino. También aceleró la fractura entre los nacionalistas moderados (Kuomintang) y los comunistas emergentes, y sentó las bases de la futura guerra civil y de la posterior alineación con la Unión Soviética.
 
-![Mapa de Manchukuo, entre la Unión Soviética, Mongolia, China y Corea bajo control japonés](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/MapaDeManchuk%C3%BAo.svg/960px-MapaDeManchuk%C3%BAo.svg.png)
+![Mapa de Manchukuo, entre la Unión Soviética, Mongolia, China y Corea bajo control japonés](/temario/imagenes/mapademanchukuo.webp)
 
 *Imagen: «MapaDeManchukúo», Manchukuo map.png: PANONIAN derivative work: Rowanwindwhistl, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MapaDeManchuk%C3%BAo.svg).*
 

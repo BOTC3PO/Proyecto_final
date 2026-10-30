@@ -62,6 +62,15 @@ function matchScalar(value: unknown, condition: unknown): boolean {
     if ("lte" in cond && !(value <= (cond.lte as number))) return false;
     if ("lt" in cond && !(value < (cond.lt as number))) return false;
   }
+  // Columnas DateTime (por ejemplo, refresh_tokens.expires_at): solo cuando ambos lados son Date.
+  if (value instanceof Date) {
+    const t = value.getTime();
+    const ms = (v: unknown) => (v instanceof Date ? v.getTime() : null);
+    if ("gte" in cond && ms(cond.gte) !== null && !(t >= ms(cond.gte)!)) return false;
+    if ("gt" in cond && ms(cond.gt) !== null && !(t > ms(cond.gt)!)) return false;
+    if ("lte" in cond && ms(cond.lte) !== null && !(t <= ms(cond.lte)!)) return false;
+    if ("lt" in cond && ms(cond.lt) !== null && !(t < ms(cond.lt)!)) return false;
+  }
   // Fechas ISO guardadas como texto (H17): solo cuando ambos lados son texto.
   if (typeof value === "string") {
     if ("gte" in cond && typeof cond.gte === "string" && !(value >= cond.gte)) return false;
@@ -76,6 +85,12 @@ function matchScalar(value: unknown, condition: unknown): boolean {
   if ("notIn" in cond) {
     const arr = cond.notIn as readonly unknown[];
     if (arr.includes(value)) return false;
+  }
+  if ("endsWith" in cond) {
+    if (typeof value !== "string" || !value.endsWith(String(cond.endsWith))) return false;
+  }
+  if ("startsWith" in cond) {
+    if (typeof value !== "string" || !value.startsWith(String(cond.startsWith))) return false;
   }
   if ("contains" in cond) {
     if (typeof value !== "string") return false;
@@ -376,6 +391,7 @@ class Table<TRow extends Row> {
     where?: WhereClause;
     _count?: { _all?: true } | Record<string, true>;
     _sum?: Record<string, true>;
+    _avg?: Record<string, true>;
   }): Promise<Array<Record<string, unknown>>> {
     const by = Array.isArray(args.by) ? args.by : [args.by];
     const subset = this.rows.filter((r) => rowMatches(r, args?.where));
@@ -412,6 +428,19 @@ class Table<TRow extends Row> {
           const v = (row as Record<string, unknown>)[field];
           acumulado[field] = (acumulado[field] ?? 0) + (typeof v === "number" ? v : 0);
         }
+      }
+    }
+    // `_avg`: promedio = suma / cantidad del grupo.
+    if (args._avg) {
+      for (const entry of groups.values()) {
+        const key = by.map((field) => String(entry[field] ?? "")).join("|");
+        const filas = subset.filter((row) => by.map((f) => String((row as Record<string, unknown>)[f] ?? "")).join("|") === key);
+        entry._avg = Object.fromEntries(
+          Object.keys(args._avg).map((field) => {
+            const nums = filas.map((r) => (r as Record<string, unknown>)[field]).filter((v): v is number => typeof v === "number");
+            return [field, nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : null];
+          })
+        );
       }
     }
     return Array.from(groups.values());
@@ -996,6 +1025,16 @@ export class InMemoryPrisma {
   economiaTransaccion = new Table<Row>("economiaTransaccion");
   economiaSaldo = new Table<Row>("economiaSaldo");
   economiaConfig = new Table<Row>("economiaConfig");
+  comisionConfig = new Table<Row>("comisionConfig");
+  passwordResetToken = new Table<Row>("passwordResetToken");
+  saldoUsuario = new Table<Row>("saldoUsuario");
+  ledgerMovimiento = new Table<Row>("ledgerMovimiento");
+  pushToken = new Table<Row>("pushToken");
+  tareaAula = new Table<Row>("tareaAula");
+  entregaTarea = new Table<Row>("entregaTarea");
+  moduloFavorito = new Table<Row>("moduloFavorito");
+  moduloValoracion = new Table<Row>("moduloValoracion");
+  cooperadora = new Table<Row>("cooperadora");
   economiaModulo = new Table<Row>("economiaModulo");
   economiaExamen = new Table<Row>("economiaExamen");
   economiaExamenPuja = new Table<Row>("economiaExamenPuja");

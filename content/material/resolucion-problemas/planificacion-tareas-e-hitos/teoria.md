@@ -49,7 +49,7 @@ También es común planificar sin hitos claros. Si no hay puntos de control, es 
 
 Para visualizar el trabajo, se pueden usar herramientas como **listas de tareas**, **calendarios** o incluso diagramas como el **Gantt** (una barra que muestra cada tarea con su duración). En proyectos más grandes, los hitos se marcan en la parte superior del Gantt para destacar las fechas clave.
 
-![Ejemplo de un diagrama Gantt con tareas y hitos señalados](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/GanttChartAnatomy.svg/960px-GanttChartAnatomy.svg.png)
+![Ejemplo de un diagrama Gantt con tareas y hitos señalados](/temario/imagenes/ganttchartanatomy.webp)
 
 *Imagen: «GanttChartAnatomy», GanttChartAnatomy.png: Original uploader was Garry, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GanttChartAnatomy.svg).*
 

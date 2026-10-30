@@ -1,17 +1,17 @@
 /**
  * Fase 5.1 — Panel de comisiones de la escuela (DIRECTIVO).
  *
- * Sistema autogestionado: la escuela cobra con su propia cuenta conectada,
- * VB nunca maneja los fondos. Permite fijar el % de comisión (doméstico vía
- * MercadoPago y/o internacional vía Cryptomus) y muestra cobros del mes,
- * comisión retenida, saldo a liquidar e historial de transacciones y
- * liquidaciones.
+ * La escuela cobra con su propia cuenta conectada; VB nunca maneja los fondos.
+ * Explica la comisión escalonada que le corresponde (la fija la plataforma, no
+ * la escuela) y muestra cobros del mes, comisión retenida, saldo a liquidar e
+ * historial de transacciones y liquidaciones.
  */
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/use-auth";
-import { apiGet, apiPost } from "../lib/api";
-import { Card, CardHead, CardBody, Button, Pill } from "../components/ui";
+import { apiGet } from "../lib/api";
+import { Card, CardHead, CardBody, Pill } from "../components/ui";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 
 interface Transaccion {
   id: string;
@@ -31,7 +31,20 @@ interface Liquidacion {
   createdAt: string;
 }
 interface ResumenResp {
-  escuela: { id: string; name: string; comisionPct: number; comisionPctIntl: number };
+  escuela: { id: string; name: string; comisionPct: number | null; comisionPctIntl: number };
+  escalonada: {
+    alumnos: number;
+    params: {
+      basePct: number;
+      minimoPct: number;
+      umbralCuota: number;
+      umbralAlumnos: number;
+      umbralAlumnosGrande: number;
+      topeMonto: number;
+    };
+    pctHastaUmbral: number;
+    pctSobreUmbral: number;
+  };
   resumen: {
     periodo: string;
     cobrosMes: number;
@@ -54,9 +67,6 @@ export default function EnterpriseComisiones() {
   const [data, setData] = useState<ResumenResp | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [savingComision, setSavingComision] = useState(false);
-  const [pctAr, setPctAr] = useState(6);
-  const [pctIntl, setPctIntl] = useState(1.5);
 
   const load = useCallback(async () => {
     if (!schoolId) {
@@ -71,8 +81,6 @@ export default function EnterpriseComisiones() {
         `/api/comisiones/escuela/${schoolId}/resumen`,
       );
       setData(resp);
-      setPctAr(resp.escuela.comisionPct);
-      setPctIntl(resp.escuela.comisionPctIntl);
     } catch {
       setError("No pudimos cargar las comisiones.");
     } finally {
@@ -84,21 +92,6 @@ export default function EnterpriseComisiones() {
     void load();
   }, [load]);
 
-  const guardarComision = async () => {
-    setSavingComision(true);
-    try {
-      await apiPost(`/api/comisiones/escuela/${schoolId}/comision`, {
-        comisionPct: pctAr,
-        comisionPctIntl: pctIntl,
-      });
-      await load();
-    } catch {
-      setError(t("enterpriseComisiones.noSePudoGuardarEl"));
-    } finally {
-      setSavingComision(false);
-    }
-  };
-
   if (loading) {
     return <p className="p-6 text-sm text-[var(--c-muted)] animate-pulse">{t("enterpriseComisiones.cargandoComisiones")}</p>;
   }
@@ -106,6 +99,7 @@ export default function EnterpriseComisiones() {
     return <p role="alert" className="p-6 text-sm text-[var(--c-danger)]">{error}</p>;
   }
   if (!data) return null;
+  const params = data.escalonada.params;
 
   return (
     <div className="mx-auto max-w-4xl space-y-5 p-6">
@@ -116,40 +110,31 @@ export default function EnterpriseComisiones() {
 
       <Card>
         <CardHead>
-          <h2 className="text-sm font-bold">{t("enterpriseComisiones.comisionVb")}</h2>
+          <h2 className="text-sm font-bold">{t("enterpriseComisiones.escalonadaTitulo")}</h2>
         </CardHead>
-        <CardBody className="space-y-3">
-          <div className="grid gap-3 sm:grid-cols-2">
-            <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVb")}</span>
-              <input
-                type="number"
-                min={5}
-                max={7}
-                step={0.1}
-                value={pctAr}
-                onChange={(e) => setPctAr(Number(e.target.value))}
-                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm"
-              />
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="text-xs font-medium text-[var(--c-text-3)]">{t("adminComisiones.comisionVbIntl")}</span>
-              <input
-                type="number"
-                min={1}
-                max={2}
-                step={0.1}
-                value={pctIntl}
-                onChange={(e) => setPctIntl(Number(e.target.value))}
-                className="rounded-[var(--r-md)] border border-[var(--c-border-strong)] bg-[var(--c-surface)] px-3 py-1.5 text-sm"
-              />
-            </label>
-          </div>
-          <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{pctAr}%</strong>{t("enterpriseComisiones.porCadaCobroYLiquida")}</p>
-          <p className="text-xs text-[var(--c-text-3)]">{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{pctIntl}%</strong>{t("enterpriseComisiones.enPagosInternacionalesLiquida")}</p>
-          <Button onClick={() => void guardarComision()} disabled={savingComision} size="sm">
-            {savingComision ? "Guardando…" : "Guardar"}
-          </Button>
+        <CardBody className="space-y-2 text-xs text-[var(--c-text-3)]">
+          <p>
+            {interpolar(t("enterpriseComisiones.escalonadaRegla"), {
+              base: params.basePct,
+              umbral: money(params.umbralCuota),
+              alumnos1: params.umbralAlumnos,
+              alumnos2: params.umbralAlumnosGrande,
+              minimo: params.minimoPct,
+              tope: money(params.topeMonto),
+            })}
+          </p>
+          <p className="font-medium text-[var(--c-text)]">
+            {data.escuela.comisionPct != null
+              ? interpolar(t("enterpriseComisiones.acuerdoParticular"), { pct: data.escuela.comisionPct })
+              : interpolar(t("enterpriseComisiones.escalonadaHoy"), {
+                  alumnos: data.escalonada.alumnos,
+                  pct1: data.escalonada.pctHastaUmbral,
+                  pct2: data.escalonada.pctSobreUmbral,
+                  umbral: money(params.umbralCuota),
+                })}
+          </p>
+          <p>{t("enterpriseComisiones.enModoAutogestionadoVbRetiene")}<strong>{data.escuela.comisionPctIntl}%</strong>{t("enterpriseComisiones.enPagosInternacionalesLiquida")}</p>
+          <p>{t("enterpriseComisiones.soloAdmin")}</p>
         </CardBody>
       </Card>
 

@@ -44,6 +44,8 @@ before(async () => {
     createdBy: TEACHER_ID,
     createdAt: new Date().toISOString(),
   });
+  // El alumno es miembro del aula: desde 2026-10-28 leer y votar encuestas exige pertenecer al aula.
+  prisma.claseMiembro.rows.push({ claseId: "aula-1", usuarioId: STUDENT_ID, rolEnClase: "STUDENT" } as never);
 
   const { encuestas } = await import("../../src/routes/encuestas");
   const server = await startServer([encuestas]);
@@ -180,7 +182,7 @@ test("SEC-01: GET /api/encuestas sin token → 401", async () => {
   assert.equal(res.status, 401);
 });
 
-test("SEC-01: GET /api/encuestas con STUDENT → 200 (lectura pública con sesión)", async () => {
+test("SEC-01: GET /api/encuestas con STUDENT miembro del aula → 200", async () => {
   const token = tokenFor({ id: STUDENT_ID, role: "STUDENT" });
   const res = await fetch(`${baseUrl}/api/encuestas?aulaId=aula-1`, {
     headers: { authorization: `Bearer ${token}` },
@@ -231,4 +233,43 @@ test("PLAN-X §1: GET /api/encuestas devuelve options como array, no string", as
   const detailBody = (await detailRes.json()) as { options: SurveyOption[] };
   assert.ok(Array.isArray(detailBody.options), "GET /:id debe devolver options como array");
   assert.equal(detailBody.options.length, 2);
+});
+
+// ─── 2026-10-28: alcance por aula ──────────────────────────────────────────
+
+test("SEC-01: un alumno que no es del aula no lee, no ve resultados ni vota", async () => {
+  const ajeno = "survey-student-ajeno";
+  seedUser({ id: ajeno, role: "STUDENT" });
+  const token = tokenFor({ id: ajeno, role: "STUDENT" });
+  const lista = await fetch(`${baseUrl}/api/encuestas?aulaId=aula-1`, { headers: { authorization: `Bearer ${token}` } });
+  assert.equal(lista.status, 403);
+  const resultados = await fetch(`${baseUrl}/api/encuestas/${SURVEY_ID}/resultados?aulaId=aula-1`, {
+    headers: { authorization: `Bearer ${token}` }
+  });
+  assert.equal(resultados.status, 403);
+  const voto = await jsonRequest(baseUrl, "POST", `/api/encuestas/${SURVEY_ID}/votos`, {
+    token,
+    body: { aulaId: "aula-1", optionId: "opt-1" }
+  });
+  assert.equal(voto.status, 403);
+});
+
+test("SEC-01: un docente de otra aula no crea encuestas en esta", async () => {
+  const otro = "survey-teacher-otro";
+  seedUser({ id: otro, role: "TEACHER" });
+  const now = new Date();
+  const r = await jsonRequest(baseUrl, "POST", "/api/encuestas", {
+    token: tokenFor({ id: otro, role: "TEACHER" }),
+    body: {
+      id: "survey-ajena",
+      title: "Ajena",
+      description: "No debería crearse",
+      classroomId: "aula-1",
+      type: "normal",
+      options: [{ id: "a", label: "A" }, { id: "b", label: "B" }],
+      startAt: now.toISOString(),
+      endAt: new Date(now.getTime() + 60_000).toISOString()
+    }
+  });
+  assert.equal(r.status, 403);
 });

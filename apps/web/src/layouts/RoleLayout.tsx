@@ -1,39 +1,17 @@
-import { Outlet } from 'react-router-dom';
 import { useIsStaff } from '../auth/use-roles';
-import Navbar from '../nav/Navbar';
-import { OfflineIndicator } from '../components/OfflineIndicator';
-import StaffSidebar from './StaffSidebar';
+import StaffLayout from './StaffLayout';
+import AlumnoLayout from './AlumnoLayout';
 
 export default function RoleLayout() {
   // MULTIROL-02: usar helper centralizado en vez de chequear
   // `user.role` suelto. Acepta multi-rol: un TEACHER+USER es staff.
   const isStaff = useIsStaff();
 
-  if (isStaff) {
-    return (
-      <div className="flex min-h-screen bg-[var(--c-bg)]">
-        <StaffSidebar />
-        <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-          {/* pt-16: StaffSidebar renderiza su propio botón hamburguesa
-              flotante (fixed) en mobile cuando no hay topbar propia
-              (ver StaffSidebar.tsx); sin este padding el contenido de
-              la página (títulos) queda tapado detrás del botón. */}
-          <main className="flex-grow overflow-y-auto pt-16 md:pt-0">
-            <Outlet />
-          </main>
-          <OfflineIndicator />
-        </div>
-      </div>
-    );
-  }
+  // Personal: el mismo layout que sus otras páginas (barra superior con título y modo). Antes Datasets,
+  // Plantillas, Módulos y Configuración no tenían barra superior.
+  if (isStaff) return <StaffLayout />;
 
-  return (
-    <div className="layout-root flex flex-col min-h-screen bg-[var(--c-bg)]">
-      <Navbar />
-      <main className="flex-grow">
-        <Outlet />
-      </main>
-      <OfflineIndicator />
-    </div>
-  );
+  // Alumno y padre: el mismo layout que el resto de sus páginas (barra de alumno y fondo del tema). Antes
+  // Mensajes, Perfil y Módulos usaban otra barra, con el menú hamburguesa visible también en escritorio.
+  return <AlumnoLayout />;
 }

@@ -33,7 +33,7 @@ Cada provincia tiene su propia legislatura que emite leyes válidas solo dentro 
 ### 5) **Decretos y reglamentos**  
 Son normas de menor rango, emitidas por el Poder Ejecutivo (nacional o provincial) para desarrollar leyes específicas. Solo tienen vigencia mientras no se modifiquen o deroguen las leyes que regulan.
 
-![Pirámide con los cinco niveles mencionados, indicando la relación de subordinación entre ellos](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hierarquia_das_normas_jur%C3%ADdicas_-_Hierarchy_of_laws.png/960px-Hierarquia_das_normas_jur%C3%ADdicas_-_Hierarchy_of_laws.png)
+![Pirámide con los cinco niveles mencionados, indicando la relación de subordinación entre ellos](/temario/imagenes/hierarquia-das-normas-juridicas-hierarchy-of-laws.webp)
 
 *Imagen: «Hierarquia das normas jurídicas - Hierarchy of laws», Awikimate, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hierarquia_das_normas_jur%C3%ADdicas_-_Hierarchy_of_laws.png).*
 

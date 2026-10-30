@@ -6,11 +6,30 @@ import { NAV_BY_ROLE } from '../nav/navConfig';
 import { OfflineIndicator } from '../components/OfflineIndicator';
 import { useI18n } from '../i18n/I18nContext';
 import StaffSidebar from './StaffSidebar';
+import AvisoPoliticaPrivacidad from '../components/AvisoPoliticaPrivacidad';
 
 const ROLE_LABEL_KEY: Record<string, string> = {
   TEACHER: 'perfil.docente',
   DIRECTIVO: 'comun.directivo',
   ADMIN: 'perfil.administrador',
+};
+
+const TITULO_FUERA_DEL_MENU: Record<string, string> = {
+  '/profesor/asistencia': 'nav.asistencia',
+  '/profesor/calificaciones': 'nav.calificaciones',
+  '/profesor/encuestas': 'nav.encuestas',
+  '/profesor/estadisticas': 'nav.estadisticas',
+  '/profesor/reportes': 'nav.reportes',
+  '/profesor/configuracion': 'nav.configuracion',
+  '/profesor/modulos': 'nav.modulos',
+  '/enterprise/modulos': 'nav.modulos',
+  '/escuela/revision': 'nav.revisionContenido',
+  '/aulas': 'nav.aulas',
+  '/modulos': 'nav.modulos',
+  '/plantillas': 'nav.plantillas',
+  '/datasets': 'nav.datasets',
+  '/mensajes': 'nav.mensajes',
+  '/perfil': 'nav.perfil',
 };
 
 function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSidebar: () => void }) {
@@ -24,11 +43,13 @@ function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSi
   const role = primary ?? 'TEACHER';
   const navItems = NAV_BY_ROLE[role as keyof typeof NAV_BY_ROLE] ?? [];
 
-  const active = navItems.find(item =>
-    item.exact
-      ? location.pathname === item.to
-      : location.pathname.startsWith(item.to)
-  );
+  // La coincidencia más larga gana; las páginas que no están en el menú tienen su propio título
+  // (antes todas mostraban «Panel»).
+  const active = navItems
+    .filter((item) => (item.exact ? location.pathname === item.to : location.pathname.startsWith(item.to)))
+    .sort((a, b) => b.to.length - a.to.length)[0];
+  const extra = Object.entries(TITULO_FUERA_DEL_MENU).find(([ruta]) => location.pathname.startsWith(ruta))?.[1];
+  const titulo = active ? `nav.${active.label}` : (extra ?? 'nav.panel');
 
   return (
     <header className="h-14 flex-shrink-0 flex items-center gap-3 px-6 border-b border-[var(--c-border)] bg-[var(--c-surface)]">
@@ -46,7 +67,7 @@ function Topbar({ sidebarOpen, onOpenSidebar }: { sidebarOpen: boolean; onOpenSi
         </svg>
       </button>
       <p className="text-sm font-semibold text-[var(--c-text)] flex-1">
-        {t(`nav.${active?.label ?? 'panel'}`)}
+        {t(titulo)}
       </p>
       {/* FIX-NAVBAR-MODE — un badge de rol explícito para que el
           docente/directivo/admin siempre sepa que está en el "modo
@@ -72,6 +93,7 @@ export default function StaffLayout() {
       <StaffSidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         <Topbar sidebarOpen={sidebarOpen} onOpenSidebar={() => setSidebarOpen(true)} />
+        <AvisoPoliticaPrivacidad />
         <main className="flex-grow overflow-y-auto">
           <Outlet />
         </main>

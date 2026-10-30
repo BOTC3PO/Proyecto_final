@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { guardarCooperadora } from "./cooperadoras";
 import { randomUUID } from "crypto";
 import { requireAdmin } from "../lib/admin-auth";
 import { prisma } from "../lib/prisma";
@@ -103,7 +104,7 @@ escuelas.post("/api/escuelas/solicitar", requireUser, escuelasMutationLimiter, a
   }
 
   const nowIso = new Date().toISOString();
-  const { name, ...datos } = parsed.data;
+  const { name, cooperadora, ...datos } = parsed.data;
   const created = await prisma.escuela.create({
     data: {
       id: randomUUID(),
@@ -129,6 +130,8 @@ escuelas.post("/api/escuelas/solicitar", requireUser, escuelasMutationLimiter, a
     where: { id: requesterId },
     data: { escuelaId: created.id, updatedAt: nowIso }
   });
+
+  if (cooperadora) await guardarCooperadora(created.id, cooperadora, requesterId);
 
   await recordAuditLog({
     actorId: requesterId,

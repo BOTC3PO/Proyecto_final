@@ -16,6 +16,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
+import RestablecerContrasena from "./pages/RestablecerContrasena";
 
 // Herramientas educativas — sólo sobrevive el editor de mapas; el hub y los
 // stubs en blanco están en `archive/web/stubs/herramientas.tsx`.
@@ -81,6 +82,8 @@ const Progreso                  = lazyWithRetry(() => import("./pages/Progreso")
 const ProfesorCalificaciones    = lazyWithRetry(() => import("./pages/ProfesorCalificaciones"));
 const ProfesorIntentoDetalle    = lazyWithRetry(() => import("./pages/profesor/IntentoDetalle"));
 const ProfesorAsistencia        = lazyWithRetry(() => import("./pages/ProfesorAsistencia"));
+const ProfesorTareas            = lazyWithRetry(() => import("./pages/ProfesorTareas"));
+const TareaDetalle              = lazyWithRetry(() => import("./pages/TareaDetalle"));
 const EnterpriseDashboard       = lazyWithRetry(() => import("./pages/EnterpriseDashboard"));
 const EnterpriseReportes        = lazyWithRetry(() => import("./pages/EnterpriseReportes"));
 const EnterpriseAulas           = lazyWithRetry(() => import("./pages/EnterpriseAulas"));
@@ -150,6 +153,7 @@ export const router = createBrowserRouter([
           { path: "login",      element: <Login /> },
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
+          { path: "restablecer", element: <RestablecerContrasena /> },
 
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },
@@ -206,6 +210,10 @@ export const router = createBrowserRouter([
           {
             path: 'tareas',
             element: withSuspense(<Tareas />),
+          },
+          {
+            path: 'tareas/:id',
+            element: withSuspense(<TareaDetalle />),
           },
           {
             path: 'encuestas',
@@ -305,6 +313,14 @@ export const router = createBrowserRouter([
             element: (
               <ProtectedRoute allow={['TEACHER']}>
                 {withSuspense(<ProfesorEncuestas />)}
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'profesor/tareas',
+            element: (
+              <ProtectedRoute allow={['TEACHER']}>
+                {withSuspense(<ProfesorTareas />)}
               </ProtectedRoute>
             ),
           },

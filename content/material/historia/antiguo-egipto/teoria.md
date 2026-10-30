@@ -14,7 +14,7 @@ La historia de Egipto es inseparable de su geografía. El historiador griego Her
 
 Hacia el 3100 a.C., según la tradición histórica, el rey Menes (o Narmer) unificó el Alto Egipto (el sur, valle estrecho) y el Bajo Egipto (el norte, delta fértil). Esta unificación no fue solo política, sino simbólica, representada por la doble corona que llevaba el faraón. El Estado centralizado resultante necesitaba una burocracia eficiente para gestionar el riego, el almacenamiento de granos y la recolección de impuestos, lo que impulsó el desarrollo de la escritura jeroglífica y la administración estatal temprana.
 
-![Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Narmer_palette_%28obverse%29.jpg/960px-Narmer_palette_%28obverse%29.jpg)
+![Representación de la Paleta de Narmer, mostrando la unificación de las dos coronas](/temario/imagenes/narmer-palette-obverse.webp)
 
 *Imagen: «Narmer palette (obverse)», anonymous, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Narmer_palette_%28obverse%29.jpg).*
 
@@ -38,7 +38,7 @@ La sociedad egipcia era jerárquica pero móvil. En la cúspide estaba el faraó
 
 A diferencia de otras civilizaciones antiguas, Egipto no contó con una clase esclavista masiva para la construcción de monumentos; la mano de obra era principalmente campesina que trabajaba en obras públicas como parte de su obligación tributaria o jornalera especializada. La mayoría de la población eran agricultores libres, sometidos a impuestos en grano, pero con derechos legales reconocidos. Las mujeres egipcias disfrutaban de una libertad relativa comparada con otras culturas antiguas: podían poseer propiedades, iniciar divorcios y participar en actividades comerciales, aunque los cargos políticos y religiosos de alto nivel estaban predominantemente reservados a los hombres.
 
-![Pintura egipcia en franjas con campesinos cosechando, trillando y arando, y el dueño de la tumba sentado](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Tomb_of_Nakht_%282%29.jpg/960px-Tomb_of_Nakht_%282%29.jpg)
+![Pintura egipcia en franjas con campesinos cosechando, trillando y arando, y el dueño de la tumba sentado](/temario/imagenes/tomb-of-nakht-2.webp)
 
 *Imagen: «Tomb of Nakht (2)», Norman de Garis Davies, Nina Davies (2-dimensional 1 to 1 Co, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tomb_of_Nakht_%282%29.jpg).*
 

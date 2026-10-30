@@ -9,6 +9,7 @@ import {
   type BoletinResponse, type AsistenciaResponse,
   type ProgresoResponse,
 } from "../services/reportes-v2";
+import { nombreMateria } from "../lib/nombreMateria";
 
 type Tab = "boletin" | "asistencia" | "progreso" | "riesgo";
 
@@ -205,7 +206,7 @@ export default function ProfesorReportes() {
                     {alumno.materias.map((m) => (
                       <div key={m.materia}
                         className="rounded-lg bg-[var(--c-bg)] px-3 py-2 text-xs">
-                        <p className="font-medium text-[var(--c-text)]">{m.materia}</p>
+                        <p className="font-medium text-[var(--c-text)]">{nombreMateria(m.materia)}</p>
                         <p className="text-[var(--c-muted)] mt-0.5">{t("profesorReportes.promedio")}<span className="font-semibold">{m.promedio}</span>
                           {" · "}{m.evaluaciones} eval.
                         </p>

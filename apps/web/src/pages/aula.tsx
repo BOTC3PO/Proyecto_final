@@ -8,7 +8,7 @@ import { useCanActAsLearner, useHasRole } from "../auth/use-roles";
 import type { Classroom } from "../domain/classroom/classroom.types";
 import { getClassroomStatusLabelKey, normalizeClassroomStatus } from "../domain/classroom/classroom.types";
 import { fetchClassroomDetail } from "../services/aulas";
-import { createPublication, updatePublication, deletePublication, fetchPublications, fetchComments, createComment, type Publication, type Comment } from "../services/publicaciones";
+import { createPublication, updatePublication, deletePublication, fetchPublications, fijarPublication, fetchComments, createComment, type Publication, type Comment } from "../services/publicaciones";
 import { fetchLeaderboard, type LeaderboardEntry } from "../services/leaderboard";
 import { fetchUpcomingActivities, type UpcomingActivity } from "../services/actividades";
 import { fetchResourceLinks, type ResourceLink, type ResourceLinkType } from "../services/resource-links";
@@ -534,7 +534,8 @@ export default function Aula() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Banner */}
         <header className="bg-[var(--c-primary)] text-white rounded-xl h-28 relative">
-          <h1 className="sr-only">{classroom?.name ?? "Aula"}</h1>
+          {/* El nombre del aula estaba solo para lectores de pantalla: la cabecera quedaba sin título. */}
+          <h1 className="absolute left-5 right-5 top-11 truncate text-xl font-bold">{classroom?.name ?? "Aula"}</h1>
           <span className="absolute left-5 top-3 rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wide">
             {t(getClassroomStatusLabelKey(classroom?.status))}
           </span>
@@ -730,11 +731,28 @@ export default function Aula() {
                       {publication.authorInitials ?? "?"}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="font-semibold text-sm text-[var(--c-text)]">{publication.title}</div>
+                      <div className="font-semibold text-sm text-[var(--c-text)]">
+                        {publication.isPinned && (
+                          <span className="mr-1.5 rounded-full bg-[var(--c-warning-soft)] px-2 py-0.5 text-[10px] font-semibold text-[var(--c-warning)]">
+                            {t("aula.fijada")}
+                          </span>
+                        )}
+                        {publication.title}
+                      </div>
                       {publication.authorName && (
                         <div className="text-xs text-[var(--c-muted)]">{publication.authorName}</div>
                       )}
                     </div>
+                    {isTeacherOfClass && classroomId && (
+                      <button
+                        type="button"
+                        className="text-xs text-[var(--c-muted)] hover:text-[var(--c-primary)] px-2 py-1 shrink-0"
+                        onClick={async () => {
+                          await fijarPublication(classroomId, publication.id, !publication.isPinned);
+                          setPublications(await fetchPublications(classroomId, lang));
+                        }}
+                      >{publication.isPinned ? t("aula.desfijar") : t("aula.fijar")}</button>
+                    )}
                     {publication.isOwn && editingPublicationId !== publication.id && (
                       <div className="flex items-center gap-1 shrink-0">
                         <button

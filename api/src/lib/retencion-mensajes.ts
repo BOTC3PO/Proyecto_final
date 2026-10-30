@@ -8,6 +8,8 @@
 import { prisma } from "./prisma";
 import { ENV } from "./env";
 import { withAdvisoryLock } from "./pg-lock";
+import { purgarDatosVencidos } from "./retencion-datos";
+import { purgarBorradosViejos } from "./purga-borrados";
 
 const DIA_MS = 24 * 60 * 60 * 1000;
 
@@ -47,14 +49,20 @@ export async function purgarMensajesVencidos(ahora = new Date(), anios = ENV.MEN
   return { mensajes: mensajes.count, hilos, soporte: soporte.count, reportes: reportes.count };
 }
 
-/** Corre una vez al día (con candado para que no lo hagan dos instancias a la vez). */
+/** Corre una vez al día (con candado para que no lo hagan dos instancias a la vez). Incluye la conservación
+ * del resto de los datos (L13, retencion-datos.ts). */
 export const scheduleRetencionMensajesJob = () => {
-  if (!(ENV.MENSAJES_RETENCION_ANOS > 0)) return;
   const correr = async () => {
     try {
       await withAdvisoryLock("retencion-mensajes", async () => {
-        const r = await purgarMensajesVencidos();
-        if (r.mensajes || r.soporte || r.hilos || r.reportes) console.log("Retención de mensajes:", r);
+        if (ENV.MENSAJES_RETENCION_ANOS > 0) {
+          const r = await purgarMensajesVencidos();
+          if (r.mensajes || r.soporte || r.hilos || r.reportes) console.log("Retención de mensajes:", r);
+        }
+        const d = await purgarDatosVencidos();
+        if (Object.values(d).some((n) => n > 0)) console.log("Conservación de datos:", d);
+        const b = await purgarBorradosViejos();
+        if (Object.values(b).some((n) => n > 0)) console.log("Purga de borrados:", b);
       });
     } catch (error) {
       console.error("Retención de mensajes falló", error);

@@ -1832,6 +1832,17 @@ quizAttempts.get(
       : sanitizeQuestionsForStudent(questionsBase, currentAttempt.quizVersionId ?? currentAttempt.quizId, {
           revealSolution: currentAttempt.status !== "in_progress"
         });
+  const notaRevision: Record<string, unknown> = {};
+  const scoreRev = typeof currentAttempt.score === "number" ? currentAttempt.score : null;
+  const maxRev = typeof currentAttempt.maxScore === "number" ? currentAttempt.maxScore : 0;
+  if ((currentAttempt.status === "submitted" || currentAttempt.status === "graded") && scoreRev !== null && maxRev > 0) {
+    const umbralRow = await prisma.quizUmbral.findUnique({ where: { quizId: currentAttempt.quizId }, select: { umbral: true } });
+    const nota = gradeFromConfig(scoreRev / maxRev, resolveScoringConfig(module?.scoringConfig, umbralRow?.umbral ?? 60));
+    notaRevision.notaDisplay = nota.display;
+    notaRevision.notaCanonical10 = nota.canonical10;
+    notaRevision.aprobado = nota.passing === true;
+    notaRevision.porcentaje = Math.round((scoreRev / maxRev) * 100);
+  }
   res.json({
     id: currentAttempt.id,
     attemptId: currentAttempt.id,
@@ -1844,6 +1855,9 @@ quizAttempts.get(
     // depender del response efímero del submit.
     score: currentAttempt.score,
     maxScore: currentAttempt.maxScore,
+    // SM-04 — la nota del intento terminado, con la misma escala que al entregarlo (antes la revisión mostraba
+    // el puntaje pero no la nota). Sin nota mientras haya preguntas sin corregir.
+    ...notaRevision,
     timerSegundos: getEvalConfig.timerSegundos,
     deadline: getDeadline,
     questions: questionsForResponse,

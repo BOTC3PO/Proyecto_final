@@ -267,7 +267,7 @@ bypass para `POST /api/payments/initiate` (regularizar la cuenta). Si el usuario
 (`schoolId` nulo), no se aplican restricciones.
 
 > El job de mora que actualiza `subscriptionStatus` y la política completa están en
-> [`../politica-mora.md`](../politica-mora.md) y `api/src/lib/billing/delinquency.ts`. Nota: a la
+> [`../pagos/comision.md`](../pagos/comision.md) y `api/src/lib/billing/delinquency.ts`. Nota: a la
 > fecha el barrido de mora no tiene modelo de facturas en Prisma (devuelve lista vacía); ver
 > [`migraciones.md`](./migraciones.md) y los TODO en `api/src/lib/payments/index.ts`.
 

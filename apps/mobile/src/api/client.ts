@@ -202,16 +202,27 @@ export const apiPut = <T>(path: string, body: unknown, options?: RequestOptions)
 export const apiDelete = <T>(path: string, options?: RequestOptions) =>
   apiRequest<T>(path, { ...options, method: "DELETE" });
 
-/** Login directo (no pasa por apiPost porque todavía no hay token que adjuntar). */
-export async function loginRequest(identifier: string, password: string) {
-  const response = await fetch(buildUrl("/api/auth/login"), {
+/** B13 — la cuenta tiene verificación en dos pasos: hace falta el código para terminar de entrar. */
+export class Requiere2faError extends Error {
+  constructor(public desafio: string) {
+    super("Falta el código de verificación");
+  }
+}
+
+/** Login directo (no pasa por apiPost porque todavía no hay token que adjuntar). Con `desafio` y `codigo`
+ * hace el segundo paso de la verificación en dos pasos. */
+export async function loginRequest(identifier: string, password: string, segundoPaso?: { desafio: string; codigo: string }) {
+  const response = await fetch(buildUrl(segundoPaso ? "/api/auth/2fa/login" : "/api/auth/login"), {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify({ identifier, password }),
+    body: JSON.stringify(segundoPaso ?? { identifier, password }),
   });
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
     throw new ApiError((payload as { error?: string })?.error ?? "No se pudo iniciar sesión", response.status, payload);
+  }
+  if ((payload as { requiere2fa?: boolean }).requiere2fa) {
+    throw new Requiere2faError(String((payload as { desafio?: string }).desafio ?? ""));
   }
   return payload as {
     id: string;

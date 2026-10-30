@@ -25,13 +25,10 @@ import { useI18n } from '../i18n/I18nContext';
 
 // `label` (de sección) y los `items` (ids de NAV_BY_ROLE) son claves de
 // traducción — ver namespaces `sidebar.` / `nav.` en i18n/es.json.
-// NOTA: 'Asistencia'/'Calificaciones' no existen como id en NAV_BY_ROLE
-// hoy (no están en TEACHER); se dejan tal cual (sectionItems los filtra
-// a 0 resultados silenciosamente, comportamiento preexistente).
 const SIDEBAR_SECTIONS: Record<string, { label: string; items: string[] }[]> = {
   TEACHER: [
     { label: 'academico', items: ['panel', 'aulas', 'materiales', 'modulos', 'cuestionarios', 'plantillas', 'datasets', 'evaluaciones'] },
-    { label: 'gestion',   items: ['asistencia', 'calificaciones', 'reportes', 'encuestas'] },
+    { label: 'gestion',   items: ['tareas', 'asistencia', 'calificaciones', 'encuestas', 'reportes'] },
     { label: 'escuela',   items: ['calendario', 'mensajes'] },
   ],
   ADMIN_ESCUELA: [

@@ -1,14 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
 import { useI18n } from "../i18n/I18nContext";
 
+/** Fecha límite como Date (null si la tarea no tiene). `vence` viene formateada para mostrar; se usa `venceIso`. */
+const fechaVence = (t: TareaResumen) => (t.venceIso ? new Date(t.venceIso) : null);
+
 function TareaCard({ tarea }: { tarea: TareaResumen }) {
-  const { lang } = useI18n();
-  const vence = new Date(tarea.vence);
+  const { t, lang } = useI18n();
+  const vence = fechaVence(tarea);
   const hoy = new Date(); hoy.setHours(23, 59, 59, 0);
   const finSemana = new Date(hoy); finSemana.setDate(finSemana.getDate() + 7);
-  const urgente = vence <= hoy;
-  const estaSemana = !urgente && vence <= finSemana;
+  const urgente = vence !== null && vence <= hoy;
+  const estaSemana = vence !== null && !urgente && vence <= finSemana;
 
   const dotColor  = urgente ? "bg-[var(--c-danger)]" : estaSemana ? "bg-[var(--c-warning)]" : "bg-[var(--c-success)]";
   const badgeCls  = urgente
@@ -16,10 +20,10 @@ function TareaCard({ tarea }: { tarea: TareaResumen }) {
     : estaSemana
     ? "bg-[color-mix(in_srgb,var(--c-warning)_12%,transparent)] text-[var(--c-warning)]"
     : "bg-[color-mix(in_srgb,var(--c-success)_12%,transparent)] text-[var(--c-success)]";
-  const badgeLabel = urgente ? "Urgente" : estaSemana ? "Esta semana" : "Sin urgencia";
+  const badgeLabel = urgente ? t("tareas.urgente") : estaSemana ? t("tareas.estaSemana") : t("tareas.sinUrgencia");
 
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3">
+    <Link to={`/tareas/${tarea.id}`} className="flex items-center gap-3 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3 hover:border-[var(--c-primary)]">
       <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`} />
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold text-[var(--c-text)] truncate">{tarea.titulo}</p>
@@ -27,13 +31,13 @@ function TareaCard({ tarea }: { tarea: TareaResumen }) {
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">
         <span className="text-xs text-[var(--c-muted)]">
-          {new Date(tarea.vence).toLocaleDateString(lang, { day: "numeric", month: "short" })}
+          {vence ? vence.toLocaleDateString(lang, { day: "numeric", month: "short" }) : t("tareas.sinFecha")}
         </span>
         <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${badgeCls}`}>
           {badgeLabel}
         </span>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -69,18 +73,18 @@ export default function Tareas() {
     const hoy = new Date(); hoy.setHours(23, 59, 59, 0);
     const finSemana = new Date(hoy); finSemana.setDate(finSemana.getDate() + 7);
     if (filtro === "urgentes")
-      return tareas.filter((t) => new Date(t.vence) <= hoy);
+      return tareas.filter((t) => { const v = fechaVence(t); return v !== null && v <= hoy; });
     if (filtro === "esta-semana")
       return tareas.filter((t) => {
-        const v = new Date(t.vence);
-        return v > hoy && v <= finSemana;
+        const v = fechaVence(t);
+        return v !== null && v > hoy && v <= finSemana;
       });
     return tareas;
   }, [tareas, filtro]);
 
   const urgentesCount = useMemo(() => {
     const hoy = new Date(); hoy.setHours(23, 59, 59, 0);
-    return tareas.filter((t) => new Date(t.vence) <= hoy).length;
+    return tareas.filter((t) => { const v = fechaVence(t); return v !== null && v <= hoy; }).length;
   }, [tareas]);
 
   return (
@@ -96,7 +100,7 @@ export default function Tareas() {
           {urgentesCount > 0 && (
             <div className="flex items-center gap-1.5 rounded-full bg-[color-mix(in_srgb,var(--c-danger)_12%,transparent)] border border-[color-mix(in_srgb,var(--c-danger)_20%,transparent)] px-3 py-1.5 flex-shrink-0">
               <span className="text-xs font-semibold text-[var(--c-danger)]">
-                {urgentesCount} {urgentesCount === 1 ? "vence hoy" : "vencen hoy"}
+                {urgentesCount} {urgentesCount === 1 ? t("tareas.venceHoy") : t("tareas.vencenHoy")}
               </span>
             </div>
           )}

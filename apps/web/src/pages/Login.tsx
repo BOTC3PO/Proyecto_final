@@ -18,6 +18,22 @@ function safeReturnTo(path: string | null): string | null {
   return path && path.startsWith("/") && !path.startsWith("//") ? path : null;
 }
 
+type RespuestaLogin = {
+        id: string;
+        username: string;
+        email: string;
+        fullName?: string;
+        role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
+        /** MULTIROL-02: el back emite `roles[]` desde Fase 1. El front
+         *  lo consume acá. Si el back no lo manda (token viejo), el
+         *  provider lo promueve a `[role]` (ver `auth-provider.tsx`). */
+        roles?: ReadonlyArray<"ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST">;
+        guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
+        schoolId?: string | null;
+        accessToken: string;
+        refreshToken?: string;
+      };
+
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -53,27 +69,47 @@ export default function Login() {
     return Object.keys(err).length === 0;
   };
 
+  // B13 — si la cuenta tiene verificación en dos pasos, el login devuelve un desafío y se pide el código.
+  const [desafio, setDesafio] = useState<string | null>(null);
+  const [codigo, setCodigo] = useState("");
+
+  const enviarCodigo = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status.loading || !desafio) return;
+    setStatus({ loading: true, error: null });
+    try {
+      const payload = await apiPost<RespuestaLogin>("/api/auth/2fa/login", { desafio, codigo });
+      completarLogin(payload);
+    } catch (error) {
+      setStatus({ loading: false, error: error instanceof Error ? error.message : t("login.errorGenerico") });
+      return;
+    }
+    setStatus({ loading: false, error: null });
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status.loading) return;
     if (!validate()) return;
     setStatus({ loading: true, error: null });
     try {
-      const payload = await apiPost<{
-        id: string;
-        username: string;
-        email: string;
-        fullName?: string;
-        role: "ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST";
-        /** MULTIROL-02: el back emite `roles[]` desde Fase 1. El front
-         *  lo consume acá. Si el back no lo manda (token viejo), el
-         *  provider lo promueve a `[role]` (ver `auth-provider.tsx`). */
-        roles?: ReadonlyArray<"ADMIN" | "USER" | "PARENT" | "TEACHER" | "DIRECTIVO" | "GUEST">;
-        guestOnboardingStatus?: "pendiente" | "aceptado" | "rechazado" | null;
-        schoolId?: string | null;
-        accessToken: string;
-        refreshToken?: string;
-      }>("/api/auth/login", { identifier: form.user, password: form.password });
+      const payload = await apiPost<RespuestaLogin & { requiere2fa?: boolean; desafio?: string }>("/api/auth/login", { identifier: form.user, password: form.password });
+      if (payload.requiere2fa && payload.desafio) {
+        setDesafio(payload.desafio);
+        setCodigo("");
+        setStatus({ loading: false, error: null });
+        return;
+      }
+      completarLogin(payload);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : t("login.errorGenerico");
+      setStatus({ loading: false, error: message });
+      return;
+    }
+    setStatus({ loading: false, error: null });
+  };
+
+  const completarLogin = (payload: RespuestaLogin) => {
       const roles = Array.isArray(payload.roles) && payload.roles.length > 0
         ? payload.roles
         : [payload.role];
@@ -91,13 +127,8 @@ export default function Login() {
         { remember: form.remember },
       );
       navigate(returnTo ?? homePathForRole(payload.role));
-    } catch (error) {
-      const message = error instanceof Error ? error.message : t("login.errorGenerico");
-      setStatus({ loading: false, error: message });
-      return;
-    }
-    setStatus({ loading: false, error: null });
   };
+
 
   return (
     <div className="flex-1 bg-[#f3f4f6]">
@@ -113,6 +144,25 @@ export default function Login() {
                 {t("common.iniciarSesionBtn")}
               </h1>
 
+              {desafio ? (
+                <form className="mt-8 space-y-6" onSubmit={enviarCodigo}>
+                  <p className="text-sm text-gray-600">{t("login.codigo2faAyuda")}</p>
+                  <div className="space-y-1.5">
+                    <label htmlFor="codigo2fa" className="block text-sm font-medium text-gray-700">{t("login.codigo2fa")}</label>
+                    <input id="codigo2fa" name="codigo2fa" inputMode="numeric" autoComplete="one-time-code" autoFocus
+                      value={codigo} onChange={(e) => setCodigo(e.target.value)}
+                      className="block w-full rounded-md border border-gray-300 px-3 py-2 tracking-widest shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                  </div>
+                  {status.error && <p role="alert" className="text-sm text-red-600">{status.error}</p>}
+                  <button type="submit" disabled={status.loading || !codigo.trim()}
+                    className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-70">
+                    {t("login.verificar")}
+                  </button>
+                  <button type="button" onClick={() => setDesafio(null)} className="w-full text-sm text-blue-600">
+                    {t("login.volverAContrasena")}
+                  </button>
+                </form>
+              ) : (
               <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                 {/* Usuario */}
                 <div className="space-y-1.5">
@@ -192,6 +242,7 @@ export default function Login() {
                   </Link>
                 </p>
               </form>
+              )}
             </div>
           </section>
         </div>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../auth/use-auth";
 import { useHasAnyRole } from "../../auth/use-roles";
-import { apiGet, apiPost } from "../../lib/api";
+import { apiDelete, apiGet, apiPost, apiPut } from "../../lib/api";
 import Toast from "../../components/Toast";
 import type { Module, ModuleVisibility } from "../../domain/module/module.types";
 import { resolveMateria, resolveCategoria } from "../../domain/module/materia";
@@ -77,7 +77,36 @@ export default function ModulosList() {
   const [modules, setModules] = useState<Module[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"mine" | "school" | "public">("public");
+  const [activeTab, setActiveTab] = useState<"mine" | "school" | "public" | "favoritos">("public");
+  // Documento 17 — módulos favoritos de la persona (ids).
+  const [favoritos, setFavoritos] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    apiGet<{ ids: string[] }>("/api/modulos-favoritos")
+      .then((r) => setFavoritos(new Set(r.ids)))
+      .catch(() => setFavoritos(new Set()));
+  }, []);
+  // L5 — promedio de valoraciones de los módulos visibles.
+  const [valoraciones, setValoraciones] = useState<Record<string, { promedio: number; cantidad: number }>>({});
+  useEffect(() => {
+    const ids = modules.map((m) => m.id).slice(0, 200);
+    if (ids.length === 0) return;
+    apiGet<{ items: Record<string, { promedio: number; cantidad: number }> }>(`/api/modulos-valoraciones?ids=${ids.map(encodeURIComponent).join(",")}`)
+      .then((r) => setValoraciones(r.items))
+      .catch(() => setValoraciones({}));
+  }, [modules]);
+  const alternarFavorito = async (moduloId: string) => {
+    const es = favoritos.has(moduloId);
+    const siguiente = new Set(favoritos);
+    if (es) siguiente.delete(moduloId);
+    else siguiente.add(moduloId);
+    setFavoritos(siguiente);
+    try {
+      if (es) await apiDelete(`/api/modulos-favoritos/${moduloId}`);
+      else await apiPut(`/api/modulos-favoritos/${moduloId}`, {});
+    } catch {
+      setFavoritos(favoritos);
+    }
+  };
   const [selectedSubject, setSelectedSubject] = useState("all");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
@@ -122,6 +151,7 @@ export default function ModulosList() {
   const filteredModules = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
     return modules.filter((module) => {
+      if (activeTab === "favoritos" && !favoritos.has(module.id)) return false;
       if (activeTab === "mine" && module.createdBy !== user?.id) return false;
       if (activeTab === "school" && module.visibility !== "escuela") return false;
       if (activeTab === "public" && module.visibility !== "publico") return false;
@@ -138,6 +168,7 @@ export default function ModulosList() {
     });
   }, [
     activeTab,
+    favoritos,
     modules,
     searchTerm,
     selectedCategory,
@@ -194,7 +225,8 @@ export default function ModulosList() {
     }
   };
 
-  const TABS: { key: "mine" | "school" | "public"; label: string }[] = [
+  const TABS: { key: "mine" | "school" | "public" | "favoritos"; label: string }[] = [
+    { key: "favoritos", label: t("modulosList.favoritos") },
     { key: "mine", label: t("menualumno.misModulos") },
     { key: "school", label: t("sidebar.escuela") },
     { key: "public", label: t("modulosList.publicos") },
@@ -534,6 +566,14 @@ export default function ModulosList() {
                               color: "var(--c-text)",
                               lineHeight: "var(--lh-tight)",
                             }}>
+                              <button
+                                type="button"
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); void alternarFavorito(module.id); }}
+                                aria-pressed={favoritos.has(module.id)}
+                                aria-label={favoritos.has(module.id) ? t("modulosList.quitarFavorito") : t("modulosList.marcarFavorito")}
+                                title={favoritos.has(module.id) ? t("modulosList.quitarFavorito") : t("modulosList.marcarFavorito")}
+                                style={{ marginRight: "var(--space-2)", background: "none", border: "none", cursor: "pointer", color: favoritos.has(module.id) ? "var(--c-warning)" : "var(--c-muted)", fontSize: "var(--text-lg)" }}
+                              >{favoritos.has(module.id) ? "★" : "☆"}</button>
                               {module.title}
                             </h2>
                             <p style={{
@@ -542,6 +582,11 @@ export default function ModulosList() {
                               color: "var(--c-muted)",
                             }}>
                               {resolveMateria(module)}
+                              {valoraciones[module.id] && (
+                                <span style={{ marginLeft: "var(--space-2)", color: "var(--c-warning)" }}>
+                                  ★ {valoraciones[module.id].promedio.toLocaleString("es-AR")} ({valoraciones[module.id].cantidad})
+                                </span>
+                              )}
                             </p>
                             {module.description && (
                               <p style={{

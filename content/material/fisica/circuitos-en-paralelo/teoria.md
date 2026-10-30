@@ -14,7 +14,7 @@ En un circuito en paralelo, todos los componentes conectados a las mismas ramas 
 
 Esta característica es clave para aplicaciones como iluminación doméstica: si una bombilla se quema, las demás siguen funcionando porque no dependen del flujo de corriente de ninguna rama específica.
 
-![diagrama de circuito con 3 resistencias en paralelo conectadas a una batería](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Three-resistors-in-parallel-vert.svg/960px-Three-resistors-in-parallel-vert.svg.png)
+![diagrama de circuito con 3 resistencias en paralelo conectadas a una batería](/temario/imagenes/three-resistors-in-parallel-vert.webp)
 
 *Imagen: «Three-resistors-in-parallel-vert», MikeRun, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Three-resistors-in-parallel-vert.svg).*
 

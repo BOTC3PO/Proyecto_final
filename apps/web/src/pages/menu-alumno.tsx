@@ -4,8 +4,8 @@ import { Award, Clock3, GraduationCap, Trophy } from "lucide-react";
 import { useAuth } from "../auth/use-auth";
 import { usePrimaryRole } from "../auth/use-roles";
 import { apiGet } from "../lib/api";
-import type { Module } from "../domain/module/module.types";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
+import { fetchProgresoEstudiante } from "../services/progreso";
 import { useI18n } from "../i18n/I18nContext";
 
 interface Student {
@@ -24,21 +24,6 @@ interface DashboardProps {
   nextClass: NextClassInfo;
 }
 
-type ProgressItem = {
-  moduloId: string;
-  status: "iniciado" | "en_progreso" | "completado";
-};
-
-type ProgressUnlock = {
-  moduloId: string;
-  isLocked: boolean;
-  missingDependencies: string[];
-};
-
-type ProgressResponse = {
-  items: ProgressItem[];
-  unlocks: ProgressUnlock[];
-};
 
 const ROLE_LABEL_KEY: Record<string, string> = {
   TEACHER: "perfil.docente",
@@ -167,17 +152,14 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     }
     setProgressStatus("loading");
     setProgressError(null);
-    Promise.all([
-      apiGet<{ items: Module[] }>("/api/modulos"),
-      apiGet<ProgressResponse>(`/api/progreso?usuarioId=${user.id}`)
-    ])
-      .then(([modulesResponse, progressResponse]) => {
+    // Misma fuente que la página Progreso: los módulos del alumno (los de sus aulas y los que empezó). Antes
+    // se contaban los completados solo entre la primera página del catálogo público, y el inicio decía
+    // «0 módulos completados» mientras Progreso y el perfil mostraban 2.
+    fetchProgresoEstudiante()
+      .then((progreso) => {
         if (!active) return;
-        const completedSet = new Set(
-          progressResponse.items.filter((item) => item.status === "completado").map((item) => item.moduloId)
-        );
-        const total = modulesResponse.items.length;
-        const completedCount = modulesResponse.items.filter((module) => completedSet.has(module.id)).length;
+        const total = progreso.avances.length;
+        const completedCount = progreso.avances.filter((a) => a.progreso === "100%").length;
         setCompletedModules(completedCount);
         setModulesCount(total);
         setProgressPercent(total === 0 ? 0 : Math.round((completedCount / total) * 100));
@@ -233,7 +215,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <p className="text-xs uppercase tracking-widest text-[var(--c-muted)] mb-1">
             {new Date().toLocaleDateString(lang, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           </p>
-          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}<span className="text-[var(--c-primary)]">{student.name}</span>
+          <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}{" "}<span className="text-[var(--c-primary)]">{student.name}</span>
           </h1>
           <p className="text-sm text-[var(--c-muted)] mt-1">
             {t("matrizProgreso.alumno")} · {completedModules} {t("perfilPublico.modulosCompletados")}

@@ -57,6 +57,18 @@ model Escuela {
   /// hay otra opción para pagos del exterior, así que se acota: se elige
   /// con qué escuelas se asume ese riesgo en vez de asumirlo con todas.
   cryptomusHabilitado Boolean @default(false) @map("cryptomus_habilitado")
+  /// Interés por mora de las cuotas. Lo configura la dirección de la escuela; apagado por defecto.
+  /// La tasa es simple y se prorratea por día de atraso, después de los días de gracia.
+  moraActiva         Boolean  @default(false) @map("mora_activa")
+  /// Porcentaje por período (ver MORA_TASA_MAX en lib/mora.ts).
+  moraTasa           Float    @default(2) @map("mora_tasa")
+  /// "mensual" | "anual"
+  moraPeriodo        String   @default("mensual") @map("mora_periodo")
+  moraDiasGracia     Int      @default(0) @map("mora_dias_gracia")
+  /// Comisión de VB sobre cooperadoras y aportes solidarios: 0 a 1 %, la elige la institución.
+  comisionPctAportes Float    @default(0) @map("comision_pct_aportes")
+  /// Monto máximo que la ley de la jurisdicción permite pedir como aporte voluntario. Null = sin cargar.
+  topeAporteLegal    Float?   @map("tope_aporte_legal")
   usuarios           Usuario[]
   membresias         Membresia[]
   clases             Clase[]
@@ -82,6 +94,8 @@ model CobroEscuela {
   montoUnitario Float         @map("monto_unitario")
   moneda        String        @default("ARS")
   vencimiento   String?
+  // cuota | cooperadora | aporte_solidario. Las dos últimas son voluntarias: sin mora y con otra comisión.
+  tipo          String        @default("cuota")
   // borrador | publicado | cerrado
   estado        String        @default("borrador")
   createdBy     String        @map("created_by")
@@ -129,6 +143,9 @@ model Pago {
   // pendiente | en_proceso | pagada | fallida | anulada
   estado           String        @default("pendiente")
   montoBruto       Float         @map("monto_bruto")
+  // Desglose cuando hay mora: montoBruto = montoOriginal + interesMora. Null en pagos sin mora.
+  montoOriginal    Float?        @map("monto_original")
+  interesMora      Float?        @map("interes_mora")
   comisionVB       Float?        @map("comision_vb")
   montoNetoEscuela Float?        @map("monto_neto_escuela")
   raw              String?
@@ -157,10 +174,13 @@ model EscuelaPasarela {
   cuentaConectadaId    String? @map("cuenta_conectada_id")
   credencialesCifradas String? @map("credenciales_cifradas")
   activa               Boolean @default(true)
+  /// "escuela" | "cooperadora": de quién es la cuenta. Los cobros de cooperadora van a la cuenta de la
+  /// cooperadora (asociación con CUIT propio), nunca a la de la escuela.
+  titular              String  @default("escuela")
   createdAt            String  @map("created_at")
   updatedAt            String  @map("updated_at")
   escuela              Escuela @relation(fields: [escuelaId], references: [id])
-  @@unique([escuelaId, provider])
+  @@unique([escuelaId, provider, titular])
   @@map("escuelas_pasarelas")
 }
 
@@ -176,6 +196,8 @@ model TransaccionEscuela {
   // manual). Default "mercadopago" para las filas históricas (todo lo
   // pre-Fase-3 era del SaaS de suscripción, siempre MP).
   provider    String   @default("mercadopago")
+  /// "escuela" | "cooperadora": a quién le corresponde el neto.
+  titular     String   @default("escuela")
   mpPaymentId String?  @map("mp_payment_id")
   createdAt   String   @map("created_at")
   escuela     Escuela  @relation(fields: [escuelaId], references: [id])
@@ -236,6 +258,12 @@ model Usuario {
   bannedAt              String?  @map("banned_at")
   bannedUntil           String?  @map("banned_until")
   warningCount          Int      @default(0) @map("warning_count")
+  /// B13 — verificación en dos pasos (TOTP). El secreto va cifrado (lib/totp.ts); `totpActivo` recién cuando
+  /// la persona confirmó un código. `totpUltimoPaso` impide reusar un código. Los de recuperación, hasheados.
+  totpSecreto           String?  @map("totp_secreto")
+  totpActivo            Boolean  @default(false) @map("totp_activo")
+  totpUltimoPaso        Int?     @map("totp_ultimo_paso")
+  totpRecuperacion      String?  @map("totp_recuperacion")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
   escuela               Escuela? @relation(fields: [escuelaId], references: [id])
@@ -299,6 +327,11 @@ model Clase {
   escuelaId       String   @map("escuela_id")
   name            String
   grade           String
+  /// L1 — descripción, categoría y tipo de acceso: el formulario los mandaba pero no había dónde guardarlos.
+  description     String?
+  category        String?
+  /// "publica" | "privada". Por defecto privada: un aula escolar no queda pública si nadie lo eligió.
+  accessType      String   @default("privada") @map("access_type")
   code            String?
   classCode       String?  @map("class_code")
   // Tarea 14 — ajuste del aula: permite que los alumnos comenten las
@@ -450,6 +483,64 @@ model Transferencia {
   createdAt    String @map("created_at")
   updatedAt    String? @map("updated_at")
   @@map("transferencias")
+}
+
+// E1 — recuperación de contraseña. Se guarda solo el hash del token (el token viaja por correo). Vence en una
+// hora y sirve una sola vez; pedir otro invalida los anteriores.
+model PasswordResetToken {
+  id        String  @id
+  usuarioId String  @map("usuario_id")
+  tokenHash String  @unique @map("token_hash")
+  expiresAt String  @map("expires_at")
+  usedAt    String? @map("used_at")
+  createdAt String  @map("created_at")
+  @@index([usuarioId])
+  @@map("password_reset_tokens")
+}
+
+// Cooperadora escolar de una escuela: asociación aparte, con CUIT propio, que cobra con su propia cuenta.
+// La carga la dirección (al registrar la escuela o después) y la verifica el administrador.
+model Cooperadora {
+  id                 String  @id
+  escuelaId          String  @unique @map("escuela_id")
+  nombre             String
+  cuit               String
+  contactoEmail      String? @map("contacto_email")
+  /// "pendiente" | "verificada" | "rechazada"
+  estadoVerificacion String  @default("pendiente") @map("estado_verificacion")
+  motivoRechazo      String? @map("motivo_rechazo")
+  createdAt          String  @map("created_at")
+  updatedAt          String  @map("updated_at")
+  @@map("cooperadoras")
+}
+
+// L5 — valoración de módulos (1 a 5). Una por persona; solo quien empezó el módulo.
+model ModuloValoracion {
+  usuarioId String @map("usuario_id")
+  moduloId  String @map("modulo_id")
+  puntaje   Int
+  createdAt String @map("created_at")
+  updatedAt String @map("updated_at")
+  @@id([usuarioId, moduloId])
+  @@index([moduloId])
+  @@map("modulos_valoraciones")
+}
+
+// Documento 17 — módulos que cada persona marca como favoritos.
+model ModuloFavorito {
+  usuarioId String @map("usuario_id")
+  moduloId  String @map("modulo_id")
+  createdAt String @map("created_at")
+  @@id([usuarioId, moduloId])
+  @@map("modulos_favoritos")
+}
+
+// Parámetros de la comisión escalonada (lib/comisiones.ts). Una sola fila; la edita el administrador.
+model ComisionConfig {
+  id        String @id @default("default")
+  json      String
+  updatedAt String @map("updated_at")
+  @@map("comision_config")
 }
 
 model EconomiaConfig {
@@ -790,6 +881,8 @@ model ActividadAula {
   createdBy   String  @map("created_by")
   createdAt   String  @map("created_at")
   isDeleted   Boolean @default(false) @map("is_deleted")
+  /// Cuándo se marcó como borrado (purga definitiva a los 4 años, lib/purga-borrados.ts).
+  deletedAt   String? @map("deleted_at")
   @@map("actividades_aula")
 }
 
@@ -809,6 +902,8 @@ model CalendarioEscuela {
   createdBy    String  @map("created_by")
   createdAt    String  @map("created_at")
   isDeleted    Boolean @default(false) @map("is_deleted")
+  /// Cuándo se marcó como borrado (purga definitiva a los 4 años, lib/purga-borrados.ts).
+  deletedAt   String? @map("deleted_at")
   @@map("calendario_escuela")
 }
 
@@ -1121,6 +1216,43 @@ model Tarea {
   schoolId String? @map("school_id")
   json     String
   @@map("tareas")
+}
+
+// L2 — tareas del aula y entregas de los alumnos (reemplazan a `tareas`/`entregas`, que guardaban un JSON
+// suelto y nunca tuvieron forma de crearse ni entregarse).
+model TareaAula {
+  id          String  @id
+  claseId     String  @map("clase_id")
+  titulo      String
+  consigna    String
+  /// Fecha y hora límite (ISO). Se puede entregar después, pero queda marcada «tarde».
+  vence       String?
+  puntajeMax  Float?  @map("puntaje_max")
+  /// "publicada" | "cerrada" (cerrada ya no recibe entregas)
+  estado      String  @default("publicada")
+  creadaPor   String  @map("creada_por")
+  createdAt   String  @map("created_at")
+  updatedAt   String  @map("updated_at")
+  isDeleted   Boolean @default(false) @map("is_deleted")
+  @@index([claseId])
+  @@map("tareas_aula")
+}
+
+model EntregaTarea {
+  id           String  @id
+  tareaId      String  @map("tarea_id")
+  alumnoId     String  @map("alumno_id")
+  texto        String
+  enlace       String?
+  entregadaAt  String  @map("entregada_at")
+  tarde        Boolean @default(false)
+  nota         Float?
+  devolucion   String?
+  corregidaPor String? @map("corregida_por")
+  corregidaAt  String? @map("corregida_at")
+  @@unique([tareaId, alumnoId])
+  @@index([alumnoId])
+  @@map("entregas_tarea")
 }
 
 model EconomiaExamen {

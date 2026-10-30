@@ -5,8 +5,24 @@ import { assertClassroomWritable } from "../lib/classroom";
 import { SurveyBaseSchema, SurveySchema } from "../schema/encuesta";
 import { requireUser } from "../lib/user-auth";
 import { isStaffRole } from "../lib/authorization";
+import { requireClassroomScope } from "../lib/classroom-scope";
+import { puedeGestionarAula, type UsuarioAula } from "../lib/aula-permisos";
 
 export const encuestas = Router();
+
+// Leer encuestas y resultados de un aula: miembros del aula, su docente o la dirección de su escuela. Antes
+// alcanzaba con tener sesión y conocer el id del aula.
+const alcanceLectura = requireClassroomScope({
+  paramName: "aulaId",
+  paramSource: "query",
+  badRequestMessage: "aulaId is required",
+  notFoundMessage: "not found"
+});
+
+type UsuarioReq = UsuarioAula;
+
+/** Crear, editar o borrar encuestas: ver lib/aula-permisos (antes cualquier docente, en cualquier aula). */
+const puedeGestionarEncuestasDe = puedeGestionarAula;
 
 const requireStaff = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const user = (req as { user?: { role?: string } }).user;
@@ -59,7 +75,7 @@ const requireAulaId = (req: express.Request, res: express.Response) => {
   return aulaId;
 };
 
-encuestas.get("/api/encuestas", requireUser, async (req, res) => {
+encuestas.get("/api/encuestas", requireUser, alcanceLectura, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const limit = clampLimit(req.query.limit as string | undefined);
@@ -73,7 +89,7 @@ encuestas.get("/api/encuestas", requireUser, async (req, res) => {
   res.json({ items: items.map(withParsedOptions), limit, offset });
 });
 
-encuestas.get("/api/encuestas/:id", requireUser, async (req, res) => {
+encuestas.get("/api/encuestas/:id", requireUser, alcanceLectura, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const id = String(req.params.id ?? "");
@@ -94,6 +110,9 @@ encuestas.post("/api/encuestas", requireUser, requireStaff, ...bodyLimitMB(ENV.M
       updatedAt: req.body?.updatedAt ?? now
     };
     const parsed = SurveySchema.parse(payload);
+    if (!(await puedeGestionarEncuestasDe(req.user as UsuarioReq, parsed.classroomId))) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const classroom = await prisma.clase.findFirst({
       where: { id: parsed.classroomId },
       select: { status: true }
@@ -117,6 +136,9 @@ encuestas.put("/api/encuestas/:id", requireUser, requireStaff, ...bodyLimitMB(EN
     const parsed = SurveyUpdateSchema.parse(req.body);
     const survey = await prisma.encuesta.findFirst({ where: { id } });
     if (!survey) return res.status(404).json({ error: "not found" });
+    if (!(await puedeGestionarEncuestasDe(req.user as UsuarioReq, survey.classroomId))) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const classroom = await prisma.clase.findFirst({
       where: { id: survey.classroomId },
       select: { status: true }
@@ -144,6 +166,9 @@ encuestas.patch("/api/encuestas/:id", requireUser, requireStaff, ...bodyLimitMB(
     const parsed = SurveyUpdateSchema.parse(req.body);
     const survey = await prisma.encuesta.findFirst({ where: { id } });
     if (!survey) return res.status(404).json({ error: "not found" });
+    if (!(await puedeGestionarEncuestasDe(req.user as UsuarioReq, survey.classroomId))) {
+      return res.status(403).json({ error: "forbidden" });
+    }
     const classroom = await prisma.clase.findFirst({
       where: { id: survey.classroomId },
       select: { status: true }
@@ -169,6 +194,9 @@ encuestas.delete("/api/encuestas/:id", requireUser, requireStaff, async (req, re
   const id = String(req.params.id ?? "");
   const survey = await prisma.encuesta.findFirst({ where: { id } });
   if (!survey) return res.status(404).json({ error: "not found" });
+  if (!(await puedeGestionarEncuestasDe(req.user as UsuarioReq, survey.classroomId))) {
+    return res.status(403).json({ error: "forbidden" });
+  }
   const classroom = await prisma.clase.findFirst({
     where: { id: survey.classroomId },
     select: { status: true }
@@ -203,6 +231,9 @@ encuestas.post("/api/encuestas/:id/votos", requireUser, ...bodyLimitMB(ENV.MAX_P
     if (!assertClassroomWritable(res, classroom)) {
       return;
     }
+    // Votan los miembros del aula (antes podía votar cualquiera que conociera los ids).
+    const miembro = await prisma.claseMiembro.findFirst({ where: { claseId: aulaId, usuarioId } });
+    if (!miembro) return res.status(403).json({ error: "solo votan los miembros del aula" });
     const survey = await prisma.encuesta.findFirst({ where: { id: String(req.params.id ?? ""), classroomId: aulaId } });
     if (!survey) return res.status(404).json({ error: "not found" });
     const optionList = parseSurveyOptions(survey.options);
@@ -310,7 +341,7 @@ encuestas.post("/api/encuestas/:id/votos", requireUser, ...bodyLimitMB(ENV.MAX_P
   }
 });
 
-encuestas.get("/api/encuestas/:id/resultados", requireUser, async (req, res) => {
+encuestas.get("/api/encuestas/:id/resultados", requireUser, alcanceLectura, async (req, res) => {
   const aulaId = requireAulaId(req, res);
   if (!aulaId) return;
   const survey = await prisma.encuesta.findFirst({ where: { id: String(req.params.id ?? ""), classroomId: aulaId } });

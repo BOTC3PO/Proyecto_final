@@ -91,12 +91,6 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // (el refresh viejo sigue válido hasta su exp, pero el próximo uso
   // legítimo emite otro). No logueamos tokens ni emitimos tokens eternos.
   JWT_REFRESH_TTL_SECONDS: Number(process.env.JWT_REFRESH_TTL_SECONDS ?? 7 * 24 * 60 * 60),
-  BILLING_PAST_DUE_DAYS: Number(process.env.BILLING_PAST_DUE_DAYS ?? 7),
-  BILLING_SUSPEND_DAYS: Number(process.env.BILLING_SUSPEND_DAYS ?? 30),
-  BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES: Number(
-    process.env.BILLING_DELINQUENCY_JOB_INTERVAL_MINUTES ?? 60
-  ),
-  BILLING_DELINQUENCY_JOB_ENABLED: parseBool(process.env.BILLING_DELINQUENCY_JOB_ENABLED, true),
   ENABLE_SEED_ENDPOINT: parseBool(process.env.ENABLE_SEED_ENDPOINT, false),
   AUTH_RATE_LIMIT_DISABLED: parseBool(process.env.AUTH_RATE_LIMIT_DISABLED, false),
   // MercadoPago
@@ -143,7 +137,7 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // PLAN-B Fase 4 — job de reconciliación: reintenta contra el provider
   // los `Pago` en `pendiente`/`en_proceso` más viejos que el umbral, por
   // si el webhook nunca llegó. Apagado por default en tests/dev (mismo
-  // patrón que BILLING_DELINQUENCY_JOB_ENABLED).
+  // patrón que los demás jobs).
   // Conservación de mensajes: se borran los de más de N años (principio de finalidad de la ley 25.326: no se
   // guardan datos personales más allá de lo necesario). 0 = no borrar nunca.
   MENSAJES_RETENCION_ANOS: Number(process.env.MENSAJES_RETENCION_ANOS ?? 8),
@@ -153,6 +147,21 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   // Deja arrancar en local con pasarelas configuradas pero sin
   // MP_WEBHOOK_SECRET / PASARELAS_ENCRYPTION_KEY. Ver assertSecretosDePago.
   PAGOS_DEV_SIN_SECRETOS: parseBool(process.env.PAGOS_DEV_SIN_SECRETOS, false),
+  // E1 — correo saliente (recuperación de contraseña). Sin SMTP_HOST no se envía nada: en desarrollo el
+  // enlace se escribe en la consola; en producción solo queda un aviso.
+  SMTP_HOST: process.env.SMTP_HOST ?? "",
+  SMTP_PORT: Number(process.env.SMTP_PORT ?? 587),
+  SMTP_SECURE: parseBool(process.env.SMTP_SECURE, false),
+  SMTP_USER: process.env.SMTP_USER ?? "",
+  SMTP_PASS: process.env.SMTP_PASS ?? "",
+  SMTP_FROM: process.env.SMTP_FROM ?? "Virtual Book <no-responder@virtualbook.com.ar>",
+  PASSWORD_RESET_TTL_MINUTES: Number(process.env.PASSWORD_RESET_TTL_MINUTES ?? 60),
+  // L4 — notificaciones push por Expo. Apagadas salvo que se activen.
+  PUSH_ENABLED: parseBool(process.env.PUSH_ENABLED, false),
+  // L13 — días que pasan entre que un administrador borra una cuenta y su anonimización.
+  USUARIOS_BORRADOS_ANONIMIZAR_DIAS: Number(process.env.USUARIOS_BORRADOS_ANONIMIZAR_DIAS ?? 30),
+  // Años que algo queda marcado como borrado antes de la purga definitiva (lib/purga-borrados.ts). 0 = nunca.
+  BORRADOS_PURGA_ANOS: Number(process.env.BORRADOS_PURGA_ANOS ?? 4),
 };
 
 /**
