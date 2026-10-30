@@ -16,7 +16,7 @@ La corrosión es el proceso de **deterioro** progresivo de un material, principa
 
 La velocidad y forma de la corrosión dependen de condiciones externas. La **humedad** es clave: al actuar como electrolito, facilita transferencias de electrones entre el metal y su entorno. Por ejemplo, en ambientes con alta humedad (como costas), la oxidación del hierro ocurre rápidamente, generando óxido ferroso ( ). En cambio, en condiciones secas, el proceso se ralentiza. Otros factores incluyen temperatura (aumenta reactividad), presencia de sales o ácidos, y tipo de metal (el aluminio, por ejemplo, forma una capa protectora pasiva).
 
-![superficie metálica con manchas rojizas](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rust_on_iron.jpg/960px-Rust_on_iron.jpg)
+![superficie metálica con manchas rojizas](/temario/imagenes/rust-on-iron.webp)
 
 *Imagen: «Rust on iron», Laitr Keiows, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rust_on_iron.jpg).*
 

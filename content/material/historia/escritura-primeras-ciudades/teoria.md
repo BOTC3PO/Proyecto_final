@@ -16,7 +16,7 @@ La escritura se originó en Mesopotamia, una región ubicada entre los ríos Tig
 
 La escritura no nació para contar historias ni expresar sentimientos, sino para cumplir una función utilitaria: la contabilidad. En las primeras ciudades, los sacerdotes y administradores usaban tablillas de arcilla para anotar ingresos y egresos de granos, lana o herramientas. Estos registros eran esenciales para el funcionamiento de talleres, almacenes y templos. A medida que las ciudades crecían, la escritura se volvió una herramienta indispensable para mantener el control sobre recursos limitados.
 
-![Tablilla cuneiforme con marcas en forma de cuña representando transacciones comerciales](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg/960px-Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg)
+![Tablilla cuneiforme con marcas en forma de cuña representando transacciones comerciales](/temario/imagenes/cuneiform-tablet-administrative-account-concerning-the-distribution-of-barley-an.webp)
 
 *Imagen: «Cuneiform tablet- administrative account concerning the distribution of barley and emmer MET DP297601», CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg).*
 
@@ -24,7 +24,7 @@ La escritura no nació para contar historias ni expresar sentimientos, sino para
 
 El primer sistema de escritura, conocido como cuneiforme, se basaba en figuras geométricas talladas en arcilla con un punzón triangular. Originalmente, los símbolos representaban objetos concretos (como una cabeza de trigo o un animal), pero con el tiempo se simplificaron y adquirieron significados abstractos. Esta evolución permitió expresar ideas complejas: desde órdenes gubernamentales hasta textos religiosos.
 
-![Ejemplo de símbolos cuneiformes, mostrando la transición de pictogramas a signos simplificados](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Cuneiform_gesh_formation.jpg/960px-Cuneiform_gesh_formation.jpg)
+![Ejemplo de símbolos cuneiformes, mostrando la transición de pictogramas a signos simplificados](/temario/imagenes/cuneiform-gesh-formation.webp)
 
 *Imagen: «Cuneiform gesh formation», ShlomoKatzav, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cuneiform_gesh_formation.jpg).*
 
@@ -32,7 +32,7 @@ El primer sistema de escritura, conocido como cuneiforme, se basaba en figuras g
 
 La capacidad de registrar información dio a los gobernantes y sacerdotes un control exclusivo sobre datos críticos: impuestos, leyes o rituales sagrados. En ciudades como Uruk o Nippur, la escritura no solo facilitaba el trabajo cotidiano, sino que también consolidó jerarquías sociales. Quienes sabían leer y escribir se convertían en una élite privilegiada, encargada de administrar tanto lo material como lo espiritual.
 
-![Tablilla de arcilla con signos dibujados e impresiones circulares](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Proto_cuneiform_tablet_OIM_A02516.jpg/960px-Proto_cuneiform_tablet_OIM_A02516.jpg)
+![Tablilla de arcilla con signos dibujados e impresiones circulares](/temario/imagenes/proto-cuneiform-tablet-oim-a02516.webp)
 
 *Imagen: «Proto cuneiform tablet OIM A02516», Original: Daderot Derivative work : Zunkir, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Proto_cuneiform_tablet_OIM_A02516.jpg).*
 

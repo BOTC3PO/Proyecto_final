@@ -33,7 +33,7 @@ Una herramienta clave para implementar la mejora continua es el **ciclo PDCA**, 
 3. **Verificar (Check)**: Evaluar los resultados obtenidos, comparándolos con los objetivos establecidos.
 4. **Actuar (Act)**: Si se lograron mejoras, estandarizar las acciones y repetir el ciclo; si no, ajustar el plan y volver a empezar.
 
-![diagrama del ciclo PDCA en forma de rueda con flechas que conectan cada etapa](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/PDCA_Cycle.svg/960px-PDCA_Cycle.svg.png)
+![diagrama del ciclo PDCA en forma de rueda con flechas que conectan cada etapa](/temario/imagenes/pdca-cycle.webp)
 
 *Imagen: «PDCA Cycle», Karn-b - Karn Bulsuk (http://www.bulsuk.com). Orig, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:PDCA_Cycle.svg).*
 

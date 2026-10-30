@@ -14,7 +14,7 @@ El modelo funcionalista, también llamado de transmisión o lineal, es una forma
 
 Este modelo se basa en la idea de que la comunicación es un acto de transmisión clara y sin interferencias. Sin embargo, no deja espacio para las interpretaciones del receptor ni para la retroalimentación. Por eso se critica por ser demasiado simplista: en la vida real, los mensajes rara vez se reciben igual que se envían.
 
-![diagrama del modelo de transmisión con emisor, mensaje y receptor](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Shannon-Weaver_model.png/960px-Shannon-Weaver_model.png)
+![diagrama del modelo de transmisión con emisor, mensaje y receptor](/temario/imagenes/shannon-weaver-model.webp)
 
 *Imagen: «Shannon-Weaver model», OTA, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shannon-Weaver_model.png).*
 

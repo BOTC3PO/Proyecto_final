@@ -24,8 +24,8 @@ function archivos(dir: string, salida: string[] = []): string[] {
   return salida;
 }
 const todos = archivos(RAIZ);
-// Wikimedia limita (HTTP 429) los enlaces directos al archivo original y sólo sirve miniaturas de anchos
-// estándar (otros anchos dan HTTP 400): las imágenes del temario tienen que ser /thumb/…/<ancho>px-….
+// Imágenes de bloques de herramientas: locales ("/…") o miniaturas de Wikimedia de ancho estándar
+// (otros anchos dan HTTP 400).
 const MINIATURA = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/thumb\/[0-9a-f]\/[0-9a-f]{2}\/[^/]+\/(?:lossy-)?(?:page\d+-)?(250|330|500|960|1280)px-[^/]+$/;
 
 function teorias(dir: string, salida: string[] = []): string[] {
@@ -119,13 +119,36 @@ describe("herramientas standalone del temario (mapas)", () => {
   }
 });
 
-describe("imágenes enlazadas en la teoría", () => {
-  it("son miniaturas de Wikimedia de ancho estándar", () => {
+// Las imágenes de Commons se copian a la web (`apps/web/public/temario/imagenes`) para no depender de
+// Wikimedia, que responde HTTP 429 a los enlaces directos. La fuente queda en FUENTES.json y en el pie.
+const IMAGENES = join(__dirname, "../../../public/temario/imagenes");
+const FUENTES = JSON.parse(readFileSync(join(IMAGENES, "FUENTES.json"), "utf-8")) as Record<string, { pagina_commons: string }>;
+
+describe("imágenes de la teoría", () => {
+  it("no enlazan a Wikimedia: están copiadas en la web", () => {
     const malas: string[] = [];
     for (const f of teorias(RAIZ)) {
       for (const m of readFileSync(f, "utf-8").matchAll(/https:\/\/upload\.wikimedia\.org\/[^)\s"]+/g)) {
-        if (!MINIATURA.test(m[0])) malas.push(`${relative(RAIZ, f)}: ${m[0]}`);
+        malas.push(`${relative(RAIZ, f)}: ${m[0]}`);
       }
+    }
+    expect(malas).toEqual([]);
+  });
+
+  it("cada imagen local existe, figura en FUENTES.json y tiene al pie su atribución con enlace a Commons", () => {
+    const malas: string[] = [];
+    for (const f of teorias(RAIZ)) {
+      const lineas = readFileSync(f, "utf-8").split("\n");
+      lineas.forEach((l, i) => {
+        for (const m of l.matchAll(/\]\(\/temario\/imagenes\/([^)\s]+)\)/g)) {
+          const arch = m[1];
+          const donde = `${relative(RAIZ, f)}:${i + 1} ${arch}`;
+          if (!statSync(join(IMAGENES, arch), { throwIfNoEntry: false })) malas.push(`${donde}: no existe`);
+          if (!FUENTES[arch]) malas.push(`${donde}: falta en FUENTES.json`);
+          const pie = lineas.slice(i + 1, i + 4).join(" ");
+          if (!/commons\.wikimedia\.org\/wiki\/File:/.test(pie)) malas.push(`${donde}: falta la atribución al pie`);
+        }
+      });
     }
     expect(malas).toEqual([]);
   });

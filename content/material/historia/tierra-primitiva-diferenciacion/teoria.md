@@ -12,7 +12,7 @@
 
 La Tierra primitiva se originó hace unos 4600 millones de años a partir de un proceso llamado **acreción de planetesimales**. En el disco protoplanetario que rodeaba al Sol en formación, partículas de polvo y gas se agruparon bajo la gravedad, formando cuerpos más grandes llamados planetesimales. Estos colisionaban entre sí, fusionándose gradualmente para crear los primeros planetas. En el caso de la Tierra, esta acumulación gravitatoria fue clave: los impactos constantes no solo agregaron masa, sino que también generaron calor, manteniendo la superficie en un estado casi fundido durante sus primeros millones de años.
 
-![Diagrama del disco protoplanetario con planetesimales colisionando y formando cuerpos más grandes](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Protoplanetary_disk.jpg/960px-Protoplanetary_disk.jpg)
+![Diagrama del disco protoplanetario con planetesimales colisionando y formando cuerpos más grandes](/temario/imagenes/protoplanetary-disk.webp)
 
 *Imagen: «Protoplanetary disk», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Protoplanetary_disk.jpg).*
 
@@ -22,7 +22,7 @@ La Tierra primitiva se originó hace unos 4600 millones de años a partir de un 
 
 Al formarse, la Tierra no era un cuerpo sólido frío. Gracias a los impactos violentos de planetesimales y al calor generado por la desintegración de isótopos radiactivos (como el uranio o el potasio), el planeta se mantuvo en un estado **casi fundido** durante miles de millones de años. Este calor interno era tan intenso que incluso los materiales más pesados, como el hierro y el níquel, no podían permanecer estables en la superficie: eran arrastrados hacia el interior por la gravedad.
 
-![Esquema de la Tierra primitiva con capas internas parcialmente fundidas](https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Earth_poster.svg/960px-Earth_poster.svg.png)
+![Esquema de la Tierra primitiva con capas internas parcialmente fundidas](/temario/imagenes/earth-poster.webp)
 
 *Imagen: «Earth poster», Kelvinsong, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Earth_poster.svg).*
 

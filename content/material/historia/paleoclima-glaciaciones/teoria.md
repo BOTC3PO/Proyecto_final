@@ -12,7 +12,7 @@
 
 El paleoclima es la rama de la ciencia que reconstruye las condiciones climáticas de la Tierra en épocas anteriores al registro histórico, usando evidencias naturales como rocas, sedimentos o restos biológicos. No se trata solo de conocer temperaturas o precipitaciones del pasado, sino de entender cómo esos cambios afectaron ecosistemas, niveles del mar y la evolución de las especies. Por ejemplo, los científicos analizan capas de hielo antiguas para determinar qué gases de efecto invernadero estaban presentes en la atmósfera hace miles de años.
 
-![Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/GISP2_1855m_ice_core_layers.png/960px-GISP2_1855m_ice_core_layers.png)
+![Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas](/temario/imagenes/gisp2-1855m-ice-core-layers.webp)
 
 *Imagen: «GISP2 1855m ice core layers», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GISP2_1855m_ice_core_layers.png).*
 
@@ -22,7 +22,7 @@ El paleoclima es la rama de la ciencia que reconstruye las condiciones climátic
 
 Los métodos para estudiar el paleoclima varían según los materiales disponibles. Uno de los más precisos es la extracción de **núcleos de hielo** en regiones polares o montañosas, donde las capas de nieve se preservan durante siglos. Estos núcleos contienen burbujas de aire atrapadas que guardan información sobre la composición atmosférica del pasado, como el nivel de dióxido de carbono o metano. También se analizan sedimentos marinos y anillos de árboles para registrar patrones de lluvia, temperaturas o sequías prolongadas.
 
-![Comparación entre núcleos de hielo de Groenlandia y Antártida con gráficos de CO₂ histórico](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Co2-temperature-records.svg/960px-Co2-temperature-records.svg.png)
+![Comparación entre núcleos de hielo de Groenlandia y Antártida con gráficos de CO₂ histórico](/temario/imagenes/co2-temperature-records.webp)
 
 *Imagen: «Co2-temperature-records», Leland McInnes (talk) (Uploads), CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Co2-temperature-records.svg).*
 
@@ -32,7 +32,7 @@ Los métodos para estudiar el paleoclima varían según los materiales disponibl
 
 Cuando no hay sedimentos ni hielo, los investigadores usan **fósiles** como pistas clave. Por ejemplo, los corales modernos crecen en aguas cálidas y salinas específicas; al estudiar sus restos fosilizados, se pueden inferir temperaturas del océano en el pasado. También se analizan las marcas en los esqueletos de animales o la distribución geográfica de especies extintas para deducir si hubo glaciaciones, sequías o cambios abruptos en el clima.
 
-![Superficie pulida de un coral fósil formado por celdas hexagonales con líneas radiales](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hexagonaria_percarinata_fossil_coral_%28Petoskey_Stone%29%2C_Michigan.jpg/960px-Hexagonaria_percarinata_fossil_coral_%28Petoskey_Stone%29%2C_Michigan.jpg)
+![Superficie pulida de un coral fósil formado por celdas hexagonales con líneas radiales](/temario/imagenes/hexagonaria-percarinata-fossil-coral-petoskey-stone-michigan.webp)
 
 *Imagen: «Hexagonaria percarinata fossil coral (Petoskey Stone), Michigan», James St. John, CC BY 2.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hexagonaria_percarinata_fossil_coral_%28Petoskey_Stone%29%2C_Michigan.jpg).*
 
@@ -44,7 +44,7 @@ Coral fósil (*Hexagonaria*) de hace unos 380 millones de años, encontrado en M
 
 Las glaciaciones son períodos en los que grandes extensiones de la Tierra se cubren de hielo, alterando el relieve, los cursos fluviales y el nivel del mar. Durante las últimas glaciaciones (hace unos 100.000 años), partes de Europa, América del Norte y Asia estaban bajo capas de hielo kilométricas. Estos eventos no solo modificaron la geografía física, sino que también influyeron en la migración humana y el desarrollo de culturas primitivas.
 
-![Mapa con zonas cubiertas por glaciares durante la última era glacial](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Laurentide_ice_sheet_map.jpg/960px-Laurentide_ice_sheet_map.jpg)
+![Mapa con zonas cubiertas por glaciares durante la última era glacial](/temario/imagenes/laurentide-ice-sheet-map.webp)
 
 *Imagen: «Laurentide ice sheet map», April S. Dalton, Chris R. Stokes, Christine L. Bat, CC BY 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Laurentide_ice_sheet_map.jpg).*
 

@@ -14,7 +14,7 @@ La descolonización africana no fue un proceso uniforme, sino un conjunto de rup
 
 Este desajuste entre el Estado político y la sociedad civil fue la primera gran contradicción de la era postcolonial. Al independizarse, los nuevos líderes heredaron administraciones diseñadas para la extracción de recursos y el control militar, no para la representación democrática ni la integración nacional. La pregunta fundamental, formulada por el historiador Mahmood Mamdani, era si el Estado africano sería una herramienta de desarrollo o simplemente un aparato de poder vacío.
 
-![Mapa de África coloreado según las grandes familias de lenguas](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/African_language_families_es.svg/960px-African_language_families_es.svg.png)
+![Mapa de África coloreado según las grandes familias de lenguas](/temario/imagenes/african-language-families-es.webp)
 
 *Imagen: «African language families es», Rowanwindwhistler, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:African_language_families_es.svg).*
 

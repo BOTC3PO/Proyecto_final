@@ -16,7 +16,7 @@ El periodo que abarca los siglos XIV al XVI no fue una ruptura abrupta, sino una
 
 El Humanismo no fue un movimiento político, sino una corriente intelectual y educativa. Sus protagonistas, los humanistas, buscaban purificar el latín y el griego volviendo a las fuentes originales (*ad fontes*). Figuras como Petrarca, Erasmus de Róterdam y Tomás Moro enfatizaron el valor de la dignidad humana y la capacidad de la razón para mejorar la sociedad.
 
-![Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg/960px-Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg)
+![Retrato de Erasmo de Róterdam, representando la figura central del humanismo nórdico](/temario/imagenes/hans-holbein-d-j-werkstatt-bildnis-des-erasmus-von-rotterdam-ca-1530.webp)
 
 *Imagen: «Hans Holbein d. J. (Werkstatt) - Bildnis des Erasmus von Rotterdam (ca. 1530)», Workshop of Hans Holbein the Younger, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hans_Holbein_d._J._%28Werkstatt%29_-_Bildnis_des_Erasmus_von_Rotterdam_%28ca._1530%29.jpg).*
 

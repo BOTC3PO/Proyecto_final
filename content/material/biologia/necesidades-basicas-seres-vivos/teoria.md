@@ -15,14 +15,13 @@ Todo ser vivo necesita incorporar materiales del entorno para construir sus estr
 - **Autótrofa**: solo la realizan los seres que producen su propia materia orgánica a partir de sustancias inorgánicas, como las plantas mediante la fotosíntesis ( ). Usan la energía lumínica para transformar dióxido de carbono y agua en azúcares.
 - **Heterótrofa**: la mayoría de los seres vivos, como animales, hongos y bacterias, dependen de consumir materia orgánica producida por otros. Los hongos, por ejemplo, degradan materia vegetal muerta mediante enzimas ( ).
 
-![hongo creciendo sobre madera podrida](https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Wood_decay_fungus.jpg/960px-Wood_decay_fungus.jpg)
+![hongo creciendo sobre madera podrida](/temario/imagenes/wood-decay-fungus.webp)
 
 *Imagen: «Wood decay fungus», Sindugab, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wood_decay_fungus.jpg).*
 
-![cloroplasto captando luz solar y convirtiendo CO₂ en glucosa](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Chloroplast_diagram-es.svg/960px-Chloroplast_diagram-es.svg.png)
+![cloroplasto captando luz solar y convirtiendo CO₂ en glucosa](/temario/imagenes/chloroplast-diagram-es.webp)
 
-*Imagen: «Chloroplast diagram-es», Chloroplast-new.jpg: User:Ollin
-derivative work: S, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chloroplast_diagram-es.svg).*
+*Imagen: «Chloroplast diagram-es», Ollin (obra derivada: S), CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chloroplast_diagram-es.svg).*
 
 La nutrición no es solo comer: incluye la absorción (como las raíces de una planta tomando minerales del suelo), el transporte (sangre en animales, hifas en hongos) y la asimilación de nutrientes para formar moléculas propias.
 
@@ -36,7 +35,7 @@ La respiración no es solo usar pulmones. Es un proceso **celular** que ocurre e
 - En hongos: no tienen pulmones ni sistemas especializados, pero sus células realizan respiración aeróbica por difusión a través de su pared.
 - Ejemplo animal: un perro en ejercicio consume más oxígeno para generar ATP (energía) y producir CO₂ como residuo.
 
-![esquema de respiración celular en célula vegetal](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cellular_respiration-es.svg/960px-Cellular_respiration-es.svg.png)
+![esquema de respiración celular en célula vegetal](/temario/imagenes/cellular-respiration-es.webp)
 
 *Imagen: «Cellular respiration-es», Darekk2, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cellular_respiration-es.svg).*
 
@@ -62,7 +61,7 @@ La reproducción garantiza que las características genéticas se transmitan a n
 - **Animales**: generalmente sexual, pero algunos usan estrategias alternativas. Los pulgones, por ejemplo, reproducen asexuadamente en verano para multiplicarse rápidamente ( ).
 - **Hongos**: mediante esporas liberadas al viento o agua (como los hongos de la madera). Estas esporas germinan solo si encuentran condiciones favorables.
 
-![colonia de pulgones sobre hoja](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Aphids_on_Kale_leaf.jpg/960px-Aphids_on_Kale_leaf.jpg)
+![colonia de pulgones sobre hoja](/temario/imagenes/aphids-on-kale-leaf.webp)
 
 *Imagen: «Aphids on Kale leaf», Sanjay Acharya, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aphids_on_Kale_leaf.jpg).*
 

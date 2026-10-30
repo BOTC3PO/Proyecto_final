@@ -20,7 +20,7 @@ Las rocas sedimentarias se forman a partir de la acumulación de sedimentos, que
 
 Las rocas metamórficas surgen cuando una roca existente — ya sea ígnea, sedimentaria o incluso otra metamórfica — es sometida a altas presiones y temperaturas sin fundirse completamente. Esto ocurre generalmente en zonas de colisión tectónica o cerca de intrusiones magmáticas. El proceso altera la estructura y composición original de la roca, dando lugar a formas como el **mármol** (derivado de la caliza) o la **pizarra** (transformada desde arcilla o lutita; la arenisca, en cambio, se transforma en cuarcita).
 
-![Transformación de una roca sedimentaria en pizarra bajo presión y calor](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Slate_Macro_1.JPG/960px-Slate_Macro_1.JPG)
+![Transformación de una roca sedimentaria en pizarra bajo presión y calor](/temario/imagenes/slate-macro-1.webp)
 
 *Imagen: «Slate Macro 1», “Jon Zander (Digon3)”, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Slate_Macro_1.JPG).*
 
@@ -28,7 +28,7 @@ Las rocas metamórficas surgen cuando una roca existente — ya sea ígnea, sedi
 
 El proceso de formación, erosión y transformación de las rocas no ocurre aislado. Las tres categorías están interconectadas. Las rocas ígneas pueden erosionarse para formar sedimentos que generan rocas sedimentarias. Estas, bajo condiciones extremas, se convierten en metamórficas. Y si el calor es suficiente, incluso las metamórficas pueden fundirse de nuevo para originar magma. Este ciclo constante redefine la superficie terrestre a lo largo de millones de años.
 
-![Diagrama del ciclo de las rocas con flechas que muestran transformaciones entre los tipos](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Rock_cycle_nps.PNG/960px-Rock_cycle_nps.PNG)
+![Diagrama del ciclo de las rocas con flechas que muestran transformaciones entre los tipos](/temario/imagenes/rock-cycle-nps.webp)
 
 *Imagen: «Rock cycle nps», NPS, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rock_cycle_nps.PNG).*
 

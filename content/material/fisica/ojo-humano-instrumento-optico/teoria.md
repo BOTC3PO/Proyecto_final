@@ -12,7 +12,7 @@
 
 El cristalino es una estructura transparente y flexible ubicada detrás del iris, compuesta por tejidos elásticos que actúan como **lente convergente**. Su función principal es refractar la luz entrante para enfocarla en la retina. Al igual que los lentes convexos estudiados anteriormente, su curvatura permite desviar los rayos luminosos hacia un punto focal. La forma del cristalino no es fija: se adapta según la distancia del objeto observado, un proceso clave para la **acomodación visual**.
 
-![Esquema del ojo humano con el cristalino destacado como lente convergente](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Eye-diagram_no_circles_border.svg/960px-Eye-diagram_no_circles_border.svg.png)
+![Esquema del ojo humano con el cristalino destacado como lente convergente](/temario/imagenes/eye-diagram-no-circles-border.webp)
 
 *Imagen: «Eye-diagram no circles border», Chabacano, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eye-diagram_no_circles_border.svg).*
 

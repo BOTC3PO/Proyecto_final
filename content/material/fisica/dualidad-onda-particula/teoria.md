@@ -16,7 +16,7 @@ La dualidad onda-partícula surge de un conflicto entre dos visiones clásicas: 
 
 Cuando fenómenos como **difracción** o **interferencia** se observan, la luz actúa como onda. Por ejemplo, en el experimento de Young con dos rendijas, los patrones de interferencia solo se explican si la luz tiene propiedades ondulatorias. Esto validó la teoría de Huygens y marcó un hito en entender la naturaleza de la radiación electromagnética.
 
-![Diagrama del experimento de doble rendija con patrón de interferencia](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Double-slit_experiment_results_Tonomura_2.jpg/960px-Double-slit_experiment_results_Tonomura_2.jpg)
+![Diagrama del experimento de doble rendija con patrón de interferencia](/temario/imagenes/double-slit-experiment-results-tonomura-2.webp)
 
 *Imagen: «Double-slit experiment results Tonomura 2», user:Belsazar, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Double-slit_experiment_results_Tonomura_2.jpg).*
 
@@ -30,7 +30,7 @@ El **fotón** es la partícula elemental asociada a la luz y otras formas de rad
 En 1924, Louis de Broglie propuso que **cualquier cuerpo en movimiento** tiene una naturaleza ondulatoria. Esto se confirmó experimentalmente al observar difracción de electrones: partículas con masa mostraron patrones de interferencia. La longitud de onda asociada a un objeto es:  
 **λ = h / (m · v)**, donde *h* es la constante de Planck, *m* la masa y *v* la velocidad.
 
-![Tubo de laboratorio con una pantalla verde donde se ven anillos concéntricos alrededor de un punto brillante](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Elektronenbeugung_-_DS7_6133_PK.jpg/960px-Elektronenbeugung_-_DS7_6133_PK.jpg)
+![Tubo de laboratorio con una pantalla verde donde se ven anillos concéntricos alrededor de un punto brillante](/temario/imagenes/elektronenbeugung-ds7-6133-pk.webp)
 
 *Imagen: «Elektronenbeugung - DS7 6133 PK», Petra Klawikowski, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elektronenbeugung_-_DS7_6133_PK.jpg).*
 
@@ -44,7 +44,7 @@ La relación **E = h · f** (Planck) es clave para entender cómo la luz transpo
 
 El **experimento de doble rendija** con fotones o electrones es emblemático: si se envía un haz individualmente, aparece un patrón de interferencia solo cuando no se observa su trayectoria. Esto demuestra que la naturaleza ondulatoria emerge en ausencia de medición, revelando el rol de la observación en mecánica cuántica.
 
-![Cinco paneles en los que puntos blancos aislados se van acumulando hasta formar franjas verticales](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Double-slit_experiment_results_Tonomura_2.jpg/960px-Double-slit_experiment_results_Tonomura_2.jpg)
+![Cinco paneles en los que puntos blancos aislados se van acumulando hasta formar franjas verticales](/temario/imagenes/double-slit-experiment-results-tonomura-2.webp)
 
 *Imagen: «Double-slit experiment results Tonomura 2», user:Belsazar, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Double-slit_experiment_results_Tonomura_2.jpg).*
 
