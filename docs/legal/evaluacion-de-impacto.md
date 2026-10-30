@@ -44,7 +44,7 @@ publicidad ni se ceden a terceros con fines comerciales.
 | Acceso de alguien de otra escuela a datos ajenos | Alcance por escuela y por aula en cada ruta; pruebas automáticas de aislamiento | — |
 | Robo de una contraseña | Hash con sal, contraseñas débiles rechazadas, límite de intentos, verificación en dos pasos (recomendada para administración y dirección) | Hacerla obligatoria para administradores |
 | Sesión robada | Tokens de corta duración, rotación y revocación de refresh tokens | — |
-| Datos de más o por demasiado tiempo | Plazos de conservación (mensajes 8 años, datos técnicos 30 días, cuentas borradas anonimizadas a los 30 días); baja y descarga por autoservicio. Las cuentas inactivas no se borran: son registro educativo | — |
+| Datos de más o por demasiado tiempo | Plazos de conservación (mensajes 8 años, datos técnicos 30 días, cuentas borradas anonimizadas a los 30 días; publicaciones, eventos, tareas sin entregas y elementos de economía sin uso se borran definitivamente a los 4 años de marcados como borrados); baja y descarga por autoservicio. Las cuentas inactivas no se borran: son registro educativo | — |
 | Exposición de menores | Nombre del alumno visible solo para su aula y su escuela; los alumnos no pueden escribir a familias de otros alumnos | — |
 | Pérdida de datos | Respaldo diario verificado, 14 copias | Copia fuera del servidor (F2); retención mensual (L17) |
 | Filtración | Procedimiento ante incidentes (procedimiento-incidentes.md) | Ensayarlo una vez por año |

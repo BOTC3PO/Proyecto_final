@@ -160,6 +160,8 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   PUSH_ENABLED: parseBool(process.env.PUSH_ENABLED, false),
   // L13 — días que pasan entre que un administrador borra una cuenta y su anonimización.
   USUARIOS_BORRADOS_ANONIMIZAR_DIAS: Number(process.env.USUARIOS_BORRADOS_ANONIMIZAR_DIAS ?? 30),
+  // Años que algo queda marcado como borrado antes de la purga definitiva (lib/purga-borrados.ts). 0 = nunca.
+  BORRADOS_PURGA_ANOS: Number(process.env.BORRADOS_PURGA_ANOS ?? 4),
 };
 
 /**

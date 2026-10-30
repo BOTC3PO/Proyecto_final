@@ -881,6 +881,8 @@ model ActividadAula {
   createdBy   String  @map("created_by")
   createdAt   String  @map("created_at")
   isDeleted   Boolean @default(false) @map("is_deleted")
+  /// Cuándo se marcó como borrado (purga definitiva a los 4 años, lib/purga-borrados.ts).
+  deletedAt   String? @map("deleted_at")
   @@map("actividades_aula")
 }
 
@@ -900,6 +902,8 @@ model CalendarioEscuela {
   createdBy    String  @map("created_by")
   createdAt    String  @map("created_at")
   isDeleted    Boolean @default(false) @map("is_deleted")
+  /// Cuándo se marcó como borrado (purga definitiva a los 4 años, lib/purga-borrados.ts).
+  deletedAt   String? @map("deleted_at")
   @@map("calendario_escuela")
 }
 

@@ -185,7 +185,7 @@ aulaFeed.post("/api/aula/actividades", requireUser, requirePolicy("aula-feed/wri
 aulaFeed.delete("/api/aula/actividades/:id", requireUser, requirePolicy("aula-feed/write"), async (req, res) => {
   await prisma.actividadAula.updateMany({
     where: { id: String(req.params.id) },
-    data: { isDeleted: true },
+    data: { isDeleted: true, deletedAt: new Date().toISOString() },
   });
   res.json({ ok: true });
 });

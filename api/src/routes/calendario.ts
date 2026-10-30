@@ -361,7 +361,7 @@ calendario.delete("/api/calendario/escuela/:id", requireUser, async (req, res) =
 
   await prisma.calendarioEscuela.update({
     where: { id: String(req.params.id) },
-    data: { isDeleted: true },
+    data: { isDeleted: true, deletedAt: new Date().toISOString() },
   });
 
   return res.json({ ok: true });
@@ -534,7 +534,7 @@ calendario.delete("/api/calendario/aula/:id", requireUser, async (req, res) => {
 
   await prisma.actividadAula.update({
     where: { id: String(req.params.id) },
-    data: { isDeleted: true },
+    data: { isDeleted: true, deletedAt: new Date().toISOString() },
   });
 
   return res.json({ ok: true });

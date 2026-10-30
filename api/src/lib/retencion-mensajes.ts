@@ -9,6 +9,7 @@ import { prisma } from "./prisma";
 import { ENV } from "./env";
 import { withAdvisoryLock } from "./pg-lock";
 import { purgarDatosVencidos } from "./retencion-datos";
+import { purgarBorradosViejos } from "./purga-borrados";
 
 const DIA_MS = 24 * 60 * 60 * 1000;
 
@@ -60,6 +61,8 @@ export const scheduleRetencionMensajesJob = () => {
         }
         const d = await purgarDatosVencidos();
         if (Object.values(d).some((n) => n > 0)) console.log("Conservación de datos:", d);
+        const b = await purgarBorradosViejos();
+        if (Object.values(b).some((n) => n > 0)) console.log("Purga de borrados:", b);
       });
     } catch (error) {
       console.error("Retención de mensajes falló", error);
