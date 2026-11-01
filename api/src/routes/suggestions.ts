@@ -34,6 +34,10 @@ suggestions.post("/api/suggestions", requireUser, async (req, res) => {
     res.status(400).json({ error: "body es requerido" });
     return;
   }
+  if (String(title).trim().length > 200 || String(body).trim().length > 5000) {
+    res.status(400).json({ error: "El título admite hasta 200 caracteres y el texto hasta 5000." });
+    return;
+  }
   if (target_type !== undefined && target_type !== null && !VALID_TARGET_TYPES.has(String(target_type))) {
     res.status(400).json({ error: "target_type inválido. Debe ser generator o module" });
     return;

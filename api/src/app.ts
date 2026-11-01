@@ -41,9 +41,7 @@ import { favoritos } from "./routes/favoritos";
 import { cooperadoras } from "./routes/cooperadoras";
 import { codigosPadre } from "./routes/codigos-padre";
 import { tienda } from "./routes/tienda";
-import { consignas } from "./routes/consignas";
 import { generators } from "./routes/generators";
-import { generadoresAdmin } from "./routes/generadores-admin";
 import { visualizadoresRouter } from "./routes/visualizadores";
 import { herramientasRouter } from "./routes/herramientas";
 import { assetsRouter } from "./routes/assets";
@@ -197,7 +195,6 @@ app.use(
   })
 );
 app.use(health);
-app.use(consignas);
 app.use(generators);
 app.use("/api/assets", assetsRouter);
 app.use("/api/media", mediaRouter);
@@ -257,7 +254,6 @@ app.use(favoritos);
 app.use(cooperadoras);
 app.use(codigosPadre);
 app.use(tienda);
-app.use(generadoresAdmin);
 app.use(suggestions);
 app.use(rolesRouter);
 app.use(adminGenerators);

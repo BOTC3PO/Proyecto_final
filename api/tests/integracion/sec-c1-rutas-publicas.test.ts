@@ -33,14 +33,11 @@ const PREFIJOS = new Map<unknown, string>([
   [provinciasRouter, "/api/maps/provincias"],
 ]);
 
-const TEMAS = ["economia", "quimica", "matematicas", "fisica", "geografia", "historia", "lengua_espanola", "lengua_inglesa"];
 
 /** Rutas que se sirven sin sesión, a propósito. */
 const PUBLICAS = new Set<string>([
   // Estado del servicio (Nginx y el monitoreo lo consultan).
   "GET /health",
-  // Catálogo de consignas educativas.
-  ...TEMAS.flatMap((t) => [`GET /api/consignas/${t}`, `GET /api/consignas/${t}/:tema`, `GET /api/consignas/${t}/:tema/v2`]),
   // Catálogo de generadores de ejercicios.
   "GET /api/generators",
   "GET /api/generators/:category/:name/docs",

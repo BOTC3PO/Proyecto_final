@@ -22,7 +22,7 @@ cerrar accesos por error (cada cambio real necesita su propio test de permisos).
 | `comisiones.ts` | `GET /api/comisiones/admin`, `.../liquidar`, `.../export.csv` | Plataforma — panel agregado multi-escuela |
 | `suscripciones.ts` | `GET /api/admin/suscripciones*` | Plataforma — legado, en retiro (PLAN-B Fase 1) |
 | `economia.ts` | `PATCH /api/economia/config`, eventos/recompensas admin | Plataforma — economía global del juego |
-| `generadores-admin.ts`, `admin-generators.ts` | CRUD de generadores/changelog | Plataforma — contenido pedagógico global |
+| `admin-generators.ts` | CRUD de generadores/changelog | Plataforma — contenido pedagógico global |
 | `aulas.ts` | `GET/DELETE /api/admin/aulas*` | Plataforma — listado/borrado global de aulas |
 | `suggestions.ts` | `GET/PATCH /api/suggestions*` | Plataforma — sugerencias de producto |
 | `tienda.ts` | `POST/PATCH /api/tienda/items*` | Plataforma — catálogo global de tienda |
