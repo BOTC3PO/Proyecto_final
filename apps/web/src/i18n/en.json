@@ -134,7 +134,6 @@
   "register.opcional": "(Optional)",
   "register.notaCodigoEscuela": "As a teacher, you need to belong to a school to create classrooms.",
   "register.labelRepetirContrasena": "Confirm Password",
-  "register.consentimientoNombre": "The full name will only be visible to teachers or classmates in a virtual classroom.",
   "register.consentimientoTerminos": "I accept the Terms and Conditions of Service.",
   "register.botonRegistrarse": "Register",
   "register.registrando": "Registering...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "Done: the ticket is yours.",
   "reventa.cancelada": "The offer was closed.",
   "reventa.libres": "{n} unused",
-  "reventa.sinCompaneros": "There are no other students in the classroom."
+  "reventa.sinCompaneros": "There are no other students in the classroom.",
+  "register.consentimientoPrivacidad": "I have read the Privacy Policy and agree that my data is used to provide the service. My full name is only visible to the teachers and classmates in my classrooms.",
+  "register.errorPrivacidad": "You must accept the Privacy Policy.",
+  "register.errorNacimiento": "Enter your date of birth.",
+  "register.avisoMenores": "If you are under 13, your school creates your account. If you are 13 to 17, sign up with your family's knowledge.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(see Privacy Policy)",
+  "legal.verTerminos": "(see Terms)"
 }

@@ -204,6 +204,19 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
   }
 });
 
+/** Edad mínima para registrarse por cuenta propia; por debajo, el alta la hace la escuela (Ley 25.326, CCyC art. 26). */
+export const EDAD_MINIMA_REGISTRO = 13;
+
+export function edadEnAnios(nacimientoIso: string, ahora = new Date()): number {
+  const n = new Date(nacimientoIso);
+  if (Number.isNaN(n.getTime())) return -1;
+  let edad = ahora.getUTCFullYear() - n.getUTCFullYear();
+  const antesDelCumple =
+    ahora.getUTCMonth() < n.getUTCMonth() || (ahora.getUTCMonth() === n.getUTCMonth() && ahora.getUTCDate() < n.getUTCDate());
+  if (antesDelCumple) edad -= 1;
+  return edad;
+}
+
 auth.post("/api/auth/register", authLimiter, async (req, res) => {
   try {
     const body = req.body ?? {};
@@ -221,6 +234,26 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
       email: body.email.trim().toLowerCase(),
       username: typeof body.username === "string" ? body.username.trim().toLowerCase() : body.username
     });
+    // Ley 25.326 — el consentimiento tiene que ser expreso (art. 5): no alcanza con que lo marque la web.
+    if (parsed.role !== "GUEST" && (parsed.consents?.privacyConsent !== true || parsed.consents?.termsAccepted !== true)) {
+      res.status(400).json({ error: "Para crear la cuenta tenés que aceptar la Política de Privacidad y los Términos.", code: "SIN_CONSENTIMIENTO" });
+      return;
+    }
+    // Menores: sin fecha de nacimiento no se puede saber la edad. Por debajo de 13 años el alta la hace la escuela
+    // (que tiene la relación con la familia), no la propia persona.
+    if (parsed.role !== "GUEST") {
+      if (!parsed.birthdate) {
+        res.status(400).json({ error: "Indicá tu fecha de nacimiento.", code: "FALTA_NACIMIENTO" });
+        return;
+      }
+      if (edadEnAnios(parsed.birthdate) < EDAD_MINIMA_REGISTRO) {
+        res.status(403).json({
+          error: `Si tenés menos de ${EDAD_MINIMA_REGISTRO} años, tu cuenta la crea tu escuela. Pedile el alta a tu docente o a la dirección.`,
+          code: "MENOR_SIN_ESCUELA"
+        });
+        return;
+      }
+    }
     const existingEmail = await prisma.usuario.findFirst({
       where: {
         email: parsed.email,

@@ -134,7 +134,6 @@
   "register.opcional": " (वैकल्पिक)",
   "register.notaCodigoEscuela": "शिक्षक के रूप में, आपको कक्षाएँ बनाने के लिए किसी विद्यालय से जुड़ा होना आवश्यक है।",
   "register.labelRepetirContrasena": "पासवर्ड दोबारा दर्ज करें",
-  "register.consentimientoNombre": "वास्तविक पूरा नाम केवल शिक्षकों या आभासी कक्षा के साथियों के लिए ही दिखाई देगा।",
   "register.consentimientoTerminos": "मैं सेवा की शर्तों और नियमों से सहमत हूँ",
   "register.botonRegistrarse": "पंजीकरण करें",
   "register.registrando": "पंजीकरण हो रहा है...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "हो गया: टिकट अब आपका है।",
   "reventa.cancelada": "ऑफ़र बंद हो गया।",
   "reventa.libres": "{n} बिना इस्तेमाल",
-  "reventa.sinCompaneros": "कक्षा में कोई और छात्र नहीं है।"
+  "reventa.sinCompaneros": "कक्षा में कोई और छात्र नहीं है।",
+  "register.consentimientoPrivacidad": "मैंने गोपनीयता नीति पढ़ ली है और सेवा देने के लिए अपने डेटा के उपयोग से सहमत हूँ। मेरा पूरा नाम केवल मेरी कक्षाओं के शिक्षक और सहपाठी देख सकते हैं।",
+  "register.errorPrivacidad": "आपको गोपनीयता नीति स्वीकार करनी होगी।",
+  "register.errorNacimiento": "अपनी जन्मतिथि बताएँ।",
+  "register.avisoMenores": "13 वर्ष से कम उम्र होने पर आपका खाता स्कूल बनाता है। 13 से 17 वर्ष की उम्र में परिवार की जानकारी में पंजीकरण करें।",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(गोपनीयता नीति देखें)",
+  "legal.verTerminos": "(शर्तें देखें)"
 }

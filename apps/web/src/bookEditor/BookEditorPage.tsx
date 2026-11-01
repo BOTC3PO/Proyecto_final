@@ -55,7 +55,7 @@ const FONT_OPTIONS = [
   { label: 'Garamond',   value: 'Garamond, "EB Garamond", serif' },
   { label: 'Verdana',    value: 'Verdana, Geneva, sans-serif' },
   { label: 'Trebuchet',  value: '"Trebuchet MS", sans-serif' },
-  { label: 'Geist',      value: '"Geist", system-ui, sans-serif' },
+  { label: 'Geist',      value: '"Geist Variable", "Geist", system-ui, sans-serif' },
   { label: 'Courier',    value: '"Courier New", monospace' },
 ] as const;
 

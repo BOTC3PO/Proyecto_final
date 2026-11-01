@@ -134,7 +134,6 @@
   "register.opcional": " (اختياري)",
   "register.notaCodigoEscuela": "كمعلم، يجب أن تنتمي إلى مدرسة لإنشاء فصول.",
   "register.labelRepetirContrasena": "تكرار كلمة المرور",
-  "register.consentimientoNombre": "سيكون الاسم الكامل الحقيقي مرئياً للمعلمين أو زملاء الفصل الافتراضي فقط.",
   "register.consentimientoTerminos": "أوافق على شروط وأحكام الخدمة",
   "register.botonRegistrarse": "التسجيل",
   "register.registrando": "جارٍ التسجيل...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "تم: أصبحت التذكرة لك.",
   "reventa.cancelada": "أُغلق العرض.",
   "reventa.libres": "{n} غير مستخدمة",
-  "reventa.sinCompaneros": "لا يوجد طلاب آخرون في الفصل."
+  "reventa.sinCompaneros": "لا يوجد طلاب آخرون في الفصل.",
+  "register.consentimientoPrivacidad": "قرأتُ سياسة الخصوصية وأوافق على استخدام بياناتي لتقديم الخدمة. لا يرى اسمي الكامل إلا معلمو فصولي وزملائي فيها.",
+  "register.errorPrivacidad": "يجب أن توافق على سياسة الخصوصية.",
+  "register.errorNacimiento": "أدخل تاريخ ميلادك.",
+  "register.avisoMenores": "إذا كان عمرك أقل من 13 عامًا فإن مدرستك تنشئ حسابك. وإذا كان بين 13 و17 فسجّل بعلم عائلتك.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(اطّلع على سياسة الخصوصية)",
+  "legal.verTerminos": "(اطّلع على الشروط)"
 }

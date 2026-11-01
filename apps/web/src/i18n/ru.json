@@ -134,7 +134,6 @@
   "register.opcional": " (Необязательно)",
   "register.notaCodigoEscuela": "Как преподаватель, вы должны состоять в школе, чтобы создавать классы.",
   "register.labelRepetirContrasena": "Повторите пароль",
-  "register.consentimientoNombre": "Полное реальное имя будет видно только преподавателям или одноклассникам в виртуальном классе.",
   "register.consentimientoTerminos": "Я принимаю Условия и положения сервиса",
   "register.botonRegistrarse": "Зарегистрироваться",
   "register.registrando": "Регистрация...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "Готово: талон ваш.",
   "reventa.cancelada": "Предложение закрыто.",
   "reventa.libres": "не использовано: {n}",
-  "reventa.sinCompaneros": "В классе нет других учеников."
+  "reventa.sinCompaneros": "В классе нет других учеников.",
+  "register.consentimientoPrivacidad": "Я прочитал(а) Политику конфиденциальности и согласен(на) на использование моих данных для работы сервиса. Моё полное имя видят только учителя и одноклассники моих классов.",
+  "register.errorPrivacidad": "Необходимо принять Политику конфиденциальности.",
+  "register.errorNacimiento": "Укажите дату рождения.",
+  "register.avisoMenores": "Если вам меньше 13 лет, аккаунт создаёт школа. Если вам от 13 до 17, регистрируйтесь с ведома семьи.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(Политика конфиденциальности)",
+  "legal.verTerminos": "(Условия)"
 }

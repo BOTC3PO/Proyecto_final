@@ -66,7 +66,7 @@ beforeEach(() => {
 });
 
 const register = (body: Record<string, unknown>) =>
-  jsonRequest(baseUrl, "POST", "/api/auth/register", { body });
+  jsonRequest(baseUrl, "POST", "/api/auth/register", { body: { birthdate: "1990-05-10T00:00:00.000Z", consents: { privacyConsent: true, termsAccepted: true }, ...body } });
 
 test("registro con role=USER acredita 50 (default) con movimiento de ledger", async () => {
   const r = await register({

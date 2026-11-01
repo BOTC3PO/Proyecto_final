@@ -134,7 +134,6 @@
   "register.opcional": "(선택 사항)",
   "register.notaCodigoEscuela": "교사로서 가상 교실을 생성하려면 학교에 가입해야 합니다.",
   "register.labelRepetirContrasena": "비밀번호 재설정",
-  "register.consentimientoNombre": "전체 이름은 교사 또는 가상 교실의 다른 사용자가 볼 수 있습니다.",
   "register.consentimientoTerminos": "서비스 약관에 동의합니다.",
   "register.botonRegistrarse": "가입",
   "register.registrando": "가입 중...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "완료: 티켓이 이제 내 것입니다.",
   "reventa.cancelada": "제안이 종료되었습니다.",
   "reventa.libres": "미사용 {n}",
-  "reventa.sinCompaneros": "교실에 다른 학생이 없습니다."
+  "reventa.sinCompaneros": "교실에 다른 학생이 없습니다.",
+  "register.consentimientoPrivacidad": "개인정보 처리방침을 읽었으며 서비스 제공을 위해 내 정보가 사용되는 데 동의합니다. 내 전체 이름은 내 교실의 교사와 친구만 볼 수 있습니다.",
+  "register.errorPrivacidad": "개인정보 처리방침에 동의해야 합니다.",
+  "register.errorNacimiento": "생년월일을 입력하세요.",
+  "register.avisoMenores": "13세 미만은 학교가 계정을 만듭니다. 13~17세는 가족에게 알리고 가입하세요.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(개인정보 처리방침 보기)",
+  "legal.verTerminos": "(약관 보기)"
 }

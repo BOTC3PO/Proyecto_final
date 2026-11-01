@@ -134,7 +134,6 @@
   "register.opcional": "(可选)",
   "register.notaCodigoEscuela": "作为教师，您需要加入一所学校才能创建教室。",
   "register.labelRepetirContrasena": "重复密码",
-  "register.consentimientoNombre": "完整的真实姓名仅对教师或虚拟教室中的其他用户可见。",
   "register.consentimientoTerminos": "我同意服务条款和条件",
   "register.botonRegistrarse": "注册",
   "register.registrando": "正在注册...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "完成：考试券已归你所有。",
   "reventa.cancelada": "该转让已关闭。",
   "reventa.libres": "{n} 张未用",
-  "reventa.sinCompaneros": "班里没有其他学生。"
+  "reventa.sinCompaneros": "班里没有其他学生。",
+  "register.consentimientoPrivacidad": "我已阅读隐私政策，并同意为提供服务而使用我的数据。我的全名只有我所在班级的老师和同学能看到。",
+  "register.errorPrivacidad": "你必须接受隐私政策。",
+  "register.errorNacimiento": "请填写出生日期。",
+  "register.avisoMenores": "未满 13 岁的学生由学校创建账户；13 至 17 岁请在家人知情的情况下注册。",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "（查看隐私政策）",
+  "legal.verTerminos": "（查看条款）"
 }

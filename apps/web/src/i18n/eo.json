@@ -134,7 +134,6 @@
   "register.opcional": "(Nepobligaj)",
   "register.notaCodigoEscuela": "Kiel instruisto, vi devas aparteni al lernejo por krei klasĉambrojn.",
   "register.labelRepetirContrasena": "Reseti Pasvorton",
-  "register.consentimientoNombre": "La kompleta vera nomo nur estos videbla por instruistoj aŭ kunuloj de virtuala klasĉambro.",
   "register.consentimientoTerminos": "Mi akceptas la Terminojn kaj Kondiĉojn de la Servo",
   "register.botonRegistrarse": "Registriĝi",
   "register.registrando": "Registriĝante...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "Farite: la bileto estas via.",
   "reventa.cancelada": "La propono estis fermita.",
   "reventa.libres": "{n} neuzitaj",
-  "reventa.sinCompaneros": "Ne estas aliaj lernantoj en la klasĉambro."
+  "reventa.sinCompaneros": "Ne estas aliaj lernantoj en la klasĉambro.",
+  "register.consentimientoPrivacidad": "Mi legis la Privatecan Politikon kaj konsentas, ke miaj datumoj estu uzataj por la servo. Mian plenan nomon vidas nur la instruistoj kaj samklasanoj de miaj klasĉambroj.",
+  "register.errorPrivacidad": "Vi devas akcepti la Privatecan Politikon.",
+  "register.errorNacimiento": "Indiku vian naskiĝdaton.",
+  "register.avisoMenores": "Se vi havas malpli ol 13 jarojn, via lernejo kreas vian konton. Se vi havas 13 ĝis 17, registriĝu kun la scio de via familio.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(vidi la Privatecan Politikon)",
+  "legal.verTerminos": "(vidi la Kondiĉojn)"
 }

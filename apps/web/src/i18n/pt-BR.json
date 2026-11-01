@@ -134,7 +134,6 @@
   "register.opcional": "(Opcional)",
   "register.notaCodigoEscuela": "Como professor, você precisa pertencer a uma escola para criar salas de aula.",
   "register.labelRepetirContrasena": "Repetir Senha",
-  "register.consentimientoNombre": "O nome completo real só será visível para professores ou colegas de uma sala de aula virtual.",
   "register.consentimientoTerminos": "Aceito os Termos e Condições do Serviço",
   "register.botonRegistrarse": "Registrar",
   "register.registrando": "Registrando...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "Pronto: o ticket agora é seu.",
   "reventa.cancelada": "A oferta foi encerrada.",
   "reventa.libres": "{n} sem usar",
-  "reventa.sinCompaneros": "Não há outros alunos na turma."
+  "reventa.sinCompaneros": "Não há outros alunos na turma.",
+  "register.consentimientoPrivacidad": "Li a Política de Privacidade e aceito que meus dados sejam usados para prestar o serviço. Meu nome completo só é visto pelos professores e colegas das minhas turmas.",
+  "register.errorPrivacidad": "Você precisa aceitar a Política de Privacidade.",
+  "register.errorNacimiento": "Informe sua data de nascimento.",
+  "register.avisoMenores": "Se você tem menos de 13 anos, sua conta é criada pela escola. Se tem entre 13 e 17, cadastre-se com o conhecimento da sua família.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(ver Política de Privacidade)",
+  "legal.verTerminos": "(ver Termos)"
 }

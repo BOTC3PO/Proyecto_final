@@ -8,6 +8,9 @@ import { router } from "./router";
 import { hydrateSessionFromWebViewParam } from "./lib/webviewSessionBridge";
 hydrateSessionFromWebViewParam();
 // Fuentes del rediseño (self-hosted vía @fontsource — andan offline en la demo).
+// Ley 25.326 — Geist se sirve desde el propio servidor: antes venía de Google Fonts y cada visita le mandaba la IP a
+// un tercero en el exterior.
+import "@fontsource-variable/geist/index.css";
 import "@fontsource-variable/manrope/index.css";
 import "@fontsource-variable/jetbrains-mono/index.css";
 import "@fontsource/spectral/400.css";

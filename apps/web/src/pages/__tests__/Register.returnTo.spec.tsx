@@ -59,8 +59,14 @@ function fillCommonFields(role: string) {
   fireEvent.change(passwords[0], { target: { value: "secreto123" } });
   fireEvent.change(passwords[1], { target: { value: "secreto123" } });
 
+  // Ley 25.326: fecha de nacimiento, privacidad y términos son obligatorios.
+  // El selector de fecha es un calendario: se abre y se elige un día (la edad la valida el servidor).
+  fireEvent.click(screen.getByText("DD/MM/AAAA"));
+  fireEvent.click(screen.getByRole("button", { name: /mes anterior/i })); // un día del mes pasado: nunca a futuro
+  fireEvent.click(screen.getByRole("button", { name: "10" }));
   const checkboxes = screen.getAllByRole("checkbox");
-  fireEvent.click(checkboxes[1]); // termsAccepted (la única que valida handleSubmit)
+  fireEvent.click(checkboxes[0]); // privacyConsent
+  fireEvent.click(checkboxes[1]); // termsAccepted
 }
 
 beforeEach(() => {

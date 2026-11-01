@@ -134,7 +134,6 @@
   "register.opcional": "(オプション)",
   "register.notaCodigoEscuela": "教師として、教室を作成するには学校に所属する必要があります。",
   "register.labelRepetirContrasena": "パスワードの再設定",
-  "register.consentimientoNombre": "氏名は、教師または仮想教室の参加者のみに表示されます。",
   "register.consentimientoTerminos": "利用規約に同意します",
   "register.botonRegistrarse": "登録",
   "register.registrando": "登録中...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "完了：チケットはあなたのものになりました。",
   "reventa.cancelada": "提案は終了しました。",
   "reventa.libres": "未使用 {n}",
-  "reventa.sinCompaneros": "クラスに他の生徒はいません。"
+  "reventa.sinCompaneros": "クラスに他の生徒はいません。",
+  "register.consentimientoPrivacidad": "プライバシーポリシーを読み、サービス提供のために自分のデータが使われることに同意します。氏名は自分のクラスの先生とクラスメイトだけが見られます。",
+  "register.errorPrivacidad": "プライバシーポリシーへの同意が必要です。",
+  "register.errorNacimiento": "生年月日を入力してください。",
+  "register.avisoMenores": "13 歳未満のアカウントは学校が作成します。13〜17 歳の人は家族の了承を得て登録してください。",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "（プライバシーポリシーを見る）",
+  "legal.verTerminos": "（利用規約を見る）"
 }

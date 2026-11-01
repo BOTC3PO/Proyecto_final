@@ -134,7 +134,6 @@
   "register.opcional": "(Opzionale)",
   "register.notaCodigoEscuela": "Come insegnante, è necessario appartenere a una scuola per creare aule.",
   "register.labelRepetirContrasena": "Ripetere la password",
-  "register.consentimientoNombre": "Il nome completo reale sarà visibile solo agli insegnanti o ai compagni di una classe virtuale.",
   "register.consentimientoTerminos": "Accetto i Termini e le Condizioni del Servizio",
   "register.botonRegistrarse": "Registrati",
   "register.registrando": "Registrazione in corso...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "Fatto: il ticket è tuo.",
   "reventa.cancelada": "L'offerta è stata chiusa.",
   "reventa.libres": "{n} non usati",
-  "reventa.sinCompaneros": "Non ci sono altri studenti nell'aula."
+  "reventa.sinCompaneros": "Non ci sono altri studenti nell'aula.",
+  "register.consentimientoPrivacidad": "Ho letto l'Informativa sulla privacy e accetto che i miei dati siano usati per fornire il servizio. Il mio nome completo è visibile solo ai docenti e ai compagni delle mie aule.",
+  "register.errorPrivacidad": "Devi accettare l'Informativa sulla privacy.",
+  "register.errorNacimiento": "Indica la tua data di nascita.",
+  "register.avisoMenores": "Se hai meno di 13 anni, il tuo account lo crea la scuola. Se hai tra 13 e 17 anni, registrati con il consenso della tua famiglia.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(vedi Informativa sulla privacy)",
+  "legal.verTerminos": "(vedi Termini)"
 }

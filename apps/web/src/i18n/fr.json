@@ -134,7 +134,6 @@
   "register.opcional": "(Facultatif)",
   "register.notaCodigoEscuela": "En tant que professeur, vous devez appartenir à une école pour créer des salles de classe.",
   "register.labelRepetirContrasena": "Répéter le mot de passe",
-  "register.consentimientoNombre": "Le nom complet réel ne sera visible que pour les professeurs ou les camarades d'une salle de classe virtuelle.",
   "register.consentimientoTerminos": "J'accepte les termes et conditions du service",
   "register.botonRegistrarse": "S'inscrire",
   "register.registrando": "Enregistrement en cours...",
@@ -2887,5 +2886,12 @@
   "reventa.aceptada": "C'est fait : le ticket est à toi.",
   "reventa.cancelada": "L'offre a été fermée.",
   "reventa.libres": "{n} non utilisé(s)",
-  "reventa.sinCompaneros": "Il n'y a pas d'autres élèves dans la classe."
+  "reventa.sinCompaneros": "Il n'y a pas d'autres élèves dans la classe.",
+  "register.consentimientoPrivacidad": "J'ai lu la Politique de confidentialité et j'accepte que mes données soient utilisées pour fournir le service. Mon nom complet n'est visible que par les enseignants et camarades de mes classes.",
+  "register.errorPrivacidad": "Tu dois accepter la Politique de confidentialité.",
+  "register.errorNacimiento": "Indique ta date de naissance.",
+  "register.avisoMenores": "Si tu as moins de 13 ans, c'est ton école qui crée ton compte. Entre 13 et 17 ans, inscris-toi en informant ta famille.",
+  "register.leyendaAAIP": "The data subject has the right to access their personal data free of charge at intervals of no less than six months, unless a legitimate interest is shown, as established in section 14, subsection 3 of Law No. 25,326. The Agency for Access to Public Information, as the Supervisory Authority of Law No. 25,326, is empowered to handle complaints and claims filed by those whose rights are affected by non-compliance with personal data protection rules. (The Spanish text is the official one.)",
+  "legal.verPrivacidad": "(voir la Politique de confidentialité)",
+  "legal.verTerminos": "(voir les Conditions)"
 }
