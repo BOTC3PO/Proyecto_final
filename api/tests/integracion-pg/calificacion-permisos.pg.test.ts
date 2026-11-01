@@ -83,6 +83,10 @@ before(async () => {
   ({ prisma } = await import("../../src/lib/prisma"));
   const actual = await prisma.$queryRaw<Array<{ current_database: string }>>`select current_database()`;
   assert.ok(actual[0].current_database.endsWith("_test"), "la conexión no es una base de pruebas");
+  // D4 — con la caché de sesión prendida (en pruebas viene apagada): revocar tiene que valer igual en el
+  // pedido siguiente, porque escribir en membresias la vacía.
+  const { ENV } = await import("../../src/lib/env");
+  ENV.AUTH_CACHE_SEGUNDOS = 15;
   const { createAccessToken } = await import("../../src/lib/auth-token");
   token = (id, rol, escuela) => createAccessToken({ id, role: rol, roles: [rol], schoolId: escuela }).token;
 

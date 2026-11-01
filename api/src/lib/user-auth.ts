@@ -8,6 +8,7 @@ import { resolveRoles } from "./roles";
 import { normalizeSchoolId } from "./school-ids";
 import { estaBaneado, respuestaBaneado } from "./ban";
 import { rolesVigentes } from "./roles-vigentes";
+import { conCache } from "./cache-sesion";
 
 type AuthenticatedUser = Record<string, unknown> & {
   _id?: string;
@@ -63,7 +64,11 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       res.status(401).json({ error: "Invalid authentication token" });
       return;
     }
-    const user = await prisma.usuario.findFirst({ where: { id: objectId, isDeleted: { not: true } } }) as AuthenticatedUser | null;
+    const guardado = await conCache(`usuario:${objectId}`, () =>
+      prisma.usuario.findFirst({ where: { id: objectId, isDeleted: { not: true } } })
+    );
+    // Copia: los handlers reciben la fila en res.locals.userDoc y no deben poder cambiar la de la caché.
+    const user = (guardado ? { ...guardado } : null) as AuthenticatedUser | null;
     if (!user) {
       res.status(403).json({ error: "User not found" });
       return;

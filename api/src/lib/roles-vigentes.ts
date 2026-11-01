@@ -11,6 +11,7 @@
  * o una membresía surte efecto en el pedido siguiente, y un rol nuevo se obtiene al renovar la sesión.
  */
 import { prisma } from "./prisma";
+import { conCache } from "./cache-sesion";
 import { getCanonicalMembershipRole, getUserRoleFromMembership } from "./membership-roles";
 import { resolveRoles } from "./roles";
 
@@ -27,7 +28,9 @@ export type RolesVigentes = {
 
 export async function rolesVigentes(reclamos: Reclamos, usuario: UsuarioDb, usuarioId: string): Promise<RolesVigentes> {
   const propios = resolveRoles(usuario);
-  const membresias = await prisma.membresia.findMany({ where: { usuarioId, estado: "activa" } });
+  const membresias = await conCache(`membresias:${usuarioId}`, () =>
+    prisma.membresia.findMany({ where: { usuarioId, estado: "activa" } })
+  );
 
   let permitidos: string[];
   let schoolId: string | null;
@@ -37,7 +40,9 @@ export async function rolesVigentes(reclamos: Reclamos, usuario: UsuarioDb, usua
     // Sin membresías activas. Si nunca tuvo ninguna (admin de plataforma, invitado, alumno independiente, filas
     // anteriores al backfill), valen los roles del usuario. Si las tuvo y se las revocaron todas, se pierden los
     // roles de escuela: antes se volvía a los del usuario y un directivo dado de baja seguía cobrando (H17).
-    const alguna = await prisma.membresia.findFirst({ where: { usuarioId }, select: { usuarioId: true } });
+    const alguna = await conCache(`tuvo-membresia:${usuarioId}`, () =>
+      prisma.membresia.findFirst({ where: { usuarioId }, select: { usuarioId: true } })
+    );
     if (!alguna) {
       permitidos = propios;
       schoolId = reclamos.schoolId ?? null;
