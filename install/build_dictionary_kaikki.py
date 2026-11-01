@@ -200,7 +200,8 @@ def traducciones_invertidas(d: dict) -> list[tuple]:
 
 # E4 — orden de las entradas de una misma palabra (homógrafos y categorías). Antes se mezclaban en el orden del
 # archivo: en portugués «cão» empezaba por «cruel, brutal» y en japonés «犬» por su lectura «いぬ。».
-# Primero la entrada con más acepciones; las formas flexionadas («plural de», «feminino de»...) al final.
+# Primero la que trae traducciones, después la que tiene más acepciones; las formas flexionadas («plural de»,
+# «feminino de»...) al final.
 FORMA_DE = re.compile(
     r"^(?:\(.*?\)\s*)?(?:(?:primera|segunda|tercera|primeira|segunda|terceira)\s+persona\s+)?"
     r"(?:plural|feminin[oa]|femenin[oa]|masculin[oa]|féminin|femminile|pluriel|plurale|forma|flexión|inflexión|"
@@ -218,7 +219,33 @@ def puntaje_entrada(d: dict, defs: list[str]) -> float:
     )
     if not forma and defs and all(FORMA_DE.match(g) for g in defs):
         forma = True
-    return len(defs) - (1000 if forma else 0)
+    # La entrada principal es la que tiene más acepciones de uso general (sin marca de registro, región o sentido
+    # figurado): en español «perro» sustantivo va antes que el adjetivo coloquial «desdichado, indigno», aunque este
+    # tenga más acepciones. Pesa sobre todo que la PRIMERA acepción sea de uso general; después, cuántas lo son, la
+    # tabla de traducciones y la cantidad total.
+    neutras = sum(1 for s in senses if es_neutra(s))
+    primera_neutra = bool(senses) and es_neutra(senses[0])
+    tiene_traducciones = bool(d.get("translations")) or any(s.get("translations") for s in senses)
+    return (1000 if primera_neutra else 0) + 10 * neutras + (5 if tiene_traducciones else 0) + len(defs) - (10_000 if forma else 0)
+
+
+MARCAS = {
+    "colloquial", "informal", "slang", "vulgar", "derogatory", "pejorative", "offensive", "figuratively",
+    "figurative", "archaic", "obsolete", "dated", "rare", "humorous", "literary", "outdated", "lunfardismo", "euphemistic", "regional", "dialectal",
+    "coloquial", "figurado", "despectivo", "anticuado", "desusado", "poco usado", "vulgar", "jerga", "lunfardo",
+    "figuré", "familier", "populaire", "vieilli", "figurato", "familiare", "antiquato", "umgangssprachlich",
+    "übertragen", "veraltet", "abwertend", "разговорное", "переносное", "устаревшее", "隠語", "俗語", "比喩",
+}
+
+
+def es_neutra(s: dict) -> bool:
+    # En `tags` (normalizadas) las regiones van con mayúscula («Spain», «Río-de-la-Plata»); en `raw_tags` las
+    # mayúsculas suelen ser temas («Bebidas»), así que ahí solo cuentan las marcas conocidas.
+    for t in s.get("tags") or []:
+        t = str(t)
+        if t.lower() in MARCAS or t[:1].isupper():
+            return False
+    return not any(str(t).lower() in MARCAS for t in s.get("raw_tags") or [])
 
 
 # ── Base de salida ─────────────────────────────────────────────────────────────
