@@ -135,3 +135,24 @@ test("C1: lo que toca datos de personas y dinero siempre exige sesión", () => {
   const abiertas = rutas.filter((r) => !r.protegida && sensibles.test(r.ruta)).map((r) => `${r.metodo} ${r.ruta}`);
   assert.deepEqual(abiertas, [], `rutas sensibles sin sesión:\n${abiertas.join("\n")}`);
 });
+
+// 2026-11-01 — los webhooks de pago están después del requireUser global pero no traen sesión: los dejaba
+// pasar una excepción que no existía, y respondían 401 sin mirar la firma.
+test("C1: los webhooks de pago llegan a su handler sin sesión (la firma la valida el handler)", async () => {
+  const srv = app.listen(0);
+  try {
+    const port = (srv.address() as { port: number }).port;
+    for (const ruta of ["/api/pasarelas/webhook/mercadopago", "/api/payments/webhook"]) {
+      const r = await fetch(`http://127.0.0.1:${port}${ruta}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: "{}"
+      });
+      const cuerpo = (await r.json().catch(() => ({}))) as { error?: string };
+      assert.notEqual(cuerpo.error, "Missing authentication", `${ruta} quedó detrás de la sesión`);
+    }
+  } finally {
+    await new Promise<void>((resolve) => srv.close(() => resolve()));
+  }
+});
+

@@ -35,6 +35,12 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
     ) {
       return next();
     }
+    // Los webhooks de pago no traen sesión: se autentican con la firma de la pasarela, que valida cada
+    // handler. Sin esta excepción el `app.use(requireUser)` global los cortaba con 401 y MercadoPago nunca
+    // podía avisar un pago (solo quedaba la conciliación periódica).
+    if (req.method === "POST" && (url.startsWith("/api/pasarelas/webhook/") || url === "/api/payments/webhook")) {
+      return next();
+    }
 
     const token = extractTokenFromRequest(req);
     if (!token) {
