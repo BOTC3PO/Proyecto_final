@@ -5,6 +5,8 @@
 export const RESPONSABLE = {
   nombre: "Javier Ernesto Pérez",
   cuit: "[CUIT A COMPLETAR]",
+  // Ley 25.326, art. 6 inc. b: el aviso al titular tiene que incluir el domicilio del responsable.
+  domicilio: "[DOMICILIO A COMPLETAR]",
 } as const;
 
-export const responsableTexto = `${RESPONSABLE.nombre}, CUIT ${RESPONSABLE.cuit}`;
+export const responsableTexto = `${RESPONSABLE.nombre}, CUIT ${RESPONSABLE.cuit}, con domicilio en ${RESPONSABLE.domicilio}`;

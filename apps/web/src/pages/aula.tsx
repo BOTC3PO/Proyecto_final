@@ -21,6 +21,8 @@ import AulaActionsBar from "../components/aula/AulaActionsBar";
 import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
 import MatrizProgreso from "../components/profesor/MatrizProgreso";
 import { useI18n } from "../i18n/I18nContext";
+import { useAvisoError } from "../ui/useAvisoError";
+import ReventaTickets from "../components/aula/ReventaTickets";
 
 type ProgressItem = {
   moduloId: string;
@@ -67,6 +69,7 @@ function getAvatarColor(initials: string): string {
 
 export default function Aula() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado (mirando
   // `roles[]` con fallback al singular). El `user.role` se mantiene
@@ -363,7 +366,7 @@ export default function Aula() {
         if (!active) return;
         setMisPujas(pujaMap);
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     return () => { active = false; };
   }, [classroomId, user?.id]);
 
@@ -530,6 +533,8 @@ export default function Aula() {
   const inputCls = "rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] placeholder:text-[var(--c-muted)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--c-primary)]";
 
   return (
+    <>
+      {aviso}
     <main className="flex-1 bg-[var(--c-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Banner */}
@@ -1158,6 +1163,9 @@ export default function Aula() {
                 })}
               </div>
             )}
+
+            {/* J8 — reventa de tickets de examen entre alumnos (se oculta si no hay nada para mostrar). */}
+            {classroomId && <ReventaTickets aulaId={classroomId} className={cardCls} />}
           </aside>
         </div>
       </div>
@@ -1169,5 +1177,6 @@ export default function Aula() {
         />
       )}
     </main>
+    </>
   );
 }

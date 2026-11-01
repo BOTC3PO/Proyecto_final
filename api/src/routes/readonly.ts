@@ -4,7 +4,6 @@ import path from "path";
 import { prisma } from "../lib/prisma";
 import { ENV } from "../lib/env";
 import { cargarContextoVisibilidad, whereVisibilidadModulos } from "./modulos";
-import { SUBJECTS, listTopicsFromFilesystem, type Subject } from "./consignas";
 
 export const readonlyRouter = Router();
 
@@ -14,7 +13,7 @@ const SAFE_VISUALIZER_ID_REGEX = /^[a-z0-9\-]+$/i;
 type ReadonlyCatalogResponse = {
   modulosActivos: unknown[];
   generadores: Array<{
-    materia: Subject;
+    materia: string;
     temas: string[];
   }>;
   mapasYDiccionarios: {
@@ -121,16 +120,9 @@ readonlyRouter.get("/api/readonly/catalogo", async (req, res) => {
         [],
         "modulosActivos"
       ),
-      safeFetch(
-        Promise.all(
-          SUBJECTS.map(async (materia) => ({
-            materia,
-            temas: await listTopicsFromFilesystem(materia),
-          }))
-        ),
-        [],
-        "generadores"
-      ),
+      // Los generadores por carpeta (routes/consignas.ts) se quitaron: leían api/src/generadores/, que no existe.
+      // La lista queda vacía para no cambiar la forma de la respuesta.
+      Promise.resolve([] as ReadonlyCatalogResponse["generadores"]),
       safeFetch(readVisualizadoresCatalog(), [], "visualizadores"),
       getAvailableLanguages(),
     ]);

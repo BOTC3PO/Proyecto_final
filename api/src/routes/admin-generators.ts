@@ -94,7 +94,10 @@ adminGenerators.get("/api/admin/generators/:id/changelog", requireAdmin, async (
 // POST /api/admin/generators/:id/changelog
 adminGenerators.post("/api/admin/generators/:id/changelog", requireAdmin, async (req, res) => {
   const id = `${req.params.id}`;
-  const { note, admin_id } = req.body as Record<string, unknown>;
+  const { note } = req.body as Record<string, unknown>;
+  // El autor sale de la sesión: antes se aceptaba `admin_id` del cuerpo y cualquiera podía firmar por otro.
+  const user = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
+  const adminId = user?.id ?? user?._id?.toString?.() ?? "";
 
   if (!note || typeof note !== "string" || !note.trim()) {
     res.status(400).json({ error: "note requerido" });
@@ -106,8 +109,8 @@ adminGenerators.post("/api/admin/generators/:id/changelog", requireAdmin, async 
       data: {
         id: `chg-${randomUUID()}`,
         generatorId: id,
-        adminId: typeof admin_id === "string" ? admin_id : "unknown",
-        note: note.trim(),
+        adminId,
+        note: note.trim().slice(0, 2000),
         changedAt: new Date().toISOString(),
       },
     });

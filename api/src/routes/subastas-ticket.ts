@@ -54,6 +54,7 @@ type Reventa = {
   monto: number;
   moneda: string;
   estado: "pendiente" | "aceptado" | "cancelado";
+  canceladoPor?: string;
   moderacion: { estado: "aprobado"; updatedAt: string };
   riesgoScore: number;
   createdAt: string;
@@ -223,10 +224,85 @@ subastasTicket.post("/api/economia/tickets/reventa", requireUser, async (req, re
   return res.status(201).json({ id: reventa.id, precio: reventa.monto, comision, netoParaElVendedor: neto, comisionPorcentaje: COMISION_REVENTA * 100 });
 });
 
+/**
+ * J8 — cómo ve un alumno a sus compañeros al ofrecer un ticket: nombre y la inicial del apellido ("María G.").
+ * Hay menores de edad: no se muestra el nombre completo, ni el usuario, ni el correo.
+ */
+export const aliasDeCompanero = (fullName?: string | null, username?: string | null) => {
+  const partes = String(fullName ?? "").trim().split(/\s+/).filter(Boolean);
+  if (!partes.length) return username ? `${username.slice(0, 1).toUpperCase()}.` : "Compañero";
+  const [nombre, ...resto] = partes;
+  const ultimo = resto[resto.length - 1];
+  return ultimo ? `${nombre} ${ultimo.slice(0, 1).toUpperCase()}.` : nombre;
+};
+
+const aliasDe = async (ids: string[]) => {
+  const unicos = [...new Set(ids.filter(Boolean))];
+  if (!unicos.length) return new Map<string, string>();
+  const filas = await prisma.usuario.findMany({ where: { id: { in: unicos } }, select: { id: true, fullName: true, username: true } });
+  return new Map(filas.map((u) => [u.id, aliasDeCompanero(u.fullName, u.username)]));
+};
+
+// GET /api/economia/tickets/reventa/opciones?aulaId= — para el formulario del alumno: a quién le puede ofrecer
+// (compañeros alumnos del aula, con nombre reducido) y de qué módulos tiene tickets sin usar.
+subastasTicket.get("/api/economia/tickets/reventa/opciones", requireUser, async (req, res) => {
+  const userId = userIdOf(req as never);
+  const aulaId = String(req.query.aulaId ?? "");
+  if (!aulaId) return res.status(400).json({ error: "aulaId es requerido" });
+  const aula = await cargarAula(aulaId);
+  if (!aula) return res.status(404).json({ error: "aula not found" });
+  if (!esAlumnoDelAula(aula, userId)) return res.status(403).json({ error: "forbidden" });
+
+  const alumnos = await prisma.claseMiembro.findMany({ where: { claseId: aulaId, rolEnClase: "STUDENT" } });
+  const otros = alumnos.map((m) => m.usuarioId).filter((id) => id !== userId);
+  const vivos = otros.length
+    ? await prisma.usuario.findMany({ where: { id: { in: otros }, isDeleted: { not: true } }, select: { id: true, fullName: true, username: true } })
+    : [];
+  const companeros = vivos
+    .map((u) => ({ id: u.id, nombre: aliasDeCompanero(u.fullName, u.username) }))
+    .sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+  const examenes = (await prisma.economiaExamen.findMany({ where: { json: { contains: `"aulaId":${JSON.stringify(aulaId)}` } } }))
+    .map((r) => parseJson<ExamenJson | null>(r.json, null))
+    .filter((e): e is ExamenJson => !!e && e.modo === "ticket" && e.aulaId === aulaId && e.estado === "cerrado" && !!e.moduloId);
+  const moduloIds = [...new Set(examenes.map((e) => e.moduloId as string))];
+  const misOfertas = (await prisma.economiaIntercambio.findMany({ where: { json: { contains: `"creadorId":${JSON.stringify(userId)}` } } }))
+    .map((r) => parseJson<Reventa | null>(r.json, null))
+    .filter((d): d is Reventa => !!d && d.tipo === "ticket" && d.creadorId === userId && d.estado === "pendiente");
+  const titulos = moduloIds.length
+    ? new Map((await prisma.modulo.findMany({ where: { id: { in: moduloIds } }, select: { id: true, titulo: true } })).map((m) => [m.id, m.titulo]))
+    : new Map<string, string>();
+  const modulos = [];
+  for (const moduloId of moduloIds) {
+    const libres = (await billeterasDelModulo(prisma, moduloId, userId)).reduce((a, b) => a + libresDe(b.billetera), 0);
+    const ofertasPendientes = misOfertas.filter((o) => o.moduloId === moduloId).length;
+    if (libres > 0) modulos.push({ moduloId, titulo: titulos.get(moduloId) ?? moduloId, libres, ofertasPendientes });
+  }
+  return res.json({ companeros, modulos, comisionPorcentaje: COMISION_REVENTA * 100 });
+});
+
+// POST /api/economia/tickets/reventa/:id/cancelar — el vendedor retira la oferta o el comprador la rechaza.
+subastasTicket.post("/api/economia/tickets/reventa/:id/cancelar", requireUser, async (req, res) => {
+  const userId = userIdOf(req as never);
+  const id = String(req.params.id);
+  const fila = await prisma.economiaIntercambio.findFirst({ where: { id } });
+  const reventa = parseJson<Reventa | null>(fila?.json, null);
+  if (!fila || !reventa || reventa.tipo !== "ticket") return res.status(404).json({ error: "reventa not found" });
+  if (reventa.creadorId !== userId && reventa.receptorId !== userId) return res.status(403).json({ error: "forbidden" });
+  if (reventa.estado !== "pendiente") return res.status(409).json({ error: "la oferta ya no está disponible" });
+  const ahora = new Date().toISOString();
+  const reclamo = await prisma.economiaIntercambio.updateMany({
+    where: { id, json: fila.json },
+    data: { json: JSON.stringify({ ...reventa, estado: "cancelado", updatedAt: ahora, resolvedAt: ahora, canceladoPor: userId }) }
+  });
+  if (reclamo.count !== 1) return res.status(409).json({ error: "la oferta ya no está disponible" });
+  return res.json({ ok: true });
+});
+
 // GET /api/economia/tickets/reventa — mis ofertas pendientes (como vendedor o como comprador).
 subastasTicket.get("/api/economia/tickets/reventa", requireUser, async (req, res) => {
   const userId = userIdOf(req as never);
-  const items = (await prisma.economiaIntercambio.findMany({
+  const pendientes = (await prisma.economiaIntercambio.findMany({
     where: {
       OR: [
         { json: { contains: `"creadorId":${JSON.stringify(userId)}` } },
@@ -237,8 +313,20 @@ subastasTicket.get("/api/economia/tickets/reventa", requireUser, async (req, res
     take: 500
   }))
     .map((r) => parseJson<Reventa | null>(r.json, null))
-    .filter((d): d is Reventa => !!d && d.tipo === "ticket" && d.estado === "pendiente" && (d.creadorId === userId || d.receptorId === userId))
-    .map((d) => ({ ...d, ...repartoReventa(d.monto) }));
+    .filter((d): d is Reventa => !!d && d.tipo === "ticket" && d.estado === "pendiente" && (d.creadorId === userId || d.receptorId === userId));
+  // J8 — la contraparte se muestra con nombre reducido y el módulo con su título.
+  const alias = await aliasDe(pendientes.map((d) => (d.creadorId === userId ? d.receptorId : d.creadorId)));
+  const titulos = new Map(
+    (await prisma.modulo.findMany({ where: { id: { in: [...new Set(pendientes.map((d) => d.moduloId))] } }, select: { id: true, titulo: true } }))
+      .map((m) => [m.id, m.titulo])
+  );
+  const items = pendientes.map((d) => ({
+    ...d,
+    ...repartoReventa(d.monto),
+    soyVendedor: d.creadorId === userId,
+    contraparte: alias.get(d.creadorId === userId ? d.receptorId : d.creadorId) ?? "Compañero",
+    moduloTitulo: titulos.get(d.moduloId) ?? d.moduloId
+  }));
   return res.json({ items });
 });
 

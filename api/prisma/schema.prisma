@@ -264,6 +264,9 @@ model Usuario {
   totpActivo            Boolean  @default(false) @map("totp_activo")
   totpUltimoPaso        Int?     @map("totp_ultimo_paso")
   totpRecuperacion      String?  @map("totp_recuperacion")
+  /// B9 — cuándo confirmó su correo. Null = registro propio sin confirmar (no puede iniciar sesión mientras
+  /// la verificación esté activa). Las cuentas creadas por la escuela o el administrador nacen confirmadas.
+  emailVerificadoAt     String?  @map("email_verificado_at")
   createdAt             String   @map("created_at")
   updatedAt             String   @map("updated_at")
   escuela               Escuela? @relation(fields: [escuelaId], references: [id])
@@ -487,6 +490,18 @@ model Transferencia {
 
 // E1 — recuperación de contraseña. Se guarda solo el hash del token (el token viaja por correo). Vence en una
 // hora y sirve una sola vez; pedir otro invalida los anteriores.
+// B9 — enlaces para confirmar el correo después del registro (solo el hash; vencen y sirven una vez).
+model EmailVerificacion {
+  id        String  @id
+  usuarioId String  @map("usuario_id")
+  tokenHash String  @unique @map("token_hash")
+  expiresAt String  @map("expires_at")
+  usedAt    String? @map("used_at")
+  createdAt String  @map("created_at")
+  @@index([usuarioId])
+  @@map("email_verificaciones")
+}
+
 model PasswordResetToken {
   id        String  @id
   usuarioId String  @map("usuario_id")

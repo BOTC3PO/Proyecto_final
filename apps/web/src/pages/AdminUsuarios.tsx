@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 import {
   fetchAdminUsuarios,
   fetchAdminModulosCompletados,
@@ -90,7 +91,7 @@ export default function AdminUsuarios() {
       const result = await promoteUsuario(modal.usuario.id, "ADMIN");
       if (result.ok) {
         setActionOk(true);
-        setActionMsg(`${modal.usuario.nombre} ${t("adminUsuarios.promovidoAAdminCorrectamente")}`);
+        setActionMsg(interpolar(t("adminUsuarios.promovidoAdmin"), { nombre: modal.usuario.nombre }));
         setModal(null);
         loadUsuarios(q);
       } else {
@@ -114,8 +115,8 @@ export default function AdminUsuarios() {
       setActionOk(true);
       setActionMsg(
         escuelaDraft
-          ? `${modal.usuario.nombre} ${t("adminUsuarios.asignadoALaEscuelaSeleccionada")}`
-          : `${modal.usuario.nombre} ${t("adminUsuarios.quedoSinEscuelaAdminDePlataforma")}`
+          ? interpolar(t("adminUsuarios.asignadoEscuela"), { nombre: modal.usuario.nombre })
+          : interpolar(t("adminUsuarios.sinEscuela"), { nombre: modal.usuario.nombre })
       );
       setModal(null);
       loadUsuarios(q);
@@ -136,7 +137,7 @@ export default function AdminUsuarios() {
       await banUsuario(modal.usuario.id, banMotivo, Number(banDias));
       const dias = Number(banDias);
       setActionOk(true);
-      setActionMsg(`${t("adminUsuarios.usuario")} ${modal.usuario.nombre} ${t("adminUsuarios.baneadoPor")} ${banDias} ${dias === 1 ? t("comun.dia") : t("comun.dias")}.`);
+      setActionMsg(interpolar(t(dias === 1 ? "adminUsuarios.baneadoUnDia" : "adminUsuarios.baneadoDias"), { nombre: modal.usuario.nombre, n: dias }));
       setModal(null);
       setBanMotivo(""); setBanDias("1");
       loadUsuarios(q);
@@ -156,7 +157,7 @@ export default function AdminUsuarios() {
     try {
       await advertenciaUsuario(modal.usuario.id, warnMotivo, warnSeveridad);
       setActionOk(true);
-      setActionMsg(`${t("adminUsuarios.advertenciaEnviadaA")} ${modal.usuario.nombre}.`);
+      setActionMsg(interpolar(t("adminUsuarios.advertenciaEnviada"), { nombre: modal.usuario.nombre }));
       setModal(null);
       setWarnMotivo(""); setWarnSeveridad("baja");
       loadUsuarios(q);

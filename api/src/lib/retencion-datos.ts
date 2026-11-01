@@ -21,9 +21,10 @@ const DIA_MS = 24 * 60 * 60 * 1000;
 const haceDias = (ahora: Date, dias: number) => new Date(ahora.getTime() - dias * DIA_MS);
 
 export async function purgarDatosVencidos(ahora = new Date()) {
-  const r = { sesiones: 0, enlaces: 0, push: 0, auditoria: 0, cuentasAnonimizadas: 0 };
+  const r = { sesiones: 0, enlaces: 0, push: 0, auditoria: 0, cuentasAnonimizadas: 0, sinConfirmar: 0 };
   r.sesiones = (await prisma.refreshToken.deleteMany({ where: { expiresAt: { lt: haceDias(ahora, 30) } } })).count;
   r.enlaces = (await prisma.passwordResetToken.deleteMany({ where: { createdAt: { lt: haceDias(ahora, 30).toISOString() } } })).count;
+  r.enlaces += (await prisma.emailVerificacion.deleteMany({ where: { createdAt: { lt: haceDias(ahora, 30).toISOString() } } })).count;
   r.push = (await prisma.pushToken.deleteMany({ where: { updatedAt: { lt: haceDias(ahora, 365).toISOString() } } })).count;
   const corteAuditoria = new Date(ahora.getTime());
   corteAuditoria.setUTCFullYear(corteAuditoria.getUTCFullYear() - 10);
@@ -44,6 +45,18 @@ export async function purgarDatosVencidos(ahora = new Date()) {
       await anonimizarUsuario(u.id, ahora.toISOString());
       r.cuentasAnonimizadas++;
     }
+  }
+  // B9 — un registro que nunca confirmó el correo no llegó a usarse (no pudo iniciar sesión): a los 30 días se
+  // anonimiza. No hay registro educativo que conservar.
+  const sinConfirmar = await prisma.usuario.findMany({
+    // Solo cuentas con contraseña: los invitados (sin contraseña) no se registran con correo.
+    where: { isDeleted: { not: true }, emailVerificadoAt: null, passwordHash: { not: null }, createdAt: { lt: haceDias(ahora, 30).toISOString() } },
+    select: { id: true },
+    take: 500
+  });
+  for (const u of sinConfirmar) {
+    await anonimizarUsuario(u.id, ahora.toISOString());
+    r.sinConfirmar++;
   }
   return r;
 }

@@ -59,7 +59,7 @@ graph TD
     Root --> Role["ProtectedRoute<br/>[USER,PARENT,TEACHER,DIRECTIVO,ADMIN]<br/>→ RoleLayout"]
     Root --> Editors["ProtectedRoute<br/>[USER,TEACHER,ADMIN,DIRECTIVO]<br/>→ Outlet (sin shell)"]
 
-    Guest --> G1["/, /login, /register,<br/>/explorar, /precios, /u/:username,<br/>/herramientas/*, /404"]
+    Guest --> G1["/, /login, /register,<br/>/explorar, /precios,<br/>/herramientas/*, /404"]
     Alumno --> A1["/alumno, /clases[/:aulaId],<br/>/tareas, /encuestas, /progreso,<br/>/economia, /tienda-temas, /calendario"]
     Staff --> S1["/profesor/* [TEACHER]<br/>/admin/* [ADMIN]<br/>/enterprise/* [DIRECTIVO]<br/>/aulas/:aulaId [TEACHER,DIRECTIVO,ADMIN] 🆕"]
     Role --> R1["/mensajes, /perfil, /modulos/*,<br/>/reproductor, /quiz/attempt/:id,<br/>/plantillas/*, /datasets/*, /hijos/*"]
@@ -113,7 +113,6 @@ graph TD
 | `/laboratorio-web3` | `pages/LaboratorioWeb3` | público |
 | `/onboarding-guest` | `pages/GuestOnboarding` | público |
 | `/onboarding/tema` | `pages/OnboardingTema` | público |
-| `/u/:username` | `pages/PerfilPublico` | público |
 | `/herramientas` | `stubs/herramientas` (HerramientasEducativas) | público |
 | `/herramientas/{estadistica,ciencias-sociales,mapa-editor,filosofia,arte,biologia,musica,politica,civica,ambiental,informatica,naturales,cocina,vida-practica}` | stubs de `stubs/herramientas` | público |
 | `/404` | `pages/NotFound` | público |

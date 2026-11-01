@@ -1,7 +1,7 @@
 // RegistrationForm.tsx
 import React, { useState, useRef, useEffect } from "react";
 import BrandMark from "../components/Brand";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { apiPost } from "../lib/api";
 import { fetchRegistroOpciones } from "../services/registro";
 import { useI18n } from "../i18n/I18nContext";
@@ -347,8 +347,17 @@ export default function RegistrationForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // ejemplo de validación mínima
+    if (!formData.privacyConsent) {
+      setStatus({ loading: false, error: t("register.errorPrivacidad") });
+      return;
+    }
     if (!formData.termsAccepted) {
       setStatus({ loading: false, error: t("register.errorTerminos") });
+      return;
+    }
+    // Ley 25.326 — la edad decide si la persona puede registrarse sola (el servidor lo vuelve a comprobar).
+    if (!formData.birthdateISO) {
+      setStatus({ loading: false, error: t("register.errorNacimiento") });
       return;
     }
     if (!formData.role) {
@@ -385,7 +394,7 @@ export default function RegistrationForm() {
       const birthdate = formData.birthdateISO
         ? new Date(`${formData.birthdateISO}T00:00:00.000Z`).toISOString()
         : undefined;
-      await apiPost<{ id: string }>("/api/auth/register", {
+      const alta = await apiPost<{ id: string; verificacionPendiente?: boolean }>("/api/auth/register", {
         username: formData.username,
         email: formData.email,
         fullName: formData.fullName,
@@ -402,6 +411,12 @@ export default function RegistrationForm() {
         }
       });
       const returnToQS = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : "";
+      // B9 — con la verificación activa la cuenta no puede entrar hasta confirmar el correo: se va al login con
+      // el aviso de que revise su bandeja (el tema lo puede elegir después desde el perfil).
+      if (alta?.verificacionPendiente) {
+        navigate(`/login?verificar=1${returnTo ? `&returnTo=${encodeURIComponent(returnTo)}` : ""}`);
+        return;
+      }
       // Solo el alumno (USER) ve el onboarding de tema
       if (formData.role === 'USER') {
         navigate(`/onboarding/tema${returnToQS}`, {
@@ -589,7 +604,8 @@ export default function RegistrationForm() {
                              focus:ring-2 focus:ring-blue-500 cursor-pointer"
                 />
                 <span className="text-gray-700 text-base leading-relaxed">
-                  {t("register.consentimientoNombre")}
+                  {t("register.consentimientoPrivacidad")}{" "}
+                  <Link to="/privacidad" target="_blank" className="text-blue-600 underline">{t("legal.verPrivacidad")}</Link>
                 </span>
               </label>
 
@@ -602,9 +618,13 @@ export default function RegistrationForm() {
                              focus:ring-2 focus:ring-blue-500 cursor-pointer"
                 />
                 <span className="text-gray-700 text-base leading-relaxed">
-                  {t("register.consentimientoTerminos")}
+                  {t("register.consentimientoTerminos")}{" "}
+                  <Link to="/terminos" target="_blank" className="text-blue-600 underline">{t("legal.verTerminos")}</Link>
                 </span>
               </label>
+              <p className="text-sm text-gray-600">{t("register.avisoMenores")}</p>
+              {/* Disposición DNPDP 10/2008: leyenda obligatoria donde se recogen datos personales. */}
+              <p className="text-xs leading-relaxed text-gray-500">{t("register.leyendaAAIP")}</p>
             </div>
 
             {status.error && (

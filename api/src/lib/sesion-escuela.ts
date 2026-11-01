@@ -63,6 +63,13 @@ export const resolverSesionEscuela = async (
     // Sin membresías no hay escuela que resolver: cuentas de plataforma
     // (ADMIN), invitados, y cualquier fila anterior al backfill.
     const propios = resolveRoles(usuario);
+    // Si tuvo membresías y se las revocaron todas, ya no tiene roles de escuela (mismo criterio que
+    // lib/roles-vigentes.ts): queda como alumno independiente si lo era, más ADMIN si lo es.
+    const alguna = await prisma.membresia.findFirst({ where: { usuarioId: usuario.id }, select: { usuarioId: true } });
+    if (alguna) {
+      const quedan = propios.filter((r) => r === "USER" || noEscolares.includes(r));
+      return { escuelaId: null, roles: quedan, rolPrincipal: quedan[0] ?? null };
+    }
     return {
       escuelaId: usuario.escuelaId ?? null,
       roles: propios,

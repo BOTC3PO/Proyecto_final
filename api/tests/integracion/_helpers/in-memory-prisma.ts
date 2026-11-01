@@ -1027,6 +1027,16 @@ export class InMemoryPrisma {
   economiaConfig = new Table<Row>("economiaConfig");
   comisionConfig = new Table<Row>("comisionConfig");
   passwordResetToken = new Table<Row>("passwordResetToken");
+  emailVerificacion = new Table<Row>("emailVerificacion");
+  // H15 — routers que no tenían pruebas.
+  generatorConfig = new Table<Row>("generatorConfig");
+  generatorChangelog = new Table<Row>("generatorChangelog");
+  generadorAdmin = new Table<Row>("generadorAdmin");
+  enterpriseContrato = new Table<Row>("enterpriseContrato");
+  enterpriseBillingCycle = new Table<Row>("enterpriseBillingCycle");
+  async $queryRaw(): Promise<unknown[]> {
+    return [{ ok: 1 }];
+  }
   saldoUsuario = new Table<Row>("saldoUsuario");
   ledgerMovimiento = new Table<Row>("ledgerMovimiento");
   pushToken = new Table<Row>("pushToken");
@@ -1052,6 +1062,16 @@ export class InMemoryPrisma {
 
   // override findMany on vblangDataset to support _count include.
   constructor() {
+    // generadorAdmin tiene clave compuesta (subject, topic): Prisma la recibe como `subject_topic`.
+    const aplanar = (w: Record<string, unknown>) => {
+      const st = w.subject_topic as Record<string, unknown> | undefined;
+      if (!st) return w;
+      const { subject_topic: _st, ...resto } = w;
+      return { ...resto, ...st };
+    };
+    const gaUpsert = this.generadorAdmin.upsert.bind(this.generadorAdmin);
+    this.generadorAdmin.upsert = async (args) => gaUpsert({ ...args, where: aplanar(args.where) });
+
     // FASE 5 — autogenerar `id` en los inserts de vínculo padre↔hijo
     // (el handler no lo pasa; el schema lo deriva con @default(uuid())).
     const vinculoCreate = this.progresoModuloVinculo.create.bind(this.progresoModuloVinculo);

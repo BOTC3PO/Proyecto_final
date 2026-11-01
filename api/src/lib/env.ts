@@ -156,6 +156,12 @@ SQLITE_READONLY: parseBool(process.env.SQLITE_READONLY, false),
   SMTP_PASS: process.env.SMTP_PASS ?? "",
   SMTP_FROM: process.env.SMTP_FROM ?? "Virtual Book <no-responder@virtualbook.com.ar>",
   PASSWORD_RESET_TTL_MINUTES: Number(process.env.PASSWORD_RESET_TTL_MINUTES ?? 60),
+  // B9 — quien se registra solo confirma su correo antes de iniciar sesión. Por defecto se exige cuando hay
+  // correo saliente configurado (sin SMTP nadie podría recibir el enlace). EMAIL_VERIFICACION=false lo apaga.
+  EMAIL_VERIFICACION: parseBool(process.env.EMAIL_VERIFICACION, Boolean(process.env.SMTP_HOST)),
+  EMAIL_VERIFICACION_TTL_HORAS: Number(process.env.EMAIL_VERIFICACION_TTL_HORAS ?? 48),
+  // D4 — segundos que requireUser reutiliza el usuario y sus membresías (lib/cache-sesion.ts). 0 la apaga.
+  AUTH_CACHE_SEGUNDOS: Number(process.env.AUTH_CACHE_SEGUNDOS ?? (process.env.NODE_ENV === "production" ? 15 : 0)),
   // L4 — notificaciones push por Expo. Apagadas salvo que se activen.
   PUSH_ENABLED: parseBool(process.env.PUSH_ENABLED, false),
   // L13 — días que pasan entre que un administrador borra una cuenta y su anonimización.

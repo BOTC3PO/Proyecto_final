@@ -12,6 +12,7 @@ import {
   type EventoCalendario, type TipoEventoAula,
   type TipoEventoEscuela,
 } from "../services/calendarioUnificado";
+import { useAvisoError } from "../ui/useAvisoError";
 
 // ── Config visual por tipo ──────────────────────────────────
 
@@ -84,6 +85,7 @@ function eventoEnDia(ev: EventoCalendario, dia: string): boolean {
 
 export default function ProfesorCalendario() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: canEditEscuela = directivo o admin. canEditAula = staff.
@@ -156,7 +158,7 @@ export default function ProfesorCalendario() {
           setForm((f) => ({ ...f, aulaId: misAulas[0].id }));
         }
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id, canEditEscuela]);
 
   const cargarEventos = () => {
@@ -164,7 +166,7 @@ export default function ProfesorCalendario() {
     setLoading(true);
     fetchCalendarioUnificado(desde, hasta)
       .then(setEventos)
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => setLoading(false));
   };
 
@@ -250,7 +252,7 @@ export default function ProfesorCalendario() {
         await eliminarEventoAula(ev.id);
       }
       setEventos((prev) => prev.filter((e) => e.id !== ev.id));
-    } catch { /* ignorar */ }
+    } catch (e) { mostrar(e, t("comun.noSePudoGuardarCambio")); }
   };
 
   // FIX-TEST4-CALENDARIO-EDIT — abrir el modal con los datos del
@@ -298,7 +300,7 @@ export default function ProfesorCalendario() {
       }
       cargarEventos();
       handleCerrarEditar();
-    } catch { /* ignorar */ }
+    } catch (e) { mostrar(e, t("comun.noSePudoGuardarCambio")); }
     finally { setEditGuardando(false); }
   };
 
@@ -306,6 +308,8 @@ export default function ProfesorCalendario() {
     ? eventosPorDia(diaSeleccionado) : [];
 
   return (
+    <>
+      {aviso}
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
           <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.calendario")}</h1>
@@ -698,7 +702,7 @@ export default function ProfesorCalendario() {
                 id="calendario-editar-titulo"
                 className="text-base font-semibold text-[var(--c-text)]"
               >
-                {t("profesorCalendario.editarEvento")} {editando.origen === "escuela" ? t("profesorCalendario.deEscuela") : t("profesorCalendario.delAula")}
+                {editando.origen === "escuela" ? t("profesorCalendario.editarEventoEscuela") : t("profesorCalendario.editarEventoAula")}
               </h3>
               <form onSubmit={handleGuardarEdicion} className="mt-3 space-y-3">
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select
@@ -791,5 +795,6 @@ export default function ProfesorCalendario() {
           </div>
         )}
       </div>
+    </>
   );
 }

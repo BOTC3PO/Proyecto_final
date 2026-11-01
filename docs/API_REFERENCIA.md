@@ -109,14 +109,6 @@ La columna Auth muestra los middlewares detectados; `(router)` = aplicado a nive
 | GET | `/api/config/materias` | ⚠️ — |  |
 | PATCH | `/api/config/materias` | ⚠️ — |  |
 
-## consignas
-
-| Método | Path | Auth | Policy |
-|--------|------|------|--------|
-| GET | `/api/consignas/${subject}` | ⚠️ — |  |
-| GET | `/api/consignas/${subject}/:tema` | ⚠️ — |  |
-| GET | `/api/consignas/${subject}/:tema/v2` | ⚠️ — |  |
-
 ## diccionarios
 
 | Método | Path | Auth | Policy |
@@ -196,17 +188,6 @@ La columna Auth muestra los middlewares detectados; `(router)` = aplicado a nive
 | GET | `/api/escuelas/:id` | ⚠️ — |  |
 | PATCH | `/api/escuelas/:id` | requireUser |  |
 | GET | `/api/escuelas/code/:code` | ⚠️ — |  |
-
-## generadores-admin
-
-| Método | Path | Auth | Policy |
-|--------|------|------|--------|
-| GET | `/api/admin/generadores` | requireAdmin |  |
-| GET | `/api/admin/generadores/:subject` | requireAdmin |  |
-| DELETE | `/api/admin/generadores/:subject/:tema` | requireAdmin |  |
-| GET | `/api/admin/generadores/:subject/:tema` | requireAdmin |  |
-| PUT | `/api/admin/generadores/:subject/:tema` | requireAdmin |  |
-| PATCH | `/api/admin/generadores/:subject/:tema/status` | requireAdmin |  |
 
 ## generators
 

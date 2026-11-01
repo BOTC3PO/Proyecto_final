@@ -33,14 +33,11 @@ const PREFIJOS = new Map<unknown, string>([
   [provinciasRouter, "/api/maps/provincias"],
 ]);
 
-const TEMAS = ["economia", "quimica", "matematicas", "fisica", "geografia", "historia", "lengua_espanola", "lengua_inglesa"];
 
 /** Rutas que se sirven sin sesión, a propósito. */
 const PUBLICAS = new Set<string>([
   // Estado del servicio (Nginx y el monitoreo lo consultan).
   "GET /health",
-  // Catálogo de consignas educativas.
-  ...TEMAS.flatMap((t) => [`GET /api/consignas/${t}`, `GET /api/consignas/${t}/:tema`, `GET /api/consignas/${t}/:tema/v2`]),
   // Catálogo de generadores de ejercicios.
   "GET /api/generators",
   "GET /api/generators/:category/:name/docs",
@@ -52,6 +49,8 @@ const PUBLICAS = new Set<string>([
   "POST /api/auth/refresh",
   "POST /api/auth/forgot-password",
   "POST /api/auth/reset-password",
+  "POST /api/auth/verificar-email",
+  "POST /api/auth/reenviar-verificacion",
   "POST /api/auth/2fa/login",
   "POST /api/auth/login",
   "GET /api/registro/opciones",
@@ -136,3 +135,24 @@ test("C1: lo que toca datos de personas y dinero siempre exige sesión", () => {
   const abiertas = rutas.filter((r) => !r.protegida && sensibles.test(r.ruta)).map((r) => `${r.metodo} ${r.ruta}`);
   assert.deepEqual(abiertas, [], `rutas sensibles sin sesión:\n${abiertas.join("\n")}`);
 });
+
+// 2026-11-01 — los webhooks de pago están después del requireUser global pero no traen sesión: los dejaba
+// pasar una excepción que no existía, y respondían 401 sin mirar la firma.
+test("C1: los webhooks de pago llegan a su handler sin sesión (la firma la valida el handler)", async () => {
+  const srv = app.listen(0);
+  try {
+    const port = (srv.address() as { port: number }).port;
+    for (const ruta of ["/api/pasarelas/webhook/mercadopago", "/api/payments/webhook"]) {
+      const r = await fetch(`http://127.0.0.1:${port}${ruta}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: "{}"
+      });
+      const cuerpo = (await r.json().catch(() => ({}))) as { error?: string };
+      assert.notEqual(cuerpo.error, "Missing authentication", `${ruta} quedó detrás de la sesión`);
+    }
+  } finally {
+    await new Promise<void>((resolve) => srv.close(() => resolve()));
+  }
+});
+

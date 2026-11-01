@@ -15,6 +15,7 @@ import {
   updateClassroom,
   type ClassroomProgressSnapshot
 } from "../services/aulas";
+import { useAvisoError } from "../ui/useAvisoError";
 
 const formatAccessKey = (accessType: Classroom["accessType"]) => (accessType === "publica" ? "comun.publica" : "comun.privada");
 const formatPercent = (value: number) => `${Math.round(value)}%`;
@@ -30,6 +31,7 @@ const emptyForm = {
 
 export default function ProfesorAulas() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: leer cada rol por helper centralizado. Un USER
@@ -115,7 +117,7 @@ export default function ProfesorAulas() {
           setForm((f) => ({ ...f, institutionId: items[0].id }));
         }
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, []);
 
   // PLAN-A §1 — la escuela efectiva del aula a crear: la elegida en el
@@ -335,6 +337,8 @@ export default function ProfesorAulas() {
       );
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -634,6 +638,7 @@ export default function ProfesorAulas() {
            )}
          </section>
        </div>
+    </>
    );
 }
 

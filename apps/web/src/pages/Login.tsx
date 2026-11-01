@@ -103,10 +103,24 @@ export default function Login() {
       completarLogin(payload);
     } catch (error) {
       const message = error instanceof Error ? error.message : t("login.errorGenerico");
+      setSinConfirmar((error as { payload?: { code?: string } })?.payload?.code === "EMAIL_NO_VERIFICADO");
+      setReenviado(false);
       setStatus({ loading: false, error: message });
       return;
     }
     setStatus({ loading: false, error: null });
+  };
+
+  // B9 — cuenta registrada que todavía no confirmó el correo: se puede pedir el enlace de nuevo.
+  const [sinConfirmar, setSinConfirmar] = useState(false);
+  const [reenviado, setReenviado] = useState(false);
+  const reenviarVerificacion = async () => {
+    try {
+      await apiPost("/api/auth/reenviar-verificacion", { identifier: form.user });
+      setReenviado(true);
+    } catch (error) {
+      setStatus({ loading: false, error: error instanceof Error ? error.message : t("login.errorGenerico") });
+    }
   };
 
   const completarLogin = (payload: RespuestaLogin) => {
@@ -164,6 +178,11 @@ export default function Login() {
                 </form>
               ) : (
               <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                {searchParams.get("verificar") === "1" && !status.error && (
+                  <p role="status" className="rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-sm text-blue-800">
+                    {t("login.verificarCorreoEnviado")}
+                  </p>
+                )}
                 {/* Usuario */}
                 <div className="space-y-1.5">
                   <label htmlFor="user" className="block text-sm font-medium text-gray-700">
@@ -224,6 +243,15 @@ export default function Login() {
                 {status.error && (
                   <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
                     {status.error}
+                    {sinConfirmar && (
+                      reenviado ? (
+                        <p className="mt-1 text-green-700">{t("login.verificacionReenviada")}</p>
+                      ) : (
+                        <button type="button" onClick={() => void reenviarVerificacion()} className="mt-1 block font-semibold text-blue-700 underline">
+                          {t("login.reenviarVerificacion")}
+                        </button>
+                      )
+                    )}
                   </div>
                 )}
 

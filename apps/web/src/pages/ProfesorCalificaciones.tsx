@@ -6,6 +6,7 @@ import type { Classroom } from "../domain/classroom/classroom.types";
 import { getAulaId } from "../lib/aula-id";
 import CorreccionesPendientes from "../components/profesor/CorreccionesPendientes";
 import { useI18n } from "../i18n/I18nContext";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type EstadisticaPregunta = { clave: string; etiqueta: string; respondidas: number; correctas: number; porcentajeAcierto: number };
 
@@ -69,6 +70,7 @@ type QuizAttemptResult = {
 
 export default function ProfesorCalificaciones() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -89,7 +91,7 @@ export default function ProfesorCalificaciones() {
         setAulas(misAulas);
         if (misAulas[0]) setAulaId(getAulaId(misAulas[0]));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id]);
 
   useEffect(() => {
@@ -143,6 +145,8 @@ export default function ProfesorCalificaciones() {
   );
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
           <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("profesorCalificaciones.calificaciones")}</h1>
@@ -271,5 +275,6 @@ export default function ProfesorCalificaciones() {
           </div>
         </section>
       </div>
+    </>
   );
 }

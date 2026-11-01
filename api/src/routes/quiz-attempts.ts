@@ -2386,8 +2386,10 @@ async function materializeSubmit(
       const status = hasPendingManual ? "pending_review" : "submitted";
 
       const updatedAt = new Date();
-      await prisma.quizAttempt.updateMany({
-        where: { id: idParam },
+      // H17 — se reclama el intento con una condición: si llegan dos envíos a la vez, solo el primero que escribe
+      // lo corrige; el otro recibe lo ya guardado, igual que un reenvío (antes ganaba el último y pisaba la nota).
+      const reclamo = await prisma.quizAttempt.updateMany({
+        where: { id: idParam, submittedAt: null },
         data: {
           answers: JSON.stringify(payload.answers),
           feedback: JSON.stringify(feedback),
@@ -2398,6 +2400,10 @@ async function materializeSubmit(
           submittedAt: updatedAt.toISOString()
         }
       });
+      if (reclamo.count !== 1) {
+        const guardado = (await prisma.quizAttempt.findFirst({ where: { id: idParam } })) as QuizAttemptRecord | null;
+        return { status: 200, body: guardado ? buildAlreadySubmittedBody(guardado) : { alreadySubmitted: true } };
+      }
 
       // Monedas por completar un cuestionario POR PRIMERA VEZ (mismo
       // alumno + mismo quiz). Sólo en el submit inmediato (sin ítems

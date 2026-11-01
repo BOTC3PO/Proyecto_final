@@ -134,6 +134,12 @@ export function resetPrisma(): InMemoryPrisma {
   prisma.economiaConfig.rows = [];
   prisma.comisionConfig.rows = [];
   prisma.passwordResetToken.rows = [];
+  prisma.emailVerificacion.rows = [];
+  prisma.generatorConfig.rows = [];
+  prisma.generatorChangelog.rows = [];
+  prisma.generadorAdmin.rows = [];
+  prisma.enterpriseContrato.rows = [];
+  prisma.enterpriseBillingCycle.rows = [];
   prisma.saldoUsuario.rows = [];
   prisma.ledgerMovimiento.rows = [];
   prisma.pushToken.rows = [];

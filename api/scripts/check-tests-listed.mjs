@@ -10,15 +10,7 @@ import { join, relative } from "node:path";
 const raiz = new URL("..", import.meta.url).pathname;
 
 // Pruebas que NO corren y por qué. Sacarlas de acá cuando se porten o se borren.
-const EXCLUIDOS = {
-  "tests/integracion/auth-forgot-password.test.ts": "Heredada de MongoDB (importa `mongodb`, ya no es dependencia): portar a Prisma al resolver E1.",
-  "tests/integracion/classroom-scope-cross-school.test.ts": "Heredada de MongoDB: portar a Prisma o borrar.",
-  "tests/integracion/governance-authz.test.ts": "Heredada de MongoDB: portar a Prisma o borrar.",
-  "tests/integracion/moderacion-nonadmin.test.ts": "Heredada de MongoDB: portar a Prisma (hoy lo cubre moderacion-alcance-escuela) o borrar.",
-  "tests/integracion/modulos-auth-readonly.test.ts": "Heredada de MongoDB: portar a Prisma o borrar.",
-  "tests/integracion/seed-auth.test.ts": "Heredada de MongoDB: portar a Prisma o borrar.",
-  "tests/integracion/libros-copy-on-write.test.ts": "El archivo está truncado (termina a mitad de una prueba): recuperarlo del historial o rehacerlo.",
-};
+const EXCLUIDOS = {};
 
 const paquete = JSON.parse(readFileSync(join(raiz, "package.json"), "utf8"));
 const listados = new Set(paquete.scripts.test.split(/\s+/).filter((t) => t.endsWith(".test.ts")));

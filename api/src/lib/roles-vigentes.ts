@@ -11,6 +11,7 @@
  * o una membresía surte efecto en el pedido siguiente, y un rol nuevo se obtiene al renovar la sesión.
  */
 import { prisma } from "./prisma";
+import { conCache } from "./cache-sesion";
 import { getCanonicalMembershipRole, getUserRoleFromMembership } from "./membership-roles";
 import { resolveRoles } from "./roles";
 
@@ -21,19 +22,36 @@ export type RolesVigentes = {
   roles: string[];
   role: string | undefined;
   schoolId: string | null;
+  /** Tuvo membresías y se las revocaron todas: no hay escuela de sesión (ni la guardada en el usuario). */
+  sinEscuela?: boolean;
 };
 
 export async function rolesVigentes(reclamos: Reclamos, usuario: UsuarioDb, usuarioId: string): Promise<RolesVigentes> {
   const propios = resolveRoles(usuario);
-  const membresias = await prisma.membresia.findMany({ where: { usuarioId, estado: "activa" } });
+  const membresias = await conCache(`membresias:${usuarioId}`, () =>
+    prisma.membresia.findMany({ where: { usuarioId, estado: "activa" } })
+  );
 
   let permitidos: string[];
   let schoolId: string | null;
+  let sinEscuela = false;
 
   if (membresias.length === 0) {
-    // Sin membresías (admin de plataforma, invitado, filas anteriores al backfill): valen los roles del usuario.
-    permitidos = propios;
-    schoolId = reclamos.schoolId ?? null;
+    // Sin membresías activas. Si nunca tuvo ninguna (admin de plataforma, invitado, alumno independiente, filas
+    // anteriores al backfill), valen los roles del usuario. Si las tuvo y se las revocaron todas, se pierden los
+    // roles de escuela: antes se volvía a los del usuario y un directivo dado de baja seguía cobrando (H17).
+    const alguna = await conCache(`tuvo-membresia:${usuarioId}`, () =>
+      prisma.membresia.findFirst({ where: { usuarioId }, select: { usuarioId: true } })
+    );
+    if (!alguna) {
+      permitidos = propios;
+      schoolId = reclamos.schoolId ?? null;
+    } else {
+      // Queda como alumno independiente si lo era, más los roles que no son de escuela (ADMIN).
+      permitidos = propios.filter((r) => r === "USER" || getCanonicalMembershipRole(r) === null);
+      schoolId = null;
+      sinEscuela = true;
+    }
   } else {
     const escuelas = new Set(membresias.map((m) => m.escuelaId));
     const pedida = reclamos.schoolId ?? null;
@@ -58,5 +76,5 @@ export async function rolesVigentes(reclamos: Reclamos, usuario: UsuarioDb, usua
   // conservar uno que la base ya no le da. Los roles nuevos llegan al renovar la sesión.
   const roles = delToken.filter((r) => permitidos.includes(r));
   const role = reclamos.role && roles.includes(reclamos.role) ? reclamos.role : roles[0];
-  return { roles, role, schoolId };
+  return { roles, role, schoolId, sinEscuela };
 }

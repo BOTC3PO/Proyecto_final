@@ -104,6 +104,8 @@ usuarios.post("/api/usuarios", requireUser, requirePolicy("usuarios/create"), as
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
         passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
+        // La alta la hace la escuela o el administrador: no hace falta confirmar el correo (B9).
+        emailVerificadoAt: now,
         createdAt: now,
         updatedAt: now,
         ...consentsData
