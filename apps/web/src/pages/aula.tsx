@@ -22,6 +22,7 @@ import AsignarModulosModal from "../components/profesor/AsignarModulosModal";
 import MatrizProgreso from "../components/profesor/MatrizProgreso";
 import { useI18n } from "../i18n/I18nContext";
 import { useAvisoError } from "../ui/useAvisoError";
+import ReventaTickets from "../components/aula/ReventaTickets";
 
 type ProgressItem = {
   moduloId: string;
@@ -1162,6 +1163,9 @@ export default function Aula() {
                 })}
               </div>
             )}
+
+            {/* J8 — reventa de tickets de examen entre alumnos (se oculta si no hay nada para mostrar). */}
+            {classroomId && <ReventaTickets aulaId={classroomId} className={cardCls} />}
           </aside>
         </div>
       </div>
