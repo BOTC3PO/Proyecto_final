@@ -5,46 +5,40 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores en la comparación con el español y daba poca estrategia concreta.
 
 ---
 
 ## Introducción
-La comprensión auditiva a nivel A2 del Marco Común Europeo de Referencia para las Lenguas (MCER) se enfoca en entender diálogos cortos y sencillos que abordan situaciones diarias, como pedir algo en un café, preguntar por el camino o comentar sobre actividades cotidianas. Este nivel implica reconocer palabras clave, frases básicas y estructuras simples en contextos predecibles, lo cual es fundamental para interactuar en entornos reales y desarrollar confianza al escuchar en inglés.
+En A2 se espera entender **diálogos cortos y claros** sobre temas cotidianos: compras, direcciones, horarios, comida, familia, el tiempo. No hace falta entender cada palabra: alcanza con captar la **información clave**.
 
-## Explicación central con ejemplos
-En este nivel, los aprendices deben identificar información explícita en diálogos breves, donde las frases suelen ser directas y de uso frecuente. Por ejemplo:
+## Explicación central
+### Qué escuchar
+- **Números, precios y horas**: *It's **£4.50**. The train leaves at **quarter past nine** (9:15).*
+- **Lugares y direcciones**: *Go straight on, turn **left**, it's **next to** the bank, **opposite** the park.*
+- **Días y fechas**: *on **Tuesday**, the **13th** of May*.
+- **Pedidos y ofertas**: *Can I have…? Would you like…? Here you are.*
 
-**Diálogo 1 (en un café):**
-A: *Excuse me, do you have any sugar?*
-B: *Yes, here you are.*
-A: *Thank you.*
+### Estrategias
+1. **Leé las preguntas antes** de escuchar: así sabés qué buscar.
+2. **Predecí**: si la pregunta es «¿a qué hora…?», vas a escuchar un número.
+3. **Palabras clave**: sustantivos y números llevan el significado; las palabras chicas (*a, the, of*) se pronuncian débiles.
+4. **Cuidado con los distractores**: a menudo se menciona una opción y después se corrige: *The meeting is on Monday… no, sorry, on **Tuesday***.
 
-**Diálogo 2 (preguntando por el camino):**
-C: *I’m sorry, can you tell me where the post office is?*
-D: *Sure. Go straight and turn left at the traffic lights.*
-
-Estos ejemplos usan estructuras como preguntas yes/no (*Do you...?*), imperativos simples (*Go straight*) y frases cortas con verbos regulares (*have, tell*). La pronunciación clara y el ritmo lento de estos diálogos facilitan la comprensión.
+### Sonidos que confunden
+- *thirteen* (13) / *thirty* (30): en 13 se acentúa la segunda sílaba (*thir**teen***), en 30 la primera (***thir**ty*).
+- Contracciones: *I'm, it's, don't, can't* — *can* suele sonar /kən/, *can't* /kɑːnt/ o /kænt/ con la t poco audible: fijate en la vocal.
+- Horas: *half past seven* = 7:30; *quarter to eight* = 7:45.
 
 ## Errores comunes de hispanohablantes
-Los hablantes nativos de español suelen tener dificultades al:
-1. **Identificar contracciones:** Por ejemplo, confundir *don’t* (*no*) con *do not*, o no reconocer *it’s* como *it is*.
-2. **Entender frases con preposiciones:** En inglés, es común usar *at the* (*en el*) o *in the* (*dentro del*), mientras que en español se usan menos preposiciones en contextos similares.
-3. **Malinterpretar intonación:** La entonación ascendente al final de una pregunta (como en *Where are you?*) puede confundirse con una afirmación si no se escucha cuidadosamente.
+1. Querer entender todo y perder el hilo.
+2. Confundir *-teen* y *-ty*.
+3. No reconocer *half past* / *quarter to*.
 
 ## Comparación con el español
-El español y el inglés comparten algunas palabras, pero su estructura auditiva difiere:
-- **Orden de las frases:** En inglés, los adjetivos siguen al sustantivo (*a red apple*), mientras que en español van antes (*una manzana roja*).
-- **Uso del infinitivo:** En inglés, los verbos se usan en forma base en instrucciones (*Turn left*), mientras que en español se suele usar el imperativo o la tercera persona (*Gira a la izquierda*).
-- **Preguntas:** En inglés, las preguntas suelen comenzar con un verbo auxiliar (*Do you...?*), mientras que en español se invierte el orden (*¿Tienes...?*).
+El inglés es una lengua de **ritmo acentual**: las palabras importantes se pronuncian fuertes y las demás se «comen». El español pronuncia todas las sílabas con duración parecida, por eso al principio el inglés parece rápido.
 
 ## Ejemplo extendido en contexto
-**Escena: Un turista pide información en una tienda de recuerdos.**
-Tourist: *Hello, I’m looking for a postcard. Do you have any with the Eiffel Tower?*
-Shop assistant: *Of course! Here are some. Would you like one?*
-Tourist: *Yes, please. How much is it?*
-Shop assistant: *It’s two euros.*
-Tourist: *Thank you. I’ll take it.*
-
-Este diálogo incluye preguntas sobre disponibilidad (*Do you have...?*), precios (*How much is it?*) y frases de cortesía (*Thank you, I’ll take it*). La comprensión requiere identificar palabras clave como *postcard*, *Eiffel Tower* y *two euros*, así como reconocer estructuras simples en un contexto visual (ver la tienda y los carteles).
-
-La práctica con diálogos similares ayuda a los estudiantes a desarrollar habilidades auditivas que les permitan interactuar eficazmente en situaciones reales.
+*Audio: «Excuse me, is there a chemist near here? — Yes, go straight on and take the second street on the left. It's opposite the supermarket. — Thanks! Is it open now? — Yes, until half past eight.»*
+**Claves:** *chemist* (farmacia), *second on the left*, *opposite the supermarket*, *until 8:30*.

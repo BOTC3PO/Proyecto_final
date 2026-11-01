@@ -12,8 +12,6 @@
 
 Las pruebas de usabilidad son una herramienta clave del diseño para medir si un producto o servicio funciona como se espera desde la perspectiva de quien lo usa. El objetivo principal es **observar** a usuarios reales mientras realizan tareas específicas con el diseño, sin intervenir ni guiarlos en exceso. Esta observación directa permite detectar problemas que no siempre emergen en discusiones teóricas o encuestas: errores de flujo, confusión en la navegación, barreras para completar acciones clave, o incluso frustraciones no expresadas verbalmente.
 
-<!-- IMAGEN: Escena de una prueba de usuario con un participante usando una app mientras un moderador toma notas y otro observa desde atrás -->
-
 ---
 
 ## 2. El rol del moderador

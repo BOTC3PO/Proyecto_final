@@ -1,0 +1,87 @@
+{
+ "titulo": "Poder y medios según la teoría crítica",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Cómo se relacionan poder y medios",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Grupos con poder económico y político",
+     "x": 0,
+     "y": 0,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n2",
+     "label": "Dueños y anunciantes financian los medios",
+     "x": 212,
+     "y": 0,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n3",
+     "label": "Agenda: qué se muestra y qué se oculta",
+     "x": 424,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Encuadre: quiénes son héroes, villanos y qué es «normal»",
+     "x": 424,
+     "y": 126,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n5",
+     "label": "Hegemonía: esas ideas parecen sentido común",
+     "x": 212,
+     "y": 126,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n6",
+     "label": "Audiencias: aceptan, negocian o rechazan el mensaje",
+     "x": 0,
+     "y": 126,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n6",
+     "toId": "n1",
+     "label": "pueden resistir"
+    }
+   ]
+  }
+ ]
+}

@@ -30,14 +30,18 @@ def extraer_imagenes(texto):
     return re.sub(r"\n{3,}", "\n\n", IMG.sub(sacar, texto)), items
 
 def herramientas_de(d):
-    """Diagramas interactivos: `herramientas/*.json` con un BlockDocument ({version:1, blocks:[...]}) y `titulo`."""
+    """Diagramas interactivos: `herramientas/*.json` con un BlockDocument ({version:1, blocks:[...]}) y `titulo`.
+    Si el JSON trae `standalone` (p. ej. {"tool": "mapa", ...}) es una «Herramienta standalone» (mapa, línea de tiempo)."""
     out = []
     for f in sorted((d / "herramientas").glob("*.json")) if (d / "herramientas").is_dir() else []:
         j = json.loads(f.read_text(encoding="utf-8"))
-        out.append({"title": j.get("titulo", f.stem), "doc": {"version": 1, "blocks": j["blocks"]}})
+        if "standalone" in j:
+            out.append({"title": j.get("titulo", f.stem), "standalone": j["standalone"]})
+        else:
+            out.append({"title": j.get("titulo", f.stem), "doc": {"version": 1, "blocks": j["blocks"]}})
     return out
 
-def limpiar_teoria(t):
+def limpiar_teoria(t, base=None):
     # La app muestra la teoría como texto plano: los comentarios HTML (placeholders de imagen, notas) se verían crudos.
     t = re.sub(r"[ \t]*<!--.*?-->\.?", "", t, flags=re.S)
     L = t.split("\n"); i = 0
@@ -57,12 +61,23 @@ def limpiar_teoria(t):
             else: continue
         out.append(l)
     txt = "\n".join(out)
+    # Plantilla de autoría: "## N. Conexión con lo que sigue" (la N es un número a completar): sin la "N.".
+    txt = re.sub(r"^(#{2,4})\s+N\.\s+", r"\1 ", txt, flags=re.M)
+    def rp(m):
+        ruta = m.group(1)
+        if ruta.endswith(".md") and not ruta.endswith("teoria.md"): return m.group(0)   # dependencias.md, fichas: nota interna
+        if base is not None:
+            dest = ruta.rsplit("/", 1)[0] + "/" if ruta.endswith(".md") else ruta
+            if (base / dest).resolve().is_dir() and (base / dest / "teoria.md").resolve().exists():
+                return "«" + titulo_de(base, dest) + "»"
+        seg = [x for x in ruta.split("/") if x and x not in (".", "..") and not x.endswith(".md")]
+        return "«" + (seg[-1].replace("-", " ") if seg else "tema") + "»"
+    # Los enlaces entre temas se pasan a texto ANTES de filtrar notas internas: si no, el filtro (que busca
+    # `teoria.md`) descartaba párrafos enteros de contenido sólo por tener un «ver `../mcd/teoria.md`».
+    txt = re.sub(r"\[([^\]]+)\]\((?:\.\./|\./)(?:[^)\s]*/)?(?:teoria\.md)?(?:#[^)\s]*)?\)", r"\1", txt)
+    txt = re.sub(r"`((?:\.\./|\./)[^`]*)`", rp, txt)
     INT = re.compile(r"_plan-faltantes|_borradores|troncos\.md|dependencias\.md|PROCEDIMIENTO|lista-temas-plana|\bMAPA\b|\bDSL\b|VBLang|Borrador de partida|propuesto en|ficha-de-bloque|cuestionario\.md|teoria\.md")
     txt = "\n\n".join(p for p in re.split(r"\n\s*\n", txt) if not INT.search(p))
-    def rp(m):
-        seg = [x for x in m.group(1).split("/") if x and x not in (".", "..") and not x.endswith(".md")]
-        return "«" + (seg[-1].replace("-", " ") if seg else "tema") + "»"
-    txt = re.sub(r"`((?:\.\./|\./)[^`]*)`", rp, txt)
     head = re.sub(r"\s*\((teor[ií]a|cuestionario)[^)]*\)\s*$", "", head)
     return head, txt.strip()
 
@@ -144,7 +159,7 @@ def main():
         for (mm, rel) in sorted(x for x in existentes if x[0] == m):
             d = MAT / m / rel
             teo = d / "teoria.md"; cu = d / "cuestionario.md"
-            titulo, texto = (limpiar_teoria(teo.read_text(encoding="utf-8")) if teo.exists() else (rel.split("/")[-1], ""))
+            titulo, texto = (limpiar_teoria(teo.read_text(encoding="utf-8"), d) if teo.exists() else (rel.split("/")[-1], ""))
             texto, herr = extraer_imagenes(texto); herr += herramientas_de(d)
             titulo = re.sub(r"^.*? — ", "", titulo) if " — " in titulo else titulo
             preguntas = []; nivel = None

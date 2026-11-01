@@ -1,6 +1,8 @@
 # Estilo Formal con el Formato -aru en Japonés (Nivel N2)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/estilo-formal-de-aru`. Ver `../dependencias.md`.
+>
+> Reescrito el 2026-10-26: la versión anterior confundía «-aru» con la forma potencial (行ける, ことができる) y tenía traducciones y lecturas inventadas. El cuestionario ya trataba ある / あります / ございます y quedó igual.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
@@ -9,55 +11,60 @@
 ---
 
 ## Introducción
-El estilo formal en japonés es fundamental para comunicarse de manera respetuosa y adecuada en contextos sociales, laborales o académicos. En este nivel (N2), se introduce la conjugación **-aru** como parte de expresiones que indican **posibilidad**, **capacidad** o **potencialidad**. Este formato no solo es útil para describir acciones posibles, sino también para construir frases formales y precisas en contextos donde la cortesía es clave.
+El verbo **ある** (*aru*) significa «haber» o «estar» para cosas y lugares: objetos, plantas, eventos. Para personas y animales se usa **いる** (*iru*). Cada uno tiene una forma cortés y, en situaciones de mucha formalidad (atención al cliente, anuncios, cartas), una forma **muy formal**. En el nivel N2 hay que reconocerlas y usarlas bien.
 
 ---
 
 ## Explicación Central
-El formato **-aru** se usa principalmente con verbos para expresar **posibilidad**, **capacidad** o **permiso**. Por ejemplo:
 
-- **行く (iku)** → **行ける (ikeru)**: "Puedo ir" o "Es posible que vaya".
-  - Ejemplo formal: 「彼は今週中に日本へ行くことができます。」(Kare wa konshūchū ni Nihon e iku koto ga dekimasu.) → "Él puede ir a Japón durante esta semana."
+### ある: cosas y eventos
 
-- **飲む (nomu)** → **飲める (nomeru)**: "Es posible beber" o "Puedo beber".
-  - Ejemplo formal: 「この薬は午前中だけ飲めます。」(Kono kusuri wa gozenchū dake nomemasu.) → "Este medicamento solo se puede tomar por la mañana."
+| Nivel | Afirmativo | Negativo | Pasado |
+|---|---|---|---|
+| Neutro (amigos) | ある | ない | あった |
+| Cortés | あります | ありません | ありました |
+| Muy formal | ございます | ございません | ございました |
 
-La conjugación **-aru** también aparece en formas como **～ことができる (koto ga dekiru)**, que son esenciales para expresar habilidades o permisos formales. Por ejemplo:
-- 「彼は日本語を話すことができます。」(Kare wa Nihongo o hanasu koto ga dekimasu.) → "Él puede hablar japonés."
+- 「机の上に鉛筆があります。」(*Tsukue no ue ni enpitsu ga arimasu.*) → «Sobre el escritorio hay un lápiz».
+- 「三時に会議がございます。」(*Sanji ni kaigi ga gozaimasu.*) → «A las tres hay una reunión» (dicho con máxima cortesía).
+- 「ただいま満席でございます。」(*Tadaima manseki de gozaimasu.*) → «En este momento está todo ocupado».
+
+**でございます** es la versión muy formal de **です**: 「こちらがメニューでございます。」 → «Aquí tiene el menú».
+
+### いる: personas y animales
+
+| Nivel | Forma | Uso |
+|---|---|---|
+| Cortés | います | uso general |
+| Humilde | おります | para uno mismo o el propio grupo: 「私は事務所におります。」 → «Estoy en la oficina» |
+| Honorífico | いらっしゃいます | para una persona a la que se respeta: 「社長はいらっしゃいますか。」 → «¿Está el director?» |
+
+**ございます no reemplaza a います para personas**: para hablar de gente se usan おります o いらっしゃいます.
 
 ---
 
 ## Errores Comunes de Hispanohablantes
-1. **Confusión con el subjuntivo en español**: A veces, los hablantes hispanos intentan usar **-aru** como equivalente al subjuntivo, pero no es así. Por ejemplo:
-   - ❌ 「彼が来ると信じます。」(Kare ga kuru to shinjimasu.) → Incorrecto (equivale a "Creo que vendrá" en español).
-   - ✅ 「彼が来るかもしれません。」(Kare ga kurumashite imasu.) → "Tal vez venga." (Usa **-masu** para la posibilidad, no **-aru** directamente).
-
-2. **Uso incorrecto de **～ことができる**:
-   - ❌ 「彼は日本語を話すできます。」(Kare wa Nihongo o hanasu dekimasu.) → Error: Falta el **～こと**.
-   - ✅ 「彼は日本語を話すことができます。」(Kare wa Nihongo o hanasu koto ga dekimasu.)
+1. **Usar ある para personas**: ❌ 「部屋に先生があります。」 ✅ 「部屋に先生がいます。」 (o いらっしゃいます).
+2. **Usar ございます para personas**: ❌ 「田中さんがございます。」 ✅ 「田中さんがいらっしゃいます。」
+3. **Elevarse a uno mismo**: ❌ 「私は会社にいらっしゃいます。」 ✅ 「私は会社におります。」 El honorífico es para los demás; para uno mismo va el humilde.
+4. **Mezclar niveles**: en una misma conversación formal conviene no saltar de ございます a ある.
 
 ---
 
 ## Comparación con el Español
-En español, la posibilidad se expresa con modales como **poder**, **deber** o **tener que**, y con estructuras como **"es posible que..."**. En japonés, sin embargo, **-aru** actúa como una forma gramatical independiente:
-
-- **Es posible que venga**: 「彼が来るかもしれません。」(Kare ga kurumashite imasu.)
-  - Aquí, **-masu** indica posibilidad, no **-aru** directamente.
-
-- **Puedo ir**: 「行くことができます。」(Iku koto ga dekimasu.)
-  - La estructura **～ことができる** es clave para expresar capacidad, similar a **"poder"** en español, pero con una construcción diferente.
+En español la cortesía se marca sobre todo con **usted**, con el condicional («¿podría…?») y con fórmulas («disculpe», «le informo»). En japonés, en cambio, cambia **el verbo mismo**: ある → あります → ございます. Algo parecido pasa con «haber» y «estar»: el español usa la misma palabra para personas y cosas («hay un libro», «hay un profesor»), y el japonés las separa (ある / いる).
 
 ---
 
 ## Ejemplo Extendido en Contexto
-**Escenario:** Un empleado se disculpa por no poder asistir a una reunión.
+**Escenario:** Un cliente llama a un hotel.
 
-**Diálogo formal:**
-- 同僚: 「明日のミーティングに参加できますか？」(Doukyō: "Ashita no mītingu ni sanka dekimasu ka?") → "¿Puedes asistir a la reunión de mañana?"
-- 社員: 「申し訳ありませんが、別の会議がありますので、参加できません。」(Shain: "Mōshiwake arimasen ga, honya kaiwaku ga arimasu no de, sanka dekimasen.") → "Lamento informarle que tengo otra reunión y no podré asistir."
+- 客: 「すみません、今晩、空いている部屋はありますか。」 → «Disculpe, ¿hay habitaciones libres esta noche?»
+- 受付: 「はい、ダブルのお部屋がございます。」 → «Sí, tenemos una habitación doble».
+- 客: 「田中さんはいらっしゃいますか。」 → «¿Está el señor Tanaka?»
+- 受付: 「田中はただいま外出しております。申し訳ございません。」 → «Tanaka salió en este momento. Le pido disculpas».
 
 **Explicación:**
-- **参加できますか (sanka dekimasu ka?)**: Usa **～ことができる** para preguntar sobre la posibilidad de asistir.
-- **参加できません (sanka dekimasen)**: Negación de la capacidad, usando **～できない** (dekiru → dekinai).
-
-Este ejemplo muestra cómo el uso de **-aru** y sus derivados es esencial en contextos formales para expresar permisos, capacidades o posibilidades con precisión.
+- **ございます**: el empleado habla de algo que el hotel tiene, con máxima cortesía.
+- **いらっしゃいます**: el cliente pregunta por otra persona, con honorífico.
+- **しております / 申し訳ございません**: el empleado habla de su propio compañero (humilde) y se disculpa en forma muy formal.

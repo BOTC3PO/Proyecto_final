@@ -1,50 +1,52 @@
-# Voz pasiva en alemán (B1)
+# La voz pasiva en alemán (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/voz-pasiva`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-La voz pasiva es una construcción gramatical que se usa cuando el sujeto de la acción no se menciona, es desconocido o no importa. En alemán, esta estructura es clave para expresar procesos impersonales, informes técnicos o situaciones donde el receptor de la acción (el objeto) se convierte en el sujeto de la oración. Para niveles B1, dominarla permite comunicarse con mayor precisión al describir eventos sin enfocarse en quién los realizó.
+La **voz pasiva** pone el foco en la acción o en quien la recibe, no en quien la hace: *Das Haus **wird gebaut**.* (La casa está siendo construida / se construye). Es muy frecuente en textos técnicos, instrucciones y noticias.
 
 ## Explicación central
-La voz pasiva en alemán se forma con **"werden"** (el verbo auxiliar) + **participio pasado del verbo principal**, que siempre se escribe como **ge- + raíz del verbo**. Por ejemplo:
+### Vorgangspassiv: *werden* + participio
+| Tiempo | Forma | Ejemplo |
+|---|---|---|
+| Presente | *werden* + part. | *Das Auto **wird repariert**.* |
+| Präteritum | *wurde* + part. | *Das Auto **wurde repariert**.* |
+| Perfekt | *ist* + part. + ***worden*** | *Das Auto **ist repariert worden**.* |
+| Futur | *wird* + part. + *werden* | *Das Auto **wird repariert werden**.* |
 
-- *Das Fenster wird geputzt.* (El ventanal se está limpiando).
-- *Der Brief wird abgeschickt.* (La carta se enviará).
+En el Perfekt se usa ***worden*** (no *geworden*).
 
-Cuando se menciona quién realizó la acción, se usa **"von + dativo"**:
-- *Die Tasse wurde von mir zerbrochen.* (La taza fue rota por mí).
-- *Das Auto ist von einem Unfall beschädigt worden.* (El auto fue dañado en un accidente).
+### Agente
+- ***von*** + dativo para personas o causas: *Das Buch wurde **von** Goethe geschrieben.*
+- ***durch*** + acusativo para medios o procesos: *Die Stadt wurde **durch** ein Erdbeben zerstört.*
+- Muchas veces se omite.
 
-### Ejemplos con verbos regulares e irregulares:
-1. **Regulares**:
-   - *Das Projekt wird geplant.* (El proyecto se está planificando).
-   - *Die Bücher werden gelesen.* (Los libros se leen).
+### De activa a pasiva
+*Der Mechaniker **repariert** das Auto.* → ***Das Auto wird** (vom Mechaniker) **repariert**.*
+El objeto acusativo pasa a sujeto (nominativo).
 
-2. **Irregulares**:
-   - *Der Brief wurde geschrieben.* (La carta fue escrita).
-   - *Das Bild ist gemalt worden.* (La imagen fue pintada).
+### Zustandspassiv: *sein* + participio (estado)
+*Das Fenster **ist geöffnet**.* (está abierta: resultado) vs. *Das Fenster **wird geöffnet**.* (la están abriendo: proceso).
 
-## Errores comunes de hablantes hispanohablantes
-1. **Uso excesivo de la voz pasiva**: En español, se usa con frecuencia para evitar mencionar al sujeto, pero en alemán se prefiere la voz activa o construcciones impersonales (*man sagt...*).
-2. **Olvido del verbo auxiliar "werden"**: Algunos confunden la estructura con el español ("ser + participio") y omiten "werden".
-3. **Participios incorrectos**: Se cometen errores en la conjugación, como *geplannt* (falta de "t") o *geschreibet* (uso de "e" final).
+### Pasiva impersonal
+Sin sujeto, con *es* o con otra palabra en posición 1: *Hier **wird** nicht **geraucht**. Am Sonntag **wird** nicht **gearbeitet**.*
+
+## Errores comunes de hispanohablantes
+1. ❌ *Das Auto ist repariert geworden* ✅ *ist repariert worden*.
+2. ❌ *Das Buch wurde durch Goethe geschrieben* ✅ *von Goethe*.
+3. Confundir *wird* (pasiva) con *ist* (estado).
+4. ❌ *Das Haus wird bauen* ✅ *Das Haus wird gebaut*.
 
 ## Comparación con el español
-En español, la voz pasiva se forma con **ser + participio** y es muy común: *"El libro fue leído"*. En alemán, sin embargo, se prefiere la voz activa si se puede mencionar al sujeto. Además, en alemán el participio pasado lleva siempre **ge-**, mientras que en español no hay este prefijo (*leído* vs. *gelesen*).
+El español forma la pasiva con «ser» (*fue construida*), pero en la práctica prefiere la pasiva refleja («se construyó»). En alemán la pasiva con *werden* es muy frecuente. «Está abierta» (estado) = *ist geöffnet*; «se abre» (acción) = *wird geöffnet*.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-*Anna: "Woher kommt das Geräusch?"* (¿De dónde viene ese ruido?)
-*Marcus: "Das Fenster wurde gestern zerbrochen. Keiner weiß, wer es getan hat."* (La ventana fue rota ayer. Nadie sabe quién lo hizo).
-
-**Explicación**:
-- *wurde zerbrochen*: voz pasiva con verbo irregular (*brechen → zerbrochen*).
-- *wer es getan hat*: se usa la voz activa para mencionar a quien realizó la acción, aunque no esté claro quién fue.
-
-Este ejemplo muestra cómo combinar la voz pasiva con un enunciado en voz activa para dar contexto sin repetir la estructura impersonal.
+*Mit dem Bau des Kölner Doms **wurde** im Jahr 1248 **begonnen**, aber er **wurde** erst 1880 **fertiggestellt**. Er **wird** jedes Jahr **von** Millionen Touristen **besucht**. Im Zweiten Weltkrieg **wurde** er **durch** Bomben **beschädigt**. Heute **wird** er ständig **restauriert**.*

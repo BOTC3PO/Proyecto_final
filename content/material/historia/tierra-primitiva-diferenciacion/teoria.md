@@ -12,7 +12,7 @@
 
 La Tierra primitiva se originó hace unos 4600 millones de años a partir de un proceso llamado **acreción de planetesimales**. En el disco protoplanetario que rodeaba al Sol en formación, partículas de polvo y gas se agruparon bajo la gravedad, formando cuerpos más grandes llamados planetesimales. Estos colisionaban entre sí, fusionándose gradualmente para crear los primeros planetas. En el caso de la Tierra, esta acumulación gravitatoria fue clave: los impactos constantes no solo agregaron masa, sino que también generaron calor, manteniendo la superficie en un estado casi fundido durante sus primeros millones de años.
 
-![Diagrama del disco protoplanetario con planetesimales colisionando y formando cuerpos más grandes](https://upload.wikimedia.org/wikipedia/commons/e/e8/Protoplanetary_disk.jpg)
+![Diagrama del disco protoplanetario con planetesimales colisionando y formando cuerpos más grandes](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Protoplanetary_disk.jpg/960px-Protoplanetary_disk.jpg)
 
 *Imagen: «Protoplanetary disk», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Protoplanetary_disk.jpg).*
 

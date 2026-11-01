@@ -1,58 +1,54 @@
-# Los pronombres posesivos en italiano (A1-A2)
+# Los posesivos en italiano (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/italiano/posesivos`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y comparaciones falsas con el español.
 
 ---
 
 ## Introducción
-Los **pronombres posesivos** en italiano son palabras que indican pertenencia o propiedad de algo a una persona o cosa. Son esenciales para expresar ideas como *"mi libro"* ("mi libro") o *"tu casa"* ("tua casa"), y su uso correcto permite comunicarse claramente en situaciones cotidianas, como describir pertenencias personales, hablar de familiares o referirse a objetos compartidos. En los niveles A1-A2 del Marco Común Europeo de Referencia para las Lenguas (MCER), el dominio de estos pronombres es clave para construir frases simples y comprensibles.
+Los posesivos italianos **concuerdan con la cosa poseída** y, a diferencia del español, **llevan artículo**: ***il mio** libro* (mi libro), ***la tua** casa* (tu casa).
 
-## Explicación central con ejemplos
-Los pronombres posesivos en italiano se forman con un **artículo definido** + **pronombre posesivo**, excepto cuando el sustantivo poseído está antes del pronombre. Por ejemplo:
+## Explicación central
+### Formas
+| | masc. sing. | fem. sing. | masc. pl. | fem. pl. |
+|---|---|---|---|---|
+| io | il mio | la mia | i miei | le mie |
+| tu | il tuo | la tua | i tuoi | le tue |
+| lui/lei/Lei | il suo | la sua | i suoi | le sue |
+| noi | il nostro | la nostra | i nostri | le nostre |
+| voi | il vostro | la vostra | i vostri | le vostre |
+| loro | **il loro** | **la loro** | **i loro** | **le loro** |
 
-- **Mio libro** = *mi libro* ("mi libro") → "Este es mi libro."
-- **Il mio libro** = *el mi libro* ("el mi libro") → "Es el libro mío." (Nota: en italiano, siempre se usa el artículo antes del pronombre posesivo cuando el sustantivo está después.)
+- *Loro* es **invariable**: *il loro cane, le loro case*.
+- *Suo* = de él, de ella o de usted (*Lei*): *il suo libro* (su libro).
 
-Los pronombres básicos son:
-| Propietario | Pronombre posesivo (sin artículo) | Ejemplo completo |
-|-------------|-----------------------------------|------------------|
-| Yo          | **mio/mia/miei/mie**            | *Mio gatto* ("mi gato") |
-| Tú          | **tuo/tua/tuoi/tue**            | *Tua zia* ("tu tía") |
-| Él/Ella/Ello| **suo/sua/suoi/sue**             | *Suo padre* ("su padre") |
-| Nosotros    | **nostro/nostra/nostr*i*/nostr*e*** | *Nostra amica* ("nuestra amiga") |
-| Vosotros    | **vostro/vosta/vostri/vostre**  | *Vostro lavoro* ("su trabajo", formal) |
-| Ellos/Ellas | **loro** (sin variación de género/numero) | *Loro casa* ("su casa") |
+### Familiares
+**Sin artículo** con familiares en **singular** y sin modificar: *mia madre, tuo padre, sua sorella, nostro zio*.
+**Con artículo**:
+- en plural: ***i miei** fratelli*;
+- con *loro*: ***la loro** madre*;
+- con diminutivos o adjetivos: ***la mia** sorellina, **il mio** caro zio*;
+- con *mamma, papà*: ***la mia** mamma* (uso frecuente).
 
-Ejemplos en contexto:
-- *"Questo è il mio computer."* → "Este es mi computadora."
-- *"Hai visto la sua borsa?"* → "¿Viste su bolsa?" (refiriéndose a una tercera persona).
-- *"Le nostre sorelle sono in vacanza."* → "Nuestras hermanas están de vacaciones."
+### Pronombres
+Las mismas formas, sin sustantivo: *Questo libro è **il mio**.* Tras *essere* el artículo suele omitirse: *È **mio**.*
+
+### Expresiones
+*a casa mia* (en mi casa), *a modo mio*, *i miei* (mis padres).
 
 ## Errores comunes de hispanohablantes
-1. **Omisión del artículo definido**: En español, no se usa el artículo antes del pronombre posesivo (*mi libro* vs. *el mi libro* en italiano). Por ejemplo, un error típico es decir *"mio libri"* (incorrecto) en lugar de *"i miei libri"* ("mis libros").
-2. **Confusión entre "suo" y "su"**: En italiano, "suo" se usa para sustantivos masculinos singulares (*suo libro*), mientras que "su" es un pronombre posesivo neutro (*su casa*, "su casa", sin artículo).
-3. **Uso incorrecto de plural**: Los hispanohablantes a menudo olvidan cambiar el pronombre posesivo al plural. Por ejemplo, *"tuo amici"* (incorrecto) debe ser *"i tuoi amici"* ("tus amigos").
+1. ❌ *Mio libro* ✅ *Il mio libro*.
+2. ❌ *La mia madre* ✅ *Mia madre*.
+3. ❌ *I loros libri* ✅ *I loro libri*.
+4. Concordar con el poseedor: *Marco e **la sua** casa* (la casa, femenino), no *il suo*.
 
 ## Comparación con el español
-En español, los pronombres posesivos no llevan artículo definido (*mi libro*), mientras que en italiano sí es obligatorio cuando el sustantivo está después del pronombre (*il mio libro*). Además, en italiano, "suo" y "su" tienen usos distintos:
-- *Suo*: para sustantivos masculinos o femeninos singulares (ej. *suo padre*, *sua madre*).
-- *Su*: para sustantivos neutros o cuando el posesivo se refiere a un grupo indeterminado (*su casa*, *su trabajo*).
-
-Ejemplo comparativo:
-- Español: *"Este es mi coche."* → Italiano: *"Questo è il mio auto."*
-- Español: *"¿Viste su ropa?"* → Italiano: *"Hai visto la sua roba?"*
+En español, «mi, tu, su» van sin artículo y casi no concuerdan (mi casa / mis casas). En italiano se usa artículo, y el posesivo concuerda en género y número con lo poseído. *I miei* también significa «mis viejos» (los padres).
 
 ## Ejemplo extendido en contexto
-**Situación:** Dos amigos, Luca y Marco, hablan sobre sus pertenencias.
-
-**Luca:** "Ciao Marco! Hai visto il mio nuovo zaino?"
-**Marco:** "Sì, l’ho visto! È molto bello. Ma dove è la tua borsa?"
-**Luca:** "La mia borsa? Ah, è in camera mia."
-**Marco:** "Ah, capisco. E le tue scarpe sono qui?"
-**Luca:** "No, sono a casa di mio padre."
-
-En este diálogo, se usan pronombres posesivos con artículo (*il mio*, *la tua*, *mia*, *tue*) y se muestran casos de plural (*le tue scarpe*). La estructura "in camera mia" ("en mi habitación") también ilustra el uso del posesivo sin artículo cuando el sustantivo está antes.
+*Questa è **la mia** famiglia. **Mia** madre è insegnante e **mio** padre lavora in banca. **I miei** fratelli studiano a Bologna. **La loro** casa è piccola, ma **il loro** giardino è bellissimo. E **la tua** famiglia?*

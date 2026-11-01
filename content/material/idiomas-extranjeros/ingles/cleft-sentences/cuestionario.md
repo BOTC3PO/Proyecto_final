@@ -1,478 +1,334 @@
-# Idiomas — Inglés — cleft-sentences (cuestionario)
+# Inglés — cleft sentences (cuestionario, 17 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/cleft-sentences/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/cleft-sentences`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior pedía transformaciones completas difíciles de escribir igual a la respuesta, y varias respuestas eran agramaticales («Who called me was my brother», «How and why he failed was…»).
 
 ---
 
-### 1 — It-cleft emphasis  
+### 1 — It-cleft: persona
+
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "emphasis"]
-pasos:
-  - "Identifica la parte enfatizada en la oración y construye una frase it-cleft."
-tipo: completar
-respuestas_validas:
-  - "It was the book that I lost yesterday."
-  - "it was the book that i lost yesterday."
-enunciado: "The book is what I lost yesterday. → __________."
-explicacion: "La estructura it-cleft se usa para enfatizar un elemento de la oración. En este caso, 'the book' es el núcleo que se resalta mediante 'It was... that...' y el verbo principal ('lost') sigue después del 'that'."
+  tags: ["cleft"]
+
+respuesta: "It was Anna who called the police."
+tipo: "mc"
+opciones_explicitas: ["It was Anna who called the police.", "It was Anna what called the police.", "Who called the police was Anna."]
+
+enunciado: "Destacá que fue *Anna* (y no otra persona) quien llamó: «Anna called the police.»"
+
+explicacion: |
+  *It* + *be* + lo destacado + *who/that*: *It was Anna who called the police*.
 ```
 
----
+### 2 — It-cleft: objeto
 
-### 2 — Wh-cleft transformation  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "transformation"]
-pasos:
-  - "Reescribe la oración en forma de wh-cleft para enfatizar 'why he left'."
-tipo: completar
-respuestas_validas:
-  - "what he did was leave without saying goodbye."
-  - "What he did was Leave without saying goodbye."
-enunciado: "He left without saying goodbye. → __________."
-explicacion: "La estructura wh-cleft se usa para enfatizar una parte de la oración, aquí 'why he left' se transforma en 'what he did was leave...' manteniendo el contexto del verbo principal ('leave') y su complemento ('without saying goodbye')."
-```
-
----
-
-### 3 — It-cleft with time clause  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "time"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'when the meeting started'."
-tipo: completar
-respuestas_validas:
-  - "It was at nine o'clock that the meeting started."
-  - "it was at nine o'clock that the meeting started."
-enunciado: "The meeting started at nine o'clock. → __________."
-explicacion: "La it-cleft enfatiza el tiempo ('at nine o'clock') mediante 'It was... that...' seguido del verbo principal ('started') y su complemento ('the meeting')."
+  tags: ["cleft"]
+
+respuesta: "It was my passport that I lost."
+tipo: "mc"
+opciones_explicitas: ["It was my passport that I lost.", "It was my passport what I lost.", "My passport was it that I lost."]
+
+enunciado: "Destacá el objeto: «I lost my passport.»"
+
+explicacion: |
+  *It was* + objeto + *that* + resto.
 ```
 
----
+### 3 — It-cleft: tiempo
 
-### 4 — Wh-cleft with location  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "location"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'where she went'."
-tipo: completar
-respuestas_validas:
-  - "Where she went was to the supermarket."
-  - "where she went was To the supermarket."
-enunciado: "She went to the supermarket. → __________."
-explicacion: "La wh-cleft enfatiza la ubicación ('to the supermarket') mediante 'Where... was...' seguido del verbo principal ('went') y su complemento ('the supermarket')."
-```
-
----
-
-### 5 — It-cleft with reason  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "reason"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'why she cried'."
-tipo: completar
-respuestas_validas:
-  - "It was because of the news that she cried."
-  - "it was because of the news that she cried."
-enunciado: "She cried because of the news. → __________."
-explicacion: "La it-cleft enfatiza la causa ('because of the news') mediante 'It was... that...' seguido del verbo principal ('cried') y su complemento ('she')."
+  tags: ["cleft"]
+
+respuesta: "It was in 2015 that we met."
+tipo: "mc"
+opciones_explicitas: ["It was in 2015 that we met.", "It was 2015 when that we met.", "In 2015 was that we met."]
+
+enunciado: "Destacá el momento: «We met in 2015.»"
+
+explicacion: |
+  Para tiempo y lugar también se usa *It was … that*.
 ```
 
----
+### 4 — It-cleft: lugar
 
-### 6 — Wh-cleft with manner  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "manner"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'how he solved it'."
-tipo: completar
-respuestas_validas:
-  - "How he solved it was by using logic."
-  - "how he solved it was By using logic."
-enunciado: "He solved it by using logic. → __________."
-explicacion: "La wh-cleft enfatiza la manera ('by using logic') mediante 'How... was...' seguido del verbo principal ('solved') y su complemento ('it')."
-```
-
----
-
-### 7 — It-cleft with object  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "object"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what he bought'."
-tipo: completar
-respuestas_validas:
-  - "It was a new car that he bought."
-  - "it was a new car that he bought."
-enunciado: "He bought a new car. → __________."
-explicacion: "La it-cleft enfatiza el objeto ('a new car') mediante 'It was... that...' seguido del verbo principal ('bought') y su complemento ('he')."
+  tags: ["cleft"]
+
+respuesta: "It was in Mendoza that they got married."
+tipo: "mc"
+opciones_explicitas: ["It was in Mendoza that they got married.", "It was Mendoza where that they got married.", "In Mendoza it was they got married."]
+
+enunciado: "Destacá el lugar: «They got married in Mendoza.»"
+
+explicacion: |
+  *It was in Mendoza that…*
 ```
 
----
+### 5 — Wh-cleft: cosa
 
-### 8 — Wh-cleft with subject  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "subject"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'who called me'."
-tipo: completar
-respuestas_validas:
-  - "Who called me was my brother."
-  - "who called me was My brother."
-enunciado: "My brother called me. → __________."
-explicacion: "La wh-cleft enfatiza el sujeto ('my brother') mediante 'Who... was...' seguido del verbo principal ('called') y su complemento ('me')."
-```
-
----
-
-### 9 — It-cleft with time and reason  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "time-reason"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'when and why he left'."
-tipo: completar
-respuestas_validas:
-  - "It was at midnight that he left because of the noise."
-  - "it was at midnight that he left because of the noise."
-enunciado: "He left at midnight because of the noise. → __________."
-explicacion: "La it-cleft enfatiza el tiempo ('at midnight') y la causa ('because of the noise') mediante 'It was... that...' seguido del verbo principal ('left') y su complemento ('he')."
+  tags: ["cleft"]
+
+respuesta: "What I need is a long holiday."
+tipo: "mc"
+opciones_explicitas: ["What I need is a long holiday.", "That I need is a long holiday.", "What I need it is a long holiday."]
+
+enunciado: "Elegí la pseudo-cleft correcta para «I need a long holiday.»"
+
+explicacion: |
+  *What* + oración + *be* + lo destacado.
 ```
 
----
+### 6 — Wh-cleft: acción
 
-### 10 — Wh-cleft with purpose  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "purpose"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'why she studied'."
-tipo: completar
-respuestas_validas:
-  - "Why she studied was to pass the exam."
-  - "why she studied was To pass the exam."
-enunciado: "She studied to pass the exam. → __________."
-explicacion: "La wh-cleft enfatiza el propósito ('to pass the exam') mediante 'Why... was...' seguido del verbo principal ('studied') y su complemento ('she')."
-```
-
----
-
-### 11 — It-cleft with location and time  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "location-time"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'where and when the event happened'."
-tipo: completar
-respuestas_validas:
-  - "It was in Paris that the event happened yesterday."
-  - "it was in Paris that the event happened yesterday."
-enunciado: "The event happened in Paris yesterday. → __________."
-explicacion: "La it-cleft enfatiza lugar ('in Paris') y tiempo ('yesterday') mediante 'It was... that...' seguido del verbo principal ('happened') y su complemento ('the event')."
+  tags: ["cleft"]
+
+respuesta: "What he did was resign."
+tipo: "mc"
+opciones_explicitas: ["What he did was resign.", "What he did was he resigned.", "What he did it was resigning."]
+
+enunciado: "Destacá la acción: «He resigned.»"
+
+explicacion: |
+  Para destacar una acción: *What + sujeto + did + was + (to) infinitivo*.
 ```
 
----
+### 7 — Wh-cleft: persona
 
-### 12 — Wh-cleft with manner and reason  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "manner-reason"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'how and why he failed'."
-tipo: completar
-respuestas_validas:
-  - "How and why he failed was because of the lack of effort."
-  - "how and why he failed was Because of the lack of effort."
-enunciado: "He failed because of the lack of effort. → __________."
-explicacion: "La wh-cleft enfatiza la manera ('how') y la causa ('why') mediante 'How and why... was...' seguido del verbo principal ('failed') y su complemento ('he')."
-```
-
----
-
-### 13 — It-cleft with object and reason  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "object-reason"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what she gave and why'."
-tipo: completar
-respuestas_validas:
-  - "It was a gift that she gave because of her feelings."
-  - "it was a gift that she gave because of her feelings."
-enunciado: "She gave a gift because of her feelings. → __________."
-explicacion: "La it-cleft enfatiza el objeto ('a gift') y la causa ('because of her feelings') mediante 'It was... that...' seguido del verbo principal ('gave') y su complemento ('she')."
+  tags: ["cleft"]
+
+respuesta: "The person who helped me was my teacher."
+tipo: "mc"
+opciones_explicitas: ["Who helped me was my teacher.", "The person who helped me was my teacher.", "What helped me was my teacher."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Para personas no se usa *who* al principio: se dice *The person who…* o *It was my teacher who…*
 ```
 
----
+### 8 — Wh-cleft: razón
 
-### 14 — Wh-cleft with time and manner  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "time-manner"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'when and how she arrived'."
-tipo: completar
-respuestas_validas:
-  - "When and how she arrived was at ten o'clock by train."
-  - "when and how she arrived was At ten o'clock by train."
-enunciado: "She arrived at ten o'clock by train. → __________."
-explicacion: "La wh-cleft enfatiza el tiempo ('at ten o'clock') y la manera ('by train') mediante 'When and how... was...' seguido del verbo principal ('arrived') y su complemento ('she')."
-```
-
----
-
-### 15 — It-cleft with multiple clauses  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "multiple-clauses"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what happened and when'."
-tipo: completar
-respuestas_validas:
-  - "It was a fire that happened last night."
-  - "it was a fire that happened last night."
-enunciado: "A fire happened last night. → __________."
-explicacion: "La it-cleft enfatiza el evento ('a fire') y el tiempo ('last night') mediante 'It was... that...' seguido del verbo principal ('happened') y su complemento ('a fire')."
+  tags: ["cleft"]
+
+respuesta: "The reason why she left was the low salary."
+tipo: "mc"
+opciones_explicitas: ["Why she left was because the low salary.", "The reason why she left was the low salary.", "What she left was the low salary."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Para causas: *The reason (why)… was…*
 ```
 
----
+### 9 — All
 
-### 16 — Wh-cleft with subject and manner  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "subject-manner"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'who did it and how'."
-tipo: completar
-respuestas_validas:
-  - "Who did it was my neighbor, and how he did it was by breaking in."
-  - "who did it was My neighbor, and how he did it was By breaking in."
-enunciado: "My neighbor broke in to do it. → __________."
-explicacion: "La wh-cleft enfatiza el sujeto ('my neighbor') y la manera ('by breaking in') mediante 'Who... was...' y 'How... was...' seguido del verbo principal ('did') y sus complementos ('it' y 'he')."
-```
-
----
-
-### 17 — It-cleft with hypothetical  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "hypothetical"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what would happen if he left'."
-tipo: completar
-respuestas_validas:
-  - "It was leaving that would cause chaos."
-  - "it was leaving that would cause chaos."
-enunciado: "Leaving would cause chaos. → __________."
-explicacion: "La it-cleft enfatiza la acción hipotética ('leaving') mediante 'It was... that...' seguido del verbo en condicional ('would cause') y su complemento ('chaos')."
+  tags: ["cleft"]
+
+respuesta: "All I want is some sleep."
+tipo: "mc"
+opciones_explicitas: ["All I want is some sleep.", "All what I want is some sleep.", "Everything I want is some sleep."]
+
+enunciado: "«Lo único que quiero es dormir» se dice:"
+
+explicacion: |
+  *All I want is…* = «lo único que quiero es…».
 ```
 
----
+### 10 — Tiempo de be
 
-### 18 — Wh-cleft with purpose and result  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "purpose-result"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'why he studied and what happened'."
-tipo: completar
-respuestas_validas:
-  - "Why he studied was to pass the exam, and what happened was that he did."
-  - "why he studied was To pass the exam, and what happened was That he did."
-enunciado: "He studied to pass the exam, and he did. → __________."
-explicacion: "La wh-cleft enfatiza el propósito ('to pass the exam') y el resultado ('he did') mediante 'Why... was...' y 'What happened... was...' seguido del verbo principal ('studied' y 'did') y sus complementos ('he')."
-```
-
----
-
-### 19 — It-cleft with complex object  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "complex-object"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what he said to her'."
-tipo: completar
-respuestas_validas:
-  - "It was that she should leave that he said to her."
-  - "it was that she should leave that he said to her."
-enunciado: "He told her that she should leave. → __________."
-explicacion: "La it-cleft enfatiza el objeto complejo ('that she should leave') mediante 'It was... that...' seguido del verbo principal ('said') y su complemento ('to her')."
+  tags: ["cleft"]
+
+respuesta: "It was"
+tipo: "mc"
+opciones_explicitas: ["It was", "It is", "There was"]
+
+enunciado: "___ only last week that I heard the news."
+
+explicacion: |
+  *Be* va en el tiempo de la situación: *last week* → *It was*.
 ```
 
----
+### 11 — Who o that
 
-### 20 — Wh-cleft with multiple questions  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "multiple-questions"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'who called and why'."
-tipo: completar
-respuestas_validas:
-  - "Who called was my friend, and why he called was because of the meeting."
-  - "who called was My friend, and why he called was Because of the meeting."
-enunciado: "My friend called because of the meeting. → __________."
-explicacion: "La wh-cleft enfatiza el sujeto ('my friend') y la causa ('because of the meeting') mediante 'Who... was...' y 'Why... was...' seguido del verbo principal ('called') y sus complementos ('he')."
-```
-
----
-
-### 21 — It-cleft with passive voice  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "passive"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what was broken'."
-tipo: completar
-respuestas_validas:
-  - "It was the window that was broken."
-  - "it was the window that was broken."
-enunciado: "The window was broken. → __________."
-explicacion: "La it-cleft enfatiza el objeto pasivo ('the window') mediante 'It was... that...' seguido del verbo en forma pasiva ('was broken')."
+  tags: ["cleft"]
+
+respuesta: "who"
+tipo: "mc"
+opciones_explicitas: ["who", "which", "what"]
+
+enunciado: "It was my grandmother ___ taught me to cook."
+
+explicacion: |
+  Con personas, *who* (o *that*).
 ```
 
----
+### 12 — Corregir
 
-### 22 — Wh-cleft with conditional  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "conditional"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'what would happen if he left'."
-tipo: completar
-respuestas_validas:
-  - "What would happen was that the team would fail."
-  - "what would happen was That the team would fail."
-enunciado: "If he left, the team would fail. → __________."
-explicacion: "La wh-cleft enfatiza el resultado condicional ('the team would fail') mediante 'What... was...' seguido del verbo en condicional ('would happen') y su complemento ('that')."
-```
-
----
-
-### 23 — It-cleft with time and manner  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "time-manner"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'when and how she arrived'."
-tipo: completar
-respuestas_validas:
-  - "It was at six o'clock that she arrived by bus."
-  - "it was at six o'clock that she arrived by bus."
-enunciado: "She arrived at six o'clock by bus. → __________."
-explicacion: "La it-cleft enfatiza el tiempo ('at six o'clock') y la manera ('by bus') mediante 'It was... that...' seguido del verbo principal ('arrived') y su complemento ('she')."
+  tags: ["cleft"]
+
+respuesta: "it was the cat that"
+tipo: "mc"
+opciones_explicitas: ["it was the cat that", "what broke it was the cat that", "the cat it was that"]
+
+enunciado: "Alguien dice: «You broke the vase.» Respondés corrigiendo: «No, ___ broke it.»"
+
+explicacion: |
+  La *it*-cleft sirve para corregir: *No, it was the cat that broke it*.
 ```
 
----
+### 13 — Concordancia
 
-### 24 — Wh-cleft with hypothetical and reason  
-```
-metadata:
-  materia: "ingles"
-  tema: "cleft-sentences"
-  nivel: "C1"
-  tags: ["wh-cleft", "hypothetical-reason"]
-pasos:
-  - "Reescribe la oración en wh-cleft para enfatizar 'why he might leave'."
-tipo: completar
-respuestas_validas:
-  - "Why he might leave was because of the new job offer."
-  - "why he might leave was Because of the new job offer."
-enunciado: "He might leave because of the new job offer. → __________."
-explicacion: "La wh-cleft enfatiza la causa hipotética ('because of the new job offer') mediante 'Why... was...' seguido del verbo principal ('might leave') y su complemento ('he')."
-```
-
----
-
-### 25 — It-cleft with multiple objects  
 ```
 metadata:
   materia: "ingles"
   tema: "cleft-sentences"
   nivel: "C1"
-  tags: ["it-cleft", "multiple-objects"]
-pasos:
-  - "Construye una it-cleft para enfatizar 'what he gave and to whom'."
+  tags: ["cleft"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "«What we need is more teachers» es una oración correcta y natural."
+
+explicacion: |
+  Verdadero: con *what* el verbo suele ir en singular aunque lo destacado esté en plural.
+```
+
+### 14 — Error típico
+
+```
+metadata:
+  materia: "ingles"
+  tema: "cleft-sentences"
+  nivel: "C1"
+  tags: ["cleft"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«What he did was he left the room» es correcta."
+
+explicacion: |
+  Falso: después de *What he did was* va el verbo en infinitivo: *What he did was leave the room*.
+```
+
+### 15 — Equivalente en español
+
+```
+metadata:
+  materia: "ingles"
+  tema: "cleft-sentences"
+  nivel: "C1"
+  tags: ["cleft"]
+
+respuesta: "It was Juan who paid for dinner."
+tipo: "mc"
+opciones_explicitas: ["It was Juan who paid for dinner.", "Juan was who paid for dinner.", "It was Juan what paid for dinner."]
+
+enunciado: "«Fue Juan el que pagó la cena» equivale a:"
+
+explicacion: |
+  «Fue X el que…» = *It was X who…*
+```
+
+### 16 — Completar
+
+```
+metadata:
+  materia: "ingles"
+  tema: "cleft-sentences"
+  nivel: "C1"
+  tags: ["cleft"]
+
+respuesta: "What"
 tipo: completar
 respuestas_validas:
-  - "It was a gift that he gave to his sister."
-  - "it was a gift that he gave to his sister."
-enunciado: "He gave a gift to his sister. → __________."
-explicacion: "La it-cleft enfatiza el objeto ('a gift') y su destinatario ('to his sister') mediante 'It was... that...' seguido del verbo principal ('gave') y su complemento ('he')."
+  - "What"
+  - "what"
+
+enunciado: "Completá con una palabra: «___ I really like about this city is the food.»"
+
+explicacion: |
+  Pseudo-cleft: *What I really like… is the food*.
+```
+
+### 17 — Completar (2)
+
+```
+metadata:
+  materia: "ingles"
+  tema: "cleft-sentences"
+  nivel: "C1"
+  tags: ["cleft"]
+
+respuesta: "that"
+tipo: completar
+respuestas_validas:
+  - "that"
+  - "That"
+  - "where"
+  - "Where"
+
+enunciado: "Completá con una palabra: «It was in Paris ___ Picasso painted many of his works.»"
+
+explicacion: |
+  *It was in Paris that…* (con lugares también se acepta *where*, aunque *that* es lo más común).
 ```

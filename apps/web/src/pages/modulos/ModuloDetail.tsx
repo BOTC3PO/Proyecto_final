@@ -17,6 +17,7 @@ import { DeterministicPrng } from "../../generadoresV2/core/prng";
 import type { Ejercicio, GeneratorDescriptor, Dificultad } from "../../generadoresV2/core/types";
 import { getDescriptoresBasic } from "../../generadoresV2/basic/banco";
 import { useI18n } from "../../i18n/I18nContext";
+import { markdownATextoPlano } from "../../lib/teoriaTextoPlano";
 
 // F6-07: synthetic module para resolver `basic/<bank_id>` en runtime.
 // Ver `archive/web/pages/EditorCuestionarios.tsx` para el rationale.
@@ -137,7 +138,7 @@ export const extractTtsSegments = (
   for (const bloque of bloques) {
     if (isTextType(bloque.type) && bloque.detail) {
       if (bloque.title) segmentos.push({ text: bloque.title, blockId: bloque.id });
-      segmentos.push({ text: bloque.detail, blockId: bloque.id });
+      segmentos.push({ text: markdownATextoPlano(bloque.detail), blockId: bloque.id });
     }
     if (bloque.type === "image") {
       const alt = (bloque as { alt?: string }).alt;

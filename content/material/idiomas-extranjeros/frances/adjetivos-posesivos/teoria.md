@@ -1,70 +1,45 @@
-# Adjetivos posesivos en francés: nivel A1-A2
+# Adjetivos posesivos en francés (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/adjetivos-posesivos`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior no explicaba que el femenino usa mon/ton/son ante vocal y tenía una comparación errónea con el español.
 
 ---
 
 ## Introducción
-Los adjetivos posesivos en francés son palabras que indican pertenencia o propiedad. Al igual que en español, su uso es fundamental para expresar relaciones de posesión y evitar ambigüedades. En el nivel A1-A2 (Básico), aprenderlos permite construir frases sencillas como *C’est mon livre* (*Es mi libro*) o *Ton chat est mignon* (*Tu gato es lindo*). Su correcta aplicación ayuda a evitar repeticiones innecesarias y a clarificar quién posee qué objeto.
-
----
+Los **adjetivos posesivos** indican de quién es algo: *mon livre, ta maison, leurs enfants*. En francés concuerdan con la **cosa poseída** (género y número), no con el poseedor.
 
 ## Explicación central
-Los adjetivos posesivos en francés se usan **antes del sustantivo** que modifica, sin necesidad de repetir la preposición *de* (como en español). Se adapta su forma según el **género y número** del sustantivo.
+| Poseedor | masc. sing. | fem. sing. | plural |
+|---|---|---|---|
+| je | **mon** | **ma** | **mes** |
+| tu | **ton** | **ta** | **tes** |
+| il / elle | **son** | **sa** | **ses** |
+| nous | **notre** | **notre** | **nos** |
+| vous | **votre** | **votre** | **vos** |
+| ils / elles | **leur** | **leur** | **leurs** |
 
-### Formas básicas:
-- **Masculino singular:** *mon*, *ton*, *son* (*mi*, *tu*, *su*)
-  - Ejemplo: *C’est **mon** livre* (*Es mi libro*).
-- **Femenino singular:** *ma*, *ta*, *sa*
-  - Ejemplo: *C’est **ma** maison* (*Es mi casa*).
-- **Masculino/femenino plural:** *mes*, *tes*, *ses*
-  - Ejemplo: *Ce sont **mes** amis* (*Son mis amigos*).
+### Reglas clave
+- *son/sa/ses* = «su» de él **o** de ella; depende de la cosa: *Pierre aime **sa** mère. Marie aime **son** père.*
+- **Ante vocal o *h* muda**, el femenino usa ***mon, ton, son***: ***mon** amie, **ton** école, **son** histoire* (no *ma amie*).
+- *Leur* (un objeto de varios dueños) / *leurs* (varios objetos): *Ils aiment **leur** maison / **leurs** enfants.*
 
-> ⚠️ Nota: En francés, los adjetivos posesivos no cambian según el género del poseedor, solo según el sustantivo que modifican. Por ejemplo, *son livre* (su libro) es igual para un hombre o una mujer.
+### Pronombres posesivos
+*le mien, la mienne, les miens, les miennes* («el mío»…), *le tien, le sien, le nôtre, le vôtre, le leur*: *Ce livre est **le mien**.*
+- También: *C'est **à moi**.* (es mío)
 
-### Ejemplos reales en contexto:
-- *Je cherche **ton** stylo.* (*Busco tu bolígrafo*).
-- *La voiture de Jean est rouge.* (*El coche de Juan es rojo*).
-  - Aquí no se usa un adjetivo posesivo, sino la preposición *de*, que en español también se emplea.
-
----
-
-## Errores comunes de hablantes hispanohablantes
-1. **Uso incorrecto del género del sustantivo:**
-   - Error: *C’est **mon** voiture* (confundiendo el femenino *voiture* con un adjetivo masculino).
-   - Correcto: *C’est **ma** voiture*.
-
-2. **Confusión entre preposición *de* y adjetivos posesivos:**
-   - Error: *Le livre de moi* (intentando decir *mi libro* como en español).
-   - Correcto: *Mon livre* (sin preposición).
-
-3. **Olvidar el plural:**
-   - Error: *Ce sont **mon** amis* (confundiendo singular y plural).
-   - Correcto: *Ce sont **mes** amis*.
-
----
+## Errores comunes de hispanohablantes
+1. ❌ *ma amie* ✅ *mon amie*.
+2. Elegir *son/sa* según el poseedor: ❌ *Marie aime sa père* ✅ *Marie aime son père*.
+3. ❌ *leur enfants* ✅ *leurs enfants*.
+4. Usar el posesivo con partes del cuerpo cuando el francés usa artículo: *J'ai mal à **la** tête* (no *à ma tête*).
 
 ## Comparación con el español
-En español, los adjetivos posesivos (*mi*, *tu*, *su*) no cambian según el género del sustantivo, pero sí en plural:
-- *Mi libro* / *Mis libros* (masculino).
-- *Mi casa* / *Mis casas* (femenino).
-
-En francés, **el adjetivo se adapta al sustantivo**, no al poseedor. Por ejemplo:
-- *Mon livre*, *ma maison*, *mes amis* (sin cambios por el género del poseedor).
-
-Además, en español se usa la preposición *de* para expresar posesión (*el libro de Juan*), mientras que en francés se prefiere el adjetivo posesivo directo (*le livre de Jean* es correcto, pero *mon livre* es más natural y común).
-
----
+«Mi/tu/su» no cambian de género en español; en francés sí (*mon/ma*). Igual que en español, «su» es ambiguo (*son/sa* = de él o de ella).
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-- *— Regarde, c’est **ton** sac!* (*Mira, ¡es tu mochila!*)
-- *— Non, c’est le sac de Paul.* (*No, es la mochila de Pablo*).
-- *— Et **ma** clé? Où est-elle?* (*¿Y mi llave? ¿Dónde está?*)
-- *— Elle est dans **tes** affaires.* (*Está en tus cosas*).
-
-En este diálogo, los adjetivos posesivos (*ton*, *ma*, *tes*) indican claramente quién posee cada objeto. La estructura se asemeja al español, pero con variaciones de género y número que requieren atención.
+*Voici **ma** famille : **mon** père, **ma** mère et **mes** deux frères. **Mon** amie Léa habite à côté. **Ses** parents sont très gentils, et **leur** maison est super. Et toi, comment s'appelle **ton** frère ?*

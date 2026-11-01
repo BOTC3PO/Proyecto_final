@@ -1,405 +1,253 @@
-# Idiomas — Italiano — condizionale-passato (cuestionario)
+# Italiano — condizionale passato (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/italiano/condizionale-passato/cuestionario_crudo.md`)
-> con una corrección mecánica: tres bloques tenían comillas dobles anidadas dentro de un ítem de
-> `pasos:` ya entrecomillado, que cerraban la cadena antes de tiempo; se cambiaron las comillas
-> internas a simples.
+> Tema: `idiomas-extranjeros/italiano/condizionale-passato`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Condizionale passato 1
+### 1 — Futuro en el pasado
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "sarei venuto"
-  - "sarei venuta"
-  - "Sarei venuto"
-  - "Sarei venuta"
-enunciado: "Se avessi saputo la verità, ___ (venire, io) alla festa."
-explicacion: "Periodo ipotetico del terzo tipo: \"se\" + congiuntivo trapassato (avessi saputo) e condizionale passato nella principale (sarei venuto/a)."
+  tags: ["condizionale-passato"]
+
+respuesta: "sarebbe arrivato"
+tipo: "mc"
+opciones_explicitas: ["sarebbe arrivato", "arriverebbe", "arriverà"]
+
+enunciado: "Ha detto che ___ alle otto."
+
+explicacion: |
+  Futuro en el pasado: condizionale passato.
 ```
 
-### 2 — Condizionale passato 2
+### 2 — Promesa
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrebbe superato"
-  - "Avrebbe superato"
-enunciado: "Se avesse studiato di più, ___ (superare, lui) l'esame."
-explicacion: "Con \"superare\" l'ausiliare è \"avere\": avrebbe superato."
+  tags: ["condizionale-passato"]
+
+respuesta: "avrebbe aiutato"
+tipo: "mc"
+opciones_explicitas: ["avrebbe aiutato", "aiuterebbe", "aiutava"]
+
+enunciado: "Mi ha promesso che mi ___."
+
+explicacion: |
+  Futuro en el pasado.
 ```
 
-### 3 — Condizionale passato 3
+### 3 — Hipótesis
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "saremmo arrivati"
-  - "saremmo arrivate"
-  - "Saremmo arrivati"
-  - "Saremmo arrivate"
-enunciado: "Se avessimo preso il treno prima, ___ (arrivare, noi) in orario."
-explicacion: "\"Arrivare\" vuole \"essere\" e il participio concorda con il soggetto: saremmo arrivati/e."
+  tags: ["condizionale-passato"]
+
+respuesta: "sarei"
+tipo: "mc"
+opciones_explicitas: ["sarei", "avrei", "ero"]
+
+enunciado: "Se mi avessi chiamato, ___ venuto."
+
+explicacion: |
+  *Venire* con *essere*.
 ```
 
-### 4 — Condizionale passato 4
+### 4 — Arrepentimiento
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: mc
-opciones_explicitas:
-  - "avrei commesso"
-  - "commetterei"
-  - "avessi commesso"
-  - "commisi"
-respuesta: "avrei commesso"
-enunciado: "Se fossi stato più attento, non ___ quell'errore."
-explicacion: "Condizionale passato di \"commettere\": avrei commesso."
+  tags: ["condizionale-passato"]
+
+respuesta: "Avrei dovuto"
+tipo: "mc"
+opciones_explicitas: ["Avrei dovuto", "Dovrei", "Ho dovuto"]
+
+enunciado: "___ studiare di più."
+
+explicacion: |
+  *Avrei dovuto* = debería haber.
 ```
 
-### 5 — Condizionale passato 5
+### 5 — Reproche
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei aiutato"
-  - "Avrei aiutato"
-enunciado: "Se mi avessi avvisato, ti ___ (aiutare, io)."
-explicacion: "Condizionale passato con \"avere\": avrei aiutato."
+  tags: ["condizionale-passato"]
+
+respuesta: "Avresti potuto"
+tipo: "mc"
+opciones_explicitas: ["Avresti potuto", "Potresti", "Hai potuto"]
+
+enunciado: "___ dirmelo prima!"
+
+explicacion: |
+  Reproche.
 ```
 
-### 6 — Condizionale passato 6
+### 6 — Deseo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrebbero sbagliato"
-  - "Avrebbero sbagliato"
-enunciado: "Se avessero ascoltato le istruzioni, non ___ (sbagliare, loro)."
-explicacion: "Principale al condizionale passato: avrebbero sbagliato."
+  tags: ["condizionale-passato"]
+
+respuesta: "Avrei voluto"
+tipo: "mc"
+opciones_explicitas: ["Avrei voluto", "Vorrei", "Volevo voluto"]
+
+enunciado: "___ venire, ma ero malato."
+
+explicacion: |
+  Deseo no cumplido.
 ```
 
-### 7 — Condizionale passato 7
+### 7 — Noticia
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei fatto"
-  - "Avrei fatto"
-enunciado: "Se avessi potuto aiutarti, lo ___ (fare, io) volentieri."
-explicacion: "\"Fare\" forma il condizionale passato con \"avere\": avrei fatto. Nell'ipotesi si usa il congiuntivo trapassato (avessi potuto), non il condizionale."
+  tags: ["condizionale-passato"]
+
+respuesta: "Según se informa, el ladrón huyó en moto"
+tipo: "mc"
+opciones_explicitas: ["Según se informa, el ladrón huyó en moto", "El ladrón huirá en moto", "El ladrón huyó con seguridad"]
+
+enunciado: "«Il ladro sarebbe fuggito in moto» significa…"
+
+explicacion: |
+  Noticia no confirmada.
 ```
 
-### 8 — Condizionale passato 8
+### 8 — Concordancia
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrebbero avuto"
-  - "Avrebbero avuto"
-enunciado: "Se fossero rimasti a casa, non ___ (avere, loro) problemi."
-explicacion: "Condizionale passato di \"avere\": avrebbero avuto."
+  tags: ["condizionale-passato"]
+
+respuesta: "sarebbe"
+tipo: "mc"
+opciones_explicitas: ["sarebbe", "avrebbe", "è"]
+
+enunciado: "Maria ___ partita, ma ha perso il treno."
+
+explicacion: |
+  *Partire* con *essere*; *partita*.
 ```
 
-### 9 — Condizionale passato 9
+### 9 — Se
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrebbe preso"
-  - "Avrebbe preso"
-enunciado: "Se Marco si fosse lavato, non ___ (prendere) freddo."
-explicacion: "\"Prendere\" vuole \"avere\": avrebbe preso freddo."
+  tags: ["condizionale-passato"]
+
+respuesta: "Se avessi saputo, non sarei venuto."
+tipo: "mc"
+opciones_explicitas: ["Se avessi saputo, non sarei venuto.", "Se avrei saputo, non sarei venuto.", "Se sapevo, non verrei."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  *Se* + congiuntivo trapassato.
 ```
 
-### 10 — Condizionale passato 10
+### 10 — Reflexivo
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei agito"
-  - "Avrei agito"
-enunciado: "Se fossi stato più coraggioso, ___ (agire, io) diversamente."
-explicacion: "Condizionale passato di \"agire\": avrei agito."
+  tags: ["condizionale-passato"]
+
+respuesta: "sarebbero"
+tipo: "mc"
+opciones_explicitas: ["sarebbero", "avrebbero", "erano"]
+
+enunciado: "Si ___ alzati prima, se avessero sentito la sveglia."
+
+explicacion: |
+  Reflexivo con *essere*.
 ```
 
-### 11 — Condizionale passato 11
+### 11 — noi
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei criticato"
-  - "Avrei criticato"
-enunciado: "Se avessi visto il film, non lo ___ (criticare, io) così."
-explicacion: "Condizionale passato di \"criticare\": avrei criticato."
+  tags: ["condizionale-passato"]
+
+respuesta: "saremmo venuti"
+tipo: "mc"
+opciones_explicitas: ["saremmo venuti", "verremmo", "avremmo venuto"]
+
+enunciado: "Noi ___ volentieri, ma non ci hanno invitato."
+
+explicacion: |
+  *Saremmo venuti*.
 ```
 
-### 12 — Condizionale passato 12
+### 12 — Pensaba
+
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "sarebbe venuta"
-  - "Sarebbe venuta"
-enunciado: "Se avesse avuto tempo, ___ (venire, lei) a trovarci."
-explicacion: "\"Venire\" vuole \"essere\": sarebbe venuta (soggetto femminile)."
+  tags: ["condizionale-passato"]
+
+respuesta: "sarebbe stato"
+tipo: "mc"
+opciones_explicitas: ["sarebbe stato", "sarebbe", "sarà"]
+
+enunciado: "Pensavo che il film ___ più lungo."
+
+explicacion: |
+  Posterioridad respecto de un pasado.
 ```
 
-### 13 — Condizionale passato 13
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei potuto"
-  - "Avrei potuto"
-enunciado: "Se avessi voluto parlare, ___ (potere, io) farlo."
-explicacion: "Condizionale passato di \"potere\": avrei potuto (con l'infinito dopo si può usare anche \"sarei potuto\" se il verbo richiede essere)."
-```
+### 13 — Diferencia
 
-### 14 — Condizionale passato 14
 ```
 metadata:
   materia: "idiomas-extranjeros/italiano"
   tema: "condizionale-passato"
   nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avremmo dovuto"
-  - "Avremmo dovuto"
-enunciado: "Se avessimo saputo, ___ (dovere, noi) avvisarti."
-explicacion: "Condizionale passato di \"dovere\": avremmo dovuto."
-```
+  tags: ["condizionale-passato"]
 
-### 15 — Condizionale passato 15
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "sarebbero arrivati"
-  - "Sarebbero arrivati"
-enunciado: "Se avessi svegliato prima i bambini, ___ (arrivare, loro) a scuola in tempo."
-explicacion: "\"Arrivare\" vuole \"essere\": sarebbero arrivati."
-```
+respuesta: falso
+tipo: vf
 
-### 16 — Condizionale passato 16
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei perso"
-  - "Avrei perso"
-enunciado: "Se mi fossi svegliato presto, non ___ (perdere, io) l'appuntamento."
-explicacion: "Condizionale passato di \"perdere\": avrei perso."
-```
+enunciado: "«Dijo que vendría» se traduce *Ha detto che verrebbe*."
 
-### 17 — Condizionale passato 17
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrei risposto"
-  - "Avrei risposto"
-enunciado: "Se avessero chiamato, ___ (rispondere, io) subito."
-explicacion: "Condizionale passato di \"rispondere\": avrei risposto."
-```
-
-### 18 — Condizionale passato 18
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "sarei andato"
-  - "sarei andata"
-  - "Sarei andato"
-  - "Sarei andata"
-enunciado: "Se avessi avuto più soldi, ___ (andare, io) in vacanza."
-explicacion: "\"Andare\" forma i tempi composti con \"essere\": sarei andato/a."
-```
-
-### 19 — Condizionale passato 19
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avrebbe passato"
-  - "Avrebbe passato"
-enunciado: "Se Lucia avesse studiato, ___ (passare, lei) il concorso."
-explicacion: "Condizionale passato di \"passare\" (transitivo): avrebbe passato."
-```
-
-### 20 — Condizionale passato 20
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "lo avrei risolto"
-  - "l'avrei risolto"
-  - "avrei risolto"
-  - "Lo avrei risolto"
-  - "L'avrei risolto"
-  - "Avrei risolto"
-enunciado: "Se avessi capito il problema, ___ (risolverlo, io) subito."
-explicacion: "Condizionale passato: lo avrei risolto."
-```
-
-### 21 — Condizionale passato 21
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avresti visto"
-  - "Avresti visto"
-enunciado: "Se tu fossi arrivato prima, ___ (vedere, tu) il finale."
-explicacion: "Seconda persona del condizionale passato: avresti visto."
-```
-
-### 22 — Condizionale passato 22
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: completar
-respuestas_validas:
-  - "avremmo trovato"
-  - "Avremmo trovato"
-enunciado: "Se fossimo partiti prima, ___ (trovare, noi) meno traffico."
-explicacion: "Condizionale passato di \"trovare\": avremmo trovato."
-```
-
-### 23 — Condizionale passato 23
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: mc
-opciones_explicitas:
-  - "il condizionale presente di avere/essere + participio passato"
-  - "il congiuntivo imperfetto + participio passato"
-  - "l'imperfetto di avere/essere + infinito"
-  - "il futuro anteriore + participio passato"
-respuesta: "il condizionale presente di avere/essere + participio passato"
-enunciado: "Il condizionale passato si forma con: (Condizionale passato 23)"
-explicacion: "Es.: avrei mangiato, sarei andato."
-```
-
-### 24 — Condizionale passato 24
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: mc
-opciones_explicitas:
-  - "Se avessi studiato, avrei superato l'esame."
-  - "Se studio, supero l'esame."
-  - "Se studiassi, supererei l'esame."
-  - "Se studierò, supererò l'esame."
-respuesta: "Se avessi studiato, avrei superato l'esame."
-enunciado: "Quale frase esprime un'ipotesi irreale riferita al passato? (Condizionale passato 24)"
-explicacion: "Terzo tipo: congiuntivo trapassato + condizionale passato."
-```
-
-### 25 — Condizionale passato 25
-```
-metadata:
-  materia: "idiomas-extranjeros/italiano"
-  tema: "condizionale-passato"
-  nivel: "B2"
-  tags: ["condizionale passato", "periodo ipotetico"]
-tipo: mc
-opciones_explicitas:
-  - "un desiderio non realizzato"
-  - "un'azione abituale nel passato"
-  - "un ordine"
-  - "un fatto certo nel futuro"
-respuesta: "un desiderio non realizzato"
-enunciado: "Nella frase \"Avrei voluto aiutarti\", il condizionale passato esprime: (Condizionale passato 25)"
-explicacion: "Avrei voluto indica qualcosa che si desiderava ma non è avvenuto."
+explicacion: |
+  Falso: *Ha detto che sarebbe venuto*.
 ```

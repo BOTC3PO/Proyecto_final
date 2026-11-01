@@ -1,71 +1,52 @@
-# Forma causativa en japonés (N3)
+# La forma causativa en japonés (N3)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/forma-causativa`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores de escritura, lecturas y traducciones incorrectas.
 
 ---
 
 ## Introducción
-La **forma causativa** es un mecanismo gramatical que expresa acciones realizadas por una persona *que obligan o inducen a otra* a hacer algo. En japonés, se forma añadiendo el sufijo **-させる** al tronco de los verbos (o su conjugación en formas como **-せる**, **-ず**, etc.). Esta regla es clave para nivel N3 porque permite describir situaciones donde alguien influye directamente sobre otra persona o entidad, lo que es fundamental en contextos cotidianos, laborales y sociales.
+La **forma causativa** (使役形) expresa que alguien **hace o deja** que otro haga algo: 母は私に野菜を食べ**させた** (mi madre me hizo comer verdura / me obligó). Según el contexto significa **obligar** o **permitir**.
 
 ## Explicación central
-La forma causativa se usa cuando una acción ocurre *por iniciativa de un sujeto* que impone a otro. Por ejemplo:
+### Formación
+| Grupo | Regla | Ejemplo |
+|---|---|---|
+| **Godan** (grupo 1) | terminación -u → **-aseru** (う → **わせる**) | 書く → 書か**せる**; 飲む → 飲ま**せる**; 買う → 買**わせる**; 待つ → 待た**せる** |
+| **Ichidan** (grupo 2) | る → **させる** | 食べる → 食べ**させる**; 見る → 見**させる** |
+| **Irregulares** | | する → **させる**; 来る → **来させる** (こさせる) |
 
-- **彼は私に本を読ませた。**
-  (Él me hizo leer el libro.)
-  → El sujeto "él" obligó al "yo" a realizar la acción "leer".
+Se conjuga como un verbo ichidan: させます, させない, させた, させて.
 
-- **先生が生徒に宿題をさせた。**
-  (El profesor hizo que los estudiantes hicieran la tarea.)
-  → Aquí, "hacer" se traduce mediante **させる**, y el complemento directo ("宿題") está marcado por **を**.
+### Partículas
+- Verbo **intransitivo**: la persona que actúa lleva **を** (o に): 子ども**を**公園で遊ばせる.
+- Verbo **transitivo** (ya tiene を): la persona lleva **に**: 子ども**に**野菜**を**食べさせる.
 
-Los verbos en forma causativa suelen cambiar su tronco:
-- **食べる (comer)** → **食べさせる** (hacer comer)
-- **見る (ver)** → **見させる** (hacer ver)
-- **書く (escribir)** → **書かせる** (hacer escribir)
+### Obligar o permitir
+- Obligar: 先生は学生**に**作文**を**書かせました。(El profesor hizo escribir una composición a los alumnos.)
+- Permitir: 父は私**に**車**を**運転させてくれた。(Mi padre me dejó manejar el auto.)
 
-Además, la forma causativa puede usarse para expresar permisos o autorizaciones:
-- **親が子供にテレビを見させた。**
-  (Los padres permitieron que el niño viera la televisión.)
+### 〜させてください / 〜させていただけませんか
+Pedir **permiso** para hacer algo uno mismo, muy usado y cortés:
+- 少し考え**させてください**。(Déjeme pensarlo un poco.)
+- 今日は早く帰ら**せていただけませんか**。(¿Podría permitirme irme temprano hoy?)
+
+### Sentimientos
+Causar una emoción: 子どもを**泣かせる** (hacer llorar), 母を**心配させる** (preocupar a mamá), 人を**笑わせる** (hacer reír).
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con formas potenciales o pasivas**: En español, se usa "hacer que" + subjuntivo, pero en japonés no hay un equivalente directo. Por ejemplo:
-   - ❌ *彼は私に本を読ました* (equivocado).
-   - ✅ *彼は私に本を読ませた* (correcto).
-
-2. **Uso incorrecto de partículas**: La persona afectada por la acción se marca con **に**, no con **を** o **が**. Ejemplo erróneo:
-   - ❌ *彼は私**が**本を読ませた.*
-   - ✅ *彼は私**に**本を読ませた.*
-
-3. **Omisión del sufijo -させる**: Algunos aprendices omiten el sufijo, usando directamente el tronco del verbo:
-   - ❌ *彼は私に本を読めた* (equivocado).
-   - ✅ *彼は私に本を読ませた* (correcto).
+1. ❌ 買あせる ✅ 買わせる.
+2. ❌ 食べらせる ✅ 食べさせる.
+3. ❌ 子どもを野菜を食べさせる (dos を) ✅ 子どもに野菜を食べさせる.
+4. Pedir permiso con 〜てもいいですか en contextos muy formales, cuando 〜させていただけませんか es lo esperable.
 
 ## Comparación con el español
-En español, la acción causativa se expresa mediante estructuras como "hacer que + subjuntivo" o "dejar que + infinitivo", mientras que en japonés se maneja a través de cambios morfológicos en el verbo. Por ejemplo:
-- **Espanyol**: *El jefe hizo que los empleados trabajaran hasta tarde.*
-- **Japonés**: *上司は社員に残業させた。* (El jefe hizo que los empleados hicieran horas extras.)
-
-Además, en español se usan verbos como "hacer" o "dejar", mientras que en japonés el sujeto causante no siempre aparece explícitamente. Por ejemplo:
-- **Japonés**: *窓が開けさせられた。* (La ventana fue abierta por alguien.)
-  → El agente causante ("alguien") no se menciona, a diferencia del español donde suele ser necesario.
+El español usa «hacer + infinitivo» o «dejar + infinitivo» («me hizo estudiar», «me dejó salir»). El japonés usa una sola forma verbal, y el contexto (o くれる / あげる) indica si es obligación o permiso.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-- **A**: *昨日、母が私に宿題をさせた。*
-  (Ayer, mi madre me hizo hacer la tarea.)
-- **B**: *それは大変だったね？*
-  (Eso fue muy difícil, ¿verdad?)
-- **A**: *うん…でも、もう終わらせたよ。*
-  (Sí… pero ya terminé.)
-
-**Explicación:**
-En este diálogo:
-- **させる** se usa en *宿題をさせた* para indicar que la madre obligó al hablante a hacer la tarea.
-- El complemento directo ("宿題") está marcado por **を**, y el sujeto afectado ("私") se marca con **に**.
-- La estructura permite transmitir responsabilidad o presión, algo común en contextos educativos o familiares.
-
-Este uso de la forma causativa es esencial para expresar situaciones donde una acción se impone a otro, y su dominio facilita la comunicación en escenarios reales como el trabajo, las relaciones personales o los estudios.
+子どものころ、母は毎日私**に**ピアノ**を**練習**させました**。嫌でしたが、今は感謝しています。でも、テレビはあまり見**させてくれません**でした。今、私も娘に好きなことを**させています**。— 部長、すみません。明日、休ま**せていただけませんか**。

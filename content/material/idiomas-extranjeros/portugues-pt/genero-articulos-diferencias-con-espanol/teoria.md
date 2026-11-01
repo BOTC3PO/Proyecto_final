@@ -1,52 +1,49 @@
-# Género y artículos: diferencias entre el portugués (pt-PT) y el español
+# Género y artículos: diferencias con el español (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/genero-articulos-diferencias-con-espanol`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
 ## Introducción
-En el portugués de Portugal, los sustantivos tienen un género gramatical que puede ser masculino, femenino o neutro. Este género afecta a los artículos definidos ("o", "a", "os", "as") y a los adjetivos, que deben concordar con el sustantivo en género y número. A diferencia del español, donde el masculino es la forma por defecto para sustantivos sin terminación femenina (-a), en portugués se establecen reglas más claras (y algunas excepciones) para determinar el género de un sustantivo. Conocer estas diferencias es clave para los hablantes hispanohablantes, ya que pueden confundirse al aplicar patrones del español al portugués.
+Los artículos del portugués son **o, a, os, as** y **um, uma, uns, umas**. Se contraen con las preposiciones y algunos sustantivos tienen género distinto del español. En Portugal el artículo es **casi obligatorio** antes de posesivos y nombres propios.
 
-## Explicación central con ejemplos en portugués
-El género de los sustantivos en portugués se determina principalmente por su terminación:
-- **Masculino**: Sustantivos que terminan en consonante o en "-ão", como *livro* (libro) → *o livro*, *caminhão* (camión) → *o caminhão*.
-- **Femenino**: Sustantivos que terminan en "-a" o "-ção", como *casa* (casa) → *a casa*, *união* (unión) → *a união*.
-- **Neutro**: Pocos sustantivos neutros, como *o tempo* (el tiempo), *a gente* (la gente).
+## Explicación central
+### Contracciones (obligatorias)
+| preposición | + o | + a | + os | + as | + um / uma |
+|---|---|---|---|---|---|
+| **de** | do | da | dos | das | dum / duma |
+| **em** | no | na | nos | nas | num / numa |
+| **a** | ao | à | aos | às | — |
+| **por** | pelo | pela | pelos | pelas | — |
 
-Los artículos definidos concuerdan con el género:
-- Sustantivo masculino: *o livro*, *os livros* (los libros).
-- Femenino: *a casa*, *as casas*.
-- Neutro: *o tempo*, *a gente*.
+*Moro **na** Rua Augusta. Vou **ao** supermercado. O livro **do** professor. Passei **pela** praça.*
 
-Además, los adjetivos deben concordar en género y número con el sustantivo. Por ejemplo:
-- *O carro novo* (el coche nuevo) → masculino singular.
-- *A casa velha* (la casa vieja) → femenino singular.
-- *Os livros interessantes* (los libros interesantes) → masculino plural.
+### Género distinto del español
+- Masculinos (femeninos en español): **o leite, o sangue, o nariz, o mel, o sal, o costume, o legume**.
+- Femeninos (masculinos en español): **a árvore, a ponte, a dor, a cor, a equipa** (en Brasil, *a equipe*).
+- **-agem** femenino: **a viagem, a mensagem, a garagem, a paisagem**.
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión con el género por defecto**: En español, los sustantivos que no terminan en "-a" suelen ser masculinos (ej: *el libro*). Sin embargo, en portugués, un sustantivo como *casa* (femenino) termina en "-a", pero uno como *livro* (masculino) no lo hace. Un error común es usar "o" para *casa*, diciendo *o casa* en lugar de *a casa*.
-2. **Uso incorrecto de artículos con sustantivos neutros**: En portugués, *a gente* y *o tempo* son neutros, pero se usan los artículos femenino (*a*) y masculino (*o*) respectivamente. Un hispanohablante podría decir *a tempo* (incorrecto) en lugar de *o tempo*.
-3. **Omisión del artículo con sustantivos neutros**: En español no se usa artículo con *el tiempo*, pero en portugués es obligatorio: *o tempo* vs. "el tiempo" (sin artículo).
+### Artículo con posesivos y nombres
+- En Portugal se usa casi siempre: ***o** meu carro, **a** minha mãe*.
+- Con nombres propios, en el trato habitual: ***A** Maria chegou. Falei com **o** João.*
+
+### Países y ciudades
+*o Brasil, a Argentina, os Estados Unidos*; sin artículo: *Portugal, Angola, Moçambique, Lisboa*.
+
+## Errores comunes de hispanohablantes
+1. ❌ *a leite, o viagem* ✅ *o leite, a viagem*.
+2. ❌ *em o, de a* ✅ *no, da*.
+3. Omitir el artículo con posesivos: *meu carro* suena brasileño o poético; en Portugal ✅ *o meu carro*.
+4. ❌ *no Portugal* ✅ *em Portugal*.
 
 ## Comparación con el español
-- **Artículos definidos**: Ambos idiomas usan artículos, pero el portugués tiene más sustantivos femeninos que terminan en "-a", lo que facilita la identificación del género. En cambio, en español, algunos sustantivos femeninos (como *la mesa*) no siguen esta regla.
-- **Género neutro**: El español no tiene género neutro, mientras que el portugués sí, aunque sea poco común (*o tempo*, *a gente*). Esto puede causar confusiones al traducir expresiones como "el tiempo" (en portugués: *o tempo*).
-- **Concordancia de adjetivos**: En ambos idiomas, los adjetivos deben concordar en género y número, pero el orden es diferente. En español, el adjetivo suele ir después del sustantivo (*casa bonita*), mientras que en portugués puede estar antes o después, según el contexto (*casa bonita* o *bonita casa*).
+El español contrae solo «al» y «del»; el portugués contrae casi todas las preposiciones con el artículo. El español no pone artículo antes de posesivo («mi casa»); el portugués de Portugal sí (*a minha casa*).
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-— Olá! Onde está a Maria? (¡Hola! ¿Dónde está María?)
-— A Maria está no quarto. Ela está lendo um livro interessante. (María está en el cuarto. Está leyendo un libro interesante.)
-— E o seu carro novo? (¿Y su coche nuevo?)
-— O carro novo está na garagem. (El coche nuevo está en la garaje.)
-
-**Explicación**:
-- *A Maria* y *a quarto* usan el artículo femenino (*a*) para sustantivos que terminan en "-a" o son neutros (*o tempo*, *a gente*).
-- *O carro novo* concuerda en género masculino (el coche) y número singular.
-- *Um livro interessante* usa el artículo indefinido *um/uma* según el género del sustantivo (*livro* → *um*; *casa* → *uma*).
-
-Este ejemplo muestra cómo los artículos y el género afectan la construcción de frases en portugués, destacando las diferencias clave con el español.
+*No fim de semana fiz **uma** viagem **ao** Algarve com **a** minha irmã. **A** paisagem era linda e **a** cor **do** mar, incrível. Comprámos **o** mel e **o** sal **numa** feira e voltámos **pela** ponte 25 de Abril.*

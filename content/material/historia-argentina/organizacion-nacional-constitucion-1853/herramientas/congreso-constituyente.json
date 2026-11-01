@@ -1,0 +1,77 @@
+{
+ "titulo": "Quiénes sancionaron la Constitución de 1853",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Provincias en el Congreso Constituyente de Santa Fe (1852–1853)",
+   "headers": [
+    "Provincia",
+    "¿Participó?"
+   ],
+   "rows": [
+    [
+     "Catamarca",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Córdoba",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Corrientes",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Entre Ríos",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Jujuy",
+     "Sí, con dos diputados"
+    ],
+    [
+     "La Rioja",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Mendoza",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Salta",
+     "Sí, con dos diputados"
+    ],
+    [
+     "San Juan",
+     "Sí, con dos diputados"
+    ],
+    [
+     "San Luis",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Santa Fe",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Santiago del Estero",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Tucumán",
+     "Sí, con dos diputados"
+    ],
+    [
+     "Buenos Aires",
+     "No: se separó de la Confederación con la revolución del 11 de septiembre de 1852"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "La Constitución se sancionó el 1.º de mayo de 1853 con trece provincias. Buenos Aires la aceptó recién en 1860, con algunas reformas, después del Pacto de San José de Flores (1859)."
+  }
+ ]
+}

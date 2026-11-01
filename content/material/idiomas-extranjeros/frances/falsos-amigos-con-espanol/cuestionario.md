@@ -1,498 +1,253 @@
-# Idiomas — Francés — falsos-amigos-con-espanol (cuestionario)
+# Francés — falsos amigos (cuestionario, 13 preguntas VBLang)
 
-> Promovido desde el borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/frances/falsos-amigos-con-espanol/cuestionario_crudo.md`)
-> con una corrección mecánica sistemática: los 26 bloques tenían el fence de apertura pegado
-> directamente a `metadata:` (` ```metadata: ` sin salto de línea), lo que rompía el parseo y
-> hacía que el validador sólo reconociera 13 "bloques" (los de tipo `mc`, con los de tipo
-> `completar` silenciosamente absorbidos como ruido antes de cada fence); se separó con salto de
-> línea. Se corrigieron además dos errores reales de traducción, irónicos en un tema sobre falsos
-> amigos: el bloque 1 daba "pregnante" como traducción de "embarazada", pero ese falso amigo
-> francés en realidad significa "contundente/significativo" (como en "une idée prégnante"), no
-> "embarazada" — se corrigió a "enceinte". El bloque 9 daba "attendre" como traducción de
-> "atender" (asistir a alguien), cuando "attendre" en realidad significa "esperar" — exactamente
-> el tipo de falso amigo que el tema debería enseñar a evitar, no confirmar como correcto — se
-> corrigió a "s'occuper de".
+> Tema: `idiomas-extranjeros/frances/falsos-amigos-con-espanol`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — falsos-amigos-con-espanol
+### 1 — librairie
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que corresponde al falso amigo en español."
-respuesta: "enceinte"
-tipo: completar
-respuestas_validas:
-  - "enceinte"
-  - "Enceinte"
-enunciado: "Dans le contexte médical, l'expression correcte pour 'embarazada' est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "Voy a la librería"
+tipo: "mc"
+opciones_explicitas: ["Voy a la librería", "Voy a la biblioteca", "Voy a la oficina"]
+
+enunciado: "«Je vais à la librairie» significa:"
+
+explicacion: |
+  *Librairie* = librería.
 ```
 
-### 2 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "abandonner"
-tipo: mc
-opciones_explicitas:
-  - "abandonar"
-  - "abandonner"
-  - "oublier"
-enunciado: "Le verbe correct pour 'abandonar' (désemparer) est ___."
-```
-
-### 3 — falsos-amigos-con-espanol
+### 2 — bibliothèque
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo en francés."
-respuesta: "entreprendre"
-tipo: completar
-respuestas_validas:
-  - "entreprendre"
-  - "Entreprendre"
-enunciado: "L'expression correcte pour 'emprender un proyecto' est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "à la bibliothèque"
+tipo: "mc"
+opciones_explicitas: ["à la bibliothèque", "à la librairie", "au bureau"]
+
+enunciado: "¿Dónde se piden libros prestados?"
+
+explicacion: |
+  Biblioteca = *bibliothèque*.
 ```
 
-### 4 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Elegir la opción que no es un falso amigo del español."
-respuesta: "remplacer"
-tipo: mc
-opciones_explicitas:
-  - "reemplazar"
-  - "remplacer"
-  - "sustituir"
-enunciado: "Le verbe qui ne correspond pas à 'reemplazar' en espagnol est ___."
-```
-
-### 5 — falsos-amigos-con-espanol
+### 3 — enceinte
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que no es un falso amigo del español."
-respuesta: "réfléchir"
-tipo: completar
-respuestas_validas:
-  - "réfléchir"
-  - "Réfléchir"
-enunciado: "Le verbe correct pour 'reflexionar' (no 'réflexionar') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "Je suis enceinte."
+tipo: "mc"
+opciones_explicitas: ["Je suis enceinte.", "Je suis embarrassée.", "Je suis embarassée."]
+
+enunciado: "«Estoy embarazada»:"
+
+explicacion: |
+  *Embarrassée* = incómoda.
 ```
 
-### 6 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "différent"
-tipo: mc
-opciones_explicitas:
-  - "diferente"
-  - "différent"
-  - "distinct"
-enunciado: "L'adjectif correct pour 'diferente' (no 'diferente') est ___."
-```
-
-### 7 — falsos-amigos-con-espanol
+### 4 — large
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo en francés."
-respuesta: "comprendre"
-tipo: completar
-respuestas_validas:
-  - "comprendre"
-  - "Comprendre"
-enunciado: "Le verbe correct pour 'comprender' (no 'comprender') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "Este pantalón es ancho"
+tipo: "mc"
+opciones_explicitas: ["Este pantalón es ancho", "Este pantalón es largo", "Este pantalón es caro"]
+
+enunciado: "«Ce pantalon est large» significa:"
+
+explicacion: |
+  *Large* = ancho; largo = *long*.
 ```
 
-### 8 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Elegir la opción que no es un falso amigo del español."
-respuesta: "exiger"
-tipo: mc
-opciones_explicitas:
-  - "exigir"
-  - "exiger"
-  - "imposer"
-enunciado: "Le verbe qui ne correspond pas à 'exigir' en espagnol est ___."
-```
-
-### 9 — falsos-amigos-con-espanol
+### 5 — rester
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que corresponde al falso amigo en español."
-respuesta: "s'occuper de"
-tipo: completar
-respuestas_validas:
-  - "s'occuper de"
-  - "s’occuper de"
-enunciado: "Le verbe correct pour 'atender' (asistir a alguien) est ___ (attendre signifie 'esperar', un faux ami)."
+  tags: ["falsos-amigos"]
+
+respuesta: "Me quedo en casa"
+tipo: "mc"
+opciones_explicitas: ["Me quedo en casa", "Resto en casa", "Descanso en casa"]
+
+enunciado: "«Je reste à la maison» significa:"
+
+explicacion: |
+  *Rester* = quedarse.
 ```
 
-### 10 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "souhaiter"
-tipo: mc
-opciones_explicitas:
-  - "desechar"
-  - "souhaiter"
-  - "désirer"
-enunciado: "Le verbe correct pour 'desear' (no 'desechar') est ___."
-```
-
-### 11 — falsos-amigos-con-espanol
+### 6 — quitter
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo en francés."
-respuesta: "récupérer"
-tipo: completar
-respuestas_validas:
-  - "récupérer"
-  - "Récupérer"
-enunciado: "Le verbe correct pour 'recuperar' (no 'recuperar') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "Dejó su trabajo"
+tipo: "mc"
+opciones_explicitas: ["Dejó su trabajo", "Quitó su trabajo", "Encontró trabajo"]
+
+enunciado: "«Il a quitté son travail» significa:"
+
+explicacion: |
+  *Quitter* = dejar.
 ```
 
-### 12 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Elegir la opción que no es un falso amigo del español."
-respuesta: "désoler"
-tipo: mc
-opciones_explicitas:
-  - "desolar"
-  - "désoler"
-  - "excuser"
-enunciado: "Le verbe qui ne correspond pas à 'desolar' en espagnol est ___."
-```
-
-### 13 — falsos-amigos-con-espanol
+### 7 — enlever
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que corresponde al falso amigo en español."
-respuesta: "préparer"
-tipo: completar
-respuestas_validas:
-  - "préparer"
-  - "Préparer"
-enunciado: "Le verbe correct pour 'preparar' (no 'preparar') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "Enlève ta veste."
+tipo: "mc"
+opciones_explicitas: ["Enlève ta veste.", "Quitte ta veste.", "Reste ta veste."]
+
+enunciado: "«Quitate la campera»:"
+
+explicacion: |
+  Quitar = *enlever*.
 ```
 
-### 14 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "douter"
-tipo: mc
-opciones_explicitas:
-  - "dudar"
-  - "douter"
-  - "suspender"
-enunciado: "Le verbe correct pour 'dudar' (no 'dudar') est ___."
-```
-
-### 15 — falsos-amigos-con-espanol
+### 8 — confiture
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo en francés."
-respuesta: "souffrir"
-tipo: completar
-respuestas_validas:
-  - "souffrir"
-  - "Souffrir"
-enunciado: "Le verbe correct pour 'sufrir' (no 'sufre') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "confiture de fraises"
+tipo: "mc"
+opciones_explicitas: ["confiture de fraises", "marmelade de fraises", "gelée de fraise"]
+
+enunciado: "«Mermelada de frutilla»:"
+
+explicacion: |
+  Mermelada = *confiture*.
 ```
 
-### 16 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Elegir la opción que no es un falso amigo del español."
-respuesta: "échouer"
-tipo: mc
-opciones_explicitas:
-  - "fallar"
-  - "échouer"
-  - "perdre"
-enunciado: "Le verbe qui ne correspond pas à 'fallar' en espagnol est ___."
-```
-
-### 17 — falsos-amigos-con-espanol
+### 9 — roman
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que corresponde al falso amigo en español."
-respuesta: "obéir"
-tipo: completar
-respuestas_validas:
-  - "obéir"
-  - "Obéir"
-enunciado: "Le verbe correct pour 'obedecer' (no 'obedecer') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "J'ai lu un roman."
+tipo: "mc"
+opciones_explicitas: ["J'ai lu un roman.", "J'ai lu une nouvelle.", "J'ai lu une novelle."]
+
+enunciado: "«Leí una novela»:"
+
+explicacion: |
+  Novela = *roman*.
 ```
 
-### 18 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "réussir"
-tipo: mc
-opciones_explicitas:
-  - "suceder"
-  - "réussir"
-  - "atterrir"
-enunciado: "Le verbe correct pour 'suceder' (no 'suceder') est ___."
-```
-
-### 19 — falsos-amigos-con-espanol
+### 10 — tasse
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo en francés."
-respuesta: "dépenser"
-tipo: completar
-respuestas_validas:
-  - "dépenser"
-  - "Dépenser"
-enunciado: "Le verbe correct pour 'gastar' (no 'gastar') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "una taza de café"
+tipo: "mc"
+opciones_explicitas: ["una taza de café", "una tasa de café", "un vaso de café"]
+
+enunciado: "«Une tasse de café» es…"
+
+explicacion: |
+  *Tasse* = taza.
 ```
 
-### 20 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Elegir la opción que no es un falso amigo del español."
-respuesta: "oublier"
-tipo: mc
-opciones_explicitas:
-  - "olvidar"
-  - "oublier"
-  - "négliger"
-enunciado: "Le verbe qui ne correspond pas à 'olvidar' en espagnol est ___."
-```
-
-### 21 — falsos-amigos-con-espanol
+### 11 — crayon
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que corresponde al falso amigo en español."
-respuesta: "répondre"
-tipo: completar
-respuestas_validas:
-  - "répondre"
-  - "Répondre"
-enunciado: "Le verbe correct pour 'responder' (no 'respondere') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "un lápiz"
+tipo: "mc"
+opciones_explicitas: ["un lápiz", "un crayón", "una tiza"]
+
+enunciado: "«Un crayon» es…"
+
+explicacion: |
+  *Crayon* = lápiz.
 ```
 
-### 22 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "séparer"
-tipo: mc
-opciones_explicitas:
-  - "separar"
-  - "séparer"
-  - "diviser"
-enunciado: "Le verbe correct pour 'separar' (no 'separar') est ___."
-```
-
-### 23 — falsos-amigos-con-espanol
+### 12 — bureau
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Completar el hueco con la forma correcta del verbo en francés."
-respuesta: "perdre"
-tipo: completar
-respuestas_validas:
-  - "perdre"
-  - "Perdre"
-enunciado: "Le verbe correct pour 'perder' (no 'perder') est ___."
+  tags: ["falsos-amigos"]
+
+respuesta: "Trabajo en una oficina"
+tipo: "mc"
+opciones_explicitas: ["Trabajo en una oficina", "Trabajo en un buró", "Trabajo en una librería"]
+
+enunciado: "«Je travaille dans un bureau» significa:"
+
+explicacion: |
+  *Bureau* = oficina.
 ```
 
-### 24 — falsos-amigos-con-espanol
-
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Elegir la opción que no es un falso amigo del español."
-respuesta: "exposer"
-tipo: mc
-opciones_explicitas:
-  - "exponer"
-  - "exposer"
-  - "révéler"
-enunciado: "Le verbe qui ne correspond pas à 'exponer' en espagnol est ___."
-```
-
-### 25 — falsos-amigos-con-espanol
+### 13 — Error típico
 
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "falsos-amigos-con-espanol"
   nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Identificar el término en francés que corresponde al falso amigo en español."
-respuesta: "satisfaire"
-tipo: completar
-respuestas_validas:
-  - "satisfaire"
-  - "Satisfaire"
-enunciado: "Le verbe correct pour 'satisfacer' (no 'satisfazer') est ___."
-```
+  tags: ["falsos-amigos"]
 
-### 26 — falsos-amigos-con-espanol
+respuesta: falso
+tipo: vf
 
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "falsos-amigos-con-espanol"
-  nivel: "A1-A2"
-  tags: ["false friends", "vocabulary"]
-pasos:
-  - "Seleccionar la opción que corresponde al término correcto en francés."
-respuesta: "compter"
-tipo: mc
-opciones_explicitas:
-  - "contar"
-  - "compter"
-  - "calculer"
-enunciado: "Le verbe correct pour 'contar' (no 'contar') est ___."
+enunciado: "«Une nouvelle» significa «una novela»."
+
+explicacion: |
+  Falso: es «una noticia» o «un cuento»; novela = *roman*.
 ```

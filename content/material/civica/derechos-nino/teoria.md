@@ -10,7 +10,7 @@ concretos son secciones separables.
 
 ---
 
-## Marco normativo (verificado con WebSearch)
+## Marco normativo
 
 El art. 92 de la Ley de Educación Nacional 26.206 establece contenidos
 curriculares comunes obligatorios para todas las jurisdicciones. Su
@@ -48,11 +48,11 @@ Protección Integral** (organismos en cada jurisdicción encargados de
 garantizar estos derechos) y el rol del **Defensor de los Derechos de
 Niñas, Niños y Adolescentes**.
 
-## Por qué depende de multicausalidad (Historia)
+## Un cambio con muchas causas
 
-`troncos.md` cuelga este nodo de `T7` (Multicausalidad, Historia). Entender
-cómo llegó a existir este marco de derechos presupone la misma herramienta
-de no atribuir un cambio normativo a una sola causa aislada. Hay que
+Para entender cómo llegó a existir este marco de derechos hace falta la
+misma herramienta que en Historia (multicausalidad): no atribuir un cambio
+normativo a una sola causa aislada. Hay que
 preguntarse por qué el viejo "Patronato" fue reemplazado y qué causas
 sociales, jurídicas e internacionales confluyeron.
 

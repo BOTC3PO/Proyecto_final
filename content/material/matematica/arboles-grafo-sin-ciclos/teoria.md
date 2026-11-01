@@ -61,10 +61,8 @@ de datos y algoritmos de búsqueda eficientes.
 
 ## Relación con estructuras de datos
 
-**Hueco real**: el diagrama de `troncos.md` también marca que
-"Estructuras de datos" (Informática) es prerrequisito de este módulo
-— esa carpeta todavía no existe en este repo, así que el concepto se
-introduce acá de cero. Una **lista enlazada**, una **pila** o una
+Los árboles son también una de las **estructuras de datos** más usadas en
+Informática. Una **lista enlazada**, una **pila** o una
 **cola** son, en el fondo, árboles "degenerados": cada nodo tiene como
 mucho un solo hijo, así que el árbol completo es una única cadena
 lineal, sin ninguna ramificación. Un **árbol binario de búsqueda** (cada nodo con hasta 2 hijos, ordenados) es

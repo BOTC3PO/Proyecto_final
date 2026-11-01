@@ -1,419 +1,197 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/portugues-pt/speaking-c1/cuestionario_crudo.md`.
-> Se añadió el `enunciado:` faltante en 11 bloques de tipo `mc` (2, 4, 6, 9, 11, 13, 15,
-> 18, 20, 21, 24), reconstruido a partir de `pasos:`/`explicacion:`. Se corrigieron
-> además varios errores de contenido:
-> - **Bloque 2:** la explicación llamaba a "faria" "pretérito perfecto del subjuntivo"
->   cuando en realidad es condicional simples; corregida.
-> - **Bloque 20:** la respuesta "tarei de" era un error tipográfico que ni siquiera
->   coincidía con ninguna de sus propias opciones ("terei de"); corregida.
-> - **Bug sistemático en varios bloques `completar`:** `respuestas_validas:` listaba,
->   junto a la forma correcta, formas gramaticalmente incorrectas como si también
->   fueran válidas (al ser de tipo `completar`, cualquier entrada de esa lista se
->   acepta como respuesta correcta). Se corrigió en:
->   - Bloques 1 y 12 ("espero que"/"não acredito que" + subjuntivo): sólo "venha"/"vá"
->     son correctos; se quitaron las formas de indicativo ("vem", "vinha", "vai", "vamos").
->   - Bloque 5 (pronombre relativo): sólo "que" es correcto para el antecedente
->     inanimado "livro"; se quitó "quem" (que sólo se usa con personas) y "o que".
->   - Bloque 10: "filme" es singular, sólo "interessante" concuerda; se quitó el
->     plural "interessantes".
->   - Bloques 17 y 22: "livros" es plural, sólo "interessantes" concuerda; se quitó
->     el singular "interessante".
->   - Bloque 16: "na primeira vez" no es idiomático en esta posición; sólo "pela
->     primeira vez" encaja.
->   - Bloque 19: "porquê" (sustantivo de una palabra) no puede iniciar esta
->     pregunta; sólo "por que" es correcto.
->   - Bloque 8: además del bug de modo verbal, "Dúvido" llevaba un acento
->     inexistente; se corrigió a "Duvido".
->   - Bloques 3 y 14 ("enquanto" + gerundio suelto, sin auxiliar): el gerundio solo
->     no es gramatical en portugués tras "enquanto" sin el auxiliar "estava"; se
->     corrigieron a pretérito imperfecto ("comprava"/"chovia").
+# Portugués (Portugal) — speaking C1 (cuestionario, 10 preguntas VBLang)
 
-### 1 — Subjuntivo después de "espero que"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "espero que"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo después de expresiones de deseo."  
-  - "Identificar la forma correcta del verbo en el subjuntivo."  
-tipo: completar  
-respuestas_validas:  
-  - "venha"  
-  - "Venha"  
-enunciado: "Espero que ele ___ mais cedo ao trabalho."  
-explicacion: "Después de expresiones como 'espero que', se usa el subjuntivo. La forma correcta es 'venga' (3ª persona del singular, presente). En portugués, la conjugación es 'venha'."
+> Tema: `idiomas-extranjeros/portugues-pt/speaking-c1`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas abiertas con muchas respuestas posibles; ahora se elige la expresión adecuada.
+
+---
+
+### 1 — Atenuar
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "Pode argumentar-se que a política falhou."
+tipo: "mc"
+opciones_explicitas: ["Pode argumentar-se que a política falhou.", "Se pode argumentar que falhou.", "A política falhou, óbvio."]
+
+enunciado: "Sin sonar dogmático:"
+
+explicacion: |
+  Colocación formal.
 ```
 
-### 2 — Condicional en oraciones hipotéticas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["condicional", "se"]  
-pasos:  
-  - "Identificar el uso del condicional en oraciones hipotéticas."  
-  - "Elegir la forma correcta del verbo en el condicional."  
-enunciado: "Se eu tivesse mais tempo, eu _______ o trabalho de outra forma."
-opciones_explicitas:  
-  - "faria"  
-  - "fazeria"  
-  - "faz"  
-  - "fizesse"  
-respuesta: "faria"  
-tipo: mc  
-explicacion: "En oraciones hipotéticas con 'se' + pretérito imperfeito, se usa el condicional. La forma correcta es 'faria' (condicional simples de 'fazer')."
+### 2 — Énfasis
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "O que realmente importa é a forma como reagimos."
+tipo: "mc"
+opciones_explicitas: ["O que realmente importa é a forma como reagimos.", "A coisa importante é reagir, pá.", "Importa reagir é."]
+
+enunciado: "Lo esencial:"
+
+explicacion: |
+  *O que realmente importa é…*
 ```
 
-### 3 — Gerundio en oraciones complejas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["gerundio", "oración compuesta"]  
-pasos:  
-  - "Reconocer el uso del gerundio en oraciones que expresan acciones simultáneas."  
-  - "Completar el hueco con la forma correcta del gerundio."  
-tipo: completar  
-respuestas_validas:  
-  - "comprava"  
-  - "Comprava"  
-enunciado: "Enquanto ele ___ frutas, eu estava lendo um livro."  
-explicacion: "Para acciones simultáneas en el pasado con 'enquanto', el portugués usa el pretérito imperfeito ('comprava'), no el gerundio suelto (que necesitaría el auxiliar 'estava': 'estava comprando'). 'Comprou' es pretérito perfeito y no se adapta al contexto."
+### 3 — Longe de
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "Longe de"
+tipo: "mc"
+opciones_explicitas: ["Longe de", "Apesar que", "Em vez que"]
+
+enunciado: "«___ ser um caso isolado, trata-se de uma tendência.»"
+
+explicacion: |
+  *Longe de*.
 ```
 
-### 4 — Voz pasiva en oraciones formales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["voz pasiva", "formal"]  
-pasos:  
-  - "Identificar la voz pasiva en oraciones formales."  
-  - "Elegir el verbo correcto para la voz pasiva."  
-enunciado: "Segundo o relatório, isso já _______ anteriormente pelo diretor."
-opciones_explicitas:  
-  - "foi dito"  
-  - "dizem que"  
-  - "disseram"  
-  - "está dito"  
-respuesta: "foi dito"  
-tipo: mc  
-explicacion: "La voz pasiva en oraciones formales usa el pretérito perfeito del verbo 'ser' + participio. 'Foi dito' es la forma correcta."
+### 4 — Objeción
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "É uma preocupação legítima; no entanto, os dados mostram outra coisa."
+tipo: "mc"
+opciones_explicitas: ["É uma preocupação legítima; no entanto, os dados mostram outra coisa.", "Não percebeste nada.", "Tanto faz."]
+
+enunciado: "Respuesta respetuosa:"
+
+explicacion: |
+  Reconocer y refutar.
 ```
 
-### 5 — Uso de "que" vs "se" en oraciones relativas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["oración relativa", "que/se"]  
-pasos:  
-  - "Distinguir entre el uso de 'que' y 'se' en oraciones relativas."  
-  - "Completar el hueco con la palabra correcta."  
-tipo: completar  
-respuestas_validas:  
-  - "que"  
-  - "Que"  
-enunciado: "O livro ___ li ontem era muito interessante."  
-explicacion: "'Que' se usa cuando el sujeto de la oración relativa es inanimado. 'Quem' se refiere a personas y 'o que' a cosas específicas."
+### 5 — Abrir
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "Gostaria de começar por apresentar os principais resultados."
+tipo: "mc"
+opciones_explicitas: ["Gostaria de começar por apresentar os principais resultados.", "Bom, vamos lá, malta.", "Então, tipo, os resultados."]
+
+enunciado: "Abrís una presentación:"
+
+explicacion: |
+  *Começar por + infinitivo*.
 ```
 
-### 6 — Acuerdo del verbo en oraciones impersonales  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["voz impersonal", "acuerdo"]  
-pasos:  
-  - "Reconocer el uso de la voz impersonal con 'se'."  
-  - "Elegir el verbo correcto en tercera persona singular."  
-enunciado: "Não se _______ a verdade facilmente nestes casos."
-opciones_explicitas:  
-  - "dizem"  
-  - "diz"  
-  - "disseram"  
-  - "falam"  
-respuesta: "diz"  
-tipo: mc  
-explicacion: "En oraciones impersonales con 'se', el verbo debe estar en tercera persona singular. 'Diz' es la forma correcta."
+### 6 — Cerrar
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "Fico ao dispor para perguntas."
+tipo: "mc"
+opciones_explicitas: ["Fico ao dispor para perguntas.", "Perguntas?", "Era isto, adeus."]
+
+enunciado: "Cerrás e invitás a preguntas:"
+
+explicacion: |
+  *Fico ao dispor*.
 ```
 
-### 7 — Uso de "pelo menos" vs "no mínimo"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["expresiones", "cualidad"]  
-pasos:  
-  - "Distinguir entre 'pelo menos' y 'no mínimo' según el contexto."  
-  - "Completar el hueco con la expresión adecuada."  
-tipo: completar  
-respuestas_validas:  
-  - "pelo menos"  
-  - "no mínimo"  
-enunciado: "Ela estudou ___ duas horas para a prova."  
-explicacion: "'Pelo menos' indica un mínimo, mientras que 'no mínimo' se usa en contextos de cantidad mínima específica."
+### 7 — Reformular
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "Por outras palavras, …"
+tipo: "mc"
+opciones_explicitas: ["Por outras palavras, …", "Em outra maneira, …", "Dizendo outro, …"]
+
+enunciado: "Decís lo mismo de otro modo:"
+
+explicacion: |
+  *Por outras palavras*.
 ```
 
-### 8 — Subjuntivo después de expresiones de duda  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "duda"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo después de expresiones negativas."  
-  - "Identificar la forma correcta del verbo en el subjuntivo."  
-tipo: completar  
-respuestas_validas:  
-  - "vá"  
-  - "Vá"  
-enunciado: "Duvido que ele ___ ao cinema esta noite."  
-explicacion: "Después de expresiones negativas como 'dúvido', se usa el subjuntivo. La forma correcta es 'vá' (3ª persona del singular)."
+### 8 — Discrepar
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "Permita-me discordar."
+tipo: "mc"
+opciones_explicitas: ["Permita-me discordar.", "Não concordo, pá.", "Estás enganado."]
+
+enunciado: "Discrepás formalmente:"
+
+explicacion: |
+  *Permita-me discordar*.
 ```
 
-### 9 — Uso de "como" para introducir cláusulas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["preposición", "como"]  
-pasos:  
-  - "Identificar el uso de 'como' para introducir una cláusula."  
-  - "Elegir la forma correcta del verbo en la cláusula."  
-enunciado: "Ela resolveu o problema _______."
-opciones_explicitas:  
-  - "como ele fez"  
-  - "como ele faz"  
-  - "como ele faria"  
-  - "como ele tenha feito"  
-respuesta: "como ele fez"  
-tipo: mc  
-explicacion: "'Como' introduce una cláusula en pretérito perfecto cuando se refiere a un hecho pasado. 'Como ele fez' es correcto."
+### 9 — Trato
+
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
+
+respuesta: "A senhora engenheira concorda?"
+tipo: "mc"
+opciones_explicitas: ["A senhora engenheira concorda?", "Tu concordas?", "Você concorda, pá?"]
+
+enunciado: "Te dirigís a una ingeniera en una reunión:"
+
+explicacion: |
+  Título + 3.ª persona.
 ```
 
-### 10 — Acuerdo de adjetivos con el antecedente  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["acuerdo", "adjetivo"]  
-pasos:  
-  - "Reconocer el acuerdo de adjetivos con sustantivos masculinos/femeninos."  
-  - "Completar el hueco con la forma correcta del adjetivo."  
-tipo: completar  
-respuestas_validas:  
-  - "interessante"  
-  - "Interessante"  
-enunciado: "O filme ___ é muito popular entre os jovens."  
-explicacion: "El adjetivo 'interessante' debe concordar en género con el sustantivo 'filme', que es masculino. No se pluraliza."
+### 10 — Registro
+
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "speaking-c1"
+  nivel: "C1"
+  tags: ["speaking", "C1"]
 
-### 11 — Uso de "entre" y "entre si" en oraciones reflexivas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["preposición", "reflexivo"]  
-pasos:  
-  - "Distinguir entre 'entre' y 'entre si' en oraciones reflexivas."  
-  - "Elegir la forma correcta según el contexto."  
-enunciado: "Os sócios discutiram o assunto _______ antes de decidir."
-opciones_explicitas:  
-  - "entre eles"  
-  - "entre si"  
-  - "entre os dois"  
-  - "entre nós"  
-respuesta: "entre si"  
-tipo: mc  
-explicacion: "'Entre si' se usa cuando la acción afecta a los mismos sujetos. 'Entre eles' es correcto para grupos externos, pero no en este contexto."
+respuesta: "bué"
+tipo: "mc"
+opciones_explicitas: ["bué", "como mostram os números", "em larga medida"]
+
+enunciado: "¿Qué evitarías en una presentación formal?"
+
+explicacion: |
+  *Bué* (= mucho) es muy coloquial.
 ```
-
-### 12 — Subjuntivo después de expresiones de negación  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["subjuntivo", "negación"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo después de expresiones negativas."  
-  - "Identificar la forma correcta del verbo en el subjuntivo."  
-tipo: completar  
-respuestas_validas:  
-  - "vá"  
-  - "Vá"  
-enunciado: "Não acredito que ele ___ ao cinema esta noite."  
-explicacion: "Después de expresiones negativas como 'não acredito', se usa el subjuntivo. La forma correcta es 'vá' (3ª persona del singular)."
-```
-
-### 13 — Uso de "ter de" vs "dever" en oraciones  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["modalidad", "ter de/dever"]  
-pasos:  
-  - "Distinguir entre 'ter de' y 'dever' según el contexto."  
-  - "Elegir la forma correcta en la oración."  
-enunciado: "Neste momento, eu _______ terminar o relatório até amanhã."
-opciones_explicitas:  
-  - "tenho de"  
-  - "devo"  
-  - "tive de"  
-  - "devia"  
-respuesta: "tenho de"  
-tipo: mc  
-explicacion: "'Ter de' se usa para obligaciones actuales, mientras que 'dever' indica deber o obligación en general. En este contexto, 'tenho de' es correcto."
-```
-
-### 14 — Uso del gerundio con "enquanto"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["gerundio", "enquanto"]  
-pasos:  
-  - "Reconocer el uso del gerundio con 'enquanto' para acciones simultáneas."  
-  - "Completar el hueco con la forma correcta del gerundio."  
-tipo: completar  
-respuestas_validas:  
-  - "chovia"  
-  - "Chovia"  
-enunciado: "Enquanto ___ na rua, eu estava lendo um livro."  
-explicacion: "Para acciones simultáneas en el pasado con 'enquanto', el portugués usa el pretérito imperfeito ('chovia'), no el gerundio suelto sin auxiliar. 'Choveu' es pretérito perfeito y no encaja."
-```
-
-### 15 — Uso de "como se" para situaciones hipotéticas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["condicional", "como se"]  
-pasos:  
-  - "Identificar el uso de 'como se' para situaciones hipotéticas."  
-  - "Elegir la forma correcta del verbo en el subjuntivo."  
-enunciado: "Ele fala português _______ fosse a sua língua nativa."
-opciones_explicitas:  
-  - "como se fosse"  
-  - "como se for"  
-  - "como se fizesse"  
-  - "como se fez"  
-respuesta: "como se fosse"  
-tipo: mc  
-explicacion: "'Como se' introduce una oración hipotética con el subjuntivo. 'Fosse' es la forma correcta en pretérito imperfeito."
-```
-
-### 16 — Uso de "pela primeira vez" vs "na primeira vez"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["expresiones", "tiempo"]  
-pasos:  
-  - "Distinguir entre 'pela primeira vez' y 'na primeira vez' según el contexto."  
-  - "Completar el hueco con la expresión adecuada."  
-tipo: completar  
-respuestas_validas:  
-  - "pela primeira vez"  
-  - "Pela primeira vez"  
-enunciado: "Ela viajou ___ para o exterior."  
-explicacion: "'Pela primeira vez' indica un primer evento, mientras que 'na primeira vez' se refiere a una acción específica."
-```
-
-### 17 — Acuerdo del adjetivo en oraciones con sustantivos compuestos  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["acuerdo", "sustantivo compuesto"]  
-pasos:  
-  - "Reconocer el acuerdo de adjetivos con sustantivos compuestos."  
-  - "Completar el hueco con la forma correcta del adjetivo."  
-tipo: completar  
-respuestas_validas:  
-  - "interessantes"  
-  - "Interessantes"  
-enunciado: "Os livros ___ são muito populares entre os alunos."  
-explicacion: "El adjetivo 'interessantes' debe concordar en género y número con el sustantivo compuesto 'livros', que es masculino plural."
-```
-
-### 18 — Uso de "por que" vs "porquê" en preguntas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["preposición", "por que/porquê"]  
-pasos:  
-  - "Distinguir entre 'por que' y 'porquê' según el contexto."  
-  - "Completar el hueco con la forma correcta."  
-tipo: completar  
-respuestas_validas:  
-  - "Por que"  
-  - "por que"  
-enunciado: "___ você chegou atrasado?"  
-explicacion: "'Por que' se usa en preguntas, mientras que 'porquê' es una palabra independiente (razón)."
-```
-
-### 19 — Uso de "ter de" en oraciones con tiempo futuro  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["modalidad", "futuro"]  
-pasos:  
-  - "Reconocer el uso de 'ter de' en oraciones con tiempo futuro."  
-  - "Elegir la forma correcta del verbo en el futuro."  
-enunciado: "Amanhã, eu _______ viajar cedo."
-opciones_explicitas:  
-  - "terei de"  
-  - "deverei"  
-  - "terei que"  
-  - "devia"  
-respuesta: "terei de"  
-tipo: mc  
-explicacion: "'Ter de' se usa para obligaciones futuras. 'Terei de' es la forma correcta en futuro (futuro de 'ter')."
-```
-
-### 20 — Uso de "ter de" vs "dever" con pretérito perfecto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "speaking-c1"  
-  nivel: "C1"  
-  tags: ["modalidad", "pretérito perfecto"]  
-pasos:  
-  - "Distinguir entre 'ter de' y 'dever' en oraciones con pretérito perfecto."  
-  - "Elegir la forma correcta del verbo."  
-enunciado: "Ontem, eu _______ resolver um problema urgente."
-opciones_explicitas:  
-  - "tive de"  
-  - "deve"  
-  - "tenho de"  
-  - "devia"  
-respuesta: "tive de"  
-tipo: mc  
-explicacion: "'Ter de' se usa para obligaciones pasadas. 'Tive de' es la forma correcta en pretérito perfecto."
-```  
-
-###

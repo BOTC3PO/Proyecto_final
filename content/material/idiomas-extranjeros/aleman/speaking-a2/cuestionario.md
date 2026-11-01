@@ -1,502 +1,216 @@
-# Idiomas — Alemán — speaking-a2 (cuestionario)
+# Alemán — speaking A2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/speaking-a2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/aleman/speaking-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Forma del verbo *sein* en presente  
+### 1 — Edad
+
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbo-estar", "presente"]
-pasos:
-  - "Identificar el sujeto y el tiempo verbal."
-  - "Escribir la forma correcta del verbo *sein* en presente."
-tipo: completar
-respuestas_validas:
-  - "bin"
-  - "Bin"
-enunciado: "Ich ___ Student. (Ich = yo)"
-explicacion: "El verbo *sein* en primera persona singular del presente se conjuga como *bin*."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ich bin zwanzig Jahre alt."
+tipo: "mc"
+opciones_explicitas: ["Ich bin zwanzig Jahre alt.", "Ich habe zwanzig Jahre.", "Ich mache zwanzig Jahre."]
+
+enunciado: "Para decir tu edad:"
+
+explicacion: |
+  Edad con *sein*.
 ```
 
----
+### 2 — Pedir
 
-### 2 — Uso de artículos definidos  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["articulos", "sustantivos"]
-pasos:
-  - "Determinar el género del sustantivo."
-  - "Escribir el artículo definido correspondiente."
-tipo: completar
-respuestas_validas:
-  - "die"
-  - "Die"
-enunciado: "___ Frau ist meine Lehrerin. (Frau = mujer)"
-explicacion: "El sustantivo *Frau* es femenino, por lo que requiere el artículo *die*."
-```
-
----
-
-### 3 — Preposición con caso acusativo  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["preposiciones", "caso-acusativo"]
-pasos:
-  - "Identificar la preposición y el complemento."
-  - "Escribir la forma correcta con el caso acusativo."
-tipo: completar
-respuestas_validas:
-  - "zum"
-  - "Zum"
-enunciado: "Ich gehe ___ Supermarkt. (Supermarkt = supermercado)"
-explicacion: "La preposición *zu* + *dem* se contrae en *zum* cuando precede a un sustantivo masculino."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ich hätte gern zwei Brötchen, bitte."
+tipo: "mc"
+opciones_explicitas: ["Ich hätte gern zwei Brötchen, bitte.", "Ich will zwei Brötchen.", "Gib mir zwei Brötchen."]
+
+enunciado: "En una panadería, lo más cortés es:"
+
+explicacion: |
+  *Ich hätte gern*.
 ```
 
----
+### 3 — Saludo
 
-### 4 — Preguntas con *woher*  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preguntas", "preposiciones"]
-pasos:
-  - "Identificar la preposición que completa el sentido."
-  - "Escribir la respuesta correcta con *woher*."
-tipo: completar
-respuestas_validas:
-  - "aus"
-  - "Aus"
-enunciado: "Woher kommst du? — Ich komme ___ Deutschland."
-explicacion: "La preposición *aus* se usa para indicar el origen en respuestas a *woher*."
-```
-
----
-
-### 5 — Verbos modales con infinitivo  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["verbos-modales", "infinitivo"]
-pasos:
-  - "Identificar el verbo modal y su complemento."
-  - "Escribir la forma correcta del infinitivo."
-tipo: completar
-respuestas_validas:
-  - "machen"
-  - "Machen"
-enunciado: "Ich muss ___ Hausaufgaben. (Hausaufgaben = tareas)"
-explicacion: "El verbo modal *müssen* se usa con el infinitivo del verbo principal."
+  tags: ["speaking", "A2"]
+
+respuesta: "Guten Tag!"
+tipo: "mc"
+opciones_explicitas: ["Guten Tag!", "Gute Nacht!", "Tschüss!"]
+
+enunciado: "Al entrar a un negocio al mediodía:"
+
+explicacion: |
+  *Guten Tag*.
 ```
 
----
+### 4 — Precio
 
-### 6 — Orden de palabras en preguntas  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["orden-de-palabras", "preguntas"]
-pasos:
-  - "Reorganizar la oración en orden interrogativo."
-  - "Escribir la pregunta correcta."
-tipo: completar
-respuestas_validas:
-  - "Bist du"
-  - "bist du"
-enunciado: "___ Student? (Student = estudiante)"
-explicacion: "En preguntas con sujeto, el verbo va antes del sujeto."
-```
-
----
-
-### 7 — Expresiones de tiempo  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["tiempo", "expresiones"]
-pasos:
-  - "Identificar el día de la semana."
-  - "Escribir la expresión correcta."
-tipo: completar
-respuestas_validas:
-  - "heute"
-  - "Heute"
-enunciado: "Wir treffen uns ___. (Wir = nosotros)"
-explicacion: "La expresión *heute* se usa para indicar 'hoy' en contextos temporales."
+  tags: ["speaking", "A2"]
+
+respuesta: "Was kostet das?"
+tipo: "mc"
+opciones_explicitas: ["Was kostet das?", "Wie viel ist kosten?", "Was ist der Kost?"]
+
+enunciado: "Para preguntar el precio:"
+
+explicacion: |
+  *Was kostet…?*
 ```
 
----
+### 5 — Repetir
 
-### 8 — Pronombres posesivos  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["pronombres", "posesivos"]
-pasos:
-  - "Identificar el posesivo que corresponde al sujeto."
-  - "Escribir la forma correcta del pronombre."
-tipo: completar
-respuestas_validas:
-  - "mein"
-  - "Mein"
-enunciado: "___ Buch ist grün. (Buch = libro)"
-explicacion: "El pronombre posesivo *mein* se usa para 'mi' en posesión."
-```
-
----
-
-### 9 — Adjetivos con acento fuerte  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["adjetivos", "acentos"]
-pasos:
-  - "Identificar el género del sustantivo."
-  - "Escribir la forma correcta con acento fuerte."
-tipo: completar
-respuestas_validas:
-  - "großes"
-  - "Großes"
-enunciado: "Ein ___ Auto. (Auto = coche)"
-explicacion: "El adjetivo *groß* cambia a *großes* para sustantivos neutros en singular."
+  tags: ["speaking", "A2"]
+
+respuesta: "Können Sie das bitte wiederholen?"
+tipo: "mc"
+opciones_explicitas: ["Können Sie das bitte wiederholen?", "Wiederhol!", "Was?"]
+
+enunciado: "No entendiste a un desconocido:"
+
+explicacion: |
+  Forma cortés.
 ```
 
----
+### 6 — Sie
 
-### 10 — Plural de sustantivos con -e  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["plural", "sustantivos"]
-pasos:
-  - "Identificar la regla del plural."
-  - "Escribir el plural correcto."
-tipo: completar
-respuestas_validas:
-  - "Bücher"
-  - "bücher"
-enunciado: "Ein Buch — ___ Bücher. (Buch = libro)"
-explicacion: "Los sustantivos terminados en -e forman plural con -er."
-```
-
----
-
-### 11 — Uso de *zu* + infinitivo  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["infinitivo", "preposiciones"]
-pasos:
-  - "Identificar el verbo principal."
-  - "Escribir la forma correcta con *zu* y el infinitivo."
-tipo: completar
-respuestas_validas:
-  - "gehen"
-  - "GeHEN"
-enunciado: "Ich muss ___ zum Markt. (Markt = mercado)"
-explicacion: "La preposición *zu* se usa antes del infinitivo en algunas estructuras."
+  tags: ["speaking", "A2"]
+
+respuesta: "Entschuldigen Sie, wo ist der Bahnhof?"
+tipo: "mc"
+opciones_explicitas: ["Entschuldigen Sie, wo ist der Bahnhof?", "Hey du, wo ist der Bahnhof?", "Entschuldige dich, wo Bahnhof?"]
+
+enunciado: "Le preguntás a una señora en la calle:"
+
+explicacion: |
+  *Sie* formal.
 ```
 
----
+### 7 — Profesión
 
-### 12 — Direcciones y preposiciones  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["direccioNES", "preposiciones"]
-pasos:
-  - "Identificar la relación espacial."
-  - "Escribir la preposición correcta."
-tipo: completar
-respuestas_validas:
-  - "gegenüber"
-  - "Gegenüber"
-enunciado: "Das Café ist ___ dem Hotel. (Café = café)"
-explicacion: "La preposición *gegenüber* indica 'frente a' en contextos espaciales."
-```
-
----
-
-### 13 — Números del 1 al 10  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["numeros", "contar"]
-pasos:
-  - "Identificar el número ordinal."
-  - "Escribir la forma correcta en aleman."
-tipo: completar
-respuestas_validas:
-  - "acht"
-  - "Acht"
-enunciado: "___ (8)"
-explicacion: "El número *acht* corresponde al cardinal 'ocho' en aleman."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ich bin Arzt."
+tipo: "mc"
+opciones_explicitas: ["Ich bin Arzt.", "Ich bin ein Arzt von Beruf ein.", "Ich mache Arzt."]
+
+enunciado: "Para decir que sos médico:"
+
+explicacion: |
+  Sin artículo.
 ```
 
----
+### 8 — Agradecer
 
-### 14 — Días de la semana  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["dias", "semana"]
-pasos:
-  - "Identificar el día en orden."
-  - "Escribir el nombre correcto del día."
-tipo: completar
-respuestas_validas:
-  - "Donnerstag"
-  - "donnerstag"
-enunciado: "___ es el cuarto día de la semana. (Vier = cuatro)"
-explicacion: "El día *Donnerstag* corresponde al 'jueves' en aleman."
-```
-
----
-
-### 15 — Meses del año  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["meses", "año"]
-pasos:
-  - "Identificar el mes según la descripción."
-  - "Escribir el nombre correcto del mes."
-tipo: completar
-respuestas_validas:
-  - "Oktober"
-  - "oktober"
-enunciado: "___ es el décimo mes del año. (Zehn = diez)"
-explicacion: "El mes *Oktober* corresponde al 'octubre' en aleman."
+  tags: ["speaking", "A2"]
+
+respuesta: "Bitte schön!"
+tipo: "mc"
+opciones_explicitas: ["Bitte schön!", "Danke nein!", "Gut!"]
+
+enunciado: "— Danke schön! Respuesta:"
+
+explicacion: |
+  *Bitte schön*.
 ```
 
----
+### 9 — Gustos
 
-### 16 — Estaciones del año  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["estaciones", "naturaleza"]
-pasos:
-  - "Identificar la estación según el contexto."
-  - "Escribir el nombre correcto de la estación."
-tipo: completar
-respuestas_validas:
-  - "Frühling"
-  - "frühling"
-enunciado: "___ ist die Zeit des Regens. (Regen = lluvia)"
-explicacion: "La estación *Frühling* corresponde al 'primavera' en aleman."
-```
-
----
-
-### 17 — Colores  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["colores", "adjetivos"]
-pasos:
-  - "Identificar el color según la descripción."
-  - "Escribir el nombre correcto del color."
-tipo: completar
-respuestas_validas:
-  - "grün"
-  - "Grün"
-enunciado: "Der Baum ist ___ . (Baum = árbol)"
-explicacion: "El adjetivo *grünen* describe el color 'verde' en aleman."
+  tags: ["speaking", "A2"]
+
+respuesta: "Ich lese gern."
+tipo: "mc"
+opciones_explicitas: ["Ich lese gern.", "Ich mag gern lesen zu.", "Mir gefällt lesen gern."]
+
+enunciado: "Para decir que te gusta leer:"
+
+explicacion: |
+  Verbo + *gern*.
 ```
 
----
+### 10 — Pasado
 
-### 18 — Miembros de la familia  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["familia", "sustantivos"]
-pasos:
-  - "Identificar el miembro de la familia."
-  - "Escribir el nombre correcto en aleman."
-tipo: completar
-respuestas_validas:
-  - "Vater"
-  - "vater"
-enunciado: "___ ist ein Mann. (Mann = hombre)"
-explicacion: "El sustantivo *Vater* corresponde a 'padre' en aleman."
-```
-
----
-
-### 19 — Países y nacionalidades  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["paises", "nacionalidades"]
-pasos:
-  - "Identificar el país según la descripción."
-  - "Escribir el nombre correcto del país."
-tipo: completar
-respuestas_validas:
-  - "Frankreich"
-  - "frankreich"
-enunciado: "___ ist ein Land in Europa. (Land = país)"
-explicacion: "El país *Frankreich* corresponde a 'Francia' en aleman."
+  tags: ["speaking", "A2"]
+
+respuesta: "Gestern bin ich ins Kino gegangen."
+tipo: "mc"
+opciones_explicitas: ["Gestern bin ich ins Kino gegangen.", "Gestern habe ich ins Kino gegangen.", "Gestern ich bin ins Kino gegangen."]
+
+enunciado: "Para contar lo que hiciste ayer:"
+
+explicacion: |
+  *Gehen* con *sein*; verbo en 2.
 ```
 
----
+### 11 — Despedida
 
-### 20 — Actividades y hobbies  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["hobbies", "actividades"]
-pasos:
-  - "Identificar la actividad según el contexto."
-  - "Escribir el nombre correcto en aleman."
-tipo: completar
-respuestas_validas:
-  - "Tanzen"
-  - "tanzen"
-enunciado: "Ich mag ___ . (Tänzer = bailarín)"
-explicacion: "El sustantivo *Tanzen* corresponde a 'bailar' en aleman."
-```
-
----
-
-### 21 — Expresiones del clima  
 ```
 metadata:
   materia: "aleman"
   tema: "speaking-a2"
   nivel: "A2"
-  tags: ["clima", "expresiones"]
-pasos:
-  - "Identificar el fenómeno climático."
-  - "Escribir la expresión correcta en aleman."
-tipo: completar
-respuestas_validas:
-  - "Regnen"
-  - "regnen"
-enunciado: "Es ___ heute. (heute = hoy)"
-explicacion: "La expresión *Regnen* indica 'llover' en aleman."
-```
+  tags: ["speaking", "A2"]
 
----
+respuesta: "Auf Wiedersehen, schönen Tag noch!"
+tipo: "mc"
+opciones_explicitas: ["Auf Wiedersehen, schönen Tag noch!", "Gute Nacht, bis morgen!", "Hallo!"]
 
-### 22 — Uso de *haben* en presente  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["verbo-tener", "presente"]
-pasos:
-  - "Identificar el sujeto y el tiempo verbal."
-  - "Escribir la forma correcta del verbo *haben* en presente."
-tipo: completar
-respuestas_validas:
-  - "habe"
-  - "Habe"
-enunciado: "Ich ___ einen Hund. (Hund = perro)"
-explicacion: "El verbo *haben* en primera persona singular del presente es *habe*."
-```
+enunciado: "Al salir de un negocio:"
 
----
-
-### 23 — Adjetivos con acento débil  
-```  
-metadata:  
-  materia: "aleman"  
-  tema: "preposiciones"  
-  nivel: "A2"  
-  tags: ["ubicación", "hinter"]  
-pasos:  
-  - "Identificar la relación espacial entre el sujeto y el complemento."  
-  - "Elegir la preposición que indica 'detrás de' en aleman."  
-tipo: completar  
-respuestas_validas:  
-  - "hinter"  
-  - "Hinter"  
-enunciado: "Das Auto steht ___ dem Haus."  
-explicacion: "La preposición 'hinter' se usa para indicar que algo está detrás de otro objeto. En este caso, el auto está detrás del casa."  
-```
-
-### 24 — Preposiciones con caso dativo  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preposiciones", "caso-dativo"]
-pasos:
-  - "Identificar la preposición y el complemento."
-  - "Escribir la forma correcta con el caso dativo."
-tipo: completar
-respuestas_validas:
-  - "mit"
-  - "Mit"
-enunciado: "Ich gehe ___ meiner Mutter. (Mutter = madre)"
-explicacion: "La preposición *mit* se usa con el caso dativo en contextos de compañía."
-```
-
----
-
-### 25 — Uso de *wann*  
-```
-metadata:
-  materia: "aleman"
-  tema: "speaking-a2"
-  nivel: "A2"
-  tags: ["preguntas", "tiempo"]
-pasos:
-  - "Identificar el momento temporal."
-  - "Escribir la respuesta correcta con *wann*."
-respuesta: "morgen"
-tipo: completar
-respuestas_validas:
-  - "morgen"
-  - "Morgen"
-enunciado: "___ kommen wir? (kommen = venir)"
-explicacion: "La expresión *morgen* indica 'mañana' en respuestas a preguntas de tiempo."
+explicacion: |
+  Despedida formal.
 ```

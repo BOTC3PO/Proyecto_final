@@ -1,0 +1,49 @@
+{
+ "titulo": "Cómo sospechar de un video",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Señales que pueden delatar un deepfake",
+   "headers": [
+    "Dónde mirar",
+    "Qué puede delatarlo"
+   ],
+   "rows": [
+    [
+     "Ojos",
+     "Parpadeo raro (muy poco o a destiempo), mirada fija"
+    ],
+    [
+     "Bordes de la cara",
+     "Contornos borrosos o que «tiemblan» al girar la cabeza"
+    ],
+    [
+     "Boca",
+     "Labios que no coinciden con las palabras; dientes borrosos"
+    ],
+    [
+     "Luz y sombras",
+     "La cara iluminada distinto que el resto de la escena"
+    ],
+    [
+     "Detalles",
+     "Orejas, pelo, anteojos o aros que se deforman"
+    ],
+    [
+     "Voz",
+     "Tono plano, sin respiraciones, o cortes extraños"
+    ],
+    [
+     "Contexto",
+     "¿Quién lo publicó primero? ¿Lo informan medios confiables?"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Los deepfakes mejoran rápido y pueden no mostrar ninguna de estas señales. Por eso lo más seguro es verificar la fuente y buscar el video original."
+  }
+ ]
+}

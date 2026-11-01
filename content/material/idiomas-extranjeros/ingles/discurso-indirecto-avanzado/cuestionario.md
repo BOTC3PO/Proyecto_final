@@ -1,596 +1,328 @@
-# Idiomas — Inglés — discurso-indirecto-avanzado (cuestionario, 25 preguntas VBLang)
+# Inglés — discurso indirecto avanzado (cuestionario, 17 preguntas VBLang)
 
-> Corregido a partir del borrador
-> (`../../../_borradores-gemma/idiomas-extranjeros/ingles/discurso-indirecto-avanzado/cuestionario_crudo.md`):
-> los bloques 24 y 25 tenían `explicacion:` sin comillas, rompiendo el
-> parseo — corregido. **Bug de contenido**: los bloques 7, 15 y 23
-> pedían que un modal perfecto ("could have", "would have been able
-> to") desapareciera por completo al pasar a discurso indirecto — en
-> realidad ese tipo de modal ya está en su forma más "retrocedida" y
-> se mantiene igual, no se convierte en un simple pasado perfecto.
-> El bloque 17 pedía "had been" para el "were" hipotético de un
-> segundo condicional embebido, cuando la regla real es que ese "were"
-> se mantiene igual. El bloque 25 tenía la respuesta correcta ("...them
-> then.") ausente de sus propias `opciones_explicitas` (que sólo
-> ofrecían "...them now."). Recorregidos.
+> Tema: `idiomas-extranjeros/ingles/discurso-indirecto-avanzado`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas ambiguas (varias respuestas válidas) o con la respuesta equivocada.
 
 ---
 
-### 1 — Reported Questions with Modals
+### 1 — Pregunta cerrada
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "modales"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar la estructura de la pregunta directa."
-  - "Aplicar el cambio a discurso indirecto con 'if' o 'whether'."
-  - "Ajustar el modal según el contexto temporal."
+respuesta: "if I was"
+tipo: "mc"
+opciones_explicitas: ["if I was", "was I", "that I was"]
 
-respuestas_validas:
-  - "Could"
-  - "could"
-tipo: completar
+enunciado: "\"Are you coming?\" → She asked ___ coming."
 
-enunciado: "He asked, 'Can you help me with this task?'"
-
-explicacion: "En discurso indirecto, la pregunta directa se transforma en una oración con 'if/whether' y el modal 'can' cambia a 'could' para mantener el sentido de posibilidad."
+explicacion: |
+  Pregunta sí/no: *if/whether* + orden afirmativo.
 ```
 
-### 2 — Reported Commands with Infinitives
+### 2 — Pregunta abierta
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "to-infinitive"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer la estructura de la orden directa."
-  - "Convertir a infinitivo con 'tell' o 'ask' según el contexto."
+respuesta: "I lived"
+tipo: "mc"
+opciones_explicitas: ["I lived", "did I live", "do I live"]
 
-respuestas_validas:
-  - "To finish"
-  - "to finish"
-tipo: completar
+enunciado: "\"Where do you live?\" → He asked me where ___."
 
-enunciado: "The teacher said, 'You must finish your homework now!'"
-
-explicacion: "Las órdenes directas se convierten en infinitivos con 'tell/ask someone to + verbo' en discurso indirecto, manteniendo el modal original."
+explicacion: |
+  Orden afirmativo y sin *do/did*.
 ```
 
-### 3 — Reported Questions with Past Perfect
+### 3 — Pregunta abierta (2)
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "tiempo pasado"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar el verbo en tiempo pasado."
-  - "Ajustar a tiempo pasado perfecto para discurso indirecto."
+respuesta: "started"
+tipo: "mc"
+opciones_explicitas: ["started", "did start", "does start"]
 
-respuestas_validas:
-  - "Had left"
-  - "had left"
-tipo: completar
+enunciado: "\"What time does the film start?\" → She asked what time the film ___."
 
-enunciado: "She asked, 'Did you know that he had left already?'"
-
-explicacion: "Cuando la oración original incluye un tiempo pasado (had left), en discurso indirecto se mantiene el pasado perfecto."
+explicacion: |
+  Sin auxiliar *do*: *what time the film started*.
 ```
 
-### 4 — Reported Commands with Modal + Infinitive
+### 4 — Orden
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "modales"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer la presencia de un modal en la orden directa."
-  - "Convertir a infinitivo con el modal correspondiente."
+respuesta: "to close"
+tipo: "mc"
+opciones_explicitas: ["close", "to close", "closing"]
 
-respuestas_validas:
-  - "To check"
-  - "to check"
-tipo: completar
+enunciado: "\"Close the door.\" → He told me ___ the door."
 
-enunciado: "The manager told us, 'You should check the inventory again!'"
-
-explicacion: "El modal 'should' se mantiene en discurso indirecto como parte del infinitivo: 'asked us to check'."
+explicacion: |
+  *Tell + persona + to-infinitivo*.
 ```
 
-### 5 — Reported Questions with Future Tense
+### 5 — Orden negativa
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "futuro"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer el tiempo futuro en la pregunta directa."
-  - "Ajustar a 'would' en discurso indirecto."
+respuesta: "not to be"
+tipo: "mc"
+opciones_explicitas: ["don't be", "not to be", "to not being"]
 
-respuestas_validas:
-  - "Would be"
-  - "would be"
-tipo: completar
+enunciado: "\"Don't be late.\" → She told us ___ late."
 
-enunciado: "He asked, 'Will you be free tomorrow?'"
-
-explicacion: "El futuro 'will' se transforma a 'would' en discurso indirecto para mantener la coherencia temporal."
+explicacion: |
+  Negativa: *not to + infinitivo*.
 ```
 
-### 6 — Reported Commands with Negative Modals
+### 6 — Pedido
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "negativos"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar la negación en la orden directa."
-  - "Traducir a infinitivo con 'not' y el modal correspondiente."
+respuesta: "to help"
+tipo: "mc"
+opciones_explicitas: ["to help", "help", "that I help"]
 
-respuestas_validas:
-  - "To touch"
-  - "to touch"
-tipo: completar
+enunciado: "\"Could you help me?\" → She asked me ___ her."
 
-enunciado: "The chef said, 'You must not touch the hot stove!'"
-
-explicacion: "La negación 'must not' se mantiene en discurso indirecto como 'asked not to touch', usando el infinitivo."
+explicacion: |
+  *Ask + persona + to-infinitivo*.
 ```
 
-### 7 — Reported Questions with Modal Perfect
+### 7 — Modal que no cambia
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "modal perfecto"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer el modal perfecto 'could have' en la pregunta directa."
-  - "Mantenerlo sin más retroceso, ya que 'could have' es su propia forma más retrocedida."
+respuesta: "should"
+tipo: "mc"
+opciones_explicitas: ["should", "should have", "shall"]
 
-respuestas_validas:
-  - "could have told"
-  - "Could have told"
-tipo: completar
+enunciado: "\"You should rest.\" → The doctor said I ___ rest."
 
-enunciado: "She asked, 'Could you have told me earlier?'"
-
-explicacion: "'Could have + participio' ya es la forma más retrocedida del modal — en discurso indirecto se mantiene igual, no se convierte en un simple pasado perfecto ('had told')."
+explicacion: |
+  *Should* no cambia.
 ```
 
-### 8 — Reported Commands with Multiple Modals
+### 8 — Must
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "modales múltiples"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar varios modales en la orden directa."
-  - "Seleccionar el que se mantiene en discurso indirecto."
+respuesta: "had to"
+tipo: "mc"
+opciones_explicitas: ["had to", "must have", "would"]
 
-respuestas_validas:
-  - "To have finished"
-  - "to have finished"
-tipo: completar
+enunciado: "\"You must wear a helmet.\" → He said we ___ wear a helmet."
 
-enunciado: "The boss said, 'You must have finished the report by now!'"
-
-explicacion: "El modal 'must' se omite en discurso indirecto cuando se usa el infinitivo, pero la estructura 'have finished' permanece."
+explicacion: |
+  *Must* (obligación) → *had to* (o queda *must*).
 ```
 
-### 9 — Reported Questions with Indirect Object Pronouns
+### 9 — Advise
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "pronombres"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer los pronombres en la pregunta directa."
-  - "Ajustar a la estructura indirecta con 'if/whether'."
+respuesta: "to see"
+tipo: "mc"
+opciones_explicitas: ["to see", "seeing", "that see"]
 
-respuestas_validas:
-  - "Had seen"
-  - "had seen"
-tipo: completar
+enunciado: "\"You should see a doctor.\" → She advised me ___ a doctor."
 
-enunciado: "He asked me, 'Did you see the movie last night?'"
-
-explicacion: "El verbo 'see' se transforma a pasado perfecto en discurso indirecto para mantener el orden temporal."
+explicacion: |
+  *Advise + persona + to-infinitivo*.
 ```
 
-### 10 — Reported Commands with Imperative + Modal
+### 10 — Refuse
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "imperativo"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar el imperativo en la orden directa."
-  - "Convertir a infinitivo con 'tell' y el modal correspondiente."
+respuesta: "to pay"
+tipo: "mc"
+opciones_explicitas: ["to pay", "paying", "that he pay"]
 
-respuestas_validas:
-  - "To study"
-  - "to study"
-tipo: completar
+enunciado: "\"I won't pay!\" → He refused ___."
 
-enunciado: "The teacher said, 'You should study harder!'"
-
-explicacion: "El imperativo 'should study' se transforma a infinitivo en discurso indirecto: 'asked them to study'."
+explicacion: |
+  *Refuse + to-infinitivo*.
 ```
 
-### 11 — Reported Questions with Past Perfect in Subordinate Clauses
+### 11 — Suggest
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "subordinadas"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer cláusulas subordinadas en la pregunta directa."
-  - "Ajustar a pasado perfecto si el contexto lo requiere."
+respuesta: "going"
+tipo: "mc"
+opciones_explicitas: ["going", "to go", "us to go"]
 
-respuestas_validas:
-  - "Had left"
-  - "had left"
-tipo: completar
+enunciado: "\"Let's go to the beach.\" → She suggested ___ to the beach."
 
-enunciado: "She asked, 'Had you already left when he arrived?'"
-
-explicacion: "Cuando la pregunta directa incluye un verbo en pasado perfecto ('had left'), se mantiene en discurso indirecto."
+explicacion: |
+  *Suggest + -ing* (o *that we go*). ❌ *suggest us to go*.
 ```
 
-### 12 — Reported Commands with Modal + Infinitive in Passives
+### 12 — Apologise
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "pasivo"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer la voz pasiva en la orden directa."
-  - "Convertir a infinitivo con 'be' y el modal correspondiente."
+respuesta: "for being"
+tipo: "mc"
+opciones_explicitas: ["for being", "to be", "being"]
 
-respuestas_validas:
-  - "To be"
-  - "to be"
-tipo: completar
+enunciado: "\"Sorry I'm late.\" → He apologised ___ late."
 
-enunciado: "The manager said, 'You must be prepared for the meeting!'"
-
-explicacion: "La voz pasiva en la orden directa ('must be prepared') se transforma a infinitivo en discurso indirecto."
+explicacion: |
+  *Apologise for + -ing*.
 ```
 
-### 13 — Reported Questions with Future in the Past
+### 13 — Deny
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "futuro en pasado"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar el uso de 'would' o 'was going to'."
-  - "Mantener 'would' sin cambios de tiempo adicionales."
+respuesta: "taking"
+tipo: "mc"
+opciones_explicitas: ["taking", "to take", "that take"]
 
-respuestas_validas:
-  - "Would like"
-  - "would like"
-tipo: completar
+enunciado: "\"I didn't take the money!\" → She denied ___ the money."
 
-enunciado: "He asked, 'Would you like to join us tomorrow?'"
-
-explicacion: "El futuro en la pregunta directa ('would like') se mantiene en discurso indirecto sin cambios de tiempo."
+explicacion: |
+  *Deny + -ing*.
 ```
 
-### 14 — Reported Commands with Multiple Actions
+### 14 — Accuse
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "acciones múltiples"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar varias acciones en la orden directa."
-  - "Convertir a infinitivo con 'to + verbo' y el modal correspondiente."
+respuesta: "of lying"
+tipo: "mc"
+opciones_explicitas: ["of lying", "to lie", "for lie"]
 
-respuestas_validas:
-  - "To practice"
-  - "to practice"
-tipo: completar
+enunciado: "\"You lied to me!\" → She accused him ___."
 
-enunciado: "The coach told the players, 'You must practice and stay hydrated!'"
-
-explicacion: "Cuando hay múltiples acciones en la orden directa, se usan infinitivos separados en discurso indirecto."
+explicacion: |
+  *Accuse + persona + of + -ing*.
 ```
 
-### 15 — Reported Questions with Modal Perfect (2)
+### 15 — Promise
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "modal perfecto"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer el modal perfecto 'could have' en la pregunta directa."
-  - "Mantenerlo sin más retroceso en discurso indirecto."
+respuesta: "to call"
+tipo: "mc"
+opciones_explicitas: ["to call", "calling", "that call"]
 
-respuestas_validas:
-  - "could have finished"
-  - "Could have finished"
-tipo: completar
+enunciado: "\"I'll call you every day.\" → He promised ___ me every day."
 
-enunciado: "She asked, 'Could you have finished the project by now?'"
-
-explicacion: "'Could have + participio' ya es la forma más retrocedida del modal — se mantiene igual en discurso indirecto, no se convierte en un simple pasado perfecto ('had finished')."
+explicacion: |
+  *Promise + to-infinitivo*.
 ```
 
-### 16 — Reported Commands with Negative and Modal
+### 16 — Error típico
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["órdenes", "negativos y modales"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Identificar la negación en la orden directa."
-  - "Convertir a infinitivo con 'not' y el modal correspondiente."
+respuesta: falso
+tipo: vf
 
-respuestas_validas:
-  - "To use"
-  - "to use"
-tipo: completar
+enunciado: "«He suggested me to study more» es correcta."
 
-enunciado: "The principal told the students, 'You must not use your phones in class!'"
-
-explicacion: "La negación 'must not' se mantiene en discurso indirecto como 'asked them not to use', usando el infinitivo."
+explicacion: |
+  Falso: *He suggested (that) I study/should study more* o *He suggested studying more*.
 ```
 
-### 17 — Reported Questions with Hypothetical 'Were'
+### 17 — Error típico (2)
 
 ```
 metadata:
   materia: "ingles"
   tema: "discurso-indirecto-avanzado"
   nivel: "B2"
-  tags: ["preguntas", "cláusulas condicionales"]
+  tags: ["reported-speech", "B2"]
 
-pasos:
-  - "Reconocer el 'were' hipotético dentro de una pregunta condicional."
-  - "Mantenerlo sin cambios en discurso indirecto."
+respuesta: falso
+tipo: vf
 
-respuestas_validas:
-  - "were"
-  - "Were"
-tipo: completar
+enunciado: "«She asked me where did I work» es correcta."
 
-enunciado: "He asked, 'If I were you, would you accept the offer?'"
-
-explicacion: "El 'were' hipotético de un segundo condicional embebido en la pregunta no retrocede más al pasar a discurso indirecto: se mantiene igual, ya que ya expresa lo irreal/hipotético."
-```
-
-### 18 — Reported Commands with Modal + Past Participle
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["órdenes", "participio pasado"]
-
-pasos:
-  - "Identificar el participio pasado en la orden directa."
-  - "Convertir a infinitivo con 'to have + verbo' y el modal correspondiente."
-
-respuestas_validas:
-  - "To have completed"
-  - "to have completed"
-tipo: completar
-
-enunciado: "The teacher said, 'You must have completed the assignment!'"
-
-explicacion: "El participio pasado ('have completed') se mantiene en discurso indirecto como parte del infinitivo."
-```
-
-### 19 — Reported Questions with Modal + Future in Past
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["preguntas", "futuro en pasado"]
-
-pasos:
-  - "Reconocer el uso de 'would'."
-  - "Mantener 'would' sin cambios de tiempo adicionales."
-
-respuestas_validas:
-  - "Would be"
-  - "would be"
-tipo: completar
-
-enunciado: "She asked, 'Would you be able to help me tomorrow?'"
-
-explicacion: "El futuro en la pregunta directa ('would be') se mantiene en discurso indirecto sin cambios de tiempo."
-```
-
-### 20 — Reported Commands with Modal + Infinitive in Passives (2)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["órdenes", "pasivo avanzado"]
-
-pasos:
-  - "Reconocer la voz pasiva en la orden directa."
-  - "Convertir a infinitivo con 'be' y el modal correspondiente."
-
-respuestas_validas:
-  - "To be"
-  - "to be"
-tipo: completar
-
-enunciado: "The director said, 'You must be informed about the changes!'"
-
-explicacion: "La voz pasiva en la orden directa ('must be informed') se transforma a infinitivo en discurso indirecto."
-```
-
-### 21 — Reported Questions with Past Perfect in Subordinate Clauses (2)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["preguntas", "subordinadas y pasado perfecto"]
-
-pasos:
-  - "Reconocer cláusulas subordinadas en la pregunta directa."
-  - "Mantener el pasado perfecto si ya está presente."
-
-respuestas_validas:
-  - "Had decided"
-  - "had decided"
-tipo: completar
-
-enunciado: "He asked, 'Had you already decided when she called?'"
-
-explicacion: "Cuando la pregunta directa incluye un verbo en pasado perfecto ('had decided'), se mantiene en discurso indirecto."
-```
-
-### 22 — Reported Commands with Modal + Infinitive in Passives (3)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["órdenes", "pasivo avanzado"]
-
-pasos:
-  - "Reconocer la voz pasiva en la orden directa."
-  - "Convertir a infinitivo con 'be' y el modal correspondiente."
-
-respuestas_validas:
-  - "To be"
-  - "to be"
-tipo: completar
-
-enunciado: "The manager said, 'You must be aware of the risks!'"
-
-explicacion: "La voz pasiva en la orden directa ('must be aware') se transforma a infinitivo en discurso indirecto."
-```
-
-### 23 — Reported Questions with Modal Perfect (3)
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["preguntas", "modal perfecto avanzado"]
-
-pasos:
-  - "Reconocer el modal perfecto 'would have been able to'."
-  - "Mantenerlo sin más retroceso en discurso indirecto."
-
-respuestas_validas:
-  - "would have been able to"
-  - "Would have been able to"
-tipo: completar
-
-enunciado: "She asked, 'Would you have been able to finish the task earlier?'"
-
-explicacion: "'Would have been able to' ya es la forma más retrocedida del modal — se mantiene igual en discurso indirecto, no se reduce a un simple pasado perfecto ('had been')."
-```
-
-### 24 — Reported Questions with Past Continuous → Past Perfect Continuous
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["preguntas", "pasado continuo"]
-
-pasos:
-  - "Identificar la estructura del pasado continuo en la pregunta directa."
-  - "Transformar la oración directa a indirecta con pasado perfecto continuo."
-
-respuestas_validas:
-  - "had been doing"
-  - "Had been doing"
-tipo: completar
-
-enunciado: "Direct: 'What were you doing at this time last week?' → Reported: The manager asked the employee what she ___ at that time the previous week."
-
-explicacion: "En discurso indirecto con un pasado continuo, se usa el pasado perfecto continuo (had been + gerundio) para acciones que estaban en curso: 'were doing' → 'had been doing'."
-```
-
-### 25 — Reported Questions with Modal 'Could'
-
-```
-metadata:
-  materia: "ingles"
-  tema: "discurso-indirecto-avanzado"
-  nivel: "B2"
-  tags: ["modales", "reported statements"]
-
-pasos:
-  - "Reconocer el uso de un modal en oraciones indirectas."
-  - "Ajustar el tiempo verbal del verbo principal y el complemento según las reglas de discurso indirecto."
-
-opciones_explicitas:
-  - "He asked if I could help them then."
-  - "He asked if I could help them now."
-  - "He asked if I had helped them then."
-  - "He asked if I can help them now."
-respuesta: "He asked if I could help them then."
-tipo: mc
-
-enunciado: "The director said, \"Could you help us with the project?\""
-
-explicacion: "El modal 'could' se mantiene, pero el marcador de tiempo 'now' de la pregunta directa se ajusta a 'then' en discurso indirecto, igual que 'today'/'that day' o 'tomorrow'/'the next day'."
+explicacion: |
+  Falso: en la pregunta indirecta no hay inversión ni *did*: *She asked me where I worked*.
 ```

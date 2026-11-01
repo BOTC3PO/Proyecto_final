@@ -1,551 +1,253 @@
-# Idiomas — Alemán — konjunktiv-ii-basico (cuestionario)
+# Alemán — Konjunktiv II básico (cuestionario, 13 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/konjunktiv-ii-basico/cuestionario_crudo.md`): 12 bloques mc sin `enunciado:` (sólo opciones, sin ninguna oración) — redactada una oración distinta por bloque, agrupadas en 3 patrones que se repetían (hipótesis con 'wäre', duda reportada con 'sei', deseo con 'könnte'), sin cambiar ninguna opción ni respuesta original.
+> Tema: `idiomas-extranjeros/aleman/konjunktiv-ii-basico`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Wünschen mit Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["wunsch", "subjuntivo"]  
-pasos:  
-  - "Identificar el uso de Konjunktiv II para expresar deseos."
-  - "Reemplazar la forma indicativa por la correcta en subjuntivo."
-respuestas_validas:  
-  - "würde"  
-  - "Würde"  
-tipo: completar  
-enunciado: "Ich wünschte, ich ___ mehr Zeit hätte."  
+### 1 — Cortesía
 
 ```
-
-
-
-### 2 — Hypothetische Situation mit Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["hypothese", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una condición hipotética."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "wäre"  
-  - "bin"  
-  - "sei"  
-  - "würde"  
-respuesta: "wäre"
-tipo: mc
-
-enunciado: "Wenn ich reich ___, würde ich die Welt bereisen."
-
-```
-
-
-
-### 3 — Sugerencia con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["suggestion", "subjuntivo"]  
-pasos:  
-  - "Identificar el uso de Konjunktiv II en sugerencias."
-  - "Reemplazar la forma indicativa por la correcta."
-respuestas_validas:  
-  - "könnte"  
-  - "Könnte"  
-tipo: completar  
-enunciado: "Du ___ uns heute Abend besuchen."  
-
-```
-
-
-
-### 4 — Duda con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["duda", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una duda."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "sei"  
-  - "bin"  
-  - "wäre"  
-  - "würde"  
-respuesta: "sei"
-tipo: mc
-
-enunciado: "Sie sagte, sie ___ müde."
-
-```
-
-
-
-### 5 — Condición hipotética con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["hypothese", "subjuntivo"]  
-pasos:  
-  - "Identificar la necesidad de Konjunktiv II en condiciones hipotéticas."
-  - "Reemplazar la forma incorrecta por la correcta."
-respuestas_validas:  
-  - "würde"  
-  - "Würde"  
-tipo: completar  
-enunciado: "Wenn ich ___ reich, würde ich reisen."  
-
-```
-
-
-
-### 6 — Deseo con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["wunsch", "subjuntivo"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo II en deseos."
-  - "Seleccionar la forma correcta entre las opciones."
-opciones_explicitas:  
-  - "könnte"  
-  - "können"  
-  - "wäre"  
-  - "sei"  
-respuesta: "könnte"
-tipo: mc
-
-enunciado: "Ich wünschte, ich ___ dir helfen."
-
-```
-
-
-
-### 7 — Sugerencia con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["suggestion", "subjuntivo"]  
-pasos:  
-  - "Identificar la necesidad de Konjunktiv II en sugerencias."
-  - "Reemplazar la forma incorrecta por la correcta."
-respuestas_validas:  
-  - "müsste"  
-  - "Müsste"  
-tipo: completar  
-enunciado: "Er ___ seine Arbeit noch einmal überprüfen."  
-
-```
-
-
-
-### 8 — Duda con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["duda", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una duda."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "sei"  
-  - "bin"  
-  - "wäre"  
-  - "würde"  
-respuesta: "sei"
-tipo: mc
-
-enunciado: "Er behauptete, er ___ unschuldig."
-
-```
-
-
-
-### 9 — Condición hipotética con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["hypothese", "subjuntivo"]  
-pasos:  
-  - "Identificar la necesidad de Konjunktiv II en condiciones hipotéticas."
-  - "Reemplazar la forma incorrecta por la correcta."
-respuestas_validas:  
-  - "würde"  
-  - "Würde"  
-tipo: completar  
-enunciado: "Wenn du ___ mehr Zeit, würdest du reisen."  
-
-```
-
-
-
-### 10 — Deseo con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["wunsch", "subjuntivo"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo II en deseos."
-  - "Seleccionar la forma correcta entre las opciones."
-opciones_explicitas:  
-  - "könnte"  
-  - "können"  
-  - "wäre"  
-  - "sei"  
-respuesta: "könnte"
-tipo: mc
-
-enunciado: "Wenn ich doch nur schneller laufen ___!"
-
-```
-
-
-
-### 11 — Sugerencia con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["suggestion", "subjuntivo"]  
-pasos:  
-  - "Identificar la necesidad de Konjunktiv II en sugerencias."
-  - "Reemplazar la forma incorrecta por la correcta."
-respuestas_validas:  
-  - "müsste"  
-  - "Müsste"  
-tipo: completar  
-enunciado: "Du ___ jetzt noch nicht gehen."  
-
-```
-
-
-
-### 12 — Duda con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["duda", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una duda."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "sei"  
-  - "bin"  
-  - "wäre"  
-  - "würde"  
-respuesta: "sei"
-tipo: mc
-
-enunciado: "Der Chef sagte, das Projekt ___ fertig."
-
-```
-
-
-
-### 13 — Condición hipotética con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["hypothese", "subjuntivo"]  
-pasos:  
-  - "Identificar la necesidad de Konjunktiv II en condiciones hipotéticas."
-  - "Reemplazar la forma incorrecta por la correcta."
-respuestas_validas:  
-  - "würde"  
-  - "Würde"  
-tipo: completar  
-enunciado: "Wenn ich ___ reich, würdest du mitkommen?"  
-
-```
-
-
-
-### 14 — Deseo con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["wunsch", "subjuntivo"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo II en deseos."
-  - "Seleccionar la forma correcta entre las opciones."
-opciones_explicitas:  
-  - "könnte"  
-  - "können"  
-  - "wäre"  
-  - "sei"  
-respuesta: "könnte"
-tipo: mc
-
-enunciado: "Sie wünschte, sie ___ öfter reisen."
-
-```
-
-
-
-### 15 — Sugerencia con Konjunktiv II  
-```yaml
 metadata:
-  materia: "aleman"
+  materia: "idiomas-extranjeros/aleman"
   tema: "konjunktiv-ii-basico"
   nivel: "B1"
-  tags: ["wunsche", "präteritum"]
-pasos:
-  - "Identificar la estructura de deseo con 'ich wünschte' seguido del Konjunktiv II."
-  - "Elegir el verbo en forma correcta dentro del contexto de un deseo irreal."
-explicacion: "El Konjunktiv II se usa para expresar deseos irreales. En este caso, se requiere la forma präteritum de 'haben', que es 'hätte'."
-tipo: completar
-respuestas_validas:
-  - "hättest"
-  - "Hättest"
-enunciado: "Ich wünschte, du ___ mehr Zeit haben könntest."
+  tags: ["konjunktiv-ii"]
+
+respuesta: "Könnten"
+tipo: "mc"
+opciones_explicitas: ["Könnten", "Konnten", "Können würden"]
+
+enunciado: "___ Sie mir bitte helfen?"
+
+explicacion: |
+  Cortesía: *könnten*.
 ```
 
-
-### 16 — Duda con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["duda", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una duda."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "sei"  
-  - "bin"  
-  - "wäre"  
-  - "würde"  
-respuesta: "sei"
-tipo: mc
-
-enunciado: "Sie erklärte, sie ___ nicht schuld."
+### 2 — hätte gern
 
 ```
-
-
-
-### 17 — Condición hipotética con Konjunktiv II  
-```yaml
 metadata:
-  materia: "aleman"
+  materia: "idiomas-extranjeros/aleman"
   tema: "konjunktiv-ii-basico"
   nivel: "B1"
-  tags: ["hypothese", "präteritum"]
-pasos:
-  - "Reconocer la estructura condicional 'wenn' seguido del Konjunktiv II."
-  - "Seleccionar el verbo en su forma präteritum correcta dentro de una oración hipotética."
-explicacion: "Para situaciones hipotéticas, se usa el Konjunktiv II. El verbo 'kommen' en esta forma es 'käme'."
-tipo: completar
-respuestas_validas:
-  - "käme"
-  - "Käme"
-enunciado: "Er ___ nicht zu uns kommen, wenn er nicht krank wäre."
-```
+  tags: ["konjunktiv-ii"]
 
-
-### 18 — Deseo con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["wunsch", "subjuntivo"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo II en deseos."
-  - "Seleccionar la forma correcta entre las opciones."
-opciones_explicitas:  
-  - "könnte"  
-  - "können"  
-  - "wäre"  
-  - "sei"  
-respuesta: "könnte"
-tipo: mc
-
-enunciado: "Wenn er doch nur besser kochen ___!"
-
-```
-
-
-
-### 19 — Sugerencia con Konjunktiv II  
-```yaml
-metadata:
-  materia: "aleman"
-  tema: "konjunktiv-ii-basico"
-  nivel: "B1"
-  tags: ["hypothese", "präteritum"]
-pasos:
-  - "Identificar la forma präteritum del verbo en una oración con 'wenn' y Konjunktiv II."
-  - "Verificar que el sujeto y el verbo coincidan en número y persona."
-explicacion: "El Konjunktiv II de 'machen' es 'machte', pero en este contexto se requiere la forma präteritum de 'haben', que es 'hätte'."
-tipo: mc
-opciones_explicitas:
-  - "würde ich einen Urlaub machen"
-  - "würde ich einen Urlaub machte"
-  - "würde ich einen Urlaub hätten"
-respuesta: "würde ich einen Urlaub machen"
-enunciado: "Wenn ich ___ genug Zeit hätte, würde ich einen Urlaub machen."
-```
-
-
-### 20 — Duda con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["duda", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una duda."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "sei"  
-  - "bin"  
-  - "wäre"  
-  - "würde"  
-respuesta: "sei"
-tipo: mc
-
-enunciado: "Er meinte, er ___ bereit."
-
-```
-
-
-
-### 21 — Condición hipotética con Konjunktiv II  
-```yaml
-metadata:
-  materia: "aleman"
-  tema: "konjunktiv-ii-basico"
-  nivel: "B1"
-  tags: ["wunsche", "präteritum"]
-pasos:
-  - "Reconocer que el Konjunktiv II se usa para deseos irrealizables."
-  - "Elegir la forma präteritum correcta del verbo 'schwimmen' en este contexto."
-explicacion: "El Konjunktiv II de 'schwimmen' es 'schwämme', que debe usarse aquí para mantener la coherencia con el deseo irreal."
-tipo: completar
-respuestas_validas:
-  - "schwämme"
-  - "Schwämme"
-enunciado: "Ich wünschte, ich ___ besser schwimmen könnte."
-```
-
-
-### 22 — Deseo con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["wunsch", "subjuntivo"]  
-pasos:  
-  - "Reconocer el uso del subjuntivo II en deseos."
-  - "Seleccionar la forma correcta entre las opciones."
-opciones_explicitas:  
-  - "könnte"  
-  - "können"  
-  - "wäre"  
-  - "sei"  
-respuesta: "könnte"
-tipo: mc
-
-enunciado: "Wir wünschten, wir ___ mehr Zeit haben."
-
-```
-
-
-
-### 23 — Sugerencia con Konjunktiv II  
-```yaml
-metadata:
-  materia: "aleman"
-  tema: "konjunktiv-ii-basico"
-  nivel: "B1"
-  tags: ["indirekter rede", "präteritum"]
-pasos:
-  - "Reconocé la condición irreal introducida por 'wenn'."
-  - "Elegí la forma de Konjunktiv II de 'haben'."
-enunciado: "Wenn ich mehr Zeit ___, würde ich öfter reisen."
-opciones_explicitas:
-  - "hätte"
-  - "hatte"
-  - "habe"
-  - "hat"
 respuesta: "hätte"
-tipo: mc
-explicacion: "En una condición irreal el verbo 'haben' va en Konjunktiv II: hätte."
+tipo: "mc"
+opciones_explicitas: ["hätte", "hatte", "habe würde"]
+
+enunciado: "Ich ___ gern einen Kaffee."
+
+explicacion: |
+  *Ich hätte gern*.
 ```
 
-
-### 24 — Duda con Konjunktiv II  
-```
-metadata:  
-  materia: "idiomas-extranjeros/aleman"  
-  tema: "konjunktiv-ii-basico"  
-  nivel: "B1"  
-  tags: ["duda", "subjuntivo"]  
-pasos:  
-  - "Reconocer la estructura de una duda."
-  - "Seleccionar la forma correcta del subjuntivo II."
-opciones_explicitas:  
-  - "sei"  
-  - "bin"  
-  - "wäre"  
-  - "würde"  
-respuesta: "sei"
-tipo: mc
-
-enunciado: "Man sagte, das Wetter ___ schlecht."
+### 3 — wäre
 
 ```
-
-
-
-### 25 — Condición hipotética con Konjunktiv II  
-```yaml
 metadata:
-  materia: "aleman"
+  materia: "idiomas-extranjeros/aleman"
   tema: "konjunktiv-ii-basico"
   nivel: "B1"
-  tags: ["hypothese", "präteritum"]
-pasos:
-  - "Reconocer la necesidad de usar el präteritum del verbo en una oración hipotética con 'wenn'."
-  - "Verificar que el sujeto y el verbo coincidan en número y persona."
-explicacion: "El Konjunktiv II de 'schenken' es 'schickte', pero aquí se requiere la forma präteritum del verbo 'haben', que es 'hätte'."
-tipo: completar
-respuestas_validas:
-  - "hätte"
-  - "Hätte"
-enunciado: "Wenn ich ___ mehr Geld hätte, würde ich dir etwas schenken."
+  tags: ["konjunktiv-ii"]
+
+respuesta: "wäre"
+tipo: "mc"
+opciones_explicitas: ["wäre", "war", "würde"]
+
+enunciado: "Ich ___ jetzt gern am Strand."
+
+explicacion: |
+  *Sein → wäre*.
+```
+
+### 4 — würde
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "würde"
+tipo: "mc"
+opciones_explicitas: ["würde", "wurde", "werde"]
+
+enunciado: "Ich ___ gern nach Japan reisen."
+
+explicacion: |
+  *Würde* + infinitivo.
+```
+
+### 5 — wenn
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "hätte"
+tipo: "mc"
+opciones_explicitas: ["hätte", "würde haben", "habe"]
+
+enunciado: "Wenn ich Geld ___, würde ich ein Haus kaufen."
+
+explicacion: |
+  Condición irreal: *hätte*.
+```
+
+### 6 — Orden
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "Wenn ich Zeit hätte, würde ich kommen."
+tipo: "mc"
+opciones_explicitas: ["Wenn ich Zeit hätte, würde ich kommen.", "Wenn ich hätte Zeit, ich würde kommen.", "Wenn ich Zeit hätte, ich würde kommen."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Verbo al final en *wenn*; inversión en la principal.
+```
+
+### 7 — Consejo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "solltest"
+tipo: "mc"
+opciones_explicitas: ["solltest", "sollst würde", "solltet"]
+
+enunciado: "Du ___ mehr schlafen."
+
+explicacion: |
+  Consejo: *solltest*.
+```
+
+### 8 — An deiner Stelle
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "würde"
+tipo: "mc"
+opciones_explicitas: ["würde", "werde", "wurde"]
+
+enunciado: "An deiner Stelle ___ ich das nicht machen."
+
+explicacion: |
+  Consejo.
+```
+
+### 9 — Sugerencia
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "könnten"
+tipo: "mc"
+opciones_explicitas: ["könnten", "konnten", "können würden"]
+
+enunciado: "Wir ___ ins Kino gehen."
+
+explicacion: |
+  Sugerencia.
+```
+
+### 10 — Deseo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "hätte"
+tipo: "mc"
+opciones_explicitas: ["hätte", "hatte", "habe"]
+
+enunciado: "Wenn ich nur mehr Zeit ___!"
+
+explicacion: |
+  Deseo.
+```
+
+### 11 — hätte/hatte
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "Tenía tiempo"
+tipo: "mc"
+opciones_explicitas: ["Tenía tiempo", "Tendría tiempo", "Tendré tiempo"]
+
+enunciado: "¿Qué significa «Ich hatte Zeit»?"
+
+explicacion: |
+  Sin diéresis: pasado.
+```
+
+### 12 — es gäbe
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: "gäbe"
+tipo: "mc"
+opciones_explicitas: ["gäbe", "gibt", "gab"]
+
+enunciado: "Es wäre schön, wenn es mehr Parks ___."
+
+explicacion: |
+  *Geben → gäbe*.
+```
+
+### 13 — Equivalencia
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "konjunktiv-ii-basico"
+  nivel: "B1"
+  tags: ["konjunktiv-ii"]
+
+respuesta: verdadero
+tipo: vf
+
+enunciado: "«Si tuviera tiempo, vendría» = «Wenn ich Zeit hätte, würde ich kommen»."
+
+explicacion: |
+  Verdadero.
 ```

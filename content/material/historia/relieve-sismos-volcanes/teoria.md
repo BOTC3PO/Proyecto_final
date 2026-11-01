@@ -20,7 +20,7 @@ El relieve de la Tierra no es un fenómeno aleatorio: su formación está íntim
 
 Los bordes entre placas se clasifican según cómo interactúan los bloques. En un **límite divergente**, las placas se alejan: el material del manto ascendente forma dorsales oceánicas, como la dorsal mesoatlántica. En un **límite convergente**, una placa se hunde bajo otra (subducción), generando fosas y cordilleras (como los Andes). Finalmente, en un **límite transformante**, las placas se deslizan lateralmente, causando fallas como la de San Andrés. Cada tipo de límite no solo modela el relieve, sino que también define patrones de actividad sísmica y volcánica.
 
-![Comparación de los tres tipos de límites con ejemplos geográficos](https://upload.wikimedia.org/wikipedia/commons/d/dc/Tectonic_plate_boundaries2.png)
+![Comparación de los tres tipos de límites con ejemplos geográficos](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Tectonic_plate_boundaries2.png/960px-Tectonic_plate_boundaries2.png)
 
 *Imagen: «Tectonic plate boundaries2», USGS/USGov, modified by Eurico Zimbres, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tectonic_plate_boundaries2.png).*
 

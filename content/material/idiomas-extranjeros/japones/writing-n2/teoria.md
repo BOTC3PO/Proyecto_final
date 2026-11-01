@@ -1,55 +1,57 @@
-# Escritura en japonés (Nivel N2): Estructura y expresión coherente
+# Expresión escrita en japonés (N2)
 
 > Tema del MAPA: `idiomas-extranjeros/japones/writing-n2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-En el nivel N2 de japonés, la escritura se centra en la capacidad de producir textos coherentes e informados sobre temas cotidianos o académicos, usando vocabulario y gramática adecuados. Este nivel requiere dominar estructuras complejas como el uso correcto de partículas (助詞), formas verbales polidezas (です・ます) y conectores para mantener la cohesión textual. La escritura en este nivel es clave para comunicarse con precisión en contextos formales, académicos o profesionales, algo que no siempre se requiere en niveles inferiores.
+En N2 se escriben **textos organizados**: correos de trabajo, informes breves, textos de opinión y relatos. Se espera **coherencia**, uso correcto del **estilo** (です・ます o である) y de los **conectores**.
 
-## Explicación central: Estructuras y ejemplos reales
-En el japonés N2, los textos suelen seguir un orden de ideas claro (時間順・因果関係), con frases que combinan verbos y partículas para expresar relaciones lógicas. Por ejemplo:
+## Explicación central
+### Elegir el estilo
+- **です・ます**: correos, cartas, comunicados a personas.
+- **だ・である**: informes, ensayos, artículos, diarios.
+- **No mezclar** estilos en el mismo texto.
 
-- **例文1（説明文）**
-  朝食は健康を維持するために重要です。バランスの取れた食事によって、体の機能が正常に保たれます。
-  *(El desayuno es importante para mantener la salud. Una dieta equilibrada mantiene las funciones corporales normales.)*
+### Correo de trabajo (ビジネスメール)
+1. Destinatario: **株式会社〇〇　山田様**
+2. Saludo: **お世話になっております。**(fórmula fija), presentación: 〇〇社の△△です。
+3. Motivo: 〜の件でご連絡いたしました。
+4. Cuerpo, con keigo.
+5. Cierre: **よろしくお願いいたします。**/ ご検討のほど、よろしくお願い申し上げます。
 
-- **例文2（論説文）**
-  自然災害の頻度が増えているのは、気候変動の影響によるものです。政府は早急に環境保護策を講じるべきです。
-  *(Aumenta la frecuencia de desastres naturales debido al cambio climático. El gobierno debe tomar medidas urgentes para proteger el medio ambiente.)*
+### Texto de opinión
+1. **Introducción**: tema y postura: 私は〜に賛成である / 〜と考える。
+2. **Razones**: まず / 第一に…; また / 第二に…; 例えば…
+3. **Contraargumento**: 確かに〜。しかし…
+4. **Conclusión**: 以上の理由から、〜と考える。
 
-Estos ejemplos usan partículas como **によって** (por medio de) y conectores como **ので** (por eso), que son esenciales para estructurar ideas complejas.
+### Recursos útiles
+- 〜と考える / 〜と思われる / 〜のではないだろうか (opinión atenuada).
+- 〜によって / 〜に対して / 〜にとって / 〜について.
+- Nexos: 連用中止形 (〜し、〜であり、).
+
+### Escritura
+- Kanji para palabras léxicas y kana para partículas y terminaciones (送り仮名): 行**く**, 新**しい**.
+- Puntuación: **、** (pausa) y **。** (fin). Párrafo nuevo con sangría de un espacio en manuscritos (原稿用紙).
 
 ## Errores comunes de hispanohablantes
-Los hablantes de español suelen cometer errores en:
-1. **Uso incorrecto de partículas**: Por ejemplo, confundir **が** (sujeto) con **は** (tema) o usar **を** cuando se necesita **に** para indicar dirección.
-   - ❌ *彼は日本語を話す* (incorrecto: "él habla japonés" → el sujeto es "él", no el complemento).
-   - ✅ *彼は日本語が話せる* (correcto: "él puede hablar japonés").
-
-2. **Falta de cohesión**: No usar conectores como **しかし** (pero), **したがって** (por lo tanto) o **例えば** (por ejemplo).
-   - ❌ *彼は忙しい。彼は休暇を取らない* (frases aisladas sin relación lógica).
-   - ✅ *彼は忙しいので、休暇を取らない* (uso de *ので* para conectar causas y efectos).
-
-3. **Confusión entre formas formales e informales**: Usar siempre です・ます incluso en contextos donde se requiere una forma más neutra o informal, como en conversaciones con amigos.
+1. Mezclar です・ます con である.
+2. Usar でも, だから al comienzo de oración en un ensayo (→ しかし, そのため).
+3. Olvidar お世話になっております en un correo de trabajo.
+4. Opinar sin dar razones.
 
 ## Comparación con el español
-El japonés no usa conjugaciones verbales para expresar tiempo o modo (como en *hablo*, *hablé*, *hablaré*), sino que depende de partículas y contextos. Por ejemplo:
-- **Español**: *Yo quiero ir al parque.* → El sujeto "yo" es explícito.
-- **Japonés**: *公園に行きたいです。* (Kōen ni ikitai desu.) → El sujeto se omite, pero el verbo *行きたい* (querer ir) indica la intención sin necesidad de un pronombre.
-
-Además, en español las preposiciones (como *en*, *a*, *de*) tienen reglas fijas; en japonés, las partículas (como **に**, **へ**, **から**) se usan según el papel del sustantivo en la oración, no su significado literal.
+El correo de trabajo japonés es muy **ritual**: tiene fórmulas fijas al principio y al final que no se omiten. El ensayo se organiza igual que en español, pero el estilo (です・ます / である) debe ser uniforme.
 
 ## Ejemplo extendido en contexto
-**シチュエーション**: Escritura de una carta formal para solicitar un trabajo.
-
-**文章（モデル）**:
-> ご応募ありがとうございます。私は現在、大学で日本語を学んでおり、来年には卒業予定です。過去にカウンセリングのアルバイト経験があり、コミュニケーション能力や責任感が高く評価されました。この職場での働き方について、ぜひ詳しくお話ししたいと思っています。ご検討のほど、よろしくお願いいたします。
-
-**Traducción**:
-> Gracias por su solicitud. Actualmente estoy estudiando japonés en la universidad y planeo graduarme el año que viene. Tengo experiencia como voluntario en counseling, donde mis habilidades de comunicación y sentido del deber fueron altamente valorados. Me gustaría hablar con usted sobre cómo podría trabajar en este entorno. Agradezco su consideración.
-
-Este ejemplo usa formas formales (です・ます), partículas para indicar relaciones (において → en el contexto de) y conectores (よろしくお願いいたします → agradecimiento formal).
+*株式会社さくら　山田様*
+*お世話になっております。ABC社の佐藤です。*
+*来週の打ち合わせの件でご連絡いたしました。誠に恐縮ですが、日程を木曜日に変更していただくことは可能でしょうか。*
+*お手数をおかけしますが、ご検討のほど、よろしくお願いいたします。*

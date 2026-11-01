@@ -1,47 +1,55 @@
-# Declinación de adjetivos en alemán (B1)
+# La declinación del adjetivo en alemán (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/declinacion-adjetivos`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-La **declinación de adjetivos** en alemán es una regla gramatical que indica cómo cambian las terminaciones de los adjetivos según el género, número y caso del sustantivo al que modifican. En el nivel B1, los estudiantes se enfocan principalmente en la declinación **fuerte**, que ocurre cuando el adjetivo sigue un artículo definido (der, die, das) o un pronombre demostrativo (dieser, diese, dieses). Esta regla es clave para construir frases correctamente y evitar errores comunes de sintaxis.
+## Introducción
+Cuando el adjetivo va **delante del sustantivo**, lleva una terminación que depende del **artículo**, el **género**, el **número** y el **caso**: *der alt**e** Mann, ein alt**er** Mann, alt**er** Wein*. Después de *sein* no se declina: *Der Mann ist **alt**.*
 
-## Explicación central con ejemplos reales
-En alemán, los adjetivos cambian su forma según el **caso** del sustantivo (nominativo, acusativo, dativo o genitivo) y si van precedidos por un **artículo definido**, **indefinido** (ein/eine) o **ningún artículo**. En B1, se trabajan principalmente los casos **nominativo** (sujeto), **acusativo** (objeto directo) y **dativo** (objeto indirecto).
+## Explicación central
+### 1. Tras artículo determinado (*der, dieser, jeder, welcher*): débil
+Terminación ***-e*** o ***-en***:
+| | Masc. | Fem. | Neutro | Plural |
+|---|---|---|---|---|
+| Nom. | der alt**e** | die alt**e** | das alt**e** | die alt**en** |
+| Acus. | den alt**en** | die alt**e** | das alt**e** | die alt**en** |
+| Dat. | dem alt**en** | der alt**en** | dem alt**en** | den alt**en** |
+| Gen. | des alt**en** | der alt**en** | des alt**en** | der alt**en** |
 
-Ejemplos:
-- **Nominativo**: *Der alte Mann* (El hombre viejo). Aquí, "alte" se declina con **-e** porque sigue al artículo definido "der".
-- **Acusativo**: *Ich sehe den alten Mann* (Veo al hombre viejo). El adjetivo cambia a **-en** en el acusativo masculino.
-- **Dativo plural**: *Den alten Männern* (A los hombres viejos). En dativo, el adjetivo toma la forma **-en** (sin tilde) y se añade **-n** por el plural.
+Regla práctica: ***-e*** en los cinco casilleros de nominativo singular y acusativo fem./neutro; ***-en*** en todo lo demás.
 
-Cuando el adjetivo no sigue un artículo definido (por ejemplo, con "ein", "kein" o sin artículo), se usa la **declinación débil**, que solo varía en el acusativo masculino y femenino:
-- *Ein alter Mann* (Un hombre viejo) → *Ich sehe einen alten Mann* (Veo a un hombre viejo).
+### 2. Tras *ein, kein*, posesivos: mixta
+Igual que la débil, salvo donde *ein* no muestra el género:
+- Nom. masc.: *ein alt**er** Mann*; nom./acus. neutro: *ein alt**es** Haus*.
+- El resto como la débil: *eine alt**e** Frau, einen alt**en** Mann, mit einem alt**en** Freund, meine alt**en** Freunde*.
+
+### 3. Sin artículo: fuerte
+El adjetivo toma la terminación del artículo que falta:
+| | Masc. | Fem. | Neutro | Plural |
+|---|---|---|---|---|
+| Nom. | gut**er** Wein | frisch**e** Milch | kalt**es** Wasser | neu**e** Bücher |
+| Acus. | gut**en** Wein | frisch**e** Milch | kalt**es** Wasser | neu**e** Bücher |
+| Dat. | gut**em** Wein | frisch**er** Milch | kalt**em** Wasser | neu**en** Büchern |
+
+### Idea general
+**Alguien** tiene que mostrar el género y el caso: si el artículo ya lo hace (*der, dem*), el adjetivo lleva *-e/-en*; si no (*ein*, sin artículo), el adjetivo lo muestra (*-er, -es, -em*).
 
 ## Errores comunes de hispanohablantes
-1. **Olvidar la tilde en el acusativo masculino/femenino**:
-   - Error: *Ich lese den alte Buch* → Correcto: *den alten Buch*.
-2. **Confundir la declinación fuerte y débil**:
-   - Error: *Ein altes Auto* (un auto viejo) → Correcto: "altes" no se usa con "ein"; se mantiene sin cambios.
-3. **No añadir el sufijo "-n" en dativo plural**:
-   - Error: *Den alten Mannern* → Correcto: *Den alten Männern*.
+1. ❌ *ein alte Mann* ✅ *ein alter Mann*.
+2. ❌ *ein neue Auto* ✅ *ein neues Auto* (pero *das neue Auto*).
+3. ❌ *mit dem alte Freund* ✅ *mit dem alten Freund*.
+4. ❌ *Der Mann ist alter* ✅ *Der Mann ist alt*.
+5. ❌ *kalte Wasser* (sin artículo) ✅ *kaltes Wasser*.
 
 ## Comparación con el español
-En español, los adjetivos no se declinan (no cambian su forma según el género o número del sustantivo, excepto en casos específicos como "bueno" → "buena"). Por ejemplo:
-- *El hombre viejo* vs. *Der alte Mann* (en alemán, "viejo" cambia según el caso y artículo).
-
-Esta diferencia es crucial para los hablantes de español, ya que en su lengua no existe una regla similar.
+En español el adjetivo concuerda solo en género y número («viejo / vieja / viejos»). En alemán además cambia según el caso y el tipo de artículo. Detrás de *sein* («es viejo») no se declina.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-*A: Hast du den alten Mann gesehen?* (¿Viste al hombre viejo?)
-*B: Nein, aber ich habe eine alte Frau gesehen.* (No, pero vi a una mujer vieja.)
-*A: Wo war sie?* (¿Dónde estaba ella?)
-*B: Sie war bei den alten Männern.* (Ella estaba con los hombres viejos).
-
-En este diálogo, se usan tres formas de declinación: **acusativo masculino** (*den alten Mann*), **acusativo femenino** (*eine alte Frau*) y **dativo plural** (*bei den alten Männern*). Cada forma responde a las reglas de caso y artículo, lo que permite una comunicación precisa.
-
-Dominar esta regla es fundamental para estructurar oraciones complejas en alemán, especialmente cuando se describen personas, objetos o situaciones con precisión gramatical.
+*Ich wohne in **einer kleinen** Wohnung in **einem alten** Haus. **Das alte** Haus hat **einen schönen** Garten. Dort trinke ich morgens **heißen** Kaffee mit **frischer** Milch und lese **die neue** Zeitung.*

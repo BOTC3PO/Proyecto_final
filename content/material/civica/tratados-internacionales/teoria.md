@@ -11,8 +11,6 @@ independientes.
 
 ---
 
-## Investigado con WebSearch (agosto 2026)
-
 ## Qué es un tratado internacional
 
 Un acuerdo formal entre 2 o más Estados (o entre un Estado y un
@@ -61,14 +59,14 @@ que una ley común. Con las incorporaciones posteriores a
 1994, el número total de instrumentos con jerarquía constitucional
 asciende hoy a **15**.
 
-## Por qué era un hueco real del MAPA
+## Derechos «constitucionales» que llegan por un tratado
 
-`../derechos-y-garantias/` (parte dogmática de la Constitución) ya citaba
-varios de estos derechos como si vinieran "de la Constitución". No explicaba
-que una parte importante de ese contenido llega por la vía de tratados
-internacionales con este rango especial. Este módulo cierra ese hueco: cómo
-un tratado firmado con otros países puede terminar teniendo el mismo peso
-que la propia Constitución.
+En `../derechos-y-garantias/` (parte dogmática de la Constitución) aparecen
+varios derechos que solemos pensar como si vinieran solo "de la
+Constitución". Una parte importante de ese contenido llega, en realidad, por
+la vía de los tratados internacionales con jerarquía constitucional. Así, un
+tratado firmado con otros países puede terminar teniendo el mismo peso que
+la propia Constitución.
 
 ## Por qué depende de organismos internacionales
 

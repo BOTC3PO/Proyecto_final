@@ -32,7 +32,11 @@ En el Mediterráneo, las repúblicas marineras de Venecia, Génova y Pisa domina
 
 La estructura social medieval se consolidó en torno a tres órdenes funcionales: los que oran (*oratores*), los que luchan (*bellatores*) y los que trabajan (*laboratores*). Sin embargo, en las ciudades, este esquema rígido se flexibilizó con la aparición de la burguesía, una clase social basada en la riqueza móvil (comercio y artesanía) más que en la tierra. Los gremios de oficios organizaron la producción urbana, regulando precios, calidad y formación de aprendices, actuando como un amortiguador social y económico.
 
-<!-- IMAGEN: Detalle de una catedral gótica en construcción, simbolizando la devoción colectiva y el poder eclesiástico -->
+![Miniatura medieval con canteros tallando bloques frente a un templo gótico en construcción y una grúa de rueda en lo alto](https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Construction_du_Temple_de_J%C3%A9rusalem.jpg/960px-Construction_du_Temple_de_J%C3%A9rusalem.jpg)
+
+*Imagen: «Construction du Temple de Jérusalem», Jean Fouquet, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Construction_du_Temple_de_J%C3%A9rusalem.jpg).*
+
+Miniatura de Jean Fouquet (hacia 1470). Aunque representa el Templo de Jerusalén, lo pinta como una catedral gótica de su época, con canteros, escultores y una grúa movida por una rueda.
 
 La Iglesia Católica alcanzó su máxima influencia institucional y espiritual. No solo era el garante de la cohesión religiosa, sino también el principal propietario de tierras y la institución más poderosa políticamente. El papado, bajo figuras como Gregorio VII y Inocencio III, buscó imponer la supremacía espiritual sobre el poder temporal, lo que generó tensiones constantes con los monarcas europeos. El clero regular y secular jugaba un papel central en la educación, la caridad y la administración de justicia.
 

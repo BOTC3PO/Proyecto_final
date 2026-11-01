@@ -1,485 +1,216 @@
-# Idiomas — Italiano — reading-a2 (cuestionario)
+# Italiano — reading A2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/italiano/reading-a2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
-
----
-
-### 1 — Articolo determinativo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["articoli", "il-la"]  
-pasos:  
-  - "Identificar el sustantivo 'moto' y su género."  
-  - "Elegir el artículo determinativo masculino singular."  
-tipo: completar  
-respuestas_validas:  
-  - "il"  
-  - "Il"  
-enunciado: "L’uomo sta guidando ___ moto."  
-explicacion: "El sustantivo 'moto' es masculino singular, por lo que requiere el artículo determinativo 'il' antes de él en una oración afirmativa."  
-```  
+> Tema: `idiomas-extranjeros/italiano/reading-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o ambiguas; ahora cada pregunta trae el fragmento.
 
 ---
 
-### 2 — Preposición de lugar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "in"]  
-pasos:  
-  - "Identificar la ubicación mencionada en el enunciado."  
-  - "Elegir la preposición que indica 'dentro de' un lugar cerrado."  
-tipo: completar  
-respuestas_validas:  
-  - "in"  
-  - "In"  
-enunciado: "Il gatto è ___ casa."  
-explicacion: "La preposición 'in' se usa para indicar estar dentro de un lugar cerrado, como una casa."  
-```  
+### 1 — Cerrado
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
-### 3 — Verbo essere en presente  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "essere"]  
-pasos:  
-  - "Identificar el sujeto 'io' y el tiempo verbal."  
-  - "Elegir la forma correcta del verbo 'essere' en presente de indicativo para 'io'."  
-tipo: completar  
-respuestas_validas:  
-  - "sono"  
-  - "Sono"  
-enunciado: "Io ___ molto felice oggi."  
-explicacion: "El verbo 'essere' en presente para el sujeto 'io' es 'sono', que se usa para expresar un estado emocional como la felicidad."  
-```  
+respuesta: "El lunes"
+tipo: "mc"
+opciones_explicitas: ["El lunes", "El domingo", "El martes"]
 
----
+enunciado: "Testo: «Museo Civico — Aperto tutti i giorni tranne il lunedì, ore 10-18. Biglietto: 8 €, ridotto 5 € (studenti). Ingresso gratuito la prima domenica del mese.» ¿Qué día está cerrado?"
 
-### 4 — Posesivo pronombre  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["pronomi", "mio"]  
-pasos:  
-  - "Identificar el posesivo que corresponde a 'mia madre'."  
-  - "Elegir la forma correcta para un sustantivo femenino singular."  
-tipo: completar  
-respuestas_validas:  
-  - "mia"  
-  - "Mia"  
-enunciado: "La figlia ___ madre è molto brava in cucina."  
-explicacion: "El posesivo 'mia' se usa para referirse a un sustantivo femenino singular como 'madre', que en este contexto es el sujeto de la oración."  
-```  
+explicacion: |
+  *Tranne il lunedì*.
+```
 
----
+### 2 — Estudiante
 
-### 5 — Sustantivo masculino plural  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["sostantivi", "maschile"]  
-pasos:  
-  - "Identificar el sustantivo 'libro' y su género y número."  
-  - "Elegir la forma correcta del artículo determinativo para un sustantivo masculino plural."  
-tipo: completar  
-respuestas_validas:  
-  - "i"  
-  - "I"  
-enunciado: "___ libri sono interessanti."  
-explicacion: "El artículo determinativo 'i' se usa para sustantivos masculinos plurales como 'libri', que en este contexto son el sujeto de la oración."  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
----
+respuesta: "5 €"
+tipo: "mc"
+opciones_explicitas: ["5 €", "8 €", "Nada"]
 
-### 6 — Preposición temporal  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "tempo"]  
-pasos:  
-  - "Identificar el tiempo mencionado en la oración."  
-  - "Elegir la preposición que indica 'después de' un momento específico."  
-tipo: completar  
-respuestas_validas:  
-  - "dopo"  
-  - "Dopo"  
-enunciado: "Il film è finito ___ le sette di sera."  
-explicacion: "La preposición 'dopo' se usa para indicar que algo ocurre después de una hora específica, como 'le sette di sera'."  
-```  
+enunciado: "Testo: «Museo Civico — Aperto tutti i giorni tranne il lunedì, ore 10-18. Biglietto: 8 €, ridotto 5 € (studenti). Ingresso gratuito la prima domenica del mese.» ¿Cuánto paga un estudiante?"
 
----
+explicacion: |
+  *Ridotto 5 €*.
+```
 
-### 7 — Verbo avere en presente  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "avere"]  
-pasos:  
-  - "Identificar el sujeto 'tu' y el tiempo verbal."  
-  - "Elegir la forma correcta del verbo 'avere' en presente de indicativo para 'tu'."  
-tipo: completar  
-respuestas_validas:  
-  - "hai"  
-  - "Hai"  
-enunciado: "Tu ___ una macchina nuova?"  
-explicacion: "El verbo 'avere' en presente para el sujeto 'tu' es 'hai', que se usa para preguntar sobre posesión de un objeto como 'una macchina nueva'."  
-```  
+### 3 — Gratis
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
-### 8 — Sustantivo femenino singular  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["sostantivi", "femminile"]  
-pasos:  
-  - "Identificar el sustantivo 'casa' y su género y número."  
-  - "Elegir la forma correcta del artículo determinativo para un sustantivo femenino singular."  
-tipo: completar  
-respuestas_validas:  
-  - "la"  
-  - "La"  
-enunciado: "___ casa è bella ma piccola."  
-explicacion: "El artículo determinativo 'la' se usa para sustantivos femeninos singulares como 'casa', que en este contexto es el sujeto de la oración."  
-```  
+respuesta: "El primer domingo del mes"
+tipo: "mc"
+opciones_explicitas: ["El primer domingo del mes", "Todos los lunes", "Nunca"]
 
----
+enunciado: "Testo: «Museo Civico — Aperto tutti i giorni tranne il lunedì, ore 10-18. Biglietto: 8 €, ridotto 5 € (studenti). Ingresso gratuito la prima domenica del mese.» ¿Cuándo es gratis?"
 
-### 9 — Preposición con verbo intransitivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar el verbo 'andare' y su uso."  
-  - "Elegir la preposición que indica 'hacia' un lugar."  
-tipo: completar  
-respuestas_validas:  
-  - "a"  
-  - "A"  
-enunciado: "Voglio andare ___ Firenze con i miei genitori."  
-explicacion: "La preposición 'a' se usa para indicar el destino de un verbo intransitivo como 'andare', que en este caso es 'Firenze'."  
-```  
+explicacion: |
+  *Ingresso gratuito…*
+```
 
----
+### 4 — Mensaje
 
-### 10 — Verbo essere con pronombre reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "reflessivi"]  
-pasos:  
-  - "Identificar el pronombre reflexivo 'mi' y su uso."  
-  - "Elegir la forma correcta del verbo 'essere' en presente de indicativo para 'io' con un pronombre reflexivo."  
-tipo: completar  
-respuestas_validas:  
-  - "sono"  
-  - "Sono"  
-enunciado: "Io ___ lavato le mani prima di mangiare."  
-explicacion: "El verbo 'essere' en presente para el sujeto 'io' es 'sono', que se usa con pronombres reflexivos como 'mi' para indicar una acción realizada sobre uno mismo."  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
----
+respuesta: "Encontrarse mañana a las 15 frente a la estación"
+tipo: "mc"
+opciones_explicitas: ["Encontrarse mañana a las 15 frente a la estación", "Viajar hoy en tren", "Llamarla a las 15"]
 
-### 11 — Adjetivo femenino singular  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["aggettivi", "femminile"]  
-pasos:  
-  - "Identificar el sustantivo 'macchina' y su género."  
-  - "Elegir la forma correcta del adjetivo 'vecchio' para un sustantivo femenino singular."  
-tipo: completar  
-respuestas_validas:  
-  - "vecchia"  
-  - "Vecchia"  
-enunciado: "La ___ macchina non funziona più."  
-explicacion: "El adjetivo 'vecchio' cambia a 'vecchia' para adaptarse al género femenino del sustantivo 'macchina', que es singular en este contexto."  
-```  
+enunciado: "Testo: «Ciao Giulia! Ci vediamo domani alle 15 davanti alla stazione? Baci, Luca.» ¿Qué propone Luca?"
 
----
+explicacion: |
+  *Davanti alla stazione*.
+```
 
-### 12 — Preposición con verbo transitivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar el verbo 'parlare' y su uso."  
-  - "Elegir la preposición que indica 'sobre' un tema específico."  
-tipo: completar  
-respuestas_validas:  
-  - "di"  
-  - "Di"  
-enunciado: "Parlo ___ politica con i miei amici ogni sera."  
-explicacion: "La preposición 'di' se usa para indicar el tema sobre el cual se habla en un verbo transitivo como 'parlare', que en este caso es 'politica'."  
-```  
+### 5 — Alquiler
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
-### 13 — Verbo avere con pronombre reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "reflessivi"]  
-pasos:  
-  - "Identificar el pronombre reflexivo 'ti' y su uso."  
-  - "Elegir la forma correcta del verbo 'avere' en presente de indicativo para 'tu' con un pronombre reflexivo."  
-tipo: completar  
-respuestas_validas:  
-  - "hai"  
-  - "Hai"  
-enunciado: "Tu ___ lavato le mani prima di mangiare?"  
-explicacion: "El verbo 'avere' en presente para el sujeto 'tu' es 'hai', que se usa con pronombres reflexivos como 'ti' para indicar una acción realizada sobre uno mismo."  
-```  
+respuesta: "Un monoambiente en alquiler"
+tipo: "mc"
+opciones_explicitas: ["Un monoambiente en alquiler", "Una casa en venta", "Una oficina"]
 
----
+enunciado: "Testo: «Affittasi monolocale, 30 mq, centro, 600 €/mese spese incluse.» ¿Qué se ofrece?"
 
-### 14 — Sustantivo masculino singular  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["sostantivi", "maschile"]  
-pasos:  
-  - "Identificar el sustantivo 'uomo' y su género y número."  
-  - "Elegir la forma correcta del artículo determinativo para un sustantivo masculino singular."  
-tipo: completar  
-respuestas_validas:  
-  - "l'"  
-  - "L'"  
-enunciado: "___ uomo è molto alto e simpatico."  
-explicacion: "El artículo determinativo 'l'' se usa para sustantivos masculinos singulares que comienzan con una vocal como 'uomo', que en este contexto es el sujeto de la oración."  
-```  
+explicacion: |
+  *Affittasi*.
+```
 
----
+### 6 — Spese
 
-### 15 — Preposición con verbo transitivo y complemento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar el verbo 'parlare' y su objeto directo."  
-  - "Elegir la preposición que indica 'con' una persona específica."  
-tipo: completar  
-respuestas_validas:  
-  - "con"  
-  - "Con"  
-enunciado: "Parlo ___ mia sorella ogni sera per telefono."  
-explicacion: "La preposición 'con' se usa para indicar la persona con quien se habla en un verbo transitivo como 'parlare', que en este caso es 'mia sorella'."  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
----
+respuesta: "Las expensas"
+tipo: "mc"
+opciones_explicitas: ["Las expensas", "Los muebles", "Nada"]
 
-### 16 — Verbo essere con pronombre reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "reflessivi"]  
-pasos:  
-  - "Identificar el pronombre reflexivo 'si' y su uso."  
-  - "Elegir la forma correcta del verbo 'essere' en presente de indicativo para 'lui/lei' con un pronombre reflexivo."  
-tipo: completar  
-respuestas_validas:  
-  - "è"  
-  - "È"  
-enunciado: "Lui ___ vestito in modo elegante per la festa."  
-explicacion: "El verbo 'essere' en presente para el sujeto 'lui/lei' es 'è', que se usa con pronombres reflexivos como 'si' para indicar una acción realizada sobre uno mismo."  
-```  
+enunciado: "Testo: «600 €/mese spese incluse.» ¿Qué incluye el precio?"
 
----
+explicacion: |
+  *Spese incluse*.
+```
 
-### 17 — Adjetivo masculino plural  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["aggettivi", "maschile"]  
-pasos:  
-  - "Identificar el sustantivo 'libri' y su género."  
-  - "Elegir la forma correcta del adjetivo 'vecchio' para un sustantivo masculino plural."  
-tipo: completar  
-respuestas_validas:  
-  - "vecchi"  
-  - "Vecchi"  
-enunciado: "I ___ libri non sono più utili."  
-explicacion: "El adjetivo 'vecchio' cambia a 'vecchi' para adaptarse al género masculino y número plural del sustantivo 'libri', que en este contexto es el sujeto de la oración."  
-```  
+### 7 — Vietato
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
-### 18 — Preposición con verbo intransitivo y lugar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar el verbo 'andare' y su uso."  
-  - "Elegir la preposición que indica 'desde' un lugar específico."  
-tipo: completar  
-respuestas_validas:  
-  - "da"  
-  - "Da"  
-enunciado: "Vengo ___ Roma, ma lavoro in Milano."  
-explicacion: "La preposición 'da' se usa para indicar el origen de un verbo intransitivo como 'andare', que en este caso es 'Roma'."  
-```  
+respuesta: "Prohibido fumar"
+tipo: "mc"
+opciones_explicitas: ["Prohibido fumar", "Zona de fumadores", "Se vende tabaco"]
 
----
+enunciado: "Testo: «Vietato fumare.» Significa…"
 
-### 19 — Verbo avere con pronombre reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "reflessivi"]  
-pasos:  
-  - "Identificar el pronombre reflexivo 'ci' y su uso."  
-  - "Elegir la forma correcta del verbo 'avere' en presente de indicativo para 'noi' con un pronombre reflexivo."  
-tipo: completar  
-respuestas_validas:  
-  - "abbiamo"  
-  - "Abbiamo"  
-enunciado: "Noi ___ lavato le mani prima di mangiare?"  
-explicacion: "El verbo 'avere' en presente para el sujeto 'noi' es 'abbiamo', que se usa con pronombres reflexivos como 'ci' para indicar una acción realizada sobre uno mismo."  
-```  
+explicacion: |
+  *Vietato*.
+```
 
----
+### 8 — Esaurito
 
-### 20 — Sustantivo femenino plural  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["sostantivi", "femminile"]  
-pasos:  
-  - "Identificar el sustantivo 'casa' y su género y número."  
-  - "Elegir la forma correcta del artículo determinativo para un sustantivo femenino plural."  
-tipo: completar  
-respuestas_validas:  
-  - "le"  
-  - "Le"  
-enunciado: "___ case sono vecchie ma belle."  
-explicacion: "El artículo determinativo 'le' se usa para sustantivos femeninos plurales como 'case', que en este contexto son el sujeto de la oración."  
-```  
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
----
+respuesta: "Entradas agotadas"
+tipo: "mc"
+opciones_explicitas: ["Entradas agotadas", "Músicos cansados", "Entrada libre"]
 
-### 21 — Preposición con verbo transitivo y complemento indirecto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar el verbo 'regalare' y su complemento indirecto."  
-  - "Elegir la preposición que indica 'a' una persona específica."  
-tipo: completar  
-respuestas_validas:  
-  - "a"  
-  - "A"  
-enunciado: "Le ho regalato un libro ___ mia sorella per il compleanno."  
-explicacion: "La preposición 'a' se usa para indicar el complemento indirecto en un verbo transitivo como 'regalare', que en este caso es 'mia sorella'."  
-```  
+enunciado: "Testo: «Concerto di stasera: ESAURITO.» Significa…"
 
----
+explicacion: |
+  *Esaurito* = agotado.
+```
 
-### 22 — Verbo essere con pronombre reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbi", "reflessivi"]  
-pasos:  
-  - "Identificar el pronombre reflexivo 'si' y su uso."  
-  - "Elegir la forma correcta del verbo 'essere' en presente de indicativo para 'lui/lei' con un pronombre reflexivo."  
-tipo: completar  
-respuestas_validas:  
-  - "è"  
-  - "È"  
-enunciado: "Lei ___ vestita in modo elegante per la festa."  
-explicacion: "El verbo 'essere' en presente para el sujeto 'lui/lei' es 'è', que se usa con pronombres reflexivos como 'si' para indicar una acción realizada sobre uno mismo."  
-```  
+### 9 — Tirare
 
----
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
 
-### 23 — Adjetivo femenino plural  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["aggettivi", "femminile"]  
-pasos:  
-  - "Identificar el sustantivo 'case' y su género."  
-  - "Elegir la forma correcta del adjetivo 'vecchio' para un sustantivo femenino plural."  
-tipo: completar  
-respuestas_validas:  
-  - "vecchie"  
-  - "Vecchie"  
-enunciado: "Le ___ case non sono più utili."  
-explicacion: "El adjetivo 'vecchio' cambia a 'vecchie' para adaptarse al género femenino y número plural del sustantivo 'case', que en este contexto es el sujeto de la oración."  
-```  
+respuesta: "Hay que tirar hacia uno"
+tipo: "mc"
+opciones_explicitas: ["Hay que tirar hacia uno", "Hay que empujar", "Prohibido pasar"]
 
----
+enunciado: "Testo (en una puerta): «TIRARE»."
 
-### 24 — Preposición con verbo intransitivo y lugar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/italiano"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposizioni", "verbi"]  
-pasos:  
-  - "Identificar el verbo 'andare' y su uso."  
-  - "Elegir la preposición que indica 'desde' un lugar específico."  
-tipo: completar  
-respuestas_validas:  
-  - "da"  
-  - "Da"  
-enunciado: "Vengo ___ Firenze, ma lavoro in Milano."  
-explicacion: "La preposición 'da' se usa para indicar el origen de un verbo intransitivo como 'andare', que en este caso es 'Firenze'."  
-```  
+explicacion: |
+  *Tirare* = tirar.
+```
 
----
+### 10 — Orario
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "No"
+tipo: "mc"
+opciones_explicitas: ["No", "Sí, a la mañana", "Sí, todo el día"]
+
+enunciado: "Testo: «Panetteria aperta dal martedì alla domenica, ore 7-13.» ¿Abre el lunes?"
+
+explicacion: |
+  *Dal martedì alla domenica*.
+```
+
+### 11 — Correo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/italiano"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Va a la playa todos los días"
+tipo: "mc"
+opciones_explicitas: ["Va a la playa todos los días", "Trabaja en Rimini", "Vuelve mañana"]
+
+enunciado: "Testo: «Cara Anna, sono a Rimini per una settimana. Fa caldo e vado al mare tutti i giorni. A presto, Paolo.» ¿Qué hace Paolo?"
+
+explicacion: |
+  *Vado al mare tutti i giorni*.
+```

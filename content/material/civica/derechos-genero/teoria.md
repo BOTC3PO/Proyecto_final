@@ -10,7 +10,7 @@ relevantes son secciones separables.
 
 ---
 
-## Marco normativo (verificado con WebSearch)
+## Marco normativo
 
 El inciso **f)** del art. 92 de la Ley de Educación Nacional 26.206 obliga a
 incluir contenidos y enfoques que contribuyan a generar relaciones basadas

@@ -1,0 +1,72 @@
+{
+ "titulo": "Asia en 1939, 1949 y 1975",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Cómo cambió el mapa político de Asia",
+   "headers": [
+    "Territorio",
+    "1939",
+    "1949",
+    "1975"
+   ],
+   "rows": [
+    [
+     "China",
+     "República en guerra con Japón",
+     "República Popular (comunista); los nacionalistas se van a Taiwán",
+     "República Popular (Mao muere en 1976)"
+    ],
+    [
+     "Corea",
+     "Colonia japonesa",
+     "Dividida: Corea del Norte y Corea del Sur (1948)",
+     "Sigue dividida tras la guerra de 1950–1953"
+    ],
+    [
+     "Vietnam, Laos y Camboya",
+     "Indochina francesa",
+     "Guerra de independencia contra Francia",
+     "Vietnam unificado bajo el régimen comunista; Laos y Camboya también comunistas"
+    ],
+    [
+     "India",
+     "Colonia británica",
+     "Independiente (1947), separada de Pakistán",
+     "República independiente"
+    ],
+    [
+     "Pakistán y Bangladesh",
+     "Parte de la India británica",
+     "Pakistán independiente (1947), en dos partes",
+     "Bangladesh independiente (1971)"
+    ],
+    [
+     "Indonesia",
+     "Indias Orientales Neerlandesas",
+     "Independiente (reconocida en 1949)",
+     "República independiente"
+    ],
+    [
+     "Filipinas",
+     "Bajo control de Estados Unidos",
+     "Independiente (1946)",
+     "Independiente"
+    ],
+    [
+     "Malasia y Singapur",
+     "Colonias británicas",
+     "Colonias británicas",
+     "Malasia (1957/1963) y Singapur (1965) independientes"
+    ],
+    [
+     "Japón",
+     "Imperio en expansión (Manchukuo desde 1932)",
+     "Ocupado por Estados Unidos (1945–1952)",
+     "Democracia y gran potencia económica"
+    ]
+   ]
+  }
+ ]
+}

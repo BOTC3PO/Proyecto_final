@@ -1,49 +1,52 @@
-# El pretérito perfecto en portugués (niveles A1-A2)
+# Pretérito perfecto (perfeito) en portugués de Brasil (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/preterito-perfeito`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El **pretérito perfecto** en portugués es el tiempo verbal que se usa para describir acciones completas y específicas del pasado. Es fundamental en los niveles básicos (A1-A2), ya que permite a los hablantes narrar experiencias personales, eventos recientes o situaciones concretas de manera clara y precisa. Este tiempo es la base para construir historias simples, relatar actividades diarias o hablar sobre acontecimientos pasados sin ambigüedad.
+El **pretérito perfeito** cuenta acciones terminadas en el pasado: *Ontem eu **comi** feijoada.* Cubre los usos del pretérito indefinido del español («comí») y **también los del pretérito perfecto compuesto** («he comido»), que en portugués casi no se usa con ese sentido.
 
 ## Explicación central
-El pretérito perfecto se forma con los **tiempos conjugados del verbo** según el sujeto. La conjugación varía según la terminación del infinitivo:
+### Verbos regulares
+| | falar | comer | partir |
+|---|---|---|---|
+| eu | fal**ei** | com**i** | part**i** |
+| você / ele / ela | fal**ou** | com**eu** | part**iu** |
+| nós | fal**amos** | com**emos** | part**imos** |
+| vocês / eles | fal**aram** | com**eram** | part**iram** |
 
-- **Verbos regulares terminados en -ar**:
-  *falar* → eu **falei**, tu **falaste**, ele/ela **falou**, nós **falamos**, vós **falastes**, eles/elas **falaram**.
-  Ejemplo: *Ontem, eu **falei** com meu amigo.* (Ayer hablé con mi amigo.)
+(En Brasil *nós falamos* es igual en presente y en pasado: el contexto lo aclara.)
 
-- **Verbos regulares terminados en -er**:
-  *comer* → eu **comi**, tu **comeste**, ele/ela **comeu**, nós **comemos**, vós **comestes**, eles/elas **comeram**.
-  Ejemplo: *Ela **comeu** uma maçã.* (Ella comió una manzana.)
+### Irregulares frecuentes
+- **ser** e **ir** (iguales): fui, foi, fomos, foram
+- **estar**: estive, esteve, estivemos, estiveram — **ter**: tive, teve, tivemos, tiveram
+- **fazer**: fiz, fez, fizemos, fizeram — **dizer**: disse, disse, dissemos, disseram
+- **poder**: pude, pôde, pudemos, puderam — **querer**: quis, quis, quisemos, quiseram
+- **ver**: vi, viu, vimos, viram — **vir**: vim, veio, viemos, vieram
+- **dar**: dei, deu, demos, deram — **saber**: soube — **trazer**: trouxe — **pôr**: pus, pôs
 
-- **Verbos regulares terminados en -ir**:
-  *escrever* → eu **escrevi**, tu **escreveste**, ele/ela **escreveu**, nós **escrevemos**, vós **escrevestes**, eles/elas **escreveram**.
-  Ejemplo: *Nós **escrevemos** uma carta.* (Nosotros escribimos una carta.)
+### Usos
+- Acción terminada: *Ela **chegou** às oito.*
+- Experiencia o resultado (donde el español usaría «he…»): *Você já **comeu** acarajé? — Nunca **comi**.* / ***Perdi** a chave!*
 
-- **Verbos irregulares**:
-  Algunos verbos cambian completamente su raíz, como *ser* → eu **fui**, tu **foste**, ele/ela **foi*, etc., o *ter* → eu **tive**, tu **tiveste*, él/ella **teve**.
-  Ejemplo: *Ela **foi** ao cinema.* (Ella fue al cine.)
+### Ojo: el pretérito perfeito composto
+*Tenho + participio* **no** equivale a «he + participio»: expresa una acción **repetida o continua hasta ahora**: ***Tenho estudado** muito* = «He estado estudiando mucho (últimamente)».
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión con el pretérito en español**: En español, el pretérito se usa para acciones completas, pero la conjugación es distinta. Por ejemplo, *hablar* → "hablé" (español) vs. *falar* → "falei" (portugués).
-2. **Uso incorrecto de tiempos**: A veces se elige el pretérito imperfecto en portugués cuando debería usarse el perfecto, especialmente al hablar sobre acciones concretas. Ejemplo: *Ela comia uma maçã* (ella estaba comiendo una manzana) vs. *Ela comeu uma maçã* (ella comió una manzana).
-3. **Errores en verbos irregulares**: Olvidar las formas de *ser* (*fui*) o *ter* (*tive*), que no siguen patrones regulares.
+## Errores comunes de hispanohablantes
+1. ❌ *Eu tenho comido feijoada hoje.* (para una sola vez) ✅ *Eu comi feijoada hoje.*
+2. ❌ *eu fazi, eu dizi* ✅ *eu fiz, eu disse*.
+3. Confundir *pode* (presente) con *pôde* (pasado).
+4. ❌ *ele vino* ✅ *ele veio*.
 
 ## Comparación con el español
-En español, el pretérito perfecto se forma con el auxiliar *haber* + participio: *yo he comido*. En portugués, en cambio, se usa la conjugación directa del verbo sin necesidad de un auxiliar (excepto en tiempos compuestos). Esto simplifica su uso, pero requiere memorizar las formas específicas. Por ejemplo:
-- Español: *Yo **comí** una manzana.* (pretérito perfecto simple)
-- Portugués: *Eu **comi** uma maçã.*
+«Ayer fui al cine» = *Ontem **fui** ao cinema*; «Hoy fui / he ido al cine» = *Hoje **fui** ao cinema*. La forma *tenho ido* no sirve para eso: significa «he estado yendo (seguido)».
 
 ## Ejemplo extendido en contexto
-*João:* — Olá, Maria! Como você passou o fim de semana?
-*Maria:* — Fui ao parque com meus filhos. **Jogamos** futebol e **comemos** piquenique. Depois, **vimos** um filme na TV.
-*João:* — Que legal! Você **gostou** do filme?
-*Maria:* — Sim, **fizemos** uma refeição deliciosa depois de assistir ao filme.
-
-En este diálogo, los verbos en negrita (*fui*, *jogamos*, *comemos*, *vimos*, *gostou*, *fizemos*) están conjugados en pretérito perfecto para describir acciones completas del pasado.
+*No sábado **fui** ao Rio. **Visitei** o Pão de Açúcar, **comi** num restaurante na Lapa e à noite **vi** um show de samba. **Fiz** muitas fotos. Você já **esteve** lá?*

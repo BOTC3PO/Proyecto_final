@@ -1,440 +1,216 @@
-# Idiomas — Alemán — listening-b2 (cuestionario)
+# Alemán — listening B2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/listening-b2/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/aleman/listening-b2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior pedía responder sin audio ni texto; ahora cada pregunta trae la transcripción.
 
 ---
 
-### 1 — Zeitangabe  
+### 1 — zwar…aber
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["zeit", "substantiv"]
-pasos:
-  - "Escucha la frase completa y completa el hueco con el sustantivo masculino correcto."
-explicacion: "La expresión 'um ... zu' requiere un sustantivo masculino en nominativo. En este contexto, se refiere a una actividad específica."
-respuestas_validas:
-  - "Morgen"
-  - "morgen"
-tipo: completar
-enunciado: "Ich habe einen Termin um ___ zu treffen."
+  tags: ["listening", "B2"]
+
+respuesta: "Un inconveniente del teletrabajo"
+tipo: "mc"
+opciones_explicitas: ["Un inconveniente del teletrabajo", "Solo sus ventajas", "Que nadie teletrabaja"]
+
+enunciado: "Audio: «Zwar spart das Homeoffice Pendelzeit. Aber 40 Prozent fühlen sich isoliert.» ¿Qué subraya?"
+
+explicacion: |
+  Lo importante va tras *aber*.
 ```
 
-### 2 — Modalverb  
+### 2 — Cifra
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["modalverben", "presente"]
-pasos:
-  - "Escucha la oración y elige la opción correcta que completa la frase."
-opciones_explicitas:
-  - "kann"
-  - "muss"
-  - "will"
-respuesta: "will"
-tipo: mc
-enunciado: "Er ___ heute Abend ins Kino gehen."
+  tags: ["listening", "B2"]
+
+respuesta: "40 %"
+tipo: "mc"
+opciones_explicitas: ["40 %", "14 %", "4 %"]
+
+enunciado: "Audio: «Laut einer aktuellen Umfrage fühlen sich 40 Prozent der Beschäftigten isoliert.» ¿Qué porcentaje?"
+
+explicacion: |
+  *Vierzig Prozent*.
 ```
 
-### 3 — Präposition  
+### 3 — sollen
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["präpositionen", "ort"]
-pasos:
-  - "Escucha la frase y completa el hueco con la preposición correcta."
-explicacion: "La preposición 'in' se usa para indicar un lugar cerrado, como una ciudad o edificio."
-respuestas_validas:
-  - "in"
-  - "In"
-tipo: completar
-enunciado: "Wir wohnen ___ Berlin."
+  tags: ["listening", "B2"]
+
+respuesta: "un rumor no confirmado"
+tipo: "mc"
+opciones_explicitas: ["un rumor no confirmado", "una orden al ministro", "oficial"]
+
+enunciado: "Audio: «Der Minister soll zurücktreten wollen.» La información es…"
+
+explicacion: |
+  *Sollen* = se dice que.
 ```
 
-### 4 — Konjunktiv II  
+### 4 — Konj. I
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["konjunktiv", "hypothese"]
-pasos:
-  - "Escucha la oración y elige la forma correcta del Konjunktiv II."
-opciones_explicitas:
-  - "würde ich gehen"
-  - "gehe ich"
-  - "ginge ich"
-respuesta: "ginge ich"
-tipo: mc
-enunciado: "Wenn ich mehr Zeit ___ , würde ich reisen."
+  tags: ["listening", "B2"]
+
+respuesta: "reproduce lo dicho con distancia"
+tipo: "mc"
+opciones_explicitas: ["reproduce lo dicho con distancia", "afirma el hecho", "lo niega"]
+
+enunciado: "Audio: «Der Sprecher sagte, man sei nicht informiert worden.» El periodista…"
+
+explicacion: |
+  Konjunktiv I.
 ```
 
-### 5 — Passiv  
+### 5 — Plan
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["passiv", "verben"]
-pasos:
-  - "Escucha la oración y completa el hueco con el verbo en forma pasiva."
-explicacion: "El tiempo pasado de 'schreiben' es 'geschrieben', y se usa 'wird' para el presente del pasivo."
-respuestas_validas:
-  - "wird geschrieben"
-  - "Wird geschrieben"
-tipo: completar
-enunciado: "Der Brief ___ von meiner Schwester."
+  tags: ["listening", "B2"]
+
+respuesta: "Seguridad"
+tipo: "mc"
+opciones_explicitas: ["Seguridad", "Costos", "Medio ambiente"]
+
+enunciado: "Audio: «Ich möchte drei Punkte ansprechen: Kosten, Umwelt und Arbeitsplätze.» ¿Cuál NO anuncia?"
+
+explicacion: |
+  No menciona seguridad.
 ```
 
-### 6 — Zeitform  
+### 6 — Unterm Strich
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["zeitformen", "vergangenheit"]
-pasos:
-  - "Escucha la oración y elige la forma correcta del verbo en pasado."
-opciones_explicitas:
-  - "hatte"
-  - "hat"
-  - "hätte"
-respuesta: "hatte"
-tipo: mc
-enunciado: "Er ___ gestern einen Fehler gemacht."
+  tags: ["listening", "B2"]
+
+respuesta: "Una conclusión"
+tipo: "mc"
+opciones_explicitas: ["Una conclusión", "Un ejemplo", "Una objeción"]
+
+enunciado: "Audio: «Unterm Strich lohnt sich die Investition.» ¿Qué introduce *unterm Strich*?"
+
+explicacion: |
+  = en resumen.
 ```
 
-### 7 — Indirekte Rede  
+### 7 — Opinión
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["indirekte rede", "zitieren"]
-pasos:
-  - "Escucha la oración directa y completa el hueco con la forma correcta de la indirecta."
-explicacion: "En la indirecta, los verbos de hablar (sagen, erzählen) se conjugan en presente o pretérito, y las comillas se eliminan."
-respuestas_validas:
-  - "sagte"
-  - "Sagte"
-tipo: completar
-enunciado: "Er ___ , dass sie morgen kommen würde."
+  tags: ["listening", "B2"]
+
+respuesta: "duda de la medida"
+tipo: "mc"
+opciones_explicitas: ["duda de la medida", "la apoya", "no opina"]
+
+enunciado: "Audio: «Meines Erachtens ist diese Maßnahme wenig sinnvoll.» El hablante…"
+
+explicacion: |
+  *Meines Erachtens* = en mi opinión.
 ```
 
-### 8 — Komparativ  
+### 8 — Tendencia
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["komparativ", "adjektive"]
-pasos:
-  - "Escucha la oración y completa el hueco con el comparativo correcto."
-explicacion: "El comparativo de 'gut' es 'besser', y se usa 'als' para comparar dos elementos."
-respuestas_validas:
-  - "besser"
-  - "Besser"
-tipo: completar
-enunciado: "Das Buch ist ___ als das andere."
+  tags: ["listening", "B2"]
+
+respuesta: "Se duplicó"
+tipo: "mc"
+opciones_explicitas: ["Se duplicó", "Se redujo", "No cambió"]
+
+enunciado: "Audio: «Die Zahl der E-Bikes hat sich in zwei Jahren verdoppelt.» ¿Qué pasó?"
+
+explicacion: |
+  *Verdoppeln*.
 ```
 
-### 9 — Temporal  
+### 9 — Austria
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["temporal", "zeitangaben"]
-pasos:
-  - "Escucha la oración y elige la expresión de tiempo correcta."
-opciones_explicitas:
-  - "vor einer Stunde"
-  - "seit einer Stunde"
-  - "in einer Stunde"
-respuesta: "seit einer Stunde"
-tipo: mc
-enunciado: "Ich warte ___ auf den Bus."
+  tags: ["listening", "B2"]
+
+respuesta: "Enero"
+tipo: "mc"
+opciones_explicitas: ["Enero", "Junio", "Julio"]
+
+enunciado: "Audio (Viena): «Im Jänner ist es hier sehr kalt.» ¿Qué mes es *Jänner*?"
+
+explicacion: |
+  Austria: *Jänner* = *Januar*.
 ```
 
-### 10 — Konnektiv  
+### 10 — sprich
+
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["konnektoren", "logik"]
-pasos:
-  - "Escucha la oración y completa el hueco con el conectivo correcto."
-explicacion: "'Doch' se usa para contrastar ideas, mientras que 'sondern' introduce una corrección."
-respuestas_validas:
-  - "doch"
-  - "Doch"
-tipo: completar
-enunciado: "Ich habe kein Buch ___ ein Laptop."
+  tags: ["listening", "B2"]
+
+respuesta: "una aclaración"
+tipo: "mc"
+opciones_explicitas: ["una aclaración", "una orden", "una objeción"]
+
+enunciado: "Audio: «Wir brauchen mehr Flexibilität, sprich: freie Arbeitszeiten.» *Sprich* introduce…"
+
+explicacion: |
+  *Sprich* = o sea.
 ```
 
-### 11 — Pronomen  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["pronomen", "reflexiv"]
-pasos:
-  - "Escucha la oración y elige el pronombre reflexivo correcto."
-opciones_explicitas:
-  - "sich"
-  - "mich"
-  - "dich"
-respuesta: "sich"
-tipo: mc
-enunciado: "Er ___ die Hände waschen."
-```
+### 11 — Concesión
 
-### 12 — Infinitiv  
 ```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "listening-b2"
   nivel: "B2"
-  tags: ["infinitiv", "verben"]
-pasos:
-  - "Escucha la oración y completa el hueco con el infinitivo correcto."
-explicacion: "El infinitivo se usa después de verbos como 'müssen' o 'sollen'."
-respuestas_validas:
-  - "gehen"
-  - "Gehen"
-tipo: completar
-enunciado: "Er muss ___ , um pünktlich zu sein."
-```
+  tags: ["listening", "B2"]
 
-### 13 — Präposition mit Dativ  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "dativ"]
-pasos:
-  - "Escucha la oración y completa el hueco con la preposición correcta que requiere Dativ."
-explicacion: "'Mit' se usa para indicar compañía, y requiere el caso dativo."
-respuestas_validas:
-  - "mit"
-  - "Mit"
-tipo: completar
-enunciado: "Er reist ___ seiner Familie."
-```
+respuesta: "Vale la pena por el empleo"
+tipo: "mc"
+opciones_explicitas: ["Vale la pena por el empleo", "Es demasiado caro", "No crea empleo"]
 
-### 14 — Futur I  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["futur", "verben"]
-pasos:
-  - "Escucha la oración y elige la forma correcta del Futur I."
-opciones_explicitas:
-  - "werde gehen"
-  - "gehe"
-  - "ginge"
-respuesta: "werde gehen"
-tipo: mc
-enunciado: "Ich ___ morgen ins Kino."
-```
+enunciado: "Audio: «Es stimmt, dass das Projekt teuer ist; allerdings schafft es Arbeitsplätze.» Conclusión:"
 
-### 15 — Partizip II  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["partizip", "verben"]
-pasos:
-  - "Escucha la oración y completa el hueco con el Partizip II correcto."
-explicacion: "El Partizip II de 'schreiben' es 'geschrieben', y se usa en construcciones pasivas o participiales."
-respuestas_validas:
-  - "geschrieben"
-  - "Geschrieben"
-tipo: completar
-enunciado: "Der Brief ___ von ihr."
-```
-
-### 16 — Zeitpunkt  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["zeitpunkte", "vergangenheit"]
-pasos:
-  - "Escucha la oración y elige la expresión de tiempo correcta."
-opciones_explicitas:
-  - "gestern"
-  - "vorgestern"
-  - "morgen"
-respuesta: "vorgestern"
-tipo: mc
-enunciado: "Er hat das Buch ___ gelesen."
-```
-
-### 17 — Konjunktiv I  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["konjunktiv", "wunsch"]
-pasos:
-  - "Escucha la oración y completa el hueco con la forma correcta del Konjunktiv I."
-explicacion: "'Würde' se usa en el Konjunktiv I para expresar deseos o hipótesis."
-respuestas_validas:
-  - "würde"
-  - "Würde"
-tipo: completar
-enunciado: "Ich ___ gerne ins Theater gehen."
-```
-
-### 18 — Adjektiv mit Dativ  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["adjektive", "dativ"]
-pasos:
-  - "Escucha la oración y elige el adjetivo correcto que requiere Dativ."
-opciones_explicitas:
-  - "freundlich"
-  - "freundlichem"
-  - "freundliche"
-respuesta: "freundlichem"
-tipo: mc
-enunciado: "Er hat mit ___ Menschen gesprochen."
-```
-
-### 19 — Temporal mit Präposition  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["temporal", "präpositionen"]
-pasos:
-  - "Escucha la oración y completa el hueco con la preposición correcta."
-explicacion: "'In' se usa para indicar un período de tiempo futuro, como 'in einer Woche'."
-respuestas_validas:
-  - "in"
-  - "In"
-tipo: completar
-enunciado: "Wir treffen uns ___ einer Stunde."
-```
-
-### 20 — Imperativ  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["imperativ", "verben"]
-pasos:
-  - "Escucha la oración y elige la forma correcta del Imperativ."
-opciones_explicitas:
-  - "gehe"
-  - "geh"
-  - "gehst"
-respuesta: "geh"
-tipo: mc
-enunciado: "___ ins Zimmer!"
-```
-
-### 21 — Präposition mit Akkusativ  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Escucha la oración y completa el hueco con la preposición correcta que requiere Akkusativ."
-explicacion: "'Zu' se usa para indicar dirección, como 'zu einem Laden'."
-respuestas_validas:
-  - "zu"
-  - "Zu"
-tipo: completar
-enunciado: "Er geht ___ dem Laden."
-```
-
-### 22 — Konjunktiv II mit würde  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["konjunktiv", "hypothese"]
-pasos:
-  - "Escucha la oración y completa el hueco con la forma correcta del Konjunktiv II."
-explicacion: "'Würde' se usa en hipótesis no realizadas, como 'Wenn ich reich wäre...'."
-respuestas_validas:
-  - "wäre"
-  - "Wäre"
-tipo: completar
-enunciado: "Wenn ich reich ___ , würde ich reisen."
-```
-
-### 23 — Adverb  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["adverbiale", "zeit"]
-pasos:
-  - "Escucha la oración y completa el hueco con el adverbio correcto."
-explicacion: "'Noch nicht' se usa para negar una acción realizada, como 'Ich habe noch nicht gegessen'."
-respuestas_validas:
-  - "noch nicht"
-  - "Noch nicht"
-tipo: completar
-enunciado: "Er ___ angekommen."
-```
-
-### 24 — Passiv mit haben  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["passiv", "haben"]
-pasos:
-  - "Escucha la oración y completa el hueco con el verbo en forma pasiva."
-explicacion: "El pasivo con 'haben' se usa para acciones que no están claramente atribuidas a un sujeto."
-respuestas_validas:
-  - "hat geschrieben"
-  - "Hat geschrieben"
-tipo: completar
-enunciado: "Der Brief ___ von meiner Schwester."
-```
-
-### 25 — Temporale mit seit  
-```
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "listening-b2"
-  nivel: "B2"
-  tags: ["temporale", "seit"]
-pasos:
-  - "Escucha la oración y completa el hueco con la expresión de tiempo correcta."
-explicacion: "'Seit' se usa para indicar un período de tiempo desde un momento específico."
-respuesta: "seit"
-respuestas_validas:
-  - "seit"
-  - "Seit"
-tipo: completar
-enunciado: "Er arbeitet ___ drei Jahre."
+explicacion: |
+  *Allerdings* introduce lo principal.
 ```

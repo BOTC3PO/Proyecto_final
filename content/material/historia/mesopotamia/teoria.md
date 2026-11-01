@@ -14,7 +14,7 @@ Mesopotamia, término de origen griego que significa "tierra entre ríos", abarc
 
 Esta necesidad de controlar el agua para la agricultura (principalmente de cebada y dátiles) impulsó la concentración de población y la cooperación a gran escala, factores clave para el nacimiento de la urbanización. Los primeros asentamientos sedentarios, como Uruk y Ur, comenzaron a florecer alrededor del **4000 a.C.**, dando paso a la llamada "Revolución Urbana". La sociedad pasó de ser rural y tribal a ser compleja, estratificada y dependiente de una burocracia centralizada para administrar los canales de riego y el almacenamiento de excedentes.
 
-![Mapa simplificado de Mesopotamia antigua mostrando la ubicación de Ur, Uruk, Nínive y la diferencia entre el norte montañoso y el sur llano](https://upload.wikimedia.org/wikipedia/commons/6/64/Meso2mil.JPG)
+![Mapa simplificado de Mesopotamia antigua mostrando la ubicación de Ur, Uruk, Nínive y la diferencia entre el norte montañoso y el sur llano](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Meso2mil.JPG/960px-Meso2mil.JPG)
 
 *Imagen: «Meso2mil», No machine-readable author provided. Zunkir assume, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Meso2mil.JPG).*
 

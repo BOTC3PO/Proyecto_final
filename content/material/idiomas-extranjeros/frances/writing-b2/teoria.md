@@ -1,41 +1,44 @@
-# Escritura en francés (B2): Estructura y coherencia
+# Expresión escrita en francés (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/writing-b2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-A nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), la escritura implica producir textos claros, estructurados y coherentes sobre temas concretos. Se requiere organizar ideas lógicamente, usar conectores adecuados y adaptar el estilo según el destinatario. Esta habilidad es clave para comunicarse eficazmente en contextos académicos, profesionales o cotidianos.
+En B2 se escriben **textos argumentativos** claros y detallados: cartas formales de reclamo o solicitud, artículos y ensayos de opinión (en el DELF B2, unas 250 palabras). Se valora la **coherencia**, la **cohesión** y la **precisión** del vocabulario.
 
-## Explicación central: Estructura y coherencia
-En francés, un texto bien escrito sigue una organización clara: introducción, desarrollo y conclusión. Por ejemplo, al describir un viaje, se podría estructurar así:
+## Explicación central
+### Plan del texto argumentativo
+1. **Introducción**: presentar el tema, plantear la pregunta y anunciar la postura.
+2. **Desarrollo**: 2-3 párrafos, cada uno con argumento + explicación + ejemplo.
+3. **Concesión**: reconocer un argumento contrario y rebatirlo.
+4. **Conclusión**: síntesis y, si corresponde, propuesta.
 
-> *«Le voyage en Italie a été une expérience inoubliable. Nous avons visité Rome, Venise et Florence. À Rome, nous avons admiré le Colisée et gravi les marches du Vatican. En Venise, notre itinéraire comprenait une promenade sur le Grand Canal et un déjeuner dans un restaurant typique. Quant à Florence, c’était la ville des artistes : nous avons vu les œuvres de Michel-Ange et Botticelli. Ce voyage m’a permis de découvrir l’histoire et la beauté italienne.»*
+### Cohesión
+- Conectores variados: *en premier lieu, de plus, par ailleurs, en outre; cependant, toutefois, néanmoins; ainsi, par conséquent; en définitive*.
+- Retomar sin repetir: pronombres (*celui-ci, ce dernier, cela*), sinónimos, nominalización (*cette décision, ce phénomène*).
 
-**Conectores y transiciones**: Palabras como *«quant à»*, *«en outre»*, *«par ailleurs»* ayudan a enlazar ideas. Además, se usan tiempos verbales coherentes: el **passé composé** para acciones terminadas (*nous avons visité*) y el **imparfait** para describir contextos o estados (le voyage *a été*).
+### Precisión
+- Verbos precisos en lugar de *faire, dire, avoir*: *réaliser, affirmer, posséder, entraîner* (provocar), *favoriser*.
+- Expresar causa y consecuencia: *en raison de, grâce à* (positivo), *à cause de* (negativo), *entraîner, provoquer*.
+
+### Carta formal de reclamo
+Hechos precisos (fechas, números de pedido) → problema → pedido concreto (*Je vous serais reconnaissant(e) de bien vouloir…*) → fórmula de cierre.
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del passé composé**: Los hablantes de español suelen confundirlo con el pretérito perfecto compuesto, omitiendo la participe pasée o el auxiliar (ex: *«nous visité»* en lugar de *«nous avons visité»*).
-2. **Conectores innecesarios**: Exceso de palabras como *«et»* para unir ideas (*«Nous avons visité Rome et Venise et Florence»*), lo que rompe la fluidez.
-3. **Desacuerdo en adjetivos**: En francés, muchos adjetivos cambian según el género y número del sustantivo (ex: *«une ville interessante»*, no *«interessant»*).
+1. Repetir *mais* y *aussi*: variar con *cependant, de plus*.
+2. ❌ *grâce à la crise* (positivo para algo negativo) ✅ *à cause de la crise*.
+3. Escribir sin plan: el corrector espera introducción, desarrollo y conclusión visibles.
+4. ❌ *Je vous serais reconnaissant de bien vouloir me rembourse* ✅ *me rembourser*.
 
 ## Comparación con el español
-- **Tiempo verbal**: Mientras que en español se usa el pretérito para acciones pasadas (*visitamos*), en francés se prefiere el passé composé (*avons visité*) en narraciones.
-- **Conectores**: El español tiene conectores como *«además»* y *«por otro lado»*, pero en francés se usan formas más variadas: *«en revanche»* (en cambio), *«cependant»* (sin embargo).
-- **Estructura de oraciones**: En francés, las oraciones suelen ser más cortas y se evita la repetición innecesaria.
+La estructura es la misma. El francés escolar es más estricto con el **plan** (problemática, partes equilibradas) y con la variedad de conectores.
 
 ## Ejemplo extendido en contexto
-**Situación**: Redactar un correo electrónico para solicitar una extensión de plazo académico.
-
-> *«Bonjour Madame,
-J’espère que vous allez bien. Je me permets de vous écrire afin de demander une extension du délai pour rendre mon travail sur les réseaux sociaux. En effet, je suis actuellement confronté à des difficultés personnelles qui m’empêchent de terminer mon projet dans les délais habituels.
-Je vous propose d’établir un nouveau calendrier pour la remise : le 15 mai au lieu du 1er mai. Je reste disponible pour en discuter davantage si cela convient à vos disponibilités.
-Merci par avance pour votre compréhension.
-Cordialement,
-[Nombre]»*
-
-Este texto muestra una estructura clara (saludo, motivo, propuesta y despedida), uso de tiempos verbales adecuados (*suis confronté*, *proposer*) y conectores para justificar la solicitud (*en effet*, *je propose*).
+*« Faut-il interdire les voitures dans le centre-ville ? **En premier lieu**, une telle mesure réduirait la pollution. **De plus**, elle favoriserait les déplacements à pied. **Certes**, les commerçants craignent une baisse de leur clientèle ; **toutefois**, l'exemple de Pontevedra montre le contraire. **En définitive**, cette décision me semble souhaitable. »*

@@ -34,9 +34,13 @@ Esta postura generó una tensión constante con las instituciones eclesiásticas
 
 La Ilustración no fue un bloque monolítico; existieron debates intensos sobre la naturaleza humana y la organización política. Por un lado, la idea de la **"buena naturaleza humana"** (Rousseau) sugería que la sociedad corrompía al hombre, y que las instituciones debían reflejar la "voluntad general". Por otro lado, la visión de la razón como herramienta de progreso y perfeccionamiento (Condorcet, Kant) impulsó la idea de que la historia avanzaba linealmente hacia la libertad y la felicidad.
 
-Estas ideas desembocaron en la teoría del **contrato social**. Hume, Smith y otros discutieron cómo el orden social no era divino, sino una convención humana útil. Esto legitimaba la idea de que si el gobierno no protegía los derechos naturales (vida, libertad, propiedad), el pueblo tenía derecho a resistirlo. Aunque los ilustrados rara vez propusieron la democracia directa (con excepciones notables como Rousseau), su énfasis en la soberanía popular, la separación de poderes (Montesquieu) y la legalidad sentó las bases ideológicas para la Revolución Americana y la Revolución Francesa.
+Estas ideas se apoyaron en la teoría del **contrato social**, desarrollada por pensadores como Hobbes, Locke y Rousseau: el orden político no es divino, sino un acuerdo entre las personas. Locke agregó que, si el gobierno no protegía los derechos naturales (vida, libertad, propiedad), el pueblo tenía derecho a resistirlo. Otros ilustrados, como David Hume, criticaron la idea de un contrato original, pero coincidían en que el poder debía justificarse por su utilidad para la sociedad y no por la voluntad divina. Aunque los ilustrados rara vez propusieron la democracia directa (con excepciones notables como Rousseau), su énfasis en la soberanía popular, la separación de poderes (Montesquieu) y la legalidad sentó las bases ideológicas para la Revolución Americana y la Revolución Francesa.
 
-<!-- IMAGEN: Grabado satírico de la época que muestra a la Razón descorriendo el velo de la superstición, frente a figuras representando al clero y a la monarquía absoluta -->
+![Grabado con una figura femenina velada e iluminada en el centro, rodeada de figuras que la observan](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Encyclopedie_frontispice_full.jpg/960px-Encyclopedie_frontispice_full.jpg)
+
+*Imagen: «Encyclopedie frontispice full», Benoît-Louis Prévost / Charles-Nicolas Cochin, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Encyclopedie_frontispice_full.jpg).*
+
+Frontispicio de la *Enciclopedia* de Diderot y D'Alembert (dibujo de Charles-Nicolas Cochin, 1764; grabado de 1772). En el centro, la Verdad aparece envuelta en un velo y rodeada de luz; la Razón y la Filosofía se lo quitan. Es la imagen que los ilustrados tenían de sí mismos: la razón descubre la verdad.
 
 ## 5. Legado y contradicciones: la universalidad excluyente
 

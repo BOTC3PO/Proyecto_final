@@ -12,8 +12,6 @@
 
 La Constitución Nacional Argentina fue sancionada en **1853**, en un contexto de transición política tras la caída de Juan Manuel de Rosas en la batalla de Caseros (1852). Este hito marcó el fin del gobierno centralizado y autoritario que había dominado durante más de 30 años. La convocatoria a una Asamblea Constituyente, impulsada por sectores federales y antirrosistas, buscaba establecer un sistema institucional equilibrado para evitar la repetición de conflictos internos. El texto resultó de negociaciones entre representantes de las provincias, quienes exigían autonomía política y económica, y el sector centralista que deseaba consolidar una nación unitaria.
 
-<!-- IMAGEN: Mapa del territorio argentino en 1853 con indicadores de las provincias participantes en la Asamblea Constituyente -->
-
 ---
 
 ## 2. República Federal: balance entre autonomía provincial y poder nacional

@@ -14,8 +14,6 @@ El modelo agroexportador se consolidó en Argentina a fines del siglo XIX como u
 
 La economía funcionaba en un circuito cerrado: los productores agrícolas y ganaderos obtenían ingresos por sus exportaciones, que luego invertían en tierras o herramientas importadas. Sin embargo, este sistema dependía de la estabilidad de los mercados internacionales y de las condiciones climáticas, lo cual generaba volatilidad económica.
 
-<!-- IMAGEN: Gráfico comparativo entre producción agrícola y manufacturera en Argentina (1870-1914) -->
-
 ---
 
 ## 2. La inversión extranjera: infraestructura para exportar

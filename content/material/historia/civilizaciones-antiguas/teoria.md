@@ -12,7 +12,7 @@
 
 La región que hoy corresponde a Irak fue el primer centro de desarrollo urbano del planeta. Entre los ríos Tigris y Éufrates, las comunidades agrícolas se organizaron en ciudades-estado independientes como Ur o Babilonia. La fertilidad de las tierras aluviales permitió excedentes productivos, lo que generó clases sociales especializadas: sacerdotes, escribas y gobernantes. El sistema de escritura cuneiforme, inventado en Sumer, fue un hito clave para registrar leyes, comercio y mitos.
 
-![mapa de Mesopotamia con los ríos Tigris y Éufrates](https://upload.wikimedia.org/wikipedia/commons/5/50/Fertile_Crescent_Mesopotamian_map.png)
+![mapa de Mesopotamia con los ríos Tigris y Éufrates](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fertile_Crescent_Mesopotamian_map.png/960px-Fertile_Crescent_Mesopotamian_map.png)
 
 *Imagen: «Fertile Crescent Mesopotamian map», Akbarali, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fertile_Crescent_Mesopotamian_map.png).*
 
@@ -20,17 +20,19 @@ La región que hoy corresponde a Irak fue el primer centro de desarrollo urbano 
 
 ## 2. Egipto: el don del Nilo
 
-El río Nilo no solo era una vía de transporte, sino un factor determinante para la supervivencia de Egipto. Sus inundaciones anuales, predecibles gracias a las lluvvas en África oriental, depositaban nutrientes en los campos, permitiendo cultivos como el trigo y el lino. Esta regularidad llevó a una organización centralizada: faraones que gobernaban con autoridad divina, un ejército profesional y una burocracia de escribas para gestionar impuestos y registros.
-
-<!-- IMAGEN: inundaciones del Nilo y agricultura en Egipto -->
+El río Nilo no solo era una vía de transporte, sino un factor determinante para la supervivencia de Egipto. Sus inundaciones anuales, predecibles gracias a las lluvias en África oriental, depositaban nutrientes en los campos, permitiendo cultivos como el trigo y el lino. Esta regularidad llevó a una organización centralizada: faraones que gobernaban con autoridad divina, un ejército profesional y una burocracia de escribas para gestionar impuestos y registros.
 
 ---
 
 ## 3. El río Amarillo y la China antigua
 
-En Asia Oriental, el Huang He (Río Amarillo) dio forma a una civilización que se extendió desde lo que hoy es Shandong hasta Shanxi. Sus sedimentos de loess crearon suelos fértils, pero también generaban inundaciones destructivas. Para controlarlas, se construyeron diques y canales, lo que impulsó la innovación tecnológica. La escritura china (como el sistema oracle) y los principios del confucianismo surgieron en este contexto de necesidad de orden social.
+En Asia Oriental, el Huang He (Río Amarillo) dio forma a una civilización que se extendió desde lo que hoy es Shandong hasta Shanxi. Sus sedimentos de loess crearon suelos fértiles, pero también generaban inundaciones destructivas. Para controlarlas, se construyeron diques y canales, lo que impulsó la innovación tecnológica. La escritura china (sus primeros textos conocidos son las inscripciones en huesos oraculares de la dinastía Shang) y los principios del confucianismo surgieron en este contexto de necesidad de orden social.
 
-<!-- IMAGEN: río Huang He con sedimentos de loess -->
+![Cascada de aguas marrones y amarillentas que caen entre rocas](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hukou_Waterfall.jpg/960px-Hukou_Waterfall.jpg)
+
+*Imagen: «Hukou Waterfall», Leruswing, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hukou_Waterfall.jpg).*
+
+La cascada de Hukou, en el río Amarillo. El color viene del loess, el sedimento fino que el río arrastra y que le da su nombre.
 
 ---
 

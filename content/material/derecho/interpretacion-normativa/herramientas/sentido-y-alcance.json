@@ -1,0 +1,88 @@
+{
+ "titulo": "Sentido y alcance de una norma",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Interpretar una norma: qué dice y hasta dónde llega",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Norma: «prohibido vender alcohol a menores de edad»",
+     "x": 212,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Sentido: ¿qué quiere decir?",
+     "x": 0,
+     "y": 126,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n3",
+     "label": "Alcance: ¿a qué casos se aplica?",
+     "x": 424,
+     "y": 126,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n4",
+     "label": "«Menor de edad»: persona de menos de 18 años",
+     "x": 0,
+     "y": 252,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n5",
+     "label": "Adentro: un chico de 17 que aparenta ser mayor",
+     "x": 318,
+     "y": 252,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n6",
+     "label": "Afuera: una estudiante universitaria de 19",
+     "x": 530,
+     "y": 252,
+     "color": "#f1f5f9"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n1",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n3",
+     "toId": "n5",
+     "label": "sí"
+    },
+    {
+     "id": "e5",
+     "fromId": "n3",
+     "toId": "n6",
+     "label": "no"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "El texto es el mismo para todos los casos; interpretar es decidir qué significa y qué situaciones quedan dentro o fuera de la norma."
+  }
+ ]
+}

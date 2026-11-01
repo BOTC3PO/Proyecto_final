@@ -30,7 +30,11 @@ El **fotón** es la partícula elemental asociada a la luz y otras formas de rad
 En 1924, Louis de Broglie propuso que **cualquier cuerpo en movimiento** tiene una naturaleza ondulatoria. Esto se confirmó experimentalmente al observar difracción de electrones: partículas con masa mostraron patrones de interferencia. La longitud de onda asociada a un objeto es:  
 **λ = h / (m · v)**, donde *h* es la constante de Planck, *m* la masa y *v* la velocidad.
 
-<!-- IMAGEN: Difracción de electrones en experimentos de laboratorio -->
+![Tubo de laboratorio con una pantalla verde donde se ven anillos concéntricos alrededor de un punto brillante](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Elektronenbeugung_-_DS7_6133_PK.jpg/960px-Elektronenbeugung_-_DS7_6133_PK.jpg)
+
+*Imagen: «Elektronenbeugung - DS7 6133 PK», Petra Klawikowski, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elektronenbeugung_-_DS7_6133_PK.jpg).*
+
+Tubo de difracción de electrones, un experimento habitual en los laboratorios de física: los electrones atraviesan una lámina fina de grafito y forman anillos en la pantalla, igual que lo haría una onda.
 
 ## 5. La conexión entre energía, frecuencia y masa
 
@@ -40,7 +44,11 @@ La relación **E = h · f** (Planck) es clave para entender cómo la luz transpo
 
 El **experimento de doble rendija** con fotones o electrones es emblemático: si se envía un haz individualmente, aparece un patrón de interferencia solo cuando no se observa su trayectoria. Esto demuestra que la naturaleza ondulatoria emerge en ausencia de medición, revelando el rol de la observación en mecánica cuántica.
 
-<!-- IMAGEN: Simulación del experimento con partículas y patrón de interferencia -->
+![Cinco paneles en los que puntos blancos aislados se van acumulando hasta formar franjas verticales](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Double-slit_experiment_results_Tonomura_2.jpg/960px-Double-slit_experiment_results_Tonomura_2.jpg)
+
+*Imagen: «Double-slit experiment results Tonomura 2», user:Belsazar, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Double-slit_experiment_results_Tonomura_2.jpg).*
+
+Resultados reales del experimento de doble rendija con electrones enviados de a uno (equipo de Akira Tonomura, 1989). Cada punto es un electrón que llega a la pantalla como una partícula; al acumularse miles (de **a** a **e**), aparecen las franjas de interferencia, típicas de una onda.
 
 ## N. Conexión con lo que sigue
 

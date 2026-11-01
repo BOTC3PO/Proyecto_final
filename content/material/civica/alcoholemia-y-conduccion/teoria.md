@@ -10,8 +10,6 @@ variabilidad), no varias secciones independientes.
 
 ---
 
-## Investigado con WebSearch (agosto 2026)
-
 ## Por qué importa medir el alcohol en sangre
 
 El alcohol reduce los reflejos, el campo visual periférico y la

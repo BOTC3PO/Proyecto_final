@@ -69,5 +69,5 @@ teóricas de esta lista.
 
 Este panorama da contexto histórico a todo lo demás visto en Filosofía: de
 dónde viene cada rama y corriente ya estudiada. También conecta con Historia
-y Ciencias Sociales, porque el mismo tema de `troncos.md` alimenta
-directamente varios nodos de esas materias.
+y Ciencias Sociales, porque las mismas ideas aparecen en varios temas de
+esas materias.

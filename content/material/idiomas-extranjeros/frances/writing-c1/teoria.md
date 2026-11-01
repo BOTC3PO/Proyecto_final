@@ -1,43 +1,48 @@
-# Uso de los pronombres relativos en francés: coherencia y precisión en redacciones C1
+# Expresión escrita en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/writing-c1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior trataba los pronombres relativos en lugar de la expresión escrita.
 
 ---
 
 ## Introducción
-Los pronombres relativos (como *que*, *qui*, *dont*) son esenciales para conectar ideas de manera clara y fluida en textos escritos avanzados. En el nivel C1, su correcto uso permite evitar repeticiones innecesarias, mejorar la cohesión textual y demostrar un dominio del idioma al manipular estructuras gramaticales complejas. Su aplicación correcta es clave para redacciones formales, ensayos o artículos periodísticos, donde la precisión lingüística define el nivel de competencia.
+En C1 se escriben **textos complejos y bien estructurados**: ensayos argumentativos, síntesis de documentos, informes, cartas formales elaboradas. El DALF C1 pide una **synthèse** (unas 220 palabras) y un **essai argumenté** (unas 250 palabras). Se valora la **precisión**, la **riqueza léxica**, la **cohesión** y la adecuación del **registro**.
 
-## Explicación central con ejemplos reales
-Los pronombres relativos en francés se eligen según la función sintáctica que cumplen:
-- **Que**: introduce un complemento directo (objeto) o indirecto, y puede seguir a preposiciones (*de*, *à*).
-  *Exemple*: «La maison **que** j’ai visitée est très spacieuse.» (La casa que visité es muy espaciosa.)
-- **Qui**: introduce un sujeto.
-  *Exemple*: «Le professeur **qui** a donné ce cours est très compétent.» (El profesor que dio este curso es muy competente.)
-- **Dont**: indica posesión o relación genética, y puede reemplazar *de + quien/lo que*.
-  *Exemple*: «C’est l’ami **dont** je t’ai parlé hier.» (Es el amigo del cual te hablé ayer.)
+## Explicación central
+### La síntesis (*synthèse*)
+- Reúne las ideas de **varios documentos** en un texto propio, **sin opinión personal**.
+- Plan temático (no un resumen documento por documento).
+- Sin citas textuales; reformular con vocabulario propio.
+- Título obligatorio en el DALF.
 
-Un error común es usar *que* donde corresponde otro pronombre:
-- ❌ *L’étudiant **que** a gagné le concours est très motivé.* (Incorrecto: *qui* debe usarse por ser sujeto).
-  ✅ *L’étudiant **qui** a gagné le concours est très motivé.*
+### El ensayo argumentado (*essai*)
+1. **Introducción**: *amorce* (frase de entrada), problemática, anuncio del plan.
+2. **Desarrollo** en dos o tres partes: tesis / antítesis / síntesis, o plan temático.
+3. **Conclusión**: balance y apertura.
 
-## Errores comunes de hablantes hispanohablantes
-1. **Confusión entre *que* y *qui***: en español, *que* se usa tanto para objetos como sujetos («El libro que leí», «La persona que vino»), pero en francés, esto es distinto.
-2. **Uso incorrecto de *dont***: a menudo se omite o se sustituye por *de + qui/que*.
-3. **Falta de concordancia**: olvidar ajustar el pronombre según el género y número del antecedente.
+### Cohesión y estilo
+- Conectores precisos: *dans la mesure où, d'autant plus que, force est de constater que, il n'en demeure pas moins que* (no deja de ser cierto que), *loin de… , au contraire*.
+- Relativos compuestos y *dont*: *les enjeux auxquels nous faisons face, le phénomène dont il est question*.
+- Nominalización y verbos precisos: *susciter, engendrer, mettre en évidence, remettre en cause*.
+- Modalización: *il semblerait que, on peut supposer que*.
+
+### Registro
+- Impersonal y neutro en síntesis e informes (*on, il, nous* de autor).
+- Evitar el registro familiar y las abreviaturas.
+
+## Errores comunes de hispanohablantes
+1. Opinar en la síntesis (está prohibido).
+2. Resumir documento por documento en lugar de cruzar ideas.
+3. ❌ *Le problème que je parle* ✅ *Le problème dont je parle*.
+4. Frases demasiado largas, al estilo de la prosa académica en español: el francés prefiere frases claras.
 
 ## Comparación con el español
-En español, los pronombres relativos son menos específicos: *que* o *quien* (aunque este último se usa poco en口语). En francés, sin embargo, la elección es obligatoria para mantener la claridad sintáctica. Por ejemplo:
-- Español: «El hombre **que** vi ayer está enfermo.»
-- Francés: «L’homme **que** j’ai vu hier est malade.» (objeto directo) vs. «L’homme **qui** est malade m’a visité.» (sujeto).
+El ensayo francés es muy **codificado**: problemática explícita, plan anunciado y apertura final. La escritura académica en español suele ser más libre y admite períodos más largos.
 
 ## Ejemplo extendido en contexto
-*Contexte*: Redacción de un ensayo sobre la influencia de la tecnología en la educación.
-
-*Extrait*:
-«Les innovations technologiques, **qui** ont transformé les méthodes pédagogiques au cours des dernières décennies, offrent aux étudiants des outils inédits pour apprendre. Par exemple, les plateformes en ligne **dont** l’accessibilité est désormais universelle permettent un apprentissage personnalisé, **que** de nombreux chercheurs considèrent comme la clé du futur éducatif. Cependant, il convient de noter que ces avancées, **qui** soulèvent des questions éthiques, nécessitent une réglementation rigoureuse pour éviter les inégalités accrus.»
-
-Este párrafo utiliza correctamente *qui* (sujeto), *dont* (posesión) y *que* (objeto), demostrando cohesión y precisión al nivel C1.
+*« À l'heure où le numérique envahit nos vies, **dans quelle mesure** l'école doit-elle s'en emparer ? **Force est de constater que** les outils numériques **suscitent** l'intérêt des élèves. **Il n'en demeure pas moins qu'**ils **engendrent** des risques de dispersion. **Loin de** rejeter ces outils, il conviendrait donc de les encadrer. »*

@@ -1,484 +1,272 @@
-# Idiomas — Alemán — oraciones-de-relativo (cuestionario)
+# Alemán — oraciones de relativo (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/oraciones-de-relativo/cuestionario_crudo.md`): 12 bloques mc sin `enunciado:` — redactada una oración distinta por bloque. Bug de contenido: un bloque etiquetado 'caso-dativo' pedía 'die' como respuesta, que no es una forma dativa — corregido a 'der' (dativo femenino).
+> Tema: `idiomas-extranjeros/aleman/oraciones-de-relativo`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Oraciones de relativo con "den"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-acusativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el caso del pronombre relativo."
-  - "Completa la oración con el pronombre correcto."
-tipo: completar
-respuestas_validas:
-  - "den"
-  - "Den"
-enunciado: "Das ist der Mann, ___ ich gestern gesehen habe."
+### 1 — Nom.
+
 ```
-
-
-### 2 — Oraciones de relativo con "die"  
-```yaml
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-dativo", "pronombre-relativo"]
-pasos:
-  - "Determina el caso del complemento directo."
-  - "Elige la forma correcta del pronombre relativo."
+  tags: ["relativo"]
+
 respuesta: "der"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["der", "den", "dem"]
 
-enunciado: "Die Frau, ___ ich geholfen habe, ist meine Nachbarin."
-opciones_explicitas:
-  - "die"
-  - "den"
-  - "dem"
-  - "der"
+enunciado: "Der Mann, ___ dort steht, ist mein Vater."
+
+explicacion: |
+  Sujeto: nominativo.
 ```
 
+### 2 — Acus.
 
-### 3 — Oraciones de relativo con preposición  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["preposiciones", "pronombre-relativo"]
-pasos:
-  - "Identifica la preposición y el caso resultante."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "mit der"
-  - "Mit der"
-enunciado: "Das ist die Frau, ___ ich meine Mutter spreche."
+  tags: ["relativo"]
+
+respuesta: "den"
+tipo: "mc"
+opciones_explicitas: ["den", "der", "dem"]
+
+enunciado: "Der Mann, ___ ich kenne, ist Arzt."
+
+explicacion: |
+  Objeto de *kennen*: acusativo.
 ```
 
+### 3 — Dat.
 
-### 4 — Oraciones de relativo con "der"  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-nominativo", "pronombre-relativo"]
-pasos:
-  - "Reconoce el sujeto en la oración relativa."
-  - "Elige el pronombre correcto para el caso nominativo."
-respuesta: "der"
-tipo: mc
+  tags: ["relativo"]
 
-enunciado: "Der Mann, ___ dort steht, ist mein Lehrer."
-opciones_explicitas:
-  - "der"
-  - "den"
-  - "dem"
-  - "die"
-```
-
-
-### 5 — Oraciones de relativo con "das"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-acusativo", "sustantivo-neutro"]
-pasos:
-  - "Identifica el género del sustantivo."
-  - "Completa con el pronombre relativo neutro."
-tipo: completar
-respuestas_validas:
-  - "das"
-  - "Das"
-enunciado: "Das ist das Buch, ___ ich letzte Woche gekauft habe."
-```
-
-
-### 6 — Oraciones de relativo con "dem"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-dativo", "pronombre-relativo"]
-pasos:
-  - "Analiza la preposición y el caso requerido."
-  - "Elige el pronombre relativo correcto."
 respuesta: "dem"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["dem", "den", "der"]
 
-enunciado: "Das Kind, ___ ich das Buch gegeben habe, lächelte."
-opciones_explicitas:
-  - "dem"
-  - "den"
-  - "die"
-  - "der"
+enunciado: "Der Mann, ___ ich helfe, ist alt."
+
+explicacion: |
+  *Helfen* + dativo.
 ```
 
+### 4 — Fem.
 
-### 7 — Oraciones de relativo con "wessen"  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["posesivo", "pronombre-relativo"]
-pasos:
-  - "Identifica el posesivo en la oración."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "wessen"
-  - "Wessen"
-enunciado: "Das ist das Auto, ___ Motor defekt ist."
-```
+  tags: ["relativo"]
 
-
-### 8 — Oraciones de relativo con "die" (plural)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["plural", "pronombre-relativo"]
-pasos:
-  - "Reconoce el plural del sustantivo."
-  - "Elige la forma correcta del pronombre relativo."
 respuesta: "die"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["die", "der", "das"]
 
-enunciado: "Die Bücher, ___ auf dem Tisch liegen, gehören mir."
-opciones_explicitas:
-  - "die"
-  - "den"
-  - "der"
-  - "das"
+enunciado: "Die Frau, ___ dort wohnt, ist Lehrerin."
+
+explicacion: |
+  Fem. nominativo.
 ```
 
+### 5 — Neutro
 
-### 9 — Oraciones de relativo con "an dem"  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["preposiciones", "pronombre-relativo"]
-pasos:
-  - "Determina el caso tras la preposición 'an'."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "an dem"
-  - "An dem"
-enunciado: "Das ist das Haus, ___ ich wohne."
+  tags: ["relativo"]
+
+respuesta: "das"
+tipo: "mc"
+opciones_explicitas: ["das", "den", "dem"]
+
+enunciado: "Das Buch, ___ ich lese, ist spannend."
+
+explicacion: |
+  Neutro acusativo.
 ```
 
+### 6 — Plural dat.
 
-### 10 — Oraciones de relativo con "den" (objeto directo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-acusativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el objeto directo en la oración."
-  - "Elige el pronombre relativo correcto."
-respuesta: "den"
-tipo: mc
+  tags: ["relativo"]
 
-enunciado: "Der Film, ___ wir gestern gesehen haben, war spannend."
-opciones_explicitas:
-  - "den"
-  - "die"
-  - "der"
-  - "das"
+respuesta: "denen"
+tipo: "mc"
+opciones_explicitas: ["denen", "den", "die"]
+
+enunciado: "Die Kinder, ___ ich helfe, sind nett."
+
+explicacion: |
+  Plural dativo: *denen*.
 ```
 
+### 7 — Preposición
 
-### 11 — Oraciones de relativo con "der" (sujeto)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-nominativo", "pronombre-relativo"]
-pasos:
-  - "Reconoce el sujeto en la oración relativa."
-  - "Completa con el pronombre correcto."
-tipo: completar
-respuestas_validas:
-  - "der"
-  - "Der"
-enunciado: "Das ist der Student, ___ ich gestern getroffen habe."
-```
+  tags: ["relativo"]
 
-
-### 12 — Oraciones de relativo con "die" (objeto indirecto)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-dativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el objeto indirecto en la oración."
-  - "Elige la forma correcta del pronombre relativo."
 respuesta: "der"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["der", "die", "dem"]
 
-enunciado: "Die Lehrerin, ___ ich vertraue, ist sehr geduldig."
-opciones_explicitas:
-  - "der"
-  - "den"
-  - "dem"
-  - "die"
+enunciado: "Die Frau, mit ___ ich arbeite, ist nett."
+
+explicacion: |
+  *Mit* + dativo fem.
 ```
 
+### 8 — in
 
-### 13 — Oraciones de relativo con "das" (objeto directo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-acusativo", "sustantivo-neutro"]
-pasos:
-  - "Reconoce el sustantivo neutro en la oración."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "das"
-  - "Das"
-enunciado: "Das ist das Bild, ___ ich gemalt habe."
-```
+  tags: ["relativo"]
 
-
-### 14 — Oraciones de relativo con "wir"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["pronombre-personal", "pronombre-relativo"]
-pasos:
-  - "Identifica el sujeto en la oración relativa."
-  - "Completa con el pronombre correcto."
-respuesta: "die"
-tipo: mc
-
-enunciado: "Die Studentin, ___ sehr fleißig ist, hat die Prüfung bestanden."
-opciones_explicitas:
-  - "die"
-  - "den"
-  - "der"
-  - "das"
-```
-
-
-### 15 — Oraciones de relativo con "in dem"  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["preposiciones", "pronombre-relativo"]
-pasos:
-  - "Determina el caso tras la preposición 'in'."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "in dem"
-  - "In dem"
-enunciado: "Das ist das Land, ___ ich Urlaub mache."
-```
-
-
-### 16 — Oraciones de relativo con "den" (objeto directo)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-acusativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el objeto directo en la oración."
-  - "Elige el pronombre relativo correcto."
-respuesta: "den"
-tipo: mc
-
-enunciado: "Der Kuchen, ___ meine Mutter gebacken hat, schmeckt köstlich."
-opciones_explicitas:
-  - "den"
-  - "die"
-  - "der"
-  - "das"
-```
-
-
-### 17 — Oraciones de relativo con "der" (sujeto)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-nominativo", "pronombre-relativo"]
-pasos:
-  - "Reconoce el sujeto en la oración relativa."
-  - "Completa con el pronombre correcto."
-tipo: completar
-respuestas_validas:
-  - "der"
-  - "Der"
-enunciado: "Das ist der Lehrer, ___ ich sehr mag."
-```
-
-
-### 18 — Oraciones de relativo con "die" (objeto indirecto)  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "oraciones-de-relativo"
-  nivel: "B1"
-  tags: ["caso-dativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el objeto indirecto en la oración."
-  - "Elige la forma correcta del pronombre relativo."
 respuesta: "der"
-tipo: mc
+tipo: "mc"
+opciones_explicitas: ["der", "die", "den"]
 
-enunciado: "Die Frau, ___ er das Geschenk gab, war überrascht."
-opciones_explicitas:
-  - "der"
-  - "den"
-  - "dem"
-  - "die"
+enunciado: "Die Stadt, in ___ ich wohne, ist klein."
+
+explicacion: |
+  Ubicación: dativo fem.
 ```
 
+### 9 — dessen
 
-### 19 — Oraciones de relativo con "das" (objeto directo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-acusativo", "sustantivo-neutro"]
-pasos:
-  - "Reconoce el sustantivo neutro en la oración."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "das"
-  - "Das"
-enunciado: "Das ist das Tier, ___ ich im Zoo gesehen habe."
+  tags: ["relativo"]
+
+respuesta: "dessen"
+tipo: "mc"
+opciones_explicitas: ["dessen", "deren", "der"]
+
+enunciado: "Der Mann, ___ Auto rot ist, wohnt nebenan."
+
+explicacion: |
+  Posesión masc.: *dessen*.
 ```
 
+### 10 — deren
 
-### 20 — Oraciones de relativo con "wir"  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["pronombre-personal", "pronombre-relativo"]
-pasos:
-  - "Identifica el sujeto en la oración relativa."
-  - "Completa con el pronombre correcto."
-respuesta: "die"
-tipo: mc
+  tags: ["relativo"]
 
-enunciado: "Die Katze, ___ auf dem Sofa schläft, gehört meinem Bruder."
-opciones_explicitas:
-  - "die"
-  - "den"
-  - "der"
-  - "das"
+respuesta: "deren"
+tipo: "mc"
+opciones_explicitas: ["deren", "dessen", "die"]
+
+enunciado: "Die Frau, ___ Sohn hier studiert, ist Ärztin."
+
+explicacion: |
+  Posesión fem.: *deren*.
 ```
 
+### 11 — Verbo final
 
-### 21 — Oraciones de relativo con "in dem"  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["preposiciones", "pronombre-relativo"]
-pasos:
-  - "Determina el caso tras la preposición 'in'."
-  - "Completa con el pronombre relativo adecuado."
-tipo: completar
-respuestas_validas:
-  - "in dem"
-  - "In dem"
-enunciado: "Das ist das Zimmer, ___ ich wohne."
+  tags: ["relativo"]
+
+respuesta: "Das Buch, das ich gekauft habe, ist toll."
+tipo: "mc"
+opciones_explicitas: ["Das Buch, das ich gekauft habe, ist toll.", "Das Buch, das ich habe gekauft, ist toll.", "Das Buch, das habe ich gekauft, ist toll."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  Verbo conjugado al final.
 ```
 
+### 12 — was
 
-### 22 — Oraciones de relativo con "den" (objeto directo)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-acusativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el objeto directo en la oración."
-  - "Elige el pronombre relativo correcto."
-respuesta: "den"
-tipo: mc
+  tags: ["relativo"]
 
-enunciado: "Der Ring, ___ sie verloren hat, war sehr wertvoll."
-opciones_explicitas:
-  - "den"
-  - "die"
-  - "der"
-  - "das"
+respuesta: "was"
+tipo: "mc"
+opciones_explicitas: ["was", "das", "die"]
+
+enunciado: "Das ist alles, ___ ich weiß."
+
+explicacion: |
+  Tras *alles*: *was*.
 ```
 
+### 13 — wo
 
-### 23 — Oraciones de relativo con "der" (sujeto)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-nominativo", "pronombre-relativo"]
-pasos:
-  - "Reconoce el sujeto en la oración relativa."
-  - "Completa con el pronombre correcto."
-tipo: completar
-respuestas_validas:
-  - "der"
-  - "Der"
-enunciado: "Das ist der Film, ___ ich sehr mag."
+  tags: ["relativo"]
+
+respuesta: "wo"
+tipo: "mc"
+opciones_explicitas: ["wo", "was", "wer"]
+
+enunciado: "Berlin ist die Stadt, ___ ich geboren bin."
+
+explicacion: |
+  Lugar: *wo*.
 ```
 
+### 14 — Concordancia
 
-### 24 — Oraciones de relativo con "die" (objeto indirecto)  
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "oraciones-de-relativo"
   nivel: "B1"
-  tags: ["caso-dativo", "pronombre-relativo"]
-pasos:
-  - "Identifica el objeto indirecto en la oración."
-  - "Elige la forma correcta del pronombre relativo."
-respuesta: "der"
-tipo: mc
+  tags: ["relativo"]
 
-enunciado: "Die Kollegin, ___ ich oft helfe, arbeitet im selben Büro."
-opciones_explicitas:
-  - "der"
-  - "den"
-  - "dem"
-  - "die"
+respuesta: falso
+tipo: vf
+
+enunciado: "El pronombre relativo toma el caso del sustantivo de la oración principal."
+
+explicacion: |
+  Falso: toma el caso de su función en la relativa.
 ```

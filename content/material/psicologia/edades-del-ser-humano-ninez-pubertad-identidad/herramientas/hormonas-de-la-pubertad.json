@@ -1,0 +1,98 @@
+{
+ "titulo": "Cómo empieza la pubertad",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "La cadena hormonal de la pubertad",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Hipotálamo (en el cerebro) libera GnRH",
+     "x": 212,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n2",
+     "label": "Hipófisis libera LH y FSH",
+     "x": 212,
+     "y": 126,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n3",
+     "label": "Ovarios: estrógenos y progesterona",
+     "x": 0,
+     "y": 252,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n4",
+     "label": "Testículos: testosterona",
+     "x": 424,
+     "y": 252,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n5",
+     "label": "Desarrollo mamario, primera menstruación, cambios en caderas",
+     "x": 0,
+     "y": 378,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n6",
+     "label": "Cambio de voz, más músculo, primeras eyaculaciones",
+     "x": 424,
+     "y": 378,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n7",
+     "label": "En ambos: vello, estirón de crecimiento, acné",
+     "x": 212,
+     "y": 378,
+     "color": "#dcfce7"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n2",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n3",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n4",
+     "toId": "n6"
+    },
+    {
+     "id": "e6",
+     "fromId": "n3",
+     "toId": "n7"
+    },
+    {
+     "id": "e7",
+     "fromId": "n4",
+     "toId": "n7"
+    }
+   ]
+  }
+ ]
+}

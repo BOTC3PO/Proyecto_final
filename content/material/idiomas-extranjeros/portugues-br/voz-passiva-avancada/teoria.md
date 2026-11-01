@@ -1,56 +1,50 @@
-# Voz pasiva avanzada en portugués brasilero (B2)
+# Voz pasiva avanzada en portugués de Brasil (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/voz-passiva-avancada`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-La voz pasiva es una construcción gramatical que permite enfocar la acción realizada sobre un sujeto, sin necesidad de mencionar al agente que la ejecuta. En el nivel B2 del marco común europeo de referencia para las lenguas (CEFR), dominar esta estructura es clave para comunicarse en contextos formales, académicos o noticiosos, donde se prioriza el hecho sobre quien lo realiza. Por ejemplo: *A lei foi aprovada no Congresso* (La ley fue aprobada en el Congreso) destaca la acción sin referirse al grupo parlamentario.
+El portugués tiene dos pasivas: la **analítica** (*ser + particípio*) y la **sintética** (*verbo + se*). En el nivel B2 se trabajan en todos los tiempos, con modales y con los participios dobles.
 
-## Explicación central con ejemplos reales
-En portugués brasilero, la voz pasiva se forma con **ser + participio del verbo** y una preposición que indica el agente (normalmente *por*). Ejemplo:
-- *O relatório foi entregue por meu colega.* (El informe fue entregado por mi compañero.)
+## Explicación central
+### Pasiva analítica: **ser + particípio** (concuerda en género y número)
+- *A ponte **foi construída** em 1950. Os documentos **serão enviados** amanhã.*
+- Tiempos compuestos: *A lei **tem sido** criticada. O prédio **tinha sido** vendido.*
+- Con modales: *O relatório **deve ser entregue** hoje. **Pode ser feito** amanhã.*
+- Agente con **por** (contraído): *O livro foi escrito **pelo** autor / **pela** autora.*
 
-También existe la voz pasiva impersonal, usada en contextos generales o prohibiciones:
-- *É proibido fumar aqui.* (Está prohibido fumar aquí)
-- *Não é permitido entrar sem autorização.* (No se permite entrar sin autorización)
+### Pasiva sintética: **verbo + se** (concuerda con el sujeto)
+- ***Vendem-se** casas. **Aluga-se** apartamento.* (en el habla: *Se vende casa*, con verbo en singular)
+- No admite agente: ❌ *Vendem-se casas pela imobiliária.*
 
-Además, en situaciones donde el agente es irrelevante, se omite:
-- *A casa foi construída no século XIX.* (La casa fue construida en el siglo XIX)
+### Participios dobles
+Con **ser** y **estar** se usa el participio corto (irregular); con **ter/haver**, el largo (regular):
+| Verbo | con ter/haver | con ser/estar |
+|---|---|---|
+| aceitar | tinha aceitado | foi aceito |
+| entregar | tinha entregado | foi entregue |
+| imprimir | tinha imprimido | foi impresso |
+| pegar | tinha pegado | foi pego |
+- Solo cortos (con todos los auxiliares): *fazer → feito, escrever → escrito, abrir → aberto, dizer → dito, ver → visto, pôr → posto, ganhar → ganho, gastar → gasto, pagar → pago*.
 
-**Nota:** En algunos casos, la preposición puede variar según el verbo. Por ejemplo, *ser + participio* con *com* (por ejemplo, *O projeto foi feito com a ajuda de todos*) o sin preposición si no se menciona al agente.
+### Estar + particípio (resultado)
+*A porta **está fechada**.* (estado) ≠ *A porta **foi fechada** pelo vigia.* (acción)
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto de la preposición**: A menudo, los hablantes de español usan *por* en portugués como en su lengua materna, pero algunos verbos requieren otras preposiciones. Por ejemplo:
-   - ✅ *A carta foi enviada por mim.* (La carta fue enviada por mí)
-   - ❌ *A carta foi enviada de mí.* (*De* es incorrecto aquí; en portugués se usa *por* para acciones realizadas por alguien).
-
-2. **Confusión entre voz pasiva y impersonal**: En español, la construcción impersonal con *se* no siempre equivale a la portuguesa. Por ejemplo:
-   - Español: *Se prohíbe fumar aquí.*
-   - Portugués: *É proibido fumar aqui.* (No se usa *se* en este contexto).
-
-3. **Omisión del participio**: Algunos estudiantes omiten el participio, usando solo *ser*. Ejemplo incorrecto: *A reunião foi no centro da cidade* (falta el participio; debería ser *foi realizada/no centro...*).
+1. No concordar el participio: ❌ *As cartas foram enviado.* ✅ *…foram enviadas.*
+2. ❌ *O pedido foi entregado.* ✅ *O pedido foi entregue.*
+3. ❌ *Vende-se casas* (norma culta) ✅ *Vendem-se casas*.
+4. Calcar «por el»: ❌ *por o autor* ✅ *pelo autor*.
 
 ## Comparación con el español
-La voz pasiva en portugués comparte similitudes con la española, pero hay diferencias clave:
-- **Preposiciones**: En español, se usan *por* (para acciones humanas) y *con* (para medios), mientras que en portugués, *por* es más común. Por ejemplo:
-  - Español: *La carta fue escrita por mí.*
-  - Portugués: *A carta foi escrita por mim.*
-
-- **Impersonal**: En español, la voz impersonal con *se* es frecuente (*Se habla portugués aquí*), pero en portugués, se prefiere la estructura *É + verbo* (*É falado português aqui*).
+La pasiva con «ser» funciona igual («fue construida» = *foi construída*) y la pasiva con «se» también («se venden casas» = *vendem-se casas*). La particularidad del portugués son los **participios dobles** (*aceitado/aceito, entregado/entregue*), que el español casi no tiene.
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-João: *Você viu o novo edifício da empresa?* (¿Viste el nuevo edificio de la empresa?)
-Maria: *Sim, foi construído com materiais sustentáveis.* (Sí, fue construido con materiales sostenibles.)
-João: *Quem decidiu isso?* (¿Quién decidió esto?)
-Maria: *Não sei, mas é proibido fumar dentro do prédio.* (No lo sé, pero está prohibido fumar dentro del edificio.)
-
-**Texto escrito:**
-*A pesquisa foi realizada por uma equipe internacional. Os resultados foram publicados no jornal ‘Ciência & Sociedade’ e indicam que a tecnologia é mais eficiente do que se imaginava.* (La investigación fue realizada por un equipo internacional. Los resultados fueron publicados en el periódico *‘Ciencia y Sociedad’* y muestran que la tecnología es más eficiente de lo que se creía.)
-
-Dominar estas estructuras permite expresar ideas con precisión y adaptarse a contextos formales o académicos, esenciales para alcanzar un nivel B2.
+*O novo hospital **foi inaugurado** ontem. A obra **tinha sido iniciada** em 2020 e **deveria ter sido entregue** em 2022. **Investiram-se** milhões no projeto. Segundo a prefeitura, mais leitos **serão abertos** no próximo ano.*

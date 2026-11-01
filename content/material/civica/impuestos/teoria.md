@@ -12,12 +12,13 @@ secciones separables.
 
 ---
 
-## Investigado con WebSearch (agosto 2026)
+## Tres niveles de gobierno, tres niveles de impuestos
 
 Argentina organiza su sistema tributario en **3 niveles**, cada uno con
 potestad para cobrar impuestos propios y financiar servicios distintos.
 Esta estructura es estable (no cambia año a año); las alícuotas
-puntuales sí cambian seguido, por eso no se hardcodean acá.
+puntuales sí cambian seguido: cuando se necesita un valor exacto, conviene
+consultarlo en el sitio oficial del organismo que cobra el impuesto.
 
 ## Nivel nacional
 

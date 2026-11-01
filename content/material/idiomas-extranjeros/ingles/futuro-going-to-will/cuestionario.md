@@ -1,430 +1,295 @@
-# Idiomas — Inglés — futuro-going-to-will (cuestionario)
+# Inglés — futuro: going to y will (cuestionario, 15 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/futuro-going-to-will/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/futuro-going-to-will`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas ambiguas (varias respuestas válidas) o con la respuesta equivocada.
 
 ---
 
-### 1 — Future intention  
+### 1 — Plan decidido
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Identificar el uso de 'going to' para planificación."  
-explicacion: "El futuro con 'going to' se usa para expresar intenciones o planes previamente decididos. En este caso, la persona ya ha decidido lavarse las manos antes del evento."  
-enunciado: "I ___ wash my hands before the meeting."  
-tipo: completar  
-respuestas_validas:  
-  - "am going to"  
-  - "Am going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "am going to"
+tipo: "mc"
+opciones_explicitas: ["will", "am going to", "go"]
+
+enunciado: "I've bought the tickets. I ___ visit my grandparents in July."
+
+explicacion: |
+  Plan ya decidido: *going to*.
 ```
 
-### 2 — Spontaneous decision  
+### 2 — Decisión espontánea
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Reconocer que 'will' se usa para decisiones tomadas en el momento."  
-explicacion: "'Will' expresa una decisión repentina o un cambio de idea. Aquí, la persona acaba de decidir ayudar al vecino sin planificación previa."  
-enunciado: "I ___ help my neighbor with the groceries now."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "'ll"
+tipo: "mc"
+opciones_explicitas: ["'ll", "'m going to", "answer"]
+
+enunciado: "The phone is ringing. — OK, I ___ answer it!"
+
+explicacion: |
+  Decisión en el momento: *will*.
 ```
 
-### 3 — Prediction based on evidence  
+### 3 — Evidencia presente
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Identificar el uso de 'going to' para predecir algo basado en evidencia."  
-explicacion: "'Going to' se usa cuando hay una razón clara para la predicción, como ver el cielo nublado y anticipar lluvia."  
-enunciado: "Look at the dark clouds! It ___ rain soon."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "is going to"
+tipo: "mc"
+opciones_explicitas: ["will", "is going to", "rains"]
+
+enunciado: "Look at those black clouds! It ___ rain."
+
+explicacion: |
+  Predicción con evidencia visible: *going to*.
 ```
 
-### 4 — Spontaneous reaction  
+### 4 — Opinión
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Reconocer que 'will' se usa para reacciones inmediatas."  
-explicacion: "'Will' describe una acción tomada en el momento, como ofrecer ayuda sin planificación previa."  
-enunciado: "You look tired. I ___ make you some tea."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "will"
+tipo: "mc"
+opciones_explicitas: ["will", "is going", "wins"]
+
+enunciado: "I think Argentina ___ win the next match."
+
+explicacion: |
+  Predicción/opinión con *I think*: *will*.
 ```
 
-### 5 — Plan with 'going to'  
+### 5 — Ofrecimiento
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Identificar el uso de 'going to' para planes previamente decididos."  
-explicacion: "'Going to' se usa cuando ya hay un plan establecido, como la decisión de asistir a una reunión programada."  
-enunciado: "We ___ meet at the café tomorrow afternoon."  
-tipo: completar  
-respuestas_validas:  
-  - "are going to"  
-  - "Are going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "'ll"
+tipo: "mc"
+opciones_explicitas: ["'ll", "'m going to", "help"]
+
+enunciado: "That bag looks heavy. I ___ help you."
+
+explicacion: |
+  Ofrecimiento espontáneo: *will*.
 ```
 
-### 6 — Prediction of a future event  
+### 6 — Promesa
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Reconocer que 'going to' se usa para predicciones basadas en evidencia."  
-explicacion: "'Going to' expresa una predicción lógica, como el cierre de una tienda en un horario conocido."  
-enunciado: "The shop ___ close at 8 PM today."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "won't"
+tipo: "mc"
+opciones_explicitas: ["won't", "am not going", "don't"]
+
+enunciado: "I promise I ___ tell anyone."
+
+explicacion: |
+  Promesa negativa: *won't*.
 ```
 
-### 7 — Spontaneous offer  
+### 7 — Arreglo con hora
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Identificar el uso de 'will' para ofertas impromptus."  
-explicacion: "'Will' se usa para acciones decididas en el momento, como ofrecer ayuda repentina."  
-enunciado: "The floor is wet. I ___ mop it up for you."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "'m seeing"
+tipo: "mc"
+opciones_explicitas: ["'m seeing", "see", "'ll see"]
+
+enunciado: "I ___ the dentist at 4 tomorrow. It's in my calendar."
+
+explicacion: |
+  Arreglo organizado: presente continuo (también *going to see*).
 ```
 
-### 8 — Plan with 'going to' (plural)  
+### 8 — Forma
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Reconocer el uso de 'are going to' para planes grupales."  
-explicacion: "'Are going to' se usa cuando un grupo tiene un plan establecido, como una excursión programada."  
-enunciado: "The students ___ go on a field trip next week."  
-tipo: completar  
-respuestas_validas:  
-  - "are going to"  
-  - "Are going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "She will travel next week."
+tipo: "mc"
+opciones_explicitas: ["She wills travel next week.", "She will travel next week.", "She will to travel next week."]
+
+enunciado: "¿Cuál es correcta?"
+
+explicacion: |
+  *Will* + infinitivo sin *to*, igual para todas las personas.
 ```
 
-### 9 — Prediction of an event (plural)  
+### 9 — Negativa going to
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Identificar el uso de 'are going to' para predicciones con sustantivos plurales."  
-explicacion: "'Are going to' se usa cuando hay una razón clara, como la evidencia de preparativos para un evento."  
-enunciado: "They ___ launch a new product next month."  
-tipo: completar  
-respuestas_validas:  
-  - "are going to"  
-  - "Are going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "aren't going to"
+tipo: "mc"
+opciones_explicitas: ["aren't going to", "won't to", "don't going to"]
+
+enunciado: "We ___ buy a new car this year. We don't have money."
+
+explicacion: |
+  Negativa: *am/is/are not going to*.
 ```
 
-### 10 — Spontaneous decision (plural)  
+### 10 — Pregunta
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Reconocer que 'will' se usa para decisiones repentinas de un grupo."  
-explicacion: "'Will' expresa una acción decidida en el momento, como cancelar un plan por sorpresa."  
-enunciado: "We ___ cancel the party because of the storm."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "Are"
+tipo: "mc"
+opciones_explicitas: ["Are", "Will", "Do"]
+
+enunciado: "___ you going to study tonight?"
+
+explicacion: |
+  *Are you going to…?*
 ```
 
-### 11 — Plan with 'going to' (third person)  
+### 11 — Pedido
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Identificar el uso de 'is going to' para planes de una persona."  
-explicacion: "'Is going to' se usa cuando alguien tiene un plan previamente decidido, como asistir a un evento específico."  
-enunciado: "He ___ attend the conference next Tuesday."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "Will"
+tipo: "mc"
+opciones_explicitas: ["Will", "Are", "Going"]
+
+enunciado: "___ you open the window, please?"
+
+explicacion: |
+  Pedido: *Will you…?*
 ```
 
-### 12 — Prediction of an event (third person)  
+### 12 — Hecho futuro
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Reconocer el uso de 'is going to' para predicciones basadas en evidencia."  
-explicacion: "'Is going to' se usa cuando hay una razón lógica, como la visibilidad del cielo nublado antes de la lluvia."  
-enunciado: "The sky is dark. It ___ rain later."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "will be"
+tipo: "mc"
+opciones_explicitas: ["will be", "am going", "be"]
+
+enunciado: "I ___ 18 next month."
+
+explicacion: |
+  Hecho futuro: *will be*.
 ```
 
-### 13 — Spontaneous decision (third person)  
+### 13 — Elegir la situación
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Identificar que 'will' se usa para decisiones repentinas de una persona."  
-explicacion: "'Will' expresa una acción tomada en el momento, como aceptar un trabajo sin planificación previa."  
-enunciado: "She ___ accept the job offer right now."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: "Ya decidiste estudiar portugués y te inscribiste."
+tipo: "mc"
+opciones_explicitas: ["Ya decidiste estudiar portugués y te inscribiste.", "Un amigo dice que tiene frío y decidís prestarle tu campera.", "Prometés no llegar tarde."]
+
+enunciado: "¿En cuál situación usarías *going to*?"
+
+explicacion: |
+  Intención ya decidida: *going to*. Las otras son decisión espontánea y promesa: *will*.
 ```
 
-### 14 — Plan with 'going to' (future time)  
+### 14 — Error típico
+
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Reconocer el uso de 'are going to' para planes futuros."  
-explicacion: "'Are going to' se usa cuando hay un plan establecido, como viajar en un tiempo específico."  
-enunciado: "They ___ visit Paris in June."  
-tipo: completar  
-respuestas_validas:  
-  - "are going to"  
-  - "Are going to"  
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
+
+respuesta: falso
+tipo: vf
+
+enunciado: "«The bag is heavy. — I'm going to carry it for you» es la forma natural de ofrecerse en el momento."
+
+explicacion: |
+  Falso: para un ofrecimiento espontáneo se usa *I'll carry it for you*.
 ```
 
-### 15 — Prediction of a future event (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Identificar el uso de 'is going to' para predicciones en un futuro cercano."  
-explicacion: "'Is going to' se usa cuando hay una razón clara, como ver anuncios sobre eventos programados."  
-enunciado: "The event ___ start at 10 AM tomorrow."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
-```
+### 15 — Completar
 
-### 16 — Spontaneous decision (future time)  
 ```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Reconocer que 'will' se usa para decisiones tomadas en el momento, incluso en futuros lejanos."  
-explicacion: "'Will' describe una acción decidida repentinamente, como cambiar planes inmediatamente."  
-enunciado: "We ___ change the meeting to next week."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
-```
+metadata:
+  materia: "ingles"
+  tema: "futuro-going-to-will"
+  nivel: "B1"
+  tags: ["futuro"]
 
-### 17 — Plan with 'going to' (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Identificar el uso de 'is going to' para planes futuros individuales."  
-explicacion: "'Is going to' se usa cuando alguien tiene un plan establecido, como asistir a una reunión en un tiempo específico."  
-enunciado: "He ___ join the meeting at 3 PM next Monday."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
-```
+respuesta: "won't"
+tipo: completar
+respuestas_validas:
+  - "won't"
+  - "Won't"
+  - "will not"
+  - "Will not"
 
-### 18 — Prediction of an event (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Reconocer el uso de 'are going to' para predicciones basadas en evidencia futura."  
-explicacion: "'Are going to' se usa cuando hay una razón lógica, como ver anuncios sobre eventos programados."  
-enunciado: "The company ___ expand its offices next year."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
-```
+enunciado: "Completá con la contracción negativa de *will*: «Don't worry, I ___ forget.»"
 
-### 19 — Spontaneous decision (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Identificar que 'will' se usa para decisiones repentinas incluso en futuros lejanos."  
-explicacion: "'Will' expresa una acción decidida en el momento, como cancelar un evento sin previo aviso."  
-enunciado: "They ___ cancel the trip because of the pandemic."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
-```
-
-### 20 — Plan with 'going to' (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Reconocer el uso de 'are going to' para planes grupales en un futuro."  
-explicacion: "'Are going to' se usa cuando un grupo tiene un plan establecido, como una excursión programada."  
-enunciado: "The team ___ go on a camping trip next month."  
-tipo: completar  
-respuestas_validas:  
-  - "are going to"  
-  - "Are going to"  
-```
-
-### 21 — Prediction of an event (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Identificar el uso de 'is going to' para predicciones basadas en evidencia futura."  
-explicacion: "'Is going to' se usa cuando hay una razón lógica, como ver anuncios sobre eventos programados."  
-enunciado: "The movie ___ premiere on January 1st."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
-```
-
-### 22 — Spontaneous decision (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Reconocer que 'will' se usa para decisiones repentinas incluso en futuros lejanos."  
-explicacion: "'Will' describe una acción decidida en el momento, como cambiar planes sin previo aviso."  
-enunciado: "I ___ reschedule the meeting for next week."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
-```
-
-### 23 — Plan with 'going to' (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["intención", "going to"]  
-pasos:  
-  - "Identificar el uso de 'are going to' para planes grupales en un futuro lejano."  
-explicacion: "'Are going to' se usa cuando un grupo tiene un plan establecido, como una excursión programada con anticipación."  
-enunciado: "The class ___ visit the museum in May."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
-```
-
-### 24 — Prediction of an event (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["predicción", "going to"]  
-pasos:  
-  - "Reconocer el uso de 'is going to' para predicciones basadas en evidencia futura."  
-explicacion: "'Is going to' se usa cuando hay una razón lógica, como ver anuncios sobre eventos programados."  
-enunciado: "The new law ___ take effect in October."  
-tipo: completar  
-respuestas_validas:  
-  - "is going to"  
-  - "Is going to"  
-```
-
-### 25 — Spontaneous decision (future time)  
-```
-metadata:  
-  materia: "ingles"  
-  tema: "futuro-going-to-will"  
-  nivel: "B1"  
-  tags: ["decisión espontánea", "will"]  
-pasos:  
-  - "Identificar que 'will' se usa para decisiones repentinas incluso en futuros lejanos."  
-explicacion: "'Will' expresa una acción decidida en el momento, como cancelar un evento sin previo aviso."  
-enunciado: "They ___ postpone the project due to delays."  
-tipo: completar  
-respuestas_validas:  
-  - "will"  
-  - "Will"  
+explicacion: |
+  *Will not = won't*.
 ```

@@ -12,7 +12,11 @@
 
 La acotación es el conjunto de elementos gráficos que permiten determinar las dimensiones reales de un objeto representado en un plano técnico. Su función principal es comunicar, sin ambigüedades, los valores numéricos necesarios para construir o reproducir una pieza con exactitud. La cota (valor numérico) siempre se coloca sobre la *línea de cota*, que debe ser paralela a la superficie o línea que se está midiendo.
 
-<!-- IMAGEN: Ejemplo de acotación con línea de cota, flechas y valor numérico -->
+![Pieza rectangular con dos cotas horizontales (175 y 210) y sus elementos numerados](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Elementos-de-acotado.svg/960px-Elementos-de-acotado.svg.png)
+
+*Imagen: «Elementos-de-acotado», Digigalos, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elementos-de-acotado.svg).*
+
+En la imagen: **1** y **5** son las flechas que limitan la cota; **2** es la línea de cota; **3** es la cifra de cota (el valor de la medida); **4** es la línea auxiliar, que prolonga el borde de la pieza hasta la línea de cota.
 
 ## 2. Componentes básicos de una acotación
 

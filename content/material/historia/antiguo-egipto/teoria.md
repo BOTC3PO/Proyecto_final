@@ -38,7 +38,11 @@ La sociedad egipcia era jerárquica pero móvil. En la cúspide estaba el faraó
 
 A diferencia de otras civilizaciones antiguas, Egipto no contó con una clase esclavista masiva para la construcción de monumentos; la mano de obra era principalmente campesina que trabajaba en obras públicas como parte de su obligación tributaria o jornalera especializada. La mayoría de la población eran agricultores libres, sometidos a impuestos en grano, pero con derechos legales reconocidos. Las mujeres egipcias disfrutaban de una libertad relativa comparada con otras culturas antiguas: podían poseer propiedades, iniciar divorcios y participar en actividades comerciales, aunque los cargos políticos y religiosos de alto nivel estaban predominantemente reservados a los hombres.
 
-<!-- IMAGEN: Escena de vida cotidiana en una tumba tebana mostrando cultivo y pesca -->
+![Pintura egipcia en franjas con campesinos cosechando, trillando y arando, y el dueño de la tumba sentado](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Tomb_of_Nakht_%282%29.jpg/960px-Tomb_of_Nakht_%282%29.jpg)
+
+*Imagen: «Tomb of Nakht (2)», Norman de Garis Davies, Nina Davies (2-dimensional 1 to 1 Co, Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tomb_of_Nakht_%282%29.jpg).*
+
+Escenas agrícolas de la tumba de Najt, en Tebas (hacia 1400 a.C.): cosecha, trilla, medición del grano y arado. Copia de Norman y Nina de Garis Davies.
 
 ## 5. Legado y fin de la civilización
 

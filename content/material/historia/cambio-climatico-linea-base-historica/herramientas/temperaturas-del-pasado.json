@@ -1,0 +1,71 @@
+{
+ "titulo": "Temperaturas del pasado y de hoy",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "table",
+   "title": "Temperatura media global comparada con 1850–1900 (IPCC, 2021)",
+   "headers": [
+    "Período",
+    "Hace cuánto",
+    "Diferencia con 1850–1900"
+   ],
+   "rows": [
+    [
+     "Último máximo glacial",
+     "unos 21.000 años",
+     "entre 5 y 7 °C más frío"
+    ],
+    [
+     "Último interglacial",
+     "unos 125.000 años",
+     "entre 0,5 y 1,5 °C más cálido"
+    ],
+    [
+     "Holoceno medio",
+     "unos 6.500 años",
+     "entre 0,2 y 1 °C más cálido"
+    ],
+    [
+     "Década 2011–2020",
+     "hoy",
+     "1,1 °C más cálido"
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "chart",
+   "title": "Valores centrales aproximados (°C respecto de 1850–1900)",
+   "chartType": "bar",
+   "data": {
+    "labels": [
+     "Máximo glacial",
+     "Último interglacial",
+     "Holoceno medio",
+     "2011–2020"
+    ],
+    "datasets": [
+     {
+      "label": "Diferencia de temperatura (°C)",
+      "values": [
+       -6,
+       1,
+       0.6,
+       1.1
+      ]
+     }
+    ]
+   },
+   "yAxisLabel": "°C",
+   "showGrid": true,
+   "showLegend": false,
+   "showValues": true
+  },
+  {
+   "id": "b3",
+   "type": "text",
+   "content": "Lo que más preocupa no es solo cuánto subió la temperatura, sino la velocidad: el calentamiento actual ocurrió en unos 150 años, mientras que los cambios entre glaciaciones e interglaciares llevaron miles de años. Fuente: IPCC, Sexto Informe de Evaluación, Grupo de Trabajo I (2021)."
+  }
+ ]
+}

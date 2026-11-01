@@ -1,41 +1,47 @@
-# Estructura y coherencia en textos escritos (B1)
+# Expresión escrita en alemán (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/writing-b1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
-**Introducción**
-En el nivel B1 del marco común europeo de referencia para las lenguas (MCER), los estudiantes ya pueden producir textos sencillos y coherentes sobre temas cotidianos o de interés personal, siempre que tengan acceso a recursos lingüísticos. La escritura en este nivel requiere dominar estructuras gramaticales básicas, un vocabulario funcional y la capacidad de organizar ideas lógicamente para comunicarse con claridad.
+## Introducción
+En B1 se escriben **textos articulados** sobre temas conocidos: correos formales e informales, relatos, textos de opinión breves (en el *Goethe-Zertifikat B1*, unas 80 palabras para el correo personal y unas 80 para la opinión en un foro). Se espera **organizar las ideas**, **justificar** opiniones y usar bien los conectores.
 
-**Explicación central: Estructura básica de los textos y uso de conectores**
-Un texto escrito en alemán debe tener una **introducción**, un desarrollo y una conclusión, aunque sea breve. Por ejemplo:
-> *„Ich habe am Wochenende einen Ausflug gemacht. Wir sind in den Wald gegangen und haben Spaziergänge gemacht. Es war sehr schön.“* (He hecho un paseo el fin de semana. Fuimos al bosque y caminamos. Fue muy bonito.)
+## Explicación central
+### Tipos de texto
+- **Correo formal**: *Sehr geehrte Damen und Herren, / Sehr geehrte Frau…,* … *Mit freundlichen Grüßen*.
+- **Correo informal**: *Liebe/r…, … Viele Grüße*.
+- **Opinión en un foro**: introducción, 2 argumentos, conclusión.
+- **Relato**: qué pasó, cuándo, dónde, con quién, cómo terminó.
 
-Este párrafo sigue una estructura clara: primero se menciona la actividad principal, luego se detallan las acciones y finalmente se expresa una opinión. Los **conectores** como *„und“* (y) o *„dass“* (que) ayudan a unir ideas. Ejemplos de conectores comunes:
-- *Deshalb* (por eso): *„Es regnete, deshalb blieben wir zu Hause.“* (Llovía, por eso nos quedamos en casa.)
-- *Aber* (pero): *„Ich mag Kaffee, aber ich trinke lieber Tee.“* (Me gusta el café, pero prefiero el té.)
+### Organizar
+- Un párrafo por idea.
+- Conectores: *zuerst, außerdem, schließlich; aber, trotzdem; weil, denn, da; deshalb, also; zum Schluss*.
+- Atención al orden: *deshalb* → inversión; *weil* → verbo al final.
 
-**Errores comunes de hispanohablantes**
-1. **Uso incorrecto del infinitivo**: En español se suele usar el infinitivo en contextos donde en alemán se requiere un verbo conjugado. Por ejemplo: *„Ich mag schwimmen“* (correcto) vs. *„Ich mag zu schwimmen“* (incorrecto).
-2. **Falta de concordancia de género y número**: Los adjetivos y artículos deben coincidir con el sustantivo. Ejemplo erróneo: *„Der schöne Buch“* (el libro bonito) → correcto: *„Das schöne Buch“*.
-3. **Orden incorrecto de las palabras en oraciones subordinadas**: En alemán, el verbo principal va al final en oraciones con *dass*, *weil* o *wenn*. Ejemplo erróneo: *„Ich weiß, was er gesagt hat.“* (correcto) vs. *„Ich weiß was er gesagt hat“* (falta de coma y posición del verbo).
+### Pedir disculpas y proponer
+*Leider kann ich nicht kommen, weil… Es tut mir leid, dass… Wie wäre es mit…? Könnten wir uns am… treffen?*
 
-**Comparación con el español**
-El alemán requiere un uso más estricto de los **casos gramaticales**, que no existen en el español. Por ejemplo:
-- *„Ich gehe in den Park.“* (Voy al parque) → caso acusativo (*den Park*). En español, no cambia: *„Voy al parque“*.
-- *„Das ist ein Buch.“* (Es un libro) vs. *„Das sind Bücher.“* (Son libros): el plural en alemán afecta el artículo y el adjetivo, algo que no ocurre en español.
+### Opinión
+*Ich bin der Meinung, dass… Meiner Ansicht nach… Ein Vorteil/Nachteil ist, dass…*
 
-**Ejemplo extendido en contexto**
-Imagina que quieres escribir una carta para un amigo:
-> *„Hallo Maria, ich hoffe, es geht dir gut. Letzten Samstag bin ich mit meiner Familie ins Kino gegangen. Wir haben einen Film gesehen, der sehr spannend war. Danach haben wir in einem Restaurant gegessen und uns lange unterhalten. Ich finde, es war ein schöner Tag, obwohl es regnete. Bis bald! Deine Anna.“*
+## Errores comunes de hispanohablantes
+1. Tutear en un correo formal.
+2. ❌ *Sehr geehrte Herr Müller* ✅ *Sehr geehrter Herr Müller*.
+3. ❌ *deshalb ich bleibe* ✅ *deshalb bleibe ich*.
+4. No cubrir todos los puntos de la consigna (en el examen se puntúa).
 
-Este texto incluye:
-- Uso de tiempos verbales correctos (*bin gegangen*, *haben gesehen*).
-- Conectores para unir ideas (*obwohl*, *danach*).
-- Estructura coherente (introducción, descripción del día, conclusión).
+## Comparación con el español
+La organización es igual; el correo formal alemán es más **ritual** (*Sehr geehrte…, Mit freundlichen Grüßen*) y la primera palabra tras el saludo va en minúscula.
 
-Dominar estas estructuras permite a los estudiantes de B1 comunicarse con claridad y precisión en contextos cotidianos.
+## Ejemplo extendido en contexto
+*Sehr geehrte Damen und Herren,*
+*ich schreibe Ihnen, **weil** ich mit meinem Aufenthalt in Ihrem Hotel vom 3. bis 6. Mai nicht zufrieden war. **Zuerst** war das Zimmer nicht sauber. **Außerdem** hat die Heizung zwei Nächte nicht funktioniert. **Deshalb** bitte ich Sie um eine teilweise Rückerstattung.*
+*Mit freundlichen Grüßen*
+*Laura Pérez*

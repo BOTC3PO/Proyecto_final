@@ -1,0 +1,75 @@
+{
+ "titulo": "Elementos de un Estado nacional",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "Qué hace falta para un Estado nacional",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Territorio delimitado (fronteras)",
+     "x": 0,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "Población que vive allí",
+     "x": 212,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Gobierno soberano",
+     "x": 424,
+     "y": 0,
+     "color": "#dbeafe"
+    },
+    {
+     "id": "n4",
+     "label": "Identidad común: idioma, historia, símbolos",
+     "x": 636,
+     "y": 0,
+     "color": "#f3e8ff"
+    },
+    {
+     "id": "n5",
+     "label": "Estado nacional",
+     "x": 318,
+     "y": 164,
+     "color": "#fee2e2",
+     "shape": "circle"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n5"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n5"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n5"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Los símbolos patrios (bandera, himno, escudo), la escuela pública y un idioma oficial fueron herramientas para construir esa identidad común."
+  }
+ ]
+}

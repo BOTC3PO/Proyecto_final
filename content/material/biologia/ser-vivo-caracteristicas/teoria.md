@@ -46,7 +46,7 @@ detalle en `../microbiologia-virus-inmunitario/`.
 ## 4. Conexión con lo que sigue
 
 Esta lista de características es la base que se aplica una y otra vez en el
-resto del tronco: las plantas (`../partes-planta-germinacion/`), los ciclos
+resto de Biología: las plantas (`../partes-planta-germinacion/`), los ciclos
 de vida (`../ciclos-vida-metamorfosis/`), la célula
 (`../celula-organelas/`). Todos son "instancias" concretas de estas mismas
 ideas generales.

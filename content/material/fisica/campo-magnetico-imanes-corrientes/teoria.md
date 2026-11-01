@@ -36,7 +36,7 @@ Un electroimán es un dispositivo que aprovecha la relación entre electricidad 
 
 Al pasar corriente por la bobina, se genera un campo magnético que se intensifica gracias al núcleo ferromagnético. La ventaja principal del electroimán es que su campo puede ser encendido o apagado simplemente conectando o desconectando la corriente, lo que lo hace útil en aplicaciones como grúas magnéticas, relés o motores eléctricos.
 
-![Esquema de un electroimán con bobina, núcleo y dirección del campo magnético](https://upload.wikimedia.org/wikipedia/commons/c/c3/Solenoid-with-core.JPG)
+![Esquema de un electroimán con bobina, núcleo y dirección del campo magnético](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Solenoid-with-core.JPG/960px-Solenoid-with-core.JPG)
 
 *Imagen: «Solenoid-with-core», Svjo, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Solenoid-with-core.JPG).*
 

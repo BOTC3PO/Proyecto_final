@@ -1,56 +1,53 @@
-# Subordinadas concesivas y oposicionales en francés (nivel C1)
+# Subordinadas concesivas y de oposición en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/subordonnees-concessives-et-oppositives`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Las **subordinadas concesivas** y **oposicionales** son estructuras gramaticales clave para expresar contrastes, contradicciones o situaciones que parecen contradictorias. En el nivel C1 del marco europeo de referencia para las lenguas (CEFR), dominar estas construcciones permite una comunicación más precisa, rica y adaptada a contextos formales e informales. Son esenciales para argumentar, justificar o matizar ideas en textos complejos.
-
----
+Las **concesivas** presentan un obstáculo que no impide el resultado (*Bien qu'il pleuve, je sors*); las **oppositives** contrastan dos hechos (*Il travaille alors que son frère se repose*). Cada conector exige un modo distinto.
 
 ## Explicación central
-### Subordinadas concesivas
-Expresan un contraste entre dos ideas: aunque algo ocurra, se cumple otra acción o afirmación. Se introducen con conjunciones como **bien que**, **quoique**, **malgré** (seguido de sustantivo), **mêm si** o **encore que**. En francés, estas subordinadas requieren el **subjuntivo** en la cláusula subordinada cuando se usan **bien que**, **quoique** y **mêm si**, pero no con **malgré** (que va seguido de un sustantivo o gerundio).
+### Concesión
+| Conector | Construcción | Ejemplo |
+|---|---|---|
+| **bien que, quoique** | + subjuntivo | *Bien qu'il **soit** malade, il travaille.* |
+| **encore que** (soutenu) | + subjuntivo | *Encore qu'il **faille** vérifier…* |
+| **même si** | + indicativo | *Même s'il **pleut**, je sors.* |
+| **malgré, en dépit de** | + sustantivo | *Malgré la pluie…* |
+| **avoir beau** + infinitivo | | *J'**ai beau** chercher, je ne trouve pas.* (por más que busco) |
+| **quel(le)(s) que soit / soient** | + sustantivo | *Quelles que soient tes raisons…* |
+| **quoi que** | + subjuntivo | *Quoi que tu **fasses**, je t'aime.* (hagas lo que hagas) |
+| **où que, qui que** | + subjuntivo | *Où que tu **ailles**…* |
+| **si / aussi + adj. + que** | + subjuntivo | *Si riche qu'il **soit**, il n'est pas heureux.* |
+| **tout + adj. + que** | + indicativo | *Tout riche qu'il **est**…* |
+| **pourtant, cependant, néanmoins, toutefois** | adverbios | *Il est riche ; pourtant, il vit simplement.* |
 
-Ejemplos reales:
-- *Bien qu’il pleuve, nous sortons.* (Aunque llueva, salimos.) → Subjuntivo (*pleuve*).
-- *Quoique fatigué, il a terminé le travail.* (A pesar de estar cansado, terminó el trabajo.) → Subjuntivo (*fatigué*).
-- *Malgré la pluie, nous sommes sortis.* (A pesar de la lluvia, salimos.) → No requiere subjuntivo.
+### Oposición
+- ***alors que, tandis que*** + indicativo: *Il aime le jazz, **alors qu'**elle préfère le rock.*
+- ***au lieu de*** + infinitivo/sustantivo: *Au lieu de travailler, il dort.*
+- ***contrairement à, à l'inverse de, à l'opposé de*** + sustantivo.
+- ***en revanche, par contre*** (adverbios).
 
-### Subordinadas oposicionales
-Indican una contradicción explícita con la idea principal. Se usan conjunciones como **mais**, **cependant**, **pourtant**, **néanmoins** o **toutefois**. Estas subordinadas suelen ir al final de una oración y no requieren subjuntivo en la cláusula subordinada.
+### *Quoique* vs. *quoi que*
+- ***quoique*** (una palabra) = *bien que*: *Quoiqu'il **soit** tard…*
+- ***quoi que*** (dos palabras) = «sea lo que sea que»: *Quoi qu'il **dise**…*
 
-Ejemplos reales:
-- *Il a réussi l’examen, mais il n’est pas content.* (Aprobó el examen, pero no está contento.) → Oración independiente (*mais*).
-- *Elle est très douée pour le français, cependant elle évite de parler en public.* (Es muy buena en francés, sin embargo evita hablar en público.) → Subordinada oposicional (*cependant*).
-
----
-
-## Errores comunes de hablantes hispanohablantes
-1. **Uso incorrecto del subjuntivo**: En español, *aunque* va seguido de indicativo (ej: *Aunque llueva, saldremos*), pero en francés se requiere el subjuntivo (*Bien qu’il pleuve...*).
-2. **Confusión entre "malgré" y "bien que"**: *Malgré* siempre va seguido de un sustantivo o gerundio (ej: *malgré la pluie*), mientras que *bien que* introduce una subordinada con subjuntivo.
-3. **Exceso de "mais"**: En francés, el uso frecuente de *mais* puede sonar brusco; se prefiere *cependant* o *pourtant* en contextos formales.
-
----
+## Errores comunes de hispanohablantes
+1. ❌ *Malgré que* (rechazado por la norma) ✅ *Bien que*.
+2. ❌ *Bien qu'il est* ✅ *Bien qu'il soit*.
+3. ❌ *Même s'il soit* ✅ *Même s'il est*.
+4. Confundir *quoique* y *quoi que*.
+5. ❌ *J'ai beau de chercher* ✅ *J'ai beau chercher*.
 
 ## Comparación con el español
-En español, las subordinadas concesivas como *aunque* no requieren subjuntivo (*Aunque llueva...*), a diferencia del francés (*Bien qu’il pleuve...*). Además, en español se usan más frecuentemente conectores como *pero*, *sin embargo* o *no obstante* para expresar oposición, mientras que el francés prefiere *mais* (más informal) o *cependant* (más formal).
-
-Ejemplo comparativo:
-- Español: *Aunque está cansado, va al trabajo.* → No subjuntivo.
-- Francés: *Bien qu’il soit fatigué, il va au travail.* → Subjuntivo (*soit*).
-
----
+«Aunque» cubre en español casos con indicativo y con subjuntivo; en francés se separan: *même si* + indicativo / *bien que* + subjuntivo. «Por más que…» = ***avoir beau***; «hagas lo que hagas» = ***quoi que tu fasses***; «por rico que sea» = ***si riche qu'il soit***.
 
 ## Ejemplo extendido en contexto
-**Diálogo**:
-*—Il pleut beaucoup aujourd’hui. Tu ne veux pas rester à la maison ?* (Hace mucho frío hoy. ¿No quieres quedarte en casa?)
-*—Bien qu’il pleuve, je préfère sortir avec mes amis.* (Aunque esté lloviendo, prefiero salir con mis amigos.)
-*—Mais tu as raison, cependant il fait froid.* (Pero tienes razón, sin embargo hace frío.)
-
-En este ejemplo, se combinan una subordinada concesiva (*bien qu’il pleuve*) y una oposicional (*cependant*), mostrando cómo el francés estructura contrastes de forma fluida y precisa.
+*J'**ai beau** lui expliquer, il ne comprend pas. **Bien qu'**il **soit** intelligent, il refuse d'écouter. **Quoi que** je **dise**, il fait le contraire. **Alors que** sa sœur suit mes conseils, lui préfère se débrouiller seul. **Pourtant**, je ne perds pas espoir.*

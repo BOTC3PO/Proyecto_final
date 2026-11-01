@@ -12,7 +12,7 @@
 
 El paleoclima es la rama de la ciencia que reconstruye las condiciones climáticas de la Tierra en épocas anteriores al registro histórico, usando evidencias naturales como rocas, sedimentos o restos biológicos. No se trata solo de conocer temperaturas o precipitaciones del pasado, sino de entender cómo esos cambios afectaron ecosistemas, niveles del mar y la evolución de las especies. Por ejemplo, los científicos analizan capas de hielo antiguas para determinar qué gases de efecto invernadero estaban presentes en la atmósfera hace miles de años.
 
-![Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas](https://upload.wikimedia.org/wikipedia/commons/3/31/GISP2_1855m_ice_core_layers.png)
+![Sección transversal de un núcleo de hielo con capas distintas, indicando diferentes épocas climáticas](https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/GISP2_1855m_ice_core_layers.png/960px-GISP2_1855m_ice_core_layers.png)
 
 *Imagen: «GISP2 1855m ice core layers», Public domain. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GISP2_1855m_ice_core_layers.png).*
 
@@ -32,7 +32,11 @@ Los métodos para estudiar el paleoclima varían según los materiales disponibl
 
 Cuando no hay sedimentos ni hielo, los investigadores usan **fósiles** como pistas clave. Por ejemplo, los corales modernos crecen en aguas cálidas y salinas específicas; al estudiar sus restos fosilizados, se pueden inferir temperaturas del océano en el pasado. También se analizan las marcas en los esqueletos de animales o la distribución geográfica de especies extintas para deducir si hubo glaciaciones, sequías o cambios abruptos en el clima.
 
-<!-- IMAGEN: Fósiles de corales en una capa sedimentaria con escalas de temperatura estimadas -->
+![Superficie pulida de un coral fósil formado por celdas hexagonales con líneas radiales](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hexagonaria_percarinata_fossil_coral_%28Petoskey_Stone%29%2C_Michigan.jpg/960px-Hexagonaria_percarinata_fossil_coral_%28Petoskey_Stone%29%2C_Michigan.jpg)
+
+*Imagen: «Hexagonaria percarinata fossil coral (Petoskey Stone), Michigan», James St. John, CC BY 2.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hexagonaria_percarinata_fossil_coral_%28Petoskey_Stone%29%2C_Michigan.jpg).*
+
+Coral fósil (*Hexagonaria*) de hace unos 380 millones de años, encontrado en Michigan, Estados Unidos. Que hoy aparezca allí indica que la región estuvo cubierta por un mar cálido y poco profundo.
 
 ---
 

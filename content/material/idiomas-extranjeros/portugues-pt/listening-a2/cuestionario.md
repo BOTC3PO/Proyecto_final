@@ -1,394 +1,197 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/portugues-pt/listening-a2/cuestionario_crudo.md`.
-> A los 25 bloques les faltaba el campo `enunciado:`; como el borrador ya incluía la
-> frase objetivo entre comillas dentro de `pasos:` ("Escuchar la frase: '...'"), se
-> extrajo esa misma frase como `enunciado:` en cada bloque, en vez de redactar una
-> nueva. Se corrigieron además cuatro errores de contenido:
-> - **Bloque 21:** `respuestas_validas:` tenía un typo ("Foii" con doble i);
->   corregido a "Foi".
-> - **Bloques 3 y 20:** la premisa "O professor ___ Silva está aqui" no tiene sentido
->   gramatical en portugués (no se antepone "do"/"da"/"dos" a un apellido tras
->   "professor"); se rediseñaron ambos bloques con una construcción posesiva genuina
->   ("Vou à casa do Sr. Silva" / "Este é o carro do Sr. Silva").
-> - **Bloque 9:** etiquetaba como "pronombre indefinido" lo que en realidad prueba una
->   forma verbal ("perdeu"); el pronombre "alguém" ya está dado en el enunciado. Se
->   corrigió la etiqueta.
-> - **Bloque 19:** usaba el gerundio al estilo brasileño ("está lendo") en vez del
->   estándar europeo ("está a ler"); corregido.
+# Portugués (Portugal) — listening A2 (cuestionario, 10 preguntas VBLang)
 
-### 1 — Preposição em frase de localização  
+> Tema: `idiomas-extranjeros/portugues-pt/listening-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior pedía completar sin audio ni texto; ahora cada pregunta trae la transcripción.
+
+---
+
+### 1 — Precio
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["preposições", "localização"]  
-pasos:  
-  - "Escuchar la frase: 'O livro está ___ cima da mesa.'"  
-  - "Identificar la preposición que completa correctamente el espacio."  
-enunciado: "O livro está ___ cima da mesa."
-respuesta: "na"  
-respuestas_validas:  
-  - "na"  
-  - "Na"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "2,20 €"
+tipo: "mc"
+opciones_explicitas: ["2,20 €", "2,02 €", "12 €"]
+
+enunciado: "Áudio: «Uma bica e um pastel de nata. — São dois euros e vinte.» ¿Cuánto paga?"
+
+explicacion: |
+  *Dois euros e vinte*.
 ```
 
-### 2 — Forma del verbo en oración interrogativa  
+### 2 — Hora
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["interrogativas", "verbo estar"]  
-pasos:  
-  - "Escuchar la pregunta: 'Você ___ em casa ontem?'"  
-  - "Seleccionar la forma correcta del verbo para completar la oración."  
-enunciado: "Você ___ em casa ontem?"
-tipo: mc
-opciones_explicitas:  
-  - "estava"  
-  - "esta"  
-  - "estou"  
-respuesta: "estava"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "3:15"
+tipo: "mc"
+opciones_explicitas: ["3:15", "2:45", "3:45"]
+
+enunciado: "Áudio: «O comboio parte às três e um quarto.» ¿A qué hora?"
+
+explicacion: |
+  *E um quarto* = y cuarto.
 ```
 
-### 3 — Artículo definido en nombre propio  
+### 3 — Hora (2)
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["artículos", "nombres propios"]  
-pasos:  
-  - "Escuchar la frase: 'Vou à casa ___ Sr. Silva.'"  
-  - "Identificar la contracción de 'de' + 'o' que precede al nombre propio masculino."  
-enunciado: "Vou à casa ___ Sr. Silva."
-respuesta: "do"  
-respuestas_validas:  
-  - "do"  
-  - "Do"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "7:45"
+tipo: "mc"
+opciones_explicitas: ["7:45", "8:15", "8:45"]
+
+enunciado: "Áudio: «A aula começa às oito menos um quarto.» ¿A qué hora?"
+
+explicacion: |
+  *Menos um quarto* = menos cuarto.
 ```
 
-### 4 — Conjugación del verbo en oración afirmativa  
+### 4 — Lugar
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["conjugaciones", "verbo comprar"]  
-pasos:  
-  - "Escuchar la oración: 'Ela ___ um novo computador.'"  
-  - "Seleccionar la forma correcta del verbo para completar la frase."  
-enunciado: "Ela ___ um novo computador."
-tipo: mc
-opciones_explicitas:  
-  - "comprava"  
-  - "comprou"  
-  - "compra"  
-respuesta: "compra"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "Cerca del banco"
+tipo: "mc"
+opciones_explicitas: ["Cerca del banco", "Al pie de la montaña", "Dentro del banco"]
+
+enunciado: "Áudio: «A farmácia fica ao pé do banco.» ¿Dónde está?"
+
+explicacion: |
+  *Ao pé de* = cerca de.
 ```
 
-### 5 — Uso de pronombre en oración reflexiva  
+### 5 — Dirección
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["reflexivos", "pronombres"]  
-pasos:  
-  - "Escuchar la frase: 'Eles ___ vestiram para a festa.'"  
-  - "Identificar el pronombre reflexivo correcto."  
-enunciado: "Eles ___ vestiram para a festa."
-respuesta: "se"  
-respuestas_validas:  
-  - "se"  
-  - "Se"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "Seguir derecho y doblar a la derecha"
+tipo: "mc"
+opciones_explicitas: ["Seguir derecho y doblar a la derecha", "Doblar a la izquierda", "Volver atrás"]
+
+enunciado: "Áudio: «Siga em frente e vire à direita no semáforo.»"
+
+explicacion: |
+  *À direita* = a la derecha.
 ```
 
-### 6 — Adjetivo en forma de comparación  
+### 6 — Corrección
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["comparativos", "adjetivos"]  
-pasos:  
-  - "Escuchar la oración: 'Este filme é ___ que o anterior.'"  
-  - "Seleccionar el adjetivo comparativo adecuado."  
-enunciado: "Este filme é ___ que o anterior."
-tipo: mc
-opciones_explicitas:  
-  - "mais bom"  
-  - "melhor"  
-  - "bom"  
-respuesta: "melhor"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "El martes"
+tipo: "mc"
+opciones_explicitas: ["El martes", "El lunes", "El miércoles"]
+
+enunciado: "Áudio: «A consulta é na segunda… não, desculpe, é na terça.»"
+
+explicacion: |
+  Corrección: *terça*.
 ```
 
-### 7 — Preposición en locución verbal  
+### 7 — Familia
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["locuciones", "preposições"]  
-pasos:  
-  - "Escuchar la frase: 'Ela precisa ___ de ajudar.'"  
-  - "Identificar la preposición que completa la locución verbal."  
-enunciado: "Ela precisa ___ de ajudar."
-respuesta: "de"  
-respuestas_validas:  
-  - "de"  
-  - "De"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "Su abuelo"
+tipo: "mc"
+opciones_explicitas: ["Su abuelo", "Su abuela", "Su tío"]
+
+enunciado: "Áudio: «O meu avô tem oitenta anos.»"
+
+explicacion: |
+  *Avô* (vocal cerrada) = abuelo.
 ```
 
-### 8 — Forma del verbo en oración pasiva  
+### 8 — Pedido
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["voz pasiva", "conjugaciones"]  
-pasos:  
-  - "Escuchar la oración: 'O projeto ___ concluído ontem.'"  
-  - "Seleccionar la forma correcta del verbo en voz pasiva."  
-enunciado: "O projeto ___ concluído ontem."
-tipo: mc
-opciones_explicitas:  
-  - "foi"  
-  - "é"  
-  - "será"  
-respuesta: "foi"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "Un jugo de naranja"
+tipo: "mc"
+opciones_explicitas: ["Un jugo de naranja", "Una naranja entera", "Un café"]
+
+enunciado: "Áudio: «Queria um sumo de laranja, se faz favor.»"
+
+explicacion: |
+  *Sumo* = jugo.
 ```
 
-### 9 — Conjugación del verbo con sujeto indefinido  
+### 9 — Transporte
+
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["pronombres", "conjugaciones"]  
-pasos:  
-  - "Escuchar la frase: 'Alguém ___ o livro.'"  
-  - "El pronombre indefinido 'alguém' ya está dado; identificar la forma verbal (pretérito perfecto de 'perder') que completa correctamente."  
-enunciado: "Alguém ___ o livro."
-respuesta: "perdeu"  
-respuestas_validas:  
-  - "perdeu"  
-  - "Perdeu"
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
+
+respuesta: "En colectivo/autobús"
+tipo: "mc"
+opciones_explicitas: ["En colectivo/autobús", "En auto", "En tren"]
+
+enunciado: "Áudio: «Vou de autocarro para o trabalho.»"
+
+explicacion: |
+  *Autocarro*.
 ```
 
-### 10 — Forma del verbo en oración condicional  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["condicionales", "verbo ir"]  
-pasos:  
-  - "Escuchar la oración: 'Se eu ___ rico, viajaria mais.'"  
-  - "Seleccionar la forma correcta del verbo en la condición."  
-enunciado: "Se eu ___ rico, viajaria mais."
-tipo: mc
-opciones_explicitas:  
-  - "fosse"  
-  - "for"  
-  - "vou ser"  
-respuesta: "fosse"
-```
+### 10 — Tiempo
 
-### 11 — Adverbio de lugar en oración  
 ```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adverbios", "lugares"]  
-pasos:  
-  - "Escuchar la frase: 'Ele deixou o livro ___.'"  
-  - "Identificar el adverbio de lugar que completa correctamente."  
-enunciado: "Ele deixou o livro ___."
-respuesta: "aqui"  
-respuestas_validas:  
-  - "aqui"  
-  - "Aqui"
-```
+metadata:
+  materia: "idiomas-extranjeros/portugues-pt"
+  tema: "listening-a2"
+  nivel: "A2"
+  tags: ["listening", "A2"]
 
-### 12 — Uso de artículo en nombre común  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["artículos", "nombres comunes"]  
-pasos:  
-  - "Escuchar la oración: 'O ___ é muito caro.'"  
-  - "Seleccionar el artículo que precede al nombre común."  
-enunciado: "O ___ é muito caro."
-tipo: mc
-opciones_explicitas:  
-  - "carro"  
-  - "um carro"  
-  - "o carro"  
-respuesta: "carro"
-```
+respuesta: "Hace mucho frío"
+tipo: "mc"
+opciones_explicitas: ["Hace mucho frío", "Hay sol", "Llueve"]
 
-### 13 — Forma del verbo en oración negativa  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["negativas", "verbo estar"]  
-pasos:  
-  - "Escuchar la frase: 'Ela ___ em casa agora.'"  
-  - "Identificar la forma correcta del verbo en oración negativa."  
-enunciado: "Ela ___ em casa agora."
-respuesta: "não está"  
-respuestas_validas:  
-  - "não está"  
-  - "Não está"
-```
+enunciado: "Áudio: «Hoje está muito frio, mas amanhã vai estar sol.» ¿Cómo está hoy?"
 
-### 14 — Pronombre personal en oración reflexiva  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["reflexivos", "pronombres"]  
-pasos:  
-  - "Escuchar la oración: 'Eles ___ vestiram.'"  
-  - "Seleccionar el pronombre personal correcto para la reflexión."  
-enunciado: "Eles ___ vestiram."
-tipo: mc
-opciones_explicitas:  
-  - "se"  
-  - "si"  
-  - "sê"  
-respuesta: "se"
-```
-
-### 15 — Adjetivo en forma de superlativo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["superlativos", "adjetivos"]  
-pasos:  
-  - "Escuchar la frase: 'Este é o ___ filme que vi.'"  
-  - "Identificar el superlativo correcto del adjetivo."  
-enunciado: "Este é o ___ filme que vi."
-respuesta: "melhor"  
-respuestas_validas:  
-  - "melhor"  
-  - "Melhor"
-```
-
-### 16 — Uso de preposición en oración con verbo de movimiento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["preposições", "movimiento"]  
-pasos:  
-  - "Escuchar la oración: 'Ela foi ___ escola.'"  
-  - "Seleccionar la preposición que completa correctamente el verbo."  
-enunciado: "Ela foi ___ escola."
-tipo: mc
-opciones_explicitas:  
-  - "à"  
-  - "na"  
-  - "em"  
-respuesta: "à"
-```
-
-### 17 — Forma del verbo en oración con tiempo futuro  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["futuro", "conjugaciones"]  
-pasos:  
-  - "Escuchar la frase: 'Ela ___ viajar na próxima semana.'"  
-  - "Identificar la forma correcta del verbo en tiempo futuro."  
-enunciado: "Ela ___ viajar na próxima semana."
-respuesta: "vai"  
-respuestas_validas:  
-  - "vai"  
-  - "Vai"
-```
-
-### 18 — Adverbio de tiempo en oración  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["adverbios", "tiempo"]  
-pasos:  
-  - "Escuchar la oración: 'Ela chegou ___.'"  
-  - "Seleccionar el adverbio de tiempo que completa correctamente."  
-enunciado: "Ela chegou ___."
-tipo: mc
-opciones_explicitas:  
-  - "ontem"  
-  - "hoje"  
-  - "amanhã"  
-respuesta: "ontem"
-```
-
-### 19 — Forma del verbo en oración con gerundio  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["estar a", "conjugaciones"]  
-pasos:  
-  - "Escuchar la frase: 'Ela está ___ o livro.'"  
-  - "Identificar la forma correcta de la acción en curso en portugués europeo ('estar a' + infinitivo, no 'estar' + gerundio, que es propio del portugués de Brasil)."  
-enunciado: "Ela está ___ o livro."
-respuesta: "a ler"  
-respuestas_validas:  
-  - "a ler"  
-  - "A ler"
-```
-
-### 20 — Uso de artículo en nombre propio con preposición  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["artículos", "preposições"]  
-pasos:  
-  - "Escuchar la oración: 'Este é o carro ___ Sr. Silva.'"  
-  - "Seleccionar la contracción de 'de' + artículo que precede al nombre propio masculino."  
-enunciado: "Este é o carro ___ Sr. Silva."
-tipo: mc
-opciones_explicitas:  
-  - "do"  
-  - "da"  
-  - "dos"  
-respuesta: "do"
-```
-
-### 21 — Forma del verbo en oración pasiva refleja  
-```
-metadata:  
-  materia: "idiomas-extranjeros/portugues-pt"  
-  tema: "listening-a2"  
-  nivel: "A2"  
-  tags: ["voz pasiva", "reflexivos"]  
-pasos:  
-  - "Escuchar la frase: 'O projeto ___ concluído por eles.'"  
-  - "Identificar la forma correcta del verbo en voz pasiva refleja."  
-enunciado: "O projeto ___ concluído por eles."
-respuesta: "foi"  
-respuestas_validas:  
-  - "foi"  
-  - "Foi"
+explicacion: |
+  *Hoje está muito frio*.
 ```

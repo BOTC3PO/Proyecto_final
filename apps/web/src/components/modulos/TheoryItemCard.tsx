@@ -11,6 +11,7 @@ import TablaPeriodica from "./standalone/TablaPeriodica";
 import { EscaladorRecetas } from "./standalone/EscaladorRecetas";
 import { LineaTiempo } from "./standalone/LineaTiempo";
 import MapaStandalone from "./standalone/MapaStandalone";
+import TextoTeoria from "./TextoTeoria";
 
 import { useI18n } from "../../i18n/I18nContext";
 // All supported theory item types (old English + new Spanish + catch-all string)
@@ -298,13 +299,12 @@ export default function TheoryItemCard({ item, actionLabel, lectura }: TheoryIte
         {item.title}
       </h4>
       {isTextContent && item.detail ? (
-        <p
-          className={`mt-2 whitespace-pre-wrap ${
+        <TextoTeoria
+          texto={item.detail}
+          className={`mt-2 ${
             lectura ? "font-serif text-lg leading-loose text-[var(--c-text)]" : "text-sm text-[var(--c-muted)]"
           }`}
-        >
-          {item.detail}
-        </p>
+        />
       ) : null}
     </article>
   );

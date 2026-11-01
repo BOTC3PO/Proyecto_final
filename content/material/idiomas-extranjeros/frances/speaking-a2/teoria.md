@@ -1,53 +1,48 @@
-# Hablar en francés: Nivel A2 (CEFR)
+# Expresión oral en francés (A2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/speaking-a2`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-A nivel A2, los hablantes de francés ya pueden interactuar en situaciones cotidianas sencillas y expresar necesidades básicas. El objetivo principal es desarrollar la capacidad de comunicarse oralmente con vocabulario limitado pero funcional, utilizando estructuras gramaticales simples. Este nivel es crucial para construir confianza al hablar, ya que permite participar en conversaciones breves sobre temas como presentaciones personales, actividades diarias o pedidos comunes.
+En A2 se espera poder **presentarse**, **describir** la rutina, la familia y el entorno, **pedir y dar** información simple y desenvolverse en situaciones cotidianas: compras, restaurante, transporte.
 
 ## Explicación central
-En francés, el habla A2 se centra en frases cortas y preguntas básicas. Por ejemplo:
-- **"Je m'appelle Clara."** (Me llamo Clara.)
-- **"Quel temps fait-il aujourd'hui?"** (¿Qué tiempo hace hoy?)
-- **"Je veux un café, s'il vous plaît."** (Quiero un café, por favor.)
+### Presentarse
+*Je m'appelle… J'ai … ans. J'habite à… Je suis étudiant(e) / Je travaille comme… J'aime… / Je n'aime pas…*
 
-Los verbos en presente son esenciales. Por ejemplo:
-- **"Il mange une pomme."** (Él come una manzana.)
-- **"Nous parlons français."** (Hablamos francés.)
+### Fórmulas de cortesía
+- Saludar: *Bonjour, Madame / Monsieur* (siempre al entrar a un comercio). *Bonsoir* desde la tarde.
+- Pedir: ***Je voudrais**… s'il vous plaît. Est-ce que vous avez… ? C'est combien ?*
+- Agradecer: *Merci beaucoup. — De rien / Je vous en prie.*
+- Disculparse: *Excusez-moi. Pardon.*
+- Despedirse: *Au revoir, bonne journée / bonne soirée !*
 
-Se usan artículos definidos (**le, la, les**) y posesivos (**mon, ma, mes**) para describir objetos o pertenencias. Ejemplo:
-- **"C’est mon livre."** (Es mi libro.)
-- **"Je vois une chaise."** (Veo una silla.)
+### Tu o vous
+- ***vous***: desconocidos, adultos en contexto formal, comercios.
+- ***tu***: amigos, familia, chicos; entre jóvenes.
 
-Las preguntas directas requieren el uso de la forma interrogativa:
-- **"Est-ce que tu as faim?"** (¿Tienes hambre?)
-- **"Où est la salle de bain?"** (¿Dónde está el baño?)
+### Cuando no se entiende
+*Pardon ? Vous pouvez répéter, s'il vous plaît ? Plus lentement, s'il vous plaît. Comment dit-on… en français ? Qu'est-ce que ça veut dire ?*
+
+### Hablar del pasado y del futuro
+- *Hier, je suis allé(e)… J'ai mangé…*
+- *Demain, je vais…*
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del subjuntivo**: En francés, el subjuntivo no se usa tanto como en español. Por ejemplo, en lugar de **"Je veux que tu viennes"** (Quiero que vengas), se dice simplemente **"Je veux que tu viens"**, aunque esto no es estrictamente correcto; lo habitual es usar el infinitivo: **"Je veux que tu viens"** (aunque también se acepta "que tu viennes" en contextos formales).
-2. **Confusión entre *il* y *elle***: En francés, los pronombres de sujeto no cambian según el género del sustantivo, pero los adjetivos sí. Ejemplo incorrecto: **"Il est belle."** (Él es bella → error). Correcto: **"Elle est belle."** (Ella es bella).
-3. **Uso de *hablar* en lugar de *parler***: Aunque "hablar" existe en francés (*parler*), a nivel A2 se evita para no confundirse con el verbo español.
+1. ❌ *Je suis 20 ans* ✅ *J'ai 20 ans*.
+2. Entrar a una tienda sin decir *Bonjour*: se percibe como descortés.
+3. ❌ *Je veux un café* (brusco) ✅ *Je voudrais un café*.
+4. Tutear a un desconocido.
 
 ## Comparación con el español
-Algunas diferencias clave:
-- **Estructura de las preguntas**: En francés, las preguntas formales usan **"Est-ce que..."**, mientras que en español se invierte el orden (ejemplo: *"¿Vienes tú?"*).
-- **Pronombres de objeto indirecto**: En francés, los pronombres como *me*, *te*, *nous*, *vous* cambian según la persona y el tiempo verbal. Ejemplo: **"Il me donne un livre."** (Él me da un libro → español: "Él me da un libro", similar).
-- **Uso de los artículos definidos**: En francés, es obligatorio usarlos antes de sustantivos masculinos y femeninos, incluso en contextos abstractos. Ejemplo: **"Je lis *le* journal."** (Leo el periódico → español: "Leo el periódico", similar).
+El uso de *vous* es más amplio que el «usted» rioplatense: en Francia se usa con cualquier adulto desconocido. El saludo al entrar a un comercio es casi obligatorio.
 
 ## Ejemplo extendido en contexto
-**Escena**: En un café, Clara pide un café y se presenta con un cliente.
-
-**Clara**: Bonjour! Je m’appelle Clara. Et vous? *(Hola! Me llamo Clara. ¿Y usted?)*
-**Cliente**: Bonjour, Clara. Je m’appelle Luc. *(Hola, Clara. Me llamo Luc.)*
-**Clara**: Vous avez faim? *(¿Tiene hambre?)*
-**Cliente**: Oui, un peu. Je veux un croissant et un café, s’il vous plaît. *(Sí, un poco. Quiero un cruasán y un café, por favor.)*
-**Clara**: D’accord. Et où est la salle de bain? *(De acuerdo. ¿Dónde está el baño?)*
-**Cliente**: C’est à droite, près du comptoir. *(Está a la derecha, cerca del mostrador.)*
-
-Este intercambio muestra frases básicas, uso correcto de artículos y verbos en presente, esenciales para un nivel A2.
+*— Bonjour Madame ! — Bonjour ! — Je voudrais un kilo de tomates, s'il vous plaît. — Voilà. Et avec ça ? — C'est tout, merci. C'est combien ? — Trois euros cinquante. — Voilà. Merci, bonne journée ! — Bonne journée !*

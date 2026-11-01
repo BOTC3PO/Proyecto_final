@@ -14,8 +14,6 @@ Para comprender la explosión del Islam en el siglo VII, es necesario situarse e
 
 La sociedad mequí estaba dominada por la Quraish, la tribu que controlaba el comercio y el santuario de la Kaaba, un lugar de peregrinación politeísta que reunía a diversas deidades tribales. Sin embargo, esta estabilidad comercial y religiosa estaba comenzando a fracturarse debido a cambios climáticos, la competencia de nuevos actores comerciales (como los axumitas y persas) y tensiones sociales internas. Al mismo tiempo, la región era un terreno fértil para las religiones monoteístas, con comunidades judías bien establecidas en Yatrib (posteriormente Medina) y cristianos nestorianos y monofisitas en las fronteras del norte y sur. Este vacío espiritual y político creó las condiciones para la aparición de un nuevo mensaje unificador.
 
-<!-- IMAGEN: Mapa de la Península Arábiga mostrando las principales ciudades comerciales como La Meca, Medina y Taif, así como las rutas comerciales hacia Siria y Yemen. -->
-
 ## 2. La revelación de Mahoma y la comunidad de Medina
 
 Mahoma (c. 570–632), un mercader de la Quraish, comenzó a recibir revelaciones en el año 610 que, según la tradición islámica, provenían del ángel Gabriel. Estas revelaciones, que luego se recopilarían en el Corán, proclamaban el monoteísmo estricto (*tawhid*), la igualdad ante Dios y la justicia social. Inicialmente, la predicación en La Meca se enfrentó a la feroz oposición de las élites locales, que veían en el nuevo mensaje una amenaza a su autoridad política y a la economía derivada de la peregrinación politeísta.

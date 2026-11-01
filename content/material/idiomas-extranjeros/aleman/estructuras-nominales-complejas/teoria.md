@@ -5,50 +5,53 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-Las **estructuras nominales complejas** son combinaciones de sustantivos con múltiples modificadores, como adjetivos, preposiciones o cláusulas relativas. En el nivel C1 del Marco Europeo Común de Referencia para las Lenguas (CEFR), su dominio es clave para comunicarse con precisión en contextos académicos, profesionales o formales. Estas estructuras permiten expresar ideas detalladas y evitar repeticiones innecesarias, algo fundamental al escribir textos técnicos o artículos especializados.
+En C1 hay que **leer y producir** el *Nominalstil* de los textos académicos, jurídicos y periodísticos: cadenas de genitivos, construcciones con verbo funcional (*Funktionsverbgefüge*) y sustantivos compuestos largos. Y también saber **deshacerlos** en un estilo verbal más claro.
 
----
+## Explicación central
+### 1. Cadenas de genitivos
+*die Verbesserung **der Qualität der Ausbildung der Lehrkräfte*** (la mejora de la calidad de la formación de los docentes). Se lee de izquierda a derecha, cada genitivo depende del anterior. Más de tres seguidos se considera mal estilo.
 
-## Explicación central con ejemplos reales
-En alemán, una **estructura nominal compleja** puede incluir:
-1. **Modificadores preposicionales**: Se usan para especificar relaciones lógicas (por ejemplo, "der für die Entwicklung verantwortliche Experte" → *el experto responsable del desarrollo*).
-2. **Cláusulas relativas**: Aportan información adicional al sustantivo ("die Bücher, die ich gestern gekauft habe" → *los libros que compré ayer*).
-3. **Adjetivos con formas débiles o fuertes**: Dependen de la posición y el artículo determinado ("der wichtigste Grund" vs. "ein wichtiger Grund").
+### 2. Verbos funcionales (*Funktionsverbgefüge*)
+Sustantivo + verbo «vacío» que reemplaza a un verbo simple; son típicos del registro formal:
+| Funktionsverbgefüge | Verbo simple |
+|---|---|
+| *in Frage stellen* | *bezweifeln* (poner en duda) |
+| *zur Verfügung stellen* | *bereitstellen* (poner a disposición) |
+| *eine Entscheidung treffen* | *entscheiden* |
+| *in Kraft treten* | (entrar en vigor) |
+| *zum Ausdruck bringen* | *ausdrücken* |
+| *Kritik üben an* | *kritisieren* |
+| *in Anspruch nehmen* | *beanspruchen, nutzen* |
+| *Rücksicht nehmen auf* | *berücksichtigen* |
+| *zur Diskussion stehen* | (estar en discusión) |
+| *in Betracht ziehen* | *erwägen* (considerar) |
 
-Ejemplo 1:
-> Der **für die Umweltverträglichkeit zuständige** Beamte hat den Projektplan geprüft.
-*(El funcionario encargado de la compatibilidad ambiental revisó el plan del proyecto.)*
+Algunos tienen matiz pasivo o de proceso: *zur Anwendung kommen* = *angewendet werden*.
 
-Ejemplo 2 (cláusula relativa):
-> Ich lese oft Bücher, **die von renommierten Autoren geschrieben wurden**.
-*(A menudo leo libros escritos por autores reconocidos.)*
+### 3. Compuestos
+*Arbeits**markt**politik, Kranken**versicherungs**beitrag*: el último elemento es el núcleo y da el género; se lee **de derecha a izquierda**: *der Krankenversicherungsbeitrag* = el aporte del seguro de salud.
 
----
+### 4. Preposiciones del registro formal
+*hinsichtlich, bezüglich* (respecto de), *aufgrund* (debido a), *infolge* (a consecuencia de), *zwecks* (con el fin de), *mithilfe, anhand* (por medio de), *im Rahmen* (en el marco de), *seitens* (por parte de) — todas con **genitivo**.
+
+### De nominal a verbal (y al revés)
+*Aufgrund der Erhöhung der Preise* → *Weil die Preise erhöht wurden*.
+*Nach Abschluss der Prüfung* → *Nachdem die Prüfung abgeschlossen worden ist*.
 
 ## Errores comunes de hispanohablantes
-1. **Omisión del artículo determinado**: En alemán, incluso en estructuras complejas se requiere un artículo ("der", "die", etc.). Por ejemplo: ❌ *"Für die Umweltverträglichkeit zuständiger Beamte"* → ✅ *"Der für die Umweltverträglichkeit zuständige Beamte"*.
-2. **Uso incorrecto de adjetivos**: Los hispanohablantes suelen omitir el artículo antes del adjetivo o aplicar reglas del español (ej.: ❌ "ein wichtiges Grund" → ✅ "ein wichtiger Grund").
-3. **Inversión de orden en cláusulas relativas**: En alemán, el verbo principal siempre se coloca al final ("die Bücher, die ich gekauft habe") mientras que en español se mantiene la posición normal ("los libros que he comprado").
-
----
+1. Elegir mal el verbo funcional: ❌ *eine Entscheidung machen* ✅ *treffen*; ❌ *eine Frage machen* ✅ *eine Frage stellen*.
+2. Leer los compuestos de izquierda a derecha.
+3. Encadenar demasiados genitivos.
+4. ❌ *aufgrund dem Wetter* (escrito) ✅ *aufgrund des Wetters*.
 
 ## Comparación con el español
-En español, las estructuras nominales suelen ser más simples y flexibles:
-- **Adjetivos**: Siempre van detrás del sustantivo (ej.: *el libro interesante*). En alemán, pueden ir antes o después según la regla de los adjetivos fuertes/débiles.
-- **Preposiciones**: En español, no se requiere un artículo determinado en frases como *"el responsable del desarrollo"* (sin "der" explícito), mientras que en alemán es obligatorio ("**der** für die Entwicklung verantwortliche Person").
-- **Cláusulas relativas**: En español, el verbo va antes de la cláusula (*los libros que compré*), pero en alemán se coloca al final (*die Bücher, die ich gekauft habe*).
-
----
+El español administrativo también usa expresiones como «tomar una decisión», «poner en duda», «entrar en vigor», y muchas coinciden. Las diferencias: los compuestos (el español usa «de»: «aporte del seguro de salud») y la preferencia alemana por el genitivo.
 
 ## Ejemplo extendido en contexto
-**Situation**: Un informe sobre un proyecto ambiental.
-**Texto**:
-> Der **von der Stadtverwaltung beauftragte** Experte hat einen Bericht verfasst, **der die Auswirkungen der Baumaßnahmen auf die Umwelt analysiert**. In diesem Dokument werden nicht nur die Vorteile des Projekts beschrieben, sondern auch **die potenziellen Risiken, die durch den Einsatz von chemischen Substanzen entstehen könnten**.
-
-*(El experto encargado por la administración municipal escribió un informe que analiza los efectos de las medidas de construcción en el medio ambiente. En este documento no solo se describen las ventajas del proyecto, sino también los riesgos potenciales que podrían surgir al usar sustancias químicas.)*
-
-Este ejemplo muestra cómo estructuras nominales complejas permiten integrar múltiples ideas sin recurrir a frases repetitivas ni redundantes.
+*«**Im Rahmen** der Reform wurde die Arbeitszeitregelung **in Frage gestellt**. **Aufgrund** der Kritik **seitens** der Gewerkschaften **traf** die Regierung **die Entscheidung**, weitere Gespräche **in Betracht zu ziehen**. Die neue Regelung soll im Januar **in Kraft treten**.»*

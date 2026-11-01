@@ -1,0 +1,206 @@
+{
+ "titulo": "Las ciudades de Sumer, entre el Tigris y el Éufrates",
+ "standalone": {
+  "tool": "mapa",
+  "titulo": "Las ciudades de Sumer, entre el Tigris y el Éufrates",
+  "modo": "physical",
+  "escala": "50m",
+  "anotaciones": [
+   {
+    "id": "a1",
+    "tipo": "ruta",
+    "puntos": [
+     [
+      42.83,
+      33.64
+     ],
+     [
+      43.3,
+      33.42
+     ],
+     [
+      43.78,
+      33.35
+     ],
+     [
+      44.29,
+      32.78
+     ],
+     [
+      44.4,
+      32.03
+     ],
+     [
+      45.28,
+      31.31
+     ],
+     [
+      46.26,
+      31.05
+     ],
+     [
+      47.43,
+      31
+     ]
+    ],
+    "etiqueta": "Éufrates",
+    "color": "#2563eb",
+    "grosor": 2.5
+   },
+   {
+    "id": "a2",
+    "tipo": "ruta",
+    "puntos": [
+     [
+      43.87,
+      34.2
+     ],
+     [
+      44.37,
+      33.31
+     ],
+     [
+      45.82,
+      32.5
+     ],
+     [
+      47.15,
+      31.84
+     ],
+     [
+      47.43,
+      31
+     ],
+     [
+      47.81,
+      30.51
+     ],
+     [
+      48.47,
+      29.98
+     ]
+    ],
+    "etiqueta": "Tigris",
+    "color": "#2563eb",
+    "grosor": 2.5
+   },
+   {
+    "id": "a3",
+    "tipo": "marcador",
+    "lat": 30.82,
+    "lon": 46,
+    "etiqueta": "Eridu"
+   },
+   {
+    "id": "a4",
+    "tipo": "marcador",
+    "lat": 30.96,
+    "lon": 46.1,
+    "etiqueta": "Ur"
+   },
+   {
+    "id": "a5",
+    "tipo": "marcador",
+    "lat": 31.32,
+    "lon": 45.64,
+    "etiqueta": "Uruk"
+   },
+   {
+    "id": "a6",
+    "tipo": "marcador",
+    "lat": 31.29,
+    "lon": 45.85,
+    "etiqueta": "Larsa"
+   },
+   {
+    "id": "a7",
+    "tipo": "marcador",
+    "lat": 31.41,
+    "lon": 46.4,
+    "etiqueta": "Lagash"
+   },
+   {
+    "id": "a8",
+    "tipo": "marcador",
+    "lat": 31.55,
+    "lon": 46.18,
+    "etiqueta": "Girsu"
+   },
+   {
+    "id": "a9",
+    "tipo": "marcador",
+    "lat": 31.66,
+    "lon": 45.89,
+    "etiqueta": "Umma"
+   },
+   {
+    "id": "a10",
+    "tipo": "marcador",
+    "lat": 31.78,
+    "lon": 45.51,
+    "etiqueta": "Shuruppak"
+   },
+   {
+    "id": "a11",
+    "tipo": "marcador",
+    "lat": 31.89,
+    "lon": 45.27,
+    "etiqueta": "Isin"
+   },
+   {
+    "id": "a12",
+    "tipo": "marcador",
+    "lat": 32.13,
+    "lon": 45.23,
+    "etiqueta": "Nippur"
+   },
+   {
+    "id": "a13",
+    "tipo": "marcador",
+    "lat": 32.54,
+    "lon": 44.6,
+    "etiqueta": "Kish"
+   },
+   {
+    "id": "a14",
+    "tipo": "marcador",
+    "lat": 33.06,
+    "lon": 44.25,
+    "etiqueta": "Sippar"
+   },
+   {
+    "id": "a15",
+    "tipo": "texto",
+    "lat": 30.55,
+    "lon": 45.2,
+    "contenido": "SUMER",
+    "tamano": 16,
+    "color": "#b45309"
+   },
+   {
+    "id": "a16",
+    "tipo": "texto",
+    "lat": 33.35,
+    "lon": 44.95,
+    "contenido": "ACAD",
+    "tamano": 14,
+    "color": "#b45309"
+   },
+   {
+    "id": "a17",
+    "tipo": "texto",
+    "lat": 29.75,
+    "lon": 48.45,
+    "contenido": "Golfo Pérsico",
+    "tamano": 12,
+    "color": "#2563eb"
+   }
+  ],
+  "bounds": {
+   "x": 0.6175,
+   "y": 0.37276,
+   "w": 0.01833,
+   "h": 0.01833
+  }
+ }
+}

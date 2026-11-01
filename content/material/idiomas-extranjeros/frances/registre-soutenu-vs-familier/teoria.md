@@ -1,68 +1,61 @@
-# Registro soutenu vs. familier en francés (nivel C1)
+# Registro soutenu, courant y familier en francés (C1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/registre-soutenu-vs-familier`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-En el nivel C1 de la escala CEFR, los hablantes dominan con fluidez y flexibilidad distintos registros del idioma. En francés, distinguir entre el **registro soutenu** (formal) y el **familier** (informal o coloquial) es clave para comunicarse con naturalidad en contextos sociales, académicos o profesionales. Esta distinción no solo afecta la elección de vocabulario, sino también las formas verbales, pronombres y estructuras gramaticales, lo que permite adaptar el lenguaje al interlocutor y la situación.
-
----
+El francés distingue con claridad tres **registros**: *familier* (amigos, conversación relajada), *courant* (neutro, cotidiano) y *soutenu* (escrito formal, literatura, discursos). En el nivel C1 hay que **reconocerlos y elegir** el adecuado.
 
 ## Explicación central
-El **registro soutenu** se usa en contextos formales (trabajo, instituciones, desconocidos) y requiere:
-- Uso del pronombre **vous** (en lugar de **tu**).
-- Verbos conjugados en forma formal (**parlez**, **voulez**, **êtes**).
-- Vocabulario más elevado o técnico.
+### Gramática
+| Familier | Courant | Soutenu |
+|---|---|---|
+| *T'es où ?* | *Où est-ce que tu es ?* | *Où es-tu ?* |
+| *J'sais pas.* (sin *ne*) | *Je ne sais pas.* | *Je ne sais point.* (literario) / *Je l'ignore.* |
+| *On y va.* | *Nous y allons.* | *Nous nous y rendons.* |
+| *Y a pas de souci.* | *Il n'y a pas de problème.* | *Cela ne pose aucune difficulté.* |
+| *C'est qui ?* | *Qui est-ce ?* | *De qui s'agit-il ?* |
+| *ça* | *cela* | *cela / ceci* |
 
-Ejemplos:
-- *Je vous remercie pour votre aide.* (Gracias por su ayuda – formal)
-- *Pourriez-vous m’expliquer cela ?* (¿Podría explicarme esto? – formal)
+- *on* reemplaza a *nous* en el habla; en el soutenu se usa *nous*.
+- Soutenu: *passé simple* en narración escrita, subjonctif imparfait (literario), inversión.
 
-El **registro familier** se emplea en entornos informales (amigos, familiares, situaciones cotidianas) y utiliza:
-- Pronombre **tu**.
-- Verbos conjugados en forma informal (**parles**, **veux**, **es**).
-- Expresiones coloquiales o contracciones.
+### Léxico
+| Familier | Courant | Soutenu |
+|---|---|---|
+| bagnole | voiture | véhicule / automobile |
+| boulot | travail | emploi / fonctions |
+| fric, thune | argent | fonds / ressources |
+| bouffer | manger | se restaurer / déjeuner |
+| mec / nana | homme / femme | monsieur / dame |
+| bosser | travailler | œuvrer |
+| se planter | se tromper / échouer | commettre une erreur |
+| flic | policier | agent de police |
+| piger | comprendre | saisir |
+| ouf / chelou (verlan) | fou / louche | insensé / suspect |
 
-Ejemplos:
-- *Merci pour ton aide.* (Gracias por tu ayuda – informal)
-- *Tu peux m’expliquer ça ?* (¿Puedes explicarme esto? – informal)
+### Verlan
+Juego que invierte sílabas: *fou → ouf, louche → chelou, femme → meuf, mec → keum, fête → teuf*. Es muy familiar.
 
----
+### Fórmulas escritas soutenues
+*Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.* — *Veuillez trouver ci-joint…* — *Je me permets de vous contacter…*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión entre "tu" y "vous":** Algunos usan **vous** incluso con amigos, por influencia del español, donde el trato familiar es más directo (ej: *¿Vas a venir?* vs. *¿Vienes a venir?* en francés).
-2. **Uso incorrecto de verbos:** Olvidar cambiar la conjugación cuando se pasa de un registro a otro (ej: decir *tu veux* en lugar de *vous voulez*).
-3. **Sobrestimación del registro coloquial:** Usar expresiones demasiado informales en contextos formales, como *t’es où ?* (¿Dónde estás?) en una entrevista laboral.
-
----
+1. Usar *mec, boulot, bosser* en un correo profesional.
+2. Mezclar registros: ❌ *Je vous prie d'agréer… et merci, à plus !*
+3. Usar *tu* con un desconocido o un superior (*vous* por defecto).
+4. Usar el *passé simple* en una conversación.
 
 ## Comparación con el español
-En español, la distinción entre **usted** y **tú** es más clara, pero en francés, el cambio de registro afecta múltiples aspectos:
-- En español, *¿Vas a venir?* vs. *¿Va usted a venir?* (diferencia solo en el pronombre).
-- En francés, *Tu vas venir ?* (informal) vs. *Vous allez venir ?* (formal), donde cambian tanto el pronombre como la conjugación del verbo (*vas* → *allez*).
-
-Otro punto de diferencia es que en francés, **vous** puede usarse incluso con un grupo de personas (ej: *Vous êtes contents ?* – ¿Están contentos?), mientras que en español se usa el plural (**ustedes**) o la forma impersonal (*¿Se están sintiendo bien?*).
-
----
+El español también tiene registros, pero la brecha oral/escrita es menor. En francés, el habla diaria elimina el *ne*, usa *on* y *ça* y estructuras como *T'es où ?*, que serían impensables en un texto formal.
 
 ## Ejemplo extendido en contexto
-**Situación:** Un estudiante francés, Lucas, recibe una llamada de su profesor y luego habla con un amigo.
-
-**Conversación formal (soutenu):**
-- *Professeur Martin : Bonjour, Lucas. Je vous appelle pour vous informer que l’examen sera reporté au mardi.*
-  *(Hola, Lucas. Te llamo para informarte de que el examen se pospone al martes.)*
-- *Lucas : Merci, monsieur. Puis-je savoir la raison ?*
-  *(Gracias, profesor. ¿Puedo saber la razón?)*
-
-**Conversación informal (familier):**
-- *Amie Clara : Salut, Luc ! Tu as vu que le prof a reporté l’examen ?*
-  *(Hola, Luc ¡Viste que el profe pospuso el examen!)*
-- *Lucas : Oui, mais je ne sais pas pourquoi. Tu penses qu’on aura des vacances avant ?*
-  *(Sí, pero no sé por qué. ¿Crees que tendremos vacaciones antes?)*
-
-Este ejemplo muestra cómo los registros varían según el interlocutor y la situación, reforzando su importancia para una comunicación efectiva en francés.
+**Familier:** *Salut ! J'ai pas pigé le truc du boulot, tu peux m'expliquer ?*
+**Soutenu:** *Madame, je me permets de vous solliciter afin d'obtenir des précisions sur le dossier évoqué lors de la réunion. Je vous prie d'agréer l'expression de mes salutations distinguées.*

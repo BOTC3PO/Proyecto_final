@@ -1,454 +1,329 @@
-# Idiomas — Inglés — preposiciones-lugar-tiempo (cuestionario)
+# Inglés — preposiciones in, on, at (cuestionario, 17 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/ingles/preposiciones-lugar-tiempo/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/ingles/preposiciones-lugar-tiempo`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas ambiguas (varias respuestas válidas) o con la respuesta equivocada.
 
 ---
 
-### 1 — Preposition for time  
+### 1 — Hora
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "at"]
-pasos:
-  - "Identifica la preposición correcta para indicar una hora específica."
-tipo: completar
-respuestas_validas:
-  - "at"
-  - "At"
-enunciado: "We usually have dinner ___ 7 p.m."
-explicacion: "La preposición 'at' se usa con horas específicas como '7 p.m.' o '3 a.m.'."
+  tags: ["preposiciones"]
+
+respuesta: "at"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "The class starts ___ 9 o'clock."
+
+explicacion: |
+  Horas: *at*.
 ```
 
-### 2 — Preposition for days  
+### 2 — Día
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "on"]
-pasos:
-  - "Elige la preposición que indica un día específico."
-tipo: mc
-opciones_explicitas:
-  - "in Monday"
-  - "on Monday"
-  - "at Monday"
-respuesta: "on Monday"
-enunciado: "The party is ___ Monday evening."
-explicacion: "'On' se usa con días de la semana (Monday, Tuesday) o fechas específicas como 'next Friday'."
+  tags: ["preposiciones"]
+
+respuesta: "on"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "I have football practice ___ Tuesday."
+
+explicacion: |
+  Días: *on*.
 ```
 
-### 3 — Preposition for months  
+### 3 — Mes
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "in"]
-pasos:
-  - "Completa la oración con la preposición correcta para un mes."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "My birthday is ___ June."
-explicacion: "'In' se usa con meses (June, July) o años ('2025')."
+  tags: ["preposiciones"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "My birthday is ___ July."
+
+explicacion: |
+  Meses: *in*.
 ```
 
-### 4 — Preposition for surfaces  
+### 4 — Fecha
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "on"]
-pasos:
-  - "Selecciona la preposición que describe una ubicación en una superficie."
-tipo: mc
-opciones_explicitas:
-  - "in the wall"
-  - "at the wall"
-  - "on the wall"
-respuesta: "on the wall"
-enunciado: "The picture is ___ the wall of our apartment."
-explicacion: "'On' indica una posición sobre una superficie plana, como 'the table' o 'the wall'."
+  tags: ["preposiciones"]
+
+respuesta: "on"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "The concert is ___ 15 August."
+
+explicacion: |
+  Fechas: *on*.
 ```
 
-### 5 — Preposition for enclosed spaces  
+### 5 — Año
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "in"]
-pasos:
-  - "Completa la oración con la preposición que describe un lugar cerrado."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "The cat is ___ the box."
-explicacion: "'In' se usa para lugares encerrados o dentro de algo, como 'the box' o 'the room'."
+  tags: ["preposiciones"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "She was born ___ 2009."
+
+explicacion: |
+  Años: *in*.
 ```
 
-### 6 — Preposition for specific locations  
+### 6 — Parte del día
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "at"]
-pasos:
-  - "Elige la preposición que indica una ubicación específica."
-tipo: mc
-opciones_explicitas:
-  - "in the airport"
-  - "on the airport"
-  - "at the airport"
-respuesta: "at the airport"
-enunciado: "We met ___ the airport last week."
-explicacion: "'At' se usa para lugares concretos como 'the airport', 'the station', o 'the corner'."
+  tags: ["preposiciones"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "I usually study ___ the evening."
+
+explicacion: |
+  *In the morning/afternoon/evening*.
 ```
 
-### 7 — Preposition for time of events  
+### 7 — Night
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "at"]
-pasos:
-  - "Completa la oración con la preposición correcta para un momento en el tiempo."
-tipo: completar
-respuestas_validas:
-  - "at"
-  - "At"
-enunciado: "The concert starts ___ 8 p.m."
-explicacion: "'At' se usa con horas específicas (8 p.m.), mientras que 'on' es para días y 'in' para meses/años."
+  tags: ["preposiciones"]
+
+respuesta: "at"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "I can't sleep ___ night."
+
+explicacion: |
+  Excepción: *at night*.
 ```
 
-### 8 — Preposition for dates  
+### 8 — Sin preposición
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "on"]
-pasos:
-  - "Selecciona la preposición que describe una fecha específica."
-tipo: mc
-opciones_explicitas:
-  - "in January 5th"
-  - "on January 5th"
-  - "at January 5th"
-respuesta: "on January 5th"
-enunciado: "We got married ___ January 5th, 2023."
-explicacion: "'On' se usa con fechas específicas como 'January 5th', mientras que 'in' es para meses o años."
+  tags: ["preposiciones"]
+
+respuesta: "— (sin preposición)"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "— (sin preposición)"]
+
+enunciado: "We're going to Córdoba ___ next week."
+
+explicacion: |
+  Con *next, last, this, every* no va preposición.
 ```
 
-### 9 — Preposition for years  
+### 9 — Superficie
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "in"]
-pasos:
-  - "Completa la oración con la preposición correcta para un año."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "She was born ___ 1990."
-explicacion: "'In' se usa con años ('1990'), meses ('July'), o lugares grandes ('Spain')."
+  tags: ["preposiciones"]
+
+respuesta: "on"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "Your keys are ___ the table."
+
+explicacion: |
+  Superficie: *on*.
 ```
 
-### 10 — Preposition for transportation  
+### 10 — Dentro
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "on"]
-pasos:
-  - "Elige la preposición que describe un medio de transporte."
-tipo: mc
-opciones_explicitas:
-  - "in the bus"
-  - "at the bus"
-  - "on the bus"
-respuesta: "on the bus"
-enunciado: "They traveled ___ the bus to Paris."
-explicacion: "'On' se usa para medios de transporte como 'the bus', 'the train', o 'the plane'."
+  tags: ["preposiciones"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "The milk is ___ the fridge."
+
+explicacion: |
+  Dentro de un espacio: *in*.
 ```
 
-### 11 — Preposition for positions  
+### 11 — Ciudad
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "on"]
-pasos:
-  - "Completa la oración con la preposición que describe una posición sobre algo."
-tipo: completar
-respuestas_validas:
-  - "on"
-  - "On"
-enunciado: "The book is ___ the table."
-explicacion: "'On' indica que algo está sobre una superficie plana, como 'the table' o 'the shelf'."
+  tags: ["preposiciones"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "My cousins live ___ Rosario."
+
+explicacion: |
+  Ciudades y países: *in*.
 ```
 
-### 12 — Preposition for directions  
+### 12 — Punto
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "at"]
-pasos:
-  - "Selecciona la preposición que indica una dirección específica."
-tipo: mc
-opciones_explicitas:
-  - "in the corner"
-  - "on the corner"
-  - "at the corner"
-respuesta: "at the corner"
-enunciado: "The shop is ___ the corner of Main Street."
-explicacion: "'At' describe ubicaciones específicas como 'the corner', 'the station', o 'the airport'."
+  tags: ["preposiciones"]
+
+respuesta: "at"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "I'll wait for you ___ the bus stop."
+
+explicacion: |
+  Un punto: *at*.
 ```
 
-### 13 — Preposition for time frames  
+### 13 — Home
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "in"]
-pasos:
-  - "Completa la oración con la preposición correcta para un período de tiempo."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "I studied Spanish ___ the university for two years."
-explicacion: "'In' se usa con lugares grandes como 'the university', mientras que 'at' es para instituciones específicas."
+  tags: ["preposiciones"]
+
+respuesta: "at"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "I'm ___ home now. Come over!"
+
+explicacion: |
+  *At home*.
 ```
 
-### 14 — Preposition for events  
+### 14 — Piso
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "on"]
-pasos:
-  - "Elige la preposición que describe un evento en un día específico."
-tipo: mc
-opciones_explicitas:
-  - "in the party"
-  - "at the party"
-  - "on the party"
-respuesta: "at the party"
-enunciado: "We met ___ the party last summer."
-explicacion: "'At' se usa para eventos concretos como 'the party', 'the meeting', o 'the concert'."
+  tags: ["preposiciones"]
+
+respuesta: "on"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "Our flat is ___ the third floor."
+
+explicacion: |
+  Pisos: *on*.
 ```
 
-### 15 — Preposition for enclosed areas  
+### 15 — Transporte
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "in"]
-pasos:
-  - "Completa la oración con la preposición correcta para un lugar cerrado."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "The children are playing ___ the garden."
-explicacion: "'In' se usa para lugares encerrados o dentro de algo, como 'the garden' o 'the room'."
+  tags: ["preposiciones"]
+
+respuesta: "on"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "I read a book ___ the bus every morning."
+
+explicacion: |
+  Transporte público: *on the bus/train*.
 ```
 
-### 16 — Preposition for specific times  
+### 16 — Auto
+
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["tiempo", "at"]
-pasos:
-  - "Selecciona la preposición que indica una hora específica."
-tipo: mc
-opciones_explicitas:
-  - "in the morning"
-  - "on the morning"
-  - "at the morning"
-respuesta: "in the morning"
-enunciado: "I usually wake up ___ the morning."
-explicacion: "'In' se usa con períodos del día como 'the morning', mientras que 'at' es para horas exactas ('10 a.m.')."
+  tags: ["preposiciones"]
+
+respuesta: "in"
+tipo: "mc"
+opciones_explicitas: ["in", "on", "at"]
+
+enunciado: "She left her phone ___ the car."
+
+explicacion: |
+  *In the car / in a taxi*.
 ```
 
-### 17 — Preposition for years and months  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["tiempo", "in"]
-pasos:
-  - "Completa la oración con la preposición correcta para un año y mes."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "She moved to Spain ___ 2015, but stayed there ___ July 2016."
-explicacion: "'In' se usa con años ('2015') y meses ('July'), mientras que 'on' es para fechas específicas."
-```
+### 17 — Error típico
 
-### 18 — Preposition for locations in buildings  
 ```
 metadata:
   materia: "idiomas-extranjeros/ingles"
   tema: "preposiciones-lugar-tiempo"
   nivel: "A1"
-  tags: ["lugar", "in"]
-pasos:
-  - "Elige la preposición que describe una ubicación dentro de un edificio."
-tipo: mc
-opciones_explicitas:
-  - "at the library"
-  - "on the library"
-  - "in the library"
-respuesta: "in the library"
-enunciado: "I study ___ the library every afternoon."
-explicacion: "'In' se usa para lugares grandes o encerrados como 'the library', 'the house', o 'the hotel'."
-```
+  tags: ["preposiciones"]
 
-### 19 — Preposition for time of events  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["tiempo", "at"]
-pasos:
-  - "Completa la oración con la preposición correcta para un momento en el tiempo."
-tipo: completar
-respuestas_validas:
-  - "at"
-  - "At"
-enunciado: "The movie starts ___ midnight."
-explicacion: "'At' se usa con horas específicas (midnight, noon), mientras que 'on' es para días y 'in' para meses/años."
-```
+respuesta: falso
+tipo: vf
 
-### 20 — Preposition for dates and events  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["tiempo", "on"]
-pasos:
-  - "Selecciona la preposición que describe una fecha específica de un evento."
-tipo: mc
-opciones_explicitas:
-  - "in the meeting"
-  - "at the meeting"
-  - "on the meeting"
-respuesta: "at the meeting"
-enunciado: "We discussed the project ___ the meeting last week."
-explicacion: "'At' se usa para eventos concretos como 'the meeting', 'the conference', o 'the party'."
-```
+enunciado: "«I'll see you in Monday» es correcta."
 
-### 21 — Preposition for positions in space  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["lugar", "on"]
-pasos:
-  - "Completa la oración con la preposición que describe una posición sobre algo."
-tipo: completar
-respuestas_validas:
-  - "on"
-  - "On"
-enunciado: "The keys are ___ the table."
-explicacion: "'On' indica que algo está sobre una superficie plana, como 'the table' o 'the shelf'."
-```
-
-### 22 — Preposition for directions and places  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["lugar", "at"]
-pasos:
-  - "Elige la preposición que describe una dirección específica."
-tipo: mc
-opciones_explicitas:
-  - "in the street"
-  - "on the street"
-  - "at the street"
-respuesta: "at the street"
-enunciado: "The accident happened ___ the corner of Maple Street."
-explicacion: "'At' describe ubicaciones específicas como 'the corner', 'the street', o 'the park'."
-```
-
-### 23 — Preposition for time frames  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["tiempo", "in"]
-pasos:
-  - "Completa la oración con la preposición correcta para un período de tiempo."
-tipo: completar
-respuestas_validas:
-  - "in"
-  - "In"
-enunciado: "I lived in Paris ___ the year 2018."
-explicacion: "'In' se usa con años ('2018'), meses ('July'), o lugares grandes ('Paris')."
-```
-
-### 24 — Preposition for events and days  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["tiempo", "on"]
-pasos:
-  - "Selecciona la preposición que describe un evento en un día específico."
-tipo: mc
-opciones_explicitas:
-  - "in the concert"
-  - "at the concert"
-  - "on the concert"
-respuesta: "at the concert"
-enunciado: "We attended ___ the concert last night."
-explicacion: "'At' se usa para eventos concretos como 'the concert', 'the party', o 'the meeting'."
-```
-
-### 25 — Preposition for locations and surfaces  
-```
-metadata:
-  materia: "idiomas-extranjeros/ingles"
-  tema: "preposiciones-lugar-tiempo"
-  nivel: "A1"
-  tags: ["lugar", "on"]
-pasos:
-  - "Completa la oración con la preposición correcta para una ubicación en una superficie."
-tipo: completar
-respuestas_validas:
-  - "on"
-  - "On"
-enunciado: "The phone is ___ the desk."
-explicacion: "'On' indica que algo está sobre una superficie plana, como 'the desk' o 'the wall'."
+explicacion: |
+  Falso: *on Monday*.
 ```

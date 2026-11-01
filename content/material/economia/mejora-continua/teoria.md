@@ -18,7 +18,7 @@ Este concepto es especialmente útil en contextos industriales, donde la eficien
 
 ## 2. Orígenes: el kaizen japonés
 
-El término "kaizen" proviene del idioma japonés y se traduce como **"cambio para mejorar"** <!-- IMAGEN: símbolo de la cultura japonesa con iconos de producción y calidad -->. Es una filosofía que se desarrolló en Japón durante el siglo XX, especialmente después de la Segunda Guerra Mundial, cuando los fabricantes buscaban recuperar su competitividad.
+El término "kaizen" proviene del idioma japonés y se traduce como **"cambio para mejorar"**. Es una filosofía que se desarrolló en Japón durante el siglo XX, especialmente después de la Segunda Guerra Mundial, cuando los fabricantes buscaban recuperar su competitividad.
 
 El kaizen no es solo un método técnico: es una mentalidad. Implica que **todos los miembros de una organización**, desde operarios hasta gerentes, deben participar activamente en la búsqueda de mejoras. Cada sugerencia, por pequeña que sea, puede tener un impacto acumulado. Por ejemplo, si un obrero propone reducir 30 segundos en un proceso repetitivo, y eso se aplica a miles de unidades diarias, el ahorro total puede ser sustancial.
 

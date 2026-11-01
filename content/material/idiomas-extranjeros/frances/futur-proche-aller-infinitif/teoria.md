@@ -1,53 +1,46 @@
-# Futur proche: aller + infinitif (A1-A2)
+# Futuro próximo: aller + infinitivo (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/futur-proche-aller-infinitif`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-El **futur proche** en francés es una construcción utilizada para expresar acciones que ocurrirán próximamente. Su estructura básica es **"aller + infinitivo"**, donde "aller" se conjuga según el sujeto y el infinitivo del verbo principal indica la acción futura. Este tiempo verbal es fundamental en niveles básicos (A1-A2) porque permite comunicar planes, intenciones o eventos cercanos sin necesidad de dominar el futuro compuesto o otros tiempos más complejos.
+El **futur proche** (*aller* + infinitivo) expresa un futuro cercano o decidido: *Je **vais partir**.* Es la forma de futuro más usada en el habla, igual que «ir a + infinitivo» en español.
 
 ## Explicación central
-El **futur proche** se forma conjugando el verbo **"aller"** (ir) en presente y añadiendo un infinitivo. Por ejemplo:
-- Je vais manger. (*Voy a comer.*)
-- Tu vas voyager. (*Vas a viajar.*)
-- Il va travailler. (*Va a trabajar.*)
+### Formación: *aller* en presente + infinitivo
+*je **vais** manger, tu **vas** manger, il **va** manger, nous **allons** manger, vous **allez** manger, ils **vont** manger*
+- **Sin preposición**: *Je vais voir* (❌ *Je vais à voir*).
 
-Este tiempo se usa para acciones futuras que ya están decididas o planeadas. Ejemplos reales en contexto:
-1. **Demain, je vais faire une promenade.** (*Mañana voy a dar un paseo.*)
-2. **Nous allons regarder un film ce soir.** (*Vamos a ver una película esta noche.*)
-3. **Elle va télécharger le document.** (*Ella va a descargar el documento.*)
+### Negación
+Alrededor de *aller*: *Je **ne** vais **pas** venir.*
 
-Importante: El infinitivo no lleva "a" en francés, a diferencia del español ("ir + a + infinitivo").
+### Pronombres
+Antes del infinitivo: *Je vais **le** faire. Tu vas **te** lever tôt.*
+
+### Usos
+- Intención o plan: *Ce soir, on **va regarder** un film.*
+- Algo inminente: *Attention, tu **vas tomber** !*
+- Con expresiones de tiempo: *demain, ce soir, la semaine prochaine, dans deux jours*.
+
+### Futur proche vs. futur simple
+- *futur proche*: habla, futuro cercano o seguro: *Je vais partir demain.*
+- *futur simple* (*je partirai*): más formal o lejano, promesas, previsiones: *Un jour, je partirai au Japon.*
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con el futuro simple**: Algunos aprendices usan directamente la conjugación futura del verbo sin "aller", como *Je mangerai* en lugar de *Je vais manger*.
-2. **Uso incorrecto de "aller"**: Errores en la conjugación de "aller": por ejemplo, decir *Elle vas travailler* (falta de agreement con el sujeto femenino).
-3. **Omisión del infinitivo**: Añadir un verbo conjugado en lugar de un infinitivo: *Je vais manges* (error: "manger" debe ser infinitivo).
+1. ❌ *Je vais à manger.* ✅ *Je vais manger.*
+2. ❌ *Je vais ne pas venir.* ✅ *Je ne vais pas venir.*
+3. ❌ *Je le vais faire.* ✅ *Je vais le faire.*
+4. ❌ *Ils allent partir.* ✅ *Ils vont partir.*
 
 ## Comparación con el español
-En español, el equivalente es **ir + a + infinitivo** (*voy a comer*), pero en francés:
-- El verbo **"aller"** se conjuga según el sujeto, sin "a": *je vais*, *tu vas*, etc.
-- En español, también existe el futuro simple (*comeré*), mientras que en francés se prefiere el futur proche para acciones cercanas (excepto en contextos formales).
-
-Ejemplo:
-- Spanish: *Mañana comeré pizza.*
-- French: *Demain, je vais manger de la pizza.*
+«Voy a comer» = *Je vais manger*, pero **sin la preposición «a»**. El pronombre va delante del infinitivo (*je vais le faire*), no delante de *aller*.
 
 ## Ejemplo extendido en contexto
-**Scène**: Dos amigos planifican su fin de semana.
-
-**Léa**: *Samedi, je vais rendre visite à ma tante. Et toi?*
-(*El sábado voy a visitar a mi tía. ¿Y tú?*)
-
-**Pierre**: *Je vais rester chez moi. Mais dimanche, nous allons faire du vélo en forêt.*
-(*Voy a quedarme en casa. Pero el domingo vamos a pasear en bicicleta al bosque.*)
-
-**Léa**: *Super! Je vais aussi préparer un gâteau pour le déjeuner.*
-(*Genial, también voy a preparar un pastel para el almuerzo.*)
-
-Este ejemplo muestra cómo el futur proche se usa para acciones concretas y cercanas en el tiempo, facilitando la comunicación cotidiana.
+*Ce week-end, on **va aller** à la plage. Ma sœur **va préparer** des sandwichs et moi, je **vais** les **apporter**. Il **va faire** beau ! Mais attention : je **ne vais pas nager**, l'eau est trop froide.*

@@ -5,50 +5,39 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en la comparación con el español.
 
 ---
 
-**Introducción**
-La comprensión lectora en el nivel A2 del Marco Común Europeo de Referencia para las Lenguas (CEFR) implica la capacidad de entender textos simples, directos y relacionados con temas cotidianos. En este nivel, los estudiantes pueden leer textos breves como anuncios, horarios, instrucciones básicas o relatos cortos sobre actividades diarias. Es fundamental desarrollar esta habilidad para interactuar con información escrita en contextos reales, como llenar formularios, seguir recetas o identificar lugares en mapas.
+## Introducción
+En A2 se leen **textos cortos y sencillos**: mensajes, correos personales, avisos, menús, horarios, folletos. El objetivo es encontrar **información concreta**: quién, qué, dónde, cuándo, cuánto.
 
-**Explicación central: comprensión literal de textos simples**
-La comprensión literal se refiere a la capacidad de extraer información explícita y directamente mencionada en un texto. En el nivel A2, los textos suelen tener estructuras sencillas, vocabulario básico y pocos conectores complejos. Por ejemplo:
+## Explicación central
+### Tipos de texto y qué buscar
+- **Mensajes y correos**: quién escribe, a quién, para qué (invitar, contar, pedir).
+- **Avisos y carteles**: *Closed on Sundays. No parking. Please do not touch.*
+- **Horarios y menús**: horas, precios, días.
 
-> *Text:*
-> "Hi! My name is Clara. I live in Madrid. I work as a teacher. I like to read books and play tennis."
-> *Question:* "What does Clara do for work?"
-> *Answer:* "She is a teacher."
+### Estrategias
+1. **Mirá el formato** (título, saludo, firma) para saber qué tipo de texto es.
+2. **Leé las preguntas primero** y buscá en el texto las palabras clave (*scanning*).
+3. **Sinónimos**: la pregunta puede decir *How did she travel?* y el texto *We arrived by plane*.
+4. **No te frenes** en las palabras que no conocés: muchas veces el contexto alcanza.
 
-En este caso, la respuesta se obtiene directamente del texto sin necesidad de inferir o deducir. Otro ejemplo podría ser:
+### Palabras que ayudan
+- Tiempo: *yesterday, tomorrow, next week, on Saturday*.
+- Lugar: *near, next to, opposite, in the centre*.
+- Conectores: *and, but, because, so, then*.
 
-> *Text:*
-> "The cinema shows a new movie at 7 p.m. and 9 p.m. today."
-> *Question:* "What time does the movie start?"
-> *Answer:* "At 7 p.m. and 9 p.m."
+## Errores comunes de hispanohablantes
+1. Traducir palabra por palabra y perder tiempo.
+2. Falsos amigos: *library* (biblioteca, no librería), *actually* (en realidad), *exit* (salida).
+3. Elegir una opción porque repite una palabra del texto, sin comprobar el sentido.
 
-**Errores comunes de hispanohablantes**
-1. **Confusión entre artículos definidos e indefinidos:** En inglés, los artículos ("a", "an", "the") no siempre se usan como en español. Por ejemplo, en el texto anterior, "the cinema" usa "the" porque se refiere a un lugar específico, mientras que en español se diría "el cine".
-2. **Malentendidos sobre tiempos y números:** Algunos estudiantes confunden "7 p.m." con "7 horas de la tarde" (en vez de "7 de la noche"). Además, pueden leer mal números como "10th" ("décimo") o "5th floor" ("quinto piso").
-3. **Ignorar conectores simples:** Frases como "and", "but" o "because" son clave para entender relaciones lógicas, pero a veces se pasan por alto. Por ejemplo:
-   > *Text:* "I wanted to go to the park, but it was raining."
-   > *Question:* "Why didn't they go to the park?"
-   > *Answer (incorrecta):* "Because they were tired."
+## Comparación con el español
+Muchas palabras se parecen (*hotel, family, photo, chocolate*), lo que ayuda. Ojo con los falsos amigos.
 
-**Comparación con el español**
-En español, los textos suelen usar más conectores y preposiciones que en inglés. Por ejemplo:
-- En inglés: "I live in Madrid." → En español: "Vivo en Madrid" (sin necesidad de "en" después de "vivo").
-- En inglés, los tiempos verbales son menos complejos: "I work as a teacher" vs. "Trabajo como profesora".
-
-**Ejemplo extendido en contexto**
-*Texto:*
-> "Hello! My name is Tom. I am 12 years old. I go to school from Monday to Friday. After school, I play football with my friends. On Saturdays, I visit my grandparents in the countryside."
-
-*Preguntas de comprensión literal:*
-1. ¿Cuántos años tiene Tom?
-   *Respuesta:* "Tom is 12 years old."
-2. ¿Qué día no va a la escuela?
-   *Respuesta:* "On Saturdays."
-3. ¿Con quién juega al fútbol después de clase?
-   *Respuesta:* "With his friends."
-
-Este tipo de preguntas evalúan si el estudiante puede identificar información específica, repeticiones y secuencias temporales en un texto sencillo. La práctica constante con textos cortos y preguntas directas ayuda a consolidar esta habilidad básica.
+## Ejemplo extendido en contexto
+*Texto: «Café Luna — Open Monday to Saturday, 8 a.m. to 6 p.m. Closed on Sundays. Today's special: vegetable soup, £4.»*
+**Preguntas típicas:** ¿Abre el domingo? (no) ¿A qué hora cierra? (6 p.m.) ¿Cuánto cuesta la sopa? (£4).

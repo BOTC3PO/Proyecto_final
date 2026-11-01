@@ -89,7 +89,7 @@ patrimonio; una que pierde, lo reduce.
 > mínima (Ingresos - Gastos) necesaria para entender de dónde sale el
 > número que conecta con el Patrimonio Neto.
 
-## Por qué "patrimonio" y "ciclo contable" son un solo tema
+## El proceso y su producto
 
 El ciclo contable completo (pasos 1 a 7) **es el proceso**; el
 Patrimonio (y el Estado de Resultados) **es el producto** de ese

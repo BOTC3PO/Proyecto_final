@@ -54,9 +54,9 @@ año calendario:
 Esta comprensión ayuda a visualizar que la escala de tiempo humana es
 una fracción minúscula de la escala de tiempo del universo.
 
-## 4. Por qué este módulo va primero
+## 4. Por qué este tema va primero
 
-Cada tema que sigue en este tronco (formación de estrellas, origen de la
+Cada tema que sigue sobre la historia de la Tierra y de la vida (formación de estrellas, origen de la
 vida, extinciones) se ubica en algún punto de esta línea de tiempo
 gigantesca. Sin la escala como referencia, cualquier fecha ("hace 4.600
 millones de años") es solo un número sin sentido intuitivo.

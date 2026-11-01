@@ -1,0 +1,33 @@
+{
+ "titulo": "Misma nota, distinto timbre",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "math",
+   "title": "Dos ondas con la misma frecuencia fundamental",
+   "functions": [
+    {
+     "id": "f1",
+     "expression": "sin(x) + 0.08*sin(2*x)",
+     "label": "Casi pura, como una flauta"
+    },
+    {
+     "id": "f2",
+     "expression": "sin(x) + 0.5*sin(2*x) + 0.35*sin(3*x) + 0.2*sin(4*x) + 0.1*sin(5*x)",
+     "label": "Rica en armónicas, como un piano"
+    }
+   ],
+   "xMin": 0,
+   "xMax": 12.6,
+   "yMin": -2.2,
+   "yMax": 2.2,
+   "showGrid": true,
+   "showLegend": true
+  },
+  {
+   "id": "b2",
+   "type": "text",
+   "content": "Las dos ondas se repiten con el mismo período: suenan en la misma altura (la misma nota). Cambia la forma, porque cambia la mezcla de armónicas, y eso es el timbre. Es un modelo simplificado: en un instrumento real las armónicas también cambian mientras dura el sonido."
+  }
+ ]
+}

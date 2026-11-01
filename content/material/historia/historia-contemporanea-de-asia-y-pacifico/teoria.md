@@ -14,7 +14,11 @@ El final de la Primera Guerra Mundial (1914-1918) marcó un punto de inflexión 
 
 Simultáneamente, la victoria de Japón sobre Rusia en 1905 había establecido precedentemente que una nación asiática podía derrotar a una potencia europea mediante la modernización, inspirando movimientos panasiáticos y de resistencia anticolonial. Sin embargo, la Conferencia de Paz de París (1919) frustró estas expectativas al transferir las concesiones alemanas en Shandong a Japón en lugar de devolverlas a China, detonando el Movimiento del 4 de Mayo en China. Este evento no solo fue un golpe al orgullo nacional chino. También aceleró la fractura entre los nacionalistas moderados (Kuomintang) y los comunistas emergentes, y sentó las bases de la futura guerra civil y de la posterior alineación con la Unión Soviética.
 
-<!-- IMAGEN: Mapa de las concesiones extranjeras en China y Japón antes de 1937, mostrando la expansión territorial japonesa en Manchuria -->
+![Mapa de Manchukuo, entre la Unión Soviética, Mongolia, China y Corea bajo control japonés](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/MapaDeManchuk%C3%BAo.svg/960px-MapaDeManchuk%C3%BAo.svg.png)
+
+*Imagen: «MapaDeManchukúo», Manchukuo map.png: PANONIAN derivative work: Rowanwindwhistl, CC BY-SA 4.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MapaDeManchuk%C3%BAo.svg).*
+
+Manchukuo (1932–1945), el Estado títere que Japón creó en Manchuria. Corea, en naranja, era colonia japonesa desde 1910.
 
 ## 2. El expansionismo japonés y el colapso del multilateralismo
 
@@ -34,4 +38,3 @@ La historia contemporánea de Asia y el Pacífico no puede entenderse únicament
 
 La historiografía reciente ha cuestionado las narrativas lineales de "modernización" impuestas desde Occidente, destacando la agencia de los actores locales y la diversidad de experiencias. Mientras que en algunas regiones la descolonización generó estabilidad y crecimiento económico (como en el caso de Singapur o parte de la India), en otras dejó legados de inestabilidad política, conflictos étnicos y dependencia económica. La relación entre Asia y el Pacífico sigue siendo dinámica. Hay un renacimiento de la diplomacia regional y una creciente influencia de China que desafía el orden establecido por la posguerra. Eso recuerda la naturaleza cíclica de la historia profunda de la región.
 
-<!-- IMAGEN: Comparación de mapas políticos de Asia en 1939, 1949 y 1975, ilustrando los cambios de fronteras y esferas de influencia -->

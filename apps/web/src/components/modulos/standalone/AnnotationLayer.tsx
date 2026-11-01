@@ -150,7 +150,7 @@ export function AnnotationLayer({ anotaciones, project, selectedId, onSelect, ed
             {f.etiqueta && (
               <text
                 x={midX}
-                y={midY - 6}
+                y={midY - 6 * zoom}
                 textAnchor="middle"
                 fontSize={11 * zoom}
                 fill={color}
@@ -191,7 +191,7 @@ export function AnnotationLayer({ anotaciones, project, selectedId, onSelect, ed
             {r.etiqueta && (
               <text
                 x={midX}
-                y={midY - 6}
+                y={midY - 6 * zoom}
                 textAnchor="middle"
                 fontSize={11 * zoom}
                 fill={color}

@@ -5,37 +5,44 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-La inversión es un fenómeno gramatical que consiste en invertir el orden del sujeto y el verbo auxiliar, generalmente para enfatizar una idea o dar énfasis a un elemento de la oración. En inglés, esta estructura se emplea con frecuencia en contextos formales y escritos académicos, especialmente tras ciertos adverbios negativos como **never** (nunca), **rarely** (raramente) o **not only...but also** (no solo...sino también). Dominar esta regla es clave para comunicarse con precisión en niveles avanzados (C1) del Marco Común Europeo de Referencia para las Lenguas.
+En registro formal o enfático, cuando una oración **empieza con una expresión negativa o restrictiva**, el sujeto y el auxiliar se invierten, como en una pregunta: *Never **have I** seen such a mess.* Es típico del nivel C1, sobre todo en la escritura.
 
 ## Explicación central
-La inversión se utiliza tras adverbios negativos o intensivos que modifican el verbo, creando una estructura más formal y enfática. Ejemplos reales en inglés incluyen:
-- **Never have I seen such a compelling argument.** (Nunca he visto un argumento tan convincente.)
-- **Rarely does this phenomenon occur without consequences.** (Raramente ocurre este fenómeno sin consecuencias.)
-- **Not only did the company invest in renewable energy, but it also reduced its carbon footprint by 30%.** (No solo la empresa invirtió en energía renovable, sino que también redujo su huella de carbono en un 30%.)
+### Estructura
+**Expresión negativa/restrictiva + auxiliar + sujeto + verbo**
+- Si la oración no tiene auxiliar, se agrega ***do/does/did***: *I rarely go out.* → *Rarely **do I** go out.*
 
-En cada caso, el verbo auxiliar (**have**, **does**, **did**) aparece antes del sujeto. Esta estructura se emplea para resaltar lo inusual o excepcional de la acción descrita.
+### Expresiones que provocan inversión
+- **Never, rarely, seldom, hardly ever**: ***Seldom have** I heard such nonsense.*
+- **Not only … but also**: ***Not only did she** win, **but** she **also** broke the record.*
+- **No sooner … than** / **Hardly … when** (una cosa enseguida después de otra): ***No sooner had** I arrived **than** it started to rain. **Hardly had** we sat down **when** the phone rang.*
+- **Under no circumstances / On no account**: ***Under no circumstances should** you open this door.*
+- **Not until** / **Only when / Only after / Only then**: ***Not until** I got home **did I** realise I'd lost my keys. **Only when** she left **did** I understand.* (la inversión va en la oración principal)
+- **Little** (con verbos de saber): ***Little did they know** what was coming.*
+- **Nowhere / At no time**: ***At no time did** the company admit its mistake.*
 
-## Errores comunes de hablantes hispanohablantes
-Los errores más frecuentes incluyen:
-1. **Omitir la inversión** tras adverbios negativos, como decir *I never have seen* (en lugar de *Never have I seen*).
-2. **Usar el verbo principal en lugar del auxiliar**, por ejemplo: *Rarely this phenomenon occurs* (incorrecto) vs. *Rarely does this phenomenon occur* (correcto).
-3. **Confundir la inversión con "not only...but also"** al omitir el verbo auxiliar en la segunda parte, como *Not only the company invested in renewable energy but also reduced its carbon footprint* (incorrecto) vs. *Not only did the company invest... but it also reduced...*
+### Condicionales sin *if* (inversión)
+- *If I had known* → ***Had I known**, I would have helped.*
+- *If you should need help* → ***Should you need** help, call us.*
+- *If I were you* → ***Were I** you, I'd accept.*
+
+### Cuándo no hay inversión
+- Si la expresión no está al principio: *I have never seen it* (sin inversión).
+- Con *only* + sujeto: *Only John knew the answer* (no se invierte: *only* modifica al sujeto).
+
+## Errores comunes de hispanohablantes
+1. Olvidar el auxiliar: ❌ *Never I have seen…* / ❌ *Rarely I go…* ✅ *Never have I seen… / Rarely do I go…*
+2. Invertir en la parte equivocada con *not until / only when*: ❌ *Not until did I get home I realised.* ✅ *Not until I got home did I realise.*
+3. Usarla en una charla informal: suena exageradamente formal.
 
 ## Comparación con el español
-El español no utiliza inversión tras adverbios negativos de manera sistemática, lo que puede generar confusiones. Por ejemplo:
-- En inglés: **Never have I been to Paris.** (Inversión)
-- En español: *Nunca he estado en París.* (Orden normal).
-
-Sin embargo, en el español, se usan estructuras como "Jamás me ha pasado" o "Rara vez ocurre esto", que no requieren inversión del sujeto. Esta diferencia resalta la necesidad de practicar la inversión en inglés para evitar errores formales.
+El español invierte el sujeto con mucha libertad («Nunca he visto…», «Jamás dijo eso») y no necesita auxiliar. En inglés la inversión es obligatoria con estas expresiones al principio, y exige un auxiliar.
 
 ## Ejemplo extendido en contexto
-En una presentación académica sobre sostenibilidad, un hablante podría decir:
-> **"Not only have recent studies highlighted the environmental risks of fossil fuels, but they also emphasize the urgent need for policy reforms. Rarely does a scientific report underscore such a clear connection between human activity and climate change. Never before has our generation faced a crisis that demands immediate global collaboration."**
-
-Este párrafo utiliza inversión para enfatizar la gravedad del tema y dar un tono formal, típico de textos académicos o discursos serios. La estructura resalta lo inusual (*never*), lo poco común (*rarely*) y la dualidad de los hallazgos científicos (*not only...but also*).
-
-Dominar esta regla permite a los hablantes avanzados expresar ideas con mayor precisión, riqueza y formalidad en contextos académicos o profesionales.
+*Not only **did the storm** cut off the electricity, but it also flooded the main road. **At no time were** the residents warned. **Had the council acted** earlier, the damage would have been much smaller.*

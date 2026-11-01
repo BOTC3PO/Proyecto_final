@@ -1,64 +1,51 @@
-# O Pretérito Perfeito em Português: Aprendizado Básico (Nível A1-A2)
+# Pretérito perfecto (perfeito) en portugués de Portugal (A1-A2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-pt/preterito-perfeito`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y mezclaba usos de Brasil con los de Portugal.
 
 ---
 
-## Introdução
-O **Pretérito Perfeito** é um tempo verbal essencial para descrever ações concluídas no passado. No nível A1-A2 do CEFR, ele permite aos aprendentes contar histórias simples ou relatar experiências pessoais de forma clara. Por exemplo: *"Ontem, eu comi uma fruta"* (Ação específica e concluída). Sua correta utilização é fundamental para construir frases diálogos coesos em português.
+## Introducción
+El **pretérito perfeito** cuenta acciones terminadas: *Ontem **comi** bacalhau.* Cubre los usos del pretérito indefinido del español («comí») y también los del pretérito perfecto compuesto («he comido»).
 
-## Explicação Central
-O Pretérito Perfeito é formado com **terminações específicas** dependendo da pessoa do discurso e da conjugação do verbo. Veja exemplos com verbos regulares (-ar, -er, -ir):
+## Explicación central
+### Verbos regulares
+| | falar | comer | partir |
+|---|---|---|---|
+| eu | fal**ei** | com**i** | part**i** |
+| tu | fal**aste** | com**este** | part**iste** |
+| ele / você | fal**ou** | com**eu** | part**iu** |
+| nós | fal**ámos** | com**emos** | part**imos** |
+| eles / vocês | fal**aram** | com**eram** | part**iram** |
 
-### Verbos terminados em **-ar** (ex.: *trabalhar*):
-- Eu **trabalhei** (ontem, eu trabalhei)
-- Tu **trabalhaste** (você trabalhou)
-- Ele/Ela **trabalhou** (ele trabalhou)
-- Nós **trabalhamos** (nós trabalhamos)
-- Vós **trabalhaveis** (vocês trabalharam – menos comum em português do Brasil)
-- Eles/Elas **trabalharam** (eles trabalharam)
+En Portugal, ***falámos*** (pasado) lleva acento y se distingue de *falamos* (presente).
 
-### Verbos terminados em **-er** (ex.: *comer*):
-- Eu **comi**
-- Tu **comeste**
-- Ele/Ela **comeu**
-- Nós **comemos**
-- Vós **comestes**
-- Eles/Elas **comeram**
+### Irregulares
+- **ser/ir**: fui, foste, foi, fomos, foram — **estar**: estive, estiveste, esteve, estivemos, estiveram
+- **ter**: tive, tiveste, teve, tivemos, tiveram — **fazer**: fiz, fizeste, fez, fizemos, fizeram
+- **dizer**: disse, disseste, disse… — **poder**: pude, pudeste, pôde… — **querer**: quis, quiseste, quis…
+- **ver**: vi, viste, viu, vimos, viram — **vir**: vim, vieste, veio, viemos, vieram — **dar**: dei, deste, deu…
 
-### Verbos terminados em **-ir** (ex.: *viver*):
-- Eu **vivi**
-- Tu **viveste**
-- Ele/Ela **viveu**
-- Nós **vivemos**
-- Vós **vivestes**
-- Eles/Elas **viveram**
+### Usos
+- Acción terminada: *Ela **chegou** às oito.*
+- Experiencia o resultado: *Já **comeste** pastéis de nata? — Ainda não **comi**.*
 
-Exemplos no contexto:
-- *"Ontem, eu **fiz** um bolo"* (ação concluída).
-- *"Ela **viu** um filme interessante ontem à noite."*
+### Ojo: *tenho + particípio*
+Significa repetición o continuidad hasta ahora: ***Tenho trabalhado** muito* = «He estado trabajando mucho». No reemplaza al «he comido» del español.
 
-## Erros Comuns de Hispánicos
-1. **Confusão com o Pretérito Imperfeito**: Aprendentes de espanhol podem usar o Pretérito Perfeito para ações que, em português, exigem o imperfeito (ex.: "Eu estava estudando" vs. "Estudava").
-2. **Terminações incorretas**: Erros como *ele comi* ou *nós vivemos* (confusão entre 1ª e 3ª pessoa).
-3. **Uso do infinitivo**: Dizer *"Ontem, eu trabalhar"* em vez de *"trabalhei"*.
+## Errores comunes de hispanohablantes
+1. ❌ *Eu tenho comido bacalhau hoje* (una vez) ✅ *Eu comi bacalhau hoje.*
+2. ❌ *tu falastes* ✅ *tu falaste* (sin -s final).
+3. ❌ *eu fazi* ✅ *eu fiz*.
+4. Escribir *falamos* para el pasado en Portugal (se recomienda *falámos*).
 
-## Comparação com o Espanhol
-No espanhol, o Pretérito Perfeito é usado para ações concluídas no passado (ex.: *Ayer comí*). A diferença está nas **terminações**:
-- Em português: *comi* (1ª pessoa do singular), *comeu* (3ª pessoa do singular).
-- Em espanhol: *comí* (1ª pessoa), *comió* (3ª pessoa).
+## Comparación con el español
+«Ayer fuimos» = *Ontem fomos*; «hoy he visto» = *hoje vi*. La 2.ª persona del singular se parece al español («hablaste» = *falaste*).
 
-Além disso, o português usa o Pretérito Perfeito para ações pontuais, enquanto o espanhol pode utilizar o imperfeito para descrever hábitos no passado (ex.: *"Eu comia frutas todos os dias"* em português vs. *"Comía frutas todos los días"* em espanhol).
-
-## Exemplo Extendido em Contexto
-**Diálogo entre amigos:**
-- *Ana*: "Olá, Carlos! O que você fez ontem?"
-- *Carlos*: "Eu **fui** ao parque e **joguei** futebol com meus colegas."
-- *Ana*: "E eu **fiz** um bolo de chocolate. Meu irmão **comeu** todo!"
-- *Carlos*: "Ah, que legal! Eu **vi** seu bolo na Internet ontem à noite."
-
-Neste exemplo, os verbos **fui**, **joguei**, **fiz**, **comeu** e **vi** estão no Pretérito Perfeito, indicando ações concluídas em um momento específico do passado. A estrutura simples e direta é ideal para o nível A1-A2, facilitando a compreensão e uso prático da gramática.
+## Ejemplo extendido en contexto
+*No sábado **fomos** a Sintra. **Visitámos** o Palácio da Pena, **almoçámos** num restaurante típico e à tarde **vimos** o pôr do sol no Cabo da Roca. Tu já **estiveste** lá?*

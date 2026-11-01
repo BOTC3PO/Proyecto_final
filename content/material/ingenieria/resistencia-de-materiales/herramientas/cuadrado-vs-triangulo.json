@@ -1,0 +1,93 @@
+{
+ "titulo": "Por qué las estructuras usan triángulos",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "shape",
+   "title": "Misma carga lateral, distinta respuesta",
+   "collection": "basica",
+   "canvasWidth": 460,
+   "canvasHeight": 300,
+   "items": [
+    {
+     "id": "v1",
+     "shapeId": "vector",
+     "x": 20,
+     "y": 60,
+     "label": "Empuje"
+    },
+    {
+     "id": "s1",
+     "shapeId": "rectangulo",
+     "x": 130,
+     "y": 60,
+     "label": "Cuadrado articulado"
+    },
+    {
+     "id": "s2",
+     "shapeId": "rombo",
+     "x": 330,
+     "y": 60,
+     "label": "Se deforma"
+    },
+    {
+     "id": "v2",
+     "shapeId": "vector",
+     "x": 20,
+     "y": 200,
+     "label": "Empuje"
+    },
+    {
+     "id": "s3",
+     "shapeId": "triangulo",
+     "x": 130,
+     "y": 200,
+     "label": "Triángulo"
+    },
+    {
+     "id": "s4",
+     "shapeId": "triangulo",
+     "x": 330,
+     "y": 200,
+     "label": "Mantiene su forma"
+    }
+   ],
+   "connectors": [
+    {
+     "id": "c1",
+     "fromId": "s1",
+     "toId": "s2",
+     "style": "arrow"
+    },
+    {
+     "id": "c2",
+     "fromId": "s3",
+     "toId": "s4",
+     "style": "arrow"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "table",
+   "title": "Comparación",
+   "headers": [
+    "Figura",
+    "Con uniones que pueden girar",
+    "Cómo se refuerza"
+   ],
+   "rows": [
+    [
+     "Cuadrado",
+     "Los ángulos cambian y se aplasta como un rombo",
+     "Agregando una diagonal, que lo divide en dos triángulos"
+    ],
+    [
+     "Triángulo",
+     "No puede cambiar de forma sin que cambie el largo de algún lado",
+     "Ya es rígido: es la base de cerchas, grúas y puentes"
+    ]
+   ]
+  }
+ ]
+}

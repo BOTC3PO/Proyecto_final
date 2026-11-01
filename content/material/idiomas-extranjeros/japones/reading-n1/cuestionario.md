@@ -1,418 +1,216 @@
-> **Nota de corrección:** Este cuestionario fue corregido a partir del borrador en
-> `_borradores-gemma/idiomas-extranjeros/japones/reading-n1/cuestionario_crudo.md`
-> mediante el script `mechanical_fix_idiomas.py`. A 17 bloques les faltaba el
-> `enunciado:`, reconstruido como una metapregunta de opción múltiple acorde al punto
-> gramatical probado (causativo-pasivo, forma te, condicional, ために, ので, から,
-> etc.), ya que las propias `opciones_explicitas:` ya eran oraciones completas y
-> autoexplicativas. Se corrigió además un bloque (18) que declaraba el campo
-> `respuestas_validas:` dos veces (YAML duplicado), y se simplificó el enunciado del
-> bloque 16 para evitar una redundancia gramatical (combinar ほど y あまり en la misma
-> oración).
+# Japonés — reading N1 (cuestionario, 11 preguntas VBLang)
 
-### 1 — 空欄補充（てください）
+> Tema: `idiomas-extranjeros/japones/reading-n1`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o ambiguas; ahora cada pregunta trae el fragmento.
+
+---
+
+### 1 — Ironía
+
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["te-form", "polite"]
-pasos:
-  - "Identificar el contexto del pedido."
-  - "Completar el hueco con la forma correcta de 「～てください」."
-respuestas_validas:
-  - "見て"
-  - "見ても"
-tipo: completar
-enunciado: "この本を＿＿＿＿。"
-explicacion: "El te-form se usa para pedir algo cortésmente. La forma correcta es 「見て」 (mirar) en este contexto de petición."
+  tags: ["reading", "N1"]
+
+respuesta: "una crítica irónica"
+tipo: "mc"
+opciones_explicitas: ["una crítica irónica", "aprobación sincera", "indiferencia"]
+
+enunciado: "Texto: «経済効率のために図書館を閉鎖するとは、結構なことだ。そうしておいて、若者の読書離れを嘆くのである。だが、その原因を作っているのは、ほかならぬ我々大人ではないだろうか。» «結構なことだ» expresa…"
+
+explicacion: |
+  Ironía.
 ```
 
+### 2 — Tesis
 
-
-### 2 — カスリバ（させられる）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["causativo-pasivo", "negación"]
-pasos:
-  - "Reconocer la estructura causativa-pasiva."
-  - "Elegir la opción que expresa negación con させられる."
-enunciado: "¿Cuál es la oración correcta que expresa que algo fue hecho contra la voluntad de alguien (causativo-pasivo)?"
-tipo: mc
-opciones_explicitas:
-  - "彼は無理に話させられた"
-  - "彼は話させる"
-  - "彼は話しをした"
-respuesta: "彼は無理に話させられた"
-explicacion: "La forma causativo-pasivo ～させられる se usa para mostrar que algo fue hecho contra la voluntad. La opción correcta incluye el adverbio 無理に (contra la voluntad)."
-```
-
-
-
-### 3 — 比較（ほど）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["comparación", "intensidad"]
-pasos:
-  - "Identificar la relación de intensidad entre los elementos."
-  - "Completar el hueco con 「ほど」 para expresar comparación extrema."
-respuestas_validas:
-  - "高く"
-  - "高くて"
-tipo: completar
-enunciado: "この宝石は＿＿＿＿珍しい。"
-explicacion: "La partícula ほど se usa después de un adjetivo para indicar que algo es extremadamente así. La forma correcta es 「高く」 (costoso)."
+  tags: ["reading", "N1"]
+
+respuesta: "Que los adultos son responsables de que los jóvenes lean menos"
+tipo: "mc"
+opciones_explicitas: ["Que los adultos son responsables de que los jóvenes lean menos", "Que hay que cerrar bibliotecas", "Que los jóvenes leen mucho"]
+
+enunciado: "Texto: «経済効率のために図書館を閉鎖するとは、結構なことだ。そうしておいて、若者の読書離れを嘆くのである。だが、その原因を作っているのは、ほかならぬ我々大人ではないだろうか。» ¿Qué sostiene el autor?"
+
+explicacion: |
+  Tesis final.
 ```
 
+### 3 — Retórica
 
-
-### 4 — 結果（て）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["resultado", "te-form"]
-pasos:
-  - "Reconocer la relación de causa-efecto en la oración."
-  - "Elegir la opción que expresa el resultado con ～て。"
-enunciado: "¿Cuál es la oración correcta que conecta una causa con su resultado usando la forma ~te?"
-tipo: mc
-opciones_explicitas:
-  - "彼は忙しくて、会議に遅れた"
-  - "彼は忙しい"
-  - "彼は会議に来た"
-respuesta: "彼は忙しくて、会議に遅れた"
-explicacion: "El te-form se usa para conectar causas y efectos. La opción correcta muestra que la prisa (忙しさ) causó el retraso (遅れた)."
-```
-
-
-
-### 5 — 条件（なら）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["condicional", "consecuencia"]
-pasos:
-  - "Identificar la condición y su consecuencia."
-  - "Elegir la opción que completa la oración con なら。"
-enunciado: "¿Cuál es la oración correcta que expresa una condición hipotética y su consecuencia?"
-tipo: mc
-opciones_explicitas:
-  - "雨が降ったら、試合は中止になる"
-  - "雨が降っても、試合は続く"
-  - "雨が降らない"
-respuesta: "雨が降ったら、試合は中止になる"
-explicacion: "La forma ～なら se usa para expresar una condición hipotética. La opción correcta conecta la lluvia con la consecuencia lógica de cancelar el partido."
+  tags: ["reading", "N1"]
+
+respuesta: "una afirmación atenuada (= sí, es así)"
+tipo: "mc"
+opciones_explicitas: ["una afirmación atenuada (= sí, es así)", "una duda real", "una negación"]
+
+enunciado: "Texto: «経済効率のために図書館を閉鎖するとは、結構なことだ。そうしておいて、若者の読書離れを嘆くのである。だが、その原因を作っているのは、ほかならぬ我々大人ではないだろうか。» «〜ではないだろうか» funciona como…"
+
+explicacion: |
+  Pregunta retórica.
 ```
 
+### 4 — ほかならぬ
 
-
-### 6 — 経過（た）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["pasado", "experiencia"]
-pasos:
-  - "Reconocer el uso de ～た para describir experiencias pasadas."
-  - "Completar el hueco con la forma correcta del verbo。"
-respuestas_validas:
-  - "行った"
-  - "行こう"
-tipo: completar
-enunciado: "昨日は＿＿＿＿。"
-explicacion: "El te-form ～た se usa para describir acciones pasadas. La forma correcta es 「行った」 (fui)."
+  tags: ["reading", "N1"]
+
+respuesta: "nosotros mismos, los adultos, y nadie más"
+tipo: "mc"
+opciones_explicitas: ["nosotros mismos, los adultos, y nadie más", "otros adultos", "ningún adulto"]
+
+enunciado: "Texto: «経済効率のために図書館を閉鎖するとは、結構なことだ。そうしておいて、若者の読書離れを嘆くのである。だが、その原因を作っているのは、ほかならぬ我々大人ではないだろうか。» «ほかならぬ我々大人» significa…"
+
+explicacion: |
+  Énfasis.
 ```
 
+### 5 — わけではない
 
-
-### 7 — Patrón 〜ざるを得ない
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["causativo-pasivo", "negación"]
-enunciado: "¿Cuál oración usa correctamente el patrón 〜ざるを得ない (no queda más remedio que)?"
-tipo: mc
-opciones_explicitas:
-  - "彼は計画を変更せざるを得なかった"
-  - "彼は計画を変更せざるを得る"
-  - "彼は計画を変更せざるなかった"
-respuesta: "彼は計画を変更せざるを得なかった"
-explicacion: "〜ざるを得ない significa «no tener más remedio que»; en pasado 〜ざるを得なかった. Con する se dice せざるを得ない."
-```
-
-
-
-### 8 — 時間（に）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["tiempo", "exactitud"]
-pasos:
-  - "Reconocer la partícula que indica un momento preciso."
-  - "Completar el hueco con 「に」 para expresar horario."
-respuestas_validas:
-  - "5時"
-  - "5時頃"
-tipo: completar
-enunciado: "会議は＿＿＿＿開く。"
-explicacion: "La partícula に se usa para indicar un momento exacto. La forma correcta es 「5時」 (las cinco)."
+  tags: ["reading", "N1"]
+
+respuesta: "No es que el dinero garantice la felicidad"
+tipo: "mc"
+opciones_explicitas: ["No es que el dinero garantice la felicidad", "El dinero nunca da felicidad", "El dinero siempre da felicidad"]
+
+enunciado: "Texto: «お金があれば幸せになれるわけではない。» Significa…"
+
+explicacion: |
+  Negación parcial.
 ```
 
+### 6 — とは限らない
 
-
-### 9 — 目的（ために）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["propósito", "causa"]
-pasos:
-  - "Identificar la relación de causa y propósito en la oración."
-  - "Elegir la opción que expresa el propósito con ～ために。"
-enunciado: "¿Cuál es la oración correcta que expresa el propósito de una acción con ~ために?"
-tipo: mc
-opciones_explicitas:
-  - "彼は大学に進学するために勉強した"
-  - "彼は大学に進学した"
-  - "彼は勉強した"
-respuesta: "彼は大学に進学するために勉強した"
-explicacion: "La forma ～ために se usa para expresar el propósito de una acción. La opción correcta conecta el estudio con la causa (entrar a la universidad)."
-```
-
-
-
-### 10 — 原因（が）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["causa", "contraste"]
-pasos:
-  - "Reconocer la partícula que introduce una causa contraria a la expectativa."
-  - "Completar el hueco con 「が」 para expresar sorpresa."
-respuestas_validas:
-  - "寒い"
-  - "寒くて"
-tipo: completar
-enunciado: "＿＿＿＿、彼はコートを着ていなかった。"
-explicacion: "La partícula が se usa para introducir una causa que contradice la expectativa. La forma correcta es 「寒い」 (frío)."
+  tags: ["reading", "N1"]
+
+respuesta: "La opinión de los expertos no siempre es correcta"
+tipo: "mc"
+opciones_explicitas: ["La opinión de los expertos no siempre es correcta", "Los expertos nunca tienen razón", "Los expertos siempre tienen razón"]
+
+enunciado: "Texto: «専門家の意見が常に正しいとは限らない。» Significa…"
+
+explicacion: |
+  No necesariamente.
 ```
 
+### 7 — どころか
 
-
-### 11 — 結論（ので）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["consecuencia", "causa"]
-pasos:
-  - "Identificar la relación causa-consecuencia en la oración."
-  - "Elegir la opción que expresa consecuencia con ～ので。"
-enunciado: "¿Cuál es la oración correcta que expresa una consecuencia lógica con ~ので?"
-tipo: mc
-opciones_explicitas:
-  - "彼は病気なので、会議に出席できなかった"
-  - "彼は病気がした"
-  - "彼は会議に来た"
-respuesta: "彼は病気なので、会議に出席できなかった"
-explicacion: "La forma ～ので se usa para expresar una consecuencia lógica de algo. La opción correcta conecta la enfermedad con el resultado (no asistió)."
-```
-
-
-
-### 12 — 比較（より）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["comparación", "superioridad"]
-pasos:
-  - "Reconocer la estructura de comparación."
-  - "Completar el hueco con 「より」 para expresar superioridad."
-respuestas_validas:
-  - "高い"
-  - "高くて"
-tipo: completar
-enunciado: "この商品は＿＿＿＿、他の商品よりも良い。"
-explicacion: "La partícula より se usa para comparar dos elementos. La forma correcta es 「高い」 (más caro)."
+  tags: ["reading", "N1"]
+
+respuesta: "En lugar de disculparse, se enojó"
+tipo: "mc"
+opciones_explicitas: ["En lugar de disculparse, se enojó", "Se disculpó y se fue", "Se disculpó mucho"]
+
+enunciado: "Texto: «彼は謝るどころか、怒り出した。» ¿Qué hizo?"
+
+explicacion: |
+  〜どころか.
 ```
 
+### 8 — Opinión común
 
-
-### 13 — 経過（から）
-```
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["tiempo", "secuencia"]
-pasos:
-  - "Identificar el uso de ～から para indicar un punto de partida en el tiempo."
-  - "Elegir la opción que expresa secuencia con ～から。"
-enunciado: "¿Cuál es la oración correcta que expresa el punto de partida de una acción en el tiempo con ~から?"
-tipo: mc
-opciones_explicitas:
-  - "彼は10時から会議に出席した"
-  - "彼は10時まで待った"
-  - "彼は会議に行った"
-respuesta: "彼は10時から会議に出席した"
-explicacion: "La forma ～から se usa para indicar el inicio de un periodo de tiempo. La opción correcta conecta la hora (10) con la acción (asistir al meeting)."
-```
-
-
-
-### 14 — 結果（た）
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["pasado", "consecuencia"]
-pasos:
-  - "Reconocer el uso de ～た para describir un resultado."
-  - "Completar el hueco con la forma correcta del verbo。"
-respuestas_validas:
-  - "行った"
-  - "行こう"
-tipo: completar
-enunciado: "彼は＿＿＿＿、会議に遅れた。"
-explicacion: "El te-form ～た se usa para describir acciones pasadas. La forma correcta es 「行った」 (fui)."
+  tags: ["reading", "N1"]
+
+respuesta: "Discutir esa idea común"
+tipo: "mc"
+opciones_explicitas: ["Discutir esa idea común", "Apoyarla", "Cambiar de tema"]
+
+enunciado: "Texto: «一般に、若者は政治に無関心だと考えられがちだ。しかし…» ¿Qué hará el autor probablemente?"
+
+explicacion: |
+  Estructura típica.
 ```
 
+### 9 — ようやく
 
-
-### 15 — Causativo-pasivo
 ```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["causativo-pasivo", "negación"]
-enunciado: "Elegí la oración con causativo-pasivo de «残業する» (obligado a hacer horas extra):"
-tipo: mc
-opciones_explicitas:
-  - "彼は毎日、残業させられている"
-  - "彼は毎日、残業させている"
-  - "彼は毎日、残業できる"
-respuesta: "彼は毎日、残業させられている"
-explicacion: "Causativo-pasivo = verbo en forma causativa + られる: 残業させられる."
+  tags: ["reading", "N1"]
+
+respuesta: "Que tardó en actuar"
+tipo: "mc"
+opciones_explicitas: ["Que tardó en actuar", "Que actuó de inmediato", "Que no actuó"]
+
+enunciado: "Texto: «政府はようやく対策に乗り出した。» ¿Qué presupone ようやく?"
+
+explicacion: |
+  ようやく = por fin.
 ```
 
+### 10 — とはいえ
 
-
-### 16 — 時間（に）
-```yaml
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["語彙", "補足"]
-pasos:
-  - "Identificar el significado de la palabra faltante en contexto."
-  - "Elegir la opción que complete la oración con coherencia."
-enunciado: "この映画は＿＿＿人気がない。"
-tipo: mc
-opciones_explicitas:
-  - "あまり"
-  - "とても"
-  - "ほとんど"
-respuesta: "あまり"
-explicacion: "La oración indica una comparación negativa ('no tan popular como otras'). 'あまり' expresa 'no tanto', mientras que 'とても' y 'ほとんど' son positivos o neutros."
+  tags: ["reading", "N1"]
+
+respuesta: "Aunque es primavera, todavía hace frío"
+tipo: "mc"
+opciones_explicitas: ["Aunque es primavera, todavía hace frío", "Como es primavera, hace calor", "En primavera nunca hace frío"]
+
+enunciado: "Texto: «春とはいえ、まだ寒い。» Significa…"
+
+explicacion: |
+  Concesión.
 ```
 
-### 17 — 原因（が）
-```yaml
+### 11 — こそ
+
+```
 metadata:
   materia: "idiomas-extranjeros/japones"
   tema: "reading-n1"
   nivel: "N1"
-  tags: ["形容詞", "文脈"]
-pasos:
-  - "Analizar el rol de la palabra faltante como complemento del sustantivo."
-  - "Elegir la opción que describe correctamente al sujeto."
-respuestas_validas:
-  - "考えられる"
-  - "考えられると"
-enunciado: "この理論は＿＿＿＿、誤っている。"
-tipo: completar
-explicacion: "'考えられる' (se considera) es el complemento lógico de '理論', mientras que otras opciones no encajan gramaticalmente o semánticamente."
-```
+  tags: ["reading", "N1"]
 
-### 18 — 比較（より）
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["過去", "現在"]
-pasos:
-  - "Identificar la relación temporal entre acciones."
-  - "Elegir el verbo que exprese consecuencia lógica."
-enunciado: "¿Cuál es la forma verbal correcta que conecta la aprobación pasada de un plan con su desarrollo actual?"
-tipo: mc
-opciones_explicitas:
-  - "進んで"
-  - "進められ"
-  - "進んだ"
-respuesta: "進んで"
-explicacion: "La oración describe una acción pasada ('el plan fue aprobado') que conduce a un resultado presente. '進んで' (se desarrolló) conecta causalmente ambos eventos."
-```
+respuesta: "énfasis (justamente ahora)"
+tipo: "mc"
+opciones_explicitas: ["énfasis (justamente ahora)", "duda", "negación"]
 
-### 19 — 結果（た）
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["受動態", "過去"]
-pasos:
-  - "Reconocer la necesidad de usar el pasado del verbo en forma pasiva."
-  - "Elegir la opción que refleje un sujeto no mencionado."
-enunciado: "¿Cuál es la forma correcta del verbo en voz pasiva y tiempo pasado para expresar que alguien fue presentado por otra persona?"
-tipo: mc
-opciones_explicitas:
-  - "紹介された"
-  - "紹介する"
-  - "紹介される"
-respuesta: "紹介された"
-explicacion: "El sujeto '彼' (él) está implícito y la acción fue realizada por otro. El pasado pasivo ('紹介された') es necesario para indicar que el evento ya ocurrió."
-```
+enunciado: "Texto: «今こそ行動すべき時だ。» こそ marca…"
 
-### 20 — 時間（に）
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/japones"
-  tema: "reading-n1"
-  nivel: "N1"
-  tags: ["否定", "過去"]
-pasos:
-  - "Identificar el uso del verbo en forma negativa y pasada."
-  - "Elegir la opción que describa una acción omitida."
-enunciado: "¿Cuál es la forma correcta para expresar que alguien no llevaba puesta una prenda en el pasado (negativo + continuo)?"
-tipo: mc
-opciones_explicitas:
-  - "着なかった"
-  - "着てない"
-  - "着ていなかった"
-respuesta: "着ていなかった"
-explicacion: "La oración requiere un verbo en forma negativa y pasada para indicar 'no llevaba' (aunque la acción ya terminó). '着ていなかった' cumple con ambos requisitos."
+explicacion: |
+  Énfasis.
 ```

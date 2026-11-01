@@ -42,18 +42,19 @@ El verbo *to be* en presente tiene tres formas: **am**, **is** y
 
 En inglés se usan contracciones para hacer las oraciones más fluidas:
 *I am → I'm*, *he is → he's*, *they are → they're*. Ejemplo: *She's a
-doctor.* (Ella es médica.) Las contracciones son afirmativas (*I'm*,
-*she's*, *we're*) o negativas (*isn't*, *aren't*, *am not* no se
-contrae en un solo bloque formal, aunque en habla informal se dice
-*I'm not*).
+doctor.* (Ella es médica.) Las contracciones pueden ser afirmativas (*I'm*,
+*she's*, *we're*) o negativas (*isn't*, *aren't*). Para *I am not* la
+contracción es *I'm not*: la forma *amn't* no se usa (y *ain't* es
+coloquial, no estándar).
 
 ## Errores comunes de hispanohablantes
 
 1. **Confusión entre sujeto y forma del verbo**: *He are a student*
    (incorrecto) en vez de *He is a student* (correcto); *You is my
    friend* (incorrecto) en vez de *You are my friend* (correcto).
-2. **Omitir la contracción sin darse cuenta**: escribir *I am not
-   going* cuando en habla natural se espera *I'm not going*.
+2. **Omitir el verbo**: *She happy* o *I from Argentina*, porque en
+   español a veces no hace falta un verbo equivalente; en inglés el
+   verbo es obligatorio: *She is happy*, *I am from Argentina*.
 3. **No invertir el orden en la pregunta**: *You are tired?* en vez de
    la forma esperada *Are you tired?*
 

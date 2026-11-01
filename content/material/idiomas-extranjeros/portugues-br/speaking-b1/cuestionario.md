@@ -1,528 +1,197 @@
-# Idiomas — Portugués (Brasil) — speaking-b1 (cuestionario)
+# Portugués (Brasil) — speaking B1 (cuestionario, 10 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/portugues-br/speaking-b1/cuestionario_crudo.md`)
-> con una corrección de contenido: el bloque 25 carecía de `enunciado:`; se redactó una oración
-> con hueco.
+> Tema: `idiomas-extranjeros/portugues-br/speaking-b1`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas abiertas con muchas respuestas posibles; ahora se elige la expresión adecuada para cada situación.
 
 ---
 
-### 1 — Pronome de objeto direto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["pronome", "objeto direto"]  
-pasos:  
-  - "Identificar el pronombre de objeto direto en la oración."  
-respuestas_validas:  
-  - "me"  
-  - "Me"  
-tipo: completar  
-enunciado: "Ela me deu um livro. Ela ___ deu um livro."  
-explicacion: "El pronombre 'me' reemplaza al complemento directo 'um livro', manteniendo el sentido de la oración."  
+### 1 — Opinar
+
 ```
-
-
-
-### 2 — Verbos modais  
-```  
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "speaking-b1"
   nivel: "B1"
-  tags: ["modal", "poder"]
-pasos:
-  - "Identificá quién pide permiso (yo)."
-  - "Elegí la forma de 'poder' para la 1.ª persona del singular."
-enunciado: "___ viajar com vocês? Gostaria muito de ir."
-opciones_explicitas:
-  - "Posso"
-  - "Pode"
-  - "Podemos"
-  - "Podem"
-respuesta: "Posso"
-tipo: mc
-explicacion: "Para pedir permiso en primera persona se usa 'posso' (yo puedo): Posso viajar com vocês?"
+  tags: ["speaking", "B1"]
+
+respuesta: "Eu acho que o filme é ótimo."
+tipo: "mc"
+opciones_explicitas: ["Eu acho que o filme é ótimo.", "Eu creo que o filme é ótimo.", "Eu penso de que o filme é ótimo."]
+
+enunciado: "La forma más natural de dar tu opinión:"
+
+explicacion: |
+  *Eu acho que…*
 ```
 
+### 2 — Acuerdo
 
-
-### 3 — Preposiciones con verbos  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["preposição", "acostumar"]  
-pasos:  
-  - "Identificar la preposición que completa el verbo 'acostumar'."  
-respuestas_validas:  
-  - "a"  
-  - "A"  
-tipo: completar  
-enunciado: "Ela se acostumou ___ trabalhar de madrugada."  
-explicacion: "'Acostumar a' es la construcción fija que indica adaptación a una acción repetitiva."  
 ```
-
-
-
-### 4 — Formas de futuro  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["futuro", "construção"]  
-pasos:  
-  - "Elegir la forma correcta del verbo en futuro."  
-opciones_explicitas:  
-  - "Vou estudar"  
-  - "Estudarei"  
-  - "Vai estudar"  
-  - "Estudará"  
-respuesta: "Vou estudar"  
-tipo: mc  
-enunciado: "___ mais tarde, quando termine este trabalho."  
-explicacion: "'Vou + infinitivo' es la forma más común para expresar futuro en contextos cotidianos."  
-```
-
-
-
-### 5 — Advérbios de tiempo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["advérbio", "tempo"]  
-pasos:  
-  - "Completar el hueco con el advérbio de tiempo correcto."  
-respuestas_validas:  
-  - "agora"  
-  - "Agora"  
-tipo: completar  
-enunciado: "___ vou ligar para você. Tenho que resolver isso urgentemente."  
-explicacion: "'Agora' indica un momento inmediato, contrastando con otros advérbios como 'depois' o 'mais tarde'."  
-```
-
-
-
-### 6 — Uso de "que" vs. "se"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["relativo", "que/se"]  
-pasos:  
-  - "Seleccionar la palabra que completa correctamente el relativo."  
-opciones_explicitas:  
-  - "que"  
-  - "se"  
-  - "quem"  
-  - "o qual"  
-respuesta: "que"  
-tipo: mc  
-enunciado: "O livro ___ li ontem era muito interessante."  
-explicacion: "'Que' se usa para antecedentes neutros o masculinos, mientras que 'se' no es válido en esta construcción."  
-```
-
-
-
-### 7 — Verbos reflexivos  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["reflexivo", "vestir"]  
-pasos:  
-  - "Identificar el pronombre reflexivo correcto."  
-respuestas_validas:  
-  - "me"  
-  - "Me"  
-tipo: completar  
-enunciado: "Ela ___ vestiu com roupas elegantes para a festa."  
-explicacion: "'Me' reemplaza al sujeto 'ela', indicando que la acción se dirige a sí mismo."  
-```
-
-
-
-### 8 — Uso de "também"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["também", "adverbio"]  
-pasos:  
-  - "Completar el hueco con 'também' o su variante."  
-respuestas_validas:  
-  - "também"  
-  - "Também"  
-tipo: completar  
-enunciado: "Eu ___ quero ir ao cinema, mas preciso terminar meu trabalho primeiro."  
-explicacion: "'Também' se coloca al inicio de la oración para enfatizar una coincidencia con lo anterior."  
-```
-
-
-
-### 9 — Formas del gerundio  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["gerúndio", "construção"]  
-pasos:  
-  - "Elegir la forma correcta del gerundio."  
-opciones_explicitas:  
-  - "Estudando"  
-  - "Estuda"  
-  - "Estudei"  
-  - "Estudar"  
-respuesta: "Estudando"  
-tipo: mc  
-enunciado: "Enquanto ___ , ouviu um barulho estranho."  
-explicacion: "'Gerundio' se forma con el sufijo '-ndo' y es usado en oraciones de tiempo o condición."  
-```
-
-
-
-### 10 — Uso de "por" vs. "para"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["preposição", "por/para"]  
-pasos:  
-  - "Seleccionar la preposición correcta entre 'por' y 'para'."  
-opciones_explicitas:  
-  - "Para"  
-  - "Por"  
-  - "Pelo"  
-  - "Com"  
-respuesta: "Para"  
-tipo: mc  
-enunciado: "Estou aqui ___ ajudar você com o projeto."  
-explicacion: "'Para' indica propósito, mientras que 'por' se usa para razones o causas."  
-```
-
-
-
-### 11 — Adjetivos de género y número  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["adjetivo", "concordância"]  
-pasos:  
-  - "Completar el hueco con el adjetivo concordante en género y número."  
-respuestas_validas:  
-  - "interessantes"  
-  - "Interessantes"  
-tipo: completar  
-enunciado: "As notícias ___ do jornal foram muito úteis para o debate."  
-explicacion: "'Interessantes' concuerda en plural y femenino con 'notícias'."  
-```
-
-
-
-### 12 — Uso de "já" vs. "ainda"  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["advérbio", "tempo"]  
-pasos:  
-  - "Seleccionar el advérbio que completa correctamente la oración."  
-opciones_explicitas:  
-  - "Já"  
-  - "Ainda"  
-  - "Nunca"  
-  - "Também"  
-respuesta: "Já"  
-tipo: mc  
-enunciado: "___ terminei meu relatório, posso te ajudar com o seu?"  
-explicacion: "'Já' indica completitud en el pasado, mientras que 'ainda' sugiere inacabamento."  
-```
-
-
-
-### 13 — Formas del pretérito perfeito  
-```  
 metadata:
   materia: "idiomas-extranjeros/portugues-br"
   tema: "speaking-b1"
   nivel: "B1"
-  tags: ["pretérito", "construção"]
-pasos:
-  - "Elegir la forma correcta del pretérito perfeito."
-enunciado: "___ ao mercado ontem à noite, mas não encontrei o que precisava."
-opciones_explicitas:
-  - "Fui"
-  - "Vou"
-  - "Irei"
-  - "Fazer"
-respuesta: "Fui"
-tipo: mc
-explicacion: "'Fui' es el pretérito perfeito de 'ir' para el sujeto 'eu'; el marcador 'ontem' pide un pasado."
+  tags: ["speaking", "B1"]
+
+respuesta: "Concordo com você."
+tipo: "mc"
+opciones_explicitas: ["Concordo com você.", "Estou de acuerdo.", "Acordo com você."]
+
+enunciado: "Querés decir «Estoy de acuerdo»:"
+
+explicacion: |
+  *Concordo*.
 ```
 
+### 3 — Acuerdo parcial
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 14 — Pronombres de terceira pessoa  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["pronome", "terceira pessoa"]  
-pasos:  
-  - "Identificar el pronombre de tercera persona correcto."  
-respuestas_validas:  
-  - "ela"  
-  - "Ela"  
-tipo: completar  
-enunciado: "___ chegou atrasada, o que causou alguns problemas no expediente."  
-explicacion: "'Ela' reemplaza al sujeto femenino y singular mencionado previamente."  
+respuesta: "Concordo em parte, mas…"
+tipo: "mc"
+opciones_explicitas: ["Concordo em parte, mas…", "Concordo totalmente.", "Discordo de tudo."]
+
+enunciado: "Estás de acuerdo solo en parte:"
+
+explicacion: |
+  *Concordo em parte*.
 ```
 
+### 4 — Razón
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 15 — Uso de "haver" como verbo impersonal  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["verbo", "impessoal"]  
-pasos:  
-  - "Completar el hueco con la forma impersonal de 'haver'."  
-respuestas_validas:  
-  - "há"  
-  - "Há"  
-tipo: completar  
-enunciado: "___ muitos turistas visitando o centro da cidade nesse período."  
-explicacion: "'Há' es la forma impersonal de 'haver', usada para expresar existencia en presente."  
+respuesta: "porque"
+tipo: "mc"
+opciones_explicitas: ["porque", "por isso", "mas"]
+
+enunciado: "«Prefiero el metro ___ es más rápido.»"
+
+explicacion: |
+  Razón: *porque*.
 ```
 
+### 5 — Consecuencia
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 16 — Formas del subjuntivo presente  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["subjuntivo", "construção"]  
-pasos:  
-  - "Elegir la forma correcta del subjuntivo presente."  
-opciones_explicitas:  
-  - "Que ele venha"  
-  - "Que ele vem"  
-  - "Que ele veio"  
-  - "Que ele vier"  
-respuesta: "Que ele venha"  
-tipo: mc  
-enunciado: "___ , poderemos resolver o problema juntos."  
-explicacion: "'Venha' es la forma del subjuntivo presente para el sujeto 'ele', usado en oraciones de deseo o suposición."  
+respuesta: "por isso"
+tipo: "mc"
+opciones_explicitas: ["por isso", "porque", "embora"]
+
+enunciado: "«Choveu muito, ___ ficamos em casa.»"
+
+explicacion: |
+  Consecuencia: *por isso*.
 ```
 
+### 6 — Pedir opinión
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 17 — Uso de "se" como pronombre reflexivo  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["reflexivo", "se"]  
-pasos:  
-  - "Identificar el uso correcto de 'se' como pronombre reflexivo."  
-respuestas_validas:  
-  - "se"  
-  - "Se"  
-tipo: completar  
-enunciado: "Ela ___ preparou para a entrevista, mas ainda está nervosa."  
-explicacion: "'Se' reemplaza al sujeto 'ela', indicando que la acción se dirige a sí misma."  
+respuesta: "E você, o que acha?"
+tipo: "mc"
+opciones_explicitas: ["E você, o que acha?", "E você, que pensas?", "E tu, cómo crees?"]
+
+enunciado: "Querés saber qué piensa el otro:"
+
+explicacion: |
+  *O que você acha?*
 ```
 
+### 7 — Experiencia
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 18 — Adverbios de lugar  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["advérbio", "lugar"]  
-pasos:  
-  - "Seleccionar el adverbio de lugar correcto."  
-opciones_explicitas:  
-  - "Aqui"  
-  - "Ali"  
-  - "Lá"  
-  - "Aí"  
-respuesta: "Aqui"  
-tipo: mc  
-enunciado: "___ está o documento que você solicitou?"  
-explicacion: "'Aqui' se usa para referirse a un lugar cercano al hablante, mientras que 'ali' y 'lá' indican distancias mayores."  
+respuesta: "No ano passado eu fui a Recife. Foi incrível!"
+tipo: "mc"
+opciones_explicitas: ["No ano passado eu fui a Recife. Foi incrível!", "O ano passado eu vou a Recife.", "No ano passado eu ia a Recife uma vez."]
+
+enunciado: "Contás un viaje:"
+
+explicacion: |
+  Pretérito perfeito para un hecho terminado.
 ```
 
+### 8 — Plan
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 19 — Uso de "como" como preposición  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["preposição", "como"]  
-pasos:  
-  - "Completar el hueco con la preposición 'como'."  
-respuestas_validas:  
-  - "como"  
-  - "Como"  
-tipo: completar  
-enunciado: "Ela trabalha ___ assistente de vendas na loja."  
-explicacion: "'Como' se usa para indicar función o rol en una oración, como en 'trabalhar como...'"  
+respuesta: "Estou pensando em fazer um curso de fotografia."
+tipo: "mc"
+opciones_explicitas: ["Estou pensando em fazer um curso de fotografia.", "Estou pensando de fazer um curso.", "Penso fazer-me um curso."]
+
+enunciado: "Hablás de un plan:"
+
+explicacion: |
+  *Pensar em + infinitivo*.
 ```
 
+### 9 — Desacuerdo cortés
 
+```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
-### 20 — Verbos de mudança de estado  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["verbo", "estado"]  
-pasos:  
-  - "Elegir el verbo que completa correctamente la oración."  
-opciones_explicitas:  
-  - "Fiquei"  
-  - "Fiz"  
-  - "Fui"  
-  - "Faço"  
-respuesta: "Fiquei"  
-tipo: mc  
-enunciado: "___ chocado com a notícia, não soube o que dizer."  
-explicacion: "'Fiquei' es la forma del verbo 'ficar' en pretérito perfeito, usado para describir un cambio de estado inmediato."  
+respuesta: "Entendo seu ponto, mas penso diferente."
+tipo: "mc"
+opciones_explicitas: ["Entendo seu ponto, mas penso diferente.", "Você está errado.", "Não!"]
+
+enunciado: "No estás de acuerdo, con amabilidad:"
+
+explicacion: |
+  Desacuerdo suave.
 ```
 
+### 10 — Conclusión
 
-
-### 21 — Uso de "por" con verbos de movimiento  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["preposição", "movimento"]  
-pasos:  
-  - "Seleccionar la preposición correcta para el verbo de movimiento."  
-opciones_explicitas:  
-  - "Por"  
-  - "Para"  
-  - "Em"  
-  - "De"  
-respuesta: "Por"  
-tipo: mc  
-enunciado: "Ela andou ___ horas no parque antes de voltar para casa."  
-explicacion: "'Por' se usa con verbos de movimiento que indican duración o trayectoria, como 'andar por...'"  
 ```
+metadata:
+  materia: "idiomas-extranjeros/portugues-br"
+  tema: "speaking-b1"
+  nivel: "B1"
+  tags: ["speaking", "B1"]
 
+respuesta: "Por isso, eu escolheria a cidade."
+tipo: "mc"
+opciones_explicitas: ["Por isso, eu escolheria a cidade.", "Porque escolheria a cidade.", "Por exemplo, a cidade."]
 
+enunciado: "Cerrás tu argumento:"
 
-### 22 — Adjetivos posesivos  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["adjetivo", "posesivo"]  
-pasos:  
-  - "Completar el hueco con el adjetivo posesivo correcto."  
-respuestas_validas:  
-  - "seu"  
-  - "Seu"  
-tipo: completar  
-enunciado: "O livro ___ está em cima da mesa. Você pode pegá-lo?"  
-explicacion: "'Seu' es el adjetivo posesivo que concuerda con 'livro' (masculino singular) y se usa para referirse a algo perteneciente al interlocutor."  
-```
-
-
-
-### 23 — Uso de "ainda" en oraciones negativas  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["advérbio", "negación"]  
-pasos:  
-  - "Seleccionar el advérbio que completa correctamente la oración."  
-opciones_explicitas:  
-  - "Ainda"  
-  - "Já"  
-  - "Nunca"  
-  - "Também"  
-respuesta: "Ainda"  
-tipo: mc  
-enunciado: "___ não terminamos o projeto, precisamos de mais tempo."  
-explicacion: "'Ainda' se usa en oraciones negativas para enfatizar la inacabación de una acción."  
-```
-
-
-
-### 24 — Formas del futuro perfecto  
-```  
-metadata:  
-  materia: "idiomas-extranjeros/portugues-br"  
-  tema: "speaking-b1"  
-  nivel: "B1"  
-  tags: ["futuro", "perfeito"]  
-pasos:  
-  - "Elegir la forma correcta del futuro perfecto."  
-opciones_explicitas:  
-  - "Terá terminado"  
-  - "Terminará"  
-  - "Terminou"  
-  - "Termina"  
-respuesta: "Terá terminado"  
-tipo: mc  
-enunciado: "___ o relatório até as cinco, então posso ajudar você."  
-explicacion: "'Terá terminado' es la forma del futuro perfecto de 'terminar', usada para acciones completadas antes de un momento futuro."  
-```
-
-
-
-### 25 — Uso de "que" en oraciones subordinadas  
-```  
-metadata:  
-  materia: "portugues-br"  
-  tema: "preposições"  
-  nivel: "B1"  
-  tags: ["tempo", "há vs a"]  
-
-tipo: mc  
-enunciado: "Moro nesta cidade ___ dez anos."  
-opciones_explicitas:  
-  - "há"  
-  - "a"  
-  - "em"  
-  - "durante"  
-
-respuesta: "há"  
-
-pasos:  
-  - "Identificar el uso correcto de la preposición para indicar un período de tiempo."  
-  - "Analizar las opciones según su función gramatical en el contexto."  
-
-explicacion: "La preposición 'há' se usa para expresar un período de tiempo que ya terminó, mientras que 'a' indica un momento específico. En este caso, 'há dois dias' es la forma correcta para referirse a un lapso de tiempo transcurrido."  
+explicacion: |
+  *Por isso…*
 ```

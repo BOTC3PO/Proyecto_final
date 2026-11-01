@@ -1,479 +1,272 @@
-# Idiomas — Francés — registre-soutenu-vs-familier (cuestionario)
+# Francés — registros (cuestionario, 14 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/registre-soutenu-vs-familier/cuestionario_crudo.md`), ya validaba 0 FAIL, sin cambios de contenido.
+> Tema: `idiomas-extranjeros/frances/registre-soutenu-vs-familier`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Écrire une lettre formelle  
+### 1 — boulot
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["formalismo", "correo"]
-pasos:
-  - "Identificar el contexto formal de la carta."
-  - "Elegir la forma verbal adecuada para el registro escrito."
-explicacion: "En correspondencia formal, se usa 'penser que' con el subjuntivo. En contextos informales, se prefieren formas más coloquiales."
-tipo: completar
-enunciado: "Je pense que ___ est nécessaire de réviser ce projet avant la présentation."
-respuestas_validas:
-  - "il"
-  - "IL"
+  tags: ["registro"]
+
+respuesta: "travail"
+tipo: "mc"
+opciones_explicitas: ["travail", "argent", "voiture"]
+
+enunciado: "«Boulot» es la versión familiar de…"
+
+explicacion: |
+  *Boulot = travail*.
 ```
 
-### 2 — Conversación en reunión profesional  
+### 2 — bagnole
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "profesional"]
-pasos:
-  - "Analizar el tono de la situación laboral."
-  - "Seleccionar la forma pronominal correcta para el registro formal."
-explicacion: "En contextos profesionales, se emplean pronombres como 'vous' y verbos en infinitivo con 'il faut'."
-tipo: mc
-enunciado: "Quand on ___ à un client, il faut toujours rester poli."
-opciones_explicitas:
-  - "parle"
-  - "parlez"
-  - "parler"
-  - "parles"
-respuesta: "parle"
+  tags: ["registro"]
+
+respuesta: "voiture"
+tipo: "mc"
+opciones_explicitas: ["voiture", "bouteille", "maison"]
+
+enunciado: "«Bagnole» significa…"
+
+explicacion: |
+  Familiar: *bagnole*.
 ```
 
-### 3 — Redacción de carta a una institución  
+### 3 — fric
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["formalismo", "institución"]
-pasos:
-  - "Reconocer el destinatario formal de la carta."
-  - "Elegir el complemento indirecto adecuado para el registro escrito."
-explicacion: "Ante instituciones, se usan estructuras impersonales como 'il convient' con el infinitivo."
-tipo: completar
-enunciado: "Il convient ___ prendre en compte les remarques du client."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "familier"
+tipo: "mc"
+opciones_explicitas: ["familier", "soutenu", "courant"]
+
+enunciado: "Registro de «fric»:"
+
+explicacion: |
+  *Fric* = dinero, familiar.
 ```
 
-### 4 — Diálogo entre colegas  
+### 4 — Correo formal
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "colaboración"]
-pasos:
-  - "Identificar el contexto informal de la interacción."
-  - "Seleccionar la forma verbal coloquial adecuada."
-explicacion: "Entre colegas, se usan formas como 'tu' y verbos en infinitivo sin preposición."
-tipo: mc
-enunciado: "Tu ___ vraiment besoin d’un café, non?"
-opciones_explicitas:
-  - "as"
-  - "a"
-  - "avoir"
-  - "ai"
-respuesta: "as"
+  tags: ["registro"]
+
+respuesta: "Je vous prie d'agréer l'expression de mes salutations distinguées."
+tipo: "mc"
+opciones_explicitas: ["Je vous prie d'agréer l'expression de mes salutations distinguées.", "À plus !", "Bisous."]
+
+enunciado: "¿Qué cierre corresponde a una carta formal?"
+
+explicacion: |
+  Fórmula soutenue.
 ```
 
-### 5 — Carta de presentación  
+### 5 — Pregunta familiar
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["formalismo", "empleo"]
-pasos:
-  - "Reconocer el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "En cartas formales, se evitan formas personales y se usan estructuras como 'il serait utile'."
-tipo: completar
-enunciado: "Il serait utile ___ établir un plan de travail clair."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "T'es où ?"
+tipo: "mc"
+opciones_explicitas: ["T'es où ?", "Où es-tu ?", "Où est-ce que tu es ?"]
+
+enunciado: "¿Cuál es familier?"
+
+explicacion: |
+  Registro familiar.
 ```
 
-### 6 — Comentario en una reunión  
+### 6 — Pregunta soutenue
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "empresa"]
-pasos:
-  - "Identificar el tono formal de la reunión."
-  - "Seleccionar el complemento indirecto adecuado para el registro."
-explicacion: "En contextos formales, se usan expresiones como 'il faut' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il faut ___ réduire les coûts de production."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "De qui s'agit-il ?"
+tipo: "mc"
+opciones_explicitas: ["De qui s'agit-il ?", "C'est qui ?", "Qui c'est ?"]
+
+enunciado: "¿Cuál es soutenu?"
+
+explicacion: |
+  Registro cuidado.
 ```
 
-### 7 — Diálogo entre amigos  
+### 7 — Negación oral
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "amistad"]
-pasos:
-  - "Reconocer el contexto informal de la conversación."
-  - "Elegir el pronombre adecuado para el registro coloquial."
-explicacion: "Entre amigos, se usan formas como 'tu' y verbos en infinitivo sin preposición."
-tipo: mc
-enunciado: "Tu ___ encore un peu de café?"
-opciones_explicitas:
-  - "as"
-  - "a"
-  - "avoir"
-  - "ai"
-respuesta: "as"
+  tags: ["registro"]
+
+respuesta: "J'sais pas."
+tipo: "mc"
+opciones_explicitas: ["J'sais pas.", "Je ne sais point.", "Je l'ignore."]
+
+enunciado: "En el habla familiar, «Je ne sais pas» suena…"
+
+explicacion: |
+  Caída del *ne*.
 ```
 
-### 8 — Carta a un cliente  
+### 8 — Verlan
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["formalismo", "cliente"]
-pasos:
-  - "Identificar el destinatario formal de la carta."
-  - "Seleccionar la forma impersonal adecuada para el registro escrito."
-explicacion: "Ante clientes, se usan estructuras impersonales como 'il convient' con el infinitivo."
-tipo: completar
-enunciado: "Il convient ___ respecter les délais de livraison."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "fou"
+tipo: "mc"
+opciones_explicitas: ["fou", "feu", "fort"]
+
+enunciado: "«Ouf» en verlan significa…"
+
+explicacion: |
+  *Fou → ouf*.
 ```
 
-### 9 — Diálogo en una conferencia  
+### 9 — meuf
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "conferencia"]
-pasos:
-  - "Identificar el contexto formal de la situación."
-  - "Seleccionar el complemento indirecto adecuado para el registro."
-explicacion: "En conferencias formales, se usan estructuras como 'il serait nécessaire' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il serait nécessaire ___ revoir les termes du contrat."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "femme"
+tipo: "mc"
+opciones_explicitas: ["femme", "frère", "fille"]
+
+enunciado: "«Meuf» es el verlan de…"
+
+explicacion: |
+  *Femme → meuf*.
 ```
 
-### 10 — Comentario en una reunión familiar  
+### 10 — piger
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "familia"]
-pasos:
-  - "Reconocer el contexto informal de la conversación."
-  - "Elegir el pronombre adecuado para el registro coloquial."
-explicacion: "Entre familiares, se usan formas como 'tu' y verbos en infinitivo sin preposición."
-tipo: mc
-enunciado: "Tu ___ encore un peu de pain?"
-opciones_explicitas:
-  - "as"
-  - "a"
-  - "avoir"
-  - "ai"
-respuesta: "as"
+  tags: ["registro"]
+
+respuesta: "No entendí"
+tipo: "mc"
+opciones_explicitas: ["No entendí", "No pagué", "No pegué"]
+
+enunciado: "«J'ai pas pigé» significa…"
+
+explicacion: |
+  *Piger* = comprendre.
 ```
 
-### 11 — Carta a una organización  
+### 11 — on/nous
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["formalismo", "organización"]
-pasos:
-  - "Identificar el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "Ante organizaciones, se usan estructuras como 'il convient' con el infinitivo."
-tipo: completar
-enunciado: "Il convient ___ soumettre un rapport détaillé."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "nous"
+tipo: "mc"
+opciones_explicitas: ["nous", "on", "ça"]
+
+enunciado: "En un informe formal se prefiere…"
+
+explicacion: |
+  Soutenu: *nous*.
 ```
 
-### 12 — Diálogo en una entrevista  
+### 12 — Ci-joint
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "entrevista"]
-pasos:
-  - "Identificar el contexto formal de la interacción."
-  - "Seleccionar la forma verbal adecuada para el registro."
-explicacion: "En entrevistas formales, se usan formas como 'vous' y verbos en infinitivo con 'il faut'."
-tipo: mc
-enunciado: "Quand on ___ à un candidat, il faut rester objectif."
-opciones_explicitas:
-  - "parle"
-  - "parlez"
-  - "parler"
-  - "parles"
-respuesta: "parle"
+  tags: ["registro"]
+
+respuesta: "una fórmula formal para adjuntar"
+tipo: "mc"
+opciones_explicitas: ["una fórmula formal para adjuntar", "una expresión familiar", "un error"]
+
+enunciado: "«Veuillez trouver ci-joint mon CV» es…"
+
+explicacion: |
+  Fórmula de correspondencia.
 ```
 
-### 13 — Carta de agradecimiento  
+### 13 — bosser
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["formalismo", "agradecimiento"]
-pasos:
-  - "Reconocer el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "En cartas formales, se usan estructuras como 'il serait utile' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il serait utile ___ remercier les participants."
-respuestas_validas:
-  - "de"
-  - "DE"
+  tags: ["registro"]
+
+respuesta: "travailler"
+tipo: "mc"
+opciones_explicitas: ["travailler", "bousculer", "boire"]
+
+enunciado: "Equivalente courant de «bosser»:"
+
+explicacion: |
+  *Bosser* = travailler.
 ```
 
-### 14 — Comentario en una reunión de trabajo  
+### 14 — Passé simple
+
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "registre-soutenu-vs-familier"
   nivel: "C1"
-  tags: ["diálogo", "empresa"]
-pasos:
-  - "Identificar el contexto formal de la situación."
-  - "Seleccionar el complemento indirecto adecuado para el registro."
-explicacion: "En reuniones formales, se usan estructuras como 'il faut' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il faut ___ améliorer la communication interne."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
+  tags: ["registro"]
 
-### 15 — Diálogo entre estudiantes  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["diálogo", "estudiantes"]
-pasos:
-  - "Reconocer el contexto informal de la conversación."
-  - "Elegir el pronombre adecuado para el registro coloquial."
-explicacion: "Entre estudiantes, se usan formas como 'tu' y verbos en infinitivo sin preposición."
-tipo: mc
-enunciado: "Tu ___ encore un peu de temps avant le départ?"
-opciones_explicitas:
-  - "as"
-  - "a"
-  - "avoir"
-  - "ai"
-respuesta: "as"
-```
+respuesta: falso
+tipo: vf
 
-### 16 — Carta a una empresa  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["formalismo", "empresa"]
-pasos:
-  - "Identificar el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "Ante empresas, se usan estructuras como 'il convient' con el infinitivo."
-tipo: completar
-enunciado: "Il convient ___ respecter les conditions du contrat."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
+enunciado: "El *passé simple* es habitual en la conversación diaria."
 
-### 17 — Diálogo en una conferencia  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["diálogo", "conferencia"]
-pasos:
-  - "Identificar el contexto formal de la situación."
-  - "Seleccionar el complemento indirecto adecuado para el registro."
-explicacion: "En conferencias formales, se usan estructuras como 'il serait nécessaire' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il serait nécessaire ___ revoir les objectifs du projet."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
-
-### 18 — Comentario en una reunión familiar  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["diálogo", "familia"]
-pasos:
-  - "Reconocer el contexto informal de la conversación."
-  - "Elegir el pronombre adecuado para el registro coloquial."
-explicacion: "Entre familiares, se usan formas como 'tu' y verbos en infinitivo sin preposición."
-tipo: mc
-enunciado: "Tu ___ encore un peu de lait?"
-opciones_explicitas:
-  - "as"
-  - "a"
-  - "avoir"
-  - "ai"
-respuesta: "as"
-```
-
-### 19 — Carta a una organización benéfica  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["formalismo", "organización"]
-pasos:
-  - "Identificar el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "Ante organizaciones benéficas, se usan estructuras como 'il convient' con el infinitivo."
-tipo: completar
-enunciado: "Il convient ___ soutenir les projets locaux."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
-
-### 20 — Diálogo en una entrevista de trabajo  
-```
-metadata:
-  materia: "frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["formal", "subjonctif"]
-pasos:
-  - "Identificar el contexto formal de la oración."
-  - "Reconocer que 'vous' requiere subjonctivo en registros formales."
-explicacion: "En contextos formales, cuando se usa 'vous', se requiere el modo subjonctivo (devriez) para expresar recomendaciones o sugerencias. La forma infinitiva o indicativo sería inapropiada."
-enunciado: "Lorsqu’on parle à un supérieur hiérarchique, vous ___ proposer des solutions concrètes."
-tipo: mc
-opciones_explicitas:
-  - "devriez"
-  - "devez"
-  - "doivent"
-  - "deveriez"
-respuesta: "devriez"
-```
-
-### 21 — Carta de presentación a una empresa  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["formalismo", "empleo"]
-pasos:
-  - "Reconocer el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "En cartas formales, se usan estructuras como 'il serait utile' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il serait utile ___ présenter votre CV à l’entreprise."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
-
-### 22 — Comentario en una reunión de trabajo  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["diálogo", "empresa"]
-pasos:
-  - "Identificar el contexto formal de la situación."
-  - "Seleccionar el complemento indirecto adecuado para el registro."
-explicacion: "En reuniones formales, se usan estructuras como 'il faut' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il faut ___ optimiser les processus de production."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
-
-### 23 — Diálogo entre amigos  
-```
-metadata:
-  materia: "frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["formal", "infinitivo"]
-pasos:
-  - "Reconocer el uso de 'on' en contextos formales."
-  - "Identificar que el infinitivo sin 'de' es la forma correcta después de 'il convient'."
-explicacion: "Después de expresiones como 'il convient', se usa el infinitivo directamente (sans 'de'), y en registros formales, no se aceptan formas coloquiales o contracciones que alteren su estructura."
-enunciado: "Il convient ___ vérifier les documents avant la signature."
-respuestas_validas:
-  - "vérifier"
-  - "Vérifier"
-respuesta: "vérifier"
-```
-
-### 24 — Carta a una institución educativa  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["formalismo", "institución"]
-pasos:
-  - "Identificar el destinatario formal de la carta."
-  - "Elegir la forma impersonal adecuada para el registro escrito."
-explicacion: "Ante instituciones educativas, se usan estructuras como 'il convient' con el infinitivo."
-tipo: completar
-enunciado: "Il convient ___ respecter les normes académiques."
-respuestas_validas:
-  - "de"
-  - "DE"
-```
-
-### 25 — Diálogo en una conferencia  
-```
-metadata:
-  materia: "idiomas-extranjeros/frances"
-  tema: "registre-soutenu-vs-familier"
-  nivel: "C1"
-  tags: ["diálogo", "conferencia"]
-pasos:
-  - "Identificar el contexto formal de la situación."
-  - "Seleccionar el complemento indirecto adecuado para el registro."
-explicacion: "En conferencias formales, se usan estructuras como 'il serait nécessaire' seguidas del infinitivo."
-tipo: completar
-enunciado: "Il serait nécessaire ___ revoir les méthodes de recherche."
-respuestas_validas:
-  - "de"
-  - "DE"
+explicacion: |
+  Falso: es de la narración escrita.
 ```

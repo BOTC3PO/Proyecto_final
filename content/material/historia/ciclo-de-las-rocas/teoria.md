@@ -36,7 +36,11 @@ El **metamorfismo** ocurre cuando una roca está sometida a condiciones extremas
 
 Durante el metamorfismo, los minerales originales se reorganizan, formando nuevas estructuras. Por ejemplo, una roca sedimentaria como la lutita (arcilla compactada) puede convertirse en pizarra o esquisto bajo presión y calor, mientras que la arenisca se transforma en cuarcita. Este proceso no destruye la roca original, sino que la transforma en un estado más estable para las condiciones del ambiente.
 
-<!-- IMAGEN: Comparación entre una roca original y su versión metamórfica -->
+![Fragmento de pizarra gris oscura que se separa en láminas](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Bangor_Slate_%28Martinsburg_Shale%29_%28GeoDIL_number_-_329%29.jpg/960px-Bangor_Slate_%28Martinsburg_Shale%29_%28GeoDIL_number_-_329%29.jpg)
+
+*Imagen: «Bangor Slate (Martinsburg Shale) (GeoDIL number - 329)», Mike Davis, CC0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bangor_Slate_%28Martinsburg_Shale%29_%28GeoDIL_number_-_329%29.jpg).*
+
+Pizarra de Bangor (Estados Unidos), formada a partir de la lutita de Martinsburg: la presión y el calor transformaron una roca sedimentaria blanda en una roca metamórfica dura, que se separa en láminas finas.
 
 ---
 

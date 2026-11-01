@@ -1,56 +1,49 @@
-# Género y concordancia en francés (nivel A1-A2)
+# Género y concordancia en francés (A1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/genero-y-concordancia`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
 ## Introducción
-En el idioma francés, los sustantivos tienen un **género** (masculino o femenino), que afecta a los artículos, adjetivos y pronombres. Esta regla es fundamental para construir oraciones coherentes en niveles básicos (A1-A2). Dominar el género permite evitar errores comunes, como usar un artículo incorrecto o un adjetivo que no concuerde con el sustantivo, lo cual puede hacer que la comunicación sea confusa. Por ejemplo, decir *"une table rouge"* (una mesa roja) es correcto, pero *"un table rouge"* sería erróneo porque "table" es femenino.
-
----
+En francés todo sustantivo es **masculino o femenino**, y los artículos y adjetivos **concuerdan** en género y número. Muchas palabras tienen el mismo género que en español, pero no todas.
 
 ## Explicación central
-El género de un sustantivo determina el uso del **artículo definido** (*le*, *la*, *les*) y la forma del **adjetivo**. Por ejemplo:
-- **Masculino singular**: *le chat* (el gato) + *petit* → *le petit chat*.
-- **Femenino singular**: *la chatte* (la gata) + *petite* → *la petite chatte*.
+### Pistas de género
+- **Femeninos**: *-tion/-sion* (*la nation*), *-té* (*la liberté*), *-ure* (*la voiture*), *-ette* (*la bicyclette*), *-ence/-ance* (*la chance*).
+- **Masculinos**: *-age* (*le fromage, le voyage, le message*), *-ment* (*le moment*), *-eau* (*le bureau*), *-isme* (*le tourisme*).
 
-En plural, los artículos se convierten en *les*, pero el adjetivo debe concordar en género y número:
-- **Masculino plural**: *les chats* + *petits* → *les petits chats*.
-- **Femenino plural**: *les chattes* + *petites* → *les petites chattes*.
+### Género distinto del español
+- Masculinos en francés: ***le** lait* (la leche), ***le** nez* (la nariz), ***le** sang* (la sangre), ***le** sel* (la sal), ***le** miel*, ***le** voyage*, ***le** fromage*, ***le** lit*.
+- Femeninos en francés: ***la** dent* (el diente), ***la** couleur* (el color), ***la** fin*, ***la** mer* (el mar, en el uso general), ***la** voiture* (el auto).
 
-Algunos sustantivos tienen un género fijo, como *le livre* (el libro) o *la chaise* (la silla). Otros cambian según el contexto: por ejemplo, *un médecin* (un médico, masculino) vs. *une médecin* (una médica, femenino).
+### Femenino de los adjetivos
+- Regla general: **+ e**: *grand → grande, petit → petite* (la consonante final pasa a sonar: «gran» / «grand»).
+- Ya terminados en *-e*: no cambian: *jeune, rouge*.
+- *-eux → -euse* (*heureux → heureuse*), *-if → -ive* (*sportif → sportive*), *-er → -ère* (*cher → chère*), *-en → -enne* (*italien → italienne*).
+- Irregulares: *beau → belle, nouveau → nouvelle, vieux → vieille, blanc → blanche, long → longue*.
+- Ante sustantivo masculino que empieza con vocal: ***bel** homme, **nouvel** ami, **vieil** arbre*.
 
----
+### Plural
+- **+ s** (no se pronuncia): *grand → grands*.
+- *-eau → -eaux* (*beaux*), *-al → -aux* (*national → nationaux*).
+
+### Posición
+La mayoría de los adjetivos van **después** (*une voiture rouge*); algunos cortos y frecuentes, **antes**: *beau, joli, grand, petit, bon, mauvais, jeune, vieux, nouveau* (*un petit chat, une belle maison*).
 
 ## Errores comunes de hispanohablantes
-1. **Uso incorrecto del artículo**: Los hablantes de español a menudo omiten el artículo definido cuando se requiere, como en *"est-ce que tu veux un café?"* (¿Quieres un café?) donde "café" es masculino (*le café*).
-2. **Adjetivos invariables**: En español, los adjetivos suelen ir después del sustantivo y no cambian de forma (*una mesa roja*), pero en francés, cuando el adjetivo precede al sustantivo, debe concordar: *une grande maison* (una gran casa) vs. *une maison grande* (una casa grande).
-3. **Confusión con sustantivos neutros**: El español no tiene género para ciertos términos (*el agua*, *la luz*), pero en francés, "eau" es femenino (*l'eau*) y "lumière" también es femenina (*la lumière*).
-
----
+1. ❌ *la lait, le dent* ✅ *le lait, la dent*.
+2. ❌ *un beau homme* ✅ *un bel homme*.
+3. Olvidar la concordancia: ❌ *une voiture rouges* / ❌ *elle est content* ✅ *elle est contente*.
+4. ❌ *une rouge voiture* ✅ *une voiture rouge*.
 
 ## Comparación con el español
-El español y el francés comparten la noción de género, pero difieren en su aplicación:
-- **Artículos**: En español, los artículos no cambian según el género del sustantivo (*el libro*, *la mesa*). En francés, sí: *le livre* vs. *la table*.
-- **Adjetivos antes del sustantivo**: En francés, si el adjetivo va antes del sustantivo, debe concordar en género y número (*une belle femme*, *des beaux hommes*), mientras que en español no se requiere: *una bonita mujer*, *unos buenos hombres*.
-- **Sustantivos abstractos**: En francés, términos como "l'argent" (el dinero) son masculinos, mientras que en español no tienen género (*el dinero*).
-
----
+La lógica es la misma (concordancia en género y número), pero cambian los géneros de algunas palabras frecuentes y en francés la *-s* y la *-e* finales muchas veces no se oyen: hay que fijarse en la escritura.
 
 ## Ejemplo extendido en contexto
-**Escena**: Dos amigos hablan sobre su visita a un museo.
-
-> **Léa**: *"J’ai vu une exposition très intéressante hier."* (Vi una exposición muy interesante ayer.)
-> **Thomas**: *"Quelle exposition? J’ai entendu parler d’un tableau magnifique."* (¿Qué exposición? Escuché hablar de un cuadro magnífico.)
-> **Léa**: *"Oui, c’était une peinture ancienne. Le musée était très grand, mais les tableaux étaient parfois trop petits."* (Sí, era una pintura antigua. El museo era muy grande, pero los cuadros eran a veces demasiado pequeños.)
-
-En este diálogo:
-- *une exposition* → femenino (*la*) + adjetivo *très intéressante* (femenino).
-- *un tableau* → masculino (*le*) + adjetivo *magnifique* (masculino singular).
-- *les tableaux* → plural de *tableau*, con adjetivo *trop petits* (plural masculino).
-
-Dominar esta regla permite construir oraciones precisas y respetar las normas gramaticales del francés.
+*J'ai une **nouvelle** voiture **blanche** et un **vieil** appartement **lumineux**. Ma sœur est **sportive** et très **heureuse** : elle a une **belle** maison près de **la** mer.*

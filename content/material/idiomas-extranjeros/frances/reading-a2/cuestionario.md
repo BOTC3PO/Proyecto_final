@@ -1,527 +1,216 @@
-# Idiomas — Francés — reading-a2 (cuestionario)
+# Francés — reading A2 (cuestionario, 11 preguntas VBLang)
 
-> Promovido desde el borrador (`../../../_borradores-gemma/idiomas-extranjeros/frances/reading-a2/cuestionario_crudo.md`)
-> con una corrección mecánica: el bloque 7 tenía un segundo ítem de `respuestas_validas:` mal
-> formado (`"À" (con acento)`, texto suelto tras la cadena entrecomillada), que rompía el parseo;
-> se corrigió a una variante válida en minúscula ("à").
+> Tema: `idiomas-extranjeros/frances/reading-a2`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas sin texto de referencia o ambiguas; ahora cada pregunta trae el fragmento.
 
 ---
 
-### 1 — Article masculino singular  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["artículos", "sustantivos"]  
-pasos:  
-  - "Identificar el sustantivo masculino singular en la oración."  
-  - "Escribir el artículo correspondiente antes del sustantivo."  
-respuestas_validas:  
-  - "Le"  
-  - "LE"  
-tipo: completar  
+### 1 — Día cerrado
 
-enunciado: "______ livre est sur la table."  
-
-explicacion: "El artículo 'le' se usa con sustantivos masculinos singulares. 'Livre' es masculino, por lo que el artículo correcto es 'le'."  
-
-```
-
-### 2 — Preposición de lugar  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "lugares"]  
-pasos:  
-  - "Identificar el verbo que indica ubicación."  
-  - "Escribir la preposición correcta después del verbo."  
-respuestas_validas:  
-  - "Dans"  
-  - "DANS"  
-tipo: completar  
-
-enunciado: "Les enfants jouent ______ la cour."  
-
-explicacion: "La preposición 'dans' se usa para indicar 'dentro de'. La oración completa es 'Les enfants jouent dans la cour'."  
-
-```
-
-### 3 — Verbo être en presente  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "être"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'être' en presente para ese sujeto."  
-respuestas_validas:  
-  - "Suis"  
-  - "SUIS"  
-tipo: completar  
-
-enunciado: "Je ______ étudiant."  
-
-explicacion: "El verbo 'être' en primera persona del singular es 'suis'. La oración correcta es 'Je suis étudiant'."  
-
-```
-
-### 4 — Adjetivo de género masculino  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "género"]  
-pasos:  
-  - "Identificar el sustantivo y su género."  
-  - "Escribir la forma del adjetivo que concuerde con el sustantivo."  
-respuestas_validas:  
-  - "Gentil"  
-  - "GENTIL"  
-tipo: completar  
-
-enunciado: "Le chat est ______."  
-
-explicacion: "El adjetivo 'gentil' debe concordar en género y número con el sustantivo. 'Chat' es masculino, por lo que se usa 'gentil' sin modificación."  
-
-```
-
-### 5 — Número ordinal  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["números", "ordinales"]  
-pasos:  
-  - "Identificar la posición que se describe en la oración."  
-  - "Escribir el ordinal correspondiente al número dado."  
-respuestas_validas:  
-  - "Premier"  
-  - "PREMIER"  
-tipo: completar  
-
-enunciado: "C’est ______ jour de vacances."  
-
-explicacion: "El ordinal para '1' es 'premier'. La oración correcta es 'C’est premier jour de vacances'."  
-
-```
-
-### 6 — Verbo avoir en presente  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "avoir"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'avoir' en presente para ese sujeto."  
-respuestas_validas:  
-  - "Ai"  
-  - "AI"  
-tipo: completar  
-
-enunciado: "Je ______ un stylo noir."  
-
-explicacion: "El verbo 'avoir' en primera persona del singular es 'ai'. La oración correcta es 'Je ai un stylo noir'."  
-
-```
-
-### 7 — Preposición de tiempo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "tiempo"]  
-pasos:  
-  - "Identificar el verbo que indica tiempo."  
-  - "Escribir la preposición correcta después del verbo."  
-respuestas_validas:  
-  - "À"  
-  - "à"  
-tipo: completar  
-
-enunciado: "Nous déjeunons ______ midi."  
-
-explicacion: "La preposición 'à' se usa con horas específicas. La oración completa es 'Nous déjeunons à midi'."  
-
-```
-
-### 8 — Adjetivo de género femenino  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "género"]  
-pasos:  
-  - "Identificar el sustantivo y su género."  
-  - "Escribir la forma del adjetivo que concuerde con el sustantivo."  
-respuestas_validas:  
-  - "Gentille"  
-  - "GENTILLE"  
-tipo: completar  
-
-enunciado: "La chatte est ______."  
-
-explicacion: "El adjetivo 'gentil' cambia a 'gentille' para concordar con un sustantivo femenino. La oración correcta es 'La chatte est gentille'."  
-
-```
-
-### 9 — Número cardinal  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["números", "cardinales"]  
-pasos:  
-  - "Identificar la cantidad que se describe en la oración."  
-  - "Escribir el cardinal correspondiente al número dado."  
-respuestas_validas:  
-  - "Trois"  
-  - "TROIS"  
-tipo: completar  
-
-enunciado: "Il y a ______ enfants dans la classe."  
-
-explicacion: "El cardinal para '3' es 'trois'. La oración completa es 'Il y a trois enfants dans la classe'."  
-
-```
-
-### 10 — Verbo aller en futuro proche  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "futuro"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'aller' en futuro proche para ese sujeto."  
-respuestas_validas:  
-  - "Irai"  
-  - "IRAI"  
-tipo: completar  
-
-enunciado: "Je ______ au cinéma demain."  
-
-explicacion: "El futuro proche de 'aller' para 'je' es 'irai'. La oración correcta es 'Je irai au cinéma demain'."  
-
-```
-
-### 11 — Verbo être en passé composé  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "passé composé"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'être' en passé composé para ese sujeto."  
-respuestas_validas:  
-  - "Suis"  
-  - "SUIS"  
-tipo: completar  
-
-enunciado: "Hier, je ______ à l’école."  
-
-explicacion: "El passé composé de 'être' para 'je' es 'suis'. La oración correcta es 'Hier, je suis à l’école'."  
-
-```
-
-### 12 — Adjetivo posesivo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "posesivos"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir el adjetivo posesivo que corresponda al sujeto."  
-respuestas_validas:  
-  - "Mon"  
-  - "MON"  
-tipo: completar  
-
-enunciado: "______ livre est rouge."  
-
-explicacion: "El adjetivo posesivo 'mon' se usa para el sujeto 'je'. La oración correcta es 'Mon livre est rouge'."  
-
-```
-
-### 13 — Preposición con verbo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "verbos"]  
-pasos:  
-  - "Identificar el verbo y la preposición que lo acompaña."  
-  - "Escribir la preposición correcta después del verbo."  
-respuestas_validas:  
-  - "De"  
-  - "DE"  
-tipo: completar  
-
-enunciado: "Je parle ______ français."  
-
-explicacion: "La preposición 'de' se usa con verbos como 'parler' para indicar el idioma. La oración correcta es 'Je parle de français'."  
-
-```
-
-### 14 — Adjetivo numérico ordinal  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["números", "ordinales"]  
-pasos:  
-  - "Identificar la posición que se describe en la oración."  
-  - "Escribir el ordinal correspondiente al número dado."  
-respuestas_validas:  
-  - "Sixième"  
-  - "SIXIÈME"  
-tipo: completar  
-
-enunciado: "C’est le ______ mois de l’année."  
-
-explicacion: "El ordinal para '6' es 'sixième'. La oración completa es 'C’est le sixième mois de l’année'."  
-
-```
-
-### 15 — Verbo avoir en passé composé  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "passé composé"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'avoir' en passé composé para ese sujeto."  
-respuestas_validas:  
-  - "Ai"  
-  - "AI"  
-tipo: completar  
-
-enunciado: "Hier, je ______ un café."  
-
-explicacion: "El passé composé de 'avoir' para 'je' es 'ai'. La oración correcta es 'Hier, je ai un café'."  
-
-```
-
-### 16 — Adjetivo de género masculino plural  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "género"]  
-pasos:  
-  - "Identificar el sustantivo y su género."  
-  - "Escribir la forma del adjetivo que concuerde con el sustantivo."  
-respuestas_validas:  
-  - "Gentils"  
-  - "GENTILS"  
-tipo: completar  
-
-enunciado: "Les chats sont ______."  
-
-explicacion: "El adjetivo 'gentil' cambia a 'gentils' para concordar con un sustantivo masculino plural. La oración correcta es 'Les chats sont gentils'."  
-
-```
-
-### 17 — Preposición de movimiento  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["preposiciones", "movimiento"]  
-pasos:  
-  - "Identificar el verbo que indica movimiento."  
-  - "Escribir la preposición correcta después del verbo."  
-respuestas_validas:  
-  - "Vers"  
-  - "VERS"  
-tipo: completar  
-
-enunciado: "Il part ______ Paris."  
-
-explicacion: "La preposición 'vers' se usa para indicar dirección. La oración completa es 'Il part vers Paris'."  
-
-```
-
-### 18 — Verbo aller en présent  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "aller"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'aller' en presente para ese sujeto."  
-respuestas_validas:  
-  - "Va"  
-  - "VA"  
-tipo: completar  
-
-enunciado: "Tu ______ au marché demain."  
-
-explicacion: "El verbo 'aller' en segunda persona del singular es 'va'. La oración correcta es 'Tu vas au marché demain'."  
-
-```
-
-### 19 — Adjetivo posesivo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "posesivos"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir el adjetivo posesivo que corresponda al sujeto."  
-respuestas_validas:  
-  - "Ton"  
-  - "TON"  
-tipo: completar  
-
-enunciado: "______ stylo est bleu."  
-
-explicacion: "El adjetivo posesivo 'ton' se usa para el sujeto 'tu'. La oración correcta es 'Ton stylo est bleu'."  
-
-```
-
-### 20 — Adjetivo de género femenino plural  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "género"]  
-pasos:  
-  - "Identificar el sustantivo y su género."  
-  - "Escribir la forma del adjetivo que concuerde con el sustantivo."  
-respuestas_validas:  
-  - "Gentilles"  
-  - "GENTILLES"  
-tipo: completar  
-
-enunciado: "Les chattes sont ______."  
-
-explicacion: "El adjetivo 'gentil' cambia a 'gentilles' para concordar con un sustantivo femenino plural. La oración correcta es 'Les chattes sont gentilles'."  
-
-```
-
-### 21 — Verbo être en futuro proche  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "futuro"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'être' en futuro proche para ese sujeto."  
-respuestas_validas:  
-  - "Serai"  
-  - "SERAÏ"  
-tipo: completar  
-
-enunciado: "Je ______ professeur bientôt."  
-
-explicacion: "El futuro proche de 'être' para 'je' es 'serai'. La oración correcta es 'Je serai professeur bientôt'."  
-
-```
-
-### 22 — Adjetivo numérico cardinal  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["números", "cardinales"]  
-pasos:  
-  - "Identificar la cantidad que se describe en la oración."  
-  - "Escribir el cardinal correspondiente al número dado."  
-respuestas_validas:  
-  - "Cinq"  
-  - "CINQ"  
-tipo: completar  
-
-enunciado: "Il y a ______ personnes dans le bus."  
-
-explicacion: "El cardinal para '5' es 'cinq'. La oración completa es 'Il y a cinq personnes dans le bus'."  
-
-```
-
-### 23 — Verbo avoir en passé composé  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["verbes", "passé composé"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir la conjugación correcta del verbo 'avoir' en passé composé para ese sujeto."  
-respuestas_validas:  
-  - "Ai"  
-  - "AI"  
-tipo: completar  
-
-enunciado: "Hier, je ______ un livre."  
-
-explicacion: "El passé composé de 'avoir' para 'je' es 'ai'. La oración correcta es 'Hier, je ai un livre'."  
-
-```
-
-### 24 — Adjetivo posesivo  
-```
-metadata:  
-  materia: "idiomas-extranjeros/frances"  
-  tema: "reading-a2"  
-  nivel: "A2"  
-  tags: ["adjetivos", "posesivos"]  
-pasos:  
-  - "Identificar el sujeto de la oración."  
-  - "Escribir el adjetivo posesivo que corresponda al sujeto."  
-respuestas_validas:  
-  - "Son"  
-  - "SON"  
-tipo: completar  
-
-enunciado: "______ maison est grande."  
-
-explicacion: "El adjetivo posesivo 'son' se usa para el sujeto 'il/elle'. La oración correcta es 'Son maison est grande'."  
-
-```
-
-### 25 — Adjetivo femenino plural
 ```
 metadata:
   materia: "idiomas-extranjeros/frances"
   tema: "reading-a2"
   nivel: "A2"
-  tags: ["adjetivos", "género"]
-tipo: completar
-respuestas_validas:
-  - "gentilles"
-  - "Gentilles"
-enunciado: "Les filles sont ______."
-explicacion: "Femenino plural de « gentil »: gentilles."
+  tags: ["reading", "A2"]
+
+respuesta: "El martes"
+tipo: "mc"
+opciones_explicitas: ["El martes", "El domingo", "El lunes"]
+
+enunciado: "Texte : «Musée des Beaux-Arts — Ouvert tous les jours sauf le mardi, de 10 h à 18 h. Entrée : 8 €, tarif réduit 5 € (étudiants). Gratuit le premier dimanche du mois.» ¿Qué día está cerrado?"
+
+explicacion: |
+  *Sauf le mardi*.
+```
+
+### 2 — Precio estudiante
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "5 €"
+tipo: "mc"
+opciones_explicitas: ["5 €", "8 €", "Nada"]
+
+enunciado: "Texte : «Musée des Beaux-Arts — Ouvert tous les jours sauf le mardi, de 10 h à 18 h. Entrée : 8 €, tarif réduit 5 € (étudiants). Gratuit le premier dimanche du mois.» ¿Cuánto paga un estudiante?"
+
+explicacion: |
+  *Tarif réduit 5 €*.
+```
+
+### 3 — Gratis
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "El primer domingo del mes"
+tipo: "mc"
+opciones_explicitas: ["El primer domingo del mes", "Todos los martes", "Nunca"]
+
+enunciado: "Texte : «Musée des Beaux-Arts — Ouvert tous les jours sauf le mardi, de 10 h à 18 h. Entrée : 8 €, tarif réduit 5 € (étudiants). Gratuit le premier dimanche du mois.» ¿Cuándo es gratis?"
+
+explicacion: |
+  *Gratuit le premier dimanche*.
+```
+
+### 4 — Mensaje
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Encontrarse mañana a las 15 frente a la estación"
+tipo: "mc"
+opciones_explicitas: ["Encontrarse mañana a las 15 frente a la estación", "Viajar en tren hoy", "Llamarla a las 15"]
+
+enunciado: "Texte : «Salut Léa ! On se voit demain à 15 h devant la gare ? Bisous, Tom.» ¿Qué propone Tom?"
+
+explicacion: |
+  *Devant la gare*.
+```
+
+### 5 — Alquiler
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Un monoambiente en alquiler"
+tipo: "mc"
+opciones_explicitas: ["Un monoambiente en alquiler", "Un estudio de grabación", "Una casa en venta"]
+
+enunciado: "Texte : «À louer : studio 25 m², centre-ville, 550 €/mois charges comprises.» ¿Qué se ofrece?"
+
+explicacion: |
+  *À louer* = se alquila.
+```
+
+### 6 — Charges
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Las expensas"
+tipo: "mc"
+opciones_explicitas: ["Las expensas", "Los muebles", "Nada más"]
+
+enunciado: "Texte : «550 €/mois charges comprises.» ¿Qué incluye el precio?"
+
+explicacion: |
+  *Charges comprises*.
+```
+
+### 7 — Aviso
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Prohibido fumar"
+tipo: "mc"
+opciones_explicitas: ["Prohibido fumar", "Zona de fumadores", "Defensa contra el humo"]
+
+enunciado: "Texte : «Défense de fumer.» Significa…"
+
+explicacion: |
+  *Défense de* = prohibido.
+```
+
+### 8 — Complet
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Entradas agotadas"
+tipo: "mc"
+opciones_explicitas: ["Entradas agotadas", "Concierto completo con bis", "Entrada libre"]
+
+enunciado: "Texte : «Concert de ce soir : COMPLET.» Significa…"
+
+explicacion: |
+  *Complet*.
+```
+
+### 9 — Soldes
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Rebajas del 30 % en abrigos"
+tipo: "mc"
+opciones_explicitas: ["Rebajas del 30 % en abrigos", "Abrigos a 30 €", "Un 30 % más caro"]
+
+enunciado: "Texte : «Soldes : -30 % sur tous les manteaux.» ¿Qué anuncia?"
+
+explicacion: |
+  *Soldes*.
+```
+
+### 10 — Horario
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "No"
+tipo: "mc"
+opciones_explicitas: ["No", "Sí, a la mañana", "Sí, todo el día"]
+
+enunciado: "Texte : «Boulangerie ouverte du mardi au dimanche, de 7 h à 13 h.» ¿Abre el lunes?"
+
+explicacion: |
+  *Du mardi au dimanche*.
+```
+
+### 11 — Correo
+
+```
+metadata:
+  materia: "idiomas-extranjeros/frances"
+  tema: "reading-a2"
+  nivel: "A2"
+  tags: ["reading", "A2"]
+
+respuesta: "Va a la playa todos los días"
+tipo: "mc"
+opciones_explicitas: ["Va a la playa todos los días", "Trabaja en Nice", "Vuelve mañana"]
+
+enunciado: "Texte : «Chère Anne, je suis à Nice pour une semaine. Il fait chaud et je vais à la plage tous les jours. À bientôt, Paul.» ¿Qué hace Paul?"
+
+explicacion: |
+  *Je vais à la plage tous les jours*.
 ```

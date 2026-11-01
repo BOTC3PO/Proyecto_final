@@ -1,0 +1,81 @@
+{
+ "titulo": "La crisis del siglo XIV",
+ "blocks": [
+  {
+   "id": "b1",
+   "type": "flow",
+   "title": "De la expansión a la crisis",
+   "nodes": [
+    {
+     "id": "n1",
+     "label": "Expansión agrícola y demográfica (siglos XI–XIII)",
+     "x": 0,
+     "y": 0,
+     "color": "#dcfce7"
+    },
+    {
+     "id": "n2",
+     "label": "Se cultivan tierras peores: rinden menos",
+     "x": 212,
+     "y": 0,
+     "color": "#fef9c3"
+    },
+    {
+     "id": "n3",
+     "label": "Gran Hambruna (1315–1317)",
+     "x": 424,
+     "y": 0,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n4",
+     "label": "Peste Negra (1347–1351): muere un tercio o más de Europa",
+     "x": 424,
+     "y": 126,
+     "color": "#fee2e2"
+    },
+    {
+     "id": "n5",
+     "label": "Faltan campesinos: los señores aumentan las cargas",
+     "x": 212,
+     "y": 126,
+     "color": "#ffedd5"
+    },
+    {
+     "id": "n6",
+     "label": "Revueltas campesinas: Jacquerie (1358), Inglaterra (1381)",
+     "x": 0,
+     "y": 126,
+     "color": "#f3e8ff"
+    }
+   ],
+   "edges": [
+    {
+     "id": "e1",
+     "fromId": "n1",
+     "toId": "n2"
+    },
+    {
+     "id": "e2",
+     "fromId": "n2",
+     "toId": "n3"
+    },
+    {
+     "id": "e3",
+     "fromId": "n3",
+     "toId": "n4"
+    },
+    {
+     "id": "e4",
+     "fromId": "n4",
+     "toId": "n5"
+    },
+    {
+     "id": "e5",
+     "fromId": "n5",
+     "toId": "n6"
+    }
+   ]
+  }
+ ]
+}

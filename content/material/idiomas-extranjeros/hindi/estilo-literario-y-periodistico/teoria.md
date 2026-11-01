@@ -7,7 +7,7 @@ El hindi literario se distingue por las **figuras retóricas** (*alaṅkār*), e
 
 ## Explicación central
 - **Literario**:
-  - **उपमा** (símil): **चाँद-सा** चेहरा, शहद**-सी** मीठी आवाज़ (-सा/-सी/-से concuerdan);
+  - **उपमा** (símil): **चाँद-सा** चेहरा, **शहद-सी** मीठी आवाज़ (-सा/-सी/-से concuerdan);
   - **रूपक** (metáfora): वह गुलाब है;
   - **मानवीकरण** (personificación): हवा गा रही है;
   - **अनुप्रास** (aliteración), **व्यंग्य** (ironía), **प्रश्नालंकार** (pregunta retórica);

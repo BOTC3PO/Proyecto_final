@@ -68,9 +68,9 @@ ebullición, no la temperatura.
   a temperatura constante (`Q = m·L`, con `L` el calor latente de fusión
   o de vaporización de la sustancia).
 
-Este tema (calor latente con fórmula) ya está construido en Física (`Cambios
-de estado: calor latente Q = m·L`, nodo `TER4` de `troncos.md`). Acá el foco
-es el *qué* y *por qué* ocurre cada cambio, no el cálculo numérico de `Q`.
+El cálculo del calor latente con la fórmula Q = m·L se trabaja en Física
+(cambios de estado y calor latente). Acá el foco es el *qué* y el *por qué*
+de cada cambio, no el cálculo numérico de Q.
 
 ## 5. Puntos de referencia (agua, a 1 atm)
 

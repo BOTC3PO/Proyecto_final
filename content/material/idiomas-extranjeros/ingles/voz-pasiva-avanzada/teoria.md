@@ -5,38 +5,47 @@
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía explicaciones confusas y ejemplos con errores.
 
 ---
 
 ## Introducción
-La voz pasiva avanzada implica construir oraciones donde el sujeto receptor de la acción no se menciona explícitamente, pero se enfatiza el verbo o el complemento. En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), es crucial dominar esta estructura al combinarla con modales (como *must*, *should*) y tiempos perfectos (*have/has been + participio*). Esto permite expresar obligaciones, necesidades o acciones completadas sin mencionar quién las realizó.
+En el nivel B2 la voz pasiva se extiende a **todos los tiempos**, a los **modales** y a estructuras impersonales como *It is said that…*
 
 ## Explicación central
-La voz pasiva se forma con **be** + participio del verbo. Al añadir modales y tiempos perfectos, la estructura cambia:
+### Pasiva en todos los tiempos (be en el tiempo + participio)
+| Tiempo | Activa | Pasiva |
+|---|---|---|
+| present continuous | *They are repairing the road.* | *The road **is being repaired**.* |
+| past continuous | *They were painting the house.* | *The house **was being painted**.* |
+| present perfect | *Someone has stolen my bag.* | *My bag **has been stolen**.* |
+| past perfect | *They had sold the car.* | *The car **had been sold**.* |
+| future (will) | *They will announce the results.* | *The results **will be announced**.* |
+| going to | *They are going to build a school.* | *A school **is going to be built**.* |
 
-- **Modal + be + participio**: *The report must be submitted by Friday.* (El informe debe entregarse antes del viernes).
-- **Have/has been + participio**: *The project has been completed.* (El proyecto ha sido completado).
-- **Modal + have/has been + participio**: *The data should have been analyzed earlier.* (Los datos deberían haberse analizado antes).
+### Pasiva con modales: **modal + be + participio**
+- *The work **must be finished** by Friday. This **can't be done** today. It **should be checked**.*
+- Pasado: **modal + have been + participio**: *The letter **should have been sent** yesterday. It **might have been lost**.*
 
-Ejemplos reales:
-1. *The car was stolen last night.* → *The car must have been stolen by someone nearby.* (El coche debió haber sido robado por alguien cercano).
-2. *The contract has been signed.* (El contrato ha sido firmado).
-3. *The system should be updated regularly.* (El sistema debe actualizarse regularmente).
+### Verbos con dos objetos
+- *They gave **me** a prize.* → ***I was given** a prize.* (lo más natural) / *A prize was given to me.*
+
+### Pasiva impersonal (formal, periodística)
+- ***It is said that** he is very rich.* / ***He is said to be** very rich.*
+- *It is believed that…, It is thought that…, It is reported that…* → *The suspect **is believed to have** left the country.*
+
+### have/get something done (causativa)
+- *I **had my hair cut**.* (alguien me lo cortó) — *We **got the car repaired**.*
 
 ## Errores comunes de hispanohablantes
-1. **Olvidar el auxiliar “have” en tiempos perfectos**: Frases como *"The house was built"* (falso) en lugar de *"The house has been built"* (correcto).
-2. **Uso incorrecto de modales con pasiva**: Confundir *must be* (*debe ser*) con *should have been* (*debería haber sido*). Por ejemplo: *"The error must have been fixed"* (el error debió haberse corregido) vs. *"The error should be fixed now"* (el error debe corregirse ahora).
-3. **Confusión entre tiempos**: Usar *was + participio* en lugar de *has/have been + participio* para acciones recientes.
+1. Olvidar *being* en el continuo: ❌ *The road is repaired now* (para algo en curso) ✅ *is being repaired*.
+2. ❌ *must to be done* ✅ *must be done*.
+3. ❌ *I cut my hair at the hairdresser's* (si no lo cortaste vos) ✅ *I had my hair cut*.
+4. ❌ *It is said he to be rich.* ✅ *He is said to be rich.*
 
 ## Comparación con el español
-En español, la voz pasiva se forma con *ser* + participio (*El informe fue entregado*). Sin embargo:
-- **Modales**: En inglés, los modales (como *must*, *should*) van antes de *be*, mientras que en español se usan frases como *"debería haberse entregado"* o *"debe entregarse"*.
-- **Tiempos perfectos**: El español usa *haber + participio* (ej. *"El informe ha sido entregado"*), similar a inglés, pero sin la necesidad de un modal adicional para expresar obligaciones.
+«Se dice que es rico» = *It is said that he is rich* o *He is said to be rich*. «Me cortaron el pelo» / «Me corté el pelo (en la peluquería)» = *I had my hair cut*. El español resuelve muchos de estos casos con «se» o con la tercera persona plural impersonal («dicen que…»).
 
 ## Ejemplo extendido en contexto
-**Contexto**: Un equipo de trabajo discute el estado de un proyecto tecnológico.
-- *Manager*: "The software must have been tested thoroughly before release." (El software debió haberse probado exhaustivamente antes del lanzamiento).
-- *Developer*: "Yes, but the bugs should have been fixed earlier." (Sí, pero los errores deberían haberse corregido antes).
-- *Manager*: "The latest update has been approved by the client. We can proceed now." (La última actualización ha sido aprobada por el cliente. Pueden continuar ahora).
-
-Este tipo de construcciones permite describir situaciones donde se requiere responsabilidad, cumplimiento de plazos o análisis de acciones pasadas sin nombrar al sujeto que las realizó.
+*The old station **is being renovated**. The work **should have been finished** last year, but it **has been delayed** several times. **It is reported that** the new building **will be opened** in March. Meanwhile, passengers **are being asked** to use the temporary entrance.*

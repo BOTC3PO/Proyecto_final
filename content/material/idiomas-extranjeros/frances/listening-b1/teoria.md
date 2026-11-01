@@ -1,64 +1,45 @@
-# Comprensión auditiva en francés (nivel B1)
+# Comprensión auditiva en francés (B1)
 
 > Tema del MAPA: `idiomas-extranjeros/frances/listening-b1`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior daba pocas estrategias concretas y tenía errores en los ejemplos.
 
 ---
 
 ## Introducción
-La comprensión auditiva al nivel B1 implica entender conversaciones cotidianas, instrucciones básicas y noticias breves, siempre que se usen estructuras gramaticales simples y vocabulario familiar. Es clave para interactuar en contextos reales como pedir algo en un café, seguir indicaciones o participar en debates sencillos. A este nivel, los estudiantes deben aprender a identificar ideas principales, detalles específicos y expresiones comunes, incluso cuando el hablante use una velocidad moderada de habla.
+En B1 se entienden **conversaciones y relatos** sobre temas conocidos (trabajo, estudios, viajes, ocio) y se reconocen **opiniones, razones, planes y sentimientos**.
 
-## Explicación central con ejemplos reales
-En francés, la comprensión auditiva se basa en la capacidad de captar palabras clave, entonación y contexto. Por ejemplo:
+## Explicación central
+### Opinión y acuerdo
+- *Je pense que… / À mon avis… / Pour moi…*
+- Acuerdo: *Tout à fait. / Je suis d'accord. / C'est vrai.* — Desacuerdo: *Je ne suis pas d'accord. / Pas du tout. / Bof…*
 
-**Diálogo 1 (en un café):**
-*Client*: «Excusez-moi, le menu, s’il vous plaît ?»
-*Empleado*: «Bien sûr, voici le menu. Aujourd’hui, nous avons une spécialité : la quiche lorraine. Vous voulez essayer ?»
+### Causa y consecuencia
+*parce que, comme, donc, alors, du coup* (en el habla: «entonces, por eso»): *Il pleuvait, **du coup** on est restés à la maison.*
 
-Aquí, el cliente solicita el menú y el empleado menciona una especialidad. Los oyentes deben identificar:
-- Palabras clave como *spécialité*, *quiche lorraine* (un plato típico).
-- Estructuras gramaticales como *nous avons une spécialité* (tenemos una especialidad) y *vous voulez essayer ?* (¿desea probar?).
+### Marcadores del habla
+*bon, ben, alors, en fait* (en realidad), *quoi* (al final, enfático), *genre* (tipo), *t'sais* (¿viste?), *bref*.
 
-**Ejemplo de noticia breve:**
-«La température est tombée à 2°C ce matin. Les habitants ont dû allumer les chauffages.»
-El oyente debe captar que la temperatura bajó y que las personas encendieron los calefactores.
+### Actitud
+- Entusiasmo: *Génial ! Super ! J'adore !* — Disgusto: *C'est nul. Ça m'énerve.* — Sorpresa: *C'est pas vrai ! Sérieux ?*
+- Ironía: *Ah ben bravo !* (al revés de lo que dice).
 
-### Elementos clave para comprender:
-1. **Vocabulario contextual**: Reconocer palabras relacionadas con temas comunes (comida, clima, transporte).
-2. **Entonación y acentuación**: El francés usa pausas y tono para enfatizar ideas (ej.: «*Vous voulez essayer ?*» vs. «*vous voulez essayer ?*» con tono ascendente en la última palabra).
-3. **Velocidad de habla**: Aunque no es tan rápida como en inglés, el francés puede usar contracciones (*c’est*, *j’ai*) que requieren atención.
+### Estrategias
+1. Identificar quién habla y en qué situación.
+2. Buscar la opinión y su razón (*parce que*).
+3. Separar hechos de planes (futuro) y de recuerdos (pasado).
 
 ## Errores comunes de hispanohablantes
-1. **Confusión con palabras similares**:
-   - *C’est* (es) vs. *s’est* (se ha). Ejemplo: «*C’est le livre*» (es el libro) vs. «*Il s’est perdu*» (se perdió).
-   - *Le* (el) vs. *la* (la), especialmente en contextos donde no se usa artículo.
-
-2. **Dificultad con la liaison**:
-   La conexión de palabras al final y principio, como en «*les amis*» [le-zamí] o «*elle est partie*» [el-est-párti]. Los hispanohablantes suelen omitir estas conexiones.
-
-3. **Ignorar la entonación**:
-   En francés, el tono final de una frase indica si es afirmativa (descendente) o interrogativa (ascendente). Por ejemplo: «*Tu viens ?*» (¿Vienes?) vs. «*Tu viens.*» (Vienes).
+1. Tomar *bof* como acuerdo (expresa indiferencia o poco entusiasmo).
+2. Confundir *du coup* (por eso) con «de golpe».
+3. No reconocer la ironía de *Ah ben bravo !*
 
 ## Comparación con el español
-- **Estructura de oraciones**: En francés, los verbos suelen ir al final en frases complejas (*Je pense que tu as raison*), mientras que en español se prioriza la posición del verbo.
-- **Uso de artículos definidos/indeterminados**: El francés usa *le*, *la*, *les* con más frecuencia, incluso cuando el español no lo requiere (ej.: «*Je veux du café*» vs. «Quiero un café»).
-- **Pronunciación**: Palabras como *chaise* [shaiz] o *chat* [shá] pueden confundirse con el castellano, pero la entonación distintiva ayuda a identificarlas.
+Los marcadores cumplen la misma función que «bueno, o sea, viste, tipo», y la ironía se marca con la entonación como en español.
 
 ## Ejemplo extendido en contexto
-**Escenario**: Un turista pide indicaciones para llegar al museo.
-
-**Diálogo:**
-*Touriste*: «Excusez-moi, comment je peux aller au musée d’Orsay ?»
-*Locataire*: «Ah, le musée d’Orsay est à deux rues de ici. Vous devez prendre la rue Saint-Merri et tourner à gauche. Il y a un café avec un panneau qui indique “musée d’Orsay”.»
-
-**Análisis**:
-- El turista usa *comment je peux aller* (¿cómo puedo ir?), una estructura directa para pedir direcciones.
-- La respuesta incluye:
-  - Dirección: *à deux rues de ici* (a dos calles de aquí).
-  - Acción: *prendre la rue Saint-Merri et tourner à gauche* (tomar la calle Saint-Merri y girar a la izquierda).
-  - Señal: *un café avec un panneau* (un café con una señal).
-
-Este ejemplo muestra cómo el oyente debe captar verbos de acción (*prendre*, *tourner*), preposiciones (*à gauche*) y vocabulario relacionado con lugares.
+*Audio : « — Alors, ce week-end à Lyon ? — Super ! Mais il a plu tout le temps, du coup on a surtout visité des musées. — Et la cuisine ? — Ah, génial, on a très bien mangé. »*

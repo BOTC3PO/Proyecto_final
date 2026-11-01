@@ -12,7 +12,7 @@
 
 Un **firewall** es una herramienta que actúa como una barrera entre una red confiable (como la de una empresa o hogar) y otra no confiable (como Internet). Su función principal es **filtrar el tráfico de datos**, permitiendo solo lo que cumple con reglas predefinidas. Por ejemplo, puede bloquear accesos a ciertos sitios web o restringir comunicaciones desde dispositivos no autorizados. Trabaja inspeccionando cada paquete de datos que entra o sale de la red y decidiendo si debe ser permitido o denegado basándose en criterios como el origen, destino, puerto o tipo de tráfico.
 
-![Diagrama de un firewall filtrando tráfico entre Internet y una red interna](https://upload.wikimedia.org/wikipedia/commons/5/5b/Firewall.png)
+![Diagrama de un firewall filtrando tráfico entre Internet y una red interna](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Firewall.png/960px-Firewall.png)
 
 *Imagen: «Firewall», Bruno Pedrozo, CC BY-SA 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Firewall.png).*
 

@@ -1,55 +1,52 @@
-# Nominalización en alemán (B2)
+# La nominalización en alemán (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/aleman/nominalizacion`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores gramaticales y ejemplos incorrectos.
 
 ---
 
-La **nominalización** es el proceso de convertir verbos o adjetivos en sustantivos, una estructura común en el alemán que permite expresar ideas con mayor concisión y formalidad. En el nivel B2 del Marco Común Europeo de Referencia para las Lenguas (MCER), su dominio es clave para comprender textos académicos, técnicos o formales, así como para construir oraciones más complejas sin recurrir a verbos repetidos.
+## Introducción
+La **nominalización** (*Nominalisierung*) convierte verbos y adjetivos en sustantivos. Es típica del **alemán escrito formal**: noticias, informes, textos académicos (*Nominalstil*). Saber pasar de un estilo verbal a uno nominal (y al revés) es clave en B2-C1.
 
-## Explicación central con ejemplos reales en alemán
-En el alemán, los **verbos** suelen convertirse en sustantivos añadiendo sufijos como *-ung*, *-heit* o *-keit*. Por ejemplo:
-- *sprechen* (hablar) → *die Sprache* (el habla/idioma).
-- *schreiben* (escribir) → *das Schreiben* (la escritura).
-- *verstehen* (entender) → *das Verstehen* (la comprensión).
+## Explicación central
+### Desde verbos
+| Formación | Ejemplos | Género |
+|---|---|---|
+| **infinitivo** | *das Lesen, das Schwimmen, das Essen* | neutro |
+| **-ung** | *planen → die Planung, entscheiden → die Entscheidung, verbessern → die Verbesserung* | femenino |
+| **raíz sin terminación** | *anfangen → der Anfang, besuchen → der Besuch, fallen → der Fall* | masc. (casi siempre) |
+| **cambio vocálico** | *gehen → der Gang, sprechen → die Sprache, fliegen → der Flug* | variable |
+| **-e** | *fragen → die Frage, reisen → die Reise, helfen → die Hilfe* | femenino |
+| **-ion / -ation** | *diskutieren → die Diskussion, informieren → die Information* | femenino |
 
-Los **adjetivos** también pueden nominalizarse con sufijos como *-heit*, *-keit* o *-schaft*:
-- *klug* (inteligente) → *die Klugheit* (la inteligencia).
-- *freundlich* (amable) → *die Freundlichkeit* (la amabilidad).
-- *kalt* (frío) → *die Kälte* (el frío).
+### Desde adjetivos
+***-heit, -keit, -igkeit*** (femeninos): *frei → die Freiheit, möglich → die Möglichkeit, schnell → die Schnelligkeit*; ***-e***: *groß → die Größe, warm → die Wärme*; adjetivo sustantivado: *das Gute, der Alte*.
 
-Estos sustantivos nominalizados suelen actuar como **sujetos o objetos** en oraciones, evitando la repetición de verbos. Por ejemplo:
-> *Das Schreiben von Briefen ist eine wichtige Fähigkeit.*
-(La escritura de cartas es una habilidad importante.)
+### Transformación de oraciones
+- **Sujeto → genitivo** (o *von*): *Die Regierung entscheidet* → *die Entscheidung **der Regierung***.
+- **Objeto → genitivo**: *Man verbessert die Qualität* → *die Verbesserung **der Qualität***.
+- **Adverbio → adjetivo**: *Die Preise steigen **stark*** → *der **starke** Anstieg der Preise*.
+- **Subordinada → preposición**:
+  - *weil es regnete* → ***wegen** des Regens*;
+  - *nachdem er angekommen war* → ***nach** seiner Ankunft*;
+  - *obwohl es kalt war* → ***trotz** der Kälte*;
+  - *wenn man genau prüft* → ***bei** genauer Prüfung*;
+  - *damit man Energie spart* → ***zur** Energieeinsparung*.
 
-## Errores comunes de hispanohablantes aprendiendo este punto
-1. **Uso incorrecto del sufijo** *-ung*: Los hablantes de español pueden aplicarlo a cualquier verbo, pero en alemán no todos los verbos admiten esta transformación. Por ejemplo, *essen* (comer) → *das Essen* (la comida), que es correcto, pero *trinken* (beber) → *die Trinkung* es incorrecto; la forma adecuada es *das Trinken*.
-2. **Confusión con el género de los sustantivos**: Algunos sustantivos nominalizados tienen género neutro (*das Schreiben*) o masculino (*der Fehler*, del verbo *fehlen*), lo que puede dificultar la concordancia.
-3. **Omisión de preposiciones**: En oraciones con sustantivos nominales, es común olvidar preposiciones como *von* (de) o *mit* (con). Ejemplo: *Die Übung von Grammatikregeln ist wichtig.* (La práctica de reglas gramaticales es importante.)
+## Errores comunes de hispanohablantes
+1. Género: ❌ *das Entscheidung* ✅ *die Entscheidung*; ❌ *die Anfang* ✅ *der Anfang*.
+2. ❌ *die Ankommung* ✅ *die Ankunft*.
+3. Escribir con minúscula: ❌ *das lesen* ✅ *das Lesen*.
+4. Exceso de nominalización: el texto se vuelve difícil.
 
 ## Comparación con el español
-En español, la nominalización también existe pero con sufijos distintos. Por ejemplo:
-- *escribir* → *la escritura* (*-ción*).
-- *entender* → *la comprensión* (*-ción*).
-
-La diferencia clave es que en alemán los sustantivos nominales suelen ser **compuestos** o llevar un sufijo específico (como *-ung*), mientras que en español se prefieren prefijos o sufijos como *-ción*. Además, el alemán no requiere preposiciones entre el verbo y el sustantivo nominalizado:
-- Alemán: *Das Lesen von Büchern ist angenehm.* (La lectura de libros es agradable.)
-- Español: *La lectura **de** libros es agradable.*
+El español también nominaliza («la decisión del gobierno»), pero el alemán va más lejos: cualquier infinitivo puede ser sustantivo (*das Autofahren*) y las subordinadas se condensan con preposiciones (*nach seiner Ankunft* = «después de que llegó»).
 
 ## Ejemplo extendido en contexto
-**Diálogo:**
-*Anna: „Wie lernst du Deutsch?“*
-*Tomas: „Ich übe viel. Das Hören von Podcasts und das Schreiben von Texten helfen mir.“*
-*Anna: „Das klingt gut! Hast du Schwierigkeiten mit der Grammatik?“*
-*Tomas: „Ja, die Komplexität der Satzstruktur ist manchmal schwer zu verstehen. Aber ich übe weiter.“*
-
-**Traducción:**
-*Anna: „¿Cómo aprendes alemán?“*
-*Tomas: „Practico mucho. Escuchar podcasts y escribir textos me ayudan.“*
-*Anna: „Suena bien. ¿Tienes dificultades con la gramática?“*
-*Tomas: „Sí, la complejidad de la estructura de las oraciones es a veces difícil de entender. Pero sigo practicando.“*
-
-Este ejemplo muestra cómo los sustantivos nominales (*das Hören*, *das Schreiben*, *die Komplexität*) permiten describir acciones o conceptos sin repetir verbos, una práctica típica en textos formales del alemán.
+*Verbal: «Weil die Energiepreise stark gestiegen sind, hat die Regierung entschieden, die Steuern zu senken.»*
+*Nominal: «**Wegen des starken Anstiegs** der Energiepreise hat die Regierung **eine Senkung** der Steuern **beschlossen**.»*

@@ -30,7 +30,7 @@ Uno de los episodios más polémicos fue el hundimiento del crucero **ARA Genera
 
 ## 4. Contexto internacional
 
-El conflicto no fue solo un enfrentamiento local, sino una confrontación geopolítica. El Reino Unido contó con el apoyo de Estados Unidos y la OTAN, mientras que Argentina perdió respaldo en la ONU y en América Latina. La guerra marcó un antes y un después para ambos países. En Argentina, fue el punto final de la dictadura militar. En el Reino Unido, reforzó su identidad nacional y su poder naval. <!-- IMAGEN: mapas de alianzas durante el conflicto -->
+El conflicto no fue solo un enfrentamiento local, sino una confrontación geopolítica. El Reino Unido contó con el apoyo de Estados Unidos (abierto desde el 30 de abril, tras fracasar la mediación del secretario de Estado Alexander Haig) y de la Comunidad Económica Europea, que aplicó sanciones a la Argentina. La Argentina quedó aislada en el Consejo de Seguridad de la ONU, que con la Resolución 502 exigió el retiro de sus tropas, aunque recibió el apoyo de la mayoría de los países de América Latina; Chile, en cambio, colaboró en secreto con el Reino Unido. La guerra marcó un antes y un después para ambos países. En Argentina, fue el punto final de la dictadura militar. En el Reino Unido, reforzó su identidad nacional y su poder naval.
 
 ## 5. Memoria y legado
 

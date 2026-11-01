@@ -20,7 +20,11 @@ Hace unos 66 millones de años, un evento de gran magnitud marcó el fin de una 
 
 Este vacío no fue una desgracia, sino un catalizador para los mamíferos. Comenzaron a diversificarse rápidamente en tamaños, formas y hábitats que antes eran imposibles de ocupar. El proceso se conoce como *radiación adaptativa*: una explosión evolutiva donde especies relacionadas desarrollan características distintas para aprovechar nichos específicos. Ejemplos incluyen el surgimiento de grandes herbívoros, depredadores carnívoros y mamíferos acuáticos.
 
-<!-- IMAGEN: Esqueleto de un mamífero primitivo junto a una reconstrucción de un dinosaurio -->
+![Reconstrucción de un pequeño mamífero parecido a una ardilla, con cola larga](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Purgatorius_BW.jpg/960px-Purgatorius_BW.jpg)
+
+*Imagen: «Purgatorius BW», Nobu Tamura, CC BY 3.0. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Purgatorius_BW.jpg).*
+
+Reconstrucción de *Purgatorius*, del Paleoceno (hace unos 65 millones de años). Del tamaño de una rata, es uno de los primeros parientes conocidos de los primates: un ejemplo de los pequeños mamíferos que se diversificaron después de la extinción de los dinosaurios.
 
 ## 3. El rol de los nichos ecológicos
 

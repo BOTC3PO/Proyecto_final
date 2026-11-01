@@ -10,7 +10,7 @@ concepto de preexistencia étnica son secciones separables.
 
 ---
 
-## Marco normativo (verificado con WebSearch)
+## Marco normativo
 
 El inciso **e)** del art. 92 de la Ley de Educación Nacional 26.206 obliga a
 incluir contenidos sobre el **conocimiento de la diversidad cultural de los

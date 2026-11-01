@@ -24,8 +24,6 @@ La migración del campo a la ciudad se explica por un doble factor: lo que empuj
 
 La urbanización se manifiesta claramente en la densidad poblacional: más personas por unidad de superficie, concentradas en espacios reducidos. Por ejemplo, si una ciudad tiene una población de 2 millones de habitantes sobre un área de 300 km², su densidad es de aproximadamente 6.700 habitantes por km². Eso contrasta con zonas rurales, donde esa cifra puede ser inferior a 100. Esta alta concentración genera desafíos como la congestión del tránsito, la escasez de vivienda digna y el sobrecalentamiento de servicios públicos. Sin embargo, también permite la creación de redes económicas dinámicas: desde mercados centrales hasta industrias especializadas, que solo son viables en contextos de alta densidad.
 
-<!-- IMAGEN: Mapa con zonas de alta y baja densidad en una ciudad típica argentina -->
-
 ---
 
 ## 4. Transformaciones sociales y espaciales

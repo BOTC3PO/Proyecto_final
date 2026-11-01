@@ -1,0 +1,359 @@
+{
+ "titulo": "La expansión Han bajo el emperador Wu (141–87 a.C.)",
+ "standalone": {
+  "tool": "mapa",
+  "titulo": "La expansión Han bajo el emperador Wu (141–87 a.C.)",
+  "modo": "physical",
+  "escala": "110m",
+  "anotaciones": [
+   {
+    "id": "a1",
+    "tipo": "zona",
+    "puntos": [
+     [
+      94.5,
+      40.3
+     ],
+     [
+      97,
+      40.5
+     ],
+     [
+      100.5,
+      39.5
+     ],
+     [
+      104,
+      38.5
+     ],
+     [
+      106,
+      40.5
+     ],
+     [
+      107,
+      41
+     ],
+     [
+      111,
+      41.5
+     ],
+     [
+      115,
+      41.5
+     ],
+     [
+      119,
+      41.5
+     ],
+     [
+      121,
+      42
+     ],
+     [
+      124,
+      41
+     ],
+     [
+      126,
+      40
+     ],
+     [
+      127,
+      39
+     ],
+     [
+      125.5,
+      37.8
+     ],
+     [
+      122,
+      37.5
+     ],
+     [
+      121,
+      36.5
+     ],
+     [
+      120,
+      35
+     ],
+     [
+      119.5,
+      34.5
+     ],
+     [
+      121.5,
+      32
+     ],
+     [
+      122,
+      30
+     ],
+     [
+      121,
+      28
+     ],
+     [
+      120,
+      26
+     ],
+     [
+      118,
+      24.5
+     ],
+     [
+      116,
+      23
+     ],
+     [
+      113,
+      22.3
+     ],
+     [
+      110,
+      21
+     ],
+     [
+      108,
+      21.5
+     ],
+     [
+      106,
+      20
+     ],
+     [
+      105.5,
+      18
+     ],
+     [
+      104,
+      22.5
+     ],
+     [
+      103,
+      24
+     ],
+     [
+      100,
+      25
+     ],
+     [
+      99,
+      26
+     ],
+     [
+      101,
+      28
+     ],
+     [
+      102,
+      30
+     ],
+     [
+      102.5,
+      32
+     ],
+     [
+      103,
+      34
+     ],
+     [
+      101.5,
+      35.5
+     ],
+     [
+      100,
+      37
+     ],
+     [
+      97,
+      39
+     ],
+     [
+      94.5,
+      40.3
+     ]
+    ],
+    "etiqueta": "",
+    "color": "#dc2626",
+    "opacidadRelleno": 0.15
+   },
+   {
+    "id": "a2",
+    "tipo": "ruta",
+    "puntos": [
+     [
+      108.94,
+      34.27
+     ],
+     [
+      102.64,
+      37.93
+     ],
+     [
+      100.45,
+      38.93
+     ],
+     [
+      98.49,
+      39.73
+     ],
+     [
+      94.66,
+      40.14
+     ],
+     [
+      89.75,
+      40.52
+     ],
+     [
+      82.96,
+      41.72
+     ],
+     [
+      75.99,
+      39.47
+     ]
+    ],
+    "etiqueta": "Ruta de la Seda",
+    "color": "#b45309",
+    "grosor": 2.5
+   },
+   {
+    "id": "a3",
+    "tipo": "ruta",
+    "puntos": [
+     [
+      108.94,
+      34.27
+     ],
+     [
+      106.5,
+      44.5
+     ]
+    ],
+    "etiqueta": "Campañas contra los xiongnu",
+    "color": "#dc2626",
+    "flechaFinal": true
+   },
+   {
+    "id": "a4",
+    "tipo": "ruta",
+    "puntos": [
+     [
+      108.94,
+      34.27
+     ],
+     [
+      113,
+      23.6
+     ]
+    ],
+    "etiqueta": "Nanyue (111 a.C.)",
+    "color": "#dc2626",
+    "flechaFinal": true
+   },
+   {
+    "id": "a5",
+    "tipo": "ruta",
+    "puntos": [
+     [
+      116.4,
+      39.9
+     ],
+     [
+      125.3,
+      39.1
+     ]
+    ],
+    "etiqueta": "Gojoseon (108 a.C.)",
+    "color": "#dc2626",
+    "flechaFinal": true
+   },
+   {
+    "id": "a6",
+    "tipo": "marcador",
+    "lat": 34.27,
+    "lon": 108.94,
+    "etiqueta": "Chang'an",
+    "tamano": 1.2
+   },
+   {
+    "id": "a7",
+    "tipo": "marcador",
+    "lat": 34.62,
+    "lon": 112.45,
+    "etiqueta": "Luoyang"
+   },
+   {
+    "id": "a8",
+    "tipo": "marcador",
+    "lat": 37.93,
+    "lon": 102.64,
+    "etiqueta": "Wuwei"
+   },
+   {
+    "id": "a9",
+    "tipo": "marcador",
+    "lat": 40.14,
+    "lon": 94.66,
+    "etiqueta": "Dunhuang"
+   },
+   {
+    "id": "a10",
+    "tipo": "marcador",
+    "lat": 23.13,
+    "lon": 113.26,
+    "etiqueta": "Panyu"
+   },
+   {
+    "id": "a11",
+    "tipo": "marcador",
+    "lat": 39.02,
+    "lon": 125.75,
+    "etiqueta": "Lelang"
+   },
+   {
+    "id": "a12",
+    "tipo": "marcador",
+    "lat": 39.47,
+    "lon": 75.99,
+    "etiqueta": "Kashgar"
+   },
+   {
+    "id": "a13",
+    "tipo": "texto",
+    "lat": 46.3,
+    "lon": 104,
+    "contenido": "XIONGNU",
+    "tamano": 15,
+    "color": "#475569"
+   },
+   {
+    "id": "a14",
+    "tipo": "texto",
+    "lat": 40.9,
+    "lon": 100.6,
+    "contenido": "Corredor de Hexi",
+    "tamano": 12,
+    "color": "#b45309"
+   },
+   {
+    "id": "a15",
+    "tipo": "texto",
+    "lat": 28.6,
+    "lon": 111.8,
+    "contenido": "IMPERIO HAN (hacia el 87 a.C., límites aproximados)",
+    "tamano": 13,
+    "color": "#dc2626"
+   }
+  ],
+  "bounds": {
+   "x": 0.7,
+   "y": 0.29488,
+   "w": 0.15833,
+   "h": 0.15833
+  }
+ }
+}

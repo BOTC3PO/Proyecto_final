@@ -1,605 +1,272 @@
-# Idiomas — Alemán — casos-nominativ-akkusativ (cuestionario)
+# Alemán — nominativo y acusativo (cuestionario, 14 preguntas VBLang)
 
-> Corregido a partir del borrador (`../../../_borradores-gemma/idiomas-extranjeros/aleman/casos-nominativ-akkusativ/cuestionario_crudo.md`): los 25 bloques no tenían `enunciado:` en absoluto. Agregada una oración por bloque. Bugs de contenido: el slug `tema:` decía 'kasus-nominativ-akkusativ' (alemán) en vez de 'casos-nominativ-akkusativ' — corregido para que coincida con la carpeta; un bloque atribuía a 'helfen' (verbo dativo) un objeto directo en acusativo — corregido a 'sehen', consistente con el resto del archivo.
+> Tema: `idiomas-extranjeros/aleman/casos-nominativ-akkusativ`. Ver `teoria.md` en esta misma carpeta.
+>
+> Reescrito el 2026-10-26: el anterior tenía preguntas con respuestas equivocadas o ambiguas.
 
 ---
 
-### 1 — Präposition mit Akkusativ  
-```yaml
+### 1 — Sujeto
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "den"
-  - "Den"
-tipo: mc
-opciones_explicitas:
-  - "dem"
-  - "den"
-  - "die"
-  - "das"
+  tags: ["casos"]
+
+respuesta: "Der"
+tipo: "mc"
+opciones_explicitas: ["Der", "Den", "Dem"]
+
+enunciado: "___ Mann trinkt Kaffee."
+
+explicacion: |
+  Sujeto: nominativo.
+```
+
+### 2 — Objeto masc.
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "casos-nominativ-akkusativ"
+  nivel: "A1"
+  tags: ["casos"]
+
 respuesta: "den"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino en acusativo es 'den'."
-enunciado: "Er kämpft gegen ___ Sturm."
+tipo: "mc"
+opciones_explicitas: ["den", "der", "dem"]
+
+enunciado: "Ich sehe ___ Mann."
+
+explicacion: |
+  Acusativo masc.: *den*.
 ```
 
-### 2 — Pronombre Objeto Directo  
-```yaml
+### 3 — einen
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "ihn"
-  - "Ihn"
-tipo: mc
-opciones_explicitas:
-  - "ihn"
-  - "ihm"
-  - "sie"
-  - "es"
+  tags: ["casos"]
+
+respuesta: "einen"
+tipo: "mc"
+opciones_explicitas: ["einen", "ein", "eine"]
+
+enunciado: "Ich habe ___ Bruder."
+
+explicacion: |
+  Acusativo masc.: *einen*.
+```
+
+### 4 — Fem.
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "casos-nominativ-akkusativ"
+  nivel: "A1"
+  tags: ["casos"]
+
+respuesta: "eine"
+tipo: "mc"
+opciones_explicitas: ["eine", "einen", "einer"]
+
+enunciado: "Ich kaufe ___ Jacke."
+
+explicacion: |
+  Femenino: no cambia.
+```
+
+### 5 — Neutro
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "casos-nominativ-akkusativ"
+  nivel: "A1"
+  tags: ["casos"]
+
+respuesta: "das"
+tipo: "mc"
+opciones_explicitas: ["das", "den", "dem"]
+
+enunciado: "Wir besuchen ___ Museum."
+
+explicacion: |
+  Neutro: no cambia.
+```
+
+### 6 — es gibt
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "casos-nominativ-akkusativ"
+  nivel: "A1"
+  tags: ["casos"]
+
+respuesta: "einen"
+tipo: "mc"
+opciones_explicitas: ["einen", "ein", "der"]
+
+enunciado: "Hier gibt es ___ Park."
+
+explicacion: |
+  *Es gibt* + acusativo.
+```
+
+### 7 — ihn
+
+```
+metadata:
+  materia: "idiomas-extranjeros/aleman"
+  tema: "casos-nominativ-akkusativ"
+  nivel: "A1"
+  tags: ["casos"]
+
 respuesta: "ihn"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
-enunciado: "Ich sehe den Mann. Ich sehe ___."
+tipo: "mc"
+opciones_explicitas: ["ihn", "er", "ihm"]
+
+enunciado: "Kennst du Peter? — Ja, ich kenne ___."
+
+explicacion: |
+  Acusativo de *er*: *ihn*.
 ```
 
-### 3 — Verbo con Objeto Directo  
-```yaml
+### 8 — mich
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "die Frau"
-  - "Die Frau"
-tipo: mc
-opciones_explicitas:
-  - "die Frau"
-  - "die Frauen"
-  - "der Frau"
-  - "den Frau"
-respuesta: "die Frau"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
-enunciado: "Ich sehe ___ im Park."
+  tags: ["casos"]
+
+respuesta: "mich"
+tipo: "mc"
+opciones_explicitas: ["mich", "ich", "mir"]
+
+enunciado: "Liebst du ___?"
+
+explicacion: |
+  Acusativo de *ich*.
 ```
 
-### 4 — Präposition mit Akkusativ  
-```yaml
+### 9 — euch
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "die"
-  - "Die"
-tipo: mc
-opciones_explicitas:
-  - "die"
-  - "durch"
-  - "der"
-  - "das"
-respuesta: "die"
-explicacion: "La preposición 'durch' requiere el acusativo. El artículo definido femenino es 'die'."
-enunciado: "Wir gehen durch ___ Stadt."
+  tags: ["casos"]
+
+respuesta: "euch"
+tipo: "mc"
+opciones_explicitas: ["euch", "ihr", "uns"]
+
+enunciado: "Wir besuchen ___ morgen. (vosotros)"
+
+explicacion: |
+  Acusativo de *ihr*.
 ```
 
-### 5 — Pronombre Objeto Directo  
-```yaml
+### 10 — für
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "sie"
-  - "Sie"
-tipo: mc
-opciones_explicitas:
-  - "sie"
-  - "ihm"
-  - "ihn"
-  - "es"
-respuesta: "sie"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre femenino es 'sie'."
-enunciado: "Die Kollegin braucht Hilfe. Ich sehe ___ jeden Tag."
+  tags: ["casos"]
+
+respuesta: "meinen"
+tipo: "mc"
+opciones_explicitas: ["meinen", "mein", "meinem"]
+
+enunciado: "Das Geschenk ist für ___ Vater."
+
+explicacion: |
+  *Für* + acusativo.
 ```
 
-### 6 — Verbo con Objeto Directo  
-```yaml
+### 11 — ohne
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "den Mann"
-  - "Den Mann"
-tipo: mc
-opciones_explicitas:
-  - "den Mann"
-  - "der Mann"
-  - "die Mann"
-  - "das Mann"
-respuesta: "den Mann"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
-enunciado: "Er sieht ___ auf der Straße."
+  tags: ["casos"]
+
+respuesta: "meinen"
+tipo: "mc"
+opciones_explicitas: ["meinen", "meinem", "mein"]
+
+enunciado: "Ich gehe nicht ohne ___ Hund."
+
+explicacion: |
+  *Ohne* + acusativo.
 ```
 
-### 7 — Präposition mit Akkusativ  
-```yaml
+### 12 — keinen
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "die"
-  - "Die"
-tipo: mc
-opciones_explicitas:
-  - "die"
-  - "das"
-  - "der"
-  - "den"
-respuesta: "die"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
-enunciado: "Sie protestiert gegen ___ Entscheidung."
+  tags: ["casos"]
+
+respuesta: "keinen"
+tipo: "mc"
+opciones_explicitas: ["keinen", "kein", "nicht"]
+
+enunciado: "Ich habe ___ Hunger."
+
+explicacion: |
+  *Der Hunger* → *keinen*.
 ```
 
-### 8 — Pronombre Objeto Directo  
-```yaml
+### 13 — Orden
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "es"
-  - "Es"
-tipo: mc
-opciones_explicitas:
-  - "es"
-  - "ihn"
-  - "sie"
-  - "den"
-respuesta: "es"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre neutro es 'es'."
-enunciado: "Das Kind spielt draußen. Ich beobachte ___."
+  tags: ["casos"]
+
+respuesta: "El gato muerde al perro"
+tipo: "mc"
+opciones_explicitas: ["El gato muerde al perro", "El perro muerde al gato", "No tiene sentido"]
+
+enunciado: "«Den Hund beißt die Katze» significa…"
+
+explicacion: |
+  *Den Hund* es objeto.
 ```
 
-### 9 — Verbo con Objeto Directo  
-```yaml
+### 14 — Cambio
+
+```
 metadata:
   materia: "idiomas-extranjeros/aleman"
   tema: "casos-nominativ-akkusativ"
   nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "die Frau"
-  - "Die Frau"
-tipo: mc
-opciones_explicitas:
-  - "die Frau"
-  - "der Frau"
-  - "das Frauen"
-  - "den Frau"
-respuesta: "die Frau"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
-enunciado: "Wir sehen ___ im Café."
-```
+  tags: ["casos"]
 
-### 10 — Präposition mit Akkusativ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "den"
-  - "Den"
-tipo: mc
-opciones_explicitas:
-  - "den"
-  - "dem"
-  - "die"
-  - "das"
-respuesta: "den"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino es 'den'."
-enunciado: "Er kämpft gegen ___ Feind."
-```
+respuesta: verdadero
+tipo: vf
 
-### 11 — Pronombre Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "ihn"
-  - "Ihn"
-tipo: mc
-opciones_explicitas:
-  - "ihn"
-  - "ihm"
-  - "sie"
-  - "es"
-respuesta: "ihn"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
-enunciado: "Der Lehrer kommt. Ich kenne ___ gut."
-```
+enunciado: "En acusativo solo cambia el artículo masculino singular."
 
-### 12 — Verbo con Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "den Mann"
-  - "Den Mann"
-tipo: mc
-opciones_explicitas:
-  - "den Mann"
-  - "der Mann"
-  - "die Mann"
-  - "das Mann"
-respuesta: "den Mann"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
-enunciado: "Sie sieht ___ im Büro."
-```
-
-### 13 — Präposition mit Akkusativ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "die"
-  - "Die"
-tipo: mc
-opciones_explicitas:
-  - "die"
-  - "das"
-  - "der"
-  - "den"
-respuesta: "die"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
-enunciado: "Sie ist gegen ___ Regel."
-```
-
-### 14 — Pronombre Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "es"
-  - "Es"
-tipo: mc
-opciones_explicitas:
-  - "es"
-  - "ihn"
-  - "sie"
-  - "den"
-respuesta: "es"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre neutro es 'es'."
-enunciado: "Das Baby schläft. Die Mutter trägt ___ ins Bett."
-```
-
-### 15 — Verbo con Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "die Frau"
-  - "Die Frau"
-tipo: mc
-opciones_explicitas:
-  - "die Frau"
-  - "der Frau"
-  - "das Frauen"
-  - "den Frau"
-respuesta: "die Frau"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
-enunciado: "Ich sehe ___ jeden Morgen."
-```
-
-### 16 — Präposition mit Akkusativ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "den"
-  - "Den"
-tipo: mc
-opciones_explicitas:
-  - "den"
-  - "dem"
-  - "die"
-  - "das"
-respuesta: "den"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino es 'den'."
-enunciado: "Er spielt gegen ___ Gegner."
-```
-
-### 17 — Pronombre Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "ihn"
-  - "Ihn"
-tipo: mc
-opciones_explicitas:
-  - "ihn"
-  - "ihm"
-  - "sie"
-  - "es"
-respuesta: "ihn"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
-enunciado: "Das ist mein Bruder. Ich mag ___ sehr."
-```
-
-### 18 — Verbo con Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "den Mann"
-  - "Den Mann"
-tipo: mc
-opciones_explicitas:
-  - "den Mann"
-  - "der Mann"
-  - "die Mann"
-  - "das Mann"
-respuesta: "den Mann"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
-enunciado: "Er sieht ___ im Zug."
-```
-
-### 19 — Präposition mit Akkusativ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "die"
-  - "Die"
-tipo: mc
-opciones_explicitas:
-  - "die"
-  - "das"
-  - "der"
-  - "den"
-respuesta: "die"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
-enunciado: "Wir sind gegen ___ Idee."
-```
-
-### 20 — Pronombre Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "es"
-  - "Es"
-tipo: mc
-opciones_explicitas:
-  - "es"
-  - "ihn"
-  - "sie"
-  - "den"
-respuesta: "es"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre neutro es 'es'."
-enunciado: "Das Auto ist kaputt. Der Mechaniker repariert ___."
-```
-
-### 21 — Verbo con Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "die Frau"
-  - "Die Frau"
-tipo: mc
-opciones_explicitas:
-  - "die Frau"
-  - "der Frau"
-  - "das Frauen"
-  - "den Frau"
-respuesta: "die Frau"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo femenino es 'die Frau'."
-enunciado: "Wir sehen ___ oft im Supermarkt."
-```
-
-### 22 — Präposition mit Akkusativ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "den"
-  - "Den"
-tipo: mc
-opciones_explicitas:
-  - "den"
-  - "dem"
-  - "die"
-  - "das"
-respuesta: "den"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido masculino es 'den'."
-enunciado: "Er kämpft gegen ___ Plan."
-```
-
-### 23 — Pronombre Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["pronombres", "akkusativ"]
-pasos:
-  - "Identificar el sujeto y el objeto directo en la oración."
-  - "Escribir la forma correcta del pronombre en acusativo."
-respuestas_validas:
-  - "ihn"
-  - "Ihn"
-tipo: mc
-opciones_explicitas:
-  - "ihn"
-  - "ihm"
-  - "sie"
-  - "es"
-respuesta: "ihn"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El pronombre masculino es 'ihn'."
-enunciado: "Dort steht der Chef. Alle respektieren ___."
-```
-
-### 24 — Verbo con Objeto Directo  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["verben", "akkusativ"]
-pasos:
-  - "Determinar si el verbo requiere un objeto directo."
-  - "Escribir la forma correcta del sustantivo en acusativo."
-respuestas_validas:
-  - "den Mann"
-  - "Den Mann"
-tipo: mc
-opciones_explicitas:
-  - "den Mann"
-  - "der Mann"
-  - "die Mann"
-  - "das Mann"
-respuesta: "den Mann"
-explicacion: "El verbo 'sehen' requiere el objeto directo en acusativo. El sustantivo masculino es 'den Mann'."
-enunciado: "Sie sieht ___ im Restaurant."
-```
-
-### 25 — Präposition mit Akkusativ  
-```yaml
-metadata:
-  materia: "idiomas-extranjeros/aleman"
-  tema: "casos-nominativ-akkusativ"
-  nivel: "A1"
-  tags: ["präpositionen", "akkusativ"]
-pasos:
-  - "Identificar la preposición que requiere el caso acusativo."
-  - "Escribir la forma correcta del sustantivo en ese caso."
-respuestas_validas:
-  - "die"
-  - "Die"
-tipo: mc
-opciones_explicitas:
-  - "die"
-  - "das"
-  - "der"
-  - "den"
-respuesta: "die"
-explicacion: "La preposición 'gegen' requiere el acusativo. El artículo definido femenino es 'die'."
-enunciado: "Sie ist gegen ___ Lösung."
+explicacion: |
+  Verdadero: *der → den, ein → einen*.
 ```

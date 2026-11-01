@@ -14,8 +14,6 @@ La transición de la efímera dinastía Qin (221–206 a.C.) al Imperio Han marc
 
 A diferencia de los Qin, los primeros Han adoptaron una postura más flexible, combinando el legalismo en la estructura burocrática con el taoísmo de no intervención (Huang-Lao) en las primeras décadas para permitir la recuperación económica. Sin embargo, la verdadera transformación ideológica ocurrió bajo el Emperador Wu (Wudi), quien institucionalizó el confucianismo como la ortodoxia estatal. Esto no eliminó el legalismo práctico, sino que creó un sistema dual: la ética confuciana justificaba el poder imperial y la jerarquía social, mientras que las estructuras legales y administrativas Qin mantenían el control efectivo.
 
-<!-- IMAGEN: Mapa de la expansión territorial durante el reinado del Emperador Wu, mostrando la penetración hacia el norte, sur y el corredor de Hexi -->
-
 ## 2. La burocracia y el sistema de exámenes
 
 Uno de los legados más duraderos del Han fue el desarrollo de una burocracia meritocrática, aunque limitada en sus inicios. El confucianismo promovía la idea de que el gobierno debía estar en manos de los "sabios" (junzi), educados en los Clásicos Confucianos. Para facilitar esto, se establecieron la Academia Imperial (Taixue) en 124 a.C., donde se formaban los futuros funcionarios.

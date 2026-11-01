@@ -10,15 +10,6 @@ lógica visual, son secciones separables.
 
 ---
 
-## Nota sobre el marco normativo (v2.8 de `troncos.md`)
-
-El Decreto 436/2025 derogó los artículos de la Ley 27.214 que hacían
-obligatoria a nivel nacional la Educación Vial en las escuelas — hoy es
-decisión de cada provincia si la dicta o no. El contenido de este
-módulo sigue siendo currícula real donde se aplica, pero sin el
-respaldo de obligatoriedad nacional que sí tienen, por ejemplo, ESI o
-Educación Ambiental.
-
 ## Las 3 categorías de señales de tránsito
 
 Las señales viales se organizan por **forma y color**, no al azar — el

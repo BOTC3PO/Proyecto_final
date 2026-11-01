@@ -1,60 +1,46 @@
-# Discurso Indireto (Nível B2)
+# Discurso indirecto en portugués de Brasil (B2)
 
 > Tema del MAPA: `idiomas-extranjeros/portugues-br/discurso-indireto`. Ver `../dependencias.md`.
 
 ## Tipo de teoría (si esto se carga al sistema)
 
 **`Presentación`**
+>
+> Reescrita el 2026-10-26: la versión anterior tenía errores graves (por ejemplo, decía que el subjuntivo no tiene formas personales).
 
 ---
 
-## Introdução
-O discurso indireto é uma forma de relatar o que alguém disse ou pensou sem reproduzir suas palavras exatamente. No nível B2 do CEFR (Quadro Europeu Comum de Referência para as Línguas), dominar essa estrutura é essencial para expressar informações com precisão, especialmente em contextos acadêmicos, profissionais ou cotidianos. Ele permite que o falante transmita ideias de terceiros sem recorrer ao discurso direto, evitando repetições e facilitando a coesão textual.
+## Introducción
+El **discurso indireto** cuenta lo que otra persona dijo sin citar sus palabras textuales. Funciona de manera muy parecida al español: cambian los tiempos verbales, los pronombres y las referencias de tiempo y lugar.
 
----
+## Explicación central
+### Verbos introductorios
+*dizer, falar, contar, perguntar, pedir, responder, explicar, avisar, afirmar*.
 
-## Explicação Central com Exemplos
-No português brasileiro, o discurso indireto é formado usando verbos que introduzem o pensamento ou fala de alguém (como *dizer*, *perguntar*, *afirmar*) seguidos por uma oração subordinada. A estrutura geral é:
+### Cambios de tiempo (verbo introductorio en pasado)
+| Directo | Indireto |
+|---|---|
+| presente: *"Estou cansado."* | imperfeito: *Ele disse que **estava** cansado.* |
+| perfeito: *"Viajei."* | mais-que-perfeito: *Ela disse que **tinha viajado**.* |
+| futuro / ir + inf.: *"Vou ligar."* | *ia ligar* / futuro do pretérito: *Ele disse que **ia ligar** / **ligaria**.* |
+| imperativo: *"Feche a porta."* | *pedir que* + imperfeito do subjuntivo: *Ela pediu que eu **fechasse** a porta.* |
 
-**[Verbo principal] + [pronome oblíquo] + [que] + [oração subordinada].**
+### Preguntas
+- Sí/no: **se**: *"Você vem?"* → *Ele perguntou **se** eu ia.*
+- Abiertas: palabra interrogativa: *"Onde você mora?"* → *Ela perguntou **onde** eu morava.*
 
-Por exemplo:
-- **Discurso direto:** *"Ela disse: 'Vou chegar cedo.'"*
-- **Discurso indireto:** *Ela disse que ia chegar cedo.*
+### Referencias que cambian
+*hoje → naquele dia*, *amanhã → no dia seguinte*, *ontem → no dia anterior*, *aqui → ali / lá*, *este → aquele*, *agora → naquele momento*.
+También los pronombres y posesivos: *"Minha casa"* → *a casa dela*.
 
-### Regras Chave:
-1. **Mudança de tempo verbal:** O tempo da oração subordinada geralmente se adapta ao contexto do discurso. Se o verbo principal estiver no passado, a oração indireta também muda para o passado (ex.: *disse que ia* → *disse que foi*).
-2. **Uso de "que":** O conectivo *que* é obrigatório em português, diferentemente do inglês (*she said she was tired* vs. *ela disse que estava cansada*).
-3. **Pronomes oblíquos:** Caso o sujeito da oração indireta seja o mesmo que o do verbo principal, o pronome pode ser omitido (ex.: *Ela disse que ia chegar cedo* → *Ela disse que ia chegar cedo*).
+## Errores comunes de hispanohablantes
+1. Olvidar el cambio de tiempo: ❌ *Ele disse que vai ligar amanhã* (si lo dijo hace una semana) ✅ *…que ia ligar no dia seguinte*.
+2. ❌ *pediu que eu fecho* ✅ *pediu que eu fechasse*.
+3. Mantener el orden de pregunta: el orden es el de una afirmación.
 
-**Exemplo com preposição:**
-- **Direto:** *"Preciso de um livro."*
-- **Indireto:** *Ele pediu um livro.* (Não se usa "de" após o verbo *pedir*, pois a preposição já está contida no infinitivo.)
+## Comparación con el español
+Es casi idéntico al español: «Dijo que estaba cansado», «Me pidió que cerrara la puerta» = *Pediu que eu fechasse a porta*. La diferencia es de forma: *tinha viajado* (había viajado), *fechasse* (cerrara).
 
----
-
-## Erros Comuns dos Hispánicos
-1. **Omissão do "que":** Alguns falantes de espanhol esquecem de incluir o conectivo *que* no português, especialmente em contextos informais. Ex.: *Ela disse ela estava cansada* (incorreto) vs. *Ela disse que estava cansada*.
-2. **Uso incorreto de preposições:** No espanhol, verbos como *pedir* ou *desejar* exigem preposições (*pedir un libro*, *desechar una idea*), mas no português, essas preposições podem ser absorvidas pelo infinitivo. Ex.: *Ele pediu um livro* (não *pedir de um livro*).
-3. **Mantendo o tempo verbal original:** Em vez de adaptar o tempo da oração indireta ao contexto do verbo principal, alguns falantes mantêm a forma original. Ex.: *Ela disse que vai chegar cedo* (incorreto) vs. *Ela disse que ia chegar cedo*.
-
----
-
-## Comparação com o Espanhol
-Embora ambos os idiomas usem estruturas semelhantes para o discurso indireto, existem diferenças importantes:
-- **Conectivo "que":** No português, é obrigatório; no espanhol, pode ser omitido em contextos informais (*Dijo que iba a llegar* vs. *Dijo iba a llegar*).
-- **Preposições:** Como mencionado acima, o português absorve preposições em alguns verbos (ex.: *pedir um livro*), enquanto o espanhol as mantém (*pedir un libro*).
-- **Ordem dos pronomes:** No português, o pronome oblíquo do verbo principal vem antes de *que*: *Ela me disse que estava cansada*. No espanhol, a ordem é invertida: *Ella me dijo que estaba cansada*.
-
----
-
-## Exemplo em Contexto
-**Diálogo:**
-- **Maria:** *"O filme foi muito bom. Recomendo para todos."*
-- **João:** *"Eu concordo com ela. Disse que o filme foi excelente e vale a pena assistir."*
-
-**Explicação:**
-A frase de João usa discurso indireto para relatar o que Maria disse. O verbo *disse* (passado) exige que a oração subordinada também esteja no passado (*foi excelente*). Além disso, o conectivo *que* é obrigatório e a preposição *para* foi substituída por *vale a pena assistir*, uma expressão idiomática comum em português.
-
----
-Domínio do discurso indireto permite maior flexibilidade na comunicação, evitando repetições e facilitando o relato de informações de terceiros.
+## Ejemplo extendido en contexto
+*Direto: — Amanhã eu vou a Manaus. Já comprei a passagem. Você quer vir?*
+*Indireto: A Júlia disse que **ia** a Manaus **no dia seguinte**, que já **tinha comprado** a passagem e perguntou **se eu queria** ir.*

@@ -23,7 +23,7 @@ cantidades de laboratorio (gramos) en vez de contar átomo por átomo.
 1 mol = 6,022 × 10²³ partículas (átomos, moléculas, iones...)
 ```
 
-Esta constante (`N_A`, ya precargada en VBLang) es el "tamaño de la
+Esta constante (`N_A`) es el "tamaño de la
 docena" para química — no cambia con la sustancia: 1 mol de cualquier
 cosa siempre son 6,022×10²³ unidades de esa cosa.
 
