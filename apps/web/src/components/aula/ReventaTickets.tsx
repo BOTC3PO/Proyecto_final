@@ -29,6 +29,10 @@ export default function ReventaTickets({ aulaId, className = "" }: { aulaId: str
   const cargar = useCallback(async () => {
     try {
       const [o, lista] = await Promise.all([fetchOpcionesReventa(aulaId), fetchOfertasReventa(aulaId)]);
+      if (!Array.isArray(o?.modulos) || !Array.isArray(o?.companeros)) {
+        setOpciones(null);
+        return;
+      }
       setOpciones(o);
       setOfertas(lista);
       setForm((f) => ({

@@ -22,8 +22,10 @@ export type OfertaReventa = {
 export const fetchOpcionesReventa = (aulaId: string) =>
   apiGet<OpcionesReventa>(`/api/economia/tickets/reventa/opciones?aulaId=${encodeURIComponent(aulaId)}`);
 
-export const fetchOfertasReventa = async (aulaId: string) =>
-  (await apiGet<{ items: OfertaReventa[] }>("/api/economia/tickets/reventa")).items.filter((o) => o.aulaId === aulaId);
+export const fetchOfertasReventa = async (aulaId: string) => {
+  const r = await apiGet<{ items?: OfertaReventa[] }>("/api/economia/tickets/reventa");
+  return (Array.isArray(r?.items) ? r.items : []).filter((o) => o.aulaId === aulaId);
+};
 
 export const ofrecerTicket = (body: { aulaId: string; moduloId: string; receptorId: string; precio: number }) =>
   apiPost<{ id: string; comision: number; netoParaElVendedor: number }>("/api/economia/tickets/reventa", body);
