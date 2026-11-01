@@ -14,6 +14,7 @@ import {
   type ProfesorMenuDashboard
 } from "../services/profesor";
 import { listarCuestionarios } from "../domain/quiz/quizPreguntasApi";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type LocalConceptLink = {
   id: string;
@@ -47,9 +48,10 @@ const collectDependencyChain = (startId: string, adjacency: Map<string, string[]
   return visited;
 };
 
-export default function menuProfesor() {
+export default function MenuProfesor() {
   const { user } = useAuth();
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const [modules, setModules] = useState<Module[]>([]);
   const [modulesStatus, setModulesStatus] = useState<"loading" | "ready" | "error">("loading");
   const [_modulesError, setModulesError] = useState<string | null>(null);
@@ -178,7 +180,7 @@ export default function menuProfesor() {
         if (!active) return;
         setCuestionariosCount(items.length);
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     return () => {
       active = false;
     };
@@ -216,7 +218,7 @@ export default function menuProfesor() {
           setModoAulaAulaId(getAulaId(misAulas[0]));
         }
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id]);
 
   const handleToggleModoAula = async () => {
@@ -249,7 +251,7 @@ export default function menuProfesor() {
             });
             setModoAulaActivo(false);
             setModoAulaExpira(null);
-          } catch { /* ignorar */ }
+          } catch (e) { mostrar(e, t("comun.noSePudoGuardarCambio")); }
         }, modoAulaDuracion * 60 * 1000);
 
         setModoAulaTimer(timer);
@@ -257,7 +259,7 @@ export default function menuProfesor() {
         setModoAulaExpira(null);
         setModoAulaTimer(null);
       }
-    } catch { /* ignorar */ }
+    } catch (e) { mostrar(e, t("comun.noSePudoGuardarCambio")); }
     finally { setModoAulaLoading(false); }
   };
 
@@ -491,6 +493,8 @@ export default function menuProfesor() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-4">
 
       {/* ── Estado de carga ─────────────────────────────────────── */}
@@ -948,5 +952,6 @@ export default function menuProfesor() {
         </div>
       )}
     </div>
+    </>
   );
 }

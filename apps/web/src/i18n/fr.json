@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "Aucune classe active.",
   "misClases.noHayAulasArchivadas": "Aucune classe archivée.",
   "profesorCalendario.editarEventoEscuela": "Modifier l'événement de l'école",
-  "profesorCalendario.editarEventoAula": "Modifier l'événement de la classe"
+  "profesorCalendario.editarEventoAula": "Modifier l'événement de la classe",
+  "comun.noSePudoCargar": "Impossible de charger les données. Recharge la page pour réessayer.",
+  "comun.noSePudoGuardarCambio": "Impossible d'enregistrer la modification. Réessaie.",
+  "mensajeria.noSePudoEnviar": "Impossible d'envoyer le message.",
+  "quizAttempt.noSePudieronGenerar": "Impossible de générer les questions. Recharge la page pour réessayer."
 }

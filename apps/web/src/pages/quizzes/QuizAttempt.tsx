@@ -63,6 +63,7 @@ import {
 } from "../../ui";
 import Progress from "../../ui/Progress";
 import { useI18n } from "../../i18n/I18nContext";
+import { useAvisoError } from "../../ui/useAvisoError";
 
 function parseVisualContext(detail: string | undefined): VisualSpec | null {
   if (!detail) return null;
@@ -203,6 +204,7 @@ const normalizeAnswers = (
 
 export default function QuizAttempt() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { attemptId } = useParams();
   const navigate = useNavigate();
   const [attempt, setAttempt] = useState<QuizAttemptResponse | null>(null);
@@ -332,7 +334,7 @@ export default function QuizAttempt() {
           }
           setGeneratedQuestions(out);
         })
-        .catch(() => {});
+        .catch((e) => mostrar(e, t("quizAttempt.noSePudieronGenerar")));
       return () => {
         cancelled = true;
       };
@@ -379,7 +381,7 @@ export default function QuizAttempt() {
         });
         setGeneratedQuestions(ejercicios.map(ejercicioToQuestion));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("quizAttempt.noSePudieronGenerar")));
   }, [attempt]);
 
   useEffect(() => {
@@ -1245,6 +1247,8 @@ export default function QuizAttempt() {
 
   // ── Main quiz view ───────────────────────────────────────────────────────
   return (
+    <>
+      {aviso}
     <main
       style={{
         minHeight: "100vh",
@@ -1765,5 +1769,6 @@ export default function QuizAttempt() {
         </div>
       </div>
     </main>
+    </>
   );
 }

@@ -10,6 +10,7 @@ import {
   type ProgresoResponse,
 } from "../services/reportes-v2";
 import { nombreMateria } from "../lib/nombreMateria";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type Tab = "boletin" | "asistencia" | "progreso" | "riesgo";
 
@@ -24,6 +25,7 @@ type AlumnoRiesgo = {
 
 export default function ProfesorReportes() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [aulas, setAulas] = useState<Classroom[]>([]);
   const [aulaId, setAulaId] = useState("");
@@ -45,7 +47,7 @@ export default function ProfesorReportes() {
         setAulas(items);
         if (items[0]) setAulaId(getAulaId(items[0]));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [user?.id]);
 
   useEffect(() => {
@@ -84,7 +86,7 @@ export default function ProfesorReportes() {
       `/api/pedagogico/riesgo/${aulaId}`
     )
       .then((data) => { if (!active) return; setRiesgo(data.items ?? []); })
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => { if (!active) return; setRiesgoLoading(false); });
     return () => { active = false; };
   }, [tab, aulaId]);
@@ -106,6 +108,8 @@ export default function ProfesorReportes() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div>
           <h1 className="text-xl font-semibold text-[var(--c-text)]">{t("nav.reportes")}</h1>
@@ -376,5 +380,6 @@ export default function ProfesorReportes() {
           </section>
         )}
       </div>
+    </>
   );
 }

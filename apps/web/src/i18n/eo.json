@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "Ne estas aktivaj klasĉambroj.",
   "misClases.noHayAulasArchivadas": "Ne estas arkivitaj klasĉambroj.",
   "profesorCalendario.editarEventoEscuela": "Redakti lernejan eventon",
-  "profesorCalendario.editarEventoAula": "Redakti klasĉambran eventon"
+  "profesorCalendario.editarEventoAula": "Redakti klasĉambran eventon",
+  "comun.noSePudoCargar": "Ne eblis ŝargi la datumojn. Reŝargu la paĝon por reprovi.",
+  "comun.noSePudoGuardarCambio": "Ne eblis konservi la ŝanĝon. Reprovu.",
+  "mensajeria.noSePudoEnviar": "Ne eblis sendi la mesaĝon.",
+  "quizAttempt.noSePudieronGenerar": "Ne eblis generi la demandojn. Reŝargu la paĝon por reprovi."
 }

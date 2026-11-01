@@ -13,6 +13,7 @@ import {
   type Hilo, type MensajeDirecto, type Aviso,
   type UsuarioBusqueda,
 } from "../services/mensajeria";
+import { useAvisoError } from "../ui/useAvisoError";
 
 const parseDate = (raw: unknown): Date | null => {
   if (!raw) return null;
@@ -90,6 +91,7 @@ type Tab = "mensajes" | "avisos";
 
 export default function Mensajeria() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   const { user } = useAuth();
   // MULTIROL-02: canPublish = staff (DIRECTIVO/TEACHER/ADMIN en
@@ -137,7 +139,7 @@ export default function Mensajeria() {
   useEffect(() => {
     fetchHilos()
       .then(setHilos)
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => setHilosLoading(false));
   }, []);
 
@@ -157,7 +159,7 @@ export default function Mensajeria() {
     setAvisosLoading(true);
     fetchAvisos()
       .then(setAvisos)
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => setAvisosLoading(false));
   }, [tab]);
 
@@ -224,7 +226,7 @@ export default function Mensajeria() {
         )
       );
       setBody("");
-    } catch { /* ignorar */ }
+    } catch (e) { mostrar(e, t("mensajeria.noSePudoEnviar")); }
     finally { setEnviando(false); }
   };
 
@@ -255,7 +257,7 @@ export default function Mensajeria() {
       setDestinatario(null);
       setBusqueda("");
       setNuevoMsg("");
-    } catch { /* ignorar */ }
+    } catch (e) { mostrar(e, t("mensajeria.noSePudoEnviar")); }
     finally { setEnviando(false); }
   };
 
@@ -345,6 +347,8 @@ export default function Mensajeria() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
@@ -749,5 +753,6 @@ export default function Mensajeria() {
 
       </div>
     </div>
+    </>
   );
 }

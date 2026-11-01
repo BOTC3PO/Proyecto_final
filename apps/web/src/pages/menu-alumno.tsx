@@ -8,6 +8,7 @@ import { fetchTareas, type TareaResumen } from "../services/tareas";
 import { fetchProgresoEstudiante } from "../services/progreso";
 import { useI18n } from "../i18n/I18nContext";
 import { interpolar } from "../i18n/interpolar";
+import { useAvisoError } from "../ui/useAvisoError";
 
 interface Student {
   name: string;
@@ -131,6 +132,7 @@ const TareaRow: React.FC<{ tarea: TareaResumen }> = ({ tarea }) => {
 
 export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass }) => {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
   const [completedModules, setCompletedModules] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -183,7 +185,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
     let active = true;
     fetchTareas()
       .then((data) => { if (active) setTareas(data); })
-      .catch(() => {})
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")))
       .finally(() => { if (active) setTareasLoading(false); });
     return () => { active = false; };
   }, []);
@@ -209,6 +211,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
 
   return (
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
+      {aviso}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
         {/* Saludo */}

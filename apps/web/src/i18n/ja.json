@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "アクティブなクラスはありません。",
   "misClases.noHayAulasArchivadas": "アーカイブされたクラスはありません。",
   "profesorCalendario.editarEventoEscuela": "学校のイベントを編集",
-  "profesorCalendario.editarEventoAula": "クラスのイベントを編集"
+  "profesorCalendario.editarEventoAula": "クラスのイベントを編集",
+  "comun.noSePudoCargar": "データを読み込めませんでした。ページを再読み込みしてもう一度お試しください。",
+  "comun.noSePudoGuardarCambio": "変更を保存できませんでした。もう一度お試しください。",
+  "mensajeria.noSePudoEnviar": "メッセージを送信できませんでした。",
+  "quizAttempt.noSePudieronGenerar": "問題を生成できませんでした。ページを再読み込みしてもう一度お試しください。"
 }

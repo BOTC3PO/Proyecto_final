@@ -23,6 +23,7 @@ import type { Module } from "../domain/module/module.types";
 import { useI18n } from "../i18n/I18nContext";
 import { makeValidityMessageHandlers } from "../lib/formValidationMessages";
 import { nombreMateria } from "../lib/nombreMateria";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type FormState = {
   name: string;
@@ -63,6 +64,7 @@ const buildInitialState = (classroom: Classroom): FormState => ({
 
 export default function ProfesorAulaConfiguracion() {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { onInvalid, onInput } = makeValidityMessageHandlers(t);
   // FIX-CONFIG: la ruta es `profesor/aulas/:aulaId` (router.tsx:282),
   // no `:id`. Antes se leía `id` (siempre undefined) y el `if (!id) return`
@@ -132,15 +134,15 @@ export default function ProfesorAulaConfiguracion() {
 
   useEffect(() => {
     if (!id) return;
-    fetchUpcomingActivities(id).then(setActivities).catch(() => {});
+    fetchUpcomingActivities(id).then(setActivities).catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [id]);
 
   useEffect(() => {
     if (!id) return;
-    fetchClaseModulos(id).then(setAsignados).catch(() => {});
+    fetchClaseModulos(id).then(setAsignados).catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     apiGet<{ items: Module[] }>("/api/modulos")
       .then((data) => setTodosModulos(data.items))
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [id]);
 
   const reloadTitulares = (classroomId: string) => {
@@ -149,10 +151,10 @@ export default function ProfesorAulaConfiguracion() {
         setOwner(data.owner);
         setCoTitulares(data.coTitulares);
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     fetchTitularesCandidatos(classroomId)
       .then((data) => setCandidatos(data.items))
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   };
 
   useEffect(() => {
@@ -192,7 +194,7 @@ export default function ProfesorAulaConfiguracion() {
 
   useEffect(() => {
     if (!id) return;
-    fetchPeriodos(id).then((data) => setPeriodos(data.items)).catch(() => {});
+    fetchPeriodos(id).then((data) => setPeriodos(data.items)).catch((e) => mostrar(e, t("comun.noSePudoCargar")));
   }, [id]);
 
   const handleCrearPeriodo = async () => {
@@ -331,6 +333,8 @@ export default function ProfesorAulaConfiguracion() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-5">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
@@ -788,5 +792,6 @@ export default function ProfesorAulaConfiguracion() {
           <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] p-6 text-sm text-[var(--c-muted)]">{t("profesorAulaConfiguracion.noEncontramosElAulaSolicitada")}</div>
         )}
       </div>
+    </>
   );
 }

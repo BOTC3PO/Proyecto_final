@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "لا توجد فصول نشطة.",
   "misClases.noHayAulasArchivadas": "لا توجد فصول مؤرشفة.",
   "profesorCalendario.editarEventoEscuela": "تعديل حدث المدرسة",
-  "profesorCalendario.editarEventoAula": "تعديل حدث الفصل"
+  "profesorCalendario.editarEventoAula": "تعديل حدث الفصل",
+  "comun.noSePudoCargar": "تعذّر تحميل البيانات. أعد تحميل الصفحة للمحاولة مرة أخرى.",
+  "comun.noSePudoGuardarCambio": "تعذّر حفظ التغيير. حاول مرة أخرى.",
+  "mensajeria.noSePudoEnviar": "تعذّر إرسال الرسالة.",
+  "quizAttempt.noSePudieronGenerar": "تعذّر إنشاء الأسئلة. أعد تحميل الصفحة للمحاولة مرة أخرى."
 }

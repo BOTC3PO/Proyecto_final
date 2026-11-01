@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "There are no active classrooms.",
   "misClases.noHayAulasArchivadas": "There are no archived classrooms.",
   "profesorCalendario.editarEventoEscuela": "Edit school event",
-  "profesorCalendario.editarEventoAula": "Edit classroom event"
+  "profesorCalendario.editarEventoAula": "Edit classroom event",
+  "comun.noSePudoCargar": "Could not load the data. Reload the page to try again.",
+  "comun.noSePudoGuardarCambio": "Could not save the change. Please try again.",
+  "mensajeria.noSePudoEnviar": "Could not send the message.",
+  "quizAttempt.noSePudieronGenerar": "Could not generate the questions. Reload the page to try again."
 }

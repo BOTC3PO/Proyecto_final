@@ -18,11 +18,13 @@ import { fetchClassrooms } from "../../services/aulas";
 import { fetchAulaMatriz, type AulaMatrizAlumno } from "../../services/progreso-aula";
 import type { Classroom } from "../../domain/classroom/classroom.types";
 import { useI18n } from "../../i18n/I18nContext";
+import { useAvisoError } from "../../ui/useAvisoError";
 
 type Modo = "aula" | "alumno";
 
 export default function DesbloqueosManualesPanel({ moduloId }: { moduloId: string }) {
   const { t } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const [items, setItems] = useState<ModuloDesbloqueoItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [aulas, setAulas] = useState<Classroom[]>([]);
@@ -45,7 +47,7 @@ export default function DesbloqueosManualesPanel({ moduloId }: { moduloId: strin
     reload();
     fetchClassrooms()
       .then((data) => setAulas(data.items))
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moduloId]);
 
@@ -90,6 +92,8 @@ export default function DesbloqueosManualesPanel({ moduloId }: { moduloId: strin
   };
 
   return (
+    <>
+      {aviso}
     <div className="rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)] p-4 space-y-3">
       <div>
         <p className="text-sm font-semibold text-[var(--c-text)]">{t("desbloqueosManuales.titulo")}</p>
@@ -169,5 +173,6 @@ export default function DesbloqueosManualesPanel({ moduloId }: { moduloId: strin
       </div>
       {error && <p className="text-xs text-[var(--c-danger)]">{error}</p>}
     </div>
+    </>
   );
 }

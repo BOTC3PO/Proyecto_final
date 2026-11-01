@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../auth/use-auth';
 import { apiGet, apiPost } from '../lib/api';
 import { useI18n } from "../i18n/I18nContext";
+import { useAvisoError } from "../ui/useAvisoError";
 
 type EducationMessage = {
   id: string;
@@ -149,6 +150,7 @@ const defaultEconomyState: EconomyState = {
 
 export default function Economia() {
   const { t, lang } = useI18n();
+  const { aviso, mostrar } = useAvisoError();
   const { user } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'tablero' | 'invertir' | 'simulador' | 'intercambio'>('tablero');
@@ -234,7 +236,7 @@ export default function Economia() {
           parseFloat((data.ciclo.tasa * 100 * 30).toFixed(1))
         );
       }
-    }).catch(() => {});
+    }).catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     return () => { active = false; };
   }, [user?.id]);
 
@@ -258,7 +260,7 @@ export default function Economia() {
         setPlazos(pfData.items.filter((p) => p.estado === "activo"));
         setFcis(fciData.items.filter((p) => p.estado === "activo"));
       })
-      .catch(() => {});
+      .catch((e) => mostrar(e, t("comun.noSePudoCargar")));
     return () => { active = false; };
   }, [user?.id]);
 
@@ -493,6 +495,8 @@ export default function Economia() {
   };
 
   return (
+    <>
+      {aviso}
     <div className="page-root min-h-screen bg-[var(--c-bg)]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
@@ -902,5 +906,6 @@ export default function Economia() {
 
       </div>
     </div>
+    </>
   );
 }

@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "Keine aktiven Klassenräume.",
   "misClases.noHayAulasArchivadas": "Keine archivierten Klassenräume.",
   "profesorCalendario.editarEventoEscuela": "Schulereignis bearbeiten",
-  "profesorCalendario.editarEventoAula": "Klassenereignis bearbeiten"
+  "profesorCalendario.editarEventoAula": "Klassenereignis bearbeiten",
+  "comun.noSePudoCargar": "Die Daten konnten nicht geladen werden. Lade die Seite neu, um es erneut zu versuchen.",
+  "comun.noSePudoGuardarCambio": "Die Änderung konnte nicht gespeichert werden. Versuche es erneut.",
+  "mensajeria.noSePudoEnviar": "Die Nachricht konnte nicht gesendet werden.",
+  "quizAttempt.noSePudieronGenerar": "Die Fragen konnten nicht erzeugt werden. Lade die Seite neu, um es erneut zu versuchen."
 }

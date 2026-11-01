@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "Нет активных классов.",
   "misClases.noHayAulasArchivadas": "Нет архивных классов.",
   "profesorCalendario.editarEventoEscuela": "Изменить событие школы",
-  "profesorCalendario.editarEventoAula": "Изменить событие класса"
+  "profesorCalendario.editarEventoAula": "Изменить событие класса",
+  "comun.noSePudoCargar": "Не удалось загрузить данные. Обновите страницу и попробуйте снова.",
+  "comun.noSePudoGuardarCambio": "Не удалось сохранить изменение. Попробуйте ещё раз.",
+  "mensajeria.noSePudoEnviar": "Не удалось отправить сообщение.",
+  "quizAttempt.noSePudieronGenerar": "Не удалось сгенерировать вопросы. Обновите страницу и попробуйте снова."
 }

@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "Não há turmas ativas.",
   "misClases.noHayAulasArchivadas": "Não há turmas arquivadas.",
   "profesorCalendario.editarEventoEscuela": "Editar evento da escola",
-  "profesorCalendario.editarEventoAula": "Editar evento da turma"
+  "profesorCalendario.editarEventoAula": "Editar evento da turma",
+  "comun.noSePudoCargar": "Não foi possível carregar os dados. Recarrega a página para tentar de novo.",
+  "comun.noSePudoGuardarCambio": "Não foi possível guardar a alteração. Tenta de novo.",
+  "mensajeria.noSePudoEnviar": "Não foi possível enviar a mensagem.",
+  "quizAttempt.noSePudieronGenerar": "Não foi possível gerar as perguntas. Recarrega a página para tentar de novo."
 }

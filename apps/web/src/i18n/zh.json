@@ -2858,5 +2858,9 @@
   "misClases.noHayAulasActivas": "没有进行中的班级。",
   "misClases.noHayAulasArchivadas": "没有已归档的班级。",
   "profesorCalendario.editarEventoEscuela": "编辑学校活动",
-  "profesorCalendario.editarEventoAula": "编辑班级活动"
+  "profesorCalendario.editarEventoAula": "编辑班级活动",
+  "comun.noSePudoCargar": "无法加载数据。请刷新页面重试。",
+  "comun.noSePudoGuardarCambio": "无法保存更改。请重试。",
+  "mensajeria.noSePudoEnviar": "无法发送消息。",
+  "quizAttempt.noSePudieronGenerar": "无法生成题目。请刷新页面重试。"
 }
