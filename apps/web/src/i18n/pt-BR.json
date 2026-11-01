@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Não foi possível carregar os dados. Recarregue a página para tentar de novo.",
   "comun.noSePudoGuardarCambio": "Não foi possível salvar a alteração. Tente de novo.",
   "mensajeria.noSePudoEnviar": "Não foi possível enviar a mensagem.",
-  "quizAttempt.noSePudieronGenerar": "Não foi possível gerar as perguntas. Recarregue a página para tentar de novo."
+  "quizAttempt.noSePudieronGenerar": "Não foi possível gerar as perguntas. Recarregue a página para tentar de novo.",
+  "login.verificarCorreoEnviado": "Enviamos um e-mail para confirmar sua conta. Abra o link e depois entre.",
+  "login.reenviarVerificacion": "Reenviar o e-mail de confirmação",
+  "login.verificacionReenviada": "Pronto: se a conta existir e ainda não estiver confirmada, você receberá um novo e-mail.",
+  "verificarEmail.titulo": "Confirmar seu e-mail",
+  "verificarEmail.verificando": "Confirmando…",
+  "verificarEmail.listo": "Pronto! Seu e-mail foi confirmado. Você já pode entrar.",
+  "verificarEmail.sinToken": "Falta o link de confirmação. Abra o link completo que chegou por e-mail."
 }

@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Impossibile caricare i dati. Ricarica la pagina per riprovare.",
   "comun.noSePudoGuardarCambio": "Impossibile salvare la modifica. Riprova.",
   "mensajeria.noSePudoEnviar": "Impossibile inviare il messaggio.",
-  "quizAttempt.noSePudieronGenerar": "Impossibile generare le domande. Ricarica la pagina per riprovare."
+  "quizAttempt.noSePudieronGenerar": "Impossibile generare le domande. Ricarica la pagina per riprovare.",
+  "login.verificarCorreoEnviado": "Ti abbiamo inviato un'e-mail per confermare l'account. Apri il link e poi accedi.",
+  "login.reenviarVerificacion": "Invia di nuovo l'e-mail di conferma",
+  "login.verificacionReenviada": "Fatto: se l'account esiste e non è ancora confermato, riceverai una nuova e-mail.",
+  "verificarEmail.titulo": "Conferma la tua e-mail",
+  "verificarEmail.verificando": "Conferma in corso…",
+  "verificarEmail.listo": "Fatto! La tua e-mail è confermata. Ora puoi accedere.",
+  "verificarEmail.sinToken": "Manca il link di conferma. Apri il link completo ricevuto per e-mail."
 }

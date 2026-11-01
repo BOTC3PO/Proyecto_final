@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Não foi possível carregar os dados. Recarrega a página para tentar de novo.",
   "comun.noSePudoGuardarCambio": "Não foi possível guardar a alteração. Tenta de novo.",
   "mensajeria.noSePudoEnviar": "Não foi possível enviar a mensagem.",
-  "quizAttempt.noSePudieronGenerar": "Não foi possível gerar as perguntas. Recarrega a página para tentar de novo."
+  "quizAttempt.noSePudieronGenerar": "Não foi possível gerar as perguntas. Recarrega a página para tentar de novo.",
+  "login.verificarCorreoEnviado": "Enviámos-te um e-mail para confirmar a tua conta. Abre a ligação e depois inicia sessão.",
+  "login.reenviarVerificacion": "Reenviar o e-mail de confirmação",
+  "login.verificacionReenviada": "Pronto: se a conta existir e ainda não estiver confirmada, vais receber um novo e-mail.",
+  "verificarEmail.titulo": "Confirmar o teu e-mail",
+  "verificarEmail.verificando": "A confirmar…",
+  "verificarEmail.listo": "Pronto! O teu e-mail foi confirmado. Já podes iniciar sessão.",
+  "verificarEmail.sinToken": "Falta a ligação de confirmação. Abre a ligação completa que recebeste por e-mail."
 }

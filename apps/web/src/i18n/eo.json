@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Ne eblis ŝargi la datumojn. Reŝargu la paĝon por reprovi.",
   "comun.noSePudoGuardarCambio": "Ne eblis konservi la ŝanĝon. Reprovu.",
   "mensajeria.noSePudoEnviar": "Ne eblis sendi la mesaĝon.",
-  "quizAttempt.noSePudieronGenerar": "Ne eblis generi la demandojn. Reŝargu la paĝon por reprovi."
+  "quizAttempt.noSePudieronGenerar": "Ne eblis generi la demandojn. Reŝargu la paĝon por reprovi.",
+  "login.verificarCorreoEnviado": "Ni sendis al vi retmesaĝon por konfirmi vian konton. Malfermu la ligilon kaj poste ensalutu.",
+  "login.reenviarVerificacion": "Resendi la konfirman retmesaĝon",
+  "login.verificacionReenviada": "Farite: se la konto ekzistas kaj ankoraŭ ne estas konfirmita, venos nova retmesaĝo.",
+  "verificarEmail.titulo": "Konfirmi vian retpoŝton",
+  "verificarEmail.verificando": "Konfirmante…",
+  "verificarEmail.listo": "Farite! Via retpoŝto estas konfirmita. Nun vi povas ensaluti.",
+  "verificarEmail.sinToken": "Mankas la konfirma ligilo. Malfermu la tutan ligilon el la retmesaĝo."
 }

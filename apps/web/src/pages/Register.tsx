@@ -385,7 +385,7 @@ export default function RegistrationForm() {
       const birthdate = formData.birthdateISO
         ? new Date(`${formData.birthdateISO}T00:00:00.000Z`).toISOString()
         : undefined;
-      await apiPost<{ id: string }>("/api/auth/register", {
+      const alta = await apiPost<{ id: string; verificacionPendiente?: boolean }>("/api/auth/register", {
         username: formData.username,
         email: formData.email,
         fullName: formData.fullName,
@@ -402,6 +402,12 @@ export default function RegistrationForm() {
         }
       });
       const returnToQS = returnTo ? `?returnTo=${encodeURIComponent(returnTo)}` : "";
+      // B9 — con la verificación activa la cuenta no puede entrar hasta confirmar el correo: se va al login con
+      // el aviso de que revise su bandeja (el tema lo puede elegir después desde el perfil).
+      if (alta?.verificacionPendiente) {
+        navigate(`/login?verificar=1${returnTo ? `&returnTo=${encodeURIComponent(returnTo)}` : ""}`);
+        return;
+      }
       // Solo el alumno (USER) ve el onboarding de tema
       if (formData.role === 'USER') {
         navigate(`/onboarding/tema${returnToQS}`, {

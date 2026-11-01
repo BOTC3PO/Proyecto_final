@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "تعذّر تحميل البيانات. أعد تحميل الصفحة للمحاولة مرة أخرى.",
   "comun.noSePudoGuardarCambio": "تعذّر حفظ التغيير. حاول مرة أخرى.",
   "mensajeria.noSePudoEnviar": "تعذّر إرسال الرسالة.",
-  "quizAttempt.noSePudieronGenerar": "تعذّر إنشاء الأسئلة. أعد تحميل الصفحة للمحاولة مرة أخرى."
+  "quizAttempt.noSePudieronGenerar": "تعذّر إنشاء الأسئلة. أعد تحميل الصفحة للمحاولة مرة أخرى.",
+  "login.verificarCorreoEnviado": "أرسلنا إليك بريدًا لتأكيد حسابك. افتح الرابط ثم سجّل الدخول.",
+  "login.reenviarVerificacion": "إعادة إرسال بريد التأكيد",
+  "login.verificacionReenviada": "تم: إذا كان الحساب موجودًا ولم يُؤكَّد بعد، فستصلك رسالة جديدة.",
+  "verificarEmail.titulo": "تأكيد بريدك الإلكتروني",
+  "verificarEmail.verificando": "جارٍ التأكيد…",
+  "verificarEmail.listo": "تم! تأكّد بريدك الإلكتروني. يمكنك تسجيل الدخول الآن.",
+  "verificarEmail.sinToken": "رابط التأكيد مفقود. افتح الرابط الكامل الذي وصلك بالبريد."
 }

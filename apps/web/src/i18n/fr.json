@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Impossible de charger les données. Recharge la page pour réessayer.",
   "comun.noSePudoGuardarCambio": "Impossible d'enregistrer la modification. Réessaie.",
   "mensajeria.noSePudoEnviar": "Impossible d'envoyer le message.",
-  "quizAttempt.noSePudieronGenerar": "Impossible de générer les questions. Recharge la page pour réessayer."
+  "quizAttempt.noSePudieronGenerar": "Impossible de générer les questions. Recharge la page pour réessayer.",
+  "login.verificarCorreoEnviado": "Nous t'avons envoyé un e-mail pour confirmer ton compte. Ouvre le lien puis connecte-toi.",
+  "login.reenviarVerificacion": "Renvoyer l'e-mail de confirmation",
+  "login.verificacionReenviada": "C'est fait : si le compte existe et n'est pas encore confirmé, tu recevras un nouvel e-mail.",
+  "verificarEmail.titulo": "Confirmer ton e-mail",
+  "verificarEmail.verificando": "Confirmation…",
+  "verificarEmail.listo": "C'est fait ! Ton e-mail est confirmé. Tu peux te connecter.",
+  "verificarEmail.sinToken": "Le lien de confirmation est manquant. Ouvre le lien complet reçu par e-mail."
 }

@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "データを読み込めませんでした。ページを再読み込みしてもう一度お試しください。",
   "comun.noSePudoGuardarCambio": "変更を保存できませんでした。もう一度お試しください。",
   "mensajeria.noSePudoEnviar": "メッセージを送信できませんでした。",
-  "quizAttempt.noSePudieronGenerar": "問題を生成できませんでした。ページを再読み込みしてもう一度お試しください。"
+  "quizAttempt.noSePudieronGenerar": "問題を生成できませんでした。ページを再読み込みしてもう一度お試しください。",
+  "login.verificarCorreoEnviado": "アカウント確認のメールを送りました。リンクを開いてからログインしてください。",
+  "login.reenviarVerificacion": "確認メールを再送する",
+  "login.verificacionReenviada": "完了しました。アカウントが存在し未確認の場合、新しいメールが届きます。",
+  "verificarEmail.titulo": "メールアドレスの確認",
+  "verificarEmail.verificando": "確認中…",
+  "verificarEmail.listo": "完了しました。メールアドレスが確認されました。ログインできます。",
+  "verificarEmail.sinToken": "確認リンクがありません。メールに届いたリンクをそのまま開いてください。"
 }

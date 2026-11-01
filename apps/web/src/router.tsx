@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
 import RestablecerContrasena from "./pages/RestablecerContrasena";
+import VerificarEmail from "./pages/VerificarEmail";
 
 // Herramientas educativas — sólo sobrevive el editor de mapas; el hub y los
 // stubs en blanco están en `archive/web/stubs/herramientas.tsx`.
@@ -153,6 +154,7 @@ export const router = createBrowserRouter([
           { path: "register",   element: <Register /> },
           { path: "recuperar",  element: <RecuperarContrasena /> },
           { path: "restablecer", element: <RestablecerContrasena /> },
+          { path: "verificar-email", element: <VerificarEmail /> },
 
           { path: "contact",          element: withSuspense(<Contact />) },
           { path: "terminos",         element: withSuspense(<Terminos />) },

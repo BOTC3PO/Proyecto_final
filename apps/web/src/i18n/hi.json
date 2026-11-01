@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "डेटा लोड नहीं हो सका। फिर से कोशिश करने के लिए पेज रीलोड करें।",
   "comun.noSePudoGuardarCambio": "बदलाव सहेजा नहीं जा सका। फिर से कोशिश करें।",
   "mensajeria.noSePudoEnviar": "संदेश भेजा नहीं जा सका।",
-  "quizAttempt.noSePudieronGenerar": "प्रश्न नहीं बन सके। फिर से कोशिश करने के लिए पेज रीलोड करें।"
+  "quizAttempt.noSePudieronGenerar": "प्रश्न नहीं बन सके। फिर से कोशिश करने के लिए पेज रीलोड करें।",
+  "login.verificarCorreoEnviado": "हमने आपका खाता पुष्टि करने के लिए ईमेल भेजा है। लिंक खोलें और फिर साइन इन करें।",
+  "login.reenviarVerificacion": "पुष्टि ईमेल फिर से भेजें",
+  "login.verificacionReenviada": "हो गया: अगर खाता मौजूद है और अभी पुष्टि बाकी है, तो नया ईमेल आएगा।",
+  "verificarEmail.titulo": "अपना ईमेल पुष्टि करें",
+  "verificarEmail.verificando": "पुष्टि की जा रही है…",
+  "verificarEmail.listo": "हो गया! आपका ईमेल पुष्टि हो गया। अब आप साइन इन कर सकते हैं।",
+  "verificarEmail.sinToken": "पुष्टि लिंक नहीं मिला। ईमेल में आया पूरा लिंक खोलें।"
 }

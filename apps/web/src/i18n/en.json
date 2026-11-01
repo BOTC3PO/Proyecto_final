@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Could not load the data. Reload the page to try again.",
   "comun.noSePudoGuardarCambio": "Could not save the change. Please try again.",
   "mensajeria.noSePudoEnviar": "Could not send the message.",
-  "quizAttempt.noSePudieronGenerar": "Could not generate the questions. Reload the page to try again."
+  "quizAttempt.noSePudieronGenerar": "Could not generate the questions. Reload the page to try again.",
+  "login.verificarCorreoEnviado": "We sent you an email to confirm your account. Open the link and then sign in.",
+  "login.reenviarVerificacion": "Resend the confirmation email",
+  "login.verificacionReenviada": "Done: if the account exists and still needs confirming, a new email is on its way.",
+  "verificarEmail.titulo": "Confirm your email",
+  "verificarEmail.verificando": "Confirming…",
+  "verificarEmail.listo": "Done! Your email is confirmed. You can sign in now.",
+  "verificarEmail.sinToken": "The confirmation link is missing. Open the full link from the email."
 }

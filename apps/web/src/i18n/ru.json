@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Не удалось загрузить данные. Обновите страницу и попробуйте снова.",
   "comun.noSePudoGuardarCambio": "Не удалось сохранить изменение. Попробуйте ещё раз.",
   "mensajeria.noSePudoEnviar": "Не удалось отправить сообщение.",
-  "quizAttempt.noSePudieronGenerar": "Не удалось сгенерировать вопросы. Обновите страницу и попробуйте снова."
+  "quizAttempt.noSePudieronGenerar": "Не удалось сгенерировать вопросы. Обновите страницу и попробуйте снова.",
+  "login.verificarCorreoEnviado": "Мы отправили письмо для подтверждения аккаунта. Откройте ссылку, а затем войдите.",
+  "login.reenviarVerificacion": "Отправить письмо ещё раз",
+  "login.verificacionReenviada": "Готово: если аккаунт существует и ещё не подтверждён, придёт новое письмо.",
+  "verificarEmail.titulo": "Подтверждение почты",
+  "verificarEmail.verificando": "Подтверждаем…",
+  "verificarEmail.listo": "Готово! Почта подтверждена. Теперь можно войти.",
+  "verificarEmail.sinToken": "Нет ссылки подтверждения. Откройте полную ссылку из письма."
 }

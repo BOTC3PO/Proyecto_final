@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "Die Daten konnten nicht geladen werden. Lade die Seite neu, um es erneut zu versuchen.",
   "comun.noSePudoGuardarCambio": "Die Änderung konnte nicht gespeichert werden. Versuche es erneut.",
   "mensajeria.noSePudoEnviar": "Die Nachricht konnte nicht gesendet werden.",
-  "quizAttempt.noSePudieronGenerar": "Die Fragen konnten nicht erzeugt werden. Lade die Seite neu, um es erneut zu versuchen."
+  "quizAttempt.noSePudieronGenerar": "Die Fragen konnten nicht erzeugt werden. Lade die Seite neu, um es erneut zu versuchen.",
+  "login.verificarCorreoEnviado": "Wir haben dir eine E-Mail zur Bestätigung deines Kontos geschickt. Öffne den Link und melde dich dann an.",
+  "login.reenviarVerificacion": "Bestätigungs-E-Mail erneut senden",
+  "login.verificacionReenviada": "Erledigt: Wenn das Konto existiert und noch nicht bestätigt ist, kommt eine neue E-Mail.",
+  "verificarEmail.titulo": "E-Mail bestätigen",
+  "verificarEmail.verificando": "Wird bestätigt…",
+  "verificarEmail.listo": "Fertig! Deine E-Mail ist bestätigt. Du kannst dich jetzt anmelden.",
+  "verificarEmail.sinToken": "Der Bestätigungslink fehlt. Öffne den vollständigen Link aus der E-Mail."
 }

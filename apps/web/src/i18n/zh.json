@@ -2862,5 +2862,12 @@
   "comun.noSePudoCargar": "无法加载数据。请刷新页面重试。",
   "comun.noSePudoGuardarCambio": "无法保存更改。请重试。",
   "mensajeria.noSePudoEnviar": "无法发送消息。",
-  "quizAttempt.noSePudieronGenerar": "无法生成题目。请刷新页面重试。"
+  "quizAttempt.noSePudieronGenerar": "无法生成题目。请刷新页面重试。",
+  "login.verificarCorreoEnviado": "我们已发送确认邮件。请打开邮件中的链接，然后登录。",
+  "login.reenviarVerificacion": "重新发送确认邮件",
+  "login.verificacionReenviada": "已完成：如果该账户存在且尚未确认，你将收到一封新邮件。",
+  "verificarEmail.titulo": "确认你的邮箱",
+  "verificarEmail.verificando": "正在确认…",
+  "verificarEmail.listo": "完成！你的邮箱已确认，现在可以登录了。",
+  "verificarEmail.sinToken": "缺少确认链接。请打开邮件中的完整链接。"
 }

@@ -139,6 +139,7 @@ auth.post("/api/auth/bootstrap-admin", async (req, res) => {
                 esAdminPrincipal: true,
                 passwordHash: bootstrapPasswordHash,
                 isDeleted: false,
+                emailVerificadoAt: now,
                 createdAt: now,
                 updatedAt: now
               }
@@ -191,6 +192,7 @@ auth.post("/api/admins", requireAdmin, async (req, res) => {
         roles: ["ADMIN"],
         passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
+        emailVerificadoAt: now,
         createdAt: now,
         updatedAt: now
       }
@@ -307,6 +309,7 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         birthdate: parsed.birthdate ? new Date(parsed.birthdate).toISOString() : null,
         passwordHash: await hashPassword(parsed.password),
         isDeleted: false,
+        emailVerificadoAt: ENV.EMAIL_VERIFICACION ? null : now,
         createdAt: now,
         updatedAt: now,
         ...consentsData
@@ -348,7 +351,11 @@ auth.post("/api/auth/register", authLimiter, async (req, res) => {
         return;
       }
     }
-    res.status(201).json({ id: result.id });
+    // B9 — enlace para confirmar el correo. Si el envío falla, la persona lo puede pedir de nuevo al iniciar sesión.
+    if (ENV.EMAIL_VERIFICACION) {
+      await enviarEnlaceDeVerificacion({ id: result.id, email: parsed.email, nombre: parsed.fullName });
+    }
+    res.status(201).json({ id: result.id, verificacionPendiente: ENV.EMAIL_VERIFICACION });
   } catch (e: any) {
     if (e instanceof ZodError) {
       // Un problema con la contraseña se informa con su texto (el formulario lo muestra tal cual);
@@ -670,6 +677,82 @@ async function enviarEnlaceDeRecuperacion(usuario: { id: string; email: string; 
   });
 }
 
+// ── B9 — confirmación del correo ────────────────────────────────────────────
+async function enviarEnlaceDeVerificacion(usuario: { id: string; email: string; nombre?: string | null }) {
+  const ahora = new Date();
+  await prisma.emailVerificacion.updateMany({
+    where: { usuarioId: usuario.id, usedAt: null },
+    data: { usedAt: ahora.toISOString() }
+  });
+  const token = crypto.randomBytes(32).toString("base64url");
+  const horas = ENV.EMAIL_VERIFICACION_TTL_HORAS;
+  await prisma.emailVerificacion.create({
+    data: {
+      id: crypto.randomUUID(),
+      usuarioId: usuario.id,
+      tokenHash: hashToken(token),
+      expiresAt: new Date(ahora.getTime() + horas * 3_600_000).toISOString(),
+      createdAt: ahora.toISOString()
+    }
+  });
+  const enlace = `${ENV.APP_URL.replace(/\/$/, "")}/verificar-email?token=${encodeURIComponent(token)}`;
+  await enviarCorreo({
+    para: usuario.email,
+    asunto: "Confirmá tu correo en Virtual Book",
+    texto: [
+      usuario.nombre ? `Hola, ${usuario.nombre}:` : "Hola:",
+      "",
+      "Para terminar de crear tu cuenta, confirmá tu correo abriendo este enlace:",
+      enlace,
+      "",
+      `El enlace vence en ${horas} horas y sirve una sola vez.`,
+      "Si no creaste una cuenta en Virtual Book, ignorá este correo."
+    ].join("\n")
+  });
+}
+
+auth.post("/api/auth/verificar-email", authLimiter, async (req, res) => {
+  const token = typeof req.body?.token === "string" ? req.body.token : "";
+  const invalido = () =>
+    res.status(400).json({ error: "El enlace venció o ya se usó. Pedí uno nuevo desde el inicio de sesión.", code: "TOKEN_INVALIDO" });
+  if (!token || token.length > 200) return invalido();
+  const ahora = new Date().toISOString();
+  const fila = await prisma.emailVerificacion.findFirst({ where: { tokenHash: hashToken(token) } });
+  if (!fila || fila.usedAt || fila.expiresAt <= ahora) return invalido();
+  const reclamo = await prisma.emailVerificacion.updateMany({ where: { id: fila.id, usedAt: null }, data: { usedAt: ahora } });
+  if (reclamo.count !== 1) return invalido();
+  const actualizado = await prisma.usuario.updateMany({
+    where: { id: fila.usuarioId, isDeleted: { not: true } },
+    data: { emailVerificadoAt: ahora, updatedAt: ahora }
+  });
+  if (actualizado.count !== 1) return invalido();
+  await recordAuditLog({
+    actorId: fila.usuarioId,
+    action: "auth.email_verificado",
+    targetType: "Usuario",
+    targetId: fila.usuarioId,
+    metadata: {}
+  });
+  res.json({ ok: true });
+});
+
+// Reenvía el enlace. Siempre responde lo mismo, exista o no la cuenta.
+// Acepta el correo o el nombre de usuario (lo que la persona escribió al intentar entrar); el enlace va
+// siempre al correo registrado.
+auth.post("/api/auth/reenviar-verificacion", authLimiter, async (req, res) => {
+  const crudo = req.body?.identifier ?? req.body?.email;
+  const identifier = typeof crudo === "string" ? crudo.trim().toLowerCase() : "";
+  if (ENV.EMAIL_VERIFICACION && identifier && identifier.length <= 320) {
+    const usuario = await prisma.usuario.findFirst({
+      where: { OR: [{ email: identifier }, { username: identifier }], isDeleted: { not: true } }
+    });
+    if (usuario?.email && !usuario.emailVerificadoAt) {
+      await enviarEnlaceDeVerificacion({ id: usuario.id, email: usuario.email, nombre: usuario.fullName });
+    }
+  }
+  res.json({ ok: true });
+});
+
 auth.post("/api/auth/reset-password", authLimiter, async (req, res) => {
   const parsed = ResetPasswordSchema.safeParse(req.body ?? {});
   if (!parsed.success) {
@@ -706,7 +789,12 @@ auth.post("/api/auth/reset-password", authLimiter, async (req, res) => {
   }
   await prisma.usuario.update({
     where: { id: usuario.id },
-    data: { passwordHash: await hashPassword(parsed.data.password), updatedAt: ahora }
+    data: {
+      passwordHash: await hashPassword(parsed.data.password),
+      updatedAt: ahora,
+      // Abrir el enlace del correo prueba que la casilla es suya (B9).
+      ...(usuario.emailVerificadoAt ? {} : { emailVerificadoAt: ahora })
+    }
   });
   // Cambiar la contraseña cierra las sesiones abiertas (por si alguien más la tenía).
   await prisma.refreshToken.updateMany({ where: { userId: usuario.id, revoked: false }, data: { revoked: true } });
@@ -1001,6 +1089,15 @@ auth.post("/api/auth/login", loginLimiter, authLimiter, async (req, res) => {
     }
     if (estaBaneado(user as { isBanned?: boolean; bannedUntil?: string | null })) {
       res.status(403).json(respuestaBaneado(user as { bannedUntil?: string | null }));
+      return;
+    }
+    // B9 — quien se registró solo tiene que confirmar el correo antes de entrar. Se responde después de
+    // verificar la contraseña, así este aviso no revela qué correos están registrados.
+    if (ENV.EMAIL_VERIFICACION && !(user as { emailVerificadoAt?: string | null }).emailVerificadoAt) {
+      res.status(403).json({
+        error: "Tenés que confirmar tu correo antes de iniciar sesión. Revisá tu bandeja de entrada.",
+        code: "EMAIL_NO_VERIFICADO"
+      });
       return;
     }
     // Hash viejo (menos iteraciones): se re-hashea con el costo actual ahora que se conoce la
