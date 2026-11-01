@@ -176,7 +176,7 @@ export default function MisClases() {
         {!loading && !error && aulas.length > 0 && aulasFiltradas.length === 0 && (
           <div className="rounded-xl border border-dashed border-[var(--c-border)] p-10 text-center">
             <p className="text-sm text-[var(--c-muted)]">
-              {t("misClases.noHayAulas")} {filtro === "activas" ? t("misClases.activas").toLowerCase() : t("misClases.archivadas").toLowerCase()}.
+              {filtro === "activas" ? t("misClases.noHayAulasActivas") : t("misClases.noHayAulasArchivadas")}
             </p>
           </div>
         )}

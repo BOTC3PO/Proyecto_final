@@ -107,7 +107,6 @@ const Terminos                  = lazyWithRetry(() => import("./pages/Terminos")
 const Creditos                  = lazyWithRetry(() => import("./pages/Creditos")); // huevo de pascua, sin link en ningún nav
 const Privacidad                = lazyWithRetry(() => import("./pages/Privacidad"));
 const Mensajeria                = lazyWithRetry(() => import("./pages/Mensajeria"));
-const PerfilPublico             = lazyWithRetry(() => import("./pages/PerfilPublico"));
 const Economia                  = lazyWithRetry(() => import("./pages/Economia"));
 const TiendaTemas               = lazyWithRetry(() => import("./pages/TiendaTemas"));
 const OnboardingTema            = lazyWithRetry(() => import("./pages/OnboardingTema"));
@@ -161,7 +160,6 @@ export const router = createBrowserRouter([
           { path: "privacidad",       element: withSuspense(<Privacidad />) },
           { path: "metodologia",      element: withSuspense(<Metodologia />) },
           { path: "onboarding/tema",     element: withSuspense(<OnboardingTema />) },
-          { path: "u/:username",         element: withSuspense(<PerfilPublico />) },
 
           // Herramientas Educativas (public) — sólo el editor de mapas; el
           // resto de rutas /herramientas/* se archivó (stubs en blanco).

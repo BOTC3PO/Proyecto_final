@@ -698,7 +698,7 @@ export default function ProfesorCalendario() {
                 id="calendario-editar-titulo"
                 className="text-base font-semibold text-[var(--c-text)]"
               >
-                {t("profesorCalendario.editarEvento")} {editando.origen === "escuela" ? t("profesorCalendario.deEscuela") : t("profesorCalendario.delAula")}
+                {editando.origen === "escuela" ? t("profesorCalendario.editarEventoEscuela") : t("profesorCalendario.editarEventoAula")}
               </h3>
               <form onSubmit={handleGuardarEdicion} className="mt-3 space-y-3">
                 <label className="flex flex-col gap-1 text-xs font-medium text-[var(--c-text)]">{t("comun.tipo")}<select

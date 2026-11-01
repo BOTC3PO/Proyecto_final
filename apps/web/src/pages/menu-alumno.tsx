@@ -7,6 +7,7 @@ import { apiGet } from "../lib/api";
 import { fetchTareas, type TareaResumen } from "../services/tareas";
 import { fetchProgresoEstudiante } from "../services/progreso";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 
 interface Student {
   name: string;
@@ -218,7 +219,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
           <h1 className="text-2xl font-semibold text-[var(--c-text)]">{t("menualumno.bienvenido")}{" "}<span className="text-[var(--c-primary)]">{student.name}</span>
           </h1>
           <p className="text-sm text-[var(--c-muted)] mt-1">
-            {t("matrizProgreso.alumno")} · {completedModules} {t("perfilPublico.modulosCompletados")}
+            {t("matrizProgreso.alumno")} · {interpolar(t("menualumno.nModulosCompletados"), { n: completedModules })}
           </p>
         </div>
 
@@ -243,7 +244,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             icon={<Trophy className="w-5 h-5" />}
             value={completedModules}
             label={t("comun.modulosCompletados")}
-            hint={progressStatus === "loading" ? t("comun.cargando2") : `${t("menualumno.deLabel")} ${modulesCount} ${t("menualumno.enTotal")}`}
+            hint={progressStatus === "loading" ? t("comun.cargando2") : interpolar(t("menualumno.deNEnTotal"), { n: modulesCount })}
             hintColor="muted"
           />
           <StatCard
@@ -257,7 +258,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
             icon={<Clock3 className="w-5 h-5" />}
             value={tareas.length}
             label={t("menualumno.tareasPendientes")}
-            hint={tareasUrgentes > 0 ? `${tareasUrgentes} ${tareasUrgentes > 1 ? t("tareas.vencenHoy") : t("tareas.venceHoy")}` : t("profesorAulas.alDia")}
+            hint={tareasUrgentes > 0 ? tareasUrgentes > 1 ? interpolar(t("tareas.nVencenHoy"), { n: tareasUrgentes }) : t("tareas.unaVenceHoy") : t("profesorAulas.alDia")}
             hintColor={tareasUrgentes > 0 ? "warning" : "success"}
           />
           <StatCard
@@ -291,7 +292,7 @@ export const StudentDashboard: React.FC<DashboardProps> = ({ student, nextClass 
               <div>
                 <ModuloRow
                   nombre={t("comun.modulosCompletados")}
-                  meta={`${completedModules} ${t("menualumno.deLabel")} ${modulesCount}`}
+                  meta={interpolar(t("menualumno.nDeM"), { n: completedModules, m: modulesCount })}
                   pct={progressPercent}
                   icon={<Trophy className="w-4 h-4" />}
                 />

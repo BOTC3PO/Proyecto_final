@@ -7,6 +7,7 @@ import { useAuth } from "../auth/use-auth";
 import { apiGet, apiPost } from "../lib/api";
 import { useTheme, THEME_OPTIONS } from "../theme/ThemeContext";
 import { useI18n } from "../i18n/I18nContext";
+import { interpolar } from "../i18n/interpolar";
 import { resolveMateria, MATERIA_FALLBACK } from "../domain/module/materia";
 import LogroCard, { getTier } from "../ui/LogroCard";
 
@@ -190,8 +191,8 @@ export default function Perfil() {
             .map((f): Logro => ({
               id: `materia-${f.materia.toLowerCase()}`,
               kind: "tier",
-              label: `${t("perfil.dominioDe")} ${f.materia}`,
-              descripcion: `${t("perfil.completasteTodosLosModulosDe")} ${f.materia}.`,
+              label: interpolar(t("perfil.dominioMateria"), { materia: f.materia }),
+              descripcion: interpolar(t("perfil.completasteTodosDe"), { materia: f.materia }),
               icono: "🎓",
               porcentaje: f.porcentaje,
             })),
@@ -386,7 +387,7 @@ export default function Perfil() {
                       />
                     </div>
                     <p className="text-xs text-[var(--c-muted)] mt-1.5">
-                      {f.completados} {t("menualumno.deLabel")} {f.total} {f.total === 1 ? t("comun.modulo") : t("comun.modulos")}
+                      {interpolar(t(f.total === 1 ? "perfil.nDeTotalModulo" : "perfil.nDeTotalModulos"), { n: f.completados, total: f.total })}
                     </p>
                   </div>
                 ))}
