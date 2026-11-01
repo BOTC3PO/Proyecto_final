@@ -25,6 +25,7 @@ import crypto from "crypto";
 import { requireUser } from "../lib/user-auth";
 import { ENV } from "../lib/env";
 import { putMedia, getMedia, mediaPublicUrl, localMediaPath } from "../lib/media-storage";
+import { createRateLimiter } from "../lib/rate-limit";
 
 export const mediaRouter = Router();
 
@@ -346,7 +347,7 @@ const leerCuerpoSegunTipo: express.RequestHandler = (req, res, next) => {
   return parsersPorTipo[kind](req, res, next);
 };
 
-/** Tope de subidas por usuario y por hora (en memoria: alcanza para un solo proceso; ver D5). */
+/** Tope de subidas por usuario y por hora (en memoria cuando no hay Redis; ver limiteCompartido). */
 const subidasPorUsuario = new Map<string, number[]>();
 const VENTANA_MS = 60 * 60 * 1000;
 
@@ -366,7 +367,17 @@ export function reiniciarContadorDeSubidas() {
   subidasPorUsuario.clear();
 }
 
-const limitarSubidasPorUsuario: express.RequestHandler = (req, res, next) => {
+// D5 — con REDIS_URL el tope se cuenta en Redis, compartido entre todas las instancias de la API; sin Redis,
+// en memoria (un proceso).
+const limiteCompartido = ENV.REDIS_URL
+  ? createRateLimiter({
+      windowMs: VENTANA_MS,
+      limit: ENV.MEDIA_UPLOADS_POR_HORA,
+      message: { error: "superaste el máximo de subidas por hora; probá más tarde" }
+    })
+  : null;
+
+const limitarEnMemoria: express.RequestHandler = (req, res, next) => {
   const u = (req as { user?: { id?: string; _id?: { toString?: () => string } } }).user;
   const id = u?._id?.toString?.() ?? u?.id;
   if (id && !registrarSubida(id)) {
@@ -378,7 +389,7 @@ const limitarSubidasPorUsuario: express.RequestHandler = (req, res, next) => {
 mediaRouter.post(
   "/upload",
   requireUser,
-  limitarSubidasPorUsuario,
+  limiteCompartido ?? limitarEnMemoria,
   leerCuerpoSegunTipo,
   async (req, res) => {
     const buf = req.body;
