@@ -77,7 +77,9 @@ export const requireUser = async (req: Request, res: Response, next: NextFunctio
       role: vigentes.role,
       roles: vigentes.roles.length > 0 ? vigentes.roles : undefined,
       guestOnboardingStatus: (user as { guestOnboardingStatus?: string | null }).guestOnboardingStatus ?? null,
-      schoolId: vigentes.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null
+      schoolId: vigentes.sinEscuela
+        ? null
+        : (vigentes.schoolId ?? normalizeSchoolId((user as { escuelaId?: unknown }).escuelaId) ?? null)
     };
     const allowGuestPaths = new Set(["/api/auth/me", "/api/me"]);
     if (
